@@ -13,60 +13,46 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UploadFinishFileRespBody {
-    /**
-     * 新创建的文件token
-     * <p> 示例值：
-     */
-    @SerializedName("file_token")
-    private String fileToken;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("version")
-    private String version;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("url")
-    private String url;
+  /**
+   * 新创建的文件token
+   *
+   * <p>示例值：boxcnrHpsg1QDqXAAAyachabcef
+   */
+  @SerializedName("file_token")
+  private String fileToken;
 
-    public String getFileToken() {
-        return this.fileToken;
-    }
+  /** 示例值： */
+  @SerializedName("version")
+  private String version;
 
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
+  /** 示例值： */
+  @SerializedName("url")
+  private String url;
 
-    public String getVersion() {
-        return this.version;
-    }
+  public String getFileToken() {
+    return this.fileToken;
+  }
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
 
-    public String getUrl() {
-        return this.url;
-    }
+  public String getVersion() {
+    return this.version;
+  }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+  public void setVersion(String version) {
+    this.version = version;
+  }
 
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
 }

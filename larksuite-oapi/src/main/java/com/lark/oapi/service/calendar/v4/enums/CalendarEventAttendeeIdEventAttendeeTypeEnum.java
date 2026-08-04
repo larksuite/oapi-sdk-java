@@ -14,21 +14,21 @@
 package com.lark.oapi.service.calendar.v4.enums;
 
 /**
- * 参与人类型，仅当新建参与人时可设置类型
+ * 参与人类型，仅当新建参与人时可设置类型;type为User时，值为open_id/user_id/union_id;type为Chat时，值为open_chat_id;type为Resource时，值为open_room_id;type为ThirdParty时，值为third_party_email；不支持通过API新建该类型参与人
  */
 public enum CalendarEventAttendeeIdEventAttendeeTypeEnum {
-    USER("user"), // 用户
-    CHAT("chat"), // 群组
-    RESOURCE("resource"), // 会议室
-    THIRDPARTY("third_party"), // 邮箱
-    ;
-    private String value;
+  USER("user"), // 用户
+  CHAT("chat"), // 群组
+  RESOURCE("resource"), // 会议室
+  THIRDPARTY("third_party"), // 邮箱
+  ;
+  private String value;
 
-    CalendarEventAttendeeIdEventAttendeeTypeEnum(String value) {
-        this.value = value;
-    }
+  CalendarEventAttendeeIdEventAttendeeTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

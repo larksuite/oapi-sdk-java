@@ -18,19 +18,19 @@ import com.lark.oapi.service.mdm.v3.resource.BatchCountryRegion;
 import com.lark.oapi.service.mdm.v3.resource.CountryRegion;
 
 public class V3 {
-    private final BatchCountryRegion batchCountryRegion; // batch_country_region
-    private final CountryRegion countryRegion; // country_region
+  private final BatchCountryRegion batchCountryRegion; // batch_country_region
+  private final CountryRegion countryRegion; // country_region
 
-    public V3(Config config) {
-        this.batchCountryRegion = new BatchCountryRegion(config);
-        this.countryRegion = new CountryRegion(config);
-    }
+  public V3(Config config) {
+    this.batchCountryRegion = new BatchCountryRegion(config);
+    this.countryRegion = new CountryRegion(config);
+  }
 
-    public BatchCountryRegion batchCountryRegion() {
-        return batchCountryRegion;
-    }
+  public BatchCountryRegion batchCountryRegion() {
+    return batchCountryRegion;
+  }
 
-    public CountryRegion countryRegion() {
-        return countryRegion;
-    }
+  public CountryRegion countryRegion() {
+    return countryRegion;
+  }
 }

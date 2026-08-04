@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 状态
- */
+/** 状态 */
 public enum BankBranchBasicDataObjStatusEnum {
-    ACTIVE(1), // 生效
-    INACTIVE(0), // 失效
-    ;
-    private Integer value;
+  ACTIVE(1), // 生效
+  INACTIVE(0), // 失效
+  ;
+  private Integer value;
 
-    BankBranchBasicDataObjStatusEnum(Integer value) {
-        this.value = value;
-    }
+  BankBranchBasicDataObjStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

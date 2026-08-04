@@ -13,32 +13,31 @@
 package com.lark.oapi.service.tenant;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.tenant.v2.V2;
 import com.lark.oapi.service.tenant.v2.model.*;
 import com.lark.oapi.service.tenant.v2.resource.Tenant;
 import com.lark.oapi.service.tenant.v2.resource.TenantProductAssignInfo;
 
 public class TenantService {
-    private final V2 v2;
-    private final Tenant tenant; // 企业信息
-    private final TenantProductAssignInfo tenantProductAssignInfo; // tenant.product_assign_info
+  private final V2 v2;
+  private final Tenant tenant; // tenant
+  private final TenantProductAssignInfo tenantProductAssignInfo; // tenant.product_assign_info
 
-    public TenantService(Config config) {
-        this.v2 = new V2(config);
-        this.tenant = new Tenant(config);
-        this.tenantProductAssignInfo = new TenantProductAssignInfo(config);
-    }
+  public TenantService(Config config) {
+    this.v2 = new V2(config);
+    this.tenant = new Tenant(config);
+    this.tenantProductAssignInfo = new TenantProductAssignInfo(config);
+  }
 
-    public V2 v2() {
-        return v2;
-    }
+  public V2 v2() {
+    return v2;
+  }
 
-    public Tenant tenant() {
-        return tenant;
-    }
+  public Tenant tenant() {
+    return tenant;
+  }
 
-    public TenantProductAssignInfo tenantProductAssignInfo() {
-        return tenantProductAssignInfo;
-    }
+  public TenantProductAssignInfo tenantProductAssignInfo() {
+    return tenantProductAssignInfo;
+  }
 }

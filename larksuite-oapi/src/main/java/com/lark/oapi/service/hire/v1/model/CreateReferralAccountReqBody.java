@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateReferralAccountReqBody {
+  /**
+   * 电话，该参数与 email 参数必传一个
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mobile")
+  private Mobile mobile;
+
+  /**
+   * 邮箱，该参数与 mobile 参数必传一个
+   *
+   * <p>示例值：hire@open.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  public Mobile getMobile() {
+    return this.mobile;
+  }
+
+  public void setMobile(Mobile mobile) {
+    this.mobile = mobile;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  // builder 开始
+  public CreateReferralAccountReqBody() {}
+
+  public CreateReferralAccountReqBody(Builder builder) {
     /**
-     * 电话
-     * <p> 示例值：
+     * 电话，该参数与 email 参数必传一个
+     *
+     * <p>示例值：
      */
-    @SerializedName("mobile")
+    this.mobile = builder.mobile;
+    /**
+     * 邮箱，该参数与 mobile 参数必传一个
+     *
+     * <p>示例值：hire@open.com
+     */
+    this.email = builder.email;
+  }
+
+  public static class Builder {
+    /**
+     * 电话，该参数与 email 参数必传一个
+     *
+     * <p>示例值：
+     */
     private Mobile mobile;
+
     /**
-     * 邮箱
-     * <p> 示例值：hire@open.com
+     * 邮箱，该参数与 mobile 参数必传一个
+     *
+     * <p>示例值：hire@open.com
      */
-    @SerializedName("email")
     private String email;
 
-    // builder 开始
-    public CreateReferralAccountReqBody() {
+    /**
+     * 电话，该参数与 email 参数必传一个
+     *
+     * <p>示例值：
+     *
+     * @param mobile
+     * @return
+     */
+    public Builder mobile(Mobile mobile) {
+      this.mobile = mobile;
+      return this;
     }
 
-    public CreateReferralAccountReqBody(Builder builder) {
-        /**
-         * 电话
-         * <p> 示例值：
-         */
-        this.mobile = builder.mobile;
-        /**
-         * 邮箱
-         * <p> 示例值：hire@open.com
-         */
-        this.email = builder.email;
+    /**
+     * 邮箱，该参数与 mobile 参数必传一个
+     *
+     * <p>示例值：hire@open.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateReferralAccountReqBody build() {
+      return new CreateReferralAccountReqBody(this);
     }
+  }
 
-    public Mobile getMobile() {
-        return this.mobile;
-    }
-
-    public void setMobile(Mobile mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public static class Builder {
-        /**
-         * 电话
-         * <p> 示例值：
-         */
-        private Mobile mobile;
-        /**
-         * 邮箱
-         * <p> 示例值：hire@open.com
-         */
-        private String email;
-
-        /**
-         * 电话
-         * <p> 示例值：
-         *
-         * @param mobile
-         * @return
-         */
-        public Builder mobile(Mobile mobile) {
-            this.mobile = mobile;
-            return this;
-        }
-
-
-        /**
-         * 邮箱
-         * <p> 示例值：hire@open.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        public CreateReferralAccountReqBody build() {
-            return new CreateReferralAccountReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

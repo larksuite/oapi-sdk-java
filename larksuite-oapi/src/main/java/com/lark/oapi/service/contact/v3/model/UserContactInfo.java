@@ -13,186 +13,203 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserContactInfo {
+  /**
+   * 用户 ID，ID 类型与查询参数 user_id_type 的取值保持一致。;;例如，user_id_type 取值为 open_id，则该参数的用户 ID 值为用户的
+   * open_id。;;不同用户 ID 的说明参见 [用户相关的 ID
+   * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+   *
+   * <p>示例值：ou_979112345678741d29069abcdef089d4
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 手机号，通过手机号查询时会返回该值。
+   *
+   * <p>示例值：13011111111
+   */
+  @SerializedName("mobile")
+  private String mobile;
+
+  /**
+   * 邮箱，通过邮箱查询时会返回该值。
+   *
+   * <p>示例值：zhangsan@z.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 用户状态。通过 is_frozen、is_resigned、is_activated、is_exited
+   * 布尔值类型参数进行展示。;;用户状态的流转逻辑可参见[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("status")
+  private UserStatus status;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getMobile() {
+    return this.mobile;
+  }
+
+  public void setMobile(String mobile) {
+    this.mobile = mobile;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public UserStatus getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(UserStatus status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public UserContactInfo() {}
+
+  public UserContactInfo(Builder builder) {
     /**
-     * 用户id，值为user_id_type所指定的类型。如果查询的手机号、邮箱不存在，或者无权限查看对应的用户，则此项为空。
-     * <p> 示例值：ou_979112345678741d29069abcdef089d4
+     * 用户 ID，ID 类型与查询参数 user_id_type 的取值保持一致。;;例如，user_id_type 取值为 open_id，则该参数的用户 ID 值为用户的
+     * open_id。;;不同用户 ID 的说明参见 [用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：ou_979112345678741d29069abcdef089d4
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+    /**
+     * 手机号，通过手机号查询时会返回该值。
+     *
+     * <p>示例值：13011111111
+     */
+    this.mobile = builder.mobile;
+    /**
+     * 邮箱，通过邮箱查询时会返回该值。
+     *
+     * <p>示例值：zhangsan@z.com
+     */
+    this.email = builder.email;
+    /**
+     * 用户状态。通过 is_frozen、is_resigned、is_activated、is_exited
+     * 布尔值类型参数进行展示。;;用户状态的流转逻辑可参见[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)。
+     *
+     * <p>示例值：
+     */
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 用户 ID，ID 类型与查询参数 user_id_type 的取值保持一致。;;例如，user_id_type 取值为 open_id，则该参数的用户 ID 值为用户的
+     * open_id。;;不同用户 ID 的说明参见 [用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：ou_979112345678741d29069abcdef089d4
+     */
     private String userId;
+
     /**
-     * 手机号，通过手机号查询时返回
-     * <p> 示例值：13812345678
+     * 手机号，通过手机号查询时会返回该值。
+     *
+     * <p>示例值：13011111111
      */
-    @SerializedName("mobile")
     private String mobile;
+
     /**
-     * 邮箱，通过邮箱查询时返回
-     * <p> 示例值：lisi@z.com
+     * 邮箱，通过邮箱查询时会返回该值。
+     *
+     * <p>示例值：zhangsan@z.com
      */
-    @SerializedName("email")
     private String email;
+
     /**
-     * 用户状态
-     * <p> 示例值：
+     * 用户状态。通过 is_frozen、is_resigned、is_activated、is_exited
+     * 布尔值类型参数进行展示。;;用户状态的流转逻辑可参见[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("status")
     private UserStatus status;
 
-    // builder 开始
-    public UserContactInfo() {
+    /**
+     * 用户 ID，ID 类型与查询参数 user_id_type 的取值保持一致。;;例如，user_id_type 取值为 open_id，则该参数的用户 ID 值为用户的
+     * open_id。;;不同用户 ID 的说明参见 [用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：ou_979112345678741d29069abcdef089d4
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public UserContactInfo(Builder builder) {
-        /**
-         * 用户id，值为user_id_type所指定的类型。如果查询的手机号、邮箱不存在，或者无权限查看对应的用户，则此项为空。
-         * <p> 示例值：ou_979112345678741d29069abcdef089d4
-         */
-        this.userId = builder.userId;
-        /**
-         * 手机号，通过手机号查询时返回
-         * <p> 示例值：13812345678
-         */
-        this.mobile = builder.mobile;
-        /**
-         * 邮箱，通过邮箱查询时返回
-         * <p> 示例值：lisi@z.com
-         */
-        this.email = builder.email;
-        /**
-         * 用户状态
-         * <p> 示例值：
-         */
-        this.status = builder.status;
+    /**
+     * 手机号，通过手机号查询时会返回该值。
+     *
+     * <p>示例值：13011111111
+     *
+     * @param mobile
+     * @return
+     */
+    public Builder mobile(String mobile) {
+      this.mobile = mobile;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 邮箱，通过邮箱查询时会返回该值。
+     *
+     * <p>示例值：zhangsan@z.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 用户状态。通过 is_frozen、is_resigned、is_activated、is_exited
+     * 布尔值类型参数进行展示。;;用户状态的流转逻辑可参见[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)。
+     *
+     * <p>示例值：
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(UserStatus status) {
+      this.status = status;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public UserContactInfo build() {
+      return new UserContactInfo(this);
     }
+  }
 
-    public String getMobile() {
-        return this.mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public UserStatus getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(UserStatus status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 用户id，值为user_id_type所指定的类型。如果查询的手机号、邮箱不存在，或者无权限查看对应的用户，则此项为空。
-         * <p> 示例值：ou_979112345678741d29069abcdef089d4
-         */
-        private String userId;
-        /**
-         * 手机号，通过手机号查询时返回
-         * <p> 示例值：13812345678
-         */
-        private String mobile;
-        /**
-         * 邮箱，通过邮箱查询时返回
-         * <p> 示例值：lisi@z.com
-         */
-        private String email;
-        /**
-         * 用户状态
-         * <p> 示例值：
-         */
-        private UserStatus status;
-
-        /**
-         * 用户id，值为user_id_type所指定的类型。如果查询的手机号、邮箱不存在，或者无权限查看对应的用户，则此项为空。
-         * <p> 示例值：ou_979112345678741d29069abcdef089d4
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 手机号，通过手机号查询时返回
-         * <p> 示例值：13812345678
-         *
-         * @param mobile
-         * @return
-         */
-        public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
-        }
-
-
-        /**
-         * 邮箱，通过邮箱查询时返回
-         * <p> 示例值：lisi@z.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 用户状态
-         * <p> 示例值：
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(UserStatus status) {
-            this.status = status;
-            return this;
-        }
-
-
-        public UserContactInfo build() {
-            return new UserContactInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,151 +13,152 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class ReserveScopeReserveConfigReq {
+  /**
+   * 会议室或层级id
+   *
+   * <p>示例值：omm_3c5dxxxbd1a771
+   */
+  @Query
+  @SerializedName("scope_id")
+  private String scopeId;
+
+  /**
+   * 1 代表层级，2 代表会议室
+   *
+   * <p>示例值：2
+   */
+  @Query
+  @SerializedName("scope_type")
+  private String scopeType;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getScopeId() {
+    return this.scopeId;
+  }
+
+  public void setScopeId(String scopeId) {
+    this.scopeId = scopeId;
+  }
+
+  public String getScopeType() {
+    return this.scopeType;
+  }
+
+  public void setScopeType(String scopeType) {
+    this.scopeType = scopeType;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  // builder 开始
+  public ReserveScopeReserveConfigReq() {}
+
+  public ReserveScopeReserveConfigReq(Builder builder) {
     /**
      * 会议室或层级id
-     * <p> 示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
+     *
+     * <p>示例值：omm_3c5dxxxbd1a771
      */
-    @Query
-    @SerializedName("scope_id")
-    private String scopeId;
+    this.scopeId = builder.scopeId;
     /**
      * 1 代表层级，2 代表会议室
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @Query
-    @SerializedName("scope_type")
-    private String scopeType;
+    this.scopeType = builder.scopeType;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
+  }
 
-    // builder 开始
-    public ReserveScopeReserveConfigReq() {
+  public static class Builder {
+    private String scopeId; // 会议室或层级id
+    private String scopeType; // 1 代表层级，2 代表会议室
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 会议室或层级id
+     *
+     * <p>示例值：omm_3c5dxxxbd1a771
+     *
+     * @param scopeId
+     * @return
+     */
+    public Builder scopeId(String scopeId) {
+      this.scopeId = scopeId;
+      return this;
     }
 
-    public ReserveScopeReserveConfigReq(Builder builder) {
-        /**
-         * 会议室或层级id
-         * <p> 示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
-         */
-        this.scopeId = builder.scopeId;
-        /**
-         * 1 代表层级，2 代表会议室
-         * <p> 示例值：2
-         */
-        this.scopeType = builder.scopeType;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
+    /**
+     * 1 代表层级，2 代表会议室
+     *
+     * <p>示例值：2
+     *
+     * @param scopeType
+     * @return
+     */
+    public Builder scopeType(String scopeType) {
+      this.scopeType = scopeType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getScopeId() {
-        return this.scopeId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.vc.v1.enums.ReserveScopeReserveConfigGetReserveScopeUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.vc.v1.enums.ReserveScopeReserveConfigGetReserveScopeUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setScopeId(String scopeId) {
-        this.scopeId = scopeId;
+    public ReserveScopeReserveConfigReq build() {
+      return new ReserveScopeReserveConfigReq(this);
     }
+  }
 
-    public String getScopeType() {
-        return this.scopeType;
-    }
-
-    public void setScopeType(String scopeType) {
-        this.scopeType = scopeType;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public static class Builder {
-        private String scopeId; // 会议室或层级id
-        private String scopeType; // 1 代表层级，2 代表会议室
-        private String userIdType; // 此次调用中使用的用户ID的类型
-
-        /**
-         * 会议室或层级id
-         * <p> 示例值：omm_3c5dd7e09bac0c1758fcf9511bd1a771
-         *
-         * @param scopeId
-         * @return
-         */
-        public Builder scopeId(String scopeId) {
-            this.scopeId = scopeId;
-            return this;
-        }
-
-
-        /**
-         * 1 代表层级，2 代表会议室
-         * <p> 示例值：2
-         *
-         * @param scopeType
-         * @return
-         */
-        public Builder scopeType(String scopeType) {
-            this.scopeType = scopeType;
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.ReserveScopeReserveConfigGetReserveScopeUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.ReserveScopeReserveConfigGetReserveScopeUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        public ReserveScopeReserveConfigReq build() {
-            return new ReserveScopeReserveConfigReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

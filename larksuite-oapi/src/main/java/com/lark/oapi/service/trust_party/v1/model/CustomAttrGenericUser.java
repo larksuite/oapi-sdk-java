@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomAttrGenericUser {
+  /**
+   * 用户id
+   *
+   * <p>示例值：123456789
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 用户类型，枚举值：;- 1: 用户 ;- 2: 机器人;- 11: Mail
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public CustomAttrGenericUser() {}
+
+  public CustomAttrGenericUser(Builder builder) {
     /**
      * 用户id
-     * <p> 示例值：123456789
+     *
+     * <p>示例值：123456789
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 用户类型 1 User 2 Bot 11 Mail
-     * <p> 示例值：1
+     * 用户类型，枚举值：;- 1: 用户 ;- 2: 机器人;- 11: Mail
+     *
+     * <p>示例值：1
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 用户id
+     *
+     * <p>示例值：123456789
+     */
+    private String id;
+
+    /**
+     * 用户类型，枚举值：;- 1: 用户 ;- 2: 机器人;- 11: Mail
+     *
+     * <p>示例值：1
+     */
     private Integer type;
 
-    // builder 开始
-    public CustomAttrGenericUser() {
+    /**
+     * 用户id
+     *
+     * <p>示例值：123456789
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public CustomAttrGenericUser(Builder builder) {
-        /**
-         * 用户id
-         * <p> 示例值：123456789
-         */
-        this.id = builder.id;
-        /**
-         * 用户类型 1 User 2 Bot 11 Mail
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
+    /**
+     * 用户类型，枚举值：;- 1: 用户 ;- 2: 机器人;- 11: Mail
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CustomAttrGenericUser build() {
+      return new CustomAttrGenericUser(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 用户id
-         * <p> 示例值：123456789
-         */
-        private String id;
-        /**
-         * 用户类型 1 User 2 Bot 11 Mail
-         * <p> 示例值：1
-         */
-        private Integer type;
-
-        /**
-         * 用户id
-         * <p> 示例值：123456789
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 用户类型 1 User 2 Bot 11 Mail
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public CustomAttrGenericUser build() {
-            return new CustomAttrGenericUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

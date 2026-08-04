@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 版本文档类型
- */
+/** 源文档的类型;;**注意**：该参数必填，请忽略左侧必填列显示的“否”。 */
 public enum CreateFileVersionObjTypeEnum {
-    DOCX("docx"), // 新版文档
-    SHEET("sheet"), // 电子表格
-    ;
-    private String value;
+  DOCX("docx"), // 新版文档
+  SHEET("sheet"), // 电子表格
+  ;
+  private String value;
 
-    CreateFileVersionObjTypeEnum(String value) {
-        this.value = value;
-    }
+  CreateFileVersionObjTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

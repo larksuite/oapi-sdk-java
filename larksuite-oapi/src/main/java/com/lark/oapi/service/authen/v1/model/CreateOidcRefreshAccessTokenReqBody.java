@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.authen.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateOidcRefreshAccessTokenReqBody {
+  /**
+   * 授权类型，**固定值**：
+   *
+   * <p>示例值：refresh_token
+   */
+  @SerializedName("grant_type")
+  private String grantType;
+
+  /**
+   * 刷新和获取user_access_token接口均返回 `refresh_token`，**每次请求，请注意使用最新获取到的`refresh_token`**
+   *
+   * <p>示例值：ur-h4_5nUXdJ4O8rqfGe.YJCwM13Gjc557xUG20hkk00f7K
+   */
+  @SerializedName("refresh_token")
+  private String refreshToken;
+
+  public String getGrantType() {
+    return this.grantType;
+  }
+
+  public void setGrantType(String grantType) {
+    this.grantType = grantType;
+  }
+
+  public String getRefreshToken() {
+    return this.refreshToken;
+  }
+
+  public void setRefreshToken(String refreshToken) {
+    this.refreshToken = refreshToken;
+  }
+
+  // builder 开始
+  public CreateOidcRefreshAccessTokenReqBody() {}
+
+  public CreateOidcRefreshAccessTokenReqBody(Builder builder) {
     /**
      * 授权类型，**固定值**：
-     * <p> 示例值：refresh_token
+     *
+     * <p>示例值：refresh_token
      */
-    @SerializedName("grant_type")
-    private String grantType;
+    this.grantType = builder.grantType;
     /**
-     * 刷新 `user_access_token` 需要的凭证<br>获取user_access_token`接口和本接口均返回 `refresh_token`，**每次请求，请注意使用最新获取到的`refresh_token`**
-     * <p> 示例值：ur-oQ0mMq6MCcueAv0pwx2fQQhxqv__CbLu6G8ySFwafeKww2Def2BJdOkW3.9gCFM.LBQgFri901QaqeuL
+     * 刷新和获取user_access_token接口均返回 `refresh_token`，**每次请求，请注意使用最新获取到的`refresh_token`**
+     *
+     * <p>示例值：ur-h4_5nUXdJ4O8rqfGe.YJCwM13Gjc557xUG20hkk00f7K
      */
-    @SerializedName("refresh_token")
+    this.refreshToken = builder.refreshToken;
+  }
+
+  public static class Builder {
+    /**
+     * 授权类型，**固定值**：
+     *
+     * <p>示例值：refresh_token
+     */
+    private String grantType;
+
+    /**
+     * 刷新和获取user_access_token接口均返回 `refresh_token`，**每次请求，请注意使用最新获取到的`refresh_token`**
+     *
+     * <p>示例值：ur-h4_5nUXdJ4O8rqfGe.YJCwM13Gjc557xUG20hkk00f7K
+     */
     private String refreshToken;
 
-    // builder 开始
-    public CreateOidcRefreshAccessTokenReqBody() {
+    /**
+     * 授权类型，**固定值**：
+     *
+     * <p>示例值：refresh_token
+     *
+     * @param grantType
+     * @return
+     */
+    public Builder grantType(String grantType) {
+      this.grantType = grantType;
+      return this;
     }
 
-    public CreateOidcRefreshAccessTokenReqBody(Builder builder) {
-        /**
-         * 授权类型，**固定值**：
-         * <p> 示例值：refresh_token
-         */
-        this.grantType = builder.grantType;
-        /**
-         * 刷新 `user_access_token` 需要的凭证<br>获取user_access_token`接口和本接口均返回 `refresh_token`，**每次请求，请注意使用最新获取到的`refresh_token`**
-         * <p> 示例值：ur-oQ0mMq6MCcueAv0pwx2fQQhxqv__CbLu6G8ySFwafeKww2Def2BJdOkW3.9gCFM.LBQgFri901QaqeuL
-         */
-        this.refreshToken = builder.refreshToken;
+    /**
+     * 刷新和获取user_access_token接口均返回 `refresh_token`，**每次请求，请注意使用最新获取到的`refresh_token`**
+     *
+     * <p>示例值：ur-h4_5nUXdJ4O8rqfGe.YJCwM13Gjc557xUG20hkk00f7K
+     *
+     * @param refreshToken
+     * @return
+     */
+    public Builder refreshToken(String refreshToken) {
+      this.refreshToken = refreshToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateOidcRefreshAccessTokenReqBody build() {
+      return new CreateOidcRefreshAccessTokenReqBody(this);
     }
+  }
 
-    public String getGrantType() {
-        return this.grantType;
-    }
-
-    public void setGrantType(String grantType) {
-        this.grantType = grantType;
-    }
-
-    public String getRefreshToken() {
-        return this.refreshToken;
-    }
-
-    public void setRefreshToken(String refreshToken) {
-        this.refreshToken = refreshToken;
-    }
-
-    public static class Builder {
-        /**
-         * 授权类型，**固定值**：
-         * <p> 示例值：refresh_token
-         */
-        private String grantType;
-        /**
-         * 刷新 `user_access_token` 需要的凭证<br>获取user_access_token`接口和本接口均返回 `refresh_token`，**每次请求，请注意使用最新获取到的`refresh_token`**
-         * <p> 示例值：ur-oQ0mMq6MCcueAv0pwx2fQQhxqv__CbLu6G8ySFwafeKww2Def2BJdOkW3.9gCFM.LBQgFri901QaqeuL
-         */
-        private String refreshToken;
-
-        /**
-         * 授权类型，**固定值**：
-         * <p> 示例值：refresh_token
-         *
-         * @param grantType
-         * @return
-         */
-        public Builder grantType(String grantType) {
-            this.grantType = grantType;
-            return this;
-        }
-
-
-        /**
-         * 刷新 `user_access_token` 需要的凭证<br>获取user_access_token`接口和本接口均返回 `refresh_token`，**每次请求，请注意使用最新获取到的`refresh_token`**
-         * <p> 示例值：ur-oQ0mMq6MCcueAv0pwx2fQQhxqv__CbLu6G8ySFwafeKww2Def2BJdOkW3.9gCFM.LBQgFri901QaqeuL
-         *
-         * @param refreshToken
-         * @return
-         */
-        public Builder refreshToken(String refreshToken) {
-            this.refreshToken = refreshToken;
-            return this;
-        }
-
-
-        public CreateOidcRefreshAccessTokenReqBody build() {
-            return new CreateOidcRefreshAccessTokenReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

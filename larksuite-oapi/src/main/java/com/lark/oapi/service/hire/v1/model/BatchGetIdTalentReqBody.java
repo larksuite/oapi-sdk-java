@@ -13,222 +13,236 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchGetIdTalentReqBody {
+  /**
+   * 国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)。传入手机号但没传区号的情况下，默认为中国大陆区号："86"
+   *
+   * <p>示例值：86
+   */
+  @SerializedName("mobile_code")
+  private String mobileCode;
+
+  /**
+   * 手机号列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mobile_number_list")
+  private String[] mobileNumberList;
+
+  /**
+   * 邮箱列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("email_list")
+  private String[] emailList;
+
+  /**
+   * 证件类型，枚举定义详见文档：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);的
+   * IdentificationType。传入证件号的情况下必须传入该参数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("identification_type")
+  private Integer identificationType;
+
+  /**
+   * 证件号列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("identification_number_list")
+  private String[] identificationNumberList;
+
+  public String getMobileCode() {
+    return this.mobileCode;
+  }
+
+  public void setMobileCode(String mobileCode) {
+    this.mobileCode = mobileCode;
+  }
+
+  public String[] getMobileNumberList() {
+    return this.mobileNumberList;
+  }
+
+  public void setMobileNumberList(String[] mobileNumberList) {
+    this.mobileNumberList = mobileNumberList;
+  }
+
+  public String[] getEmailList() {
+    return this.emailList;
+  }
+
+  public void setEmailList(String[] emailList) {
+    this.emailList = emailList;
+  }
+
+  public Integer getIdentificationType() {
+    return this.identificationType;
+  }
+
+  public void setIdentificationType(Integer identificationType) {
+    this.identificationType = identificationType;
+  }
+
+  public String[] getIdentificationNumberList() {
+    return this.identificationNumberList;
+  }
+
+  public void setIdentificationNumberList(String[] identificationNumberList) {
+    this.identificationNumberList = identificationNumberList;
+  }
+
+  // builder 开始
+  public BatchGetIdTalentReqBody() {}
+
+  public BatchGetIdTalentReqBody(Builder builder) {
     /**
-     * 手机国家区号，默认值：86，即中国大陆地区
-     * <p> 示例值：86
+     * 国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)。传入手机号但没传区号的情况下，默认为中国大陆区号："86"
+     *
+     * <p>示例值：86
      */
-    @SerializedName("mobile_code")
+    this.mobileCode = builder.mobileCode;
+    /**
+     * 手机号列表
+     *
+     * <p>示例值：
+     */
+    this.mobileNumberList = builder.mobileNumberList;
+    /**
+     * 邮箱列表
+     *
+     * <p>示例值：
+     */
+    this.emailList = builder.emailList;
+    /**
+     * 证件类型，枚举定义详见文档：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);的
+     * IdentificationType。传入证件号的情况下必须传入该参数
+     *
+     * <p>示例值：1
+     */
+    this.identificationType = builder.identificationType;
+    /**
+     * 证件号列表
+     *
+     * <p>示例值：
+     */
+    this.identificationNumberList = builder.identificationNumberList;
+  }
+
+  public static class Builder {
+    /**
+     * 国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)。传入手机号但没传区号的情况下，默认为中国大陆区号："86"
+     *
+     * <p>示例值：86
+     */
     private String mobileCode;
+
     /**
-     * 手机号，区号均采用 mobile_code 参数的值，最多 100 个
-     * <p> 示例值：182900291190
+     * 手机号列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("mobile_number_list")
     private String[] mobileNumberList;
+
     /**
-     * 邮箱信息列表，最多 100 个
-     * <p> 示例值：foo@bytedance.com
+     * 邮箱列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("email_list")
     private String[] emailList;
+
     /**
-     * 证件类型，可参考招聘枚举常量文档下的 IdentificationType 枚举定义
-     * <p> 示例值：1
+     * 证件类型，枚举定义详见文档：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);的
+     * IdentificationType。传入证件号的情况下必须传入该参数
+     *
+     * <p>示例值：1
      */
-    @SerializedName("identification_type")
     private Integer identificationType;
+
     /**
-     * 证件号
-     * <p> 示例值：130xxxxxxx
+     * 证件号列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("identification_number_list")
     private String[] identificationNumberList;
 
-    // builder 开始
-    public BatchGetIdTalentReqBody() {
+    /**
+     * 国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)。传入手机号但没传区号的情况下，默认为中国大陆区号："86"
+     *
+     * <p>示例值：86
+     *
+     * @param mobileCode
+     * @return
+     */
+    public Builder mobileCode(String mobileCode) {
+      this.mobileCode = mobileCode;
+      return this;
     }
 
-    public BatchGetIdTalentReqBody(Builder builder) {
-        /**
-         * 手机国家区号，默认值：86，即中国大陆地区
-         * <p> 示例值：86
-         */
-        this.mobileCode = builder.mobileCode;
-        /**
-         * 手机号，区号均采用 mobile_code 参数的值，最多 100 个
-         * <p> 示例值：182900291190
-         */
-        this.mobileNumberList = builder.mobileNumberList;
-        /**
-         * 邮箱信息列表，最多 100 个
-         * <p> 示例值：foo@bytedance.com
-         */
-        this.emailList = builder.emailList;
-        /**
-         * 证件类型，可参考招聘枚举常量文档下的 IdentificationType 枚举定义
-         * <p> 示例值：1
-         */
-        this.identificationType = builder.identificationType;
-        /**
-         * 证件号
-         * <p> 示例值：130xxxxxxx
-         */
-        this.identificationNumberList = builder.identificationNumberList;
+    /**
+     * 手机号列表
+     *
+     * <p>示例值：
+     *
+     * @param mobileNumberList
+     * @return
+     */
+    public Builder mobileNumberList(String[] mobileNumberList) {
+      this.mobileNumberList = mobileNumberList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 邮箱列表
+     *
+     * <p>示例值：
+     *
+     * @param emailList
+     * @return
+     */
+    public Builder emailList(String[] emailList) {
+      this.emailList = emailList;
+      return this;
     }
 
-    public String getMobileCode() {
-        return this.mobileCode;
+    /**
+     * 证件类型，枚举定义详见文档：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);的
+     * IdentificationType。传入证件号的情况下必须传入该参数
+     *
+     * <p>示例值：1
+     *
+     * @param identificationType
+     * @return
+     */
+    public Builder identificationType(Integer identificationType) {
+      this.identificationType = identificationType;
+      return this;
     }
 
-    public void setMobileCode(String mobileCode) {
-        this.mobileCode = mobileCode;
+    /**
+     * 证件号列表
+     *
+     * <p>示例值：
+     *
+     * @param identificationNumberList
+     * @return
+     */
+    public Builder identificationNumberList(String[] identificationNumberList) {
+      this.identificationNumberList = identificationNumberList;
+      return this;
     }
 
-    public String[] getMobileNumberList() {
-        return this.mobileNumberList;
+    public BatchGetIdTalentReqBody build() {
+      return new BatchGetIdTalentReqBody(this);
     }
+  }
 
-    public void setMobileNumberList(String[] mobileNumberList) {
-        this.mobileNumberList = mobileNumberList;
-    }
-
-    public String[] getEmailList() {
-        return this.emailList;
-    }
-
-    public void setEmailList(String[] emailList) {
-        this.emailList = emailList;
-    }
-
-    public Integer getIdentificationType() {
-        return this.identificationType;
-    }
-
-    public void setIdentificationType(Integer identificationType) {
-        this.identificationType = identificationType;
-    }
-
-    public String[] getIdentificationNumberList() {
-        return this.identificationNumberList;
-    }
-
-    public void setIdentificationNumberList(String[] identificationNumberList) {
-        this.identificationNumberList = identificationNumberList;
-    }
-
-    public static class Builder {
-        /**
-         * 手机国家区号，默认值：86，即中国大陆地区
-         * <p> 示例值：86
-         */
-        private String mobileCode;
-        /**
-         * 手机号，区号均采用 mobile_code 参数的值，最多 100 个
-         * <p> 示例值：182900291190
-         */
-        private String[] mobileNumberList;
-        /**
-         * 邮箱信息列表，最多 100 个
-         * <p> 示例值：foo@bytedance.com
-         */
-        private String[] emailList;
-        /**
-         * 证件类型，可参考招聘枚举常量文档下的 IdentificationType 枚举定义
-         * <p> 示例值：1
-         */
-        private Integer identificationType;
-        /**
-         * 证件号
-         * <p> 示例值：130xxxxxxx
-         */
-        private String[] identificationNumberList;
-
-        /**
-         * 手机国家区号，默认值：86，即中国大陆地区
-         * <p> 示例值：86
-         *
-         * @param mobileCode
-         * @return
-         */
-        public Builder mobileCode(String mobileCode) {
-            this.mobileCode = mobileCode;
-            return this;
-        }
-
-
-        /**
-         * 手机号，区号均采用 mobile_code 参数的值，最多 100 个
-         * <p> 示例值：182900291190
-         *
-         * @param mobileNumberList
-         * @return
-         */
-        public Builder mobileNumberList(String[] mobileNumberList) {
-            this.mobileNumberList = mobileNumberList;
-            return this;
-        }
-
-
-        /**
-         * 邮箱信息列表，最多 100 个
-         * <p> 示例值：foo@bytedance.com
-         *
-         * @param emailList
-         * @return
-         */
-        public Builder emailList(String[] emailList) {
-            this.emailList = emailList;
-            return this;
-        }
-
-
-        /**
-         * 证件类型，可参考招聘枚举常量文档下的 IdentificationType 枚举定义
-         * <p> 示例值：1
-         *
-         * @param identificationType
-         * @return
-         */
-        public Builder identificationType(Integer identificationType) {
-            this.identificationType = identificationType;
-            return this;
-        }
-
-
-        /**
-         * 证件号
-         * <p> 示例值：130xxxxxxx
-         *
-         * @param identificationNumberList
-         * @return
-         */
-        public Builder identificationNumberList(String[] identificationNumberList) {
-            this.identificationNumberList = identificationNumberList;
-            return this;
-        }
-
-
-        public BatchGetIdTalentReqBody build() {
-            return new BatchGetIdTalentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

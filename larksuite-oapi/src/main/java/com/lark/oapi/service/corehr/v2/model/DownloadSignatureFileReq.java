@@ -13,72 +13,64 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class DownloadSignatureFileReq {
+  /**
+   * 电子签文件id，[【获取电子签文件列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)
+   *
+   * <p>示例值：6891251722631890445
+   */
+  @Path
+  @SerializedName("signature_file_id")
+  private String signatureFileId;
+
+  public String getSignatureFileId() {
+    return this.signatureFileId;
+  }
+
+  public void setSignatureFileId(String signatureFileId) {
+    this.signatureFileId = signatureFileId;
+  }
+
+  // builder 开始
+  public DownloadSignatureFileReq() {}
+
+  public DownloadSignatureFileReq(Builder builder) {
     /**
-     * 电子签文件id
-     * <p> 示例值：6891251722631890445
+     * 电子签文件id，[【获取电子签文件列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)
+     *
+     * <p>示例值：6891251722631890445
      */
-    @Path
-    @SerializedName("signature_file_id")
-    private String signatureFileId;
+    this.signatureFileId = builder.signatureFileId;
+  }
 
-    // builder 开始
-    public DownloadSignatureFileReq() {
+  public static class Builder {
+
+    private String
+        signatureFileId; // 电子签文件id，[【获取电子签文件列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)
+
+    /**
+     * 电子签文件id，[【获取电子签文件列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)
+     *
+     * <p>示例值：6891251722631890445
+     *
+     * @param signatureFileId
+     * @return
+     */
+    public Builder signatureFileId(String signatureFileId) {
+      this.signatureFileId = signatureFileId;
+      return this;
     }
 
-    public DownloadSignatureFileReq(Builder builder) {
-        /**
-         * 电子签文件id
-         * <p> 示例值：6891251722631890445
-         */
-        this.signatureFileId = builder.signatureFileId;
+    public DownloadSignatureFileReq build() {
+      return new DownloadSignatureFileReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getSignatureFileId() {
-        return this.signatureFileId;
-    }
-
-    public void setSignatureFileId(String signatureFileId) {
-        this.signatureFileId = signatureFileId;
-    }
-
-    public static class Builder {
-
-        private String signatureFileId; // 电子签文件id
-
-        /**
-         * 电子签文件id
-         * <p> 示例值：6891251722631890445
-         *
-         * @param signatureFileId
-         * @return
-         */
-        public Builder signatureFileId(String signatureFileId) {
-            this.signatureFileId = signatureFileId;
-            return this;
-        }
-
-
-        public DownloadSignatureFileReq build() {
-            return new DownloadSignatureFileReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

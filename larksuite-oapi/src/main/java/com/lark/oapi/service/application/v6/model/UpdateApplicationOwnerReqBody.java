@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateApplicationOwnerReqBody {
+  /**
+   * 新的拥有者用户ID，类型由查询参数中的user_id_type确定
+   *
+   * <p>示例值：ou_84aad35d084aa403a838cf73ee184670
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  // builder 开始
+  public UpdateApplicationOwnerReqBody() {}
+
+  public UpdateApplicationOwnerReqBody(Builder builder) {
     /**
      * 新的拥有者用户ID，类型由查询参数中的user_id_type确定
-     * <p> 示例值：ou_84aad35d084aa403a838cf73ee184670
+     *
+     * <p>示例值：ou_84aad35d084aa403a838cf73ee184670
      */
-    @SerializedName("owner_id")
+    this.ownerId = builder.ownerId;
+  }
+
+  public static class Builder {
+    /**
+     * 新的拥有者用户ID，类型由查询参数中的user_id_type确定
+     *
+     * <p>示例值：ou_84aad35d084aa403a838cf73ee184670
+     */
     private String ownerId;
 
-    // builder 开始
-    public UpdateApplicationOwnerReqBody() {
+    /**
+     * 新的拥有者用户ID，类型由查询参数中的user_id_type确定
+     *
+     * <p>示例值：ou_84aad35d084aa403a838cf73ee184670
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public UpdateApplicationOwnerReqBody(Builder builder) {
-        /**
-         * 新的拥有者用户ID，类型由查询参数中的user_id_type确定
-         * <p> 示例值：ou_84aad35d084aa403a838cf73ee184670
-         */
-        this.ownerId = builder.ownerId;
+    public UpdateApplicationOwnerReqBody build() {
+      return new UpdateApplicationOwnerReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getOwnerId() {
-        return this.ownerId;
-    }
-
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
-
-    public static class Builder {
-        /**
-         * 新的拥有者用户ID，类型由查询参数中的user_id_type确定
-         * <p> 示例值：ou_84aad35d084aa403a838cf73ee184670
-         */
-        private String ownerId;
-
-        /**
-         * 新的拥有者用户ID，类型由查询参数中的user_id_type确定
-         * <p> 示例值：ou_84aad35d084aa403a838cf73ee184670
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        public UpdateApplicationOwnerReqBody build() {
-            return new UpdateApplicationOwnerReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

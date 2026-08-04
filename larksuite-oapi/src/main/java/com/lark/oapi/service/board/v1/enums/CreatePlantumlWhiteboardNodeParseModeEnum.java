@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 解析模式
- */
+/** 解析模式 */
 public enum CreatePlantumlWhiteboardNodeParseModeEnum {
-    SIMPLE(0), // 直接解析成画板节点
-    EDITABLE(1), // 解析成画板节点并且保留PlantUml语法，可以对语法进行二次编辑（会将所有节点放到一个Section节点下）（当前只支持PlantUml）
-    ;
-    private Integer value;
+  SIMPLE(0), // 直接解析成画板节点
+  EDITABLE(1), // 解析成画板节点并且保留PlantUml语法，可以对语法进行二次编辑（会将所有节点放到一个Section节点下）（当前只支持PlantUml）
+  ;
+  private Integer value;
 
-    CreatePlantumlWhiteboardNodeParseModeEnum(Integer value) {
-        this.value = value;
-    }
+  CreatePlantumlWhiteboardNodeParseModeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

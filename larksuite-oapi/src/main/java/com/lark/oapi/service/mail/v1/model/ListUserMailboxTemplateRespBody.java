@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListUserMailboxTemplateRespBody {
-    /**
-     * 个人邮件模板列表。每个模板对象仅填充以下字段；如需获取完整模板内容，请通过获取个人邮件模板详情接口按 `template_id` 查询。
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private Object[] items;
+  /**
+   * 个人邮件模板列表。每个模板对象仅填充以下字段；如需获取完整模板内容，请通过获取个人邮件模板详情接口按 `template_id` 查询。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private Object[] items;
 
-    public Object[] getItems() {
-        return this.items;
-    }
+  public Object[] getItems() {
+    return this.items;
+  }
 
-    public void setItems(Object[] items) {
-        this.items = items;
-    }
-
+  public void setItems(Object[] items) {
+    this.items = items;
+  }
 }

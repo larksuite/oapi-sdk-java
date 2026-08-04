@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessCcItem {
+  /**
+   * 单据ID
+   *
+   * <p>示例值：7278949005675988535
+   */
+  @SerializedName("approver_id")
+  private String approverId;
+
+  /**
+   * 单据地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("links")
+  private ProcessLink links;
+
+  /**
+   * 抄送人ID
+   *
+   * <p>示例值：7124991993901827628
+   */
+  @SerializedName("operator_id")
+  private String operatorId;
+
+  /**
+   * 抄送人姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator_name")
+  private DataengineI18n operatorName;
+
+  /**
+   * 节点名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("node_name")
+  private DataengineI18n nodeName;
+
+  /**
+   * 抄送时间，Unix毫秒时间戳
+   *
+   * <p>示例值：1694769814036
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 节点定义ID（注：在回退场景，同一个节点会对应多个节点实例）
+   *
+   * <p>示例值：approval_d25b5eddfef
+   */
+  @SerializedName("node_definition_id")
+  private String nodeDefinitionId;
+
+  public String getApproverId() {
+    return this.approverId;
+  }
+
+  public void setApproverId(String approverId) {
+    this.approverId = approverId;
+  }
+
+  public ProcessLink getLinks() {
+    return this.links;
+  }
+
+  public void setLinks(ProcessLink links) {
+    this.links = links;
+  }
+
+  public String getOperatorId() {
+    return this.operatorId;
+  }
+
+  public void setOperatorId(String operatorId) {
+    this.operatorId = operatorId;
+  }
+
+  public DataengineI18n getOperatorName() {
+    return this.operatorName;
+  }
+
+  public void setOperatorName(DataengineI18n operatorName) {
+    this.operatorName = operatorName;
+  }
+
+  public DataengineI18n getNodeName() {
+    return this.nodeName;
+  }
+
+  public void setNodeName(DataengineI18n nodeName) {
+    this.nodeName = nodeName;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getNodeDefinitionId() {
+    return this.nodeDefinitionId;
+  }
+
+  public void setNodeDefinitionId(String nodeDefinitionId) {
+    this.nodeDefinitionId = nodeDefinitionId;
+  }
+
+  // builder 开始
+  public ProcessCcItem() {}
+
+  public ProcessCcItem(Builder builder) {
     /**
      * 单据ID
-     * <p> 示例值：7278949005675988535
+     *
+     * <p>示例值：7278949005675988535
      */
-    @SerializedName("approver_id")
-    private String approverId;
+    this.approverId = builder.approverId;
     /**
      * 单据地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("links")
-    private ProcessLink links;
+    this.links = builder.links;
     /**
      * 抄送人ID
-     * <p> 示例值：7124991993901827628
+     *
+     * <p>示例值：7124991993901827628
      */
-    @SerializedName("operator_id")
-    private String operatorId;
+    this.operatorId = builder.operatorId;
     /**
      * 抄送人姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("operator_name")
-    private DataengineI18n operatorName;
+    this.operatorName = builder.operatorName;
     /**
      * 节点名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("node_name")
-    private DataengineI18n nodeName;
+    this.nodeName = builder.nodeName;
     /**
      * 抄送时间，Unix毫秒时间戳
-     * <p> 示例值：1694769814036
+     *
+     * <p>示例值：1694769814036
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 节点定义ID（注：在回退场景，同一个节点会对应多个节点实例）
-     * <p> 示例值：approval_d25b5eddfef
+     *
+     * <p>示例值：approval_d25b5eddfef
      */
-    @SerializedName("node_definition_id")
+    this.nodeDefinitionId = builder.nodeDefinitionId;
+  }
+
+  public static class Builder {
+    /**
+     * 单据ID
+     *
+     * <p>示例值：7278949005675988535
+     */
+    private String approverId;
+
+    /**
+     * 单据地址
+     *
+     * <p>示例值：
+     */
+    private ProcessLink links;
+
+    /**
+     * 抄送人ID
+     *
+     * <p>示例值：7124991993901827628
+     */
+    private String operatorId;
+
+    /**
+     * 抄送人姓名
+     *
+     * <p>示例值：
+     */
+    private DataengineI18n operatorName;
+
+    /**
+     * 节点名称
+     *
+     * <p>示例值：
+     */
+    private DataengineI18n nodeName;
+
+    /**
+     * 抄送时间，Unix毫秒时间戳
+     *
+     * <p>示例值：1694769814036
+     */
+    private String createTime;
+
+    /**
+     * 节点定义ID（注：在回退场景，同一个节点会对应多个节点实例）
+     *
+     * <p>示例值：approval_d25b5eddfef
+     */
     private String nodeDefinitionId;
 
-    // builder 开始
-    public ProcessCcItem() {
+    /**
+     * 单据ID
+     *
+     * <p>示例值：7278949005675988535
+     *
+     * @param approverId
+     * @return
+     */
+    public Builder approverId(String approverId) {
+      this.approverId = approverId;
+      return this;
     }
 
-    public ProcessCcItem(Builder builder) {
-        /**
-         * 单据ID
-         * <p> 示例值：7278949005675988535
-         */
-        this.approverId = builder.approverId;
-        /**
-         * 单据地址
-         * <p> 示例值：
-         */
-        this.links = builder.links;
-        /**
-         * 抄送人ID
-         * <p> 示例值：7124991993901827628
-         */
-        this.operatorId = builder.operatorId;
-        /**
-         * 抄送人姓名
-         * <p> 示例值：
-         */
-        this.operatorName = builder.operatorName;
-        /**
-         * 节点名称
-         * <p> 示例值：
-         */
-        this.nodeName = builder.nodeName;
-        /**
-         * 抄送时间，Unix毫秒时间戳
-         * <p> 示例值：1694769814036
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 节点定义ID（注：在回退场景，同一个节点会对应多个节点实例）
-         * <p> 示例值：approval_d25b5eddfef
-         */
-        this.nodeDefinitionId = builder.nodeDefinitionId;
+    /**
+     * 单据地址
+     *
+     * <p>示例值：
+     *
+     * @param links
+     * @return
+     */
+    public Builder links(ProcessLink links) {
+      this.links = links;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 抄送人ID
+     *
+     * <p>示例值：7124991993901827628
+     *
+     * @param operatorId
+     * @return
+     */
+    public Builder operatorId(String operatorId) {
+      this.operatorId = operatorId;
+      return this;
     }
 
-    public String getApproverId() {
-        return this.approverId;
+    /**
+     * 抄送人姓名
+     *
+     * <p>示例值：
+     *
+     * @param operatorName
+     * @return
+     */
+    public Builder operatorName(DataengineI18n operatorName) {
+      this.operatorName = operatorName;
+      return this;
     }
 
-    public void setApproverId(String approverId) {
-        this.approverId = approverId;
+    /**
+     * 节点名称
+     *
+     * <p>示例值：
+     *
+     * @param nodeName
+     * @return
+     */
+    public Builder nodeName(DataengineI18n nodeName) {
+      this.nodeName = nodeName;
+      return this;
     }
 
-    public ProcessLink getLinks() {
-        return this.links;
+    /**
+     * 抄送时间，Unix毫秒时间戳
+     *
+     * <p>示例值：1694769814036
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setLinks(ProcessLink links) {
-        this.links = links;
+    /**
+     * 节点定义ID（注：在回退场景，同一个节点会对应多个节点实例）
+     *
+     * <p>示例值：approval_d25b5eddfef
+     *
+     * @param nodeDefinitionId
+     * @return
+     */
+    public Builder nodeDefinitionId(String nodeDefinitionId) {
+      this.nodeDefinitionId = nodeDefinitionId;
+      return this;
     }
 
-    public String getOperatorId() {
-        return this.operatorId;
+    public ProcessCcItem build() {
+      return new ProcessCcItem(this);
     }
+  }
 
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
-    }
-
-    public DataengineI18n getOperatorName() {
-        return this.operatorName;
-    }
-
-    public void setOperatorName(DataengineI18n operatorName) {
-        this.operatorName = operatorName;
-    }
-
-    public DataengineI18n getNodeName() {
-        return this.nodeName;
-    }
-
-    public void setNodeName(DataengineI18n nodeName) {
-        this.nodeName = nodeName;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getNodeDefinitionId() {
-        return this.nodeDefinitionId;
-    }
-
-    public void setNodeDefinitionId(String nodeDefinitionId) {
-        this.nodeDefinitionId = nodeDefinitionId;
-    }
-
-    public static class Builder {
-        /**
-         * 单据ID
-         * <p> 示例值：7278949005675988535
-         */
-        private String approverId;
-        /**
-         * 单据地址
-         * <p> 示例值：
-         */
-        private ProcessLink links;
-        /**
-         * 抄送人ID
-         * <p> 示例值：7124991993901827628
-         */
-        private String operatorId;
-        /**
-         * 抄送人姓名
-         * <p> 示例值：
-         */
-        private DataengineI18n operatorName;
-        /**
-         * 节点名称
-         * <p> 示例值：
-         */
-        private DataengineI18n nodeName;
-        /**
-         * 抄送时间，Unix毫秒时间戳
-         * <p> 示例值：1694769814036
-         */
-        private String createTime;
-        /**
-         * 节点定义ID（注：在回退场景，同一个节点会对应多个节点实例）
-         * <p> 示例值：approval_d25b5eddfef
-         */
-        private String nodeDefinitionId;
-
-        /**
-         * 单据ID
-         * <p> 示例值：7278949005675988535
-         *
-         * @param approverId
-         * @return
-         */
-        public Builder approverId(String approverId) {
-            this.approverId = approverId;
-            return this;
-        }
-
-
-        /**
-         * 单据地址
-         * <p> 示例值：
-         *
-         * @param links
-         * @return
-         */
-        public Builder links(ProcessLink links) {
-            this.links = links;
-            return this;
-        }
-
-
-        /**
-         * 抄送人ID
-         * <p> 示例值：7124991993901827628
-         *
-         * @param operatorId
-         * @return
-         */
-        public Builder operatorId(String operatorId) {
-            this.operatorId = operatorId;
-            return this;
-        }
-
-
-        /**
-         * 抄送人姓名
-         * <p> 示例值：
-         *
-         * @param operatorName
-         * @return
-         */
-        public Builder operatorName(DataengineI18n operatorName) {
-            this.operatorName = operatorName;
-            return this;
-        }
-
-
-        /**
-         * 节点名称
-         * <p> 示例值：
-         *
-         * @param nodeName
-         * @return
-         */
-        public Builder nodeName(DataengineI18n nodeName) {
-            this.nodeName = nodeName;
-            return this;
-        }
-
-
-        /**
-         * 抄送时间，Unix毫秒时间戳
-         * <p> 示例值：1694769814036
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 节点定义ID（注：在回退场景，同一个节点会对应多个节点实例）
-         * <p> 示例值：approval_d25b5eddfef
-         *
-         * @param nodeDefinitionId
-         * @return
-         */
-        public Builder nodeDefinitionId(String nodeDefinitionId) {
-            this.nodeDefinitionId = nodeDefinitionId;
-            return this;
-        }
-
-
-        public ProcessCcItem build() {
-            return new ProcessCcItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

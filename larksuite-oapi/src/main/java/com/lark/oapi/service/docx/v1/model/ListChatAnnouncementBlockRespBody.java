@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListChatAnnouncementBlockRespBody {
-    /**
-     * 群公告的 Block 信息
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private Block[] items;
-    /**
-     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-     * <p> 示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否还有更多项
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 群公告的 Block 信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private Block[] items;
 
-    public Block[] getItems() {
-        return this.items;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：aw7DoMKBFMOGwqHCrcO8w6jCmMOvw6ILeADCvsKNw57Di8O5XGV3LG4_w5HCqhFxSnDCrCzCn0BgZcOYUg85EMOYcEAcwqYOw4ojw5QFwofCu8KoIMO3K8Ktw4IuNMOBBHNYw4bCgCV3U1zDu8K-J8KSR8Kgw7Y0fsKZdsKvW3d9w53DnkHDrcO5bDkYwrvDisOEPcOtVFJ-I03CnsOILMOoAmLDknd6dsKqG1bClAjDuS3CvcOTwo7Dg8OrwovDsRdqIcKxw5HDohTDtXN9w5rCkWo
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setItems(Block[] items) {
-        this.items = items;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public Block[] getItems() {
+    return this.items;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setItems(Block[] items) {
+    this.items = items;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 }

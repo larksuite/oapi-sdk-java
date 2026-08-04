@@ -13,310 +13,247 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApprovalEvent {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("approval_id")
+  /** 示例值： */
+  @SerializedName("approval_id")
+  private String approvalId;
+
+  /** 示例值： */
+  @SerializedName("approval_code")
+  private String approvalCode;
+
+  /** 示例值： */
+  @SerializedName("version_id")
+  private String versionId;
+
+  /** 示例值： */
+  @SerializedName("widget_group_type")
+  private Integer widgetGroupType;
+
+  /** 示例值： */
+  @SerializedName("form_definition_id")
+  private String formDefinitionId;
+
+  /** 示例值： */
+  @SerializedName("process_obj")
+  private String processObj;
+
+  /** 示例值： */
+  @SerializedName("timestamp")
+  private String timestamp;
+
+  /** 示例值： */
+  @SerializedName("extra")
+  private String extra;
+
+  public String getApprovalId() {
+    return this.approvalId;
+  }
+
+  public void setApprovalId(String approvalId) {
+    this.approvalId = approvalId;
+  }
+
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
+
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
+
+  public String getVersionId() {
+    return this.versionId;
+  }
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
+
+  public Integer getWidgetGroupType() {
+    return this.widgetGroupType;
+  }
+
+  public void setWidgetGroupType(Integer widgetGroupType) {
+    this.widgetGroupType = widgetGroupType;
+  }
+
+  public String getFormDefinitionId() {
+    return this.formDefinitionId;
+  }
+
+  public void setFormDefinitionId(String formDefinitionId) {
+    this.formDefinitionId = formDefinitionId;
+  }
+
+  public String getProcessObj() {
+    return this.processObj;
+  }
+
+  public void setProcessObj(String processObj) {
+    this.processObj = processObj;
+  }
+
+  public String getTimestamp() {
+    return this.timestamp;
+  }
+
+  public void setTimestamp(String timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  public String getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(String extra) {
+    this.extra = extra;
+  }
+
+  // builder 开始
+  public ApprovalEvent() {}
+
+  public ApprovalEvent(Builder builder) {
+    /** 示例值： */
+    this.approvalId = builder.approvalId;
+    /** 示例值： */
+    this.approvalCode = builder.approvalCode;
+    /** 示例值： */
+    this.versionId = builder.versionId;
+    /** 示例值： */
+    this.widgetGroupType = builder.widgetGroupType;
+    /** 示例值： */
+    this.formDefinitionId = builder.formDefinitionId;
+    /** 示例值： */
+    this.processObj = builder.processObj;
+    /** 示例值： */
+    this.timestamp = builder.timestamp;
+    /** 示例值： */
+    this.extra = builder.extra;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private String approvalId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("approval_code")
+
+    /** 示例值： */
     private String approvalCode;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("version_id")
+
+    /** 示例值： */
     private String versionId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("widget_group_type")
+
+    /** 示例值： */
     private Integer widgetGroupType;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("form_definition_id")
+
+    /** 示例值： */
     private String formDefinitionId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("process_obj")
+
+    /** 示例值： */
     private String processObj;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("timestamp")
+
+    /** 示例值： */
     private String timestamp;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("extra")
+
+    /** 示例值： */
     private String extra;
 
-    // builder 开始
-    public ApprovalEvent() {
+    /**
+     * 示例值：
+     *
+     * @param approvalId
+     * @return
+     */
+    public Builder approvalId(String approvalId) {
+      this.approvalId = approvalId;
+      return this;
     }
 
-    public ApprovalEvent(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.approvalId = builder.approvalId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.approvalCode = builder.approvalCode;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.versionId = builder.versionId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.widgetGroupType = builder.widgetGroupType;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.formDefinitionId = builder.formDefinitionId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.processObj = builder.processObj;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.timestamp = builder.timestamp;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.extra = builder.extra;
+    /**
+     * 示例值：
+     *
+     * @param approvalCode
+     * @return
+     */
+    public Builder approvalCode(String approvalCode) {
+      this.approvalCode = approvalCode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param versionId
+     * @return
+     */
+    public Builder versionId(String versionId) {
+      this.versionId = versionId;
+      return this;
     }
 
-    public String getApprovalId() {
-        return this.approvalId;
+    /**
+     * 示例值：
+     *
+     * @param widgetGroupType
+     * @return
+     */
+    public Builder widgetGroupType(Integer widgetGroupType) {
+      this.widgetGroupType = widgetGroupType;
+      return this;
     }
 
-    public void setApprovalId(String approvalId) {
-        this.approvalId = approvalId;
+    /**
+     * 示例值：
+     *
+     * @param formDefinitionId
+     * @return
+     */
+    public Builder formDefinitionId(String formDefinitionId) {
+      this.formDefinitionId = formDefinitionId;
+      return this;
     }
 
-    public String getApprovalCode() {
-        return this.approvalCode;
+    /**
+     * 示例值：
+     *
+     * @param processObj
+     * @return
+     */
+    public Builder processObj(String processObj) {
+      this.processObj = processObj;
+      return this;
     }
 
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
+    /**
+     * 示例值：
+     *
+     * @param timestamp
+     * @return
+     */
+    public Builder timestamp(String timestamp) {
+      this.timestamp = timestamp;
+      return this;
     }
 
-    public String getVersionId() {
-        return this.versionId;
+    /**
+     * 示例值：
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(String extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
+    public ApprovalEvent build() {
+      return new ApprovalEvent(this);
     }
+  }
 
-    public Integer getWidgetGroupType() {
-        return this.widgetGroupType;
-    }
-
-    public void setWidgetGroupType(Integer widgetGroupType) {
-        this.widgetGroupType = widgetGroupType;
-    }
-
-    public String getFormDefinitionId() {
-        return this.formDefinitionId;
-    }
-
-    public void setFormDefinitionId(String formDefinitionId) {
-        this.formDefinitionId = formDefinitionId;
-    }
-
-    public String getProcessObj() {
-        return this.processObj;
-    }
-
-    public void setProcessObj(String processObj) {
-        this.processObj = processObj;
-    }
-
-    public String getTimestamp() {
-        return this.timestamp;
-    }
-
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(String extra) {
-        this.extra = extra;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private String approvalId;
-        /**
-         * <p> 示例值：
-         */
-        private String approvalCode;
-        /**
-         * <p> 示例值：
-         */
-        private String versionId;
-        /**
-         * <p> 示例值：
-         */
-        private Integer widgetGroupType;
-        /**
-         * <p> 示例值：
-         */
-        private String formDefinitionId;
-        /**
-         * <p> 示例值：
-         */
-        private String processObj;
-        /**
-         * <p> 示例值：
-         */
-        private String timestamp;
-        /**
-         * <p> 示例值：
-         */
-        private String extra;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param approvalId
-         * @return
-         */
-        public Builder approvalId(String approvalId) {
-            this.approvalId = approvalId;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param approvalCode
-         * @return
-         */
-        public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param versionId
-         * @return
-         */
-        public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param widgetGroupType
-         * @return
-         */
-        public Builder widgetGroupType(Integer widgetGroupType) {
-            this.widgetGroupType = widgetGroupType;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param formDefinitionId
-         * @return
-         */
-        public Builder formDefinitionId(String formDefinitionId) {
-            this.formDefinitionId = formDefinitionId;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param processObj
-         * @return
-         */
-        public Builder processObj(String processObj) {
-            this.processObj = processObj;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param timestamp
-         * @return
-         */
-        public Builder timestamp(String timestamp) {
-            this.timestamp = timestamp;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(String extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        public ApprovalEvent build() {
-            return new ApprovalEvent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

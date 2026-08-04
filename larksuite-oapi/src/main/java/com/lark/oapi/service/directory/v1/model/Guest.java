@@ -13,482 +13,527 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Guest {
+  /**
+   * ID
+   *
+   * <p>示例值：123123
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * TenantID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private GuestName name;
+
+  /**
+   * 手机
+   *
+   * <p>示例值：123456789
+   */
+  @SerializedName("mobile")
+  private String mobile;
+
+  /**
+   * 邮箱
+   *
+   * <p>示例值：a@q.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 头像
+   *
+   * <p>示例值：asdfadsfadsf
+   */
+  @SerializedName("avatar_key")
+  private String avatarKey;
+
+  /**
+   * 国家地区
+   *
+   * <p>示例值：MDM_123asd
+   */
+  @SerializedName("work_country_or_region")
+  private String workCountryOrRegion;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("guest_active_status")
+  private String guestActiveStatus;
+
+  /**
+   * 创建人
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  /**
+   * 更新人
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("updator_id")
+  private String updatorId;
+
+  /**
+   * 创建日期
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新日期
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public GuestName getName() {
+    return this.name;
+  }
+
+  public void setName(GuestName name) {
+    this.name = name;
+  }
+
+  public String getMobile() {
+    return this.mobile;
+  }
+
+  public void setMobile(String mobile) {
+    this.mobile = mobile;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getAvatarKey() {
+    return this.avatarKey;
+  }
+
+  public void setAvatarKey(String avatarKey) {
+    this.avatarKey = avatarKey;
+  }
+
+  public String getWorkCountryOrRegion() {
+    return this.workCountryOrRegion;
+  }
+
+  public void setWorkCountryOrRegion(String workCountryOrRegion) {
+    this.workCountryOrRegion = workCountryOrRegion;
+  }
+
+  public String getGuestActiveStatus() {
+    return this.guestActiveStatus;
+  }
+
+  public void setGuestActiveStatus(String guestActiveStatus) {
+    this.guestActiveStatus = guestActiveStatus;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  public String getUpdatorId() {
+    return this.updatorId;
+  }
+
+  public void setUpdatorId(String updatorId) {
+    this.updatorId = updatorId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  // builder 开始
+  public Guest() {}
+
+  public Guest(Builder builder) {
     /**
      * ID
-     * <p> 示例值：123123
+     *
+     * <p>示例值：123123
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * TenantID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private GuestName name;
+    this.name = builder.name;
     /**
      * 手机
-     * <p> 示例值：123456789
+     *
+     * <p>示例值：123456789
      */
-    @SerializedName("mobile")
-    private String mobile;
+    this.mobile = builder.mobile;
     /**
      * 邮箱
-     * <p> 示例值：a@q.com
+     *
+     * <p>示例值：a@q.com
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 头像
-     * <p> 示例值：asdfadsfadsf
+     *
+     * <p>示例值：asdfadsfadsf
      */
-    @SerializedName("avatar_key")
-    private String avatarKey;
+    this.avatarKey = builder.avatarKey;
     /**
      * 国家地区
-     * <p> 示例值：MDM_123asd
+     *
+     * <p>示例值：MDM_123asd
      */
-    @SerializedName("work_country_or_region")
-    private String workCountryOrRegion;
+    this.workCountryOrRegion = builder.workCountryOrRegion;
     /**
      * 状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("guest_active_status")
-    private String guestActiveStatus;
+    this.guestActiveStatus = builder.guestActiveStatus;
     /**
      * 创建人
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("creator_id")
-    private String creatorId;
+    this.creatorId = builder.creatorId;
     /**
      * 更新人
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("updator_id")
-    private String updatorId;
+    this.updatorId = builder.updatorId;
     /**
      * 创建日期
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新日期
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("update_time")
+    this.updateTime = builder.updateTime;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：123123
+     */
+    private String id;
+
+    /**
+     * TenantID
+     *
+     * <p>示例值：1
+     */
+    private String tenantId;
+
+    /**
+     * 姓名
+     *
+     * <p>示例值：
+     */
+    private GuestName name;
+
+    /**
+     * 手机
+     *
+     * <p>示例值：123456789
+     */
+    private String mobile;
+
+    /**
+     * 邮箱
+     *
+     * <p>示例值：a@q.com
+     */
+    private String email;
+
+    /**
+     * 头像
+     *
+     * <p>示例值：asdfadsfadsf
+     */
+    private String avatarKey;
+
+    /**
+     * 国家地区
+     *
+     * <p>示例值：MDM_123asd
+     */
+    private String workCountryOrRegion;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：
+     */
+    private String guestActiveStatus;
+
+    /**
+     * 创建人
+     *
+     * <p>示例值：123
+     */
+    private String creatorId;
+
+    /**
+     * 更新人
+     *
+     * <p>示例值：123
+     */
+    private String updatorId;
+
+    /**
+     * 创建日期
+     *
+     * <p>示例值：123
+     */
+    private String createTime;
+
+    /**
+     * 更新日期
+     *
+     * <p>示例值：123
+     */
     private String updateTime;
 
-    // builder 开始
-    public Guest() {
+    /**
+     * ID
+     *
+     * <p>示例值：123123
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Guest(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：123123
-         */
-        this.id = builder.id;
-        /**
-         * TenantID
-         * <p> 示例值：1
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 姓名
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 手机
-         * <p> 示例值：123456789
-         */
-        this.mobile = builder.mobile;
-        /**
-         * 邮箱
-         * <p> 示例值：a@q.com
-         */
-        this.email = builder.email;
-        /**
-         * 头像
-         * <p> 示例值：asdfadsfadsf
-         */
-        this.avatarKey = builder.avatarKey;
-        /**
-         * 国家地区
-         * <p> 示例值：MDM_123asd
-         */
-        this.workCountryOrRegion = builder.workCountryOrRegion;
-        /**
-         * 状态
-         * <p> 示例值：
-         */
-        this.guestActiveStatus = builder.guestActiveStatus;
-        /**
-         * 创建人
-         * <p> 示例值：123
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 更新人
-         * <p> 示例值：123
-         */
-        this.updatorId = builder.updatorId;
-        /**
-         * 创建日期
-         * <p> 示例值：123
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新日期
-         * <p> 示例值：123
-         */
-        this.updateTime = builder.updateTime;
+    /**
+     * TenantID
+     *
+     * <p>示例值：1
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 姓名
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(GuestName name) {
+      this.name = name;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 手机
+     *
+     * <p>示例值：123456789
+     *
+     * @param mobile
+     * @return
+     */
+    public Builder mobile(String mobile) {
+      this.mobile = mobile;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 邮箱
+     *
+     * <p>示例值：a@q.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public String getTenantId() {
-        return this.tenantId;
+    /**
+     * 头像
+     *
+     * <p>示例值：asdfadsfadsf
+     *
+     * @param avatarKey
+     * @return
+     */
+    public Builder avatarKey(String avatarKey) {
+      this.avatarKey = avatarKey;
+      return this;
     }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
+    /**
+     * 国家地区
+     *
+     * <p>示例值：MDM_123asd
+     *
+     * @param workCountryOrRegion
+     * @return
+     */
+    public Builder workCountryOrRegion(String workCountryOrRegion) {
+      this.workCountryOrRegion = workCountryOrRegion;
+      return this;
     }
 
-    public GuestName getName() {
-        return this.name;
+    /**
+     * 状态
+     *
+     * <p>示例值：
+     *
+     * @param guestActiveStatus
+     * @return
+     */
+    public Builder guestActiveStatus(String guestActiveStatus) {
+      this.guestActiveStatus = guestActiveStatus;
+      return this;
     }
 
-    public void setName(GuestName name) {
-        this.name = name;
+    /**
+     * 创建人
+     *
+     * <p>示例值：123
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public String getMobile() {
-        return this.mobile;
+    /**
+     * 更新人
+     *
+     * <p>示例值：123
+     *
+     * @param updatorId
+     * @return
+     */
+    public Builder updatorId(String updatorId) {
+      this.updatorId = updatorId;
+      return this;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    /**
+     * 创建日期
+     *
+     * <p>示例值：123
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getEmail() {
-        return this.email;
+    /**
+     * 更新日期
+     *
+     * <p>示例值：123
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public Guest build() {
+      return new Guest(this);
     }
+  }
 
-    public String getAvatarKey() {
-        return this.avatarKey;
-    }
-
-    public void setAvatarKey(String avatarKey) {
-        this.avatarKey = avatarKey;
-    }
-
-    public String getWorkCountryOrRegion() {
-        return this.workCountryOrRegion;
-    }
-
-    public void setWorkCountryOrRegion(String workCountryOrRegion) {
-        this.workCountryOrRegion = workCountryOrRegion;
-    }
-
-    public String getGuestActiveStatus() {
-        return this.guestActiveStatus;
-    }
-
-    public void setGuestActiveStatus(String guestActiveStatus) {
-        this.guestActiveStatus = guestActiveStatus;
-    }
-
-    public String getCreatorId() {
-        return this.creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public String getUpdatorId() {
-        return this.updatorId;
-    }
-
-    public void setUpdatorId(String updatorId) {
-        this.updatorId = updatorId;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：123123
-         */
-        private String id;
-        /**
-         * TenantID
-         * <p> 示例值：1
-         */
-        private String tenantId;
-        /**
-         * 姓名
-         * <p> 示例值：
-         */
-        private GuestName name;
-        /**
-         * 手机
-         * <p> 示例值：123456789
-         */
-        private String mobile;
-        /**
-         * 邮箱
-         * <p> 示例值：a@q.com
-         */
-        private String email;
-        /**
-         * 头像
-         * <p> 示例值：asdfadsfadsf
-         */
-        private String avatarKey;
-        /**
-         * 国家地区
-         * <p> 示例值：MDM_123asd
-         */
-        private String workCountryOrRegion;
-        /**
-         * 状态
-         * <p> 示例值：
-         */
-        private String guestActiveStatus;
-        /**
-         * 创建人
-         * <p> 示例值：123
-         */
-        private String creatorId;
-        /**
-         * 更新人
-         * <p> 示例值：123
-         */
-        private String updatorId;
-        /**
-         * 创建日期
-         * <p> 示例值：123
-         */
-        private String createTime;
-        /**
-         * 更新日期
-         * <p> 示例值：123
-         */
-        private String updateTime;
-
-        /**
-         * ID
-         * <p> 示例值：123123
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * TenantID
-         * <p> 示例值：1
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 姓名
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(GuestName name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 手机
-         * <p> 示例值：123456789
-         *
-         * @param mobile
-         * @return
-         */
-        public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
-        }
-
-
-        /**
-         * 邮箱
-         * <p> 示例值：a@q.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 头像
-         * <p> 示例值：asdfadsfadsf
-         *
-         * @param avatarKey
-         * @return
-         */
-        public Builder avatarKey(String avatarKey) {
-            this.avatarKey = avatarKey;
-            return this;
-        }
-
-
-        /**
-         * 国家地区
-         * <p> 示例值：MDM_123asd
-         *
-         * @param workCountryOrRegion
-         * @return
-         */
-        public Builder workCountryOrRegion(String workCountryOrRegion) {
-            this.workCountryOrRegion = workCountryOrRegion;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：
-         *
-         * @param guestActiveStatus
-         * @return
-         */
-        public Builder guestActiveStatus(String guestActiveStatus) {
-            this.guestActiveStatus = guestActiveStatus;
-            return this;
-        }
-
-
-        /**
-         * 创建人
-         * <p> 示例值：123
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        /**
-         * 更新人
-         * <p> 示例值：123
-         *
-         * @param updatorId
-         * @return
-         */
-        public Builder updatorId(String updatorId) {
-            this.updatorId = updatorId;
-            return this;
-        }
-
-
-        /**
-         * 创建日期
-         * <p> 示例值：123
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新日期
-         * <p> 示例值：123
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        public Guest build() {
-            return new Guest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

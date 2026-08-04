@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Equation {
+  /**
+   * 符合 KaTeX 语法的公式内容，语法规则请参考：https://katex.org/docs/supported.html;;**数据校验规则**：;*
+   * 长度范围：`1`~`10,000`字符
+   *
+   * <p>示例值：E=mc^2\n
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 文本局部样式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text_element_style")
+  private TextElementStyle textElementStyle;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public TextElementStyle getTextElementStyle() {
+    return this.textElementStyle;
+  }
+
+  public void setTextElementStyle(TextElementStyle textElementStyle) {
+    this.textElementStyle = textElementStyle;
+  }
+
+  // builder 开始
+  public Equation() {}
+
+  public Equation(Builder builder) {
     /**
-     * 符合 KaTeX 语法的公式内容，语法规则请参考：https://katex.org/docs/supported.html
-     * <p> 示例值：E=mc^2\n
+     * 符合 KaTeX 语法的公式内容，语法规则请参考：https://katex.org/docs/supported.html;;**数据校验规则**：;*
+     * 长度范围：`1`~`10,000`字符
+     *
+     * <p>示例值：E=mc^2\n
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 文本局部样式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("text_element_style")
+    this.textElementStyle = builder.textElementStyle;
+  }
+
+  public static class Builder {
+    /**
+     * 符合 KaTeX 语法的公式内容，语法规则请参考：https://katex.org/docs/supported.html;;**数据校验规则**：;*
+     * 长度范围：`1`~`10,000`字符
+     *
+     * <p>示例值：E=mc^2\n
+     */
+    private String content;
+
+    /**
+     * 文本局部样式
+     *
+     * <p>示例值：
+     */
     private TextElementStyle textElementStyle;
 
-    // builder 开始
-    public Equation() {
+    /**
+     * 符合 KaTeX 语法的公式内容，语法规则请参考：https://katex.org/docs/supported.html;;**数据校验规则**：;*
+     * 长度范围：`1`~`10,000`字符
+     *
+     * <p>示例值：E=mc^2\n
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public Equation(Builder builder) {
-        /**
-         * 符合 KaTeX 语法的公式内容，语法规则请参考：https://katex.org/docs/supported.html
-         * <p> 示例值：E=mc^2\n
-         */
-        this.content = builder.content;
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         */
-        this.textElementStyle = builder.textElementStyle;
+    /**
+     * 文本局部样式
+     *
+     * <p>示例值：
+     *
+     * @param textElementStyle
+     * @return
+     */
+    public Builder textElementStyle(TextElementStyle textElementStyle) {
+      this.textElementStyle = textElementStyle;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Equation build() {
+      return new Equation(this);
     }
+  }
 
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public TextElementStyle getTextElementStyle() {
-        return this.textElementStyle;
-    }
-
-    public void setTextElementStyle(TextElementStyle textElementStyle) {
-        this.textElementStyle = textElementStyle;
-    }
-
-    public static class Builder {
-        /**
-         * 符合 KaTeX 语法的公式内容，语法规则请参考：https://katex.org/docs/supported.html
-         * <p> 示例值：E=mc^2\n
-         */
-        private String content;
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         */
-        private TextElementStyle textElementStyle;
-
-        /**
-         * 符合 KaTeX 语法的公式内容，语法规则请参考：https://katex.org/docs/supported.html
-         * <p> 示例值：E=mc^2\n
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         *
-         * @param textElementStyle
-         * @return
-         */
-        public Builder textElementStyle(TextElementStyle textElementStyle) {
-            this.textElementStyle = textElementStyle;
-            return this;
-        }
-
-
-        public Equation build() {
-            return new Equation(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,124 +13,121 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BankInfo {
+  /**
+   * 甲乙方信息类型
+   *
+   * <p>示例值：buy
+   */
+  @SerializedName("bank_type")
+  private String bankType;
+
+  /**
+   * 值
+   *
+   * <p>示例值：value
+   */
+  @SerializedName("value")
+  private BankEntity value;
+
+  public String getBankType() {
+    return this.bankType;
+  }
+
+  public void setBankType(String bankType) {
+    this.bankType = bankType;
+  }
+
+  public BankEntity getValue() {
+    return this.value;
+  }
+
+  public void setValue(BankEntity value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public BankInfo() {}
+
+  public BankInfo(Builder builder) {
     /**
      * 甲乙方信息类型
-     * <p> 示例值：buy
+     *
+     * <p>示例值：buy
      */
-    @SerializedName("bank_type")
-    private String bankType;
+    this.bankType = builder.bankType;
     /**
      * 值
-     * <p> 示例值：value
+     *
+     * <p>示例值：value
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 甲乙方信息类型
+     *
+     * <p>示例值：buy
+     */
+    private String bankType;
+
+    /**
+     * 值
+     *
+     * <p>示例值：value
+     */
     private BankEntity value;
 
-    // builder 开始
-    public BankInfo() {
+    /**
+     * 甲乙方信息类型
+     *
+     * <p>示例值：buy
+     *
+     * @param bankType
+     * @return
+     */
+    public Builder bankType(String bankType) {
+      this.bankType = bankType;
+      return this;
     }
 
-    public BankInfo(Builder builder) {
-        /**
-         * 甲乙方信息类型
-         * <p> 示例值：buy
-         */
-        this.bankType = builder.bankType;
-        /**
-         * 值
-         * <p> 示例值：value
-         */
-        this.value = builder.value;
+    /**
+     * 甲乙方信息类型
+     *
+     * <p>示例值：buy
+     *
+     * @param bankType {@link com.lark.oapi.service.document_ai.v1.enums.BankInfoBankTypeEnum}
+     * @return
+     */
+    public Builder bankType(
+        com.lark.oapi.service.document_ai.v1.enums.BankInfoBankTypeEnum bankType) {
+      this.bankType = bankType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 值
+     *
+     * <p>示例值：value
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(BankEntity value) {
+      this.value = value;
+      return this;
     }
 
-    public String getBankType() {
-        return this.bankType;
+    public BankInfo build() {
+      return new BankInfo(this);
     }
+  }
 
-    public void setBankType(String bankType) {
-        this.bankType = bankType;
-    }
-
-    public BankEntity getValue() {
-        return this.value;
-    }
-
-    public void setValue(BankEntity value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 甲乙方信息类型
-         * <p> 示例值：buy
-         */
-        private String bankType;
-        /**
-         * 值
-         * <p> 示例值：value
-         */
-        private BankEntity value;
-
-        /**
-         * 甲乙方信息类型
-         * <p> 示例值：buy
-         *
-         * @param bankType
-         * @return
-         */
-        public Builder bankType(String bankType) {
-            this.bankType = bankType;
-            return this;
-        }
-
-        /**
-         * 甲乙方信息类型
-         * <p> 示例值：buy
-         *
-         * @param bankType {@link com.lark.oapi.service.document_ai.v1.enums.BankInfoBankTypeEnum}
-         * @return
-         */
-        public Builder bankType(com.lark.oapi.service.document_ai.v1.enums.BankInfoBankTypeEnum bankType) {
-            this.bankType = bankType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 值
-         * <p> 示例值：value
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(BankEntity value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public BankInfo build() {
-            return new BankInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

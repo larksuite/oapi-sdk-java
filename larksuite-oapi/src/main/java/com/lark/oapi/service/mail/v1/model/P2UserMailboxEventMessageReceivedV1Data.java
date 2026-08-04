@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2UserMailboxEventMessageReceivedV1Data {
-    /**
-     * 收信的邮箱
-     * <p> 示例值：a@xxx.com
-     */
-    @SerializedName("mail_address")
-    private String mailAddress;
-    /**
-     * 邮件 id
-     * <p> 示例值：ODM5OTgzYWItOTNmMS00NGJiLTk4MzAtODIwNGMzMjM1OGJh
-     */
-    @SerializedName("message_id")
-    private String messageId;
-    /**
-     * 收到邮件的邮箱类型
-     * <p> 示例值：1
-     */
-    @SerializedName("mailbox_type")
-    private Integer mailboxType;
-    /**
-     * 订阅者
-     * <p> 示例值：
-     */
-    @SerializedName("subscriber")
-    private Subscriber subscriber;
+  /**
+   * 收信的邮箱
+   *
+   * <p>示例值：a@xxx.com
+   */
+  @SerializedName("mail_address")
+  private String mailAddress;
 
-    public String getMailAddress() {
-        return this.mailAddress;
-    }
+  /**
+   * 邮件 id
+   *
+   * <p>示例值：ODM5OTgzYWItOTNmMS00NGJiLTk4MzAtODIwNGMzMjM1OGJh
+   */
+  @SerializedName("message_id")
+  private String messageId;
 
-    public void setMailAddress(String mailAddress) {
-        this.mailAddress = mailAddress;
-    }
+  /**
+   * 收到邮件的邮箱类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("mailbox_type")
+  private Integer mailboxType;
 
-    public String getMessageId() {
-        return this.messageId;
-    }
+  /**
+   * 订阅者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subscriber")
+  private Subscriber subscriber;
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
+  public String getMailAddress() {
+    return this.mailAddress;
+  }
 
-    public Integer getMailboxType() {
-        return this.mailboxType;
-    }
+  public void setMailAddress(String mailAddress) {
+    this.mailAddress = mailAddress;
+  }
 
-    public void setMailboxType(Integer mailboxType) {
-        this.mailboxType = mailboxType;
-    }
+  public String getMessageId() {
+    return this.messageId;
+  }
 
-    public Subscriber getSubscriber() {
-        return this.subscriber;
-    }
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
 
-    public void setSubscriber(Subscriber subscriber) {
-        this.subscriber = subscriber;
-    }
+  public Integer getMailboxType() {
+    return this.mailboxType;
+  }
 
+  public void setMailboxType(Integer mailboxType) {
+    this.mailboxType = mailboxType;
+  }
+
+  public Subscriber getSubscriber() {
+    return this.subscriber;
+  }
+
+  public void setSubscriber(Subscriber subscriber) {
+    this.subscriber = subscriber;
+  }
 }

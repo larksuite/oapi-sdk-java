@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Tasklist {
+  /**
+   * 清单的全局唯一ID
+   *
+   * <p>示例值：cc371766-6584-cf50-a222-c22cd9055004
+   */
+  @SerializedName("guid")
+  private String guid;
+
+  /**
+   * 清单名称。如要更新，不能设为空。最大100个字符。
+   *
+   * <p>示例值：年会总结工作任务清单
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 清单所有者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("creator")
+  private Member creator;
+
+  /**
+   * 清单所有者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner")
+  private Member owner;
+
+  /**
+   * 清单协作人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("members")
+  private Member[] members;
+
+  /**
+   * 该清单分享的applink
+   *
+   * <p>示例值：https://applink.feishu.cn/client/todo/task_list?guid=b45b360f-1961-4058-b338-7f50c96e1b52
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 清单创建时间戳(ms)
+   *
+   * <p>示例值：1675742789470
+   */
+  @SerializedName("created_at")
+  private String createdAt;
+
+  /**
+   * 清单最后一次更新时间戳（ms)
+   *
+   * <p>示例值：1675742789470
+   */
+  @SerializedName("updated_at")
+  private String updatedAt;
+
+  /**
+   * 清单归档时间戳(ms)
+   *
+   * <p>示例值：1675742789470
+   */
+  @SerializedName("archive_msec")
+  private String archiveMsec;
+
+  public String getGuid() {
+    return this.guid;
+  }
+
+  public void setGuid(String guid) {
+    this.guid = guid;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Member getCreator() {
+    return this.creator;
+  }
+
+  public void setCreator(Member creator) {
+    this.creator = creator;
+  }
+
+  public Member getOwner() {
+    return this.owner;
+  }
+
+  public void setOwner(Member owner) {
+    this.owner = owner;
+  }
+
+  public Member[] getMembers() {
+    return this.members;
+  }
+
+  public void setMembers(Member[] members) {
+    this.members = members;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public String getArchiveMsec() {
+    return this.archiveMsec;
+  }
+
+  public void setArchiveMsec(String archiveMsec) {
+    this.archiveMsec = archiveMsec;
+  }
+
+  // builder 开始
+  public Tasklist() {}
+
+  public Tasklist(Builder builder) {
     /**
      * 清单的全局唯一ID
-     * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
+     *
+     * <p>示例值：cc371766-6584-cf50-a222-c22cd9055004
      */
-    @SerializedName("guid")
-    private String guid;
+    this.guid = builder.guid;
     /**
-     * 清单名
-     * <p> 示例值：年会总结工作任务清单
+     * 清单名称。如要更新，不能设为空。最大100个字符。
+     *
+     * <p>示例值：年会总结工作任务清单
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 清单创建者
-     * <p> 示例值：
+     * 清单所有者
+     *
+     * <p>示例值：
      */
-    @SerializedName("creator")
-    private Member creator;
+    this.creator = builder.creator;
     /**
-     * 清单负责人
-     * <p> 示例值：
+     * 清单所有者
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner")
-    private Member owner;
+    this.owner = builder.owner;
     /**
      * 清单协作人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("members")
-    private Member[] members;
+    this.members = builder.members;
     /**
      * 该清单分享的applink
-     * <p> 示例值：https://applink.feishu.cn/client/todo/task_list?guid=b45b360f-1961-4058-b338-7f50c96e1b52
+     *
+     * <p>示例值：https://applink.feishu.cn/client/todo/task_list?guid=b45b360f-1961-4058-b338-7f50c96e1b52
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 清单创建时间戳(ms)
-     * <p> 示例值：1675742789470
+     *
+     * <p>示例值：1675742789470
      */
-    @SerializedName("created_at")
-    private String createdAt;
+    this.createdAt = builder.createdAt;
     /**
      * 清单最后一次更新时间戳（ms)
-     * <p> 示例值：1675742789470
+     *
+     * <p>示例值：1675742789470
      */
-    @SerializedName("updated_at")
-    private String updatedAt;
+    this.updatedAt = builder.updatedAt;
     /**
      * 清单归档时间戳(ms)
-     * <p> 示例值：1675742789470
+     *
+     * <p>示例值：1675742789470
      */
-    @SerializedName("archive_msec")
+    this.archiveMsec = builder.archiveMsec;
+  }
+
+  public static class Builder {
+    /**
+     * 清单的全局唯一ID
+     *
+     * <p>示例值：cc371766-6584-cf50-a222-c22cd9055004
+     */
+    private String guid;
+
+    /**
+     * 清单名称。如要更新，不能设为空。最大100个字符。
+     *
+     * <p>示例值：年会总结工作任务清单
+     */
+    private String name;
+
+    /**
+     * 清单所有者
+     *
+     * <p>示例值：
+     */
+    private Member creator;
+
+    /**
+     * 清单所有者
+     *
+     * <p>示例值：
+     */
+    private Member owner;
+
+    /**
+     * 清单协作人
+     *
+     * <p>示例值：
+     */
+    private Member[] members;
+
+    /**
+     * 该清单分享的applink
+     *
+     * <p>示例值：https://applink.feishu.cn/client/todo/task_list?guid=b45b360f-1961-4058-b338-7f50c96e1b52
+     */
+    private String url;
+
+    /**
+     * 清单创建时间戳(ms)
+     *
+     * <p>示例值：1675742789470
+     */
+    private String createdAt;
+
+    /**
+     * 清单最后一次更新时间戳（ms)
+     *
+     * <p>示例值：1675742789470
+     */
+    private String updatedAt;
+
+    /**
+     * 清单归档时间戳(ms)
+     *
+     * <p>示例值：1675742789470
+     */
     private String archiveMsec;
 
-    // builder 开始
-    public Tasklist() {
+    /**
+     * 清单的全局唯一ID
+     *
+     * <p>示例值：cc371766-6584-cf50-a222-c22cd9055004
+     *
+     * @param guid
+     * @return
+     */
+    public Builder guid(String guid) {
+      this.guid = guid;
+      return this;
     }
 
-    public Tasklist(Builder builder) {
-        /**
-         * 清单的全局唯一ID
-         * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
-         */
-        this.guid = builder.guid;
-        /**
-         * 清单名
-         * <p> 示例值：年会总结工作任务清单
-         */
-        this.name = builder.name;
-        /**
-         * 清单创建者
-         * <p> 示例值：
-         */
-        this.creator = builder.creator;
-        /**
-         * 清单负责人
-         * <p> 示例值：
-         */
-        this.owner = builder.owner;
-        /**
-         * 清单协作人
-         * <p> 示例值：
-         */
-        this.members = builder.members;
-        /**
-         * 该清单分享的applink
-         * <p> 示例值：https://applink.feishu.cn/client/todo/task_list?guid=b45b360f-1961-4058-b338-7f50c96e1b52
-         */
-        this.url = builder.url;
-        /**
-         * 清单创建时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 清单最后一次更新时间戳（ms)
-         * <p> 示例值：1675742789470
-         */
-        this.updatedAt = builder.updatedAt;
-        /**
-         * 清单归档时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        this.archiveMsec = builder.archiveMsec;
+    /**
+     * 清单名称。如要更新，不能设为空。最大100个字符。
+     *
+     * <p>示例值：年会总结工作任务清单
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 清单所有者
+     *
+     * <p>示例值：
+     *
+     * @param creator
+     * @return
+     */
+    public Builder creator(Member creator) {
+      this.creator = creator;
+      return this;
     }
 
-    public String getGuid() {
-        return this.guid;
+    /**
+     * 清单所有者
+     *
+     * <p>示例值：
+     *
+     * @param owner
+     * @return
+     */
+    public Builder owner(Member owner) {
+      this.owner = owner;
+      return this;
     }
 
-    public void setGuid(String guid) {
-        this.guid = guid;
+    /**
+     * 清单协作人
+     *
+     * <p>示例值：
+     *
+     * @param members
+     * @return
+     */
+    public Builder members(Member[] members) {
+      this.members = members;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 该清单分享的applink
+     *
+     * <p>示例值：https://applink.feishu.cn/client/todo/task_list?guid=b45b360f-1961-4058-b338-7f50c96e1b52
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 清单创建时间戳(ms)
+     *
+     * <p>示例值：1675742789470
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(String createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public Member getCreator() {
-        return this.creator;
+    /**
+     * 清单最后一次更新时间戳（ms)
+     *
+     * <p>示例值：1675742789470
+     *
+     * @param updatedAt
+     * @return
+     */
+    public Builder updatedAt(String updatedAt) {
+      this.updatedAt = updatedAt;
+      return this;
     }
 
-    public void setCreator(Member creator) {
-        this.creator = creator;
+    /**
+     * 清单归档时间戳(ms)
+     *
+     * <p>示例值：1675742789470
+     *
+     * @param archiveMsec
+     * @return
+     */
+    public Builder archiveMsec(String archiveMsec) {
+      this.archiveMsec = archiveMsec;
+      return this;
     }
 
-    public Member getOwner() {
-        return this.owner;
+    public Tasklist build() {
+      return new Tasklist(this);
     }
+  }
 
-    public void setOwner(Member owner) {
-        this.owner = owner;
-    }
-
-    public Member[] getMembers() {
-        return this.members;
-    }
-
-    public void setMembers(Member[] members) {
-        this.members = members;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdatedAt() {
-        return this.updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public String getArchiveMsec() {
-        return this.archiveMsec;
-    }
-
-    public void setArchiveMsec(String archiveMsec) {
-        this.archiveMsec = archiveMsec;
-    }
-
-    public static class Builder {
-        /**
-         * 清单的全局唯一ID
-         * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
-         */
-        private String guid;
-        /**
-         * 清单名
-         * <p> 示例值：年会总结工作任务清单
-         */
-        private String name;
-        /**
-         * 清单创建者
-         * <p> 示例值：
-         */
-        private Member creator;
-        /**
-         * 清单负责人
-         * <p> 示例值：
-         */
-        private Member owner;
-        /**
-         * 清单协作人
-         * <p> 示例值：
-         */
-        private Member[] members;
-        /**
-         * 该清单分享的applink
-         * <p> 示例值：https://applink.feishu.cn/client/todo/task_list?guid=b45b360f-1961-4058-b338-7f50c96e1b52
-         */
-        private String url;
-        /**
-         * 清单创建时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        private String createdAt;
-        /**
-         * 清单最后一次更新时间戳（ms)
-         * <p> 示例值：1675742789470
-         */
-        private String updatedAt;
-        /**
-         * 清单归档时间戳(ms)
-         * <p> 示例值：1675742789470
-         */
-        private String archiveMsec;
-
-        /**
-         * 清单的全局唯一ID
-         * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
-         *
-         * @param guid
-         * @return
-         */
-        public Builder guid(String guid) {
-            this.guid = guid;
-            return this;
-        }
-
-
-        /**
-         * 清单名
-         * <p> 示例值：年会总结工作任务清单
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 清单创建者
-         * <p> 示例值：
-         *
-         * @param creator
-         * @return
-         */
-        public Builder creator(Member creator) {
-            this.creator = creator;
-            return this;
-        }
-
-
-        /**
-         * 清单负责人
-         * <p> 示例值：
-         *
-         * @param owner
-         * @return
-         */
-        public Builder owner(Member owner) {
-            this.owner = owner;
-            return this;
-        }
-
-
-        /**
-         * 清单协作人
-         * <p> 示例值：
-         *
-         * @param members
-         * @return
-         */
-        public Builder members(Member[] members) {
-            this.members = members;
-            return this;
-        }
-
-
-        /**
-         * 该清单分享的applink
-         * <p> 示例值：https://applink.feishu.cn/client/todo/task_list?guid=b45b360f-1961-4058-b338-7f50c96e1b52
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 清单创建时间戳(ms)
-         * <p> 示例值：1675742789470
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 清单最后一次更新时间戳（ms)
-         * <p> 示例值：1675742789470
-         *
-         * @param updatedAt
-         * @return
-         */
-        public Builder updatedAt(String updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
-        }
-
-
-        /**
-         * 清单归档时间戳(ms)
-         * <p> 示例值：1675742789470
-         *
-         * @param archiveMsec
-         * @return
-         */
-        public Builder archiveMsec(String archiveMsec) {
-            this.archiveMsec = archiveMsec;
-            return this;
-        }
-
-
-        public Tasklist build() {
-            return new Tasklist(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

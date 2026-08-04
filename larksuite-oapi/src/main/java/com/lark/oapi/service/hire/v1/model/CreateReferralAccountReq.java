@@ -13,96 +13,90 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateReferralAccountReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private CreateReferralAccountReqBody body;
+
+  public CreateReferralAccountReqBody getCreateReferralAccountReqBody() {
+    return this.body;
+  }
+
+  public void setCreateReferralAccountReqBody(CreateReferralAccountReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateReferralAccountReq() {}
+
+  public CreateReferralAccountReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
     private CreateReferralAccountReqBody body;
 
-    // builder 开始
-    public CreateReferralAccountReq() {
-    }
-
-    public CreateReferralAccountReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public CreateReferralAccountReqBody getCreateReferralAccountReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCreateReferralAccountReqBody(CreateReferralAccountReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder createReferralAccountReqBody(CreateReferralAccountReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private CreateReferralAccountReqBody body;
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        public CreateReferralAccountReqBody getCreateReferralAccountReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder createReferralAccountReqBody(CreateReferralAccountReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateReferralAccountReq build() {
-            return new CreateReferralAccountReq(this);
-        }
+    public CreateReferralAccountReq build() {
+      return new CreateReferralAccountReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

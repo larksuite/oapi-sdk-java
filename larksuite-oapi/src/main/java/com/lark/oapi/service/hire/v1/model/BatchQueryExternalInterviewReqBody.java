@@ -13,74 +13,64 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchQueryExternalInterviewReqBody {
+  /**
+   * 外部面试 ID 列表，当传此值时，仅以此值作为条件查询，其他查询条件不生效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("external_interview_id_list")
+  private String[] externalInterviewIdList;
+
+  public String[] getExternalInterviewIdList() {
+    return this.externalInterviewIdList;
+  }
+
+  public void setExternalInterviewIdList(String[] externalInterviewIdList) {
+    this.externalInterviewIdList = externalInterviewIdList;
+  }
+
+  // builder 开始
+  public BatchQueryExternalInterviewReqBody() {}
+
+  public BatchQueryExternalInterviewReqBody(Builder builder) {
     /**
-     * 外部面试 ID列表,当传递此值时,以此值为准
-     * <p> 示例值：
+     * 外部面试 ID 列表，当传此值时，仅以此值作为条件查询，其他查询条件不生效
+     *
+     * <p>示例值：
      */
-    @SerializedName("external_interview_id_list")
+    this.externalInterviewIdList = builder.externalInterviewIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 外部面试 ID 列表，当传此值时，仅以此值作为条件查询，其他查询条件不生效
+     *
+     * <p>示例值：
+     */
     private String[] externalInterviewIdList;
 
-    // builder 开始
-    public BatchQueryExternalInterviewReqBody() {
+    /**
+     * 外部面试 ID 列表，当传此值时，仅以此值作为条件查询，其他查询条件不生效
+     *
+     * <p>示例值：
+     *
+     * @param externalInterviewIdList
+     * @return
+     */
+    public Builder externalInterviewIdList(String[] externalInterviewIdList) {
+      this.externalInterviewIdList = externalInterviewIdList;
+      return this;
     }
 
-    public BatchQueryExternalInterviewReqBody(Builder builder) {
-        /**
-         * 外部面试 ID列表,当传递此值时,以此值为准
-         * <p> 示例值：
-         */
-        this.externalInterviewIdList = builder.externalInterviewIdList;
+    public BatchQueryExternalInterviewReqBody build() {
+      return new BatchQueryExternalInterviewReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getExternalInterviewIdList() {
-        return this.externalInterviewIdList;
-    }
-
-    public void setExternalInterviewIdList(String[] externalInterviewIdList) {
-        this.externalInterviewIdList = externalInterviewIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 外部面试 ID列表,当传递此值时,以此值为准
-         * <p> 示例值：
-         */
-        private String[] externalInterviewIdList;
-
-        /**
-         * 外部面试 ID列表,当传递此值时,以此值为准
-         * <p> 示例值：
-         *
-         * @param externalInterviewIdList
-         * @return
-         */
-        public Builder externalInterviewIdList(String[] externalInterviewIdList) {
-            this.externalInterviewIdList = externalInterviewIdList;
-            return this;
-        }
-
-
-        public BatchQueryExternalInterviewReqBody build() {
-            return new BatchQueryExternalInterviewReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyAiComment {
+  /**
+   * 用户姓名
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("user_name")
+  private String userName;
+
+  /**
+   * 评论
+   *
+   * <p>示例值：同意
+   */
+  @SerializedName("comment")
+  private String comment;
+
+  public String getUserName() {
+    return this.userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  public String getComment() {
+    return this.comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
+
+  // builder 开始
+  public MyAiComment() {}
+
+  public MyAiComment(Builder builder) {
     /**
      * 用户姓名
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("user_name")
-    private String userName;
+    this.userName = builder.userName;
     /**
      * 评论
-     * <p> 示例值：同意
+     *
+     * <p>示例值：同意
      */
-    @SerializedName("comment")
+    this.comment = builder.comment;
+  }
+
+  public static class Builder {
+    /**
+     * 用户姓名
+     *
+     * <p>示例值：张三
+     */
+    private String userName;
+
+    /**
+     * 评论
+     *
+     * <p>示例值：同意
+     */
     private String comment;
 
-    // builder 开始
-    public MyAiComment() {
+    /**
+     * 用户姓名
+     *
+     * <p>示例值：张三
+     *
+     * @param userName
+     * @return
+     */
+    public Builder userName(String userName) {
+      this.userName = userName;
+      return this;
     }
 
-    public MyAiComment(Builder builder) {
-        /**
-         * 用户姓名
-         * <p> 示例值：张三
-         */
-        this.userName = builder.userName;
-        /**
-         * 评论
-         * <p> 示例值：同意
-         */
-        this.comment = builder.comment;
+    /**
+     * 评论
+     *
+     * <p>示例值：同意
+     *
+     * @param comment
+     * @return
+     */
+    public Builder comment(String comment) {
+      this.comment = comment;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MyAiComment build() {
+      return new MyAiComment(this);
     }
+  }
 
-    public String getUserName() {
-        return this.userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getComment() {
-        return this.comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public static class Builder {
-        /**
-         * 用户姓名
-         * <p> 示例值：张三
-         */
-        private String userName;
-        /**
-         * 评论
-         * <p> 示例值：同意
-         */
-        private String comment;
-
-        /**
-         * 用户姓名
-         * <p> 示例值：张三
-         *
-         * @param userName
-         * @return
-         */
-        public Builder userName(String userName) {
-            this.userName = userName;
-            return this;
-        }
-
-
-        /**
-         * 评论
-         * <p> 示例值：同意
-         *
-         * @param comment
-         * @return
-         */
-        public Builder comment(String comment) {
-            this.comment = comment;
-            return this;
-        }
-
-
-        public MyAiComment build() {
-            return new MyAiComment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

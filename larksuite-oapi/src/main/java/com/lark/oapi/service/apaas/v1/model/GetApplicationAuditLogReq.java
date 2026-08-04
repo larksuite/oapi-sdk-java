@@ -13,104 +13,102 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class GetApplicationAuditLogReq {
+  /**
+   * 审计日志ID信息（通过[查询审计日志列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-audit_log/audit_log_list)获取单条日志ID）
+   *
+   * <p>示例值：7405456257290600492
+   */
+  @Query
+  @SerializedName("log_id")
+  private String logId;
+
+  public String getLogId() {
+    return this.logId;
+  }
+
+  public void setLogId(String logId) {
+    this.logId = logId;
+  }
+
+  /**
+   * 应用命名空间
+   *
+   * <p>示例值：package_aaa
+   */
+  @Path
+  @SerializedName("namespace")
+  private String namespace;
+
+  public String getNamespace() {
+    return this.namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  // builder 开始
+  public GetApplicationAuditLogReq() {}
+
+  public GetApplicationAuditLogReq(Builder builder) {
     /**
-     * 审计日志ID信息
-     * <p> 示例值：7405456257290600492
+     * 审计日志ID信息（通过[查询审计日志列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-audit_log/audit_log_list)获取单条日志ID）
+     *
+     * <p>示例值：7405456257290600492
      */
-    @Query
-    @SerializedName("log_id")
-    private String logId;
+    this.logId = builder.logId;
     /**
-     * 应用
-     * <p> 示例值：package_aaa
+     * 应用命名空间
+     *
+     * <p>示例值：package_aaa
      */
-    @Path
-    @SerializedName("namespace")
-    private String namespace;
+    this.namespace = builder.namespace;
+  }
 
-    // builder 开始
-    public GetApplicationAuditLogReq() {
+  public static class Builder {
+    private String
+        logId; // 审计日志ID信息（通过[查询审计日志列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-audit_log/audit_log_list)获取单条日志ID）
+
+    /**
+     * 审计日志ID信息（通过[查询审计日志列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-audit_log/audit_log_list)获取单条日志ID）
+     *
+     * <p>示例值：7405456257290600492
+     *
+     * @param logId
+     * @return
+     */
+    public Builder logId(String logId) {
+      this.logId = logId;
+      return this;
     }
 
-    public GetApplicationAuditLogReq(Builder builder) {
-        /**
-         * 审计日志ID信息
-         * <p> 示例值：7405456257290600492
-         */
-        this.logId = builder.logId;
-        /**
-         * 应用
-         * <p> 示例值：package_aaa
-         */
-        this.namespace = builder.namespace;
+    private String namespace; // 应用命名空间
+
+    /**
+     * 应用命名空间
+     *
+     * <p>示例值：package_aaa
+     *
+     * @param namespace
+     * @return
+     */
+    public Builder namespace(String namespace) {
+      this.namespace = namespace;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GetApplicationAuditLogReq build() {
+      return new GetApplicationAuditLogReq(this);
     }
+  }
 
-    public String getLogId() {
-        return this.logId;
-    }
-
-    public void setLogId(String logId) {
-        this.logId = logId;
-    }
-
-    public String getNamespace() {
-        return this.namespace;
-    }
-
-    public void setNamespace(String namespace) {
-        this.namespace = namespace;
-    }
-
-    public static class Builder {
-        private String logId; // 审计日志ID信息
-        private String namespace; // 应用
-
-        /**
-         * 审计日志ID信息
-         * <p> 示例值：7405456257290600492
-         *
-         * @param logId
-         * @return
-         */
-        public Builder logId(String logId) {
-            this.logId = logId;
-            return this;
-        }
-
-        /**
-         * 应用
-         * <p> 示例值：package_aaa
-         *
-         * @param namespace
-         * @return
-         */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
-
-
-        public GetApplicationAuditLogReq build() {
-            return new GetApplicationAuditLogReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

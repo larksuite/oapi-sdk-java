@@ -13,173 +13,177 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingEventUser {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+   */
+  @SerializedName("id")
+  private UserId id;
+
+  /**
+   * 用户会中角色
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("user_role")
+  private Integer userRole;
+
+  /**
+   * 用户类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("user_type")
+  private Integer userType;
+
+  public UserId getId() {
+    return this.id;
+  }
+
+  public void setId(UserId id) {
+    this.id = id;
+  }
+
+  public Integer getUserRole() {
+    return this.userRole;
+  }
+
+  public void setUserRole(Integer userRole) {
+    this.userRole = userRole;
+  }
+
+  public Integer getUserType() {
+    return this.userType;
+  }
+
+  public void setUserType(Integer userType) {
+    this.userType = userType;
+  }
+
+  // builder 开始
+  public MeetingEventUser() {}
+
+  public MeetingEventUser(Builder builder) {
     /**
-     * 用户 ID
-     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     * 用户ID
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
      */
-    @SerializedName("id")
-    private UserId id;
+    this.id = builder.id;
     /**
      * 用户会中角色
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("user_role")
-    private Integer userRole;
+    this.userRole = builder.userRole;
     /**
      * 用户类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("user_type")
+    this.userType = builder.userType;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     */
+    private UserId id;
+
+    /**
+     * 用户会中角色
+     *
+     * <p>示例值：1
+     */
+    private Integer userRole;
+
+    /**
+     * 用户类型
+     *
+     * <p>示例值：1
+     */
     private Integer userType;
 
-    // builder 开始
-    public MeetingEventUser() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(UserId id) {
+      this.id = id;
+      return this;
     }
 
-    public MeetingEventUser(Builder builder) {
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        this.id = builder.id;
-        /**
-         * 用户会中角色
-         * <p> 示例值：1
-         */
-        this.userRole = builder.userRole;
-        /**
-         * 用户类型
-         * <p> 示例值：1
-         */
-        this.userType = builder.userType;
+    /**
+     * 用户会中角色
+     *
+     * <p>示例值：1
+     *
+     * @param userRole
+     * @return
+     */
+    public Builder userRole(Integer userRole) {
+      this.userRole = userRole;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户会中角色
+     *
+     * <p>示例值：1
+     *
+     * @param userRole {@link com.lark.oapi.service.vc.v1.enums.MeetingEventUserMeetingUserRoleEnum}
+     * @return
+     */
+    public Builder userRole(
+        com.lark.oapi.service.vc.v1.enums.MeetingEventUserMeetingUserRoleEnum userRole) {
+      this.userRole = userRole.getValue();
+      return this;
     }
 
-    public UserId getId() {
-        return this.id;
+    /**
+     * 用户类型
+     *
+     * <p>示例值：1
+     *
+     * @param userType
+     * @return
+     */
+    public Builder userType(Integer userType) {
+      this.userType = userType;
+      return this;
     }
 
-    public void setId(UserId id) {
-        this.id = id;
+    /**
+     * 用户类型
+     *
+     * <p>示例值：1
+     *
+     * @param userType {@link com.lark.oapi.service.vc.v1.enums.MeetingEventUserUserTypeEnum}
+     * @return
+     */
+    public Builder userType(
+        com.lark.oapi.service.vc.v1.enums.MeetingEventUserUserTypeEnum userType) {
+      this.userType = userType.getValue();
+      return this;
     }
 
-    public Integer getUserRole() {
-        return this.userRole;
+    public MeetingEventUser build() {
+      return new MeetingEventUser(this);
     }
+  }
 
-    public void setUserRole(Integer userRole) {
-        this.userRole = userRole;
-    }
-
-    public Integer getUserType() {
-        return this.userType;
-    }
-
-    public void setUserType(Integer userType) {
-        this.userType = userType;
-    }
-
-    public static class Builder {
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        private UserId id;
-        /**
-         * 用户会中角色
-         * <p> 示例值：1
-         */
-        private Integer userRole;
-        /**
-         * 用户类型
-         * <p> 示例值：1
-         */
-        private Integer userType;
-
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(UserId id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 用户会中角色
-         * <p> 示例值：1
-         *
-         * @param userRole
-         * @return
-         */
-        public Builder userRole(Integer userRole) {
-            this.userRole = userRole;
-            return this;
-        }
-
-        /**
-         * 用户会中角色
-         * <p> 示例值：1
-         *
-         * @param userRole {@link com.lark.oapi.service.vc.v1.enums.MeetingEventUserMeetingUserRoleEnum}
-         * @return
-         */
-        public Builder userRole(com.lark.oapi.service.vc.v1.enums.MeetingEventUserMeetingUserRoleEnum userRole) {
-            this.userRole = userRole.getValue();
-            return this;
-        }
-
-
-        /**
-         * 用户类型
-         * <p> 示例值：1
-         *
-         * @param userType
-         * @return
-         */
-        public Builder userType(Integer userType) {
-            this.userType = userType;
-            return this;
-        }
-
-        /**
-         * 用户类型
-         * <p> 示例值：1
-         *
-         * @param userType {@link com.lark.oapi.service.vc.v1.enums.MeetingEventUserUserTypeEnum}
-         * @return
-         */
-        public Builder userType(com.lark.oapi.service.vc.v1.enums.MeetingEventUserUserTypeEnum userType) {
-            this.userType = userType.getValue();
-            return this;
-        }
-
-
-        public MeetingEventUser build() {
-            return new MeetingEventUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

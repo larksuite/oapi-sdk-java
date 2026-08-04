@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageBody {
+  /**
+   * 消息内容，JSON 格式
+   *
+   * <p>示例值：{"text":"@_user_1 test content"}
+   */
+  @SerializedName("content")
+  private String content;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  // builder 开始
+  public MessageBody() {}
+
+  public MessageBody(Builder builder) {
     /**
-     * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-     * <p> 示例值：text:测试消息
+     * 消息内容，JSON 格式
+     *
+     * <p>示例值：{"text":"@_user_1 test content"}
      */
-    @SerializedName("content")
+    this.content = builder.content;
+  }
+
+  public static class Builder {
+    /**
+     * 消息内容，JSON 格式
+     *
+     * <p>示例值：{"text":"@_user_1 test content"}
+     */
     private String content;
 
-    // builder 开始
-    public MessageBody() {
+    /**
+     * 消息内容，JSON 格式
+     *
+     * <p>示例值：{"text":"@_user_1 test content"}
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public MessageBody(Builder builder) {
-        /**
-         * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-         * <p> 示例值：text:测试消息
-         */
-        this.content = builder.content;
+    public MessageBody build() {
+      return new MessageBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public static class Builder {
-        /**
-         * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-         * <p> 示例值：text:测试消息
-         */
-        private String content;
-
-        /**
-         * 消息内容，json结构序列化后的字符串。不同msg_type对应不同内容。消息类型 包括：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user等，类型定义请参考：[发送消息Content](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)
-         * <p> 示例值：text:测试消息
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        public MessageBody build() {
-            return new MessageBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

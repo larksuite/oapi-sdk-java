@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserBase {
+  /**
+   * 用户 ID，对应 employee_type
+   *
+   * <p>示例值：5874663B
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 该用户所属部门 ID 列表，返回结果为该用户所属的部门树，从直属部门到根部门。对应 dept_type
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_ids")
+  private String[] departmentIds;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String[] getDepartmentIds() {
+    return this.departmentIds;
+  }
+
+  public void setDepartmentIds(String[] departmentIds) {
+    this.departmentIds = departmentIds;
+  }
+
+  // builder 开始
+  public UserBase() {}
+
+  public UserBase(Builder builder) {
     /**
-     * 用户 ID
-     * <p> 示例值：5874663B
+     * 用户 ID，对应 employee_type
+     *
+     * <p>示例值：5874663B
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+    /**
+     * 该用户所属部门 ID 列表，返回结果为该用户所属的部门树，从直属部门到根部门。对应 dept_type
+     *
+     * <p>示例值：
+     */
+    this.departmentIds = builder.departmentIds;
+  }
+
+  public static class Builder {
+    /**
+     * 用户 ID，对应 employee_type
+     *
+     * <p>示例值：5874663B
+     */
     private String userId;
+
     /**
-     * 该用户所属部门 ID 列表
-     * <p> 示例值：
+     * 该用户所属部门 ID 列表，返回结果为该用户所属的部门树，从直属部门到根部门。对应 dept_type
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_ids")
     private String[] departmentIds;
 
-    // builder 开始
-    public UserBase() {
+    /**
+     * 用户 ID，对应 employee_type
+     *
+     * <p>示例值：5874663B
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public UserBase(Builder builder) {
-        /**
-         * 用户 ID
-         * <p> 示例值：5874663B
-         */
-        this.userId = builder.userId;
-        /**
-         * 该用户所属部门 ID 列表
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
+    /**
+     * 该用户所属部门 ID 列表，返回结果为该用户所属的部门树，从直属部门到根部门。对应 dept_type
+     *
+     * <p>示例值：
+     *
+     * @param departmentIds
+     * @return
+     */
+    public Builder departmentIds(String[] departmentIds) {
+      this.departmentIds = departmentIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UserBase build() {
+      return new UserBase(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
-    }
-
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
-    }
-
-    public static class Builder {
-        /**
-         * 用户 ID
-         * <p> 示例值：5874663B
-         */
-        private String userId;
-        /**
-         * 该用户所属部门 ID 列表
-         * <p> 示例值：
-         */
-        private String[] departmentIds;
-
-        /**
-         * 用户 ID
-         * <p> 示例值：5874663B
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 该用户所属部门 ID 列表
-         * <p> 示例值：
-         *
-         * @param departmentIds
-         * @return
-         */
-        public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
-        }
-
-
-        public UserBase build() {
-            return new UserBase(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

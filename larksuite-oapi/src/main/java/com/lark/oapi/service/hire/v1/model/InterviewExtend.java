@@ -13,999 +13,1122 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InterviewExtend {
+  /**
+   * 面试
+   * ID，详情请查看：[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 面试开始时间，毫秒时间戳（字段类型为：int64）
+   *
+   * <p>示例值：1618899376474
+   */
+  @SerializedName("begin_time")
+  private Long beginTime;
+
+  /**
+   * 面试结束时间，毫秒时间戳（字段类型为：int64）
+   *
+   * <p>示例值：1618999376474
+   */
+  @SerializedName("end_time")
+  private Long endTime;
+
+  /**
+   * 面试轮次
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("round")
+  private Integer round;
+
+  /**
+   * 面试评价信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("interview_record_list")
+  private InterviewRecord[] interviewRecordList;
+
+  /**
+   * 面试评价提交时间，毫秒时间戳（字段类型为：int64）
+   *
+   * <p>示例值：1659318415000
+   */
+  @SerializedName("feedback_submit_time")
+  private Long feedbackSubmitTime;
+
+  /**
+   * 面试关联的投递阶段，详情请查看：[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)
+   *
+   * <p>示例值：634324253532232
+   */
+  @SerializedName("stage_id")
+  private String stageId;
+
+  /**
+   * 投递
+   * ID，详情参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/create)
+   *
+   * <p>示例值：634324253532232
+   */
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 阶段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("stage")
+  private IdNameObject stage;
+
+  /**
+   * 阶段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("creator")
+  private IdNameObject creator;
+
+  /**
+   * 创建时间，毫秒时间戳（字段类型为：int64）
+   *
+   * <p>示例值：1618999376474
+   */
+  @SerializedName("biz_create_time")
+  private Long bizCreateTime;
+
+  /**
+   * 最近更新时间，毫秒时间戳（字段类型为：int64）
+   *
+   * <p>示例值：1618999376474
+   */
+  @SerializedName("biz_modify_time")
+  private Long bizModifyTime;
+
+  /**
+   * 面试状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("interview_round_summary")
+  private Integer interviewRoundSummary;
+
+  /**
+   * 面试安排 ID
+   *
+   * <p>示例值：1111111
+   */
+  @SerializedName("interview_arrangement_id")
+  private String interviewArrangementId;
+
+  /**
+   * 面试类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("interview_type")
+  private Integer interviewType;
+
+  /**
+   * 候选人时区
+   *
+   * <p>示例值：
+   */
+  @SerializedName("talent_time_zone")
+  private CodeNameObject talentTimeZone;
+
+  /**
+   * 阶段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("contact_user")
+  private IdNameObject contactUser;
+
+  /**
+   * 面试联系人电话
+   *
+   * <p>示例值：13333333333
+   */
+  @SerializedName("contact_mobile")
+  private String contactMobile;
+
+  /**
+   * 备注
+   *
+   * <p>示例值：这是一个备注
+   */
+  @SerializedName("remark")
+  private String remark;
+
+  /**
+   * 面试地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("address")
+  private InterviewAddress address;
+
+  /**
+   * 视频面试工具
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("video_type")
+  private Integer videoType;
+
+  /**
+   * 当安排类型为集中面试时，此值表示集中面试的安排状态。非集中面试该字段无含义。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("arrangement_status")
+  private Integer arrangementStatus;
+
+  /**
+   * 安排类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("arrangement_type")
+  private Integer arrangementType;
+
+  /**
+   * 安排方式（是否使用自助约面）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("arrangement_appointment_kind")
+  private Integer arrangementAppointmentKind;
+
+  /**
+   * 面试会议室
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meeting_room_list")
+  private InterviewMeetingRoom[] meetingRoomList;
+
+  /**
+   * 阶段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("interview_round_type")
+  private IdNameObject interviewRoundType;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Long getBeginTime() {
+    return this.beginTime;
+  }
+
+  public void setBeginTime(Long beginTime) {
+    this.beginTime = beginTime;
+  }
+
+  public Long getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(Long endTime) {
+    this.endTime = endTime;
+  }
+
+  public Integer getRound() {
+    return this.round;
+  }
+
+  public void setRound(Integer round) {
+    this.round = round;
+  }
+
+  public InterviewRecord[] getInterviewRecordList() {
+    return this.interviewRecordList;
+  }
+
+  public void setInterviewRecordList(InterviewRecord[] interviewRecordList) {
+    this.interviewRecordList = interviewRecordList;
+  }
+
+  public Long getFeedbackSubmitTime() {
+    return this.feedbackSubmitTime;
+  }
+
+  public void setFeedbackSubmitTime(Long feedbackSubmitTime) {
+    this.feedbackSubmitTime = feedbackSubmitTime;
+  }
+
+  public String getStageId() {
+    return this.stageId;
+  }
+
+  public void setStageId(String stageId) {
+    this.stageId = stageId;
+  }
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public IdNameObject getStage() {
+    return this.stage;
+  }
+
+  public void setStage(IdNameObject stage) {
+    this.stage = stage;
+  }
+
+  public IdNameObject getCreator() {
+    return this.creator;
+  }
+
+  public void setCreator(IdNameObject creator) {
+    this.creator = creator;
+  }
+
+  public Long getBizCreateTime() {
+    return this.bizCreateTime;
+  }
+
+  public void setBizCreateTime(Long bizCreateTime) {
+    this.bizCreateTime = bizCreateTime;
+  }
+
+  public Long getBizModifyTime() {
+    return this.bizModifyTime;
+  }
+
+  public void setBizModifyTime(Long bizModifyTime) {
+    this.bizModifyTime = bizModifyTime;
+  }
+
+  public Integer getInterviewRoundSummary() {
+    return this.interviewRoundSummary;
+  }
+
+  public void setInterviewRoundSummary(Integer interviewRoundSummary) {
+    this.interviewRoundSummary = interviewRoundSummary;
+  }
+
+  public String getInterviewArrangementId() {
+    return this.interviewArrangementId;
+  }
+
+  public void setInterviewArrangementId(String interviewArrangementId) {
+    this.interviewArrangementId = interviewArrangementId;
+  }
+
+  public Integer getInterviewType() {
+    return this.interviewType;
+  }
+
+  public void setInterviewType(Integer interviewType) {
+    this.interviewType = interviewType;
+  }
+
+  public CodeNameObject getTalentTimeZone() {
+    return this.talentTimeZone;
+  }
+
+  public void setTalentTimeZone(CodeNameObject talentTimeZone) {
+    this.talentTimeZone = talentTimeZone;
+  }
+
+  public IdNameObject getContactUser() {
+    return this.contactUser;
+  }
+
+  public void setContactUser(IdNameObject contactUser) {
+    this.contactUser = contactUser;
+  }
+
+  public String getContactMobile() {
+    return this.contactMobile;
+  }
+
+  public void setContactMobile(String contactMobile) {
+    this.contactMobile = contactMobile;
+  }
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  public InterviewAddress getAddress() {
+    return this.address;
+  }
+
+  public void setAddress(InterviewAddress address) {
+    this.address = address;
+  }
+
+  public Integer getVideoType() {
+    return this.videoType;
+  }
+
+  public void setVideoType(Integer videoType) {
+    this.videoType = videoType;
+  }
+
+  public Integer getArrangementStatus() {
+    return this.arrangementStatus;
+  }
+
+  public void setArrangementStatus(Integer arrangementStatus) {
+    this.arrangementStatus = arrangementStatus;
+  }
+
+  public Integer getArrangementType() {
+    return this.arrangementType;
+  }
+
+  public void setArrangementType(Integer arrangementType) {
+    this.arrangementType = arrangementType;
+  }
+
+  public Integer getArrangementAppointmentKind() {
+    return this.arrangementAppointmentKind;
+  }
+
+  public void setArrangementAppointmentKind(Integer arrangementAppointmentKind) {
+    this.arrangementAppointmentKind = arrangementAppointmentKind;
+  }
+
+  public InterviewMeetingRoom[] getMeetingRoomList() {
+    return this.meetingRoomList;
+  }
+
+  public void setMeetingRoomList(InterviewMeetingRoom[] meetingRoomList) {
+    this.meetingRoomList = meetingRoomList;
+  }
+
+  public IdNameObject getInterviewRoundType() {
+    return this.interviewRoundType;
+  }
+
+  public void setInterviewRoundType(IdNameObject interviewRoundType) {
+    this.interviewRoundType = interviewRoundType;
+  }
+
+  // builder 开始
+  public InterviewExtend() {}
+
+  public InterviewExtend(Builder builder) {
     /**
-     * 面试 ID
-     * <p> 示例值：6949805467799537964
+     * 面试
+     * ID，详情请查看：[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)
+     *
+     * <p>示例值：6949805467799537964
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 面试开始时间（ms）
-     * <p> 示例值：1618899376474
+     * 面试开始时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618899376474
      */
-    @SerializedName("begin_time")
-    private Long beginTime;
+    this.beginTime = builder.beginTime;
     /**
-     * 面试结束时间（ms）
-     * <p> 示例值：1618999376474
+     * 面试结束时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618999376474
      */
-    @SerializedName("end_time")
-    private Long endTime;
+    this.endTime = builder.endTime;
     /**
      * 面试轮次
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("round")
-    private Integer round;
+    this.round = builder.round;
     /**
-     * 面试记录信息
-     * <p> 示例值：
+     * 面试评价信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("interview_record_list")
-    private InterviewRecord[] interviewRecordList;
+    this.interviewRecordList = builder.interviewRecordList;
     /**
-     * 面试评价提交时间
-     * <p> 示例值：1659318415000
+     * 面试评价提交时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1659318415000
      */
-    @SerializedName("feedback_submit_time")
-    private Long feedbackSubmitTime;
+    this.feedbackSubmitTime = builder.feedbackSubmitTime;
     /**
-     * 面试关联的投递阶段
-     * <p> 示例值：634324253532232
+     * 面试关联的投递阶段，详情请查看：[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)
+     *
+     * <p>示例值：634324253532232
      */
-    @SerializedName("stage_id")
-    private String stageId;
+    this.stageId = builder.stageId;
     /**
-     * 投递 ID
-     * <p> 示例值：634324253532232
+     * 投递
+     * ID，详情参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/create)
+     *
+     * <p>示例值：634324253532232
      */
-    @SerializedName("application_id")
-    private String applicationId;
+    this.applicationId = builder.applicationId;
     /**
      * 阶段信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("stage")
-    private IdNameObject stage;
+    this.stage = builder.stage;
     /**
-     * 创建人
-     * <p> 示例值：
+     * 阶段信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("creator")
-    private IdNameObject creator;
+    this.creator = builder.creator;
     /**
-     * 创建时间（ms）
-     * <p> 示例值：1618999376474
+     * 创建时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618999376474
      */
-    @SerializedName("biz_create_time")
-    private Long bizCreateTime;
+    this.bizCreateTime = builder.bizCreateTime;
     /**
-     * 最近更新时间（ms）
-     * <p> 示例值：1618999376474
+     * 最近更新时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618999376474
      */
-    @SerializedName("biz_modify_time")
-    private Long bizModifyTime;
+    this.bizModifyTime = builder.bizModifyTime;
     /**
      * 面试状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("interview_round_summary")
-    private Integer interviewRoundSummary;
+    this.interviewRoundSummary = builder.interviewRoundSummary;
     /**
      * 面试安排 ID
-     * <p> 示例值：1111111
+     *
+     * <p>示例值：1111111
      */
-    @SerializedName("interview_arrangement_id")
-    private String interviewArrangementId;
+    this.interviewArrangementId = builder.interviewArrangementId;
     /**
      * 面试类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("interview_type")
-    private Integer interviewType;
+    this.interviewType = builder.interviewType;
     /**
      * 候选人时区
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("talent_time_zone")
-    private CodeNameObject talentTimeZone;
+    this.talentTimeZone = builder.talentTimeZone;
     /**
-     * 面试联系人
-     * <p> 示例值：
+     * 阶段信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("contact_user")
-    private IdNameObject contactUser;
+    this.contactUser = builder.contactUser;
     /**
      * 面试联系人电话
-     * <p> 示例值：13333333333
+     *
+     * <p>示例值：13333333333
      */
-    @SerializedName("contact_mobile")
-    private String contactMobile;
+    this.contactMobile = builder.contactMobile;
     /**
      * 备注
-     * <p> 示例值：test
+     *
+     * <p>示例值：这是一个备注
      */
-    @SerializedName("remark")
-    private String remark;
+    this.remark = builder.remark;
     /**
-     * 面试地点
-     * <p> 示例值：
+     * 面试地址
+     *
+     * <p>示例值：
      */
-    @SerializedName("address")
-    private InterviewAddress address;
+    this.address = builder.address;
     /**
      * 视频面试工具
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("video_type")
-    private Integer videoType;
+    this.videoType = builder.videoType;
     /**
-     * 当安排类型为集中面试时，此值表示集中面试的安排状态
-     * <p> 示例值：1
+     * 当安排类型为集中面试时，此值表示集中面试的安排状态。非集中面试该字段无含义。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("arrangement_status")
-    private Integer arrangementStatus;
+    this.arrangementStatus = builder.arrangementStatus;
     /**
      * 安排类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("arrangement_type")
-    private Integer arrangementType;
+    this.arrangementType = builder.arrangementType;
     /**
      * 安排方式（是否使用自助约面）
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("arrangement_appointment_kind")
-    private Integer arrangementAppointmentKind;
+    this.arrangementAppointmentKind = builder.arrangementAppointmentKind;
     /**
      * 面试会议室
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meeting_room_list")
-    private InterviewMeetingRoom[] meetingRoomList;
+    this.meetingRoomList = builder.meetingRoomList;
     /**
-     * 面试轮次类型
-     * <p> 示例值：
+     * 阶段信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("interview_round_type")
+    this.interviewRoundType = builder.interviewRoundType;
+  }
+
+  public static class Builder {
+    /**
+     * 面试
+     * ID，详情请查看：[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)
+     *
+     * <p>示例值：6949805467799537964
+     */
+    private String id;
+
+    /**
+     * 面试开始时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618899376474
+     */
+    private Long beginTime;
+
+    /**
+     * 面试结束时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618999376474
+     */
+    private Long endTime;
+
+    /**
+     * 面试轮次
+     *
+     * <p>示例值：0
+     */
+    private Integer round;
+
+    /**
+     * 面试评价信息
+     *
+     * <p>示例值：
+     */
+    private InterviewRecord[] interviewRecordList;
+
+    /**
+     * 面试评价提交时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1659318415000
+     */
+    private Long feedbackSubmitTime;
+
+    /**
+     * 面试关联的投递阶段，详情请查看：[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)
+     *
+     * <p>示例值：634324253532232
+     */
+    private String stageId;
+
+    /**
+     * 投递
+     * ID，详情参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/create)
+     *
+     * <p>示例值：634324253532232
+     */
+    private String applicationId;
+
+    /**
+     * 阶段信息
+     *
+     * <p>示例值：
+     */
+    private IdNameObject stage;
+
+    /**
+     * 阶段信息
+     *
+     * <p>示例值：
+     */
+    private IdNameObject creator;
+
+    /**
+     * 创建时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618999376474
+     */
+    private Long bizCreateTime;
+
+    /**
+     * 最近更新时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618999376474
+     */
+    private Long bizModifyTime;
+
+    /**
+     * 面试状态
+     *
+     * <p>示例值：1
+     */
+    private Integer interviewRoundSummary;
+
+    /**
+     * 面试安排 ID
+     *
+     * <p>示例值：1111111
+     */
+    private String interviewArrangementId;
+
+    /**
+     * 面试类型
+     *
+     * <p>示例值：1
+     */
+    private Integer interviewType;
+
+    /**
+     * 候选人时区
+     *
+     * <p>示例值：
+     */
+    private CodeNameObject talentTimeZone;
+
+    /**
+     * 阶段信息
+     *
+     * <p>示例值：
+     */
+    private IdNameObject contactUser;
+
+    /**
+     * 面试联系人电话
+     *
+     * <p>示例值：13333333333
+     */
+    private String contactMobile;
+
+    /**
+     * 备注
+     *
+     * <p>示例值：这是一个备注
+     */
+    private String remark;
+
+    /**
+     * 面试地址
+     *
+     * <p>示例值：
+     */
+    private InterviewAddress address;
+
+    /**
+     * 视频面试工具
+     *
+     * <p>示例值：1
+     */
+    private Integer videoType;
+
+    /**
+     * 当安排类型为集中面试时，此值表示集中面试的安排状态。非集中面试该字段无含义。
+     *
+     * <p>示例值：1
+     */
+    private Integer arrangementStatus;
+
+    /**
+     * 安排类型
+     *
+     * <p>示例值：1
+     */
+    private Integer arrangementType;
+
+    /**
+     * 安排方式（是否使用自助约面）
+     *
+     * <p>示例值：1
+     */
+    private Integer arrangementAppointmentKind;
+
+    /**
+     * 面试会议室
+     *
+     * <p>示例值：
+     */
+    private InterviewMeetingRoom[] meetingRoomList;
+
+    /**
+     * 阶段信息
+     *
+     * <p>示例值：
+     */
     private IdNameObject interviewRoundType;
 
-    // builder 开始
-    public InterviewExtend() {
+    /**
+     * 面试
+     * ID，详情请查看：[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public InterviewExtend(Builder builder) {
-        /**
-         * 面试 ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.id = builder.id;
-        /**
-         * 面试开始时间（ms）
-         * <p> 示例值：1618899376474
-         */
-        this.beginTime = builder.beginTime;
-        /**
-         * 面试结束时间（ms）
-         * <p> 示例值：1618999376474
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 面试轮次
-         * <p> 示例值：0
-         */
-        this.round = builder.round;
-        /**
-         * 面试记录信息
-         * <p> 示例值：
-         */
-        this.interviewRecordList = builder.interviewRecordList;
-        /**
-         * 面试评价提交时间
-         * <p> 示例值：1659318415000
-         */
-        this.feedbackSubmitTime = builder.feedbackSubmitTime;
-        /**
-         * 面试关联的投递阶段
-         * <p> 示例值：634324253532232
-         */
-        this.stageId = builder.stageId;
-        /**
-         * 投递 ID
-         * <p> 示例值：634324253532232
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 阶段信息
-         * <p> 示例值：
-         */
-        this.stage = builder.stage;
-        /**
-         * 创建人
-         * <p> 示例值：
-         */
-        this.creator = builder.creator;
-        /**
-         * 创建时间（ms）
-         * <p> 示例值：1618999376474
-         */
-        this.bizCreateTime = builder.bizCreateTime;
-        /**
-         * 最近更新时间（ms）
-         * <p> 示例值：1618999376474
-         */
-        this.bizModifyTime = builder.bizModifyTime;
-        /**
-         * 面试状态
-         * <p> 示例值：1
-         */
-        this.interviewRoundSummary = builder.interviewRoundSummary;
-        /**
-         * 面试安排 ID
-         * <p> 示例值：1111111
-         */
-        this.interviewArrangementId = builder.interviewArrangementId;
-        /**
-         * 面试类型
-         * <p> 示例值：1
-         */
-        this.interviewType = builder.interviewType;
-        /**
-         * 候选人时区
-         * <p> 示例值：
-         */
-        this.talentTimeZone = builder.talentTimeZone;
-        /**
-         * 面试联系人
-         * <p> 示例值：
-         */
-        this.contactUser = builder.contactUser;
-        /**
-         * 面试联系人电话
-         * <p> 示例值：13333333333
-         */
-        this.contactMobile = builder.contactMobile;
-        /**
-         * 备注
-         * <p> 示例值：test
-         */
-        this.remark = builder.remark;
-        /**
-         * 面试地点
-         * <p> 示例值：
-         */
-        this.address = builder.address;
-        /**
-         * 视频面试工具
-         * <p> 示例值：1
-         */
-        this.videoType = builder.videoType;
-        /**
-         * 当安排类型为集中面试时，此值表示集中面试的安排状态
-         * <p> 示例值：1
-         */
-        this.arrangementStatus = builder.arrangementStatus;
-        /**
-         * 安排类型
-         * <p> 示例值：1
-         */
-        this.arrangementType = builder.arrangementType;
-        /**
-         * 安排方式（是否使用自助约面）
-         * <p> 示例值：1
-         */
-        this.arrangementAppointmentKind = builder.arrangementAppointmentKind;
-        /**
-         * 面试会议室
-         * <p> 示例值：
-         */
-        this.meetingRoomList = builder.meetingRoomList;
-        /**
-         * 面试轮次类型
-         * <p> 示例值：
-         */
-        this.interviewRoundType = builder.interviewRoundType;
+    /**
+     * 面试开始时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618899376474
+     *
+     * @param beginTime
+     * @return
+     */
+    public Builder beginTime(Long beginTime) {
+      this.beginTime = beginTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 面试结束时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618999376474
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(Long endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 面试轮次
+     *
+     * <p>示例值：0
+     *
+     * @param round
+     * @return
+     */
+    public Builder round(Integer round) {
+      this.round = round;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 面试评价信息
+     *
+     * <p>示例值：
+     *
+     * @param interviewRecordList
+     * @return
+     */
+    public Builder interviewRecordList(InterviewRecord[] interviewRecordList) {
+      this.interviewRecordList = interviewRecordList;
+      return this;
     }
 
-    public Long getBeginTime() {
-        return this.beginTime;
+    /**
+     * 面试评价提交时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1659318415000
+     *
+     * @param feedbackSubmitTime
+     * @return
+     */
+    public Builder feedbackSubmitTime(Long feedbackSubmitTime) {
+      this.feedbackSubmitTime = feedbackSubmitTime;
+      return this;
     }
 
-    public void setBeginTime(Long beginTime) {
-        this.beginTime = beginTime;
+    /**
+     * 面试关联的投递阶段，详情请查看：[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)
+     *
+     * <p>示例值：634324253532232
+     *
+     * @param stageId
+     * @return
+     */
+    public Builder stageId(String stageId) {
+      this.stageId = stageId;
+      return this;
     }
 
-    public Long getEndTime() {
-        return this.endTime;
+    /**
+     * 投递
+     * ID，详情参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/create)
+     *
+     * <p>示例值：634324253532232
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public void setEndTime(Long endTime) {
-        this.endTime = endTime;
+    /**
+     * 阶段信息
+     *
+     * <p>示例值：
+     *
+     * @param stage
+     * @return
+     */
+    public Builder stage(IdNameObject stage) {
+      this.stage = stage;
+      return this;
     }
 
-    public Integer getRound() {
-        return this.round;
+    /**
+     * 阶段信息
+     *
+     * <p>示例值：
+     *
+     * @param creator
+     * @return
+     */
+    public Builder creator(IdNameObject creator) {
+      this.creator = creator;
+      return this;
     }
 
-    public void setRound(Integer round) {
-        this.round = round;
+    /**
+     * 创建时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618999376474
+     *
+     * @param bizCreateTime
+     * @return
+     */
+    public Builder bizCreateTime(Long bizCreateTime) {
+      this.bizCreateTime = bizCreateTime;
+      return this;
     }
 
-    public InterviewRecord[] getInterviewRecordList() {
-        return this.interviewRecordList;
+    /**
+     * 最近更新时间，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1618999376474
+     *
+     * @param bizModifyTime
+     * @return
+     */
+    public Builder bizModifyTime(Long bizModifyTime) {
+      this.bizModifyTime = bizModifyTime;
+      return this;
     }
 
-    public void setInterviewRecordList(InterviewRecord[] interviewRecordList) {
-        this.interviewRecordList = interviewRecordList;
+    /**
+     * 面试状态
+     *
+     * <p>示例值：1
+     *
+     * @param interviewRoundSummary
+     * @return
+     */
+    public Builder interviewRoundSummary(Integer interviewRoundSummary) {
+      this.interviewRoundSummary = interviewRoundSummary;
+      return this;
     }
 
-    public Long getFeedbackSubmitTime() {
-        return this.feedbackSubmitTime;
+    /**
+     * 面试安排 ID
+     *
+     * <p>示例值：1111111
+     *
+     * @param interviewArrangementId
+     * @return
+     */
+    public Builder interviewArrangementId(String interviewArrangementId) {
+      this.interviewArrangementId = interviewArrangementId;
+      return this;
     }
 
-    public void setFeedbackSubmitTime(Long feedbackSubmitTime) {
-        this.feedbackSubmitTime = feedbackSubmitTime;
+    /**
+     * 面试类型
+     *
+     * <p>示例值：1
+     *
+     * @param interviewType
+     * @return
+     */
+    public Builder interviewType(Integer interviewType) {
+      this.interviewType = interviewType;
+      return this;
     }
 
-    public String getStageId() {
-        return this.stageId;
+    /**
+     * 候选人时区
+     *
+     * <p>示例值：
+     *
+     * @param talentTimeZone
+     * @return
+     */
+    public Builder talentTimeZone(CodeNameObject talentTimeZone) {
+      this.talentTimeZone = talentTimeZone;
+      return this;
     }
 
-    public void setStageId(String stageId) {
-        this.stageId = stageId;
+    /**
+     * 阶段信息
+     *
+     * <p>示例值：
+     *
+     * @param contactUser
+     * @return
+     */
+    public Builder contactUser(IdNameObject contactUser) {
+      this.contactUser = contactUser;
+      return this;
     }
 
-    public String getApplicationId() {
-        return this.applicationId;
+    /**
+     * 面试联系人电话
+     *
+     * <p>示例值：13333333333
+     *
+     * @param contactMobile
+     * @return
+     */
+    public Builder contactMobile(String contactMobile) {
+      this.contactMobile = contactMobile;
+      return this;
     }
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
+    /**
+     * 备注
+     *
+     * <p>示例值：这是一个备注
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(String remark) {
+      this.remark = remark;
+      return this;
     }
 
-    public IdNameObject getStage() {
-        return this.stage;
+    /**
+     * 面试地址
+     *
+     * <p>示例值：
+     *
+     * @param address
+     * @return
+     */
+    public Builder address(InterviewAddress address) {
+      this.address = address;
+      return this;
     }
 
-    public void setStage(IdNameObject stage) {
-        this.stage = stage;
+    /**
+     * 视频面试工具
+     *
+     * <p>示例值：1
+     *
+     * @param videoType
+     * @return
+     */
+    public Builder videoType(Integer videoType) {
+      this.videoType = videoType;
+      return this;
     }
 
-    public IdNameObject getCreator() {
-        return this.creator;
+    /**
+     * 当安排类型为集中面试时，此值表示集中面试的安排状态。非集中面试该字段无含义。
+     *
+     * <p>示例值：1
+     *
+     * @param arrangementStatus
+     * @return
+     */
+    public Builder arrangementStatus(Integer arrangementStatus) {
+      this.arrangementStatus = arrangementStatus;
+      return this;
     }
 
-    public void setCreator(IdNameObject creator) {
-        this.creator = creator;
+    /**
+     * 安排类型
+     *
+     * <p>示例值：1
+     *
+     * @param arrangementType
+     * @return
+     */
+    public Builder arrangementType(Integer arrangementType) {
+      this.arrangementType = arrangementType;
+      return this;
     }
 
-    public Long getBizCreateTime() {
-        return this.bizCreateTime;
+    /**
+     * 安排方式（是否使用自助约面）
+     *
+     * <p>示例值：1
+     *
+     * @param arrangementAppointmentKind
+     * @return
+     */
+    public Builder arrangementAppointmentKind(Integer arrangementAppointmentKind) {
+      this.arrangementAppointmentKind = arrangementAppointmentKind;
+      return this;
     }
 
-    public void setBizCreateTime(Long bizCreateTime) {
-        this.bizCreateTime = bizCreateTime;
+    /**
+     * 面试会议室
+     *
+     * <p>示例值：
+     *
+     * @param meetingRoomList
+     * @return
+     */
+    public Builder meetingRoomList(InterviewMeetingRoom[] meetingRoomList) {
+      this.meetingRoomList = meetingRoomList;
+      return this;
     }
 
-    public Long getBizModifyTime() {
-        return this.bizModifyTime;
+    /**
+     * 阶段信息
+     *
+     * <p>示例值：
+     *
+     * @param interviewRoundType
+     * @return
+     */
+    public Builder interviewRoundType(IdNameObject interviewRoundType) {
+      this.interviewRoundType = interviewRoundType;
+      return this;
     }
 
-    public void setBizModifyTime(Long bizModifyTime) {
-        this.bizModifyTime = bizModifyTime;
+    public InterviewExtend build() {
+      return new InterviewExtend(this);
     }
-
-    public Integer getInterviewRoundSummary() {
-        return this.interviewRoundSummary;
-    }
-
-    public void setInterviewRoundSummary(Integer interviewRoundSummary) {
-        this.interviewRoundSummary = interviewRoundSummary;
-    }
-
-    public String getInterviewArrangementId() {
-        return this.interviewArrangementId;
-    }
-
-    public void setInterviewArrangementId(String interviewArrangementId) {
-        this.interviewArrangementId = interviewArrangementId;
-    }
-
-    public Integer getInterviewType() {
-        return this.interviewType;
-    }
-
-    public void setInterviewType(Integer interviewType) {
-        this.interviewType = interviewType;
-    }
-
-    public CodeNameObject getTalentTimeZone() {
-        return this.talentTimeZone;
-    }
-
-    public void setTalentTimeZone(CodeNameObject talentTimeZone) {
-        this.talentTimeZone = talentTimeZone;
-    }
-
-    public IdNameObject getContactUser() {
-        return this.contactUser;
-    }
-
-    public void setContactUser(IdNameObject contactUser) {
-        this.contactUser = contactUser;
-    }
-
-    public String getContactMobile() {
-        return this.contactMobile;
-    }
-
-    public void setContactMobile(String contactMobile) {
-        this.contactMobile = contactMobile;
-    }
-
-    public String getRemark() {
-        return this.remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public InterviewAddress getAddress() {
-        return this.address;
-    }
-
-    public void setAddress(InterviewAddress address) {
-        this.address = address;
-    }
-
-    public Integer getVideoType() {
-        return this.videoType;
-    }
-
-    public void setVideoType(Integer videoType) {
-        this.videoType = videoType;
-    }
-
-    public Integer getArrangementStatus() {
-        return this.arrangementStatus;
-    }
-
-    public void setArrangementStatus(Integer arrangementStatus) {
-        this.arrangementStatus = arrangementStatus;
-    }
-
-    public Integer getArrangementType() {
-        return this.arrangementType;
-    }
-
-    public void setArrangementType(Integer arrangementType) {
-        this.arrangementType = arrangementType;
-    }
-
-    public Integer getArrangementAppointmentKind() {
-        return this.arrangementAppointmentKind;
-    }
-
-    public void setArrangementAppointmentKind(Integer arrangementAppointmentKind) {
-        this.arrangementAppointmentKind = arrangementAppointmentKind;
-    }
-
-    public InterviewMeetingRoom[] getMeetingRoomList() {
-        return this.meetingRoomList;
-    }
-
-    public void setMeetingRoomList(InterviewMeetingRoom[] meetingRoomList) {
-        this.meetingRoomList = meetingRoomList;
-    }
-
-    public IdNameObject getInterviewRoundType() {
-        return this.interviewRoundType;
-    }
-
-    public void setInterviewRoundType(IdNameObject interviewRoundType) {
-        this.interviewRoundType = interviewRoundType;
-    }
-
-    public static class Builder {
-        /**
-         * 面试 ID
-         * <p> 示例值：6949805467799537964
-         */
-        private String id;
-        /**
-         * 面试开始时间（ms）
-         * <p> 示例值：1618899376474
-         */
-        private Long beginTime;
-        /**
-         * 面试结束时间（ms）
-         * <p> 示例值：1618999376474
-         */
-        private Long endTime;
-        /**
-         * 面试轮次
-         * <p> 示例值：0
-         */
-        private Integer round;
-        /**
-         * 面试记录信息
-         * <p> 示例值：
-         */
-        private InterviewRecord[] interviewRecordList;
-        /**
-         * 面试评价提交时间
-         * <p> 示例值：1659318415000
-         */
-        private Long feedbackSubmitTime;
-        /**
-         * 面试关联的投递阶段
-         * <p> 示例值：634324253532232
-         */
-        private String stageId;
-        /**
-         * 投递 ID
-         * <p> 示例值：634324253532232
-         */
-        private String applicationId;
-        /**
-         * 阶段信息
-         * <p> 示例值：
-         */
-        private IdNameObject stage;
-        /**
-         * 创建人
-         * <p> 示例值：
-         */
-        private IdNameObject creator;
-        /**
-         * 创建时间（ms）
-         * <p> 示例值：1618999376474
-         */
-        private Long bizCreateTime;
-        /**
-         * 最近更新时间（ms）
-         * <p> 示例值：1618999376474
-         */
-        private Long bizModifyTime;
-        /**
-         * 面试状态
-         * <p> 示例值：1
-         */
-        private Integer interviewRoundSummary;
-        /**
-         * 面试安排 ID
-         * <p> 示例值：1111111
-         */
-        private String interviewArrangementId;
-        /**
-         * 面试类型
-         * <p> 示例值：1
-         */
-        private Integer interviewType;
-        /**
-         * 候选人时区
-         * <p> 示例值：
-         */
-        private CodeNameObject talentTimeZone;
-        /**
-         * 面试联系人
-         * <p> 示例值：
-         */
-        private IdNameObject contactUser;
-        /**
-         * 面试联系人电话
-         * <p> 示例值：13333333333
-         */
-        private String contactMobile;
-        /**
-         * 备注
-         * <p> 示例值：test
-         */
-        private String remark;
-        /**
-         * 面试地点
-         * <p> 示例值：
-         */
-        private InterviewAddress address;
-        /**
-         * 视频面试工具
-         * <p> 示例值：1
-         */
-        private Integer videoType;
-        /**
-         * 当安排类型为集中面试时，此值表示集中面试的安排状态
-         * <p> 示例值：1
-         */
-        private Integer arrangementStatus;
-        /**
-         * 安排类型
-         * <p> 示例值：1
-         */
-        private Integer arrangementType;
-        /**
-         * 安排方式（是否使用自助约面）
-         * <p> 示例值：1
-         */
-        private Integer arrangementAppointmentKind;
-        /**
-         * 面试会议室
-         * <p> 示例值：
-         */
-        private InterviewMeetingRoom[] meetingRoomList;
-        /**
-         * 面试轮次类型
-         * <p> 示例值：
-         */
-        private IdNameObject interviewRoundType;
-
-        /**
-         * 面试 ID
-         * <p> 示例值：6949805467799537964
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 面试开始时间（ms）
-         * <p> 示例值：1618899376474
-         *
-         * @param beginTime
-         * @return
-         */
-        public Builder beginTime(Long beginTime) {
-            this.beginTime = beginTime;
-            return this;
-        }
-
-
-        /**
-         * 面试结束时间（ms）
-         * <p> 示例值：1618999376474
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(Long endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 面试轮次
-         * <p> 示例值：0
-         *
-         * @param round
-         * @return
-         */
-        public Builder round(Integer round) {
-            this.round = round;
-            return this;
-        }
-
-
-        /**
-         * 面试记录信息
-         * <p> 示例值：
-         *
-         * @param interviewRecordList
-         * @return
-         */
-        public Builder interviewRecordList(InterviewRecord[] interviewRecordList) {
-            this.interviewRecordList = interviewRecordList;
-            return this;
-        }
-
-
-        /**
-         * 面试评价提交时间
-         * <p> 示例值：1659318415000
-         *
-         * @param feedbackSubmitTime
-         * @return
-         */
-        public Builder feedbackSubmitTime(Long feedbackSubmitTime) {
-            this.feedbackSubmitTime = feedbackSubmitTime;
-            return this;
-        }
-
-
-        /**
-         * 面试关联的投递阶段
-         * <p> 示例值：634324253532232
-         *
-         * @param stageId
-         * @return
-         */
-        public Builder stageId(String stageId) {
-            this.stageId = stageId;
-            return this;
-        }
-
-
-        /**
-         * 投递 ID
-         * <p> 示例值：634324253532232
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * 阶段信息
-         * <p> 示例值：
-         *
-         * @param stage
-         * @return
-         */
-        public Builder stage(IdNameObject stage) {
-            this.stage = stage;
-            return this;
-        }
-
-
-        /**
-         * 创建人
-         * <p> 示例值：
-         *
-         * @param creator
-         * @return
-         */
-        public Builder creator(IdNameObject creator) {
-            this.creator = creator;
-            return this;
-        }
-
-
-        /**
-         * 创建时间（ms）
-         * <p> 示例值：1618999376474
-         *
-         * @param bizCreateTime
-         * @return
-         */
-        public Builder bizCreateTime(Long bizCreateTime) {
-            this.bizCreateTime = bizCreateTime;
-            return this;
-        }
-
-
-        /**
-         * 最近更新时间（ms）
-         * <p> 示例值：1618999376474
-         *
-         * @param bizModifyTime
-         * @return
-         */
-        public Builder bizModifyTime(Long bizModifyTime) {
-            this.bizModifyTime = bizModifyTime;
-            return this;
-        }
-
-
-        /**
-         * 面试状态
-         * <p> 示例值：1
-         *
-         * @param interviewRoundSummary
-         * @return
-         */
-        public Builder interviewRoundSummary(Integer interviewRoundSummary) {
-            this.interviewRoundSummary = interviewRoundSummary;
-            return this;
-        }
-
-
-        /**
-         * 面试安排 ID
-         * <p> 示例值：1111111
-         *
-         * @param interviewArrangementId
-         * @return
-         */
-        public Builder interviewArrangementId(String interviewArrangementId) {
-            this.interviewArrangementId = interviewArrangementId;
-            return this;
-        }
-
-
-        /**
-         * 面试类型
-         * <p> 示例值：1
-         *
-         * @param interviewType
-         * @return
-         */
-        public Builder interviewType(Integer interviewType) {
-            this.interviewType = interviewType;
-            return this;
-        }
-
-
-        /**
-         * 候选人时区
-         * <p> 示例值：
-         *
-         * @param talentTimeZone
-         * @return
-         */
-        public Builder talentTimeZone(CodeNameObject talentTimeZone) {
-            this.talentTimeZone = talentTimeZone;
-            return this;
-        }
-
-
-        /**
-         * 面试联系人
-         * <p> 示例值：
-         *
-         * @param contactUser
-         * @return
-         */
-        public Builder contactUser(IdNameObject contactUser) {
-            this.contactUser = contactUser;
-            return this;
-        }
-
-
-        /**
-         * 面试联系人电话
-         * <p> 示例值：13333333333
-         *
-         * @param contactMobile
-         * @return
-         */
-        public Builder contactMobile(String contactMobile) {
-            this.contactMobile = contactMobile;
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：test
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        /**
-         * 面试地点
-         * <p> 示例值：
-         *
-         * @param address
-         * @return
-         */
-        public Builder address(InterviewAddress address) {
-            this.address = address;
-            return this;
-        }
-
-
-        /**
-         * 视频面试工具
-         * <p> 示例值：1
-         *
-         * @param videoType
-         * @return
-         */
-        public Builder videoType(Integer videoType) {
-            this.videoType = videoType;
-            return this;
-        }
-
-
-        /**
-         * 当安排类型为集中面试时，此值表示集中面试的安排状态
-         * <p> 示例值：1
-         *
-         * @param arrangementStatus
-         * @return
-         */
-        public Builder arrangementStatus(Integer arrangementStatus) {
-            this.arrangementStatus = arrangementStatus;
-            return this;
-        }
-
-
-        /**
-         * 安排类型
-         * <p> 示例值：1
-         *
-         * @param arrangementType
-         * @return
-         */
-        public Builder arrangementType(Integer arrangementType) {
-            this.arrangementType = arrangementType;
-            return this;
-        }
-
-
-        /**
-         * 安排方式（是否使用自助约面）
-         * <p> 示例值：1
-         *
-         * @param arrangementAppointmentKind
-         * @return
-         */
-        public Builder arrangementAppointmentKind(Integer arrangementAppointmentKind) {
-            this.arrangementAppointmentKind = arrangementAppointmentKind;
-            return this;
-        }
-
-
-        /**
-         * 面试会议室
-         * <p> 示例值：
-         *
-         * @param meetingRoomList
-         * @return
-         */
-        public Builder meetingRoomList(InterviewMeetingRoom[] meetingRoomList) {
-            this.meetingRoomList = meetingRoomList;
-            return this;
-        }
-
-
-        /**
-         * 面试轮次类型
-         * <p> 示例值：
-         *
-         * @param interviewRoundType
-         * @return
-         */
-        public Builder interviewRoundType(IdNameObject interviewRoundType) {
-            this.interviewRoundType = interviewRoundType;
-            return this;
-        }
-
-
-        public InterviewExtend build() {
-            return new InterviewExtend(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

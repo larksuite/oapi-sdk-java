@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorkforcePlanDetailReq {
+  /**
+   * 编制规划id，可在「设置-编制规划设置-编制规划XXX-页面URL」中解析到。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("workforce_plan_id")
+  private String workforcePlanId;
+
+  /**
+   * 编制规划的明细行数量应介于 1 至 5 个之间。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private WorkforcePlanDetailRow[] items;
+
+  public String getWorkforcePlanId() {
+    return this.workforcePlanId;
+  }
+
+  public void setWorkforcePlanId(String workforcePlanId) {
+    this.workforcePlanId = workforcePlanId;
+  }
+
+  public WorkforcePlanDetailRow[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(WorkforcePlanDetailRow[] items) {
+    this.items = items;
+  }
+
+  // builder 开始
+  public WorkforcePlanDetailReq() {}
+
+  public WorkforcePlanDetailReq(Builder builder) {
     /**
-     * 编制规划id
-     * <p> 示例值：7430330781544564268
+     * 编制规划id，可在「设置-编制规划设置-编制规划XXX-页面URL」中解析到。
+     *
+     * <p>示例值：
      */
-    @SerializedName("workforce_plan_id")
+    this.workforcePlanId = builder.workforcePlanId;
+    /**
+     * 编制规划的明细行数量应介于 1 至 5 个之间。
+     *
+     * <p>示例值：
+     */
+    this.items = builder.items;
+  }
+
+  public static class Builder {
+    /**
+     * 编制规划id，可在「设置-编制规划设置-编制规划XXX-页面URL」中解析到。
+     *
+     * <p>示例值：
+     */
     private String workforcePlanId;
+
     /**
-     * 编制规划的多个明细行
-     * <p> 示例值：
+     * 编制规划的明细行数量应介于 1 至 5 个之间。
+     *
+     * <p>示例值：
      */
-    @SerializedName("items")
     private WorkforcePlanDetailRow[] items;
 
-    // builder 开始
-    public WorkforcePlanDetailReq() {
+    /**
+     * 编制规划id，可在「设置-编制规划设置-编制规划XXX-页面URL」中解析到。
+     *
+     * <p>示例值：
+     *
+     * @param workforcePlanId
+     * @return
+     */
+    public Builder workforcePlanId(String workforcePlanId) {
+      this.workforcePlanId = workforcePlanId;
+      return this;
     }
 
-    public WorkforcePlanDetailReq(Builder builder) {
-        /**
-         * 编制规划id
-         * <p> 示例值：7430330781544564268
-         */
-        this.workforcePlanId = builder.workforcePlanId;
-        /**
-         * 编制规划的多个明细行
-         * <p> 示例值：
-         */
-        this.items = builder.items;
+    /**
+     * 编制规划的明细行数量应介于 1 至 5 个之间。
+     *
+     * <p>示例值：
+     *
+     * @param items
+     * @return
+     */
+    public Builder items(WorkforcePlanDetailRow[] items) {
+      this.items = items;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public WorkforcePlanDetailReq build() {
+      return new WorkforcePlanDetailReq(this);
     }
+  }
 
-    public String getWorkforcePlanId() {
-        return this.workforcePlanId;
-    }
-
-    public void setWorkforcePlanId(String workforcePlanId) {
-        this.workforcePlanId = workforcePlanId;
-    }
-
-    public WorkforcePlanDetailRow[] getItems() {
-        return this.items;
-    }
-
-    public void setItems(WorkforcePlanDetailRow[] items) {
-        this.items = items;
-    }
-
-    public static class Builder {
-        /**
-         * 编制规划id
-         * <p> 示例值：7430330781544564268
-         */
-        private String workforcePlanId;
-        /**
-         * 编制规划的多个明细行
-         * <p> 示例值：
-         */
-        private WorkforcePlanDetailRow[] items;
-
-        /**
-         * 编制规划id
-         * <p> 示例值：7430330781544564268
-         *
-         * @param workforcePlanId
-         * @return
-         */
-        public Builder workforcePlanId(String workforcePlanId) {
-            this.workforcePlanId = workforcePlanId;
-            return this;
-        }
-
-
-        /**
-         * 编制规划的多个明细行
-         * <p> 示例值：
-         *
-         * @param items
-         * @return
-         */
-        public Builder items(WorkforcePlanDetailRow[] items) {
-            this.items = items;
-            return this;
-        }
-
-
-        public WorkforcePlanDetailReq build() {
-            return new WorkforcePlanDetailReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

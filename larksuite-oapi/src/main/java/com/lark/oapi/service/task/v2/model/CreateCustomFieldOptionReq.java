@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class CreateCustomFieldOptionReq {
+  /**
+   * 要添加选项的自定义字段GUID，该字段必须是
+   *
+   * <p>示例值：b13adf3c-cad6-4e02-8929-550c112b5633
+   */
+  @Path
+  @SerializedName("custom_field_guid")
+  private String customFieldGuid;
+
+  public String getCustomFieldGuid() {
+    return this.customFieldGuid;
+  }
+
+  public void setCustomFieldGuid(String customFieldGuid) {
+    this.customFieldGuid = customFieldGuid;
+  }
+
+  @Body private InputOption body;
+
+  public InputOption getInputOption() {
+    return this.body;
+  }
+
+  public void setInputOption(InputOption body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateCustomFieldOptionReq() {}
+
+  public CreateCustomFieldOptionReq(Builder builder) {
     /**
      * 要添加选项的自定义字段GUID，该字段必须是
-     * <p> 示例值：b13adf3c-cad6-4e02-8929-550c112b5633
+     *
+     * <p>示例值：b13adf3c-cad6-4e02-8929-550c112b5633
      */
-    @Path
-    @SerializedName("custom_field_guid")
-    private String customFieldGuid;
-    @Body
+    this.customFieldGuid = builder.customFieldGuid;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String customFieldGuid; // 要添加选项的自定义字段GUID，该字段必须是
+
+    /**
+     * 要添加选项的自定义字段GUID，该字段必须是
+     *
+     * <p>示例值：b13adf3c-cad6-4e02-8929-550c112b5633
+     *
+     * @param customFieldGuid
+     * @return
+     */
+    public Builder customFieldGuid(String customFieldGuid) {
+      this.customFieldGuid = customFieldGuid;
+      return this;
+    }
+
     private InputOption body;
 
-    // builder 开始
-    public CreateCustomFieldOptionReq() {
-    }
-
-    public CreateCustomFieldOptionReq(Builder builder) {
-        /**
-         * 要添加选项的自定义字段GUID，该字段必须是
-         * <p> 示例值：b13adf3c-cad6-4e02-8929-550c112b5633
-         */
-        this.customFieldGuid = builder.customFieldGuid;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getCustomFieldGuid() {
-        return this.customFieldGuid;
-    }
-
-    public void setCustomFieldGuid(String customFieldGuid) {
-        this.customFieldGuid = customFieldGuid;
-    }
-
     public InputOption getInputOption() {
-        return this.body;
+      return this.body;
     }
 
-    public void setInputOption(InputOption body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder inputOption(InputOption body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String customFieldGuid; // 要添加选项的自定义字段GUID，该字段必须是
-        private InputOption body;
-
-        /**
-         * 要添加选项的自定义字段GUID，该字段必须是
-         * <p> 示例值：b13adf3c-cad6-4e02-8929-550c112b5633
-         *
-         * @param customFieldGuid
-         * @return
-         */
-        public Builder customFieldGuid(String customFieldGuid) {
-            this.customFieldGuid = customFieldGuid;
-            return this;
-        }
-
-        public InputOption getInputOption() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder inputOption(InputOption body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateCustomFieldOptionReq build() {
-            return new CreateCustomFieldOptionReq(this);
-        }
+    public CreateCustomFieldOptionReq build() {
+      return new CreateCustomFieldOptionReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

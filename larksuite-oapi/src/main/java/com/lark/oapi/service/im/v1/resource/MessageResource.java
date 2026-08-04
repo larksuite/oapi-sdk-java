@@ -13,126 +13,154 @@
 
 package com.lark.oapi.service.im.v1.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.im.v1.model.*;
+import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.im.v1.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class MessageResource {
-    private static final Logger log = LoggerFactory.getLogger(MessageResource.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(MessageResource.class);
+  private final Config config;
 
-    public MessageResource(Config config) {
-        this.config = config;
+  public MessageResource(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 获取消息中的资源文件，获取指定消息内包含的资源文件，包括音频、视频、图片和文件。成功调用后，返回二进制文件流下载文件。
+   *
+   * <p>## 前提条件; ;-
+   * 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。;-
+   * 机器人和待操作的消息需要在同一会话内。;;## 使用限制;- 仅支持下载 100 MB 以内的资源文件。;- 暂不支持获取表情包资源。;-
+   * 暂不支持获取合并转发消息中的子消息、卡片消息中的资源文件。如果请求时传入了合并转发消息或子消息的 ID、卡片消息 ID，则会返回错误码 234043。;-
+   * 不支持在当前接口内调整文件格式，你可以获取资源文件后，在本地自行调整。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=message.resource&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=message.resource&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetMessageResourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetMessageResourceSample.java</a>
+   * ;
+   */
+  public GetMessageResourceResp get(GetMessageResourceReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+    reqOptions.setSupportDownLoad(true);
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/im/v1/messages/:message_id/resources/:file_key",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
+
+    if (httpResponse.getStatusCode() == 200) {
+      GetMessageResourceResp resp = new GetMessageResourceResp();
+      resp.setRawResponse(httpResponse);
+      ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+      outputStream.write(httpResponse.getBody());
+      resp.setData(outputStream);
+      resp.setFileName(httpResponse.getFileName());
+      return resp;
+    }
+    // 反序列化
+    GetMessageResourceResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, GetMessageResourceResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/im/v1/messages/:message_id/resources/:file_key",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-    /**
-     * 获取消息中的资源文件，获取消息中的资源文件，包括音频，视频，图片和文件，**暂不支持表情包资源下载**。当前仅支持 100M 以内的资源文件的下载。
-     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability);- 机器人和消息需要在同一会话中;- 暂不支持获取合并转发消息中的子消息的资源文件 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetMessageResourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetMessageResourceSample.java</a> ;
-     */
-    public GetMessageResourceResp get(GetMessageResourceReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-        reqOptions.setSupportDownLoad(true);
+    return resp;
+  }
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/im/v1/messages/:message_id/resources/:file_key"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+  /**
+   * 获取消息中的资源文件，获取指定消息内包含的资源文件，包括音频、视频、图片和文件。成功调用后，返回二进制文件流下载文件。
+   *
+   * <p>## 前提条件; ;-
+   * 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。;-
+   * 机器人和待操作的消息需要在同一会话内。;;## 使用限制;- 仅支持下载 100 MB 以内的资源文件。;- 暂不支持获取表情包资源。;-
+   * 暂不支持获取合并转发消息中的子消息、卡片消息中的资源文件。如果请求时传入了合并转发消息或子消息的 ID、卡片消息 ID，则会返回错误码 234043。;-
+   * 不支持在当前接口内调整文件格式，你可以获取资源文件后，在本地自行调整。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=message.resource&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=message.resource&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetMessageResourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetMessageResourceSample.java</a>
+   * ;
+   */
+  public GetMessageResourceResp get(GetMessageResourceReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+    reqOptions.setSupportDownLoad(true);
 
-        if (httpResponse.getStatusCode() == 200) {
-            GetMessageResourceResp resp = new GetMessageResourceResp();
-            resp.setRawResponse(httpResponse);
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            outputStream.write(httpResponse.getBody());
-            resp.setData(outputStream);
-            resp.setFileName(httpResponse.getFileName());
-            return resp;
-        }
-        // 反序列化
-        GetMessageResourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMessageResourceResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/messages/:message_id/resources/:file_key"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/im/v1/messages/:message_id/resources/:file_key",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 下载请求，返回流
+    if (httpResponse.getStatusCode() == 200) {
+      GetMessageResourceResp resp = new GetMessageResourceResp();
+      resp.setRawResponse(httpResponse);
+      ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+      outputStream.write(httpResponse.getBody());
+      resp.setData(outputStream);
+      resp.setFileName(httpResponse.getFileName());
+      return resp;
+    }
+    // 反序列化
+    GetMessageResourceResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, GetMessageResourceResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/im/v1/messages/:message_id/resources/:file_key",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 获取消息中的资源文件，获取消息中的资源文件，包括音频，视频，图片和文件，**暂不支持表情包资源下载**。当前仅支持 100M 以内的资源文件的下载。
-     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability);- 机器人和消息需要在同一会话中;- 暂不支持获取合并转发消息中的子消息的资源文件 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetMessageResourceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetMessageResourceSample.java</a> ;
-     */
-    public GetMessageResourceResp get(GetMessageResourceReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
-        reqOptions.setSupportDownLoad(true);
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/im/v1/messages/:message_id/resources/:file_key"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
-
-        // 下载请求，返回流
-        if (httpResponse.getStatusCode() == 200) {
-            GetMessageResourceResp resp = new GetMessageResourceResp();
-            resp.setRawResponse(httpResponse);
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            outputStream.write(httpResponse.getBody());
-            resp.setData(outputStream);
-            resp.setFileName(httpResponse.getFileName());
-            return resp;
-        }
-        // 反序列化
-        GetMessageResourceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMessageResourceResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/messages/:message_id/resources/:file_key"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
-    }
+    return resp;
+  }
 }

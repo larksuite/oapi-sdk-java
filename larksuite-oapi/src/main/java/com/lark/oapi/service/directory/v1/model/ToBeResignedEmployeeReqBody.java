@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ToBeResignedEmployeeReqBody {
+  /**
+   * 在职员工流转到待离职
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee")
+  private SetEmployeePreResigned employee;
+
+  public SetEmployeePreResigned getEmployee() {
+    return this.employee;
+  }
+
+  public void setEmployee(SetEmployeePreResigned employee) {
+    this.employee = employee;
+  }
+
+  // builder 开始
+  public ToBeResignedEmployeeReqBody() {}
+
+  public ToBeResignedEmployeeReqBody(Builder builder) {
     /**
      * 在职员工流转到待离职
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee")
+    this.employee = builder.employee;
+  }
+
+  public static class Builder {
+    /**
+     * 在职员工流转到待离职
+     *
+     * <p>示例值：
+     */
     private SetEmployeePreResigned employee;
 
-    // builder 开始
-    public ToBeResignedEmployeeReqBody() {
+    /**
+     * 在职员工流转到待离职
+     *
+     * <p>示例值：
+     *
+     * @param employee
+     * @return
+     */
+    public Builder employee(SetEmployeePreResigned employee) {
+      this.employee = employee;
+      return this;
     }
 
-    public ToBeResignedEmployeeReqBody(Builder builder) {
-        /**
-         * 在职员工流转到待离职
-         * <p> 示例值：
-         */
-        this.employee = builder.employee;
+    public ToBeResignedEmployeeReqBody build() {
+      return new ToBeResignedEmployeeReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public SetEmployeePreResigned getEmployee() {
-        return this.employee;
-    }
-
-    public void setEmployee(SetEmployeePreResigned employee) {
-        this.employee = employee;
-    }
-
-    public static class Builder {
-        /**
-         * 在职员工流转到待离职
-         * <p> 示例值：
-         */
-        private SetEmployeePreResigned employee;
-
-        /**
-         * 在职员工流转到待离职
-         * <p> 示例值：
-         *
-         * @param employee
-         * @return
-         */
-        public Builder employee(SetEmployeePreResigned employee) {
-            this.employee = employee;
-            return this;
-        }
-
-
-        public ToBeResignedEmployeeReqBody build() {
-            return new ToBeResignedEmployeeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

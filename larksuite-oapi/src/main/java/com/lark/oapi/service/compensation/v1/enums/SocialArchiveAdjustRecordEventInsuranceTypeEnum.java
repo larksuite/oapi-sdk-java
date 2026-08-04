@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 参保类型。social_insurance社保、provident_fund公积金
- */
+/** 参保类型 */
 public enum SocialArchiveAdjustRecordEventInsuranceTypeEnum {
-    SOCIAL_INSURANCE("social_insurance"), // 社保
-    PROVIDENT_FUND("provident_fund"), // 公积金
-    ;
-    private String value;
+  SOCIAL_INSURANCE("social_insurance"), // 社保
+  PROVIDENT_FUND("provident_fund"), // 公积金
+  ;
+  private String value;
 
-    SocialArchiveAdjustRecordEventInsuranceTypeEnum(String value) {
-        this.value = value;
-    }
+  SocialArchiveAdjustRecordEventInsuranceTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

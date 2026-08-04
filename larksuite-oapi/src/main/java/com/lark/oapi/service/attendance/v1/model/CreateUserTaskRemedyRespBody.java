@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateUserTaskRemedyRespBody {
-    /**
-     * 补卡审批信息
-     * <p> 示例值：
-     */
-    @SerializedName("user_remedy")
-    private UserTaskRemedy userRemedy;
+  /**
+   * 补卡审批信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_remedy")
+  private UserTaskRemedy userRemedy;
 
-    public UserTaskRemedy getUserRemedy() {
-        return this.userRemedy;
-    }
+  public UserTaskRemedy getUserRemedy() {
+    return this.userRemedy;
+  }
 
-    public void setUserRemedy(UserTaskRemedy userRemedy) {
-        this.userRemedy = userRemedy;
-    }
-
+  public void setUserRemedy(UserTaskRemedy userRemedy) {
+    this.userRemedy = userRemedy;
+  }
 }

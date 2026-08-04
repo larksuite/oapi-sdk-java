@@ -13,136 +13,137 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PreviewResultItem {
+  /**
+   * 预览类型
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("preview_type")
+  private Integer previewType;
+
+  /**
+   * 预览状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("preview_status")
+  private Integer previewStatus;
+
+  public Integer getPreviewType() {
+    return this.previewType;
+  }
+
+  public void setPreviewType(Integer previewType) {
+    this.previewType = previewType;
+  }
+
+  public Integer getPreviewStatus() {
+    return this.previewStatus;
+  }
+
+  public void setPreviewStatus(Integer previewStatus) {
+    this.previewStatus = previewStatus;
+  }
+
+  // builder 开始
+  public PreviewResultItem() {}
+
+  public PreviewResultItem(Builder builder) {
     /**
      * 预览类型
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("preview_type")
-    private Integer previewType;
+    this.previewType = builder.previewType;
     /**
      * 预览状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("preview_status")
+    this.previewStatus = builder.previewStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 预览类型
+     *
+     * <p>示例值：0
+     */
+    private Integer previewType;
+
+    /**
+     * 预览状态
+     *
+     * <p>示例值：0
+     */
     private Integer previewStatus;
 
-    // builder 开始
-    public PreviewResultItem() {
+    /**
+     * 预览类型
+     *
+     * <p>示例值：0
+     *
+     * @param previewType
+     * @return
+     */
+    public Builder previewType(Integer previewType) {
+      this.previewType = previewType;
+      return this;
     }
 
-    public PreviewResultItem(Builder builder) {
-        /**
-         * 预览类型
-         * <p> 示例值：0
-         */
-        this.previewType = builder.previewType;
-        /**
-         * 预览状态
-         * <p> 示例值：0
-         */
-        this.previewStatus = builder.previewStatus;
+    /**
+     * 预览类型
+     *
+     * <p>示例值：0
+     *
+     * @param previewType {@link
+     *     com.lark.oapi.service.drive.v1.enums.PreviewResultItemPreviewTypeEnum}
+     * @return
+     */
+    public Builder previewType(
+        com.lark.oapi.service.drive.v1.enums.PreviewResultItemPreviewTypeEnum previewType) {
+      this.previewType = previewType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 预览状态
+     *
+     * <p>示例值：0
+     *
+     * @param previewStatus
+     * @return
+     */
+    public Builder previewStatus(Integer previewStatus) {
+      this.previewStatus = previewStatus;
+      return this;
     }
 
-    public Integer getPreviewType() {
-        return this.previewType;
+    /**
+     * 预览状态
+     *
+     * <p>示例值：0
+     *
+     * @param previewStatus {@link
+     *     com.lark.oapi.service.drive.v1.enums.PreviewResultItemPreviewStatusEnum}
+     * @return
+     */
+    public Builder previewStatus(
+        com.lark.oapi.service.drive.v1.enums.PreviewResultItemPreviewStatusEnum previewStatus) {
+      this.previewStatus = previewStatus.getValue();
+      return this;
     }
 
-    public void setPreviewType(Integer previewType) {
-        this.previewType = previewType;
+    public PreviewResultItem build() {
+      return new PreviewResultItem(this);
     }
+  }
 
-    public Integer getPreviewStatus() {
-        return this.previewStatus;
-    }
-
-    public void setPreviewStatus(Integer previewStatus) {
-        this.previewStatus = previewStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 预览类型
-         * <p> 示例值：0
-         */
-        private Integer previewType;
-        /**
-         * 预览状态
-         * <p> 示例值：0
-         */
-        private Integer previewStatus;
-
-        /**
-         * 预览类型
-         * <p> 示例值：0
-         *
-         * @param previewType
-         * @return
-         */
-        public Builder previewType(Integer previewType) {
-            this.previewType = previewType;
-            return this;
-        }
-
-        /**
-         * 预览类型
-         * <p> 示例值：0
-         *
-         * @param previewType {@link com.lark.oapi.service.drive.v1.enums.PreviewResultItemPreviewTypeEnum}
-         * @return
-         */
-        public Builder previewType(com.lark.oapi.service.drive.v1.enums.PreviewResultItemPreviewTypeEnum previewType) {
-            this.previewType = previewType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 预览状态
-         * <p> 示例值：0
-         *
-         * @param previewStatus
-         * @return
-         */
-        public Builder previewStatus(Integer previewStatus) {
-            this.previewStatus = previewStatus;
-            return this;
-        }
-
-        /**
-         * 预览状态
-         * <p> 示例值：0
-         *
-         * @param previewStatus {@link com.lark.oapi.service.drive.v1.enums.PreviewResultItemPreviewStatusEnum}
-         * @return
-         */
-        public Builder previewStatus(com.lark.oapi.service.drive.v1.enums.PreviewResultItemPreviewStatusEnum previewStatus) {
-            this.previewStatus = previewStatus.getValue();
-            return this;
-        }
-
-
-        public PreviewResultItem build() {
-            return new PreviewResultItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

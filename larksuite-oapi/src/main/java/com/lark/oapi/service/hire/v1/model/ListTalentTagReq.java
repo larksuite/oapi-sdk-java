@@ -13,240 +13,249 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class ListTalentTagReq {
+  /**
+   * 搜索关键词
+   *
+   * <p>示例值：985
+   */
+  @Query
+  @SerializedName("keyword")
+  private String keyword;
+
+  /**
+   * 标签 ID 列表
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("id_list")
+  private String[] idList;
+
+  /**
+   * 标签类型
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * 是否包含停用标签
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("include_inactive")
+  private Boolean includeInactive;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：20
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  public String getKeyword() {
+    return this.keyword;
+  }
+
+  public void setKeyword(String keyword) {
+    this.keyword = keyword;
+  }
+
+  public String[] getIdList() {
+    return this.idList;
+  }
+
+  public void setIdList(String[] idList) {
+    this.idList = idList;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public Boolean getIncludeInactive() {
+    return this.includeInactive;
+  }
+
+  public void setIncludeInactive(Boolean includeInactive) {
+    this.includeInactive = includeInactive;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  // builder 开始
+  public ListTalentTagReq() {}
+
+  public ListTalentTagReq(Builder builder) {
     /**
      * 搜索关键词
-     * <p> 示例值：测试
+     *
+     * <p>示例值：985
      */
-    @Query
-    @SerializedName("keyword")
-    private String keyword;
+    this.keyword = builder.keyword;
     /**
-     * ID 列表
-     * <p> 示例值：
+     * 标签 ID 列表
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("id_list")
-    private String[] idList;
+    this.idList = builder.idList;
     /**
      * 标签类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
-     * 包含停用
-     * <p> 示例值：true
+     * 是否包含停用标签
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("include_inactive")
-    private Boolean includeInactive;
+    this.includeInactive = builder.includeInactive;
     /**
      * 分页大小
-     * <p> 示例值：20
+     *
+     * <p>示例值：20
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
+  }
 
-    // builder 开始
-    public ListTalentTagReq() {
+  public static class Builder {
+    private String keyword; // 搜索关键词
+    private String[] idList; // 标签 ID 列表
+    private Integer type; // 标签类型
+    private Boolean includeInactive; // 是否包含停用标签
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+
+    // 获取查询结果
+
+    /**
+     * 搜索关键词
+     *
+     * <p>示例值：985
+     *
+     * @param keyword
+     * @return
+     */
+    public Builder keyword(String keyword) {
+      this.keyword = keyword;
+      return this;
     }
 
-    public ListTalentTagReq(Builder builder) {
-        /**
-         * 搜索关键词
-         * <p> 示例值：测试
-         */
-        this.keyword = builder.keyword;
-        /**
-         * ID 列表
-         * <p> 示例值：
-         */
-        this.idList = builder.idList;
-        /**
-         * 标签类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 包含停用
-         * <p> 示例值：true
-         */
-        this.includeInactive = builder.includeInactive;
-        /**
-         * 分页大小
-         * <p> 示例值：20
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         */
-        this.pageToken = builder.pageToken;
+    /**
+     * 标签 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param idList
+     * @return
+     */
+    public Builder idList(String[] idList) {
+      this.idList = idList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 标签类型
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public String getKeyword() {
-        return this.keyword;
+    /**
+     * 是否包含停用标签
+     *
+     * <p>示例值：true
+     *
+     * @param includeInactive
+     * @return
+     */
+    public Builder includeInactive(Boolean includeInactive) {
+      this.includeInactive = includeInactive;
+      return this;
     }
 
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
+    /**
+     * 分页大小
+     *
+     * <p>示例值：20
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public String[] getIdList() {
-        return this.idList;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setIdList(String[] idList) {
-        this.idList = idList;
+    public ListTalentTagReq build() {
+      return new ListTalentTagReq(this);
     }
+  }
 
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Boolean getIncludeInactive() {
-        return this.includeInactive;
-    }
-
-    public void setIncludeInactive(Boolean includeInactive) {
-        this.includeInactive = includeInactive;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public static class Builder {
-        private String keyword; // 搜索关键词
-        private String[] idList; // ID 列表
-        private Integer type; // 标签类型
-        private Boolean includeInactive; // 包含停用
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-
-        /**
-         * 搜索关键词
-         * <p> 示例值：测试
-         *
-         * @param keyword
-         * @return
-         */
-        public Builder keyword(String keyword) {
-            this.keyword = keyword;
-            return this;
-        }
-
-
-        /**
-         * ID 列表
-         * <p> 示例值：
-         *
-         * @param idList
-         * @return
-         */
-        public Builder idList(String[] idList) {
-            this.idList = idList;
-            return this;
-        }
-
-
-        /**
-         * 标签类型
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 包含停用
-         * <p> 示例值：true
-         *
-         * @param includeInactive
-         * @return
-         */
-        public Builder includeInactive(Boolean includeInactive) {
-            this.includeInactive = includeInactive;
-            return this;
-        }
-
-
-        /**
-         * 分页大小
-         * <p> 示例值：20
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        public ListTalentTagReq build() {
-            return new ListTalentTagReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

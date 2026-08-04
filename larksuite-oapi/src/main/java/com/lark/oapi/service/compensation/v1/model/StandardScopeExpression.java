@@ -13,247 +13,300 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class StandardScopeExpression {
+  /**
+   * 范围API
+   *
+   * <p>示例值：cpst_plan
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 操作类型, 可选值类型有：;1: 包含；2: 不包含; 3: 等于。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("operator_type")
+  private Integer operatorType;
+
+  /**
+   * 是否包含下级
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("contain_sub")
+  private Boolean containSub;
+
+  /**
+   * 适用范围明细值列表，招聘类型维度枚举值为【日常实习："routine_intern"】【社招："experienced_professionals"】【校招:
+   * "recent_graduates"】，其他维度类型具体值信息可通过接口查询[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)，
+   * [搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)，
+   * [查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)
+   * ，[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)，
+   * [查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)，[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)，
+   * [查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)，
+   * [批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)，
+   * [批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)
+   * ，[批量查询定调薪原因](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)，[获取薪级薪等列表数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/salary_level_type/query)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("values")
+  private String[] values;
+
+  /**
+   * 薪级类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("scope_name")
+  private I18n scopeName;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Integer getOperatorType() {
+    return this.operatorType;
+  }
+
+  public void setOperatorType(Integer operatorType) {
+    this.operatorType = operatorType;
+  }
+
+  public Boolean getContainSub() {
+    return this.containSub;
+  }
+
+  public void setContainSub(Boolean containSub) {
+    this.containSub = containSub;
+  }
+
+  public String[] getValues() {
+    return this.values;
+  }
+
+  public void setValues(String[] values) {
+    this.values = values;
+  }
+
+  public I18n getScopeName() {
+    return this.scopeName;
+  }
+
+  public void setScopeName(I18n scopeName) {
+    this.scopeName = scopeName;
+  }
+
+  // builder 开始
+  public StandardScopeExpression() {}
+
+  public StandardScopeExpression(Builder builder) {
     /**
      * 范围API
-     * <p> 示例值："cpst_plan"
+     *
+     * <p>示例值：cpst_plan
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
-     * 操作类型
-     * <p> 示例值：1
+     * 操作类型, 可选值类型有：;1: 包含；2: 不包含; 3: 等于。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("operator_type")
-    private Integer operatorType;
+    this.operatorType = builder.operatorType;
     /**
      * 是否包含下级
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("contain_sub")
+    this.containSub = builder.containSub;
+    /**
+     * 适用范围明细值列表，招聘类型维度枚举值为【日常实习："routine_intern"】【社招："experienced_professionals"】【校招:
+     * "recent_graduates"】，其他维度类型具体值信息可通过接口查询[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)，
+     * [搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)，
+     * [查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)
+     * ，[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)，
+     * [查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)，[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)，
+     * [查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)，
+     * [批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)，
+     * [批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)
+     * ，[批量查询定调薪原因](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)，[获取薪级薪等列表数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/salary_level_type/query)
+     *
+     * <p>示例值：
+     */
+    this.values = builder.values;
+    /**
+     * 薪级类型名称
+     *
+     * <p>示例值：
+     */
+    this.scopeName = builder.scopeName;
+  }
+
+  public static class Builder {
+    /**
+     * 范围API
+     *
+     * <p>示例值：cpst_plan
+     */
+    private String apiName;
+
+    /**
+     * 操作类型, 可选值类型有：;1: 包含；2: 不包含; 3: 等于。
+     *
+     * <p>示例值：1
+     */
+    private Integer operatorType;
+
+    /**
+     * 是否包含下级
+     *
+     * <p>示例值：true
+     */
     private Boolean containSub;
+
     /**
-     * 适用范围明细值列表
-     * <p> 示例值：
+     * 适用范围明细值列表，招聘类型维度枚举值为【日常实习："routine_intern"】【社招："experienced_professionals"】【校招:
+     * "recent_graduates"】，其他维度类型具体值信息可通过接口查询[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)，
+     * [搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)，
+     * [查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)
+     * ，[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)，
+     * [查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)，[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)，
+     * [查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)，
+     * [批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)，
+     * [批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)
+     * ，[批量查询定调薪原因](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)，[获取薪级薪等列表数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/salary_level_type/query)
+     *
+     * <p>示例值：
      */
-    @SerializedName("values")
     private String[] values;
+
     /**
-     * 范围名称
-     * <p> 示例值：
+     * 薪级类型名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("scope_name")
     private I18n scopeName;
 
-    // builder 开始
-    public StandardScopeExpression() {
+    /**
+     * 范围API
+     *
+     * <p>示例值：cpst_plan
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public StandardScopeExpression(Builder builder) {
-        /**
-         * 范围API
-         * <p> 示例值："cpst_plan"
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         */
-        this.operatorType = builder.operatorType;
-        /**
-         * 是否包含下级
-         * <p> 示例值：true
-         */
-        this.containSub = builder.containSub;
-        /**
-         * 适用范围明细值列表
-         * <p> 示例值：
-         */
-        this.values = builder.values;
-        /**
-         * 范围名称
-         * <p> 示例值：
-         */
-        this.scopeName = builder.scopeName;
+    /**
+     * 范围API
+     *
+     * <p>示例值：cpst_plan
+     *
+     * @param apiName {@link
+     *     com.lark.oapi.service.compensation.v1.enums.StandardScopeExpressionApiNameEnum}
+     * @return
+     */
+    public Builder apiName(
+        com.lark.oapi.service.compensation.v1.enums.StandardScopeExpressionApiNameEnum apiName) {
+      this.apiName = apiName.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作类型, 可选值类型有：;1: 包含；2: 不包含; 3: 等于。
+     *
+     * <p>示例值：1
+     *
+     * @param operatorType
+     * @return
+     */
+    public Builder operatorType(Integer operatorType) {
+      this.operatorType = operatorType;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 操作类型, 可选值类型有：;1: 包含；2: 不包含; 3: 等于。
+     *
+     * <p>示例值：1
+     *
+     * @param operatorType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.StandardScopeExpressionOperatorTypeEnum}
+     * @return
+     */
+    public Builder operatorType(
+        com.lark.oapi.service.compensation.v1.enums.StandardScopeExpressionOperatorTypeEnum
+            operatorType) {
+      this.operatorType = operatorType.getValue();
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    /**
+     * 是否包含下级
+     *
+     * <p>示例值：true
+     *
+     * @param containSub
+     * @return
+     */
+    public Builder containSub(Boolean containSub) {
+      this.containSub = containSub;
+      return this;
     }
 
-    public Integer getOperatorType() {
-        return this.operatorType;
+    /**
+     * 适用范围明细值列表，招聘类型维度枚举值为【日常实习："routine_intern"】【社招："experienced_professionals"】【校招:
+     * "recent_graduates"】，其他维度类型具体值信息可通过接口查询[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)，
+     * [搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)，
+     * [查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)
+     * ，[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)，
+     * [查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)，[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)，
+     * [查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)，
+     * [批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)，
+     * [批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)
+     * ，[批量查询定调薪原因](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)，[获取薪级薪等列表数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/salary_level_type/query)
+     *
+     * <p>示例值：
+     *
+     * @param values
+     * @return
+     */
+    public Builder values(String[] values) {
+      this.values = values;
+      return this;
     }
 
-    public void setOperatorType(Integer operatorType) {
-        this.operatorType = operatorType;
+    /**
+     * 薪级类型名称
+     *
+     * <p>示例值：
+     *
+     * @param scopeName
+     * @return
+     */
+    public Builder scopeName(I18n scopeName) {
+      this.scopeName = scopeName;
+      return this;
     }
 
-    public Boolean getContainSub() {
-        return this.containSub;
+    public StandardScopeExpression build() {
+      return new StandardScopeExpression(this);
     }
+  }
 
-    public void setContainSub(Boolean containSub) {
-        this.containSub = containSub;
-    }
-
-    public String[] getValues() {
-        return this.values;
-    }
-
-    public void setValues(String[] values) {
-        this.values = values;
-    }
-
-    public I18n getScopeName() {
-        return this.scopeName;
-    }
-
-    public void setScopeName(I18n scopeName) {
-        this.scopeName = scopeName;
-    }
-
-    public static class Builder {
-        /**
-         * 范围API
-         * <p> 示例值："cpst_plan"
-         */
-        private String apiName;
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         */
-        private Integer operatorType;
-        /**
-         * 是否包含下级
-         * <p> 示例值：true
-         */
-        private Boolean containSub;
-        /**
-         * 适用范围明细值列表
-         * <p> 示例值：
-         */
-        private String[] values;
-        /**
-         * 范围名称
-         * <p> 示例值：
-         */
-        private I18n scopeName;
-
-        /**
-         * 范围API
-         * <p> 示例值："cpst_plan"
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-        /**
-         * 范围API
-         * <p> 示例值："cpst_plan"
-         *
-         * @param apiName {@link com.lark.oapi.service.compensation.v1.enums.StandardScopeExpressionApiNameEnum}
-         * @return
-         */
-        public Builder apiName(com.lark.oapi.service.compensation.v1.enums.StandardScopeExpressionApiNameEnum apiName) {
-            this.apiName = apiName.getValue();
-            return this;
-        }
-
-
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         *
-         * @param operatorType
-         * @return
-         */
-        public Builder operatorType(Integer operatorType) {
-            this.operatorType = operatorType;
-            return this;
-        }
-
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         *
-         * @param operatorType {@link com.lark.oapi.service.compensation.v1.enums.StandardScopeExpressionOperatorTypeEnum}
-         * @return
-         */
-        public Builder operatorType(com.lark.oapi.service.compensation.v1.enums.StandardScopeExpressionOperatorTypeEnum operatorType) {
-            this.operatorType = operatorType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否包含下级
-         * <p> 示例值：true
-         *
-         * @param containSub
-         * @return
-         */
-        public Builder containSub(Boolean containSub) {
-            this.containSub = containSub;
-            return this;
-        }
-
-
-        /**
-         * 适用范围明细值列表
-         * <p> 示例值：
-         *
-         * @param values
-         * @return
-         */
-        public Builder values(String[] values) {
-            this.values = values;
-            return this;
-        }
-
-
-        /**
-         * 范围名称
-         * <p> 示例值：
-         *
-         * @param scopeName
-         * @return
-         */
-        public Builder scopeName(I18n scopeName) {
-            this.scopeName = scopeName;
-            return this;
-        }
-
-
-        public StandardScopeExpression build() {
-            return new StandardScopeExpression(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

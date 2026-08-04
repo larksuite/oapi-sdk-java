@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExtractCopy {
+  /**
+   * 盖章份数
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("copy_num")
+  private Integer copyNum;
+
+  /**
+   * 从原文中抽取的盖章份数
+   *
+   * <p>示例值：一式贰份
+   */
+  @SerializedName("original_copy")
+  private String originalCopy;
+
+  /**
+   * 盖章文件类型
+   *
+   * <p>示例值：协议
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 原文有关盖章份数的描述
+   *
+   * <p>示例值：此协议一式贰份，双方各执壹份，具有同等法律效力。
+   */
+  @SerializedName("text")
+  private String text;
+
+  public Integer getCopyNum() {
+    return this.copyNum;
+  }
+
+  public void setCopyNum(Integer copyNum) {
+    this.copyNum = copyNum;
+  }
+
+  public String getOriginalCopy() {
+    return this.originalCopy;
+  }
+
+  public void setOriginalCopy(String originalCopy) {
+    this.originalCopy = originalCopy;
+  }
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  // builder 开始
+  public ExtractCopy() {}
+
+  public ExtractCopy(Builder builder) {
     /**
      * 盖章份数
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("copy_num")
-    private Integer copyNum;
+    this.copyNum = builder.copyNum;
     /**
      * 从原文中抽取的盖章份数
-     * <p> 示例值：一式贰份
+     *
+     * <p>示例值：一式贰份
      */
-    @SerializedName("original_copy")
-    private String originalCopy;
+    this.originalCopy = builder.originalCopy;
     /**
      * 盖章文件类型
-     * <p> 示例值：协议
+     *
+     * <p>示例值：协议
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * 原文有关盖章份数的描述
-     * <p> 示例值：此协议一式贰份，双方各执壹份，具有同等法律效力。
+     *
+     * <p>示例值：此协议一式贰份，双方各执壹份，具有同等法律效力。
      */
-    @SerializedName("text")
+    this.text = builder.text;
+  }
+
+  public static class Builder {
+    /**
+     * 盖章份数
+     *
+     * <p>示例值：2
+     */
+    private Integer copyNum;
+
+    /**
+     * 从原文中抽取的盖章份数
+     *
+     * <p>示例值：一式贰份
+     */
+    private String originalCopy;
+
+    /**
+     * 盖章文件类型
+     *
+     * <p>示例值：协议
+     */
+    private String key;
+
+    /**
+     * 原文有关盖章份数的描述
+     *
+     * <p>示例值：此协议一式贰份，双方各执壹份，具有同等法律效力。
+     */
     private String text;
 
-    // builder 开始
-    public ExtractCopy() {
+    /**
+     * 盖章份数
+     *
+     * <p>示例值：2
+     *
+     * @param copyNum
+     * @return
+     */
+    public Builder copyNum(Integer copyNum) {
+      this.copyNum = copyNum;
+      return this;
     }
 
-    public ExtractCopy(Builder builder) {
-        /**
-         * 盖章份数
-         * <p> 示例值：2
-         */
-        this.copyNum = builder.copyNum;
-        /**
-         * 从原文中抽取的盖章份数
-         * <p> 示例值：一式贰份
-         */
-        this.originalCopy = builder.originalCopy;
-        /**
-         * 盖章文件类型
-         * <p> 示例值：协议
-         */
-        this.key = builder.key;
-        /**
-         * 原文有关盖章份数的描述
-         * <p> 示例值：此协议一式贰份，双方各执壹份，具有同等法律效力。
-         */
-        this.text = builder.text;
+    /**
+     * 从原文中抽取的盖章份数
+     *
+     * <p>示例值：一式贰份
+     *
+     * @param originalCopy
+     * @return
+     */
+    public Builder originalCopy(String originalCopy) {
+      this.originalCopy = originalCopy;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 盖章文件类型
+     *
+     * <p>示例值：协议
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public Integer getCopyNum() {
-        return this.copyNum;
+    /**
+     * 原文有关盖章份数的描述
+     *
+     * <p>示例值：此协议一式贰份，双方各执壹份，具有同等法律效力。
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public void setCopyNum(Integer copyNum) {
-        this.copyNum = copyNum;
+    public ExtractCopy build() {
+      return new ExtractCopy(this);
     }
+  }
 
-    public String getOriginalCopy() {
-        return this.originalCopy;
-    }
-
-    public void setOriginalCopy(String originalCopy) {
-        this.originalCopy = originalCopy;
-    }
-
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public static class Builder {
-        /**
-         * 盖章份数
-         * <p> 示例值：2
-         */
-        private Integer copyNum;
-        /**
-         * 从原文中抽取的盖章份数
-         * <p> 示例值：一式贰份
-         */
-        private String originalCopy;
-        /**
-         * 盖章文件类型
-         * <p> 示例值：协议
-         */
-        private String key;
-        /**
-         * 原文有关盖章份数的描述
-         * <p> 示例值：此协议一式贰份，双方各执壹份，具有同等法律效力。
-         */
-        private String text;
-
-        /**
-         * 盖章份数
-         * <p> 示例值：2
-         *
-         * @param copyNum
-         * @return
-         */
-        public Builder copyNum(Integer copyNum) {
-            this.copyNum = copyNum;
-            return this;
-        }
-
-
-        /**
-         * 从原文中抽取的盖章份数
-         * <p> 示例值：一式贰份
-         *
-         * @param originalCopy
-         * @return
-         */
-        public Builder originalCopy(String originalCopy) {
-            this.originalCopy = originalCopy;
-            return this;
-        }
-
-
-        /**
-         * 盖章文件类型
-         * <p> 示例值：协议
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 原文有关盖章份数的描述
-         * <p> 示例值：此协议一式贰份，双方各执壹份，具有同等法律效力。
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        public ExtractCopy build() {
-            return new ExtractCopy(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

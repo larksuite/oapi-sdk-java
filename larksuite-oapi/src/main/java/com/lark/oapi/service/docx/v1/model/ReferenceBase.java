@@ -13,161 +13,164 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReferenceBase {
+  /**
+   * 多维表格 Token，格式为 BaseToken_TableID，其中，BaseToken 是一篇多维表格唯一标识，TableID 是一张数据表的唯一标识。
+   *
+   * <p>示例值：AtMtb4hmYaaUsTswbGJcamabcef_tblH9DgStf8abcef
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 视图 ID
+   *
+   * <p>示例值：vewXxabcef
+   */
+  @SerializedName("view_id")
+  private String viewId;
+
+  /**
+   * 布局模式
+   *
+   * <p>示例值：Normal
+   */
+  @SerializedName("layout_mode")
+  private String layoutMode;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getViewId() {
+    return this.viewId;
+  }
+
+  public void setViewId(String viewId) {
+    this.viewId = viewId;
+  }
+
+  public String getLayoutMode() {
+    return this.layoutMode;
+  }
+
+  public void setLayoutMode(String layoutMode) {
+    this.layoutMode = layoutMode;
+  }
+
+  // builder 开始
+  public ReferenceBase() {}
+
+  public ReferenceBase(Builder builder) {
     /**
      * 多维表格 Token，格式为 BaseToken_TableID，其中，BaseToken 是一篇多维表格唯一标识，TableID 是一张数据表的唯一标识。
-     * <p> 示例值：AtMtb4hmYaaUsTswbGJcamabcef_tblH9DgStf8abcef
+     *
+     * <p>示例值：AtMtb4hmYaaUsTswbGJcamabcef_tblH9DgStf8abcef
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 视图 ID
-     * <p> 示例值：vewXxabcef
+     *
+     * <p>示例值：vewXxabcef
      */
-    @SerializedName("view_id")
-    private String viewId;
+    this.viewId = builder.viewId;
     /**
      * 布局模式
-     * <p> 示例值：Normal
+     *
+     * <p>示例值：Normal
      */
-    @SerializedName("layout_mode")
+    this.layoutMode = builder.layoutMode;
+  }
+
+  public static class Builder {
+    /**
+     * 多维表格 Token，格式为 BaseToken_TableID，其中，BaseToken 是一篇多维表格唯一标识，TableID 是一张数据表的唯一标识。
+     *
+     * <p>示例值：AtMtb4hmYaaUsTswbGJcamabcef_tblH9DgStf8abcef
+     */
+    private String token;
+
+    /**
+     * 视图 ID
+     *
+     * <p>示例值：vewXxabcef
+     */
+    private String viewId;
+
+    /**
+     * 布局模式
+     *
+     * <p>示例值：Normal
+     */
     private String layoutMode;
 
-    // builder 开始
-    public ReferenceBase() {
+    /**
+     * 多维表格 Token，格式为 BaseToken_TableID，其中，BaseToken 是一篇多维表格唯一标识，TableID 是一张数据表的唯一标识。
+     *
+     * <p>示例值：AtMtb4hmYaaUsTswbGJcamabcef_tblH9DgStf8abcef
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public ReferenceBase(Builder builder) {
-        /**
-         * 多维表格 Token，格式为 BaseToken_TableID，其中，BaseToken 是一篇多维表格唯一标识，TableID 是一张数据表的唯一标识。
-         * <p> 示例值：AtMtb4hmYaaUsTswbGJcamabcef_tblH9DgStf8abcef
-         */
-        this.token = builder.token;
-        /**
-         * 视图 ID
-         * <p> 示例值：vewXxabcef
-         */
-        this.viewId = builder.viewId;
-        /**
-         * 布局模式
-         * <p> 示例值：Normal
-         */
-        this.layoutMode = builder.layoutMode;
+    /**
+     * 视图 ID
+     *
+     * <p>示例值：vewXxabcef
+     *
+     * @param viewId
+     * @return
+     */
+    public Builder viewId(String viewId) {
+      this.viewId = viewId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 布局模式
+     *
+     * <p>示例值：Normal
+     *
+     * @param layoutMode
+     * @return
+     */
+    public Builder layoutMode(String layoutMode) {
+      this.layoutMode = layoutMode;
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    /**
+     * 布局模式
+     *
+     * <p>示例值：Normal
+     *
+     * @param layoutMode {@link
+     *     com.lark.oapi.service.docx.v1.enums.ReferenceBaseReferenceBaseLayoutModeEnum}
+     * @return
+     */
+    public Builder layoutMode(
+        com.lark.oapi.service.docx.v1.enums.ReferenceBaseReferenceBaseLayoutModeEnum layoutMode) {
+      this.layoutMode = layoutMode.getValue();
+      return this;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public ReferenceBase build() {
+      return new ReferenceBase(this);
     }
+  }
 
-    public String getViewId() {
-        return this.viewId;
-    }
-
-    public void setViewId(String viewId) {
-        this.viewId = viewId;
-    }
-
-    public String getLayoutMode() {
-        return this.layoutMode;
-    }
-
-    public void setLayoutMode(String layoutMode) {
-        this.layoutMode = layoutMode;
-    }
-
-    public static class Builder {
-        /**
-         * 多维表格 Token，格式为 BaseToken_TableID，其中，BaseToken 是一篇多维表格唯一标识，TableID 是一张数据表的唯一标识。
-         * <p> 示例值：AtMtb4hmYaaUsTswbGJcamabcef_tblH9DgStf8abcef
-         */
-        private String token;
-        /**
-         * 视图 ID
-         * <p> 示例值：vewXxabcef
-         */
-        private String viewId;
-        /**
-         * 布局模式
-         * <p> 示例值：Normal
-         */
-        private String layoutMode;
-
-        /**
-         * 多维表格 Token，格式为 BaseToken_TableID，其中，BaseToken 是一篇多维表格唯一标识，TableID 是一张数据表的唯一标识。
-         * <p> 示例值：AtMtb4hmYaaUsTswbGJcamabcef_tblH9DgStf8abcef
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 视图 ID
-         * <p> 示例值：vewXxabcef
-         *
-         * @param viewId
-         * @return
-         */
-        public Builder viewId(String viewId) {
-            this.viewId = viewId;
-            return this;
-        }
-
-
-        /**
-         * 布局模式
-         * <p> 示例值：Normal
-         *
-         * @param layoutMode
-         * @return
-         */
-        public Builder layoutMode(String layoutMode) {
-            this.layoutMode = layoutMode;
-            return this;
-        }
-
-        /**
-         * 布局模式
-         * <p> 示例值：Normal
-         *
-         * @param layoutMode {@link com.lark.oapi.service.docx.v1.enums.ReferenceBaseReferenceBaseLayoutModeEnum}
-         * @return
-         */
-        public Builder layoutMode(com.lark.oapi.service.docx.v1.enums.ReferenceBaseReferenceBaseLayoutModeEnum layoutMode) {
-            this.layoutMode = layoutMode.getValue();
-            return this;
-        }
-
-
-        public ReferenceBase build() {
-            return new ReferenceBase(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

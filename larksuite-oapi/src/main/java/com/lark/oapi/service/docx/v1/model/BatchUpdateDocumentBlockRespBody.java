@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchUpdateDocumentBlockRespBody {
-    /**
-     * 批量更新的 Block
-     * <p> 示例值：
-     */
-    @SerializedName("blocks")
-    private Block[] blocks;
-    /**
-     * 当前更新成功后文档的版本号
-     * <p> 示例值：1
-     */
-    @SerializedName("document_revision_id")
-    private Integer documentRevisionId;
-    /**
-     * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
-     * <p> 示例值：8aac2291-bc9e-4b12-a162-b3cf15bb06bd
-     */
-    @SerializedName("client_token")
-    private String clientToken;
+  /**
+   * 批量更新的 Block
+   *
+   * <p>示例值：
+   */
+  @SerializedName("blocks")
+  private Block[] blocks;
 
-    public Block[] getBlocks() {
-        return this.blocks;
-    }
+  /**
+   * 当前更新成功后文档的版本号
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("document_revision_id")
+  private Integer documentRevisionId;
 
-    public void setBlocks(Block[] blocks) {
-        this.blocks = blocks;
-    }
+  /**
+   * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
+   *
+   * <p>示例值：8aac2291-bc9e-4b12-a162-b3cf15bb06bd
+   */
+  @SerializedName("client_token")
+  private String clientToken;
 
-    public Integer getDocumentRevisionId() {
-        return this.documentRevisionId;
-    }
+  public Block[] getBlocks() {
+    return this.blocks;
+  }
 
-    public void setDocumentRevisionId(Integer documentRevisionId) {
-        this.documentRevisionId = documentRevisionId;
-    }
+  public void setBlocks(Block[] blocks) {
+    this.blocks = blocks;
+  }
 
-    public String getClientToken() {
-        return this.clientToken;
-    }
+  public Integer getDocumentRevisionId() {
+    return this.documentRevisionId;
+  }
 
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
+  public void setDocumentRevisionId(Integer documentRevisionId) {
+    this.documentRevisionId = documentRevisionId;
+  }
 
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 }

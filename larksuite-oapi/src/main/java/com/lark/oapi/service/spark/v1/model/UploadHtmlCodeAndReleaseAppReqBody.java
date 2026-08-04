@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UploadHtmlCodeAndReleaseAppReqBody {
+  /**
+   * tar 格式的 HTML 文件
+   *
+   * <p>示例值："./app_html_code.tar"
+   */
+  @SerializedName("file")
+  private java.io.File file;
+
+  public java.io.File getFile() {
+    return this.file;
+  }
+
+  public void setFile(java.io.File file) {
+    this.file = file;
+  }
+
+  // builder 开始
+  public UploadHtmlCodeAndReleaseAppReqBody() {}
+
+  public UploadHtmlCodeAndReleaseAppReqBody(Builder builder) {
     /**
-     * tar 格式的 HTML 文件。
-     * <p> 示例值：app_html_code.tar
+     * tar 格式的 HTML 文件
+     *
+     * <p>示例值："./app_html_code.tar"
      */
-    @SerializedName("file")
+    this.file = builder.file;
+  }
+
+  public static class Builder {
+    /**
+     * tar 格式的 HTML 文件
+     *
+     * <p>示例值："./app_html_code.tar"
+     */
     private java.io.File file;
 
-    // builder 开始
-    public UploadHtmlCodeAndReleaseAppReqBody() {
+    /**
+     * tar 格式的 HTML 文件
+     *
+     * <p>示例值："./app_html_code.tar"
+     *
+     * @param file
+     * @return
+     */
+    public Builder file(java.io.File file) {
+      this.file = file;
+      return this;
     }
 
-    public UploadHtmlCodeAndReleaseAppReqBody(Builder builder) {
-        /**
-         * tar 格式的 HTML 文件。
-         * <p> 示例值：app_html_code.tar
-         */
-        this.file = builder.file;
+    public UploadHtmlCodeAndReleaseAppReqBody build() {
+      return new UploadHtmlCodeAndReleaseAppReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public java.io.File getFile() {
-        return this.file;
-    }
-
-    public void setFile(java.io.File file) {
-        this.file = file;
-    }
-
-    public static class Builder {
-        /**
-         * tar 格式的 HTML 文件。
-         * <p> 示例值：app_html_code.tar
-         */
-        private java.io.File file;
-
-        /**
-         * tar 格式的 HTML 文件。
-         * <p> 示例值：app_html_code.tar
-         *
-         * @param file
-         * @return
-         */
-        public Builder file(java.io.File file) {
-            this.file = file;
-            return this;
-        }
-
-
-        public UploadHtmlCodeAndReleaseAppReqBody build() {
-            return new UploadHtmlCodeAndReleaseAppReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

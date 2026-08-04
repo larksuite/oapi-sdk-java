@@ -13,48 +13,40 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2MessageReadV1Data {
-    /**
-     * -
-     * <p> 示例值：
-     */
-    @SerializedName("reader")
-    private EventMessageReader reader;
-    /**
-     * 消息列表
-     * <p> 示例值：
-     */
-    @SerializedName("message_id_list")
-    private String[] messageIdList;
+  /**
+   * 已读的加急用户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reader")
+  private EventMessageReader reader;
 
-    public EventMessageReader getReader() {
-        return this.reader;
-    }
+  /**
+   * 消息 ID
+   * 列表。你可以调用[获取指定消息的内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get)接口，通过消息
+   * ID 查询消息内容。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message_id_list")
+  private String[] messageIdList;
 
-    public void setReader(EventMessageReader reader) {
-        this.reader = reader;
-    }
+  public EventMessageReader getReader() {
+    return this.reader;
+  }
 
-    public String[] getMessageIdList() {
-        return this.messageIdList;
-    }
+  public void setReader(EventMessageReader reader) {
+    this.reader = reader;
+  }
 
-    public void setMessageIdList(String[] messageIdList) {
-        this.messageIdList = messageIdList;
-    }
+  public String[] getMessageIdList() {
+    return this.messageIdList;
+  }
 
+  public void setMessageIdList(String[] messageIdList) {
+    this.messageIdList = messageIdList;
+  }
 }

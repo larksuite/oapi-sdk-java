@@ -14,22 +14,23 @@
 package com.lark.oapi.service.search.v2.enums;
 
 /**
- * DEFAULT = 0;       PRIVATE = 1;           // 私有群       CROSS_TENANT = 2;      // 外部群       PUBLIC_JOINED = 3;     // 已加入的公开群       PUBLIC_NOT_JOINED = 4; // 未加入的公开群
+ * DEFAULT = 0; PRIVATE = 1; // 私有群 CROSS_TENANT = 2; // 外部群 PUBLIC_JOINED = 3; // 已加入的公开群
+ * PUBLIC_NOT_JOINED = 4; // 未加入的公开群
  */
 public enum ChatFilterSearchTypeEnum {
-    DEFAULT("0"), // 默认搜全部类型
-    PRIVATE("1"), // 私有群
-    EXTERNAL("2"), // 外部群
-    PUBLIC_JOINED("3"), // 已加入的公开群
-    PUBLIC_NOT_JOINED("4"), // 未加入的公开群
-    ;
-    private String value;
+  DEFAULT("0"), // 默认搜全部类型
+  PRIVATE("1"), // 私有群
+  EXTERNAL("2"), // 外部群
+  PUBLIC_JOINED("3"), // 已加入的公开群
+  PUBLIC_NOT_JOINED("4"), // 未加入的公开群
+  ;
+  private String value;
 
-    ChatFilterSearchTypeEnum(String value) {
-        this.value = value;
-    }
+  ChatFilterSearchTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

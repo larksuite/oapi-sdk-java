@@ -13,25 +13,24 @@
 package com.lark.oapi.service.speech_to_text;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.speech_to_text.v1.V1;
 import com.lark.oapi.service.speech_to_text.v1.model.*;
 import com.lark.oapi.service.speech_to_text.v1.resource.Speech;
 
 public class SpeechToTextService {
-    private final V1 v1;
-    private final Speech speech; // 语音识别
+  private final V1 v1;
+  private final Speech speech; // speech
 
-    public SpeechToTextService(Config config) {
-        this.v1 = new V1(config);
-        this.speech = new Speech(config);
-    }
+  public SpeechToTextService(Config config) {
+    this.v1 = new V1(config);
+    this.speech = new Speech(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public Speech speech() {
-        return speech;
-    }
+  public Speech speech() {
+    return speech;
+  }
 }

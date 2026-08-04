@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.calendar.v4.enums;
 
-/**
- * 候补会议室最后等待时间类型
- */
+/** 候补会议室最后等待时间类型 */
 public enum ResourceWaitlistLastWaitTimeTypeEnum {
-    BEFOREEVENTSTARTFIVEMINUTES("BeforeEventStartFiveMinutes"), // 会议开始前5分钟
-    WHENEVENTSTART("WhenEventStart"), // 会议开始时
-    AFTEREVENTSTARTFIVEMINUTES("AfterEventStartFiveMinutes"), // 会议开始后5分钟
-    WHENEVENTEND("WhenEventEnd"), // 会议结束时
-    ;
-    private String value;
+  BEFOREEVENTSTARTFIVEMINUTES("BeforeEventStartFiveMinutes"), // 会议开始前5分钟
+  WHENEVENTSTART("WhenEventStart"), // 会议开始时
+  AFTEREVENTSTARTFIVEMINUTES("AfterEventStartFiveMinutes"), // 会议开始后5分钟
+  WHENEVENTEND("WhenEventEnd"), // 会议结束时
+  ;
+  private String value;
 
-    ResourceWaitlistLastWaitTimeTypeEnum(String value) {
-        this.value = value;
-    }
+  ResourceWaitlistLastWaitTimeTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

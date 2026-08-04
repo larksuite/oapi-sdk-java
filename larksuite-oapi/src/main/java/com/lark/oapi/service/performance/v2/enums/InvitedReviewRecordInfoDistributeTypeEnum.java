@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.performance.v2.enums;
 
-/**
- * 360° 评估人的评估尺度标签
- */
+/** 360° 评估人的评估尺度标签 */
 public enum InvitedReviewRecordInfoDistributeTypeEnum {
-    VALUE_1(1), // 严格
-    VALUE_2(2), // 适中
-    VALUE_3(3), // 宽松
-    ;
-    private Integer value;
+  VALUE_1(1), // 严格
+  VALUE_2(2), // 适中
+  VALUE_3(3), // 宽松
+  ;
+  private Integer value;
 
-    InvitedReviewRecordInfoDistributeTypeEnum(Integer value) {
-        this.value = value;
-    }
+  InvitedReviewRecordInfoDistributeTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

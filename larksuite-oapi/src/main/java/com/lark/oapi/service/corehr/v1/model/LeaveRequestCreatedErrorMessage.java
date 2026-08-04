@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LeaveRequestCreatedErrorMessage {
+  /**
+   * 员工ID
+   *
+   * <p>示例值：7360983350600173082
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 假期类型ID
+   *
+   * <p>示例值：7452717067026138635
+   */
+  @SerializedName("leave_type_id")
+  private String leaveTypeId;
+
+  /**
+   * 请假开始时间
+   *
+   * <p>示例值：2024-11-28
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 请假结束时间
+   *
+   * <p>示例值：2024-11-28
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 错误码
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("code")
+  private Integer code;
+
+  /**
+   * 错误信息
+   *
+   * <p>示例值：成功
+   */
+  @SerializedName("msg")
+  private String msg;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getLeaveTypeId() {
+    return this.leaveTypeId;
+  }
+
+  public void setLeaveTypeId(String leaveTypeId) {
+    this.leaveTypeId = leaveTypeId;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public Integer getCode() {
+    return this.code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public String getMsg() {
+    return this.msg;
+  }
+
+  public void setMsg(String msg) {
+    this.msg = msg;
+  }
+
+  // builder 开始
+  public LeaveRequestCreatedErrorMessage() {}
+
+  public LeaveRequestCreatedErrorMessage(Builder builder) {
     /**
      * 员工ID
-     * <p> 示例值：7402162852704831020
+     *
+     * <p>示例值：7360983350600173082
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 假期类型ID
-     * <p> 示例值：7437402643576571436
+     *
+     * <p>示例值：7452717067026138635
      */
-    @SerializedName("leave_type_id")
-    private String leaveTypeId;
+    this.leaveTypeId = builder.leaveTypeId;
     /**
      * 请假开始时间
-     * <p> 示例值：2024-11-01
+     *
+     * <p>示例值：2024-11-28
      */
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
      * 请假结束时间
-     * <p> 示例值：2024-11-01
+     *
+     * <p>示例值：2024-11-28
      */
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 错误码
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("code")
-    private Integer code;
+    this.code = builder.code;
     /**
      * 错误信息
-     * <p> 示例值：成功
+     *
+     * <p>示例值：成功
      */
-    @SerializedName("msg")
+    this.msg = builder.msg;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7360983350600173082
+     */
+    private String employmentId;
+
+    /**
+     * 假期类型ID
+     *
+     * <p>示例值：7452717067026138635
+     */
+    private String leaveTypeId;
+
+    /**
+     * 请假开始时间
+     *
+     * <p>示例值：2024-11-28
+     */
+    private String startTime;
+
+    /**
+     * 请假结束时间
+     *
+     * <p>示例值：2024-11-28
+     */
+    private String endTime;
+
+    /**
+     * 错误码
+     *
+     * <p>示例值：0
+     */
+    private Integer code;
+
+    /**
+     * 错误信息
+     *
+     * <p>示例值：成功
+     */
     private String msg;
 
-    // builder 开始
-    public LeaveRequestCreatedErrorMessage() {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7360983350600173082
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public LeaveRequestCreatedErrorMessage(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：7402162852704831020
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 假期类型ID
-         * <p> 示例值：7437402643576571436
-         */
-        this.leaveTypeId = builder.leaveTypeId;
-        /**
-         * 请假开始时间
-         * <p> 示例值：2024-11-01
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 请假结束时间
-         * <p> 示例值：2024-11-01
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 错误码
-         * <p> 示例值：0
-         */
-        this.code = builder.code;
-        /**
-         * 错误信息
-         * <p> 示例值：成功
-         */
-        this.msg = builder.msg;
+    /**
+     * 假期类型ID
+     *
+     * <p>示例值：7452717067026138635
+     *
+     * @param leaveTypeId
+     * @return
+     */
+    public Builder leaveTypeId(String leaveTypeId) {
+      this.leaveTypeId = leaveTypeId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 请假开始时间
+     *
+     * <p>示例值：2024-11-28
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 请假结束时间
+     *
+     * <p>示例值：2024-11-28
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    /**
+     * 错误码
+     *
+     * <p>示例值：0
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(Integer code) {
+      this.code = code;
+      return this;
     }
 
-    public String getLeaveTypeId() {
-        return this.leaveTypeId;
+    /**
+     * 错误信息
+     *
+     * <p>示例值：成功
+     *
+     * @param msg
+     * @return
+     */
+    public Builder msg(String msg) {
+      this.msg = msg;
+      return this;
     }
 
-    public void setLeaveTypeId(String leaveTypeId) {
-        this.leaveTypeId = leaveTypeId;
+    public LeaveRequestCreatedErrorMessage build() {
+      return new LeaveRequestCreatedErrorMessage(this);
     }
+  }
 
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public Integer getCode() {
-        return this.code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return this.msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：7402162852704831020
-         */
-        private String employmentId;
-        /**
-         * 假期类型ID
-         * <p> 示例值：7437402643576571436
-         */
-        private String leaveTypeId;
-        /**
-         * 请假开始时间
-         * <p> 示例值：2024-11-01
-         */
-        private String startTime;
-        /**
-         * 请假结束时间
-         * <p> 示例值：2024-11-01
-         */
-        private String endTime;
-        /**
-         * 错误码
-         * <p> 示例值：0
-         */
-        private Integer code;
-        /**
-         * 错误信息
-         * <p> 示例值：成功
-         */
-        private String msg;
-
-        /**
-         * 员工ID
-         * <p> 示例值：7402162852704831020
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 假期类型ID
-         * <p> 示例值：7437402643576571436
-         *
-         * @param leaveTypeId
-         * @return
-         */
-        public Builder leaveTypeId(String leaveTypeId) {
-            this.leaveTypeId = leaveTypeId;
-            return this;
-        }
-
-
-        /**
-         * 请假开始时间
-         * <p> 示例值：2024-11-01
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 请假结束时间
-         * <p> 示例值：2024-11-01
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 错误码
-         * <p> 示例值：0
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(Integer code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 错误信息
-         * <p> 示例值：成功
-         *
-         * @param msg
-         * @return
-         */
-        public Builder msg(String msg) {
-            this.msg = msg;
-            return this;
-        }
-
-
-        public LeaveRequestCreatedErrorMessage build() {
-            return new LeaveRequestCreatedErrorMessage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

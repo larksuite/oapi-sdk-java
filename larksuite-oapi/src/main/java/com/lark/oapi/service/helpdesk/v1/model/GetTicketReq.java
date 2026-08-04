@@ -13,72 +13,68 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 
 public class GetTicketReq {
+  /**
+   * 工单
+   * ID。可通过[查询全部工单详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list)获取
+   *
+   * <p>示例值：123456
+   */
+  @Path
+  @SerializedName("ticket_id")
+  private String ticketId;
+
+  public String getTicketId() {
+    return this.ticketId;
+  }
+
+  public void setTicketId(String ticketId) {
+    this.ticketId = ticketId;
+  }
+
+  // builder 开始
+  public GetTicketReq() {}
+
+  public GetTicketReq(Builder builder) {
     /**
-     * ticket id
-     * <p> 示例值：123456
+     * 工单
+     * ID。可通过[查询全部工单详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list)获取
+     *
+     * <p>示例值：123456
      */
-    @Path
-    @SerializedName("ticket_id")
-    private String ticketId;
+    this.ticketId = builder.ticketId;
+  }
 
-    // builder 开始
-    public GetTicketReq() {
+  public static class Builder {
+
+    private String ticketId; // 工单
+
+    // ID。可通过[查询全部工单详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list)获取
+
+    /**
+     * 工单
+     * ID。可通过[查询全部工单详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list)获取
+     *
+     * <p>示例值：123456
+     *
+     * @param ticketId
+     * @return
+     */
+    public Builder ticketId(String ticketId) {
+      this.ticketId = ticketId;
+      return this;
     }
 
-    public GetTicketReq(Builder builder) {
-        /**
-         * ticket id
-         * <p> 示例值：123456
-         */
-        this.ticketId = builder.ticketId;
+    public GetTicketReq build() {
+      return new GetTicketReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTicketId() {
-        return this.ticketId;
-    }
-
-    public void setTicketId(String ticketId) {
-        this.ticketId = ticketId;
-    }
-
-    public static class Builder {
-
-        private String ticketId; // ticket id
-
-        /**
-         * ticket id
-         * <p> 示例值：123456
-         *
-         * @param ticketId
-         * @return
-         */
-        public Builder ticketId(String ticketId) {
-            this.ticketId = ticketId;
-            return this;
-        }
-
-
-        public GetTicketReq build() {
-            return new GetTicketReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

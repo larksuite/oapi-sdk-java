@@ -13,196 +13,271 @@
 
 package com.lark.oapi.service.im.v1.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.im.v1.model.*;
+import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.im.v1.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class Image {
-    private static final Logger log = LoggerFactory.getLogger(Image.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(Image.class);
+  private final Config config;
 
-    public Image(Config config) {
-        this.config = config;
+  public Image(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 上传图片，调用本接口将图片上传至飞书开放平台，支持上传 JPG、JPEG、PNG、WEBP、GIF、BMP、ICO、TIFF、HEIC 格式的图片，但需要注意 TIFF、HEIC
+   * 上传后会被转为 JPG 格式。
+   *
+   * <p>## 使用场景;;如果需要发送图片消息，或者将图片作为头像，则需要先调用本接口将图片上传至开放平台，平台会返回一个图片标识（image_key），后续使用该 Key 值调用其他
+   * API。例如：;;-
+   * [发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)时，如果需要发送图片，则需要先调用本接口上传图片（上传时图片类型需要选择
+   * **用于发送消息**），并使用返回结果中的 image_key 发送图片消息。;-
+   * [创建用户](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)时，如果需要设置用户头像，则需要先调用本接口将头像上传（上传时图片类型需要选择
+   * **用于设置头像**），并使用返回结果中的 image_key 设置头像。;;##
+   * 前提条件;;应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。;;##
+   * 使用限制;;- 上传的图片大小不能超过 10 MB，且不支持上传大小为 0 的图片。;- 上传图片的分辨率限制：; - GIF 图片分辨率不能超过 2000 x
+   * 2000，其他图片分辨率不能超过 12000 x 12000。; - 用于设置头像的图片分辨率不能超过 4096 x
+   * 4096。;;如需上传高分辨率图片，可使用[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口，将图片作为文件进行上传。注意该方式不支持将图片文件设置为头像。
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=im&resource=image&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=im&resource=image&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateImageSample.java</a>
+   * ;
+   */
+  public CreateImageResp create(CreateImageReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+    reqOptions.setSupportUpload(true);
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/im/v1/images",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    CreateImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateImageResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/im/v1/images",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-    /**
-     * 上传图片，上传图片接口，支持上传 JPEG、PNG、WEBP、GIF、TIFF、BMP、ICO格式图片。
-     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability);- 图片大小不得超过10M，且不支持上传大小为0的图片 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateImageSample.java</a> ;
-     */
-    public CreateImageResp create(CreateImageReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-        reqOptions.setSupportUpload(true);
+    return resp;
+  }
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/im/v1/images"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
+  /**
+   * 上传图片，调用本接口将图片上传至飞书开放平台，支持上传 JPG、JPEG、PNG、WEBP、GIF、BMP、ICO、TIFF、HEIC 格式的图片，但需要注意 TIFF、HEIC
+   * 上传后会被转为 JPG 格式。
+   *
+   * <p>## 使用场景;;如果需要发送图片消息，或者将图片作为头像，则需要先调用本接口将图片上传至开放平台，平台会返回一个图片标识（image_key），后续使用该 Key 值调用其他
+   * API。例如：;;-
+   * [发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)时，如果需要发送图片，则需要先调用本接口上传图片（上传时图片类型需要选择
+   * **用于发送消息**），并使用返回结果中的 image_key 发送图片消息。;-
+   * [创建用户](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)时，如果需要设置用户头像，则需要先调用本接口将头像上传（上传时图片类型需要选择
+   * **用于设置头像**），并使用返回结果中的 image_key 设置头像。;;##
+   * 前提条件;;应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。;;##
+   * 使用限制;;- 上传的图片大小不能超过 10 MB，且不支持上传大小为 0 的图片。;- 上传图片的分辨率限制：; - GIF 图片分辨率不能超过 2000 x
+   * 2000，其他图片分辨率不能超过 12000 x 12000。; - 用于设置头像的图片分辨率不能超过 4096 x
+   * 4096。;;如需上传高分辨率图片，可使用[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口，将图片作为文件进行上传。注意该方式不支持将图片文件设置为头像。
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=im&resource=image&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=im&resource=image&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateImageSample.java</a>
+   * ;
+   */
+  public CreateImageResp create(CreateImageReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+    reqOptions.setSupportUpload(true);
 
-        // 反序列化
-        CreateImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateImageResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/images"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/im/v1/images",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    CreateImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateImageResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/im/v1/images",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 上传图片，上传图片接口，支持上传 JPEG、PNG、WEBP、GIF、TIFF、BMP、ICO格式图片。
-     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability);- 图片大小不得超过10M，且不支持上传大小为0的图片 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/CreateImageSample.java</a> ;
-     */
-    public CreateImageResp create(CreateImageReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
-        reqOptions.setSupportUpload(true);
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/im/v1/images"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        CreateImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateImageResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/images"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 下载图片，通过已上传图片的 Key 值下载图片。;
+   *
+   * <p>##
+   * 前提条件;;应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。;;##
+   * 使用限制;;- 只能下载由当前机器人上传的图片，且上传时图片类型为 **用于发送消息**。**用于设置头像** 的图片暂不支持下载。;- 该接口仅适用于通过图片的 Key
+   * 下载图片。如果你需要下载用户发送消息内的资源文件，可使用[获取消息中的资源文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)接口。
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=image&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=image&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetImageSample.java</a>
+   * ;
+   */
+  public GetImageResp get(GetImageReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+    reqOptions.setSupportDownLoad(true);
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/im/v1/images/:image_key",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    if (httpResponse.getStatusCode() == 200) {
+      GetImageResp resp = new GetImageResp();
+      resp.setRawResponse(httpResponse);
+      ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+      outputStream.write(httpResponse.getBody());
+      resp.setData(outputStream);
+      resp.setFileName(httpResponse.getFileName());
+      return resp;
+    }
+    // 反序列化
+    GetImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetImageResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/im/v1/images/:image_key",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 下载图片，下载图片资源，只能下载当前应用所上传且图片类型为message的图片。
-     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability);- 只能下载机器人自己上传且图片类型为message的图片，avatar类型暂不支持下载;- 下载用户发送的资源，请使用[获取消息中的资源文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)接口 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/get</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetImageSample.java</a> ;
-     */
-    public GetImageResp get(GetImageReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-        reqOptions.setSupportDownLoad(true);
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/im/v1/images/:image_key"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        if (httpResponse.getStatusCode() == 200) {
-            GetImageResp resp = new GetImageResp();
-            resp.setRawResponse(httpResponse);
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            outputStream.write(httpResponse.getBody());
-            resp.setData(outputStream);
-            resp.setFileName(httpResponse.getFileName());
-            return resp;
-        }
-        // 反序列化
-        GetImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetImageResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/images/:image_key"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 下载图片，通过已上传图片的 Key 值下载图片。;
+   *
+   * <p>##
+   * 前提条件;;应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。;;##
+   * 使用限制;;- 只能下载由当前机器人上传的图片，且上传时图片类型为 **用于发送消息**。**用于设置头像** 的图片暂不支持下载。;- 该接口仅适用于通过图片的 Key
+   * 下载图片。如果你需要下载用户发送消息内的资源文件，可使用[获取消息中的资源文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)接口。
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=image&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=image&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetImageSample.java</a>
+   * ;
+   */
+  public GetImageResp get(GetImageReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+    reqOptions.setSupportDownLoad(true);
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/im/v1/images/:image_key",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 下载请求，返回流
+    if (httpResponse.getStatusCode() == 200) {
+      GetImageResp resp = new GetImageResp();
+      resp.setRawResponse(httpResponse);
+      ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+      outputStream.write(httpResponse.getBody());
+      resp.setData(outputStream);
+      resp.setFileName(httpResponse.getFileName());
+      return resp;
+    }
+    // 反序列化
+    GetImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetImageResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/im/v1/images/:image_key",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 下载图片，下载图片资源，只能下载当前应用所上传且图片类型为message的图片。
-     * <p> 注意事项:;- 需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability);- 只能下载机器人自己上传且图片类型为message的图片，avatar类型暂不支持下载;- 下载用户发送的资源，请使用[获取消息中的资源文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-resource/get)接口 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/get</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetImageSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv1/GetImageSample.java</a> ;
-     */
-    public GetImageResp get(GetImageReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
-        reqOptions.setSupportDownLoad(true);
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/im/v1/images/:image_key"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 下载请求，返回流
-        if (httpResponse.getStatusCode() == 200) {
-            GetImageResp resp = new GetImageResp();
-            resp.setRawResponse(httpResponse);
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            outputStream.write(httpResponse.getBody());
-            resp.setData(outputStream);
-            resp.setFileName(httpResponse.getFileName());
-            return resp;
-        }
-        // 反序列化
-        GetImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetImageResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v1/images/:image_key"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
-    }
+    return resp;
+  }
 }

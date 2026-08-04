@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeePassport {
+  /**
+   * 员工id
+   *
+   * <p>示例值：7475686493613920050
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * Passport 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("passports")
+  private Passport[] passports;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public Passport[] getPassports() {
+    return this.passports;
+  }
+
+  public void setPassports(Passport[] passports) {
+    this.passports = passports;
+  }
+
+  // builder 开始
+  public EmployeePassport() {}
+
+  public EmployeePassport(Builder builder) {
     /**
      * 员工id
-     * <p> 示例值：7475686493613920050
+     *
+     * <p>示例值：7475686493613920050
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * Passport 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("passports")
+    this.passports = builder.passports;
+  }
+
+  public static class Builder {
+    /**
+     * 员工id
+     *
+     * <p>示例值：7475686493613920050
+     */
+    private String employmentId;
+
+    /**
+     * Passport 列表
+     *
+     * <p>示例值：
+     */
     private Passport[] passports;
 
-    // builder 开始
-    public EmployeePassport() {
+    /**
+     * 员工id
+     *
+     * <p>示例值：7475686493613920050
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public EmployeePassport(Builder builder) {
-        /**
-         * 员工id
-         * <p> 示例值：7475686493613920050
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * Passport 列表
-         * <p> 示例值：
-         */
-        this.passports = builder.passports;
+    /**
+     * Passport 列表
+     *
+     * <p>示例值：
+     *
+     * @param passports
+     * @return
+     */
+    public Builder passports(Passport[] passports) {
+      this.passports = passports;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EmployeePassport build() {
+      return new EmployeePassport(this);
     }
+  }
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public Passport[] getPassports() {
-        return this.passports;
-    }
-
-    public void setPassports(Passport[] passports) {
-        this.passports = passports;
-    }
-
-    public static class Builder {
-        /**
-         * 员工id
-         * <p> 示例值：7475686493613920050
-         */
-        private String employmentId;
-        /**
-         * Passport 列表
-         * <p> 示例值：
-         */
-        private Passport[] passports;
-
-        /**
-         * 员工id
-         * <p> 示例值：7475686493613920050
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * Passport 列表
-         * <p> 示例值：
-         *
-         * @param passports
-         * @return
-         */
-        public Builder passports(Passport[] passports) {
-            this.passports = passports;
-            return this;
-        }
-
-
-        public EmployeePassport build() {
-            return new EmployeePassport(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

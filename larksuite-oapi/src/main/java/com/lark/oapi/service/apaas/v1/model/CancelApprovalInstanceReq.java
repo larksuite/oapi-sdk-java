@@ -13,98 +13,93 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class CancelApprovalInstanceReq {
+  /**
+   * 审批实例，可以通过[查询人工任务](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query)获取
+   *
+   * <p>示例值：1788173550023689
+   */
+  @Path
+  @SerializedName("approval_instance_id")
+  private String approvalInstanceId;
+
+  public String getApprovalInstanceId() {
+    return this.approvalInstanceId;
+  }
+
+  public void setApprovalInstanceId(String approvalInstanceId) {
+    this.approvalInstanceId = approvalInstanceId;
+  }
+
+  @Body private CancelApprovalInstanceReqBody body;
+
+  public CancelApprovalInstanceReqBody getCancelApprovalInstanceReqBody() {
+    return this.body;
+  }
+
+  public void setCancelApprovalInstanceReqBody(CancelApprovalInstanceReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CancelApprovalInstanceReq() {}
+
+  public CancelApprovalInstanceReq(Builder builder) {
     /**
-     * 审批实例id
-     * <p> 示例值：1788173550023689
+     * 审批实例，可以通过[查询人工任务](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query)获取
+     *
+     * <p>示例值：1788173550023689
      */
-    @Path
-    @SerializedName("approval_instance_id")
-    private String approvalInstanceId;
-    @Body
+    this.approvalInstanceId = builder.approvalInstanceId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String
+        approvalInstanceId; // 审批实例，可以通过[查询人工任务](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query)获取
+
+    /**
+     * 审批实例，可以通过[查询人工任务](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query)获取
+     *
+     * <p>示例值：1788173550023689
+     *
+     * @param approvalInstanceId
+     * @return
+     */
+    public Builder approvalInstanceId(String approvalInstanceId) {
+      this.approvalInstanceId = approvalInstanceId;
+      return this;
+    }
+
     private CancelApprovalInstanceReqBody body;
 
-    // builder 开始
-    public CancelApprovalInstanceReq() {
-    }
-
-    public CancelApprovalInstanceReq(Builder builder) {
-        /**
-         * 审批实例id
-         * <p> 示例值：1788173550023689
-         */
-        this.approvalInstanceId = builder.approvalInstanceId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getApprovalInstanceId() {
-        return this.approvalInstanceId;
-    }
-
-    public void setApprovalInstanceId(String approvalInstanceId) {
-        this.approvalInstanceId = approvalInstanceId;
-    }
-
     public CancelApprovalInstanceReqBody getCancelApprovalInstanceReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCancelApprovalInstanceReqBody(CancelApprovalInstanceReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder cancelApprovalInstanceReqBody(CancelApprovalInstanceReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String approvalInstanceId; // 审批实例id
-        private CancelApprovalInstanceReqBody body;
-
-        /**
-         * 审批实例id
-         * <p> 示例值：1788173550023689
-         *
-         * @param approvalInstanceId
-         * @return
-         */
-        public Builder approvalInstanceId(String approvalInstanceId) {
-            this.approvalInstanceId = approvalInstanceId;
-            return this;
-        }
-
-        public CancelApprovalInstanceReqBody getCancelApprovalInstanceReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder cancelApprovalInstanceReqBody(CancelApprovalInstanceReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CancelApprovalInstanceReq build() {
-            return new CancelApprovalInstanceReq(this);
-        }
+    public CancelApprovalInstanceReq build() {
+      return new CancelApprovalInstanceReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,235 +13,310 @@
 
 package com.lark.oapi.service.im.v2.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.im.v2.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.im.v2.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class BizEntityTagRelation {
-    private static final Logger log = LoggerFactory.getLogger(BizEntityTagRelation.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(BizEntityTagRelation.class);
+  private final Config config;
 
-    public BizEntityTagRelation(Config config) {
-        this.config = config;
+  public BizEntityTagRelation(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 绑定标签到群，绑定标签到业务实体。目前支持给会话打标签。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=im&resource=biz_entity_tag_relation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=im&resource=biz_entity_tag_relation&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/CreateBizEntityTagRelationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/CreateBizEntityTagRelationSample.java</a>
+   * ;
+   */
+  public CreateBizEntityTagRelationResp create(
+      CreateBizEntityTagRelationReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/im/v2/biz_entity_tag_relation",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=im&resource=biz_entity_tag_relation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=im&resource=biz_entity_tag_relation&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/CreateBizEntityTagRelationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/CreateBizEntityTagRelationSample.java</a> ;
-     */
-    public CreateBizEntityTagRelationResp create(CreateBizEntityTagRelationReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/im/v2/biz_entity_tag_relation"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        CreateBizEntityTagRelationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateBizEntityTagRelationResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v2/biz_entity_tag_relation"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    CreateBizEntityTagRelationResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, CreateBizEntityTagRelationResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/im/v2/biz_entity_tag_relation",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=im&resource=biz_entity_tag_relation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=im&resource=biz_entity_tag_relation&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/CreateBizEntityTagRelationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/CreateBizEntityTagRelationSample.java</a> ;
-     */
-    public CreateBizEntityTagRelationResp create(CreateBizEntityTagRelationReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/im/v2/biz_entity_tag_relation"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        CreateBizEntityTagRelationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateBizEntityTagRelationResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v2/biz_entity_tag_relation"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 绑定标签到群，绑定标签到业务实体。目前支持给会话打标签。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=im&resource=biz_entity_tag_relation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=im&resource=biz_entity_tag_relation&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/CreateBizEntityTagRelationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/CreateBizEntityTagRelationSample.java</a>
+   * ;
+   */
+  public CreateBizEntityTagRelationResp create(CreateBizEntityTagRelationReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/im/v2/biz_entity_tag_relation",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    CreateBizEntityTagRelationResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, CreateBizEntityTagRelationResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/im/v2/biz_entity_tag_relation",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=biz_entity_tag_relation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=biz_entity_tag_relation&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/GetBizEntityTagRelationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/GetBizEntityTagRelationSample.java</a> ;
-     */
-    public GetBizEntityTagRelationResp get(GetBizEntityTagRelationReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/im/v2/biz_entity_tag_relation"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        GetBizEntityTagRelationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetBizEntityTagRelationResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v2/biz_entity_tag_relation"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 查询实体与标签的绑定关系，查询实体与标签的绑定关系
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=biz_entity_tag_relation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=biz_entity_tag_relation&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/GetBizEntityTagRelationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/GetBizEntityTagRelationSample.java</a>
+   * ;
+   */
+  public GetBizEntityTagRelationResp get(GetBizEntityTagRelationReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=biz_entity_tag_relation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=biz_entity_tag_relation&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/GetBizEntityTagRelationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/GetBizEntityTagRelationSample.java</a> ;
-     */
-    public GetBizEntityTagRelationResp get(GetBizEntityTagRelationReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/im/v2/biz_entity_tag_relation",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/im/v2/biz_entity_tag_relation"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        GetBizEntityTagRelationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetBizEntityTagRelationResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v2/biz_entity_tag_relation"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    GetBizEntityTagRelationResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, GetBizEntityTagRelationResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/im/v2/biz_entity_tag_relation",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=im&resource=biz_entity_tag_relation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=im&resource=biz_entity_tag_relation&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/UpdateBizEntityTagRelationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/UpdateBizEntityTagRelationSample.java</a> ;
-     */
-    public UpdateBizEntityTagRelationResp update(UpdateBizEntityTagRelationReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-                , "/open-apis/im/v2/biz_entity_tag_relation"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        UpdateBizEntityTagRelationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateBizEntityTagRelationResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v2/biz_entity_tag_relation"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 查询实体与标签的绑定关系，查询实体与标签的绑定关系
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=biz_entity_tag_relation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=im&resource=biz_entity_tag_relation&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/GetBizEntityTagRelationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/GetBizEntityTagRelationSample.java</a>
+   * ;
+   */
+  public GetBizEntityTagRelationResp get(GetBizEntityTagRelationReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/im/v2/biz_entity_tag_relation",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    GetBizEntityTagRelationResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, GetBizEntityTagRelationResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/im/v2/biz_entity_tag_relation",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=im&resource=biz_entity_tag_relation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=im&resource=biz_entity_tag_relation&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/UpdateBizEntityTagRelationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/UpdateBizEntityTagRelationSample.java</a> ;
-     */
-    public UpdateBizEntityTagRelationResp update(UpdateBizEntityTagRelationReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-                , "/open-apis/im/v2/biz_entity_tag_relation"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        UpdateBizEntityTagRelationResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateBizEntityTagRelationResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/im/v2/biz_entity_tag_relation"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 解绑标签与群，从业务实体上解绑标签。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=im&resource=biz_entity_tag_relation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=im&resource=biz_entity_tag_relation&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/UpdateBizEntityTagRelationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/UpdateBizEntityTagRelationSample.java</a>
+   * ;
+   */
+  public UpdateBizEntityTagRelationResp update(
+      UpdateBizEntityTagRelationReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PUT",
+            "/open-apis/im/v2/biz_entity_tag_relation",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    UpdateBizEntityTagRelationResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateBizEntityTagRelationResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/im/v2/biz_entity_tag_relation",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 解绑标签与群，从业务实体上解绑标签。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=im&resource=biz_entity_tag_relation&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=im&resource=biz_entity_tag_relation&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/UpdateBizEntityTagRelationSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/imv2/UpdateBizEntityTagRelationSample.java</a>
+   * ;
+   */
+  public UpdateBizEntityTagRelationResp update(UpdateBizEntityTagRelationReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PUT",
+            "/open-apis/im/v2/biz_entity_tag_relation",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    UpdateBizEntityTagRelationResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateBizEntityTagRelationResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/im/v2/biz_entity_tag_relation",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

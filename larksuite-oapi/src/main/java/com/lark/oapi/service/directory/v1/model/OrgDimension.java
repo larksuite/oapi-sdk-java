@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OrgDimension {
+  /**
+   * 组织维度ID
+   *
+   * <p>示例值：02c7141
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 租户id
+   *
+   * <p>示例值：u273y71
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 组织维度类型(1.预置 2.自定义)
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("enum_type")
+  private Integer enumType;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_enable")
+  private Boolean isEnable;
+
+  /**
+   * 是否删除
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_deleted")
+  private Boolean isDeleted;
+
+  /**
+   * 组织维度排序权重。数字小的排序在前，相同权重的按创建时间排序。
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("order")
+  private String order;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18nText description;
+
+  /**
+   * 根部门ID
+   *
+   * <p>示例值：D12100
+   */
+  @SerializedName("root_department_id")
+  private String rootDepartmentId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public Integer getEnumType() {
+    return this.enumType;
+  }
+
+  public void setEnumType(Integer enumType) {
+    this.enumType = enumType;
+  }
+
+  public Boolean getIsEnable() {
+    return this.isEnable;
+  }
+
+  public void setIsEnable(Boolean isEnable) {
+    this.isEnable = isEnable;
+  }
+
+  public Boolean getIsDeleted() {
+    return this.isDeleted;
+  }
+
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+  public String getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(String order) {
+    this.order = order;
+  }
+
+  public I18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18nText description) {
+    this.description = description;
+  }
+
+  public String getRootDepartmentId() {
+    return this.rootDepartmentId;
+  }
+
+  public void setRootDepartmentId(String rootDepartmentId) {
+    this.rootDepartmentId = rootDepartmentId;
+  }
+
+  // builder 开始
+  public OrgDimension() {}
+
+  public OrgDimension(Builder builder) {
     /**
-     * 组织维度id
-     * <p> 示例值：02c7141
+     * 组织维度ID
+     *
+     * <p>示例值：02c7141
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 租户id
-     * <p> 示例值：u273y71
+     *
+     * <p>示例值：u273y71
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 组织维度类型(1.预置 2.自定义)
-     * <p> 示例值：
+     *
+     * <p>示例值：2
      */
-    @SerializedName("enum_type")
-    private Integer enumType;
+    this.enumType = builder.enumType;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_enable")
-    private Boolean isEnable;
+    this.isEnable = builder.isEnable;
     /**
      * 是否删除
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_deleted")
+    this.isDeleted = builder.isDeleted;
+    /**
+     * 组织维度排序权重。数字小的排序在前，相同权重的按创建时间排序。
+     *
+     * <p>示例值：100
+     */
+    this.order = builder.order;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    this.description = builder.description;
+    /**
+     * 根部门ID
+     *
+     * <p>示例值：D12100
+     */
+    this.rootDepartmentId = builder.rootDepartmentId;
+  }
+
+  public static class Builder {
+    /**
+     * 组织维度ID
+     *
+     * <p>示例值：02c7141
+     */
+    private String id;
+
+    /**
+     * 租户id
+     *
+     * <p>示例值：u273y71
+     */
+    private String tenantId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 组织维度类型(1.预置 2.自定义)
+     *
+     * <p>示例值：2
+     */
+    private Integer enumType;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean isEnable;
+
+    /**
+     * 是否删除
+     *
+     * <p>示例值：
+     */
     private Boolean isDeleted;
+
     /**
-     * 组织维度排序权重
-     * <p> 示例值：100
+     * 组织维度排序权重。数字小的排序在前，相同权重的按创建时间排序。
+     *
+     * <p>示例值：100
      */
-    @SerializedName("order")
     private String order;
+
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
     private I18nText description;
+
     /**
-     * 根部门id
-     * <p> 示例值：D12100
+     * 根部门ID
+     *
+     * <p>示例值：D12100
      */
-    @SerializedName("root_department_id")
     private String rootDepartmentId;
 
-    // builder 开始
-    public OrgDimension() {
+    /**
+     * 组织维度ID
+     *
+     * <p>示例值：02c7141
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public OrgDimension(Builder builder) {
-        /**
-         * 组织维度id
-         * <p> 示例值：02c7141
-         */
-        this.id = builder.id;
-        /**
-         * 租户id
-         * <p> 示例值：u273y71
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 组织维度类型(1.预置 2.自定义)
-         * <p> 示例值：
-         */
-        this.enumType = builder.enumType;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.isEnable = builder.isEnable;
-        /**
-         * 是否删除
-         * <p> 示例值：
-         */
-        this.isDeleted = builder.isDeleted;
-        /**
-         * 组织维度排序权重
-         * <p> 示例值：100
-         */
-        this.order = builder.order;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 根部门id
-         * <p> 示例值：D12100
-         */
-        this.rootDepartmentId = builder.rootDepartmentId;
+    /**
+     * 租户id
+     *
+     * <p>示例值：u273y71
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 组织维度类型(1.预置 2.自定义)
+     *
+     * <p>示例值：2
+     *
+     * @param enumType
+     * @return
+     */
+    public Builder enumType(Integer enumType) {
+      this.enumType = enumType;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param isEnable
+     * @return
+     */
+    public Builder isEnable(Boolean isEnable) {
+      this.isEnable = isEnable;
+      return this;
     }
 
-    public String getTenantId() {
-        return this.tenantId;
+    /**
+     * 是否删除
+     *
+     * <p>示例值：
+     *
+     * @param isDeleted
+     * @return
+     */
+    public Builder isDeleted(Boolean isDeleted) {
+      this.isDeleted = isDeleted;
+      return this;
     }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
+    /**
+     * 组织维度排序权重。数字小的排序在前，相同权重的按创建时间排序。
+     *
+     * <p>示例值：100
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(String order) {
+      this.order = order;
+      return this;
     }
 
-    public I18nText getName() {
-        return this.name;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public void setName(I18nText name) {
-        this.name = name;
+    /**
+     * 根部门ID
+     *
+     * <p>示例值：D12100
+     *
+     * @param rootDepartmentId
+     * @return
+     */
+    public Builder rootDepartmentId(String rootDepartmentId) {
+      this.rootDepartmentId = rootDepartmentId;
+      return this;
     }
 
-    public Integer getEnumType() {
-        return this.enumType;
+    public OrgDimension build() {
+      return new OrgDimension(this);
     }
+  }
 
-    public void setEnumType(Integer enumType) {
-        this.enumType = enumType;
-    }
-
-    public Boolean getIsEnable() {
-        return this.isEnable;
-    }
-
-    public void setIsEnable(Boolean isEnable) {
-        this.isEnable = isEnable;
-    }
-
-    public Boolean getIsDeleted() {
-        return this.isDeleted;
-    }
-
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    public String getOrder() {
-        return this.order;
-    }
-
-    public void setOrder(String order) {
-        this.order = order;
-    }
-
-    public I18nText getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18nText description) {
-        this.description = description;
-    }
-
-    public String getRootDepartmentId() {
-        return this.rootDepartmentId;
-    }
-
-    public void setRootDepartmentId(String rootDepartmentId) {
-        this.rootDepartmentId = rootDepartmentId;
-    }
-
-    public static class Builder {
-        /**
-         * 组织维度id
-         * <p> 示例值：02c7141
-         */
-        private String id;
-        /**
-         * 租户id
-         * <p> 示例值：u273y71
-         */
-        private String tenantId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 组织维度类型(1.预置 2.自定义)
-         * <p> 示例值：
-         */
-        private Integer enumType;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean isEnable;
-        /**
-         * 是否删除
-         * <p> 示例值：
-         */
-        private Boolean isDeleted;
-        /**
-         * 组织维度排序权重
-         * <p> 示例值：100
-         */
-        private String order;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText description;
-        /**
-         * 根部门id
-         * <p> 示例值：D12100
-         */
-        private String rootDepartmentId;
-
-        /**
-         * 组织维度id
-         * <p> 示例值：02c7141
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 租户id
-         * <p> 示例值：u273y71
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 组织维度类型(1.预置 2.自定义)
-         * <p> 示例值：
-         *
-         * @param enumType
-         * @return
-         */
-        public Builder enumType(Integer enumType) {
-            this.enumType = enumType;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param isEnable
-         * @return
-         */
-        public Builder isEnable(Boolean isEnable) {
-            this.isEnable = isEnable;
-            return this;
-        }
-
-
-        /**
-         * 是否删除
-         * <p> 示例值：
-         *
-         * @param isDeleted
-         * @return
-         */
-        public Builder isDeleted(Boolean isDeleted) {
-            this.isDeleted = isDeleted;
-            return this;
-        }
-
-
-        /**
-         * 组织维度排序权重
-         * <p> 示例值：100
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(String order) {
-            this.order = order;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 根部门id
-         * <p> 示例值：D12100
-         *
-         * @param rootDepartmentId
-         * @return
-         */
-        public Builder rootDepartmentId(String rootDepartmentId) {
-            this.rootDepartmentId = rootDepartmentId;
-            return this;
-        }
-
-
-        public OrgDimension build() {
-            return new OrgDimension(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,25 +13,23 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 下班打卡结果
- */
+/** 下班打卡结果 */
 public enum TaskResultCheckOutResultEnum {
-    NONEEDCHECK("NoNeedCheck"), // 无需打卡
-    SYSTEMCHECK("SystemCheck"), // 系统打卡
-    NORMAL("Normal"), // 正常
-    EARLY("Early"), // 早退
-    LATE("Late"), // 迟到
-    LACK("Lack"), // 缺卡
-    TODO("Todo"), // 未打卡
-    ;
-    private String value;
+  NONEEDCHECK("NoNeedCheck"), // 无需打卡
+  SYSTEMCHECK("SystemCheck"), // 系统打卡（已弃用）
+  NORMAL("Normal"), // 正常
+  EARLY("Early"), // 早退
+  LATE("Late"), // 迟到
+  LACK("Lack"), // 缺卡
+  TODO("Todo"), // 未打卡
+  ;
+  private String value;
 
-    TaskResultCheckOutResultEnum(String value) {
-        this.value = value;
-    }
+  TaskResultCheckOutResultEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

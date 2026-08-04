@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EntityFieldResult {
+  /**
+   * 实体key
+   *
+   * <p>示例值：user
+   */
+  @SerializedName("entity_key")
+  private String entityKey;
+
+  /**
+   * 实体的字段Key
+   *
+   * <p>示例值：id
+   */
+  @SerializedName("field_key")
+  private String fieldKey;
+
+  /**
+   * 字段名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_name")
+  private Name fieldName;
+
+  public String getEntityKey() {
+    return this.entityKey;
+  }
+
+  public void setEntityKey(String entityKey) {
+    this.entityKey = entityKey;
+  }
+
+  public String getFieldKey() {
+    return this.fieldKey;
+  }
+
+  public void setFieldKey(String fieldKey) {
+    this.fieldKey = fieldKey;
+  }
+
+  public Name getFieldName() {
+    return this.fieldName;
+  }
+
+  public void setFieldName(Name fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  // builder 开始
+  public EntityFieldResult() {}
+
+  public EntityFieldResult(Builder builder) {
     /**
      * 实体key
-     * <p> 示例值：user
+     *
+     * <p>示例值：user
      */
-    @SerializedName("entity_key")
-    private String entityKey;
+    this.entityKey = builder.entityKey;
     /**
      * 实体的字段Key
-     * <p> 示例值：id
+     *
+     * <p>示例值：id
      */
-    @SerializedName("field_key")
-    private String fieldKey;
+    this.fieldKey = builder.fieldKey;
     /**
-     * 名称信息
-     * <p> 示例值：
+     * 字段名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_name")
+    this.fieldName = builder.fieldName;
+  }
+
+  public static class Builder {
+    /**
+     * 实体key
+     *
+     * <p>示例值：user
+     */
+    private String entityKey;
+
+    /**
+     * 实体的字段Key
+     *
+     * <p>示例值：id
+     */
+    private String fieldKey;
+
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     */
     private Name fieldName;
 
-    // builder 开始
-    public EntityFieldResult() {
+    /**
+     * 实体key
+     *
+     * <p>示例值：user
+     *
+     * @param entityKey
+     * @return
+     */
+    public Builder entityKey(String entityKey) {
+      this.entityKey = entityKey;
+      return this;
     }
 
-    public EntityFieldResult(Builder builder) {
-        /**
-         * 实体key
-         * <p> 示例值：user
-         */
-        this.entityKey = builder.entityKey;
-        /**
-         * 实体的字段Key
-         * <p> 示例值：id
-         */
-        this.fieldKey = builder.fieldKey;
-        /**
-         * 名称信息
-         * <p> 示例值：
-         */
-        this.fieldName = builder.fieldName;
+    /**
+     * 实体的字段Key
+     *
+     * <p>示例值：id
+     *
+     * @param fieldKey
+     * @return
+     */
+    public Builder fieldKey(String fieldKey) {
+      this.fieldKey = fieldKey;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     *
+     * @param fieldName
+     * @return
+     */
+    public Builder fieldName(Name fieldName) {
+      this.fieldName = fieldName;
+      return this;
     }
 
-    public String getEntityKey() {
-        return this.entityKey;
+    public EntityFieldResult build() {
+      return new EntityFieldResult(this);
     }
+  }
 
-    public void setEntityKey(String entityKey) {
-        this.entityKey = entityKey;
-    }
-
-    public String getFieldKey() {
-        return this.fieldKey;
-    }
-
-    public void setFieldKey(String fieldKey) {
-        this.fieldKey = fieldKey;
-    }
-
-    public Name getFieldName() {
-        return this.fieldName;
-    }
-
-    public void setFieldName(Name fieldName) {
-        this.fieldName = fieldName;
-    }
-
-    public static class Builder {
-        /**
-         * 实体key
-         * <p> 示例值：user
-         */
-        private String entityKey;
-        /**
-         * 实体的字段Key
-         * <p> 示例值：id
-         */
-        private String fieldKey;
-        /**
-         * 名称信息
-         * <p> 示例值：
-         */
-        private Name fieldName;
-
-        /**
-         * 实体key
-         * <p> 示例值：user
-         *
-         * @param entityKey
-         * @return
-         */
-        public Builder entityKey(String entityKey) {
-            this.entityKey = entityKey;
-            return this;
-        }
-
-
-        /**
-         * 实体的字段Key
-         * <p> 示例值：id
-         *
-         * @param fieldKey
-         * @return
-         */
-        public Builder fieldKey(String fieldKey) {
-            this.fieldKey = fieldKey;
-            return this;
-        }
-
-
-        /**
-         * 名称信息
-         * <p> 示例值：
-         *
-         * @param fieldName
-         * @return
-         */
-        public Builder fieldName(Name fieldName) {
-            this.fieldName = fieldName;
-            return this;
-        }
-
-
-        public EntityFieldResult build() {
-            return new EntityFieldResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

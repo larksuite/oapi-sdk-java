@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyAiCardAction {
+  /**
+   * tag
+   *
+   * <p>示例值：button button
+   */
+  @SerializedName("tag")
+  private String tag;
+
+  /**
+   * value
+   *
+   * <p>示例值：
+   */
+  @SerializedName("value")
+  private MyAiCardValue value;
+
+  public String getTag() {
+    return this.tag;
+  }
+
+  public void setTag(String tag) {
+    this.tag = tag;
+  }
+
+  public MyAiCardValue getValue() {
+    return this.value;
+  }
+
+  public void setValue(MyAiCardValue value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public MyAiCardAction() {}
+
+  public MyAiCardAction(Builder builder) {
     /**
      * tag
-     * <p> 示例值：button button
+     *
+     * <p>示例值：button button
      */
-    @SerializedName("tag")
-    private String tag;
+    this.tag = builder.tag;
     /**
      * value
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * tag
+     *
+     * <p>示例值：button button
+     */
+    private String tag;
+
+    /**
+     * value
+     *
+     * <p>示例值：
+     */
     private MyAiCardValue value;
 
-    // builder 开始
-    public MyAiCardAction() {
+    /**
+     * tag
+     *
+     * <p>示例值：button button
+     *
+     * @param tag
+     * @return
+     */
+    public Builder tag(String tag) {
+      this.tag = tag;
+      return this;
     }
 
-    public MyAiCardAction(Builder builder) {
-        /**
-         * tag
-         * <p> 示例值：button button
-         */
-        this.tag = builder.tag;
-        /**
-         * value
-         * <p> 示例值：
-         */
-        this.value = builder.value;
+    /**
+     * value
+     *
+     * <p>示例值：
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(MyAiCardValue value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MyAiCardAction build() {
+      return new MyAiCardAction(this);
     }
+  }
 
-    public String getTag() {
-        return this.tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public MyAiCardValue getValue() {
-        return this.value;
-    }
-
-    public void setValue(MyAiCardValue value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * tag
-         * <p> 示例值：button button
-         */
-        private String tag;
-        /**
-         * value
-         * <p> 示例值：
-         */
-        private MyAiCardValue value;
-
-        /**
-         * tag
-         * <p> 示例值：button button
-         *
-         * @param tag
-         * @return
-         */
-        public Builder tag(String tag) {
-            this.tag = tag;
-            return this;
-        }
-
-
-        /**
-         * value
-         * <p> 示例值：
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(MyAiCardValue value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public MyAiCardAction build() {
-            return new MyAiCardAction(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,1085 +13,1192 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.security_and_compliance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.security_and_compliance.v2.enums.*;
 
 public class ListDeviceRecordReq {
+  /**
+   * 分页大小
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：7394463407091023892
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 设备认证编码
+   *
+   * <p>示例值：7089353870308032531
+   */
+  @Query
+  @SerializedName("device_record_id")
+  private String deviceRecordId;
+
+  /**
+   * 当前登录用户ID，ID 类型必须与查询参数user_id_type的取值一致
+   *
+   * <p>示例值：ou_b25e90585ef8c1adac4b379c2e257906
+   */
+  @Query
+  @SerializedName("current_user_id")
+  private String currentUserId;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 设备名称
+   *
+   * <p>示例值：Q9C6RYMFDK
+   */
+  @Query
+  @SerializedName("device_name")
+  private String deviceName;
+
+  /**
+   * 生产序列号
+   *
+   * <p>示例值：C02DTHRMML7H
+   */
+  @Query
+  @SerializedName("serial_number")
+  private String serialNumber;
+
+  /**
+   * 硬盘序列号
+   *
+   * <p>示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
+   */
+  @Query
+  @SerializedName("disk_serial_number")
+  private String diskSerialNumber;
+
+  /**
+   * MAC地址
+   *
+   * <p>示例值：ac:de:48:00:11:21
+   */
+  @Query
+  @SerializedName("mac_address")
+  private String macAddress;
+
+  /**
+   * Android标识符
+   *
+   * <p>示例值：02a11ac4a83b918e
+   */
+  @Query
+  @SerializedName("android_id")
+  private String androidId;
+
+  /**
+   * 主板UUID
+   *
+   * <p>示例值：4C4C4544-0052-5A10-804E-B6C04F324433
+   */
+  @Query
+  @SerializedName("uuid")
+  private String uuid;
+
+  /**
+   * iOS供应商标识符
+   *
+   * <p>示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A
+   */
+  @Query
+  @SerializedName("idfv")
+  private String idfv;
+
+  /**
+   * Harmony供应商标识符
+   *
+   * <p>示例值：ff3c2237-cd76-4331-9d72-0a4470854567
+   */
+  @Query
+  @SerializedName("aaid")
+  private String aaid;
+
+  /**
+   * 设备归属
+   *
+   * <p>示例值：0
+   */
+  @Query
+  @SerializedName("device_ownership")
+  private Integer deviceOwnership;
+
+  /**
+   * 可信状态
+   *
+   * <p>示例值：0
+   */
+  @Query
+  @SerializedName("device_status")
+  private Integer deviceStatus;
+
+  /**
+   * 设备类型
+   *
+   * <p>示例值：0
+   */
+  @Query
+  @SerializedName("device_terminal_type")
+  private Integer deviceTerminalType;
+
+  /**
+   * 设备操作系统
+   *
+   * <p>示例值：0
+   */
+  @Query
+  @SerializedName("os")
+  private Integer os;
+
+  /**
+   * 最近登录用户ID，ID 类型必须与查询参数user_id_type的取值一致
+   *
+   * <p>示例值：ou_b25e90585ef8c1adac4b379c2e257906
+   */
+  @Query
+  @SerializedName("latest_user_id")
+  private String latestUserId;
+
+  /**
+   * 设备指纹
+   *
+   * <p>示例值：7089353870308032531
+   */
+  @Query
+  @SerializedName("did")
+  private String did;
+
+  /**
+   * 是否为受管控设备
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("is_managed")
+  private Boolean isManaged;
+
+  /**
+   * MDM设备ID
+   *
+   * <p>示例值：123abc
+   */
+  @Query
+  @SerializedName("mdm_device_id")
+  private String mdmDeviceId;
+
+  /**
+   * MDM厂商名称
+   *
+   * <p>示例值：Workspace_ONE
+   */
+  @Query
+  @SerializedName("mdm_provider_name")
+  private String mdmProviderName;
+
+  /**
+   * 终端管控客户端状态
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("lsa_client_status")
+  private Integer lsaClientStatus;
+
+  /**
+   * 设备环境检测状态
+   *
+   * <p>示例值：0
+   */
+  @Query
+  @SerializedName("device_env_detect_status")
+  private Integer deviceEnvDetectStatus;
+
+  /**
+   * 是否为公共设备
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("is_public")
+  private Boolean isPublic;
+
+  /**
+   * 注册方式
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("source")
+  private Integer source;
+
+  /**
+   * 证书序列号
+   *
+   * <p>示例值：140112030923876027756448774661898183576236633676
+   */
+  @Query
+  @SerializedName("cert_serial_number")
+  private String certSerialNumber;
+
+  /**
+   * 证书颁发人
+   *
+   * <p>示例值：Root-CA
+   */
+  @Query
+  @SerializedName("cert_issuer")
+  private String certIssuer;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getDeviceRecordId() {
+    return this.deviceRecordId;
+  }
+
+  public void setDeviceRecordId(String deviceRecordId) {
+    this.deviceRecordId = deviceRecordId;
+  }
+
+  public String getCurrentUserId() {
+    return this.currentUserId;
+  }
+
+  public void setCurrentUserId(String currentUserId) {
+    this.currentUserId = currentUserId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDeviceName() {
+    return this.deviceName;
+  }
+
+  public void setDeviceName(String deviceName) {
+    this.deviceName = deviceName;
+  }
+
+  public String getSerialNumber() {
+    return this.serialNumber;
+  }
+
+  public void setSerialNumber(String serialNumber) {
+    this.serialNumber = serialNumber;
+  }
+
+  public String getDiskSerialNumber() {
+    return this.diskSerialNumber;
+  }
+
+  public void setDiskSerialNumber(String diskSerialNumber) {
+    this.diskSerialNumber = diskSerialNumber;
+  }
+
+  public String getMacAddress() {
+    return this.macAddress;
+  }
+
+  public void setMacAddress(String macAddress) {
+    this.macAddress = macAddress;
+  }
+
+  public String getAndroidId() {
+    return this.androidId;
+  }
+
+  public void setAndroidId(String androidId) {
+    this.androidId = androidId;
+  }
+
+  public String getUuid() {
+    return this.uuid;
+  }
+
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
+  public String getIdfv() {
+    return this.idfv;
+  }
+
+  public void setIdfv(String idfv) {
+    this.idfv = idfv;
+  }
+
+  public String getAaid() {
+    return this.aaid;
+  }
+
+  public void setAaid(String aaid) {
+    this.aaid = aaid;
+  }
+
+  public Integer getDeviceOwnership() {
+    return this.deviceOwnership;
+  }
+
+  public void setDeviceOwnership(Integer deviceOwnership) {
+    this.deviceOwnership = deviceOwnership;
+  }
+
+  public Integer getDeviceStatus() {
+    return this.deviceStatus;
+  }
+
+  public void setDeviceStatus(Integer deviceStatus) {
+    this.deviceStatus = deviceStatus;
+  }
+
+  public Integer getDeviceTerminalType() {
+    return this.deviceTerminalType;
+  }
+
+  public void setDeviceTerminalType(Integer deviceTerminalType) {
+    this.deviceTerminalType = deviceTerminalType;
+  }
+
+  public Integer getOs() {
+    return this.os;
+  }
+
+  public void setOs(Integer os) {
+    this.os = os;
+  }
+
+  public String getLatestUserId() {
+    return this.latestUserId;
+  }
+
+  public void setLatestUserId(String latestUserId) {
+    this.latestUserId = latestUserId;
+  }
+
+  public String getDid() {
+    return this.did;
+  }
+
+  public void setDid(String did) {
+    this.did = did;
+  }
+
+  public Boolean getIsManaged() {
+    return this.isManaged;
+  }
+
+  public void setIsManaged(Boolean isManaged) {
+    this.isManaged = isManaged;
+  }
+
+  public String getMdmDeviceId() {
+    return this.mdmDeviceId;
+  }
+
+  public void setMdmDeviceId(String mdmDeviceId) {
+    this.mdmDeviceId = mdmDeviceId;
+  }
+
+  public String getMdmProviderName() {
+    return this.mdmProviderName;
+  }
+
+  public void setMdmProviderName(String mdmProviderName) {
+    this.mdmProviderName = mdmProviderName;
+  }
+
+  public Integer getLsaClientStatus() {
+    return this.lsaClientStatus;
+  }
+
+  public void setLsaClientStatus(Integer lsaClientStatus) {
+    this.lsaClientStatus = lsaClientStatus;
+  }
+
+  public Integer getDeviceEnvDetectStatus() {
+    return this.deviceEnvDetectStatus;
+  }
+
+  public void setDeviceEnvDetectStatus(Integer deviceEnvDetectStatus) {
+    this.deviceEnvDetectStatus = deviceEnvDetectStatus;
+  }
+
+  public Boolean getIsPublic() {
+    return this.isPublic;
+  }
+
+  public void setIsPublic(Boolean isPublic) {
+    this.isPublic = isPublic;
+  }
+
+  public Integer getSource() {
+    return this.source;
+  }
+
+  public void setSource(Integer source) {
+    this.source = source;
+  }
+
+  public String getCertSerialNumber() {
+    return this.certSerialNumber;
+  }
+
+  public void setCertSerialNumber(String certSerialNumber) {
+    this.certSerialNumber = certSerialNumber;
+  }
+
+  public String getCertIssuer() {
+    return this.certIssuer;
+  }
+
+  public void setCertIssuer(String certIssuer) {
+    this.certIssuer = certIssuer;
+  }
+
+  // builder 开始
+  public ListDeviceRecordReq() {}
+
+  public ListDeviceRecordReq(Builder builder) {
     /**
      * 分页大小
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 分页游标
-     * <p> 示例值：7394463407091023892
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：7394463407091023892
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 设备认证编码
-     * <p> 示例值：7089353870308032531
+     *
+     * <p>示例值：7089353870308032531
      */
-    @Query
-    @SerializedName("device_record_id")
-    private String deviceRecordId;
+    this.deviceRecordId = builder.deviceRecordId;
     /**
-     * 当前登录用户ID
-     * <p> 示例值：ou_b25e90585ef8c1adac4b379c2e257906
+     * 当前登录用户ID，ID 类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：ou_b25e90585ef8c1adac4b379c2e257906
      */
-    @Query
-    @SerializedName("current_user_id")
-    private String currentUserId;
+    this.currentUserId = builder.currentUserId;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 设备名称
-     * <p> 示例值：Q9C6RYMFDK
+     *
+     * <p>示例值：Q9C6RYMFDK
      */
-    @Query
-    @SerializedName("device_name")
-    private String deviceName;
+    this.deviceName = builder.deviceName;
     /**
      * 生产序列号
-     * <p> 示例值：C02DTHRMML7H
+     *
+     * <p>示例值：C02DTHRMML7H
      */
-    @Query
-    @SerializedName("serial_number")
-    private String serialNumber;
+    this.serialNumber = builder.serialNumber;
     /**
      * 硬盘序列号
-     * <p> 示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
+     *
+     * <p>示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
      */
-    @Query
-    @SerializedName("disk_serial_number")
-    private String diskSerialNumber;
+    this.diskSerialNumber = builder.diskSerialNumber;
     /**
      * MAC地址
-     * <p> 示例值：ac:de:48:00:11:21
+     *
+     * <p>示例值：ac:de:48:00:11:21
      */
-    @Query
-    @SerializedName("mac_address")
-    private String macAddress;
+    this.macAddress = builder.macAddress;
     /**
      * Android标识符
-     * <p> 示例值：02a11ac4a83b918e
+     *
+     * <p>示例值：02a11ac4a83b918e
      */
-    @Query
-    @SerializedName("android_id")
-    private String androidId;
+    this.androidId = builder.androidId;
     /**
      * 主板UUID
-     * <p> 示例值：4C4C4544-0052-5A10-804E-B6C04F324433
+     *
+     * <p>示例值：4C4C4544-0052-5A10-804E-B6C04F324433
      */
-    @Query
-    @SerializedName("uuid")
-    private String uuid;
+    this.uuid = builder.uuid;
     /**
      * iOS供应商标识符
-     * <p> 示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A
+     *
+     * <p>示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A
      */
-    @Query
-    @SerializedName("idfv")
-    private String idfv;
+    this.idfv = builder.idfv;
     /**
      * Harmony供应商标识符
-     * <p> 示例值：ff3c2237-cd76-4331-9d72-0a4470854567
+     *
+     * <p>示例值：ff3c2237-cd76-4331-9d72-0a4470854567
      */
-    @Query
-    @SerializedName("aaid")
-    private String aaid;
+    this.aaid = builder.aaid;
     /**
      * 设备归属
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @Query
-    @SerializedName("device_ownership")
-    private Integer deviceOwnership;
+    this.deviceOwnership = builder.deviceOwnership;
     /**
      * 可信状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @Query
-    @SerializedName("device_status")
-    private Integer deviceStatus;
+    this.deviceStatus = builder.deviceStatus;
     /**
      * 设备类型
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @Query
-    @SerializedName("device_terminal_type")
-    private Integer deviceTerminalType;
+    this.deviceTerminalType = builder.deviceTerminalType;
     /**
      * 设备操作系统
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @Query
-    @SerializedName("os")
-    private Integer os;
+    this.os = builder.os;
     /**
-     * 最近登录用户ID
-     * <p> 示例值：ou_b25e90585ef8c1adac4b379c2e257906
+     * 最近登录用户ID，ID 类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：ou_b25e90585ef8c1adac4b379c2e257906
      */
-    @Query
-    @SerializedName("latest_user_id")
-    private String latestUserId;
+    this.latestUserId = builder.latestUserId;
     /**
      * 设备指纹
-     * <p> 示例值：7089353870308032531
+     *
+     * <p>示例值：7089353870308032531
      */
-    @Query
-    @SerializedName("did")
-    private String did;
+    this.did = builder.did;
     /**
      * 是否为受管控设备
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("is_managed")
-    private Boolean isManaged;
+    this.isManaged = builder.isManaged;
     /**
      * MDM设备ID
-     * <p> 示例值：123abc
+     *
+     * <p>示例值：123abc
      */
-    @Query
-    @SerializedName("mdm_device_id")
-    private String mdmDeviceId;
+    this.mdmDeviceId = builder.mdmDeviceId;
     /**
      * MDM厂商名称
-     * <p> 示例值：Workspace_ONE
+     *
+     * <p>示例值：Workspace_ONE
      */
-    @Query
-    @SerializedName("mdm_provider_name")
-    private String mdmProviderName;
+    this.mdmProviderName = builder.mdmProviderName;
     /**
      * 终端管控客户端状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("lsa_client_status")
-    private Integer lsaClientStatus;
+    this.lsaClientStatus = builder.lsaClientStatus;
     /**
      * 设备环境检测状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @Query
-    @SerializedName("device_env_detect_status")
-    private Integer deviceEnvDetectStatus;
+    this.deviceEnvDetectStatus = builder.deviceEnvDetectStatus;
     /**
      * 是否为公共设备
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("is_public")
-    private Boolean isPublic;
+    this.isPublic = builder.isPublic;
     /**
      * 注册方式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("source")
-    private Integer source;
+    this.source = builder.source;
     /**
      * 证书序列号
-     * <p> 示例值：140112030923876027756448774661898183576236633676
+     *
+     * <p>示例值：140112030923876027756448774661898183576236633676
      */
-    @Query
-    @SerializedName("cert_serial_number")
-    private String certSerialNumber;
+    this.certSerialNumber = builder.certSerialNumber;
     /**
      * 证书颁发人
-     * <p> 示例值：Root-CA
+     *
+     * <p>示例值：Root-CA
      */
-    @Query
-    @SerializedName("cert_issuer")
-    private String certIssuer;
+    this.certIssuer = builder.certIssuer;
+  }
 
-    // builder 开始
-    public ListDeviceRecordReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String deviceRecordId; // 设备认证编码
+    private String currentUserId; // 当前登录用户ID，ID 类型必须与查询参数user_id_type的取值一致
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String deviceName; // 设备名称
+    private String serialNumber; // 生产序列号
+    private String diskSerialNumber; // 硬盘序列号
+    private String macAddress; // MAC地址
+    private String androidId; // Android标识符
+    private String uuid; // 主板UUID
+    private String idfv; // iOS供应商标识符
+    private String aaid; // Harmony供应商标识符
+    private Integer deviceOwnership; // 设备归属
+    private Integer deviceStatus; // 可信状态
+    private Integer deviceTerminalType; // 设备类型
+    private Integer os; // 设备操作系统
+    private String latestUserId; // 最近登录用户ID，ID 类型必须与查询参数user_id_type的取值一致
+    private String did; // 设备指纹
+    private Boolean isManaged; // 是否为受管控设备
+    private String mdmDeviceId; // MDM设备ID
+    private String mdmProviderName; // MDM厂商名称
+    private Integer lsaClientStatus; // 终端管控客户端状态
+    private Integer deviceEnvDetectStatus; // 设备环境检测状态
+    private Boolean isPublic; // 是否为公共设备
+    private Integer source; // 注册方式
+    private String certSerialNumber; // 证书序列号
+    private String certIssuer; // 证书颁发人
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListDeviceRecordReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页游标
-         * <p> 示例值：7394463407091023892
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 设备认证编码
-         * <p> 示例值：7089353870308032531
-         */
-        this.deviceRecordId = builder.deviceRecordId;
-        /**
-         * 当前登录用户ID
-         * <p> 示例值：ou_b25e90585ef8c1adac4b379c2e257906
-         */
-        this.currentUserId = builder.currentUserId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 设备名称
-         * <p> 示例值：Q9C6RYMFDK
-         */
-        this.deviceName = builder.deviceName;
-        /**
-         * 生产序列号
-         * <p> 示例值：C02DTHRMML7H
-         */
-        this.serialNumber = builder.serialNumber;
-        /**
-         * 硬盘序列号
-         * <p> 示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
-         */
-        this.diskSerialNumber = builder.diskSerialNumber;
-        /**
-         * MAC地址
-         * <p> 示例值：ac:de:48:00:11:21
-         */
-        this.macAddress = builder.macAddress;
-        /**
-         * Android标识符
-         * <p> 示例值：02a11ac4a83b918e
-         */
-        this.androidId = builder.androidId;
-        /**
-         * 主板UUID
-         * <p> 示例值：4C4C4544-0052-5A10-804E-B6C04F324433
-         */
-        this.uuid = builder.uuid;
-        /**
-         * iOS供应商标识符
-         * <p> 示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A
-         */
-        this.idfv = builder.idfv;
-        /**
-         * Harmony供应商标识符
-         * <p> 示例值：ff3c2237-cd76-4331-9d72-0a4470854567
-         */
-        this.aaid = builder.aaid;
-        /**
-         * 设备归属
-         * <p> 示例值：0
-         */
-        this.deviceOwnership = builder.deviceOwnership;
-        /**
-         * 可信状态
-         * <p> 示例值：0
-         */
-        this.deviceStatus = builder.deviceStatus;
-        /**
-         * 设备类型
-         * <p> 示例值：0
-         */
-        this.deviceTerminalType = builder.deviceTerminalType;
-        /**
-         * 设备操作系统
-         * <p> 示例值：0
-         */
-        this.os = builder.os;
-        /**
-         * 最近登录用户ID
-         * <p> 示例值：ou_b25e90585ef8c1adac4b379c2e257906
-         */
-        this.latestUserId = builder.latestUserId;
-        /**
-         * 设备指纹
-         * <p> 示例值：7089353870308032531
-         */
-        this.did = builder.did;
-        /**
-         * 是否为受管控设备
-         * <p> 示例值：
-         */
-        this.isManaged = builder.isManaged;
-        /**
-         * MDM设备ID
-         * <p> 示例值：123abc
-         */
-        this.mdmDeviceId = builder.mdmDeviceId;
-        /**
-         * MDM厂商名称
-         * <p> 示例值：Workspace_ONE
-         */
-        this.mdmProviderName = builder.mdmProviderName;
-        /**
-         * 终端管控客户端状态
-         * <p> 示例值：1
-         */
-        this.lsaClientStatus = builder.lsaClientStatus;
-        /**
-         * 设备环境检测状态
-         * <p> 示例值：0
-         */
-        this.deviceEnvDetectStatus = builder.deviceEnvDetectStatus;
-        /**
-         * 是否为公共设备
-         * <p> 示例值：
-         */
-        this.isPublic = builder.isPublic;
-        /**
-         * 注册方式
-         * <p> 示例值：
-         */
-        this.source = builder.source;
-        /**
-         * 证书序列号
-         * <p> 示例值：140112030923876027756448774661898183576236633676
-         */
-        this.certSerialNumber = builder.certSerialNumber;
-        /**
-         * 证书颁发人
-         * <p> 示例值：Root-CA
-         */
-        this.certIssuer = builder.certIssuer;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：7394463407091023892
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 设备认证编码
+     *
+     * <p>示例值：7089353870308032531
+     *
+     * @param deviceRecordId
+     * @return
+     */
+    public Builder deviceRecordId(String deviceRecordId) {
+      this.deviceRecordId = deviceRecordId;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 当前登录用户ID，ID 类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：ou_b25e90585ef8c1adac4b379c2e257906
+     *
+     * @param currentUserId
+     * @return
+     */
+    public Builder currentUserId(String currentUserId) {
+      this.currentUserId = currentUserId;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    /**
+     * 设备名称
+     *
+     * <p>示例值：Q9C6RYMFDK
+     *
+     * @param deviceName
+     * @return
+     */
+    public Builder deviceName(String deviceName) {
+      this.deviceName = deviceName;
+      return this;
     }
 
-    public String getDeviceRecordId() {
-        return this.deviceRecordId;
+    /**
+     * 生产序列号
+     *
+     * <p>示例值：C02DTHRMML7H
+     *
+     * @param serialNumber
+     * @return
+     */
+    public Builder serialNumber(String serialNumber) {
+      this.serialNumber = serialNumber;
+      return this;
     }
 
-    public void setDeviceRecordId(String deviceRecordId) {
-        this.deviceRecordId = deviceRecordId;
+    /**
+     * 硬盘序列号
+     *
+     * <p>示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
+     *
+     * @param diskSerialNumber
+     * @return
+     */
+    public Builder diskSerialNumber(String diskSerialNumber) {
+      this.diskSerialNumber = diskSerialNumber;
+      return this;
     }
 
-    public String getCurrentUserId() {
-        return this.currentUserId;
+    /**
+     * MAC地址
+     *
+     * <p>示例值：ac:de:48:00:11:21
+     *
+     * @param macAddress
+     * @return
+     */
+    public Builder macAddress(String macAddress) {
+      this.macAddress = macAddress;
+      return this;
     }
 
-    public void setCurrentUserId(String currentUserId) {
-        this.currentUserId = currentUserId;
+    /**
+     * Android标识符
+     *
+     * <p>示例值：02a11ac4a83b918e
+     *
+     * @param androidId
+     * @return
+     */
+    public Builder androidId(String androidId) {
+      this.androidId = androidId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 主板UUID
+     *
+     * <p>示例值：4C4C4544-0052-5A10-804E-B6C04F324433
+     *
+     * @param uuid
+     * @return
+     */
+    public Builder uuid(String uuid) {
+      this.uuid = uuid;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    /**
+     * iOS供应商标识符
+     *
+     * <p>示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A
+     *
+     * @param idfv
+     * @return
+     */
+    public Builder idfv(String idfv) {
+      this.idfv = idfv;
+      return this;
     }
 
-    public String getDeviceName() {
-        return this.deviceName;
+    /**
+     * Harmony供应商标识符
+     *
+     * <p>示例值：ff3c2237-cd76-4331-9d72-0a4470854567
+     *
+     * @param aaid
+     * @return
+     */
+    public Builder aaid(String aaid) {
+      this.aaid = aaid;
+      return this;
     }
 
-    public void setDeviceName(String deviceName) {
-        this.deviceName = deviceName;
+    /**
+     * 设备归属
+     *
+     * <p>示例值：0
+     *
+     * @param deviceOwnership
+     * @return
+     */
+    public Builder deviceOwnership(Integer deviceOwnership) {
+      this.deviceOwnership = deviceOwnership;
+      return this;
     }
 
-    public String getSerialNumber() {
-        return this.serialNumber;
+    /**
+     * 设备归属
+     *
+     * <p>示例值：0
+     *
+     * @param deviceOwnership {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceOwnershipEnum}
+     * @return
+     */
+    public Builder deviceOwnership(
+        com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceOwnershipEnum
+            deviceOwnership) {
+      this.deviceOwnership = deviceOwnership.getValue();
+      return this;
     }
 
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
+    /**
+     * 可信状态
+     *
+     * <p>示例值：0
+     *
+     * @param deviceStatus
+     * @return
+     */
+    public Builder deviceStatus(Integer deviceStatus) {
+      this.deviceStatus = deviceStatus;
+      return this;
     }
 
-    public String getDiskSerialNumber() {
-        return this.diskSerialNumber;
+    /**
+     * 可信状态
+     *
+     * <p>示例值：0
+     *
+     * @param deviceStatus {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceStatusEnum}
+     * @return
+     */
+    public Builder deviceStatus(
+        com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceStatusEnum
+            deviceStatus) {
+      this.deviceStatus = deviceStatus.getValue();
+      return this;
     }
 
-    public void setDiskSerialNumber(String diskSerialNumber) {
-        this.diskSerialNumber = diskSerialNumber;
+    /**
+     * 设备类型
+     *
+     * <p>示例值：0
+     *
+     * @param deviceTerminalType
+     * @return
+     */
+    public Builder deviceTerminalType(Integer deviceTerminalType) {
+      this.deviceTerminalType = deviceTerminalType;
+      return this;
     }
 
-    public String getMacAddress() {
-        return this.macAddress;
+    /**
+     * 设备类型
+     *
+     * <p>示例值：0
+     *
+     * @param deviceTerminalType {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceTerminalTypeEnum}
+     * @return
+     */
+    public Builder deviceTerminalType(
+        com.lark.oapi.service.security_and_compliance.v2.enums
+                .ListDeviceRecordDeviceTerminalTypeEnum
+            deviceTerminalType) {
+      this.deviceTerminalType = deviceTerminalType.getValue();
+      return this;
     }
 
-    public void setMacAddress(String macAddress) {
-        this.macAddress = macAddress;
+    /**
+     * 设备操作系统
+     *
+     * <p>示例值：0
+     *
+     * @param os
+     * @return
+     */
+    public Builder os(Integer os) {
+      this.os = os;
+      return this;
     }
 
-    public String getAndroidId() {
-        return this.androidId;
+    /**
+     * 设备操作系统
+     *
+     * <p>示例值：0
+     *
+     * @param os {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordOsEnum}
+     * @return
+     */
+    public Builder os(
+        com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordOsEnum os) {
+      this.os = os.getValue();
+      return this;
     }
 
-    public void setAndroidId(String androidId) {
-        this.androidId = androidId;
+    /**
+     * 最近登录用户ID，ID 类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：ou_b25e90585ef8c1adac4b379c2e257906
+     *
+     * @param latestUserId
+     * @return
+     */
+    public Builder latestUserId(String latestUserId) {
+      this.latestUserId = latestUserId;
+      return this;
     }
 
-    public String getUuid() {
-        return this.uuid;
+    /**
+     * 设备指纹
+     *
+     * <p>示例值：7089353870308032531
+     *
+     * @param did
+     * @return
+     */
+    public Builder did(String did) {
+      this.did = did;
+      return this;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    /**
+     * 是否为受管控设备
+     *
+     * <p>示例值：
+     *
+     * @param isManaged
+     * @return
+     */
+    public Builder isManaged(Boolean isManaged) {
+      this.isManaged = isManaged;
+      return this;
     }
 
-    public String getIdfv() {
-        return this.idfv;
+    /**
+     * MDM设备ID
+     *
+     * <p>示例值：123abc
+     *
+     * @param mdmDeviceId
+     * @return
+     */
+    public Builder mdmDeviceId(String mdmDeviceId) {
+      this.mdmDeviceId = mdmDeviceId;
+      return this;
     }
 
-    public void setIdfv(String idfv) {
-        this.idfv = idfv;
+    /**
+     * MDM厂商名称
+     *
+     * <p>示例值：Workspace_ONE
+     *
+     * @param mdmProviderName
+     * @return
+     */
+    public Builder mdmProviderName(String mdmProviderName) {
+      this.mdmProviderName = mdmProviderName;
+      return this;
     }
 
-    public String getAaid() {
-        return this.aaid;
+    /**
+     * 终端管控客户端状态
+     *
+     * <p>示例值：1
+     *
+     * @param lsaClientStatus
+     * @return
+     */
+    public Builder lsaClientStatus(Integer lsaClientStatus) {
+      this.lsaClientStatus = lsaClientStatus;
+      return this;
     }
 
-    public void setAaid(String aaid) {
-        this.aaid = aaid;
+    /**
+     * 终端管控客户端状态
+     *
+     * <p>示例值：1
+     *
+     * @param lsaClientStatus {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordLSAClientStatusEnum}
+     * @return
+     */
+    public Builder lsaClientStatus(
+        com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordLSAClientStatusEnum
+            lsaClientStatus) {
+      this.lsaClientStatus = lsaClientStatus.getValue();
+      return this;
     }
 
-    public Integer getDeviceOwnership() {
-        return this.deviceOwnership;
+    /**
+     * 设备环境检测状态
+     *
+     * <p>示例值：0
+     *
+     * @param deviceEnvDetectStatus
+     * @return
+     */
+    public Builder deviceEnvDetectStatus(Integer deviceEnvDetectStatus) {
+      this.deviceEnvDetectStatus = deviceEnvDetectStatus;
+      return this;
     }
 
-    public void setDeviceOwnership(Integer deviceOwnership) {
-        this.deviceOwnership = deviceOwnership;
+    /**
+     * 设备环境检测状态
+     *
+     * <p>示例值：0
+     *
+     * @param deviceEnvDetectStatus {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceEnvDetectStatusEnum}
+     * @return
+     */
+    public Builder deviceEnvDetectStatus(
+        com.lark.oapi.service.security_and_compliance.v2.enums
+                .ListDeviceRecordDeviceEnvDetectStatusEnum
+            deviceEnvDetectStatus) {
+      this.deviceEnvDetectStatus = deviceEnvDetectStatus.getValue();
+      return this;
     }
 
-    public Integer getDeviceStatus() {
-        return this.deviceStatus;
+    /**
+     * 是否为公共设备
+     *
+     * <p>示例值：
+     *
+     * @param isPublic
+     * @return
+     */
+    public Builder isPublic(Boolean isPublic) {
+      this.isPublic = isPublic;
+      return this;
     }
 
-    public void setDeviceStatus(Integer deviceStatus) {
-        this.deviceStatus = deviceStatus;
+    /**
+     * 注册方式
+     *
+     * <p>示例值：
+     *
+     * @param source
+     * @return
+     */
+    public Builder source(Integer source) {
+      this.source = source;
+      return this;
     }
 
-    public Integer getDeviceTerminalType() {
-        return this.deviceTerminalType;
+    /**
+     * 注册方式
+     *
+     * <p>示例值：
+     *
+     * @param source {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceSourceEnum}
+     * @return
+     */
+    public Builder source(
+        com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceSourceEnum
+            source) {
+      this.source = source.getValue();
+      return this;
     }
 
-    public void setDeviceTerminalType(Integer deviceTerminalType) {
-        this.deviceTerminalType = deviceTerminalType;
+    /**
+     * 证书序列号
+     *
+     * <p>示例值：140112030923876027756448774661898183576236633676
+     *
+     * @param certSerialNumber
+     * @return
+     */
+    public Builder certSerialNumber(String certSerialNumber) {
+      this.certSerialNumber = certSerialNumber;
+      return this;
     }
 
-    public Integer getOs() {
-        return this.os;
+    /**
+     * 证书颁发人
+     *
+     * <p>示例值：Root-CA
+     *
+     * @param certIssuer
+     * @return
+     */
+    public Builder certIssuer(String certIssuer) {
+      this.certIssuer = certIssuer;
+      return this;
     }
 
-    public void setOs(Integer os) {
-        this.os = os;
+    public ListDeviceRecordReq build() {
+      return new ListDeviceRecordReq(this);
     }
-
-    public String getLatestUserId() {
-        return this.latestUserId;
-    }
-
-    public void setLatestUserId(String latestUserId) {
-        this.latestUserId = latestUserId;
-    }
-
-    public String getDid() {
-        return this.did;
-    }
-
-    public void setDid(String did) {
-        this.did = did;
-    }
-
-    public Boolean getIsManaged() {
-        return this.isManaged;
-    }
-
-    public void setIsManaged(Boolean isManaged) {
-        this.isManaged = isManaged;
-    }
-
-    public String getMdmDeviceId() {
-        return this.mdmDeviceId;
-    }
-
-    public void setMdmDeviceId(String mdmDeviceId) {
-        this.mdmDeviceId = mdmDeviceId;
-    }
-
-    public String getMdmProviderName() {
-        return this.mdmProviderName;
-    }
-
-    public void setMdmProviderName(String mdmProviderName) {
-        this.mdmProviderName = mdmProviderName;
-    }
-
-    public Integer getLsaClientStatus() {
-        return this.lsaClientStatus;
-    }
-
-    public void setLsaClientStatus(Integer lsaClientStatus) {
-        this.lsaClientStatus = lsaClientStatus;
-    }
-
-    public Integer getDeviceEnvDetectStatus() {
-        return this.deviceEnvDetectStatus;
-    }
-
-    public void setDeviceEnvDetectStatus(Integer deviceEnvDetectStatus) {
-        this.deviceEnvDetectStatus = deviceEnvDetectStatus;
-    }
-
-    public Boolean getIsPublic() {
-        return this.isPublic;
-    }
-
-    public void setIsPublic(Boolean isPublic) {
-        this.isPublic = isPublic;
-    }
-
-    public Integer getSource() {
-        return this.source;
-    }
-
-    public void setSource(Integer source) {
-        this.source = source;
-    }
-
-    public String getCertSerialNumber() {
-        return this.certSerialNumber;
-    }
-
-    public void setCertSerialNumber(String certSerialNumber) {
-        this.certSerialNumber = certSerialNumber;
-    }
-
-    public String getCertIssuer() {
-        return this.certIssuer;
-    }
-
-    public void setCertIssuer(String certIssuer) {
-        this.certIssuer = certIssuer;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页游标
-        private String deviceRecordId; // 设备认证编码
-        private String currentUserId; // 当前登录用户ID
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String deviceName; // 设备名称
-        private String serialNumber; // 生产序列号
-        private String diskSerialNumber; // 硬盘序列号
-        private String macAddress; // MAC地址
-        private String androidId; // Android标识符
-        private String uuid; // 主板UUID
-        private String idfv; // iOS供应商标识符
-        private String aaid; // Harmony供应商标识符
-        private Integer deviceOwnership; // 设备归属
-        private Integer deviceStatus; // 可信状态
-        private Integer deviceTerminalType; // 设备类型
-        private Integer os; // 设备操作系统
-        private String latestUserId; // 最近登录用户ID
-        private String did; // 设备指纹
-        private Boolean isManaged; // 是否为受管控设备
-        private String mdmDeviceId; // MDM设备ID
-        private String mdmProviderName; // MDM厂商名称
-        private Integer lsaClientStatus; // 终端管控客户端状态
-        private Integer deviceEnvDetectStatus; // 设备环境检测状态
-        private Boolean isPublic; // 是否为公共设备
-        private Integer source; // 注册方式
-        private String certSerialNumber; // 证书序列号
-        private String certIssuer; // 证书颁发人
-
-        /**
-         * 分页大小
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页游标
-         * <p> 示例值：7394463407091023892
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 设备认证编码
-         * <p> 示例值：7089353870308032531
-         *
-         * @param deviceRecordId
-         * @return
-         */
-        public Builder deviceRecordId(String deviceRecordId) {
-            this.deviceRecordId = deviceRecordId;
-            return this;
-        }
-
-
-        /**
-         * 当前登录用户ID
-         * <p> 示例值：ou_b25e90585ef8c1adac4b379c2e257906
-         *
-         * @param currentUserId
-         * @return
-         */
-        public Builder currentUserId(String currentUserId) {
-            this.currentUserId = currentUserId;
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 设备名称
-         * <p> 示例值：Q9C6RYMFDK
-         *
-         * @param deviceName
-         * @return
-         */
-        public Builder deviceName(String deviceName) {
-            this.deviceName = deviceName;
-            return this;
-        }
-
-
-        /**
-         * 生产序列号
-         * <p> 示例值：C02DTHRMML7H
-         *
-         * @param serialNumber
-         * @return
-         */
-        public Builder serialNumber(String serialNumber) {
-            this.serialNumber = serialNumber;
-            return this;
-        }
-
-
-        /**
-         * 硬盘序列号
-         * <p> 示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C
-         *
-         * @param diskSerialNumber
-         * @return
-         */
-        public Builder diskSerialNumber(String diskSerialNumber) {
-            this.diskSerialNumber = diskSerialNumber;
-            return this;
-        }
-
-
-        /**
-         * MAC地址
-         * <p> 示例值：ac:de:48:00:11:21
-         *
-         * @param macAddress
-         * @return
-         */
-        public Builder macAddress(String macAddress) {
-            this.macAddress = macAddress;
-            return this;
-        }
-
-
-        /**
-         * Android标识符
-         * <p> 示例值：02a11ac4a83b918e
-         *
-         * @param androidId
-         * @return
-         */
-        public Builder androidId(String androidId) {
-            this.androidId = androidId;
-            return this;
-        }
-
-
-        /**
-         * 主板UUID
-         * <p> 示例值：4C4C4544-0052-5A10-804E-B6C04F324433
-         *
-         * @param uuid
-         * @return
-         */
-        public Builder uuid(String uuid) {
-            this.uuid = uuid;
-            return this;
-        }
-
-
-        /**
-         * iOS供应商标识符
-         * <p> 示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A
-         *
-         * @param idfv
-         * @return
-         */
-        public Builder idfv(String idfv) {
-            this.idfv = idfv;
-            return this;
-        }
-
-
-        /**
-         * Harmony供应商标识符
-         * <p> 示例值：ff3c2237-cd76-4331-9d72-0a4470854567
-         *
-         * @param aaid
-         * @return
-         */
-        public Builder aaid(String aaid) {
-            this.aaid = aaid;
-            return this;
-        }
-
-
-        /**
-         * 设备归属
-         * <p> 示例值：0
-         *
-         * @param deviceOwnership
-         * @return
-         */
-        public Builder deviceOwnership(Integer deviceOwnership) {
-            this.deviceOwnership = deviceOwnership;
-            return this;
-        }
-
-        /**
-         * 设备归属
-         * <p> 示例值：0
-         *
-         * @param deviceOwnership {@link com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceOwnershipEnum}
-         * @return
-         */
-        public Builder deviceOwnership(com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceOwnershipEnum deviceOwnership) {
-            this.deviceOwnership = deviceOwnership.getValue();
-            return this;
-        }
-
-
-        /**
-         * 可信状态
-         * <p> 示例值：0
-         *
-         * @param deviceStatus
-         * @return
-         */
-        public Builder deviceStatus(Integer deviceStatus) {
-            this.deviceStatus = deviceStatus;
-            return this;
-        }
-
-        /**
-         * 可信状态
-         * <p> 示例值：0
-         *
-         * @param deviceStatus {@link com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceStatusEnum}
-         * @return
-         */
-        public Builder deviceStatus(com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceStatusEnum deviceStatus) {
-            this.deviceStatus = deviceStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 设备类型
-         * <p> 示例值：0
-         *
-         * @param deviceTerminalType
-         * @return
-         */
-        public Builder deviceTerminalType(Integer deviceTerminalType) {
-            this.deviceTerminalType = deviceTerminalType;
-            return this;
-        }
-
-        /**
-         * 设备类型
-         * <p> 示例值：0
-         *
-         * @param deviceTerminalType {@link com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceTerminalTypeEnum}
-         * @return
-         */
-        public Builder deviceTerminalType(com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceTerminalTypeEnum deviceTerminalType) {
-            this.deviceTerminalType = deviceTerminalType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 设备操作系统
-         * <p> 示例值：0
-         *
-         * @param os
-         * @return
-         */
-        public Builder os(Integer os) {
-            this.os = os;
-            return this;
-        }
-
-        /**
-         * 设备操作系统
-         * <p> 示例值：0
-         *
-         * @param os {@link com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordOsEnum}
-         * @return
-         */
-        public Builder os(com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordOsEnum os) {
-            this.os = os.getValue();
-            return this;
-        }
-
-
-        /**
-         * 最近登录用户ID
-         * <p> 示例值：ou_b25e90585ef8c1adac4b379c2e257906
-         *
-         * @param latestUserId
-         * @return
-         */
-        public Builder latestUserId(String latestUserId) {
-            this.latestUserId = latestUserId;
-            return this;
-        }
-
-
-        /**
-         * 设备指纹
-         * <p> 示例值：7089353870308032531
-         *
-         * @param did
-         * @return
-         */
-        public Builder did(String did) {
-            this.did = did;
-            return this;
-        }
-
-
-        /**
-         * 是否为受管控设备
-         * <p> 示例值：
-         *
-         * @param isManaged
-         * @return
-         */
-        public Builder isManaged(Boolean isManaged) {
-            this.isManaged = isManaged;
-            return this;
-        }
-
-
-        /**
-         * MDM设备ID
-         * <p> 示例值：123abc
-         *
-         * @param mdmDeviceId
-         * @return
-         */
-        public Builder mdmDeviceId(String mdmDeviceId) {
-            this.mdmDeviceId = mdmDeviceId;
-            return this;
-        }
-
-
-        /**
-         * MDM厂商名称
-         * <p> 示例值：Workspace_ONE
-         *
-         * @param mdmProviderName
-         * @return
-         */
-        public Builder mdmProviderName(String mdmProviderName) {
-            this.mdmProviderName = mdmProviderName;
-            return this;
-        }
-
-
-        /**
-         * 终端管控客户端状态
-         * <p> 示例值：1
-         *
-         * @param lsaClientStatus
-         * @return
-         */
-        public Builder lsaClientStatus(Integer lsaClientStatus) {
-            this.lsaClientStatus = lsaClientStatus;
-            return this;
-        }
-
-        /**
-         * 终端管控客户端状态
-         * <p> 示例值：1
-         *
-         * @param lsaClientStatus {@link com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordLSAClientStatusEnum}
-         * @return
-         */
-        public Builder lsaClientStatus(com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordLSAClientStatusEnum lsaClientStatus) {
-            this.lsaClientStatus = lsaClientStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 设备环境检测状态
-         * <p> 示例值：0
-         *
-         * @param deviceEnvDetectStatus
-         * @return
-         */
-        public Builder deviceEnvDetectStatus(Integer deviceEnvDetectStatus) {
-            this.deviceEnvDetectStatus = deviceEnvDetectStatus;
-            return this;
-        }
-
-        /**
-         * 设备环境检测状态
-         * <p> 示例值：0
-         *
-         * @param deviceEnvDetectStatus {@link com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceEnvDetectStatusEnum}
-         * @return
-         */
-        public Builder deviceEnvDetectStatus(com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceEnvDetectStatusEnum deviceEnvDetectStatus) {
-            this.deviceEnvDetectStatus = deviceEnvDetectStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否为公共设备
-         * <p> 示例值：
-         *
-         * @param isPublic
-         * @return
-         */
-        public Builder isPublic(Boolean isPublic) {
-            this.isPublic = isPublic;
-            return this;
-        }
-
-
-        /**
-         * 注册方式
-         * <p> 示例值：
-         *
-         * @param source
-         * @return
-         */
-        public Builder source(Integer source) {
-            this.source = source;
-            return this;
-        }
-
-        /**
-         * 注册方式
-         * <p> 示例值：
-         *
-         * @param source {@link com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceSourceEnum}
-         * @return
-         */
-        public Builder source(com.lark.oapi.service.security_and_compliance.v2.enums.ListDeviceRecordDeviceSourceEnum source) {
-            this.source = source.getValue();
-            return this;
-        }
-
-
-        /**
-         * 证书序列号
-         * <p> 示例值：140112030923876027756448774661898183576236633676
-         *
-         * @param certSerialNumber
-         * @return
-         */
-        public Builder certSerialNumber(String certSerialNumber) {
-            this.certSerialNumber = certSerialNumber;
-            return this;
-        }
-
-
-        /**
-         * 证书颁发人
-         * <p> 示例值：Root-CA
-         *
-         * @param certIssuer
-         * @return
-         */
-        public Builder certIssuer(String certIssuer) {
-            this.certIssuer = certIssuer;
-            return this;
-        }
-
-
-        public ListDeviceRecordReq build() {
-            return new ListDeviceRecordReq(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

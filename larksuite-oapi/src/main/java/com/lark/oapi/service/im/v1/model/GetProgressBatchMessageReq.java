@@ -13,72 +13,72 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.im.v1.enums.*;
 
 public class GetProgressBatchMessageReq {
+  /**
+   * 待查询的批量消息任务 ID，该 ID 为[批量发送消息](
+   * https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口返回值中的 `message_id`
+   * 字段，用于标识一次批量发送消息请求。
+   *
+   * <p>示例值：bm-0b3d5d1b2df7c6d5dbd1abe2c91e2217
+   */
+  @Path
+  @SerializedName("batch_message_id")
+  private String batchMessageId;
+
+  public String getBatchMessageId() {
+    return this.batchMessageId;
+  }
+
+  public void setBatchMessageId(String batchMessageId) {
+    this.batchMessageId = batchMessageId;
+  }
+
+  // builder 开始
+  public GetProgressBatchMessageReq() {}
+
+  public GetProgressBatchMessageReq(Builder builder) {
     /**
-     * 待查询的批量消息的ID，通过调用[批量发送消息接口](	https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值中得到
-     * <p> 示例值：bm-0b3d5d1b2df7c6d5dbd1abe2c91e2217
+     * 待查询的批量消息任务 ID，该 ID 为[批量发送消息](
+     * https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口返回值中的 `message_id`
+     * 字段，用于标识一次批量发送消息请求。
+     *
+     * <p>示例值：bm-0b3d5d1b2df7c6d5dbd1abe2c91e2217
      */
-    @Path
-    @SerializedName("batch_message_id")
-    private String batchMessageId;
+    this.batchMessageId = builder.batchMessageId;
+  }
 
-    // builder 开始
-    public GetProgressBatchMessageReq() {
+  public static class Builder {
+
+    private String batchMessageId; // 待查询的批量消息任务 ID，该 ID 为[批量发送消息](
+
+    //	https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口返回值中的
+    // `message_id` 字段，用于标识一次批量发送消息请求。
+
+    /**
+     * 待查询的批量消息任务 ID，该 ID 为[批量发送消息](
+     * https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)接口返回值中的 `message_id`
+     * 字段，用于标识一次批量发送消息请求。
+     *
+     * <p>示例值：bm-0b3d5d1b2df7c6d5dbd1abe2c91e2217
+     *
+     * @param batchMessageId
+     * @return
+     */
+    public Builder batchMessageId(String batchMessageId) {
+      this.batchMessageId = batchMessageId;
+      return this;
     }
 
-    public GetProgressBatchMessageReq(Builder builder) {
-        /**
-         * 待查询的批量消息的ID，通过调用[批量发送消息接口](	https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值中得到
-         * <p> 示例值：bm-0b3d5d1b2df7c6d5dbd1abe2c91e2217
-         */
-        this.batchMessageId = builder.batchMessageId;
+    public GetProgressBatchMessageReq build() {
+      return new GetProgressBatchMessageReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getBatchMessageId() {
-        return this.batchMessageId;
-    }
-
-    public void setBatchMessageId(String batchMessageId) {
-        this.batchMessageId = batchMessageId;
-    }
-
-    public static class Builder {
-
-        private String batchMessageId; // 待查询的批量消息的ID，通过调用[批量发送消息接口](	https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值中得到
-
-        /**
-         * 待查询的批量消息的ID，通过调用[批量发送消息接口](	https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)的返回值中得到
-         * <p> 示例值：bm-0b3d5d1b2df7c6d5dbd1abe2c91e2217
-         *
-         * @param batchMessageId
-         * @return
-         */
-        public Builder batchMessageId(String batchMessageId) {
-            this.batchMessageId = batchMessageId;
-            return this;
-        }
-
-
-        public GetProgressBatchMessageReq build() {
-            return new GetProgressBatchMessageReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

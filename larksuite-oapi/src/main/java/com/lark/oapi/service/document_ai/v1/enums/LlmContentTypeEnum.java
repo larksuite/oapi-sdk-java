@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.document_ai.v1.enums;
 
-/**
- * 内容类型：text, image_zip
- */
+/** 内容类型：text, image_zip */
 public enum LlmContentTypeEnum {
-    TEXT("text"), // 文本内容
-    IMAGE_ZIP("image_zip"), // 图片类型，图片文件保存在zip中
-    ;
-    private String value;
+  TEXT("text"), // 文本内容
+  IMAGE_ZIP("image_zip"), // 图片类型，图片文件保存在zip中
+  ;
+  private String value;
 
-    LlmContentTypeEnum(String value) {
-        this.value = value;
-    }
+  LlmContentTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

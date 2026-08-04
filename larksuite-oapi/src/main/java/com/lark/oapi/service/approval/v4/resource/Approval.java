@@ -13,303 +13,420 @@
 
 package com.lark.oapi.service.approval.v4.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.approval.v4.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.approval.v4.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class Approval {
-    private static final Logger log = LoggerFactory.getLogger(Approval.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(Approval.class);
+  private final Config config;
 
-    public Approval(Config config) {
-        this.config = config;
+  public Approval(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 创建审批定义，该接口用于创建审批定义，可以灵活指定审批定义的基础信息、表单和流程等。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=approval&resource=approval&version=v4">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=approval&resource=approval&version=v4</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/CreateApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/CreateApprovalSample.java</a>
+   * ;
+   */
+  public CreateApprovalResp create(CreateApprovalReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/approval/v4/approvals",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-    /**
-     * 创建审批定义，用于通过接口创建简单的审批定义，可以灵活指定定义的基础信息、表单和流程等。创建成功后，不支持从审批管理后台删除该定义。不推荐企业自建应用使用，如有需要尽量联系管理员在审批管理后台创建定义。
-     * <p> 接口谨慎调用，创建后的审批定义无法停用/删除 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/CreateApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/CreateApprovalSample.java</a> ;
-     */
-    public CreateApprovalResp create(CreateApprovalReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/approval/v4/approvals"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        CreateApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateApprovalResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/approval/v4/approvals"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    CreateApprovalResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, CreateApprovalResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/approval/v4/approvals",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 创建审批定义，用于通过接口创建简单的审批定义，可以灵活指定定义的基础信息、表单和流程等。创建成功后，不支持从审批管理后台删除该定义。不推荐企业自建应用使用，如有需要尽量联系管理员在审批管理后台创建定义。
-     * <p> 接口谨慎调用，创建后的审批定义无法停用/删除 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/CreateApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/CreateApprovalSample.java</a> ;
-     */
-    public CreateApprovalResp create(CreateApprovalReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/approval/v4/approvals"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        CreateApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateApprovalResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/approval/v4/approvals"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 创建审批定义，该接口用于创建审批定义，可以灵活指定审批定义的基础信息、表单和流程等。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=approval&resource=approval&version=v4">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=approval&resource=approval&version=v4</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/CreateApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/CreateApprovalSample.java</a>
+   * ;
+   */
+  public CreateApprovalResp create(CreateApprovalReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/approval/v4/approvals",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    CreateApprovalResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, CreateApprovalResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/approval/v4/approvals",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 查看审批定义，根据 Approval Code 获取某个审批定义的详情，用于构造创建审批实例的请求。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/GetApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/GetApprovalSample.java</a> ;
-     */
-    public GetApprovalResp get(GetApprovalReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/approval/v4/approvals/:approval_code"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        GetApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApprovalResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/approval/v4/approvals/:approval_code"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 查看指定审批定义，根据审批定义 Code 以及语言、用户 ID
+   * 等筛选条件获取指定审批定义的信息，包括审批定义名称、状态、表单控件以及节点等信息。获取审批定义信息后，可根据信息构造[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)的请求。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=approval&resource=approval&version=v4">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=approval&resource=approval&version=v4</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/GetApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/GetApprovalSample.java</a>
+   * ;
+   */
+  public GetApprovalResp get(GetApprovalReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * 查看审批定义，根据 Approval Code 获取某个审批定义的详情，用于构造创建审批实例的请求。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/GetApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/GetApprovalSample.java</a> ;
-     */
-    public GetApprovalResp get(GetApprovalReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/approval/v4/approvals/:approval_code",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/approval/v4/approvals/:approval_code"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        GetApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApprovalResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/approval/v4/approvals/:approval_code"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    GetApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApprovalResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/approval/v4/approvals/:approval_code",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 订阅审批事件，应用订阅 approval_code 后，该应用就可以收到该审批定义对应实例的事件通知。同一应用只需要订阅一次，无需重复订阅。;;当应用不希望再收到审批事件时，可以使用取消订阅接口进行取消，取消后将不再给应用推送消息。;;订阅和取消订阅都是应用维度的，多个应用可以同时订阅同一个 approval_code，每个应用都能收到审批事件。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/SubscribeApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/SubscribeApprovalSample.java</a> ;
-     */
-    public SubscribeApprovalResp subscribe(SubscribeApprovalReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/approval/v4/approvals/:approval_code/subscribe"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        SubscribeApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscribeApprovalResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/approval/v4/approvals/:approval_code/subscribe"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 查看指定审批定义，根据审批定义 Code 以及语言、用户 ID
+   * 等筛选条件获取指定审批定义的信息，包括审批定义名称、状态、表单控件以及节点等信息。获取审批定义信息后，可根据信息构造[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)的请求。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=approval&resource=approval&version=v4">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=approval&resource=approval&version=v4</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/GetApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/GetApprovalSample.java</a>
+   * ;
+   */
+  public GetApprovalResp get(GetApprovalReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/approval/v4/approvals/:approval_code",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    GetApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApprovalResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/approval/v4/approvals/:approval_code",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 订阅审批事件，应用订阅 approval_code 后，该应用就可以收到该审批定义对应实例的事件通知。同一应用只需要订阅一次，无需重复订阅。;;当应用不希望再收到审批事件时，可以使用取消订阅接口进行取消，取消后将不再给应用推送消息。;;订阅和取消订阅都是应用维度的，多个应用可以同时订阅同一个 approval_code，每个应用都能收到审批事件。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/SubscribeApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/SubscribeApprovalSample.java</a> ;
-     */
-    public SubscribeApprovalResp subscribe(SubscribeApprovalReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/approval/v4/approvals/:approval_code/subscribe"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        SubscribeApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscribeApprovalResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/approval/v4/approvals/:approval_code/subscribe"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 订阅审批事件，当应用[订阅审批事件](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)后，需要调用该接口指定审批定义
+   * Code（approval_code）开启订阅，开启后应用才可以接收该审批定义对应的事件。
+   *
+   * <p>## 注意事项;;-
+   * 该接口仅用于开启应用接收审批事件，实际使用时应用还需要订阅所需的审批事件。例如订阅[审批实例状态变更](https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/common-event/approval-instance-event)事件。;-
+   * 同一应用只需要调用该接口一次即可，无需重复调用该接口。;-
+   * 当应用不再需要接收审批事件时，可以调用[取消订阅审批事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe)接口，进行取消，取消后该应用将不再会收到事件订阅消息。;-
+   * 订阅和取消订阅接口的实现都是面向应用的，多个应用可以同时订阅同一个审批定义 Code（approval_code），每个应用在都能收到审批事件。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=subscribe&project=approval&resource=approval&version=v4">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=subscribe&project=approval&resource=approval&version=v4</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/SubscribeApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/SubscribeApprovalSample.java</a>
+   * ;
+   */
+  public SubscribeApprovalResp subscribe(SubscribeApprovalReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * 取消订阅审批事件，取消订阅 approval_code 后，无法再收到该审批定义对应实例的事件通知
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/UnsubscribeApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/UnsubscribeApprovalSample.java</a> ;
-     */
-    public UnsubscribeApprovalResp unsubscribe(UnsubscribeApprovalReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/approval/v4/approvals/:approval_code/subscribe",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/approval/v4/approvals/:approval_code/unsubscribe"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        UnsubscribeApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscribeApprovalResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/approval/v4/approvals/:approval_code/unsubscribe"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    SubscribeApprovalResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, SubscribeApprovalResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/approval/v4/approvals/:approval_code/subscribe",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 取消订阅审批事件，取消订阅 approval_code 后，无法再收到该审批定义对应实例的事件通知
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/UnsubscribeApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/UnsubscribeApprovalSample.java</a> ;
-     */
-    public UnsubscribeApprovalResp unsubscribe(UnsubscribeApprovalReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/approval/v4/approvals/:approval_code/unsubscribe"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        UnsubscribeApprovalResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscribeApprovalResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/approval/v4/approvals/:approval_code/unsubscribe"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 订阅审批事件，当应用[订阅审批事件](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)后，需要调用该接口指定审批定义
+   * Code（approval_code）开启订阅，开启后应用才可以接收该审批定义对应的事件。
+   *
+   * <p>## 注意事项;;-
+   * 该接口仅用于开启应用接收审批事件，实际使用时应用还需要订阅所需的审批事件。例如订阅[审批实例状态变更](https://open.feishu.cn/document/ukTMukTMukTM/uIDO24iM4YjLygjN/event/common-event/approval-instance-event)事件。;-
+   * 同一应用只需要调用该接口一次即可，无需重复调用该接口。;-
+   * 当应用不再需要接收审批事件时，可以调用[取消订阅审批事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/unsubscribe)接口，进行取消，取消后该应用将不再会收到事件订阅消息。;-
+   * 订阅和取消订阅接口的实现都是面向应用的，多个应用可以同时订阅同一个审批定义 Code（approval_code），每个应用在都能收到审批事件。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=subscribe&project=approval&resource=approval&version=v4">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=subscribe&project=approval&resource=approval&version=v4</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/SubscribeApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/SubscribeApprovalSample.java</a>
+   * ;
+   */
+  public SubscribeApprovalResp subscribe(SubscribeApprovalReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/approval/v4/approvals/:approval_code/subscribe",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    SubscribeApprovalResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, SubscribeApprovalResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/approval/v4/approvals/:approval_code/subscribe",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 取消订阅审批事件，调用[订阅审批事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe)接口订阅审批定义
+   * Code 后，如果不再需要接收该审批定义下的事件订阅通知，可以调用本接口取消订阅审批定义 Code，取消后应用无法再收到该审批定义对应实例的事件通知。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=unsubscribe&project=approval&resource=approval&version=v4">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=unsubscribe&project=approval&resource=approval&version=v4</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/UnsubscribeApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/UnsubscribeApprovalSample.java</a>
+   * ;
+   */
+  public UnsubscribeApprovalResp unsubscribe(UnsubscribeApprovalReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/approval/v4/approvals/:approval_code/unsubscribe",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    UnsubscribeApprovalResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscribeApprovalResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/approval/v4/approvals/:approval_code/unsubscribe",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 取消订阅审批事件，调用[订阅审批事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/subscribe)接口订阅审批定义
+   * Code 后，如果不再需要接收该审批定义下的事件订阅通知，可以调用本接口取消订阅审批定义 Code，取消后应用无法再收到该审批定义对应实例的事件通知。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=unsubscribe&project=approval&resource=approval&version=v4">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=unsubscribe&project=approval&resource=approval&version=v4</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/UnsubscribeApprovalSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/approvalv4/UnsubscribeApprovalSample.java</a>
+   * ;
+   */
+  public UnsubscribeApprovalResp unsubscribe(UnsubscribeApprovalReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/approval/v4/approvals/:approval_code/unsubscribe",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    UnsubscribeApprovalResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscribeApprovalResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/approval/v4/approvals/:approval_code/unsubscribe",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

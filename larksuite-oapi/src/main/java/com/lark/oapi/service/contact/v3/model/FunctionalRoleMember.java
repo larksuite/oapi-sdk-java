@@ -13,161 +13,173 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FunctionalRoleMember {
+  /**
+   * 用户 ID，ID 类型与查询参数 user_id_type 的取值保持一致。
+   *
+   * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 管理范围类型。
+   *
+   * <p>示例值：All
+   */
+  @SerializedName("scope_type")
+  private String scopeType;
+
+  /**
+   * 部门 ID 列表，ID 类型与查询参数 department_id_type
+   * 的取值保持一致。后续你可以调用[获取单个部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/get)接口，根据部门
+   * ID 获取部门详情。;;**说明**：仅当 scope_type 取值为 Part 时，才会返回该值。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_ids")
+  private String[] departmentIds;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getScopeType() {
+    return this.scopeType;
+  }
+
+  public void setScopeType(String scopeType) {
+    this.scopeType = scopeType;
+  }
+
+  public String[] getDepartmentIds() {
+    return this.departmentIds;
+  }
+
+  public void setDepartmentIds(String[] departmentIds) {
+    this.departmentIds = departmentIds;
+  }
+
+  // builder 开始
+  public FunctionalRoleMember() {}
+
+  public FunctionalRoleMember(Builder builder) {
     /**
-     * 成员ID
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     * 用户 ID，ID 类型与查询参数 user_id_type 的取值保持一致。
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+    /**
+     * 管理范围类型。
+     *
+     * <p>示例值：All
+     */
+    this.scopeType = builder.scopeType;
+    /**
+     * 部门 ID 列表，ID 类型与查询参数 department_id_type
+     * 的取值保持一致。后续你可以调用[获取单个部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/get)接口，根据部门
+     * ID 获取部门详情。;;**说明**：仅当 scope_type 取值为 Part 时，才会返回该值。
+     *
+     * <p>示例值：
+     */
+    this.departmentIds = builder.departmentIds;
+  }
+
+  public static class Builder {
+    /**
+     * 用户 ID，ID 类型与查询参数 user_id_type 的取值保持一致。
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     */
     private String userId;
+
     /**
-     * 管理范围的类型
-     * <p> 示例值：All
+     * 管理范围类型。
+     *
+     * <p>示例值：All
      */
-    @SerializedName("scope_type")
     private String scopeType;
+
     /**
-     * 表示该角色成员的管理范围，scope_type为“指定范围”时，返回该值
-     * <p> 示例值：
+     * 部门 ID 列表，ID 类型与查询参数 department_id_type
+     * 的取值保持一致。后续你可以调用[获取单个部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/get)接口，根据部门
+     * ID 获取部门详情。;;**说明**：仅当 scope_type 取值为 Part 时，才会返回该值。
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_ids")
     private String[] departmentIds;
 
-    // builder 开始
-    public FunctionalRoleMember() {
+    /**
+     * 用户 ID，ID 类型与查询参数 user_id_type 的取值保持一致。
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public FunctionalRoleMember(Builder builder) {
-        /**
-         * 成员ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.userId = builder.userId;
-        /**
-         * 管理范围的类型
-         * <p> 示例值：All
-         */
-        this.scopeType = builder.scopeType;
-        /**
-         * 表示该角色成员的管理范围，scope_type为“指定范围”时，返回该值
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
+    /**
+     * 管理范围类型。
+     *
+     * <p>示例值：All
+     *
+     * @param scopeType
+     * @return
+     */
+    public Builder scopeType(String scopeType) {
+      this.scopeType = scopeType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 管理范围类型。
+     *
+     * <p>示例值：All
+     *
+     * @param scopeType {@link
+     *     com.lark.oapi.service.contact.v3.enums.FunctionalRoleMemberFunctionalRoleMemberScopeTypeEnum}
+     * @return
+     */
+    public Builder scopeType(
+        com.lark.oapi.service.contact.v3.enums.FunctionalRoleMemberFunctionalRoleMemberScopeTypeEnum
+            scopeType) {
+      this.scopeType = scopeType.getValue();
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 部门 ID 列表，ID 类型与查询参数 department_id_type
+     * 的取值保持一致。后续你可以调用[获取单个部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/get)接口，根据部门
+     * ID 获取部门详情。;;**说明**：仅当 scope_type 取值为 Part 时，才会返回该值。
+     *
+     * <p>示例值：
+     *
+     * @param departmentIds
+     * @return
+     */
+    public Builder departmentIds(String[] departmentIds) {
+      this.departmentIds = departmentIds;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public FunctionalRoleMember build() {
+      return new FunctionalRoleMember(this);
     }
+  }
 
-    public String getScopeType() {
-        return this.scopeType;
-    }
-
-    public void setScopeType(String scopeType) {
-        this.scopeType = scopeType;
-    }
-
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
-    }
-
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
-    }
-
-    public static class Builder {
-        /**
-         * 成员ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        private String userId;
-        /**
-         * 管理范围的类型
-         * <p> 示例值：All
-         */
-        private String scopeType;
-        /**
-         * 表示该角色成员的管理范围，scope_type为“指定范围”时，返回该值
-         * <p> 示例值：
-         */
-        private String[] departmentIds;
-
-        /**
-         * 成员ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 管理范围的类型
-         * <p> 示例值：All
-         *
-         * @param scopeType
-         * @return
-         */
-        public Builder scopeType(String scopeType) {
-            this.scopeType = scopeType;
-            return this;
-        }
-
-        /**
-         * 管理范围的类型
-         * <p> 示例值：All
-         *
-         * @param scopeType {@link com.lark.oapi.service.contact.v3.enums.FunctionalRoleMemberFunctionalRoleMemberScopeTypeEnum}
-         * @return
-         */
-        public Builder scopeType(com.lark.oapi.service.contact.v3.enums.FunctionalRoleMemberFunctionalRoleMemberScopeTypeEnum scopeType) {
-            this.scopeType = scopeType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 表示该角色成员的管理范围，scope_type为“指定范围”时，返回该值
-         * <p> 示例值：
-         *
-         * @param departmentIds
-         * @return
-         */
-        public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
-        }
-
-
-        public FunctionalRoleMember build() {
-            return new FunctionalRoleMember(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

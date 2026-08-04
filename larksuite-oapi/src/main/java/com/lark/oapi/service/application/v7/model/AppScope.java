@@ -13,198 +13,204 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v7.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppScope {
+  /**
+   * 应用权限
+   *
+   * <p>示例值：contact:user.base
+   */
+  @SerializedName("scope")
+  private String scope;
+
+  /**
+   * 应用权限的国际化描述
+   *
+   * <p>示例值：获取应用信息
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 权限等级描述
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("level")
+  private Integer level;
+
+  /**
+   * 返回用户身份类型user、应用身份类型tenant。如果两种类型都支持，则同时返回两个。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("token_types")
+  private String[] tokenTypes;
+
+  public String getScope() {
+    return this.scope;
+  }
+
+  public void setScope(String scope) {
+    this.scope = scope;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Integer getLevel() {
+    return this.level;
+  }
+
+  public void setLevel(Integer level) {
+    this.level = level;
+  }
+
+  public String[] getTokenTypes() {
+    return this.tokenTypes;
+  }
+
+  public void setTokenTypes(String[] tokenTypes) {
+    this.tokenTypes = tokenTypes;
+  }
+
+  // builder 开始
+  public AppScope() {}
+
+  public AppScope(Builder builder) {
     /**
      * 应用权限
-     * <p> 示例值：contact:user.base
+     *
+     * <p>示例值：contact:user.base
      */
-    @SerializedName("scope")
-    private String scope;
+    this.scope = builder.scope;
     /**
      * 应用权限的国际化描述
-     * <p> 示例值：获取应用信息
+     *
+     * <p>示例值：获取应用信息
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 权限等级描述
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("level")
-    private Integer level;
+    this.level = builder.level;
     /**
      * 返回用户身份类型user、应用身份类型tenant。如果两种类型都支持，则同时返回两个。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("token_types")
+    this.tokenTypes = builder.tokenTypes;
+  }
+
+  public static class Builder {
+    /**
+     * 应用权限
+     *
+     * <p>示例值：contact:user.base
+     */
+    private String scope;
+
+    /**
+     * 应用权限的国际化描述
+     *
+     * <p>示例值：获取应用信息
+     */
+    private String description;
+
+    /**
+     * 权限等级描述
+     *
+     * <p>示例值：1
+     */
+    private Integer level;
+
+    /**
+     * 返回用户身份类型user、应用身份类型tenant。如果两种类型都支持，则同时返回两个。
+     *
+     * <p>示例值：
+     */
     private String[] tokenTypes;
 
-    // builder 开始
-    public AppScope() {
+    /**
+     * 应用权限
+     *
+     * <p>示例值：contact:user.base
+     *
+     * @param scope
+     * @return
+     */
+    public Builder scope(String scope) {
+      this.scope = scope;
+      return this;
     }
 
-    public AppScope(Builder builder) {
-        /**
-         * 应用权限
-         * <p> 示例值：contact:user.base
-         */
-        this.scope = builder.scope;
-        /**
-         * 应用权限的国际化描述
-         * <p> 示例值：获取应用信息
-         */
-        this.description = builder.description;
-        /**
-         * 权限等级描述
-         * <p> 示例值：1
-         */
-        this.level = builder.level;
-        /**
-         * 返回用户身份类型user、应用身份类型tenant。如果两种类型都支持，则同时返回两个。
-         * <p> 示例值：
-         */
-        this.tokenTypes = builder.tokenTypes;
+    /**
+     * 应用权限的国际化描述
+     *
+     * <p>示例值：获取应用信息
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 权限等级描述
+     *
+     * <p>示例值：1
+     *
+     * @param level
+     * @return
+     */
+    public Builder level(Integer level) {
+      this.level = level;
+      return this;
     }
 
-    public String getScope() {
-        return this.scope;
+    /**
+     * 权限等级描述
+     *
+     * <p>示例值：1
+     *
+     * @param level {@link com.lark.oapi.service.application.v7.enums.AppScopeScopeLevelEnum}
+     * @return
+     */
+    public Builder level(com.lark.oapi.service.application.v7.enums.AppScopeScopeLevelEnum level) {
+      this.level = level.getValue();
+      return this;
     }
 
-    public void setScope(String scope) {
-        this.scope = scope;
+    /**
+     * 返回用户身份类型user、应用身份类型tenant。如果两种类型都支持，则同时返回两个。
+     *
+     * <p>示例值：
+     *
+     * @param tokenTypes
+     * @return
+     */
+    public Builder tokenTypes(String[] tokenTypes) {
+      this.tokenTypes = tokenTypes;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    public AppScope build() {
+      return new AppScope(this);
     }
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Integer getLevel() {
-        return this.level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
-
-    public String[] getTokenTypes() {
-        return this.tokenTypes;
-    }
-
-    public void setTokenTypes(String[] tokenTypes) {
-        this.tokenTypes = tokenTypes;
-    }
-
-    public static class Builder {
-        /**
-         * 应用权限
-         * <p> 示例值：contact:user.base
-         */
-        private String scope;
-        /**
-         * 应用权限的国际化描述
-         * <p> 示例值：获取应用信息
-         */
-        private String description;
-        /**
-         * 权限等级描述
-         * <p> 示例值：1
-         */
-        private Integer level;
-        /**
-         * 返回用户身份类型user、应用身份类型tenant。如果两种类型都支持，则同时返回两个。
-         * <p> 示例值：
-         */
-        private String[] tokenTypes;
-
-        /**
-         * 应用权限
-         * <p> 示例值：contact:user.base
-         *
-         * @param scope
-         * @return
-         */
-        public Builder scope(String scope) {
-            this.scope = scope;
-            return this;
-        }
-
-
-        /**
-         * 应用权限的国际化描述
-         * <p> 示例值：获取应用信息
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 权限等级描述
-         * <p> 示例值：1
-         *
-         * @param level
-         * @return
-         */
-        public Builder level(Integer level) {
-            this.level = level;
-            return this;
-        }
-
-        /**
-         * 权限等级描述
-         * <p> 示例值：1
-         *
-         * @param level {@link com.lark.oapi.service.application.v7.enums.AppScopeScopeLevelEnum}
-         * @return
-         */
-        public Builder level(com.lark.oapi.service.application.v7.enums.AppScopeScopeLevelEnum level) {
-            this.level = level.getValue();
-            return this;
-        }
-
-
-        /**
-         * 返回用户身份类型user、应用身份类型tenant。如果两种类型都支持，则同时返回两个。
-         * <p> 示例值：
-         *
-         * @param tokenTypes
-         * @return
-         */
-        public Builder tokenTypes(String[] tokenTypes) {
-            this.tokenTypes = tokenTypes;
-            return this;
-        }
-
-
-        public AppScope build() {
-            return new AppScope(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

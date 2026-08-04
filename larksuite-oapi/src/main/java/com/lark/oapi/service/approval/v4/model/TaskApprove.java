@@ -13,260 +13,305 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TaskApprove {
+  /**
+   * 审批定义 Code。获取方式：;;-
+   * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+   * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+   * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+   *
+   * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
+  @SerializedName("approval_code")
+  private String approvalCode;
+
+  /**
+   * 审批实例 Code。获取方式：;;-
+   * 调用[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)接口后，从响应参数
+   * instance_code 获取。;- 调用[批量获取审批实例
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)接口，获取所需的审批实例
+   * Code。;-
+   * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+   * Code。
+   *
+   * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+   */
+  @SerializedName("instance_code")
+  private String instanceCode;
+
+  /**
+   * 审批人的用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+   *
+   * <p>示例值：f7cb567e
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 审批意见
+   *
+   * <p>示例值：OK
+   */
+  @SerializedName("comment")
+  private String comment;
+
+  /**
+   * 审批任务
+   * ID，调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+   * task_list 中获取所需的 id。
+   *
+   * <p>示例值：12345
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  /** 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}] */
+  @SerializedName("form")
+  private String form;
+
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
+
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
+
+  public String getInstanceCode() {
+    return this.instanceCode;
+  }
+
+  public void setInstanceCode(String instanceCode) {
+    this.instanceCode = instanceCode;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getComment() {
+    return this.comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public String getForm() {
+    return this.form;
+  }
+
+  public void setForm(String form) {
+    this.form = form;
+  }
+
+  // builder 开始
+  public TaskApprove() {}
+
+  public TaskApprove(Builder builder) {
     /**
-     * 审批定义 Code
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
      */
-    @SerializedName("approval_code")
+    this.approvalCode = builder.approvalCode;
+    /**
+     * 审批实例 Code。获取方式：;;-
+     * 调用[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)接口后，从响应参数
+     * instance_code 获取。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)接口，获取所需的审批实例
+     * Code。;-
+     * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+     * Code。
+     *
+     * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+     */
+    this.instanceCode = builder.instanceCode;
+    /**
+     * 审批人的用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：f7cb567e
+     */
+    this.userId = builder.userId;
+    /**
+     * 审批意见
+     *
+     * <p>示例值：OK
+     */
+    this.comment = builder.comment;
+    /**
+     * 审批任务
+     * ID，调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+     * task_list 中获取所需的 id。
+     *
+     * <p>示例值：12345
+     */
+    this.taskId = builder.taskId;
+    /** 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}] */
+    this.form = builder.form;
+  }
+
+  public static class Builder {
+    /**
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     */
     private String approvalCode;
+
     /**
-     * 审批实例 Code
-     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+     * 审批实例 Code。获取方式：;;-
+     * 调用[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)接口后，从响应参数
+     * instance_code 获取。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)接口，获取所需的审批实例
+     * Code。;-
+     * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+     * Code。
+     *
+     * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
      */
-    @SerializedName("instance_code")
     private String instanceCode;
+
     /**
-     * 根据user_id_type填写操作用户id
-     * <p> 示例值：f7cb567e
+     * 审批人的用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：f7cb567e
      */
-    @SerializedName("user_id")
     private String userId;
+
     /**
-     * 意见
-     * <p> 示例值：OK
+     * 审批意见
+     *
+     * <p>示例值：OK
      */
-    @SerializedName("comment")
     private String comment;
+
     /**
-     * 任务 ID， 审批实例详情task_list中id
-     * <p> 示例值：12345
+     * 审批任务
+     * ID，调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+     * task_list 中获取所需的 id。
+     *
+     * <p>示例值：12345
      */
-    @SerializedName("task_id")
     private String taskId;
-    /**
-     * json 数组，控件值
-     * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
-     */
-    @SerializedName("form")
+
+    /** 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}] */
     private String form;
 
-    // builder 开始
-    public TaskApprove() {
+    /**
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。
+     *
+     * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+     *
+     * @param approvalCode
+     * @return
+     */
+    public Builder approvalCode(String approvalCode) {
+      this.approvalCode = approvalCode;
+      return this;
     }
 
-    public TaskApprove(Builder builder) {
-        /**
-         * 审批定义 Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        this.approvalCode = builder.approvalCode;
-        /**
-         * 审批实例 Code
-         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         */
-        this.instanceCode = builder.instanceCode;
-        /**
-         * 根据user_id_type填写操作用户id
-         * <p> 示例值：f7cb567e
-         */
-        this.userId = builder.userId;
-        /**
-         * 意见
-         * <p> 示例值：OK
-         */
-        this.comment = builder.comment;
-        /**
-         * 任务 ID， 审批实例详情task_list中id
-         * <p> 示例值：12345
-         */
-        this.taskId = builder.taskId;
-        /**
-         * json 数组，控件值
-         * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
-         */
-        this.form = builder.form;
+    /**
+     * 审批实例 Code。获取方式：;;-
+     * 调用[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)接口后，从响应参数
+     * instance_code 获取。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)接口，获取所需的审批实例
+     * Code。;-
+     * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+     * Code。
+     *
+     * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+     *
+     * @param instanceCode
+     * @return
+     */
+    public Builder instanceCode(String instanceCode) {
+      this.instanceCode = instanceCode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 审批人的用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：f7cb567e
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getApprovalCode() {
-        return this.approvalCode;
+    /**
+     * 审批意见
+     *
+     * <p>示例值：OK
+     *
+     * @param comment
+     * @return
+     */
+    public Builder comment(String comment) {
+      this.comment = comment;
+      return this;
     }
 
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
+    /**
+     * 审批任务
+     * ID，调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+     * task_list 中获取所需的 id。
+     *
+     * <p>示例值：12345
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public String getInstanceCode() {
-        return this.instanceCode;
+    /**
+     * 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
+     *
+     * @param form
+     * @return
+     */
+    public Builder form(String form) {
+      this.form = form;
+      return this;
     }
 
-    public void setInstanceCode(String instanceCode) {
-        this.instanceCode = instanceCode;
+    public TaskApprove build() {
+      return new TaskApprove(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getComment() {
-        return this.comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
-    public String getForm() {
-        return this.form;
-    }
-
-    public void setForm(String form) {
-        this.form = form;
-    }
-
-    public static class Builder {
-        /**
-         * 审批定义 Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         */
-        private String approvalCode;
-        /**
-         * 审批实例 Code
-         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         */
-        private String instanceCode;
-        /**
-         * 根据user_id_type填写操作用户id
-         * <p> 示例值：f7cb567e
-         */
-        private String userId;
-        /**
-         * 意见
-         * <p> 示例值：OK
-         */
-        private String comment;
-        /**
-         * 任务 ID， 审批实例详情task_list中id
-         * <p> 示例值：12345
-         */
-        private String taskId;
-        /**
-         * json 数组，控件值
-         * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
-         */
-        private String form;
-
-        /**
-         * 审批定义 Code
-         * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-         *
-         * @param approvalCode
-         * @return
-         */
-        public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
-        }
-
-
-        /**
-         * 审批实例 Code
-         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         *
-         * @param instanceCode
-         * @return
-         */
-        public Builder instanceCode(String instanceCode) {
-            this.instanceCode = instanceCode;
-            return this;
-        }
-
-
-        /**
-         * 根据user_id_type填写操作用户id
-         * <p> 示例值：f7cb567e
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 意见
-         * <p> 示例值：OK
-         *
-         * @param comment
-         * @return
-         */
-        public Builder comment(String comment) {
-            this.comment = comment;
-            return this;
-        }
-
-
-        /**
-         * 任务 ID， 审批实例详情task_list中id
-         * <p> 示例值：12345
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * json 数组，控件值
-         * <p> 示例值：[{\"id\":\"111\", \"type\": \"input\", \"value\":\"test\"}]
-         *
-         * @param form
-         * @return
-         */
-        public Builder form(String form) {
-            this.form = form;
-            return this;
-        }
-
-
-        public TaskApprove build() {
-            return new TaskApprove(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

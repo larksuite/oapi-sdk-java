@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class File {
+  /**
+   * 上传文件ID
+   *
+   * <p>示例值：6655aa1b2ec326f983b91f9d_f9974583040c4b05ae71f92f5df16bbc
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 文件名
+   *
+   * <p>示例值：document.txt
+   */
+  @SerializedName("name")
+  private String name;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public File() {}
+
+  public File(Builder builder) {
     /**
      * 上传文件ID
-     * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
+     *
+     * <p>示例值：6655aa1b2ec326f983b91f9d_f9974583040c4b05ae71f92f5df16bbc
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 文件名
-     * <p> 示例值：document.txt
+     *
+     * <p>示例值：document.txt
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 上传文件ID
+     *
+     * <p>示例值：6655aa1b2ec326f983b91f9d_f9974583040c4b05ae71f92f5df16bbc
+     */
+    private String id;
+
+    /**
+     * 文件名
+     *
+     * <p>示例值：document.txt
+     */
     private String name;
 
-    // builder 开始
-    public File() {
+    /**
+     * 上传文件ID
+     *
+     * <p>示例值：6655aa1b2ec326f983b91f9d_f9974583040c4b05ae71f92f5df16bbc
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public File(Builder builder) {
-        /**
-         * 上传文件ID
-         * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
-         */
-        this.id = builder.id;
-        /**
-         * 文件名
-         * <p> 示例值：document.txt
-         */
-        this.name = builder.name;
+    /**
+     * 文件名
+     *
+     * <p>示例值：document.txt
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public File build() {
+      return new File(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 上传文件ID
-         * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
-         */
-        private String id;
-        /**
-         * 文件名
-         * <p> 示例值：document.txt
-         */
-        private String name;
-
-        /**
-         * 上传文件ID
-         * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 文件名
-         * <p> 示例值：document.txt
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public File build() {
-            return new File(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

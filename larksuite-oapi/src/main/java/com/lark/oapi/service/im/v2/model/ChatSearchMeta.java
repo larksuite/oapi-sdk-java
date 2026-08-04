@@ -13,494 +13,541 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatSearchMeta {
+  /**
+   * 群组 ID
+   *
+   * <p>示例值：7890123456abcdef
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * 创建时间(iso8601)
+   *
+   * <p>示例值：2026-03-21T16:15:30+08:00
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间(iso8601)
+   *
+   * <p>示例值：2026-03-21T16:15:30+08:00
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 是否是外部群
+   *
+   * <p>示例值：true;
+   */
+  @SerializedName("external")
+  private Boolean external;
+
+  /**
+   * 群模式，group：群组 topic: 话题
+   *
+   * <p>示例值：group
+   */
+  @SerializedName("chat_mode")
+  private String chatMode;
+
+  /**
+   * 群描述
+   *
+   * <p>示例值：群描述
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 群头像URL
+   *
+   * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+   */
+  @SerializedName("avatar")
+  private String avatar;
+
+  /**
+   * 群名称
+   *
+   * <p>示例值：研发讨论群
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 群主ID
+   *
+   * <p>示例值：4d7a3c6g
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  /**
+   * 群主ID类型
+   *
+   * <p>示例值：user_id
+   */
+  @SerializedName("owner_id_type")
+  private String ownerIdType;
+
+  /**
+   * tenant key
+   *
+   * <p>示例值：7010970696222244883
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
+
+  /**
+   * 群状态
+   *
+   * <p>示例值：normal
+   */
+  @SerializedName("chat_status")
+  private String chatStatus;
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public Boolean getExternal() {
+    return this.external;
+  }
+
+  public void setExternal(Boolean external) {
+    this.external = external;
+  }
+
+  public String getChatMode() {
+    return this.chatMode;
+  }
+
+  public void setChatMode(String chatMode) {
+    this.chatMode = chatMode;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(String avatar) {
+    this.avatar = avatar;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public String getOwnerIdType() {
+    return this.ownerIdType;
+  }
+
+  public void setOwnerIdType(String ownerIdType) {
+    this.ownerIdType = ownerIdType;
+  }
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  public String getChatStatus() {
+    return this.chatStatus;
+  }
+
+  public void setChatStatus(String chatStatus) {
+    this.chatStatus = chatStatus;
+  }
+
+  // builder 开始
+  public ChatSearchMeta() {}
+
+  public ChatSearchMeta(Builder builder) {
     /**
      * 群组 ID
-     * <p> 示例值：7890123456abcdef
+     *
+     * <p>示例值：7890123456abcdef
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
      * 创建时间(iso8601)
-     * <p> 示例值：2026-03-21T16:15:30+08:00
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间(iso8601)
-     * <p> 示例值：iso8601
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 是否是外部群
-     * <p> 示例值：
+     *
+     * <p>示例值：true;
      */
-    @SerializedName("external")
-    private Boolean external;
+    this.external = builder.external;
     /**
      * 群模式，group：群组 topic: 话题
-     * <p> 示例值：group
+     *
+     * <p>示例值：group
      */
-    @SerializedName("chat_mode")
-    private String chatMode;
+    this.chatMode = builder.chatMode;
     /**
      * 群描述
-     * <p> 示例值：群描述
+     *
+     * <p>示例值：群描述
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 群头像URL
-     * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
      */
-    @SerializedName("avatar")
-    private String avatar;
+    this.avatar = builder.avatar;
     /**
      * 群名称
-     * <p> 示例值：研发讨论群
+     *
+     * <p>示例值：研发讨论群
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 群主ID
-     * <p> 示例值：4d7a3c6g
+     *
+     * <p>示例值：4d7a3c6g
      */
-    @SerializedName("owner_id")
-    private String ownerId;
+    this.ownerId = builder.ownerId;
     /**
      * 群主ID类型
-     * <p> 示例值：user_id
+     *
+     * <p>示例值：user_id
      */
-    @SerializedName("owner_id_type")
-    private String ownerIdType;
+    this.ownerIdType = builder.ownerIdType;
     /**
      * tenant key
-     * <p> 示例值：fawefawea
+     *
+     * <p>示例值：7010970696222244883
      */
-    @SerializedName("tenant_key")
-    private String tenantKey;
+    this.tenantKey = builder.tenantKey;
     /**
      * 群状态
-     * <p> 示例值：
+     *
+     * <p>示例值：normal
      */
-    @SerializedName("chat_status")
+    this.chatStatus = builder.chatStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 群组 ID
+     *
+     * <p>示例值：7890123456abcdef
+     */
+    private String chatId;
+
+    /**
+     * 创建时间(iso8601)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
+     */
+    private String createTime;
+
+    /**
+     * 更新时间(iso8601)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
+     */
+    private String updateTime;
+
+    /**
+     * 是否是外部群
+     *
+     * <p>示例值：true;
+     */
+    private Boolean external;
+
+    /**
+     * 群模式，group：群组 topic: 话题
+     *
+     * <p>示例值：group
+     */
+    private String chatMode;
+
+    /**
+     * 群描述
+     *
+     * <p>示例值：群描述
+     */
+    private String description;
+
+    /**
+     * 群头像URL
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+     */
+    private String avatar;
+
+    /**
+     * 群名称
+     *
+     * <p>示例值：研发讨论群
+     */
+    private String name;
+
+    /**
+     * 群主ID
+     *
+     * <p>示例值：4d7a3c6g
+     */
+    private String ownerId;
+
+    /**
+     * 群主ID类型
+     *
+     * <p>示例值：user_id
+     */
+    private String ownerIdType;
+
+    /**
+     * tenant key
+     *
+     * <p>示例值：7010970696222244883
+     */
+    private String tenantKey;
+
+    /**
+     * 群状态
+     *
+     * <p>示例值：normal
+     */
     private String chatStatus;
 
-    // builder 开始
-    public ChatSearchMeta() {
+    /**
+     * 群组 ID
+     *
+     * <p>示例值：7890123456abcdef
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public ChatSearchMeta(Builder builder) {
-        /**
-         * 群组 ID
-         * <p> 示例值：7890123456abcdef
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 创建时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间(iso8601)
-         * <p> 示例值：iso8601
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 是否是外部群
-         * <p> 示例值：
-         */
-        this.external = builder.external;
-        /**
-         * 群模式，group：群组 topic: 话题
-         * <p> 示例值：group
-         */
-        this.chatMode = builder.chatMode;
-        /**
-         * 群描述
-         * <p> 示例值：群描述
-         */
-        this.description = builder.description;
-        /**
-         * 群头像URL
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
-         */
-        this.avatar = builder.avatar;
-        /**
-         * 群名称
-         * <p> 示例值：研发讨论群
-         */
-        this.name = builder.name;
-        /**
-         * 群主ID
-         * <p> 示例值：4d7a3c6g
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 群主ID类型
-         * <p> 示例值：user_id
-         */
-        this.ownerIdType = builder.ownerIdType;
-        /**
-         * tenant key
-         * <p> 示例值：fawefawea
-         */
-        this.tenantKey = builder.tenantKey;
-        /**
-         * 群状态
-         * <p> 示例值：
-         */
-        this.chatStatus = builder.chatStatus;
+    /**
+     * 创建时间(iso8601)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 更新时间(iso8601)
+     *
+     * <p>示例值：2026-03-21T16:15:30+08:00
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public String getChatId() {
-        return this.chatId;
+    /**
+     * 是否是外部群
+     *
+     * <p>示例值：true;
+     *
+     * @param external
+     * @return
+     */
+    public Builder external(Boolean external) {
+      this.external = external;
+      return this;
     }
 
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
+    /**
+     * 群模式，group：群组 topic: 话题
+     *
+     * <p>示例值：group
+     *
+     * @param chatMode
+     * @return
+     */
+    public Builder chatMode(String chatMode) {
+      this.chatMode = chatMode;
+      return this;
     }
 
-    public String getCreateTime() {
-        return this.createTime;
+    /**
+     * 群描述
+     *
+     * <p>示例值：群描述
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    /**
+     * 群头像URL
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(String avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public String getUpdateTime() {
-        return this.updateTime;
+    /**
+     * 群名称
+     *
+     * <p>示例值：研发讨论群
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
+    /**
+     * 群主ID
+     *
+     * <p>示例值：4d7a3c6g
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public Boolean getExternal() {
-        return this.external;
+    /**
+     * 群主ID类型
+     *
+     * <p>示例值：user_id
+     *
+     * @param ownerIdType
+     * @return
+     */
+    public Builder ownerIdType(String ownerIdType) {
+      this.ownerIdType = ownerIdType;
+      return this;
     }
 
-    public void setExternal(Boolean external) {
-        this.external = external;
+    /**
+     * tenant key
+     *
+     * <p>示例值：7010970696222244883
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public String getChatMode() {
-        return this.chatMode;
+    /**
+     * 群状态
+     *
+     * <p>示例值：normal
+     *
+     * @param chatStatus
+     * @return
+     */
+    public Builder chatStatus(String chatStatus) {
+      this.chatStatus = chatStatus;
+      return this;
     }
 
-    public void setChatMode(String chatMode) {
-        this.chatMode = chatMode;
+    /**
+     * 群状态
+     *
+     * <p>示例值：normal
+     *
+     * @param chatStatus {@link com.lark.oapi.service.im.v2.enums.ChatSearchMetaChatStatusTypeEnum}
+     * @return
+     */
+    public Builder chatStatus(
+        com.lark.oapi.service.im.v2.enums.ChatSearchMetaChatStatusTypeEnum chatStatus) {
+      this.chatStatus = chatStatus.getValue();
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    public ChatSearchMeta build() {
+      return new ChatSearchMeta(this);
     }
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getAvatar() {
-        return this.avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getOwnerId() {
-        return this.ownerId;
-    }
-
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
-
-    public String getOwnerIdType() {
-        return this.ownerIdType;
-    }
-
-    public void setOwnerIdType(String ownerIdType) {
-        this.ownerIdType = ownerIdType;
-    }
-
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
-
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
-
-    public String getChatStatus() {
-        return this.chatStatus;
-    }
-
-    public void setChatStatus(String chatStatus) {
-        this.chatStatus = chatStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 群组 ID
-         * <p> 示例值：7890123456abcdef
-         */
-        private String chatId;
-        /**
-         * 创建时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         */
-        private String createTime;
-        /**
-         * 更新时间(iso8601)
-         * <p> 示例值：iso8601
-         */
-        private String updateTime;
-        /**
-         * 是否是外部群
-         * <p> 示例值：
-         */
-        private Boolean external;
-        /**
-         * 群模式，group：群组 topic: 话题
-         * <p> 示例值：group
-         */
-        private String chatMode;
-        /**
-         * 群描述
-         * <p> 示例值：群描述
-         */
-        private String description;
-        /**
-         * 群头像URL
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
-         */
-        private String avatar;
-        /**
-         * 群名称
-         * <p> 示例值：研发讨论群
-         */
-        private String name;
-        /**
-         * 群主ID
-         * <p> 示例值：4d7a3c6g
-         */
-        private String ownerId;
-        /**
-         * 群主ID类型
-         * <p> 示例值：user_id
-         */
-        private String ownerIdType;
-        /**
-         * tenant key
-         * <p> 示例值：fawefawea
-         */
-        private String tenantKey;
-        /**
-         * 群状态
-         * <p> 示例值：
-         */
-        private String chatStatus;
-
-        /**
-         * 群组 ID
-         * <p> 示例值：7890123456abcdef
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * 创建时间(iso8601)
-         * <p> 示例值：2026-03-21T16:15:30+08:00
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间(iso8601)
-         * <p> 示例值：iso8601
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 是否是外部群
-         * <p> 示例值：
-         *
-         * @param external
-         * @return
-         */
-        public Builder external(Boolean external) {
-            this.external = external;
-            return this;
-        }
-
-
-        /**
-         * 群模式，group：群组 topic: 话题
-         * <p> 示例值：group
-         *
-         * @param chatMode
-         * @return
-         */
-        public Builder chatMode(String chatMode) {
-            this.chatMode = chatMode;
-            return this;
-        }
-
-
-        /**
-         * 群描述
-         * <p> 示例值：群描述
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 群头像URL
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(String avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        /**
-         * 群名称
-         * <p> 示例值：研发讨论群
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 群主ID
-         * <p> 示例值：4d7a3c6g
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        /**
-         * 群主ID类型
-         * <p> 示例值：user_id
-         *
-         * @param ownerIdType
-         * @return
-         */
-        public Builder ownerIdType(String ownerIdType) {
-            this.ownerIdType = ownerIdType;
-            return this;
-        }
-
-
-        /**
-         * tenant key
-         * <p> 示例值：fawefawea
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        /**
-         * 群状态
-         * <p> 示例值：
-         *
-         * @param chatStatus
-         * @return
-         */
-        public Builder chatStatus(String chatStatus) {
-            this.chatStatus = chatStatus;
-            return this;
-        }
-
-        /**
-         * 群状态
-         * <p> 示例值：
-         *
-         * @param chatStatus {@link com.lark.oapi.service.im.v2.enums.ChatSearchMetaChatStatusTypeEnum}
-         * @return
-         */
-        public Builder chatStatus(com.lark.oapi.service.im.v2.enums.ChatSearchMetaChatStatusTypeEnum chatStatus) {
-            this.chatStatus = chatStatus.getValue();
-            return this;
-        }
-
-
-        public ChatSearchMeta build() {
-            return new ChatSearchMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

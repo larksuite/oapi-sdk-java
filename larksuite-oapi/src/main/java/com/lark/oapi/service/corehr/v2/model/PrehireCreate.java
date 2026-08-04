@@ -13,297 +13,325 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PrehireCreate {
+  /**
+   * 个人信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("basic_info")
+  private BasicInfo basicInfo;
+
+  /**
+   * 职位信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("offer_info")
+  private OfferInfo offerInfo;
+
+  /**
+   * 教育经历
+   *
+   * <p>示例值：
+   */
+  @SerializedName("education_info")
+  private EducationInfo[] educationInfo;
+
+  /**
+   * 工作经历
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_experience")
+  private WorkExperience[] workExperience;
+
+  /**
+   * 招聘应用 ID，仅支持飞书招聘
+   * ID，可以通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+   *
+   * <p>示例值：7140946969586010376
+   */
+  @SerializedName("ats_application_id")
+  private String atsApplicationId;
+
+  /**
+   * 查找类型招聘应用ID
+   *
+   * <p>示例值：7140946969586010376
+   */
+  @SerializedName("application")
+  private String application;
+
+  /**
+   * 外部业务唯一编码，用于支持幂等创建;- 外部接入方需要保证id的唯一，相同id最多唯一对应一个待入职数据;-
+   * 如果id对应的待入职数据已经存在，执行创建操作则直接返回待入职id，且不会更新本次传入的数据到待入职
+   *
+   * <p>示例值：7140946969586010376
+   */
+  @SerializedName("out_biz_id")
+  private String outBizId;
+
+  public BasicInfo getBasicInfo() {
+    return this.basicInfo;
+  }
+
+  public void setBasicInfo(BasicInfo basicInfo) {
+    this.basicInfo = basicInfo;
+  }
+
+  public OfferInfo getOfferInfo() {
+    return this.offerInfo;
+  }
+
+  public void setOfferInfo(OfferInfo offerInfo) {
+    this.offerInfo = offerInfo;
+  }
+
+  public EducationInfo[] getEducationInfo() {
+    return this.educationInfo;
+  }
+
+  public void setEducationInfo(EducationInfo[] educationInfo) {
+    this.educationInfo = educationInfo;
+  }
+
+  public WorkExperience[] getWorkExperience() {
+    return this.workExperience;
+  }
+
+  public void setWorkExperience(WorkExperience[] workExperience) {
+    this.workExperience = workExperience;
+  }
+
+  public String getAtsApplicationId() {
+    return this.atsApplicationId;
+  }
+
+  public void setAtsApplicationId(String atsApplicationId) {
+    this.atsApplicationId = atsApplicationId;
+  }
+
+  public String getApplication() {
+    return this.application;
+  }
+
+  public void setApplication(String application) {
+    this.application = application;
+  }
+
+  public String getOutBizId() {
+    return this.outBizId;
+  }
+
+  public void setOutBizId(String outBizId) {
+    this.outBizId = outBizId;
+  }
+
+  // builder 开始
+  public PrehireCreate() {}
+
+  public PrehireCreate(Builder builder) {
     /**
      * 个人信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("basic_info")
-    private BasicInfo basicInfo;
+    this.basicInfo = builder.basicInfo;
     /**
      * 职位信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("offer_info")
-    private OfferInfo offerInfo;
+    this.offerInfo = builder.offerInfo;
     /**
      * 教育经历
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("education_info")
-    private EducationInfo[] educationInfo;
+    this.educationInfo = builder.educationInfo;
     /**
      * 工作经历
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_experience")
-    private WorkExperience[] workExperience;
+    this.workExperience = builder.workExperience;
     /**
-     * 招聘应用ID
-     * <p> 示例值：7140946969586010376
+     * 招聘应用 ID，仅支持飞书招聘
+     * ID，可以通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+     *
+     * <p>示例值：7140946969586010376
      */
-    @SerializedName("ats_application_id")
-    private String atsApplicationId;
+    this.atsApplicationId = builder.atsApplicationId;
     /**
      * 查找类型招聘应用ID
-     * <p> 示例值：7140946969586010376
+     *
+     * <p>示例值：7140946969586010376
      */
-    @SerializedName("application")
-    private String application;
+    this.application = builder.application;
     /**
-     * 外部业务唯一编码
-     * <p> 示例值：7140946969586010376
+     * 外部业务唯一编码，用于支持幂等创建;- 外部接入方需要保证id的唯一，相同id最多唯一对应一个待入职数据;-
+     * 如果id对应的待入职数据已经存在，执行创建操作则直接返回待入职id，且不会更新本次传入的数据到待入职
+     *
+     * <p>示例值：7140946969586010376
      */
-    @SerializedName("out_biz_id")
+    this.outBizId = builder.outBizId;
+  }
+
+  public static class Builder {
+    /**
+     * 个人信息
+     *
+     * <p>示例值：
+     */
+    private BasicInfo basicInfo;
+
+    /**
+     * 职位信息
+     *
+     * <p>示例值：
+     */
+    private OfferInfo offerInfo;
+
+    /**
+     * 教育经历
+     *
+     * <p>示例值：
+     */
+    private EducationInfo[] educationInfo;
+
+    /**
+     * 工作经历
+     *
+     * <p>示例值：
+     */
+    private WorkExperience[] workExperience;
+
+    /**
+     * 招聘应用 ID，仅支持飞书招聘
+     * ID，可以通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+     *
+     * <p>示例值：7140946969586010376
+     */
+    private String atsApplicationId;
+
+    /**
+     * 查找类型招聘应用ID
+     *
+     * <p>示例值：7140946969586010376
+     */
+    private String application;
+
+    /**
+     * 外部业务唯一编码，用于支持幂等创建;- 外部接入方需要保证id的唯一，相同id最多唯一对应一个待入职数据;-
+     * 如果id对应的待入职数据已经存在，执行创建操作则直接返回待入职id，且不会更新本次传入的数据到待入职
+     *
+     * <p>示例值：7140946969586010376
+     */
     private String outBizId;
 
-    // builder 开始
-    public PrehireCreate() {
+    /**
+     * 个人信息
+     *
+     * <p>示例值：
+     *
+     * @param basicInfo
+     * @return
+     */
+    public Builder basicInfo(BasicInfo basicInfo) {
+      this.basicInfo = basicInfo;
+      return this;
     }
 
-    public PrehireCreate(Builder builder) {
-        /**
-         * 个人信息
-         * <p> 示例值：
-         */
-        this.basicInfo = builder.basicInfo;
-        /**
-         * 职位信息
-         * <p> 示例值：
-         */
-        this.offerInfo = builder.offerInfo;
-        /**
-         * 教育经历
-         * <p> 示例值：
-         */
-        this.educationInfo = builder.educationInfo;
-        /**
-         * 工作经历
-         * <p> 示例值：
-         */
-        this.workExperience = builder.workExperience;
-        /**
-         * 招聘应用ID
-         * <p> 示例值：7140946969586010376
-         */
-        this.atsApplicationId = builder.atsApplicationId;
-        /**
-         * 查找类型招聘应用ID
-         * <p> 示例值：7140946969586010376
-         */
-        this.application = builder.application;
-        /**
-         * 外部业务唯一编码
-         * <p> 示例值：7140946969586010376
-         */
-        this.outBizId = builder.outBizId;
+    /**
+     * 职位信息
+     *
+     * <p>示例值：
+     *
+     * @param offerInfo
+     * @return
+     */
+    public Builder offerInfo(OfferInfo offerInfo) {
+      this.offerInfo = offerInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 教育经历
+     *
+     * <p>示例值：
+     *
+     * @param educationInfo
+     * @return
+     */
+    public Builder educationInfo(EducationInfo[] educationInfo) {
+      this.educationInfo = educationInfo;
+      return this;
     }
 
-    public BasicInfo getBasicInfo() {
-        return this.basicInfo;
+    /**
+     * 工作经历
+     *
+     * <p>示例值：
+     *
+     * @param workExperience
+     * @return
+     */
+    public Builder workExperience(WorkExperience[] workExperience) {
+      this.workExperience = workExperience;
+      return this;
     }
 
-    public void setBasicInfo(BasicInfo basicInfo) {
-        this.basicInfo = basicInfo;
+    /**
+     * 招聘应用 ID，仅支持飞书招聘
+     * ID，可以通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+     *
+     * <p>示例值：7140946969586010376
+     *
+     * @param atsApplicationId
+     * @return
+     */
+    public Builder atsApplicationId(String atsApplicationId) {
+      this.atsApplicationId = atsApplicationId;
+      return this;
     }
 
-    public OfferInfo getOfferInfo() {
-        return this.offerInfo;
+    /**
+     * 查找类型招聘应用ID
+     *
+     * <p>示例值：7140946969586010376
+     *
+     * @param application
+     * @return
+     */
+    public Builder application(String application) {
+      this.application = application;
+      return this;
     }
 
-    public void setOfferInfo(OfferInfo offerInfo) {
-        this.offerInfo = offerInfo;
+    /**
+     * 外部业务唯一编码，用于支持幂等创建;- 外部接入方需要保证id的唯一，相同id最多唯一对应一个待入职数据;-
+     * 如果id对应的待入职数据已经存在，执行创建操作则直接返回待入职id，且不会更新本次传入的数据到待入职
+     *
+     * <p>示例值：7140946969586010376
+     *
+     * @param outBizId
+     * @return
+     */
+    public Builder outBizId(String outBizId) {
+      this.outBizId = outBizId;
+      return this;
     }
 
-    public EducationInfo[] getEducationInfo() {
-        return this.educationInfo;
+    public PrehireCreate build() {
+      return new PrehireCreate(this);
     }
+  }
 
-    public void setEducationInfo(EducationInfo[] educationInfo) {
-        this.educationInfo = educationInfo;
-    }
-
-    public WorkExperience[] getWorkExperience() {
-        return this.workExperience;
-    }
-
-    public void setWorkExperience(WorkExperience[] workExperience) {
-        this.workExperience = workExperience;
-    }
-
-    public String getAtsApplicationId() {
-        return this.atsApplicationId;
-    }
-
-    public void setAtsApplicationId(String atsApplicationId) {
-        this.atsApplicationId = atsApplicationId;
-    }
-
-    public String getApplication() {
-        return this.application;
-    }
-
-    public void setApplication(String application) {
-        this.application = application;
-    }
-
-    public String getOutBizId() {
-        return this.outBizId;
-    }
-
-    public void setOutBizId(String outBizId) {
-        this.outBizId = outBizId;
-    }
-
-    public static class Builder {
-        /**
-         * 个人信息
-         * <p> 示例值：
-         */
-        private BasicInfo basicInfo;
-        /**
-         * 职位信息
-         * <p> 示例值：
-         */
-        private OfferInfo offerInfo;
-        /**
-         * 教育经历
-         * <p> 示例值：
-         */
-        private EducationInfo[] educationInfo;
-        /**
-         * 工作经历
-         * <p> 示例值：
-         */
-        private WorkExperience[] workExperience;
-        /**
-         * 招聘应用ID
-         * <p> 示例值：7140946969586010376
-         */
-        private String atsApplicationId;
-        /**
-         * 查找类型招聘应用ID
-         * <p> 示例值：7140946969586010376
-         */
-        private String application;
-        /**
-         * 外部业务唯一编码
-         * <p> 示例值：7140946969586010376
-         */
-        private String outBizId;
-
-        /**
-         * 个人信息
-         * <p> 示例值：
-         *
-         * @param basicInfo
-         * @return
-         */
-        public Builder basicInfo(BasicInfo basicInfo) {
-            this.basicInfo = basicInfo;
-            return this;
-        }
-
-
-        /**
-         * 职位信息
-         * <p> 示例值：
-         *
-         * @param offerInfo
-         * @return
-         */
-        public Builder offerInfo(OfferInfo offerInfo) {
-            this.offerInfo = offerInfo;
-            return this;
-        }
-
-
-        /**
-         * 教育经历
-         * <p> 示例值：
-         *
-         * @param educationInfo
-         * @return
-         */
-        public Builder educationInfo(EducationInfo[] educationInfo) {
-            this.educationInfo = educationInfo;
-            return this;
-        }
-
-
-        /**
-         * 工作经历
-         * <p> 示例值：
-         *
-         * @param workExperience
-         * @return
-         */
-        public Builder workExperience(WorkExperience[] workExperience) {
-            this.workExperience = workExperience;
-            return this;
-        }
-
-
-        /**
-         * 招聘应用ID
-         * <p> 示例值：7140946969586010376
-         *
-         * @param atsApplicationId
-         * @return
-         */
-        public Builder atsApplicationId(String atsApplicationId) {
-            this.atsApplicationId = atsApplicationId;
-            return this;
-        }
-
-
-        /**
-         * 查找类型招聘应用ID
-         * <p> 示例值：7140946969586010376
-         *
-         * @param application
-         * @return
-         */
-        public Builder application(String application) {
-            this.application = application;
-            return this;
-        }
-
-
-        /**
-         * 外部业务唯一编码
-         * <p> 示例值：7140946969586010376
-         *
-         * @param outBizId
-         * @return
-         */
-        public Builder outBizId(String outBizId) {
-            this.outBizId = outBizId;
-            return this;
-        }
-
-
-        public PrehireCreate build() {
-            return new PrehireCreate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

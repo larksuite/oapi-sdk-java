@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TasklistSearchFilter {
+  /**
+   * 截止时间，无需同时设置，但开始时间需要小于结束时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("create_time")
+  private TimeRange createTime;
+
+  /**
+   * 创建人 IDs，与 user_id_type 类型一致
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private String[] userId;
+
+  public TimeRange getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(TimeRange createTime) {
+    this.createTime = createTime;
+  }
+
+  public String[] getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String[] userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public TasklistSearchFilter() {}
+
+  public TasklistSearchFilter(Builder builder) {
     /**
-     * 创建时间
-     * <p> 示例值：
+     * 截止时间，无需同时设置，但开始时间需要小于结束时间
+     *
+     * <p>示例值：
      */
-    @SerializedName("create_time")
+    this.createTime = builder.createTime;
+    /**
+     * 创建人 IDs，与 user_id_type 类型一致
+     *
+     * <p>示例值：
+     */
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * 截止时间，无需同时设置，但开始时间需要小于结束时间
+     *
+     * <p>示例值：
+     */
     private TimeRange createTime;
+
     /**
-     * 创建人 IDs
-     * <p> 示例值：
+     * 创建人 IDs，与 user_id_type 类型一致
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id")
     private String[] userId;
 
-    // builder 开始
-    public TasklistSearchFilter() {
+    /**
+     * 截止时间，无需同时设置，但开始时间需要小于结束时间
+     *
+     * <p>示例值：
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(TimeRange createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public TasklistSearchFilter(Builder builder) {
-        /**
-         * 创建时间
-         * <p> 示例值：
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 创建人 IDs
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
+    /**
+     * 创建人 IDs，与 user_id_type 类型一致
+     *
+     * <p>示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String[] userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TasklistSearchFilter build() {
+      return new TasklistSearchFilter(this);
     }
+  }
 
-    public TimeRange getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(TimeRange createTime) {
-        this.createTime = createTime;
-    }
-
-    public String[] getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String[] userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 创建时间
-         * <p> 示例值：
-         */
-        private TimeRange createTime;
-        /**
-         * 创建人 IDs
-         * <p> 示例值：
-         */
-        private String[] userId;
-
-        /**
-         * 创建时间
-         * <p> 示例值：
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(TimeRange createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 创建人 IDs
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String[] userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public TasklistSearchFilter build() {
-            return new TasklistSearchFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

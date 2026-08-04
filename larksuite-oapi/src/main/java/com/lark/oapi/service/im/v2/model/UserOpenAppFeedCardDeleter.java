@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserOpenAppFeedCardDeleter {
+  /**
+   * 业务 ID
+   *
+   * <p>示例值：ed381d34-49ac-4876-8d9e-23447acb587e
+   */
+  @SerializedName("biz_id")
+  private String bizId;
+
+  /**
+   * 用户 ID（ID 类型与 user_id_type 的取值一致。如果;是商店应用，因不支持获取用户 userID 权限，所以无法值使用 user_id 类型的用户 ID）
+   *
+   * <p>示例值：ou_88553eda9014c201e6969b478895c223
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getBizId() {
+    return this.bizId;
+  }
+
+  public void setBizId(String bizId) {
+    this.bizId = bizId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public UserOpenAppFeedCardDeleter() {}
+
+  public UserOpenAppFeedCardDeleter(Builder builder) {
     /**
      * 业务 ID
-     * <p> 示例值：ed381d34-49ac-4876-8d9e-23447acb587e
+     *
+     * <p>示例值：ed381d34-49ac-4876-8d9e-23447acb587e
      */
-    @SerializedName("biz_id")
-    private String bizId;
+    this.bizId = builder.bizId;
     /**
-     * 用户 ID
-     * <p> 示例值：
+     * 用户 ID（ID 类型与 user_id_type 的取值一致。如果;是商店应用，因不支持获取用户 userID 权限，所以无法值使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：ou_88553eda9014c201e6969b478895c223
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * 业务 ID
+     *
+     * <p>示例值：ed381d34-49ac-4876-8d9e-23447acb587e
+     */
+    private String bizId;
+
+    /**
+     * 用户 ID（ID 类型与 user_id_type 的取值一致。如果;是商店应用，因不支持获取用户 userID 权限，所以无法值使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：ou_88553eda9014c201e6969b478895c223
+     */
     private String userId;
 
-    // builder 开始
-    public UserOpenAppFeedCardDeleter() {
+    /**
+     * 业务 ID
+     *
+     * <p>示例值：ed381d34-49ac-4876-8d9e-23447acb587e
+     *
+     * @param bizId
+     * @return
+     */
+    public Builder bizId(String bizId) {
+      this.bizId = bizId;
+      return this;
     }
 
-    public UserOpenAppFeedCardDeleter(Builder builder) {
-        /**
-         * 业务 ID
-         * <p> 示例值：ed381d34-49ac-4876-8d9e-23447acb587e
-         */
-        this.bizId = builder.bizId;
-        /**
-         * 用户 ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
+    /**
+     * 用户 ID（ID 类型与 user_id_type 的取值一致。如果;是商店应用，因不支持获取用户 userID 权限，所以无法值使用 user_id 类型的用户 ID）
+     *
+     * <p>示例值：ou_88553eda9014c201e6969b478895c223
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UserOpenAppFeedCardDeleter build() {
+      return new UserOpenAppFeedCardDeleter(this);
     }
+  }
 
-    public String getBizId() {
-        return this.bizId;
-    }
-
-    public void setBizId(String bizId) {
-        this.bizId = bizId;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 业务 ID
-         * <p> 示例值：ed381d34-49ac-4876-8d9e-23447acb587e
-         */
-        private String bizId;
-        /**
-         * 用户 ID
-         * <p> 示例值：
-         */
-        private String userId;
-
-        /**
-         * 业务 ID
-         * <p> 示例值：ed381d34-49ac-4876-8d9e-23447acb587e
-         *
-         * @param bizId
-         * @return
-         */
-        public Builder bizId(String bizId) {
-            this.bizId = bizId;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public UserOpenAppFeedCardDeleter build() {
-            return new UserOpenAppFeedCardDeleter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

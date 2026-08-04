@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateSandboxTenant {
+  /**
+   * 创建者在父租户中的UserID
+   *
+   * <p>示例值：7036181931599499700
+   */
+  @SerializedName("creator_home_user_id")
+  private String creatorHomeUserId;
+
+  public String getCreatorHomeUserId() {
+    return this.creatorHomeUserId;
+  }
+
+  public void setCreatorHomeUserId(String creatorHomeUserId) {
+    this.creatorHomeUserId = creatorHomeUserId;
+  }
+
+  // builder 开始
+  public CreateSandboxTenant() {}
+
+  public CreateSandboxTenant(Builder builder) {
     /**
      * 创建者在父租户中的UserID
-     * <p> 示例值：7036181931599499700
+     *
+     * <p>示例值：7036181931599499700
      */
-    @SerializedName("creator_home_user_id")
+    this.creatorHomeUserId = builder.creatorHomeUserId;
+  }
+
+  public static class Builder {
+    /**
+     * 创建者在父租户中的UserID
+     *
+     * <p>示例值：7036181931599499700
+     */
     private String creatorHomeUserId;
 
-    // builder 开始
-    public CreateSandboxTenant() {
+    /**
+     * 创建者在父租户中的UserID
+     *
+     * <p>示例值：7036181931599499700
+     *
+     * @param creatorHomeUserId
+     * @return
+     */
+    public Builder creatorHomeUserId(String creatorHomeUserId) {
+      this.creatorHomeUserId = creatorHomeUserId;
+      return this;
     }
 
-    public CreateSandboxTenant(Builder builder) {
-        /**
-         * 创建者在父租户中的UserID
-         * <p> 示例值：7036181931599499700
-         */
-        this.creatorHomeUserId = builder.creatorHomeUserId;
+    public CreateSandboxTenant build() {
+      return new CreateSandboxTenant(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getCreatorHomeUserId() {
-        return this.creatorHomeUserId;
-    }
-
-    public void setCreatorHomeUserId(String creatorHomeUserId) {
-        this.creatorHomeUserId = creatorHomeUserId;
-    }
-
-    public static class Builder {
-        /**
-         * 创建者在父租户中的UserID
-         * <p> 示例值：7036181931599499700
-         */
-        private String creatorHomeUserId;
-
-        /**
-         * 创建者在父租户中的UserID
-         * <p> 示例值：7036181931599499700
-         *
-         * @param creatorHomeUserId
-         * @return
-         */
-        public Builder creatorHomeUserId(String creatorHomeUserId) {
-            this.creatorHomeUserId = creatorHomeUserId;
-            return this;
-        }
-
-
-        public CreateSandboxTenant build() {
-            return new CreateSandboxTenant(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

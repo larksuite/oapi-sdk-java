@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateDepartmentReqBody {
+  /**
+   * 创建部门
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department")
+  private CreateDepartment department;
+
+  public CreateDepartment getDepartment() {
+    return this.department;
+  }
+
+  public void setDepartment(CreateDepartment department) {
+    this.department = department;
+  }
+
+  // builder 开始
+  public CreateDepartmentReqBody() {}
+
+  public CreateDepartmentReqBody(Builder builder) {
     /**
      * 创建部门
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("department")
+    this.department = builder.department;
+  }
+
+  public static class Builder {
+    /**
+     * 创建部门
+     *
+     * <p>示例值：
+     */
     private CreateDepartment department;
 
-    // builder 开始
-    public CreateDepartmentReqBody() {
+    /**
+     * 创建部门
+     *
+     * <p>示例值：
+     *
+     * @param department
+     * @return
+     */
+    public Builder department(CreateDepartment department) {
+      this.department = department;
+      return this;
     }
 
-    public CreateDepartmentReqBody(Builder builder) {
-        /**
-         * 创建部门
-         * <p> 示例值：
-         */
-        this.department = builder.department;
+    public CreateDepartmentReqBody build() {
+      return new CreateDepartmentReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public CreateDepartment getDepartment() {
-        return this.department;
-    }
-
-    public void setDepartment(CreateDepartment department) {
-        this.department = department;
-    }
-
-    public static class Builder {
-        /**
-         * 创建部门
-         * <p> 示例值：
-         */
-        private CreateDepartment department;
-
-        /**
-         * 创建部门
-         * <p> 示例值：
-         *
-         * @param department
-         * @return
-         */
-        public Builder department(CreateDepartment department) {
-            this.department = department;
-            return this;
-        }
-
-
-        public CreateDepartmentReqBody build() {
-            return new CreateDepartmentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

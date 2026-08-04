@@ -13,639 +13,890 @@
 
 package com.lark.oapi.service.vc.v1.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.vc.v1.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.vc.v1.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class Meeting {
-    private static final Logger log = LoggerFactory.getLogger(Meeting.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(Meeting.class);
+  private final Config config;
 
-    public Meeting(Config config) {
-        this.config = config;
+  public Meeting(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 结束会议，结束一个进行中的会议。
+   *
+   * <p>会议正在进行中，且操作者须具有相应的权限（如果操作者为用户，必须是会中当前主持人） ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=end&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=end&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/EndMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/EndMeetingSample.java</a>
+   * ;
+   */
+  public EndMeetingResp end(EndMeetingReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PATCH",
+            "/open-apis/vc/v1/meetings/:meeting_id/end",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
 
-    /**
-     * 结束会议，结束一个进行中的会议
-     * <p> 会议正在进行中，且操作者须具有相应的权限（如果操作者为用户，必须是会中当前主持人） ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/end">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/end</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/EndMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/EndMeetingSample.java</a> ;
-     */
-    public EndMeetingResp end(EndMeetingReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/vc/v1/meetings/:meeting_id/end"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        EndMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, EndMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/end"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    EndMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, EndMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/:meeting_id/end",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 结束会议，结束一个进行中的会议
-     * <p> 会议正在进行中，且操作者须具有相应的权限（如果操作者为用户，必须是会中当前主持人） ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/end">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/end</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/EndMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/EndMeetingSample.java</a> ;
-     */
-    public EndMeetingResp end(EndMeetingReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/vc/v1/meetings/:meeting_id/end"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        EndMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, EndMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/end"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 结束会议，结束一个进行中的会议。
+   *
+   * <p>会议正在进行中，且操作者须具有相应的权限（如果操作者为用户，必须是会中当前主持人） ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=end&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=end&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/EndMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/EndMeetingSample.java</a>
+   * ;
+   */
+  public EndMeetingResp end(EndMeetingReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PATCH",
+            "/open-apis/vc/v1/meetings/:meeting_id/end",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    EndMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, EndMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/:meeting_id/end",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 获取会议详情，获取一个会议的详细数据
-     * <p> 只能获取归属于自己的会议，支持查询最近90天内的会议 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/get</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/GetMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/GetMeetingSample.java</a> ;
-     */
-    public GetMeetingResp get(GetMeetingReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/vc/v1/meetings/:meeting_id"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        GetMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 获取会议详情，根据会议 ID 获取指定会议的详细信息，包括会议主题、链接、主持人、参会人员、状态、时间信息及关联纪要 ID。
+   *
+   * <p>只能获取归属于自己的会议，支持查询最近90天内的会议 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/GetMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/GetMeetingSample.java</a>
+   * ;
+   */
+  public GetMeetingResp get(GetMeetingReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * 获取会议详情，获取一个会议的详细数据
-     * <p> 只能获取归属于自己的会议，支持查询最近90天内的会议 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/get</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/GetMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/GetMeetingSample.java</a> ;
-     */
-    public GetMeetingResp get(GetMeetingReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/vc/v1/meetings/:meeting_id",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/vc/v1/meetings/:meeting_id"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        GetMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    GetMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/:meeting_id",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 邀请参会人，邀请参会人进入会议
-     * <p> 发起邀请的操作者必须具有相应的权限（如果操作者为用户，则必须在会中），如果会议被锁定、或参会人数如果达到上限，则会邀请失败 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/invite">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/invite</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/InviteMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/InviteMeetingSample.java</a> ;
-     */
-    public InviteMeetingResp invite(InviteMeetingReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/vc/v1/meetings/:meeting_id/invite"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        InviteMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, InviteMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/invite"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 获取会议详情，根据会议 ID 获取指定会议的详细信息，包括会议主题、链接、主持人、参会人员、状态、时间信息及关联纪要 ID。
+   *
+   * <p>只能获取归属于自己的会议，支持查询最近90天内的会议 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/GetMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/GetMeetingSample.java</a>
+   * ;
+   */
+  public GetMeetingResp get(GetMeetingReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/vc/v1/meetings/:meeting_id",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    GetMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/:meeting_id",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 邀请参会人，邀请参会人进入会议
-     * <p> 发起邀请的操作者必须具有相应的权限（如果操作者为用户，则必须在会中），如果会议被锁定、或参会人数如果达到上限，则会邀请失败 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/invite">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/invite</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/InviteMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/InviteMeetingSample.java</a> ;
-     */
-    public InviteMeetingResp invite(InviteMeetingReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/vc/v1/meetings/:meeting_id/invite"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        InviteMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, InviteMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/invite"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 邀请参会人，邀请参会人进入会议。
+   *
+   * <p>发起邀请的操作者必须具有相应的权限（如果操作者为用户，则必须在会中），如果会议被锁定、或参会人数如果达到上限，则会邀请失败 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=invite&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=invite&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/InviteMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/InviteMeetingSample.java</a>
+   * ;
+   */
+  public InviteMeetingResp invite(InviteMeetingReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * 移除参会人，将参会人从会议中移除
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/kickout">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/kickout</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/KickoutMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/KickoutMeetingSample.java</a> ;
-     */
-    public KickoutMeetingResp kickout(KickoutMeetingReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PATCH",
+            "/open-apis/vc/v1/meetings/:meeting_id/invite",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/vc/v1/meetings/:meeting_id/kickout"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        KickoutMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, KickoutMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/kickout"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    InviteMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, InviteMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/:meeting_id/invite",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 移除参会人，将参会人从会议中移除
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/kickout">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/kickout</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/KickoutMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/KickoutMeetingSample.java</a> ;
-     */
-    public KickoutMeetingResp kickout(KickoutMeetingReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/vc/v1/meetings/:meeting_id/kickout"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        KickoutMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, KickoutMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/kickout"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 邀请参会人，邀请参会人进入会议。
+   *
+   * <p>发起邀请的操作者必须具有相应的权限（如果操作者为用户，则必须在会中），如果会议被锁定、或参会人数如果达到上限，则会邀请失败 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=invite&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=invite&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/InviteMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/InviteMeetingSample.java</a>
+   * ;
+   */
+  public InviteMeetingResp invite(InviteMeetingReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PATCH",
+            "/open-apis/vc/v1/meetings/:meeting_id/invite",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    InviteMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, InviteMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/:meeting_id/invite",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 获取与会议号相关联的会议列表，获取指定时间范围（90天内)会议号关联的会议简要信息列表
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/list_by_no">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/list_by_no</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListByNoMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListByNoMeetingSample.java</a> ;
-     */
-    public ListByNoMeetingResp listByNo(ListByNoMeetingReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/vc/v1/meetings/list_by_no"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        ListByNoMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListByNoMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/list_by_no"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 移除参会人，将参会人从会议中移除。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=kickout&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=kickout&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/KickoutMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/KickoutMeetingSample.java</a>
+   * ;
+   */
+  public KickoutMeetingResp kickout(KickoutMeetingReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * 获取与会议号相关联的会议列表，获取指定时间范围（90天内)会议号关联的会议简要信息列表
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/list_by_no">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/list_by_no</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListByNoMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListByNoMeetingSample.java</a> ;
-     */
-    public ListByNoMeetingResp listByNo(ListByNoMeetingReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/vc/v1/meetings/:meeting_id/kickout",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/vc/v1/meetings/list_by_no"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        ListByNoMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListByNoMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/list_by_no"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    KickoutMeetingResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, KickoutMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/:meeting_id/kickout",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，搜索视频会议接口
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=search&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=search&project=vc&resource=meeting&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SearchMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SearchMeetingSample.java</a> ;
-     */
-    public SearchMeetingResp search(SearchMeetingReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/vc/v1/meetings/search"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        SearchMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/search"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 移除参会人，将参会人从会议中移除。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=kickout&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=kickout&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/KickoutMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/KickoutMeetingSample.java</a>
+   * ;
+   */
+  public KickoutMeetingResp kickout(KickoutMeetingReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/vc/v1/meetings/:meeting_id/kickout",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    KickoutMeetingResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, KickoutMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/:meeting_id/kickout",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，搜索视频会议接口
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=search&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=search&project=vc&resource=meeting&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SearchMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SearchMeetingSample.java</a> ;
-     */
-    public SearchMeetingResp search(SearchMeetingReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/vc/v1/meetings/search"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        SearchMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/search"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 获取与会议号关联的会议列表，获取指定时间范围内与会议号关联的会议简要信息列表。
+   *
+   * <p>仅支持查询 90 天内的数据。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list_by_no&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list_by_no&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListByNoMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListByNoMeetingSample.java</a>
+   * ;
+   */
+  public ListByNoMeetingResp listByNo(ListByNoMeetingReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * 设置主持人，设置会议的主持人
-     * <p> 发起设置主持人的操作者必须具有相应的权限（如果操作者为用户，必须是会中当前主持人）；该操作使用CAS并发安全机制，需传入会中当前主持人，如果操作失败可使用返回的最新数据重试 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/set_host">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/set_host</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SetHostMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SetHostMeetingSample.java</a> ;
-     */
-    public SetHostMeetingResp setHost(SetHostMeetingReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/vc/v1/meetings/list_by_no",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/vc/v1/meetings/:meeting_id/set_host"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        SetHostMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SetHostMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/set_host"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    ListByNoMeetingResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, ListByNoMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/list_by_no",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 设置主持人，设置会议的主持人
-     * <p> 发起设置主持人的操作者必须具有相应的权限（如果操作者为用户，必须是会中当前主持人）；该操作使用CAS并发安全机制，需传入会中当前主持人，如果操作失败可使用返回的最新数据重试 ;
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/set_host">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/set_host</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SetHostMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SetHostMeetingSample.java</a> ;
-     */
-    public SetHostMeetingResp setHost(SetHostMeetingReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/vc/v1/meetings/:meeting_id/set_host"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        SetHostMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SetHostMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/:meeting_id/set_host"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 获取与会议号关联的会议列表，获取指定时间范围内与会议号关联的会议简要信息列表。
+   *
+   * <p>仅支持查询 90 天内的数据。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list_by_no&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list_by_no&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListByNoMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/ListByNoMeetingSample.java</a>
+   * ;
+   */
+  public ListByNoMeetingResp listByNo(ListByNoMeetingReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/vc/v1/meetings/list_by_no",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    ListByNoMeetingResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, ListByNoMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/list_by_no",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，订阅会议变更事件
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=subscription&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=subscription&project=vc&resource=meeting&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SubscriptionMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SubscriptionMeetingSample.java</a> ;
-     */
-    public SubscriptionMeetingResp subscription(SubscriptionMeetingReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/vc/v1/meetings/subscription"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        SubscriptionMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscriptionMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/subscription"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 搜索会议记录（测试），根据关键词、时间范围等条件搜索会议记录，返回符合条件的会议列表，包含会议 ID、主题、开始时间及参与者等信息。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=search&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=search&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SearchMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SearchMeetingSample.java</a>
+   * ;
+   */
+  public SearchMeetingResp search(SearchMeetingReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，订阅会议变更事件
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=subscription&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=subscription&project=vc&resource=meeting&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SubscriptionMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SubscriptionMeetingSample.java</a> ;
-     */
-    public SubscriptionMeetingResp subscription(SubscriptionMeetingReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/vc/v1/meetings/search",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/vc/v1/meetings/subscription"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        SubscriptionMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SubscriptionMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/subscription"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    SearchMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/search",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，取消订阅会议变更事件
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=unsubscription&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=unsubscription&project=vc&resource=meeting&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/UnsubscriptionMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/UnsubscriptionMeetingSample.java</a> ;
-     */
-    public UnsubscriptionMeetingResp unsubscription(UnsubscriptionMeetingReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/vc/v1/meetings/unsubscription"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        UnsubscriptionMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscriptionMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/unsubscription"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 搜索会议记录（测试），根据关键词、时间范围等条件搜索会议记录，返回符合条件的会议列表，包含会议 ID、主题、开始时间及参与者等信息。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=search&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=search&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SearchMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SearchMeetingSample.java</a>
+   * ;
+   */
+  public SearchMeetingResp search(SearchMeetingReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/vc/v1/meetings/search",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    SearchMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SearchMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/search",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，取消订阅会议变更事件
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=unsubscription&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=unsubscription&project=vc&resource=meeting&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/UnsubscriptionMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/UnsubscriptionMeetingSample.java</a> ;
-     */
-    public UnsubscriptionMeetingResp unsubscription(UnsubscriptionMeetingReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/vc/v1/meetings/unsubscription"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        UnsubscriptionMeetingResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscriptionMeetingResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/vc/v1/meetings/unsubscription"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 设置主持人，设置会议的主持人。
+   *
+   * <p>发起设置主持人的操作者必须具有相应的权限（如果操作者为用户，必须是会中当前主持人）；该操作使用CAS并发安全机制，需传入会中当前主持人，如果操作失败可使用返回的最新数据重试 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=set_host&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=set_host&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SetHostMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SetHostMeetingSample.java</a>
+   * ;
+   */
+  public SetHostMeetingResp setHost(SetHostMeetingReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PATCH",
+            "/open-apis/vc/v1/meetings/:meeting_id/set_host",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    SetHostMeetingResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, SetHostMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/:meeting_id/set_host",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 设置主持人，设置会议的主持人。
+   *
+   * <p>发起设置主持人的操作者必须具有相应的权限（如果操作者为用户，必须是会中当前主持人）；该操作使用CAS并发安全机制，需传入会中当前主持人，如果操作失败可使用返回的最新数据重试 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=set_host&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=set_host&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SetHostMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SetHostMeetingSample.java</a>
+   * ;
+   */
+  public SetHostMeetingResp setHost(SetHostMeetingReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PATCH",
+            "/open-apis/vc/v1/meetings/:meeting_id/set_host",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    SetHostMeetingResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, SetHostMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/:meeting_id/set_host",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 订阅会议变更事件，订阅当前用户身份相关的会议资源变更事件。通过指定事件类型，来订阅会议资源不同的事件变更。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=subscription&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=subscription&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SubscriptionMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SubscriptionMeetingSample.java</a>
+   * ;
+   */
+  public SubscriptionMeetingResp subscription(SubscriptionMeetingReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/vc/v1/meetings/subscription",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
+
+    // 反序列化
+    SubscriptionMeetingResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, SubscriptionMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/subscription",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 订阅会议变更事件，订阅当前用户身份相关的会议资源变更事件。通过指定事件类型，来订阅会议资源不同的事件变更。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=subscription&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=subscription&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SubscriptionMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/SubscriptionMeetingSample.java</a>
+   * ;
+   */
+  public SubscriptionMeetingResp subscription(SubscriptionMeetingReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/vc/v1/meetings/subscription",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
+
+    // 反序列化
+    SubscriptionMeetingResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, SubscriptionMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/subscription",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 取消订阅会议变更事件，取消订阅当前用户身份相关的会议资源变更事件。通过指定事件类型，来取消订阅会议资源对应的事件变更。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=unsubscription&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=unsubscription&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/UnsubscriptionMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/UnsubscriptionMeetingSample.java</a>
+   * ;
+   */
+  public UnsubscriptionMeetingResp unsubscription(
+      UnsubscriptionMeetingReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/vc/v1/meetings/unsubscription",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
+
+    // 反序列化
+    UnsubscriptionMeetingResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscriptionMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/unsubscription",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 取消订阅会议变更事件，取消订阅当前用户身份相关的会议资源变更事件。通过指定事件类型，来取消订阅会议资源对应的事件变更。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=unsubscription&project=vc&resource=meeting&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=unsubscription&project=vc&resource=meeting&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/UnsubscriptionMeetingSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/vcv1/UnsubscriptionMeetingSample.java</a>
+   * ;
+   */
+  public UnsubscriptionMeetingResp unsubscription(UnsubscriptionMeetingReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/vc/v1/meetings/unsubscription",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
+
+    // 反序列化
+    UnsubscriptionMeetingResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, UnsubscriptionMeetingResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/vc/v1/meetings/unsubscription",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

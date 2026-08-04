@@ -13,555 +13,610 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InterviewFeedbackFormDimension {
+  /**
+   * 模块维度ID
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 维度名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 维度描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n description;
+
+  /**
+   * 维度类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("enabled")
+  private Boolean enabled;
+
+  /**
+   * 维度顺序
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("sequence")
+  private Integer sequence;
+
+  /**
+   * 是否必选
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_required")
+  private Boolean isRequired;
+
+  /**
+   * 维度权重
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("weight")
+  private Double weight;
+
+  /**
+   * 评价维度的分数配置，适用于打分题(type = 6 或者 type =7)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("score_dimension_config")
+  private ScoreDimensionConfig scoreDimensionConfig;
+
+  /**
+   * 选项列表, 适用于单选题和多选题（单选题type=1，多选题type=2）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("option_items")
+  private InterviewDimensionOption[] optionItems;
+
+  /**
+   * 是否展示「无法判断」选项，仅适用于「职级建议」的维度类型（type=5）
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("display_not_evident")
+  private Boolean displayNotEvident;
+
+  /**
+   * 能力项列表，全类型适用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ability_list")
+  private DimensionAbility[] abilityList;
+
+  /**
+   * 维度间关联配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("related_dimension_config")
+  private RelatedDimensionConfig relatedDimensionConfig;
+
+  /**
+   * 能力项关联配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dimension_ability_args")
+  private DimensionAbilityArgs[] dimensionAbilityArgs;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public I18n getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n description) {
+    this.description = description;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public Boolean getEnabled() {
+    return this.enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
+  public Integer getSequence() {
+    return this.sequence;
+  }
+
+  public void setSequence(Integer sequence) {
+    this.sequence = sequence;
+  }
+
+  public Boolean getIsRequired() {
+    return this.isRequired;
+  }
+
+  public void setIsRequired(Boolean isRequired) {
+    this.isRequired = isRequired;
+  }
+
+  public Double getWeight() {
+    return this.weight;
+  }
+
+  public void setWeight(Double weight) {
+    this.weight = weight;
+  }
+
+  public ScoreDimensionConfig getScoreDimensionConfig() {
+    return this.scoreDimensionConfig;
+  }
+
+  public void setScoreDimensionConfig(ScoreDimensionConfig scoreDimensionConfig) {
+    this.scoreDimensionConfig = scoreDimensionConfig;
+  }
+
+  public InterviewDimensionOption[] getOptionItems() {
+    return this.optionItems;
+  }
+
+  public void setOptionItems(InterviewDimensionOption[] optionItems) {
+    this.optionItems = optionItems;
+  }
+
+  public Boolean getDisplayNotEvident() {
+    return this.displayNotEvident;
+  }
+
+  public void setDisplayNotEvident(Boolean displayNotEvident) {
+    this.displayNotEvident = displayNotEvident;
+  }
+
+  public DimensionAbility[] getAbilityList() {
+    return this.abilityList;
+  }
+
+  public void setAbilityList(DimensionAbility[] abilityList) {
+    this.abilityList = abilityList;
+  }
+
+  public RelatedDimensionConfig getRelatedDimensionConfig() {
+    return this.relatedDimensionConfig;
+  }
+
+  public void setRelatedDimensionConfig(RelatedDimensionConfig relatedDimensionConfig) {
+    this.relatedDimensionConfig = relatedDimensionConfig;
+  }
+
+  public DimensionAbilityArgs[] getDimensionAbilityArgs() {
+    return this.dimensionAbilityArgs;
+  }
+
+  public void setDimensionAbilityArgs(DimensionAbilityArgs[] dimensionAbilityArgs) {
+    this.dimensionAbilityArgs = dimensionAbilityArgs;
+  }
+
+  // builder 开始
+  public InterviewFeedbackFormDimension() {}
+
+  public InterviewFeedbackFormDimension(Builder builder) {
     /**
      * 模块维度ID
-     * <p> 示例值：6930815272790114324
+     *
+     * <p>示例值：6930815272790114324
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 维度名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 维度描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n description;
+    this.description = builder.description;
     /**
      * 维度类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
      * 是否启用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("enabled")
-    private Boolean enabled;
+    this.enabled = builder.enabled;
     /**
      * 维度顺序
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("sequence")
-    private Integer sequence;
+    this.sequence = builder.sequence;
     /**
      * 是否必选
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_required")
-    private Boolean isRequired;
+    this.isRequired = builder.isRequired;
     /**
      * 维度权重
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("weight")
-    private Double weight;
+    this.weight = builder.weight;
     /**
-     * 评价维度的分数配置（适用于打分题）
-     * <p> 示例值：
+     * 评价维度的分数配置，适用于打分题(type = 6 或者 type =7)
+     *
+     * <p>示例值：
      */
-    @SerializedName("score_dimension_config")
-    private ScoreDimensionConfig scoreDimensionConfig;
+    this.scoreDimensionConfig = builder.scoreDimensionConfig;
     /**
-     * 选项列表(适用于单选题和多选题)
-     * <p> 示例值：
+     * 选项列表, 适用于单选题和多选题（单选题type=1，多选题type=2）
+     *
+     * <p>示例值：
      */
-    @SerializedName("option_items")
-    private InterviewDimensionOption[] optionItems;
+    this.optionItems = builder.optionItems;
     /**
-     * 是否展示「无法判断」选项，仅针对「职级建议」的维度类型
-     * <p> 示例值：true
+     * 是否展示「无法判断」选项，仅适用于「职级建议」的维度类型（type=5）
+     *
+     * <p>示例值：true
      */
-    @SerializedName("display_not_evident")
-    private Boolean displayNotEvident;
+    this.displayNotEvident = builder.displayNotEvident;
     /**
-     * 能力项列表
-     * <p> 示例值：
+     * 能力项列表，全类型适用
+     *
+     * <p>示例值：
      */
-    @SerializedName("ability_list")
-    private DimensionAbility[] abilityList;
+    this.abilityList = builder.abilityList;
     /**
      * 维度间关联配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("related_dimension_config")
-    private RelatedDimensionConfig relatedDimensionConfig;
+    this.relatedDimensionConfig = builder.relatedDimensionConfig;
     /**
      * 能力项关联配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dimension_ability_args")
+    this.dimensionAbilityArgs = builder.dimensionAbilityArgs;
+  }
+
+  public static class Builder {
+    /**
+     * 模块维度ID
+     *
+     * <p>示例值：6930815272790114324
+     */
+    private String id;
+
+    /**
+     * 维度名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 维度描述
+     *
+     * <p>示例值：
+     */
+    private I18n description;
+
+    /**
+     * 维度类型
+     *
+     * <p>示例值：1
+     */
+    private Integer type;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean enabled;
+
+    /**
+     * 维度顺序
+     *
+     * <p>示例值：1
+     */
+    private Integer sequence;
+
+    /**
+     * 是否必选
+     *
+     * <p>示例值：true
+     */
+    private Boolean isRequired;
+
+    /**
+     * 维度权重
+     *
+     * <p>示例值：1
+     */
+    private Double weight;
+
+    /**
+     * 评价维度的分数配置，适用于打分题(type = 6 或者 type =7)
+     *
+     * <p>示例值：
+     */
+    private ScoreDimensionConfig scoreDimensionConfig;
+
+    /**
+     * 选项列表, 适用于单选题和多选题（单选题type=1，多选题type=2）
+     *
+     * <p>示例值：
+     */
+    private InterviewDimensionOption[] optionItems;
+
+    /**
+     * 是否展示「无法判断」选项，仅适用于「职级建议」的维度类型（type=5）
+     *
+     * <p>示例值：true
+     */
+    private Boolean displayNotEvident;
+
+    /**
+     * 能力项列表，全类型适用
+     *
+     * <p>示例值：
+     */
+    private DimensionAbility[] abilityList;
+
+    /**
+     * 维度间关联配置
+     *
+     * <p>示例值：
+     */
+    private RelatedDimensionConfig relatedDimensionConfig;
+
+    /**
+     * 能力项关联配置
+     *
+     * <p>示例值：
+     */
     private DimensionAbilityArgs[] dimensionAbilityArgs;
 
-    // builder 开始
-    public InterviewFeedbackFormDimension() {
+    /**
+     * 模块维度ID
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public InterviewFeedbackFormDimension(Builder builder) {
-        /**
-         * 模块维度ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.id = builder.id;
-        /**
-         * 维度名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 维度描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 维度类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.enabled = builder.enabled;
-        /**
-         * 维度顺序
-         * <p> 示例值：1
-         */
-        this.sequence = builder.sequence;
-        /**
-         * 是否必选
-         * <p> 示例值：true
-         */
-        this.isRequired = builder.isRequired;
-        /**
-         * 维度权重
-         * <p> 示例值：1
-         */
-        this.weight = builder.weight;
-        /**
-         * 评价维度的分数配置（适用于打分题）
-         * <p> 示例值：
-         */
-        this.scoreDimensionConfig = builder.scoreDimensionConfig;
-        /**
-         * 选项列表(适用于单选题和多选题)
-         * <p> 示例值：
-         */
-        this.optionItems = builder.optionItems;
-        /**
-         * 是否展示「无法判断」选项，仅针对「职级建议」的维度类型
-         * <p> 示例值：true
-         */
-        this.displayNotEvident = builder.displayNotEvident;
-        /**
-         * 能力项列表
-         * <p> 示例值：
-         */
-        this.abilityList = builder.abilityList;
-        /**
-         * 维度间关联配置
-         * <p> 示例值：
-         */
-        this.relatedDimensionConfig = builder.relatedDimensionConfig;
-        /**
-         * 能力项关联配置
-         * <p> 示例值：
-         */
-        this.dimensionAbilityArgs = builder.dimensionAbilityArgs;
+    /**
+     * 维度名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 维度描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n description) {
+      this.description = description;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 维度类型
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param enabled
+     * @return
+     */
+    public Builder enabled(Boolean enabled) {
+      this.enabled = enabled;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 维度顺序
+     *
+     * <p>示例值：1
+     *
+     * @param sequence
+     * @return
+     */
+    public Builder sequence(Integer sequence) {
+      this.sequence = sequence;
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    /**
+     * 是否必选
+     *
+     * <p>示例值：true
+     *
+     * @param isRequired
+     * @return
+     */
+    public Builder isRequired(Boolean isRequired) {
+      this.isRequired = isRequired;
+      return this;
     }
 
-    public I18n getDescription() {
-        return this.description;
+    /**
+     * 维度权重
+     *
+     * <p>示例值：1
+     *
+     * @param weight
+     * @return
+     */
+    public Builder weight(Double weight) {
+      this.weight = weight;
+      return this;
     }
 
-    public void setDescription(I18n description) {
-        this.description = description;
+    /**
+     * 评价维度的分数配置，适用于打分题(type = 6 或者 type =7)
+     *
+     * <p>示例值：
+     *
+     * @param scoreDimensionConfig
+     * @return
+     */
+    public Builder scoreDimensionConfig(ScoreDimensionConfig scoreDimensionConfig) {
+      this.scoreDimensionConfig = scoreDimensionConfig;
+      return this;
     }
 
-    public Integer getType() {
-        return this.type;
+    /**
+     * 选项列表, 适用于单选题和多选题（单选题type=1，多选题type=2）
+     *
+     * <p>示例值：
+     *
+     * @param optionItems
+     * @return
+     */
+    public Builder optionItems(InterviewDimensionOption[] optionItems) {
+      this.optionItems = optionItems;
+      return this;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    /**
+     * 是否展示「无法判断」选项，仅适用于「职级建议」的维度类型（type=5）
+     *
+     * <p>示例值：true
+     *
+     * @param displayNotEvident
+     * @return
+     */
+    public Builder displayNotEvident(Boolean displayNotEvident) {
+      this.displayNotEvident = displayNotEvident;
+      return this;
     }
 
-    public Boolean getEnabled() {
-        return this.enabled;
+    /**
+     * 能力项列表，全类型适用
+     *
+     * <p>示例值：
+     *
+     * @param abilityList
+     * @return
+     */
+    public Builder abilityList(DimensionAbility[] abilityList) {
+      this.abilityList = abilityList;
+      return this;
     }
 
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
+    /**
+     * 维度间关联配置
+     *
+     * <p>示例值：
+     *
+     * @param relatedDimensionConfig
+     * @return
+     */
+    public Builder relatedDimensionConfig(RelatedDimensionConfig relatedDimensionConfig) {
+      this.relatedDimensionConfig = relatedDimensionConfig;
+      return this;
     }
 
-    public Integer getSequence() {
-        return this.sequence;
+    /**
+     * 能力项关联配置
+     *
+     * <p>示例值：
+     *
+     * @param dimensionAbilityArgs
+     * @return
+     */
+    public Builder dimensionAbilityArgs(DimensionAbilityArgs[] dimensionAbilityArgs) {
+      this.dimensionAbilityArgs = dimensionAbilityArgs;
+      return this;
     }
 
-    public void setSequence(Integer sequence) {
-        this.sequence = sequence;
+    public InterviewFeedbackFormDimension build() {
+      return new InterviewFeedbackFormDimension(this);
     }
+  }
 
-    public Boolean getIsRequired() {
-        return this.isRequired;
-    }
-
-    public void setIsRequired(Boolean isRequired) {
-        this.isRequired = isRequired;
-    }
-
-    public Double getWeight() {
-        return this.weight;
-    }
-
-    public void setWeight(Double weight) {
-        this.weight = weight;
-    }
-
-    public ScoreDimensionConfig getScoreDimensionConfig() {
-        return this.scoreDimensionConfig;
-    }
-
-    public void setScoreDimensionConfig(ScoreDimensionConfig scoreDimensionConfig) {
-        this.scoreDimensionConfig = scoreDimensionConfig;
-    }
-
-    public InterviewDimensionOption[] getOptionItems() {
-        return this.optionItems;
-    }
-
-    public void setOptionItems(InterviewDimensionOption[] optionItems) {
-        this.optionItems = optionItems;
-    }
-
-    public Boolean getDisplayNotEvident() {
-        return this.displayNotEvident;
-    }
-
-    public void setDisplayNotEvident(Boolean displayNotEvident) {
-        this.displayNotEvident = displayNotEvident;
-    }
-
-    public DimensionAbility[] getAbilityList() {
-        return this.abilityList;
-    }
-
-    public void setAbilityList(DimensionAbility[] abilityList) {
-        this.abilityList = abilityList;
-    }
-
-    public RelatedDimensionConfig getRelatedDimensionConfig() {
-        return this.relatedDimensionConfig;
-    }
-
-    public void setRelatedDimensionConfig(RelatedDimensionConfig relatedDimensionConfig) {
-        this.relatedDimensionConfig = relatedDimensionConfig;
-    }
-
-    public DimensionAbilityArgs[] getDimensionAbilityArgs() {
-        return this.dimensionAbilityArgs;
-    }
-
-    public void setDimensionAbilityArgs(DimensionAbilityArgs[] dimensionAbilityArgs) {
-        this.dimensionAbilityArgs = dimensionAbilityArgs;
-    }
-
-    public static class Builder {
-        /**
-         * 模块维度ID
-         * <p> 示例值：6930815272790114324
-         */
-        private String id;
-        /**
-         * 维度名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 维度描述
-         * <p> 示例值：
-         */
-        private I18n description;
-        /**
-         * 维度类型
-         * <p> 示例值：1
-         */
-        private Integer type;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean enabled;
-        /**
-         * 维度顺序
-         * <p> 示例值：1
-         */
-        private Integer sequence;
-        /**
-         * 是否必选
-         * <p> 示例值：true
-         */
-        private Boolean isRequired;
-        /**
-         * 维度权重
-         * <p> 示例值：1
-         */
-        private Double weight;
-        /**
-         * 评价维度的分数配置（适用于打分题）
-         * <p> 示例值：
-         */
-        private ScoreDimensionConfig scoreDimensionConfig;
-        /**
-         * 选项列表(适用于单选题和多选题)
-         * <p> 示例值：
-         */
-        private InterviewDimensionOption[] optionItems;
-        /**
-         * 是否展示「无法判断」选项，仅针对「职级建议」的维度类型
-         * <p> 示例值：true
-         */
-        private Boolean displayNotEvident;
-        /**
-         * 能力项列表
-         * <p> 示例值：
-         */
-        private DimensionAbility[] abilityList;
-        /**
-         * 维度间关联配置
-         * <p> 示例值：
-         */
-        private RelatedDimensionConfig relatedDimensionConfig;
-        /**
-         * 能力项关联配置
-         * <p> 示例值：
-         */
-        private DimensionAbilityArgs[] dimensionAbilityArgs;
-
-        /**
-         * 模块维度ID
-         * <p> 示例值：6930815272790114324
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 维度名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 维度描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 维度类型
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param enabled
-         * @return
-         */
-        public Builder enabled(Boolean enabled) {
-            this.enabled = enabled;
-            return this;
-        }
-
-
-        /**
-         * 维度顺序
-         * <p> 示例值：1
-         *
-         * @param sequence
-         * @return
-         */
-        public Builder sequence(Integer sequence) {
-            this.sequence = sequence;
-            return this;
-        }
-
-
-        /**
-         * 是否必选
-         * <p> 示例值：true
-         *
-         * @param isRequired
-         * @return
-         */
-        public Builder isRequired(Boolean isRequired) {
-            this.isRequired = isRequired;
-            return this;
-        }
-
-
-        /**
-         * 维度权重
-         * <p> 示例值：1
-         *
-         * @param weight
-         * @return
-         */
-        public Builder weight(Double weight) {
-            this.weight = weight;
-            return this;
-        }
-
-
-        /**
-         * 评价维度的分数配置（适用于打分题）
-         * <p> 示例值：
-         *
-         * @param scoreDimensionConfig
-         * @return
-         */
-        public Builder scoreDimensionConfig(ScoreDimensionConfig scoreDimensionConfig) {
-            this.scoreDimensionConfig = scoreDimensionConfig;
-            return this;
-        }
-
-
-        /**
-         * 选项列表(适用于单选题和多选题)
-         * <p> 示例值：
-         *
-         * @param optionItems
-         * @return
-         */
-        public Builder optionItems(InterviewDimensionOption[] optionItems) {
-            this.optionItems = optionItems;
-            return this;
-        }
-
-
-        /**
-         * 是否展示「无法判断」选项，仅针对「职级建议」的维度类型
-         * <p> 示例值：true
-         *
-         * @param displayNotEvident
-         * @return
-         */
-        public Builder displayNotEvident(Boolean displayNotEvident) {
-            this.displayNotEvident = displayNotEvident;
-            return this;
-        }
-
-
-        /**
-         * 能力项列表
-         * <p> 示例值：
-         *
-         * @param abilityList
-         * @return
-         */
-        public Builder abilityList(DimensionAbility[] abilityList) {
-            this.abilityList = abilityList;
-            return this;
-        }
-
-
-        /**
-         * 维度间关联配置
-         * <p> 示例值：
-         *
-         * @param relatedDimensionConfig
-         * @return
-         */
-        public Builder relatedDimensionConfig(RelatedDimensionConfig relatedDimensionConfig) {
-            this.relatedDimensionConfig = relatedDimensionConfig;
-            return this;
-        }
-
-
-        /**
-         * 能力项关联配置
-         * <p> 示例值：
-         *
-         * @param dimensionAbilityArgs
-         * @return
-         */
-        public Builder dimensionAbilityArgs(DimensionAbilityArgs[] dimensionAbilityArgs) {
-            this.dimensionAbilityArgs = dimensionAbilityArgs;
-            return this;
-        }
-
-
-        public InterviewFeedbackFormDimension build() {
-            return new InterviewFeedbackFormDimension(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

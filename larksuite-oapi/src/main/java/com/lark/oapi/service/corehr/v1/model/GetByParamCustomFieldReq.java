@@ -13,105 +13,114 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class GetByParamCustomFieldReq {
+  /**
+   * 所属对象 API
+   * name，可从[获取飞书人事对象列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/list_object_api_name)接口列举所有对象及其
+   * API name
+   *
+   * <p>示例值：offboarding_info
+   */
+  @Query
+  @SerializedName("object_api_name")
+  private String objectApiName;
+
+  /**
+   * 字段 API
+   * name，可通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口中返回的
+   * `custom_api_name` 字段获取
+   *
+   * <p>示例值：custom_field_33__c
+   */
+  @Query
+  @SerializedName("custom_api_name")
+  private String customApiName;
+
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
+
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
+
+  public String getCustomApiName() {
+    return this.customApiName;
+  }
+
+  public void setCustomApiName(String customApiName) {
+    this.customApiName = customApiName;
+  }
+
+  // builder 开始
+  public GetByParamCustomFieldReq() {}
+
+  public GetByParamCustomFieldReq(Builder builder) {
     /**
-     * 所属对象 apiname
-     * <p> 示例值：offboarding_info
+     * 所属对象 API
+     * name，可从[获取飞书人事对象列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/list_object_api_name)接口列举所有对象及其
+     * API name
+     *
+     * <p>示例值：offboarding_info
      */
-    @Query
-    @SerializedName("object_api_name")
-    private String objectApiName;
+    this.objectApiName = builder.objectApiName;
     /**
-     * 自定义字段 apiname
-     * <p> 示例值：custom_field_33
+     * 字段 API
+     * name，可通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口中返回的
+     * `custom_api_name` 字段获取
+     *
+     * <p>示例值：custom_field_33__c
      */
-    @Query
-    @SerializedName("custom_api_name")
-    private String customApiName;
+    this.customApiName = builder.customApiName;
+  }
 
-    // builder 开始
-    public GetByParamCustomFieldReq() {
+  public static class Builder {
+    private String objectApiName; // 所属对象 API
+    // name，可从[获取飞书人事对象列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/list_object_api_name)接口列举所有对象及其 API name
+    private String customApiName; // 字段 API
+
+    // name，可通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口中返回的 `custom_api_name` 字段获取
+
+    /**
+     * 所属对象 API
+     * name，可从[获取飞书人事对象列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/list_object_api_name)接口列举所有对象及其
+     * API name
+     *
+     * <p>示例值：offboarding_info
+     *
+     * @param objectApiName
+     * @return
+     */
+    public Builder objectApiName(String objectApiName) {
+      this.objectApiName = objectApiName;
+      return this;
     }
 
-    public GetByParamCustomFieldReq(Builder builder) {
-        /**
-         * 所属对象 apiname
-         * <p> 示例值：offboarding_info
-         */
-        this.objectApiName = builder.objectApiName;
-        /**
-         * 自定义字段 apiname
-         * <p> 示例值：custom_field_33
-         */
-        this.customApiName = builder.customApiName;
+    /**
+     * 字段 API
+     * name，可通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口中返回的
+     * `custom_api_name` 字段获取
+     *
+     * <p>示例值：custom_field_33__c
+     *
+     * @param customApiName
+     * @return
+     */
+    public Builder customApiName(String customApiName) {
+      this.customApiName = customApiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GetByParamCustomFieldReq build() {
+      return new GetByParamCustomFieldReq(this);
     }
+  }
 
-    public String getObjectApiName() {
-        return this.objectApiName;
-    }
-
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
-    }
-
-    public String getCustomApiName() {
-        return this.customApiName;
-    }
-
-    public void setCustomApiName(String customApiName) {
-        this.customApiName = customApiName;
-    }
-
-    public static class Builder {
-        private String objectApiName; // 所属对象 apiname
-        private String customApiName; // 自定义字段 apiname
-
-        /**
-         * 所属对象 apiname
-         * <p> 示例值：offboarding_info
-         *
-         * @param objectApiName
-         * @return
-         */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段 apiname
-         * <p> 示例值：custom_field_33
-         *
-         * @param customApiName
-         * @return
-         */
-        public Builder customApiName(String customApiName) {
-            this.customApiName = customApiName;
-            return this;
-        }
-
-
-        public GetByParamCustomFieldReq build() {
-            return new GetByParamCustomFieldReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

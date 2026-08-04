@@ -13,227 +13,248 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.application.v6.enums.*;
 
 public class ContactsRangeConfigurationApplicationReq {
+  /**
+   * 分页大小
+   *
+   * <p>示例值：20
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：new-e3c5a0627cdf0c2e057da7257b90376a
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 返回值的部门ID的类型
+   *
+   * <p>示例值：department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 应用的 app_id，可以在[开发者后台](https://open.feishu.cn/app) > 凭证与基础信息页查看。
+   *
+   * <p>示例值：cli_***
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  // builder 开始
+  public ContactsRangeConfigurationApplicationReq() {}
+
+  public ContactsRangeConfigurationApplicationReq(Builder builder) {
     /**
      * 分页大小
-     * <p> 示例值：20
+     *
+     * <p>示例值：20
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
+     *
+     * <p>示例值：new-e3c5a0627cdf0c2e057da7257b90376a
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 返回值的部门ID的类型
-     * <p> 示例值：department_id
+     *
+     * <p>示例值：department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 应用的 id
-     * <p> 示例值：cli_9b445f5258795107
+     * 应用的 app_id，可以在[开发者后台](https://open.feishu.cn/app) > 凭证与基础信息页查看。
+     *
+     * <p>示例值：cli_***
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
+  }
 
-    // builder 开始
-    public ContactsRangeConfigurationApplicationReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String departmentIdType; // 返回值的部门ID的类型
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：20
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ContactsRangeConfigurationApplicationReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：20
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 返回值的部门ID的类型
-         * <p> 示例值：department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 应用的 id
-         * <p> 示例值：cli_9b445f5258795107
-         */
-        this.appId = builder.appId;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：new-e3c5a0627cdf0c2e057da7257b90376a
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 返回值的部门ID的类型
+     *
+     * <p>示例值：department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 返回值的部门ID的类型
+     *
+     * <p>示例值：department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.application.v6.enums.ContactsRangeConfigurationApplicationGetAppContactsRangeConfigurationDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.application.v6.enums
+                .ContactsRangeConfigurationApplicationGetAppContactsRangeConfigurationDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.application.v6.enums.ContactsRangeConfigurationApplicationGetAppContactsRangeConfigurationUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.application.v6.enums
+                .ContactsRangeConfigurationApplicationGetAppContactsRangeConfigurationUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    private String appId; // 应用的 app_id，可以在[开发者后台](https://open.feishu.cn/app) > 凭证与基础信息页查看。
+
+    /**
+     * 应用的 app_id，可以在[开发者后台](https://open.feishu.cn/app) > 凭证与基础信息页查看。
+     *
+     * <p>示例值：cli_***
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
+    public ContactsRangeConfigurationApplicationReq build() {
+      return new ContactsRangeConfigurationApplicationReq(this);
     }
+  }
 
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String departmentIdType; // 返回值的部门ID的类型
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String appId; // 应用的 id
-
-        /**
-         * 分页大小
-         * <p> 示例值：20
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：new-e3c5a0627cdf0c2e057da7257b90376a
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 返回值的部门ID的类型
-         * <p> 示例值：department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 返回值的部门ID的类型
-         * <p> 示例值：department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.application.v6.enums.ContactsRangeConfigurationApplicationGetAppContactsRangeConfigurationDepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.application.v6.enums.ContactsRangeConfigurationApplicationGetAppContactsRangeConfigurationDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.application.v6.enums.ContactsRangeConfigurationApplicationGetAppContactsRangeConfigurationUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.application.v6.enums.ContactsRangeConfigurationApplicationGetAppContactsRangeConfigurationUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 应用的 id
-         * <p> 示例值：cli_9b445f5258795107
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        public ContactsRangeConfigurationApplicationReq build() {
-            return new ContactsRangeConfigurationApplicationReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

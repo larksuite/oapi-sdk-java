@@ -13,115 +13,108 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryOptions {
+  /**
+   * 查询结果包含软删数据
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("ignore_status")
+  private Boolean ignoreStatus;
+
+  /**
+   * 透传给权限的额外字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("auth_extra")
+  private Map<String, String> authExtra;
+
+  public Boolean getIgnoreStatus() {
+    return this.ignoreStatus;
+  }
+
+  public void setIgnoreStatus(Boolean ignoreStatus) {
+    this.ignoreStatus = ignoreStatus;
+  }
+
+  public Map<String, String> getAuthExtra() {
+    return this.authExtra;
+  }
+
+  public void setAuthExtra(Map<String, String> authExtra) {
+    this.authExtra = authExtra;
+  }
+
+  // builder 开始
+  public QueryOptions() {}
+
+  public QueryOptions(Builder builder) {
     /**
      * 查询结果包含软删数据
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("ignore_status")
-    private Boolean ignoreStatus;
+    this.ignoreStatus = builder.ignoreStatus;
     /**
      * 透传给权限的额外字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("auth_extra")
+    this.authExtra = builder.authExtra;
+  }
+
+  public static class Builder {
+    /**
+     * 查询结果包含软删数据
+     *
+     * <p>示例值：true
+     */
+    private Boolean ignoreStatus;
+
+    /**
+     * 透传给权限的额外字段
+     *
+     * <p>示例值：
+     */
     private Map<String, String> authExtra;
 
-    // builder 开始
-    public QueryOptions() {
+    /**
+     * 查询结果包含软删数据
+     *
+     * <p>示例值：true
+     *
+     * @param ignoreStatus
+     * @return
+     */
+    public Builder ignoreStatus(Boolean ignoreStatus) {
+      this.ignoreStatus = ignoreStatus;
+      return this;
     }
 
-    public QueryOptions(Builder builder) {
-        /**
-         * 查询结果包含软删数据
-         * <p> 示例值：true
-         */
-        this.ignoreStatus = builder.ignoreStatus;
-        /**
-         * 透传给权限的额外字段
-         * <p> 示例值：
-         */
-        this.authExtra = builder.authExtra;
+    /**
+     * 透传给权限的额外字段
+     *
+     * <p>示例值：
+     *
+     * @param authExtra
+     * @return
+     */
+    public Builder authExtra(Map<String, String> authExtra) {
+      this.authExtra = authExtra;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public QueryOptions build() {
+      return new QueryOptions(this);
     }
+  }
 
-    public Boolean getIgnoreStatus() {
-        return this.ignoreStatus;
-    }
-
-    public void setIgnoreStatus(Boolean ignoreStatus) {
-        this.ignoreStatus = ignoreStatus;
-    }
-
-    public Map<String, String> getAuthExtra() {
-        return this.authExtra;
-    }
-
-    public void setAuthExtra(Map<String, String> authExtra) {
-        this.authExtra = authExtra;
-    }
-
-    public static class Builder {
-        /**
-         * 查询结果包含软删数据
-         * <p> 示例值：true
-         */
-        private Boolean ignoreStatus;
-        /**
-         * 透传给权限的额外字段
-         * <p> 示例值：
-         */
-        private Map<String, String> authExtra;
-
-        /**
-         * 查询结果包含软删数据
-         * <p> 示例值：true
-         *
-         * @param ignoreStatus
-         * @return
-         */
-        public Builder ignoreStatus(Boolean ignoreStatus) {
-            this.ignoreStatus = ignoreStatus;
-            return this;
-        }
-
-
-        /**
-         * 透传给权限的额外字段
-         * <p> 示例值：
-         *
-         * @param authExtra
-         * @return
-         */
-        public Builder authExtra(Map<String, String> authExtra) {
-            this.authExtra = authExtra;
-            return this;
-        }
-
-
-        public QueryOptions build() {
-            return new QueryOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

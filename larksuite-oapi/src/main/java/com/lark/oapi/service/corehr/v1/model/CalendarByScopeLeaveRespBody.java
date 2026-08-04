@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarByScopeLeaveRespBody {
-    /**
-     * 工作日历id
-     * <p> 示例值："6722331851580982798"
-     */
-    @SerializedName("calendar_wk_id")
-    private String calendarWkId;
+  /**
+   * 工作日历id
+   *
+   * <p>示例值："6722331851580982798"
+   */
+  @SerializedName("calendar_wk_id")
+  private String calendarWkId;
 
-    public String getCalendarWkId() {
-        return this.calendarWkId;
-    }
+  public String getCalendarWkId() {
+    return this.calendarWkId;
+  }
 
-    public void setCalendarWkId(String calendarWkId) {
-        this.calendarWkId = calendarWkId;
-    }
-
+  public void setCalendarWkId(String calendarWkId) {
+    this.calendarWkId = calendarWkId;
+  }
 }

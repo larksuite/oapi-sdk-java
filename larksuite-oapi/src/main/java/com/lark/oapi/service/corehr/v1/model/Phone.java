@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Phone {
+  /**
+   * 国家区号
+   *
+   * <p>示例值：
+   */
+  @SerializedName("international_area_code")
+  private Enum internationalAreaCode;
+
+  /**
+   * 电话号码
+   *
+   * <p>示例值：18812341234
+   */
+  @SerializedName("phone_number")
+  private String phoneNumber;
+
+  /**
+   * 完整电话号码
+   *
+   * <p>示例值：+86 010-12345678
+   */
+  @SerializedName("formatted_phone_number")
+  private String formattedPhoneNumber;
+
+  /**
+   * 设备类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("device_type")
+  private Enum deviceType;
+
+  /**
+   * 电话用途
+   *
+   * <p>示例值：
+   */
+  @SerializedName("phone_usage")
+  private Enum phoneUsage;
+
+  /**
+   * 主要电话
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_primary")
+  private Boolean isPrimary;
+
+  /**
+   * 公开电话
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_public")
+  private Boolean isPublic;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  public Enum getInternationalAreaCode() {
+    return this.internationalAreaCode;
+  }
+
+  public void setInternationalAreaCode(Enum internationalAreaCode) {
+    this.internationalAreaCode = internationalAreaCode;
+  }
+
+  public String getPhoneNumber() {
+    return this.phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public String getFormattedPhoneNumber() {
+    return this.formattedPhoneNumber;
+  }
+
+  public void setFormattedPhoneNumber(String formattedPhoneNumber) {
+    this.formattedPhoneNumber = formattedPhoneNumber;
+  }
+
+  public Enum getDeviceType() {
+    return this.deviceType;
+  }
+
+  public void setDeviceType(Enum deviceType) {
+    this.deviceType = deviceType;
+  }
+
+  public Enum getPhoneUsage() {
+    return this.phoneUsage;
+  }
+
+  public void setPhoneUsage(Enum phoneUsage) {
+    this.phoneUsage = phoneUsage;
+  }
+
+  public Boolean getIsPrimary() {
+    return this.isPrimary;
+  }
+
+  public void setIsPrimary(Boolean isPrimary) {
+    this.isPrimary = isPrimary;
+  }
+
+  public Boolean getIsPublic() {
+    return this.isPublic;
+  }
+
+  public void setIsPublic(Boolean isPublic) {
+    this.isPublic = isPublic;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public Phone() {}
+
+  public Phone(Builder builder) {
     /**
-     * 国家区号;;常见如：86_china（中国）、852_hong_kong（中国香港）、886_taiwan（中国台湾）、853_macao（中国澳门）、1_united_states_of_america（美利坚合众国）、7_russian_federation（俄罗斯联邦）、44_united_kingdom（英国）、81_japan（日本）、82_korea_republic_of（大韩民国）、91_india（印度）
-     * <p> 示例值：
+     * 国家区号
+     *
+     * <p>示例值：
      */
-    @SerializedName("international_area_code")
-    private Enum internationalAreaCode;
+    this.internationalAreaCode = builder.internationalAreaCode;
     /**
      * 电话号码
-     * <p> 示例值：010-12345678
+     *
+     * <p>示例值：18812341234
      */
-    @SerializedName("phone_number")
-    private String phoneNumber;
+    this.phoneNumber = builder.phoneNumber;
     /**
      * 完整电话号码
-     * <p> 示例值：+86 010-12345678
+     *
+     * <p>示例值：+86 010-12345678
      */
-    @SerializedName("formatted_phone_number")
-    private String formattedPhoneNumber;
+    this.formattedPhoneNumber = builder.formattedPhoneNumber;
     /**
-     * 设备类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)设备类型（device_type）枚举定义部分获得
-     * <p> 示例值：
+     * 设备类型
+     *
+     * <p>示例值：
      */
-    @SerializedName("device_type")
-    private Enum deviceType;
+    this.deviceType = builder.deviceType;
     /**
-     * 电话用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电话用途（phone_usage）枚举定义部分获得
-     * <p> 示例值：
+     * 电话用途
+     *
+     * <p>示例值：
      */
-    @SerializedName("phone_usage")
-    private Enum phoneUsage;
+    this.phoneUsage = builder.phoneUsage;
     /**
-     * 是否为主要电话
-     * <p> 示例值：true
+     * 主要电话
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_primary")
-    private Boolean isPrimary;
+    this.isPrimary = builder.isPrimary;
     /**
-     * 是否为公开电话
-     * <p> 示例值：true
+     * 公开电话
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_public")
-    private Boolean isPublic;
+    this.isPublic = builder.isPublic;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 国家区号
+     *
+     * <p>示例值：
+     */
+    private Enum internationalAreaCode;
+
+    /**
+     * 电话号码
+     *
+     * <p>示例值：18812341234
+     */
+    private String phoneNumber;
+
+    /**
+     * 完整电话号码
+     *
+     * <p>示例值：+86 010-12345678
+     */
+    private String formattedPhoneNumber;
+
+    /**
+     * 设备类型
+     *
+     * <p>示例值：
+     */
+    private Enum deviceType;
+
+    /**
+     * 电话用途
+     *
+     * <p>示例值：
+     */
+    private Enum phoneUsage;
+
+    /**
+     * 主要电话
+     *
+     * <p>示例值：true
+     */
+    private Boolean isPrimary;
+
+    /**
+     * 公开电话
+     *
+     * <p>示例值：true
+     */
+    private Boolean isPublic;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private ObjectFieldData[] customFields;
 
-    // builder 开始
-    public Phone() {
+    /**
+     * 国家区号
+     *
+     * <p>示例值：
+     *
+     * @param internationalAreaCode
+     * @return
+     */
+    public Builder internationalAreaCode(Enum internationalAreaCode) {
+      this.internationalAreaCode = internationalAreaCode;
+      return this;
     }
 
-    public Phone(Builder builder) {
-        /**
-         * 国家区号;;常见如：86_china（中国）、852_hong_kong（中国香港）、886_taiwan（中国台湾）、853_macao（中国澳门）、1_united_states_of_america（美利坚合众国）、7_russian_federation（俄罗斯联邦）、44_united_kingdom（英国）、81_japan（日本）、82_korea_republic_of（大韩民国）、91_india（印度）
-         * <p> 示例值：
-         */
-        this.internationalAreaCode = builder.internationalAreaCode;
-        /**
-         * 电话号码
-         * <p> 示例值：010-12345678
-         */
-        this.phoneNumber = builder.phoneNumber;
-        /**
-         * 完整电话号码
-         * <p> 示例值：+86 010-12345678
-         */
-        this.formattedPhoneNumber = builder.formattedPhoneNumber;
-        /**
-         * 设备类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)设备类型（device_type）枚举定义部分获得
-         * <p> 示例值：
-         */
-        this.deviceType = builder.deviceType;
-        /**
-         * 电话用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电话用途（phone_usage）枚举定义部分获得
-         * <p> 示例值：
-         */
-        this.phoneUsage = builder.phoneUsage;
-        /**
-         * 是否为主要电话
-         * <p> 示例值：true
-         */
-        this.isPrimary = builder.isPrimary;
-        /**
-         * 是否为公开电话
-         * <p> 示例值：true
-         */
-        this.isPublic = builder.isPublic;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 电话号码
+     *
+     * <p>示例值：18812341234
+     *
+     * @param phoneNumber
+     * @return
+     */
+    public Builder phoneNumber(String phoneNumber) {
+      this.phoneNumber = phoneNumber;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 完整电话号码
+     *
+     * <p>示例值：+86 010-12345678
+     *
+     * @param formattedPhoneNumber
+     * @return
+     */
+    public Builder formattedPhoneNumber(String formattedPhoneNumber) {
+      this.formattedPhoneNumber = formattedPhoneNumber;
+      return this;
     }
 
-    public Enum getInternationalAreaCode() {
-        return this.internationalAreaCode;
+    /**
+     * 设备类型
+     *
+     * <p>示例值：
+     *
+     * @param deviceType
+     * @return
+     */
+    public Builder deviceType(Enum deviceType) {
+      this.deviceType = deviceType;
+      return this;
     }
 
-    public void setInternationalAreaCode(Enum internationalAreaCode) {
-        this.internationalAreaCode = internationalAreaCode;
+    /**
+     * 电话用途
+     *
+     * <p>示例值：
+     *
+     * @param phoneUsage
+     * @return
+     */
+    public Builder phoneUsage(Enum phoneUsage) {
+      this.phoneUsage = phoneUsage;
+      return this;
     }
 
-    public String getPhoneNumber() {
-        return this.phoneNumber;
+    /**
+     * 主要电话
+     *
+     * <p>示例值：true
+     *
+     * @param isPrimary
+     * @return
+     */
+    public Builder isPrimary(Boolean isPrimary) {
+      this.isPrimary = isPrimary;
+      return this;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    /**
+     * 公开电话
+     *
+     * <p>示例值：true
+     *
+     * @param isPublic
+     * @return
+     */
+    public Builder isPublic(Boolean isPublic) {
+      this.isPublic = isPublic;
+      return this;
     }
 
-    public String getFormattedPhoneNumber() {
-        return this.formattedPhoneNumber;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setFormattedPhoneNumber(String formattedPhoneNumber) {
-        this.formattedPhoneNumber = formattedPhoneNumber;
+    public Phone build() {
+      return new Phone(this);
     }
+  }
 
-    public Enum getDeviceType() {
-        return this.deviceType;
-    }
-
-    public void setDeviceType(Enum deviceType) {
-        this.deviceType = deviceType;
-    }
-
-    public Enum getPhoneUsage() {
-        return this.phoneUsage;
-    }
-
-    public void setPhoneUsage(Enum phoneUsage) {
-        this.phoneUsage = phoneUsage;
-    }
-
-    public Boolean getIsPrimary() {
-        return this.isPrimary;
-    }
-
-    public void setIsPrimary(Boolean isPrimary) {
-        this.isPrimary = isPrimary;
-    }
-
-    public Boolean getIsPublic() {
-        return this.isPublic;
-    }
-
-    public void setIsPublic(Boolean isPublic) {
-        this.isPublic = isPublic;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 国家区号;;常见如：86_china（中国）、852_hong_kong（中国香港）、886_taiwan（中国台湾）、853_macao（中国澳门）、1_united_states_of_america（美利坚合众国）、7_russian_federation（俄罗斯联邦）、44_united_kingdom（英国）、81_japan（日本）、82_korea_republic_of（大韩民国）、91_india（印度）
-         * <p> 示例值：
-         */
-        private Enum internationalAreaCode;
-        /**
-         * 电话号码
-         * <p> 示例值：010-12345678
-         */
-        private String phoneNumber;
-        /**
-         * 完整电话号码
-         * <p> 示例值：+86 010-12345678
-         */
-        private String formattedPhoneNumber;
-        /**
-         * 设备类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)设备类型（device_type）枚举定义部分获得
-         * <p> 示例值：
-         */
-        private Enum deviceType;
-        /**
-         * 电话用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电话用途（phone_usage）枚举定义部分获得
-         * <p> 示例值：
-         */
-        private Enum phoneUsage;
-        /**
-         * 是否为主要电话
-         * <p> 示例值：true
-         */
-        private Boolean isPrimary;
-        /**
-         * 是否为公开电话
-         * <p> 示例值：true
-         */
-        private Boolean isPublic;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-
-        /**
-         * 国家区号;;常见如：86_china（中国）、852_hong_kong（中国香港）、886_taiwan（中国台湾）、853_macao（中国澳门）、1_united_states_of_america（美利坚合众国）、7_russian_federation（俄罗斯联邦）、44_united_kingdom（英国）、81_japan（日本）、82_korea_republic_of（大韩民国）、91_india（印度）
-         * <p> 示例值：
-         *
-         * @param internationalAreaCode
-         * @return
-         */
-        public Builder internationalAreaCode(Enum internationalAreaCode) {
-            this.internationalAreaCode = internationalAreaCode;
-            return this;
-        }
-
-
-        /**
-         * 电话号码
-         * <p> 示例值：010-12345678
-         *
-         * @param phoneNumber
-         * @return
-         */
-        public Builder phoneNumber(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
-            return this;
-        }
-
-
-        /**
-         * 完整电话号码
-         * <p> 示例值：+86 010-12345678
-         *
-         * @param formattedPhoneNumber
-         * @return
-         */
-        public Builder formattedPhoneNumber(String formattedPhoneNumber) {
-            this.formattedPhoneNumber = formattedPhoneNumber;
-            return this;
-        }
-
-
-        /**
-         * 设备类型，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)设备类型（device_type）枚举定义部分获得
-         * <p> 示例值：
-         *
-         * @param deviceType
-         * @return
-         */
-        public Builder deviceType(Enum deviceType) {
-            this.deviceType = deviceType;
-            return this;
-        }
-
-
-        /**
-         * 电话用途，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电话用途（phone_usage）枚举定义部分获得
-         * <p> 示例值：
-         *
-         * @param phoneUsage
-         * @return
-         */
-        public Builder phoneUsage(Enum phoneUsage) {
-            this.phoneUsage = phoneUsage;
-            return this;
-        }
-
-
-        /**
-         * 是否为主要电话
-         * <p> 示例值：true
-         *
-         * @param isPrimary
-         * @return
-         */
-        public Builder isPrimary(Boolean isPrimary) {
-            this.isPrimary = isPrimary;
-            return this;
-        }
-
-
-        /**
-         * 是否为公开电话
-         * <p> 示例值：true
-         *
-         * @param isPublic
-         * @return
-         */
-        public Builder isPublic(Boolean isPublic) {
-            this.isPublic = isPublic;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public Phone build() {
-            return new Phone(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

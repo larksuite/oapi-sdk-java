@@ -13,367 +13,519 @@
 
 package com.lark.oapi.service.corehr.v1.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.corehr.v1.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.corehr.v1.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class JobData {
-    private static final Logger log = LoggerFactory.getLogger(JobData.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(JobData.class);
+  private final Config config;
 
-    public JobData(Config config) {
-        this.config = config;
+  public JobData(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 创建任职信息，在系统中第一次创建员工任职数据，通常在员工入职或者做数据批量导入的时候使用，【任职原因】只支持填写“onboarding”。
+   *
+   * <p>- 非必填字段，不传时默认为空 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=corehr&resource=job_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=corehr&resource=job_data&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/CreateJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/CreateJobDataSample.java</a>
+   * ;
+   */
+  public CreateJobDataResp create(CreateJobDataReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v1/job_datas",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-    /**
-     * 创建任职信息，在系统中第一次创建员工任职数据，通常在员工入职或者做数据批量导入的时候使用，【任职原因】只支持填写“入职”
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/create</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/CreateJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/CreateJobDataSample.java</a> ;
-     */
-    public CreateJobDataResp create(CreateJobDataReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v1/job_datas"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        CreateJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateJobDataResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/job_datas"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    CreateJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateJobDataResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/job_datas",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 创建任职信息，在系统中第一次创建员工任职数据，通常在员工入职或者做数据批量导入的时候使用，【任职原因】只支持填写“入职”
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/create">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/create</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/CreateJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/CreateJobDataSample.java</a> ;
-     */
-    public CreateJobDataResp create(CreateJobDataReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v1/job_datas"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        CreateJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateJobDataResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/job_datas"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 创建任职信息，在系统中第一次创建员工任职数据，通常在员工入职或者做数据批量导入的时候使用，【任职原因】只支持填写“onboarding”。
+   *
+   * <p>- 非必填字段，不传时默认为空 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=corehr&resource=job_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=corehr&resource=job_data&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/CreateJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/CreateJobDataSample.java</a>
+   * ;
+   */
+  public CreateJobDataResp create(CreateJobDataReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v1/job_datas",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    CreateJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateJobDataResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/job_datas",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 删除任职信息，删除人员的任职信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/delete</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/DeleteJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/DeleteJobDataSample.java</a> ;
-     */
-    public DeleteJobDataResp delete(DeleteJobDataReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-                , "/open-apis/corehr/v1/job_datas/:job_data_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        DeleteJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteJobDataResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/job_datas/:job_data_id"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 删除任职信息，删除人员的任职信息。
+   *
+   * <p>删除后无法恢复， 并且在系统中无法查询到对应任职信息，请谨慎操作。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=corehr&resource=job_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=corehr&resource=job_data&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/DeleteJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/DeleteJobDataSample.java</a>
+   * ;
+   */
+  public DeleteJobDataResp delete(DeleteJobDataReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * 删除任职信息，删除人员的任职信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/delete">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/delete</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/DeleteJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/DeleteJobDataSample.java</a> ;
-     */
-    public DeleteJobDataResp delete(DeleteJobDataReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "DELETE",
+            "/open-apis/corehr/v1/job_datas/:job_data_id",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-                , "/open-apis/corehr/v1/job_datas/:job_data_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        DeleteJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteJobDataResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/job_datas/:job_data_id"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    DeleteJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteJobDataResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/job_datas/:job_data_id",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 查询单个任职信息，根据 ID 查询单任职信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/get</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/GetJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/GetJobDataSample.java</a> ;
-     */
-    public GetJobDataResp get(GetJobDataReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/corehr/v1/job_datas/:job_data_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        GetJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobDataResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/job_datas/:job_data_id"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 删除任职信息，删除人员的任职信息。
+   *
+   * <p>删除后无法恢复， 并且在系统中无法查询到对应任职信息，请谨慎操作。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=corehr&resource=job_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=corehr&resource=job_data&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/DeleteJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/DeleteJobDataSample.java</a>
+   * ;
+   */
+  public DeleteJobDataResp delete(DeleteJobDataReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "DELETE",
+            "/open-apis/corehr/v1/job_datas/:job_data_id",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    DeleteJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteJobDataResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/job_datas/:job_data_id",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 查询单个任职信息，根据 ID 查询单任职信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/get</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/GetJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/GetJobDataSample.java</a> ;
-     */
-    public GetJobDataResp get(GetJobDataReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/corehr/v1/job_datas/:job_data_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        GetJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobDataResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/job_datas/:job_data_id"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 查询单个任职信息，根据 ID 查询当前生效的主任职记录。所有主任职记录中只有一条记录版本当前生效
+   *
+   * <p>当前接口为历史版本。推荐使用新版接口，详情参见[批量查询员工任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)、[获取任职信息列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/query)。
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=corehr&resource=job_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=corehr&resource=job_data&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/GetJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/GetJobDataSample.java</a>
+   * ;
+   */
+  public GetJobDataResp get(GetJobDataReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * 批量查询任职信息，批量查询人员的任职信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/ListJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/ListJobDataSample.java</a> ;
-     */
-    public ListJobDataResp list(ListJobDataReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/corehr/v1/job_datas/:job_data_id",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/corehr/v1/job_datas"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        ListJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListJobDataResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/job_datas"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    GetJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobDataResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/job_datas/:job_data_id",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 批量查询任职信息，批量查询人员的任职信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/list</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/ListJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/ListJobDataSample.java</a> ;
-     */
-    public ListJobDataResp list(ListJobDataReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/corehr/v1/job_datas"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        ListJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListJobDataResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/job_datas"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 查询单个任职信息，根据 ID 查询当前生效的主任职记录。所有主任职记录中只有一条记录版本当前生效
+   *
+   * <p>当前接口为历史版本。推荐使用新版接口，详情参见[批量查询员工任职信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)、[获取任职信息列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/query)。
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=corehr&resource=job_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=corehr&resource=job_data&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/GetJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/GetJobDataSample.java</a>
+   * ;
+   */
+  public GetJobDataResp get(GetJobDataReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/corehr/v1/job_datas/:job_data_id",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    GetJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetJobDataResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/job_datas/:job_data_id",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 更新任职信息，更新任职信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/patch</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/PatchJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/PatchJobDataSample.java</a> ;
-     */
-    public PatchJobDataResp patch(PatchJobDataReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/corehr/v1/job_datas/:job_data_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        PatchJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchJobDataResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/job_datas/:job_data_id"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 批量查询任职信息，批量查询员工的任职信息
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=corehr&resource=job_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=corehr&resource=job_data&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/ListJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/ListJobDataSample.java</a>
+   * ;
+   */
+  public ListJobDataResp list(ListJobDataReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * 更新任职信息，更新任职信息
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/patch">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/patch</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/PatchJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/PatchJobDataSample.java</a> ;
-     */
-    public PatchJobDataResp patch(PatchJobDataReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/corehr/v1/job_datas",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/corehr/v1/job_datas/:job_data_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        PatchJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchJobDataResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/job_datas/:job_data_id"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    ListJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListJobDataResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/job_datas",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 批量查询任职信息，批量查询员工的任职信息
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=corehr&resource=job_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=corehr&resource=job_data&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/ListJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/ListJobDataSample.java</a>
+   * ;
+   */
+  public ListJobDataResp list(ListJobDataReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/corehr/v1/job_datas",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    ListJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListJobDataResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/job_datas",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 更新任职信息，默认为新增一条任职记录，包括职务、职级、序列、部门等信息。
+   *
+   * <p>- 本接口不再推荐使用（历史问题较多），请使用以下接口（对齐业务、功能完善）; -
+   * [【发起员工异动】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/create);
+   * -
+   * [【操作员工离职】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/submit);-
+   * 为解决默认无校验容易产生脏数据问题，已于 <b>2024.10.18</b> 日修改 strict_verify 的默认值为 true;;- 此接口默认缺乏业务校验，使用
+   * strict_verify=true，相当于【人事系统-异动无审批】; - 应用业务校验、发送异动事件、新增任职记录; - 在【修改工时制度】、【插入任职记录】等场景下请检查异动管理;-
+   * 「任职原因」不允许填写为「onboarding」或「offboarding」;- 当上一个任职版本的「任职原因」为「onboarding」时，「任职原因」必填;-
+   * 该接口默认是新增一条任职记录，并非原地编辑;;;- 非必填字段，如无特殊说明，不传时即不做变更 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=corehr&resource=job_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=corehr&resource=job_data&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/PatchJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/PatchJobDataSample.java</a>
+   * ;
+   */
+  public PatchJobDataResp patch(PatchJobDataReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PATCH",
+            "/open-apis/corehr/v1/job_datas/:job_data_id",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    PatchJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchJobDataResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/job_datas/:job_data_id",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 更新任职信息，默认为新增一条任职记录，包括职务、职级、序列、部门等信息。
+   *
+   * <p>- 本接口不再推荐使用（历史问题较多），请使用以下接口（对齐业务、功能完善）; -
+   * [【发起员工异动】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/create);
+   * -
+   * [【操作员工离职】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/submit);-
+   * 为解决默认无校验容易产生脏数据问题，已于 <b>2024.10.18</b> 日修改 strict_verify 的默认值为 true;;- 此接口默认缺乏业务校验，使用
+   * strict_verify=true，相当于【人事系统-异动无审批】; - 应用业务校验、发送异动事件、新增任职记录; - 在【修改工时制度】、【插入任职记录】等场景下请检查异动管理;-
+   * 「任职原因」不允许填写为「onboarding」或「offboarding」;- 当上一个任职版本的「任职原因」为「onboarding」时，「任职原因」必填;-
+   * 该接口默认是新增一条任职记录，并非原地编辑;;;- 非必填字段，如无特殊说明，不传时即不做变更 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=corehr&resource=job_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=corehr&resource=job_data&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/PatchJobDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/PatchJobDataSample.java</a>
+   * ;
+   */
+  public PatchJobDataResp patch(PatchJobDataReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PATCH",
+            "/open-apis/corehr/v1/job_datas/:job_data_id",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    PatchJobDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchJobDataResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/job_datas/:job_data_id",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

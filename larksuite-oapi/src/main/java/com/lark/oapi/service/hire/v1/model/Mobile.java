@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Mobile {
+  /**
+   * 电话国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)
+   *
+   * <p>示例值：86
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 手机号码，在传 mobile 参数的情况下必传
+   *
+   * <p>示例值：18900001111
+   */
+  @SerializedName("number")
+  private String number;
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getNumber() {
+    return this.number;
+  }
+
+  public void setNumber(String number) {
+    this.number = number;
+  }
+
+  // builder 开始
+  public Mobile() {}
+
+  public Mobile(Builder builder) {
     /**
-     * 国家代码
-     * <p> 示例值：86
+     * 电话国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)
+     *
+     * <p>示例值：86
      */
-    @SerializedName("code")
+    this.code = builder.code;
+    /**
+     * 手机号码，在传 mobile 参数的情况下必传
+     *
+     * <p>示例值：18900001111
+     */
+    this.number = builder.number;
+  }
+
+  public static class Builder {
+    /**
+     * 电话国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)
+     *
+     * <p>示例值：86
+     */
     private String code;
+
     /**
-     * 手机号码
-     * <p> 示例值：18900001111
+     * 手机号码，在传 mobile 参数的情况下必传
+     *
+     * <p>示例值：18900001111
      */
-    @SerializedName("number")
     private String number;
 
-    // builder 开始
-    public Mobile() {
+    /**
+     * 电话国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)
+     *
+     * <p>示例值：86
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public Mobile(Builder builder) {
-        /**
-         * 国家代码
-         * <p> 示例值：86
-         */
-        this.code = builder.code;
-        /**
-         * 手机号码
-         * <p> 示例值：18900001111
-         */
-        this.number = builder.number;
+    /**
+     * 手机号码，在传 mobile 参数的情况下必传
+     *
+     * <p>示例值：18900001111
+     *
+     * @param number
+     * @return
+     */
+    public Builder number(String number) {
+      this.number = number;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Mobile build() {
+      return new Mobile(this);
     }
+  }
 
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getNumber() {
-        return this.number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public static class Builder {
-        /**
-         * 国家代码
-         * <p> 示例值：86
-         */
-        private String code;
-        /**
-         * 手机号码
-         * <p> 示例值：18900001111
-         */
-        private String number;
-
-        /**
-         * 国家代码
-         * <p> 示例值：86
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 手机号码
-         * <p> 示例值：18900001111
-         *
-         * @param number
-         * @return
-         */
-        public Builder number(String number) {
-            this.number = number;
-            return this;
-        }
-
-
-        public Mobile build() {
-            return new Mobile(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

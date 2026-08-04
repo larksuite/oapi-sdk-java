@@ -13,72 +13,68 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class DeleteCompanyReq {
+  /**
+   * 需要删除的公司ID。ID获取方式：;-
+   * 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回部门ID
+   *
+   * <p>示例值：341432424
+   */
+  @Path
+  @SerializedName("company_id")
+  private String companyId;
+
+  public String getCompanyId() {
+    return this.companyId;
+  }
+
+  public void setCompanyId(String companyId) {
+    this.companyId = companyId;
+  }
+
+  // builder 开始
+  public DeleteCompanyReq() {}
+
+  public DeleteCompanyReq(Builder builder) {
     /**
-     * 需要删除的公司ID
-     * <p> 示例值：341432424
+     * 需要删除的公司ID。ID获取方式：;-
+     * 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回部门ID
+     *
+     * <p>示例值：341432424
      */
-    @Path
-    @SerializedName("company_id")
-    private String companyId;
+    this.companyId = builder.companyId;
+  }
 
-    // builder 开始
-    public DeleteCompanyReq() {
+  public static class Builder {
+
+    private String companyId; // 需要删除的公司ID。ID获取方式：;-
+
+    // 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回部门ID
+
+    /**
+     * 需要删除的公司ID。ID获取方式：;-
+     * 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回部门ID
+     *
+     * <p>示例值：341432424
+     *
+     * @param companyId
+     * @return
+     */
+    public Builder companyId(String companyId) {
+      this.companyId = companyId;
+      return this;
     }
 
-    public DeleteCompanyReq(Builder builder) {
-        /**
-         * 需要删除的公司ID
-         * <p> 示例值：341432424
-         */
-        this.companyId = builder.companyId;
+    public DeleteCompanyReq build() {
+      return new DeleteCompanyReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getCompanyId() {
-        return this.companyId;
-    }
-
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
-    }
-
-    public static class Builder {
-
-        private String companyId; // 需要删除的公司ID
-
-        /**
-         * 需要删除的公司ID
-         * <p> 示例值：341432424
-         *
-         * @param companyId
-         * @return
-         */
-        public Builder companyId(String companyId) {
-            this.companyId = companyId;
-            return this;
-        }
-
-
-        public DeleteCompanyReq build() {
-            return new DeleteCompanyReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

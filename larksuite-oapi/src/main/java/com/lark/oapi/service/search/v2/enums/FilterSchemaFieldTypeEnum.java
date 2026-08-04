@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 用于构建dsl过滤的类型，默认是enum
- */
+/** 用于构建dsl过滤的类型，默认是enum */
 public enum FilterSchemaFieldTypeEnum {
-    ENUM("enum"), // 枚举值
-    RANGE("range"), // 连续值
-    ;
-    private String value;
+  ENUM("enum"), // 枚举值
+  RANGE("range"), // 连续值
+  ;
+  private String value;
 
-    FilterSchemaFieldTypeEnum(String value) {
-        this.value = value;
-    }
+  FilterSchemaFieldTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

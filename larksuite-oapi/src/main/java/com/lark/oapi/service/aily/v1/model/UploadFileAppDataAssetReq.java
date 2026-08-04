@@ -13,130 +13,130 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.aily.v1.enums.*;
 
 public class UploadFileAppDataAssetReq {
+  /**
+   * 应用环境，枚举值：;- `online`：线上环境（默认值）;- `dev`：开发环境；目前只支持 `dev`
+   *
+   * <p>示例值：dev
+   */
+  @Query
+  @SerializedName("tenant_type")
+  private String tenantType;
+
+  public String getTenantType() {
+    return this.tenantType;
+  }
+
+  public void setTenantType(String tenantType) {
+    this.tenantType = tenantType;
+  }
+
+  /**
+   * Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+   *
+   * <p>示例值：spring_dsafdsaf__c
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  @Body private UploadFileAppDataAssetReqBody body;
+
+  public UploadFileAppDataAssetReqBody getUploadFileAppDataAssetReqBody() {
+    return this.body;
+  }
+
+  public void setUploadFileAppDataAssetReqBody(UploadFileAppDataAssetReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UploadFileAppDataAssetReq() {}
+
+  public UploadFileAppDataAssetReq(Builder builder) {
     /**
-     * 应用环境，默认为线上环境，dev代表开发环境，只支持dev
-     * <p> 示例值：dev
+     * 应用环境，枚举值：;- `online`：线上环境（默认值）;- `dev`：开发环境；目前只支持 `dev`
+     *
+     * <p>示例值：dev
      */
-    @Query
-    @SerializedName("tenant_type")
-    private String tenantType;
+    this.tenantType = builder.tenantType;
     /**
-     * APPID
-     * <p> 示例值：spring_dsafdsaf__c
+     * Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+     *
+     * <p>示例值：spring_dsafdsaf__c
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-    @Body
+    this.appId = builder.appId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String tenantType; // 应用环境，枚举值：;- `online`：线上环境（默认值）;- `dev`：开发环境；目前只支持 `dev`
+
+    /**
+     * 应用环境，枚举值：;- `online`：线上环境（默认值）;- `dev`：开发环境；目前只支持 `dev`
+     *
+     * <p>示例值：dev
+     *
+     * @param tenantType
+     * @return
+     */
+    public Builder tenantType(String tenantType) {
+      this.tenantType = tenantType;
+      return this;
+    }
+
+    private String appId; // Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+
+    /**
+     * Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+     *
+     * <p>示例值：spring_dsafdsaf__c
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
+    }
+
     private UploadFileAppDataAssetReqBody body;
 
-    // builder 开始
-    public UploadFileAppDataAssetReq() {
-    }
-
-    public UploadFileAppDataAssetReq(Builder builder) {
-        /**
-         * 应用环境，默认为线上环境，dev代表开发环境，只支持dev
-         * <p> 示例值：dev
-         */
-        this.tenantType = builder.tenantType;
-        /**
-         * APPID
-         * <p> 示例值：spring_dsafdsaf__c
-         */
-        this.appId = builder.appId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTenantType() {
-        return this.tenantType;
-    }
-
-    public void setTenantType(String tenantType) {
-        this.tenantType = tenantType;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
     public UploadFileAppDataAssetReqBody getUploadFileAppDataAssetReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUploadFileAppDataAssetReqBody(UploadFileAppDataAssetReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder uploadFileAppDataAssetReqBody(UploadFileAppDataAssetReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String tenantType; // 应用环境，默认为线上环境，dev代表开发环境，只支持dev
-        private String appId; // APPID
-        private UploadFileAppDataAssetReqBody body;
-
-        /**
-         * 应用环境，默认为线上环境，dev代表开发环境，只支持dev
-         * <p> 示例值：dev
-         *
-         * @param tenantType
-         * @return
-         */
-        public Builder tenantType(String tenantType) {
-            this.tenantType = tenantType;
-            return this;
-        }
-
-        /**
-         * APPID
-         * <p> 示例值：spring_dsafdsaf__c
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-        public UploadFileAppDataAssetReqBody getUploadFileAppDataAssetReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder uploadFileAppDataAssetReqBody(UploadFileAppDataAssetReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UploadFileAppDataAssetReq build() {
-            return new UploadFileAppDataAssetReq(this);
-        }
+    public UploadFileAppDataAssetReq build() {
+      return new UploadFileAppDataAssetReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

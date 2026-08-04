@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchDeleteMailgroupManagerReqBody {
+  /**
+   * 邮件组管理员列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mailgroup_manager_list")
+  private MailgroupManager[] mailgroupManagerList;
+
+  public MailgroupManager[] getMailgroupManagerList() {
+    return this.mailgroupManagerList;
+  }
+
+  public void setMailgroupManagerList(MailgroupManager[] mailgroupManagerList) {
+    this.mailgroupManagerList = mailgroupManagerList;
+  }
+
+  // builder 开始
+  public BatchDeleteMailgroupManagerReqBody() {}
+
+  public BatchDeleteMailgroupManagerReqBody(Builder builder) {
     /**
      * 邮件组管理员列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("mailgroup_manager_list")
+    this.mailgroupManagerList = builder.mailgroupManagerList;
+  }
+
+  public static class Builder {
+    /**
+     * 邮件组管理员列表
+     *
+     * <p>示例值：
+     */
     private MailgroupManager[] mailgroupManagerList;
 
-    // builder 开始
-    public BatchDeleteMailgroupManagerReqBody() {
+    /**
+     * 邮件组管理员列表
+     *
+     * <p>示例值：
+     *
+     * @param mailgroupManagerList
+     * @return
+     */
+    public Builder mailgroupManagerList(MailgroupManager[] mailgroupManagerList) {
+      this.mailgroupManagerList = mailgroupManagerList;
+      return this;
     }
 
-    public BatchDeleteMailgroupManagerReqBody(Builder builder) {
-        /**
-         * 邮件组管理员列表
-         * <p> 示例值：
-         */
-        this.mailgroupManagerList = builder.mailgroupManagerList;
+    public BatchDeleteMailgroupManagerReqBody build() {
+      return new BatchDeleteMailgroupManagerReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public MailgroupManager[] getMailgroupManagerList() {
-        return this.mailgroupManagerList;
-    }
-
-    public void setMailgroupManagerList(MailgroupManager[] mailgroupManagerList) {
-        this.mailgroupManagerList = mailgroupManagerList;
-    }
-
-    public static class Builder {
-        /**
-         * 邮件组管理员列表
-         * <p> 示例值：
-         */
-        private MailgroupManager[] mailgroupManagerList;
-
-        /**
-         * 邮件组管理员列表
-         * <p> 示例值：
-         *
-         * @param mailgroupManagerList
-         * @return
-         */
-        public Builder mailgroupManagerList(MailgroupManager[] mailgroupManagerList) {
-            this.mailgroupManagerList = mailgroupManagerList;
-            return this;
-        }
-
-
-        public BatchDeleteMailgroupManagerReqBody build() {
-            return new BatchDeleteMailgroupManagerReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

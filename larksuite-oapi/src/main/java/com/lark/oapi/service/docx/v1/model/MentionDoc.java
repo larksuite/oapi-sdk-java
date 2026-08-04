@@ -13,284 +13,307 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MentionDoc {
+  /**
+   * 云文档 token。获取方式参考[如何获取云文档资源相关
+   * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+   *
+   * <p>示例值：doxbc873Y7cXD153gXqb76G1Y9b
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 云文档类型
+   *
+   * <p>示例值：22
+   */
+  @SerializedName("obj_type")
+  private Integer objType;
+
+  /**
+   * 云文档链接（需要 url_encode)
+   *
+   * <p>示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 文档标题，只读属性
+   *
+   * <p>示例值：undefined
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 文本局部样式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text_element_style")
+  private TextElementStyle textElementStyle;
+
+  /**
+   * 无云文档阅读权限或云文档已删除时的降级方式
+   *
+   * <p>示例值：FallbackToLink
+   */
+  @SerializedName("fallback_type")
+  private String fallbackType;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public Integer getObjType() {
+    return this.objType;
+  }
+
+  public void setObjType(Integer objType) {
+    this.objType = objType;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public TextElementStyle getTextElementStyle() {
+    return this.textElementStyle;
+  }
+
+  public void setTextElementStyle(TextElementStyle textElementStyle) {
+    this.textElementStyle = textElementStyle;
+  }
+
+  public String getFallbackType() {
+    return this.fallbackType;
+  }
+
+  public void setFallbackType(String fallbackType) {
+    this.fallbackType = fallbackType;
+  }
+
+  // builder 开始
+  public MentionDoc() {}
+
+  public MentionDoc(Builder builder) {
     /**
-     * 云文档 token
-     * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
+     * 云文档 token。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     *
+     * <p>示例值：doxbc873Y7cXD153gXqb76G1Y9b
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 云文档类型
-     * <p> 示例值：22
+     *
+     * <p>示例值：22
      */
-    @SerializedName("obj_type")
-    private Integer objType;
+    this.objType = builder.objType;
     /**
      * 云文档链接（需要 url_encode)
-     * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
+     *
+     * <p>示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 文档标题，只读属性
-     * <p> 示例值：undefined
+     *
+     * <p>示例值：undefined
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 文本局部样式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("text_element_style")
-    private TextElementStyle textElementStyle;
+    this.textElementStyle = builder.textElementStyle;
     /**
      * 无云文档阅读权限或云文档已删除时的降级方式
-     * <p> 示例值：FallbackToLink
+     *
+     * <p>示例值：FallbackToLink
      */
-    @SerializedName("fallback_type")
+    this.fallbackType = builder.fallbackType;
+  }
+
+  public static class Builder {
+    /**
+     * 云文档 token。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     *
+     * <p>示例值：doxbc873Y7cXD153gXqb76G1Y9b
+     */
+    private String token;
+
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：22
+     */
+    private Integer objType;
+
+    /**
+     * 云文档链接（需要 url_encode)
+     *
+     * <p>示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
+     */
+    private String url;
+
+    /**
+     * 文档标题，只读属性
+     *
+     * <p>示例值：undefined
+     */
+    private String title;
+
+    /**
+     * 文本局部样式
+     *
+     * <p>示例值：
+     */
+    private TextElementStyle textElementStyle;
+
+    /**
+     * 无云文档阅读权限或云文档已删除时的降级方式
+     *
+     * <p>示例值：FallbackToLink
+     */
     private String fallbackType;
 
-    // builder 开始
-    public MentionDoc() {
+    /**
+     * 云文档 token。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)
+     *
+     * <p>示例值：doxbc873Y7cXD153gXqb76G1Y9b
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public MentionDoc(Builder builder) {
-        /**
-         * 云文档 token
-         * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
-         */
-        this.token = builder.token;
-        /**
-         * 云文档类型
-         * <p> 示例值：22
-         */
-        this.objType = builder.objType;
-        /**
-         * 云文档链接（需要 url_encode)
-         * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
-         */
-        this.url = builder.url;
-        /**
-         * 文档标题，只读属性
-         * <p> 示例值：undefined
-         */
-        this.title = builder.title;
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         */
-        this.textElementStyle = builder.textElementStyle;
-        /**
-         * 无云文档阅读权限或云文档已删除时的降级方式
-         * <p> 示例值：FallbackToLink
-         */
-        this.fallbackType = builder.fallbackType;
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：22
+     *
+     * @param objType
+     * @return
+     */
+    public Builder objType(Integer objType) {
+      this.objType = objType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：22
+     *
+     * @param objType {@link com.lark.oapi.service.docx.v1.enums.MentionDocMentionObjTypeEnum}
+     * @return
+     */
+    public Builder objType(
+        com.lark.oapi.service.docx.v1.enums.MentionDocMentionObjTypeEnum objType) {
+      this.objType = objType.getValue();
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    /**
+     * 云文档链接（需要 url_encode)
+     *
+     * <p>示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    /**
+     * 文档标题，只读属性
+     *
+     * <p>示例值：undefined
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public Integer getObjType() {
-        return this.objType;
+    /**
+     * 文本局部样式
+     *
+     * <p>示例值：
+     *
+     * @param textElementStyle
+     * @return
+     */
+    public Builder textElementStyle(TextElementStyle textElementStyle) {
+      this.textElementStyle = textElementStyle;
+      return this;
     }
 
-    public void setObjType(Integer objType) {
-        this.objType = objType;
+    /**
+     * 无云文档阅读权限或云文档已删除时的降级方式
+     *
+     * <p>示例值：FallbackToLink
+     *
+     * @param fallbackType
+     * @return
+     */
+    public Builder fallbackType(String fallbackType) {
+      this.fallbackType = fallbackType;
+      return this;
     }
 
-    public String getUrl() {
-        return this.url;
+    /**
+     * 无云文档阅读权限或云文档已删除时的降级方式
+     *
+     * <p>示例值：FallbackToLink
+     *
+     * @param fallbackType {@link com.lark.oapi.service.docx.v1.enums.MentionDocFallbackTypeEnum}
+     * @return
+     */
+    public Builder fallbackType(
+        com.lark.oapi.service.docx.v1.enums.MentionDocFallbackTypeEnum fallbackType) {
+      this.fallbackType = fallbackType.getValue();
+      return this;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public MentionDoc build() {
+      return new MentionDoc(this);
     }
+  }
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public TextElementStyle getTextElementStyle() {
-        return this.textElementStyle;
-    }
-
-    public void setTextElementStyle(TextElementStyle textElementStyle) {
-        this.textElementStyle = textElementStyle;
-    }
-
-    public String getFallbackType() {
-        return this.fallbackType;
-    }
-
-    public void setFallbackType(String fallbackType) {
-        this.fallbackType = fallbackType;
-    }
-
-    public static class Builder {
-        /**
-         * 云文档 token
-         * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
-         */
-        private String token;
-        /**
-         * 云文档类型
-         * <p> 示例值：22
-         */
-        private Integer objType;
-        /**
-         * 云文档链接（需要 url_encode)
-         * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
-         */
-        private String url;
-        /**
-         * 文档标题，只读属性
-         * <p> 示例值：undefined
-         */
-        private String title;
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         */
-        private TextElementStyle textElementStyle;
-        /**
-         * 无云文档阅读权限或云文档已删除时的降级方式
-         * <p> 示例值：FallbackToLink
-         */
-        private String fallbackType;
-
-        /**
-         * 云文档 token
-         * <p> 示例值：doxbc873Y7cXD153gXqb76G1Y9b
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 云文档类型
-         * <p> 示例值：22
-         *
-         * @param objType
-         * @return
-         */
-        public Builder objType(Integer objType) {
-            this.objType = objType;
-            return this;
-        }
-
-        /**
-         * 云文档类型
-         * <p> 示例值：22
-         *
-         * @param objType {@link com.lark.oapi.service.docx.v1.enums.MentionDocMentionObjTypeEnum}
-         * @return
-         */
-        public Builder objType(com.lark.oapi.service.docx.v1.enums.MentionDocMentionObjTypeEnum objType) {
-            this.objType = objType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 云文档链接（需要 url_encode)
-         * <p> 示例值：https%3A%2F%2Fbytedance.feishu-boe.cn%2Fdocx%2Fdoxbc873Y7cXD153gXqb76G1Y9b
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 文档标题，只读属性
-         * <p> 示例值：undefined
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         *
-         * @param textElementStyle
-         * @return
-         */
-        public Builder textElementStyle(TextElementStyle textElementStyle) {
-            this.textElementStyle = textElementStyle;
-            return this;
-        }
-
-
-        /**
-         * 无云文档阅读权限或云文档已删除时的降级方式
-         * <p> 示例值：FallbackToLink
-         *
-         * @param fallbackType
-         * @return
-         */
-        public Builder fallbackType(String fallbackType) {
-            this.fallbackType = fallbackType;
-            return this;
-        }
-
-        /**
-         * 无云文档阅读权限或云文档已删除时的降级方式
-         * <p> 示例值：FallbackToLink
-         *
-         * @param fallbackType {@link com.lark.oapi.service.docx.v1.enums.MentionDocFallbackTypeEnum}
-         * @return
-         */
-        public Builder fallbackType(com.lark.oapi.service.docx.v1.enums.MentionDocFallbackTypeEnum fallbackType) {
-            this.fallbackType = fallbackType.getValue();
-            return this;
-        }
-
-
-        public MentionDoc build() {
-            return new MentionDoc(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

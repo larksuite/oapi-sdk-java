@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TagText {
+  /**
+   * 标签 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("tag_text_id")
+  private String tagTextId;
+
+  /**
+   * 评估人在该标签下填写的文本
+   *
+   * <p>示例值：qwertyu
+   */
+  @SerializedName("tag_text")
+  private String tagText;
+
+  /**
+   * 富文本格式的填写内容，解析方式见
+   * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+   *
+   * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
+   */
+  @SerializedName("tag_richtext")
+  private String tagRichtext;
+
+  public String getTagTextId() {
+    return this.tagTextId;
+  }
+
+  public void setTagTextId(String tagTextId) {
+    this.tagTextId = tagTextId;
+  }
+
+  public String getTagText() {
+    return this.tagText;
+  }
+
+  public void setTagText(String tagText) {
+    this.tagText = tagText;
+  }
+
+  public String getTagRichtext() {
+    return this.tagRichtext;
+  }
+
+  public void setTagRichtext(String tagRichtext) {
+    this.tagRichtext = tagRichtext;
+  }
+
+  // builder 开始
+  public TagText() {}
+
+  public TagText(Builder builder) {
     /**
      * 标签 ID
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("tag_text_id")
-    private String tagTextId;
+    this.tagTextId = builder.tagTextId;
     /**
      * 评估人在该标签下填写的文本
-     * <p> 示例值：qwertyu
+     *
+     * <p>示例值：qwertyu
      */
-    @SerializedName("tag_text")
-    private String tagText;
+    this.tagText = builder.tagText;
     /**
-     * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-     * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
      */
-    @SerializedName("tag_richtext")
+    this.tagRichtext = builder.tagRichtext;
+  }
+
+  public static class Builder {
+    /**
+     * 标签 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String tagTextId;
+
+    /**
+     * 评估人在该标签下填写的文本
+     *
+     * <p>示例值：qwertyu
+     */
+    private String tagText;
+
+    /**
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
+     */
     private String tagRichtext;
 
-    // builder 开始
-    public TagText() {
+    /**
+     * 标签 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param tagTextId
+     * @return
+     */
+    public Builder tagTextId(String tagTextId) {
+      this.tagTextId = tagTextId;
+      return this;
     }
 
-    public TagText(Builder builder) {
-        /**
-         * 标签 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.tagTextId = builder.tagTextId;
-        /**
-         * 评估人在该标签下填写的文本
-         * <p> 示例值：qwertyu
-         */
-        this.tagText = builder.tagText;
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
-         */
-        this.tagRichtext = builder.tagRichtext;
+    /**
+     * 评估人在该标签下填写的文本
+     *
+     * <p>示例值：qwertyu
+     *
+     * @param tagText
+     * @return
+     */
+    public Builder tagText(String tagText) {
+      this.tagText = tagText;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{\"ops\":[{\"name\":\"insert\",\"text\":\"qwerty\"}]}
+     *
+     * @param tagRichtext
+     * @return
+     */
+    public Builder tagRichtext(String tagRichtext) {
+      this.tagRichtext = tagRichtext;
+      return this;
     }
 
-    public String getTagTextId() {
-        return this.tagTextId;
+    public TagText build() {
+      return new TagText(this);
     }
+  }
 
-    public void setTagTextId(String tagTextId) {
-        this.tagTextId = tagTextId;
-    }
-
-    public String getTagText() {
-        return this.tagText;
-    }
-
-    public void setTagText(String tagText) {
-        this.tagText = tagText;
-    }
-
-    public String getTagRichtext() {
-        return this.tagRichtext;
-    }
-
-    public void setTagRichtext(String tagRichtext) {
-        this.tagRichtext = tagRichtext;
-    }
-
-    public static class Builder {
-        /**
-         * 标签 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String tagTextId;
-        /**
-         * 评估人在该标签下填写的文本
-         * <p> 示例值：qwertyu
-         */
-        private String tagText;
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
-         */
-        private String tagRichtext;
-
-        /**
-         * 标签 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param tagTextId
-         * @return
-         */
-        public Builder tagTextId(String tagTextId) {
-            this.tagTextId = tagTextId;
-            return this;
-        }
-
-
-        /**
-         * 评估人在该标签下填写的文本
-         * <p> 示例值：qwertyu
-         *
-         * @param tagText
-         * @return
-         */
-        public Builder tagText(String tagText) {
-            this.tagText = tagText;
-            return this;
-        }
-
-
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"qwerty","attributes":{"bold":true}}]}
-         *
-         * @param tagRichtext
-         * @return
-         */
-        public Builder tagRichtext(String tagRichtext) {
-            this.tagRichtext = tagRichtext;
-            return this;
-        }
-
-
-        public TagText build() {
-            return new TagText(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

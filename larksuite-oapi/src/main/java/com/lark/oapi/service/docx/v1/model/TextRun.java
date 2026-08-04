@@ -13,112 +13,119 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TextRun {
+  /**
+   * 文本内容。要实现文本内容的换行，你可以：;- 在传入的文本内容中添加 `\n` 实现软换行（Soft Break，与在文档中通过操作 `Shift + Enter` 的效果一致）;-
+   * 创建一个新的文本 Block，实现两个文本 Block 之间的硬换行（Hard Break，与在文档中通过操作 `Enter`
+   * 的效果一致）;;;**注意**：软换行在渲染时可能会被忽略，具体取决于渲染器如何处理；硬换行在渲染时始终会显示为一个新行。;;**数据校验规则**：;* 一个文本 Block 中
+   * content 总长度最大值：`100,000 个 UTF-16 编码的字符`;
+   *
+   * <p>示例值：文本
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 文本局部样式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text_element_style")
+  private TextElementStyle textElementStyle;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public TextElementStyle getTextElementStyle() {
+    return this.textElementStyle;
+  }
+
+  public void setTextElementStyle(TextElementStyle textElementStyle) {
+    this.textElementStyle = textElementStyle;
+  }
+
+  // builder 开始
+  public TextRun() {}
+
+  public TextRun(Builder builder) {
     /**
-     * 文本内容
-     * <p> 示例值：文本
+     * 文本内容。要实现文本内容的换行，你可以：;- 在传入的文本内容中添加 `\n` 实现软换行（Soft Break，与在文档中通过操作 `Shift + Enter` 的效果一致）;-
+     * 创建一个新的文本 Block，实现两个文本 Block 之间的硬换行（Hard Break，与在文档中通过操作 `Enter`
+     * 的效果一致）;;;**注意**：软换行在渲染时可能会被忽略，具体取决于渲染器如何处理；硬换行在渲染时始终会显示为一个新行。;;**数据校验规则**：;* 一个文本 Block 中
+     * content 总长度最大值：`100,000 个 UTF-16 编码的字符`;
+     *
+     * <p>示例值：文本
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 文本局部样式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("text_element_style")
+    this.textElementStyle = builder.textElementStyle;
+  }
+
+  public static class Builder {
+    /**
+     * 文本内容。要实现文本内容的换行，你可以：;- 在传入的文本内容中添加 `\n` 实现软换行（Soft Break，与在文档中通过操作 `Shift + Enter` 的效果一致）;-
+     * 创建一个新的文本 Block，实现两个文本 Block 之间的硬换行（Hard Break，与在文档中通过操作 `Enter`
+     * 的效果一致）;;;**注意**：软换行在渲染时可能会被忽略，具体取决于渲染器如何处理；硬换行在渲染时始终会显示为一个新行。;;**数据校验规则**：;* 一个文本 Block 中
+     * content 总长度最大值：`100,000 个 UTF-16 编码的字符`;
+     *
+     * <p>示例值：文本
+     */
+    private String content;
+
+    /**
+     * 文本局部样式
+     *
+     * <p>示例值：
+     */
     private TextElementStyle textElementStyle;
 
-    // builder 开始
-    public TextRun() {
+    /**
+     * 文本内容。要实现文本内容的换行，你可以：;- 在传入的文本内容中添加 `\n` 实现软换行（Soft Break，与在文档中通过操作 `Shift + Enter` 的效果一致）;-
+     * 创建一个新的文本 Block，实现两个文本 Block 之间的硬换行（Hard Break，与在文档中通过操作 `Enter`
+     * 的效果一致）;;;**注意**：软换行在渲染时可能会被忽略，具体取决于渲染器如何处理；硬换行在渲染时始终会显示为一个新行。;;**数据校验规则**：;* 一个文本 Block 中
+     * content 总长度最大值：`100,000 个 UTF-16 编码的字符`;
+     *
+     * <p>示例值：文本
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public TextRun(Builder builder) {
-        /**
-         * 文本内容
-         * <p> 示例值：文本
-         */
-        this.content = builder.content;
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         */
-        this.textElementStyle = builder.textElementStyle;
+    /**
+     * 文本局部样式
+     *
+     * <p>示例值：
+     *
+     * @param textElementStyle
+     * @return
+     */
+    public Builder textElementStyle(TextElementStyle textElementStyle) {
+      this.textElementStyle = textElementStyle;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TextRun build() {
+      return new TextRun(this);
     }
+  }
 
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public TextElementStyle getTextElementStyle() {
-        return this.textElementStyle;
-    }
-
-    public void setTextElementStyle(TextElementStyle textElementStyle) {
-        this.textElementStyle = textElementStyle;
-    }
-
-    public static class Builder {
-        /**
-         * 文本内容
-         * <p> 示例值：文本
-         */
-        private String content;
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         */
-        private TextElementStyle textElementStyle;
-
-        /**
-         * 文本内容
-         * <p> 示例值：文本
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         *
-         * @param textElementStyle
-         * @return
-         */
-        public Builder textElementStyle(TextElementStyle textElementStyle) {
-            this.textElementStyle = textElementStyle;
-            return this;
-        }
-
-
-        public TextRun build() {
-            return new TextRun(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

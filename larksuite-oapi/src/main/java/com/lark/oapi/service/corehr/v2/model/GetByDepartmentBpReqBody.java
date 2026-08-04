@@ -13,75 +13,77 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetByDepartmentBpReqBody {
+  /**
+   * 部门 ID，ID类型与department_id_type的取值意义一致。; > ;可以使用
+   * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)换取
+   * ==department_id==; >
+   * ;部门id也可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+   *
+   * <p>示例值：6893014062142064111
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  // builder 开始
+  public GetByDepartmentBpReqBody() {}
+
+  public GetByDepartmentBpReqBody(Builder builder) {
     /**
-     * 部门 ID
-     * <p> 示例值：6893014062142064111
+     * 部门 ID，ID类型与department_id_type的取值意义一致。; > ;可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)换取
+     * ==department_id==; >
+     * ;部门id也可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+     *
+     * <p>示例值：6893014062142064111
      */
-    @SerializedName("department_id")
+    this.departmentId = builder.departmentId;
+  }
+
+  public static class Builder {
+    /**
+     * 部门 ID，ID类型与department_id_type的取值意义一致。; > ;可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)换取
+     * ==department_id==; >
+     * ;部门id也可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+     *
+     * <p>示例值：6893014062142064111
+     */
     private String departmentId;
 
-    // builder 开始
-    public GetByDepartmentBpReqBody() {
+    /**
+     * 部门 ID，ID类型与department_id_type的取值意义一致。; > ;可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)换取
+     * ==department_id==; >
+     * ;部门id也可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)接口获取。
+     *
+     * <p>示例值：6893014062142064111
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public GetByDepartmentBpReqBody(Builder builder) {
-        /**
-         * 部门 ID
-         * <p> 示例值：6893014062142064111
-         */
-        this.departmentId = builder.departmentId;
+    public GetByDepartmentBpReqBody build() {
+      return new GetByDepartmentBpReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public static class Builder {
-        /**
-         * 部门 ID
-         * <p> 示例值：6893014062142064111
-         */
-        private String departmentId;
-
-        /**
-         * 部门 ID
-         * <p> 示例值：6893014062142064111
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        public GetByDepartmentBpReqBody build() {
-            return new GetByDepartmentBpReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

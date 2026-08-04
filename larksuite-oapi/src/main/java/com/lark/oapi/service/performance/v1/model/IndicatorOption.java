@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class IndicatorOption {
+  /**
+   * 等级 ID
+   *
+   * <p>示例值：6966127279593588268
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 等级代号
+   *
+   * <p>示例值：B
+   */
+  @SerializedName("label")
+  private String label;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+  // builder 开始
+  public IndicatorOption() {}
+
+  public IndicatorOption(Builder builder) {
     /**
      * 等级 ID
-     * <p> 示例值：6966127279593588268
+     *
+     * <p>示例值：6966127279593588268
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 等级名称
-     * <p> 示例值：
+     * 周期名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 等级代号
-     * <p> 示例值：B
+     *
+     * <p>示例值：B
      */
-    @SerializedName("label")
+    this.label = builder.label;
+  }
+
+  public static class Builder {
+    /**
+     * 等级 ID
+     *
+     * <p>示例值：6966127279593588268
+     */
+    private String id;
+
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 等级代号
+     *
+     * <p>示例值：B
+     */
     private String label;
 
-    // builder 开始
-    public IndicatorOption() {
+    /**
+     * 等级 ID
+     *
+     * <p>示例值：6966127279593588268
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public IndicatorOption(Builder builder) {
-        /**
-         * 等级 ID
-         * <p> 示例值：6966127279593588268
-         */
-        this.id = builder.id;
-        /**
-         * 等级名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 等级代号
-         * <p> 示例值：B
-         */
-        this.label = builder.label;
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 等级代号
+     *
+     * <p>示例值：B
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(String label) {
+      this.label = label;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public IndicatorOption build() {
+      return new IndicatorOption(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public String getLabel() {
-        return this.label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public static class Builder {
-        /**
-         * 等级 ID
-         * <p> 示例值：6966127279593588268
-         */
-        private String id;
-        /**
-         * 等级名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 等级代号
-         * <p> 示例值：B
-         */
-        private String label;
-
-        /**
-         * 等级 ID
-         * <p> 示例值：6966127279593588268
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 等级名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 等级代号
-         * <p> 示例值：B
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(String label) {
-            this.label = label;
-            return this;
-        }
-
-
-        public IndicatorOption build() {
-            return new IndicatorOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

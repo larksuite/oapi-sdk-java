@@ -13,370 +13,406 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ResourceWaitlist {
+  /**
+   * 候补单ID
+   *
+   * <p>示例值：1b4jwbvxn3d7mo3yxbhmpjxg4e
+   */
+  @SerializedName("resource_waitlist_id")
+  private String resourceWaitlistId;
+
+  /**
+   * 会议室层级ID列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("room_level_ids")
+  private String[] roomLevelIds;
+
+  /**
+   * 候补会议室最小人数
+   *
+   * <p>示例值：5
+   */
+  @SerializedName("min_capacity")
+  private Integer minCapacity;
+
+  /**
+   * 候补会议室最大人数
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("max_capacity")
+  private Integer maxCapacity;
+
+  /**
+   * 候补会议室最后等待时间类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("last_wait_time_type")
+  private String lastWaitTimeType;
+
+  /**
+   * 候补会议室设备要求
+   *
+   * <p>示例值：
+   */
+  @SerializedName("equipment_require_type")
+  private String equipmentRequireType;
+
+  /**
+   * 候补建筑区域列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("building_zone_codes")
+  private String[] buildingZoneCodes;
+
+  /**
+   * 候补状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("status")
+  private String status;
+
+  public String getResourceWaitlistId() {
+    return this.resourceWaitlistId;
+  }
+
+  public void setResourceWaitlistId(String resourceWaitlistId) {
+    this.resourceWaitlistId = resourceWaitlistId;
+  }
+
+  public String[] getRoomLevelIds() {
+    return this.roomLevelIds;
+  }
+
+  public void setRoomLevelIds(String[] roomLevelIds) {
+    this.roomLevelIds = roomLevelIds;
+  }
+
+  public Integer getMinCapacity() {
+    return this.minCapacity;
+  }
+
+  public void setMinCapacity(Integer minCapacity) {
+    this.minCapacity = minCapacity;
+  }
+
+  public Integer getMaxCapacity() {
+    return this.maxCapacity;
+  }
+
+  public void setMaxCapacity(Integer maxCapacity) {
+    this.maxCapacity = maxCapacity;
+  }
+
+  public String getLastWaitTimeType() {
+    return this.lastWaitTimeType;
+  }
+
+  public void setLastWaitTimeType(String lastWaitTimeType) {
+    this.lastWaitTimeType = lastWaitTimeType;
+  }
+
+  public String getEquipmentRequireType() {
+    return this.equipmentRequireType;
+  }
+
+  public void setEquipmentRequireType(String equipmentRequireType) {
+    this.equipmentRequireType = equipmentRequireType;
+  }
+
+  public String[] getBuildingZoneCodes() {
+    return this.buildingZoneCodes;
+  }
+
+  public void setBuildingZoneCodes(String[] buildingZoneCodes) {
+    this.buildingZoneCodes = buildingZoneCodes;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public ResourceWaitlist() {}
+
+  public ResourceWaitlist(Builder builder) {
     /**
      * 候补单ID
-     * <p> 示例值：1b4jwbvxn3d7mo3yxbhmpjxg4e
+     *
+     * <p>示例值：1b4jwbvxn3d7mo3yxbhmpjxg4e
      */
-    @SerializedName("resource_waitlist_id")
-    private String resourceWaitlistId;
+    this.resourceWaitlistId = builder.resourceWaitlistId;
     /**
      * 会议室层级ID列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("room_level_ids")
-    private String[] roomLevelIds;
+    this.roomLevelIds = builder.roomLevelIds;
     /**
      * 候补会议室最小人数
-     * <p> 示例值：5
+     *
+     * <p>示例值：5
      */
-    @SerializedName("min_capacity")
-    private Integer minCapacity;
+    this.minCapacity = builder.minCapacity;
     /**
      * 候补会议室最大人数
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("max_capacity")
-    private Integer maxCapacity;
+    this.maxCapacity = builder.maxCapacity;
     /**
      * 候补会议室最后等待时间类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("last_wait_time_type")
-    private String lastWaitTimeType;
+    this.lastWaitTimeType = builder.lastWaitTimeType;
     /**
      * 候补会议室设备要求
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("equipment_require_type")
-    private String equipmentRequireType;
+    this.equipmentRequireType = builder.equipmentRequireType;
     /**
      * 候补建筑区域列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("building_zone_codes")
-    private String[] buildingZoneCodes;
+    this.buildingZoneCodes = builder.buildingZoneCodes;
     /**
      * 候补状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("status")
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 候补单ID
+     *
+     * <p>示例值：1b4jwbvxn3d7mo3yxbhmpjxg4e
+     */
+    private String resourceWaitlistId;
+
+    /**
+     * 会议室层级ID列表
+     *
+     * <p>示例值：
+     */
+    private String[] roomLevelIds;
+
+    /**
+     * 候补会议室最小人数
+     *
+     * <p>示例值：5
+     */
+    private Integer minCapacity;
+
+    /**
+     * 候补会议室最大人数
+     *
+     * <p>示例值：10
+     */
+    private Integer maxCapacity;
+
+    /**
+     * 候补会议室最后等待时间类型
+     *
+     * <p>示例值：
+     */
+    private String lastWaitTimeType;
+
+    /**
+     * 候补会议室设备要求
+     *
+     * <p>示例值：
+     */
+    private String equipmentRequireType;
+
+    /**
+     * 候补建筑区域列表
+     *
+     * <p>示例值：
+     */
+    private String[] buildingZoneCodes;
+
+    /**
+     * 候补状态
+     *
+     * <p>示例值：
+     */
     private String status;
 
-    // builder 开始
-    public ResourceWaitlist() {
+    /**
+     * 候补单ID
+     *
+     * <p>示例值：1b4jwbvxn3d7mo3yxbhmpjxg4e
+     *
+     * @param resourceWaitlistId
+     * @return
+     */
+    public Builder resourceWaitlistId(String resourceWaitlistId) {
+      this.resourceWaitlistId = resourceWaitlistId;
+      return this;
     }
 
-    public ResourceWaitlist(Builder builder) {
-        /**
-         * 候补单ID
-         * <p> 示例值：1b4jwbvxn3d7mo3yxbhmpjxg4e
-         */
-        this.resourceWaitlistId = builder.resourceWaitlistId;
-        /**
-         * 会议室层级ID列表
-         * <p> 示例值：
-         */
-        this.roomLevelIds = builder.roomLevelIds;
-        /**
-         * 候补会议室最小人数
-         * <p> 示例值：5
-         */
-        this.minCapacity = builder.minCapacity;
-        /**
-         * 候补会议室最大人数
-         * <p> 示例值：10
-         */
-        this.maxCapacity = builder.maxCapacity;
-        /**
-         * 候补会议室最后等待时间类型
-         * <p> 示例值：
-         */
-        this.lastWaitTimeType = builder.lastWaitTimeType;
-        /**
-         * 候补会议室设备要求
-         * <p> 示例值：
-         */
-        this.equipmentRequireType = builder.equipmentRequireType;
-        /**
-         * 候补建筑区域列表
-         * <p> 示例值：
-         */
-        this.buildingZoneCodes = builder.buildingZoneCodes;
-        /**
-         * 候补状态
-         * <p> 示例值：
-         */
-        this.status = builder.status;
+    /**
+     * 会议室层级ID列表
+     *
+     * <p>示例值：
+     *
+     * @param roomLevelIds
+     * @return
+     */
+    public Builder roomLevelIds(String[] roomLevelIds) {
+      this.roomLevelIds = roomLevelIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 候补会议室最小人数
+     *
+     * <p>示例值：5
+     *
+     * @param minCapacity
+     * @return
+     */
+    public Builder minCapacity(Integer minCapacity) {
+      this.minCapacity = minCapacity;
+      return this;
     }
 
-    public String getResourceWaitlistId() {
-        return this.resourceWaitlistId;
+    /**
+     * 候补会议室最大人数
+     *
+     * <p>示例值：10
+     *
+     * @param maxCapacity
+     * @return
+     */
+    public Builder maxCapacity(Integer maxCapacity) {
+      this.maxCapacity = maxCapacity;
+      return this;
     }
 
-    public void setResourceWaitlistId(String resourceWaitlistId) {
-        this.resourceWaitlistId = resourceWaitlistId;
+    /**
+     * 候补会议室最后等待时间类型
+     *
+     * <p>示例值：
+     *
+     * @param lastWaitTimeType
+     * @return
+     */
+    public Builder lastWaitTimeType(String lastWaitTimeType) {
+      this.lastWaitTimeType = lastWaitTimeType;
+      return this;
     }
 
-    public String[] getRoomLevelIds() {
-        return this.roomLevelIds;
+    /**
+     * 候补会议室最后等待时间类型
+     *
+     * <p>示例值：
+     *
+     * @param lastWaitTimeType {@link
+     *     com.lark.oapi.service.calendar.v4.enums.ResourceWaitlistLastWaitTimeTypeEnum}
+     * @return
+     */
+    public Builder lastWaitTimeType(
+        com.lark.oapi.service.calendar.v4.enums.ResourceWaitlistLastWaitTimeTypeEnum
+            lastWaitTimeType) {
+      this.lastWaitTimeType = lastWaitTimeType.getValue();
+      return this;
     }
 
-    public void setRoomLevelIds(String[] roomLevelIds) {
-        this.roomLevelIds = roomLevelIds;
+    /**
+     * 候补会议室设备要求
+     *
+     * <p>示例值：
+     *
+     * @param equipmentRequireType
+     * @return
+     */
+    public Builder equipmentRequireType(String equipmentRequireType) {
+      this.equipmentRequireType = equipmentRequireType;
+      return this;
     }
 
-    public Integer getMinCapacity() {
-        return this.minCapacity;
+    /**
+     * 候补会议室设备要求
+     *
+     * <p>示例值：
+     *
+     * @param equipmentRequireType {@link
+     *     com.lark.oapi.service.calendar.v4.enums.ResourceWaitlistEquipmentRequireTypeEnum}
+     * @return
+     */
+    public Builder equipmentRequireType(
+        com.lark.oapi.service.calendar.v4.enums.ResourceWaitlistEquipmentRequireTypeEnum
+            equipmentRequireType) {
+      this.equipmentRequireType = equipmentRequireType.getValue();
+      return this;
     }
 
-    public void setMinCapacity(Integer minCapacity) {
-        this.minCapacity = minCapacity;
+    /**
+     * 候补建筑区域列表
+     *
+     * <p>示例值：
+     *
+     * @param buildingZoneCodes
+     * @return
+     */
+    public Builder buildingZoneCodes(String[] buildingZoneCodes) {
+      this.buildingZoneCodes = buildingZoneCodes;
+      return this;
     }
 
-    public Integer getMaxCapacity() {
-        return this.maxCapacity;
+    /**
+     * 候补状态
+     *
+     * <p>示例值：
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public void setMaxCapacity(Integer maxCapacity) {
-        this.maxCapacity = maxCapacity;
+    /**
+     * 候补状态
+     *
+     * <p>示例值：
+     *
+     * @param status {@link
+     *     com.lark.oapi.service.calendar.v4.enums.ResourceWaitlistWaitlistStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.calendar.v4.enums.ResourceWaitlistWaitlistStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public String getLastWaitTimeType() {
-        return this.lastWaitTimeType;
+    public ResourceWaitlist build() {
+      return new ResourceWaitlist(this);
     }
+  }
 
-    public void setLastWaitTimeType(String lastWaitTimeType) {
-        this.lastWaitTimeType = lastWaitTimeType;
-    }
-
-    public String getEquipmentRequireType() {
-        return this.equipmentRequireType;
-    }
-
-    public void setEquipmentRequireType(String equipmentRequireType) {
-        this.equipmentRequireType = equipmentRequireType;
-    }
-
-    public String[] getBuildingZoneCodes() {
-        return this.buildingZoneCodes;
-    }
-
-    public void setBuildingZoneCodes(String[] buildingZoneCodes) {
-        this.buildingZoneCodes = buildingZoneCodes;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 候补单ID
-         * <p> 示例值：1b4jwbvxn3d7mo3yxbhmpjxg4e
-         */
-        private String resourceWaitlistId;
-        /**
-         * 会议室层级ID列表
-         * <p> 示例值：
-         */
-        private String[] roomLevelIds;
-        /**
-         * 候补会议室最小人数
-         * <p> 示例值：5
-         */
-        private Integer minCapacity;
-        /**
-         * 候补会议室最大人数
-         * <p> 示例值：10
-         */
-        private Integer maxCapacity;
-        /**
-         * 候补会议室最后等待时间类型
-         * <p> 示例值：
-         */
-        private String lastWaitTimeType;
-        /**
-         * 候补会议室设备要求
-         * <p> 示例值：
-         */
-        private String equipmentRequireType;
-        /**
-         * 候补建筑区域列表
-         * <p> 示例值：
-         */
-        private String[] buildingZoneCodes;
-        /**
-         * 候补状态
-         * <p> 示例值：
-         */
-        private String status;
-
-        /**
-         * 候补单ID
-         * <p> 示例值：1b4jwbvxn3d7mo3yxbhmpjxg4e
-         *
-         * @param resourceWaitlistId
-         * @return
-         */
-        public Builder resourceWaitlistId(String resourceWaitlistId) {
-            this.resourceWaitlistId = resourceWaitlistId;
-            return this;
-        }
-
-
-        /**
-         * 会议室层级ID列表
-         * <p> 示例值：
-         *
-         * @param roomLevelIds
-         * @return
-         */
-        public Builder roomLevelIds(String[] roomLevelIds) {
-            this.roomLevelIds = roomLevelIds;
-            return this;
-        }
-
-
-        /**
-         * 候补会议室最小人数
-         * <p> 示例值：5
-         *
-         * @param minCapacity
-         * @return
-         */
-        public Builder minCapacity(Integer minCapacity) {
-            this.minCapacity = minCapacity;
-            return this;
-        }
-
-
-        /**
-         * 候补会议室最大人数
-         * <p> 示例值：10
-         *
-         * @param maxCapacity
-         * @return
-         */
-        public Builder maxCapacity(Integer maxCapacity) {
-            this.maxCapacity = maxCapacity;
-            return this;
-        }
-
-
-        /**
-         * 候补会议室最后等待时间类型
-         * <p> 示例值：
-         *
-         * @param lastWaitTimeType
-         * @return
-         */
-        public Builder lastWaitTimeType(String lastWaitTimeType) {
-            this.lastWaitTimeType = lastWaitTimeType;
-            return this;
-        }
-
-        /**
-         * 候补会议室最后等待时间类型
-         * <p> 示例值：
-         *
-         * @param lastWaitTimeType {@link com.lark.oapi.service.calendar.v4.enums.ResourceWaitlistLastWaitTimeTypeEnum}
-         * @return
-         */
-        public Builder lastWaitTimeType(com.lark.oapi.service.calendar.v4.enums.ResourceWaitlistLastWaitTimeTypeEnum lastWaitTimeType) {
-            this.lastWaitTimeType = lastWaitTimeType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 候补会议室设备要求
-         * <p> 示例值：
-         *
-         * @param equipmentRequireType
-         * @return
-         */
-        public Builder equipmentRequireType(String equipmentRequireType) {
-            this.equipmentRequireType = equipmentRequireType;
-            return this;
-        }
-
-        /**
-         * 候补会议室设备要求
-         * <p> 示例值：
-         *
-         * @param equipmentRequireType {@link com.lark.oapi.service.calendar.v4.enums.ResourceWaitlistEquipmentRequireTypeEnum}
-         * @return
-         */
-        public Builder equipmentRequireType(com.lark.oapi.service.calendar.v4.enums.ResourceWaitlistEquipmentRequireTypeEnum equipmentRequireType) {
-            this.equipmentRequireType = equipmentRequireType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 候补建筑区域列表
-         * <p> 示例值：
-         *
-         * @param buildingZoneCodes
-         * @return
-         */
-        public Builder buildingZoneCodes(String[] buildingZoneCodes) {
-            this.buildingZoneCodes = buildingZoneCodes;
-            return this;
-        }
-
-
-        /**
-         * 候补状态
-         * <p> 示例值：
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 候补状态
-         * <p> 示例值：
-         *
-         * @param status {@link com.lark.oapi.service.calendar.v4.enums.ResourceWaitlistWaitlistStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.calendar.v4.enums.ResourceWaitlistWaitlistStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        public ResourceWaitlist build() {
-            return new ResourceWaitlist(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

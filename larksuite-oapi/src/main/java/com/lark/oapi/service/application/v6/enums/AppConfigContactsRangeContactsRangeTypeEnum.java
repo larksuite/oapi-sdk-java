@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.application.v6.enums;
 
-/**
- * 更新范围方式
- */
+/** 更新范围方式 */
 public enum AppConfigContactsRangeContactsRangeTypeEnum {
-    EQUAL_TO_AVAILABILITY("equal_to_availability"), // 和可见性保持一致
-    SOME("some"), // 部分成员
-    ALL("all"), // 全部成员范围
-    ;
-    private String value;
+  EQUAL_TO_AVAILABILITY("equal_to_availability"), // 和可见性保持一致
+  SOME("some"), // 部分成员
+  ALL("all"), // 全部成员范围
+  ;
+  private String value;
 
-    AppConfigContactsRangeContactsRangeTypeEnum(String value) {
-        this.value = value;
-    }
+  AppConfigContactsRangeContactsRangeTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

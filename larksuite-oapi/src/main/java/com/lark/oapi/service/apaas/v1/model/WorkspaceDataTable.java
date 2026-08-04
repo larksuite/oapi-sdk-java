@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorkspaceDataTable {
+  /**
+   * 数据表名，如 student
+   *
+   * <p>示例值：student
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 数据表描述
+   *
+   * <p>示例值：studect数据表
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 数据表列
+   *
+   * <p>示例值：
+   */
+  @SerializedName("columns")
+  private WorkspaceDataTableColumnInfo[] columns;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public WorkspaceDataTableColumnInfo[] getColumns() {
+    return this.columns;
+  }
+
+  public void setColumns(WorkspaceDataTableColumnInfo[] columns) {
+    this.columns = columns;
+  }
+
+  // builder 开始
+  public WorkspaceDataTable() {}
+
+  public WorkspaceDataTable(Builder builder) {
     /**
      * 数据表名，如 student
-     * <p> 示例值：student
+     *
+     * <p>示例值：student
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 数据表描述
-     * <p> 示例值：studect数据表
+     *
+     * <p>示例值：studect数据表
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 数据表列
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("columns")
+    this.columns = builder.columns;
+  }
+
+  public static class Builder {
+    /**
+     * 数据表名，如 student
+     *
+     * <p>示例值：student
+     */
+    private String name;
+
+    /**
+     * 数据表描述
+     *
+     * <p>示例值：studect数据表
+     */
+    private String description;
+
+    /**
+     * 数据表列
+     *
+     * <p>示例值：
+     */
     private WorkspaceDataTableColumnInfo[] columns;
 
-    // builder 开始
-    public WorkspaceDataTable() {
+    /**
+     * 数据表名，如 student
+     *
+     * <p>示例值：student
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public WorkspaceDataTable(Builder builder) {
-        /**
-         * 数据表名，如 student
-         * <p> 示例值：student
-         */
-        this.name = builder.name;
-        /**
-         * 数据表描述
-         * <p> 示例值：studect数据表
-         */
-        this.description = builder.description;
-        /**
-         * 数据表列
-         * <p> 示例值：
-         */
-        this.columns = builder.columns;
+    /**
+     * 数据表描述
+     *
+     * <p>示例值：studect数据表
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据表列
+     *
+     * <p>示例值：
+     *
+     * @param columns
+     * @return
+     */
+    public Builder columns(WorkspaceDataTableColumnInfo[] columns) {
+      this.columns = columns;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    public WorkspaceDataTable build() {
+      return new WorkspaceDataTable(this);
     }
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public WorkspaceDataTableColumnInfo[] getColumns() {
-        return this.columns;
-    }
-
-    public void setColumns(WorkspaceDataTableColumnInfo[] columns) {
-        this.columns = columns;
-    }
-
-    public static class Builder {
-        /**
-         * 数据表名，如 student
-         * <p> 示例值：student
-         */
-        private String name;
-        /**
-         * 数据表描述
-         * <p> 示例值：studect数据表
-         */
-        private String description;
-        /**
-         * 数据表列
-         * <p> 示例值：
-         */
-        private WorkspaceDataTableColumnInfo[] columns;
-
-        /**
-         * 数据表名，如 student
-         * <p> 示例值：student
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 数据表描述
-         * <p> 示例值：studect数据表
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 数据表列
-         * <p> 示例值：
-         *
-         * @param columns
-         * @return
-         */
-        public Builder columns(WorkspaceDataTableColumnInfo[] columns) {
-            this.columns = columns;
-            return this;
-        }
-
-
-        public WorkspaceDataTable build() {
-            return new WorkspaceDataTable(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

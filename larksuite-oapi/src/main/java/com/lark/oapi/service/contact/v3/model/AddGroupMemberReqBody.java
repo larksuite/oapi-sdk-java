@@ -13,173 +13,198 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AddGroupMemberReqBody {
+  /**
+   * 用户组成员的类型，目前仅支持选择 user。
+   *
+   * <p>示例值：user
+   */
+  @SerializedName("member_type")
+  private String memberType;
+
+  /**
+   * 当 `member_type` 取值为 `user`时，通过该参数设置用户 ID 类型。
+   *
+   * <p>示例值：open_id
+   */
+  @SerializedName("member_id_type")
+  private String memberIdType;
+
+  /**
+   * 添加的用户 ID，ID 类型与 member_id_type 的取值保持一致。不同类型的 ID 获取方式可参见：;- [如何获取用户
+   * open_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid);-
+   * [如何获取用户
+   * union_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id);-
+   * [如何获取用户
+   * user_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("member_id")
+  private String memberId;
+
+  public String getMemberType() {
+    return this.memberType;
+  }
+
+  public void setMemberType(String memberType) {
+    this.memberType = memberType;
+  }
+
+  public String getMemberIdType() {
+    return this.memberIdType;
+  }
+
+  public void setMemberIdType(String memberIdType) {
+    this.memberIdType = memberIdType;
+  }
+
+  public String getMemberId() {
+    return this.memberId;
+  }
+
+  public void setMemberId(String memberId) {
+    this.memberId = memberId;
+  }
+
+  // builder 开始
+  public AddGroupMemberReqBody() {}
+
+  public AddGroupMemberReqBody(Builder builder) {
     /**
-     * 用户组成员的类型，取值为 user
-     * <p> 示例值：user
+     * 用户组成员的类型，目前仅支持选择 user。
+     *
+     * <p>示例值：user
      */
-    @SerializedName("member_type")
+    this.memberType = builder.memberType;
+    /**
+     * 当 `member_type` 取值为 `user`时，通过该参数设置用户 ID 类型。
+     *
+     * <p>示例值：open_id
+     */
+    this.memberIdType = builder.memberIdType;
+    /**
+     * 添加的用户 ID，ID 类型与 member_id_type 的取值保持一致。不同类型的 ID 获取方式可参见：;- [如何获取用户
+     * open_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid);-
+     * [如何获取用户
+     * union_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id);-
+     * [如何获取用户
+     * user_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    this.memberId = builder.memberId;
+  }
+
+  public static class Builder {
+    /**
+     * 用户组成员的类型，目前仅支持选择 user。
+     *
+     * <p>示例值：user
+     */
     private String memberType;
+
     /**
-     * 当member_type =user时候，member_id_type表示user_id_type，枚举值为open_id, union_id, user_id
-     * <p> 示例值：open_id
+     * 当 `member_type` 取值为 `user`时，通过该参数设置用户 ID 类型。
+     *
+     * <p>示例值：open_id
      */
-    @SerializedName("member_id_type")
     private String memberIdType;
+
     /**
-     * 添加的成员ID
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     * 添加的用户 ID，ID 类型与 member_id_type 的取值保持一致。不同类型的 ID 获取方式可参见：;- [如何获取用户
+     * open_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid);-
+     * [如何获取用户
+     * union_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id);-
+     * [如何获取用户
+     * user_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("member_id")
     private String memberId;
 
-    // builder 开始
-    public AddGroupMemberReqBody() {
+    /**
+     * 用户组成员的类型，目前仅支持选择 user。
+     *
+     * <p>示例值：user
+     *
+     * @param memberType
+     * @return
+     */
+    public Builder memberType(String memberType) {
+      this.memberType = memberType;
+      return this;
     }
 
-    public AddGroupMemberReqBody(Builder builder) {
-        /**
-         * 用户组成员的类型，取值为 user
-         * <p> 示例值：user
-         */
-        this.memberType = builder.memberType;
-        /**
-         * 当member_type =user时候，member_id_type表示user_id_type，枚举值为open_id, union_id, user_id
-         * <p> 示例值：open_id
-         */
-        this.memberIdType = builder.memberIdType;
-        /**
-         * 添加的成员ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.memberId = builder.memberId;
+    /**
+     * 用户组成员的类型，目前仅支持选择 user。
+     *
+     * <p>示例值：user
+     *
+     * @param memberType {@link com.lark.oapi.service.contact.v3.enums.AddGroupMemberMemberTypeEnum}
+     * @return
+     */
+    public Builder memberType(
+        com.lark.oapi.service.contact.v3.enums.AddGroupMemberMemberTypeEnum memberType) {
+      this.memberType = memberType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 当 `member_type` 取值为 `user`时，通过该参数设置用户 ID 类型。
+     *
+     * <p>示例值：open_id
+     *
+     * @param memberIdType
+     * @return
+     */
+    public Builder memberIdType(String memberIdType) {
+      this.memberIdType = memberIdType;
+      return this;
     }
 
-    public String getMemberType() {
-        return this.memberType;
+    /**
+     * 当 `member_type` 取值为 `user`时，通过该参数设置用户 ID 类型。
+     *
+     * <p>示例值：open_id
+     *
+     * @param memberIdType {@link
+     *     com.lark.oapi.service.contact.v3.enums.AddGroupMemberMemberIdTypeEnum}
+     * @return
+     */
+    public Builder memberIdType(
+        com.lark.oapi.service.contact.v3.enums.AddGroupMemberMemberIdTypeEnum memberIdType) {
+      this.memberIdType = memberIdType.getValue();
+      return this;
     }
 
-    public void setMemberType(String memberType) {
-        this.memberType = memberType;
+    /**
+     * 添加的用户 ID，ID 类型与 member_id_type 的取值保持一致。不同类型的 ID 获取方式可参见：;- [如何获取用户
+     * open_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid);-
+     * [如何获取用户
+     * union_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id);-
+     * [如何获取用户
+     * user_id](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param memberId
+     * @return
+     */
+    public Builder memberId(String memberId) {
+      this.memberId = memberId;
+      return this;
     }
 
-    public String getMemberIdType() {
-        return this.memberIdType;
+    public AddGroupMemberReqBody build() {
+      return new AddGroupMemberReqBody(this);
     }
+  }
 
-    public void setMemberIdType(String memberIdType) {
-        this.memberIdType = memberIdType;
-    }
-
-    public String getMemberId() {
-        return this.memberId;
-    }
-
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
-    }
-
-    public static class Builder {
-        /**
-         * 用户组成员的类型，取值为 user
-         * <p> 示例值：user
-         */
-        private String memberType;
-        /**
-         * 当member_type =user时候，member_id_type表示user_id_type，枚举值为open_id, union_id, user_id
-         * <p> 示例值：open_id
-         */
-        private String memberIdType;
-        /**
-         * 添加的成员ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String memberId;
-
-        /**
-         * 用户组成员的类型，取值为 user
-         * <p> 示例值：user
-         *
-         * @param memberType
-         * @return
-         */
-        public Builder memberType(String memberType) {
-            this.memberType = memberType;
-            return this;
-        }
-
-        /**
-         * 用户组成员的类型，取值为 user
-         * <p> 示例值：user
-         *
-         * @param memberType {@link com.lark.oapi.service.contact.v3.enums.AddGroupMemberMemberTypeEnum}
-         * @return
-         */
-        public Builder memberType(com.lark.oapi.service.contact.v3.enums.AddGroupMemberMemberTypeEnum memberType) {
-            this.memberType = memberType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 当member_type =user时候，member_id_type表示user_id_type，枚举值为open_id, union_id, user_id
-         * <p> 示例值：open_id
-         *
-         * @param memberIdType
-         * @return
-         */
-        public Builder memberIdType(String memberIdType) {
-            this.memberIdType = memberIdType;
-            return this;
-        }
-
-        /**
-         * 当member_type =user时候，member_id_type表示user_id_type，枚举值为open_id, union_id, user_id
-         * <p> 示例值：open_id
-         *
-         * @param memberIdType {@link com.lark.oapi.service.contact.v3.enums.AddGroupMemberMemberIdTypeEnum}
-         * @return
-         */
-        public Builder memberIdType(com.lark.oapi.service.contact.v3.enums.AddGroupMemberMemberIdTypeEnum memberIdType) {
-            this.memberIdType = memberIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 添加的成员ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param memberId
-         * @return
-         */
-        public Builder memberId(String memberId) {
-            this.memberId = memberId;
-            return this;
-        }
-
-
-        public AddGroupMemberReqBody build() {
-            return new AddGroupMemberReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

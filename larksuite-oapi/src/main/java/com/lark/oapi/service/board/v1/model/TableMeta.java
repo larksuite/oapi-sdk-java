@@ -13,260 +13,278 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TableMeta {
+  /**
+   * 行数
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("row_num")
+  private Integer rowNum;
+
+  /**
+   * 列数
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("col_num")
+  private Integer colNum;
+
+  /**
+   * 行高，单位 px
+   *
+   * <p>示例值：
+   */
+  @SerializedName("row_sizes")
+  private Double[] rowSizes;
+
+  /**
+   * 列宽，单位 px
+   *
+   * <p>示例值：
+   */
+  @SerializedName("col_sizes")
+  private Double[] colSizes;
+
+  /**
+   * 图形样式(节点类型为group、paint时，该字段必须为空)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("style")
+  private Style style;
+
+  /**
+   * 图形内文字（节点类型为 text_shape 时，该字段不能为空）（节点类型为group、section，connector、paint、svg、activation时候，该字段必须为空)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text")
+  private Text text;
+
+  public Integer getRowNum() {
+    return this.rowNum;
+  }
+
+  public void setRowNum(Integer rowNum) {
+    this.rowNum = rowNum;
+  }
+
+  public Integer getColNum() {
+    return this.colNum;
+  }
+
+  public void setColNum(Integer colNum) {
+    this.colNum = colNum;
+  }
+
+  public Double[] getRowSizes() {
+    return this.rowSizes;
+  }
+
+  public void setRowSizes(Double[] rowSizes) {
+    this.rowSizes = rowSizes;
+  }
+
+  public Double[] getColSizes() {
+    return this.colSizes;
+  }
+
+  public void setColSizes(Double[] colSizes) {
+    this.colSizes = colSizes;
+  }
+
+  public Style getStyle() {
+    return this.style;
+  }
+
+  public void setStyle(Style style) {
+    this.style = style;
+  }
+
+  public Text getText() {
+    return this.text;
+  }
+
+  public void setText(Text text) {
+    this.text = text;
+  }
+
+  // builder 开始
+  public TableMeta() {}
+
+  public TableMeta(Builder builder) {
     /**
      * 行数
-     * <p> 示例值：3
+     *
+     * <p>示例值：3
      */
-    @SerializedName("row_num")
-    private Integer rowNum;
+    this.rowNum = builder.rowNum;
     /**
      * 列数
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("col_num")
+    this.colNum = builder.colNum;
+    /**
+     * 行高，单位 px
+     *
+     * <p>示例值：
+     */
+    this.rowSizes = builder.rowSizes;
+    /**
+     * 列宽，单位 px
+     *
+     * <p>示例值：
+     */
+    this.colSizes = builder.colSizes;
+    /**
+     * 图形样式(节点类型为group、paint时，该字段必须为空)
+     *
+     * <p>示例值：
+     */
+    this.style = builder.style;
+    /**
+     * 图形内文字（节点类型为 text_shape
+     * 时，该字段不能为空）（节点类型为group、section，connector、paint、svg、activation时候，该字段必须为空)
+     *
+     * <p>示例值：
+     */
+    this.text = builder.text;
+  }
+
+  public static class Builder {
+    /**
+     * 行数
+     *
+     * <p>示例值：3
+     */
+    private Integer rowNum;
+
+    /**
+     * 列数
+     *
+     * <p>示例值：2
+     */
     private Integer colNum;
+
     /**
-     * 行高
-     * <p> 示例值：
+     * 行高，单位 px
+     *
+     * <p>示例值：
      */
-    @SerializedName("row_sizes")
     private Double[] rowSizes;
+
     /**
-     * 列宽
-     * <p> 示例值：
+     * 列宽，单位 px
+     *
+     * <p>示例值：
      */
-    @SerializedName("col_sizes")
     private Double[] colSizes;
+
     /**
-     * 整个表格的样式
-     * <p> 示例值：
+     * 图形样式(节点类型为group、paint时，该字段必须为空)
+     *
+     * <p>示例值：
      */
-    @SerializedName("style")
     private Style style;
+
     /**
-     * 整个表格的文字样式
-     * <p> 示例值：
+     * 图形内文字（节点类型为 text_shape
+     * 时，该字段不能为空）（节点类型为group、section，connector、paint、svg、activation时候，该字段必须为空)
+     *
+     * <p>示例值：
      */
-    @SerializedName("text")
     private Text text;
 
-    // builder 开始
-    public TableMeta() {
+    /**
+     * 行数
+     *
+     * <p>示例值：3
+     *
+     * @param rowNum
+     * @return
+     */
+    public Builder rowNum(Integer rowNum) {
+      this.rowNum = rowNum;
+      return this;
     }
 
-    public TableMeta(Builder builder) {
-        /**
-         * 行数
-         * <p> 示例值：3
-         */
-        this.rowNum = builder.rowNum;
-        /**
-         * 列数
-         * <p> 示例值：2
-         */
-        this.colNum = builder.colNum;
-        /**
-         * 行高
-         * <p> 示例值：
-         */
-        this.rowSizes = builder.rowSizes;
-        /**
-         * 列宽
-         * <p> 示例值：
-         */
-        this.colSizes = builder.colSizes;
-        /**
-         * 整个表格的样式
-         * <p> 示例值：
-         */
-        this.style = builder.style;
-        /**
-         * 整个表格的文字样式
-         * <p> 示例值：
-         */
-        this.text = builder.text;
+    /**
+     * 列数
+     *
+     * <p>示例值：2
+     *
+     * @param colNum
+     * @return
+     */
+    public Builder colNum(Integer colNum) {
+      this.colNum = colNum;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 行高，单位 px
+     *
+     * <p>示例值：
+     *
+     * @param rowSizes
+     * @return
+     */
+    public Builder rowSizes(Double[] rowSizes) {
+      this.rowSizes = rowSizes;
+      return this;
     }
 
-    public Integer getRowNum() {
-        return this.rowNum;
+    /**
+     * 列宽，单位 px
+     *
+     * <p>示例值：
+     *
+     * @param colSizes
+     * @return
+     */
+    public Builder colSizes(Double[] colSizes) {
+      this.colSizes = colSizes;
+      return this;
     }
 
-    public void setRowNum(Integer rowNum) {
-        this.rowNum = rowNum;
+    /**
+     * 图形样式(节点类型为group、paint时，该字段必须为空)
+     *
+     * <p>示例值：
+     *
+     * @param style
+     * @return
+     */
+    public Builder style(Style style) {
+      this.style = style;
+      return this;
     }
 
-    public Integer getColNum() {
-        return this.colNum;
+    /**
+     * 图形内文字（节点类型为 text_shape
+     * 时，该字段不能为空）（节点类型为group、section，connector、paint、svg、activation时候，该字段必须为空)
+     *
+     * <p>示例值：
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(Text text) {
+      this.text = text;
+      return this;
     }
 
-    public void setColNum(Integer colNum) {
-        this.colNum = colNum;
+    public TableMeta build() {
+      return new TableMeta(this);
     }
+  }
 
-    public Double[] getRowSizes() {
-        return this.rowSizes;
-    }
-
-    public void setRowSizes(Double[] rowSizes) {
-        this.rowSizes = rowSizes;
-    }
-
-    public Double[] getColSizes() {
-        return this.colSizes;
-    }
-
-    public void setColSizes(Double[] colSizes) {
-        this.colSizes = colSizes;
-    }
-
-    public Style getStyle() {
-        return this.style;
-    }
-
-    public void setStyle(Style style) {
-        this.style = style;
-    }
-
-    public Text getText() {
-        return this.text;
-    }
-
-    public void setText(Text text) {
-        this.text = text;
-    }
-
-    public static class Builder {
-        /**
-         * 行数
-         * <p> 示例值：3
-         */
-        private Integer rowNum;
-        /**
-         * 列数
-         * <p> 示例值：2
-         */
-        private Integer colNum;
-        /**
-         * 行高
-         * <p> 示例值：
-         */
-        private Double[] rowSizes;
-        /**
-         * 列宽
-         * <p> 示例值：
-         */
-        private Double[] colSizes;
-        /**
-         * 整个表格的样式
-         * <p> 示例值：
-         */
-        private Style style;
-        /**
-         * 整个表格的文字样式
-         * <p> 示例值：
-         */
-        private Text text;
-
-        /**
-         * 行数
-         * <p> 示例值：3
-         *
-         * @param rowNum
-         * @return
-         */
-        public Builder rowNum(Integer rowNum) {
-            this.rowNum = rowNum;
-            return this;
-        }
-
-
-        /**
-         * 列数
-         * <p> 示例值：2
-         *
-         * @param colNum
-         * @return
-         */
-        public Builder colNum(Integer colNum) {
-            this.colNum = colNum;
-            return this;
-        }
-
-
-        /**
-         * 行高
-         * <p> 示例值：
-         *
-         * @param rowSizes
-         * @return
-         */
-        public Builder rowSizes(Double[] rowSizes) {
-            this.rowSizes = rowSizes;
-            return this;
-        }
-
-
-        /**
-         * 列宽
-         * <p> 示例值：
-         *
-         * @param colSizes
-         * @return
-         */
-        public Builder colSizes(Double[] colSizes) {
-            this.colSizes = colSizes;
-            return this;
-        }
-
-
-        /**
-         * 整个表格的样式
-         * <p> 示例值：
-         *
-         * @param style
-         * @return
-         */
-        public Builder style(Style style) {
-            this.style = style;
-            return this;
-        }
-
-
-        /**
-         * 整个表格的文字样式
-         * <p> 示例值：
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(Text text) {
-            this.text = text;
-            return this;
-        }
-
-
-        public TableMeta build() {
-            return new TableMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

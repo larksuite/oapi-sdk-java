@@ -13,25 +13,23 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 思维导图布局方式
- */
+/** 思维导图布局方式 */
 public enum MindMapRootMindMapLayoutEnum {
-    UPDOWN("up_down"), // 上下布局
-    LEFTRIGHT("left_right"), // 左右布局
-    TREELEFT("tree_left"), // 左树布局
-    TREERIGHT("tree_right"), // 右树布局
-    TREEBALANCE("tree_balance"), // 左右交替平衡树布局
-    VERTICALTIMELINE("vertical_time_line"), // 垂直时间线布局
-    HORIZONTALTIMELINE("horizontal_time_line"), // 水平时间线布局
-    ;
-    private String value;
+  UPDOWN("up_down"), // 上下布局
+  LEFTRIGHT("left_right"), // 左右布局
+  TREELEFT("tree_left"), // 左树布局
+  TREERIGHT("tree_right"), // 右树布局
+  TREEBALANCE("tree_balance"), // 左右交替平衡树布局
+  VERTICALTIMELINE("vertical_time_line"), // 垂直时间线布局
+  HORIZONTALTIMELINE("horizontal_time_line"), // 水平时间线布局
+  ;
+  private String value;
 
-    MindMapRootMindMapLayoutEnum(String value) {
-        this.value = value;
-    }
+  MindMapRootMindMapLayoutEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

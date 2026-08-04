@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 权限操作
- */
+/** 权限操作 */
 public enum UpdateVisibleAssistRuleEffectEnum {
-    VISIBLE(1), // 可见
-    UN_VISIBLE(2), // 不可见
-    ;
-    private Integer value;
+  VISIBLE(1), // 可见
+  UN_VISIBLE(2), // 不可见
+  ;
+  private Integer value;
 
-    UpdateVisibleAssistRuleEffectEnum(Integer value) {
-        this.value = value;
-    }
+  UpdateVisibleAssistRuleEffectEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,296 +13,320 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchQueryBackgroundCheckOrderReqBody {
+  /**
+   * 背调订单 ID 列表，可通过本接口其他查询条件查询结果所得，当传递此值，以此值为准，其余查询字段失效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("background_check_order_id_list")
+  private String[] backgroundCheckOrderIdList;
+
+  /**
+   * 最早更新时间，毫秒时间戳。需小于等于begin_end_time
+   *
+   * <p>示例值：1618500000000
+   */
+  @SerializedName("update_start_time")
+  private String updateStartTime;
+
+  /**
+   * 最晚更新时间，毫秒时间戳。需大于等于update_start_time
+   *
+   * <p>示例值：1618500278663
+   */
+  @SerializedName("update_end_time")
+  private String updateEndTime;
+
+  /**
+   * 最早创建时间，毫秒时间戳
+   *
+   * <p>示例值：1618500278663
+   */
+  @SerializedName("begin_start_time")
+  private String beginStartTime;
+
+  /**
+   * 最晚创建时间，毫秒时间戳
+   *
+   * <p>示例值：1618500278663
+   */
+  @SerializedName("begin_end_time")
+  private String beginEndTime;
+
+  /**
+   * 投递
+   * ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+   *
+   * <p>示例值：7398493486516799788
+   */
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 订单状态
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("order_status")
+  private String orderStatus;
+
+  public String[] getBackgroundCheckOrderIdList() {
+    return this.backgroundCheckOrderIdList;
+  }
+
+  public void setBackgroundCheckOrderIdList(String[] backgroundCheckOrderIdList) {
+    this.backgroundCheckOrderIdList = backgroundCheckOrderIdList;
+  }
+
+  public String getUpdateStartTime() {
+    return this.updateStartTime;
+  }
+
+  public void setUpdateStartTime(String updateStartTime) {
+    this.updateStartTime = updateStartTime;
+  }
+
+  public String getUpdateEndTime() {
+    return this.updateEndTime;
+  }
+
+  public void setUpdateEndTime(String updateEndTime) {
+    this.updateEndTime = updateEndTime;
+  }
+
+  public String getBeginStartTime() {
+    return this.beginStartTime;
+  }
+
+  public void setBeginStartTime(String beginStartTime) {
+    this.beginStartTime = beginStartTime;
+  }
+
+  public String getBeginEndTime() {
+    return this.beginEndTime;
+  }
+
+  public void setBeginEndTime(String beginEndTime) {
+    this.beginEndTime = beginEndTime;
+  }
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public String getOrderStatus() {
+    return this.orderStatus;
+  }
+
+  public void setOrderStatus(String orderStatus) {
+    this.orderStatus = orderStatus;
+  }
+
+  // builder 开始
+  public BatchQueryBackgroundCheckOrderReqBody() {}
+
+  public BatchQueryBackgroundCheckOrderReqBody(Builder builder) {
     /**
-     * 背调订单 ID 列表
-     * <p> 示例值：
+     * 背调订单 ID 列表，可通过本接口其他查询条件查询结果所得，当传递此值，以此值为准，其余查询字段失效
+     *
+     * <p>示例值：
      */
-    @SerializedName("background_check_order_id_list")
-    private String[] backgroundCheckOrderIdList;
+    this.backgroundCheckOrderIdList = builder.backgroundCheckOrderIdList;
     /**
-     * 最早更新时间,毫秒级时间戳
-     * <p> 示例值：1618500278663
+     * 最早更新时间，毫秒时间戳。需小于等于begin_end_time
+     *
+     * <p>示例值：1618500000000
      */
-    @SerializedName("update_start_time")
-    private String updateStartTime;
+    this.updateStartTime = builder.updateStartTime;
     /**
-     * 最晚更新时间,毫秒级时间戳
-     * <p> 示例值：1618500278663
+     * 最晚更新时间，毫秒时间戳。需大于等于update_start_time
+     *
+     * <p>示例值：1618500278663
      */
-    @SerializedName("update_end_time")
-    private String updateEndTime;
+    this.updateEndTime = builder.updateEndTime;
     /**
-     * 最早创建时间,毫秒级时间戳
-     * <p> 示例值：1618500278663
+     * 最早创建时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
      */
-    @SerializedName("begin_start_time")
-    private String beginStartTime;
+    this.beginStartTime = builder.beginStartTime;
     /**
-     * 最晚创建时间,毫秒级时间戳
-     * <p> 示例值：1618500278663
+     * 最晚创建时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
      */
-    @SerializedName("begin_end_time")
-    private String beginEndTime;
+    this.beginEndTime = builder.beginEndTime;
     /**
-     * 投递 ID
-     * <p> 示例值：7398493486516799788
+     * 投递
+     * ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+     *
+     * <p>示例值：7398493486516799788
      */
-    @SerializedName("application_id")
-    private String applicationId;
+    this.applicationId = builder.applicationId;
     /**
      * 订单状态
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("order_status")
+    this.orderStatus = builder.orderStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 背调订单 ID 列表，可通过本接口其他查询条件查询结果所得，当传递此值，以此值为准，其余查询字段失效
+     *
+     * <p>示例值：
+     */
+    private String[] backgroundCheckOrderIdList;
+
+    /**
+     * 最早更新时间，毫秒时间戳。需小于等于begin_end_time
+     *
+     * <p>示例值：1618500000000
+     */
+    private String updateStartTime;
+
+    /**
+     * 最晚更新时间，毫秒时间戳。需大于等于update_start_time
+     *
+     * <p>示例值：1618500278663
+     */
+    private String updateEndTime;
+
+    /**
+     * 最早创建时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
+     */
+    private String beginStartTime;
+
+    /**
+     * 最晚创建时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
+     */
+    private String beginEndTime;
+
+    /**
+     * 投递
+     * ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+     *
+     * <p>示例值：7398493486516799788
+     */
+    private String applicationId;
+
+    /**
+     * 订单状态
+     *
+     * <p>示例值：2
+     */
     private String orderStatus;
 
-    // builder 开始
-    public BatchQueryBackgroundCheckOrderReqBody() {
+    /**
+     * 背调订单 ID 列表，可通过本接口其他查询条件查询结果所得，当传递此值，以此值为准，其余查询字段失效
+     *
+     * <p>示例值：
+     *
+     * @param backgroundCheckOrderIdList
+     * @return
+     */
+    public Builder backgroundCheckOrderIdList(String[] backgroundCheckOrderIdList) {
+      this.backgroundCheckOrderIdList = backgroundCheckOrderIdList;
+      return this;
     }
 
-    public BatchQueryBackgroundCheckOrderReqBody(Builder builder) {
-        /**
-         * 背调订单 ID 列表
-         * <p> 示例值：
-         */
-        this.backgroundCheckOrderIdList = builder.backgroundCheckOrderIdList;
-        /**
-         * 最早更新时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        this.updateStartTime = builder.updateStartTime;
-        /**
-         * 最晚更新时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        this.updateEndTime = builder.updateEndTime;
-        /**
-         * 最早创建时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        this.beginStartTime = builder.beginStartTime;
-        /**
-         * 最晚创建时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        this.beginEndTime = builder.beginEndTime;
-        /**
-         * 投递 ID
-         * <p> 示例值：7398493486516799788
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 订单状态
-         * <p> 示例值：2
-         */
-        this.orderStatus = builder.orderStatus;
+    /**
+     * 最早更新时间，毫秒时间戳。需小于等于begin_end_time
+     *
+     * <p>示例值：1618500000000
+     *
+     * @param updateStartTime
+     * @return
+     */
+    public Builder updateStartTime(String updateStartTime) {
+      this.updateStartTime = updateStartTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 最晚更新时间，毫秒时间戳。需大于等于update_start_time
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param updateEndTime
+     * @return
+     */
+    public Builder updateEndTime(String updateEndTime) {
+      this.updateEndTime = updateEndTime;
+      return this;
     }
 
-    public String[] getBackgroundCheckOrderIdList() {
-        return this.backgroundCheckOrderIdList;
+    /**
+     * 最早创建时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param beginStartTime
+     * @return
+     */
+    public Builder beginStartTime(String beginStartTime) {
+      this.beginStartTime = beginStartTime;
+      return this;
     }
 
-    public void setBackgroundCheckOrderIdList(String[] backgroundCheckOrderIdList) {
-        this.backgroundCheckOrderIdList = backgroundCheckOrderIdList;
+    /**
+     * 最晚创建时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param beginEndTime
+     * @return
+     */
+    public Builder beginEndTime(String beginEndTime) {
+      this.beginEndTime = beginEndTime;
+      return this;
     }
 
-    public String getUpdateStartTime() {
-        return this.updateStartTime;
+    /**
+     * 投递
+     * ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+     *
+     * <p>示例值：7398493486516799788
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public void setUpdateStartTime(String updateStartTime) {
-        this.updateStartTime = updateStartTime;
+    /**
+     * 订单状态
+     *
+     * <p>示例值：2
+     *
+     * @param orderStatus
+     * @return
+     */
+    public Builder orderStatus(String orderStatus) {
+      this.orderStatus = orderStatus;
+      return this;
     }
 
-    public String getUpdateEndTime() {
-        return this.updateEndTime;
+    public BatchQueryBackgroundCheckOrderReqBody build() {
+      return new BatchQueryBackgroundCheckOrderReqBody(this);
     }
+  }
 
-    public void setUpdateEndTime(String updateEndTime) {
-        this.updateEndTime = updateEndTime;
-    }
-
-    public String getBeginStartTime() {
-        return this.beginStartTime;
-    }
-
-    public void setBeginStartTime(String beginStartTime) {
-        this.beginStartTime = beginStartTime;
-    }
-
-    public String getBeginEndTime() {
-        return this.beginEndTime;
-    }
-
-    public void setBeginEndTime(String beginEndTime) {
-        this.beginEndTime = beginEndTime;
-    }
-
-    public String getApplicationId() {
-        return this.applicationId;
-    }
-
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
-    }
-
-    public String getOrderStatus() {
-        return this.orderStatus;
-    }
-
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 背调订单 ID 列表
-         * <p> 示例值：
-         */
-        private String[] backgroundCheckOrderIdList;
-        /**
-         * 最早更新时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        private String updateStartTime;
-        /**
-         * 最晚更新时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        private String updateEndTime;
-        /**
-         * 最早创建时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        private String beginStartTime;
-        /**
-         * 最晚创建时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        private String beginEndTime;
-        /**
-         * 投递 ID
-         * <p> 示例值：7398493486516799788
-         */
-        private String applicationId;
-        /**
-         * 订单状态
-         * <p> 示例值：2
-         */
-        private String orderStatus;
-
-        /**
-         * 背调订单 ID 列表
-         * <p> 示例值：
-         *
-         * @param backgroundCheckOrderIdList
-         * @return
-         */
-        public Builder backgroundCheckOrderIdList(String[] backgroundCheckOrderIdList) {
-            this.backgroundCheckOrderIdList = backgroundCheckOrderIdList;
-            return this;
-        }
-
-
-        /**
-         * 最早更新时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         *
-         * @param updateStartTime
-         * @return
-         */
-        public Builder updateStartTime(String updateStartTime) {
-            this.updateStartTime = updateStartTime;
-            return this;
-        }
-
-
-        /**
-         * 最晚更新时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         *
-         * @param updateEndTime
-         * @return
-         */
-        public Builder updateEndTime(String updateEndTime) {
-            this.updateEndTime = updateEndTime;
-            return this;
-        }
-
-
-        /**
-         * 最早创建时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         *
-         * @param beginStartTime
-         * @return
-         */
-        public Builder beginStartTime(String beginStartTime) {
-            this.beginStartTime = beginStartTime;
-            return this;
-        }
-
-
-        /**
-         * 最晚创建时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         *
-         * @param beginEndTime
-         * @return
-         */
-        public Builder beginEndTime(String beginEndTime) {
-            this.beginEndTime = beginEndTime;
-            return this;
-        }
-
-
-        /**
-         * 投递 ID
-         * <p> 示例值：7398493486516799788
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * 订单状态
-         * <p> 示例值：2
-         *
-         * @param orderStatus
-         * @return
-         */
-        public Builder orderStatus(String orderStatus) {
-            this.orderStatus = orderStatus;
-            return this;
-        }
-
-
-        public BatchQueryBackgroundCheckOrderReqBody build() {
-            return new BatchQueryBackgroundCheckOrderReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

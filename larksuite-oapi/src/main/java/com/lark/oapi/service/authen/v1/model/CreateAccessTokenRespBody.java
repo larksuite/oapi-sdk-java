@@ -13,286 +13,310 @@
 
 package com.lark.oapi.service.authen.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateAccessTokenRespBody {
-    /**
-     * user_access_token，用于获取用户资源
-     * <p> 示例值：
-     */
-    @SerializedName("access_token")
-    private String accessToken;
-    /**
-     * token 类型
-     * <p> 示例值：
-     */
-    @SerializedName("token_type")
-    private String tokenType;
-    /**
-     * `access_token`的有效期，单位: 秒
-     * <p> 示例值：
-     */
-    @SerializedName("expires_in")
-    private Integer expiresIn;
-    /**
-     * 用户姓名
-     * <p> 示例值：
-     */
-    @SerializedName("name")
-    private String name;
-    /**
-     * 用户英文名称
-     * <p> 示例值：
-     */
-    @SerializedName("en_name")
-    private String enName;
-    /**
-     * 用户头像
-     * <p> 示例值：
-     */
-    @SerializedName("avatar_url")
-    private String avatarUrl;
-    /**
-     * 用户头像 72x72
-     * <p> 示例值：
-     */
-    @SerializedName("avatar_thumb")
-    private String avatarThumb;
-    /**
-     * 用户头像 240x240
-     * <p> 示例值：
-     */
-    @SerializedName("avatar_middle")
-    private String avatarMiddle;
-    /**
-     * 用户头像 640x640
-     * <p> 示例值：
-     */
-    @SerializedName("avatar_big")
-    private String avatarBig;
-    /**
-     * 用户在应用内的唯一标识
-     * <p> 示例值：
-     */
-    @SerializedName("open_id")
-    private String openId;
-    /**
-     * 用户统一ID
-     * <p> 示例值：
-     */
-    @SerializedName("union_id")
-    private String unionId;
-    /**
-     * 用户邮箱
-     * <p> 示例值：
-     */
-    @SerializedName("email")
-    private String email;
-    /**
-     * 企业邮箱，请先确保已在管理后台启用飞书邮箱服务
-     * <p> 示例值：
-     */
-    @SerializedName("enterprise_email")
-    private String enterpriseEmail;
-    /**
-     * 用户 user_id
-     * <p> 示例值：
-     */
-    @SerializedName("user_id")
-    private String userId;
-    /**
-     * 用户手机号
-     * <p> 示例值：
-     */
-    @SerializedName("mobile")
-    private String mobile;
-    /**
-     * 当前企业标识
-     * <p> 示例值：
-     */
-    @SerializedName("tenant_key")
-    private String tenantKey;
-    /**
-     * `refresh_token` 的有效期，单位: 秒
-     * <p> 示例值：
-     */
-    @SerializedName("refresh_expires_in")
-    private Integer refreshExpiresIn;
-    /**
-     * 刷新用户 `access_token` 时使用的 token
-     * <p> 示例值：
-     */
-    @SerializedName("refresh_token")
-    private String refreshToken;
-    /**
-     * 用户当前登录态session的唯一标识，为空则不返回
-     * <p> 示例值：
-     */
-    @SerializedName("sid")
-    private String sid;
+  /**
+   * user_access_token，用于获取用户资源
+   *
+   * <p>示例值：u-***
+   */
+  @SerializedName("access_token")
+  private String accessToken;
 
-    public String getAccessToken() {
-        return this.accessToken;
-    }
+  /**
+   * token 类型
+   *
+   * <p>示例值：Bearer
+   */
+  @SerializedName("token_type")
+  private String tokenType;
 
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-    }
+  /**
+   * `access_token`的有效期，单位: 秒
+   *
+   * <p>示例值：7140
+   */
+  @SerializedName("expires_in")
+  private Integer expiresIn;
 
-    public String getTokenType() {
-        return this.tokenType;
-    }
+  /**
+   * 用户姓名
+   *
+   * <p>示例值：zhangsan
+   */
+  @SerializedName("name")
+  private String name;
 
-    public void setTokenType(String tokenType) {
-        this.tokenType = tokenType;
-    }
+  /**
+   * 用户英文名称
+   *
+   * <p>示例值：Three Zhang
+   */
+  @SerializedName("en_name")
+  private String enName;
 
-    public Integer getExpiresIn() {
-        return this.expiresIn;
-    }
+  /**
+   * 用户头像
+   *
+   * <p>示例值：www.feishu.cn/avatar/icon
+   */
+  @SerializedName("avatar_url")
+  private String avatarUrl;
 
-    public void setExpiresIn(Integer expiresIn) {
-        this.expiresIn = expiresIn;
-    }
+  /**
+   * 用户头像 72x72
+   *
+   * <p>示例值：www.feishu.cn/avatar/icon_thumb
+   */
+  @SerializedName("avatar_thumb")
+  private String avatarThumb;
 
-    public String getName() {
-        return this.name;
-    }
+  /**
+   * 用户头像 240x240
+   *
+   * <p>示例值：thwww.feishu.cn/avatar/icon_middle
+   */
+  @SerializedName("avatar_middle")
+  private String avatarMiddle;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  /**
+   * 用户头像 640x640
+   *
+   * <p>示例值：www.feishu.cn/avatar/icon_big
+   */
+  @SerializedName("avatar_big")
+  private String avatarBig;
 
-    public String getEnName() {
-        return this.enName;
-    }
+  /**
+   * 用户在应用内的唯一标识
+   *
+   * <p>示例值：ou_caecc734c2e3328a62489fe0648c4b98779515d3
+   */
+  @SerializedName("open_id")
+  private String openId;
 
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
+  /**
+   * 用户统一ID
+   *
+   * <p>示例值：on_d89jhsdhjsajkda7828enjdj328ydhhw3u43yjhdj
+   */
+  @SerializedName("union_id")
+  private String unionId;
 
-    public String getAvatarUrl() {
-        return this.avatarUrl;
-    }
+  /**
+   * 用户邮箱
+   *
+   * <p>示例值：zhangsan@feishu.cn
+   */
+  @SerializedName("email")
+  private String email;
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
+  /**
+   * 企业邮箱，请先确保已在管理后台启用飞书邮箱服务
+   *
+   * <p>示例值：demo@mail.com
+   */
+  @SerializedName("enterprise_email")
+  private String enterpriseEmail;
 
-    public String getAvatarThumb() {
-        return this.avatarThumb;
-    }
+  /**
+   * 用户 user_id
+   *
+   * <p>示例值：5d9bdxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
 
-    public void setAvatarThumb(String avatarThumb) {
-        this.avatarThumb = avatarThumb;
-    }
+  /**
+   * 用户手机号
+   *
+   * <p>示例值：+86130002883xx
+   */
+  @SerializedName("mobile")
+  private String mobile;
 
-    public String getAvatarMiddle() {
-        return this.avatarMiddle;
-    }
+  /**
+   * 当前企业标识
+   *
+   * <p>示例值：736588c92lxf175d
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
 
-    public void setAvatarMiddle(String avatarMiddle) {
-        this.avatarMiddle = avatarMiddle;
-    }
+  /**
+   * `refresh_token` 的有效期，单位: 秒
+   *
+   * <p>示例值：2591940
+   */
+  @SerializedName("refresh_expires_in")
+  private Integer refreshExpiresIn;
 
-    public String getAvatarBig() {
-        return this.avatarBig;
-    }
+  /**
+   * 刷新用户 `access_token` 时使用的 token
+   *
+   * <p>示例值：ur-oQ0mMq6MCcueAv0pwx2fQQhxqv__CbLu6G8ySFwafeKww2Def2BJdOkW3.9gCFM.LBQgFri901QaqeuL
+   */
+  @SerializedName("refresh_token")
+  private String refreshToken;
 
-    public void setAvatarBig(String avatarBig) {
-        this.avatarBig = avatarBig;
-    }
+  /**
+   * 用户当前登录态session的唯一标识，为空则不返回
+   *
+   * <p>示例值：AAAAAAAAAANjgHsqKEAAEw==
+   */
+  @SerializedName("sid")
+  private String sid;
 
-    public String getOpenId() {
-        return this.openId;
-    }
+  public String getAccessToken() {
+    return this.accessToken;
+  }
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
+  public void setAccessToken(String accessToken) {
+    this.accessToken = accessToken;
+  }
 
-    public String getUnionId() {
-        return this.unionId;
-    }
+  public String getTokenType() {
+    return this.tokenType;
+  }
 
-    public void setUnionId(String unionId) {
-        this.unionId = unionId;
-    }
+  public void setTokenType(String tokenType) {
+    this.tokenType = tokenType;
+  }
 
-    public String getEmail() {
-        return this.email;
-    }
+  public Integer getExpiresIn() {
+    return this.expiresIn;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public void setExpiresIn(Integer expiresIn) {
+    this.expiresIn = expiresIn;
+  }
 
-    public String getEnterpriseEmail() {
-        return this.enterpriseEmail;
-    }
+  public String getName() {
+    return this.name;
+  }
 
-    public void setEnterpriseEmail(String enterpriseEmail) {
-        this.enterpriseEmail = enterpriseEmail;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
+  public String getEnName() {
+    return this.enName;
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
 
-    public String getMobile() {
-        return this.mobile;
-    }
+  public String getAvatarUrl() {
+    return this.avatarUrl;
+  }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
+  public void setAvatarUrl(String avatarUrl) {
+    this.avatarUrl = avatarUrl;
+  }
 
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
+  public String getAvatarThumb() {
+    return this.avatarThumb;
+  }
 
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
+  public void setAvatarThumb(String avatarThumb) {
+    this.avatarThumb = avatarThumb;
+  }
 
-    public Integer getRefreshExpiresIn() {
-        return this.refreshExpiresIn;
-    }
+  public String getAvatarMiddle() {
+    return this.avatarMiddle;
+  }
 
-    public void setRefreshExpiresIn(Integer refreshExpiresIn) {
-        this.refreshExpiresIn = refreshExpiresIn;
-    }
+  public void setAvatarMiddle(String avatarMiddle) {
+    this.avatarMiddle = avatarMiddle;
+  }
 
-    public String getRefreshToken() {
-        return this.refreshToken;
-    }
+  public String getAvatarBig() {
+    return this.avatarBig;
+  }
 
-    public void setRefreshToken(String refreshToken) {
-        this.refreshToken = refreshToken;
-    }
+  public void setAvatarBig(String avatarBig) {
+    this.avatarBig = avatarBig;
+  }
 
-    public String getSid() {
-        return this.sid;
-    }
+  public String getOpenId() {
+    return this.openId;
+  }
 
-    public void setSid(String sid) {
-        this.sid = sid;
-    }
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
 
+  public String getUnionId() {
+    return this.unionId;
+  }
+
+  public void setUnionId(String unionId) {
+    this.unionId = unionId;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getEnterpriseEmail() {
+    return this.enterpriseEmail;
+  }
+
+  public void setEnterpriseEmail(String enterpriseEmail) {
+    this.enterpriseEmail = enterpriseEmail;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getMobile() {
+    return this.mobile;
+  }
+
+  public void setMobile(String mobile) {
+    this.mobile = mobile;
+  }
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  public Integer getRefreshExpiresIn() {
+    return this.refreshExpiresIn;
+  }
+
+  public void setRefreshExpiresIn(Integer refreshExpiresIn) {
+    this.refreshExpiresIn = refreshExpiresIn;
+  }
+
+  public String getRefreshToken() {
+    return this.refreshToken;
+  }
+
+  public void setRefreshToken(String refreshToken) {
+    this.refreshToken = refreshToken;
+  }
+
+  public String getSid() {
+    return this.sid;
+  }
+
+  public void setSid(String sid) {
+    this.sid = sid;
+  }
 }

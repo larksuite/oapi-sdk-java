@@ -17,17 +17,17 @@ package com.lark.oapi.service.board.v1.enums;
  * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
  */
 public enum ConnectorCaptionPositionTypeEnum {
-    ONLINE(0), // 文字在线内
-    ABOVELINE(1), // 文字在线的上方，连线走向的上边或左边
-    BELLOWLINE(2), // 文字在线的下方，连线走向的下边或右边
-    ;
-    private Integer value;
+  ONLINE(0), // 文字在线内
+  ABOVELINE(1), // 文字在线的上方，连线走向的上边或左边
+  BELLOWLINE(2), // 文字在线的下方，连线走向的下边或右边
+  ;
+  private Integer value;
 
-    ConnectorCaptionPositionTypeEnum(Integer value) {
-        this.value = value;
-    }
+  ConnectorCaptionPositionTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

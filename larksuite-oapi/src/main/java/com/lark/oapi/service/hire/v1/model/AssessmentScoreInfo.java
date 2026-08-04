@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AssessmentScoreInfo {
+  /**
+   * 计分方式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("calculate_type")
+  private Integer calculateType;
+
+  /**
+   * 分数，精确到小数点后两位
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("score")
+  private Double score;
+
+  /**
+   * 满分
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("full_score")
+  private Long fullScore;
+
+  public Integer getCalculateType() {
+    return this.calculateType;
+  }
+
+  public void setCalculateType(Integer calculateType) {
+    this.calculateType = calculateType;
+  }
+
+  public Double getScore() {
+    return this.score;
+  }
+
+  public void setScore(Double score) {
+    this.score = score;
+  }
+
+  public Long getFullScore() {
+    return this.fullScore;
+  }
+
+  public void setFullScore(Long fullScore) {
+    this.fullScore = fullScore;
+  }
+
+  // builder 开始
+  public AssessmentScoreInfo() {}
+
+  public AssessmentScoreInfo(Builder builder) {
     /**
      * 计分方式
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("calculate_type")
-    private Integer calculateType;
+    this.calculateType = builder.calculateType;
     /**
-     * 分数(精确到小数点后两位)
-     * <p> 示例值：3.21
+     * 分数，精确到小数点后两位
+     *
+     * <p>示例值：1
      */
-    @SerializedName("score")
-    private Double score;
+    this.score = builder.score;
     /**
      * 满分
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("full_score")
+    this.fullScore = builder.fullScore;
+  }
+
+  public static class Builder {
+    /**
+     * 计分方式
+     *
+     * <p>示例值：1
+     */
+    private Integer calculateType;
+
+    /**
+     * 分数，精确到小数点后两位
+     *
+     * <p>示例值：1
+     */
+    private Double score;
+
+    /**
+     * 满分
+     *
+     * <p>示例值：100
+     */
     private Long fullScore;
 
-    // builder 开始
-    public AssessmentScoreInfo() {
+    /**
+     * 计分方式
+     *
+     * <p>示例值：1
+     *
+     * @param calculateType
+     * @return
+     */
+    public Builder calculateType(Integer calculateType) {
+      this.calculateType = calculateType;
+      return this;
     }
 
-    public AssessmentScoreInfo(Builder builder) {
-        /**
-         * 计分方式
-         * <p> 示例值：1
-         */
-        this.calculateType = builder.calculateType;
-        /**
-         * 分数(精确到小数点后两位)
-         * <p> 示例值：3.21
-         */
-        this.score = builder.score;
-        /**
-         * 满分
-         * <p> 示例值：100
-         */
-        this.fullScore = builder.fullScore;
+    /**
+     * 分数，精确到小数点后两位
+     *
+     * <p>示例值：1
+     *
+     * @param score
+     * @return
+     */
+    public Builder score(Double score) {
+      this.score = score;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 满分
+     *
+     * <p>示例值：100
+     *
+     * @param fullScore
+     * @return
+     */
+    public Builder fullScore(Long fullScore) {
+      this.fullScore = fullScore;
+      return this;
     }
 
-    public Integer getCalculateType() {
-        return this.calculateType;
+    public AssessmentScoreInfo build() {
+      return new AssessmentScoreInfo(this);
     }
+  }
 
-    public void setCalculateType(Integer calculateType) {
-        this.calculateType = calculateType;
-    }
-
-    public Double getScore() {
-        return this.score;
-    }
-
-    public void setScore(Double score) {
-        this.score = score;
-    }
-
-    public Long getFullScore() {
-        return this.fullScore;
-    }
-
-    public void setFullScore(Long fullScore) {
-        this.fullScore = fullScore;
-    }
-
-    public static class Builder {
-        /**
-         * 计分方式
-         * <p> 示例值：1
-         */
-        private Integer calculateType;
-        /**
-         * 分数(精确到小数点后两位)
-         * <p> 示例值：3.21
-         */
-        private Double score;
-        /**
-         * 满分
-         * <p> 示例值：100
-         */
-        private Long fullScore;
-
-        /**
-         * 计分方式
-         * <p> 示例值：1
-         *
-         * @param calculateType
-         * @return
-         */
-        public Builder calculateType(Integer calculateType) {
-            this.calculateType = calculateType;
-            return this;
-        }
-
-
-        /**
-         * 分数(精确到小数点后两位)
-         * <p> 示例值：3.21
-         *
-         * @param score
-         * @return
-         */
-        public Builder score(Double score) {
-            this.score = score;
-            return this;
-        }
-
-
-        /**
-         * 满分
-         * <p> 示例值：100
-         *
-         * @param fullScore
-         * @return
-         */
-        public Builder fullScore(Long fullScore) {
-            this.fullScore = fullScore;
-            return this;
-        }
-
-
-        public AssessmentScoreInfo build() {
-            return new AssessmentScoreInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

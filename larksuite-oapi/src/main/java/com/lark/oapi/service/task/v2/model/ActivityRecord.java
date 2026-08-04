@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ActivityRecord {
+  /**
+   * 动态类型的key
+   *
+   * <p>示例值：138
+   */
+  @SerializedName("key")
+  private Integer key;
+
+  /**
+   * 动态的内容
+   *
+   * <p>示例值：@小明 完成了工作计划的任务
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 动态的发生的时间戳(ms)
+   *
+   * <p>示例值：1665469397000
+   */
+  @SerializedName("created_at")
+  private String createdAt;
+
+  /**
+   * 清单所有者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("op_user")
+  private Member opUser;
+
+  /**
+   * key对应的名称
+   *
+   * <p>示例值："add task into tasklist"
+   */
+  @SerializedName("key_name")
+  private String keyName;
+
+  /**
+   * 动态相关的任务的guid。当动态是一个任务的动态时有值。
+   *
+   * <p>示例值：ead413d9-4027-490e-9089-b1b241d3b15d
+   */
+  @SerializedName("target_task_guid")
+  private String targetTaskGuid;
+
+  /**
+   * target_task_guid对应的任务的名称。当target_task_guid有值时会提供。
+   *
+   * <p>示例值：完成本周周报。
+   */
+  @SerializedName("target_task_name")
+  private String targetTaskName;
+
+  public Integer getKey() {
+    return this.key;
+  }
+
+  public void setKey(Integer key) {
+    this.key = key;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public Member getOpUser() {
+    return this.opUser;
+  }
+
+  public void setOpUser(Member opUser) {
+    this.opUser = opUser;
+  }
+
+  public String getKeyName() {
+    return this.keyName;
+  }
+
+  public void setKeyName(String keyName) {
+    this.keyName = keyName;
+  }
+
+  public String getTargetTaskGuid() {
+    return this.targetTaskGuid;
+  }
+
+  public void setTargetTaskGuid(String targetTaskGuid) {
+    this.targetTaskGuid = targetTaskGuid;
+  }
+
+  public String getTargetTaskName() {
+    return this.targetTaskName;
+  }
+
+  public void setTargetTaskName(String targetTaskName) {
+    this.targetTaskName = targetTaskName;
+  }
+
+  // builder 开始
+  public ActivityRecord() {}
+
+  public ActivityRecord(Builder builder) {
     /**
      * 动态类型的key
-     * <p> 示例值：138
+     *
+     * <p>示例值：138
      */
-    @SerializedName("key")
-    private Integer key;
+    this.key = builder.key;
     /**
      * 动态的内容
-     * <p> 示例值：@小明 完成了工作计划的任务
+     *
+     * <p>示例值：@小明 完成了工作计划的任务
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 动态的发生的时间戳(ms)
-     * <p> 示例值：1665469397000
+     *
+     * <p>示例值：1665469397000
      */
-    @SerializedName("created_at")
-    private String createdAt;
+    this.createdAt = builder.createdAt;
     /**
-     * 动态发起者
-     * <p> 示例值：
+     * 清单所有者
+     *
+     * <p>示例值：
      */
-    @SerializedName("op_user")
-    private Member opUser;
+    this.opUser = builder.opUser;
     /**
      * key对应的名称
-     * <p> 示例值："add task into tasklist"
+     *
+     * <p>示例值："add task into tasklist"
      */
-    @SerializedName("key_name")
-    private String keyName;
+    this.keyName = builder.keyName;
     /**
      * 动态相关的任务的guid。当动态是一个任务的动态时有值。
-     * <p> 示例值：ead413d9-4027-490e-9089-b1b241d3b15d
+     *
+     * <p>示例值：ead413d9-4027-490e-9089-b1b241d3b15d
      */
-    @SerializedName("target_task_guid")
-    private String targetTaskGuid;
+    this.targetTaskGuid = builder.targetTaskGuid;
     /**
      * target_task_guid对应的任务的名称。当target_task_guid有值时会提供。
-     * <p> 示例值：完成本周周报。
+     *
+     * <p>示例值：完成本周周报。
      */
-    @SerializedName("target_task_name")
+    this.targetTaskName = builder.targetTaskName;
+  }
+
+  public static class Builder {
+    /**
+     * 动态类型的key
+     *
+     * <p>示例值：138
+     */
+    private Integer key;
+
+    /**
+     * 动态的内容
+     *
+     * <p>示例值：@小明 完成了工作计划的任务
+     */
+    private String content;
+
+    /**
+     * 动态的发生的时间戳(ms)
+     *
+     * <p>示例值：1665469397000
+     */
+    private String createdAt;
+
+    /**
+     * 清单所有者
+     *
+     * <p>示例值：
+     */
+    private Member opUser;
+
+    /**
+     * key对应的名称
+     *
+     * <p>示例值："add task into tasklist"
+     */
+    private String keyName;
+
+    /**
+     * 动态相关的任务的guid。当动态是一个任务的动态时有值。
+     *
+     * <p>示例值：ead413d9-4027-490e-9089-b1b241d3b15d
+     */
+    private String targetTaskGuid;
+
+    /**
+     * target_task_guid对应的任务的名称。当target_task_guid有值时会提供。
+     *
+     * <p>示例值：完成本周周报。
+     */
     private String targetTaskName;
 
-    // builder 开始
-    public ActivityRecord() {
+    /**
+     * 动态类型的key
+     *
+     * <p>示例值：138
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(Integer key) {
+      this.key = key;
+      return this;
     }
 
-    public ActivityRecord(Builder builder) {
-        /**
-         * 动态类型的key
-         * <p> 示例值：138
-         */
-        this.key = builder.key;
-        /**
-         * 动态的内容
-         * <p> 示例值：@小明 完成了工作计划的任务
-         */
-        this.content = builder.content;
-        /**
-         * 动态的发生的时间戳(ms)
-         * <p> 示例值：1665469397000
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 动态发起者
-         * <p> 示例值：
-         */
-        this.opUser = builder.opUser;
-        /**
-         * key对应的名称
-         * <p> 示例值："add task into tasklist"
-         */
-        this.keyName = builder.keyName;
-        /**
-         * 动态相关的任务的guid。当动态是一个任务的动态时有值。
-         * <p> 示例值：ead413d9-4027-490e-9089-b1b241d3b15d
-         */
-        this.targetTaskGuid = builder.targetTaskGuid;
-        /**
-         * target_task_guid对应的任务的名称。当target_task_guid有值时会提供。
-         * <p> 示例值：完成本周周报。
-         */
-        this.targetTaskName = builder.targetTaskName;
+    /**
+     * 动态的内容
+     *
+     * <p>示例值：@小明 完成了工作计划的任务
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 动态的发生的时间戳(ms)
+     *
+     * <p>示例值：1665469397000
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(String createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public Integer getKey() {
-        return this.key;
+    /**
+     * 清单所有者
+     *
+     * <p>示例值：
+     *
+     * @param opUser
+     * @return
+     */
+    public Builder opUser(Member opUser) {
+      this.opUser = opUser;
+      return this;
     }
 
-    public void setKey(Integer key) {
-        this.key = key;
+    /**
+     * key对应的名称
+     *
+     * <p>示例值："add task into tasklist"
+     *
+     * @param keyName
+     * @return
+     */
+    public Builder keyName(String keyName) {
+      this.keyName = keyName;
+      return this;
     }
 
-    public String getContent() {
-        return this.content;
+    /**
+     * 动态相关的任务的guid。当动态是一个任务的动态时有值。
+     *
+     * <p>示例值：ead413d9-4027-490e-9089-b1b241d3b15d
+     *
+     * @param targetTaskGuid
+     * @return
+     */
+    public Builder targetTaskGuid(String targetTaskGuid) {
+      this.targetTaskGuid = targetTaskGuid;
+      return this;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    /**
+     * target_task_guid对应的任务的名称。当target_task_guid有值时会提供。
+     *
+     * <p>示例值：完成本周周报。
+     *
+     * @param targetTaskName
+     * @return
+     */
+    public Builder targetTaskName(String targetTaskName) {
+      this.targetTaskName = targetTaskName;
+      return this;
     }
 
-    public String getCreatedAt() {
-        return this.createdAt;
+    public ActivityRecord build() {
+      return new ActivityRecord(this);
     }
+  }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Member getOpUser() {
-        return this.opUser;
-    }
-
-    public void setOpUser(Member opUser) {
-        this.opUser = opUser;
-    }
-
-    public String getKeyName() {
-        return this.keyName;
-    }
-
-    public void setKeyName(String keyName) {
-        this.keyName = keyName;
-    }
-
-    public String getTargetTaskGuid() {
-        return this.targetTaskGuid;
-    }
-
-    public void setTargetTaskGuid(String targetTaskGuid) {
-        this.targetTaskGuid = targetTaskGuid;
-    }
-
-    public String getTargetTaskName() {
-        return this.targetTaskName;
-    }
-
-    public void setTargetTaskName(String targetTaskName) {
-        this.targetTaskName = targetTaskName;
-    }
-
-    public static class Builder {
-        /**
-         * 动态类型的key
-         * <p> 示例值：138
-         */
-        private Integer key;
-        /**
-         * 动态的内容
-         * <p> 示例值：@小明 完成了工作计划的任务
-         */
-        private String content;
-        /**
-         * 动态的发生的时间戳(ms)
-         * <p> 示例值：1665469397000
-         */
-        private String createdAt;
-        /**
-         * 动态发起者
-         * <p> 示例值：
-         */
-        private Member opUser;
-        /**
-         * key对应的名称
-         * <p> 示例值："add task into tasklist"
-         */
-        private String keyName;
-        /**
-         * 动态相关的任务的guid。当动态是一个任务的动态时有值。
-         * <p> 示例值：ead413d9-4027-490e-9089-b1b241d3b15d
-         */
-        private String targetTaskGuid;
-        /**
-         * target_task_guid对应的任务的名称。当target_task_guid有值时会提供。
-         * <p> 示例值：完成本周周报。
-         */
-        private String targetTaskName;
-
-        /**
-         * 动态类型的key
-         * <p> 示例值：138
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(Integer key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 动态的内容
-         * <p> 示例值：@小明 完成了工作计划的任务
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 动态的发生的时间戳(ms)
-         * <p> 示例值：1665469397000
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 动态发起者
-         * <p> 示例值：
-         *
-         * @param opUser
-         * @return
-         */
-        public Builder opUser(Member opUser) {
-            this.opUser = opUser;
-            return this;
-        }
-
-
-        /**
-         * key对应的名称
-         * <p> 示例值："add task into tasklist"
-         *
-         * @param keyName
-         * @return
-         */
-        public Builder keyName(String keyName) {
-            this.keyName = keyName;
-            return this;
-        }
-
-
-        /**
-         * 动态相关的任务的guid。当动态是一个任务的动态时有值。
-         * <p> 示例值：ead413d9-4027-490e-9089-b1b241d3b15d
-         *
-         * @param targetTaskGuid
-         * @return
-         */
-        public Builder targetTaskGuid(String targetTaskGuid) {
-            this.targetTaskGuid = targetTaskGuid;
-            return this;
-        }
-
-
-        /**
-         * target_task_guid对应的任务的名称。当target_task_guid有值时会提供。
-         * <p> 示例值：完成本周周报。
-         *
-         * @param targetTaskName
-         * @return
-         */
-        public Builder targetTaskName(String targetTaskName) {
-            this.targetTaskName = targetTaskName;
-            return this;
-        }
-
-
-        public ActivityRecord build() {
-            return new ActivityRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

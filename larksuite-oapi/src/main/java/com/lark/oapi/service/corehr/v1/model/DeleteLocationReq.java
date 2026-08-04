@@ -13,72 +13,68 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class DeleteLocationReq {
+  /**
+   * 需要删除的地点 ID。ID获取方式：;-
+   * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+   *
+   * <p>示例值：4312443243
+   */
+  @Path
+  @SerializedName("location_id")
+  private String locationId;
+
+  public String getLocationId() {
+    return this.locationId;
+  }
+
+  public void setLocationId(String locationId) {
+    this.locationId = locationId;
+  }
+
+  // builder 开始
+  public DeleteLocationReq() {}
+
+  public DeleteLocationReq(Builder builder) {
     /**
-     * 需要删除的地点 ID
-     * <p> 示例值：4312443243
+     * 需要删除的地点 ID。ID获取方式：;-
+     * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+     *
+     * <p>示例值：4312443243
      */
-    @Path
-    @SerializedName("location_id")
-    private String locationId;
+    this.locationId = builder.locationId;
+  }
 
-    // builder 开始
-    public DeleteLocationReq() {
+  public static class Builder {
+
+    private String locationId; // 需要删除的地点 ID。ID获取方式：;-
+
+    // 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+
+    /**
+     * 需要删除的地点 ID。ID获取方式：;-
+     * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+     *
+     * <p>示例值：4312443243
+     *
+     * @param locationId
+     * @return
+     */
+    public Builder locationId(String locationId) {
+      this.locationId = locationId;
+      return this;
     }
 
-    public DeleteLocationReq(Builder builder) {
-        /**
-         * 需要删除的地点 ID
-         * <p> 示例值：4312443243
-         */
-        this.locationId = builder.locationId;
+    public DeleteLocationReq build() {
+      return new DeleteLocationReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getLocationId() {
-        return this.locationId;
-    }
-
-    public void setLocationId(String locationId) {
-        this.locationId = locationId;
-    }
-
-    public static class Builder {
-
-        private String locationId; // 需要删除的地点 ID
-
-        /**
-         * 需要删除的地点 ID
-         * <p> 示例值：4312443243
-         *
-         * @param locationId
-         * @return
-         */
-        public Builder locationId(String locationId) {
-            this.locationId = locationId;
-            return this;
-        }
-
-
-        public DeleteLocationReq build() {
-            return new DeleteLocationReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

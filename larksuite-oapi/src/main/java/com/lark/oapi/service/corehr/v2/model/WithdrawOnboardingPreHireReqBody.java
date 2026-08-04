@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WithdrawOnboardingPreHireReqBody {
+  /**
+   * 待入职ID，可以通过[搜索待入职人员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获得
+   *
+   * <p>示例值：7345005664477775407
+   */
+  @SerializedName("pre_hire_id")
+  private String preHireId;
+
+  /**
+   * 撤销原因，上限为500字
+   *
+   * <p>示例值：候选人主动放弃入职
+   */
+  @SerializedName("withdraw_reason")
+  private String withdrawReason;
+
+  public String getPreHireId() {
+    return this.preHireId;
+  }
+
+  public void setPreHireId(String preHireId) {
+    this.preHireId = preHireId;
+  }
+
+  public String getWithdrawReason() {
+    return this.withdrawReason;
+  }
+
+  public void setWithdrawReason(String withdrawReason) {
+    this.withdrawReason = withdrawReason;
+  }
+
+  // builder 开始
+  public WithdrawOnboardingPreHireReqBody() {}
+
+  public WithdrawOnboardingPreHireReqBody(Builder builder) {
     /**
-     * 待入职ID，可从待入职列表接口获取
-     * <p> 示例值：7345005664477775407
+     * 待入职ID，可以通过[搜索待入职人员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获得
+     *
+     * <p>示例值：7345005664477775407
      */
-    @SerializedName("pre_hire_id")
+    this.preHireId = builder.preHireId;
+    /**
+     * 撤销原因，上限为500字
+     *
+     * <p>示例值：候选人主动放弃入职
+     */
+    this.withdrawReason = builder.withdrawReason;
+  }
+
+  public static class Builder {
+    /**
+     * 待入职ID，可以通过[搜索待入职人员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获得
+     *
+     * <p>示例值：7345005664477775407
+     */
     private String preHireId;
+
     /**
-     * 撤销原因
-     * <p> 示例值：withdraw reason
+     * 撤销原因，上限为500字
+     *
+     * <p>示例值：候选人主动放弃入职
      */
-    @SerializedName("withdraw_reason")
     private String withdrawReason;
 
-    // builder 开始
-    public WithdrawOnboardingPreHireReqBody() {
+    /**
+     * 待入职ID，可以通过[搜索待入职人员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口获得
+     *
+     * <p>示例值：7345005664477775407
+     *
+     * @param preHireId
+     * @return
+     */
+    public Builder preHireId(String preHireId) {
+      this.preHireId = preHireId;
+      return this;
     }
 
-    public WithdrawOnboardingPreHireReqBody(Builder builder) {
-        /**
-         * 待入职ID，可从待入职列表接口获取
-         * <p> 示例值：7345005664477775407
-         */
-        this.preHireId = builder.preHireId;
-        /**
-         * 撤销原因
-         * <p> 示例值：withdraw reason
-         */
-        this.withdrawReason = builder.withdrawReason;
+    /**
+     * 撤销原因，上限为500字
+     *
+     * <p>示例值：候选人主动放弃入职
+     *
+     * @param withdrawReason
+     * @return
+     */
+    public Builder withdrawReason(String withdrawReason) {
+      this.withdrawReason = withdrawReason;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public WithdrawOnboardingPreHireReqBody build() {
+      return new WithdrawOnboardingPreHireReqBody(this);
     }
+  }
 
-    public String getPreHireId() {
-        return this.preHireId;
-    }
-
-    public void setPreHireId(String preHireId) {
-        this.preHireId = preHireId;
-    }
-
-    public String getWithdrawReason() {
-        return this.withdrawReason;
-    }
-
-    public void setWithdrawReason(String withdrawReason) {
-        this.withdrawReason = withdrawReason;
-    }
-
-    public static class Builder {
-        /**
-         * 待入职ID，可从待入职列表接口获取
-         * <p> 示例值：7345005664477775407
-         */
-        private String preHireId;
-        /**
-         * 撤销原因
-         * <p> 示例值：withdraw reason
-         */
-        private String withdrawReason;
-
-        /**
-         * 待入职ID，可从待入职列表接口获取
-         * <p> 示例值：7345005664477775407
-         *
-         * @param preHireId
-         * @return
-         */
-        public Builder preHireId(String preHireId) {
-            this.preHireId = preHireId;
-            return this;
-        }
-
-
-        /**
-         * 撤销原因
-         * <p> 示例值：withdraw reason
-         *
-         * @param withdrawReason
-         * @return
-         */
-        public Builder withdrawReason(String withdrawReason) {
-            this.withdrawReason = withdrawReason;
-            return this;
-        }
-
-
-        public WithdrawOnboardingPreHireReqBody build() {
-            return new WithdrawOnboardingPreHireReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

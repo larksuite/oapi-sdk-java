@@ -13,75 +13,73 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UrgentReceivers {
+  /**
+   * 加急的目标用户 ID 列表。ID 类型与查询参数 user_id_type 取值一致，推荐使用 open_id。;;**注意**：需要确保目标用户在加急消息所属的会话内。如果 ID
+   * 列表中有用户不在消息所属的会话内，则接口会将这些无效的 ID 返回（响应参数 invalid_user_id_list），只加急有效的用户 ID。如果 ID 列表内的所有 ID
+   * 均无效，则会返回 `230001` 错误码。 ;;**数据校验规则**：列表长度不能大于 200。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id_list")
+  private String[] userIdList;
+
+  public String[] getUserIdList() {
+    return this.userIdList;
+  }
+
+  public void setUserIdList(String[] userIdList) {
+    this.userIdList = userIdList;
+  }
+
+  // builder 开始
+  public UrgentReceivers() {}
+
+  public UrgentReceivers(Builder builder) {
     /**
-     * 目标用户的ID，列表不可为空;;**注意**：;请确保所填的用户ID正确，并且用户在加急消息所在的群组中
-     * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
+     * 加急的目标用户 ID 列表。ID 类型与查询参数 user_id_type 取值一致，推荐使用 open_id。;;**注意**：需要确保目标用户在加急消息所属的会话内。如果 ID
+     * 列表中有用户不在消息所属的会话内，则接口会将这些无效的 ID 返回（响应参数 invalid_user_id_list），只加急有效的用户 ID。如果 ID 列表内的所有 ID
+     * 均无效，则会返回 `230001` 错误码。 ;;**数据校验规则**：列表长度不能大于 200。
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id_list")
+    this.userIdList = builder.userIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 加急的目标用户 ID 列表。ID 类型与查询参数 user_id_type 取值一致，推荐使用 open_id。;;**注意**：需要确保目标用户在加急消息所属的会话内。如果 ID
+     * 列表中有用户不在消息所属的会话内，则接口会将这些无效的 ID 返回（响应参数 invalid_user_id_list），只加急有效的用户 ID。如果 ID 列表内的所有 ID
+     * 均无效，则会返回 `230001` 错误码。 ;;**数据校验规则**：列表长度不能大于 200。
+     *
+     * <p>示例值：
+     */
     private String[] userIdList;
 
-    // builder 开始
-    public UrgentReceivers() {
+    /**
+     * 加急的目标用户 ID 列表。ID 类型与查询参数 user_id_type 取值一致，推荐使用 open_id。;;**注意**：需要确保目标用户在加急消息所属的会话内。如果 ID
+     * 列表中有用户不在消息所属的会话内，则接口会将这些无效的 ID 返回（响应参数 invalid_user_id_list），只加急有效的用户 ID。如果 ID 列表内的所有 ID
+     * 均无效，则会返回 `230001` 错误码。 ;;**数据校验规则**：列表长度不能大于 200。
+     *
+     * <p>示例值：
+     *
+     * @param userIdList
+     * @return
+     */
+    public Builder userIdList(String[] userIdList) {
+      this.userIdList = userIdList;
+      return this;
     }
 
-    public UrgentReceivers(Builder builder) {
-        /**
-         * 目标用户的ID，列表不可为空;;**注意**：;请确保所填的用户ID正确，并且用户在加急消息所在的群组中
-         * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
-         */
-        this.userIdList = builder.userIdList;
+    public UrgentReceivers build() {
+      return new UrgentReceivers(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getUserIdList() {
-        return this.userIdList;
-    }
-
-    public void setUserIdList(String[] userIdList) {
-        this.userIdList = userIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 目标用户的ID，列表不可为空;;**注意**：;请确保所填的用户ID正确，并且用户在加急消息所在的群组中
-         * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
-         */
-        private String[] userIdList;
-
-        /**
-         * 目标用户的ID，列表不可为空;;**注意**：;请确保所填的用户ID正确，并且用户在加急消息所在的群组中
-         * <p> 示例值：["ou_6yf8af6bgb9100449565764t3382b168"]
-         *
-         * @param userIdList
-         * @return
-         */
-        public Builder userIdList(String[] userIdList) {
-            this.userIdList = userIdList;
-            return this;
-        }
-
-
-        public UrgentReceivers build() {
-            return new UrgentReceivers(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,148 +13,162 @@
 
 package com.lark.oapi.service.mdm.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mdm.v3.enums.*;
 
 public class Expression {
+  /**
+   * 字段名
+   *
+   * <p>示例值：name
+   */
+  @SerializedName("field")
+  private String field;
+
+  /**
+   * 运算符
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("operator")
+  private String operator;
+
+  /**
+   * 字段值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("value")
+  private Value value;
+
+  public String getField() {
+    return this.field;
+  }
+
+  public void setField(String field) {
+    this.field = field;
+  }
+
+  public String getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public Value getValue() {
+    return this.value;
+  }
+
+  public void setValue(Value value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public Expression() {}
+
+  public Expression(Builder builder) {
     /**
      * 字段名
-     * <p> 示例值：
+     *
+     * <p>示例值：name
      */
-    @SerializedName("field")
-    private String field;
+    this.field = builder.field;
     /**
      * 运算符
-     * <p> 示例值：
+     *
+     * <p>示例值：0
      */
-    @SerializedName("operator")
-    private String operator;
+    this.operator = builder.operator;
     /**
      * 字段值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 字段名
+     *
+     * <p>示例值：name
+     */
+    private String field;
+
+    /**
+     * 运算符
+     *
+     * <p>示例值：0
+     */
+    private String operator;
+
+    /**
+     * 字段值
+     *
+     * <p>示例值：
+     */
     private Value value;
 
-    // builder 开始
-    public Expression() {
+    /**
+     * 字段名
+     *
+     * <p>示例值：name
+     *
+     * @param field
+     * @return
+     */
+    public Builder field(String field) {
+      this.field = field;
+      return this;
     }
 
-    public Expression(Builder builder) {
-        /**
-         * 字段名
-         * <p> 示例值：
-         */
-        this.field = builder.field;
-        /**
-         * 运算符
-         * <p> 示例值：
-         */
-        this.operator = builder.operator;
-        /**
-         * 字段值
-         * <p> 示例值：
-         */
-        this.value = builder.value;
+    /**
+     * 运算符
+     *
+     * <p>示例值：0
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(String operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 运算符
+     *
+     * <p>示例值：0
+     *
+     * @param operator {@link com.lark.oapi.service.mdm.v3.enums.ExpressionOperatorEnum}
+     * @return
+     */
+    public Builder operator(com.lark.oapi.service.mdm.v3.enums.ExpressionOperatorEnum operator) {
+      this.operator = operator.getValue();
+      return this;
     }
 
-    public String getField() {
-        return this.field;
+    /**
+     * 字段值
+     *
+     * <p>示例值：
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(Value value) {
+      this.value = value;
+      return this;
     }
 
-    public void setField(String field) {
-        this.field = field;
+    public Expression build() {
+      return new Expression(this);
     }
+  }
 
-    public String getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public Value getValue() {
-        return this.value;
-    }
-
-    public void setValue(Value value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 字段名
-         * <p> 示例值：
-         */
-        private String field;
-        /**
-         * 运算符
-         * <p> 示例值：
-         */
-        private String operator;
-        /**
-         * 字段值
-         * <p> 示例值：
-         */
-        private Value value;
-
-        /**
-         * 字段名
-         * <p> 示例值：
-         *
-         * @param field
-         * @return
-         */
-        public Builder field(String field) {
-            this.field = field;
-            return this;
-        }
-
-
-        /**
-         * 运算符
-         * <p> 示例值：
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 字段值
-         * <p> 示例值：
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(Value value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public Expression build() {
-            return new Expression(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

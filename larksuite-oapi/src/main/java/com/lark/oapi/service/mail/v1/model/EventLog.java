@@ -13,235 +13,247 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EventLog {
+  /**
+   * 发信人
+   *
+   * <p>示例值：abc@example.com
+   */
+  @SerializedName("mail_from")
+  private String mailFrom;
+
+  /**
+   * 收信人
+   *
+   * <p>示例值：abc@example.com
+   */
+  @SerializedName("rcpt_to")
+  private String rcptTo;
+
+  /**
+   * 邮件ID
+   *
+   * <p>示例值：abc@example.com
+   */
+  @SerializedName("smtp_message_id")
+  private String smtpMessageId;
+
+  /**
+   * 行为类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("event_type")
+  private Integer eventType;
+
+  /**
+   * 时间戳
+   *
+   * <p>示例值：1706882657
+   */
+  @SerializedName("timestamp")
+  private Integer timestamp;
+
+  public String getMailFrom() {
+    return this.mailFrom;
+  }
+
+  public void setMailFrom(String mailFrom) {
+    this.mailFrom = mailFrom;
+  }
+
+  public String getRcptTo() {
+    return this.rcptTo;
+  }
+
+  public void setRcptTo(String rcptTo) {
+    this.rcptTo = rcptTo;
+  }
+
+  public String getSmtpMessageId() {
+    return this.smtpMessageId;
+  }
+
+  public void setSmtpMessageId(String smtpMessageId) {
+    this.smtpMessageId = smtpMessageId;
+  }
+
+  public Integer getEventType() {
+    return this.eventType;
+  }
+
+  public void setEventType(Integer eventType) {
+    this.eventType = eventType;
+  }
+
+  public Integer getTimestamp() {
+    return this.timestamp;
+  }
+
+  public void setTimestamp(Integer timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  // builder 开始
+  public EventLog() {}
+
+  public EventLog(Builder builder) {
     /**
      * 发信人
-     * <p> 示例值：abc@example.com
+     *
+     * <p>示例值：abc@example.com
      */
-    @SerializedName("mail_from")
-    private String mailFrom;
+    this.mailFrom = builder.mailFrom;
     /**
      * 收信人
-     * <p> 示例值：abc@example.com
+     *
+     * <p>示例值：abc@example.com
      */
-    @SerializedName("rcpt_to")
-    private String rcptTo;
+    this.rcptTo = builder.rcptTo;
     /**
      * 邮件ID
-     * <p> 示例值：abc@example.com
+     *
+     * <p>示例值：abc@example.com
      */
-    @SerializedName("smtp_message_id")
-    private String smtpMessageId;
+    this.smtpMessageId = builder.smtpMessageId;
     /**
      * 行为类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("event_type")
-    private Integer eventType;
+    this.eventType = builder.eventType;
     /**
      * 时间戳
-     * <p> 示例值：1706882657
+     *
+     * <p>示例值：1706882657
      */
-    @SerializedName("timestamp")
+    this.timestamp = builder.timestamp;
+  }
+
+  public static class Builder {
+    /**
+     * 发信人
+     *
+     * <p>示例值：abc@example.com
+     */
+    private String mailFrom;
+
+    /**
+     * 收信人
+     *
+     * <p>示例值：abc@example.com
+     */
+    private String rcptTo;
+
+    /**
+     * 邮件ID
+     *
+     * <p>示例值：abc@example.com
+     */
+    private String smtpMessageId;
+
+    /**
+     * 行为类型
+     *
+     * <p>示例值：1
+     */
+    private Integer eventType;
+
+    /**
+     * 时间戳
+     *
+     * <p>示例值：1706882657
+     */
     private Integer timestamp;
 
-    // builder 开始
-    public EventLog() {
+    /**
+     * 发信人
+     *
+     * <p>示例值：abc@example.com
+     *
+     * @param mailFrom
+     * @return
+     */
+    public Builder mailFrom(String mailFrom) {
+      this.mailFrom = mailFrom;
+      return this;
     }
 
-    public EventLog(Builder builder) {
-        /**
-         * 发信人
-         * <p> 示例值：abc@example.com
-         */
-        this.mailFrom = builder.mailFrom;
-        /**
-         * 收信人
-         * <p> 示例值：abc@example.com
-         */
-        this.rcptTo = builder.rcptTo;
-        /**
-         * 邮件ID
-         * <p> 示例值：abc@example.com
-         */
-        this.smtpMessageId = builder.smtpMessageId;
-        /**
-         * 行为类型
-         * <p> 示例值：1
-         */
-        this.eventType = builder.eventType;
-        /**
-         * 时间戳
-         * <p> 示例值：1706882657
-         */
-        this.timestamp = builder.timestamp;
+    /**
+     * 收信人
+     *
+     * <p>示例值：abc@example.com
+     *
+     * @param rcptTo
+     * @return
+     */
+    public Builder rcptTo(String rcptTo) {
+      this.rcptTo = rcptTo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 邮件ID
+     *
+     * <p>示例值：abc@example.com
+     *
+     * @param smtpMessageId
+     * @return
+     */
+    public Builder smtpMessageId(String smtpMessageId) {
+      this.smtpMessageId = smtpMessageId;
+      return this;
     }
 
-    public String getMailFrom() {
-        return this.mailFrom;
+    /**
+     * 行为类型
+     *
+     * <p>示例值：1
+     *
+     * @param eventType
+     * @return
+     */
+    public Builder eventType(Integer eventType) {
+      this.eventType = eventType;
+      return this;
     }
 
-    public void setMailFrom(String mailFrom) {
-        this.mailFrom = mailFrom;
+    /**
+     * 行为类型
+     *
+     * <p>示例值：1
+     *
+     * @param eventType {@link com.lark.oapi.service.mail.v1.enums.EventLogEventLogTypeEnum}
+     * @return
+     */
+    public Builder eventType(
+        com.lark.oapi.service.mail.v1.enums.EventLogEventLogTypeEnum eventType) {
+      this.eventType = eventType.getValue();
+      return this;
     }
 
-    public String getRcptTo() {
-        return this.rcptTo;
+    /**
+     * 时间戳
+     *
+     * <p>示例值：1706882657
+     *
+     * @param timestamp
+     * @return
+     */
+    public Builder timestamp(Integer timestamp) {
+      this.timestamp = timestamp;
+      return this;
     }
 
-    public void setRcptTo(String rcptTo) {
-        this.rcptTo = rcptTo;
+    public EventLog build() {
+      return new EventLog(this);
     }
+  }
 
-    public String getSmtpMessageId() {
-        return this.smtpMessageId;
-    }
-
-    public void setSmtpMessageId(String smtpMessageId) {
-        this.smtpMessageId = smtpMessageId;
-    }
-
-    public Integer getEventType() {
-        return this.eventType;
-    }
-
-    public void setEventType(Integer eventType) {
-        this.eventType = eventType;
-    }
-
-    public Integer getTimestamp() {
-        return this.timestamp;
-    }
-
-    public void setTimestamp(Integer timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public static class Builder {
-        /**
-         * 发信人
-         * <p> 示例值：abc@example.com
-         */
-        private String mailFrom;
-        /**
-         * 收信人
-         * <p> 示例值：abc@example.com
-         */
-        private String rcptTo;
-        /**
-         * 邮件ID
-         * <p> 示例值：abc@example.com
-         */
-        private String smtpMessageId;
-        /**
-         * 行为类型
-         * <p> 示例值：1
-         */
-        private Integer eventType;
-        /**
-         * 时间戳
-         * <p> 示例值：1706882657
-         */
-        private Integer timestamp;
-
-        /**
-         * 发信人
-         * <p> 示例值：abc@example.com
-         *
-         * @param mailFrom
-         * @return
-         */
-        public Builder mailFrom(String mailFrom) {
-            this.mailFrom = mailFrom;
-            return this;
-        }
-
-
-        /**
-         * 收信人
-         * <p> 示例值：abc@example.com
-         *
-         * @param rcptTo
-         * @return
-         */
-        public Builder rcptTo(String rcptTo) {
-            this.rcptTo = rcptTo;
-            return this;
-        }
-
-
-        /**
-         * 邮件ID
-         * <p> 示例值：abc@example.com
-         *
-         * @param smtpMessageId
-         * @return
-         */
-        public Builder smtpMessageId(String smtpMessageId) {
-            this.smtpMessageId = smtpMessageId;
-            return this;
-        }
-
-
-        /**
-         * 行为类型
-         * <p> 示例值：1
-         *
-         * @param eventType
-         * @return
-         */
-        public Builder eventType(Integer eventType) {
-            this.eventType = eventType;
-            return this;
-        }
-
-        /**
-         * 行为类型
-         * <p> 示例值：1
-         *
-         * @param eventType {@link com.lark.oapi.service.mail.v1.enums.EventLogEventLogTypeEnum}
-         * @return
-         */
-        public Builder eventType(com.lark.oapi.service.mail.v1.enums.EventLogEventLogTypeEnum eventType) {
-            this.eventType = eventType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 时间戳
-         * <p> 示例值：1706882657
-         *
-         * @param timestamp
-         * @return
-         */
-        public Builder timestamp(Integer timestamp) {
-            this.timestamp = timestamp;
-            return this;
-        }
-
-
-        public EventLog build() {
-            return new EventLog(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

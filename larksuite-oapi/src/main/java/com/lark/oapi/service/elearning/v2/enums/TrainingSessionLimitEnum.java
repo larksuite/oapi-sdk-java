@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.elearning.v2.enums;
 
-/**
- * 活动期次类型
- */
+/** 活动期次类型 */
 public enum TrainingSessionLimitEnum {
-    MULTISESSION(0), // 多期次
-    SINGLESESSION(1), // 单期次
-    ;
-    private Integer value;
+  MULTISESSION(0), // 多期次
+  SINGLESESSION(1), // 单期次
+  ;
+  private Integer value;
 
-    TrainingSessionLimitEnum(Integer value) {
-        this.value = value;
-    }
+  TrainingSessionLimitEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

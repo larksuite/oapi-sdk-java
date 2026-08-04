@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CpstCurrency {
+  /**
+   * 币种ID，可通过接口[【查询货币信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)获取
+   *
+   * <p>示例值：6863329932261459464
+   */
+  @SerializedName("currency_id")
+  private String currencyId;
+
+  /**
+   * 币种code
+   *
+   * <p>示例值：CNY
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 币种名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private CpstI18n name;
+
+  public String getCurrencyId() {
+    return this.currencyId;
+  }
+
+  public void setCurrencyId(String currencyId) {
+    this.currencyId = currencyId;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public CpstI18n getName() {
+    return this.name;
+  }
+
+  public void setName(CpstI18n name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public CpstCurrency() {}
+
+  public CpstCurrency(Builder builder) {
     /**
-     * 币种ID
-     * <p> 示例值：6863329932261459464
+     * 币种ID，可通过接口[【查询货币信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)获取
+     *
+     * <p>示例值：6863329932261459464
      */
-    @SerializedName("currency_id")
-    private String currencyId;
+    this.currencyId = builder.currencyId;
     /**
      * 币种code
-     * <p> 示例值：CNY
+     *
+     * <p>示例值：CNY
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 币种名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 币种ID，可通过接口[【查询货币信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)获取
+     *
+     * <p>示例值：6863329932261459464
+     */
+    private String currencyId;
+
+    /**
+     * 币种code
+     *
+     * <p>示例值：CNY
+     */
+    private String code;
+
+    /**
+     * 币种名称
+     *
+     * <p>示例值：
+     */
     private CpstI18n name;
 
-    // builder 开始
-    public CpstCurrency() {
+    /**
+     * 币种ID，可通过接口[【查询货币信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)获取
+     *
+     * <p>示例值：6863329932261459464
+     *
+     * @param currencyId
+     * @return
+     */
+    public Builder currencyId(String currencyId) {
+      this.currencyId = currencyId;
+      return this;
     }
 
-    public CpstCurrency(Builder builder) {
-        /**
-         * 币种ID
-         * <p> 示例值：6863329932261459464
-         */
-        this.currencyId = builder.currencyId;
-        /**
-         * 币种code
-         * <p> 示例值：CNY
-         */
-        this.code = builder.code;
-        /**
-         * 币种名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 币种code
+     *
+     * <p>示例值：CNY
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 币种名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(CpstI18n name) {
+      this.name = name;
+      return this;
     }
 
-    public String getCurrencyId() {
-        return this.currencyId;
+    public CpstCurrency build() {
+      return new CpstCurrency(this);
     }
+  }
 
-    public void setCurrencyId(String currencyId) {
-        this.currencyId = currencyId;
-    }
-
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public CpstI18n getName() {
-        return this.name;
-    }
-
-    public void setName(CpstI18n name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 币种ID
-         * <p> 示例值：6863329932261459464
-         */
-        private String currencyId;
-        /**
-         * 币种code
-         * <p> 示例值：CNY
-         */
-        private String code;
-        /**
-         * 币种名称
-         * <p> 示例值：
-         */
-        private CpstI18n name;
-
-        /**
-         * 币种ID
-         * <p> 示例值：6863329932261459464
-         *
-         * @param currencyId
-         * @return
-         */
-        public Builder currencyId(String currencyId) {
-            this.currencyId = currencyId;
-            return this;
-        }
-
-
-        /**
-         * 币种code
-         * <p> 示例值：CNY
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 币种名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(CpstI18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public CpstCurrency build() {
-            return new CpstCurrency(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageId {
+  /**
+   * 消息 ID
+   *
+   * <p>示例值：om_dc13264520392913993dd051dba21dcf
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  // builder 开始
+  public MessageId() {}
+
+  public MessageId(Builder builder) {
     /**
      * 消息 ID
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
      */
-    @SerializedName("message_id")
+    this.messageId = builder.messageId;
+  }
+
+  public static class Builder {
+    /**
+     * 消息 ID
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
+     */
     private String messageId;
 
-    // builder 开始
-    public MessageId() {
+    /**
+     * 消息 ID
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public MessageId(Builder builder) {
-        /**
-         * 消息 ID
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        this.messageId = builder.messageId;
+    public MessageId build() {
+      return new MessageId(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public static class Builder {
-        /**
-         * 消息 ID
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        private String messageId;
-
-        /**
-         * 消息 ID
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        public MessageId build() {
-            return new MessageId(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

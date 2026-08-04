@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollaborationRuleEntities {
+  /**
+   * user open id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("open_user_ids")
+  private String[] openUserIds;
+
+  /**
+   * department open id，0代表全部成员
+   *
+   * <p>示例值：
+   */
+  @SerializedName("open_department_ids")
+  private String[] openDepartmentIds;
+
+  /**
+   * group open id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("open_group_ids")
+  private String[] openGroupIds;
+
+  public String[] getOpenUserIds() {
+    return this.openUserIds;
+  }
+
+  public void setOpenUserIds(String[] openUserIds) {
+    this.openUserIds = openUserIds;
+  }
+
+  public String[] getOpenDepartmentIds() {
+    return this.openDepartmentIds;
+  }
+
+  public void setOpenDepartmentIds(String[] openDepartmentIds) {
+    this.openDepartmentIds = openDepartmentIds;
+  }
+
+  public String[] getOpenGroupIds() {
+    return this.openGroupIds;
+  }
+
+  public void setOpenGroupIds(String[] openGroupIds) {
+    this.openGroupIds = openGroupIds;
+  }
+
+  // builder 开始
+  public CollaborationRuleEntities() {}
+
+  public CollaborationRuleEntities(Builder builder) {
     /**
      * user open id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("open_user_ids")
-    private String[] openUserIds;
+    this.openUserIds = builder.openUserIds;
     /**
      * department open id，0代表全部成员
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("open_department_ids")
-    private String[] openDepartmentIds;
+    this.openDepartmentIds = builder.openDepartmentIds;
     /**
      * group open id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("open_group_ids")
+    this.openGroupIds = builder.openGroupIds;
+  }
+
+  public static class Builder {
+    /**
+     * user open id
+     *
+     * <p>示例值：
+     */
+    private String[] openUserIds;
+
+    /**
+     * department open id，0代表全部成员
+     *
+     * <p>示例值：
+     */
+    private String[] openDepartmentIds;
+
+    /**
+     * group open id
+     *
+     * <p>示例值：
+     */
     private String[] openGroupIds;
 
-    // builder 开始
-    public CollaborationRuleEntities() {
+    /**
+     * user open id
+     *
+     * <p>示例值：
+     *
+     * @param openUserIds
+     * @return
+     */
+    public Builder openUserIds(String[] openUserIds) {
+      this.openUserIds = openUserIds;
+      return this;
     }
 
-    public CollaborationRuleEntities(Builder builder) {
-        /**
-         * user open id
-         * <p> 示例值：
-         */
-        this.openUserIds = builder.openUserIds;
-        /**
-         * department open id，0代表全部成员
-         * <p> 示例值：
-         */
-        this.openDepartmentIds = builder.openDepartmentIds;
-        /**
-         * group open id
-         * <p> 示例值：
-         */
-        this.openGroupIds = builder.openGroupIds;
+    /**
+     * department open id，0代表全部成员
+     *
+     * <p>示例值：
+     *
+     * @param openDepartmentIds
+     * @return
+     */
+    public Builder openDepartmentIds(String[] openDepartmentIds) {
+      this.openDepartmentIds = openDepartmentIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * group open id
+     *
+     * <p>示例值：
+     *
+     * @param openGroupIds
+     * @return
+     */
+    public Builder openGroupIds(String[] openGroupIds) {
+      this.openGroupIds = openGroupIds;
+      return this;
     }
 
-    public String[] getOpenUserIds() {
-        return this.openUserIds;
+    public CollaborationRuleEntities build() {
+      return new CollaborationRuleEntities(this);
     }
+  }
 
-    public void setOpenUserIds(String[] openUserIds) {
-        this.openUserIds = openUserIds;
-    }
-
-    public String[] getOpenDepartmentIds() {
-        return this.openDepartmentIds;
-    }
-
-    public void setOpenDepartmentIds(String[] openDepartmentIds) {
-        this.openDepartmentIds = openDepartmentIds;
-    }
-
-    public String[] getOpenGroupIds() {
-        return this.openGroupIds;
-    }
-
-    public void setOpenGroupIds(String[] openGroupIds) {
-        this.openGroupIds = openGroupIds;
-    }
-
-    public static class Builder {
-        /**
-         * user open id
-         * <p> 示例值：
-         */
-        private String[] openUserIds;
-        /**
-         * department open id，0代表全部成员
-         * <p> 示例值：
-         */
-        private String[] openDepartmentIds;
-        /**
-         * group open id
-         * <p> 示例值：
-         */
-        private String[] openGroupIds;
-
-        /**
-         * user open id
-         * <p> 示例值：
-         *
-         * @param openUserIds
-         * @return
-         */
-        public Builder openUserIds(String[] openUserIds) {
-            this.openUserIds = openUserIds;
-            return this;
-        }
-
-
-        /**
-         * department open id，0代表全部成员
-         * <p> 示例值：
-         *
-         * @param openDepartmentIds
-         * @return
-         */
-        public Builder openDepartmentIds(String[] openDepartmentIds) {
-            this.openDepartmentIds = openDepartmentIds;
-            return this;
-        }
-
-
-        /**
-         * group open id
-         * <p> 示例值：
-         *
-         * @param openGroupIds
-         * @return
-         */
-        public Builder openGroupIds(String[] openGroupIds) {
-            this.openGroupIds = openGroupIds;
-            return this;
-        }
-
-
-        public CollaborationRuleEntities build() {
-            return new CollaborationRuleEntities(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

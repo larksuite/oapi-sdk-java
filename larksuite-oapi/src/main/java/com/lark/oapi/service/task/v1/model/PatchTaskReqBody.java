@@ -13,112 +13,139 @@
 
 package com.lark.oapi.service.task.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchTaskReqBody {
+  /**
+   * 被更新的任务实体基础信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("task")
+  private Task task;
+
+  /**
+   * 指定需要更新的任务字段。可以更新的字段包括：;<md-enum>;<md-enum-item key="summary"
+   * >任务标题（普通文本）</md-enum-item>;<md-enum-item key="rich_summary"
+   * >任务标题（富文本）</md-enum-item>;<md-enum-item key="description"
+   * >任务描述（普通文本）</md-enum-item>;<md-enum-item key="rich_description"
+   * >任务描述（富文本）</md-enum-item>;<md-enum-item key="due" >任务截止时间</md-enum-item>;<md-enum-item
+   * key="extra" >任务附属信息</md-enum-item>;<md-enum-item key="custom"
+   * >任务自定义完成规则</md-enum-item>;<md-enum-item key="follower_ids"
+   * >任务关注人ID列表</md-enum-item>;<md-enum-item key="collaborator_ids"
+   * >任务执行者ID列表</md-enum-item>;<md-enum-item key="repeat_rule" >任务重复规则</md-enum-item>;</md-enum>
+   *
+   * <p>示例值：["summary"]
+   */
+  @SerializedName("update_fields")
+  private String[] updateFields;
+
+  public Task getTask() {
+    return this.task;
+  }
+
+  public void setTask(Task task) {
+    this.task = task;
+  }
+
+  public String[] getUpdateFields() {
+    return this.updateFields;
+  }
+
+  public void setUpdateFields(String[] updateFields) {
+    this.updateFields = updateFields;
+  }
+
+  // builder 开始
+  public PatchTaskReqBody() {}
+
+  public PatchTaskReqBody(Builder builder) {
     /**
      * 被更新的任务实体基础信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("task")
-    private Task task;
+    this.task = builder.task;
     /**
-     * 指定需要更新的任务字段，否则服务端将不知道更新哪些字段
-     * <p> 示例值：["summary"]
+     * 指定需要更新的任务字段。可以更新的字段包括：;<md-enum>;<md-enum-item key="summary"
+     * >任务标题（普通文本）</md-enum-item>;<md-enum-item key="rich_summary"
+     * >任务标题（富文本）</md-enum-item>;<md-enum-item key="description"
+     * >任务描述（普通文本）</md-enum-item>;<md-enum-item key="rich_description"
+     * >任务描述（富文本）</md-enum-item>;<md-enum-item key="due" >任务截止时间</md-enum-item>;<md-enum-item
+     * key="extra" >任务附属信息</md-enum-item>;<md-enum-item key="custom"
+     * >任务自定义完成规则</md-enum-item>;<md-enum-item key="follower_ids"
+     * >任务关注人ID列表</md-enum-item>;<md-enum-item key="collaborator_ids"
+     * >任务执行者ID列表</md-enum-item>;<md-enum-item key="repeat_rule" >任务重复规则</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：["summary"]
      */
-    @SerializedName("update_fields")
+    this.updateFields = builder.updateFields;
+  }
+
+  public static class Builder {
+    /**
+     * 被更新的任务实体基础信息
+     *
+     * <p>示例值：
+     */
+    private Task task;
+
+    /**
+     * 指定需要更新的任务字段。可以更新的字段包括：;<md-enum>;<md-enum-item key="summary"
+     * >任务标题（普通文本）</md-enum-item>;<md-enum-item key="rich_summary"
+     * >任务标题（富文本）</md-enum-item>;<md-enum-item key="description"
+     * >任务描述（普通文本）</md-enum-item>;<md-enum-item key="rich_description"
+     * >任务描述（富文本）</md-enum-item>;<md-enum-item key="due" >任务截止时间</md-enum-item>;<md-enum-item
+     * key="extra" >任务附属信息</md-enum-item>;<md-enum-item key="custom"
+     * >任务自定义完成规则</md-enum-item>;<md-enum-item key="follower_ids"
+     * >任务关注人ID列表</md-enum-item>;<md-enum-item key="collaborator_ids"
+     * >任务执行者ID列表</md-enum-item>;<md-enum-item key="repeat_rule" >任务重复规则</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：["summary"]
+     */
     private String[] updateFields;
 
-    // builder 开始
-    public PatchTaskReqBody() {
+    /**
+     * 被更新的任务实体基础信息
+     *
+     * <p>示例值：
+     *
+     * @param task
+     * @return
+     */
+    public Builder task(Task task) {
+      this.task = task;
+      return this;
     }
 
-    public PatchTaskReqBody(Builder builder) {
-        /**
-         * 被更新的任务实体基础信息
-         * <p> 示例值：
-         */
-        this.task = builder.task;
-        /**
-         * 指定需要更新的任务字段，否则服务端将不知道更新哪些字段
-         * <p> 示例值：["summary"]
-         */
-        this.updateFields = builder.updateFields;
+    /**
+     * 指定需要更新的任务字段。可以更新的字段包括：;<md-enum>;<md-enum-item key="summary"
+     * >任务标题（普通文本）</md-enum-item>;<md-enum-item key="rich_summary"
+     * >任务标题（富文本）</md-enum-item>;<md-enum-item key="description"
+     * >任务描述（普通文本）</md-enum-item>;<md-enum-item key="rich_description"
+     * >任务描述（富文本）</md-enum-item>;<md-enum-item key="due" >任务截止时间</md-enum-item>;<md-enum-item
+     * key="extra" >任务附属信息</md-enum-item>;<md-enum-item key="custom"
+     * >任务自定义完成规则</md-enum-item>;<md-enum-item key="follower_ids"
+     * >任务关注人ID列表</md-enum-item>;<md-enum-item key="collaborator_ids"
+     * >任务执行者ID列表</md-enum-item>;<md-enum-item key="repeat_rule" >任务重复规则</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：["summary"]
+     *
+     * @param updateFields
+     * @return
+     */
+    public Builder updateFields(String[] updateFields) {
+      this.updateFields = updateFields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PatchTaskReqBody build() {
+      return new PatchTaskReqBody(this);
     }
+  }
 
-    public Task getTask() {
-        return this.task;
-    }
-
-    public void setTask(Task task) {
-        this.task = task;
-    }
-
-    public String[] getUpdateFields() {
-        return this.updateFields;
-    }
-
-    public void setUpdateFields(String[] updateFields) {
-        this.updateFields = updateFields;
-    }
-
-    public static class Builder {
-        /**
-         * 被更新的任务实体基础信息
-         * <p> 示例值：
-         */
-        private Task task;
-        /**
-         * 指定需要更新的任务字段，否则服务端将不知道更新哪些字段
-         * <p> 示例值：["summary"]
-         */
-        private String[] updateFields;
-
-        /**
-         * 被更新的任务实体基础信息
-         * <p> 示例值：
-         *
-         * @param task
-         * @return
-         */
-        public Builder task(Task task) {
-            this.task = task;
-            return this;
-        }
-
-
-        /**
-         * 指定需要更新的任务字段，否则服务端将不知道更新哪些字段
-         * <p> 示例值：["summary"]
-         *
-         * @param updateFields
-         * @return
-         */
-        public Builder updateFields(String[] updateFields) {
-            this.updateFields = updateFields;
-            return this;
-        }
-
-
-        public PatchTaskReqBody build() {
-            return new PatchTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

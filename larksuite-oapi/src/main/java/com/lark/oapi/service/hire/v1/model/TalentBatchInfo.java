@@ -13,296 +13,328 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentBatchInfo {
+  /**
+   * 人才
+   * ID，详情请查看：[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)
+   *
+   * <p>示例值：6891560630172518670
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)，仅当入参传入`mobile_number_list
+   * `时返回
+   *
+   * <p>示例值：86
+   */
+  @SerializedName("mobile_code")
+  private String mobileCode;
+
+  /**
+   * 手机号，仅当入参传入`mobile_number_list`时返回
+   *
+   * <p>示例值：182900291190
+   */
+  @SerializedName("mobile_number")
+  private String mobileNumber;
+
+  /**
+   * 邮箱，仅当入参传入`email_list `时返回
+   *
+   * <p>示例值：foo@bytedance.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 证件类型，枚举定义详见文档：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);的
+   * IdentificationType，仅当入参传入`identification_number_list `时返回
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("identification_type")
+  private Integer identificationType;
+
+  /**
+   * 证件号，仅当入参传入`identification_number_list `时返回
+   *
+   * <p>示例值：510403xxxxxxxx
+   */
+  @SerializedName("identification_number")
+  private String identificationNumber;
+
+  /**
+   * 是否已入职
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_onboarded")
+  private Boolean isOnboarded;
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public String getMobileCode() {
+    return this.mobileCode;
+  }
+
+  public void setMobileCode(String mobileCode) {
+    this.mobileCode = mobileCode;
+  }
+
+  public String getMobileNumber() {
+    return this.mobileNumber;
+  }
+
+  public void setMobileNumber(String mobileNumber) {
+    this.mobileNumber = mobileNumber;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public Integer getIdentificationType() {
+    return this.identificationType;
+  }
+
+  public void setIdentificationType(Integer identificationType) {
+    this.identificationType = identificationType;
+  }
+
+  public String getIdentificationNumber() {
+    return this.identificationNumber;
+  }
+
+  public void setIdentificationNumber(String identificationNumber) {
+    this.identificationNumber = identificationNumber;
+  }
+
+  public Boolean getIsOnboarded() {
+    return this.isOnboarded;
+  }
+
+  public void setIsOnboarded(Boolean isOnboarded) {
+    this.isOnboarded = isOnboarded;
+  }
+
+  // builder 开始
+  public TalentBatchInfo() {}
+
+  public TalentBatchInfo(Builder builder) {
     /**
-     * 人才 ID
-     * <p> 示例值：6891560630172518670
+     * 人才
+     * ID，详情请查看：[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)
+     *
+     * <p>示例值：6891560630172518670
      */
-    @SerializedName("talent_id")
-    private String talentId;
+    this.talentId = builder.talentId;
     /**
-     * 手机国家区号
-     * <p> 示例值：86
+     * 国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)，仅当入参传入`mobile_number_list
+     * `时返回
+     *
+     * <p>示例值：86
      */
-    @SerializedName("mobile_code")
-    private String mobileCode;
+    this.mobileCode = builder.mobileCode;
     /**
-     * 手机号
-     * <p> 示例值：182900291190
+     * 手机号，仅当入参传入`mobile_number_list`时返回
+     *
+     * <p>示例值：182900291190
      */
-    @SerializedName("mobile_number")
-    private String mobileNumber;
+    this.mobileNumber = builder.mobileNumber;
     /**
-     * 邮箱
-     * <p> 示例值：foo@bytedance.com
+     * 邮箱，仅当入参传入`email_list `时返回
+     *
+     * <p>示例值：foo@bytedance.com
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
-     * 证件类型，可参考招聘枚举常量 IdentificationType 枚举定义
-     * <p> 示例值：1
+     * 证件类型，枚举定义详见文档：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);的
+     * IdentificationType，仅当入参传入`identification_number_list `时返回
+     *
+     * <p>示例值：1
      */
-    @SerializedName("identification_type")
-    private Integer identificationType;
+    this.identificationType = builder.identificationType;
     /**
-     * 证件号
-     * <p> 示例值：130xxxxxxxxx
+     * 证件号，仅当入参传入`identification_number_list `时返回
+     *
+     * <p>示例值：510403xxxxxxxx
      */
-    @SerializedName("identification_number")
-    private String identificationNumber;
+    this.identificationNumber = builder.identificationNumber;
     /**
      * 是否已入职
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_onboarded")
+    this.isOnboarded = builder.isOnboarded;
+  }
+
+  public static class Builder {
+    /**
+     * 人才
+     * ID，详情请查看：[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)
+     *
+     * <p>示例值：6891560630172518670
+     */
+    private String talentId;
+
+    /**
+     * 国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)，仅当入参传入`mobile_number_list
+     * `时返回
+     *
+     * <p>示例值：86
+     */
+    private String mobileCode;
+
+    /**
+     * 手机号，仅当入参传入`mobile_number_list`时返回
+     *
+     * <p>示例值：182900291190
+     */
+    private String mobileNumber;
+
+    /**
+     * 邮箱，仅当入参传入`email_list `时返回
+     *
+     * <p>示例值：foo@bytedance.com
+     */
+    private String email;
+
+    /**
+     * 证件类型，枚举定义详见文档：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);的
+     * IdentificationType，仅当入参传入`identification_number_list `时返回
+     *
+     * <p>示例值：1
+     */
+    private Integer identificationType;
+
+    /**
+     * 证件号，仅当入参传入`identification_number_list `时返回
+     *
+     * <p>示例值：510403xxxxxxxx
+     */
+    private String identificationNumber;
+
+    /**
+     * 是否已入职
+     *
+     * <p>示例值：true
+     */
     private Boolean isOnboarded;
 
-    // builder 开始
-    public TalentBatchInfo() {
+    /**
+     * 人才
+     * ID，详情请查看：[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)
+     *
+     * <p>示例值：6891560630172518670
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public TalentBatchInfo(Builder builder) {
-        /**
-         * 人才 ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 手机国家区号
-         * <p> 示例值：86
-         */
-        this.mobileCode = builder.mobileCode;
-        /**
-         * 手机号
-         * <p> 示例值：182900291190
-         */
-        this.mobileNumber = builder.mobileNumber;
-        /**
-         * 邮箱
-         * <p> 示例值：foo@bytedance.com
-         */
-        this.email = builder.email;
-        /**
-         * 证件类型，可参考招聘枚举常量 IdentificationType 枚举定义
-         * <p> 示例值：1
-         */
-        this.identificationType = builder.identificationType;
-        /**
-         * 证件号
-         * <p> 示例值：130xxxxxxxxx
-         */
-        this.identificationNumber = builder.identificationNumber;
-        /**
-         * 是否已入职
-         * <p> 示例值：true
-         */
-        this.isOnboarded = builder.isOnboarded;
+    /**
+     * 国际区号，遵守国际统一标准，请参考[百度百科-国际长途电话区号](https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E9%95%BF%E9%80%94%E7%94%B5%E8%AF%9D%E5%8C%BA%E5%8F%B7%E8%A1%A8/12803495?fr=ge_ala)，仅当入参传入`mobile_number_list
+     * `时返回
+     *
+     * <p>示例值：86
+     *
+     * @param mobileCode
+     * @return
+     */
+    public Builder mobileCode(String mobileCode) {
+      this.mobileCode = mobileCode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 手机号，仅当入参传入`mobile_number_list`时返回
+     *
+     * <p>示例值：182900291190
+     *
+     * @param mobileNumber
+     * @return
+     */
+    public Builder mobileNumber(String mobileNumber) {
+      this.mobileNumber = mobileNumber;
+      return this;
     }
 
-    public String getTalentId() {
-        return this.talentId;
+    /**
+     * 邮箱，仅当入参传入`email_list `时返回
+     *
+     * <p>示例值：foo@bytedance.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
+    /**
+     * 证件类型，枚举定义详见文档：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);的
+     * IdentificationType，仅当入参传入`identification_number_list `时返回
+     *
+     * <p>示例值：1
+     *
+     * @param identificationType
+     * @return
+     */
+    public Builder identificationType(Integer identificationType) {
+      this.identificationType = identificationType;
+      return this;
     }
 
-    public String getMobileCode() {
-        return this.mobileCode;
+    /**
+     * 证件号，仅当入参传入`identification_number_list `时返回
+     *
+     * <p>示例值：510403xxxxxxxx
+     *
+     * @param identificationNumber
+     * @return
+     */
+    public Builder identificationNumber(String identificationNumber) {
+      this.identificationNumber = identificationNumber;
+      return this;
     }
 
-    public void setMobileCode(String mobileCode) {
-        this.mobileCode = mobileCode;
+    /**
+     * 是否已入职
+     *
+     * <p>示例值：true
+     *
+     * @param isOnboarded
+     * @return
+     */
+    public Builder isOnboarded(Boolean isOnboarded) {
+      this.isOnboarded = isOnboarded;
+      return this;
     }
 
-    public String getMobileNumber() {
-        return this.mobileNumber;
+    public TalentBatchInfo build() {
+      return new TalentBatchInfo(this);
     }
+  }
 
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Integer getIdentificationType() {
-        return this.identificationType;
-    }
-
-    public void setIdentificationType(Integer identificationType) {
-        this.identificationType = identificationType;
-    }
-
-    public String getIdentificationNumber() {
-        return this.identificationNumber;
-    }
-
-    public void setIdentificationNumber(String identificationNumber) {
-        this.identificationNumber = identificationNumber;
-    }
-
-    public Boolean getIsOnboarded() {
-        return this.isOnboarded;
-    }
-
-    public void setIsOnboarded(Boolean isOnboarded) {
-        this.isOnboarded = isOnboarded;
-    }
-
-    public static class Builder {
-        /**
-         * 人才 ID
-         * <p> 示例值：6891560630172518670
-         */
-        private String talentId;
-        /**
-         * 手机国家区号
-         * <p> 示例值：86
-         */
-        private String mobileCode;
-        /**
-         * 手机号
-         * <p> 示例值：182900291190
-         */
-        private String mobileNumber;
-        /**
-         * 邮箱
-         * <p> 示例值：foo@bytedance.com
-         */
-        private String email;
-        /**
-         * 证件类型，可参考招聘枚举常量 IdentificationType 枚举定义
-         * <p> 示例值：1
-         */
-        private Integer identificationType;
-        /**
-         * 证件号
-         * <p> 示例值：130xxxxxxxxx
-         */
-        private String identificationNumber;
-        /**
-         * 是否已入职
-         * <p> 示例值：true
-         */
-        private Boolean isOnboarded;
-
-        /**
-         * 人才 ID
-         * <p> 示例值：6891560630172518670
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 手机国家区号
-         * <p> 示例值：86
-         *
-         * @param mobileCode
-         * @return
-         */
-        public Builder mobileCode(String mobileCode) {
-            this.mobileCode = mobileCode;
-            return this;
-        }
-
-
-        /**
-         * 手机号
-         * <p> 示例值：182900291190
-         *
-         * @param mobileNumber
-         * @return
-         */
-        public Builder mobileNumber(String mobileNumber) {
-            this.mobileNumber = mobileNumber;
-            return this;
-        }
-
-
-        /**
-         * 邮箱
-         * <p> 示例值：foo@bytedance.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 证件类型，可参考招聘枚举常量 IdentificationType 枚举定义
-         * <p> 示例值：1
-         *
-         * @param identificationType
-         * @return
-         */
-        public Builder identificationType(Integer identificationType) {
-            this.identificationType = identificationType;
-            return this;
-        }
-
-
-        /**
-         * 证件号
-         * <p> 示例值：130xxxxxxxxx
-         *
-         * @param identificationNumber
-         * @return
-         */
-        public Builder identificationNumber(String identificationNumber) {
-            this.identificationNumber = identificationNumber;
-            return this;
-        }
-
-
-        /**
-         * 是否已入职
-         * <p> 示例值：true
-         *
-         * @param isOnboarded
-         * @return
-         */
-        public Builder isOnboarded(Boolean isOnboarded) {
-            this.isOnboarded = isOnboarded;
-            return this;
-        }
-
-
-        public TalentBatchInfo build() {
-            return new TalentBatchInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

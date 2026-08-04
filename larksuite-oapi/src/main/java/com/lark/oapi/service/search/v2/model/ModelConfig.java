@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ModelConfig {
+  /**
+   * 模型名称
+   *
+   * <p>示例值：mrc-passage-encoder
+   */
+  @SerializedName("model_name")
+  private String modelName;
+
+  public String getModelName() {
+    return this.modelName;
+  }
+
+  public void setModelName(String modelName) {
+    this.modelName = modelName;
+  }
+
+  // builder 开始
+  public ModelConfig() {}
+
+  public ModelConfig(Builder builder) {
     /**
      * 模型名称
-     * <p> 示例值：mrc-passage-encoder
+     *
+     * <p>示例值：mrc-passage-encoder
      */
-    @SerializedName("model_name")
+    this.modelName = builder.modelName;
+  }
+
+  public static class Builder {
+    /**
+     * 模型名称
+     *
+     * <p>示例值：mrc-passage-encoder
+     */
     private String modelName;
 
-    // builder 开始
-    public ModelConfig() {
+    /**
+     * 模型名称
+     *
+     * <p>示例值：mrc-passage-encoder
+     *
+     * @param modelName
+     * @return
+     */
+    public Builder modelName(String modelName) {
+      this.modelName = modelName;
+      return this;
     }
 
-    public ModelConfig(Builder builder) {
-        /**
-         * 模型名称
-         * <p> 示例值：mrc-passage-encoder
-         */
-        this.modelName = builder.modelName;
+    public ModelConfig build() {
+      return new ModelConfig(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getModelName() {
-        return this.modelName;
-    }
-
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
-    }
-
-    public static class Builder {
-        /**
-         * 模型名称
-         * <p> 示例值：mrc-passage-encoder
-         */
-        private String modelName;
-
-        /**
-         * 模型名称
-         * <p> 示例值：mrc-passage-encoder
-         *
-         * @param modelName
-         * @return
-         */
-        public Builder modelName(String modelName) {
-            this.modelName = modelName;
-            return this;
-        }
-
-
-        public ModelConfig build() {
-            return new ModelConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

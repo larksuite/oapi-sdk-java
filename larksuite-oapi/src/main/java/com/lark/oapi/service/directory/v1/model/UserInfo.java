@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserInfo {
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 联系人手机
+   *
+   * <p>示例值：+86 12344445555
+   */
+  @SerializedName("mobile")
+  private String mobile;
+
+  /**
+   * 联系人邮箱
+   *
+   * <p>示例值：admin@bytedance.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：Albert
+   */
+  @SerializedName("first_name")
+  private I18nText firstName;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：Einstein
+   */
+  @SerializedName("last_name")
+  private I18nText lastName;
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public String getMobile() {
+    return this.mobile;
+  }
+
+  public void setMobile(String mobile) {
+    this.mobile = mobile;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public I18nText getFirstName() {
+    return this.firstName;
+  }
+
+  public void setFirstName(I18nText firstName) {
+    this.firstName = firstName;
+  }
+
+  public I18nText getLastName() {
+    return this.lastName;
+  }
+
+  public void setLastName(I18nText lastName) {
+    this.lastName = lastName;
+  }
+
+  // builder 开始
+  public UserInfo() {}
+
+  public UserInfo(Builder builder) {
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 联系人手机
-     * <p> 示例值：+86 12344445555
+     *
+     * <p>示例值：+86 12344445555
      */
-    @SerializedName("mobile")
-    private String mobile;
+    this.mobile = builder.mobile;
     /**
      * 联系人邮箱
-     * <p> 示例值：admin@bytedance.com
+     *
+     * <p>示例值：admin@bytedance.com
      */
-    @SerializedName("email")
+    this.email = builder.email;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：Albert
+     */
+    this.firstName = builder.firstName;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：Einstein
+     */
+    this.lastName = builder.lastName;
+  }
+
+  public static class Builder {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 联系人手机
+     *
+     * <p>示例值：+86 12344445555
+     */
+    private String mobile;
+
+    /**
+     * 联系人邮箱
+     *
+     * <p>示例值：admin@bytedance.com
+     */
     private String email;
+
     /**
-     * i18n文本
-     * <p> 示例值：Albert
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：Albert
      */
-    @SerializedName("first_name")
     private I18nText firstName;
+
     /**
-     * i18n文本
-     * <p> 示例值：Einstein
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：Einstein
      */
-    @SerializedName("last_name")
     private I18nText lastName;
 
-    // builder 开始
-    public UserInfo() {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public UserInfo(Builder builder) {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 联系人手机
-         * <p> 示例值：+86 12344445555
-         */
-        this.mobile = builder.mobile;
-        /**
-         * 联系人邮箱
-         * <p> 示例值：admin@bytedance.com
-         */
-        this.email = builder.email;
-        /**
-         * i18n文本
-         * <p> 示例值：Albert
-         */
-        this.firstName = builder.firstName;
-        /**
-         * i18n文本
-         * <p> 示例值：Einstein
-         */
-        this.lastName = builder.lastName;
+    /**
+     * 联系人手机
+     *
+     * <p>示例值：+86 12344445555
+     *
+     * @param mobile
+     * @return
+     */
+    public Builder mobile(String mobile) {
+      this.mobile = mobile;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 联系人邮箱
+     *
+     * <p>示例值：admin@bytedance.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public I18nText getName() {
-        return this.name;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：Albert
+     *
+     * @param firstName
+     * @return
+     */
+    public Builder firstName(I18nText firstName) {
+      this.firstName = firstName;
+      return this;
     }
 
-    public void setName(I18nText name) {
-        this.name = name;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：Einstein
+     *
+     * @param lastName
+     * @return
+     */
+    public Builder lastName(I18nText lastName) {
+      this.lastName = lastName;
+      return this;
     }
 
-    public String getMobile() {
-        return this.mobile;
+    public UserInfo build() {
+      return new UserInfo(this);
     }
+  }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public I18nText getFirstName() {
-        return this.firstName;
-    }
-
-    public void setFirstName(I18nText firstName) {
-        this.firstName = firstName;
-    }
-
-    public I18nText getLastName() {
-        return this.lastName;
-    }
-
-    public void setLastName(I18nText lastName) {
-        this.lastName = lastName;
-    }
-
-    public static class Builder {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 联系人手机
-         * <p> 示例值：+86 12344445555
-         */
-        private String mobile;
-        /**
-         * 联系人邮箱
-         * <p> 示例值：admin@bytedance.com
-         */
-        private String email;
-        /**
-         * i18n文本
-         * <p> 示例值：Albert
-         */
-        private I18nText firstName;
-        /**
-         * i18n文本
-         * <p> 示例值：Einstein
-         */
-        private I18nText lastName;
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 联系人手机
-         * <p> 示例值：+86 12344445555
-         *
-         * @param mobile
-         * @return
-         */
-        public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
-        }
-
-
-        /**
-         * 联系人邮箱
-         * <p> 示例值：admin@bytedance.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：Albert
-         *
-         * @param firstName
-         * @return
-         */
-        public Builder firstName(I18nText firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：Einstein
-         *
-         * @param lastName
-         * @return
-         */
-        public Builder lastName(I18nText lastName) {
-            this.lastName = lastName;
-            return this;
-        }
-
-
-        public UserInfo build() {
-            return new UserInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

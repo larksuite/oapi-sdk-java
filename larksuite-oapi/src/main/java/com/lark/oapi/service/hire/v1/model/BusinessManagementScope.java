@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BusinessManagementScope {
+  /**
+   * 实体
+   *
+   * <p>示例值：
+   */
+  @SerializedName("entity")
+  private EntityInfo entity;
+
+  /**
+   * 权限分组
+   *
+   * <p>示例值：
+   */
+  @SerializedName("permission_groups")
+  private PermissionGroupInfo[] permissionGroups;
+
+  public EntityInfo getEntity() {
+    return this.entity;
+  }
+
+  public void setEntity(EntityInfo entity) {
+    this.entity = entity;
+  }
+
+  public PermissionGroupInfo[] getPermissionGroups() {
+    return this.permissionGroups;
+  }
+
+  public void setPermissionGroups(PermissionGroupInfo[] permissionGroups) {
+    this.permissionGroups = permissionGroups;
+  }
+
+  // builder 开始
+  public BusinessManagementScope() {}
+
+  public BusinessManagementScope(Builder builder) {
     /**
      * 实体
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("entity")
-    private EntityInfo entity;
+    this.entity = builder.entity;
     /**
      * 权限分组
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("permission_groups")
+    this.permissionGroups = builder.permissionGroups;
+  }
+
+  public static class Builder {
+    /**
+     * 实体
+     *
+     * <p>示例值：
+     */
+    private EntityInfo entity;
+
+    /**
+     * 权限分组
+     *
+     * <p>示例值：
+     */
     private PermissionGroupInfo[] permissionGroups;
 
-    // builder 开始
-    public BusinessManagementScope() {
+    /**
+     * 实体
+     *
+     * <p>示例值：
+     *
+     * @param entity
+     * @return
+     */
+    public Builder entity(EntityInfo entity) {
+      this.entity = entity;
+      return this;
     }
 
-    public BusinessManagementScope(Builder builder) {
-        /**
-         * 实体
-         * <p> 示例值：
-         */
-        this.entity = builder.entity;
-        /**
-         * 权限分组
-         * <p> 示例值：
-         */
-        this.permissionGroups = builder.permissionGroups;
+    /**
+     * 权限分组
+     *
+     * <p>示例值：
+     *
+     * @param permissionGroups
+     * @return
+     */
+    public Builder permissionGroups(PermissionGroupInfo[] permissionGroups) {
+      this.permissionGroups = permissionGroups;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BusinessManagementScope build() {
+      return new BusinessManagementScope(this);
     }
+  }
 
-    public EntityInfo getEntity() {
-        return this.entity;
-    }
-
-    public void setEntity(EntityInfo entity) {
-        this.entity = entity;
-    }
-
-    public PermissionGroupInfo[] getPermissionGroups() {
-        return this.permissionGroups;
-    }
-
-    public void setPermissionGroups(PermissionGroupInfo[] permissionGroups) {
-        this.permissionGroups = permissionGroups;
-    }
-
-    public static class Builder {
-        /**
-         * 实体
-         * <p> 示例值：
-         */
-        private EntityInfo entity;
-        /**
-         * 权限分组
-         * <p> 示例值：
-         */
-        private PermissionGroupInfo[] permissionGroups;
-
-        /**
-         * 实体
-         * <p> 示例值：
-         *
-         * @param entity
-         * @return
-         */
-        public Builder entity(EntityInfo entity) {
-            this.entity = entity;
-            return this;
-        }
-
-
-        /**
-         * 权限分组
-         * <p> 示例值：
-         *
-         * @param permissionGroups
-         * @return
-         */
-        public Builder permissionGroups(PermissionGroupInfo[] permissionGroups) {
-            this.permissionGroups = permissionGroups;
-            return this;
-        }
-
-
-        public BusinessManagementScope build() {
-            return new BusinessManagementScope(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

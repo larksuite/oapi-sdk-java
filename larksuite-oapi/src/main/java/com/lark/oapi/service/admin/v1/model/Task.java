@@ -13,358 +13,385 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.admin.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Task {
+  /**
+   * 文档原所有者ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("original_user_id")
+  private String originalUserId;
+
+  /**
+   * 目标用户ID
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("target_owner_id")
+  private String targetOwnerId;
+
+  /**
+   * 恢复文件列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("file_list")
+  private File[] fileList;
+
+  /**
+   * 任务id
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * 任务状态
+   *
+   * <p>示例值：1,2
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 文档原所有者邮箱
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("original_user_email")
+  private String originalUserEmail;
+
+  /**
+   * 文档新所有者邮箱
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("target_owner_email")
+  private String targetOwnerEmail;
+
+  /**
+   * 任务类型
+   *
+   * <p>示例值：1,2
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  public String getOriginalUserId() {
+    return this.originalUserId;
+  }
+
+  public void setOriginalUserId(String originalUserId) {
+    this.originalUserId = originalUserId;
+  }
+
+  public String getTargetOwnerId() {
+    return this.targetOwnerId;
+  }
+
+  public void setTargetOwnerId(String targetOwnerId) {
+    this.targetOwnerId = targetOwnerId;
+  }
+
+  public File[] getFileList() {
+    return this.fileList;
+  }
+
+  public void setFileList(File[] fileList) {
+    this.fileList = fileList;
+  }
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getOriginalUserEmail() {
+    return this.originalUserEmail;
+  }
+
+  public void setOriginalUserEmail(String originalUserEmail) {
+    this.originalUserEmail = originalUserEmail;
+  }
+
+  public String getTargetOwnerEmail() {
+    return this.targetOwnerEmail;
+  }
+
+  public void setTargetOwnerEmail(String targetOwnerEmail) {
+    this.targetOwnerEmail = targetOwnerEmail;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public Task() {}
+
+  public Task(Builder builder) {
     /**
      * 文档原所有者ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("original_user_id")
-    private String originalUserId;
+    this.originalUserId = builder.originalUserId;
     /**
      * 目标用户ID
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("target_owner_id")
-    private String targetOwnerId;
+    this.targetOwnerId = builder.targetOwnerId;
     /**
      * 恢复文件列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("file_list")
-    private File[] fileList;
+    this.fileList = builder.fileList;
     /**
      * 任务id
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
     /**
      * 任务状态
-     * <p> 示例值：1,2
+     *
+     * <p>示例值：1,2
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 文档原所有者邮箱
-     * <p> 示例值：xxx
+     *
+     * <p>示例值：xxx
      */
-    @SerializedName("original_user_email")
-    private String originalUserEmail;
+    this.originalUserEmail = builder.originalUserEmail;
     /**
      * 文档新所有者邮箱
-     * <p> 示例值：xxx
+     *
+     * <p>示例值：xxx
      */
-    @SerializedName("target_owner_email")
-    private String targetOwnerEmail;
+    this.targetOwnerEmail = builder.targetOwnerEmail;
     /**
      * 任务类型
-     * <p> 示例值：1,2
+     *
+     * <p>示例值：1,2
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 文档原所有者ID
+     *
+     * <p>示例值：1
+     */
+    private String originalUserId;
+
+    /**
+     * 目标用户ID
+     *
+     * <p>示例值：2
+     */
+    private String targetOwnerId;
+
+    /**
+     * 恢复文件列表
+     *
+     * <p>示例值：
+     */
+    private File[] fileList;
+
+    /**
+     * 任务id
+     *
+     * <p>示例值：123
+     */
+    private String taskId;
+
+    /**
+     * 任务状态
+     *
+     * <p>示例值：1,2
+     */
+    private Integer status;
+
+    /**
+     * 文档原所有者邮箱
+     *
+     * <p>示例值：xxx
+     */
+    private String originalUserEmail;
+
+    /**
+     * 文档新所有者邮箱
+     *
+     * <p>示例值：xxx
+     */
+    private String targetOwnerEmail;
+
+    /**
+     * 任务类型
+     *
+     * <p>示例值：1,2
+     */
     private Integer type;
 
-    // builder 开始
-    public Task() {
+    /**
+     * 文档原所有者ID
+     *
+     * <p>示例值：1
+     *
+     * @param originalUserId
+     * @return
+     */
+    public Builder originalUserId(String originalUserId) {
+      this.originalUserId = originalUserId;
+      return this;
     }
 
-    public Task(Builder builder) {
-        /**
-         * 文档原所有者ID
-         * <p> 示例值：1
-         */
-        this.originalUserId = builder.originalUserId;
-        /**
-         * 目标用户ID
-         * <p> 示例值：2
-         */
-        this.targetOwnerId = builder.targetOwnerId;
-        /**
-         * 恢复文件列表
-         * <p> 示例值：
-         */
-        this.fileList = builder.fileList;
-        /**
-         * 任务id
-         * <p> 示例值：123
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 任务状态
-         * <p> 示例值：1,2
-         */
-        this.status = builder.status;
-        /**
-         * 文档原所有者邮箱
-         * <p> 示例值：xxx
-         */
-        this.originalUserEmail = builder.originalUserEmail;
-        /**
-         * 文档新所有者邮箱
-         * <p> 示例值：xxx
-         */
-        this.targetOwnerEmail = builder.targetOwnerEmail;
-        /**
-         * 任务类型
-         * <p> 示例值：1,2
-         */
-        this.type = builder.type;
+    /**
+     * 目标用户ID
+     *
+     * <p>示例值：2
+     *
+     * @param targetOwnerId
+     * @return
+     */
+    public Builder targetOwnerId(String targetOwnerId) {
+      this.targetOwnerId = targetOwnerId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 恢复文件列表
+     *
+     * <p>示例值：
+     *
+     * @param fileList
+     * @return
+     */
+    public Builder fileList(File[] fileList) {
+      this.fileList = fileList;
+      return this;
     }
 
-    public String getOriginalUserId() {
-        return this.originalUserId;
+    /**
+     * 任务id
+     *
+     * <p>示例值：123
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public void setOriginalUserId(String originalUserId) {
-        this.originalUserId = originalUserId;
+    /**
+     * 任务状态
+     *
+     * <p>示例值：1,2
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public String getTargetOwnerId() {
-        return this.targetOwnerId;
+    /**
+     * 任务状态
+     *
+     * <p>示例值：1,2
+     *
+     * @param status {@link com.lark.oapi.service.admin.v1.enums.TaskTaskStatusEnum}
+     * @return
+     */
+    public Builder status(com.lark.oapi.service.admin.v1.enums.TaskTaskStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public void setTargetOwnerId(String targetOwnerId) {
-        this.targetOwnerId = targetOwnerId;
+    /**
+     * 文档原所有者邮箱
+     *
+     * <p>示例值：xxx
+     *
+     * @param originalUserEmail
+     * @return
+     */
+    public Builder originalUserEmail(String originalUserEmail) {
+      this.originalUserEmail = originalUserEmail;
+      return this;
     }
 
-    public File[] getFileList() {
-        return this.fileList;
+    /**
+     * 文档新所有者邮箱
+     *
+     * <p>示例值：xxx
+     *
+     * @param targetOwnerEmail
+     * @return
+     */
+    public Builder targetOwnerEmail(String targetOwnerEmail) {
+      this.targetOwnerEmail = targetOwnerEmail;
+      return this;
     }
 
-    public void setFileList(File[] fileList) {
-        this.fileList = fileList;
+    /**
+     * 任务类型
+     *
+     * <p>示例值：1,2
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public String getTaskId() {
-        return this.taskId;
+    /**
+     * 任务类型
+     *
+     * <p>示例值：1,2
+     *
+     * @param type {@link com.lark.oapi.service.admin.v1.enums.TaskTaskTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.admin.v1.enums.TaskTaskTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
+    public Task build() {
+      return new Task(this);
     }
+  }
 
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getOriginalUserEmail() {
-        return this.originalUserEmail;
-    }
-
-    public void setOriginalUserEmail(String originalUserEmail) {
-        this.originalUserEmail = originalUserEmail;
-    }
-
-    public String getTargetOwnerEmail() {
-        return this.targetOwnerEmail;
-    }
-
-    public void setTargetOwnerEmail(String targetOwnerEmail) {
-        this.targetOwnerEmail = targetOwnerEmail;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 文档原所有者ID
-         * <p> 示例值：1
-         */
-        private String originalUserId;
-        /**
-         * 目标用户ID
-         * <p> 示例值：2
-         */
-        private String targetOwnerId;
-        /**
-         * 恢复文件列表
-         * <p> 示例值：
-         */
-        private File[] fileList;
-        /**
-         * 任务id
-         * <p> 示例值：123
-         */
-        private String taskId;
-        /**
-         * 任务状态
-         * <p> 示例值：1,2
-         */
-        private Integer status;
-        /**
-         * 文档原所有者邮箱
-         * <p> 示例值：xxx
-         */
-        private String originalUserEmail;
-        /**
-         * 文档新所有者邮箱
-         * <p> 示例值：xxx
-         */
-        private String targetOwnerEmail;
-        /**
-         * 任务类型
-         * <p> 示例值：1,2
-         */
-        private Integer type;
-
-        /**
-         * 文档原所有者ID
-         * <p> 示例值：1
-         *
-         * @param originalUserId
-         * @return
-         */
-        public Builder originalUserId(String originalUserId) {
-            this.originalUserId = originalUserId;
-            return this;
-        }
-
-
-        /**
-         * 目标用户ID
-         * <p> 示例值：2
-         *
-         * @param targetOwnerId
-         * @return
-         */
-        public Builder targetOwnerId(String targetOwnerId) {
-            this.targetOwnerId = targetOwnerId;
-            return this;
-        }
-
-
-        /**
-         * 恢复文件列表
-         * <p> 示例值：
-         *
-         * @param fileList
-         * @return
-         */
-        public Builder fileList(File[] fileList) {
-            this.fileList = fileList;
-            return this;
-        }
-
-
-        /**
-         * 任务id
-         * <p> 示例值：123
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * 任务状态
-         * <p> 示例值：1,2
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 任务状态
-         * <p> 示例值：1,2
-         *
-         * @param status {@link com.lark.oapi.service.admin.v1.enums.TaskTaskStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.admin.v1.enums.TaskTaskStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文档原所有者邮箱
-         * <p> 示例值：xxx
-         *
-         * @param originalUserEmail
-         * @return
-         */
-        public Builder originalUserEmail(String originalUserEmail) {
-            this.originalUserEmail = originalUserEmail;
-            return this;
-        }
-
-
-        /**
-         * 文档新所有者邮箱
-         * <p> 示例值：xxx
-         *
-         * @param targetOwnerEmail
-         * @return
-         */
-        public Builder targetOwnerEmail(String targetOwnerEmail) {
-            this.targetOwnerEmail = targetOwnerEmail;
-            return this;
-        }
-
-
-        /**
-         * 任务类型
-         * <p> 示例值：1,2
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 任务类型
-         * <p> 示例值：1,2
-         *
-         * @param type {@link com.lark.oapi.service.admin.v1.enums.TaskTaskTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.admin.v1.enums.TaskTaskTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        public Task build() {
-            return new Task(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

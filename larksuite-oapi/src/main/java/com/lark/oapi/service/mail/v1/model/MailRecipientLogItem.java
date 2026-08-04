@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MailRecipientLogItem {
+  /**
+   * 收件人
+   *
+   * <p>示例值：zhangsan@example.com
+   */
+  @SerializedName("recipient")
+  private String recipient;
+
+  /**
+   * 邮件日志文本列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mail_log_texts")
+  private MailRecipientLogText[] mailLogTexts;
+
+  public String getRecipient() {
+    return this.recipient;
+  }
+
+  public void setRecipient(String recipient) {
+    this.recipient = recipient;
+  }
+
+  public MailRecipientLogText[] getMailLogTexts() {
+    return this.mailLogTexts;
+  }
+
+  public void setMailLogTexts(MailRecipientLogText[] mailLogTexts) {
+    this.mailLogTexts = mailLogTexts;
+  }
+
+  // builder 开始
+  public MailRecipientLogItem() {}
+
+  public MailRecipientLogItem(Builder builder) {
     /**
      * 收件人
-     * <p> 示例值：zhangsan@example.com
+     *
+     * <p>示例值：zhangsan@example.com
      */
-    @SerializedName("recipient")
-    private String recipient;
+    this.recipient = builder.recipient;
     /**
      * 邮件日志文本列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("mail_log_texts")
+    this.mailLogTexts = builder.mailLogTexts;
+  }
+
+  public static class Builder {
+    /**
+     * 收件人
+     *
+     * <p>示例值：zhangsan@example.com
+     */
+    private String recipient;
+
+    /**
+     * 邮件日志文本列表
+     *
+     * <p>示例值：
+     */
     private MailRecipientLogText[] mailLogTexts;
 
-    // builder 开始
-    public MailRecipientLogItem() {
+    /**
+     * 收件人
+     *
+     * <p>示例值：zhangsan@example.com
+     *
+     * @param recipient
+     * @return
+     */
+    public Builder recipient(String recipient) {
+      this.recipient = recipient;
+      return this;
     }
 
-    public MailRecipientLogItem(Builder builder) {
-        /**
-         * 收件人
-         * <p> 示例值：zhangsan@example.com
-         */
-        this.recipient = builder.recipient;
-        /**
-         * 邮件日志文本列表
-         * <p> 示例值：
-         */
-        this.mailLogTexts = builder.mailLogTexts;
+    /**
+     * 邮件日志文本列表
+     *
+     * <p>示例值：
+     *
+     * @param mailLogTexts
+     * @return
+     */
+    public Builder mailLogTexts(MailRecipientLogText[] mailLogTexts) {
+      this.mailLogTexts = mailLogTexts;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MailRecipientLogItem build() {
+      return new MailRecipientLogItem(this);
     }
+  }
 
-    public String getRecipient() {
-        return this.recipient;
-    }
-
-    public void setRecipient(String recipient) {
-        this.recipient = recipient;
-    }
-
-    public MailRecipientLogText[] getMailLogTexts() {
-        return this.mailLogTexts;
-    }
-
-    public void setMailLogTexts(MailRecipientLogText[] mailLogTexts) {
-        this.mailLogTexts = mailLogTexts;
-    }
-
-    public static class Builder {
-        /**
-         * 收件人
-         * <p> 示例值：zhangsan@example.com
-         */
-        private String recipient;
-        /**
-         * 邮件日志文本列表
-         * <p> 示例值：
-         */
-        private MailRecipientLogText[] mailLogTexts;
-
-        /**
-         * 收件人
-         * <p> 示例值：zhangsan@example.com
-         *
-         * @param recipient
-         * @return
-         */
-        public Builder recipient(String recipient) {
-            this.recipient = recipient;
-            return this;
-        }
-
-
-        /**
-         * 邮件日志文本列表
-         * <p> 示例值：
-         *
-         * @param mailLogTexts
-         * @return
-         */
-        public Builder mailLogTexts(MailRecipientLogText[] mailLogTexts) {
-            this.mailLogTexts = mailLogTexts;
-            return this;
-        }
-
-
-        public MailRecipientLogItem build() {
-            return new MailRecipientLogItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

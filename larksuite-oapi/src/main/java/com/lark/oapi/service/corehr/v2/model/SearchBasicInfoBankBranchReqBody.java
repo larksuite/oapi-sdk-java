@@ -13,297 +13,333 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchBasicInfoBankBranchReqBody {
+  /**
+   * 银行 ID
+   * 列表，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)列举，或从[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的
+   * `person_info.bank_account_list.bank_id_v2` 字段中获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bank_id_list")
+  private String[] bankIdList;
+
+  /**
+   * 支行 ID
+   * 列表，可通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的
+   * `person_info.bank_account_list.bank_branch_id_v2` 字段获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bank_branch_id_list")
+  private String[] bankBranchIdList;
+
+  /**
+   * 支行名称列表，支持对支行名称精确搜索
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bank_branch_name_list")
+  private String[] bankBranchNameList;
+
+  /**
+   * 金融分支机构编码（联行号）列表，支持对金融分支机构编码精确搜索
+   *
+   * <p>示例值：
+   */
+  @SerializedName("code_list")
+  private String[] codeList;
+
+  /**
+   * 状态列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("status_list")
+  private Integer[] statusList;
+
+  /**
+   * 最早更新时间
+   *
+   * <p>示例值：2020-01-01 00:00:00
+   */
+  @SerializedName("update_start_time")
+  private String updateStartTime;
+
+  /**
+   * 最晚更新时间
+   *
+   * <p>示例值：2024-01-01 00:00:00
+   */
+  @SerializedName("update_end_time")
+  private String updateEndTime;
+
+  public String[] getBankIdList() {
+    return this.bankIdList;
+  }
+
+  public void setBankIdList(String[] bankIdList) {
+    this.bankIdList = bankIdList;
+  }
+
+  public String[] getBankBranchIdList() {
+    return this.bankBranchIdList;
+  }
+
+  public void setBankBranchIdList(String[] bankBranchIdList) {
+    this.bankBranchIdList = bankBranchIdList;
+  }
+
+  public String[] getBankBranchNameList() {
+    return this.bankBranchNameList;
+  }
+
+  public void setBankBranchNameList(String[] bankBranchNameList) {
+    this.bankBranchNameList = bankBranchNameList;
+  }
+
+  public String[] getCodeList() {
+    return this.codeList;
+  }
+
+  public void setCodeList(String[] codeList) {
+    this.codeList = codeList;
+  }
+
+  public Integer[] getStatusList() {
+    return this.statusList;
+  }
+
+  public void setStatusList(Integer[] statusList) {
+    this.statusList = statusList;
+  }
+
+  public String getUpdateStartTime() {
+    return this.updateStartTime;
+  }
+
+  public void setUpdateStartTime(String updateStartTime) {
+    this.updateStartTime = updateStartTime;
+  }
+
+  public String getUpdateEndTime() {
+    return this.updateEndTime;
+  }
+
+  public void setUpdateEndTime(String updateEndTime) {
+    this.updateEndTime = updateEndTime;
+  }
+
+  // builder 开始
+  public SearchBasicInfoBankBranchReqBody() {}
+
+  public SearchBasicInfoBankBranchReqBody(Builder builder) {
     /**
-     * 银行 ID 列表，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)列举，或从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段中获取
-     * <p> 示例值：
+     * 银行 ID
+     * 列表，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)列举，或从[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的
+     * `person_info.bank_account_list.bank_id_v2` 字段中获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("bank_id_list")
-    private String[] bankIdList;
+    this.bankIdList = builder.bankIdList;
     /**
-     * 支行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_branch_id_v2` 字段获取
-     * <p> 示例值：
+     * 支行 ID
+     * 列表，可通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的
+     * `person_info.bank_account_list.bank_branch_id_v2` 字段获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("bank_branch_id_list")
-    private String[] bankBranchIdList;
+    this.bankBranchIdList = builder.bankBranchIdList;
     /**
      * 支行名称列表，支持对支行名称精确搜索
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bank_branch_name_list")
-    private String[] bankBranchNameList;
+    this.bankBranchNameList = builder.bankBranchNameList;
     /**
      * 金融分支机构编码（联行号）列表，支持对金融分支机构编码精确搜索
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("code_list")
-    private String[] codeList;
+    this.codeList = builder.codeList;
     /**
      * 状态列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("status_list")
-    private Integer[] statusList;
+    this.statusList = builder.statusList;
     /**
      * 最早更新时间
-     * <p> 示例值：2020-01-01 00:00:00
+     *
+     * <p>示例值：2020-01-01 00:00:00
      */
-    @SerializedName("update_start_time")
-    private String updateStartTime;
+    this.updateStartTime = builder.updateStartTime;
     /**
      * 最晚更新时间
-     * <p> 示例值：2024-01-01 00:00:00
+     *
+     * <p>示例值：2024-01-01 00:00:00
      */
-    @SerializedName("update_end_time")
+    this.updateEndTime = builder.updateEndTime;
+  }
+
+  public static class Builder {
+    /**
+     * 银行 ID
+     * 列表，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)列举，或从[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的
+     * `person_info.bank_account_list.bank_id_v2` 字段中获取
+     *
+     * <p>示例值：
+     */
+    private String[] bankIdList;
+
+    /**
+     * 支行 ID
+     * 列表，可通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的
+     * `person_info.bank_account_list.bank_branch_id_v2` 字段获取
+     *
+     * <p>示例值：
+     */
+    private String[] bankBranchIdList;
+
+    /**
+     * 支行名称列表，支持对支行名称精确搜索
+     *
+     * <p>示例值：
+     */
+    private String[] bankBranchNameList;
+
+    /**
+     * 金融分支机构编码（联行号）列表，支持对金融分支机构编码精确搜索
+     *
+     * <p>示例值：
+     */
+    private String[] codeList;
+
+    /**
+     * 状态列表
+     *
+     * <p>示例值：
+     */
+    private Integer[] statusList;
+
+    /**
+     * 最早更新时间
+     *
+     * <p>示例值：2020-01-01 00:00:00
+     */
+    private String updateStartTime;
+
+    /**
+     * 最晚更新时间
+     *
+     * <p>示例值：2024-01-01 00:00:00
+     */
     private String updateEndTime;
 
-    // builder 开始
-    public SearchBasicInfoBankBranchReqBody() {
+    /**
+     * 银行 ID
+     * 列表，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)列举，或从[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的
+     * `person_info.bank_account_list.bank_id_v2` 字段中获取
+     *
+     * <p>示例值：
+     *
+     * @param bankIdList
+     * @return
+     */
+    public Builder bankIdList(String[] bankIdList) {
+      this.bankIdList = bankIdList;
+      return this;
     }
 
-    public SearchBasicInfoBankBranchReqBody(Builder builder) {
-        /**
-         * 银行 ID 列表，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)列举，或从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段中获取
-         * <p> 示例值：
-         */
-        this.bankIdList = builder.bankIdList;
-        /**
-         * 支行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_branch_id_v2` 字段获取
-         * <p> 示例值：
-         */
-        this.bankBranchIdList = builder.bankBranchIdList;
-        /**
-         * 支行名称列表，支持对支行名称精确搜索
-         * <p> 示例值：
-         */
-        this.bankBranchNameList = builder.bankBranchNameList;
-        /**
-         * 金融分支机构编码（联行号）列表，支持对金融分支机构编码精确搜索
-         * <p> 示例值：
-         */
-        this.codeList = builder.codeList;
-        /**
-         * 状态列表
-         * <p> 示例值：
-         */
-        this.statusList = builder.statusList;
-        /**
-         * 最早更新时间
-         * <p> 示例值：2020-01-01 00:00:00
-         */
-        this.updateStartTime = builder.updateStartTime;
-        /**
-         * 最晚更新时间
-         * <p> 示例值：2024-01-01 00:00:00
-         */
-        this.updateEndTime = builder.updateEndTime;
+    /**
+     * 支行 ID
+     * 列表，可通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的
+     * `person_info.bank_account_list.bank_branch_id_v2` 字段获取
+     *
+     * <p>示例值：
+     *
+     * @param bankBranchIdList
+     * @return
+     */
+    public Builder bankBranchIdList(String[] bankBranchIdList) {
+      this.bankBranchIdList = bankBranchIdList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 支行名称列表，支持对支行名称精确搜索
+     *
+     * <p>示例值：
+     *
+     * @param bankBranchNameList
+     * @return
+     */
+    public Builder bankBranchNameList(String[] bankBranchNameList) {
+      this.bankBranchNameList = bankBranchNameList;
+      return this;
     }
 
-    public String[] getBankIdList() {
-        return this.bankIdList;
+    /**
+     * 金融分支机构编码（联行号）列表，支持对金融分支机构编码精确搜索
+     *
+     * <p>示例值：
+     *
+     * @param codeList
+     * @return
+     */
+    public Builder codeList(String[] codeList) {
+      this.codeList = codeList;
+      return this;
     }
 
-    public void setBankIdList(String[] bankIdList) {
-        this.bankIdList = bankIdList;
+    /**
+     * 状态列表
+     *
+     * <p>示例值：
+     *
+     * @param statusList
+     * @return
+     */
+    public Builder statusList(Integer[] statusList) {
+      this.statusList = statusList;
+      return this;
     }
 
-    public String[] getBankBranchIdList() {
-        return this.bankBranchIdList;
+    /**
+     * 最早更新时间
+     *
+     * <p>示例值：2020-01-01 00:00:00
+     *
+     * @param updateStartTime
+     * @return
+     */
+    public Builder updateStartTime(String updateStartTime) {
+      this.updateStartTime = updateStartTime;
+      return this;
     }
 
-    public void setBankBranchIdList(String[] bankBranchIdList) {
-        this.bankBranchIdList = bankBranchIdList;
+    /**
+     * 最晚更新时间
+     *
+     * <p>示例值：2024-01-01 00:00:00
+     *
+     * @param updateEndTime
+     * @return
+     */
+    public Builder updateEndTime(String updateEndTime) {
+      this.updateEndTime = updateEndTime;
+      return this;
     }
 
-    public String[] getBankBranchNameList() {
-        return this.bankBranchNameList;
+    public SearchBasicInfoBankBranchReqBody build() {
+      return new SearchBasicInfoBankBranchReqBody(this);
     }
+  }
 
-    public void setBankBranchNameList(String[] bankBranchNameList) {
-        this.bankBranchNameList = bankBranchNameList;
-    }
-
-    public String[] getCodeList() {
-        return this.codeList;
-    }
-
-    public void setCodeList(String[] codeList) {
-        this.codeList = codeList;
-    }
-
-    public Integer[] getStatusList() {
-        return this.statusList;
-    }
-
-    public void setStatusList(Integer[] statusList) {
-        this.statusList = statusList;
-    }
-
-    public String getUpdateStartTime() {
-        return this.updateStartTime;
-    }
-
-    public void setUpdateStartTime(String updateStartTime) {
-        this.updateStartTime = updateStartTime;
-    }
-
-    public String getUpdateEndTime() {
-        return this.updateEndTime;
-    }
-
-    public void setUpdateEndTime(String updateEndTime) {
-        this.updateEndTime = updateEndTime;
-    }
-
-    public static class Builder {
-        /**
-         * 银行 ID 列表，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)列举，或从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段中获取
-         * <p> 示例值：
-         */
-        private String[] bankIdList;
-        /**
-         * 支行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_branch_id_v2` 字段获取
-         * <p> 示例值：
-         */
-        private String[] bankBranchIdList;
-        /**
-         * 支行名称列表，支持对支行名称精确搜索
-         * <p> 示例值：
-         */
-        private String[] bankBranchNameList;
-        /**
-         * 金融分支机构编码（联行号）列表，支持对金融分支机构编码精确搜索
-         * <p> 示例值：
-         */
-        private String[] codeList;
-        /**
-         * 状态列表
-         * <p> 示例值：
-         */
-        private Integer[] statusList;
-        /**
-         * 最早更新时间
-         * <p> 示例值：2020-01-01 00:00:00
-         */
-        private String updateStartTime;
-        /**
-         * 最晚更新时间
-         * <p> 示例值：2024-01-01 00:00:00
-         */
-        private String updateEndTime;
-
-        /**
-         * 银行 ID 列表，可通过[查询银行信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-bank/search)列举，或从[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_id_v2` 字段中获取
-         * <p> 示例值：
-         *
-         * @param bankIdList
-         * @return
-         */
-        public Builder bankIdList(String[] bankIdList) {
-            this.bankIdList = bankIdList;
-            return this;
-        }
-
-
-        /**
-         * 支行 ID 列表，可通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)、[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)等接口返回的 `person_info.bank_account_list.bank_branch_id_v2` 字段获取
-         * <p> 示例值：
-         *
-         * @param bankBranchIdList
-         * @return
-         */
-        public Builder bankBranchIdList(String[] bankBranchIdList) {
-            this.bankBranchIdList = bankBranchIdList;
-            return this;
-        }
-
-
-        /**
-         * 支行名称列表，支持对支行名称精确搜索
-         * <p> 示例值：
-         *
-         * @param bankBranchNameList
-         * @return
-         */
-        public Builder bankBranchNameList(String[] bankBranchNameList) {
-            this.bankBranchNameList = bankBranchNameList;
-            return this;
-        }
-
-
-        /**
-         * 金融分支机构编码（联行号）列表，支持对金融分支机构编码精确搜索
-         * <p> 示例值：
-         *
-         * @param codeList
-         * @return
-         */
-        public Builder codeList(String[] codeList) {
-            this.codeList = codeList;
-            return this;
-        }
-
-
-        /**
-         * 状态列表
-         * <p> 示例值：
-         *
-         * @param statusList
-         * @return
-         */
-        public Builder statusList(Integer[] statusList) {
-            this.statusList = statusList;
-            return this;
-        }
-
-
-        /**
-         * 最早更新时间
-         * <p> 示例值：2020-01-01 00:00:00
-         *
-         * @param updateStartTime
-         * @return
-         */
-        public Builder updateStartTime(String updateStartTime) {
-            this.updateStartTime = updateStartTime;
-            return this;
-        }
-
-
-        /**
-         * 最晚更新时间
-         * <p> 示例值：2024-01-01 00:00:00
-         *
-         * @param updateEndTime
-         * @return
-         */
-        public Builder updateEndTime(String updateEndTime) {
-            this.updateEndTime = updateEndTime;
-            return this;
-        }
-
-
-        public SearchBasicInfoBankBranchReqBody build() {
-            return new SearchBasicInfoBankBranchReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerifFieldSourceConfig {
+  /**
+   * 公式id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("formula_id")
+  private String formulaId;
+
+  /**
+   * 公式数据项id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("formula_item_id")
+  private String formulaItemId;
+
+  /**
+   * 公式表达式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("formula_text")
+  private String formulaText;
+
+  /**
+   * api_name
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 多条数据时计算方式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("source_aggregation_type")
+  private Integer sourceAggregationType;
+
+  /**
+   * 引用类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("ref_type")
+  private Integer refType;
+
+  public String getFormulaId() {
+    return this.formulaId;
+  }
+
+  public void setFormulaId(String formulaId) {
+    this.formulaId = formulaId;
+  }
+
+  public String getFormulaItemId() {
+    return this.formulaItemId;
+  }
+
+  public void setFormulaItemId(String formulaItemId) {
+    this.formulaItemId = formulaItemId;
+  }
+
+  public String getFormulaText() {
+    return this.formulaText;
+  }
+
+  public void setFormulaText(String formulaText) {
+    this.formulaText = formulaText;
+  }
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Integer getSourceAggregationType() {
+    return this.sourceAggregationType;
+  }
+
+  public void setSourceAggregationType(Integer sourceAggregationType) {
+    this.sourceAggregationType = sourceAggregationType;
+  }
+
+  public Integer getRefType() {
+    return this.refType;
+  }
+
+  public void setRefType(Integer refType) {
+    this.refType = refType;
+  }
+
+  // builder 开始
+  public VerifFieldSourceConfig() {}
+
+  public VerifFieldSourceConfig(Builder builder) {
     /**
      * 公式id
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("formula_id")
-    private String formulaId;
+    this.formulaId = builder.formulaId;
     /**
      * 公式数据项id
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("formula_item_id")
-    private String formulaItemId;
+    this.formulaItemId = builder.formulaItemId;
     /**
      * 公式表达式
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("formula_text")
-    private String formulaText;
+    this.formulaText = builder.formulaText;
     /**
      * api_name
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 多条数据时计算方式
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("source_aggregation_type")
-    private Integer sourceAggregationType;
+    this.sourceAggregationType = builder.sourceAggregationType;
     /**
      * 引用类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("ref_type")
+    this.refType = builder.refType;
+  }
+
+  public static class Builder {
+    /**
+     * 公式id
+     *
+     * <p>示例值：1
+     */
+    private String formulaId;
+
+    /**
+     * 公式数据项id
+     *
+     * <p>示例值：1
+     */
+    private String formulaItemId;
+
+    /**
+     * 公式表达式
+     *
+     * <p>示例值：1
+     */
+    private String formulaText;
+
+    /**
+     * api_name
+     *
+     * <p>示例值：1
+     */
+    private String apiName;
+
+    /**
+     * 多条数据时计算方式
+     *
+     * <p>示例值：1
+     */
+    private Integer sourceAggregationType;
+
+    /**
+     * 引用类型
+     *
+     * <p>示例值：1
+     */
     private Integer refType;
 
-    // builder 开始
-    public VerifFieldSourceConfig() {
+    /**
+     * 公式id
+     *
+     * <p>示例值：1
+     *
+     * @param formulaId
+     * @return
+     */
+    public Builder formulaId(String formulaId) {
+      this.formulaId = formulaId;
+      return this;
     }
 
-    public VerifFieldSourceConfig(Builder builder) {
-        /**
-         * 公式id
-         * <p> 示例值：1
-         */
-        this.formulaId = builder.formulaId;
-        /**
-         * 公式数据项id
-         * <p> 示例值：1
-         */
-        this.formulaItemId = builder.formulaItemId;
-        /**
-         * 公式表达式
-         * <p> 示例值：1
-         */
-        this.formulaText = builder.formulaText;
-        /**
-         * api_name
-         * <p> 示例值：1
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 多条数据时计算方式
-         * <p> 示例值：1
-         */
-        this.sourceAggregationType = builder.sourceAggregationType;
-        /**
-         * 引用类型
-         * <p> 示例值：1
-         */
-        this.refType = builder.refType;
+    /**
+     * 公式数据项id
+     *
+     * <p>示例值：1
+     *
+     * @param formulaItemId
+     * @return
+     */
+    public Builder formulaItemId(String formulaItemId) {
+      this.formulaItemId = formulaItemId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 公式表达式
+     *
+     * <p>示例值：1
+     *
+     * @param formulaText
+     * @return
+     */
+    public Builder formulaText(String formulaText) {
+      this.formulaText = formulaText;
+      return this;
     }
 
-    public String getFormulaId() {
-        return this.formulaId;
+    /**
+     * api_name
+     *
+     * <p>示例值：1
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public void setFormulaId(String formulaId) {
-        this.formulaId = formulaId;
+    /**
+     * 多条数据时计算方式
+     *
+     * <p>示例值：1
+     *
+     * @param sourceAggregationType
+     * @return
+     */
+    public Builder sourceAggregationType(Integer sourceAggregationType) {
+      this.sourceAggregationType = sourceAggregationType;
+      return this;
     }
 
-    public String getFormulaItemId() {
-        return this.formulaItemId;
+    /**
+     * 引用类型
+     *
+     * <p>示例值：1
+     *
+     * @param refType
+     * @return
+     */
+    public Builder refType(Integer refType) {
+      this.refType = refType;
+      return this;
     }
 
-    public void setFormulaItemId(String formulaItemId) {
-        this.formulaItemId = formulaItemId;
+    public VerifFieldSourceConfig build() {
+      return new VerifFieldSourceConfig(this);
     }
+  }
 
-    public String getFormulaText() {
-        return this.formulaText;
-    }
-
-    public void setFormulaText(String formulaText) {
-        this.formulaText = formulaText;
-    }
-
-    public String getApiName() {
-        return this.apiName;
-    }
-
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public Integer getSourceAggregationType() {
-        return this.sourceAggregationType;
-    }
-
-    public void setSourceAggregationType(Integer sourceAggregationType) {
-        this.sourceAggregationType = sourceAggregationType;
-    }
-
-    public Integer getRefType() {
-        return this.refType;
-    }
-
-    public void setRefType(Integer refType) {
-        this.refType = refType;
-    }
-
-    public static class Builder {
-        /**
-         * 公式id
-         * <p> 示例值：1
-         */
-        private String formulaId;
-        /**
-         * 公式数据项id
-         * <p> 示例值：1
-         */
-        private String formulaItemId;
-        /**
-         * 公式表达式
-         * <p> 示例值：1
-         */
-        private String formulaText;
-        /**
-         * api_name
-         * <p> 示例值：1
-         */
-        private String apiName;
-        /**
-         * 多条数据时计算方式
-         * <p> 示例值：1
-         */
-        private Integer sourceAggregationType;
-        /**
-         * 引用类型
-         * <p> 示例值：1
-         */
-        private Integer refType;
-
-        /**
-         * 公式id
-         * <p> 示例值：1
-         *
-         * @param formulaId
-         * @return
-         */
-        public Builder formulaId(String formulaId) {
-            this.formulaId = formulaId;
-            return this;
-        }
-
-
-        /**
-         * 公式数据项id
-         * <p> 示例值：1
-         *
-         * @param formulaItemId
-         * @return
-         */
-        public Builder formulaItemId(String formulaItemId) {
-            this.formulaItemId = formulaItemId;
-            return this;
-        }
-
-
-        /**
-         * 公式表达式
-         * <p> 示例值：1
-         *
-         * @param formulaText
-         * @return
-         */
-        public Builder formulaText(String formulaText) {
-            this.formulaText = formulaText;
-            return this;
-        }
-
-
-        /**
-         * api_name
-         * <p> 示例值：1
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 多条数据时计算方式
-         * <p> 示例值：1
-         *
-         * @param sourceAggregationType
-         * @return
-         */
-        public Builder sourceAggregationType(Integer sourceAggregationType) {
-            this.sourceAggregationType = sourceAggregationType;
-            return this;
-        }
-
-
-        /**
-         * 引用类型
-         * <p> 示例值：1
-         *
-         * @param refType
-         * @return
-         */
-        public Builder refType(Integer refType) {
-            this.refType = refType;
-            return this;
-        }
-
-
-        public VerifFieldSourceConfig build() {
-            return new VerifFieldSourceConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

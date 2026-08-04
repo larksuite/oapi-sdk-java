@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerifSourceConfig {
+  /**
+   * 公式数据项，source_type = 2 有值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("formula_config")
+  private VerifFieldSourceConfig formulaConfig;
+
+  /**
+   * 引用数据项，source_type = 1 有值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ref_source_config")
+  private VerifFieldSourceConfig refSourceConfig;
+
+  public VerifFieldSourceConfig getFormulaConfig() {
+    return this.formulaConfig;
+  }
+
+  public void setFormulaConfig(VerifFieldSourceConfig formulaConfig) {
+    this.formulaConfig = formulaConfig;
+  }
+
+  public VerifFieldSourceConfig getRefSourceConfig() {
+    return this.refSourceConfig;
+  }
+
+  public void setRefSourceConfig(VerifFieldSourceConfig refSourceConfig) {
+    this.refSourceConfig = refSourceConfig;
+  }
+
+  // builder 开始
+  public VerifSourceConfig() {}
+
+  public VerifSourceConfig(Builder builder) {
     /**
      * 公式数据项，source_type = 2 有值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("formula_config")
-    private VerifFieldSourceConfig formulaConfig;
+    this.formulaConfig = builder.formulaConfig;
     /**
      * 引用数据项，source_type = 1 有值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ref_source_config")
+    this.refSourceConfig = builder.refSourceConfig;
+  }
+
+  public static class Builder {
+    /**
+     * 公式数据项，source_type = 2 有值
+     *
+     * <p>示例值：
+     */
+    private VerifFieldSourceConfig formulaConfig;
+
+    /**
+     * 引用数据项，source_type = 1 有值
+     *
+     * <p>示例值：
+     */
     private VerifFieldSourceConfig refSourceConfig;
 
-    // builder 开始
-    public VerifSourceConfig() {
+    /**
+     * 公式数据项，source_type = 2 有值
+     *
+     * <p>示例值：
+     *
+     * @param formulaConfig
+     * @return
+     */
+    public Builder formulaConfig(VerifFieldSourceConfig formulaConfig) {
+      this.formulaConfig = formulaConfig;
+      return this;
     }
 
-    public VerifSourceConfig(Builder builder) {
-        /**
-         * 公式数据项，source_type = 2 有值
-         * <p> 示例值：
-         */
-        this.formulaConfig = builder.formulaConfig;
-        /**
-         * 引用数据项，source_type = 1 有值
-         * <p> 示例值：
-         */
-        this.refSourceConfig = builder.refSourceConfig;
+    /**
+     * 引用数据项，source_type = 1 有值
+     *
+     * <p>示例值：
+     *
+     * @param refSourceConfig
+     * @return
+     */
+    public Builder refSourceConfig(VerifFieldSourceConfig refSourceConfig) {
+      this.refSourceConfig = refSourceConfig;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public VerifSourceConfig build() {
+      return new VerifSourceConfig(this);
     }
+  }
 
-    public VerifFieldSourceConfig getFormulaConfig() {
-        return this.formulaConfig;
-    }
-
-    public void setFormulaConfig(VerifFieldSourceConfig formulaConfig) {
-        this.formulaConfig = formulaConfig;
-    }
-
-    public VerifFieldSourceConfig getRefSourceConfig() {
-        return this.refSourceConfig;
-    }
-
-    public void setRefSourceConfig(VerifFieldSourceConfig refSourceConfig) {
-        this.refSourceConfig = refSourceConfig;
-    }
-
-    public static class Builder {
-        /**
-         * 公式数据项，source_type = 2 有值
-         * <p> 示例值：
-         */
-        private VerifFieldSourceConfig formulaConfig;
-        /**
-         * 引用数据项，source_type = 1 有值
-         * <p> 示例值：
-         */
-        private VerifFieldSourceConfig refSourceConfig;
-
-        /**
-         * 公式数据项，source_type = 2 有值
-         * <p> 示例值：
-         *
-         * @param formulaConfig
-         * @return
-         */
-        public Builder formulaConfig(VerifFieldSourceConfig formulaConfig) {
-            this.formulaConfig = formulaConfig;
-            return this;
-        }
-
-
-        /**
-         * 引用数据项，source_type = 1 有值
-         * <p> 示例值：
-         *
-         * @param refSourceConfig
-         * @return
-         */
-        public Builder refSourceConfig(VerifFieldSourceConfig refSourceConfig) {
-            this.refSourceConfig = refSourceConfig;
-            return this;
-        }
-
-
-        public VerifSourceConfig build() {
-            return new VerifSourceConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

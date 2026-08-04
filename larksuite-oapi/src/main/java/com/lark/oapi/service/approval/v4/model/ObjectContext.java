@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ObjectContext {
+  /**
+   * 业务类型
+   *
+   * <p>示例值：Approval
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 业务ID
+   *
+   * <p>示例值：72741982461846214
+   */
+  @SerializedName("biz_id")
+  private String bizId;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getBizId() {
+    return this.bizId;
+  }
+
+  public void setBizId(String bizId) {
+    this.bizId = bizId;
+  }
+
+  // builder 开始
+  public ObjectContext() {}
+
+  public ObjectContext(Builder builder) {
     /**
      * 业务类型
-     * <p> 示例值：Approval
+     *
+     * <p>示例值：Approval
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 业务ID
-     * <p> 示例值：72741982461846214
+     *
+     * <p>示例值：72741982461846214
      */
-    @SerializedName("biz_id")
+    this.bizId = builder.bizId;
+  }
+
+  public static class Builder {
+    /**
+     * 业务类型
+     *
+     * <p>示例值：Approval
+     */
+    private String type;
+
+    /**
+     * 业务ID
+     *
+     * <p>示例值：72741982461846214
+     */
     private String bizId;
 
-    // builder 开始
-    public ObjectContext() {
+    /**
+     * 业务类型
+     *
+     * <p>示例值：Approval
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public ObjectContext(Builder builder) {
-        /**
-         * 业务类型
-         * <p> 示例值：Approval
-         */
-        this.type = builder.type;
-        /**
-         * 业务ID
-         * <p> 示例值：72741982461846214
-         */
-        this.bizId = builder.bizId;
+    /**
+     * 业务ID
+     *
+     * <p>示例值：72741982461846214
+     *
+     * @param bizId
+     * @return
+     */
+    public Builder bizId(String bizId) {
+      this.bizId = bizId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ObjectContext build() {
+      return new ObjectContext(this);
     }
+  }
 
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getBizId() {
-        return this.bizId;
-    }
-
-    public void setBizId(String bizId) {
-        this.bizId = bizId;
-    }
-
-    public static class Builder {
-        /**
-         * 业务类型
-         * <p> 示例值：Approval
-         */
-        private String type;
-        /**
-         * 业务ID
-         * <p> 示例值：72741982461846214
-         */
-        private String bizId;
-
-        /**
-         * 业务类型
-         * <p> 示例值：Approval
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 业务ID
-         * <p> 示例值：72741982461846214
-         *
-         * @param bizId
-         * @return
-         */
-        public Builder bizId(String bizId) {
-            this.bizId = bizId;
-            return this;
-        }
-
-
-        public ObjectContext build() {
-            return new ObjectContext(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

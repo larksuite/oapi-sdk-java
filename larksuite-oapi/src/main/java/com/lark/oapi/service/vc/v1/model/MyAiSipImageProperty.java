@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyAiSipImageProperty {
+  /**
+   * 图像主题
+   *
+   * <p>示例值：中国农历新年户外场景
+   */
+  @SerializedName("theme")
+  private String theme;
+
+  /**
+   * 图像张数
+   *
+   * <p>示例值：4
+   */
+  @SerializedName("number")
+  private Integer number;
+
+  /**
+   * 图像尺寸
+   *
+   * <p>示例值：128x128
+   */
+  @SerializedName("size")
+  private String size;
+
+  public String getTheme() {
+    return this.theme;
+  }
+
+  public void setTheme(String theme) {
+    this.theme = theme;
+  }
+
+  public Integer getNumber() {
+    return this.number;
+  }
+
+  public void setNumber(Integer number) {
+    this.number = number;
+  }
+
+  public String getSize() {
+    return this.size;
+  }
+
+  public void setSize(String size) {
+    this.size = size;
+  }
+
+  // builder 开始
+  public MyAiSipImageProperty() {}
+
+  public MyAiSipImageProperty(Builder builder) {
     /**
      * 图像主题
-     * <p> 示例值：中国农历新年户外场景
+     *
+     * <p>示例值：中国农历新年户外场景
      */
-    @SerializedName("theme")
-    private String theme;
+    this.theme = builder.theme;
     /**
      * 图像张数
-     * <p> 示例值：4
+     *
+     * <p>示例值：4
      */
-    @SerializedName("number")
-    private Integer number;
+    this.number = builder.number;
     /**
      * 图像尺寸
-     * <p> 示例值：128x128
+     *
+     * <p>示例值：128x128
      */
-    @SerializedName("size")
+    this.size = builder.size;
+  }
+
+  public static class Builder {
+    /**
+     * 图像主题
+     *
+     * <p>示例值：中国农历新年户外场景
+     */
+    private String theme;
+
+    /**
+     * 图像张数
+     *
+     * <p>示例值：4
+     */
+    private Integer number;
+
+    /**
+     * 图像尺寸
+     *
+     * <p>示例值：128x128
+     */
     private String size;
 
-    // builder 开始
-    public MyAiSipImageProperty() {
+    /**
+     * 图像主题
+     *
+     * <p>示例值：中国农历新年户外场景
+     *
+     * @param theme
+     * @return
+     */
+    public Builder theme(String theme) {
+      this.theme = theme;
+      return this;
     }
 
-    public MyAiSipImageProperty(Builder builder) {
-        /**
-         * 图像主题
-         * <p> 示例值：中国农历新年户外场景
-         */
-        this.theme = builder.theme;
-        /**
-         * 图像张数
-         * <p> 示例值：4
-         */
-        this.number = builder.number;
-        /**
-         * 图像尺寸
-         * <p> 示例值：128x128
-         */
-        this.size = builder.size;
+    /**
+     * 图像张数
+     *
+     * <p>示例值：4
+     *
+     * @param number
+     * @return
+     */
+    public Builder number(Integer number) {
+      this.number = number;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 图像尺寸
+     *
+     * <p>示例值：128x128
+     *
+     * @param size
+     * @return
+     */
+    public Builder size(String size) {
+      this.size = size;
+      return this;
     }
 
-    public String getTheme() {
-        return this.theme;
+    public MyAiSipImageProperty build() {
+      return new MyAiSipImageProperty(this);
     }
+  }
 
-    public void setTheme(String theme) {
-        this.theme = theme;
-    }
-
-    public Integer getNumber() {
-        return this.number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
-    public String getSize() {
-        return this.size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public static class Builder {
-        /**
-         * 图像主题
-         * <p> 示例值：中国农历新年户外场景
-         */
-        private String theme;
-        /**
-         * 图像张数
-         * <p> 示例值：4
-         */
-        private Integer number;
-        /**
-         * 图像尺寸
-         * <p> 示例值：128x128
-         */
-        private String size;
-
-        /**
-         * 图像主题
-         * <p> 示例值：中国农历新年户外场景
-         *
-         * @param theme
-         * @return
-         */
-        public Builder theme(String theme) {
-            this.theme = theme;
-            return this;
-        }
-
-
-        /**
-         * 图像张数
-         * <p> 示例值：4
-         *
-         * @param number
-         * @return
-         */
-        public Builder number(Integer number) {
-            this.number = number;
-            return this;
-        }
-
-
-        /**
-         * 图像尺寸
-         * <p> 示例值：128x128
-         *
-         * @param size
-         * @return
-         */
-        public Builder size(String size) {
-            this.size = size;
-            return this;
-        }
-
-
-        public MyAiSipImageProperty build() {
-            return new MyAiSipImageProperty(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

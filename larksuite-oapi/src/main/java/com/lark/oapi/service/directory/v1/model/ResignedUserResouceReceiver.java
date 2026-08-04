@@ -13,482 +13,535 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ResignedUserResouceReceiver {
+  /**
+   * 部门群接收者。ID值与查询参数中的employee_id_type 对应。;被删除用户为部门群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内第一个入群的人。
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("department_chat_acceptor_employee_id")
+  private String departmentChatAcceptorEmployeeId;
+
+  /**
+   * 外部群接收者。ID值与查询参数中的employee_id_type
+   * 对应。;被删除用户为外部群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内与被删除用户在同一组织的第一个入群的人，如果组织内只有该用户在群里，则解散外部群。
+   *
+   * <p>示例值：eehsdna
+   */
+  @SerializedName("external_chat_acceptor_employee_id")
+  private String externalChatAcceptorEmployeeId;
+
+  /**
+   * 文档接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的文档转让给接收者。不指定接收者则将文档资源保留在该用户名下。
+   *
+   * <p>示例值：eehsdna
+   */
+  @SerializedName("docs_acceptor_employee_id")
+  private String docsAcceptorEmployeeId;
+
+  /**
+   * 日程接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的日程转让给接收者。不指定接收者则将日程资源保留在该用户名下。
+   *
+   * <p>示例值：eehsdna
+   */
+  @SerializedName("calendar_acceptor_employee_id")
+  private String calendarAcceptorEmployeeId;
+
+  /**
+   * 应用接受者。ID值与查询参数中的employee_id_type
+   * 对应。;用户被删除时，其创建的应用转让给接收者，不指定接收者则保留应用在该用户名下，但该用户无法登录开发者后台进行应用管理，管理员可以在管理后台手动转移应用给其他人。
+   *
+   * <p>示例值：eehsdna
+   */
+  @SerializedName("application_acceptor_employee_id")
+  private String applicationAcceptorEmployeeId;
+
+  /**
+   * 服务台资源接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的服务台资源转让给接收者，不指定接收者时保留服务台资源在该用户名下。
+   *
+   * <p>示例值：eehsdna
+   */
+  @SerializedName("helpdesk_acceptor_employee_id")
+  private String helpdeskAcceptorEmployeeId;
+
+  /**
+   * 审批资源接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的审批资源转让给接收者，不指定接收者时保留审批资源在该用户名下。
+   *
+   * <p>示例值：eehsdna
+   */
+  @SerializedName("approval_acceptor_employee_id")
+  private String approvalAcceptorEmployeeId;
+
+  /**
+   * 用户邮件资源接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的邮件资源转让给接收者，不指定接受者则保留邮件资源在该用户名下。
+   *
+   * <p>示例值：eehsdna
+   */
+  @SerializedName("email_acceptor_employee_id")
+  private String emailAcceptorEmployeeId;
+
+  /**
+   * 抖音owner
+   *
+   * <p>示例值：eehsdna
+   */
+  @SerializedName("aweme_owner")
+  private String awemeOwner;
+
+  /**
+   * 妙记接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的妙记资源转让给接收者。如果不指定接收者则将妙记保留在该用户名下。
+   *
+   * <p>示例值：eehsdna
+   */
+  @SerializedName("minutes_acceptor_employee_id")
+  private String minutesAcceptorEmployeeId;
+
+  /**
+   * 飞书问卷接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的飞书问卷资源转让给接收者，不指定接收者则直接删除飞书问卷资源。
+   *
+   * <p>示例值：eehsdna
+   */
+  @SerializedName("survey_acceptor_employee_id")
+  private String surveyAcceptorEmployeeId;
+
+  /**
+   * 集成平台资源Owner
+   *
+   * <p>示例值：eehsdna
+   */
+  @SerializedName("anycross_acceptor_employee_id")
+  private String anycrossAcceptorEmployeeId;
+
+  public String getDepartmentChatAcceptorEmployeeId() {
+    return this.departmentChatAcceptorEmployeeId;
+  }
+
+  public void setDepartmentChatAcceptorEmployeeId(String departmentChatAcceptorEmployeeId) {
+    this.departmentChatAcceptorEmployeeId = departmentChatAcceptorEmployeeId;
+  }
+
+  public String getExternalChatAcceptorEmployeeId() {
+    return this.externalChatAcceptorEmployeeId;
+  }
+
+  public void setExternalChatAcceptorEmployeeId(String externalChatAcceptorEmployeeId) {
+    this.externalChatAcceptorEmployeeId = externalChatAcceptorEmployeeId;
+  }
+
+  public String getDocsAcceptorEmployeeId() {
+    return this.docsAcceptorEmployeeId;
+  }
+
+  public void setDocsAcceptorEmployeeId(String docsAcceptorEmployeeId) {
+    this.docsAcceptorEmployeeId = docsAcceptorEmployeeId;
+  }
+
+  public String getCalendarAcceptorEmployeeId() {
+    return this.calendarAcceptorEmployeeId;
+  }
+
+  public void setCalendarAcceptorEmployeeId(String calendarAcceptorEmployeeId) {
+    this.calendarAcceptorEmployeeId = calendarAcceptorEmployeeId;
+  }
+
+  public String getApplicationAcceptorEmployeeId() {
+    return this.applicationAcceptorEmployeeId;
+  }
+
+  public void setApplicationAcceptorEmployeeId(String applicationAcceptorEmployeeId) {
+    this.applicationAcceptorEmployeeId = applicationAcceptorEmployeeId;
+  }
+
+  public String getHelpdeskAcceptorEmployeeId() {
+    return this.helpdeskAcceptorEmployeeId;
+  }
+
+  public void setHelpdeskAcceptorEmployeeId(String helpdeskAcceptorEmployeeId) {
+    this.helpdeskAcceptorEmployeeId = helpdeskAcceptorEmployeeId;
+  }
+
+  public String getApprovalAcceptorEmployeeId() {
+    return this.approvalAcceptorEmployeeId;
+  }
+
+  public void setApprovalAcceptorEmployeeId(String approvalAcceptorEmployeeId) {
+    this.approvalAcceptorEmployeeId = approvalAcceptorEmployeeId;
+  }
+
+  public String getEmailAcceptorEmployeeId() {
+    return this.emailAcceptorEmployeeId;
+  }
+
+  public void setEmailAcceptorEmployeeId(String emailAcceptorEmployeeId) {
+    this.emailAcceptorEmployeeId = emailAcceptorEmployeeId;
+  }
+
+  public String getAwemeOwner() {
+    return this.awemeOwner;
+  }
+
+  public void setAwemeOwner(String awemeOwner) {
+    this.awemeOwner = awemeOwner;
+  }
+
+  public String getMinutesAcceptorEmployeeId() {
+    return this.minutesAcceptorEmployeeId;
+  }
+
+  public void setMinutesAcceptorEmployeeId(String minutesAcceptorEmployeeId) {
+    this.minutesAcceptorEmployeeId = minutesAcceptorEmployeeId;
+  }
+
+  public String getSurveyAcceptorEmployeeId() {
+    return this.surveyAcceptorEmployeeId;
+  }
+
+  public void setSurveyAcceptorEmployeeId(String surveyAcceptorEmployeeId) {
+    this.surveyAcceptorEmployeeId = surveyAcceptorEmployeeId;
+  }
+
+  public String getAnycrossAcceptorEmployeeId() {
+    return this.anycrossAcceptorEmployeeId;
+  }
+
+  public void setAnycrossAcceptorEmployeeId(String anycrossAcceptorEmployeeId) {
+    this.anycrossAcceptorEmployeeId = anycrossAcceptorEmployeeId;
+  }
+
+  // builder 开始
+  public ResignedUserResouceReceiver() {}
+
+  public ResignedUserResouceReceiver(Builder builder) {
     /**
-     * 部门群owner
-     * <p> 示例值：eehsdna
+     * 部门群接收者。ID值与查询参数中的employee_id_type 对应。;被删除用户为部门群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内第一个入群的人。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("department_chat_acceptor_employee_id")
-    private String departmentChatAcceptorEmployeeId;
+    this.departmentChatAcceptorEmployeeId = builder.departmentChatAcceptorEmployeeId;
     /**
-     * 外部群owner
-     * <p> 示例值：eehsdna
+     * 外部群接收者。ID值与查询参数中的employee_id_type
+     * 对应。;被删除用户为外部群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内与被删除用户在同一组织的第一个入群的人，如果组织内只有该用户在群里，则解散外部群。
+     *
+     * <p>示例值：eehsdna
      */
-    @SerializedName("external_chat_acceptor_employee_id")
-    private String externalChatAcceptorEmployeeId;
+    this.externalChatAcceptorEmployeeId = builder.externalChatAcceptorEmployeeId;
     /**
-     * 文档owner
-     * <p> 示例值：eehsdna
+     * 文档接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的文档转让给接收者。不指定接收者则将文档资源保留在该用户名下。
+     *
+     * <p>示例值：eehsdna
      */
-    @SerializedName("docs_acceptor_employee_id")
-    private String docsAcceptorEmployeeId;
+    this.docsAcceptorEmployeeId = builder.docsAcceptorEmployeeId;
     /**
-     * 日历owner
-     * <p> 示例值：eehsdna
+     * 日程接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的日程转让给接收者。不指定接收者则将日程资源保留在该用户名下。
+     *
+     * <p>示例值：eehsdna
      */
-    @SerializedName("calendar_acceptor_employee_id")
-    private String calendarAcceptorEmployeeId;
+    this.calendarAcceptorEmployeeId = builder.calendarAcceptorEmployeeId;
     /**
-     * 开放平台应用owner
-     * <p> 示例值：eehsdna
+     * 应用接受者。ID值与查询参数中的employee_id_type
+     * 对应。;用户被删除时，其创建的应用转让给接收者，不指定接收者则保留应用在该用户名下，但该用户无法登录开发者后台进行应用管理，管理员可以在管理后台手动转移应用给其他人。
+     *
+     * <p>示例值：eehsdna
      */
-    @SerializedName("application_acceptor_employee_id")
-    private String applicationAcceptorEmployeeId;
+    this.applicationAcceptorEmployeeId = builder.applicationAcceptorEmployeeId;
     /**
-     * 服务台owner
-     * <p> 示例值：eehsdna
+     * 服务台资源接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的服务台资源转让给接收者，不指定接收者时保留服务台资源在该用户名下。
+     *
+     * <p>示例值：eehsdna
      */
-    @SerializedName("helpdesk_acceptor_employee_id")
-    private String helpdeskAcceptorEmployeeId;
+    this.helpdeskAcceptorEmployeeId = builder.helpdeskAcceptorEmployeeId;
     /**
-     * 审批owner
-     * <p> 示例值：eehsdna
+     * 审批资源接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的审批资源转让给接收者，不指定接收者时保留审批资源在该用户名下。
+     *
+     * <p>示例值：eehsdna
      */
-    @SerializedName("approval_acceptor_employee_id")
-    private String approvalAcceptorEmployeeId;
+    this.approvalAcceptorEmployeeId = builder.approvalAcceptorEmployeeId;
     /**
-     * 邮件owner
-     * <p> 示例值：eehsdna
+     * 用户邮件资源接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的邮件资源转让给接收者，不指定接受者则保留邮件资源在该用户名下。
+     *
+     * <p>示例值：eehsdna
      */
-    @SerializedName("email_acceptor_employee_id")
-    private String emailAcceptorEmployeeId;
+    this.emailAcceptorEmployeeId = builder.emailAcceptorEmployeeId;
     /**
      * 抖音owner
-     * <p> 示例值：eehsdna
+     *
+     * <p>示例值：eehsdna
      */
-    @SerializedName("aweme_owner")
-    private String awemeOwner;
+    this.awemeOwner = builder.awemeOwner;
     /**
-     * 妙记Owner
-     * <p> 示例值：eehsdna
+     * 妙记接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的妙记资源转让给接收者。如果不指定接收者则将妙记保留在该用户名下。
+     *
+     * <p>示例值：eehsdna
      */
-    @SerializedName("minutes_acceptor_employee_id")
-    private String minutesAcceptorEmployeeId;
+    this.minutesAcceptorEmployeeId = builder.minutesAcceptorEmployeeId;
     /**
-     * 飞书问卷Owner
-     * <p> 示例值：eehsdna
+     * 飞书问卷接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的飞书问卷资源转让给接收者，不指定接收者则直接删除飞书问卷资源。
+     *
+     * <p>示例值：eehsdna
      */
-    @SerializedName("survey_acceptor_employee_id")
-    private String surveyAcceptorEmployeeId;
+    this.surveyAcceptorEmployeeId = builder.surveyAcceptorEmployeeId;
     /**
      * 集成平台资源Owner
-     * <p> 示例值：eehsdna
+     *
+     * <p>示例值：eehsdna
      */
-    @SerializedName("anycross_acceptor_employee_id")
+    this.anycrossAcceptorEmployeeId = builder.anycrossAcceptorEmployeeId;
+  }
+
+  public static class Builder {
+    /**
+     * 部门群接收者。ID值与查询参数中的employee_id_type 对应。;被删除用户为部门群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内第一个入群的人。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    private String departmentChatAcceptorEmployeeId;
+
+    /**
+     * 外部群接收者。ID值与查询参数中的employee_id_type
+     * 对应。;被删除用户为外部群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内与被删除用户在同一组织的第一个入群的人，如果组织内只有该用户在群里，则解散外部群。
+     *
+     * <p>示例值：eehsdna
+     */
+    private String externalChatAcceptorEmployeeId;
+
+    /**
+     * 文档接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的文档转让给接收者。不指定接收者则将文档资源保留在该用户名下。
+     *
+     * <p>示例值：eehsdna
+     */
+    private String docsAcceptorEmployeeId;
+
+    /**
+     * 日程接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的日程转让给接收者。不指定接收者则将日程资源保留在该用户名下。
+     *
+     * <p>示例值：eehsdna
+     */
+    private String calendarAcceptorEmployeeId;
+
+    /**
+     * 应用接受者。ID值与查询参数中的employee_id_type
+     * 对应。;用户被删除时，其创建的应用转让给接收者，不指定接收者则保留应用在该用户名下，但该用户无法登录开发者后台进行应用管理，管理员可以在管理后台手动转移应用给其他人。
+     *
+     * <p>示例值：eehsdna
+     */
+    private String applicationAcceptorEmployeeId;
+
+    /**
+     * 服务台资源接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的服务台资源转让给接收者，不指定接收者时保留服务台资源在该用户名下。
+     *
+     * <p>示例值：eehsdna
+     */
+    private String helpdeskAcceptorEmployeeId;
+
+    /**
+     * 审批资源接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的审批资源转让给接收者，不指定接收者时保留审批资源在该用户名下。
+     *
+     * <p>示例值：eehsdna
+     */
+    private String approvalAcceptorEmployeeId;
+
+    /**
+     * 用户邮件资源接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的邮件资源转让给接收者，不指定接受者则保留邮件资源在该用户名下。
+     *
+     * <p>示例值：eehsdna
+     */
+    private String emailAcceptorEmployeeId;
+
+    /**
+     * 抖音owner
+     *
+     * <p>示例值：eehsdna
+     */
+    private String awemeOwner;
+
+    /**
+     * 妙记接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的妙记资源转让给接收者。如果不指定接收者则将妙记保留在该用户名下。
+     *
+     * <p>示例值：eehsdna
+     */
+    private String minutesAcceptorEmployeeId;
+
+    /**
+     * 飞书问卷接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的飞书问卷资源转让给接收者，不指定接收者则直接删除飞书问卷资源。
+     *
+     * <p>示例值：eehsdna
+     */
+    private String surveyAcceptorEmployeeId;
+
+    /**
+     * 集成平台资源Owner
+     *
+     * <p>示例值：eehsdna
+     */
     private String anycrossAcceptorEmployeeId;
 
-    // builder 开始
-    public ResignedUserResouceReceiver() {
+    /**
+     * 部门群接收者。ID值与查询参数中的employee_id_type 对应。;被删除用户为部门群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内第一个入群的人。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param departmentChatAcceptorEmployeeId
+     * @return
+     */
+    public Builder departmentChatAcceptorEmployeeId(String departmentChatAcceptorEmployeeId) {
+      this.departmentChatAcceptorEmployeeId = departmentChatAcceptorEmployeeId;
+      return this;
     }
 
-    public ResignedUserResouceReceiver(Builder builder) {
-        /**
-         * 部门群owner
-         * <p> 示例值：eehsdna
-         */
-        this.departmentChatAcceptorEmployeeId = builder.departmentChatAcceptorEmployeeId;
-        /**
-         * 外部群owner
-         * <p> 示例值：eehsdna
-         */
-        this.externalChatAcceptorEmployeeId = builder.externalChatAcceptorEmployeeId;
-        /**
-         * 文档owner
-         * <p> 示例值：eehsdna
-         */
-        this.docsAcceptorEmployeeId = builder.docsAcceptorEmployeeId;
-        /**
-         * 日历owner
-         * <p> 示例值：eehsdna
-         */
-        this.calendarAcceptorEmployeeId = builder.calendarAcceptorEmployeeId;
-        /**
-         * 开放平台应用owner
-         * <p> 示例值：eehsdna
-         */
-        this.applicationAcceptorEmployeeId = builder.applicationAcceptorEmployeeId;
-        /**
-         * 服务台owner
-         * <p> 示例值：eehsdna
-         */
-        this.helpdeskAcceptorEmployeeId = builder.helpdeskAcceptorEmployeeId;
-        /**
-         * 审批owner
-         * <p> 示例值：eehsdna
-         */
-        this.approvalAcceptorEmployeeId = builder.approvalAcceptorEmployeeId;
-        /**
-         * 邮件owner
-         * <p> 示例值：eehsdna
-         */
-        this.emailAcceptorEmployeeId = builder.emailAcceptorEmployeeId;
-        /**
-         * 抖音owner
-         * <p> 示例值：eehsdna
-         */
-        this.awemeOwner = builder.awemeOwner;
-        /**
-         * 妙记Owner
-         * <p> 示例值：eehsdna
-         */
-        this.minutesAcceptorEmployeeId = builder.minutesAcceptorEmployeeId;
-        /**
-         * 飞书问卷Owner
-         * <p> 示例值：eehsdna
-         */
-        this.surveyAcceptorEmployeeId = builder.surveyAcceptorEmployeeId;
-        /**
-         * 集成平台资源Owner
-         * <p> 示例值：eehsdna
-         */
-        this.anycrossAcceptorEmployeeId = builder.anycrossAcceptorEmployeeId;
+    /**
+     * 外部群接收者。ID值与查询参数中的employee_id_type
+     * 对应。;被删除用户为外部群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内与被删除用户在同一组织的第一个入群的人，如果组织内只有该用户在群里，则解散外部群。
+     *
+     * <p>示例值：eehsdna
+     *
+     * @param externalChatAcceptorEmployeeId
+     * @return
+     */
+    public Builder externalChatAcceptorEmployeeId(String externalChatAcceptorEmployeeId) {
+      this.externalChatAcceptorEmployeeId = externalChatAcceptorEmployeeId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文档接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的文档转让给接收者。不指定接收者则将文档资源保留在该用户名下。
+     *
+     * <p>示例值：eehsdna
+     *
+     * @param docsAcceptorEmployeeId
+     * @return
+     */
+    public Builder docsAcceptorEmployeeId(String docsAcceptorEmployeeId) {
+      this.docsAcceptorEmployeeId = docsAcceptorEmployeeId;
+      return this;
     }
 
-    public String getDepartmentChatAcceptorEmployeeId() {
-        return this.departmentChatAcceptorEmployeeId;
+    /**
+     * 日程接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的日程转让给接收者。不指定接收者则将日程资源保留在该用户名下。
+     *
+     * <p>示例值：eehsdna
+     *
+     * @param calendarAcceptorEmployeeId
+     * @return
+     */
+    public Builder calendarAcceptorEmployeeId(String calendarAcceptorEmployeeId) {
+      this.calendarAcceptorEmployeeId = calendarAcceptorEmployeeId;
+      return this;
     }
 
-    public void setDepartmentChatAcceptorEmployeeId(String departmentChatAcceptorEmployeeId) {
-        this.departmentChatAcceptorEmployeeId = departmentChatAcceptorEmployeeId;
+    /**
+     * 应用接受者。ID值与查询参数中的employee_id_type
+     * 对应。;用户被删除时，其创建的应用转让给接收者，不指定接收者则保留应用在该用户名下，但该用户无法登录开发者后台进行应用管理，管理员可以在管理后台手动转移应用给其他人。
+     *
+     * <p>示例值：eehsdna
+     *
+     * @param applicationAcceptorEmployeeId
+     * @return
+     */
+    public Builder applicationAcceptorEmployeeId(String applicationAcceptorEmployeeId) {
+      this.applicationAcceptorEmployeeId = applicationAcceptorEmployeeId;
+      return this;
     }
 
-    public String getExternalChatAcceptorEmployeeId() {
-        return this.externalChatAcceptorEmployeeId;
+    /**
+     * 服务台资源接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的服务台资源转让给接收者，不指定接收者时保留服务台资源在该用户名下。
+     *
+     * <p>示例值：eehsdna
+     *
+     * @param helpdeskAcceptorEmployeeId
+     * @return
+     */
+    public Builder helpdeskAcceptorEmployeeId(String helpdeskAcceptorEmployeeId) {
+      this.helpdeskAcceptorEmployeeId = helpdeskAcceptorEmployeeId;
+      return this;
     }
 
-    public void setExternalChatAcceptorEmployeeId(String externalChatAcceptorEmployeeId) {
-        this.externalChatAcceptorEmployeeId = externalChatAcceptorEmployeeId;
+    /**
+     * 审批资源接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的审批资源转让给接收者，不指定接收者时保留审批资源在该用户名下。
+     *
+     * <p>示例值：eehsdna
+     *
+     * @param approvalAcceptorEmployeeId
+     * @return
+     */
+    public Builder approvalAcceptorEmployeeId(String approvalAcceptorEmployeeId) {
+      this.approvalAcceptorEmployeeId = approvalAcceptorEmployeeId;
+      return this;
     }
 
-    public String getDocsAcceptorEmployeeId() {
-        return this.docsAcceptorEmployeeId;
+    /**
+     * 用户邮件资源接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的邮件资源转让给接收者，不指定接受者则保留邮件资源在该用户名下。
+     *
+     * <p>示例值：eehsdna
+     *
+     * @param emailAcceptorEmployeeId
+     * @return
+     */
+    public Builder emailAcceptorEmployeeId(String emailAcceptorEmployeeId) {
+      this.emailAcceptorEmployeeId = emailAcceptorEmployeeId;
+      return this;
     }
 
-    public void setDocsAcceptorEmployeeId(String docsAcceptorEmployeeId) {
-        this.docsAcceptorEmployeeId = docsAcceptorEmployeeId;
+    /**
+     * 抖音owner
+     *
+     * <p>示例值：eehsdna
+     *
+     * @param awemeOwner
+     * @return
+     */
+    public Builder awemeOwner(String awemeOwner) {
+      this.awemeOwner = awemeOwner;
+      return this;
     }
 
-    public String getCalendarAcceptorEmployeeId() {
-        return this.calendarAcceptorEmployeeId;
+    /**
+     * 妙记接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的妙记资源转让给接收者。如果不指定接收者则将妙记保留在该用户名下。
+     *
+     * <p>示例值：eehsdna
+     *
+     * @param minutesAcceptorEmployeeId
+     * @return
+     */
+    public Builder minutesAcceptorEmployeeId(String minutesAcceptorEmployeeId) {
+      this.minutesAcceptorEmployeeId = minutesAcceptorEmployeeId;
+      return this;
     }
 
-    public void setCalendarAcceptorEmployeeId(String calendarAcceptorEmployeeId) {
-        this.calendarAcceptorEmployeeId = calendarAcceptorEmployeeId;
+    /**
+     * 飞书问卷接收者。ID值与查询参数中的employee_id_type 对应。;用户被删除时，其拥有的飞书问卷资源转让给接收者，不指定接收者则直接删除飞书问卷资源。
+     *
+     * <p>示例值：eehsdna
+     *
+     * @param surveyAcceptorEmployeeId
+     * @return
+     */
+    public Builder surveyAcceptorEmployeeId(String surveyAcceptorEmployeeId) {
+      this.surveyAcceptorEmployeeId = surveyAcceptorEmployeeId;
+      return this;
     }
 
-    public String getApplicationAcceptorEmployeeId() {
-        return this.applicationAcceptorEmployeeId;
+    /**
+     * 集成平台资源Owner
+     *
+     * <p>示例值：eehsdna
+     *
+     * @param anycrossAcceptorEmployeeId
+     * @return
+     */
+    public Builder anycrossAcceptorEmployeeId(String anycrossAcceptorEmployeeId) {
+      this.anycrossAcceptorEmployeeId = anycrossAcceptorEmployeeId;
+      return this;
     }
 
-    public void setApplicationAcceptorEmployeeId(String applicationAcceptorEmployeeId) {
-        this.applicationAcceptorEmployeeId = applicationAcceptorEmployeeId;
+    public ResignedUserResouceReceiver build() {
+      return new ResignedUserResouceReceiver(this);
     }
+  }
 
-    public String getHelpdeskAcceptorEmployeeId() {
-        return this.helpdeskAcceptorEmployeeId;
-    }
-
-    public void setHelpdeskAcceptorEmployeeId(String helpdeskAcceptorEmployeeId) {
-        this.helpdeskAcceptorEmployeeId = helpdeskAcceptorEmployeeId;
-    }
-
-    public String getApprovalAcceptorEmployeeId() {
-        return this.approvalAcceptorEmployeeId;
-    }
-
-    public void setApprovalAcceptorEmployeeId(String approvalAcceptorEmployeeId) {
-        this.approvalAcceptorEmployeeId = approvalAcceptorEmployeeId;
-    }
-
-    public String getEmailAcceptorEmployeeId() {
-        return this.emailAcceptorEmployeeId;
-    }
-
-    public void setEmailAcceptorEmployeeId(String emailAcceptorEmployeeId) {
-        this.emailAcceptorEmployeeId = emailAcceptorEmployeeId;
-    }
-
-    public String getAwemeOwner() {
-        return this.awemeOwner;
-    }
-
-    public void setAwemeOwner(String awemeOwner) {
-        this.awemeOwner = awemeOwner;
-    }
-
-    public String getMinutesAcceptorEmployeeId() {
-        return this.minutesAcceptorEmployeeId;
-    }
-
-    public void setMinutesAcceptorEmployeeId(String minutesAcceptorEmployeeId) {
-        this.minutesAcceptorEmployeeId = minutesAcceptorEmployeeId;
-    }
-
-    public String getSurveyAcceptorEmployeeId() {
-        return this.surveyAcceptorEmployeeId;
-    }
-
-    public void setSurveyAcceptorEmployeeId(String surveyAcceptorEmployeeId) {
-        this.surveyAcceptorEmployeeId = surveyAcceptorEmployeeId;
-    }
-
-    public String getAnycrossAcceptorEmployeeId() {
-        return this.anycrossAcceptorEmployeeId;
-    }
-
-    public void setAnycrossAcceptorEmployeeId(String anycrossAcceptorEmployeeId) {
-        this.anycrossAcceptorEmployeeId = anycrossAcceptorEmployeeId;
-    }
-
-    public static class Builder {
-        /**
-         * 部门群owner
-         * <p> 示例值：eehsdna
-         */
-        private String departmentChatAcceptorEmployeeId;
-        /**
-         * 外部群owner
-         * <p> 示例值：eehsdna
-         */
-        private String externalChatAcceptorEmployeeId;
-        /**
-         * 文档owner
-         * <p> 示例值：eehsdna
-         */
-        private String docsAcceptorEmployeeId;
-        /**
-         * 日历owner
-         * <p> 示例值：eehsdna
-         */
-        private String calendarAcceptorEmployeeId;
-        /**
-         * 开放平台应用owner
-         * <p> 示例值：eehsdna
-         */
-        private String applicationAcceptorEmployeeId;
-        /**
-         * 服务台owner
-         * <p> 示例值：eehsdna
-         */
-        private String helpdeskAcceptorEmployeeId;
-        /**
-         * 审批owner
-         * <p> 示例值：eehsdna
-         */
-        private String approvalAcceptorEmployeeId;
-        /**
-         * 邮件owner
-         * <p> 示例值：eehsdna
-         */
-        private String emailAcceptorEmployeeId;
-        /**
-         * 抖音owner
-         * <p> 示例值：eehsdna
-         */
-        private String awemeOwner;
-        /**
-         * 妙记Owner
-         * <p> 示例值：eehsdna
-         */
-        private String minutesAcceptorEmployeeId;
-        /**
-         * 飞书问卷Owner
-         * <p> 示例值：eehsdna
-         */
-        private String surveyAcceptorEmployeeId;
-        /**
-         * 集成平台资源Owner
-         * <p> 示例值：eehsdna
-         */
-        private String anycrossAcceptorEmployeeId;
-
-        /**
-         * 部门群owner
-         * <p> 示例值：eehsdna
-         *
-         * @param departmentChatAcceptorEmployeeId
-         * @return
-         */
-        public Builder departmentChatAcceptorEmployeeId(String departmentChatAcceptorEmployeeId) {
-            this.departmentChatAcceptorEmployeeId = departmentChatAcceptorEmployeeId;
-            return this;
-        }
-
-
-        /**
-         * 外部群owner
-         * <p> 示例值：eehsdna
-         *
-         * @param externalChatAcceptorEmployeeId
-         * @return
-         */
-        public Builder externalChatAcceptorEmployeeId(String externalChatAcceptorEmployeeId) {
-            this.externalChatAcceptorEmployeeId = externalChatAcceptorEmployeeId;
-            return this;
-        }
-
-
-        /**
-         * 文档owner
-         * <p> 示例值：eehsdna
-         *
-         * @param docsAcceptorEmployeeId
-         * @return
-         */
-        public Builder docsAcceptorEmployeeId(String docsAcceptorEmployeeId) {
-            this.docsAcceptorEmployeeId = docsAcceptorEmployeeId;
-            return this;
-        }
-
-
-        /**
-         * 日历owner
-         * <p> 示例值：eehsdna
-         *
-         * @param calendarAcceptorEmployeeId
-         * @return
-         */
-        public Builder calendarAcceptorEmployeeId(String calendarAcceptorEmployeeId) {
-            this.calendarAcceptorEmployeeId = calendarAcceptorEmployeeId;
-            return this;
-        }
-
-
-        /**
-         * 开放平台应用owner
-         * <p> 示例值：eehsdna
-         *
-         * @param applicationAcceptorEmployeeId
-         * @return
-         */
-        public Builder applicationAcceptorEmployeeId(String applicationAcceptorEmployeeId) {
-            this.applicationAcceptorEmployeeId = applicationAcceptorEmployeeId;
-            return this;
-        }
-
-
-        /**
-         * 服务台owner
-         * <p> 示例值：eehsdna
-         *
-         * @param helpdeskAcceptorEmployeeId
-         * @return
-         */
-        public Builder helpdeskAcceptorEmployeeId(String helpdeskAcceptorEmployeeId) {
-            this.helpdeskAcceptorEmployeeId = helpdeskAcceptorEmployeeId;
-            return this;
-        }
-
-
-        /**
-         * 审批owner
-         * <p> 示例值：eehsdna
-         *
-         * @param approvalAcceptorEmployeeId
-         * @return
-         */
-        public Builder approvalAcceptorEmployeeId(String approvalAcceptorEmployeeId) {
-            this.approvalAcceptorEmployeeId = approvalAcceptorEmployeeId;
-            return this;
-        }
-
-
-        /**
-         * 邮件owner
-         * <p> 示例值：eehsdna
-         *
-         * @param emailAcceptorEmployeeId
-         * @return
-         */
-        public Builder emailAcceptorEmployeeId(String emailAcceptorEmployeeId) {
-            this.emailAcceptorEmployeeId = emailAcceptorEmployeeId;
-            return this;
-        }
-
-
-        /**
-         * 抖音owner
-         * <p> 示例值：eehsdna
-         *
-         * @param awemeOwner
-         * @return
-         */
-        public Builder awemeOwner(String awemeOwner) {
-            this.awemeOwner = awemeOwner;
-            return this;
-        }
-
-
-        /**
-         * 妙记Owner
-         * <p> 示例值：eehsdna
-         *
-         * @param minutesAcceptorEmployeeId
-         * @return
-         */
-        public Builder minutesAcceptorEmployeeId(String minutesAcceptorEmployeeId) {
-            this.minutesAcceptorEmployeeId = minutesAcceptorEmployeeId;
-            return this;
-        }
-
-
-        /**
-         * 飞书问卷Owner
-         * <p> 示例值：eehsdna
-         *
-         * @param surveyAcceptorEmployeeId
-         * @return
-         */
-        public Builder surveyAcceptorEmployeeId(String surveyAcceptorEmployeeId) {
-            this.surveyAcceptorEmployeeId = surveyAcceptorEmployeeId;
-            return this;
-        }
-
-
-        /**
-         * 集成平台资源Owner
-         * <p> 示例值：eehsdna
-         *
-         * @param anycrossAcceptorEmployeeId
-         * @return
-         */
-        public Builder anycrossAcceptorEmployeeId(String anycrossAcceptorEmployeeId) {
-            this.anycrossAcceptorEmployeeId = anycrossAcceptorEmployeeId;
-            return this;
-        }
-
-
-        public ResignedUserResouceReceiver build() {
-            return new ResignedUserResouceReceiver(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Due {
+  /**
+   * 截止时间/日期的时间戳，距1970-01-01 00:00:00 UTC的毫秒数。如果截止时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true
+   *
+   * <p>示例值：1675454764000
+   */
+  @SerializedName("timestamp")
+  private String timestamp;
+
+  /**
+   * 是否截止到一个日期。如果设为true，timestamp中只有日期的部分会被解析和存储。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_all_day")
+  private Boolean isAllDay;
+
+  public String getTimestamp() {
+    return this.timestamp;
+  }
+
+  public void setTimestamp(String timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  public Boolean getIsAllDay() {
+    return this.isAllDay;
+  }
+
+  public void setIsAllDay(Boolean isAllDay) {
+    this.isAllDay = isAllDay;
+  }
+
+  // builder 开始
+  public Due() {}
+
+  public Due(Builder builder) {
     /**
-     * 截止时间/日期的时间戳，距1970-01-01 00:00:00的毫秒数。如果截止时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true
-     * <p> 示例值：1675454764000
+     * 截止时间/日期的时间戳，距1970-01-01 00:00:00 UTC的毫秒数。如果截止时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true
+     *
+     * <p>示例值：1675454764000
      */
-    @SerializedName("timestamp")
-    private String timestamp;
+    this.timestamp = builder.timestamp;
     /**
      * 是否截止到一个日期。如果设为true，timestamp中只有日期的部分会被解析和存储。
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_all_day")
+    this.isAllDay = builder.isAllDay;
+  }
+
+  public static class Builder {
+    /**
+     * 截止时间/日期的时间戳，距1970-01-01 00:00:00 UTC的毫秒数。如果截止时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true
+     *
+     * <p>示例值：1675454764000
+     */
+    private String timestamp;
+
+    /**
+     * 是否截止到一个日期。如果设为true，timestamp中只有日期的部分会被解析和存储。
+     *
+     * <p>示例值：true
+     */
     private Boolean isAllDay;
 
-    // builder 开始
-    public Due() {
+    /**
+     * 截止时间/日期的时间戳，距1970-01-01 00:00:00 UTC的毫秒数。如果截止时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true
+     *
+     * <p>示例值：1675454764000
+     *
+     * @param timestamp
+     * @return
+     */
+    public Builder timestamp(String timestamp) {
+      this.timestamp = timestamp;
+      return this;
     }
 
-    public Due(Builder builder) {
-        /**
-         * 截止时间/日期的时间戳，距1970-01-01 00:00:00的毫秒数。如果截止时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true
-         * <p> 示例值：1675454764000
-         */
-        this.timestamp = builder.timestamp;
-        /**
-         * 是否截止到一个日期。如果设为true，timestamp中只有日期的部分会被解析和存储。
-         * <p> 示例值：true
-         */
-        this.isAllDay = builder.isAllDay;
+    /**
+     * 是否截止到一个日期。如果设为true，timestamp中只有日期的部分会被解析和存储。
+     *
+     * <p>示例值：true
+     *
+     * @param isAllDay
+     * @return
+     */
+    public Builder isAllDay(Boolean isAllDay) {
+      this.isAllDay = isAllDay;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Due build() {
+      return new Due(this);
     }
+  }
 
-    public String getTimestamp() {
-        return this.timestamp;
-    }
-
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public Boolean getIsAllDay() {
-        return this.isAllDay;
-    }
-
-    public void setIsAllDay(Boolean isAllDay) {
-        this.isAllDay = isAllDay;
-    }
-
-    public static class Builder {
-        /**
-         * 截止时间/日期的时间戳，距1970-01-01 00:00:00的毫秒数。如果截止时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true
-         * <p> 示例值：1675454764000
-         */
-        private String timestamp;
-        /**
-         * 是否截止到一个日期。如果设为true，timestamp中只有日期的部分会被解析和存储。
-         * <p> 示例值：true
-         */
-        private Boolean isAllDay;
-
-        /**
-         * 截止时间/日期的时间戳，距1970-01-01 00:00:00的毫秒数。如果截止时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true
-         * <p> 示例值：1675454764000
-         *
-         * @param timestamp
-         * @return
-         */
-        public Builder timestamp(String timestamp) {
-            this.timestamp = timestamp;
-            return this;
-        }
-
-
-        /**
-         * 是否截止到一个日期。如果设为true，timestamp中只有日期的部分会被解析和存储。
-         * <p> 示例值：true
-         *
-         * @param isAllDay
-         * @return
-         */
-        public Builder isAllDay(Boolean isAllDay) {
-            this.isAllDay = isAllDay;
-            return this;
-        }
-
-
-        public Due build() {
-            return new Due(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

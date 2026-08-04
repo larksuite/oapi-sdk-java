@@ -13,219 +13,228 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.payroll.v1.enums.*;
 
 public class ListCostAllocationReportReq {
+  /**
+   * 分页大小
+   *
+   * <p>示例值：50
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：6823630319749592415
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 成本分摊方案ID，通过[批量查询成本分摊方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/cost_allocation_plan/list)获取
+   *
+   * <p>示例值：6823630319749580304
+   */
+  @Query
+  @SerializedName("cost_allocation_plan_id")
+  private String costAllocationPlanId;
+
+  /**
+   * 期间，成本分摊数据对应的年月，格式 为yyyy-MM
+   *
+   * <p>示例值：2023-11
+   */
+  @Query
+  @SerializedName("pay_period")
+  private String payPeriod;
+
+  /**
+   * 报表类型
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("report_type")
+  private Integer reportType;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getCostAllocationPlanId() {
+    return this.costAllocationPlanId;
+  }
+
+  public void setCostAllocationPlanId(String costAllocationPlanId) {
+    this.costAllocationPlanId = costAllocationPlanId;
+  }
+
+  public String getPayPeriod() {
+    return this.payPeriod;
+  }
+
+  public void setPayPeriod(String payPeriod) {
+    this.payPeriod = payPeriod;
+  }
+
+  public Integer getReportType() {
+    return this.reportType;
+  }
+
+  public void setReportType(Integer reportType) {
+    this.reportType = reportType;
+  }
+
+  // builder 开始
+  public ListCostAllocationReportReq() {}
+
+  public ListCostAllocationReportReq(Builder builder) {
     /**
      * 分页大小
-     * <p> 示例值：50
+     *
+     * <p>示例值：50
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：6823630319749580304
+     *
+     * <p>示例值：6823630319749592415
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 成本分摊方案ID
-     * <p> 示例值：6823630319749580304
+     * 成本分摊方案ID，通过[批量查询成本分摊方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/cost_allocation_plan/list)获取
+     *
+     * <p>示例值：6823630319749580304
      */
-    @Query
-    @SerializedName("cost_allocation_plan_id")
-    private String costAllocationPlanId;
+    this.costAllocationPlanId = builder.costAllocationPlanId;
     /**
-     * 期间
-     * <p> 示例值：2023-11
+     * 期间，成本分摊数据对应的年月，格式 为yyyy-MM
+     *
+     * <p>示例值：2023-11
      */
-    @Query
-    @SerializedName("pay_period")
-    private String payPeriod;
+    this.payPeriod = builder.payPeriod;
     /**
      * 报表类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("report_type")
-    private Integer reportType;
+    this.reportType = builder.reportType;
+  }
 
-    // builder 开始
-    public ListCostAllocationReportReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String
+        costAllocationPlanId; // 成本分摊方案ID，通过[批量查询成本分摊方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/cost_allocation_plan/list)获取
+    private String payPeriod; // 期间，成本分摊数据对应的年月，格式 为yyyy-MM
+    private Integer reportType; // 报表类型
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：50
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListCostAllocationReportReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：50
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：6823630319749580304
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 成本分摊方案ID
-         * <p> 示例值：6823630319749580304
-         */
-        this.costAllocationPlanId = builder.costAllocationPlanId;
-        /**
-         * 期间
-         * <p> 示例值：2023-11
-         */
-        this.payPeriod = builder.payPeriod;
-        /**
-         * 报表类型
-         * <p> 示例值：1
-         */
-        this.reportType = builder.reportType;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：6823630319749592415
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 成本分摊方案ID，通过[批量查询成本分摊方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/cost_allocation_plan/list)获取
+     *
+     * <p>示例值：6823630319749580304
+     *
+     * @param costAllocationPlanId
+     * @return
+     */
+    public Builder costAllocationPlanId(String costAllocationPlanId) {
+      this.costAllocationPlanId = costAllocationPlanId;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 期间，成本分摊数据对应的年月，格式 为yyyy-MM
+     *
+     * <p>示例值：2023-11
+     *
+     * @param payPeriod
+     * @return
+     */
+    public Builder payPeriod(String payPeriod) {
+      this.payPeriod = payPeriod;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 报表类型
+     *
+     * <p>示例值：1
+     *
+     * @param reportType
+     * @return
+     */
+    public Builder reportType(Integer reportType) {
+      this.reportType = reportType;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 报表类型
+     *
+     * <p>示例值：1
+     *
+     * @param reportType {@link
+     *     com.lark.oapi.service.payroll.v1.enums.ListCostAllocationReportReportTypeEnum}
+     * @return
+     */
+    public Builder reportType(
+        com.lark.oapi.service.payroll.v1.enums.ListCostAllocationReportReportTypeEnum reportType) {
+      this.reportType = reportType.getValue();
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    public ListCostAllocationReportReq build() {
+      return new ListCostAllocationReportReq(this);
     }
+  }
 
-    public String getCostAllocationPlanId() {
-        return this.costAllocationPlanId;
-    }
-
-    public void setCostAllocationPlanId(String costAllocationPlanId) {
-        this.costAllocationPlanId = costAllocationPlanId;
-    }
-
-    public String getPayPeriod() {
-        return this.payPeriod;
-    }
-
-    public void setPayPeriod(String payPeriod) {
-        this.payPeriod = payPeriod;
-    }
-
-    public Integer getReportType() {
-        return this.reportType;
-    }
-
-    public void setReportType(Integer reportType) {
-        this.reportType = reportType;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String costAllocationPlanId; // 成本分摊方案ID
-        private String payPeriod; // 期间
-        private Integer reportType; // 报表类型
-
-        /**
-         * 分页大小
-         * <p> 示例值：50
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：6823630319749580304
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 成本分摊方案ID
-         * <p> 示例值：6823630319749580304
-         *
-         * @param costAllocationPlanId
-         * @return
-         */
-        public Builder costAllocationPlanId(String costAllocationPlanId) {
-            this.costAllocationPlanId = costAllocationPlanId;
-            return this;
-        }
-
-
-        /**
-         * 期间
-         * <p> 示例值：2023-11
-         *
-         * @param payPeriod
-         * @return
-         */
-        public Builder payPeriod(String payPeriod) {
-            this.payPeriod = payPeriod;
-            return this;
-        }
-
-
-        /**
-         * 报表类型
-         * <p> 示例值：1
-         *
-         * @param reportType
-         * @return
-         */
-        public Builder reportType(Integer reportType) {
-            this.reportType = reportType;
-            return this;
-        }
-
-        /**
-         * 报表类型
-         * <p> 示例值：1
-         *
-         * @param reportType {@link com.lark.oapi.service.payroll.v1.enums.ListCostAllocationReportReportTypeEnum}
-         * @return
-         */
-        public Builder reportType(com.lark.oapi.service.payroll.v1.enums.ListCostAllocationReportReportTypeEnum reportType) {
-            this.reportType = reportType.getValue();
-            return this;
-        }
-
-
-        public ListCostAllocationReportReq build() {
-            return new ListCostAllocationReportReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.elearning.v2.enums;
 
-/**
- * 用户状态
- */
+/** 用户状态 */
 public enum ExternalUserUserActiveEnum {
-    USERACTIVE_DISABLE(1), // 已停用
-    USERACTIVE_ENABLE(2), // 已启用
-    USERACTIVE_UNJOINED(3), // 未加入
-    USERACTIVE_UNREGISTERED(4), // 未激活
-    USERACTIVE_BLOCKED(5), // 已禁用
-    ;
-    private Integer value;
+  USERACTIVE_DISABLE(1), // 已停用
+  USERACTIVE_ENABLE(2), // 已启用
+  USERACTIVE_UNJOINED(3), // 未加入
+  USERACTIVE_UNREGISTERED(4), // 未激活
+  USERACTIVE_BLOCKED(5), // 已禁用
+  ;
+  private Integer value;
 
-    ExternalUserUserActiveEnum(Integer value) {
-        this.value = value;
-    }
+  ExternalUserUserActiveEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

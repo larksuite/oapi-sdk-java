@@ -13,131 +13,129 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class PatchFileSubscriptionReq {
+  /**
+   * 文档token
+   *
+   * <p>示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  /**
+   * 订阅关系ID
+   *
+   * <p>示例值：1234567890987654321
+   */
+  @Path
+  @SerializedName("subscription_id")
+  private String subscriptionId;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  public String getSubscriptionId() {
+    return this.subscriptionId;
+  }
+
+  public void setSubscriptionId(String subscriptionId) {
+    this.subscriptionId = subscriptionId;
+  }
+
+  @Body private PatchFileSubscriptionReqBody body;
+
+  public PatchFileSubscriptionReqBody getPatchFileSubscriptionReqBody() {
+    return this.body;
+  }
+
+  public void setPatchFileSubscriptionReqBody(PatchFileSubscriptionReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchFileSubscriptionReq() {}
+
+  public PatchFileSubscriptionReq(Builder builder) {
     /**
      * 文档token
-     * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
+     *
+     * <p>示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
     /**
      * 订阅关系ID
-     * <p> 示例值：1234567890987654321
+     *
+     * <p>示例值：1234567890987654321
      */
-    @Path
-    @SerializedName("subscription_id")
-    private String subscriptionId;
-    @Body
+    this.subscriptionId = builder.subscriptionId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String fileToken; // 文档token
+    private String subscriptionId; // 订阅关系ID
+
+    /**
+     * 文档token
+     *
+     * <p>示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
+    }
+
+    /**
+     * 订阅关系ID
+     *
+     * <p>示例值：1234567890987654321
+     *
+     * @param subscriptionId
+     * @return
+     */
+    public Builder subscriptionId(String subscriptionId) {
+      this.subscriptionId = subscriptionId;
+      return this;
+    }
+
     private PatchFileSubscriptionReqBody body;
 
-    // builder 开始
-    public PatchFileSubscriptionReq() {
-    }
-
-    public PatchFileSubscriptionReq(Builder builder) {
-        /**
-         * 文档token
-         * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 订阅关系ID
-         * <p> 示例值：1234567890987654321
-         */
-        this.subscriptionId = builder.subscriptionId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public String getSubscriptionId() {
-        return this.subscriptionId;
-    }
-
-    public void setSubscriptionId(String subscriptionId) {
-        this.subscriptionId = subscriptionId;
-    }
-
     public PatchFileSubscriptionReqBody getPatchFileSubscriptionReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPatchFileSubscriptionReqBody(PatchFileSubscriptionReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder patchFileSubscriptionReqBody(PatchFileSubscriptionReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String fileToken; // 文档token
-        private String subscriptionId; // 订阅关系ID
-        private PatchFileSubscriptionReqBody body;
-
-        /**
-         * 文档token
-         * <p> 示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-        /**
-         * 订阅关系ID
-         * <p> 示例值：1234567890987654321
-         *
-         * @param subscriptionId
-         * @return
-         */
-        public Builder subscriptionId(String subscriptionId) {
-            this.subscriptionId = subscriptionId;
-            return this;
-        }
-
-        public PatchFileSubscriptionReqBody getPatchFileSubscriptionReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder patchFileSubscriptionReqBody(PatchFileSubscriptionReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchFileSubscriptionReq build() {
-            return new PatchFileSubscriptionReq(this);
-        }
+    public PatchFileSubscriptionReq build() {
+      return new PatchFileSubscriptionReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

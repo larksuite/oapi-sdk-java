@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 用户 ID 类型，控制接口返回值中表情添加者的ID
- */
+/** 用户 ID 类型，控制接口返回值中表情添加者的ID */
 public enum BatchQueryMessageReactionUserIdTypeEnum {
-    USER_ID("user_id"), // 以user_id来识别用户
-    UNION_ID("union_id"), // 以union_id来识别用户
-    OPEN_ID("open_id"), // 以open_id来识别用户
-    ;
-    private String value;
+  USER_ID("user_id"), // 以user_id来识别用户
+  UNION_ID("union_id"), // 以union_id来识别用户
+  OPEN_ID("open_id"), // 以open_id来识别用户
+  ;
+  private String value;
 
-    BatchQueryMessageReactionUserIdTypeEnum(String value) {
-        this.value = value;
-    }
+  BatchQueryMessageReactionUserIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

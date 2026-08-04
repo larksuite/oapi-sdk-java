@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchDeleteMailgroupMemberReqBody {
+  /**
+   * 本次调用删除的成员ID列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("member_id_list")
+  private String[] memberIdList;
+
+  public String[] getMemberIdList() {
+    return this.memberIdList;
+  }
+
+  public void setMemberIdList(String[] memberIdList) {
+    this.memberIdList = memberIdList;
+  }
+
+  // builder 开始
+  public BatchDeleteMailgroupMemberReqBody() {}
+
+  public BatchDeleteMailgroupMemberReqBody(Builder builder) {
     /**
      * 本次调用删除的成员ID列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("member_id_list")
+    this.memberIdList = builder.memberIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 本次调用删除的成员ID列表
+     *
+     * <p>示例值：
+     */
     private String[] memberIdList;
 
-    // builder 开始
-    public BatchDeleteMailgroupMemberReqBody() {
+    /**
+     * 本次调用删除的成员ID列表
+     *
+     * <p>示例值：
+     *
+     * @param memberIdList
+     * @return
+     */
+    public Builder memberIdList(String[] memberIdList) {
+      this.memberIdList = memberIdList;
+      return this;
     }
 
-    public BatchDeleteMailgroupMemberReqBody(Builder builder) {
-        /**
-         * 本次调用删除的成员ID列表
-         * <p> 示例值：
-         */
-        this.memberIdList = builder.memberIdList;
+    public BatchDeleteMailgroupMemberReqBody build() {
+      return new BatchDeleteMailgroupMemberReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getMemberIdList() {
-        return this.memberIdList;
-    }
-
-    public void setMemberIdList(String[] memberIdList) {
-        this.memberIdList = memberIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 本次调用删除的成员ID列表
-         * <p> 示例值：
-         */
-        private String[] memberIdList;
-
-        /**
-         * 本次调用删除的成员ID列表
-         * <p> 示例值：
-         *
-         * @param memberIdList
-         * @return
-         */
-        public Builder memberIdList(String[] memberIdList) {
-            this.memberIdList = memberIdList;
-            return this;
-        }
-
-
-        public BatchDeleteMailgroupMemberReqBody build() {
-            return new BatchDeleteMailgroupMemberReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

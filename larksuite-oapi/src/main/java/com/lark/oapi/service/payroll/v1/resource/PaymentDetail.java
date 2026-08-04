@@ -13,103 +13,134 @@
 
 package com.lark.oapi.service.payroll.v1.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.payroll.v1.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.payroll.v1.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class PaymentDetail {
-    private static final Logger log = LoggerFactory.getLogger(PaymentDetail.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(PaymentDetail.class);
+  private final Config config;
 
-    public PaymentDetail(Config config) {
-        this.config = config;
+  public PaymentDetail(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 批量查询发薪明细，根据 __发薪活动 ID 列表__ 、__发薪日起止时间__ 和 __飞书人事雇佣 ID 列表__ 分页查询发薪明细列表和关联的算薪明细分段数据。;;
+   *
+   * <p>当前接口仅支持查询某些员工在特定范围内的发薪明细，若需要查询某个发薪活动下的所有发薪明细数据，请使用[查询发薪活动明细列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity_detail/list)接口。;;##
+   * 注意事项;1.
+   * 批量查询发薪明细接口提供的请求参数中，用户必须填写「__发薪日起止时间__（pay_period_start_date，pay_period_end_date）」或「__发薪活动 ID
+   * 列表__」，当传入的三个参数均为空时，开放接口将返回 2500006 错误码。;2. 每一次调用接口时，系统最多会扫描 __50__ 个发薪活动，当用户传入的查询条件命中的发薪活动个数大于
+   * __50__ 时，开放接口将根据查询参数返回 2500003 或 2500008 错误码，请合理使用查询参数。;3. 开放接口中的「员工的飞书人事雇佣 ID
+   * 列表（employee_ids）」参数为必填。;4. **批量查询发薪明细接口数据取自发薪活动**，调用前请先创建发薪活动并完成算薪活动关联。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=payment_detail&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=payment_detail&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryPaymentDetailSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryPaymentDetailSample.java</a>
+   * ;
+   */
+  public QueryPaymentDetailResp query(QueryPaymentDetailReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/payroll/v1/payment_detail/query",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=payment_detail&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=payment_detail&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryPaymentDetailSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryPaymentDetailSample.java</a> ;
-     */
-    public QueryPaymentDetailResp query(QueryPaymentDetailReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/payroll/v1/payment_detail/query"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        QueryPaymentDetailResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryPaymentDetailResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/payroll/v1/payment_detail/query"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    QueryPaymentDetailResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, QueryPaymentDetailResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/payroll/v1/payment_detail/query",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=payment_detail&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=payment_detail&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryPaymentDetailSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryPaymentDetailSample.java</a> ;
-     */
-    public QueryPaymentDetailResp query(QueryPaymentDetailReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/payroll/v1/payment_detail/query"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        QueryPaymentDetailResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryPaymentDetailResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/payroll/v1/payment_detail/query"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 批量查询发薪明细，根据 __发薪活动 ID 列表__ 、__发薪日起止时间__ 和 __飞书人事雇佣 ID 列表__ 分页查询发薪明细列表和关联的算薪明细分段数据。;;
+   *
+   * <p>当前接口仅支持查询某些员工在特定范围内的发薪明细，若需要查询某个发薪活动下的所有发薪明细数据，请使用[查询发薪活动明细列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity_detail/list)接口。;;##
+   * 注意事项;1.
+   * 批量查询发薪明细接口提供的请求参数中，用户必须填写「__发薪日起止时间__（pay_period_start_date，pay_period_end_date）」或「__发薪活动 ID
+   * 列表__」，当传入的三个参数均为空时，开放接口将返回 2500006 错误码。;2. 每一次调用接口时，系统最多会扫描 __50__ 个发薪活动，当用户传入的查询条件命中的发薪活动个数大于
+   * __50__ 时，开放接口将根据查询参数返回 2500003 或 2500008 错误码，请合理使用查询参数。;3. 开放接口中的「员工的飞书人事雇佣 ID
+   * 列表（employee_ids）」参数为必填。;4. **批量查询发薪明细接口数据取自发薪活动**，调用前请先创建发薪活动并完成算薪活动关联。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=payment_detail&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=payment_detail&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryPaymentDetailSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryPaymentDetailSample.java</a>
+   * ;
+   */
+  public QueryPaymentDetailResp query(QueryPaymentDetailReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/payroll/v1/payment_detail/query",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    QueryPaymentDetailResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, QueryPaymentDetailResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/payroll/v1/payment_detail/query",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

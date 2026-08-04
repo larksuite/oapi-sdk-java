@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CostCenterId {
+  /**
+   * 成本中心
+   *
+   * <p>示例值：7382048365313261588
+   */
+  @SerializedName("wk_id")
+  private String wkId;
+
+  public String getWkId() {
+    return this.wkId;
+  }
+
+  public void setWkId(String wkId) {
+    this.wkId = wkId;
+  }
+
+  // builder 开始
+  public CostCenterId() {}
+
+  public CostCenterId(Builder builder) {
     /**
      * 成本中心
-     * <p> 示例值：7382048365313261588
+     *
+     * <p>示例值：7382048365313261588
      */
-    @SerializedName("wk_id")
+    this.wkId = builder.wkId;
+  }
+
+  public static class Builder {
+    /**
+     * 成本中心
+     *
+     * <p>示例值：7382048365313261588
+     */
     private String wkId;
 
-    // builder 开始
-    public CostCenterId() {
+    /**
+     * 成本中心
+     *
+     * <p>示例值：7382048365313261588
+     *
+     * @param wkId
+     * @return
+     */
+    public Builder wkId(String wkId) {
+      this.wkId = wkId;
+      return this;
     }
 
-    public CostCenterId(Builder builder) {
-        /**
-         * 成本中心
-         * <p> 示例值：7382048365313261588
-         */
-        this.wkId = builder.wkId;
+    public CostCenterId build() {
+      return new CostCenterId(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getWkId() {
-        return this.wkId;
-    }
-
-    public void setWkId(String wkId) {
-        this.wkId = wkId;
-    }
-
-    public static class Builder {
-        /**
-         * 成本中心
-         * <p> 示例值：7382048365313261588
-         */
-        private String wkId;
-
-        /**
-         * 成本中心
-         * <p> 示例值：7382048365313261588
-         *
-         * @param wkId
-         * @return
-         */
-        public Builder wkId(String wkId) {
-            this.wkId = wkId;
-            return this;
-        }
-
-
-        public CostCenterId build() {
-            return new CostCenterId(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

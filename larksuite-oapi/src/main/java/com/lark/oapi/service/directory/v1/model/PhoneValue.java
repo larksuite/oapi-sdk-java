@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PhoneValue {
+  /**
+   * 电话号
+   *
+   * <p>示例值：18812345678
+   */
+  @SerializedName("phone_number")
+  private String phoneNumber;
+
+  /**
+   * 分机号
+   *
+   * <p>示例值：234234234;;长度范围：0-99字符
+   */
+  @SerializedName("extension_number")
+  private String extensionNumber;
+
+  public String getPhoneNumber() {
+    return this.phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public String getExtensionNumber() {
+    return this.extensionNumber;
+  }
+
+  public void setExtensionNumber(String extensionNumber) {
+    this.extensionNumber = extensionNumber;
+  }
+
+  // builder 开始
+  public PhoneValue() {}
+
+  public PhoneValue(Builder builder) {
     /**
      * 电话号
-     * <p> 示例值：18812345678
+     *
+     * <p>示例值：18812345678
      */
-    @SerializedName("phone_number")
-    private String phoneNumber;
+    this.phoneNumber = builder.phoneNumber;
     /**
      * 分机号
-     * <p> 示例值：234234234
+     *
+     * <p>示例值：234234234;;长度范围：0-99字符
      */
-    @SerializedName("extension_number")
+    this.extensionNumber = builder.extensionNumber;
+  }
+
+  public static class Builder {
+    /**
+     * 电话号
+     *
+     * <p>示例值：18812345678
+     */
+    private String phoneNumber;
+
+    /**
+     * 分机号
+     *
+     * <p>示例值：234234234;;长度范围：0-99字符
+     */
     private String extensionNumber;
 
-    // builder 开始
-    public PhoneValue() {
+    /**
+     * 电话号
+     *
+     * <p>示例值：18812345678
+     *
+     * @param phoneNumber
+     * @return
+     */
+    public Builder phoneNumber(String phoneNumber) {
+      this.phoneNumber = phoneNumber;
+      return this;
     }
 
-    public PhoneValue(Builder builder) {
-        /**
-         * 电话号
-         * <p> 示例值：18812345678
-         */
-        this.phoneNumber = builder.phoneNumber;
-        /**
-         * 分机号
-         * <p> 示例值：234234234
-         */
-        this.extensionNumber = builder.extensionNumber;
+    /**
+     * 分机号
+     *
+     * <p>示例值：234234234;;长度范围：0-99字符
+     *
+     * @param extensionNumber
+     * @return
+     */
+    public Builder extensionNumber(String extensionNumber) {
+      this.extensionNumber = extensionNumber;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PhoneValue build() {
+      return new PhoneValue(this);
     }
+  }
 
-    public String getPhoneNumber() {
-        return this.phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getExtensionNumber() {
-        return this.extensionNumber;
-    }
-
-    public void setExtensionNumber(String extensionNumber) {
-        this.extensionNumber = extensionNumber;
-    }
-
-    public static class Builder {
-        /**
-         * 电话号
-         * <p> 示例值：18812345678
-         */
-        private String phoneNumber;
-        /**
-         * 分机号
-         * <p> 示例值：234234234
-         */
-        private String extensionNumber;
-
-        /**
-         * 电话号
-         * <p> 示例值：18812345678
-         *
-         * @param phoneNumber
-         * @return
-         */
-        public Builder phoneNumber(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
-            return this;
-        }
-
-
-        /**
-         * 分机号
-         * <p> 示例值：234234234
-         *
-         * @param extensionNumber
-         * @return
-         */
-        public Builder extensionNumber(String extensionNumber) {
-            this.extensionNumber = extensionNumber;
-            return this;
-        }
-
-
-        public PhoneValue build() {
-            return new PhoneValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

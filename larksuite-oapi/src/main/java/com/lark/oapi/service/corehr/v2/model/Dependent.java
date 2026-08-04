@@ -13,889 +13,1037 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Dependent {
+  /**
+   * ID
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private PersonName name;
+
+  /**
+   * 关系
+   *
+   * <p>示例值：
+   */
+  @SerializedName("relationship")
+  private Enum relationship;
+
+  /**
+   * 性别
+   *
+   * <p>示例值：
+   */
+  @SerializedName("gender")
+  private Enum gender;
+
+  /**
+   * 生日
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("date_of_birth")
+  private String dateOfBirth;
+
+  /**
+   * 国籍 ID（该字段待作废，请勿使用）
+   *
+   * <p>示例值：6862995745046267400
+   */
+  @SerializedName("nationality_id")
+  private String nationalityId;
+
+  /**
+   * 国籍 ID，可通过【查询国籍信息】接口查询
+   *
+   * <p>示例值：6862995745046267401
+   */
+  @SerializedName("nationality_id_v2")
+  private String nationalityIdV2;
+
+  /**
+   * 证件号码
+   *
+   * <p>示例值：
+   */
+  @SerializedName("national_id_list")
+  private NationalId[] nationalIdList;
+
+  /**
+   * 配偶工作状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("spouses_working_status")
+  private Enum spousesWorkingStatus;
+
+  /**
+   * 包含家属医疗保险
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_this_person_covered_by_health_insurance")
+  private Boolean isThisPersonCoveredByHealthInsurance;
+
+  /**
+   * 允许家属抵扣税款
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_this_person_allowed_for_tax_deduction")
+  private Boolean isThisPersonAllowedForTaxDeduction;
+
+  /**
+   * 自定义字段;-
+   * 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldData[] customFields;
+
+  /**
+   * 家庭成员姓名
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("dependent_name")
+  private String dependentName;
+
+  /**
+   * 工作单位
+   *
+   * <p>示例值：海淀区交警大队
+   */
+  @SerializedName("employer")
+  private String employer;
+
+  /**
+   * 岗位
+   *
+   * <p>示例值：保安
+   */
+  @SerializedName("job")
+  private String job;
+
+  /**
+   * 电话
+   *
+   * <p>示例值：
+   */
+  @SerializedName("phone")
+  private Phone phone;
+
+  /**
+   * 联系地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("address")
+  private Address address;
+
+  /**
+   * 出生证明
+   *
+   * <p>示例值：
+   */
+  @SerializedName("birth_certificate_of_child")
+  private File[] birthCertificateOfChild;
+
+  /**
+   * 变更原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reason")
+  private Enum reason;
+
+  /**
+   * 变更日期
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("modify_date")
+  private String modifyDate;
+
+  /**
+   * Visa 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("visas")
+  private Visa[] visas;
+
+  /**
+   * Passport 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("passports")
+  private Passport[] passports;
+
+  /**
+   * 居民身份列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("citizenship_statuses")
+  private CitizenshipStatus[] citizenshipStatuses;
+
+  /**
+   * 邮箱列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("emails")
+  private Email[] emails;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public PersonName getName() {
+    return this.name;
+  }
+
+  public void setName(PersonName name) {
+    this.name = name;
+  }
+
+  public Enum getRelationship() {
+    return this.relationship;
+  }
+
+  public void setRelationship(Enum relationship) {
+    this.relationship = relationship;
+  }
+
+  public Enum getGender() {
+    return this.gender;
+  }
+
+  public void setGender(Enum gender) {
+    this.gender = gender;
+  }
+
+  public String getDateOfBirth() {
+    return this.dateOfBirth;
+  }
+
+  public void setDateOfBirth(String dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+  }
+
+  public String getNationalityId() {
+    return this.nationalityId;
+  }
+
+  public void setNationalityId(String nationalityId) {
+    this.nationalityId = nationalityId;
+  }
+
+  public String getNationalityIdV2() {
+    return this.nationalityIdV2;
+  }
+
+  public void setNationalityIdV2(String nationalityIdV2) {
+    this.nationalityIdV2 = nationalityIdV2;
+  }
+
+  public NationalId[] getNationalIdList() {
+    return this.nationalIdList;
+  }
+
+  public void setNationalIdList(NationalId[] nationalIdList) {
+    this.nationalIdList = nationalIdList;
+  }
+
+  public Enum getSpousesWorkingStatus() {
+    return this.spousesWorkingStatus;
+  }
+
+  public void setSpousesWorkingStatus(Enum spousesWorkingStatus) {
+    this.spousesWorkingStatus = spousesWorkingStatus;
+  }
+
+  public Boolean getIsThisPersonCoveredByHealthInsurance() {
+    return this.isThisPersonCoveredByHealthInsurance;
+  }
+
+  public void setIsThisPersonCoveredByHealthInsurance(
+      Boolean isThisPersonCoveredByHealthInsurance) {
+    this.isThisPersonCoveredByHealthInsurance = isThisPersonCoveredByHealthInsurance;
+  }
+
+  public Boolean getIsThisPersonAllowedForTaxDeduction() {
+    return this.isThisPersonAllowedForTaxDeduction;
+  }
+
+  public void setIsThisPersonAllowedForTaxDeduction(Boolean isThisPersonAllowedForTaxDeduction) {
+    this.isThisPersonAllowedForTaxDeduction = isThisPersonAllowedForTaxDeduction;
+  }
+
+  public CustomFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public String getDependentName() {
+    return this.dependentName;
+  }
+
+  public void setDependentName(String dependentName) {
+    this.dependentName = dependentName;
+  }
+
+  public String getEmployer() {
+    return this.employer;
+  }
+
+  public void setEmployer(String employer) {
+    this.employer = employer;
+  }
+
+  public String getJob() {
+    return this.job;
+  }
+
+  public void setJob(String job) {
+    this.job = job;
+  }
+
+  public Phone getPhone() {
+    return this.phone;
+  }
+
+  public void setPhone(Phone phone) {
+    this.phone = phone;
+  }
+
+  public Address getAddress() {
+    return this.address;
+  }
+
+  public void setAddress(Address address) {
+    this.address = address;
+  }
+
+  public File[] getBirthCertificateOfChild() {
+    return this.birthCertificateOfChild;
+  }
+
+  public void setBirthCertificateOfChild(File[] birthCertificateOfChild) {
+    this.birthCertificateOfChild = birthCertificateOfChild;
+  }
+
+  public Enum getReason() {
+    return this.reason;
+  }
+
+  public void setReason(Enum reason) {
+    this.reason = reason;
+  }
+
+  public String getModifyDate() {
+    return this.modifyDate;
+  }
+
+  public void setModifyDate(String modifyDate) {
+    this.modifyDate = modifyDate;
+  }
+
+  public Visa[] getVisas() {
+    return this.visas;
+  }
+
+  public void setVisas(Visa[] visas) {
+    this.visas = visas;
+  }
+
+  public Passport[] getPassports() {
+    return this.passports;
+  }
+
+  public void setPassports(Passport[] passports) {
+    this.passports = passports;
+  }
+
+  public CitizenshipStatus[] getCitizenshipStatuses() {
+    return this.citizenshipStatuses;
+  }
+
+  public void setCitizenshipStatuses(CitizenshipStatus[] citizenshipStatuses) {
+    this.citizenshipStatuses = citizenshipStatuses;
+  }
+
+  public Email[] getEmails() {
+    return this.emails;
+  }
+
+  public void setEmails(Email[] emails) {
+    this.emails = emails;
+  }
+
+  // builder 开始
+  public Dependent() {}
+
+  public Dependent(Builder builder) {
     /**
      * ID
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private PersonName name;
+    this.name = builder.name;
     /**
      * 关系
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("relationship")
-    private Enum relationship;
+    this.relationship = builder.relationship;
     /**
      * 性别
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("gender")
-    private Enum gender;
+    this.gender = builder.gender;
     /**
      * 生日
-     * <p> 示例值：2020-01-01
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("date_of_birth")
-    private String dateOfBirth;
+    this.dateOfBirth = builder.dateOfBirth;
     /**
      * 国籍 ID（该字段待作废，请勿使用）
-     * <p> 示例值：6862995745046267400
+     *
+     * <p>示例值：6862995745046267400
      */
-    @SerializedName("nationality_id")
-    private String nationalityId;
+    this.nationalityId = builder.nationalityId;
     /**
      * 国籍 ID，可通过【查询国籍信息】接口查询
-     * <p> 示例值：6862995745046267401
+     *
+     * <p>示例值：6862995745046267401
      */
-    @SerializedName("nationality_id_v2")
-    private String nationalityIdV2;
+    this.nationalityIdV2 = builder.nationalityIdV2;
     /**
      * 证件号码
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("national_id_list")
-    private NationalId[] nationalIdList;
+    this.nationalIdList = builder.nationalIdList;
     /**
      * 配偶工作状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("spouses_working_status")
-    private Enum spousesWorkingStatus;
+    this.spousesWorkingStatus = builder.spousesWorkingStatus;
     /**
      * 包含家属医疗保险
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_this_person_covered_by_health_insurance")
-    private Boolean isThisPersonCoveredByHealthInsurance;
+    this.isThisPersonCoveredByHealthInsurance = builder.isThisPersonCoveredByHealthInsurance;
     /**
      * 允许家属抵扣税款
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_this_person_allowed_for_tax_deduction")
-    private Boolean isThisPersonAllowedForTaxDeduction;
+    this.isThisPersonAllowedForTaxDeduction = builder.isThisPersonAllowedForTaxDeduction;
     /**
-     * 自定义字段
-     * <p> 示例值：
+     * 自定义字段;-
+     * 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private CustomFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
      * 家庭成员姓名
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("dependent_name")
-    private String dependentName;
+    this.dependentName = builder.dependentName;
     /**
      * 工作单位
-     * <p> 示例值：海淀区交警大队
+     *
+     * <p>示例值：海淀区交警大队
      */
-    @SerializedName("employer")
-    private String employer;
+    this.employer = builder.employer;
     /**
      * 岗位
-     * <p> 示例值：保安
+     *
+     * <p>示例值：保安
      */
-    @SerializedName("job")
-    private String job;
+    this.job = builder.job;
     /**
      * 电话
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("phone")
-    private Phone phone;
+    this.phone = builder.phone;
     /**
      * 联系地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("address")
-    private Address address;
+    this.address = builder.address;
     /**
      * 出生证明
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("birth_certificate_of_child")
-    private File[] birthCertificateOfChild;
+    this.birthCertificateOfChild = builder.birthCertificateOfChild;
     /**
      * 变更原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reason")
-    private Enum reason;
+    this.reason = builder.reason;
     /**
      * 变更日期
-     * <p> 示例值：2020-01-01
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("modify_date")
-    private String modifyDate;
+    this.modifyDate = builder.modifyDate;
     /**
      * Visa 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("visas")
-    private Visa[] visas;
+    this.visas = builder.visas;
     /**
      * Passport 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("passports")
-    private Passport[] passports;
+    this.passports = builder.passports;
     /**
      * 居民身份列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("citizenship_statuses")
+    this.citizenshipStatuses = builder.citizenshipStatuses;
+    /**
+     * 邮箱列表
+     *
+     * <p>示例值：
+     */
+    this.emails = builder.emails;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：123
+     */
+    private String id;
+
+    /**
+     * 姓名
+     *
+     * <p>示例值：
+     */
+    private PersonName name;
+
+    /**
+     * 关系
+     *
+     * <p>示例值：
+     */
+    private Enum relationship;
+
+    /**
+     * 性别
+     *
+     * <p>示例值：
+     */
+    private Enum gender;
+
+    /**
+     * 生日
+     *
+     * <p>示例值：2020-01-01
+     */
+    private String dateOfBirth;
+
+    /**
+     * 国籍 ID（该字段待作废，请勿使用）
+     *
+     * <p>示例值：6862995745046267400
+     */
+    private String nationalityId;
+
+    /**
+     * 国籍 ID，可通过【查询国籍信息】接口查询
+     *
+     * <p>示例值：6862995745046267401
+     */
+    private String nationalityIdV2;
+
+    /**
+     * 证件号码
+     *
+     * <p>示例值：
+     */
+    private NationalId[] nationalIdList;
+
+    /**
+     * 配偶工作状态
+     *
+     * <p>示例值：
+     */
+    private Enum spousesWorkingStatus;
+
+    /**
+     * 包含家属医疗保险
+     *
+     * <p>示例值：true
+     */
+    private Boolean isThisPersonCoveredByHealthInsurance;
+
+    /**
+     * 允许家属抵扣税款
+     *
+     * <p>示例值：false
+     */
+    private Boolean isThisPersonAllowedForTaxDeduction;
+
+    /**
+     * 自定义字段;-
+     * 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+     *
+     * <p>示例值：
+     */
+    private CustomFieldData[] customFields;
+
+    /**
+     * 家庭成员姓名
+     *
+     * <p>示例值：张三
+     */
+    private String dependentName;
+
+    /**
+     * 工作单位
+     *
+     * <p>示例值：海淀区交警大队
+     */
+    private String employer;
+
+    /**
+     * 岗位
+     *
+     * <p>示例值：保安
+     */
+    private String job;
+
+    /**
+     * 电话
+     *
+     * <p>示例值：
+     */
+    private Phone phone;
+
+    /**
+     * 联系地址
+     *
+     * <p>示例值：
+     */
+    private Address address;
+
+    /**
+     * 出生证明
+     *
+     * <p>示例值：
+     */
+    private File[] birthCertificateOfChild;
+
+    /**
+     * 变更原因
+     *
+     * <p>示例值：
+     */
+    private Enum reason;
+
+    /**
+     * 变更日期
+     *
+     * <p>示例值：2020-01-01
+     */
+    private String modifyDate;
+
+    /**
+     * Visa 列表
+     *
+     * <p>示例值：
+     */
+    private Visa[] visas;
+
+    /**
+     * Passport 列表
+     *
+     * <p>示例值：
+     */
+    private Passport[] passports;
+
+    /**
+     * 居民身份列表
+     *
+     * <p>示例值：
+     */
     private CitizenshipStatus[] citizenshipStatuses;
 
-    // builder 开始
-    public Dependent() {
+    /**
+     * 邮箱列表
+     *
+     * <p>示例值：
+     */
+    private Email[] emails;
+
+    /**
+     * ID
+     *
+     * <p>示例值：123
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Dependent(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：123
-         */
-        this.id = builder.id;
-        /**
-         * 姓名
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 关系
-         * <p> 示例值：
-         */
-        this.relationship = builder.relationship;
-        /**
-         * 性别
-         * <p> 示例值：
-         */
-        this.gender = builder.gender;
-        /**
-         * 生日
-         * <p> 示例值：2020-01-01
-         */
-        this.dateOfBirth = builder.dateOfBirth;
-        /**
-         * 国籍 ID（该字段待作废，请勿使用）
-         * <p> 示例值：6862995745046267400
-         */
-        this.nationalityId = builder.nationalityId;
-        /**
-         * 国籍 ID，可通过【查询国籍信息】接口查询
-         * <p> 示例值：6862995745046267401
-         */
-        this.nationalityIdV2 = builder.nationalityIdV2;
-        /**
-         * 证件号码
-         * <p> 示例值：
-         */
-        this.nationalIdList = builder.nationalIdList;
-        /**
-         * 配偶工作状态
-         * <p> 示例值：
-         */
-        this.spousesWorkingStatus = builder.spousesWorkingStatus;
-        /**
-         * 包含家属医疗保险
-         * <p> 示例值：true
-         */
-        this.isThisPersonCoveredByHealthInsurance = builder.isThisPersonCoveredByHealthInsurance;
-        /**
-         * 允许家属抵扣税款
-         * <p> 示例值：false
-         */
-        this.isThisPersonAllowedForTaxDeduction = builder.isThisPersonAllowedForTaxDeduction;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 家庭成员姓名
-         * <p> 示例值：张三
-         */
-        this.dependentName = builder.dependentName;
-        /**
-         * 工作单位
-         * <p> 示例值：海淀区交警大队
-         */
-        this.employer = builder.employer;
-        /**
-         * 岗位
-         * <p> 示例值：保安
-         */
-        this.job = builder.job;
-        /**
-         * 电话
-         * <p> 示例值：
-         */
-        this.phone = builder.phone;
-        /**
-         * 联系地址
-         * <p> 示例值：
-         */
-        this.address = builder.address;
-        /**
-         * 出生证明
-         * <p> 示例值：
-         */
-        this.birthCertificateOfChild = builder.birthCertificateOfChild;
-        /**
-         * 变更原因
-         * <p> 示例值：
-         */
-        this.reason = builder.reason;
-        /**
-         * 变更日期
-         * <p> 示例值：2020-01-01
-         */
-        this.modifyDate = builder.modifyDate;
-        /**
-         * Visa 列表
-         * <p> 示例值：
-         */
-        this.visas = builder.visas;
-        /**
-         * Passport 列表
-         * <p> 示例值：
-         */
-        this.passports = builder.passports;
-        /**
-         * 居民身份列表
-         * <p> 示例值：
-         */
-        this.citizenshipStatuses = builder.citizenshipStatuses;
+    /**
+     * 姓名
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(PersonName name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 关系
+     *
+     * <p>示例值：
+     *
+     * @param relationship
+     * @return
+     */
+    public Builder relationship(Enum relationship) {
+      this.relationship = relationship;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 性别
+     *
+     * <p>示例值：
+     *
+     * @param gender
+     * @return
+     */
+    public Builder gender(Enum gender) {
+      this.gender = gender;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 生日
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param dateOfBirth
+     * @return
+     */
+    public Builder dateOfBirth(String dateOfBirth) {
+      this.dateOfBirth = dateOfBirth;
+      return this;
     }
 
-    public PersonName getName() {
-        return this.name;
+    /**
+     * 国籍 ID（该字段待作废，请勿使用）
+     *
+     * <p>示例值：6862995745046267400
+     *
+     * @param nationalityId
+     * @return
+     */
+    public Builder nationalityId(String nationalityId) {
+      this.nationalityId = nationalityId;
+      return this;
     }
 
-    public void setName(PersonName name) {
-        this.name = name;
+    /**
+     * 国籍 ID，可通过【查询国籍信息】接口查询
+     *
+     * <p>示例值：6862995745046267401
+     *
+     * @param nationalityIdV2
+     * @return
+     */
+    public Builder nationalityIdV2(String nationalityIdV2) {
+      this.nationalityIdV2 = nationalityIdV2;
+      return this;
     }
 
-    public Enum getRelationship() {
-        return this.relationship;
+    /**
+     * 证件号码
+     *
+     * <p>示例值：
+     *
+     * @param nationalIdList
+     * @return
+     */
+    public Builder nationalIdList(NationalId[] nationalIdList) {
+      this.nationalIdList = nationalIdList;
+      return this;
     }
 
-    public void setRelationship(Enum relationship) {
-        this.relationship = relationship;
+    /**
+     * 配偶工作状态
+     *
+     * <p>示例值：
+     *
+     * @param spousesWorkingStatus
+     * @return
+     */
+    public Builder spousesWorkingStatus(Enum spousesWorkingStatus) {
+      this.spousesWorkingStatus = spousesWorkingStatus;
+      return this;
     }
 
-    public Enum getGender() {
-        return this.gender;
+    /**
+     * 包含家属医疗保险
+     *
+     * <p>示例值：true
+     *
+     * @param isThisPersonCoveredByHealthInsurance
+     * @return
+     */
+    public Builder isThisPersonCoveredByHealthInsurance(
+        Boolean isThisPersonCoveredByHealthInsurance) {
+      this.isThisPersonCoveredByHealthInsurance = isThisPersonCoveredByHealthInsurance;
+      return this;
     }
 
-    public void setGender(Enum gender) {
-        this.gender = gender;
+    /**
+     * 允许家属抵扣税款
+     *
+     * <p>示例值：false
+     *
+     * @param isThisPersonAllowedForTaxDeduction
+     * @return
+     */
+    public Builder isThisPersonAllowedForTaxDeduction(Boolean isThisPersonAllowedForTaxDeduction) {
+      this.isThisPersonAllowedForTaxDeduction = isThisPersonAllowedForTaxDeduction;
+      return this;
     }
 
-    public String getDateOfBirth() {
-        return this.dateOfBirth;
+    /**
+     * 自定义字段;-
+     * 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(CustomFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    /**
+     * 家庭成员姓名
+     *
+     * <p>示例值：张三
+     *
+     * @param dependentName
+     * @return
+     */
+    public Builder dependentName(String dependentName) {
+      this.dependentName = dependentName;
+      return this;
     }
 
-    public String getNationalityId() {
-        return this.nationalityId;
+    /**
+     * 工作单位
+     *
+     * <p>示例值：海淀区交警大队
+     *
+     * @param employer
+     * @return
+     */
+    public Builder employer(String employer) {
+      this.employer = employer;
+      return this;
     }
 
-    public void setNationalityId(String nationalityId) {
-        this.nationalityId = nationalityId;
+    /**
+     * 岗位
+     *
+     * <p>示例值：保安
+     *
+     * @param job
+     * @return
+     */
+    public Builder job(String job) {
+      this.job = job;
+      return this;
     }
 
-    public String getNationalityIdV2() {
-        return this.nationalityIdV2;
+    /**
+     * 电话
+     *
+     * <p>示例值：
+     *
+     * @param phone
+     * @return
+     */
+    public Builder phone(Phone phone) {
+      this.phone = phone;
+      return this;
     }
 
-    public void setNationalityIdV2(String nationalityIdV2) {
-        this.nationalityIdV2 = nationalityIdV2;
+    /**
+     * 联系地址
+     *
+     * <p>示例值：
+     *
+     * @param address
+     * @return
+     */
+    public Builder address(Address address) {
+      this.address = address;
+      return this;
     }
 
-    public NationalId[] getNationalIdList() {
-        return this.nationalIdList;
+    /**
+     * 出生证明
+     *
+     * <p>示例值：
+     *
+     * @param birthCertificateOfChild
+     * @return
+     */
+    public Builder birthCertificateOfChild(File[] birthCertificateOfChild) {
+      this.birthCertificateOfChild = birthCertificateOfChild;
+      return this;
     }
 
-    public void setNationalIdList(NationalId[] nationalIdList) {
-        this.nationalIdList = nationalIdList;
+    /**
+     * 变更原因
+     *
+     * <p>示例值：
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(Enum reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public Enum getSpousesWorkingStatus() {
-        return this.spousesWorkingStatus;
+    /**
+     * 变更日期
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param modifyDate
+     * @return
+     */
+    public Builder modifyDate(String modifyDate) {
+      this.modifyDate = modifyDate;
+      return this;
     }
 
-    public void setSpousesWorkingStatus(Enum spousesWorkingStatus) {
-        this.spousesWorkingStatus = spousesWorkingStatus;
+    /**
+     * Visa 列表
+     *
+     * <p>示例值：
+     *
+     * @param visas
+     * @return
+     */
+    public Builder visas(Visa[] visas) {
+      this.visas = visas;
+      return this;
     }
 
-    public Boolean getIsThisPersonCoveredByHealthInsurance() {
-        return this.isThisPersonCoveredByHealthInsurance;
+    /**
+     * Passport 列表
+     *
+     * <p>示例值：
+     *
+     * @param passports
+     * @return
+     */
+    public Builder passports(Passport[] passports) {
+      this.passports = passports;
+      return this;
     }
 
-    public void setIsThisPersonCoveredByHealthInsurance(Boolean isThisPersonCoveredByHealthInsurance) {
-        this.isThisPersonCoveredByHealthInsurance = isThisPersonCoveredByHealthInsurance;
+    /**
+     * 居民身份列表
+     *
+     * <p>示例值：
+     *
+     * @param citizenshipStatuses
+     * @return
+     */
+    public Builder citizenshipStatuses(CitizenshipStatus[] citizenshipStatuses) {
+      this.citizenshipStatuses = citizenshipStatuses;
+      return this;
     }
 
-    public Boolean getIsThisPersonAllowedForTaxDeduction() {
-        return this.isThisPersonAllowedForTaxDeduction;
+    /**
+     * 邮箱列表
+     *
+     * <p>示例值：
+     *
+     * @param emails
+     * @return
+     */
+    public Builder emails(Email[] emails) {
+      this.emails = emails;
+      return this;
     }
 
-    public void setIsThisPersonAllowedForTaxDeduction(Boolean isThisPersonAllowedForTaxDeduction) {
-        this.isThisPersonAllowedForTaxDeduction = isThisPersonAllowedForTaxDeduction;
+    public Dependent build() {
+      return new Dependent(this);
     }
-
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public String getDependentName() {
-        return this.dependentName;
-    }
-
-    public void setDependentName(String dependentName) {
-        this.dependentName = dependentName;
-    }
-
-    public String getEmployer() {
-        return this.employer;
-    }
-
-    public void setEmployer(String employer) {
-        this.employer = employer;
-    }
-
-    public String getJob() {
-        return this.job;
-    }
-
-    public void setJob(String job) {
-        this.job = job;
-    }
-
-    public Phone getPhone() {
-        return this.phone;
-    }
-
-    public void setPhone(Phone phone) {
-        this.phone = phone;
-    }
-
-    public Address getAddress() {
-        return this.address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public File[] getBirthCertificateOfChild() {
-        return this.birthCertificateOfChild;
-    }
-
-    public void setBirthCertificateOfChild(File[] birthCertificateOfChild) {
-        this.birthCertificateOfChild = birthCertificateOfChild;
-    }
-
-    public Enum getReason() {
-        return this.reason;
-    }
-
-    public void setReason(Enum reason) {
-        this.reason = reason;
-    }
-
-    public String getModifyDate() {
-        return this.modifyDate;
-    }
-
-    public void setModifyDate(String modifyDate) {
-        this.modifyDate = modifyDate;
-    }
-
-    public Visa[] getVisas() {
-        return this.visas;
-    }
-
-    public void setVisas(Visa[] visas) {
-        this.visas = visas;
-    }
-
-    public Passport[] getPassports() {
-        return this.passports;
-    }
-
-    public void setPassports(Passport[] passports) {
-        this.passports = passports;
-    }
-
-    public CitizenshipStatus[] getCitizenshipStatuses() {
-        return this.citizenshipStatuses;
-    }
-
-    public void setCitizenshipStatuses(CitizenshipStatus[] citizenshipStatuses) {
-        this.citizenshipStatuses = citizenshipStatuses;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：123
-         */
-        private String id;
-        /**
-         * 姓名
-         * <p> 示例值：
-         */
-        private PersonName name;
-        /**
-         * 关系
-         * <p> 示例值：
-         */
-        private Enum relationship;
-        /**
-         * 性别
-         * <p> 示例值：
-         */
-        private Enum gender;
-        /**
-         * 生日
-         * <p> 示例值：2020-01-01
-         */
-        private String dateOfBirth;
-        /**
-         * 国籍 ID（该字段待作废，请勿使用）
-         * <p> 示例值：6862995745046267400
-         */
-        private String nationalityId;
-        /**
-         * 国籍 ID，可通过【查询国籍信息】接口查询
-         * <p> 示例值：6862995745046267401
-         */
-        private String nationalityIdV2;
-        /**
-         * 证件号码
-         * <p> 示例值：
-         */
-        private NationalId[] nationalIdList;
-        /**
-         * 配偶工作状态
-         * <p> 示例值：
-         */
-        private Enum spousesWorkingStatus;
-        /**
-         * 包含家属医疗保险
-         * <p> 示例值：true
-         */
-        private Boolean isThisPersonCoveredByHealthInsurance;
-        /**
-         * 允许家属抵扣税款
-         * <p> 示例值：false
-         */
-        private Boolean isThisPersonAllowedForTaxDeduction;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomFieldData[] customFields;
-        /**
-         * 家庭成员姓名
-         * <p> 示例值：张三
-         */
-        private String dependentName;
-        /**
-         * 工作单位
-         * <p> 示例值：海淀区交警大队
-         */
-        private String employer;
-        /**
-         * 岗位
-         * <p> 示例值：保安
-         */
-        private String job;
-        /**
-         * 电话
-         * <p> 示例值：
-         */
-        private Phone phone;
-        /**
-         * 联系地址
-         * <p> 示例值：
-         */
-        private Address address;
-        /**
-         * 出生证明
-         * <p> 示例值：
-         */
-        private File[] birthCertificateOfChild;
-        /**
-         * 变更原因
-         * <p> 示例值：
-         */
-        private Enum reason;
-        /**
-         * 变更日期
-         * <p> 示例值：2020-01-01
-         */
-        private String modifyDate;
-        /**
-         * Visa 列表
-         * <p> 示例值：
-         */
-        private Visa[] visas;
-        /**
-         * Passport 列表
-         * <p> 示例值：
-         */
-        private Passport[] passports;
-        /**
-         * 居民身份列表
-         * <p> 示例值：
-         */
-        private CitizenshipStatus[] citizenshipStatuses;
-
-        /**
-         * ID
-         * <p> 示例值：123
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 姓名
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(PersonName name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 关系
-         * <p> 示例值：
-         *
-         * @param relationship
-         * @return
-         */
-        public Builder relationship(Enum relationship) {
-            this.relationship = relationship;
-            return this;
-        }
-
-
-        /**
-         * 性别
-         * <p> 示例值：
-         *
-         * @param gender
-         * @return
-         */
-        public Builder gender(Enum gender) {
-            this.gender = gender;
-            return this;
-        }
-
-
-        /**
-         * 生日
-         * <p> 示例值：2020-01-01
-         *
-         * @param dateOfBirth
-         * @return
-         */
-        public Builder dateOfBirth(String dateOfBirth) {
-            this.dateOfBirth = dateOfBirth;
-            return this;
-        }
-
-
-        /**
-         * 国籍 ID（该字段待作废，请勿使用）
-         * <p> 示例值：6862995745046267400
-         *
-         * @param nationalityId
-         * @return
-         */
-        public Builder nationalityId(String nationalityId) {
-            this.nationalityId = nationalityId;
-            return this;
-        }
-
-
-        /**
-         * 国籍 ID，可通过【查询国籍信息】接口查询
-         * <p> 示例值：6862995745046267401
-         *
-         * @param nationalityIdV2
-         * @return
-         */
-        public Builder nationalityIdV2(String nationalityIdV2) {
-            this.nationalityIdV2 = nationalityIdV2;
-            return this;
-        }
-
-
-        /**
-         * 证件号码
-         * <p> 示例值：
-         *
-         * @param nationalIdList
-         * @return
-         */
-        public Builder nationalIdList(NationalId[] nationalIdList) {
-            this.nationalIdList = nationalIdList;
-            return this;
-        }
-
-
-        /**
-         * 配偶工作状态
-         * <p> 示例值：
-         *
-         * @param spousesWorkingStatus
-         * @return
-         */
-        public Builder spousesWorkingStatus(Enum spousesWorkingStatus) {
-            this.spousesWorkingStatus = spousesWorkingStatus;
-            return this;
-        }
-
-
-        /**
-         * 包含家属医疗保险
-         * <p> 示例值：true
-         *
-         * @param isThisPersonCoveredByHealthInsurance
-         * @return
-         */
-        public Builder isThisPersonCoveredByHealthInsurance(Boolean isThisPersonCoveredByHealthInsurance) {
-            this.isThisPersonCoveredByHealthInsurance = isThisPersonCoveredByHealthInsurance;
-            return this;
-        }
-
-
-        /**
-         * 允许家属抵扣税款
-         * <p> 示例值：false
-         *
-         * @param isThisPersonAllowedForTaxDeduction
-         * @return
-         */
-        public Builder isThisPersonAllowedForTaxDeduction(Boolean isThisPersonAllowedForTaxDeduction) {
-            this.isThisPersonAllowedForTaxDeduction = isThisPersonAllowedForTaxDeduction;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 家庭成员姓名
-         * <p> 示例值：张三
-         *
-         * @param dependentName
-         * @return
-         */
-        public Builder dependentName(String dependentName) {
-            this.dependentName = dependentName;
-            return this;
-        }
-
-
-        /**
-         * 工作单位
-         * <p> 示例值：海淀区交警大队
-         *
-         * @param employer
-         * @return
-         */
-        public Builder employer(String employer) {
-            this.employer = employer;
-            return this;
-        }
-
-
-        /**
-         * 岗位
-         * <p> 示例值：保安
-         *
-         * @param job
-         * @return
-         */
-        public Builder job(String job) {
-            this.job = job;
-            return this;
-        }
-
-
-        /**
-         * 电话
-         * <p> 示例值：
-         *
-         * @param phone
-         * @return
-         */
-        public Builder phone(Phone phone) {
-            this.phone = phone;
-            return this;
-        }
-
-
-        /**
-         * 联系地址
-         * <p> 示例值：
-         *
-         * @param address
-         * @return
-         */
-        public Builder address(Address address) {
-            this.address = address;
-            return this;
-        }
-
-
-        /**
-         * 出生证明
-         * <p> 示例值：
-         *
-         * @param birthCertificateOfChild
-         * @return
-         */
-        public Builder birthCertificateOfChild(File[] birthCertificateOfChild) {
-            this.birthCertificateOfChild = birthCertificateOfChild;
-            return this;
-        }
-
-
-        /**
-         * 变更原因
-         * <p> 示例值：
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(Enum reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * 变更日期
-         * <p> 示例值：2020-01-01
-         *
-         * @param modifyDate
-         * @return
-         */
-        public Builder modifyDate(String modifyDate) {
-            this.modifyDate = modifyDate;
-            return this;
-        }
-
-
-        /**
-         * Visa 列表
-         * <p> 示例值：
-         *
-         * @param visas
-         * @return
-         */
-        public Builder visas(Visa[] visas) {
-            this.visas = visas;
-            return this;
-        }
-
-
-        /**
-         * Passport 列表
-         * <p> 示例值：
-         *
-         * @param passports
-         * @return
-         */
-        public Builder passports(Passport[] passports) {
-            this.passports = passports;
-            return this;
-        }
-
-
-        /**
-         * 居民身份列表
-         * <p> 示例值：
-         *
-         * @param citizenshipStatuses
-         * @return
-         */
-        public Builder citizenshipStatuses(CitizenshipStatus[] citizenshipStatuses) {
-            this.citizenshipStatuses = citizenshipStatuses;
-            return this;
-        }
-
-
-        public Dependent build() {
-            return new Dependent(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

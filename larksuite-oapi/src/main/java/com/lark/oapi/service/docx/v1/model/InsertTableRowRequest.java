@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InsertTableRowRequest {
+  /**
+   * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
+   *
+   * <p>示例值：-1
+   */
+  @SerializedName("row_index")
+  private Integer rowIndex;
+
+  public Integer getRowIndex() {
+    return this.rowIndex;
+  }
+
+  public void setRowIndex(Integer rowIndex) {
+    this.rowIndex = rowIndex;
+  }
+
+  // builder 开始
+  public InsertTableRowRequest() {}
+
+  public InsertTableRowRequest(Builder builder) {
     /**
      * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
-     * <p> 示例值：-1
+     *
+     * <p>示例值：-1
      */
-    @SerializedName("row_index")
+    this.rowIndex = builder.rowIndex;
+  }
+
+  public static class Builder {
+    /**
+     * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
+     *
+     * <p>示例值：-1
+     */
     private Integer rowIndex;
 
-    // builder 开始
-    public InsertTableRowRequest() {
+    /**
+     * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
+     *
+     * <p>示例值：-1
+     *
+     * @param rowIndex
+     * @return
+     */
+    public Builder rowIndex(Integer rowIndex) {
+      this.rowIndex = rowIndex;
+      return this;
     }
 
-    public InsertTableRowRequest(Builder builder) {
-        /**
-         * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
-         * <p> 示例值：-1
-         */
-        this.rowIndex = builder.rowIndex;
+    public InsertTableRowRequest build() {
+      return new InsertTableRowRequest(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Integer getRowIndex() {
-        return this.rowIndex;
-    }
-
-    public void setRowIndex(Integer rowIndex) {
-        this.rowIndex = rowIndex;
-    }
-
-    public static class Builder {
-        /**
-         * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
-         * <p> 示例值：-1
-         */
-        private Integer rowIndex;
-
-        /**
-         * 插入的行在表格中的索引。（-1表示在表格末尾插入一行）
-         * <p> 示例值：-1
-         *
-         * @param rowIndex
-         * @return
-         */
-        public Builder rowIndex(Integer rowIndex) {
-            this.rowIndex = rowIndex;
-            return this;
-        }
-
-
-        public InsertTableRowRequest build() {
-            return new InsertTableRowRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

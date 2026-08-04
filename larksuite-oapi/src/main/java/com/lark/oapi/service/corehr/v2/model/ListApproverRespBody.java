@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListApproverRespBody {
-    /**
-     * 分页键
-     * <p> 示例值：1
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有更多数据
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 审批任务列表
-     * <p> 示例值：
-     */
-    @SerializedName("approver_list")
-    private ApproverInfo[] approverList;
+  /**
+   * 分页键
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 是否有更多数据
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  /**
+   * 审批任务列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("approver_list")
+  private ApproverInfo[] approverList;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public ApproverInfo[] getApproverList() {
-        return this.approverList;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setApproverList(ApproverInfo[] approverList) {
-        this.approverList = approverList;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
+  public ApproverInfo[] getApproverList() {
+    return this.approverList;
+  }
+
+  public void setApproverList(ApproverInfo[] approverList) {
+    this.approverList = approverList;
+  }
 }

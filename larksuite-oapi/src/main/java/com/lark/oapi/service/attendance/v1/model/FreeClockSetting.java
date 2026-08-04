@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FreeClockSetting {
+  /**
+   * 打卡模式
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("clock_mode")
+  private Integer clockMode;
+
+  /**
+   * 最小打卡间隔
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("clock_internal_hhmm")
+  private Integer clockInternalHhmm;
+
+  public Integer getClockMode() {
+    return this.clockMode;
+  }
+
+  public void setClockMode(Integer clockMode) {
+    this.clockMode = clockMode;
+  }
+
+  public Integer getClockInternalHhmm() {
+    return this.clockInternalHhmm;
+  }
+
+  public void setClockInternalHhmm(Integer clockInternalHhmm) {
+    this.clockInternalHhmm = clockInternalHhmm;
+  }
+
+  // builder 开始
+  public FreeClockSetting() {}
+
+  public FreeClockSetting(Builder builder) {
     /**
      * 打卡模式
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("clock_mode")
-    private Integer clockMode;
+    this.clockMode = builder.clockMode;
     /**
      * 最小打卡间隔
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("clock_internal_hhmm")
+    this.clockInternalHhmm = builder.clockInternalHhmm;
+  }
+
+  public static class Builder {
+    /**
+     * 打卡模式
+     *
+     * <p>示例值：0
+     */
+    private Integer clockMode;
+
+    /**
+     * 最小打卡间隔
+     *
+     * <p>示例值：100
+     */
     private Integer clockInternalHhmm;
 
-    // builder 开始
-    public FreeClockSetting() {
+    /**
+     * 打卡模式
+     *
+     * <p>示例值：0
+     *
+     * @param clockMode
+     * @return
+     */
+    public Builder clockMode(Integer clockMode) {
+      this.clockMode = clockMode;
+      return this;
     }
 
-    public FreeClockSetting(Builder builder) {
-        /**
-         * 打卡模式
-         * <p> 示例值：0
-         */
-        this.clockMode = builder.clockMode;
-        /**
-         * 最小打卡间隔
-         * <p> 示例值：100
-         */
-        this.clockInternalHhmm = builder.clockInternalHhmm;
+    /**
+     * 最小打卡间隔
+     *
+     * <p>示例值：100
+     *
+     * @param clockInternalHhmm
+     * @return
+     */
+    public Builder clockInternalHhmm(Integer clockInternalHhmm) {
+      this.clockInternalHhmm = clockInternalHhmm;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public FreeClockSetting build() {
+      return new FreeClockSetting(this);
     }
+  }
 
-    public Integer getClockMode() {
-        return this.clockMode;
-    }
-
-    public void setClockMode(Integer clockMode) {
-        this.clockMode = clockMode;
-    }
-
-    public Integer getClockInternalHhmm() {
-        return this.clockInternalHhmm;
-    }
-
-    public void setClockInternalHhmm(Integer clockInternalHhmm) {
-        this.clockInternalHhmm = clockInternalHhmm;
-    }
-
-    public static class Builder {
-        /**
-         * 打卡模式
-         * <p> 示例值：0
-         */
-        private Integer clockMode;
-        /**
-         * 最小打卡间隔
-         * <p> 示例值：100
-         */
-        private Integer clockInternalHhmm;
-
-        /**
-         * 打卡模式
-         * <p> 示例值：0
-         *
-         * @param clockMode
-         * @return
-         */
-        public Builder clockMode(Integer clockMode) {
-            this.clockMode = clockMode;
-            return this;
-        }
-
-
-        /**
-         * 最小打卡间隔
-         * <p> 示例值：100
-         *
-         * @param clockInternalHhmm
-         * @return
-         */
-        public Builder clockInternalHhmm(Integer clockInternalHhmm) {
-            this.clockInternalHhmm = clockInternalHhmm;
-            return this;
-        }
-
-
-        public FreeClockSetting build() {
-            return new FreeClockSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

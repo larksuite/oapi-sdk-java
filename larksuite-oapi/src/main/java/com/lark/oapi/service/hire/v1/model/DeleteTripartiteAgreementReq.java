@@ -13,69 +13,67 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteTripartiteAgreementReq {
+  /**
+   * 三方协议
+   * ID，由[创建三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/create)接口返回或通过[获取三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/list)获取
+   *
+   * <p>示例值：
+   */
+  @Path
+  @SerializedName("tripartite_agreement_id")
+  private String tripartiteAgreementId;
+
+  public String getTripartiteAgreementId() {
+    return this.tripartiteAgreementId;
+  }
+
+  public void setTripartiteAgreementId(String tripartiteAgreementId) {
+    this.tripartiteAgreementId = tripartiteAgreementId;
+  }
+
+  // builder 开始
+  public DeleteTripartiteAgreementReq() {}
+
+  public DeleteTripartiteAgreementReq(Builder builder) {
     /**
-     * <p> 示例值：
+     * 三方协议
+     * ID，由[创建三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/create)接口返回或通过[获取三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/list)获取
+     *
+     * <p>示例值：
      */
-    @Path
-    @SerializedName("tripartite_agreement_id")
-    private String tripartiteAgreementId;
+    this.tripartiteAgreementId = builder.tripartiteAgreementId;
+  }
 
-    // builder 开始
-    public DeleteTripartiteAgreementReq() {
+  public static class Builder {
+
+    private String tripartiteAgreementId; // 三方协议
+
+    // ID，由[创建三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/create)接口返回或通过[获取三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/list)获取
+
+    /**
+     * 三方协议
+     * ID，由[创建三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/create)接口返回或通过[获取三方协议](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/tripartite_agreement/list)获取
+     *
+     * <p>示例值：
+     *
+     * @param tripartiteAgreementId
+     * @return
+     */
+    public Builder tripartiteAgreementId(String tripartiteAgreementId) {
+      this.tripartiteAgreementId = tripartiteAgreementId;
+      return this;
     }
 
-    public DeleteTripartiteAgreementReq(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.tripartiteAgreementId = builder.tripartiteAgreementId;
+    public DeleteTripartiteAgreementReq build() {
+      return new DeleteTripartiteAgreementReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTripartiteAgreementId() {
-        return this.tripartiteAgreementId;
-    }
-
-    public void setTripartiteAgreementId(String tripartiteAgreementId) {
-        this.tripartiteAgreementId = tripartiteAgreementId;
-    }
-
-    public static class Builder {
-
-        private String tripartiteAgreementId; //
-
-        /**
-         * <p> 示例值：
-         *
-         * @param tripartiteAgreementId
-         * @return
-         */
-        public Builder tripartiteAgreementId(String tripartiteAgreementId) {
-            this.tripartiteAgreementId = tripartiteAgreementId;
-            return this;
-        }
-
-
-        public DeleteTripartiteAgreementReq build() {
-            return new DeleteTripartiteAgreementReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

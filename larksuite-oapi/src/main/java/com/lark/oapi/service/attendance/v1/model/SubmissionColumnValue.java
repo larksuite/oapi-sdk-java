@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubmissionColumnValue {
+  /**
+   * code
+   *
+   * <p>示例值：duration
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * value
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 中文文案
+   *
+   * <p>示例值：开始时间
+   */
+  @SerializedName("text")
+  private String text;
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  // builder 开始
+  public SubmissionColumnValue() {}
+
+  public SubmissionColumnValue(Builder builder) {
     /**
      * code
-     * <p> 示例值：duration
+     *
+     * <p>示例值：duration
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * value
-     * <p> 示例值：3
+     *
+     * <p>示例值：3
      */
-    @SerializedName("value")
-    private String value;
+    this.value = builder.value;
     /**
      * 中文文案
-     * <p> 示例值：开始时间
+     *
+     * <p>示例值：开始时间
      */
-    @SerializedName("text")
+    this.text = builder.text;
+  }
+
+  public static class Builder {
+    /**
+     * code
+     *
+     * <p>示例值：duration
+     */
+    private String code;
+
+    /**
+     * value
+     *
+     * <p>示例值：3
+     */
+    private String value;
+
+    /**
+     * 中文文案
+     *
+     * <p>示例值：开始时间
+     */
     private String text;
 
-    // builder 开始
-    public SubmissionColumnValue() {
+    /**
+     * code
+     *
+     * <p>示例值：duration
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public SubmissionColumnValue(Builder builder) {
-        /**
-         * code
-         * <p> 示例值：duration
-         */
-        this.code = builder.code;
-        /**
-         * value
-         * <p> 示例值：3
-         */
-        this.value = builder.value;
-        /**
-         * 中文文案
-         * <p> 示例值：开始时间
-         */
-        this.text = builder.text;
+    /**
+     * value
+     *
+     * <p>示例值：3
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 中文文案
+     *
+     * <p>示例值：开始时间
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    public SubmissionColumnValue build() {
+      return new SubmissionColumnValue(this);
     }
+  }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public static class Builder {
-        /**
-         * code
-         * <p> 示例值：duration
-         */
-        private String code;
-        /**
-         * value
-         * <p> 示例值：3
-         */
-        private String value;
-        /**
-         * 中文文案
-         * <p> 示例值：开始时间
-         */
-        private String text;
-
-        /**
-         * code
-         * <p> 示例值：duration
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * value
-         * <p> 示例值：3
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 中文文案
-         * <p> 示例值：开始时间
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        public SubmissionColumnValue build() {
-            return new SubmissionColumnValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

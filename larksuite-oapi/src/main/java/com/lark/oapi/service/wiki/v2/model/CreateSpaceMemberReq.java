@@ -13,130 +13,144 @@
 
 package com.lark.oapi.service.wiki.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.wiki.v2.enums.*;
 
 public class CreateSpaceMemberReq {
+  /**
+   * 添加权限后是否通知对方
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("need_notification")
+  private Boolean needNotification;
+
+  public Boolean getNeedNotification() {
+    return this.needNotification;
+  }
+
+  public void setNeedNotification(Boolean needNotification) {
+    this.needNotification = needNotification;
+  }
+
+  /**
+   * 知识空间
+   * ID。可通过以下两种方式获取。了解更多，参考[知识库概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)。;-
+   * 调用
+   * [获取知识空间列表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list)获取;-
+   * 如果你是知识库管理员，可以进入知识库设置页面，复制地址栏的数字部分：https://sample.feishu.cn/wiki/settings/==6870403571079249922==;
+   *
+   * <p>示例值：1565676577122621
+   */
+  @Path
+  @SerializedName("space_id")
+  private String spaceId;
+
+  public String getSpaceId() {
+    return this.spaceId;
+  }
+
+  public void setSpaceId(String spaceId) {
+    this.spaceId = spaceId;
+  }
+
+  @Body private Member body;
+
+  public Member getMember() {
+    return this.body;
+  }
+
+  public void setMember(Member body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateSpaceMemberReq() {}
+
+  public CreateSpaceMemberReq(Builder builder) {
     /**
      * 添加权限后是否通知对方
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("need_notification")
-    private Boolean needNotification;
+    this.needNotification = builder.needNotification;
     /**
-     * 知识空间id
-     * <p> 示例值：1565676577122621
+     * 知识空间
+     * ID。可通过以下两种方式获取。了解更多，参考[知识库概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)。;-
+     * 调用
+     * [获取知识空间列表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list)获取;-
+     * 如果你是知识库管理员，可以进入知识库设置页面，复制地址栏的数字部分：https://sample.feishu.cn/wiki/settings/==6870403571079249922==;
+     *
+     * <p>示例值：1565676577122621
      */
-    @Path
-    @SerializedName("space_id")
-    private String spaceId;
-    @Body
+    this.spaceId = builder.spaceId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private Boolean needNotification; // 添加权限后是否通知对方
+
+    /**
+     * 添加权限后是否通知对方
+     *
+     * <p>示例值：true
+     *
+     * @param needNotification
+     * @return
+     */
+    public Builder needNotification(Boolean needNotification) {
+      this.needNotification = needNotification;
+      return this;
+    }
+
+    private String spaceId; // 知识空间
+
+    // ID。可通过以下两种方式获取。了解更多，参考[知识库概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)。;- 调用 [获取知识空间列表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list)获取;- 如果你是知识库管理员，可以进入知识库设置页面，复制地址栏的数字部分：https://sample.feishu.cn/wiki/settings/==6870403571079249922==;
+
+    /**
+     * 知识空间
+     * ID。可通过以下两种方式获取。了解更多，参考[知识库概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)。;-
+     * 调用
+     * [获取知识空间列表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/list)获取;-
+     * 如果你是知识库管理员，可以进入知识库设置页面，复制地址栏的数字部分：https://sample.feishu.cn/wiki/settings/==6870403571079249922==;
+     *
+     * <p>示例值：1565676577122621
+     *
+     * @param spaceId
+     * @return
+     */
+    public Builder spaceId(String spaceId) {
+      this.spaceId = spaceId;
+      return this;
+    }
+
     private Member body;
 
-    // builder 开始
-    public CreateSpaceMemberReq() {
-    }
-
-    public CreateSpaceMemberReq(Builder builder) {
-        /**
-         * 添加权限后是否通知对方
-         * <p> 示例值：true
-         */
-        this.needNotification = builder.needNotification;
-        /**
-         * 知识空间id
-         * <p> 示例值：1565676577122621
-         */
-        this.spaceId = builder.spaceId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Boolean getNeedNotification() {
-        return this.needNotification;
-    }
-
-    public void setNeedNotification(Boolean needNotification) {
-        this.needNotification = needNotification;
-    }
-
-    public String getSpaceId() {
-        return this.spaceId;
-    }
-
-    public void setSpaceId(String spaceId) {
-        this.spaceId = spaceId;
-    }
-
     public Member getMember() {
-        return this.body;
+      return this.body;
     }
 
-    public void setMember(Member body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder member(Member body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private Boolean needNotification; // 添加权限后是否通知对方
-        private String spaceId; // 知识空间id
-        private Member body;
-
-        /**
-         * 添加权限后是否通知对方
-         * <p> 示例值：true
-         *
-         * @param needNotification
-         * @return
-         */
-        public Builder needNotification(Boolean needNotification) {
-            this.needNotification = needNotification;
-            return this;
-        }
-
-        /**
-         * 知识空间id
-         * <p> 示例值：1565676577122621
-         *
-         * @param spaceId
-         * @return
-         */
-        public Builder spaceId(String spaceId) {
-            this.spaceId = spaceId;
-            return this;
-        }
-
-        public Member getMember() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder member(Member body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateSpaceMemberReq build() {
-            return new CreateSpaceMemberReq(this);
-        }
+    public CreateSpaceMemberReq build() {
+      return new CreateSpaceMemberReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

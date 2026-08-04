@@ -13,161 +13,162 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmailInfo {
+  /**
+   * 邮箱地址
+   *
+   * <p>示例值：abc@abc.com
+   */
+  @SerializedName("email_address")
+  private String emailAddress;
+
+  /**
+   * 邮箱地址类型
+   *
+   * <p>示例值：USER_PRIMARY
+   */
+  @SerializedName("email_type")
+  private String emailType;
+
+  /**
+   * 邮箱名称
+   *
+   * <p>示例值：Mike
+   */
+  @SerializedName("name")
+  private String name;
+
+  public String getEmailAddress() {
+    return this.emailAddress;
+  }
+
+  public void setEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+  }
+
+  public String getEmailType() {
+    return this.emailType;
+  }
+
+  public void setEmailType(String emailType) {
+    this.emailType = emailType;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public EmailInfo() {}
+
+  public EmailInfo(Builder builder) {
     /**
      * 邮箱地址
-     * <p> 示例值：abc@abc.com
+     *
+     * <p>示例值：abc@abc.com
      */
-    @SerializedName("email_address")
-    private String emailAddress;
+    this.emailAddress = builder.emailAddress;
     /**
      * 邮箱地址类型
-     * <p> 示例值：USER_PRIMARY
+     *
+     * <p>示例值：USER_PRIMARY
      */
-    @SerializedName("email_type")
-    private String emailType;
+    this.emailType = builder.emailType;
     /**
      * 邮箱名称
-     * <p> 示例值：Mike
+     *
+     * <p>示例值：Mike
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 邮箱地址
+     *
+     * <p>示例值：abc@abc.com
+     */
+    private String emailAddress;
+
+    /**
+     * 邮箱地址类型
+     *
+     * <p>示例值：USER_PRIMARY
+     */
+    private String emailType;
+
+    /**
+     * 邮箱名称
+     *
+     * <p>示例值：Mike
+     */
     private String name;
 
-    // builder 开始
-    public EmailInfo() {
+    /**
+     * 邮箱地址
+     *
+     * <p>示例值：abc@abc.com
+     *
+     * @param emailAddress
+     * @return
+     */
+    public Builder emailAddress(String emailAddress) {
+      this.emailAddress = emailAddress;
+      return this;
     }
 
-    public EmailInfo(Builder builder) {
-        /**
-         * 邮箱地址
-         * <p> 示例值：abc@abc.com
-         */
-        this.emailAddress = builder.emailAddress;
-        /**
-         * 邮箱地址类型
-         * <p> 示例值：USER_PRIMARY
-         */
-        this.emailType = builder.emailType;
-        /**
-         * 邮箱名称
-         * <p> 示例值：Mike
-         */
-        this.name = builder.name;
+    /**
+     * 邮箱地址类型
+     *
+     * <p>示例值：USER_PRIMARY
+     *
+     * @param emailType
+     * @return
+     */
+    public Builder emailType(String emailType) {
+      this.emailType = emailType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 邮箱地址类型
+     *
+     * <p>示例值：USER_PRIMARY
+     *
+     * @param emailType {@link com.lark.oapi.service.mail.v1.enums.EmailInfoEmailTypeEnum}
+     * @return
+     */
+    public Builder emailType(com.lark.oapi.service.mail.v1.enums.EmailInfoEmailTypeEnum emailType) {
+      this.emailType = emailType.getValue();
+      return this;
     }
 
-    public String getEmailAddress() {
-        return this.emailAddress;
+    /**
+     * 邮箱名称
+     *
+     * <p>示例值：Mike
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public EmailInfo build() {
+      return new EmailInfo(this);
     }
+  }
 
-    public String getEmailType() {
-        return this.emailType;
-    }
-
-    public void setEmailType(String emailType) {
-        this.emailType = emailType;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 邮箱地址
-         * <p> 示例值：abc@abc.com
-         */
-        private String emailAddress;
-        /**
-         * 邮箱地址类型
-         * <p> 示例值：USER_PRIMARY
-         */
-        private String emailType;
-        /**
-         * 邮箱名称
-         * <p> 示例值：Mike
-         */
-        private String name;
-
-        /**
-         * 邮箱地址
-         * <p> 示例值：abc@abc.com
-         *
-         * @param emailAddress
-         * @return
-         */
-        public Builder emailAddress(String emailAddress) {
-            this.emailAddress = emailAddress;
-            return this;
-        }
-
-
-        /**
-         * 邮箱地址类型
-         * <p> 示例值：USER_PRIMARY
-         *
-         * @param emailType
-         * @return
-         */
-        public Builder emailType(String emailType) {
-            this.emailType = emailType;
-            return this;
-        }
-
-        /**
-         * 邮箱地址类型
-         * <p> 示例值：USER_PRIMARY
-         *
-         * @param emailType {@link com.lark.oapi.service.mail.v1.enums.EmailInfoEmailTypeEnum}
-         * @return
-         */
-        public Builder emailType(com.lark.oapi.service.mail.v1.enums.EmailInfoEmailTypeEnum emailType) {
-            this.emailType = emailType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 邮箱名称
-         * <p> 示例值：Mike
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public EmailInfo build() {
-            return new EmailInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

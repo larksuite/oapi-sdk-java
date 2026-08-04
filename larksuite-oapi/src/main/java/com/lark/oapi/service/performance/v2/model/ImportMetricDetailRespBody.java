@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ImportMetricDetailRespBody {
-    /**
-     * 成功时返回导入记录 ID，失败时则为 null
-     * <p> 示例值：7241404194141224979
-     */
-    @SerializedName("import_record_id")
-    private String importRecordId;
+  /**
+   * 导入记录 ID
+   *
+   * <p>示例值：7241404194141224979
+   */
+  @SerializedName("import_record_id")
+  private String importRecordId;
 
-    public String getImportRecordId() {
-        return this.importRecordId;
-    }
+  public String getImportRecordId() {
+    return this.importRecordId;
+  }
 
-    public void setImportRecordId(String importRecordId) {
-        this.importRecordId = importRecordId;
-    }
-
+  public void setImportRecordId(String importRecordId) {
+    this.importRecordId = importRecordId;
+  }
 }

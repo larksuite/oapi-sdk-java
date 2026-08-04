@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 事件类型
- */
+/** 事件类型 */
 public enum EnterpriseEmailChangeEventEventTypeEnum {
-    EMAIL_CREATE(1), // 邮箱新增事件
-    EMAIL_UPDATE(2), // 邮箱更新事件
-    EMAIL_DELETE(3), // 邮箱删除事件
-    ;
-    private Integer value;
+  EMAIL_CREATE(1), // 邮箱新增事件
+  EMAIL_UPDATE(2), // 邮箱更新事件
+  EMAIL_DELETE(3), // 邮箱删除事件
+  ;
+  private Integer value;
 
-    EnterpriseEmailChangeEventEventTypeEnum(Integer value) {
-        this.value = value;
-    }
+  EnterpriseEmailChangeEventEventTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

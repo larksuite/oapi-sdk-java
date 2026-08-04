@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.apaas.v1.enums;
 
-/**
- * aPaaS 产品应用的类型
- */
+/** aPaaS 产品应用的类型 */
 public enum AppTypeEnum {
-    CUSTOM("custom"), // 自建应用
-    CLIENT_ISV_SAAS("client_isv_saas"), // 来自服务商的 SaaS 应用
-    CLIENT_ISV_PROJECT("client_isv_project"), // 来自服务商的项目制应用
-    ;
-    private String value;
+  CUSTOM("custom"), // 自建应用
+  CLIENT_ISV_SAAS("client_isv_saas"), // 来自服务商的 SaaS 应用
+  CLIENT_ISV_PROJECT("client_isv_project"), // 来自服务商的项目制应用
+  ;
+  private String value;
 
-    AppTypeEnum(String value) {
-        this.value = value;
-    }
+  AppTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

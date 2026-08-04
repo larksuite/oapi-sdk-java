@@ -13,173 +13,175 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class ListJobReq {
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：1231231987
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 每页获取记录数量，最大100;- 最少1个字符，最多200个字符
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_size")
+  private String pageSize;
+
+  /**
+   * 职务名称;- 最少1个字符，最多200个字符
+   *
+   * <p>示例值：软件工程师
+   */
+  @Query
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 语言信息，中文用zh-CN，英文用en-US;- 传空默认都返回;- 最少1个字符，最多200个字符
+   *
+   * <p>示例值：zh-CN
+   */
+  @Query
+  @SerializedName("query_language")
+  private String queryLanguage;
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(String pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getQueryLanguage() {
+    return this.queryLanguage;
+  }
+
+  public void setQueryLanguage(String queryLanguage) {
+    this.queryLanguage = queryLanguage;
+  }
+
+  // builder 开始
+  public ListJobReq() {}
+
+  public ListJobReq(Builder builder) {
     /**
-     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-     * <p> 示例值：1231231987
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：1231231987
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 每页获取记录数量，最大100
-     * <p> 示例值：100
+     * 每页获取记录数量，最大100;- 最少1个字符，最多200个字符
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_size")
-    private String pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 名称
-     * <p> 示例值：keyword
+     * 职务名称;- 最少1个字符，最多200个字符
+     *
+     * <p>示例值：软件工程师
      */
-    @Query
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 语言
-     * <p> 示例值：zh
+     * 语言信息，中文用zh-CN，英文用en-US;- 传空默认都返回;- 最少1个字符，最多200个字符
+     *
+     * <p>示例值：zh-CN
      */
-    @Query
-    @SerializedName("query_language")
-    private String queryLanguage;
+    this.queryLanguage = builder.queryLanguage;
+  }
 
-    // builder 开始
-    public ListJobReq() {
+  public static class Builder {
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String pageSize; // 每页获取记录数量，最大100;- 最少1个字符，最多200个字符
+    private String name; // 职务名称;- 最少1个字符，最多200个字符
+    private String queryLanguage; // 语言信息，中文用zh-CN，英文用en-US;- 传空默认都返回;- 最少1个字符，最多200个字符
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：1231231987
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public ListJobReq(Builder builder) {
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：1231231987
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 名称
-         * <p> 示例值：keyword
-         */
-        this.name = builder.name;
-        /**
-         * 语言
-         * <p> 示例值：zh
-         */
-        this.queryLanguage = builder.queryLanguage;
+    /**
+     * 每页获取记录数量，最大100;- 最少1个字符，最多200个字符
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(String pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 职务名称;- 最少1个字符，最多200个字符
+     *
+     * <p>示例值：软件工程师
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 语言信息，中文用zh-CN，英文用en-US;- 传空默认都返回;- 最少1个字符，最多200个字符
+     *
+     * <p>示例值：zh-CN
+     *
+     * @param queryLanguage
+     * @return
+     */
+    public Builder queryLanguage(String queryLanguage) {
+      this.queryLanguage = queryLanguage;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    public ListJobReq build() {
+      return new ListJobReq(this);
     }
+  }
 
-    public String getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(String pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getQueryLanguage() {
-        return this.queryLanguage;
-    }
-
-    public void setQueryLanguage(String queryLanguage) {
-        this.queryLanguage = queryLanguage;
-    }
-
-    public static class Builder {
-        private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-        private String pageSize; // 每页获取记录数量，最大100
-        private String name; // 名称
-        private String queryLanguage; // 语言
-
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：1231231987
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(String pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：keyword
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 语言
-         * <p> 示例值：zh
-         *
-         * @param queryLanguage
-         * @return
-         */
-        public Builder queryLanguage(String queryLanguage) {
-            this.queryLanguage = queryLanguage;
-            return this;
-        }
-
-
-        public ListJobReq build() {
-            return new ListJobReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

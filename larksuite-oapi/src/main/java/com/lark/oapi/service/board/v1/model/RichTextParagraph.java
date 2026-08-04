@@ -13,235 +13,249 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RichTextParagraph {
+  /**
+   * 段落类别
+   *
+   * <p>示例值：
+   */
+  @SerializedName("paragraph_type")
+  private Integer paragraphType;
+
+  /**
+   * 段落的元素列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("elements")
+  private RichTextElement[] elements;
+
+  /**
+   * 缩进（单位：字符）
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("indent")
+  private Integer indent;
+
+  /**
+   * 有序列表开始序号(第一个有序列表的序号为list_begin_index+1);例如：list_begin_index = 0， 则第一个有序列表的序号为1
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("list_begin_index")
+  private Integer listBeginIndex;
+
+  /**
+   * 引用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("quote")
+  private Boolean quote;
+
+  public Integer getParagraphType() {
+    return this.paragraphType;
+  }
+
+  public void setParagraphType(Integer paragraphType) {
+    this.paragraphType = paragraphType;
+  }
+
+  public RichTextElement[] getElements() {
+    return this.elements;
+  }
+
+  public void setElements(RichTextElement[] elements) {
+    this.elements = elements;
+  }
+
+  public Integer getIndent() {
+    return this.indent;
+  }
+
+  public void setIndent(Integer indent) {
+    this.indent = indent;
+  }
+
+  public Integer getListBeginIndex() {
+    return this.listBeginIndex;
+  }
+
+  public void setListBeginIndex(Integer listBeginIndex) {
+    this.listBeginIndex = listBeginIndex;
+  }
+
+  public Boolean getQuote() {
+    return this.quote;
+  }
+
+  public void setQuote(Boolean quote) {
+    this.quote = quote;
+  }
+
+  // builder 开始
+  public RichTextParagraph() {}
+
+  public RichTextParagraph(Builder builder) {
     /**
      * 段落类别
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("paragraph_type")
-    private Integer paragraphType;
+    this.paragraphType = builder.paragraphType;
     /**
-     * 元素列表
-     * <p> 示例值：
+     * 段落的元素列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("elements")
-    private RichTextElement[] elements;
+    this.elements = builder.elements;
     /**
-     * 缩进
-     * <p> 示例值：0
+     * 缩进（单位：字符）
+     *
+     * <p>示例值：0
      */
-    @SerializedName("indent")
-    private Integer indent;
+    this.indent = builder.indent;
     /**
-     * 有序列表开始序号
-     * <p> 示例值：0
+     * 有序列表开始序号(第一个有序列表的序号为list_begin_index+1);例如：list_begin_index = 0， 则第一个有序列表的序号为1
+     *
+     * <p>示例值：0
      */
-    @SerializedName("list_begin_index")
-    private Integer listBeginIndex;
+    this.listBeginIndex = builder.listBeginIndex;
     /**
      * 引用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("quote")
+    this.quote = builder.quote;
+  }
+
+  public static class Builder {
+    /**
+     * 段落类别
+     *
+     * <p>示例值：
+     */
+    private Integer paragraphType;
+
+    /**
+     * 段落的元素列表
+     *
+     * <p>示例值：
+     */
+    private RichTextElement[] elements;
+
+    /**
+     * 缩进（单位：字符）
+     *
+     * <p>示例值：0
+     */
+    private Integer indent;
+
+    /**
+     * 有序列表开始序号(第一个有序列表的序号为list_begin_index+1);例如：list_begin_index = 0， 则第一个有序列表的序号为1
+     *
+     * <p>示例值：0
+     */
+    private Integer listBeginIndex;
+
+    /**
+     * 引用
+     *
+     * <p>示例值：
+     */
     private Boolean quote;
 
-    // builder 开始
-    public RichTextParagraph() {
+    /**
+     * 段落类别
+     *
+     * <p>示例值：
+     *
+     * @param paragraphType
+     * @return
+     */
+    public Builder paragraphType(Integer paragraphType) {
+      this.paragraphType = paragraphType;
+      return this;
     }
 
-    public RichTextParagraph(Builder builder) {
-        /**
-         * 段落类别
-         * <p> 示例值：
-         */
-        this.paragraphType = builder.paragraphType;
-        /**
-         * 元素列表
-         * <p> 示例值：
-         */
-        this.elements = builder.elements;
-        /**
-         * 缩进
-         * <p> 示例值：0
-         */
-        this.indent = builder.indent;
-        /**
-         * 有序列表开始序号
-         * <p> 示例值：0
-         */
-        this.listBeginIndex = builder.listBeginIndex;
-        /**
-         * 引用
-         * <p> 示例值：
-         */
-        this.quote = builder.quote;
+    /**
+     * 段落类别
+     *
+     * <p>示例值：
+     *
+     * @param paragraphType {@link
+     *     com.lark.oapi.service.board.v1.enums.RichTextParagraphRichTextParagraphTypeEnum}
+     * @return
+     */
+    public Builder paragraphType(
+        com.lark.oapi.service.board.v1.enums.RichTextParagraphRichTextParagraphTypeEnum
+            paragraphType) {
+      this.paragraphType = paragraphType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 段落的元素列表
+     *
+     * <p>示例值：
+     *
+     * @param elements
+     * @return
+     */
+    public Builder elements(RichTextElement[] elements) {
+      this.elements = elements;
+      return this;
     }
 
-    public Integer getParagraphType() {
-        return this.paragraphType;
+    /**
+     * 缩进（单位：字符）
+     *
+     * <p>示例值：0
+     *
+     * @param indent
+     * @return
+     */
+    public Builder indent(Integer indent) {
+      this.indent = indent;
+      return this;
     }
 
-    public void setParagraphType(Integer paragraphType) {
-        this.paragraphType = paragraphType;
+    /**
+     * 有序列表开始序号(第一个有序列表的序号为list_begin_index+1);例如：list_begin_index = 0， 则第一个有序列表的序号为1
+     *
+     * <p>示例值：0
+     *
+     * @param listBeginIndex
+     * @return
+     */
+    public Builder listBeginIndex(Integer listBeginIndex) {
+      this.listBeginIndex = listBeginIndex;
+      return this;
     }
 
-    public RichTextElement[] getElements() {
-        return this.elements;
+    /**
+     * 引用
+     *
+     * <p>示例值：
+     *
+     * @param quote
+     * @return
+     */
+    public Builder quote(Boolean quote) {
+      this.quote = quote;
+      return this;
     }
 
-    public void setElements(RichTextElement[] elements) {
-        this.elements = elements;
+    public RichTextParagraph build() {
+      return new RichTextParagraph(this);
     }
+  }
 
-    public Integer getIndent() {
-        return this.indent;
-    }
-
-    public void setIndent(Integer indent) {
-        this.indent = indent;
-    }
-
-    public Integer getListBeginIndex() {
-        return this.listBeginIndex;
-    }
-
-    public void setListBeginIndex(Integer listBeginIndex) {
-        this.listBeginIndex = listBeginIndex;
-    }
-
-    public Boolean getQuote() {
-        return this.quote;
-    }
-
-    public void setQuote(Boolean quote) {
-        this.quote = quote;
-    }
-
-    public static class Builder {
-        /**
-         * 段落类别
-         * <p> 示例值：
-         */
-        private Integer paragraphType;
-        /**
-         * 元素列表
-         * <p> 示例值：
-         */
-        private RichTextElement[] elements;
-        /**
-         * 缩进
-         * <p> 示例值：0
-         */
-        private Integer indent;
-        /**
-         * 有序列表开始序号
-         * <p> 示例值：0
-         */
-        private Integer listBeginIndex;
-        /**
-         * 引用
-         * <p> 示例值：
-         */
-        private Boolean quote;
-
-        /**
-         * 段落类别
-         * <p> 示例值：
-         *
-         * @param paragraphType
-         * @return
-         */
-        public Builder paragraphType(Integer paragraphType) {
-            this.paragraphType = paragraphType;
-            return this;
-        }
-
-        /**
-         * 段落类别
-         * <p> 示例值：
-         *
-         * @param paragraphType {@link com.lark.oapi.service.board.v1.enums.RichTextParagraphRichTextParagraphTypeEnum}
-         * @return
-         */
-        public Builder paragraphType(com.lark.oapi.service.board.v1.enums.RichTextParagraphRichTextParagraphTypeEnum paragraphType) {
-            this.paragraphType = paragraphType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 元素列表
-         * <p> 示例值：
-         *
-         * @param elements
-         * @return
-         */
-        public Builder elements(RichTextElement[] elements) {
-            this.elements = elements;
-            return this;
-        }
-
-
-        /**
-         * 缩进
-         * <p> 示例值：0
-         *
-         * @param indent
-         * @return
-         */
-        public Builder indent(Integer indent) {
-            this.indent = indent;
-            return this;
-        }
-
-
-        /**
-         * 有序列表开始序号
-         * <p> 示例值：0
-         *
-         * @param listBeginIndex
-         * @return
-         */
-        public Builder listBeginIndex(Integer listBeginIndex) {
-            this.listBeginIndex = listBeginIndex;
-            return this;
-        }
-
-
-        /**
-         * 引用
-         * <p> 示例值：
-         *
-         * @param quote
-         * @return
-         */
-        public Builder quote(Boolean quote) {
-            this.quote = quote;
-            return this;
-        }
-
-
-        public RichTextParagraph build() {
-            return new RichTextParagraph(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

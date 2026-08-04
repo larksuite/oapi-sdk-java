@@ -13,98 +13,96 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class QueryApplicationEnvironmentVariableReq {
+  /**
+   * 应用命名空间
+   *
+   * <p>示例值：package_test__c
+   */
+  @Path
+  @SerializedName("namespace")
+  private String namespace;
+
+  public String getNamespace() {
+    return this.namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  @Body private QueryApplicationEnvironmentVariableReqBody body;
+
+  public QueryApplicationEnvironmentVariableReqBody
+      getQueryApplicationEnvironmentVariableReqBody() {
+    return this.body;
+  }
+
+  public void setQueryApplicationEnvironmentVariableReqBody(
+      QueryApplicationEnvironmentVariableReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public QueryApplicationEnvironmentVariableReq() {}
+
+  public QueryApplicationEnvironmentVariableReq(Builder builder) {
     /**
      * 应用命名空间
-     * <p> 示例值：1
+     *
+     * <p>示例值：package_test__c
      */
-    @Path
-    @SerializedName("namespace")
-    private String namespace;
-    @Body
+    this.namespace = builder.namespace;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String namespace; // 应用命名空间
+
+    /**
+     * 应用命名空间
+     *
+     * <p>示例值：package_test__c
+     *
+     * @param namespace
+     * @return
+     */
+    public Builder namespace(String namespace) {
+      this.namespace = namespace;
+      return this;
+    }
+
     private QueryApplicationEnvironmentVariableReqBody body;
 
-    // builder 开始
-    public QueryApplicationEnvironmentVariableReq() {
+    public QueryApplicationEnvironmentVariableReqBody
+        getQueryApplicationEnvironmentVariableReqBody() {
+      return this.body;
     }
 
-    public QueryApplicationEnvironmentVariableReq(Builder builder) {
-        /**
-         * 应用命名空间
-         * <p> 示例值：1
-         */
-        this.namespace = builder.namespace;
-        this.body = builder.body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder queryApplicationEnvironmentVariableReqBody(
+        QueryApplicationEnvironmentVariableReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public QueryApplicationEnvironmentVariableReq build() {
+      return new QueryApplicationEnvironmentVariableReq(this);
     }
+  }
 
-    public String getNamespace() {
-        return this.namespace;
-    }
-
-    public void setNamespace(String namespace) {
-        this.namespace = namespace;
-    }
-
-    public QueryApplicationEnvironmentVariableReqBody getQueryApplicationEnvironmentVariableReqBody() {
-        return this.body;
-    }
-
-    public void setQueryApplicationEnvironmentVariableReqBody(QueryApplicationEnvironmentVariableReqBody body) {
-        this.body = body;
-    }
-
-    public static class Builder {
-
-        private String namespace; // 应用命名空间
-        private QueryApplicationEnvironmentVariableReqBody body;
-
-        /**
-         * 应用命名空间
-         * <p> 示例值：1
-         *
-         * @param namespace
-         * @return
-         */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
-
-        public QueryApplicationEnvironmentVariableReqBody getQueryApplicationEnvironmentVariableReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder queryApplicationEnvironmentVariableReqBody(QueryApplicationEnvironmentVariableReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public QueryApplicationEnvironmentVariableReq build() {
-            return new QueryApplicationEnvironmentVariableReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

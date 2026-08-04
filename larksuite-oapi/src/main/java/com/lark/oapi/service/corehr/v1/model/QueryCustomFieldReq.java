@@ -13,71 +13,70 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class QueryCustomFieldReq {
+  /**
+   * 所属对象 API name，支持一个或多个，当前数量限制为 20
+   * 个。可从[获取飞书人事对象列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/list_object_api_name)接口列举所有对象及其
+   * API name
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("object_api_name_list")
+  private String[] objectApiNameList;
+
+  public String[] getObjectApiNameList() {
+    return this.objectApiNameList;
+  }
+
+  public void setObjectApiNameList(String[] objectApiNameList) {
+    this.objectApiNameList = objectApiNameList;
+  }
+
+  // builder 开始
+  public QueryCustomFieldReq() {}
+
+  public QueryCustomFieldReq(Builder builder) {
     /**
-     * 所属对象 apiname，支持一个或多个;;当前数量限制为 20 个
-     * <p> 示例值：["offboarding_info"]
+     * 所属对象 API name，支持一个或多个，当前数量限制为 20
+     * 个。可从[获取飞书人事对象列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/list_object_api_name)接口列举所有对象及其
+     * API name
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("object_api_name_list")
-    private String[] objectApiNameList;
+    this.objectApiNameList = builder.objectApiNameList;
+  }
 
-    // builder 开始
-    public QueryCustomFieldReq() {
+  public static class Builder {
+    private String[] objectApiNameList; // 所属对象 API name，支持一个或多个，当前数量限制为 20
+
+    // 个。可从[获取飞书人事对象列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/list_object_api_name)接口列举所有对象及其 API name
+
+    /**
+     * 所属对象 API name，支持一个或多个，当前数量限制为 20
+     * 个。可从[获取飞书人事对象列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/list_object_api_name)接口列举所有对象及其
+     * API name
+     *
+     * <p>示例值：
+     *
+     * @param objectApiNameList
+     * @return
+     */
+    public Builder objectApiNameList(String[] objectApiNameList) {
+      this.objectApiNameList = objectApiNameList;
+      return this;
     }
 
-    public QueryCustomFieldReq(Builder builder) {
-        /**
-         * 所属对象 apiname，支持一个或多个;;当前数量限制为 20 个
-         * <p> 示例值：["offboarding_info"]
-         */
-        this.objectApiNameList = builder.objectApiNameList;
+    public QueryCustomFieldReq build() {
+      return new QueryCustomFieldReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getObjectApiNameList() {
-        return this.objectApiNameList;
-    }
-
-    public void setObjectApiNameList(String[] objectApiNameList) {
-        this.objectApiNameList = objectApiNameList;
-    }
-
-    public static class Builder {
-        private String[] objectApiNameList; // 所属对象 apiname，支持一个或多个;;当前数量限制为 20 个
-
-        /**
-         * 所属对象 apiname，支持一个或多个;;当前数量限制为 20 个
-         * <p> 示例值：["offboarding_info"]
-         *
-         * @param objectApiNameList
-         * @return
-         */
-        public Builder objectApiNameList(String[] objectApiNameList) {
-            this.objectApiNameList = objectApiNameList;
-            return this;
-        }
-
-
-        public QueryCustomFieldReq build() {
-            return new QueryCustomFieldReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

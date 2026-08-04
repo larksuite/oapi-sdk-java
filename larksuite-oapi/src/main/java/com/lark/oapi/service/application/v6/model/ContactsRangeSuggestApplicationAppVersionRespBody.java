@@ -13,33 +13,22 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ContactsRangeSuggestApplicationAppVersionRespBody {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("contacts_range")
-    private ApplicationAppContactsRange contactsRange;
+  /**
+   * 应用版本通讯录权限范围建议信息。开发者在提交该版本时如果修改了通讯录权限范围则返回申请的通讯录权限范围。不代表最终应用生效的通讯录权限范围。如果没有修改,则为空。【如果通讯录权限范围与应用可用范围保持一致，上次的配置也是如此，则认为没变化。】
+   *
+   * <p>示例值：
+   */
+  @SerializedName("contacts_range")
+  private ApplicationAppContactsRange contactsRange;
 
-    public ApplicationAppContactsRange getContactsRange() {
-        return this.contactsRange;
-    }
+  public ApplicationAppContactsRange getContactsRange() {
+    return this.contactsRange;
+  }
 
-    public void setContactsRange(ApplicationAppContactsRange contactsRange) {
-        this.contactsRange = contactsRange;
-    }
-
+  public void setContactsRange(ApplicationAppContactsRange contactsRange) {
+    this.contactsRange = contactsRange;
+  }
 }

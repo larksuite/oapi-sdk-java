@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureTemplateSetting {
+  /**
+   * 骑缝章类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_seal_types")
+  private String[] pageSealTypes;
+
+  public String[] getPageSealTypes() {
+    return this.pageSealTypes;
+  }
+
+  public void setPageSealTypes(String[] pageSealTypes) {
+    this.pageSealTypes = pageSealTypes;
+  }
+
+  // builder 开始
+  public SignatureTemplateSetting() {}
+
+  public SignatureTemplateSetting(Builder builder) {
     /**
      * 骑缝章类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("page_seal_types")
+    this.pageSealTypes = builder.pageSealTypes;
+  }
+
+  public static class Builder {
+    /**
+     * 骑缝章类型
+     *
+     * <p>示例值：
+     */
     private String[] pageSealTypes;
 
-    // builder 开始
-    public SignatureTemplateSetting() {
+    /**
+     * 骑缝章类型
+     *
+     * <p>示例值：
+     *
+     * @param pageSealTypes
+     * @return
+     */
+    public Builder pageSealTypes(String[] pageSealTypes) {
+      this.pageSealTypes = pageSealTypes;
+      return this;
     }
 
-    public SignatureTemplateSetting(Builder builder) {
-        /**
-         * 骑缝章类型
-         * <p> 示例值：
-         */
-        this.pageSealTypes = builder.pageSealTypes;
+    public SignatureTemplateSetting build() {
+      return new SignatureTemplateSetting(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getPageSealTypes() {
-        return this.pageSealTypes;
-    }
-
-    public void setPageSealTypes(String[] pageSealTypes) {
-        this.pageSealTypes = pageSealTypes;
-    }
-
-    public static class Builder {
-        /**
-         * 骑缝章类型
-         * <p> 示例值：
-         */
-        private String[] pageSealTypes;
-
-        /**
-         * 骑缝章类型
-         * <p> 示例值：
-         *
-         * @param pageSealTypes
-         * @return
-         */
-        public Builder pageSealTypes(String[] pageSealTypes) {
-            this.pageSealTypes = pageSealTypes;
-            return this;
-        }
-
-
-        public SignatureTemplateSetting build() {
-            return new SignatureTemplateSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,25 +13,23 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 投递状态
- */
+/** 投递状态 */
 public enum SendStatusDetailSendStatusDetailStatusEnum {
-    DELIVERING(1), // 正在投递
-    RETRY(2), // 投递失败重试
-    DEFERRED(3), // 投递失败退信
-    DELIVERED(4), // 投递成功
-    AWAITAPPROVAL(5), // 待审批
-    APPROVALREJECTED(6), // 审批拒绝
-    UNKNOWN(0), // 未知
-    ;
-    private Integer value;
+  DELIVERING(1), // 正在投递
+  RETRY(2), // 投递失败重试
+  DEFERRED(3), // 投递失败退信
+  DELIVERED(4), // 投递成功
+  AWAITAPPROVAL(5), // 待审批
+  APPROVALREJECTED(6), // 审批拒绝
+  UNKNOWN(0), // 未知
+  ;
+  private Integer value;
 
-    SendStatusDetailSendStatusDetailStatusEnum(Integer value) {
-        this.value = value;
-    }
+  SendStatusDetailSendStatusDetailStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

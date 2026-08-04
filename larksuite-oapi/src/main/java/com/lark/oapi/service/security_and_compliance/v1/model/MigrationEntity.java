@@ -13,333 +13,364 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MigrationEntity {
+  /**
+   * 迁移的实体 id
+   *
+   * <p>示例值：43c58071254443c580712544
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 实体的数据驻留地
+   *
+   * <p>示例值：SG
+   */
+  @SerializedName("location")
+  private String location;
+
+  /**
+   * 实体的类型
+   *
+   * <p>示例值：sheets
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 创建者的 id
+   *
+   * <p>示例值：4443c580712544
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  /**
+   * 创建者的类型
+   *
+   * <p>示例值：user
+   */
+  @SerializedName("creator_type")
+  private String creatorType;
+
+  /**
+   * 实体创建时间（毫秒级时间戳）
+   *
+   * <p>示例值：1615380573411
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 实体类型为 mailbox 时，返回 mail address，如果没有，则返回空
+   *
+   * <p>示例值：xxx@xxx.xx
+   */
+  @SerializedName("mail_address")
+  private String mailAddress;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getLocation() {
+    return this.location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  public String getCreatorType() {
+    return this.creatorType;
+  }
+
+  public void setCreatorType(String creatorType) {
+    this.creatorType = creatorType;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getMailAddress() {
+    return this.mailAddress;
+  }
+
+  public void setMailAddress(String mailAddress) {
+    this.mailAddress = mailAddress;
+  }
+
+  // builder 开始
+  public MigrationEntity() {}
+
+  public MigrationEntity(Builder builder) {
     /**
      * 迁移的实体 id
-     * <p> 示例值：43c58071254443c580712544
+     *
+     * <p>示例值：43c58071254443c580712544
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 实体的数据驻留地
-     * <p> 示例值：SG
+     *
+     * <p>示例值：SG
      */
-    @SerializedName("location")
-    private String location;
+    this.location = builder.location;
     /**
      * 实体的类型
-     * <p> 示例值：sheets
+     *
+     * <p>示例值：sheets
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 创建者的 id
-     * <p> 示例值：4443c580712544
+     *
+     * <p>示例值：4443c580712544
      */
-    @SerializedName("creator_id")
-    private String creatorId;
+    this.creatorId = builder.creatorId;
     /**
      * 创建者的类型
-     * <p> 示例值：user
+     *
+     * <p>示例值：user
      */
-    @SerializedName("creator_type")
-    private String creatorType;
+    this.creatorType = builder.creatorType;
     /**
      * 实体创建时间（毫秒级时间戳）
-     * <p> 示例值：1615380573411
+     *
+     * <p>示例值：1615380573411
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 实体类型为 mailbox 时，返回 mail address，如果没有，则返回空
-     * <p> 示例值：xxx@xxx.xx
+     *
+     * <p>示例值：xxx@xxx.xx
      */
-    @SerializedName("mail_address")
+    this.mailAddress = builder.mailAddress;
+  }
+
+  public static class Builder {
+    /**
+     * 迁移的实体 id
+     *
+     * <p>示例值：43c58071254443c580712544
+     */
+    private String id;
+
+    /**
+     * 实体的数据驻留地
+     *
+     * <p>示例值：SG
+     */
+    private String location;
+
+    /**
+     * 实体的类型
+     *
+     * <p>示例值：sheets
+     */
+    private String type;
+
+    /**
+     * 创建者的 id
+     *
+     * <p>示例值：4443c580712544
+     */
+    private String creatorId;
+
+    /**
+     * 创建者的类型
+     *
+     * <p>示例值：user
+     */
+    private String creatorType;
+
+    /**
+     * 实体创建时间（毫秒级时间戳）
+     *
+     * <p>示例值：1615380573411
+     */
+    private String createTime;
+
+    /**
+     * 实体类型为 mailbox 时，返回 mail address，如果没有，则返回空
+     *
+     * <p>示例值：xxx@xxx.xx
+     */
     private String mailAddress;
 
-    // builder 开始
-    public MigrationEntity() {
+    /**
+     * 迁移的实体 id
+     *
+     * <p>示例值：43c58071254443c580712544
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public MigrationEntity(Builder builder) {
-        /**
-         * 迁移的实体 id
-         * <p> 示例值：43c58071254443c580712544
-         */
-        this.id = builder.id;
-        /**
-         * 实体的数据驻留地
-         * <p> 示例值：SG
-         */
-        this.location = builder.location;
-        /**
-         * 实体的类型
-         * <p> 示例值：sheets
-         */
-        this.type = builder.type;
-        /**
-         * 创建者的 id
-         * <p> 示例值：4443c580712544
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 创建者的类型
-         * <p> 示例值：user
-         */
-        this.creatorType = builder.creatorType;
-        /**
-         * 实体创建时间（毫秒级时间戳）
-         * <p> 示例值：1615380573411
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 实体类型为 mailbox 时，返回 mail address，如果没有，则返回空
-         * <p> 示例值：xxx@xxx.xx
-         */
-        this.mailAddress = builder.mailAddress;
+    /**
+     * 实体的数据驻留地
+     *
+     * <p>示例值：SG
+     *
+     * @param location
+     * @return
+     */
+    public Builder location(String location) {
+      this.location = location;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 实体的数据驻留地
+     *
+     * <p>示例值：SG
+     *
+     * @param location {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.MigrationEntityLocationEnum}
+     * @return
+     */
+    public Builder location(
+        com.lark.oapi.service.security_and_compliance.v1.enums.MigrationEntityLocationEnum
+            location) {
+      this.location = location.getValue();
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 实体的类型
+     *
+     * <p>示例值：sheets
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 实体的类型
+     *
+     * <p>示例值：sheets
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.MigrationEntityTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.security_and_compliance.v1.enums.MigrationEntityTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public String getLocation() {
-        return this.location;
+    /**
+     * 创建者的 id
+     *
+     * <p>示例值：4443c580712544
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    /**
+     * 创建者的类型
+     *
+     * <p>示例值：user
+     *
+     * @param creatorType
+     * @return
+     */
+    public Builder creatorType(String creatorType) {
+      this.creatorType = creatorType;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 创建者的类型
+     *
+     * <p>示例值：user
+     *
+     * @param creatorType {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.MigrationEntityCreatorTypeEnum}
+     * @return
+     */
+    public Builder creatorType(
+        com.lark.oapi.service.security_and_compliance.v1.enums.MigrationEntityCreatorTypeEnum
+            creatorType) {
+      this.creatorType = creatorType.getValue();
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 实体创建时间（毫秒级时间戳）
+     *
+     * <p>示例值：1615380573411
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getCreatorId() {
-        return this.creatorId;
+    /**
+     * 实体类型为 mailbox 时，返回 mail address，如果没有，则返回空
+     *
+     * <p>示例值：xxx@xxx.xx
+     *
+     * @param mailAddress
+     * @return
+     */
+    public Builder mailAddress(String mailAddress) {
+      this.mailAddress = mailAddress;
+      return this;
     }
 
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
+    public MigrationEntity build() {
+      return new MigrationEntity(this);
     }
+  }
 
-    public String getCreatorType() {
-        return this.creatorType;
-    }
-
-    public void setCreatorType(String creatorType) {
-        this.creatorType = creatorType;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getMailAddress() {
-        return this.mailAddress;
-    }
-
-    public void setMailAddress(String mailAddress) {
-        this.mailAddress = mailAddress;
-    }
-
-    public static class Builder {
-        /**
-         * 迁移的实体 id
-         * <p> 示例值：43c58071254443c580712544
-         */
-        private String id;
-        /**
-         * 实体的数据驻留地
-         * <p> 示例值：SG
-         */
-        private String location;
-        /**
-         * 实体的类型
-         * <p> 示例值：sheets
-         */
-        private String type;
-        /**
-         * 创建者的 id
-         * <p> 示例值：4443c580712544
-         */
-        private String creatorId;
-        /**
-         * 创建者的类型
-         * <p> 示例值：user
-         */
-        private String creatorType;
-        /**
-         * 实体创建时间（毫秒级时间戳）
-         * <p> 示例值：1615380573411
-         */
-        private String createTime;
-        /**
-         * 实体类型为 mailbox 时，返回 mail address，如果没有，则返回空
-         * <p> 示例值：xxx@xxx.xx
-         */
-        private String mailAddress;
-
-        /**
-         * 迁移的实体 id
-         * <p> 示例值：43c58071254443c580712544
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 实体的数据驻留地
-         * <p> 示例值：SG
-         *
-         * @param location
-         * @return
-         */
-        public Builder location(String location) {
-            this.location = location;
-            return this;
-        }
-
-        /**
-         * 实体的数据驻留地
-         * <p> 示例值：SG
-         *
-         * @param location {@link com.lark.oapi.service.security_and_compliance.v1.enums.MigrationEntityLocationEnum}
-         * @return
-         */
-        public Builder location(com.lark.oapi.service.security_and_compliance.v1.enums.MigrationEntityLocationEnum location) {
-            this.location = location.getValue();
-            return this;
-        }
-
-
-        /**
-         * 实体的类型
-         * <p> 示例值：sheets
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 实体的类型
-         * <p> 示例值：sheets
-         *
-         * @param type {@link com.lark.oapi.service.security_and_compliance.v1.enums.MigrationEntityTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.security_and_compliance.v1.enums.MigrationEntityTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 创建者的 id
-         * <p> 示例值：4443c580712544
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        /**
-         * 创建者的类型
-         * <p> 示例值：user
-         *
-         * @param creatorType
-         * @return
-         */
-        public Builder creatorType(String creatorType) {
-            this.creatorType = creatorType;
-            return this;
-        }
-
-        /**
-         * 创建者的类型
-         * <p> 示例值：user
-         *
-         * @param creatorType {@link com.lark.oapi.service.security_and_compliance.v1.enums.MigrationEntityCreatorTypeEnum}
-         * @return
-         */
-        public Builder creatorType(com.lark.oapi.service.security_and_compliance.v1.enums.MigrationEntityCreatorTypeEnum creatorType) {
-            this.creatorType = creatorType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 实体创建时间（毫秒级时间戳）
-         * <p> 示例值：1615380573411
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 实体类型为 mailbox 时，返回 mail address，如果没有，则返回空
-         * <p> 示例值：xxx@xxx.xx
-         *
-         * @param mailAddress
-         * @return
-         */
-        public Builder mailAddress(String mailAddress) {
-            this.mailAddress = mailAddress;
-            return this;
-        }
-
-
-        public MigrationEntity build() {
-            return new MigrationEntity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

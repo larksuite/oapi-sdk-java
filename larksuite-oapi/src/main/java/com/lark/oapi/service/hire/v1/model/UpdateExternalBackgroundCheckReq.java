@@ -13,97 +13,96 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateExternalBackgroundCheckReq {
+  /**
+   * 外部背调
+   * ID，可通过[查询外部背调列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_background_check/batch_query)接口获取
+   *
+   * <p>示例值：6960663240925956660
+   */
+  @Path
+  @SerializedName("external_background_check_id")
+  private String externalBackgroundCheckId;
+
+  public String getExternalBackgroundCheckId() {
+    return this.externalBackgroundCheckId;
+  }
+
+  public void setExternalBackgroundCheckId(String externalBackgroundCheckId) {
+    this.externalBackgroundCheckId = externalBackgroundCheckId;
+  }
+
+  @Body private ExternalBackgroundCheck body;
+
+  public ExternalBackgroundCheck getExternalBackgroundCheck() {
+    return this.body;
+  }
+
+  public void setExternalBackgroundCheck(ExternalBackgroundCheck body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateExternalBackgroundCheckReq() {}
+
+  public UpdateExternalBackgroundCheckReq(Builder builder) {
     /**
-     * 外部背调 ID
-     * <p> 示例值：6960663240925956660
+     * 外部背调
+     * ID，可通过[查询外部背调列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_background_check/batch_query)接口获取
+     *
+     * <p>示例值：6960663240925956660
      */
-    @Path
-    @SerializedName("external_background_check_id")
-    private String externalBackgroundCheckId;
-    @Body
+    this.externalBackgroundCheckId = builder.externalBackgroundCheckId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String externalBackgroundCheckId; // 外部背调
+
+    // ID，可通过[查询外部背调列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_background_check/batch_query)接口获取
+
+    /**
+     * 外部背调
+     * ID，可通过[查询外部背调列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_background_check/batch_query)接口获取
+     *
+     * <p>示例值：6960663240925956660
+     *
+     * @param externalBackgroundCheckId
+     * @return
+     */
+    public Builder externalBackgroundCheckId(String externalBackgroundCheckId) {
+      this.externalBackgroundCheckId = externalBackgroundCheckId;
+      return this;
+    }
+
     private ExternalBackgroundCheck body;
 
-    // builder 开始
-    public UpdateExternalBackgroundCheckReq() {
-    }
-
-    public UpdateExternalBackgroundCheckReq(Builder builder) {
-        /**
-         * 外部背调 ID
-         * <p> 示例值：6960663240925956660
-         */
-        this.externalBackgroundCheckId = builder.externalBackgroundCheckId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getExternalBackgroundCheckId() {
-        return this.externalBackgroundCheckId;
-    }
-
-    public void setExternalBackgroundCheckId(String externalBackgroundCheckId) {
-        this.externalBackgroundCheckId = externalBackgroundCheckId;
-    }
-
     public ExternalBackgroundCheck getExternalBackgroundCheck() {
-        return this.body;
+      return this.body;
     }
 
-    public void setExternalBackgroundCheck(ExternalBackgroundCheck body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder externalBackgroundCheck(ExternalBackgroundCheck body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String externalBackgroundCheckId; // 外部背调 ID
-        private ExternalBackgroundCheck body;
-
-        /**
-         * 外部背调 ID
-         * <p> 示例值：6960663240925956660
-         *
-         * @param externalBackgroundCheckId
-         * @return
-         */
-        public Builder externalBackgroundCheckId(String externalBackgroundCheckId) {
-            this.externalBackgroundCheckId = externalBackgroundCheckId;
-            return this;
-        }
-
-        public ExternalBackgroundCheck getExternalBackgroundCheck() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder externalBackgroundCheck(ExternalBackgroundCheck body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateExternalBackgroundCheckReq build() {
-            return new UpdateExternalBackgroundCheckReq(this);
-        }
+    public UpdateExternalBackgroundCheckReq build() {
+      return new UpdateExternalBackgroundCheckReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

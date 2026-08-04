@@ -13,161 +13,166 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenFailedUserAppFeedCardItem {
+  /**
+   * 业务 ID
+   *
+   * <p>示例值：bdf22389-87ec-4890-9eb6-78a7efaeecbb
+   */
+  @SerializedName("biz_id")
+  private String bizId;
+
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：ou_88553eda9014c201e6969b478895c223
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 原因
+   *
+   * <p>示例值：NO_PERMISSION
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  public String getBizId() {
+    return this.bizId;
+  }
+
+  public void setBizId(String bizId) {
+    this.bizId = bizId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  // builder 开始
+  public OpenFailedUserAppFeedCardItem() {}
+
+  public OpenFailedUserAppFeedCardItem(Builder builder) {
     /**
      * 业务 ID
-     * <p> 示例值：bdf22389-87ec-4890-9eb6-78a7efaeecbb
+     *
+     * <p>示例值：bdf22389-87ec-4890-9eb6-78a7efaeecbb
      */
-    @SerializedName("biz_id")
-    private String bizId;
+    this.bizId = builder.bizId;
     /**
      * 用户 ID
-     * <p> 示例值：
+     *
+     * <p>示例值：ou_88553eda9014c201e6969b478895c223
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 原因
-     * <p> 示例值：
+     *
+     * <p>示例值：NO_PERMISSION
      */
-    @SerializedName("reason")
+    this.reason = builder.reason;
+  }
+
+  public static class Builder {
+    /**
+     * 业务 ID
+     *
+     * <p>示例值：bdf22389-87ec-4890-9eb6-78a7efaeecbb
+     */
+    private String bizId;
+
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ou_88553eda9014c201e6969b478895c223
+     */
+    private String userId;
+
+    /**
+     * 原因
+     *
+     * <p>示例值：NO_PERMISSION
+     */
     private String reason;
 
-    // builder 开始
-    public OpenFailedUserAppFeedCardItem() {
+    /**
+     * 业务 ID
+     *
+     * <p>示例值：bdf22389-87ec-4890-9eb6-78a7efaeecbb
+     *
+     * @param bizId
+     * @return
+     */
+    public Builder bizId(String bizId) {
+      this.bizId = bizId;
+      return this;
     }
 
-    public OpenFailedUserAppFeedCardItem(Builder builder) {
-        /**
-         * 业务 ID
-         * <p> 示例值：bdf22389-87ec-4890-9eb6-78a7efaeecbb
-         */
-        this.bizId = builder.bizId;
-        /**
-         * 用户 ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 原因
-         * <p> 示例值：
-         */
-        this.reason = builder.reason;
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ou_88553eda9014c201e6969b478895c223
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 原因
+     *
+     * <p>示例值：NO_PERMISSION
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public String getBizId() {
-        return this.bizId;
+    /**
+     * 原因
+     *
+     * <p>示例值：NO_PERMISSION
+     *
+     * @param reason {@link
+     *     com.lark.oapi.service.im.v2.enums.OpenFailedUserAppFeedCardItemOpenAppFeedCardFailedReasonEnum}
+     * @return
+     */
+    public Builder reason(
+        com.lark.oapi.service.im.v2.enums
+                .OpenFailedUserAppFeedCardItemOpenAppFeedCardFailedReasonEnum
+            reason) {
+      this.reason = reason.getValue();
+      return this;
     }
 
-    public void setBizId(String bizId) {
-        this.bizId = bizId;
+    public OpenFailedUserAppFeedCardItem build() {
+      return new OpenFailedUserAppFeedCardItem(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public static class Builder {
-        /**
-         * 业务 ID
-         * <p> 示例值：bdf22389-87ec-4890-9eb6-78a7efaeecbb
-         */
-        private String bizId;
-        /**
-         * 用户 ID
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 原因
-         * <p> 示例值：
-         */
-        private String reason;
-
-        /**
-         * 业务 ID
-         * <p> 示例值：bdf22389-87ec-4890-9eb6-78a7efaeecbb
-         *
-         * @param bizId
-         * @return
-         */
-        public Builder bizId(String bizId) {
-            this.bizId = bizId;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 原因
-         * <p> 示例值：
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-        /**
-         * 原因
-         * <p> 示例值：
-         *
-         * @param reason {@link com.lark.oapi.service.im.v2.enums.OpenFailedUserAppFeedCardItemOpenAppFeedCardFailedReasonEnum}
-         * @return
-         */
-        public Builder reason(com.lark.oapi.service.im.v2.enums.OpenFailedUserAppFeedCardItemOpenAppFeedCardFailedReasonEnum reason) {
-            this.reason = reason.getValue();
-            return this;
-        }
-
-
-        public OpenFailedUserAppFeedCardItem build() {
-            return new OpenFailedUserAppFeedCardItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

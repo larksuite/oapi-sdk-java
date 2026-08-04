@@ -13,109 +13,110 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class EditEmpCustomOrgEmployeeCustomOrgReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：people_corehr_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private EditEmpCustomOrgEmployeeCustomOrgReqBody body;
+
+  public EditEmpCustomOrgEmployeeCustomOrgReqBody getEditEmpCustomOrgEmployeeCustomOrgReqBody() {
+    return this.body;
+  }
+
+  public void setEditEmpCustomOrgEmployeeCustomOrgReqBody(
+      EditEmpCustomOrgEmployeeCustomOrgReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public EditEmpCustomOrgEmployeeCustomOrgReq() {}
+
+  public EditEmpCustomOrgEmployeeCustomOrgReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：people_corehr_id
+     *
+     * <p>示例值：people_corehr_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.EditEmpCustomOrgEmployeeCustomOrgEditEmpCustomOrgUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .EditEmpCustomOrgEmployeeCustomOrgEditEmpCustomOrgUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private EditEmpCustomOrgEmployeeCustomOrgReqBody body;
 
-    // builder 开始
-    public EditEmpCustomOrgEmployeeCustomOrgReq() {
-    }
-
-    public EditEmpCustomOrgEmployeeCustomOrgReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：people_corehr_id
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public EditEmpCustomOrgEmployeeCustomOrgReqBody getEditEmpCustomOrgEmployeeCustomOrgReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setEditEmpCustomOrgEmployeeCustomOrgReqBody(EditEmpCustomOrgEmployeeCustomOrgReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder editEmpCustomOrgEmployeeCustomOrgReqBody(
+        EditEmpCustomOrgEmployeeCustomOrgReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private EditEmpCustomOrgEmployeeCustomOrgReqBody body;
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.EditEmpCustomOrgEmployeeCustomOrgEditEmpCustomOrgUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.EditEmpCustomOrgEmployeeCustomOrgEditEmpCustomOrgUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public EditEmpCustomOrgEmployeeCustomOrgReqBody getEditEmpCustomOrgEmployeeCustomOrgReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder editEmpCustomOrgEmployeeCustomOrgReqBody(EditEmpCustomOrgEmployeeCustomOrgReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public EditEmpCustomOrgEmployeeCustomOrgReq build() {
-            return new EditEmpCustomOrgEmployeeCustomOrgReq(this);
-        }
+    public EditEmpCustomOrgEmployeeCustomOrgReq build() {
+      return new EditEmpCustomOrgEmployeeCustomOrgReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

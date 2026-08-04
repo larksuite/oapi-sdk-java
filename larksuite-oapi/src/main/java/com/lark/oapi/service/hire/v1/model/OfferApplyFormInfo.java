@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OfferApplyFormInfo {
+  /**
+   * Offer 申请表 ID
+   *
+   * <p>示例值：7190465990618843431
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * offer申请表名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * schema 信息，用于描述申请表单结构的元数据定义，即对申请表内容的描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("schema")
+  private OfferApplyFormSchema schema;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public OfferApplyFormSchema getSchema() {
+    return this.schema;
+  }
+
+  public void setSchema(OfferApplyFormSchema schema) {
+    this.schema = schema;
+  }
+
+  // builder 开始
+  public OfferApplyFormInfo() {}
+
+  public OfferApplyFormInfo(Builder builder) {
     /**
-     * offer申请表 ID
-     * <p> 示例值：23746823748
+     * Offer 申请表 ID
+     *
+     * <p>示例值：7190465990618843431
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * offer申请表名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * schema 信息，用于描述申请表单结构的元数据定义，即对申请表内容的描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("schema")
+    this.schema = builder.schema;
+  }
+
+  public static class Builder {
+    /**
+     * Offer 申请表 ID
+     *
+     * <p>示例值：7190465990618843431
+     */
+    private String id;
+
+    /**
+     * offer申请表名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * schema 信息，用于描述申请表单结构的元数据定义，即对申请表内容的描述
+     *
+     * <p>示例值：
+     */
     private OfferApplyFormSchema schema;
 
-    // builder 开始
-    public OfferApplyFormInfo() {
+    /**
+     * Offer 申请表 ID
+     *
+     * <p>示例值：7190465990618843431
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public OfferApplyFormInfo(Builder builder) {
-        /**
-         * offer申请表 ID
-         * <p> 示例值：23746823748
-         */
-        this.id = builder.id;
-        /**
-         * offer申请表名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * schema 信息，用于描述申请表单结构的元数据定义，即对申请表内容的描述
-         * <p> 示例值：
-         */
-        this.schema = builder.schema;
+    /**
+     * offer申请表名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * schema 信息，用于描述申请表单结构的元数据定义，即对申请表内容的描述
+     *
+     * <p>示例值：
+     *
+     * @param schema
+     * @return
+     */
+    public Builder schema(OfferApplyFormSchema schema) {
+      this.schema = schema;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public OfferApplyFormInfo build() {
+      return new OfferApplyFormInfo(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public OfferApplyFormSchema getSchema() {
-        return this.schema;
-    }
-
-    public void setSchema(OfferApplyFormSchema schema) {
-        this.schema = schema;
-    }
-
-    public static class Builder {
-        /**
-         * offer申请表 ID
-         * <p> 示例值：23746823748
-         */
-        private String id;
-        /**
-         * offer申请表名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * schema 信息，用于描述申请表单结构的元数据定义，即对申请表内容的描述
-         * <p> 示例值：
-         */
-        private OfferApplyFormSchema schema;
-
-        /**
-         * offer申请表 ID
-         * <p> 示例值：23746823748
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * offer申请表名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * schema 信息，用于描述申请表单结构的元数据定义，即对申请表内容的描述
-         * <p> 示例值：
-         *
-         * @param schema
-         * @return
-         */
-        public Builder schema(OfferApplyFormSchema schema) {
-            this.schema = schema;
-            return this;
-        }
-
-
-        public OfferApplyFormInfo build() {
-            return new OfferApplyFormInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

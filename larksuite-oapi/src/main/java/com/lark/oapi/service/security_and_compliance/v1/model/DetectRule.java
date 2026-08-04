@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DetectRule {
+  /**
+   * 规则ID
+   *
+   * <p>示例值：'7584161205007289872'
+   */
+  @SerializedName("rule_id")
+  private String ruleId;
+
+  /**
+   * 规则版本号
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("rule_version")
+  private Integer ruleVersion;
+
+  /**
+   * 规则名称
+   *
+   * <p>示例值：规则名称
+   */
+  @SerializedName("rule_name")
+  private String ruleName;
+
+  public String getRuleId() {
+    return this.ruleId;
+  }
+
+  public void setRuleId(String ruleId) {
+    this.ruleId = ruleId;
+  }
+
+  public Integer getRuleVersion() {
+    return this.ruleVersion;
+  }
+
+  public void setRuleVersion(Integer ruleVersion) {
+    this.ruleVersion = ruleVersion;
+  }
+
+  public String getRuleName() {
+    return this.ruleName;
+  }
+
+  public void setRuleName(String ruleName) {
+    this.ruleName = ruleName;
+  }
+
+  // builder 开始
+  public DetectRule() {}
+
+  public DetectRule(Builder builder) {
     /**
      * 规则ID
-     * <p> 示例值：'7584161205007289872'
+     *
+     * <p>示例值：'7584161205007289872'
      */
-    @SerializedName("rule_id")
-    private String ruleId;
+    this.ruleId = builder.ruleId;
     /**
      * 规则版本号
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("rule_version")
-    private Integer ruleVersion;
+    this.ruleVersion = builder.ruleVersion;
     /**
      * 规则名称
-     * <p> 示例值：规则名称
+     *
+     * <p>示例值：规则名称
      */
-    @SerializedName("rule_name")
+    this.ruleName = builder.ruleName;
+  }
+
+  public static class Builder {
+    /**
+     * 规则ID
+     *
+     * <p>示例值：'7584161205007289872'
+     */
+    private String ruleId;
+
+    /**
+     * 规则版本号
+     *
+     * <p>示例值：1
+     */
+    private Integer ruleVersion;
+
+    /**
+     * 规则名称
+     *
+     * <p>示例值：规则名称
+     */
     private String ruleName;
 
-    // builder 开始
-    public DetectRule() {
+    /**
+     * 规则ID
+     *
+     * <p>示例值：'7584161205007289872'
+     *
+     * @param ruleId
+     * @return
+     */
+    public Builder ruleId(String ruleId) {
+      this.ruleId = ruleId;
+      return this;
     }
 
-    public DetectRule(Builder builder) {
-        /**
-         * 规则ID
-         * <p> 示例值：'7584161205007289872'
-         */
-        this.ruleId = builder.ruleId;
-        /**
-         * 规则版本号
-         * <p> 示例值：1
-         */
-        this.ruleVersion = builder.ruleVersion;
-        /**
-         * 规则名称
-         * <p> 示例值：规则名称
-         */
-        this.ruleName = builder.ruleName;
+    /**
+     * 规则版本号
+     *
+     * <p>示例值：1
+     *
+     * @param ruleVersion
+     * @return
+     */
+    public Builder ruleVersion(Integer ruleVersion) {
+      this.ruleVersion = ruleVersion;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 规则名称
+     *
+     * <p>示例值：规则名称
+     *
+     * @param ruleName
+     * @return
+     */
+    public Builder ruleName(String ruleName) {
+      this.ruleName = ruleName;
+      return this;
     }
 
-    public String getRuleId() {
-        return this.ruleId;
+    public DetectRule build() {
+      return new DetectRule(this);
     }
+  }
 
-    public void setRuleId(String ruleId) {
-        this.ruleId = ruleId;
-    }
-
-    public Integer getRuleVersion() {
-        return this.ruleVersion;
-    }
-
-    public void setRuleVersion(Integer ruleVersion) {
-        this.ruleVersion = ruleVersion;
-    }
-
-    public String getRuleName() {
-        return this.ruleName;
-    }
-
-    public void setRuleName(String ruleName) {
-        this.ruleName = ruleName;
-    }
-
-    public static class Builder {
-        /**
-         * 规则ID
-         * <p> 示例值：'7584161205007289872'
-         */
-        private String ruleId;
-        /**
-         * 规则版本号
-         * <p> 示例值：1
-         */
-        private Integer ruleVersion;
-        /**
-         * 规则名称
-         * <p> 示例值：规则名称
-         */
-        private String ruleName;
-
-        /**
-         * 规则ID
-         * <p> 示例值：'7584161205007289872'
-         *
-         * @param ruleId
-         * @return
-         */
-        public Builder ruleId(String ruleId) {
-            this.ruleId = ruleId;
-            return this;
-        }
-
-
-        /**
-         * 规则版本号
-         * <p> 示例值：1
-         *
-         * @param ruleVersion
-         * @return
-         */
-        public Builder ruleVersion(Integer ruleVersion) {
-            this.ruleVersion = ruleVersion;
-            return this;
-        }
-
-
-        /**
-         * 规则名称
-         * <p> 示例值：规则名称
-         *
-         * @param ruleName
-         * @return
-         */
-        public Builder ruleName(String ruleName) {
-            this.ruleName = ruleName;
-            return this;
-        }
-
-
-        public DetectRule build() {
-            return new DetectRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

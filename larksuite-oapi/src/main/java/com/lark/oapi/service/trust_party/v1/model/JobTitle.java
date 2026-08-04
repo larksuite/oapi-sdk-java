@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobTitle {
+  /**
+   * 职务ID
+   *
+   * <p>示例值：b5565c46b749
+   */
+  @SerializedName("job_title_id")
+  private String jobTitleId;
+
+  /**
+   * 职务名称。1-100字符，支持中、英文及符号
+   *
+   * <p>示例值：高级工程师
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 多语言职务名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_names")
+  private I18nContent[] i18nNames;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true 表示启用, false表示未启用
+   */
+  @SerializedName("status")
+  private Boolean status;
+
+  public String getJobTitleId() {
+    return this.jobTitleId;
+  }
+
+  public void setJobTitleId(String jobTitleId) {
+    this.jobTitleId = jobTitleId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public I18nContent[] getI18nNames() {
+    return this.i18nNames;
+  }
+
+  public void setI18nNames(I18nContent[] i18nNames) {
+    this.i18nNames = i18nNames;
+  }
+
+  public Boolean getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Boolean status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public JobTitle() {}
+
+  public JobTitle(Builder builder) {
     /**
      * 职务ID
-     * <p> 示例值：b5565c46b749
+     *
+     * <p>示例值：b5565c46b749
      */
-    @SerializedName("job_title_id")
-    private String jobTitleId;
+    this.jobTitleId = builder.jobTitleId;
     /**
      * 职务名称。1-100字符，支持中、英文及符号
-     * <p> 示例值：高级工程师
+     *
+     * <p>示例值：高级工程师
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 多语言职务名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_names")
-    private I18nContent[] i18nNames;
+    this.i18nNames = builder.i18nNames;
     /**
      * 是否启用
-     * <p> 示例值：true 表示启用, false表示未启用
+     *
+     * <p>示例值：true 表示启用, false表示未启用
      */
-    @SerializedName("status")
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 职务ID
+     *
+     * <p>示例值：b5565c46b749
+     */
+    private String jobTitleId;
+
+    /**
+     * 职务名称。1-100字符，支持中、英文及符号
+     *
+     * <p>示例值：高级工程师
+     */
+    private String name;
+
+    /**
+     * 多语言职务名称
+     *
+     * <p>示例值：
+     */
+    private I18nContent[] i18nNames;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true 表示启用, false表示未启用
+     */
     private Boolean status;
 
-    // builder 开始
-    public JobTitle() {
+    /**
+     * 职务ID
+     *
+     * <p>示例值：b5565c46b749
+     *
+     * @param jobTitleId
+     * @return
+     */
+    public Builder jobTitleId(String jobTitleId) {
+      this.jobTitleId = jobTitleId;
+      return this;
     }
 
-    public JobTitle(Builder builder) {
-        /**
-         * 职务ID
-         * <p> 示例值：b5565c46b749
-         */
-        this.jobTitleId = builder.jobTitleId;
-        /**
-         * 职务名称。1-100字符，支持中、英文及符号
-         * <p> 示例值：高级工程师
-         */
-        this.name = builder.name;
-        /**
-         * 多语言职务名称
-         * <p> 示例值：
-         */
-        this.i18nNames = builder.i18nNames;
-        /**
-         * 是否启用
-         * <p> 示例值：true 表示启用, false表示未启用
-         */
-        this.status = builder.status;
+    /**
+     * 职务名称。1-100字符，支持中、英文及符号
+     *
+     * <p>示例值：高级工程师
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 多语言职务名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nNames
+     * @return
+     */
+    public Builder i18nNames(I18nContent[] i18nNames) {
+      this.i18nNames = i18nNames;
+      return this;
     }
 
-    public String getJobTitleId() {
-        return this.jobTitleId;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true 表示启用, false表示未启用
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Boolean status) {
+      this.status = status;
+      return this;
     }
 
-    public void setJobTitleId(String jobTitleId) {
-        this.jobTitleId = jobTitleId;
+    public JobTitle build() {
+      return new JobTitle(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public I18nContent[] getI18nNames() {
-        return this.i18nNames;
-    }
-
-    public void setI18nNames(I18nContent[] i18nNames) {
-        this.i18nNames = i18nNames;
-    }
-
-    public Boolean getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 职务ID
-         * <p> 示例值：b5565c46b749
-         */
-        private String jobTitleId;
-        /**
-         * 职务名称。1-100字符，支持中、英文及符号
-         * <p> 示例值：高级工程师
-         */
-        private String name;
-        /**
-         * 多语言职务名称
-         * <p> 示例值：
-         */
-        private I18nContent[] i18nNames;
-        /**
-         * 是否启用
-         * <p> 示例值：true 表示启用, false表示未启用
-         */
-        private Boolean status;
-
-        /**
-         * 职务ID
-         * <p> 示例值：b5565c46b749
-         *
-         * @param jobTitleId
-         * @return
-         */
-        public Builder jobTitleId(String jobTitleId) {
-            this.jobTitleId = jobTitleId;
-            return this;
-        }
-
-
-        /**
-         * 职务名称。1-100字符，支持中、英文及符号
-         * <p> 示例值：高级工程师
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 多语言职务名称
-         * <p> 示例值：
-         *
-         * @param i18nNames
-         * @return
-         */
-        public Builder i18nNames(I18nContent[] i18nNames) {
-            this.i18nNames = i18nNames;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true 表示启用, false表示未启用
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Boolean status) {
-            this.status = status;
-            return this;
-        }
-
-
-        public JobTitle build() {
-            return new JobTitle(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

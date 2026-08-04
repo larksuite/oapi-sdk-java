@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LeaveExtendItem {
+  /**
+   * 扩展字段键
+   *
+   * <p>示例值：testKey
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 扩展字段值
+   *
+   * <p>示例值：testValue
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public LeaveExtendItem() {}
+
+  public LeaveExtendItem(Builder builder) {
     /**
      * 扩展字段键
-     * <p> 示例值：testKey
+     *
+     * <p>示例值：testKey
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * 扩展字段值
-     * <p> 示例值：testValue
+     *
+     * <p>示例值：testValue
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 扩展字段键
+     *
+     * <p>示例值：testKey
+     */
+    private String key;
+
+    /**
+     * 扩展字段值
+     *
+     * <p>示例值：testValue
+     */
     private String value;
 
-    // builder 开始
-    public LeaveExtendItem() {
+    /**
+     * 扩展字段键
+     *
+     * <p>示例值：testKey
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public LeaveExtendItem(Builder builder) {
-        /**
-         * 扩展字段键
-         * <p> 示例值：testKey
-         */
-        this.key = builder.key;
-        /**
-         * 扩展字段值
-         * <p> 示例值：testValue
-         */
-        this.value = builder.value;
+    /**
+     * 扩展字段值
+     *
+     * <p>示例值：testValue
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public LeaveExtendItem build() {
+      return new LeaveExtendItem(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 扩展字段键
-         * <p> 示例值：testKey
-         */
-        private String key;
-        /**
-         * 扩展字段值
-         * <p> 示例值：testValue
-         */
-        private String value;
-
-        /**
-         * 扩展字段键
-         * <p> 示例值：testKey
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 扩展字段值
-         * <p> 示例值：testValue
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public LeaveExtendItem build() {
-            return new LeaveExtendItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

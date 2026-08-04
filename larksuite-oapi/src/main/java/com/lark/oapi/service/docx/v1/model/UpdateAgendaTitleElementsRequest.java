@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateAgendaTitleElementsRequest {
+  /**
+   * 更新的 Agenda 标题元素列表，单次更新中 Reminder 上限 30 个，Mention_Doc 上限 50 个，Mention_User 上限 100 个
+   *
+   * <p>示例值：
+   */
+  @SerializedName("elements")
+  private AgendaTitleElement[] elements;
+
+  public AgendaTitleElement[] getElements() {
+    return this.elements;
+  }
+
+  public void setElements(AgendaTitleElement[] elements) {
+    this.elements = elements;
+  }
+
+  // builder 开始
+  public UpdateAgendaTitleElementsRequest() {}
+
+  public UpdateAgendaTitleElementsRequest(Builder builder) {
     /**
      * 更新的 Agenda 标题元素列表，单次更新中 Reminder 上限 30 个，Mention_Doc 上限 50 个，Mention_User 上限 100 个
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("elements")
+    this.elements = builder.elements;
+  }
+
+  public static class Builder {
+    /**
+     * 更新的 Agenda 标题元素列表，单次更新中 Reminder 上限 30 个，Mention_Doc 上限 50 个，Mention_User 上限 100 个
+     *
+     * <p>示例值：
+     */
     private AgendaTitleElement[] elements;
 
-    // builder 开始
-    public UpdateAgendaTitleElementsRequest() {
+    /**
+     * 更新的 Agenda 标题元素列表，单次更新中 Reminder 上限 30 个，Mention_Doc 上限 50 个，Mention_User 上限 100 个
+     *
+     * <p>示例值：
+     *
+     * @param elements
+     * @return
+     */
+    public Builder elements(AgendaTitleElement[] elements) {
+      this.elements = elements;
+      return this;
     }
 
-    public UpdateAgendaTitleElementsRequest(Builder builder) {
-        /**
-         * 更新的 Agenda 标题元素列表，单次更新中 Reminder 上限 30 个，Mention_Doc 上限 50 个，Mention_User 上限 100 个
-         * <p> 示例值：
-         */
-        this.elements = builder.elements;
+    public UpdateAgendaTitleElementsRequest build() {
+      return new UpdateAgendaTitleElementsRequest(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public AgendaTitleElement[] getElements() {
-        return this.elements;
-    }
-
-    public void setElements(AgendaTitleElement[] elements) {
-        this.elements = elements;
-    }
-
-    public static class Builder {
-        /**
-         * 更新的 Agenda 标题元素列表，单次更新中 Reminder 上限 30 个，Mention_Doc 上限 50 个，Mention_User 上限 100 个
-         * <p> 示例值：
-         */
-        private AgendaTitleElement[] elements;
-
-        /**
-         * 更新的 Agenda 标题元素列表，单次更新中 Reminder 上限 30 个，Mention_Doc 上限 50 个，Mention_User 上限 100 个
-         * <p> 示例值：
-         *
-         * @param elements
-         * @return
-         */
-        public Builder elements(AgendaTitleElement[] elements) {
-            this.elements = elements;
-            return this;
-        }
-
-
-        public UpdateAgendaTitleElementsRequest build() {
-            return new UpdateAgendaTitleElementsRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

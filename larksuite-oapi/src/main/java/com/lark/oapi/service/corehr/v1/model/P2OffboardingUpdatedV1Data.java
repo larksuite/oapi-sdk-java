@@ -13,90 +13,87 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2OffboardingUpdatedV1Data {
-    /**
-     * 员工 ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("employment_id")
-    private String employmentId;
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
-    @SerializedName("target_user_id")
-    private UserId targetUserId;
-    /**
-     * 离职记录 ID
-     * <p> 示例值：7044427347159746085
-     */
-    @SerializedName("offboarding_id")
-    private String offboardingId;
-    /**
-     * 离职发起后的审批流程实例 ID
-     * <p> 示例值：7090409013925398060
-     */
-    @SerializedName("process_id")
-    private String processId;
-    /**
-     * 离职状态
-     * <p> 示例值：1
-     */
-    @SerializedName("status")
-    private Integer status;
+  /**
+   * 离职员工雇佣ID，可通过[批量查询员工信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取员工信息。
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
+  /**
+   * 离职员工的用户 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_user_id")
+  private UserId targetUserId;
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
+  /**
+   * 离职记录ID，每条离职记录的唯一标识。
+   *
+   * <p>示例值：7044427347159746085
+   */
+  @SerializedName("offboarding_id")
+  private String offboardingId;
 
-    public UserId getTargetUserId() {
-        return this.targetUserId;
-    }
+  /**
+   * 离职申请流程的实例
+   * ID，可用于[查询流程相关信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)，例如：作为[获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)的process_id查询流程详情。
+   *
+   * <p>示例值：7090409013925398060
+   */
+  @SerializedName("process_id")
+  private String processId;
 
-    public void setTargetUserId(UserId targetUserId) {
-        this.targetUserId = targetUserId;
-    }
+  /**
+   * 离职状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public String getOffboardingId() {
-        return this.offboardingId;
-    }
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
 
-    public void setOffboardingId(String offboardingId) {
-        this.offboardingId = offboardingId;
-    }
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
 
-    public String getProcessId() {
-        return this.processId;
-    }
+  public UserId getTargetUserId() {
+    return this.targetUserId;
+  }
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
+  public void setTargetUserId(UserId targetUserId) {
+    this.targetUserId = targetUserId;
+  }
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  public String getOffboardingId() {
+    return this.offboardingId;
+  }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  public void setOffboardingId(String offboardingId) {
+    this.offboardingId = offboardingId;
+  }
 
+  public String getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatTabConfig {
+  /**
+   * 会话标签页图标。可调用[下载图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/get)（只能下载由当前机器人上传的图片），将图标下载至本地查看
+   *
+   * <p>示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
+   */
+  @SerializedName("icon_key")
+  private String iconKey;
+
+  /**
+   * 会话标签页是否在 App 内嵌打开
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_built_in")
+  private Boolean isBuiltIn;
+
+  public String getIconKey() {
+    return this.iconKey;
+  }
+
+  public void setIconKey(String iconKey) {
+    this.iconKey = iconKey;
+  }
+
+  public Boolean getIsBuiltIn() {
+    return this.isBuiltIn;
+  }
+
+  public void setIsBuiltIn(Boolean isBuiltIn) {
+    this.isBuiltIn = isBuiltIn;
+  }
+
+  // builder 开始
+  public ChatTabConfig() {}
+
+  public ChatTabConfig(Builder builder) {
     /**
-     * 群Tab图标
-     * <p> 示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
+     * 会话标签页图标。可调用[下载图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/get)（只能下载由当前机器人上传的图片），将图标下载至本地查看
+     *
+     * <p>示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
      */
-    @SerializedName("icon_key")
+    this.iconKey = builder.iconKey;
+    /**
+     * 会话标签页是否在 App 内嵌打开
+     *
+     * <p>示例值：false
+     */
+    this.isBuiltIn = builder.isBuiltIn;
+  }
+
+  public static class Builder {
+    /**
+     * 会话标签页图标。可调用[下载图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/get)（只能下载由当前机器人上传的图片），将图标下载至本地查看
+     *
+     * <p>示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
+     */
     private String iconKey;
+
     /**
-     * 群tab是否App内嵌打开
-     * <p> 示例值：false
+     * 会话标签页是否在 App 内嵌打开
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_built_in")
     private Boolean isBuiltIn;
 
-    // builder 开始
-    public ChatTabConfig() {
+    /**
+     * 会话标签页图标。可调用[下载图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/get)（只能下载由当前机器人上传的图片），将图标下载至本地查看
+     *
+     * <p>示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
+     *
+     * @param iconKey
+     * @return
+     */
+    public Builder iconKey(String iconKey) {
+      this.iconKey = iconKey;
+      return this;
     }
 
-    public ChatTabConfig(Builder builder) {
-        /**
-         * 群Tab图标
-         * <p> 示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
-         */
-        this.iconKey = builder.iconKey;
-        /**
-         * 群tab是否App内嵌打开
-         * <p> 示例值：false
-         */
-        this.isBuiltIn = builder.isBuiltIn;
+    /**
+     * 会话标签页是否在 App 内嵌打开
+     *
+     * <p>示例值：false
+     *
+     * @param isBuiltIn
+     * @return
+     */
+    public Builder isBuiltIn(Boolean isBuiltIn) {
+      this.isBuiltIn = isBuiltIn;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ChatTabConfig build() {
+      return new ChatTabConfig(this);
     }
+  }
 
-    public String getIconKey() {
-        return this.iconKey;
-    }
-
-    public void setIconKey(String iconKey) {
-        this.iconKey = iconKey;
-    }
-
-    public Boolean getIsBuiltIn() {
-        return this.isBuiltIn;
-    }
-
-    public void setIsBuiltIn(Boolean isBuiltIn) {
-        this.isBuiltIn = isBuiltIn;
-    }
-
-    public static class Builder {
-        /**
-         * 群Tab图标
-         * <p> 示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
-         */
-        private String iconKey;
-        /**
-         * 群tab是否App内嵌打开
-         * <p> 示例值：false
-         */
-        private Boolean isBuiltIn;
-
-        /**
-         * 群Tab图标
-         * <p> 示例值：img_v2_b99741-7628-4abd-aad0-b881e4db83ig
-         *
-         * @param iconKey
-         * @return
-         */
-        public Builder iconKey(String iconKey) {
-            this.iconKey = iconKey;
-            return this;
-        }
-
-
-        /**
-         * 群tab是否App内嵌打开
-         * <p> 示例值：false
-         *
-         * @param isBuiltIn
-         * @return
-         */
-        public Builder isBuiltIn(Boolean isBuiltIn) {
-            this.isBuiltIn = isBuiltIn;
-            return this;
-        }
-
-
-        public ChatTabConfig build() {
-            return new ChatTabConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

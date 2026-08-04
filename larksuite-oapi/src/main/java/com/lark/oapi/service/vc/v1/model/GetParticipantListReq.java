@@ -13,401 +13,426 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class GetParticipantListReq {
+  /**
+   * 会议开始时间（unix时间，单位sec）
+   *
+   * <p>示例值：1655276858
+   */
+  @Query
+  @SerializedName("meeting_start_time")
+  private String meetingStartTime;
+
+  /**
+   * 会议结束时间（unix时间，单位sec，若是进行中会议可填当前时间，否则填准确的会议结束时间）
+   *
+   * <p>示例值：1655276858
+   */
+  @Query
+  @SerializedName("meeting_end_time")
+  private String meetingEndTime;
+
+  /**
+   * 会议状态（不传默认为已结束会议）
+   *
+   * <p>示例值：2
+   */
+  @Query
+  @SerializedName("meeting_status")
+  private Integer meetingStatus;
+
+  /**
+   * 9位会议号
+   *
+   * <p>示例值：123456789
+   */
+  @Query
+  @SerializedName("meeting_no")
+  private String meetingNo;
+
+  /**
+   * 按参会飞书用户筛选（最多一个筛选条件）
+   *
+   * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+   */
+  @Query
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 按参会Rooms筛选（最多一个筛选条件）
+   *
+   * <p>示例值：omm_eada1d61a550955240c28757e7dec3af
+   */
+  @Query
+  @SerializedName("room_id")
+  private String roomId;
+
+  /**
+   * 分页尺寸大小
+   *
+   * <p>示例值：20
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
+   *
+   * <p>示例值：20
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 查询网络研讨会时的观众类型,"0"为嘉宾，"3"为观众
+   *
+   * <p>示例值：0
+   */
+  @Query
+  @SerializedName("webinar_user_role")
+  private String webinarUserRole;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getMeetingStartTime() {
+    return this.meetingStartTime;
+  }
+
+  public void setMeetingStartTime(String meetingStartTime) {
+    this.meetingStartTime = meetingStartTime;
+  }
+
+  public String getMeetingEndTime() {
+    return this.meetingEndTime;
+  }
+
+  public void setMeetingEndTime(String meetingEndTime) {
+    this.meetingEndTime = meetingEndTime;
+  }
+
+  public Integer getMeetingStatus() {
+    return this.meetingStatus;
+  }
+
+  public void setMeetingStatus(Integer meetingStatus) {
+    this.meetingStatus = meetingStatus;
+  }
+
+  public String getMeetingNo() {
+    return this.meetingNo;
+  }
+
+  public void setMeetingNo(String meetingNo) {
+    this.meetingNo = meetingNo;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getRoomId() {
+    return this.roomId;
+  }
+
+  public void setRoomId(String roomId) {
+    this.roomId = roomId;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getWebinarUserRole() {
+    return this.webinarUserRole;
+  }
+
+  public void setWebinarUserRole(String webinarUserRole) {
+    this.webinarUserRole = webinarUserRole;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  // builder 开始
+  public GetParticipantListReq() {}
+
+  public GetParticipantListReq(Builder builder) {
     /**
-     * 会议开始时间（需要精确到一分钟，unix时间，单位sec）
-     * <p> 示例值：1655276858
+     * 会议开始时间（unix时间，单位sec）
+     *
+     * <p>示例值：1655276858
      */
-    @Query
-    @SerializedName("meeting_start_time")
-    private String meetingStartTime;
+    this.meetingStartTime = builder.meetingStartTime;
     /**
-     * 会议结束时间（unix时间，单位sec；对于进行中会议则传0）
-     * <p> 示例值：1655276858
+     * 会议结束时间（unix时间，单位sec，若是进行中会议可填当前时间，否则填准确的会议结束时间）
+     *
+     * <p>示例值：1655276858
      */
-    @Query
-    @SerializedName("meeting_end_time")
-    private String meetingEndTime;
+    this.meetingEndTime = builder.meetingEndTime;
     /**
      * 会议状态（不传默认为已结束会议）
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @Query
-    @SerializedName("meeting_status")
-    private Integer meetingStatus;
+    this.meetingStatus = builder.meetingStatus;
     /**
      * 9位会议号
-     * <p> 示例值：123456789
+     *
+     * <p>示例值：123456789
      */
-    @Query
-    @SerializedName("meeting_no")
-    private String meetingNo;
+    this.meetingNo = builder.meetingNo;
     /**
-     * 按参会Lark用户筛选（最多一个筛选条件）
-     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     * 按参会飞书用户筛选（最多一个筛选条件）
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
      */
-    @Query
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 按参会Rooms筛选（最多一个筛选条件）
-     * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
+     *
+     * <p>示例值：omm_eada1d61a550955240c28757e7dec3af
      */
-    @Query
-    @SerializedName("room_id")
-    private String roomId;
+    this.roomId = builder.roomId;
     /**
      * 分页尺寸大小
-     * <p> 示例值：20
+     *
+     * <p>示例值：20
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
-     * <p> 示例值：
+     *
+     * <p>示例值：20
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 查询网络研讨会时的观众类型,"0"为嘉宾，"3"为观众
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @Query
-    @SerializedName("webinar_user_role")
-    private String webinarUserRole;
+    this.webinarUserRole = builder.webinarUserRole;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
+  }
 
-    // builder 开始
-    public GetParticipantListReq() {
+  public static class Builder {
+    private String meetingStartTime; // 会议开始时间（unix时间，单位sec）
+    private String meetingEndTime; // 会议结束时间（unix时间，单位sec，若是进行中会议可填当前时间，否则填准确的会议结束时间）
+    private Integer meetingStatus; // 会议状态（不传默认为已结束会议）
+    private String meetingNo; // 9位会议号
+    private String userId; // 按参会飞书用户筛选（最多一个筛选条件）
+    private String roomId; // 按参会Rooms筛选（最多一个筛选条件）
+    private Integer pageSize; // 分页尺寸大小
+    private String pageToken; // 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
+    private String webinarUserRole; // 查询网络研讨会时的观众类型,"0"为嘉宾，"3"为观众
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 会议开始时间（unix时间，单位sec）
+     *
+     * <p>示例值：1655276858
+     *
+     * @param meetingStartTime
+     * @return
+     */
+    public Builder meetingStartTime(String meetingStartTime) {
+      this.meetingStartTime = meetingStartTime;
+      return this;
     }
 
-    public GetParticipantListReq(Builder builder) {
-        /**
-         * 会议开始时间（需要精确到一分钟，unix时间，单位sec）
-         * <p> 示例值：1655276858
-         */
-        this.meetingStartTime = builder.meetingStartTime;
-        /**
-         * 会议结束时间（unix时间，单位sec；对于进行中会议则传0）
-         * <p> 示例值：1655276858
-         */
-        this.meetingEndTime = builder.meetingEndTime;
-        /**
-         * 会议状态（不传默认为已结束会议）
-         * <p> 示例值：2
-         */
-        this.meetingStatus = builder.meetingStatus;
-        /**
-         * 9位会议号
-         * <p> 示例值：123456789
-         */
-        this.meetingNo = builder.meetingNo;
-        /**
-         * 按参会Lark用户筛选（最多一个筛选条件）
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        this.userId = builder.userId;
-        /**
-         * 按参会Rooms筛选（最多一个筛选条件）
-         * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
-         */
-        this.roomId = builder.roomId;
-        /**
-         * 分页尺寸大小
-         * <p> 示例值：20
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 查询网络研讨会时的观众类型,"0"为嘉宾，"3"为观众
-         * <p> 示例值：0
-         */
-        this.webinarUserRole = builder.webinarUserRole;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
+    /**
+     * 会议结束时间（unix时间，单位sec，若是进行中会议可填当前时间，否则填准确的会议结束时间）
+     *
+     * <p>示例值：1655276858
+     *
+     * @param meetingEndTime
+     * @return
+     */
+    public Builder meetingEndTime(String meetingEndTime) {
+      this.meetingEndTime = meetingEndTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会议状态（不传默认为已结束会议）
+     *
+     * <p>示例值：2
+     *
+     * @param meetingStatus
+     * @return
+     */
+    public Builder meetingStatus(Integer meetingStatus) {
+      this.meetingStatus = meetingStatus;
+      return this;
     }
 
-    public String getMeetingStartTime() {
-        return this.meetingStartTime;
+    /**
+     * 会议状态（不传默认为已结束会议）
+     *
+     * <p>示例值：2
+     *
+     * @param meetingStatus {@link
+     *     com.lark.oapi.service.vc.v1.enums.GetParticipantListMeetingStatusTypeEnum}
+     * @return
+     */
+    public Builder meetingStatus(
+        com.lark.oapi.service.vc.v1.enums.GetParticipantListMeetingStatusTypeEnum meetingStatus) {
+      this.meetingStatus = meetingStatus.getValue();
+      return this;
     }
 
-    public void setMeetingStartTime(String meetingStartTime) {
-        this.meetingStartTime = meetingStartTime;
+    /**
+     * 9位会议号
+     *
+     * <p>示例值：123456789
+     *
+     * @param meetingNo
+     * @return
+     */
+    public Builder meetingNo(String meetingNo) {
+      this.meetingNo = meetingNo;
+      return this;
     }
 
-    public String getMeetingEndTime() {
-        return this.meetingEndTime;
+    /**
+     * 按参会飞书用户筛选（最多一个筛选条件）
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public void setMeetingEndTime(String meetingEndTime) {
-        this.meetingEndTime = meetingEndTime;
+    /**
+     * 按参会Rooms筛选（最多一个筛选条件）
+     *
+     * <p>示例值：omm_eada1d61a550955240c28757e7dec3af
+     *
+     * @param roomId
+     * @return
+     */
+    public Builder roomId(String roomId) {
+      this.roomId = roomId;
+      return this;
     }
 
-    public Integer getMeetingStatus() {
-        return this.meetingStatus;
+    /**
+     * 分页尺寸大小
+     *
+     * <p>示例值：20
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public void setMeetingStatus(Integer meetingStatus) {
-        this.meetingStatus = meetingStatus;
+    /**
+     * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
+     *
+     * <p>示例值：20
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public String getMeetingNo() {
-        return this.meetingNo;
+    /**
+     * 查询网络研讨会时的观众类型,"0"为嘉宾，"3"为观众
+     *
+     * <p>示例值：0
+     *
+     * @param webinarUserRole
+     * @return
+     */
+    public Builder webinarUserRole(String webinarUserRole) {
+      this.webinarUserRole = webinarUserRole;
+      return this;
     }
 
-    public void setMeetingNo(String meetingNo) {
-        this.meetingNo = meetingNo;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.vc.v1.enums.GetParticipantListGetParticipantListUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.vc.v1.enums.GetParticipantListGetParticipantListUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public GetParticipantListReq build() {
+      return new GetParticipantListReq(this);
     }
+  }
 
-    public String getRoomId() {
-        return this.roomId;
-    }
-
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getWebinarUserRole() {
-        return this.webinarUserRole;
-    }
-
-    public void setWebinarUserRole(String webinarUserRole) {
-        this.webinarUserRole = webinarUserRole;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public static class Builder {
-        private String meetingStartTime; // 会议开始时间（需要精确到一分钟，unix时间，单位sec）
-        private String meetingEndTime; // 会议结束时间（unix时间，单位sec；对于进行中会议则传0）
-        private Integer meetingStatus; // 会议状态（不传默认为已结束会议）
-        private String meetingNo; // 9位会议号
-        private String userId; // 按参会Lark用户筛选（最多一个筛选条件）
-        private String roomId; // 按参会Rooms筛选（最多一个筛选条件）
-        private Integer pageSize; // 分页尺寸大小
-        private String pageToken; // 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
-        private String webinarUserRole; // 查询网络研讨会时的观众类型,"0"为嘉宾，"3"为观众
-        private String userIdType; // 此次调用中使用的用户ID的类型
-
-        /**
-         * 会议开始时间（需要精确到一分钟，unix时间，单位sec）
-         * <p> 示例值：1655276858
-         *
-         * @param meetingStartTime
-         * @return
-         */
-        public Builder meetingStartTime(String meetingStartTime) {
-            this.meetingStartTime = meetingStartTime;
-            return this;
-        }
-
-
-        /**
-         * 会议结束时间（unix时间，单位sec；对于进行中会议则传0）
-         * <p> 示例值：1655276858
-         *
-         * @param meetingEndTime
-         * @return
-         */
-        public Builder meetingEndTime(String meetingEndTime) {
-            this.meetingEndTime = meetingEndTime;
-            return this;
-        }
-
-
-        /**
-         * 会议状态（不传默认为已结束会议）
-         * <p> 示例值：2
-         *
-         * @param meetingStatus
-         * @return
-         */
-        public Builder meetingStatus(Integer meetingStatus) {
-            this.meetingStatus = meetingStatus;
-            return this;
-        }
-
-        /**
-         * 会议状态（不传默认为已结束会议）
-         * <p> 示例值：2
-         *
-         * @param meetingStatus {@link com.lark.oapi.service.vc.v1.enums.GetParticipantListMeetingStatusTypeEnum}
-         * @return
-         */
-        public Builder meetingStatus(com.lark.oapi.service.vc.v1.enums.GetParticipantListMeetingStatusTypeEnum meetingStatus) {
-            this.meetingStatus = meetingStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 9位会议号
-         * <p> 示例值：123456789
-         *
-         * @param meetingNo
-         * @return
-         */
-        public Builder meetingNo(String meetingNo) {
-            this.meetingNo = meetingNo;
-            return this;
-        }
-
-
-        /**
-         * 按参会Lark用户筛选（最多一个筛选条件）
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 按参会Rooms筛选（最多一个筛选条件）
-         * <p> 示例值：omm_eada1d61a550955240c28757e7dec3af
-         *
-         * @param roomId
-         * @return
-         */
-        public Builder roomId(String roomId) {
-            this.roomId = roomId;
-            return this;
-        }
-
-
-        /**
-         * 分页尺寸大小
-         * <p> 示例值：20
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记,第一次请求不填,表示从头开始遍历.下次遍历可采用该 page_token获取查询结果
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 查询网络研讨会时的观众类型,"0"为嘉宾，"3"为观众
-         * <p> 示例值：0
-         *
-         * @param webinarUserRole
-         * @return
-         */
-        public Builder webinarUserRole(String webinarUserRole) {
-            this.webinarUserRole = webinarUserRole;
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetParticipantListGetParticipantListUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetParticipantListGetParticipantListUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        public GetParticipantListReq build() {
-            return new GetParticipantListReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

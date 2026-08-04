@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.application.v6.enums;
 
-/**
- * 回调类型
- */
+/** 回调类型 */
 public enum CallbackInfoCallbackTypeEnum {
-    WEBHOOK("webhook"), // 将回调发送至开发者服务器
-    WEBSOCKET("websocket"), // 使用长连接接收回调
-    ;
-    private String value;
+  WEBHOOK("webhook"), // 将回调发送至开发者服务器
+  WEBSOCKET("websocket"), // 使用长连接接收回调
+  ;
+  private String value;
 
-    CallbackInfoCallbackTypeEnum(String value) {
-        this.value = value;
-    }
+  CallbackInfoCallbackTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

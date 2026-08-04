@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppCommonCategory {
+  /**
+   * 国际化语言的 key
+   *
+   * <p>示例值：zh_cn
+   */
+  @SerializedName("i18n_key")
+  private String i18nKey;
+
+  /**
+   * 应用分类
+   *
+   * <p>示例值：分析工具
+   */
+  @SerializedName("category")
+  private String category;
+
+  public String getI18nKey() {
+    return this.i18nKey;
+  }
+
+  public void setI18nKey(String i18nKey) {
+    this.i18nKey = i18nKey;
+  }
+
+  public String getCategory() {
+    return this.category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
+  }
+
+  // builder 开始
+  public AppCommonCategory() {}
+
+  public AppCommonCategory(Builder builder) {
     /**
      * 国际化语言的 key
-     * <p> 示例值：zh_cn
+     *
+     * <p>示例值：zh_cn
      */
-    @SerializedName("i18n_key")
-    private String i18nKey;
+    this.i18nKey = builder.i18nKey;
     /**
      * 应用分类
-     * <p> 示例值：分析工具
+     *
+     * <p>示例值：分析工具
      */
-    @SerializedName("category")
+    this.category = builder.category;
+  }
+
+  public static class Builder {
+    /**
+     * 国际化语言的 key
+     *
+     * <p>示例值：zh_cn
+     */
+    private String i18nKey;
+
+    /**
+     * 应用分类
+     *
+     * <p>示例值：分析工具
+     */
     private String category;
 
-    // builder 开始
-    public AppCommonCategory() {
+    /**
+     * 国际化语言的 key
+     *
+     * <p>示例值：zh_cn
+     *
+     * @param i18nKey
+     * @return
+     */
+    public Builder i18nKey(String i18nKey) {
+      this.i18nKey = i18nKey;
+      return this;
     }
 
-    public AppCommonCategory(Builder builder) {
-        /**
-         * 国际化语言的 key
-         * <p> 示例值：zh_cn
-         */
-        this.i18nKey = builder.i18nKey;
-        /**
-         * 应用分类
-         * <p> 示例值：分析工具
-         */
-        this.category = builder.category;
+    /**
+     * 国际化语言的 key
+     *
+     * <p>示例值：zh_cn
+     *
+     * @param i18nKey {@link
+     *     com.lark.oapi.service.application.v6.enums.AppCommonCategoryI18nKeyEnum}
+     * @return
+     */
+    public Builder i18nKey(
+        com.lark.oapi.service.application.v6.enums.AppCommonCategoryI18nKeyEnum i18nKey) {
+      this.i18nKey = i18nKey.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 应用分类
+     *
+     * <p>示例值：分析工具
+     *
+     * @param category
+     * @return
+     */
+    public Builder category(String category) {
+      this.category = category;
+      return this;
     }
 
-    public String getI18nKey() {
-        return this.i18nKey;
+    public AppCommonCategory build() {
+      return new AppCommonCategory(this);
     }
+  }
 
-    public void setI18nKey(String i18nKey) {
-        this.i18nKey = i18nKey;
-    }
-
-    public String getCategory() {
-        return this.category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public static class Builder {
-        /**
-         * 国际化语言的 key
-         * <p> 示例值：zh_cn
-         */
-        private String i18nKey;
-        /**
-         * 应用分类
-         * <p> 示例值：分析工具
-         */
-        private String category;
-
-        /**
-         * 国际化语言的 key
-         * <p> 示例值：zh_cn
-         *
-         * @param i18nKey
-         * @return
-         */
-        public Builder i18nKey(String i18nKey) {
-            this.i18nKey = i18nKey;
-            return this;
-        }
-
-        /**
-         * 国际化语言的 key
-         * <p> 示例值：zh_cn
-         *
-         * @param i18nKey {@link com.lark.oapi.service.application.v6.enums.AppCommonCategoryI18nKeyEnum}
-         * @return
-         */
-        public Builder i18nKey(com.lark.oapi.service.application.v6.enums.AppCommonCategoryI18nKeyEnum i18nKey) {
-            this.i18nKey = i18nKey.getValue();
-            return this;
-        }
-
-
-        /**
-         * 应用分类
-         * <p> 示例值：分析工具
-         *
-         * @param category
-         * @return
-         */
-        public Builder category(String category) {
-            this.category = category;
-            return this;
-        }
-
-
-        public AppCommonCategory build() {
-            return new AppCommonCategory(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

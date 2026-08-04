@@ -13,186 +13,195 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LlmModelConfig {
+  /**
+   * 模型名称
+   *
+   * <p>示例值：gpt-3.5-turbo
+   */
+  @SerializedName("model_name")
+  private String modelName;
+
+  /**
+   * 自定义的问答prompt，占位符格式和go标准库-text/template保持一致
+   *
+   * <p>示例值：请根据以下文档回答问题，请仅依靠提供的文档段落回答问题。\n{{ range $index, $p := .Passages }}\n段落{{ $index }}：\n{{
+   * $p }}\n{{ end }}\n请回答：\n{{ .Query }}
+   */
+  @SerializedName("prompt")
+  private String prompt;
+
+  /**
+   * 模型接收的最大token数
+   *
+   * <p>示例值：4096
+   */
+  @SerializedName("max_token")
+  private Integer maxToken;
+
+  /**
+   * 模型生成的温度系数
+   *
+   * <p>示例值：0.3
+   */
+  @SerializedName("temperature")
+  private Double temperature;
+
+  public String getModelName() {
+    return this.modelName;
+  }
+
+  public void setModelName(String modelName) {
+    this.modelName = modelName;
+  }
+
+  public String getPrompt() {
+    return this.prompt;
+  }
+
+  public void setPrompt(String prompt) {
+    this.prompt = prompt;
+  }
+
+  public Integer getMaxToken() {
+    return this.maxToken;
+  }
+
+  public void setMaxToken(Integer maxToken) {
+    this.maxToken = maxToken;
+  }
+
+  public Double getTemperature() {
+    return this.temperature;
+  }
+
+  public void setTemperature(Double temperature) {
+    this.temperature = temperature;
+  }
+
+  // builder 开始
+  public LlmModelConfig() {}
+
+  public LlmModelConfig(Builder builder) {
     /**
      * 模型名称
-     * <p> 示例值：gpt-3.5-turbo
+     *
+     * <p>示例值：gpt-3.5-turbo
      */
-    @SerializedName("model_name")
-    private String modelName;
+    this.modelName = builder.modelName;
     /**
      * 自定义的问答prompt，占位符格式和go标准库-text/template保持一致
-     * <p> 示例值：请根据以下文档回答问题，请仅依靠提供的文档段落回答问题。\n{{ range $index, $p := .Passages }}\n段落{{ $index }}：\n{{ $p }}\n{{ end }}\n请回答：\n{{ .Query }}
+     *
+     * <p>示例值：请根据以下文档回答问题，请仅依靠提供的文档段落回答问题。\n{{ range $index, $p := .Passages }}\n段落{{ $index }}：\n{{
+     * $p }}\n{{ end }}\n请回答：\n{{ .Query }}
      */
-    @SerializedName("prompt")
-    private String prompt;
+    this.prompt = builder.prompt;
     /**
      * 模型接收的最大token数
-     * <p> 示例值：4096
+     *
+     * <p>示例值：4096
      */
-    @SerializedName("max_token")
-    private Integer maxToken;
+    this.maxToken = builder.maxToken;
     /**
      * 模型生成的温度系数
-     * <p> 示例值：0.3
+     *
+     * <p>示例值：0.3
      */
-    @SerializedName("temperature")
+    this.temperature = builder.temperature;
+  }
+
+  public static class Builder {
+    /**
+     * 模型名称
+     *
+     * <p>示例值：gpt-3.5-turbo
+     */
+    private String modelName;
+
+    /**
+     * 自定义的问答prompt，占位符格式和go标准库-text/template保持一致
+     *
+     * <p>示例值：请根据以下文档回答问题，请仅依靠提供的文档段落回答问题。\n{{ range $index, $p := .Passages }}\n段落{{ $index }}：\n{{
+     * $p }}\n{{ end }}\n请回答：\n{{ .Query }}
+     */
+    private String prompt;
+
+    /**
+     * 模型接收的最大token数
+     *
+     * <p>示例值：4096
+     */
+    private Integer maxToken;
+
+    /**
+     * 模型生成的温度系数
+     *
+     * <p>示例值：0.3
+     */
     private Double temperature;
 
-    // builder 开始
-    public LlmModelConfig() {
+    /**
+     * 模型名称
+     *
+     * <p>示例值：gpt-3.5-turbo
+     *
+     * @param modelName
+     * @return
+     */
+    public Builder modelName(String modelName) {
+      this.modelName = modelName;
+      return this;
     }
 
-    public LlmModelConfig(Builder builder) {
-        /**
-         * 模型名称
-         * <p> 示例值：gpt-3.5-turbo
-         */
-        this.modelName = builder.modelName;
-        /**
-         * 自定义的问答prompt，占位符格式和go标准库-text/template保持一致
-         * <p> 示例值：请根据以下文档回答问题，请仅依靠提供的文档段落回答问题。\n{{ range $index, $p := .Passages }}\n段落{{ $index }}：\n{{ $p }}\n{{ end }}\n请回答：\n{{ .Query }}
-         */
-        this.prompt = builder.prompt;
-        /**
-         * 模型接收的最大token数
-         * <p> 示例值：4096
-         */
-        this.maxToken = builder.maxToken;
-        /**
-         * 模型生成的温度系数
-         * <p> 示例值：0.3
-         */
-        this.temperature = builder.temperature;
+    /**
+     * 自定义的问答prompt，占位符格式和go标准库-text/template保持一致
+     *
+     * <p>示例值：请根据以下文档回答问题，请仅依靠提供的文档段落回答问题。\n{{ range $index, $p := .Passages }}\n段落{{ $index }}：\n{{
+     * $p }}\n{{ end }}\n请回答：\n{{ .Query }}
+     *
+     * @param prompt
+     * @return
+     */
+    public Builder prompt(String prompt) {
+      this.prompt = prompt;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 模型接收的最大token数
+     *
+     * <p>示例值：4096
+     *
+     * @param maxToken
+     * @return
+     */
+    public Builder maxToken(Integer maxToken) {
+      this.maxToken = maxToken;
+      return this;
     }
 
-    public String getModelName() {
-        return this.modelName;
+    /**
+     * 模型生成的温度系数
+     *
+     * <p>示例值：0.3
+     *
+     * @param temperature
+     * @return
+     */
+    public Builder temperature(Double temperature) {
+      this.temperature = temperature;
+      return this;
     }
 
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
+    public LlmModelConfig build() {
+      return new LlmModelConfig(this);
     }
+  }
 
-    public String getPrompt() {
-        return this.prompt;
-    }
-
-    public void setPrompt(String prompt) {
-        this.prompt = prompt;
-    }
-
-    public Integer getMaxToken() {
-        return this.maxToken;
-    }
-
-    public void setMaxToken(Integer maxToken) {
-        this.maxToken = maxToken;
-    }
-
-    public Double getTemperature() {
-        return this.temperature;
-    }
-
-    public void setTemperature(Double temperature) {
-        this.temperature = temperature;
-    }
-
-    public static class Builder {
-        /**
-         * 模型名称
-         * <p> 示例值：gpt-3.5-turbo
-         */
-        private String modelName;
-        /**
-         * 自定义的问答prompt，占位符格式和go标准库-text/template保持一致
-         * <p> 示例值：请根据以下文档回答问题，请仅依靠提供的文档段落回答问题。\n{{ range $index, $p := .Passages }}\n段落{{ $index }}：\n{{ $p }}\n{{ end }}\n请回答：\n{{ .Query }}
-         */
-        private String prompt;
-        /**
-         * 模型接收的最大token数
-         * <p> 示例值：4096
-         */
-        private Integer maxToken;
-        /**
-         * 模型生成的温度系数
-         * <p> 示例值：0.3
-         */
-        private Double temperature;
-
-        /**
-         * 模型名称
-         * <p> 示例值：gpt-3.5-turbo
-         *
-         * @param modelName
-         * @return
-         */
-        public Builder modelName(String modelName) {
-            this.modelName = modelName;
-            return this;
-        }
-
-
-        /**
-         * 自定义的问答prompt，占位符格式和go标准库-text/template保持一致
-         * <p> 示例值：请根据以下文档回答问题，请仅依靠提供的文档段落回答问题。\n{{ range $index, $p := .Passages }}\n段落{{ $index }}：\n{{ $p }}\n{{ end }}\n请回答：\n{{ .Query }}
-         *
-         * @param prompt
-         * @return
-         */
-        public Builder prompt(String prompt) {
-            this.prompt = prompt;
-            return this;
-        }
-
-
-        /**
-         * 模型接收的最大token数
-         * <p> 示例值：4096
-         *
-         * @param maxToken
-         * @return
-         */
-        public Builder maxToken(Integer maxToken) {
-            this.maxToken = maxToken;
-            return this;
-        }
-
-
-        /**
-         * 模型生成的温度系数
-         * <p> 示例值：0.3
-         *
-         * @param temperature
-         * @return
-         */
-        public Builder temperature(Double temperature) {
-            this.temperature = temperature;
-            return this;
-        }
-
-
-        public LlmModelConfig build() {
-            return new LlmModelConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchDepartmentFilter {
+  /**
+   * 根据部门名称精确匹配，默认不精确匹配
+   *
+   * <p>示例值：
+   */
+  @SerializedName("exactly_match_by_name")
+  private Boolean exactlyMatchByName;
+
+  /**
+   * 搜索接口拓展选项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("options")
+  private SearchOptions options;
+
+  public Boolean getExactlyMatchByName() {
+    return this.exactlyMatchByName;
+  }
+
+  public void setExactlyMatchByName(Boolean exactlyMatchByName) {
+    this.exactlyMatchByName = exactlyMatchByName;
+  }
+
+  public SearchOptions getOptions() {
+    return this.options;
+  }
+
+  public void setOptions(SearchOptions options) {
+    this.options = options;
+  }
+
+  // builder 开始
+  public SearchDepartmentFilter() {}
+
+  public SearchDepartmentFilter(Builder builder) {
     /**
      * 根据部门名称精确匹配，默认不精确匹配
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("exactly_match_by_name")
-    private Boolean exactlyMatchByName;
+    this.exactlyMatchByName = builder.exactlyMatchByName;
     /**
      * 搜索接口拓展选项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("options")
+    this.options = builder.options;
+  }
+
+  public static class Builder {
+    /**
+     * 根据部门名称精确匹配，默认不精确匹配
+     *
+     * <p>示例值：
+     */
+    private Boolean exactlyMatchByName;
+
+    /**
+     * 搜索接口拓展选项
+     *
+     * <p>示例值：
+     */
     private SearchOptions options;
 
-    // builder 开始
-    public SearchDepartmentFilter() {
+    /**
+     * 根据部门名称精确匹配，默认不精确匹配
+     *
+     * <p>示例值：
+     *
+     * @param exactlyMatchByName
+     * @return
+     */
+    public Builder exactlyMatchByName(Boolean exactlyMatchByName) {
+      this.exactlyMatchByName = exactlyMatchByName;
+      return this;
     }
 
-    public SearchDepartmentFilter(Builder builder) {
-        /**
-         * 根据部门名称精确匹配，默认不精确匹配
-         * <p> 示例值：
-         */
-        this.exactlyMatchByName = builder.exactlyMatchByName;
-        /**
-         * 搜索接口拓展选项
-         * <p> 示例值：
-         */
-        this.options = builder.options;
+    /**
+     * 搜索接口拓展选项
+     *
+     * <p>示例值：
+     *
+     * @param options
+     * @return
+     */
+    public Builder options(SearchOptions options) {
+      this.options = options;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SearchDepartmentFilter build() {
+      return new SearchDepartmentFilter(this);
     }
+  }
 
-    public Boolean getExactlyMatchByName() {
-        return this.exactlyMatchByName;
-    }
-
-    public void setExactlyMatchByName(Boolean exactlyMatchByName) {
-        this.exactlyMatchByName = exactlyMatchByName;
-    }
-
-    public SearchOptions getOptions() {
-        return this.options;
-    }
-
-    public void setOptions(SearchOptions options) {
-        this.options = options;
-    }
-
-    public static class Builder {
-        /**
-         * 根据部门名称精确匹配，默认不精确匹配
-         * <p> 示例值：
-         */
-        private Boolean exactlyMatchByName;
-        /**
-         * 搜索接口拓展选项
-         * <p> 示例值：
-         */
-        private SearchOptions options;
-
-        /**
-         * 根据部门名称精确匹配，默认不精确匹配
-         * <p> 示例值：
-         *
-         * @param exactlyMatchByName
-         * @return
-         */
-        public Builder exactlyMatchByName(Boolean exactlyMatchByName) {
-            this.exactlyMatchByName = exactlyMatchByName;
-            return this;
-        }
-
-
-        /**
-         * 搜索接口拓展选项
-         * <p> 示例值：
-         *
-         * @param options
-         * @return
-         */
-        public Builder options(SearchOptions options) {
-            this.options = options;
-            return this;
-        }
-
-
-        public SearchDepartmentFilter build() {
-            return new SearchDepartmentFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

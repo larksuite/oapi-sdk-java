@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 订阅资源类型
- */
+/** 订阅资源类型 */
 public enum UserMessageSubscriptionMessageSubscriptionResourceTypeEnum {
-    SENDER_USER(1), // 消息发送者
-    CHAT(2), // 群组
-    MENTION_ME(3), // at我的信息
-    P2P_CHAT(4), // 和某人的单聊会话
-    ;
-    private Integer value;
+  SENDER_USER(1), // 消息发送者
+  CHAT(2), // 群组
+  MENTION_ME(3), // at我的信息
+  P2P_CHAT(4), // 和某人的单聊会话
+  ;
+  private Integer value;
 
-    UserMessageSubscriptionMessageSubscriptionResourceTypeEnum(Integer value) {
-        this.value = value;
-    }
+  UserMessageSubscriptionMessageSubscriptionResourceTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

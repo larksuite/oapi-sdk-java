@@ -13,161 +13,164 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PublicMailboxMember {
+  /**
+   * The unique ID of a member in this public mailbox
+   *
+   * <p>示例值：xxxxxxxxxxxxxxx
+   */
+  @SerializedName("member_id")
+  private String memberId;
+
+  /**
+   * 租户内用户的唯一标识（当成员类型是USER时有值）
+   *
+   * <p>示例值：xxxxxxxxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * The type of member. Possible values are:;- USER: internal user in the team
+   *
+   * <p>示例值：USER
+   */
+  @SerializedName("type")
+  private String type;
+
+  public String getMemberId() {
+    return this.memberId;
+  }
+
+  public void setMemberId(String memberId) {
+    this.memberId = memberId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public PublicMailboxMember() {}
+
+  public PublicMailboxMember(Builder builder) {
     /**
-     * 公共邮箱内成员唯一标识
-     * <p> 示例值：xxxxxxxxxxxxxxx
+     * The unique ID of a member in this public mailbox
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx
      */
-    @SerializedName("member_id")
-    private String memberId;
+    this.memberId = builder.memberId;
     /**
      * 租户内用户的唯一标识（当成员类型是USER时有值）
-     * <p> 示例值：xxxxxxxxxx
+     *
+     * <p>示例值：xxxxxxxxxx
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 成员类型
-     * <p> 示例值：USER
+     * The type of member. Possible values are:;- USER: internal user in the team
+     *
+     * <p>示例值：USER
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * The unique ID of a member in this public mailbox
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx
+     */
+    private String memberId;
+
+    /**
+     * 租户内用户的唯一标识（当成员类型是USER时有值）
+     *
+     * <p>示例值：xxxxxxxxxx
+     */
+    private String userId;
+
+    /**
+     * The type of member. Possible values are:;- USER: internal user in the team
+     *
+     * <p>示例值：USER
+     */
     private String type;
 
-    // builder 开始
-    public PublicMailboxMember() {
+    /**
+     * The unique ID of a member in this public mailbox
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx
+     *
+     * @param memberId
+     * @return
+     */
+    public Builder memberId(String memberId) {
+      this.memberId = memberId;
+      return this;
     }
 
-    public PublicMailboxMember(Builder builder) {
-        /**
-         * 公共邮箱内成员唯一标识
-         * <p> 示例值：xxxxxxxxxxxxxxx
-         */
-        this.memberId = builder.memberId;
-        /**
-         * 租户内用户的唯一标识（当成员类型是USER时有值）
-         * <p> 示例值：xxxxxxxxxx
-         */
-        this.userId = builder.userId;
-        /**
-         * 成员类型
-         * <p> 示例值：USER
-         */
-        this.type = builder.type;
+    /**
+     * 租户内用户的唯一标识（当成员类型是USER时有值）
+     *
+     * <p>示例值：xxxxxxxxxx
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * The type of member. Possible values are:;- USER: internal user in the team
+     *
+     * <p>示例值：USER
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getMemberId() {
-        return this.memberId;
+    /**
+     * The type of member. Possible values are:;- USER: internal user in the team
+     *
+     * <p>示例值：USER
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.mail.v1.enums.PublicMailboxMemberPublicMailboxMemberTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.mail.v1.enums.PublicMailboxMemberPublicMailboxMemberTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
+    public PublicMailboxMember build() {
+      return new PublicMailboxMember(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 公共邮箱内成员唯一标识
-         * <p> 示例值：xxxxxxxxxxxxxxx
-         */
-        private String memberId;
-        /**
-         * 租户内用户的唯一标识（当成员类型是USER时有值）
-         * <p> 示例值：xxxxxxxxxx
-         */
-        private String userId;
-        /**
-         * 成员类型
-         * <p> 示例值：USER
-         */
-        private String type;
-
-        /**
-         * 公共邮箱内成员唯一标识
-         * <p> 示例值：xxxxxxxxxxxxxxx
-         *
-         * @param memberId
-         * @return
-         */
-        public Builder memberId(String memberId) {
-            this.memberId = memberId;
-            return this;
-        }
-
-
-        /**
-         * 租户内用户的唯一标识（当成员类型是USER时有值）
-         * <p> 示例值：xxxxxxxxxx
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 成员类型
-         * <p> 示例值：USER
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 成员类型
-         * <p> 示例值：USER
-         *
-         * @param type {@link com.lark.oapi.service.mail.v1.enums.PublicMailboxMemberPublicMailboxMemberTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.mail.v1.enums.PublicMailboxMemberPublicMailboxMemberTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        public PublicMailboxMember build() {
-            return new PublicMailboxMember(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

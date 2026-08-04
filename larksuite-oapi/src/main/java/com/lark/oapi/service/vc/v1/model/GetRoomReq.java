@@ -13,116 +13,115 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class GetRoomReq {
+  /**
+   * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 会议室ID
+   *
+   * <p>示例值：omm_4de32cf10a4358788ff4e09e37ebbf9c
+   */
+  @Path
+  @SerializedName("room_id")
+  private String roomId;
+
+  public String getRoomId() {
+    return this.roomId;
+  }
+
+  public void setRoomId(String roomId) {
+    this.roomId = roomId;
+  }
+
+  // builder 开始
+  public GetRoomReq() {}
+
+  public GetRoomReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 会议室ID
-     * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9c
+     *
+     * <p>示例值：omm_4de32cf10a4358788ff4e09e37ebbf9c
      */
-    @Path
-    @SerializedName("room_id")
-    private String roomId;
+    this.roomId = builder.roomId;
+  }
 
-    // builder 开始
-    public GetRoomReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
+
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetRoomReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 会议室ID
-         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9c
-         */
-        this.roomId = builder.roomId;
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetRoomGetRoomByIDUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.vc.v1.enums.GetRoomGetRoomByIDUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String roomId; // 会议室ID
+
+    /**
+     * 会议室ID
+     *
+     * <p>示例值：omm_4de32cf10a4358788ff4e09e37ebbf9c
+     *
+     * @param roomId
+     * @return
+     */
+    public Builder roomId(String roomId) {
+      this.roomId = roomId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public GetRoomReq build() {
+      return new GetRoomReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getRoomId() {
-        return this.roomId;
-    }
-
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
-        private String roomId; // 会议室ID
-
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetRoomGetRoomByIDUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetRoomGetRoomByIDUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 会议室ID
-         * <p> 示例值：omm_4de32cf10a4358788ff4e09e37ebbf9c
-         *
-         * @param roomId
-         * @return
-         */
-        public Builder roomId(String roomId) {
-            this.roomId = roomId;
-            return this;
-        }
-
-
-        public GetRoomReq build() {
-            return new GetRoomReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

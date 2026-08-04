@@ -13,142 +13,145 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.spark.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.spark.v1.enums.*;
 
 public class UpdateAppVisibilityAppReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 妙搭应用的唯一标识，用于指定需要更新可见范围的目标应用。可通过调用「获取妙搭应用列表」接口或在妙搭控制台应用详情页获取。
+   *
+   * <p>示例值：app_4k6af8utt2s0n
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  @Body private UpdateAppVisibilityAppReqBody body;
+
+  public UpdateAppVisibilityAppReqBody getUpdateAppVisibilityAppReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateAppVisibilityAppReqBody(UpdateAppVisibilityAppReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateAppVisibilityAppReq() {}
+
+  public UpdateAppVisibilityAppReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 妙搭应用的唯一标识，用于指定需要更新可见范围的目标应用。可通过调用「获取妙搭应用列表」接口或在妙搭控制台应用详情页获取。
-     * <p> 示例值：app-20240520103000-xyz
+     *
+     * <p>示例值：app_4k6af8utt2s0n
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-    @Body
+    this.appId = builder.appId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.spark.v1.enums.UpdateAppVisibilityAppUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.spark.v1.enums.UpdateAppVisibilityAppUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    private String appId; // 妙搭应用的唯一标识，用于指定需要更新可见范围的目标应用。可通过调用「获取妙搭应用列表」接口或在妙搭控制台应用详情页获取。
+
+    /**
+     * 妙搭应用的唯一标识，用于指定需要更新可见范围的目标应用。可通过调用「获取妙搭应用列表」接口或在妙搭控制台应用详情页获取。
+     *
+     * <p>示例值：app_4k6af8utt2s0n
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
+    }
+
     private UpdateAppVisibilityAppReqBody body;
 
-    // builder 开始
-    public UpdateAppVisibilityAppReq() {
-    }
-
-    public UpdateAppVisibilityAppReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 妙搭应用的唯一标识，用于指定需要更新可见范围的目标应用。可通过调用「获取妙搭应用列表」接口或在妙搭控制台应用详情页获取。
-         * <p> 示例值：app-20240520103000-xyz
-         */
-        this.appId = builder.appId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
     public UpdateAppVisibilityAppReqBody getUpdateAppVisibilityAppReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateAppVisibilityAppReqBody(UpdateAppVisibilityAppReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateAppVisibilityAppReqBody(UpdateAppVisibilityAppReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String appId; // 妙搭应用的唯一标识，用于指定需要更新可见范围的目标应用。可通过调用「获取妙搭应用列表」接口或在妙搭控制台应用详情页获取。
-        private UpdateAppVisibilityAppReqBody body;
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.spark.v1.enums.UpdateAppVisibilityAppUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.spark.v1.enums.UpdateAppVisibilityAppUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 妙搭应用的唯一标识，用于指定需要更新可见范围的目标应用。可通过调用「获取妙搭应用列表」接口或在妙搭控制台应用详情页获取。
-         * <p> 示例值：app-20240520103000-xyz
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-        public UpdateAppVisibilityAppReqBody getUpdateAppVisibilityAppReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateAppVisibilityAppReqBody(UpdateAppVisibilityAppReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateAppVisibilityAppReq build() {
-            return new UpdateAppVisibilityAppReq(this);
-        }
+    public UpdateAppVisibilityAppReq build() {
+      return new UpdateAppVisibilityAppReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

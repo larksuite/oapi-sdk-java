@@ -13,161 +13,200 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GradeStandardDimension {
+  /**
+   * 资源名
+   *
+   * <p>示例值：cpst_plan
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 是否包含下级
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("contain_sub")
+  private Boolean containSub;
+
+  /**
+   * 明细值列表，招聘类型维度枚举值为【日常实习："routine_intern"】【社招："experienced_professionals"】【校招:
+   * "recent_graduates"】，其他维度类型具体值信息可通过接口查询[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)，
+   * [搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)，
+   * [查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)
+   * ，[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)，
+   * [查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)，[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)，
+   * [查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)，
+   * [批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)，
+   * [批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)
+   * ，[批量查询定调薪原因](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)，[获取薪级薪等列表数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/salary_level_type/query)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("values")
+  private String[] values;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Boolean getContainSub() {
+    return this.containSub;
+  }
+
+  public void setContainSub(Boolean containSub) {
+    this.containSub = containSub;
+  }
+
+  public String[] getValues() {
+    return this.values;
+  }
+
+  public void setValues(String[] values) {
+    this.values = values;
+  }
+
+  // builder 开始
+  public GradeStandardDimension() {}
+
+  public GradeStandardDimension(Builder builder) {
     /**
      * 资源名
-     * <p> 示例值：cpst_plan
+     *
+     * <p>示例值：cpst_plan
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 是否包含下级
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("contain_sub")
-    private Boolean containSub;
+    this.containSub = builder.containSub;
     /**
-     * 维度明细值，招聘类型维度枚举值为【日常实习："routine_intern"】【社招："experienced_professionals"】【校招: "recent_graduates"】，其他维度类型具体值信息可通过接口查询[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)， [搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)， [查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get) ，[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)， [查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)，[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)， [查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)， [批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)， [批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list) ，[批量查询定调薪原因](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)，[获取薪级薪等列表数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/salary_level_type/query)
-     * <p> 示例值：
+     * 明细值列表，招聘类型维度枚举值为【日常实习："routine_intern"】【社招："experienced_professionals"】【校招:
+     * "recent_graduates"】，其他维度类型具体值信息可通过接口查询[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)，
+     * [搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)，
+     * [查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)
+     * ，[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)，
+     * [查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)，[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)，
+     * [查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)，
+     * [批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)，
+     * [批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)
+     * ，[批量查询定调薪原因](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)，[获取薪级薪等列表数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/salary_level_type/query)
+     *
+     * <p>示例值：
      */
-    @SerializedName("values")
+    this.values = builder.values;
+  }
+
+  public static class Builder {
+    /**
+     * 资源名
+     *
+     * <p>示例值：cpst_plan
+     */
+    private String apiName;
+
+    /**
+     * 是否包含下级
+     *
+     * <p>示例值：false
+     */
+    private Boolean containSub;
+
+    /**
+     * 明细值列表，招聘类型维度枚举值为【日常实习："routine_intern"】【社招："experienced_professionals"】【校招:
+     * "recent_graduates"】，其他维度类型具体值信息可通过接口查询[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)，
+     * [搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)，
+     * [查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)
+     * ，[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)，
+     * [查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)，[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)，
+     * [查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)，
+     * [批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)，
+     * [批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)
+     * ，[批量查询定调薪原因](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)，[获取薪级薪等列表数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/salary_level_type/query)
+     *
+     * <p>示例值：
+     */
     private String[] values;
 
-    // builder 开始
-    public GradeStandardDimension() {
+    /**
+     * 资源名
+     *
+     * <p>示例值：cpst_plan
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public GradeStandardDimension(Builder builder) {
-        /**
-         * 资源名
-         * <p> 示例值：cpst_plan
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 是否包含下级
-         * <p> 示例值：false
-         */
-        this.containSub = builder.containSub;
-        /**
-         * 维度明细值，招聘类型维度枚举值为【日常实习："routine_intern"】【社招："experienced_professionals"】【校招: "recent_graduates"】，其他维度类型具体值信息可通过接口查询[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)， [搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)， [查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get) ，[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)， [查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)，[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)， [查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)， [批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)， [批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list) ，[批量查询定调薪原因](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)，[获取薪级薪等列表数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/salary_level_type/query)
-         * <p> 示例值：
-         */
-        this.values = builder.values;
+    /**
+     * 资源名
+     *
+     * <p>示例值：cpst_plan
+     *
+     * @param apiName {@link
+     *     com.lark.oapi.service.compensation.v1.enums.GradeStandardDimensionApiNameEnum}
+     * @return
+     */
+    public Builder apiName(
+        com.lark.oapi.service.compensation.v1.enums.GradeStandardDimensionApiNameEnum apiName) {
+      this.apiName = apiName.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否包含下级
+     *
+     * <p>示例值：false
+     *
+     * @param containSub
+     * @return
+     */
+    public Builder containSub(Boolean containSub) {
+      this.containSub = containSub;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 明细值列表，招聘类型维度枚举值为【日常实习："routine_intern"】【社招："experienced_professionals"】【校招:
+     * "recent_graduates"】，其他维度类型具体值信息可通过接口查询[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)，
+     * [搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)，
+     * [查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)
+     * ，[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)，
+     * [查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)，[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)，
+     * [查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)，
+     * [批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)，
+     * [批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)
+     * ，[批量查询定调薪原因](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)，[获取薪级薪等列表数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/salary_level_type/query)
+     *
+     * <p>示例值：
+     *
+     * @param values
+     * @return
+     */
+    public Builder values(String[] values) {
+      this.values = values;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    public GradeStandardDimension build() {
+      return new GradeStandardDimension(this);
     }
+  }
 
-    public Boolean getContainSub() {
-        return this.containSub;
-    }
-
-    public void setContainSub(Boolean containSub) {
-        this.containSub = containSub;
-    }
-
-    public String[] getValues() {
-        return this.values;
-    }
-
-    public void setValues(String[] values) {
-        this.values = values;
-    }
-
-    public static class Builder {
-        /**
-         * 资源名
-         * <p> 示例值：cpst_plan
-         */
-        private String apiName;
-        /**
-         * 是否包含下级
-         * <p> 示例值：false
-         */
-        private Boolean containSub;
-        /**
-         * 维度明细值，招聘类型维度枚举值为【日常实习："routine_intern"】【社招："experienced_professionals"】【校招: "recent_graduates"】，其他维度类型具体值信息可通过接口查询[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)， [搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)， [查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get) ，[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)， [查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)，[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)， [查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)， [批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)， [批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list) ，[批量查询定调薪原因](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)，[获取薪级薪等列表数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/salary_level_type/query)
-         * <p> 示例值：
-         */
-        private String[] values;
-
-        /**
-         * 资源名
-         * <p> 示例值：cpst_plan
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-        /**
-         * 资源名
-         * <p> 示例值：cpst_plan
-         *
-         * @param apiName {@link com.lark.oapi.service.compensation.v1.enums.GradeStandardDimensionApiNameEnum}
-         * @return
-         */
-        public Builder apiName(com.lark.oapi.service.compensation.v1.enums.GradeStandardDimensionApiNameEnum apiName) {
-            this.apiName = apiName.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否包含下级
-         * <p> 示例值：false
-         *
-         * @param containSub
-         * @return
-         */
-        public Builder containSub(Boolean containSub) {
-            this.containSub = containSub;
-            return this;
-        }
-
-
-        /**
-         * 维度明细值，招聘类型维度枚举值为【日常实习："routine_intern"】【社招："experienced_professionals"】【校招: "recent_graduates"】，其他维度类型具体值信息可通过接口查询[查询单个公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)， [搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)， [查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get) ，[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)， [查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)，[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)， [查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)， [批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)， [批量查询薪资方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list) ，[批量查询定调薪原因](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)，[获取薪级薪等列表数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/salary_level_type/query)
-         * <p> 示例值：
-         *
-         * @param values
-         * @return
-         */
-        public Builder values(String[] values) {
-            this.values = values;
-            return this;
-        }
-
-
-        public GradeStandardDimension build() {
-            return new GradeStandardDimension(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

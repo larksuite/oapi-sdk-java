@@ -13,161 +13,165 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TrusteeshipInstanceCacheConfig {
+  /**
+   * 托管预缓存策略。
+   *
+   * <p>示例值：DISABLE
+   */
+  @SerializedName("form_policy")
+  private String formPolicy;
+
+  /**
+   * 表单是否随国际化改变。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("form_vary_with_locale")
+  private Boolean formVaryWithLocale;
+
+  /**
+   * 当前使用的表单版本号，保证表单改变后，版本号增加，实际值为 int64 整数。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("form_version")
+  private String formVersion;
+
+  public String getFormPolicy() {
+    return this.formPolicy;
+  }
+
+  public void setFormPolicy(String formPolicy) {
+    this.formPolicy = formPolicy;
+  }
+
+  public Boolean getFormVaryWithLocale() {
+    return this.formVaryWithLocale;
+  }
+
+  public void setFormVaryWithLocale(Boolean formVaryWithLocale) {
+    this.formVaryWithLocale = formVaryWithLocale;
+  }
+
+  public String getFormVersion() {
+    return this.formVersion;
+  }
+
+  public void setFormVersion(String formVersion) {
+    this.formVersion = formVersion;
+  }
+
+  // builder 开始
+  public TrusteeshipInstanceCacheConfig() {}
+
+  public TrusteeshipInstanceCacheConfig(Builder builder) {
     /**
-     * 托管预缓存策略
-     * <p> 示例值：DISABLE
+     * 托管预缓存策略。
+     *
+     * <p>示例值：DISABLE
      */
-    @SerializedName("form_policy")
+    this.formPolicy = builder.formPolicy;
+    /**
+     * 表单是否随国际化改变。
+     *
+     * <p>示例值：false
+     */
+    this.formVaryWithLocale = builder.formVaryWithLocale;
+    /**
+     * 当前使用的表单版本号，保证表单改变后，版本号增加，实际值为 int64 整数。
+     *
+     * <p>示例值：1
+     */
+    this.formVersion = builder.formVersion;
+  }
+
+  public static class Builder {
+    /**
+     * 托管预缓存策略。
+     *
+     * <p>示例值：DISABLE
+     */
     private String formPolicy;
+
     /**
-     * 表单是否随国际化改变
-     * <p> 示例值：false
+     * 表单是否随国际化改变。
+     *
+     * <p>示例值：false
      */
-    @SerializedName("form_vary_with_locale")
     private Boolean formVaryWithLocale;
+
     /**
-     * 当前使用的表单版本号，保证表单改变后，版本号增加，实际值为int64整数
-     * <p> 示例值："1"
+     * 当前使用的表单版本号，保证表单改变后，版本号增加，实际值为 int64 整数。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("form_version")
     private String formVersion;
 
-    // builder 开始
-    public TrusteeshipInstanceCacheConfig() {
+    /**
+     * 托管预缓存策略。
+     *
+     * <p>示例值：DISABLE
+     *
+     * @param formPolicy
+     * @return
+     */
+    public Builder formPolicy(String formPolicy) {
+      this.formPolicy = formPolicy;
+      return this;
     }
 
-    public TrusteeshipInstanceCacheConfig(Builder builder) {
-        /**
-         * 托管预缓存策略
-         * <p> 示例值：DISABLE
-         */
-        this.formPolicy = builder.formPolicy;
-        /**
-         * 表单是否随国际化改变
-         * <p> 示例值：false
-         */
-        this.formVaryWithLocale = builder.formVaryWithLocale;
-        /**
-         * 当前使用的表单版本号，保证表单改变后，版本号增加，实际值为int64整数
-         * <p> 示例值："1"
-         */
-        this.formVersion = builder.formVersion;
+    /**
+     * 托管预缓存策略。
+     *
+     * <p>示例值：DISABLE
+     *
+     * @param formPolicy {@link
+     *     com.lark.oapi.service.approval.v4.enums.TrusteeshipInstanceCacheConfigFormPolicyEnum}
+     * @return
+     */
+    public Builder formPolicy(
+        com.lark.oapi.service.approval.v4.enums.TrusteeshipInstanceCacheConfigFormPolicyEnum
+            formPolicy) {
+      this.formPolicy = formPolicy.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 表单是否随国际化改变。
+     *
+     * <p>示例值：false
+     *
+     * @param formVaryWithLocale
+     * @return
+     */
+    public Builder formVaryWithLocale(Boolean formVaryWithLocale) {
+      this.formVaryWithLocale = formVaryWithLocale;
+      return this;
     }
 
-    public String getFormPolicy() {
-        return this.formPolicy;
+    /**
+     * 当前使用的表单版本号，保证表单改变后，版本号增加，实际值为 int64 整数。
+     *
+     * <p>示例值：1
+     *
+     * @param formVersion
+     * @return
+     */
+    public Builder formVersion(String formVersion) {
+      this.formVersion = formVersion;
+      return this;
     }
 
-    public void setFormPolicy(String formPolicy) {
-        this.formPolicy = formPolicy;
+    public TrusteeshipInstanceCacheConfig build() {
+      return new TrusteeshipInstanceCacheConfig(this);
     }
+  }
 
-    public Boolean getFormVaryWithLocale() {
-        return this.formVaryWithLocale;
-    }
-
-    public void setFormVaryWithLocale(Boolean formVaryWithLocale) {
-        this.formVaryWithLocale = formVaryWithLocale;
-    }
-
-    public String getFormVersion() {
-        return this.formVersion;
-    }
-
-    public void setFormVersion(String formVersion) {
-        this.formVersion = formVersion;
-    }
-
-    public static class Builder {
-        /**
-         * 托管预缓存策略
-         * <p> 示例值：DISABLE
-         */
-        private String formPolicy;
-        /**
-         * 表单是否随国际化改变
-         * <p> 示例值：false
-         */
-        private Boolean formVaryWithLocale;
-        /**
-         * 当前使用的表单版本号，保证表单改变后，版本号增加，实际值为int64整数
-         * <p> 示例值："1"
-         */
-        private String formVersion;
-
-        /**
-         * 托管预缓存策略
-         * <p> 示例值：DISABLE
-         *
-         * @param formPolicy
-         * @return
-         */
-        public Builder formPolicy(String formPolicy) {
-            this.formPolicy = formPolicy;
-            return this;
-        }
-
-        /**
-         * 托管预缓存策略
-         * <p> 示例值：DISABLE
-         *
-         * @param formPolicy {@link com.lark.oapi.service.approval.v4.enums.TrusteeshipInstanceCacheConfigFormPolicyEnum}
-         * @return
-         */
-        public Builder formPolicy(com.lark.oapi.service.approval.v4.enums.TrusteeshipInstanceCacheConfigFormPolicyEnum formPolicy) {
-            this.formPolicy = formPolicy.getValue();
-            return this;
-        }
-
-
-        /**
-         * 表单是否随国际化改变
-         * <p> 示例值：false
-         *
-         * @param formVaryWithLocale
-         * @return
-         */
-        public Builder formVaryWithLocale(Boolean formVaryWithLocale) {
-            this.formVaryWithLocale = formVaryWithLocale;
-            return this;
-        }
-
-
-        /**
-         * 当前使用的表单版本号，保证表单改变后，版本号增加，实际值为int64整数
-         * <p> 示例值："1"
-         *
-         * @param formVersion
-         * @return
-         */
-        public Builder formVersion(String formVersion) {
-            this.formVersion = formVersion;
-            return this;
-        }
-
-
-        public TrusteeshipInstanceCacheConfig build() {
-            return new TrusteeshipInstanceCacheConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

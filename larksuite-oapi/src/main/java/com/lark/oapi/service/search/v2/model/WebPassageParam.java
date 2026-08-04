@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WebPassageParam {
+  /**
+   * 是否要搜索网页
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("searchable")
+  private Boolean searchable;
+
+  /**
+   * 搜索特定网页
+   *
+   * <p>示例值：
+   */
+  @SerializedName("domains")
+  private String[] domains;
+
+  public Boolean getSearchable() {
+    return this.searchable;
+  }
+
+  public void setSearchable(Boolean searchable) {
+    this.searchable = searchable;
+  }
+
+  public String[] getDomains() {
+    return this.domains;
+  }
+
+  public void setDomains(String[] domains) {
+    this.domains = domains;
+  }
+
+  // builder 开始
+  public WebPassageParam() {}
+
+  public WebPassageParam(Builder builder) {
     /**
      * 是否要搜索网页
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("searchable")
-    private Boolean searchable;
+    this.searchable = builder.searchable;
     /**
      * 搜索特定网页
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("domains")
+    this.domains = builder.domains;
+  }
+
+  public static class Builder {
+    /**
+     * 是否要搜索网页
+     *
+     * <p>示例值：false
+     */
+    private Boolean searchable;
+
+    /**
+     * 搜索特定网页
+     *
+     * <p>示例值：
+     */
     private String[] domains;
 
-    // builder 开始
-    public WebPassageParam() {
+    /**
+     * 是否要搜索网页
+     *
+     * <p>示例值：false
+     *
+     * @param searchable
+     * @return
+     */
+    public Builder searchable(Boolean searchable) {
+      this.searchable = searchable;
+      return this;
     }
 
-    public WebPassageParam(Builder builder) {
-        /**
-         * 是否要搜索网页
-         * <p> 示例值：false
-         */
-        this.searchable = builder.searchable;
-        /**
-         * 搜索特定网页
-         * <p> 示例值：
-         */
-        this.domains = builder.domains;
+    /**
+     * 搜索特定网页
+     *
+     * <p>示例值：
+     *
+     * @param domains
+     * @return
+     */
+    public Builder domains(String[] domains) {
+      this.domains = domains;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public WebPassageParam build() {
+      return new WebPassageParam(this);
     }
+  }
 
-    public Boolean getSearchable() {
-        return this.searchable;
-    }
-
-    public void setSearchable(Boolean searchable) {
-        this.searchable = searchable;
-    }
-
-    public String[] getDomains() {
-        return this.domains;
-    }
-
-    public void setDomains(String[] domains) {
-        this.domains = domains;
-    }
-
-    public static class Builder {
-        /**
-         * 是否要搜索网页
-         * <p> 示例值：false
-         */
-        private Boolean searchable;
-        /**
-         * 搜索特定网页
-         * <p> 示例值：
-         */
-        private String[] domains;
-
-        /**
-         * 是否要搜索网页
-         * <p> 示例值：false
-         *
-         * @param searchable
-         * @return
-         */
-        public Builder searchable(Boolean searchable) {
-            this.searchable = searchable;
-            return this;
-        }
-
-
-        /**
-         * 搜索特定网页
-         * <p> 示例值：
-         *
-         * @param domains
-         * @return
-         */
-        public Builder domains(String[] domains) {
-            this.domains = domains;
-            return this;
-        }
-
-
-        public WebPassageParam build() {
-            return new WebPassageParam(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

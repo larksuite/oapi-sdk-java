@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationTalentLanguageInfo {
+  /**
+   * ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 语言
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("language")
+  private Long language;
+
+  /**
+   * 熟练程度
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("proficiency")
+  private Integer proficiency;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Long getLanguage() {
+    return this.language;
+  }
+
+  public void setLanguage(Long language) {
+    this.language = language;
+  }
+
+  public Integer getProficiency() {
+    return this.proficiency;
+  }
+
+  public void setProficiency(Integer proficiency) {
+    this.proficiency = proficiency;
+  }
+
+  // builder 开始
+  public ApplicationTalentLanguageInfo() {}
+
+  public ApplicationTalentLanguageInfo(Builder builder) {
     /**
      * ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 语言
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("language")
-    private Long language;
+    this.language = builder.language;
     /**
      * 熟练程度
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("proficiency")
+    this.proficiency = builder.proficiency;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：1
+     */
+    private String id;
+
+    /**
+     * 语言
+     *
+     * <p>示例值：1
+     */
+    private Long language;
+
+    /**
+     * 熟练程度
+     *
+     * <p>示例值：1
+     */
     private Integer proficiency;
 
-    // builder 开始
-    public ApplicationTalentLanguageInfo() {
+    /**
+     * ID
+     *
+     * <p>示例值：1
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ApplicationTalentLanguageInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 语言
-         * <p> 示例值：1
-         */
-        this.language = builder.language;
-        /**
-         * 熟练程度
-         * <p> 示例值：1
-         */
-        this.proficiency = builder.proficiency;
+    /**
+     * 语言
+     *
+     * <p>示例值：1
+     *
+     * @param language
+     * @return
+     */
+    public Builder language(Long language) {
+      this.language = language;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 熟练程度
+     *
+     * <p>示例值：1
+     *
+     * @param proficiency
+     * @return
+     */
+    public Builder proficiency(Integer proficiency) {
+      this.proficiency = proficiency;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public ApplicationTalentLanguageInfo build() {
+      return new ApplicationTalentLanguageInfo(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Long getLanguage() {
-        return this.language;
-    }
-
-    public void setLanguage(Long language) {
-        this.language = language;
-    }
-
-    public Integer getProficiency() {
-        return this.proficiency;
-    }
-
-    public void setProficiency(Integer proficiency) {
-        this.proficiency = proficiency;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：1
-         */
-        private String id;
-        /**
-         * 语言
-         * <p> 示例值：1
-         */
-        private Long language;
-        /**
-         * 熟练程度
-         * <p> 示例值：1
-         */
-        private Integer proficiency;
-
-        /**
-         * ID
-         * <p> 示例值：1
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 语言
-         * <p> 示例值：1
-         *
-         * @param language
-         * @return
-         */
-        public Builder language(Long language) {
-            this.language = language;
-            return this;
-        }
-
-
-        /**
-         * 熟练程度
-         * <p> 示例值：1
-         *
-         * @param proficiency
-         * @return
-         */
-        public Builder proficiency(Integer proficiency) {
-            this.proficiency = proficiency;
-            return this;
-        }
-
-
-        public ApplicationTalentLanguageInfo build() {
-            return new ApplicationTalentLanguageInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

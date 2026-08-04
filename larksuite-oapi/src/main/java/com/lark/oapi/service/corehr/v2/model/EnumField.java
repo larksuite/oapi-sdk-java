@@ -13,272 +13,289 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EnumField {
+  /**
+   * ApiName
+   *
+   * <p>示例值：special_day
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 枚举值名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  /**
+   * 枚举值描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n[] description;
+
+  /**
+   * 所属枚举常量ApiName
+   *
+   * <p>示例值：overtime_date_type
+   */
+  @SerializedName("enum_api_name")
+  private String enumApiName;
+
+  /**
+   * 顺序
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("order")
+  private Integer order;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  public I18n[] getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n[] description) {
+    this.description = description;
+  }
+
+  public String getEnumApiName() {
+    return this.enumApiName;
+  }
+
+  public void setEnumApiName(String enumApiName) {
+    this.enumApiName = enumApiName;
+  }
+
+  public Integer getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(Integer order) {
+    this.order = order;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public EnumField() {}
+
+  public EnumField(Builder builder) {
     /**
      * ApiName
-     * <p> 示例值：special_day
+     *
+     * <p>示例值：special_day
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 枚举值名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n[] name;
+    this.name = builder.name;
     /**
      * 枚举值描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n[] description;
+    this.description = builder.description;
     /**
      * 所属枚举常量ApiName
-     * <p> 示例值：overtime_date_type
+     *
+     * <p>示例值：overtime_date_type
      */
-    @SerializedName("enum_api_name")
-    private String enumApiName;
+    this.enumApiName = builder.enumApiName;
     /**
      * 顺序
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("order")
-    private Integer order;
+    this.order = builder.order;
     /**
      * 状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * ApiName
+     *
+     * <p>示例值：special_day
+     */
+    private String apiName;
+
+    /**
+     * 枚举值名
+     *
+     * <p>示例值：
+     */
+    private I18n[] name;
+
+    /**
+     * 枚举值描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] description;
+
+    /**
+     * 所属枚举常量ApiName
+     *
+     * <p>示例值：overtime_date_type
+     */
+    private String enumApiName;
+
+    /**
+     * 顺序
+     *
+     * <p>示例值：1
+     */
+    private Integer order;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     */
     private Integer status;
 
-    // builder 开始
-    public EnumField() {
+    /**
+     * ApiName
+     *
+     * <p>示例值：special_day
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public EnumField(Builder builder) {
-        /**
-         * ApiName
-         * <p> 示例值：special_day
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 枚举值名
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 枚举值描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 所属枚举常量ApiName
-         * <p> 示例值：overtime_date_type
-         */
-        this.enumApiName = builder.enumApiName;
-        /**
-         * 顺序
-         * <p> 示例值：1
-         */
-        this.order = builder.order;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
+    /**
+     * 枚举值名
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 枚举值描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n[] description) {
+      this.description = description;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 所属枚举常量ApiName
+     *
+     * <p>示例值：overtime_date_type
+     *
+     * @param enumApiName
+     * @return
+     */
+    public Builder enumApiName(String enumApiName) {
+      this.enumApiName = enumApiName;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    /**
+     * 顺序
+     *
+     * <p>示例值：1
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(Integer order) {
+      this.order = order;
+      return this;
     }
 
-    public I18n[] getName() {
-        return this.name;
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public void setName(I18n[] name) {
-        this.name = name;
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     *
+     * @param status {@link com.lark.oapi.service.corehr.v2.enums.EnumFieldBasicDataObjStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.corehr.v2.enums.EnumFieldBasicDataObjStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public I18n[] getDescription() {
-        return this.description;
+    public EnumField build() {
+      return new EnumField(this);
     }
+  }
 
-    public void setDescription(I18n[] description) {
-        this.description = description;
-    }
-
-    public String getEnumApiName() {
-        return this.enumApiName;
-    }
-
-    public void setEnumApiName(String enumApiName) {
-        this.enumApiName = enumApiName;
-    }
-
-    public Integer getOrder() {
-        return this.order;
-    }
-
-    public void setOrder(Integer order) {
-        this.order = order;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * ApiName
-         * <p> 示例值：special_day
-         */
-        private String apiName;
-        /**
-         * 枚举值名
-         * <p> 示例值：
-         */
-        private I18n[] name;
-        /**
-         * 枚举值描述
-         * <p> 示例值：
-         */
-        private I18n[] description;
-        /**
-         * 所属枚举常量ApiName
-         * <p> 示例值：overtime_date_type
-         */
-        private String enumApiName;
-        /**
-         * 顺序
-         * <p> 示例值：1
-         */
-        private Integer order;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        private Integer status;
-
-        /**
-         * ApiName
-         * <p> 示例值：special_day
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 枚举值名
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 枚举值描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n[] description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 所属枚举常量ApiName
-         * <p> 示例值：overtime_date_type
-         *
-         * @param enumApiName
-         * @return
-         */
-        public Builder enumApiName(String enumApiName) {
-            this.enumApiName = enumApiName;
-            return this;
-        }
-
-
-        /**
-         * 顺序
-         * <p> 示例值：1
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(Integer order) {
-            this.order = order;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 状态
-         * <p> 示例值：1
-         *
-         * @param status {@link com.lark.oapi.service.corehr.v2.enums.EnumFieldBasicDataObjStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.corehr.v2.enums.EnumFieldBasicDataObjStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        public EnumField build() {
-            return new EnumField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

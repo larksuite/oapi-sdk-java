@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2CourseRegistrationDeletedV2Data {
-    /**
-     * 课程ID
-     * <p> 示例值：5fd087e96dbe3a73394188ae
-     */
-    @SerializedName("course_id")
-    private String courseId;
-    /**
-     * 课程学员信息
-     * <p> 示例值：
-     */
-    @SerializedName("learner")
-    private EventUser learner;
+  /**
+   * 课程ID
+   *
+   * <p>示例值：5fd087e96dbe3a73394188ae
+   */
+  @SerializedName("course_id")
+  private String courseId;
 
-    public String getCourseId() {
-        return this.courseId;
-    }
+  /**
+   * 课程学员信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("learner")
+  private EventUser learner;
 
-    public void setCourseId(String courseId) {
-        this.courseId = courseId;
-    }
+  public String getCourseId() {
+    return this.courseId;
+  }
 
-    public EventUser getLearner() {
-        return this.learner;
-    }
+  public void setCourseId(String courseId) {
+    this.courseId = courseId;
+  }
 
-    public void setLearner(EventUser learner) {
-        this.learner = learner;
-    }
+  public EventUser getLearner() {
+    return this.learner;
+  }
 
+  public void setLearner(EventUser learner) {
+    this.learner = learner;
+  }
 }

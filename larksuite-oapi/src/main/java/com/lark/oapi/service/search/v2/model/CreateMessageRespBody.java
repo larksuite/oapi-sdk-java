@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateMessageRespBody {
-    /**
-     * 消息id列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private String[] items;
-    /**
-     * 翻页 token，传入返回下一页，首页不需要传入
-     * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否还有下一页
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 消息id列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private String[] items;
 
-    public String[] getItems() {
-        return this.items;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setItems(String[] items) {
-        this.items = items;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public String[] getItems() {
+    return this.items;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setItems(String[] items) {
+    this.items = items;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 }

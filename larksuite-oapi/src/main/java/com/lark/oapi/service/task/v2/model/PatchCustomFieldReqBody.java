@@ -13,112 +13,119 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchCustomFieldReqBody {
+  /**
+   * 要修改的自定义字段数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_field")
+  private InputCustomField customField;
+
+  /**
+   * 要修改的自定义字段类型，支持：;* `name`：自定义字段名称。;* `number_setting` ：数字类型设置（当且仅当要更新的自定义字段类型是数字时);*
+   * `member_setting` ：人员类型设置（当且仅当要更新的自定义字段类型是人员时);* `datetime_setting` ：日期类型设置
+   * (当且仅当要更新的自定义字段类型是日期时);* `single_select_setting`：单选类型设置 (当且仅当要更新的自定义字段类型是单选时);*
+   * `multi_select_setting`：多选类型设置 (当且仅当要更新的自定义字段类型是多选时);* `text_setting`: 文本类型设置（当前无可设置项）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("update_fields")
+  private String[] updateFields;
+
+  public InputCustomField getCustomField() {
+    return this.customField;
+  }
+
+  public void setCustomField(InputCustomField customField) {
+    this.customField = customField;
+  }
+
+  public String[] getUpdateFields() {
+    return this.updateFields;
+  }
+
+  public void setUpdateFields(String[] updateFields) {
+    this.updateFields = updateFields;
+  }
+
+  // builder 开始
+  public PatchCustomFieldReqBody() {}
+
+  public PatchCustomFieldReqBody(Builder builder) {
     /**
      * 要修改的自定义字段数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_field")
-    private InputCustomField customField;
+    this.customField = builder.customField;
     /**
-     * 要修改的自定义字段类型，支持name, member_setting, number_setting, datetime_setting, single_select_setting, multi_select_setting
-     * <p> 示例值：
+     * 要修改的自定义字段类型，支持：;* `name`：自定义字段名称。;* `number_setting` ：数字类型设置（当且仅当要更新的自定义字段类型是数字时);*
+     * `member_setting` ：人员类型设置（当且仅当要更新的自定义字段类型是人员时);* `datetime_setting` ：日期类型设置
+     * (当且仅当要更新的自定义字段类型是日期时);* `single_select_setting`：单选类型设置 (当且仅当要更新的自定义字段类型是单选时);*
+     * `multi_select_setting`：多选类型设置 (当且仅当要更新的自定义字段类型是多选时);* `text_setting`: 文本类型设置（当前无可设置项）
+     *
+     * <p>示例值：
      */
-    @SerializedName("update_fields")
+    this.updateFields = builder.updateFields;
+  }
+
+  public static class Builder {
+    /**
+     * 要修改的自定义字段数据
+     *
+     * <p>示例值：
+     */
+    private InputCustomField customField;
+
+    /**
+     * 要修改的自定义字段类型，支持：;* `name`：自定义字段名称。;* `number_setting` ：数字类型设置（当且仅当要更新的自定义字段类型是数字时);*
+     * `member_setting` ：人员类型设置（当且仅当要更新的自定义字段类型是人员时);* `datetime_setting` ：日期类型设置
+     * (当且仅当要更新的自定义字段类型是日期时);* `single_select_setting`：单选类型设置 (当且仅当要更新的自定义字段类型是单选时);*
+     * `multi_select_setting`：多选类型设置 (当且仅当要更新的自定义字段类型是多选时);* `text_setting`: 文本类型设置（当前无可设置项）
+     *
+     * <p>示例值：
+     */
     private String[] updateFields;
 
-    // builder 开始
-    public PatchCustomFieldReqBody() {
+    /**
+     * 要修改的自定义字段数据
+     *
+     * <p>示例值：
+     *
+     * @param customField
+     * @return
+     */
+    public Builder customField(InputCustomField customField) {
+      this.customField = customField;
+      return this;
     }
 
-    public PatchCustomFieldReqBody(Builder builder) {
-        /**
-         * 要修改的自定义字段数据
-         * <p> 示例值：
-         */
-        this.customField = builder.customField;
-        /**
-         * 要修改的自定义字段类型，支持name, member_setting, number_setting, datetime_setting, single_select_setting, multi_select_setting
-         * <p> 示例值：
-         */
-        this.updateFields = builder.updateFields;
+    /**
+     * 要修改的自定义字段类型，支持：;* `name`：自定义字段名称。;* `number_setting` ：数字类型设置（当且仅当要更新的自定义字段类型是数字时);*
+     * `member_setting` ：人员类型设置（当且仅当要更新的自定义字段类型是人员时);* `datetime_setting` ：日期类型设置
+     * (当且仅当要更新的自定义字段类型是日期时);* `single_select_setting`：单选类型设置 (当且仅当要更新的自定义字段类型是单选时);*
+     * `multi_select_setting`：多选类型设置 (当且仅当要更新的自定义字段类型是多选时);* `text_setting`: 文本类型设置（当前无可设置项）
+     *
+     * <p>示例值：
+     *
+     * @param updateFields
+     * @return
+     */
+    public Builder updateFields(String[] updateFields) {
+      this.updateFields = updateFields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PatchCustomFieldReqBody build() {
+      return new PatchCustomFieldReqBody(this);
     }
+  }
 
-    public InputCustomField getCustomField() {
-        return this.customField;
-    }
-
-    public void setCustomField(InputCustomField customField) {
-        this.customField = customField;
-    }
-
-    public String[] getUpdateFields() {
-        return this.updateFields;
-    }
-
-    public void setUpdateFields(String[] updateFields) {
-        this.updateFields = updateFields;
-    }
-
-    public static class Builder {
-        /**
-         * 要修改的自定义字段数据
-         * <p> 示例值：
-         */
-        private InputCustomField customField;
-        /**
-         * 要修改的自定义字段类型，支持name, member_setting, number_setting, datetime_setting, single_select_setting, multi_select_setting
-         * <p> 示例值：
-         */
-        private String[] updateFields;
-
-        /**
-         * 要修改的自定义字段数据
-         * <p> 示例值：
-         *
-         * @param customField
-         * @return
-         */
-        public Builder customField(InputCustomField customField) {
-            this.customField = customField;
-            return this;
-        }
-
-
-        /**
-         * 要修改的自定义字段类型，支持name, member_setting, number_setting, datetime_setting, single_select_setting, multi_select_setting
-         * <p> 示例值：
-         *
-         * @param updateFields
-         * @return
-         */
-        public Builder updateFields(String[] updateFields) {
-            this.updateFields = updateFields;
-            return this;
-        }
-
-
-        public PatchCustomFieldReqBody build() {
-            return new PatchCustomFieldReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

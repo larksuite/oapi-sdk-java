@@ -13,333 +13,358 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SiteJobPost {
+  /**
+   * 职位id
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 职位名称
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 职位描述
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 职位要求
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("requirement")
+  private String requirement;
+
+  /**
+   * 职位职能
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_type_info")
+  private SiteJobType jobTypeInfo;
+
+  /**
+   * 职位城市
+   *
+   * <p>示例值：
+   */
+  @SerializedName("city_info")
+  private SiteJobCity cityInfo;
+
+  /**
+   * 雇佣类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("recruitment_type")
+  private SiteJobRecruitmentType recruitmentType;
+
+  /**
+   * 职位发布时间
+   *
+   * <p>示例值：1735664461000
+   */
+  @SerializedName("publish_time")
+  private Long publishTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getRequirement() {
+    return this.requirement;
+  }
+
+  public void setRequirement(String requirement) {
+    this.requirement = requirement;
+  }
+
+  public SiteJobType getJobTypeInfo() {
+    return this.jobTypeInfo;
+  }
+
+  public void setJobTypeInfo(SiteJobType jobTypeInfo) {
+    this.jobTypeInfo = jobTypeInfo;
+  }
+
+  public SiteJobCity getCityInfo() {
+    return this.cityInfo;
+  }
+
+  public void setCityInfo(SiteJobCity cityInfo) {
+    this.cityInfo = cityInfo;
+  }
+
+  public SiteJobRecruitmentType getRecruitmentType() {
+    return this.recruitmentType;
+  }
+
+  public void setRecruitmentType(SiteJobRecruitmentType recruitmentType) {
+    this.recruitmentType = recruitmentType;
+  }
+
+  public Long getPublishTime() {
+    return this.publishTime;
+  }
+
+  public void setPublishTime(Long publishTime) {
+    this.publishTime = publishTime;
+  }
+
+  // builder 开始
+  public SiteJobPost() {}
+
+  public SiteJobPost(Builder builder) {
     /**
      * 职位id
-     * <p> 示例值：6949805467799537964
+     *
+     * <p>示例值：6949805467799537964
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 职位名称
-     * <p> 示例值：6949805467799537964
+     *
+     * <p>示例值：6949805467799537964
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 职位描述
-     * <p> 示例值：6949805467799537964
+     *
+     * <p>示例值：6949805467799537964
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 职位要求
-     * <p> 示例值：6949805467799537964
+     *
+     * <p>示例值：6949805467799537964
      */
-    @SerializedName("requirement")
-    private String requirement;
+    this.requirement = builder.requirement;
     /**
      * 职位职能
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_type_info")
-    private SiteJobType jobTypeInfo;
+    this.jobTypeInfo = builder.jobTypeInfo;
     /**
      * 职位城市
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("city_info")
-    private SiteJobCity cityInfo;
+    this.cityInfo = builder.cityInfo;
     /**
      * 雇佣类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("recruitment_type")
-    private SiteJobRecruitmentType recruitmentType;
+    this.recruitmentType = builder.recruitmentType;
     /**
      * 职位发布时间
-     * <p> 示例值：1735664461000
+     *
+     * <p>示例值：1735664461000
      */
-    @SerializedName("publish_time")
+    this.publishTime = builder.publishTime;
+  }
+
+  public static class Builder {
+    /**
+     * 职位id
+     *
+     * <p>示例值：6949805467799537964
+     */
+    private String id;
+
+    /**
+     * 职位名称
+     *
+     * <p>示例值：6949805467799537964
+     */
+    private String title;
+
+    /**
+     * 职位描述
+     *
+     * <p>示例值：6949805467799537964
+     */
+    private String description;
+
+    /**
+     * 职位要求
+     *
+     * <p>示例值：6949805467799537964
+     */
+    private String requirement;
+
+    /**
+     * 职位职能
+     *
+     * <p>示例值：
+     */
+    private SiteJobType jobTypeInfo;
+
+    /**
+     * 职位城市
+     *
+     * <p>示例值：
+     */
+    private SiteJobCity cityInfo;
+
+    /**
+     * 雇佣类型
+     *
+     * <p>示例值：
+     */
+    private SiteJobRecruitmentType recruitmentType;
+
+    /**
+     * 职位发布时间
+     *
+     * <p>示例值：1735664461000
+     */
     private Long publishTime;
 
-    // builder 开始
-    public SiteJobPost() {
+    /**
+     * 职位id
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public SiteJobPost(Builder builder) {
-        /**
-         * 职位id
-         * <p> 示例值：6949805467799537964
-         */
-        this.id = builder.id;
-        /**
-         * 职位名称
-         * <p> 示例值：6949805467799537964
-         */
-        this.title = builder.title;
-        /**
-         * 职位描述
-         * <p> 示例值：6949805467799537964
-         */
-        this.description = builder.description;
-        /**
-         * 职位要求
-         * <p> 示例值：6949805467799537964
-         */
-        this.requirement = builder.requirement;
-        /**
-         * 职位职能
-         * <p> 示例值：
-         */
-        this.jobTypeInfo = builder.jobTypeInfo;
-        /**
-         * 职位城市
-         * <p> 示例值：
-         */
-        this.cityInfo = builder.cityInfo;
-        /**
-         * 雇佣类型
-         * <p> 示例值：
-         */
-        this.recruitmentType = builder.recruitmentType;
-        /**
-         * 职位发布时间
-         * <p> 示例值：1735664461000
-         */
-        this.publishTime = builder.publishTime;
+    /**
+     * 职位名称
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 职位描述
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 职位要求
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param requirement
+     * @return
+     */
+    public Builder requirement(String requirement) {
+      this.requirement = requirement;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 职位职能
+     *
+     * <p>示例值：
+     *
+     * @param jobTypeInfo
+     * @return
+     */
+    public Builder jobTypeInfo(SiteJobType jobTypeInfo) {
+      this.jobTypeInfo = jobTypeInfo;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 职位城市
+     *
+     * <p>示例值：
+     *
+     * @param cityInfo
+     * @return
+     */
+    public Builder cityInfo(SiteJobCity cityInfo) {
+      this.cityInfo = cityInfo;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 雇佣类型
+     *
+     * <p>示例值：
+     *
+     * @param recruitmentType
+     * @return
+     */
+    public Builder recruitmentType(SiteJobRecruitmentType recruitmentType) {
+      this.recruitmentType = recruitmentType;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * 职位发布时间
+     *
+     * <p>示例值：1735664461000
+     *
+     * @param publishTime
+     * @return
+     */
+    public Builder publishTime(Long publishTime) {
+      this.publishTime = publishTime;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public SiteJobPost build() {
+      return new SiteJobPost(this);
     }
+  }
 
-    public String getRequirement() {
-        return this.requirement;
-    }
-
-    public void setRequirement(String requirement) {
-        this.requirement = requirement;
-    }
-
-    public SiteJobType getJobTypeInfo() {
-        return this.jobTypeInfo;
-    }
-
-    public void setJobTypeInfo(SiteJobType jobTypeInfo) {
-        this.jobTypeInfo = jobTypeInfo;
-    }
-
-    public SiteJobCity getCityInfo() {
-        return this.cityInfo;
-    }
-
-    public void setCityInfo(SiteJobCity cityInfo) {
-        this.cityInfo = cityInfo;
-    }
-
-    public SiteJobRecruitmentType getRecruitmentType() {
-        return this.recruitmentType;
-    }
-
-    public void setRecruitmentType(SiteJobRecruitmentType recruitmentType) {
-        this.recruitmentType = recruitmentType;
-    }
-
-    public Long getPublishTime() {
-        return this.publishTime;
-    }
-
-    public void setPublishTime(Long publishTime) {
-        this.publishTime = publishTime;
-    }
-
-    public static class Builder {
-        /**
-         * 职位id
-         * <p> 示例值：6949805467799537964
-         */
-        private String id;
-        /**
-         * 职位名称
-         * <p> 示例值：6949805467799537964
-         */
-        private String title;
-        /**
-         * 职位描述
-         * <p> 示例值：6949805467799537964
-         */
-        private String description;
-        /**
-         * 职位要求
-         * <p> 示例值：6949805467799537964
-         */
-        private String requirement;
-        /**
-         * 职位职能
-         * <p> 示例值：
-         */
-        private SiteJobType jobTypeInfo;
-        /**
-         * 职位城市
-         * <p> 示例值：
-         */
-        private SiteJobCity cityInfo;
-        /**
-         * 雇佣类型
-         * <p> 示例值：
-         */
-        private SiteJobRecruitmentType recruitmentType;
-        /**
-         * 职位发布时间
-         * <p> 示例值：1735664461000
-         */
-        private Long publishTime;
-
-        /**
-         * 职位id
-         * <p> 示例值：6949805467799537964
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 职位名称
-         * <p> 示例值：6949805467799537964
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 职位描述
-         * <p> 示例值：6949805467799537964
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 职位要求
-         * <p> 示例值：6949805467799537964
-         *
-         * @param requirement
-         * @return
-         */
-        public Builder requirement(String requirement) {
-            this.requirement = requirement;
-            return this;
-        }
-
-
-        /**
-         * 职位职能
-         * <p> 示例值：
-         *
-         * @param jobTypeInfo
-         * @return
-         */
-        public Builder jobTypeInfo(SiteJobType jobTypeInfo) {
-            this.jobTypeInfo = jobTypeInfo;
-            return this;
-        }
-
-
-        /**
-         * 职位城市
-         * <p> 示例值：
-         *
-         * @param cityInfo
-         * @return
-         */
-        public Builder cityInfo(SiteJobCity cityInfo) {
-            this.cityInfo = cityInfo;
-            return this;
-        }
-
-
-        /**
-         * 雇佣类型
-         * <p> 示例值：
-         *
-         * @param recruitmentType
-         * @return
-         */
-        public Builder recruitmentType(SiteJobRecruitmentType recruitmentType) {
-            this.recruitmentType = recruitmentType;
-            return this;
-        }
-
-
-        /**
-         * 职位发布时间
-         * <p> 示例值：1735664461000
-         *
-         * @param publishTime
-         * @return
-         */
-        public Builder publishTime(Long publishTime) {
-            this.publishTime = publishTime;
-            return this;
-        }
-
-
-        public SiteJobPost build() {
-            return new SiteJobPost(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

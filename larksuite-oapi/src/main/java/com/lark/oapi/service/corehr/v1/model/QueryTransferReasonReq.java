@@ -13,105 +13,99 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class QueryTransferReasonReq {
+  /**
+   * 异动原因状态，为空时默认搜索所有状态的异动原因。可选项有:;;-true: 启用;;-false: 停用
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 异动原因唯一标识，用于过滤异动原因，为空时默认搜索所有异动原因，多条时最多数量为10
+   *
+   * <p>示例值：voluntary_transfer
+   */
+  @Query
+  @SerializedName("transfer_reason_unique_identifier")
+  private String[] transferReasonUniqueIdentifier;
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String[] getTransferReasonUniqueIdentifier() {
+    return this.transferReasonUniqueIdentifier;
+  }
+
+  public void setTransferReasonUniqueIdentifier(String[] transferReasonUniqueIdentifier) {
+    this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+  }
+
+  // builder 开始
+  public QueryTransferReasonReq() {}
+
+  public QueryTransferReasonReq(Builder builder) {
     /**
-     * 异动原因状态
-     * <p> 示例值：true
+     * 异动原因状态，为空时默认搜索所有状态的异动原因。可选项有:;;-true: 启用;;-false: 停用
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
-     * 异动原因唯一标识，多条时最多数量为10
-     * <p> 示例值：voluntary_transfer
+     * 异动原因唯一标识，用于过滤异动原因，为空时默认搜索所有异动原因，多条时最多数量为10
+     *
+     * <p>示例值：voluntary_transfer
      */
-    @Query
-    @SerializedName("transfer_reason_unique_identifier")
-    private String[] transferReasonUniqueIdentifier;
+    this.transferReasonUniqueIdentifier = builder.transferReasonUniqueIdentifier;
+  }
 
-    // builder 开始
-    public QueryTransferReasonReq() {
+  public static class Builder {
+    private Boolean active; // 异动原因状态，为空时默认搜索所有状态的异动原因。可选项有:;;-true: 启用;;-false: 停用
+    private String[] transferReasonUniqueIdentifier; // 异动原因唯一标识，用于过滤异动原因，为空时默认搜索所有异动原因，多条时最多数量为10
+
+    /**
+     * 异动原因状态，为空时默认搜索所有状态的异动原因。可选项有:;;-true: 启用;;-false: 停用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public QueryTransferReasonReq(Builder builder) {
-        /**
-         * 异动原因状态
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 异动原因唯一标识，多条时最多数量为10
-         * <p> 示例值：voluntary_transfer
-         */
-        this.transferReasonUniqueIdentifier = builder.transferReasonUniqueIdentifier;
+    /**
+     * 异动原因唯一标识，用于过滤异动原因，为空时默认搜索所有异动原因，多条时最多数量为10
+     *
+     * <p>示例值：voluntary_transfer
+     *
+     * @param transferReasonUniqueIdentifier
+     * @return
+     */
+    public Builder transferReasonUniqueIdentifier(String[] transferReasonUniqueIdentifier) {
+      this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public QueryTransferReasonReq build() {
+      return new QueryTransferReasonReq(this);
     }
+  }
 
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public String[] getTransferReasonUniqueIdentifier() {
-        return this.transferReasonUniqueIdentifier;
-    }
-
-    public void setTransferReasonUniqueIdentifier(String[] transferReasonUniqueIdentifier) {
-        this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
-    }
-
-    public static class Builder {
-        private Boolean active; // 异动原因状态
-        private String[] transferReasonUniqueIdentifier; // 异动原因唯一标识，多条时最多数量为10
-
-        /**
-         * 异动原因状态
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 异动原因唯一标识，多条时最多数量为10
-         * <p> 示例值：voluntary_transfer
-         *
-         * @param transferReasonUniqueIdentifier
-         * @return
-         */
-        public Builder transferReasonUniqueIdentifier(String[] transferReasonUniqueIdentifier) {
-            this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
-            return this;
-        }
-
-
-        public QueryTransferReasonReq build() {
-            return new QueryTransferReasonReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

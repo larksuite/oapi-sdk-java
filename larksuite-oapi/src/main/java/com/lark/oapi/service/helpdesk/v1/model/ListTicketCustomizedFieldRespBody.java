@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListTicketCustomizedFieldRespBody {
-    /**
-     * whether there is more data
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 下一分页标识
-     * <p> 示例值：6948728206392295444
-     */
-    @SerializedName("next_page_token")
-    private String nextPageToken;
-    /**
-     * 工单自定义字段列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private TicketCustomizedField[] items;
+  /**
+   * whether there is more data
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  /**
+   * the next page token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("next_page_token")
+  private String nextPageToken;
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  /**
+   * all the ticket customized fields
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private TicketCustomizedField[] items;
 
-    public String getNextPageToken() {
-        return this.nextPageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setNextPageToken(String nextPageToken) {
-        this.nextPageToken = nextPageToken;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
-    public TicketCustomizedField[] getItems() {
-        return this.items;
-    }
+  public String getNextPageToken() {
+    return this.nextPageToken;
+  }
 
-    public void setItems(TicketCustomizedField[] items) {
-        this.items = items;
-    }
+  public void setNextPageToken(String nextPageToken) {
+    this.nextPageToken = nextPageToken;
+  }
 
+  public TicketCustomizedField[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(TicketCustomizedField[] items) {
+    this.items = items;
+  }
 }

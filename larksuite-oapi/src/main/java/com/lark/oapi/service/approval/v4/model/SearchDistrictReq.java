@@ -13,171 +13,160 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.approval.v4.enums.*;
 
 public class SearchDistrictReq {
+  /**
+   * 返回值的语言，目前仅部分数据支持中文，不支持中文的数据默认返回英文
+   *
+   * <p>示例值：zh-CN
+   */
+  @Query
+  @SerializedName("locale")
+  private String locale;
+
+  /** 示例值： */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /** 示例值： */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  public String getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  @Body private SearchDistrictReqBody body;
+
+  public SearchDistrictReqBody getSearchDistrictReqBody() {
+    return this.body;
+  }
+
+  public void setSearchDistrictReqBody(SearchDistrictReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public SearchDistrictReq() {}
+
+  public SearchDistrictReq(Builder builder) {
     /**
-     * 语言
-     * <p> 示例值：zh-CN
+     * 返回值的语言，目前仅部分数据支持中文，不支持中文的数据默认返回英文
+     *
+     * <p>示例值：zh-CN
      */
-    @Query
-    @SerializedName("locale")
-    private String locale;
+    this.locale = builder.locale;
+    /** 示例值： */
+    this.pageSize = builder.pageSize;
+    /** 示例值： */
+    this.pageToken = builder.pageToken;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String locale; // 返回值的语言，目前仅部分数据支持中文，不支持中文的数据默认返回英文
+    private Integer pageSize; //
+    private String pageToken; //
+
     /**
-     * <p> 示例值：
+     * 返回值的语言，目前仅部分数据支持中文，不支持中文的数据默认返回英文
+     *
+     * <p>示例值：zh-CN
+     *
+     * @param locale
+     * @return
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    public Builder locale(String locale) {
+      this.locale = locale;
+      return this;
+    }
+
     /**
-     * <p> 示例值：
+     * 返回值的语言，目前仅部分数据支持中文，不支持中文的数据默认返回英文
+     *
+     * <p>示例值：zh-CN
+     *
+     * @param locale {@link
+     *     com.lark.oapi.service.approval.v4.enums.SearchDistrictDistrictLocaleEnum}
+     * @return
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
-    @Body
+    public Builder locale(
+        com.lark.oapi.service.approval.v4.enums.SearchDistrictDistrictLocaleEnum locale) {
+      this.locale = locale.getValue();
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
     private SearchDistrictReqBody body;
 
-    // builder 开始
-    public SearchDistrictReq() {
-    }
-
-    public SearchDistrictReq(Builder builder) {
-        /**
-         * 语言
-         * <p> 示例值：zh-CN
-         */
-        this.locale = builder.locale;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getLocale() {
-        return this.locale;
-    }
-
-    public void setLocale(String locale) {
-        this.locale = locale;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
     public SearchDistrictReqBody getSearchDistrictReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setSearchDistrictReqBody(SearchDistrictReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder searchDistrictReqBody(SearchDistrictReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String locale; // 语言
-        private Integer pageSize; //
-        private String pageToken; //
-        private SearchDistrictReqBody body;
-
-        /**
-         * 语言
-         * <p> 示例值：zh-CN
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
-        }
-
-        /**
-         * 语言
-         * <p> 示例值：zh-CN
-         *
-         * @param locale {@link com.lark.oapi.service.approval.v4.enums.SearchDistrictDistrictLocaleEnum}
-         * @return
-         */
-        public Builder locale(com.lark.oapi.service.approval.v4.enums.SearchDistrictDistrictLocaleEnum locale) {
-            this.locale = locale.getValue();
-            return this;
-        }
-
-        /**
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        public SearchDistrictReqBody getSearchDistrictReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder searchDistrictReqBody(SearchDistrictReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public SearchDistrictReq build() {
-            return new SearchDistrictReq(this);
-        }
+    public SearchDistrictReq build() {
+      return new SearchDistrictReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

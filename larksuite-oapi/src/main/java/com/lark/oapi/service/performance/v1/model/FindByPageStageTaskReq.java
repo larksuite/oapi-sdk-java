@@ -13,109 +13,108 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.performance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.performance.v1.enums.*;
 
 public class FindByPageStageTaskReq {
+  /**
+   * 调用结果中用户ID的类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private FindByPageStageTaskReqBody body;
+
+  public FindByPageStageTaskReqBody getFindByPageStageTaskReqBody() {
+    return this.body;
+  }
+
+  public void setFindByPageStageTaskReqBody(FindByPageStageTaskReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public FindByPageStageTaskReq() {}
+
+  public FindByPageStageTaskReq(Builder builder) {
     /**
      * 调用结果中用户ID的类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 调用结果中用户ID的类型
+
+    /**
+     * 调用结果中用户ID的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 调用结果中用户ID的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.performance.v1.enums.FindByPageStageTaskFindByPageStageTaskUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.performance.v1.enums
+                .FindByPageStageTaskFindByPageStageTaskUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private FindByPageStageTaskReqBody body;
 
-    // builder 开始
-    public FindByPageStageTaskReq() {
-    }
-
-    public FindByPageStageTaskReq(Builder builder) {
-        /**
-         * 调用结果中用户ID的类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public FindByPageStageTaskReqBody getFindByPageStageTaskReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setFindByPageStageTaskReqBody(FindByPageStageTaskReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder findByPageStageTaskReqBody(FindByPageStageTaskReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 调用结果中用户ID的类型
-        private FindByPageStageTaskReqBody body;
-
-        /**
-         * 调用结果中用户ID的类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 调用结果中用户ID的类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.performance.v1.enums.FindByPageStageTaskUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.performance.v1.enums.FindByPageStageTaskUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public FindByPageStageTaskReqBody getFindByPageStageTaskReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder findByPageStageTaskReqBody(FindByPageStageTaskReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public FindByPageStageTaskReq build() {
-            return new FindByPageStageTaskReq(this);
-        }
+    public FindByPageStageTaskReq build() {
+      return new FindByPageStageTaskReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

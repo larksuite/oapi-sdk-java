@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ScenarioContextExtra {
+  /**
+   * Grounding ID
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("grounding_id")
+  private String groundingId;
+
+  /**
+   * 模型 key
+   *
+   * <p>示例值：lark-online
+   */
+  @SerializedName("model_key")
+  private String modelKey;
+
+  /**
+   * 检索时指定的文档 id, 多个 id 以`,`分隔
+   *
+   * <p>示例值：123,456
+   */
+  @SerializedName("specified_obj_ids")
+  private String specifiedObjIds;
+
+  /**
+   * 推荐问题的 ID
+   *
+   * <p>示例值：789
+   */
+  @SerializedName("suggest_query_id")
+  private String suggestQueryId;
+
+  /**
+   * 点击按钮发送消息时所携带的参数信息
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("button_send_message_info")
+  private String buttonSendMessageInfo;
+
+  /**
+   * 点击重新生成按钮时携带的参数信息
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("button_regenerate_message")
+  private String buttonRegenerateMessage;
+
+  /**
+   * 主会话链路前端透传给后端的参数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("enterprise_qa_channel_info")
+  private String enterpriseQaChannelInfo;
+
+  public String getGroundingId() {
+    return this.groundingId;
+  }
+
+  public void setGroundingId(String groundingId) {
+    this.groundingId = groundingId;
+  }
+
+  public String getModelKey() {
+    return this.modelKey;
+  }
+
+  public void setModelKey(String modelKey) {
+    this.modelKey = modelKey;
+  }
+
+  public String getSpecifiedObjIds() {
+    return this.specifiedObjIds;
+  }
+
+  public void setSpecifiedObjIds(String specifiedObjIds) {
+    this.specifiedObjIds = specifiedObjIds;
+  }
+
+  public String getSuggestQueryId() {
+    return this.suggestQueryId;
+  }
+
+  public void setSuggestQueryId(String suggestQueryId) {
+    this.suggestQueryId = suggestQueryId;
+  }
+
+  public String getButtonSendMessageInfo() {
+    return this.buttonSendMessageInfo;
+  }
+
+  public void setButtonSendMessageInfo(String buttonSendMessageInfo) {
+    this.buttonSendMessageInfo = buttonSendMessageInfo;
+  }
+
+  public String getButtonRegenerateMessage() {
+    return this.buttonRegenerateMessage;
+  }
+
+  public void setButtonRegenerateMessage(String buttonRegenerateMessage) {
+    this.buttonRegenerateMessage = buttonRegenerateMessage;
+  }
+
+  public String getEnterpriseQaChannelInfo() {
+    return this.enterpriseQaChannelInfo;
+  }
+
+  public void setEnterpriseQaChannelInfo(String enterpriseQaChannelInfo) {
+    this.enterpriseQaChannelInfo = enterpriseQaChannelInfo;
+  }
+
+  // builder 开始
+  public ScenarioContextExtra() {}
+
+  public ScenarioContextExtra(Builder builder) {
     /**
      * Grounding ID
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("grounding_id")
-    private String groundingId;
+    this.groundingId = builder.groundingId;
     /**
      * 模型 key
-     * <p> 示例值：lark-online
+     *
+     * <p>示例值：lark-online
      */
-    @SerializedName("model_key")
-    private String modelKey;
+    this.modelKey = builder.modelKey;
     /**
      * 检索时指定的文档 id, 多个 id 以`,`分隔
-     * <p> 示例值：123,456
+     *
+     * <p>示例值：123,456
      */
-    @SerializedName("specified_obj_ids")
-    private String specifiedObjIds;
+    this.specifiedObjIds = builder.specifiedObjIds;
     /**
      * 推荐问题的 ID
-     * <p> 示例值：789
+     *
+     * <p>示例值：789
      */
-    @SerializedName("suggest_query_id")
-    private String suggestQueryId;
+    this.suggestQueryId = builder.suggestQueryId;
     /**
      * 点击按钮发送消息时所携带的参数信息
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("button_send_message_info")
-    private String buttonSendMessageInfo;
+    this.buttonSendMessageInfo = builder.buttonSendMessageInfo;
     /**
      * 点击重新生成按钮时携带的参数信息
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("button_regenerate_message")
-    private String buttonRegenerateMessage;
+    this.buttonRegenerateMessage = builder.buttonRegenerateMessage;
     /**
      * 主会话链路前端透传给后端的参数
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("enterprise_qa_channel_info")
+    this.enterpriseQaChannelInfo = builder.enterpriseQaChannelInfo;
+  }
+
+  public static class Builder {
+    /**
+     * Grounding ID
+     *
+     * <p>示例值：123
+     */
+    private String groundingId;
+
+    /**
+     * 模型 key
+     *
+     * <p>示例值：lark-online
+     */
+    private String modelKey;
+
+    /**
+     * 检索时指定的文档 id, 多个 id 以`,`分隔
+     *
+     * <p>示例值：123,456
+     */
+    private String specifiedObjIds;
+
+    /**
+     * 推荐问题的 ID
+     *
+     * <p>示例值：789
+     */
+    private String suggestQueryId;
+
+    /**
+     * 点击按钮发送消息时所携带的参数信息
+     *
+     * <p>示例值：1
+     */
+    private String buttonSendMessageInfo;
+
+    /**
+     * 点击重新生成按钮时携带的参数信息
+     *
+     * <p>示例值：1
+     */
+    private String buttonRegenerateMessage;
+
+    /**
+     * 主会话链路前端透传给后端的参数
+     *
+     * <p>示例值：1
+     */
     private String enterpriseQaChannelInfo;
 
-    // builder 开始
-    public ScenarioContextExtra() {
+    /**
+     * Grounding ID
+     *
+     * <p>示例值：123
+     *
+     * @param groundingId
+     * @return
+     */
+    public Builder groundingId(String groundingId) {
+      this.groundingId = groundingId;
+      return this;
     }
 
-    public ScenarioContextExtra(Builder builder) {
-        /**
-         * Grounding ID
-         * <p> 示例值：123
-         */
-        this.groundingId = builder.groundingId;
-        /**
-         * 模型 key
-         * <p> 示例值：lark-online
-         */
-        this.modelKey = builder.modelKey;
-        /**
-         * 检索时指定的文档 id, 多个 id 以`,`分隔
-         * <p> 示例值：123,456
-         */
-        this.specifiedObjIds = builder.specifiedObjIds;
-        /**
-         * 推荐问题的 ID
-         * <p> 示例值：789
-         */
-        this.suggestQueryId = builder.suggestQueryId;
-        /**
-         * 点击按钮发送消息时所携带的参数信息
-         * <p> 示例值：1
-         */
-        this.buttonSendMessageInfo = builder.buttonSendMessageInfo;
-        /**
-         * 点击重新生成按钮时携带的参数信息
-         * <p> 示例值：1
-         */
-        this.buttonRegenerateMessage = builder.buttonRegenerateMessage;
-        /**
-         * 主会话链路前端透传给后端的参数
-         * <p> 示例值：1
-         */
-        this.enterpriseQaChannelInfo = builder.enterpriseQaChannelInfo;
+    /**
+     * 模型 key
+     *
+     * <p>示例值：lark-online
+     *
+     * @param modelKey
+     * @return
+     */
+    public Builder modelKey(String modelKey) {
+      this.modelKey = modelKey;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 检索时指定的文档 id, 多个 id 以`,`分隔
+     *
+     * <p>示例值：123,456
+     *
+     * @param specifiedObjIds
+     * @return
+     */
+    public Builder specifiedObjIds(String specifiedObjIds) {
+      this.specifiedObjIds = specifiedObjIds;
+      return this;
     }
 
-    public String getGroundingId() {
-        return this.groundingId;
+    /**
+     * 推荐问题的 ID
+     *
+     * <p>示例值：789
+     *
+     * @param suggestQueryId
+     * @return
+     */
+    public Builder suggestQueryId(String suggestQueryId) {
+      this.suggestQueryId = suggestQueryId;
+      return this;
     }
 
-    public void setGroundingId(String groundingId) {
-        this.groundingId = groundingId;
+    /**
+     * 点击按钮发送消息时所携带的参数信息
+     *
+     * <p>示例值：1
+     *
+     * @param buttonSendMessageInfo
+     * @return
+     */
+    public Builder buttonSendMessageInfo(String buttonSendMessageInfo) {
+      this.buttonSendMessageInfo = buttonSendMessageInfo;
+      return this;
     }
 
-    public String getModelKey() {
-        return this.modelKey;
+    /**
+     * 点击重新生成按钮时携带的参数信息
+     *
+     * <p>示例值：1
+     *
+     * @param buttonRegenerateMessage
+     * @return
+     */
+    public Builder buttonRegenerateMessage(String buttonRegenerateMessage) {
+      this.buttonRegenerateMessage = buttonRegenerateMessage;
+      return this;
     }
 
-    public void setModelKey(String modelKey) {
-        this.modelKey = modelKey;
+    /**
+     * 主会话链路前端透传给后端的参数
+     *
+     * <p>示例值：1
+     *
+     * @param enterpriseQaChannelInfo
+     * @return
+     */
+    public Builder enterpriseQaChannelInfo(String enterpriseQaChannelInfo) {
+      this.enterpriseQaChannelInfo = enterpriseQaChannelInfo;
+      return this;
     }
 
-    public String getSpecifiedObjIds() {
-        return this.specifiedObjIds;
+    public ScenarioContextExtra build() {
+      return new ScenarioContextExtra(this);
     }
+  }
 
-    public void setSpecifiedObjIds(String specifiedObjIds) {
-        this.specifiedObjIds = specifiedObjIds;
-    }
-
-    public String getSuggestQueryId() {
-        return this.suggestQueryId;
-    }
-
-    public void setSuggestQueryId(String suggestQueryId) {
-        this.suggestQueryId = suggestQueryId;
-    }
-
-    public String getButtonSendMessageInfo() {
-        return this.buttonSendMessageInfo;
-    }
-
-    public void setButtonSendMessageInfo(String buttonSendMessageInfo) {
-        this.buttonSendMessageInfo = buttonSendMessageInfo;
-    }
-
-    public String getButtonRegenerateMessage() {
-        return this.buttonRegenerateMessage;
-    }
-
-    public void setButtonRegenerateMessage(String buttonRegenerateMessage) {
-        this.buttonRegenerateMessage = buttonRegenerateMessage;
-    }
-
-    public String getEnterpriseQaChannelInfo() {
-        return this.enterpriseQaChannelInfo;
-    }
-
-    public void setEnterpriseQaChannelInfo(String enterpriseQaChannelInfo) {
-        this.enterpriseQaChannelInfo = enterpriseQaChannelInfo;
-    }
-
-    public static class Builder {
-        /**
-         * Grounding ID
-         * <p> 示例值：123
-         */
-        private String groundingId;
-        /**
-         * 模型 key
-         * <p> 示例值：lark-online
-         */
-        private String modelKey;
-        /**
-         * 检索时指定的文档 id, 多个 id 以`,`分隔
-         * <p> 示例值：123,456
-         */
-        private String specifiedObjIds;
-        /**
-         * 推荐问题的 ID
-         * <p> 示例值：789
-         */
-        private String suggestQueryId;
-        /**
-         * 点击按钮发送消息时所携带的参数信息
-         * <p> 示例值：1
-         */
-        private String buttonSendMessageInfo;
-        /**
-         * 点击重新生成按钮时携带的参数信息
-         * <p> 示例值：1
-         */
-        private String buttonRegenerateMessage;
-        /**
-         * 主会话链路前端透传给后端的参数
-         * <p> 示例值：1
-         */
-        private String enterpriseQaChannelInfo;
-
-        /**
-         * Grounding ID
-         * <p> 示例值：123
-         *
-         * @param groundingId
-         * @return
-         */
-        public Builder groundingId(String groundingId) {
-            this.groundingId = groundingId;
-            return this;
-        }
-
-
-        /**
-         * 模型 key
-         * <p> 示例值：lark-online
-         *
-         * @param modelKey
-         * @return
-         */
-        public Builder modelKey(String modelKey) {
-            this.modelKey = modelKey;
-            return this;
-        }
-
-
-        /**
-         * 检索时指定的文档 id, 多个 id 以`,`分隔
-         * <p> 示例值：123,456
-         *
-         * @param specifiedObjIds
-         * @return
-         */
-        public Builder specifiedObjIds(String specifiedObjIds) {
-            this.specifiedObjIds = specifiedObjIds;
-            return this;
-        }
-
-
-        /**
-         * 推荐问题的 ID
-         * <p> 示例值：789
-         *
-         * @param suggestQueryId
-         * @return
-         */
-        public Builder suggestQueryId(String suggestQueryId) {
-            this.suggestQueryId = suggestQueryId;
-            return this;
-        }
-
-
-        /**
-         * 点击按钮发送消息时所携带的参数信息
-         * <p> 示例值：1
-         *
-         * @param buttonSendMessageInfo
-         * @return
-         */
-        public Builder buttonSendMessageInfo(String buttonSendMessageInfo) {
-            this.buttonSendMessageInfo = buttonSendMessageInfo;
-            return this;
-        }
-
-
-        /**
-         * 点击重新生成按钮时携带的参数信息
-         * <p> 示例值：1
-         *
-         * @param buttonRegenerateMessage
-         * @return
-         */
-        public Builder buttonRegenerateMessage(String buttonRegenerateMessage) {
-            this.buttonRegenerateMessage = buttonRegenerateMessage;
-            return this;
-        }
-
-
-        /**
-         * 主会话链路前端透传给后端的参数
-         * <p> 示例值：1
-         *
-         * @param enterpriseQaChannelInfo
-         * @return
-         */
-        public Builder enterpriseQaChannelInfo(String enterpriseQaChannelInfo) {
-            this.enterpriseQaChannelInfo = enterpriseQaChannelInfo;
-            return this;
-        }
-
-
-        public ScenarioContextExtra build() {
-            return new ScenarioContextExtra(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

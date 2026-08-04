@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.aily.v1.enums;
 
-/**
- * 数据连接类型
- */
+/** 数据连接类型 */
 public enum DataAssetConnectTypeEnum {
-    IMPORT("import"), // 导入
-    DIRECT("direct"), // 直连
-    ;
-    private String value;
+  IMPORT("import"), // 导入
+  DIRECT("direct"), // 直连
+  ;
+  private String value;
 
-    DataAssetConnectTypeEnum(String value) {
-        this.value = value;
-    }
+  DataAssetConnectTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

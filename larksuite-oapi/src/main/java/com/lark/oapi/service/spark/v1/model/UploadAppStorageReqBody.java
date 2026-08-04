@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UploadAppStorageReqBody {
+  /**
+   * 文件名称
+   *
+   * <p>示例值：file_name
+   */
+  @SerializedName("file_name")
+  private String fileName;
+
+  /**
+   * 文件的十六进制 SHA-256 值，用于文件一致性校验。如果传入此值，服务端会在上传完成后对比接收到文件的 SHA-256 值，如果不一致，会返回上传失败。
+   *
+   * <p>示例值：f8d80a7f68b820d99f5612b952140319991d6599d95f29699d076684b0977f99
+   */
+  @SerializedName("check_sum")
+  private String checkSum;
+
+  /**
+   * 文件二进制
+   *
+   * <p>示例值：
+   */
+  @SerializedName("file")
+  private java.io.File file;
+
+  public String getFileName() {
+    return this.fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public String getCheckSum() {
+    return this.checkSum;
+  }
+
+  public void setCheckSum(String checkSum) {
+    this.checkSum = checkSum;
+  }
+
+  public java.io.File getFile() {
+    return this.file;
+  }
+
+  public void setFile(java.io.File file) {
+    this.file = file;
+  }
+
+  // builder 开始
+  public UploadAppStorageReqBody() {}
+
+  public UploadAppStorageReqBody(Builder builder) {
     /**
      * 文件名称
-     * <p> 示例值：file_name
+     *
+     * <p>示例值：file_name
      */
-    @SerializedName("file_name")
-    private String fileName;
+    this.fileName = builder.fileName;
     /**
      * 文件的十六进制 SHA-256 值，用于文件一致性校验。如果传入此值，服务端会在上传完成后对比接收到文件的 SHA-256 值，如果不一致，会返回上传失败。
-     * <p> 示例值：f8d80a7f68b820d99f5612b952140319991d6599d95f29699d076684b0977f99
+     *
+     * <p>示例值：f8d80a7f68b820d99f5612b952140319991d6599d95f29699d076684b0977f99
      */
-    @SerializedName("check_sum")
-    private String checkSum;
+    this.checkSum = builder.checkSum;
     /**
      * 文件二进制
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("file")
+    this.file = builder.file;
+  }
+
+  public static class Builder {
+    /**
+     * 文件名称
+     *
+     * <p>示例值：file_name
+     */
+    private String fileName;
+
+    /**
+     * 文件的十六进制 SHA-256 值，用于文件一致性校验。如果传入此值，服务端会在上传完成后对比接收到文件的 SHA-256 值，如果不一致，会返回上传失败。
+     *
+     * <p>示例值：f8d80a7f68b820d99f5612b952140319991d6599d95f29699d076684b0977f99
+     */
+    private String checkSum;
+
+    /**
+     * 文件二进制
+     *
+     * <p>示例值：
+     */
     private java.io.File file;
 
-    // builder 开始
-    public UploadAppStorageReqBody() {
+    /**
+     * 文件名称
+     *
+     * <p>示例值：file_name
+     *
+     * @param fileName
+     * @return
+     */
+    public Builder fileName(String fileName) {
+      this.fileName = fileName;
+      return this;
     }
 
-    public UploadAppStorageReqBody(Builder builder) {
-        /**
-         * 文件名称
-         * <p> 示例值：file_name
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 文件的十六进制 SHA-256 值，用于文件一致性校验。如果传入此值，服务端会在上传完成后对比接收到文件的 SHA-256 值，如果不一致，会返回上传失败。
-         * <p> 示例值：f8d80a7f68b820d99f5612b952140319991d6599d95f29699d076684b0977f99
-         */
-        this.checkSum = builder.checkSum;
-        /**
-         * 文件二进制
-         * <p> 示例值：
-         */
-        this.file = builder.file;
+    /**
+     * 文件的十六进制 SHA-256 值，用于文件一致性校验。如果传入此值，服务端会在上传完成后对比接收到文件的 SHA-256 值，如果不一致，会返回上传失败。
+     *
+     * <p>示例值：f8d80a7f68b820d99f5612b952140319991d6599d95f29699d076684b0977f99
+     *
+     * @param checkSum
+     * @return
+     */
+    public Builder checkSum(String checkSum) {
+      this.checkSum = checkSum;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文件二进制
+     *
+     * <p>示例值：
+     *
+     * @param file
+     * @return
+     */
+    public Builder file(java.io.File file) {
+      this.file = file;
+      return this;
     }
 
-    public String getFileName() {
-        return this.fileName;
+    public UploadAppStorageReqBody build() {
+      return new UploadAppStorageReqBody(this);
     }
+  }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getCheckSum() {
-        return this.checkSum;
-    }
-
-    public void setCheckSum(String checkSum) {
-        this.checkSum = checkSum;
-    }
-
-    public java.io.File getFile() {
-        return this.file;
-    }
-
-    public void setFile(java.io.File file) {
-        this.file = file;
-    }
-
-    public static class Builder {
-        /**
-         * 文件名称
-         * <p> 示例值：file_name
-         */
-        private String fileName;
-        /**
-         * 文件的十六进制 SHA-256 值，用于文件一致性校验。如果传入此值，服务端会在上传完成后对比接收到文件的 SHA-256 值，如果不一致，会返回上传失败。
-         * <p> 示例值：f8d80a7f68b820d99f5612b952140319991d6599d95f29699d076684b0977f99
-         */
-        private String checkSum;
-        /**
-         * 文件二进制
-         * <p> 示例值：
-         */
-        private java.io.File file;
-
-        /**
-         * 文件名称
-         * <p> 示例值：file_name
-         *
-         * @param fileName
-         * @return
-         */
-        public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
-        }
-
-
-        /**
-         * 文件的十六进制 SHA-256 值，用于文件一致性校验。如果传入此值，服务端会在上传完成后对比接收到文件的 SHA-256 值，如果不一致，会返回上传失败。
-         * <p> 示例值：f8d80a7f68b820d99f5612b952140319991d6599d95f29699d076684b0977f99
-         *
-         * @param checkSum
-         * @return
-         */
-        public Builder checkSum(String checkSum) {
-            this.checkSum = checkSum;
-            return this;
-        }
-
-
-        /**
-         * 文件二进制
-         * <p> 示例值：
-         *
-         * @param file
-         * @return
-         */
-        public Builder file(java.io.File file) {
-            this.file = file;
-            return this;
-        }
-
-
-        public UploadAppStorageReqBody build() {
-            return new UploadAppStorageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

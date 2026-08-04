@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BitableTableRecordActionFieldIdentity {
+  /**
+   * 用户列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("users")
+  private BitableTableRecordActionFieldIdentityUser[] users;
+
+  public BitableTableRecordActionFieldIdentityUser[] getUsers() {
+    return this.users;
+  }
+
+  public void setUsers(BitableTableRecordActionFieldIdentityUser[] users) {
+    this.users = users;
+  }
+
+  // builder 开始
+  public BitableTableRecordActionFieldIdentity() {}
+
+  public BitableTableRecordActionFieldIdentity(Builder builder) {
     /**
-     * 用户信息列表
-     * <p> 示例值：
+     * 用户列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("users")
+    this.users = builder.users;
+  }
+
+  public static class Builder {
+    /**
+     * 用户列表
+     *
+     * <p>示例值：
+     */
     private BitableTableRecordActionFieldIdentityUser[] users;
 
-    // builder 开始
-    public BitableTableRecordActionFieldIdentity() {
+    /**
+     * 用户列表
+     *
+     * <p>示例值：
+     *
+     * @param users
+     * @return
+     */
+    public Builder users(BitableTableRecordActionFieldIdentityUser[] users) {
+      this.users = users;
+      return this;
     }
 
-    public BitableTableRecordActionFieldIdentity(Builder builder) {
-        /**
-         * 用户信息列表
-         * <p> 示例值：
-         */
-        this.users = builder.users;
+    public BitableTableRecordActionFieldIdentity build() {
+      return new BitableTableRecordActionFieldIdentity(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public BitableTableRecordActionFieldIdentityUser[] getUsers() {
-        return this.users;
-    }
-
-    public void setUsers(BitableTableRecordActionFieldIdentityUser[] users) {
-        this.users = users;
-    }
-
-    public static class Builder {
-        /**
-         * 用户信息列表
-         * <p> 示例值：
-         */
-        private BitableTableRecordActionFieldIdentityUser[] users;
-
-        /**
-         * 用户信息列表
-         * <p> 示例值：
-         *
-         * @param users
-         * @return
-         */
-        public Builder users(BitableTableRecordActionFieldIdentityUser[] users) {
-            this.users = users;
-            return this;
-        }
-
-
-        public BitableTableRecordActionFieldIdentity build() {
-            return new BitableTableRecordActionFieldIdentity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

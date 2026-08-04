@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 查询节点范围
- */
+/** 查询节点范围 */
 public enum CreateScopeConfigScopeTypeEnum {
-    ROOMLEVEL(1), // 会议室层级
-    ROOM(2), // 会议室
-    ;
-    private Integer value;
+  ROOMLEVEL(1), // 会议室层级
+  ROOM(2), // 会议室
+  ;
+  private Integer value;
 
-    CreateScopeConfigScopeTypeEnum(Integer value) {
-        this.value = value;
-    }
+  CreateScopeConfigScopeTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

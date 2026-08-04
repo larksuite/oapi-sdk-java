@@ -13,129 +13,134 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateConfigJobReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 职位
+   * ID，可通过[获取职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/list)接口获取
+   *
+   * <p>示例值：6960663240925956660
+   */
+  @Path
+  @SerializedName("job_id")
+  private String jobId;
+
+  public String getJobId() {
+    return this.jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
+  @Body private JobConfig body;
+
+  public JobConfig getJobConfig() {
+    return this.body;
+  }
+
+  public void setJobConfig(JobConfig body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateConfigJobReq() {}
+
+  public UpdateConfigJobReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 职位 ID
-     * <p> 示例值：6960663240925956660
+     * 职位
+     * ID，可通过[获取职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/list)接口获取
+     *
+     * <p>示例值：6960663240925956660
      */
-    @Path
-    @SerializedName("job_id")
-    private String jobId;
-    @Body
+    this.jobId = builder.jobId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    private String jobId; // 职位
+
+    // ID，可通过[获取职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/list)接口获取
+
+    /**
+     * 职位
+     * ID，可通过[获取职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/list)接口获取
+     *
+     * <p>示例值：6960663240925956660
+     *
+     * @param jobId
+     * @return
+     */
+    public Builder jobId(String jobId) {
+      this.jobId = jobId;
+      return this;
+    }
+
     private JobConfig body;
 
-    // builder 开始
-    public UpdateConfigJobReq() {
-    }
-
-    public UpdateConfigJobReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 职位 ID
-         * <p> 示例值：6960663240925956660
-         */
-        this.jobId = builder.jobId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getJobId() {
-        return this.jobId;
-    }
-
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
-    }
-
     public JobConfig getJobConfig() {
-        return this.body;
+      return this.body;
     }
 
-    public void setJobConfig(JobConfig body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder jobConfig(JobConfig body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String jobId; // 职位 ID
-        private JobConfig body;
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 职位 ID
-         * <p> 示例值：6960663240925956660
-         *
-         * @param jobId
-         * @return
-         */
-        public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
-        }
-
-        public JobConfig getJobConfig() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder jobConfig(JobConfig body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateConfigJobReq build() {
-            return new UpdateConfigJobReq(this);
-        }
+    public UpdateConfigJobReq build() {
+      return new UpdateConfigJobReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

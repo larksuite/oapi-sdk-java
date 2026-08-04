@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 加班明细对应的审批状态
- */
+/** 加班明细对应的审批状态 */
 public enum OvertimeDetailOvertimeApprovalStatusEnum {
-    OVERTIMEAPPROVALSTATUSUNKNOWN(0), // 未知/无审批单
-    OVERTIMEAPPROVALSTATUSAPPROVAL(1), // 审批通过
-    OVERTIMEAPPROVALSTATUSREJECT(2), // 拒绝()
-    OVERTIMEAPPROVALSTATUSREVOKE(3), // 撤销
-    OVERTIMEAPPROVALSTATUSDELETE(4), // 删除
-    ;
-    private Integer value;
+  OVERTIMEAPPROVALSTATUSUNKNOWN(0), // 未知/无审批单
+  OVERTIMEAPPROVALSTATUSAPPROVAL(1), // 审批通过
+  OVERTIMEAPPROVALSTATUSREJECT(2), // 拒绝()
+  OVERTIMEAPPROVALSTATUSREVOKE(3), // 撤销
+  OVERTIMEAPPROVALSTATUSDELETE(4), // 删除
+  ;
+  private Integer value;
 
-    OvertimeDetailOvertimeApprovalStatusEnum(Integer value) {
-        this.value = value;
-    }
+  OvertimeDetailOvertimeApprovalStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

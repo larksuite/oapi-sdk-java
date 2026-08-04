@@ -13,142 +13,145 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class CreateProbationAssessmentReq {
+  /**
+   * 根据 client_token 是否一致来判断是否为同一请求
+   *
+   * <p>示例值：6822122262122064111
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private CreateProbationAssessmentReqBody body;
+
+  public CreateProbationAssessmentReqBody getCreateProbationAssessmentReqBody() {
+    return this.body;
+  }
+
+  public void setCreateProbationAssessmentReqBody(CreateProbationAssessmentReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateProbationAssessmentReq() {}
+
+  public CreateProbationAssessmentReq(Builder builder) {
     /**
      * 根据 client_token 是否一致来判断是否为同一请求
-     * <p> 示例值：6822122262122064111
+     *
+     * <p>示例值：6822122262122064111
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
      * 用户 ID 类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String clientToken; // 根据 client_token 是否一致来判断是否为同一请求
+    private String userIdType; // 用户 ID 类型
+
+    /**
+     * 根据 client_token 是否一致来判断是否为同一请求
+     *
+     * <p>示例值：6822122262122064111
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.CreateProbationAssessmentCreateProbationAssessmentUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .CreateProbationAssessmentCreateProbationAssessmentUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private CreateProbationAssessmentReqBody body;
 
-    // builder 开始
-    public CreateProbationAssessmentReq() {
-    }
-
-    public CreateProbationAssessmentReq(Builder builder) {
-        /**
-         * 根据 client_token 是否一致来判断是否为同一请求
-         * <p> 示例值：6822122262122064111
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public CreateProbationAssessmentReqBody getCreateProbationAssessmentReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCreateProbationAssessmentReqBody(CreateProbationAssessmentReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder createProbationAssessmentReqBody(CreateProbationAssessmentReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据 client_token 是否一致来判断是否为同一请求
-        private String userIdType; // 用户 ID 类型
-        private CreateProbationAssessmentReqBody body;
-
-        /**
-         * 根据 client_token 是否一致来判断是否为同一请求
-         * <p> 示例值：6822122262122064111
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.CreateProbationAssessmentCreateProbationAssessmentUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.CreateProbationAssessmentCreateProbationAssessmentUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public CreateProbationAssessmentReqBody getCreateProbationAssessmentReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder createProbationAssessmentReqBody(CreateProbationAssessmentReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateProbationAssessmentReq build() {
-            return new CreateProbationAssessmentReq(this);
-        }
+    public CreateProbationAssessmentReq build() {
+      return new CreateProbationAssessmentReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubscriptionMeetingReqBody {
+  /**
+   * 事件类型;;**可选值有:**;- `vc.meeting.participant_meeting_ended_v1`: 参与的会议结束事件
+   *
+   * <p>示例值：vc.meeting.participant_meeting_ended_v1
+   */
+  @SerializedName("event_type")
+  private String eventType;
+
+  public String getEventType() {
+    return this.eventType;
+  }
+
+  public void setEventType(String eventType) {
+    this.eventType = eventType;
+  }
+
+  // builder 开始
+  public SubscriptionMeetingReqBody() {}
+
+  public SubscriptionMeetingReqBody(Builder builder) {
     /**
-     * 事件类型
-     * <p> 示例值：vc.meeting.participant_meeting_ended_v1
+     * 事件类型;;**可选值有:**;- `vc.meeting.participant_meeting_ended_v1`: 参与的会议结束事件
+     *
+     * <p>示例值：vc.meeting.participant_meeting_ended_v1
      */
-    @SerializedName("event_type")
+    this.eventType = builder.eventType;
+  }
+
+  public static class Builder {
+    /**
+     * 事件类型;;**可选值有:**;- `vc.meeting.participant_meeting_ended_v1`: 参与的会议结束事件
+     *
+     * <p>示例值：vc.meeting.participant_meeting_ended_v1
+     */
     private String eventType;
 
-    // builder 开始
-    public SubscriptionMeetingReqBody() {
+    /**
+     * 事件类型;;**可选值有:**;- `vc.meeting.participant_meeting_ended_v1`: 参与的会议结束事件
+     *
+     * <p>示例值：vc.meeting.participant_meeting_ended_v1
+     *
+     * @param eventType
+     * @return
+     */
+    public Builder eventType(String eventType) {
+      this.eventType = eventType;
+      return this;
     }
 
-    public SubscriptionMeetingReqBody(Builder builder) {
-        /**
-         * 事件类型
-         * <p> 示例值：vc.meeting.participant_meeting_ended_v1
-         */
-        this.eventType = builder.eventType;
+    public SubscriptionMeetingReqBody build() {
+      return new SubscriptionMeetingReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getEventType() {
-        return this.eventType;
-    }
-
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
-    }
-
-    public static class Builder {
-        /**
-         * 事件类型
-         * <p> 示例值：vc.meeting.participant_meeting_ended_v1
-         */
-        private String eventType;
-
-        /**
-         * 事件类型
-         * <p> 示例值：vc.meeting.participant_meeting_ended_v1
-         *
-         * @param eventType
-         * @return
-         */
-        public Builder eventType(String eventType) {
-            this.eventType = eventType;
-            return this;
-        }
-
-
-        public SubscriptionMeetingReqBody build() {
-            return new SubscriptionMeetingReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

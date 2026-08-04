@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FilterEmployeeRespBody {
-    /**
-     * 员工信息
-     * <p> 示例值：
-     */
-    @SerializedName("employees")
-    private EmployeeEntity[] employees;
-    /**
-     * 分页结果
-     * <p> 示例值：
-     */
-    @SerializedName("page_response")
-    private PageResponse pageResponse;
-    /**
-     * 异常信息
-     * <p> 示例值：
-     */
-    @SerializedName("abnormals")
-    private AbnormalRecord[] abnormals;
+  /**
+   * 员工信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employees")
+  private EmployeeEntity[] employees;
 
-    public EmployeeEntity[] getEmployees() {
-        return this.employees;
-    }
+  /**
+   * 分页结果
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_response")
+  private PageResponse pageResponse;
 
-    public void setEmployees(EmployeeEntity[] employees) {
-        this.employees = employees;
-    }
+  /**
+   * 异常信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("abnormals")
+  private AbnormalRecord[] abnormals;
 
-    public PageResponse getPageResponse() {
-        return this.pageResponse;
-    }
+  public EmployeeEntity[] getEmployees() {
+    return this.employees;
+  }
 
-    public void setPageResponse(PageResponse pageResponse) {
-        this.pageResponse = pageResponse;
-    }
+  public void setEmployees(EmployeeEntity[] employees) {
+    this.employees = employees;
+  }
 
-    public AbnormalRecord[] getAbnormals() {
-        return this.abnormals;
-    }
+  public PageResponse getPageResponse() {
+    return this.pageResponse;
+  }
 
-    public void setAbnormals(AbnormalRecord[] abnormals) {
-        this.abnormals = abnormals;
-    }
+  public void setPageResponse(PageResponse pageResponse) {
+    this.pageResponse = pageResponse;
+  }
 
+  public AbnormalRecord[] getAbnormals() {
+    return this.abnormals;
+  }
+
+  public void setAbnormals(AbnormalRecord[] abnormals) {
+    this.abnormals = abnormals;
+  }
 }

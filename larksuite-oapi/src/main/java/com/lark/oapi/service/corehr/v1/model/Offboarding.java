@@ -13,272 +13,289 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Offboarding {
+  /**
+   * 离职发起类型，包括：
+   *
+   * <p>示例值：offboarding_directly
+   */
+  @SerializedName("initiating_type")
+  private String initiatingType;
+
+  /**
+   * 离职状态，包括：
+   *
+   * <p>示例值：Approving
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 离职审批信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("application_info")
+  private ApplicationInfo applicationInfo;
+
+  /**
+   * 员工离职信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("offboarding_info")
+  private OffboardingInfo offboardingInfo;
+
+  /**
+   * 离职办理流程信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("offboarding_checklist")
+  private OffboardingChecklist offboardingChecklist;
+
+  /**
+   * 离职唯一标识
+   *
+   * <p>示例值：7298499290417251879
+   */
+  @SerializedName("offboarding_id")
+  private String offboardingId;
+
+  public String getInitiatingType() {
+    return this.initiatingType;
+  }
+
+  public void setInitiatingType(String initiatingType) {
+    this.initiatingType = initiatingType;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public ApplicationInfo getApplicationInfo() {
+    return this.applicationInfo;
+  }
+
+  public void setApplicationInfo(ApplicationInfo applicationInfo) {
+    this.applicationInfo = applicationInfo;
+  }
+
+  public OffboardingInfo getOffboardingInfo() {
+    return this.offboardingInfo;
+  }
+
+  public void setOffboardingInfo(OffboardingInfo offboardingInfo) {
+    this.offboardingInfo = offboardingInfo;
+  }
+
+  public OffboardingChecklist getOffboardingChecklist() {
+    return this.offboardingChecklist;
+  }
+
+  public void setOffboardingChecklist(OffboardingChecklist offboardingChecklist) {
+    this.offboardingChecklist = offboardingChecklist;
+  }
+
+  public String getOffboardingId() {
+    return this.offboardingId;
+  }
+
+  public void setOffboardingId(String offboardingId) {
+    this.offboardingId = offboardingId;
+  }
+
+  // builder 开始
+  public Offboarding() {}
+
+  public Offboarding(Builder builder) {
     /**
      * 离职发起类型，包括：
-     * <p> 示例值：offboarding_directly
+     *
+     * <p>示例值：offboarding_directly
      */
-    @SerializedName("initiating_type")
-    private String initiatingType;
+    this.initiatingType = builder.initiatingType;
     /**
-     * 离职状态
-     * <p> 示例值：Approving
+     * 离职状态，包括：
+     *
+     * <p>示例值：Approving
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 离职审批信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("application_info")
-    private ApplicationInfo applicationInfo;
+    this.applicationInfo = builder.applicationInfo;
     /**
      * 员工离职信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("offboarding_info")
-    private OffboardingInfo offboardingInfo;
+    this.offboardingInfo = builder.offboardingInfo;
     /**
      * 离职办理流程信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("offboarding_checklist")
-    private OffboardingChecklist offboardingChecklist;
+    this.offboardingChecklist = builder.offboardingChecklist;
     /**
-     * 离职单据ID
-     * <p> 示例值：7298499290417251879
+     * 离职唯一标识
+     *
+     * <p>示例值：7298499290417251879
      */
-    @SerializedName("offboarding_id")
+    this.offboardingId = builder.offboardingId;
+  }
+
+  public static class Builder {
+    /**
+     * 离职发起类型，包括：
+     *
+     * <p>示例值：offboarding_directly
+     */
+    private String initiatingType;
+
+    /**
+     * 离职状态，包括：
+     *
+     * <p>示例值：Approving
+     */
+    private String status;
+
+    /**
+     * 离职审批信息
+     *
+     * <p>示例值：
+     */
+    private ApplicationInfo applicationInfo;
+
+    /**
+     * 员工离职信息
+     *
+     * <p>示例值：
+     */
+    private OffboardingInfo offboardingInfo;
+
+    /**
+     * 离职办理流程信息
+     *
+     * <p>示例值：
+     */
+    private OffboardingChecklist offboardingChecklist;
+
+    /**
+     * 离职唯一标识
+     *
+     * <p>示例值：7298499290417251879
+     */
     private String offboardingId;
 
-    // builder 开始
-    public Offboarding() {
+    /**
+     * 离职发起类型，包括：
+     *
+     * <p>示例值：offboarding_directly
+     *
+     * @param initiatingType
+     * @return
+     */
+    public Builder initiatingType(String initiatingType) {
+      this.initiatingType = initiatingType;
+      return this;
     }
 
-    public Offboarding(Builder builder) {
-        /**
-         * 离职发起类型，包括：
-         * <p> 示例值：offboarding_directly
-         */
-        this.initiatingType = builder.initiatingType;
-        /**
-         * 离职状态
-         * <p> 示例值：Approving
-         */
-        this.status = builder.status;
-        /**
-         * 离职审批信息
-         * <p> 示例值：
-         */
-        this.applicationInfo = builder.applicationInfo;
-        /**
-         * 员工离职信息
-         * <p> 示例值：
-         */
-        this.offboardingInfo = builder.offboardingInfo;
-        /**
-         * 离职办理流程信息
-         * <p> 示例值：
-         */
-        this.offboardingChecklist = builder.offboardingChecklist;
-        /**
-         * 离职单据ID
-         * <p> 示例值：7298499290417251879
-         */
-        this.offboardingId = builder.offboardingId;
+    /**
+     * 离职状态，包括：
+     *
+     * <p>示例值：Approving
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 离职状态，包括：
+     *
+     * <p>示例值：Approving
+     *
+     * @param status {@link com.lark.oapi.service.corehr.v1.enums.OffboardingOffboardingStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.corehr.v1.enums.OffboardingOffboardingStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public String getInitiatingType() {
-        return this.initiatingType;
+    /**
+     * 离职审批信息
+     *
+     * <p>示例值：
+     *
+     * @param applicationInfo
+     * @return
+     */
+    public Builder applicationInfo(ApplicationInfo applicationInfo) {
+      this.applicationInfo = applicationInfo;
+      return this;
     }
 
-    public void setInitiatingType(String initiatingType) {
-        this.initiatingType = initiatingType;
+    /**
+     * 员工离职信息
+     *
+     * <p>示例值：
+     *
+     * @param offboardingInfo
+     * @return
+     */
+    public Builder offboardingInfo(OffboardingInfo offboardingInfo) {
+      this.offboardingInfo = offboardingInfo;
+      return this;
     }
 
-    public String getStatus() {
-        return this.status;
+    /**
+     * 离职办理流程信息
+     *
+     * <p>示例值：
+     *
+     * @param offboardingChecklist
+     * @return
+     */
+    public Builder offboardingChecklist(OffboardingChecklist offboardingChecklist) {
+      this.offboardingChecklist = offboardingChecklist;
+      return this;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    /**
+     * 离职唯一标识
+     *
+     * <p>示例值：7298499290417251879
+     *
+     * @param offboardingId
+     * @return
+     */
+    public Builder offboardingId(String offboardingId) {
+      this.offboardingId = offboardingId;
+      return this;
     }
 
-    public ApplicationInfo getApplicationInfo() {
-        return this.applicationInfo;
+    public Offboarding build() {
+      return new Offboarding(this);
     }
+  }
 
-    public void setApplicationInfo(ApplicationInfo applicationInfo) {
-        this.applicationInfo = applicationInfo;
-    }
-
-    public OffboardingInfo getOffboardingInfo() {
-        return this.offboardingInfo;
-    }
-
-    public void setOffboardingInfo(OffboardingInfo offboardingInfo) {
-        this.offboardingInfo = offboardingInfo;
-    }
-
-    public OffboardingChecklist getOffboardingChecklist() {
-        return this.offboardingChecklist;
-    }
-
-    public void setOffboardingChecklist(OffboardingChecklist offboardingChecklist) {
-        this.offboardingChecklist = offboardingChecklist;
-    }
-
-    public String getOffboardingId() {
-        return this.offboardingId;
-    }
-
-    public void setOffboardingId(String offboardingId) {
-        this.offboardingId = offboardingId;
-    }
-
-    public static class Builder {
-        /**
-         * 离职发起类型，包括：
-         * <p> 示例值：offboarding_directly
-         */
-        private String initiatingType;
-        /**
-         * 离职状态
-         * <p> 示例值：Approving
-         */
-        private String status;
-        /**
-         * 离职审批信息
-         * <p> 示例值：
-         */
-        private ApplicationInfo applicationInfo;
-        /**
-         * 员工离职信息
-         * <p> 示例值：
-         */
-        private OffboardingInfo offboardingInfo;
-        /**
-         * 离职办理流程信息
-         * <p> 示例值：
-         */
-        private OffboardingChecklist offboardingChecklist;
-        /**
-         * 离职单据ID
-         * <p> 示例值：7298499290417251879
-         */
-        private String offboardingId;
-
-        /**
-         * 离职发起类型，包括：
-         * <p> 示例值：offboarding_directly
-         *
-         * @param initiatingType
-         * @return
-         */
-        public Builder initiatingType(String initiatingType) {
-            this.initiatingType = initiatingType;
-            return this;
-        }
-
-
-        /**
-         * 离职状态
-         * <p> 示例值：Approving
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 离职状态
-         * <p> 示例值：Approving
-         *
-         * @param status {@link com.lark.oapi.service.corehr.v1.enums.OffboardingOffboardingStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.corehr.v1.enums.OffboardingOffboardingStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 离职审批信息
-         * <p> 示例值：
-         *
-         * @param applicationInfo
-         * @return
-         */
-        public Builder applicationInfo(ApplicationInfo applicationInfo) {
-            this.applicationInfo = applicationInfo;
-            return this;
-        }
-
-
-        /**
-         * 员工离职信息
-         * <p> 示例值：
-         *
-         * @param offboardingInfo
-         * @return
-         */
-        public Builder offboardingInfo(OffboardingInfo offboardingInfo) {
-            this.offboardingInfo = offboardingInfo;
-            return this;
-        }
-
-
-        /**
-         * 离职办理流程信息
-         * <p> 示例值：
-         *
-         * @param offboardingChecklist
-         * @return
-         */
-        public Builder offboardingChecklist(OffboardingChecklist offboardingChecklist) {
-            this.offboardingChecklist = offboardingChecklist;
-            return this;
-        }
-
-
-        /**
-         * 离职单据ID
-         * <p> 示例值：7298499290417251879
-         *
-         * @param offboardingId
-         * @return
-         */
-        public Builder offboardingId(String offboardingId) {
-            this.offboardingId = offboardingId;
-            return this;
-        }
-
-
-        public Offboarding build() {
-            return new Offboarding(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

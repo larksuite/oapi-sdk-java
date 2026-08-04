@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureTemplateCombinationFieldInfoV2 {
+  /**
+   * 弃用，无需关注
+   *
+   * <p>示例值：弃用，无需关注
+   */
+  @SerializedName("total_apiname")
+  private String totalApiname;
+
+  /**
+   * 弃用，无需关注
+   *
+   * <p>示例值：弃用，无需关注
+   */
+  @SerializedName("apiname")
+  private String apiname;
+
+  /**
+   * 电子签模板字段源类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("source")
+  private Enum source;
+
+  public String getTotalApiname() {
+    return this.totalApiname;
+  }
+
+  public void setTotalApiname(String totalApiname) {
+    this.totalApiname = totalApiname;
+  }
+
+  public String getApiname() {
+    return this.apiname;
+  }
+
+  public void setApiname(String apiname) {
+    this.apiname = apiname;
+  }
+
+  public Enum getSource() {
+    return this.source;
+  }
+
+  public void setSource(Enum source) {
+    this.source = source;
+  }
+
+  // builder 开始
+  public SignatureTemplateCombinationFieldInfoV2() {}
+
+  public SignatureTemplateCombinationFieldInfoV2(Builder builder) {
     /**
-     * total_apiname
-     * <p> 示例值：status
+     * 弃用，无需关注
+     *
+     * <p>示例值：弃用，无需关注
      */
-    @SerializedName("total_apiname")
-    private String totalApiname;
+    this.totalApiname = builder.totalApiname;
     /**
-     * apiname
-     * <p> 示例值：status
+     * 弃用，无需关注
+     *
+     * <p>示例值：弃用，无需关注
      */
-    @SerializedName("apiname")
-    private String apiname;
+    this.apiname = builder.apiname;
     /**
      * 电子签模板字段源类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("source")
+    this.source = builder.source;
+  }
+
+  public static class Builder {
+    /**
+     * 弃用，无需关注
+     *
+     * <p>示例值：弃用，无需关注
+     */
+    private String totalApiname;
+
+    /**
+     * 弃用，无需关注
+     *
+     * <p>示例值：弃用，无需关注
+     */
+    private String apiname;
+
+    /**
+     * 电子签模板字段源类型
+     *
+     * <p>示例值：
+     */
     private Enum source;
 
-    // builder 开始
-    public SignatureTemplateCombinationFieldInfoV2() {
+    /**
+     * 弃用，无需关注
+     *
+     * <p>示例值：弃用，无需关注
+     *
+     * @param totalApiname
+     * @return
+     */
+    public Builder totalApiname(String totalApiname) {
+      this.totalApiname = totalApiname;
+      return this;
     }
 
-    public SignatureTemplateCombinationFieldInfoV2(Builder builder) {
-        /**
-         * total_apiname
-         * <p> 示例值：status
-         */
-        this.totalApiname = builder.totalApiname;
-        /**
-         * apiname
-         * <p> 示例值：status
-         */
-        this.apiname = builder.apiname;
-        /**
-         * 电子签模板字段源类型
-         * <p> 示例值：
-         */
-        this.source = builder.source;
+    /**
+     * 弃用，无需关注
+     *
+     * <p>示例值：弃用，无需关注
+     *
+     * @param apiname
+     * @return
+     */
+    public Builder apiname(String apiname) {
+      this.apiname = apiname;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 电子签模板字段源类型
+     *
+     * <p>示例值：
+     *
+     * @param source
+     * @return
+     */
+    public Builder source(Enum source) {
+      this.source = source;
+      return this;
     }
 
-    public String getTotalApiname() {
-        return this.totalApiname;
+    public SignatureTemplateCombinationFieldInfoV2 build() {
+      return new SignatureTemplateCombinationFieldInfoV2(this);
     }
+  }
 
-    public void setTotalApiname(String totalApiname) {
-        this.totalApiname = totalApiname;
-    }
-
-    public String getApiname() {
-        return this.apiname;
-    }
-
-    public void setApiname(String apiname) {
-        this.apiname = apiname;
-    }
-
-    public Enum getSource() {
-        return this.source;
-    }
-
-    public void setSource(Enum source) {
-        this.source = source;
-    }
-
-    public static class Builder {
-        /**
-         * total_apiname
-         * <p> 示例值：status
-         */
-        private String totalApiname;
-        /**
-         * apiname
-         * <p> 示例值：status
-         */
-        private String apiname;
-        /**
-         * 电子签模板字段源类型
-         * <p> 示例值：
-         */
-        private Enum source;
-
-        /**
-         * total_apiname
-         * <p> 示例值：status
-         *
-         * @param totalApiname
-         * @return
-         */
-        public Builder totalApiname(String totalApiname) {
-            this.totalApiname = totalApiname;
-            return this;
-        }
-
-
-        /**
-         * apiname
-         * <p> 示例值：status
-         *
-         * @param apiname
-         * @return
-         */
-        public Builder apiname(String apiname) {
-            this.apiname = apiname;
-            return this;
-        }
-
-
-        /**
-         * 电子签模板字段源类型
-         * <p> 示例值：
-         *
-         * @param source
-         * @return
-         */
-        public Builder source(Enum source) {
-            this.source = source;
-            return this;
-        }
-
-
-        public SignatureTemplateCombinationFieldInfoV2 build() {
-            return new SignatureTemplateCombinationFieldInfoV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

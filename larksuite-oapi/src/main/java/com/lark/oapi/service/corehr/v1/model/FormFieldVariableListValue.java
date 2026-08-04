@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FormFieldVariableListValue {
+  /**
+   * 列表值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("values")
+  private FormFieldVariableListObject[] values;
+
+  public FormFieldVariableListObject[] getValues() {
+    return this.values;
+  }
+
+  public void setValues(FormFieldVariableListObject[] values) {
+    this.values = values;
+  }
+
+  // builder 开始
+  public FormFieldVariableListValue() {}
+
+  public FormFieldVariableListValue(Builder builder) {
     /**
      * 列表值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("values")
+    this.values = builder.values;
+  }
+
+  public static class Builder {
+    /**
+     * 列表值
+     *
+     * <p>示例值：
+     */
     private FormFieldVariableListObject[] values;
 
-    // builder 开始
-    public FormFieldVariableListValue() {
+    /**
+     * 列表值
+     *
+     * <p>示例值：
+     *
+     * @param values
+     * @return
+     */
+    public Builder values(FormFieldVariableListObject[] values) {
+      this.values = values;
+      return this;
     }
 
-    public FormFieldVariableListValue(Builder builder) {
-        /**
-         * 列表值
-         * <p> 示例值：
-         */
-        this.values = builder.values;
+    public FormFieldVariableListValue build() {
+      return new FormFieldVariableListValue(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public FormFieldVariableListObject[] getValues() {
-        return this.values;
-    }
-
-    public void setValues(FormFieldVariableListObject[] values) {
-        this.values = values;
-    }
-
-    public static class Builder {
-        /**
-         * 列表值
-         * <p> 示例值：
-         */
-        private FormFieldVariableListObject[] values;
-
-        /**
-         * 列表值
-         * <p> 示例值：
-         *
-         * @param values
-         * @return
-         */
-        public Builder values(FormFieldVariableListObject[] values) {
-            this.values = values;
-            return this;
-        }
-
-
-        public FormFieldVariableListValue build() {
-            return new FormFieldVariableListValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

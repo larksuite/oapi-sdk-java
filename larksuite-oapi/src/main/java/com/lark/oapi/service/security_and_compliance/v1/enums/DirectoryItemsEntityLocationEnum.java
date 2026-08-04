@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.enums;
 
-/**
- * 实体的数据驻留地
- */
+/** 实体的数据驻留地 */
 public enum DirectoryItemsEntityLocationEnum {
-    CN("CN"), // 中国
-    SG("SG"), // 新加坡
-    JP("JP"), // 日本
-    ;
-    private String value;
+  CN("CN"), // 中国
+  SG("SG"), // 新加坡
+  JP("JP"), // 日本
+  ;
+  private String value;
 
-    DirectoryItemsEntityLocationEnum(String value) {
-        this.value = value;
-    }
+  DirectoryItemsEntityLocationEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Reminder {
+  /**
+   * 创建者用户 ID，ID 类型与查询参数 `user_id_type` 的取值一致。获取方式参考 `user_id_type` 参数说明。
+   *
+   * <p>示例值：ou_84aad35d084aa403a838cf73eeabcef
+   */
+  @SerializedName("create_user_id")
+  private String createUserId;
+
+  /**
+   * 是否通知
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_notify")
+  private Boolean isNotify;
+
+  /**
+   * 是日期还是整点小时
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_whole_day")
+  private Boolean isWholeDay;
+
+  /**
+   * 事件发生的时间（毫秒级时间戳）
+   *
+   * <p>示例值：1641967200000
+   */
+  @SerializedName("expire_time")
+  private String expireTime;
+
+  /**
+   * 触发通知的时间（毫秒级时间戳）
+   *
+   * <p>示例值：1643166000000
+   */
+  @SerializedName("notify_time")
+  private String notifyTime;
+
+  /**
+   * 文本局部样式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text_element_style")
+  private TextElementStyle textElementStyle;
+
+  public String getCreateUserId() {
+    return this.createUserId;
+  }
+
+  public void setCreateUserId(String createUserId) {
+    this.createUserId = createUserId;
+  }
+
+  public Boolean getIsNotify() {
+    return this.isNotify;
+  }
+
+  public void setIsNotify(Boolean isNotify) {
+    this.isNotify = isNotify;
+  }
+
+  public Boolean getIsWholeDay() {
+    return this.isWholeDay;
+  }
+
+  public void setIsWholeDay(Boolean isWholeDay) {
+    this.isWholeDay = isWholeDay;
+  }
+
+  public String getExpireTime() {
+    return this.expireTime;
+  }
+
+  public void setExpireTime(String expireTime) {
+    this.expireTime = expireTime;
+  }
+
+  public String getNotifyTime() {
+    return this.notifyTime;
+  }
+
+  public void setNotifyTime(String notifyTime) {
+    this.notifyTime = notifyTime;
+  }
+
+  public TextElementStyle getTextElementStyle() {
+    return this.textElementStyle;
+  }
+
+  public void setTextElementStyle(TextElementStyle textElementStyle) {
+    this.textElementStyle = textElementStyle;
+  }
+
+  // builder 开始
+  public Reminder() {}
+
+  public Reminder(Builder builder) {
     /**
-     * 创建者用户 ID
-     * <p> 示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
+     * 创建者用户 ID，ID 类型与查询参数 `user_id_type` 的取值一致。获取方式参考 `user_id_type` 参数说明。
+     *
+     * <p>示例值：ou_84aad35d084aa403a838cf73eeabcef
      */
-    @SerializedName("create_user_id")
-    private String createUserId;
+    this.createUserId = builder.createUserId;
     /**
      * 是否通知
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_notify")
-    private Boolean isNotify;
+    this.isNotify = builder.isNotify;
     /**
      * 是日期还是整点小时
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_whole_day")
-    private Boolean isWholeDay;
+    this.isWholeDay = builder.isWholeDay;
     /**
-     * 事件发生的时间（毫秒级事件戳）
-     * <p> 示例值：1641967200000
+     * 事件发生的时间（毫秒级时间戳）
+     *
+     * <p>示例值：1641967200000
      */
-    @SerializedName("expire_time")
-    private String expireTime;
+    this.expireTime = builder.expireTime;
     /**
      * 触发通知的时间（毫秒级时间戳）
-     * <p> 示例值：1643166000000
+     *
+     * <p>示例值：1643166000000
      */
-    @SerializedName("notify_time")
-    private String notifyTime;
+    this.notifyTime = builder.notifyTime;
     /**
      * 文本局部样式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("text_element_style")
+    this.textElementStyle = builder.textElementStyle;
+  }
+
+  public static class Builder {
+    /**
+     * 创建者用户 ID，ID 类型与查询参数 `user_id_type` 的取值一致。获取方式参考 `user_id_type` 参数说明。
+     *
+     * <p>示例值：ou_84aad35d084aa403a838cf73eeabcef
+     */
+    private String createUserId;
+
+    /**
+     * 是否通知
+     *
+     * <p>示例值：true
+     */
+    private Boolean isNotify;
+
+    /**
+     * 是日期还是整点小时
+     *
+     * <p>示例值：true
+     */
+    private Boolean isWholeDay;
+
+    /**
+     * 事件发生的时间（毫秒级时间戳）
+     *
+     * <p>示例值：1641967200000
+     */
+    private String expireTime;
+
+    /**
+     * 触发通知的时间（毫秒级时间戳）
+     *
+     * <p>示例值：1643166000000
+     */
+    private String notifyTime;
+
+    /**
+     * 文本局部样式
+     *
+     * <p>示例值：
+     */
     private TextElementStyle textElementStyle;
 
-    // builder 开始
-    public Reminder() {
+    /**
+     * 创建者用户 ID，ID 类型与查询参数 `user_id_type` 的取值一致。获取方式参考 `user_id_type` 参数说明。
+     *
+     * <p>示例值：ou_84aad35d084aa403a838cf73eeabcef
+     *
+     * @param createUserId
+     * @return
+     */
+    public Builder createUserId(String createUserId) {
+      this.createUserId = createUserId;
+      return this;
     }
 
-    public Reminder(Builder builder) {
-        /**
-         * 创建者用户 ID
-         * <p> 示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
-         */
-        this.createUserId = builder.createUserId;
-        /**
-         * 是否通知
-         * <p> 示例值：true
-         */
-        this.isNotify = builder.isNotify;
-        /**
-         * 是日期还是整点小时
-         * <p> 示例值：true
-         */
-        this.isWholeDay = builder.isWholeDay;
-        /**
-         * 事件发生的时间（毫秒级事件戳）
-         * <p> 示例值：1641967200000
-         */
-        this.expireTime = builder.expireTime;
-        /**
-         * 触发通知的时间（毫秒级时间戳）
-         * <p> 示例值：1643166000000
-         */
-        this.notifyTime = builder.notifyTime;
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         */
-        this.textElementStyle = builder.textElementStyle;
+    /**
+     * 是否通知
+     *
+     * <p>示例值：true
+     *
+     * @param isNotify
+     * @return
+     */
+    public Builder isNotify(Boolean isNotify) {
+      this.isNotify = isNotify;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是日期还是整点小时
+     *
+     * <p>示例值：true
+     *
+     * @param isWholeDay
+     * @return
+     */
+    public Builder isWholeDay(Boolean isWholeDay) {
+      this.isWholeDay = isWholeDay;
+      return this;
     }
 
-    public String getCreateUserId() {
-        return this.createUserId;
+    /**
+     * 事件发生的时间（毫秒级时间戳）
+     *
+     * <p>示例值：1641967200000
+     *
+     * @param expireTime
+     * @return
+     */
+    public Builder expireTime(String expireTime) {
+      this.expireTime = expireTime;
+      return this;
     }
 
-    public void setCreateUserId(String createUserId) {
-        this.createUserId = createUserId;
+    /**
+     * 触发通知的时间（毫秒级时间戳）
+     *
+     * <p>示例值：1643166000000
+     *
+     * @param notifyTime
+     * @return
+     */
+    public Builder notifyTime(String notifyTime) {
+      this.notifyTime = notifyTime;
+      return this;
     }
 
-    public Boolean getIsNotify() {
-        return this.isNotify;
+    /**
+     * 文本局部样式
+     *
+     * <p>示例值：
+     *
+     * @param textElementStyle
+     * @return
+     */
+    public Builder textElementStyle(TextElementStyle textElementStyle) {
+      this.textElementStyle = textElementStyle;
+      return this;
     }
 
-    public void setIsNotify(Boolean isNotify) {
-        this.isNotify = isNotify;
+    public Reminder build() {
+      return new Reminder(this);
     }
+  }
 
-    public Boolean getIsWholeDay() {
-        return this.isWholeDay;
-    }
-
-    public void setIsWholeDay(Boolean isWholeDay) {
-        this.isWholeDay = isWholeDay;
-    }
-
-    public String getExpireTime() {
-        return this.expireTime;
-    }
-
-    public void setExpireTime(String expireTime) {
-        this.expireTime = expireTime;
-    }
-
-    public String getNotifyTime() {
-        return this.notifyTime;
-    }
-
-    public void setNotifyTime(String notifyTime) {
-        this.notifyTime = notifyTime;
-    }
-
-    public TextElementStyle getTextElementStyle() {
-        return this.textElementStyle;
-    }
-
-    public void setTextElementStyle(TextElementStyle textElementStyle) {
-        this.textElementStyle = textElementStyle;
-    }
-
-    public static class Builder {
-        /**
-         * 创建者用户 ID
-         * <p> 示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
-         */
-        private String createUserId;
-        /**
-         * 是否通知
-         * <p> 示例值：true
-         */
-        private Boolean isNotify;
-        /**
-         * 是日期还是整点小时
-         * <p> 示例值：true
-         */
-        private Boolean isWholeDay;
-        /**
-         * 事件发生的时间（毫秒级事件戳）
-         * <p> 示例值：1641967200000
-         */
-        private String expireTime;
-        /**
-         * 触发通知的时间（毫秒级时间戳）
-         * <p> 示例值：1643166000000
-         */
-        private String notifyTime;
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         */
-        private TextElementStyle textElementStyle;
-
-        /**
-         * 创建者用户 ID
-         * <p> 示例值：0e2633a3-aa1a-4171-af9e-0768ff863566
-         *
-         * @param createUserId
-         * @return
-         */
-        public Builder createUserId(String createUserId) {
-            this.createUserId = createUserId;
-            return this;
-        }
-
-
-        /**
-         * 是否通知
-         * <p> 示例值：true
-         *
-         * @param isNotify
-         * @return
-         */
-        public Builder isNotify(Boolean isNotify) {
-            this.isNotify = isNotify;
-            return this;
-        }
-
-
-        /**
-         * 是日期还是整点小时
-         * <p> 示例值：true
-         *
-         * @param isWholeDay
-         * @return
-         */
-        public Builder isWholeDay(Boolean isWholeDay) {
-            this.isWholeDay = isWholeDay;
-            return this;
-        }
-
-
-        /**
-         * 事件发生的时间（毫秒级事件戳）
-         * <p> 示例值：1641967200000
-         *
-         * @param expireTime
-         * @return
-         */
-        public Builder expireTime(String expireTime) {
-            this.expireTime = expireTime;
-            return this;
-        }
-
-
-        /**
-         * 触发通知的时间（毫秒级时间戳）
-         * <p> 示例值：1643166000000
-         *
-         * @param notifyTime
-         * @return
-         */
-        public Builder notifyTime(String notifyTime) {
-            this.notifyTime = notifyTime;
-            return this;
-        }
-
-
-        /**
-         * 文本局部样式
-         * <p> 示例值：
-         *
-         * @param textElementStyle
-         * @return
-         */
-        public Builder textElementStyle(TextElementStyle textElementStyle) {
-            this.textElementStyle = textElementStyle;
-            return this;
-        }
-
-
-        public Reminder build() {
-            return new Reminder(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

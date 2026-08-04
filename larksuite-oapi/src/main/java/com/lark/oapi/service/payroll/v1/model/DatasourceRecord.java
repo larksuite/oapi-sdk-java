@@ -13,124 +13,138 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DatasourceRecord {
+  /**
+   * 记录的启停用状态。说明：数据记录被停用后，依旧可以被API保存、查询，但无法被算薪使用。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("active_status")
+  private Integer activeStatus;
+
+  /**
+   * 需创建或者更新记录的具体字段值列表：;- 必传字段：; 根据记录的数据源的数据写入维度属性，有不同的必传字段：;1.
+   * 算薪期间维度。“payroll_period”、“employment_id”字段必传，payroll_period格式：“2024-01”。;2.
+   * 数据发生日期维度（灰度中）。“occur_day”、“employment_id”字段必传。occur_day格式：“2024-01-02”。;3.
+   * 自定义数据周期维度（灰度中）。“custom_start”、“custom_end”、“employment_id”字段必传。custom_start、custom_end格式：“2024-01-02”。;;employment_id为飞书人事中员工的基本信息id，可通过[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取;-
+   * 其他自定字段按照诉求可选传入，需保证写入的字段在配置中存在且启用。字段code不得重复传入，且字段的值需符合类型对应的约束。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_values")
+  private DatasourceRecordField[] fieldValues;
+
+  public Integer getActiveStatus() {
+    return this.activeStatus;
+  }
+
+  public void setActiveStatus(Integer activeStatus) {
+    this.activeStatus = activeStatus;
+  }
+
+  public DatasourceRecordField[] getFieldValues() {
+    return this.fieldValues;
+  }
+
+  public void setFieldValues(DatasourceRecordField[] fieldValues) {
+    this.fieldValues = fieldValues;
+  }
+
+  // builder 开始
+  public DatasourceRecord() {}
+
+  public DatasourceRecord(Builder builder) {
     /**
-     * 记录的启停用状态
-     * <p> 示例值：1
+     * 记录的启停用状态。说明：数据记录被停用后，依旧可以被API保存、查询，但无法被算薪使用。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("active_status")
+    this.activeStatus = builder.activeStatus;
+    /**
+     * 需创建或者更新记录的具体字段值列表：;- 必传字段：; 根据记录的数据源的数据写入维度属性，有不同的必传字段：;1.
+     * 算薪期间维度。“payroll_period”、“employment_id”字段必传，payroll_period格式：“2024-01”。;2.
+     * 数据发生日期维度（灰度中）。“occur_day”、“employment_id”字段必传。occur_day格式：“2024-01-02”。;3.
+     * 自定义数据周期维度（灰度中）。“custom_start”、“custom_end”、“employment_id”字段必传。custom_start、custom_end格式：“2024-01-02”。;;employment_id为飞书人事中员工的基本信息id，可通过[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取;-
+     * 其他自定字段按照诉求可选传入，需保证写入的字段在配置中存在且启用。字段code不得重复传入，且字段的值需符合类型对应的约束。
+     *
+     * <p>示例值：
+     */
+    this.fieldValues = builder.fieldValues;
+  }
+
+  public static class Builder {
+    /**
+     * 记录的启停用状态。说明：数据记录被停用后，依旧可以被API保存、查询，但无法被算薪使用。
+     *
+     * <p>示例值：1
+     */
     private Integer activeStatus;
+
     /**
-     * 记录的字段值列表
-     * <p> 示例值：
+     * 需创建或者更新记录的具体字段值列表：;- 必传字段：; 根据记录的数据源的数据写入维度属性，有不同的必传字段：;1.
+     * 算薪期间维度。“payroll_period”、“employment_id”字段必传，payroll_period格式：“2024-01”。;2.
+     * 数据发生日期维度（灰度中）。“occur_day”、“employment_id”字段必传。occur_day格式：“2024-01-02”。;3.
+     * 自定义数据周期维度（灰度中）。“custom_start”、“custom_end”、“employment_id”字段必传。custom_start、custom_end格式：“2024-01-02”。;;employment_id为飞书人事中员工的基本信息id，可通过[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取;-
+     * 其他自定字段按照诉求可选传入，需保证写入的字段在配置中存在且启用。字段code不得重复传入，且字段的值需符合类型对应的约束。
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_values")
     private DatasourceRecordField[] fieldValues;
 
-    // builder 开始
-    public DatasourceRecord() {
+    /**
+     * 记录的启停用状态。说明：数据记录被停用后，依旧可以被API保存、查询，但无法被算薪使用。
+     *
+     * <p>示例值：1
+     *
+     * @param activeStatus
+     * @return
+     */
+    public Builder activeStatus(Integer activeStatus) {
+      this.activeStatus = activeStatus;
+      return this;
     }
 
-    public DatasourceRecord(Builder builder) {
-        /**
-         * 记录的启停用状态
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
-        /**
-         * 记录的字段值列表
-         * <p> 示例值：
-         */
-        this.fieldValues = builder.fieldValues;
+    /**
+     * 记录的启停用状态。说明：数据记录被停用后，依旧可以被API保存、查询，但无法被算薪使用。
+     *
+     * <p>示例值：1
+     *
+     * @param activeStatus {@link
+     *     com.lark.oapi.service.payroll.v1.enums.DatasourceRecordActiveStatusEnum}
+     * @return
+     */
+    public Builder activeStatus(
+        com.lark.oapi.service.payroll.v1.enums.DatasourceRecordActiveStatusEnum activeStatus) {
+      this.activeStatus = activeStatus.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 需创建或者更新记录的具体字段值列表：;- 必传字段：; 根据记录的数据源的数据写入维度属性，有不同的必传字段：;1.
+     * 算薪期间维度。“payroll_period”、“employment_id”字段必传，payroll_period格式：“2024-01”。;2.
+     * 数据发生日期维度（灰度中）。“occur_day”、“employment_id”字段必传。occur_day格式：“2024-01-02”。;3.
+     * 自定义数据周期维度（灰度中）。“custom_start”、“custom_end”、“employment_id”字段必传。custom_start、custom_end格式：“2024-01-02”。;;employment_id为飞书人事中员工的基本信息id，可通过[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取;-
+     * 其他自定字段按照诉求可选传入，需保证写入的字段在配置中存在且启用。字段code不得重复传入，且字段的值需符合类型对应的约束。
+     *
+     * <p>示例值：
+     *
+     * @param fieldValues
+     * @return
+     */
+    public Builder fieldValues(DatasourceRecordField[] fieldValues) {
+      this.fieldValues = fieldValues;
+      return this;
     }
 
-    public Integer getActiveStatus() {
-        return this.activeStatus;
+    public DatasourceRecord build() {
+      return new DatasourceRecord(this);
     }
+  }
 
-    public void setActiveStatus(Integer activeStatus) {
-        this.activeStatus = activeStatus;
-    }
-
-    public DatasourceRecordField[] getFieldValues() {
-        return this.fieldValues;
-    }
-
-    public void setFieldValues(DatasourceRecordField[] fieldValues) {
-        this.fieldValues = fieldValues;
-    }
-
-    public static class Builder {
-        /**
-         * 记录的启停用状态
-         * <p> 示例值：1
-         */
-        private Integer activeStatus;
-        /**
-         * 记录的字段值列表
-         * <p> 示例值：
-         */
-        private DatasourceRecordField[] fieldValues;
-
-        /**
-         * 记录的启停用状态
-         * <p> 示例值：1
-         *
-         * @param activeStatus
-         * @return
-         */
-        public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
-        }
-
-        /**
-         * 记录的启停用状态
-         * <p> 示例值：1
-         *
-         * @param activeStatus {@link com.lark.oapi.service.payroll.v1.enums.DatasourceRecordActiveStatusEnum}
-         * @return
-         */
-        public Builder activeStatus(com.lark.oapi.service.payroll.v1.enums.DatasourceRecordActiveStatusEnum activeStatus) {
-            this.activeStatus = activeStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 记录的字段值列表
-         * <p> 示例值：
-         *
-         * @param fieldValues
-         * @return
-         */
-        public Builder fieldValues(DatasourceRecordField[] fieldValues) {
-            this.fieldValues = fieldValues;
-            return this;
-        }
-
-
-        public DatasourceRecord build() {
-            return new DatasourceRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

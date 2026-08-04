@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecallMessageSelector {
+  /**
+   * 所有者ID（从search接口返回结果获取）
+   *
+   * <p>示例值：U202405150001
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  /**
+   * 会话ID（从search接口返回结果获取）
+   *
+   * <p>示例值：THREAD20240515143000001
+   */
+  @SerializedName("thread_id")
+  private String threadId;
+
+  /**
+   * 业务ID（从search接口返回结果获取）
+   *
+   * <p>示例值：MSG20240515143000001
+   */
+  @SerializedName("message_biz_id")
+  private String messageBizId;
+
+  /**
+   * SMTPID（从search接口返回结果获取）
+   *
+   * <p>示例值：<1621034567.12345.1234567890@mail.example.com>
+   */
+  @SerializedName("smtp_message_id")
+  private String smtpMessageId;
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public String getThreadId() {
+    return this.threadId;
+  }
+
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
+
+  public String getMessageBizId() {
+    return this.messageBizId;
+  }
+
+  public void setMessageBizId(String messageBizId) {
+    this.messageBizId = messageBizId;
+  }
+
+  public String getSmtpMessageId() {
+    return this.smtpMessageId;
+  }
+
+  public void setSmtpMessageId(String smtpMessageId) {
+    this.smtpMessageId = smtpMessageId;
+  }
+
+  // builder 开始
+  public RecallMessageSelector() {}
+
+  public RecallMessageSelector(Builder builder) {
     /**
-     * 所有者ID
-     * <p> 示例值：U202405150001
+     * 所有者ID（从search接口返回结果获取）
+     *
+     * <p>示例值：U202405150001
      */
-    @SerializedName("owner_id")
+    this.ownerId = builder.ownerId;
+    /**
+     * 会话ID（从search接口返回结果获取）
+     *
+     * <p>示例值：THREAD20240515143000001
+     */
+    this.threadId = builder.threadId;
+    /**
+     * 业务ID（从search接口返回结果获取）
+     *
+     * <p>示例值：MSG20240515143000001
+     */
+    this.messageBizId = builder.messageBizId;
+    /**
+     * SMTPID（从search接口返回结果获取）
+     *
+     * <p>示例值：<1621034567.12345.1234567890@mail.example.com>
+     */
+    this.smtpMessageId = builder.smtpMessageId;
+  }
+
+  public static class Builder {
+    /**
+     * 所有者ID（从search接口返回结果获取）
+     *
+     * <p>示例值：U202405150001
+     */
     private String ownerId;
+
     /**
-     * 线程ID
-     * <p> 示例值：THREAD20240515143000001
+     * 会话ID（从search接口返回结果获取）
+     *
+     * <p>示例值：THREAD20240515143000001
      */
-    @SerializedName("thread_id")
     private String threadId;
+
     /**
-     * 消息业务ID
-     * <p> 示例值：MSG20240515143000001
+     * 业务ID（从search接口返回结果获取）
+     *
+     * <p>示例值：MSG20240515143000001
      */
-    @SerializedName("message_biz_id")
     private String messageBizId;
+
     /**
-     * SMTP消息ID
-     * <p> 示例值：<1621034567.12345.1234567890@mail.example.com>
+     * SMTPID（从search接口返回结果获取）
+     *
+     * <p>示例值：<1621034567.12345.1234567890@mail.example.com>
      */
-    @SerializedName("smtp_message_id")
     private String smtpMessageId;
 
-    // builder 开始
-    public RecallMessageSelector() {
+    /**
+     * 所有者ID（从search接口返回结果获取）
+     *
+     * <p>示例值：U202405150001
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public RecallMessageSelector(Builder builder) {
-        /**
-         * 所有者ID
-         * <p> 示例值：U202405150001
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 线程ID
-         * <p> 示例值：THREAD20240515143000001
-         */
-        this.threadId = builder.threadId;
-        /**
-         * 消息业务ID
-         * <p> 示例值：MSG20240515143000001
-         */
-        this.messageBizId = builder.messageBizId;
-        /**
-         * SMTP消息ID
-         * <p> 示例值：<1621034567.12345.1234567890@mail.example.com>
-         */
-        this.smtpMessageId = builder.smtpMessageId;
+    /**
+     * 会话ID（从search接口返回结果获取）
+     *
+     * <p>示例值：THREAD20240515143000001
+     *
+     * @param threadId
+     * @return
+     */
+    public Builder threadId(String threadId) {
+      this.threadId = threadId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 业务ID（从search接口返回结果获取）
+     *
+     * <p>示例值：MSG20240515143000001
+     *
+     * @param messageBizId
+     * @return
+     */
+    public Builder messageBizId(String messageBizId) {
+      this.messageBizId = messageBizId;
+      return this;
     }
 
-    public String getOwnerId() {
-        return this.ownerId;
+    /**
+     * SMTPID（从search接口返回结果获取）
+     *
+     * <p>示例值：<1621034567.12345.1234567890@mail.example.com>
+     *
+     * @param smtpMessageId
+     * @return
+     */
+    public Builder smtpMessageId(String smtpMessageId) {
+      this.smtpMessageId = smtpMessageId;
+      return this;
     }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
+    public RecallMessageSelector build() {
+      return new RecallMessageSelector(this);
     }
+  }
 
-    public String getThreadId() {
-        return this.threadId;
-    }
-
-    public void setThreadId(String threadId) {
-        this.threadId = threadId;
-    }
-
-    public String getMessageBizId() {
-        return this.messageBizId;
-    }
-
-    public void setMessageBizId(String messageBizId) {
-        this.messageBizId = messageBizId;
-    }
-
-    public String getSmtpMessageId() {
-        return this.smtpMessageId;
-    }
-
-    public void setSmtpMessageId(String smtpMessageId) {
-        this.smtpMessageId = smtpMessageId;
-    }
-
-    public static class Builder {
-        /**
-         * 所有者ID
-         * <p> 示例值：U202405150001
-         */
-        private String ownerId;
-        /**
-         * 线程ID
-         * <p> 示例值：THREAD20240515143000001
-         */
-        private String threadId;
-        /**
-         * 消息业务ID
-         * <p> 示例值：MSG20240515143000001
-         */
-        private String messageBizId;
-        /**
-         * SMTP消息ID
-         * <p> 示例值：<1621034567.12345.1234567890@mail.example.com>
-         */
-        private String smtpMessageId;
-
-        /**
-         * 所有者ID
-         * <p> 示例值：U202405150001
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        /**
-         * 线程ID
-         * <p> 示例值：THREAD20240515143000001
-         *
-         * @param threadId
-         * @return
-         */
-        public Builder threadId(String threadId) {
-            this.threadId = threadId;
-            return this;
-        }
-
-
-        /**
-         * 消息业务ID
-         * <p> 示例值：MSG20240515143000001
-         *
-         * @param messageBizId
-         * @return
-         */
-        public Builder messageBizId(String messageBizId) {
-            this.messageBizId = messageBizId;
-            return this;
-        }
-
-
-        /**
-         * SMTP消息ID
-         * <p> 示例值：<1621034567.12345.1234567890@mail.example.com>
-         *
-         * @param smtpMessageId
-         * @return
-         */
-        public Builder smtpMessageId(String smtpMessageId) {
-            this.smtpMessageId = smtpMessageId;
-            return this;
-        }
-
-
-        public RecallMessageSelector build() {
-            return new RecallMessageSelector(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

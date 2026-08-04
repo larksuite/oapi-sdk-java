@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.aily.v1.enums;
 
-/**
- * 消息内容类型
- */
+/** 消息的类型，包括 `MDX` | `TEXT` 等;;- `MDX` 能够表达富文本信息结构，可参考 Aily 消息节点 markdown 语法;- `TEXT` 作为纯文本进行处理 */
 public enum CreateAilySessionAilyMessageAilyMessageContentTypeEnum {
-    CONTENTTYPEMDX("MDX"), // MDX
-    CONTENTTYPETEXT("TEXT"), // TEXT
-    CONTENTTYPECLIP("CLIP"), // GUI 卡片
-    CONTENTTYPESMARTCARD("SmartCard"), // SmartCard
-    CONTENTTYPEJSON("JSON"), // JSON
-    ;
-    private String value;
+  CONTENTTYPEMDX("MDX"), // MDX
+  CONTENTTYPETEXT("TEXT"), // TEXT
+  CONTENTTYPECLIP("CLIP"), // GUI 卡片
+  CONTENTTYPESMARTCARD("SmartCard"), // SmartCard
+  CONTENTTYPEJSON("JSON"), // JSON
+  ;
+  private String value;
 
-    CreateAilySessionAilyMessageAilyMessageContentTypeEnum(String value) {
-        this.value = value;
-    }
+  CreateAilySessionAilyMessageAilyMessageContentTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

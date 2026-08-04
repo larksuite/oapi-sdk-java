@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v7.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EventAndCallbackEncryptStrategy {
+  /**
+   * 加密key, 配置 Encrypt Key 后，开放平台将向请求地址推送加密后的事件
+   *
+   * <p>示例值：xE4k2SkQgtbC8jZEviGRxxxxxxxx
+   */
+  @SerializedName("encryption_key")
+  private String encryptionKey;
+
+  /**
+   * 开放平台向应用推送的事件中都带有此 Token，应用可以据此 Token 验证推送的事件是否属于该应用。
+   *
+   * <p>示例值：lVEjWtBAu6kVIgSLMV3C4fxxxx
+   */
+  @SerializedName("verification_token")
+  private String verificationToken;
+
+  public String getEncryptionKey() {
+    return this.encryptionKey;
+  }
+
+  public void setEncryptionKey(String encryptionKey) {
+    this.encryptionKey = encryptionKey;
+  }
+
+  public String getVerificationToken() {
+    return this.verificationToken;
+  }
+
+  public void setVerificationToken(String verificationToken) {
+    this.verificationToken = verificationToken;
+  }
+
+  // builder 开始
+  public EventAndCallbackEncryptStrategy() {}
+
+  public EventAndCallbackEncryptStrategy(Builder builder) {
     /**
      * 加密key, 配置 Encrypt Key 后，开放平台将向请求地址推送加密后的事件
-     * <p> 示例值：xE4k2SkQgtbC8jZEviGRshiZrdPqdkRI
+     *
+     * <p>示例值：xE4k2SkQgtbC8jZEviGRxxxxxxxx
      */
-    @SerializedName("encryption_key")
-    private String encryptionKey;
+    this.encryptionKey = builder.encryptionKey;
     /**
      * 开放平台向应用推送的事件中都带有此 Token，应用可以据此 Token 验证推送的事件是否属于该应用。
-     * <p> 示例值：lVEjWtBAu6kVIgSLMV3C4f5W2sAAwvqS
+     *
+     * <p>示例值：lVEjWtBAu6kVIgSLMV3C4fxxxx
      */
-    @SerializedName("verification_token")
+    this.verificationToken = builder.verificationToken;
+  }
+
+  public static class Builder {
+    /**
+     * 加密key, 配置 Encrypt Key 后，开放平台将向请求地址推送加密后的事件
+     *
+     * <p>示例值：xE4k2SkQgtbC8jZEviGRxxxxxxxx
+     */
+    private String encryptionKey;
+
+    /**
+     * 开放平台向应用推送的事件中都带有此 Token，应用可以据此 Token 验证推送的事件是否属于该应用。
+     *
+     * <p>示例值：lVEjWtBAu6kVIgSLMV3C4fxxxx
+     */
     private String verificationToken;
 
-    // builder 开始
-    public EventAndCallbackEncryptStrategy() {
+    /**
+     * 加密key, 配置 Encrypt Key 后，开放平台将向请求地址推送加密后的事件
+     *
+     * <p>示例值：xE4k2SkQgtbC8jZEviGRxxxxxxxx
+     *
+     * @param encryptionKey
+     * @return
+     */
+    public Builder encryptionKey(String encryptionKey) {
+      this.encryptionKey = encryptionKey;
+      return this;
     }
 
-    public EventAndCallbackEncryptStrategy(Builder builder) {
-        /**
-         * 加密key, 配置 Encrypt Key 后，开放平台将向请求地址推送加密后的事件
-         * <p> 示例值：xE4k2SkQgtbC8jZEviGRshiZrdPqdkRI
-         */
-        this.encryptionKey = builder.encryptionKey;
-        /**
-         * 开放平台向应用推送的事件中都带有此 Token，应用可以据此 Token 验证推送的事件是否属于该应用。
-         * <p> 示例值：lVEjWtBAu6kVIgSLMV3C4f5W2sAAwvqS
-         */
-        this.verificationToken = builder.verificationToken;
+    /**
+     * 开放平台向应用推送的事件中都带有此 Token，应用可以据此 Token 验证推送的事件是否属于该应用。
+     *
+     * <p>示例值：lVEjWtBAu6kVIgSLMV3C4fxxxx
+     *
+     * @param verificationToken
+     * @return
+     */
+    public Builder verificationToken(String verificationToken) {
+      this.verificationToken = verificationToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EventAndCallbackEncryptStrategy build() {
+      return new EventAndCallbackEncryptStrategy(this);
     }
+  }
 
-    public String getEncryptionKey() {
-        return this.encryptionKey;
-    }
-
-    public void setEncryptionKey(String encryptionKey) {
-        this.encryptionKey = encryptionKey;
-    }
-
-    public String getVerificationToken() {
-        return this.verificationToken;
-    }
-
-    public void setVerificationToken(String verificationToken) {
-        this.verificationToken = verificationToken;
-    }
-
-    public static class Builder {
-        /**
-         * 加密key, 配置 Encrypt Key 后，开放平台将向请求地址推送加密后的事件
-         * <p> 示例值：xE4k2SkQgtbC8jZEviGRshiZrdPqdkRI
-         */
-        private String encryptionKey;
-        /**
-         * 开放平台向应用推送的事件中都带有此 Token，应用可以据此 Token 验证推送的事件是否属于该应用。
-         * <p> 示例值：lVEjWtBAu6kVIgSLMV3C4f5W2sAAwvqS
-         */
-        private String verificationToken;
-
-        /**
-         * 加密key, 配置 Encrypt Key 后，开放平台将向请求地址推送加密后的事件
-         * <p> 示例值：xE4k2SkQgtbC8jZEviGRshiZrdPqdkRI
-         *
-         * @param encryptionKey
-         * @return
-         */
-        public Builder encryptionKey(String encryptionKey) {
-            this.encryptionKey = encryptionKey;
-            return this;
-        }
-
-
-        /**
-         * 开放平台向应用推送的事件中都带有此 Token，应用可以据此 Token 验证推送的事件是否属于该应用。
-         * <p> 示例值：lVEjWtBAu6kVIgSLMV3C4f5W2sAAwvqS
-         *
-         * @param verificationToken
-         * @return
-         */
-        public Builder verificationToken(String verificationToken) {
-            this.verificationToken = verificationToken;
-            return this;
-        }
-
-
-        public EventAndCallbackEncryptStrategy build() {
-            return new EventAndCallbackEncryptStrategy(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

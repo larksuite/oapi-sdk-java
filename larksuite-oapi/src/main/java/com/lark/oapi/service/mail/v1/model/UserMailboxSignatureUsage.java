@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserMailboxSignatureUsage {
+  /**
+   * 邮箱地址
+   *
+   * <p>示例值：user@example.com
+   */
+  @SerializedName("email_address")
+  private String emailAddress;
+
+  /**
+   * 发送邮件时使用的签名 ID
+   *
+   * <p>示例值：sig_xxxxxx
+   */
+  @SerializedName("send_mail_signature_id")
+  private String sendMailSignatureId;
+
+  /**
+   * 回复邮件时使用的签名 ID
+   *
+   * <p>示例值：sig_yyyyyy
+   */
+  @SerializedName("reply_signature_id")
+  private String replySignatureId;
+
+  public String getEmailAddress() {
+    return this.emailAddress;
+  }
+
+  public void setEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+  }
+
+  public String getSendMailSignatureId() {
+    return this.sendMailSignatureId;
+  }
+
+  public void setSendMailSignatureId(String sendMailSignatureId) {
+    this.sendMailSignatureId = sendMailSignatureId;
+  }
+
+  public String getReplySignatureId() {
+    return this.replySignatureId;
+  }
+
+  public void setReplySignatureId(String replySignatureId) {
+    this.replySignatureId = replySignatureId;
+  }
+
+  // builder 开始
+  public UserMailboxSignatureUsage() {}
+
+  public UserMailboxSignatureUsage(Builder builder) {
     /**
      * 邮箱地址
-     * <p> 示例值：user@example.com
+     *
+     * <p>示例值：user@example.com
      */
-    @SerializedName("email_address")
-    private String emailAddress;
+    this.emailAddress = builder.emailAddress;
     /**
      * 发送邮件时使用的签名 ID
-     * <p> 示例值：sig_xxxxxx
+     *
+     * <p>示例值：sig_xxxxxx
      */
-    @SerializedName("send_mail_signature_id")
-    private String sendMailSignatureId;
+    this.sendMailSignatureId = builder.sendMailSignatureId;
     /**
      * 回复邮件时使用的签名 ID
-     * <p> 示例值：sig_yyyyyy
+     *
+     * <p>示例值：sig_yyyyyy
      */
-    @SerializedName("reply_signature_id")
+    this.replySignatureId = builder.replySignatureId;
+  }
+
+  public static class Builder {
+    /**
+     * 邮箱地址
+     *
+     * <p>示例值：user@example.com
+     */
+    private String emailAddress;
+
+    /**
+     * 发送邮件时使用的签名 ID
+     *
+     * <p>示例值：sig_xxxxxx
+     */
+    private String sendMailSignatureId;
+
+    /**
+     * 回复邮件时使用的签名 ID
+     *
+     * <p>示例值：sig_yyyyyy
+     */
     private String replySignatureId;
 
-    // builder 开始
-    public UserMailboxSignatureUsage() {
+    /**
+     * 邮箱地址
+     *
+     * <p>示例值：user@example.com
+     *
+     * @param emailAddress
+     * @return
+     */
+    public Builder emailAddress(String emailAddress) {
+      this.emailAddress = emailAddress;
+      return this;
     }
 
-    public UserMailboxSignatureUsage(Builder builder) {
-        /**
-         * 邮箱地址
-         * <p> 示例值：user@example.com
-         */
-        this.emailAddress = builder.emailAddress;
-        /**
-         * 发送邮件时使用的签名 ID
-         * <p> 示例值：sig_xxxxxx
-         */
-        this.sendMailSignatureId = builder.sendMailSignatureId;
-        /**
-         * 回复邮件时使用的签名 ID
-         * <p> 示例值：sig_yyyyyy
-         */
-        this.replySignatureId = builder.replySignatureId;
+    /**
+     * 发送邮件时使用的签名 ID
+     *
+     * <p>示例值：sig_xxxxxx
+     *
+     * @param sendMailSignatureId
+     * @return
+     */
+    public Builder sendMailSignatureId(String sendMailSignatureId) {
+      this.sendMailSignatureId = sendMailSignatureId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 回复邮件时使用的签名 ID
+     *
+     * <p>示例值：sig_yyyyyy
+     *
+     * @param replySignatureId
+     * @return
+     */
+    public Builder replySignatureId(String replySignatureId) {
+      this.replySignatureId = replySignatureId;
+      return this;
     }
 
-    public String getEmailAddress() {
-        return this.emailAddress;
+    public UserMailboxSignatureUsage build() {
+      return new UserMailboxSignatureUsage(this);
     }
+  }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
-    public String getSendMailSignatureId() {
-        return this.sendMailSignatureId;
-    }
-
-    public void setSendMailSignatureId(String sendMailSignatureId) {
-        this.sendMailSignatureId = sendMailSignatureId;
-    }
-
-    public String getReplySignatureId() {
-        return this.replySignatureId;
-    }
-
-    public void setReplySignatureId(String replySignatureId) {
-        this.replySignatureId = replySignatureId;
-    }
-
-    public static class Builder {
-        /**
-         * 邮箱地址
-         * <p> 示例值：user@example.com
-         */
-        private String emailAddress;
-        /**
-         * 发送邮件时使用的签名 ID
-         * <p> 示例值：sig_xxxxxx
-         */
-        private String sendMailSignatureId;
-        /**
-         * 回复邮件时使用的签名 ID
-         * <p> 示例值：sig_yyyyyy
-         */
-        private String replySignatureId;
-
-        /**
-         * 邮箱地址
-         * <p> 示例值：user@example.com
-         *
-         * @param emailAddress
-         * @return
-         */
-        public Builder emailAddress(String emailAddress) {
-            this.emailAddress = emailAddress;
-            return this;
-        }
-
-
-        /**
-         * 发送邮件时使用的签名 ID
-         * <p> 示例值：sig_xxxxxx
-         *
-         * @param sendMailSignatureId
-         * @return
-         */
-        public Builder sendMailSignatureId(String sendMailSignatureId) {
-            this.sendMailSignatureId = sendMailSignatureId;
-            return this;
-        }
-
-
-        /**
-         * 回复邮件时使用的签名 ID
-         * <p> 示例值：sig_yyyyyy
-         *
-         * @param replySignatureId
-         * @return
-         */
-        public Builder replySignatureId(String replySignatureId) {
-            this.replySignatureId = replySignatureId;
-            return this;
-        }
-
-
-        public UserMailboxSignatureUsage build() {
-            return new UserMailboxSignatureUsage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

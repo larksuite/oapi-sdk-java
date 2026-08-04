@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DirectProjectLeaderRecordInfo {
+  /**
+   * 评估人 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reviewer_id")
+  private User reviewerId;
+
+  /**
+   * 评估人作为直属项目上级所在的项目
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cooperation_projects")
+  private CooperationProject[] cooperationProjects;
+
+  /**
+   * 评估依据的项目
+   *
+   * <p>示例值：
+   */
+  @SerializedName("review_depend_projects")
+  private CooperationProject[] reviewDependProjects;
+
+  /**
+   * 共同参与的项目
+   *
+   * <p>示例值：
+   */
+  @SerializedName("participated_projects")
+  private CooperationProject[] participatedProjects;
+
+  public User getReviewerId() {
+    return this.reviewerId;
+  }
+
+  public void setReviewerId(User reviewerId) {
+    this.reviewerId = reviewerId;
+  }
+
+  public CooperationProject[] getCooperationProjects() {
+    return this.cooperationProjects;
+  }
+
+  public void setCooperationProjects(CooperationProject[] cooperationProjects) {
+    this.cooperationProjects = cooperationProjects;
+  }
+
+  public CooperationProject[] getReviewDependProjects() {
+    return this.reviewDependProjects;
+  }
+
+  public void setReviewDependProjects(CooperationProject[] reviewDependProjects) {
+    this.reviewDependProjects = reviewDependProjects;
+  }
+
+  public CooperationProject[] getParticipatedProjects() {
+    return this.participatedProjects;
+  }
+
+  public void setParticipatedProjects(CooperationProject[] participatedProjects) {
+    this.participatedProjects = participatedProjects;
+  }
+
+  // builder 开始
+  public DirectProjectLeaderRecordInfo() {}
+
+  public DirectProjectLeaderRecordInfo(Builder builder) {
     /**
      * 评估人 ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reviewer_id")
-    private User reviewerId;
+    this.reviewerId = builder.reviewerId;
     /**
      * 评估人作为直属项目上级所在的项目
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cooperation_projects")
-    private CooperationProject[] cooperationProjects;
+    this.cooperationProjects = builder.cooperationProjects;
     /**
      * 评估依据的项目
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("review_depend_projects")
-    private CooperationProject[] reviewDependProjects;
+    this.reviewDependProjects = builder.reviewDependProjects;
     /**
      * 共同参与的项目
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("participated_projects")
+    this.participatedProjects = builder.participatedProjects;
+  }
+
+  public static class Builder {
+    /**
+     * 评估人 ID
+     *
+     * <p>示例值：
+     */
+    private User reviewerId;
+
+    /**
+     * 评估人作为直属项目上级所在的项目
+     *
+     * <p>示例值：
+     */
+    private CooperationProject[] cooperationProjects;
+
+    /**
+     * 评估依据的项目
+     *
+     * <p>示例值：
+     */
+    private CooperationProject[] reviewDependProjects;
+
+    /**
+     * 共同参与的项目
+     *
+     * <p>示例值：
+     */
     private CooperationProject[] participatedProjects;
 
-    // builder 开始
-    public DirectProjectLeaderRecordInfo() {
+    /**
+     * 评估人 ID
+     *
+     * <p>示例值：
+     *
+     * @param reviewerId
+     * @return
+     */
+    public Builder reviewerId(User reviewerId) {
+      this.reviewerId = reviewerId;
+      return this;
     }
 
-    public DirectProjectLeaderRecordInfo(Builder builder) {
-        /**
-         * 评估人 ID
-         * <p> 示例值：
-         */
-        this.reviewerId = builder.reviewerId;
-        /**
-         * 评估人作为直属项目上级所在的项目
-         * <p> 示例值：
-         */
-        this.cooperationProjects = builder.cooperationProjects;
-        /**
-         * 评估依据的项目
-         * <p> 示例值：
-         */
-        this.reviewDependProjects = builder.reviewDependProjects;
-        /**
-         * 共同参与的项目
-         * <p> 示例值：
-         */
-        this.participatedProjects = builder.participatedProjects;
+    /**
+     * 评估人作为直属项目上级所在的项目
+     *
+     * <p>示例值：
+     *
+     * @param cooperationProjects
+     * @return
+     */
+    public Builder cooperationProjects(CooperationProject[] cooperationProjects) {
+      this.cooperationProjects = cooperationProjects;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评估依据的项目
+     *
+     * <p>示例值：
+     *
+     * @param reviewDependProjects
+     * @return
+     */
+    public Builder reviewDependProjects(CooperationProject[] reviewDependProjects) {
+      this.reviewDependProjects = reviewDependProjects;
+      return this;
     }
 
-    public User getReviewerId() {
-        return this.reviewerId;
+    /**
+     * 共同参与的项目
+     *
+     * <p>示例值：
+     *
+     * @param participatedProjects
+     * @return
+     */
+    public Builder participatedProjects(CooperationProject[] participatedProjects) {
+      this.participatedProjects = participatedProjects;
+      return this;
     }
 
-    public void setReviewerId(User reviewerId) {
-        this.reviewerId = reviewerId;
+    public DirectProjectLeaderRecordInfo build() {
+      return new DirectProjectLeaderRecordInfo(this);
     }
+  }
 
-    public CooperationProject[] getCooperationProjects() {
-        return this.cooperationProjects;
-    }
-
-    public void setCooperationProjects(CooperationProject[] cooperationProjects) {
-        this.cooperationProjects = cooperationProjects;
-    }
-
-    public CooperationProject[] getReviewDependProjects() {
-        return this.reviewDependProjects;
-    }
-
-    public void setReviewDependProjects(CooperationProject[] reviewDependProjects) {
-        this.reviewDependProjects = reviewDependProjects;
-    }
-
-    public CooperationProject[] getParticipatedProjects() {
-        return this.participatedProjects;
-    }
-
-    public void setParticipatedProjects(CooperationProject[] participatedProjects) {
-        this.participatedProjects = participatedProjects;
-    }
-
-    public static class Builder {
-        /**
-         * 评估人 ID
-         * <p> 示例值：
-         */
-        private User reviewerId;
-        /**
-         * 评估人作为直属项目上级所在的项目
-         * <p> 示例值：
-         */
-        private CooperationProject[] cooperationProjects;
-        /**
-         * 评估依据的项目
-         * <p> 示例值：
-         */
-        private CooperationProject[] reviewDependProjects;
-        /**
-         * 共同参与的项目
-         * <p> 示例值：
-         */
-        private CooperationProject[] participatedProjects;
-
-        /**
-         * 评估人 ID
-         * <p> 示例值：
-         *
-         * @param reviewerId
-         * @return
-         */
-        public Builder reviewerId(User reviewerId) {
-            this.reviewerId = reviewerId;
-            return this;
-        }
-
-
-        /**
-         * 评估人作为直属项目上级所在的项目
-         * <p> 示例值：
-         *
-         * @param cooperationProjects
-         * @return
-         */
-        public Builder cooperationProjects(CooperationProject[] cooperationProjects) {
-            this.cooperationProjects = cooperationProjects;
-            return this;
-        }
-
-
-        /**
-         * 评估依据的项目
-         * <p> 示例值：
-         *
-         * @param reviewDependProjects
-         * @return
-         */
-        public Builder reviewDependProjects(CooperationProject[] reviewDependProjects) {
-            this.reviewDependProjects = reviewDependProjects;
-            return this;
-        }
-
-
-        /**
-         * 共同参与的项目
-         * <p> 示例值：
-         *
-         * @param participatedProjects
-         * @return
-         */
-        public Builder participatedProjects(CooperationProject[] participatedProjects) {
-            this.participatedProjects = participatedProjects;
-            return this;
-        }
-
-
-        public DirectProjectLeaderRecordInfo build() {
-            return new DirectProjectLeaderRecordInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 选项类型
- */
+/** 选项类型 */
 public enum EnumValueEnumTypeEnum {
-    CUSTOM_FIELD_VALUE_ENUM_TYPE_TEXT("1"), // 文本
-    CUSTOM_FIELD_VALUE_ENUM_TYPE_PICTURE("2"), // 图片
-    ;
-    private String value;
+  CUSTOM_FIELD_VALUE_ENUM_TYPE_TEXT("1"), // 文本
+  CUSTOM_FIELD_VALUE_ENUM_TYPE_PICTURE("2"), // 图片
+  ;
+  private String value;
 
-    EnumValueEnumTypeEnum(String value) {
-        this.value = value;
-    }
+  EnumValueEnumTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,118 +13,118 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ApplicationAppVersionAuditV6Data {
-    /**
-     * 通过 / 拒绝应用审核的管理员 id
-     * <p> 示例值：
-     */
-    @SerializedName("operator_id")
-    private UserId operatorId;
-    /**
-     * 被审核的应用版本 id
-     * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-     */
-    @SerializedName("version_id")
-    private String versionId;
-    /**
-     * 应用创建者的 id
-     * <p> 示例值：
-     */
-    @SerializedName("creator_id")
-    private UserId creatorId;
-    /**
-     * 撤回应用的 id
-     * <p> 示例值：cli_9b445f5258795107
-     */
-    @SerializedName("app_id")
-    private String appId;
-    /**
-     * 审核通过 / 拒绝
-     * <p> 示例值：audited
-     */
-    @SerializedName("operation")
-    private String operation;
-    /**
-     * 审核信息，当审核拒绝时，管理员填写的拒绝理由
-     * <p> 示例值：拒绝理由
-     */
-    @SerializedName("remark")
-    private String remark;
-    /**
-     * 应用审核的方式
-     * <p> 示例值：administrator
-     */
-    @SerializedName("audit_source")
-    private String auditSource;
+  /**
+   * 通过 / 拒绝应用审核的管理员 id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator_id")
+  private UserId operatorId;
 
-    public UserId getOperatorId() {
-        return this.operatorId;
-    }
+  /**
+   * 被审核的应用版本 id
+   *
+   * <p>示例值：oav_d317f090b7258ad0372aa53963cda70d
+   */
+  @SerializedName("version_id")
+  private String versionId;
 
-    public void setOperatorId(UserId operatorId) {
-        this.operatorId = operatorId;
-    }
+  /**
+   * 应用创建者的 id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("creator_id")
+  private UserId creatorId;
 
-    public String getVersionId() {
-        return this.versionId;
-    }
+  /**
+   * 审核应用的 id
+   *
+   * <p>示例值：cli_***
+   */
+  @SerializedName("app_id")
+  private String appId;
 
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
-    }
+  /**
+   * 审核通过 / 拒绝
+   *
+   * <p>示例值：audited
+   */
+  @SerializedName("operation")
+  private String operation;
 
-    public UserId getCreatorId() {
-        return this.creatorId;
-    }
+  /**
+   * 审核信息，当审核拒绝时，管理员填写的拒绝理由
+   *
+   * <p>示例值：拒绝理由
+   */
+  @SerializedName("remark")
+  private String remark;
 
-    public void setCreatorId(UserId creatorId) {
-        this.creatorId = creatorId;
-    }
+  /**
+   * 应用审核的方式
+   *
+   * <p>示例值：administrator
+   */
+  @SerializedName("audit_source")
+  private String auditSource;
 
-    public String getAppId() {
-        return this.appId;
-    }
+  public UserId getOperatorId() {
+    return this.operatorId;
+  }
 
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
+  public void setOperatorId(UserId operatorId) {
+    this.operatorId = operatorId;
+  }
 
-    public String getOperation() {
-        return this.operation;
-    }
+  public String getVersionId() {
+    return this.versionId;
+  }
 
-    public void setOperation(String operation) {
-        this.operation = operation;
-    }
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
 
-    public String getRemark() {
-        return this.remark;
-    }
+  public UserId getCreatorId() {
+    return this.creatorId;
+  }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
+  public void setCreatorId(UserId creatorId) {
+    this.creatorId = creatorId;
+  }
 
-    public String getAuditSource() {
-        return this.auditSource;
-    }
+  public String getAppId() {
+    return this.appId;
+  }
 
-    public void setAuditSource(String auditSource) {
-        this.auditSource = auditSource;
-    }
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
 
+  public String getOperation() {
+    return this.operation;
+  }
+
+  public void setOperation(String operation) {
+    this.operation = operation;
+  }
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  public String getAuditSource() {
+    return this.auditSource;
+  }
+
+  public void setAuditSource(String auditSource) {
+    this.auditSource = auditSource;
+  }
 }

@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AddEnumOptionCommonDataMetaDataRespBody {
-    /**
-     * 枚举字段 API name
-     * <p> 示例值：final_assessment_grade
-     */
-    @SerializedName("enum_field_api_name")
-    private String enumFieldApiName;
-    /**
-     * 枚举全部选项列表
-     * <p> 示例值：
-     */
-    @SerializedName("enum_field_options")
-    private EnumFieldOption[] enumFieldOptions;
+  /**
+   * 枚举字段 API name
+   *
+   * <p>示例值：final_assessment_grade
+   */
+  @SerializedName("enum_field_api_name")
+  private String enumFieldApiName;
 
-    public String getEnumFieldApiName() {
-        return this.enumFieldApiName;
-    }
+  /**
+   * 枚举全部选项列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enum_field_options")
+  private EnumFieldOption[] enumFieldOptions;
 
-    public void setEnumFieldApiName(String enumFieldApiName) {
-        this.enumFieldApiName = enumFieldApiName;
-    }
+  public String getEnumFieldApiName() {
+    return this.enumFieldApiName;
+  }
 
-    public EnumFieldOption[] getEnumFieldOptions() {
-        return this.enumFieldOptions;
-    }
+  public void setEnumFieldApiName(String enumFieldApiName) {
+    this.enumFieldApiName = enumFieldApiName;
+  }
 
-    public void setEnumFieldOptions(EnumFieldOption[] enumFieldOptions) {
-        this.enumFieldOptions = enumFieldOptions;
-    }
+  public EnumFieldOption[] getEnumFieldOptions() {
+    return this.enumFieldOptions;
+  }
 
+  public void setEnumFieldOptions(EnumFieldOption[] enumFieldOptions) {
+    this.enumFieldOptions = enumFieldOptions;
+  }
 }

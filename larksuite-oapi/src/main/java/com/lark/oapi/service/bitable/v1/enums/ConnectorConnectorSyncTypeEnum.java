@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.bitable.v1.enums;
 
-/**
- * 同步频率
- */
+/** 同步频率 */
 public enum ConnectorConnectorSyncTypeEnum {
-    MANUAL("1"), // 手动同步
-    PERIODIC("2"), // 定时同步
-    EVENT("3"), // 实时同步
-    ;
-    private String value;
+  MANUAL("1"), // 手动同步
+  PERIODIC("2"), // 定时同步
+  EVENT("3"), // 实时同步
+  ;
+  private String value;
 
-    ConnectorConnectorSyncTypeEnum(String value) {
-        this.value = value;
-    }
+  ConnectorConnectorSyncTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

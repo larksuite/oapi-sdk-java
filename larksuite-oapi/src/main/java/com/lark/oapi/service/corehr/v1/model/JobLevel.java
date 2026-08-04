@@ -13,408 +13,443 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobLevel {
+  /**
+   * 职级 ID
+   *
+   * <p>示例值：4692446793125560154
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 职级数值
+   *
+   * <p>示例值：9999
+   */
+  @SerializedName("level_order")
+  private Integer levelOrder;
+
+  /**
+   * 编码
+   *
+   * <p>示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n[] description;
+
+  /**
+   * 启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  /**
+   * 职等 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_grade")
+  private String[] jobGrade;
+
+  /**
+   * 通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("pathway_ids")
+  private String[] pathwayIds;
+
+  /**
+   * 排序
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("view_order")
+  private Integer viewOrder;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getLevelOrder() {
+    return this.levelOrder;
+  }
+
+  public void setLevelOrder(Integer levelOrder) {
+    this.levelOrder = levelOrder;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  public I18n[] getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n[] description) {
+    this.description = description;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public String[] getJobGrade() {
+    return this.jobGrade;
+  }
+
+  public void setJobGrade(String[] jobGrade) {
+    this.jobGrade = jobGrade;
+  }
+
+  public String[] getPathwayIds() {
+    return this.pathwayIds;
+  }
+
+  public void setPathwayIds(String[] pathwayIds) {
+    this.pathwayIds = pathwayIds;
+  }
+
+  public Integer getViewOrder() {
+    return this.viewOrder;
+  }
+
+  public void setViewOrder(Integer viewOrder) {
+    this.viewOrder = viewOrder;
+  }
+
+  // builder 开始
+  public JobLevel() {}
+
+  public JobLevel(Builder builder) {
     /**
-     * 职务级别 ID
-     * <p> 示例值：4692446793125560154
+     * 职级 ID
+     *
+     * <p>示例值：4692446793125560154
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 职级数值
-     * <p> 示例值：9999
+     *
+     * <p>示例值：9999
      */
-    @SerializedName("level_order")
-    private Integer levelOrder;
+    this.levelOrder = builder.levelOrder;
     /**
      * 编码
-     * <p> 示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
+     *
+     * <p>示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n[] name;
+    this.name = builder.name;
     /**
      * 描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n[] description;
+    this.description = builder.description;
     /**
-     * 是否启用
-     * <p> 示例值：true
+     * 启用
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private ObjectFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
      * 职等 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_grade")
-    private String[] jobGrade;
+    this.jobGrade = builder.jobGrade;
     /**
-     * 通道 ID 列表
-     * <p> 示例值：
+     * 通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)
+     *
+     * <p>示例值：
      */
-    @SerializedName("pathway_ids")
-    private String[] pathwayIds;
+    this.pathwayIds = builder.pathwayIds;
     /**
      * 排序
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("view_order")
+    this.viewOrder = builder.viewOrder;
+  }
+
+  public static class Builder {
+    /**
+     * 职级 ID
+     *
+     * <p>示例值：4692446793125560154
+     */
+    private String id;
+
+    /**
+     * 职级数值
+     *
+     * <p>示例值：9999
+     */
+    private Integer levelOrder;
+
+    /**
+     * 编码
+     *
+     * <p>示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
+     */
+    private String code;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] name;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] description;
+
+    /**
+     * 启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean active;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private ObjectFieldData[] customFields;
+
+    /**
+     * 职等 ID 列表
+     *
+     * <p>示例值：
+     */
+    private String[] jobGrade;
+
+    /**
+     * 通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)
+     *
+     * <p>示例值：
+     */
+    private String[] pathwayIds;
+
+    /**
+     * 排序
+     *
+     * <p>示例值：123
+     */
     private Integer viewOrder;
 
-    // builder 开始
-    public JobLevel() {
+    /**
+     * 职级 ID
+     *
+     * <p>示例值：4692446793125560154
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public JobLevel(Builder builder) {
-        /**
-         * 职务级别 ID
-         * <p> 示例值：4692446793125560154
-         */
-        this.id = builder.id;
-        /**
-         * 职级数值
-         * <p> 示例值：9999
-         */
-        this.levelOrder = builder.levelOrder;
-        /**
-         * 编码
-         * <p> 示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
-         */
-        this.code = builder.code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 职等 ID 列表
-         * <p> 示例值：
-         */
-        this.jobGrade = builder.jobGrade;
-        /**
-         * 通道 ID 列表
-         * <p> 示例值：
-         */
-        this.pathwayIds = builder.pathwayIds;
-        /**
-         * 排序
-         * <p> 示例值：123
-         */
-        this.viewOrder = builder.viewOrder;
+    /**
+     * 职级数值
+     *
+     * <p>示例值：9999
+     *
+     * @param levelOrder
+     * @return
+     */
+    public Builder levelOrder(Integer levelOrder) {
+      this.levelOrder = levelOrder;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 编码
+     *
+     * <p>示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n[] description) {
+      this.description = description;
+      return this;
     }
 
-    public Integer getLevelOrder() {
-        return this.levelOrder;
+    /**
+     * 启用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public void setLevelOrder(Integer levelOrder) {
-        this.levelOrder = levelOrder;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    /**
+     * 职等 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param jobGrade
+     * @return
+     */
+    public Builder jobGrade(String[] jobGrade) {
+      this.jobGrade = jobGrade;
+      return this;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    /**
+     * 通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)
+     *
+     * <p>示例值：
+     *
+     * @param pathwayIds
+     * @return
+     */
+    public Builder pathwayIds(String[] pathwayIds) {
+      this.pathwayIds = pathwayIds;
+      return this;
     }
 
-    public I18n[] getName() {
-        return this.name;
+    /**
+     * 排序
+     *
+     * <p>示例值：123
+     *
+     * @param viewOrder
+     * @return
+     */
+    public Builder viewOrder(Integer viewOrder) {
+      this.viewOrder = viewOrder;
+      return this;
     }
 
-    public void setName(I18n[] name) {
-        this.name = name;
+    public JobLevel build() {
+      return new JobLevel(this);
     }
+  }
 
-    public I18n[] getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18n[] description) {
-        this.description = description;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public String[] getJobGrade() {
-        return this.jobGrade;
-    }
-
-    public void setJobGrade(String[] jobGrade) {
-        this.jobGrade = jobGrade;
-    }
-
-    public String[] getPathwayIds() {
-        return this.pathwayIds;
-    }
-
-    public void setPathwayIds(String[] pathwayIds) {
-        this.pathwayIds = pathwayIds;
-    }
-
-    public Integer getViewOrder() {
-        return this.viewOrder;
-    }
-
-    public void setViewOrder(Integer viewOrder) {
-        this.viewOrder = viewOrder;
-    }
-
-    public static class Builder {
-        /**
-         * 职务级别 ID
-         * <p> 示例值：4692446793125560154
-         */
-        private String id;
-        /**
-         * 职级数值
-         * <p> 示例值：9999
-         */
-        private Integer levelOrder;
-        /**
-         * 编码
-         * <p> 示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
-         */
-        private String code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n[] name;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        private I18n[] description;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-        /**
-         * 职等 ID 列表
-         * <p> 示例值：
-         */
-        private String[] jobGrade;
-        /**
-         * 通道 ID 列表
-         * <p> 示例值：
-         */
-        private String[] pathwayIds;
-        /**
-         * 排序
-         * <p> 示例值：123
-         */
-        private Integer viewOrder;
-
-        /**
-         * 职务级别 ID
-         * <p> 示例值：4692446793125560154
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 职级数值
-         * <p> 示例值：9999
-         *
-         * @param levelOrder
-         * @return
-         */
-        public Builder levelOrder(Integer levelOrder) {
-            this.levelOrder = levelOrder;
-            return this;
-        }
-
-
-        /**
-         * 编码
-         * <p> 示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n[] description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 职等 ID 列表
-         * <p> 示例值：
-         *
-         * @param jobGrade
-         * @return
-         */
-        public Builder jobGrade(String[] jobGrade) {
-            this.jobGrade = jobGrade;
-            return this;
-        }
-
-
-        /**
-         * 通道 ID 列表
-         * <p> 示例值：
-         *
-         * @param pathwayIds
-         * @return
-         */
-        public Builder pathwayIds(String[] pathwayIds) {
-            this.pathwayIds = pathwayIds;
-            return this;
-        }
-
-
-        /**
-         * 排序
-         * <p> 示例值：123
-         *
-         * @param viewOrder
-         * @return
-         */
-        public Builder viewOrder(Integer viewOrder) {
-            this.viewOrder = viewOrder;
-            return this;
-        }
-
-
-        public JobLevel build() {
-            return new JobLevel(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

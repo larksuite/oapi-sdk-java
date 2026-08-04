@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateAppFeedCardRespBody {
-    /**
-     * 失败的卡片
-     * <p> 示例值：
-     */
-    @SerializedName("failed_cards")
-    private OpenFailedUserAppFeedCardItem[] failedCards;
-    /**
-     * 卡片业务 ID
-     * <p> 示例值：b90ce43a-fca8-4f42-92f4-794bff206ee5
-     */
-    @SerializedName("biz_id")
-    private String bizId;
+  /**
+   * 失败的卡片
+   *
+   * <p>示例值：
+   */
+  @SerializedName("failed_cards")
+  private OpenFailedUserAppFeedCardItem[] failedCards;
 
-    public OpenFailedUserAppFeedCardItem[] getFailedCards() {
-        return this.failedCards;
-    }
+  /**
+   * 卡片业务 ID
+   *
+   * <p>示例值：b90ce43a-fca8-4f42-92f4-794bff206ee5
+   */
+  @SerializedName("biz_id")
+  private String bizId;
 
-    public void setFailedCards(OpenFailedUserAppFeedCardItem[] failedCards) {
-        this.failedCards = failedCards;
-    }
+  public OpenFailedUserAppFeedCardItem[] getFailedCards() {
+    return this.failedCards;
+  }
 
-    public String getBizId() {
-        return this.bizId;
-    }
+  public void setFailedCards(OpenFailedUserAppFeedCardItem[] failedCards) {
+    this.failedCards = failedCards;
+  }
 
-    public void setBizId(String bizId) {
-        this.bizId = bizId;
-    }
+  public String getBizId() {
+    return this.bizId;
+  }
 
+  public void setBizId(String bizId) {
+    this.bizId = bizId;
+  }
 }

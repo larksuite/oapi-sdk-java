@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AllowedSender {
+  /**
+   * 发件人地址
+   *
+   * <p>示例值：trusted@example.com
+   */
+  @SerializedName("address")
+  private String address;
+
+  /**
+   * 白名单发件人 id
+   *
+   * <p>示例值：7001234567890
+   */
+  @SerializedName("allowed_sender_id")
+  private String allowedSenderId;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：可信发件人
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 创建时间（Unix 时间戳，单位：秒）
+   *
+   * <p>示例值：1710000000
+   */
+  @SerializedName("created_time")
+  private String createdTime;
+
+  /**
+   * 最后更新时间（Unix 时间戳，单位：秒）
+   *
+   * <p>示例值：1710000000
+   */
+  @SerializedName("last_updated_time")
+  private String lastUpdatedTime;
+
+  /**
+   * 是否需要授权
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("need_authorized")
+  private Boolean needAuthorized;
+
+  public String getAddress() {
+    return this.address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+  public String getAllowedSenderId() {
+    return this.allowedSenderId;
+  }
+
+  public void setAllowedSenderId(String allowedSenderId) {
+    this.allowedSenderId = allowedSenderId;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getCreatedTime() {
+    return this.createdTime;
+  }
+
+  public void setCreatedTime(String createdTime) {
+    this.createdTime = createdTime;
+  }
+
+  public String getLastUpdatedTime() {
+    return this.lastUpdatedTime;
+  }
+
+  public void setLastUpdatedTime(String lastUpdatedTime) {
+    this.lastUpdatedTime = lastUpdatedTime;
+  }
+
+  public Boolean getNeedAuthorized() {
+    return this.needAuthorized;
+  }
+
+  public void setNeedAuthorized(Boolean needAuthorized) {
+    this.needAuthorized = needAuthorized;
+  }
+
+  // builder 开始
+  public AllowedSender() {}
+
+  public AllowedSender(Builder builder) {
     /**
      * 发件人地址
-     * <p> 示例值：trusted@example.com
+     *
+     * <p>示例值：trusted@example.com
      */
-    @SerializedName("address")
-    private String address;
+    this.address = builder.address;
     /**
      * 白名单发件人 id
-     * <p> 示例值：7001234567890
+     *
+     * <p>示例值：7001234567890
      */
-    @SerializedName("allowed_sender_id")
-    private String allowedSenderId;
+    this.allowedSenderId = builder.allowedSenderId;
     /**
      * 描述
-     * <p> 示例值：可信发件人
+     *
+     * <p>示例值：可信发件人
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 创建时间（Unix 时间戳，单位：秒）
-     * <p> 示例值：1710000000
+     *
+     * <p>示例值：1710000000
      */
-    @SerializedName("created_time")
-    private String createdTime;
+    this.createdTime = builder.createdTime;
     /**
      * 最后更新时间（Unix 时间戳，单位：秒）
-     * <p> 示例值：1710000000
+     *
+     * <p>示例值：1710000000
      */
-    @SerializedName("last_updated_time")
-    private String lastUpdatedTime;
+    this.lastUpdatedTime = builder.lastUpdatedTime;
     /**
      * 是否需要授权
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("need_authorized")
+    this.needAuthorized = builder.needAuthorized;
+  }
+
+  public static class Builder {
+    /**
+     * 发件人地址
+     *
+     * <p>示例值：trusted@example.com
+     */
+    private String address;
+
+    /**
+     * 白名单发件人 id
+     *
+     * <p>示例值：7001234567890
+     */
+    private String allowedSenderId;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：可信发件人
+     */
+    private String description;
+
+    /**
+     * 创建时间（Unix 时间戳，单位：秒）
+     *
+     * <p>示例值：1710000000
+     */
+    private String createdTime;
+
+    /**
+     * 最后更新时间（Unix 时间戳，单位：秒）
+     *
+     * <p>示例值：1710000000
+     */
+    private String lastUpdatedTime;
+
+    /**
+     * 是否需要授权
+     *
+     * <p>示例值：false
+     */
     private Boolean needAuthorized;
 
-    // builder 开始
-    public AllowedSender() {
+    /**
+     * 发件人地址
+     *
+     * <p>示例值：trusted@example.com
+     *
+     * @param address
+     * @return
+     */
+    public Builder address(String address) {
+      this.address = address;
+      return this;
     }
 
-    public AllowedSender(Builder builder) {
-        /**
-         * 发件人地址
-         * <p> 示例值：trusted@example.com
-         */
-        this.address = builder.address;
-        /**
-         * 白名单发件人 id
-         * <p> 示例值：7001234567890
-         */
-        this.allowedSenderId = builder.allowedSenderId;
-        /**
-         * 描述
-         * <p> 示例值：可信发件人
-         */
-        this.description = builder.description;
-        /**
-         * 创建时间（Unix 时间戳，单位：秒）
-         * <p> 示例值：1710000000
-         */
-        this.createdTime = builder.createdTime;
-        /**
-         * 最后更新时间（Unix 时间戳，单位：秒）
-         * <p> 示例值：1710000000
-         */
-        this.lastUpdatedTime = builder.lastUpdatedTime;
-        /**
-         * 是否需要授权
-         * <p> 示例值：false
-         */
-        this.needAuthorized = builder.needAuthorized;
+    /**
+     * 白名单发件人 id
+     *
+     * <p>示例值：7001234567890
+     *
+     * @param allowedSenderId
+     * @return
+     */
+    public Builder allowedSenderId(String allowedSenderId) {
+      this.allowedSenderId = allowedSenderId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 描述
+     *
+     * <p>示例值：可信发件人
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getAddress() {
-        return this.address;
+    /**
+     * 创建时间（Unix 时间戳，单位：秒）
+     *
+     * <p>示例值：1710000000
+     *
+     * @param createdTime
+     * @return
+     */
+    public Builder createdTime(String createdTime) {
+      this.createdTime = createdTime;
+      return this;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    /**
+     * 最后更新时间（Unix 时间戳，单位：秒）
+     *
+     * <p>示例值：1710000000
+     *
+     * @param lastUpdatedTime
+     * @return
+     */
+    public Builder lastUpdatedTime(String lastUpdatedTime) {
+      this.lastUpdatedTime = lastUpdatedTime;
+      return this;
     }
 
-    public String getAllowedSenderId() {
-        return this.allowedSenderId;
+    /**
+     * 是否需要授权
+     *
+     * <p>示例值：false
+     *
+     * @param needAuthorized
+     * @return
+     */
+    public Builder needAuthorized(Boolean needAuthorized) {
+      this.needAuthorized = needAuthorized;
+      return this;
     }
 
-    public void setAllowedSenderId(String allowedSenderId) {
-        this.allowedSenderId = allowedSenderId;
+    public AllowedSender build() {
+      return new AllowedSender(this);
     }
+  }
 
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getCreatedTime() {
-        return this.createdTime;
-    }
-
-    public void setCreatedTime(String createdTime) {
-        this.createdTime = createdTime;
-    }
-
-    public String getLastUpdatedTime() {
-        return this.lastUpdatedTime;
-    }
-
-    public void setLastUpdatedTime(String lastUpdatedTime) {
-        this.lastUpdatedTime = lastUpdatedTime;
-    }
-
-    public Boolean getNeedAuthorized() {
-        return this.needAuthorized;
-    }
-
-    public void setNeedAuthorized(Boolean needAuthorized) {
-        this.needAuthorized = needAuthorized;
-    }
-
-    public static class Builder {
-        /**
-         * 发件人地址
-         * <p> 示例值：trusted@example.com
-         */
-        private String address;
-        /**
-         * 白名单发件人 id
-         * <p> 示例值：7001234567890
-         */
-        private String allowedSenderId;
-        /**
-         * 描述
-         * <p> 示例值：可信发件人
-         */
-        private String description;
-        /**
-         * 创建时间（Unix 时间戳，单位：秒）
-         * <p> 示例值：1710000000
-         */
-        private String createdTime;
-        /**
-         * 最后更新时间（Unix 时间戳，单位：秒）
-         * <p> 示例值：1710000000
-         */
-        private String lastUpdatedTime;
-        /**
-         * 是否需要授权
-         * <p> 示例值：false
-         */
-        private Boolean needAuthorized;
-
-        /**
-         * 发件人地址
-         * <p> 示例值：trusted@example.com
-         *
-         * @param address
-         * @return
-         */
-        public Builder address(String address) {
-            this.address = address;
-            return this;
-        }
-
-
-        /**
-         * 白名单发件人 id
-         * <p> 示例值：7001234567890
-         *
-         * @param allowedSenderId
-         * @return
-         */
-        public Builder allowedSenderId(String allowedSenderId) {
-            this.allowedSenderId = allowedSenderId;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：可信发件人
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 创建时间（Unix 时间戳，单位：秒）
-         * <p> 示例值：1710000000
-         *
-         * @param createdTime
-         * @return
-         */
-        public Builder createdTime(String createdTime) {
-            this.createdTime = createdTime;
-            return this;
-        }
-
-
-        /**
-         * 最后更新时间（Unix 时间戳，单位：秒）
-         * <p> 示例值：1710000000
-         *
-         * @param lastUpdatedTime
-         * @return
-         */
-        public Builder lastUpdatedTime(String lastUpdatedTime) {
-            this.lastUpdatedTime = lastUpdatedTime;
-            return this;
-        }
-
-
-        /**
-         * 是否需要授权
-         * <p> 示例值：false
-         *
-         * @param needAuthorized
-         * @return
-         */
-        public Builder needAuthorized(Boolean needAuthorized) {
-            this.needAuthorized = needAuthorized;
-            return this;
-        }
-
-
-        public AllowedSender build() {
-            return new AllowedSender(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

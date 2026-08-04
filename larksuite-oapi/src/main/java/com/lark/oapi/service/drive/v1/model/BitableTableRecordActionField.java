@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BitableTableRecordActionField {
+  /**
+   * 发生变更的字段 ID
+   *
+   * <p>示例值：fld9Eabcef
+   */
+  @SerializedName("field_id")
+  private String fieldId;
+
+  /**
+   * 发生变更后的字段值。该字段为 JSON 序列化后的字符串，序列化前的结构请参考
+   * [数据结构](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)。
+   *
+   * <p>示例值：666
+   */
+  @SerializedName("field_value")
+  private String fieldValue;
+
+  /**
+   * 人员字段补充信息。有人员、创建人、修改人类型字段变更时返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_identity_value")
+  private BitableTableRecordActionFieldIdentity fieldIdentityValue;
+
+  public String getFieldId() {
+    return this.fieldId;
+  }
+
+  public void setFieldId(String fieldId) {
+    this.fieldId = fieldId;
+  }
+
+  public String getFieldValue() {
+    return this.fieldValue;
+  }
+
+  public void setFieldValue(String fieldValue) {
+    this.fieldValue = fieldValue;
+  }
+
+  public BitableTableRecordActionFieldIdentity getFieldIdentityValue() {
+    return this.fieldIdentityValue;
+  }
+
+  public void setFieldIdentityValue(BitableTableRecordActionFieldIdentity fieldIdentityValue) {
+    this.fieldIdentityValue = fieldIdentityValue;
+  }
+
+  // builder 开始
+  public BitableTableRecordActionField() {}
+
+  public BitableTableRecordActionField(Builder builder) {
     /**
-     * 字段 ID
-     * <p> 示例值：
+     * 发生变更的字段 ID
+     *
+     * <p>示例值：fld9Eabcef
      */
-    @SerializedName("field_id")
+    this.fieldId = builder.fieldId;
+    /**
+     * 发生变更后的字段值。该字段为 JSON 序列化后的字符串，序列化前的结构请参考
+     * [数据结构](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)。
+     *
+     * <p>示例值：666
+     */
+    this.fieldValue = builder.fieldValue;
+    /**
+     * 人员字段补充信息。有人员、创建人、修改人类型字段变更时返回
+     *
+     * <p>示例值：
+     */
+    this.fieldIdentityValue = builder.fieldIdentityValue;
+  }
+
+  public static class Builder {
+    /**
+     * 发生变更的字段 ID
+     *
+     * <p>示例值：fld9Eabcef
+     */
     private String fieldId;
+
     /**
-     * 字段值
-     * <p> 示例值：
+     * 发生变更后的字段值。该字段为 JSON 序列化后的字符串，序列化前的结构请参考
+     * [数据结构](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)。
+     *
+     * <p>示例值：666
      */
-    @SerializedName("field_value")
     private String fieldValue;
+
     /**
-     * 人员字段补充信息
-     * <p> 示例值：
+     * 人员字段补充信息。有人员、创建人、修改人类型字段变更时返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_identity_value")
     private BitableTableRecordActionFieldIdentity fieldIdentityValue;
 
-    // builder 开始
-    public BitableTableRecordActionField() {
+    /**
+     * 发生变更的字段 ID
+     *
+     * <p>示例值：fld9Eabcef
+     *
+     * @param fieldId
+     * @return
+     */
+    public Builder fieldId(String fieldId) {
+      this.fieldId = fieldId;
+      return this;
     }
 
-    public BitableTableRecordActionField(Builder builder) {
-        /**
-         * 字段 ID
-         * <p> 示例值：
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 字段值
-         * <p> 示例值：
-         */
-        this.fieldValue = builder.fieldValue;
-        /**
-         * 人员字段补充信息
-         * <p> 示例值：
-         */
-        this.fieldIdentityValue = builder.fieldIdentityValue;
+    /**
+     * 发生变更后的字段值。该字段为 JSON 序列化后的字符串，序列化前的结构请参考
+     * [数据结构](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)。
+     *
+     * <p>示例值：666
+     *
+     * @param fieldValue
+     * @return
+     */
+    public Builder fieldValue(String fieldValue) {
+      this.fieldValue = fieldValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 人员字段补充信息。有人员、创建人、修改人类型字段变更时返回
+     *
+     * <p>示例值：
+     *
+     * @param fieldIdentityValue
+     * @return
+     */
+    public Builder fieldIdentityValue(BitableTableRecordActionFieldIdentity fieldIdentityValue) {
+      this.fieldIdentityValue = fieldIdentityValue;
+      return this;
     }
 
-    public String getFieldId() {
-        return this.fieldId;
+    public BitableTableRecordActionField build() {
+      return new BitableTableRecordActionField(this);
     }
+  }
 
-    public void setFieldId(String fieldId) {
-        this.fieldId = fieldId;
-    }
-
-    public String getFieldValue() {
-        return this.fieldValue;
-    }
-
-    public void setFieldValue(String fieldValue) {
-        this.fieldValue = fieldValue;
-    }
-
-    public BitableTableRecordActionFieldIdentity getFieldIdentityValue() {
-        return this.fieldIdentityValue;
-    }
-
-    public void setFieldIdentityValue(BitableTableRecordActionFieldIdentity fieldIdentityValue) {
-        this.fieldIdentityValue = fieldIdentityValue;
-    }
-
-    public static class Builder {
-        /**
-         * 字段 ID
-         * <p> 示例值：
-         */
-        private String fieldId;
-        /**
-         * 字段值
-         * <p> 示例值：
-         */
-        private String fieldValue;
-        /**
-         * 人员字段补充信息
-         * <p> 示例值：
-         */
-        private BitableTableRecordActionFieldIdentity fieldIdentityValue;
-
-        /**
-         * 字段 ID
-         * <p> 示例值：
-         *
-         * @param fieldId
-         * @return
-         */
-        public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
-        }
-
-
-        /**
-         * 字段值
-         * <p> 示例值：
-         *
-         * @param fieldValue
-         * @return
-         */
-        public Builder fieldValue(String fieldValue) {
-            this.fieldValue = fieldValue;
-            return this;
-        }
-
-
-        /**
-         * 人员字段补充信息
-         * <p> 示例值：
-         *
-         * @param fieldIdentityValue
-         * @return
-         */
-        public Builder fieldIdentityValue(BitableTableRecordActionFieldIdentity fieldIdentityValue) {
-            this.fieldIdentityValue = fieldIdentityValue;
-            return this;
-        }
-
-
-        public BitableTableRecordActionField build() {
-            return new BitableTableRecordActionField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

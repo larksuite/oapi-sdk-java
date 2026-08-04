@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.performance.v2.enums;
 
-/**
- * 字段填写方式设置
- */
+/** 字段填写方式设置 */
 public enum MetricFieldInLibraryInputSettingEnum {
-    ADMIN("admin"), // 管理员统一配置
-    DATA_SOURCE_INPUTTER("data_source_inputter"), // 数据源录入人填写
-    REVIEWEE("reviewee"), // 指标制定人填写
-    ;
-    private String value;
+  ADMIN("admin"), // 管理员统一配置
+  DATA_SOURCE_INPUTTER("data_source_inputter"), // 数据源录入人填写
+  REVIEWEE("reviewee"), // 指标制定人填写
+  ;
+  private String value;
 
-    MetricFieldInLibraryInputSettingEnum(String value) {
-        this.value = value;
-    }
+  MetricFieldInLibraryInputSettingEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

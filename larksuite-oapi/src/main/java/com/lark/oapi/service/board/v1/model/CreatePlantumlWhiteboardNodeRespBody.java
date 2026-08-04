@@ -13,51 +13,39 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class CreatePlantumlWhiteboardNodeRespBody {
-    /**
-     * 创建生成的plant uml节点id
-     * <p> 示例值：t1:1
-     */
-    @SerializedName("node_id")
-    private String nodeId;
-    /**
-     * 额外的解析信息
-     * <p> 示例值：
-     */
-    @SerializedName("extra")
-    private Map<String, String[]> extra;
+  /**
+   * 创建生成的plant uml节点id
+   *
+   * <p>示例值：t1:1
+   */
+  @SerializedName("node_id")
+  private String nodeId;
 
-    public String getNodeId() {
-        return this.nodeId;
-    }
+  /**
+   * 额外的解析信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("extra")
+  private Map<String, String[]> extra;
 
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
-    }
+  public String getNodeId() {
+    return this.nodeId;
+  }
 
-    public Map<String, String[]> getExtra() {
-        return this.extra;
-    }
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
 
-    public void setExtra(Map<String, String[]> extra) {
-        this.extra = extra;
-    }
+  public Map<String, String[]> getExtra() {
+    return this.extra;
+  }
 
+  public void setExtra(Map<String, String[]> extra) {
+    this.extra = extra;
+  }
 }

@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2EmploymentCreatedV1Data {
-    /**
-     * 被创建的雇佣信息的 ID
-     * <p> 示例值：201571108
-     */
-    @SerializedName("employment_id")
-    private String employmentId;
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
-    @SerializedName("target_user_id")
-    private UserId targetUserId;
+  /**
+   * 被创建的雇佣信息的 ID
+   *
+   * <p>示例值：201571108
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
+  /**
+   * 员工的飞书用户 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_user_id")
+  private UserId targetUserId;
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
 
-    public UserId getTargetUserId() {
-        return this.targetUserId;
-    }
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
 
-    public void setTargetUserId(UserId targetUserId) {
-        this.targetUserId = targetUserId;
-    }
+  public UserId getTargetUserId() {
+    return this.targetUserId;
+  }
 
+  public void setTargetUserId(UserId targetUserId) {
+    this.targetUserId = targetUserId;
+  }
 }

@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentBlock {
+  /**
+   * 加入黑名单时间，毫秒级时间戳
+   *
+   * <p>示例值：1625656721
+   */
+  @SerializedName("blocked_time")
+  private String blockedTime;
+
+  /**
+   * 黑名单创建者 ID
+   *
+   * <p>示例值：6891560630172518670
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  /**
+   * 加入黑名单原因
+   *
+   * <p>示例值：人才作弊
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  public String getBlockedTime() {
+    return this.blockedTime;
+  }
+
+  public void setBlockedTime(String blockedTime) {
+    this.blockedTime = blockedTime;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  // builder 开始
+  public TalentBlock() {}
+
+  public TalentBlock(Builder builder) {
     /**
      * 加入黑名单时间，毫秒级时间戳
-     * <p> 示例值：1625656721
+     *
+     * <p>示例值：1625656721
      */
-    @SerializedName("blocked_time")
-    private String blockedTime;
+    this.blockedTime = builder.blockedTime;
     /**
      * 黑名单创建者 ID
-     * <p> 示例值：6891560630172518670
+     *
+     * <p>示例值：6891560630172518670
      */
-    @SerializedName("creator_id")
-    private String creatorId;
+    this.creatorId = builder.creatorId;
     /**
      * 加入黑名单原因
-     * <p> 示例值：人才作弊
+     *
+     * <p>示例值：人才作弊
      */
-    @SerializedName("reason")
+    this.reason = builder.reason;
+  }
+
+  public static class Builder {
+    /**
+     * 加入黑名单时间，毫秒级时间戳
+     *
+     * <p>示例值：1625656721
+     */
+    private String blockedTime;
+
+    /**
+     * 黑名单创建者 ID
+     *
+     * <p>示例值：6891560630172518670
+     */
+    private String creatorId;
+
+    /**
+     * 加入黑名单原因
+     *
+     * <p>示例值：人才作弊
+     */
     private String reason;
 
-    // builder 开始
-    public TalentBlock() {
+    /**
+     * 加入黑名单时间，毫秒级时间戳
+     *
+     * <p>示例值：1625656721
+     *
+     * @param blockedTime
+     * @return
+     */
+    public Builder blockedTime(String blockedTime) {
+      this.blockedTime = blockedTime;
+      return this;
     }
 
-    public TalentBlock(Builder builder) {
-        /**
-         * 加入黑名单时间，毫秒级时间戳
-         * <p> 示例值：1625656721
-         */
-        this.blockedTime = builder.blockedTime;
-        /**
-         * 黑名单创建者 ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 加入黑名单原因
-         * <p> 示例值：人才作弊
-         */
-        this.reason = builder.reason;
+    /**
+     * 黑名单创建者 ID
+     *
+     * <p>示例值：6891560630172518670
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 加入黑名单原因
+     *
+     * <p>示例值：人才作弊
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public String getBlockedTime() {
-        return this.blockedTime;
+    public TalentBlock build() {
+      return new TalentBlock(this);
     }
+  }
 
-    public void setBlockedTime(String blockedTime) {
-        this.blockedTime = blockedTime;
-    }
-
-    public String getCreatorId() {
-        return this.creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public static class Builder {
-        /**
-         * 加入黑名单时间，毫秒级时间戳
-         * <p> 示例值：1625656721
-         */
-        private String blockedTime;
-        /**
-         * 黑名单创建者 ID
-         * <p> 示例值：6891560630172518670
-         */
-        private String creatorId;
-        /**
-         * 加入黑名单原因
-         * <p> 示例值：人才作弊
-         */
-        private String reason;
-
-        /**
-         * 加入黑名单时间，毫秒级时间戳
-         * <p> 示例值：1625656721
-         *
-         * @param blockedTime
-         * @return
-         */
-        public Builder blockedTime(String blockedTime) {
-            this.blockedTime = blockedTime;
-            return this;
-        }
-
-
-        /**
-         * 黑名单创建者 ID
-         * <p> 示例值：6891560630172518670
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        /**
-         * 加入黑名单原因
-         * <p> 示例值：人才作弊
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        public TalentBlock build() {
-            return new TalentBlock(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

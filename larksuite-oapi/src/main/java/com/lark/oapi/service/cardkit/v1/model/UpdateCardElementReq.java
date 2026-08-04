@@ -13,131 +13,135 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.cardkit.v1.enums.*;
 
 public class UpdateCardElementReq {
+  /**
+   * 卡片实体
+   * ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取。
+   *
+   * <p>示例值：7355439197428236291
+   */
+  @Path
+  @SerializedName("card_id")
+  private String cardId;
+
+  /**
+   * 要更新的组件 ID。对应卡片 JSON 中组件的 `element_id` 属性，由开发者自定义。;;**提示**：同一张卡片内字段值唯一。仅允许使用字母、数字和下划线，必须以字母开头。
+   *
+   * <p>示例值：markdown_1
+   */
+  @Path
+  @SerializedName("element_id")
+  private String elementId;
+
+  public String getCardId() {
+    return this.cardId;
+  }
+
+  public void setCardId(String cardId) {
+    this.cardId = cardId;
+  }
+
+  public String getElementId() {
+    return this.elementId;
+  }
+
+  public void setElementId(String elementId) {
+    this.elementId = elementId;
+  }
+
+  @Body private UpdateCardElementReqBody body;
+
+  public UpdateCardElementReqBody getUpdateCardElementReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateCardElementReqBody(UpdateCardElementReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateCardElementReq() {}
+
+  public UpdateCardElementReq(Builder builder) {
     /**
-     * 卡片ID
-     * <p> 示例值：7355439197428236291
+     * 卡片实体
+     * ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取。
+     *
+     * <p>示例值：7355439197428236291
      */
-    @Path
-    @SerializedName("card_id")
-    private String cardId;
+    this.cardId = builder.cardId;
     /**
-     * 组件ID
-     * <p> 示例值：elem_63529372
+     * 要更新的组件 ID。对应卡片 JSON 中组件的 `element_id` 属性，由开发者自定义。;;**提示**：同一张卡片内字段值唯一。仅允许使用字母、数字和下划线，必须以字母开头。
+     *
+     * <p>示例值：markdown_1
      */
-    @Path
-    @SerializedName("element_id")
-    private String elementId;
-    @Body
+    this.elementId = builder.elementId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String cardId; // 卡片实体
+    // ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取。
+    private String elementId; // 要更新的组件 ID。对应卡片 JSON 中组件的 `element_id`
+
+    // 属性，由开发者自定义。;;**提示**：同一张卡片内字段值唯一。仅允许使用字母、数字和下划线，必须以字母开头。
+
+    /**
+     * 卡片实体
+     * ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取。
+     *
+     * <p>示例值：7355439197428236291
+     *
+     * @param cardId
+     * @return
+     */
+    public Builder cardId(String cardId) {
+      this.cardId = cardId;
+      return this;
+    }
+
+    /**
+     * 要更新的组件 ID。对应卡片 JSON 中组件的 `element_id` 属性，由开发者自定义。;;**提示**：同一张卡片内字段值唯一。仅允许使用字母、数字和下划线，必须以字母开头。
+     *
+     * <p>示例值：markdown_1
+     *
+     * @param elementId
+     * @return
+     */
+    public Builder elementId(String elementId) {
+      this.elementId = elementId;
+      return this;
+    }
+
     private UpdateCardElementReqBody body;
 
-    // builder 开始
-    public UpdateCardElementReq() {
-    }
-
-    public UpdateCardElementReq(Builder builder) {
-        /**
-         * 卡片ID
-         * <p> 示例值：7355439197428236291
-         */
-        this.cardId = builder.cardId;
-        /**
-         * 组件ID
-         * <p> 示例值：elem_63529372
-         */
-        this.elementId = builder.elementId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getCardId() {
-        return this.cardId;
-    }
-
-    public void setCardId(String cardId) {
-        this.cardId = cardId;
-    }
-
-    public String getElementId() {
-        return this.elementId;
-    }
-
-    public void setElementId(String elementId) {
-        this.elementId = elementId;
-    }
-
     public UpdateCardElementReqBody getUpdateCardElementReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateCardElementReqBody(UpdateCardElementReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateCardElementReqBody(UpdateCardElementReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String cardId; // 卡片ID
-        private String elementId; // 组件ID
-        private UpdateCardElementReqBody body;
-
-        /**
-         * 卡片ID
-         * <p> 示例值：7355439197428236291
-         *
-         * @param cardId
-         * @return
-         */
-        public Builder cardId(String cardId) {
-            this.cardId = cardId;
-            return this;
-        }
-
-        /**
-         * 组件ID
-         * <p> 示例值：elem_63529372
-         *
-         * @param elementId
-         * @return
-         */
-        public Builder elementId(String elementId) {
-            this.elementId = elementId;
-            return this;
-        }
-
-        public UpdateCardElementReqBody getUpdateCardElementReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateCardElementReqBody(UpdateCardElementReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateCardElementReq build() {
-            return new UpdateCardElementReq(this);
-        }
+    public UpdateCardElementReq build() {
+      return new UpdateCardElementReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

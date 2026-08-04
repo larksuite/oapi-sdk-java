@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 申报状态
- */
+/** 申报状态 */
 public enum DeviceApplyRecordDeviceApplyStatusEnum {
-    UNKNOWN(0), // 未知
-    PROCESSING(1), // 待审核
-    APPROVED(2), // 审核通过
-    REJECTED(3), // 已驳回
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未知
+  PROCESSING(1), // 待审核
+  APPROVED(2), // 审核通过
+  REJECTED(3), // 已驳回
+  ;
+  private Integer value;
 
-    DeviceApplyRecordDeviceApplyStatusEnum(Integer value) {
-        this.value = value;
-    }
+  DeviceApplyRecordDeviceApplyStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,445 +13,485 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TrainProgramRegistration {
+  /**
+   * 项目ID
+   *
+   * <p>示例值：5fd087e96dbe3a73394188ae
+   */
+  @SerializedName("train_program_id")
+  private String trainProgramId;
+
+  /**
+   * 用户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("learner")
+  private User learner;
+
+  /**
+   * 加入学习时间
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("enroll_at")
+  private Integer enrollAt;
+
+  /**
+   * 注册类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("enroll_type")
+  private Integer enrollType;
+
+  /**
+   * 学员的学习时长（秒）
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("online_seconds")
+  private Integer onlineSeconds;
+
+  /**
+   * 学习状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("learning_state")
+  private Integer learningState;
+
+  /**
+   * 完成时间
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("finished_at")
+  private Integer finishedAt;
+
+  /**
+   * 项目拥有的必修任务的ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("compulsory_task_id_list")
+  private String[] compulsoryTaskIdList;
+
+  /**
+   * 学员完成的必修任务的ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("finished_compulsory_task_id_list")
+  private String[] finishedCompulsoryTaskIdList;
+
+  /**
+   * 项目拥有的选修任务的ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("optional_task_id_list")
+  private String[] optionalTaskIdList;
+
+  /**
+   * 学员完成的选修任务的ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("finished_optional_task_id_list")
+  private String[] finishedOptionalTaskIdList;
+
+  public String getTrainProgramId() {
+    return this.trainProgramId;
+  }
+
+  public void setTrainProgramId(String trainProgramId) {
+    this.trainProgramId = trainProgramId;
+  }
+
+  public User getLearner() {
+    return this.learner;
+  }
+
+  public void setLearner(User learner) {
+    this.learner = learner;
+  }
+
+  public Integer getEnrollAt() {
+    return this.enrollAt;
+  }
+
+  public void setEnrollAt(Integer enrollAt) {
+    this.enrollAt = enrollAt;
+  }
+
+  public Integer getEnrollType() {
+    return this.enrollType;
+  }
+
+  public void setEnrollType(Integer enrollType) {
+    this.enrollType = enrollType;
+  }
+
+  public Integer getOnlineSeconds() {
+    return this.onlineSeconds;
+  }
+
+  public void setOnlineSeconds(Integer onlineSeconds) {
+    this.onlineSeconds = onlineSeconds;
+  }
+
+  public Integer getLearningState() {
+    return this.learningState;
+  }
+
+  public void setLearningState(Integer learningState) {
+    this.learningState = learningState;
+  }
+
+  public Integer getFinishedAt() {
+    return this.finishedAt;
+  }
+
+  public void setFinishedAt(Integer finishedAt) {
+    this.finishedAt = finishedAt;
+  }
+
+  public String[] getCompulsoryTaskIdList() {
+    return this.compulsoryTaskIdList;
+  }
+
+  public void setCompulsoryTaskIdList(String[] compulsoryTaskIdList) {
+    this.compulsoryTaskIdList = compulsoryTaskIdList;
+  }
+
+  public String[] getFinishedCompulsoryTaskIdList() {
+    return this.finishedCompulsoryTaskIdList;
+  }
+
+  public void setFinishedCompulsoryTaskIdList(String[] finishedCompulsoryTaskIdList) {
+    this.finishedCompulsoryTaskIdList = finishedCompulsoryTaskIdList;
+  }
+
+  public String[] getOptionalTaskIdList() {
+    return this.optionalTaskIdList;
+  }
+
+  public void setOptionalTaskIdList(String[] optionalTaskIdList) {
+    this.optionalTaskIdList = optionalTaskIdList;
+  }
+
+  public String[] getFinishedOptionalTaskIdList() {
+    return this.finishedOptionalTaskIdList;
+  }
+
+  public void setFinishedOptionalTaskIdList(String[] finishedOptionalTaskIdList) {
+    this.finishedOptionalTaskIdList = finishedOptionalTaskIdList;
+  }
+
+  // builder 开始
+  public TrainProgramRegistration() {}
+
+  public TrainProgramRegistration(Builder builder) {
     /**
      * 项目ID
-     * <p> 示例值：5fd087e96dbe3a73394188ae
+     *
+     * <p>示例值：5fd087e96dbe3a73394188ae
      */
-    @SerializedName("train_program_id")
-    private String trainProgramId;
+    this.trainProgramId = builder.trainProgramId;
     /**
-     * 项目学员信息
-     * <p> 示例值：
+     * 用户
+     *
+     * <p>示例值：
      */
-    @SerializedName("learner")
-    private User learner;
+    this.learner = builder.learner;
     /**
      * 加入学习时间
-     * <p> 示例值：123456
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("enroll_at")
-    private Integer enrollAt;
+    this.enrollAt = builder.enrollAt;
     /**
      * 注册类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("enroll_type")
-    private Integer enrollType;
+    this.enrollType = builder.enrollType;
     /**
      * 学员的学习时长（秒）
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("online_seconds")
-    private Integer onlineSeconds;
+    this.onlineSeconds = builder.onlineSeconds;
     /**
      * 学习状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("learning_state")
-    private Integer learningState;
+    this.learningState = builder.learningState;
     /**
      * 完成时间
-     * <p> 示例值：123456
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("finished_at")
-    private Integer finishedAt;
+    this.finishedAt = builder.finishedAt;
     /**
      * 项目拥有的必修任务的ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("compulsory_task_id_list")
-    private String[] compulsoryTaskIdList;
+    this.compulsoryTaskIdList = builder.compulsoryTaskIdList;
     /**
      * 学员完成的必修任务的ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("finished_compulsory_task_id_list")
-    private String[] finishedCompulsoryTaskIdList;
+    this.finishedCompulsoryTaskIdList = builder.finishedCompulsoryTaskIdList;
     /**
      * 项目拥有的选修任务的ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("optional_task_id_list")
-    private String[] optionalTaskIdList;
+    this.optionalTaskIdList = builder.optionalTaskIdList;
     /**
      * 学员完成的选修任务的ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("finished_optional_task_id_list")
+    this.finishedOptionalTaskIdList = builder.finishedOptionalTaskIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 项目ID
+     *
+     * <p>示例值：5fd087e96dbe3a73394188ae
+     */
+    private String trainProgramId;
+
+    /**
+     * 用户
+     *
+     * <p>示例值：
+     */
+    private User learner;
+
+    /**
+     * 加入学习时间
+     *
+     * <p>示例值：123456
+     */
+    private Integer enrollAt;
+
+    /**
+     * 注册类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     */
+    private Integer enrollType;
+
+    /**
+     * 学员的学习时长（秒）
+     *
+     * <p>示例值：123
+     */
+    private Integer onlineSeconds;
+
+    /**
+     * 学习状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：2
+     */
+    private Integer learningState;
+
+    /**
+     * 完成时间
+     *
+     * <p>示例值：123456
+     */
+    private Integer finishedAt;
+
+    /**
+     * 项目拥有的必修任务的ID
+     *
+     * <p>示例值：
+     */
+    private String[] compulsoryTaskIdList;
+
+    /**
+     * 学员完成的必修任务的ID
+     *
+     * <p>示例值：
+     */
+    private String[] finishedCompulsoryTaskIdList;
+
+    /**
+     * 项目拥有的选修任务的ID
+     *
+     * <p>示例值：
+     */
+    private String[] optionalTaskIdList;
+
+    /**
+     * 学员完成的选修任务的ID
+     *
+     * <p>示例值：
+     */
     private String[] finishedOptionalTaskIdList;
 
-    // builder 开始
-    public TrainProgramRegistration() {
+    /**
+     * 项目ID
+     *
+     * <p>示例值：5fd087e96dbe3a73394188ae
+     *
+     * @param trainProgramId
+     * @return
+     */
+    public Builder trainProgramId(String trainProgramId) {
+      this.trainProgramId = trainProgramId;
+      return this;
     }
 
-    public TrainProgramRegistration(Builder builder) {
-        /**
-         * 项目ID
-         * <p> 示例值：5fd087e96dbe3a73394188ae
-         */
-        this.trainProgramId = builder.trainProgramId;
-        /**
-         * 项目学员信息
-         * <p> 示例值：
-         */
-        this.learner = builder.learner;
-        /**
-         * 加入学习时间
-         * <p> 示例值：123456
-         */
-        this.enrollAt = builder.enrollAt;
-        /**
-         * 注册类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        this.enrollType = builder.enrollType;
-        /**
-         * 学员的学习时长（秒）
-         * <p> 示例值：123
-         */
-        this.onlineSeconds = builder.onlineSeconds;
-        /**
-         * 学习状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：2
-         */
-        this.learningState = builder.learningState;
-        /**
-         * 完成时间
-         * <p> 示例值：123456
-         */
-        this.finishedAt = builder.finishedAt;
-        /**
-         * 项目拥有的必修任务的ID
-         * <p> 示例值：
-         */
-        this.compulsoryTaskIdList = builder.compulsoryTaskIdList;
-        /**
-         * 学员完成的必修任务的ID
-         * <p> 示例值：
-         */
-        this.finishedCompulsoryTaskIdList = builder.finishedCompulsoryTaskIdList;
-        /**
-         * 项目拥有的选修任务的ID
-         * <p> 示例值：
-         */
-        this.optionalTaskIdList = builder.optionalTaskIdList;
-        /**
-         * 学员完成的选修任务的ID
-         * <p> 示例值：
-         */
-        this.finishedOptionalTaskIdList = builder.finishedOptionalTaskIdList;
+    /**
+     * 用户
+     *
+     * <p>示例值：
+     *
+     * @param learner
+     * @return
+     */
+    public Builder learner(User learner) {
+      this.learner = learner;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 加入学习时间
+     *
+     * <p>示例值：123456
+     *
+     * @param enrollAt
+     * @return
+     */
+    public Builder enrollAt(Integer enrollAt) {
+      this.enrollAt = enrollAt;
+      return this;
     }
 
-    public String getTrainProgramId() {
-        return this.trainProgramId;
+    /**
+     * 注册类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     *
+     * @param enrollType
+     * @return
+     */
+    public Builder enrollType(Integer enrollType) {
+      this.enrollType = enrollType;
+      return this;
     }
 
-    public void setTrainProgramId(String trainProgramId) {
-        this.trainProgramId = trainProgramId;
+    /**
+     * 学员的学习时长（秒）
+     *
+     * <p>示例值：123
+     *
+     * @param onlineSeconds
+     * @return
+     */
+    public Builder onlineSeconds(Integer onlineSeconds) {
+      this.onlineSeconds = onlineSeconds;
+      return this;
     }
 
-    public User getLearner() {
-        return this.learner;
+    /**
+     * 学习状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：2
+     *
+     * @param learningState
+     * @return
+     */
+    public Builder learningState(Integer learningState) {
+      this.learningState = learningState;
+      return this;
     }
 
-    public void setLearner(User learner) {
-        this.learner = learner;
+    /**
+     * 完成时间
+     *
+     * <p>示例值：123456
+     *
+     * @param finishedAt
+     * @return
+     */
+    public Builder finishedAt(Integer finishedAt) {
+      this.finishedAt = finishedAt;
+      return this;
     }
 
-    public Integer getEnrollAt() {
-        return this.enrollAt;
+    /**
+     * 项目拥有的必修任务的ID
+     *
+     * <p>示例值：
+     *
+     * @param compulsoryTaskIdList
+     * @return
+     */
+    public Builder compulsoryTaskIdList(String[] compulsoryTaskIdList) {
+      this.compulsoryTaskIdList = compulsoryTaskIdList;
+      return this;
     }
 
-    public void setEnrollAt(Integer enrollAt) {
-        this.enrollAt = enrollAt;
+    /**
+     * 学员完成的必修任务的ID
+     *
+     * <p>示例值：
+     *
+     * @param finishedCompulsoryTaskIdList
+     * @return
+     */
+    public Builder finishedCompulsoryTaskIdList(String[] finishedCompulsoryTaskIdList) {
+      this.finishedCompulsoryTaskIdList = finishedCompulsoryTaskIdList;
+      return this;
     }
 
-    public Integer getEnrollType() {
-        return this.enrollType;
+    /**
+     * 项目拥有的选修任务的ID
+     *
+     * <p>示例值：
+     *
+     * @param optionalTaskIdList
+     * @return
+     */
+    public Builder optionalTaskIdList(String[] optionalTaskIdList) {
+      this.optionalTaskIdList = optionalTaskIdList;
+      return this;
     }
 
-    public void setEnrollType(Integer enrollType) {
-        this.enrollType = enrollType;
+    /**
+     * 学员完成的选修任务的ID
+     *
+     * <p>示例值：
+     *
+     * @param finishedOptionalTaskIdList
+     * @return
+     */
+    public Builder finishedOptionalTaskIdList(String[] finishedOptionalTaskIdList) {
+      this.finishedOptionalTaskIdList = finishedOptionalTaskIdList;
+      return this;
     }
 
-    public Integer getOnlineSeconds() {
-        return this.onlineSeconds;
+    public TrainProgramRegistration build() {
+      return new TrainProgramRegistration(this);
     }
+  }
 
-    public void setOnlineSeconds(Integer onlineSeconds) {
-        this.onlineSeconds = onlineSeconds;
-    }
-
-    public Integer getLearningState() {
-        return this.learningState;
-    }
-
-    public void setLearningState(Integer learningState) {
-        this.learningState = learningState;
-    }
-
-    public Integer getFinishedAt() {
-        return this.finishedAt;
-    }
-
-    public void setFinishedAt(Integer finishedAt) {
-        this.finishedAt = finishedAt;
-    }
-
-    public String[] getCompulsoryTaskIdList() {
-        return this.compulsoryTaskIdList;
-    }
-
-    public void setCompulsoryTaskIdList(String[] compulsoryTaskIdList) {
-        this.compulsoryTaskIdList = compulsoryTaskIdList;
-    }
-
-    public String[] getFinishedCompulsoryTaskIdList() {
-        return this.finishedCompulsoryTaskIdList;
-    }
-
-    public void setFinishedCompulsoryTaskIdList(String[] finishedCompulsoryTaskIdList) {
-        this.finishedCompulsoryTaskIdList = finishedCompulsoryTaskIdList;
-    }
-
-    public String[] getOptionalTaskIdList() {
-        return this.optionalTaskIdList;
-    }
-
-    public void setOptionalTaskIdList(String[] optionalTaskIdList) {
-        this.optionalTaskIdList = optionalTaskIdList;
-    }
-
-    public String[] getFinishedOptionalTaskIdList() {
-        return this.finishedOptionalTaskIdList;
-    }
-
-    public void setFinishedOptionalTaskIdList(String[] finishedOptionalTaskIdList) {
-        this.finishedOptionalTaskIdList = finishedOptionalTaskIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 项目ID
-         * <p> 示例值：5fd087e96dbe3a73394188ae
-         */
-        private String trainProgramId;
-        /**
-         * 项目学员信息
-         * <p> 示例值：
-         */
-        private User learner;
-        /**
-         * 加入学习时间
-         * <p> 示例值：123456
-         */
-        private Integer enrollAt;
-        /**
-         * 注册类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        private Integer enrollType;
-        /**
-         * 学员的学习时长（秒）
-         * <p> 示例值：123
-         */
-        private Integer onlineSeconds;
-        /**
-         * 学习状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：2
-         */
-        private Integer learningState;
-        /**
-         * 完成时间
-         * <p> 示例值：123456
-         */
-        private Integer finishedAt;
-        /**
-         * 项目拥有的必修任务的ID
-         * <p> 示例值：
-         */
-        private String[] compulsoryTaskIdList;
-        /**
-         * 学员完成的必修任务的ID
-         * <p> 示例值：
-         */
-        private String[] finishedCompulsoryTaskIdList;
-        /**
-         * 项目拥有的选修任务的ID
-         * <p> 示例值：
-         */
-        private String[] optionalTaskIdList;
-        /**
-         * 学员完成的选修任务的ID
-         * <p> 示例值：
-         */
-        private String[] finishedOptionalTaskIdList;
-
-        /**
-         * 项目ID
-         * <p> 示例值：5fd087e96dbe3a73394188ae
-         *
-         * @param trainProgramId
-         * @return
-         */
-        public Builder trainProgramId(String trainProgramId) {
-            this.trainProgramId = trainProgramId;
-            return this;
-        }
-
-
-        /**
-         * 项目学员信息
-         * <p> 示例值：
-         *
-         * @param learner
-         * @return
-         */
-        public Builder learner(User learner) {
-            this.learner = learner;
-            return this;
-        }
-
-
-        /**
-         * 加入学习时间
-         * <p> 示例值：123456
-         *
-         * @param enrollAt
-         * @return
-         */
-        public Builder enrollAt(Integer enrollAt) {
-            this.enrollAt = enrollAt;
-            return this;
-        }
-
-
-        /**
-         * 注册类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         *
-         * @param enrollType
-         * @return
-         */
-        public Builder enrollType(Integer enrollType) {
-            this.enrollType = enrollType;
-            return this;
-        }
-
-
-        /**
-         * 学员的学习时长（秒）
-         * <p> 示例值：123
-         *
-         * @param onlineSeconds
-         * @return
-         */
-        public Builder onlineSeconds(Integer onlineSeconds) {
-            this.onlineSeconds = onlineSeconds;
-            return this;
-        }
-
-
-        /**
-         * 学习状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：2
-         *
-         * @param learningState
-         * @return
-         */
-        public Builder learningState(Integer learningState) {
-            this.learningState = learningState;
-            return this;
-        }
-
-
-        /**
-         * 完成时间
-         * <p> 示例值：123456
-         *
-         * @param finishedAt
-         * @return
-         */
-        public Builder finishedAt(Integer finishedAt) {
-            this.finishedAt = finishedAt;
-            return this;
-        }
-
-
-        /**
-         * 项目拥有的必修任务的ID
-         * <p> 示例值：
-         *
-         * @param compulsoryTaskIdList
-         * @return
-         */
-        public Builder compulsoryTaskIdList(String[] compulsoryTaskIdList) {
-            this.compulsoryTaskIdList = compulsoryTaskIdList;
-            return this;
-        }
-
-
-        /**
-         * 学员完成的必修任务的ID
-         * <p> 示例值：
-         *
-         * @param finishedCompulsoryTaskIdList
-         * @return
-         */
-        public Builder finishedCompulsoryTaskIdList(String[] finishedCompulsoryTaskIdList) {
-            this.finishedCompulsoryTaskIdList = finishedCompulsoryTaskIdList;
-            return this;
-        }
-
-
-        /**
-         * 项目拥有的选修任务的ID
-         * <p> 示例值：
-         *
-         * @param optionalTaskIdList
-         * @return
-         */
-        public Builder optionalTaskIdList(String[] optionalTaskIdList) {
-            this.optionalTaskIdList = optionalTaskIdList;
-            return this;
-        }
-
-
-        /**
-         * 学员完成的选修任务的ID
-         * <p> 示例值：
-         *
-         * @param finishedOptionalTaskIdList
-         * @return
-         */
-        public Builder finishedOptionalTaskIdList(String[] finishedOptionalTaskIdList) {
-            this.finishedOptionalTaskIdList = finishedOptionalTaskIdList;
-            return this;
-        }
-
-
-        public TrainProgramRegistration build() {
-            return new TrainProgramRegistration(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

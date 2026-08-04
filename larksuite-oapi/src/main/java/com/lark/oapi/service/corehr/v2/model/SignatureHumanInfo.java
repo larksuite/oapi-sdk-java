@@ -13,198 +13,210 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureHumanInfo {
+  /**
+   * 雇佣ID，对在职员工发起电子签传递该参数[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+   *
+   * <p>示例值：5ce6cd12
+   */
+  @SerializedName("employee_id")
+  private String employeeId;
+
+  /**
+   * 待入职ID，可以通过[【搜索待入职人员信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)获取;<md-alert
+   * type="tip" icon="none">注意：如果需要对入职员工发起电子签需要传递该参数</md-alert>
+   *
+   * <p>示例值：7278880340130022956
+   */
+  @SerializedName("pre_hire_id")
+  private String preHireId;
+
+  /**
+   * 用户 ID 类型，适用于employee_id
+   *
+   * <p>示例值：people_corehr_id
+   */
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 归属人类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("human_type")
+  private Enum humanType;
+
+  public String getEmployeeId() {
+    return this.employeeId;
+  }
+
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  public String getPreHireId() {
+    return this.preHireId;
+  }
+
+  public void setPreHireId(String preHireId) {
+    this.preHireId = preHireId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public Enum getHumanType() {
+    return this.humanType;
+  }
+
+  public void setHumanType(Enum humanType) {
+    this.humanType = humanType;
+  }
+
+  // builder 开始
+  public SignatureHumanInfo() {}
+
+  public SignatureHumanInfo(Builder builder) {
     /**
-     * 在职员工ID
-     * <p> 示例值：5ce6cd12
+     * 雇佣ID，对在职员工发起电子签传递该参数[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     *
+     * <p>示例值：5ce6cd12
      */
-    @SerializedName("employee_id")
-    private String employeeId;
+    this.employeeId = builder.employeeId;
     /**
-     * 员工待入职id
-     * <p> 示例值：7278880340130022956
+     * 待入职ID，可以通过[【搜索待入职人员信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)获取;<md-alert
+     * type="tip" icon="none">注意：如果需要对入职员工发起电子签需要传递该参数</md-alert>
+     *
+     * <p>示例值：7278880340130022956
      */
-    @SerializedName("pre_hire_id")
-    private String preHireId;
+    this.preHireId = builder.preHireId;
     /**
      * 用户 ID 类型，适用于employee_id
-     * <p> 示例值：people_corehr_id
+     *
+     * <p>示例值：people_corehr_id
      */
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 归属人类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("human_type")
+    this.humanType = builder.humanType;
+  }
+
+  public static class Builder {
+    /**
+     * 雇佣ID，对在职员工发起电子签传递该参数[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     *
+     * <p>示例值：5ce6cd12
+     */
+    private String employeeId;
+
+    /**
+     * 待入职ID，可以通过[【搜索待入职人员信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)获取;<md-alert
+     * type="tip" icon="none">注意：如果需要对入职员工发起电子签需要传递该参数</md-alert>
+     *
+     * <p>示例值：7278880340130022956
+     */
+    private String preHireId;
+
+    /**
+     * 用户 ID 类型，适用于employee_id
+     *
+     * <p>示例值：people_corehr_id
+     */
+    private String userIdType;
+
+    /**
+     * 归属人类型
+     *
+     * <p>示例值：
+     */
     private Enum humanType;
 
-    // builder 开始
-    public SignatureHumanInfo() {
+    /**
+     * 雇佣ID，对在职员工发起电子签传递该参数[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     *
+     * <p>示例值：5ce6cd12
+     *
+     * @param employeeId
+     * @return
+     */
+    public Builder employeeId(String employeeId) {
+      this.employeeId = employeeId;
+      return this;
     }
 
-    public SignatureHumanInfo(Builder builder) {
-        /**
-         * 在职员工ID
-         * <p> 示例值：5ce6cd12
-         */
-        this.employeeId = builder.employeeId;
-        /**
-         * 员工待入职id
-         * <p> 示例值：7278880340130022956
-         */
-        this.preHireId = builder.preHireId;
-        /**
-         * 用户 ID 类型，适用于employee_id
-         * <p> 示例值：people_corehr_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 归属人类型
-         * <p> 示例值：
-         */
-        this.humanType = builder.humanType;
+    /**
+     * 待入职ID，可以通过[【搜索待入职人员信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)获取;<md-alert
+     * type="tip" icon="none">注意：如果需要对入职员工发起电子签需要传递该参数</md-alert>
+     *
+     * <p>示例值：7278880340130022956
+     *
+     * @param preHireId
+     * @return
+     */
+    public Builder preHireId(String preHireId) {
+      this.preHireId = preHireId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户 ID 类型，适用于employee_id
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getEmployeeId() {
-        return this.employeeId;
+    /**
+     * 用户 ID 类型，适用于employee_id
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.SignatureHumanInfoUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v2.enums.SignatureHumanInfoUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
+    /**
+     * 归属人类型
+     *
+     * <p>示例值：
+     *
+     * @param humanType
+     * @return
+     */
+    public Builder humanType(Enum humanType) {
+      this.humanType = humanType;
+      return this;
     }
 
-    public String getPreHireId() {
-        return this.preHireId;
+    public SignatureHumanInfo build() {
+      return new SignatureHumanInfo(this);
     }
+  }
 
-    public void setPreHireId(String preHireId) {
-        this.preHireId = preHireId;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public Enum getHumanType() {
-        return this.humanType;
-    }
-
-    public void setHumanType(Enum humanType) {
-        this.humanType = humanType;
-    }
-
-    public static class Builder {
-        /**
-         * 在职员工ID
-         * <p> 示例值：5ce6cd12
-         */
-        private String employeeId;
-        /**
-         * 员工待入职id
-         * <p> 示例值：7278880340130022956
-         */
-        private String preHireId;
-        /**
-         * 用户 ID 类型，适用于employee_id
-         * <p> 示例值：people_corehr_id
-         */
-        private String userIdType;
-        /**
-         * 归属人类型
-         * <p> 示例值：
-         */
-        private Enum humanType;
-
-        /**
-         * 在职员工ID
-         * <p> 示例值：5ce6cd12
-         *
-         * @param employeeId
-         * @return
-         */
-        public Builder employeeId(String employeeId) {
-            this.employeeId = employeeId;
-            return this;
-        }
-
-
-        /**
-         * 员工待入职id
-         * <p> 示例值：7278880340130022956
-         *
-         * @param preHireId
-         * @return
-         */
-        public Builder preHireId(String preHireId) {
-            this.preHireId = preHireId;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID 类型，适用于employee_id
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型，适用于employee_id
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.SignatureHumanInfoUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.SignatureHumanInfoUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 归属人类型
-         * <p> 示例值：
-         *
-         * @param humanType
-         * @return
-         */
-        public Builder humanType(Enum humanType) {
-            this.humanType = humanType;
-            return this;
-        }
-
-
-        public SignatureHumanInfo build() {
-            return new SignatureHumanInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

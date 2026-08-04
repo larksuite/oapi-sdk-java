@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RichTextElementMentionUser {
+  /**
+   * 用户openID，可通过 [获取指定用户的 Open
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)
+   * 获取
+   *
+   * <p>示例值：ou_da5****************dfe
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 文字属性
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text_style")
+  private RichTextElementTextStyle textStyle;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public RichTextElementTextStyle getTextStyle() {
+    return this.textStyle;
+  }
+
+  public void setTextStyle(RichTextElementTextStyle textStyle) {
+    this.textStyle = textStyle;
+  }
+
+  // builder 开始
+  public RichTextElementMentionUser() {}
+
+  public RichTextElementMentionUser(Builder builder) {
     /**
-     * 用户id
-     * <p> 示例值：
+     * 用户openID，可通过 [获取指定用户的 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)
+     * 获取
+     *
+     * <p>示例值：ou_da5****************dfe
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 文字属性
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("text_style")
+    this.textStyle = builder.textStyle;
+  }
+
+  public static class Builder {
+    /**
+     * 用户openID，可通过 [获取指定用户的 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)
+     * 获取
+     *
+     * <p>示例值：ou_da5****************dfe
+     */
+    private String userId;
+
+    /**
+     * 文字属性
+     *
+     * <p>示例值：
+     */
     private RichTextElementTextStyle textStyle;
 
-    // builder 开始
-    public RichTextElementMentionUser() {
+    /**
+     * 用户openID，可通过 [获取指定用户的 Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)
+     * 获取
+     *
+     * <p>示例值：ou_da5****************dfe
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public RichTextElementMentionUser(Builder builder) {
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 文字属性
-         * <p> 示例值：
-         */
-        this.textStyle = builder.textStyle;
+    /**
+     * 文字属性
+     *
+     * <p>示例值：
+     *
+     * @param textStyle
+     * @return
+     */
+    public Builder textStyle(RichTextElementTextStyle textStyle) {
+      this.textStyle = textStyle;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public RichTextElementMentionUser build() {
+      return new RichTextElementMentionUser(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public RichTextElementTextStyle getTextStyle() {
-        return this.textStyle;
-    }
-
-    public void setTextStyle(RichTextElementTextStyle textStyle) {
-        this.textStyle = textStyle;
-    }
-
-    public static class Builder {
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 文字属性
-         * <p> 示例值：
-         */
-        private RichTextElementTextStyle textStyle;
-
-        /**
-         * 用户id
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 文字属性
-         * <p> 示例值：
-         *
-         * @param textStyle
-         * @return
-         */
-        public Builder textStyle(RichTextElementTextStyle textStyle) {
-            this.textStyle = textStyle;
-            return this;
-        }
-
-
-        public RichTextElementMentionUser build() {
-            return new RichTextElementMentionUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

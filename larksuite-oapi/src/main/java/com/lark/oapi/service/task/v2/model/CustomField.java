@@ -13,482 +13,527 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomField {
+  /**
+   * 自定义字段的GUID
+   *
+   * <p>示例值：34d4b29f-3d58-4bc5-b752-6be80fb687c8
+   */
+  @SerializedName("guid")
+  private String guid;
+
+  /**
+   * 字段名称，支持最大50个字符。
+   *
+   * <p>示例值：优先级
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 自定义字段类型
+   *
+   * <p>示例值：number
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 数字类型的字段设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("number_setting")
+  private NumberSetting numberSetting;
+
+  /**
+   * 人员类型的字段设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("member_setting")
+  private MemberSetting memberSetting;
+
+  /**
+   * 时间日期类型的字段设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("datetime_setting")
+  private DatetimeSetting datetimeSetting;
+
+  /**
+   * 单选类型的字段设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("single_select_setting")
+  private SelectSetting singleSelectSetting;
+
+  /**
+   * 多选类型的字段设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("multi_select_setting")
+  private SelectSetting multiSelectSetting;
+
+  /**
+   * 清单所有者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("creator")
+  private Member creator;
+
+  /**
+   * 自定义字段创建的时间戳(ms)
+   *
+   * <p>示例值：1688196600000
+   */
+  @SerializedName("created_at")
+  private String createdAt;
+
+  /**
+   * 自定义字段的更新时间戳(ms)
+   *
+   * <p>示例值：1688196600000
+   */
+  @SerializedName("updated_at")
+  private String updatedAt;
+
+  /**
+   * 文本类型设置（目前文本类型没有可设置项）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text_setting")
+  private TextSetting textSetting;
+
+  public String getGuid() {
+    return this.guid;
+  }
+
+  public void setGuid(String guid) {
+    this.guid = guid;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public NumberSetting getNumberSetting() {
+    return this.numberSetting;
+  }
+
+  public void setNumberSetting(NumberSetting numberSetting) {
+    this.numberSetting = numberSetting;
+  }
+
+  public MemberSetting getMemberSetting() {
+    return this.memberSetting;
+  }
+
+  public void setMemberSetting(MemberSetting memberSetting) {
+    this.memberSetting = memberSetting;
+  }
+
+  public DatetimeSetting getDatetimeSetting() {
+    return this.datetimeSetting;
+  }
+
+  public void setDatetimeSetting(DatetimeSetting datetimeSetting) {
+    this.datetimeSetting = datetimeSetting;
+  }
+
+  public SelectSetting getSingleSelectSetting() {
+    return this.singleSelectSetting;
+  }
+
+  public void setSingleSelectSetting(SelectSetting singleSelectSetting) {
+    this.singleSelectSetting = singleSelectSetting;
+  }
+
+  public SelectSetting getMultiSelectSetting() {
+    return this.multiSelectSetting;
+  }
+
+  public void setMultiSelectSetting(SelectSetting multiSelectSetting) {
+    this.multiSelectSetting = multiSelectSetting;
+  }
+
+  public Member getCreator() {
+    return this.creator;
+  }
+
+  public void setCreator(Member creator) {
+    this.creator = creator;
+  }
+
+  public String getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public TextSetting getTextSetting() {
+    return this.textSetting;
+  }
+
+  public void setTextSetting(TextSetting textSetting) {
+    this.textSetting = textSetting;
+  }
+
+  // builder 开始
+  public CustomField() {}
+
+  public CustomField(Builder builder) {
     /**
      * 自定义字段的GUID
-     * <p> 示例值：34d4b29f-3d58-4bc5-b752-6be80fb687c8
+     *
+     * <p>示例值：34d4b29f-3d58-4bc5-b752-6be80fb687c8
      */
-    @SerializedName("guid")
-    private String guid;
+    this.guid = builder.guid;
     /**
-     * 自定义字段名称
-     * <p> 示例值：优先级
+     * 字段名称，支持最大50个字符。
+     *
+     * <p>示例值：优先级
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 自定义字段类型
-     * <p> 示例值：number
+     *
+     * <p>示例值：number
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 数字类型的字段设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("number_setting")
-    private NumberSetting numberSetting;
+    this.numberSetting = builder.numberSetting;
     /**
      * 人员类型的字段设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("member_setting")
-    private MemberSetting memberSetting;
+    this.memberSetting = builder.memberSetting;
     /**
      * 时间日期类型的字段设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("datetime_setting")
-    private DatetimeSetting datetimeSetting;
+    this.datetimeSetting = builder.datetimeSetting;
     /**
      * 单选类型的字段设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("single_select_setting")
-    private SelectSetting singleSelectSetting;
+    this.singleSelectSetting = builder.singleSelectSetting;
     /**
      * 多选类型的字段设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("multi_select_setting")
-    private SelectSetting multiSelectSetting;
+    this.multiSelectSetting = builder.multiSelectSetting;
     /**
-     * 创建人
-     * <p> 示例值：
+     * 清单所有者
+     *
+     * <p>示例值：
      */
-    @SerializedName("creator")
-    private Member creator;
+    this.creator = builder.creator;
     /**
      * 自定义字段创建的时间戳(ms)
-     * <p> 示例值：1688196600000
+     *
+     * <p>示例值：1688196600000
      */
-    @SerializedName("created_at")
-    private String createdAt;
+    this.createdAt = builder.createdAt;
     /**
      * 自定义字段的更新时间戳(ms)
-     * <p> 示例值：1688196600000
+     *
+     * <p>示例值：1688196600000
      */
-    @SerializedName("updated_at")
-    private String updatedAt;
+    this.updatedAt = builder.updatedAt;
     /**
-     * 文本字段配置
-     * <p> 示例值：
+     * 文本类型设置（目前文本类型没有可设置项）
+     *
+     * <p>示例值：
      */
-    @SerializedName("text_setting")
+    this.textSetting = builder.textSetting;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义字段的GUID
+     *
+     * <p>示例值：34d4b29f-3d58-4bc5-b752-6be80fb687c8
+     */
+    private String guid;
+
+    /**
+     * 字段名称，支持最大50个字符。
+     *
+     * <p>示例值：优先级
+     */
+    private String name;
+
+    /**
+     * 自定义字段类型
+     *
+     * <p>示例值：number
+     */
+    private String type;
+
+    /**
+     * 数字类型的字段设置
+     *
+     * <p>示例值：
+     */
+    private NumberSetting numberSetting;
+
+    /**
+     * 人员类型的字段设置
+     *
+     * <p>示例值：
+     */
+    private MemberSetting memberSetting;
+
+    /**
+     * 时间日期类型的字段设置
+     *
+     * <p>示例值：
+     */
+    private DatetimeSetting datetimeSetting;
+
+    /**
+     * 单选类型的字段设置
+     *
+     * <p>示例值：
+     */
+    private SelectSetting singleSelectSetting;
+
+    /**
+     * 多选类型的字段设置
+     *
+     * <p>示例值：
+     */
+    private SelectSetting multiSelectSetting;
+
+    /**
+     * 清单所有者
+     *
+     * <p>示例值：
+     */
+    private Member creator;
+
+    /**
+     * 自定义字段创建的时间戳(ms)
+     *
+     * <p>示例值：1688196600000
+     */
+    private String createdAt;
+
+    /**
+     * 自定义字段的更新时间戳(ms)
+     *
+     * <p>示例值：1688196600000
+     */
+    private String updatedAt;
+
+    /**
+     * 文本类型设置（目前文本类型没有可设置项）
+     *
+     * <p>示例值：
+     */
     private TextSetting textSetting;
 
-    // builder 开始
-    public CustomField() {
+    /**
+     * 自定义字段的GUID
+     *
+     * <p>示例值：34d4b29f-3d58-4bc5-b752-6be80fb687c8
+     *
+     * @param guid
+     * @return
+     */
+    public Builder guid(String guid) {
+      this.guid = guid;
+      return this;
     }
 
-    public CustomField(Builder builder) {
-        /**
-         * 自定义字段的GUID
-         * <p> 示例值：34d4b29f-3d58-4bc5-b752-6be80fb687c8
-         */
-        this.guid = builder.guid;
-        /**
-         * 自定义字段名称
-         * <p> 示例值：优先级
-         */
-        this.name = builder.name;
-        /**
-         * 自定义字段类型
-         * <p> 示例值：number
-         */
-        this.type = builder.type;
-        /**
-         * 数字类型的字段设置
-         * <p> 示例值：
-         */
-        this.numberSetting = builder.numberSetting;
-        /**
-         * 人员类型的字段设置
-         * <p> 示例值：
-         */
-        this.memberSetting = builder.memberSetting;
-        /**
-         * 时间日期类型的字段设置
-         * <p> 示例值：
-         */
-        this.datetimeSetting = builder.datetimeSetting;
-        /**
-         * 单选类型的字段设置
-         * <p> 示例值：
-         */
-        this.singleSelectSetting = builder.singleSelectSetting;
-        /**
-         * 多选类型的字段设置
-         * <p> 示例值：
-         */
-        this.multiSelectSetting = builder.multiSelectSetting;
-        /**
-         * 创建人
-         * <p> 示例值：
-         */
-        this.creator = builder.creator;
-        /**
-         * 自定义字段创建的时间戳(ms)
-         * <p> 示例值：1688196600000
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 自定义字段的更新时间戳(ms)
-         * <p> 示例值：1688196600000
-         */
-        this.updatedAt = builder.updatedAt;
-        /**
-         * 文本字段配置
-         * <p> 示例值：
-         */
-        this.textSetting = builder.textSetting;
+    /**
+     * 字段名称，支持最大50个字符。
+     *
+     * <p>示例值：优先级
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义字段类型
+     *
+     * <p>示例值：number
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getGuid() {
-        return this.guid;
+    /**
+     * 数字类型的字段设置
+     *
+     * <p>示例值：
+     *
+     * @param numberSetting
+     * @return
+     */
+    public Builder numberSetting(NumberSetting numberSetting) {
+      this.numberSetting = numberSetting;
+      return this;
     }
 
-    public void setGuid(String guid) {
-        this.guid = guid;
+    /**
+     * 人员类型的字段设置
+     *
+     * <p>示例值：
+     *
+     * @param memberSetting
+     * @return
+     */
+    public Builder memberSetting(MemberSetting memberSetting) {
+      this.memberSetting = memberSetting;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 时间日期类型的字段设置
+     *
+     * <p>示例值：
+     *
+     * @param datetimeSetting
+     * @return
+     */
+    public Builder datetimeSetting(DatetimeSetting datetimeSetting) {
+      this.datetimeSetting = datetimeSetting;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 单选类型的字段设置
+     *
+     * <p>示例值：
+     *
+     * @param singleSelectSetting
+     * @return
+     */
+    public Builder singleSelectSetting(SelectSetting singleSelectSetting) {
+      this.singleSelectSetting = singleSelectSetting;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 多选类型的字段设置
+     *
+     * <p>示例值：
+     *
+     * @param multiSelectSetting
+     * @return
+     */
+    public Builder multiSelectSetting(SelectSetting multiSelectSetting) {
+      this.multiSelectSetting = multiSelectSetting;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 清单所有者
+     *
+     * <p>示例值：
+     *
+     * @param creator
+     * @return
+     */
+    public Builder creator(Member creator) {
+      this.creator = creator;
+      return this;
     }
 
-    public NumberSetting getNumberSetting() {
-        return this.numberSetting;
+    /**
+     * 自定义字段创建的时间戳(ms)
+     *
+     * <p>示例值：1688196600000
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(String createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public void setNumberSetting(NumberSetting numberSetting) {
-        this.numberSetting = numberSetting;
+    /**
+     * 自定义字段的更新时间戳(ms)
+     *
+     * <p>示例值：1688196600000
+     *
+     * @param updatedAt
+     * @return
+     */
+    public Builder updatedAt(String updatedAt) {
+      this.updatedAt = updatedAt;
+      return this;
     }
 
-    public MemberSetting getMemberSetting() {
-        return this.memberSetting;
+    /**
+     * 文本类型设置（目前文本类型没有可设置项）
+     *
+     * <p>示例值：
+     *
+     * @param textSetting
+     * @return
+     */
+    public Builder textSetting(TextSetting textSetting) {
+      this.textSetting = textSetting;
+      return this;
     }
 
-    public void setMemberSetting(MemberSetting memberSetting) {
-        this.memberSetting = memberSetting;
+    public CustomField build() {
+      return new CustomField(this);
     }
+  }
 
-    public DatetimeSetting getDatetimeSetting() {
-        return this.datetimeSetting;
-    }
-
-    public void setDatetimeSetting(DatetimeSetting datetimeSetting) {
-        this.datetimeSetting = datetimeSetting;
-    }
-
-    public SelectSetting getSingleSelectSetting() {
-        return this.singleSelectSetting;
-    }
-
-    public void setSingleSelectSetting(SelectSetting singleSelectSetting) {
-        this.singleSelectSetting = singleSelectSetting;
-    }
-
-    public SelectSetting getMultiSelectSetting() {
-        return this.multiSelectSetting;
-    }
-
-    public void setMultiSelectSetting(SelectSetting multiSelectSetting) {
-        this.multiSelectSetting = multiSelectSetting;
-    }
-
-    public Member getCreator() {
-        return this.creator;
-    }
-
-    public void setCreator(Member creator) {
-        this.creator = creator;
-    }
-
-    public String getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdatedAt() {
-        return this.updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public TextSetting getTextSetting() {
-        return this.textSetting;
-    }
-
-    public void setTextSetting(TextSetting textSetting) {
-        this.textSetting = textSetting;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义字段的GUID
-         * <p> 示例值：34d4b29f-3d58-4bc5-b752-6be80fb687c8
-         */
-        private String guid;
-        /**
-         * 自定义字段名称
-         * <p> 示例值：优先级
-         */
-        private String name;
-        /**
-         * 自定义字段类型
-         * <p> 示例值：number
-         */
-        private String type;
-        /**
-         * 数字类型的字段设置
-         * <p> 示例值：
-         */
-        private NumberSetting numberSetting;
-        /**
-         * 人员类型的字段设置
-         * <p> 示例值：
-         */
-        private MemberSetting memberSetting;
-        /**
-         * 时间日期类型的字段设置
-         * <p> 示例值：
-         */
-        private DatetimeSetting datetimeSetting;
-        /**
-         * 单选类型的字段设置
-         * <p> 示例值：
-         */
-        private SelectSetting singleSelectSetting;
-        /**
-         * 多选类型的字段设置
-         * <p> 示例值：
-         */
-        private SelectSetting multiSelectSetting;
-        /**
-         * 创建人
-         * <p> 示例值：
-         */
-        private Member creator;
-        /**
-         * 自定义字段创建的时间戳(ms)
-         * <p> 示例值：1688196600000
-         */
-        private String createdAt;
-        /**
-         * 自定义字段的更新时间戳(ms)
-         * <p> 示例值：1688196600000
-         */
-        private String updatedAt;
-        /**
-         * 文本字段配置
-         * <p> 示例值：
-         */
-        private TextSetting textSetting;
-
-        /**
-         * 自定义字段的GUID
-         * <p> 示例值：34d4b29f-3d58-4bc5-b752-6be80fb687c8
-         *
-         * @param guid
-         * @return
-         */
-        public Builder guid(String guid) {
-            this.guid = guid;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段名称
-         * <p> 示例值：优先级
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段类型
-         * <p> 示例值：number
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 数字类型的字段设置
-         * <p> 示例值：
-         *
-         * @param numberSetting
-         * @return
-         */
-        public Builder numberSetting(NumberSetting numberSetting) {
-            this.numberSetting = numberSetting;
-            return this;
-        }
-
-
-        /**
-         * 人员类型的字段设置
-         * <p> 示例值：
-         *
-         * @param memberSetting
-         * @return
-         */
-        public Builder memberSetting(MemberSetting memberSetting) {
-            this.memberSetting = memberSetting;
-            return this;
-        }
-
-
-        /**
-         * 时间日期类型的字段设置
-         * <p> 示例值：
-         *
-         * @param datetimeSetting
-         * @return
-         */
-        public Builder datetimeSetting(DatetimeSetting datetimeSetting) {
-            this.datetimeSetting = datetimeSetting;
-            return this;
-        }
-
-
-        /**
-         * 单选类型的字段设置
-         * <p> 示例值：
-         *
-         * @param singleSelectSetting
-         * @return
-         */
-        public Builder singleSelectSetting(SelectSetting singleSelectSetting) {
-            this.singleSelectSetting = singleSelectSetting;
-            return this;
-        }
-
-
-        /**
-         * 多选类型的字段设置
-         * <p> 示例值：
-         *
-         * @param multiSelectSetting
-         * @return
-         */
-        public Builder multiSelectSetting(SelectSetting multiSelectSetting) {
-            this.multiSelectSetting = multiSelectSetting;
-            return this;
-        }
-
-
-        /**
-         * 创建人
-         * <p> 示例值：
-         *
-         * @param creator
-         * @return
-         */
-        public Builder creator(Member creator) {
-            this.creator = creator;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段创建的时间戳(ms)
-         * <p> 示例值：1688196600000
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段的更新时间戳(ms)
-         * <p> 示例值：1688196600000
-         *
-         * @param updatedAt
-         * @return
-         */
-        public Builder updatedAt(String updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
-        }
-
-
-        /**
-         * 文本字段配置
-         * <p> 示例值：
-         *
-         * @param textSetting
-         * @return
-         */
-        public Builder textSetting(TextSetting textSetting) {
-            this.textSetting = textSetting;
-            return this;
-        }
-
-
-        public CustomField build() {
-            return new CustomField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

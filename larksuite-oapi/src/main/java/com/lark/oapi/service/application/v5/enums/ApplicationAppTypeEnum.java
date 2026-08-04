@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.application.v5.enums;
 
-/**
- * 应用类型
- */
+/** 应用类型 */
 public enum ApplicationAppTypeEnum {
-    APP("app"), // 普通应用
-    SHORTCUT("shortcut"), // 快捷入口
-    ;
-    private String value;
+  APP("app"), // 普通应用
+  SHORTCUT("shortcut"), // 快捷入口
+  ;
+  private String value;
 
-    ApplicationAppTypeEnum(String value) {
-        this.value = value;
-    }
+  ApplicationAppTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

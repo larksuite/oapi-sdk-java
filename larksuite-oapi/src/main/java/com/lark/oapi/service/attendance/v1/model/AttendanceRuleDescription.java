@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AttendanceRuleDescription {
+  /**
+   * 描述标题
+   *
+   * <p>示例值：打卡规则
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 描述内容
+   *
+   * <p>示例值：工作日需要打卡
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 是否允许补卡
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("allow_remedy")
+  private Boolean allowRemedy;
+
+  /**
+   * 轮班是否按排班生效
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("shift_rotation_is_schedule")
+  private Boolean shiftRotationIsSchedule;
+
+  /**
+   * 是否存在加班时间段
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("exist_over_time_range")
+  private Boolean existOverTimeRange;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public Boolean getAllowRemedy() {
+    return this.allowRemedy;
+  }
+
+  public void setAllowRemedy(Boolean allowRemedy) {
+    this.allowRemedy = allowRemedy;
+  }
+
+  public Boolean getShiftRotationIsSchedule() {
+    return this.shiftRotationIsSchedule;
+  }
+
+  public void setShiftRotationIsSchedule(Boolean shiftRotationIsSchedule) {
+    this.shiftRotationIsSchedule = shiftRotationIsSchedule;
+  }
+
+  public Boolean getExistOverTimeRange() {
+    return this.existOverTimeRange;
+  }
+
+  public void setExistOverTimeRange(Boolean existOverTimeRange) {
+    this.existOverTimeRange = existOverTimeRange;
+  }
+
+  // builder 开始
+  public AttendanceRuleDescription() {}
+
+  public AttendanceRuleDescription(Builder builder) {
     /**
      * 描述标题
-     * <p> 示例值：打卡规则
+     *
+     * <p>示例值：打卡规则
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 描述内容
-     * <p> 示例值：工作日需要打卡
+     *
+     * <p>示例值：工作日需要打卡
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 是否允许补卡
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("allow_remedy")
-    private Boolean allowRemedy;
+    this.allowRemedy = builder.allowRemedy;
     /**
      * 轮班是否按排班生效
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("shift_rotation_is_schedule")
-    private Boolean shiftRotationIsSchedule;
+    this.shiftRotationIsSchedule = builder.shiftRotationIsSchedule;
     /**
      * 是否存在加班时间段
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("exist_over_time_range")
+    this.existOverTimeRange = builder.existOverTimeRange;
+  }
+
+  public static class Builder {
+    /**
+     * 描述标题
+     *
+     * <p>示例值：打卡规则
+     */
+    private String title;
+
+    /**
+     * 描述内容
+     *
+     * <p>示例值：工作日需要打卡
+     */
+    private String content;
+
+    /**
+     * 是否允许补卡
+     *
+     * <p>示例值：true
+     */
+    private Boolean allowRemedy;
+
+    /**
+     * 轮班是否按排班生效
+     *
+     * <p>示例值：false
+     */
+    private Boolean shiftRotationIsSchedule;
+
+    /**
+     * 是否存在加班时间段
+     *
+     * <p>示例值：false
+     */
     private Boolean existOverTimeRange;
 
-    // builder 开始
-    public AttendanceRuleDescription() {
+    /**
+     * 描述标题
+     *
+     * <p>示例值：打卡规则
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public AttendanceRuleDescription(Builder builder) {
-        /**
-         * 描述标题
-         * <p> 示例值：打卡规则
-         */
-        this.title = builder.title;
-        /**
-         * 描述内容
-         * <p> 示例值：工作日需要打卡
-         */
-        this.content = builder.content;
-        /**
-         * 是否允许补卡
-         * <p> 示例值：true
-         */
-        this.allowRemedy = builder.allowRemedy;
-        /**
-         * 轮班是否按排班生效
-         * <p> 示例值：false
-         */
-        this.shiftRotationIsSchedule = builder.shiftRotationIsSchedule;
-        /**
-         * 是否存在加班时间段
-         * <p> 示例值：false
-         */
-        this.existOverTimeRange = builder.existOverTimeRange;
+    /**
+     * 描述内容
+     *
+     * <p>示例值：工作日需要打卡
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否允许补卡
+     *
+     * <p>示例值：true
+     *
+     * @param allowRemedy
+     * @return
+     */
+    public Builder allowRemedy(Boolean allowRemedy) {
+      this.allowRemedy = allowRemedy;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 轮班是否按排班生效
+     *
+     * <p>示例值：false
+     *
+     * @param shiftRotationIsSchedule
+     * @return
+     */
+    public Builder shiftRotationIsSchedule(Boolean shiftRotationIsSchedule) {
+      this.shiftRotationIsSchedule = shiftRotationIsSchedule;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 是否存在加班时间段
+     *
+     * <p>示例值：false
+     *
+     * @param existOverTimeRange
+     * @return
+     */
+    public Builder existOverTimeRange(Boolean existOverTimeRange) {
+      this.existOverTimeRange = existOverTimeRange;
+      return this;
     }
 
-    public String getContent() {
-        return this.content;
+    public AttendanceRuleDescription build() {
+      return new AttendanceRuleDescription(this);
     }
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Boolean getAllowRemedy() {
-        return this.allowRemedy;
-    }
-
-    public void setAllowRemedy(Boolean allowRemedy) {
-        this.allowRemedy = allowRemedy;
-    }
-
-    public Boolean getShiftRotationIsSchedule() {
-        return this.shiftRotationIsSchedule;
-    }
-
-    public void setShiftRotationIsSchedule(Boolean shiftRotationIsSchedule) {
-        this.shiftRotationIsSchedule = shiftRotationIsSchedule;
-    }
-
-    public Boolean getExistOverTimeRange() {
-        return this.existOverTimeRange;
-    }
-
-    public void setExistOverTimeRange(Boolean existOverTimeRange) {
-        this.existOverTimeRange = existOverTimeRange;
-    }
-
-    public static class Builder {
-        /**
-         * 描述标题
-         * <p> 示例值：打卡规则
-         */
-        private String title;
-        /**
-         * 描述内容
-         * <p> 示例值：工作日需要打卡
-         */
-        private String content;
-        /**
-         * 是否允许补卡
-         * <p> 示例值：true
-         */
-        private Boolean allowRemedy;
-        /**
-         * 轮班是否按排班生效
-         * <p> 示例值：false
-         */
-        private Boolean shiftRotationIsSchedule;
-        /**
-         * 是否存在加班时间段
-         * <p> 示例值：false
-         */
-        private Boolean existOverTimeRange;
-
-        /**
-         * 描述标题
-         * <p> 示例值：打卡规则
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 描述内容
-         * <p> 示例值：工作日需要打卡
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 是否允许补卡
-         * <p> 示例值：true
-         *
-         * @param allowRemedy
-         * @return
-         */
-        public Builder allowRemedy(Boolean allowRemedy) {
-            this.allowRemedy = allowRemedy;
-            return this;
-        }
-
-
-        /**
-         * 轮班是否按排班生效
-         * <p> 示例值：false
-         *
-         * @param shiftRotationIsSchedule
-         * @return
-         */
-        public Builder shiftRotationIsSchedule(Boolean shiftRotationIsSchedule) {
-            this.shiftRotationIsSchedule = shiftRotationIsSchedule;
-            return this;
-        }
-
-
-        /**
-         * 是否存在加班时间段
-         * <p> 示例值：false
-         *
-         * @param existOverTimeRange
-         * @return
-         */
-        public Builder existOverTimeRange(Boolean existOverTimeRange) {
-            this.existOverTimeRange = existOverTimeRange;
-            return this;
-        }
-
-
-        public AttendanceRuleDescription build() {
-            return new AttendanceRuleDescription(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

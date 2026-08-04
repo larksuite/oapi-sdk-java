@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorkflowInstanceLog {
+  /**
+   * 总数
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("total")
+  private String total;
+
+  /**
+   * 日志内容
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("logs")
+  private RuntimeLog[] logs;
+
+  /**
+   * 页数游标
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("next_keyword_offset")
+  private String nextKeywordOffset;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("total_keyword")
+  private String totalKeyword;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("has_read_auth")
+  private Boolean hasReadAuth;
+
+  public String getTotal() {
+    return this.total;
+  }
+
+  public void setTotal(String total) {
+    this.total = total;
+  }
+
+  public RuntimeLog[] getLogs() {
+    return this.logs;
+  }
+
+  public void setLogs(RuntimeLog[] logs) {
+    this.logs = logs;
+  }
+
+  public String getNextKeywordOffset() {
+    return this.nextKeywordOffset;
+  }
+
+  public void setNextKeywordOffset(String nextKeywordOffset) {
+    this.nextKeywordOffset = nextKeywordOffset;
+  }
+
+  public String getTotalKeyword() {
+    return this.totalKeyword;
+  }
+
+  public void setTotalKeyword(String totalKeyword) {
+    this.totalKeyword = totalKeyword;
+  }
+
+  public Boolean getHasReadAuth() {
+    return this.hasReadAuth;
+  }
+
+  public void setHasReadAuth(Boolean hasReadAuth) {
+    this.hasReadAuth = hasReadAuth;
+  }
+
+  // builder 开始
+  public WorkflowInstanceLog() {}
+
+  public WorkflowInstanceLog(Builder builder) {
     /**
      * 总数
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("total")
-    private String total;
+    this.total = builder.total;
     /**
      * 日志内容
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("logs")
-    private RuntimeLog[] logs;
+    this.logs = builder.logs;
     /**
      * 页数游标
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("next_keyword_offset")
+    this.nextKeywordOffset = builder.nextKeywordOffset;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.totalKeyword = builder.totalKeyword;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.hasReadAuth = builder.hasReadAuth;
+  }
+
+  public static class Builder {
+    /**
+     * 总数
+     *
+     * <p>示例值：-
+     */
+    private String total;
+
+    /**
+     * 日志内容
+     *
+     * <p>示例值：-
+     */
+    private RuntimeLog[] logs;
+
+    /**
+     * 页数游标
+     *
+     * <p>示例值：10
+     */
     private String nextKeywordOffset;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("total_keyword")
     private String totalKeyword;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("has_read_auth")
     private Boolean hasReadAuth;
 
-    // builder 开始
-    public WorkflowInstanceLog() {
+    /**
+     * 总数
+     *
+     * <p>示例值：-
+     *
+     * @param total
+     * @return
+     */
+    public Builder total(String total) {
+      this.total = total;
+      return this;
     }
 
-    public WorkflowInstanceLog(Builder builder) {
-        /**
-         * 总数
-         * <p> 示例值：-
-         */
-        this.total = builder.total;
-        /**
-         * 日志内容
-         * <p> 示例值：-
-         */
-        this.logs = builder.logs;
-        /**
-         * 页数游标
-         * <p> 示例值：10
-         */
-        this.nextKeywordOffset = builder.nextKeywordOffset;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.totalKeyword = builder.totalKeyword;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.hasReadAuth = builder.hasReadAuth;
+    /**
+     * 日志内容
+     *
+     * <p>示例值：-
+     *
+     * @param logs
+     * @return
+     */
+    public Builder logs(RuntimeLog[] logs) {
+      this.logs = logs;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 页数游标
+     *
+     * <p>示例值：10
+     *
+     * @param nextKeywordOffset
+     * @return
+     */
+    public Builder nextKeywordOffset(String nextKeywordOffset) {
+      this.nextKeywordOffset = nextKeywordOffset;
+      return this;
     }
 
-    public String getTotal() {
-        return this.total;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param totalKeyword
+     * @return
+     */
+    public Builder totalKeyword(String totalKeyword) {
+      this.totalKeyword = totalKeyword;
+      return this;
     }
 
-    public void setTotal(String total) {
-        this.total = total;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param hasReadAuth
+     * @return
+     */
+    public Builder hasReadAuth(Boolean hasReadAuth) {
+      this.hasReadAuth = hasReadAuth;
+      return this;
     }
 
-    public RuntimeLog[] getLogs() {
-        return this.logs;
+    public WorkflowInstanceLog build() {
+      return new WorkflowInstanceLog(this);
     }
+  }
 
-    public void setLogs(RuntimeLog[] logs) {
-        this.logs = logs;
-    }
-
-    public String getNextKeywordOffset() {
-        return this.nextKeywordOffset;
-    }
-
-    public void setNextKeywordOffset(String nextKeywordOffset) {
-        this.nextKeywordOffset = nextKeywordOffset;
-    }
-
-    public String getTotalKeyword() {
-        return this.totalKeyword;
-    }
-
-    public void setTotalKeyword(String totalKeyword) {
-        this.totalKeyword = totalKeyword;
-    }
-
-    public Boolean getHasReadAuth() {
-        return this.hasReadAuth;
-    }
-
-    public void setHasReadAuth(Boolean hasReadAuth) {
-        this.hasReadAuth = hasReadAuth;
-    }
-
-    public static class Builder {
-        /**
-         * 总数
-         * <p> 示例值：-
-         */
-        private String total;
-        /**
-         * 日志内容
-         * <p> 示例值：-
-         */
-        private RuntimeLog[] logs;
-        /**
-         * 页数游标
-         * <p> 示例值：10
-         */
-        private String nextKeywordOffset;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String totalKeyword;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private Boolean hasReadAuth;
-
-        /**
-         * 总数
-         * <p> 示例值：-
-         *
-         * @param total
-         * @return
-         */
-        public Builder total(String total) {
-            this.total = total;
-            return this;
-        }
-
-
-        /**
-         * 日志内容
-         * <p> 示例值：-
-         *
-         * @param logs
-         * @return
-         */
-        public Builder logs(RuntimeLog[] logs) {
-            this.logs = logs;
-            return this;
-        }
-
-
-        /**
-         * 页数游标
-         * <p> 示例值：10
-         *
-         * @param nextKeywordOffset
-         * @return
-         */
-        public Builder nextKeywordOffset(String nextKeywordOffset) {
-            this.nextKeywordOffset = nextKeywordOffset;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param totalKeyword
-         * @return
-         */
-        public Builder totalKeyword(String totalKeyword) {
-            this.totalKeyword = totalKeyword;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param hasReadAuth
-         * @return
-         */
-        public Builder hasReadAuth(Boolean hasReadAuth) {
-            this.hasReadAuth = hasReadAuth;
-            return this;
-        }
-
-
-        public WorkflowInstanceLog build() {
-            return new WorkflowInstanceLog(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

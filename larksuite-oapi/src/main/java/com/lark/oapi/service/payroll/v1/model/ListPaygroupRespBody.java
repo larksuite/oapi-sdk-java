@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListPaygroupRespBody {
-    /**
-     * 薪资组列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private PayGroup[] items;
-    /**
-     * 分页标识符
-     * <p> 示例值：6862995757234914824
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否还有更多数据
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 薪资组列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private PayGroup[] items;
 
-    public PayGroup[] getItems() {
-        return this.items;
-    }
+  /**
+   * 分页标识符
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setItems(PayGroup[] items) {
-        this.items = items;
-    }
+  /**
+   * 是否还有更多数据
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public PayGroup[] getItems() {
+    return this.items;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setItems(PayGroup[] items) {
+    this.items = items;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 }

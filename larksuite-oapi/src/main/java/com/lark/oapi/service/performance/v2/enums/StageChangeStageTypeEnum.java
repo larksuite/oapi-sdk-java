@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.performance.v2.enums;
 
-/**
- * 环节类型
- */
+/** 环节类型 */
 public enum StageChangeStageTypeEnum {
-    SUMMARIZE_KEY_OUTPUTS("summarize_key_outputs"), // 工作总结环节
-    REVIEW("review"), // 评估型环节
-    COMMUNICATION_AND_OPEN_RESULT("communication_and_open_result"), // 结果沟通环节
-    VIEW_RESULT("view_result"), // 绩效结果查看环节
-    RECONSIDERATION("reconsideration"), // 结果复议环节
-    LEADER_REVIEW("leader_review"), // 终评环节（特指最终的绩效结果数据）
-    ;
-    private String value;
+  SUMMARIZE_KEY_OUTPUTS("summarize_key_outputs"), // 工作总结环节
+  REVIEW("review"), // 评估型环节
+  COMMUNICATION_AND_OPEN_RESULT("communication_and_open_result"), // 结果沟通环节
+  VIEW_RESULT("view_result"), // 绩效结果查看环节
+  RECONSIDERATION("reconsideration"), // 结果复议环节
+  LEADER_REVIEW("leader_review"), // 终评环节（特指最终的绩效结果数据）
+  ;
+  private String value;
 
-    StageChangeStageTypeEnum(String value) {
-        this.value = value;
-    }
+  StageChangeStageTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProgressRecordSimplify {
+  /**
+   * OKR 进展记录ID
+   *
+   * <p>示例值：7041469619902693396
+   */
+  @SerializedName("id")
+  private String id;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  // builder 开始
+  public ProgressRecordSimplify() {}
+
+  public ProgressRecordSimplify(Builder builder) {
     /**
      * OKR 进展记录ID
-     * <p> 示例值：7041469619902693396
+     *
+     * <p>示例值：7041469619902693396
      */
-    @SerializedName("id")
+    this.id = builder.id;
+  }
+
+  public static class Builder {
+    /**
+     * OKR 进展记录ID
+     *
+     * <p>示例值：7041469619902693396
+     */
     private String id;
 
-    // builder 开始
-    public ProgressRecordSimplify() {
+    /**
+     * OKR 进展记录ID
+     *
+     * <p>示例值：7041469619902693396
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ProgressRecordSimplify(Builder builder) {
-        /**
-         * OKR 进展记录ID
-         * <p> 示例值：7041469619902693396
-         */
-        this.id = builder.id;
+    public ProgressRecordSimplify build() {
+      return new ProgressRecordSimplify(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public static class Builder {
-        /**
-         * OKR 进展记录ID
-         * <p> 示例值：7041469619902693396
-         */
-        private String id;
-
-        /**
-         * OKR 进展记录ID
-         * <p> 示例值：7041469619902693396
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        public ProgressRecordSimplify build() {
-            return new ProgressRecordSimplify(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

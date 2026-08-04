@@ -13,321 +13,348 @@
 
 package com.lark.oapi.service.personal_settings.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.personal_settings.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SystemStatus {
+  /**
+   * 系统状态ID
+   *
+   * <p>示例值：7101214603622940633
+   */
+  @SerializedName("system_status_id")
+  private String systemStatusId;
+
+  /**
+   * 系统状态名称，名称字符数要在1到20范围内。不同系统状态的title不能重复。;; **注意：** ;- 1中文=2英文=2其他语言字符=2字符
+   *
+   * <p>示例值：出差
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 系统状态国际化名称，名称字符数要在1到20范围内。不同系统状态之间i18n_title中任何一种title都不能重复。;; **注意：** ;- 1中文=2英文=2其他语言字符=2字符
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_title")
+  private SystemStatusI18nName i18nTitle;
+
+  /**
+   * 图标;;[**了解icon_key可选值**](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/overview)
+   *
+   * <p>示例值：GeneralBusinessTrip
+   */
+  @SerializedName("icon_key")
+  private String iconKey;
+
+  /**
+   * 颜色
+   *
+   * <p>示例值：BLUE
+   */
+  @SerializedName("color")
+  private String color;
+
+  /**
+   * 优先级，数值越小，客户端展示的优先级越高。不同系统状态的优先级不能一样。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("priority")
+  private Integer priority;
+
+  /**
+   * 同步设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sync_setting")
+  private SystemStatusSyncSetting syncSetting;
+
+  public String getSystemStatusId() {
+    return this.systemStatusId;
+  }
+
+  public void setSystemStatusId(String systemStatusId) {
+    this.systemStatusId = systemStatusId;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public SystemStatusI18nName getI18nTitle() {
+    return this.i18nTitle;
+  }
+
+  public void setI18nTitle(SystemStatusI18nName i18nTitle) {
+    this.i18nTitle = i18nTitle;
+  }
+
+  public String getIconKey() {
+    return this.iconKey;
+  }
+
+  public void setIconKey(String iconKey) {
+    this.iconKey = iconKey;
+  }
+
+  public String getColor() {
+    return this.color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  public Integer getPriority() {
+    return this.priority;
+  }
+
+  public void setPriority(Integer priority) {
+    this.priority = priority;
+  }
+
+  public SystemStatusSyncSetting getSyncSetting() {
+    return this.syncSetting;
+  }
+
+  public void setSyncSetting(SystemStatusSyncSetting syncSetting) {
+    this.syncSetting = syncSetting;
+  }
+
+  // builder 开始
+  public SystemStatus() {}
+
+  public SystemStatus(Builder builder) {
     /**
      * 系统状态ID
-     * <p> 示例值：7101214603622940633
+     *
+     * <p>示例值：7101214603622940633
      */
-    @SerializedName("system_status_id")
-    private String systemStatusId;
+    this.systemStatusId = builder.systemStatusId;
     /**
      * 系统状态名称，名称字符数要在1到20范围内。不同系统状态的title不能重复。;; **注意：** ;- 1中文=2英文=2其他语言字符=2字符
-     * <p> 示例值：出差
+     *
+     * <p>示例值：出差
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 系统状态国际化名称，名称字符数要在1到20范围内。不同系统状态之间i18n_title中任何一种title都不能重复。;; **注意：** ;- 1中文=2英文=2其他语言字符=2字符
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_title")
-    private SystemStatusI18nName i18nTitle;
+    this.i18nTitle = builder.i18nTitle;
     /**
      * 图标;;[**了解icon_key可选值**](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/overview)
-     * <p> 示例值：GeneralBusinessTrip
+     *
+     * <p>示例值：GeneralBusinessTrip
      */
-    @SerializedName("icon_key")
-    private String iconKey;
+    this.iconKey = builder.iconKey;
     /**
      * 颜色
-     * <p> 示例值：BLUE
+     *
+     * <p>示例值：BLUE
      */
-    @SerializedName("color")
-    private String color;
+    this.color = builder.color;
     /**
      * 优先级，数值越小，客户端展示的优先级越高。不同系统状态的优先级不能一样。
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("priority")
-    private Integer priority;
+    this.priority = builder.priority;
     /**
      * 同步设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sync_setting")
+    this.syncSetting = builder.syncSetting;
+  }
+
+  public static class Builder {
+    /**
+     * 系统状态ID
+     *
+     * <p>示例值：7101214603622940633
+     */
+    private String systemStatusId;
+
+    /**
+     * 系统状态名称，名称字符数要在1到20范围内。不同系统状态的title不能重复。;; **注意：** ;- 1中文=2英文=2其他语言字符=2字符
+     *
+     * <p>示例值：出差
+     */
+    private String title;
+
+    /**
+     * 系统状态国际化名称，名称字符数要在1到20范围内。不同系统状态之间i18n_title中任何一种title都不能重复。;; **注意：** ;- 1中文=2英文=2其他语言字符=2字符
+     *
+     * <p>示例值：
+     */
+    private SystemStatusI18nName i18nTitle;
+
+    /**
+     * 图标;;[**了解icon_key可选值**](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/overview)
+     *
+     * <p>示例值：GeneralBusinessTrip
+     */
+    private String iconKey;
+
+    /**
+     * 颜色
+     *
+     * <p>示例值：BLUE
+     */
+    private String color;
+
+    /**
+     * 优先级，数值越小，客户端展示的优先级越高。不同系统状态的优先级不能一样。
+     *
+     * <p>示例值：1
+     */
+    private Integer priority;
+
+    /**
+     * 同步设置
+     *
+     * <p>示例值：
+     */
     private SystemStatusSyncSetting syncSetting;
 
-    // builder 开始
-    public SystemStatus() {
+    /**
+     * 系统状态ID
+     *
+     * <p>示例值：7101214603622940633
+     *
+     * @param systemStatusId
+     * @return
+     */
+    public Builder systemStatusId(String systemStatusId) {
+      this.systemStatusId = systemStatusId;
+      return this;
     }
 
-    public SystemStatus(Builder builder) {
-        /**
-         * 系统状态ID
-         * <p> 示例值：7101214603622940633
-         */
-        this.systemStatusId = builder.systemStatusId;
-        /**
-         * 系统状态名称，名称字符数要在1到20范围内。不同系统状态的title不能重复。;; **注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：出差
-         */
-        this.title = builder.title;
-        /**
-         * 系统状态国际化名称，名称字符数要在1到20范围内。不同系统状态之间i18n_title中任何一种title都不能重复。;; **注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：
-         */
-        this.i18nTitle = builder.i18nTitle;
-        /**
-         * 图标;;[**了解icon_key可选值**](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/overview)
-         * <p> 示例值：GeneralBusinessTrip
-         */
-        this.iconKey = builder.iconKey;
-        /**
-         * 颜色
-         * <p> 示例值：BLUE
-         */
-        this.color = builder.color;
-        /**
-         * 优先级，数值越小，客户端展示的优先级越高。不同系统状态的优先级不能一样。
-         * <p> 示例值：1
-         */
-        this.priority = builder.priority;
-        /**
-         * 同步设置
-         * <p> 示例值：
-         */
-        this.syncSetting = builder.syncSetting;
+    /**
+     * 系统状态名称，名称字符数要在1到20范围内。不同系统状态的title不能重复。;; **注意：** ;- 1中文=2英文=2其他语言字符=2字符
+     *
+     * <p>示例值：出差
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 系统状态国际化名称，名称字符数要在1到20范围内。不同系统状态之间i18n_title中任何一种title都不能重复。;; **注意：** ;- 1中文=2英文=2其他语言字符=2字符
+     *
+     * <p>示例值：
+     *
+     * @param i18nTitle
+     * @return
+     */
+    public Builder i18nTitle(SystemStatusI18nName i18nTitle) {
+      this.i18nTitle = i18nTitle;
+      return this;
     }
 
-    public String getSystemStatusId() {
-        return this.systemStatusId;
+    /**
+     * 图标;;[**了解icon_key可选值**](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/overview)
+     *
+     * <p>示例值：GeneralBusinessTrip
+     *
+     * @param iconKey
+     * @return
+     */
+    public Builder iconKey(String iconKey) {
+      this.iconKey = iconKey;
+      return this;
     }
 
-    public void setSystemStatusId(String systemStatusId) {
-        this.systemStatusId = systemStatusId;
+    /**
+     * 图标;;[**了解icon_key可选值**](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/overview)
+     *
+     * <p>示例值：GeneralBusinessTrip
+     *
+     * @param iconKey {@link
+     *     com.lark.oapi.service.personal_settings.v1.enums.SystemStatusSystemStatusIconKeyEnum}
+     * @return
+     */
+    public Builder iconKey(
+        com.lark.oapi.service.personal_settings.v1.enums.SystemStatusSystemStatusIconKeyEnum
+            iconKey) {
+      this.iconKey = iconKey.getValue();
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 颜色
+     *
+     * <p>示例值：BLUE
+     *
+     * @param color
+     * @return
+     */
+    public Builder color(String color) {
+      this.color = color;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 颜色
+     *
+     * <p>示例值：BLUE
+     *
+     * @param color {@link
+     *     com.lark.oapi.service.personal_settings.v1.enums.SystemStatusSystemStatusColorEnum}
+     * @return
+     */
+    public Builder color(
+        com.lark.oapi.service.personal_settings.v1.enums.SystemStatusSystemStatusColorEnum color) {
+      this.color = color.getValue();
+      return this;
     }
 
-    public SystemStatusI18nName getI18nTitle() {
-        return this.i18nTitle;
+    /**
+     * 优先级，数值越小，客户端展示的优先级越高。不同系统状态的优先级不能一样。
+     *
+     * <p>示例值：1
+     *
+     * @param priority
+     * @return
+     */
+    public Builder priority(Integer priority) {
+      this.priority = priority;
+      return this;
     }
 
-    public void setI18nTitle(SystemStatusI18nName i18nTitle) {
-        this.i18nTitle = i18nTitle;
+    /**
+     * 同步设置
+     *
+     * <p>示例值：
+     *
+     * @param syncSetting
+     * @return
+     */
+    public Builder syncSetting(SystemStatusSyncSetting syncSetting) {
+      this.syncSetting = syncSetting;
+      return this;
     }
 
-    public String getIconKey() {
-        return this.iconKey;
+    public SystemStatus build() {
+      return new SystemStatus(this);
     }
+  }
 
-    public void setIconKey(String iconKey) {
-        this.iconKey = iconKey;
-    }
-
-    public String getColor() {
-        return this.color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public Integer getPriority() {
-        return this.priority;
-    }
-
-    public void setPriority(Integer priority) {
-        this.priority = priority;
-    }
-
-    public SystemStatusSyncSetting getSyncSetting() {
-        return this.syncSetting;
-    }
-
-    public void setSyncSetting(SystemStatusSyncSetting syncSetting) {
-        this.syncSetting = syncSetting;
-    }
-
-    public static class Builder {
-        /**
-         * 系统状态ID
-         * <p> 示例值：7101214603622940633
-         */
-        private String systemStatusId;
-        /**
-         * 系统状态名称，名称字符数要在1到20范围内。不同系统状态的title不能重复。;; **注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：出差
-         */
-        private String title;
-        /**
-         * 系统状态国际化名称，名称字符数要在1到20范围内。不同系统状态之间i18n_title中任何一种title都不能重复。;; **注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：
-         */
-        private SystemStatusI18nName i18nTitle;
-        /**
-         * 图标;;[**了解icon_key可选值**](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/overview)
-         * <p> 示例值：GeneralBusinessTrip
-         */
-        private String iconKey;
-        /**
-         * 颜色
-         * <p> 示例值：BLUE
-         */
-        private String color;
-        /**
-         * 优先级，数值越小，客户端展示的优先级越高。不同系统状态的优先级不能一样。
-         * <p> 示例值：1
-         */
-        private Integer priority;
-        /**
-         * 同步设置
-         * <p> 示例值：
-         */
-        private SystemStatusSyncSetting syncSetting;
-
-        /**
-         * 系统状态ID
-         * <p> 示例值：7101214603622940633
-         *
-         * @param systemStatusId
-         * @return
-         */
-        public Builder systemStatusId(String systemStatusId) {
-            this.systemStatusId = systemStatusId;
-            return this;
-        }
-
-
-        /**
-         * 系统状态名称，名称字符数要在1到20范围内。不同系统状态的title不能重复。;; **注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：出差
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 系统状态国际化名称，名称字符数要在1到20范围内。不同系统状态之间i18n_title中任何一种title都不能重复。;; **注意：** ;- 1中文=2英文=2其他语言字符=2字符
-         * <p> 示例值：
-         *
-         * @param i18nTitle
-         * @return
-         */
-        public Builder i18nTitle(SystemStatusI18nName i18nTitle) {
-            this.i18nTitle = i18nTitle;
-            return this;
-        }
-
-
-        /**
-         * 图标;;[**了解icon_key可选值**](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/overview)
-         * <p> 示例值：GeneralBusinessTrip
-         *
-         * @param iconKey
-         * @return
-         */
-        public Builder iconKey(String iconKey) {
-            this.iconKey = iconKey;
-            return this;
-        }
-
-        /**
-         * 图标;;[**了解icon_key可选值**](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/personal_settings-v1/system_status/overview)
-         * <p> 示例值：GeneralBusinessTrip
-         *
-         * @param iconKey {@link com.lark.oapi.service.personal_settings.v1.enums.SystemStatusSystemStatusIconKeyEnum}
-         * @return
-         */
-        public Builder iconKey(com.lark.oapi.service.personal_settings.v1.enums.SystemStatusSystemStatusIconKeyEnum iconKey) {
-            this.iconKey = iconKey.getValue();
-            return this;
-        }
-
-
-        /**
-         * 颜色
-         * <p> 示例值：BLUE
-         *
-         * @param color
-         * @return
-         */
-        public Builder color(String color) {
-            this.color = color;
-            return this;
-        }
-
-        /**
-         * 颜色
-         * <p> 示例值：BLUE
-         *
-         * @param color {@link com.lark.oapi.service.personal_settings.v1.enums.SystemStatusSystemStatusColorEnum}
-         * @return
-         */
-        public Builder color(com.lark.oapi.service.personal_settings.v1.enums.SystemStatusSystemStatusColorEnum color) {
-            this.color = color.getValue();
-            return this;
-        }
-
-
-        /**
-         * 优先级，数值越小，客户端展示的优先级越高。不同系统状态的优先级不能一样。
-         * <p> 示例值：1
-         *
-         * @param priority
-         * @return
-         */
-        public Builder priority(Integer priority) {
-            this.priority = priority;
-            return this;
-        }
-
-
-        /**
-         * 同步设置
-         * <p> 示例值：
-         *
-         * @param syncSetting
-         * @return
-         */
-        public Builder syncSetting(SystemStatusSyncSetting syncSetting) {
-            this.syncSetting = syncSetting;
-            return this;
-        }
-
-
-        public SystemStatus build() {
-            return new SystemStatus(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 授予来源
- */
+/** 授予来源 */
 public enum LeaveEmployExpireRecordAccrualSourceEnum {
-    SYSTEM(1), // 系统授予
-    ADMIN(2), // 人工授予
-    EXTERNALSYSTEM(3), // 外部系统授予
-    VIRTUAL(4), // 虚拟授予
-    OLDSYSTEMMOVEIN(5), // 旧系统导入
-    OVERTIMEMOVEIN(6), // 加班转入
-    ;
-    private Integer value;
+  SYSTEM(1), // 系统授予
+  ADMIN(2), // 人工授予
+  EXTERNALSYSTEM(3), // 外部系统授予
+  VIRTUAL(4), // 虚拟授予
+  OLDSYSTEMMOVEIN(5), // 旧系统导入
+  OVERTIMEMOVEIN(6), // 加班转入
+  ;
+  private Integer value;
 
-    LeaveEmployExpireRecordAccrualSourceEnum(Integer value) {
-        this.value = value;
-    }
+  LeaveEmployExpireRecordAccrualSourceEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

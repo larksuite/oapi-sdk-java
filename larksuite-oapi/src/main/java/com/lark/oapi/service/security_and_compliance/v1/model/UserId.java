@@ -13,140 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserId {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("user_id")
+  /** 示例值： */
+  @SerializedName("user_id")
+  private String userId;
+
+  /** 示例值： */
+  @SerializedName("open_id")
+  private String openId;
+
+  /** 示例值： */
+  @SerializedName("union_id")
+  private String unionId;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getOpenId() {
+    return this.openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  public String getUnionId() {
+    return this.unionId;
+  }
+
+  public void setUnionId(String unionId) {
+    this.unionId = unionId;
+  }
+
+  // builder 开始
+  public UserId() {}
+
+  public UserId(Builder builder) {
+    /** 示例值： */
+    this.userId = builder.userId;
+    /** 示例值： */
+    this.openId = builder.openId;
+    /** 示例值： */
+    this.unionId = builder.unionId;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private String userId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("open_id")
+
+    /** 示例值： */
     private String openId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("union_id")
+
+    /** 示例值： */
     private String unionId;
 
-    // builder 开始
-    public UserId() {
+    /**
+     * 示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public UserId(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.openId = builder.openId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.unionId = builder.unionId;
+    /**
+     * 示例值：
+     *
+     * @param openId
+     * @return
+     */
+    public Builder openId(String openId) {
+      this.openId = openId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param unionId
+     * @return
+     */
+    public Builder unionId(String unionId) {
+      this.unionId = unionId;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    public UserId build() {
+      return new UserId(this);
     }
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getOpenId() {
-        return this.openId;
-    }
-
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
-
-    public String getUnionId() {
-        return this.unionId;
-    }
-
-    public void setUnionId(String unionId) {
-        this.unionId = unionId;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * <p> 示例值：
-         */
-        private String openId;
-        /**
-         * <p> 示例值：
-         */
-        private String unionId;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param openId
-         * @return
-         */
-        public Builder openId(String openId) {
-            this.openId = openId;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param unionId
-         * @return
-         */
-        public Builder unionId(String unionId) {
-            this.unionId = unionId;
-            return this;
-        }
-
-
-        public UserId build() {
-            return new UserId(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

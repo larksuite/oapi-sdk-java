@@ -13,333 +13,370 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AgencyProtection {
+  /**
+   * 保护期类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("protection_type")
+  private Integer protectionType;
+
+  /**
+   * 如保护期类型为 职位保护期（`2`）时，返回职位保护所在的投递
+   * ID，详情请参考：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+   *
+   * <p>示例值：6930815272790114323
+   */
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 保护期开始时间，毫秒时间戳
+   *
+   * <p>示例值：1700023694629
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 保护期过期时间，毫秒时间戳
+   *
+   * <p>示例值：1700023694630
+   */
+  @SerializedName("expire_time")
+  private String expireTime;
+
+  /**
+   * 猎头供应商
+   * ID，详情请参考：[获取猎头供应商信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/get)
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("agency_supplier_id")
+  private String agencySupplierId;
+
+  /**
+   * 推荐的猎头供应商名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("agency_supplier_name")
+  private I18n agencySupplierName;
+
+  /**
+   * 猎头顾问
+   * ID，与`user_id_type`类型一致。;;;**注意**：由于猎头顾问位于猎头供应商租户，不在本接口调用方租户里，若需获取猎头信息，需切换租户至猎头供应商租户后通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)访问猎头顾问详情
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("agency_supplier_user_id")
+  private String agencySupplierUserId;
+
+  /**
+   * 推荐的猎头顾问名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("agency_supplier_user_name")
+  private I18n agencySupplierUserName;
+
+  public Integer getProtectionType() {
+    return this.protectionType;
+  }
+
+  public void setProtectionType(Integer protectionType) {
+    this.protectionType = protectionType;
+  }
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getExpireTime() {
+    return this.expireTime;
+  }
+
+  public void setExpireTime(String expireTime) {
+    this.expireTime = expireTime;
+  }
+
+  public String getAgencySupplierId() {
+    return this.agencySupplierId;
+  }
+
+  public void setAgencySupplierId(String agencySupplierId) {
+    this.agencySupplierId = agencySupplierId;
+  }
+
+  public I18n getAgencySupplierName() {
+    return this.agencySupplierName;
+  }
+
+  public void setAgencySupplierName(I18n agencySupplierName) {
+    this.agencySupplierName = agencySupplierName;
+  }
+
+  public String getAgencySupplierUserId() {
+    return this.agencySupplierUserId;
+  }
+
+  public void setAgencySupplierUserId(String agencySupplierUserId) {
+    this.agencySupplierUserId = agencySupplierUserId;
+  }
+
+  public I18n getAgencySupplierUserName() {
+    return this.agencySupplierUserName;
+  }
+
+  public void setAgencySupplierUserName(I18n agencySupplierUserName) {
+    this.agencySupplierUserName = agencySupplierUserName;
+  }
+
+  // builder 开始
+  public AgencyProtection() {}
+
+  public AgencyProtection(Builder builder) {
     /**
      * 保护期类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("protection_type")
-    private Integer protectionType;
+    this.protectionType = builder.protectionType;
     /**
-     * 如保护期类型为职位保护，返回职位保护所在的投递id
-     * <p> 示例值：6930815272790114323
+     * 如保护期类型为 职位保护期（`2`）时，返回职位保护所在的投递
+     * ID，详情请参考：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：6930815272790114323
      */
-    @SerializedName("application_id")
-    private String applicationId;
+    this.applicationId = builder.applicationId;
     /**
-     * 保护期开始时间
-     * <p> 示例值：1700023694629
+     * 保护期开始时间，毫秒时间戳
+     *
+     * <p>示例值：1700023694629
      */
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
-     * 保护期过期时间
-     * <p> 示例值：1700023694630
+     * 保护期过期时间，毫秒时间戳
+     *
+     * <p>示例值：1700023694630
      */
-    @SerializedName("expire_time")
-    private String expireTime;
+    this.expireTime = builder.expireTime;
     /**
-     * 推荐的猎头供应商 ID
-     * <p> 示例值：6930815272790114324
+     * 猎头供应商
+     * ID，详情请参考：[获取猎头供应商信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/get)
+     *
+     * <p>示例值：6930815272790114324
      */
-    @SerializedName("agency_supplier_id")
-    private String agencySupplierId;
+    this.agencySupplierId = builder.agencySupplierId;
     /**
      * 推荐的猎头供应商名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("agency_supplier_name")
-    private I18n agencySupplierName;
+    this.agencySupplierName = builder.agencySupplierName;
     /**
-     * 推荐的猎头顾问ID，目前仅作为唯一标识，不可查询具体的人员信息
-     * <p> 示例值：6930815272790114324
+     * 猎头顾问
+     * ID，与`user_id_type`类型一致。;;;**注意**：由于猎头顾问位于猎头供应商租户，不在本接口调用方租户里，若需获取猎头信息，需切换租户至猎头供应商租户后通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)访问猎头顾问详情
+     *
+     * <p>示例值：6930815272790114324
      */
-    @SerializedName("agency_supplier_user_id")
-    private String agencySupplierUserId;
+    this.agencySupplierUserId = builder.agencySupplierUserId;
     /**
      * 推荐的猎头顾问名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("agency_supplier_user_name")
+    this.agencySupplierUserName = builder.agencySupplierUserName;
+  }
+
+  public static class Builder {
+    /**
+     * 保护期类型
+     *
+     * <p>示例值：1
+     */
+    private Integer protectionType;
+
+    /**
+     * 如保护期类型为 职位保护期（`2`）时，返回职位保护所在的投递
+     * ID，详情请参考：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：6930815272790114323
+     */
+    private String applicationId;
+
+    /**
+     * 保护期开始时间，毫秒时间戳
+     *
+     * <p>示例值：1700023694629
+     */
+    private String startTime;
+
+    /**
+     * 保护期过期时间，毫秒时间戳
+     *
+     * <p>示例值：1700023694630
+     */
+    private String expireTime;
+
+    /**
+     * 猎头供应商
+     * ID，详情请参考：[获取猎头供应商信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/get)
+     *
+     * <p>示例值：6930815272790114324
+     */
+    private String agencySupplierId;
+
+    /**
+     * 推荐的猎头供应商名称
+     *
+     * <p>示例值：
+     */
+    private I18n agencySupplierName;
+
+    /**
+     * 猎头顾问
+     * ID，与`user_id_type`类型一致。;;;**注意**：由于猎头顾问位于猎头供应商租户，不在本接口调用方租户里，若需获取猎头信息，需切换租户至猎头供应商租户后通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)访问猎头顾问详情
+     *
+     * <p>示例值：6930815272790114324
+     */
+    private String agencySupplierUserId;
+
+    /**
+     * 推荐的猎头顾问名称
+     *
+     * <p>示例值：
+     */
     private I18n agencySupplierUserName;
 
-    // builder 开始
-    public AgencyProtection() {
+    /**
+     * 保护期类型
+     *
+     * <p>示例值：1
+     *
+     * @param protectionType
+     * @return
+     */
+    public Builder protectionType(Integer protectionType) {
+      this.protectionType = protectionType;
+      return this;
     }
 
-    public AgencyProtection(Builder builder) {
-        /**
-         * 保护期类型
-         * <p> 示例值：1
-         */
-        this.protectionType = builder.protectionType;
-        /**
-         * 如保护期类型为职位保护，返回职位保护所在的投递id
-         * <p> 示例值：6930815272790114323
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 保护期开始时间
-         * <p> 示例值：1700023694629
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 保护期过期时间
-         * <p> 示例值：1700023694630
-         */
-        this.expireTime = builder.expireTime;
-        /**
-         * 推荐的猎头供应商 ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.agencySupplierId = builder.agencySupplierId;
-        /**
-         * 推荐的猎头供应商名称
-         * <p> 示例值：
-         */
-        this.agencySupplierName = builder.agencySupplierName;
-        /**
-         * 推荐的猎头顾问ID，目前仅作为唯一标识，不可查询具体的人员信息
-         * <p> 示例值：6930815272790114324
-         */
-        this.agencySupplierUserId = builder.agencySupplierUserId;
-        /**
-         * 推荐的猎头顾问名称
-         * <p> 示例值：
-         */
-        this.agencySupplierUserName = builder.agencySupplierUserName;
+    /**
+     * 如保护期类型为 职位保护期（`2`）时，返回职位保护所在的投递
+     * ID，详情请参考：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：6930815272790114323
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 保护期开始时间，毫秒时间戳
+     *
+     * <p>示例值：1700023694629
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public Integer getProtectionType() {
-        return this.protectionType;
+    /**
+     * 保护期过期时间，毫秒时间戳
+     *
+     * <p>示例值：1700023694630
+     *
+     * @param expireTime
+     * @return
+     */
+    public Builder expireTime(String expireTime) {
+      this.expireTime = expireTime;
+      return this;
     }
 
-    public void setProtectionType(Integer protectionType) {
-        this.protectionType = protectionType;
+    /**
+     * 猎头供应商
+     * ID，详情请参考：[获取猎头供应商信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/get)
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param agencySupplierId
+     * @return
+     */
+    public Builder agencySupplierId(String agencySupplierId) {
+      this.agencySupplierId = agencySupplierId;
+      return this;
     }
 
-    public String getApplicationId() {
-        return this.applicationId;
+    /**
+     * 推荐的猎头供应商名称
+     *
+     * <p>示例值：
+     *
+     * @param agencySupplierName
+     * @return
+     */
+    public Builder agencySupplierName(I18n agencySupplierName) {
+      this.agencySupplierName = agencySupplierName;
+      return this;
     }
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
+    /**
+     * 猎头顾问
+     * ID，与`user_id_type`类型一致。;;;**注意**：由于猎头顾问位于猎头供应商租户，不在本接口调用方租户里，若需获取猎头信息，需切换租户至猎头供应商租户后通过[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)访问猎头顾问详情
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param agencySupplierUserId
+     * @return
+     */
+    public Builder agencySupplierUserId(String agencySupplierUserId) {
+      this.agencySupplierUserId = agencySupplierUserId;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    /**
+     * 推荐的猎头顾问名称
+     *
+     * <p>示例值：
+     *
+     * @param agencySupplierUserName
+     * @return
+     */
+    public Builder agencySupplierUserName(I18n agencySupplierUserName) {
+      this.agencySupplierUserName = agencySupplierUserName;
+      return this;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    public AgencyProtection build() {
+      return new AgencyProtection(this);
     }
+  }
 
-    public String getExpireTime() {
-        return this.expireTime;
-    }
-
-    public void setExpireTime(String expireTime) {
-        this.expireTime = expireTime;
-    }
-
-    public String getAgencySupplierId() {
-        return this.agencySupplierId;
-    }
-
-    public void setAgencySupplierId(String agencySupplierId) {
-        this.agencySupplierId = agencySupplierId;
-    }
-
-    public I18n getAgencySupplierName() {
-        return this.agencySupplierName;
-    }
-
-    public void setAgencySupplierName(I18n agencySupplierName) {
-        this.agencySupplierName = agencySupplierName;
-    }
-
-    public String getAgencySupplierUserId() {
-        return this.agencySupplierUserId;
-    }
-
-    public void setAgencySupplierUserId(String agencySupplierUserId) {
-        this.agencySupplierUserId = agencySupplierUserId;
-    }
-
-    public I18n getAgencySupplierUserName() {
-        return this.agencySupplierUserName;
-    }
-
-    public void setAgencySupplierUserName(I18n agencySupplierUserName) {
-        this.agencySupplierUserName = agencySupplierUserName;
-    }
-
-    public static class Builder {
-        /**
-         * 保护期类型
-         * <p> 示例值：1
-         */
-        private Integer protectionType;
-        /**
-         * 如保护期类型为职位保护，返回职位保护所在的投递id
-         * <p> 示例值：6930815272790114323
-         */
-        private String applicationId;
-        /**
-         * 保护期开始时间
-         * <p> 示例值：1700023694629
-         */
-        private String startTime;
-        /**
-         * 保护期过期时间
-         * <p> 示例值：1700023694630
-         */
-        private String expireTime;
-        /**
-         * 推荐的猎头供应商 ID
-         * <p> 示例值：6930815272790114324
-         */
-        private String agencySupplierId;
-        /**
-         * 推荐的猎头供应商名称
-         * <p> 示例值：
-         */
-        private I18n agencySupplierName;
-        /**
-         * 推荐的猎头顾问ID，目前仅作为唯一标识，不可查询具体的人员信息
-         * <p> 示例值：6930815272790114324
-         */
-        private String agencySupplierUserId;
-        /**
-         * 推荐的猎头顾问名称
-         * <p> 示例值：
-         */
-        private I18n agencySupplierUserName;
-
-        /**
-         * 保护期类型
-         * <p> 示例值：1
-         *
-         * @param protectionType
-         * @return
-         */
-        public Builder protectionType(Integer protectionType) {
-            this.protectionType = protectionType;
-            return this;
-        }
-
-
-        /**
-         * 如保护期类型为职位保护，返回职位保护所在的投递id
-         * <p> 示例值：6930815272790114323
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * 保护期开始时间
-         * <p> 示例值：1700023694629
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 保护期过期时间
-         * <p> 示例值：1700023694630
-         *
-         * @param expireTime
-         * @return
-         */
-        public Builder expireTime(String expireTime) {
-            this.expireTime = expireTime;
-            return this;
-        }
-
-
-        /**
-         * 推荐的猎头供应商 ID
-         * <p> 示例值：6930815272790114324
-         *
-         * @param agencySupplierId
-         * @return
-         */
-        public Builder agencySupplierId(String agencySupplierId) {
-            this.agencySupplierId = agencySupplierId;
-            return this;
-        }
-
-
-        /**
-         * 推荐的猎头供应商名称
-         * <p> 示例值：
-         *
-         * @param agencySupplierName
-         * @return
-         */
-        public Builder agencySupplierName(I18n agencySupplierName) {
-            this.agencySupplierName = agencySupplierName;
-            return this;
-        }
-
-
-        /**
-         * 推荐的猎头顾问ID，目前仅作为唯一标识，不可查询具体的人员信息
-         * <p> 示例值：6930815272790114324
-         *
-         * @param agencySupplierUserId
-         * @return
-         */
-        public Builder agencySupplierUserId(String agencySupplierUserId) {
-            this.agencySupplierUserId = agencySupplierUserId;
-            return this;
-        }
-
-
-        /**
-         * 推荐的猎头顾问名称
-         * <p> 示例值：
-         *
-         * @param agencySupplierUserName
-         * @return
-         */
-        public Builder agencySupplierUserName(I18n agencySupplierUserName) {
-            this.agencySupplierUserName = agencySupplierUserName;
-            return this;
-        }
-
-
-        public AgencyProtection build() {
-            return new AgencyProtection(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

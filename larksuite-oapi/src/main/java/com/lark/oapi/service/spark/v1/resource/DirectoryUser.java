@@ -13,103 +13,122 @@
 
 package com.lark.oapi.service.spark.v1.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.spark.v1.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.spark.v1.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class DirectoryUser {
-    private static final Logger log = LoggerFactory.getLogger(DirectoryUser.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(DirectoryUser.class);
+  private final Config config;
 
-    public DirectoryUser(Config config) {
-        this.config = config;
+  public DirectoryUser(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 转换飞书妙搭和飞书开放平台用户 ID，转换飞书妙搭和飞书开放平台之间的用户 ID;#### 使用场景;适用于需要在飞书妙搭和飞书开放平台之间转换用户身份的场景;####
+   * 实现方式;通过指定转换类型（id_convert_type）和待转换的 ID 列表（ids）实现指定 ID 转换
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=id_convert&project=spark&resource=directory.user&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=id_convert&project=spark&resource=directory.user&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sparkv1/IdConvertDirectoryUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sparkv1/IdConvertDirectoryUserSample.java</a>
+   * ;
+   */
+  public IdConvertDirectoryUserResp idConvert(
+      IdConvertDirectoryUserReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/spark/v1/directory/user/id_convert",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-    /**
-     * ，open api\nIDConvert: 飞书和force id转换\noapi.post = "/v1/directory/user/id_convert",
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=id_convert&project=spark&resource=directory.user&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=id_convert&project=spark&resource=directory.user&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sparkv1/IdConvertDirectoryUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sparkv1/IdConvertDirectoryUserSample.java</a> ;
-     */
-    public IdConvertDirectoryUserResp idConvert(IdConvertDirectoryUserReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/spark/v1/directory/user/id_convert"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        IdConvertDirectoryUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, IdConvertDirectoryUserResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/spark/v1/directory/user/id_convert"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    IdConvertDirectoryUserResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, IdConvertDirectoryUserResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/spark/v1/directory/user/id_convert",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，open api\nIDConvert: 飞书和force id转换\noapi.post = "/v1/directory/user/id_convert",
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=id_convert&project=spark&resource=directory.user&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=id_convert&project=spark&resource=directory.user&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sparkv1/IdConvertDirectoryUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sparkv1/IdConvertDirectoryUserSample.java</a> ;
-     */
-    public IdConvertDirectoryUserResp idConvert(IdConvertDirectoryUserReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/spark/v1/directory/user/id_convert"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        IdConvertDirectoryUserResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, IdConvertDirectoryUserResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/spark/v1/directory/user/id_convert"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 转换飞书妙搭和飞书开放平台用户 ID，转换飞书妙搭和飞书开放平台之间的用户 ID;#### 使用场景;适用于需要在飞书妙搭和飞书开放平台之间转换用户身份的场景;####
+   * 实现方式;通过指定转换类型（id_convert_type）和待转换的 ID 列表（ids）实现指定 ID 转换
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=id_convert&project=spark&resource=directory.user&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=id_convert&project=spark&resource=directory.user&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sparkv1/IdConvertDirectoryUserSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/sparkv1/IdConvertDirectoryUserSample.java</a>
+   * ;
+   */
+  public IdConvertDirectoryUserResp idConvert(IdConvertDirectoryUserReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/spark/v1/directory/user/id_convert",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    IdConvertDirectoryUserResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, IdConvertDirectoryUserResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/spark/v1/directory/user/id_convert",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

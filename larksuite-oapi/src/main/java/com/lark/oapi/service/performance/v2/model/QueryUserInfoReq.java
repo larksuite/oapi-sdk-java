@@ -13,139 +13,145 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.performance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.performance.v2.enums.*;
 
 public class QueryUserInfoReq {
+  /** 示例值： */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+   * 说明。
+   *
+   * <p>示例值：open_department_id;;**可选值有：**;- `department_id`：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的
+   * department_id，因此在未删除的部门范围内 department_id 具有唯一性。;- `open_department_id`：由系统自动生成的部门 ID，ID 前缀固定为
+   * od-，在租户内全局唯一。;;**默认值：** open_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  @Body private QueryUserInfoReqBody body;
+
+  public QueryUserInfoReqBody getQueryUserInfoReqBody() {
+    return this.body;
+  }
+
+  public void setQueryUserInfoReqBody(QueryUserInfoReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public QueryUserInfoReq() {}
+
+  public QueryUserInfoReq(Builder builder) {
+    /** 示例值： */
+    this.userIdType = builder.userIdType;
     /**
-     * <p> 示例值：
+     * 指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 说明。
+     *
+     * <p>示例值：open_department_id;;**可选值有：**;- `department_id`：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的
+     * department_id，因此在未删除的部门范围内 department_id 具有唯一性。;- `open_department_id`：由系统自动生成的部门 ID，ID 前缀固定为
+     * od-，在租户内全局唯一。;;**默认值：** open_department_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.departmentIdType = builder.departmentIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; //
+    private String departmentIdType; // 指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门
+
+    // ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0) 说明。
+
     /**
-     * 指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见部门 ID 说明。
-     * <p> 示例值：open_department_id
+     * 示例值：
+     *
+     * @param userIdType
+     * @return
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
-    @Body
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.performance.v2.enums.QueryUserInfoUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.performance.v2.enums.QueryUserInfoUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)
+     * 说明。
+     *
+     * <p>示例值：open_department_id;;**可选值有：**;- `department_id`：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的
+     * department_id，因此在未删除的部门范围内 department_id 具有唯一性。;- `open_department_id`：由系统自动生成的部门 ID，ID 前缀固定为
+     * od-，在租户内全局唯一。;;**默认值：** open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
     private QueryUserInfoReqBody body;
 
-    // builder 开始
-    public QueryUserInfoReq() {
-    }
-
-    public QueryUserInfoReq(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见部门 ID 说明。
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
     public QueryUserInfoReqBody getQueryUserInfoReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setQueryUserInfoReqBody(QueryUserInfoReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder queryUserInfoReqBody(QueryUserInfoReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; //
-        private String departmentIdType; // 指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见部门 ID 说明。
-        private QueryUserInfoReqBody body;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.performance.v2.enums.QueryUserInfoUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.performance.v2.enums.QueryUserInfoUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见部门 ID 说明。
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        public QueryUserInfoReqBody getQueryUserInfoReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder queryUserInfoReqBody(QueryUserInfoReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public QueryUserInfoReq build() {
-            return new QueryUserInfoReq(this);
-        }
+    public QueryUserInfoReq build() {
+      return new QueryUserInfoReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

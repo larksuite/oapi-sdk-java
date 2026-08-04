@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class I18nResource {
+  /**
+   * 文本
+   *
+   * <p>示例值：日期
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 语言类型
+   *
+   * <p>示例值：zh
+   */
+  @SerializedName("local")
+  private String local;
+
+  /**
+   * 是否默认
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_default")
+  private Boolean isDefault;
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getLocal() {
+    return this.local;
+  }
+
+  public void setLocal(String local) {
+    this.local = local;
+  }
+
+  public Boolean getIsDefault() {
+    return this.isDefault;
+  }
+
+  public void setIsDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
+  }
+
+  // builder 开始
+  public I18nResource() {}
+
+  public I18nResource(Builder builder) {
     /**
      * 文本
-     * <p> 示例值：日期
+     *
+     * <p>示例值：日期
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 语言类型
-     * <p> 示例值：zh
+     *
+     * <p>示例值：zh
      */
-    @SerializedName("local")
-    private String local;
+    this.local = builder.local;
     /**
      * 是否默认
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_default")
+    this.isDefault = builder.isDefault;
+  }
+
+  public static class Builder {
+    /**
+     * 文本
+     *
+     * <p>示例值：日期
+     */
+    private String text;
+
+    /**
+     * 语言类型
+     *
+     * <p>示例值：zh
+     */
+    private String local;
+
+    /**
+     * 是否默认
+     *
+     * <p>示例值：true
+     */
     private Boolean isDefault;
 
-    // builder 开始
-    public I18nResource() {
+    /**
+     * 文本
+     *
+     * <p>示例值：日期
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public I18nResource(Builder builder) {
-        /**
-         * 文本
-         * <p> 示例值：日期
-         */
-        this.text = builder.text;
-        /**
-         * 语言类型
-         * <p> 示例值：zh
-         */
-        this.local = builder.local;
-        /**
-         * 是否默认
-         * <p> 示例值：true
-         */
-        this.isDefault = builder.isDefault;
+    /**
+     * 语言类型
+     *
+     * <p>示例值：zh
+     *
+     * @param local
+     * @return
+     */
+    public Builder local(String local) {
+      this.local = local;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否默认
+     *
+     * <p>示例值：true
+     *
+     * @param isDefault
+     * @return
+     */
+    public Builder isDefault(Boolean isDefault) {
+      this.isDefault = isDefault;
+      return this;
     }
 
-    public String getText() {
-        return this.text;
+    public I18nResource build() {
+      return new I18nResource(this);
     }
+  }
 
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getLocal() {
-        return this.local;
-    }
-
-    public void setLocal(String local) {
-        this.local = local;
-    }
-
-    public Boolean getIsDefault() {
-        return this.isDefault;
-    }
-
-    public void setIsDefault(Boolean isDefault) {
-        this.isDefault = isDefault;
-    }
-
-    public static class Builder {
-        /**
-         * 文本
-         * <p> 示例值：日期
-         */
-        private String text;
-        /**
-         * 语言类型
-         * <p> 示例值：zh
-         */
-        private String local;
-        /**
-         * 是否默认
-         * <p> 示例值：true
-         */
-        private Boolean isDefault;
-
-        /**
-         * 文本
-         * <p> 示例值：日期
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 语言类型
-         * <p> 示例值：zh
-         *
-         * @param local
-         * @return
-         */
-        public Builder local(String local) {
-            this.local = local;
-            return this;
-        }
-
-
-        /**
-         * 是否默认
-         * <p> 示例值：true
-         *
-         * @param isDefault
-         * @return
-         */
-        public Builder isDefault(Boolean isDefault) {
-            this.isDefault = isDefault;
-            return this;
-        }
-
-
-        public I18nResource build() {
-            return new I18nResource(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

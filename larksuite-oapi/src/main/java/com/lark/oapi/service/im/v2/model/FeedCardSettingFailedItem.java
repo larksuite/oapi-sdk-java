@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FeedCardSettingFailedItem {
+  /**
+   * 消息流卡片 ID
+   *
+   * <p>示例值：oc_785fae31552ae88681bc69b4a1550289
+   */
+  @SerializedName("feed_card_id")
+  private String feedCardId;
+
+  /**
+   * 错误码
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("error_code")
+  private Integer errorCode;
+
+  /**
+   * 错误信息
+   *
+   * <p>示例值：test error message
+   */
+  @SerializedName("error_message")
+  private String errorMessage;
+
+  public String getFeedCardId() {
+    return this.feedCardId;
+  }
+
+  public void setFeedCardId(String feedCardId) {
+    this.feedCardId = feedCardId;
+  }
+
+  public Integer getErrorCode() {
+    return this.errorCode;
+  }
+
+  public void setErrorCode(Integer errorCode) {
+    this.errorCode = errorCode;
+  }
+
+  public String getErrorMessage() {
+    return this.errorMessage;
+  }
+
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+  }
+
+  // builder 开始
+  public FeedCardSettingFailedItem() {}
+
+  public FeedCardSettingFailedItem(Builder builder) {
     /**
      * 消息流卡片 ID
-     * <p> 示例值：oc_785fae31552ae88681bc69b4a1550289
+     *
+     * <p>示例值：oc_785fae31552ae88681bc69b4a1550289
      */
-    @SerializedName("feed_card_id")
-    private String feedCardId;
+    this.feedCardId = builder.feedCardId;
     /**
      * 错误码
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("error_code")
-    private Integer errorCode;
+    this.errorCode = builder.errorCode;
     /**
      * 错误信息
-     * <p> 示例值：test error message
+     *
+     * <p>示例值：test error message
      */
-    @SerializedName("error_message")
+    this.errorMessage = builder.errorMessage;
+  }
+
+  public static class Builder {
+    /**
+     * 消息流卡片 ID
+     *
+     * <p>示例值：oc_785fae31552ae88681bc69b4a1550289
+     */
+    private String feedCardId;
+
+    /**
+     * 错误码
+     *
+     * <p>示例值：0
+     */
+    private Integer errorCode;
+
+    /**
+     * 错误信息
+     *
+     * <p>示例值：test error message
+     */
     private String errorMessage;
 
-    // builder 开始
-    public FeedCardSettingFailedItem() {
+    /**
+     * 消息流卡片 ID
+     *
+     * <p>示例值：oc_785fae31552ae88681bc69b4a1550289
+     *
+     * @param feedCardId
+     * @return
+     */
+    public Builder feedCardId(String feedCardId) {
+      this.feedCardId = feedCardId;
+      return this;
     }
 
-    public FeedCardSettingFailedItem(Builder builder) {
-        /**
-         * 消息流卡片 ID
-         * <p> 示例值：oc_785fae31552ae88681bc69b4a1550289
-         */
-        this.feedCardId = builder.feedCardId;
-        /**
-         * 错误码
-         * <p> 示例值：0
-         */
-        this.errorCode = builder.errorCode;
-        /**
-         * 错误信息
-         * <p> 示例值：test error message
-         */
-        this.errorMessage = builder.errorMessage;
+    /**
+     * 错误码
+     *
+     * <p>示例值：0
+     *
+     * @param errorCode
+     * @return
+     */
+    public Builder errorCode(Integer errorCode) {
+      this.errorCode = errorCode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 错误信息
+     *
+     * <p>示例值：test error message
+     *
+     * @param errorMessage
+     * @return
+     */
+    public Builder errorMessage(String errorMessage) {
+      this.errorMessage = errorMessage;
+      return this;
     }
 
-    public String getFeedCardId() {
-        return this.feedCardId;
+    public FeedCardSettingFailedItem build() {
+      return new FeedCardSettingFailedItem(this);
     }
+  }
 
-    public void setFeedCardId(String feedCardId) {
-        this.feedCardId = feedCardId;
-    }
-
-    public Integer getErrorCode() {
-        return this.errorCode;
-    }
-
-    public void setErrorCode(Integer errorCode) {
-        this.errorCode = errorCode;
-    }
-
-    public String getErrorMessage() {
-        return this.errorMessage;
-    }
-
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
-    }
-
-    public static class Builder {
-        /**
-         * 消息流卡片 ID
-         * <p> 示例值：oc_785fae31552ae88681bc69b4a1550289
-         */
-        private String feedCardId;
-        /**
-         * 错误码
-         * <p> 示例值：0
-         */
-        private Integer errorCode;
-        /**
-         * 错误信息
-         * <p> 示例值：test error message
-         */
-        private String errorMessage;
-
-        /**
-         * 消息流卡片 ID
-         * <p> 示例值：oc_785fae31552ae88681bc69b4a1550289
-         *
-         * @param feedCardId
-         * @return
-         */
-        public Builder feedCardId(String feedCardId) {
-            this.feedCardId = feedCardId;
-            return this;
-        }
-
-
-        /**
-         * 错误码
-         * <p> 示例值：0
-         *
-         * @param errorCode
-         * @return
-         */
-        public Builder errorCode(Integer errorCode) {
-            this.errorCode = errorCode;
-            return this;
-        }
-
-
-        /**
-         * 错误信息
-         * <p> 示例值：test error message
-         *
-         * @param errorMessage
-         * @return
-         */
-        public Builder errorMessage(String errorMessage) {
-            this.errorMessage = errorMessage;
-            return this;
-        }
-
-
-        public FeedCardSettingFailedItem build() {
-            return new FeedCardSettingFailedItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

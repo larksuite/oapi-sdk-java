@@ -13,223 +13,241 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserVirtualOrgInfo {
+  /**
+   * 虚拟组织维度id
+   *
+   * <p>示例值：02c7141
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 虚拟组织下的部门信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("departments")
+  private Department[] departments;
+
+  /**
+   * 员工部门全路径节点 map<直属部门ID,
+   * list<部门基本信息>>;本字段不含根部门信息，部门顺序为父部门->当前部门\n例如：三级部门为员工当前部门，三级部门的父部门是二级部门，二级部门父部门是一级部门，一级部门的父部门是根部门\n返回
+   * {3,[DepartmentBaseInfo{1,一级部门},DepartmentBaseInfo{2,二级部门}, DepartmentBaseInfo{3,三级部门}]}
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_path_base_infos")
+  private DepartmentBaseInfo[] departmentPathBaseInfos;
+
+  /**
+   * 用户在部门内的排序信息， 第一个部门为主部门
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_order_in_departments")
+  private UserDepartmentSortInfo[] employeeOrderInDepartments;
+
+  /**
+   * 虚拟上级
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leaders")
+  private String[] leaders;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Department[] getDepartments() {
+    return this.departments;
+  }
+
+  public void setDepartments(Department[] departments) {
+    this.departments = departments;
+  }
+
+  public DepartmentBaseInfo[] getDepartmentPathBaseInfos() {
+    return this.departmentPathBaseInfos;
+  }
+
+  public void setDepartmentPathBaseInfos(DepartmentBaseInfo[] departmentPathBaseInfos) {
+    this.departmentPathBaseInfos = departmentPathBaseInfos;
+  }
+
+  public UserDepartmentSortInfo[] getEmployeeOrderInDepartments() {
+    return this.employeeOrderInDepartments;
+  }
+
+  public void setEmployeeOrderInDepartments(UserDepartmentSortInfo[] employeeOrderInDepartments) {
+    this.employeeOrderInDepartments = employeeOrderInDepartments;
+  }
+
+  public String[] getLeaders() {
+    return this.leaders;
+  }
+
+  public void setLeaders(String[] leaders) {
+    this.leaders = leaders;
+  }
+
+  // builder 开始
+  public UserVirtualOrgInfo() {}
+
+  public UserVirtualOrgInfo(Builder builder) {
     /**
      * 虚拟组织维度id
-     * <p> 示例值：02c7141
+     *
+     * <p>示例值：02c7141
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 虚拟组织下的部门信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("departments")
-    private Department[] departments;
+    this.departments = builder.departments;
     /**
-     * 员工部门全路径节点 map<直属部门ID, list<部门基本信息>>;本字段不含根部门信息，部门顺序为父部门->当前部门\n例如：三级部门为员工当前部门，三级部门的父部门是二级部门，二级部门父部门是一级部门，一级部门的父部门是根部门\n返回 {3,[DepartmentBaseInfo{1,一级部门},DepartmentBaseInfo{2,二级部门}, DepartmentBaseInfo{3,三级部门}]}
-     * <p> 示例值：
+     * 员工部门全路径节点 map<直属部门ID,
+     * list<部门基本信息>>;本字段不含根部门信息，部门顺序为父部门->当前部门\n例如：三级部门为员工当前部门，三级部门的父部门是二级部门，二级部门父部门是一级部门，一级部门的父部门是根部门\n返回
+     * {3,[DepartmentBaseInfo{1,一级部门},DepartmentBaseInfo{2,二级部门}, DepartmentBaseInfo{3,三级部门}]}
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_path_base_infos")
-    private DepartmentBaseInfo[] departmentPathBaseInfos;
+    this.departmentPathBaseInfos = builder.departmentPathBaseInfos;
     /**
      * 用户在部门内的排序信息， 第一个部门为主部门
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_order_in_departments")
-    private UserDepartmentSortInfo[] employeeOrderInDepartments;
+    this.employeeOrderInDepartments = builder.employeeOrderInDepartments;
     /**
      * 虚拟上级
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("leaders")
+    this.leaders = builder.leaders;
+  }
+
+  public static class Builder {
+    /**
+     * 虚拟组织维度id
+     *
+     * <p>示例值：02c7141
+     */
+    private String id;
+
+    /**
+     * 虚拟组织下的部门信息
+     *
+     * <p>示例值：
+     */
+    private Department[] departments;
+
+    /**
+     * 员工部门全路径节点 map<直属部门ID,
+     * list<部门基本信息>>;本字段不含根部门信息，部门顺序为父部门->当前部门\n例如：三级部门为员工当前部门，三级部门的父部门是二级部门，二级部门父部门是一级部门，一级部门的父部门是根部门\n返回
+     * {3,[DepartmentBaseInfo{1,一级部门},DepartmentBaseInfo{2,二级部门}, DepartmentBaseInfo{3,三级部门}]}
+     *
+     * <p>示例值：
+     */
+    private DepartmentBaseInfo[] departmentPathBaseInfos;
+
+    /**
+     * 用户在部门内的排序信息， 第一个部门为主部门
+     *
+     * <p>示例值：
+     */
+    private UserDepartmentSortInfo[] employeeOrderInDepartments;
+
+    /**
+     * 虚拟上级
+     *
+     * <p>示例值：
+     */
     private String[] leaders;
 
-    // builder 开始
-    public UserVirtualOrgInfo() {
+    /**
+     * 虚拟组织维度id
+     *
+     * <p>示例值：02c7141
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UserVirtualOrgInfo(Builder builder) {
-        /**
-         * 虚拟组织维度id
-         * <p> 示例值：02c7141
-         */
-        this.id = builder.id;
-        /**
-         * 虚拟组织下的部门信息
-         * <p> 示例值：
-         */
-        this.departments = builder.departments;
-        /**
-         * 员工部门全路径节点 map<直属部门ID, list<部门基本信息>>;本字段不含根部门信息，部门顺序为父部门->当前部门\n例如：三级部门为员工当前部门，三级部门的父部门是二级部门，二级部门父部门是一级部门，一级部门的父部门是根部门\n返回 {3,[DepartmentBaseInfo{1,一级部门},DepartmentBaseInfo{2,二级部门}, DepartmentBaseInfo{3,三级部门}]}
-         * <p> 示例值：
-         */
-        this.departmentPathBaseInfos = builder.departmentPathBaseInfos;
-        /**
-         * 用户在部门内的排序信息， 第一个部门为主部门
-         * <p> 示例值：
-         */
-        this.employeeOrderInDepartments = builder.employeeOrderInDepartments;
-        /**
-         * 虚拟上级
-         * <p> 示例值：
-         */
-        this.leaders = builder.leaders;
+    /**
+     * 虚拟组织下的部门信息
+     *
+     * <p>示例值：
+     *
+     * @param departments
+     * @return
+     */
+    public Builder departments(Department[] departments) {
+      this.departments = departments;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 员工部门全路径节点 map<直属部门ID,
+     * list<部门基本信息>>;本字段不含根部门信息，部门顺序为父部门->当前部门\n例如：三级部门为员工当前部门，三级部门的父部门是二级部门，二级部门父部门是一级部门，一级部门的父部门是根部门\n返回
+     * {3,[DepartmentBaseInfo{1,一级部门},DepartmentBaseInfo{2,二级部门}, DepartmentBaseInfo{3,三级部门}]}
+     *
+     * <p>示例值：
+     *
+     * @param departmentPathBaseInfos
+     * @return
+     */
+    public Builder departmentPathBaseInfos(DepartmentBaseInfo[] departmentPathBaseInfos) {
+      this.departmentPathBaseInfos = departmentPathBaseInfos;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 用户在部门内的排序信息， 第一个部门为主部门
+     *
+     * <p>示例值：
+     *
+     * @param employeeOrderInDepartments
+     * @return
+     */
+    public Builder employeeOrderInDepartments(UserDepartmentSortInfo[] employeeOrderInDepartments) {
+      this.employeeOrderInDepartments = employeeOrderInDepartments;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 虚拟上级
+     *
+     * <p>示例值：
+     *
+     * @param leaders
+     * @return
+     */
+    public Builder leaders(String[] leaders) {
+      this.leaders = leaders;
+      return this;
     }
 
-    public Department[] getDepartments() {
-        return this.departments;
+    public UserVirtualOrgInfo build() {
+      return new UserVirtualOrgInfo(this);
     }
+  }
 
-    public void setDepartments(Department[] departments) {
-        this.departments = departments;
-    }
-
-    public DepartmentBaseInfo[] getDepartmentPathBaseInfos() {
-        return this.departmentPathBaseInfos;
-    }
-
-    public void setDepartmentPathBaseInfos(DepartmentBaseInfo[] departmentPathBaseInfos) {
-        this.departmentPathBaseInfos = departmentPathBaseInfos;
-    }
-
-    public UserDepartmentSortInfo[] getEmployeeOrderInDepartments() {
-        return this.employeeOrderInDepartments;
-    }
-
-    public void setEmployeeOrderInDepartments(UserDepartmentSortInfo[] employeeOrderInDepartments) {
-        this.employeeOrderInDepartments = employeeOrderInDepartments;
-    }
-
-    public String[] getLeaders() {
-        return this.leaders;
-    }
-
-    public void setLeaders(String[] leaders) {
-        this.leaders = leaders;
-    }
-
-    public static class Builder {
-        /**
-         * 虚拟组织维度id
-         * <p> 示例值：02c7141
-         */
-        private String id;
-        /**
-         * 虚拟组织下的部门信息
-         * <p> 示例值：
-         */
-        private Department[] departments;
-        /**
-         * 员工部门全路径节点 map<直属部门ID, list<部门基本信息>>;本字段不含根部门信息，部门顺序为父部门->当前部门\n例如：三级部门为员工当前部门，三级部门的父部门是二级部门，二级部门父部门是一级部门，一级部门的父部门是根部门\n返回 {3,[DepartmentBaseInfo{1,一级部门},DepartmentBaseInfo{2,二级部门}, DepartmentBaseInfo{3,三级部门}]}
-         * <p> 示例值：
-         */
-        private DepartmentBaseInfo[] departmentPathBaseInfos;
-        /**
-         * 用户在部门内的排序信息， 第一个部门为主部门
-         * <p> 示例值：
-         */
-        private UserDepartmentSortInfo[] employeeOrderInDepartments;
-        /**
-         * 虚拟上级
-         * <p> 示例值：
-         */
-        private String[] leaders;
-
-        /**
-         * 虚拟组织维度id
-         * <p> 示例值：02c7141
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 虚拟组织下的部门信息
-         * <p> 示例值：
-         *
-         * @param departments
-         * @return
-         */
-        public Builder departments(Department[] departments) {
-            this.departments = departments;
-            return this;
-        }
-
-
-        /**
-         * 员工部门全路径节点 map<直属部门ID, list<部门基本信息>>;本字段不含根部门信息，部门顺序为父部门->当前部门\n例如：三级部门为员工当前部门，三级部门的父部门是二级部门，二级部门父部门是一级部门，一级部门的父部门是根部门\n返回 {3,[DepartmentBaseInfo{1,一级部门},DepartmentBaseInfo{2,二级部门}, DepartmentBaseInfo{3,三级部门}]}
-         * <p> 示例值：
-         *
-         * @param departmentPathBaseInfos
-         * @return
-         */
-        public Builder departmentPathBaseInfos(DepartmentBaseInfo[] departmentPathBaseInfos) {
-            this.departmentPathBaseInfos = departmentPathBaseInfos;
-            return this;
-        }
-
-
-        /**
-         * 用户在部门内的排序信息， 第一个部门为主部门
-         * <p> 示例值：
-         *
-         * @param employeeOrderInDepartments
-         * @return
-         */
-        public Builder employeeOrderInDepartments(UserDepartmentSortInfo[] employeeOrderInDepartments) {
-            this.employeeOrderInDepartments = employeeOrderInDepartments;
-            return this;
-        }
-
-
-        /**
-         * 虚拟上级
-         * <p> 示例值：
-         *
-         * @param leaders
-         * @return
-         */
-        public Builder leaders(String[] leaders) {
-            this.leaders = leaders;
-            return this;
-        }
-
-
-        public UserVirtualOrgInfo build() {
-            return new UserVirtualOrgInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

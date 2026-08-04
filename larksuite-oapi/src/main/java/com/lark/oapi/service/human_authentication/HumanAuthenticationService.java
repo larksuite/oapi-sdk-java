@@ -13,25 +13,24 @@
 package com.lark.oapi.service.human_authentication;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.human_authentication.v1.V1;
 import com.lark.oapi.service.human_authentication.v1.model.*;
 import com.lark.oapi.service.human_authentication.v1.resource.Identity;
 
 public class HumanAuthenticationService {
-    private final V1 v1;
-    private final Identity identity; // 实名认证
+  private final V1 v1;
+  private final Identity identity; // identity
 
-    public HumanAuthenticationService(Config config) {
-        this.v1 = new V1(config);
-        this.identity = new Identity(config);
-    }
+  public HumanAuthenticationService(Config config) {
+    this.v1 = new V1(config);
+    this.identity = new Identity(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public Identity identity() {
-        return identity;
-    }
+  public Identity identity() {
+    return identity;
+  }
 }

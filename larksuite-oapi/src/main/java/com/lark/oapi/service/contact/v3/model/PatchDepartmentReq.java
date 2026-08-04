@@ -13,187 +13,219 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.contact.v3.enums.*;
 
 public class PatchDepartmentReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+   * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+   *
+   * <p>示例值：open_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  /**
+   * 部门 ID，ID 类型需要与查询参数 department_id_type 的取值保持一致。ID 获取方式说明：;;-
+   * 调用[创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)接口后，可从返回结果中获取到部门
+   * ID 信息。;- 部门 API 提供了多种获取其他部门 ID
+   * 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的
+   * API 进行查询。
+   *
+   * <p>示例值：D096
+   */
+  @Path
+  @SerializedName("department_id")
+  private String departmentId;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  @Body private Department body;
+
+  public Department getDepartment() {
+    return this.body;
+  }
+
+  public void setDepartment(Department body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchDepartmentReq() {}
+
+  public PatchDepartmentReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 此次调用中使用的部门ID的类型
-     * <p> 示例值：open_department_id
+     * 此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+     *
+     * <p>示例值：open_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
-     * 部门ID，需要与查询参数中传入的department_id_type类型保持一致。;;注意：除需要满足正则规则外，同时不能以od-开头
-     * <p> 示例值：D096
+     * 部门 ID，ID 类型需要与查询参数 department_id_type 的取值保持一致。ID 获取方式说明：;;-
+     * 调用[创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)接口后，可从返回结果中获取到部门
+     * ID 信息。;- 部门 API 提供了多种获取其他部门 ID
+     * 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的
+     * API 进行查询。
+     *
+     * <p>示例值：D096
      */
-    @Path
-    @SerializedName("department_id")
-    private String departmentId;
-    @Body
+    this.departmentId = builder.departmentId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String departmentIdType; // 此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+
+    // 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.contact.v3.enums.PatchDepartmentPatchDepartmentV3UserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.contact.v3.enums.PatchDepartmentPatchDepartmentV3UserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.contact.v3.enums.PatchDepartmentPatchDepartmentV3DepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.contact.v3.enums.PatchDepartmentPatchDepartmentV3DepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
+    }
+
+    private String departmentId; // 部门 ID，ID 类型需要与查询参数 department_id_type 的取值保持一致。ID 获取方式说明：;;-
+
+    // 调用[创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)接口后，可从返回结果中获取到部门 ID 信息。;- 部门 API 提供了多种获取其他部门 ID 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的 API 进行查询。
+
+    /**
+     * 部门 ID，ID 类型需要与查询参数 department_id_type 的取值保持一致。ID 获取方式说明：;;-
+     * 调用[创建部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/create)接口后，可从返回结果中获取到部门
+     * ID 信息。;- 部门 API 提供了多种获取其他部门 ID
+     * 的方式，如[获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)、[获取父部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/parent)、[搜索部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/search)，你可以选择合适的
+     * API 进行查询。
+     *
+     * <p>示例值：D096
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
+    }
+
     private Department body;
 
-    // builder 开始
-    public PatchDepartmentReq() {
-    }
-
-    public PatchDepartmentReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 部门ID，需要与查询参数中传入的department_id_type类型保持一致。;;注意：除需要满足正则规则外，同时不能以od-开头
-         * <p> 示例值：D096
-         */
-        this.departmentId = builder.departmentId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
     public Department getDepartment() {
-        return this.body;
+      return this.body;
     }
 
-    public void setDepartment(Department body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder department(Department body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String departmentIdType; // 此次调用中使用的部门ID的类型
-        private String departmentId; // 部门ID，需要与查询参数中传入的department_id_type类型保持一致。;;注意：除需要满足正则规则外，同时不能以od-开头
-        private Department body;
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.PatchDepartmentPatchDepartmentV3UserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.PatchDepartmentPatchDepartmentV3UserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.PatchDepartmentPatchDepartmentV3DepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.PatchDepartmentPatchDepartmentV3DepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 部门ID，需要与查询参数中传入的department_id_type类型保持一致。;;注意：除需要满足正则规则外，同时不能以od-开头
-         * <p> 示例值：D096
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-        public Department getDepartment() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder department(Department body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchDepartmentReq build() {
-            return new PatchDepartmentReq(this);
-        }
+    public PatchDepartmentReq build() {
+      return new PatchDepartmentReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

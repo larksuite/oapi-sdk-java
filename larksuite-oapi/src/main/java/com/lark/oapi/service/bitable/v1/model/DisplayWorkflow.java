@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DisplayWorkflow {
+  /**
+   * 自动化流程的 ID
+   *
+   * <p>示例值：72934597xxxx9998484
+   */
+  @SerializedName("workflow_id")
+  private String workflowId;
+
+  /**
+   * 自动化流程的状态
+   *
+   * <p>示例值：Enable
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 自动化流程的名称
+   *
+   * <p>示例值：流程 1
+   */
+  @SerializedName("title")
+  private String title;
+
+  public String getWorkflowId() {
+    return this.workflowId;
+  }
+
+  public void setWorkflowId(String workflowId) {
+    this.workflowId = workflowId;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  // builder 开始
+  public DisplayWorkflow() {}
+
+  public DisplayWorkflow(Builder builder) {
     /**
-     * 自动化工作流的id
-     * <p> 示例值：72934597xxxx9998484
+     * 自动化流程的 ID
+     *
+     * <p>示例值：72934597xxxx9998484
      */
-    @SerializedName("workflow_id")
+    this.workflowId = builder.workflowId;
+    /**
+     * 自动化流程的状态
+     *
+     * <p>示例值：Enable
+     */
+    this.status = builder.status;
+    /**
+     * 自动化流程的名称
+     *
+     * <p>示例值：流程 1
+     */
+    this.title = builder.title;
+  }
+
+  public static class Builder {
+    /**
+     * 自动化流程的 ID
+     *
+     * <p>示例值：72934597xxxx9998484
+     */
     private String workflowId;
+
     /**
-     * 自动化工作流的状态
-     * <p> 示例值：Enable
+     * 自动化流程的状态
+     *
+     * <p>示例值：Enable
      */
-    @SerializedName("status")
     private String status;
+
     /**
-     * 自动化工作流的名称
-     * <p> 示例值：流程
+     * 自动化流程的名称
+     *
+     * <p>示例值：流程 1
      */
-    @SerializedName("title")
     private String title;
 
-    // builder 开始
-    public DisplayWorkflow() {
+    /**
+     * 自动化流程的 ID
+     *
+     * <p>示例值：72934597xxxx9998484
+     *
+     * @param workflowId
+     * @return
+     */
+    public Builder workflowId(String workflowId) {
+      this.workflowId = workflowId;
+      return this;
     }
 
-    public DisplayWorkflow(Builder builder) {
-        /**
-         * 自动化工作流的id
-         * <p> 示例值：72934597xxxx9998484
-         */
-        this.workflowId = builder.workflowId;
-        /**
-         * 自动化工作流的状态
-         * <p> 示例值：Enable
-         */
-        this.status = builder.status;
-        /**
-         * 自动化工作流的名称
-         * <p> 示例值：流程
-         */
-        this.title = builder.title;
+    /**
+     * 自动化流程的状态
+     *
+     * <p>示例值：Enable
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自动化流程的名称
+     *
+     * <p>示例值：流程 1
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public String getWorkflowId() {
-        return this.workflowId;
+    public DisplayWorkflow build() {
+      return new DisplayWorkflow(this);
     }
+  }
 
-    public void setWorkflowId(String workflowId) {
-        this.workflowId = workflowId;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public static class Builder {
-        /**
-         * 自动化工作流的id
-         * <p> 示例值：72934597xxxx9998484
-         */
-        private String workflowId;
-        /**
-         * 自动化工作流的状态
-         * <p> 示例值：Enable
-         */
-        private String status;
-        /**
-         * 自动化工作流的名称
-         * <p> 示例值：流程
-         */
-        private String title;
-
-        /**
-         * 自动化工作流的id
-         * <p> 示例值：72934597xxxx9998484
-         *
-         * @param workflowId
-         * @return
-         */
-        public Builder workflowId(String workflowId) {
-            this.workflowId = workflowId;
-            return this;
-        }
-
-
-        /**
-         * 自动化工作流的状态
-         * <p> 示例值：Enable
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 自动化工作流的名称
-         * <p> 示例值：流程
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        public DisplayWorkflow build() {
-            return new DisplayWorkflow(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

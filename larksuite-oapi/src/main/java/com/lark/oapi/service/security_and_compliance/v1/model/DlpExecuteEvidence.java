@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DlpExecuteEvidence {
+  /**
+   * 关键字
+   *
+   * <p>示例值：
+   */
+  @SerializedName("keyword_hits")
+  private String[] keywordHits;
+
+  /**
+   * 正则表达式列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("regular_hits")
+  private String[] regularHits;
+
+  /**
+   * 敏感信息类型列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sensitive_hits")
+  private String[] sensitiveHits;
+
+  public String[] getKeywordHits() {
+    return this.keywordHits;
+  }
+
+  public void setKeywordHits(String[] keywordHits) {
+    this.keywordHits = keywordHits;
+  }
+
+  public String[] getRegularHits() {
+    return this.regularHits;
+  }
+
+  public void setRegularHits(String[] regularHits) {
+    this.regularHits = regularHits;
+  }
+
+  public String[] getSensitiveHits() {
+    return this.sensitiveHits;
+  }
+
+  public void setSensitiveHits(String[] sensitiveHits) {
+    this.sensitiveHits = sensitiveHits;
+  }
+
+  // builder 开始
+  public DlpExecuteEvidence() {}
+
+  public DlpExecuteEvidence(Builder builder) {
     /**
      * 关键字
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("keyword_hits")
-    private String[] keywordHits;
+    this.keywordHits = builder.keywordHits;
     /**
      * 正则表达式列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("regular_hits")
-    private String[] regularHits;
+    this.regularHits = builder.regularHits;
     /**
      * 敏感信息类型列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sensitive_hits")
+    this.sensitiveHits = builder.sensitiveHits;
+  }
+
+  public static class Builder {
+    /**
+     * 关键字
+     *
+     * <p>示例值：
+     */
+    private String[] keywordHits;
+
+    /**
+     * 正则表达式列表
+     *
+     * <p>示例值：
+     */
+    private String[] regularHits;
+
+    /**
+     * 敏感信息类型列表
+     *
+     * <p>示例值：
+     */
     private String[] sensitiveHits;
 
-    // builder 开始
-    public DlpExecuteEvidence() {
+    /**
+     * 关键字
+     *
+     * <p>示例值：
+     *
+     * @param keywordHits
+     * @return
+     */
+    public Builder keywordHits(String[] keywordHits) {
+      this.keywordHits = keywordHits;
+      return this;
     }
 
-    public DlpExecuteEvidence(Builder builder) {
-        /**
-         * 关键字
-         * <p> 示例值：
-         */
-        this.keywordHits = builder.keywordHits;
-        /**
-         * 正则表达式列表
-         * <p> 示例值：
-         */
-        this.regularHits = builder.regularHits;
-        /**
-         * 敏感信息类型列表
-         * <p> 示例值：
-         */
-        this.sensitiveHits = builder.sensitiveHits;
+    /**
+     * 正则表达式列表
+     *
+     * <p>示例值：
+     *
+     * @param regularHits
+     * @return
+     */
+    public Builder regularHits(String[] regularHits) {
+      this.regularHits = regularHits;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 敏感信息类型列表
+     *
+     * <p>示例值：
+     *
+     * @param sensitiveHits
+     * @return
+     */
+    public Builder sensitiveHits(String[] sensitiveHits) {
+      this.sensitiveHits = sensitiveHits;
+      return this;
     }
 
-    public String[] getKeywordHits() {
-        return this.keywordHits;
+    public DlpExecuteEvidence build() {
+      return new DlpExecuteEvidence(this);
     }
+  }
 
-    public void setKeywordHits(String[] keywordHits) {
-        this.keywordHits = keywordHits;
-    }
-
-    public String[] getRegularHits() {
-        return this.regularHits;
-    }
-
-    public void setRegularHits(String[] regularHits) {
-        this.regularHits = regularHits;
-    }
-
-    public String[] getSensitiveHits() {
-        return this.sensitiveHits;
-    }
-
-    public void setSensitiveHits(String[] sensitiveHits) {
-        this.sensitiveHits = sensitiveHits;
-    }
-
-    public static class Builder {
-        /**
-         * 关键字
-         * <p> 示例值：
-         */
-        private String[] keywordHits;
-        /**
-         * 正则表达式列表
-         * <p> 示例值：
-         */
-        private String[] regularHits;
-        /**
-         * 敏感信息类型列表
-         * <p> 示例值：
-         */
-        private String[] sensitiveHits;
-
-        /**
-         * 关键字
-         * <p> 示例值：
-         *
-         * @param keywordHits
-         * @return
-         */
-        public Builder keywordHits(String[] keywordHits) {
-            this.keywordHits = keywordHits;
-            return this;
-        }
-
-
-        /**
-         * 正则表达式列表
-         * <p> 示例值：
-         *
-         * @param regularHits
-         * @return
-         */
-        public Builder regularHits(String[] regularHits) {
-            this.regularHits = regularHits;
-            return this;
-        }
-
-
-        /**
-         * 敏感信息类型列表
-         * <p> 示例值：
-         *
-         * @param sensitiveHits
-         * @return
-         */
-        public Builder sensitiveHits(String[] sensitiveHits) {
-            this.sensitiveHits = sensitiveHits;
-            return this;
-        }
-
-
-        public DlpExecuteEvidence build() {
-            return new DlpExecuteEvidence(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

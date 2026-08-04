@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageQuery {
+  /**
+   * 消息ID
+   *
+   * <p>示例值：om_8964d1b4*********2b31383276113
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果。
+   *
+   * <p>示例值：YhljsPiGfUgnVAg9urvRFd-BvSqRL20
+   */
+  @SerializedName("page_token")
+  private String pageToken;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  // builder 开始
+  public MessageQuery() {}
+
+  public MessageQuery(Builder builder) {
     /**
      * 消息ID
-     * <p> 示例值：om_8964d1b4*********2b31383276113
+     *
+     * <p>示例值：om_8964d1b4*********2b31383276113
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果。
-     * <p> 示例值：YhljsPiGfUgnVAg9urvRFd-BvSqRL20
+     *
+     * <p>示例值：YhljsPiGfUgnVAg9urvRFd-BvSqRL20
      */
-    @SerializedName("page_token")
+    this.pageToken = builder.pageToken;
+  }
+
+  public static class Builder {
+    /**
+     * 消息ID
+     *
+     * <p>示例值：om_8964d1b4*********2b31383276113
+     */
+    private String messageId;
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果。
+     *
+     * <p>示例值：YhljsPiGfUgnVAg9urvRFd-BvSqRL20
+     */
     private String pageToken;
 
-    // builder 开始
-    public MessageQuery() {
+    /**
+     * 消息ID
+     *
+     * <p>示例值：om_8964d1b4*********2b31383276113
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public MessageQuery(Builder builder) {
-        /**
-         * 消息ID
-         * <p> 示例值：om_8964d1b4*********2b31383276113
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果。
-         * <p> 示例值：YhljsPiGfUgnVAg9urvRFd-BvSqRL20
-         */
-        this.pageToken = builder.pageToken;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果。
+     *
+     * <p>示例值：YhljsPiGfUgnVAg9urvRFd-BvSqRL20
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MessageQuery build() {
+      return new MessageQuery(this);
     }
+  }
 
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public static class Builder {
-        /**
-         * 消息ID
-         * <p> 示例值：om_8964d1b4*********2b31383276113
-         */
-        private String messageId;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果。
-         * <p> 示例值：YhljsPiGfUgnVAg9urvRFd-BvSqRL20
-         */
-        private String pageToken;
-
-        /**
-         * 消息ID
-         * <p> 示例值：om_8964d1b4*********2b31383276113
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果。
-         * <p> 示例值：YhljsPiGfUgnVAg9urvRFd-BvSqRL20
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        public MessageQuery build() {
-            return new MessageQuery(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

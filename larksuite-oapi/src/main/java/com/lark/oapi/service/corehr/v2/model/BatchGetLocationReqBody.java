@@ -13,75 +13,69 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchGetLocationReqBody {
+  /**
+   * 地点 ID 列表， 地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。ID获取方式：;-
+   * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("location_ids")
+  private String[] locationIds;
+
+  public String[] getLocationIds() {
+    return this.locationIds;
+  }
+
+  public void setLocationIds(String[] locationIds) {
+    this.locationIds = locationIds;
+  }
+
+  // builder 开始
+  public BatchGetLocationReqBody() {}
+
+  public BatchGetLocationReqBody(Builder builder) {
     /**
-     * 地点 ID 列表
-     * <p> 示例值：
+     * 地点 ID 列表， 地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。ID获取方式：;-
+     * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID;
+     *
+     * <p>示例值：
      */
-    @SerializedName("location_ids")
+    this.locationIds = builder.locationIds;
+  }
+
+  public static class Builder {
+    /**
+     * 地点 ID 列表， 地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。ID获取方式：;-
+     * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID;
+     *
+     * <p>示例值：
+     */
     private String[] locationIds;
 
-    // builder 开始
-    public BatchGetLocationReqBody() {
+    /**
+     * 地点 ID 列表， 地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。ID获取方式：;-
+     * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID;
+     *
+     * <p>示例值：
+     *
+     * @param locationIds
+     * @return
+     */
+    public Builder locationIds(String[] locationIds) {
+      this.locationIds = locationIds;
+      return this;
     }
 
-    public BatchGetLocationReqBody(Builder builder) {
-        /**
-         * 地点 ID 列表
-         * <p> 示例值：
-         */
-        this.locationIds = builder.locationIds;
+    public BatchGetLocationReqBody build() {
+      return new BatchGetLocationReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getLocationIds() {
-        return this.locationIds;
-    }
-
-    public void setLocationIds(String[] locationIds) {
-        this.locationIds = locationIds;
-    }
-
-    public static class Builder {
-        /**
-         * 地点 ID 列表
-         * <p> 示例值：
-         */
-        private String[] locationIds;
-
-        /**
-         * 地点 ID 列表
-         * <p> 示例值：
-         *
-         * @param locationIds
-         * @return
-         */
-        public Builder locationIds(String[] locationIds) {
-            this.locationIds = locationIds;
-            return this;
-        }
-
-
-        public BatchGetLocationReqBody build() {
-            return new BatchGetLocationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

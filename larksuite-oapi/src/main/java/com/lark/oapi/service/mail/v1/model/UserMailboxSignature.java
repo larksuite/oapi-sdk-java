@@ -13,337 +13,360 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class UserMailboxSignature {
+  /**
+   * 签名 ID
+   *
+   * <p>示例值：sig_xxxxxx
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 签名名称
+   *
+   * <p>示例值：我的签名
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 签名内容（HTML 格式）
+   *
+   * <p>示例值：<div>Best regards</div>
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 签名类型，可选值：USER（用户签名）、TENANT（租户签名）
+   *
+   * <p>示例值：USER
+   */
+  @SerializedName("signature_type")
+  private String signatureType;
+
+  /**
+   * 签名适用设备类型，可选值：PC、MOBILE
+   *
+   * <p>示例值：PC
+   */
+  @SerializedName("signature_device")
+  private String signatureDevice;
+
+  /**
+   * 企业签名模板变量渲染
+   *
+   * <p>示例值：
+   */
+  @SerializedName("template_json_keys")
+  private String[] templateJsonKeys;
+
+  /**
+   * 签名最后更新时间戳
+   *
+   * <p>示例值：
+   */
+  @SerializedName("images")
+  private UserMailboxSiganatureImage[] images;
+
+  /**
+   * 企业签名模版变量值
+   *
+   * <p>示例值：{"BNAME": "xxxx"}
+   */
+  @SerializedName("user_fields")
+  private Map<String, UserMailboxSignatureI18nVal> userFields;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getSignatureType() {
+    return this.signatureType;
+  }
+
+  public void setSignatureType(String signatureType) {
+    this.signatureType = signatureType;
+  }
+
+  public String getSignatureDevice() {
+    return this.signatureDevice;
+  }
+
+  public void setSignatureDevice(String signatureDevice) {
+    this.signatureDevice = signatureDevice;
+  }
+
+  public String[] getTemplateJsonKeys() {
+    return this.templateJsonKeys;
+  }
+
+  public void setTemplateJsonKeys(String[] templateJsonKeys) {
+    this.templateJsonKeys = templateJsonKeys;
+  }
+
+  public UserMailboxSiganatureImage[] getImages() {
+    return this.images;
+  }
+
+  public void setImages(UserMailboxSiganatureImage[] images) {
+    this.images = images;
+  }
+
+  public Map<String, UserMailboxSignatureI18nVal> getUserFields() {
+    return this.userFields;
+  }
+
+  public void setUserFields(Map<String, UserMailboxSignatureI18nVal> userFields) {
+    this.userFields = userFields;
+  }
+
+  // builder 开始
+  public UserMailboxSignature() {}
+
+  public UserMailboxSignature(Builder builder) {
     /**
      * 签名 ID
-     * <p> 示例值：sig_xxxxxx
+     *
+     * <p>示例值：sig_xxxxxx
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 签名名称
-     * <p> 示例值：我的签名
+     *
+     * <p>示例值：我的签名
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 签名内容（HTML 格式）
-     * <p> 示例值：<div>Best regards</div>
+     *
+     * <p>示例值：<div>Best regards</div>
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 签名类型，可选值：USER（用户签名）、TENANT（租户签名）
-     * <p> 示例值：USER
+     *
+     * <p>示例值：USER
      */
-    @SerializedName("signature_type")
-    private String signatureType;
+    this.signatureType = builder.signatureType;
     /**
      * 签名适用设备类型，可选值：PC、MOBILE
-     * <p> 示例值：PC
+     *
+     * <p>示例值：PC
      */
-    @SerializedName("signature_device")
-    private String signatureDevice;
+    this.signatureDevice = builder.signatureDevice;
     /**
      * 企业签名模板变量渲染
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("template_json_keys")
-    private String[] templateJsonKeys;
+    this.templateJsonKeys = builder.templateJsonKeys;
     /**
      * 签名最后更新时间戳
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("images")
-    private UserMailboxSiganatureImage[] images;
+    this.images = builder.images;
     /**
      * 企业签名模版变量值
-     * <p> 示例值：
+     *
+     * <p>示例值：{"BNAME": "xxxx"}
      */
-    @SerializedName("user_fields")
+    this.userFields = builder.userFields;
+  }
+
+  public static class Builder {
+    /**
+     * 签名 ID
+     *
+     * <p>示例值：sig_xxxxxx
+     */
+    private String id;
+
+    /**
+     * 签名名称
+     *
+     * <p>示例值：我的签名
+     */
+    private String name;
+
+    /**
+     * 签名内容（HTML 格式）
+     *
+     * <p>示例值：<div>Best regards</div>
+     */
+    private String content;
+
+    /**
+     * 签名类型，可选值：USER（用户签名）、TENANT（租户签名）
+     *
+     * <p>示例值：USER
+     */
+    private String signatureType;
+
+    /**
+     * 签名适用设备类型，可选值：PC、MOBILE
+     *
+     * <p>示例值：PC
+     */
+    private String signatureDevice;
+
+    /**
+     * 企业签名模板变量渲染
+     *
+     * <p>示例值：
+     */
+    private String[] templateJsonKeys;
+
+    /**
+     * 签名最后更新时间戳
+     *
+     * <p>示例值：
+     */
+    private UserMailboxSiganatureImage[] images;
+
+    /**
+     * 企业签名模版变量值
+     *
+     * <p>示例值：{"BNAME": "xxxx"}
+     */
     private Map<String, UserMailboxSignatureI18nVal> userFields;
 
-    // builder 开始
-    public UserMailboxSignature() {
+    /**
+     * 签名 ID
+     *
+     * <p>示例值：sig_xxxxxx
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UserMailboxSignature(Builder builder) {
-        /**
-         * 签名 ID
-         * <p> 示例值：sig_xxxxxx
-         */
-        this.id = builder.id;
-        /**
-         * 签名名称
-         * <p> 示例值：我的签名
-         */
-        this.name = builder.name;
-        /**
-         * 签名内容（HTML 格式）
-         * <p> 示例值：<div>Best regards</div>
-         */
-        this.content = builder.content;
-        /**
-         * 签名类型，可选值：USER（用户签名）、TENANT（租户签名）
-         * <p> 示例值：USER
-         */
-        this.signatureType = builder.signatureType;
-        /**
-         * 签名适用设备类型，可选值：PC、MOBILE
-         * <p> 示例值：PC
-         */
-        this.signatureDevice = builder.signatureDevice;
-        /**
-         * 企业签名模板变量渲染
-         * <p> 示例值：
-         */
-        this.templateJsonKeys = builder.templateJsonKeys;
-        /**
-         * 签名最后更新时间戳
-         * <p> 示例值：
-         */
-        this.images = builder.images;
-        /**
-         * 企业签名模版变量值
-         * <p> 示例值：
-         */
-        this.userFields = builder.userFields;
+    /**
+     * 签名名称
+     *
+     * <p>示例值：我的签名
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 签名内容（HTML 格式）
+     *
+     * <p>示例值：<div>Best regards</div>
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 签名类型，可选值：USER（用户签名）、TENANT（租户签名）
+     *
+     * <p>示例值：USER
+     *
+     * @param signatureType
+     * @return
+     */
+    public Builder signatureType(String signatureType) {
+      this.signatureType = signatureType;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 签名适用设备类型，可选值：PC、MOBILE
+     *
+     * <p>示例值：PC
+     *
+     * @param signatureDevice
+     * @return
+     */
+    public Builder signatureDevice(String signatureDevice) {
+      this.signatureDevice = signatureDevice;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 企业签名模板变量渲染
+     *
+     * <p>示例值：
+     *
+     * @param templateJsonKeys
+     * @return
+     */
+    public Builder templateJsonKeys(String[] templateJsonKeys) {
+      this.templateJsonKeys = templateJsonKeys;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 签名最后更新时间戳
+     *
+     * <p>示例值：
+     *
+     * @param images
+     * @return
+     */
+    public Builder images(UserMailboxSiganatureImage[] images) {
+      this.images = images;
+      return this;
     }
 
-    public String getContent() {
-        return this.content;
+    /**
+     * 企业签名模版变量值
+     *
+     * <p>示例值：{"BNAME": "xxxx"}
+     *
+     * @param userFields
+     * @return
+     */
+    public Builder userFields(Map<String, UserMailboxSignatureI18nVal> userFields) {
+      this.userFields = userFields;
+      return this;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public UserMailboxSignature build() {
+      return new UserMailboxSignature(this);
     }
+  }
 
-    public String getSignatureType() {
-        return this.signatureType;
-    }
-
-    public void setSignatureType(String signatureType) {
-        this.signatureType = signatureType;
-    }
-
-    public String getSignatureDevice() {
-        return this.signatureDevice;
-    }
-
-    public void setSignatureDevice(String signatureDevice) {
-        this.signatureDevice = signatureDevice;
-    }
-
-    public String[] getTemplateJsonKeys() {
-        return this.templateJsonKeys;
-    }
-
-    public void setTemplateJsonKeys(String[] templateJsonKeys) {
-        this.templateJsonKeys = templateJsonKeys;
-    }
-
-    public UserMailboxSiganatureImage[] getImages() {
-        return this.images;
-    }
-
-    public void setImages(UserMailboxSiganatureImage[] images) {
-        this.images = images;
-    }
-
-    public Map<String, UserMailboxSignatureI18nVal> getUserFields() {
-        return this.userFields;
-    }
-
-    public void setUserFields(Map<String, UserMailboxSignatureI18nVal> userFields) {
-        this.userFields = userFields;
-    }
-
-    public static class Builder {
-        /**
-         * 签名 ID
-         * <p> 示例值：sig_xxxxxx
-         */
-        private String id;
-        /**
-         * 签名名称
-         * <p> 示例值：我的签名
-         */
-        private String name;
-        /**
-         * 签名内容（HTML 格式）
-         * <p> 示例值：<div>Best regards</div>
-         */
-        private String content;
-        /**
-         * 签名类型，可选值：USER（用户签名）、TENANT（租户签名）
-         * <p> 示例值：USER
-         */
-        private String signatureType;
-        /**
-         * 签名适用设备类型，可选值：PC、MOBILE
-         * <p> 示例值：PC
-         */
-        private String signatureDevice;
-        /**
-         * 企业签名模板变量渲染
-         * <p> 示例值：
-         */
-        private String[] templateJsonKeys;
-        /**
-         * 签名最后更新时间戳
-         * <p> 示例值：
-         */
-        private UserMailboxSiganatureImage[] images;
-        /**
-         * 企业签名模版变量值
-         * <p> 示例值：
-         */
-        private Map<String, UserMailboxSignatureI18nVal> userFields;
-
-        /**
-         * 签名 ID
-         * <p> 示例值：sig_xxxxxx
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 签名名称
-         * <p> 示例值：我的签名
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 签名内容（HTML 格式）
-         * <p> 示例值：<div>Best regards</div>
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 签名类型，可选值：USER（用户签名）、TENANT（租户签名）
-         * <p> 示例值：USER
-         *
-         * @param signatureType
-         * @return
-         */
-        public Builder signatureType(String signatureType) {
-            this.signatureType = signatureType;
-            return this;
-        }
-
-
-        /**
-         * 签名适用设备类型，可选值：PC、MOBILE
-         * <p> 示例值：PC
-         *
-         * @param signatureDevice
-         * @return
-         */
-        public Builder signatureDevice(String signatureDevice) {
-            this.signatureDevice = signatureDevice;
-            return this;
-        }
-
-
-        /**
-         * 企业签名模板变量渲染
-         * <p> 示例值：
-         *
-         * @param templateJsonKeys
-         * @return
-         */
-        public Builder templateJsonKeys(String[] templateJsonKeys) {
-            this.templateJsonKeys = templateJsonKeys;
-            return this;
-        }
-
-
-        /**
-         * 签名最后更新时间戳
-         * <p> 示例值：
-         *
-         * @param images
-         * @return
-         */
-        public Builder images(UserMailboxSiganatureImage[] images) {
-            this.images = images;
-            return this;
-        }
-
-
-        /**
-         * 企业签名模版变量值
-         * <p> 示例值：
-         *
-         * @param userFields
-         * @return
-         */
-        public Builder userFields(Map<String, UserMailboxSignatureI18nVal> userFields) {
-            this.userFields = userFields;
-            return this;
-        }
-
-
-        public UserMailboxSignature build() {
-            return new UserMailboxSignature(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

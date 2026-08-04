@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.task.v2.enums;
 
-/**
- * 自定义字段类型，支持"number", "datetime", "member", "single_select", "multi_select"
- */
+/** 自定义字段类型。 */
 public enum CreateCustomFieldTypeEnum {
-    NUMBER("number"), // 数字
-    DATETIME("datetime"), // 日期
-    MEMBER("member"), // 成员
-    SINGLE_SELECT("single_select"), // 单选
-    MULTI_SELECT("multi_select"), // 多选
-    TEXT("text"), // 文本
-    ;
-    private String value;
+  NUMBER("number"), // 数字
+  DATETIME("datetime"), // 日期
+  MEMBER("member"), // 成员
+  SINGLE_SELECT("single_select"), // 单选
+  MULTI_SELECT("multi_select"), // 多选
+  TEXT("text"), // 文本
+  ;
+  private String value;
 
-    CreateCustomFieldTypeEnum(String value) {
-        this.value = value;
-    }
+  CreateCustomFieldTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class QuerybyidEmployeeCustomOrgReq {
+  /**
+   * 自定义组织ID
+   *
+   * <p>示例值：7293841029445207596
+   */
+  @Query
+  @SerializedName("job_data_custom_org_id")
+  private String jobDataCustomOrgId;
+
+  /**
+   * 版本IDs 。为空是查 全部的版本记录
+   *
+   * <p>示例值：7293841029445207593
+   */
+  @Query
+  @SerializedName("version_id")
+  private String[] versionId;
+
+  /**
+   * 自定义组织类型编码
+   *
+   * <p>示例值：custom_org_03
+   */
+  @Query
+  @SerializedName("object_api_name")
+  private String objectApiName;
+
+  /**
+   * 用户ID标识
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getJobDataCustomOrgId() {
+    return this.jobDataCustomOrgId;
+  }
+
+  public void setJobDataCustomOrgId(String jobDataCustomOrgId) {
+    this.jobDataCustomOrgId = jobDataCustomOrgId;
+  }
+
+  public String[] getVersionId() {
+    return this.versionId;
+  }
+
+  public void setVersionId(String[] versionId) {
+    this.versionId = versionId;
+  }
+
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
+
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  // builder 开始
+  public QuerybyidEmployeeCustomOrgReq() {}
+
+  public QuerybyidEmployeeCustomOrgReq(Builder builder) {
     /**
      * 自定义组织ID
-     * <p> 示例值：7293841029445207596
+     *
+     * <p>示例值：7293841029445207596
      */
-    @Query
-    @SerializedName("job_data_custom_org_id")
-    private String jobDataCustomOrgId;
+    this.jobDataCustomOrgId = builder.jobDataCustomOrgId;
     /**
      * 版本IDs 。为空是查 全部的版本记录
-     * <p> 示例值：7293841029445207593
+     *
+     * <p>示例值：7293841029445207593
      */
-    @Query
-    @SerializedName("version_id")
-    private String[] versionId;
+    this.versionId = builder.versionId;
     /**
      * 自定义组织类型编码
-     * <p> 示例值：custom_org_03
+     *
+     * <p>示例值：custom_org_03
      */
-    @Query
-    @SerializedName("object_api_name")
-    private String objectApiName;
+    this.objectApiName = builder.objectApiName;
     /**
      * 用户ID标识
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
+  }
 
-    // builder 开始
-    public QuerybyidEmployeeCustomOrgReq() {
+  public static class Builder {
+    private String jobDataCustomOrgId; // 自定义组织ID
+    private String[] versionId; // 版本IDs 。为空是查 全部的版本记录
+    private String objectApiName; // 自定义组织类型编码
+    private String userIdType; // 用户ID标识
+
+    /**
+     * 自定义组织ID
+     *
+     * <p>示例值：7293841029445207596
+     *
+     * @param jobDataCustomOrgId
+     * @return
+     */
+    public Builder jobDataCustomOrgId(String jobDataCustomOrgId) {
+      this.jobDataCustomOrgId = jobDataCustomOrgId;
+      return this;
     }
 
-    public QuerybyidEmployeeCustomOrgReq(Builder builder) {
-        /**
-         * 自定义组织ID
-         * <p> 示例值：7293841029445207596
-         */
-        this.jobDataCustomOrgId = builder.jobDataCustomOrgId;
-        /**
-         * 版本IDs 。为空是查 全部的版本记录
-         * <p> 示例值：7293841029445207593
-         */
-        this.versionId = builder.versionId;
-        /**
-         * 自定义组织类型编码
-         * <p> 示例值：custom_org_03
-         */
-        this.objectApiName = builder.objectApiName;
-        /**
-         * 用户ID标识
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
+    /**
+     * 版本IDs 。为空是查 全部的版本记录
+     *
+     * <p>示例值：7293841029445207593
+     *
+     * @param versionId
+     * @return
+     */
+    public Builder versionId(String[] versionId) {
+      this.versionId = versionId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义组织类型编码
+     *
+     * <p>示例值：custom_org_03
+     *
+     * @param objectApiName
+     * @return
+     */
+    public Builder objectApiName(String objectApiName) {
+      this.objectApiName = objectApiName;
+      return this;
     }
 
-    public String getJobDataCustomOrgId() {
-        return this.jobDataCustomOrgId;
+    /**
+     * 用户ID标识
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public void setJobDataCustomOrgId(String jobDataCustomOrgId) {
-        this.jobDataCustomOrgId = jobDataCustomOrgId;
+    /**
+     * 用户ID标识
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.QuerybyidEmployeeCustomOrgQueryEmployeeCustomOrgByIDUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .QuerybyidEmployeeCustomOrgQueryEmployeeCustomOrgByIDUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public String[] getVersionId() {
-        return this.versionId;
+    public QuerybyidEmployeeCustomOrgReq build() {
+      return new QuerybyidEmployeeCustomOrgReq(this);
     }
+  }
 
-    public void setVersionId(String[] versionId) {
-        this.versionId = versionId;
-    }
-
-    public String getObjectApiName() {
-        return this.objectApiName;
-    }
-
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public static class Builder {
-        private String jobDataCustomOrgId; // 自定义组织ID
-        private String[] versionId; // 版本IDs 。为空是查 全部的版本记录
-        private String objectApiName; // 自定义组织类型编码
-        private String userIdType; // 用户ID标识
-
-        /**
-         * 自定义组织ID
-         * <p> 示例值：7293841029445207596
-         *
-         * @param jobDataCustomOrgId
-         * @return
-         */
-        public Builder jobDataCustomOrgId(String jobDataCustomOrgId) {
-            this.jobDataCustomOrgId = jobDataCustomOrgId;
-            return this;
-        }
-
-
-        /**
-         * 版本IDs 。为空是查 全部的版本记录
-         * <p> 示例值：7293841029445207593
-         *
-         * @param versionId
-         * @return
-         */
-        public Builder versionId(String[] versionId) {
-            this.versionId = versionId;
-            return this;
-        }
-
-
-        /**
-         * 自定义组织类型编码
-         * <p> 示例值：custom_org_03
-         *
-         * @param objectApiName
-         * @return
-         */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
-
-
-        /**
-         * 用户ID标识
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户ID标识
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.QuerybyidEmployeeCustomOrgQueryEmployeeCustomOrgByIDUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.QuerybyidEmployeeCustomOrgQueryEmployeeCustomOrgByIDUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        public QuerybyidEmployeeCustomOrgReq build() {
-            return new QuerybyidEmployeeCustomOrgReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

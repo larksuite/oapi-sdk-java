@@ -13,222 +13,232 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateResultEcoExamReqBody {
+  /**
+   * 笔试结果。表示该场笔试考生的笔试成绩，推荐传 "0"-"100" 的数字（字符串格式），如 "60"、"90" 等
+   *
+   * <p>示例值：60.5
+   */
+  @SerializedName("result")
+  private String result;
+
+  /**
+   * 笔试结果时间，毫秒时间戳
+   *
+   * <p>示例值：1658676234053
+   */
+  @SerializedName("result_time")
+  private String resultTime;
+
+  /**
+   * 报告列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("report_list")
+  private EcoExamResultReport[] reportList;
+
+  /**
+   * 详细评价结果
+   *
+   * <p>示例值：
+   */
+  @SerializedName("detail_list")
+  private EcoExamResultDetail[] detailList;
+
+  /**
+   * 笔试状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  public String getResult() {
+    return this.result;
+  }
+
+  public void setResult(String result) {
+    this.result = result;
+  }
+
+  public String getResultTime() {
+    return this.resultTime;
+  }
+
+  public void setResultTime(String resultTime) {
+    this.resultTime = resultTime;
+  }
+
+  public EcoExamResultReport[] getReportList() {
+    return this.reportList;
+  }
+
+  public void setReportList(EcoExamResultReport[] reportList) {
+    this.reportList = reportList;
+  }
+
+  public EcoExamResultDetail[] getDetailList() {
+    return this.detailList;
+  }
+
+  public void setDetailList(EcoExamResultDetail[] detailList) {
+    this.detailList = detailList;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public UpdateResultEcoExamReqBody() {}
+
+  public UpdateResultEcoExamReqBody(Builder builder) {
     /**
-     * 笔试结果
-     * <p> 示例值：60.5
+     * 笔试结果。表示该场笔试考生的笔试成绩，推荐传 "0"-"100" 的数字（字符串格式），如 "60"、"90" 等
+     *
+     * <p>示例值：60.5
      */
-    @SerializedName("result")
-    private String result;
+    this.result = builder.result;
     /**
-     * 笔试结果时间
-     * <p> 示例值：1658676234053
+     * 笔试结果时间，毫秒时间戳
+     *
+     * <p>示例值：1658676234053
      */
-    @SerializedName("result_time")
-    private String resultTime;
+    this.resultTime = builder.resultTime;
     /**
      * 报告列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("report_list")
-    private EcoExamResultReport[] reportList;
+    this.reportList = builder.reportList;
     /**
      * 详细评价结果
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("detail_list")
-    private EcoExamResultDetail[] detailList;
+    this.detailList = builder.detailList;
     /**
      * 笔试状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 笔试结果。表示该场笔试考生的笔试成绩，推荐传 "0"-"100" 的数字（字符串格式），如 "60"、"90" 等
+     *
+     * <p>示例值：60.5
+     */
+    private String result;
+
+    /**
+     * 笔试结果时间，毫秒时间戳
+     *
+     * <p>示例值：1658676234053
+     */
+    private String resultTime;
+
+    /**
+     * 报告列表
+     *
+     * <p>示例值：
+     */
+    private EcoExamResultReport[] reportList;
+
+    /**
+     * 详细评价结果
+     *
+     * <p>示例值：
+     */
+    private EcoExamResultDetail[] detailList;
+
+    /**
+     * 笔试状态
+     *
+     * <p>示例值：1
+     */
     private Integer status;
 
-    // builder 开始
-    public UpdateResultEcoExamReqBody() {
+    /**
+     * 笔试结果。表示该场笔试考生的笔试成绩，推荐传 "0"-"100" 的数字（字符串格式），如 "60"、"90" 等
+     *
+     * <p>示例值：60.5
+     *
+     * @param result
+     * @return
+     */
+    public Builder result(String result) {
+      this.result = result;
+      return this;
     }
 
-    public UpdateResultEcoExamReqBody(Builder builder) {
-        /**
-         * 笔试结果
-         * <p> 示例值：60.5
-         */
-        this.result = builder.result;
-        /**
-         * 笔试结果时间
-         * <p> 示例值：1658676234053
-         */
-        this.resultTime = builder.resultTime;
-        /**
-         * 报告列表
-         * <p> 示例值：
-         */
-        this.reportList = builder.reportList;
-        /**
-         * 详细评价结果
-         * <p> 示例值：
-         */
-        this.detailList = builder.detailList;
-        /**
-         * 笔试状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
+    /**
+     * 笔试结果时间，毫秒时间戳
+     *
+     * <p>示例值：1658676234053
+     *
+     * @param resultTime
+     * @return
+     */
+    public Builder resultTime(String resultTime) {
+      this.resultTime = resultTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 报告列表
+     *
+     * <p>示例值：
+     *
+     * @param reportList
+     * @return
+     */
+    public Builder reportList(EcoExamResultReport[] reportList) {
+      this.reportList = reportList;
+      return this;
     }
 
-    public String getResult() {
-        return this.result;
+    /**
+     * 详细评价结果
+     *
+     * <p>示例值：
+     *
+     * @param detailList
+     * @return
+     */
+    public Builder detailList(EcoExamResultDetail[] detailList) {
+      this.detailList = detailList;
+      return this;
     }
 
-    public void setResult(String result) {
-        this.result = result;
+    /**
+     * 笔试状态
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public String getResultTime() {
-        return this.resultTime;
+    public UpdateResultEcoExamReqBody build() {
+      return new UpdateResultEcoExamReqBody(this);
     }
+  }
 
-    public void setResultTime(String resultTime) {
-        this.resultTime = resultTime;
-    }
-
-    public EcoExamResultReport[] getReportList() {
-        return this.reportList;
-    }
-
-    public void setReportList(EcoExamResultReport[] reportList) {
-        this.reportList = reportList;
-    }
-
-    public EcoExamResultDetail[] getDetailList() {
-        return this.detailList;
-    }
-
-    public void setDetailList(EcoExamResultDetail[] detailList) {
-        this.detailList = detailList;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 笔试结果
-         * <p> 示例值：60.5
-         */
-        private String result;
-        /**
-         * 笔试结果时间
-         * <p> 示例值：1658676234053
-         */
-        private String resultTime;
-        /**
-         * 报告列表
-         * <p> 示例值：
-         */
-        private EcoExamResultReport[] reportList;
-        /**
-         * 详细评价结果
-         * <p> 示例值：
-         */
-        private EcoExamResultDetail[] detailList;
-        /**
-         * 笔试状态
-         * <p> 示例值：1
-         */
-        private Integer status;
-
-        /**
-         * 笔试结果
-         * <p> 示例值：60.5
-         *
-         * @param result
-         * @return
-         */
-        public Builder result(String result) {
-            this.result = result;
-            return this;
-        }
-
-
-        /**
-         * 笔试结果时间
-         * <p> 示例值：1658676234053
-         *
-         * @param resultTime
-         * @return
-         */
-        public Builder resultTime(String resultTime) {
-            this.resultTime = resultTime;
-            return this;
-        }
-
-
-        /**
-         * 报告列表
-         * <p> 示例值：
-         *
-         * @param reportList
-         * @return
-         */
-        public Builder reportList(EcoExamResultReport[] reportList) {
-            this.reportList = reportList;
-            return this;
-        }
-
-
-        /**
-         * 详细评价结果
-         * <p> 示例值：
-         *
-         * @param detailList
-         * @return
-         */
-        public Builder detailList(EcoExamResultDetail[] detailList) {
-            this.detailList = detailList;
-            return this;
-        }
-
-
-        /**
-         * 笔试状态
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-
-        public UpdateResultEcoExamReqBody build() {
-            return new UpdateResultEcoExamReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ContentLink {
+  /**
+   * 链接地址
+   *
+   * <p>示例值：https://www.xxxxx.com/
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public ContentLink() {}
+
+  public ContentLink(Builder builder) {
     /**
      * 链接地址
-     * <p> 示例值：https://www.xxxxx.com/
+     *
+     * <p>示例值：https://www.xxxxx.com/
      */
-    @SerializedName("url")
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 链接地址
+     *
+     * <p>示例值：https://www.xxxxx.com/
+     */
     private String url;
 
-    // builder 开始
-    public ContentLink() {
+    /**
+     * 链接地址
+     *
+     * <p>示例值：https://www.xxxxx.com/
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public ContentLink(Builder builder) {
-        /**
-         * 链接地址
-         * <p> 示例值：https://www.xxxxx.com/
-         */
-        this.url = builder.url;
+    public ContentLink build() {
+      return new ContentLink(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * 链接地址
-         * <p> 示例值：https://www.xxxxx.com/
-         */
-        private String url;
-
-        /**
-         * 链接地址
-         * <p> 示例值：https://www.xxxxx.com/
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public ContentLink build() {
-            return new ContentLink(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

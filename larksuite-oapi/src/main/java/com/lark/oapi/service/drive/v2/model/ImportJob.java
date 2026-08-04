@@ -13,395 +13,429 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ImportJob {
+  /**
+   * 导入文件扩展名
+   *
+   * <p>示例值：larkdoc
+   */
+  @SerializedName("file_extension")
+  private String fileExtension;
+
+  /**
+   * 导入文件 Drive File Token
+   *
+   * <p>示例值：boxcnxe5OxxxxxxxSNdsJviENsk
+   */
+  @SerializedName("file_token")
+  private String fileToken;
+
+  /**
+   * 导入文档类型
+   *
+   * <p>示例值：sheet
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 导入目标云文档文件名，若为空使用 Drive 文件名
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("file_name")
+  private String fileName;
+
+  /**
+   * 挂载点
+   *
+   * <p>示例值：
+   */
+  @SerializedName("point")
+  private ImportJobMountPoint point;
+
+  /**
+   * 任务状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_status")
+  private Integer jobStatus;
+
+  /**
+   * 任务失败原因
+   *
+   * <p>示例值：success
+   */
+  @SerializedName("job_error_msg")
+  private String jobErrorMsg;
+
+  /**
+   * 导入云文档 Token
+   *
+   * <p>示例值：shtcnVBTG6SuxxxxxxxkM2tUX
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 导入云文档 URL
+   *
+   * <p>示例值：https://example.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getFileExtension() {
+    return this.fileExtension;
+  }
+
+  public void setFileExtension(String fileExtension) {
+    this.fileExtension = fileExtension;
+  }
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getFileName() {
+    return this.fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public ImportJobMountPoint getPoint() {
+    return this.point;
+  }
+
+  public void setPoint(ImportJobMountPoint point) {
+    this.point = point;
+  }
+
+  public Integer getJobStatus() {
+    return this.jobStatus;
+  }
+
+  public void setJobStatus(Integer jobStatus) {
+    this.jobStatus = jobStatus;
+  }
+
+  public String getJobErrorMsg() {
+    return this.jobErrorMsg;
+  }
+
+  public void setJobErrorMsg(String jobErrorMsg) {
+    this.jobErrorMsg = jobErrorMsg;
+  }
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public ImportJob() {}
+
+  public ImportJob(Builder builder) {
     /**
      * 导入文件扩展名
-     * <p> 示例值：larkdoc
+     *
+     * <p>示例值：larkdoc
      */
-    @SerializedName("file_extension")
-    private String fileExtension;
+    this.fileExtension = builder.fileExtension;
     /**
      * 导入文件 Drive File Token
-     * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
+     *
+     * <p>示例值：boxcnxe5OxxxxxxxSNdsJviENsk
      */
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
     /**
      * 导入文档类型
-     * <p> 示例值：sheet
+     *
+     * <p>示例值：sheet
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 导入目标云文档文件名，若为空使用 Drive 文件名
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("file_name")
-    private String fileName;
+    this.fileName = builder.fileName;
     /**
      * 挂载点
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("point")
-    private ImportJobMountPoint point;
+    this.point = builder.point;
     /**
      * 任务状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_status")
-    private Integer jobStatus;
+    this.jobStatus = builder.jobStatus;
     /**
      * 任务失败原因
-     * <p> 示例值：success
+     *
+     * <p>示例值：success
      */
-    @SerializedName("job_error_msg")
-    private String jobErrorMsg;
+    this.jobErrorMsg = builder.jobErrorMsg;
     /**
      * 导入云文档 Token
-     * <p> 示例值：shtcnVBTG6SuxxxxxxxkM2tUX
+     *
+     * <p>示例值：shtcnVBTG6SuxxxxxxxkM2tUX
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 导入云文档 URL
-     * <p> 示例值：https://example.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX
+     *
+     * <p>示例值：https://example.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX
      */
-    @SerializedName("url")
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 导入文件扩展名
+     *
+     * <p>示例值：larkdoc
+     */
+    private String fileExtension;
+
+    /**
+     * 导入文件 Drive File Token
+     *
+     * <p>示例值：boxcnxe5OxxxxxxxSNdsJviENsk
+     */
+    private String fileToken;
+
+    /**
+     * 导入文档类型
+     *
+     * <p>示例值：sheet
+     */
+    private String type;
+
+    /**
+     * 导入目标云文档文件名，若为空使用 Drive 文件名
+     *
+     * <p>示例值：test
+     */
+    private String fileName;
+
+    /**
+     * 挂载点
+     *
+     * <p>示例值：
+     */
+    private ImportJobMountPoint point;
+
+    /**
+     * 任务状态
+     *
+     * <p>示例值：
+     */
+    private Integer jobStatus;
+
+    /**
+     * 任务失败原因
+     *
+     * <p>示例值：success
+     */
+    private String jobErrorMsg;
+
+    /**
+     * 导入云文档 Token
+     *
+     * <p>示例值：shtcnVBTG6SuxxxxxxxkM2tUX
+     */
+    private String token;
+
+    /**
+     * 导入云文档 URL
+     *
+     * <p>示例值：https://example.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX
+     */
     private String url;
 
-    // builder 开始
-    public ImportJob() {
+    /**
+     * 导入文件扩展名
+     *
+     * <p>示例值：larkdoc
+     *
+     * @param fileExtension
+     * @return
+     */
+    public Builder fileExtension(String fileExtension) {
+      this.fileExtension = fileExtension;
+      return this;
     }
 
-    public ImportJob(Builder builder) {
-        /**
-         * 导入文件扩展名
-         * <p> 示例值：larkdoc
-         */
-        this.fileExtension = builder.fileExtension;
-        /**
-         * 导入文件 Drive File Token
-         * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 导入文档类型
-         * <p> 示例值：sheet
-         */
-        this.type = builder.type;
-        /**
-         * 导入目标云文档文件名，若为空使用 Drive 文件名
-         * <p> 示例值：test
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 挂载点
-         * <p> 示例值：
-         */
-        this.point = builder.point;
-        /**
-         * 任务状态
-         * <p> 示例值：
-         */
-        this.jobStatus = builder.jobStatus;
-        /**
-         * 任务失败原因
-         * <p> 示例值：success
-         */
-        this.jobErrorMsg = builder.jobErrorMsg;
-        /**
-         * 导入云文档 Token
-         * <p> 示例值：shtcnVBTG6SuxxxxxxxkM2tUX
-         */
-        this.token = builder.token;
-        /**
-         * 导入云文档 URL
-         * <p> 示例值：https://example.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX
-         */
-        this.url = builder.url;
+    /**
+     * 导入文件扩展名
+     *
+     * <p>示例值：larkdoc
+     *
+     * @param fileExtension {@link com.lark.oapi.service.drive.v2.enums.ImportJobFileExtensionEnum}
+     * @return
+     */
+    public Builder fileExtension(
+        com.lark.oapi.service.drive.v2.enums.ImportJobFileExtensionEnum fileExtension) {
+      this.fileExtension = fileExtension.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 导入文件 Drive File Token
+     *
+     * <p>示例值：boxcnxe5OxxxxxxxSNdsJviENsk
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public String getFileExtension() {
-        return this.fileExtension;
+    /**
+     * 导入文档类型
+     *
+     * <p>示例值：sheet
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setFileExtension(String fileExtension) {
-        this.fileExtension = fileExtension;
+    /**
+     * 导入目标云文档文件名，若为空使用 Drive 文件名
+     *
+     * <p>示例值：test
+     *
+     * @param fileName
+     * @return
+     */
+    public Builder fileName(String fileName) {
+      this.fileName = fileName;
+      return this;
     }
 
-    public String getFileToken() {
-        return this.fileToken;
+    /**
+     * 挂载点
+     *
+     * <p>示例值：
+     *
+     * @param point
+     * @return
+     */
+    public Builder point(ImportJobMountPoint point) {
+      this.point = point;
+      return this;
     }
 
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
+    /**
+     * 任务状态
+     *
+     * <p>示例值：
+     *
+     * @param jobStatus
+     * @return
+     */
+    public Builder jobStatus(Integer jobStatus) {
+      this.jobStatus = jobStatus;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 任务状态
+     *
+     * <p>示例值：
+     *
+     * @param jobStatus {@link com.lark.oapi.service.drive.v2.enums.ImportJobImportJobJobStatusEnum}
+     * @return
+     */
+    public Builder jobStatus(
+        com.lark.oapi.service.drive.v2.enums.ImportJobImportJobJobStatusEnum jobStatus) {
+      this.jobStatus = jobStatus.getValue();
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 任务失败原因
+     *
+     * <p>示例值：success
+     *
+     * @param jobErrorMsg
+     * @return
+     */
+    public Builder jobErrorMsg(String jobErrorMsg) {
+      this.jobErrorMsg = jobErrorMsg;
+      return this;
     }
 
-    public String getFileName() {
-        return this.fileName;
+    /**
+     * 导入云文档 Token
+     *
+     * <p>示例值：shtcnVBTG6SuxxxxxxxkM2tUX
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    /**
+     * 导入云文档 URL
+     *
+     * <p>示例值：https://example.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public ImportJobMountPoint getPoint() {
-        return this.point;
+    public ImportJob build() {
+      return new ImportJob(this);
     }
+  }
 
-    public void setPoint(ImportJobMountPoint point) {
-        this.point = point;
-    }
-
-    public Integer getJobStatus() {
-        return this.jobStatus;
-    }
-
-    public void setJobStatus(Integer jobStatus) {
-        this.jobStatus = jobStatus;
-    }
-
-    public String getJobErrorMsg() {
-        return this.jobErrorMsg;
-    }
-
-    public void setJobErrorMsg(String jobErrorMsg) {
-        this.jobErrorMsg = jobErrorMsg;
-    }
-
-    public String getToken() {
-        return this.token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * 导入文件扩展名
-         * <p> 示例值：larkdoc
-         */
-        private String fileExtension;
-        /**
-         * 导入文件 Drive File Token
-         * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
-         */
-        private String fileToken;
-        /**
-         * 导入文档类型
-         * <p> 示例值：sheet
-         */
-        private String type;
-        /**
-         * 导入目标云文档文件名，若为空使用 Drive 文件名
-         * <p> 示例值：test
-         */
-        private String fileName;
-        /**
-         * 挂载点
-         * <p> 示例值：
-         */
-        private ImportJobMountPoint point;
-        /**
-         * 任务状态
-         * <p> 示例值：
-         */
-        private Integer jobStatus;
-        /**
-         * 任务失败原因
-         * <p> 示例值：success
-         */
-        private String jobErrorMsg;
-        /**
-         * 导入云文档 Token
-         * <p> 示例值：shtcnVBTG6SuxxxxxxxkM2tUX
-         */
-        private String token;
-        /**
-         * 导入云文档 URL
-         * <p> 示例值：https://example.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX
-         */
-        private String url;
-
-        /**
-         * 导入文件扩展名
-         * <p> 示例值：larkdoc
-         *
-         * @param fileExtension
-         * @return
-         */
-        public Builder fileExtension(String fileExtension) {
-            this.fileExtension = fileExtension;
-            return this;
-        }
-
-        /**
-         * 导入文件扩展名
-         * <p> 示例值：larkdoc
-         *
-         * @param fileExtension {@link com.lark.oapi.service.drive.v2.enums.ImportJobFileExtensionEnum}
-         * @return
-         */
-        public Builder fileExtension(com.lark.oapi.service.drive.v2.enums.ImportJobFileExtensionEnum fileExtension) {
-            this.fileExtension = fileExtension.getValue();
-            return this;
-        }
-
-
-        /**
-         * 导入文件 Drive File Token
-         * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        /**
-         * 导入文档类型
-         * <p> 示例值：sheet
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 导入目标云文档文件名，若为空使用 Drive 文件名
-         * <p> 示例值：test
-         *
-         * @param fileName
-         * @return
-         */
-        public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
-        }
-
-
-        /**
-         * 挂载点
-         * <p> 示例值：
-         *
-         * @param point
-         * @return
-         */
-        public Builder point(ImportJobMountPoint point) {
-            this.point = point;
-            return this;
-        }
-
-
-        /**
-         * 任务状态
-         * <p> 示例值：
-         *
-         * @param jobStatus
-         * @return
-         */
-        public Builder jobStatus(Integer jobStatus) {
-            this.jobStatus = jobStatus;
-            return this;
-        }
-
-        /**
-         * 任务状态
-         * <p> 示例值：
-         *
-         * @param jobStatus {@link com.lark.oapi.service.drive.v2.enums.ImportJobImportJobJobStatusEnum}
-         * @return
-         */
-        public Builder jobStatus(com.lark.oapi.service.drive.v2.enums.ImportJobImportJobJobStatusEnum jobStatus) {
-            this.jobStatus = jobStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 任务失败原因
-         * <p> 示例值：success
-         *
-         * @param jobErrorMsg
-         * @return
-         */
-        public Builder jobErrorMsg(String jobErrorMsg) {
-            this.jobErrorMsg = jobErrorMsg;
-            return this;
-        }
-
-
-        /**
-         * 导入云文档 Token
-         * <p> 示例值：shtcnVBTG6SuxxxxxxxkM2tUX
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 导入云文档 URL
-         * <p> 示例值：https://example.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public ImportJob build() {
-            return new ImportJob(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

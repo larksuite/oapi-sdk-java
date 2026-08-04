@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetParticipantListRespBody {
-    /**
-     * 参会人列表
-     * <p> 示例值：
-     */
-    @SerializedName("participants")
-    private Participant[] participants;
-    /**
-     * 下一页分页的token，下次请求时传入
-     * <p> 示例值：20
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否还有数据
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 参会人列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("participants")
+  private Participant[] participants;
 
-    public Participant[] getParticipants() {
-        return this.participants;
-    }
+  /**
+   * 下一页分页的token，下次请求时传入
+   *
+   * <p>示例值：20
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setParticipants(Participant[] participants) {
-        this.participants = participants;
-    }
+  /**
+   * 是否还有数据
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public Participant[] getParticipants() {
+    return this.participants;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setParticipants(Participant[] participants) {
+    this.participants = participants;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 }

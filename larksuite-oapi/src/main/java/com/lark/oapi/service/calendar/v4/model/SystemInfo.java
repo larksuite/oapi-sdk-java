@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SystemInfo {
+  /**
+   * session_id
+   *
+   * <p>示例值：56786545678765456785345678
+   */
+  @SerializedName("session_id")
+  private String sessionId;
+
+  /**
+   * 用户问题的语种
+   *
+   * <p>示例值：zh
+   */
+  @SerializedName("lang")
+  private String lang;
+
+  /**
+   * 请求客户端的语种类
+   *
+   * <p>示例值：en_us
+   */
+  @SerializedName("locale")
+  private String locale;
+
+  public String getSessionId() {
+    return this.sessionId;
+  }
+
+  public void setSessionId(String sessionId) {
+    this.sessionId = sessionId;
+  }
+
+  public String getLang() {
+    return this.lang;
+  }
+
+  public void setLang(String lang) {
+    this.lang = lang;
+  }
+
+  public String getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  // builder 开始
+  public SystemInfo() {}
+
+  public SystemInfo(Builder builder) {
     /**
      * session_id
-     * <p> 示例值：56786545678765456785345678
+     *
+     * <p>示例值：56786545678765456785345678
      */
-    @SerializedName("session_id")
-    private String sessionId;
+    this.sessionId = builder.sessionId;
     /**
      * 用户问题的语种
-     * <p> 示例值：zh
+     *
+     * <p>示例值：zh
      */
-    @SerializedName("lang")
-    private String lang;
+    this.lang = builder.lang;
     /**
      * 请求客户端的语种类
-     * <p> 示例值：en_us
+     *
+     * <p>示例值：en_us
      */
-    @SerializedName("locale")
+    this.locale = builder.locale;
+  }
+
+  public static class Builder {
+    /**
+     * session_id
+     *
+     * <p>示例值：56786545678765456785345678
+     */
+    private String sessionId;
+
+    /**
+     * 用户问题的语种
+     *
+     * <p>示例值：zh
+     */
+    private String lang;
+
+    /**
+     * 请求客户端的语种类
+     *
+     * <p>示例值：en_us
+     */
     private String locale;
 
-    // builder 开始
-    public SystemInfo() {
+    /**
+     * session_id
+     *
+     * <p>示例值：56786545678765456785345678
+     *
+     * @param sessionId
+     * @return
+     */
+    public Builder sessionId(String sessionId) {
+      this.sessionId = sessionId;
+      return this;
     }
 
-    public SystemInfo(Builder builder) {
-        /**
-         * session_id
-         * <p> 示例值：56786545678765456785345678
-         */
-        this.sessionId = builder.sessionId;
-        /**
-         * 用户问题的语种
-         * <p> 示例值：zh
-         */
-        this.lang = builder.lang;
-        /**
-         * 请求客户端的语种类
-         * <p> 示例值：en_us
-         */
-        this.locale = builder.locale;
+    /**
+     * 用户问题的语种
+     *
+     * <p>示例值：zh
+     *
+     * @param lang
+     * @return
+     */
+    public Builder lang(String lang) {
+      this.lang = lang;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 请求客户端的语种类
+     *
+     * <p>示例值：en_us
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(String locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public String getSessionId() {
-        return this.sessionId;
+    public SystemInfo build() {
+      return new SystemInfo(this);
     }
+  }
 
-    public void setSessionId(String sessionId) {
-        this.sessionId = sessionId;
-    }
-
-    public String getLang() {
-        return this.lang;
-    }
-
-    public void setLang(String lang) {
-        this.lang = lang;
-    }
-
-    public String getLocale() {
-        return this.locale;
-    }
-
-    public void setLocale(String locale) {
-        this.locale = locale;
-    }
-
-    public static class Builder {
-        /**
-         * session_id
-         * <p> 示例值：56786545678765456785345678
-         */
-        private String sessionId;
-        /**
-         * 用户问题的语种
-         * <p> 示例值：zh
-         */
-        private String lang;
-        /**
-         * 请求客户端的语种类
-         * <p> 示例值：en_us
-         */
-        private String locale;
-
-        /**
-         * session_id
-         * <p> 示例值：56786545678765456785345678
-         *
-         * @param sessionId
-         * @return
-         */
-        public Builder sessionId(String sessionId) {
-            this.sessionId = sessionId;
-            return this;
-        }
-
-
-        /**
-         * 用户问题的语种
-         * <p> 示例值：zh
-         *
-         * @param lang
-         * @return
-         */
-        public Builder lang(String lang) {
-            this.lang = lang;
-            return this;
-        }
-
-
-        /**
-         * 请求客户端的语种类
-         * <p> 示例值：en_us
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
-        }
-
-
-        public SystemInfo build() {
-            return new SystemInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

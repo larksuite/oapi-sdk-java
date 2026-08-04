@@ -13,220 +13,238 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class BatchEmployeesAdditionalJobReq {
+  /**
+   * 分页大小
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：Njg5MTI1MTcyMjYzMTg5MDQ0NQ%3D%3D
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 此次调用中使用的部门 ID 类型
+   *
+   * <p>示例值：open_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  @Body private BatchEmployeesAdditionalJobReqBody body;
+
+  public BatchEmployeesAdditionalJobReqBody getBatchEmployeesAdditionalJobReqBody() {
+    return this.body;
+  }
+
+  public void setBatchEmployeesAdditionalJobReqBody(BatchEmployeesAdditionalJobReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchEmployeesAdditionalJobReq() {}
+
+  public BatchEmployeesAdditionalJobReq(Builder builder) {
     /**
      * 分页大小
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：Njg5MTI1MTcyMjYzMTg5MDQ0NQ==
+     *
+     * <p>示例值：Njg5MTI1MTcyMjYzMTg5MDQ0NQ%3D%3D
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 用户 ID 类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 此次调用中使用的部门 ID 类型
-     * <p> 示例值：open_department_id
+     *
+     * <p>示例值：open_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
-    @Body
+    this.departmentIdType = builder.departmentIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String userIdType; // 用户 ID 类型
+    private String departmentIdType; // 此次调用中使用的部门 ID 类型
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：Njg5MTI1MTcyMjYzMTg5MDQ0NQ%3D%3D
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.BatchEmployeesAdditionalJobBatchEmployeesAdditionalJobUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .BatchEmployeesAdditionalJobBatchEmployeesAdditionalJobUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.BatchEmployeesAdditionalJobBatchEmployeesAdditionalJobDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .BatchEmployeesAdditionalJobBatchEmployeesAdditionalJobDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
+    }
+
     private BatchEmployeesAdditionalJobReqBody body;
 
-    // builder 开始
-    public BatchEmployeesAdditionalJobReq() {
-    }
-
-    public BatchEmployeesAdditionalJobReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：Njg5MTI1MTcyMjYzMTg5MDQ0NQ==
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
     public BatchEmployeesAdditionalJobReqBody getBatchEmployeesAdditionalJobReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchEmployeesAdditionalJobReqBody(BatchEmployeesAdditionalJobReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchEmployeesAdditionalJobReqBody(BatchEmployeesAdditionalJobReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String userIdType; // 用户 ID 类型
-        private String departmentIdType; // 此次调用中使用的部门 ID 类型
-        private BatchEmployeesAdditionalJobReqBody body;
-
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：Njg5MTI1MTcyMjYzMTg5MDQ0NQ==
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.BatchEmployeesAdditionalJobBatchEmployeesAdditionalJobUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.BatchEmployeesAdditionalJobBatchEmployeesAdditionalJobUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.BatchEmployeesAdditionalJobBatchEmployeesAdditionalJobDepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.BatchEmployeesAdditionalJobBatchEmployeesAdditionalJobDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        public BatchEmployeesAdditionalJobReqBody getBatchEmployeesAdditionalJobReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchEmployeesAdditionalJobReqBody(BatchEmployeesAdditionalJobReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchEmployeesAdditionalJobReq build() {
-            return new BatchEmployeesAdditionalJobReq(this);
-        }
+    public BatchEmployeesAdditionalJobReq build() {
+      return new BatchEmployeesAdditionalJobReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

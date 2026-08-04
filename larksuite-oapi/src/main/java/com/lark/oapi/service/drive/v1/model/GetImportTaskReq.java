@@ -13,72 +13,71 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class GetImportTaskReq {
+  /**
+   * 导入任务
+   * ID。调用[创建导入任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create)
+   * 获取
+   *
+   * <p>示例值：7369583175086912356
+   */
+  @Path
+  @SerializedName("ticket")
+  private String ticket;
+
+  public String getTicket() {
+    return this.ticket;
+  }
+
+  public void setTicket(String ticket) {
+    this.ticket = ticket;
+  }
+
+  // builder 开始
+  public GetImportTaskReq() {}
+
+  public GetImportTaskReq(Builder builder) {
     /**
-     * 导入任务ID
-     * <p> 示例值：6990281865xxxxxxxx7843
+     * 导入任务
+     * ID。调用[创建导入任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create)
+     * 获取
+     *
+     * <p>示例值：7369583175086912356
      */
-    @Path
-    @SerializedName("ticket")
-    private String ticket;
+    this.ticket = builder.ticket;
+  }
 
-    // builder 开始
-    public GetImportTaskReq() {
+  public static class Builder {
+
+    private String ticket; // 导入任务
+
+    // ID。调用[创建导入任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create) 获取
+
+    /**
+     * 导入任务
+     * ID。调用[创建导入任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create)
+     * 获取
+     *
+     * <p>示例值：7369583175086912356
+     *
+     * @param ticket
+     * @return
+     */
+    public Builder ticket(String ticket) {
+      this.ticket = ticket;
+      return this;
     }
 
-    public GetImportTaskReq(Builder builder) {
-        /**
-         * 导入任务ID
-         * <p> 示例值：6990281865xxxxxxxx7843
-         */
-        this.ticket = builder.ticket;
+    public GetImportTaskReq build() {
+      return new GetImportTaskReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTicket() {
-        return this.ticket;
-    }
-
-    public void setTicket(String ticket) {
-        this.ticket = ticket;
-    }
-
-    public static class Builder {
-
-        private String ticket; // 导入任务ID
-
-        /**
-         * 导入任务ID
-         * <p> 示例值：6990281865xxxxxxxx7843
-         *
-         * @param ticket
-         * @return
-         */
-        public Builder ticket(String ticket) {
-            this.ticket = ticket;
-            return this;
-        }
-
-
-        public GetImportTaskReq build() {
-            return new GetImportTaskReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

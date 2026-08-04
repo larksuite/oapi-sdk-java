@@ -13,207 +13,211 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class ListByNoMeetingReq {
+  /**
+   * 9位会议号（会议链接最后9位数）
+   *
+   * <p>示例值：123456789
+   */
+  @Query
+  @SerializedName("meeting_no")
+  private String meetingNo;
+
+  /**
+   * 查询开始时间（unix时间，单位sec），需小于end_time的值
+   *
+   * <p>示例值：1608888867
+   */
+  @Query
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 查询结束时间（unix时间，单位sec）
+   *
+   * <p>示例值：1608888867
+   */
+  @Query
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+   *
+   * <p>示例值：5
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  public String getMeetingNo() {
+    return this.meetingNo;
+  }
+
+  public void setMeetingNo(String meetingNo) {
+    this.meetingNo = meetingNo;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  // builder 开始
+  public ListByNoMeetingReq() {}
+
+  public ListByNoMeetingReq(Builder builder) {
     /**
-     * 9位会议号
-     * <p> 示例值：123456789
+     * 9位会议号（会议链接最后9位数）
+     *
+     * <p>示例值：123456789
      */
-    @Query
-    @SerializedName("meeting_no")
-    private String meetingNo;
+    this.meetingNo = builder.meetingNo;
     /**
-     * 查询开始时间（unix时间，单位sec）
-     * <p> 示例值：1608888867
+     * 查询开始时间（unix时间，单位sec），需小于end_time的值
+     *
+     * <p>示例值：1608888867
      */
-    @Query
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
      * 查询结束时间（unix时间，单位sec）
-     * <p> 示例值：1608888867
+     *
+     * <p>示例值：1608888867
      */
-    @Query
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-     * <p> 示例值：5
+     *
+     * <p>示例值：5
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 分页大小
-     * <p> 示例值：10
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
+  }
 
-    // builder 开始
-    public ListByNoMeetingReq() {
+  public static class Builder {
+    private String meetingNo; // 9位会议号（会议链接最后9位数）
+    private String startTime; // 查询开始时间（unix时间，单位sec），需小于end_time的值
+    private String endTime; // 查询结束时间（unix时间，单位sec）
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+    private Integer pageSize; // 分页大小
+
+    /**
+     * 9位会议号（会议链接最后9位数）
+     *
+     * <p>示例值：123456789
+     *
+     * @param meetingNo
+     * @return
+     */
+    public Builder meetingNo(String meetingNo) {
+      this.meetingNo = meetingNo;
+      return this;
     }
 
-    public ListByNoMeetingReq(Builder builder) {
-        /**
-         * 9位会议号
-         * <p> 示例值：123456789
-         */
-        this.meetingNo = builder.meetingNo;
-        /**
-         * 查询开始时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 查询结束时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：5
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
+    /**
+     * 查询开始时间（unix时间，单位sec），需小于end_time的值
+     *
+     * <p>示例值：1608888867
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 查询结束时间（unix时间，单位sec）
+     *
+     * <p>示例值：1608888867
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getMeetingNo() {
-        return this.meetingNo;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+     *
+     * <p>示例值：5
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setMeetingNo(String meetingNo) {
-        this.meetingNo = meetingNo;
+    /**
+     * 分页大小
+     *
+     * <p>示例值：
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    public ListByNoMeetingReq build() {
+      return new ListByNoMeetingReq(this);
     }
+  }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public static class Builder {
-        private String meetingNo; // 9位会议号
-        private String startTime; // 查询开始时间（unix时间，单位sec）
-        private String endTime; // 查询结束时间（unix时间，单位sec）
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-        private Integer pageSize; // 分页大小
-
-        /**
-         * 9位会议号
-         * <p> 示例值：123456789
-         *
-         * @param meetingNo
-         * @return
-         */
-        public Builder meetingNo(String meetingNo) {
-            this.meetingNo = meetingNo;
-            return this;
-        }
-
-
-        /**
-         * 查询开始时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 查询结束时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：5
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        public ListByNoMeetingReq build() {
-            return new ListByNoMeetingReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

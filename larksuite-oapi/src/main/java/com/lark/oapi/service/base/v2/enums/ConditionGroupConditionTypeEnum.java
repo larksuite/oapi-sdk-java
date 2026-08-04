@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.base.v2.enums;
 
-/**
- * 条件组类型
- */
+/** 条件组类型 */
 public enum ConditionGroupConditionTypeEnum {
-    CONDITION(1), // 单个条件
-    CONDITION_GROUP(2), // 条件组
-    ;
-    private Integer value;
+  CONDITION(1), // 单个条件
+  CONDITION_GROUP(2), // 条件组
+  ;
+  private Integer value;
 
-    ConditionGroupConditionTypeEnum(Integer value) {
-        this.value = value;
-    }
+  ConditionGroupConditionTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

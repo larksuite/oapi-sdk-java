@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateTablePropertyRequest {
+  /**
+   * 表格列宽，单位像素（px）
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("column_width")
+  private Integer columnWidth;
+
+  /**
+   * 需要修改列宽的表格列的索引
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("column_index")
+  private Integer columnIndex;
+
+  /**
+   * 设置首行为标题行
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("header_row")
+  private Boolean headerRow;
+
+  /**
+   * 设置首列为标题列
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("header_column")
+  private Boolean headerColumn;
+
+  public Integer getColumnWidth() {
+    return this.columnWidth;
+  }
+
+  public void setColumnWidth(Integer columnWidth) {
+    this.columnWidth = columnWidth;
+  }
+
+  public Integer getColumnIndex() {
+    return this.columnIndex;
+  }
+
+  public void setColumnIndex(Integer columnIndex) {
+    this.columnIndex = columnIndex;
+  }
+
+  public Boolean getHeaderRow() {
+    return this.headerRow;
+  }
+
+  public void setHeaderRow(Boolean headerRow) {
+    this.headerRow = headerRow;
+  }
+
+  public Boolean getHeaderColumn() {
+    return this.headerColumn;
+  }
+
+  public void setHeaderColumn(Boolean headerColumn) {
+    this.headerColumn = headerColumn;
+  }
+
+  // builder 开始
+  public UpdateTablePropertyRequest() {}
+
+  public UpdateTablePropertyRequest(Builder builder) {
     /**
-     * 表格列宽
-     * <p> 示例值：100
+     * 表格列宽，单位像素（px）
+     *
+     * <p>示例值：100
      */
-    @SerializedName("column_width")
-    private Integer columnWidth;
+    this.columnWidth = builder.columnWidth;
     /**
      * 需要修改列宽的表格列的索引
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("column_index")
-    private Integer columnIndex;
+    this.columnIndex = builder.columnIndex;
     /**
      * 设置首行为标题行
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("header_row")
-    private Boolean headerRow;
+    this.headerRow = builder.headerRow;
     /**
      * 设置首列为标题列
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("header_column")
+    this.headerColumn = builder.headerColumn;
+  }
+
+  public static class Builder {
+    /**
+     * 表格列宽，单位像素（px）
+     *
+     * <p>示例值：100
+     */
+    private Integer columnWidth;
+
+    /**
+     * 需要修改列宽的表格列的索引
+     *
+     * <p>示例值：0
+     */
+    private Integer columnIndex;
+
+    /**
+     * 设置首行为标题行
+     *
+     * <p>示例值：false
+     */
+    private Boolean headerRow;
+
+    /**
+     * 设置首列为标题列
+     *
+     * <p>示例值：false
+     */
     private Boolean headerColumn;
 
-    // builder 开始
-    public UpdateTablePropertyRequest() {
+    /**
+     * 表格列宽，单位像素（px）
+     *
+     * <p>示例值：100
+     *
+     * @param columnWidth
+     * @return
+     */
+    public Builder columnWidth(Integer columnWidth) {
+      this.columnWidth = columnWidth;
+      return this;
     }
 
-    public UpdateTablePropertyRequest(Builder builder) {
-        /**
-         * 表格列宽
-         * <p> 示例值：100
-         */
-        this.columnWidth = builder.columnWidth;
-        /**
-         * 需要修改列宽的表格列的索引
-         * <p> 示例值：0
-         */
-        this.columnIndex = builder.columnIndex;
-        /**
-         * 设置首行为标题行
-         * <p> 示例值：false
-         */
-        this.headerRow = builder.headerRow;
-        /**
-         * 设置首列为标题列
-         * <p> 示例值：false
-         */
-        this.headerColumn = builder.headerColumn;
+    /**
+     * 需要修改列宽的表格列的索引
+     *
+     * <p>示例值：0
+     *
+     * @param columnIndex
+     * @return
+     */
+    public Builder columnIndex(Integer columnIndex) {
+      this.columnIndex = columnIndex;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 设置首行为标题行
+     *
+     * <p>示例值：false
+     *
+     * @param headerRow
+     * @return
+     */
+    public Builder headerRow(Boolean headerRow) {
+      this.headerRow = headerRow;
+      return this;
     }
 
-    public Integer getColumnWidth() {
-        return this.columnWidth;
+    /**
+     * 设置首列为标题列
+     *
+     * <p>示例值：false
+     *
+     * @param headerColumn
+     * @return
+     */
+    public Builder headerColumn(Boolean headerColumn) {
+      this.headerColumn = headerColumn;
+      return this;
     }
 
-    public void setColumnWidth(Integer columnWidth) {
-        this.columnWidth = columnWidth;
+    public UpdateTablePropertyRequest build() {
+      return new UpdateTablePropertyRequest(this);
     }
+  }
 
-    public Integer getColumnIndex() {
-        return this.columnIndex;
-    }
-
-    public void setColumnIndex(Integer columnIndex) {
-        this.columnIndex = columnIndex;
-    }
-
-    public Boolean getHeaderRow() {
-        return this.headerRow;
-    }
-
-    public void setHeaderRow(Boolean headerRow) {
-        this.headerRow = headerRow;
-    }
-
-    public Boolean getHeaderColumn() {
-        return this.headerColumn;
-    }
-
-    public void setHeaderColumn(Boolean headerColumn) {
-        this.headerColumn = headerColumn;
-    }
-
-    public static class Builder {
-        /**
-         * 表格列宽
-         * <p> 示例值：100
-         */
-        private Integer columnWidth;
-        /**
-         * 需要修改列宽的表格列的索引
-         * <p> 示例值：0
-         */
-        private Integer columnIndex;
-        /**
-         * 设置首行为标题行
-         * <p> 示例值：false
-         */
-        private Boolean headerRow;
-        /**
-         * 设置首列为标题列
-         * <p> 示例值：false
-         */
-        private Boolean headerColumn;
-
-        /**
-         * 表格列宽
-         * <p> 示例值：100
-         *
-         * @param columnWidth
-         * @return
-         */
-        public Builder columnWidth(Integer columnWidth) {
-            this.columnWidth = columnWidth;
-            return this;
-        }
-
-
-        /**
-         * 需要修改列宽的表格列的索引
-         * <p> 示例值：0
-         *
-         * @param columnIndex
-         * @return
-         */
-        public Builder columnIndex(Integer columnIndex) {
-            this.columnIndex = columnIndex;
-            return this;
-        }
-
-
-        /**
-         * 设置首行为标题行
-         * <p> 示例值：false
-         *
-         * @param headerRow
-         * @return
-         */
-        public Builder headerRow(Boolean headerRow) {
-            this.headerRow = headerRow;
-            return this;
-        }
-
-
-        /**
-         * 设置首列为标题列
-         * <p> 示例值：false
-         *
-         * @param headerColumn
-         * @return
-         */
-        public Builder headerColumn(Boolean headerColumn) {
-            this.headerColumn = headerColumn;
-            return this;
-        }
-
-
-        public UpdateTablePropertyRequest build() {
-            return new UpdateTablePropertyRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

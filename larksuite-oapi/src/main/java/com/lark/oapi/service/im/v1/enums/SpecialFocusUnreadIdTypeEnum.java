@@ -13,22 +13,26 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 成员ID类型。根据 ==member_id_type== 参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id`
- */
+/** 成员ID类型。根据member_id_type参数返回`open_id`、`user_id`或`union_id`类型的用户ID；机器人返回`app_id` */
 public enum SpecialFocusUnreadIdTypeEnum {
-    USER_ID("user_id"), // 以user_id来识别成员
-    UNION_ID("union_id"), // 以union_id来识别成员
-    OPEN_ID("open_id"), // 以open_id来识别成员
-    APP_ID("app_id"), // 以app_id来识别成员
-    ;
-    private String value;
+  USER_ID(
+      "user_id"), // 以user_id来识别用户；需要用户授权了 **获取用户 user ID**（contact:user.employee_id:readonly） 权限
+  // ([什么是 User
+  // ID？](https://open.feishu.cn/document/home/user-identity-introduction/user-id))
+  UNION_ID("union_id"), // 以union_id来识别用户([什么是 Union
+  // ID？](https://open.feishu.cn/document/home/user-identity-introduction/union-id))
+  OPEN_ID("open_id"), // 以open_id来识别用户([什么是 Open
+  // ID？](https://open.feishu.cn/document/home/user-identity-introduction/open-id))
+  APP_ID("app_id"), // 以app_id来识别成员([什么是App
+// ID？](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology#b047be0c))
+;
+  private String value;
 
-    SpecialFocusUnreadIdTypeEnum(String value) {
-        this.value = value;
-    }
+  SpecialFocusUnreadIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

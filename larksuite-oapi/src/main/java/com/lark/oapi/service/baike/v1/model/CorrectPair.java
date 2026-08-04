@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.baike.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.baike.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CorrectPair {
+  /**
+   * 被纠错的原词
+   *
+   * <p>示例值：
+   */
+  @SerializedName("source_text")
+  private String sourceText;
+
+  /**
+   * 纠错建议替换的新词
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_text")
+  private String targetText;
+
+  /**
+   * 纠错对在周期内出现的次数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("total")
+  private Integer total;
+
+  public String getSourceText() {
+    return this.sourceText;
+  }
+
+  public void setSourceText(String sourceText) {
+    this.sourceText = sourceText;
+  }
+
+  public String getTargetText() {
+    return this.targetText;
+  }
+
+  public void setTargetText(String targetText) {
+    this.targetText = targetText;
+  }
+
+  public Integer getTotal() {
+    return this.total;
+  }
+
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
+
+  // builder 开始
+  public CorrectPair() {}
+
+  public CorrectPair(Builder builder) {
     /**
      * 被纠错的原词
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("source_text")
-    private String sourceText;
+    this.sourceText = builder.sourceText;
     /**
      * 纠错建议替换的新词
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_text")
-    private String targetText;
+    this.targetText = builder.targetText;
     /**
      * 纠错对在周期内出现的次数
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("total")
+    this.total = builder.total;
+  }
+
+  public static class Builder {
+    /**
+     * 被纠错的原词
+     *
+     * <p>示例值：
+     */
+    private String sourceText;
+
+    /**
+     * 纠错建议替换的新词
+     *
+     * <p>示例值：
+     */
+    private String targetText;
+
+    /**
+     * 纠错对在周期内出现的次数
+     *
+     * <p>示例值：
+     */
     private Integer total;
 
-    // builder 开始
-    public CorrectPair() {
+    /**
+     * 被纠错的原词
+     *
+     * <p>示例值：
+     *
+     * @param sourceText
+     * @return
+     */
+    public Builder sourceText(String sourceText) {
+      this.sourceText = sourceText;
+      return this;
     }
 
-    public CorrectPair(Builder builder) {
-        /**
-         * 被纠错的原词
-         * <p> 示例值：
-         */
-        this.sourceText = builder.sourceText;
-        /**
-         * 纠错建议替换的新词
-         * <p> 示例值：
-         */
-        this.targetText = builder.targetText;
-        /**
-         * 纠错对在周期内出现的次数
-         * <p> 示例值：
-         */
-        this.total = builder.total;
+    /**
+     * 纠错建议替换的新词
+     *
+     * <p>示例值：
+     *
+     * @param targetText
+     * @return
+     */
+    public Builder targetText(String targetText) {
+      this.targetText = targetText;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 纠错对在周期内出现的次数
+     *
+     * <p>示例值：
+     *
+     * @param total
+     * @return
+     */
+    public Builder total(Integer total) {
+      this.total = total;
+      return this;
     }
 
-    public String getSourceText() {
-        return this.sourceText;
+    public CorrectPair build() {
+      return new CorrectPair(this);
     }
+  }
 
-    public void setSourceText(String sourceText) {
-        this.sourceText = sourceText;
-    }
-
-    public String getTargetText() {
-        return this.targetText;
-    }
-
-    public void setTargetText(String targetText) {
-        this.targetText = targetText;
-    }
-
-    public Integer getTotal() {
-        return this.total;
-    }
-
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
-
-    public static class Builder {
-        /**
-         * 被纠错的原词
-         * <p> 示例值：
-         */
-        private String sourceText;
-        /**
-         * 纠错建议替换的新词
-         * <p> 示例值：
-         */
-        private String targetText;
-        /**
-         * 纠错对在周期内出现的次数
-         * <p> 示例值：
-         */
-        private Integer total;
-
-        /**
-         * 被纠错的原词
-         * <p> 示例值：
-         *
-         * @param sourceText
-         * @return
-         */
-        public Builder sourceText(String sourceText) {
-            this.sourceText = sourceText;
-            return this;
-        }
-
-
-        /**
-         * 纠错建议替换的新词
-         * <p> 示例值：
-         *
-         * @param targetText
-         * @return
-         */
-        public Builder targetText(String targetText) {
-            this.targetText = targetText;
-            return this;
-        }
-
-
-        /**
-         * 纠错对在周期内出现的次数
-         * <p> 示例值：
-         *
-         * @param total
-         * @return
-         */
-        public Builder total(Integer total) {
-            this.total = total;
-            return this;
-        }
-
-
-        public CorrectPair build() {
-            return new CorrectPair(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

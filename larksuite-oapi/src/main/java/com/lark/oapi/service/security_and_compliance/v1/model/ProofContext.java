@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProofContext {
+  /**
+   * 证据上文
+   *
+   * <p>示例值：'上文内容'
+   */
+  @SerializedName("prefix")
+  private String prefix;
+
+  /**
+   * 证据关键词
+   *
+   * <p>示例值：'关键词'
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 证据下文
+   *
+   * <p>示例值：'下文内容'
+   */
+  @SerializedName("suffix")
+  private String suffix;
+
+  public String getPrefix() {
+    return this.prefix;
+  }
+
+  public void setPrefix(String prefix) {
+    this.prefix = prefix;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getSuffix() {
+    return this.suffix;
+  }
+
+  public void setSuffix(String suffix) {
+    this.suffix = suffix;
+  }
+
+  // builder 开始
+  public ProofContext() {}
+
+  public ProofContext(Builder builder) {
     /**
      * 证据上文
-     * <p> 示例值：'上文内容'
+     *
+     * <p>示例值：'上文内容'
      */
-    @SerializedName("prefix")
-    private String prefix;
+    this.prefix = builder.prefix;
     /**
      * 证据关键词
-     * <p> 示例值：'关键词'
+     *
+     * <p>示例值：'关键词'
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 证据下文
-     * <p> 示例值：'下文内容'
+     *
+     * <p>示例值：'下文内容'
      */
-    @SerializedName("suffix")
+    this.suffix = builder.suffix;
+  }
+
+  public static class Builder {
+    /**
+     * 证据上文
+     *
+     * <p>示例值：'上文内容'
+     */
+    private String prefix;
+
+    /**
+     * 证据关键词
+     *
+     * <p>示例值：'关键词'
+     */
+    private String content;
+
+    /**
+     * 证据下文
+     *
+     * <p>示例值：'下文内容'
+     */
     private String suffix;
 
-    // builder 开始
-    public ProofContext() {
+    /**
+     * 证据上文
+     *
+     * <p>示例值：'上文内容'
+     *
+     * @param prefix
+     * @return
+     */
+    public Builder prefix(String prefix) {
+      this.prefix = prefix;
+      return this;
     }
 
-    public ProofContext(Builder builder) {
-        /**
-         * 证据上文
-         * <p> 示例值：'上文内容'
-         */
-        this.prefix = builder.prefix;
-        /**
-         * 证据关键词
-         * <p> 示例值：'关键词'
-         */
-        this.content = builder.content;
-        /**
-         * 证据下文
-         * <p> 示例值：'下文内容'
-         */
-        this.suffix = builder.suffix;
+    /**
+     * 证据关键词
+     *
+     * <p>示例值：'关键词'
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 证据下文
+     *
+     * <p>示例值：'下文内容'
+     *
+     * @param suffix
+     * @return
+     */
+    public Builder suffix(String suffix) {
+      this.suffix = suffix;
+      return this;
     }
 
-    public String getPrefix() {
-        return this.prefix;
+    public ProofContext build() {
+      return new ProofContext(this);
     }
+  }
 
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getSuffix() {
-        return this.suffix;
-    }
-
-    public void setSuffix(String suffix) {
-        this.suffix = suffix;
-    }
-
-    public static class Builder {
-        /**
-         * 证据上文
-         * <p> 示例值：'上文内容'
-         */
-        private String prefix;
-        /**
-         * 证据关键词
-         * <p> 示例值：'关键词'
-         */
-        private String content;
-        /**
-         * 证据下文
-         * <p> 示例值：'下文内容'
-         */
-        private String suffix;
-
-        /**
-         * 证据上文
-         * <p> 示例值：'上文内容'
-         *
-         * @param prefix
-         * @return
-         */
-        public Builder prefix(String prefix) {
-            this.prefix = prefix;
-            return this;
-        }
-
-
-        /**
-         * 证据关键词
-         * <p> 示例值：'关键词'
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 证据下文
-         * <p> 示例值：'下文内容'
-         *
-         * @param suffix
-         * @return
-         */
-        public Builder suffix(String suffix) {
-            this.suffix = suffix;
-            return this;
-        }
-
-
-        public ProofContext build() {
-            return new ProofContext(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

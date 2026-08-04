@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.application.v6.enums;
 
-/**
- * 成员id类型
- */
+/** 成员id类型 */
 public enum PatchApplicationContactsRangePatchApplicationContactsRangeUserIDTypeEnum {
-    OPEN_ID("open_id"), // 以open_id 标识成员
-    USER_ID("user_id"), // 以user_id 标识用户
-    UNION_ID("union_id"), // 以union_id 标识用户
-    ;
-    private String value;
+  OPEN_ID("open_id"), // 以open_id 标识成员
+  USER_ID("user_id"), // 以user_id 标识用户
+  UNION_ID("union_id"), // 以union_id 标识用户
+  ;
+  private String value;
 
-    PatchApplicationContactsRangePatchApplicationContactsRangeUserIDTypeEnum(String value) {
-        this.value = value;
-    }
+  PatchApplicationContactsRangePatchApplicationContactsRangeUserIDTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

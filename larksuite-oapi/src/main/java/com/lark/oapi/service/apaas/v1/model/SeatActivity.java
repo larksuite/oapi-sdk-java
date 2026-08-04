@@ -13,198 +13,205 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SeatActivity {
+  /**
+   * aPaaS 产品用户的 ID
+   *
+   * <p>示例值：1803710089388154
+   */
+  @SerializedName("user_id")
+  private Integer userId;
+
+  /**
+   * aPaaS 产品应用的 namespace
+   *
+   * <p>示例值：package_35f605__c
+   */
+  @SerializedName("namespace")
+  private String namespace;
+
+  /**
+   * 席位状态，枚举值：in_use 、released
+   *
+   * <p>示例值：in_use
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 毫秒时间戳。用户使用席位访问应用且席位验证通过时，记录或更新的时间
+   *
+   * <p>示例值：1727199298656
+   */
+  @SerializedName("active_time")
+  private Integer activeTime;
+
+  public Integer getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(Integer userId) {
+    this.userId = userId;
+  }
+
+  public String getNamespace() {
+    return this.namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public Integer getActiveTime() {
+    return this.activeTime;
+  }
+
+  public void setActiveTime(Integer activeTime) {
+    this.activeTime = activeTime;
+  }
+
+  // builder 开始
+  public SeatActivity() {}
+
+  public SeatActivity(Builder builder) {
     /**
      * aPaaS 产品用户的 ID
-     * <p> 示例值：1803710089388154
+     *
+     * <p>示例值：1803710089388154
      */
-    @SerializedName("user_id")
-    private Integer userId;
+    this.userId = builder.userId;
     /**
      * aPaaS 产品应用的 namespace
-     * <p> 示例值：package_35f605__c
+     *
+     * <p>示例值：package_35f605__c
      */
-    @SerializedName("namespace")
+    this.namespace = builder.namespace;
+    /**
+     * 席位状态，枚举值：in_use 、released
+     *
+     * <p>示例值：in_use
+     */
+    this.status = builder.status;
+    /**
+     * 毫秒时间戳。用户使用席位访问应用且席位验证通过时，记录或更新的时间
+     *
+     * <p>示例值：1727199298656
+     */
+    this.activeTime = builder.activeTime;
+  }
+
+  public static class Builder {
+    /**
+     * aPaaS 产品用户的 ID
+     *
+     * <p>示例值：1803710089388154
+     */
+    private Integer userId;
+
+    /**
+     * aPaaS 产品应用的 namespace
+     *
+     * <p>示例值：package_35f605__c
+     */
     private String namespace;
+
     /**
-     * 席位状态，枚举值：1. in_use 2. released
-     * <p> 示例值：in_use
+     * 席位状态，枚举值：in_use 、released
+     *
+     * <p>示例值：in_use
      */
-    @SerializedName("status")
     private String status;
+
     /**
-     * 用户使用席位访问应用且席位验证通过时，记录或更新的时间
-     * <p> 示例值：1727199298656
+     * 毫秒时间戳。用户使用席位访问应用且席位验证通过时，记录或更新的时间
+     *
+     * <p>示例值：1727199298656
      */
-    @SerializedName("active_time")
     private Integer activeTime;
 
-    // builder 开始
-    public SeatActivity() {
+    /**
+     * aPaaS 产品用户的 ID
+     *
+     * <p>示例值：1803710089388154
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(Integer userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public SeatActivity(Builder builder) {
-        /**
-         * aPaaS 产品用户的 ID
-         * <p> 示例值：1803710089388154
-         */
-        this.userId = builder.userId;
-        /**
-         * aPaaS 产品应用的 namespace
-         * <p> 示例值：package_35f605__c
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 席位状态，枚举值：1. in_use 2. released
-         * <p> 示例值：in_use
-         */
-        this.status = builder.status;
-        /**
-         * 用户使用席位访问应用且席位验证通过时，记录或更新的时间
-         * <p> 示例值：1727199298656
-         */
-        this.activeTime = builder.activeTime;
+    /**
+     * aPaaS 产品应用的 namespace
+     *
+     * <p>示例值：package_35f605__c
+     *
+     * @param namespace
+     * @return
+     */
+    public Builder namespace(String namespace) {
+      this.namespace = namespace;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 席位状态，枚举值：in_use 、released
+     *
+     * <p>示例值：in_use
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public Integer getUserId() {
-        return this.userId;
+    /**
+     * 席位状态，枚举值：in_use 、released
+     *
+     * <p>示例值：in_use
+     *
+     * @param status {@link com.lark.oapi.service.apaas.v1.enums.SeatActivityAssignmentStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.apaas.v1.enums.SeatActivityAssignmentStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    /**
+     * 毫秒时间戳。用户使用席位访问应用且席位验证通过时，记录或更新的时间
+     *
+     * <p>示例值：1727199298656
+     *
+     * @param activeTime
+     * @return
+     */
+    public Builder activeTime(Integer activeTime) {
+      this.activeTime = activeTime;
+      return this;
     }
 
-    public String getNamespace() {
-        return this.namespace;
+    public SeatActivity build() {
+      return new SeatActivity(this);
     }
+  }
 
-    public void setNamespace(String namespace) {
-        this.namespace = namespace;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Integer getActiveTime() {
-        return this.activeTime;
-    }
-
-    public void setActiveTime(Integer activeTime) {
-        this.activeTime = activeTime;
-    }
-
-    public static class Builder {
-        /**
-         * aPaaS 产品用户的 ID
-         * <p> 示例值：1803710089388154
-         */
-        private Integer userId;
-        /**
-         * aPaaS 产品应用的 namespace
-         * <p> 示例值：package_35f605__c
-         */
-        private String namespace;
-        /**
-         * 席位状态，枚举值：1. in_use 2. released
-         * <p> 示例值：in_use
-         */
-        private String status;
-        /**
-         * 用户使用席位访问应用且席位验证通过时，记录或更新的时间
-         * <p> 示例值：1727199298656
-         */
-        private Integer activeTime;
-
-        /**
-         * aPaaS 产品用户的 ID
-         * <p> 示例值：1803710089388154
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(Integer userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * aPaaS 产品应用的 namespace
-         * <p> 示例值：package_35f605__c
-         *
-         * @param namespace
-         * @return
-         */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
-
-
-        /**
-         * 席位状态，枚举值：1. in_use 2. released
-         * <p> 示例值：in_use
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 席位状态，枚举值：1. in_use 2. released
-         * <p> 示例值：in_use
-         *
-         * @param status {@link com.lark.oapi.service.apaas.v1.enums.SeatActivityAssignmentStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.apaas.v1.enums.SeatActivityAssignmentStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 用户使用席位访问应用且席位验证通过时，记录或更新的时间
-         * <p> 示例值：1727199298656
-         *
-         * @param activeTime
-         * @return
-         */
-        public Builder activeTime(Integer activeTime) {
-            this.activeTime = activeTime;
-            return this;
-        }
-
-
-        public SeatActivity build() {
-            return new SeatActivity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

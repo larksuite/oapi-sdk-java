@@ -13,97 +13,114 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.attendance.v1.enums.*;
 
 public class UserStatsFieldsQueryArchiveRuleReq {
+  /**
+   * 请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id);;*
+   * `employee_id `：员工 employee
+   * ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 >
+   * 成员详情中的用户 ID;*
+   * `employee_no`：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) > 组织架构
+   * > 成员与部门 > 成员详情中的工号
+   *
+   * <p>示例值：employee_id
+   */
+  @Query
+  @SerializedName("employee_type")
+  private String employeeType;
+
+  public String getEmployeeType() {
+    return this.employeeType;
+  }
+
+  public void setEmployeeType(String employeeType) {
+    this.employeeType = employeeType;
+  }
+
+  @Body private UserStatsFieldsQueryArchiveRuleReqBody body;
+
+  public UserStatsFieldsQueryArchiveRuleReqBody getUserStatsFieldsQueryArchiveRuleReqBody() {
+    return this.body;
+  }
+
+  public void setUserStatsFieldsQueryArchiveRuleReqBody(
+      UserStatsFieldsQueryArchiveRuleReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UserStatsFieldsQueryArchiveRuleReq() {}
+
+  public UserStatsFieldsQueryArchiveRuleReq(Builder builder) {
     /**
-     * 用户 ID 的类型
-     * <p> 示例值：employee_id
+     * 请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id);;*
+     * `employee_id `：员工 employee
+     * ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 >
+     * 成员详情中的用户 ID;*
+     * `employee_no`：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) >
+     * 组织架构 > 成员与部门 > 成员详情中的工号
+     *
+     * <p>示例值：employee_id
      */
-    @Query
-    @SerializedName("employee_type")
-    private String employeeType;
-    @Body
+    this.employeeType = builder.employeeType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        employeeType; // 请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+
+    // ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id);;* `employee_id `：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的用户 ID;* `employee_no`：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的工号
+
+    /**
+     * 请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id);;*
+     * `employee_id `：员工 employee
+     * ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 >
+     * 成员详情中的用户 ID;*
+     * `employee_no`：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) >
+     * 组织架构 > 成员与部门 > 成员详情中的工号
+     *
+     * <p>示例值：employee_id
+     *
+     * @param employeeType
+     * @return
+     */
+    public Builder employeeType(String employeeType) {
+      this.employeeType = employeeType;
+      return this;
+    }
+
     private UserStatsFieldsQueryArchiveRuleReqBody body;
 
-    // builder 开始
-    public UserStatsFieldsQueryArchiveRuleReq() {
-    }
-
-    public UserStatsFieldsQueryArchiveRuleReq(Builder builder) {
-        /**
-         * 用户 ID 的类型
-         * <p> 示例值：employee_id
-         */
-        this.employeeType = builder.employeeType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getEmployeeType() {
-        return this.employeeType;
-    }
-
-    public void setEmployeeType(String employeeType) {
-        this.employeeType = employeeType;
-    }
-
     public UserStatsFieldsQueryArchiveRuleReqBody getUserStatsFieldsQueryArchiveRuleReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUserStatsFieldsQueryArchiveRuleReqBody(UserStatsFieldsQueryArchiveRuleReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder userStatsFieldsQueryArchiveRuleReqBody(
+        UserStatsFieldsQueryArchiveRuleReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String employeeType; // 用户 ID 的类型
-        private UserStatsFieldsQueryArchiveRuleReqBody body;
-
-        /**
-         * 用户 ID 的类型
-         * <p> 示例值：employee_id
-         *
-         * @param employeeType
-         * @return
-         */
-        public Builder employeeType(String employeeType) {
-            this.employeeType = employeeType;
-            return this;
-        }
-
-        public UserStatsFieldsQueryArchiveRuleReqBody getUserStatsFieldsQueryArchiveRuleReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder userStatsFieldsQueryArchiveRuleReqBody(UserStatsFieldsQueryArchiveRuleReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UserStatsFieldsQueryArchiveRuleReq build() {
-            return new UserStatsFieldsQueryArchiveRuleReq(this);
-        }
+    public UserStatsFieldsQueryArchiveRuleReq build() {
+      return new UserStatsFieldsQueryArchiveRuleReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

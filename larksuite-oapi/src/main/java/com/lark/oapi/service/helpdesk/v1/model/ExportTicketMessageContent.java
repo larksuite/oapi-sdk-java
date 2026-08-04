@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExportTicketMessageContent {
+  /**
+   * 消息内容
+   *
+   * <p>示例值：test message text
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 消息类型
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("msg_type")
+  private String msgType;
+
+  /**
+   * 图片 Keys
+   *
+   * <p>示例值：
+   */
+  @SerializedName("image_keys")
+  private String[] imageKeys;
+
+  /**
+   * 图片 Key
+   *
+   * <p>示例值：file_18acc4bd98d9a8c79a
+   */
+  @SerializedName("image_key")
+  private String imageKey;
+
+  /**
+   * 音频消息文件 Key
+   *
+   * <p>示例值："file_18accbd98d9a8c79a"
+   */
+  @SerializedName("audio_key")
+  private String audioKey;
+
+  /**
+   * 视频文件 Key
+   *
+   * <p>示例值：file_18acc4bd98d9a8c79a
+   */
+  @SerializedName("media_key")
+  private String mediaKey;
+
+  /**
+   * 文件 Key
+   *
+   * <p>示例值：file_18acc4bd98d9a8c79a
+   */
+  @SerializedName("file_key")
+  private String fileKey;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getMsgType() {
+    return this.msgType;
+  }
+
+  public void setMsgType(String msgType) {
+    this.msgType = msgType;
+  }
+
+  public String[] getImageKeys() {
+    return this.imageKeys;
+  }
+
+  public void setImageKeys(String[] imageKeys) {
+    this.imageKeys = imageKeys;
+  }
+
+  public String getImageKey() {
+    return this.imageKey;
+  }
+
+  public void setImageKey(String imageKey) {
+    this.imageKey = imageKey;
+  }
+
+  public String getAudioKey() {
+    return this.audioKey;
+  }
+
+  public void setAudioKey(String audioKey) {
+    this.audioKey = audioKey;
+  }
+
+  public String getMediaKey() {
+    return this.mediaKey;
+  }
+
+  public void setMediaKey(String mediaKey) {
+    this.mediaKey = mediaKey;
+  }
+
+  public String getFileKey() {
+    return this.fileKey;
+  }
+
+  public void setFileKey(String fileKey) {
+    this.fileKey = fileKey;
+  }
+
+  // builder 开始
+  public ExportTicketMessageContent() {}
+
+  public ExportTicketMessageContent(Builder builder) {
     /**
      * 消息内容
-     * <p> 示例值：test message text
+     *
+     * <p>示例值：test message text
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 消息类型
-     * <p> 示例值：text
+     *
+     * <p>示例值：text
      */
-    @SerializedName("msg_type")
-    private String msgType;
+    this.msgType = builder.msgType;
     /**
      * 图片 Keys
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("image_keys")
-    private String[] imageKeys;
+    this.imageKeys = builder.imageKeys;
     /**
      * 图片 Key
-     * <p> 示例值：file_18acc4bd98d9a8c79a
+     *
+     * <p>示例值：file_18acc4bd98d9a8c79a
      */
-    @SerializedName("image_key")
-    private String imageKey;
+    this.imageKey = builder.imageKey;
     /**
      * 音频消息文件 Key
-     * <p> 示例值："file_18accbd98d9a8c79a"
+     *
+     * <p>示例值："file_18accbd98d9a8c79a"
      */
-    @SerializedName("audio_key")
-    private String audioKey;
+    this.audioKey = builder.audioKey;
     /**
      * 视频文件 Key
-     * <p> 示例值：file_18acc4bd98d9a8c79a
+     *
+     * <p>示例值：file_18acc4bd98d9a8c79a
      */
-    @SerializedName("media_key")
-    private String mediaKey;
+    this.mediaKey = builder.mediaKey;
     /**
      * 文件 Key
-     * <p> 示例值：file_18acc4bd98d9a8c79a
+     *
+     * <p>示例值：file_18acc4bd98d9a8c79a
      */
-    @SerializedName("file_key")
+    this.fileKey = builder.fileKey;
+  }
+
+  public static class Builder {
+    /**
+     * 消息内容
+     *
+     * <p>示例值：test message text
+     */
+    private String content;
+
+    /**
+     * 消息类型
+     *
+     * <p>示例值：text
+     */
+    private String msgType;
+
+    /**
+     * 图片 Keys
+     *
+     * <p>示例值：
+     */
+    private String[] imageKeys;
+
+    /**
+     * 图片 Key
+     *
+     * <p>示例值：file_18acc4bd98d9a8c79a
+     */
+    private String imageKey;
+
+    /**
+     * 音频消息文件 Key
+     *
+     * <p>示例值："file_18accbd98d9a8c79a"
+     */
+    private String audioKey;
+
+    /**
+     * 视频文件 Key
+     *
+     * <p>示例值：file_18acc4bd98d9a8c79a
+     */
+    private String mediaKey;
+
+    /**
+     * 文件 Key
+     *
+     * <p>示例值：file_18acc4bd98d9a8c79a
+     */
     private String fileKey;
 
-    // builder 开始
-    public ExportTicketMessageContent() {
+    /**
+     * 消息内容
+     *
+     * <p>示例值：test message text
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public ExportTicketMessageContent(Builder builder) {
-        /**
-         * 消息内容
-         * <p> 示例值：test message text
-         */
-        this.content = builder.content;
-        /**
-         * 消息类型
-         * <p> 示例值：text
-         */
-        this.msgType = builder.msgType;
-        /**
-         * 图片 Keys
-         * <p> 示例值：
-         */
-        this.imageKeys = builder.imageKeys;
-        /**
-         * 图片 Key
-         * <p> 示例值：file_18acc4bd98d9a8c79a
-         */
-        this.imageKey = builder.imageKey;
-        /**
-         * 音频消息文件 Key
-         * <p> 示例值："file_18accbd98d9a8c79a"
-         */
-        this.audioKey = builder.audioKey;
-        /**
-         * 视频文件 Key
-         * <p> 示例值：file_18acc4bd98d9a8c79a
-         */
-        this.mediaKey = builder.mediaKey;
-        /**
-         * 文件 Key
-         * <p> 示例值：file_18acc4bd98d9a8c79a
-         */
-        this.fileKey = builder.fileKey;
+    /**
+     * 消息类型
+     *
+     * <p>示例值：text
+     *
+     * @param msgType
+     * @return
+     */
+    public Builder msgType(String msgType) {
+      this.msgType = msgType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 图片 Keys
+     *
+     * <p>示例值：
+     *
+     * @param imageKeys
+     * @return
+     */
+    public Builder imageKeys(String[] imageKeys) {
+      this.imageKeys = imageKeys;
+      return this;
     }
 
-    public String getContent() {
-        return this.content;
+    /**
+     * 图片 Key
+     *
+     * <p>示例值：file_18acc4bd98d9a8c79a
+     *
+     * @param imageKey
+     * @return
+     */
+    public Builder imageKey(String imageKey) {
+      this.imageKey = imageKey;
+      return this;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    /**
+     * 音频消息文件 Key
+     *
+     * <p>示例值："file_18accbd98d9a8c79a"
+     *
+     * @param audioKey
+     * @return
+     */
+    public Builder audioKey(String audioKey) {
+      this.audioKey = audioKey;
+      return this;
     }
 
-    public String getMsgType() {
-        return this.msgType;
+    /**
+     * 视频文件 Key
+     *
+     * <p>示例值：file_18acc4bd98d9a8c79a
+     *
+     * @param mediaKey
+     * @return
+     */
+    public Builder mediaKey(String mediaKey) {
+      this.mediaKey = mediaKey;
+      return this;
     }
 
-    public void setMsgType(String msgType) {
-        this.msgType = msgType;
+    /**
+     * 文件 Key
+     *
+     * <p>示例值：file_18acc4bd98d9a8c79a
+     *
+     * @param fileKey
+     * @return
+     */
+    public Builder fileKey(String fileKey) {
+      this.fileKey = fileKey;
+      return this;
     }
 
-    public String[] getImageKeys() {
-        return this.imageKeys;
+    public ExportTicketMessageContent build() {
+      return new ExportTicketMessageContent(this);
     }
+  }
 
-    public void setImageKeys(String[] imageKeys) {
-        this.imageKeys = imageKeys;
-    }
-
-    public String getImageKey() {
-        return this.imageKey;
-    }
-
-    public void setImageKey(String imageKey) {
-        this.imageKey = imageKey;
-    }
-
-    public String getAudioKey() {
-        return this.audioKey;
-    }
-
-    public void setAudioKey(String audioKey) {
-        this.audioKey = audioKey;
-    }
-
-    public String getMediaKey() {
-        return this.mediaKey;
-    }
-
-    public void setMediaKey(String mediaKey) {
-        this.mediaKey = mediaKey;
-    }
-
-    public String getFileKey() {
-        return this.fileKey;
-    }
-
-    public void setFileKey(String fileKey) {
-        this.fileKey = fileKey;
-    }
-
-    public static class Builder {
-        /**
-         * 消息内容
-         * <p> 示例值：test message text
-         */
-        private String content;
-        /**
-         * 消息类型
-         * <p> 示例值：text
-         */
-        private String msgType;
-        /**
-         * 图片 Keys
-         * <p> 示例值：
-         */
-        private String[] imageKeys;
-        /**
-         * 图片 Key
-         * <p> 示例值：file_18acc4bd98d9a8c79a
-         */
-        private String imageKey;
-        /**
-         * 音频消息文件 Key
-         * <p> 示例值："file_18accbd98d9a8c79a"
-         */
-        private String audioKey;
-        /**
-         * 视频文件 Key
-         * <p> 示例值：file_18acc4bd98d9a8c79a
-         */
-        private String mediaKey;
-        /**
-         * 文件 Key
-         * <p> 示例值：file_18acc4bd98d9a8c79a
-         */
-        private String fileKey;
-
-        /**
-         * 消息内容
-         * <p> 示例值：test message text
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 消息类型
-         * <p> 示例值：text
-         *
-         * @param msgType
-         * @return
-         */
-        public Builder msgType(String msgType) {
-            this.msgType = msgType;
-            return this;
-        }
-
-
-        /**
-         * 图片 Keys
-         * <p> 示例值：
-         *
-         * @param imageKeys
-         * @return
-         */
-        public Builder imageKeys(String[] imageKeys) {
-            this.imageKeys = imageKeys;
-            return this;
-        }
-
-
-        /**
-         * 图片 Key
-         * <p> 示例值：file_18acc4bd98d9a8c79a
-         *
-         * @param imageKey
-         * @return
-         */
-        public Builder imageKey(String imageKey) {
-            this.imageKey = imageKey;
-            return this;
-        }
-
-
-        /**
-         * 音频消息文件 Key
-         * <p> 示例值："file_18accbd98d9a8c79a"
-         *
-         * @param audioKey
-         * @return
-         */
-        public Builder audioKey(String audioKey) {
-            this.audioKey = audioKey;
-            return this;
-        }
-
-
-        /**
-         * 视频文件 Key
-         * <p> 示例值：file_18acc4bd98d9a8c79a
-         *
-         * @param mediaKey
-         * @return
-         */
-        public Builder mediaKey(String mediaKey) {
-            this.mediaKey = mediaKey;
-            return this;
-        }
-
-
-        /**
-         * 文件 Key
-         * <p> 示例值：file_18acc4bd98d9a8c79a
-         *
-         * @param fileKey
-         * @return
-         */
-        public Builder fileKey(String fileKey) {
-            this.fileKey = fileKey;
-            return this;
-        }
-
-
-        public ExportTicketMessageContent build() {
-            return new ExportTicketMessageContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

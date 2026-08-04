@@ -13,171 +13,169 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class SearchTaskReq {
+  /**
+   * 一次搜索获取的任务数量，默认值15，最大30
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /** 示例值： */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private SearchTaskReqBody body;
+
+  public SearchTaskReqBody getSearchTaskReqBody() {
+    return this.body;
+  }
+
+  public void setSearchTaskReqBody(SearchTaskReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public SearchTaskReq() {}
+
+  public SearchTaskReq(Builder builder) {
     /**
-     * <p> 示例值：
+     * 一次搜索获取的任务数量，默认值15，最大30
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
-    /**
-     * <p> 示例值：
-     */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageSize = builder.pageSize;
+    /** 示例值： */
+    this.pageToken = builder.pageToken;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private Integer pageSize; // 一次搜索获取的任务数量，默认值15，最大30
+    private String pageToken; //
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 一次搜索获取的任务数量，默认值15，最大30
+     *
+     * <p>示例值：
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.task.v2.enums.SearchTaskUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.task.v2.enums.SearchTaskUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private SearchTaskReqBody body;
 
-    // builder 开始
-    public SearchTaskReq() {
-    }
-
-    public SearchTaskReq(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public SearchTaskReqBody getSearchTaskReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setSearchTaskReqBody(SearchTaskReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder searchTaskReqBody(SearchTaskReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private Integer pageSize; //
-        private String pageToken; //
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private SearchTaskReqBody body;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.task.v2.enums.SearchTaskUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.task.v2.enums.SearchTaskUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public SearchTaskReqBody getSearchTaskReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder searchTaskReqBody(SearchTaskReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public SearchTaskReq build() {
-            return new SearchTaskReq(this);
-        }
+    public SearchTaskReq build() {
+      return new SearchTaskReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CertificateAcquisition {
+  /**
+   * 证书 ID
+   *
+   * <p>示例值：630e0d9116ee3ede14857160
+   */
+  @SerializedName("cert_id")
+  private String certId;
+
+  /**
+   * 用户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("learner")
+  private User learner;
+
+  /**
+   * 证书来源
+   *
+   * <p>示例值：
+   */
+  @SerializedName("origin")
+  private CourseObject origin;
+
+  /**
+   * 颁发时间
+   *
+   * <p>示例值：1657026867
+   */
+  @SerializedName("issued_at")
+  private Integer issuedAt;
+
+  /**
+   * 证书状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 证书的图片链接
+   *
+   * <p>示例值：https://a-boe.bytedance.net/c...
+   */
+  @SerializedName("cover_link")
+  private String coverLink;
+
+  public String getCertId() {
+    return this.certId;
+  }
+
+  public void setCertId(String certId) {
+    this.certId = certId;
+  }
+
+  public User getLearner() {
+    return this.learner;
+  }
+
+  public void setLearner(User learner) {
+    this.learner = learner;
+  }
+
+  public CourseObject getOrigin() {
+    return this.origin;
+  }
+
+  public void setOrigin(CourseObject origin) {
+    this.origin = origin;
+  }
+
+  public Integer getIssuedAt() {
+    return this.issuedAt;
+  }
+
+  public void setIssuedAt(Integer issuedAt) {
+    this.issuedAt = issuedAt;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getCoverLink() {
+    return this.coverLink;
+  }
+
+  public void setCoverLink(String coverLink) {
+    this.coverLink = coverLink;
+  }
+
+  // builder 开始
+  public CertificateAcquisition() {}
+
+  public CertificateAcquisition(Builder builder) {
     /**
      * 证书 ID
-     * <p> 示例值：630e0d9116ee3ede14857160
+     *
+     * <p>示例值：630e0d9116ee3ede14857160
      */
-    @SerializedName("cert_id")
-    private String certId;
+    this.certId = builder.certId;
     /**
      * 用户
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("learner")
-    private User learner;
+    this.learner = builder.learner;
     /**
      * 证书来源
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("origin")
-    private CourseObject origin;
+    this.origin = builder.origin;
     /**
      * 颁发时间
-     * <p> 示例值：1657026867
+     *
+     * <p>示例值：1657026867
      */
-    @SerializedName("issued_at")
-    private Integer issuedAt;
+    this.issuedAt = builder.issuedAt;
     /**
      * 证书状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 证书的图片链接
-     * <p> 示例值：https://a-boe.bytedance.net/c...
+     *
+     * <p>示例值：https://a-boe.bytedance.net/c...
      */
-    @SerializedName("cover_link")
+    this.coverLink = builder.coverLink;
+  }
+
+  public static class Builder {
+    /**
+     * 证书 ID
+     *
+     * <p>示例值：630e0d9116ee3ede14857160
+     */
+    private String certId;
+
+    /**
+     * 用户
+     *
+     * <p>示例值：
+     */
+    private User learner;
+
+    /**
+     * 证书来源
+     *
+     * <p>示例值：
+     */
+    private CourseObject origin;
+
+    /**
+     * 颁发时间
+     *
+     * <p>示例值：1657026867
+     */
+    private Integer issuedAt;
+
+    /**
+     * 证书状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     */
+    private Integer status;
+
+    /**
+     * 证书的图片链接
+     *
+     * <p>示例值：https://a-boe.bytedance.net/c...
+     */
     private String coverLink;
 
-    // builder 开始
-    public CertificateAcquisition() {
+    /**
+     * 证书 ID
+     *
+     * <p>示例值：630e0d9116ee3ede14857160
+     *
+     * @param certId
+     * @return
+     */
+    public Builder certId(String certId) {
+      this.certId = certId;
+      return this;
     }
 
-    public CertificateAcquisition(Builder builder) {
-        /**
-         * 证书 ID
-         * <p> 示例值：630e0d9116ee3ede14857160
-         */
-        this.certId = builder.certId;
-        /**
-         * 用户
-         * <p> 示例值：
-         */
-        this.learner = builder.learner;
-        /**
-         * 证书来源
-         * <p> 示例值：
-         */
-        this.origin = builder.origin;
-        /**
-         * 颁发时间
-         * <p> 示例值：1657026867
-         */
-        this.issuedAt = builder.issuedAt;
-        /**
-         * 证书状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-        /**
-         * 证书的图片链接
-         * <p> 示例值：https://a-boe.bytedance.net/c...
-         */
-        this.coverLink = builder.coverLink;
+    /**
+     * 用户
+     *
+     * <p>示例值：
+     *
+     * @param learner
+     * @return
+     */
+    public Builder learner(User learner) {
+      this.learner = learner;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 证书来源
+     *
+     * <p>示例值：
+     *
+     * @param origin
+     * @return
+     */
+    public Builder origin(CourseObject origin) {
+      this.origin = origin;
+      return this;
     }
 
-    public String getCertId() {
-        return this.certId;
+    /**
+     * 颁发时间
+     *
+     * <p>示例值：1657026867
+     *
+     * @param issuedAt
+     * @return
+     */
+    public Builder issuedAt(Integer issuedAt) {
+      this.issuedAt = issuedAt;
+      return this;
     }
 
-    public void setCertId(String certId) {
-        this.certId = certId;
+    /**
+     * 证书状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public User getLearner() {
-        return this.learner;
+    /**
+     * 证书的图片链接
+     *
+     * <p>示例值：https://a-boe.bytedance.net/c...
+     *
+     * @param coverLink
+     * @return
+     */
+    public Builder coverLink(String coverLink) {
+      this.coverLink = coverLink;
+      return this;
     }
 
-    public void setLearner(User learner) {
-        this.learner = learner;
+    public CertificateAcquisition build() {
+      return new CertificateAcquisition(this);
     }
+  }
 
-    public CourseObject getOrigin() {
-        return this.origin;
-    }
-
-    public void setOrigin(CourseObject origin) {
-        this.origin = origin;
-    }
-
-    public Integer getIssuedAt() {
-        return this.issuedAt;
-    }
-
-    public void setIssuedAt(Integer issuedAt) {
-        this.issuedAt = issuedAt;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getCoverLink() {
-        return this.coverLink;
-    }
-
-    public void setCoverLink(String coverLink) {
-        this.coverLink = coverLink;
-    }
-
-    public static class Builder {
-        /**
-         * 证书 ID
-         * <p> 示例值：630e0d9116ee3ede14857160
-         */
-        private String certId;
-        /**
-         * 用户
-         * <p> 示例值：
-         */
-        private User learner;
-        /**
-         * 证书来源
-         * <p> 示例值：
-         */
-        private CourseObject origin;
-        /**
-         * 颁发时间
-         * <p> 示例值：1657026867
-         */
-        private Integer issuedAt;
-        /**
-         * 证书状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        private Integer status;
-        /**
-         * 证书的图片链接
-         * <p> 示例值：https://a-boe.bytedance.net/c...
-         */
-        private String coverLink;
-
-        /**
-         * 证书 ID
-         * <p> 示例值：630e0d9116ee3ede14857160
-         *
-         * @param certId
-         * @return
-         */
-        public Builder certId(String certId) {
-            this.certId = certId;
-            return this;
-        }
-
-
-        /**
-         * 用户
-         * <p> 示例值：
-         *
-         * @param learner
-         * @return
-         */
-        public Builder learner(User learner) {
-            this.learner = learner;
-            return this;
-        }
-
-
-        /**
-         * 证书来源
-         * <p> 示例值：
-         *
-         * @param origin
-         * @return
-         */
-        public Builder origin(CourseObject origin) {
-            this.origin = origin;
-            return this;
-        }
-
-
-        /**
-         * 颁发时间
-         * <p> 示例值：1657026867
-         *
-         * @param issuedAt
-         * @return
-         */
-        public Builder issuedAt(Integer issuedAt) {
-            this.issuedAt = issuedAt;
-            return this;
-        }
-
-
-        /**
-         * 证书状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 证书的图片链接
-         * <p> 示例值：https://a-boe.bytedance.net/c...
-         *
-         * @param coverLink
-         * @return
-         */
-        public Builder coverLink(String coverLink) {
-            this.coverLink = coverLink;
-            return this;
-        }
-
-
-        public CertificateAcquisition build() {
-            return new CertificateAcquisition(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

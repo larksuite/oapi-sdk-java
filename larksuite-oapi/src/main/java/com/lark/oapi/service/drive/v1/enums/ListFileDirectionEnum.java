@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 升序降序
- */
+/** 定义清单中文件的排序规则，与 order_by 配合使用 */
 public enum ListFileDirectionEnum {
-    ASC("ASC"), // 升序
-    DESC("DESC"), // 降序
-    ;
-    private String value;
+  ASC("ASC"), // 按升序排序
+  DESC("DESC"), // 按降序排序
+  ;
+  private String value;
 
-    ListFileDirectionEnum(String value) {
-        this.value = value;
-    }
+  ListFileDirectionEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

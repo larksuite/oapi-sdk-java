@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2MeetingLeaveMeetingV1Data {
-    /**
-     * 会议数据
-     * <p> 示例值：
-     */
-    @SerializedName("meeting")
-    private MeetingEventMeeting meeting;
-    /**
-     * 事件操作人
-     * <p> 示例值：
-     */
-    @SerializedName("operator")
-    private MeetingEventUser operator;
-    /**
-     * 离开会议原因
-     * <p> 示例值：1
-     */
-    @SerializedName("leave_reason")
-    private Integer leaveReason;
-    /**
-     * 离会人
-     * <p> 示例值：
-     */
-    @SerializedName("leave_user")
-    private MeetingEventUser leaveUser;
+  /**
+   * 会议数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meeting")
+  private MeetingEventMeeting meeting;
 
-    public MeetingEventMeeting getMeeting() {
-        return this.meeting;
-    }
+  /**
+   * 事件操作人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator")
+  private MeetingEventUser operator;
 
-    public void setMeeting(MeetingEventMeeting meeting) {
-        this.meeting = meeting;
-    }
+  /**
+   * 离开会议原因
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("leave_reason")
+  private Integer leaveReason;
 
-    public MeetingEventUser getOperator() {
-        return this.operator;
-    }
+  /**
+   * 事件操作人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leave_user")
+  private MeetingEventUser leaveUser;
 
-    public void setOperator(MeetingEventUser operator) {
-        this.operator = operator;
-    }
+  public MeetingEventMeeting getMeeting() {
+    return this.meeting;
+  }
 
-    public Integer getLeaveReason() {
-        return this.leaveReason;
-    }
+  public void setMeeting(MeetingEventMeeting meeting) {
+    this.meeting = meeting;
+  }
 
-    public void setLeaveReason(Integer leaveReason) {
-        this.leaveReason = leaveReason;
-    }
+  public MeetingEventUser getOperator() {
+    return this.operator;
+  }
 
-    public MeetingEventUser getLeaveUser() {
-        return this.leaveUser;
-    }
+  public void setOperator(MeetingEventUser operator) {
+    this.operator = operator;
+  }
 
-    public void setLeaveUser(MeetingEventUser leaveUser) {
-        this.leaveUser = leaveUser;
-    }
+  public Integer getLeaveReason() {
+    return this.leaveReason;
+  }
 
+  public void setLeaveReason(Integer leaveReason) {
+    this.leaveReason = leaveReason;
+  }
+
+  public MeetingEventUser getLeaveUser() {
+    return this.leaveUser;
+  }
+
+  public void setLeaveUser(MeetingEventUser leaveUser) {
+    this.leaveUser = leaveUser;
+  }
 }

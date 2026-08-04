@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AbilityAssessment {
+  /**
+   * 能力项评价id
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 能力项id
+   *
+   * <p>示例值：7270798542321666366
+   */
+  @SerializedName("ability_id")
+  private String abilityId;
+
+  /**
+   * 能力项评价内容
+   *
+   * <p>示例值：能力项评价
+   */
+  @SerializedName("content")
+  private String content;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getAbilityId() {
+    return this.abilityId;
+  }
+
+  public void setAbilityId(String abilityId) {
+    this.abilityId = abilityId;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  // builder 开始
+  public AbilityAssessment() {}
+
+  public AbilityAssessment(Builder builder) {
     /**
      * 能力项评价id
-     * <p> 示例值：6949805467799537964
+     *
+     * <p>示例值：6949805467799537964
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 能力项id
-     * <p> 示例值：7270798542321666366
+     *
+     * <p>示例值：7270798542321666366
      */
-    @SerializedName("ability_id")
-    private String abilityId;
+    this.abilityId = builder.abilityId;
     /**
      * 能力项评价内容
-     * <p> 示例值：能力项评价
+     *
+     * <p>示例值：能力项评价
      */
-    @SerializedName("content")
+    this.content = builder.content;
+  }
+
+  public static class Builder {
+    /**
+     * 能力项评价id
+     *
+     * <p>示例值：6949805467799537964
+     */
+    private String id;
+
+    /**
+     * 能力项id
+     *
+     * <p>示例值：7270798542321666366
+     */
+    private String abilityId;
+
+    /**
+     * 能力项评价内容
+     *
+     * <p>示例值：能力项评价
+     */
     private String content;
 
-    // builder 开始
-    public AbilityAssessment() {
+    /**
+     * 能力项评价id
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public AbilityAssessment(Builder builder) {
-        /**
-         * 能力项评价id
-         * <p> 示例值：6949805467799537964
-         */
-        this.id = builder.id;
-        /**
-         * 能力项id
-         * <p> 示例值：7270798542321666366
-         */
-        this.abilityId = builder.abilityId;
-        /**
-         * 能力项评价内容
-         * <p> 示例值：能力项评价
-         */
-        this.content = builder.content;
+    /**
+     * 能力项id
+     *
+     * <p>示例值：7270798542321666366
+     *
+     * @param abilityId
+     * @return
+     */
+    public Builder abilityId(String abilityId) {
+      this.abilityId = abilityId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 能力项评价内容
+     *
+     * <p>示例值：能力项评价
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public AbilityAssessment build() {
+      return new AbilityAssessment(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getAbilityId() {
-        return this.abilityId;
-    }
-
-    public void setAbilityId(String abilityId) {
-        this.abilityId = abilityId;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public static class Builder {
-        /**
-         * 能力项评价id
-         * <p> 示例值：6949805467799537964
-         */
-        private String id;
-        /**
-         * 能力项id
-         * <p> 示例值：7270798542321666366
-         */
-        private String abilityId;
-        /**
-         * 能力项评价内容
-         * <p> 示例值：能力项评价
-         */
-        private String content;
-
-        /**
-         * 能力项评价id
-         * <p> 示例值：6949805467799537964
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 能力项id
-         * <p> 示例值：7270798542321666366
-         *
-         * @param abilityId
-         * @return
-         */
-        public Builder abilityId(String abilityId) {
-            this.abilityId = abilityId;
-            return this;
-        }
-
-
-        /**
-         * 能力项评价内容
-         * <p> 示例值：能力项评价
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        public AbilityAssessment build() {
-            return new AbilityAssessment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

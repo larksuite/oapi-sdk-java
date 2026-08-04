@@ -13,72 +13,77 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class DeletePathwayReq {
+  /**
+   * 通道ID。ID获取方式;-
+   * 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;-
+   * 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;-
+   * 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;-
+   * 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @Path
+  @SerializedName("pathway_id")
+  private String pathwayId;
+
+  public String getPathwayId() {
+    return this.pathwayId;
+  }
+
+  public void setPathwayId(String pathwayId) {
+    this.pathwayId = pathwayId;
+  }
+
+  // builder 开始
+  public DeletePathwayReq() {}
+
+  public DeletePathwayReq(Builder builder) {
     /**
-     * 通道ID
-     * <p> 示例值：6862995757234914824
+     * 通道ID。ID获取方式;-
+     * 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;-
+     * 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+     *
+     * <p>示例值：6862995757234914824
      */
-    @Path
-    @SerializedName("pathway_id")
-    private String pathwayId;
+    this.pathwayId = builder.pathwayId;
+  }
 
-    // builder 开始
-    public DeletePathwayReq() {
+  public static class Builder {
+
+    private String pathwayId; // 通道ID。ID获取方式;-
+
+    // 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;- 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;- 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;- 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+
+    /**
+     * 通道ID。ID获取方式;-
+     * 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;-
+     * 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param pathwayId
+     * @return
+     */
+    public Builder pathwayId(String pathwayId) {
+      this.pathwayId = pathwayId;
+      return this;
     }
 
-    public DeletePathwayReq(Builder builder) {
-        /**
-         * 通道ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.pathwayId = builder.pathwayId;
+    public DeletePathwayReq build() {
+      return new DeletePathwayReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getPathwayId() {
-        return this.pathwayId;
-    }
-
-    public void setPathwayId(String pathwayId) {
-        this.pathwayId = pathwayId;
-    }
-
-    public static class Builder {
-
-        private String pathwayId; // 通道ID
-
-        /**
-         * 通道ID
-         * <p> 示例值：6862995757234914824
-         *
-         * @param pathwayId
-         * @return
-         */
-        public Builder pathwayId(String pathwayId) {
-            this.pathwayId = pathwayId;
-            return this;
-        }
-
-
-        public DeletePathwayReq build() {
-            return new DeletePathwayReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

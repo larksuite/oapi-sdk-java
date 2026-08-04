@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 邮箱类型
- */
+/** 邮箱类型，目前initiator类型只有用户邮箱、公共邮箱和邮件组 */
 public enum UserMailEntityEntityTypeEnum {
-    USERMAILBOX(1), // 成员邮箱
-    PUBLICMAILBOX(2), // 公共邮箱
-    MAILGROUP(3), // 邮件组
-    EXTERNALADDRESS(4), // 外部地址
-    ;
-    private Integer value;
+  USERMAILBOX(1), // 用户邮箱
+  PUBLICMAILBOX(2), // 公共邮箱
+  MAILGROUP(3), // 邮件组
+  EXTERNALADDRESS(4), // 外部地址
+  ;
+  private Integer value;
 
-    UserMailEntityEntityTypeEnum(Integer value) {
-        this.value = value;
-    }
+  UserMailEntityEntityTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

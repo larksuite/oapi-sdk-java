@@ -13,257 +13,260 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class GetFileVersionReq {
+  /**
+   * 源文档的类型
+   *
+   * <p>示例值：docx
+   */
+  @Query
+  @SerializedName("obj_type")
+  private String objType;
+
+  /**
+   * 用户ID类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /** 示例值： */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /** 示例值： */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  public String getObjType() {
+    return this.objType;
+  }
+
+  public void setObjType(String objType) {
+    this.objType = objType;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  /**
+   * 源文档的 token。获取方式参考 [如何获取云文档相关
+   * token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+   *
+   * <p>示例值：shtbcqqoXZJaKYrfN5IHQgabcef
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  /**
+   * 版本文档的版本标识
+   *
+   * <p>示例值：fnJfyX
+   */
+  @Path
+  @SerializedName("version_id")
+  private String versionId;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  public String getVersionId() {
+    return this.versionId;
+  }
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
+
+  // builder 开始
+  public GetFileVersionReq() {}
+
+  public GetFileVersionReq(Builder builder) {
     /**
-     * 文档类型
-     * <p> 示例值：doc/sheet/bitable/docx
+     * 源文档的类型
+     *
+     * <p>示例值：docx
      */
-    @Query
-    @SerializedName("obj_type")
-    private String objType;
+    this.objType = builder.objType;
     /**
      * 用户ID类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
+    /** 示例值： */
+    this.pageToken = builder.pageToken;
+    /** 示例值： */
+    this.pageSize = builder.pageSize;
     /**
-     * <p> 示例值：1665739388
+     * 源文档的 token。获取方式参考 [如何获取云文档相关
+     * token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：shtbcqqoXZJaKYrfN5IHQgabcef
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.fileToken = builder.fileToken;
     /**
-     * <p> 示例值：10
+     * 版本文档的版本标识
+     *
+     * <p>示例值：fnJfyX
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.versionId = builder.versionId;
+  }
+
+  public static class Builder {
+    private String objType; // 源文档的类型
+    private String userIdType; // 用户ID类型
+    private String pageToken; //
+    private Integer pageSize; //
+
     /**
-     * 源文档token
-     * <p> 示例值：shtbcqqoXZJaKYrfN5IHQg4sVFZ
+     * 源文档的类型
+     *
+     * <p>示例值：docx
+     *
+     * @param objType
+     * @return
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
+    public Builder objType(String objType) {
+      this.objType = objType;
+      return this;
+    }
+
     /**
-     * 版本文档版本号
-     * <p> 示例值：file_version
+     * 源文档的类型
+     *
+     * <p>示例值：docx
+     *
+     * @param objType {@link com.lark.oapi.service.drive.v1.enums.GetFileVersionObjTypeEnum}
+     * @return
      */
-    @Path
-    @SerializedName("version_id")
-    private String versionId;
-
-    // builder 开始
-    public GetFileVersionReq() {
+    public Builder objType(com.lark.oapi.service.drive.v1.enums.GetFileVersionObjTypeEnum objType) {
+      this.objType = objType.getValue();
+      return this;
     }
 
-    public GetFileVersionReq(Builder builder) {
-        /**
-         * 文档类型
-         * <p> 示例值：doc/sheet/bitable/docx
-         */
-        this.objType = builder.objType;
-        /**
-         * 用户ID类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         *
-         * <p> 示例值：1665739388
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         *
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 源文档token
-         * <p> 示例值：shtbcqqoXZJaKYrfN5IHQg4sVFZ
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 版本文档版本号
-         * <p> 示例值：file_version
-         */
-        this.versionId = builder.versionId;
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.GetFileVersionUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.drive.v1.enums.GetFileVersionUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public String getObjType() {
-        return this.objType;
+    /**
+     * 示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setObjType(String objType) {
-        this.objType = objType;
+    /**
+     * 示例值：
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    private String fileToken; // 源文档的 token。获取方式参考 [如何获取云文档相关
+    // token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+    private String versionId; // 版本文档的版本标识
+
+    /**
+     * 源文档的 token。获取方式参考 [如何获取云文档相关
+     * token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：shtbcqqoXZJaKYrfN5IHQgabcef
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    /**
+     * 版本文档的版本标识
+     *
+     * <p>示例值：fnJfyX
+     *
+     * @param versionId
+     * @return
+     */
+    public Builder versionId(String versionId) {
+      this.versionId = versionId;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    public GetFileVersionReq build() {
+      return new GetFileVersionReq(this);
     }
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public String getVersionId() {
-        return this.versionId;
-    }
-
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
-    }
-
-    public static class Builder {
-        private String objType; // 文档类型
-        private String userIdType; // 用户ID类型
-        private String pageToken; //
-        private Integer pageSize; //
-        private String fileToken; // 源文档token
-        private String versionId; // 版本文档版本号
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc/sheet/bitable/docx
-         *
-         * @param objType
-         * @return
-         */
-        public Builder objType(String objType) {
-            this.objType = objType;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc/sheet/bitable/docx
-         *
-         * @param objType {@link com.lark.oapi.service.drive.v1.enums.GetFileVersionObjTypeEnum}
-         * @return
-         */
-        public Builder objType(com.lark.oapi.service.drive.v1.enums.GetFileVersionObjTypeEnum objType) {
-            this.objType = objType.getValue();
-            return this;
-        }
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.GetFileVersionUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.drive.v1.enums.GetFileVersionUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * <p> 示例值：1665739388
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 源文档token
-         * <p> 示例值：shtbcqqoXZJaKYrfN5IHQg4sVFZ
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        /**
-         * 版本文档版本号
-         * <p> 示例值：file_version
-         *
-         * @param versionId
-         * @return
-         */
-        public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
-        }
-
-
-        public GetFileVersionReq build() {
-            return new GetFileVersionReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

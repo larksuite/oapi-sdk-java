@@ -14,110 +14,119 @@
 package com.lark.oapi.service.meeting_room.v1.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.service.meeting_room.v1.enums.*;
 
 public class Vchat {
+  /**
+   * 视频会议链接
+   *
+   * <p>示例值：https://vc.feishu.cn/j/935314044
+   */
+  @SerializedName("meeting_url")
+  private String meetingUrl;
+
+  /**
+   * 视频会议类型
+   *
+   * <p>示例值：vc
+   */
+  @SerializedName("vc_type")
+  private String vcType;
+
+  public String getMeetingUrl() {
+    return this.meetingUrl;
+  }
+
+  public void setMeetingUrl(String meetingUrl) {
+    this.meetingUrl = meetingUrl;
+  }
+
+  public String getVcType() {
+    return this.vcType;
+  }
+
+  public void setVcType(String vcType) {
+    this.vcType = vcType;
+  }
+
+  // builder 开始
+  public Vchat() {}
+
+  public Vchat(Builder builder) {
     /**
      * 视频会议链接
-     * <p> 示例值：https://vc.feishu.cn/j/935314044
+     *
+     * <p>示例值：https://vc.feishu.cn/j/935314044
      */
-    @SerializedName("meeting_url")
-    private String meetingUrl;
+    this.meetingUrl = builder.meetingUrl;
     /**
      * 视频会议类型
-     * <p> 示例值：vc
+     *
+     * <p>示例值：vc
      */
-    @SerializedName("vc_type")
+    this.vcType = builder.vcType;
+  }
+
+  public static class Builder {
+    /**
+     * 视频会议链接
+     *
+     * <p>示例值：https://vc.feishu.cn/j/935314044
+     */
+    private String meetingUrl;
+
+    /**
+     * 视频会议类型
+     *
+     * <p>示例值：vc
+     */
     private String vcType;
 
-    // builder 开始
-    public Vchat() {
+    /**
+     * 视频会议链接
+     *
+     * <p>示例值：https://vc.feishu.cn/j/935314044
+     *
+     * @param meetingUrl
+     * @return
+     */
+    public Builder meetingUrl(String meetingUrl) {
+      this.meetingUrl = meetingUrl;
+      return this;
     }
 
-    public Vchat(Builder builder) {
-        /**
-         * 视频会议链接
-         * <p> 示例值：https://vc.feishu.cn/j/935314044
-         */
-        this.meetingUrl = builder.meetingUrl;
-        /**
-         * 视频会议类型
-         * <p> 示例值：vc
-         */
-        this.vcType = builder.vcType;
+    /**
+     * 视频会议类型
+     *
+     * <p>示例值：vc
+     *
+     * @param vcType
+     * @return
+     */
+    public Builder vcType(String vcType) {
+      this.vcType = vcType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 视频会议类型
+     *
+     * <p>示例值：vc
+     *
+     * @param vcType {@link com.lark.oapi.service.meeting_room.v1.enums.VchatVcTypeEnum}
+     * @return
+     */
+    public Builder vcType(com.lark.oapi.service.meeting_room.v1.enums.VchatVcTypeEnum vcType) {
+      this.vcType = vcType.getValue();
+      return this;
     }
 
-    public String getMeetingUrl() {
-        return this.meetingUrl;
+    public Vchat build() {
+      return new Vchat(this);
     }
+  }
 
-    public void setMeetingUrl(String meetingUrl) {
-        this.meetingUrl = meetingUrl;
-    }
-
-    public String getVcType() {
-        return this.vcType;
-    }
-
-    public void setVcType(String vcType) {
-        this.vcType = vcType;
-    }
-
-    public static class Builder {
-        /**
-         * 视频会议链接
-         * <p> 示例值：https://vc.feishu.cn/j/935314044
-         */
-        private String meetingUrl;
-        /**
-         * 视频会议类型
-         * <p> 示例值：vc
-         */
-        private String vcType;
-
-        /**
-         * 视频会议链接
-         * <p> 示例值：https://vc.feishu.cn/j/935314044
-         *
-         * @param meetingUrl
-         * @return
-         */
-        public Builder meetingUrl(String meetingUrl) {
-            this.meetingUrl = meetingUrl;
-            return this;
-        }
-
-
-        /**
-         * 视频会议类型
-         * <p> 示例值：vc
-         *
-         * @param vcType
-         * @return
-         */
-        public Builder vcType(String vcType) {
-            this.vcType = vcType;
-            return this;
-        }
-
-        /**
-         * 视频会议类型
-         * <p> 示例值：vc
-         *
-         * @param vcType {@link com.lark.oapi.service.meeting_room.v1.enums.VchatVcTypeEnum}
-         * @return
-         */
-        public Builder vcType(com.lark.oapi.service.meeting_room.v1.enums.VchatVcTypeEnum vcType) {
-            this.vcType = vcType.getValue();
-            return this;
-        }
-
-
-        public Vchat build() {
-            return new Vchat(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

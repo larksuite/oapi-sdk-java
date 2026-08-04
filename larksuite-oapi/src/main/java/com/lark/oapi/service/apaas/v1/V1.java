@@ -27,6 +27,7 @@ import com.lark.oapi.service.apaas.v1.resource.ApprovalInstance;
 import com.lark.oapi.service.apaas.v1.resource.ApprovalTask;
 import com.lark.oapi.service.apaas.v1.resource.SeatActivity;
 import com.lark.oapi.service.apaas.v1.resource.SeatAssignment;
+import com.lark.oapi.service.apaas.v1.resource.TenantAppMetrics;
 import com.lark.oapi.service.apaas.v1.resource.UserTask;
 import com.lark.oapi.service.apaas.v1.resource.Workspace;
 import com.lark.oapi.service.apaas.v1.resource.WorkspaceEnum;
@@ -34,115 +35,123 @@ import com.lark.oapi.service.apaas.v1.resource.WorkspaceTable;
 import com.lark.oapi.service.apaas.v1.resource.WorkspaceView;
 
 public class V1 {
-    private final App app; // app
-    private final ApplicationAuditLog applicationAuditLog; // application.audit_log
-    private final ApplicationEnvironmentVariable applicationEnvironmentVariable; // application.environment_variable
-    private final ApplicationFlow applicationFlow; // application.flow
-    private final ApplicationFunction applicationFunction; // application.function
-    private final ApplicationObject applicationObject; // application.object
-    private final ApplicationObjectRecord applicationObjectRecord; // application.object.record
-    private final ApplicationRecordPermissionMember applicationRecordPermissionMember; // application.record_permission.member
-    private final ApplicationRoleMember applicationRoleMember; // application.role.member
-    private final ApprovalInstance approvalInstance; // approval_instance
-    private final ApprovalTask approvalTask; // approval_task
-    private final SeatActivity seatActivity; // seat_activity
-    private final SeatAssignment seatAssignment; // seat_assignment
-    private final UserTask userTask; // user_task
-    private final Workspace workspace; // workspace
-    private final WorkspaceEnum workspaceEnum; // workspace.enum
-    private final WorkspaceTable workspaceTable; // workspace.table
-    private final WorkspaceView workspaceView; // workspace.view
+  private final App app; // app
+  private final ApplicationAuditLog applicationAuditLog; // application.audit_log
+  private final ApplicationEnvironmentVariable
+      applicationEnvironmentVariable; // application.environment_variable
+  private final ApplicationFlow applicationFlow; // application.flow
+  private final ApplicationFunction applicationFunction; // application.function
+  private final ApplicationObject applicationObject; // application.object
+  private final ApplicationObjectRecord applicationObjectRecord; // application.object.record
+  private final ApplicationRecordPermissionMember
+      applicationRecordPermissionMember; // application.record_permission.member
+  private final ApplicationRoleMember applicationRoleMember; // application.role.member
+  private final ApprovalInstance approvalInstance; // approval_instance
+  private final ApprovalTask approvalTask; // approval_task
+  private final SeatActivity seatActivity; // seat_activity
+  private final SeatAssignment seatAssignment; // seat_assignment
+  private final TenantAppMetrics tenantAppMetrics; // tenant_app_metrics
+  private final UserTask userTask; // user_task
+  private final Workspace workspace; // workspace
+  private final WorkspaceEnum workspaceEnum; // workspace.enum
+  private final WorkspaceTable workspaceTable; // workspace.table
+  private final WorkspaceView workspaceView; // workspace.view
 
-    public V1(Config config) {
-        this.app = new App(config);
-        this.applicationAuditLog = new ApplicationAuditLog(config);
-        this.applicationEnvironmentVariable = new ApplicationEnvironmentVariable(config);
-        this.applicationFlow = new ApplicationFlow(config);
-        this.applicationFunction = new ApplicationFunction(config);
-        this.applicationObject = new ApplicationObject(config);
-        this.applicationObjectRecord = new ApplicationObjectRecord(config);
-        this.applicationRecordPermissionMember = new ApplicationRecordPermissionMember(config);
-        this.applicationRoleMember = new ApplicationRoleMember(config);
-        this.approvalInstance = new ApprovalInstance(config);
-        this.approvalTask = new ApprovalTask(config);
-        this.seatActivity = new SeatActivity(config);
-        this.seatAssignment = new SeatAssignment(config);
-        this.userTask = new UserTask(config);
-        this.workspace = new Workspace(config);
-        this.workspaceEnum = new WorkspaceEnum(config);
-        this.workspaceTable = new WorkspaceTable(config);
-        this.workspaceView = new WorkspaceView(config);
-    }
+  public V1(Config config) {
+    this.app = new App(config);
+    this.applicationAuditLog = new ApplicationAuditLog(config);
+    this.applicationEnvironmentVariable = new ApplicationEnvironmentVariable(config);
+    this.applicationFlow = new ApplicationFlow(config);
+    this.applicationFunction = new ApplicationFunction(config);
+    this.applicationObject = new ApplicationObject(config);
+    this.applicationObjectRecord = new ApplicationObjectRecord(config);
+    this.applicationRecordPermissionMember = new ApplicationRecordPermissionMember(config);
+    this.applicationRoleMember = new ApplicationRoleMember(config);
+    this.approvalInstance = new ApprovalInstance(config);
+    this.approvalTask = new ApprovalTask(config);
+    this.seatActivity = new SeatActivity(config);
+    this.seatAssignment = new SeatAssignment(config);
+    this.tenantAppMetrics = new TenantAppMetrics(config);
+    this.userTask = new UserTask(config);
+    this.workspace = new Workspace(config);
+    this.workspaceEnum = new WorkspaceEnum(config);
+    this.workspaceTable = new WorkspaceTable(config);
+    this.workspaceView = new WorkspaceView(config);
+  }
 
-    public App app() {
-        return app;
-    }
+  public App app() {
+    return app;
+  }
 
-    public ApplicationAuditLog applicationAuditLog() {
-        return applicationAuditLog;
-    }
+  public ApplicationAuditLog applicationAuditLog() {
+    return applicationAuditLog;
+  }
 
-    public ApplicationEnvironmentVariable applicationEnvironmentVariable() {
-        return applicationEnvironmentVariable;
-    }
+  public ApplicationEnvironmentVariable applicationEnvironmentVariable() {
+    return applicationEnvironmentVariable;
+  }
 
-    public ApplicationFlow applicationFlow() {
-        return applicationFlow;
-    }
+  public ApplicationFlow applicationFlow() {
+    return applicationFlow;
+  }
 
-    public ApplicationFunction applicationFunction() {
-        return applicationFunction;
-    }
+  public ApplicationFunction applicationFunction() {
+    return applicationFunction;
+  }
 
-    public ApplicationObject applicationObject() {
-        return applicationObject;
-    }
+  public ApplicationObject applicationObject() {
+    return applicationObject;
+  }
 
-    public ApplicationObjectRecord applicationObjectRecord() {
-        return applicationObjectRecord;
-    }
+  public ApplicationObjectRecord applicationObjectRecord() {
+    return applicationObjectRecord;
+  }
 
-    public ApplicationRecordPermissionMember applicationRecordPermissionMember() {
-        return applicationRecordPermissionMember;
-    }
+  public ApplicationRecordPermissionMember applicationRecordPermissionMember() {
+    return applicationRecordPermissionMember;
+  }
 
-    public ApplicationRoleMember applicationRoleMember() {
-        return applicationRoleMember;
-    }
+  public ApplicationRoleMember applicationRoleMember() {
+    return applicationRoleMember;
+  }
 
-    public ApprovalInstance approvalInstance() {
-        return approvalInstance;
-    }
+  public ApprovalInstance approvalInstance() {
+    return approvalInstance;
+  }
 
-    public ApprovalTask approvalTask() {
-        return approvalTask;
-    }
+  public ApprovalTask approvalTask() {
+    return approvalTask;
+  }
 
-    public SeatActivity seatActivity() {
-        return seatActivity;
-    }
+  public SeatActivity seatActivity() {
+    return seatActivity;
+  }
 
-    public SeatAssignment seatAssignment() {
-        return seatAssignment;
-    }
+  public SeatAssignment seatAssignment() {
+    return seatAssignment;
+  }
 
-    public UserTask userTask() {
-        return userTask;
-    }
+  public TenantAppMetrics tenantAppMetrics() {
+    return tenantAppMetrics;
+  }
 
-    public Workspace workspace() {
-        return workspace;
-    }
+  public UserTask userTask() {
+    return userTask;
+  }
 
-    public WorkspaceEnum workspaceEnum() {
-        return workspaceEnum;
-    }
+  public Workspace workspace() {
+    return workspace;
+  }
 
-    public WorkspaceTable workspaceTable() {
-        return workspaceTable;
-    }
+  public WorkspaceEnum workspaceEnum() {
+    return workspaceEnum;
+  }
 
-    public WorkspaceView workspaceView() {
-        return workspaceView;
-    }
+  public WorkspaceTable workspaceTable() {
+    return workspaceTable;
+  }
+
+  public WorkspaceView workspaceView() {
+    return workspaceView;
+  }
 }

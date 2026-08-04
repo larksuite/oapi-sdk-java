@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.mdm.v1.enums;
 
-/**
- * 语言枚举
- */
+/** 语言枚举 */
 public enum MultiLanguageLanguageEnum {
-    CHINESE("zh"), // 中文
-    ENGLISH("en"), // 英文
-    JAPANESE("ja"), // 日文
-    ;
-    private String value;
+  CHINESE("zh"), // 中文
+  ENGLISH("en"), // 英文
+  JAPANESE("ja"), // 日文
+  ;
+  private String value;
 
-    MultiLanguageLanguageEnum(String value) {
-        this.value = value;
-    }
+  MultiLanguageLanguageEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

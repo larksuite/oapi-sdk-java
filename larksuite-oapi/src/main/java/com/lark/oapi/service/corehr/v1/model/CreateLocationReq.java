@@ -13,97 +13,92 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class CreateLocationReq {
+  /**
+   * 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+   *
+   * <p>示例值："fe599b60-450f-46ff-b2ef-9f6675625b97"
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  @Body private Location body;
+
+  public Location getLocation() {
+    return this.body;
+  }
+
+  public void setLocation(Location body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateLocationReq() {}
+
+  public CreateLocationReq(Builder builder) {
     /**
-     * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
+     * 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+     *
+     * <p>示例值："fe599b60-450f-46ff-b2ef-9f6675625b97"
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
-    @Body
+    this.clientToken = builder.clientToken;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        clientToken; // 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+
+    /**
+     * 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+     *
+     * <p>示例值："fe599b60-450f-46ff-b2ef-9f6675625b97"
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
     private Location body;
 
-    // builder 开始
-    public CreateLocationReq() {
-    }
-
-    public CreateLocationReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
     public Location getLocation() {
-        return this.body;
+      return this.body;
     }
 
-    public void setLocation(Location body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder location(Location body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private Location body;
-
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        public Location getLocation() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder location(Location body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateLocationReq build() {
-            return new CreateLocationReq(this);
-        }
+    public CreateLocationReq build() {
+      return new CreateLocationReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

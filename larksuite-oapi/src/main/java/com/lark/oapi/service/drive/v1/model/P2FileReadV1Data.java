@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2FileReadV1Data {
-    /**
-     * 文档类型
-     * <p> 示例值：docx
-     */
-    @SerializedName("file_type")
-    private String fileType;
-    /**
-     * 文档token
-     * <p> 示例值：TLLKdcpDro9ijQxA33ycNMabcef
-     */
-    @SerializedName("file_token")
-    private String fileToken;
-    /**
-     * 操作者id列表
-     * <p> 示例值：
-     */
-    @SerializedName("operator_id_list")
-    private UserId[] operatorIdList;
-    /**
-     * 订阅用户id列表
-     * <p> 示例值：
-     */
-    @SerializedName("subscriber_id_list")
-    private UserId[] subscriberIdList;
+  /**
+   * 文档类型
+   *
+   * <p>示例值：docx
+   */
+  @SerializedName("file_type")
+  private String fileType;
 
-    public String getFileType() {
-        return this.fileType;
-    }
+  /**
+   * 文档token
+   *
+   * <p>示例值：TLLKdcpDro9ijQxA33ycNMabcef
+   */
+  @SerializedName("file_token")
+  private String fileToken;
 
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
+  /**
+   * 操作者id列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator_id_list")
+  private UserId[] operatorIdList;
 
-    public String getFileToken() {
-        return this.fileToken;
-    }
+  /**
+   * 订阅用户id列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subscriber_id_list")
+  private UserId[] subscriberIdList;
 
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
+  public String getFileType() {
+    return this.fileType;
+  }
 
-    public UserId[] getOperatorIdList() {
-        return this.operatorIdList;
-    }
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
 
-    public void setOperatorIdList(UserId[] operatorIdList) {
-        this.operatorIdList = operatorIdList;
-    }
+  public String getFileToken() {
+    return this.fileToken;
+  }
 
-    public UserId[] getSubscriberIdList() {
-        return this.subscriberIdList;
-    }
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
 
-    public void setSubscriberIdList(UserId[] subscriberIdList) {
-        this.subscriberIdList = subscriberIdList;
-    }
+  public UserId[] getOperatorIdList() {
+    return this.operatorIdList;
+  }
 
+  public void setOperatorIdList(UserId[] operatorIdList) {
+    this.operatorIdList = operatorIdList;
+  }
+
+  public UserId[] getSubscriberIdList() {
+    return this.subscriberIdList;
+  }
+
+  public void setSubscriberIdList(UserId[] subscriberIdList) {
+    this.subscriberIdList = subscriberIdList;
+  }
 }

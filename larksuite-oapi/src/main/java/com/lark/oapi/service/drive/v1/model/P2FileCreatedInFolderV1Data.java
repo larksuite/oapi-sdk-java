@@ -13,90 +13,91 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2FileCreatedInFolderV1Data {
-    /**
-     * 文档类型
-     * <p> 示例值：docx
-     */
-    @SerializedName("file_type")
-    private String fileType;
-    /**
-     * 文档 Token
-     * <p> 示例值：TLLKdcpDro9ijQxA33ycNMabcef
-     */
-    @SerializedName("file_token")
-    private String fileToken;
-    /**
-     * 文件夹 Token
-     * <p> 示例值：QBonfpyHVlhQMedDztWcIbabcef
-     */
-    @SerializedName("folder_token")
-    private String folderToken;
-    /**
-     * 操作者 ID
-     * <p> 示例值：
-     */
-    @SerializedName("operator_id")
-    private UserId operatorId;
-    /**
-     * 订阅用户 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("subscriber_ids")
-    private UserId[] subscriberIds;
+  /**
+   * 文件类型，与文件的 file_token 相匹配;;**示例值**：docx; ;**可选值有**：;<md-enum>;<md-enum-item key="doc"
+   * >旧版文档</md-enum-item>;<md-enum-item key="docx" >新版文档</md-enum-item>;<md-enum-item key="sheet"
+   * >电子表格</md-enum-item>;<md-enum-item key="bitable" >多维表格</md-enum-item>;<md-enum-item
+   * key="slides" >幻灯片</md-enum-item>;<md-enum-item key="file" >文件</md-enum-item>;</md-enum>
+   *
+   * <p>示例值：docx
+   */
+  @SerializedName("file_type")
+  private String fileType;
 
-    public String getFileType() {
-        return this.fileType;
-    }
+  /**
+   * 文件的 token，获取方式见 [如何获取云文档资源相关
+   * token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6);;**示例值**：docxnBKgoMyY5OMbUG6FioTXuBe
+   *
+   * <p>示例值：TLLKdcpDro9ijQxA33ycNMabcef
+   */
+  @SerializedName("file_token")
+  private String fileToken;
 
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
+  /**
+   * 文件夹
+   * Token。获取方式见[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)
+   *
+   * <p>示例值：QBonfpyHVlhQMedDztWcIbabcef
+   */
+  @SerializedName("folder_token")
+  private String folderToken;
 
-    public String getFileToken() {
-        return this.fileToken;
-    }
+  /**
+   * 操作者的用户 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator_id")
+  private UserId operatorId;
 
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
+  /**
+   * 订阅者的用户 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subscriber_ids")
+  private UserId[] subscriberIds;
 
-    public String getFolderToken() {
-        return this.folderToken;
-    }
+  public String getFileType() {
+    return this.fileType;
+  }
 
-    public void setFolderToken(String folderToken) {
-        this.folderToken = folderToken;
-    }
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
 
-    public UserId getOperatorId() {
-        return this.operatorId;
-    }
+  public String getFileToken() {
+    return this.fileToken;
+  }
 
-    public void setOperatorId(UserId operatorId) {
-        this.operatorId = operatorId;
-    }
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
 
-    public UserId[] getSubscriberIds() {
-        return this.subscriberIds;
-    }
+  public String getFolderToken() {
+    return this.folderToken;
+  }
 
-    public void setSubscriberIds(UserId[] subscriberIds) {
-        this.subscriberIds = subscriberIds;
-    }
+  public void setFolderToken(String folderToken) {
+    this.folderToken = folderToken;
+  }
 
+  public UserId getOperatorId() {
+    return this.operatorId;
+  }
+
+  public void setOperatorId(UserId operatorId) {
+    this.operatorId = operatorId;
+  }
+
+  public UserId[] getSubscriberIds() {
+    return this.subscriberIds;
+  }
+
+  public void setSubscriberIds(UserId[] subscriberIds) {
+    this.subscriberIds = subscriberIds;
+  }
 }

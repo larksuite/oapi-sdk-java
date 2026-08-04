@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingAgentEventUser {
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 用户类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("user_type")
+  private Integer userType;
+
+  /**
+   * 用户角色
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("user_role")
+  private Integer userRole;
+
+  /**
+   * 用户名称
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("user_name")
+  private String userName;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getUserType() {
+    return this.userType;
+  }
+
+  public void setUserType(Integer userType) {
+    this.userType = userType;
+  }
+
+  public Integer getUserRole() {
+    return this.userRole;
+  }
+
+  public void setUserRole(Integer userRole) {
+    this.userRole = userRole;
+  }
+
+  public String getUserName() {
+    return this.userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  // builder 开始
+  public MeetingAgentEventUser() {}
+
+  public MeetingAgentEventUser(Builder builder) {
     /**
      * 用户 ID
-     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 用户类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("user_type")
-    private Integer userType;
+    this.userType = builder.userType;
     /**
      * 用户角色
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("user_role")
-    private Integer userRole;
+    this.userRole = builder.userRole;
     /**
      * 用户名称
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("user_name")
+    this.userName = builder.userName;
+  }
+
+  public static class Builder {
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     */
+    private String id;
+
+    /**
+     * 用户类型
+     *
+     * <p>示例值：1
+     */
+    private Integer userType;
+
+    /**
+     * 用户角色
+     *
+     * <p>示例值：1
+     */
+    private Integer userRole;
+
+    /**
+     * 用户名称
+     *
+     * <p>示例值：张三
+     */
     private String userName;
 
-    // builder 开始
-    public MeetingAgentEventUser() {
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public MeetingAgentEventUser(Builder builder) {
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        this.id = builder.id;
-        /**
-         * 用户类型
-         * <p> 示例值：1
-         */
-        this.userType = builder.userType;
-        /**
-         * 用户角色
-         * <p> 示例值：1
-         */
-        this.userRole = builder.userRole;
-        /**
-         * 用户名称
-         * <p> 示例值：张三
-         */
-        this.userName = builder.userName;
+    /**
+     * 用户类型
+     *
+     * <p>示例值：1
+     *
+     * @param userType
+     * @return
+     */
+    public Builder userType(Integer userType) {
+      this.userType = userType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户角色
+     *
+     * <p>示例值：1
+     *
+     * @param userRole
+     * @return
+     */
+    public Builder userRole(Integer userRole) {
+      this.userRole = userRole;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 用户名称
+     *
+     * <p>示例值：张三
+     *
+     * @param userName
+     * @return
+     */
+    public Builder userName(String userName) {
+      this.userName = userName;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public MeetingAgentEventUser build() {
+      return new MeetingAgentEventUser(this);
     }
+  }
 
-    public Integer getUserType() {
-        return this.userType;
-    }
-
-    public void setUserType(Integer userType) {
-        this.userType = userType;
-    }
-
-    public Integer getUserRole() {
-        return this.userRole;
-    }
-
-    public void setUserRole(Integer userRole) {
-        this.userRole = userRole;
-    }
-
-    public String getUserName() {
-        return this.userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public static class Builder {
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        private String id;
-        /**
-         * 用户类型
-         * <p> 示例值：1
-         */
-        private Integer userType;
-        /**
-         * 用户角色
-         * <p> 示例值：1
-         */
-        private Integer userRole;
-        /**
-         * 用户名称
-         * <p> 示例值：张三
-         */
-        private String userName;
-
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 用户类型
-         * <p> 示例值：1
-         *
-         * @param userType
-         * @return
-         */
-        public Builder userType(Integer userType) {
-            this.userType = userType;
-            return this;
-        }
-
-
-        /**
-         * 用户角色
-         * <p> 示例值：1
-         *
-         * @param userRole
-         * @return
-         */
-        public Builder userRole(Integer userRole) {
-            this.userRole = userRole;
-            return this;
-        }
-
-
-        /**
-         * 用户名称
-         * <p> 示例值：张三
-         *
-         * @param userName
-         * @return
-         */
-        public Builder userName(String userName) {
-            this.userName = userName;
-            return this;
-        }
-
-
-        public MeetingAgentEventUser build() {
-            return new MeetingAgentEventUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

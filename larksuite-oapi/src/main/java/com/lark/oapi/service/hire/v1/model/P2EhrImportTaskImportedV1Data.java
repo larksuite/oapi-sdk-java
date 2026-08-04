@@ -13,118 +13,120 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2EhrImportTaskImportedV1Data {
-    /**
-     * 导入任务 ID
-     * <p> 示例值：6890840517010000141
-     */
-    @SerializedName("task_id")
-    private String taskId;
-    /**
-     * 投递 ID
-     * <p> 示例值：6891113078776137998
-     */
-    @SerializedName("application_id")
-    private String applicationId;
-    /**
-     * 导入部门 ID
-     * <p> 示例值：6887399523094627847
-     */
-    @SerializedName("ehr_department_id")
-    private String ehrDepartmentId;
-    /**
-     * 招聘需求 ID
-     * <p> 示例值：6960663240925956636
-     */
-    @SerializedName("ehr_requirement_id")
-    private String ehrRequirementId;
-    /**
-     * 操作人的飞书招聘 user_id
-     * <p> 示例值：6887868781834536462
-     */
-    @SerializedName("operator_id")
-    private String operatorId;
-    /**
-     * 操作人的飞书 user_id
-     * <p> 示例值：6887868781834536462
-     */
-    @SerializedName("operator_user_id")
-    private UserId operatorUserId;
-    /**
-     * 部门ID
-     * <p> 示例值：
-     */
-    @SerializedName("ehr_department")
-    private DepartmentId ehrDepartment;
+  /**
+   * 导入任务 ID
+   *
+   * <p>示例值：6890840517010000141
+   */
+  @SerializedName("task_id")
+  private String taskId;
 
-    public String getTaskId() {
-        return this.taskId;
-    }
+  /**
+   * 投递
+   * ID，详情请参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+   *
+   * <p>示例值：6891113078776137998
+   */
+  @SerializedName("application_id")
+  private String applicationId;
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
+  /**
+   * 导入部门 ID，类型为 `people_admin_department_id`，已不推荐使用，请使用 ehr_department 字段的部门数据
+   *
+   * <p>示例值：6887399523094627847
+   */
+  @SerializedName("ehr_department_id")
+  private String ehrDepartmentId;
 
-    public String getApplicationId() {
-        return this.applicationId;
-    }
+  /**
+   * 招聘需求
+   * ID，详情请参考[获取招聘需求信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_requirement/list_by_id)
+   *
+   * <p>示例值：6960663240925956636
+   */
+  @SerializedName("ehr_requirement_id")
+  private String ehrRequirementId;
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
-    }
+  /**
+   * 操作人的飞书招聘 user_id，类型为`people_admin_id`，已不推荐使用，请使用 operator_user_id 字段的用户数据
+   *
+   * <p>示例值：6887868781834536462
+   */
+  @SerializedName("operator_id")
+  private String operatorId;
 
-    public String getEhrDepartmentId() {
-        return this.ehrDepartmentId;
-    }
+  /**
+   * 操作用户，用户资源详情请参考[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview);，如何获取用户信息请参考[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)
+   *
+   * <p>示例值：6887868781834536462
+   */
+  @SerializedName("operator_user_id")
+  private UserId operatorUserId;
 
-    public void setEhrDepartmentId(String ehrDepartmentId) {
-        this.ehrDepartmentId = ehrDepartmentId;
-    }
+  /**
+   * 导入部门，部门资源详情请参考[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)，如何获取部门请参考[获取单个部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/get)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ehr_department")
+  private DepartmentId ehrDepartment;
 
-    public String getEhrRequirementId() {
-        return this.ehrRequirementId;
-    }
+  public String getTaskId() {
+    return this.taskId;
+  }
 
-    public void setEhrRequirementId(String ehrRequirementId) {
-        this.ehrRequirementId = ehrRequirementId;
-    }
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
 
-    public String getOperatorId() {
-        return this.operatorId;
-    }
+  public String getApplicationId() {
+    return this.applicationId;
+  }
 
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
-    }
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
 
-    public UserId getOperatorUserId() {
-        return this.operatorUserId;
-    }
+  public String getEhrDepartmentId() {
+    return this.ehrDepartmentId;
+  }
 
-    public void setOperatorUserId(UserId operatorUserId) {
-        this.operatorUserId = operatorUserId;
-    }
+  public void setEhrDepartmentId(String ehrDepartmentId) {
+    this.ehrDepartmentId = ehrDepartmentId;
+  }
 
-    public DepartmentId getEhrDepartment() {
-        return this.ehrDepartment;
-    }
+  public String getEhrRequirementId() {
+    return this.ehrRequirementId;
+  }
 
-    public void setEhrDepartment(DepartmentId ehrDepartment) {
-        this.ehrDepartment = ehrDepartment;
-    }
+  public void setEhrRequirementId(String ehrRequirementId) {
+    this.ehrRequirementId = ehrRequirementId;
+  }
 
+  public String getOperatorId() {
+    return this.operatorId;
+  }
+
+  public void setOperatorId(String operatorId) {
+    this.operatorId = operatorId;
+  }
+
+  public UserId getOperatorUserId() {
+    return this.operatorUserId;
+  }
+
+  public void setOperatorUserId(UserId operatorUserId) {
+    this.operatorUserId = operatorUserId;
+  }
+
+  public DepartmentId getEhrDepartment() {
+    return this.ehrDepartment;
+  }
+
+  public void setEhrDepartment(DepartmentId ehrDepartment) {
+    this.ehrDepartment = ehrDepartment;
+  }
 }

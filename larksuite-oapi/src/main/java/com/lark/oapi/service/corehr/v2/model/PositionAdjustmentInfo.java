@@ -13,1333 +13,1597 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PositionAdjustmentInfo {
+  /**
+   * 原序列 ID
+   * 列表，可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_job_families")
+  private String[] originalJobFamilies;
+
+  /**
+   * 调整后序列 ID
+   * 列表，可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_job_families")
+  private String[] targetJobFamilies;
+
+  /**
+   * 原所属部门
+   * ID，可通过[【批量查询部门V2】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+   * 或者[【搜索部门信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+   * 获取详情
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("original_department")
+  private String originalDepartment;
+
+  /**
+   * 调整后所属部门 ID，如果是一个已存在的部门， 则会使用其飞书人事部门 ID 作为调整记录
+   * ID，可通过[【批量查询部门V2】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+   * 或者[【搜索部门信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+   * 获取详情
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("target_department")
+  private String targetDepartment;
+
+  /**
+   * 调整后所属部门临时 ID，为避免一个没有经过审批的组织架构调整影响正在运行的系统，如果是在组织架构调整中新生成的『部门』，会返回一个临时 ID，格式为
+   * "td_xxx"，;可通过[【批量查询部门调整内容】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_department_change_list_by_ids)获取详情，ID
+   * 类型需要为 ==people_corehr_department_id==
+   *
+   * <p>示例值：td_704442734715974602312
+   */
+  @SerializedName("target_draft_department")
+  private String targetDraftDepartment;
+
+  /**
+   * 原岗位默认成本中心
+   * ID，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取详情
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("original_cost_center")
+  private String originalCostCenter;
+
+  /**
+   * 调整后岗位默认成本中心
+   * ID，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取详情
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("target_cost_center")
+  private String targetCostCenter;
+
+  /**
+   * 原工时制度
+   * ID，枚举值及详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("original_working_hours_type")
+  private String originalWorkingHoursType;
+
+  /**
+   * 调整后工时制度
+   * ID，枚举值及详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("target_working_hours_type")
+  private String targetWorkingHoursType;
+
+  /**
+   * 原职务
+   * ID，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详情
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("original_job")
+  private String originalJob;
+
+  /**
+   * 调整后职务
+   * ID，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详情
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("target_job")
+  private String targetJob;
+
+  /**
+   * 原是否关键岗位
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("original_is_key_position")
+  private Boolean originalIsKeyPosition;
+
+  /**
+   * 调整后是否关键岗位
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("target_is_key_position")
+  private Boolean targetIsKeyPosition;
+
+  /**
+   * 原人员类型 ID
+   * 列表，可通过[【查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_employee_types")
+  private String[] originalEmployeeTypes;
+
+  /**
+   * 调整后人员类型 ID
+   * 列表，可通过[【查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_employee_types")
+  private String[] targetEmployeeTypes;
+
+  /**
+   * 原名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_names")
+  private I18n[] originalNames;
+
+  /**
+   * 调整后名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_names")
+  private I18n[] targetNames;
+
+  /**
+   * 原职等 ID
+   * 列表，可通过[【查询职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_job_grades")
+  private String[] originalJobGrades;
+
+  /**
+   * 调整后职等 ID
+   * 列表，可通过[【查询职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_job_grades")
+  private String[] targetJobGrades;
+
+  /**
+   * 原编码
+   *
+   * <p>示例值：P00000456
+   */
+  @SerializedName("original_code")
+  private String originalCode;
+
+  /**
+   * 调整后编码
+   *
+   * <p>示例值：P00000456
+   */
+  @SerializedName("target_code")
+  private String targetCode;
+
+  /**
+   * 原职级 ID 列表，可通过[【通过职级 ID
+   * 批量获取职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_job_levels")
+  private String[] originalJobLevels;
+
+  /**
+   * 调整后职级 ID 列表，可通过[【通过职级 ID
+   * 批量获取职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_job_levels")
+  private String[] targetJobLevels;
+
+  /**
+   * 原状态
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("original_active")
+  private Boolean originalActive;
+
+  /**
+   * 调整后状态
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("target_active")
+  private Boolean targetActive;
+
+  /**
+   * 原直线上级（岗位）
+   * ID，可通过[【查询岗位信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获取详情
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("original_direct_leader")
+  private String originalDirectLeader;
+
+  /**
+   * 调整后直线上级（岗位）
+   * ID，如果是一个已存在的岗位，可通过[【查询岗位信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获取详情
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("target_direct_leader")
+  private String targetDirectLeader;
+
+  /**
+   * 调整后直线上级（岗位） ID，对于在本次调整中新建的岗位，在调整未生效前会返回格式为 td_xxx 的过程岗位 ID，生效后将返回正式的岗位ID
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("target_draft_direct_leader")
+  private String targetDraftDirectLeader;
+
+  /**
+   * 原工作地点 ID 列表，可通过[【通过地点 ID
+   * 批量获取地点信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get)接口获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_work_locations")
+  private String[] originalWorkLocations;
+
+  /**
+   * 调整后工作地点 ID 列表，可通过[【通过地点 ID
+   * 批量获取地点信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get)接口获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_work_locations")
+  private String[] targetWorkLocations;
+
+  /**
+   * 原描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_descriptions")
+  private I18n[] originalDescriptions;
+
+  /**
+   * 调整后描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_descriptions")
+  private I18n[] targetDescriptions;
+
+  /**
+   * 原部门全路径，从根部门开始自上而下返回部门 ID 列表, 主要用于 API 场景， 没有审批完成前获取部门路径用于计算
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_department_id_paths")
+  private OrgdraftDepartmentId[] originalDepartmentIdPaths;
+
+  /**
+   * 调整后部门全路径，从根部门开始自上而下返回部门 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_department_id_paths")
+  private OrgdraftDepartmentId[] targetDepartmentIdPaths;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ChangeFieldPair[] customFields;
+
+  public String[] getOriginalJobFamilies() {
+    return this.originalJobFamilies;
+  }
+
+  public void setOriginalJobFamilies(String[] originalJobFamilies) {
+    this.originalJobFamilies = originalJobFamilies;
+  }
+
+  public String[] getTargetJobFamilies() {
+    return this.targetJobFamilies;
+  }
+
+  public void setTargetJobFamilies(String[] targetJobFamilies) {
+    this.targetJobFamilies = targetJobFamilies;
+  }
+
+  public String getOriginalDepartment() {
+    return this.originalDepartment;
+  }
+
+  public void setOriginalDepartment(String originalDepartment) {
+    this.originalDepartment = originalDepartment;
+  }
+
+  public String getTargetDepartment() {
+    return this.targetDepartment;
+  }
+
+  public void setTargetDepartment(String targetDepartment) {
+    this.targetDepartment = targetDepartment;
+  }
+
+  public String getTargetDraftDepartment() {
+    return this.targetDraftDepartment;
+  }
+
+  public void setTargetDraftDepartment(String targetDraftDepartment) {
+    this.targetDraftDepartment = targetDraftDepartment;
+  }
+
+  public String getOriginalCostCenter() {
+    return this.originalCostCenter;
+  }
+
+  public void setOriginalCostCenter(String originalCostCenter) {
+    this.originalCostCenter = originalCostCenter;
+  }
+
+  public String getTargetCostCenter() {
+    return this.targetCostCenter;
+  }
+
+  public void setTargetCostCenter(String targetCostCenter) {
+    this.targetCostCenter = targetCostCenter;
+  }
+
+  public String getOriginalWorkingHoursType() {
+    return this.originalWorkingHoursType;
+  }
+
+  public void setOriginalWorkingHoursType(String originalWorkingHoursType) {
+    this.originalWorkingHoursType = originalWorkingHoursType;
+  }
+
+  public String getTargetWorkingHoursType() {
+    return this.targetWorkingHoursType;
+  }
+
+  public void setTargetWorkingHoursType(String targetWorkingHoursType) {
+    this.targetWorkingHoursType = targetWorkingHoursType;
+  }
+
+  public String getOriginalJob() {
+    return this.originalJob;
+  }
+
+  public void setOriginalJob(String originalJob) {
+    this.originalJob = originalJob;
+  }
+
+  public String getTargetJob() {
+    return this.targetJob;
+  }
+
+  public void setTargetJob(String targetJob) {
+    this.targetJob = targetJob;
+  }
+
+  public Boolean getOriginalIsKeyPosition() {
+    return this.originalIsKeyPosition;
+  }
+
+  public void setOriginalIsKeyPosition(Boolean originalIsKeyPosition) {
+    this.originalIsKeyPosition = originalIsKeyPosition;
+  }
+
+  public Boolean getTargetIsKeyPosition() {
+    return this.targetIsKeyPosition;
+  }
+
+  public void setTargetIsKeyPosition(Boolean targetIsKeyPosition) {
+    this.targetIsKeyPosition = targetIsKeyPosition;
+  }
+
+  public String[] getOriginalEmployeeTypes() {
+    return this.originalEmployeeTypes;
+  }
+
+  public void setOriginalEmployeeTypes(String[] originalEmployeeTypes) {
+    this.originalEmployeeTypes = originalEmployeeTypes;
+  }
+
+  public String[] getTargetEmployeeTypes() {
+    return this.targetEmployeeTypes;
+  }
+
+  public void setTargetEmployeeTypes(String[] targetEmployeeTypes) {
+    this.targetEmployeeTypes = targetEmployeeTypes;
+  }
+
+  public I18n[] getOriginalNames() {
+    return this.originalNames;
+  }
+
+  public void setOriginalNames(I18n[] originalNames) {
+    this.originalNames = originalNames;
+  }
+
+  public I18n[] getTargetNames() {
+    return this.targetNames;
+  }
+
+  public void setTargetNames(I18n[] targetNames) {
+    this.targetNames = targetNames;
+  }
+
+  public String[] getOriginalJobGrades() {
+    return this.originalJobGrades;
+  }
+
+  public void setOriginalJobGrades(String[] originalJobGrades) {
+    this.originalJobGrades = originalJobGrades;
+  }
+
+  public String[] getTargetJobGrades() {
+    return this.targetJobGrades;
+  }
+
+  public void setTargetJobGrades(String[] targetJobGrades) {
+    this.targetJobGrades = targetJobGrades;
+  }
+
+  public String getOriginalCode() {
+    return this.originalCode;
+  }
+
+  public void setOriginalCode(String originalCode) {
+    this.originalCode = originalCode;
+  }
+
+  public String getTargetCode() {
+    return this.targetCode;
+  }
+
+  public void setTargetCode(String targetCode) {
+    this.targetCode = targetCode;
+  }
+
+  public String[] getOriginalJobLevels() {
+    return this.originalJobLevels;
+  }
+
+  public void setOriginalJobLevels(String[] originalJobLevels) {
+    this.originalJobLevels = originalJobLevels;
+  }
+
+  public String[] getTargetJobLevels() {
+    return this.targetJobLevels;
+  }
+
+  public void setTargetJobLevels(String[] targetJobLevels) {
+    this.targetJobLevels = targetJobLevels;
+  }
+
+  public Boolean getOriginalActive() {
+    return this.originalActive;
+  }
+
+  public void setOriginalActive(Boolean originalActive) {
+    this.originalActive = originalActive;
+  }
+
+  public Boolean getTargetActive() {
+    return this.targetActive;
+  }
+
+  public void setTargetActive(Boolean targetActive) {
+    this.targetActive = targetActive;
+  }
+
+  public String getOriginalDirectLeader() {
+    return this.originalDirectLeader;
+  }
+
+  public void setOriginalDirectLeader(String originalDirectLeader) {
+    this.originalDirectLeader = originalDirectLeader;
+  }
+
+  public String getTargetDirectLeader() {
+    return this.targetDirectLeader;
+  }
+
+  public void setTargetDirectLeader(String targetDirectLeader) {
+    this.targetDirectLeader = targetDirectLeader;
+  }
+
+  public String getTargetDraftDirectLeader() {
+    return this.targetDraftDirectLeader;
+  }
+
+  public void setTargetDraftDirectLeader(String targetDraftDirectLeader) {
+    this.targetDraftDirectLeader = targetDraftDirectLeader;
+  }
+
+  public String[] getOriginalWorkLocations() {
+    return this.originalWorkLocations;
+  }
+
+  public void setOriginalWorkLocations(String[] originalWorkLocations) {
+    this.originalWorkLocations = originalWorkLocations;
+  }
+
+  public String[] getTargetWorkLocations() {
+    return this.targetWorkLocations;
+  }
+
+  public void setTargetWorkLocations(String[] targetWorkLocations) {
+    this.targetWorkLocations = targetWorkLocations;
+  }
+
+  public I18n[] getOriginalDescriptions() {
+    return this.originalDescriptions;
+  }
+
+  public void setOriginalDescriptions(I18n[] originalDescriptions) {
+    this.originalDescriptions = originalDescriptions;
+  }
+
+  public I18n[] getTargetDescriptions() {
+    return this.targetDescriptions;
+  }
+
+  public void setTargetDescriptions(I18n[] targetDescriptions) {
+    this.targetDescriptions = targetDescriptions;
+  }
+
+  public OrgdraftDepartmentId[] getOriginalDepartmentIdPaths() {
+    return this.originalDepartmentIdPaths;
+  }
+
+  public void setOriginalDepartmentIdPaths(OrgdraftDepartmentId[] originalDepartmentIdPaths) {
+    this.originalDepartmentIdPaths = originalDepartmentIdPaths;
+  }
+
+  public OrgdraftDepartmentId[] getTargetDepartmentIdPaths() {
+    return this.targetDepartmentIdPaths;
+  }
+
+  public void setTargetDepartmentIdPaths(OrgdraftDepartmentId[] targetDepartmentIdPaths) {
+    this.targetDepartmentIdPaths = targetDepartmentIdPaths;
+  }
+
+  public ChangeFieldPair[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ChangeFieldPair[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public PositionAdjustmentInfo() {}
+
+  public PositionAdjustmentInfo(Builder builder) {
     /**
      * 原序列 ID
-     * <p> 示例值：
+     * 列表，可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_job_families")
-    private String[] originalJobFamilies;
+    this.originalJobFamilies = builder.originalJobFamilies;
     /**
-     * 新序列 ID
-     * <p> 示例值：
+     * 调整后序列 ID
+     * 列表，可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_job_families")
-    private String[] targetJobFamilies;
+    this.targetJobFamilies = builder.targetJobFamilies;
     /**
-     * 原所属部门 ID
-     * <p> 示例值：6974659700705068581
+     * 原所属部门
+     * ID，可通过[【批量查询部门V2】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[【搜索部门信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("original_department")
-    private String originalDepartment;
+    this.originalDepartment = builder.originalDepartment;
     /**
-     * 新所属部门 ID
-     * <p> 示例值：6974659700705068581
+     * 调整后所属部门 ID，如果是一个已存在的部门， 则会使用其飞书人事部门 ID 作为调整记录
+     * ID，可通过[【批量查询部门V2】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[【搜索部门信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("target_department")
-    private String targetDepartment;
+    this.targetDepartment = builder.targetDepartment;
     /**
-     * 新所属部门 ID，新建部门审批完成前会返回 td_xxx 的临时 ID
-     * <p> 示例值：6974659700705068581
+     * 调整后所属部门临时 ID，为避免一个没有经过审批的组织架构调整影响正在运行的系统，如果是在组织架构调整中新生成的『部门』，会返回一个临时 ID，格式为
+     * "td_xxx"，;可通过[【批量查询部门调整内容】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_department_change_list_by_ids)获取详情，ID
+     * 类型需要为 ==people_corehr_department_id==
+     *
+     * <p>示例值：td_704442734715974602312
      */
-    @SerializedName("target_draft_department")
-    private String targetDraftDepartment;
+    this.targetDraftDepartment = builder.targetDraftDepartment;
     /**
-     * 原岗位默认成本中心 ID
-     * <p> 示例值：6974659700705068581
+     * 原岗位默认成本中心
+     * ID，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取详情
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("original_cost_center")
-    private String originalCostCenter;
+    this.originalCostCenter = builder.originalCostCenter;
     /**
-     * 新岗位默认成本中心 ID
-     * <p> 示例值：6974659700705068581
+     * 调整后岗位默认成本中心
+     * ID，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取详情
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("target_cost_center")
-    private String targetCostCenter;
+    this.targetCostCenter = builder.targetCostCenter;
     /**
-     * 原工时制度 ID
-     * <p> 示例值：6974659700705068581
+     * 原工时制度
+     * ID，枚举值及详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("original_working_hours_type")
-    private String originalWorkingHoursType;
+    this.originalWorkingHoursType = builder.originalWorkingHoursType;
     /**
-     * 新工时制度 ID
-     * <p> 示例值：6974659700705068581
+     * 调整后工时制度
+     * ID，枚举值及详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("target_working_hours_type")
-    private String targetWorkingHoursType;
+    this.targetWorkingHoursType = builder.targetWorkingHoursType;
     /**
-     * 原职务 ID
-     * <p> 示例值：6974659700705068581
+     * 原职务
+     * ID，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详情
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("original_job")
-    private String originalJob;
+    this.originalJob = builder.originalJob;
     /**
-     * 新职务 ID
-     * <p> 示例值：6974659700705068581
+     * 调整后职务
+     * ID，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详情
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("target_job")
-    private String targetJob;
+    this.targetJob = builder.targetJob;
     /**
      * 原是否关键岗位
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("original_is_key_position")
-    private Boolean originalIsKeyPosition;
+    this.originalIsKeyPosition = builder.originalIsKeyPosition;
     /**
-     * 新是否关键岗位
-     * <p> 示例值：true
+     * 调整后是否关键岗位
+     *
+     * <p>示例值：true
      */
-    @SerializedName("target_is_key_position")
-    private Boolean targetIsKeyPosition;
+    this.targetIsKeyPosition = builder.targetIsKeyPosition;
     /**
      * 原人员类型 ID
-     * <p> 示例值：
+     * 列表，可通过[【查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_employee_types")
-    private String[] originalEmployeeTypes;
+    this.originalEmployeeTypes = builder.originalEmployeeTypes;
     /**
-     * 新人员类型 ID
-     * <p> 示例值：
+     * 调整后人员类型 ID
+     * 列表，可通过[【查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_employee_types")
-    private String[] targetEmployeeTypes;
+    this.targetEmployeeTypes = builder.targetEmployeeTypes;
     /**
      * 原名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_names")
-    private I18n[] originalNames;
+    this.originalNames = builder.originalNames;
     /**
-     * 新名称
-     * <p> 示例值：
+     * 调整后名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_names")
-    private I18n[] targetNames;
+    this.targetNames = builder.targetNames;
     /**
      * 原职等 ID
-     * <p> 示例值：
+     * 列表，可通过[【查询职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_job_grades")
-    private String[] originalJobGrades;
+    this.originalJobGrades = builder.originalJobGrades;
     /**
-     * 新职等 ID
-     * <p> 示例值：
+     * 调整后职等 ID
+     * 列表，可通过[【查询职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_job_grades")
-    private String[] targetJobGrades;
+    this.targetJobGrades = builder.targetJobGrades;
     /**
      * 原编码
-     * <p> 示例值：P00000456
+     *
+     * <p>示例值：P00000456
      */
-    @SerializedName("original_code")
-    private String originalCode;
+    this.originalCode = builder.originalCode;
     /**
-     * 新编码
-     * <p> 示例值：P00000456
+     * 调整后编码
+     *
+     * <p>示例值：P00000456
      */
-    @SerializedName("target_code")
-    private String targetCode;
+    this.targetCode = builder.targetCode;
     /**
-     * 原职级 ID
-     * <p> 示例值：
+     * 原职级 ID 列表，可通过[【通过职级 ID
+     * 批量获取职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_job_levels")
-    private String[] originalJobLevels;
+    this.originalJobLevels = builder.originalJobLevels;
     /**
-     * 新职级 ID
-     * <p> 示例值：
+     * 调整后职级 ID 列表，可通过[【通过职级 ID
+     * 批量获取职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_job_levels")
-    private String[] targetJobLevels;
+    this.targetJobLevels = builder.targetJobLevels;
     /**
      * 原状态
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("original_active")
-    private Boolean originalActive;
+    this.originalActive = builder.originalActive;
     /**
-     * 新状态
-     * <p> 示例值：true
+     * 调整后状态
+     *
+     * <p>示例值：true
      */
-    @SerializedName("target_active")
-    private Boolean targetActive;
+    this.targetActive = builder.targetActive;
     /**
-     * 原直线上级（岗位） ID
-     * <p> 示例值：6974659700705068581
+     * 原直线上级（岗位）
+     * ID，可通过[【查询岗位信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获取详情
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("original_direct_leader")
-    private String originalDirectLeader;
+    this.originalDirectLeader = builder.originalDirectLeader;
     /**
-     * 新直线上级（岗位） ID
-     * <p> 示例值：6974659700705068581
+     * 调整后直线上级（岗位）
+     * ID，如果是一个已存在的岗位，可通过[【查询岗位信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获取详情
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("target_direct_leader")
-    private String targetDirectLeader;
+    this.targetDirectLeader = builder.targetDirectLeader;
     /**
-     * 新直线上级（岗位） ID，新建岗位审批完成前会返回 td_xxx 的临时 ID
-     * <p> 示例值：6974659700705068581
+     * 调整后直线上级（岗位） ID，对于在本次调整中新建的岗位，在调整未生效前会返回格式为 td_xxx 的过程岗位 ID，生效后将返回正式的岗位ID
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("target_draft_direct_leader")
-    private String targetDraftDirectLeader;
+    this.targetDraftDirectLeader = builder.targetDraftDirectLeader;
     /**
-     * 原工作地点 ID
-     * <p> 示例值：
+     * 原工作地点 ID 列表，可通过[【通过地点 ID
+     * 批量获取地点信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get)接口获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_work_locations")
-    private String[] originalWorkLocations;
+    this.originalWorkLocations = builder.originalWorkLocations;
     /**
-     * 新工作地点 ID
-     * <p> 示例值：
+     * 调整后工作地点 ID 列表，可通过[【通过地点 ID
+     * 批量获取地点信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get)接口获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_work_locations")
-    private String[] targetWorkLocations;
+    this.targetWorkLocations = builder.targetWorkLocations;
     /**
      * 原描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_descriptions")
-    private I18n[] originalDescriptions;
+    this.originalDescriptions = builder.originalDescriptions;
     /**
-     * 新描述
-     * <p> 示例值：
+     * 调整后描述
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_descriptions")
-    private I18n[] targetDescriptions;
+    this.targetDescriptions = builder.targetDescriptions;
     /**
-     * 原部门全路径，从根部门开始自上而下返回部门 ID 列表
-     * <p> 示例值：
+     * 原部门全路径，从根部门开始自上而下返回部门 ID 列表, 主要用于 API 场景， 没有审批完成前获取部门路径用于计算
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_department_id_paths")
-    private OrgdraftDepartmentId[] originalDepartmentIdPaths;
+    this.originalDepartmentIdPaths = builder.originalDepartmentIdPaths;
     /**
-     * 新部门全路径，从根部门开始自上而下返回部门 ID 列表
-     * <p> 示例值：
+     * 调整后部门全路径，从根部门开始自上而下返回部门 ID 列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_department_id_paths")
-    private OrgdraftDepartmentId[] targetDepartmentIdPaths;
+    this.targetDepartmentIdPaths = builder.targetDepartmentIdPaths;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 原序列 ID
+     * 列表，可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取详情
+     *
+     * <p>示例值：
+     */
+    private String[] originalJobFamilies;
+
+    /**
+     * 调整后序列 ID
+     * 列表，可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取详情
+     *
+     * <p>示例值：
+     */
+    private String[] targetJobFamilies;
+
+    /**
+     * 原所属部门
+     * ID，可通过[【批量查询部门V2】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[【搜索部门信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：6974659700705068581
+     */
+    private String originalDepartment;
+
+    /**
+     * 调整后所属部门 ID，如果是一个已存在的部门， 则会使用其飞书人事部门 ID 作为调整记录
+     * ID，可通过[【批量查询部门V2】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[【搜索部门信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：6974659700705068581
+     */
+    private String targetDepartment;
+
+    /**
+     * 调整后所属部门临时 ID，为避免一个没有经过审批的组织架构调整影响正在运行的系统，如果是在组织架构调整中新生成的『部门』，会返回一个临时 ID，格式为
+     * "td_xxx"，;可通过[【批量查询部门调整内容】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_department_change_list_by_ids)获取详情，ID
+     * 类型需要为 ==people_corehr_department_id==
+     *
+     * <p>示例值：td_704442734715974602312
+     */
+    private String targetDraftDepartment;
+
+    /**
+     * 原岗位默认成本中心
+     * ID，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取详情
+     *
+     * <p>示例值：6974659700705068581
+     */
+    private String originalCostCenter;
+
+    /**
+     * 调整后岗位默认成本中心
+     * ID，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取详情
+     *
+     * <p>示例值：6974659700705068581
+     */
+    private String targetCostCenter;
+
+    /**
+     * 原工时制度
+     * ID，枚举值及详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+     *
+     * <p>示例值：6974659700705068581
+     */
+    private String originalWorkingHoursType;
+
+    /**
+     * 调整后工时制度
+     * ID，枚举值及详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+     *
+     * <p>示例值：6974659700705068581
+     */
+    private String targetWorkingHoursType;
+
+    /**
+     * 原职务
+     * ID，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详情
+     *
+     * <p>示例值：6974659700705068581
+     */
+    private String originalJob;
+
+    /**
+     * 调整后职务
+     * ID，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详情
+     *
+     * <p>示例值：6974659700705068581
+     */
+    private String targetJob;
+
+    /**
+     * 原是否关键岗位
+     *
+     * <p>示例值：true
+     */
+    private Boolean originalIsKeyPosition;
+
+    /**
+     * 调整后是否关键岗位
+     *
+     * <p>示例值：true
+     */
+    private Boolean targetIsKeyPosition;
+
+    /**
+     * 原人员类型 ID
+     * 列表，可通过[【查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)获取详情
+     *
+     * <p>示例值：
+     */
+    private String[] originalEmployeeTypes;
+
+    /**
+     * 调整后人员类型 ID
+     * 列表，可通过[【查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)获取详情
+     *
+     * <p>示例值：
+     */
+    private String[] targetEmployeeTypes;
+
+    /**
+     * 原名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] originalNames;
+
+    /**
+     * 调整后名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] targetNames;
+
+    /**
+     * 原职等 ID
+     * 列表，可通过[【查询职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取详情
+     *
+     * <p>示例值：
+     */
+    private String[] originalJobGrades;
+
+    /**
+     * 调整后职等 ID
+     * 列表，可通过[【查询职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取详情
+     *
+     * <p>示例值：
+     */
+    private String[] targetJobGrades;
+
+    /**
+     * 原编码
+     *
+     * <p>示例值：P00000456
+     */
+    private String originalCode;
+
+    /**
+     * 调整后编码
+     *
+     * <p>示例值：P00000456
+     */
+    private String targetCode;
+
+    /**
+     * 原职级 ID 列表，可通过[【通过职级 ID
+     * 批量获取职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)获取详情
+     *
+     * <p>示例值：
+     */
+    private String[] originalJobLevels;
+
+    /**
+     * 调整后职级 ID 列表，可通过[【通过职级 ID
+     * 批量获取职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)获取详情
+     *
+     * <p>示例值：
+     */
+    private String[] targetJobLevels;
+
+    /**
+     * 原状态
+     *
+     * <p>示例值：true
+     */
+    private Boolean originalActive;
+
+    /**
+     * 调整后状态
+     *
+     * <p>示例值：true
+     */
+    private Boolean targetActive;
+
+    /**
+     * 原直线上级（岗位）
+     * ID，可通过[【查询岗位信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获取详情
+     *
+     * <p>示例值：6974659700705068581
+     */
+    private String originalDirectLeader;
+
+    /**
+     * 调整后直线上级（岗位）
+     * ID，如果是一个已存在的岗位，可通过[【查询岗位信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获取详情
+     *
+     * <p>示例值：6974659700705068581
+     */
+    private String targetDirectLeader;
+
+    /**
+     * 调整后直线上级（岗位） ID，对于在本次调整中新建的岗位，在调整未生效前会返回格式为 td_xxx 的过程岗位 ID，生效后将返回正式的岗位ID
+     *
+     * <p>示例值：6974659700705068581
+     */
+    private String targetDraftDirectLeader;
+
+    /**
+     * 原工作地点 ID 列表，可通过[【通过地点 ID
+     * 批量获取地点信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get)接口获取详情
+     *
+     * <p>示例值：
+     */
+    private String[] originalWorkLocations;
+
+    /**
+     * 调整后工作地点 ID 列表，可通过[【通过地点 ID
+     * 批量获取地点信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get)接口获取详情
+     *
+     * <p>示例值：
+     */
+    private String[] targetWorkLocations;
+
+    /**
+     * 原描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] originalDescriptions;
+
+    /**
+     * 调整后描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] targetDescriptions;
+
+    /**
+     * 原部门全路径，从根部门开始自上而下返回部门 ID 列表, 主要用于 API 场景， 没有审批完成前获取部门路径用于计算
+     *
+     * <p>示例值：
+     */
+    private OrgdraftDepartmentId[] originalDepartmentIdPaths;
+
+    /**
+     * 调整后部门全路径，从根部门开始自上而下返回部门 ID 列表
+     *
+     * <p>示例值：
+     */
+    private OrgdraftDepartmentId[] targetDepartmentIdPaths;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private ChangeFieldPair[] customFields;
 
-    // builder 开始
-    public PositionAdjustmentInfo() {
-    }
-
-    public PositionAdjustmentInfo(Builder builder) {
-        /**
-         * 原序列 ID
-         * <p> 示例值：
-         */
-        this.originalJobFamilies = builder.originalJobFamilies;
-        /**
-         * 新序列 ID
-         * <p> 示例值：
-         */
-        this.targetJobFamilies = builder.targetJobFamilies;
-        /**
-         * 原所属部门 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.originalDepartment = builder.originalDepartment;
-        /**
-         * 新所属部门 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetDepartment = builder.targetDepartment;
-        /**
-         * 新所属部门 ID，新建部门审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetDraftDepartment = builder.targetDraftDepartment;
-        /**
-         * 原岗位默认成本中心 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.originalCostCenter = builder.originalCostCenter;
-        /**
-         * 新岗位默认成本中心 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetCostCenter = builder.targetCostCenter;
-        /**
-         * 原工时制度 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.originalWorkingHoursType = builder.originalWorkingHoursType;
-        /**
-         * 新工时制度 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetWorkingHoursType = builder.targetWorkingHoursType;
-        /**
-         * 原职务 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.originalJob = builder.originalJob;
-        /**
-         * 新职务 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetJob = builder.targetJob;
-        /**
-         * 原是否关键岗位
-         * <p> 示例值：true
-         */
-        this.originalIsKeyPosition = builder.originalIsKeyPosition;
-        /**
-         * 新是否关键岗位
-         * <p> 示例值：true
-         */
-        this.targetIsKeyPosition = builder.targetIsKeyPosition;
-        /**
-         * 原人员类型 ID
-         * <p> 示例值：
-         */
-        this.originalEmployeeTypes = builder.originalEmployeeTypes;
-        /**
-         * 新人员类型 ID
-         * <p> 示例值：
-         */
-        this.targetEmployeeTypes = builder.targetEmployeeTypes;
-        /**
-         * 原名称
-         * <p> 示例值：
-         */
-        this.originalNames = builder.originalNames;
-        /**
-         * 新名称
-         * <p> 示例值：
-         */
-        this.targetNames = builder.targetNames;
-        /**
-         * 原职等 ID
-         * <p> 示例值：
-         */
-        this.originalJobGrades = builder.originalJobGrades;
-        /**
-         * 新职等 ID
-         * <p> 示例值：
-         */
-        this.targetJobGrades = builder.targetJobGrades;
-        /**
-         * 原编码
-         * <p> 示例值：P00000456
-         */
-        this.originalCode = builder.originalCode;
-        /**
-         * 新编码
-         * <p> 示例值：P00000456
-         */
-        this.targetCode = builder.targetCode;
-        /**
-         * 原职级 ID
-         * <p> 示例值：
-         */
-        this.originalJobLevels = builder.originalJobLevels;
-        /**
-         * 新职级 ID
-         * <p> 示例值：
-         */
-        this.targetJobLevels = builder.targetJobLevels;
-        /**
-         * 原状态
-         * <p> 示例值：true
-         */
-        this.originalActive = builder.originalActive;
-        /**
-         * 新状态
-         * <p> 示例值：true
-         */
-        this.targetActive = builder.targetActive;
-        /**
-         * 原直线上级（岗位） ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.originalDirectLeader = builder.originalDirectLeader;
-        /**
-         * 新直线上级（岗位） ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetDirectLeader = builder.targetDirectLeader;
-        /**
-         * 新直线上级（岗位） ID，新建岗位审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetDraftDirectLeader = builder.targetDraftDirectLeader;
-        /**
-         * 原工作地点 ID
-         * <p> 示例值：
-         */
-        this.originalWorkLocations = builder.originalWorkLocations;
-        /**
-         * 新工作地点 ID
-         * <p> 示例值：
-         */
-        this.targetWorkLocations = builder.targetWorkLocations;
-        /**
-         * 原描述
-         * <p> 示例值：
-         */
-        this.originalDescriptions = builder.originalDescriptions;
-        /**
-         * 新描述
-         * <p> 示例值：
-         */
-        this.targetDescriptions = builder.targetDescriptions;
-        /**
-         * 原部门全路径，从根部门开始自上而下返回部门 ID 列表
-         * <p> 示例值：
-         */
-        this.originalDepartmentIdPaths = builder.originalDepartmentIdPaths;
-        /**
-         * 新部门全路径，从根部门开始自上而下返回部门 ID 列表
-         * <p> 示例值：
-         */
-        this.targetDepartmentIdPaths = builder.targetDepartmentIdPaths;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getOriginalJobFamilies() {
-        return this.originalJobFamilies;
-    }
-
-    public void setOriginalJobFamilies(String[] originalJobFamilies) {
-        this.originalJobFamilies = originalJobFamilies;
-    }
-
-    public String[] getTargetJobFamilies() {
-        return this.targetJobFamilies;
-    }
-
-    public void setTargetJobFamilies(String[] targetJobFamilies) {
-        this.targetJobFamilies = targetJobFamilies;
-    }
-
-    public String getOriginalDepartment() {
-        return this.originalDepartment;
-    }
-
-    public void setOriginalDepartment(String originalDepartment) {
-        this.originalDepartment = originalDepartment;
-    }
-
-    public String getTargetDepartment() {
-        return this.targetDepartment;
-    }
-
-    public void setTargetDepartment(String targetDepartment) {
-        this.targetDepartment = targetDepartment;
-    }
-
-    public String getTargetDraftDepartment() {
-        return this.targetDraftDepartment;
-    }
-
-    public void setTargetDraftDepartment(String targetDraftDepartment) {
-        this.targetDraftDepartment = targetDraftDepartment;
-    }
-
-    public String getOriginalCostCenter() {
-        return this.originalCostCenter;
-    }
-
-    public void setOriginalCostCenter(String originalCostCenter) {
-        this.originalCostCenter = originalCostCenter;
-    }
-
-    public String getTargetCostCenter() {
-        return this.targetCostCenter;
-    }
-
-    public void setTargetCostCenter(String targetCostCenter) {
-        this.targetCostCenter = targetCostCenter;
-    }
-
-    public String getOriginalWorkingHoursType() {
-        return this.originalWorkingHoursType;
-    }
-
-    public void setOriginalWorkingHoursType(String originalWorkingHoursType) {
-        this.originalWorkingHoursType = originalWorkingHoursType;
-    }
-
-    public String getTargetWorkingHoursType() {
-        return this.targetWorkingHoursType;
-    }
-
-    public void setTargetWorkingHoursType(String targetWorkingHoursType) {
-        this.targetWorkingHoursType = targetWorkingHoursType;
-    }
-
-    public String getOriginalJob() {
-        return this.originalJob;
-    }
-
-    public void setOriginalJob(String originalJob) {
-        this.originalJob = originalJob;
-    }
-
-    public String getTargetJob() {
-        return this.targetJob;
-    }
-
-    public void setTargetJob(String targetJob) {
-        this.targetJob = targetJob;
-    }
-
-    public Boolean getOriginalIsKeyPosition() {
-        return this.originalIsKeyPosition;
-    }
-
-    public void setOriginalIsKeyPosition(Boolean originalIsKeyPosition) {
-        this.originalIsKeyPosition = originalIsKeyPosition;
-    }
-
-    public Boolean getTargetIsKeyPosition() {
-        return this.targetIsKeyPosition;
-    }
-
-    public void setTargetIsKeyPosition(Boolean targetIsKeyPosition) {
-        this.targetIsKeyPosition = targetIsKeyPosition;
-    }
-
-    public String[] getOriginalEmployeeTypes() {
-        return this.originalEmployeeTypes;
-    }
-
-    public void setOriginalEmployeeTypes(String[] originalEmployeeTypes) {
-        this.originalEmployeeTypes = originalEmployeeTypes;
-    }
-
-    public String[] getTargetEmployeeTypes() {
-        return this.targetEmployeeTypes;
-    }
-
-    public void setTargetEmployeeTypes(String[] targetEmployeeTypes) {
-        this.targetEmployeeTypes = targetEmployeeTypes;
-    }
-
-    public I18n[] getOriginalNames() {
-        return this.originalNames;
-    }
-
-    public void setOriginalNames(I18n[] originalNames) {
-        this.originalNames = originalNames;
-    }
-
-    public I18n[] getTargetNames() {
-        return this.targetNames;
-    }
-
-    public void setTargetNames(I18n[] targetNames) {
-        this.targetNames = targetNames;
-    }
-
-    public String[] getOriginalJobGrades() {
-        return this.originalJobGrades;
-    }
-
-    public void setOriginalJobGrades(String[] originalJobGrades) {
-        this.originalJobGrades = originalJobGrades;
-    }
-
-    public String[] getTargetJobGrades() {
-        return this.targetJobGrades;
-    }
-
-    public void setTargetJobGrades(String[] targetJobGrades) {
-        this.targetJobGrades = targetJobGrades;
-    }
-
-    public String getOriginalCode() {
-        return this.originalCode;
-    }
-
-    public void setOriginalCode(String originalCode) {
-        this.originalCode = originalCode;
-    }
-
-    public String getTargetCode() {
-        return this.targetCode;
-    }
-
-    public void setTargetCode(String targetCode) {
-        this.targetCode = targetCode;
-    }
-
-    public String[] getOriginalJobLevels() {
-        return this.originalJobLevels;
-    }
-
-    public void setOriginalJobLevels(String[] originalJobLevels) {
-        this.originalJobLevels = originalJobLevels;
-    }
-
-    public String[] getTargetJobLevels() {
-        return this.targetJobLevels;
-    }
-
-    public void setTargetJobLevels(String[] targetJobLevels) {
-        this.targetJobLevels = targetJobLevels;
-    }
-
-    public Boolean getOriginalActive() {
-        return this.originalActive;
-    }
-
-    public void setOriginalActive(Boolean originalActive) {
-        this.originalActive = originalActive;
-    }
-
-    public Boolean getTargetActive() {
-        return this.targetActive;
-    }
-
-    public void setTargetActive(Boolean targetActive) {
-        this.targetActive = targetActive;
-    }
-
-    public String getOriginalDirectLeader() {
-        return this.originalDirectLeader;
-    }
-
-    public void setOriginalDirectLeader(String originalDirectLeader) {
-        this.originalDirectLeader = originalDirectLeader;
-    }
-
-    public String getTargetDirectLeader() {
-        return this.targetDirectLeader;
-    }
-
-    public void setTargetDirectLeader(String targetDirectLeader) {
-        this.targetDirectLeader = targetDirectLeader;
-    }
-
-    public String getTargetDraftDirectLeader() {
-        return this.targetDraftDirectLeader;
-    }
-
-    public void setTargetDraftDirectLeader(String targetDraftDirectLeader) {
-        this.targetDraftDirectLeader = targetDraftDirectLeader;
-    }
-
-    public String[] getOriginalWorkLocations() {
-        return this.originalWorkLocations;
-    }
-
-    public void setOriginalWorkLocations(String[] originalWorkLocations) {
-        this.originalWorkLocations = originalWorkLocations;
-    }
-
-    public String[] getTargetWorkLocations() {
-        return this.targetWorkLocations;
-    }
-
-    public void setTargetWorkLocations(String[] targetWorkLocations) {
-        this.targetWorkLocations = targetWorkLocations;
-    }
-
-    public I18n[] getOriginalDescriptions() {
-        return this.originalDescriptions;
-    }
-
-    public void setOriginalDescriptions(I18n[] originalDescriptions) {
-        this.originalDescriptions = originalDescriptions;
-    }
-
-    public I18n[] getTargetDescriptions() {
-        return this.targetDescriptions;
-    }
-
-    public void setTargetDescriptions(I18n[] targetDescriptions) {
-        this.targetDescriptions = targetDescriptions;
-    }
-
-    public OrgdraftDepartmentId[] getOriginalDepartmentIdPaths() {
-        return this.originalDepartmentIdPaths;
-    }
-
-    public void setOriginalDepartmentIdPaths(OrgdraftDepartmentId[] originalDepartmentIdPaths) {
-        this.originalDepartmentIdPaths = originalDepartmentIdPaths;
-    }
-
-    public OrgdraftDepartmentId[] getTargetDepartmentIdPaths() {
-        return this.targetDepartmentIdPaths;
-    }
-
-    public void setTargetDepartmentIdPaths(OrgdraftDepartmentId[] targetDepartmentIdPaths) {
-        this.targetDepartmentIdPaths = targetDepartmentIdPaths;
-    }
-
-    public ChangeFieldPair[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ChangeFieldPair[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 原序列 ID
-         * <p> 示例值：
-         */
-        private String[] originalJobFamilies;
-        /**
-         * 新序列 ID
-         * <p> 示例值：
-         */
-        private String[] targetJobFamilies;
-        /**
-         * 原所属部门 ID
-         * <p> 示例值：6974659700705068581
-         */
-        private String originalDepartment;
-        /**
-         * 新所属部门 ID
-         * <p> 示例值：6974659700705068581
-         */
-        private String targetDepartment;
-        /**
-         * 新所属部门 ID，新建部门审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：6974659700705068581
-         */
-        private String targetDraftDepartment;
-        /**
-         * 原岗位默认成本中心 ID
-         * <p> 示例值：6974659700705068581
-         */
-        private String originalCostCenter;
-        /**
-         * 新岗位默认成本中心 ID
-         * <p> 示例值：6974659700705068581
-         */
-        private String targetCostCenter;
-        /**
-         * 原工时制度 ID
-         * <p> 示例值：6974659700705068581
-         */
-        private String originalWorkingHoursType;
-        /**
-         * 新工时制度 ID
-         * <p> 示例值：6974659700705068581
-         */
-        private String targetWorkingHoursType;
-        /**
-         * 原职务 ID
-         * <p> 示例值：6974659700705068581
-         */
-        private String originalJob;
-        /**
-         * 新职务 ID
-         * <p> 示例值：6974659700705068581
-         */
-        private String targetJob;
-        /**
-         * 原是否关键岗位
-         * <p> 示例值：true
-         */
-        private Boolean originalIsKeyPosition;
-        /**
-         * 新是否关键岗位
-         * <p> 示例值：true
-         */
-        private Boolean targetIsKeyPosition;
-        /**
-         * 原人员类型 ID
-         * <p> 示例值：
-         */
-        private String[] originalEmployeeTypes;
-        /**
-         * 新人员类型 ID
-         * <p> 示例值：
-         */
-        private String[] targetEmployeeTypes;
-        /**
-         * 原名称
-         * <p> 示例值：
-         */
-        private I18n[] originalNames;
-        /**
-         * 新名称
-         * <p> 示例值：
-         */
-        private I18n[] targetNames;
-        /**
-         * 原职等 ID
-         * <p> 示例值：
-         */
-        private String[] originalJobGrades;
-        /**
-         * 新职等 ID
-         * <p> 示例值：
-         */
-        private String[] targetJobGrades;
-        /**
-         * 原编码
-         * <p> 示例值：P00000456
-         */
-        private String originalCode;
-        /**
-         * 新编码
-         * <p> 示例值：P00000456
-         */
-        private String targetCode;
-        /**
-         * 原职级 ID
-         * <p> 示例值：
-         */
-        private String[] originalJobLevels;
-        /**
-         * 新职级 ID
-         * <p> 示例值：
-         */
-        private String[] targetJobLevels;
-        /**
-         * 原状态
-         * <p> 示例值：true
-         */
-        private Boolean originalActive;
-        /**
-         * 新状态
-         * <p> 示例值：true
-         */
-        private Boolean targetActive;
-        /**
-         * 原直线上级（岗位） ID
-         * <p> 示例值：6974659700705068581
-         */
-        private String originalDirectLeader;
-        /**
-         * 新直线上级（岗位） ID
-         * <p> 示例值：6974659700705068581
-         */
-        private String targetDirectLeader;
-        /**
-         * 新直线上级（岗位） ID，新建岗位审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：6974659700705068581
-         */
-        private String targetDraftDirectLeader;
-        /**
-         * 原工作地点 ID
-         * <p> 示例值：
-         */
-        private String[] originalWorkLocations;
-        /**
-         * 新工作地点 ID
-         * <p> 示例值：
-         */
-        private String[] targetWorkLocations;
-        /**
-         * 原描述
-         * <p> 示例值：
-         */
-        private I18n[] originalDescriptions;
-        /**
-         * 新描述
-         * <p> 示例值：
-         */
-        private I18n[] targetDescriptions;
-        /**
-         * 原部门全路径，从根部门开始自上而下返回部门 ID 列表
-         * <p> 示例值：
-         */
-        private OrgdraftDepartmentId[] originalDepartmentIdPaths;
-        /**
-         * 新部门全路径，从根部门开始自上而下返回部门 ID 列表
-         * <p> 示例值：
-         */
-        private OrgdraftDepartmentId[] targetDepartmentIdPaths;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ChangeFieldPair[] customFields;
-
-        /**
-         * 原序列 ID
-         * <p> 示例值：
-         *
-         * @param originalJobFamilies
-         * @return
-         */
-        public Builder originalJobFamilies(String[] originalJobFamilies) {
-            this.originalJobFamilies = originalJobFamilies;
-            return this;
-        }
-
-
-        /**
-         * 新序列 ID
-         * <p> 示例值：
-         *
-         * @param targetJobFamilies
-         * @return
-         */
-        public Builder targetJobFamilies(String[] targetJobFamilies) {
-            this.targetJobFamilies = targetJobFamilies;
-            return this;
-        }
-
-
-        /**
-         * 原所属部门 ID
-         * <p> 示例值：6974659700705068581
-         *
-         * @param originalDepartment
-         * @return
-         */
-        public Builder originalDepartment(String originalDepartment) {
-            this.originalDepartment = originalDepartment;
-            return this;
-        }
-
-
-        /**
-         * 新所属部门 ID
-         * <p> 示例值：6974659700705068581
-         *
-         * @param targetDepartment
-         * @return
-         */
-        public Builder targetDepartment(String targetDepartment) {
-            this.targetDepartment = targetDepartment;
-            return this;
-        }
-
-
-        /**
-         * 新所属部门 ID，新建部门审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：6974659700705068581
-         *
-         * @param targetDraftDepartment
-         * @return
-         */
-        public Builder targetDraftDepartment(String targetDraftDepartment) {
-            this.targetDraftDepartment = targetDraftDepartment;
-            return this;
-        }
-
-
-        /**
-         * 原岗位默认成本中心 ID
-         * <p> 示例值：6974659700705068581
-         *
-         * @param originalCostCenter
-         * @return
-         */
-        public Builder originalCostCenter(String originalCostCenter) {
-            this.originalCostCenter = originalCostCenter;
-            return this;
-        }
-
-
-        /**
-         * 新岗位默认成本中心 ID
-         * <p> 示例值：6974659700705068581
-         *
-         * @param targetCostCenter
-         * @return
-         */
-        public Builder targetCostCenter(String targetCostCenter) {
-            this.targetCostCenter = targetCostCenter;
-            return this;
-        }
-
-
-        /**
-         * 原工时制度 ID
-         * <p> 示例值：6974659700705068581
-         *
-         * @param originalWorkingHoursType
-         * @return
-         */
-        public Builder originalWorkingHoursType(String originalWorkingHoursType) {
-            this.originalWorkingHoursType = originalWorkingHoursType;
-            return this;
-        }
-
-
-        /**
-         * 新工时制度 ID
-         * <p> 示例值：6974659700705068581
-         *
-         * @param targetWorkingHoursType
-         * @return
-         */
-        public Builder targetWorkingHoursType(String targetWorkingHoursType) {
-            this.targetWorkingHoursType = targetWorkingHoursType;
-            return this;
-        }
-
-
-        /**
-         * 原职务 ID
-         * <p> 示例值：6974659700705068581
-         *
-         * @param originalJob
-         * @return
-         */
-        public Builder originalJob(String originalJob) {
-            this.originalJob = originalJob;
-            return this;
-        }
-
-
-        /**
-         * 新职务 ID
-         * <p> 示例值：6974659700705068581
-         *
-         * @param targetJob
-         * @return
-         */
-        public Builder targetJob(String targetJob) {
-            this.targetJob = targetJob;
-            return this;
-        }
-
-
-        /**
-         * 原是否关键岗位
-         * <p> 示例值：true
-         *
-         * @param originalIsKeyPosition
-         * @return
-         */
-        public Builder originalIsKeyPosition(Boolean originalIsKeyPosition) {
-            this.originalIsKeyPosition = originalIsKeyPosition;
-            return this;
-        }
-
-
-        /**
-         * 新是否关键岗位
-         * <p> 示例值：true
-         *
-         * @param targetIsKeyPosition
-         * @return
-         */
-        public Builder targetIsKeyPosition(Boolean targetIsKeyPosition) {
-            this.targetIsKeyPosition = targetIsKeyPosition;
-            return this;
-        }
-
-
-        /**
-         * 原人员类型 ID
-         * <p> 示例值：
-         *
-         * @param originalEmployeeTypes
-         * @return
-         */
-        public Builder originalEmployeeTypes(String[] originalEmployeeTypes) {
-            this.originalEmployeeTypes = originalEmployeeTypes;
-            return this;
-        }
-
-
-        /**
-         * 新人员类型 ID
-         * <p> 示例值：
-         *
-         * @param targetEmployeeTypes
-         * @return
-         */
-        public Builder targetEmployeeTypes(String[] targetEmployeeTypes) {
-            this.targetEmployeeTypes = targetEmployeeTypes;
-            return this;
-        }
-
-
-        /**
-         * 原名称
-         * <p> 示例值：
-         *
-         * @param originalNames
-         * @return
-         */
-        public Builder originalNames(I18n[] originalNames) {
-            this.originalNames = originalNames;
-            return this;
-        }
-
-
-        /**
-         * 新名称
-         * <p> 示例值：
-         *
-         * @param targetNames
-         * @return
-         */
-        public Builder targetNames(I18n[] targetNames) {
-            this.targetNames = targetNames;
-            return this;
-        }
-
-
-        /**
-         * 原职等 ID
-         * <p> 示例值：
-         *
-         * @param originalJobGrades
-         * @return
-         */
-        public Builder originalJobGrades(String[] originalJobGrades) {
-            this.originalJobGrades = originalJobGrades;
-            return this;
-        }
-
-
-        /**
-         * 新职等 ID
-         * <p> 示例值：
-         *
-         * @param targetJobGrades
-         * @return
-         */
-        public Builder targetJobGrades(String[] targetJobGrades) {
-            this.targetJobGrades = targetJobGrades;
-            return this;
-        }
-
-
-        /**
-         * 原编码
-         * <p> 示例值：P00000456
-         *
-         * @param originalCode
-         * @return
-         */
-        public Builder originalCode(String originalCode) {
-            this.originalCode = originalCode;
-            return this;
-        }
-
-
-        /**
-         * 新编码
-         * <p> 示例值：P00000456
-         *
-         * @param targetCode
-         * @return
-         */
-        public Builder targetCode(String targetCode) {
-            this.targetCode = targetCode;
-            return this;
-        }
-
-
-        /**
-         * 原职级 ID
-         * <p> 示例值：
-         *
-         * @param originalJobLevels
-         * @return
-         */
-        public Builder originalJobLevels(String[] originalJobLevels) {
-            this.originalJobLevels = originalJobLevels;
-            return this;
-        }
-
-
-        /**
-         * 新职级 ID
-         * <p> 示例值：
-         *
-         * @param targetJobLevels
-         * @return
-         */
-        public Builder targetJobLevels(String[] targetJobLevels) {
-            this.targetJobLevels = targetJobLevels;
-            return this;
-        }
-
-
-        /**
-         * 原状态
-         * <p> 示例值：true
-         *
-         * @param originalActive
-         * @return
-         */
-        public Builder originalActive(Boolean originalActive) {
-            this.originalActive = originalActive;
-            return this;
-        }
-
-
-        /**
-         * 新状态
-         * <p> 示例值：true
-         *
-         * @param targetActive
-         * @return
-         */
-        public Builder targetActive(Boolean targetActive) {
-            this.targetActive = targetActive;
-            return this;
-        }
-
-
-        /**
-         * 原直线上级（岗位） ID
-         * <p> 示例值：6974659700705068581
-         *
-         * @param originalDirectLeader
-         * @return
-         */
-        public Builder originalDirectLeader(String originalDirectLeader) {
-            this.originalDirectLeader = originalDirectLeader;
-            return this;
-        }
-
-
-        /**
-         * 新直线上级（岗位） ID
-         * <p> 示例值：6974659700705068581
-         *
-         * @param targetDirectLeader
-         * @return
-         */
-        public Builder targetDirectLeader(String targetDirectLeader) {
-            this.targetDirectLeader = targetDirectLeader;
-            return this;
-        }
-
-
-        /**
-         * 新直线上级（岗位） ID，新建岗位审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：6974659700705068581
-         *
-         * @param targetDraftDirectLeader
-         * @return
-         */
-        public Builder targetDraftDirectLeader(String targetDraftDirectLeader) {
-            this.targetDraftDirectLeader = targetDraftDirectLeader;
-            return this;
-        }
-
-
-        /**
-         * 原工作地点 ID
-         * <p> 示例值：
-         *
-         * @param originalWorkLocations
-         * @return
-         */
-        public Builder originalWorkLocations(String[] originalWorkLocations) {
-            this.originalWorkLocations = originalWorkLocations;
-            return this;
-        }
-
-
-        /**
-         * 新工作地点 ID
-         * <p> 示例值：
-         *
-         * @param targetWorkLocations
-         * @return
-         */
-        public Builder targetWorkLocations(String[] targetWorkLocations) {
-            this.targetWorkLocations = targetWorkLocations;
-            return this;
-        }
-
-
-        /**
-         * 原描述
-         * <p> 示例值：
-         *
-         * @param originalDescriptions
-         * @return
-         */
-        public Builder originalDescriptions(I18n[] originalDescriptions) {
-            this.originalDescriptions = originalDescriptions;
-            return this;
-        }
-
-
-        /**
-         * 新描述
-         * <p> 示例值：
-         *
-         * @param targetDescriptions
-         * @return
-         */
-        public Builder targetDescriptions(I18n[] targetDescriptions) {
-            this.targetDescriptions = targetDescriptions;
-            return this;
-        }
-
-
-        /**
-         * 原部门全路径，从根部门开始自上而下返回部门 ID 列表
-         * <p> 示例值：
-         *
-         * @param originalDepartmentIdPaths
-         * @return
-         */
-        public Builder originalDepartmentIdPaths(OrgdraftDepartmentId[] originalDepartmentIdPaths) {
-            this.originalDepartmentIdPaths = originalDepartmentIdPaths;
-            return this;
-        }
-
-
-        /**
-         * 新部门全路径，从根部门开始自上而下返回部门 ID 列表
-         * <p> 示例值：
-         *
-         * @param targetDepartmentIdPaths
-         * @return
-         */
-        public Builder targetDepartmentIdPaths(OrgdraftDepartmentId[] targetDepartmentIdPaths) {
-            this.targetDepartmentIdPaths = targetDepartmentIdPaths;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ChangeFieldPair[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public PositionAdjustmentInfo build() {
-            return new PositionAdjustmentInfo(this);
-        }
-    }
+    /**
+     * 原序列 ID
+     * 列表，可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取详情
+     *
+     * <p>示例值：
+     *
+     * @param originalJobFamilies
+     * @return
+     */
+    public Builder originalJobFamilies(String[] originalJobFamilies) {
+      this.originalJobFamilies = originalJobFamilies;
+      return this;
+    }
+
+    /**
+     * 调整后序列 ID
+     * 列表，可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取详情
+     *
+     * <p>示例值：
+     *
+     * @param targetJobFamilies
+     * @return
+     */
+    public Builder targetJobFamilies(String[] targetJobFamilies) {
+      this.targetJobFamilies = targetJobFamilies;
+      return this;
+    }
+
+    /**
+     * 原所属部门
+     * ID，可通过[【批量查询部门V2】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[【搜索部门信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param originalDepartment
+     * @return
+     */
+    public Builder originalDepartment(String originalDepartment) {
+      this.originalDepartment = originalDepartment;
+      return this;
+    }
+
+    /**
+     * 调整后所属部门 ID，如果是一个已存在的部门， 则会使用其飞书人事部门 ID 作为调整记录
+     * ID，可通过[【批量查询部门V2】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[【搜索部门信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param targetDepartment
+     * @return
+     */
+    public Builder targetDepartment(String targetDepartment) {
+      this.targetDepartment = targetDepartment;
+      return this;
+    }
+
+    /**
+     * 调整后所属部门临时 ID，为避免一个没有经过审批的组织架构调整影响正在运行的系统，如果是在组织架构调整中新生成的『部门』，会返回一个临时 ID，格式为
+     * "td_xxx"，;可通过[【批量查询部门调整内容】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_department_change_list_by_ids)获取详情，ID
+     * 类型需要为 ==people_corehr_department_id==
+     *
+     * <p>示例值：td_704442734715974602312
+     *
+     * @param targetDraftDepartment
+     * @return
+     */
+    public Builder targetDraftDepartment(String targetDraftDepartment) {
+      this.targetDraftDepartment = targetDraftDepartment;
+      return this;
+    }
+
+    /**
+     * 原岗位默认成本中心
+     * ID，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取详情
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param originalCostCenter
+     * @return
+     */
+    public Builder originalCostCenter(String originalCostCenter) {
+      this.originalCostCenter = originalCostCenter;
+      return this;
+    }
+
+    /**
+     * 调整后岗位默认成本中心
+     * ID，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取详情
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param targetCostCenter
+     * @return
+     */
+    public Builder targetCostCenter(String targetCostCenter) {
+      this.targetCostCenter = targetCostCenter;
+      return this;
+    }
+
+    /**
+     * 原工时制度
+     * ID，枚举值及详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param originalWorkingHoursType
+     * @return
+     */
+    public Builder originalWorkingHoursType(String originalWorkingHoursType) {
+      this.originalWorkingHoursType = originalWorkingHoursType;
+      return this;
+    }
+
+    /**
+     * 调整后工时制度
+     * ID，枚举值及详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param targetWorkingHoursType
+     * @return
+     */
+    public Builder targetWorkingHoursType(String targetWorkingHoursType) {
+      this.targetWorkingHoursType = targetWorkingHoursType;
+      return this;
+    }
+
+    /**
+     * 原职务
+     * ID，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详情
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param originalJob
+     * @return
+     */
+    public Builder originalJob(String originalJob) {
+      this.originalJob = originalJob;
+      return this;
+    }
+
+    /**
+     * 调整后职务
+     * ID，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详情
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param targetJob
+     * @return
+     */
+    public Builder targetJob(String targetJob) {
+      this.targetJob = targetJob;
+      return this;
+    }
+
+    /**
+     * 原是否关键岗位
+     *
+     * <p>示例值：true
+     *
+     * @param originalIsKeyPosition
+     * @return
+     */
+    public Builder originalIsKeyPosition(Boolean originalIsKeyPosition) {
+      this.originalIsKeyPosition = originalIsKeyPosition;
+      return this;
+    }
+
+    /**
+     * 调整后是否关键岗位
+     *
+     * <p>示例值：true
+     *
+     * @param targetIsKeyPosition
+     * @return
+     */
+    public Builder targetIsKeyPosition(Boolean targetIsKeyPosition) {
+      this.targetIsKeyPosition = targetIsKeyPosition;
+      return this;
+    }
+
+    /**
+     * 原人员类型 ID
+     * 列表，可通过[【查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)获取详情
+     *
+     * <p>示例值：
+     *
+     * @param originalEmployeeTypes
+     * @return
+     */
+    public Builder originalEmployeeTypes(String[] originalEmployeeTypes) {
+      this.originalEmployeeTypes = originalEmployeeTypes;
+      return this;
+    }
+
+    /**
+     * 调整后人员类型 ID
+     * 列表，可通过[【查询人员类型】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)获取详情
+     *
+     * <p>示例值：
+     *
+     * @param targetEmployeeTypes
+     * @return
+     */
+    public Builder targetEmployeeTypes(String[] targetEmployeeTypes) {
+      this.targetEmployeeTypes = targetEmployeeTypes;
+      return this;
+    }
+
+    /**
+     * 原名称
+     *
+     * <p>示例值：
+     *
+     * @param originalNames
+     * @return
+     */
+    public Builder originalNames(I18n[] originalNames) {
+      this.originalNames = originalNames;
+      return this;
+    }
+
+    /**
+     * 调整后名称
+     *
+     * <p>示例值：
+     *
+     * @param targetNames
+     * @return
+     */
+    public Builder targetNames(I18n[] targetNames) {
+      this.targetNames = targetNames;
+      return this;
+    }
+
+    /**
+     * 原职等 ID
+     * 列表，可通过[【查询职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取详情
+     *
+     * <p>示例值：
+     *
+     * @param originalJobGrades
+     * @return
+     */
+    public Builder originalJobGrades(String[] originalJobGrades) {
+      this.originalJobGrades = originalJobGrades;
+      return this;
+    }
+
+    /**
+     * 调整后职等 ID
+     * 列表，可通过[【查询职等信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取详情
+     *
+     * <p>示例值：
+     *
+     * @param targetJobGrades
+     * @return
+     */
+    public Builder targetJobGrades(String[] targetJobGrades) {
+      this.targetJobGrades = targetJobGrades;
+      return this;
+    }
+
+    /**
+     * 原编码
+     *
+     * <p>示例值：P00000456
+     *
+     * @param originalCode
+     * @return
+     */
+    public Builder originalCode(String originalCode) {
+      this.originalCode = originalCode;
+      return this;
+    }
+
+    /**
+     * 调整后编码
+     *
+     * <p>示例值：P00000456
+     *
+     * @param targetCode
+     * @return
+     */
+    public Builder targetCode(String targetCode) {
+      this.targetCode = targetCode;
+      return this;
+    }
+
+    /**
+     * 原职级 ID 列表，可通过[【通过职级 ID
+     * 批量获取职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)获取详情
+     *
+     * <p>示例值：
+     *
+     * @param originalJobLevels
+     * @return
+     */
+    public Builder originalJobLevels(String[] originalJobLevels) {
+      this.originalJobLevels = originalJobLevels;
+      return this;
+    }
+
+    /**
+     * 调整后职级 ID 列表，可通过[【通过职级 ID
+     * 批量获取职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)获取详情
+     *
+     * <p>示例值：
+     *
+     * @param targetJobLevels
+     * @return
+     */
+    public Builder targetJobLevels(String[] targetJobLevels) {
+      this.targetJobLevels = targetJobLevels;
+      return this;
+    }
+
+    /**
+     * 原状态
+     *
+     * <p>示例值：true
+     *
+     * @param originalActive
+     * @return
+     */
+    public Builder originalActive(Boolean originalActive) {
+      this.originalActive = originalActive;
+      return this;
+    }
+
+    /**
+     * 调整后状态
+     *
+     * <p>示例值：true
+     *
+     * @param targetActive
+     * @return
+     */
+    public Builder targetActive(Boolean targetActive) {
+      this.targetActive = targetActive;
+      return this;
+    }
+
+    /**
+     * 原直线上级（岗位）
+     * ID，可通过[【查询岗位信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获取详情
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param originalDirectLeader
+     * @return
+     */
+    public Builder originalDirectLeader(String originalDirectLeader) {
+      this.originalDirectLeader = originalDirectLeader;
+      return this;
+    }
+
+    /**
+     * 调整后直线上级（岗位）
+     * ID，如果是一个已存在的岗位，可通过[【查询岗位信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获取详情
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param targetDirectLeader
+     * @return
+     */
+    public Builder targetDirectLeader(String targetDirectLeader) {
+      this.targetDirectLeader = targetDirectLeader;
+      return this;
+    }
+
+    /**
+     * 调整后直线上级（岗位） ID，对于在本次调整中新建的岗位，在调整未生效前会返回格式为 td_xxx 的过程岗位 ID，生效后将返回正式的岗位ID
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param targetDraftDirectLeader
+     * @return
+     */
+    public Builder targetDraftDirectLeader(String targetDraftDirectLeader) {
+      this.targetDraftDirectLeader = targetDraftDirectLeader;
+      return this;
+    }
+
+    /**
+     * 原工作地点 ID 列表，可通过[【通过地点 ID
+     * 批量获取地点信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get)接口获取详情
+     *
+     * <p>示例值：
+     *
+     * @param originalWorkLocations
+     * @return
+     */
+    public Builder originalWorkLocations(String[] originalWorkLocations) {
+      this.originalWorkLocations = originalWorkLocations;
+      return this;
+    }
+
+    /**
+     * 调整后工作地点 ID 列表，可通过[【通过地点 ID
+     * 批量获取地点信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get)接口获取详情
+     *
+     * <p>示例值：
+     *
+     * @param targetWorkLocations
+     * @return
+     */
+    public Builder targetWorkLocations(String[] targetWorkLocations) {
+      this.targetWorkLocations = targetWorkLocations;
+      return this;
+    }
+
+    /**
+     * 原描述
+     *
+     * <p>示例值：
+     *
+     * @param originalDescriptions
+     * @return
+     */
+    public Builder originalDescriptions(I18n[] originalDescriptions) {
+      this.originalDescriptions = originalDescriptions;
+      return this;
+    }
+
+    /**
+     * 调整后描述
+     *
+     * <p>示例值：
+     *
+     * @param targetDescriptions
+     * @return
+     */
+    public Builder targetDescriptions(I18n[] targetDescriptions) {
+      this.targetDescriptions = targetDescriptions;
+      return this;
+    }
+
+    /**
+     * 原部门全路径，从根部门开始自上而下返回部门 ID 列表, 主要用于 API 场景， 没有审批完成前获取部门路径用于计算
+     *
+     * <p>示例值：
+     *
+     * @param originalDepartmentIdPaths
+     * @return
+     */
+    public Builder originalDepartmentIdPaths(OrgdraftDepartmentId[] originalDepartmentIdPaths) {
+      this.originalDepartmentIdPaths = originalDepartmentIdPaths;
+      return this;
+    }
+
+    /**
+     * 调整后部门全路径，从根部门开始自上而下返回部门 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param targetDepartmentIdPaths
+     * @return
+     */
+    public Builder targetDepartmentIdPaths(OrgdraftDepartmentId[] targetDepartmentIdPaths) {
+      this.targetDepartmentIdPaths = targetDepartmentIdPaths;
+      return this;
+    }
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ChangeFieldPair[] customFields) {
+      this.customFields = customFields;
+      return this;
+    }
+
+    public PositionAdjustmentInfo build() {
+      return new PositionAdjustmentInfo(this);
+    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmploymentDefaultCostCenter {
+  /**
+   * id
+   *
+   * <p>示例值：703912325303191204
+   */
+  @SerializedName("wk_id")
+  private String wkId;
+
+  /**
+   * id
+   *
+   * <p>示例值：703912321231239801
+   */
+  @SerializedName("wk_tid")
+  private String wkTid;
+
+  /**
+   * 生效日期
+   *
+   * <p>示例值：2024-12-01
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 成本中心ID
+   *
+   * <p>示例值：7039123253031711012
+   */
+  @SerializedName("cost_center_id")
+  private String costCenterId;
+
+  /**
+   * 任职ID
+   *
+   * <p>示例值：7039123253031711012
+   */
+  @SerializedName("job_data_id")
+  private String jobDataId;
+
+  /**
+   * 是否继承自岗位/部门的默认成本中心
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_inherit")
+  private Boolean isInherit;
+
+  /**
+   * 继承来源
+   *
+   * <p>示例值：
+   */
+  @SerializedName("inherit_source")
+  private Enum inheritSource;
+
+  /**
+   * 变更原因
+   *
+   * <p>示例值：异动
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：2024-12-01 00:00:00
+   */
+  @SerializedName("wk_created_at")
+  private String wkCreatedAt;
+
+  public String getWkId() {
+    return this.wkId;
+  }
+
+  public void setWkId(String wkId) {
+    this.wkId = wkId;
+  }
+
+  public String getWkTid() {
+    return this.wkTid;
+  }
+
+  public void setWkTid(String wkTid) {
+    this.wkTid = wkTid;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getCostCenterId() {
+    return this.costCenterId;
+  }
+
+  public void setCostCenterId(String costCenterId) {
+    this.costCenterId = costCenterId;
+  }
+
+  public String getJobDataId() {
+    return this.jobDataId;
+  }
+
+  public void setJobDataId(String jobDataId) {
+    this.jobDataId = jobDataId;
+  }
+
+  public Boolean getIsInherit() {
+    return this.isInherit;
+  }
+
+  public void setIsInherit(Boolean isInherit) {
+    this.isInherit = isInherit;
+  }
+
+  public Enum getInheritSource() {
+    return this.inheritSource;
+  }
+
+  public void setInheritSource(Enum inheritSource) {
+    this.inheritSource = inheritSource;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  public String getWkCreatedAt() {
+    return this.wkCreatedAt;
+  }
+
+  public void setWkCreatedAt(String wkCreatedAt) {
+    this.wkCreatedAt = wkCreatedAt;
+  }
+
+  // builder 开始
+  public EmploymentDefaultCostCenter() {}
+
+  public EmploymentDefaultCostCenter(Builder builder) {
     /**
      * id
-     * <p> 示例值：703912325303191204
+     *
+     * <p>示例值：703912325303191204
      */
-    @SerializedName("wk_id")
-    private String wkId;
+    this.wkId = builder.wkId;
     /**
      * id
-     * <p> 示例值：703912321231239801
+     *
+     * <p>示例值：703912321231239801
      */
-    @SerializedName("wk_tid")
-    private String wkTid;
+    this.wkTid = builder.wkTid;
     /**
      * 生效日期
-     * <p> 示例值：2024-12-01
+     *
+     * <p>示例值：2024-12-01
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
-     * 成本中心id
-     * <p> 示例值：7039123253031711012
+     * 成本中心ID
+     *
+     * <p>示例值：7039123253031711012
      */
-    @SerializedName("cost_center_id")
-    private String costCenterId;
+    this.costCenterId = builder.costCenterId;
     /**
-     * 任职id
-     * <p> 示例值：7039123253031711012
+     * 任职ID
+     *
+     * <p>示例值：7039123253031711012
      */
-    @SerializedName("job_data_id")
-    private String jobDataId;
+    this.jobDataId = builder.jobDataId;
     /**
      * 是否继承自岗位/部门的默认成本中心
-     * <p> 示例值：
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_inherit")
-    private Boolean isInherit;
+    this.isInherit = builder.isInherit;
     /**
      * 继承来源
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("inherit_source")
-    private Enum inheritSource;
+    this.inheritSource = builder.inheritSource;
     /**
      * 变更原因
-     * <p> 示例值：异动
+     *
+     * <p>示例值：异动
      */
-    @SerializedName("reason")
-    private String reason;
+    this.reason = builder.reason;
     /**
      * 创建时间
-     * <p> 示例值：2024-12-01 00:00:00
+     *
+     * <p>示例值：2024-12-01 00:00:00
      */
-    @SerializedName("wk_created_at")
+    this.wkCreatedAt = builder.wkCreatedAt;
+  }
+
+  public static class Builder {
+    /**
+     * id
+     *
+     * <p>示例值：703912325303191204
+     */
+    private String wkId;
+
+    /**
+     * id
+     *
+     * <p>示例值：703912321231239801
+     */
+    private String wkTid;
+
+    /**
+     * 生效日期
+     *
+     * <p>示例值：2024-12-01
+     */
+    private String effectiveTime;
+
+    /**
+     * 成本中心ID
+     *
+     * <p>示例值：7039123253031711012
+     */
+    private String costCenterId;
+
+    /**
+     * 任职ID
+     *
+     * <p>示例值：7039123253031711012
+     */
+    private String jobDataId;
+
+    /**
+     * 是否继承自岗位/部门的默认成本中心
+     *
+     * <p>示例值：true
+     */
+    private Boolean isInherit;
+
+    /**
+     * 继承来源
+     *
+     * <p>示例值：
+     */
+    private Enum inheritSource;
+
+    /**
+     * 变更原因
+     *
+     * <p>示例值：异动
+     */
+    private String reason;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：2024-12-01 00:00:00
+     */
     private String wkCreatedAt;
 
-    // builder 开始
-    public EmploymentDefaultCostCenter() {
+    /**
+     * id
+     *
+     * <p>示例值：703912325303191204
+     *
+     * @param wkId
+     * @return
+     */
+    public Builder wkId(String wkId) {
+      this.wkId = wkId;
+      return this;
     }
 
-    public EmploymentDefaultCostCenter(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：703912325303191204
-         */
-        this.wkId = builder.wkId;
-        /**
-         * id
-         * <p> 示例值：703912321231239801
-         */
-        this.wkTid = builder.wkTid;
-        /**
-         * 生效日期
-         * <p> 示例值：2024-12-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 成本中心id
-         * <p> 示例值：7039123253031711012
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * 任职id
-         * <p> 示例值：7039123253031711012
-         */
-        this.jobDataId = builder.jobDataId;
-        /**
-         * 是否继承自岗位/部门的默认成本中心
-         * <p> 示例值：
-         */
-        this.isInherit = builder.isInherit;
-        /**
-         * 继承来源
-         * <p> 示例值：
-         */
-        this.inheritSource = builder.inheritSource;
-        /**
-         * 变更原因
-         * <p> 示例值：异动
-         */
-        this.reason = builder.reason;
-        /**
-         * 创建时间
-         * <p> 示例值：2024-12-01 00:00:00
-         */
-        this.wkCreatedAt = builder.wkCreatedAt;
+    /**
+     * id
+     *
+     * <p>示例值：703912321231239801
+     *
+     * @param wkTid
+     * @return
+     */
+    public Builder wkTid(String wkTid) {
+      this.wkTid = wkTid;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 生效日期
+     *
+     * <p>示例值：2024-12-01
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public String getWkId() {
-        return this.wkId;
+    /**
+     * 成本中心ID
+     *
+     * <p>示例值：7039123253031711012
+     *
+     * @param costCenterId
+     * @return
+     */
+    public Builder costCenterId(String costCenterId) {
+      this.costCenterId = costCenterId;
+      return this;
     }
 
-    public void setWkId(String wkId) {
-        this.wkId = wkId;
+    /**
+     * 任职ID
+     *
+     * <p>示例值：7039123253031711012
+     *
+     * @param jobDataId
+     * @return
+     */
+    public Builder jobDataId(String jobDataId) {
+      this.jobDataId = jobDataId;
+      return this;
     }
 
-    public String getWkTid() {
-        return this.wkTid;
+    /**
+     * 是否继承自岗位/部门的默认成本中心
+     *
+     * <p>示例值：true
+     *
+     * @param isInherit
+     * @return
+     */
+    public Builder isInherit(Boolean isInherit) {
+      this.isInherit = isInherit;
+      return this;
     }
 
-    public void setWkTid(String wkTid) {
-        this.wkTid = wkTid;
+    /**
+     * 继承来源
+     *
+     * <p>示例值：
+     *
+     * @param inheritSource
+     * @return
+     */
+    public Builder inheritSource(Enum inheritSource) {
+      this.inheritSource = inheritSource;
+      return this;
     }
 
-    public String getEffectiveTime() {
-        return this.effectiveTime;
+    /**
+     * 变更原因
+     *
+     * <p>示例值：异动
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：2024-12-01 00:00:00
+     *
+     * @param wkCreatedAt
+     * @return
+     */
+    public Builder wkCreatedAt(String wkCreatedAt) {
+      this.wkCreatedAt = wkCreatedAt;
+      return this;
     }
 
-    public String getCostCenterId() {
-        return this.costCenterId;
+    public EmploymentDefaultCostCenter build() {
+      return new EmploymentDefaultCostCenter(this);
     }
+  }
 
-    public void setCostCenterId(String costCenterId) {
-        this.costCenterId = costCenterId;
-    }
-
-    public String getJobDataId() {
-        return this.jobDataId;
-    }
-
-    public void setJobDataId(String jobDataId) {
-        this.jobDataId = jobDataId;
-    }
-
-    public Boolean getIsInherit() {
-        return this.isInherit;
-    }
-
-    public void setIsInherit(Boolean isInherit) {
-        this.isInherit = isInherit;
-    }
-
-    public Enum getInheritSource() {
-        return this.inheritSource;
-    }
-
-    public void setInheritSource(Enum inheritSource) {
-        this.inheritSource = inheritSource;
-    }
-
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public String getWkCreatedAt() {
-        return this.wkCreatedAt;
-    }
-
-    public void setWkCreatedAt(String wkCreatedAt) {
-        this.wkCreatedAt = wkCreatedAt;
-    }
-
-    public static class Builder {
-        /**
-         * id
-         * <p> 示例值：703912325303191204
-         */
-        private String wkId;
-        /**
-         * id
-         * <p> 示例值：703912321231239801
-         */
-        private String wkTid;
-        /**
-         * 生效日期
-         * <p> 示例值：2024-12-01
-         */
-        private String effectiveTime;
-        /**
-         * 成本中心id
-         * <p> 示例值：7039123253031711012
-         */
-        private String costCenterId;
-        /**
-         * 任职id
-         * <p> 示例值：7039123253031711012
-         */
-        private String jobDataId;
-        /**
-         * 是否继承自岗位/部门的默认成本中心
-         * <p> 示例值：
-         */
-        private Boolean isInherit;
-        /**
-         * 继承来源
-         * <p> 示例值：
-         */
-        private Enum inheritSource;
-        /**
-         * 变更原因
-         * <p> 示例值：异动
-         */
-        private String reason;
-        /**
-         * 创建时间
-         * <p> 示例值：2024-12-01 00:00:00
-         */
-        private String wkCreatedAt;
-
-        /**
-         * id
-         * <p> 示例值：703912325303191204
-         *
-         * @param wkId
-         * @return
-         */
-        public Builder wkId(String wkId) {
-            this.wkId = wkId;
-            return this;
-        }
-
-
-        /**
-         * id
-         * <p> 示例值：703912321231239801
-         *
-         * @param wkTid
-         * @return
-         */
-        public Builder wkTid(String wkTid) {
-            this.wkTid = wkTid;
-            return this;
-        }
-
-
-        /**
-         * 生效日期
-         * <p> 示例值：2024-12-01
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 成本中心id
-         * <p> 示例值：7039123253031711012
-         *
-         * @param costCenterId
-         * @return
-         */
-        public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
-        }
-
-
-        /**
-         * 任职id
-         * <p> 示例值：7039123253031711012
-         *
-         * @param jobDataId
-         * @return
-         */
-        public Builder jobDataId(String jobDataId) {
-            this.jobDataId = jobDataId;
-            return this;
-        }
-
-
-        /**
-         * 是否继承自岗位/部门的默认成本中心
-         * <p> 示例值：
-         *
-         * @param isInherit
-         * @return
-         */
-        public Builder isInherit(Boolean isInherit) {
-            this.isInherit = isInherit;
-            return this;
-        }
-
-
-        /**
-         * 继承来源
-         * <p> 示例值：
-         *
-         * @param inheritSource
-         * @return
-         */
-        public Builder inheritSource(Enum inheritSource) {
-            this.inheritSource = inheritSource;
-            return this;
-        }
-
-
-        /**
-         * 变更原因
-         * <p> 示例值：异动
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：2024-12-01 00:00:00
-         *
-         * @param wkCreatedAt
-         * @return
-         */
-        public Builder wkCreatedAt(String wkCreatedAt) {
-            this.wkCreatedAt = wkCreatedAt;
-            return this;
-        }
-
-
-        public EmploymentDefaultCostCenter build() {
-            return new EmploymentDefaultCostCenter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

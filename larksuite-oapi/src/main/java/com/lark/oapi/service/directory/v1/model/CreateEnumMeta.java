@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateEnumMeta {
+  /**
+   * 枚举值类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 枚举值选项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("option_values")
+  private EnumOption[] optionValues;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public EnumOption[] getOptionValues() {
+    return this.optionValues;
+  }
+
+  public void setOptionValues(EnumOption[] optionValues) {
+    this.optionValues = optionValues;
+  }
+
+  // builder 开始
+  public CreateEnumMeta() {}
+
+  public CreateEnumMeta(Builder builder) {
     /**
      * 枚举值类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 枚举值选项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("option_values")
+    this.optionValues = builder.optionValues;
+  }
+
+  public static class Builder {
+    /**
+     * 枚举值类型
+     *
+     * <p>示例值：
+     */
+    private String type;
+
+    /**
+     * 枚举值选项
+     *
+     * <p>示例值：
+     */
     private EnumOption[] optionValues;
 
-    // builder 开始
-    public CreateEnumMeta() {
+    /**
+     * 枚举值类型
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public CreateEnumMeta(Builder builder) {
-        /**
-         * 枚举值类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 枚举值选项
-         * <p> 示例值：
-         */
-        this.optionValues = builder.optionValues;
+    /**
+     * 枚举值选项
+     *
+     * <p>示例值：
+     *
+     * @param optionValues
+     * @return
+     */
+    public Builder optionValues(EnumOption[] optionValues) {
+      this.optionValues = optionValues;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateEnumMeta build() {
+      return new CreateEnumMeta(this);
     }
+  }
 
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public EnumOption[] getOptionValues() {
-        return this.optionValues;
-    }
-
-    public void setOptionValues(EnumOption[] optionValues) {
-        this.optionValues = optionValues;
-    }
-
-    public static class Builder {
-        /**
-         * 枚举值类型
-         * <p> 示例值：
-         */
-        private String type;
-        /**
-         * 枚举值选项
-         * <p> 示例值：
-         */
-        private EnumOption[] optionValues;
-
-        /**
-         * 枚举值类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 枚举值选项
-         * <p> 示例值：
-         *
-         * @param optionValues
-         * @return
-         */
-        public Builder optionValues(EnumOption[] optionValues) {
-            this.optionValues = optionValues;
-            return this;
-        }
-
-
-        public CreateEnumMeta build() {
-            return new CreateEnumMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

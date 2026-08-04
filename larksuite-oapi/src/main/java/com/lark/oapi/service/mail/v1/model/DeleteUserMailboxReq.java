@@ -13,104 +13,101 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class DeleteUserMailboxReq {
+  /**
+   * 用于接收转移的邮箱地址
+   *
+   * <p>示例值：888888@abc.com
+   */
+  @Query
+  @SerializedName("transfer_mailbox")
+  private String transferMailbox;
+
+  public String getTransferMailbox() {
+    return this.transferMailbox;
+  }
+
+  public void setTransferMailbox(String transferMailbox) {
+    this.transferMailbox = transferMailbox;
+  }
+
+  /**
+   * 要释放的邮箱地址
+   *
+   * <p>示例值：111111@abc.com
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  // builder 开始
+  public DeleteUserMailboxReq() {}
+
+  public DeleteUserMailboxReq(Builder builder) {
     /**
-     * 用于接受转移的邮箱地址
-     * <p> 示例值：888888@abc.com
+     * 用于接收转移的邮箱地址
+     *
+     * <p>示例值：888888@abc.com
      */
-    @Query
-    @SerializedName("transfer_mailbox")
-    private String transferMailbox;
+    this.transferMailbox = builder.transferMailbox;
     /**
      * 要释放的邮箱地址
-     * <p> 示例值：111111@abc.com
+     *
+     * <p>示例值：111111@abc.com
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
+  }
 
-    // builder 开始
-    public DeleteUserMailboxReq() {
+  public static class Builder {
+    private String transferMailbox; // 用于接收转移的邮箱地址
+
+    /**
+     * 用于接收转移的邮箱地址
+     *
+     * <p>示例值：888888@abc.com
+     *
+     * @param transferMailbox
+     * @return
+     */
+    public Builder transferMailbox(String transferMailbox) {
+      this.transferMailbox = transferMailbox;
+      return this;
     }
 
-    public DeleteUserMailboxReq(Builder builder) {
-        /**
-         * 用于接受转移的邮箱地址
-         * <p> 示例值：888888@abc.com
-         */
-        this.transferMailbox = builder.transferMailbox;
-        /**
-         * 要释放的邮箱地址
-         * <p> 示例值：111111@abc.com
-         */
-        this.userMailboxId = builder.userMailboxId;
+    private String userMailboxId; // 要释放的邮箱地址
+
+    /**
+     * 要释放的邮箱地址
+     *
+     * <p>示例值：111111@abc.com
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteUserMailboxReq build() {
+      return new DeleteUserMailboxReq(this);
     }
+  }
 
-    public String getTransferMailbox() {
-        return this.transferMailbox;
-    }
-
-    public void setTransferMailbox(String transferMailbox) {
-        this.transferMailbox = transferMailbox;
-    }
-
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public static class Builder {
-        private String transferMailbox; // 用于接受转移的邮箱地址
-        private String userMailboxId; // 要释放的邮箱地址
-
-        /**
-         * 用于接受转移的邮箱地址
-         * <p> 示例值：888888@abc.com
-         *
-         * @param transferMailbox
-         * @return
-         */
-        public Builder transferMailbox(String transferMailbox) {
-            this.transferMailbox = transferMailbox;
-            return this;
-        }
-
-        /**
-         * 要释放的邮箱地址
-         * <p> 示例值：111111@abc.com
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-
-        public DeleteUserMailboxReq build() {
-            return new DeleteUserMailboxReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

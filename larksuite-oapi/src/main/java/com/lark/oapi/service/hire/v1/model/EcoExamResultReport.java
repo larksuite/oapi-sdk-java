@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EcoExamResultReport {
+  /**
+   * 报告名称
+   *
+   * <p>示例值：张三的笔试结果.pdf
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 报告链接
+   *
+   * <p>示例值：https://xxxxx/xxxxxx/xxxx.pdf
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 作答完成时间，毫秒时间戳
+   *
+   * <p>示例值：1658676234053
+   */
+  @SerializedName("answer_time")
+  private String answerTime;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getAnswerTime() {
+    return this.answerTime;
+  }
+
+  public void setAnswerTime(String answerTime) {
+    this.answerTime = answerTime;
+  }
+
+  // builder 开始
+  public EcoExamResultReport() {}
+
+  public EcoExamResultReport(Builder builder) {
     /**
      * 报告名称
-     * <p> 示例值：阶段报告.pdf
+     *
+     * <p>示例值：张三的笔试结果.pdf
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 报告链接
-     * <p> 示例值：https://xxxxx/xxxxxx/xxxx.pdf
+     *
+     * <p>示例值：https://xxxxx/xxxxxx/xxxx.pdf
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
-     * 作答完成时间(毫秒时间戳)
-     * <p> 示例值：1658676234053
+     * 作答完成时间，毫秒时间戳
+     *
+     * <p>示例值：1658676234053
      */
-    @SerializedName("answer_time")
+    this.answerTime = builder.answerTime;
+  }
+
+  public static class Builder {
+    /**
+     * 报告名称
+     *
+     * <p>示例值：张三的笔试结果.pdf
+     */
+    private String name;
+
+    /**
+     * 报告链接
+     *
+     * <p>示例值：https://xxxxx/xxxxxx/xxxx.pdf
+     */
+    private String url;
+
+    /**
+     * 作答完成时间，毫秒时间戳
+     *
+     * <p>示例值：1658676234053
+     */
     private String answerTime;
 
-    // builder 开始
-    public EcoExamResultReport() {
+    /**
+     * 报告名称
+     *
+     * <p>示例值：张三的笔试结果.pdf
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public EcoExamResultReport(Builder builder) {
-        /**
-         * 报告名称
-         * <p> 示例值：阶段报告.pdf
-         */
-        this.name = builder.name;
-        /**
-         * 报告链接
-         * <p> 示例值：https://xxxxx/xxxxxx/xxxx.pdf
-         */
-        this.url = builder.url;
-        /**
-         * 作答完成时间(毫秒时间戳)
-         * <p> 示例值：1658676234053
-         */
-        this.answerTime = builder.answerTime;
+    /**
+     * 报告链接
+     *
+     * <p>示例值：https://xxxxx/xxxxxx/xxxx.pdf
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 作答完成时间，毫秒时间戳
+     *
+     * <p>示例值：1658676234053
+     *
+     * @param answerTime
+     * @return
+     */
+    public Builder answerTime(String answerTime) {
+      this.answerTime = answerTime;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    public EcoExamResultReport build() {
+      return new EcoExamResultReport(this);
     }
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getAnswerTime() {
-        return this.answerTime;
-    }
-
-    public void setAnswerTime(String answerTime) {
-        this.answerTime = answerTime;
-    }
-
-    public static class Builder {
-        /**
-         * 报告名称
-         * <p> 示例值：阶段报告.pdf
-         */
-        private String name;
-        /**
-         * 报告链接
-         * <p> 示例值：https://xxxxx/xxxxxx/xxxx.pdf
-         */
-        private String url;
-        /**
-         * 作答完成时间(毫秒时间戳)
-         * <p> 示例值：1658676234053
-         */
-        private String answerTime;
-
-        /**
-         * 报告名称
-         * <p> 示例值：阶段报告.pdf
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 报告链接
-         * <p> 示例值：https://xxxxx/xxxxxx/xxxx.pdf
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 作答完成时间(毫秒时间戳)
-         * <p> 示例值：1658676234053
-         *
-         * @param answerTime
-         * @return
-         */
-        public Builder answerTime(String answerTime) {
-            this.answerTime = answerTime;
-            return this;
-        }
-
-
-        public EcoExamResultReport build() {
-            return new EcoExamResultReport(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

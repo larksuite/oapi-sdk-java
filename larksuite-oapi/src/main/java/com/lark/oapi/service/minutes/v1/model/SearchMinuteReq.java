@@ -13,171 +13,159 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.minutes.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.minutes.v1.enums.*;
 
 public class SearchMinuteReq {
-    /**
-     * <p> 示例值：
-     */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
-    /**
-     * <p> 示例值：
-     */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+  /** 示例值：10 */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /** 示例值： */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private SearchMinuteReqBody body;
+
+  public SearchMinuteReqBody getSearchMinuteReqBody() {
+    return this.body;
+  }
+
+  public void setSearchMinuteReqBody(SearchMinuteReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public SearchMinuteReq() {}
+
+  public SearchMinuteReq(Builder builder) {
+    /** 示例值：10 */
+    this.pageSize = builder.pageSize;
+    /** 示例值： */
+    this.pageToken = builder.pageToken;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private Integer pageSize; //
+    private String pageToken; //
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.minutes.v1.enums.SearchMinuteUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.minutes.v1.enums.SearchMinuteUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private SearchMinuteReqBody body;
 
-    // builder 开始
-    public SearchMinuteReq() {
-    }
-
-    public SearchMinuteReq(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public SearchMinuteReqBody getSearchMinuteReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setSearchMinuteReqBody(SearchMinuteReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder searchMinuteReqBody(SearchMinuteReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private Integer pageSize; //
-        private String pageToken; //
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private SearchMinuteReqBody body;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.minutes.v1.enums.SearchMinuteUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.minutes.v1.enums.SearchMinuteUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public SearchMinuteReqBody getSearchMinuteReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder searchMinuteReqBody(SearchMinuteReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public SearchMinuteReq build() {
-            return new SearchMinuteReq(this);
-        }
+    public SearchMinuteReq build() {
+      return new SearchMinuteReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

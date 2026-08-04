@@ -13,691 +13,764 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Knowledge {
+  /**
+   * 知识ID
+   *
+   * <p>示例值：spring_03c49e32bb__c_sdb_abcdef
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 知识库ID
+   *
+   * <p>示例值：knowledge_aadgd7ozoxseabcdef
+   */
+  @SerializedName("knowledge_base_id")
+  private String knowledgeBaseId;
+
+  /**
+   * 学习状态
+   *
+   * <p>示例值：learned
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 知识标题
+   *
+   * <p>示例值：title
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 知识类型
+   *
+   * <p>示例值：file
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 文件信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("file")
+  private AilyKnowledgeFile file;
+
+  /**
+   * 飞书云文档信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("docs")
+  private AilyKnowledgeDocs docs;
+
+  /**
+   * 飞书知识空间信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("wiki_space")
+  private AilyKnowledgeWikiSpace wikiSpace;
+
+  /**
+   * 飞书文件夹信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("folder")
+  private AilyKnowledgeFolder folder;
+
+  /**
+   * 飞书服务台信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("helpdesk")
+  private AilyKnowledgeHelpdesk helpdesk;
+
+  /**
+   * 智能伙伴数据表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("datatable")
+  private AilyKnowledgeDatatable datatable;
+
+  /**
+   * 智能伙伴分析表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dataset")
+  private AilyKnowledgeDataset dataset;
+
+  /**
+   * 网页信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("web")
+  private AilyKnowledgeWeb web;
+
+  /**
+   * 切片数量。;对于飞书云文档（包含飞书知识空间、飞书文件夹）类型的知识，以及学习失败的知识，不支持返回切片数据，返回值为-1。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("chunk_count")
+  private Integer chunkCount;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1715247397
+   */
+  @SerializedName("create_time")
+  private Integer createTime;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1715247397
+   */
+  @SerializedName("update_time")
+  private Integer updateTime;
+
+  /**
+   * 学习失败提示
+   *
+   * <p>示例值：success
+   */
+  @SerializedName("fail_message")
+  private String failMessage;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getKnowledgeBaseId() {
+    return this.knowledgeBaseId;
+  }
+
+  public void setKnowledgeBaseId(String knowledgeBaseId) {
+    this.knowledgeBaseId = knowledgeBaseId;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public AilyKnowledgeFile getFile() {
+    return this.file;
+  }
+
+  public void setFile(AilyKnowledgeFile file) {
+    this.file = file;
+  }
+
+  public AilyKnowledgeDocs getDocs() {
+    return this.docs;
+  }
+
+  public void setDocs(AilyKnowledgeDocs docs) {
+    this.docs = docs;
+  }
+
+  public AilyKnowledgeWikiSpace getWikiSpace() {
+    return this.wikiSpace;
+  }
+
+  public void setWikiSpace(AilyKnowledgeWikiSpace wikiSpace) {
+    this.wikiSpace = wikiSpace;
+  }
+
+  public AilyKnowledgeFolder getFolder() {
+    return this.folder;
+  }
+
+  public void setFolder(AilyKnowledgeFolder folder) {
+    this.folder = folder;
+  }
+
+  public AilyKnowledgeHelpdesk getHelpdesk() {
+    return this.helpdesk;
+  }
+
+  public void setHelpdesk(AilyKnowledgeHelpdesk helpdesk) {
+    this.helpdesk = helpdesk;
+  }
+
+  public AilyKnowledgeDatatable getDatatable() {
+    return this.datatable;
+  }
+
+  public void setDatatable(AilyKnowledgeDatatable datatable) {
+    this.datatable = datatable;
+  }
+
+  public AilyKnowledgeDataset getDataset() {
+    return this.dataset;
+  }
+
+  public void setDataset(AilyKnowledgeDataset dataset) {
+    this.dataset = dataset;
+  }
+
+  public AilyKnowledgeWeb getWeb() {
+    return this.web;
+  }
+
+  public void setWeb(AilyKnowledgeWeb web) {
+    this.web = web;
+  }
+
+  public Integer getChunkCount() {
+    return this.chunkCount;
+  }
+
+  public void setChunkCount(Integer chunkCount) {
+    this.chunkCount = chunkCount;
+  }
+
+  public Integer getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(Integer createTime) {
+    this.createTime = createTime;
+  }
+
+  public Integer getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(Integer updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getFailMessage() {
+    return this.failMessage;
+  }
+
+  public void setFailMessage(String failMessage) {
+    this.failMessage = failMessage;
+  }
+
+  // builder 开始
+  public Knowledge() {}
+
+  public Knowledge(Builder builder) {
     /**
      * 知识ID
-     * <p> 示例值：spring_03c49e32bb__c_sdb_aadgfh
+     *
+     * <p>示例值：spring_03c49e32bb__c_sdb_abcdef
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 知识库ID
-     * <p> 示例值：knowledge_aadgd7ozoxseilqpor
+     *
+     * <p>示例值：knowledge_aadgd7ozoxseabcdef
      */
-    @SerializedName("knowledge_base_id")
-    private String knowledgeBaseId;
+    this.knowledgeBaseId = builder.knowledgeBaseId;
     /**
      * 学习状态
-     * <p> 示例值：
+     *
+     * <p>示例值：learned
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 知识标题
-     * <p> 示例值：title
+     *
+     * <p>示例值：title
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 知识类型
-     * <p> 示例值：
+     *
+     * <p>示例值：file
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 文件信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("file")
-    private AilyKnowledgeFile file;
+    this.file = builder.file;
     /**
      * 飞书云文档信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("docs")
-    private AilyKnowledgeDocs docs;
+    this.docs = builder.docs;
     /**
      * 飞书知识空间信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("wiki_space")
-    private AilyKnowledgeWikiSpace wikiSpace;
+    this.wikiSpace = builder.wikiSpace;
     /**
      * 飞书文件夹信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("folder")
-    private AilyKnowledgeFolder folder;
+    this.folder = builder.folder;
     /**
      * 飞书服务台信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("helpdesk")
-    private AilyKnowledgeHelpdesk helpdesk;
+    this.helpdesk = builder.helpdesk;
     /**
      * 智能伙伴数据表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("datatable")
-    private AilyKnowledgeDatatable datatable;
+    this.datatable = builder.datatable;
     /**
      * 智能伙伴分析表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dataset")
-    private AilyKnowledgeDataset dataset;
+    this.dataset = builder.dataset;
     /**
      * 网页信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("web")
-    private AilyKnowledgeWeb web;
+    this.web = builder.web;
     /**
-     * 切片数量
-     * <p> 示例值：1
+     * 切片数量。;对于飞书云文档（包含飞书知识空间、飞书文件夹）类型的知识，以及学习失败的知识，不支持返回切片数据，返回值为-1。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("chunk_count")
-    private Integer chunkCount;
+    this.chunkCount = builder.chunkCount;
     /**
      * 创建时间
-     * <p> 示例值：1715247397
+     *
+     * <p>示例值：1715247397
      */
-    @SerializedName("create_time")
-    private Integer createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间
-     * <p> 示例值：1715247397
+     *
+     * <p>示例值：1715247397
      */
-    @SerializedName("update_time")
-    private Integer updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 学习失败提示
-     * <p> 示例值：success
+     *
+     * <p>示例值：success
      */
-    @SerializedName("fail_message")
+    this.failMessage = builder.failMessage;
+  }
+
+  public static class Builder {
+    /**
+     * 知识ID
+     *
+     * <p>示例值：spring_03c49e32bb__c_sdb_abcdef
+     */
+    private String id;
+
+    /**
+     * 知识库ID
+     *
+     * <p>示例值：knowledge_aadgd7ozoxseabcdef
+     */
+    private String knowledgeBaseId;
+
+    /**
+     * 学习状态
+     *
+     * <p>示例值：learned
+     */
+    private String status;
+
+    /**
+     * 知识标题
+     *
+     * <p>示例值：title
+     */
+    private String title;
+
+    /**
+     * 知识类型
+     *
+     * <p>示例值：file
+     */
+    private String type;
+
+    /**
+     * 文件信息
+     *
+     * <p>示例值：
+     */
+    private AilyKnowledgeFile file;
+
+    /**
+     * 飞书云文档信息
+     *
+     * <p>示例值：
+     */
+    private AilyKnowledgeDocs docs;
+
+    /**
+     * 飞书知识空间信息
+     *
+     * <p>示例值：
+     */
+    private AilyKnowledgeWikiSpace wikiSpace;
+
+    /**
+     * 飞书文件夹信息
+     *
+     * <p>示例值：
+     */
+    private AilyKnowledgeFolder folder;
+
+    /**
+     * 飞书服务台信息
+     *
+     * <p>示例值：
+     */
+    private AilyKnowledgeHelpdesk helpdesk;
+
+    /**
+     * 智能伙伴数据表
+     *
+     * <p>示例值：
+     */
+    private AilyKnowledgeDatatable datatable;
+
+    /**
+     * 智能伙伴分析表
+     *
+     * <p>示例值：
+     */
+    private AilyKnowledgeDataset dataset;
+
+    /**
+     * 网页信息
+     *
+     * <p>示例值：
+     */
+    private AilyKnowledgeWeb web;
+
+    /**
+     * 切片数量。;对于飞书云文档（包含飞书知识空间、飞书文件夹）类型的知识，以及学习失败的知识，不支持返回切片数据，返回值为-1。
+     *
+     * <p>示例值：1
+     */
+    private Integer chunkCount;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1715247397
+     */
+    private Integer createTime;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1715247397
+     */
+    private Integer updateTime;
+
+    /**
+     * 学习失败提示
+     *
+     * <p>示例值：success
+     */
     private String failMessage;
 
-    // builder 开始
-    public Knowledge() {
+    /**
+     * 知识ID
+     *
+     * <p>示例值：spring_03c49e32bb__c_sdb_abcdef
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Knowledge(Builder builder) {
-        /**
-         * 知识ID
-         * <p> 示例值：spring_03c49e32bb__c_sdb_aadgfh
-         */
-        this.id = builder.id;
-        /**
-         * 知识库ID
-         * <p> 示例值：knowledge_aadgd7ozoxseilqpor
-         */
-        this.knowledgeBaseId = builder.knowledgeBaseId;
-        /**
-         * 学习状态
-         * <p> 示例值：
-         */
-        this.status = builder.status;
-        /**
-         * 知识标题
-         * <p> 示例值：title
-         */
-        this.title = builder.title;
-        /**
-         * 知识类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 文件信息
-         * <p> 示例值：
-         */
-        this.file = builder.file;
-        /**
-         * 飞书云文档信息
-         * <p> 示例值：
-         */
-        this.docs = builder.docs;
-        /**
-         * 飞书知识空间信息
-         * <p> 示例值：
-         */
-        this.wikiSpace = builder.wikiSpace;
-        /**
-         * 飞书文件夹信息
-         * <p> 示例值：
-         */
-        this.folder = builder.folder;
-        /**
-         * 飞书服务台信息
-         * <p> 示例值：
-         */
-        this.helpdesk = builder.helpdesk;
-        /**
-         * 智能伙伴数据表
-         * <p> 示例值：
-         */
-        this.datatable = builder.datatable;
-        /**
-         * 智能伙伴分析表
-         * <p> 示例值：
-         */
-        this.dataset = builder.dataset;
-        /**
-         * 网页信息
-         * <p> 示例值：
-         */
-        this.web = builder.web;
-        /**
-         * 切片数量
-         * <p> 示例值：1
-         */
-        this.chunkCount = builder.chunkCount;
-        /**
-         * 创建时间
-         * <p> 示例值：1715247397
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1715247397
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 学习失败提示
-         * <p> 示例值：success
-         */
-        this.failMessage = builder.failMessage;
+    /**
+     * 知识库ID
+     *
+     * <p>示例值：knowledge_aadgd7ozoxseabcdef
+     *
+     * @param knowledgeBaseId
+     * @return
+     */
+    public Builder knowledgeBaseId(String knowledgeBaseId) {
+      this.knowledgeBaseId = knowledgeBaseId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 学习状态
+     *
+     * <p>示例值：learned
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 学习状态
+     *
+     * <p>示例值：learned
+     *
+     * @param status {@link com.lark.oapi.service.aily.v1.enums.KnowledgeAilyKnowledgeStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.aily.v1.enums.KnowledgeAilyKnowledgeStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 知识标题
+     *
+     * <p>示例值：title
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public String getKnowledgeBaseId() {
-        return this.knowledgeBaseId;
+    /**
+     * 知识类型
+     *
+     * <p>示例值：file
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setKnowledgeBaseId(String knowledgeBaseId) {
-        this.knowledgeBaseId = knowledgeBaseId;
+    /**
+     * 知识类型
+     *
+     * <p>示例值：file
+     *
+     * @param type {@link com.lark.oapi.service.aily.v1.enums.KnowledgeAilyKnowledgeTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.aily.v1.enums.KnowledgeAilyKnowledgeTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public String getStatus() {
-        return this.status;
+    /**
+     * 文件信息
+     *
+     * <p>示例值：
+     *
+     * @param file
+     * @return
+     */
+    public Builder file(AilyKnowledgeFile file) {
+      this.file = file;
+      return this;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    /**
+     * 飞书云文档信息
+     *
+     * <p>示例值：
+     *
+     * @param docs
+     * @return
+     */
+    public Builder docs(AilyKnowledgeDocs docs) {
+      this.docs = docs;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 飞书知识空间信息
+     *
+     * <p>示例值：
+     *
+     * @param wikiSpace
+     * @return
+     */
+    public Builder wikiSpace(AilyKnowledgeWikiSpace wikiSpace) {
+      this.wikiSpace = wikiSpace;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 飞书文件夹信息
+     *
+     * <p>示例值：
+     *
+     * @param folder
+     * @return
+     */
+    public Builder folder(AilyKnowledgeFolder folder) {
+      this.folder = folder;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 飞书服务台信息
+     *
+     * <p>示例值：
+     *
+     * @param helpdesk
+     * @return
+     */
+    public Builder helpdesk(AilyKnowledgeHelpdesk helpdesk) {
+      this.helpdesk = helpdesk;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 智能伙伴数据表
+     *
+     * <p>示例值：
+     *
+     * @param datatable
+     * @return
+     */
+    public Builder datatable(AilyKnowledgeDatatable datatable) {
+      this.datatable = datatable;
+      return this;
     }
 
-    public AilyKnowledgeFile getFile() {
-        return this.file;
+    /**
+     * 智能伙伴分析表
+     *
+     * <p>示例值：
+     *
+     * @param dataset
+     * @return
+     */
+    public Builder dataset(AilyKnowledgeDataset dataset) {
+      this.dataset = dataset;
+      return this;
     }
 
-    public void setFile(AilyKnowledgeFile file) {
-        this.file = file;
+    /**
+     * 网页信息
+     *
+     * <p>示例值：
+     *
+     * @param web
+     * @return
+     */
+    public Builder web(AilyKnowledgeWeb web) {
+      this.web = web;
+      return this;
     }
 
-    public AilyKnowledgeDocs getDocs() {
-        return this.docs;
+    /**
+     * 切片数量。;对于飞书云文档（包含飞书知识空间、飞书文件夹）类型的知识，以及学习失败的知识，不支持返回切片数据，返回值为-1。
+     *
+     * <p>示例值：1
+     *
+     * @param chunkCount
+     * @return
+     */
+    public Builder chunkCount(Integer chunkCount) {
+      this.chunkCount = chunkCount;
+      return this;
     }
 
-    public void setDocs(AilyKnowledgeDocs docs) {
-        this.docs = docs;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1715247397
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(Integer createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public AilyKnowledgeWikiSpace getWikiSpace() {
-        return this.wikiSpace;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1715247397
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(Integer updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setWikiSpace(AilyKnowledgeWikiSpace wikiSpace) {
-        this.wikiSpace = wikiSpace;
+    /**
+     * 学习失败提示
+     *
+     * <p>示例值：success
+     *
+     * @param failMessage
+     * @return
+     */
+    public Builder failMessage(String failMessage) {
+      this.failMessage = failMessage;
+      return this;
     }
 
-    public AilyKnowledgeFolder getFolder() {
-        return this.folder;
+    public Knowledge build() {
+      return new Knowledge(this);
     }
+  }
 
-    public void setFolder(AilyKnowledgeFolder folder) {
-        this.folder = folder;
-    }
-
-    public AilyKnowledgeHelpdesk getHelpdesk() {
-        return this.helpdesk;
-    }
-
-    public void setHelpdesk(AilyKnowledgeHelpdesk helpdesk) {
-        this.helpdesk = helpdesk;
-    }
-
-    public AilyKnowledgeDatatable getDatatable() {
-        return this.datatable;
-    }
-
-    public void setDatatable(AilyKnowledgeDatatable datatable) {
-        this.datatable = datatable;
-    }
-
-    public AilyKnowledgeDataset getDataset() {
-        return this.dataset;
-    }
-
-    public void setDataset(AilyKnowledgeDataset dataset) {
-        this.dataset = dataset;
-    }
-
-    public AilyKnowledgeWeb getWeb() {
-        return this.web;
-    }
-
-    public void setWeb(AilyKnowledgeWeb web) {
-        this.web = web;
-    }
-
-    public Integer getChunkCount() {
-        return this.chunkCount;
-    }
-
-    public void setChunkCount(Integer chunkCount) {
-        this.chunkCount = chunkCount;
-    }
-
-    public Integer getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(Integer createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(Integer updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getFailMessage() {
-        return this.failMessage;
-    }
-
-    public void setFailMessage(String failMessage) {
-        this.failMessage = failMessage;
-    }
-
-    public static class Builder {
-        /**
-         * 知识ID
-         * <p> 示例值：spring_03c49e32bb__c_sdb_aadgfh
-         */
-        private String id;
-        /**
-         * 知识库ID
-         * <p> 示例值：knowledge_aadgd7ozoxseilqpor
-         */
-        private String knowledgeBaseId;
-        /**
-         * 学习状态
-         * <p> 示例值：
-         */
-        private String status;
-        /**
-         * 知识标题
-         * <p> 示例值：title
-         */
-        private String title;
-        /**
-         * 知识类型
-         * <p> 示例值：
-         */
-        private String type;
-        /**
-         * 文件信息
-         * <p> 示例值：
-         */
-        private AilyKnowledgeFile file;
-        /**
-         * 飞书云文档信息
-         * <p> 示例值：
-         */
-        private AilyKnowledgeDocs docs;
-        /**
-         * 飞书知识空间信息
-         * <p> 示例值：
-         */
-        private AilyKnowledgeWikiSpace wikiSpace;
-        /**
-         * 飞书文件夹信息
-         * <p> 示例值：
-         */
-        private AilyKnowledgeFolder folder;
-        /**
-         * 飞书服务台信息
-         * <p> 示例值：
-         */
-        private AilyKnowledgeHelpdesk helpdesk;
-        /**
-         * 智能伙伴数据表
-         * <p> 示例值：
-         */
-        private AilyKnowledgeDatatable datatable;
-        /**
-         * 智能伙伴分析表
-         * <p> 示例值：
-         */
-        private AilyKnowledgeDataset dataset;
-        /**
-         * 网页信息
-         * <p> 示例值：
-         */
-        private AilyKnowledgeWeb web;
-        /**
-         * 切片数量
-         * <p> 示例值：1
-         */
-        private Integer chunkCount;
-        /**
-         * 创建时间
-         * <p> 示例值：1715247397
-         */
-        private Integer createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1715247397
-         */
-        private Integer updateTime;
-        /**
-         * 学习失败提示
-         * <p> 示例值：success
-         */
-        private String failMessage;
-
-        /**
-         * 知识ID
-         * <p> 示例值：spring_03c49e32bb__c_sdb_aadgfh
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 知识库ID
-         * <p> 示例值：knowledge_aadgd7ozoxseilqpor
-         *
-         * @param knowledgeBaseId
-         * @return
-         */
-        public Builder knowledgeBaseId(String knowledgeBaseId) {
-            this.knowledgeBaseId = knowledgeBaseId;
-            return this;
-        }
-
-
-        /**
-         * 学习状态
-         * <p> 示例值：
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 学习状态
-         * <p> 示例值：
-         *
-         * @param status {@link com.lark.oapi.service.aily.v1.enums.KnowledgeAilyKnowledgeStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.aily.v1.enums.KnowledgeAilyKnowledgeStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 知识标题
-         * <p> 示例值：title
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 知识类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 知识类型
-         * <p> 示例值：
-         *
-         * @param type {@link com.lark.oapi.service.aily.v1.enums.KnowledgeAilyKnowledgeTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.aily.v1.enums.KnowledgeAilyKnowledgeTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文件信息
-         * <p> 示例值：
-         *
-         * @param file
-         * @return
-         */
-        public Builder file(AilyKnowledgeFile file) {
-            this.file = file;
-            return this;
-        }
-
-
-        /**
-         * 飞书云文档信息
-         * <p> 示例值：
-         *
-         * @param docs
-         * @return
-         */
-        public Builder docs(AilyKnowledgeDocs docs) {
-            this.docs = docs;
-            return this;
-        }
-
-
-        /**
-         * 飞书知识空间信息
-         * <p> 示例值：
-         *
-         * @param wikiSpace
-         * @return
-         */
-        public Builder wikiSpace(AilyKnowledgeWikiSpace wikiSpace) {
-            this.wikiSpace = wikiSpace;
-            return this;
-        }
-
-
-        /**
-         * 飞书文件夹信息
-         * <p> 示例值：
-         *
-         * @param folder
-         * @return
-         */
-        public Builder folder(AilyKnowledgeFolder folder) {
-            this.folder = folder;
-            return this;
-        }
-
-
-        /**
-         * 飞书服务台信息
-         * <p> 示例值：
-         *
-         * @param helpdesk
-         * @return
-         */
-        public Builder helpdesk(AilyKnowledgeHelpdesk helpdesk) {
-            this.helpdesk = helpdesk;
-            return this;
-        }
-
-
-        /**
-         * 智能伙伴数据表
-         * <p> 示例值：
-         *
-         * @param datatable
-         * @return
-         */
-        public Builder datatable(AilyKnowledgeDatatable datatable) {
-            this.datatable = datatable;
-            return this;
-        }
-
-
-        /**
-         * 智能伙伴分析表
-         * <p> 示例值：
-         *
-         * @param dataset
-         * @return
-         */
-        public Builder dataset(AilyKnowledgeDataset dataset) {
-            this.dataset = dataset;
-            return this;
-        }
-
-
-        /**
-         * 网页信息
-         * <p> 示例值：
-         *
-         * @param web
-         * @return
-         */
-        public Builder web(AilyKnowledgeWeb web) {
-            this.web = web;
-            return this;
-        }
-
-
-        /**
-         * 切片数量
-         * <p> 示例值：1
-         *
-         * @param chunkCount
-         * @return
-         */
-        public Builder chunkCount(Integer chunkCount) {
-            this.chunkCount = chunkCount;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1715247397
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(Integer createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1715247397
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(Integer updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 学习失败提示
-         * <p> 示例值：success
-         *
-         * @param failMessage
-         * @return
-         */
-        public Builder failMessage(String failMessage) {
-            this.failMessage = failMessage;
-            return this;
-        }
-
-
-        public Knowledge build() {
-            return new Knowledge(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

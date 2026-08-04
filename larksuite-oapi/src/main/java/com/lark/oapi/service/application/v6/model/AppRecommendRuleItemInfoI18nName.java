@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppRecommendRuleItemInfoI18nName {
+  /**
+   * 应用项的简体中文名称
+   *
+   * <p>示例值：审批
+   */
+  @SerializedName("zh_cn")
+  private String zhCn;
+
+  /**
+   * 应用项的繁体中文（中国香港）名称
+   *
+   * <p>示例值：審批
+   */
+  @SerializedName("zh_hk")
+  private String zhHk;
+
+  /**
+   * 应用项的繁体中文（中国台湾）名称
+   *
+   * <p>示例值：審批
+   */
+  @SerializedName("zh_tw")
+  private String zhTw;
+
+  /**
+   * 应用项的英文名称
+   *
+   * <p>示例值：Approval
+   */
+  @SerializedName("en_us")
+  private String enUs;
+
+  /**
+   * 应用项的日文名称
+   *
+   * <p>示例值：承認
+   */
+  @SerializedName("ja_jp")
+  private String jaJp;
+
+  public String getZhCn() {
+    return this.zhCn;
+  }
+
+  public void setZhCn(String zhCn) {
+    this.zhCn = zhCn;
+  }
+
+  public String getZhHk() {
+    return this.zhHk;
+  }
+
+  public void setZhHk(String zhHk) {
+    this.zhHk = zhHk;
+  }
+
+  public String getZhTw() {
+    return this.zhTw;
+  }
+
+  public void setZhTw(String zhTw) {
+    this.zhTw = zhTw;
+  }
+
+  public String getEnUs() {
+    return this.enUs;
+  }
+
+  public void setEnUs(String enUs) {
+    this.enUs = enUs;
+  }
+
+  public String getJaJp() {
+    return this.jaJp;
+  }
+
+  public void setJaJp(String jaJp) {
+    this.jaJp = jaJp;
+  }
+
+  // builder 开始
+  public AppRecommendRuleItemInfoI18nName() {}
+
+  public AppRecommendRuleItemInfoI18nName(Builder builder) {
     /**
      * 应用项的简体中文名称
-     * <p> 示例值：审批
+     *
+     * <p>示例值：审批
      */
-    @SerializedName("zh_cn")
-    private String zhCn;
+    this.zhCn = builder.zhCn;
     /**
      * 应用项的繁体中文（中国香港）名称
-     * <p> 示例值：審批
+     *
+     * <p>示例值：審批
      */
-    @SerializedName("zh_hk")
-    private String zhHk;
+    this.zhHk = builder.zhHk;
     /**
      * 应用项的繁体中文（中国台湾）名称
-     * <p> 示例值：審批
+     *
+     * <p>示例值：審批
      */
-    @SerializedName("zh_tw")
-    private String zhTw;
+    this.zhTw = builder.zhTw;
     /**
      * 应用项的英文名称
-     * <p> 示例值：Approval
+     *
+     * <p>示例值：Approval
      */
-    @SerializedName("en_us")
-    private String enUs;
+    this.enUs = builder.enUs;
     /**
      * 应用项的日文名称
-     * <p> 示例值：承認
+     *
+     * <p>示例值：承認
      */
-    @SerializedName("ja_jp")
+    this.jaJp = builder.jaJp;
+  }
+
+  public static class Builder {
+    /**
+     * 应用项的简体中文名称
+     *
+     * <p>示例值：审批
+     */
+    private String zhCn;
+
+    /**
+     * 应用项的繁体中文（中国香港）名称
+     *
+     * <p>示例值：審批
+     */
+    private String zhHk;
+
+    /**
+     * 应用项的繁体中文（中国台湾）名称
+     *
+     * <p>示例值：審批
+     */
+    private String zhTw;
+
+    /**
+     * 应用项的英文名称
+     *
+     * <p>示例值：Approval
+     */
+    private String enUs;
+
+    /**
+     * 应用项的日文名称
+     *
+     * <p>示例值：承認
+     */
     private String jaJp;
 
-    // builder 开始
-    public AppRecommendRuleItemInfoI18nName() {
+    /**
+     * 应用项的简体中文名称
+     *
+     * <p>示例值：审批
+     *
+     * @param zhCn
+     * @return
+     */
+    public Builder zhCn(String zhCn) {
+      this.zhCn = zhCn;
+      return this;
     }
 
-    public AppRecommendRuleItemInfoI18nName(Builder builder) {
-        /**
-         * 应用项的简体中文名称
-         * <p> 示例值：审批
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * 应用项的繁体中文（中国香港）名称
-         * <p> 示例值：審批
-         */
-        this.zhHk = builder.zhHk;
-        /**
-         * 应用项的繁体中文（中国台湾）名称
-         * <p> 示例值：審批
-         */
-        this.zhTw = builder.zhTw;
-        /**
-         * 应用项的英文名称
-         * <p> 示例值：Approval
-         */
-        this.enUs = builder.enUs;
-        /**
-         * 应用项的日文名称
-         * <p> 示例值：承認
-         */
-        this.jaJp = builder.jaJp;
+    /**
+     * 应用项的繁体中文（中国香港）名称
+     *
+     * <p>示例值：審批
+     *
+     * @param zhHk
+     * @return
+     */
+    public Builder zhHk(String zhHk) {
+      this.zhHk = zhHk;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 应用项的繁体中文（中国台湾）名称
+     *
+     * <p>示例值：審批
+     *
+     * @param zhTw
+     * @return
+     */
+    public Builder zhTw(String zhTw) {
+      this.zhTw = zhTw;
+      return this;
     }
 
-    public String getZhCn() {
-        return this.zhCn;
+    /**
+     * 应用项的英文名称
+     *
+     * <p>示例值：Approval
+     *
+     * @param enUs
+     * @return
+     */
+    public Builder enUs(String enUs) {
+      this.enUs = enUs;
+      return this;
     }
 
-    public void setZhCn(String zhCn) {
-        this.zhCn = zhCn;
+    /**
+     * 应用项的日文名称
+     *
+     * <p>示例值：承認
+     *
+     * @param jaJp
+     * @return
+     */
+    public Builder jaJp(String jaJp) {
+      this.jaJp = jaJp;
+      return this;
     }
 
-    public String getZhHk() {
-        return this.zhHk;
+    public AppRecommendRuleItemInfoI18nName build() {
+      return new AppRecommendRuleItemInfoI18nName(this);
     }
+  }
 
-    public void setZhHk(String zhHk) {
-        this.zhHk = zhHk;
-    }
-
-    public String getZhTw() {
-        return this.zhTw;
-    }
-
-    public void setZhTw(String zhTw) {
-        this.zhTw = zhTw;
-    }
-
-    public String getEnUs() {
-        return this.enUs;
-    }
-
-    public void setEnUs(String enUs) {
-        this.enUs = enUs;
-    }
-
-    public String getJaJp() {
-        return this.jaJp;
-    }
-
-    public void setJaJp(String jaJp) {
-        this.jaJp = jaJp;
-    }
-
-    public static class Builder {
-        /**
-         * 应用项的简体中文名称
-         * <p> 示例值：审批
-         */
-        private String zhCn;
-        /**
-         * 应用项的繁体中文（中国香港）名称
-         * <p> 示例值：審批
-         */
-        private String zhHk;
-        /**
-         * 应用项的繁体中文（中国台湾）名称
-         * <p> 示例值：審批
-         */
-        private String zhTw;
-        /**
-         * 应用项的英文名称
-         * <p> 示例值：Approval
-         */
-        private String enUs;
-        /**
-         * 应用项的日文名称
-         * <p> 示例值：承認
-         */
-        private String jaJp;
-
-        /**
-         * 应用项的简体中文名称
-         * <p> 示例值：审批
-         *
-         * @param zhCn
-         * @return
-         */
-        public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
-        }
-
-
-        /**
-         * 应用项的繁体中文（中国香港）名称
-         * <p> 示例值：審批
-         *
-         * @param zhHk
-         * @return
-         */
-        public Builder zhHk(String zhHk) {
-            this.zhHk = zhHk;
-            return this;
-        }
-
-
-        /**
-         * 应用项的繁体中文（中国台湾）名称
-         * <p> 示例值：審批
-         *
-         * @param zhTw
-         * @return
-         */
-        public Builder zhTw(String zhTw) {
-            this.zhTw = zhTw;
-            return this;
-        }
-
-
-        /**
-         * 应用项的英文名称
-         * <p> 示例值：Approval
-         *
-         * @param enUs
-         * @return
-         */
-        public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
-        }
-
-
-        /**
-         * 应用项的日文名称
-         * <p> 示例值：承認
-         *
-         * @param jaJp
-         * @return
-         */
-        public Builder jaJp(String jaJp) {
-            this.jaJp = jaJp;
-            return this;
-        }
-
-
-        public AppRecommendRuleItemInfoI18nName build() {
-            return new AppRecommendRuleItemInfoI18nName(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

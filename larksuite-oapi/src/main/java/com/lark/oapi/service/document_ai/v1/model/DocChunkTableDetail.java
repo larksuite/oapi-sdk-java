@@ -13,482 +13,551 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DocChunkTableDetail {
+  /**
+   * 全文的第n个表格
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("table_idx")
+  private Integer tableIdx;
+
+  /**
+   * 表格的所有文字内容，'\t\n'代表换行，'\t'代表新单元格
+   *
+   * <p>示例值：Code\tExecutable\tAST Matching\t...
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 表格中全部cell的数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cells")
+  private DocChunkTableRow[] cells;
+
+  /**
+   * 表格名称
+   *
+   * <p>示例值：表格1
+   */
+  @SerializedName("table_name")
+  private String tableName;
+
+  /**
+   * 表格描述，当前为表格上下文
+   *
+   * <p>示例值：表格描述了xxx
+   */
+  @SerializedName("caption")
+  private String caption;
+
+  /**
+   * 表格的markdown结果
+   *
+   * <p>示例值：| 用户名 | 年龄 | 邮箱 | 状态 | |----------|------|-------------------------|--------| | Alice |
+   * 24 | alice@example.com | 启用 | | Bob | 30 | bob@example.com | 禁用 | | Charlie | 28 |
+   * charlie@example.com | 启用 |
+   */
+  @SerializedName("md_text")
+  private String mdText;
+
+  /**
+   * 表格的html结果
+   *
+   * <p>示例值：
+   *
+   * <table border="1">
+   *  <thead> <tr> <th>用户名</th> <th>年龄</th> <th>邮箱</th> <th>状态</th> </tr> </thead> <tbody> <tr> <td>Alice</td> <td>24</td> <td>alice@example.com</td> <td>启用</td> </tr> <tr> <td>Bob</td> <td>30</td> <td>bob@example.com</td> <td>禁用</td> </tr> <tr> <td>Charlie</td> <td>28</td> <td>charlie@example.com</td> <td>启用</td> </tr> </tbody>
+   * </table>
+   */
+  @SerializedName("html_text")
+  private String htmlText;
+
+  /**
+   * 整个表格区域直接转的图片
+   *
+   * <p>示例值：
+   */
+  @SerializedName("table_img")
+  private TableImg tableImg;
+
+  /**
+   * 识别表头后拆分的子表ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("sub_table_idx")
+  private Integer subTableIdx;
+
+  /**
+   * 子表的范围
+   *
+   * <p>示例值：A1:B1
+   */
+  @SerializedName("table_range")
+  private String tableRange;
+
+  /**
+   * 表头范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("header_ranges")
+  private String[] headerRanges;
+
+  /**
+   * 表格描述行的范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("desc_ranges")
+  private String[] descRanges;
+
+  public Integer getTableIdx() {
+    return this.tableIdx;
+  }
+
+  public void setTableIdx(Integer tableIdx) {
+    this.tableIdx = tableIdx;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public DocChunkTableRow[] getCells() {
+    return this.cells;
+  }
+
+  public void setCells(DocChunkTableRow[] cells) {
+    this.cells = cells;
+  }
+
+  public String getTableName() {
+    return this.tableName;
+  }
+
+  public void setTableName(String tableName) {
+    this.tableName = tableName;
+  }
+
+  public String getCaption() {
+    return this.caption;
+  }
+
+  public void setCaption(String caption) {
+    this.caption = caption;
+  }
+
+  public String getMdText() {
+    return this.mdText;
+  }
+
+  public void setMdText(String mdText) {
+    this.mdText = mdText;
+  }
+
+  public String getHtmlText() {
+    return this.htmlText;
+  }
+
+  public void setHtmlText(String htmlText) {
+    this.htmlText = htmlText;
+  }
+
+  public TableImg getTableImg() {
+    return this.tableImg;
+  }
+
+  public void setTableImg(TableImg tableImg) {
+    this.tableImg = tableImg;
+  }
+
+  public Integer getSubTableIdx() {
+    return this.subTableIdx;
+  }
+
+  public void setSubTableIdx(Integer subTableIdx) {
+    this.subTableIdx = subTableIdx;
+  }
+
+  public String getTableRange() {
+    return this.tableRange;
+  }
+
+  public void setTableRange(String tableRange) {
+    this.tableRange = tableRange;
+  }
+
+  public String[] getHeaderRanges() {
+    return this.headerRanges;
+  }
+
+  public void setHeaderRanges(String[] headerRanges) {
+    this.headerRanges = headerRanges;
+  }
+
+  public String[] getDescRanges() {
+    return this.descRanges;
+  }
+
+  public void setDescRanges(String[] descRanges) {
+    this.descRanges = descRanges;
+  }
+
+  // builder 开始
+  public DocChunkTableDetail() {}
+
+  public DocChunkTableDetail(Builder builder) {
     /**
      * 全文的第n个表格
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("table_idx")
-    private Integer tableIdx;
+    this.tableIdx = builder.tableIdx;
     /**
      * 表格的所有文字内容，'\t\n'代表换行，'\t'代表新单元格
-     * <p> 示例值：Code\tExecutable\tAST Matching\...
+     *
+     * <p>示例值：Code\tExecutable\tAST Matching\t...
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 表格中全部cell的数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cells")
-    private DocChunkTableRow[] cells;
+    this.cells = builder.cells;
     /**
      * 表格名称
-     * <p> 示例值：表格1
+     *
+     * <p>示例值：表格1
      */
-    @SerializedName("table_name")
-    private String tableName;
+    this.tableName = builder.tableName;
     /**
      * 表格描述，当前为表格上下文
-     * <p> 示例值：表格描述了xxx
+     *
+     * <p>示例值：表格描述了xxx
      */
-    @SerializedName("caption")
-    private String caption;
+    this.caption = builder.caption;
     /**
      * 表格的markdown结果
-     * <p> 示例值：| 用户名   | 年龄 | 邮箱                    | 状态   | |----------|------|-------------------------|--------| | Alice    | 24   | alice@example.com       | 启用   | | Bob      | 30   | bob@example.com         | 禁用   | | Charlie  | 28   | charlie@example.com     | 启用   |
+     *
+     * <p>示例值：| 用户名 | 年龄 | 邮箱 | 状态 | |----------|------|-------------------------|--------| | Alice
+     * | 24 | alice@example.com | 启用 | | Bob | 30 | bob@example.com | 禁用 | | Charlie | 28 |
+     * charlie@example.com | 启用 |
      */
-    @SerializedName("md_text")
-    private String mdText;
+    this.mdText = builder.mdText;
     /**
      * 表格的html结果
-     * <p> 示例值：<table border="1">   <thead>     <tr>       <th>用户名</th>       <th>年龄</th>       <th>邮箱</th>       <th>状态</th>     </tr>   </thead>   <tbody>     <tr>       <td>Alice</td>       <td>24</td>       <td>alice@example.com</td>       <td>启用</td>     </tr>     <tr>       <td>Bob</td>       <td>30</td>       <td>bob@example.com</td>       <td>禁用</td>     </tr>     <tr>       <td>Charlie</td>       <td>28</td>       <td>charlie@example.com</td>       <td>启用</td>     </tr>   </tbody> </table>
+     *
+     * <p>示例值：
+     *
+     * <table border="1">
+     *  <thead> <tr> <th>用户名</th> <th>年龄</th> <th>邮箱</th> <th>状态</th> </tr> </thead> <tbody> <tr> <td>Alice</td> <td>24</td> <td>alice@example.com</td> <td>启用</td> </tr> <tr> <td>Bob</td> <td>30</td> <td>bob@example.com</td> <td>禁用</td> </tr> <tr> <td>Charlie</td> <td>28</td> <td>charlie@example.com</td> <td>启用</td> </tr> </tbody>
+     * </table>
      */
-    @SerializedName("html_text")
-    private String htmlText;
+    this.htmlText = builder.htmlText;
     /**
      * 整个表格区域直接转的图片
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("table_img")
-    private TableImg tableImg;
+    this.tableImg = builder.tableImg;
     /**
      * 识别表头后拆分的子表ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("sub_table_idx")
-    private Integer subTableIdx;
+    this.subTableIdx = builder.subTableIdx;
     /**
      * 子表的范围
-     * <p> 示例值：A1:B1
+     *
+     * <p>示例值：A1:B1
      */
-    @SerializedName("table_range")
-    private String tableRange;
+    this.tableRange = builder.tableRange;
     /**
      * 表头范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("header_ranges")
-    private String[] headerRanges;
+    this.headerRanges = builder.headerRanges;
     /**
      * 表格描述行的范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("desc_ranges")
+    this.descRanges = builder.descRanges;
+  }
+
+  public static class Builder {
+    /**
+     * 全文的第n个表格
+     *
+     * <p>示例值：1
+     */
+    private Integer tableIdx;
+
+    /**
+     * 表格的所有文字内容，'\t\n'代表换行，'\t'代表新单元格
+     *
+     * <p>示例值：Code\tExecutable\tAST Matching\t...
+     */
+    private String text;
+
+    /**
+     * 表格中全部cell的数据
+     *
+     * <p>示例值：
+     */
+    private DocChunkTableRow[] cells;
+
+    /**
+     * 表格名称
+     *
+     * <p>示例值：表格1
+     */
+    private String tableName;
+
+    /**
+     * 表格描述，当前为表格上下文
+     *
+     * <p>示例值：表格描述了xxx
+     */
+    private String caption;
+
+    /**
+     * 表格的markdown结果
+     *
+     * <p>示例值：| 用户名 | 年龄 | 邮箱 | 状态 | |----------|------|-------------------------|--------| | Alice
+     * | 24 | alice@example.com | 启用 | | Bob | 30 | bob@example.com | 禁用 | | Charlie | 28 |
+     * charlie@example.com | 启用 |
+     */
+    private String mdText;
+
+    /**
+     * 表格的html结果
+     *
+     * <p>示例值：
+     *
+     * <table border="1">
+     *  <thead> <tr> <th>用户名</th> <th>年龄</th> <th>邮箱</th> <th>状态</th> </tr> </thead> <tbody> <tr> <td>Alice</td> <td>24</td> <td>alice@example.com</td> <td>启用</td> </tr> <tr> <td>Bob</td> <td>30</td> <td>bob@example.com</td> <td>禁用</td> </tr> <tr> <td>Charlie</td> <td>28</td> <td>charlie@example.com</td> <td>启用</td> </tr> </tbody>
+     * </table>
+     */
+    private String htmlText;
+
+    /**
+     * 整个表格区域直接转的图片
+     *
+     * <p>示例值：
+     */
+    private TableImg tableImg;
+
+    /**
+     * 识别表头后拆分的子表ID
+     *
+     * <p>示例值：1
+     */
+    private Integer subTableIdx;
+
+    /**
+     * 子表的范围
+     *
+     * <p>示例值：A1:B1
+     */
+    private String tableRange;
+
+    /**
+     * 表头范围
+     *
+     * <p>示例值：
+     */
+    private String[] headerRanges;
+
+    /**
+     * 表格描述行的范围
+     *
+     * <p>示例值：
+     */
     private String[] descRanges;
 
-    // builder 开始
-    public DocChunkTableDetail() {
+    /**
+     * 全文的第n个表格
+     *
+     * <p>示例值：1
+     *
+     * @param tableIdx
+     * @return
+     */
+    public Builder tableIdx(Integer tableIdx) {
+      this.tableIdx = tableIdx;
+      return this;
     }
 
-    public DocChunkTableDetail(Builder builder) {
-        /**
-         * 全文的第n个表格
-         * <p> 示例值：1
-         */
-        this.tableIdx = builder.tableIdx;
-        /**
-         * 表格的所有文字内容，'\t\n'代表换行，'\t'代表新单元格
-         * <p> 示例值：Code\tExecutable\tAST Matching\...
-         */
-        this.text = builder.text;
-        /**
-         * 表格中全部cell的数据
-         * <p> 示例值：
-         */
-        this.cells = builder.cells;
-        /**
-         * 表格名称
-         * <p> 示例值：表格1
-         */
-        this.tableName = builder.tableName;
-        /**
-         * 表格描述，当前为表格上下文
-         * <p> 示例值：表格描述了xxx
-         */
-        this.caption = builder.caption;
-        /**
-         * 表格的markdown结果
-         * <p> 示例值：| 用户名   | 年龄 | 邮箱                    | 状态   | |----------|------|-------------------------|--------| | Alice    | 24   | alice@example.com       | 启用   | | Bob      | 30   | bob@example.com         | 禁用   | | Charlie  | 28   | charlie@example.com     | 启用   |
-         */
-        this.mdText = builder.mdText;
-        /**
-         * 表格的html结果
-         * <p> 示例值：<table border="1">   <thead>     <tr>       <th>用户名</th>       <th>年龄</th>       <th>邮箱</th>       <th>状态</th>     </tr>   </thead>   <tbody>     <tr>       <td>Alice</td>       <td>24</td>       <td>alice@example.com</td>       <td>启用</td>     </tr>     <tr>       <td>Bob</td>       <td>30</td>       <td>bob@example.com</td>       <td>禁用</td>     </tr>     <tr>       <td>Charlie</td>       <td>28</td>       <td>charlie@example.com</td>       <td>启用</td>     </tr>   </tbody> </table>
-         */
-        this.htmlText = builder.htmlText;
-        /**
-         * 整个表格区域直接转的图片
-         * <p> 示例值：
-         */
-        this.tableImg = builder.tableImg;
-        /**
-         * 识别表头后拆分的子表ID
-         * <p> 示例值：1
-         */
-        this.subTableIdx = builder.subTableIdx;
-        /**
-         * 子表的范围
-         * <p> 示例值：A1:B1
-         */
-        this.tableRange = builder.tableRange;
-        /**
-         * 表头范围
-         * <p> 示例值：
-         */
-        this.headerRanges = builder.headerRanges;
-        /**
-         * 表格描述行的范围
-         * <p> 示例值：
-         */
-        this.descRanges = builder.descRanges;
+    /**
+     * 表格的所有文字内容，'\t\n'代表换行，'\t'代表新单元格
+     *
+     * <p>示例值：Code\tExecutable\tAST Matching\t...
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 表格中全部cell的数据
+     *
+     * <p>示例值：
+     *
+     * @param cells
+     * @return
+     */
+    public Builder cells(DocChunkTableRow[] cells) {
+      this.cells = cells;
+      return this;
     }
 
-    public Integer getTableIdx() {
-        return this.tableIdx;
+    /**
+     * 表格名称
+     *
+     * <p>示例值：表格1
+     *
+     * @param tableName
+     * @return
+     */
+    public Builder tableName(String tableName) {
+      this.tableName = tableName;
+      return this;
     }
 
-    public void setTableIdx(Integer tableIdx) {
-        this.tableIdx = tableIdx;
+    /**
+     * 表格描述，当前为表格上下文
+     *
+     * <p>示例值：表格描述了xxx
+     *
+     * @param caption
+     * @return
+     */
+    public Builder caption(String caption) {
+      this.caption = caption;
+      return this;
     }
 
-    public String getText() {
-        return this.text;
+    /**
+     * 表格的markdown结果
+     *
+     * <p>示例值：| 用户名 | 年龄 | 邮箱 | 状态 | |----------|------|-------------------------|--------| | Alice
+     * | 24 | alice@example.com | 启用 | | Bob | 30 | bob@example.com | 禁用 | | Charlie | 28 |
+     * charlie@example.com | 启用 |
+     *
+     * @param mdText
+     * @return
+     */
+    public Builder mdText(String mdText) {
+      this.mdText = mdText;
+      return this;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    /**
+     * 表格的html结果
+     *
+     * <p>示例值：
+     *
+     * <table border="1">
+     *  <thead> <tr> <th>用户名</th> <th>年龄</th> <th>邮箱</th> <th>状态</th> </tr> </thead> <tbody> <tr> <td>Alice</td> <td>24</td> <td>alice@example.com</td> <td>启用</td> </tr> <tr> <td>Bob</td> <td>30</td> <td>bob@example.com</td> <td>禁用</td> </tr> <tr> <td>Charlie</td> <td>28</td> <td>charlie@example.com</td> <td>启用</td> </tr> </tbody>
+     * </table>
+     *
+     * @param htmlText
+     * @return
+     */
+    public Builder htmlText(String htmlText) {
+      this.htmlText = htmlText;
+      return this;
     }
 
-    public DocChunkTableRow[] getCells() {
-        return this.cells;
+    /**
+     * 整个表格区域直接转的图片
+     *
+     * <p>示例值：
+     *
+     * @param tableImg
+     * @return
+     */
+    public Builder tableImg(TableImg tableImg) {
+      this.tableImg = tableImg;
+      return this;
     }
 
-    public void setCells(DocChunkTableRow[] cells) {
-        this.cells = cells;
+    /**
+     * 识别表头后拆分的子表ID
+     *
+     * <p>示例值：1
+     *
+     * @param subTableIdx
+     * @return
+     */
+    public Builder subTableIdx(Integer subTableIdx) {
+      this.subTableIdx = subTableIdx;
+      return this;
     }
 
-    public String getTableName() {
-        return this.tableName;
+    /**
+     * 子表的范围
+     *
+     * <p>示例值：A1:B1
+     *
+     * @param tableRange
+     * @return
+     */
+    public Builder tableRange(String tableRange) {
+      this.tableRange = tableRange;
+      return this;
     }
 
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
+    /**
+     * 表头范围
+     *
+     * <p>示例值：
+     *
+     * @param headerRanges
+     * @return
+     */
+    public Builder headerRanges(String[] headerRanges) {
+      this.headerRanges = headerRanges;
+      return this;
     }
 
-    public String getCaption() {
-        return this.caption;
+    /**
+     * 表格描述行的范围
+     *
+     * <p>示例值：
+     *
+     * @param descRanges
+     * @return
+     */
+    public Builder descRanges(String[] descRanges) {
+      this.descRanges = descRanges;
+      return this;
     }
 
-    public void setCaption(String caption) {
-        this.caption = caption;
+    public DocChunkTableDetail build() {
+      return new DocChunkTableDetail(this);
     }
+  }
 
-    public String getMdText() {
-        return this.mdText;
-    }
-
-    public void setMdText(String mdText) {
-        this.mdText = mdText;
-    }
-
-    public String getHtmlText() {
-        return this.htmlText;
-    }
-
-    public void setHtmlText(String htmlText) {
-        this.htmlText = htmlText;
-    }
-
-    public TableImg getTableImg() {
-        return this.tableImg;
-    }
-
-    public void setTableImg(TableImg tableImg) {
-        this.tableImg = tableImg;
-    }
-
-    public Integer getSubTableIdx() {
-        return this.subTableIdx;
-    }
-
-    public void setSubTableIdx(Integer subTableIdx) {
-        this.subTableIdx = subTableIdx;
-    }
-
-    public String getTableRange() {
-        return this.tableRange;
-    }
-
-    public void setTableRange(String tableRange) {
-        this.tableRange = tableRange;
-    }
-
-    public String[] getHeaderRanges() {
-        return this.headerRanges;
-    }
-
-    public void setHeaderRanges(String[] headerRanges) {
-        this.headerRanges = headerRanges;
-    }
-
-    public String[] getDescRanges() {
-        return this.descRanges;
-    }
-
-    public void setDescRanges(String[] descRanges) {
-        this.descRanges = descRanges;
-    }
-
-    public static class Builder {
-        /**
-         * 全文的第n个表格
-         * <p> 示例值：1
-         */
-        private Integer tableIdx;
-        /**
-         * 表格的所有文字内容，'\t\n'代表换行，'\t'代表新单元格
-         * <p> 示例值：Code\tExecutable\tAST Matching\...
-         */
-        private String text;
-        /**
-         * 表格中全部cell的数据
-         * <p> 示例值：
-         */
-        private DocChunkTableRow[] cells;
-        /**
-         * 表格名称
-         * <p> 示例值：表格1
-         */
-        private String tableName;
-        /**
-         * 表格描述，当前为表格上下文
-         * <p> 示例值：表格描述了xxx
-         */
-        private String caption;
-        /**
-         * 表格的markdown结果
-         * <p> 示例值：| 用户名   | 年龄 | 邮箱                    | 状态   | |----------|------|-------------------------|--------| | Alice    | 24   | alice@example.com       | 启用   | | Bob      | 30   | bob@example.com         | 禁用   | | Charlie  | 28   | charlie@example.com     | 启用   |
-         */
-        private String mdText;
-        /**
-         * 表格的html结果
-         * <p> 示例值：<table border="1">   <thead>     <tr>       <th>用户名</th>       <th>年龄</th>       <th>邮箱</th>       <th>状态</th>     </tr>   </thead>   <tbody>     <tr>       <td>Alice</td>       <td>24</td>       <td>alice@example.com</td>       <td>启用</td>     </tr>     <tr>       <td>Bob</td>       <td>30</td>       <td>bob@example.com</td>       <td>禁用</td>     </tr>     <tr>       <td>Charlie</td>       <td>28</td>       <td>charlie@example.com</td>       <td>启用</td>     </tr>   </tbody> </table>
-         */
-        private String htmlText;
-        /**
-         * 整个表格区域直接转的图片
-         * <p> 示例值：
-         */
-        private TableImg tableImg;
-        /**
-         * 识别表头后拆分的子表ID
-         * <p> 示例值：1
-         */
-        private Integer subTableIdx;
-        /**
-         * 子表的范围
-         * <p> 示例值：A1:B1
-         */
-        private String tableRange;
-        /**
-         * 表头范围
-         * <p> 示例值：
-         */
-        private String[] headerRanges;
-        /**
-         * 表格描述行的范围
-         * <p> 示例值：
-         */
-        private String[] descRanges;
-
-        /**
-         * 全文的第n个表格
-         * <p> 示例值：1
-         *
-         * @param tableIdx
-         * @return
-         */
-        public Builder tableIdx(Integer tableIdx) {
-            this.tableIdx = tableIdx;
-            return this;
-        }
-
-
-        /**
-         * 表格的所有文字内容，'\t\n'代表换行，'\t'代表新单元格
-         * <p> 示例值：Code\tExecutable\tAST Matching\...
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 表格中全部cell的数据
-         * <p> 示例值：
-         *
-         * @param cells
-         * @return
-         */
-        public Builder cells(DocChunkTableRow[] cells) {
-            this.cells = cells;
-            return this;
-        }
-
-
-        /**
-         * 表格名称
-         * <p> 示例值：表格1
-         *
-         * @param tableName
-         * @return
-         */
-        public Builder tableName(String tableName) {
-            this.tableName = tableName;
-            return this;
-        }
-
-
-        /**
-         * 表格描述，当前为表格上下文
-         * <p> 示例值：表格描述了xxx
-         *
-         * @param caption
-         * @return
-         */
-        public Builder caption(String caption) {
-            this.caption = caption;
-            return this;
-        }
-
-
-        /**
-         * 表格的markdown结果
-         * <p> 示例值：| 用户名   | 年龄 | 邮箱                    | 状态   | |----------|------|-------------------------|--------| | Alice    | 24   | alice@example.com       | 启用   | | Bob      | 30   | bob@example.com         | 禁用   | | Charlie  | 28   | charlie@example.com     | 启用   |
-         *
-         * @param mdText
-         * @return
-         */
-        public Builder mdText(String mdText) {
-            this.mdText = mdText;
-            return this;
-        }
-
-
-        /**
-         * 表格的html结果
-         * <p> 示例值：<table border="1">   <thead>     <tr>       <th>用户名</th>       <th>年龄</th>       <th>邮箱</th>       <th>状态</th>     </tr>   </thead>   <tbody>     <tr>       <td>Alice</td>       <td>24</td>       <td>alice@example.com</td>       <td>启用</td>     </tr>     <tr>       <td>Bob</td>       <td>30</td>       <td>bob@example.com</td>       <td>禁用</td>     </tr>     <tr>       <td>Charlie</td>       <td>28</td>       <td>charlie@example.com</td>       <td>启用</td>     </tr>   </tbody> </table>
-         *
-         * @param htmlText
-         * @return
-         */
-        public Builder htmlText(String htmlText) {
-            this.htmlText = htmlText;
-            return this;
-        }
-
-
-        /**
-         * 整个表格区域直接转的图片
-         * <p> 示例值：
-         *
-         * @param tableImg
-         * @return
-         */
-        public Builder tableImg(TableImg tableImg) {
-            this.tableImg = tableImg;
-            return this;
-        }
-
-
-        /**
-         * 识别表头后拆分的子表ID
-         * <p> 示例值：1
-         *
-         * @param subTableIdx
-         * @return
-         */
-        public Builder subTableIdx(Integer subTableIdx) {
-            this.subTableIdx = subTableIdx;
-            return this;
-        }
-
-
-        /**
-         * 子表的范围
-         * <p> 示例值：A1:B1
-         *
-         * @param tableRange
-         * @return
-         */
-        public Builder tableRange(String tableRange) {
-            this.tableRange = tableRange;
-            return this;
-        }
-
-
-        /**
-         * 表头范围
-         * <p> 示例值：
-         *
-         * @param headerRanges
-         * @return
-         */
-        public Builder headerRanges(String[] headerRanges) {
-            this.headerRanges = headerRanges;
-            return this;
-        }
-
-
-        /**
-         * 表格描述行的范围
-         * <p> 示例值：
-         *
-         * @param descRanges
-         * @return
-         */
-        public Builder descRanges(String[] descRanges) {
-            this.descRanges = descRanges;
-            return this;
-        }
-
-
-        public DocChunkTableDetail build() {
-            return new DocChunkTableDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Cash {
+  /**
+   * 币种，详情可查看：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「币种（currency）枚举定义」
+   *
+   * <p>示例值：CNY
+   */
+  @SerializedName("currency_type")
+  private String currencyType;
+
+  /**
+   * 数额，保留到小数点后两位
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("amount")
+  private Double amount;
+
+  public String getCurrencyType() {
+    return this.currencyType;
+  }
+
+  public void setCurrencyType(String currencyType) {
+    this.currencyType = currencyType;
+  }
+
+  public Double getAmount() {
+    return this.amount;
+  }
+
+  public void setAmount(Double amount) {
+    this.amount = amount;
+  }
+
+  // builder 开始
+  public Cash() {}
+
+  public Cash(Builder builder) {
     /**
-     * 币种
-     * <p> 示例值：CNY
+     * 币种，详情可查看：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「币种（currency）枚举定义」
+     *
+     * <p>示例值：CNY
      */
-    @SerializedName("currency_type")
+    this.currencyType = builder.currencyType;
+    /**
+     * 数额，保留到小数点后两位
+     *
+     * <p>示例值：100
+     */
+    this.amount = builder.amount;
+  }
+
+  public static class Builder {
+    /**
+     * 币种，详情可查看：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「币种（currency）枚举定义」
+     *
+     * <p>示例值：CNY
+     */
     private String currencyType;
+
     /**
-     * 数额
-     * <p> 示例值：100
+     * 数额，保留到小数点后两位
+     *
+     * <p>示例值：100
      */
-    @SerializedName("amount")
     private Double amount;
 
-    // builder 开始
-    public Cash() {
+    /**
+     * 币种，详情可查看：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「币种（currency）枚举定义」
+     *
+     * <p>示例值：CNY
+     *
+     * @param currencyType
+     * @return
+     */
+    public Builder currencyType(String currencyType) {
+      this.currencyType = currencyType;
+      return this;
     }
 
-    public Cash(Builder builder) {
-        /**
-         * 币种
-         * <p> 示例值：CNY
-         */
-        this.currencyType = builder.currencyType;
-        /**
-         * 数额
-         * <p> 示例值：100
-         */
-        this.amount = builder.amount;
+    /**
+     * 数额，保留到小数点后两位
+     *
+     * <p>示例值：100
+     *
+     * @param amount
+     * @return
+     */
+    public Builder amount(Double amount) {
+      this.amount = amount;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Cash build() {
+      return new Cash(this);
     }
+  }
 
-    public String getCurrencyType() {
-        return this.currencyType;
-    }
-
-    public void setCurrencyType(String currencyType) {
-        this.currencyType = currencyType;
-    }
-
-    public Double getAmount() {
-        return this.amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
-
-    public static class Builder {
-        /**
-         * 币种
-         * <p> 示例值：CNY
-         */
-        private String currencyType;
-        /**
-         * 数额
-         * <p> 示例值：100
-         */
-        private Double amount;
-
-        /**
-         * 币种
-         * <p> 示例值：CNY
-         *
-         * @param currencyType
-         * @return
-         */
-        public Builder currencyType(String currencyType) {
-            this.currencyType = currencyType;
-            return this;
-        }
-
-
-        /**
-         * 数额
-         * <p> 示例值：100
-         *
-         * @param amount
-         * @return
-         */
-        public Builder amount(Double amount) {
-            this.amount = amount;
-            return this;
-        }
-
-
-        public Cash build() {
-            return new Cash(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

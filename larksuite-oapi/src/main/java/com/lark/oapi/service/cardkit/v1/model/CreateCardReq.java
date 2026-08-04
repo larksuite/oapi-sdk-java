@@ -13,65 +13,52 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.cardkit.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.cardkit.v1.enums.*;
 
 public class CreateCardReq {
-    @Body
+  @Body private CreateCardReqBody body;
+
+  public CreateCardReqBody getCreateCardReqBody() {
+    return this.body;
+  }
+
+  public void setCreateCardReqBody(CreateCardReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateCardReq() {}
+
+  public CreateCardReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private CreateCardReqBody body;
 
-    // builder 开始
-    public CreateCardReq() {
-    }
-
-    public CreateCardReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public CreateCardReqBody getCreateCardReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCreateCardReqBody(CreateCardReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder createCardReqBody(CreateCardReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private CreateCardReqBody body;
-
-        public CreateCardReqBody getCreateCardReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder createCardReqBody(CreateCardReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateCardReq build() {
-            return new CreateCardReq(this);
-        }
+    public CreateCardReq build() {
+      return new CreateCardReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

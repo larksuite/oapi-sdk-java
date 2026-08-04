@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TaskStatus {
+  /**
+   * 任务失败原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("failure_reason")
+  private String failureReason;
+
+  /**
+   * 任务状态码
+   *
+   * <p>示例值：
+   */
+  @SerializedName("status_code")
+  private Integer statusCode;
+
+  public String getFailureReason() {
+    return this.failureReason;
+  }
+
+  public void setFailureReason(String failureReason) {
+    this.failureReason = failureReason;
+  }
+
+  public Integer getStatusCode() {
+    return this.statusCode;
+  }
+
+  public void setStatusCode(Integer statusCode) {
+    this.statusCode = statusCode;
+  }
+
+  // builder 开始
+  public TaskStatus() {}
+
+  public TaskStatus(Builder builder) {
     /**
      * 任务失败原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("failure_reason")
-    private String failureReason;
+    this.failureReason = builder.failureReason;
     /**
      * 任务状态码
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("status_code")
+    this.statusCode = builder.statusCode;
+  }
+
+  public static class Builder {
+    /**
+     * 任务失败原因
+     *
+     * <p>示例值：
+     */
+    private String failureReason;
+
+    /**
+     * 任务状态码
+     *
+     * <p>示例值：
+     */
     private Integer statusCode;
 
-    // builder 开始
-    public TaskStatus() {
+    /**
+     * 任务失败原因
+     *
+     * <p>示例值：
+     *
+     * @param failureReason
+     * @return
+     */
+    public Builder failureReason(String failureReason) {
+      this.failureReason = failureReason;
+      return this;
     }
 
-    public TaskStatus(Builder builder) {
-        /**
-         * 任务失败原因
-         * <p> 示例值：
-         */
-        this.failureReason = builder.failureReason;
-        /**
-         * 任务状态码
-         * <p> 示例值：
-         */
-        this.statusCode = builder.statusCode;
+    /**
+     * 任务状态码
+     *
+     * <p>示例值：
+     *
+     * @param statusCode
+     * @return
+     */
+    public Builder statusCode(Integer statusCode) {
+      this.statusCode = statusCode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TaskStatus build() {
+      return new TaskStatus(this);
     }
+  }
 
-    public String getFailureReason() {
-        return this.failureReason;
-    }
-
-    public void setFailureReason(String failureReason) {
-        this.failureReason = failureReason;
-    }
-
-    public Integer getStatusCode() {
-        return this.statusCode;
-    }
-
-    public void setStatusCode(Integer statusCode) {
-        this.statusCode = statusCode;
-    }
-
-    public static class Builder {
-        /**
-         * 任务失败原因
-         * <p> 示例值：
-         */
-        private String failureReason;
-        /**
-         * 任务状态码
-         * <p> 示例值：
-         */
-        private Integer statusCode;
-
-        /**
-         * 任务失败原因
-         * <p> 示例值：
-         *
-         * @param failureReason
-         * @return
-         */
-        public Builder failureReason(String failureReason) {
-            this.failureReason = failureReason;
-            return this;
-        }
-
-
-        /**
-         * 任务状态码
-         * <p> 示例值：
-         *
-         * @param statusCode
-         * @return
-         */
-        public Builder statusCode(Integer statusCode) {
-            this.statusCode = statusCode;
-            return this;
-        }
-
-
-        public TaskStatus build() {
-            return new TaskStatus(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

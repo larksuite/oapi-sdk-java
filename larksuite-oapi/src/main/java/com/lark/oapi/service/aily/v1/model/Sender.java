@@ -13,235 +13,246 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Sender {
+  /**
+   * 发送人 id
+   *
+   * <p>示例值：1785351368700027
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 发送者类型
+   *
+   * <p>示例值：SKILL
+   */
+  @SerializedName("sender_type")
+  private String senderType;
+
+  /**
+   * 发送者名称
+   *
+   * <p>示例值：天气预报
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 发送者描述
+   *
+   * <p>示例值：''
+   */
+  @SerializedName("desc")
+  private String desc;
+
+  /**
+   * 发送者id
+   *
+   * <p>示例值：skill_43ec7b438a59
+   */
+  @SerializedName("sender_id")
+  private String senderId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getSenderType() {
+    return this.senderType;
+  }
+
+  public void setSenderType(String senderType) {
+    this.senderType = senderType;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDesc() {
+    return this.desc;
+  }
+
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
+
+  public String getSenderId() {
+    return this.senderId;
+  }
+
+  public void setSenderId(String senderId) {
+    this.senderId = senderId;
+  }
+
+  // builder 开始
+  public Sender() {}
+
+  public Sender(Builder builder) {
     /**
      * 发送人 id
-     * <p> 示例值：1785351368700027
+     *
+     * <p>示例值：1785351368700027
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 发送者类型
-     * <p> 示例值：SKILL
+     *
+     * <p>示例值：SKILL
      */
-    @SerializedName("sender_type")
-    private String senderType;
+    this.senderType = builder.senderType;
     /**
      * 发送者名称
-     * <p> 示例值：天气预报
+     *
+     * <p>示例值：天气预报
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 发送者描述
-     * <p> 示例值：''
+     *
+     * <p>示例值：''
      */
-    @SerializedName("desc")
-    private String desc;
+    this.desc = builder.desc;
     /**
      * 发送者id
-     * <p> 示例值：skill_43ec7b438a59
+     *
+     * <p>示例值：skill_43ec7b438a59
      */
-    @SerializedName("sender_id")
+    this.senderId = builder.senderId;
+  }
+
+  public static class Builder {
+    /**
+     * 发送人 id
+     *
+     * <p>示例值：1785351368700027
+     */
+    private String id;
+
+    /**
+     * 发送者类型
+     *
+     * <p>示例值：SKILL
+     */
+    private String senderType;
+
+    /**
+     * 发送者名称
+     *
+     * <p>示例值：天气预报
+     */
+    private String name;
+
+    /**
+     * 发送者描述
+     *
+     * <p>示例值：''
+     */
+    private String desc;
+
+    /**
+     * 发送者id
+     *
+     * <p>示例值：skill_43ec7b438a59
+     */
     private String senderId;
 
-    // builder 开始
-    public Sender() {
+    /**
+     * 发送人 id
+     *
+     * <p>示例值：1785351368700027
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Sender(Builder builder) {
-        /**
-         * 发送人 id
-         * <p> 示例值：1785351368700027
-         */
-        this.id = builder.id;
-        /**
-         * 发送者类型
-         * <p> 示例值：SKILL
-         */
-        this.senderType = builder.senderType;
-        /**
-         * 发送者名称
-         * <p> 示例值：天气预报
-         */
-        this.name = builder.name;
-        /**
-         * 发送者描述
-         * <p> 示例值：''
-         */
-        this.desc = builder.desc;
-        /**
-         * 发送者id
-         * <p> 示例值：skill_43ec7b438a59
-         */
-        this.senderId = builder.senderId;
+    /**
+     * 发送者类型
+     *
+     * <p>示例值：SKILL
+     *
+     * @param senderType
+     * @return
+     */
+    public Builder senderType(String senderType) {
+      this.senderType = senderType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 发送者类型
+     *
+     * <p>示例值：SKILL
+     *
+     * @param senderType {@link com.lark.oapi.service.aily.v1.enums.SenderSenderTypeEnum}
+     * @return
+     */
+    public Builder senderType(com.lark.oapi.service.aily.v1.enums.SenderSenderTypeEnum senderType) {
+      this.senderType = senderType.getValue();
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 发送者名称
+     *
+     * <p>示例值：天气预报
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 发送者描述
+     *
+     * <p>示例值：''
+     *
+     * @param desc
+     * @return
+     */
+    public Builder desc(String desc) {
+      this.desc = desc;
+      return this;
     }
 
-    public String getSenderType() {
-        return this.senderType;
+    /**
+     * 发送者id
+     *
+     * <p>示例值：skill_43ec7b438a59
+     *
+     * @param senderId
+     * @return
+     */
+    public Builder senderId(String senderId) {
+      this.senderId = senderId;
+      return this;
     }
 
-    public void setSenderType(String senderType) {
-        this.senderType = senderType;
+    public Sender build() {
+      return new Sender(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDesc() {
-        return this.desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public String getSenderId() {
-        return this.senderId;
-    }
-
-    public void setSenderId(String senderId) {
-        this.senderId = senderId;
-    }
-
-    public static class Builder {
-        /**
-         * 发送人 id
-         * <p> 示例值：1785351368700027
-         */
-        private String id;
-        /**
-         * 发送者类型
-         * <p> 示例值：SKILL
-         */
-        private String senderType;
-        /**
-         * 发送者名称
-         * <p> 示例值：天气预报
-         */
-        private String name;
-        /**
-         * 发送者描述
-         * <p> 示例值：''
-         */
-        private String desc;
-        /**
-         * 发送者id
-         * <p> 示例值：skill_43ec7b438a59
-         */
-        private String senderId;
-
-        /**
-         * 发送人 id
-         * <p> 示例值：1785351368700027
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 发送者类型
-         * <p> 示例值：SKILL
-         *
-         * @param senderType
-         * @return
-         */
-        public Builder senderType(String senderType) {
-            this.senderType = senderType;
-            return this;
-        }
-
-        /**
-         * 发送者类型
-         * <p> 示例值：SKILL
-         *
-         * @param senderType {@link com.lark.oapi.service.aily.v1.enums.SenderSenderTypeEnum}
-         * @return
-         */
-        public Builder senderType(com.lark.oapi.service.aily.v1.enums.SenderSenderTypeEnum senderType) {
-            this.senderType = senderType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 发送者名称
-         * <p> 示例值：天气预报
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 发送者描述
-         * <p> 示例值：''
-         *
-         * @param desc
-         * @return
-         */
-        public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
-        }
-
-
-        /**
-         * 发送者id
-         * <p> 示例值：skill_43ec7b438a59
-         *
-         * @param senderId
-         * @return
-         */
-        public Builder senderId(String senderId) {
-            this.senderId = senderId;
-            return this;
-        }
-
-
-        public Sender build() {
-            return new Sender(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

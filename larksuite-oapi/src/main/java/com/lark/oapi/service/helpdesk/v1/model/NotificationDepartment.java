@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class NotificationDepartment {
+  /**
+   * 部门ID
+   *
+   * <p>示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 非必填，部门名称
+   *
+   * <p>示例值：测试部门
+   */
+  @SerializedName("name")
+  private String name;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public NotificationDepartment() {}
+
+  public NotificationDepartment(Builder builder) {
     /**
      * 部门ID
-     * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
+     *
+     * <p>示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
      * 非必填，部门名称
-     * <p> 示例值：测试部门
+     *
+     * <p>示例值：测试部门
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 部门ID
+     *
+     * <p>示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
+     */
+    private String departmentId;
+
+    /**
+     * 非必填，部门名称
+     *
+     * <p>示例值：测试部门
+     */
     private String name;
 
-    // builder 开始
-    public NotificationDepartment() {
+    /**
+     * 部门ID
+     *
+     * <p>示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public NotificationDepartment(Builder builder) {
-        /**
-         * 部门ID
-         * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 非必填，部门名称
-         * <p> 示例值：测试部门
-         */
-        this.name = builder.name;
+    /**
+     * 非必填，部门名称
+     *
+     * <p>示例值：测试部门
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public NotificationDepartment build() {
+      return new NotificationDepartment(this);
     }
+  }
 
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 部门ID
-         * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
-         */
-        private String departmentId;
-        /**
-         * 非必填，部门名称
-         * <p> 示例值：测试部门
-         */
-        private String name;
-
-        /**
-         * 部门ID
-         * <p> 示例值：od_7277fd1262bfafc363d5b2a1f9c2ac90
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 非必填，部门名称
-         * <p> 示例值：测试部门
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public NotificationDepartment build() {
-            return new NotificationDepartment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

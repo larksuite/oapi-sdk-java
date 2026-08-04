@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchSignatureTemplateRespBody {
-    /**
-     * 返回的电子签模板list
-     * <p> 示例值：
-     */
-    @SerializedName("signature_templates")
-    private SignatureTemplate[] signatureTemplates;
+  /**
+   * 返回的电子签模板列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("signature_templates")
+  private SignatureTemplate[] signatureTemplates;
 
-    public SignatureTemplate[] getSignatureTemplates() {
-        return this.signatureTemplates;
-    }
+  public SignatureTemplate[] getSignatureTemplates() {
+    return this.signatureTemplates;
+  }
 
-    public void setSignatureTemplates(SignatureTemplate[] signatureTemplates) {
-        this.signatureTemplates = signatureTemplates;
-    }
-
+  public void setSignatureTemplates(SignatureTemplate[] signatureTemplates) {
+    this.signatureTemplates = signatureTemplates;
+  }
 }

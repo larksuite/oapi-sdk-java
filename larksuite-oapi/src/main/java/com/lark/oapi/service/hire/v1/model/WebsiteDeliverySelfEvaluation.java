@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WebsiteDeliverySelfEvaluation {
+  /**
+   * 评价内容
+   *
+   * <p>示例值：自我评价：平常心
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_data")
+  private WebsiteDeliveryCustomizedData[] customizedData;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public WebsiteDeliveryCustomizedData[] getCustomizedData() {
+    return this.customizedData;
+  }
+
+  public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+    this.customizedData = customizedData;
+  }
+
+  // builder 开始
+  public WebsiteDeliverySelfEvaluation() {}
+
+  public WebsiteDeliverySelfEvaluation(Builder builder) {
     /**
-     * 内容
-     * <p> 示例值：自我评价：平常心
+     * 评价内容
+     *
+     * <p>示例值：自我评价：平常心
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("customized_data")
+    this.customizedData = builder.customizedData;
+  }
+
+  public static class Builder {
+    /**
+     * 评价内容
+     *
+     * <p>示例值：自我评价：平常心
+     */
+    private String content;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private WebsiteDeliveryCustomizedData[] customizedData;
 
-    // builder 开始
-    public WebsiteDeliverySelfEvaluation() {
+    /**
+     * 评价内容
+     *
+     * <p>示例值：自我评价：平常心
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public WebsiteDeliverySelfEvaluation(Builder builder) {
-        /**
-         * 内容
-         * <p> 示例值：自我评价：平常心
-         */
-        this.content = builder.content;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedData = builder.customizedData;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customizedData
+     * @return
+     */
+    public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+      this.customizedData = customizedData;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public WebsiteDeliverySelfEvaluation build() {
+      return new WebsiteDeliverySelfEvaluation(this);
     }
+  }
 
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public WebsiteDeliveryCustomizedData[] getCustomizedData() {
-        return this.customizedData;
-    }
-
-    public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-        this.customizedData = customizedData;
-    }
-
-    public static class Builder {
-        /**
-         * 内容
-         * <p> 示例值：自我评价：平常心
-         */
-        private String content;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private WebsiteDeliveryCustomizedData[] customizedData;
-
-        /**
-         * 内容
-         * <p> 示例值：自我评价：平常心
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customizedData
-         * @return
-         */
-        public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-            this.customizedData = customizedData;
-            return this;
-        }
-
-
-        public WebsiteDeliverySelfEvaluation build() {
-            return new WebsiteDeliverySelfEvaluation(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,161 +13,166 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Condition {
+  /**
+   * 筛选条件的左值，值为字段的名称
+   *
+   * <p>示例值：字段1
+   */
+  @SerializedName("field_name")
+  private String fieldName;
+
+  /**
+   * 条件运算符
+   *
+   * <p>示例值：is
+   */
+  @SerializedName("operator")
+  private String operator;
+
+  /**
+   * 条件的值，可以是单个值或多个值的数组。不同字段类型和不同的 operator
+   * 可填的值不同。详情参考[字段目标值（value）填写说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide#3e0fd644)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("value")
+  private String[] value;
+
+  public String getFieldName() {
+    return this.fieldName;
+  }
+
+  public void setFieldName(String fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  public String getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public String[] getValue() {
+    return this.value;
+  }
+
+  public void setValue(String[] value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public Condition() {}
+
+  public Condition(Builder builder) {
     /**
      * 筛选条件的左值，值为字段的名称
-     * <p> 示例值：字段名称
+     *
+     * <p>示例值：字段1
      */
-    @SerializedName("field_name")
-    private String fieldName;
+    this.fieldName = builder.fieldName;
     /**
      * 条件运算符
-     * <p> 示例值：is
+     *
+     * <p>示例值：is
      */
-    @SerializedName("operator")
-    private String operator;
+    this.operator = builder.operator;
     /**
-     * 目标值
-     * <p> 示例值：
+     * 条件的值，可以是单个值或多个值的数组。不同字段类型和不同的 operator
+     * 可填的值不同。详情参考[字段目标值（value）填写说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide#3e0fd644)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 筛选条件的左值，值为字段的名称
+     *
+     * <p>示例值：字段1
+     */
+    private String fieldName;
+
+    /**
+     * 条件运算符
+     *
+     * <p>示例值：is
+     */
+    private String operator;
+
+    /**
+     * 条件的值，可以是单个值或多个值的数组。不同字段类型和不同的 operator
+     * 可填的值不同。详情参考[字段目标值（value）填写说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide#3e0fd644)。
+     *
+     * <p>示例值：
+     */
     private String[] value;
 
-    // builder 开始
-    public Condition() {
+    /**
+     * 筛选条件的左值，值为字段的名称
+     *
+     * <p>示例值：字段1
+     *
+     * @param fieldName
+     * @return
+     */
+    public Builder fieldName(String fieldName) {
+      this.fieldName = fieldName;
+      return this;
     }
 
-    public Condition(Builder builder) {
-        /**
-         * 筛选条件的左值，值为字段的名称
-         * <p> 示例值：字段名称
-         */
-        this.fieldName = builder.fieldName;
-        /**
-         * 条件运算符
-         * <p> 示例值：is
-         */
-        this.operator = builder.operator;
-        /**
-         * 目标值
-         * <p> 示例值：
-         */
-        this.value = builder.value;
+    /**
+     * 条件运算符
+     *
+     * <p>示例值：is
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(String operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 条件运算符
+     *
+     * <p>示例值：is
+     *
+     * @param operator {@link com.lark.oapi.service.bitable.v1.enums.ConditionOperatorEnum}
+     * @return
+     */
+    public Builder operator(com.lark.oapi.service.bitable.v1.enums.ConditionOperatorEnum operator) {
+      this.operator = operator.getValue();
+      return this;
     }
 
-    public String getFieldName() {
-        return this.fieldName;
+    /**
+     * 条件的值，可以是单个值或多个值的数组。不同字段类型和不同的 operator
+     * 可填的值不同。详情参考[字段目标值（value）填写说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide#3e0fd644)。
+     *
+     * <p>示例值：
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String[] value) {
+      this.value = value;
+      return this;
     }
 
-    public void setFieldName(String fieldName) {
-        this.fieldName = fieldName;
+    public Condition build() {
+      return new Condition(this);
     }
+  }
 
-    public String getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public String[] getValue() {
-        return this.value;
-    }
-
-    public void setValue(String[] value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 筛选条件的左值，值为字段的名称
-         * <p> 示例值：字段名称
-         */
-        private String fieldName;
-        /**
-         * 条件运算符
-         * <p> 示例值：is
-         */
-        private String operator;
-        /**
-         * 目标值
-         * <p> 示例值：
-         */
-        private String[] value;
-
-        /**
-         * 筛选条件的左值，值为字段的名称
-         * <p> 示例值：字段名称
-         *
-         * @param fieldName
-         * @return
-         */
-        public Builder fieldName(String fieldName) {
-            this.fieldName = fieldName;
-            return this;
-        }
-
-
-        /**
-         * 条件运算符
-         * <p> 示例值：is
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
-        }
-
-        /**
-         * 条件运算符
-         * <p> 示例值：is
-         *
-         * @param operator {@link com.lark.oapi.service.bitable.v1.enums.ConditionOperatorEnum}
-         * @return
-         */
-        public Builder operator(com.lark.oapi.service.bitable.v1.enums.ConditionOperatorEnum operator) {
-            this.operator = operator.getValue();
-            return this;
-        }
-
-
-        /**
-         * 目标值
-         * <p> 示例值：
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String[] value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public Condition build() {
-            return new Condition(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

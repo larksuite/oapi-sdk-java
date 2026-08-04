@@ -13,222 +13,232 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserContactInfo {
+  /**
+   * 姓名
+   *
+   * <p>示例值：王二
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 候选人手机号
+   *
+   * <p>示例值：176xxxx1234
+   */
+  @SerializedName("mobile")
+  private String mobile;
+
+  /**
+   * 候选人邮箱
+   *
+   * <p>示例值：xxx@abc.vom
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 名字
+   *
+   * <p>示例值：Ming
+   */
+  @SerializedName("first_name")
+  private String firstName;
+
+  /**
+   * 姓氏
+   *
+   * <p>示例值：Lee
+   */
+  @SerializedName("last_name")
+  private String lastName;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getMobile() {
+    return this.mobile;
+  }
+
+  public void setMobile(String mobile) {
+    this.mobile = mobile;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getFirstName() {
+    return this.firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public String getLastName() {
+    return this.lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  // builder 开始
+  public UserContactInfo() {}
+
+  public UserContactInfo(Builder builder) {
     /**
      * 姓名
-     * <p> 示例值：王二
+     *
+     * <p>示例值：王二
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 手机号
-     * <p> 示例值：176xxxx1234
+     * 候选人手机号
+     *
+     * <p>示例值：176xxxx1234
      */
-    @SerializedName("mobile")
-    private String mobile;
+    this.mobile = builder.mobile;
     /**
-     * 邮箱
-     * <p> 示例值：xxx@abc.vom
+     * 候选人邮箱
+     *
+     * <p>示例值：xxx@abc.vom
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 名字
-     * <p> 示例值：Ming
+     *
+     * <p>示例值：Ming
      */
-    @SerializedName("first_name")
-    private String firstName;
+    this.firstName = builder.firstName;
     /**
      * 姓氏
-     * <p> 示例值：Lee
+     *
+     * <p>示例值：Lee
      */
-    @SerializedName("last_name")
+    this.lastName = builder.lastName;
+  }
+
+  public static class Builder {
+    /**
+     * 姓名
+     *
+     * <p>示例值：王二
+     */
+    private String name;
+
+    /**
+     * 候选人手机号
+     *
+     * <p>示例值：176xxxx1234
+     */
+    private String mobile;
+
+    /**
+     * 候选人邮箱
+     *
+     * <p>示例值：xxx@abc.vom
+     */
+    private String email;
+
+    /**
+     * 名字
+     *
+     * <p>示例值：Ming
+     */
+    private String firstName;
+
+    /**
+     * 姓氏
+     *
+     * <p>示例值：Lee
+     */
     private String lastName;
 
-    // builder 开始
-    public UserContactInfo() {
+    /**
+     * 姓名
+     *
+     * <p>示例值：王二
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public UserContactInfo(Builder builder) {
-        /**
-         * 姓名
-         * <p> 示例值：王二
-         */
-        this.name = builder.name;
-        /**
-         * 手机号
-         * <p> 示例值：176xxxx1234
-         */
-        this.mobile = builder.mobile;
-        /**
-         * 邮箱
-         * <p> 示例值：xxx@abc.vom
-         */
-        this.email = builder.email;
-        /**
-         * 名字
-         * <p> 示例值：Ming
-         */
-        this.firstName = builder.firstName;
-        /**
-         * 姓氏
-         * <p> 示例值：Lee
-         */
-        this.lastName = builder.lastName;
+    /**
+     * 候选人手机号
+     *
+     * <p>示例值：176xxxx1234
+     *
+     * @param mobile
+     * @return
+     */
+    public Builder mobile(String mobile) {
+      this.mobile = mobile;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 候选人邮箱
+     *
+     * <p>示例值：xxx@abc.vom
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 名字
+     *
+     * <p>示例值：Ming
+     *
+     * @param firstName
+     * @return
+     */
+    public Builder firstName(String firstName) {
+      this.firstName = firstName;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 姓氏
+     *
+     * <p>示例值：Lee
+     *
+     * @param lastName
+     * @return
+     */
+    public Builder lastName(String lastName) {
+      this.lastName = lastName;
+      return this;
     }
 
-    public String getMobile() {
-        return this.mobile;
+    public UserContactInfo build() {
+      return new UserContactInfo(this);
     }
+  }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getFirstName() {
-        return this.firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return this.lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public static class Builder {
-        /**
-         * 姓名
-         * <p> 示例值：王二
-         */
-        private String name;
-        /**
-         * 手机号
-         * <p> 示例值：176xxxx1234
-         */
-        private String mobile;
-        /**
-         * 邮箱
-         * <p> 示例值：xxx@abc.vom
-         */
-        private String email;
-        /**
-         * 名字
-         * <p> 示例值：Ming
-         */
-        private String firstName;
-        /**
-         * 姓氏
-         * <p> 示例值：Lee
-         */
-        private String lastName;
-
-        /**
-         * 姓名
-         * <p> 示例值：王二
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 手机号
-         * <p> 示例值：176xxxx1234
-         *
-         * @param mobile
-         * @return
-         */
-        public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
-        }
-
-
-        /**
-         * 邮箱
-         * <p> 示例值：xxx@abc.vom
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 名字
-         * <p> 示例值：Ming
-         *
-         * @param firstName
-         * @return
-         */
-        public Builder firstName(String firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-
-        /**
-         * 姓氏
-         * <p> 示例值：Lee
-         *
-         * @param lastName
-         * @return
-         */
-        public Builder lastName(String lastName) {
-            this.lastName = lastName;
-            return this;
-        }
-
-
-        public UserContactInfo build() {
-            return new UserContactInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

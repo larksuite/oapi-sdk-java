@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SuccessMsgReactionDetails {
+  /**
+   * 消息id
+   *
+   * <p>示例值：om_a8f2294b************a1a38afaac9d
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
+
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 表情实体
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message_reaction_items")
+  private Reaction[] messageReactionItems;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Reaction[] getMessageReactionItems() {
+    return this.messageReactionItems;
+  }
+
+  public void setMessageReactionItems(Reaction[] messageReactionItems) {
+    this.messageReactionItems = messageReactionItems;
+  }
+
+  // builder 开始
+  public SuccessMsgReactionDetails() {}
+
+  public SuccessMsgReactionDetails(Builder builder) {
     /**
      * 消息id
-     * <p> 示例值：om_a8f2294b************a1a38afaac9d
+     *
+     * <p>示例值：om_a8f2294b************a1a38afaac9d
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * 是否还有更多项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+    this.hasMore = builder.hasMore;
     /**
      * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 表情实体
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("message_reaction_items")
+    this.messageReactionItems = builder.messageReactionItems;
+  }
+
+  public static class Builder {
+    /**
+     * 消息id
+     *
+     * <p>示例值：om_a8f2294b************a1a38afaac9d
+     */
+    private String messageId;
+
+    /**
+     * 是否还有更多项
+     *
+     * <p>示例值：
+     */
+    private Boolean hasMore;
+
+    /**
+     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+     *
+     * <p>示例值：
+     */
+    private String pageToken;
+
+    /**
+     * 表情实体
+     *
+     * <p>示例值：
+     */
     private Reaction[] messageReactionItems;
 
-    // builder 开始
-    public SuccessMsgReactionDetails() {
+    /**
+     * 消息id
+     *
+     * <p>示例值：om_a8f2294b************a1a38afaac9d
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public SuccessMsgReactionDetails(Builder builder) {
-        /**
-         * 消息id
-         * <p> 示例值：om_a8f2294b************a1a38afaac9d
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 是否还有更多项
-         * <p> 示例值：
-         */
-        this.hasMore = builder.hasMore;
-        /**
-         * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 表情实体
-         * <p> 示例值：
-         */
-        this.messageReactionItems = builder.messageReactionItems;
+    /**
+     * 是否还有更多项
+     *
+     * <p>示例值：
+     *
+     * @param hasMore
+     * @return
+     */
+    public Builder hasMore(Boolean hasMore) {
+      this.hasMore = hasMore;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+     *
+     * <p>示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    /**
+     * 表情实体
+     *
+     * <p>示例值：
+     *
+     * @param messageReactionItems
+     * @return
+     */
+    public Builder messageReactionItems(Reaction[] messageReactionItems) {
+      this.messageReactionItems = messageReactionItems;
+      return this;
     }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
+    public SuccessMsgReactionDetails build() {
+      return new SuccessMsgReactionDetails(this);
     }
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
-
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Reaction[] getMessageReactionItems() {
-        return this.messageReactionItems;
-    }
-
-    public void setMessageReactionItems(Reaction[] messageReactionItems) {
-        this.messageReactionItems = messageReactionItems;
-    }
-
-    public static class Builder {
-        /**
-         * 消息id
-         * <p> 示例值：om_a8f2294b************a1a38afaac9d
-         */
-        private String messageId;
-        /**
-         * 是否还有更多项
-         * <p> 示例值：
-         */
-        private Boolean hasMore;
-        /**
-         * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-         * <p> 示例值：
-         */
-        private String pageToken;
-        /**
-         * 表情实体
-         * <p> 示例值：
-         */
-        private Reaction[] messageReactionItems;
-
-        /**
-         * 消息id
-         * <p> 示例值：om_a8f2294b************a1a38afaac9d
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 是否还有更多项
-         * <p> 示例值：
-         *
-         * @param hasMore
-         * @return
-         */
-        public Builder hasMore(Boolean hasMore) {
-            this.hasMore = hasMore;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 表情实体
-         * <p> 示例值：
-         *
-         * @param messageReactionItems
-         * @return
-         */
-        public Builder messageReactionItems(Reaction[] messageReactionItems) {
-            this.messageReactionItems = messageReactionItems;
-            return this;
-        }
-
-
-        public SuccessMsgReactionDetails build() {
-            return new SuccessMsgReactionDetails(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

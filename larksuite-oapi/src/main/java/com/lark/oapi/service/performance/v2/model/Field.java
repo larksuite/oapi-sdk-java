@@ -13,334 +13,367 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Field {
+  /**
+   * 评估题 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("field_id")
+  private String fieldId;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 评估项
+   * ID，详细信息请参考[获取评估项配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("indicator_id")
+  private String indicatorId;
+
+  /**
+   * 标签填写题
+   * ID，详细信息请参考[获取标签填写题配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/question/query)
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("tag_based_question_id")
+  private String tagBasedQuestionId;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("objective_text_qustion_title")
+  private I18n objectiveTextQustionTitle;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("keyresult_text_qustion_title")
+  private I18n keyresultTextQustionTitle;
+
+  /**
+   * 关联的父级评估项 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("parent_field_id")
+  private String parentFieldId;
+
+  /**
+   * 指标模板ID
+   *
+   * <p>示例值：7494252079230222371
+   */
+  @SerializedName("kpi_template_id")
+  private String kpiTemplateId;
+
+  public String getFieldId() {
+    return this.fieldId;
+  }
+
+  public void setFieldId(String fieldId) {
+    this.fieldId = fieldId;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getIndicatorId() {
+    return this.indicatorId;
+  }
+
+  public void setIndicatorId(String indicatorId) {
+    this.indicatorId = indicatorId;
+  }
+
+  public String getTagBasedQuestionId() {
+    return this.tagBasedQuestionId;
+  }
+
+  public void setTagBasedQuestionId(String tagBasedQuestionId) {
+    this.tagBasedQuestionId = tagBasedQuestionId;
+  }
+
+  public I18n getObjectiveTextQustionTitle() {
+    return this.objectiveTextQustionTitle;
+  }
+
+  public void setObjectiveTextQustionTitle(I18n objectiveTextQustionTitle) {
+    this.objectiveTextQustionTitle = objectiveTextQustionTitle;
+  }
+
+  public I18n getKeyresultTextQustionTitle() {
+    return this.keyresultTextQustionTitle;
+  }
+
+  public void setKeyresultTextQustionTitle(I18n keyresultTextQustionTitle) {
+    this.keyresultTextQustionTitle = keyresultTextQustionTitle;
+  }
+
+  public String getParentFieldId() {
+    return this.parentFieldId;
+  }
+
+  public void setParentFieldId(String parentFieldId) {
+    this.parentFieldId = parentFieldId;
+  }
+
+  public String getKpiTemplateId() {
+    return this.kpiTemplateId;
+  }
+
+  public void setKpiTemplateId(String kpiTemplateId) {
+    this.kpiTemplateId = kpiTemplateId;
+  }
+
+  // builder 开始
+  public Field() {}
+
+  public Field(Builder builder) {
     /**
      * 评估题 ID
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("field_id")
-    private String fieldId;
+    this.fieldId = builder.fieldId;
     /**
-     * 如果是填写项，为填写项名称；如果是评估项，为评估项名称
-     * <p> 示例值：
+     * 项目名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
-     * 评估项 ID
-     * <p> 示例值：7343513161666707459
+     * 评估项
+     * ID，详细信息请参考[获取评估项配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("indicator_id")
-    private String indicatorId;
+    this.indicatorId = builder.indicatorId;
     /**
-     * 标签填写题 ID
-     * <p> 示例值：7343513161666707459
+     * 标签填写题
+     * ID，详细信息请参考[获取标签填写题配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/question/query)
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("tag_based_question_id")
-    private String tagBasedQuestionId;
+    this.tagBasedQuestionId = builder.tagBasedQuestionId;
     /**
-     * O 的填写项标题
-     * <p> 示例值：
+     * 项目名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("objective_text_qustion_title")
-    private I18n objectiveTextQustionTitle;
+    this.objectiveTextQustionTitle = builder.objectiveTextQustionTitle;
     /**
-     * KR 的填写项标题
-     * <p> 示例值：
+     * 项目名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("keyresult_text_qustion_title")
-    private I18n keyresultTextQustionTitle;
+    this.keyresultTextQustionTitle = builder.keyresultTextQustionTitle;
     /**
      * 关联的父级评估项 ID
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("parent_field_id")
-    private String parentFieldId;
+    this.parentFieldId = builder.parentFieldId;
     /**
      * 指标模板ID
-     * <p> 示例值：7494252079230222371
+     *
+     * <p>示例值：7494252079230222371
      */
-    @SerializedName("kpi_template_id")
+    this.kpiTemplateId = builder.kpiTemplateId;
+  }
+
+  public static class Builder {
+    /**
+     * 评估题 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String fieldId;
+
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 评估项
+     * ID，详细信息请参考[获取评估项配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String indicatorId;
+
+    /**
+     * 标签填写题
+     * ID，详细信息请参考[获取标签填写题配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/question/query)
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String tagBasedQuestionId;
+
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    private I18n objectiveTextQustionTitle;
+
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    private I18n keyresultTextQustionTitle;
+
+    /**
+     * 关联的父级评估项 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String parentFieldId;
+
+    /**
+     * 指标模板ID
+     *
+     * <p>示例值：7494252079230222371
+     */
     private String kpiTemplateId;
 
-    // builder 开始
-    public Field() {
+    /**
+     * 评估题 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param fieldId
+     * @return
+     */
+    public Builder fieldId(String fieldId) {
+      this.fieldId = fieldId;
+      return this;
     }
 
-    public Field(Builder builder) {
-        /**
-         * 评估题 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 如果是填写项，为填写项名称；如果是评估项，为评估项名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 评估项 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.indicatorId = builder.indicatorId;
-        /**
-         * 标签填写题 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.tagBasedQuestionId = builder.tagBasedQuestionId;
-        /**
-         * O 的填写项标题
-         * <p> 示例值：
-         */
-        this.objectiveTextQustionTitle = builder.objectiveTextQustionTitle;
-        /**
-         * KR 的填写项标题
-         * <p> 示例值：
-         */
-        this.keyresultTextQustionTitle = builder.keyresultTextQustionTitle;
-        /**
-         * 关联的父级评估项 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.parentFieldId = builder.parentFieldId;
-        /**
-         * 指标模板ID
-         * <p> 示例值：7494252079230222371
-         */
-        this.kpiTemplateId = builder.kpiTemplateId;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评估项
+     * ID，详细信息请参考[获取评估项配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param indicatorId
+     * @return
+     */
+    public Builder indicatorId(String indicatorId) {
+      this.indicatorId = indicatorId;
+      return this;
     }
 
-    public String getFieldId() {
-        return this.fieldId;
+    /**
+     * 标签填写题
+     * ID，详细信息请参考[获取标签填写题配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/question/query)
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param tagBasedQuestionId
+     * @return
+     */
+    public Builder tagBasedQuestionId(String tagBasedQuestionId) {
+      this.tagBasedQuestionId = tagBasedQuestionId;
+      return this;
     }
 
-    public void setFieldId(String fieldId) {
-        this.fieldId = fieldId;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param objectiveTextQustionTitle
+     * @return
+     */
+    public Builder objectiveTextQustionTitle(I18n objectiveTextQustionTitle) {
+      this.objectiveTextQustionTitle = objectiveTextQustionTitle;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param keyresultTextQustionTitle
+     * @return
+     */
+    public Builder keyresultTextQustionTitle(I18n keyresultTextQustionTitle) {
+      this.keyresultTextQustionTitle = keyresultTextQustionTitle;
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    /**
+     * 关联的父级评估项 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param parentFieldId
+     * @return
+     */
+    public Builder parentFieldId(String parentFieldId) {
+      this.parentFieldId = parentFieldId;
+      return this;
     }
 
-    public String getIndicatorId() {
-        return this.indicatorId;
+    /**
+     * 指标模板ID
+     *
+     * <p>示例值：7494252079230222371
+     *
+     * @param kpiTemplateId
+     * @return
+     */
+    public Builder kpiTemplateId(String kpiTemplateId) {
+      this.kpiTemplateId = kpiTemplateId;
+      return this;
     }
 
-    public void setIndicatorId(String indicatorId) {
-        this.indicatorId = indicatorId;
+    public Field build() {
+      return new Field(this);
     }
+  }
 
-    public String getTagBasedQuestionId() {
-        return this.tagBasedQuestionId;
-    }
-
-    public void setTagBasedQuestionId(String tagBasedQuestionId) {
-        this.tagBasedQuestionId = tagBasedQuestionId;
-    }
-
-    public I18n getObjectiveTextQustionTitle() {
-        return this.objectiveTextQustionTitle;
-    }
-
-    public void setObjectiveTextQustionTitle(I18n objectiveTextQustionTitle) {
-        this.objectiveTextQustionTitle = objectiveTextQustionTitle;
-    }
-
-    public I18n getKeyresultTextQustionTitle() {
-        return this.keyresultTextQustionTitle;
-    }
-
-    public void setKeyresultTextQustionTitle(I18n keyresultTextQustionTitle) {
-        this.keyresultTextQustionTitle = keyresultTextQustionTitle;
-    }
-
-    public String getParentFieldId() {
-        return this.parentFieldId;
-    }
-
-    public void setParentFieldId(String parentFieldId) {
-        this.parentFieldId = parentFieldId;
-    }
-
-    public String getKpiTemplateId() {
-        return this.kpiTemplateId;
-    }
-
-    public void setKpiTemplateId(String kpiTemplateId) {
-        this.kpiTemplateId = kpiTemplateId;
-    }
-
-    public static class Builder {
-        /**
-         * 评估题 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String fieldId;
-        /**
-         * 如果是填写项，为填写项名称；如果是评估项，为评估项名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 评估项 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String indicatorId;
-        /**
-         * 标签填写题 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String tagBasedQuestionId;
-        /**
-         * O 的填写项标题
-         * <p> 示例值：
-         */
-        private I18n objectiveTextQustionTitle;
-        /**
-         * KR 的填写项标题
-         * <p> 示例值：
-         */
-        private I18n keyresultTextQustionTitle;
-        /**
-         * 关联的父级评估项 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String parentFieldId;
-        /**
-         * 指标模板ID
-         * <p> 示例值：7494252079230222371
-         */
-        private String kpiTemplateId;
-
-        /**
-         * 评估题 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param fieldId
-         * @return
-         */
-        public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
-        }
-
-
-        /**
-         * 如果是填写项，为填写项名称；如果是评估项，为评估项名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 评估项 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param indicatorId
-         * @return
-         */
-        public Builder indicatorId(String indicatorId) {
-            this.indicatorId = indicatorId;
-            return this;
-        }
-
-
-        /**
-         * 标签填写题 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param tagBasedQuestionId
-         * @return
-         */
-        public Builder tagBasedQuestionId(String tagBasedQuestionId) {
-            this.tagBasedQuestionId = tagBasedQuestionId;
-            return this;
-        }
-
-
-        /**
-         * O 的填写项标题
-         * <p> 示例值：
-         *
-         * @param objectiveTextQustionTitle
-         * @return
-         */
-        public Builder objectiveTextQustionTitle(I18n objectiveTextQustionTitle) {
-            this.objectiveTextQustionTitle = objectiveTextQustionTitle;
-            return this;
-        }
-
-
-        /**
-         * KR 的填写项标题
-         * <p> 示例值：
-         *
-         * @param keyresultTextQustionTitle
-         * @return
-         */
-        public Builder keyresultTextQustionTitle(I18n keyresultTextQustionTitle) {
-            this.keyresultTextQustionTitle = keyresultTextQustionTitle;
-            return this;
-        }
-
-
-        /**
-         * 关联的父级评估项 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param parentFieldId
-         * @return
-         */
-        public Builder parentFieldId(String parentFieldId) {
-            this.parentFieldId = parentFieldId;
-            return this;
-        }
-
-
-        /**
-         * 指标模板ID
-         * <p> 示例值：7494252079230222371
-         *
-         * @param kpiTemplateId
-         * @return
-         */
-        public Builder kpiTemplateId(String kpiTemplateId) {
-            this.kpiTemplateId = kpiTemplateId;
-            return this;
-        }
-
-
-        public Field build() {
-            return new Field(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

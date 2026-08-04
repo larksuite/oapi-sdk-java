@@ -13,106 +13,104 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.aily.v1.enums.*;
 
 public class GetAilySessionAilyMessageReq {
+  /**
+   * 会话 ID；参考
+   * [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口
+   *
+   * <p>示例值：session_4dfunz7sp1g8m
+   */
+  @Path
+  @SerializedName("aily_session_id")
+  private String ailySessionId;
+
+  /**
+   * 消息 ID
+   *
+   * <p>示例值：message_4df45f2xknvcc
+   */
+  @Path
+  @SerializedName("aily_message_id")
+  private String ailyMessageId;
+
+  public String getAilySessionId() {
+    return this.ailySessionId;
+  }
+
+  public void setAilySessionId(String ailySessionId) {
+    this.ailySessionId = ailySessionId;
+  }
+
+  public String getAilyMessageId() {
+    return this.ailyMessageId;
+  }
+
+  public void setAilyMessageId(String ailyMessageId) {
+    this.ailyMessageId = ailyMessageId;
+  }
+
+  // builder 开始
+  public GetAilySessionAilyMessageReq() {}
+
+  public GetAilySessionAilyMessageReq(Builder builder) {
     /**
-     * 会话 ID
-     * <p> 示例值：session_4dfunz7sp1g8m
+     * 会话 ID；参考
+     * [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
      */
-    @Path
-    @SerializedName("aily_session_id")
-    private String ailySessionId;
+    this.ailySessionId = builder.ailySessionId;
     /**
      * 消息 ID
-     * <p> 示例值：message_4df45f2xknvcc
+     *
+     * <p>示例值：message_4df45f2xknvcc
      */
-    @Path
-    @SerializedName("aily_message_id")
-    private String ailyMessageId;
+    this.ailyMessageId = builder.ailyMessageId;
+  }
 
-    // builder 开始
-    public GetAilySessionAilyMessageReq() {
+  public static class Builder {
+
+    private String ailySessionId; // 会话 ID；参考
+    // [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口
+    private String ailyMessageId; // 消息 ID
+
+    /**
+     * 会话 ID；参考
+     * [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
+     *
+     * @param ailySessionId
+     * @return
+     */
+    public Builder ailySessionId(String ailySessionId) {
+      this.ailySessionId = ailySessionId;
+      return this;
     }
 
-    public GetAilySessionAilyMessageReq(Builder builder) {
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         */
-        this.ailySessionId = builder.ailySessionId;
-        /**
-         * 消息 ID
-         * <p> 示例值：message_4df45f2xknvcc
-         */
-        this.ailyMessageId = builder.ailyMessageId;
+    /**
+     * 消息 ID
+     *
+     * <p>示例值：message_4df45f2xknvcc
+     *
+     * @param ailyMessageId
+     * @return
+     */
+    public Builder ailyMessageId(String ailyMessageId) {
+      this.ailyMessageId = ailyMessageId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GetAilySessionAilyMessageReq build() {
+      return new GetAilySessionAilyMessageReq(this);
     }
+  }
 
-    public String getAilySessionId() {
-        return this.ailySessionId;
-    }
-
-    public void setAilySessionId(String ailySessionId) {
-        this.ailySessionId = ailySessionId;
-    }
-
-    public String getAilyMessageId() {
-        return this.ailyMessageId;
-    }
-
-    public void setAilyMessageId(String ailyMessageId) {
-        this.ailyMessageId = ailyMessageId;
-    }
-
-    public static class Builder {
-
-        private String ailySessionId; // 会话 ID
-        private String ailyMessageId; // 消息 ID
-
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         *
-         * @param ailySessionId
-         * @return
-         */
-        public Builder ailySessionId(String ailySessionId) {
-            this.ailySessionId = ailySessionId;
-            return this;
-        }
-
-
-        /**
-         * 消息 ID
-         * <p> 示例值：message_4df45f2xknvcc
-         *
-         * @param ailyMessageId
-         * @return
-         */
-        public Builder ailyMessageId(String ailyMessageId) {
-            this.ailyMessageId = ailyMessageId;
-            return this;
-        }
-
-
-        public GetAilySessionAilyMessageReq build() {
-            return new GetAilySessionAilyMessageReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

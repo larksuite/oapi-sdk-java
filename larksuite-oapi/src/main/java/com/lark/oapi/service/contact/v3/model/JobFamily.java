@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobFamily {
+  /**
+   * 序列名称。1-100字符，支持中、英文及符号
+   *
+   * <p>示例值：产品
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 序列描述，描述序列详情信息
+   *
+   * <p>示例值：负责产品策略制定的相关工作
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 上级序列ID。需是该租户的序列ID列表中的值，对应唯一的序列名称。
+   *
+   * <p>示例值：mga5oa8ayjlpzjq
+   */
+  @SerializedName("parent_job_family_id")
+  private String parentJobFamilyId;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("status")
+  private Boolean status;
+
+  /**
+   * 多语言序列名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_name")
+  private I18nContent[] i18nName;
+
+  /**
+   * 多语言描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_description")
+  private I18nContent[] i18nDescription;
+
+  /**
+   * 职级序列ID
+   *
+   * <p>示例值：mga5oa8ayjlpkzy
+   */
+  @SerializedName("job_family_id")
+  private String jobFamilyId;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getParentJobFamilyId() {
+    return this.parentJobFamilyId;
+  }
+
+  public void setParentJobFamilyId(String parentJobFamilyId) {
+    this.parentJobFamilyId = parentJobFamilyId;
+  }
+
+  public Boolean getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Boolean status) {
+    this.status = status;
+  }
+
+  public I18nContent[] getI18nName() {
+    return this.i18nName;
+  }
+
+  public void setI18nName(I18nContent[] i18nName) {
+    this.i18nName = i18nName;
+  }
+
+  public I18nContent[] getI18nDescription() {
+    return this.i18nDescription;
+  }
+
+  public void setI18nDescription(I18nContent[] i18nDescription) {
+    this.i18nDescription = i18nDescription;
+  }
+
+  public String getJobFamilyId() {
+    return this.jobFamilyId;
+  }
+
+  public void setJobFamilyId(String jobFamilyId) {
+    this.jobFamilyId = jobFamilyId;
+  }
+
+  // builder 开始
+  public JobFamily() {}
+
+  public JobFamily(Builder builder) {
     /**
      * 序列名称。1-100字符，支持中、英文及符号
-     * <p> 示例值：产品
+     *
+     * <p>示例值：产品
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 序列描述，描述序列详情信息
-     * <p> 示例值：负责产品策略制定的相关工作
+     *
+     * <p>示例值：负责产品策略制定的相关工作
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 上级序列ID。需是该租户的序列ID列表中的值，对应唯一的序列名称。
-     * <p> 示例值：mga5oa8ayjlp9rb
+     *
+     * <p>示例值：mga5oa8ayjlpzjq
      */
-    @SerializedName("parent_job_family_id")
-    private String parentJobFamilyId;
+    this.parentJobFamilyId = builder.parentJobFamilyId;
     /**
      * 是否启用
-     * <p> 示例值：true 表示启用, false表示未启用
+     *
+     * <p>示例值：true
      */
-    @SerializedName("status")
-    private Boolean status;
+    this.status = builder.status;
     /**
      * 多语言序列名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_name")
-    private I18nContent[] i18nName;
+    this.i18nName = builder.i18nName;
     /**
      * 多语言描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_description")
-    private I18nContent[] i18nDescription;
+    this.i18nDescription = builder.i18nDescription;
     /**
      * 职级序列ID
-     * <p> 示例值：mga5oa8ayjlp9rb
+     *
+     * <p>示例值：mga5oa8ayjlpkzy
      */
-    @SerializedName("job_family_id")
+    this.jobFamilyId = builder.jobFamilyId;
+  }
+
+  public static class Builder {
+    /**
+     * 序列名称。1-100字符，支持中、英文及符号
+     *
+     * <p>示例值：产品
+     */
+    private String name;
+
+    /**
+     * 序列描述，描述序列详情信息
+     *
+     * <p>示例值：负责产品策略制定的相关工作
+     */
+    private String description;
+
+    /**
+     * 上级序列ID。需是该租户的序列ID列表中的值，对应唯一的序列名称。
+     *
+     * <p>示例值：mga5oa8ayjlpzjq
+     */
+    private String parentJobFamilyId;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean status;
+
+    /**
+     * 多语言序列名称
+     *
+     * <p>示例值：
+     */
+    private I18nContent[] i18nName;
+
+    /**
+     * 多语言描述
+     *
+     * <p>示例值：
+     */
+    private I18nContent[] i18nDescription;
+
+    /**
+     * 职级序列ID
+     *
+     * <p>示例值：mga5oa8ayjlpkzy
+     */
     private String jobFamilyId;
 
-    // builder 开始
-    public JobFamily() {
+    /**
+     * 序列名称。1-100字符，支持中、英文及符号
+     *
+     * <p>示例值：产品
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public JobFamily(Builder builder) {
-        /**
-         * 序列名称。1-100字符，支持中、英文及符号
-         * <p> 示例值：产品
-         */
-        this.name = builder.name;
-        /**
-         * 序列描述，描述序列详情信息
-         * <p> 示例值：负责产品策略制定的相关工作
-         */
-        this.description = builder.description;
-        /**
-         * 上级序列ID。需是该租户的序列ID列表中的值，对应唯一的序列名称。
-         * <p> 示例值：mga5oa8ayjlp9rb
-         */
-        this.parentJobFamilyId = builder.parentJobFamilyId;
-        /**
-         * 是否启用
-         * <p> 示例值：true 表示启用, false表示未启用
-         */
-        this.status = builder.status;
-        /**
-         * 多语言序列名称
-         * <p> 示例值：
-         */
-        this.i18nName = builder.i18nName;
-        /**
-         * 多语言描述
-         * <p> 示例值：
-         */
-        this.i18nDescription = builder.i18nDescription;
-        /**
-         * 职级序列ID
-         * <p> 示例值：mga5oa8ayjlp9rb
-         */
-        this.jobFamilyId = builder.jobFamilyId;
+    /**
+     * 序列描述，描述序列详情信息
+     *
+     * <p>示例值：负责产品策略制定的相关工作
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 上级序列ID。需是该租户的序列ID列表中的值，对应唯一的序列名称。
+     *
+     * <p>示例值：mga5oa8ayjlpzjq
+     *
+     * @param parentJobFamilyId
+     * @return
+     */
+    public Builder parentJobFamilyId(String parentJobFamilyId) {
+      this.parentJobFamilyId = parentJobFamilyId;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Boolean status) {
+      this.status = status;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 多语言序列名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nName
+     * @return
+     */
+    public Builder i18nName(I18nContent[] i18nName) {
+      this.i18nName = i18nName;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * 多语言描述
+     *
+     * <p>示例值：
+     *
+     * @param i18nDescription
+     * @return
+     */
+    public Builder i18nDescription(I18nContent[] i18nDescription) {
+      this.i18nDescription = i18nDescription;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * 职级序列ID
+     *
+     * <p>示例值：mga5oa8ayjlpkzy
+     *
+     * @param jobFamilyId
+     * @return
+     */
+    public Builder jobFamilyId(String jobFamilyId) {
+      this.jobFamilyId = jobFamilyId;
+      return this;
     }
 
-    public String getParentJobFamilyId() {
-        return this.parentJobFamilyId;
+    public JobFamily build() {
+      return new JobFamily(this);
     }
+  }
 
-    public void setParentJobFamilyId(String parentJobFamilyId) {
-        this.parentJobFamilyId = parentJobFamilyId;
-    }
-
-    public Boolean getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
-
-    public I18nContent[] getI18nName() {
-        return this.i18nName;
-    }
-
-    public void setI18nName(I18nContent[] i18nName) {
-        this.i18nName = i18nName;
-    }
-
-    public I18nContent[] getI18nDescription() {
-        return this.i18nDescription;
-    }
-
-    public void setI18nDescription(I18nContent[] i18nDescription) {
-        this.i18nDescription = i18nDescription;
-    }
-
-    public String getJobFamilyId() {
-        return this.jobFamilyId;
-    }
-
-    public void setJobFamilyId(String jobFamilyId) {
-        this.jobFamilyId = jobFamilyId;
-    }
-
-    public static class Builder {
-        /**
-         * 序列名称。1-100字符，支持中、英文及符号
-         * <p> 示例值：产品
-         */
-        private String name;
-        /**
-         * 序列描述，描述序列详情信息
-         * <p> 示例值：负责产品策略制定的相关工作
-         */
-        private String description;
-        /**
-         * 上级序列ID。需是该租户的序列ID列表中的值，对应唯一的序列名称。
-         * <p> 示例值：mga5oa8ayjlp9rb
-         */
-        private String parentJobFamilyId;
-        /**
-         * 是否启用
-         * <p> 示例值：true 表示启用, false表示未启用
-         */
-        private Boolean status;
-        /**
-         * 多语言序列名称
-         * <p> 示例值：
-         */
-        private I18nContent[] i18nName;
-        /**
-         * 多语言描述
-         * <p> 示例值：
-         */
-        private I18nContent[] i18nDescription;
-        /**
-         * 职级序列ID
-         * <p> 示例值：mga5oa8ayjlp9rb
-         */
-        private String jobFamilyId;
-
-        /**
-         * 序列名称。1-100字符，支持中、英文及符号
-         * <p> 示例值：产品
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 序列描述，描述序列详情信息
-         * <p> 示例值：负责产品策略制定的相关工作
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 上级序列ID。需是该租户的序列ID列表中的值，对应唯一的序列名称。
-         * <p> 示例值：mga5oa8ayjlp9rb
-         *
-         * @param parentJobFamilyId
-         * @return
-         */
-        public Builder parentJobFamilyId(String parentJobFamilyId) {
-            this.parentJobFamilyId = parentJobFamilyId;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true 表示启用, false表示未启用
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Boolean status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 多语言序列名称
-         * <p> 示例值：
-         *
-         * @param i18nName
-         * @return
-         */
-        public Builder i18nName(I18nContent[] i18nName) {
-            this.i18nName = i18nName;
-            return this;
-        }
-
-
-        /**
-         * 多语言描述
-         * <p> 示例值：
-         *
-         * @param i18nDescription
-         * @return
-         */
-        public Builder i18nDescription(I18nContent[] i18nDescription) {
-            this.i18nDescription = i18nDescription;
-            return this;
-        }
-
-
-        /**
-         * 职级序列ID
-         * <p> 示例值：mga5oa8ayjlp9rb
-         *
-         * @param jobFamilyId
-         * @return
-         */
-        public Builder jobFamilyId(String jobFamilyId) {
-            this.jobFamilyId = jobFamilyId;
-            return this;
-        }
-
-
-        public JobFamily build() {
-            return new JobFamily(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

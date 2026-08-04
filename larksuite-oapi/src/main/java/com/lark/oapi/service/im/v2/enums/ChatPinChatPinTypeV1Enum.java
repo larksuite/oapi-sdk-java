@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 置顶类型
- */
+/** 置顶类型 */
 public enum ChatPinChatPinTypeV1Enum {
-    MESSAGE_PIN("message_pin"), // 消息类型置顶
-    URL_PIN("url_pin"), // 链接类型置顶
-    ANNOUNCEMENT_PIN("announcement_pin"), // 群公告类型置顶
-    ;
-    private String value;
+  MESSAGE_PIN("message_pin"), // 消息类型置顶
+  URL_PIN("url_pin"), // 链接类型置顶
+  ANNOUNCEMENT_PIN("announcement_pin"), // 群公告类型置顶
+  ;
+  private String value;
 
-    ChatPinChatPinTypeV1Enum(String value) {
-        this.value = value;
-    }
+  ChatPinChatPinTypeV1Enum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

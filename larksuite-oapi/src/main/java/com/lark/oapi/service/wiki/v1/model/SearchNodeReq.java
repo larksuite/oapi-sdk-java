@@ -13,130 +13,107 @@
 
 package com.lark.oapi.service.wiki.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.wiki.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchNodeReq {
+  /** 示例值： */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /** 示例值： */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  @Body private SearchNodeReqBody body;
+
+  public SearchNodeReqBody getSearchNodeReqBody() {
+    return this.body;
+  }
+
+  public void setSearchNodeReqBody(SearchNodeReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public SearchNodeReq() {}
+
+  public SearchNodeReq(Builder builder) {
+    /** 示例值： */
+    this.pageToken = builder.pageToken;
+    /** 示例值： */
+    this.pageSize = builder.pageSize;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String pageToken; //
+    private Integer pageSize; //
+
     /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-     * <p> 示例值：
+     * 示例值：
+     *
+     * @param pageToken
+     * @return
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
     /**
-     * 分页大小
-     * <p> 示例值：
+     * 示例值：
+     *
+     * @param pageSize
+     * @return
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
-    @Body
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
     private SearchNodeReqBody body;
 
-    // builder 开始
-    public SearchNodeReq() {
-    }
-
-    public SearchNodeReq(Builder builder) {
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
     public SearchNodeReqBody getSearchNodeReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setSearchNodeReqBody(SearchNodeReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder searchNodeReqBody(SearchNodeReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-        private Integer pageSize; // 分页大小
-        private SearchNodeReqBody body;
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 分页大小
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        public SearchNodeReqBody getSearchNodeReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder searchNodeReqBody(SearchNodeReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public SearchNodeReq build() {
-            return new SearchNodeReq(this);
-        }
+    public SearchNodeReq build() {
+      return new SearchNodeReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

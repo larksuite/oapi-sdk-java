@@ -13,98 +13,112 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.im.v1.enums.*;
 
 public class PushFollowUpMessageReq {
+  /**
+   * 机器人发送的消息 ID。ID 获取方式：; ;-
+   * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+   * `message_id` 参数获取。;-
+   * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+   * `message_id`。;-
+   * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+   * `message_id` 参数获取。
+   *
+   * <p>示例值：om_3210a18894e206715a4359115f4cf2f5
+   */
+  @Path
+  @SerializedName("message_id")
+  private String messageId;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  @Body private PushFollowUpMessageReqBody body;
+
+  public PushFollowUpMessageReqBody getPushFollowUpMessageReqBody() {
+    return this.body;
+  }
+
+  public void setPushFollowUpMessageReqBody(PushFollowUpMessageReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PushFollowUpMessageReq() {}
+
+  public PushFollowUpMessageReq(Builder builder) {
     /**
-     * AI发送的消息ID
-     * <p> 示例值：om_3210a18894e206715a4359115f4cf2f5
+     * 机器人发送的消息 ID。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id` 参数获取。
+     *
+     * <p>示例值：om_3210a18894e206715a4359115f4cf2f5
      */
-    @Path
-    @SerializedName("message_id")
-    private String messageId;
-    @Body
+    this.messageId = builder.messageId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String messageId; // 机器人发送的消息 ID。ID 获取方式：; ;-
+
+    // 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。;- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。;- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。
+
+    /**
+     * 机器人发送的消息 ID。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id` 参数获取。
+     *
+     * <p>示例值：om_3210a18894e206715a4359115f4cf2f5
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
+    }
+
     private PushFollowUpMessageReqBody body;
 
-    // builder 开始
-    public PushFollowUpMessageReq() {
-    }
-
-    public PushFollowUpMessageReq(Builder builder) {
-        /**
-         * AI发送的消息ID
-         * <p> 示例值：om_3210a18894e206715a4359115f4cf2f5
-         */
-        this.messageId = builder.messageId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
     public PushFollowUpMessageReqBody getPushFollowUpMessageReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPushFollowUpMessageReqBody(PushFollowUpMessageReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder pushFollowUpMessageReqBody(PushFollowUpMessageReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String messageId; // AI发送的消息ID
-        private PushFollowUpMessageReqBody body;
-
-        /**
-         * AI发送的消息ID
-         * <p> 示例值：om_3210a18894e206715a4359115f4cf2f5
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-        public PushFollowUpMessageReqBody getPushFollowUpMessageReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder pushFollowUpMessageReqBody(PushFollowUpMessageReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PushFollowUpMessageReq build() {
-            return new PushFollowUpMessageReq(this);
-        }
+    public PushFollowUpMessageReq build() {
+      return new PushFollowUpMessageReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

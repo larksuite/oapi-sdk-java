@@ -13,98 +13,103 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.contact.v3.enums.*;
 
 public class UpdateJobFamilyReq {
+  /**
+   * 序列 ID。获取方式：;;-
+   * [创建序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/create)时可以从返回结果中获取（job_family_id）。;-
+   * 调用[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口获取序列
+   * ID。
+   *
+   * <p>示例值：mga5oa8ayjlpkzy
+   */
+  @Path
+  @SerializedName("job_family_id")
+  private String jobFamilyId;
+
+  public String getJobFamilyId() {
+    return this.jobFamilyId;
+  }
+
+  public void setJobFamilyId(String jobFamilyId) {
+    this.jobFamilyId = jobFamilyId;
+  }
+
+  @Body private JobFamily body;
+
+  public JobFamily getJobFamily() {
+    return this.body;
+  }
+
+  public void setJobFamily(JobFamily body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateJobFamilyReq() {}
+
+  public UpdateJobFamilyReq(Builder builder) {
     /**
-     * 序列ID
-     * <p> 示例值：mga5oa8ayjlp9rb
+     * 序列 ID。获取方式：;;-
+     * [创建序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/create)时可以从返回结果中获取（job_family_id）。;-
+     * 调用[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口获取序列
+     * ID。
+     *
+     * <p>示例值：mga5oa8ayjlpkzy
      */
-    @Path
-    @SerializedName("job_family_id")
-    private String jobFamilyId;
-    @Body
+    this.jobFamilyId = builder.jobFamilyId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String jobFamilyId; // 序列 ID。获取方式：;;-
+
+    // [创建序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/create)时可以从返回结果中获取（job_family_id）。;- 调用[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口获取序列 ID。
+
+    /**
+     * 序列 ID。获取方式：;;-
+     * [创建序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/create)时可以从返回结果中获取（job_family_id）。;-
+     * 调用[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口获取序列
+     * ID。
+     *
+     * <p>示例值：mga5oa8ayjlpkzy
+     *
+     * @param jobFamilyId
+     * @return
+     */
+    public Builder jobFamilyId(String jobFamilyId) {
+      this.jobFamilyId = jobFamilyId;
+      return this;
+    }
+
     private JobFamily body;
 
-    // builder 开始
-    public UpdateJobFamilyReq() {
-    }
-
-    public UpdateJobFamilyReq(Builder builder) {
-        /**
-         * 序列ID
-         * <p> 示例值：mga5oa8ayjlp9rb
-         */
-        this.jobFamilyId = builder.jobFamilyId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getJobFamilyId() {
-        return this.jobFamilyId;
-    }
-
-    public void setJobFamilyId(String jobFamilyId) {
-        this.jobFamilyId = jobFamilyId;
-    }
-
     public JobFamily getJobFamily() {
-        return this.body;
+      return this.body;
     }
 
-    public void setJobFamily(JobFamily body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder jobFamily(JobFamily body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String jobFamilyId; // 序列ID
-        private JobFamily body;
-
-        /**
-         * 序列ID
-         * <p> 示例值：mga5oa8ayjlp9rb
-         *
-         * @param jobFamilyId
-         * @return
-         */
-        public Builder jobFamilyId(String jobFamilyId) {
-            this.jobFamilyId = jobFamilyId;
-            return this;
-        }
-
-        public JobFamily getJobFamily() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder jobFamily(JobFamily body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateJobFamilyReq build() {
-            return new UpdateJobFamilyReq(this);
-        }
+    public UpdateJobFamilyReq build() {
+      return new UpdateJobFamilyReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

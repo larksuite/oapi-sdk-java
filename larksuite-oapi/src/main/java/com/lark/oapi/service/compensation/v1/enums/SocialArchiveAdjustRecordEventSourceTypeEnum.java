@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 变更事件来源。new_join增员、intern_to_official实习生转正、employee_type_change雇员类型变更、dismission离职、job_change变更、to_attrition_import待减员导入新增
- */
+/** 变更事件来源 */
 public enum SocialArchiveAdjustRecordEventSourceTypeEnum {
-    NEW_JOIN("new_join"), // 增员
-    INTERN_TO_OFFICIAL("intern_to_official"), // 实习生转正
-    EMPLOYEE_TYPE_CHANGE("employee_type_change"), // 雇员类型变更
-    DISMISSION("dismission"), // 离职
-    JOB_CHANGE("job_change"), // 异动
-    TO_ATTRITION_IMPORT("to_attrition_import"), // 待减员导入新增
-    ;
-    private String value;
+  NEW_JOIN("new_join"), // 增员
+  INTERN_TO_OFFICIAL("intern_to_official"), // 实习生转正
+  EMPLOYEE_TYPE_CHANGE("employee_type_change"), // 雇员类型变更
+  DISMISSION("dismission"), // 离职
+  JOB_CHANGE("job_change"), // 异动
+  TO_ATTRITION_IMPORT("to_attrition_import"), // 待减员导入新增
+  ;
+  private String value;
 
-    SocialArchiveAdjustRecordEventSourceTypeEnum(String value) {
-        this.value = value;
-    }
+  SocialArchiveAdjustRecordEventSourceTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PunchMember {
+  /**
+   * 圈人方式：;* `0`：无 ;* `1`：全部 ;* `2`：自定义
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("rule_scope_type")
+  private Integer ruleScopeType;
+
+  /**
+   * 圈人规则列表，返回的规则之间为且关系，或关系的规则暂不支持返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("scope_group_list")
+  private ScopeGroup scopeGroupList;
+
+  public Integer getRuleScopeType() {
+    return this.ruleScopeType;
+  }
+
+  public void setRuleScopeType(Integer ruleScopeType) {
+    this.ruleScopeType = ruleScopeType;
+  }
+
+  public ScopeGroup getScopeGroupList() {
+    return this.scopeGroupList;
+  }
+
+  public void setScopeGroupList(ScopeGroup scopeGroupList) {
+    this.scopeGroupList = scopeGroupList;
+  }
+
+  // builder 开始
+  public PunchMember() {}
+
+  public PunchMember(Builder builder) {
     /**
-     * 圈人方式：0 无 1全部 2自定义
-     * <p> 示例值：0
+     * 圈人方式：;* `0`：无 ;* `1`：全部 ;* `2`：自定义
+     *
+     * <p>示例值：0
      */
-    @SerializedName("rule_scope_type")
+    this.ruleScopeType = builder.ruleScopeType;
+    /**
+     * 圈人规则列表，返回的规则之间为且关系，或关系的规则暂不支持返回
+     *
+     * <p>示例值：
+     */
+    this.scopeGroupList = builder.scopeGroupList;
+  }
+
+  public static class Builder {
+    /**
+     * 圈人方式：;* `0`：无 ;* `1`：全部 ;* `2`：自定义
+     *
+     * <p>示例值：0
+     */
     private Integer ruleScopeType;
+
     /**
-     * 圈人规则列表
-     * <p> 示例值：
+     * 圈人规则列表，返回的规则之间为且关系，或关系的规则暂不支持返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("scope_group_list")
     private ScopeGroup scopeGroupList;
 
-    // builder 开始
-    public PunchMember() {
+    /**
+     * 圈人方式：;* `0`：无 ;* `1`：全部 ;* `2`：自定义
+     *
+     * <p>示例值：0
+     *
+     * @param ruleScopeType
+     * @return
+     */
+    public Builder ruleScopeType(Integer ruleScopeType) {
+      this.ruleScopeType = ruleScopeType;
+      return this;
     }
 
-    public PunchMember(Builder builder) {
-        /**
-         * 圈人方式：0 无 1全部 2自定义
-         * <p> 示例值：0
-         */
-        this.ruleScopeType = builder.ruleScopeType;
-        /**
-         * 圈人规则列表
-         * <p> 示例值：
-         */
-        this.scopeGroupList = builder.scopeGroupList;
+    /**
+     * 圈人规则列表，返回的规则之间为且关系，或关系的规则暂不支持返回
+     *
+     * <p>示例值：
+     *
+     * @param scopeGroupList
+     * @return
+     */
+    public Builder scopeGroupList(ScopeGroup scopeGroupList) {
+      this.scopeGroupList = scopeGroupList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PunchMember build() {
+      return new PunchMember(this);
     }
+  }
 
-    public Integer getRuleScopeType() {
-        return this.ruleScopeType;
-    }
-
-    public void setRuleScopeType(Integer ruleScopeType) {
-        this.ruleScopeType = ruleScopeType;
-    }
-
-    public ScopeGroup getScopeGroupList() {
-        return this.scopeGroupList;
-    }
-
-    public void setScopeGroupList(ScopeGroup scopeGroupList) {
-        this.scopeGroupList = scopeGroupList;
-    }
-
-    public static class Builder {
-        /**
-         * 圈人方式：0 无 1全部 2自定义
-         * <p> 示例值：0
-         */
-        private Integer ruleScopeType;
-        /**
-         * 圈人规则列表
-         * <p> 示例值：
-         */
-        private ScopeGroup scopeGroupList;
-
-        /**
-         * 圈人方式：0 无 1全部 2自定义
-         * <p> 示例值：0
-         *
-         * @param ruleScopeType
-         * @return
-         */
-        public Builder ruleScopeType(Integer ruleScopeType) {
-            this.ruleScopeType = ruleScopeType;
-            return this;
-        }
-
-
-        /**
-         * 圈人规则列表
-         * <p> 示例值：
-         *
-         * @param scopeGroupList
-         * @return
-         */
-        public Builder scopeGroupList(ScopeGroup scopeGroupList) {
-            this.scopeGroupList = scopeGroupList;
-            return this;
-        }
-
-
-        public PunchMember build() {
-            return new PunchMember(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

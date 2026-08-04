@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SegmentStyle {
+  /**
+   * 影响的文本
+   *
+   * <p>示例值：a
+   */
+  @SerializedName("affected_text")
+  private String affectedText;
+
+  /**
+   * 样式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("style")
+  private SegmentStyleStyle style;
+
+  public String getAffectedText() {
+    return this.affectedText;
+  }
+
+  public void setAffectedText(String affectedText) {
+    this.affectedText = affectedText;
+  }
+
+  public SegmentStyleStyle getStyle() {
+    return this.style;
+  }
+
+  public void setStyle(SegmentStyleStyle style) {
+    this.style = style;
+  }
+
+  // builder 开始
+  public SegmentStyle() {}
+
+  public SegmentStyle(Builder builder) {
     /**
      * 影响的文本
-     * <p> 示例值：a
+     *
+     * <p>示例值：a
      */
-    @SerializedName("affected_text")
-    private String affectedText;
+    this.affectedText = builder.affectedText;
     /**
      * 样式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("style")
+    this.style = builder.style;
+  }
+
+  public static class Builder {
+    /**
+     * 影响的文本
+     *
+     * <p>示例值：a
+     */
+    private String affectedText;
+
+    /**
+     * 样式
+     *
+     * <p>示例值：
+     */
     private SegmentStyleStyle style;
 
-    // builder 开始
-    public SegmentStyle() {
+    /**
+     * 影响的文本
+     *
+     * <p>示例值：a
+     *
+     * @param affectedText
+     * @return
+     */
+    public Builder affectedText(String affectedText) {
+      this.affectedText = affectedText;
+      return this;
     }
 
-    public SegmentStyle(Builder builder) {
-        /**
-         * 影响的文本
-         * <p> 示例值：a
-         */
-        this.affectedText = builder.affectedText;
-        /**
-         * 样式
-         * <p> 示例值：
-         */
-        this.style = builder.style;
+    /**
+     * 样式
+     *
+     * <p>示例值：
+     *
+     * @param style
+     * @return
+     */
+    public Builder style(SegmentStyleStyle style) {
+      this.style = style;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SegmentStyle build() {
+      return new SegmentStyle(this);
     }
+  }
 
-    public String getAffectedText() {
-        return this.affectedText;
-    }
-
-    public void setAffectedText(String affectedText) {
-        this.affectedText = affectedText;
-    }
-
-    public SegmentStyleStyle getStyle() {
-        return this.style;
-    }
-
-    public void setStyle(SegmentStyleStyle style) {
-        this.style = style;
-    }
-
-    public static class Builder {
-        /**
-         * 影响的文本
-         * <p> 示例值：a
-         */
-        private String affectedText;
-        /**
-         * 样式
-         * <p> 示例值：
-         */
-        private SegmentStyleStyle style;
-
-        /**
-         * 影响的文本
-         * <p> 示例值：a
-         *
-         * @param affectedText
-         * @return
-         */
-        public Builder affectedText(String affectedText) {
-            this.affectedText = affectedText;
-            return this;
-        }
-
-
-        /**
-         * 样式
-         * <p> 示例值：
-         *
-         * @param style
-         * @return
-         */
-        public Builder style(SegmentStyleStyle style) {
-            this.style = style;
-            return this;
-        }
-
-
-        public SegmentStyle build() {
-            return new SegmentStyle(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

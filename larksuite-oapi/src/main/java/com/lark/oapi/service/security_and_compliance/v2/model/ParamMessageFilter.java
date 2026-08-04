@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParamMessageFilter {
+  /**
+   * 用户列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner_ids")
+  private String[] ownerIds;
+
+  /**
+   * 消息创建时间范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("create_time_range")
+  private TimeRange createTimeRange;
+
+  /**
+   * 会话类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_type")
+  private Integer[] chatType;
+
+  /**
+   * 会话ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_ids")
+  private String[] chatIds;
+
+  public String[] getOwnerIds() {
+    return this.ownerIds;
+  }
+
+  public void setOwnerIds(String[] ownerIds) {
+    this.ownerIds = ownerIds;
+  }
+
+  public TimeRange getCreateTimeRange() {
+    return this.createTimeRange;
+  }
+
+  public void setCreateTimeRange(TimeRange createTimeRange) {
+    this.createTimeRange = createTimeRange;
+  }
+
+  public Integer[] getChatType() {
+    return this.chatType;
+  }
+
+  public void setChatType(Integer[] chatType) {
+    this.chatType = chatType;
+  }
+
+  public String[] getChatIds() {
+    return this.chatIds;
+  }
+
+  public void setChatIds(String[] chatIds) {
+    this.chatIds = chatIds;
+  }
+
+  // builder 开始
+  public ParamMessageFilter() {}
+
+  public ParamMessageFilter(Builder builder) {
     /**
      * 用户列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner_ids")
-    private String[] ownerIds;
+    this.ownerIds = builder.ownerIds;
     /**
      * 消息创建时间范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("create_time_range")
-    private TimeRange createTimeRange;
+    this.createTimeRange = builder.createTimeRange;
     /**
      * 会话类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_type")
-    private Integer[] chatType;
+    this.chatType = builder.chatType;
     /**
      * 会话ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_ids")
+    this.chatIds = builder.chatIds;
+  }
+
+  public static class Builder {
+    /**
+     * 用户列表
+     *
+     * <p>示例值：
+     */
+    private String[] ownerIds;
+
+    /**
+     * 消息创建时间范围
+     *
+     * <p>示例值：
+     */
+    private TimeRange createTimeRange;
+
+    /**
+     * 会话类型
+     *
+     * <p>示例值：
+     */
+    private Integer[] chatType;
+
+    /**
+     * 会话ID
+     *
+     * <p>示例值：
+     */
     private String[] chatIds;
 
-    // builder 开始
-    public ParamMessageFilter() {
+    /**
+     * 用户列表
+     *
+     * <p>示例值：
+     *
+     * @param ownerIds
+     * @return
+     */
+    public Builder ownerIds(String[] ownerIds) {
+      this.ownerIds = ownerIds;
+      return this;
     }
 
-    public ParamMessageFilter(Builder builder) {
-        /**
-         * 用户列表
-         * <p> 示例值：
-         */
-        this.ownerIds = builder.ownerIds;
-        /**
-         * 消息创建时间范围
-         * <p> 示例值：
-         */
-        this.createTimeRange = builder.createTimeRange;
-        /**
-         * 会话类型
-         * <p> 示例值：
-         */
-        this.chatType = builder.chatType;
-        /**
-         * 会话ID
-         * <p> 示例值：
-         */
-        this.chatIds = builder.chatIds;
+    /**
+     * 消息创建时间范围
+     *
+     * <p>示例值：
+     *
+     * @param createTimeRange
+     * @return
+     */
+    public Builder createTimeRange(TimeRange createTimeRange) {
+      this.createTimeRange = createTimeRange;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会话类型
+     *
+     * <p>示例值：
+     *
+     * @param chatType
+     * @return
+     */
+    public Builder chatType(Integer[] chatType) {
+      this.chatType = chatType;
+      return this;
     }
 
-    public String[] getOwnerIds() {
-        return this.ownerIds;
+    /**
+     * 会话ID
+     *
+     * <p>示例值：
+     *
+     * @param chatIds
+     * @return
+     */
+    public Builder chatIds(String[] chatIds) {
+      this.chatIds = chatIds;
+      return this;
     }
 
-    public void setOwnerIds(String[] ownerIds) {
-        this.ownerIds = ownerIds;
+    public ParamMessageFilter build() {
+      return new ParamMessageFilter(this);
     }
+  }
 
-    public TimeRange getCreateTimeRange() {
-        return this.createTimeRange;
-    }
-
-    public void setCreateTimeRange(TimeRange createTimeRange) {
-        this.createTimeRange = createTimeRange;
-    }
-
-    public Integer[] getChatType() {
-        return this.chatType;
-    }
-
-    public void setChatType(Integer[] chatType) {
-        this.chatType = chatType;
-    }
-
-    public String[] getChatIds() {
-        return this.chatIds;
-    }
-
-    public void setChatIds(String[] chatIds) {
-        this.chatIds = chatIds;
-    }
-
-    public static class Builder {
-        /**
-         * 用户列表
-         * <p> 示例值：
-         */
-        private String[] ownerIds;
-        /**
-         * 消息创建时间范围
-         * <p> 示例值：
-         */
-        private TimeRange createTimeRange;
-        /**
-         * 会话类型
-         * <p> 示例值：
-         */
-        private Integer[] chatType;
-        /**
-         * 会话ID
-         * <p> 示例值：
-         */
-        private String[] chatIds;
-
-        /**
-         * 用户列表
-         * <p> 示例值：
-         *
-         * @param ownerIds
-         * @return
-         */
-        public Builder ownerIds(String[] ownerIds) {
-            this.ownerIds = ownerIds;
-            return this;
-        }
-
-
-        /**
-         * 消息创建时间范围
-         * <p> 示例值：
-         *
-         * @param createTimeRange
-         * @return
-         */
-        public Builder createTimeRange(TimeRange createTimeRange) {
-            this.createTimeRange = createTimeRange;
-            return this;
-        }
-
-
-        /**
-         * 会话类型
-         * <p> 示例值：
-         *
-         * @param chatType
-         * @return
-         */
-        public Builder chatType(Integer[] chatType) {
-            this.chatType = chatType;
-            return this;
-        }
-
-
-        /**
-         * 会话ID
-         * <p> 示例值：
-         *
-         * @param chatIds
-         * @return
-         */
-        public Builder chatIds(String[] chatIds) {
-            this.chatIds = chatIds;
-            return this;
-        }
-
-
-        public ParamMessageFilter build() {
-            return new ParamMessageFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

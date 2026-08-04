@@ -14,23 +14,25 @@
 package com.lark.oapi.service.approval.v4.enums;
 
 /**
- * 审批/抄送人类型， ; 1. 当 type 为 Supervisor、SupervisorTopDown、DepartmentManager 、DepartmentManagerTopDown 这 4 种时，需要在 level 中填写对应的级数，例如：由下往上三级主管审批，level = 3；;; 2. 当 type 为 Personal 时，需要填写对应的user_id ，用于指定用户；;; 3. 当 approver 为 Free 发起人自选时，不需要指定 user_id 和level；;; 4. ccer不支持 Free 发起人自选
+ * 审批人类型。使用说明：;;- 该参数取值为 Supervisor、SupervisorTopDown、DepartmentManager 、DepartmentManagerTopDown 这
+ * 4 种时，需要在 level 参数中填写对应的级数。例如：由下往上三级主管审批，该参数取值 Supervisor 、level 参数取值 3。;; - 该参数取值为 Personal
+ * 时，需要填写对应的 user_id ，用于指定用户。;; - 该参数取值为 Free 时，无需指定 user_id 和 level。
  */
 public enum ApprovalApproverCcerTypeEnum {
-    SUPERVISOR("Supervisor"), // 主管审批（由下往上）
-    SUPERVISORTOPDOWN("SupervisorTopDown"), // 主管审批（从上往下）
-    DEPARTMENTMANAGER("DepartmentManager"), // 部门负责人审批（由下往上）
-    DEPARTMENTMANAGERTOPDOWN("DepartmentManagerTopDown"), // 部门负责人审批（从上往下）
-    PERSONAL("Personal"), // 指定成员
-    FREE("Free"), // 发起人自选
-    ;
-    private String value;
+  SUPERVISOR("Supervisor"), // 主管审批（由下往上）
+  SUPERVISORTOPDOWN("SupervisorTopDown"), // 主管审批（从上往下）
+  DEPARTMENTMANAGER("DepartmentManager"), // 部门负责人审批（由下往上）
+  DEPARTMENTMANAGERTOPDOWN("DepartmentManagerTopDown"), // 部门负责人审批（从上往下）
+  PERSONAL("Personal"), // 指定成员
+  FREE("Free"), // 发起人自选
+  ;
+  private String value;
 
-    ApprovalApproverCcerTypeEnum(String value) {
-        this.value = value;
-    }
+  ApprovalApproverCcerTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

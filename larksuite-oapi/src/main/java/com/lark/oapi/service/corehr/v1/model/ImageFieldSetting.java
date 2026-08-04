@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ImageFieldSetting {
+  /**
+   * 图片类型枚举;;**可选值有：**;- `1`：Avatar 头像;- `2`：BadgePhoto 工卡照片;- `3`：Logo 标志
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("image_type")
+  private Integer imageType;
+
+  /**
+   * 显示样式枚举;;**可选值有：**;- `1`：SquareImage 方形;- `2`：RoundImage 圆形
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("display_style")
+  private Integer displayStyle;
+
+  public Integer getImageType() {
+    return this.imageType;
+  }
+
+  public void setImageType(Integer imageType) {
+    this.imageType = imageType;
+  }
+
+  public Integer getDisplayStyle() {
+    return this.displayStyle;
+  }
+
+  public void setDisplayStyle(Integer displayStyle) {
+    this.displayStyle = displayStyle;
+  }
+
+  // builder 开始
+  public ImageFieldSetting() {}
+
+  public ImageFieldSetting(Builder builder) {
     /**
-     * 图片类型枚举，具体如下：;1. Avatar 头像;2. BadgePhoto 工卡照片;3. Logo 标志
-     * <p> 示例值：1
+     * 图片类型枚举;;**可选值有：**;- `1`：Avatar 头像;- `2`：BadgePhoto 工卡照片;- `3`：Logo 标志
+     *
+     * <p>示例值：1
      */
-    @SerializedName("image_type")
+    this.imageType = builder.imageType;
+    /**
+     * 显示样式枚举;;**可选值有：**;- `1`：SquareImage 方形;- `2`：RoundImage 圆形
+     *
+     * <p>示例值：1
+     */
+    this.displayStyle = builder.displayStyle;
+  }
+
+  public static class Builder {
+    /**
+     * 图片类型枚举;;**可选值有：**;- `1`：Avatar 头像;- `2`：BadgePhoto 工卡照片;- `3`：Logo 标志
+     *
+     * <p>示例值：1
+     */
     private Integer imageType;
+
     /**
-     * 显示样式枚举，具体如下：;1. SquareImage 方形;2. RoundImage  圆形
-     * <p> 示例值：1
+     * 显示样式枚举;;**可选值有：**;- `1`：SquareImage 方形;- `2`：RoundImage 圆形
+     *
+     * <p>示例值：1
      */
-    @SerializedName("display_style")
     private Integer displayStyle;
 
-    // builder 开始
-    public ImageFieldSetting() {
+    /**
+     * 图片类型枚举;;**可选值有：**;- `1`：Avatar 头像;- `2`：BadgePhoto 工卡照片;- `3`：Logo 标志
+     *
+     * <p>示例值：1
+     *
+     * @param imageType
+     * @return
+     */
+    public Builder imageType(Integer imageType) {
+      this.imageType = imageType;
+      return this;
     }
 
-    public ImageFieldSetting(Builder builder) {
-        /**
-         * 图片类型枚举，具体如下：;1. Avatar 头像;2. BadgePhoto 工卡照片;3. Logo 标志
-         * <p> 示例值：1
-         */
-        this.imageType = builder.imageType;
-        /**
-         * 显示样式枚举，具体如下：;1. SquareImage 方形;2. RoundImage  圆形
-         * <p> 示例值：1
-         */
-        this.displayStyle = builder.displayStyle;
+    /**
+     * 显示样式枚举;;**可选值有：**;- `1`：SquareImage 方形;- `2`：RoundImage 圆形
+     *
+     * <p>示例值：1
+     *
+     * @param displayStyle
+     * @return
+     */
+    public Builder displayStyle(Integer displayStyle) {
+      this.displayStyle = displayStyle;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ImageFieldSetting build() {
+      return new ImageFieldSetting(this);
     }
+  }
 
-    public Integer getImageType() {
-        return this.imageType;
-    }
-
-    public void setImageType(Integer imageType) {
-        this.imageType = imageType;
-    }
-
-    public Integer getDisplayStyle() {
-        return this.displayStyle;
-    }
-
-    public void setDisplayStyle(Integer displayStyle) {
-        this.displayStyle = displayStyle;
-    }
-
-    public static class Builder {
-        /**
-         * 图片类型枚举，具体如下：;1. Avatar 头像;2. BadgePhoto 工卡照片;3. Logo 标志
-         * <p> 示例值：1
-         */
-        private Integer imageType;
-        /**
-         * 显示样式枚举，具体如下：;1. SquareImage 方形;2. RoundImage  圆形
-         * <p> 示例值：1
-         */
-        private Integer displayStyle;
-
-        /**
-         * 图片类型枚举，具体如下：;1. Avatar 头像;2. BadgePhoto 工卡照片;3. Logo 标志
-         * <p> 示例值：1
-         *
-         * @param imageType
-         * @return
-         */
-        public Builder imageType(Integer imageType) {
-            this.imageType = imageType;
-            return this;
-        }
-
-
-        /**
-         * 显示样式枚举，具体如下：;1. SquareImage 方形;2. RoundImage  圆形
-         * <p> 示例值：1
-         *
-         * @param displayStyle
-         * @return
-         */
-        public Builder displayStyle(Integer displayStyle) {
-            this.displayStyle = displayStyle;
-            return this;
-        }
-
-
-        public ImageFieldSetting build() {
-            return new ImageFieldSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

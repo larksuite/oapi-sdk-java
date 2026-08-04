@@ -13,138 +13,135 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class ListTalentFolderReq {
+  /**
+   * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+   *
+   * <p>示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 每页获取记录数量
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 用户ID类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  // builder 开始
+  public ListTalentFolderReq() {}
+
+  public ListTalentFolderReq(Builder builder) {
     /**
      * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-     * <p> 示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 每页获取记录数量，最大100
-     * <p> 示例值：10
+     * 每页获取记录数量
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 用户ID类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
+  }
 
-    // builder 开始
-    public ListTalentFolderReq() {
+  public static class Builder {
+    private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+    private Integer pageSize; // 每页获取记录数量
+    private String userIdType; // 用户ID类型
+
+    /**
+     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public ListTalentFolderReq(Builder builder) {
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
+    /**
+     * 每页获取记录数量
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    public ListTalentFolderReq build() {
+      return new ListTalentFolderReq(this);
     }
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public static class Builder {
-        private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-        private Integer pageSize; // 每页获取记录数量，最大100
-        private String userIdType; // 用户ID类型
-
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-
-        public ListTalentFolderReq build() {
-            return new ListTalentFolderReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

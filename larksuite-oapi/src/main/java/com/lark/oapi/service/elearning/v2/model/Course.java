@@ -13,926 +13,1031 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Course {
+  /**
+   * 课程ID
+   *
+   * <p>示例值：5e943ade0bb519d693a885e9
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 课程标题
+   *
+   * <p>示例值：互联：脑机交互如何走出实验室
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 课程描述
+   *
+   * <p>示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 课程封面url
+   *
+   * <p>示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
+   */
+  @SerializedName("cover_url")
+  private String coverUrl;
+
+  /**
+   * 用户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner")
+  private User owner;
+
+  /**
+   * 讲师
+   *
+   * <p>示例值：
+   */
+  @SerializedName("teacher_list")
+  private User[] teacherList;
+
+  /**
+   * 认证讲师
+   *
+   * <p>示例值：
+   */
+  @SerializedName("lecture_list")
+  private CourseLecture[] lectureList;
+
+  /**
+   * 课程分类
+   *
+   * <p>示例值：
+   */
+  @SerializedName("category_list")
+  private CourseCategory[] categoryList;
+
+  /**
+   * 课程频道信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("channel_list")
+  private CourseChannel[] channelList;
+
+  /**
+   * 公开范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("visible_scope_info")
+  private VisibleScopeInfo visibleScopeInfo;
+
+  /**
+   * 发布状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("publish_status")
+  private Integer publishStatus;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1663063144
+   */
+  @SerializedName("created_at")
+  private Integer createdAt;
+
+  /**
+   * 发布时间
+   *
+   * <p>示例值：1663063144
+   */
+  @SerializedName("published_at")
+  private Integer publishedAt;
+
+  /**
+   * 课程学员数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("total_learner_num")
+  private Integer totalLearnerNum;
+
+  /**
+   * 课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("vague_total_learner_num")
+  private Integer vagueTotalLearnerNum;
+
+  /**
+   * 未完成课程学员数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("unstart_learner_num")
+  private Integer unstartLearnerNum;
+
+  /**
+   * 未完成课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("vague_unstart_learner_num")
+  private Integer vagueUnstartLearnerNum;
+
+  /**
+   * 学习中课程学员数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("processing_learner_num")
+  private Integer processingLearnerNum;
+
+  /**
+   * 学习中课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("vague_processing_learner_num")
+  private Integer vagueProcessingLearnerNum;
+
+  /**
+   * 完成课程学员数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("completed_learner_num")
+  private Integer completedLearnerNum;
+
+  /**
+   * 完成课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("vague_completed_learner_num")
+  private Integer vagueCompletedLearnerNum;
+
+  /**
+   * 人均学习时长（单位：时）
+   *
+   * <p>示例值：1.5
+   */
+  @SerializedName("average_learner_duration")
+  private Double averageLearnerDuration;
+
+  /**
+   * 课程评分
+   *
+   * <p>示例值：4.5
+   */
+  @SerializedName("avg_rating")
+  private Double avgRating;
+
+  /**
+   * 课节列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("lesson_list")
+  private Lesson[] lessonList;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getCoverUrl() {
+    return this.coverUrl;
+  }
+
+  public void setCoverUrl(String coverUrl) {
+    this.coverUrl = coverUrl;
+  }
+
+  public User getOwner() {
+    return this.owner;
+  }
+
+  public void setOwner(User owner) {
+    this.owner = owner;
+  }
+
+  public User[] getTeacherList() {
+    return this.teacherList;
+  }
+
+  public void setTeacherList(User[] teacherList) {
+    this.teacherList = teacherList;
+  }
+
+  public CourseLecture[] getLectureList() {
+    return this.lectureList;
+  }
+
+  public void setLectureList(CourseLecture[] lectureList) {
+    this.lectureList = lectureList;
+  }
+
+  public CourseCategory[] getCategoryList() {
+    return this.categoryList;
+  }
+
+  public void setCategoryList(CourseCategory[] categoryList) {
+    this.categoryList = categoryList;
+  }
+
+  public CourseChannel[] getChannelList() {
+    return this.channelList;
+  }
+
+  public void setChannelList(CourseChannel[] channelList) {
+    this.channelList = channelList;
+  }
+
+  public VisibleScopeInfo getVisibleScopeInfo() {
+    return this.visibleScopeInfo;
+  }
+
+  public void setVisibleScopeInfo(VisibleScopeInfo visibleScopeInfo) {
+    this.visibleScopeInfo = visibleScopeInfo;
+  }
+
+  public Integer getPublishStatus() {
+    return this.publishStatus;
+  }
+
+  public void setPublishStatus(Integer publishStatus) {
+    this.publishStatus = publishStatus;
+  }
+
+  public Integer getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(Integer createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public Integer getPublishedAt() {
+    return this.publishedAt;
+  }
+
+  public void setPublishedAt(Integer publishedAt) {
+    this.publishedAt = publishedAt;
+  }
+
+  public Integer getTotalLearnerNum() {
+    return this.totalLearnerNum;
+  }
+
+  public void setTotalLearnerNum(Integer totalLearnerNum) {
+    this.totalLearnerNum = totalLearnerNum;
+  }
+
+  public Integer getVagueTotalLearnerNum() {
+    return this.vagueTotalLearnerNum;
+  }
+
+  public void setVagueTotalLearnerNum(Integer vagueTotalLearnerNum) {
+    this.vagueTotalLearnerNum = vagueTotalLearnerNum;
+  }
+
+  public Integer getUnstartLearnerNum() {
+    return this.unstartLearnerNum;
+  }
+
+  public void setUnstartLearnerNum(Integer unstartLearnerNum) {
+    this.unstartLearnerNum = unstartLearnerNum;
+  }
+
+  public Integer getVagueUnstartLearnerNum() {
+    return this.vagueUnstartLearnerNum;
+  }
+
+  public void setVagueUnstartLearnerNum(Integer vagueUnstartLearnerNum) {
+    this.vagueUnstartLearnerNum = vagueUnstartLearnerNum;
+  }
+
+  public Integer getProcessingLearnerNum() {
+    return this.processingLearnerNum;
+  }
+
+  public void setProcessingLearnerNum(Integer processingLearnerNum) {
+    this.processingLearnerNum = processingLearnerNum;
+  }
+
+  public Integer getVagueProcessingLearnerNum() {
+    return this.vagueProcessingLearnerNum;
+  }
+
+  public void setVagueProcessingLearnerNum(Integer vagueProcessingLearnerNum) {
+    this.vagueProcessingLearnerNum = vagueProcessingLearnerNum;
+  }
+
+  public Integer getCompletedLearnerNum() {
+    return this.completedLearnerNum;
+  }
+
+  public void setCompletedLearnerNum(Integer completedLearnerNum) {
+    this.completedLearnerNum = completedLearnerNum;
+  }
+
+  public Integer getVagueCompletedLearnerNum() {
+    return this.vagueCompletedLearnerNum;
+  }
+
+  public void setVagueCompletedLearnerNum(Integer vagueCompletedLearnerNum) {
+    this.vagueCompletedLearnerNum = vagueCompletedLearnerNum;
+  }
+
+  public Double getAverageLearnerDuration() {
+    return this.averageLearnerDuration;
+  }
+
+  public void setAverageLearnerDuration(Double averageLearnerDuration) {
+    this.averageLearnerDuration = averageLearnerDuration;
+  }
+
+  public Double getAvgRating() {
+    return this.avgRating;
+  }
+
+  public void setAvgRating(Double avgRating) {
+    this.avgRating = avgRating;
+  }
+
+  public Lesson[] getLessonList() {
+    return this.lessonList;
+  }
+
+  public void setLessonList(Lesson[] lessonList) {
+    this.lessonList = lessonList;
+  }
+
+  // builder 开始
+  public Course() {}
+
+  public Course(Builder builder) {
     /**
      * 课程ID
-     * <p> 示例值：5e943ade0bb519d693a885e9
+     *
+     * <p>示例值：5e943ade0bb519d693a885e9
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 课程标题
-     * <p> 示例值：互联：脑机交互如何走出实验室
+     *
+     * <p>示例值：互联：脑机交互如何走出实验室
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 课程描述
-     * <p> 示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
+     *
+     * <p>示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 课程封面url
-     * <p> 示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
+     *
+     * <p>示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
      */
-    @SerializedName("cover_url")
-    private String coverUrl;
+    this.coverUrl = builder.coverUrl;
     /**
-     * 课程所有人
-     * <p> 示例值：
+     * 用户
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner")
-    private User owner;
+    this.owner = builder.owner;
     /**
      * 讲师
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("teacher_list")
-    private User[] teacherList;
+    this.teacherList = builder.teacherList;
     /**
      * 认证讲师
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("lecture_list")
-    private CourseLecture[] lectureList;
+    this.lectureList = builder.lectureList;
     /**
      * 课程分类
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("category_list")
-    private CourseCategory[] categoryList;
+    this.categoryList = builder.categoryList;
     /**
      * 课程频道信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("channel_list")
-    private CourseChannel[] channelList;
+    this.channelList = builder.channelList;
     /**
      * 公开范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("visible_scope_info")
-    private VisibleScopeInfo visibleScopeInfo;
+    this.visibleScopeInfo = builder.visibleScopeInfo;
     /**
      * 发布状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("publish_status")
-    private Integer publishStatus;
+    this.publishStatus = builder.publishStatus;
     /**
      * 创建时间
-     * <p> 示例值：1663063144
+     *
+     * <p>示例值：1663063144
      */
-    @SerializedName("created_at")
-    private Integer createdAt;
+    this.createdAt = builder.createdAt;
     /**
      * 发布时间
-     * <p> 示例值：1663063144
+     *
+     * <p>示例值：1663063144
      */
-    @SerializedName("published_at")
-    private Integer publishedAt;
+    this.publishedAt = builder.publishedAt;
     /**
      * 课程学员数
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("total_learner_num")
-    private Integer totalLearnerNum;
+    this.totalLearnerNum = builder.totalLearnerNum;
     /**
      * 课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("vague_total_learner_num")
-    private Integer vagueTotalLearnerNum;
+    this.vagueTotalLearnerNum = builder.vagueTotalLearnerNum;
     /**
      * 未完成课程学员数
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("unstart_learner_num")
-    private Integer unstartLearnerNum;
+    this.unstartLearnerNum = builder.unstartLearnerNum;
     /**
      * 未完成课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("vague_unstart_learner_num")
-    private Integer vagueUnstartLearnerNum;
+    this.vagueUnstartLearnerNum = builder.vagueUnstartLearnerNum;
     /**
      * 学习中课程学员数
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("processing_learner_num")
-    private Integer processingLearnerNum;
+    this.processingLearnerNum = builder.processingLearnerNum;
     /**
      * 学习中课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("vague_processing_learner_num")
-    private Integer vagueProcessingLearnerNum;
+    this.vagueProcessingLearnerNum = builder.vagueProcessingLearnerNum;
     /**
      * 完成课程学员数
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("completed_learner_num")
-    private Integer completedLearnerNum;
+    this.completedLearnerNum = builder.completedLearnerNum;
     /**
      * 完成课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("vague_completed_learner_num")
-    private Integer vagueCompletedLearnerNum;
+    this.vagueCompletedLearnerNum = builder.vagueCompletedLearnerNum;
     /**
      * 人均学习时长（单位：时）
-     * <p> 示例值：1.5
+     *
+     * <p>示例值：1.5
      */
-    @SerializedName("average_learner_duration")
-    private Double averageLearnerDuration;
+    this.averageLearnerDuration = builder.averageLearnerDuration;
     /**
      * 课程评分
-     * <p> 示例值：4.5
+     *
+     * <p>示例值：4.5
      */
-    @SerializedName("avg_rating")
-    private Double avgRating;
+    this.avgRating = builder.avgRating;
     /**
      * 课节列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("lesson_list")
+    this.lessonList = builder.lessonList;
+  }
+
+  public static class Builder {
+    /**
+     * 课程ID
+     *
+     * <p>示例值：5e943ade0bb519d693a885e9
+     */
+    private String id;
+
+    /**
+     * 课程标题
+     *
+     * <p>示例值：互联：脑机交互如何走出实验室
+     */
+    private String title;
+
+    /**
+     * 课程描述
+     *
+     * <p>示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
+     */
+    private String description;
+
+    /**
+     * 课程封面url
+     *
+     * <p>示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
+     */
+    private String coverUrl;
+
+    /**
+     * 用户
+     *
+     * <p>示例值：
+     */
+    private User owner;
+
+    /**
+     * 讲师
+     *
+     * <p>示例值：
+     */
+    private User[] teacherList;
+
+    /**
+     * 认证讲师
+     *
+     * <p>示例值：
+     */
+    private CourseLecture[] lectureList;
+
+    /**
+     * 课程分类
+     *
+     * <p>示例值：
+     */
+    private CourseCategory[] categoryList;
+
+    /**
+     * 课程频道信息
+     *
+     * <p>示例值：
+     */
+    private CourseChannel[] channelList;
+
+    /**
+     * 公开范围
+     *
+     * <p>示例值：
+     */
+    private VisibleScopeInfo visibleScopeInfo;
+
+    /**
+     * 发布状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     */
+    private Integer publishStatus;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1663063144
+     */
+    private Integer createdAt;
+
+    /**
+     * 发布时间
+     *
+     * <p>示例值：1663063144
+     */
+    private Integer publishedAt;
+
+    /**
+     * 课程学员数
+     *
+     * <p>示例值：1
+     */
+    private Integer totalLearnerNum;
+
+    /**
+     * 课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     */
+    private Integer vagueTotalLearnerNum;
+
+    /**
+     * 未完成课程学员数
+     *
+     * <p>示例值：1
+     */
+    private Integer unstartLearnerNum;
+
+    /**
+     * 未完成课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     */
+    private Integer vagueUnstartLearnerNum;
+
+    /**
+     * 学习中课程学员数
+     *
+     * <p>示例值：1
+     */
+    private Integer processingLearnerNum;
+
+    /**
+     * 学习中课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     */
+    private Integer vagueProcessingLearnerNum;
+
+    /**
+     * 完成课程学员数
+     *
+     * <p>示例值：1
+     */
+    private Integer completedLearnerNum;
+
+    /**
+     * 完成课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     */
+    private Integer vagueCompletedLearnerNum;
+
+    /**
+     * 人均学习时长（单位：时）
+     *
+     * <p>示例值：1.5
+     */
+    private Double averageLearnerDuration;
+
+    /**
+     * 课程评分
+     *
+     * <p>示例值：4.5
+     */
+    private Double avgRating;
+
+    /**
+     * 课节列表
+     *
+     * <p>示例值：
+     */
     private Lesson[] lessonList;
 
-    // builder 开始
-    public Course() {
+    /**
+     * 课程ID
+     *
+     * <p>示例值：5e943ade0bb519d693a885e9
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Course(Builder builder) {
-        /**
-         * 课程ID
-         * <p> 示例值：5e943ade0bb519d693a885e9
-         */
-        this.id = builder.id;
-        /**
-         * 课程标题
-         * <p> 示例值：互联：脑机交互如何走出实验室
-         */
-        this.title = builder.title;
-        /**
-         * 课程描述
-         * <p> 示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
-         */
-        this.description = builder.description;
-        /**
-         * 课程封面url
-         * <p> 示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
-         */
-        this.coverUrl = builder.coverUrl;
-        /**
-         * 课程所有人
-         * <p> 示例值：
-         */
-        this.owner = builder.owner;
-        /**
-         * 讲师
-         * <p> 示例值：
-         */
-        this.teacherList = builder.teacherList;
-        /**
-         * 认证讲师
-         * <p> 示例值：
-         */
-        this.lectureList = builder.lectureList;
-        /**
-         * 课程分类
-         * <p> 示例值：
-         */
-        this.categoryList = builder.categoryList;
-        /**
-         * 课程频道信息
-         * <p> 示例值：
-         */
-        this.channelList = builder.channelList;
-        /**
-         * 公开范围
-         * <p> 示例值：
-         */
-        this.visibleScopeInfo = builder.visibleScopeInfo;
-        /**
-         * 发布状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        this.publishStatus = builder.publishStatus;
-        /**
-         * 创建时间
-         * <p> 示例值：1663063144
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 发布时间
-         * <p> 示例值：1663063144
-         */
-        this.publishedAt = builder.publishedAt;
-        /**
-         * 课程学员数
-         * <p> 示例值：1
-         */
-        this.totalLearnerNum = builder.totalLearnerNum;
-        /**
-         * 课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        this.vagueTotalLearnerNum = builder.vagueTotalLearnerNum;
-        /**
-         * 未完成课程学员数
-         * <p> 示例值：1
-         */
-        this.unstartLearnerNum = builder.unstartLearnerNum;
-        /**
-         * 未完成课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        this.vagueUnstartLearnerNum = builder.vagueUnstartLearnerNum;
-        /**
-         * 学习中课程学员数
-         * <p> 示例值：1
-         */
-        this.processingLearnerNum = builder.processingLearnerNum;
-        /**
-         * 学习中课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        this.vagueProcessingLearnerNum = builder.vagueProcessingLearnerNum;
-        /**
-         * 完成课程学员数
-         * <p> 示例值：1
-         */
-        this.completedLearnerNum = builder.completedLearnerNum;
-        /**
-         * 完成课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        this.vagueCompletedLearnerNum = builder.vagueCompletedLearnerNum;
-        /**
-         * 人均学习时长（单位：时）
-         * <p> 示例值：1.5
-         */
-        this.averageLearnerDuration = builder.averageLearnerDuration;
-        /**
-         * 课程评分
-         * <p> 示例值：4.5
-         */
-        this.avgRating = builder.avgRating;
-        /**
-         * 课节列表
-         * <p> 示例值：
-         */
-        this.lessonList = builder.lessonList;
+    /**
+     * 课程标题
+     *
+     * <p>示例值：互联：脑机交互如何走出实验室
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 课程描述
+     *
+     * <p>示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 课程封面url
+     *
+     * <p>示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
+     *
+     * @param coverUrl
+     * @return
+     */
+    public Builder coverUrl(String coverUrl) {
+      this.coverUrl = coverUrl;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 用户
+     *
+     * <p>示例值：
+     *
+     * @param owner
+     * @return
+     */
+    public Builder owner(User owner) {
+      this.owner = owner;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 讲师
+     *
+     * <p>示例值：
+     *
+     * @param teacherList
+     * @return
+     */
+    public Builder teacherList(User[] teacherList) {
+      this.teacherList = teacherList;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 认证讲师
+     *
+     * <p>示例值：
+     *
+     * @param lectureList
+     * @return
+     */
+    public Builder lectureList(CourseLecture[] lectureList) {
+      this.lectureList = lectureList;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * 课程分类
+     *
+     * <p>示例值：
+     *
+     * @param categoryList
+     * @return
+     */
+    public Builder categoryList(CourseCategory[] categoryList) {
+      this.categoryList = categoryList;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * 课程频道信息
+     *
+     * <p>示例值：
+     *
+     * @param channelList
+     * @return
+     */
+    public Builder channelList(CourseChannel[] channelList) {
+      this.channelList = channelList;
+      return this;
     }
 
-    public String getCoverUrl() {
-        return this.coverUrl;
+    /**
+     * 公开范围
+     *
+     * <p>示例值：
+     *
+     * @param visibleScopeInfo
+     * @return
+     */
+    public Builder visibleScopeInfo(VisibleScopeInfo visibleScopeInfo) {
+      this.visibleScopeInfo = visibleScopeInfo;
+      return this;
     }
 
-    public void setCoverUrl(String coverUrl) {
-        this.coverUrl = coverUrl;
+    /**
+     * 发布状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     *
+     * @param publishStatus
+     * @return
+     */
+    public Builder publishStatus(Integer publishStatus) {
+      this.publishStatus = publishStatus;
+      return this;
     }
 
-    public User getOwner() {
-        return this.owner;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1663063144
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(Integer createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
+    /**
+     * 发布时间
+     *
+     * <p>示例值：1663063144
+     *
+     * @param publishedAt
+     * @return
+     */
+    public Builder publishedAt(Integer publishedAt) {
+      this.publishedAt = publishedAt;
+      return this;
     }
 
-    public User[] getTeacherList() {
-        return this.teacherList;
+    /**
+     * 课程学员数
+     *
+     * <p>示例值：1
+     *
+     * @param totalLearnerNum
+     * @return
+     */
+    public Builder totalLearnerNum(Integer totalLearnerNum) {
+      this.totalLearnerNum = totalLearnerNum;
+      return this;
     }
 
-    public void setTeacherList(User[] teacherList) {
-        this.teacherList = teacherList;
+    /**
+     * 课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     *
+     * @param vagueTotalLearnerNum
+     * @return
+     */
+    public Builder vagueTotalLearnerNum(Integer vagueTotalLearnerNum) {
+      this.vagueTotalLearnerNum = vagueTotalLearnerNum;
+      return this;
     }
 
-    public CourseLecture[] getLectureList() {
-        return this.lectureList;
+    /**
+     * 未完成课程学员数
+     *
+     * <p>示例值：1
+     *
+     * @param unstartLearnerNum
+     * @return
+     */
+    public Builder unstartLearnerNum(Integer unstartLearnerNum) {
+      this.unstartLearnerNum = unstartLearnerNum;
+      return this;
     }
 
-    public void setLectureList(CourseLecture[] lectureList) {
-        this.lectureList = lectureList;
+    /**
+     * 未完成课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     *
+     * @param vagueUnstartLearnerNum
+     * @return
+     */
+    public Builder vagueUnstartLearnerNum(Integer vagueUnstartLearnerNum) {
+      this.vagueUnstartLearnerNum = vagueUnstartLearnerNum;
+      return this;
     }
 
-    public CourseCategory[] getCategoryList() {
-        return this.categoryList;
+    /**
+     * 学习中课程学员数
+     *
+     * <p>示例值：1
+     *
+     * @param processingLearnerNum
+     * @return
+     */
+    public Builder processingLearnerNum(Integer processingLearnerNum) {
+      this.processingLearnerNum = processingLearnerNum;
+      return this;
     }
 
-    public void setCategoryList(CourseCategory[] categoryList) {
-        this.categoryList = categoryList;
+    /**
+     * 学习中课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     *
+     * @param vagueProcessingLearnerNum
+     * @return
+     */
+    public Builder vagueProcessingLearnerNum(Integer vagueProcessingLearnerNum) {
+      this.vagueProcessingLearnerNum = vagueProcessingLearnerNum;
+      return this;
     }
 
-    public CourseChannel[] getChannelList() {
-        return this.channelList;
+    /**
+     * 完成课程学员数
+     *
+     * <p>示例值：1
+     *
+     * @param completedLearnerNum
+     * @return
+     */
+    public Builder completedLearnerNum(Integer completedLearnerNum) {
+      this.completedLearnerNum = completedLearnerNum;
+      return this;
     }
 
-    public void setChannelList(CourseChannel[] channelList) {
-        this.channelList = channelList;
+    /**
+     * 完成课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     *
+     * @param vagueCompletedLearnerNum
+     * @return
+     */
+    public Builder vagueCompletedLearnerNum(Integer vagueCompletedLearnerNum) {
+      this.vagueCompletedLearnerNum = vagueCompletedLearnerNum;
+      return this;
     }
 
-    public VisibleScopeInfo getVisibleScopeInfo() {
-        return this.visibleScopeInfo;
+    /**
+     * 人均学习时长（单位：时）
+     *
+     * <p>示例值：1.5
+     *
+     * @param averageLearnerDuration
+     * @return
+     */
+    public Builder averageLearnerDuration(Double averageLearnerDuration) {
+      this.averageLearnerDuration = averageLearnerDuration;
+      return this;
     }
 
-    public void setVisibleScopeInfo(VisibleScopeInfo visibleScopeInfo) {
-        this.visibleScopeInfo = visibleScopeInfo;
+    /**
+     * 课程评分
+     *
+     * <p>示例值：4.5
+     *
+     * @param avgRating
+     * @return
+     */
+    public Builder avgRating(Double avgRating) {
+      this.avgRating = avgRating;
+      return this;
     }
 
-    public Integer getPublishStatus() {
-        return this.publishStatus;
+    /**
+     * 课节列表
+     *
+     * <p>示例值：
+     *
+     * @param lessonList
+     * @return
+     */
+    public Builder lessonList(Lesson[] lessonList) {
+      this.lessonList = lessonList;
+      return this;
     }
 
-    public void setPublishStatus(Integer publishStatus) {
-        this.publishStatus = publishStatus;
+    public Course build() {
+      return new Course(this);
     }
-
-    public Integer getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(Integer createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Integer getPublishedAt() {
-        return this.publishedAt;
-    }
-
-    public void setPublishedAt(Integer publishedAt) {
-        this.publishedAt = publishedAt;
-    }
-
-    public Integer getTotalLearnerNum() {
-        return this.totalLearnerNum;
-    }
-
-    public void setTotalLearnerNum(Integer totalLearnerNum) {
-        this.totalLearnerNum = totalLearnerNum;
-    }
-
-    public Integer getVagueTotalLearnerNum() {
-        return this.vagueTotalLearnerNum;
-    }
-
-    public void setVagueTotalLearnerNum(Integer vagueTotalLearnerNum) {
-        this.vagueTotalLearnerNum = vagueTotalLearnerNum;
-    }
-
-    public Integer getUnstartLearnerNum() {
-        return this.unstartLearnerNum;
-    }
-
-    public void setUnstartLearnerNum(Integer unstartLearnerNum) {
-        this.unstartLearnerNum = unstartLearnerNum;
-    }
-
-    public Integer getVagueUnstartLearnerNum() {
-        return this.vagueUnstartLearnerNum;
-    }
-
-    public void setVagueUnstartLearnerNum(Integer vagueUnstartLearnerNum) {
-        this.vagueUnstartLearnerNum = vagueUnstartLearnerNum;
-    }
-
-    public Integer getProcessingLearnerNum() {
-        return this.processingLearnerNum;
-    }
-
-    public void setProcessingLearnerNum(Integer processingLearnerNum) {
-        this.processingLearnerNum = processingLearnerNum;
-    }
-
-    public Integer getVagueProcessingLearnerNum() {
-        return this.vagueProcessingLearnerNum;
-    }
-
-    public void setVagueProcessingLearnerNum(Integer vagueProcessingLearnerNum) {
-        this.vagueProcessingLearnerNum = vagueProcessingLearnerNum;
-    }
-
-    public Integer getCompletedLearnerNum() {
-        return this.completedLearnerNum;
-    }
-
-    public void setCompletedLearnerNum(Integer completedLearnerNum) {
-        this.completedLearnerNum = completedLearnerNum;
-    }
-
-    public Integer getVagueCompletedLearnerNum() {
-        return this.vagueCompletedLearnerNum;
-    }
-
-    public void setVagueCompletedLearnerNum(Integer vagueCompletedLearnerNum) {
-        this.vagueCompletedLearnerNum = vagueCompletedLearnerNum;
-    }
-
-    public Double getAverageLearnerDuration() {
-        return this.averageLearnerDuration;
-    }
-
-    public void setAverageLearnerDuration(Double averageLearnerDuration) {
-        this.averageLearnerDuration = averageLearnerDuration;
-    }
-
-    public Double getAvgRating() {
-        return this.avgRating;
-    }
-
-    public void setAvgRating(Double avgRating) {
-        this.avgRating = avgRating;
-    }
-
-    public Lesson[] getLessonList() {
-        return this.lessonList;
-    }
-
-    public void setLessonList(Lesson[] lessonList) {
-        this.lessonList = lessonList;
-    }
-
-    public static class Builder {
-        /**
-         * 课程ID
-         * <p> 示例值：5e943ade0bb519d693a885e9
-         */
-        private String id;
-        /**
-         * 课程标题
-         * <p> 示例值：互联：脑机交互如何走出实验室
-         */
-        private String title;
-        /**
-         * 课程描述
-         * <p> 示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
-         */
-        private String description;
-        /**
-         * 课程封面url
-         * <p> 示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
-         */
-        private String coverUrl;
-        /**
-         * 课程所有人
-         * <p> 示例值：
-         */
-        private User owner;
-        /**
-         * 讲师
-         * <p> 示例值：
-         */
-        private User[] teacherList;
-        /**
-         * 认证讲师
-         * <p> 示例值：
-         */
-        private CourseLecture[] lectureList;
-        /**
-         * 课程分类
-         * <p> 示例值：
-         */
-        private CourseCategory[] categoryList;
-        /**
-         * 课程频道信息
-         * <p> 示例值：
-         */
-        private CourseChannel[] channelList;
-        /**
-         * 公开范围
-         * <p> 示例值：
-         */
-        private VisibleScopeInfo visibleScopeInfo;
-        /**
-         * 发布状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        private Integer publishStatus;
-        /**
-         * 创建时间
-         * <p> 示例值：1663063144
-         */
-        private Integer createdAt;
-        /**
-         * 发布时间
-         * <p> 示例值：1663063144
-         */
-        private Integer publishedAt;
-        /**
-         * 课程学员数
-         * <p> 示例值：1
-         */
-        private Integer totalLearnerNum;
-        /**
-         * 课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        private Integer vagueTotalLearnerNum;
-        /**
-         * 未完成课程学员数
-         * <p> 示例值：1
-         */
-        private Integer unstartLearnerNum;
-        /**
-         * 未完成课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        private Integer vagueUnstartLearnerNum;
-        /**
-         * 学习中课程学员数
-         * <p> 示例值：1
-         */
-        private Integer processingLearnerNum;
-        /**
-         * 学习中课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        private Integer vagueProcessingLearnerNum;
-        /**
-         * 完成课程学员数
-         * <p> 示例值：1
-         */
-        private Integer completedLearnerNum;
-        /**
-         * 完成课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        private Integer vagueCompletedLearnerNum;
-        /**
-         * 人均学习时长（单位：时）
-         * <p> 示例值：1.5
-         */
-        private Double averageLearnerDuration;
-        /**
-         * 课程评分
-         * <p> 示例值：4.5
-         */
-        private Double avgRating;
-        /**
-         * 课节列表
-         * <p> 示例值：
-         */
-        private Lesson[] lessonList;
-
-        /**
-         * 课程ID
-         * <p> 示例值：5e943ade0bb519d693a885e9
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 课程标题
-         * <p> 示例值：互联：脑机交互如何走出实验室
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 课程描述
-         * <p> 示例值：本课重点介绍项目管理各个阶段重点事项，以及过程用到的核心工具和方法，属于项目管理的入门课程
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 课程封面url
-         * <p> 示例值：https://ashtray-cdn.kundou.cn/224fbffb6da97b2a3ea34f974ed2d29e/60c89f2e/api/elearning/files/eyJhIjo2NTUxMjkyMjM4ODQ1LCJ0IjoiNjY4MDc5ODEzNTA3OTQwNTA2OCJ9/rzKhAqK0p?rand=xNe_5ZB4M
-         *
-         * @param coverUrl
-         * @return
-         */
-        public Builder coverUrl(String coverUrl) {
-            this.coverUrl = coverUrl;
-            return this;
-        }
-
-
-        /**
-         * 课程所有人
-         * <p> 示例值：
-         *
-         * @param owner
-         * @return
-         */
-        public Builder owner(User owner) {
-            this.owner = owner;
-            return this;
-        }
-
-
-        /**
-         * 讲师
-         * <p> 示例值：
-         *
-         * @param teacherList
-         * @return
-         */
-        public Builder teacherList(User[] teacherList) {
-            this.teacherList = teacherList;
-            return this;
-        }
-
-
-        /**
-         * 认证讲师
-         * <p> 示例值：
-         *
-         * @param lectureList
-         * @return
-         */
-        public Builder lectureList(CourseLecture[] lectureList) {
-            this.lectureList = lectureList;
-            return this;
-        }
-
-
-        /**
-         * 课程分类
-         * <p> 示例值：
-         *
-         * @param categoryList
-         * @return
-         */
-        public Builder categoryList(CourseCategory[] categoryList) {
-            this.categoryList = categoryList;
-            return this;
-        }
-
-
-        /**
-         * 课程频道信息
-         * <p> 示例值：
-         *
-         * @param channelList
-         * @return
-         */
-        public Builder channelList(CourseChannel[] channelList) {
-            this.channelList = channelList;
-            return this;
-        }
-
-
-        /**
-         * 公开范围
-         * <p> 示例值：
-         *
-         * @param visibleScopeInfo
-         * @return
-         */
-        public Builder visibleScopeInfo(VisibleScopeInfo visibleScopeInfo) {
-            this.visibleScopeInfo = visibleScopeInfo;
-            return this;
-        }
-
-
-        /**
-         * 发布状态。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         *
-         * @param publishStatus
-         * @return
-         */
-        public Builder publishStatus(Integer publishStatus) {
-            this.publishStatus = publishStatus;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1663063144
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(Integer createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 发布时间
-         * <p> 示例值：1663063144
-         *
-         * @param publishedAt
-         * @return
-         */
-        public Builder publishedAt(Integer publishedAt) {
-            this.publishedAt = publishedAt;
-            return this;
-        }
-
-
-        /**
-         * 课程学员数
-         * <p> 示例值：1
-         *
-         * @param totalLearnerNum
-         * @return
-         */
-        public Builder totalLearnerNum(Integer totalLearnerNum) {
-            this.totalLearnerNum = totalLearnerNum;
-            return this;
-        }
-
-
-        /**
-         * 课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         *
-         * @param vagueTotalLearnerNum
-         * @return
-         */
-        public Builder vagueTotalLearnerNum(Integer vagueTotalLearnerNum) {
-            this.vagueTotalLearnerNum = vagueTotalLearnerNum;
-            return this;
-        }
-
-
-        /**
-         * 未完成课程学员数
-         * <p> 示例值：1
-         *
-         * @param unstartLearnerNum
-         * @return
-         */
-        public Builder unstartLearnerNum(Integer unstartLearnerNum) {
-            this.unstartLearnerNum = unstartLearnerNum;
-            return this;
-        }
-
-
-        /**
-         * 未完成课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         *
-         * @param vagueUnstartLearnerNum
-         * @return
-         */
-        public Builder vagueUnstartLearnerNum(Integer vagueUnstartLearnerNum) {
-            this.vagueUnstartLearnerNum = vagueUnstartLearnerNum;
-            return this;
-        }
-
-
-        /**
-         * 学习中课程学员数
-         * <p> 示例值：1
-         *
-         * @param processingLearnerNum
-         * @return
-         */
-        public Builder processingLearnerNum(Integer processingLearnerNum) {
-            this.processingLearnerNum = processingLearnerNum;
-            return this;
-        }
-
-
-        /**
-         * 学习中课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         *
-         * @param vagueProcessingLearnerNum
-         * @return
-         */
-        public Builder vagueProcessingLearnerNum(Integer vagueProcessingLearnerNum) {
-            this.vagueProcessingLearnerNum = vagueProcessingLearnerNum;
-            return this;
-        }
-
-
-        /**
-         * 完成课程学员数
-         * <p> 示例值：1
-         *
-         * @param completedLearnerNum
-         * @return
-         */
-        public Builder completedLearnerNum(Integer completedLearnerNum) {
-            this.completedLearnerNum = completedLearnerNum;
-            return this;
-        }
-
-
-        /**
-         * 完成课程学员数(模糊)。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         *
-         * @param vagueCompletedLearnerNum
-         * @return
-         */
-        public Builder vagueCompletedLearnerNum(Integer vagueCompletedLearnerNum) {
-            this.vagueCompletedLearnerNum = vagueCompletedLearnerNum;
-            return this;
-        }
-
-
-        /**
-         * 人均学习时长（单位：时）
-         * <p> 示例值：1.5
-         *
-         * @param averageLearnerDuration
-         * @return
-         */
-        public Builder averageLearnerDuration(Double averageLearnerDuration) {
-            this.averageLearnerDuration = averageLearnerDuration;
-            return this;
-        }
-
-
-        /**
-         * 课程评分
-         * <p> 示例值：4.5
-         *
-         * @param avgRating
-         * @return
-         */
-        public Builder avgRating(Double avgRating) {
-            this.avgRating = avgRating;
-            return this;
-        }
-
-
-        /**
-         * 课节列表
-         * <p> 示例值：
-         *
-         * @param lessonList
-         * @return
-         */
-        public Builder lessonList(Lesson[] lessonList) {
-            this.lessonList = lessonList;
-            return this;
-        }
-
-
-        public Course build() {
-            return new Course(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

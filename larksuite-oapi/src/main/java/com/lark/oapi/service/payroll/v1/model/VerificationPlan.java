@@ -13,741 +13,821 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerificationPlan {
+  /**
+   * 方案ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("plan_id")
+  private String planId;
+
+  /**
+   * 版本ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("version_id")
+  private String versionId;
+
+  /**
+   * 时区，Asia/Shanghai
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("time_zone")
+  private String timeZone;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_active")
+  private Boolean isActive;
+
+  /**
+   * 生效期间，"2006-08"
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("effective_period_seq")
+  private String effectivePeriodSeq;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private IdWithName name;
+
+  /**
+   * 国家/地区
+   *
+   * <p>示例值：
+   */
+  @SerializedName("country_region_id")
+  private IdWithName countryRegionId;
+
+  /**
+   * 币种
+   *
+   * <p>示例值：
+   */
+  @SerializedName("currency_id")
+  private IdWithName currencyId;
+
+  /**
+   * 核对周期日历类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("calendar_type")
+  private Integer calendarType;
+
+  /**
+   * 算薪日历
+   *
+   * <p>示例值：
+   */
+  @SerializedName("pay_calendars")
+  private VerifPayCalendar[] payCalendars;
+
+  /**
+   * 核对人员范围
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("scope_type")
+  private Integer scopeType;
+
+  /**
+   * 薪资组
+   *
+   * <p>示例值：
+   */
+  @SerializedName("pay_groups")
+  private IdWithName[] payGroups;
+
+  /**
+   * 数据源配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("datasource_config")
+  private VerifDatasourceConfig datasourceConfig;
+
+  /**
+   * 复核类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("approval_type")
+  private Integer approvalType;
+
+  /**
+   * 观察员 wk employment id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ovbservers")
+  private String[] ovbservers;
+
+  /**
+   * 管理员 wk employment id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("admins")
+  private String[] admins;
+
+  /**
+   * 复核员 wk employment id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reviewers")
+  private String[] reviewers;
+
+  /**
+   * 方案类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("plan_type")
+  private Integer planType;
+
+  /**
+   * 更新时间戳
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("update_time")
+  private Integer updateTime;
+
+  public String getPlanId() {
+    return this.planId;
+  }
+
+  public void setPlanId(String planId) {
+    this.planId = planId;
+  }
+
+  public String getVersionId() {
+    return this.versionId;
+  }
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
+
+  public String getTimeZone() {
+    return this.timeZone;
+  }
+
+  public void setTimeZone(String timeZone) {
+    this.timeZone = timeZone;
+  }
+
+  public Boolean getIsActive() {
+    return this.isActive;
+  }
+
+  public void setIsActive(Boolean isActive) {
+    this.isActive = isActive;
+  }
+
+  public String getEffectivePeriodSeq() {
+    return this.effectivePeriodSeq;
+  }
+
+  public void setEffectivePeriodSeq(String effectivePeriodSeq) {
+    this.effectivePeriodSeq = effectivePeriodSeq;
+  }
+
+  public IdWithName getName() {
+    return this.name;
+  }
+
+  public void setName(IdWithName name) {
+    this.name = name;
+  }
+
+  public IdWithName getCountryRegionId() {
+    return this.countryRegionId;
+  }
+
+  public void setCountryRegionId(IdWithName countryRegionId) {
+    this.countryRegionId = countryRegionId;
+  }
+
+  public IdWithName getCurrencyId() {
+    return this.currencyId;
+  }
+
+  public void setCurrencyId(IdWithName currencyId) {
+    this.currencyId = currencyId;
+  }
+
+  public Integer getCalendarType() {
+    return this.calendarType;
+  }
+
+  public void setCalendarType(Integer calendarType) {
+    this.calendarType = calendarType;
+  }
+
+  public VerifPayCalendar[] getPayCalendars() {
+    return this.payCalendars;
+  }
+
+  public void setPayCalendars(VerifPayCalendar[] payCalendars) {
+    this.payCalendars = payCalendars;
+  }
+
+  public Integer getScopeType() {
+    return this.scopeType;
+  }
+
+  public void setScopeType(Integer scopeType) {
+    this.scopeType = scopeType;
+  }
+
+  public IdWithName[] getPayGroups() {
+    return this.payGroups;
+  }
+
+  public void setPayGroups(IdWithName[] payGroups) {
+    this.payGroups = payGroups;
+  }
+
+  public VerifDatasourceConfig getDatasourceConfig() {
+    return this.datasourceConfig;
+  }
+
+  public void setDatasourceConfig(VerifDatasourceConfig datasourceConfig) {
+    this.datasourceConfig = datasourceConfig;
+  }
+
+  public Integer getApprovalType() {
+    return this.approvalType;
+  }
+
+  public void setApprovalType(Integer approvalType) {
+    this.approvalType = approvalType;
+  }
+
+  public String[] getOvbservers() {
+    return this.ovbservers;
+  }
+
+  public void setOvbservers(String[] ovbservers) {
+    this.ovbservers = ovbservers;
+  }
+
+  public String[] getAdmins() {
+    return this.admins;
+  }
+
+  public void setAdmins(String[] admins) {
+    this.admins = admins;
+  }
+
+  public String[] getReviewers() {
+    return this.reviewers;
+  }
+
+  public void setReviewers(String[] reviewers) {
+    this.reviewers = reviewers;
+  }
+
+  public Integer getPlanType() {
+    return this.planType;
+  }
+
+  public void setPlanType(Integer planType) {
+    this.planType = planType;
+  }
+
+  public Integer getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(Integer updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  // builder 开始
+  public VerificationPlan() {}
+
+  public VerificationPlan(Builder builder) {
     /**
      * 方案ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("plan_id")
-    private String planId;
+    this.planId = builder.planId;
     /**
      * 版本ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("version_id")
-    private String versionId;
+    this.versionId = builder.versionId;
     /**
      * 时区，Asia/Shanghai
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("time_zone")
-    private String timeZone;
+    this.timeZone = builder.timeZone;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_active")
-    private Boolean isActive;
+    this.isActive = builder.isActive;
     /**
      * 生效期间，"2006-08"
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("effective_period_seq")
-    private String effectivePeriodSeq;
+    this.effectivePeriodSeq = builder.effectivePeriodSeq;
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private IdWithName name;
+    this.name = builder.name;
     /**
      * 国家/地区
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("country_region_id")
-    private IdWithName countryRegionId;
+    this.countryRegionId = builder.countryRegionId;
     /**
      * 币种
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("currency_id")
-    private IdWithName currencyId;
+    this.currencyId = builder.currencyId;
     /**
      * 核对周期日历类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("calendar_type")
-    private Integer calendarType;
+    this.calendarType = builder.calendarType;
     /**
      * 算薪日历
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("pay_calendars")
-    private VerifPayCalendar[] payCalendars;
+    this.payCalendars = builder.payCalendars;
     /**
      * 核对人员范围
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("scope_type")
-    private Integer scopeType;
+    this.scopeType = builder.scopeType;
     /**
      * 薪资组
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("pay_groups")
-    private IdWithName[] payGroups;
+    this.payGroups = builder.payGroups;
     /**
      * 数据源配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("datasource_config")
-    private VerifDatasourceConfig datasourceConfig;
+    this.datasourceConfig = builder.datasourceConfig;
     /**
      * 复核类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("approval_type")
-    private Integer approvalType;
+    this.approvalType = builder.approvalType;
     /**
      * 观察员 wk employment id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ovbservers")
-    private String[] ovbservers;
+    this.ovbservers = builder.ovbservers;
     /**
      * 管理员 wk employment id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("admins")
-    private String[] admins;
+    this.admins = builder.admins;
     /**
      * 复核员 wk employment id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reviewers")
-    private String[] reviewers;
+    this.reviewers = builder.reviewers;
     /**
      * 方案类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("plan_type")
-    private Integer planType;
+    this.planType = builder.planType;
     /**
      * 更新时间戳
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("update_time")
+    this.updateTime = builder.updateTime;
+  }
+
+  public static class Builder {
+    /**
+     * 方案ID
+     *
+     * <p>示例值：1
+     */
+    private String planId;
+
+    /**
+     * 版本ID
+     *
+     * <p>示例值：1
+     */
+    private String versionId;
+
+    /**
+     * 时区，Asia/Shanghai
+     *
+     * <p>示例值：1
+     */
+    private String timeZone;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     */
+    private Boolean isActive;
+
+    /**
+     * 生效期间，"2006-08"
+     *
+     * <p>示例值：1
+     */
+    private String effectivePeriodSeq;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private IdWithName name;
+
+    /**
+     * 国家/地区
+     *
+     * <p>示例值：
+     */
+    private IdWithName countryRegionId;
+
+    /**
+     * 币种
+     *
+     * <p>示例值：
+     */
+    private IdWithName currencyId;
+
+    /**
+     * 核对周期日历类型
+     *
+     * <p>示例值：1
+     */
+    private Integer calendarType;
+
+    /**
+     * 算薪日历
+     *
+     * <p>示例值：
+     */
+    private VerifPayCalendar[] payCalendars;
+
+    /**
+     * 核对人员范围
+     *
+     * <p>示例值：1
+     */
+    private Integer scopeType;
+
+    /**
+     * 薪资组
+     *
+     * <p>示例值：
+     */
+    private IdWithName[] payGroups;
+
+    /**
+     * 数据源配置
+     *
+     * <p>示例值：
+     */
+    private VerifDatasourceConfig datasourceConfig;
+
+    /**
+     * 复核类型
+     *
+     * <p>示例值：1
+     */
+    private Integer approvalType;
+
+    /**
+     * 观察员 wk employment id
+     *
+     * <p>示例值：
+     */
+    private String[] ovbservers;
+
+    /**
+     * 管理员 wk employment id
+     *
+     * <p>示例值：
+     */
+    private String[] admins;
+
+    /**
+     * 复核员 wk employment id
+     *
+     * <p>示例值：
+     */
+    private String[] reviewers;
+
+    /**
+     * 方案类型
+     *
+     * <p>示例值：1
+     */
+    private Integer planType;
+
+    /**
+     * 更新时间戳
+     *
+     * <p>示例值：1
+     */
     private Integer updateTime;
 
-    // builder 开始
-    public VerificationPlan() {
+    /**
+     * 方案ID
+     *
+     * <p>示例值：1
+     *
+     * @param planId
+     * @return
+     */
+    public Builder planId(String planId) {
+      this.planId = planId;
+      return this;
     }
 
-    public VerificationPlan(Builder builder) {
-        /**
-         * 方案ID
-         * <p> 示例值：1
-         */
-        this.planId = builder.planId;
-        /**
-         * 版本ID
-         * <p> 示例值：1
-         */
-        this.versionId = builder.versionId;
-        /**
-         * 时区，Asia/Shanghai
-         * <p> 示例值：1
-         */
-        this.timeZone = builder.timeZone;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.isActive = builder.isActive;
-        /**
-         * 生效期间，"2006-08"
-         * <p> 示例值：1
-         */
-        this.effectivePeriodSeq = builder.effectivePeriodSeq;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 国家/地区
-         * <p> 示例值：
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 币种
-         * <p> 示例值：
-         */
-        this.currencyId = builder.currencyId;
-        /**
-         * 核对周期日历类型
-         * <p> 示例值：1
-         */
-        this.calendarType = builder.calendarType;
-        /**
-         * 算薪日历
-         * <p> 示例值：
-         */
-        this.payCalendars = builder.payCalendars;
-        /**
-         * 核对人员范围
-         * <p> 示例值：1
-         */
-        this.scopeType = builder.scopeType;
-        /**
-         * 薪资组
-         * <p> 示例值：
-         */
-        this.payGroups = builder.payGroups;
-        /**
-         * 数据源配置
-         * <p> 示例值：
-         */
-        this.datasourceConfig = builder.datasourceConfig;
-        /**
-         * 复核类型
-         * <p> 示例值：1
-         */
-        this.approvalType = builder.approvalType;
-        /**
-         * 观察员 wk employment id
-         * <p> 示例值：
-         */
-        this.ovbservers = builder.ovbservers;
-        /**
-         * 管理员 wk employment id
-         * <p> 示例值：
-         */
-        this.admins = builder.admins;
-        /**
-         * 复核员 wk employment id
-         * <p> 示例值：
-         */
-        this.reviewers = builder.reviewers;
-        /**
-         * 方案类型
-         * <p> 示例值：1
-         */
-        this.planType = builder.planType;
-        /**
-         * 更新时间戳
-         * <p> 示例值：1
-         */
-        this.updateTime = builder.updateTime;
+    /**
+     * 版本ID
+     *
+     * <p>示例值：1
+     *
+     * @param versionId
+     * @return
+     */
+    public Builder versionId(String versionId) {
+      this.versionId = versionId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 时区，Asia/Shanghai
+     *
+     * <p>示例值：1
+     *
+     * @param timeZone
+     * @return
+     */
+    public Builder timeZone(String timeZone) {
+      this.timeZone = timeZone;
+      return this;
     }
 
-    public String getPlanId() {
-        return this.planId;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     *
+     * @param isActive
+     * @return
+     */
+    public Builder isActive(Boolean isActive) {
+      this.isActive = isActive;
+      return this;
     }
 
-    public void setPlanId(String planId) {
-        this.planId = planId;
+    /**
+     * 生效期间，"2006-08"
+     *
+     * <p>示例值：1
+     *
+     * @param effectivePeriodSeq
+     * @return
+     */
+    public Builder effectivePeriodSeq(String effectivePeriodSeq) {
+      this.effectivePeriodSeq = effectivePeriodSeq;
+      return this;
     }
 
-    public String getVersionId() {
-        return this.versionId;
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(IdWithName name) {
+      this.name = name;
+      return this;
     }
 
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
+    /**
+     * 国家/地区
+     *
+     * <p>示例值：
+     *
+     * @param countryRegionId
+     * @return
+     */
+    public Builder countryRegionId(IdWithName countryRegionId) {
+      this.countryRegionId = countryRegionId;
+      return this;
     }
 
-    public String getTimeZone() {
-        return this.timeZone;
+    /**
+     * 币种
+     *
+     * <p>示例值：
+     *
+     * @param currencyId
+     * @return
+     */
+    public Builder currencyId(IdWithName currencyId) {
+      this.currencyId = currencyId;
+      return this;
     }
 
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
+    /**
+     * 核对周期日历类型
+     *
+     * <p>示例值：1
+     *
+     * @param calendarType
+     * @return
+     */
+    public Builder calendarType(Integer calendarType) {
+      this.calendarType = calendarType;
+      return this;
     }
 
-    public Boolean getIsActive() {
-        return this.isActive;
+    /**
+     * 算薪日历
+     *
+     * <p>示例值：
+     *
+     * @param payCalendars
+     * @return
+     */
+    public Builder payCalendars(VerifPayCalendar[] payCalendars) {
+      this.payCalendars = payCalendars;
+      return this;
     }
 
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
+    /**
+     * 核对人员范围
+     *
+     * <p>示例值：1
+     *
+     * @param scopeType
+     * @return
+     */
+    public Builder scopeType(Integer scopeType) {
+      this.scopeType = scopeType;
+      return this;
     }
 
-    public String getEffectivePeriodSeq() {
-        return this.effectivePeriodSeq;
+    /**
+     * 薪资组
+     *
+     * <p>示例值：
+     *
+     * @param payGroups
+     * @return
+     */
+    public Builder payGroups(IdWithName[] payGroups) {
+      this.payGroups = payGroups;
+      return this;
     }
 
-    public void setEffectivePeriodSeq(String effectivePeriodSeq) {
-        this.effectivePeriodSeq = effectivePeriodSeq;
+    /**
+     * 数据源配置
+     *
+     * <p>示例值：
+     *
+     * @param datasourceConfig
+     * @return
+     */
+    public Builder datasourceConfig(VerifDatasourceConfig datasourceConfig) {
+      this.datasourceConfig = datasourceConfig;
+      return this;
     }
 
-    public IdWithName getName() {
-        return this.name;
+    /**
+     * 复核类型
+     *
+     * <p>示例值：1
+     *
+     * @param approvalType
+     * @return
+     */
+    public Builder approvalType(Integer approvalType) {
+      this.approvalType = approvalType;
+      return this;
     }
 
-    public void setName(IdWithName name) {
-        this.name = name;
+    /**
+     * 观察员 wk employment id
+     *
+     * <p>示例值：
+     *
+     * @param ovbservers
+     * @return
+     */
+    public Builder ovbservers(String[] ovbservers) {
+      this.ovbservers = ovbservers;
+      return this;
     }
 
-    public IdWithName getCountryRegionId() {
-        return this.countryRegionId;
+    /**
+     * 管理员 wk employment id
+     *
+     * <p>示例值：
+     *
+     * @param admins
+     * @return
+     */
+    public Builder admins(String[] admins) {
+      this.admins = admins;
+      return this;
     }
 
-    public void setCountryRegionId(IdWithName countryRegionId) {
-        this.countryRegionId = countryRegionId;
+    /**
+     * 复核员 wk employment id
+     *
+     * <p>示例值：
+     *
+     * @param reviewers
+     * @return
+     */
+    public Builder reviewers(String[] reviewers) {
+      this.reviewers = reviewers;
+      return this;
     }
 
-    public IdWithName getCurrencyId() {
-        return this.currencyId;
+    /**
+     * 方案类型
+     *
+     * <p>示例值：1
+     *
+     * @param planType
+     * @return
+     */
+    public Builder planType(Integer planType) {
+      this.planType = planType;
+      return this;
     }
 
-    public void setCurrencyId(IdWithName currencyId) {
-        this.currencyId = currencyId;
+    /**
+     * 更新时间戳
+     *
+     * <p>示例值：1
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(Integer updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public Integer getCalendarType() {
-        return this.calendarType;
+    public VerificationPlan build() {
+      return new VerificationPlan(this);
     }
+  }
 
-    public void setCalendarType(Integer calendarType) {
-        this.calendarType = calendarType;
-    }
-
-    public VerifPayCalendar[] getPayCalendars() {
-        return this.payCalendars;
-    }
-
-    public void setPayCalendars(VerifPayCalendar[] payCalendars) {
-        this.payCalendars = payCalendars;
-    }
-
-    public Integer getScopeType() {
-        return this.scopeType;
-    }
-
-    public void setScopeType(Integer scopeType) {
-        this.scopeType = scopeType;
-    }
-
-    public IdWithName[] getPayGroups() {
-        return this.payGroups;
-    }
-
-    public void setPayGroups(IdWithName[] payGroups) {
-        this.payGroups = payGroups;
-    }
-
-    public VerifDatasourceConfig getDatasourceConfig() {
-        return this.datasourceConfig;
-    }
-
-    public void setDatasourceConfig(VerifDatasourceConfig datasourceConfig) {
-        this.datasourceConfig = datasourceConfig;
-    }
-
-    public Integer getApprovalType() {
-        return this.approvalType;
-    }
-
-    public void setApprovalType(Integer approvalType) {
-        this.approvalType = approvalType;
-    }
-
-    public String[] getOvbservers() {
-        return this.ovbservers;
-    }
-
-    public void setOvbservers(String[] ovbservers) {
-        this.ovbservers = ovbservers;
-    }
-
-    public String[] getAdmins() {
-        return this.admins;
-    }
-
-    public void setAdmins(String[] admins) {
-        this.admins = admins;
-    }
-
-    public String[] getReviewers() {
-        return this.reviewers;
-    }
-
-    public void setReviewers(String[] reviewers) {
-        this.reviewers = reviewers;
-    }
-
-    public Integer getPlanType() {
-        return this.planType;
-    }
-
-    public void setPlanType(Integer planType) {
-        this.planType = planType;
-    }
-
-    public Integer getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(Integer updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public static class Builder {
-        /**
-         * 方案ID
-         * <p> 示例值：1
-         */
-        private String planId;
-        /**
-         * 版本ID
-         * <p> 示例值：1
-         */
-        private String versionId;
-        /**
-         * 时区，Asia/Shanghai
-         * <p> 示例值：1
-         */
-        private String timeZone;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean isActive;
-        /**
-         * 生效期间，"2006-08"
-         * <p> 示例值：1
-         */
-        private String effectivePeriodSeq;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private IdWithName name;
-        /**
-         * 国家/地区
-         * <p> 示例值：
-         */
-        private IdWithName countryRegionId;
-        /**
-         * 币种
-         * <p> 示例值：
-         */
-        private IdWithName currencyId;
-        /**
-         * 核对周期日历类型
-         * <p> 示例值：1
-         */
-        private Integer calendarType;
-        /**
-         * 算薪日历
-         * <p> 示例值：
-         */
-        private VerifPayCalendar[] payCalendars;
-        /**
-         * 核对人员范围
-         * <p> 示例值：1
-         */
-        private Integer scopeType;
-        /**
-         * 薪资组
-         * <p> 示例值：
-         */
-        private IdWithName[] payGroups;
-        /**
-         * 数据源配置
-         * <p> 示例值：
-         */
-        private VerifDatasourceConfig datasourceConfig;
-        /**
-         * 复核类型
-         * <p> 示例值：1
-         */
-        private Integer approvalType;
-        /**
-         * 观察员 wk employment id
-         * <p> 示例值：
-         */
-        private String[] ovbservers;
-        /**
-         * 管理员 wk employment id
-         * <p> 示例值：
-         */
-        private String[] admins;
-        /**
-         * 复核员 wk employment id
-         * <p> 示例值：
-         */
-        private String[] reviewers;
-        /**
-         * 方案类型
-         * <p> 示例值：1
-         */
-        private Integer planType;
-        /**
-         * 更新时间戳
-         * <p> 示例值：1
-         */
-        private Integer updateTime;
-
-        /**
-         * 方案ID
-         * <p> 示例值：1
-         *
-         * @param planId
-         * @return
-         */
-        public Builder planId(String planId) {
-            this.planId = planId;
-            return this;
-        }
-
-
-        /**
-         * 版本ID
-         * <p> 示例值：1
-         *
-         * @param versionId
-         * @return
-         */
-        public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
-        }
-
-
-        /**
-         * 时区，Asia/Shanghai
-         * <p> 示例值：1
-         *
-         * @param timeZone
-         * @return
-         */
-        public Builder timeZone(String timeZone) {
-            this.timeZone = timeZone;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param isActive
-         * @return
-         */
-        public Builder isActive(Boolean isActive) {
-            this.isActive = isActive;
-            return this;
-        }
-
-
-        /**
-         * 生效期间，"2006-08"
-         * <p> 示例值：1
-         *
-         * @param effectivePeriodSeq
-         * @return
-         */
-        public Builder effectivePeriodSeq(String effectivePeriodSeq) {
-            this.effectivePeriodSeq = effectivePeriodSeq;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(IdWithName name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 国家/地区
-         * <p> 示例值：
-         *
-         * @param countryRegionId
-         * @return
-         */
-        public Builder countryRegionId(IdWithName countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
-        }
-
-
-        /**
-         * 币种
-         * <p> 示例值：
-         *
-         * @param currencyId
-         * @return
-         */
-        public Builder currencyId(IdWithName currencyId) {
-            this.currencyId = currencyId;
-            return this;
-        }
-
-
-        /**
-         * 核对周期日历类型
-         * <p> 示例值：1
-         *
-         * @param calendarType
-         * @return
-         */
-        public Builder calendarType(Integer calendarType) {
-            this.calendarType = calendarType;
-            return this;
-        }
-
-
-        /**
-         * 算薪日历
-         * <p> 示例值：
-         *
-         * @param payCalendars
-         * @return
-         */
-        public Builder payCalendars(VerifPayCalendar[] payCalendars) {
-            this.payCalendars = payCalendars;
-            return this;
-        }
-
-
-        /**
-         * 核对人员范围
-         * <p> 示例值：1
-         *
-         * @param scopeType
-         * @return
-         */
-        public Builder scopeType(Integer scopeType) {
-            this.scopeType = scopeType;
-            return this;
-        }
-
-
-        /**
-         * 薪资组
-         * <p> 示例值：
-         *
-         * @param payGroups
-         * @return
-         */
-        public Builder payGroups(IdWithName[] payGroups) {
-            this.payGroups = payGroups;
-            return this;
-        }
-
-
-        /**
-         * 数据源配置
-         * <p> 示例值：
-         *
-         * @param datasourceConfig
-         * @return
-         */
-        public Builder datasourceConfig(VerifDatasourceConfig datasourceConfig) {
-            this.datasourceConfig = datasourceConfig;
-            return this;
-        }
-
-
-        /**
-         * 复核类型
-         * <p> 示例值：1
-         *
-         * @param approvalType
-         * @return
-         */
-        public Builder approvalType(Integer approvalType) {
-            this.approvalType = approvalType;
-            return this;
-        }
-
-
-        /**
-         * 观察员 wk employment id
-         * <p> 示例值：
-         *
-         * @param ovbservers
-         * @return
-         */
-        public Builder ovbservers(String[] ovbservers) {
-            this.ovbservers = ovbservers;
-            return this;
-        }
-
-
-        /**
-         * 管理员 wk employment id
-         * <p> 示例值：
-         *
-         * @param admins
-         * @return
-         */
-        public Builder admins(String[] admins) {
-            this.admins = admins;
-            return this;
-        }
-
-
-        /**
-         * 复核员 wk employment id
-         * <p> 示例值：
-         *
-         * @param reviewers
-         * @return
-         */
-        public Builder reviewers(String[] reviewers) {
-            this.reviewers = reviewers;
-            return this;
-        }
-
-
-        /**
-         * 方案类型
-         * <p> 示例值：1
-         *
-         * @param planType
-         * @return
-         */
-        public Builder planType(Integer planType) {
-            this.planType = planType;
-            return this;
-        }
-
-
-        /**
-         * 更新时间戳
-         * <p> 示例值：1
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(Integer updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        public VerificationPlan build() {
-            return new VerificationPlan(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

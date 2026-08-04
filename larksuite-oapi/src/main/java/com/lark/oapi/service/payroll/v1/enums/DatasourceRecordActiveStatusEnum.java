@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.payroll.v1.enums;
 
-/**
- * 记录的启停用状态
- */
+/** 记录的启停用状态。说明：数据记录被停用后，依旧可以被API保存、查询，但无法被算薪使用。 */
 public enum DatasourceRecordActiveStatusEnum {
-    ACTIVE(1), // 已启用
-    IN_ACTIVE(2), // 已停用
-    ;
-    private Integer value;
+  ACTIVE(1), // 已启用
+  IN_ACTIVE(2), // 已停用
+  ;
+  private Integer value;
 
-    DatasourceRecordActiveStatusEnum(Integer value) {
-        this.value = value;
-    }
+  DatasourceRecordActiveStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

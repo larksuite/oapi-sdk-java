@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MatchingRuleItem {
+  /**
+   * 匹配规则 ID
+   *
+   * <p>示例值：77456335345
+   */
+  @SerializedName("matching_rule_id")
+  private String matchingRuleId;
+
+  /**
+   * 匹配的公司 ID
+   *
+   * <p>示例值：77456435345
+   */
+  @SerializedName("company_id")
+  private String companyId;
+
+  /**
+   * 启停用状态
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 优先级
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("priority")
+  private Integer priority;
+
+  /**
+   * 维度设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("scope_setting")
+  private MatchingRuleScopeSetting scopeSetting;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("descriptions")
+  private I18n[] descriptions;
+
+  public String getMatchingRuleId() {
+    return this.matchingRuleId;
+  }
+
+  public void setMatchingRuleId(String matchingRuleId) {
+    this.matchingRuleId = matchingRuleId;
+  }
+
+  public String getCompanyId() {
+    return this.companyId;
+  }
+
+  public void setCompanyId(String companyId) {
+    this.companyId = companyId;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public Integer getPriority() {
+    return this.priority;
+  }
+
+  public void setPriority(Integer priority) {
+    this.priority = priority;
+  }
+
+  public MatchingRuleScopeSetting getScopeSetting() {
+    return this.scopeSetting;
+  }
+
+  public void setScopeSetting(MatchingRuleScopeSetting scopeSetting) {
+    this.scopeSetting = scopeSetting;
+  }
+
+  public I18n[] getDescriptions() {
+    return this.descriptions;
+  }
+
+  public void setDescriptions(I18n[] descriptions) {
+    this.descriptions = descriptions;
+  }
+
+  // builder 开始
+  public MatchingRuleItem() {}
+
+  public MatchingRuleItem(Builder builder) {
     /**
      * 匹配规则 ID
-     * <p> 示例值：77456335345
+     *
+     * <p>示例值：77456335345
      */
-    @SerializedName("matching_rule_id")
-    private String matchingRuleId;
+    this.matchingRuleId = builder.matchingRuleId;
     /**
      * 匹配的公司 ID
-     * <p> 示例值：77456435345
+     *
+     * <p>示例值：77456435345
      */
-    @SerializedName("company_id")
-    private String companyId;
+    this.companyId = builder.companyId;
     /**
      * 启停用状态
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
      * 优先级
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("priority")
-    private Integer priority;
+    this.priority = builder.priority;
     /**
      * 维度设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("scope_setting")
-    private MatchingRuleScopeSetting scopeSetting;
+    this.scopeSetting = builder.scopeSetting;
     /**
      * 描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("descriptions")
+    this.descriptions = builder.descriptions;
+  }
+
+  public static class Builder {
+    /**
+     * 匹配规则 ID
+     *
+     * <p>示例值：77456335345
+     */
+    private String matchingRuleId;
+
+    /**
+     * 匹配的公司 ID
+     *
+     * <p>示例值：77456435345
+     */
+    private String companyId;
+
+    /**
+     * 启停用状态
+     *
+     * <p>示例值：false
+     */
+    private Boolean active;
+
+    /**
+     * 优先级
+     *
+     * <p>示例值：10
+     */
+    private Integer priority;
+
+    /**
+     * 维度设置
+     *
+     * <p>示例值：
+     */
+    private MatchingRuleScopeSetting scopeSetting;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     */
     private I18n[] descriptions;
 
-    // builder 开始
-    public MatchingRuleItem() {
+    /**
+     * 匹配规则 ID
+     *
+     * <p>示例值：77456335345
+     *
+     * @param matchingRuleId
+     * @return
+     */
+    public Builder matchingRuleId(String matchingRuleId) {
+      this.matchingRuleId = matchingRuleId;
+      return this;
     }
 
-    public MatchingRuleItem(Builder builder) {
-        /**
-         * 匹配规则 ID
-         * <p> 示例值：77456335345
-         */
-        this.matchingRuleId = builder.matchingRuleId;
-        /**
-         * 匹配的公司 ID
-         * <p> 示例值：77456435345
-         */
-        this.companyId = builder.companyId;
-        /**
-         * 启停用状态
-         * <p> 示例值：false
-         */
-        this.active = builder.active;
-        /**
-         * 优先级
-         * <p> 示例值：10
-         */
-        this.priority = builder.priority;
-        /**
-         * 维度设置
-         * <p> 示例值：
-         */
-        this.scopeSetting = builder.scopeSetting;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.descriptions = builder.descriptions;
+    /**
+     * 匹配的公司 ID
+     *
+     * <p>示例值：77456435345
+     *
+     * @param companyId
+     * @return
+     */
+    public Builder companyId(String companyId) {
+      this.companyId = companyId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 启停用状态
+     *
+     * <p>示例值：false
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public String getMatchingRuleId() {
-        return this.matchingRuleId;
+    /**
+     * 优先级
+     *
+     * <p>示例值：10
+     *
+     * @param priority
+     * @return
+     */
+    public Builder priority(Integer priority) {
+      this.priority = priority;
+      return this;
     }
 
-    public void setMatchingRuleId(String matchingRuleId) {
-        this.matchingRuleId = matchingRuleId;
+    /**
+     * 维度设置
+     *
+     * <p>示例值：
+     *
+     * @param scopeSetting
+     * @return
+     */
+    public Builder scopeSetting(MatchingRuleScopeSetting scopeSetting) {
+      this.scopeSetting = scopeSetting;
+      return this;
     }
 
-    public String getCompanyId() {
-        return this.companyId;
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     *
+     * @param descriptions
+     * @return
+     */
+    public Builder descriptions(I18n[] descriptions) {
+      this.descriptions = descriptions;
+      return this;
     }
 
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
+    public MatchingRuleItem build() {
+      return new MatchingRuleItem(this);
     }
+  }
 
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public Integer getPriority() {
-        return this.priority;
-    }
-
-    public void setPriority(Integer priority) {
-        this.priority = priority;
-    }
-
-    public MatchingRuleScopeSetting getScopeSetting() {
-        return this.scopeSetting;
-    }
-
-    public void setScopeSetting(MatchingRuleScopeSetting scopeSetting) {
-        this.scopeSetting = scopeSetting;
-    }
-
-    public I18n[] getDescriptions() {
-        return this.descriptions;
-    }
-
-    public void setDescriptions(I18n[] descriptions) {
-        this.descriptions = descriptions;
-    }
-
-    public static class Builder {
-        /**
-         * 匹配规则 ID
-         * <p> 示例值：77456335345
-         */
-        private String matchingRuleId;
-        /**
-         * 匹配的公司 ID
-         * <p> 示例值：77456435345
-         */
-        private String companyId;
-        /**
-         * 启停用状态
-         * <p> 示例值：false
-         */
-        private Boolean active;
-        /**
-         * 优先级
-         * <p> 示例值：10
-         */
-        private Integer priority;
-        /**
-         * 维度设置
-         * <p> 示例值：
-         */
-        private MatchingRuleScopeSetting scopeSetting;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        private I18n[] descriptions;
-
-        /**
-         * 匹配规则 ID
-         * <p> 示例值：77456335345
-         *
-         * @param matchingRuleId
-         * @return
-         */
-        public Builder matchingRuleId(String matchingRuleId) {
-            this.matchingRuleId = matchingRuleId;
-            return this;
-        }
-
-
-        /**
-         * 匹配的公司 ID
-         * <p> 示例值：77456435345
-         *
-         * @param companyId
-         * @return
-         */
-        public Builder companyId(String companyId) {
-            this.companyId = companyId;
-            return this;
-        }
-
-
-        /**
-         * 启停用状态
-         * <p> 示例值：false
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 优先级
-         * <p> 示例值：10
-         *
-         * @param priority
-         * @return
-         */
-        public Builder priority(Integer priority) {
-            this.priority = priority;
-            return this;
-        }
-
-
-        /**
-         * 维度设置
-         * <p> 示例值：
-         *
-         * @param scopeSetting
-         * @return
-         */
-        public Builder scopeSetting(MatchingRuleScopeSetting scopeSetting) {
-            this.scopeSetting = scopeSetting;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：
-         *
-         * @param descriptions
-         * @return
-         */
-        public Builder descriptions(I18n[] descriptions) {
-            this.descriptions = descriptions;
-            return this;
-        }
-
-
-        public MatchingRuleItem build() {
-            return new MatchingRuleItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

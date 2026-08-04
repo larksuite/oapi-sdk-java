@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KvEntity {
+  /**
+   * 识别的实体类型
+   *
+   * <p>示例值：entry_name
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 识别出字段的文本信息
+   *
+   * <p>示例值：餐饮服务
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public KvEntity() {}
+
+  public KvEntity(Builder builder) {
     /**
      * 识别的实体类型
-     * <p> 示例值：entry_name
+     *
+     * <p>示例值：entry_name
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 识别出字段的文本信息
-     * <p> 示例值：餐饮服务
+     *
+     * <p>示例值：餐饮服务
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 识别的实体类型
+     *
+     * <p>示例值：entry_name
+     */
+    private String type;
+
+    /**
+     * 识别出字段的文本信息
+     *
+     * <p>示例值：餐饮服务
+     */
     private String value;
 
-    // builder 开始
-    public KvEntity() {
+    /**
+     * 识别的实体类型
+     *
+     * <p>示例值：entry_name
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public KvEntity(Builder builder) {
-        /**
-         * 识别的实体类型
-         * <p> 示例值：entry_name
-         */
-        this.type = builder.type;
-        /**
-         * 识别出字段的文本信息
-         * <p> 示例值：餐饮服务
-         */
-        this.value = builder.value;
+    /**
+     * 识别出字段的文本信息
+     *
+     * <p>示例值：餐饮服务
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public KvEntity build() {
+      return new KvEntity(this);
     }
+  }
 
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 识别的实体类型
-         * <p> 示例值：entry_name
-         */
-        private String type;
-        /**
-         * 识别出字段的文本信息
-         * <p> 示例值：餐饮服务
-         */
-        private String value;
-
-        /**
-         * 识别的实体类型
-         * <p> 示例值：entry_name
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 识别出字段的文本信息
-         * <p> 示例值：餐饮服务
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public KvEntity build() {
-            return new KvEntity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

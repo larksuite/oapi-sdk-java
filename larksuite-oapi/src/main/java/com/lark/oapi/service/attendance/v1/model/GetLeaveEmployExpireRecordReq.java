@@ -13,142 +13,148 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.attendance.v1.enums.*;
 
 public class GetLeaveEmployExpireRecordReq {
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 假期类型ID，可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)获取
+   *
+   * <p>示例值：7111688079785723436
+   */
+  @Path
+  @SerializedName("leave_id")
+  private String leaveId;
+
+  public String getLeaveId() {
+    return this.leaveId;
+  }
+
+  public void setLeaveId(String leaveId) {
+    this.leaveId = leaveId;
+  }
+
+  @Body private GetLeaveEmployExpireRecordReqBody body;
+
+  public GetLeaveEmployExpireRecordReqBody getGetLeaveEmployExpireRecordReqBody() {
+    return this.body;
+  }
+
+  public void setGetLeaveEmployExpireRecordReqBody(GetLeaveEmployExpireRecordReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public GetLeaveEmployExpireRecordReq() {}
+
+  public GetLeaveEmployExpireRecordReq(Builder builder) {
     /**
      * 用户 ID 类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 假期类型ID
-     * <p> 示例值：1
+     * 假期类型ID，可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)获取
+     *
+     * <p>示例值：7111688079785723436
      */
-    @Path
-    @SerializedName("leave_id")
-    private String leaveId;
-    @Body
+    this.leaveId = builder.leaveId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 用户 ID 类型
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.attendance.v1.enums.GetLeaveEmployExpireRecordGetLeaveEmployExpireRecordUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.attendance.v1.enums
+                .GetLeaveEmployExpireRecordGetLeaveEmployExpireRecordUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    private String
+        leaveId; // 假期类型ID，可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)获取
+
+    /**
+     * 假期类型ID，可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)获取
+     *
+     * <p>示例值：7111688079785723436
+     *
+     * @param leaveId
+     * @return
+     */
+    public Builder leaveId(String leaveId) {
+      this.leaveId = leaveId;
+      return this;
+    }
+
     private GetLeaveEmployExpireRecordReqBody body;
 
-    // builder 开始
-    public GetLeaveEmployExpireRecordReq() {
-    }
-
-    public GetLeaveEmployExpireRecordReq(Builder builder) {
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 假期类型ID
-         * <p> 示例值：1
-         */
-        this.leaveId = builder.leaveId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getLeaveId() {
-        return this.leaveId;
-    }
-
-    public void setLeaveId(String leaveId) {
-        this.leaveId = leaveId;
-    }
-
     public GetLeaveEmployExpireRecordReqBody getGetLeaveEmployExpireRecordReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setGetLeaveEmployExpireRecordReqBody(GetLeaveEmployExpireRecordReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder getLeaveEmployExpireRecordReqBody(GetLeaveEmployExpireRecordReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 用户 ID 类型
-        private String leaveId; // 假期类型ID
-        private GetLeaveEmployExpireRecordReqBody body;
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.attendance.v1.enums.GetLeaveEmployExpireRecordGetLeaveEmployExpireRecordUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.attendance.v1.enums.GetLeaveEmployExpireRecordGetLeaveEmployExpireRecordUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 假期类型ID
-         * <p> 示例值：1
-         *
-         * @param leaveId
-         * @return
-         */
-        public Builder leaveId(String leaveId) {
-            this.leaveId = leaveId;
-            return this;
-        }
-
-        public GetLeaveEmployExpireRecordReqBody getGetLeaveEmployExpireRecordReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder getLeaveEmployExpireRecordReqBody(GetLeaveEmployExpireRecordReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public GetLeaveEmployExpireRecordReq build() {
-            return new GetLeaveEmployExpireRecordReq(this);
-        }
+    public GetLeaveEmployExpireRecordReq build() {
+      return new GetLeaveEmployExpireRecordReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

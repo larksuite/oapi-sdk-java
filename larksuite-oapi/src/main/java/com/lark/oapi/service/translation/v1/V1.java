@@ -17,13 +17,13 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.translation.v1.resource.Text;
 
 public class V1 {
-    private final Text text; // 文本
+  private final Text text; // text
 
-    public V1(Config config) {
-        this.text = new Text(config);
-    }
+  public V1(Config config) {
+    this.text = new Text(config);
+  }
 
-    public Text text() {
-        return text;
-    }
+  public Text text() {
+    return text;
+  }
 }

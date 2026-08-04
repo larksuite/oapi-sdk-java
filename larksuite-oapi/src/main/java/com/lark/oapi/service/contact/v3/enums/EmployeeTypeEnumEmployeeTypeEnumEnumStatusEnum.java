@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.contact.v3.enums;
 
-/**
- * 使用状态
- */
+/** 人员类型的选项激活状态。 */
 public enum EmployeeTypeEnumEmployeeTypeEnumEnumStatusEnum {
-    ACTIVE(1), // 激活
-    INACTIVE(2), // 未激活
-    ;
-    private Integer value;
+  ACTIVE(1), // 激活
+  INACTIVE(2), // 未激活
+  ;
+  private Integer value;
 
-    EmployeeTypeEnumEmployeeTypeEnumEnumStatusEnum(Integer value) {
-        this.value = value;
-    }
+  EmployeeTypeEnumEmployeeTypeEnumEnumStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

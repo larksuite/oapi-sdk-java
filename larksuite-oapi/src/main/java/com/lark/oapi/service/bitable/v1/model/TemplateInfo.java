@@ -13,132 +13,121 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TemplateInfo {
+  /**
+   * 是否是模板
+   *
+   * <p>示例值：
+   */
+  @SerializedName("template_type")
+  private String templateType;
+
+  /** 示例值： */
+  @SerializedName("publish_flag")
+  private String publishFlag;
+
+  public String getTemplateType() {
+    return this.templateType;
+  }
+
+  public void setTemplateType(String templateType) {
+    this.templateType = templateType;
+  }
+
+  public String getPublishFlag() {
+    return this.publishFlag;
+  }
+
+  public void setPublishFlag(String publishFlag) {
+    this.publishFlag = publishFlag;
+  }
+
+  // builder 开始
+  public TemplateInfo() {}
+
+  public TemplateInfo(Builder builder) {
     /**
      * 是否是模板
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("template_type")
-    private String templateType;
+    this.templateType = builder.templateType;
+    /** 示例值： */
+    this.publishFlag = builder.publishFlag;
+  }
+
+  public static class Builder {
     /**
-     * <p> 示例值：
+     * 是否是模板
+     *
+     * <p>示例值：
      */
-    @SerializedName("publish_flag")
+    private String templateType;
+
+    /** 示例值： */
     private String publishFlag;
 
-    // builder 开始
-    public TemplateInfo() {
+    /**
+     * 是否是模板
+     *
+     * <p>示例值：
+     *
+     * @param templateType
+     * @return
+     */
+    public Builder templateType(String templateType) {
+      this.templateType = templateType;
+      return this;
     }
 
-    public TemplateInfo(Builder builder) {
-        /**
-         * 是否是模板
-         * <p> 示例值：
-         */
-        this.templateType = builder.templateType;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.publishFlag = builder.publishFlag;
+    /**
+     * 是否是模板
+     *
+     * <p>示例值：
+     *
+     * @param templateType {@link
+     *     com.lark.oapi.service.bitable.v1.enums.TemplateInfoObjTemplateTypeEnum}
+     * @return
+     */
+    public Builder templateType(
+        com.lark.oapi.service.bitable.v1.enums.TemplateInfoObjTemplateTypeEnum templateType) {
+      this.templateType = templateType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param publishFlag
+     * @return
+     */
+    public Builder publishFlag(String publishFlag) {
+      this.publishFlag = publishFlag;
+      return this;
     }
 
-    public String getTemplateType() {
-        return this.templateType;
+    /**
+     * 示例值：
+     *
+     * @param publishFlag {@link
+     *     com.lark.oapi.service.bitable.v1.enums.TemplateInfoObjTemplatePublishFlagEnum}
+     * @return
+     */
+    public Builder publishFlag(
+        com.lark.oapi.service.bitable.v1.enums.TemplateInfoObjTemplatePublishFlagEnum publishFlag) {
+      this.publishFlag = publishFlag.getValue();
+      return this;
     }
 
-    public void setTemplateType(String templateType) {
-        this.templateType = templateType;
+    public TemplateInfo build() {
+      return new TemplateInfo(this);
     }
+  }
 
-    public String getPublishFlag() {
-        return this.publishFlag;
-    }
-
-    public void setPublishFlag(String publishFlag) {
-        this.publishFlag = publishFlag;
-    }
-
-    public static class Builder {
-        /**
-         * 是否是模板
-         * <p> 示例值：
-         */
-        private String templateType;
-        /**
-         * <p> 示例值：
-         */
-        private String publishFlag;
-
-        /**
-         * 是否是模板
-         * <p> 示例值：
-         *
-         * @param templateType
-         * @return
-         */
-        public Builder templateType(String templateType) {
-            this.templateType = templateType;
-            return this;
-        }
-
-        /**
-         * 是否是模板
-         * <p> 示例值：
-         *
-         * @param templateType {@link com.lark.oapi.service.bitable.v1.enums.TemplateInfoObjTemplateTypeEnum}
-         * @return
-         */
-        public Builder templateType(com.lark.oapi.service.bitable.v1.enums.TemplateInfoObjTemplateTypeEnum templateType) {
-            this.templateType = templateType.getValue();
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param publishFlag
-         * @return
-         */
-        public Builder publishFlag(String publishFlag) {
-            this.publishFlag = publishFlag;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：
-         *
-         * @param publishFlag {@link com.lark.oapi.service.bitable.v1.enums.TemplateInfoObjTemplatePublishFlagEnum}
-         * @return
-         */
-        public Builder publishFlag(com.lark.oapi.service.bitable.v1.enums.TemplateInfoObjTemplatePublishFlagEnum publishFlag) {
-            this.publishFlag = publishFlag.getValue();
-            return this;
-        }
-
-
-        public TemplateInfo build() {
-            return new TemplateInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

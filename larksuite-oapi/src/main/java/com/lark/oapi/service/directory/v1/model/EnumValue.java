@@ -13,164 +13,164 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class EnumValue {
+  /**
+   * 选项结果ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enum_ids")
+  private String[] enumIds;
+
+  /**
+   * 选项结果名称\n没有用到且影响传参数 忽略
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enum_name")
+  private Map<String, OptionValue> enumName;
+
+  /**
+   * 选项类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("enum_type")
+  private String enumType;
+
+  public String[] getEnumIds() {
+    return this.enumIds;
+  }
+
+  public void setEnumIds(String[] enumIds) {
+    this.enumIds = enumIds;
+  }
+
+  public Map<String, OptionValue> getEnumName() {
+    return this.enumName;
+  }
+
+  public void setEnumName(Map<String, OptionValue> enumName) {
+    this.enumName = enumName;
+  }
+
+  public String getEnumType() {
+    return this.enumType;
+  }
+
+  public void setEnumType(String enumType) {
+    this.enumType = enumType;
+  }
+
+  // builder 开始
+  public EnumValue() {}
+
+  public EnumValue(Builder builder) {
     /**
      * 选项结果ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("enum_ids")
-    private String[] enumIds;
+    this.enumIds = builder.enumIds;
     /**
      * 选项结果名称\n没有用到且影响传参数 忽略
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("enum_name")
-    private Map<String, OptionValue> enumName;
+    this.enumName = builder.enumName;
     /**
      * 选项类型
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("enum_type")
+    this.enumType = builder.enumType;
+  }
+
+  public static class Builder {
+    /**
+     * 选项结果ID
+     *
+     * <p>示例值：
+     */
+    private String[] enumIds;
+
+    /**
+     * 选项结果名称\n没有用到且影响传参数 忽略
+     *
+     * <p>示例值：
+     */
+    private Map<String, OptionValue> enumName;
+
+    /**
+     * 选项类型
+     *
+     * <p>示例值：1
+     */
     private String enumType;
 
-    // builder 开始
-    public EnumValue() {
+    /**
+     * 选项结果ID
+     *
+     * <p>示例值：
+     *
+     * @param enumIds
+     * @return
+     */
+    public Builder enumIds(String[] enumIds) {
+      this.enumIds = enumIds;
+      return this;
     }
 
-    public EnumValue(Builder builder) {
-        /**
-         * 选项结果ID
-         * <p> 示例值：
-         */
-        this.enumIds = builder.enumIds;
-        /**
-         * 选项结果名称\n没有用到且影响传参数 忽略
-         * <p> 示例值：
-         */
-        this.enumName = builder.enumName;
-        /**
-         * 选项类型
-         * <p> 示例值：
-         */
-        this.enumType = builder.enumType;
+    /**
+     * 选项结果名称\n没有用到且影响传参数 忽略
+     *
+     * <p>示例值：
+     *
+     * @param enumName
+     * @return
+     */
+    public Builder enumName(Map<String, OptionValue> enumName) {
+      this.enumName = enumName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 选项类型
+     *
+     * <p>示例值：1
+     *
+     * @param enumType
+     * @return
+     */
+    public Builder enumType(String enumType) {
+      this.enumType = enumType;
+      return this;
     }
 
-    public String[] getEnumIds() {
-        return this.enumIds;
+    /**
+     * 选项类型
+     *
+     * <p>示例值：1
+     *
+     * @param enumType {@link com.lark.oapi.service.directory.v1.enums.EnumValueEnumTypeEnum}
+     * @return
+     */
+    public Builder enumType(
+        com.lark.oapi.service.directory.v1.enums.EnumValueEnumTypeEnum enumType) {
+      this.enumType = enumType.getValue();
+      return this;
     }
 
-    public void setEnumIds(String[] enumIds) {
-        this.enumIds = enumIds;
+    public EnumValue build() {
+      return new EnumValue(this);
     }
+  }
 
-    public Map<String, OptionValue> getEnumName() {
-        return this.enumName;
-    }
-
-    public void setEnumName(Map<String, OptionValue> enumName) {
-        this.enumName = enumName;
-    }
-
-    public String getEnumType() {
-        return this.enumType;
-    }
-
-    public void setEnumType(String enumType) {
-        this.enumType = enumType;
-    }
-
-    public static class Builder {
-        /**
-         * 选项结果ID
-         * <p> 示例值：
-         */
-        private String[] enumIds;
-        /**
-         * 选项结果名称\n没有用到且影响传参数 忽略
-         * <p> 示例值：
-         */
-        private Map<String, OptionValue> enumName;
-        /**
-         * 选项类型
-         * <p> 示例值：
-         */
-        private String enumType;
-
-        /**
-         * 选项结果ID
-         * <p> 示例值：
-         *
-         * @param enumIds
-         * @return
-         */
-        public Builder enumIds(String[] enumIds) {
-            this.enumIds = enumIds;
-            return this;
-        }
-
-
-        /**
-         * 选项结果名称\n没有用到且影响传参数 忽略
-         * <p> 示例值：
-         *
-         * @param enumName
-         * @return
-         */
-        public Builder enumName(Map<String, OptionValue> enumName) {
-            this.enumName = enumName;
-            return this;
-        }
-
-
-        /**
-         * 选项类型
-         * <p> 示例值：
-         *
-         * @param enumType
-         * @return
-         */
-        public Builder enumType(String enumType) {
-            this.enumType = enumType;
-            return this;
-        }
-
-        /**
-         * 选项类型
-         * <p> 示例值：
-         *
-         * @param enumType {@link com.lark.oapi.service.directory.v1.enums.EnumValueEnumTypeEnum}
-         * @return
-         */
-        public Builder enumType(com.lark.oapi.service.directory.v1.enums.EnumValueEnumTypeEnum enumType) {
-            this.enumType = enumType.getValue();
-            return this;
-        }
-
-
-        public EnumValue build() {
-            return new EnumValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

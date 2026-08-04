@@ -13,138 +13,137 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class ListLocationReq {
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 每页获取记录数量
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 地址类型
+   *
+   * <p>示例值：interview_location
+   */
+  @Query
+  @SerializedName("usage")
+  private String usage;
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getUsage() {
+    return this.usage;
+  }
+
+  public void setUsage(String usage) {
+    this.usage = usage;
+  }
+
+  // builder 开始
+  public ListLocationReq() {}
+
+  public ListLocationReq(Builder builder) {
     /**
-     * 下一页页码
-     * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 每页获取记录数量，最大100
-     * <p> 示例值：100
+     * 每页获取记录数量
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 地址类型
-     * <p> 示例值：interview_location
+     *
+     * <p>示例值：interview_location
      */
-    @Query
-    @SerializedName("usage")
-    private String usage;
+    this.usage = builder.usage;
+  }
 
-    // builder 开始
-    public ListLocationReq() {
+  public static class Builder {
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private Integer pageSize; // 每页获取记录数量
+    private String usage; // 地址类型
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public ListLocationReq(Builder builder) {
-        /**
-         * 下一页页码
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 地址类型
-         * <p> 示例值：interview_location
-         */
-        this.usage = builder.usage;
+    /**
+     * 每页获取记录数量
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 地址类型
+     *
+     * <p>示例值：interview_location
+     *
+     * @param usage
+     * @return
+     */
+    public Builder usage(String usage) {
+      this.usage = usage;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    public ListLocationReq build() {
+      return new ListLocationReq(this);
     }
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getUsage() {
-        return this.usage;
-    }
-
-    public void setUsage(String usage) {
-        this.usage = usage;
-    }
-
-    public static class Builder {
-        private String pageToken; // 下一页页码
-        private Integer pageSize; // 每页获取记录数量，最大100
-        private String usage; // 地址类型
-
-        /**
-         * 下一页页码
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 地址类型
-         * <p> 示例值：interview_location
-         *
-         * @param usage
-         * @return
-         */
-        public Builder usage(String usage) {
-            this.usage = usage;
-            return this;
-        }
-
-
-        public ListLocationReq build() {
-            return new ListLocationReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

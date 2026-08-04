@@ -13,882 +13,836 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Meta {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("id")
-    private String id;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("token")
-    private String token;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("title")
-    private String title;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("owner_uid")
-    private String ownerUid;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("edit_uid")
-    private String editUid;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("create_time")
-    private String createTime;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("edit_time")
-    private String editTime;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("delete_flag")
-    private String deleteFlag;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("obj_type")
-    private String objType;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("source")
-    private String source;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("parent_id")
-    private String parentId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("sub_type")
-    private String subType;
+  /** 示例值： */
+  @SerializedName("id")
+  private String id;
+
+  /** 示例值： */
+  @SerializedName("token")
+  private String token;
+
+  /** 示例值： */
+  @SerializedName("title")
+  private String title;
+
+  /** 示例值： */
+  @SerializedName("owner_uid")
+  private String ownerUid;
+
+  /** 示例值： */
+  @SerializedName("edit_uid")
+  private String editUid;
+
+  /** 示例值： */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /** 示例值： */
+  @SerializedName("edit_time")
+  private String editTime;
+
+  /** 示例值： */
+  @SerializedName("delete_flag")
+  private String deleteFlag;
+
+  /** 示例值： */
+  @SerializedName("obj_type")
+  private String objType;
+
+  /** 示例值： */
+  @SerializedName("source")
+  private String source;
+
+  /** 示例值： */
+  @SerializedName("parent_id")
+  private String parentId;
+
+  /** 示例值： */
+  @SerializedName("sub_type")
+  private String subType;
+
+  /**
+   * 子文档对应的根文档 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("root_doc_id")
+  private String rootDocId;
+
+  /**
+   * 子文档对应的根 BlockID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("root_block_id")
+  private String rootBlockId;
+
+  /**
+   * 文档版本
+   *
+   * <p>示例值：
+   */
+  @SerializedName("doc_version")
+  private String docVersion;
+
+  /**
+   * 租户 ID 默认 -999
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /** 示例值： */
+  @SerializedName("mix_state")
+  private String mixState;
+
+  /**
+   * 密级标签 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sec_label_id")
+  private String secLabelId;
+
+  /**
+   * 密级设置的类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sec_label_type")
+  private String secLabelType;
+
+  /**
+   * 标题秘钥被删除
+   *
+   * <p>示例值：
+   */
+  @SerializedName("title_secure_key_deleted")
+  private Boolean titleSecureKeyDeleted;
+
+  /**
+   * 模板信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("template_info")
+  private TemplateInfo templateInfo;
+
+  /**
+   * nolint: byted_s_thrift_avoid_id_type_change\n文档自定义icon信息，json marashl后的string，包含filteType,
+   * version等额外信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("icon_info")
+  private String iconInfo;
+
+  /** 示例值： */
+  @SerializedName("ext")
+  private ExtInfo ext;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getOwnerUid() {
+    return this.ownerUid;
+  }
+
+  public void setOwnerUid(String ownerUid) {
+    this.ownerUid = ownerUid;
+  }
+
+  public String getEditUid() {
+    return this.editUid;
+  }
+
+  public void setEditUid(String editUid) {
+    this.editUid = editUid;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getEditTime() {
+    return this.editTime;
+  }
+
+  public void setEditTime(String editTime) {
+    this.editTime = editTime;
+  }
+
+  public String getDeleteFlag() {
+    return this.deleteFlag;
+  }
+
+  public void setDeleteFlag(String deleteFlag) {
+    this.deleteFlag = deleteFlag;
+  }
+
+  public String getObjType() {
+    return this.objType;
+  }
+
+  public void setObjType(String objType) {
+    this.objType = objType;
+  }
+
+  public String getSource() {
+    return this.source;
+  }
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  public String getSubType() {
+    return this.subType;
+  }
+
+  public void setSubType(String subType) {
+    this.subType = subType;
+  }
+
+  public String getRootDocId() {
+    return this.rootDocId;
+  }
+
+  public void setRootDocId(String rootDocId) {
+    this.rootDocId = rootDocId;
+  }
+
+  public String getRootBlockId() {
+    return this.rootBlockId;
+  }
+
+  public void setRootBlockId(String rootBlockId) {
+    this.rootBlockId = rootBlockId;
+  }
+
+  public String getDocVersion() {
+    return this.docVersion;
+  }
+
+  public void setDocVersion(String docVersion) {
+    this.docVersion = docVersion;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String getMixState() {
+    return this.mixState;
+  }
+
+  public void setMixState(String mixState) {
+    this.mixState = mixState;
+  }
+
+  public String getSecLabelId() {
+    return this.secLabelId;
+  }
+
+  public void setSecLabelId(String secLabelId) {
+    this.secLabelId = secLabelId;
+  }
+
+  public String getSecLabelType() {
+    return this.secLabelType;
+  }
+
+  public void setSecLabelType(String secLabelType) {
+    this.secLabelType = secLabelType;
+  }
+
+  public Boolean getTitleSecureKeyDeleted() {
+    return this.titleSecureKeyDeleted;
+  }
+
+  public void setTitleSecureKeyDeleted(Boolean titleSecureKeyDeleted) {
+    this.titleSecureKeyDeleted = titleSecureKeyDeleted;
+  }
+
+  public TemplateInfo getTemplateInfo() {
+    return this.templateInfo;
+  }
+
+  public void setTemplateInfo(TemplateInfo templateInfo) {
+    this.templateInfo = templateInfo;
+  }
+
+  public String getIconInfo() {
+    return this.iconInfo;
+  }
+
+  public void setIconInfo(String iconInfo) {
+    this.iconInfo = iconInfo;
+  }
+
+  public ExtInfo getExt() {
+    return this.ext;
+  }
+
+  public void setExt(ExtInfo ext) {
+    this.ext = ext;
+  }
+
+  // builder 开始
+  public Meta() {}
+
+  public Meta(Builder builder) {
+    /** 示例值： */
+    this.id = builder.id;
+    /** 示例值： */
+    this.token = builder.token;
+    /** 示例值： */
+    this.title = builder.title;
+    /** 示例值： */
+    this.ownerUid = builder.ownerUid;
+    /** 示例值： */
+    this.editUid = builder.editUid;
+    /** 示例值： */
+    this.createTime = builder.createTime;
+    /** 示例值： */
+    this.editTime = builder.editTime;
+    /** 示例值： */
+    this.deleteFlag = builder.deleteFlag;
+    /** 示例值： */
+    this.objType = builder.objType;
+    /** 示例值： */
+    this.source = builder.source;
+    /** 示例值： */
+    this.parentId = builder.parentId;
+    /** 示例值： */
+    this.subType = builder.subType;
     /**
      * 子文档对应的根文档 ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("root_doc_id")
-    private String rootDocId;
+    this.rootDocId = builder.rootDocId;
     /**
      * 子文档对应的根 BlockID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("root_block_id")
-    private String rootBlockId;
+    this.rootBlockId = builder.rootBlockId;
     /**
      * 文档版本
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("doc_version")
-    private String docVersion;
+    this.docVersion = builder.docVersion;
     /**
      * 租户 ID 默认 -999
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("mix_state")
-    private String mixState;
+    this.tenantId = builder.tenantId;
+    /** 示例值： */
+    this.mixState = builder.mixState;
     /**
      * 密级标签 ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sec_label_id")
-    private String secLabelId;
+    this.secLabelId = builder.secLabelId;
     /**
      * 密级设置的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sec_label_type")
-    private String secLabelType;
+    this.secLabelType = builder.secLabelType;
     /**
      * 标题秘钥被删除
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("title_secure_key_deleted")
-    private Boolean titleSecureKeyDeleted;
+    this.titleSecureKeyDeleted = builder.titleSecureKeyDeleted;
     /**
      * 模板信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("template_info")
+    this.templateInfo = builder.templateInfo;
+    /**
+     * nolint: byted_s_thrift_avoid_id_type_change\n文档自定义icon信息，json marashl后的string，包含filteType,
+     * version等额外信息
+     *
+     * <p>示例值：
+     */
+    this.iconInfo = builder.iconInfo;
+    /** 示例值： */
+    this.ext = builder.ext;
+  }
+
+  public static class Builder {
+    /** 示例值： */
+    private String id;
+
+    /** 示例值： */
+    private String token;
+
+    /** 示例值： */
+    private String title;
+
+    /** 示例值： */
+    private String ownerUid;
+
+    /** 示例值： */
+    private String editUid;
+
+    /** 示例值： */
+    private String createTime;
+
+    /** 示例值： */
+    private String editTime;
+
+    /** 示例值： */
+    private String deleteFlag;
+
+    /** 示例值： */
+    private String objType;
+
+    /** 示例值： */
+    private String source;
+
+    /** 示例值： */
+    private String parentId;
+
+    /** 示例值： */
+    private String subType;
+
+    /**
+     * 子文档对应的根文档 ID
+     *
+     * <p>示例值：
+     */
+    private String rootDocId;
+
+    /**
+     * 子文档对应的根 BlockID
+     *
+     * <p>示例值：
+     */
+    private String rootBlockId;
+
+    /**
+     * 文档版本
+     *
+     * <p>示例值：
+     */
+    private String docVersion;
+
+    /**
+     * 租户 ID 默认 -999
+     *
+     * <p>示例值：
+     */
+    private String tenantId;
+
+    /** 示例值： */
+    private String mixState;
+
+    /**
+     * 密级标签 ID
+     *
+     * <p>示例值：
+     */
+    private String secLabelId;
+
+    /**
+     * 密级设置的类型
+     *
+     * <p>示例值：
+     */
+    private String secLabelType;
+
+    /**
+     * 标题秘钥被删除
+     *
+     * <p>示例值：
+     */
+    private Boolean titleSecureKeyDeleted;
+
+    /**
+     * 模板信息
+     *
+     * <p>示例值：
+     */
     private TemplateInfo templateInfo;
+
     /**
-     * nolint: byted_s_thrift_avoid_id_type_change\n文档自定义icon信息，json marashl后的string，包含filteType, version等额外信息
-     * <p> 示例值：
+     * nolint: byted_s_thrift_avoid_id_type_change\n文档自定义icon信息，json marashl后的string，包含filteType,
+     * version等额外信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("icon_info")
     private String iconInfo;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("ext")
+
+    /** 示例值： */
     private ExtInfo ext;
 
-    // builder 开始
-    public Meta() {
+    /**
+     * 示例值：
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Meta(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.token = builder.token;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.title = builder.title;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.ownerUid = builder.ownerUid;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.editUid = builder.editUid;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.createTime = builder.createTime;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.editTime = builder.editTime;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.deleteFlag = builder.deleteFlag;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.objType = builder.objType;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.source = builder.source;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.parentId = builder.parentId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.subType = builder.subType;
-        /**
-         * 子文档对应的根文档 ID
-         * <p> 示例值：
-         */
-        this.rootDocId = builder.rootDocId;
-        /**
-         * 子文档对应的根 BlockID
-         * <p> 示例值：
-         */
-        this.rootBlockId = builder.rootBlockId;
-        /**
-         * 文档版本
-         * <p> 示例值：
-         */
-        this.docVersion = builder.docVersion;
-        /**
-         * 租户 ID 默认 -999
-         * <p> 示例值：
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.mixState = builder.mixState;
-        /**
-         * 密级标签 ID
-         * <p> 示例值：
-         */
-        this.secLabelId = builder.secLabelId;
-        /**
-         * 密级设置的类型
-         * <p> 示例值：
-         */
-        this.secLabelType = builder.secLabelType;
-        /**
-         * 标题秘钥被删除
-         * <p> 示例值：
-         */
-        this.titleSecureKeyDeleted = builder.titleSecureKeyDeleted;
-        /**
-         * 模板信息
-         * <p> 示例值：
-         */
-        this.templateInfo = builder.templateInfo;
-        /**
-         * nolint: byted_s_thrift_avoid_id_type_change\n文档自定义icon信息，json marashl后的string，包含filteType, version等额外信息
-         * <p> 示例值：
-         */
-        this.iconInfo = builder.iconInfo;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.ext = builder.ext;
+    /**
+     * 示例值：
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 示例值：
+     *
+     * @param ownerUid
+     * @return
+     */
+    public Builder ownerUid(String ownerUid) {
+      this.ownerUid = ownerUid;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 示例值：
+     *
+     * @param editUid
+     * @return
+     */
+    public Builder editUid(String editUid) {
+      this.editUid = editUid;
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    /**
+     * 示例值：
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    /**
+     * 示例值：
+     *
+     * @param editTime
+     * @return
+     */
+    public Builder editTime(String editTime) {
+      this.editTime = editTime;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 示例值：
+     *
+     * @param deleteFlag
+     * @return
+     */
+    public Builder deleteFlag(String deleteFlag) {
+      this.deleteFlag = deleteFlag;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 示例值：
+     *
+     * @param objType
+     * @return
+     */
+    public Builder objType(String objType) {
+      this.objType = objType;
+      return this;
     }
 
-    public String getOwnerUid() {
-        return this.ownerUid;
+    /**
+     * 示例值：
+     *
+     * @param source
+     * @return
+     */
+    public Builder source(String source) {
+      this.source = source;
+      return this;
     }
 
-    public void setOwnerUid(String ownerUid) {
-        this.ownerUid = ownerUid;
+    /**
+     * 示例值：
+     *
+     * @param parentId
+     * @return
+     */
+    public Builder parentId(String parentId) {
+      this.parentId = parentId;
+      return this;
     }
 
-    public String getEditUid() {
-        return this.editUid;
+    /**
+     * 示例值：
+     *
+     * @param subType
+     * @return
+     */
+    public Builder subType(String subType) {
+      this.subType = subType;
+      return this;
     }
 
-    public void setEditUid(String editUid) {
-        this.editUid = editUid;
+    /**
+     * 子文档对应的根文档 ID
+     *
+     * <p>示例值：
+     *
+     * @param rootDocId
+     * @return
+     */
+    public Builder rootDocId(String rootDocId) {
+      this.rootDocId = rootDocId;
+      return this;
     }
 
-    public String getCreateTime() {
-        return this.createTime;
+    /**
+     * 子文档对应的根 BlockID
+     *
+     * <p>示例值：
+     *
+     * @param rootBlockId
+     * @return
+     */
+    public Builder rootBlockId(String rootBlockId) {
+      this.rootBlockId = rootBlockId;
+      return this;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    /**
+     * 文档版本
+     *
+     * <p>示例值：
+     *
+     * @param docVersion
+     * @return
+     */
+    public Builder docVersion(String docVersion) {
+      this.docVersion = docVersion;
+      return this;
     }
 
-    public String getEditTime() {
-        return this.editTime;
+    /**
+     * 文档版本
+     *
+     * <p>示例值：
+     *
+     * @param docVersion {@link com.lark.oapi.service.bitable.v1.enums.MetaDocVersionEnum}
+     * @return
+     */
+    public Builder docVersion(
+        com.lark.oapi.service.bitable.v1.enums.MetaDocVersionEnum docVersion) {
+      this.docVersion = docVersion.getValue();
+      return this;
     }
 
-    public void setEditTime(String editTime) {
-        this.editTime = editTime;
+    /**
+     * 租户 ID 默认 -999
+     *
+     * <p>示例值：
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public String getDeleteFlag() {
-        return this.deleteFlag;
+    /**
+     * 示例值：
+     *
+     * @param mixState
+     * @return
+     */
+    public Builder mixState(String mixState) {
+      this.mixState = mixState;
+      return this;
     }
 
-    public void setDeleteFlag(String deleteFlag) {
-        this.deleteFlag = deleteFlag;
+    /**
+     * 示例值：
+     *
+     * @param mixState {@link com.lark.oapi.service.bitable.v1.enums.MetaMixStateEnum}
+     * @return
+     */
+    public Builder mixState(com.lark.oapi.service.bitable.v1.enums.MetaMixStateEnum mixState) {
+      this.mixState = mixState.getValue();
+      return this;
     }
 
-    public String getObjType() {
-        return this.objType;
+    /**
+     * 密级标签 ID
+     *
+     * <p>示例值：
+     *
+     * @param secLabelId
+     * @return
+     */
+    public Builder secLabelId(String secLabelId) {
+      this.secLabelId = secLabelId;
+      return this;
     }
 
-    public void setObjType(String objType) {
-        this.objType = objType;
+    /**
+     * 密级设置的类型
+     *
+     * <p>示例值：
+     *
+     * @param secLabelType
+     * @return
+     */
+    public Builder secLabelType(String secLabelType) {
+      this.secLabelType = secLabelType;
+      return this;
     }
 
-    public String getSource() {
-        return this.source;
+    /**
+     * 密级设置的类型
+     *
+     * <p>示例值：
+     *
+     * @param secLabelType {@link com.lark.oapi.service.bitable.v1.enums.MetaSecureLabelTypeEnum}
+     * @return
+     */
+    public Builder secLabelType(
+        com.lark.oapi.service.bitable.v1.enums.MetaSecureLabelTypeEnum secLabelType) {
+      this.secLabelType = secLabelType.getValue();
+      return this;
     }
 
-    public void setSource(String source) {
-        this.source = source;
+    /**
+     * 标题秘钥被删除
+     *
+     * <p>示例值：
+     *
+     * @param titleSecureKeyDeleted
+     * @return
+     */
+    public Builder titleSecureKeyDeleted(Boolean titleSecureKeyDeleted) {
+      this.titleSecureKeyDeleted = titleSecureKeyDeleted;
+      return this;
     }
 
-    public String getParentId() {
-        return this.parentId;
+    /**
+     * 模板信息
+     *
+     * <p>示例值：
+     *
+     * @param templateInfo
+     * @return
+     */
+    public Builder templateInfo(TemplateInfo templateInfo) {
+      this.templateInfo = templateInfo;
+      return this;
     }
 
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
+    /**
+     * nolint: byted_s_thrift_avoid_id_type_change\n文档自定义icon信息，json marashl后的string，包含filteType,
+     * version等额外信息
+     *
+     * <p>示例值：
+     *
+     * @param iconInfo
+     * @return
+     */
+    public Builder iconInfo(String iconInfo) {
+      this.iconInfo = iconInfo;
+      return this;
     }
 
-    public String getSubType() {
-        return this.subType;
+    /**
+     * 示例值：
+     *
+     * @param ext
+     * @return
+     */
+    public Builder ext(ExtInfo ext) {
+      this.ext = ext;
+      return this;
     }
 
-    public void setSubType(String subType) {
-        this.subType = subType;
+    public Meta build() {
+      return new Meta(this);
     }
-
-    public String getRootDocId() {
-        return this.rootDocId;
-    }
-
-    public void setRootDocId(String rootDocId) {
-        this.rootDocId = rootDocId;
-    }
-
-    public String getRootBlockId() {
-        return this.rootBlockId;
-    }
-
-    public void setRootBlockId(String rootBlockId) {
-        this.rootBlockId = rootBlockId;
-    }
-
-    public String getDocVersion() {
-        return this.docVersion;
-    }
-
-    public void setDocVersion(String docVersion) {
-        this.docVersion = docVersion;
-    }
-
-    public String getTenantId() {
-        return this.tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public String getMixState() {
-        return this.mixState;
-    }
-
-    public void setMixState(String mixState) {
-        this.mixState = mixState;
-    }
-
-    public String getSecLabelId() {
-        return this.secLabelId;
-    }
-
-    public void setSecLabelId(String secLabelId) {
-        this.secLabelId = secLabelId;
-    }
-
-    public String getSecLabelType() {
-        return this.secLabelType;
-    }
-
-    public void setSecLabelType(String secLabelType) {
-        this.secLabelType = secLabelType;
-    }
-
-    public Boolean getTitleSecureKeyDeleted() {
-        return this.titleSecureKeyDeleted;
-    }
-
-    public void setTitleSecureKeyDeleted(Boolean titleSecureKeyDeleted) {
-        this.titleSecureKeyDeleted = titleSecureKeyDeleted;
-    }
-
-    public TemplateInfo getTemplateInfo() {
-        return this.templateInfo;
-    }
-
-    public void setTemplateInfo(TemplateInfo templateInfo) {
-        this.templateInfo = templateInfo;
-    }
-
-    public String getIconInfo() {
-        return this.iconInfo;
-    }
-
-    public void setIconInfo(String iconInfo) {
-        this.iconInfo = iconInfo;
-    }
-
-    public ExtInfo getExt() {
-        return this.ext;
-    }
-
-    public void setExt(ExtInfo ext) {
-        this.ext = ext;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private String id;
-        /**
-         * <p> 示例值：
-         */
-        private String token;
-        /**
-         * <p> 示例值：
-         */
-        private String title;
-        /**
-         * <p> 示例值：
-         */
-        private String ownerUid;
-        /**
-         * <p> 示例值：
-         */
-        private String editUid;
-        /**
-         * <p> 示例值：
-         */
-        private String createTime;
-        /**
-         * <p> 示例值：
-         */
-        private String editTime;
-        /**
-         * <p> 示例值：
-         */
-        private String deleteFlag;
-        /**
-         * <p> 示例值：
-         */
-        private String objType;
-        /**
-         * <p> 示例值：
-         */
-        private String source;
-        /**
-         * <p> 示例值：
-         */
-        private String parentId;
-        /**
-         * <p> 示例值：
-         */
-        private String subType;
-        /**
-         * 子文档对应的根文档 ID
-         * <p> 示例值：
-         */
-        private String rootDocId;
-        /**
-         * 子文档对应的根 BlockID
-         * <p> 示例值：
-         */
-        private String rootBlockId;
-        /**
-         * 文档版本
-         * <p> 示例值：
-         */
-        private String docVersion;
-        /**
-         * 租户 ID 默认 -999
-         * <p> 示例值：
-         */
-        private String tenantId;
-        /**
-         * <p> 示例值：
-         */
-        private String mixState;
-        /**
-         * 密级标签 ID
-         * <p> 示例值：
-         */
-        private String secLabelId;
-        /**
-         * 密级设置的类型
-         * <p> 示例值：
-         */
-        private String secLabelType;
-        /**
-         * 标题秘钥被删除
-         * <p> 示例值：
-         */
-        private Boolean titleSecureKeyDeleted;
-        /**
-         * 模板信息
-         * <p> 示例值：
-         */
-        private TemplateInfo templateInfo;
-        /**
-         * nolint: byted_s_thrift_avoid_id_type_change\n文档自定义icon信息，json marashl后的string，包含filteType, version等额外信息
-         * <p> 示例值：
-         */
-        private String iconInfo;
-        /**
-         * <p> 示例值：
-         */
-        private ExtInfo ext;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param ownerUid
-         * @return
-         */
-        public Builder ownerUid(String ownerUid) {
-            this.ownerUid = ownerUid;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param editUid
-         * @return
-         */
-        public Builder editUid(String editUid) {
-            this.editUid = editUid;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param editTime
-         * @return
-         */
-        public Builder editTime(String editTime) {
-            this.editTime = editTime;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param deleteFlag
-         * @return
-         */
-        public Builder deleteFlag(String deleteFlag) {
-            this.deleteFlag = deleteFlag;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param objType
-         * @return
-         */
-        public Builder objType(String objType) {
-            this.objType = objType;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param source
-         * @return
-         */
-        public Builder source(String source) {
-            this.source = source;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param parentId
-         * @return
-         */
-        public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param subType
-         * @return
-         */
-        public Builder subType(String subType) {
-            this.subType = subType;
-            return this;
-        }
-
-
-        /**
-         * 子文档对应的根文档 ID
-         * <p> 示例值：
-         *
-         * @param rootDocId
-         * @return
-         */
-        public Builder rootDocId(String rootDocId) {
-            this.rootDocId = rootDocId;
-            return this;
-        }
-
-
-        /**
-         * 子文档对应的根 BlockID
-         * <p> 示例值：
-         *
-         * @param rootBlockId
-         * @return
-         */
-        public Builder rootBlockId(String rootBlockId) {
-            this.rootBlockId = rootBlockId;
-            return this;
-        }
-
-
-        /**
-         * 文档版本
-         * <p> 示例值：
-         *
-         * @param docVersion
-         * @return
-         */
-        public Builder docVersion(String docVersion) {
-            this.docVersion = docVersion;
-            return this;
-        }
-
-        /**
-         * 文档版本
-         * <p> 示例值：
-         *
-         * @param docVersion {@link com.lark.oapi.service.bitable.v1.enums.MetaDocVersionEnum}
-         * @return
-         */
-        public Builder docVersion(com.lark.oapi.service.bitable.v1.enums.MetaDocVersionEnum docVersion) {
-            this.docVersion = docVersion.getValue();
-            return this;
-        }
-
-
-        /**
-         * 租户 ID 默认 -999
-         * <p> 示例值：
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param mixState
-         * @return
-         */
-        public Builder mixState(String mixState) {
-            this.mixState = mixState;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：
-         *
-         * @param mixState {@link com.lark.oapi.service.bitable.v1.enums.MetaMixStateEnum}
-         * @return
-         */
-        public Builder mixState(com.lark.oapi.service.bitable.v1.enums.MetaMixStateEnum mixState) {
-            this.mixState = mixState.getValue();
-            return this;
-        }
-
-
-        /**
-         * 密级标签 ID
-         * <p> 示例值：
-         *
-         * @param secLabelId
-         * @return
-         */
-        public Builder secLabelId(String secLabelId) {
-            this.secLabelId = secLabelId;
-            return this;
-        }
-
-
-        /**
-         * 密级设置的类型
-         * <p> 示例值：
-         *
-         * @param secLabelType
-         * @return
-         */
-        public Builder secLabelType(String secLabelType) {
-            this.secLabelType = secLabelType;
-            return this;
-        }
-
-        /**
-         * 密级设置的类型
-         * <p> 示例值：
-         *
-         * @param secLabelType {@link com.lark.oapi.service.bitable.v1.enums.MetaSecureLabelTypeEnum}
-         * @return
-         */
-        public Builder secLabelType(com.lark.oapi.service.bitable.v1.enums.MetaSecureLabelTypeEnum secLabelType) {
-            this.secLabelType = secLabelType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 标题秘钥被删除
-         * <p> 示例值：
-         *
-         * @param titleSecureKeyDeleted
-         * @return
-         */
-        public Builder titleSecureKeyDeleted(Boolean titleSecureKeyDeleted) {
-            this.titleSecureKeyDeleted = titleSecureKeyDeleted;
-            return this;
-        }
-
-
-        /**
-         * 模板信息
-         * <p> 示例值：
-         *
-         * @param templateInfo
-         * @return
-         */
-        public Builder templateInfo(TemplateInfo templateInfo) {
-            this.templateInfo = templateInfo;
-            return this;
-        }
-
-
-        /**
-         * nolint: byted_s_thrift_avoid_id_type_change\n文档自定义icon信息，json marashl后的string，包含filteType, version等额外信息
-         * <p> 示例值：
-         *
-         * @param iconInfo
-         * @return
-         */
-        public Builder iconInfo(String iconInfo) {
-            this.iconInfo = iconInfo;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param ext
-         * @return
-         */
-        public Builder ext(ExtInfo ext) {
-            this.ext = ext;
-            return this;
-        }
-
-
-        public Meta build() {
-            return new Meta(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

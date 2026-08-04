@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationOfferOnboardProfileCity {
+  /**
+   * 编码
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 名字
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 英文名
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("en_name")
+  private String enName;
+
+  /**
+   * 地址类型
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("location_type")
+  private Long locationType;
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getEnName() {
+    return this.enName;
+  }
+
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
+
+  public Long getLocationType() {
+    return this.locationType;
+  }
+
+  public void setLocationType(Long locationType) {
+    this.locationType = locationType;
+  }
+
+  // builder 开始
+  public ApplicationOfferOnboardProfileCity() {}
+
+  public ApplicationOfferOnboardProfileCity(Builder builder) {
     /**
      * 编码
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 名字
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 英文名
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("en_name")
-    private String enName;
+    this.enName = builder.enName;
     /**
      * 地址类型
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("location_type")
+    this.locationType = builder.locationType;
+  }
+
+  public static class Builder {
+    /**
+     * 编码
+     *
+     * <p>示例值：123
+     */
+    private String code;
+
+    /**
+     * 名字
+     *
+     * <p>示例值：123
+     */
+    private String name;
+
+    /**
+     * 英文名
+     *
+     * <p>示例值：123
+     */
+    private String enName;
+
+    /**
+     * 地址类型
+     *
+     * <p>示例值：123
+     */
     private Long locationType;
 
-    // builder 开始
-    public ApplicationOfferOnboardProfileCity() {
+    /**
+     * 编码
+     *
+     * <p>示例值：123
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public ApplicationOfferOnboardProfileCity(Builder builder) {
-        /**
-         * 编码
-         * <p> 示例值：123
-         */
-        this.code = builder.code;
-        /**
-         * 名字
-         * <p> 示例值：123
-         */
-        this.name = builder.name;
-        /**
-         * 英文名
-         * <p> 示例值：123
-         */
-        this.enName = builder.enName;
-        /**
-         * 地址类型
-         * <p> 示例值：123
-         */
-        this.locationType = builder.locationType;
+    /**
+     * 名字
+     *
+     * <p>示例值：123
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 英文名
+     *
+     * <p>示例值：123
+     *
+     * @param enName
+     * @return
+     */
+    public Builder enName(String enName) {
+      this.enName = enName;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    /**
+     * 地址类型
+     *
+     * <p>示例值：123
+     *
+     * @param locationType
+     * @return
+     */
+    public Builder locationType(Long locationType) {
+      this.locationType = locationType;
+      return this;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public ApplicationOfferOnboardProfileCity build() {
+      return new ApplicationOfferOnboardProfileCity(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEnName() {
-        return this.enName;
-    }
-
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
-
-    public Long getLocationType() {
-        return this.locationType;
-    }
-
-    public void setLocationType(Long locationType) {
-        this.locationType = locationType;
-    }
-
-    public static class Builder {
-        /**
-         * 编码
-         * <p> 示例值：123
-         */
-        private String code;
-        /**
-         * 名字
-         * <p> 示例值：123
-         */
-        private String name;
-        /**
-         * 英文名
-         * <p> 示例值：123
-         */
-        private String enName;
-        /**
-         * 地址类型
-         * <p> 示例值：123
-         */
-        private Long locationType;
-
-        /**
-         * 编码
-         * <p> 示例值：123
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 名字
-         * <p> 示例值：123
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 英文名
-         * <p> 示例值：123
-         *
-         * @param enName
-         * @return
-         */
-        public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
-        }
-
-
-        /**
-         * 地址类型
-         * <p> 示例值：123
-         *
-         * @param locationType
-         * @return
-         */
-        public Builder locationType(Long locationType) {
-            this.locationType = locationType;
-            return this;
-        }
-
-
-        public ApplicationOfferOnboardProfileCity build() {
-            return new ApplicationOfferOnboardProfileCity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

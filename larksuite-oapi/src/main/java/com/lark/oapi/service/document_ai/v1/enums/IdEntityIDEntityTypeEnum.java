@@ -13,27 +13,25 @@
 
 package com.lark.oapi.service.document_ai.v1.enums;
 
-/**
- * 识别的字段种类
- */
+/** 识别的字段种类 */
 public enum IdEntityIDEntityTypeEnum {
-    IDENTITYCODE("identity_code"), // 公民身份号码
-    IDENTITYNAME("identity_name"), // 姓名
-    ADDRESS("address"), // 住址
-    VALIDDATESTART("valid_date_start"), // 有效期起始时间
-    VALIDEDATEEND("valid_date_end"), // 有效期终止时间（“长期”识别为“长期”）
-    GENDER("gender"), // 性别
-    RACE("race"), // 民族
-    ISSUEDBY("issued_by"), // 签发机关
-    BIRTH("birth"), // 出生日期
-    ;
-    private String value;
+  IDENTITYCODE("identity_code"), // 公民身份号码
+  IDENTITYNAME("identity_name"), // 姓名
+  ADDRESS("address"), // 住址
+  VALIDDATESTART("valid_date_start"), // 有效期起始时间
+  VALIDEDATEEND("valid_date_end"), // 有效期终止时间（“长期”识别为“长期”）
+  GENDER("gender"), // 性别
+  RACE("race"), // 民族
+  ISSUEDBY("issued_by"), // 签发机关
+  BIRTH("birth"), // 出生日期
+  ;
+  private String value;
 
-    IdEntityIDEntityTypeEnum(String value) {
-        this.value = value;
-    }
+  IdEntityIDEntityTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

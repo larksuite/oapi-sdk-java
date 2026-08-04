@@ -13,97 +13,91 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.search.v2.enums.*;
 
 public class CreateSchemaReq {
+  /**
+   * 是否只用来校验合法性
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("validate_only")
+  private Boolean validateOnly;
+
+  public Boolean getValidateOnly() {
+    return this.validateOnly;
+  }
+
+  public void setValidateOnly(Boolean validateOnly) {
+    this.validateOnly = validateOnly;
+  }
+
+  @Body private Schema body;
+
+  public Schema getSchema() {
+    return this.body;
+  }
+
+  public void setSchema(Schema body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateSchemaReq() {}
+
+  public CreateSchemaReq(Builder builder) {
     /**
      * 是否只用来校验合法性
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("validate_only")
-    private Boolean validateOnly;
-    @Body
+    this.validateOnly = builder.validateOnly;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private Boolean validateOnly; // 是否只用来校验合法性
+
+    /**
+     * 是否只用来校验合法性
+     *
+     * <p>示例值：true
+     *
+     * @param validateOnly
+     * @return
+     */
+    public Builder validateOnly(Boolean validateOnly) {
+      this.validateOnly = validateOnly;
+      return this;
+    }
+
     private Schema body;
 
-    // builder 开始
-    public CreateSchemaReq() {
-    }
-
-    public CreateSchemaReq(Builder builder) {
-        /**
-         * 是否只用来校验合法性
-         * <p> 示例值：true
-         */
-        this.validateOnly = builder.validateOnly;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Boolean getValidateOnly() {
-        return this.validateOnly;
-    }
-
-    public void setValidateOnly(Boolean validateOnly) {
-        this.validateOnly = validateOnly;
-    }
-
     public Schema getSchema() {
-        return this.body;
+      return this.body;
     }
 
-    public void setSchema(Schema body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder schema(Schema body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private Boolean validateOnly; // 是否只用来校验合法性
-        private Schema body;
-
-        /**
-         * 是否只用来校验合法性
-         * <p> 示例值：true
-         *
-         * @param validateOnly
-         * @return
-         */
-        public Builder validateOnly(Boolean validateOnly) {
-            this.validateOnly = validateOnly;
-            return this;
-        }
-
-        public Schema getSchema() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder schema(Schema body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateSchemaReq build() {
-            return new CreateSchemaReq(this);
-        }
+    public CreateSchemaReq build() {
+      return new CreateSchemaReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

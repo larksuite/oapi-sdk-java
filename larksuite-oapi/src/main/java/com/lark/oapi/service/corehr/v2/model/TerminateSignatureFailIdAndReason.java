@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TerminateSignatureFailIdAndReason {
+  /**
+   * 终止操作失败的文件ID，可以通过[【获取电子签文件列表】](ssl:/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)接口获取文件详情信息
+   *
+   * <p>示例值：7345403447803379731
+   */
+  @SerializedName("signature_file_id")
+  private String signatureFileId;
+
+  /**
+   * 终止失败的原因
+   *
+   * <p>示例值：文件状态不允许终止
+   */
+  @SerializedName("fail_reason")
+  private String failReason;
+
+  public String getSignatureFileId() {
+    return this.signatureFileId;
+  }
+
+  public void setSignatureFileId(String signatureFileId) {
+    this.signatureFileId = signatureFileId;
+  }
+
+  public String getFailReason() {
+    return this.failReason;
+  }
+
+  public void setFailReason(String failReason) {
+    this.failReason = failReason;
+  }
+
+  // builder 开始
+  public TerminateSignatureFailIdAndReason() {}
+
+  public TerminateSignatureFailIdAndReason(Builder builder) {
     /**
-     * 终止操作失败的文件ID
-     * <p> 示例值：7345403447803379731
+     * 终止操作失败的文件ID，可以通过[【获取电子签文件列表】](ssl:/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)接口获取文件详情信息
+     *
+     * <p>示例值：7345403447803379731
      */
-    @SerializedName("signature_file_id")
-    private String signatureFileId;
+    this.signatureFileId = builder.signatureFileId;
     /**
      * 终止失败的原因
-     * <p> 示例值：文件状态不允许终止
+     *
+     * <p>示例值：文件状态不允许终止
      */
-    @SerializedName("fail_reason")
+    this.failReason = builder.failReason;
+  }
+
+  public static class Builder {
+    /**
+     * 终止操作失败的文件ID，可以通过[【获取电子签文件列表】](ssl:/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)接口获取文件详情信息
+     *
+     * <p>示例值：7345403447803379731
+     */
+    private String signatureFileId;
+
+    /**
+     * 终止失败的原因
+     *
+     * <p>示例值：文件状态不允许终止
+     */
     private String failReason;
 
-    // builder 开始
-    public TerminateSignatureFailIdAndReason() {
+    /**
+     * 终止操作失败的文件ID，可以通过[【获取电子签文件列表】](ssl:/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)接口获取文件详情信息
+     *
+     * <p>示例值：7345403447803379731
+     *
+     * @param signatureFileId
+     * @return
+     */
+    public Builder signatureFileId(String signatureFileId) {
+      this.signatureFileId = signatureFileId;
+      return this;
     }
 
-    public TerminateSignatureFailIdAndReason(Builder builder) {
-        /**
-         * 终止操作失败的文件ID
-         * <p> 示例值：7345403447803379731
-         */
-        this.signatureFileId = builder.signatureFileId;
-        /**
-         * 终止失败的原因
-         * <p> 示例值：文件状态不允许终止
-         */
-        this.failReason = builder.failReason;
+    /**
+     * 终止失败的原因
+     *
+     * <p>示例值：文件状态不允许终止
+     *
+     * @param failReason
+     * @return
+     */
+    public Builder failReason(String failReason) {
+      this.failReason = failReason;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TerminateSignatureFailIdAndReason build() {
+      return new TerminateSignatureFailIdAndReason(this);
     }
+  }
 
-    public String getSignatureFileId() {
-        return this.signatureFileId;
-    }
-
-    public void setSignatureFileId(String signatureFileId) {
-        this.signatureFileId = signatureFileId;
-    }
-
-    public String getFailReason() {
-        return this.failReason;
-    }
-
-    public void setFailReason(String failReason) {
-        this.failReason = failReason;
-    }
-
-    public static class Builder {
-        /**
-         * 终止操作失败的文件ID
-         * <p> 示例值：7345403447803379731
-         */
-        private String signatureFileId;
-        /**
-         * 终止失败的原因
-         * <p> 示例值：文件状态不允许终止
-         */
-        private String failReason;
-
-        /**
-         * 终止操作失败的文件ID
-         * <p> 示例值：7345403447803379731
-         *
-         * @param signatureFileId
-         * @return
-         */
-        public Builder signatureFileId(String signatureFileId) {
-            this.signatureFileId = signatureFileId;
-            return this;
-        }
-
-
-        /**
-         * 终止失败的原因
-         * <p> 示例值：文件状态不允许终止
-         *
-         * @param failReason
-         * @return
-         */
-        public Builder failReason(String failReason) {
-            this.failReason = failReason;
-            return this;
-        }
-
-
-        public TerminateSignatureFailIdAndReason build() {
-            return new TerminateSignatureFailIdAndReason(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

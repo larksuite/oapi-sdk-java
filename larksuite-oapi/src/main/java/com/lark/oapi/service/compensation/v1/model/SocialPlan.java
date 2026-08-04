@@ -13,383 +13,416 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SocialPlan {
+  /**
+   * 参保方案ID
+   *
+   * <p>示例值：11111
+   */
+  @SerializedName("plan_id")
+  private String planId;
+
+  /**
+   * 参保方案版本ID
+   *
+   * <p>示例值：22222
+   */
+  @SerializedName("plan_tid")
+  private String planTid;
+
+  /**
+   * 薪级类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 生效时间，yyyy-MM-dd
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 险种类型. social_insurance: 社保; provident_fund: 公积金
+   *
+   * <p>示例值：
+   */
+  @SerializedName("insurance_type")
+  private String insuranceType;
+
+  /**
+   * 参保方案适用范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("scope")
+  private SocialPlanScope scope;
+
+  /**
+   * 参保信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("item_detail")
+  private SocialPlanItemDetail[] itemDetail;
+
+  /**
+   * 薪级类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("remark")
+  private I18n remark;
+
+  public String getPlanId() {
+    return this.planId;
+  }
+
+  public void setPlanId(String planId) {
+    this.planId = planId;
+  }
+
+  public String getPlanTid() {
+    return this.planTid;
+  }
+
+  public void setPlanTid(String planTid) {
+    this.planTid = planTid;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String getInsuranceType() {
+    return this.insuranceType;
+  }
+
+  public void setInsuranceType(String insuranceType) {
+    this.insuranceType = insuranceType;
+  }
+
+  public SocialPlanScope getScope() {
+    return this.scope;
+  }
+
+  public void setScope(SocialPlanScope scope) {
+    this.scope = scope;
+  }
+
+  public SocialPlanItemDetail[] getItemDetail() {
+    return this.itemDetail;
+  }
+
+  public void setItemDetail(SocialPlanItemDetail[] itemDetail) {
+    this.itemDetail = itemDetail;
+  }
+
+  public I18n getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(I18n remark) {
+    this.remark = remark;
+  }
+
+  // builder 开始
+  public SocialPlan() {}
+
+  public SocialPlan(Builder builder) {
     /**
      * 参保方案ID
-     * <p> 示例值：11111
+     *
+     * <p>示例值：11111
      */
-    @SerializedName("plan_id")
-    private String planId;
+    this.planId = builder.planId;
     /**
      * 参保方案版本ID
-     * <p> 示例值：22222
+     *
+     * <p>示例值：22222
      */
-    @SerializedName("plan_tid")
-    private String planTid;
+    this.planTid = builder.planTid;
     /**
-     * 参保方案名称
-     * <p> 示例值：
+     * 薪级类型名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
-     * 生效时间，HHHH-MM-DD
-     * <p> 示例值：2024-01-01
+     * 生效时间，yyyy-MM-dd
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("effective_date")
-    private String effectiveDate;
+    this.effectiveDate = builder.effectiveDate;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
      * 险种类型. social_insurance: 社保; provident_fund: 公积金
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("insurance_type")
-    private String insuranceType;
+    this.insuranceType = builder.insuranceType;
     /**
      * 参保方案适用范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("scope")
-    private SocialPlanScope scope;
+    this.scope = builder.scope;
     /**
      * 参保信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("item_detail")
-    private SocialPlanItemDetail[] itemDetail;
+    this.itemDetail = builder.itemDetail;
     /**
-     * 备注
-     * <p> 示例值：
+     * 薪级类型名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("remark")
+    this.remark = builder.remark;
+  }
+
+  public static class Builder {
+    /**
+     * 参保方案ID
+     *
+     * <p>示例值：11111
+     */
+    private String planId;
+
+    /**
+     * 参保方案版本ID
+     *
+     * <p>示例值：22222
+     */
+    private String planTid;
+
+    /**
+     * 薪级类型名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 生效时间，yyyy-MM-dd
+     *
+     * <p>示例值：2024-01-01
+     */
+    private String effectiveDate;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     */
+    private Boolean active;
+
+    /**
+     * 险种类型. social_insurance: 社保; provident_fund: 公积金
+     *
+     * <p>示例值：
+     */
+    private String insuranceType;
+
+    /**
+     * 参保方案适用范围
+     *
+     * <p>示例值：
+     */
+    private SocialPlanScope scope;
+
+    /**
+     * 参保信息
+     *
+     * <p>示例值：
+     */
+    private SocialPlanItemDetail[] itemDetail;
+
+    /**
+     * 薪级类型名称
+     *
+     * <p>示例值：
+     */
     private I18n remark;
 
-    // builder 开始
-    public SocialPlan() {
+    /**
+     * 参保方案ID
+     *
+     * <p>示例值：11111
+     *
+     * @param planId
+     * @return
+     */
+    public Builder planId(String planId) {
+      this.planId = planId;
+      return this;
     }
 
-    public SocialPlan(Builder builder) {
-        /**
-         * 参保方案ID
-         * <p> 示例值：11111
-         */
-        this.planId = builder.planId;
-        /**
-         * 参保方案版本ID
-         * <p> 示例值：22222
-         */
-        this.planTid = builder.planTid;
-        /**
-         * 参保方案名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 生效时间，HHHH-MM-DD
-         * <p> 示例值：2024-01-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.active = builder.active;
-        /**
-         * 险种类型. social_insurance: 社保; provident_fund: 公积金
-         * <p> 示例值：
-         */
-        this.insuranceType = builder.insuranceType;
-        /**
-         * 参保方案适用范围
-         * <p> 示例值：
-         */
-        this.scope = builder.scope;
-        /**
-         * 参保信息
-         * <p> 示例值：
-         */
-        this.itemDetail = builder.itemDetail;
-        /**
-         * 备注
-         * <p> 示例值：
-         */
-        this.remark = builder.remark;
+    /**
+     * 参保方案版本ID
+     *
+     * <p>示例值：22222
+     *
+     * @param planTid
+     * @return
+     */
+    public Builder planTid(String planTid) {
+      this.planTid = planTid;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 薪级类型名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public String getPlanId() {
-        return this.planId;
+    /**
+     * 生效时间，yyyy-MM-dd
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public void setPlanId(String planId) {
-        this.planId = planId;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public String getPlanTid() {
-        return this.planTid;
+    /**
+     * 险种类型. social_insurance: 社保; provident_fund: 公积金
+     *
+     * <p>示例值：
+     *
+     * @param insuranceType
+     * @return
+     */
+    public Builder insuranceType(String insuranceType) {
+      this.insuranceType = insuranceType;
+      return this;
     }
 
-    public void setPlanTid(String planTid) {
-        this.planTid = planTid;
+    /**
+     * 险种类型. social_insurance: 社保; provident_fund: 公积金
+     *
+     * <p>示例值：
+     *
+     * @param insuranceType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.SocialPlanInsuranceTypeEnum}
+     * @return
+     */
+    public Builder insuranceType(
+        com.lark.oapi.service.compensation.v1.enums.SocialPlanInsuranceTypeEnum insuranceType) {
+      this.insuranceType = insuranceType.getValue();
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 参保方案适用范围
+     *
+     * <p>示例值：
+     *
+     * @param scope
+     * @return
+     */
+    public Builder scope(SocialPlanScope scope) {
+      this.scope = scope;
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    /**
+     * 参保信息
+     *
+     * <p>示例值：
+     *
+     * @param itemDetail
+     * @return
+     */
+    public Builder itemDetail(SocialPlanItemDetail[] itemDetail) {
+      this.itemDetail = itemDetail;
+      return this;
     }
 
-    public String getEffectiveDate() {
-        return this.effectiveDate;
+    /**
+     * 薪级类型名称
+     *
+     * <p>示例值：
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(I18n remark) {
+      this.remark = remark;
+      return this;
     }
 
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
+    public SocialPlan build() {
+      return new SocialPlan(this);
     }
+  }
 
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public String getInsuranceType() {
-        return this.insuranceType;
-    }
-
-    public void setInsuranceType(String insuranceType) {
-        this.insuranceType = insuranceType;
-    }
-
-    public SocialPlanScope getScope() {
-        return this.scope;
-    }
-
-    public void setScope(SocialPlanScope scope) {
-        this.scope = scope;
-    }
-
-    public SocialPlanItemDetail[] getItemDetail() {
-        return this.itemDetail;
-    }
-
-    public void setItemDetail(SocialPlanItemDetail[] itemDetail) {
-        this.itemDetail = itemDetail;
-    }
-
-    public I18n getRemark() {
-        return this.remark;
-    }
-
-    public void setRemark(I18n remark) {
-        this.remark = remark;
-    }
-
-    public static class Builder {
-        /**
-         * 参保方案ID
-         * <p> 示例值：11111
-         */
-        private String planId;
-        /**
-         * 参保方案版本ID
-         * <p> 示例值：22222
-         */
-        private String planTid;
-        /**
-         * 参保方案名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 生效时间，HHHH-MM-DD
-         * <p> 示例值：2024-01-01
-         */
-        private String effectiveDate;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean active;
-        /**
-         * 险种类型. social_insurance: 社保; provident_fund: 公积金
-         * <p> 示例值：
-         */
-        private String insuranceType;
-        /**
-         * 参保方案适用范围
-         * <p> 示例值：
-         */
-        private SocialPlanScope scope;
-        /**
-         * 参保信息
-         * <p> 示例值：
-         */
-        private SocialPlanItemDetail[] itemDetail;
-        /**
-         * 备注
-         * <p> 示例值：
-         */
-        private I18n remark;
-
-        /**
-         * 参保方案ID
-         * <p> 示例值：11111
-         *
-         * @param planId
-         * @return
-         */
-        public Builder planId(String planId) {
-            this.planId = planId;
-            return this;
-        }
-
-
-        /**
-         * 参保方案版本ID
-         * <p> 示例值：22222
-         *
-         * @param planTid
-         * @return
-         */
-        public Builder planTid(String planTid) {
-            this.planTid = planTid;
-            return this;
-        }
-
-
-        /**
-         * 参保方案名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 生效时间，HHHH-MM-DD
-         * <p> 示例值：2024-01-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 险种类型. social_insurance: 社保; provident_fund: 公积金
-         * <p> 示例值：
-         *
-         * @param insuranceType
-         * @return
-         */
-        public Builder insuranceType(String insuranceType) {
-            this.insuranceType = insuranceType;
-            return this;
-        }
-
-        /**
-         * 险种类型. social_insurance: 社保; provident_fund: 公积金
-         * <p> 示例值：
-         *
-         * @param insuranceType {@link com.lark.oapi.service.compensation.v1.enums.SocialPlanInsuranceTypeEnum}
-         * @return
-         */
-        public Builder insuranceType(com.lark.oapi.service.compensation.v1.enums.SocialPlanInsuranceTypeEnum insuranceType) {
-            this.insuranceType = insuranceType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 参保方案适用范围
-         * <p> 示例值：
-         *
-         * @param scope
-         * @return
-         */
-        public Builder scope(SocialPlanScope scope) {
-            this.scope = scope;
-            return this;
-        }
-
-
-        /**
-         * 参保信息
-         * <p> 示例值：
-         *
-         * @param itemDetail
-         * @return
-         */
-        public Builder itemDetail(SocialPlanItemDetail[] itemDetail) {
-            this.itemDetail = itemDetail;
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(I18n remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        public SocialPlan build() {
-            return new SocialPlan(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

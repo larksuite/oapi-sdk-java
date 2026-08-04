@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppEnv {
+  /**
+   * 开发环境ID
+   *
+   * <p>示例值：environment_dev123
+   */
+  @SerializedName("dev_id")
+  private String devId;
+
+  /**
+   * 测试环境ID
+   *
+   * <p>示例值：environment_test12
+   */
+  @SerializedName("test_id")
+  private String testId;
+
+  /**
+   * 生产环境ID
+   *
+   * <p>示例值：environment_prod12
+   */
+  @SerializedName("prod_id")
+  private String prodId;
+
+  public String getDevId() {
+    return this.devId;
+  }
+
+  public void setDevId(String devId) {
+    this.devId = devId;
+  }
+
+  public String getTestId() {
+    return this.testId;
+  }
+
+  public void setTestId(String testId) {
+    this.testId = testId;
+  }
+
+  public String getProdId() {
+    return this.prodId;
+  }
+
+  public void setProdId(String prodId) {
+    this.prodId = prodId;
+  }
+
+  // builder 开始
+  public AppEnv() {}
+
+  public AppEnv(Builder builder) {
     /**
      * 开发环境ID
-     * <p> 示例值：environment_dev123
+     *
+     * <p>示例值：environment_dev123
      */
-    @SerializedName("dev_id")
-    private String devId;
+    this.devId = builder.devId;
     /**
      * 测试环境ID
-     * <p> 示例值：environment_test12
+     *
+     * <p>示例值：environment_test12
      */
-    @SerializedName("test_id")
-    private String testId;
+    this.testId = builder.testId;
     /**
      * 生产环境ID
-     * <p> 示例值：environment_prod12
+     *
+     * <p>示例值：environment_prod12
      */
-    @SerializedName("prod_id")
+    this.prodId = builder.prodId;
+  }
+
+  public static class Builder {
+    /**
+     * 开发环境ID
+     *
+     * <p>示例值：environment_dev123
+     */
+    private String devId;
+
+    /**
+     * 测试环境ID
+     *
+     * <p>示例值：environment_test12
+     */
+    private String testId;
+
+    /**
+     * 生产环境ID
+     *
+     * <p>示例值：environment_prod12
+     */
     private String prodId;
 
-    // builder 开始
-    public AppEnv() {
+    /**
+     * 开发环境ID
+     *
+     * <p>示例值：environment_dev123
+     *
+     * @param devId
+     * @return
+     */
+    public Builder devId(String devId) {
+      this.devId = devId;
+      return this;
     }
 
-    public AppEnv(Builder builder) {
-        /**
-         * 开发环境ID
-         * <p> 示例值：environment_dev123
-         */
-        this.devId = builder.devId;
-        /**
-         * 测试环境ID
-         * <p> 示例值：environment_test12
-         */
-        this.testId = builder.testId;
-        /**
-         * 生产环境ID
-         * <p> 示例值：environment_prod12
-         */
-        this.prodId = builder.prodId;
+    /**
+     * 测试环境ID
+     *
+     * <p>示例值：environment_test12
+     *
+     * @param testId
+     * @return
+     */
+    public Builder testId(String testId) {
+      this.testId = testId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 生产环境ID
+     *
+     * <p>示例值：environment_prod12
+     *
+     * @param prodId
+     * @return
+     */
+    public Builder prodId(String prodId) {
+      this.prodId = prodId;
+      return this;
     }
 
-    public String getDevId() {
-        return this.devId;
+    public AppEnv build() {
+      return new AppEnv(this);
     }
+  }
 
-    public void setDevId(String devId) {
-        this.devId = devId;
-    }
-
-    public String getTestId() {
-        return this.testId;
-    }
-
-    public void setTestId(String testId) {
-        this.testId = testId;
-    }
-
-    public String getProdId() {
-        return this.prodId;
-    }
-
-    public void setProdId(String prodId) {
-        this.prodId = prodId;
-    }
-
-    public static class Builder {
-        /**
-         * 开发环境ID
-         * <p> 示例值：environment_dev123
-         */
-        private String devId;
-        /**
-         * 测试环境ID
-         * <p> 示例值：environment_test12
-         */
-        private String testId;
-        /**
-         * 生产环境ID
-         * <p> 示例值：environment_prod12
-         */
-        private String prodId;
-
-        /**
-         * 开发环境ID
-         * <p> 示例值：environment_dev123
-         *
-         * @param devId
-         * @return
-         */
-        public Builder devId(String devId) {
-            this.devId = devId;
-            return this;
-        }
-
-
-        /**
-         * 测试环境ID
-         * <p> 示例值：environment_test12
-         *
-         * @param testId
-         * @return
-         */
-        public Builder testId(String testId) {
-            this.testId = testId;
-            return this;
-        }
-
-
-        /**
-         * 生产环境ID
-         * <p> 示例值：environment_prod12
-         *
-         * @param prodId
-         * @return
-         */
-        public Builder prodId(String prodId) {
-            this.prodId = prodId;
-            return this;
-        }
-
-
-        public AppEnv build() {
-            return new AppEnv(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

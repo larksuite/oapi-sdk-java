@@ -13,130 +13,144 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class PatchJobReq {
+  /**
+   * 根据client_token是否一致来判断是否为同一请求
+   *
+   * <p>示例值：12454646
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  /**
+   * 职务ID。ID获取方式：;-
+   * 调用[【创建职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/create)[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)等可以返回职务ID;-
+   * 也可以通过[【事件】创建职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/events/created)
+   * [【事件】更新职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/events/updated)
+   * 获取ID
+   *
+   * <p>示例值：1616161616
+   */
+  @Path
+  @SerializedName("job_id")
+  private String jobId;
+
+  public String getJobId() {
+    return this.jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
+  @Body private Job body;
+
+  public Job getJob() {
+    return this.body;
+  }
+
+  public void setJob(Job body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchJobReq() {}
+
+  public PatchJobReq(Builder builder) {
     /**
      * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
+     *
+     * <p>示例值：12454646
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
-     * 职务ID
-     * <p> 示例值：1616161616
+     * 职务ID。ID获取方式：;-
+     * 调用[【创建职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/create)[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)等可以返回职务ID;-
+     * 也可以通过[【事件】创建职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/events/created)
+     * [【事件】更新职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/events/updated)
+     * 获取ID
+     *
+     * <p>示例值：1616161616
      */
-    @Path
-    @SerializedName("job_id")
-    private String jobId;
-    @Body
+    this.jobId = builder.jobId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String clientToken; // 根据client_token是否一致来判断是否为同一请求
+
+    /**
+     * 根据client_token是否一致来判断是否为同一请求
+     *
+     * <p>示例值：12454646
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    private String jobId; // 职务ID。ID获取方式：;-
+
+    // 调用[【创建职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/create)[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)等可以返回职务ID;- 也可以通过[【事件】创建职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/events/created) [【事件】更新职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/events/updated) 获取ID
+
+    /**
+     * 职务ID。ID获取方式：;-
+     * 调用[【创建职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/create)[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)等可以返回职务ID;-
+     * 也可以通过[【事件】创建职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/events/created)
+     * [【事件】更新职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/events/updated)
+     * 获取ID
+     *
+     * <p>示例值：1616161616
+     *
+     * @param jobId
+     * @return
+     */
+    public Builder jobId(String jobId) {
+      this.jobId = jobId;
+      return this;
+    }
+
     private Job body;
 
-    // builder 开始
-    public PatchJobReq() {
-    }
-
-    public PatchJobReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 职务ID
-         * <p> 示例值：1616161616
-         */
-        this.jobId = builder.jobId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public String getJobId() {
-        return this.jobId;
-    }
-
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
-    }
-
     public Job getJob() {
-        return this.body;
+      return this.body;
     }
 
-    public void setJob(Job body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder job(Job body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private String jobId; // 职务ID
-        private Job body;
-
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 职务ID
-         * <p> 示例值：1616161616
-         *
-         * @param jobId
-         * @return
-         */
-        public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
-        }
-
-        public Job getJob() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder job(Job body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchJobReq build() {
-            return new PatchJobReq(this);
-        }
+    public PatchJobReq build() {
+      return new PatchJobReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

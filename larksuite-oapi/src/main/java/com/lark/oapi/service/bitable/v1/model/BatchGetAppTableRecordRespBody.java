@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchGetAppTableRecordRespBody {
-    /**
-     * 记录列表
-     * <p> 示例值：
-     */
-    @SerializedName("records")
-    private AppTableRecord[] records;
-    /**
-     * 禁止访问的记录列表(针对开启了高级权限的文档)
-     * <p> 示例值：
-     */
-    @SerializedName("forbidden_record_ids")
-    private String[] forbiddenRecordIds;
-    /**
-     * 不存在的记录列表
-     * <p> 示例值：
-     */
-    @SerializedName("absent_record_ids")
-    private String[] absentRecordIds;
+  /**
+   * 记录列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("records")
+  private AppTableRecord[] records;
 
-    public AppTableRecord[] getRecords() {
-        return this.records;
-    }
+  /**
+   * 禁止访问的记录列表（针对开启了高级权限的多维表格）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("forbidden_record_ids")
+  private String[] forbiddenRecordIds;
 
-    public void setRecords(AppTableRecord[] records) {
-        this.records = records;
-    }
+  /**
+   * 不存在的记录列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("absent_record_ids")
+  private String[] absentRecordIds;
 
-    public String[] getForbiddenRecordIds() {
-        return this.forbiddenRecordIds;
-    }
+  public AppTableRecord[] getRecords() {
+    return this.records;
+  }
 
-    public void setForbiddenRecordIds(String[] forbiddenRecordIds) {
-        this.forbiddenRecordIds = forbiddenRecordIds;
-    }
+  public void setRecords(AppTableRecord[] records) {
+    this.records = records;
+  }
 
-    public String[] getAbsentRecordIds() {
-        return this.absentRecordIds;
-    }
+  public String[] getForbiddenRecordIds() {
+    return this.forbiddenRecordIds;
+  }
 
-    public void setAbsentRecordIds(String[] absentRecordIds) {
-        this.absentRecordIds = absentRecordIds;
-    }
+  public void setForbiddenRecordIds(String[] forbiddenRecordIds) {
+    this.forbiddenRecordIds = forbiddenRecordIds;
+  }
 
+  public String[] getAbsentRecordIds() {
+    return this.absentRecordIds;
+  }
+
+  public void setAbsentRecordIds(String[] absentRecordIds) {
+    this.absentRecordIds = absentRecordIds;
+  }
 }

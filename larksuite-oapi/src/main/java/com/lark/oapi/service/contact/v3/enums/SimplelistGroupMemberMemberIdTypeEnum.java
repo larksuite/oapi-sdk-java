@@ -14,21 +14,23 @@
 package com.lark.oapi.service.contact.v3.enums;
 
 /**
- * 欲获取成员ID类型。;当member_type=user时候，member_id_type表示user_id_type，枚举值open_id, union_id和user_id。;当member_type=department时候，member_id_type表示department_id_type，枚举值open_id和department_id。
+ * 用户组成员 ID 类型。;;- 当 `member_type` 取值为 `user`时，该参数表示用户 ID 类型，包括 open_id、union_id、user_id。;- 当
+ * `member_type` 取值为 `department`时，该参数表示部门 ID 类型，包括 department_id、open_department_id。
  */
 public enum SimplelistGroupMemberMemberIdTypeEnum {
-    OPEN_ID("open_id"), // member_type=user时候，表示用户的open_id；member_type=department时候，表示部门的open_id
-    UNION_ID("union_id"), // member_type=user时候，表示用户的union_id
-    USER_ID("user_id"), // member_type=user时候，表示用户的user_id
-    DEPARTMENT_ID("department_id"), // member_type=department时候，表示部门的department_id
-    ;
-    private String value;
+  OPEN_ID("open_id"), // 当 `member_type` 取值为 `user`时，表示用户的 open_id。;当 `member_type` 取值为
+  // `department`时，表示部门的 open_department_id。
+  UNION_ID("union_id"), // 当 `member_type` 取值为 `user`时，表示用户的 union_id。
+  USER_ID("user_id"), // 当 `member_type` 取值为 `user`时，表示用户的 user_id。
+  DEPARTMENT_ID("department_id"), // 当 `member_type` 取值为 `department`时，表示部门的 department_id。
+  ;
+  private String value;
 
-    SimplelistGroupMemberMemberIdTypeEnum(String value) {
-        this.value = value;
-    }
+  SimplelistGroupMemberMemberIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

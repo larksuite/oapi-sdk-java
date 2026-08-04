@@ -13,149 +13,165 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchGetPathwayReqBody {
+  /**
+   * 通道 ID 列表，不填则不做筛选，ID获取方式;-
+   * 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;-
+   * 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;-
+   * 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;-
+   * 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+   *
+   * <p>示例值：
+   */
+  @SerializedName("pathway_ids")
+  private String[] pathwayIds;
+
+  /**
+   * 通道 code 列表，不填则不做筛选
+   *
+   * <p>示例值：
+   */
+  @SerializedName("pathway_codes")
+  private String[] pathwayCodes;
+
+  /**
+   * 是否启用，不填则不做筛选
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  public String[] getPathwayIds() {
+    return this.pathwayIds;
+  }
+
+  public void setPathwayIds(String[] pathwayIds) {
+    this.pathwayIds = pathwayIds;
+  }
+
+  public String[] getPathwayCodes() {
+    return this.pathwayCodes;
+  }
+
+  public void setPathwayCodes(String[] pathwayCodes) {
+    this.pathwayCodes = pathwayCodes;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  // builder 开始
+  public BatchGetPathwayReqBody() {}
+
+  public BatchGetPathwayReqBody(Builder builder) {
     /**
-     * 通道 ID 列表，不填则不做筛选
-     * <p> 示例值：
+     * 通道 ID 列表，不填则不做筛选，ID获取方式;-
+     * 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;-
+     * 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+     *
+     * <p>示例值：
      */
-    @SerializedName("pathway_ids")
-    private String[] pathwayIds;
+    this.pathwayIds = builder.pathwayIds;
     /**
      * 通道 code 列表，不填则不做筛选
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("pathway_codes")
-    private String[] pathwayCodes;
+    this.pathwayCodes = builder.pathwayCodes;
     /**
      * 是否启用，不填则不做筛选
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
+    this.active = builder.active;
+  }
+
+  public static class Builder {
+    /**
+     * 通道 ID 列表，不填则不做筛选，ID获取方式;-
+     * 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;-
+     * 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+     *
+     * <p>示例值：
+     */
+    private String[] pathwayIds;
+
+    /**
+     * 通道 code 列表，不填则不做筛选
+     *
+     * <p>示例值：
+     */
+    private String[] pathwayCodes;
+
+    /**
+     * 是否启用，不填则不做筛选
+     *
+     * <p>示例值：true
+     */
     private Boolean active;
 
-    // builder 开始
-    public BatchGetPathwayReqBody() {
+    /**
+     * 通道 ID 列表，不填则不做筛选，ID获取方式;-
+     * 调用[创建通道接口](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fcreate)后，从响应结果的`pathway_id`获取。;-
+     * 监听[通道创建事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/created)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道更新事件](/document-mod/index?fullPath=/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/events/updated)，当触发该事件后可从事件体内获取`pathway_id`;-
+     * 监听[通道删除事件](/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Fcorehr-v2%2Fpathway%2Fevents%2Fdeleted)，当触发该事件后可从事件体内获取`pathway_id`
+     *
+     * <p>示例值：
+     *
+     * @param pathwayIds
+     * @return
+     */
+    public Builder pathwayIds(String[] pathwayIds) {
+      this.pathwayIds = pathwayIds;
+      return this;
     }
 
-    public BatchGetPathwayReqBody(Builder builder) {
-        /**
-         * 通道 ID 列表，不填则不做筛选
-         * <p> 示例值：
-         */
-        this.pathwayIds = builder.pathwayIds;
-        /**
-         * 通道 code 列表，不填则不做筛选
-         * <p> 示例值：
-         */
-        this.pathwayCodes = builder.pathwayCodes;
-        /**
-         * 是否启用，不填则不做筛选
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
+    /**
+     * 通道 code 列表，不填则不做筛选
+     *
+     * <p>示例值：
+     *
+     * @param pathwayCodes
+     * @return
+     */
+    public Builder pathwayCodes(String[] pathwayCodes) {
+      this.pathwayCodes = pathwayCodes;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否启用，不填则不做筛选
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public String[] getPathwayIds() {
-        return this.pathwayIds;
+    public BatchGetPathwayReqBody build() {
+      return new BatchGetPathwayReqBody(this);
     }
+  }
 
-    public void setPathwayIds(String[] pathwayIds) {
-        this.pathwayIds = pathwayIds;
-    }
-
-    public String[] getPathwayCodes() {
-        return this.pathwayCodes;
-    }
-
-    public void setPathwayCodes(String[] pathwayCodes) {
-        this.pathwayCodes = pathwayCodes;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public static class Builder {
-        /**
-         * 通道 ID 列表，不填则不做筛选
-         * <p> 示例值：
-         */
-        private String[] pathwayIds;
-        /**
-         * 通道 code 列表，不填则不做筛选
-         * <p> 示例值：
-         */
-        private String[] pathwayCodes;
-        /**
-         * 是否启用，不填则不做筛选
-         * <p> 示例值：true
-         */
-        private Boolean active;
-
-        /**
-         * 通道 ID 列表，不填则不做筛选
-         * <p> 示例值：
-         *
-         * @param pathwayIds
-         * @return
-         */
-        public Builder pathwayIds(String[] pathwayIds) {
-            this.pathwayIds = pathwayIds;
-            return this;
-        }
-
-
-        /**
-         * 通道 code 列表，不填则不做筛选
-         * <p> 示例值：
-         *
-         * @param pathwayCodes
-         * @return
-         */
-        public Builder pathwayCodes(String[] pathwayCodes) {
-            this.pathwayCodes = pathwayCodes;
-            return this;
-        }
-
-
-        /**
-         * 是否启用，不填则不做筛选
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        public BatchGetPathwayReqBody build() {
-            return new BatchGetPathwayReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 消息展示规则更新类型
- */
+/** 消息展示规则更新类型 */
 public enum FeedCardDisplayRuleUpdaterDisplayFeedRuleUpdateTypeEnum {
-    FILTER("filter"), // 全局分组过滤器
-    GROUP("group"), // 消息流卡片标签
-    ;
-    private String value;
+  FILTER("filter"), // 全局分组过滤器
+  GROUP("group"), // 消息流卡片标签
+  ;
+  private String value;
 
-    FeedCardDisplayRuleUpdaterDisplayFeedRuleUpdateTypeEnum(String value) {
-        this.value = value;
-    }
+  FeedCardDisplayRuleUpdaterDisplayFeedRuleUpdateTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

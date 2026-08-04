@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 回调时Request里面的id类型
- */
+/** 回调时Request里面的id类型 */
 public enum ConnectorParamCallbackUserIdTypeEnum {
-    UNKNOWN(0), // 不合法
-    USERID(1), // 用户在租户内的身份
-    OPENID(2), // 用户在应用内的身份
-    UNIONID(3), // 用户在同一应用服务商所开发的多个应用下的统一身份
-    ;
-    private Integer value;
+  UNKNOWN(0), // 不合法
+  USERID(1), // 用户在租户内的身份
+  OPENID(2), // 用户在应用内的身份
+  UNIONID(3), // 用户在同一应用服务商所开发的多个应用下的统一身份
+  ;
+  private Integer value;
 
-    ConnectorParamCallbackUserIdTypeEnum(Integer value) {
-        this.value = value;
-    }
+  ConnectorParamCallbackUserIdTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

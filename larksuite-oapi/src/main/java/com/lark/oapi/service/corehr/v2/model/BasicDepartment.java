@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BasicDepartment {
+  /**
+   * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值;- 请使用 id_v2
+   *
+   * <p>示例值：4719456877659520852
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值
+   *
+   * <p>示例值：4719456877659520852
+   */
+  @SerializedName("id_v2")
+  private String idV2;
+
+  /**
+   * 部门名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_name")
+  private I18n[] departmentName;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getIdV2() {
+    return this.idV2;
+  }
+
+  public void setIdV2(String idV2) {
+    this.idV2 = idV2;
+  }
+
+  public I18n[] getDepartmentName() {
+    return this.departmentName;
+  }
+
+  public void setDepartmentName(I18n[] departmentName) {
+    this.departmentName = departmentName;
+  }
+
+  // builder 开始
+  public BasicDepartment() {}
+
+  public BasicDepartment(Builder builder) {
     /**
      * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值;- 请使用 id_v2
-     * <p> 示例值：4719456877659520852
+     *
+     * <p>示例值：4719456877659520852
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值
-     * <p> 示例值：4719456877659520852
+     *
+     * <p>示例值：4719456877659520852
      */
-    @SerializedName("id_v2")
-    private String idV2;
+    this.idV2 = builder.idV2;
     /**
      * 部门名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_name")
+    this.departmentName = builder.departmentName;
+  }
+
+  public static class Builder {
+    /**
+     * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值;- 请使用 id_v2
+     *
+     * <p>示例值：4719456877659520852
+     */
+    private String id;
+
+    /**
+     * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值
+     *
+     * <p>示例值：4719456877659520852
+     */
+    private String idV2;
+
+    /**
+     * 部门名称
+     *
+     * <p>示例值：
+     */
     private I18n[] departmentName;
 
-    // builder 开始
-    public BasicDepartment() {
+    /**
+     * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值;- 请使用 id_v2
+     *
+     * <p>示例值：4719456877659520852
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public BasicDepartment(Builder builder) {
-        /**
-         * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值;- 请使用 id_v2
-         * <p> 示例值：4719456877659520852
-         */
-        this.id = builder.id;
-        /**
-         * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值
-         * <p> 示例值：4719456877659520852
-         */
-        this.idV2 = builder.idV2;
-        /**
-         * 部门名称
-         * <p> 示例值：
-         */
-        this.departmentName = builder.departmentName;
+    /**
+     * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值
+     *
+     * <p>示例值：4719456877659520852
+     *
+     * @param idV2
+     * @return
+     */
+    public Builder idV2(String idV2) {
+      this.idV2 = idV2;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称
+     *
+     * <p>示例值：
+     *
+     * @param departmentName
+     * @return
+     */
+    public Builder departmentName(I18n[] departmentName) {
+      this.departmentName = departmentName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public BasicDepartment build() {
+      return new BasicDepartment(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getIdV2() {
-        return this.idV2;
-    }
-
-    public void setIdV2(String idV2) {
-        this.idV2 = idV2;
-    }
-
-    public I18n[] getDepartmentName() {
-        return this.departmentName;
-    }
-
-    public void setDepartmentName(I18n[] departmentName) {
-        this.departmentName = departmentName;
-    }
-
-    public static class Builder {
-        /**
-         * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值;- 请使用 id_v2
-         * <p> 示例值：4719456877659520852
-         */
-        private String id;
-        /**
-         * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值
-         * <p> 示例值：4719456877659520852
-         */
-        private String idV2;
-        /**
-         * 部门名称
-         * <p> 示例值：
-         */
-        private I18n[] departmentName;
-
-        /**
-         * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值;- 请使用 id_v2
-         * <p> 示例值：4719456877659520852
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 部门 ID;- 类型与 department_id_type 一致，转换失败时返回空值
-         * <p> 示例值：4719456877659520852
-         *
-         * @param idV2
-         * @return
-         */
-        public Builder idV2(String idV2) {
-            this.idV2 = idV2;
-            return this;
-        }
-
-
-        /**
-         * 部门名称
-         * <p> 示例值：
-         *
-         * @param departmentName
-         * @return
-         */
-        public Builder departmentName(I18n[] departmentName) {
-            this.departmentName = departmentName;
-            return this;
-        }
-
-
-        public BasicDepartment build() {
-            return new BasicDepartment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

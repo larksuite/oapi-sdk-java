@@ -13,301 +13,420 @@
 
 package com.lark.oapi.service.apaas.v1.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.apaas.v1.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.apaas.v1.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class ApplicationAuditLog {
-    private static final Logger log = LoggerFactory.getLogger(ApplicationAuditLog.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(ApplicationAuditLog.class);
+  private final Config config;
 
-    public ApplicationAuditLog(Config config) {
-        this.config = config;
+  public ApplicationAuditLog(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 查询审计日志列表，根据搜索/筛选条件，查询审计日志列表
+   *
+   * <p>每次最多可查询 10,000 条数据 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=audit_log_list&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=audit_log_list&project=apaas&resource=application.audit_log&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/AuditLogListApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/AuditLogListApplicationAuditLogSample.java</a>
+   * ;
+   */
+  public AuditLogListApplicationAuditLogResp auditLogList(
+      AuditLogListApplicationAuditLogReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/apaas/v1/applications/:namespace/audit_log/audit_log_list",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
 
-    /**
-     * ，获取审计日志列表
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=audit_log_list&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=audit_log_list&project=apaas&resource=application.audit_log&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/AuditLogListApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/AuditLogListApplicationAuditLogSample.java</a> ;
-     */
-    public AuditLogListApplicationAuditLogResp auditLogList(AuditLogListApplicationAuditLogReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/apaas/v1/applications/:namespace/audit_log/audit_log_list"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        AuditLogListApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, AuditLogListApplicationAuditLogResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log/audit_log_list"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    AuditLogListApplicationAuditLogResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, AuditLogListApplicationAuditLogResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/apaas/v1/applications/:namespace/audit_log/audit_log_list",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，获取审计日志列表
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=audit_log_list&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=audit_log_list&project=apaas&resource=application.audit_log&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/AuditLogListApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/AuditLogListApplicationAuditLogSample.java</a> ;
-     */
-    public AuditLogListApplicationAuditLogResp auditLogList(AuditLogListApplicationAuditLogReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/apaas/v1/applications/:namespace/audit_log/audit_log_list"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        AuditLogListApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, AuditLogListApplicationAuditLogResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log/audit_log_list"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 查询审计日志列表，根据搜索/筛选条件，查询审计日志列表
+   *
+   * <p>每次最多可查询 10,000 条数据 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=audit_log_list&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=audit_log_list&project=apaas&resource=application.audit_log&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/AuditLogListApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/AuditLogListApplicationAuditLogSample.java</a>
+   * ;
+   */
+  public AuditLogListApplicationAuditLogResp auditLogList(AuditLogListApplicationAuditLogReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/apaas/v1/applications/:namespace/audit_log/audit_log_list",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    AuditLogListApplicationAuditLogResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, AuditLogListApplicationAuditLogResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/apaas/v1/applications/:namespace/audit_log/audit_log_list",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，获取数据变更日志详情
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_log_detail&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_log_detail&project=apaas&resource=application.audit_log&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogDetailApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogDetailApplicationAuditLogSample.java</a> ;
-     */
-    public DataChangeLogDetailApplicationAuditLogResp dataChangeLogDetail(DataChangeLogDetailApplicationAuditLogReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_log_detail"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        DataChangeLogDetailApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DataChangeLogDetailApplicationAuditLogResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_log_detail"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 飞书低代码平台-查询数据变更日志详情，根据日志 ID 查询数据变更日志详情
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_log_detail&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_log_detail&project=apaas&resource=application.audit_log&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogDetailApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogDetailApplicationAuditLogSample.java</a>
+   * ;
+   */
+  public DataChangeLogDetailApplicationAuditLogResp dataChangeLogDetail(
+      DataChangeLogDetailApplicationAuditLogReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，获取数据变更日志详情
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_log_detail&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_log_detail&project=apaas&resource=application.audit_log&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogDetailApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogDetailApplicationAuditLogSample.java</a> ;
-     */
-    public DataChangeLogDetailApplicationAuditLogResp dataChangeLogDetail(DataChangeLogDetailApplicationAuditLogReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_log_detail",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_log_detail"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        DataChangeLogDetailApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DataChangeLogDetailApplicationAuditLogResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_log_detail"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    DataChangeLogDetailApplicationAuditLogResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, DataChangeLogDetailApplicationAuditLogResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_log_detail",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，获取数据变更日志列表
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_logs_list&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_logs_list&project=apaas&resource=application.audit_log&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogsListApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogsListApplicationAuditLogSample.java</a> ;
-     */
-    public DataChangeLogsListApplicationAuditLogResp dataChangeLogsList(DataChangeLogsListApplicationAuditLogReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_logs_list"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        DataChangeLogsListApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DataChangeLogsListApplicationAuditLogResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_logs_list"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 飞书低代码平台-查询数据变更日志详情，根据日志 ID 查询数据变更日志详情
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_log_detail&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_log_detail&project=apaas&resource=application.audit_log&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogDetailApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogDetailApplicationAuditLogSample.java</a>
+   * ;
+   */
+  public DataChangeLogDetailApplicationAuditLogResp dataChangeLogDetail(
+      DataChangeLogDetailApplicationAuditLogReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_log_detail",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    DataChangeLogDetailApplicationAuditLogResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, DataChangeLogDetailApplicationAuditLogResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_log_detail",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，获取数据变更日志列表
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_logs_list&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_logs_list&project=apaas&resource=application.audit_log&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogsListApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogsListApplicationAuditLogSample.java</a> ;
-     */
-    public DataChangeLogsListApplicationAuditLogResp dataChangeLogsList(DataChangeLogsListApplicationAuditLogReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_logs_list"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        DataChangeLogsListApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DataChangeLogsListApplicationAuditLogResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_logs_list"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 飞书低代码平台-查询数据变更日志列表，根据搜索/筛选条件，查询数据变更日志列表
+   *
+   * <p>每次最多可查询 10,000 条数据 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_logs_list&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_logs_list&project=apaas&resource=application.audit_log&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogsListApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogsListApplicationAuditLogSample.java</a>
+   * ;
+   */
+  public DataChangeLogsListApplicationAuditLogResp dataChangeLogsList(
+      DataChangeLogsListApplicationAuditLogReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，获取审计日志详情
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=apaas&resource=application.audit_log&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/GetApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/GetApplicationAuditLogSample.java</a> ;
-     */
-    public GetApplicationAuditLogResp get(GetApplicationAuditLogReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_logs_list",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/apaas/v1/applications/:namespace/audit_log"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        GetApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApplicationAuditLogResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    DataChangeLogsListApplicationAuditLogResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, DataChangeLogsListApplicationAuditLogResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_logs_list",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，获取审计日志详情
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=apaas&resource=application.audit_log&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/GetApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/GetApplicationAuditLogSample.java</a> ;
-     */
-    public GetApplicationAuditLogResp get(GetApplicationAuditLogReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/apaas/v1/applications/:namespace/audit_log"
-                , Sets.newHashSet(AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        GetApplicationAuditLogResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetApplicationAuditLogResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/apaas/v1/applications/:namespace/audit_log"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 飞书低代码平台-查询数据变更日志列表，根据搜索/筛选条件，查询数据变更日志列表
+   *
+   * <p>每次最多可查询 10,000 条数据 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_logs_list&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=data_change_logs_list&project=apaas&resource=application.audit_log&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogsListApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/DataChangeLogsListApplicationAuditLogSample.java</a>
+   * ;
+   */
+  public DataChangeLogsListApplicationAuditLogResp dataChangeLogsList(
+      DataChangeLogsListApplicationAuditLogReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_logs_list",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    DataChangeLogsListApplicationAuditLogResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, DataChangeLogsListApplicationAuditLogResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/apaas/v1/applications/:namespace/audit_log/data_change_logs_list",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 飞书低代码平台-查询审计日志详情，根据日志 ID 查询审计日志详情
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=apaas&resource=application.audit_log&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/GetApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/GetApplicationAuditLogSample.java</a>
+   * ;
+   */
+  public GetApplicationAuditLogResp get(GetApplicationAuditLogReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/apaas/v1/applications/:namespace/audit_log",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
+
+    // 反序列化
+    GetApplicationAuditLogResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, GetApplicationAuditLogResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/apaas/v1/applications/:namespace/audit_log",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 飞书低代码平台-查询审计日志详情，根据日志 ID 查询审计日志详情
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=apaas&resource=application.audit_log&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=apaas&resource=application.audit_log&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/GetApplicationAuditLogSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/apaasv1/GetApplicationAuditLogSample.java</a>
+   * ;
+   */
+  public GetApplicationAuditLogResp get(GetApplicationAuditLogReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/apaas/v1/applications/:namespace/audit_log",
+            Sets.newHashSet(AccessTokenType.User),
+            req);
+
+    // 反序列化
+    GetApplicationAuditLogResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, GetApplicationAuditLogResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/apaas/v1/applications/:namespace/audit_log",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

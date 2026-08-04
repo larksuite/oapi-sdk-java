@@ -13,149 +13,317 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppTable {
+  /**
+   * 数据表名，如 student
+   *
+   * <p>示例值：student
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 数据表描述
+   *
+   * <p>示例值：studect数据表
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 数据表列
+   *
+   * <p>示例值：
+   */
+  @SerializedName("columns")
+  private AppTableColumn[] columns;
+
+  /**
+   * 数据表索引
+   *
+   * <p>示例值：
+   */
+  @SerializedName("indexes")
+  private AppTableIndex[] indexes;
+
+  /**
+   * 数据表约束
+   *
+   * <p>示例值：
+   */
+  @SerializedName("constraints")
+  private AppTableConstraint[] constraints;
+
+  /**
+   * 表预估行数
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("estimated_row_count")
+  private Integer estimatedRowCount;
+
+  /**
+   * 表占用磁盘字节数
+   *
+   * <p>示例值：8388
+   */
+  @SerializedName("size_bytes")
+  private Integer sizeBytes;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public AppTableColumn[] getColumns() {
+    return this.columns;
+  }
+
+  public void setColumns(AppTableColumn[] columns) {
+    this.columns = columns;
+  }
+
+  public AppTableIndex[] getIndexes() {
+    return this.indexes;
+  }
+
+  public void setIndexes(AppTableIndex[] indexes) {
+    this.indexes = indexes;
+  }
+
+  public AppTableConstraint[] getConstraints() {
+    return this.constraints;
+  }
+
+  public void setConstraints(AppTableConstraint[] constraints) {
+    this.constraints = constraints;
+  }
+
+  public Integer getEstimatedRowCount() {
+    return this.estimatedRowCount;
+  }
+
+  public void setEstimatedRowCount(Integer estimatedRowCount) {
+    this.estimatedRowCount = estimatedRowCount;
+  }
+
+  public Integer getSizeBytes() {
+    return this.sizeBytes;
+  }
+
+  public void setSizeBytes(Integer sizeBytes) {
+    this.sizeBytes = sizeBytes;
+  }
+
+  // builder 开始
+  public AppTable() {}
+
+  public AppTable(Builder builder) {
     /**
      * 数据表名，如 student
-     * <p> 示例值：student
+     *
+     * <p>示例值：student
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 数据表描述
-     * <p> 示例值：studect数据表
+     *
+     * <p>示例值：studect数据表
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 数据表列
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("columns")
+    this.columns = builder.columns;
+    /**
+     * 数据表索引
+     *
+     * <p>示例值：
+     */
+    this.indexes = builder.indexes;
+    /**
+     * 数据表约束
+     *
+     * <p>示例值：
+     */
+    this.constraints = builder.constraints;
+    /**
+     * 表预估行数
+     *
+     * <p>示例值：1234
+     */
+    this.estimatedRowCount = builder.estimatedRowCount;
+    /**
+     * 表占用磁盘字节数
+     *
+     * <p>示例值：8388
+     */
+    this.sizeBytes = builder.sizeBytes;
+  }
+
+  public static class Builder {
+    /**
+     * 数据表名，如 student
+     *
+     * <p>示例值：student
+     */
+    private String name;
+
+    /**
+     * 数据表描述
+     *
+     * <p>示例值：studect数据表
+     */
+    private String description;
+
+    /**
+     * 数据表列
+     *
+     * <p>示例值：
+     */
     private AppTableColumn[] columns;
 
-    // builder 开始
-    public AppTable() {
+    /**
+     * 数据表索引
+     *
+     * <p>示例值：
+     */
+    private AppTableIndex[] indexes;
+
+    /**
+     * 数据表约束
+     *
+     * <p>示例值：
+     */
+    private AppTableConstraint[] constraints;
+
+    /**
+     * 表预估行数
+     *
+     * <p>示例值：1234
+     */
+    private Integer estimatedRowCount;
+
+    /**
+     * 表占用磁盘字节数
+     *
+     * <p>示例值：8388
+     */
+    private Integer sizeBytes;
+
+    /**
+     * 数据表名，如 student
+     *
+     * <p>示例值：student
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public AppTable(Builder builder) {
-        /**
-         * 数据表名，如 student
-         * <p> 示例值：student
-         */
-        this.name = builder.name;
-        /**
-         * 数据表描述
-         * <p> 示例值：studect数据表
-         */
-        this.description = builder.description;
-        /**
-         * 数据表列
-         * <p> 示例值：
-         */
-        this.columns = builder.columns;
+    /**
+     * 数据表描述
+     *
+     * <p>示例值：studect数据表
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据表列
+     *
+     * <p>示例值：
+     *
+     * @param columns
+     * @return
+     */
+    public Builder columns(AppTableColumn[] columns) {
+      this.columns = columns;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 数据表索引
+     *
+     * <p>示例值：
+     *
+     * @param indexes
+     * @return
+     */
+    public Builder indexes(AppTableIndex[] indexes) {
+      this.indexes = indexes;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 数据表约束
+     *
+     * <p>示例值：
+     *
+     * @param constraints
+     * @return
+     */
+    public Builder constraints(AppTableConstraint[] constraints) {
+      this.constraints = constraints;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * 表预估行数
+     *
+     * <p>示例值：1234
+     *
+     * @param estimatedRowCount
+     * @return
+     */
+    public Builder estimatedRowCount(Integer estimatedRowCount) {
+      this.estimatedRowCount = estimatedRowCount;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * 表占用磁盘字节数
+     *
+     * <p>示例值：8388
+     *
+     * @param sizeBytes
+     * @return
+     */
+    public Builder sizeBytes(Integer sizeBytes) {
+      this.sizeBytes = sizeBytes;
+      return this;
     }
 
-    public AppTableColumn[] getColumns() {
-        return this.columns;
+    public AppTable build() {
+      return new AppTable(this);
     }
+  }
 
-    public void setColumns(AppTableColumn[] columns) {
-        this.columns = columns;
-    }
-
-    public static class Builder {
-        /**
-         * 数据表名，如 student
-         * <p> 示例值：student
-         */
-        private String name;
-        /**
-         * 数据表描述
-         * <p> 示例值：studect数据表
-         */
-        private String description;
-        /**
-         * 数据表列
-         * <p> 示例值：
-         */
-        private AppTableColumn[] columns;
-
-        /**
-         * 数据表名，如 student
-         * <p> 示例值：student
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 数据表描述
-         * <p> 示例值：studect数据表
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 数据表列
-         * <p> 示例值：
-         *
-         * @param columns
-         * @return
-         */
-        public Builder columns(AppTableColumn[] columns) {
-            this.columns = columns;
-            return this;
-        }
-
-
-        public AppTable build() {
-            return new AppTable(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

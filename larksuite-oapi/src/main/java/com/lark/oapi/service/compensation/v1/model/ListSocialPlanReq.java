@@ -13,185 +13,188 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.compensation.v1.enums.*;
 
 public class ListSocialPlanReq {
+  /**
+   * 生效日期，查询在该日期生效的参保方案数据，格式为 YYYY-mm-dd，长度为 10 字符
+   *
+   * <p>示例值：2024-01-01
+   */
+  @Query
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  /**
+   * 分页大小，默认100，最大200
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 为空从头开始遍历，将上一次请求返回的token作为新请求的token，进行翻页
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 社保方案/公积金方案
+   *
+   * <p>示例值：social_insurance
+   */
+  @Query
+  @SerializedName("insurance_type")
+  private String insuranceType;
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getInsuranceType() {
+    return this.insuranceType;
+  }
+
+  public void setInsuranceType(String insuranceType) {
+    this.insuranceType = insuranceType;
+  }
+
+  // builder 开始
+  public ListSocialPlanReq() {}
+
+  public ListSocialPlanReq(Builder builder) {
     /**
-     * 生效日期，查询在该日期生效的参保方案数据
-     * <p> 示例值：2024-01-01
+     * 生效日期，查询在该日期生效的参保方案数据，格式为 YYYY-mm-dd，长度为 10 字符
+     *
+     * <p>示例值：2024-01-01
      */
-    @Query
-    @SerializedName("effective_date")
-    private String effectiveDate;
+    this.effectiveDate = builder.effectiveDate;
     /**
      * 分页大小，默认100，最大200
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 为空从头开始遍历，将上一次请求返回的token作为新请求的token，进行翻页
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 社保方案/公积金方案
-     * <p> 示例值：social_insuracne
+     *
+     * <p>示例值：social_insurance
      */
-    @Query
-    @SerializedName("insurance_type")
-    private String insuranceType;
+    this.insuranceType = builder.insuranceType;
+  }
 
-    // builder 开始
-    public ListSocialPlanReq() {
+  public static class Builder {
+    private String effectiveDate; // 生效日期，查询在该日期生效的参保方案数据，格式为 YYYY-mm-dd，长度为 10 字符
+    private Integer pageSize; // 分页大小，默认100，最大200
+    private String pageToken; // 为空从头开始遍历，将上一次请求返回的token作为新请求的token，进行翻页
+    private String insuranceType; // 社保方案/公积金方案
+
+    /**
+     * 生效日期，查询在该日期生效的参保方案数据，格式为 YYYY-mm-dd，长度为 10 字符
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public ListSocialPlanReq(Builder builder) {
-        /**
-         * 生效日期，查询在该日期生效的参保方案数据
-         * <p> 示例值：2024-01-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 分页大小，默认100，最大200
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 为空从头开始遍历，将上一次请求返回的token作为新请求的token，进行翻页
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 社保方案/公积金方案
-         * <p> 示例值：social_insuracne
-         */
-        this.insuranceType = builder.insuranceType;
+    /**
+     * 分页大小，默认100，最大200
+     *
+     * <p>示例值：
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 为空从头开始遍历，将上一次请求返回的token作为新请求的token，进行翻页
+     *
+     * <p>示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public String getEffectiveDate() {
-        return this.effectiveDate;
+    /**
+     * 社保方案/公积金方案
+     *
+     * <p>示例值：social_insurance
+     *
+     * @param insuranceType
+     * @return
+     */
+    public Builder insuranceType(String insuranceType) {
+      this.insuranceType = insuranceType;
+      return this;
     }
 
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
+    /**
+     * 社保方案/公积金方案
+     *
+     * <p>示例值：social_insurance
+     *
+     * @param insuranceType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.ListSocialPlanInsuranceTypeEnum}
+     * @return
+     */
+    public Builder insuranceType(
+        com.lark.oapi.service.compensation.v1.enums.ListSocialPlanInsuranceTypeEnum insuranceType) {
+      this.insuranceType = insuranceType.getValue();
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    public ListSocialPlanReq build() {
+      return new ListSocialPlanReq(this);
     }
+  }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getInsuranceType() {
-        return this.insuranceType;
-    }
-
-    public void setInsuranceType(String insuranceType) {
-        this.insuranceType = insuranceType;
-    }
-
-    public static class Builder {
-        private String effectiveDate; // 生效日期，查询在该日期生效的参保方案数据
-        private Integer pageSize; // 分页大小，默认100，最大200
-        private String pageToken; // 为空从头开始遍历，将上一次请求返回的token作为新请求的token，进行翻页
-        private String insuranceType; // 社保方案/公积金方案
-
-        /**
-         * 生效日期，查询在该日期生效的参保方案数据
-         * <p> 示例值：2024-01-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 分页大小，默认100，最大200
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 为空从头开始遍历，将上一次请求返回的token作为新请求的token，进行翻页
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 社保方案/公积金方案
-         * <p> 示例值：social_insuracne
-         *
-         * @param insuranceType
-         * @return
-         */
-        public Builder insuranceType(String insuranceType) {
-            this.insuranceType = insuranceType;
-            return this;
-        }
-
-        /**
-         * 社保方案/公积金方案
-         * <p> 示例值：social_insuracne
-         *
-         * @param insuranceType {@link com.lark.oapi.service.compensation.v1.enums.ListSocialPlanInsuranceTypeEnum}
-         * @return
-         */
-        public Builder insuranceType(com.lark.oapi.service.compensation.v1.enums.ListSocialPlanInsuranceTypeEnum insuranceType) {
-            this.insuranceType = insuranceType.getValue();
-            return this;
-        }
-
-
-        public ListSocialPlanReq build() {
-            return new ListSocialPlanReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

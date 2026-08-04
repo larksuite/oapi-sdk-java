@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.task.v2.enums;
 
-/**
- *
- */
+/** */
 public enum ListRelatedTaskTaskV2UserIdTypeEnum {
-    USER_ID("user_id"), // user_id
-    UNION_ID("union_id"), // union_id
-    OPEN_ID("open_id"), // open_id
-    ;
-    private String value;
+  USER_ID("user_id"), // user_id
+  UNION_ID("union_id"), // union_id
+  OPEN_ID("open_id"), // open_id
+  ;
+  private String value;
 
-    ListRelatedTaskTaskV2UserIdTypeEnum(String value) {
-        this.value = value;
-    }
+  ListRelatedTaskTaskV2UserIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

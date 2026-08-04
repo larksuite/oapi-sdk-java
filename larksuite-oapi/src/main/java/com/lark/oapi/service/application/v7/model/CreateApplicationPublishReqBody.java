@@ -13,247 +13,267 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v7.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateApplicationPublishReqBody {
+  /**
+   * 移动端默认能力;;**注意**：如果应用开启了小程序、机器人或者网页应用能力，则该参数必填。
+   *
+   * <p>示例值：gadget
+   */
+  @SerializedName("mobile_default_ability")
+  private String mobileDefaultAbility;
+
+  /**
+   * PC端默认能力;;**注意**：如果应用开启了小程序、机器人或者网页应用能力，则该参数必填。
+   *
+   * <p>示例值：gadget
+   */
+  @SerializedName("pc_default_ability")
+  private String pcDefaultAbility;
+
+  /**
+   * 申请理由（500字符以内）
+   *
+   * <p>示例值：更新了移动端默认应用能力
+   */
+  @SerializedName("remark")
+  private String remark;
+
+  /**
+   * 更新描述（500字符以内）
+   *
+   * <p>示例值：更新了小程序的头像
+   */
+  @SerializedName("changelog")
+  private String changelog;
+
+  /**
+   * 应用版本号
+   *
+   * <p>示例值：1.1.1
+   */
+  @SerializedName("version")
+  private String version;
+
+  public String getMobileDefaultAbility() {
+    return this.mobileDefaultAbility;
+  }
+
+  public void setMobileDefaultAbility(String mobileDefaultAbility) {
+    this.mobileDefaultAbility = mobileDefaultAbility;
+  }
+
+  public String getPcDefaultAbility() {
+    return this.pcDefaultAbility;
+  }
+
+  public void setPcDefaultAbility(String pcDefaultAbility) {
+    this.pcDefaultAbility = pcDefaultAbility;
+  }
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  public String getChangelog() {
+    return this.changelog;
+  }
+
+  public void setChangelog(String changelog) {
+    this.changelog = changelog;
+  }
+
+  public String getVersion() {
+    return this.version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  // builder 开始
+  public CreateApplicationPublishReqBody() {}
+
+  public CreateApplicationPublishReqBody(Builder builder) {
     /**
-     * 移动端默认能力
-     * <p> 示例值：gadget
+     * 移动端默认能力;;**注意**：如果应用开启了小程序、机器人或者网页应用能力，则该参数必填。
+     *
+     * <p>示例值：gadget
      */
-    @SerializedName("mobile_default_ability")
-    private String mobileDefaultAbility;
+    this.mobileDefaultAbility = builder.mobileDefaultAbility;
     /**
-     * PC端默认能力
-     * <p> 示例值：gadget
+     * PC端默认能力;;**注意**：如果应用开启了小程序、机器人或者网页应用能力，则该参数必填。
+     *
+     * <p>示例值：gadget
      */
-    @SerializedName("pc_default_ability")
-    private String pcDefaultAbility;
+    this.pcDefaultAbility = builder.pcDefaultAbility;
     /**
-     * 申请理由
-     * <p> 示例值：更新了移动端默认应用能力
+     * 申请理由（500字符以内）
+     *
+     * <p>示例值：更新了移动端默认应用能力
      */
-    @SerializedName("remark")
-    private String remark;
+    this.remark = builder.remark;
     /**
-     * 更新描述
-     * <p> 示例值：更新了小程序的头像
+     * 更新描述（500字符以内）
+     *
+     * <p>示例值：更新了小程序的头像
      */
-    @SerializedName("changelog")
-    private String changelog;
+    this.changelog = builder.changelog;
     /**
      * 应用版本号
-     * <p> 示例值：1.1.1
+     *
+     * <p>示例值：1.1.1
      */
-    @SerializedName("version")
+    this.version = builder.version;
+  }
+
+  public static class Builder {
+    /**
+     * 移动端默认能力;;**注意**：如果应用开启了小程序、机器人或者网页应用能力，则该参数必填。
+     *
+     * <p>示例值：gadget
+     */
+    private String mobileDefaultAbility;
+
+    /**
+     * PC端默认能力;;**注意**：如果应用开启了小程序、机器人或者网页应用能力，则该参数必填。
+     *
+     * <p>示例值：gadget
+     */
+    private String pcDefaultAbility;
+
+    /**
+     * 申请理由（500字符以内）
+     *
+     * <p>示例值：更新了移动端默认应用能力
+     */
+    private String remark;
+
+    /**
+     * 更新描述（500字符以内）
+     *
+     * <p>示例值：更新了小程序的头像
+     */
+    private String changelog;
+
+    /**
+     * 应用版本号
+     *
+     * <p>示例值：1.1.1
+     */
     private String version;
 
-    // builder 开始
-    public CreateApplicationPublishReqBody() {
+    /**
+     * 移动端默认能力;;**注意**：如果应用开启了小程序、机器人或者网页应用能力，则该参数必填。
+     *
+     * <p>示例值：gadget
+     *
+     * @param mobileDefaultAbility
+     * @return
+     */
+    public Builder mobileDefaultAbility(String mobileDefaultAbility) {
+      this.mobileDefaultAbility = mobileDefaultAbility;
+      return this;
     }
 
-    public CreateApplicationPublishReqBody(Builder builder) {
-        /**
-         * 移动端默认能力
-         * <p> 示例值：gadget
-         */
-        this.mobileDefaultAbility = builder.mobileDefaultAbility;
-        /**
-         * PC端默认能力
-         * <p> 示例值：gadget
-         */
-        this.pcDefaultAbility = builder.pcDefaultAbility;
-        /**
-         * 申请理由
-         * <p> 示例值：更新了移动端默认应用能力
-         */
-        this.remark = builder.remark;
-        /**
-         * 更新描述
-         * <p> 示例值：更新了小程序的头像
-         */
-        this.changelog = builder.changelog;
-        /**
-         * 应用版本号
-         * <p> 示例值：1.1.1
-         */
-        this.version = builder.version;
+    /**
+     * 移动端默认能力;;**注意**：如果应用开启了小程序、机器人或者网页应用能力，则该参数必填。
+     *
+     * <p>示例值：gadget
+     *
+     * @param mobileDefaultAbility {@link
+     *     com.lark.oapi.service.application.v7.enums.CreateApplicationPublishCreateApplicationPublishMobileDefaultAbilityEnum}
+     * @return
+     */
+    public Builder mobileDefaultAbility(
+        com.lark.oapi.service.application.v7.enums
+                .CreateApplicationPublishCreateApplicationPublishMobileDefaultAbilityEnum
+            mobileDefaultAbility) {
+      this.mobileDefaultAbility = mobileDefaultAbility.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * PC端默认能力;;**注意**：如果应用开启了小程序、机器人或者网页应用能力，则该参数必填。
+     *
+     * <p>示例值：gadget
+     *
+     * @param pcDefaultAbility
+     * @return
+     */
+    public Builder pcDefaultAbility(String pcDefaultAbility) {
+      this.pcDefaultAbility = pcDefaultAbility;
+      return this;
     }
 
-    public String getMobileDefaultAbility() {
-        return this.mobileDefaultAbility;
+    /**
+     * PC端默认能力;;**注意**：如果应用开启了小程序、机器人或者网页应用能力，则该参数必填。
+     *
+     * <p>示例值：gadget
+     *
+     * @param pcDefaultAbility {@link
+     *     com.lark.oapi.service.application.v7.enums.CreateApplicationPublishCreateApplicationPublishPcDefaultAbilityEnum}
+     * @return
+     */
+    public Builder pcDefaultAbility(
+        com.lark.oapi.service.application.v7.enums
+                .CreateApplicationPublishCreateApplicationPublishPcDefaultAbilityEnum
+            pcDefaultAbility) {
+      this.pcDefaultAbility = pcDefaultAbility.getValue();
+      return this;
     }
 
-    public void setMobileDefaultAbility(String mobileDefaultAbility) {
-        this.mobileDefaultAbility = mobileDefaultAbility;
+    /**
+     * 申请理由（500字符以内）
+     *
+     * <p>示例值：更新了移动端默认应用能力
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(String remark) {
+      this.remark = remark;
+      return this;
     }
 
-    public String getPcDefaultAbility() {
-        return this.pcDefaultAbility;
+    /**
+     * 更新描述（500字符以内）
+     *
+     * <p>示例值：更新了小程序的头像
+     *
+     * @param changelog
+     * @return
+     */
+    public Builder changelog(String changelog) {
+      this.changelog = changelog;
+      return this;
     }
 
-    public void setPcDefaultAbility(String pcDefaultAbility) {
-        this.pcDefaultAbility = pcDefaultAbility;
+    /**
+     * 应用版本号
+     *
+     * <p>示例值：1.1.1
+     *
+     * @param version
+     * @return
+     */
+    public Builder version(String version) {
+      this.version = version;
+      return this;
     }
 
-    public String getRemark() {
-        return this.remark;
+    public CreateApplicationPublishReqBody build() {
+      return new CreateApplicationPublishReqBody(this);
     }
+  }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public String getChangelog() {
-        return this.changelog;
-    }
-
-    public void setChangelog(String changelog) {
-        this.changelog = changelog;
-    }
-
-    public String getVersion() {
-        return this.version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public static class Builder {
-        /**
-         * 移动端默认能力
-         * <p> 示例值：gadget
-         */
-        private String mobileDefaultAbility;
-        /**
-         * PC端默认能力
-         * <p> 示例值：gadget
-         */
-        private String pcDefaultAbility;
-        /**
-         * 申请理由
-         * <p> 示例值：更新了移动端默认应用能力
-         */
-        private String remark;
-        /**
-         * 更新描述
-         * <p> 示例值：更新了小程序的头像
-         */
-        private String changelog;
-        /**
-         * 应用版本号
-         * <p> 示例值：1.1.1
-         */
-        private String version;
-
-        /**
-         * 移动端默认能力
-         * <p> 示例值：gadget
-         *
-         * @param mobileDefaultAbility
-         * @return
-         */
-        public Builder mobileDefaultAbility(String mobileDefaultAbility) {
-            this.mobileDefaultAbility = mobileDefaultAbility;
-            return this;
-        }
-
-        /**
-         * 移动端默认能力
-         * <p> 示例值：gadget
-         *
-         * @param mobileDefaultAbility {@link com.lark.oapi.service.application.v7.enums.CreateApplicationPublishCreateApplicationPublishMobileDefaultAbilityEnum}
-         * @return
-         */
-        public Builder mobileDefaultAbility(com.lark.oapi.service.application.v7.enums.CreateApplicationPublishCreateApplicationPublishMobileDefaultAbilityEnum mobileDefaultAbility) {
-            this.mobileDefaultAbility = mobileDefaultAbility.getValue();
-            return this;
-        }
-
-
-        /**
-         * PC端默认能力
-         * <p> 示例值：gadget
-         *
-         * @param pcDefaultAbility
-         * @return
-         */
-        public Builder pcDefaultAbility(String pcDefaultAbility) {
-            this.pcDefaultAbility = pcDefaultAbility;
-            return this;
-        }
-
-        /**
-         * PC端默认能力
-         * <p> 示例值：gadget
-         *
-         * @param pcDefaultAbility {@link com.lark.oapi.service.application.v7.enums.CreateApplicationPublishCreateApplicationPublishPcDefaultAbilityEnum}
-         * @return
-         */
-        public Builder pcDefaultAbility(com.lark.oapi.service.application.v7.enums.CreateApplicationPublishCreateApplicationPublishPcDefaultAbilityEnum pcDefaultAbility) {
-            this.pcDefaultAbility = pcDefaultAbility.getValue();
-            return this;
-        }
-
-
-        /**
-         * 申请理由
-         * <p> 示例值：更新了移动端默认应用能力
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        /**
-         * 更新描述
-         * <p> 示例值：更新了小程序的头像
-         *
-         * @param changelog
-         * @return
-         */
-        public Builder changelog(String changelog) {
-            this.changelog = changelog;
-            return this;
-        }
-
-
-        /**
-         * 应用版本号
-         * <p> 示例值：1.1.1
-         *
-         * @param version
-         * @return
-         */
-        public Builder version(String version) {
-            this.version = version;
-            return this;
-        }
-
-
-        public CreateApplicationPublishReqBody build() {
-            return new CreateApplicationPublishReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

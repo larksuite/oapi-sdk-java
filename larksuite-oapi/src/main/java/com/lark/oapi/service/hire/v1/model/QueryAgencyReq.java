@@ -13,104 +13,98 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryAgencyReq {
+  /**
+   * 猎头供应商名称，精准匹配查询(区分大小写)
+   *
+   * <p>示例值：超越猎头公司
+   */
+  @Query
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  // builder 开始
+  public QueryAgencyReq() {}
+
+  public QueryAgencyReq(Builder builder) {
     /**
-     * 猎头供应商名称
-     * <p> 示例值：超越猎头公司
+     * 猎头供应商名称，精准匹配查询(区分大小写)
+     *
+     * <p>示例值：超越猎头公司
      */
-    @Query
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
+  }
 
-    // builder 开始
-    public QueryAgencyReq() {
+  public static class Builder {
+    private String name; // 猎头供应商名称，精准匹配查询(区分大小写)
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 猎头供应商名称，精准匹配查询(区分大小写)
+     *
+     * <p>示例值：超越猎头公司
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public QueryAgencyReq(Builder builder) {
-        /**
-         * 猎头供应商名称
-         * <p> 示例值：超越猎头公司
-         */
-        this.name = builder.name;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public QueryAgencyReq build() {
+      return new QueryAgencyReq(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public static class Builder {
-        private String name; // 猎头供应商名称
-        private String userIdType; // 此次调用中使用的用户ID的类型
-
-        /**
-         * 猎头供应商名称
-         * <p> 示例值：超越猎头公司
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-
-        public QueryAgencyReq build() {
-            return new QueryAgencyReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

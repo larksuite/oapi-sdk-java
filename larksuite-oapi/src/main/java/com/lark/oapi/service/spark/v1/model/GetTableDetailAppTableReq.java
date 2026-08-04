@@ -13,138 +13,180 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.spark.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.spark.v1.enums.*;
 
 public class GetTableDetailAppTableReq {
+  /**
+   * 访问的 database 环境，默认为 online（线上环境）
+   *
+   * <p>示例值：`online`、`dev`
+   */
+  @Query
+  @SerializedName("env")
+  private String env;
+
+  /**
+   * 返回格式，是否包含建表ddl
+   *
+   * <p>示例值：ddl
+   */
+  @Query
+  @SerializedName("format")
+  private String format;
+
+  public String getEnv() {
+    return this.env;
+  }
+
+  public void setEnv(String env) {
+    this.env = env;
+  }
+
+  public String getFormat() {
+    return this.format;
+  }
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
+
+  /**
+   * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为
+   * app_id
+   *
+   * <p>示例值：app_4jcn5n11bpf5v
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+   *
+   * <p>示例值：student_table
+   */
+  @Path
+  @SerializedName("table_name")
+  private String tableName;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getTableName() {
+    return this.tableName;
+  }
+
+  public void setTableName(String tableName) {
+    this.tableName = tableName;
+  }
+
+  // builder 开始
+  public GetTableDetailAppTableReq() {}
+
+  public GetTableDetailAppTableReq(Builder builder) {
     /**
      * 访问的 database 环境，默认为 online（线上环境）
-     * <p> 示例值：online
+     *
+     * <p>示例值：`online`、`dev`
      */
-    @Query
-    @SerializedName("env")
-    private String env;
+    this.env = builder.env;
     /**
-     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-     * <p> 示例值：app_4jcn5n11bpf5v
+     * 返回格式，是否包含建表ddl
+     *
+     * <p>示例值：ddl
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
+    this.format = builder.format;
     /**
-     * 数据表表名
-     * <p> 示例值：table_name_1
+     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v
+     * 即为 app_id
+     *
+     * <p>示例值：app_4jcn5n11bpf5v
      */
-    @Path
-    @SerializedName("table_name")
-    private String tableName;
+    this.appId = builder.appId;
+    /**
+     * 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+     *
+     * <p>示例值：student_table
+     */
+    this.tableName = builder.tableName;
+  }
 
-    // builder 开始
-    public GetTableDetailAppTableReq() {
+  public static class Builder {
+    private String env; // 访问的 database 环境，默认为 online（线上环境）
+    private String format; // 返回格式，是否包含建表ddl
+
+    /**
+     * 访问的 database 环境，默认为 online（线上环境）
+     *
+     * <p>示例值：`online`、`dev`
+     *
+     * @param env
+     * @return
+     */
+    public Builder env(String env) {
+      this.env = env;
+      return this;
     }
 
-    public GetTableDetailAppTableReq(Builder builder) {
-        /**
-         * 访问的 database 环境，默认为 online（线上环境）
-         * <p> 示例值：online
-         */
-        this.env = builder.env;
-        /**
-         * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-         * <p> 示例值：app_4jcn5n11bpf5v
-         */
-        this.appId = builder.appId;
-        /**
-         * 数据表表名
-         * <p> 示例值：table_name_1
-         */
-        this.tableName = builder.tableName;
+    /**
+     * 返回格式，是否包含建表ddl
+     *
+     * <p>示例值：ddl
+     *
+     * @param format
+     * @return
+     */
+    public Builder format(String format) {
+      this.format = format;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String
+        appId; // 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的
+    // app_4jcn5n11bpf5v 即为 app_id
+    private String tableName; // 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+
+    /**
+     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v
+     * 即为 app_id
+     *
+     * <p>示例值：app_4jcn5n11bpf5v
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public String getEnv() {
-        return this.env;
+    /**
+     * 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+     *
+     * <p>示例值：student_table
+     *
+     * @param tableName
+     * @return
+     */
+    public Builder tableName(String tableName) {
+      this.tableName = tableName;
+      return this;
     }
 
-    public void setEnv(String env) {
-        this.env = env;
+    public GetTableDetailAppTableReq build() {
+      return new GetTableDetailAppTableReq(this);
     }
+  }
 
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getTableName() {
-        return this.tableName;
-    }
-
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
-    }
-
-    public static class Builder {
-        private String env; // 访问的 database 环境，默认为 online（线上环境）
-        private String appId; // 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-        private String tableName; // 数据表表名
-
-        /**
-         * 访问的 database 环境，默认为 online（线上环境）
-         * <p> 示例值：online
-         *
-         * @param env
-         * @return
-         */
-        public Builder env(String env) {
-            this.env = env;
-            return this;
-        }
-
-        /**
-         * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-         * <p> 示例值：app_4jcn5n11bpf5v
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 数据表表名
-         * <p> 示例值：table_name_1
-         *
-         * @param tableName
-         * @return
-         */
-        public Builder tableName(String tableName) {
-            this.tableName = tableName;
-            return this;
-        }
-
-
-        public GetTableDetailAppTableReq build() {
-            return new GetTableDetailAppTableReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,307 +13,332 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class QuerySignatureFileReq {
+  /**
+   * 电子签文件ID，查询结果会返回满足所有筛选条件 signature_file_id 、states、template_ids的文件
+   *
+   * <p>示例值：6891251722631890445
+   */
+  @Query
+  @SerializedName("signature_file_id")
+  private String signatureFileId;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：10;;范围：0～100
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：{"eu_nc":"[1724438210000,\"7405949343401772554\"]"}
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 更新时间早于等于某个时间点，按照东八区时区
+   *
+   * <p>示例值：2022-01-01 00:00:00
+   */
+  @Query
+  @SerializedName("update_time_start")
+  private String updateTimeStart;
+
+  /**
+   * 更新时间晚于等于某个时间点，按照东八区时区
+   *
+   * <p>示例值：2022-01-02 00:00:00
+   */
+  @Query
+  @SerializedName("update_time_end")
+  private String updateTimeEnd;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：people_corehr_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 获取文件签署链接
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("select_sign_url")
+  private Boolean selectSignUrl;
+
+  public String getSignatureFileId() {
+    return this.signatureFileId;
+  }
+
+  public void setSignatureFileId(String signatureFileId) {
+    this.signatureFileId = signatureFileId;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getUpdateTimeStart() {
+    return this.updateTimeStart;
+  }
+
+  public void setUpdateTimeStart(String updateTimeStart) {
+    this.updateTimeStart = updateTimeStart;
+  }
+
+  public String getUpdateTimeEnd() {
+    return this.updateTimeEnd;
+  }
+
+  public void setUpdateTimeEnd(String updateTimeEnd) {
+    this.updateTimeEnd = updateTimeEnd;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public Boolean getSelectSignUrl() {
+    return this.selectSignUrl;
+  }
+
+  public void setSelectSignUrl(Boolean selectSignUrl) {
+    this.selectSignUrl = selectSignUrl;
+  }
+
+  @Body private QuerySignatureFileReqBody body;
+
+  public QuerySignatureFileReqBody getQuerySignatureFileReqBody() {
+    return this.body;
+  }
+
+  public void setQuerySignatureFileReqBody(QuerySignatureFileReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public QuerySignatureFileReq() {}
+
+  public QuerySignatureFileReq(Builder builder) {
     /**
-     * 电子签文件id
-     * <p> 示例值：6891251722631890445
+     * 电子签文件ID，查询结果会返回满足所有筛选条件 signature_file_id 、states、template_ids的文件
+     *
+     * <p>示例值：6891251722631890445
      */
-    @Query
-    @SerializedName("signature_file_id")
-    private String signatureFileId;
+    this.signatureFileId = builder.signatureFileId;
     /**
      * 分页大小
-     * <p> 示例值：
+     *
+     * <p>示例值：10;;范围：0～100
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：
+     *
+     * <p>示例值：{"eu_nc":"[1724438210000,\"7405949343401772554\"]"}
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 更新时间早于等于某个时间点，按照东八区时区
-     * <p> 示例值：2022-01-01 00:00:00
+     *
+     * <p>示例值：2022-01-01 00:00:00
      */
-    @Query
-    @SerializedName("update_time_start")
-    private String updateTimeStart;
+    this.updateTimeStart = builder.updateTimeStart;
     /**
      * 更新时间晚于等于某个时间点，按照东八区时区
-     * <p> 示例值：2022-01-01 00:00:00
+     *
+     * <p>示例值：2022-01-02 00:00:00
      */
-    @Query
-    @SerializedName("update_time_end")
-    private String updateTimeEnd;
+    this.updateTimeEnd = builder.updateTimeEnd;
     /**
      * 用户 ID 类型
-     * <p> 示例值：people_corehr_id
+     *
+     * <p>示例值：people_corehr_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 获取文件签署链接
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("select_sign_url")
-    private Boolean selectSignUrl;
-    @Body
+    this.selectSignUrl = builder.selectSignUrl;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        signatureFileId; // 电子签文件ID，查询结果会返回满足所有筛选条件 signature_file_id 、states、template_ids的文件
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String updateTimeStart; // 更新时间早于等于某个时间点，按照东八区时区
+    private String updateTimeEnd; // 更新时间晚于等于某个时间点，按照东八区时区
+    private String userIdType; // 用户 ID 类型
+    private Boolean selectSignUrl; // 获取文件签署链接
+
+    /**
+     * 电子签文件ID，查询结果会返回满足所有筛选条件 signature_file_id 、states、template_ids的文件
+     *
+     * <p>示例值：6891251722631890445
+     *
+     * @param signatureFileId
+     * @return
+     */
+    public Builder signatureFileId(String signatureFileId) {
+      this.signatureFileId = signatureFileId;
+      return this;
+    }
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：10;;范围：0～100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：{"eu_nc":"[1724438210000,\"7405949343401772554\"]"}
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
+    /**
+     * 更新时间早于等于某个时间点，按照东八区时区
+     *
+     * <p>示例值：2022-01-01 00:00:00
+     *
+     * @param updateTimeStart
+     * @return
+     */
+    public Builder updateTimeStart(String updateTimeStart) {
+      this.updateTimeStart = updateTimeStart;
+      return this;
+    }
+
+    /**
+     * 更新时间晚于等于某个时间点，按照东八区时区
+     *
+     * <p>示例值：2022-01-02 00:00:00
+     *
+     * @param updateTimeEnd
+     * @return
+     */
+    public Builder updateTimeEnd(String updateTimeEnd) {
+      this.updateTimeEnd = updateTimeEnd;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.QuerySignatureFileQuerySignatureFileUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v2.enums.QuerySignatureFileQuerySignatureFileUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 获取文件签署链接
+     *
+     * <p>示例值：
+     *
+     * @param selectSignUrl
+     * @return
+     */
+    public Builder selectSignUrl(Boolean selectSignUrl) {
+      this.selectSignUrl = selectSignUrl;
+      return this;
+    }
+
     private QuerySignatureFileReqBody body;
 
-    // builder 开始
-    public QuerySignatureFileReq() {
-    }
-
-    public QuerySignatureFileReq(Builder builder) {
-        /**
-         * 电子签文件id
-         * <p> 示例值：6891251722631890445
-         */
-        this.signatureFileId = builder.signatureFileId;
-        /**
-         * 分页大小
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 更新时间早于等于某个时间点，按照东八区时区
-         * <p> 示例值：2022-01-01 00:00:00
-         */
-        this.updateTimeStart = builder.updateTimeStart;
-        /**
-         * 更新时间晚于等于某个时间点，按照东八区时区
-         * <p> 示例值：2022-01-01 00:00:00
-         */
-        this.updateTimeEnd = builder.updateTimeEnd;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 获取文件签署链接
-         * <p> 示例值：
-         */
-        this.selectSignUrl = builder.selectSignUrl;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getSignatureFileId() {
-        return this.signatureFileId;
-    }
-
-    public void setSignatureFileId(String signatureFileId) {
-        this.signatureFileId = signatureFileId;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getUpdateTimeStart() {
-        return this.updateTimeStart;
-    }
-
-    public void setUpdateTimeStart(String updateTimeStart) {
-        this.updateTimeStart = updateTimeStart;
-    }
-
-    public String getUpdateTimeEnd() {
-        return this.updateTimeEnd;
-    }
-
-    public void setUpdateTimeEnd(String updateTimeEnd) {
-        this.updateTimeEnd = updateTimeEnd;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public Boolean getSelectSignUrl() {
-        return this.selectSignUrl;
-    }
-
-    public void setSelectSignUrl(Boolean selectSignUrl) {
-        this.selectSignUrl = selectSignUrl;
-    }
-
     public QuerySignatureFileReqBody getQuerySignatureFileReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setQuerySignatureFileReqBody(QuerySignatureFileReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder querySignatureFileReqBody(QuerySignatureFileReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String signatureFileId; // 电子签文件id
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String updateTimeStart; // 更新时间早于等于某个时间点，按照东八区时区
-        private String updateTimeEnd; // 更新时间晚于等于某个时间点，按照东八区时区
-        private String userIdType; // 用户 ID 类型
-        private Boolean selectSignUrl; // 获取文件签署链接
-        private QuerySignatureFileReqBody body;
-
-        /**
-         * 电子签文件id
-         * <p> 示例值：6891251722631890445
-         *
-         * @param signatureFileId
-         * @return
-         */
-        public Builder signatureFileId(String signatureFileId) {
-            this.signatureFileId = signatureFileId;
-            return this;
-        }
-
-        /**
-         * 分页大小
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 更新时间早于等于某个时间点，按照东八区时区
-         * <p> 示例值：2022-01-01 00:00:00
-         *
-         * @param updateTimeStart
-         * @return
-         */
-        public Builder updateTimeStart(String updateTimeStart) {
-            this.updateTimeStart = updateTimeStart;
-            return this;
-        }
-
-        /**
-         * 更新时间晚于等于某个时间点，按照东八区时区
-         * <p> 示例值：2022-01-01 00:00:00
-         *
-         * @param updateTimeEnd
-         * @return
-         */
-        public Builder updateTimeEnd(String updateTimeEnd) {
-            this.updateTimeEnd = updateTimeEnd;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.QuerySignatureFileQuerySignatureFileUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.QuerySignatureFileQuerySignatureFileUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 获取文件签署链接
-         * <p> 示例值：
-         *
-         * @param selectSignUrl
-         * @return
-         */
-        public Builder selectSignUrl(Boolean selectSignUrl) {
-            this.selectSignUrl = selectSignUrl;
-            return this;
-        }
-
-        public QuerySignatureFileReqBody getQuerySignatureFileReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder querySignatureFileReqBody(QuerySignatureFileReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public QuerySignatureFileReq build() {
-            return new QuerySignatureFileReq(this);
-        }
+    public QuerySignatureFileReq build() {
+      return new QuerySignatureFileReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

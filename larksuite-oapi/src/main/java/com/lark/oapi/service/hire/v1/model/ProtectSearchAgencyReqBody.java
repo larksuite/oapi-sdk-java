@@ -13,74 +13,68 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProtectSearchAgencyReqBody {
+  /**
+   * 人才 ID，可通过[通过手机号或邮箱获取人才
+   * ID](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id)、[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  // builder 开始
+  public ProtectSearchAgencyReqBody() {}
+
+  public ProtectSearchAgencyReqBody(Builder builder) {
     /**
-     * 人才id
-     * <p> 示例值：6930815272790114324
+     * 人才 ID，可通过[通过手机号或邮箱获取人才
+     * ID](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id)、[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+     *
+     * <p>示例值：6930815272790114324
      */
-    @SerializedName("talent_id")
+    this.talentId = builder.talentId;
+  }
+
+  public static class Builder {
+    /**
+     * 人才 ID，可通过[通过手机号或邮箱获取人才
+     * ID](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id)、[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+     *
+     * <p>示例值：6930815272790114324
+     */
     private String talentId;
 
-    // builder 开始
-    public ProtectSearchAgencyReqBody() {
+    /**
+     * 人才 ID，可通过[通过手机号或邮箱获取人才
+     * ID](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id)、[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public ProtectSearchAgencyReqBody(Builder builder) {
-        /**
-         * 人才id
-         * <p> 示例值：6930815272790114324
-         */
-        this.talentId = builder.talentId;
+    public ProtectSearchAgencyReqBody build() {
+      return new ProtectSearchAgencyReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTalentId() {
-        return this.talentId;
-    }
-
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
-    }
-
-    public static class Builder {
-        /**
-         * 人才id
-         * <p> 示例值：6930815272790114324
-         */
-        private String talentId;
-
-        /**
-         * 人才id
-         * <p> 示例值：6930815272790114324
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        public ProtectSearchAgencyReqBody build() {
-            return new ProtectSearchAgencyReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

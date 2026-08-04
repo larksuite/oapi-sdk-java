@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SchemaPredefineEnumStruct {
+  /**
+   * 枚举值的标识。在多枚举值定义中保持唯一
+   *
+   * <p>示例值：p0
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 枚举值展示文案
+   *
+   * <p>示例值：最高优先级
+   */
+  @SerializedName("text")
+  private String text;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  // builder 开始
+  public SchemaPredefineEnumStruct() {}
+
+  public SchemaPredefineEnumStruct(Builder builder) {
     /**
      * 枚举值的标识。在多枚举值定义中保持唯一
-     * <p> 示例值：p0
+     *
+     * <p>示例值：p0
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 枚举值展示文案
-     * <p> 示例值：最高优先级
+     *
+     * <p>示例值：最高优先级
      */
-    @SerializedName("text")
+    this.text = builder.text;
+  }
+
+  public static class Builder {
+    /**
+     * 枚举值的标识。在多枚举值定义中保持唯一
+     *
+     * <p>示例值：p0
+     */
+    private String name;
+
+    /**
+     * 枚举值展示文案
+     *
+     * <p>示例值：最高优先级
+     */
     private String text;
 
-    // builder 开始
-    public SchemaPredefineEnumStruct() {
+    /**
+     * 枚举值的标识。在多枚举值定义中保持唯一
+     *
+     * <p>示例值：p0
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public SchemaPredefineEnumStruct(Builder builder) {
-        /**
-         * 枚举值的标识。在多枚举值定义中保持唯一
-         * <p> 示例值：p0
-         */
-        this.name = builder.name;
-        /**
-         * 枚举值展示文案
-         * <p> 示例值：最高优先级
-         */
-        this.text = builder.text;
+    /**
+     * 枚举值展示文案
+     *
+     * <p>示例值：最高优先级
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SchemaPredefineEnumStruct build() {
+      return new SchemaPredefineEnumStruct(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public static class Builder {
-        /**
-         * 枚举值的标识。在多枚举值定义中保持唯一
-         * <p> 示例值：p0
-         */
-        private String name;
-        /**
-         * 枚举值展示文案
-         * <p> 示例值：最高优先级
-         */
-        private String text;
-
-        /**
-         * 枚举值的标识。在多枚举值定义中保持唯一
-         * <p> 示例值：p0
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 枚举值展示文案
-         * <p> 示例值：最高优先级
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        public SchemaPredefineEnumStruct build() {
-            return new SchemaPredefineEnumStruct(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

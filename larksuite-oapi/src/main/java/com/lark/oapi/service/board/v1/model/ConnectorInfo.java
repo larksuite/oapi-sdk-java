@@ -13,161 +13,164 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ConnectorInfo {
+  /**
+   * 连接图形信息，与position参数二选一，同时设置时attached_object生效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attached_object")
+  private ConnectorAttachedObject attachedObject;
+
+  /**
+   * 连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attched_object 生效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("position")
+  private Point position;
+
+  /**
+   * 连线端点箭头样式
+   *
+   * <p>示例值：line_arrow
+   */
+  @SerializedName("arrow_style")
+  private String arrowStyle;
+
+  public ConnectorAttachedObject getAttachedObject() {
+    return this.attachedObject;
+  }
+
+  public void setAttachedObject(ConnectorAttachedObject attachedObject) {
+    this.attachedObject = attachedObject;
+  }
+
+  public Point getPosition() {
+    return this.position;
+  }
+
+  public void setPosition(Point position) {
+    this.position = position;
+  }
+
+  public String getArrowStyle() {
+    return this.arrowStyle;
+  }
+
+  public void setArrowStyle(String arrowStyle) {
+    this.arrowStyle = arrowStyle;
+  }
+
+  // builder 开始
+  public ConnectorInfo() {}
+
+  public ConnectorInfo(Builder builder) {
     /**
-     * 连接图形信息
-     * <p> 示例值：
+     * 连接图形信息，与position参数二选一，同时设置时attached_object生效
+     *
+     * <p>示例值：
      */
-    @SerializedName("attached_object")
-    private ConnectorAttachedObject attachedObject;
+    this.attachedObject = builder.attachedObject;
     /**
-     * 连线端点在画布内的坐标，position与attached_object二选一
-     * <p> 示例值：
+     * 连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attched_object 生效
+     *
+     * <p>示例值：
      */
-    @SerializedName("position")
-    private Point position;
+    this.position = builder.position;
     /**
      * 连线端点箭头样式
-     * <p> 示例值：line_arrow
+     *
+     * <p>示例值：line_arrow
      */
-    @SerializedName("arrow_style")
+    this.arrowStyle = builder.arrowStyle;
+  }
+
+  public static class Builder {
+    /**
+     * 连接图形信息，与position参数二选一，同时设置时attached_object生效
+     *
+     * <p>示例值：
+     */
+    private ConnectorAttachedObject attachedObject;
+
+    /**
+     * 连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attched_object 生效
+     *
+     * <p>示例值：
+     */
+    private Point position;
+
+    /**
+     * 连线端点箭头样式
+     *
+     * <p>示例值：line_arrow
+     */
     private String arrowStyle;
 
-    // builder 开始
-    public ConnectorInfo() {
+    /**
+     * 连接图形信息，与position参数二选一，同时设置时attached_object生效
+     *
+     * <p>示例值：
+     *
+     * @param attachedObject
+     * @return
+     */
+    public Builder attachedObject(ConnectorAttachedObject attachedObject) {
+      this.attachedObject = attachedObject;
+      return this;
     }
 
-    public ConnectorInfo(Builder builder) {
-        /**
-         * 连接图形信息
-         * <p> 示例值：
-         */
-        this.attachedObject = builder.attachedObject;
-        /**
-         * 连线端点在画布内的坐标，position与attached_object二选一
-         * <p> 示例值：
-         */
-        this.position = builder.position;
-        /**
-         * 连线端点箭头样式
-         * <p> 示例值：line_arrow
-         */
-        this.arrowStyle = builder.arrowStyle;
+    /**
+     * 连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attched_object 生效
+     *
+     * <p>示例值：
+     *
+     * @param position
+     * @return
+     */
+    public Builder position(Point position) {
+      this.position = position;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 连线端点箭头样式
+     *
+     * <p>示例值：line_arrow
+     *
+     * @param arrowStyle
+     * @return
+     */
+    public Builder arrowStyle(String arrowStyle) {
+      this.arrowStyle = arrowStyle;
+      return this;
     }
 
-    public ConnectorAttachedObject getAttachedObject() {
-        return this.attachedObject;
+    /**
+     * 连线端点箭头样式
+     *
+     * <p>示例值：line_arrow
+     *
+     * @param arrowStyle {@link
+     *     com.lark.oapi.service.board.v1.enums.ConnectorInfoConnectorArrowStyleEnum}
+     * @return
+     */
+    public Builder arrowStyle(
+        com.lark.oapi.service.board.v1.enums.ConnectorInfoConnectorArrowStyleEnum arrowStyle) {
+      this.arrowStyle = arrowStyle.getValue();
+      return this;
     }
 
-    public void setAttachedObject(ConnectorAttachedObject attachedObject) {
-        this.attachedObject = attachedObject;
+    public ConnectorInfo build() {
+      return new ConnectorInfo(this);
     }
+  }
 
-    public Point getPosition() {
-        return this.position;
-    }
-
-    public void setPosition(Point position) {
-        this.position = position;
-    }
-
-    public String getArrowStyle() {
-        return this.arrowStyle;
-    }
-
-    public void setArrowStyle(String arrowStyle) {
-        this.arrowStyle = arrowStyle;
-    }
-
-    public static class Builder {
-        /**
-         * 连接图形信息
-         * <p> 示例值：
-         */
-        private ConnectorAttachedObject attachedObject;
-        /**
-         * 连线端点在画布内的坐标，position与attached_object二选一
-         * <p> 示例值：
-         */
-        private Point position;
-        /**
-         * 连线端点箭头样式
-         * <p> 示例值：line_arrow
-         */
-        private String arrowStyle;
-
-        /**
-         * 连接图形信息
-         * <p> 示例值：
-         *
-         * @param attachedObject
-         * @return
-         */
-        public Builder attachedObject(ConnectorAttachedObject attachedObject) {
-            this.attachedObject = attachedObject;
-            return this;
-        }
-
-
-        /**
-         * 连线端点在画布内的坐标，position与attached_object二选一
-         * <p> 示例值：
-         *
-         * @param position
-         * @return
-         */
-        public Builder position(Point position) {
-            this.position = position;
-            return this;
-        }
-
-
-        /**
-         * 连线端点箭头样式
-         * <p> 示例值：line_arrow
-         *
-         * @param arrowStyle
-         * @return
-         */
-        public Builder arrowStyle(String arrowStyle) {
-            this.arrowStyle = arrowStyle;
-            return this;
-        }
-
-        /**
-         * 连线端点箭头样式
-         * <p> 示例值：line_arrow
-         *
-         * @param arrowStyle {@link com.lark.oapi.service.board.v1.enums.ConnectorInfoConnectorArrowStyleEnum}
-         * @return
-         */
-        public Builder arrowStyle(com.lark.oapi.service.board.v1.enums.ConnectorInfoConnectorArrowStyleEnum arrowStyle) {
-            this.arrowStyle = arrowStyle.getValue();
-            return this;
-        }
-
-
-        public ConnectorInfo build() {
-            return new ConnectorInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

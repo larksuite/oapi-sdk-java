@@ -14,20 +14,21 @@
 package com.lark.oapi.service.task.v2.enums;
 
 /**
- * 该字段表示如果更新了新的负责人，则将原负责人设为指定的协作人角色。仅在update_fields包含owner字段时生效。根据清单的角色设计方式，不允许提前为清单的负责人添加其他角色，但负责人更新后，原有负责人会无法访问该清单。该字段可以帮助避免原负责人彻底退出清单。
+ * 该字段表示如果更新了新的所有者，则将原所有者设为指定的新的角色。仅在更新清单所有者时生效。支持"editor",
+ * "viewer"和"none"。默认为"none"。;;如果不设置或设为"none"，原清单所有者将不具有任何清单的角色。如果没有通过其他渠道（比如通过协作群组间接授权），原清单所有者将失去对清单的所有权限。
  */
 public enum PatchTasklistOriginOwnerToRoleEnum {
-    EDITOR("editor"), // 原负责人变为可编辑角色的协作人
-    VIEWER("viewer"), // 原负责人变为可阅读角色的协作人
-    NONE("none"), // 原负责人直接退出清单
-    ;
-    private String value;
+  EDITOR("editor"), // 原所有者变为可编辑角色
+  VIEWER("viewer"), // 原所有者变为可阅读角色
+  NONE("none"), // 原所有者直接退出清单
+  ;
+  private String value;
 
-    PatchTasklistOriginOwnerToRoleEnum(String value) {
-        this.value = value;
-    }
+  PatchTasklistOriginOwnerToRoleEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,408 +13,443 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SendUserMailboxMessageReqBody {
+  /**
+   * 主题
+   *
+   * <p>示例值：邮件标题
+   */
+  @SerializedName("subject")
+  private String subject;
+
+  /**
+   * 收件人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("to")
+  private MailAddress[] to;
+
+  /**
+   * eml数据
+   *
+   * <p>示例值：U3ViamVjdDogSGVsbG8hCkZyb206ICJtaWtlIiA8bWlrZUBtaWtlLmNvbT4KTWltZS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiBtdWx0aXBhcnQvYWx0ZXJuYXRpdmU7CiBib3VuZGFyeT1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKRGF0ZTogV2VkLCAyMyBKdWwgMjAyNSAxNTo0NDoxOCArMDgwMApNZXNzYWdlLUlkOiA8bW9ja3V1aWRtZXNzYWdlX2lkQGxhcmsuY29tPgpUbzogImphY2siIDxqYWNrQGphY2suY29tPgoKLS1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdApDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9VVRGLTgKCldlbGNvbWUgdG8gTGFyayBtYWlsIQotLWIyOGZhMjI0YTFlZTZkNjdmMTc5NWI0ZTFkMTAzZDcxMGU3MzllZWZiMWZmOWY5ZDg1YjgzY2U5NGYxMQo=
+   */
+  @SerializedName("raw")
+  private String raw;
+
+  /**
+   * 抄送
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cc")
+  private MailAddress[] cc;
+
+  /**
+   * 密送
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bcc")
+  private MailAddress[] bcc;
+
+  /**
+   * 正文
+   *
+   * <p>示例值：xxxx
+   */
+  @SerializedName("body_html")
+  private String bodyHtml;
+
+  /**
+   * 正文纯文本
+   *
+   * <p>示例值：xxxx
+   */
+  @SerializedName("body_plain_text")
+  private String bodyPlainText;
+
+  /**
+   * 附件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attachments")
+  private Attachment[] attachments;
+
+  /**
+   * 去重键
+   *
+   * <p>示例值：abc-ddd-eee-fff-ggg
+   */
+  @SerializedName("dedupe_key")
+  private String dedupeKey;
+
+  /**
+   * EML中发件人信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("head_from")
+  private MailAddress headFrom;
+
+  public String getSubject() {
+    return this.subject;
+  }
+
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
+
+  public MailAddress[] getTo() {
+    return this.to;
+  }
+
+  public void setTo(MailAddress[] to) {
+    this.to = to;
+  }
+
+  public String getRaw() {
+    return this.raw;
+  }
+
+  public void setRaw(String raw) {
+    this.raw = raw;
+  }
+
+  public MailAddress[] getCc() {
+    return this.cc;
+  }
+
+  public void setCc(MailAddress[] cc) {
+    this.cc = cc;
+  }
+
+  public MailAddress[] getBcc() {
+    return this.bcc;
+  }
+
+  public void setBcc(MailAddress[] bcc) {
+    this.bcc = bcc;
+  }
+
+  public String getBodyHtml() {
+    return this.bodyHtml;
+  }
+
+  public void setBodyHtml(String bodyHtml) {
+    this.bodyHtml = bodyHtml;
+  }
+
+  public String getBodyPlainText() {
+    return this.bodyPlainText;
+  }
+
+  public void setBodyPlainText(String bodyPlainText) {
+    this.bodyPlainText = bodyPlainText;
+  }
+
+  public Attachment[] getAttachments() {
+    return this.attachments;
+  }
+
+  public void setAttachments(Attachment[] attachments) {
+    this.attachments = attachments;
+  }
+
+  public String getDedupeKey() {
+    return this.dedupeKey;
+  }
+
+  public void setDedupeKey(String dedupeKey) {
+    this.dedupeKey = dedupeKey;
+  }
+
+  public MailAddress getHeadFrom() {
+    return this.headFrom;
+  }
+
+  public void setHeadFrom(MailAddress headFrom) {
+    this.headFrom = headFrom;
+  }
+
+  // builder 开始
+  public SendUserMailboxMessageReqBody() {}
+
+  public SendUserMailboxMessageReqBody(Builder builder) {
     /**
      * 主题
-     * <p> 示例值：邮件标题
+     *
+     * <p>示例值：邮件标题
      */
-    @SerializedName("subject")
-    private String subject;
+    this.subject = builder.subject;
     /**
      * 收件人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("to")
-    private MailAddress[] to;
+    this.to = builder.to;
     /**
-     * 原始EML信息base64后的字符串
-     * <p> 示例值：U3ViamVjdDogSGVsbG8hCkZyb206ICJtaWtlIiA8bWlrZUBtaWtlLmNvbT4KTWltZS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiBtdWx0aXBhcnQvYWx0ZXJuYXRpdmU7CiBib3VuZGFyeT1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKRGF0ZTogV2VkLCAyMyBKdWwgMjAyNSAxNTo0NDoxOCArMDgwMApNZXNzYWdlLUlkOiA8bW9ja3V1aWRtZXNzYWdlX2lkQGxhcmsuY29tPgpUbzogImphY2siIDxqYWNrQGphY2suY29tPgoKLS1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdApDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9VVRGLTgKCldlbGNvbWUgdG8gTGFyayBtYWlsIQotLWIyOGZhMjI0YTFlZTZkNjdmMTc5NWI0ZTFkMTAzZDcxMGU3MzllZWZiMWZmOWY5ZDg1YjgzY2U5NGYxMQo=
+     * eml数据
+     *
+     * <p>示例值：U3ViamVjdDogSGVsbG8hCkZyb206ICJtaWtlIiA8bWlrZUBtaWtlLmNvbT4KTWltZS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiBtdWx0aXBhcnQvYWx0ZXJuYXRpdmU7CiBib3VuZGFyeT1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKRGF0ZTogV2VkLCAyMyBKdWwgMjAyNSAxNTo0NDoxOCArMDgwMApNZXNzYWdlLUlkOiA8bW9ja3V1aWRtZXNzYWdlX2lkQGxhcmsuY29tPgpUbzogImphY2siIDxqYWNrQGphY2suY29tPgoKLS1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdApDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9VVRGLTgKCldlbGNvbWUgdG8gTGFyayBtYWlsIQotLWIyOGZhMjI0YTFlZTZkNjdmMTc5NWI0ZTFkMTAzZDcxMGU3MzllZWZiMWZmOWY5ZDg1YjgzY2U5NGYxMQo=
      */
-    @SerializedName("raw")
-    private String raw;
+    this.raw = builder.raw;
     /**
      * 抄送
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cc")
-    private MailAddress[] cc;
+    this.cc = builder.cc;
     /**
      * 密送
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bcc")
-    private MailAddress[] bcc;
+    this.bcc = builder.bcc;
     /**
      * 正文
-     * <p> 示例值：xxxx
+     *
+     * <p>示例值：xxxx
      */
-    @SerializedName("body_html")
-    private String bodyHtml;
+    this.bodyHtml = builder.bodyHtml;
     /**
      * 正文纯文本
-     * <p> 示例值：xxxx
+     *
+     * <p>示例值：xxxx
      */
-    @SerializedName("body_plain_text")
-    private String bodyPlainText;
+    this.bodyPlainText = builder.bodyPlainText;
     /**
      * 附件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("attachments")
-    private Attachment[] attachments;
+    this.attachments = builder.attachments;
     /**
      * 去重键
-     * <p> 示例值：abc-ddd-eee-fff-ggg
+     *
+     * <p>示例值：abc-ddd-eee-fff-ggg
      */
-    @SerializedName("dedupe_key")
-    private String dedupeKey;
+    this.dedupeKey = builder.dedupeKey;
     /**
      * EML中发件人信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("head_from")
+    this.headFrom = builder.headFrom;
+  }
+
+  public static class Builder {
+    /**
+     * 主题
+     *
+     * <p>示例值：邮件标题
+     */
+    private String subject;
+
+    /**
+     * 收件人
+     *
+     * <p>示例值：
+     */
+    private MailAddress[] to;
+
+    /**
+     * eml数据
+     *
+     * <p>示例值：U3ViamVjdDogSGVsbG8hCkZyb206ICJtaWtlIiA8bWlrZUBtaWtlLmNvbT4KTWltZS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiBtdWx0aXBhcnQvYWx0ZXJuYXRpdmU7CiBib3VuZGFyeT1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKRGF0ZTogV2VkLCAyMyBKdWwgMjAyNSAxNTo0NDoxOCArMDgwMApNZXNzYWdlLUlkOiA8bW9ja3V1aWRtZXNzYWdlX2lkQGxhcmsuY29tPgpUbzogImphY2siIDxqYWNrQGphY2suY29tPgoKLS1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdApDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9VVRGLTgKCldlbGNvbWUgdG8gTGFyayBtYWlsIQotLWIyOGZhMjI0YTFlZTZkNjdmMTc5NWI0ZTFkMTAzZDcxMGU3MzllZWZiMWZmOWY5ZDg1YjgzY2U5NGYxMQo=
+     */
+    private String raw;
+
+    /**
+     * 抄送
+     *
+     * <p>示例值：
+     */
+    private MailAddress[] cc;
+
+    /**
+     * 密送
+     *
+     * <p>示例值：
+     */
+    private MailAddress[] bcc;
+
+    /**
+     * 正文
+     *
+     * <p>示例值：xxxx
+     */
+    private String bodyHtml;
+
+    /**
+     * 正文纯文本
+     *
+     * <p>示例值：xxxx
+     */
+    private String bodyPlainText;
+
+    /**
+     * 附件
+     *
+     * <p>示例值：
+     */
+    private Attachment[] attachments;
+
+    /**
+     * 去重键
+     *
+     * <p>示例值：abc-ddd-eee-fff-ggg
+     */
+    private String dedupeKey;
+
+    /**
+     * EML中发件人信息
+     *
+     * <p>示例值：
+     */
     private MailAddress headFrom;
 
-    // builder 开始
-    public SendUserMailboxMessageReqBody() {
+    /**
+     * 主题
+     *
+     * <p>示例值：邮件标题
+     *
+     * @param subject
+     * @return
+     */
+    public Builder subject(String subject) {
+      this.subject = subject;
+      return this;
     }
 
-    public SendUserMailboxMessageReqBody(Builder builder) {
-        /**
-         * 主题
-         * <p> 示例值：邮件标题
-         */
-        this.subject = builder.subject;
-        /**
-         * 收件人
-         * <p> 示例值：
-         */
-        this.to = builder.to;
-        /**
-         * 原始EML信息base64后的字符串
-         * <p> 示例值：U3ViamVjdDogSGVsbG8hCkZyb206ICJtaWtlIiA8bWlrZUBtaWtlLmNvbT4KTWltZS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiBtdWx0aXBhcnQvYWx0ZXJuYXRpdmU7CiBib3VuZGFyeT1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKRGF0ZTogV2VkLCAyMyBKdWwgMjAyNSAxNTo0NDoxOCArMDgwMApNZXNzYWdlLUlkOiA8bW9ja3V1aWRtZXNzYWdlX2lkQGxhcmsuY29tPgpUbzogImphY2siIDxqYWNrQGphY2suY29tPgoKLS1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdApDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9VVRGLTgKCldlbGNvbWUgdG8gTGFyayBtYWlsIQotLWIyOGZhMjI0YTFlZTZkNjdmMTc5NWI0ZTFkMTAzZDcxMGU3MzllZWZiMWZmOWY5ZDg1YjgzY2U5NGYxMQo=
-         */
-        this.raw = builder.raw;
-        /**
-         * 抄送
-         * <p> 示例值：
-         */
-        this.cc = builder.cc;
-        /**
-         * 密送
-         * <p> 示例值：
-         */
-        this.bcc = builder.bcc;
-        /**
-         * 正文
-         * <p> 示例值：xxxx
-         */
-        this.bodyHtml = builder.bodyHtml;
-        /**
-         * 正文纯文本
-         * <p> 示例值：xxxx
-         */
-        this.bodyPlainText = builder.bodyPlainText;
-        /**
-         * 附件
-         * <p> 示例值：
-         */
-        this.attachments = builder.attachments;
-        /**
-         * 去重键
-         * <p> 示例值：abc-ddd-eee-fff-ggg
-         */
-        this.dedupeKey = builder.dedupeKey;
-        /**
-         * EML中发件人信息
-         * <p> 示例值：
-         */
-        this.headFrom = builder.headFrom;
+    /**
+     * 收件人
+     *
+     * <p>示例值：
+     *
+     * @param to
+     * @return
+     */
+    public Builder to(MailAddress[] to) {
+      this.to = to;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * eml数据
+     *
+     * <p>示例值：U3ViamVjdDogSGVsbG8hCkZyb206ICJtaWtlIiA8bWlrZUBtaWtlLmNvbT4KTWltZS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiBtdWx0aXBhcnQvYWx0ZXJuYXRpdmU7CiBib3VuZGFyeT1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKRGF0ZTogV2VkLCAyMyBKdWwgMjAyNSAxNTo0NDoxOCArMDgwMApNZXNzYWdlLUlkOiA8bW9ja3V1aWRtZXNzYWdlX2lkQGxhcmsuY29tPgpUbzogImphY2siIDxqYWNrQGphY2suY29tPgoKLS1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdApDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9VVRGLTgKCldlbGNvbWUgdG8gTGFyayBtYWlsIQotLWIyOGZhMjI0YTFlZTZkNjdmMTc5NWI0ZTFkMTAzZDcxMGU3MzllZWZiMWZmOWY5ZDg1YjgzY2U5NGYxMQo=
+     *
+     * @param raw
+     * @return
+     */
+    public Builder raw(String raw) {
+      this.raw = raw;
+      return this;
     }
 
-    public String getSubject() {
-        return this.subject;
+    /**
+     * 抄送
+     *
+     * <p>示例值：
+     *
+     * @param cc
+     * @return
+     */
+    public Builder cc(MailAddress[] cc) {
+      this.cc = cc;
+      return this;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    /**
+     * 密送
+     *
+     * <p>示例值：
+     *
+     * @param bcc
+     * @return
+     */
+    public Builder bcc(MailAddress[] bcc) {
+      this.bcc = bcc;
+      return this;
     }
 
-    public MailAddress[] getTo() {
-        return this.to;
+    /**
+     * 正文
+     *
+     * <p>示例值：xxxx
+     *
+     * @param bodyHtml
+     * @return
+     */
+    public Builder bodyHtml(String bodyHtml) {
+      this.bodyHtml = bodyHtml;
+      return this;
     }
 
-    public void setTo(MailAddress[] to) {
-        this.to = to;
+    /**
+     * 正文纯文本
+     *
+     * <p>示例值：xxxx
+     *
+     * @param bodyPlainText
+     * @return
+     */
+    public Builder bodyPlainText(String bodyPlainText) {
+      this.bodyPlainText = bodyPlainText;
+      return this;
     }
 
-    public String getRaw() {
-        return this.raw;
+    /**
+     * 附件
+     *
+     * <p>示例值：
+     *
+     * @param attachments
+     * @return
+     */
+    public Builder attachments(Attachment[] attachments) {
+      this.attachments = attachments;
+      return this;
     }
 
-    public void setRaw(String raw) {
-        this.raw = raw;
+    /**
+     * 去重键
+     *
+     * <p>示例值：abc-ddd-eee-fff-ggg
+     *
+     * @param dedupeKey
+     * @return
+     */
+    public Builder dedupeKey(String dedupeKey) {
+      this.dedupeKey = dedupeKey;
+      return this;
     }
 
-    public MailAddress[] getCc() {
-        return this.cc;
+    /**
+     * EML中发件人信息
+     *
+     * <p>示例值：
+     *
+     * @param headFrom
+     * @return
+     */
+    public Builder headFrom(MailAddress headFrom) {
+      this.headFrom = headFrom;
+      return this;
     }
 
-    public void setCc(MailAddress[] cc) {
-        this.cc = cc;
+    public SendUserMailboxMessageReqBody build() {
+      return new SendUserMailboxMessageReqBody(this);
     }
+  }
 
-    public MailAddress[] getBcc() {
-        return this.bcc;
-    }
-
-    public void setBcc(MailAddress[] bcc) {
-        this.bcc = bcc;
-    }
-
-    public String getBodyHtml() {
-        return this.bodyHtml;
-    }
-
-    public void setBodyHtml(String bodyHtml) {
-        this.bodyHtml = bodyHtml;
-    }
-
-    public String getBodyPlainText() {
-        return this.bodyPlainText;
-    }
-
-    public void setBodyPlainText(String bodyPlainText) {
-        this.bodyPlainText = bodyPlainText;
-    }
-
-    public Attachment[] getAttachments() {
-        return this.attachments;
-    }
-
-    public void setAttachments(Attachment[] attachments) {
-        this.attachments = attachments;
-    }
-
-    public String getDedupeKey() {
-        return this.dedupeKey;
-    }
-
-    public void setDedupeKey(String dedupeKey) {
-        this.dedupeKey = dedupeKey;
-    }
-
-    public MailAddress getHeadFrom() {
-        return this.headFrom;
-    }
-
-    public void setHeadFrom(MailAddress headFrom) {
-        this.headFrom = headFrom;
-    }
-
-    public static class Builder {
-        /**
-         * 主题
-         * <p> 示例值：邮件标题
-         */
-        private String subject;
-        /**
-         * 收件人
-         * <p> 示例值：
-         */
-        private MailAddress[] to;
-        /**
-         * 原始EML信息base64后的字符串
-         * <p> 示例值：U3ViamVjdDogSGVsbG8hCkZyb206ICJtaWtlIiA8bWlrZUBtaWtlLmNvbT4KTWltZS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiBtdWx0aXBhcnQvYWx0ZXJuYXRpdmU7CiBib3VuZGFyeT1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKRGF0ZTogV2VkLCAyMyBKdWwgMjAyNSAxNTo0NDoxOCArMDgwMApNZXNzYWdlLUlkOiA8bW9ja3V1aWRtZXNzYWdlX2lkQGxhcmsuY29tPgpUbzogImphY2siIDxqYWNrQGphY2suY29tPgoKLS1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdApDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9VVRGLTgKCldlbGNvbWUgdG8gTGFyayBtYWlsIQotLWIyOGZhMjI0YTFlZTZkNjdmMTc5NWI0ZTFkMTAzZDcxMGU3MzllZWZiMWZmOWY5ZDg1YjgzY2U5NGYxMQo=
-         */
-        private String raw;
-        /**
-         * 抄送
-         * <p> 示例值：
-         */
-        private MailAddress[] cc;
-        /**
-         * 密送
-         * <p> 示例值：
-         */
-        private MailAddress[] bcc;
-        /**
-         * 正文
-         * <p> 示例值：xxxx
-         */
-        private String bodyHtml;
-        /**
-         * 正文纯文本
-         * <p> 示例值：xxxx
-         */
-        private String bodyPlainText;
-        /**
-         * 附件
-         * <p> 示例值：
-         */
-        private Attachment[] attachments;
-        /**
-         * 去重键
-         * <p> 示例值：abc-ddd-eee-fff-ggg
-         */
-        private String dedupeKey;
-        /**
-         * EML中发件人信息
-         * <p> 示例值：
-         */
-        private MailAddress headFrom;
-
-        /**
-         * 主题
-         * <p> 示例值：邮件标题
-         *
-         * @param subject
-         * @return
-         */
-        public Builder subject(String subject) {
-            this.subject = subject;
-            return this;
-        }
-
-
-        /**
-         * 收件人
-         * <p> 示例值：
-         *
-         * @param to
-         * @return
-         */
-        public Builder to(MailAddress[] to) {
-            this.to = to;
-            return this;
-        }
-
-
-        /**
-         * 原始EML信息base64后的字符串
-         * <p> 示例值：U3ViamVjdDogSGVsbG8hCkZyb206ICJtaWtlIiA8bWlrZUBtaWtlLmNvbT4KTWltZS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiBtdWx0aXBhcnQvYWx0ZXJuYXRpdmU7CiBib3VuZGFyeT1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKRGF0ZTogV2VkLCAyMyBKdWwgMjAyNSAxNTo0NDoxOCArMDgwMApNZXNzYWdlLUlkOiA8bW9ja3V1aWRtZXNzYWdlX2lkQGxhcmsuY29tPgpUbzogImphY2siIDxqYWNrQGphY2suY29tPgoKLS1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdApDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9VVRGLTgKCldlbGNvbWUgdG8gTGFyayBtYWlsIQotLWIyOGZhMjI0YTFlZTZkNjdmMTc5NWI0ZTFkMTAzZDcxMGU3MzllZWZiMWZmOWY5ZDg1YjgzY2U5NGYxMQo=
-         *
-         * @param raw
-         * @return
-         */
-        public Builder raw(String raw) {
-            this.raw = raw;
-            return this;
-        }
-
-
-        /**
-         * 抄送
-         * <p> 示例值：
-         *
-         * @param cc
-         * @return
-         */
-        public Builder cc(MailAddress[] cc) {
-            this.cc = cc;
-            return this;
-        }
-
-
-        /**
-         * 密送
-         * <p> 示例值：
-         *
-         * @param bcc
-         * @return
-         */
-        public Builder bcc(MailAddress[] bcc) {
-            this.bcc = bcc;
-            return this;
-        }
-
-
-        /**
-         * 正文
-         * <p> 示例值：xxxx
-         *
-         * @param bodyHtml
-         * @return
-         */
-        public Builder bodyHtml(String bodyHtml) {
-            this.bodyHtml = bodyHtml;
-            return this;
-        }
-
-
-        /**
-         * 正文纯文本
-         * <p> 示例值：xxxx
-         *
-         * @param bodyPlainText
-         * @return
-         */
-        public Builder bodyPlainText(String bodyPlainText) {
-            this.bodyPlainText = bodyPlainText;
-            return this;
-        }
-
-
-        /**
-         * 附件
-         * <p> 示例值：
-         *
-         * @param attachments
-         * @return
-         */
-        public Builder attachments(Attachment[] attachments) {
-            this.attachments = attachments;
-            return this;
-        }
-
-
-        /**
-         * 去重键
-         * <p> 示例值：abc-ddd-eee-fff-ggg
-         *
-         * @param dedupeKey
-         * @return
-         */
-        public Builder dedupeKey(String dedupeKey) {
-            this.dedupeKey = dedupeKey;
-            return this;
-        }
-
-
-        /**
-         * EML中发件人信息
-         * <p> 示例值：
-         *
-         * @param headFrom
-         * @return
-         */
-        public Builder headFrom(MailAddress headFrom) {
-            this.headFrom = headFrom;
-            return this;
-        }
-
-
-        public SendUserMailboxMessageReqBody build() {
-            return new SendUserMailboxMessageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

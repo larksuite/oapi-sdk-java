@@ -13,410 +13,516 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class ListJobReq {
+  /**
+   * 最早更新时间，毫秒时间戳
+   *
+   * <p>示例值：1618500278663
+   */
+  @Query
+  @SerializedName("update_start_time")
+  private String updateStartTime;
+
+  /**
+   * 最晚更新时间，毫秒时间戳
+   *
+   * <p>示例值：1618500278663
+   */
+  @Query
+  @SerializedName("update_end_time")
+  private String updateEndTime;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 指定查询结果中的部门 ID 类型。关于部门 ID
+   * 的详细介绍，可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+   *
+   * <p>示例值：department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  /**
+   * 此次调用中使用的「职级 ID」的类型
+   *
+   * <p>示例值：people_admin_job_level_id
+   */
+  @Query
+  @SerializedName("job_level_id_type")
+  private String jobLevelIdType;
+
+  /**
+   * 此次调用中使用的「序列 ID」的类型
+   *
+   * <p>示例值：people_admin_job_category_id
+   */
+  @Query
+  @SerializedName("job_family_id_type")
+  private String jobFamilyIdType;
+
+  /**
+   * 招聘负责人 ID，与入参user_id_type类型一致
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("recruiter_id_list")
+  private String[] recruiterIdList;
+
+  /**
+   * 用人经理 ID 列表，与入参user_id_type类型一致
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("hiring_manager_id_list")
+  private String[] hiringManagerIdList;
+
+  /**
+   * 招聘协助人 ID 列表，与入参user_id_type类型一致
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("assistant_id_list")
+  private String[] assistantIdList;
+
+  /**
+   * 部门 ID，与入参中的department_id_type类型一致
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 是否包含子部门的职位。默认 false，仅返回指定部门的直属职位；设为 true
+   * 时，返回该部门及所有下属部门的职位。;当前该功能正在灰度中，如需使用请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("with_sub_department")
+  private Boolean withSubDepartment;
+
+  public String getUpdateStartTime() {
+    return this.updateStartTime;
+  }
+
+  public void setUpdateStartTime(String updateStartTime) {
+    this.updateStartTime = updateStartTime;
+  }
+
+  public String getUpdateEndTime() {
+    return this.updateEndTime;
+  }
+
+  public void setUpdateEndTime(String updateEndTime) {
+    this.updateEndTime = updateEndTime;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  public String getJobLevelIdType() {
+    return this.jobLevelIdType;
+  }
+
+  public void setJobLevelIdType(String jobLevelIdType) {
+    this.jobLevelIdType = jobLevelIdType;
+  }
+
+  public String getJobFamilyIdType() {
+    return this.jobFamilyIdType;
+  }
+
+  public void setJobFamilyIdType(String jobFamilyIdType) {
+    this.jobFamilyIdType = jobFamilyIdType;
+  }
+
+  public String[] getRecruiterIdList() {
+    return this.recruiterIdList;
+  }
+
+  public void setRecruiterIdList(String[] recruiterIdList) {
+    this.recruiterIdList = recruiterIdList;
+  }
+
+  public String[] getHiringManagerIdList() {
+    return this.hiringManagerIdList;
+  }
+
+  public void setHiringManagerIdList(String[] hiringManagerIdList) {
+    this.hiringManagerIdList = hiringManagerIdList;
+  }
+
+  public String[] getAssistantIdList() {
+    return this.assistantIdList;
+  }
+
+  public void setAssistantIdList(String[] assistantIdList) {
+    this.assistantIdList = assistantIdList;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public Boolean getWithSubDepartment() {
+    return this.withSubDepartment;
+  }
+
+  public void setWithSubDepartment(Boolean withSubDepartment) {
+    this.withSubDepartment = withSubDepartment;
+  }
+
+  // builder 开始
+  public ListJobReq() {}
+
+  public ListJobReq(Builder builder) {
     /**
-     * 最早更新时间，毫秒级时间戳
-     * <p> 示例值：1618500278663
+     * 最早更新时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
      */
-    @Query
-    @SerializedName("update_start_time")
-    private String updateStartTime;
+    this.updateStartTime = builder.updateStartTime;
     /**
-     * 最晚更新时间，毫秒级时间戳
-     * <p> 示例值：1618500278663
+     * 最晚更新时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
      */
-    @Query
-    @SerializedName("update_end_time")
-    private String updateEndTime;
+    this.updateEndTime = builder.updateEndTime;
     /**
-     * 分页大小, 不能超过 20
-     * <p> 示例值：10
+     * 分页大小
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 用户 ID 类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 此次调用中使用的部门 ID 的类型
-     * <p> 示例值：
+     * 指定查询结果中的部门 ID 类型。关于部门 ID
+     * 的详细介绍，可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+     *
+     * <p>示例值：department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
      * 此次调用中使用的「职级 ID」的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：people_admin_job_level_id
      */
-    @Query
-    @SerializedName("job_level_id_type")
-    private String jobLevelIdType;
+    this.jobLevelIdType = builder.jobLevelIdType;
     /**
      * 此次调用中使用的「序列 ID」的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：people_admin_job_category_id
      */
-    @Query
-    @SerializedName("job_family_id_type")
-    private String jobFamilyIdType;
+    this.jobFamilyIdType = builder.jobFamilyIdType;
     /**
      * 招聘负责人 ID，与入参user_id_type类型一致
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("recruiter_id_list")
-    private String[] recruiterIdList;
+    this.recruiterIdList = builder.recruiterIdList;
     /**
      * 用人经理 ID 列表，与入参user_id_type类型一致
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("hiring_manager_id_list")
-    private String[] hiringManagerIdList;
+    this.hiringManagerIdList = builder.hiringManagerIdList;
     /**
      * 招聘协助人 ID 列表，与入参user_id_type类型一致
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("assistant_id_list")
-    private String[] assistantIdList;
+    this.assistantIdList = builder.assistantIdList;
+    /**
+     * 部门 ID，与入参中的department_id_type类型一致
+     *
+     * <p>示例值：
+     */
+    this.departmentId = builder.departmentId;
+    /**
+     * 是否包含子部门的职位。默认 false，仅返回指定部门的直属职位；设为 true
+     * 时，返回该部门及所有下属部门的职位。;当前该功能正在灰度中，如需使用请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
+     */
+    this.withSubDepartment = builder.withSubDepartment;
+  }
 
-    // builder 开始
-    public ListJobReq() {
+  public static class Builder {
+    private String updateStartTime; // 最早更新时间，毫秒时间戳
+    private String updateEndTime; // 最晚更新时间，毫秒时间戳
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String userIdType; // 用户 ID 类型
+    private String departmentIdType; // 指定查询结果中的部门 ID 类型。关于部门 ID
+    // 的详细介绍，可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+    private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
+    private String jobFamilyIdType; // 此次调用中使用的「序列 ID」的类型
+    private String[] recruiterIdList; // 招聘负责人 ID，与入参user_id_type类型一致
+    private String[] hiringManagerIdList; // 用人经理 ID 列表，与入参user_id_type类型一致
+    private String[] assistantIdList; // 招聘协助人 ID 列表，与入参user_id_type类型一致
+    private String departmentId; // 部门 ID，与入参中的department_id_type类型一致
+    private Boolean withSubDepartment; // 是否包含子部门的职位。默认 false，仅返回指定部门的直属职位；设为 true
+
+    // 时，返回该部门及所有下属部门的职位。;当前该功能正在灰度中，如需使用请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+
+    /**
+     * 最早更新时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param updateStartTime
+     * @return
+     */
+    public Builder updateStartTime(String updateStartTime) {
+      this.updateStartTime = updateStartTime;
+      return this;
     }
 
-    public ListJobReq(Builder builder) {
-        /**
-         * 最早更新时间，毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        this.updateStartTime = builder.updateStartTime;
-        /**
-         * 最晚更新时间，毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        this.updateEndTime = builder.updateEndTime;
-        /**
-         * 分页大小, 不能超过 20
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门 ID 的类型
-         * <p> 示例值：
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 此次调用中使用的「职级 ID」的类型
-         * <p> 示例值：
-         */
-        this.jobLevelIdType = builder.jobLevelIdType;
-        /**
-         * 此次调用中使用的「序列 ID」的类型
-         * <p> 示例值：
-         */
-        this.jobFamilyIdType = builder.jobFamilyIdType;
-        /**
-         * 招聘负责人 ID，与入参user_id_type类型一致
-         * <p> 示例值：
-         */
-        this.recruiterIdList = builder.recruiterIdList;
-        /**
-         * 用人经理 ID 列表，与入参user_id_type类型一致
-         * <p> 示例值：
-         */
-        this.hiringManagerIdList = builder.hiringManagerIdList;
-        /**
-         * 招聘协助人 ID 列表，与入参user_id_type类型一致
-         * <p> 示例值：
-         */
-        this.assistantIdList = builder.assistantIdList;
+    /**
+     * 最晚更新时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param updateEndTime
+     * @return
+     */
+    public Builder updateEndTime(String updateEndTime) {
+      this.updateEndTime = updateEndTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 分页大小
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public String getUpdateStartTime() {
-        return this.updateStartTime;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setUpdateStartTime(String updateStartTime) {
-        this.updateStartTime = updateStartTime;
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getUpdateEndTime() {
-        return this.updateEndTime;
+    /**
+     * 指定查询结果中的部门 ID 类型。关于部门 ID
+     * 的详细介绍，可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+     *
+     * <p>示例值：department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
     }
 
-    public void setUpdateEndTime(String updateEndTime) {
-        this.updateEndTime = updateEndTime;
+    /**
+     * 此次调用中使用的「职级 ID」的类型
+     *
+     * <p>示例值：people_admin_job_level_id
+     *
+     * @param jobLevelIdType
+     * @return
+     */
+    public Builder jobLevelIdType(String jobLevelIdType) {
+      this.jobLevelIdType = jobLevelIdType;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 此次调用中使用的「序列 ID」的类型
+     *
+     * <p>示例值：people_admin_job_category_id
+     *
+     * @param jobFamilyIdType
+     * @return
+     */
+    public Builder jobFamilyIdType(String jobFamilyIdType) {
+      this.jobFamilyIdType = jobFamilyIdType;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 招聘负责人 ID，与入参user_id_type类型一致
+     *
+     * <p>示例值：
+     *
+     * @param recruiterIdList
+     * @return
+     */
+    public Builder recruiterIdList(String[] recruiterIdList) {
+      this.recruiterIdList = recruiterIdList;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 用人经理 ID 列表，与入参user_id_type类型一致
+     *
+     * <p>示例值：
+     *
+     * @param hiringManagerIdList
+     * @return
+     */
+    public Builder hiringManagerIdList(String[] hiringManagerIdList) {
+      this.hiringManagerIdList = hiringManagerIdList;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    /**
+     * 招聘协助人 ID 列表，与入参user_id_type类型一致
+     *
+     * <p>示例值：
+     *
+     * @param assistantIdList
+     * @return
+     */
+    public Builder assistantIdList(String[] assistantIdList) {
+      this.assistantIdList = assistantIdList;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 部门 ID，与入参中的department_id_type类型一致
+     *
+     * <p>示例值：
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    /**
+     * 是否包含子部门的职位。默认 false，仅返回指定部门的直属职位；设为 true
+     * 时，返回该部门及所有下属部门的职位。;当前该功能正在灰度中，如需使用请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
+     *
+     * @param withSubDepartment
+     * @return
+     */
+    public Builder withSubDepartment(Boolean withSubDepartment) {
+      this.withSubDepartment = withSubDepartment;
+      return this;
     }
 
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
+    public ListJobReq build() {
+      return new ListJobReq(this);
     }
+  }
 
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public String getJobLevelIdType() {
-        return this.jobLevelIdType;
-    }
-
-    public void setJobLevelIdType(String jobLevelIdType) {
-        this.jobLevelIdType = jobLevelIdType;
-    }
-
-    public String getJobFamilyIdType() {
-        return this.jobFamilyIdType;
-    }
-
-    public void setJobFamilyIdType(String jobFamilyIdType) {
-        this.jobFamilyIdType = jobFamilyIdType;
-    }
-
-    public String[] getRecruiterIdList() {
-        return this.recruiterIdList;
-    }
-
-    public void setRecruiterIdList(String[] recruiterIdList) {
-        this.recruiterIdList = recruiterIdList;
-    }
-
-    public String[] getHiringManagerIdList() {
-        return this.hiringManagerIdList;
-    }
-
-    public void setHiringManagerIdList(String[] hiringManagerIdList) {
-        this.hiringManagerIdList = hiringManagerIdList;
-    }
-
-    public String[] getAssistantIdList() {
-        return this.assistantIdList;
-    }
-
-    public void setAssistantIdList(String[] assistantIdList) {
-        this.assistantIdList = assistantIdList;
-    }
-
-    public static class Builder {
-        private String updateStartTime; // 最早更新时间，毫秒级时间戳
-        private String updateEndTime; // 最晚更新时间，毫秒级时间戳
-        private Integer pageSize; // 分页大小, 不能超过 20
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String userIdType; // 用户 ID 类型
-        private String departmentIdType; // 此次调用中使用的部门 ID 的类型
-        private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
-        private String jobFamilyIdType; // 此次调用中使用的「序列 ID」的类型
-        private String[] recruiterIdList; // 招聘负责人 ID，与入参user_id_type类型一致
-        private String[] hiringManagerIdList; // 用人经理 ID 列表，与入参user_id_type类型一致
-        private String[] assistantIdList; // 招聘协助人 ID 列表，与入参user_id_type类型一致
-
-        /**
-         * 最早更新时间，毫秒级时间戳
-         * <p> 示例值：1618500278663
-         *
-         * @param updateStartTime
-         * @return
-         */
-        public Builder updateStartTime(String updateStartTime) {
-            this.updateStartTime = updateStartTime;
-            return this;
-        }
-
-
-        /**
-         * 最晚更新时间，毫秒级时间戳
-         * <p> 示例值：1618500278663
-         *
-         * @param updateEndTime
-         * @return
-         */
-        public Builder updateEndTime(String updateEndTime) {
-            this.updateEndTime = updateEndTime;
-            return this;
-        }
-
-
-        /**
-         * 分页大小, 不能超过 20
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的部门 ID 的类型
-         * <p> 示例值：
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的「职级 ID」的类型
-         * <p> 示例值：
-         *
-         * @param jobLevelIdType
-         * @return
-         */
-        public Builder jobLevelIdType(String jobLevelIdType) {
-            this.jobLevelIdType = jobLevelIdType;
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的「序列 ID」的类型
-         * <p> 示例值：
-         *
-         * @param jobFamilyIdType
-         * @return
-         */
-        public Builder jobFamilyIdType(String jobFamilyIdType) {
-            this.jobFamilyIdType = jobFamilyIdType;
-            return this;
-        }
-
-
-        /**
-         * 招聘负责人 ID，与入参user_id_type类型一致
-         * <p> 示例值：
-         *
-         * @param recruiterIdList
-         * @return
-         */
-        public Builder recruiterIdList(String[] recruiterIdList) {
-            this.recruiterIdList = recruiterIdList;
-            return this;
-        }
-
-
-        /**
-         * 用人经理 ID 列表，与入参user_id_type类型一致
-         * <p> 示例值：
-         *
-         * @param hiringManagerIdList
-         * @return
-         */
-        public Builder hiringManagerIdList(String[] hiringManagerIdList) {
-            this.hiringManagerIdList = hiringManagerIdList;
-            return this;
-        }
-
-
-        /**
-         * 招聘协助人 ID 列表，与入参user_id_type类型一致
-         * <p> 示例值：
-         *
-         * @param assistantIdList
-         * @return
-         */
-        public Builder assistantIdList(String[] assistantIdList) {
-            this.assistantIdList = assistantIdList;
-            return this;
-        }
-
-
-        public ListJobReq build() {
-            return new ListJobReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

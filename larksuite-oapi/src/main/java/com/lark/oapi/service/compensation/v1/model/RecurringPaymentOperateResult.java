@@ -13,198 +13,206 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecurringPaymentOperateResult {
+  /**
+   * 操作记录的id
+   *
+   * <p>示例值：7390583861280556588
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 操作的记录的 unique_id
+   *
+   * <p>示例值：7390583861280556588
+   */
+  @SerializedName("unique_id")
+  private String uniqueId;
+
+  /**
+   * 操作结果状态码
+   *
+   * <p>示例值：21270202
+   */
+  @SerializedName("code")
+  private Integer code;
+
+  /**
+   * 操作结果描述
+   *
+   * <p>示例值：unique id conflict
+   */
+  @SerializedName("message")
+  private String message;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getUniqueId() {
+    return this.uniqueId;
+  }
+
+  public void setUniqueId(String uniqueId) {
+    this.uniqueId = uniqueId;
+  }
+
+  public Integer getCode() {
+    return this.code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public String getMessage() {
+    return this.message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  // builder 开始
+  public RecurringPaymentOperateResult() {}
+
+  public RecurringPaymentOperateResult(Builder builder) {
     /**
      * 操作记录的id
-     * <p> 示例值：7390583861280556588
+     *
+     * <p>示例值：7390583861280556588
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 操作的记录的 unique_id
-     * <p> 示例值：7390583861280556588
+     *
+     * <p>示例值：7390583861280556588
      */
-    @SerializedName("unique_id")
-    private String uniqueId;
+    this.uniqueId = builder.uniqueId;
     /**
      * 操作结果状态码
-     * <p> 示例值：21270202
+     *
+     * <p>示例值：21270202
      */
-    @SerializedName("code")
-    private Integer code;
+    this.code = builder.code;
     /**
      * 操作结果描述
-     * <p> 示例值：uqniue id conflict
+     *
+     * <p>示例值：unique id conflict
      */
-    @SerializedName("message")
+    this.message = builder.message;
+  }
+
+  public static class Builder {
+    /**
+     * 操作记录的id
+     *
+     * <p>示例值：7390583861280556588
+     */
+    private String id;
+
+    /**
+     * 操作的记录的 unique_id
+     *
+     * <p>示例值：7390583861280556588
+     */
+    private String uniqueId;
+
+    /**
+     * 操作结果状态码
+     *
+     * <p>示例值：21270202
+     */
+    private Integer code;
+
+    /**
+     * 操作结果描述
+     *
+     * <p>示例值：unique id conflict
+     */
     private String message;
 
-    // builder 开始
-    public RecurringPaymentOperateResult() {
+    /**
+     * 操作记录的id
+     *
+     * <p>示例值：7390583861280556588
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public RecurringPaymentOperateResult(Builder builder) {
-        /**
-         * 操作记录的id
-         * <p> 示例值：7390583861280556588
-         */
-        this.id = builder.id;
-        /**
-         * 操作的记录的 unique_id
-         * <p> 示例值：7390583861280556588
-         */
-        this.uniqueId = builder.uniqueId;
-        /**
-         * 操作结果状态码
-         * <p> 示例值：21270202
-         */
-        this.code = builder.code;
-        /**
-         * 操作结果描述
-         * <p> 示例值：uqniue id conflict
-         */
-        this.message = builder.message;
+    /**
+     * 操作的记录的 unique_id
+     *
+     * <p>示例值：7390583861280556588
+     *
+     * @param uniqueId
+     * @return
+     */
+    public Builder uniqueId(String uniqueId) {
+      this.uniqueId = uniqueId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作结果状态码
+     *
+     * <p>示例值：21270202
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(Integer code) {
+      this.code = code;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 操作结果状态码
+     *
+     * <p>示例值：21270202
+     *
+     * @param code {@link
+     *     com.lark.oapi.service.compensation.v1.enums.RecurringPaymentOperateResultCodeEnum}
+     * @return
+     */
+    public Builder code(
+        com.lark.oapi.service.compensation.v1.enums.RecurringPaymentOperateResultCodeEnum code) {
+      this.code = code.getValue();
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 操作结果描述
+     *
+     * <p>示例值：unique id conflict
+     *
+     * @param message
+     * @return
+     */
+    public Builder message(String message) {
+      this.message = message;
+      return this;
     }
 
-    public String getUniqueId() {
-        return this.uniqueId;
+    public RecurringPaymentOperateResult build() {
+      return new RecurringPaymentOperateResult(this);
     }
+  }
 
-    public void setUniqueId(String uniqueId) {
-        this.uniqueId = uniqueId;
-    }
-
-    public Integer getCode() {
-        return this.code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return this.message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public static class Builder {
-        /**
-         * 操作记录的id
-         * <p> 示例值：7390583861280556588
-         */
-        private String id;
-        /**
-         * 操作的记录的 unique_id
-         * <p> 示例值：7390583861280556588
-         */
-        private String uniqueId;
-        /**
-         * 操作结果状态码
-         * <p> 示例值：21270202
-         */
-        private Integer code;
-        /**
-         * 操作结果描述
-         * <p> 示例值：uqniue id conflict
-         */
-        private String message;
-
-        /**
-         * 操作记录的id
-         * <p> 示例值：7390583861280556588
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 操作的记录的 unique_id
-         * <p> 示例值：7390583861280556588
-         *
-         * @param uniqueId
-         * @return
-         */
-        public Builder uniqueId(String uniqueId) {
-            this.uniqueId = uniqueId;
-            return this;
-        }
-
-
-        /**
-         * 操作结果状态码
-         * <p> 示例值：21270202
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(Integer code) {
-            this.code = code;
-            return this;
-        }
-
-        /**
-         * 操作结果状态码
-         * <p> 示例值：21270202
-         *
-         * @param code {@link com.lark.oapi.service.compensation.v1.enums.RecurringPaymentOperateResultCodeEnum}
-         * @return
-         */
-        public Builder code(com.lark.oapi.service.compensation.v1.enums.RecurringPaymentOperateResultCodeEnum code) {
-            this.code = code.getValue();
-            return this;
-        }
-
-
-        /**
-         * 操作结果描述
-         * <p> 示例值：uqniue id conflict
-         *
-         * @param message
-         * @return
-         */
-        public Builder message(String message) {
-            this.message = message;
-            return this;
-        }
-
-
-        public RecurringPaymentOperateResult build() {
-            return new RecurringPaymentOperateResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

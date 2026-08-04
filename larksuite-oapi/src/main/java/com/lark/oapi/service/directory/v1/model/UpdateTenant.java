@@ -13,667 +13,737 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateTenant {
+  /**
+   * 租户ID
+   *
+   * <p>示例值：6872549699048439828
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 联系人信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("contact_user_info")
+  private UserInfo contactUserInfo;
+
+  /**
+   * 租户子域名
+   *
+   * <p>示例值：www
+   */
+  @SerializedName("sub_domain")
+  private String subDomain;
+
+  /**
+   * 域名是否可以被修改
+   *
+   * <p>示例值：
+   */
+  @SerializedName("can_domain_be_modified")
+  private Boolean canDomainBeModified;
+
+  /**
+   * 联系地址
+   *
+   * <p>示例值：address
+   */
+  @SerializedName("address")
+  private String address;
+
+  /**
+   * 邮编
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("post_code")
+  private String postCode;
+
+  /**
+   * 座机
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("telephone")
+  private String telephone;
+
+  /**
+   * 企业头像Key
+   *
+   * <p>示例值：asdfadfadsf
+   */
+  @SerializedName("avatar_key")
+  private String avatarKey;
+
+  /**
+   * 国家代码
+   *
+   * <p>示例值：cn
+   */
+  @SerializedName("country_code")
+  private String countryCode;
+
+  /**
+   * 租户类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 租户用途
+   *
+   * <p>示例值：
+   */
+  @SerializedName("purpose")
+  private String purpose;
+
+  /**
+   * 个人租户/企业租户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tag")
+  private String tag;
+
+  /**
+   * 行业类型 兼容历史枚举和主数据编码
+   *
+   * <p>示例值：MDCT00000256
+   */
+  @SerializedName("industry")
+  private String industry;
+
+  /**
+   * 企业规模 兼容历史枚举和主数据编码
+   *
+   * <p>示例值：MDCT00000256
+   */
+  @SerializedName("scale")
+  private String scale;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18nText description;
+
+  /**
+   * 创建人ID
+   *
+   * <p>示例值：6872549699048439828
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public UserInfo getContactUserInfo() {
+    return this.contactUserInfo;
+  }
+
+  public void setContactUserInfo(UserInfo contactUserInfo) {
+    this.contactUserInfo = contactUserInfo;
+  }
+
+  public String getSubDomain() {
+    return this.subDomain;
+  }
+
+  public void setSubDomain(String subDomain) {
+    this.subDomain = subDomain;
+  }
+
+  public Boolean getCanDomainBeModified() {
+    return this.canDomainBeModified;
+  }
+
+  public void setCanDomainBeModified(Boolean canDomainBeModified) {
+    this.canDomainBeModified = canDomainBeModified;
+  }
+
+  public String getAddress() {
+    return this.address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+  public String getPostCode() {
+    return this.postCode;
+  }
+
+  public void setPostCode(String postCode) {
+    this.postCode = postCode;
+  }
+
+  public String getTelephone() {
+    return this.telephone;
+  }
+
+  public void setTelephone(String telephone) {
+    this.telephone = telephone;
+  }
+
+  public String getAvatarKey() {
+    return this.avatarKey;
+  }
+
+  public void setAvatarKey(String avatarKey) {
+    this.avatarKey = avatarKey;
+  }
+
+  public String getCountryCode() {
+    return this.countryCode;
+  }
+
+  public void setCountryCode(String countryCode) {
+    this.countryCode = countryCode;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getPurpose() {
+    return this.purpose;
+  }
+
+  public void setPurpose(String purpose) {
+    this.purpose = purpose;
+  }
+
+  public String getTag() {
+    return this.tag;
+  }
+
+  public void setTag(String tag) {
+    this.tag = tag;
+  }
+
+  public String getIndustry() {
+    return this.industry;
+  }
+
+  public void setIndustry(String industry) {
+    this.industry = industry;
+  }
+
+  public String getScale() {
+    return this.scale;
+  }
+
+  public void setScale(String scale) {
+    this.scale = scale;
+  }
+
+  public I18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18nText description) {
+    this.description = description;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  // builder 开始
+  public UpdateTenant() {}
+
+  public UpdateTenant(Builder builder) {
     /**
      * 租户ID
-     * <p> 示例值：6872549699048439828
+     *
+     * <p>示例值：6872549699048439828
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 联系人信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("contact_user_info")
-    private UserInfo contactUserInfo;
+    this.contactUserInfo = builder.contactUserInfo;
     /**
      * 租户子域名
-     * <p> 示例值：www
+     *
+     * <p>示例值：www
      */
-    @SerializedName("sub_domain")
-    private String subDomain;
+    this.subDomain = builder.subDomain;
     /**
      * 域名是否可以被修改
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("can_domain_be_modified")
-    private Boolean canDomainBeModified;
+    this.canDomainBeModified = builder.canDomainBeModified;
     /**
      * 联系地址
-     * <p> 示例值：address
+     *
+     * <p>示例值：address
      */
-    @SerializedName("address")
-    private String address;
+    this.address = builder.address;
     /**
      * 邮编
-     * <p> 示例值：123456
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("post_code")
-    private String postCode;
+    this.postCode = builder.postCode;
     /**
      * 座机
-     * <p> 示例值：123456
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("telephone")
-    private String telephone;
+    this.telephone = builder.telephone;
     /**
      * 企业头像Key
-     * <p> 示例值：asdfadfadsf
+     *
+     * <p>示例值：asdfadfadsf
      */
-    @SerializedName("avatar_key")
-    private String avatarKey;
+    this.avatarKey = builder.avatarKey;
     /**
      * 国家代码
-     * <p> 示例值：cn
+     *
+     * <p>示例值：cn
      */
-    @SerializedName("country_code")
-    private String countryCode;
+    this.countryCode = builder.countryCode;
     /**
      * 租户类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 租户用途
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("purpose")
-    private String purpose;
+    this.purpose = builder.purpose;
     /**
      * 个人租户/企业租户
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("tag")
-    private String tag;
+    this.tag = builder.tag;
     /**
-     * 行业类型 兼容历史枚举和主数据编码 https://bytedance.larkoffice.com/wiki/Ntd1wlmT2i0xrokY2DNcWDw0nHc#share-WOWldq8Uvow6g3xmIjlck9eYnof
-     * <p> 示例值：MDCT00000256
+     * 行业类型 兼容历史枚举和主数据编码
+     *
+     * <p>示例值：MDCT00000256
      */
-    @SerializedName("industry")
-    private String industry;
+    this.industry = builder.industry;
     /**
-     * 企业规模 兼容历史枚举和主数据编码 https://bytedance.larkoffice.com/wiki/Ntd1wlmT2i0xrokY2DNcWDw0nHc#share-WOWldq8Uvow6g3xmIjlck9eYnof
-     * <p> 示例值：MDCT00000256
+     * 企业规模 兼容历史枚举和主数据编码
+     *
+     * <p>示例值：MDCT00000256
      */
-    @SerializedName("scale")
-    private String scale;
+    this.scale = builder.scale;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18nText description;
+    this.description = builder.description;
     /**
      * 创建人ID
-     * <p> 示例值：6872549699048439828
+     *
+     * <p>示例值：6872549699048439828
      */
-    @SerializedName("creator_id")
+    this.creatorId = builder.creatorId;
+  }
+
+  public static class Builder {
+    /**
+     * 租户ID
+     *
+     * <p>示例值：6872549699048439828
+     */
+    private String id;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 联系人信息
+     *
+     * <p>示例值：
+     */
+    private UserInfo contactUserInfo;
+
+    /**
+     * 租户子域名
+     *
+     * <p>示例值：www
+     */
+    private String subDomain;
+
+    /**
+     * 域名是否可以被修改
+     *
+     * <p>示例值：
+     */
+    private Boolean canDomainBeModified;
+
+    /**
+     * 联系地址
+     *
+     * <p>示例值：address
+     */
+    private String address;
+
+    /**
+     * 邮编
+     *
+     * <p>示例值：123456
+     */
+    private String postCode;
+
+    /**
+     * 座机
+     *
+     * <p>示例值：123456
+     */
+    private String telephone;
+
+    /**
+     * 企业头像Key
+     *
+     * <p>示例值：asdfadfadsf
+     */
+    private String avatarKey;
+
+    /**
+     * 国家代码
+     *
+     * <p>示例值：cn
+     */
+    private String countryCode;
+
+    /**
+     * 租户类型
+     *
+     * <p>示例值：
+     */
+    private String type;
+
+    /**
+     * 租户用途
+     *
+     * <p>示例值：
+     */
+    private String purpose;
+
+    /**
+     * 个人租户/企业租户
+     *
+     * <p>示例值：
+     */
+    private String tag;
+
+    /**
+     * 行业类型 兼容历史枚举和主数据编码
+     *
+     * <p>示例值：MDCT00000256
+     */
+    private String industry;
+
+    /**
+     * 企业规模 兼容历史枚举和主数据编码
+     *
+     * <p>示例值：MDCT00000256
+     */
+    private String scale;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText description;
+
+    /**
+     * 创建人ID
+     *
+     * <p>示例值：6872549699048439828
+     */
     private String creatorId;
 
-    // builder 开始
-    public UpdateTenant() {
+    /**
+     * 租户ID
+     *
+     * <p>示例值：6872549699048439828
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UpdateTenant(Builder builder) {
-        /**
-         * 租户ID
-         * <p> 示例值：6872549699048439828
-         */
-        this.id = builder.id;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 联系人信息
-         * <p> 示例值：
-         */
-        this.contactUserInfo = builder.contactUserInfo;
-        /**
-         * 租户子域名
-         * <p> 示例值：www
-         */
-        this.subDomain = builder.subDomain;
-        /**
-         * 域名是否可以被修改
-         * <p> 示例值：
-         */
-        this.canDomainBeModified = builder.canDomainBeModified;
-        /**
-         * 联系地址
-         * <p> 示例值：address
-         */
-        this.address = builder.address;
-        /**
-         * 邮编
-         * <p> 示例值：123456
-         */
-        this.postCode = builder.postCode;
-        /**
-         * 座机
-         * <p> 示例值：123456
-         */
-        this.telephone = builder.telephone;
-        /**
-         * 企业头像Key
-         * <p> 示例值：asdfadfadsf
-         */
-        this.avatarKey = builder.avatarKey;
-        /**
-         * 国家代码
-         * <p> 示例值：cn
-         */
-        this.countryCode = builder.countryCode;
-        /**
-         * 租户类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 租户用途
-         * <p> 示例值：
-         */
-        this.purpose = builder.purpose;
-        /**
-         * 个人租户/企业租户
-         * <p> 示例值：
-         */
-        this.tag = builder.tag;
-        /**
-         * 行业类型 兼容历史枚举和主数据编码 https://bytedance.larkoffice.com/wiki/Ntd1wlmT2i0xrokY2DNcWDw0nHc#share-WOWldq8Uvow6g3xmIjlck9eYnof
-         * <p> 示例值：MDCT00000256
-         */
-        this.industry = builder.industry;
-        /**
-         * 企业规模 兼容历史枚举和主数据编码 https://bytedance.larkoffice.com/wiki/Ntd1wlmT2i0xrokY2DNcWDw0nHc#share-WOWldq8Uvow6g3xmIjlck9eYnof
-         * <p> 示例值：MDCT00000256
-         */
-        this.scale = builder.scale;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 创建人ID
-         * <p> 示例值：6872549699048439828
-         */
-        this.creatorId = builder.creatorId;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 联系人信息
+     *
+     * <p>示例值：
+     *
+     * @param contactUserInfo
+     * @return
+     */
+    public Builder contactUserInfo(UserInfo contactUserInfo) {
+      this.contactUserInfo = contactUserInfo;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 租户子域名
+     *
+     * <p>示例值：www
+     *
+     * @param subDomain
+     * @return
+     */
+    public Builder subDomain(String subDomain) {
+      this.subDomain = subDomain;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 域名是否可以被修改
+     *
+     * <p>示例值：
+     *
+     * @param canDomainBeModified
+     * @return
+     */
+    public Builder canDomainBeModified(Boolean canDomainBeModified) {
+      this.canDomainBeModified = canDomainBeModified;
+      return this;
     }
 
-    public I18nText getName() {
-        return this.name;
+    /**
+     * 联系地址
+     *
+     * <p>示例值：address
+     *
+     * @param address
+     * @return
+     */
+    public Builder address(String address) {
+      this.address = address;
+      return this;
     }
 
-    public void setName(I18nText name) {
-        this.name = name;
+    /**
+     * 邮编
+     *
+     * <p>示例值：123456
+     *
+     * @param postCode
+     * @return
+     */
+    public Builder postCode(String postCode) {
+      this.postCode = postCode;
+      return this;
     }
 
-    public UserInfo getContactUserInfo() {
-        return this.contactUserInfo;
+    /**
+     * 座机
+     *
+     * <p>示例值：123456
+     *
+     * @param telephone
+     * @return
+     */
+    public Builder telephone(String telephone) {
+      this.telephone = telephone;
+      return this;
     }
 
-    public void setContactUserInfo(UserInfo contactUserInfo) {
-        this.contactUserInfo = contactUserInfo;
+    /**
+     * 企业头像Key
+     *
+     * <p>示例值：asdfadfadsf
+     *
+     * @param avatarKey
+     * @return
+     */
+    public Builder avatarKey(String avatarKey) {
+      this.avatarKey = avatarKey;
+      return this;
     }
 
-    public String getSubDomain() {
-        return this.subDomain;
+    /**
+     * 国家代码
+     *
+     * <p>示例值：cn
+     *
+     * @param countryCode
+     * @return
+     */
+    public Builder countryCode(String countryCode) {
+      this.countryCode = countryCode;
+      return this;
     }
 
-    public void setSubDomain(String subDomain) {
-        this.subDomain = subDomain;
+    /**
+     * 租户类型
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public Boolean getCanDomainBeModified() {
-        return this.canDomainBeModified;
+    /**
+     * 租户用途
+     *
+     * <p>示例值：
+     *
+     * @param purpose
+     * @return
+     */
+    public Builder purpose(String purpose) {
+      this.purpose = purpose;
+      return this;
     }
 
-    public void setCanDomainBeModified(Boolean canDomainBeModified) {
-        this.canDomainBeModified = canDomainBeModified;
+    /**
+     * 个人租户/企业租户
+     *
+     * <p>示例值：
+     *
+     * @param tag
+     * @return
+     */
+    public Builder tag(String tag) {
+      this.tag = tag;
+      return this;
     }
 
-    public String getAddress() {
-        return this.address;
+    /**
+     * 行业类型 兼容历史枚举和主数据编码
+     *
+     * <p>示例值：MDCT00000256
+     *
+     * @param industry
+     * @return
+     */
+    public Builder industry(String industry) {
+      this.industry = industry;
+      return this;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    /**
+     * 企业规模 兼容历史枚举和主数据编码
+     *
+     * <p>示例值：MDCT00000256
+     *
+     * @param scale
+     * @return
+     */
+    public Builder scale(String scale) {
+      this.scale = scale;
+      return this;
     }
 
-    public String getPostCode() {
-        return this.postCode;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
+    /**
+     * 创建人ID
+     *
+     * <p>示例值：6872549699048439828
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public String getTelephone() {
-        return this.telephone;
+    public UpdateTenant build() {
+      return new UpdateTenant(this);
     }
+  }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getAvatarKey() {
-        return this.avatarKey;
-    }
-
-    public void setAvatarKey(String avatarKey) {
-        this.avatarKey = avatarKey;
-    }
-
-    public String getCountryCode() {
-        return this.countryCode;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getPurpose() {
-        return this.purpose;
-    }
-
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
-    }
-
-    public String getTag() {
-        return this.tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public String getIndustry() {
-        return this.industry;
-    }
-
-    public void setIndustry(String industry) {
-        this.industry = industry;
-    }
-
-    public String getScale() {
-        return this.scale;
-    }
-
-    public void setScale(String scale) {
-        this.scale = scale;
-    }
-
-    public I18nText getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18nText description) {
-        this.description = description;
-    }
-
-    public String getCreatorId() {
-        return this.creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public static class Builder {
-        /**
-         * 租户ID
-         * <p> 示例值：6872549699048439828
-         */
-        private String id;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 联系人信息
-         * <p> 示例值：
-         */
-        private UserInfo contactUserInfo;
-        /**
-         * 租户子域名
-         * <p> 示例值：www
-         */
-        private String subDomain;
-        /**
-         * 域名是否可以被修改
-         * <p> 示例值：
-         */
-        private Boolean canDomainBeModified;
-        /**
-         * 联系地址
-         * <p> 示例值：address
-         */
-        private String address;
-        /**
-         * 邮编
-         * <p> 示例值：123456
-         */
-        private String postCode;
-        /**
-         * 座机
-         * <p> 示例值：123456
-         */
-        private String telephone;
-        /**
-         * 企业头像Key
-         * <p> 示例值：asdfadfadsf
-         */
-        private String avatarKey;
-        /**
-         * 国家代码
-         * <p> 示例值：cn
-         */
-        private String countryCode;
-        /**
-         * 租户类型
-         * <p> 示例值：
-         */
-        private String type;
-        /**
-         * 租户用途
-         * <p> 示例值：
-         */
-        private String purpose;
-        /**
-         * 个人租户/企业租户
-         * <p> 示例值：
-         */
-        private String tag;
-        /**
-         * 行业类型 兼容历史枚举和主数据编码 https://bytedance.larkoffice.com/wiki/Ntd1wlmT2i0xrokY2DNcWDw0nHc#share-WOWldq8Uvow6g3xmIjlck9eYnof
-         * <p> 示例值：MDCT00000256
-         */
-        private String industry;
-        /**
-         * 企业规模 兼容历史枚举和主数据编码 https://bytedance.larkoffice.com/wiki/Ntd1wlmT2i0xrokY2DNcWDw0nHc#share-WOWldq8Uvow6g3xmIjlck9eYnof
-         * <p> 示例值：MDCT00000256
-         */
-        private String scale;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText description;
-        /**
-         * 创建人ID
-         * <p> 示例值：6872549699048439828
-         */
-        private String creatorId;
-
-        /**
-         * 租户ID
-         * <p> 示例值：6872549699048439828
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 联系人信息
-         * <p> 示例值：
-         *
-         * @param contactUserInfo
-         * @return
-         */
-        public Builder contactUserInfo(UserInfo contactUserInfo) {
-            this.contactUserInfo = contactUserInfo;
-            return this;
-        }
-
-
-        /**
-         * 租户子域名
-         * <p> 示例值：www
-         *
-         * @param subDomain
-         * @return
-         */
-        public Builder subDomain(String subDomain) {
-            this.subDomain = subDomain;
-            return this;
-        }
-
-
-        /**
-         * 域名是否可以被修改
-         * <p> 示例值：
-         *
-         * @param canDomainBeModified
-         * @return
-         */
-        public Builder canDomainBeModified(Boolean canDomainBeModified) {
-            this.canDomainBeModified = canDomainBeModified;
-            return this;
-        }
-
-
-        /**
-         * 联系地址
-         * <p> 示例值：address
-         *
-         * @param address
-         * @return
-         */
-        public Builder address(String address) {
-            this.address = address;
-            return this;
-        }
-
-
-        /**
-         * 邮编
-         * <p> 示例值：123456
-         *
-         * @param postCode
-         * @return
-         */
-        public Builder postCode(String postCode) {
-            this.postCode = postCode;
-            return this;
-        }
-
-
-        /**
-         * 座机
-         * <p> 示例值：123456
-         *
-         * @param telephone
-         * @return
-         */
-        public Builder telephone(String telephone) {
-            this.telephone = telephone;
-            return this;
-        }
-
-
-        /**
-         * 企业头像Key
-         * <p> 示例值：asdfadfadsf
-         *
-         * @param avatarKey
-         * @return
-         */
-        public Builder avatarKey(String avatarKey) {
-            this.avatarKey = avatarKey;
-            return this;
-        }
-
-
-        /**
-         * 国家代码
-         * <p> 示例值：cn
-         *
-         * @param countryCode
-         * @return
-         */
-        public Builder countryCode(String countryCode) {
-            this.countryCode = countryCode;
-            return this;
-        }
-
-
-        /**
-         * 租户类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 租户用途
-         * <p> 示例值：
-         *
-         * @param purpose
-         * @return
-         */
-        public Builder purpose(String purpose) {
-            this.purpose = purpose;
-            return this;
-        }
-
-
-        /**
-         * 个人租户/企业租户
-         * <p> 示例值：
-         *
-         * @param tag
-         * @return
-         */
-        public Builder tag(String tag) {
-            this.tag = tag;
-            return this;
-        }
-
-
-        /**
-         * 行业类型 兼容历史枚举和主数据编码 https://bytedance.larkoffice.com/wiki/Ntd1wlmT2i0xrokY2DNcWDw0nHc#share-WOWldq8Uvow6g3xmIjlck9eYnof
-         * <p> 示例值：MDCT00000256
-         *
-         * @param industry
-         * @return
-         */
-        public Builder industry(String industry) {
-            this.industry = industry;
-            return this;
-        }
-
-
-        /**
-         * 企业规模 兼容历史枚举和主数据编码 https://bytedance.larkoffice.com/wiki/Ntd1wlmT2i0xrokY2DNcWDw0nHc#share-WOWldq8Uvow6g3xmIjlck9eYnof
-         * <p> 示例值：MDCT00000256
-         *
-         * @param scale
-         * @return
-         */
-        public Builder scale(String scale) {
-            this.scale = scale;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 创建人ID
-         * <p> 示例值：6872549699048439828
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        public UpdateTenant build() {
-            return new UpdateTenant(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

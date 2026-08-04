@@ -13,203 +13,212 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.aily.v1.enums.*;
 
 public class ListAppDataAssetTagReq {
+  /**
+   * 分页参数：分页大小，默认：20，最大：100
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页参数：分页起始位置，为空表示首页
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 模糊匹配分类名称
+   *
+   * <p>示例值：电影
+   */
+  @Query
+  @SerializedName("keyword")
+  private String keyword;
+
+  /**
+   * 模糊匹配分类名称
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("data_asset_tag_ids")
+  private String[] dataAssetTagIds;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getKeyword() {
+    return this.keyword;
+  }
+
+  public void setKeyword(String keyword) {
+    this.keyword = keyword;
+  }
+
+  public String[] getDataAssetTagIds() {
+    return this.dataAssetTagIds;
+  }
+
+  public void setDataAssetTagIds(String[] dataAssetTagIds) {
+    this.dataAssetTagIds = dataAssetTagIds;
+  }
+
+  /**
+   * AppID，可通过在 Aily 平台进入应用的开发界面中获取，获取示例 https://*** /ai/app_namespace
+   *
+   * <p>示例值：spring_5862e4fea8__c
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  // builder 开始
+  public ListAppDataAssetTagReq() {}
+
+  public ListAppDataAssetTagReq(Builder builder) {
     /**
      * 分页参数：分页大小，默认：20，最大：100
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页参数：分页起始位置，为空表示首页
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 模糊匹配分类名称
-     * <p> 示例值：电影
+     *
+     * <p>示例值：电影
      */
-    @Query
-    @SerializedName("keyword")
-    private String keyword;
+    this.keyword = builder.keyword;
     /**
      * 模糊匹配分类名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("data_asset_tag_ids")
-    private String[] dataAssetTagIds;
+    this.dataAssetTagIds = builder.dataAssetTagIds;
     /**
-     * AppID
-     * <p> 示例值：spring_5862e4fea8__c
+     * AppID，可通过在 Aily 平台进入应用的开发界面中获取，获取示例 https://*** /ai/app_namespace
+     *
+     * <p>示例值：spring_5862e4fea8__c
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
+  }
 
-    // builder 开始
-    public ListAppDataAssetTagReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页参数：分页大小，默认：20，最大：100
+    private String pageToken; // 分页参数：分页起始位置，为空表示首页
+    private String keyword; // 模糊匹配分类名称
+    private String[] dataAssetTagIds; // 模糊匹配分类名称
+
+    /**
+     * 分页参数：分页大小，默认：20，最大：100
+     *
+     * <p>示例值：
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListAppDataAssetTagReq(Builder builder) {
-        /**
-         * 分页参数：分页大小，默认：20，最大：100
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页参数：分页起始位置，为空表示首页
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 模糊匹配分类名称
-         * <p> 示例值：电影
-         */
-        this.keyword = builder.keyword;
-        /**
-         * 模糊匹配分类名称
-         * <p> 示例值：
-         */
-        this.dataAssetTagIds = builder.dataAssetTagIds;
-        /**
-         * AppID
-         * <p> 示例值：spring_5862e4fea8__c
-         */
-        this.appId = builder.appId;
+    /**
+     * 分页参数：分页起始位置，为空表示首页
+     *
+     * <p>示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 模糊匹配分类名称
+     *
+     * <p>示例值：电影
+     *
+     * @param keyword
+     * @return
+     */
+    public Builder keyword(String keyword) {
+      this.keyword = keyword;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 模糊匹配分类名称
+     *
+     * <p>示例值：
+     *
+     * @param dataAssetTagIds
+     * @return
+     */
+    public Builder dataAssetTagIds(String[] dataAssetTagIds) {
+      this.dataAssetTagIds = dataAssetTagIds;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    private String appId; // AppID，可通过在 Aily 平台进入应用的开发界面中获取，获取示例 https://*** /ai/app_namespace
+
+    /**
+     * AppID，可通过在 Aily 平台进入应用的开发界面中获取，获取示例 https://*** /ai/app_namespace
+     *
+     * <p>示例值：spring_5862e4fea8__c
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    public ListAppDataAssetTagReq build() {
+      return new ListAppDataAssetTagReq(this);
     }
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getKeyword() {
-        return this.keyword;
-    }
-
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
-    }
-
-    public String[] getDataAssetTagIds() {
-        return this.dataAssetTagIds;
-    }
-
-    public void setDataAssetTagIds(String[] dataAssetTagIds) {
-        this.dataAssetTagIds = dataAssetTagIds;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页参数：分页大小，默认：20，最大：100
-        private String pageToken; // 分页参数：分页起始位置，为空表示首页
-        private String keyword; // 模糊匹配分类名称
-        private String[] dataAssetTagIds; // 模糊匹配分类名称
-        private String appId; // AppID
-
-        /**
-         * 分页参数：分页大小，默认：20，最大：100
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页参数：分页起始位置，为空表示首页
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 模糊匹配分类名称
-         * <p> 示例值：电影
-         *
-         * @param keyword
-         * @return
-         */
-        public Builder keyword(String keyword) {
-            this.keyword = keyword;
-            return this;
-        }
-
-        /**
-         * 模糊匹配分类名称
-         * <p> 示例值：
-         *
-         * @param dataAssetTagIds
-         * @return
-         */
-        public Builder dataAssetTagIds(String[] dataAssetTagIds) {
-            this.dataAssetTagIds = dataAssetTagIds;
-            return this;
-        }
-
-        /**
-         * AppID
-         * <p> 示例值：spring_5862e4fea8__c
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        public ListAppDataAssetTagReq build() {
-            return new ListAppDataAssetTagReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

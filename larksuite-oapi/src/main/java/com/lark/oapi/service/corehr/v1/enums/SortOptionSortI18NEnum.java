@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.corehr.v1.enums;
 
-/**
- * 0=中文关键字;1=英文关键字;2=拼音
- */
+/** */
 public enum SortOptionSortI18NEnum {
-    CN_KEYWORD(0), // 中文关键字
-    EN_KEYWORD(1), // 英文关键字
-    SORT_FULL_PINYIN(2), // 拼音
-    ;
-    private Integer value;
+  CN_KEYWORD(0), //
+  EN_KEYWORD(1), //
+  SORT_FULL_PINYIN(2), //
+  ;
+  private Integer value;
 
-    SortOptionSortI18NEnum(Integer value) {
-        this.value = value;
-    }
+  SortOptionSortI18NEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

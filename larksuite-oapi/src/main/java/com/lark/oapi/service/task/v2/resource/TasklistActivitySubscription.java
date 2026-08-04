@@ -13,367 +13,531 @@
 
 package com.lark.oapi.service.task.v2.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.task.v2.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.task.v2.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class TasklistActivitySubscription {
-    private static final Logger log = LoggerFactory.getLogger(TasklistActivitySubscription.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(TasklistActivitySubscription.class);
+  private final Config config;
 
-    public TasklistActivitySubscription(Config config) {
-        this.config = config;
+  public TasklistActivitySubscription(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 创建动态订阅，为一个清单创建一个订阅。每个订阅可以包含1个或多个订阅者（目前只支持普通群组）。订阅创建后，如清单发生相应的事件，则会向订阅里的订阅者发送通知消息。一个清单最多可以创建50个订阅。每个订阅最大支持50个订阅者。订阅者目前仅支持"chat"类型。;;每个订阅可以通过设置`include_keys`可以针对哪些事件(event_key)做通知。如果`include_keys`为空，则不对任何事件进行通知。;;如有需要，创建时也可以直接将`disabled`设为true，创建一个禁止发送订阅通知的订阅。
+   *
+   * <p>添加订阅群时，调用身份（用户或应用机器人）必须已是群成员。成功添加了订阅后，调用身份丧失了清单的可编辑权限或者退出了群，订阅依然会存在，直到被删除。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=tasklist.activity_subscription&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateTasklistActivitySubscriptionSample.java</a>
+   * ;
+   */
+  public CreateTasklistActivitySubscriptionResp create(
+      CreateTasklistActivitySubscriptionReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateTasklistActivitySubscriptionSample.java</a> ;
-     */
-    public CreateTasklistActivitySubscriptionResp create(CreateTasklistActivitySubscriptionReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        CreateTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTasklistActivitySubscriptionResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    CreateTasklistActivitySubscriptionResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTasklistActivitySubscriptionResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateTasklistActivitySubscriptionSample.java</a> ;
-     */
-    public CreateTasklistActivitySubscriptionResp create(CreateTasklistActivitySubscriptionReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        CreateTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTasklistActivitySubscriptionResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 创建动态订阅，为一个清单创建一个订阅。每个订阅可以包含1个或多个订阅者（目前只支持普通群组）。订阅创建后，如清单发生相应的事件，则会向订阅里的订阅者发送通知消息。一个清单最多可以创建50个订阅。每个订阅最大支持50个订阅者。订阅者目前仅支持"chat"类型。;;每个订阅可以通过设置`include_keys`可以针对哪些事件(event_key)做通知。如果`include_keys`为空，则不对任何事件进行通知。;;如有需要，创建时也可以直接将`disabled`设为true，创建一个禁止发送订阅通知的订阅。
+   *
+   * <p>添加订阅群时，调用身份（用户或应用机器人）必须已是群成员。成功添加了订阅后，调用身份丧失了清单的可编辑权限或者退出了群，订阅依然会存在，直到被删除。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=task&resource=tasklist.activity_subscription&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/CreateTasklistActivitySubscriptionSample.java</a>
+   * ;
+   */
+  public CreateTasklistActivitySubscriptionResp create(CreateTasklistActivitySubscriptionReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    CreateTasklistActivitySubscriptionResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, CreateTasklistActivitySubscriptionResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/DeleteTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/DeleteTasklistActivitySubscriptionSample.java</a> ;
-     */
-    public DeleteTasklistActivitySubscriptionResp delete(DeleteTasklistActivitySubscriptionReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-                , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        DeleteTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTasklistActivitySubscriptionResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 删除动态订阅，给定一个清单的GUID和一个订阅的GUID，将其删除。删除后的数据不可恢复。
+   *
+   * <p>删除订阅需要有该清单的编辑权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=task&resource=tasklist.activity_subscription&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/DeleteTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/DeleteTasklistActivitySubscriptionSample.java</a>
+   * ;
+   */
+  public DeleteTasklistActivitySubscriptionResp delete(
+      DeleteTasklistActivitySubscriptionReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/DeleteTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/DeleteTasklistActivitySubscriptionSample.java</a> ;
-     */
-    public DeleteTasklistActivitySubscriptionResp delete(DeleteTasklistActivitySubscriptionReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "DELETE",
+            "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-                , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        DeleteTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTasklistActivitySubscriptionResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    DeleteTasklistActivitySubscriptionResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTasklistActivitySubscriptionResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetTasklistActivitySubscriptionSample.java</a> ;
-     */
-    public GetTasklistActivitySubscriptionResp get(GetTasklistActivitySubscriptionReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        GetTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTasklistActivitySubscriptionResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 删除动态订阅，给定一个清单的GUID和一个订阅的GUID，将其删除。删除后的数据不可恢复。
+   *
+   * <p>删除订阅需要有该清单的编辑权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=task&resource=tasklist.activity_subscription&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/DeleteTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/DeleteTasklistActivitySubscriptionSample.java</a>
+   * ;
+   */
+  public DeleteTasklistActivitySubscriptionResp delete(DeleteTasklistActivitySubscriptionReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "DELETE",
+            "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    DeleteTasklistActivitySubscriptionResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteTasklistActivitySubscriptionResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetTasklistActivitySubscriptionSample.java</a> ;
-     */
-    public GetTasklistActivitySubscriptionResp get(GetTasklistActivitySubscriptionReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        GetTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetTasklistActivitySubscriptionResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 获取动态订阅，提供一个清单的GUID和一个订阅的GUID，获取该订阅的详细信息，包括名称，订阅者，可通知的event keys列表等。
+   *
+   * <p>获取动态订阅需要该清单的读取权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=tasklist.activity_subscription&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetTasklistActivitySubscriptionSample.java</a>
+   * ;
+   */
+  public GetTasklistActivitySubscriptionResp get(
+      GetTasklistActivitySubscriptionReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListTasklistActivitySubscriptionSample.java</a> ;
-     */
-    public ListTasklistActivitySubscriptionResp list(ListTasklistActivitySubscriptionReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        ListTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTasklistActivitySubscriptionResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    GetTasklistActivitySubscriptionResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, GetTasklistActivitySubscriptionResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListTasklistActivitySubscriptionSample.java</a> ;
-     */
-    public ListTasklistActivitySubscriptionResp list(ListTasklistActivitySubscriptionReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        ListTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListTasklistActivitySubscriptionResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 获取动态订阅，提供一个清单的GUID和一个订阅的GUID，获取该订阅的详细信息，包括名称，订阅者，可通知的event keys列表等。
+   *
+   * <p>获取动态订阅需要该清单的读取权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=task&resource=tasklist.activity_subscription&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/GetTasklistActivitySubscriptionSample.java</a>
+   * ;
+   */
+  public GetTasklistActivitySubscriptionResp get(GetTasklistActivitySubscriptionReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    GetTasklistActivitySubscriptionResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, GetTasklistActivitySubscriptionResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchTasklistActivitySubscriptionSample.java</a> ;
-     */
-    public PatchTasklistActivitySubscriptionResp patch(PatchTasklistActivitySubscriptionReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        PatchTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchTasklistActivitySubscriptionResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 列取动态订阅，给定一个清单的GUID，获取其所有的订阅信息。结果按照订阅的创建时间排序。
+   *
+   * <p>列取动态订阅需要清单的读取权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=tasklist.activity_subscription&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListTasklistActivitySubscriptionSample.java</a>
+   * ;
+   */
+  public ListTasklistActivitySubscriptionResp list(
+      ListTasklistActivitySubscriptionReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=tasklist.activity_subscription&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchTasklistActivitySubscriptionSample.java</a> ;
-     */
-    public PatchTasklistActivitySubscriptionResp patch(PatchTasklistActivitySubscriptionReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        PatchTasklistActivitySubscriptionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchTasklistActivitySubscriptionResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    ListTasklistActivitySubscriptionResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, ListTasklistActivitySubscriptionResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 列取动态订阅，给定一个清单的GUID，获取其所有的订阅信息。结果按照订阅的创建时间排序。
+   *
+   * <p>列取动态订阅需要清单的读取权限。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=task&resource=tasklist.activity_subscription&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/ListTasklistActivitySubscriptionSample.java</a>
+   * ;
+   */
+  public ListTasklistActivitySubscriptionResp list(ListTasklistActivitySubscriptionReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
+
+    // 反序列化
+    ListTasklistActivitySubscriptionResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, ListTasklistActivitySubscriptionResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 更新动态订阅，提供一个清单的GUID和一个动态订阅的GUID，对其进行更新。更新时，将`update_fields`字段中填写所有要修改的字段名，同时在`activity_subscription`字段中填写要修改的字段的新值即可。;;`update_fields`支持更新的字段包括：;*
+   * name：订阅的名称;* subscribers: 订阅者列表。如更新，会将旧的订阅者列表完全替换为新的订阅者列表。支持最大50个订阅者。并且订阅者必须是chat类型。;*
+   * include_keys ：订阅需要发送通知的key。如更新，会将旧的列表完全替换为新的include_keys列表。只能设置支持的event keys (见字段描述）。;*
+   * disabled：修改订阅的开启/禁用状态。
+   *
+   * <p>如要更新订阅，调用身份需要拥有该清单的编辑权限。;;如更新了订阅者列表，调用身份（用户或应用机器人）必须被添加为订阅群的群成员。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=tasklist.activity_subscription&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchTasklistActivitySubscriptionSample.java</a>
+   * ;
+   */
+  public PatchTasklistActivitySubscriptionResp patch(
+      PatchTasklistActivitySubscriptionReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PATCH",
+            "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
+
+    // 反序列化
+    PatchTasklistActivitySubscriptionResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, PatchTasklistActivitySubscriptionResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 更新动态订阅，提供一个清单的GUID和一个动态订阅的GUID，对其进行更新。更新时，将`update_fields`字段中填写所有要修改的字段名，同时在`activity_subscription`字段中填写要修改的字段的新值即可。;;`update_fields`支持更新的字段包括：;*
+   * name：订阅的名称;* subscribers: 订阅者列表。如更新，会将旧的订阅者列表完全替换为新的订阅者列表。支持最大50个订阅者。并且订阅者必须是chat类型。;*
+   * include_keys ：订阅需要发送通知的key。如更新，会将旧的列表完全替换为新的include_keys列表。只能设置支持的event keys (见字段描述）。;*
+   * disabled：修改订阅的开启/禁用状态。
+   *
+   * <p>如要更新订阅，调用身份需要拥有该清单的编辑权限。;;如更新了订阅者列表，调用身份（用户或应用机器人）必须被添加为订阅群的群成员。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=tasklist.activity_subscription&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=task&resource=tasklist.activity_subscription&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchTasklistActivitySubscriptionSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/taskv2/PatchTasklistActivitySubscriptionSample.java</a>
+   * ;
+   */
+  public PatchTasklistActivitySubscriptionResp patch(PatchTasklistActivitySubscriptionReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PATCH",
+            "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
+
+    // 反序列化
+    PatchTasklistActivitySubscriptionResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, PatchTasklistActivitySubscriptionResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/task/v2/tasklists/:tasklist_guid/activity_subscriptions/:activity_subscription_guid",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

@@ -13,106 +13,100 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 
 public class FaqImageFaqReq {
+  /**
+   * 知识库ID
+   *
+   * <p>示例值：12345
+   */
+  @Path
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 图像key
+   *
+   * <p>示例值：img_b07ffac0-19c1-48a3-afca-599f8ea825fj
+   */
+  @Path
+  @SerializedName("image_key")
+  private String imageKey;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getImageKey() {
+    return this.imageKey;
+  }
+
+  public void setImageKey(String imageKey) {
+    this.imageKey = imageKey;
+  }
+
+  // builder 开始
+  public FaqImageFaqReq() {}
+
+  public FaqImageFaqReq(Builder builder) {
     /**
      * 知识库ID
-     * <p> 示例值：12345
+     *
+     * <p>示例值：12345
      */
-    @Path
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 图像key
-     * <p> 示例值：img_b07ffac0-19c1-48a3-afca-599f8ea825fj
+     *
+     * <p>示例值：img_b07ffac0-19c1-48a3-afca-599f8ea825fj
      */
-    @Path
-    @SerializedName("image_key")
-    private String imageKey;
+    this.imageKey = builder.imageKey;
+  }
 
-    // builder 开始
-    public FaqImageFaqReq() {
+  public static class Builder {
+
+    private String id; // 知识库ID
+    private String imageKey; // 图像key
+
+    /**
+     * 知识库ID
+     *
+     * <p>示例值：12345
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public FaqImageFaqReq(Builder builder) {
-        /**
-         * 知识库ID
-         * <p> 示例值：12345
-         */
-        this.id = builder.id;
-        /**
-         * 图像key
-         * <p> 示例值：img_b07ffac0-19c1-48a3-afca-599f8ea825fj
-         */
-        this.imageKey = builder.imageKey;
+    /**
+     * 图像key
+     *
+     * <p>示例值：img_b07ffac0-19c1-48a3-afca-599f8ea825fj
+     *
+     * @param imageKey
+     * @return
+     */
+    public Builder imageKey(String imageKey) {
+      this.imageKey = imageKey;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public FaqImageFaqReq build() {
+      return new FaqImageFaqReq(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getImageKey() {
-        return this.imageKey;
-    }
-
-    public void setImageKey(String imageKey) {
-        this.imageKey = imageKey;
-    }
-
-    public static class Builder {
-
-        private String id; // 知识库ID
-        private String imageKey; // 图像key
-
-        /**
-         * 知识库ID
-         * <p> 示例值：12345
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 图像key
-         * <p> 示例值：img_b07ffac0-19c1-48a3-afca-599f8ea825fj
-         *
-         * @param imageKey
-         * @return
-         */
-        public Builder imageKey(String imageKey) {
-            this.imageKey = imageKey;
-            return this;
-        }
-
-
-        public FaqImageFaqReq build() {
-            return new FaqImageFaqReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

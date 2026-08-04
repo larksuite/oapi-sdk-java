@@ -13,274 +13,291 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class ListUserRoleReq {
+  /**
+   * 下一页页码
+   *
+   * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 每页获取记录数量
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 用户 ID，与入参 `user_id_type` 类型一致
+   *
+   * <p>示例值：7326856229396906012
+   */
+  @Query
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 角色 ID，可通过接口
+   * [获取角色列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/list)
+   * 获取
+   *
+   * <p>示例值：101
+   */
+  @Query
+  @SerializedName("role_id")
+  private String roleId;
+
+  /**
+   * 最早更新时间，毫秒时间戳
+   *
+   * <p>示例值：1618500278663
+   */
+  @Query
+  @SerializedName("update_start_time")
+  private String updateStartTime;
+
+  /**
+   * 最晚更新时间，毫秒时间戳
+   *
+   * <p>示例值：1618500278663
+   */
+  @Query
+  @SerializedName("update_end_time")
+  private String updateEndTime;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getRoleId() {
+    return this.roleId;
+  }
+
+  public void setRoleId(String roleId) {
+    this.roleId = roleId;
+  }
+
+  public String getUpdateStartTime() {
+    return this.updateStartTime;
+  }
+
+  public void setUpdateStartTime(String updateStartTime) {
+    this.updateStartTime = updateStartTime;
+  }
+
+  public String getUpdateEndTime() {
+    return this.updateEndTime;
+  }
+
+  public void setUpdateEndTime(String updateEndTime) {
+    this.updateEndTime = updateEndTime;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  // builder 开始
+  public ListUserRoleReq() {}
+
+  public ListUserRoleReq(Builder builder) {
     /**
      * 下一页页码
-     * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 每页获取记录数量，最大10
-     * <p> 示例值：10
+     * 每页获取记录数量
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 用户 ID
-     * <p> 示例值：ou_xxxx
+     * 用户 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：7326856229396906012
      */
-    @Query
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 角色 ID
-     * <p> 示例值：101
+     * 角色 ID，可通过接口
+     * [获取角色列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/list)
+     * 获取
+     *
+     * <p>示例值：101
      */
-    @Query
-    @SerializedName("role_id")
-    private String roleId;
+    this.roleId = builder.roleId;
     /**
-     * 最早更新时间，毫秒级时间戳
-     * <p> 示例值：1618500278663
+     * 最早更新时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
      */
-    @Query
-    @SerializedName("update_start_time")
-    private String updateStartTime;
+    this.updateStartTime = builder.updateStartTime;
     /**
-     * 最晚更新时间，毫秒级时间戳
-     * <p> 示例值：1618500278663
+     * 最晚更新时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
      */
-    @Query
-    @SerializedName("update_end_time")
-    private String updateEndTime;
+    this.updateEndTime = builder.updateEndTime;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
+  }
 
-    // builder 开始
-    public ListUserRoleReq() {
+  public static class Builder {
+    private String pageToken; // 下一页页码
+    private Integer pageSize; // 每页获取记录数量
+    private String userId; // 用户 ID，与入参 `user_id_type` 类型一致
+    private String roleId; // 角色 ID，可通过接口
+    // [获取角色列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/list)
+    // 获取
+    private String updateStartTime; // 最早更新时间，毫秒时间戳
+    private String updateEndTime; // 最晚更新时间，毫秒时间戳
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 下一页页码
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public ListUserRoleReq(Builder builder) {
-        /**
-         * 下一页页码
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页获取记录数量，最大10
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_xxxx
-         */
-        this.userId = builder.userId;
-        /**
-         * 角色 ID
-         * <p> 示例值：101
-         */
-        this.roleId = builder.roleId;
-        /**
-         * 最早更新时间，毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        this.updateStartTime = builder.updateStartTime;
-        /**
-         * 最晚更新时间，毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        this.updateEndTime = builder.updateEndTime;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
+    /**
+     * 每页获取记录数量
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户 ID，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：7326856229396906012
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 角色 ID，可通过接口
+     * [获取角色列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/list)
+     * 获取
+     *
+     * <p>示例值：101
+     *
+     * @param roleId
+     * @return
+     */
+    public Builder roleId(String roleId) {
+      this.roleId = roleId;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    /**
+     * 最早更新时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param updateStartTime
+     * @return
+     */
+    public Builder updateStartTime(String updateStartTime) {
+      this.updateStartTime = updateStartTime;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 最晚更新时间，毫秒时间戳
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param updateEndTime
+     * @return
+     */
+    public Builder updateEndTime(String updateEndTime) {
+      this.updateEndTime = updateEndTime;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    public ListUserRoleReq build() {
+      return new ListUserRoleReq(this);
     }
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getRoleId() {
-        return this.roleId;
-    }
-
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-
-    public String getUpdateStartTime() {
-        return this.updateStartTime;
-    }
-
-    public void setUpdateStartTime(String updateStartTime) {
-        this.updateStartTime = updateStartTime;
-    }
-
-    public String getUpdateEndTime() {
-        return this.updateEndTime;
-    }
-
-    public void setUpdateEndTime(String updateEndTime) {
-        this.updateEndTime = updateEndTime;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public static class Builder {
-        private String pageToken; // 下一页页码
-        private Integer pageSize; // 每页获取记录数量，最大10
-        private String userId; // 用户 ID
-        private String roleId; // 角色 ID
-        private String updateStartTime; // 最早更新时间，毫秒级时间戳
-        private String updateEndTime; // 最晚更新时间，毫秒级时间戳
-        private String userIdType; // 此次调用中使用的用户ID的类型
-
-        /**
-         * 下一页页码
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 每页获取记录数量，最大10
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_xxxx
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 角色 ID
-         * <p> 示例值：101
-         *
-         * @param roleId
-         * @return
-         */
-        public Builder roleId(String roleId) {
-            this.roleId = roleId;
-            return this;
-        }
-
-
-        /**
-         * 最早更新时间，毫秒级时间戳
-         * <p> 示例值：1618500278663
-         *
-         * @param updateStartTime
-         * @return
-         */
-        public Builder updateStartTime(String updateStartTime) {
-            this.updateStartTime = updateStartTime;
-            return this;
-        }
-
-
-        /**
-         * 最晚更新时间，毫秒级时间戳
-         * <p> 示例值：1618500278663
-         *
-         * @param updateEndTime
-         * @return
-         */
-        public Builder updateEndTime(String updateEndTime) {
-            this.updateEndTime = updateEndTime;
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-
-        public ListUserRoleReq build() {
-            return new ListUserRoleReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

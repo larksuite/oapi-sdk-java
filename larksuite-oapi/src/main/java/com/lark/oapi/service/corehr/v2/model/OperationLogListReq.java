@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OperationLogListReq {
+  /**
+   * 开始时间;- 为空时，以当天结束时间点往前推 180 天
+   *
+   * <p>示例值：2024-01-02 01:00:01
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 结束时间，默认为当天 23:59:59
+   *
+   * <p>示例值：2024-01-02 23:59:59
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 操作人雇佣ID
+   *
+   * <p>示例值：7140964208476371111
+   */
+  @SerializedName("operator_ids")
+  private String[] operatorIds;
+
+  /**
+   * 雇佣ID
+   *
+   * <p>示例值：7140964208476371111
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 查询变更的字段;- 功能灰度中，部分敏感字段未支持，如需请联系[技术支持](https://applink.feishu.cn/TLJpeNdW);;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter_fields")
+  private String[] filterFields;
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String[] getOperatorIds() {
+    return this.operatorIds;
+  }
+
+  public void setOperatorIds(String[] operatorIds) {
+    this.operatorIds = operatorIds;
+  }
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String[] getFilterFields() {
+    return this.filterFields;
+  }
+
+  public void setFilterFields(String[] filterFields) {
+    this.filterFields = filterFields;
+  }
+
+  // builder 开始
+  public OperationLogListReq() {}
+
+  public OperationLogListReq(Builder builder) {
     /**
-     * 开始时间，默认当天往前 6*30 天
-     * <p> 示例值：2024-01-02 00:00:00
+     * 开始时间;- 为空时，以当天结束时间点往前推 180 天
+     *
+     * <p>示例值：2024-01-02 01:00:01
      */
-    @SerializedName("start_time")
+    this.startTime = builder.startTime;
+    /**
+     * 结束时间，默认为当天 23:59:59
+     *
+     * <p>示例值：2024-01-02 23:59:59
+     */
+    this.endTime = builder.endTime;
+    /**
+     * 操作人雇佣ID
+     *
+     * <p>示例值：7140964208476371111
+     */
+    this.operatorIds = builder.operatorIds;
+    /**
+     * 雇佣ID
+     *
+     * <p>示例值：7140964208476371111
+     */
+    this.employmentId = builder.employmentId;
+    /**
+     * 查询变更的字段;- 功能灰度中，部分敏感字段未支持，如需请联系[技术支持](https://applink.feishu.cn/TLJpeNdW);;
+     *
+     * <p>示例值：
+     */
+    this.filterFields = builder.filterFields;
+  }
+
+  public static class Builder {
+    /**
+     * 开始时间;- 为空时，以当天结束时间点往前推 180 天
+     *
+     * <p>示例值：2024-01-02 01:00:01
+     */
     private String startTime;
+
     /**
-     * 结束时间，默认当天
-     * <p> 示例值：2024-01-02 00:00:00
+     * 结束时间，默认为当天 23:59:59
+     *
+     * <p>示例值：2024-01-02 23:59:59
      */
-    @SerializedName("end_time")
     private String endTime;
+
     /**
-     * 操作人ID
-     * <p> 示例值：7140964208476371111
+     * 操作人雇佣ID
+     *
+     * <p>示例值：7140964208476371111
      */
-    @SerializedName("operator_ids")
     private String[] operatorIds;
+
     /**
-     * 雇员ID
-     * <p> 示例值：7140964208476371111
+     * 雇佣ID
+     *
+     * <p>示例值：7140964208476371111
      */
-    @SerializedName("employment_id")
     private String employmentId;
+
     /**
-     * 查询变更的字段
-     * <p> 示例值：
+     * 查询变更的字段;- 功能灰度中，部分敏感字段未支持，如需请联系[技术支持](https://applink.feishu.cn/TLJpeNdW);;
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter_fields")
     private String[] filterFields;
 
-    // builder 开始
-    public OperationLogListReq() {
+    /**
+     * 开始时间;- 为空时，以当天结束时间点往前推 180 天
+     *
+     * <p>示例值：2024-01-02 01:00:01
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public OperationLogListReq(Builder builder) {
-        /**
-         * 开始时间，默认当天往前 6*30 天
-         * <p> 示例值：2024-01-02 00:00:00
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间，默认当天
-         * <p> 示例值：2024-01-02 00:00:00
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 操作人ID
-         * <p> 示例值：7140964208476371111
-         */
-        this.operatorIds = builder.operatorIds;
-        /**
-         * 雇员ID
-         * <p> 示例值：7140964208476371111
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 查询变更的字段
-         * <p> 示例值：
-         */
-        this.filterFields = builder.filterFields;
+    /**
+     * 结束时间，默认为当天 23:59:59
+     *
+     * <p>示例值：2024-01-02 23:59:59
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作人雇佣ID
+     *
+     * <p>示例值：7140964208476371111
+     *
+     * @param operatorIds
+     * @return
+     */
+    public Builder operatorIds(String[] operatorIds) {
+      this.operatorIds = operatorIds;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    /**
+     * 雇佣ID
+     *
+     * <p>示例值：7140964208476371111
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    /**
+     * 查询变更的字段;- 功能灰度中，部分敏感字段未支持，如需请联系[技术支持](https://applink.feishu.cn/TLJpeNdW);;
+     *
+     * <p>示例值：
+     *
+     * @param filterFields
+     * @return
+     */
+    public Builder filterFields(String[] filterFields) {
+      this.filterFields = filterFields;
+      return this;
     }
 
-    public String getEndTime() {
-        return this.endTime;
+    public OperationLogListReq build() {
+      return new OperationLogListReq(this);
     }
+  }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String[] getOperatorIds() {
-        return this.operatorIds;
-    }
-
-    public void setOperatorIds(String[] operatorIds) {
-        this.operatorIds = operatorIds;
-    }
-
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public String[] getFilterFields() {
-        return this.filterFields;
-    }
-
-    public void setFilterFields(String[] filterFields) {
-        this.filterFields = filterFields;
-    }
-
-    public static class Builder {
-        /**
-         * 开始时间，默认当天往前 6*30 天
-         * <p> 示例值：2024-01-02 00:00:00
-         */
-        private String startTime;
-        /**
-         * 结束时间，默认当天
-         * <p> 示例值：2024-01-02 00:00:00
-         */
-        private String endTime;
-        /**
-         * 操作人ID
-         * <p> 示例值：7140964208476371111
-         */
-        private String[] operatorIds;
-        /**
-         * 雇员ID
-         * <p> 示例值：7140964208476371111
-         */
-        private String employmentId;
-        /**
-         * 查询变更的字段
-         * <p> 示例值：
-         */
-        private String[] filterFields;
-
-        /**
-         * 开始时间，默认当天往前 6*30 天
-         * <p> 示例值：2024-01-02 00:00:00
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间，默认当天
-         * <p> 示例值：2024-01-02 00:00:00
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 操作人ID
-         * <p> 示例值：7140964208476371111
-         *
-         * @param operatorIds
-         * @return
-         */
-        public Builder operatorIds(String[] operatorIds) {
-            this.operatorIds = operatorIds;
-            return this;
-        }
-
-
-        /**
-         * 雇员ID
-         * <p> 示例值：7140964208476371111
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 查询变更的字段
-         * <p> 示例值：
-         *
-         * @param filterFields
-         * @return
-         */
-        public Builder filterFields(String[] filterFields) {
-            this.filterFields = filterFields;
-            return this;
-        }
-
-
-        public OperationLogListReq build() {
-            return new OperationLogListReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

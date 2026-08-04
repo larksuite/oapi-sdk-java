@@ -23,49 +23,50 @@ import com.lark.oapi.service.docx.v1.resource.DocumentBlockChildren;
 import com.lark.oapi.service.docx.v1.resource.DocumentBlockDescendant;
 
 public class V1 {
-    private final ChatAnnouncement chatAnnouncement; // chat.announcement
-    private final ChatAnnouncementBlock chatAnnouncementBlock; // chat.announcement.block
-    private final ChatAnnouncementBlockChildren chatAnnouncementBlockChildren; // chat.announcement.block.children
-    private final Document document; // 文档
-    private final DocumentBlock documentBlock; // 块
-    private final DocumentBlockChildren documentBlockChildren; // document.block.children
-    private final DocumentBlockDescendant documentBlockDescendant; // document.block.descendant
+  private final ChatAnnouncement chatAnnouncement; // chat.announcement
+  private final ChatAnnouncementBlock chatAnnouncementBlock; // chat.announcement.block
+  private final ChatAnnouncementBlockChildren
+      chatAnnouncementBlockChildren; // chat.announcement.block.children
+  private final Document document; // document
+  private final DocumentBlock documentBlock; // document.block
+  private final DocumentBlockChildren documentBlockChildren; // document.block.children
+  private final DocumentBlockDescendant documentBlockDescendant; // document.block.descendant
 
-    public V1(Config config) {
-        this.chatAnnouncement = new ChatAnnouncement(config);
-        this.chatAnnouncementBlock = new ChatAnnouncementBlock(config);
-        this.chatAnnouncementBlockChildren = new ChatAnnouncementBlockChildren(config);
-        this.document = new Document(config);
-        this.documentBlock = new DocumentBlock(config);
-        this.documentBlockChildren = new DocumentBlockChildren(config);
-        this.documentBlockDescendant = new DocumentBlockDescendant(config);
-    }
+  public V1(Config config) {
+    this.chatAnnouncement = new ChatAnnouncement(config);
+    this.chatAnnouncementBlock = new ChatAnnouncementBlock(config);
+    this.chatAnnouncementBlockChildren = new ChatAnnouncementBlockChildren(config);
+    this.document = new Document(config);
+    this.documentBlock = new DocumentBlock(config);
+    this.documentBlockChildren = new DocumentBlockChildren(config);
+    this.documentBlockDescendant = new DocumentBlockDescendant(config);
+  }
 
-    public ChatAnnouncement chatAnnouncement() {
-        return chatAnnouncement;
-    }
+  public ChatAnnouncement chatAnnouncement() {
+    return chatAnnouncement;
+  }
 
-    public ChatAnnouncementBlock chatAnnouncementBlock() {
-        return chatAnnouncementBlock;
-    }
+  public ChatAnnouncementBlock chatAnnouncementBlock() {
+    return chatAnnouncementBlock;
+  }
 
-    public ChatAnnouncementBlockChildren chatAnnouncementBlockChildren() {
-        return chatAnnouncementBlockChildren;
-    }
+  public ChatAnnouncementBlockChildren chatAnnouncementBlockChildren() {
+    return chatAnnouncementBlockChildren;
+  }
 
-    public Document document() {
-        return document;
-    }
+  public Document document() {
+    return document;
+  }
 
-    public DocumentBlock documentBlock() {
-        return documentBlock;
-    }
+  public DocumentBlock documentBlock() {
+    return documentBlock;
+  }
 
-    public DocumentBlockChildren documentBlockChildren() {
-        return documentBlockChildren;
-    }
+  public DocumentBlockChildren documentBlockChildren() {
+    return documentBlockChildren;
+  }
 
-    public DocumentBlockDescendant documentBlockDescendant() {
-        return documentBlockDescendant;
-    }
+  public DocumentBlockDescendant documentBlockDescendant() {
+    return documentBlockDescendant;
+  }
 }

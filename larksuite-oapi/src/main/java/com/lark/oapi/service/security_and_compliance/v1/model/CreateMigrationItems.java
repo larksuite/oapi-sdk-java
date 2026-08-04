@@ -13,161 +13,166 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateMigrationItems {
+  /**
+   * 迁移任务的 id
+   *
+   * <p>示例值：134jsi43d3ssi993d435452
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * 任务状态。任务任务创建成功固定返回 create ，若已存在其他待执行任务，则返回已存在任务的状态
+   *
+   * <p>示例值：create
+   */
+  @SerializedName("task_status")
+  private String taskStatus;
+
+  /**
+   * 实体
+   *
+   * <p>示例值：
+   */
+  @SerializedName("entity")
+  private CreateMigrationEntity entity;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public String getTaskStatus() {
+    return this.taskStatus;
+  }
+
+  public void setTaskStatus(String taskStatus) {
+    this.taskStatus = taskStatus;
+  }
+
+  public CreateMigrationEntity getEntity() {
+    return this.entity;
+  }
+
+  public void setEntity(CreateMigrationEntity entity) {
+    this.entity = entity;
+  }
+
+  // builder 开始
+  public CreateMigrationItems() {}
+
+  public CreateMigrationItems(Builder builder) {
     /**
      * 迁移任务的 id
-     * <p> 示例值：134jsi43d3ssi993d435452
+     *
+     * <p>示例值：134jsi43d3ssi993d435452
      */
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
     /**
-     * 任务状态。任务创建成功固定返回 create ，若已存在其他待执行任务，则返回已存在任务的状态
-     * <p> 示例值：create
+     * 任务状态。任务任务创建成功固定返回 create ，若已存在其他待执行任务，则返回已存在任务的状态
+     *
+     * <p>示例值：create
      */
-    @SerializedName("task_status")
-    private String taskStatus;
+    this.taskStatus = builder.taskStatus;
     /**
      * 实体
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("entity")
+    this.entity = builder.entity;
+  }
+
+  public static class Builder {
+    /**
+     * 迁移任务的 id
+     *
+     * <p>示例值：134jsi43d3ssi993d435452
+     */
+    private String taskId;
+
+    /**
+     * 任务状态。任务任务创建成功固定返回 create ，若已存在其他待执行任务，则返回已存在任务的状态
+     *
+     * <p>示例值：create
+     */
+    private String taskStatus;
+
+    /**
+     * 实体
+     *
+     * <p>示例值：
+     */
     private CreateMigrationEntity entity;
 
-    // builder 开始
-    public CreateMigrationItems() {
+    /**
+     * 迁移任务的 id
+     *
+     * <p>示例值：134jsi43d3ssi993d435452
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public CreateMigrationItems(Builder builder) {
-        /**
-         * 迁移任务的 id
-         * <p> 示例值：134jsi43d3ssi993d435452
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 任务状态。任务创建成功固定返回 create ，若已存在其他待执行任务，则返回已存在任务的状态
-         * <p> 示例值：create
-         */
-        this.taskStatus = builder.taskStatus;
-        /**
-         * 实体
-         * <p> 示例值：
-         */
-        this.entity = builder.entity;
+    /**
+     * 任务状态。任务任务创建成功固定返回 create ，若已存在其他待执行任务，则返回已存在任务的状态
+     *
+     * <p>示例值：create
+     *
+     * @param taskStatus
+     * @return
+     */
+    public Builder taskStatus(String taskStatus) {
+      this.taskStatus = taskStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 任务状态。任务任务创建成功固定返回 create ，若已存在其他待执行任务，则返回已存在任务的状态
+     *
+     * <p>示例值：create
+     *
+     * @param taskStatus {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.CreateMigrationItemsTaskStatusEnumEnum}
+     * @return
+     */
+    public Builder taskStatus(
+        com.lark.oapi.service.security_and_compliance.v1.enums
+                .CreateMigrationItemsTaskStatusEnumEnum
+            taskStatus) {
+      this.taskStatus = taskStatus.getValue();
+      return this;
     }
 
-    public String getTaskId() {
-        return this.taskId;
+    /**
+     * 实体
+     *
+     * <p>示例值：
+     *
+     * @param entity
+     * @return
+     */
+    public Builder entity(CreateMigrationEntity entity) {
+      this.entity = entity;
+      return this;
     }
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
+    public CreateMigrationItems build() {
+      return new CreateMigrationItems(this);
     }
+  }
 
-    public String getTaskStatus() {
-        return this.taskStatus;
-    }
-
-    public void setTaskStatus(String taskStatus) {
-        this.taskStatus = taskStatus;
-    }
-
-    public CreateMigrationEntity getEntity() {
-        return this.entity;
-    }
-
-    public void setEntity(CreateMigrationEntity entity) {
-        this.entity = entity;
-    }
-
-    public static class Builder {
-        /**
-         * 迁移任务的 id
-         * <p> 示例值：134jsi43d3ssi993d435452
-         */
-        private String taskId;
-        /**
-         * 任务状态。任务创建成功固定返回 create ，若已存在其他待执行任务，则返回已存在任务的状态
-         * <p> 示例值：create
-         */
-        private String taskStatus;
-        /**
-         * 实体
-         * <p> 示例值：
-         */
-        private CreateMigrationEntity entity;
-
-        /**
-         * 迁移任务的 id
-         * <p> 示例值：134jsi43d3ssi993d435452
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * 任务状态。任务创建成功固定返回 create ，若已存在其他待执行任务，则返回已存在任务的状态
-         * <p> 示例值：create
-         *
-         * @param taskStatus
-         * @return
-         */
-        public Builder taskStatus(String taskStatus) {
-            this.taskStatus = taskStatus;
-            return this;
-        }
-
-        /**
-         * 任务状态。任务创建成功固定返回 create ，若已存在其他待执行任务，则返回已存在任务的状态
-         * <p> 示例值：create
-         *
-         * @param taskStatus {@link com.lark.oapi.service.security_and_compliance.v1.enums.CreateMigrationItemsTaskStatusEnumEnum}
-         * @return
-         */
-        public Builder taskStatus(com.lark.oapi.service.security_and_compliance.v1.enums.CreateMigrationItemsTaskStatusEnumEnum taskStatus) {
-            this.taskStatus = taskStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 实体
-         * <p> 示例值：
-         *
-         * @param entity
-         * @return
-         */
-        public Builder entity(CreateMigrationEntity entity) {
-            this.entity = entity;
-            return this;
-        }
-
-
-        public CreateMigrationItems build() {
-            return new CreateMigrationItems(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

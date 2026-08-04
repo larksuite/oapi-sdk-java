@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.admin.v1.enums;
 
-/**
- * 勋章下唯一的授予事项
- */
+/** 授予名单类型 */
 public enum UpdateBadgeGrantGrantGrantTypeEnum {
-    MANUAL(0), // 手动选择有效期
-    JOIN_TIME(1), // 匹配系统入职时间
-    ;
-    private Integer value;
+  MANUAL(0), // 手动选择有效期
+  JOIN_TIME(1), // 匹配系统入职时间
+  ;
+  private Integer value;
 
-    UpdateBadgeGrantGrantGrantTypeEnum(Integer value) {
-        this.value = value;
-    }
+  UpdateBadgeGrantGrantGrantTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

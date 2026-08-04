@@ -13,149 +13,168 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingProbationInfo {
+  /**
+   * 试用期开始日期;- 更新该字段需要在update_fields中增加employment_info.probation_info.probation_start_date;-
+   * 需要拥有权限点【读写员工试用期日期信息】(corehr:probation.date:write)
+   *
+   * <p>示例值：2021-01-01
+   */
+  @SerializedName("probation_start_date")
+  private String probationStartDate;
+
+  /**
+   * 试用期预计结束日期;-
+   * 更新该字段需要在update_fields中增加employment_info.probation_info.probation_expected_end_date;-
+   * 需要拥有权限点【读写员工试用期日期信息】(corehr:probation.date:write)
+   *
+   * <p>示例值：2021-02-01
+   */
+  @SerializedName("probation_expected_end_date")
+  private String probationExpectedEndDate;
+
+  /**
+   * 试用期实际结束日期;- 更新该字段需要在update_fields中增加employment_info.probation_info.actual_probation_end_date;-
+   * 需要拥有权限点【读写员工试用期日期信息】(corehr:probation.date:write)
+   *
+   * <p>示例值：2021-02-01
+   */
+  @SerializedName("actual_probation_end_date")
+  private String actualProbationEndDate;
+
+  public String getProbationStartDate() {
+    return this.probationStartDate;
+  }
+
+  public void setProbationStartDate(String probationStartDate) {
+    this.probationStartDate = probationStartDate;
+  }
+
+  public String getProbationExpectedEndDate() {
+    return this.probationExpectedEndDate;
+  }
+
+  public void setProbationExpectedEndDate(String probationExpectedEndDate) {
+    this.probationExpectedEndDate = probationExpectedEndDate;
+  }
+
+  public String getActualProbationEndDate() {
+    return this.actualProbationEndDate;
+  }
+
+  public void setActualProbationEndDate(String actualProbationEndDate) {
+    this.actualProbationEndDate = actualProbationEndDate;
+  }
+
+  // builder 开始
+  public ProfileSettingProbationInfo() {}
+
+  public ProfileSettingProbationInfo(Builder builder) {
     /**
-     * 试用期开始日期
-     * <p> 示例值：2021-01-01
+     * 试用期开始日期;- 更新该字段需要在update_fields中增加employment_info.probation_info.probation_start_date;-
+     * 需要拥有权限点【读写员工试用期日期信息】(corehr:probation.date:write)
+     *
+     * <p>示例值：2021-01-01
      */
-    @SerializedName("probation_start_date")
+    this.probationStartDate = builder.probationStartDate;
+    /**
+     * 试用期预计结束日期;-
+     * 更新该字段需要在update_fields中增加employment_info.probation_info.probation_expected_end_date;-
+     * 需要拥有权限点【读写员工试用期日期信息】(corehr:probation.date:write)
+     *
+     * <p>示例值：2021-02-01
+     */
+    this.probationExpectedEndDate = builder.probationExpectedEndDate;
+    /**
+     * 试用期实际结束日期;-
+     * 更新该字段需要在update_fields中增加employment_info.probation_info.actual_probation_end_date;-
+     * 需要拥有权限点【读写员工试用期日期信息】(corehr:probation.date:write)
+     *
+     * <p>示例值：2021-02-01
+     */
+    this.actualProbationEndDate = builder.actualProbationEndDate;
+  }
+
+  public static class Builder {
+    /**
+     * 试用期开始日期;- 更新该字段需要在update_fields中增加employment_info.probation_info.probation_start_date;-
+     * 需要拥有权限点【读写员工试用期日期信息】(corehr:probation.date:write)
+     *
+     * <p>示例值：2021-01-01
+     */
     private String probationStartDate;
+
     /**
-     * 试用期预计结束日期
-     * <p> 示例值：2021-02-01
+     * 试用期预计结束日期;-
+     * 更新该字段需要在update_fields中增加employment_info.probation_info.probation_expected_end_date;-
+     * 需要拥有权限点【读写员工试用期日期信息】(corehr:probation.date:write)
+     *
+     * <p>示例值：2021-02-01
      */
-    @SerializedName("probation_expected_end_date")
     private String probationExpectedEndDate;
+
     /**
-     * 试用期实际结束日期
-     * <p> 示例值：2021-02-01
+     * 试用期实际结束日期;-
+     * 更新该字段需要在update_fields中增加employment_info.probation_info.actual_probation_end_date;-
+     * 需要拥有权限点【读写员工试用期日期信息】(corehr:probation.date:write)
+     *
+     * <p>示例值：2021-02-01
      */
-    @SerializedName("actual_probation_end_date")
     private String actualProbationEndDate;
 
-    // builder 开始
-    public ProfileSettingProbationInfo() {
+    /**
+     * 试用期开始日期;- 更新该字段需要在update_fields中增加employment_info.probation_info.probation_start_date;-
+     * 需要拥有权限点【读写员工试用期日期信息】(corehr:probation.date:write)
+     *
+     * <p>示例值：2021-01-01
+     *
+     * @param probationStartDate
+     * @return
+     */
+    public Builder probationStartDate(String probationStartDate) {
+      this.probationStartDate = probationStartDate;
+      return this;
     }
 
-    public ProfileSettingProbationInfo(Builder builder) {
-        /**
-         * 试用期开始日期
-         * <p> 示例值：2021-01-01
-         */
-        this.probationStartDate = builder.probationStartDate;
-        /**
-         * 试用期预计结束日期
-         * <p> 示例值：2021-02-01
-         */
-        this.probationExpectedEndDate = builder.probationExpectedEndDate;
-        /**
-         * 试用期实际结束日期
-         * <p> 示例值：2021-02-01
-         */
-        this.actualProbationEndDate = builder.actualProbationEndDate;
+    /**
+     * 试用期预计结束日期;-
+     * 更新该字段需要在update_fields中增加employment_info.probation_info.probation_expected_end_date;-
+     * 需要拥有权限点【读写员工试用期日期信息】(corehr:probation.date:write)
+     *
+     * <p>示例值：2021-02-01
+     *
+     * @param probationExpectedEndDate
+     * @return
+     */
+    public Builder probationExpectedEndDate(String probationExpectedEndDate) {
+      this.probationExpectedEndDate = probationExpectedEndDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 试用期实际结束日期;-
+     * 更新该字段需要在update_fields中增加employment_info.probation_info.actual_probation_end_date;-
+     * 需要拥有权限点【读写员工试用期日期信息】(corehr:probation.date:write)
+     *
+     * <p>示例值：2021-02-01
+     *
+     * @param actualProbationEndDate
+     * @return
+     */
+    public Builder actualProbationEndDate(String actualProbationEndDate) {
+      this.actualProbationEndDate = actualProbationEndDate;
+      return this;
     }
 
-    public String getProbationStartDate() {
-        return this.probationStartDate;
+    public ProfileSettingProbationInfo build() {
+      return new ProfileSettingProbationInfo(this);
     }
+  }
 
-    public void setProbationStartDate(String probationStartDate) {
-        this.probationStartDate = probationStartDate;
-    }
-
-    public String getProbationExpectedEndDate() {
-        return this.probationExpectedEndDate;
-    }
-
-    public void setProbationExpectedEndDate(String probationExpectedEndDate) {
-        this.probationExpectedEndDate = probationExpectedEndDate;
-    }
-
-    public String getActualProbationEndDate() {
-        return this.actualProbationEndDate;
-    }
-
-    public void setActualProbationEndDate(String actualProbationEndDate) {
-        this.actualProbationEndDate = actualProbationEndDate;
-    }
-
-    public static class Builder {
-        /**
-         * 试用期开始日期
-         * <p> 示例值：2021-01-01
-         */
-        private String probationStartDate;
-        /**
-         * 试用期预计结束日期
-         * <p> 示例值：2021-02-01
-         */
-        private String probationExpectedEndDate;
-        /**
-         * 试用期实际结束日期
-         * <p> 示例值：2021-02-01
-         */
-        private String actualProbationEndDate;
-
-        /**
-         * 试用期开始日期
-         * <p> 示例值：2021-01-01
-         *
-         * @param probationStartDate
-         * @return
-         */
-        public Builder probationStartDate(String probationStartDate) {
-            this.probationStartDate = probationStartDate;
-            return this;
-        }
-
-
-        /**
-         * 试用期预计结束日期
-         * <p> 示例值：2021-02-01
-         *
-         * @param probationExpectedEndDate
-         * @return
-         */
-        public Builder probationExpectedEndDate(String probationExpectedEndDate) {
-            this.probationExpectedEndDate = probationExpectedEndDate;
-            return this;
-        }
-
-
-        /**
-         * 试用期实际结束日期
-         * <p> 示例值：2021-02-01
-         *
-         * @param actualProbationEndDate
-         * @return
-         */
-        public Builder actualProbationEndDate(String actualProbationEndDate) {
-            this.actualProbationEndDate = actualProbationEndDate;
-            return this;
-        }
-
-
-        public ProfileSettingProbationInfo build() {
-            return new ProfileSettingProbationInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

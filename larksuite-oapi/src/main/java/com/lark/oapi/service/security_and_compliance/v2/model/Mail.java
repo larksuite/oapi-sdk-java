@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Mail {
+  /**
+   * email ID
+   *
+   * <p>示例值：5e1d0913ea6770d309fd18778fb45a15a1e69857.8fb8a4da.a4fd.4d48.baa0.2396bf70c04d@staging.feishu.cn
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * email 标题
+   *
+   * <p>示例值：mail title
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * email owner类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("owner_type")
+  private Integer ownerType;
+
+  /**
+   * email 创建时间
+   *
+   * <p>示例值：2022-11-01T00:00:00+08:00
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 企业用户ID
+   *
+   * <p>示例值：ou_7636758725e268a4c67dc7457d27719d
+   */
+  @SerializedName("owner_user_id")
+  private String ownerUserId;
+
+  /**
+   * 公共邮箱地址
+   *
+   * <p>示例值：test@bytedance.com
+   */
+  @SerializedName("owner_address")
+  private String ownerAddress;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public Integer getOwnerType() {
+    return this.ownerType;
+  }
+
+  public void setOwnerType(Integer ownerType) {
+    this.ownerType = ownerType;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getOwnerUserId() {
+    return this.ownerUserId;
+  }
+
+  public void setOwnerUserId(String ownerUserId) {
+    this.ownerUserId = ownerUserId;
+  }
+
+  public String getOwnerAddress() {
+    return this.ownerAddress;
+  }
+
+  public void setOwnerAddress(String ownerAddress) {
+    this.ownerAddress = ownerAddress;
+  }
+
+  // builder 开始
+  public Mail() {}
+
+  public Mail(Builder builder) {
     /**
      * email ID
-     * <p> 示例值：5e1d0913ea6770d309fd18778fb45a15a1e69857.8fb8a4da.a4fd.4d48.baa0.2396bf70c04d@staging.feishu.cn
+     *
+     * <p>示例值：5e1d0913ea6770d309fd18778fb45a15a1e69857.8fb8a4da.a4fd.4d48.baa0.2396bf70c04d@staging.feishu.cn
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * email 标题
-     * <p> 示例值：mail title
+     *
+     * <p>示例值：mail title
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * email owner类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("owner_type")
-    private Integer ownerType;
+    this.ownerType = builder.ownerType;
     /**
      * email 创建时间
-     * <p> 示例值：2022-11-01T00:00:00+08:00
+     *
+     * <p>示例值：2022-11-01T00:00:00+08:00
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 企业用户ID
-     * <p> 示例值：ou_7636758725e268a4c67dc7457d27719d
+     *
+     * <p>示例值：ou_7636758725e268a4c67dc7457d27719d
      */
-    @SerializedName("owner_user_id")
-    private String ownerUserId;
+    this.ownerUserId = builder.ownerUserId;
     /**
      * 公共邮箱地址
-     * <p> 示例值：test@bytedance.com
+     *
+     * <p>示例值：test@bytedance.com
      */
-    @SerializedName("owner_address")
+    this.ownerAddress = builder.ownerAddress;
+  }
+
+  public static class Builder {
+    /**
+     * email ID
+     *
+     * <p>示例值：5e1d0913ea6770d309fd18778fb45a15a1e69857.8fb8a4da.a4fd.4d48.baa0.2396bf70c04d@staging.feishu.cn
+     */
+    private String id;
+
+    /**
+     * email 标题
+     *
+     * <p>示例值：mail title
+     */
+    private String title;
+
+    /**
+     * email owner类型
+     *
+     * <p>示例值：1
+     */
+    private Integer ownerType;
+
+    /**
+     * email 创建时间
+     *
+     * <p>示例值：2022-11-01T00:00:00+08:00
+     */
+    private String createTime;
+
+    /**
+     * 企业用户ID
+     *
+     * <p>示例值：ou_7636758725e268a4c67dc7457d27719d
+     */
+    private String ownerUserId;
+
+    /**
+     * 公共邮箱地址
+     *
+     * <p>示例值：test@bytedance.com
+     */
     private String ownerAddress;
 
-    // builder 开始
-    public Mail() {
+    /**
+     * email ID
+     *
+     * <p>示例值：5e1d0913ea6770d309fd18778fb45a15a1e69857.8fb8a4da.a4fd.4d48.baa0.2396bf70c04d@staging.feishu.cn
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Mail(Builder builder) {
-        /**
-         * email ID
-         * <p> 示例值：5e1d0913ea6770d309fd18778fb45a15a1e69857.8fb8a4da.a4fd.4d48.baa0.2396bf70c04d@staging.feishu.cn
-         */
-        this.id = builder.id;
-        /**
-         * email 标题
-         * <p> 示例值：mail title
-         */
-        this.title = builder.title;
-        /**
-         * email owner类型
-         * <p> 示例值：1
-         */
-        this.ownerType = builder.ownerType;
-        /**
-         * email 创建时间
-         * <p> 示例值：2022-11-01T00:00:00+08:00
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 企业用户ID
-         * <p> 示例值：ou_7636758725e268a4c67dc7457d27719d
-         */
-        this.ownerUserId = builder.ownerUserId;
-        /**
-         * 公共邮箱地址
-         * <p> 示例值：test@bytedance.com
-         */
-        this.ownerAddress = builder.ownerAddress;
+    /**
+     * email 标题
+     *
+     * <p>示例值：mail title
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * email owner类型
+     *
+     * <p>示例值：1
+     *
+     * @param ownerType
+     * @return
+     */
+    public Builder ownerType(Integer ownerType) {
+      this.ownerType = ownerType;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * email 创建时间
+     *
+     * <p>示例值：2022-11-01T00:00:00+08:00
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 企业用户ID
+     *
+     * <p>示例值：ou_7636758725e268a4c67dc7457d27719d
+     *
+     * @param ownerUserId
+     * @return
+     */
+    public Builder ownerUserId(String ownerUserId) {
+      this.ownerUserId = ownerUserId;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 公共邮箱地址
+     *
+     * <p>示例值：test@bytedance.com
+     *
+     * @param ownerAddress
+     * @return
+     */
+    public Builder ownerAddress(String ownerAddress) {
+      this.ownerAddress = ownerAddress;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public Mail build() {
+      return new Mail(this);
     }
+  }
 
-    public Integer getOwnerType() {
-        return this.ownerType;
-    }
-
-    public void setOwnerType(Integer ownerType) {
-        this.ownerType = ownerType;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getOwnerUserId() {
-        return this.ownerUserId;
-    }
-
-    public void setOwnerUserId(String ownerUserId) {
-        this.ownerUserId = ownerUserId;
-    }
-
-    public String getOwnerAddress() {
-        return this.ownerAddress;
-    }
-
-    public void setOwnerAddress(String ownerAddress) {
-        this.ownerAddress = ownerAddress;
-    }
-
-    public static class Builder {
-        /**
-         * email ID
-         * <p> 示例值：5e1d0913ea6770d309fd18778fb45a15a1e69857.8fb8a4da.a4fd.4d48.baa0.2396bf70c04d@staging.feishu.cn
-         */
-        private String id;
-        /**
-         * email 标题
-         * <p> 示例值：mail title
-         */
-        private String title;
-        /**
-         * email owner类型
-         * <p> 示例值：1
-         */
-        private Integer ownerType;
-        /**
-         * email 创建时间
-         * <p> 示例值：2022-11-01T00:00:00+08:00
-         */
-        private String createTime;
-        /**
-         * 企业用户ID
-         * <p> 示例值：ou_7636758725e268a4c67dc7457d27719d
-         */
-        private String ownerUserId;
-        /**
-         * 公共邮箱地址
-         * <p> 示例值：test@bytedance.com
-         */
-        private String ownerAddress;
-
-        /**
-         * email ID
-         * <p> 示例值：5e1d0913ea6770d309fd18778fb45a15a1e69857.8fb8a4da.a4fd.4d48.baa0.2396bf70c04d@staging.feishu.cn
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * email 标题
-         * <p> 示例值：mail title
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * email owner类型
-         * <p> 示例值：1
-         *
-         * @param ownerType
-         * @return
-         */
-        public Builder ownerType(Integer ownerType) {
-            this.ownerType = ownerType;
-            return this;
-        }
-
-
-        /**
-         * email 创建时间
-         * <p> 示例值：2022-11-01T00:00:00+08:00
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 企业用户ID
-         * <p> 示例值：ou_7636758725e268a4c67dc7457d27719d
-         *
-         * @param ownerUserId
-         * @return
-         */
-        public Builder ownerUserId(String ownerUserId) {
-            this.ownerUserId = ownerUserId;
-            return this;
-        }
-
-
-        /**
-         * 公共邮箱地址
-         * <p> 示例值：test@bytedance.com
-         *
-         * @param ownerAddress
-         * @return
-         */
-        public Builder ownerAddress(String ownerAddress) {
-            this.ownerAddress = ownerAddress;
-            return this;
-        }
-
-
-        public Mail build() {
-            return new Mail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

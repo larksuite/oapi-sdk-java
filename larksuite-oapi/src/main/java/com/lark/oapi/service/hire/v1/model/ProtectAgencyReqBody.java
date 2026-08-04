@@ -13,333 +13,362 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProtectAgencyReqBody {
+  /**
+   * 人才ID，可通过[通过手机号或邮箱获取人才
+   * ID](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id)、[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+   *
+   * <p>示例值：6962051712422398239
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 猎头供应商ID
+   *
+   * <p>示例值：6898173495386147079
+   */
+  @SerializedName("supplier_id")
+  private String supplierId;
+
+  /**
+   * 猎头顾问ID，需与`user_id_type`类型一致
+   *
+   * <p>示例值：ou_f476cb099ac9227c9bae09ce46112579
+   */
+  @SerializedName("consultant_id")
+  private String consultantId;
+
+  /**
+   * 保护期创建时间（int64类型），毫秒时间戳
+   *
+   * <p>示例值：1610695587000
+   */
+  @SerializedName("protect_create_time")
+  private Integer protectCreateTime;
+
+  /**
+   * 保护期过期时间（int64类型），毫秒时间戳
+   *
+   * <p>示例值：1626333987000
+   */
+  @SerializedName("protect_expire_time")
+  private Integer protectExpireTime;
+
+  /**
+   * 推荐语
+   *
+   * <p>示例值：此候选人非常优秀，建议录用。
+   */
+  @SerializedName("comment")
+  private String comment;
+
+  /**
+   * 当前薪资
+   *
+   * <p>示例值：15k * 13
+   */
+  @SerializedName("current_salary")
+  private String currentSalary;
+
+  /**
+   * 预期薪资
+   *
+   * <p>示例值：18k * 16
+   */
+  @SerializedName("expected_salary")
+  private String expectedSalary;
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public String getSupplierId() {
+    return this.supplierId;
+  }
+
+  public void setSupplierId(String supplierId) {
+    this.supplierId = supplierId;
+  }
+
+  public String getConsultantId() {
+    return this.consultantId;
+  }
+
+  public void setConsultantId(String consultantId) {
+    this.consultantId = consultantId;
+  }
+
+  public Integer getProtectCreateTime() {
+    return this.protectCreateTime;
+  }
+
+  public void setProtectCreateTime(Integer protectCreateTime) {
+    this.protectCreateTime = protectCreateTime;
+  }
+
+  public Integer getProtectExpireTime() {
+    return this.protectExpireTime;
+  }
+
+  public void setProtectExpireTime(Integer protectExpireTime) {
+    this.protectExpireTime = protectExpireTime;
+  }
+
+  public String getComment() {
+    return this.comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
+
+  public String getCurrentSalary() {
+    return this.currentSalary;
+  }
+
+  public void setCurrentSalary(String currentSalary) {
+    this.currentSalary = currentSalary;
+  }
+
+  public String getExpectedSalary() {
+    return this.expectedSalary;
+  }
+
+  public void setExpectedSalary(String expectedSalary) {
+    this.expectedSalary = expectedSalary;
+  }
+
+  // builder 开始
+  public ProtectAgencyReqBody() {}
+
+  public ProtectAgencyReqBody(Builder builder) {
     /**
-     * 人才ID
-     * <p> 示例值：6962051712422398239
+     * 人才ID，可通过[通过手机号或邮箱获取人才
+     * ID](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id)、[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+     *
+     * <p>示例值：6962051712422398239
      */
-    @SerializedName("talent_id")
-    private String talentId;
+    this.talentId = builder.talentId;
     /**
-     * 供应商ID
-     * <p> 示例值：6898173495386147079
+     * 猎头供应商ID
+     *
+     * <p>示例值：6898173495386147079
      */
-    @SerializedName("supplier_id")
-    private String supplierId;
+    this.supplierId = builder.supplierId;
     /**
-     * 猎头顾问ID
-     * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
+     * 猎头顾问ID，需与`user_id_type`类型一致
+     *
+     * <p>示例值：ou_f476cb099ac9227c9bae09ce46112579
      */
-    @SerializedName("consultant_id")
-    private String consultantId;
+    this.consultantId = builder.consultantId;
     /**
-     * 保护期创建时间
-     * <p> 示例值：1610695587000
+     * 保护期创建时间（int64类型），毫秒时间戳
+     *
+     * <p>示例值：1610695587000
      */
-    @SerializedName("protect_create_time")
-    private Integer protectCreateTime;
+    this.protectCreateTime = builder.protectCreateTime;
     /**
-     * 保护期过期时间
-     * <p> 示例值：1626333987000
+     * 保护期过期时间（int64类型），毫秒时间戳
+     *
+     * <p>示例值：1626333987000
      */
-    @SerializedName("protect_expire_time")
-    private Integer protectExpireTime;
+    this.protectExpireTime = builder.protectExpireTime;
     /**
      * 推荐语
-     * <p> 示例值：此候选人非常优秀，建议录用。
+     *
+     * <p>示例值：此候选人非常优秀，建议录用。
      */
-    @SerializedName("comment")
-    private String comment;
+    this.comment = builder.comment;
     /**
      * 当前薪资
-     * <p> 示例值：15k * 13
+     *
+     * <p>示例值：15k * 13
      */
-    @SerializedName("current_salary")
-    private String currentSalary;
+    this.currentSalary = builder.currentSalary;
     /**
      * 预期薪资
-     * <p> 示例值：18k * 16
+     *
+     * <p>示例值：18k * 16
      */
-    @SerializedName("expected_salary")
+    this.expectedSalary = builder.expectedSalary;
+  }
+
+  public static class Builder {
+    /**
+     * 人才ID，可通过[通过手机号或邮箱获取人才
+     * ID](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id)、[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+     *
+     * <p>示例值：6962051712422398239
+     */
+    private String talentId;
+
+    /**
+     * 猎头供应商ID
+     *
+     * <p>示例值：6898173495386147079
+     */
+    private String supplierId;
+
+    /**
+     * 猎头顾问ID，需与`user_id_type`类型一致
+     *
+     * <p>示例值：ou_f476cb099ac9227c9bae09ce46112579
+     */
+    private String consultantId;
+
+    /**
+     * 保护期创建时间（int64类型），毫秒时间戳
+     *
+     * <p>示例值：1610695587000
+     */
+    private Integer protectCreateTime;
+
+    /**
+     * 保护期过期时间（int64类型），毫秒时间戳
+     *
+     * <p>示例值：1626333987000
+     */
+    private Integer protectExpireTime;
+
+    /**
+     * 推荐语
+     *
+     * <p>示例值：此候选人非常优秀，建议录用。
+     */
+    private String comment;
+
+    /**
+     * 当前薪资
+     *
+     * <p>示例值：15k * 13
+     */
+    private String currentSalary;
+
+    /**
+     * 预期薪资
+     *
+     * <p>示例值：18k * 16
+     */
     private String expectedSalary;
 
-    // builder 开始
-    public ProtectAgencyReqBody() {
+    /**
+     * 人才ID，可通过[通过手机号或邮箱获取人才
+     * ID](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/batch_get_id)、[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+     *
+     * <p>示例值：6962051712422398239
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public ProtectAgencyReqBody(Builder builder) {
-        /**
-         * 人才ID
-         * <p> 示例值：6962051712422398239
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 供应商ID
-         * <p> 示例值：6898173495386147079
-         */
-        this.supplierId = builder.supplierId;
-        /**
-         * 猎头顾问ID
-         * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
-         */
-        this.consultantId = builder.consultantId;
-        /**
-         * 保护期创建时间
-         * <p> 示例值：1610695587000
-         */
-        this.protectCreateTime = builder.protectCreateTime;
-        /**
-         * 保护期过期时间
-         * <p> 示例值：1626333987000
-         */
-        this.protectExpireTime = builder.protectExpireTime;
-        /**
-         * 推荐语
-         * <p> 示例值：此候选人非常优秀，建议录用。
-         */
-        this.comment = builder.comment;
-        /**
-         * 当前薪资
-         * <p> 示例值：15k * 13
-         */
-        this.currentSalary = builder.currentSalary;
-        /**
-         * 预期薪资
-         * <p> 示例值：18k * 16
-         */
-        this.expectedSalary = builder.expectedSalary;
+    /**
+     * 猎头供应商ID
+     *
+     * <p>示例值：6898173495386147079
+     *
+     * @param supplierId
+     * @return
+     */
+    public Builder supplierId(String supplierId) {
+      this.supplierId = supplierId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 猎头顾问ID，需与`user_id_type`类型一致
+     *
+     * <p>示例值：ou_f476cb099ac9227c9bae09ce46112579
+     *
+     * @param consultantId
+     * @return
+     */
+    public Builder consultantId(String consultantId) {
+      this.consultantId = consultantId;
+      return this;
     }
 
-    public String getTalentId() {
-        return this.talentId;
+    /**
+     * 保护期创建时间（int64类型），毫秒时间戳
+     *
+     * <p>示例值：1610695587000
+     *
+     * @param protectCreateTime
+     * @return
+     */
+    public Builder protectCreateTime(Integer protectCreateTime) {
+      this.protectCreateTime = protectCreateTime;
+      return this;
     }
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
+    /**
+     * 保护期过期时间（int64类型），毫秒时间戳
+     *
+     * <p>示例值：1626333987000
+     *
+     * @param protectExpireTime
+     * @return
+     */
+    public Builder protectExpireTime(Integer protectExpireTime) {
+      this.protectExpireTime = protectExpireTime;
+      return this;
     }
 
-    public String getSupplierId() {
-        return this.supplierId;
+    /**
+     * 推荐语
+     *
+     * <p>示例值：此候选人非常优秀，建议录用。
+     *
+     * @param comment
+     * @return
+     */
+    public Builder comment(String comment) {
+      this.comment = comment;
+      return this;
     }
 
-    public void setSupplierId(String supplierId) {
-        this.supplierId = supplierId;
+    /**
+     * 当前薪资
+     *
+     * <p>示例值：15k * 13
+     *
+     * @param currentSalary
+     * @return
+     */
+    public Builder currentSalary(String currentSalary) {
+      this.currentSalary = currentSalary;
+      return this;
     }
 
-    public String getConsultantId() {
-        return this.consultantId;
+    /**
+     * 预期薪资
+     *
+     * <p>示例值：18k * 16
+     *
+     * @param expectedSalary
+     * @return
+     */
+    public Builder expectedSalary(String expectedSalary) {
+      this.expectedSalary = expectedSalary;
+      return this;
     }
 
-    public void setConsultantId(String consultantId) {
-        this.consultantId = consultantId;
+    public ProtectAgencyReqBody build() {
+      return new ProtectAgencyReqBody(this);
     }
+  }
 
-    public Integer getProtectCreateTime() {
-        return this.protectCreateTime;
-    }
-
-    public void setProtectCreateTime(Integer protectCreateTime) {
-        this.protectCreateTime = protectCreateTime;
-    }
-
-    public Integer getProtectExpireTime() {
-        return this.protectExpireTime;
-    }
-
-    public void setProtectExpireTime(Integer protectExpireTime) {
-        this.protectExpireTime = protectExpireTime;
-    }
-
-    public String getComment() {
-        return this.comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public String getCurrentSalary() {
-        return this.currentSalary;
-    }
-
-    public void setCurrentSalary(String currentSalary) {
-        this.currentSalary = currentSalary;
-    }
-
-    public String getExpectedSalary() {
-        return this.expectedSalary;
-    }
-
-    public void setExpectedSalary(String expectedSalary) {
-        this.expectedSalary = expectedSalary;
-    }
-
-    public static class Builder {
-        /**
-         * 人才ID
-         * <p> 示例值：6962051712422398239
-         */
-        private String talentId;
-        /**
-         * 供应商ID
-         * <p> 示例值：6898173495386147079
-         */
-        private String supplierId;
-        /**
-         * 猎头顾问ID
-         * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
-         */
-        private String consultantId;
-        /**
-         * 保护期创建时间
-         * <p> 示例值：1610695587000
-         */
-        private Integer protectCreateTime;
-        /**
-         * 保护期过期时间
-         * <p> 示例值：1626333987000
-         */
-        private Integer protectExpireTime;
-        /**
-         * 推荐语
-         * <p> 示例值：此候选人非常优秀，建议录用。
-         */
-        private String comment;
-        /**
-         * 当前薪资
-         * <p> 示例值：15k * 13
-         */
-        private String currentSalary;
-        /**
-         * 预期薪资
-         * <p> 示例值：18k * 16
-         */
-        private String expectedSalary;
-
-        /**
-         * 人才ID
-         * <p> 示例值：6962051712422398239
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 供应商ID
-         * <p> 示例值：6898173495386147079
-         *
-         * @param supplierId
-         * @return
-         */
-        public Builder supplierId(String supplierId) {
-            this.supplierId = supplierId;
-            return this;
-        }
-
-
-        /**
-         * 猎头顾问ID
-         * <p> 示例值：ou_f476cb099ac9227c9bae09ce46112579
-         *
-         * @param consultantId
-         * @return
-         */
-        public Builder consultantId(String consultantId) {
-            this.consultantId = consultantId;
-            return this;
-        }
-
-
-        /**
-         * 保护期创建时间
-         * <p> 示例值：1610695587000
-         *
-         * @param protectCreateTime
-         * @return
-         */
-        public Builder protectCreateTime(Integer protectCreateTime) {
-            this.protectCreateTime = protectCreateTime;
-            return this;
-        }
-
-
-        /**
-         * 保护期过期时间
-         * <p> 示例值：1626333987000
-         *
-         * @param protectExpireTime
-         * @return
-         */
-        public Builder protectExpireTime(Integer protectExpireTime) {
-            this.protectExpireTime = protectExpireTime;
-            return this;
-        }
-
-
-        /**
-         * 推荐语
-         * <p> 示例值：此候选人非常优秀，建议录用。
-         *
-         * @param comment
-         * @return
-         */
-        public Builder comment(String comment) {
-            this.comment = comment;
-            return this;
-        }
-
-
-        /**
-         * 当前薪资
-         * <p> 示例值：15k * 13
-         *
-         * @param currentSalary
-         * @return
-         */
-        public Builder currentSalary(String currentSalary) {
-            this.currentSalary = currentSalary;
-            return this;
-        }
-
-
-        /**
-         * 预期薪资
-         * <p> 示例值：18k * 16
-         *
-         * @param expectedSalary
-         * @return
-         */
-        public Builder expectedSalary(String expectedSalary) {
-            this.expectedSalary = expectedSalary;
-            return this;
-        }
-
-
-        public ProtectAgencyReqBody build() {
-            return new ProtectAgencyReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

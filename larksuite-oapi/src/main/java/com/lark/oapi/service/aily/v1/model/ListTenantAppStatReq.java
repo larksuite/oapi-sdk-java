@@ -13,207 +13,210 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.aily.v1.enums.*;
 
 public class ListTenantAppStatReq {
+  /**
+   * 统计起始时间，格式为秒级时间戳。
+   *
+   * <p>示例值：1698729600
+   */
+  @Query
+  @SerializedName("start_at")
+  private String startAt;
+
+  /**
+   * 统计结束时间，格式为秒级时间戳。
+   *
+   * <p>示例值：1701321599
+   */
+  @Query
+  @SerializedName("end_at")
+  private String endAt;
+
+  /**
+   * 数据筛选类型，用于指定统计维度。可选值包括：;- `app`：返回工作流应用数据;- `agent`：返回智能体数据
+   *
+   * <p>示例值：agent
+   */
+  @Query
+  @SerializedName("filter_type")
+  private String filterType;
+
+  /**
+   * 分页标记，用于获取下一页数据。首次调用无需传入，后续调用使用上一次返回结果中的`page_token`值
+   *
+   * <p>示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZCI6IjE2OTg3Mjk2MDAifQ==
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 每页返回的数据条数，默认值为20，最大值为100
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  public String getStartAt() {
+    return this.startAt;
+  }
+
+  public void setStartAt(String startAt) {
+    this.startAt = startAt;
+  }
+
+  public String getEndAt() {
+    return this.endAt;
+  }
+
+  public void setEndAt(String endAt) {
+    this.endAt = endAt;
+  }
+
+  public String getFilterType() {
+    return this.filterType;
+  }
+
+  public void setFilterType(String filterType) {
+    this.filterType = filterType;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  // builder 开始
+  public ListTenantAppStatReq() {}
+
+  public ListTenantAppStatReq(Builder builder) {
     /**
-     * 统计起始时间，格式为秒级时间戳。若未指定，默认取当前时间往前推1天的时间戳
-     * <p> 示例值：1698729600
+     * 统计起始时间，格式为秒级时间戳。
+     *
+     * <p>示例值：1698729600
      */
-    @Query
-    @SerializedName("start_at")
-    private String startAt;
+    this.startAt = builder.startAt;
     /**
-     * 统计结束时间，格式为秒级时间戳。若未指定，默认取当前时间戳
-     * <p> 示例值：1701321599
+     * 统计结束时间，格式为秒级时间戳。
+     *
+     * <p>示例值：1701321599
      */
-    @Query
-    @SerializedName("end_at")
-    private String endAt;
+    this.endAt = builder.endAt;
     /**
      * 数据筛选类型，用于指定统计维度。可选值包括：;- `app`：返回工作流应用数据;- `agent`：返回智能体数据
-     * <p> 示例值：all
+     *
+     * <p>示例值：agent
      */
-    @Query
-    @SerializedName("filter_type")
-    private String filterType;
+    this.filterType = builder.filterType;
     /**
      * 分页标记，用于获取下一页数据。首次调用无需传入，后续调用使用上一次返回结果中的`page_token`值
-     * <p> 示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZCI6IjE2OTg3Mjk2MDAifQ==
+     *
+     * <p>示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZCI6IjE2OTg3Mjk2MDAifQ==
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 每页返回的数据条数，默认值为20，最大值为100
-     * <p> 示例值：20
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
+  }
 
-    // builder 开始
-    public ListTenantAppStatReq() {
+  public static class Builder {
+    private String startAt; // 统计起始时间，格式为秒级时间戳。
+    private String endAt; // 统计结束时间，格式为秒级时间戳。
+    private String filterType; // 数据筛选类型，用于指定统计维度。可选值包括：;- `app`：返回工作流应用数据;- `agent`：返回智能体数据
+    private String pageToken; // 分页标记，用于获取下一页数据。首次调用无需传入，后续调用使用上一次返回结果中的`page_token`值
+    private Integer pageSize; // 每页返回的数据条数，默认值为20，最大值为100
+
+    /**
+     * 统计起始时间，格式为秒级时间戳。
+     *
+     * <p>示例值：1698729600
+     *
+     * @param startAt
+     * @return
+     */
+    public Builder startAt(String startAt) {
+      this.startAt = startAt;
+      return this;
     }
 
-    public ListTenantAppStatReq(Builder builder) {
-        /**
-         * 统计起始时间，格式为秒级时间戳。若未指定，默认取当前时间往前推1天的时间戳
-         * <p> 示例值：1698729600
-         */
-        this.startAt = builder.startAt;
-        /**
-         * 统计结束时间，格式为秒级时间戳。若未指定，默认取当前时间戳
-         * <p> 示例值：1701321599
-         */
-        this.endAt = builder.endAt;
-        /**
-         * 数据筛选类型，用于指定统计维度。可选值包括：;- `app`：返回工作流应用数据;- `agent`：返回智能体数据
-         * <p> 示例值：all
-         */
-        this.filterType = builder.filterType;
-        /**
-         * 分页标记，用于获取下一页数据。首次调用无需传入，后续调用使用上一次返回结果中的`page_token`值
-         * <p> 示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZCI6IjE2OTg3Mjk2MDAifQ==
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页返回的数据条数，默认值为20，最大值为100
-         * <p> 示例值：20
-         */
-        this.pageSize = builder.pageSize;
+    /**
+     * 统计结束时间，格式为秒级时间戳。
+     *
+     * <p>示例值：1701321599
+     *
+     * @param endAt
+     * @return
+     */
+    public Builder endAt(String endAt) {
+      this.endAt = endAt;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据筛选类型，用于指定统计维度。可选值包括：;- `app`：返回工作流应用数据;- `agent`：返回智能体数据
+     *
+     * <p>示例值：agent
+     *
+     * @param filterType
+     * @return
+     */
+    public Builder filterType(String filterType) {
+      this.filterType = filterType;
+      return this;
     }
 
-    public String getStartAt() {
-        return this.startAt;
+    /**
+     * 分页标记，用于获取下一页数据。首次调用无需传入，后续调用使用上一次返回结果中的`page_token`值
+     *
+     * <p>示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZCI6IjE2OTg3Mjk2MDAifQ==
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setStartAt(String startAt) {
-        this.startAt = startAt;
+    /**
+     * 每页返回的数据条数，默认值为20，最大值为100
+     *
+     * <p>示例值：
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public String getEndAt() {
-        return this.endAt;
+    public ListTenantAppStatReq build() {
+      return new ListTenantAppStatReq(this);
     }
+  }
 
-    public void setEndAt(String endAt) {
-        this.endAt = endAt;
-    }
-
-    public String getFilterType() {
-        return this.filterType;
-    }
-
-    public void setFilterType(String filterType) {
-        this.filterType = filterType;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public static class Builder {
-        private String startAt; // 统计起始时间，格式为秒级时间戳。若未指定，默认取当前时间往前推1天的时间戳
-        private String endAt; // 统计结束时间，格式为秒级时间戳。若未指定，默认取当前时间戳
-        private String filterType; // 数据筛选类型，用于指定统计维度。可选值包括：;- `app`：返回工作流应用数据;- `agent`：返回智能体数据
-        private String pageToken; // 分页标记，用于获取下一页数据。首次调用无需传入，后续调用使用上一次返回结果中的`page_token`值
-        private Integer pageSize; // 每页返回的数据条数，默认值为20，最大值为100
-
-        /**
-         * 统计起始时间，格式为秒级时间戳。若未指定，默认取当前时间往前推1天的时间戳
-         * <p> 示例值：1698729600
-         *
-         * @param startAt
-         * @return
-         */
-        public Builder startAt(String startAt) {
-            this.startAt = startAt;
-            return this;
-        }
-
-
-        /**
-         * 统计结束时间，格式为秒级时间戳。若未指定，默认取当前时间戳
-         * <p> 示例值：1701321599
-         *
-         * @param endAt
-         * @return
-         */
-        public Builder endAt(String endAt) {
-            this.endAt = endAt;
-            return this;
-        }
-
-
-        /**
-         * 数据筛选类型，用于指定统计维度。可选值包括：;- `app`：返回工作流应用数据;- `agent`：返回智能体数据
-         * <p> 示例值：all
-         *
-         * @param filterType
-         * @return
-         */
-        public Builder filterType(String filterType) {
-            this.filterType = filterType;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，用于获取下一页数据。首次调用无需传入，后续调用使用上一次返回结果中的`page_token`值
-         * <p> 示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZCI6IjE2OTg3Mjk2MDAifQ==
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 每页返回的数据条数，默认值为20，最大值为100
-         * <p> 示例值：20
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        public ListTenantAppStatReq build() {
-            return new ListTenantAppStatReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchEmployeeReqBody {
+  /**
+   * 搜索关键词。支持员工ID、员工名称、员工手机号、员工邮箱的搜索。其中员工ID、员工手机号支持精确搜索，员工名称、员工邮箱支持模糊搜索，员工名称支持国际化名称的搜索。
+   *
+   * <p>示例值：zhang
+   */
+  @SerializedName("query")
+  private String query;
+
+  /**
+   * 分页信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_request")
+  private PageCondition pageRequest;
+
+  /**
+   * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("required_fields")
+  private String[] requiredFields;
+
+  /**
+   * 查询条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter")
+  private SearchEmployeeFilter filter;
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  public PageCondition getPageRequest() {
+    return this.pageRequest;
+  }
+
+  public void setPageRequest(PageCondition pageRequest) {
+    this.pageRequest = pageRequest;
+  }
+
+  public String[] getRequiredFields() {
+    return this.requiredFields;
+  }
+
+  public void setRequiredFields(String[] requiredFields) {
+    this.requiredFields = requiredFields;
+  }
+
+  public SearchEmployeeFilter getFilter() {
+    return this.filter;
+  }
+
+  public void setFilter(SearchEmployeeFilter filter) {
+    this.filter = filter;
+  }
+
+  // builder 开始
+  public SearchEmployeeReqBody() {}
+
+  public SearchEmployeeReqBody(Builder builder) {
     /**
      * 搜索关键词。支持员工ID、员工名称、员工手机号、员工邮箱的搜索。其中员工ID、员工手机号支持精确搜索，员工名称、员工邮箱支持模糊搜索，员工名称支持国际化名称的搜索。
-     * <p> 示例值：zhang
+     *
+     * <p>示例值：zhang
      */
-    @SerializedName("query")
-    private String query;
+    this.query = builder.query;
     /**
      * 分页信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("page_request")
-    private PageCondition pageRequest;
+    this.pageRequest = builder.pageRequest;
     /**
-     * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段
-     * <p> 示例值：
+     * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+     *
+     * <p>示例值：
      */
-    @SerializedName("required_fields")
-    private String[] requiredFields;
+    this.requiredFields = builder.requiredFields;
     /**
      * 查询条件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter")
+    this.filter = builder.filter;
+  }
+
+  public static class Builder {
+    /**
+     * 搜索关键词。支持员工ID、员工名称、员工手机号、员工邮箱的搜索。其中员工ID、员工手机号支持精确搜索，员工名称、员工邮箱支持模糊搜索，员工名称支持国际化名称的搜索。
+     *
+     * <p>示例值：zhang
+     */
+    private String query;
+
+    /**
+     * 分页信息
+     *
+     * <p>示例值：
+     */
+    private PageCondition pageRequest;
+
+    /**
+     * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+     *
+     * <p>示例值：
+     */
+    private String[] requiredFields;
+
+    /**
+     * 查询条件
+     *
+     * <p>示例值：
+     */
     private SearchEmployeeFilter filter;
 
-    // builder 开始
-    public SearchEmployeeReqBody() {
+    /**
+     * 搜索关键词。支持员工ID、员工名称、员工手机号、员工邮箱的搜索。其中员工ID、员工手机号支持精确搜索，员工名称、员工邮箱支持模糊搜索，员工名称支持国际化名称的搜索。
+     *
+     * <p>示例值：zhang
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public SearchEmployeeReqBody(Builder builder) {
-        /**
-         * 搜索关键词。支持员工ID、员工名称、员工手机号、员工邮箱的搜索。其中员工ID、员工手机号支持精确搜索，员工名称、员工邮箱支持模糊搜索，员工名称支持国际化名称的搜索。
-         * <p> 示例值：zhang
-         */
-        this.query = builder.query;
-        /**
-         * 分页信息
-         * <p> 示例值：
-         */
-        this.pageRequest = builder.pageRequest;
-        /**
-         * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段
-         * <p> 示例值：
-         */
-        this.requiredFields = builder.requiredFields;
-        /**
-         * 查询条件
-         * <p> 示例值：
-         */
-        this.filter = builder.filter;
+    /**
+     * 分页信息
+     *
+     * <p>示例值：
+     *
+     * @param pageRequest
+     * @return
+     */
+    public Builder pageRequest(PageCondition pageRequest) {
+      this.pageRequest = pageRequest;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+     *
+     * <p>示例值：
+     *
+     * @param requiredFields
+     * @return
+     */
+    public Builder requiredFields(String[] requiredFields) {
+      this.requiredFields = requiredFields;
+      return this;
     }
 
-    public String getQuery() {
-        return this.query;
+    /**
+     * 查询条件
+     *
+     * <p>示例值：
+     *
+     * @param filter
+     * @return
+     */
+    public Builder filter(SearchEmployeeFilter filter) {
+      this.filter = filter;
+      return this;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    public SearchEmployeeReqBody build() {
+      return new SearchEmployeeReqBody(this);
     }
+  }
 
-    public PageCondition getPageRequest() {
-        return this.pageRequest;
-    }
-
-    public void setPageRequest(PageCondition pageRequest) {
-        this.pageRequest = pageRequest;
-    }
-
-    public String[] getRequiredFields() {
-        return this.requiredFields;
-    }
-
-    public void setRequiredFields(String[] requiredFields) {
-        this.requiredFields = requiredFields;
-    }
-
-    public SearchEmployeeFilter getFilter() {
-        return this.filter;
-    }
-
-    public void setFilter(SearchEmployeeFilter filter) {
-        this.filter = filter;
-    }
-
-    public static class Builder {
-        /**
-         * 搜索关键词。支持员工ID、员工名称、员工手机号、员工邮箱的搜索。其中员工ID、员工手机号支持精确搜索，员工名称、员工邮箱支持模糊搜索，员工名称支持国际化名称的搜索。
-         * <p> 示例值：zhang
-         */
-        private String query;
-        /**
-         * 分页信息
-         * <p> 示例值：
-         */
-        private PageCondition pageRequest;
-        /**
-         * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段
-         * <p> 示例值：
-         */
-        private String[] requiredFields;
-        /**
-         * 查询条件
-         * <p> 示例值：
-         */
-        private SearchEmployeeFilter filter;
-
-        /**
-         * 搜索关键词。支持员工ID、员工名称、员工手机号、员工邮箱的搜索。其中员工ID、员工手机号支持精确搜索，员工名称、员工邮箱支持模糊搜索，员工名称支持国际化名称的搜索。
-         * <p> 示例值：zhang
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        /**
-         * 分页信息
-         * <p> 示例值：
-         *
-         * @param pageRequest
-         * @return
-         */
-        public Builder pageRequest(PageCondition pageRequest) {
-            this.pageRequest = pageRequest;
-            return this;
-        }
-
-
-        /**
-         * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段
-         * <p> 示例值：
-         *
-         * @param requiredFields
-         * @return
-         */
-        public Builder requiredFields(String[] requiredFields) {
-            this.requiredFields = requiredFields;
-            return this;
-        }
-
-
-        /**
-         * 查询条件
-         * <p> 示例值：
-         *
-         * @param filter
-         * @return
-         */
-        public Builder filter(SearchEmployeeFilter filter) {
-            this.filter = filter;
-            return this;
-        }
-
-
-        public SearchEmployeeReqBody build() {
-            return new SearchEmployeeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

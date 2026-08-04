@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ObjectiveIdWithKrId {
+  /**
+   * OKR 中 Objective 的 ID
+   *
+   * <p>示例值：7109022409227026460
+   */
+  @SerializedName("objective_id")
+  private String objectiveId;
+
+  /**
+   * Key Result 的 ID 列表，此值为空时插入当前 Objective 下的所有 Key Result
+   *
+   * <p>示例值：["7109022573011894300","7109022546444517404"]
+   */
+  @SerializedName("kr_ids")
+  private String[] krIds;
+
+  public String getObjectiveId() {
+    return this.objectiveId;
+  }
+
+  public void setObjectiveId(String objectiveId) {
+    this.objectiveId = objectiveId;
+  }
+
+  public String[] getKrIds() {
+    return this.krIds;
+  }
+
+  public void setKrIds(String[] krIds) {
+    this.krIds = krIds;
+  }
+
+  // builder 开始
+  public ObjectiveIdWithKrId() {}
+
+  public ObjectiveIdWithKrId(Builder builder) {
     /**
      * OKR 中 Objective 的 ID
-     * <p> 示例值：7109022409227026460
+     *
+     * <p>示例值：7109022409227026460
      */
-    @SerializedName("objective_id")
-    private String objectiveId;
+    this.objectiveId = builder.objectiveId;
     /**
      * Key Result 的 ID 列表，此值为空时插入当前 Objective 下的所有 Key Result
-     * <p> 示例值：["7109022573011894300","7109022546444517404"]
+     *
+     * <p>示例值：["7109022573011894300","7109022546444517404"]
      */
-    @SerializedName("kr_ids")
+    this.krIds = builder.krIds;
+  }
+
+  public static class Builder {
+    /**
+     * OKR 中 Objective 的 ID
+     *
+     * <p>示例值：7109022409227026460
+     */
+    private String objectiveId;
+
+    /**
+     * Key Result 的 ID 列表，此值为空时插入当前 Objective 下的所有 Key Result
+     *
+     * <p>示例值：["7109022573011894300","7109022546444517404"]
+     */
     private String[] krIds;
 
-    // builder 开始
-    public ObjectiveIdWithKrId() {
+    /**
+     * OKR 中 Objective 的 ID
+     *
+     * <p>示例值：7109022409227026460
+     *
+     * @param objectiveId
+     * @return
+     */
+    public Builder objectiveId(String objectiveId) {
+      this.objectiveId = objectiveId;
+      return this;
     }
 
-    public ObjectiveIdWithKrId(Builder builder) {
-        /**
-         * OKR 中 Objective 的 ID
-         * <p> 示例值：7109022409227026460
-         */
-        this.objectiveId = builder.objectiveId;
-        /**
-         * Key Result 的 ID 列表，此值为空时插入当前 Objective 下的所有 Key Result
-         * <p> 示例值：["7109022573011894300","7109022546444517404"]
-         */
-        this.krIds = builder.krIds;
+    /**
+     * Key Result 的 ID 列表，此值为空时插入当前 Objective 下的所有 Key Result
+     *
+     * <p>示例值：["7109022573011894300","7109022546444517404"]
+     *
+     * @param krIds
+     * @return
+     */
+    public Builder krIds(String[] krIds) {
+      this.krIds = krIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ObjectiveIdWithKrId build() {
+      return new ObjectiveIdWithKrId(this);
     }
+  }
 
-    public String getObjectiveId() {
-        return this.objectiveId;
-    }
-
-    public void setObjectiveId(String objectiveId) {
-        this.objectiveId = objectiveId;
-    }
-
-    public String[] getKrIds() {
-        return this.krIds;
-    }
-
-    public void setKrIds(String[] krIds) {
-        this.krIds = krIds;
-    }
-
-    public static class Builder {
-        /**
-         * OKR 中 Objective 的 ID
-         * <p> 示例值：7109022409227026460
-         */
-        private String objectiveId;
-        /**
-         * Key Result 的 ID 列表，此值为空时插入当前 Objective 下的所有 Key Result
-         * <p> 示例值：["7109022573011894300","7109022546444517404"]
-         */
-        private String[] krIds;
-
-        /**
-         * OKR 中 Objective 的 ID
-         * <p> 示例值：7109022409227026460
-         *
-         * @param objectiveId
-         * @return
-         */
-        public Builder objectiveId(String objectiveId) {
-            this.objectiveId = objectiveId;
-            return this;
-        }
-
-
-        /**
-         * Key Result 的 ID 列表，此值为空时插入当前 Objective 下的所有 Key Result
-         * <p> 示例值：["7109022573011894300","7109022546444517404"]
-         *
-         * @param krIds
-         * @return
-         */
-        public Builder krIds(String[] krIds) {
-            this.krIds = krIds;
-            return this;
-        }
-
-
-        public ObjectiveIdWithKrId build() {
-            return new ObjectiveIdWithKrId(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

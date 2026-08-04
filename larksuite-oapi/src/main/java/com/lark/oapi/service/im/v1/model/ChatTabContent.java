@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatTabContent {
+  /**
+   * url 类型标签页对应的 URL 地址
+   *
+   * <p>示例值：https://www.feishu.cn
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 文档类型标签页对应的云文档链接
+   *
+   * <p>示例值：https://example.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
+   */
+  @SerializedName("doc")
+  private String doc;
+
+  /**
+   * 会议纪要类型标签页对应的会议纪要地址
+   *
+   * <p>示例值：https://example.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
+   */
+  @SerializedName("meeting_minute")
+  private String meetingMinute;
+
+  /**
+   * 任务类型标签页对应的任务地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("task")
+  private String task;
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getDoc() {
+    return this.doc;
+  }
+
+  public void setDoc(String doc) {
+    this.doc = doc;
+  }
+
+  public String getMeetingMinute() {
+    return this.meetingMinute;
+  }
+
+  public void setMeetingMinute(String meetingMinute) {
+    this.meetingMinute = meetingMinute;
+  }
+
+  public String getTask() {
+    return this.task;
+  }
+
+  public void setTask(String task) {
+    this.task = task;
+  }
+
+  // builder 开始
+  public ChatTabContent() {}
+
+  public ChatTabContent(Builder builder) {
     /**
-     * URL类型
-     * <p> 示例值：https://www.feishu.cn
+     * url 类型标签页对应的 URL 地址
+     *
+     * <p>示例值：https://www.feishu.cn
      */
-    @SerializedName("url")
+    this.url = builder.url;
+    /**
+     * 文档类型标签页对应的云文档链接
+     *
+     * <p>示例值：https://example.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
+     */
+    this.doc = builder.doc;
+    /**
+     * 会议纪要类型标签页对应的会议纪要地址
+     *
+     * <p>示例值：https://example.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
+     */
+    this.meetingMinute = builder.meetingMinute;
+    /**
+     * 任务类型标签页对应的任务地址
+     *
+     * <p>示例值：
+     */
+    this.task = builder.task;
+  }
+
+  public static class Builder {
+    /**
+     * url 类型标签页对应的 URL 地址
+     *
+     * <p>示例值：https://www.feishu.cn
+     */
     private String url;
+
     /**
-     * Doc链接
-     * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
+     * 文档类型标签页对应的云文档链接
+     *
+     * <p>示例值：https://example.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
      */
-    @SerializedName("doc")
     private String doc;
+
     /**
-     * 会议纪要
-     * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
+     * 会议纪要类型标签页对应的会议纪要地址
+     *
+     * <p>示例值：https://example.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
      */
-    @SerializedName("meeting_minute")
     private String meetingMinute;
+
     /**
-     * 任务
-     * <p> 示例值：https://bytedance.feishu.cn/client/todo/task_list?guid=fa03fb6d-344b-47d9-83e3-049e3b3da931
+     * 任务类型标签页对应的任务地址
+     *
+     * <p>示例值：
      */
-    @SerializedName("task")
     private String task;
 
-    // builder 开始
-    public ChatTabContent() {
+    /**
+     * url 类型标签页对应的 URL 地址
+     *
+     * <p>示例值：https://www.feishu.cn
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public ChatTabContent(Builder builder) {
-        /**
-         * URL类型
-         * <p> 示例值：https://www.feishu.cn
-         */
-        this.url = builder.url;
-        /**
-         * Doc链接
-         * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
-         */
-        this.doc = builder.doc;
-        /**
-         * 会议纪要
-         * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
-         */
-        this.meetingMinute = builder.meetingMinute;
-        /**
-         * 任务
-         * <p> 示例值：https://bytedance.feishu.cn/client/todo/task_list?guid=fa03fb6d-344b-47d9-83e3-049e3b3da931
-         */
-        this.task = builder.task;
+    /**
+     * 文档类型标签页对应的云文档链接
+     *
+     * <p>示例值：https://example.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
+     *
+     * @param doc
+     * @return
+     */
+    public Builder doc(String doc) {
+      this.doc = doc;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会议纪要类型标签页对应的会议纪要地址
+     *
+     * <p>示例值：https://example.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
+     *
+     * @param meetingMinute
+     * @return
+     */
+    public Builder meetingMinute(String meetingMinute) {
+      this.meetingMinute = meetingMinute;
+      return this;
     }
 
-    public String getUrl() {
-        return this.url;
+    /**
+     * 任务类型标签页对应的任务地址
+     *
+     * <p>示例值：
+     *
+     * @param task
+     * @return
+     */
+    public Builder task(String task) {
+      this.task = task;
+      return this;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public ChatTabContent build() {
+      return new ChatTabContent(this);
     }
+  }
 
-    public String getDoc() {
-        return this.doc;
-    }
-
-    public void setDoc(String doc) {
-        this.doc = doc;
-    }
-
-    public String getMeetingMinute() {
-        return this.meetingMinute;
-    }
-
-    public void setMeetingMinute(String meetingMinute) {
-        this.meetingMinute = meetingMinute;
-    }
-
-    public String getTask() {
-        return this.task;
-    }
-
-    public void setTask(String task) {
-        this.task = task;
-    }
-
-    public static class Builder {
-        /**
-         * URL类型
-         * <p> 示例值：https://www.feishu.cn
-         */
-        private String url;
-        /**
-         * Doc链接
-         * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
-         */
-        private String doc;
-        /**
-         * 会议纪要
-         * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
-         */
-        private String meetingMinute;
-        /**
-         * 任务
-         * <p> 示例值：https://bytedance.feishu.cn/client/todo/task_list?guid=fa03fb6d-344b-47d9-83e3-049e3b3da931
-         */
-        private String task;
-
-        /**
-         * URL类型
-         * <p> 示例值：https://www.feishu.cn
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * Doc链接
-         * <p> 示例值：https://bytedance.feishu.cn/wiki/wikcnPIcqWjJQwkwDzrB9t40123xz
-         *
-         * @param doc
-         * @return
-         */
-        public Builder doc(String doc) {
-            this.doc = doc;
-            return this;
-        }
-
-
-        /**
-         * 会议纪要
-         * <p> 示例值：https://bytedance.feishu.cn/docs/doccnvIXbV22i6hSD3utar4123dx
-         *
-         * @param meetingMinute
-         * @return
-         */
-        public Builder meetingMinute(String meetingMinute) {
-            this.meetingMinute = meetingMinute;
-            return this;
-        }
-
-
-        /**
-         * 任务
-         * <p> 示例值：https://bytedance.feishu.cn/client/todo/task_list?guid=fa03fb6d-344b-47d9-83e3-049e3b3da931
-         *
-         * @param task
-         * @return
-         */
-        public Builder task(String task) {
-            this.task = task;
-            return this;
-        }
-
-
-        public ChatTabContent build() {
-            return new ChatTabContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

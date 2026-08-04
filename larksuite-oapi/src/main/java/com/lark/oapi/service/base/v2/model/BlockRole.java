@@ -13,173 +13,175 @@
 
 package com.lark.oapi.service.base.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.base.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BlockRole {
+  /**
+   * 多维表格仪表盘的唯一标识
+   *
+   * <p>示例值：blknkqrP3RqUkcAW
+   */
+  @SerializedName("block_id")
+  private String blockId;
+
+  /**
+   * 仪表盘的权限
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("block_perm")
+  private Integer blockPerm;
+
+  /**
+   * 仪表盘类型
+   *
+   * <p>示例值：dashboard
+   */
+  @SerializedName("block_type")
+  private String blockType;
+
+  public String getBlockId() {
+    return this.blockId;
+  }
+
+  public void setBlockId(String blockId) {
+    this.blockId = blockId;
+  }
+
+  public Integer getBlockPerm() {
+    return this.blockPerm;
+  }
+
+  public void setBlockPerm(Integer blockPerm) {
+    this.blockPerm = blockPerm;
+  }
+
+  public String getBlockType() {
+    return this.blockType;
+  }
+
+  public void setBlockType(String blockType) {
+    this.blockType = blockType;
+  }
+
+  // builder 开始
+  public BlockRole() {}
+
+  public BlockRole(Builder builder) {
     /**
-     * Block ID
-     * <p> 示例值：blknkqrP3RqUkcAW
+     * 多维表格仪表盘的唯一标识
+     *
+     * <p>示例值：blknkqrP3RqUkcAW
      */
-    @SerializedName("block_id")
+    this.blockId = builder.blockId;
+    /**
+     * 仪表盘的权限
+     *
+     * <p>示例值：0
+     */
+    this.blockPerm = builder.blockPerm;
+    /**
+     * 仪表盘类型
+     *
+     * <p>示例值：dashboard
+     */
+    this.blockType = builder.blockType;
+  }
+
+  public static class Builder {
+    /**
+     * 多维表格仪表盘的唯一标识
+     *
+     * <p>示例值：blknkqrP3RqUkcAW
+     */
     private String blockId;
+
     /**
-     * Block权限
-     * <p> 示例值：0
+     * 仪表盘的权限
+     *
+     * <p>示例值：0
      */
-    @SerializedName("block_perm")
     private Integer blockPerm;
+
     /**
-     * Block类型
-     * <p> 示例值：dashboard
+     * 仪表盘类型
+     *
+     * <p>示例值：dashboard
      */
-    @SerializedName("block_type")
     private String blockType;
 
-    // builder 开始
-    public BlockRole() {
+    /**
+     * 多维表格仪表盘的唯一标识
+     *
+     * <p>示例值：blknkqrP3RqUkcAW
+     *
+     * @param blockId
+     * @return
+     */
+    public Builder blockId(String blockId) {
+      this.blockId = blockId;
+      return this;
     }
 
-    public BlockRole(Builder builder) {
-        /**
-         * Block ID
-         * <p> 示例值：blknkqrP3RqUkcAW
-         */
-        this.blockId = builder.blockId;
-        /**
-         * Block权限
-         * <p> 示例值：0
-         */
-        this.blockPerm = builder.blockPerm;
-        /**
-         * Block类型
-         * <p> 示例值：dashboard
-         */
-        this.blockType = builder.blockType;
+    /**
+     * 仪表盘的权限
+     *
+     * <p>示例值：0
+     *
+     * @param blockPerm
+     * @return
+     */
+    public Builder blockPerm(Integer blockPerm) {
+      this.blockPerm = blockPerm;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 仪表盘的权限
+     *
+     * <p>示例值：0
+     *
+     * @param blockPerm {@link com.lark.oapi.service.base.v2.enums.BlockRoleBlockPermEnum}
+     * @return
+     */
+    public Builder blockPerm(com.lark.oapi.service.base.v2.enums.BlockRoleBlockPermEnum blockPerm) {
+      this.blockPerm = blockPerm.getValue();
+      return this;
     }
 
-    public String getBlockId() {
-        return this.blockId;
+    /**
+     * 仪表盘类型
+     *
+     * <p>示例值：dashboard
+     *
+     * @param blockType
+     * @return
+     */
+    public Builder blockType(String blockType) {
+      this.blockType = blockType;
+      return this;
     }
 
-    public void setBlockId(String blockId) {
-        this.blockId = blockId;
+    /**
+     * 仪表盘类型
+     *
+     * <p>示例值：dashboard
+     *
+     * @param blockType {@link com.lark.oapi.service.base.v2.enums.BlockRoleBlockTypeEnum}
+     * @return
+     */
+    public Builder blockType(com.lark.oapi.service.base.v2.enums.BlockRoleBlockTypeEnum blockType) {
+      this.blockType = blockType.getValue();
+      return this;
     }
 
-    public Integer getBlockPerm() {
-        return this.blockPerm;
+    public BlockRole build() {
+      return new BlockRole(this);
     }
+  }
 
-    public void setBlockPerm(Integer blockPerm) {
-        this.blockPerm = blockPerm;
-    }
-
-    public String getBlockType() {
-        return this.blockType;
-    }
-
-    public void setBlockType(String blockType) {
-        this.blockType = blockType;
-    }
-
-    public static class Builder {
-        /**
-         * Block ID
-         * <p> 示例值：blknkqrP3RqUkcAW
-         */
-        private String blockId;
-        /**
-         * Block权限
-         * <p> 示例值：0
-         */
-        private Integer blockPerm;
-        /**
-         * Block类型
-         * <p> 示例值：dashboard
-         */
-        private String blockType;
-
-        /**
-         * Block ID
-         * <p> 示例值：blknkqrP3RqUkcAW
-         *
-         * @param blockId
-         * @return
-         */
-        public Builder blockId(String blockId) {
-            this.blockId = blockId;
-            return this;
-        }
-
-
-        /**
-         * Block权限
-         * <p> 示例值：0
-         *
-         * @param blockPerm
-         * @return
-         */
-        public Builder blockPerm(Integer blockPerm) {
-            this.blockPerm = blockPerm;
-            return this;
-        }
-
-        /**
-         * Block权限
-         * <p> 示例值：0
-         *
-         * @param blockPerm {@link com.lark.oapi.service.base.v2.enums.BlockRoleBlockPermEnum}
-         * @return
-         */
-        public Builder blockPerm(com.lark.oapi.service.base.v2.enums.BlockRoleBlockPermEnum blockPerm) {
-            this.blockPerm = blockPerm.getValue();
-            return this;
-        }
-
-
-        /**
-         * Block类型
-         * <p> 示例值：dashboard
-         *
-         * @param blockType
-         * @return
-         */
-        public Builder blockType(String blockType) {
-            this.blockType = blockType;
-            return this;
-        }
-
-        /**
-         * Block类型
-         * <p> 示例值：dashboard
-         *
-         * @param blockType {@link com.lark.oapi.service.base.v2.enums.BlockRoleBlockTypeEnum}
-         * @return
-         */
-        public Builder blockType(com.lark.oapi.service.base.v2.enums.BlockRoleBlockTypeEnum blockType) {
-            this.blockType = blockType.getValue();
-            return this;
-        }
-
-
-        public BlockRole build() {
-            return new BlockRole(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

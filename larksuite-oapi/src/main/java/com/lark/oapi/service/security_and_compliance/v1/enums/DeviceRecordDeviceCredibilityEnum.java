@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.enums;
 
-/**
- * 设备状态
- */
+/** 设备状态 */
 public enum DeviceRecordDeviceCredibilityEnum {
-    UNKNOWN("Unknown"), // Unknown
-    CREDIBLE("Credible"), // Credible
-    UNCREDIBLE("Uncredible"), // Uncredible
-    ;
-    private String value;
+  UNKNOWN("Unknown"), // Unknown
+  CREDIBLE("Credible"), // Credible
+  UNCREDIBLE("Uncredible"), // Uncredible
+  ;
+  private String value;
 
-    DeviceRecordDeviceCredibilityEnum(String value) {
-        this.value = value;
-    }
+  DeviceRecordDeviceCredibilityEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class NoteReferenceInfo {
+  /**
+   * 关联引用类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("reference_type")
+  private Integer referenceType;
+
+  /**
+   * 关联引用的doc token
+   *
+   * <p>示例值：fqF1wpU0gi6WP4klwRGchoqqweA
+   */
+  @SerializedName("doc_token")
+  private String docToken;
+
+  public Integer getReferenceType() {
+    return this.referenceType;
+  }
+
+  public void setReferenceType(Integer referenceType) {
+    this.referenceType = referenceType;
+  }
+
+  public String getDocToken() {
+    return this.docToken;
+  }
+
+  public void setDocToken(String docToken) {
+    this.docToken = docToken;
+  }
+
+  // builder 开始
+  public NoteReferenceInfo() {}
+
+  public NoteReferenceInfo(Builder builder) {
     /**
-     * 纪要关联引用类型
-     * <p> 示例值：
+     * 关联引用类型
+     *
+     * <p>示例值：1
      */
-    @SerializedName("reference_type")
+    this.referenceType = builder.referenceType;
+    /**
+     * 关联引用的doc token
+     *
+     * <p>示例值：fqF1wpU0gi6WP4klwRGchoqqweA
+     */
+    this.docToken = builder.docToken;
+  }
+
+  public static class Builder {
+    /**
+     * 关联引用类型
+     *
+     * <p>示例值：1
+     */
     private Integer referenceType;
+
     /**
-     * 纪要关联引用的doc token
-     * <p> 示例值：fqF1wpU0gi6WP4klwRGchoqqweA
+     * 关联引用的doc token
+     *
+     * <p>示例值：fqF1wpU0gi6WP4klwRGchoqqweA
      */
-    @SerializedName("doc_token")
     private String docToken;
 
-    // builder 开始
-    public NoteReferenceInfo() {
+    /**
+     * 关联引用类型
+     *
+     * <p>示例值：1
+     *
+     * @param referenceType
+     * @return
+     */
+    public Builder referenceType(Integer referenceType) {
+      this.referenceType = referenceType;
+      return this;
     }
 
-    public NoteReferenceInfo(Builder builder) {
-        /**
-         * 纪要关联引用类型
-         * <p> 示例值：
-         */
-        this.referenceType = builder.referenceType;
-        /**
-         * 纪要关联引用的doc token
-         * <p> 示例值：fqF1wpU0gi6WP4klwRGchoqqweA
-         */
-        this.docToken = builder.docToken;
+    /**
+     * 关联引用类型
+     *
+     * <p>示例值：1
+     *
+     * @param referenceType {@link
+     *     com.lark.oapi.service.vc.v1.enums.NoteReferenceInfoReferenceTypeEnum}
+     * @return
+     */
+    public Builder referenceType(
+        com.lark.oapi.service.vc.v1.enums.NoteReferenceInfoReferenceTypeEnum referenceType) {
+      this.referenceType = referenceType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 关联引用的doc token
+     *
+     * <p>示例值：fqF1wpU0gi6WP4klwRGchoqqweA
+     *
+     * @param docToken
+     * @return
+     */
+    public Builder docToken(String docToken) {
+      this.docToken = docToken;
+      return this;
     }
 
-    public Integer getReferenceType() {
-        return this.referenceType;
+    public NoteReferenceInfo build() {
+      return new NoteReferenceInfo(this);
     }
+  }
 
-    public void setReferenceType(Integer referenceType) {
-        this.referenceType = referenceType;
-    }
-
-    public String getDocToken() {
-        return this.docToken;
-    }
-
-    public void setDocToken(String docToken) {
-        this.docToken = docToken;
-    }
-
-    public static class Builder {
-        /**
-         * 纪要关联引用类型
-         * <p> 示例值：
-         */
-        private Integer referenceType;
-        /**
-         * 纪要关联引用的doc token
-         * <p> 示例值：fqF1wpU0gi6WP4klwRGchoqqweA
-         */
-        private String docToken;
-
-        /**
-         * 纪要关联引用类型
-         * <p> 示例值：
-         *
-         * @param referenceType
-         * @return
-         */
-        public Builder referenceType(Integer referenceType) {
-            this.referenceType = referenceType;
-            return this;
-        }
-
-        /**
-         * 纪要关联引用类型
-         * <p> 示例值：
-         *
-         * @param referenceType {@link com.lark.oapi.service.vc.v1.enums.NoteReferenceInfoReferenceTypeEnum}
-         * @return
-         */
-        public Builder referenceType(com.lark.oapi.service.vc.v1.enums.NoteReferenceInfoReferenceTypeEnum referenceType) {
-            this.referenceType = referenceType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 纪要关联引用的doc token
-         * <p> 示例值：fqF1wpU0gi6WP4klwRGchoqqweA
-         *
-         * @param docToken
-         * @return
-         */
-        public Builder docToken(String docToken) {
-            this.docToken = docToken;
-            return this;
-        }
-
-
-        public NoteReferenceInfo build() {
-            return new NoteReferenceInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

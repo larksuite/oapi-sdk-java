@@ -13,117 +13,114 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateFileCommentReplyRespBody {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("content")
-    private ReplyContent content;
-    /**
-     * 回复 ID
-     * <p> 示例值：6916106xxxxx4512356
-     */
-    @SerializedName("reply_id")
-    private String replyId;
-    /**
-     * 用户 ID
-     * <p> 示例值：ou_cc19b2bfb93f8a44db4b4d6eab2abcef
-     */
-    @SerializedName("user_id")
-    private String userId;
-    /**
-     * 创建时间
-     * <p> 示例值：1610281603
-     */
-    @SerializedName("create_time")
-    private Integer createTime;
-    /**
-     * 更新时间
-     * <p> 示例值：1610281603
-     */
-    @SerializedName("update_time")
-    private Integer updateTime;
-    /**
-     * 回复的其他内容，图片 Token 等
-     * <p> 示例值：
-     */
-    @SerializedName("extra")
-    private ReplyExtra extra;
-    /**
-     * 评论回复卡片上对应的表情回复信息
-     * <p> 示例值：
-     */
-    @SerializedName("reactions")
-    private FileCommentV2BatchQueryReactionData[] reactions;
+  /**
+   * 回复内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("content")
+  private ReplyContent content;
 
-    public ReplyContent getContent() {
-        return this.content;
-    }
+  /**
+   * 回复 ID
+   *
+   * <p>示例值：6916106xxxxx4512356
+   */
+  @SerializedName("reply_id")
+  private String replyId;
 
-    public void setContent(ReplyContent content) {
-        this.content = content;
-    }
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：ou_cc19b2bfb93f8a44db4b4d6eab2abcef
+   */
+  @SerializedName("user_id")
+  private String userId;
 
-    public String getReplyId() {
-        return this.replyId;
-    }
+  /**
+   * 创建时间（单位：秒）
+   *
+   * <p>示例值：1610281603
+   */
+  @SerializedName("create_time")
+  private Integer createTime;
 
-    public void setReplyId(String replyId) {
-        this.replyId = replyId;
-    }
+  /**
+   * 更新时间（单位：秒）
+   *
+   * <p>示例值：1610281603
+   */
+  @SerializedName("update_time")
+  private Integer updateTime;
 
-    public String getUserId() {
-        return this.userId;
-    }
+  /** 示例值： */
+  @SerializedName("extra")
+  private ReplyExtra extra;
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+  /**
+   * 评论回复卡片上对应的表情回复信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reactions")
+  private FileCommentV2BatchQueryReactionData[] reactions;
 
-    public Integer getCreateTime() {
-        return this.createTime;
-    }
+  public ReplyContent getContent() {
+    return this.content;
+  }
 
-    public void setCreateTime(Integer createTime) {
-        this.createTime = createTime;
-    }
+  public void setContent(ReplyContent content) {
+    this.content = content;
+  }
 
-    public Integer getUpdateTime() {
-        return this.updateTime;
-    }
+  public String getReplyId() {
+    return this.replyId;
+  }
 
-    public void setUpdateTime(Integer updateTime) {
-        this.updateTime = updateTime;
-    }
+  public void setReplyId(String replyId) {
+    this.replyId = replyId;
+  }
 
-    public ReplyExtra getExtra() {
-        return this.extra;
-    }
+  public String getUserId() {
+    return this.userId;
+  }
 
-    public void setExtra(ReplyExtra extra) {
-        this.extra = extra;
-    }
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
 
-    public FileCommentV2BatchQueryReactionData[] getReactions() {
-        return this.reactions;
-    }
+  public Integer getCreateTime() {
+    return this.createTime;
+  }
 
-    public void setReactions(FileCommentV2BatchQueryReactionData[] reactions) {
-        this.reactions = reactions;
-    }
+  public void setCreateTime(Integer createTime) {
+    this.createTime = createTime;
+  }
 
+  public Integer getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(Integer updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public ReplyExtra getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(ReplyExtra extra) {
+    this.extra = extra;
+  }
+
+  public FileCommentV2BatchQueryReactionData[] getReactions() {
+    return this.reactions;
+  }
+
+  public void setReactions(FileCommentV2BatchQueryReactionData[] reactions) {
+    this.reactions = reactions;
+  }
 }

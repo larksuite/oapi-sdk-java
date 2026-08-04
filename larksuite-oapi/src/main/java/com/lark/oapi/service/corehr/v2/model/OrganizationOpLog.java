@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OrganizationOpLog {
+  /**
+   * 部门ID
+   *
+   * <p>示例值：7094136522860922111
+   */
+  @SerializedName("object_id")
+  private String objectId;
+
+  /**
+   * 字段变化列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("changes")
+  private OperationLogEntityField[] changes;
+
+  /**
+   * 操作人
+   *
+   * <p>示例值：工号001
+   */
+  @SerializedName("operator")
+  private String operator;
+
+  /**
+   * 操作类型
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("operation_type")
+  private Integer operationType;
+
+  /**
+   * 操作时间
+   *
+   * <p>示例值：2020-05-02 12:00:00
+   */
+  @SerializedName("operation_time")
+  private String operationTime;
+
+  /**
+   * 操作生效时间
+   *
+   * <p>示例值：2020-06-02
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 操作原因说明
+   *
+   * <p>示例值：因人员调整,变更部门负责人为某某
+   */
+  @SerializedName("operation_reason")
+  private String operationReason;
+
+  /**
+   * 调整原因列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("change_reasons")
+  private String[] changeReasons;
+
+  public String getObjectId() {
+    return this.objectId;
+  }
+
+  public void setObjectId(String objectId) {
+    this.objectId = objectId;
+  }
+
+  public OperationLogEntityField[] getChanges() {
+    return this.changes;
+  }
+
+  public void setChanges(OperationLogEntityField[] changes) {
+    this.changes = changes;
+  }
+
+  public String getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public Integer getOperationType() {
+    return this.operationType;
+  }
+
+  public void setOperationType(Integer operationType) {
+    this.operationType = operationType;
+  }
+
+  public String getOperationTime() {
+    return this.operationTime;
+  }
+
+  public void setOperationTime(String operationTime) {
+    this.operationTime = operationTime;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getOperationReason() {
+    return this.operationReason;
+  }
+
+  public void setOperationReason(String operationReason) {
+    this.operationReason = operationReason;
+  }
+
+  public String[] getChangeReasons() {
+    return this.changeReasons;
+  }
+
+  public void setChangeReasons(String[] changeReasons) {
+    this.changeReasons = changeReasons;
+  }
+
+  // builder 开始
+  public OrganizationOpLog() {}
+
+  public OrganizationOpLog(Builder builder) {
     /**
-     * 业务对象ID
-     * <p> 示例值：7094136522860922111
+     * 部门ID
+     *
+     * <p>示例值：7094136522860922111
      */
-    @SerializedName("object_id")
-    private String objectId;
+    this.objectId = builder.objectId;
     /**
      * 字段变化列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("changes")
-    private OperationLogEntityField[] changes;
+    this.changes = builder.changes;
     /**
      * 操作人
-     * <p> 示例值：工号001
+     *
+     * <p>示例值：工号001
      */
-    @SerializedName("operator")
-    private String operator;
+    this.operator = builder.operator;
     /**
      * 操作类型
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("operation_type")
-    private Integer operationType;
+    this.operationType = builder.operationType;
     /**
      * 操作时间
-     * <p> 示例值：2020-05-02 12:00:00
+     *
+     * <p>示例值：2020-05-02 12:00:00
      */
-    @SerializedName("operation_time")
-    private String operationTime;
+    this.operationTime = builder.operationTime;
     /**
      * 操作生效时间
-     * <p> 示例值：2020-06-02
+     *
+     * <p>示例值：2020-06-02
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 操作原因说明
-     * <p> 示例值：因人员调整,变更部门负责人为某某
+     *
+     * <p>示例值：因人员调整,变更部门负责人为某某
      */
-    @SerializedName("operation_reason")
-    private String operationReason;
+    this.operationReason = builder.operationReason;
     /**
      * 调整原因列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("change_reasons")
+    this.changeReasons = builder.changeReasons;
+  }
+
+  public static class Builder {
+    /**
+     * 部门ID
+     *
+     * <p>示例值：7094136522860922111
+     */
+    private String objectId;
+
+    /**
+     * 字段变化列表
+     *
+     * <p>示例值：
+     */
+    private OperationLogEntityField[] changes;
+
+    /**
+     * 操作人
+     *
+     * <p>示例值：工号001
+     */
+    private String operator;
+
+    /**
+     * 操作类型
+     *
+     * <p>示例值：10
+     */
+    private Integer operationType;
+
+    /**
+     * 操作时间
+     *
+     * <p>示例值：2020-05-02 12:00:00
+     */
+    private String operationTime;
+
+    /**
+     * 操作生效时间
+     *
+     * <p>示例值：2020-06-02
+     */
+    private String effectiveTime;
+
+    /**
+     * 操作原因说明
+     *
+     * <p>示例值：因人员调整,变更部门负责人为某某
+     */
+    private String operationReason;
+
+    /**
+     * 调整原因列表
+     *
+     * <p>示例值：
+     */
     private String[] changeReasons;
 
-    // builder 开始
-    public OrganizationOpLog() {
+    /**
+     * 部门ID
+     *
+     * <p>示例值：7094136522860922111
+     *
+     * @param objectId
+     * @return
+     */
+    public Builder objectId(String objectId) {
+      this.objectId = objectId;
+      return this;
     }
 
-    public OrganizationOpLog(Builder builder) {
-        /**
-         * 业务对象ID
-         * <p> 示例值：7094136522860922111
-         */
-        this.objectId = builder.objectId;
-        /**
-         * 字段变化列表
-         * <p> 示例值：
-         */
-        this.changes = builder.changes;
-        /**
-         * 操作人
-         * <p> 示例值：工号001
-         */
-        this.operator = builder.operator;
-        /**
-         * 操作类型
-         * <p> 示例值：10
-         */
-        this.operationType = builder.operationType;
-        /**
-         * 操作时间
-         * <p> 示例值：2020-05-02 12:00:00
-         */
-        this.operationTime = builder.operationTime;
-        /**
-         * 操作生效时间
-         * <p> 示例值：2020-06-02
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 操作原因说明
-         * <p> 示例值：因人员调整,变更部门负责人为某某
-         */
-        this.operationReason = builder.operationReason;
-        /**
-         * 调整原因列表
-         * <p> 示例值：
-         */
-        this.changeReasons = builder.changeReasons;
+    /**
+     * 字段变化列表
+     *
+     * <p>示例值：
+     *
+     * @param changes
+     * @return
+     */
+    public Builder changes(OperationLogEntityField[] changes) {
+      this.changes = changes;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作人
+     *
+     * <p>示例值：工号001
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(String operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public String getObjectId() {
-        return this.objectId;
+    /**
+     * 操作类型
+     *
+     * <p>示例值：10
+     *
+     * @param operationType
+     * @return
+     */
+    public Builder operationType(Integer operationType) {
+      this.operationType = operationType;
+      return this;
     }
 
-    public void setObjectId(String objectId) {
-        this.objectId = objectId;
+    /**
+     * 操作时间
+     *
+     * <p>示例值：2020-05-02 12:00:00
+     *
+     * @param operationTime
+     * @return
+     */
+    public Builder operationTime(String operationTime) {
+      this.operationTime = operationTime;
+      return this;
     }
 
-    public OperationLogEntityField[] getChanges() {
-        return this.changes;
+    /**
+     * 操作生效时间
+     *
+     * <p>示例值：2020-06-02
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public void setChanges(OperationLogEntityField[] changes) {
-        this.changes = changes;
+    /**
+     * 操作原因说明
+     *
+     * <p>示例值：因人员调整,变更部门负责人为某某
+     *
+     * @param operationReason
+     * @return
+     */
+    public Builder operationReason(String operationReason) {
+      this.operationReason = operationReason;
+      return this;
     }
 
-    public String getOperator() {
-        return this.operator;
+    /**
+     * 调整原因列表
+     *
+     * <p>示例值：
+     *
+     * @param changeReasons
+     * @return
+     */
+    public Builder changeReasons(String[] changeReasons) {
+      this.changeReasons = changeReasons;
+      return this;
     }
 
-    public void setOperator(String operator) {
-        this.operator = operator;
+    public OrganizationOpLog build() {
+      return new OrganizationOpLog(this);
     }
+  }
 
-    public Integer getOperationType() {
-        return this.operationType;
-    }
-
-    public void setOperationType(Integer operationType) {
-        this.operationType = operationType;
-    }
-
-    public String getOperationTime() {
-        return this.operationTime;
-    }
-
-    public void setOperationTime(String operationTime) {
-        this.operationTime = operationTime;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public String getOperationReason() {
-        return this.operationReason;
-    }
-
-    public void setOperationReason(String operationReason) {
-        this.operationReason = operationReason;
-    }
-
-    public String[] getChangeReasons() {
-        return this.changeReasons;
-    }
-
-    public void setChangeReasons(String[] changeReasons) {
-        this.changeReasons = changeReasons;
-    }
-
-    public static class Builder {
-        /**
-         * 业务对象ID
-         * <p> 示例值：7094136522860922111
-         */
-        private String objectId;
-        /**
-         * 字段变化列表
-         * <p> 示例值：
-         */
-        private OperationLogEntityField[] changes;
-        /**
-         * 操作人
-         * <p> 示例值：工号001
-         */
-        private String operator;
-        /**
-         * 操作类型
-         * <p> 示例值：10
-         */
-        private Integer operationType;
-        /**
-         * 操作时间
-         * <p> 示例值：2020-05-02 12:00:00
-         */
-        private String operationTime;
-        /**
-         * 操作生效时间
-         * <p> 示例值：2020-06-02
-         */
-        private String effectiveTime;
-        /**
-         * 操作原因说明
-         * <p> 示例值：因人员调整,变更部门负责人为某某
-         */
-        private String operationReason;
-        /**
-         * 调整原因列表
-         * <p> 示例值：
-         */
-        private String[] changeReasons;
-
-        /**
-         * 业务对象ID
-         * <p> 示例值：7094136522860922111
-         *
-         * @param objectId
-         * @return
-         */
-        public Builder objectId(String objectId) {
-            this.objectId = objectId;
-            return this;
-        }
-
-
-        /**
-         * 字段变化列表
-         * <p> 示例值：
-         *
-         * @param changes
-         * @return
-         */
-        public Builder changes(OperationLogEntityField[] changes) {
-            this.changes = changes;
-            return this;
-        }
-
-
-        /**
-         * 操作人
-         * <p> 示例值：工号001
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 操作类型
-         * <p> 示例值：10
-         *
-         * @param operationType
-         * @return
-         */
-        public Builder operationType(Integer operationType) {
-            this.operationType = operationType;
-            return this;
-        }
-
-
-        /**
-         * 操作时间
-         * <p> 示例值：2020-05-02 12:00:00
-         *
-         * @param operationTime
-         * @return
-         */
-        public Builder operationTime(String operationTime) {
-            this.operationTime = operationTime;
-            return this;
-        }
-
-
-        /**
-         * 操作生效时间
-         * <p> 示例值：2020-06-02
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 操作原因说明
-         * <p> 示例值：因人员调整,变更部门负责人为某某
-         *
-         * @param operationReason
-         * @return
-         */
-        public Builder operationReason(String operationReason) {
-            this.operationReason = operationReason;
-            return this;
-        }
-
-
-        /**
-         * 调整原因列表
-         * <p> 示例值：
-         *
-         * @param changeReasons
-         * @return
-         */
-        public Builder changeReasons(String[] changeReasons) {
-            this.changeReasons = changeReasons;
-            return this;
-        }
-
-
-        public OrganizationOpLog build() {
-            return new OrganizationOpLog(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

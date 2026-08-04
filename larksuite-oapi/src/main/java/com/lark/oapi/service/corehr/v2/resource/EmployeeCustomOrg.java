@@ -13,367 +13,509 @@
 
 package com.lark.oapi.service.corehr.v2.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.corehr.v2.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.corehr.v2.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class EmployeeCustomOrg {
-    private static final Logger log = LoggerFactory.getLogger(EmployeeCustomOrg.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(EmployeeCustomOrg.class);
+  private final Config config;
 
-    public EmployeeCustomOrg(Config config) {
-        this.config = config;
+  public EmployeeCustomOrg(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 新增人员自定义组织变更记录，为指定员工添加某一自定义组织变更记录
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmpCustomOrgEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmpCustomOrgEmployeeCustomOrgSample.java</a>
+   * ;
+   */
+  public CreateEmpCustomOrgEmployeeCustomOrgResp createEmpCustomOrg(
+      CreateEmpCustomOrgEmployeeCustomOrgReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/custom_org/create_emp_custom_org",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmpCustomOrgEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmpCustomOrgEmployeeCustomOrgSample.java</a> ;
-     */
-    public CreateEmpCustomOrgEmployeeCustomOrgResp createEmpCustomOrg(CreateEmpCustomOrgEmployeeCustomOrgReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/custom_org/create_emp_custom_org"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        CreateEmpCustomOrgEmployeeCustomOrgResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEmpCustomOrgEmployeeCustomOrgResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/custom_org/create_emp_custom_org"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    CreateEmpCustomOrgEmployeeCustomOrgResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, CreateEmpCustomOrgEmployeeCustomOrgResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/custom_org/create_emp_custom_org",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmpCustomOrgEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmpCustomOrgEmployeeCustomOrgSample.java</a> ;
-     */
-    public CreateEmpCustomOrgEmployeeCustomOrgResp createEmpCustomOrg(CreateEmpCustomOrgEmployeeCustomOrgReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/custom_org/create_emp_custom_org"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        CreateEmpCustomOrgEmployeeCustomOrgResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEmpCustomOrgEmployeeCustomOrgResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/custom_org/create_emp_custom_org"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 新增人员自定义组织变更记录，为指定员工添加某一自定义组织变更记录
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmpCustomOrgEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmpCustomOrgEmployeeCustomOrgSample.java</a>
+   * ;
+   */
+  public CreateEmpCustomOrgEmployeeCustomOrgResp createEmpCustomOrg(
+      CreateEmpCustomOrgEmployeeCustomOrgReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/custom_org/create_emp_custom_org",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    CreateEmpCustomOrgEmployeeCustomOrgResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, CreateEmpCustomOrgEmployeeCustomOrgResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/custom_org/create_emp_custom_org",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=del&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=del&project=corehr&resource=employee.custom_org&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DelEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DelEmployeeCustomOrgSample.java</a> ;
-     */
-    public DelEmployeeCustomOrgResp del(DelEmployeeCustomOrgReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/custom_org/del"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        DelEmployeeCustomOrgResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DelEmployeeCustomOrgResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/custom_org/del"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 删除人员自定义组织变更记录，根据记录版本 ID 删除员工某一自定义组织某一版本记录信息
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=del&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=del&project=corehr&resource=employee.custom_org&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DelEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DelEmployeeCustomOrgSample.java</a>
+   * ;
+   */
+  public DelEmployeeCustomOrgResp del(DelEmployeeCustomOrgReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=del&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=del&project=corehr&resource=employee.custom_org&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DelEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DelEmployeeCustomOrgSample.java</a> ;
-     */
-    public DelEmployeeCustomOrgResp del(DelEmployeeCustomOrgReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/custom_org/del",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/custom_org/del"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        DelEmployeeCustomOrgResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DelEmployeeCustomOrgResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/custom_org/del"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    DelEmployeeCustomOrgResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, DelEmployeeCustomOrgResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/custom_org/del",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EditEmpCustomOrgEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EditEmpCustomOrgEmployeeCustomOrgSample.java</a> ;
-     */
-    public EditEmpCustomOrgEmployeeCustomOrgResp editEmpCustomOrg(EditEmpCustomOrgEmployeeCustomOrgReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/custom_org/edit_emp_custom_org"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        EditEmpCustomOrgEmployeeCustomOrgResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, EditEmpCustomOrgEmployeeCustomOrgResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/custom_org/edit_emp_custom_org"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 删除人员自定义组织变更记录，根据记录版本 ID 删除员工某一自定义组织某一版本记录信息
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=del&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=del&project=corehr&resource=employee.custom_org&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DelEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DelEmployeeCustomOrgSample.java</a>
+   * ;
+   */
+  public DelEmployeeCustomOrgResp del(DelEmployeeCustomOrgReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/custom_org/del",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    DelEmployeeCustomOrgResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, DelEmployeeCustomOrgResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/custom_org/del",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EditEmpCustomOrgEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EditEmpCustomOrgEmployeeCustomOrgSample.java</a> ;
-     */
-    public EditEmpCustomOrgEmployeeCustomOrgResp editEmpCustomOrg(EditEmpCustomOrgEmployeeCustomOrgReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/custom_org/edit_emp_custom_org"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        EditEmpCustomOrgEmployeeCustomOrgResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, EditEmpCustomOrgEmployeeCustomOrgResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/custom_org/edit_emp_custom_org"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 更新人员自定义组织变更记录，更新指定员工的某一条自定义组织变更记录
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EditEmpCustomOrgEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EditEmpCustomOrgEmployeeCustomOrgSample.java</a>
+   * ;
+   */
+  public EditEmpCustomOrgEmployeeCustomOrgResp editEmpCustomOrg(
+      EditEmpCustomOrgEmployeeCustomOrgReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=employment_custom_org_record&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=employment_custom_org_record&project=corehr&resource=employee.custom_org&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EmploymentCustomOrgRecordEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EmploymentCustomOrgRecordEmployeeCustomOrgSample.java</a> ;
-     */
-    public EmploymentCustomOrgRecordEmployeeCustomOrgResp employmentCustomOrgRecord(EmploymentCustomOrgRecordEmployeeCustomOrgReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/custom_org/edit_emp_custom_org",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/corehr/v2/custom_org/employment_custom_org_record"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        EmploymentCustomOrgRecordEmployeeCustomOrgResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, EmploymentCustomOrgRecordEmployeeCustomOrgResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/custom_org/employment_custom_org_record"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    EditEmpCustomOrgEmployeeCustomOrgResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, EditEmpCustomOrgEmployeeCustomOrgResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/custom_org/edit_emp_custom_org",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=employment_custom_org_record&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=employment_custom_org_record&project=corehr&resource=employee.custom_org&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EmploymentCustomOrgRecordEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EmploymentCustomOrgRecordEmployeeCustomOrgSample.java</a> ;
-     */
-    public EmploymentCustomOrgRecordEmployeeCustomOrgResp employmentCustomOrgRecord(EmploymentCustomOrgRecordEmployeeCustomOrgReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/corehr/v2/custom_org/employment_custom_org_record"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        EmploymentCustomOrgRecordEmployeeCustomOrgResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, EmploymentCustomOrgRecordEmployeeCustomOrgResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/custom_org/employment_custom_org_record"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 更新人员自定义组织变更记录，更新指定员工的某一条自定义组织变更记录
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_emp_custom_org&project=corehr&resource=employee.custom_org&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EditEmpCustomOrgEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EditEmpCustomOrgEmployeeCustomOrgSample.java</a>
+   * ;
+   */
+  public EditEmpCustomOrgEmployeeCustomOrgResp editEmpCustomOrg(
+      EditEmpCustomOrgEmployeeCustomOrgReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/custom_org/edit_emp_custom_org",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    EditEmpCustomOrgEmployeeCustomOrgResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, EditEmpCustomOrgEmployeeCustomOrgResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/custom_org/edit_emp_custom_org",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=querybyid&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=querybyid&project=corehr&resource=employee.custom_org&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/QuerybyidEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/QuerybyidEmployeeCustomOrgSample.java</a> ;
-     */
-    public QuerybyidEmployeeCustomOrgResp querybyid(QuerybyidEmployeeCustomOrgReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/corehr/v2/custom_org/querybyid"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        QuerybyidEmployeeCustomOrgResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerybyidEmployeeCustomOrgResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/custom_org/querybyid"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 批量查询人员自定义组织变更记录，通过员工 ID 批量查询自定义组织变更记录信息。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=employment_custom_org_record&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=employment_custom_org_record&project=corehr&resource=employee.custom_org&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EmploymentCustomOrgRecordEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EmploymentCustomOrgRecordEmployeeCustomOrgSample.java</a>
+   * ;
+   */
+  public EmploymentCustomOrgRecordEmployeeCustomOrgResp employmentCustomOrgRecord(
+      EmploymentCustomOrgRecordEmployeeCustomOrgReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=querybyid&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=querybyid&project=corehr&resource=employee.custom_org&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/QuerybyidEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/QuerybyidEmployeeCustomOrgSample.java</a> ;
-     */
-    public QuerybyidEmployeeCustomOrgResp querybyid(QuerybyidEmployeeCustomOrgReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/corehr/v2/custom_org/employment_custom_org_record",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/corehr/v2/custom_org/querybyid"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        QuerybyidEmployeeCustomOrgResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerybyidEmployeeCustomOrgResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/custom_org/querybyid"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    EmploymentCustomOrgRecordEmployeeCustomOrgResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, EmploymentCustomOrgRecordEmployeeCustomOrgResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/custom_org/employment_custom_org_record",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 批量查询人员自定义组织变更记录，通过员工 ID 批量查询自定义组织变更记录信息。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=employment_custom_org_record&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=employment_custom_org_record&project=corehr&resource=employee.custom_org&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EmploymentCustomOrgRecordEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/EmploymentCustomOrgRecordEmployeeCustomOrgSample.java</a>
+   * ;
+   */
+  public EmploymentCustomOrgRecordEmployeeCustomOrgResp employmentCustomOrgRecord(
+      EmploymentCustomOrgRecordEmployeeCustomOrgReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/corehr/v2/custom_org/employment_custom_org_record",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    EmploymentCustomOrgRecordEmployeeCustomOrgResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, EmploymentCustomOrgRecordEmployeeCustomOrgResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/custom_org/employment_custom_org_record",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 查询单个人员自定义组织变更记录，根据自定义组织 id 查询自定义组织变更记录
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=querybyid&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=querybyid&project=corehr&resource=employee.custom_org&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/QuerybyidEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/QuerybyidEmployeeCustomOrgSample.java</a>
+   * ;
+   */
+  public QuerybyidEmployeeCustomOrgResp querybyid(
+      QuerybyidEmployeeCustomOrgReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/corehr/v2/custom_org/querybyid",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    QuerybyidEmployeeCustomOrgResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, QuerybyidEmployeeCustomOrgResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/custom_org/querybyid",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 查询单个人员自定义组织变更记录，根据自定义组织 id 查询自定义组织变更记录
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=querybyid&project=corehr&resource=employee.custom_org&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=querybyid&project=corehr&resource=employee.custom_org&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/QuerybyidEmployeeCustomOrgSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/QuerybyidEmployeeCustomOrgSample.java</a>
+   * ;
+   */
+  public QuerybyidEmployeeCustomOrgResp querybyid(QuerybyidEmployeeCustomOrgReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/corehr/v2/custom_org/querybyid",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    QuerybyidEmployeeCustomOrgResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, QuerybyidEmployeeCustomOrgResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/custom_org/querybyid",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

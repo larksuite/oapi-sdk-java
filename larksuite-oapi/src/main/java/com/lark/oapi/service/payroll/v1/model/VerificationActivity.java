@@ -13,408 +13,443 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerificationActivity {
+  /**
+   * 活动id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("activity_id")
+  private String activityId;
+
+  /**
+   * 方案id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("plan_id")
+  private String planId;
+
+  /**
+   * 方案版本id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("version_id")
+  private String versionId;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private IdWithName name;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("activity_status")
+  private Integer activityStatus;
+
+  /**
+   * 算薪期间
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("pay_period_seq")
+  private String payPeriodSeq;
+
+  /**
+   * 追溯期间
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("retro_period_seq")
+  private String retroPeriodSeq;
+
+  /**
+   * 快照
+   *
+   * <p>示例值：
+   */
+  @SerializedName("plan_snapshot")
+  private VerifPlanSnapshot planSnapshot;
+
+  /**
+   * 更新时间，时间戳
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("update_time")
+  private Integer updateTime;
+
+  /**
+   * 审批通过时间，时间戳
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("approve_time")
+  private Integer approveTime;
+
+  public String getActivityId() {
+    return this.activityId;
+  }
+
+  public void setActivityId(String activityId) {
+    this.activityId = activityId;
+  }
+
+  public String getPlanId() {
+    return this.planId;
+  }
+
+  public void setPlanId(String planId) {
+    this.planId = planId;
+  }
+
+  public String getVersionId() {
+    return this.versionId;
+  }
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
+
+  public IdWithName getName() {
+    return this.name;
+  }
+
+  public void setName(IdWithName name) {
+    this.name = name;
+  }
+
+  public Integer getActivityStatus() {
+    return this.activityStatus;
+  }
+
+  public void setActivityStatus(Integer activityStatus) {
+    this.activityStatus = activityStatus;
+  }
+
+  public String getPayPeriodSeq() {
+    return this.payPeriodSeq;
+  }
+
+  public void setPayPeriodSeq(String payPeriodSeq) {
+    this.payPeriodSeq = payPeriodSeq;
+  }
+
+  public String getRetroPeriodSeq() {
+    return this.retroPeriodSeq;
+  }
+
+  public void setRetroPeriodSeq(String retroPeriodSeq) {
+    this.retroPeriodSeq = retroPeriodSeq;
+  }
+
+  public VerifPlanSnapshot getPlanSnapshot() {
+    return this.planSnapshot;
+  }
+
+  public void setPlanSnapshot(VerifPlanSnapshot planSnapshot) {
+    this.planSnapshot = planSnapshot;
+  }
+
+  public Integer getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(Integer updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public Integer getApproveTime() {
+    return this.approveTime;
+  }
+
+  public void setApproveTime(Integer approveTime) {
+    this.approveTime = approveTime;
+  }
+
+  // builder 开始
+  public VerificationActivity() {}
+
+  public VerificationActivity(Builder builder) {
     /**
      * 活动id
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("activity_id")
-    private String activityId;
+    this.activityId = builder.activityId;
     /**
      * 方案id
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("plan_id")
-    private String planId;
+    this.planId = builder.planId;
     /**
      * 方案版本id
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("version_id")
-    private String versionId;
+    this.versionId = builder.versionId;
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private IdWithName name;
+    this.name = builder.name;
     /**
      * 状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("activity_status")
-    private Integer activityStatus;
+    this.activityStatus = builder.activityStatus;
     /**
      * 算薪期间
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("pay_period_seq")
-    private String payPeriodSeq;
+    this.payPeriodSeq = builder.payPeriodSeq;
     /**
      * 追溯期间
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("retro_period_seq")
-    private String retroPeriodSeq;
+    this.retroPeriodSeq = builder.retroPeriodSeq;
     /**
      * 快照
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("plan_snapshot")
-    private VerifPlanSnapshot planSnapshot;
+    this.planSnapshot = builder.planSnapshot;
     /**
      * 更新时间，时间戳
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("update_time")
-    private Integer updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 审批通过时间，时间戳
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("approve_time")
+    this.approveTime = builder.approveTime;
+  }
+
+  public static class Builder {
+    /**
+     * 活动id
+     *
+     * <p>示例值：1
+     */
+    private String activityId;
+
+    /**
+     * 方案id
+     *
+     * <p>示例值：1
+     */
+    private String planId;
+
+    /**
+     * 方案版本id
+     *
+     * <p>示例值：1
+     */
+    private String versionId;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private IdWithName name;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     */
+    private Integer activityStatus;
+
+    /**
+     * 算薪期间
+     *
+     * <p>示例值：1
+     */
+    private String payPeriodSeq;
+
+    /**
+     * 追溯期间
+     *
+     * <p>示例值：1
+     */
+    private String retroPeriodSeq;
+
+    /**
+     * 快照
+     *
+     * <p>示例值：
+     */
+    private VerifPlanSnapshot planSnapshot;
+
+    /**
+     * 更新时间，时间戳
+     *
+     * <p>示例值：1
+     */
+    private Integer updateTime;
+
+    /**
+     * 审批通过时间，时间戳
+     *
+     * <p>示例值：1
+     */
     private Integer approveTime;
 
-    // builder 开始
-    public VerificationActivity() {
+    /**
+     * 活动id
+     *
+     * <p>示例值：1
+     *
+     * @param activityId
+     * @return
+     */
+    public Builder activityId(String activityId) {
+      this.activityId = activityId;
+      return this;
     }
 
-    public VerificationActivity(Builder builder) {
-        /**
-         * 活动id
-         * <p> 示例值：1
-         */
-        this.activityId = builder.activityId;
-        /**
-         * 方案id
-         * <p> 示例值：1
-         */
-        this.planId = builder.planId;
-        /**
-         * 方案版本id
-         * <p> 示例值：1
-         */
-        this.versionId = builder.versionId;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        this.activityStatus = builder.activityStatus;
-        /**
-         * 算薪期间
-         * <p> 示例值：1
-         */
-        this.payPeriodSeq = builder.payPeriodSeq;
-        /**
-         * 追溯期间
-         * <p> 示例值：1
-         */
-        this.retroPeriodSeq = builder.retroPeriodSeq;
-        /**
-         * 快照
-         * <p> 示例值：
-         */
-        this.planSnapshot = builder.planSnapshot;
-        /**
-         * 更新时间，时间戳
-         * <p> 示例值：1
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 审批通过时间，时间戳
-         * <p> 示例值：1
-         */
-        this.approveTime = builder.approveTime;
+    /**
+     * 方案id
+     *
+     * <p>示例值：1
+     *
+     * @param planId
+     * @return
+     */
+    public Builder planId(String planId) {
+      this.planId = planId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 方案版本id
+     *
+     * <p>示例值：1
+     *
+     * @param versionId
+     * @return
+     */
+    public Builder versionId(String versionId) {
+      this.versionId = versionId;
+      return this;
     }
 
-    public String getActivityId() {
-        return this.activityId;
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(IdWithName name) {
+      this.name = name;
+      return this;
     }
 
-    public void setActivityId(String activityId) {
-        this.activityId = activityId;
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     *
+     * @param activityStatus
+     * @return
+     */
+    public Builder activityStatus(Integer activityStatus) {
+      this.activityStatus = activityStatus;
+      return this;
     }
 
-    public String getPlanId() {
-        return this.planId;
+    /**
+     * 算薪期间
+     *
+     * <p>示例值：1
+     *
+     * @param payPeriodSeq
+     * @return
+     */
+    public Builder payPeriodSeq(String payPeriodSeq) {
+      this.payPeriodSeq = payPeriodSeq;
+      return this;
     }
 
-    public void setPlanId(String planId) {
-        this.planId = planId;
+    /**
+     * 追溯期间
+     *
+     * <p>示例值：1
+     *
+     * @param retroPeriodSeq
+     * @return
+     */
+    public Builder retroPeriodSeq(String retroPeriodSeq) {
+      this.retroPeriodSeq = retroPeriodSeq;
+      return this;
     }
 
-    public String getVersionId() {
-        return this.versionId;
+    /**
+     * 快照
+     *
+     * <p>示例值：
+     *
+     * @param planSnapshot
+     * @return
+     */
+    public Builder planSnapshot(VerifPlanSnapshot planSnapshot) {
+      this.planSnapshot = planSnapshot;
+      return this;
     }
 
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
+    /**
+     * 更新时间，时间戳
+     *
+     * <p>示例值：1
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(Integer updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public IdWithName getName() {
-        return this.name;
+    /**
+     * 审批通过时间，时间戳
+     *
+     * <p>示例值：1
+     *
+     * @param approveTime
+     * @return
+     */
+    public Builder approveTime(Integer approveTime) {
+      this.approveTime = approveTime;
+      return this;
     }
 
-    public void setName(IdWithName name) {
-        this.name = name;
+    public VerificationActivity build() {
+      return new VerificationActivity(this);
     }
+  }
 
-    public Integer getActivityStatus() {
-        return this.activityStatus;
-    }
-
-    public void setActivityStatus(Integer activityStatus) {
-        this.activityStatus = activityStatus;
-    }
-
-    public String getPayPeriodSeq() {
-        return this.payPeriodSeq;
-    }
-
-    public void setPayPeriodSeq(String payPeriodSeq) {
-        this.payPeriodSeq = payPeriodSeq;
-    }
-
-    public String getRetroPeriodSeq() {
-        return this.retroPeriodSeq;
-    }
-
-    public void setRetroPeriodSeq(String retroPeriodSeq) {
-        this.retroPeriodSeq = retroPeriodSeq;
-    }
-
-    public VerifPlanSnapshot getPlanSnapshot() {
-        return this.planSnapshot;
-    }
-
-    public void setPlanSnapshot(VerifPlanSnapshot planSnapshot) {
-        this.planSnapshot = planSnapshot;
-    }
-
-    public Integer getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(Integer updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public Integer getApproveTime() {
-        return this.approveTime;
-    }
-
-    public void setApproveTime(Integer approveTime) {
-        this.approveTime = approveTime;
-    }
-
-    public static class Builder {
-        /**
-         * 活动id
-         * <p> 示例值：1
-         */
-        private String activityId;
-        /**
-         * 方案id
-         * <p> 示例值：1
-         */
-        private String planId;
-        /**
-         * 方案版本id
-         * <p> 示例值：1
-         */
-        private String versionId;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private IdWithName name;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        private Integer activityStatus;
-        /**
-         * 算薪期间
-         * <p> 示例值：1
-         */
-        private String payPeriodSeq;
-        /**
-         * 追溯期间
-         * <p> 示例值：1
-         */
-        private String retroPeriodSeq;
-        /**
-         * 快照
-         * <p> 示例值：
-         */
-        private VerifPlanSnapshot planSnapshot;
-        /**
-         * 更新时间，时间戳
-         * <p> 示例值：1
-         */
-        private Integer updateTime;
-        /**
-         * 审批通过时间，时间戳
-         * <p> 示例值：1
-         */
-        private Integer approveTime;
-
-        /**
-         * 活动id
-         * <p> 示例值：1
-         *
-         * @param activityId
-         * @return
-         */
-        public Builder activityId(String activityId) {
-            this.activityId = activityId;
-            return this;
-        }
-
-
-        /**
-         * 方案id
-         * <p> 示例值：1
-         *
-         * @param planId
-         * @return
-         */
-        public Builder planId(String planId) {
-            this.planId = planId;
-            return this;
-        }
-
-
-        /**
-         * 方案版本id
-         * <p> 示例值：1
-         *
-         * @param versionId
-         * @return
-         */
-        public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(IdWithName name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：1
-         *
-         * @param activityStatus
-         * @return
-         */
-        public Builder activityStatus(Integer activityStatus) {
-            this.activityStatus = activityStatus;
-            return this;
-        }
-
-
-        /**
-         * 算薪期间
-         * <p> 示例值：1
-         *
-         * @param payPeriodSeq
-         * @return
-         */
-        public Builder payPeriodSeq(String payPeriodSeq) {
-            this.payPeriodSeq = payPeriodSeq;
-            return this;
-        }
-
-
-        /**
-         * 追溯期间
-         * <p> 示例值：1
-         *
-         * @param retroPeriodSeq
-         * @return
-         */
-        public Builder retroPeriodSeq(String retroPeriodSeq) {
-            this.retroPeriodSeq = retroPeriodSeq;
-            return this;
-        }
-
-
-        /**
-         * 快照
-         * <p> 示例值：
-         *
-         * @param planSnapshot
-         * @return
-         */
-        public Builder planSnapshot(VerifPlanSnapshot planSnapshot) {
-            this.planSnapshot = planSnapshot;
-            return this;
-        }
-
-
-        /**
-         * 更新时间，时间戳
-         * <p> 示例值：1
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(Integer updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 审批通过时间，时间戳
-         * <p> 示例值：1
-         *
-         * @param approveTime
-         * @return
-         */
-        public Builder approveTime(Integer approveTime) {
-            this.approveTime = approveTime;
-            return this;
-        }
-
-
-        public VerificationActivity build() {
-            return new VerificationActivity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

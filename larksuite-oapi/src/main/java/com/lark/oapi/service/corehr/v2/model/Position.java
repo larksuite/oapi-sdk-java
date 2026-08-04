@@ -13,815 +13,941 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Position {
+  /**
+   * 岗位 ID
+   *
+   * <p>示例值：4692446793125560154
+   */
+  @SerializedName("position_id")
+  private String positionId;
+
+  /**
+   * 编码
+   *
+   * <p>示例值：A01234
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("names")
+  private I18n[] names;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("descriptions")
+  private I18n[] descriptions;
+
+  /**
+   * 状态，true表示启用，false表示停用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 序列 ID
+   * 列表，详细信息可通过[查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_family_id_list")
+  private String[] jobFamilyIdList;
+
+  /**
+   * 成本中心
+   * ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取对应的成本中心信息
+   *
+   * <p>示例值：4719519211875096301
+   */
+  @SerializedName("cost_center_id")
+  private String costCenterId;
+
+  /**
+   * 职务，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详细信息
+   *
+   * <p>示例值：4719519211875096302
+   */
+  @SerializedName("job_id")
+  private String jobId;
+
+  /**
+   * 职级 ID
+   * 列表，可通过[【查询单个职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)获取详细信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_level_id_list")
+  private String[] jobLevelIdList;
+
+  /**
+   * 人员类型 ID
+   * 列表，可通过文档[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)获得详细信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_type_id_list")
+  private String[] employeeTypeIdList;
+
+  /**
+   * 职等 ID 列表，可通过
+   * [【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取详细信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_grade_id_list")
+  private String[] jobGradeIdList;
+
+  /**
+   * 工作地点 ID
+   * 列表，详细信息可通过[查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)接口获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_location_id_list")
+  private String[] workLocationIdList;
+
+  /**
+   * 工时制度 ID
+   * 列表，可通过[【查询单个工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/get)查询详细信息
+   *
+   * <p>示例值：4719519211875096301
+   */
+  @SerializedName("working_hours_type_id")
+  private String workingHoursTypeId;
+
+  /**
+   * 部门
+   * ID，详细信息可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得;-
+   * 类型与 department_id_type 一致
+   *
+   * <p>示例值：4719519211875096301
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 直属上级岗位 ID，可通过本接口查询详细信息;- 若查询的是一级岗位，则该字段不展示
+   *
+   * <p>示例值：4719519211875096301
+   */
+  @SerializedName("direct_leader_id")
+  private String directLeaderId;
+
+  /**
+   * 虚线上级岗位 ID，可通过本接口查询详细信息
+   *
+   * <p>示例值：4719519211875096301
+   */
+  @SerializedName("dotted_line_leader_id")
+  private String dottedLineLeaderId;
+
+  /**
+   * 是否关键岗位
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_key_position")
+  private Boolean isKeyPosition;
+
+  /**
+   * 版本生效日期
+   *
+   * <p>示例值：2020-05-01
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 版本失效日期
+   *
+   * <p>示例值：2020-05-01
+   */
+  @SerializedName("expiration_time")
+  private String expirationTime;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldData[] customFields;
+
+  /**
+   * 创建人
+   *
+   * <p>示例值：4719519211875096301
+   */
+  @SerializedName("created_by")
+  private String createdBy;
+
+  public String getPositionId() {
+    return this.positionId;
+  }
+
+  public void setPositionId(String positionId) {
+    this.positionId = positionId;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public I18n[] getNames() {
+    return this.names;
+  }
+
+  public void setNames(I18n[] names) {
+    this.names = names;
+  }
+
+  public I18n[] getDescriptions() {
+    return this.descriptions;
+  }
+
+  public void setDescriptions(I18n[] descriptions) {
+    this.descriptions = descriptions;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String[] getJobFamilyIdList() {
+    return this.jobFamilyIdList;
+  }
+
+  public void setJobFamilyIdList(String[] jobFamilyIdList) {
+    this.jobFamilyIdList = jobFamilyIdList;
+  }
+
+  public String getCostCenterId() {
+    return this.costCenterId;
+  }
+
+  public void setCostCenterId(String costCenterId) {
+    this.costCenterId = costCenterId;
+  }
+
+  public String getJobId() {
+    return this.jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
+  public String[] getJobLevelIdList() {
+    return this.jobLevelIdList;
+  }
+
+  public void setJobLevelIdList(String[] jobLevelIdList) {
+    this.jobLevelIdList = jobLevelIdList;
+  }
+
+  public String[] getEmployeeTypeIdList() {
+    return this.employeeTypeIdList;
+  }
+
+  public void setEmployeeTypeIdList(String[] employeeTypeIdList) {
+    this.employeeTypeIdList = employeeTypeIdList;
+  }
+
+  public String[] getJobGradeIdList() {
+    return this.jobGradeIdList;
+  }
+
+  public void setJobGradeIdList(String[] jobGradeIdList) {
+    this.jobGradeIdList = jobGradeIdList;
+  }
+
+  public String[] getWorkLocationIdList() {
+    return this.workLocationIdList;
+  }
+
+  public void setWorkLocationIdList(String[] workLocationIdList) {
+    this.workLocationIdList = workLocationIdList;
+  }
+
+  public String getWorkingHoursTypeId() {
+    return this.workingHoursTypeId;
+  }
+
+  public void setWorkingHoursTypeId(String workingHoursTypeId) {
+    this.workingHoursTypeId = workingHoursTypeId;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getDirectLeaderId() {
+    return this.directLeaderId;
+  }
+
+  public void setDirectLeaderId(String directLeaderId) {
+    this.directLeaderId = directLeaderId;
+  }
+
+  public String getDottedLineLeaderId() {
+    return this.dottedLineLeaderId;
+  }
+
+  public void setDottedLineLeaderId(String dottedLineLeaderId) {
+    this.dottedLineLeaderId = dottedLineLeaderId;
+  }
+
+  public Boolean getIsKeyPosition() {
+    return this.isKeyPosition;
+  }
+
+  public void setIsKeyPosition(Boolean isKeyPosition) {
+    this.isKeyPosition = isKeyPosition;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getExpirationTime() {
+    return this.expirationTime;
+  }
+
+  public void setExpirationTime(String expirationTime) {
+    this.expirationTime = expirationTime;
+  }
+
+  public CustomFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public String getCreatedBy() {
+    return this.createdBy;
+  }
+
+  public void setCreatedBy(String createdBy) {
+    this.createdBy = createdBy;
+  }
+
+  // builder 开始
+  public Position() {}
+
+  public Position(Builder builder) {
     /**
      * 岗位 ID
-     * <p> 示例值：4692446793125560154
+     *
+     * <p>示例值：4692446793125560154
      */
-    @SerializedName("position_id")
-    private String positionId;
+    this.positionId = builder.positionId;
     /**
      * 编码
-     * <p> 示例值：A01234
+     *
+     * <p>示例值：A01234
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("names")
-    private I18n[] names;
+    this.names = builder.names;
     /**
      * 描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("descriptions")
-    private I18n[] descriptions;
+    this.descriptions = builder.descriptions;
     /**
-     * 状态
-     * <p> 示例值：true
+     * 状态，true表示启用，false表示停用
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
-     * 序列
-     * <p> 示例值：
+     * 序列 ID
+     * 列表，详细信息可通过[查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口获得
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_family_id_list")
-    private String[] jobFamilyIdList;
+    this.jobFamilyIdList = builder.jobFamilyIdList;
     /**
      * 成本中心
-     * <p> 示例值：4719519211875096301
+     * ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取对应的成本中心信息
+     *
+     * <p>示例值：4719519211875096301
      */
-    @SerializedName("cost_center_id")
-    private String costCenterId;
+    this.costCenterId = builder.costCenterId;
     /**
-     * 职务
-     * <p> 示例值：4719519211875096302
+     * 职务，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详细信息
+     *
+     * <p>示例值：4719519211875096302
      */
-    @SerializedName("job_id")
-    private String jobId;
+    this.jobId = builder.jobId;
     /**
-     * 职级
-     * <p> 示例值：
+     * 职级 ID
+     * 列表，可通过[【查询单个职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)获取详细信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_level_id_list")
-    private String[] jobLevelIdList;
+    this.jobLevelIdList = builder.jobLevelIdList;
     /**
-     * 人员类型
-     * <p> 示例值：
+     * 人员类型 ID
+     * 列表，可通过文档[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)获得详细信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_type_id_list")
-    private String[] employeeTypeIdList;
+    this.employeeTypeIdList = builder.employeeTypeIdList;
     /**
-     * 职等
-     * <p> 示例值：
+     * 职等 ID 列表，可通过
+     * [【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取详细信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_grade_id_list")
-    private String[] jobGradeIdList;
+    this.jobGradeIdList = builder.jobGradeIdList;
     /**
-     * 工作地点
-     * <p> 示例值：
+     * 工作地点 ID
+     * 列表，详细信息可通过[查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)接口获得
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_location_id_list")
-    private String[] workLocationIdList;
+    this.workLocationIdList = builder.workLocationIdList;
     /**
-     * 工时制度
-     * <p> 示例值：4719519211875096301
+     * 工时制度 ID
+     * 列表，可通过[【查询单个工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/get)查询详细信息
+     *
+     * <p>示例值：4719519211875096301
      */
-    @SerializedName("working_hours_type_id")
-    private String workingHoursTypeId;
+    this.workingHoursTypeId = builder.workingHoursTypeId;
     /**
      * 部门
-     * <p> 示例值：4719519211875096301
+     * ID，详细信息可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得;-
+     * 类型与 department_id_type 一致
+     *
+     * <p>示例值：4719519211875096301
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
-     * 直属上级岗位
-     * <p> 示例值：4719519211875096301
+     * 直属上级岗位 ID，可通过本接口查询详细信息;- 若查询的是一级岗位，则该字段不展示
+     *
+     * <p>示例值：4719519211875096301
      */
-    @SerializedName("direct_leader_id")
-    private String directLeaderId;
+    this.directLeaderId = builder.directLeaderId;
     /**
-     * 虚线上级岗位
-     * <p> 示例值：4719519211875096301
+     * 虚线上级岗位 ID，可通过本接口查询详细信息
+     *
+     * <p>示例值：4719519211875096301
      */
-    @SerializedName("dotted_line_leader_id")
-    private String dottedLineLeaderId;
+    this.dottedLineLeaderId = builder.dottedLineLeaderId;
     /**
      * 是否关键岗位
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_key_position")
-    private Boolean isKeyPosition;
+    this.isKeyPosition = builder.isKeyPosition;
     /**
-     * 生效日期
-     * <p> 示例值：2020-05-01
+     * 版本生效日期
+     *
+     * <p>示例值：2020-05-01
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
-     * 失效日期
-     * <p> 示例值：2020-05-01
+     * 版本失效日期
+     *
+     * <p>示例值：2020-05-01
      */
-    @SerializedName("expiration_time")
-    private String expirationTime;
+    this.expirationTime = builder.expirationTime;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private CustomFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
      * 创建人
-     * <p> 示例值：4719519211875096301
+     *
+     * <p>示例值：4719519211875096301
      */
-    @SerializedName("created_by")
+    this.createdBy = builder.createdBy;
+  }
+
+  public static class Builder {
+    /**
+     * 岗位 ID
+     *
+     * <p>示例值：4692446793125560154
+     */
+    private String positionId;
+
+    /**
+     * 编码
+     *
+     * <p>示例值：A01234
+     */
+    private String code;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] names;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] descriptions;
+
+    /**
+     * 状态，true表示启用，false表示停用
+     *
+     * <p>示例值：true
+     */
+    private Boolean active;
+
+    /**
+     * 序列 ID
+     * 列表，详细信息可通过[查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口获得
+     *
+     * <p>示例值：
+     */
+    private String[] jobFamilyIdList;
+
+    /**
+     * 成本中心
+     * ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取对应的成本中心信息
+     *
+     * <p>示例值：4719519211875096301
+     */
+    private String costCenterId;
+
+    /**
+     * 职务，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详细信息
+     *
+     * <p>示例值：4719519211875096302
+     */
+    private String jobId;
+
+    /**
+     * 职级 ID
+     * 列表，可通过[【查询单个职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)获取详细信息
+     *
+     * <p>示例值：
+     */
+    private String[] jobLevelIdList;
+
+    /**
+     * 人员类型 ID
+     * 列表，可通过文档[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)获得详细信息
+     *
+     * <p>示例值：
+     */
+    private String[] employeeTypeIdList;
+
+    /**
+     * 职等 ID 列表，可通过
+     * [【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取详细信息
+     *
+     * <p>示例值：
+     */
+    private String[] jobGradeIdList;
+
+    /**
+     * 工作地点 ID
+     * 列表，详细信息可通过[查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)接口获得
+     *
+     * <p>示例值：
+     */
+    private String[] workLocationIdList;
+
+    /**
+     * 工时制度 ID
+     * 列表，可通过[【查询单个工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/get)查询详细信息
+     *
+     * <p>示例值：4719519211875096301
+     */
+    private String workingHoursTypeId;
+
+    /**
+     * 部门
+     * ID，详细信息可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得;-
+     * 类型与 department_id_type 一致
+     *
+     * <p>示例值：4719519211875096301
+     */
+    private String departmentId;
+
+    /**
+     * 直属上级岗位 ID，可通过本接口查询详细信息;- 若查询的是一级岗位，则该字段不展示
+     *
+     * <p>示例值：4719519211875096301
+     */
+    private String directLeaderId;
+
+    /**
+     * 虚线上级岗位 ID，可通过本接口查询详细信息
+     *
+     * <p>示例值：4719519211875096301
+     */
+    private String dottedLineLeaderId;
+
+    /**
+     * 是否关键岗位
+     *
+     * <p>示例值：true
+     */
+    private Boolean isKeyPosition;
+
+    /**
+     * 版本生效日期
+     *
+     * <p>示例值：2020-05-01
+     */
+    private String effectiveTime;
+
+    /**
+     * 版本失效日期
+     *
+     * <p>示例值：2020-05-01
+     */
+    private String expirationTime;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private CustomFieldData[] customFields;
+
+    /**
+     * 创建人
+     *
+     * <p>示例值：4719519211875096301
+     */
     private String createdBy;
 
-    // builder 开始
-    public Position() {
+    /**
+     * 岗位 ID
+     *
+     * <p>示例值：4692446793125560154
+     *
+     * @param positionId
+     * @return
+     */
+    public Builder positionId(String positionId) {
+      this.positionId = positionId;
+      return this;
     }
 
-    public Position(Builder builder) {
-        /**
-         * 岗位 ID
-         * <p> 示例值：4692446793125560154
-         */
-        this.positionId = builder.positionId;
-        /**
-         * 编码
-         * <p> 示例值：A01234
-         */
-        this.code = builder.code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.names = builder.names;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.descriptions = builder.descriptions;
-        /**
-         * 状态
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 序列
-         * <p> 示例值：
-         */
-        this.jobFamilyIdList = builder.jobFamilyIdList;
-        /**
-         * 成本中心
-         * <p> 示例值：4719519211875096301
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * 职务
-         * <p> 示例值：4719519211875096302
-         */
-        this.jobId = builder.jobId;
-        /**
-         * 职级
-         * <p> 示例值：
-         */
-        this.jobLevelIdList = builder.jobLevelIdList;
-        /**
-         * 人员类型
-         * <p> 示例值：
-         */
-        this.employeeTypeIdList = builder.employeeTypeIdList;
-        /**
-         * 职等
-         * <p> 示例值：
-         */
-        this.jobGradeIdList = builder.jobGradeIdList;
-        /**
-         * 工作地点
-         * <p> 示例值：
-         */
-        this.workLocationIdList = builder.workLocationIdList;
-        /**
-         * 工时制度
-         * <p> 示例值：4719519211875096301
-         */
-        this.workingHoursTypeId = builder.workingHoursTypeId;
-        /**
-         * 部门
-         * <p> 示例值：4719519211875096301
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 直属上级岗位
-         * <p> 示例值：4719519211875096301
-         */
-        this.directLeaderId = builder.directLeaderId;
-        /**
-         * 虚线上级岗位
-         * <p> 示例值：4719519211875096301
-         */
-        this.dottedLineLeaderId = builder.dottedLineLeaderId;
-        /**
-         * 是否关键岗位
-         * <p> 示例值：true
-         */
-        this.isKeyPosition = builder.isKeyPosition;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 失效日期
-         * <p> 示例值：2020-05-01
-         */
-        this.expirationTime = builder.expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 创建人
-         * <p> 示例值：4719519211875096301
-         */
-        this.createdBy = builder.createdBy;
+    /**
+     * 编码
+     *
+     * <p>示例值：A01234
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param names
+     * @return
+     */
+    public Builder names(I18n[] names) {
+      this.names = names;
+      return this;
     }
 
-    public String getPositionId() {
-        return this.positionId;
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     *
+     * @param descriptions
+     * @return
+     */
+    public Builder descriptions(I18n[] descriptions) {
+      this.descriptions = descriptions;
+      return this;
     }
 
-    public void setPositionId(String positionId) {
-        this.positionId = positionId;
+    /**
+     * 状态，true表示启用，false表示停用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    /**
+     * 序列 ID
+     * 列表，详细信息可通过[查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口获得
+     *
+     * <p>示例值：
+     *
+     * @param jobFamilyIdList
+     * @return
+     */
+    public Builder jobFamilyIdList(String[] jobFamilyIdList) {
+      this.jobFamilyIdList = jobFamilyIdList;
+      return this;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    /**
+     * 成本中心
+     * ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取对应的成本中心信息
+     *
+     * <p>示例值：4719519211875096301
+     *
+     * @param costCenterId
+     * @return
+     */
+    public Builder costCenterId(String costCenterId) {
+      this.costCenterId = costCenterId;
+      return this;
     }
 
-    public I18n[] getNames() {
-        return this.names;
+    /**
+     * 职务，可通过[【查询单个职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)获取详细信息
+     *
+     * <p>示例值：4719519211875096302
+     *
+     * @param jobId
+     * @return
+     */
+    public Builder jobId(String jobId) {
+      this.jobId = jobId;
+      return this;
     }
 
-    public void setNames(I18n[] names) {
-        this.names = names;
+    /**
+     * 职级 ID
+     * 列表，可通过[【查询单个职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)获取详细信息
+     *
+     * <p>示例值：
+     *
+     * @param jobLevelIdList
+     * @return
+     */
+    public Builder jobLevelIdList(String[] jobLevelIdList) {
+      this.jobLevelIdList = jobLevelIdList;
+      return this;
     }
 
-    public I18n[] getDescriptions() {
-        return this.descriptions;
+    /**
+     * 人员类型 ID
+     * 列表，可通过文档[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)获得详细信息
+     *
+     * <p>示例值：
+     *
+     * @param employeeTypeIdList
+     * @return
+     */
+    public Builder employeeTypeIdList(String[] employeeTypeIdList) {
+      this.employeeTypeIdList = employeeTypeIdList;
+      return this;
     }
 
-    public void setDescriptions(I18n[] descriptions) {
-        this.descriptions = descriptions;
+    /**
+     * 职等 ID 列表，可通过
+     * [【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取详细信息
+     *
+     * <p>示例值：
+     *
+     * @param jobGradeIdList
+     * @return
+     */
+    public Builder jobGradeIdList(String[] jobGradeIdList) {
+      this.jobGradeIdList = jobGradeIdList;
+      return this;
     }
 
-    public Boolean getActive() {
-        return this.active;
+    /**
+     * 工作地点 ID
+     * 列表，详细信息可通过[查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)接口获得
+     *
+     * <p>示例值：
+     *
+     * @param workLocationIdList
+     * @return
+     */
+    public Builder workLocationIdList(String[] workLocationIdList) {
+      this.workLocationIdList = workLocationIdList;
+      return this;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
+    /**
+     * 工时制度 ID
+     * 列表，可通过[【查询单个工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/get)查询详细信息
+     *
+     * <p>示例值：4719519211875096301
+     *
+     * @param workingHoursTypeId
+     * @return
+     */
+    public Builder workingHoursTypeId(String workingHoursTypeId) {
+      this.workingHoursTypeId = workingHoursTypeId;
+      return this;
     }
 
-    public String[] getJobFamilyIdList() {
-        return this.jobFamilyIdList;
+    /**
+     * 部门
+     * ID，详细信息可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得;-
+     * 类型与 department_id_type 一致
+     *
+     * <p>示例值：4719519211875096301
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public void setJobFamilyIdList(String[] jobFamilyIdList) {
-        this.jobFamilyIdList = jobFamilyIdList;
+    /**
+     * 直属上级岗位 ID，可通过本接口查询详细信息;- 若查询的是一级岗位，则该字段不展示
+     *
+     * <p>示例值：4719519211875096301
+     *
+     * @param directLeaderId
+     * @return
+     */
+    public Builder directLeaderId(String directLeaderId) {
+      this.directLeaderId = directLeaderId;
+      return this;
     }
 
-    public String getCostCenterId() {
-        return this.costCenterId;
+    /**
+     * 虚线上级岗位 ID，可通过本接口查询详细信息
+     *
+     * <p>示例值：4719519211875096301
+     *
+     * @param dottedLineLeaderId
+     * @return
+     */
+    public Builder dottedLineLeaderId(String dottedLineLeaderId) {
+      this.dottedLineLeaderId = dottedLineLeaderId;
+      return this;
     }
 
-    public void setCostCenterId(String costCenterId) {
-        this.costCenterId = costCenterId;
+    /**
+     * 是否关键岗位
+     *
+     * <p>示例值：true
+     *
+     * @param isKeyPosition
+     * @return
+     */
+    public Builder isKeyPosition(Boolean isKeyPosition) {
+      this.isKeyPosition = isKeyPosition;
+      return this;
     }
 
-    public String getJobId() {
-        return this.jobId;
+    /**
+     * 版本生效日期
+     *
+     * <p>示例值：2020-05-01
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
+    /**
+     * 版本失效日期
+     *
+     * <p>示例值：2020-05-01
+     *
+     * @param expirationTime
+     * @return
+     */
+    public Builder expirationTime(String expirationTime) {
+      this.expirationTime = expirationTime;
+      return this;
     }
 
-    public String[] getJobLevelIdList() {
-        return this.jobLevelIdList;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(CustomFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setJobLevelIdList(String[] jobLevelIdList) {
-        this.jobLevelIdList = jobLevelIdList;
+    /**
+     * 创建人
+     *
+     * <p>示例值：4719519211875096301
+     *
+     * @param createdBy
+     * @return
+     */
+    public Builder createdBy(String createdBy) {
+      this.createdBy = createdBy;
+      return this;
     }
 
-    public String[] getEmployeeTypeIdList() {
-        return this.employeeTypeIdList;
+    public Position build() {
+      return new Position(this);
     }
-
-    public void setEmployeeTypeIdList(String[] employeeTypeIdList) {
-        this.employeeTypeIdList = employeeTypeIdList;
-    }
-
-    public String[] getJobGradeIdList() {
-        return this.jobGradeIdList;
-    }
-
-    public void setJobGradeIdList(String[] jobGradeIdList) {
-        this.jobGradeIdList = jobGradeIdList;
-    }
-
-    public String[] getWorkLocationIdList() {
-        return this.workLocationIdList;
-    }
-
-    public void setWorkLocationIdList(String[] workLocationIdList) {
-        this.workLocationIdList = workLocationIdList;
-    }
-
-    public String getWorkingHoursTypeId() {
-        return this.workingHoursTypeId;
-    }
-
-    public void setWorkingHoursTypeId(String workingHoursTypeId) {
-        this.workingHoursTypeId = workingHoursTypeId;
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getDirectLeaderId() {
-        return this.directLeaderId;
-    }
-
-    public void setDirectLeaderId(String directLeaderId) {
-        this.directLeaderId = directLeaderId;
-    }
-
-    public String getDottedLineLeaderId() {
-        return this.dottedLineLeaderId;
-    }
-
-    public void setDottedLineLeaderId(String dottedLineLeaderId) {
-        this.dottedLineLeaderId = dottedLineLeaderId;
-    }
-
-    public Boolean getIsKeyPosition() {
-        return this.isKeyPosition;
-    }
-
-    public void setIsKeyPosition(Boolean isKeyPosition) {
-        this.isKeyPosition = isKeyPosition;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public String getExpirationTime() {
-        return this.expirationTime;
-    }
-
-    public void setExpirationTime(String expirationTime) {
-        this.expirationTime = expirationTime;
-    }
-
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public static class Builder {
-        /**
-         * 岗位 ID
-         * <p> 示例值：4692446793125560154
-         */
-        private String positionId;
-        /**
-         * 编码
-         * <p> 示例值：A01234
-         */
-        private String code;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n[] names;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        private I18n[] descriptions;
-        /**
-         * 状态
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 序列
-         * <p> 示例值：
-         */
-        private String[] jobFamilyIdList;
-        /**
-         * 成本中心
-         * <p> 示例值：4719519211875096301
-         */
-        private String costCenterId;
-        /**
-         * 职务
-         * <p> 示例值：4719519211875096302
-         */
-        private String jobId;
-        /**
-         * 职级
-         * <p> 示例值：
-         */
-        private String[] jobLevelIdList;
-        /**
-         * 人员类型
-         * <p> 示例值：
-         */
-        private String[] employeeTypeIdList;
-        /**
-         * 职等
-         * <p> 示例值：
-         */
-        private String[] jobGradeIdList;
-        /**
-         * 工作地点
-         * <p> 示例值：
-         */
-        private String[] workLocationIdList;
-        /**
-         * 工时制度
-         * <p> 示例值：4719519211875096301
-         */
-        private String workingHoursTypeId;
-        /**
-         * 部门
-         * <p> 示例值：4719519211875096301
-         */
-        private String departmentId;
-        /**
-         * 直属上级岗位
-         * <p> 示例值：4719519211875096301
-         */
-        private String directLeaderId;
-        /**
-         * 虚线上级岗位
-         * <p> 示例值：4719519211875096301
-         */
-        private String dottedLineLeaderId;
-        /**
-         * 是否关键岗位
-         * <p> 示例值：true
-         */
-        private Boolean isKeyPosition;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         */
-        private String effectiveTime;
-        /**
-         * 失效日期
-         * <p> 示例值：2020-05-01
-         */
-        private String expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomFieldData[] customFields;
-        /**
-         * 创建人
-         * <p> 示例值：4719519211875096301
-         */
-        private String createdBy;
-
-        /**
-         * 岗位 ID
-         * <p> 示例值：4692446793125560154
-         *
-         * @param positionId
-         * @return
-         */
-        public Builder positionId(String positionId) {
-            this.positionId = positionId;
-            return this;
-        }
-
-
-        /**
-         * 编码
-         * <p> 示例值：A01234
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param names
-         * @return
-         */
-        public Builder names(I18n[] names) {
-            this.names = names;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：
-         *
-         * @param descriptions
-         * @return
-         */
-        public Builder descriptions(I18n[] descriptions) {
-            this.descriptions = descriptions;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 序列
-         * <p> 示例值：
-         *
-         * @param jobFamilyIdList
-         * @return
-         */
-        public Builder jobFamilyIdList(String[] jobFamilyIdList) {
-            this.jobFamilyIdList = jobFamilyIdList;
-            return this;
-        }
-
-
-        /**
-         * 成本中心
-         * <p> 示例值：4719519211875096301
-         *
-         * @param costCenterId
-         * @return
-         */
-        public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
-        }
-
-
-        /**
-         * 职务
-         * <p> 示例值：4719519211875096302
-         *
-         * @param jobId
-         * @return
-         */
-        public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
-        }
-
-
-        /**
-         * 职级
-         * <p> 示例值：
-         *
-         * @param jobLevelIdList
-         * @return
-         */
-        public Builder jobLevelIdList(String[] jobLevelIdList) {
-            this.jobLevelIdList = jobLevelIdList;
-            return this;
-        }
-
-
-        /**
-         * 人员类型
-         * <p> 示例值：
-         *
-         * @param employeeTypeIdList
-         * @return
-         */
-        public Builder employeeTypeIdList(String[] employeeTypeIdList) {
-            this.employeeTypeIdList = employeeTypeIdList;
-            return this;
-        }
-
-
-        /**
-         * 职等
-         * <p> 示例值：
-         *
-         * @param jobGradeIdList
-         * @return
-         */
-        public Builder jobGradeIdList(String[] jobGradeIdList) {
-            this.jobGradeIdList = jobGradeIdList;
-            return this;
-        }
-
-
-        /**
-         * 工作地点
-         * <p> 示例值：
-         *
-         * @param workLocationIdList
-         * @return
-         */
-        public Builder workLocationIdList(String[] workLocationIdList) {
-            this.workLocationIdList = workLocationIdList;
-            return this;
-        }
-
-
-        /**
-         * 工时制度
-         * <p> 示例值：4719519211875096301
-         *
-         * @param workingHoursTypeId
-         * @return
-         */
-        public Builder workingHoursTypeId(String workingHoursTypeId) {
-            this.workingHoursTypeId = workingHoursTypeId;
-            return this;
-        }
-
-
-        /**
-         * 部门
-         * <p> 示例值：4719519211875096301
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 直属上级岗位
-         * <p> 示例值：4719519211875096301
-         *
-         * @param directLeaderId
-         * @return
-         */
-        public Builder directLeaderId(String directLeaderId) {
-            this.directLeaderId = directLeaderId;
-            return this;
-        }
-
-
-        /**
-         * 虚线上级岗位
-         * <p> 示例值：4719519211875096301
-         *
-         * @param dottedLineLeaderId
-         * @return
-         */
-        public Builder dottedLineLeaderId(String dottedLineLeaderId) {
-            this.dottedLineLeaderId = dottedLineLeaderId;
-            return this;
-        }
-
-
-        /**
-         * 是否关键岗位
-         * <p> 示例值：true
-         *
-         * @param isKeyPosition
-         * @return
-         */
-        public Builder isKeyPosition(Boolean isKeyPosition) {
-            this.isKeyPosition = isKeyPosition;
-            return this;
-        }
-
-
-        /**
-         * 生效日期
-         * <p> 示例值：2020-05-01
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 失效日期
-         * <p> 示例值：2020-05-01
-         *
-         * @param expirationTime
-         * @return
-         */
-        public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 创建人
-         * <p> 示例值：4719519211875096301
-         *
-         * @param createdBy
-         * @return
-         */
-        public Builder createdBy(String createdBy) {
-            this.createdBy = createdBy;
-            return this;
-        }
-
-
-        public Position build() {
-            return new Position(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

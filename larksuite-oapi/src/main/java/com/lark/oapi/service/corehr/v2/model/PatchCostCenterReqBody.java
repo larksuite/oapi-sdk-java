@@ -13,149 +13,157 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchCostCenterReqBody {
+  /**
+   * 版本生效日期;- 填写格式：YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;-
+   * 日期范围要求:1900-01-01～9999-12-31;-
+   * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 启用停用状态
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 操作原因
+   *
+   * <p>示例值：强行操作
+   */
+  @SerializedName("operation_reason")
+  private String operationReason;
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String getOperationReason() {
+    return this.operationReason;
+  }
+
+  public void setOperationReason(String operationReason) {
+    this.operationReason = operationReason;
+  }
+
+  // builder 开始
+  public PatchCostCenterReqBody() {}
+
+  public PatchCostCenterReqBody(Builder builder) {
     /**
-     * 生效时间
-     * <p> 示例值：2020-01-01
+     * 版本生效日期;- 填写格式：YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;-
+     * 日期范围要求:1900-01-01～9999-12-31;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 启用停用状态
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
      * 操作原因
-     * <p> 示例值：强行操作
+     *
+     * <p>示例值：强行操作
      */
-    @SerializedName("operation_reason")
+    this.operationReason = builder.operationReason;
+  }
+
+  public static class Builder {
+    /**
+     * 版本生效日期;- 填写格式：YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;-
+     * 日期范围要求:1900-01-01～9999-12-31;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+     *
+     * <p>示例值：2020-01-01
+     */
+    private String effectiveTime;
+
+    /**
+     * 启用停用状态
+     *
+     * <p>示例值：true
+     */
+    private Boolean active;
+
+    /**
+     * 操作原因
+     *
+     * <p>示例值：强行操作
+     */
     private String operationReason;
 
-    // builder 开始
-    public PatchCostCenterReqBody() {
+    /**
+     * 版本生效日期;- 填写格式：YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;-
+     * 日期范围要求:1900-01-01～9999-12-31;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public PatchCostCenterReqBody(Builder builder) {
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 操作原因
-         * <p> 示例值：强行操作
-         */
-        this.operationReason = builder.operationReason;
+    /**
+     * 启用停用状态
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作原因
+     *
+     * <p>示例值：强行操作
+     *
+     * @param operationReason
+     * @return
+     */
+    public Builder operationReason(String operationReason) {
+      this.operationReason = operationReason;
+      return this;
     }
 
-    public String getEffectiveTime() {
-        return this.effectiveTime;
+    public PatchCostCenterReqBody build() {
+      return new PatchCostCenterReqBody(this);
     }
+  }
 
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public String getOperationReason() {
-        return this.operationReason;
-    }
-
-    public void setOperationReason(String operationReason) {
-        this.operationReason = operationReason;
-    }
-
-    public static class Builder {
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        private String effectiveTime;
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 操作原因
-         * <p> 示例值：强行操作
-         */
-        private String operationReason;
-
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 操作原因
-         * <p> 示例值：强行操作
-         *
-         * @param operationReason
-         * @return
-         */
-        public Builder operationReason(String operationReason) {
-            this.operationReason = operationReason;
-            return this;
-        }
-
-
-        public PatchCostCenterReqBody build() {
-            return new PatchCostCenterReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

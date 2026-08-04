@@ -13,235 +13,267 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MailgroupMember {
+  /**
+   * The unique ID of a member in this mail group
+   *
+   * <p>示例值：xxxxxxxxxxxxxxx
+   */
+  @SerializedName("member_id")
+  private String memberId;
+
+  /**
+   * The member's email address. Value is valid when type is one of
+   * USER/EXTERNAL_USER/MAIL_GROUP/PUBLIC_MAILBOX/OTHER_MEMBER
+   *
+   * <p>示例值：test_memeber@xxx.xx
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 租户内用户的唯一标识（当成员类型是USER时有值）
+   *
+   * <p>示例值：xxxxxxxxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
+   *
+   * <p>示例值：xxxxxxxxxx
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT: member
+   * is a department;- COMPANY: member is the company;- EXTERNAL_USER: internet user outside the
+   * organization;- MAIL_GROUP: member is another mail group;- PUBLIC_MAILBOX: member is a public
+   * mailbox;- OTHER_MEMBER: other internal member
+   *
+   * <p>示例值：USER
+   */
+  @SerializedName("type")
+  private String type;
+
+  public String getMemberId() {
+    return this.memberId;
+  }
+
+  public void setMemberId(String memberId) {
+    this.memberId = memberId;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public MailgroupMember() {}
+
+  public MailgroupMember(Builder builder) {
     /**
-     * 邮件组内成员唯一标识
-     * <p> 示例值：xxxxxxxxxxxxxxx
+     * The unique ID of a member in this mail group
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx
      */
-    @SerializedName("member_id")
-    private String memberId;
+    this.memberId = builder.memberId;
     /**
-     * 成员邮箱地址（当成员类型是EXTERNAL_USER/MAIL_GROUP/OTHER_MEMBER时有值）
-     * <p> 示例值：test_memeber@xxx.xx
+     * The member's email address. Value is valid when type is one of
+     * USER/EXTERNAL_USER/MAIL_GROUP/PUBLIC_MAILBOX/OTHER_MEMBER
+     *
+     * <p>示例值：test_memeber@xxx.xx
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 租户内用户的唯一标识（当成员类型是USER时有值）
-     * <p> 示例值：xxxxxxxxxx
+     *
+     * <p>示例值：xxxxxxxxxx
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
-     * <p> 示例值：xxxxxxxxxx
+     *
+     * <p>示例值：xxxxxxxxxx
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
-     * 成员类型
-     * <p> 示例值：USER
+     * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT:
+     * member is a department;- COMPANY: member is the company;- EXTERNAL_USER: internet user
+     * outside the organization;- MAIL_GROUP: member is another mail group;- PUBLIC_MAILBOX: member
+     * is a public mailbox;- OTHER_MEMBER: other internal member
+     *
+     * <p>示例值：USER
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * The unique ID of a member in this mail group
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx
+     */
+    private String memberId;
+
+    /**
+     * The member's email address. Value is valid when type is one of
+     * USER/EXTERNAL_USER/MAIL_GROUP/PUBLIC_MAILBOX/OTHER_MEMBER
+     *
+     * <p>示例值：test_memeber@xxx.xx
+     */
+    private String email;
+
+    /**
+     * 租户内用户的唯一标识（当成员类型是USER时有值）
+     *
+     * <p>示例值：xxxxxxxxxx
+     */
+    private String userId;
+
+    /**
+     * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
+     *
+     * <p>示例值：xxxxxxxxxx
+     */
+    private String departmentId;
+
+    /**
+     * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT:
+     * member is a department;- COMPANY: member is the company;- EXTERNAL_USER: internet user
+     * outside the organization;- MAIL_GROUP: member is another mail group;- PUBLIC_MAILBOX: member
+     * is a public mailbox;- OTHER_MEMBER: other internal member
+     *
+     * <p>示例值：USER
+     */
     private String type;
 
-    // builder 开始
-    public MailgroupMember() {
+    /**
+     * The unique ID of a member in this mail group
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx
+     *
+     * @param memberId
+     * @return
+     */
+    public Builder memberId(String memberId) {
+      this.memberId = memberId;
+      return this;
     }
 
-    public MailgroupMember(Builder builder) {
-        /**
-         * 邮件组内成员唯一标识
-         * <p> 示例值：xxxxxxxxxxxxxxx
-         */
-        this.memberId = builder.memberId;
-        /**
-         * 成员邮箱地址（当成员类型是EXTERNAL_USER/MAIL_GROUP/OTHER_MEMBER时有值）
-         * <p> 示例值：test_memeber@xxx.xx
-         */
-        this.email = builder.email;
-        /**
-         * 租户内用户的唯一标识（当成员类型是USER时有值）
-         * <p> 示例值：xxxxxxxxxx
-         */
-        this.userId = builder.userId;
-        /**
-         * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
-         * <p> 示例值：xxxxxxxxxx
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 成员类型
-         * <p> 示例值：USER
-         */
-        this.type = builder.type;
+    /**
+     * The member's email address. Value is valid when type is one of
+     * USER/EXTERNAL_USER/MAIL_GROUP/PUBLIC_MAILBOX/OTHER_MEMBER
+     *
+     * <p>示例值：test_memeber@xxx.xx
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 租户内用户的唯一标识（当成员类型是USER时有值）
+     *
+     * <p>示例值：xxxxxxxxxx
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getMemberId() {
-        return this.memberId;
+    /**
+     * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
+     *
+     * <p>示例值：xxxxxxxxxx
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
+    /**
+     * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT:
+     * member is a department;- COMPANY: member is the company;- EXTERNAL_USER: internet user
+     * outside the organization;- MAIL_GROUP: member is another mail group;- PUBLIC_MAILBOX: member
+     * is a public mailbox;- OTHER_MEMBER: other internal member
+     *
+     * <p>示例值：USER
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getEmail() {
-        return this.email;
+    /**
+     * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT:
+     * member is a department;- COMPANY: member is the company;- EXTERNAL_USER: internet user
+     * outside the organization;- MAIL_GROUP: member is another mail group;- PUBLIC_MAILBOX: member
+     * is a public mailbox;- OTHER_MEMBER: other internal member
+     *
+     * <p>示例值：USER
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.mail.v1.enums.MailgroupMemberMailgroupMemberTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.mail.v1.enums.MailgroupMemberMailgroupMemberTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public MailgroupMember build() {
+      return new MailgroupMember(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 邮件组内成员唯一标识
-         * <p> 示例值：xxxxxxxxxxxxxxx
-         */
-        private String memberId;
-        /**
-         * 成员邮箱地址（当成员类型是EXTERNAL_USER/MAIL_GROUP/OTHER_MEMBER时有值）
-         * <p> 示例值：test_memeber@xxx.xx
-         */
-        private String email;
-        /**
-         * 租户内用户的唯一标识（当成员类型是USER时有值）
-         * <p> 示例值：xxxxxxxxxx
-         */
-        private String userId;
-        /**
-         * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
-         * <p> 示例值：xxxxxxxxxx
-         */
-        private String departmentId;
-        /**
-         * 成员类型
-         * <p> 示例值：USER
-         */
-        private String type;
-
-        /**
-         * 邮件组内成员唯一标识
-         * <p> 示例值：xxxxxxxxxxxxxxx
-         *
-         * @param memberId
-         * @return
-         */
-        public Builder memberId(String memberId) {
-            this.memberId = memberId;
-            return this;
-        }
-
-
-        /**
-         * 成员邮箱地址（当成员类型是EXTERNAL_USER/MAIL_GROUP/OTHER_MEMBER时有值）
-         * <p> 示例值：test_memeber@xxx.xx
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 租户内用户的唯一标识（当成员类型是USER时有值）
-         * <p> 示例值：xxxxxxxxxx
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
-         * <p> 示例值：xxxxxxxxxx
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 成员类型
-         * <p> 示例值：USER
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 成员类型
-         * <p> 示例值：USER
-         *
-         * @param type {@link com.lark.oapi.service.mail.v1.enums.MailgroupMemberMailgroupMemberTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.mail.v1.enums.MailgroupMemberMailgroupMemberTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        public MailgroupMember build() {
-            return new MailgroupMember(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

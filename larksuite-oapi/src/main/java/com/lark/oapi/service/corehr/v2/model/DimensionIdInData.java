@@ -13,112 +13,179 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DimensionIdInData {
+  /**
+   * 维度key，可从下面列表中进行选择：;- "department"：部门。;- "employee_type" ：人员类型。;- "location"：地点。;- "position"
+   * ：岗位。;- "cost_center" ：成本中心/业务线。;- "job_family" ：序列。;- "job_level" ：职级。;- "job" ：职务。;-
+   * "pathway"：通道。;;自定义组织：;- "custom_org_01" ;- "custom_org_02";- "custom_org_03";- "custom_org_04"
+   * ;- "custom_org_05"
+   *
+   * <p>示例值：department
+   */
+  @SerializedName("dimension_key")
+  private String dimensionKey;
+
+  /**
+   * 维度value。;-
+   * department_id：可从[查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)获得。;-
+   * location_id：可从[查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获得。;-
+   * cost_center_id：可从[查询成本中心](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获得。;-
+   * job_id：可从[查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获得。;-
+   * job_level_id：可从[查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获得。;-
+   * job_family_id：可从[查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获得。;-
+   * employee_type_id：可从[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获得。;-
+   * position_id：可从[查询岗位](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获得。;-
+   * pathway_id:
+   * 可从[查询通道](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)获得。;-
+   * custom_org_01_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+   * custom_org_02_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+   * custom_org_03_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+   * custom_org_04_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+   * custom_org_05_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dimension_ids")
+  private String[] dimensionIds;
+
+  public String getDimensionKey() {
+    return this.dimensionKey;
+  }
+
+  public void setDimensionKey(String dimensionKey) {
+    this.dimensionKey = dimensionKey;
+  }
+
+  public String[] getDimensionIds() {
+    return this.dimensionIds;
+  }
+
+  public void setDimensionIds(String[] dimensionIds) {
+    this.dimensionIds = dimensionIds;
+  }
+
+  // builder 开始
+  public DimensionIdInData() {}
+
+  public DimensionIdInData(Builder builder) {
     /**
-     * 维度 key
-     * <p> 示例值：department
+     * 维度key，可从下面列表中进行选择：;- "department"：部门。;- "employee_type" ：人员类型。;- "location"：地点。;- "position"
+     * ：岗位。;- "cost_center" ：成本中心/业务线。;- "job_family" ：序列。;- "job_level" ：职级。;- "job" ：职务。;-
+     * "pathway"：通道。;;自定义组织：;- "custom_org_01" ;- "custom_org_02";- "custom_org_03";-
+     * "custom_org_04" ;- "custom_org_05"
+     *
+     * <p>示例值：department
      */
-    @SerializedName("dimension_key")
+    this.dimensionKey = builder.dimensionKey;
+    /**
+     * 维度value。;-
+     * department_id：可从[查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)获得。;-
+     * location_id：可从[查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获得。;-
+     * cost_center_id：可从[查询成本中心](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获得。;-
+     * job_id：可从[查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获得。;-
+     * job_level_id：可从[查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获得。;-
+     * job_family_id：可从[查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获得。;-
+     * employee_type_id：可从[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获得。;-
+     * position_id：可从[查询岗位](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获得。;-
+     * pathway_id:
+     * 可从[查询通道](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)获得。;-
+     * custom_org_01_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+     * custom_org_02_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+     * custom_org_03_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+     * custom_org_04_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+     * custom_org_05_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。
+     *
+     * <p>示例值：
+     */
+    this.dimensionIds = builder.dimensionIds;
+  }
+
+  public static class Builder {
+    /**
+     * 维度key，可从下面列表中进行选择：;- "department"：部门。;- "employee_type" ：人员类型。;- "location"：地点。;- "position"
+     * ：岗位。;- "cost_center" ：成本中心/业务线。;- "job_family" ：序列。;- "job_level" ：职级。;- "job" ：职务。;-
+     * "pathway"：通道。;;自定义组织：;- "custom_org_01" ;- "custom_org_02";- "custom_org_03";-
+     * "custom_org_04" ;- "custom_org_05"
+     *
+     * <p>示例值：department
+     */
     private String dimensionKey;
+
     /**
-     * 维度 ids
-     * <p> 示例值：
+     * 维度value。;-
+     * department_id：可从[查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)获得。;-
+     * location_id：可从[查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获得。;-
+     * cost_center_id：可从[查询成本中心](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获得。;-
+     * job_id：可从[查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获得。;-
+     * job_level_id：可从[查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获得。;-
+     * job_family_id：可从[查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获得。;-
+     * employee_type_id：可从[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获得。;-
+     * position_id：可从[查询岗位](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获得。;-
+     * pathway_id:
+     * 可从[查询通道](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)获得。;-
+     * custom_org_01_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+     * custom_org_02_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+     * custom_org_03_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+     * custom_org_04_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+     * custom_org_05_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。
+     *
+     * <p>示例值：
      */
-    @SerializedName("dimension_ids")
     private String[] dimensionIds;
 
-    // builder 开始
-    public DimensionIdInData() {
+    /**
+     * 维度key，可从下面列表中进行选择：;- "department"：部门。;- "employee_type" ：人员类型。;- "location"：地点。;- "position"
+     * ：岗位。;- "cost_center" ：成本中心/业务线。;- "job_family" ：序列。;- "job_level" ：职级。;- "job" ：职务。;-
+     * "pathway"：通道。;;自定义组织：;- "custom_org_01" ;- "custom_org_02";- "custom_org_03";-
+     * "custom_org_04" ;- "custom_org_05"
+     *
+     * <p>示例值：department
+     *
+     * @param dimensionKey
+     * @return
+     */
+    public Builder dimensionKey(String dimensionKey) {
+      this.dimensionKey = dimensionKey;
+      return this;
     }
 
-    public DimensionIdInData(Builder builder) {
-        /**
-         * 维度 key
-         * <p> 示例值：department
-         */
-        this.dimensionKey = builder.dimensionKey;
-        /**
-         * 维度 ids
-         * <p> 示例值：
-         */
-        this.dimensionIds = builder.dimensionIds;
+    /**
+     * 维度value。;-
+     * department_id：可从[查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)获得。;-
+     * location_id：可从[查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获得。;-
+     * cost_center_id：可从[查询成本中心](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)获得。;-
+     * job_id：可从[查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获得。;-
+     * job_level_id：可从[查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获得。;-
+     * job_family_id：可从[查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获得。;-
+     * employee_type_id：可从[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获得。;-
+     * position_id：可从[查询岗位](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获得。;-
+     * pathway_id:
+     * 可从[查询通道](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)获得。;-
+     * custom_org_01_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+     * custom_org_02_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+     * custom_org_03_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+     * custom_org_04_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。;-
+     * custom_org_05_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。
+     *
+     * <p>示例值：
+     *
+     * @param dimensionIds
+     * @return
+     */
+    public Builder dimensionIds(String[] dimensionIds) {
+      this.dimensionIds = dimensionIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DimensionIdInData build() {
+      return new DimensionIdInData(this);
     }
+  }
 
-    public String getDimensionKey() {
-        return this.dimensionKey;
-    }
-
-    public void setDimensionKey(String dimensionKey) {
-        this.dimensionKey = dimensionKey;
-    }
-
-    public String[] getDimensionIds() {
-        return this.dimensionIds;
-    }
-
-    public void setDimensionIds(String[] dimensionIds) {
-        this.dimensionIds = dimensionIds;
-    }
-
-    public static class Builder {
-        /**
-         * 维度 key
-         * <p> 示例值：department
-         */
-        private String dimensionKey;
-        /**
-         * 维度 ids
-         * <p> 示例值：
-         */
-        private String[] dimensionIds;
-
-        /**
-         * 维度 key
-         * <p> 示例值：department
-         *
-         * @param dimensionKey
-         * @return
-         */
-        public Builder dimensionKey(String dimensionKey) {
-            this.dimensionKey = dimensionKey;
-            return this;
-        }
-
-
-        /**
-         * 维度 ids
-         * <p> 示例值：
-         *
-         * @param dimensionIds
-         * @return
-         */
-        public Builder dimensionIds(String[] dimensionIds) {
-            this.dimensionIds = dimensionIds;
-            return this;
-        }
-
-
-        public DimensionIdInData build() {
-            return new DimensionIdInData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AttachmentDownloadFailedReason {
+  /**
+   * 附件 ID
+   *
+   * <p>示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+   */
+  @SerializedName("attachment_id")
+  private String attachmentId;
+
+  /**
+   * 失败原因
+   *
+   * <p>示例值：attachment_not_found
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  public String getAttachmentId() {
+    return this.attachmentId;
+  }
+
+  public void setAttachmentId(String attachmentId) {
+    this.attachmentId = attachmentId;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  // builder 开始
+  public AttachmentDownloadFailedReason() {}
+
+  public AttachmentDownloadFailedReason(Builder builder) {
     /**
      * 附件 ID
-     * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+     *
+     * <p>示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
      */
-    @SerializedName("attachment_id")
-    private String attachmentId;
+    this.attachmentId = builder.attachmentId;
     /**
      * 失败原因
-     * <p> 示例值：attachment_not_found
+     *
+     * <p>示例值：attachment_not_found
      */
-    @SerializedName("reason")
+    this.reason = builder.reason;
+  }
+
+  public static class Builder {
+    /**
+     * 附件 ID
+     *
+     * <p>示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+     */
+    private String attachmentId;
+
+    /**
+     * 失败原因
+     *
+     * <p>示例值：attachment_not_found
+     */
     private String reason;
 
-    // builder 开始
-    public AttachmentDownloadFailedReason() {
+    /**
+     * 附件 ID
+     *
+     * <p>示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+     *
+     * @param attachmentId
+     * @return
+     */
+    public Builder attachmentId(String attachmentId) {
+      this.attachmentId = attachmentId;
+      return this;
     }
 
-    public AttachmentDownloadFailedReason(Builder builder) {
-        /**
-         * 附件 ID
-         * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
-         */
-        this.attachmentId = builder.attachmentId;
-        /**
-         * 失败原因
-         * <p> 示例值：attachment_not_found
-         */
-        this.reason = builder.reason;
+    /**
+     * 失败原因
+     *
+     * <p>示例值：attachment_not_found
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AttachmentDownloadFailedReason build() {
+      return new AttachmentDownloadFailedReason(this);
     }
+  }
 
-    public String getAttachmentId() {
-        return this.attachmentId;
-    }
-
-    public void setAttachmentId(String attachmentId) {
-        this.attachmentId = attachmentId;
-    }
-
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public static class Builder {
-        /**
-         * 附件 ID
-         * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
-         */
-        private String attachmentId;
-        /**
-         * 失败原因
-         * <p> 示例值：attachment_not_found
-         */
-        private String reason;
-
-        /**
-         * 附件 ID
-         * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
-         *
-         * @param attachmentId
-         * @return
-         */
-        public Builder attachmentId(String attachmentId) {
-            this.attachmentId = attachmentId;
-            return this;
-        }
-
-
-        /**
-         * 失败原因
-         * <p> 示例值：attachment_not_found
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        public AttachmentDownloadFailedReason build() {
-            return new AttachmentDownloadFailedReason(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

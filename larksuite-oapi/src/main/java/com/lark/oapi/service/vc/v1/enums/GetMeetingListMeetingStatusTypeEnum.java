@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 会议状态
- */
+/** 会议状态（不传默认为已结束会议） */
 public enum GetMeetingListMeetingStatusTypeEnum {
-    ONGOING(1), // 进行中
-    PAST(2), // 已结束
-    FUTURE(3), // 待召开
-    ;
-    private Integer value;
+  ONGOING(1), // 进行中
+  PAST(2), // 已结束
+  FUTURE(3), // 待召开。该枚举值只读，请求时不支持选择。
+  ;
+  private Integer value;
 
-    GetMeetingListMeetingStatusTypeEnum(Integer value) {
-        this.value = value;
-    }
+  GetMeetingListMeetingStatusTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

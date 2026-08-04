@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyAiCallbackAction {
+  /**
+   * 卡片交互回调的value
+   *
+   * <p>示例值：
+   */
+  @SerializedName("value")
+  private MyAiCallbackActionValue value;
+
+  /**
+   * 交互的类型
+   *
+   * <p>示例值：button
+   */
+  @SerializedName("tag")
+  private String tag;
+
+  public MyAiCallbackActionValue getValue() {
+    return this.value;
+  }
+
+  public void setValue(MyAiCallbackActionValue value) {
+    this.value = value;
+  }
+
+  public String getTag() {
+    return this.tag;
+  }
+
+  public void setTag(String tag) {
+    this.tag = tag;
+  }
+
+  // builder 开始
+  public MyAiCallbackAction() {}
+
+  public MyAiCallbackAction(Builder builder) {
     /**
      * 卡片交互回调的value
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("value")
-    private MyAiCallbackActionValue value;
+    this.value = builder.value;
     /**
      * 交互的类型
-     * <p> 示例值：button
+     *
+     * <p>示例值：button
      */
-    @SerializedName("tag")
+    this.tag = builder.tag;
+  }
+
+  public static class Builder {
+    /**
+     * 卡片交互回调的value
+     *
+     * <p>示例值：
+     */
+    private MyAiCallbackActionValue value;
+
+    /**
+     * 交互的类型
+     *
+     * <p>示例值：button
+     */
     private String tag;
 
-    // builder 开始
-    public MyAiCallbackAction() {
+    /**
+     * 卡片交互回调的value
+     *
+     * <p>示例值：
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(MyAiCallbackActionValue value) {
+      this.value = value;
+      return this;
     }
 
-    public MyAiCallbackAction(Builder builder) {
-        /**
-         * 卡片交互回调的value
-         * <p> 示例值：
-         */
-        this.value = builder.value;
-        /**
-         * 交互的类型
-         * <p> 示例值：button
-         */
-        this.tag = builder.tag;
+    /**
+     * 交互的类型
+     *
+     * <p>示例值：button
+     *
+     * @param tag
+     * @return
+     */
+    public Builder tag(String tag) {
+      this.tag = tag;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MyAiCallbackAction build() {
+      return new MyAiCallbackAction(this);
     }
+  }
 
-    public MyAiCallbackActionValue getValue() {
-        return this.value;
-    }
-
-    public void setValue(MyAiCallbackActionValue value) {
-        this.value = value;
-    }
-
-    public String getTag() {
-        return this.tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public static class Builder {
-        /**
-         * 卡片交互回调的value
-         * <p> 示例值：
-         */
-        private MyAiCallbackActionValue value;
-        /**
-         * 交互的类型
-         * <p> 示例值：button
-         */
-        private String tag;
-
-        /**
-         * 卡片交互回调的value
-         * <p> 示例值：
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(MyAiCallbackActionValue value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 交互的类型
-         * <p> 示例值：button
-         *
-         * @param tag
-         * @return
-         */
-        public Builder tag(String tag) {
-            this.tag = tag;
-            return this;
-        }
-
-
-        public MyAiCallbackAction build() {
-            return new MyAiCallbackAction(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

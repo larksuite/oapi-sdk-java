@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchQueryMessageReactionReqBody {
+  /**
+   * 要查询的消息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("queries")
+  private MessageQuery[] queries;
+
+  /**
+   * 每个消息最多返回多少个表情;**默认值：**10
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("page_size_per_message")
+  private Integer pageSizePerMessage;
+
+  /**
+   * 待查询的表情类型，支持的枚举值参考[表情文案说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)中的
+   * emoji_type 值。;;**注意**：该参数为可选参数，不传入该参数时将查询消息内所有的表情回复。
+   *
+   * <p>示例值：LAUGH
+   */
+  @SerializedName("reaction_type")
+  private String reactionType;
+
+  public MessageQuery[] getQueries() {
+    return this.queries;
+  }
+
+  public void setQueries(MessageQuery[] queries) {
+    this.queries = queries;
+  }
+
+  public Integer getPageSizePerMessage() {
+    return this.pageSizePerMessage;
+  }
+
+  public void setPageSizePerMessage(Integer pageSizePerMessage) {
+    this.pageSizePerMessage = pageSizePerMessage;
+  }
+
+  public String getReactionType() {
+    return this.reactionType;
+  }
+
+  public void setReactionType(String reactionType) {
+    this.reactionType = reactionType;
+  }
+
+  // builder 开始
+  public BatchQueryMessageReactionReqBody() {}
+
+  public BatchQueryMessageReactionReqBody(Builder builder) {
     /**
      * 要查询的消息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("queries")
+    this.queries = builder.queries;
+    /**
+     * 每个消息最多返回多少个表情;**默认值：**10
+     *
+     * <p>示例值：10
+     */
+    this.pageSizePerMessage = builder.pageSizePerMessage;
+    /**
+     * 待查询的表情类型，支持的枚举值参考[表情文案说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)中的
+     * emoji_type 值。;;**注意**：该参数为可选参数，不传入该参数时将查询消息内所有的表情回复。
+     *
+     * <p>示例值：LAUGH
+     */
+    this.reactionType = builder.reactionType;
+  }
+
+  public static class Builder {
+    /**
+     * 要查询的消息
+     *
+     * <p>示例值：
+     */
     private MessageQuery[] queries;
+
     /**
-     * 每个消息最多返回多少个表情
-     * <p> 示例值：10
+     * 每个消息最多返回多少个表情;**默认值：**10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("page_size_per_message")
     private Integer pageSizePerMessage;
+
     /**
-     * 表情类型
-     * <p> 示例值：LAUGH
+     * 待查询的表情类型，支持的枚举值参考[表情文案说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)中的
+     * emoji_type 值。;;**注意**：该参数为可选参数，不传入该参数时将查询消息内所有的表情回复。
+     *
+     * <p>示例值：LAUGH
      */
-    @SerializedName("reaction_type")
     private String reactionType;
 
-    // builder 开始
-    public BatchQueryMessageReactionReqBody() {
+    /**
+     * 要查询的消息
+     *
+     * <p>示例值：
+     *
+     * @param queries
+     * @return
+     */
+    public Builder queries(MessageQuery[] queries) {
+      this.queries = queries;
+      return this;
     }
 
-    public BatchQueryMessageReactionReqBody(Builder builder) {
-        /**
-         * 要查询的消息
-         * <p> 示例值：
-         */
-        this.queries = builder.queries;
-        /**
-         * 每个消息最多返回多少个表情
-         * <p> 示例值：10
-         */
-        this.pageSizePerMessage = builder.pageSizePerMessage;
-        /**
-         * 表情类型
-         * <p> 示例值：LAUGH
-         */
-        this.reactionType = builder.reactionType;
+    /**
+     * 每个消息最多返回多少个表情;**默认值：**10
+     *
+     * <p>示例值：10
+     *
+     * @param pageSizePerMessage
+     * @return
+     */
+    public Builder pageSizePerMessage(Integer pageSizePerMessage) {
+      this.pageSizePerMessage = pageSizePerMessage;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 待查询的表情类型，支持的枚举值参考[表情文案说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/emojis-introduce)中的
+     * emoji_type 值。;;**注意**：该参数为可选参数，不传入该参数时将查询消息内所有的表情回复。
+     *
+     * <p>示例值：LAUGH
+     *
+     * @param reactionType
+     * @return
+     */
+    public Builder reactionType(String reactionType) {
+      this.reactionType = reactionType;
+      return this;
     }
 
-    public MessageQuery[] getQueries() {
-        return this.queries;
+    public BatchQueryMessageReactionReqBody build() {
+      return new BatchQueryMessageReactionReqBody(this);
     }
+  }
 
-    public void setQueries(MessageQuery[] queries) {
-        this.queries = queries;
-    }
-
-    public Integer getPageSizePerMessage() {
-        return this.pageSizePerMessage;
-    }
-
-    public void setPageSizePerMessage(Integer pageSizePerMessage) {
-        this.pageSizePerMessage = pageSizePerMessage;
-    }
-
-    public String getReactionType() {
-        return this.reactionType;
-    }
-
-    public void setReactionType(String reactionType) {
-        this.reactionType = reactionType;
-    }
-
-    public static class Builder {
-        /**
-         * 要查询的消息
-         * <p> 示例值：
-         */
-        private MessageQuery[] queries;
-        /**
-         * 每个消息最多返回多少个表情
-         * <p> 示例值：10
-         */
-        private Integer pageSizePerMessage;
-        /**
-         * 表情类型
-         * <p> 示例值：LAUGH
-         */
-        private String reactionType;
-
-        /**
-         * 要查询的消息
-         * <p> 示例值：
-         *
-         * @param queries
-         * @return
-         */
-        public Builder queries(MessageQuery[] queries) {
-            this.queries = queries;
-            return this;
-        }
-
-
-        /**
-         * 每个消息最多返回多少个表情
-         * <p> 示例值：10
-         *
-         * @param pageSizePerMessage
-         * @return
-         */
-        public Builder pageSizePerMessage(Integer pageSizePerMessage) {
-            this.pageSizePerMessage = pageSizePerMessage;
-            return this;
-        }
-
-
-        /**
-         * 表情类型
-         * <p> 示例值：LAUGH
-         *
-         * @param reactionType
-         * @return
-         */
-        public Builder reactionType(String reactionType) {
-            this.reactionType = reactionType;
-            return this;
-        }
-
-
-        public BatchQueryMessageReactionReqBody build() {
-            return new BatchQueryMessageReactionReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserTask {
+  /**
+   * 任务ID
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * 任务开始时间
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("task_start_time")
+  private String taskStartTime;
+
+  /**
+   * 流程实例
+   *
+   * <p>示例值：
+   */
+  @SerializedName("workflow_instance")
+  private UserTaskWfInstanceType workflowInstance;
+
+  /**
+   * 发起人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("initiator")
+  private User initiator;
+
+  /**
+   * 摘要信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("summarys")
+  private UserTaskSummaryType[] summarys;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public String getTaskStartTime() {
+    return this.taskStartTime;
+  }
+
+  public void setTaskStartTime(String taskStartTime) {
+    this.taskStartTime = taskStartTime;
+  }
+
+  public UserTaskWfInstanceType getWorkflowInstance() {
+    return this.workflowInstance;
+  }
+
+  public void setWorkflowInstance(UserTaskWfInstanceType workflowInstance) {
+    this.workflowInstance = workflowInstance;
+  }
+
+  public User getInitiator() {
+    return this.initiator;
+  }
+
+  public void setInitiator(User initiator) {
+    this.initiator = initiator;
+  }
+
+  public UserTaskSummaryType[] getSummarys() {
+    return this.summarys;
+  }
+
+  public void setSummarys(UserTaskSummaryType[] summarys) {
+    this.summarys = summarys;
+  }
+
+  // builder 开始
+  public UserTask() {}
+
+  public UserTask(Builder builder) {
     /**
      * 任务ID
-     * <p> 示例值：1234
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
     /**
      * 任务开始时间
-     * <p> 示例值：1234
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("task_start_time")
-    private String taskStartTime;
+    this.taskStartTime = builder.taskStartTime;
     /**
      * 流程实例
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("workflow_instance")
-    private UserTaskWfInstanceType workflowInstance;
+    this.workflowInstance = builder.workflowInstance;
     /**
      * 发起人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("initiator")
-    private User initiator;
+    this.initiator = builder.initiator;
     /**
      * 摘要信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("summarys")
+    this.summarys = builder.summarys;
+  }
+
+  public static class Builder {
+    /**
+     * 任务ID
+     *
+     * <p>示例值：1234
+     */
+    private String taskId;
+
+    /**
+     * 任务开始时间
+     *
+     * <p>示例值：1234
+     */
+    private String taskStartTime;
+
+    /**
+     * 流程实例
+     *
+     * <p>示例值：
+     */
+    private UserTaskWfInstanceType workflowInstance;
+
+    /**
+     * 发起人
+     *
+     * <p>示例值：
+     */
+    private User initiator;
+
+    /**
+     * 摘要信息
+     *
+     * <p>示例值：
+     */
     private UserTaskSummaryType[] summarys;
 
-    // builder 开始
-    public UserTask() {
+    /**
+     * 任务ID
+     *
+     * <p>示例值：1234
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public UserTask(Builder builder) {
-        /**
-         * 任务ID
-         * <p> 示例值：1234
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 任务开始时间
-         * <p> 示例值：1234
-         */
-        this.taskStartTime = builder.taskStartTime;
-        /**
-         * 流程实例
-         * <p> 示例值：
-         */
-        this.workflowInstance = builder.workflowInstance;
-        /**
-         * 发起人
-         * <p> 示例值：
-         */
-        this.initiator = builder.initiator;
-        /**
-         * 摘要信息
-         * <p> 示例值：
-         */
-        this.summarys = builder.summarys;
+    /**
+     * 任务开始时间
+     *
+     * <p>示例值：1234
+     *
+     * @param taskStartTime
+     * @return
+     */
+    public Builder taskStartTime(String taskStartTime) {
+      this.taskStartTime = taskStartTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 流程实例
+     *
+     * <p>示例值：
+     *
+     * @param workflowInstance
+     * @return
+     */
+    public Builder workflowInstance(UserTaskWfInstanceType workflowInstance) {
+      this.workflowInstance = workflowInstance;
+      return this;
     }
 
-    public String getTaskId() {
-        return this.taskId;
+    /**
+     * 发起人
+     *
+     * <p>示例值：
+     *
+     * @param initiator
+     * @return
+     */
+    public Builder initiator(User initiator) {
+      this.initiator = initiator;
+      return this;
     }
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
+    /**
+     * 摘要信息
+     *
+     * <p>示例值：
+     *
+     * @param summarys
+     * @return
+     */
+    public Builder summarys(UserTaskSummaryType[] summarys) {
+      this.summarys = summarys;
+      return this;
     }
 
-    public String getTaskStartTime() {
-        return this.taskStartTime;
+    public UserTask build() {
+      return new UserTask(this);
     }
+  }
 
-    public void setTaskStartTime(String taskStartTime) {
-        this.taskStartTime = taskStartTime;
-    }
-
-    public UserTaskWfInstanceType getWorkflowInstance() {
-        return this.workflowInstance;
-    }
-
-    public void setWorkflowInstance(UserTaskWfInstanceType workflowInstance) {
-        this.workflowInstance = workflowInstance;
-    }
-
-    public User getInitiator() {
-        return this.initiator;
-    }
-
-    public void setInitiator(User initiator) {
-        this.initiator = initiator;
-    }
-
-    public UserTaskSummaryType[] getSummarys() {
-        return this.summarys;
-    }
-
-    public void setSummarys(UserTaskSummaryType[] summarys) {
-        this.summarys = summarys;
-    }
-
-    public static class Builder {
-        /**
-         * 任务ID
-         * <p> 示例值：1234
-         */
-        private String taskId;
-        /**
-         * 任务开始时间
-         * <p> 示例值：1234
-         */
-        private String taskStartTime;
-        /**
-         * 流程实例
-         * <p> 示例值：
-         */
-        private UserTaskWfInstanceType workflowInstance;
-        /**
-         * 发起人
-         * <p> 示例值：
-         */
-        private User initiator;
-        /**
-         * 摘要信息
-         * <p> 示例值：
-         */
-        private UserTaskSummaryType[] summarys;
-
-        /**
-         * 任务ID
-         * <p> 示例值：1234
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * 任务开始时间
-         * <p> 示例值：1234
-         *
-         * @param taskStartTime
-         * @return
-         */
-        public Builder taskStartTime(String taskStartTime) {
-            this.taskStartTime = taskStartTime;
-            return this;
-        }
-
-
-        /**
-         * 流程实例
-         * <p> 示例值：
-         *
-         * @param workflowInstance
-         * @return
-         */
-        public Builder workflowInstance(UserTaskWfInstanceType workflowInstance) {
-            this.workflowInstance = workflowInstance;
-            return this;
-        }
-
-
-        /**
-         * 发起人
-         * <p> 示例值：
-         *
-         * @param initiator
-         * @return
-         */
-        public Builder initiator(User initiator) {
-            this.initiator = initiator;
-            return this;
-        }
-
-
-        /**
-         * 摘要信息
-         * <p> 示例值：
-         *
-         * @param summarys
-         * @return
-         */
-        public Builder summarys(UserTaskSummaryType[] summarys) {
-            this.summarys = summarys;
-            return this;
-        }
-
-
-        public UserTask build() {
-            return new UserTask(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

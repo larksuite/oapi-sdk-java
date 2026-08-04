@@ -13,142 +13,171 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.im.v1.enums.*;
 
 public class UrgentAppMessageReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 待加急的消息 ID。ID 获取方式：; ;-
+   * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+   * `message_id` 参数获取。;-
+   * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+   * `message_id`。;-
+   * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+   * `message_id`
+   * 参数获取。;;**注意**：不支持加急[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)（对应的消息ID
+   * 格式为 `bm_xxx`）。
+   *
+   * <p>示例值：om_dc13264520392913993dd051dba21dcf
+   */
+  @Path
+  @SerializedName("message_id")
+  private String messageId;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  @Body private UrgentReceivers body;
+
+  public UrgentReceivers getUrgentReceivers() {
+    return this.body;
+  }
+
+  public void setUrgentReceivers(UrgentReceivers body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UrgentAppMessageReq() {}
+
+  public UrgentAppMessageReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 待加急的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2);;**注意**：不支持批量消息ID（bm_xxx）
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     * 待加急的消息 ID。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id`
+     * 参数获取。;;**注意**：不支持加急[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)（对应的消息ID
+     * 格式为 `bm_xxx`）。
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
      */
-    @Path
-    @SerializedName("message_id")
-    private String messageId;
-    @Body
+    this.messageId = builder.messageId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.im.v1.enums.UrgentAppMessageUrgentAppV1UserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.im.v1.enums.UrgentAppMessageUrgentAppV1UserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    private String messageId; // 待加急的消息 ID。ID 获取方式：; ;-
+
+    // 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。;- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。;- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。;;**注意**：不支持加急[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)（对应的消息ID 格式为 `bm_xxx`）。
+
+    /**
+     * 待加急的消息 ID。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id`
+     * 参数获取。;;**注意**：不支持加急[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)（对应的消息ID
+     * 格式为 `bm_xxx`）。
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
+    }
+
     private UrgentReceivers body;
 
-    // builder 开始
-    public UrgentAppMessageReq() {
-    }
-
-    public UrgentAppMessageReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 待加急的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2);;**注意**：不支持批量消息ID（bm_xxx）
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        this.messageId = builder.messageId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
     public UrgentReceivers getUrgentReceivers() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUrgentReceivers(UrgentReceivers body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder urgentReceivers(UrgentReceivers body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String messageId; // 待加急的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2);;**注意**：不支持批量消息ID（bm_xxx）
-        private UrgentReceivers body;
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.UrgentAppMessageUrgentAppV1UserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.im.v1.enums.UrgentAppMessageUrgentAppV1UserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 待加急的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2);;**注意**：不支持批量消息ID（bm_xxx）
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-        public UrgentReceivers getUrgentReceivers() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder urgentReceivers(UrgentReceivers body) {
-            this.body = body;
-            return this;
-        }
-
-        public UrgentAppMessageReq build() {
-            return new UrgentAppMessageReq(this);
-        }
+    public UrgentAppMessageReq build() {
+      return new UrgentAppMessageReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

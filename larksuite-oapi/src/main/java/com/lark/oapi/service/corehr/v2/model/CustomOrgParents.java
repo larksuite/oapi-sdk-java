@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomOrgParents {
+  /**
+   * custom_org_id
+   *
+   * <p>示例值：custom_org_id_xxx
+   */
+  @SerializedName("custom_org_id")
+  private String customOrgId;
+
+  /**
+   * parent_custom_org_list
+   *
+   * <p>示例值：
+   */
+  @SerializedName("parent_custom_org_list")
+  private CustomOrgParentInfo[] parentCustomOrgList;
+
+  public String getCustomOrgId() {
+    return this.customOrgId;
+  }
+
+  public void setCustomOrgId(String customOrgId) {
+    this.customOrgId = customOrgId;
+  }
+
+  public CustomOrgParentInfo[] getParentCustomOrgList() {
+    return this.parentCustomOrgList;
+  }
+
+  public void setParentCustomOrgList(CustomOrgParentInfo[] parentCustomOrgList) {
+    this.parentCustomOrgList = parentCustomOrgList;
+  }
+
+  // builder 开始
+  public CustomOrgParents() {}
+
+  public CustomOrgParents(Builder builder) {
     /**
      * custom_org_id
-     * <p> 示例值：custom_org_id_xxx
+     *
+     * <p>示例值：custom_org_id_xxx
      */
-    @SerializedName("custom_org_id")
-    private String customOrgId;
+    this.customOrgId = builder.customOrgId;
     /**
      * parent_custom_org_list
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("parent_custom_org_list")
+    this.parentCustomOrgList = builder.parentCustomOrgList;
+  }
+
+  public static class Builder {
+    /**
+     * custom_org_id
+     *
+     * <p>示例值：custom_org_id_xxx
+     */
+    private String customOrgId;
+
+    /**
+     * parent_custom_org_list
+     *
+     * <p>示例值：
+     */
     private CustomOrgParentInfo[] parentCustomOrgList;
 
-    // builder 开始
-    public CustomOrgParents() {
+    /**
+     * custom_org_id
+     *
+     * <p>示例值：custom_org_id_xxx
+     *
+     * @param customOrgId
+     * @return
+     */
+    public Builder customOrgId(String customOrgId) {
+      this.customOrgId = customOrgId;
+      return this;
     }
 
-    public CustomOrgParents(Builder builder) {
-        /**
-         * custom_org_id
-         * <p> 示例值：custom_org_id_xxx
-         */
-        this.customOrgId = builder.customOrgId;
-        /**
-         * parent_custom_org_list
-         * <p> 示例值：
-         */
-        this.parentCustomOrgList = builder.parentCustomOrgList;
+    /**
+     * parent_custom_org_list
+     *
+     * <p>示例值：
+     *
+     * @param parentCustomOrgList
+     * @return
+     */
+    public Builder parentCustomOrgList(CustomOrgParentInfo[] parentCustomOrgList) {
+      this.parentCustomOrgList = parentCustomOrgList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CustomOrgParents build() {
+      return new CustomOrgParents(this);
     }
+  }
 
-    public String getCustomOrgId() {
-        return this.customOrgId;
-    }
-
-    public void setCustomOrgId(String customOrgId) {
-        this.customOrgId = customOrgId;
-    }
-
-    public CustomOrgParentInfo[] getParentCustomOrgList() {
-        return this.parentCustomOrgList;
-    }
-
-    public void setParentCustomOrgList(CustomOrgParentInfo[] parentCustomOrgList) {
-        this.parentCustomOrgList = parentCustomOrgList;
-    }
-
-    public static class Builder {
-        /**
-         * custom_org_id
-         * <p> 示例值：custom_org_id_xxx
-         */
-        private String customOrgId;
-        /**
-         * parent_custom_org_list
-         * <p> 示例值：
-         */
-        private CustomOrgParentInfo[] parentCustomOrgList;
-
-        /**
-         * custom_org_id
-         * <p> 示例值：custom_org_id_xxx
-         *
-         * @param customOrgId
-         * @return
-         */
-        public Builder customOrgId(String customOrgId) {
-            this.customOrgId = customOrgId;
-            return this;
-        }
-
-
-        /**
-         * parent_custom_org_list
-         * <p> 示例值：
-         *
-         * @param parentCustomOrgList
-         * @return
-         */
-        public Builder parentCustomOrgList(CustomOrgParentInfo[] parentCustomOrgList) {
-            this.parentCustomOrgList = parentCustomOrgList;
-            return this;
-        }
-
-
-        public CustomOrgParents build() {
-            return new CustomOrgParents(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentBaseInfo {
+  /**
+   * 部门ID，与department_id_type类型保持一致
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_name")
+  private I18nText departmentName;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public I18nText getDepartmentName() {
+    return this.departmentName;
+  }
+
+  public void setDepartmentName(I18nText departmentName) {
+    this.departmentName = departmentName;
+  }
+
+  // builder 开始
+  public DepartmentBaseInfo() {}
+
+  public DepartmentBaseInfo(Builder builder) {
     /**
-     * 部门ID
-     * <p> 示例值：1
+     * 部门ID，与department_id_type类型保持一致
+     *
+     * <p>示例值：1
      */
-    @SerializedName("department_id")
+    this.departmentId = builder.departmentId;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    this.departmentName = builder.departmentName;
+  }
+
+  public static class Builder {
+    /**
+     * 部门ID，与department_id_type类型保持一致
+     *
+     * <p>示例值：1
+     */
     private String departmentId;
+
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_name")
     private I18nText departmentName;
 
-    // builder 开始
-    public DepartmentBaseInfo() {
+    /**
+     * 部门ID，与department_id_type类型保持一致
+     *
+     * <p>示例值：1
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public DepartmentBaseInfo(Builder builder) {
-        /**
-         * 部门ID
-         * <p> 示例值：1
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.departmentName = builder.departmentName;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param departmentName
+     * @return
+     */
+    public Builder departmentName(I18nText departmentName) {
+      this.departmentName = departmentName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DepartmentBaseInfo build() {
+      return new DepartmentBaseInfo(this);
     }
+  }
 
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public I18nText getDepartmentName() {
-        return this.departmentName;
-    }
-
-    public void setDepartmentName(I18nText departmentName) {
-        this.departmentName = departmentName;
-    }
-
-    public static class Builder {
-        /**
-         * 部门ID
-         * <p> 示例值：1
-         */
-        private String departmentId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText departmentName;
-
-        /**
-         * 部门ID
-         * <p> 示例值：1
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param departmentName
-         * @return
-         */
-        public Builder departmentName(I18nText departmentName) {
-            this.departmentName = departmentName;
-            return this;
-        }
-
-
-        public DepartmentBaseInfo build() {
-            return new DepartmentBaseInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

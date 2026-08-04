@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatUserMuteStatus {
+  /**
+   * 群组ID
+   *
+   * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * 是否处于免打扰（静音）状态。true=用户在该群已被免打扰；false=正常接收通知。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_muted")
+  private Boolean isMuted;
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public Boolean getIsMuted() {
+    return this.isMuted;
+  }
+
+  public void setIsMuted(Boolean isMuted) {
+    this.isMuted = isMuted;
+  }
+
+  // builder 开始
+  public ChatUserMuteStatus() {}
+
+  public ChatUserMuteStatus(Builder builder) {
     /**
      * 群组ID
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
      * 是否处于免打扰（静音）状态。true=用户在该群已被免打扰；false=正常接收通知。
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_muted")
+    this.isMuted = builder.isMuted;
+  }
+
+  public static class Builder {
+    /**
+     * 群组ID
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     */
+    private String chatId;
+
+    /**
+     * 是否处于免打扰（静音）状态。true=用户在该群已被免打扰；false=正常接收通知。
+     *
+     * <p>示例值：false
+     */
     private Boolean isMuted;
 
-    // builder 开始
-    public ChatUserMuteStatus() {
+    /**
+     * 群组ID
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public ChatUserMuteStatus(Builder builder) {
-        /**
-         * 群组ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 是否处于免打扰（静音）状态。true=用户在该群已被免打扰；false=正常接收通知。
-         * <p> 示例值：false
-         */
-        this.isMuted = builder.isMuted;
+    /**
+     * 是否处于免打扰（静音）状态。true=用户在该群已被免打扰；false=正常接收通知。
+     *
+     * <p>示例值：false
+     *
+     * @param isMuted
+     * @return
+     */
+    public Builder isMuted(Boolean isMuted) {
+      this.isMuted = isMuted;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ChatUserMuteStatus build() {
+      return new ChatUserMuteStatus(this);
     }
+  }
 
-    public String getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public Boolean getIsMuted() {
-        return this.isMuted;
-    }
-
-    public void setIsMuted(Boolean isMuted) {
-        this.isMuted = isMuted;
-    }
-
-    public static class Builder {
-        /**
-         * 群组ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        private String chatId;
-        /**
-         * 是否处于免打扰（静音）状态。true=用户在该群已被免打扰；false=正常接收通知。
-         * <p> 示例值：false
-         */
-        private Boolean isMuted;
-
-        /**
-         * 群组ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * 是否处于免打扰（静音）状态。true=用户在该群已被免打扰；false=正常接收通知。
-         * <p> 示例值：false
-         *
-         * @param isMuted
-         * @return
-         */
-        public Builder isMuted(Boolean isMuted) {
-            this.isMuted = isMuted;
-            return this;
-        }
-
-
-        public ChatUserMuteStatus build() {
-            return new ChatUserMuteStatus(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

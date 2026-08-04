@@ -13,296 +13,316 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CompositeTalentProjectInfo {
+  /**
+   * 项目名称
+   *
+   * <p>示例值：测试
+   */
+  @SerializedName("project_name")
+  private String projectName;
+
+  /**
+   * 项目角色
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("role")
+  private String role;
+
+  /**
+   * 项目链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("link")
+  private String link;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 开始时间
+   *
+   * <p>示例值：1990-01
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 结束时间
+   *
+   * <p>示例值：1991-01
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_data_list")
+  private TalentCustomizedDataChild[] customizedDataList;
+
+  public String getProjectName() {
+    return this.projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+  public String getRole() {
+    return this.role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
+  public String getLink() {
+    return this.link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public TalentCustomizedDataChild[] getCustomizedDataList() {
+    return this.customizedDataList;
+  }
+
+  public void setCustomizedDataList(TalentCustomizedDataChild[] customizedDataList) {
+    this.customizedDataList = customizedDataList;
+  }
+
+  // builder 开始
+  public CompositeTalentProjectInfo() {}
+
+  public CompositeTalentProjectInfo(Builder builder) {
     /**
      * 项目名称
-     * <p> 示例值：测试
+     *
+     * <p>示例值：测试
      */
-    @SerializedName("project_name")
-    private String projectName;
+    this.projectName = builder.projectName;
     /**
      * 项目角色
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("role")
-    private String role;
+    this.role = builder.role;
     /**
      * 项目链接
-     * <p> 示例值：项目链接
+     *
+     * <p>示例值：
      */
-    @SerializedName("link")
-    private String link;
+    this.link = builder.link;
     /**
      * 描述
-     * <p> 示例值：直播项目
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 开始时间
-     * <p> 示例值：1990-01
+     *
+     * <p>示例值：1990-01
      */
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
      * 结束时间
-     * <p> 示例值：1991-01
+     *
+     * <p>示例值：1991-01
      */
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("customized_data_list")
+    this.customizedDataList = builder.customizedDataList;
+  }
+
+  public static class Builder {
+    /**
+     * 项目名称
+     *
+     * <p>示例值：测试
+     */
+    private String projectName;
+
+    /**
+     * 项目角色
+     *
+     * <p>示例值：test
+     */
+    private String role;
+
+    /**
+     * 项目链接
+     *
+     * <p>示例值：
+     */
+    private String link;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     */
+    private String description;
+
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1990-01
+     */
+    private String startTime;
+
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1991-01
+     */
+    private String endTime;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private TalentCustomizedDataChild[] customizedDataList;
 
-    // builder 开始
-    public CompositeTalentProjectInfo() {
+    /**
+     * 项目名称
+     *
+     * <p>示例值：测试
+     *
+     * @param projectName
+     * @return
+     */
+    public Builder projectName(String projectName) {
+      this.projectName = projectName;
+      return this;
     }
 
-    public CompositeTalentProjectInfo(Builder builder) {
-        /**
-         * 项目名称
-         * <p> 示例值：测试
-         */
-        this.projectName = builder.projectName;
-        /**
-         * 项目角色
-         * <p> 示例值：test
-         */
-        this.role = builder.role;
-        /**
-         * 项目链接
-         * <p> 示例值：项目链接
-         */
-        this.link = builder.link;
-        /**
-         * 描述
-         * <p> 示例值：直播项目
-         */
-        this.description = builder.description;
-        /**
-         * 开始时间
-         * <p> 示例值：1990-01
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：1991-01
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedDataList = builder.customizedDataList;
+    /**
+     * 项目角色
+     *
+     * <p>示例值：test
+     *
+     * @param role
+     * @return
+     */
+    public Builder role(String role) {
+      this.role = role;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 项目链接
+     *
+     * <p>示例值：
+     *
+     * @param link
+     * @return
+     */
+    public Builder link(String link) {
+      this.link = link;
+      return this;
     }
 
-    public String getProjectName() {
-        return this.projectName;
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1990-01
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getRole() {
-        return this.role;
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1991-01
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customizedDataList
+     * @return
+     */
+    public Builder customizedDataList(TalentCustomizedDataChild[] customizedDataList) {
+      this.customizedDataList = customizedDataList;
+      return this;
     }
 
-    public String getLink() {
-        return this.link;
+    public CompositeTalentProjectInfo build() {
+      return new CompositeTalentProjectInfo(this);
     }
+  }
 
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public TalentCustomizedDataChild[] getCustomizedDataList() {
-        return this.customizedDataList;
-    }
-
-    public void setCustomizedDataList(TalentCustomizedDataChild[] customizedDataList) {
-        this.customizedDataList = customizedDataList;
-    }
-
-    public static class Builder {
-        /**
-         * 项目名称
-         * <p> 示例值：测试
-         */
-        private String projectName;
-        /**
-         * 项目角色
-         * <p> 示例值：test
-         */
-        private String role;
-        /**
-         * 项目链接
-         * <p> 示例值：项目链接
-         */
-        private String link;
-        /**
-         * 描述
-         * <p> 示例值：直播项目
-         */
-        private String description;
-        /**
-         * 开始时间
-         * <p> 示例值：1990-01
-         */
-        private String startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：1991-01
-         */
-        private String endTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private TalentCustomizedDataChild[] customizedDataList;
-
-        /**
-         * 项目名称
-         * <p> 示例值：测试
-         *
-         * @param projectName
-         * @return
-         */
-        public Builder projectName(String projectName) {
-            this.projectName = projectName;
-            return this;
-        }
-
-
-        /**
-         * 项目角色
-         * <p> 示例值：test
-         *
-         * @param role
-         * @return
-         */
-        public Builder role(String role) {
-            this.role = role;
-            return this;
-        }
-
-
-        /**
-         * 项目链接
-         * <p> 示例值：项目链接
-         *
-         * @param link
-         * @return
-         */
-        public Builder link(String link) {
-            this.link = link;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：直播项目
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 开始时间
-         * <p> 示例值：1990-01
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：1991-01
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customizedDataList
-         * @return
-         */
-        public Builder customizedDataList(TalentCustomizedDataChild[] customizedDataList) {
-            this.customizedDataList = customizedDataList;
-            return this;
-        }
-
-
-        public CompositeTalentProjectInfo build() {
-            return new CompositeTalentProjectInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

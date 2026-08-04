@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 离职方式
- */
+/** 离职方式 */
 public enum SubmitV2OffboardingSubmitV2OffboardingOffboardingModeEnum {
-    TERMINATION_OF_DISMISSAL(1), // 直接离职
-    OFFBOARDING_WITH_PROCESS(2), // 发起离职审批
-    ;
-    private Integer value;
+  TERMINATION_OF_DISMISSAL(1), // 直接离职
+  OFFBOARDING_WITH_PROCESS(2), // 发起离职审批
+  ;
+  private Integer value;
 
-    SubmitV2OffboardingSubmitV2OffboardingOffboardingModeEnum(Integer value) {
-        this.value = value;
-    }
+  SubmitV2OffboardingSubmitV2OffboardingOffboardingModeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

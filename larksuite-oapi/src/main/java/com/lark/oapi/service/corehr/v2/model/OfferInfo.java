@@ -13,2406 +13,2718 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OfferInfo {
+  /**
+   * Offer ID，仅支持飞书招聘
+   * ID，可以通过飞书招聘[获取Offer列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/list)接口获取，如果未使用飞书招聘请置空
+   *
+   * <p>示例值：7032210902531327521
+   */
+  @SerializedName("offer_id")
+  private String offerId;
+
+  /**
+   * Offer id查找类型ID
+   *
+   * <p>示例值：7032210902531327521
+   */
+  @SerializedName("offer")
+  private String offer;
+
+  /**
+   * Offer HR 雇佣
+   * ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取
+   *
+   * <p>示例值：7032210902531327521
+   */
+  @SerializedName("offer_hr_id")
+  private String offerHrId;
+
+  /**
+   * 部门
+   * ID，可以通过[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取
+   *
+   * <p>示例值：7147562782945478177
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 直属领导的雇佣
+   * ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取
+   *
+   * <p>示例值：7032210902531327521
+   */
+  @SerializedName("direct_leader_id")
+  private String directLeaderId;
+
+  /**
+   * 虚线上级ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取;-
+   * 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+   *
+   * <p>示例值：7032210902531327521
+   */
+  @SerializedName("dotted_line_manager_id")
+  private String dottedLineManagerId;
+
+  /**
+   * 职务
+   * ID，可以通过[批量查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口获取
+   *
+   * <p>示例值：6977976735715378724
+   */
+  @SerializedName("job_id")
+  private String jobId;
+
+  /**
+   * 序列
+   * ID，可以通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口获取
+   *
+   * <p>示例值：6977972856625939999
+   */
+  @SerializedName("job_family_id")
+  private String jobFamilyId;
+
+  /**
+   * 职级
+   * ID，可以通过[批量查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)接口获取
+   *
+   * <p>示例值：6977971894960145950
+   */
+  @SerializedName("job_level_id")
+  private String jobLevelId;
+
+  /**
+   * 职务头衔（待废弃）
+   *
+   * <p>示例值：java
+   */
+  @SerializedName("job_title")
+  private String jobTitle;
+
+  /**
+   * 试用期开始日期，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：2022-07-29
+   */
+  @SerializedName("probation_start_date")
+  private String probationStartDate;
+
+  /**
+   * 试用期结束日期，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：2023-04-07
+   */
+  @SerializedName("probation_end_date")
+  private String probationEndDate;
+
+  /**
+   * 合同开始日期，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：2022-10-08
+   */
+  @SerializedName("contract_start_date")
+  private String contractStartDate;
+
+  /**
+   * 合同结束日期，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：2025-10-07
+   */
+  @SerializedName("contract_end_date")
+  private String contractEndDate;
+
+  /** 示例值： */
+  @SerializedName("duration_period")
+  private Double durationPeriod;
+
+  /**
+   * 合同期限单位，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+   * ;- object_api_name = pre_hire;- custom_api_name = duration_unit
+   *
+   * <p>示例值：year
+   */
+  @SerializedName("duration_unit")
+  private String durationUnit;
+
+  /**
+   * 入职日期，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：2022-10-08
+   */
+  @SerializedName("onboarding_date")
+  private String onboardingDate;
+
+  /**
+   * 入职地点
+   * ID，可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+   *
+   * <p>示例值：6977976687350924832
+   */
+  @SerializedName("onboarding_location_id")
+  private String onboardingLocationId;
+
+  /**
+   * 办公地点
+   * ID，可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+   *
+   * <p>示例值：6977976687350924832
+   */
+  @SerializedName("office_location_id")
+  private String officeLocationId;
+
+  /**
+   * 招聘来源，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：pre_hire;- custom_api_name：recruitment_type
+   *
+   * <p>示例值：experienced_professionals
+   */
+  @SerializedName("recruitment_type_id")
+  private String recruitmentTypeId;
+
+  /**
+   * 试用期时长（单位：月）
+   *
+   * <p>示例值：6
+   */
+  @SerializedName("probation_period")
+  private String probationPeriod;
+
+  /**
+   * 人员类型
+   * ID，可以通过接口[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+   *
+   * <p>示例值：6977973225846343171
+   */
+  @SerializedName("employee_type_id")
+  private String employeeTypeId;
+
+  /** 示例值：6977973225846343171 */
+  @SerializedName("employee_subtype_id")
+  private String employeeSubtypeId;
+
+  /**
+   * 雇佣类型，请注意该字段为必填，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：pre_hire;- custom_api_name：employment_type
+   *
+   * <p>示例值：employee
+   */
+  @SerializedName("employment_type_id")
+  private String employmentTypeId;
+
+  /**
+   * 工作邮箱
+   *
+   * <p>示例值：joshua@bytedance.com
+   */
+  @SerializedName("work_email")
+  private String workEmail;
+
+  /**
+   * 期限类型，
+   * 枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：pre_hire;- custom_api_name：duration_type
+   *
+   * <p>示例值：fixed_term
+   */
+  @SerializedName("duration_type_id")
+  private String durationTypeId;
+
+  /**
+   * 签订类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：pre_hire;- custom_api_name：signing_type
+   *
+   * <p>示例值：new
+   */
+  @SerializedName("signing_type_id")
+  private String signingTypeId;
+
+  /**
+   * 入职方式，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：pre_hire;- custom_api_name：onboarding_method
+   *
+   * <p>示例值：onsite
+   */
+  @SerializedName("entry_mode")
+  private String entryMode;
+
+  /**
+   * 社保城市
+   * ID，可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+   *
+   * <p>示例值：6977976687350924833
+   */
+  @SerializedName("social_security_city_id")
+  private String socialSecurityCityId;
+
+  /**
+   * 合同类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：pre_hire;- custom_api_name：contract_type
+   *
+   * <p>示例值：internship_agreement
+   */
+  @SerializedName("contract_type")
+  private String contractType;
+
+  /**
+   * 公司
+   * ID，可以通过[批量查询公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口获取
+   *
+   * <p>示例值：6738317738688661772
+   */
+  @SerializedName("company")
+  private String company;
+
+  /**
+   * 成本中心分摊信息;- 待废弃，建议使用cost_allocation
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_center_rate")
+  private JobDataCostCenter[] costCenterRate;
+
+  /**
+   * 职等ID，可以通过[查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_grade_id")
+  private String jobGradeId;
+
+  /**
+   * pre_hire对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  /**
+   * 任职公司，可以通过[批量查询公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("service_company")
+  private String serviceCompany;
+
+  /**
+   * 排班，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：pre_hire;- custom_api_name：work_shift
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_shift")
+  private String workShift;
+
+  /**
+   * 薪资类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：pre_hire;- custom_api_name：compensation_type
+   *
+   * <p>示例值：
+   */
+  @SerializedName("compensation_type")
+  private String compensationType;
+
+  /**
+   * 工作地点ID，可以通过[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_location_id")
+  private String workLocationId;
+
+  /**
+   * 入职地址ID，可以通过[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("onboarding_address_id")
+  private String onboardingAddressId;
+
+  /**
+   * 办公地址ID，，可以通过[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("office_address_id")
+  private String officeAddressId;
+
+  /**
+   * 岗位ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("position_id")
+  private String positionId;
+
+  /**
+   * 工作日历ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("working_calendar_id")
+  private String workingCalendarId;
+
+  /**
+   * 工时制度，可以通过[批量查询工时制度](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口获得
+   *
+   * <p>示例值：6890452208593372679
+   */
+  @SerializedName("working_hours_type")
+  private String workingHoursType;
+
+  /** 示例值： */
+  @SerializedName("pay_group_id")
+  private String payGroupId;
+
+  /**
+   * 入职流程ID
+   *
+   * <p>示例值：64377642c0ec3f23c79c6916
+   */
+  @SerializedName("flow_id")
+  private String flowId;
+
+  /**
+   * 签到日期，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：2024-12-31
+   */
+  @SerializedName("check_in_time")
+  private String checkInTime;
+
+  /**
+   * 签到方式，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：pre_hire;- custom_api_name：onboarding_method
+   *
+   * <p>示例值：onsite
+   */
+  @SerializedName("check_in_method")
+  private String checkInMethod;
+
+  /** 示例值：2024-08-01 */
+  @SerializedName("seniority_date")
+  private String seniorityDate;
+
+  /**
+   * 司龄调整信息;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("seniority_adjust_information_list")
+  private PrehireSeniorityAdjustInformation[] seniorityAdjustInformationList;
+
+  /**
+   * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("notice_period_probation_voluntary")
+  private NoticePeriodDetail noticePeriodProbationVoluntary;
+
+  /**
+   * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("notice_period_probation_involuntary")
+  private NoticePeriodDetail noticePeriodProbationInvoluntary;
+
+  /**
+   * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("notice_period_positive_voluntary")
+  private NoticePeriodDetail noticePeriodPositiveVoluntary;
+
+  /**
+   * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("notice_period_positive_involuntary")
+  private NoticePeriodDetail noticePeriodPositiveInvoluntary;
+
+  /** 示例值：true */
+  @SerializedName("condition_worker")
+  private Boolean conditionWorker;
+
+  /** 示例值：true */
+  @SerializedName("non_compete_covenant")
+  private Boolean nonCompeteCovenant;
+
+  /** 示例值：true */
+  @SerializedName("company_sponsored_visa")
+  private Boolean companySponsoredVisa;
+
+  /**
+   * 是否有 Offer 薪酬
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_offer_salary")
+  private Boolean hasOfferSalary;
+
+  /** 示例值：5-1-2 */
+  @SerializedName("work_station")
+  private String workStation;
+
+  /**
+   * 通道
+   *
+   * <p>示例值：7460865381179115052
+   */
+  @SerializedName("pathway")
+  private String pathway;
+
+  /**
+   * 默认成本中心;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("default_cost_center")
+  private PrehireDefaultCostCenterUpdate defaultCostCenter;
+
+  /**
+   * 成本分摊;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_allocation")
+  private CostAllocation costAllocation;
+
+  /**
+   * 人才ID，仅支持飞书招聘人才
+   * ID，可以通过飞书招聘[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取，如果未使用飞书招聘请置空
+   *
+   * <p>示例值：8234698927348
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 是否复用飞书账号，支持传入“reuse”或者“not_reuse”，当字段为“reuse”时，需要传入reused_feishu_account_id;-
+   * 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reuse_feishu_account")
+  private String reuseFeishuAccount;
+
+  /**
+   * 复用的飞书账号，仅支持Lark Union
+   * ID，可以通过[搜索员工信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/search)接口获取;-
+   * 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+   *
+   * <p>示例值：on_773dd2c4d14c5c980a4d89a2da5c86d3
+   */
+  @SerializedName("reused_feishu_account_id")
+  private String reusedFeishuAccountId;
+
+  public String getOfferId() {
+    return this.offerId;
+  }
+
+  public void setOfferId(String offerId) {
+    this.offerId = offerId;
+  }
+
+  public String getOffer() {
+    return this.offer;
+  }
+
+  public void setOffer(String offer) {
+    this.offer = offer;
+  }
+
+  public String getOfferHrId() {
+    return this.offerHrId;
+  }
+
+  public void setOfferHrId(String offerHrId) {
+    this.offerHrId = offerHrId;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getDirectLeaderId() {
+    return this.directLeaderId;
+  }
+
+  public void setDirectLeaderId(String directLeaderId) {
+    this.directLeaderId = directLeaderId;
+  }
+
+  public String getDottedLineManagerId() {
+    return this.dottedLineManagerId;
+  }
+
+  public void setDottedLineManagerId(String dottedLineManagerId) {
+    this.dottedLineManagerId = dottedLineManagerId;
+  }
+
+  public String getJobId() {
+    return this.jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
+  public String getJobFamilyId() {
+    return this.jobFamilyId;
+  }
+
+  public void setJobFamilyId(String jobFamilyId) {
+    this.jobFamilyId = jobFamilyId;
+  }
+
+  public String getJobLevelId() {
+    return this.jobLevelId;
+  }
+
+  public void setJobLevelId(String jobLevelId) {
+    this.jobLevelId = jobLevelId;
+  }
+
+  public String getJobTitle() {
+    return this.jobTitle;
+  }
+
+  public void setJobTitle(String jobTitle) {
+    this.jobTitle = jobTitle;
+  }
+
+  public String getProbationStartDate() {
+    return this.probationStartDate;
+  }
+
+  public void setProbationStartDate(String probationStartDate) {
+    this.probationStartDate = probationStartDate;
+  }
+
+  public String getProbationEndDate() {
+    return this.probationEndDate;
+  }
+
+  public void setProbationEndDate(String probationEndDate) {
+    this.probationEndDate = probationEndDate;
+  }
+
+  public String getContractStartDate() {
+    return this.contractStartDate;
+  }
+
+  public void setContractStartDate(String contractStartDate) {
+    this.contractStartDate = contractStartDate;
+  }
+
+  public String getContractEndDate() {
+    return this.contractEndDate;
+  }
+
+  public void setContractEndDate(String contractEndDate) {
+    this.contractEndDate = contractEndDate;
+  }
+
+  public Double getDurationPeriod() {
+    return this.durationPeriod;
+  }
+
+  public void setDurationPeriod(Double durationPeriod) {
+    this.durationPeriod = durationPeriod;
+  }
+
+  public String getDurationUnit() {
+    return this.durationUnit;
+  }
+
+  public void setDurationUnit(String durationUnit) {
+    this.durationUnit = durationUnit;
+  }
+
+  public String getOnboardingDate() {
+    return this.onboardingDate;
+  }
+
+  public void setOnboardingDate(String onboardingDate) {
+    this.onboardingDate = onboardingDate;
+  }
+
+  public String getOnboardingLocationId() {
+    return this.onboardingLocationId;
+  }
+
+  public void setOnboardingLocationId(String onboardingLocationId) {
+    this.onboardingLocationId = onboardingLocationId;
+  }
+
+  public String getOfficeLocationId() {
+    return this.officeLocationId;
+  }
+
+  public void setOfficeLocationId(String officeLocationId) {
+    this.officeLocationId = officeLocationId;
+  }
+
+  public String getRecruitmentTypeId() {
+    return this.recruitmentTypeId;
+  }
+
+  public void setRecruitmentTypeId(String recruitmentTypeId) {
+    this.recruitmentTypeId = recruitmentTypeId;
+  }
+
+  public String getProbationPeriod() {
+    return this.probationPeriod;
+  }
+
+  public void setProbationPeriod(String probationPeriod) {
+    this.probationPeriod = probationPeriod;
+  }
+
+  public String getEmployeeTypeId() {
+    return this.employeeTypeId;
+  }
+
+  public void setEmployeeTypeId(String employeeTypeId) {
+    this.employeeTypeId = employeeTypeId;
+  }
+
+  public String getEmployeeSubtypeId() {
+    return this.employeeSubtypeId;
+  }
+
+  public void setEmployeeSubtypeId(String employeeSubtypeId) {
+    this.employeeSubtypeId = employeeSubtypeId;
+  }
+
+  public String getEmploymentTypeId() {
+    return this.employmentTypeId;
+  }
+
+  public void setEmploymentTypeId(String employmentTypeId) {
+    this.employmentTypeId = employmentTypeId;
+  }
+
+  public String getWorkEmail() {
+    return this.workEmail;
+  }
+
+  public void setWorkEmail(String workEmail) {
+    this.workEmail = workEmail;
+  }
+
+  public String getDurationTypeId() {
+    return this.durationTypeId;
+  }
+
+  public void setDurationTypeId(String durationTypeId) {
+    this.durationTypeId = durationTypeId;
+  }
+
+  public String getSigningTypeId() {
+    return this.signingTypeId;
+  }
+
+  public void setSigningTypeId(String signingTypeId) {
+    this.signingTypeId = signingTypeId;
+  }
+
+  public String getEntryMode() {
+    return this.entryMode;
+  }
+
+  public void setEntryMode(String entryMode) {
+    this.entryMode = entryMode;
+  }
+
+  public String getSocialSecurityCityId() {
+    return this.socialSecurityCityId;
+  }
+
+  public void setSocialSecurityCityId(String socialSecurityCityId) {
+    this.socialSecurityCityId = socialSecurityCityId;
+  }
+
+  public String getContractType() {
+    return this.contractType;
+  }
+
+  public void setContractType(String contractType) {
+    this.contractType = contractType;
+  }
+
+  public String getCompany() {
+    return this.company;
+  }
+
+  public void setCompany(String company) {
+    this.company = company;
+  }
+
+  public JobDataCostCenter[] getCostCenterRate() {
+    return this.costCenterRate;
+  }
+
+  public void setCostCenterRate(JobDataCostCenter[] costCenterRate) {
+    this.costCenterRate = costCenterRate;
+  }
+
+  public String getJobGradeId() {
+    return this.jobGradeId;
+  }
+
+  public void setJobGradeId(String jobGradeId) {
+    this.jobGradeId = jobGradeId;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public String getServiceCompany() {
+    return this.serviceCompany;
+  }
+
+  public void setServiceCompany(String serviceCompany) {
+    this.serviceCompany = serviceCompany;
+  }
+
+  public String getWorkShift() {
+    return this.workShift;
+  }
+
+  public void setWorkShift(String workShift) {
+    this.workShift = workShift;
+  }
+
+  public String getCompensationType() {
+    return this.compensationType;
+  }
+
+  public void setCompensationType(String compensationType) {
+    this.compensationType = compensationType;
+  }
+
+  public String getWorkLocationId() {
+    return this.workLocationId;
+  }
+
+  public void setWorkLocationId(String workLocationId) {
+    this.workLocationId = workLocationId;
+  }
+
+  public String getOnboardingAddressId() {
+    return this.onboardingAddressId;
+  }
+
+  public void setOnboardingAddressId(String onboardingAddressId) {
+    this.onboardingAddressId = onboardingAddressId;
+  }
+
+  public String getOfficeAddressId() {
+    return this.officeAddressId;
+  }
+
+  public void setOfficeAddressId(String officeAddressId) {
+    this.officeAddressId = officeAddressId;
+  }
+
+  public String getPositionId() {
+    return this.positionId;
+  }
+
+  public void setPositionId(String positionId) {
+    this.positionId = positionId;
+  }
+
+  public String getWorkingCalendarId() {
+    return this.workingCalendarId;
+  }
+
+  public void setWorkingCalendarId(String workingCalendarId) {
+    this.workingCalendarId = workingCalendarId;
+  }
+
+  public String getWorkingHoursType() {
+    return this.workingHoursType;
+  }
+
+  public void setWorkingHoursType(String workingHoursType) {
+    this.workingHoursType = workingHoursType;
+  }
+
+  public String getPayGroupId() {
+    return this.payGroupId;
+  }
+
+  public void setPayGroupId(String payGroupId) {
+    this.payGroupId = payGroupId;
+  }
+
+  public String getFlowId() {
+    return this.flowId;
+  }
+
+  public void setFlowId(String flowId) {
+    this.flowId = flowId;
+  }
+
+  public String getCheckInTime() {
+    return this.checkInTime;
+  }
+
+  public void setCheckInTime(String checkInTime) {
+    this.checkInTime = checkInTime;
+  }
+
+  public String getCheckInMethod() {
+    return this.checkInMethod;
+  }
+
+  public void setCheckInMethod(String checkInMethod) {
+    this.checkInMethod = checkInMethod;
+  }
+
+  public String getSeniorityDate() {
+    return this.seniorityDate;
+  }
+
+  public void setSeniorityDate(String seniorityDate) {
+    this.seniorityDate = seniorityDate;
+  }
+
+  public PrehireSeniorityAdjustInformation[] getSeniorityAdjustInformationList() {
+    return this.seniorityAdjustInformationList;
+  }
+
+  public void setSeniorityAdjustInformationList(
+      PrehireSeniorityAdjustInformation[] seniorityAdjustInformationList) {
+    this.seniorityAdjustInformationList = seniorityAdjustInformationList;
+  }
+
+  public NoticePeriodDetail getNoticePeriodProbationVoluntary() {
+    return this.noticePeriodProbationVoluntary;
+  }
+
+  public void setNoticePeriodProbationVoluntary(NoticePeriodDetail noticePeriodProbationVoluntary) {
+    this.noticePeriodProbationVoluntary = noticePeriodProbationVoluntary;
+  }
+
+  public NoticePeriodDetail getNoticePeriodProbationInvoluntary() {
+    return this.noticePeriodProbationInvoluntary;
+  }
+
+  public void setNoticePeriodProbationInvoluntary(
+      NoticePeriodDetail noticePeriodProbationInvoluntary) {
+    this.noticePeriodProbationInvoluntary = noticePeriodProbationInvoluntary;
+  }
+
+  public NoticePeriodDetail getNoticePeriodPositiveVoluntary() {
+    return this.noticePeriodPositiveVoluntary;
+  }
+
+  public void setNoticePeriodPositiveVoluntary(NoticePeriodDetail noticePeriodPositiveVoluntary) {
+    this.noticePeriodPositiveVoluntary = noticePeriodPositiveVoluntary;
+  }
+
+  public NoticePeriodDetail getNoticePeriodPositiveInvoluntary() {
+    return this.noticePeriodPositiveInvoluntary;
+  }
+
+  public void setNoticePeriodPositiveInvoluntary(
+      NoticePeriodDetail noticePeriodPositiveInvoluntary) {
+    this.noticePeriodPositiveInvoluntary = noticePeriodPositiveInvoluntary;
+  }
+
+  public Boolean getConditionWorker() {
+    return this.conditionWorker;
+  }
+
+  public void setConditionWorker(Boolean conditionWorker) {
+    this.conditionWorker = conditionWorker;
+  }
+
+  public Boolean getNonCompeteCovenant() {
+    return this.nonCompeteCovenant;
+  }
+
+  public void setNonCompeteCovenant(Boolean nonCompeteCovenant) {
+    this.nonCompeteCovenant = nonCompeteCovenant;
+  }
+
+  public Boolean getCompanySponsoredVisa() {
+    return this.companySponsoredVisa;
+  }
+
+  public void setCompanySponsoredVisa(Boolean companySponsoredVisa) {
+    this.companySponsoredVisa = companySponsoredVisa;
+  }
+
+  public Boolean getHasOfferSalary() {
+    return this.hasOfferSalary;
+  }
+
+  public void setHasOfferSalary(Boolean hasOfferSalary) {
+    this.hasOfferSalary = hasOfferSalary;
+  }
+
+  public String getWorkStation() {
+    return this.workStation;
+  }
+
+  public void setWorkStation(String workStation) {
+    this.workStation = workStation;
+  }
+
+  public String getPathway() {
+    return this.pathway;
+  }
+
+  public void setPathway(String pathway) {
+    this.pathway = pathway;
+  }
+
+  public PrehireDefaultCostCenterUpdate getDefaultCostCenter() {
+    return this.defaultCostCenter;
+  }
+
+  public void setDefaultCostCenter(PrehireDefaultCostCenterUpdate defaultCostCenter) {
+    this.defaultCostCenter = defaultCostCenter;
+  }
+
+  public CostAllocation getCostAllocation() {
+    return this.costAllocation;
+  }
+
+  public void setCostAllocation(CostAllocation costAllocation) {
+    this.costAllocation = costAllocation;
+  }
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public String getReuseFeishuAccount() {
+    return this.reuseFeishuAccount;
+  }
+
+  public void setReuseFeishuAccount(String reuseFeishuAccount) {
+    this.reuseFeishuAccount = reuseFeishuAccount;
+  }
+
+  public String getReusedFeishuAccountId() {
+    return this.reusedFeishuAccountId;
+  }
+
+  public void setReusedFeishuAccountId(String reusedFeishuAccountId) {
+    this.reusedFeishuAccountId = reusedFeishuAccountId;
+  }
+
+  // builder 开始
+  public OfferInfo() {}
+
+  public OfferInfo(Builder builder) {
     /**
-     * Offer id
-     * <p> 示例值：7032210902531327521
+     * Offer ID，仅支持飞书招聘
+     * ID，可以通过飞书招聘[获取Offer列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/list)接口获取，如果未使用飞书招聘请置空
+     *
+     * <p>示例值：7032210902531327521
      */
-    @SerializedName("offer_id")
-    private String offerId;
+    this.offerId = builder.offerId;
     /**
      * Offer id查找类型ID
-     * <p> 示例值：7032210902531327521
+     *
+     * <p>示例值：7032210902531327521
      */
-    @SerializedName("offer")
-    private String offer;
+    this.offer = builder.offer;
     /**
-     * Offer hr id
-     * <p> 示例值：7032210902531327521
+     * Offer HR 雇佣
+     * ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取
+     *
+     * <p>示例值：7032210902531327521
      */
-    @SerializedName("offer_hr_id")
-    private String offerHrId;
+    this.offerHrId = builder.offerHrId;
     /**
-     * 部门 id
-     * <p> 示例值：7147562782945478177
+     * 部门
+     * ID，可以通过[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取
+     *
+     * <p>示例值：7147562782945478177
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
-     * 直属领导id
-     * <p> 示例值：7032210902531327521
+     * 直属领导的雇佣
+     * ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取
+     *
+     * <p>示例值：7032210902531327521
      */
-    @SerializedName("direct_leader_id")
-    private String directLeaderId;
+    this.directLeaderId = builder.directLeaderId;
     /**
-     * 虚线上级id
-     * <p> 示例值：7032210902531327521
+     * 虚线上级ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取;-
+     * 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：7032210902531327521
      */
-    @SerializedName("dotted_line_manager_id")
-    private String dottedLineManagerId;
+    this.dottedLineManagerId = builder.dottedLineManagerId;
     /**
-     * 职务id
-     * <p> 示例值：6977976735715378724
+     * 职务
+     * ID，可以通过[批量查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口获取
+     *
+     * <p>示例值：6977976735715378724
      */
-    @SerializedName("job_id")
-    private String jobId;
+    this.jobId = builder.jobId;
     /**
-     * 序列id
-     * <p> 示例值：6977972856625939999
+     * 序列
+     * ID，可以通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口获取
+     *
+     * <p>示例值：6977972856625939999
      */
-    @SerializedName("job_family_id")
-    private String jobFamilyId;
+    this.jobFamilyId = builder.jobFamilyId;
     /**
-     * 级别id
-     * <p> 示例值：6977971894960145950
+     * 职级
+     * ID，可以通过[批量查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)接口获取
+     *
+     * <p>示例值：6977971894960145950
      */
-    @SerializedName("job_level_id")
-    private String jobLevelId;
+    this.jobLevelId = builder.jobLevelId;
     /**
-     * 职务头衔id
-     * <p> 示例值：java
+     * 职务头衔（待废弃）
+     *
+     * <p>示例值：java
      */
-    @SerializedName("job_title")
-    private String jobTitle;
+    this.jobTitle = builder.jobTitle;
     /**
-     * 试用期开始日期
-     * <p> 示例值：2022-07-29
+     * 试用期开始日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-07-29
      */
-    @SerializedName("probation_start_date")
-    private String probationStartDate;
+    this.probationStartDate = builder.probationStartDate;
     /**
-     * 试用期结束日期
-     * <p> 示例值：2023-04-07
+     * 试用期结束日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2023-04-07
      */
-    @SerializedName("probation_end_date")
-    private String probationEndDate;
+    this.probationEndDate = builder.probationEndDate;
     /**
-     * 合同开始日期
-     * <p> 示例值：2022-10-08
+     * 合同开始日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-10-08
      */
-    @SerializedName("contract_start_date")
-    private String contractStartDate;
+    this.contractStartDate = builder.contractStartDate;
     /**
-     * 合同结束日期
-     * <p> 示例值：2025-10-07
+     * 合同结束日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2025-10-07
      */
-    @SerializedName("contract_end_date")
-    private String contractEndDate;
+    this.contractEndDate = builder.contractEndDate;
+    /** 示例值： */
+    this.durationPeriod = builder.durationPeriod;
     /**
-     * 合同期限时长
-     * <p> 示例值：3
+     * 合同期限单位，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+     * ;- object_api_name = pre_hire;- custom_api_name = duration_unit
+     *
+     * <p>示例值：year
      */
-    @SerializedName("duration_period")
-    private Double durationPeriod;
+    this.durationUnit = builder.durationUnit;
     /**
-     * 合同期限单位
-     * <p> 示例值：年
+     * 入职日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-10-08
      */
-    @SerializedName("duration_unit")
-    private String durationUnit;
+    this.onboardingDate = builder.onboardingDate;
     /**
-     * 入职日期
-     * <p> 示例值：2022-10-08
+     * 入职地点
+     * ID，可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：6977976687350924832
      */
-    @SerializedName("onboarding_date")
-    private String onboardingDate;
+    this.onboardingLocationId = builder.onboardingLocationId;
     /**
-     * 入职地点id
-     * <p> 示例值：6977976687350924832
+     * 办公地点
+     * ID，可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：6977976687350924832
      */
-    @SerializedName("onboarding_location_id")
-    private String onboardingLocationId;
+    this.officeLocationId = builder.officeLocationId;
     /**
-     * 办公地点id
-     * <p> 示例值：6977976687350924832
+     * 招聘来源，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：recruitment_type
+     *
+     * <p>示例值：experienced_professionals
      */
-    @SerializedName("office_location_id")
-    private String officeLocationId;
+    this.recruitmentTypeId = builder.recruitmentTypeId;
     /**
-     * 招聘来源id
-     * <p> 示例值：experienced_professionals
+     * 试用期时长（单位：月）
+     *
+     * <p>示例值：6
      */
-    @SerializedName("recruitment_type_id")
-    private String recruitmentTypeId;
+    this.probationPeriod = builder.probationPeriod;
     /**
-     * 试用期时长
-     * <p> 示例值：6
+     * 人员类型
+     * ID，可以通过接口[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+     *
+     * <p>示例值：6977973225846343171
      */
-    @SerializedName("probation_period")
-    private String probationPeriod;
+    this.employeeTypeId = builder.employeeTypeId;
+    /** 示例值：6977973225846343171 */
+    this.employeeSubtypeId = builder.employeeSubtypeId;
     /**
-     * 人员类型id
-     * <p> 示例值：6977973225846343171
+     * 雇佣类型，请注意该字段为必填，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：employment_type
+     *
+     * <p>示例值：employee
      */
-    @SerializedName("employee_type_id")
-    private String employeeTypeId;
-    /**
-     * 人员子类型id
-     * <p> 示例值：6977973225846343171
-     */
-    @SerializedName("employee_subtype_id")
-    private String employeeSubtypeId;
-    /**
-     * 雇佣类型id
-     * <p> 示例值：6977973225846343171
-     */
-    @SerializedName("employment_type_id")
-    private String employmentTypeId;
+    this.employmentTypeId = builder.employmentTypeId;
     /**
      * 工作邮箱
-     * <p> 示例值：joshua@bytedance.com
+     *
+     * <p>示例值：joshua@bytedance.com
      */
-    @SerializedName("work_email")
-    private String workEmail;
+    this.workEmail = builder.workEmail;
     /**
-     * 期限类型id
-     * <p> 示例值：6977973225846343171
+     * 期限类型，
+     * 枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：duration_type
+     *
+     * <p>示例值：fixed_term
      */
-    @SerializedName("duration_type_id")
-    private String durationTypeId;
+    this.durationTypeId = builder.durationTypeId;
     /**
-     * 签订类型id
-     * <p> 示例值：6738317738688661772
+     * 签订类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：signing_type
+     *
+     * <p>示例值：new
      */
-    @SerializedName("signing_type_id")
-    private String signingTypeId;
+    this.signingTypeId = builder.signingTypeId;
     /**
-     * 入职方式
-     * <p> 示例值：1
+     * 入职方式，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：onboarding_method
+     *
+     * <p>示例值：onsite
      */
-    @SerializedName("entry_mode")
-    private String entryMode;
+    this.entryMode = builder.entryMode;
     /**
-     * 社保城市id
-     * <p> 示例值：xxx
+     * 社保城市
+     * ID，可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：6977976687350924833
      */
-    @SerializedName("social_security_city_id")
-    private String socialSecurityCityId;
+    this.socialSecurityCityId = builder.socialSecurityCityId;
     /**
-     * 合同类型
-     * <p> 示例值：6738317738688661772
+     * 合同类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：contract_type
+     *
+     * <p>示例值：internship_agreement
      */
-    @SerializedName("contract_type")
-    private String contractType;
+    this.contractType = builder.contractType;
     /**
      * 公司
-     * <p> 示例值：6738317738688661772
+     * ID，可以通过[批量查询公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口获取
+     *
+     * <p>示例值：6738317738688661772
      */
-    @SerializedName("company")
-    private String company;
+    this.company = builder.company;
     /**
-     * 成本中心分摊信息
-     * <p> 示例值：
+     * 成本中心分摊信息;- 待废弃，建议使用cost_allocation
+     *
+     * <p>示例值：
      */
-    @SerializedName("cost_center_rate")
-    private JobDataCostCenter[] costCenterRate;
+    this.costCenterRate = builder.costCenterRate;
     /**
-     * 职等ID
-     * <p> 示例值：6738317738688661772
+     * 职等ID，可以通过[查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_grade_id")
-    private String jobGradeId;
+    this.jobGradeId = builder.jobGradeId;
     /**
-     * 自定义字段
-     * <p> 示例值：
+     * pre_hire对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private ObjectFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
-     * 任职公司
-     * <p> 示例值：6738317738688661772
+     * 任职公司，可以通过[批量查询公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("service_company")
-    private String serviceCompany;
+    this.serviceCompany = builder.serviceCompany;
     /**
-     * 排班
-     * <p> 示例值：work_shift
+     * 排班，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：work_shift
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_shift")
-    private String workShift;
+    this.workShift = builder.workShift;
     /**
-     * 薪资类型
-     * <p> 示例值：hourly
+     * 薪资类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：compensation_type
+     *
+     * <p>示例值：
      */
-    @SerializedName("compensation_type")
-    private String compensationType;
+    this.compensationType = builder.compensationType;
     /**
-     * 工作地点id
-     * <p> 示例值：6977976687350924833
+     * 工作地点ID，可以通过[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_location_id")
-    private String workLocationId;
+    this.workLocationId = builder.workLocationId;
     /**
-     * 入职地址id
-     * <p> 示例值：6977976687350924833
+     * 入职地址ID，可以通过[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("onboarding_address_id")
-    private String onboardingAddressId;
+    this.onboardingAddressId = builder.onboardingAddressId;
     /**
-     * 办公地址id
-     * <p> 示例值：6977976687350924833
+     * 办公地址ID，，可以通过[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("office_address_id")
-    private String officeAddressId;
+    this.officeAddressId = builder.officeAddressId;
     /**
-     * 岗位id
-     * <p> 示例值：6977976687350924833
+     * 岗位ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("position_id")
-    private String positionId;
+    this.positionId = builder.positionId;
     /**
-     * 工作日历id
-     * <p> 示例值：6977976687350924833
+     * 工作日历ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("working_calendar_id")
-    private String workingCalendarId;
+    this.workingCalendarId = builder.workingCalendarId;
     /**
-     * 工时制度
-     * <p> 示例值：6977976687350924833
+     * 工时制度，可以通过[批量查询工时制度](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口获得
+     *
+     * <p>示例值：6890452208593372679
      */
-    @SerializedName("working_hours_type")
-    private String workingHoursType;
-    /**
-     * 薪资组
-     * <p> 示例值：6977976687350924833
-     */
-    @SerializedName("pay_group_id")
-    private String payGroupId;
+    this.workingHoursType = builder.workingHoursType;
+    /** 示例值： */
+    this.payGroupId = builder.payGroupId;
     /**
      * 入职流程ID
-     * <p> 示例值：6977976687350924833
+     *
+     * <p>示例值：64377642c0ec3f23c79c6916
      */
-    @SerializedName("flow_id")
-    private String flowId;
+    this.flowId = builder.flowId;
     /**
-     * 签到日期
-     * <p> 示例值：2024-08-01
+     * 签到日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2024-12-31
      */
-    @SerializedName("check_in_time")
-    private String checkInTime;
+    this.checkInTime = builder.checkInTime;
     /**
-     * 签到方式
-     * <p> 示例值：6977976687350924833
+     * 签到方式，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：onboarding_method
+     *
+     * <p>示例值：onsite
      */
-    @SerializedName("check_in_method")
-    private String checkInMethod;
+    this.checkInMethod = builder.checkInMethod;
+    /** 示例值：2024-08-01 */
+    this.seniorityDate = builder.seniorityDate;
     /**
-     * 司龄起算日期
-     * <p> 示例值：2024-08-01
+     * 司龄调整信息;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
      */
-    @SerializedName("seniority_date")
-    private String seniorityDate;
+    this.seniorityAdjustInformationList = builder.seniorityAdjustInformationList;
     /**
-     * 司龄调整信息
-     * <p> 示例值：
+     * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：xxx
      */
-    @SerializedName("seniority_adjust_information_list")
-    private PrehireSeniorityAdjustInformation[] seniorityAdjustInformationList;
+    this.noticePeriodProbationVoluntary = builder.noticePeriodProbationVoluntary;
     /**
-     * 试用期内通知期（主动离职)
-     * <p> 示例值：xxx
+     * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：xxx
      */
-    @SerializedName("notice_period_probation_voluntary")
-    private NoticePeriodDetail noticePeriodProbationVoluntary;
+    this.noticePeriodProbationInvoluntary = builder.noticePeriodProbationInvoluntary;
     /**
-     * 试用期内通知期（被动离职）
-     * <p> 示例值：xxx
+     * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：xxx
      */
-    @SerializedName("notice_period_probation_involuntary")
-    private NoticePeriodDetail noticePeriodProbationInvoluntary;
+    this.noticePeriodPositiveVoluntary = builder.noticePeriodPositiveVoluntary;
     /**
-     * 转正后通知期（主动离职）
-     * <p> 示例值：xxx
+     * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：xxx
      */
-    @SerializedName("notice_period_positive_voluntary")
-    private NoticePeriodDetail noticePeriodPositiveVoluntary;
-    /**
-     * 转正后通知期（被动离职）
-     * <p> 示例值：xxx
-     */
-    @SerializedName("notice_period_positive_involuntary")
-    private NoticePeriodDetail noticePeriodPositiveInvoluntary;
-    /**
-     * 是否外部人员
-     * <p> 示例值：true
-     */
-    @SerializedName("condition_worker")
-    private Boolean conditionWorker;
-    /**
-     * 是否包含竞业条款
-     * <p> 示例值：true
-     */
-    @SerializedName("non_compete_covenant")
-    private Boolean nonCompeteCovenant;
-    /**
-     * 需要公司办理签证
-     * <p> 示例值：true
-     */
-    @SerializedName("company_sponsored_visa")
-    private Boolean companySponsoredVisa;
+    this.noticePeriodPositiveInvoluntary = builder.noticePeriodPositiveInvoluntary;
+    /** 示例值：true */
+    this.conditionWorker = builder.conditionWorker;
+    /** 示例值：true */
+    this.nonCompeteCovenant = builder.nonCompeteCovenant;
+    /** 示例值：true */
+    this.companySponsoredVisa = builder.companySponsoredVisa;
     /**
      * 是否有 Offer 薪酬
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("has_offer_salary")
-    private Boolean hasOfferSalary;
-    /**
-     * 工位
-     * <p> 示例值：5-1-2
-     */
-    @SerializedName("work_station")
-    private String workStation;
+    this.hasOfferSalary = builder.hasOfferSalary;
+    /** 示例值：5-1-2 */
+    this.workStation = builder.workStation;
     /**
      * 通道
-     * <p> 示例值：7460865381179115052
+     *
+     * <p>示例值：7460865381179115052
      */
-    @SerializedName("pathway")
+    this.pathway = builder.pathway;
+    /**
+     * 默认成本中心;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
+     */
+    this.defaultCostCenter = builder.defaultCostCenter;
+    /**
+     * 成本分摊;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
+     */
+    this.costAllocation = builder.costAllocation;
+    /**
+     * 人才ID，仅支持飞书招聘人才
+     * ID，可以通过飞书招聘[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取，如果未使用飞书招聘请置空
+     *
+     * <p>示例值：8234698927348
+     */
+    this.talentId = builder.talentId;
+    /**
+     * 是否复用飞书账号，支持传入“reuse”或者“not_reuse”，当字段为“reuse”时，需要传入reused_feishu_account_id;-
+     * 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
+     */
+    this.reuseFeishuAccount = builder.reuseFeishuAccount;
+    /**
+     * 复用的飞书账号，仅支持Lark Union
+     * ID，可以通过[搜索员工信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/search)接口获取;-
+     * 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：on_773dd2c4d14c5c980a4d89a2da5c86d3
+     */
+    this.reusedFeishuAccountId = builder.reusedFeishuAccountId;
+  }
+
+  public static class Builder {
+    /**
+     * Offer ID，仅支持飞书招聘
+     * ID，可以通过飞书招聘[获取Offer列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/list)接口获取，如果未使用飞书招聘请置空
+     *
+     * <p>示例值：7032210902531327521
+     */
+    private String offerId;
+
+    /**
+     * Offer id查找类型ID
+     *
+     * <p>示例值：7032210902531327521
+     */
+    private String offer;
+
+    /**
+     * Offer HR 雇佣
+     * ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取
+     *
+     * <p>示例值：7032210902531327521
+     */
+    private String offerHrId;
+
+    /**
+     * 部门
+     * ID，可以通过[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取
+     *
+     * <p>示例值：7147562782945478177
+     */
+    private String departmentId;
+
+    /**
+     * 直属领导的雇佣
+     * ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取
+     *
+     * <p>示例值：7032210902531327521
+     */
+    private String directLeaderId;
+
+    /**
+     * 虚线上级ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取;-
+     * 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：7032210902531327521
+     */
+    private String dottedLineManagerId;
+
+    /**
+     * 职务
+     * ID，可以通过[批量查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口获取
+     *
+     * <p>示例值：6977976735715378724
+     */
+    private String jobId;
+
+    /**
+     * 序列
+     * ID，可以通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口获取
+     *
+     * <p>示例值：6977972856625939999
+     */
+    private String jobFamilyId;
+
+    /**
+     * 职级
+     * ID，可以通过[批量查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)接口获取
+     *
+     * <p>示例值：6977971894960145950
+     */
+    private String jobLevelId;
+
+    /**
+     * 职务头衔（待废弃）
+     *
+     * <p>示例值：java
+     */
+    private String jobTitle;
+
+    /**
+     * 试用期开始日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-07-29
+     */
+    private String probationStartDate;
+
+    /**
+     * 试用期结束日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2023-04-07
+     */
+    private String probationEndDate;
+
+    /**
+     * 合同开始日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-10-08
+     */
+    private String contractStartDate;
+
+    /**
+     * 合同结束日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2025-10-07
+     */
+    private String contractEndDate;
+
+    /** 示例值： */
+    private Double durationPeriod;
+
+    /**
+     * 合同期限单位，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+     * ;- object_api_name = pre_hire;- custom_api_name = duration_unit
+     *
+     * <p>示例值：year
+     */
+    private String durationUnit;
+
+    /**
+     * 入职日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-10-08
+     */
+    private String onboardingDate;
+
+    /**
+     * 入职地点
+     * ID，可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：6977976687350924832
+     */
+    private String onboardingLocationId;
+
+    /**
+     * 办公地点
+     * ID，可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：6977976687350924832
+     */
+    private String officeLocationId;
+
+    /**
+     * 招聘来源，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：recruitment_type
+     *
+     * <p>示例值：experienced_professionals
+     */
+    private String recruitmentTypeId;
+
+    /**
+     * 试用期时长（单位：月）
+     *
+     * <p>示例值：6
+     */
+    private String probationPeriod;
+
+    /**
+     * 人员类型
+     * ID，可以通过接口[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+     *
+     * <p>示例值：6977973225846343171
+     */
+    private String employeeTypeId;
+
+    /** 示例值：6977973225846343171 */
+    private String employeeSubtypeId;
+
+    /**
+     * 雇佣类型，请注意该字段为必填，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：employment_type
+     *
+     * <p>示例值：employee
+     */
+    private String employmentTypeId;
+
+    /**
+     * 工作邮箱
+     *
+     * <p>示例值：joshua@bytedance.com
+     */
+    private String workEmail;
+
+    /**
+     * 期限类型，
+     * 枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：duration_type
+     *
+     * <p>示例值：fixed_term
+     */
+    private String durationTypeId;
+
+    /**
+     * 签订类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：signing_type
+     *
+     * <p>示例值：new
+     */
+    private String signingTypeId;
+
+    /**
+     * 入职方式，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：onboarding_method
+     *
+     * <p>示例值：onsite
+     */
+    private String entryMode;
+
+    /**
+     * 社保城市
+     * ID，可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：6977976687350924833
+     */
+    private String socialSecurityCityId;
+
+    /**
+     * 合同类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：contract_type
+     *
+     * <p>示例值：internship_agreement
+     */
+    private String contractType;
+
+    /**
+     * 公司
+     * ID，可以通过[批量查询公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口获取
+     *
+     * <p>示例值：6738317738688661772
+     */
+    private String company;
+
+    /**
+     * 成本中心分摊信息;- 待废弃，建议使用cost_allocation
+     *
+     * <p>示例值：
+     */
+    private JobDataCostCenter[] costCenterRate;
+
+    /**
+     * 职等ID，可以通过[查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口获取
+     *
+     * <p>示例值：
+     */
+    private String jobGradeId;
+
+    /**
+     * pre_hire对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得
+     *
+     * <p>示例值：
+     */
+    private ObjectFieldData[] customFields;
+
+    /**
+     * 任职公司，可以通过[批量查询公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口获取
+     *
+     * <p>示例值：
+     */
+    private String serviceCompany;
+
+    /**
+     * 排班，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：work_shift
+     *
+     * <p>示例值：
+     */
+    private String workShift;
+
+    /**
+     * 薪资类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：compensation_type
+     *
+     * <p>示例值：
+     */
+    private String compensationType;
+
+    /**
+     * 工作地点ID，可以通过[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取
+     *
+     * <p>示例值：
+     */
+    private String workLocationId;
+
+    /**
+     * 入职地址ID，可以通过[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取
+     *
+     * <p>示例值：
+     */
+    private String onboardingAddressId;
+
+    /**
+     * 办公地址ID，，可以通过[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取
+     *
+     * <p>示例值：
+     */
+    private String officeAddressId;
+
+    /**
+     * 岗位ID
+     *
+     * <p>示例值：
+     */
+    private String positionId;
+
+    /**
+     * 工作日历ID
+     *
+     * <p>示例值：
+     */
+    private String workingCalendarId;
+
+    /**
+     * 工时制度，可以通过[批量查询工时制度](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口获得
+     *
+     * <p>示例值：6890452208593372679
+     */
+    private String workingHoursType;
+
+    /** 示例值： */
+    private String payGroupId;
+
+    /**
+     * 入职流程ID
+     *
+     * <p>示例值：64377642c0ec3f23c79c6916
+     */
+    private String flowId;
+
+    /**
+     * 签到日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2024-12-31
+     */
+    private String checkInTime;
+
+    /**
+     * 签到方式，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：onboarding_method
+     *
+     * <p>示例值：onsite
+     */
+    private String checkInMethod;
+
+    /** 示例值：2024-08-01 */
+    private String seniorityDate;
+
+    /**
+     * 司龄调整信息;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
+     */
+    private PrehireSeniorityAdjustInformation[] seniorityAdjustInformationList;
+
+    /**
+     * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：xxx
+     */
+    private NoticePeriodDetail noticePeriodProbationVoluntary;
+
+    /**
+     * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：xxx
+     */
+    private NoticePeriodDetail noticePeriodProbationInvoluntary;
+
+    /**
+     * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：xxx
+     */
+    private NoticePeriodDetail noticePeriodPositiveVoluntary;
+
+    /**
+     * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：xxx
+     */
+    private NoticePeriodDetail noticePeriodPositiveInvoluntary;
+
+    /** 示例值：true */
+    private Boolean conditionWorker;
+
+    /** 示例值：true */
+    private Boolean nonCompeteCovenant;
+
+    /** 示例值：true */
+    private Boolean companySponsoredVisa;
+
+    /**
+     * 是否有 Offer 薪酬
+     *
+     * <p>示例值：true
+     */
+    private Boolean hasOfferSalary;
+
+    /** 示例值：5-1-2 */
+    private String workStation;
+
+    /**
+     * 通道
+     *
+     * <p>示例值：7460865381179115052
+     */
     private String pathway;
+
     /**
-     * 默认成本中心
-     * <p> 示例值：
+     * 默认成本中心;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
      */
-    @SerializedName("default_cost_center")
     private PrehireDefaultCostCenterUpdate defaultCostCenter;
+
     /**
-     * 成本分摊
-     * <p> 示例值：
+     * 成本分摊;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
      */
-    @SerializedName("cost_allocation")
     private CostAllocation costAllocation;
+
     /**
-     * 人才ID
-     * <p> 示例值：8234698927348
+     * 人才ID，仅支持飞书招聘人才
+     * ID，可以通过飞书招聘[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取，如果未使用飞书招聘请置空
+     *
+     * <p>示例值：8234698927348
      */
-    @SerializedName("talent_id")
     private String talentId;
+
     /**
-     * 是否复用飞书账号
-     * <p> 示例值：reuse
+     * 是否复用飞书账号，支持传入“reuse”或者“not_reuse”，当字段为“reuse”时，需要传入reused_feishu_account_id;-
+     * 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
      */
-    @SerializedName("reuse_feishu_account")
     private String reuseFeishuAccount;
+
     /**
-     * 复用的飞书账号
-     * <p> 示例值：7032210902531327521
+     * 复用的飞书账号，仅支持Lark Union
+     * ID，可以通过[搜索员工信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/search)接口获取;-
+     * 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：on_773dd2c4d14c5c980a4d89a2da5c86d3
      */
-    @SerializedName("reused_feishu_account_id")
     private String reusedFeishuAccountId;
 
-    // builder 开始
-    public OfferInfo() {
-    }
-
-    public OfferInfo(Builder builder) {
-        /**
-         * Offer id
-         * <p> 示例值：7032210902531327521
-         */
-        this.offerId = builder.offerId;
-        /**
-         * Offer id查找类型ID
-         * <p> 示例值：7032210902531327521
-         */
-        this.offer = builder.offer;
-        /**
-         * Offer hr id
-         * <p> 示例值：7032210902531327521
-         */
-        this.offerHrId = builder.offerHrId;
-        /**
-         * 部门 id
-         * <p> 示例值：7147562782945478177
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 直属领导id
-         * <p> 示例值：7032210902531327521
-         */
-        this.directLeaderId = builder.directLeaderId;
-        /**
-         * 虚线上级id
-         * <p> 示例值：7032210902531327521
-         */
-        this.dottedLineManagerId = builder.dottedLineManagerId;
-        /**
-         * 职务id
-         * <p> 示例值：6977976735715378724
-         */
-        this.jobId = builder.jobId;
-        /**
-         * 序列id
-         * <p> 示例值：6977972856625939999
-         */
-        this.jobFamilyId = builder.jobFamilyId;
-        /**
-         * 级别id
-         * <p> 示例值：6977971894960145950
-         */
-        this.jobLevelId = builder.jobLevelId;
-        /**
-         * 职务头衔id
-         * <p> 示例值：java
-         */
-        this.jobTitle = builder.jobTitle;
-        /**
-         * 试用期开始日期
-         * <p> 示例值：2022-07-29
-         */
-        this.probationStartDate = builder.probationStartDate;
-        /**
-         * 试用期结束日期
-         * <p> 示例值：2023-04-07
-         */
-        this.probationEndDate = builder.probationEndDate;
-        /**
-         * 合同开始日期
-         * <p> 示例值：2022-10-08
-         */
-        this.contractStartDate = builder.contractStartDate;
-        /**
-         * 合同结束日期
-         * <p> 示例值：2025-10-07
-         */
-        this.contractEndDate = builder.contractEndDate;
-        /**
-         * 合同期限时长
-         * <p> 示例值：3
-         */
-        this.durationPeriod = builder.durationPeriod;
-        /**
-         * 合同期限单位
-         * <p> 示例值：年
-         */
-        this.durationUnit = builder.durationUnit;
-        /**
-         * 入职日期
-         * <p> 示例值：2022-10-08
-         */
-        this.onboardingDate = builder.onboardingDate;
-        /**
-         * 入职地点id
-         * <p> 示例值：6977976687350924832
-         */
-        this.onboardingLocationId = builder.onboardingLocationId;
-        /**
-         * 办公地点id
-         * <p> 示例值：6977976687350924832
-         */
-        this.officeLocationId = builder.officeLocationId;
-        /**
-         * 招聘来源id
-         * <p> 示例值：experienced_professionals
-         */
-        this.recruitmentTypeId = builder.recruitmentTypeId;
-        /**
-         * 试用期时长
-         * <p> 示例值：6
-         */
-        this.probationPeriod = builder.probationPeriod;
-        /**
-         * 人员类型id
-         * <p> 示例值：6977973225846343171
-         */
-        this.employeeTypeId = builder.employeeTypeId;
-        /**
-         * 人员子类型id
-         * <p> 示例值：6977973225846343171
-         */
-        this.employeeSubtypeId = builder.employeeSubtypeId;
-        /**
-         * 雇佣类型id
-         * <p> 示例值：6977973225846343171
-         */
-        this.employmentTypeId = builder.employmentTypeId;
-        /**
-         * 工作邮箱
-         * <p> 示例值：joshua@bytedance.com
-         */
-        this.workEmail = builder.workEmail;
-        /**
-         * 期限类型id
-         * <p> 示例值：6977973225846343171
-         */
-        this.durationTypeId = builder.durationTypeId;
-        /**
-         * 签订类型id
-         * <p> 示例值：6738317738688661772
-         */
-        this.signingTypeId = builder.signingTypeId;
-        /**
-         * 入职方式
-         * <p> 示例值：1
-         */
-        this.entryMode = builder.entryMode;
-        /**
-         * 社保城市id
-         * <p> 示例值：xxx
-         */
-        this.socialSecurityCityId = builder.socialSecurityCityId;
-        /**
-         * 合同类型
-         * <p> 示例值：6738317738688661772
-         */
-        this.contractType = builder.contractType;
-        /**
-         * 公司
-         * <p> 示例值：6738317738688661772
-         */
-        this.company = builder.company;
-        /**
-         * 成本中心分摊信息
-         * <p> 示例值：
-         */
-        this.costCenterRate = builder.costCenterRate;
-        /**
-         * 职等ID
-         * <p> 示例值：6738317738688661772
-         */
-        this.jobGradeId = builder.jobGradeId;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 任职公司
-         * <p> 示例值：6738317738688661772
-         */
-        this.serviceCompany = builder.serviceCompany;
-        /**
-         * 排班
-         * <p> 示例值：work_shift
-         */
-        this.workShift = builder.workShift;
-        /**
-         * 薪资类型
-         * <p> 示例值：hourly
-         */
-        this.compensationType = builder.compensationType;
-        /**
-         * 工作地点id
-         * <p> 示例值：6977976687350924833
-         */
-        this.workLocationId = builder.workLocationId;
-        /**
-         * 入职地址id
-         * <p> 示例值：6977976687350924833
-         */
-        this.onboardingAddressId = builder.onboardingAddressId;
-        /**
-         * 办公地址id
-         * <p> 示例值：6977976687350924833
-         */
-        this.officeAddressId = builder.officeAddressId;
-        /**
-         * 岗位id
-         * <p> 示例值：6977976687350924833
-         */
-        this.positionId = builder.positionId;
-        /**
-         * 工作日历id
-         * <p> 示例值：6977976687350924833
-         */
-        this.workingCalendarId = builder.workingCalendarId;
-        /**
-         * 工时制度
-         * <p> 示例值：6977976687350924833
-         */
-        this.workingHoursType = builder.workingHoursType;
-        /**
-         * 薪资组
-         * <p> 示例值：6977976687350924833
-         */
-        this.payGroupId = builder.payGroupId;
-        /**
-         * 入职流程ID
-         * <p> 示例值：6977976687350924833
-         */
-        this.flowId = builder.flowId;
-        /**
-         * 签到日期
-         * <p> 示例值：2024-08-01
-         */
-        this.checkInTime = builder.checkInTime;
-        /**
-         * 签到方式
-         * <p> 示例值：6977976687350924833
-         */
-        this.checkInMethod = builder.checkInMethod;
-        /**
-         * 司龄起算日期
-         * <p> 示例值：2024-08-01
-         */
-        this.seniorityDate = builder.seniorityDate;
-        /**
-         * 司龄调整信息
-         * <p> 示例值：
-         */
-        this.seniorityAdjustInformationList = builder.seniorityAdjustInformationList;
-        /**
-         * 试用期内通知期（主动离职)
-         * <p> 示例值：xxx
-         */
-        this.noticePeriodProbationVoluntary = builder.noticePeriodProbationVoluntary;
-        /**
-         * 试用期内通知期（被动离职）
-         * <p> 示例值：xxx
-         */
-        this.noticePeriodProbationInvoluntary = builder.noticePeriodProbationInvoluntary;
-        /**
-         * 转正后通知期（主动离职）
-         * <p> 示例值：xxx
-         */
-        this.noticePeriodPositiveVoluntary = builder.noticePeriodPositiveVoluntary;
-        /**
-         * 转正后通知期（被动离职）
-         * <p> 示例值：xxx
-         */
-        this.noticePeriodPositiveInvoluntary = builder.noticePeriodPositiveInvoluntary;
-        /**
-         * 是否外部人员
-         * <p> 示例值：true
-         */
-        this.conditionWorker = builder.conditionWorker;
-        /**
-         * 是否包含竞业条款
-         * <p> 示例值：true
-         */
-        this.nonCompeteCovenant = builder.nonCompeteCovenant;
-        /**
-         * 需要公司办理签证
-         * <p> 示例值：true
-         */
-        this.companySponsoredVisa = builder.companySponsoredVisa;
-        /**
-         * 是否有 Offer 薪酬
-         * <p> 示例值：true
-         */
-        this.hasOfferSalary = builder.hasOfferSalary;
-        /**
-         * 工位
-         * <p> 示例值：5-1-2
-         */
-        this.workStation = builder.workStation;
-        /**
-         * 通道
-         * <p> 示例值：7460865381179115052
-         */
-        this.pathway = builder.pathway;
-        /**
-         * 默认成本中心
-         * <p> 示例值：
-         */
-        this.defaultCostCenter = builder.defaultCostCenter;
-        /**
-         * 成本分摊
-         * <p> 示例值：
-         */
-        this.costAllocation = builder.costAllocation;
-        /**
-         * 人才ID
-         * <p> 示例值：8234698927348
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 是否复用飞书账号
-         * <p> 示例值：reuse
-         */
-        this.reuseFeishuAccount = builder.reuseFeishuAccount;
-        /**
-         * 复用的飞书账号
-         * <p> 示例值：7032210902531327521
-         */
-        this.reusedFeishuAccountId = builder.reusedFeishuAccountId;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getOfferId() {
-        return this.offerId;
-    }
-
-    public void setOfferId(String offerId) {
-        this.offerId = offerId;
-    }
-
-    public String getOffer() {
-        return this.offer;
-    }
-
-    public void setOffer(String offer) {
-        this.offer = offer;
-    }
-
-    public String getOfferHrId() {
-        return this.offerHrId;
-    }
-
-    public void setOfferHrId(String offerHrId) {
-        this.offerHrId = offerHrId;
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getDirectLeaderId() {
-        return this.directLeaderId;
-    }
-
-    public void setDirectLeaderId(String directLeaderId) {
-        this.directLeaderId = directLeaderId;
-    }
-
-    public String getDottedLineManagerId() {
-        return this.dottedLineManagerId;
-    }
-
-    public void setDottedLineManagerId(String dottedLineManagerId) {
-        this.dottedLineManagerId = dottedLineManagerId;
-    }
-
-    public String getJobId() {
-        return this.jobId;
-    }
-
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
-    }
-
-    public String getJobFamilyId() {
-        return this.jobFamilyId;
-    }
-
-    public void setJobFamilyId(String jobFamilyId) {
-        this.jobFamilyId = jobFamilyId;
-    }
-
-    public String getJobLevelId() {
-        return this.jobLevelId;
-    }
-
-    public void setJobLevelId(String jobLevelId) {
-        this.jobLevelId = jobLevelId;
-    }
-
-    public String getJobTitle() {
-        return this.jobTitle;
-    }
-
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
-    }
-
-    public String getProbationStartDate() {
-        return this.probationStartDate;
-    }
-
-    public void setProbationStartDate(String probationStartDate) {
-        this.probationStartDate = probationStartDate;
-    }
-
-    public String getProbationEndDate() {
-        return this.probationEndDate;
-    }
-
-    public void setProbationEndDate(String probationEndDate) {
-        this.probationEndDate = probationEndDate;
-    }
-
-    public String getContractStartDate() {
-        return this.contractStartDate;
-    }
-
-    public void setContractStartDate(String contractStartDate) {
-        this.contractStartDate = contractStartDate;
-    }
-
-    public String getContractEndDate() {
-        return this.contractEndDate;
-    }
-
-    public void setContractEndDate(String contractEndDate) {
-        this.contractEndDate = contractEndDate;
-    }
-
-    public Double getDurationPeriod() {
-        return this.durationPeriod;
-    }
-
-    public void setDurationPeriod(Double durationPeriod) {
-        this.durationPeriod = durationPeriod;
-    }
-
-    public String getDurationUnit() {
-        return this.durationUnit;
-    }
-
-    public void setDurationUnit(String durationUnit) {
-        this.durationUnit = durationUnit;
-    }
-
-    public String getOnboardingDate() {
-        return this.onboardingDate;
-    }
-
-    public void setOnboardingDate(String onboardingDate) {
-        this.onboardingDate = onboardingDate;
-    }
-
-    public String getOnboardingLocationId() {
-        return this.onboardingLocationId;
-    }
-
-    public void setOnboardingLocationId(String onboardingLocationId) {
-        this.onboardingLocationId = onboardingLocationId;
-    }
-
-    public String getOfficeLocationId() {
-        return this.officeLocationId;
-    }
-
-    public void setOfficeLocationId(String officeLocationId) {
-        this.officeLocationId = officeLocationId;
-    }
-
-    public String getRecruitmentTypeId() {
-        return this.recruitmentTypeId;
-    }
-
-    public void setRecruitmentTypeId(String recruitmentTypeId) {
-        this.recruitmentTypeId = recruitmentTypeId;
-    }
-
-    public String getProbationPeriod() {
-        return this.probationPeriod;
-    }
-
-    public void setProbationPeriod(String probationPeriod) {
-        this.probationPeriod = probationPeriod;
-    }
-
-    public String getEmployeeTypeId() {
-        return this.employeeTypeId;
-    }
-
-    public void setEmployeeTypeId(String employeeTypeId) {
-        this.employeeTypeId = employeeTypeId;
-    }
-
-    public String getEmployeeSubtypeId() {
-        return this.employeeSubtypeId;
-    }
-
-    public void setEmployeeSubtypeId(String employeeSubtypeId) {
-        this.employeeSubtypeId = employeeSubtypeId;
-    }
-
-    public String getEmploymentTypeId() {
-        return this.employmentTypeId;
-    }
-
-    public void setEmploymentTypeId(String employmentTypeId) {
-        this.employmentTypeId = employmentTypeId;
-    }
-
-    public String getWorkEmail() {
-        return this.workEmail;
-    }
-
-    public void setWorkEmail(String workEmail) {
-        this.workEmail = workEmail;
-    }
-
-    public String getDurationTypeId() {
-        return this.durationTypeId;
-    }
-
-    public void setDurationTypeId(String durationTypeId) {
-        this.durationTypeId = durationTypeId;
-    }
-
-    public String getSigningTypeId() {
-        return this.signingTypeId;
-    }
-
-    public void setSigningTypeId(String signingTypeId) {
-        this.signingTypeId = signingTypeId;
-    }
-
-    public String getEntryMode() {
-        return this.entryMode;
-    }
-
-    public void setEntryMode(String entryMode) {
-        this.entryMode = entryMode;
-    }
-
-    public String getSocialSecurityCityId() {
-        return this.socialSecurityCityId;
-    }
-
-    public void setSocialSecurityCityId(String socialSecurityCityId) {
-        this.socialSecurityCityId = socialSecurityCityId;
-    }
-
-    public String getContractType() {
-        return this.contractType;
-    }
-
-    public void setContractType(String contractType) {
-        this.contractType = contractType;
-    }
-
-    public String getCompany() {
-        return this.company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
-    public JobDataCostCenter[] getCostCenterRate() {
-        return this.costCenterRate;
-    }
-
-    public void setCostCenterRate(JobDataCostCenter[] costCenterRate) {
-        this.costCenterRate = costCenterRate;
-    }
-
-    public String getJobGradeId() {
-        return this.jobGradeId;
-    }
-
-    public void setJobGradeId(String jobGradeId) {
-        this.jobGradeId = jobGradeId;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public String getServiceCompany() {
-        return this.serviceCompany;
-    }
-
-    public void setServiceCompany(String serviceCompany) {
-        this.serviceCompany = serviceCompany;
-    }
-
-    public String getWorkShift() {
-        return this.workShift;
-    }
-
-    public void setWorkShift(String workShift) {
-        this.workShift = workShift;
-    }
-
-    public String getCompensationType() {
-        return this.compensationType;
-    }
-
-    public void setCompensationType(String compensationType) {
-        this.compensationType = compensationType;
-    }
-
-    public String getWorkLocationId() {
-        return this.workLocationId;
-    }
-
-    public void setWorkLocationId(String workLocationId) {
-        this.workLocationId = workLocationId;
-    }
-
-    public String getOnboardingAddressId() {
-        return this.onboardingAddressId;
-    }
-
-    public void setOnboardingAddressId(String onboardingAddressId) {
-        this.onboardingAddressId = onboardingAddressId;
-    }
-
-    public String getOfficeAddressId() {
-        return this.officeAddressId;
-    }
-
-    public void setOfficeAddressId(String officeAddressId) {
-        this.officeAddressId = officeAddressId;
-    }
-
-    public String getPositionId() {
-        return this.positionId;
-    }
-
-    public void setPositionId(String positionId) {
-        this.positionId = positionId;
-    }
-
-    public String getWorkingCalendarId() {
-        return this.workingCalendarId;
-    }
-
-    public void setWorkingCalendarId(String workingCalendarId) {
-        this.workingCalendarId = workingCalendarId;
-    }
-
-    public String getWorkingHoursType() {
-        return this.workingHoursType;
-    }
-
-    public void setWorkingHoursType(String workingHoursType) {
-        this.workingHoursType = workingHoursType;
-    }
-
-    public String getPayGroupId() {
-        return this.payGroupId;
-    }
-
-    public void setPayGroupId(String payGroupId) {
-        this.payGroupId = payGroupId;
-    }
-
-    public String getFlowId() {
-        return this.flowId;
-    }
-
-    public void setFlowId(String flowId) {
-        this.flowId = flowId;
-    }
-
-    public String getCheckInTime() {
-        return this.checkInTime;
-    }
-
-    public void setCheckInTime(String checkInTime) {
-        this.checkInTime = checkInTime;
-    }
-
-    public String getCheckInMethod() {
-        return this.checkInMethod;
-    }
-
-    public void setCheckInMethod(String checkInMethod) {
-        this.checkInMethod = checkInMethod;
-    }
-
-    public String getSeniorityDate() {
-        return this.seniorityDate;
-    }
-
-    public void setSeniorityDate(String seniorityDate) {
-        this.seniorityDate = seniorityDate;
-    }
-
-    public PrehireSeniorityAdjustInformation[] getSeniorityAdjustInformationList() {
-        return this.seniorityAdjustInformationList;
-    }
-
-    public void setSeniorityAdjustInformationList(PrehireSeniorityAdjustInformation[] seniorityAdjustInformationList) {
-        this.seniorityAdjustInformationList = seniorityAdjustInformationList;
-    }
-
-    public NoticePeriodDetail getNoticePeriodProbationVoluntary() {
-        return this.noticePeriodProbationVoluntary;
-    }
-
-    public void setNoticePeriodProbationVoluntary(NoticePeriodDetail noticePeriodProbationVoluntary) {
-        this.noticePeriodProbationVoluntary = noticePeriodProbationVoluntary;
-    }
-
-    public NoticePeriodDetail getNoticePeriodProbationInvoluntary() {
-        return this.noticePeriodProbationInvoluntary;
-    }
-
-    public void setNoticePeriodProbationInvoluntary(NoticePeriodDetail noticePeriodProbationInvoluntary) {
-        this.noticePeriodProbationInvoluntary = noticePeriodProbationInvoluntary;
-    }
-
-    public NoticePeriodDetail getNoticePeriodPositiveVoluntary() {
-        return this.noticePeriodPositiveVoluntary;
-    }
-
-    public void setNoticePeriodPositiveVoluntary(NoticePeriodDetail noticePeriodPositiveVoluntary) {
-        this.noticePeriodPositiveVoluntary = noticePeriodPositiveVoluntary;
-    }
-
-    public NoticePeriodDetail getNoticePeriodPositiveInvoluntary() {
-        return this.noticePeriodPositiveInvoluntary;
-    }
-
-    public void setNoticePeriodPositiveInvoluntary(NoticePeriodDetail noticePeriodPositiveInvoluntary) {
-        this.noticePeriodPositiveInvoluntary = noticePeriodPositiveInvoluntary;
-    }
-
-    public Boolean getConditionWorker() {
-        return this.conditionWorker;
-    }
-
-    public void setConditionWorker(Boolean conditionWorker) {
-        this.conditionWorker = conditionWorker;
-    }
-
-    public Boolean getNonCompeteCovenant() {
-        return this.nonCompeteCovenant;
-    }
-
-    public void setNonCompeteCovenant(Boolean nonCompeteCovenant) {
-        this.nonCompeteCovenant = nonCompeteCovenant;
-    }
-
-    public Boolean getCompanySponsoredVisa() {
-        return this.companySponsoredVisa;
-    }
-
-    public void setCompanySponsoredVisa(Boolean companySponsoredVisa) {
-        this.companySponsoredVisa = companySponsoredVisa;
-    }
-
-    public Boolean getHasOfferSalary() {
-        return this.hasOfferSalary;
-    }
-
-    public void setHasOfferSalary(Boolean hasOfferSalary) {
-        this.hasOfferSalary = hasOfferSalary;
-    }
-
-    public String getWorkStation() {
-        return this.workStation;
-    }
-
-    public void setWorkStation(String workStation) {
-        this.workStation = workStation;
-    }
-
-    public String getPathway() {
-        return this.pathway;
-    }
-
-    public void setPathway(String pathway) {
-        this.pathway = pathway;
-    }
-
-    public PrehireDefaultCostCenterUpdate getDefaultCostCenter() {
-        return this.defaultCostCenter;
-    }
-
-    public void setDefaultCostCenter(PrehireDefaultCostCenterUpdate defaultCostCenter) {
-        this.defaultCostCenter = defaultCostCenter;
-    }
-
-    public CostAllocation getCostAllocation() {
-        return this.costAllocation;
-    }
-
-    public void setCostAllocation(CostAllocation costAllocation) {
-        this.costAllocation = costAllocation;
-    }
-
-    public String getTalentId() {
-        return this.talentId;
-    }
-
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
-    }
-
-    public String getReuseFeishuAccount() {
-        return this.reuseFeishuAccount;
-    }
-
-    public void setReuseFeishuAccount(String reuseFeishuAccount) {
-        this.reuseFeishuAccount = reuseFeishuAccount;
-    }
-
-    public String getReusedFeishuAccountId() {
-        return this.reusedFeishuAccountId;
-    }
-
-    public void setReusedFeishuAccountId(String reusedFeishuAccountId) {
-        this.reusedFeishuAccountId = reusedFeishuAccountId;
-    }
-
-    public static class Builder {
-        /**
-         * Offer id
-         * <p> 示例值：7032210902531327521
-         */
-        private String offerId;
-        /**
-         * Offer id查找类型ID
-         * <p> 示例值：7032210902531327521
-         */
-        private String offer;
-        /**
-         * Offer hr id
-         * <p> 示例值：7032210902531327521
-         */
-        private String offerHrId;
-        /**
-         * 部门 id
-         * <p> 示例值：7147562782945478177
-         */
-        private String departmentId;
-        /**
-         * 直属领导id
-         * <p> 示例值：7032210902531327521
-         */
-        private String directLeaderId;
-        /**
-         * 虚线上级id
-         * <p> 示例值：7032210902531327521
-         */
-        private String dottedLineManagerId;
-        /**
-         * 职务id
-         * <p> 示例值：6977976735715378724
-         */
-        private String jobId;
-        /**
-         * 序列id
-         * <p> 示例值：6977972856625939999
-         */
-        private String jobFamilyId;
-        /**
-         * 级别id
-         * <p> 示例值：6977971894960145950
-         */
-        private String jobLevelId;
-        /**
-         * 职务头衔id
-         * <p> 示例值：java
-         */
-        private String jobTitle;
-        /**
-         * 试用期开始日期
-         * <p> 示例值：2022-07-29
-         */
-        private String probationStartDate;
-        /**
-         * 试用期结束日期
-         * <p> 示例值：2023-04-07
-         */
-        private String probationEndDate;
-        /**
-         * 合同开始日期
-         * <p> 示例值：2022-10-08
-         */
-        private String contractStartDate;
-        /**
-         * 合同结束日期
-         * <p> 示例值：2025-10-07
-         */
-        private String contractEndDate;
-        /**
-         * 合同期限时长
-         * <p> 示例值：3
-         */
-        private Double durationPeriod;
-        /**
-         * 合同期限单位
-         * <p> 示例值：年
-         */
-        private String durationUnit;
-        /**
-         * 入职日期
-         * <p> 示例值：2022-10-08
-         */
-        private String onboardingDate;
-        /**
-         * 入职地点id
-         * <p> 示例值：6977976687350924832
-         */
-        private String onboardingLocationId;
-        /**
-         * 办公地点id
-         * <p> 示例值：6977976687350924832
-         */
-        private String officeLocationId;
-        /**
-         * 招聘来源id
-         * <p> 示例值：experienced_professionals
-         */
-        private String recruitmentTypeId;
-        /**
-         * 试用期时长
-         * <p> 示例值：6
-         */
-        private String probationPeriod;
-        /**
-         * 人员类型id
-         * <p> 示例值：6977973225846343171
-         */
-        private String employeeTypeId;
-        /**
-         * 人员子类型id
-         * <p> 示例值：6977973225846343171
-         */
-        private String employeeSubtypeId;
-        /**
-         * 雇佣类型id
-         * <p> 示例值：6977973225846343171
-         */
-        private String employmentTypeId;
-        /**
-         * 工作邮箱
-         * <p> 示例值：joshua@bytedance.com
-         */
-        private String workEmail;
-        /**
-         * 期限类型id
-         * <p> 示例值：6977973225846343171
-         */
-        private String durationTypeId;
-        /**
-         * 签订类型id
-         * <p> 示例值：6738317738688661772
-         */
-        private String signingTypeId;
-        /**
-         * 入职方式
-         * <p> 示例值：1
-         */
-        private String entryMode;
-        /**
-         * 社保城市id
-         * <p> 示例值：xxx
-         */
-        private String socialSecurityCityId;
-        /**
-         * 合同类型
-         * <p> 示例值：6738317738688661772
-         */
-        private String contractType;
-        /**
-         * 公司
-         * <p> 示例值：6738317738688661772
-         */
-        private String company;
-        /**
-         * 成本中心分摊信息
-         * <p> 示例值：
-         */
-        private JobDataCostCenter[] costCenterRate;
-        /**
-         * 职等ID
-         * <p> 示例值：6738317738688661772
-         */
-        private String jobGradeId;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-        /**
-         * 任职公司
-         * <p> 示例值：6738317738688661772
-         */
-        private String serviceCompany;
-        /**
-         * 排班
-         * <p> 示例值：work_shift
-         */
-        private String workShift;
-        /**
-         * 薪资类型
-         * <p> 示例值：hourly
-         */
-        private String compensationType;
-        /**
-         * 工作地点id
-         * <p> 示例值：6977976687350924833
-         */
-        private String workLocationId;
-        /**
-         * 入职地址id
-         * <p> 示例值：6977976687350924833
-         */
-        private String onboardingAddressId;
-        /**
-         * 办公地址id
-         * <p> 示例值：6977976687350924833
-         */
-        private String officeAddressId;
-        /**
-         * 岗位id
-         * <p> 示例值：6977976687350924833
-         */
-        private String positionId;
-        /**
-         * 工作日历id
-         * <p> 示例值：6977976687350924833
-         */
-        private String workingCalendarId;
-        /**
-         * 工时制度
-         * <p> 示例值：6977976687350924833
-         */
-        private String workingHoursType;
-        /**
-         * 薪资组
-         * <p> 示例值：6977976687350924833
-         */
-        private String payGroupId;
-        /**
-         * 入职流程ID
-         * <p> 示例值：6977976687350924833
-         */
-        private String flowId;
-        /**
-         * 签到日期
-         * <p> 示例值：2024-08-01
-         */
-        private String checkInTime;
-        /**
-         * 签到方式
-         * <p> 示例值：6977976687350924833
-         */
-        private String checkInMethod;
-        /**
-         * 司龄起算日期
-         * <p> 示例值：2024-08-01
-         */
-        private String seniorityDate;
-        /**
-         * 司龄调整信息
-         * <p> 示例值：
-         */
-        private PrehireSeniorityAdjustInformation[] seniorityAdjustInformationList;
-        /**
-         * 试用期内通知期（主动离职)
-         * <p> 示例值：xxx
-         */
-        private NoticePeriodDetail noticePeriodProbationVoluntary;
-        /**
-         * 试用期内通知期（被动离职）
-         * <p> 示例值：xxx
-         */
-        private NoticePeriodDetail noticePeriodProbationInvoluntary;
-        /**
-         * 转正后通知期（主动离职）
-         * <p> 示例值：xxx
-         */
-        private NoticePeriodDetail noticePeriodPositiveVoluntary;
-        /**
-         * 转正后通知期（被动离职）
-         * <p> 示例值：xxx
-         */
-        private NoticePeriodDetail noticePeriodPositiveInvoluntary;
-        /**
-         * 是否外部人员
-         * <p> 示例值：true
-         */
-        private Boolean conditionWorker;
-        /**
-         * 是否包含竞业条款
-         * <p> 示例值：true
-         */
-        private Boolean nonCompeteCovenant;
-        /**
-         * 需要公司办理签证
-         * <p> 示例值：true
-         */
-        private Boolean companySponsoredVisa;
-        /**
-         * 是否有 Offer 薪酬
-         * <p> 示例值：true
-         */
-        private Boolean hasOfferSalary;
-        /**
-         * 工位
-         * <p> 示例值：5-1-2
-         */
-        private String workStation;
-        /**
-         * 通道
-         * <p> 示例值：7460865381179115052
-         */
-        private String pathway;
-        /**
-         * 默认成本中心
-         * <p> 示例值：
-         */
-        private PrehireDefaultCostCenterUpdate defaultCostCenter;
-        /**
-         * 成本分摊
-         * <p> 示例值：
-         */
-        private CostAllocation costAllocation;
-        /**
-         * 人才ID
-         * <p> 示例值：8234698927348
-         */
-        private String talentId;
-        /**
-         * 是否复用飞书账号
-         * <p> 示例值：reuse
-         */
-        private String reuseFeishuAccount;
-        /**
-         * 复用的飞书账号
-         * <p> 示例值：7032210902531327521
-         */
-        private String reusedFeishuAccountId;
-
-        /**
-         * Offer id
-         * <p> 示例值：7032210902531327521
-         *
-         * @param offerId
-         * @return
-         */
-        public Builder offerId(String offerId) {
-            this.offerId = offerId;
-            return this;
-        }
-
-
-        /**
-         * Offer id查找类型ID
-         * <p> 示例值：7032210902531327521
-         *
-         * @param offer
-         * @return
-         */
-        public Builder offer(String offer) {
-            this.offer = offer;
-            return this;
-        }
-
-
-        /**
-         * Offer hr id
-         * <p> 示例值：7032210902531327521
-         *
-         * @param offerHrId
-         * @return
-         */
-        public Builder offerHrId(String offerHrId) {
-            this.offerHrId = offerHrId;
-            return this;
-        }
-
-
-        /**
-         * 部门 id
-         * <p> 示例值：7147562782945478177
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 直属领导id
-         * <p> 示例值：7032210902531327521
-         *
-         * @param directLeaderId
-         * @return
-         */
-        public Builder directLeaderId(String directLeaderId) {
-            this.directLeaderId = directLeaderId;
-            return this;
-        }
-
-
-        /**
-         * 虚线上级id
-         * <p> 示例值：7032210902531327521
-         *
-         * @param dottedLineManagerId
-         * @return
-         */
-        public Builder dottedLineManagerId(String dottedLineManagerId) {
-            this.dottedLineManagerId = dottedLineManagerId;
-            return this;
-        }
-
-
-        /**
-         * 职务id
-         * <p> 示例值：6977976735715378724
-         *
-         * @param jobId
-         * @return
-         */
-        public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
-        }
-
-
-        /**
-         * 序列id
-         * <p> 示例值：6977972856625939999
-         *
-         * @param jobFamilyId
-         * @return
-         */
-        public Builder jobFamilyId(String jobFamilyId) {
-            this.jobFamilyId = jobFamilyId;
-            return this;
-        }
-
-
-        /**
-         * 级别id
-         * <p> 示例值：6977971894960145950
-         *
-         * @param jobLevelId
-         * @return
-         */
-        public Builder jobLevelId(String jobLevelId) {
-            this.jobLevelId = jobLevelId;
-            return this;
-        }
-
-
-        /**
-         * 职务头衔id
-         * <p> 示例值：java
-         *
-         * @param jobTitle
-         * @return
-         */
-        public Builder jobTitle(String jobTitle) {
-            this.jobTitle = jobTitle;
-            return this;
-        }
-
-
-        /**
-         * 试用期开始日期
-         * <p> 示例值：2022-07-29
-         *
-         * @param probationStartDate
-         * @return
-         */
-        public Builder probationStartDate(String probationStartDate) {
-            this.probationStartDate = probationStartDate;
-            return this;
-        }
-
-
-        /**
-         * 试用期结束日期
-         * <p> 示例值：2023-04-07
-         *
-         * @param probationEndDate
-         * @return
-         */
-        public Builder probationEndDate(String probationEndDate) {
-            this.probationEndDate = probationEndDate;
-            return this;
-        }
-
-
-        /**
-         * 合同开始日期
-         * <p> 示例值：2022-10-08
-         *
-         * @param contractStartDate
-         * @return
-         */
-        public Builder contractStartDate(String contractStartDate) {
-            this.contractStartDate = contractStartDate;
-            return this;
-        }
-
-
-        /**
-         * 合同结束日期
-         * <p> 示例值：2025-10-07
-         *
-         * @param contractEndDate
-         * @return
-         */
-        public Builder contractEndDate(String contractEndDate) {
-            this.contractEndDate = contractEndDate;
-            return this;
-        }
-
-
-        /**
-         * 合同期限时长
-         * <p> 示例值：3
-         *
-         * @param durationPeriod
-         * @return
-         */
-        public Builder durationPeriod(Double durationPeriod) {
-            this.durationPeriod = durationPeriod;
-            return this;
-        }
-
-
-        /**
-         * 合同期限单位
-         * <p> 示例值：年
-         *
-         * @param durationUnit
-         * @return
-         */
-        public Builder durationUnit(String durationUnit) {
-            this.durationUnit = durationUnit;
-            return this;
-        }
-
-
-        /**
-         * 入职日期
-         * <p> 示例值：2022-10-08
-         *
-         * @param onboardingDate
-         * @return
-         */
-        public Builder onboardingDate(String onboardingDate) {
-            this.onboardingDate = onboardingDate;
-            return this;
-        }
-
-
-        /**
-         * 入职地点id
-         * <p> 示例值：6977976687350924832
-         *
-         * @param onboardingLocationId
-         * @return
-         */
-        public Builder onboardingLocationId(String onboardingLocationId) {
-            this.onboardingLocationId = onboardingLocationId;
-            return this;
-        }
-
-
-        /**
-         * 办公地点id
-         * <p> 示例值：6977976687350924832
-         *
-         * @param officeLocationId
-         * @return
-         */
-        public Builder officeLocationId(String officeLocationId) {
-            this.officeLocationId = officeLocationId;
-            return this;
-        }
-
-
-        /**
-         * 招聘来源id
-         * <p> 示例值：experienced_professionals
-         *
-         * @param recruitmentTypeId
-         * @return
-         */
-        public Builder recruitmentTypeId(String recruitmentTypeId) {
-            this.recruitmentTypeId = recruitmentTypeId;
-            return this;
-        }
-
-
-        /**
-         * 试用期时长
-         * <p> 示例值：6
-         *
-         * @param probationPeriod
-         * @return
-         */
-        public Builder probationPeriod(String probationPeriod) {
-            this.probationPeriod = probationPeriod;
-            return this;
-        }
-
-
-        /**
-         * 人员类型id
-         * <p> 示例值：6977973225846343171
-         *
-         * @param employeeTypeId
-         * @return
-         */
-        public Builder employeeTypeId(String employeeTypeId) {
-            this.employeeTypeId = employeeTypeId;
-            return this;
-        }
-
-
-        /**
-         * 人员子类型id
-         * <p> 示例值：6977973225846343171
-         *
-         * @param employeeSubtypeId
-         * @return
-         */
-        public Builder employeeSubtypeId(String employeeSubtypeId) {
-            this.employeeSubtypeId = employeeSubtypeId;
-            return this;
-        }
-
-
-        /**
-         * 雇佣类型id
-         * <p> 示例值：6977973225846343171
-         *
-         * @param employmentTypeId
-         * @return
-         */
-        public Builder employmentTypeId(String employmentTypeId) {
-            this.employmentTypeId = employmentTypeId;
-            return this;
-        }
-
-
-        /**
-         * 工作邮箱
-         * <p> 示例值：joshua@bytedance.com
-         *
-         * @param workEmail
-         * @return
-         */
-        public Builder workEmail(String workEmail) {
-            this.workEmail = workEmail;
-            return this;
-        }
-
-
-        /**
-         * 期限类型id
-         * <p> 示例值：6977973225846343171
-         *
-         * @param durationTypeId
-         * @return
-         */
-        public Builder durationTypeId(String durationTypeId) {
-            this.durationTypeId = durationTypeId;
-            return this;
-        }
-
-
-        /**
-         * 签订类型id
-         * <p> 示例值：6738317738688661772
-         *
-         * @param signingTypeId
-         * @return
-         */
-        public Builder signingTypeId(String signingTypeId) {
-            this.signingTypeId = signingTypeId;
-            return this;
-        }
-
-
-        /**
-         * 入职方式
-         * <p> 示例值：1
-         *
-         * @param entryMode
-         * @return
-         */
-        public Builder entryMode(String entryMode) {
-            this.entryMode = entryMode;
-            return this;
-        }
-
-
-        /**
-         * 社保城市id
-         * <p> 示例值：xxx
-         *
-         * @param socialSecurityCityId
-         * @return
-         */
-        public Builder socialSecurityCityId(String socialSecurityCityId) {
-            this.socialSecurityCityId = socialSecurityCityId;
-            return this;
-        }
-
-
-        /**
-         * 合同类型
-         * <p> 示例值：6738317738688661772
-         *
-         * @param contractType
-         * @return
-         */
-        public Builder contractType(String contractType) {
-            this.contractType = contractType;
-            return this;
-        }
-
-
-        /**
-         * 公司
-         * <p> 示例值：6738317738688661772
-         *
-         * @param company
-         * @return
-         */
-        public Builder company(String company) {
-            this.company = company;
-            return this;
-        }
-
-
-        /**
-         * 成本中心分摊信息
-         * <p> 示例值：
-         *
-         * @param costCenterRate
-         * @return
-         */
-        public Builder costCenterRate(JobDataCostCenter[] costCenterRate) {
-            this.costCenterRate = costCenterRate;
-            return this;
-        }
-
-
-        /**
-         * 职等ID
-         * <p> 示例值：6738317738688661772
-         *
-         * @param jobGradeId
-         * @return
-         */
-        public Builder jobGradeId(String jobGradeId) {
-            this.jobGradeId = jobGradeId;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 任职公司
-         * <p> 示例值：6738317738688661772
-         *
-         * @param serviceCompany
-         * @return
-         */
-        public Builder serviceCompany(String serviceCompany) {
-            this.serviceCompany = serviceCompany;
-            return this;
-        }
-
-
-        /**
-         * 排班
-         * <p> 示例值：work_shift
-         *
-         * @param workShift
-         * @return
-         */
-        public Builder workShift(String workShift) {
-            this.workShift = workShift;
-            return this;
-        }
-
-
-        /**
-         * 薪资类型
-         * <p> 示例值：hourly
-         *
-         * @param compensationType
-         * @return
-         */
-        public Builder compensationType(String compensationType) {
-            this.compensationType = compensationType;
-            return this;
-        }
-
-
-        /**
-         * 工作地点id
-         * <p> 示例值：6977976687350924833
-         *
-         * @param workLocationId
-         * @return
-         */
-        public Builder workLocationId(String workLocationId) {
-            this.workLocationId = workLocationId;
-            return this;
-        }
-
-
-        /**
-         * 入职地址id
-         * <p> 示例值：6977976687350924833
-         *
-         * @param onboardingAddressId
-         * @return
-         */
-        public Builder onboardingAddressId(String onboardingAddressId) {
-            this.onboardingAddressId = onboardingAddressId;
-            return this;
-        }
-
-
-        /**
-         * 办公地址id
-         * <p> 示例值：6977976687350924833
-         *
-         * @param officeAddressId
-         * @return
-         */
-        public Builder officeAddressId(String officeAddressId) {
-            this.officeAddressId = officeAddressId;
-            return this;
-        }
-
-
-        /**
-         * 岗位id
-         * <p> 示例值：6977976687350924833
-         *
-         * @param positionId
-         * @return
-         */
-        public Builder positionId(String positionId) {
-            this.positionId = positionId;
-            return this;
-        }
-
-
-        /**
-         * 工作日历id
-         * <p> 示例值：6977976687350924833
-         *
-         * @param workingCalendarId
-         * @return
-         */
-        public Builder workingCalendarId(String workingCalendarId) {
-            this.workingCalendarId = workingCalendarId;
-            return this;
-        }
-
-
-        /**
-         * 工时制度
-         * <p> 示例值：6977976687350924833
-         *
-         * @param workingHoursType
-         * @return
-         */
-        public Builder workingHoursType(String workingHoursType) {
-            this.workingHoursType = workingHoursType;
-            return this;
-        }
-
-
-        /**
-         * 薪资组
-         * <p> 示例值：6977976687350924833
-         *
-         * @param payGroupId
-         * @return
-         */
-        public Builder payGroupId(String payGroupId) {
-            this.payGroupId = payGroupId;
-            return this;
-        }
-
-
-        /**
-         * 入职流程ID
-         * <p> 示例值：6977976687350924833
-         *
-         * @param flowId
-         * @return
-         */
-        public Builder flowId(String flowId) {
-            this.flowId = flowId;
-            return this;
-        }
-
-
-        /**
-         * 签到日期
-         * <p> 示例值：2024-08-01
-         *
-         * @param checkInTime
-         * @return
-         */
-        public Builder checkInTime(String checkInTime) {
-            this.checkInTime = checkInTime;
-            return this;
-        }
-
-
-        /**
-         * 签到方式
-         * <p> 示例值：6977976687350924833
-         *
-         * @param checkInMethod
-         * @return
-         */
-        public Builder checkInMethod(String checkInMethod) {
-            this.checkInMethod = checkInMethod;
-            return this;
-        }
-
-
-        /**
-         * 司龄起算日期
-         * <p> 示例值：2024-08-01
-         *
-         * @param seniorityDate
-         * @return
-         */
-        public Builder seniorityDate(String seniorityDate) {
-            this.seniorityDate = seniorityDate;
-            return this;
-        }
-
-
-        /**
-         * 司龄调整信息
-         * <p> 示例值：
-         *
-         * @param seniorityAdjustInformationList
-         * @return
-         */
-        public Builder seniorityAdjustInformationList(PrehireSeniorityAdjustInformation[] seniorityAdjustInformationList) {
-            this.seniorityAdjustInformationList = seniorityAdjustInformationList;
-            return this;
-        }
-
-
-        /**
-         * 试用期内通知期（主动离职)
-         * <p> 示例值：xxx
-         *
-         * @param noticePeriodProbationVoluntary
-         * @return
-         */
-        public Builder noticePeriodProbationVoluntary(NoticePeriodDetail noticePeriodProbationVoluntary) {
-            this.noticePeriodProbationVoluntary = noticePeriodProbationVoluntary;
-            return this;
-        }
-
-
-        /**
-         * 试用期内通知期（被动离职）
-         * <p> 示例值：xxx
-         *
-         * @param noticePeriodProbationInvoluntary
-         * @return
-         */
-        public Builder noticePeriodProbationInvoluntary(NoticePeriodDetail noticePeriodProbationInvoluntary) {
-            this.noticePeriodProbationInvoluntary = noticePeriodProbationInvoluntary;
-            return this;
-        }
-
-
-        /**
-         * 转正后通知期（主动离职）
-         * <p> 示例值：xxx
-         *
-         * @param noticePeriodPositiveVoluntary
-         * @return
-         */
-        public Builder noticePeriodPositiveVoluntary(NoticePeriodDetail noticePeriodPositiveVoluntary) {
-            this.noticePeriodPositiveVoluntary = noticePeriodPositiveVoluntary;
-            return this;
-        }
-
-
-        /**
-         * 转正后通知期（被动离职）
-         * <p> 示例值：xxx
-         *
-         * @param noticePeriodPositiveInvoluntary
-         * @return
-         */
-        public Builder noticePeriodPositiveInvoluntary(NoticePeriodDetail noticePeriodPositiveInvoluntary) {
-            this.noticePeriodPositiveInvoluntary = noticePeriodPositiveInvoluntary;
-            return this;
-        }
-
-
-        /**
-         * 是否外部人员
-         * <p> 示例值：true
-         *
-         * @param conditionWorker
-         * @return
-         */
-        public Builder conditionWorker(Boolean conditionWorker) {
-            this.conditionWorker = conditionWorker;
-            return this;
-        }
-
-
-        /**
-         * 是否包含竞业条款
-         * <p> 示例值：true
-         *
-         * @param nonCompeteCovenant
-         * @return
-         */
-        public Builder nonCompeteCovenant(Boolean nonCompeteCovenant) {
-            this.nonCompeteCovenant = nonCompeteCovenant;
-            return this;
-        }
-
-
-        /**
-         * 需要公司办理签证
-         * <p> 示例值：true
-         *
-         * @param companySponsoredVisa
-         * @return
-         */
-        public Builder companySponsoredVisa(Boolean companySponsoredVisa) {
-            this.companySponsoredVisa = companySponsoredVisa;
-            return this;
-        }
-
-
-        /**
-         * 是否有 Offer 薪酬
-         * <p> 示例值：true
-         *
-         * @param hasOfferSalary
-         * @return
-         */
-        public Builder hasOfferSalary(Boolean hasOfferSalary) {
-            this.hasOfferSalary = hasOfferSalary;
-            return this;
-        }
-
-
-        /**
-         * 工位
-         * <p> 示例值：5-1-2
-         *
-         * @param workStation
-         * @return
-         */
-        public Builder workStation(String workStation) {
-            this.workStation = workStation;
-            return this;
-        }
-
-
-        /**
-         * 通道
-         * <p> 示例值：7460865381179115052
-         *
-         * @param pathway
-         * @return
-         */
-        public Builder pathway(String pathway) {
-            this.pathway = pathway;
-            return this;
-        }
-
-
-        /**
-         * 默认成本中心
-         * <p> 示例值：
-         *
-         * @param defaultCostCenter
-         * @return
-         */
-        public Builder defaultCostCenter(PrehireDefaultCostCenterUpdate defaultCostCenter) {
-            this.defaultCostCenter = defaultCostCenter;
-            return this;
-        }
-
-
-        /**
-         * 成本分摊
-         * <p> 示例值：
-         *
-         * @param costAllocation
-         * @return
-         */
-        public Builder costAllocation(CostAllocation costAllocation) {
-            this.costAllocation = costAllocation;
-            return this;
-        }
-
-
-        /**
-         * 人才ID
-         * <p> 示例值：8234698927348
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 是否复用飞书账号
-         * <p> 示例值：reuse
-         *
-         * @param reuseFeishuAccount
-         * @return
-         */
-        public Builder reuseFeishuAccount(String reuseFeishuAccount) {
-            this.reuseFeishuAccount = reuseFeishuAccount;
-            return this;
-        }
-
-
-        /**
-         * 复用的飞书账号
-         * <p> 示例值：7032210902531327521
-         *
-         * @param reusedFeishuAccountId
-         * @return
-         */
-        public Builder reusedFeishuAccountId(String reusedFeishuAccountId) {
-            this.reusedFeishuAccountId = reusedFeishuAccountId;
-            return this;
-        }
-
-
-        public OfferInfo build() {
-            return new OfferInfo(this);
-        }
-    }
+    /**
+     * Offer ID，仅支持飞书招聘
+     * ID，可以通过飞书招聘[获取Offer列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/list)接口获取，如果未使用飞书招聘请置空
+     *
+     * <p>示例值：7032210902531327521
+     *
+     * @param offerId
+     * @return
+     */
+    public Builder offerId(String offerId) {
+      this.offerId = offerId;
+      return this;
+    }
+
+    /**
+     * Offer id查找类型ID
+     *
+     * <p>示例值：7032210902531327521
+     *
+     * @param offer
+     * @return
+     */
+    public Builder offer(String offer) {
+      this.offer = offer;
+      return this;
+    }
+
+    /**
+     * Offer HR 雇佣
+     * ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取
+     *
+     * <p>示例值：7032210902531327521
+     *
+     * @param offerHrId
+     * @return
+     */
+    public Builder offerHrId(String offerHrId) {
+      this.offerHrId = offerHrId;
+      return this;
+    }
+
+    /**
+     * 部门
+     * ID，可以通过[批量查询部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取
+     *
+     * <p>示例值：7147562782945478177
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
+    }
+
+    /**
+     * 直属领导的雇佣
+     * ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取
+     *
+     * <p>示例值：7032210902531327521
+     *
+     * @param directLeaderId
+     * @return
+     */
+    public Builder directLeaderId(String directLeaderId) {
+      this.directLeaderId = directLeaderId;
+      return this;
+    }
+
+    /**
+     * 虚线上级ID，可以通过[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口获取;-
+     * 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：7032210902531327521
+     *
+     * @param dottedLineManagerId
+     * @return
+     */
+    public Builder dottedLineManagerId(String dottedLineManagerId) {
+      this.dottedLineManagerId = dottedLineManagerId;
+      return this;
+    }
+
+    /**
+     * 职务
+     * ID，可以通过[批量查询职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)接口获取
+     *
+     * <p>示例值：6977976735715378724
+     *
+     * @param jobId
+     * @return
+     */
+    public Builder jobId(String jobId) {
+      this.jobId = jobId;
+      return this;
+    }
+
+    /**
+     * 序列
+     * ID，可以通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)接口获取
+     *
+     * <p>示例值：6977972856625939999
+     *
+     * @param jobFamilyId
+     * @return
+     */
+    public Builder jobFamilyId(String jobFamilyId) {
+      this.jobFamilyId = jobFamilyId;
+      return this;
+    }
+
+    /**
+     * 职级
+     * ID，可以通过[批量查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)接口获取
+     *
+     * <p>示例值：6977971894960145950
+     *
+     * @param jobLevelId
+     * @return
+     */
+    public Builder jobLevelId(String jobLevelId) {
+      this.jobLevelId = jobLevelId;
+      return this;
+    }
+
+    /**
+     * 职务头衔（待废弃）
+     *
+     * <p>示例值：java
+     *
+     * @param jobTitle
+     * @return
+     */
+    public Builder jobTitle(String jobTitle) {
+      this.jobTitle = jobTitle;
+      return this;
+    }
+
+    /**
+     * 试用期开始日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-07-29
+     *
+     * @param probationStartDate
+     * @return
+     */
+    public Builder probationStartDate(String probationStartDate) {
+      this.probationStartDate = probationStartDate;
+      return this;
+    }
+
+    /**
+     * 试用期结束日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2023-04-07
+     *
+     * @param probationEndDate
+     * @return
+     */
+    public Builder probationEndDate(String probationEndDate) {
+      this.probationEndDate = probationEndDate;
+      return this;
+    }
+
+    /**
+     * 合同开始日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-10-08
+     *
+     * @param contractStartDate
+     * @return
+     */
+    public Builder contractStartDate(String contractStartDate) {
+      this.contractStartDate = contractStartDate;
+      return this;
+    }
+
+    /**
+     * 合同结束日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2025-10-07
+     *
+     * @param contractEndDate
+     * @return
+     */
+    public Builder contractEndDate(String contractEndDate) {
+      this.contractEndDate = contractEndDate;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param durationPeriod
+     * @return
+     */
+    public Builder durationPeriod(Double durationPeriod) {
+      this.durationPeriod = durationPeriod;
+      return this;
+    }
+
+    /**
+     * 合同期限单位，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：
+     * ;- object_api_name = pre_hire;- custom_api_name = duration_unit
+     *
+     * <p>示例值：year
+     *
+     * @param durationUnit
+     * @return
+     */
+    public Builder durationUnit(String durationUnit) {
+      this.durationUnit = durationUnit;
+      return this;
+    }
+
+    /**
+     * 入职日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-10-08
+     *
+     * @param onboardingDate
+     * @return
+     */
+    public Builder onboardingDate(String onboardingDate) {
+      this.onboardingDate = onboardingDate;
+      return this;
+    }
+
+    /**
+     * 入职地点
+     * ID，可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：6977976687350924832
+     *
+     * @param onboardingLocationId
+     * @return
+     */
+    public Builder onboardingLocationId(String onboardingLocationId) {
+      this.onboardingLocationId = onboardingLocationId;
+      return this;
+    }
+
+    /**
+     * 办公地点
+     * ID，可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：6977976687350924832
+     *
+     * @param officeLocationId
+     * @return
+     */
+    public Builder officeLocationId(String officeLocationId) {
+      this.officeLocationId = officeLocationId;
+      return this;
+    }
+
+    /**
+     * 招聘来源，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：recruitment_type
+     *
+     * <p>示例值：experienced_professionals
+     *
+     * @param recruitmentTypeId
+     * @return
+     */
+    public Builder recruitmentTypeId(String recruitmentTypeId) {
+      this.recruitmentTypeId = recruitmentTypeId;
+      return this;
+    }
+
+    /**
+     * 试用期时长（单位：月）
+     *
+     * <p>示例值：6
+     *
+     * @param probationPeriod
+     * @return
+     */
+    public Builder probationPeriod(String probationPeriod) {
+      this.probationPeriod = probationPeriod;
+      return this;
+    }
+
+    /**
+     * 人员类型
+     * ID，可以通过接口[批量查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获取
+     *
+     * <p>示例值：6977973225846343171
+     *
+     * @param employeeTypeId
+     * @return
+     */
+    public Builder employeeTypeId(String employeeTypeId) {
+      this.employeeTypeId = employeeTypeId;
+      return this;
+    }
+
+    /**
+     * 示例值：6977973225846343171
+     *
+     * @param employeeSubtypeId
+     * @return
+     */
+    public Builder employeeSubtypeId(String employeeSubtypeId) {
+      this.employeeSubtypeId = employeeSubtypeId;
+      return this;
+    }
+
+    /**
+     * 雇佣类型，请注意该字段为必填，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：employment_type
+     *
+     * <p>示例值：employee
+     *
+     * @param employmentTypeId
+     * @return
+     */
+    public Builder employmentTypeId(String employmentTypeId) {
+      this.employmentTypeId = employmentTypeId;
+      return this;
+    }
+
+    /**
+     * 工作邮箱
+     *
+     * <p>示例值：joshua@bytedance.com
+     *
+     * @param workEmail
+     * @return
+     */
+    public Builder workEmail(String workEmail) {
+      this.workEmail = workEmail;
+      return this;
+    }
+
+    /**
+     * 期限类型，
+     * 枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：duration_type
+     *
+     * <p>示例值：fixed_term
+     *
+     * @param durationTypeId
+     * @return
+     */
+    public Builder durationTypeId(String durationTypeId) {
+      this.durationTypeId = durationTypeId;
+      return this;
+    }
+
+    /**
+     * 签订类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：signing_type
+     *
+     * <p>示例值：new
+     *
+     * @param signingTypeId
+     * @return
+     */
+    public Builder signingTypeId(String signingTypeId) {
+      this.signingTypeId = signingTypeId;
+      return this;
+    }
+
+    /**
+     * 入职方式，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：onboarding_method
+     *
+     * <p>示例值：onsite
+     *
+     * @param entryMode
+     * @return
+     */
+    public Builder entryMode(String entryMode) {
+      this.entryMode = entryMode;
+      return this;
+    }
+
+    /**
+     * 社保城市
+     * ID，可以通过[批量查询地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取
+     *
+     * <p>示例值：6977976687350924833
+     *
+     * @param socialSecurityCityId
+     * @return
+     */
+    public Builder socialSecurityCityId(String socialSecurityCityId) {
+      this.socialSecurityCityId = socialSecurityCityId;
+      return this;
+    }
+
+    /**
+     * 合同类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：contract_type
+     *
+     * <p>示例值：internship_agreement
+     *
+     * @param contractType
+     * @return
+     */
+    public Builder contractType(String contractType) {
+      this.contractType = contractType;
+      return this;
+    }
+
+    /**
+     * 公司
+     * ID，可以通过[批量查询公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口获取
+     *
+     * <p>示例值：6738317738688661772
+     *
+     * @param company
+     * @return
+     */
+    public Builder company(String company) {
+      this.company = company;
+      return this;
+    }
+
+    /**
+     * 成本中心分摊信息;- 待废弃，建议使用cost_allocation
+     *
+     * <p>示例值：
+     *
+     * @param costCenterRate
+     * @return
+     */
+    public Builder costCenterRate(JobDataCostCenter[] costCenterRate) {
+      this.costCenterRate = costCenterRate;
+      return this;
+    }
+
+    /**
+     * 职等ID，可以通过[查询职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param jobGradeId
+     * @return
+     */
+    public Builder jobGradeId(String jobGradeId) {
+      this.jobGradeId = jobGradeId;
+      return this;
+    }
+
+    /**
+     * pre_hire对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
+    }
+
+    /**
+     * 任职公司，可以通过[批量查询公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param serviceCompany
+     * @return
+     */
+    public Builder serviceCompany(String serviceCompany) {
+      this.serviceCompany = serviceCompany;
+      return this;
+    }
+
+    /**
+     * 排班，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：work_shift
+     *
+     * <p>示例值：
+     *
+     * @param workShift
+     * @return
+     */
+    public Builder workShift(String workShift) {
+      this.workShift = workShift;
+      return this;
+    }
+
+    /**
+     * 薪资类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：compensation_type
+     *
+     * <p>示例值：
+     *
+     * @param compensationType
+     * @return
+     */
+    public Builder compensationType(String compensationType) {
+      this.compensationType = compensationType;
+      return this;
+    }
+
+    /**
+     * 工作地点ID，可以通过[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param workLocationId
+     * @return
+     */
+    public Builder workLocationId(String workLocationId) {
+      this.workLocationId = workLocationId;
+      return this;
+    }
+
+    /**
+     * 入职地址ID，可以通过[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param onboardingAddressId
+     * @return
+     */
+    public Builder onboardingAddressId(String onboardingAddressId) {
+      this.onboardingAddressId = onboardingAddressId;
+      return this;
+    }
+
+    /**
+     * 办公地址ID，，可以通过[批量查询地点](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/location/list)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param officeAddressId
+     * @return
+     */
+    public Builder officeAddressId(String officeAddressId) {
+      this.officeAddressId = officeAddressId;
+      return this;
+    }
+
+    /**
+     * 岗位ID
+     *
+     * <p>示例值：
+     *
+     * @param positionId
+     * @return
+     */
+    public Builder positionId(String positionId) {
+      this.positionId = positionId;
+      return this;
+    }
+
+    /**
+     * 工作日历ID
+     *
+     * <p>示例值：
+     *
+     * @param workingCalendarId
+     * @return
+     */
+    public Builder workingCalendarId(String workingCalendarId) {
+      this.workingCalendarId = workingCalendarId;
+      return this;
+    }
+
+    /**
+     * 工时制度，可以通过[批量查询工时制度](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口获得
+     *
+     * <p>示例值：6890452208593372679
+     *
+     * @param workingHoursType
+     * @return
+     */
+    public Builder workingHoursType(String workingHoursType) {
+      this.workingHoursType = workingHoursType;
+      return this;
+    }
+
+    /**
+     * 示例值：
+     *
+     * @param payGroupId
+     * @return
+     */
+    public Builder payGroupId(String payGroupId) {
+      this.payGroupId = payGroupId;
+      return this;
+    }
+
+    /**
+     * 入职流程ID
+     *
+     * <p>示例值：64377642c0ec3f23c79c6916
+     *
+     * @param flowId
+     * @return
+     */
+    public Builder flowId(String flowId) {
+      this.flowId = flowId;
+      return this;
+    }
+
+    /**
+     * 签到日期，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2024-12-31
+     *
+     * @param checkInTime
+     * @return
+     */
+    public Builder checkInTime(String checkInTime) {
+      this.checkInTime = checkInTime;
+      return this;
+    }
+
+    /**
+     * 签到方式，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：pre_hire;- custom_api_name：onboarding_method
+     *
+     * <p>示例值：onsite
+     *
+     * @param checkInMethod
+     * @return
+     */
+    public Builder checkInMethod(String checkInMethod) {
+      this.checkInMethod = checkInMethod;
+      return this;
+    }
+
+    /**
+     * 示例值：2024-08-01
+     *
+     * @param seniorityDate
+     * @return
+     */
+    public Builder seniorityDate(String seniorityDate) {
+      this.seniorityDate = seniorityDate;
+      return this;
+    }
+
+    /**
+     * 司龄调整信息;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
+     *
+     * @param seniorityAdjustInformationList
+     * @return
+     */
+    public Builder seniorityAdjustInformationList(
+        PrehireSeniorityAdjustInformation[] seniorityAdjustInformationList) {
+      this.seniorityAdjustInformationList = seniorityAdjustInformationList;
+      return this;
+    }
+
+    /**
+     * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：xxx
+     *
+     * @param noticePeriodProbationVoluntary
+     * @return
+     */
+    public Builder noticePeriodProbationVoluntary(
+        NoticePeriodDetail noticePeriodProbationVoluntary) {
+      this.noticePeriodProbationVoluntary = noticePeriodProbationVoluntary;
+      return this;
+    }
+
+    /**
+     * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：xxx
+     *
+     * @param noticePeriodProbationInvoluntary
+     * @return
+     */
+    public Builder noticePeriodProbationInvoluntary(
+        NoticePeriodDetail noticePeriodProbationInvoluntary) {
+      this.noticePeriodProbationInvoluntary = noticePeriodProbationInvoluntary;
+      return this;
+    }
+
+    /**
+     * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：xxx
+     *
+     * @param noticePeriodPositiveVoluntary
+     * @return
+     */
+    public Builder noticePeriodPositiveVoluntary(NoticePeriodDetail noticePeriodPositiveVoluntary) {
+      this.noticePeriodPositiveVoluntary = noticePeriodPositiveVoluntary;
+      return this;
+    }
+
+    /**
+     * 试用期内通知期（主动离职);- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：xxx
+     *
+     * @param noticePeriodPositiveInvoluntary
+     * @return
+     */
+    public Builder noticePeriodPositiveInvoluntary(
+        NoticePeriodDetail noticePeriodPositiveInvoluntary) {
+      this.noticePeriodPositiveInvoluntary = noticePeriodPositiveInvoluntary;
+      return this;
+    }
+
+    /**
+     * 示例值：true
+     *
+     * @param conditionWorker
+     * @return
+     */
+    public Builder conditionWorker(Boolean conditionWorker) {
+      this.conditionWorker = conditionWorker;
+      return this;
+    }
+
+    /**
+     * 示例值：true
+     *
+     * @param nonCompeteCovenant
+     * @return
+     */
+    public Builder nonCompeteCovenant(Boolean nonCompeteCovenant) {
+      this.nonCompeteCovenant = nonCompeteCovenant;
+      return this;
+    }
+
+    /**
+     * 示例值：true
+     *
+     * @param companySponsoredVisa
+     * @return
+     */
+    public Builder companySponsoredVisa(Boolean companySponsoredVisa) {
+      this.companySponsoredVisa = companySponsoredVisa;
+      return this;
+    }
+
+    /**
+     * 是否有 Offer 薪酬
+     *
+     * <p>示例值：true
+     *
+     * @param hasOfferSalary
+     * @return
+     */
+    public Builder hasOfferSalary(Boolean hasOfferSalary) {
+      this.hasOfferSalary = hasOfferSalary;
+      return this;
+    }
+
+    /**
+     * 示例值：5-1-2
+     *
+     * @param workStation
+     * @return
+     */
+    public Builder workStation(String workStation) {
+      this.workStation = workStation;
+      return this;
+    }
+
+    /**
+     * 通道
+     *
+     * <p>示例值：7460865381179115052
+     *
+     * @param pathway
+     * @return
+     */
+    public Builder pathway(String pathway) {
+      this.pathway = pathway;
+      return this;
+    }
+
+    /**
+     * 默认成本中心;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
+     *
+     * @param defaultCostCenter
+     * @return
+     */
+    public Builder defaultCostCenter(PrehireDefaultCostCenterUpdate defaultCostCenter) {
+      this.defaultCostCenter = defaultCostCenter;
+      return this;
+    }
+
+    /**
+     * 成本分摊;- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
+     *
+     * @param costAllocation
+     * @return
+     */
+    public Builder costAllocation(CostAllocation costAllocation) {
+      this.costAllocation = costAllocation;
+      return this;
+    }
+
+    /**
+     * 人才ID，仅支持飞书招聘人才
+     * ID，可以通过飞书招聘[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取，如果未使用飞书招聘请置空
+     *
+     * <p>示例值：8234698927348
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
+    }
+
+    /**
+     * 是否复用飞书账号，支持传入“reuse”或者“not_reuse”，当字段为“reuse”时，需要传入reused_feishu_account_id;-
+     * 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：
+     *
+     * @param reuseFeishuAccount
+     * @return
+     */
+    public Builder reuseFeishuAccount(String reuseFeishuAccount) {
+      this.reuseFeishuAccount = reuseFeishuAccount;
+      return this;
+    }
+
+    /**
+     * 复用的飞书账号，仅支持Lark Union
+     * ID，可以通过[搜索员工信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/search)接口获取;-
+     * 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：on_773dd2c4d14c5c980a4d89a2da5c86d3
+     *
+     * @param reusedFeishuAccountId
+     * @return
+     */
+    public Builder reusedFeishuAccountId(String reusedFeishuAccountId) {
+      this.reusedFeishuAccountId = reusedFeishuAccountId;
+      return this;
+    }
+
+    public OfferInfo build() {
+      return new OfferInfo(this);
+    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

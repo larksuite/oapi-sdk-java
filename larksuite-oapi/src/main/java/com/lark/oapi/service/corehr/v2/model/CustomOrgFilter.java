@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomOrgFilter {
+  /**
+   * 自定义组织api name
+   *
+   * <p>示例值：custom_org_04__c
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * id list
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ids")
+  private String[] ids;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public String[] getIds() {
+    return this.ids;
+  }
+
+  public void setIds(String[] ids) {
+    this.ids = ids;
+  }
+
+  // builder 开始
+  public CustomOrgFilter() {}
+
+  public CustomOrgFilter(Builder builder) {
     /**
      * 自定义组织api name
-     * <p> 示例值：custom_org_04__c
+     *
+     * <p>示例值：custom_org_04__c
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * id list
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ids")
+    this.ids = builder.ids;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义组织api name
+     *
+     * <p>示例值：custom_org_04__c
+     */
+    private String apiName;
+
+    /**
+     * id list
+     *
+     * <p>示例值：
+     */
     private String[] ids;
 
-    // builder 开始
-    public CustomOrgFilter() {
+    /**
+     * 自定义组织api name
+     *
+     * <p>示例值：custom_org_04__c
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public CustomOrgFilter(Builder builder) {
-        /**
-         * 自定义组织api name
-         * <p> 示例值：custom_org_04__c
-         */
-        this.apiName = builder.apiName;
-        /**
-         * id list
-         * <p> 示例值：
-         */
-        this.ids = builder.ids;
+    /**
+     * id list
+     *
+     * <p>示例值：
+     *
+     * @param ids
+     * @return
+     */
+    public Builder ids(String[] ids) {
+      this.ids = ids;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CustomOrgFilter build() {
+      return new CustomOrgFilter(this);
     }
+  }
 
-    public String getApiName() {
-        return this.apiName;
-    }
-
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public String[] getIds() {
-        return this.ids;
-    }
-
-    public void setIds(String[] ids) {
-        this.ids = ids;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义组织api name
-         * <p> 示例值：custom_org_04__c
-         */
-        private String apiName;
-        /**
-         * id list
-         * <p> 示例值：
-         */
-        private String[] ids;
-
-        /**
-         * 自定义组织api name
-         * <p> 示例值：custom_org_04__c
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * id list
-         * <p> 示例值：
-         *
-         * @param ids
-         * @return
-         */
-        public Builder ids(String[] ids) {
-            this.ids = ids;
-            return this;
-        }
-
-
-        public CustomOrgFilter build() {
-            return new CustomOrgFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

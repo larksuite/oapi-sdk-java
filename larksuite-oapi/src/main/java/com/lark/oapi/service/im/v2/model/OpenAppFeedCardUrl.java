@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenAppFeedCardUrl {
+  /**
+   * 默认 URL
+   *
+   * <p>示例值：https://www.feishu.cn/
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * Android 平台 URL
+   *
+   * <p>示例值：https://www.feishu.cn/
+   */
+  @SerializedName("android_url")
+  private String androidUrl;
+
+  /**
+   * iOS 平台 URL
+   *
+   * <p>示例值：https://www.feishu.cn/
+   */
+  @SerializedName("ios_url")
+  private String iosUrl;
+
+  /**
+   * PC URL
+   *
+   * <p>示例值：https://www.feishu.cn/
+   */
+  @SerializedName("pc_url")
+  private String pcUrl;
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getAndroidUrl() {
+    return this.androidUrl;
+  }
+
+  public void setAndroidUrl(String androidUrl) {
+    this.androidUrl = androidUrl;
+  }
+
+  public String getIosUrl() {
+    return this.iosUrl;
+  }
+
+  public void setIosUrl(String iosUrl) {
+    this.iosUrl = iosUrl;
+  }
+
+  public String getPcUrl() {
+    return this.pcUrl;
+  }
+
+  public void setPcUrl(String pcUrl) {
+    this.pcUrl = pcUrl;
+  }
+
+  // builder 开始
+  public OpenAppFeedCardUrl() {}
+
+  public OpenAppFeedCardUrl(Builder builder) {
     /**
      * 默认 URL
-     * <p> 示例值：https://www.feishu.cn/
+     *
+     * <p>示例值：https://www.feishu.cn/
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * Android 平台 URL
-     * <p> 示例值：https://www.feishu.cn/
+     *
+     * <p>示例值：https://www.feishu.cn/
      */
-    @SerializedName("android_url")
-    private String androidUrl;
+    this.androidUrl = builder.androidUrl;
     /**
      * iOS 平台 URL
-     * <p> 示例值：https://www.feishu.cn/
+     *
+     * <p>示例值：https://www.feishu.cn/
      */
-    @SerializedName("ios_url")
-    private String iosUrl;
+    this.iosUrl = builder.iosUrl;
     /**
      * PC URL
-     * <p> 示例值：https://www.feishu.cn/
+     *
+     * <p>示例值：https://www.feishu.cn/
      */
-    @SerializedName("pc_url")
+    this.pcUrl = builder.pcUrl;
+  }
+
+  public static class Builder {
+    /**
+     * 默认 URL
+     *
+     * <p>示例值：https://www.feishu.cn/
+     */
+    private String url;
+
+    /**
+     * Android 平台 URL
+     *
+     * <p>示例值：https://www.feishu.cn/
+     */
+    private String androidUrl;
+
+    /**
+     * iOS 平台 URL
+     *
+     * <p>示例值：https://www.feishu.cn/
+     */
+    private String iosUrl;
+
+    /**
+     * PC URL
+     *
+     * <p>示例值：https://www.feishu.cn/
+     */
     private String pcUrl;
 
-    // builder 开始
-    public OpenAppFeedCardUrl() {
+    /**
+     * 默认 URL
+     *
+     * <p>示例值：https://www.feishu.cn/
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public OpenAppFeedCardUrl(Builder builder) {
-        /**
-         * 默认 URL
-         * <p> 示例值：https://www.feishu.cn/
-         */
-        this.url = builder.url;
-        /**
-         * Android 平台 URL
-         * <p> 示例值：https://www.feishu.cn/
-         */
-        this.androidUrl = builder.androidUrl;
-        /**
-         * iOS 平台 URL
-         * <p> 示例值：https://www.feishu.cn/
-         */
-        this.iosUrl = builder.iosUrl;
-        /**
-         * PC URL
-         * <p> 示例值：https://www.feishu.cn/
-         */
-        this.pcUrl = builder.pcUrl;
+    /**
+     * Android 平台 URL
+     *
+     * <p>示例值：https://www.feishu.cn/
+     *
+     * @param androidUrl
+     * @return
+     */
+    public Builder androidUrl(String androidUrl) {
+      this.androidUrl = androidUrl;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * iOS 平台 URL
+     *
+     * <p>示例值：https://www.feishu.cn/
+     *
+     * @param iosUrl
+     * @return
+     */
+    public Builder iosUrl(String iosUrl) {
+      this.iosUrl = iosUrl;
+      return this;
     }
 
-    public String getUrl() {
-        return this.url;
+    /**
+     * PC URL
+     *
+     * <p>示例值：https://www.feishu.cn/
+     *
+     * @param pcUrl
+     * @return
+     */
+    public Builder pcUrl(String pcUrl) {
+      this.pcUrl = pcUrl;
+      return this;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public OpenAppFeedCardUrl build() {
+      return new OpenAppFeedCardUrl(this);
     }
+  }
 
-    public String getAndroidUrl() {
-        return this.androidUrl;
-    }
-
-    public void setAndroidUrl(String androidUrl) {
-        this.androidUrl = androidUrl;
-    }
-
-    public String getIosUrl() {
-        return this.iosUrl;
-    }
-
-    public void setIosUrl(String iosUrl) {
-        this.iosUrl = iosUrl;
-    }
-
-    public String getPcUrl() {
-        return this.pcUrl;
-    }
-
-    public void setPcUrl(String pcUrl) {
-        this.pcUrl = pcUrl;
-    }
-
-    public static class Builder {
-        /**
-         * 默认 URL
-         * <p> 示例值：https://www.feishu.cn/
-         */
-        private String url;
-        /**
-         * Android 平台 URL
-         * <p> 示例值：https://www.feishu.cn/
-         */
-        private String androidUrl;
-        /**
-         * iOS 平台 URL
-         * <p> 示例值：https://www.feishu.cn/
-         */
-        private String iosUrl;
-        /**
-         * PC URL
-         * <p> 示例值：https://www.feishu.cn/
-         */
-        private String pcUrl;
-
-        /**
-         * 默认 URL
-         * <p> 示例值：https://www.feishu.cn/
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * Android 平台 URL
-         * <p> 示例值：https://www.feishu.cn/
-         *
-         * @param androidUrl
-         * @return
-         */
-        public Builder androidUrl(String androidUrl) {
-            this.androidUrl = androidUrl;
-            return this;
-        }
-
-
-        /**
-         * iOS 平台 URL
-         * <p> 示例值：https://www.feishu.cn/
-         *
-         * @param iosUrl
-         * @return
-         */
-        public Builder iosUrl(String iosUrl) {
-            this.iosUrl = iosUrl;
-            return this;
-        }
-
-
-        /**
-         * PC URL
-         * <p> 示例值：https://www.feishu.cn/
-         *
-         * @param pcUrl
-         * @return
-         */
-        public Builder pcUrl(String pcUrl) {
-            this.pcUrl = pcUrl;
-            return this;
-        }
-
-
-        public OpenAppFeedCardUrl build() {
-            return new OpenAppFeedCardUrl(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

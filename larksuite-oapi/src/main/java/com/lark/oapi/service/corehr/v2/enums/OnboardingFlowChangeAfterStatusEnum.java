@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 入职流程状态变更
- */
+/** 入职流程状态变更 */
 public enum OnboardingFlowChangeAfterStatusEnum {
-    NOTSTARTED("not_started"), // 未开始
-    INPROGRESS("in_progress"), // 进行中
-    COMPLETED("completed"), // 已完成
-    WITHDRAWN("withdrawn"), // 已撤销
-    OTHERS("others"), // 其他(非标准值)
-    EXPIRED("expired"), // 已失效(回退)
-    ;
-    private String value;
+  NOTSTARTED("not_started"), // 未开始
+  INPROGRESS("in_progress"), // 进行中
+  COMPLETED("completed"), // 已完成（所有任务节点均已完成）
+  WITHDRAWN("withdrawn"), // 已撤销（撤销待入职）
+  OTHERS("others"), // 其他(异常情况)
+  EXPIRED("expired"), // 已失效(回退至Offer沟通阶段)
+  ;
+  private String value;
 
-    OnboardingFlowChangeAfterStatusEnum(String value) {
-        this.value = value;
-    }
+  OnboardingFlowChangeAfterStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

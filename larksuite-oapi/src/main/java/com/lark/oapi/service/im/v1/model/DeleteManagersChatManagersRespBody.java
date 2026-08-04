@@ -13,48 +13,39 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteManagersChatManagersRespBody {
-    /**
-     * 群目前用户类型的管理员 id
-     * <p> 示例值：
-     */
-    @SerializedName("chat_managers")
-    private String[] chatManagers;
-    /**
-     * 群目前机器人类型的管理员 id
-     * <p> 示例值：
-     */
-    @SerializedName("chat_bot_managers")
-    private String[] chatBotManagers;
+  /**
+   * 当前群组内，用户类型管理员的用户 ID。ID 类型与查询参数 member_id_type 取值一致（如果 member_id_type 取值 app_id，则当前参数返回的是用户
+   * open_id）。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_managers")
+  private String[] chatManagers;
 
-    public String[] getChatManagers() {
-        return this.chatManagers;
-    }
+  /**
+   * 当前群组内，机器人类型管理员的 App ID。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_bot_managers")
+  private String[] chatBotManagers;
 
-    public void setChatManagers(String[] chatManagers) {
-        this.chatManagers = chatManagers;
-    }
+  public String[] getChatManagers() {
+    return this.chatManagers;
+  }
 
-    public String[] getChatBotManagers() {
-        return this.chatBotManagers;
-    }
+  public void setChatManagers(String[] chatManagers) {
+    this.chatManagers = chatManagers;
+  }
 
-    public void setChatBotManagers(String[] chatBotManagers) {
-        this.chatBotManagers = chatBotManagers;
-    }
+  public String[] getChatBotManagers() {
+    return this.chatBotManagers;
+  }
 
+  public void setChatBotManagers(String[] chatBotManagers) {
+    this.chatBotManagers = chatBotManagers;
+  }
 }

@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Person {
+  /**
+   * 用户id，id类型等于user_id_type所指定的类型。
+   *
+   * <p>示例值：testesttest
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 用户的中文名称
+   *
+   * <p>示例值：黄泡泡
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 用户的英文名称
+   *
+   * <p>示例值：Paopao Huang
+   */
+  @SerializedName("en_name")
+  private String enName;
+
+  /**
+   * 用户的邮箱
+   *
+   * <p>示例值：huangpaopao@feishu.cn
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 创建人头像链接
+   *
+   * <p>示例值：https://example.com/avatar
+   */
+  @SerializedName("avatar_url")
+  private String avatarUrl;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getEnName() {
+    return this.enName;
+  }
+
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getAvatarUrl() {
+    return this.avatarUrl;
+  }
+
+  public void setAvatarUrl(String avatarUrl) {
+    this.avatarUrl = avatarUrl;
+  }
+
+  // builder 开始
+  public Person() {}
+
+  public Person(Builder builder) {
     /**
      * 用户id，id类型等于user_id_type所指定的类型。
-     * <p> 示例值：testesttest
+     *
+     * <p>示例值：testesttest
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 用户的中文名称
-     * <p> 示例值：黄泡泡
+     *
+     * <p>示例值：黄泡泡
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 用户的英文名称
-     * <p> 示例值：Paopao Huang
+     *
+     * <p>示例值：Paopao Huang
      */
-    @SerializedName("en_name")
-    private String enName;
+    this.enName = builder.enName;
     /**
      * 用户的邮箱
-     * <p> 示例值：huangpaopao@feishu.cn
+     *
+     * <p>示例值：huangpaopao@feishu.cn
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
-     * 头像链接
-     * <p> 示例值：https://example.com/avatar
+     * 创建人头像链接
+     *
+     * <p>示例值：https://example.com/avatar
      */
-    @SerializedName("avatar_url")
+    this.avatarUrl = builder.avatarUrl;
+  }
+
+  public static class Builder {
+    /**
+     * 用户id，id类型等于user_id_type所指定的类型。
+     *
+     * <p>示例值：testesttest
+     */
+    private String id;
+
+    /**
+     * 用户的中文名称
+     *
+     * <p>示例值：黄泡泡
+     */
+    private String name;
+
+    /**
+     * 用户的英文名称
+     *
+     * <p>示例值：Paopao Huang
+     */
+    private String enName;
+
+    /**
+     * 用户的邮箱
+     *
+     * <p>示例值：huangpaopao@feishu.cn
+     */
+    private String email;
+
+    /**
+     * 创建人头像链接
+     *
+     * <p>示例值：https://example.com/avatar
+     */
     private String avatarUrl;
 
-    // builder 开始
-    public Person() {
+    /**
+     * 用户id，id类型等于user_id_type所指定的类型。
+     *
+     * <p>示例值：testesttest
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Person(Builder builder) {
-        /**
-         * 用户id，id类型等于user_id_type所指定的类型。
-         * <p> 示例值：testesttest
-         */
-        this.id = builder.id;
-        /**
-         * 用户的中文名称
-         * <p> 示例值：黄泡泡
-         */
-        this.name = builder.name;
-        /**
-         * 用户的英文名称
-         * <p> 示例值：Paopao Huang
-         */
-        this.enName = builder.enName;
-        /**
-         * 用户的邮箱
-         * <p> 示例值：huangpaopao@feishu.cn
-         */
-        this.email = builder.email;
-        /**
-         * 头像链接
-         * <p> 示例值：https://example.com/avatar
-         */
-        this.avatarUrl = builder.avatarUrl;
+    /**
+     * 用户的中文名称
+     *
+     * <p>示例值：黄泡泡
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户的英文名称
+     *
+     * <p>示例值：Paopao Huang
+     *
+     * @param enName
+     * @return
+     */
+    public Builder enName(String enName) {
+      this.enName = enName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 用户的邮箱
+     *
+     * <p>示例值：huangpaopao@feishu.cn
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 创建人头像链接
+     *
+     * <p>示例值：https://example.com/avatar
+     *
+     * @param avatarUrl
+     * @return
+     */
+    public Builder avatarUrl(String avatarUrl) {
+      this.avatarUrl = avatarUrl;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    public Person build() {
+      return new Person(this);
     }
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEnName() {
-        return this.enName;
-    }
-
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAvatarUrl() {
-        return this.avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
-
-    public static class Builder {
-        /**
-         * 用户id，id类型等于user_id_type所指定的类型。
-         * <p> 示例值：testesttest
-         */
-        private String id;
-        /**
-         * 用户的中文名称
-         * <p> 示例值：黄泡泡
-         */
-        private String name;
-        /**
-         * 用户的英文名称
-         * <p> 示例值：Paopao Huang
-         */
-        private String enName;
-        /**
-         * 用户的邮箱
-         * <p> 示例值：huangpaopao@feishu.cn
-         */
-        private String email;
-        /**
-         * 头像链接
-         * <p> 示例值：https://example.com/avatar
-         */
-        private String avatarUrl;
-
-        /**
-         * 用户id，id类型等于user_id_type所指定的类型。
-         * <p> 示例值：testesttest
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 用户的中文名称
-         * <p> 示例值：黄泡泡
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 用户的英文名称
-         * <p> 示例值：Paopao Huang
-         *
-         * @param enName
-         * @return
-         */
-        public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
-        }
-
-
-        /**
-         * 用户的邮箱
-         * <p> 示例值：huangpaopao@feishu.cn
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 头像链接
-         * <p> 示例值：https://example.com/avatar
-         *
-         * @param avatarUrl
-         * @return
-         */
-        public Builder avatarUrl(String avatarUrl) {
-            this.avatarUrl = avatarUrl;
-            return this;
-        }
-
-
-        public Person build() {
-            return new Person(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

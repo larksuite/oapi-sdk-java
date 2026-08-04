@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateExternalInstanceRespBody {
-    /**
-     * 同步的实例数据
-     * <p> 示例值：
-     */
-    @SerializedName("data")
-    private ExternalInstance data;
-    /**
-     * 本次变更信息
-     * <p> 示例值：
-     */
-    @SerializedName("process_record")
-    private ProcessRecord processRecord;
+  /**
+   * 同步的实例数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("data")
+  private ExternalInstance data;
 
-    public ExternalInstance getData() {
-        return this.data;
-    }
+  /**
+   * 本次变更信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("process_record")
+  private ProcessRecord processRecord;
 
-    public void setData(ExternalInstance data) {
-        this.data = data;
-    }
+  public ExternalInstance getData() {
+    return this.data;
+  }
 
-    public ProcessRecord getProcessRecord() {
-        return this.processRecord;
-    }
+  public void setData(ExternalInstance data) {
+    this.data = data;
+  }
 
-    public void setProcessRecord(ProcessRecord processRecord) {
-        this.processRecord = processRecord;
-    }
+  public ProcessRecord getProcessRecord() {
+    return this.processRecord;
+  }
 
+  public void setProcessRecord(ProcessRecord processRecord) {
+    this.processRecord = processRecord;
+  }
 }

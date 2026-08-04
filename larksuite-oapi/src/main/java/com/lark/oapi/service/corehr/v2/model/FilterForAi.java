@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FilterForAi {
+  /**
+   * 接口名称
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 筛选值列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("values")
+  private String[] values;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public String[] getValues() {
+    return this.values;
+  }
+
+  public void setValues(String[] values) {
+    this.values = values;
+  }
+
+  // builder 开始
+  public FilterForAi() {}
+
+  public FilterForAi(Builder builder) {
     /**
      * 接口名称
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 筛选值列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("values")
+    this.values = builder.values;
+  }
+
+  public static class Builder {
+    /**
+     * 接口名称
+     *
+     * <p>示例值：example
+     */
+    private String apiName;
+
+    /**
+     * 筛选值列表
+     *
+     * <p>示例值：
+     */
     private String[] values;
 
-    // builder 开始
-    public FilterForAi() {
+    /**
+     * 接口名称
+     *
+     * <p>示例值：example
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public FilterForAi(Builder builder) {
-        /**
-         * 接口名称
-         * <p> 示例值：example
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 筛选值列表
-         * <p> 示例值：
-         */
-        this.values = builder.values;
+    /**
+     * 筛选值列表
+     *
+     * <p>示例值：
+     *
+     * @param values
+     * @return
+     */
+    public Builder values(String[] values) {
+      this.values = values;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public FilterForAi build() {
+      return new FilterForAi(this);
     }
+  }
 
-    public String getApiName() {
-        return this.apiName;
-    }
-
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public String[] getValues() {
-        return this.values;
-    }
-
-    public void setValues(String[] values) {
-        this.values = values;
-    }
-
-    public static class Builder {
-        /**
-         * 接口名称
-         * <p> 示例值：example
-         */
-        private String apiName;
-        /**
-         * 筛选值列表
-         * <p> 示例值：
-         */
-        private String[] values;
-
-        /**
-         * 接口名称
-         * <p> 示例值：example
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 筛选值列表
-         * <p> 示例值：
-         *
-         * @param values
-         * @return
-         */
-        public Builder values(String[] values) {
-            this.values = values;
-            return this;
-        }
-
-
-        public FilterForAi build() {
-            return new FilterForAi(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

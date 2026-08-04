@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchObjectParam {
+  /**
+   * 对象 APIName
+   *
+   * <p>示例值：_user
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 搜索字段 SearchFields 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("search_fields")
+  private String[] searchFields;
+
+  /**
+   * 召回字段 APIID/APIName 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("select")
+  private String[] select;
+
+  /**
+   * 过滤条件，序列化的结果{"filter": "「标准Criterion」"}
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter")
+  private Criterion filter;
+
+  /**
+   * 排序参数，通过 JSON 格式指定条件。其中，field 为参与排序字段，order_type 为排序方向;order_type不传则默认正排
+   *
+   * <p>示例值：
+   */
+  @SerializedName("order_by")
+  private OrderCondition orderBy;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public String[] getSearchFields() {
+    return this.searchFields;
+  }
+
+  public void setSearchFields(String[] searchFields) {
+    this.searchFields = searchFields;
+  }
+
+  public String[] getSelect() {
+    return this.select;
+  }
+
+  public void setSelect(String[] select) {
+    this.select = select;
+  }
+
+  public Criterion getFilter() {
+    return this.filter;
+  }
+
+  public void setFilter(Criterion filter) {
+    this.filter = filter;
+  }
+
+  public OrderCondition getOrderBy() {
+    return this.orderBy;
+  }
+
+  public void setOrderBy(OrderCondition orderBy) {
+    this.orderBy = orderBy;
+  }
+
+  // builder 开始
+  public SearchObjectParam() {}
+
+  public SearchObjectParam(Builder builder) {
     /**
      * 对象 APIName
-     * <p> 示例值：_user
+     *
+     * <p>示例值：_user
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 搜索字段 SearchFields 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("search_fields")
-    private String[] searchFields;
+    this.searchFields = builder.searchFields;
     /**
      * 召回字段 APIID/APIName 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("select")
-    private String[] select;
+    this.select = builder.select;
     /**
      * 过滤条件，序列化的结果{"filter": "「标准Criterion」"}
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter")
-    private Criterion filter;
+    this.filter = builder.filter;
     /**
-     * 排序条件
-     * <p> 示例值：
+     * 排序参数，通过 JSON 格式指定条件。其中，field 为参与排序字段，order_type 为排序方向;order_type不传则默认正排
+     *
+     * <p>示例值：
      */
-    @SerializedName("order_by")
+    this.orderBy = builder.orderBy;
+  }
+
+  public static class Builder {
+    /**
+     * 对象 APIName
+     *
+     * <p>示例值：_user
+     */
+    private String apiName;
+
+    /**
+     * 搜索字段 SearchFields 列表
+     *
+     * <p>示例值：
+     */
+    private String[] searchFields;
+
+    /**
+     * 召回字段 APIID/APIName 列表
+     *
+     * <p>示例值：
+     */
+    private String[] select;
+
+    /**
+     * 过滤条件，序列化的结果{"filter": "「标准Criterion」"}
+     *
+     * <p>示例值：
+     */
+    private Criterion filter;
+
+    /**
+     * 排序参数，通过 JSON 格式指定条件。其中，field 为参与排序字段，order_type 为排序方向;order_type不传则默认正排
+     *
+     * <p>示例值：
+     */
     private OrderCondition orderBy;
 
-    // builder 开始
-    public SearchObjectParam() {
+    /**
+     * 对象 APIName
+     *
+     * <p>示例值：_user
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public SearchObjectParam(Builder builder) {
-        /**
-         * 对象 APIName
-         * <p> 示例值：_user
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 搜索字段 SearchFields 列表
-         * <p> 示例值：
-         */
-        this.searchFields = builder.searchFields;
-        /**
-         * 召回字段 APIID/APIName 列表
-         * <p> 示例值：
-         */
-        this.select = builder.select;
-        /**
-         * 过滤条件，序列化的结果{"filter": "「标准Criterion」"}
-         * <p> 示例值：
-         */
-        this.filter = builder.filter;
-        /**
-         * 排序条件
-         * <p> 示例值：
-         */
-        this.orderBy = builder.orderBy;
+    /**
+     * 搜索字段 SearchFields 列表
+     *
+     * <p>示例值：
+     *
+     * @param searchFields
+     * @return
+     */
+    public Builder searchFields(String[] searchFields) {
+      this.searchFields = searchFields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 召回字段 APIID/APIName 列表
+     *
+     * <p>示例值：
+     *
+     * @param select
+     * @return
+     */
+    public Builder select(String[] select) {
+      this.select = select;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 过滤条件，序列化的结果{"filter": "「标准Criterion」"}
+     *
+     * <p>示例值：
+     *
+     * @param filter
+     * @return
+     */
+    public Builder filter(Criterion filter) {
+      this.filter = filter;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    /**
+     * 排序参数，通过 JSON 格式指定条件。其中，field 为参与排序字段，order_type 为排序方向;order_type不传则默认正排
+     *
+     * <p>示例值：
+     *
+     * @param orderBy
+     * @return
+     */
+    public Builder orderBy(OrderCondition orderBy) {
+      this.orderBy = orderBy;
+      return this;
     }
 
-    public String[] getSearchFields() {
-        return this.searchFields;
+    public SearchObjectParam build() {
+      return new SearchObjectParam(this);
     }
+  }
 
-    public void setSearchFields(String[] searchFields) {
-        this.searchFields = searchFields;
-    }
-
-    public String[] getSelect() {
-        return this.select;
-    }
-
-    public void setSelect(String[] select) {
-        this.select = select;
-    }
-
-    public Criterion getFilter() {
-        return this.filter;
-    }
-
-    public void setFilter(Criterion filter) {
-        this.filter = filter;
-    }
-
-    public OrderCondition getOrderBy() {
-        return this.orderBy;
-    }
-
-    public void setOrderBy(OrderCondition orderBy) {
-        this.orderBy = orderBy;
-    }
-
-    public static class Builder {
-        /**
-         * 对象 APIName
-         * <p> 示例值：_user
-         */
-        private String apiName;
-        /**
-         * 搜索字段 SearchFields 列表
-         * <p> 示例值：
-         */
-        private String[] searchFields;
-        /**
-         * 召回字段 APIID/APIName 列表
-         * <p> 示例值：
-         */
-        private String[] select;
-        /**
-         * 过滤条件，序列化的结果{"filter": "「标准Criterion」"}
-         * <p> 示例值：
-         */
-        private Criterion filter;
-        /**
-         * 排序条件
-         * <p> 示例值：
-         */
-        private OrderCondition orderBy;
-
-        /**
-         * 对象 APIName
-         * <p> 示例值：_user
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 搜索字段 SearchFields 列表
-         * <p> 示例值：
-         *
-         * @param searchFields
-         * @return
-         */
-        public Builder searchFields(String[] searchFields) {
-            this.searchFields = searchFields;
-            return this;
-        }
-
-
-        /**
-         * 召回字段 APIID/APIName 列表
-         * <p> 示例值：
-         *
-         * @param select
-         * @return
-         */
-        public Builder select(String[] select) {
-            this.select = select;
-            return this;
-        }
-
-
-        /**
-         * 过滤条件，序列化的结果{"filter": "「标准Criterion」"}
-         * <p> 示例值：
-         *
-         * @param filter
-         * @return
-         */
-        public Builder filter(Criterion filter) {
-            this.filter = filter;
-            return this;
-        }
-
-
-        /**
-         * 排序条件
-         * <p> 示例值：
-         *
-         * @param orderBy
-         * @return
-         */
-        public Builder orderBy(OrderCondition orderBy) {
-            this.orderBy = orderBy;
-            return this;
-        }
-
-
-        public SearchObjectParam build() {
-            return new SearchObjectParam(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

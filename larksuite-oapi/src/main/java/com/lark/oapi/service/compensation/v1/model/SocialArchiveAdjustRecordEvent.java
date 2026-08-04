@@ -13,345 +13,381 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SocialArchiveAdjustRecordEvent {
+  /**
+   * 记录详情id，可通过接口[根据记录ID查询社保增减员记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_archive_adjust_record/query_by_record_id)查询
+   *
+   * <p>示例值：7563604424982054444
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 参保类型
+   *
+   * <p>示例值：social_insurance
+   */
+  @SerializedName("insurance_type")
+  private String insuranceType;
+
+  /**
+   * 待增/减员操作类型
+   *
+   * <p>示例值：add
+   */
+  @SerializedName("operate_type")
+  private String operateType;
+
+  /**
+   * 变更事件来源
+   *
+   * <p>示例值：new_join
+   */
+  @SerializedName("source_type")
+  private String sourceType;
+
+  /**
+   * 增减员类型, increase: 增员; attrition: 减员
+   *
+   * <p>示例值：increase
+   */
+  @SerializedName("record_type")
+  private String recordType;
+
+  /**
+   * 参保档案
+   *
+   * <p>示例值：
+   */
+  @SerializedName("after_adjust_record_detail")
+  private SocialArchiveDetail afterAdjustRecordDetail;
+
+  /**
+   * 参保档案
+   *
+   * <p>示例值：
+   */
+  @SerializedName("before_adjust_record_detail")
+  private SocialArchiveDetail beforeAdjustRecordDetail;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getInsuranceType() {
+    return this.insuranceType;
+  }
+
+  public void setInsuranceType(String insuranceType) {
+    this.insuranceType = insuranceType;
+  }
+
+  public String getOperateType() {
+    return this.operateType;
+  }
+
+  public void setOperateType(String operateType) {
+    this.operateType = operateType;
+  }
+
+  public String getSourceType() {
+    return this.sourceType;
+  }
+
+  public void setSourceType(String sourceType) {
+    this.sourceType = sourceType;
+  }
+
+  public String getRecordType() {
+    return this.recordType;
+  }
+
+  public void setRecordType(String recordType) {
+    this.recordType = recordType;
+  }
+
+  public SocialArchiveDetail getAfterAdjustRecordDetail() {
+    return this.afterAdjustRecordDetail;
+  }
+
+  public void setAfterAdjustRecordDetail(SocialArchiveDetail afterAdjustRecordDetail) {
+    this.afterAdjustRecordDetail = afterAdjustRecordDetail;
+  }
+
+  public SocialArchiveDetail getBeforeAdjustRecordDetail() {
+    return this.beforeAdjustRecordDetail;
+  }
+
+  public void setBeforeAdjustRecordDetail(SocialArchiveDetail beforeAdjustRecordDetail) {
+    this.beforeAdjustRecordDetail = beforeAdjustRecordDetail;
+  }
+
+  // builder 开始
+  public SocialArchiveAdjustRecordEvent() {}
+
+  public SocialArchiveAdjustRecordEvent(Builder builder) {
     /**
-     * 记录id
-     * <p> 示例值：7563604424982054444
+     * 记录详情id，可通过接口[根据记录ID查询社保增减员记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_archive_adjust_record/query_by_record_id)查询
+     *
+     * <p>示例值：7563604424982054444
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 参保类型。social_insurance社保、provident_fund公积金
-     * <p> 示例值：
+     * 参保类型
+     *
+     * <p>示例值：social_insurance
      */
-    @SerializedName("insurance_type")
-    private String insuranceType;
+    this.insuranceType = builder.insuranceType;
     /**
-     * 待增/减员变更类型，increase新增、adjust编辑、confirm确认、submit_confirm提交并确认、delete取消
-     * <p> 示例值：add
+     * 待增/减员操作类型
+     *
+     * <p>示例值：add
      */
-    @SerializedName("operate_type")
-    private String operateType;
+    this.operateType = builder.operateType;
     /**
-     * 变更事件来源。new_join增员、intern_to_official实习生转正、employee_type_change雇员类型变更、dismission离职、job_change变更、to_attrition_import待减员导入新增
-     * <p> 示例值：new_join
+     * 变更事件来源
+     *
+     * <p>示例值：new_join
      */
-    @SerializedName("source_type")
-    private String sourceType;
+    this.sourceType = builder.sourceType;
     /**
      * 增减员类型, increase: 增员; attrition: 减员
-     * <p> 示例值：increase
+     *
+     * <p>示例值：increase
      */
-    @SerializedName("record_type")
+    this.recordType = builder.recordType;
+    /**
+     * 参保档案
+     *
+     * <p>示例值：
+     */
+    this.afterAdjustRecordDetail = builder.afterAdjustRecordDetail;
+    /**
+     * 参保档案
+     *
+     * <p>示例值：
+     */
+    this.beforeAdjustRecordDetail = builder.beforeAdjustRecordDetail;
+  }
+
+  public static class Builder {
+    /**
+     * 记录详情id，可通过接口[根据记录ID查询社保增减员记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_archive_adjust_record/query_by_record_id)查询
+     *
+     * <p>示例值：7563604424982054444
+     */
+    private String id;
+
+    /**
+     * 参保类型
+     *
+     * <p>示例值：social_insurance
+     */
+    private String insuranceType;
+
+    /**
+     * 待增/减员操作类型
+     *
+     * <p>示例值：add
+     */
+    private String operateType;
+
+    /**
+     * 变更事件来源
+     *
+     * <p>示例值：new_join
+     */
+    private String sourceType;
+
+    /**
+     * 增减员类型, increase: 增员; attrition: 减员
+     *
+     * <p>示例值：increase
+     */
     private String recordType;
+
     /**
      * 参保档案
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("after_adjust_record_detail")
     private SocialArchiveDetail afterAdjustRecordDetail;
+
     /**
      * 参保档案
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("before_adjust_record_detail")
     private SocialArchiveDetail beforeAdjustRecordDetail;
 
-    // builder 开始
-    public SocialArchiveAdjustRecordEvent() {
+    /**
+     * 记录详情id，可通过接口[根据记录ID查询社保增减员记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_archive_adjust_record/query_by_record_id)查询
+     *
+     * <p>示例值：7563604424982054444
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public SocialArchiveAdjustRecordEvent(Builder builder) {
-        /**
-         * 记录id
-         * <p> 示例值：7563604424982054444
-         */
-        this.id = builder.id;
-        /**
-         * 参保类型。social_insurance社保、provident_fund公积金
-         * <p> 示例值：
-         */
-        this.insuranceType = builder.insuranceType;
-        /**
-         * 待增/减员变更类型，increase新增、adjust编辑、confirm确认、submit_confirm提交并确认、delete取消
-         * <p> 示例值：add
-         */
-        this.operateType = builder.operateType;
-        /**
-         * 变更事件来源。new_join增员、intern_to_official实习生转正、employee_type_change雇员类型变更、dismission离职、job_change变更、to_attrition_import待减员导入新增
-         * <p> 示例值：new_join
-         */
-        this.sourceType = builder.sourceType;
-        /**
-         * 增减员类型, increase: 增员; attrition: 减员
-         * <p> 示例值：increase
-         */
-        this.recordType = builder.recordType;
-        /**
-         * 参保档案
-         * <p> 示例值：
-         */
-        this.afterAdjustRecordDetail = builder.afterAdjustRecordDetail;
-        /**
-         * 参保档案
-         * <p> 示例值：
-         */
-        this.beforeAdjustRecordDetail = builder.beforeAdjustRecordDetail;
+    /**
+     * 参保类型
+     *
+     * <p>示例值：social_insurance
+     *
+     * @param insuranceType
+     * @return
+     */
+    public Builder insuranceType(String insuranceType) {
+      this.insuranceType = insuranceType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 参保类型
+     *
+     * <p>示例值：social_insurance
+     *
+     * @param insuranceType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventInsuranceTypeEnum}
+     * @return
+     */
+    public Builder insuranceType(
+        com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventInsuranceTypeEnum
+            insuranceType) {
+      this.insuranceType = insuranceType.getValue();
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 待增/减员操作类型
+     *
+     * <p>示例值：add
+     *
+     * @param operateType
+     * @return
+     */
+    public Builder operateType(String operateType) {
+      this.operateType = operateType;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 待增/减员操作类型
+     *
+     * <p>示例值：add
+     *
+     * @param operateType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventOperateTypeEnum}
+     * @return
+     */
+    public Builder operateType(
+        com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventOperateTypeEnum
+            operateType) {
+      this.operateType = operateType.getValue();
+      return this;
     }
 
-    public String getInsuranceType() {
-        return this.insuranceType;
+    /**
+     * 变更事件来源
+     *
+     * <p>示例值：new_join
+     *
+     * @param sourceType
+     * @return
+     */
+    public Builder sourceType(String sourceType) {
+      this.sourceType = sourceType;
+      return this;
     }
 
-    public void setInsuranceType(String insuranceType) {
-        this.insuranceType = insuranceType;
+    /**
+     * 变更事件来源
+     *
+     * <p>示例值：new_join
+     *
+     * @param sourceType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventSourceTypeEnum}
+     * @return
+     */
+    public Builder sourceType(
+        com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventSourceTypeEnum
+            sourceType) {
+      this.sourceType = sourceType.getValue();
+      return this;
     }
 
-    public String getOperateType() {
-        return this.operateType;
+    /**
+     * 增减员类型, increase: 增员; attrition: 减员
+     *
+     * <p>示例值：increase
+     *
+     * @param recordType
+     * @return
+     */
+    public Builder recordType(String recordType) {
+      this.recordType = recordType;
+      return this;
     }
 
-    public void setOperateType(String operateType) {
-        this.operateType = operateType;
+    /**
+     * 增减员类型, increase: 增员; attrition: 减员
+     *
+     * <p>示例值：increase
+     *
+     * @param recordType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventRecordTypeEnum}
+     * @return
+     */
+    public Builder recordType(
+        com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventRecordTypeEnum
+            recordType) {
+      this.recordType = recordType.getValue();
+      return this;
     }
 
-    public String getSourceType() {
-        return this.sourceType;
+    /**
+     * 参保档案
+     *
+     * <p>示例值：
+     *
+     * @param afterAdjustRecordDetail
+     * @return
+     */
+    public Builder afterAdjustRecordDetail(SocialArchiveDetail afterAdjustRecordDetail) {
+      this.afterAdjustRecordDetail = afterAdjustRecordDetail;
+      return this;
     }
 
-    public void setSourceType(String sourceType) {
-        this.sourceType = sourceType;
+    /**
+     * 参保档案
+     *
+     * <p>示例值：
+     *
+     * @param beforeAdjustRecordDetail
+     * @return
+     */
+    public Builder beforeAdjustRecordDetail(SocialArchiveDetail beforeAdjustRecordDetail) {
+      this.beforeAdjustRecordDetail = beforeAdjustRecordDetail;
+      return this;
     }
 
-    public String getRecordType() {
-        return this.recordType;
+    public SocialArchiveAdjustRecordEvent build() {
+      return new SocialArchiveAdjustRecordEvent(this);
     }
+  }
 
-    public void setRecordType(String recordType) {
-        this.recordType = recordType;
-    }
-
-    public SocialArchiveDetail getAfterAdjustRecordDetail() {
-        return this.afterAdjustRecordDetail;
-    }
-
-    public void setAfterAdjustRecordDetail(SocialArchiveDetail afterAdjustRecordDetail) {
-        this.afterAdjustRecordDetail = afterAdjustRecordDetail;
-    }
-
-    public SocialArchiveDetail getBeforeAdjustRecordDetail() {
-        return this.beforeAdjustRecordDetail;
-    }
-
-    public void setBeforeAdjustRecordDetail(SocialArchiveDetail beforeAdjustRecordDetail) {
-        this.beforeAdjustRecordDetail = beforeAdjustRecordDetail;
-    }
-
-    public static class Builder {
-        /**
-         * 记录id
-         * <p> 示例值：7563604424982054444
-         */
-        private String id;
-        /**
-         * 参保类型。social_insurance社保、provident_fund公积金
-         * <p> 示例值：
-         */
-        private String insuranceType;
-        /**
-         * 待增/减员变更类型，increase新增、adjust编辑、confirm确认、submit_confirm提交并确认、delete取消
-         * <p> 示例值：add
-         */
-        private String operateType;
-        /**
-         * 变更事件来源。new_join增员、intern_to_official实习生转正、employee_type_change雇员类型变更、dismission离职、job_change变更、to_attrition_import待减员导入新增
-         * <p> 示例值：new_join
-         */
-        private String sourceType;
-        /**
-         * 增减员类型, increase: 增员; attrition: 减员
-         * <p> 示例值：increase
-         */
-        private String recordType;
-        /**
-         * 参保档案
-         * <p> 示例值：
-         */
-        private SocialArchiveDetail afterAdjustRecordDetail;
-        /**
-         * 参保档案
-         * <p> 示例值：
-         */
-        private SocialArchiveDetail beforeAdjustRecordDetail;
-
-        /**
-         * 记录id
-         * <p> 示例值：7563604424982054444
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 参保类型。social_insurance社保、provident_fund公积金
-         * <p> 示例值：
-         *
-         * @param insuranceType
-         * @return
-         */
-        public Builder insuranceType(String insuranceType) {
-            this.insuranceType = insuranceType;
-            return this;
-        }
-
-        /**
-         * 参保类型。social_insurance社保、provident_fund公积金
-         * <p> 示例值：
-         *
-         * @param insuranceType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventInsuranceTypeEnum}
-         * @return
-         */
-        public Builder insuranceType(com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventInsuranceTypeEnum insuranceType) {
-            this.insuranceType = insuranceType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 待增/减员变更类型，increase新增、adjust编辑、confirm确认、submit_confirm提交并确认、delete取消
-         * <p> 示例值：add
-         *
-         * @param operateType
-         * @return
-         */
-        public Builder operateType(String operateType) {
-            this.operateType = operateType;
-            return this;
-        }
-
-        /**
-         * 待增/减员变更类型，increase新增、adjust编辑、confirm确认、submit_confirm提交并确认、delete取消
-         * <p> 示例值：add
-         *
-         * @param operateType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventOperateTypeEnum}
-         * @return
-         */
-        public Builder operateType(com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventOperateTypeEnum operateType) {
-            this.operateType = operateType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 变更事件来源。new_join增员、intern_to_official实习生转正、employee_type_change雇员类型变更、dismission离职、job_change变更、to_attrition_import待减员导入新增
-         * <p> 示例值：new_join
-         *
-         * @param sourceType
-         * @return
-         */
-        public Builder sourceType(String sourceType) {
-            this.sourceType = sourceType;
-            return this;
-        }
-
-        /**
-         * 变更事件来源。new_join增员、intern_to_official实习生转正、employee_type_change雇员类型变更、dismission离职、job_change变更、to_attrition_import待减员导入新增
-         * <p> 示例值：new_join
-         *
-         * @param sourceType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventSourceTypeEnum}
-         * @return
-         */
-        public Builder sourceType(com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventSourceTypeEnum sourceType) {
-            this.sourceType = sourceType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 增减员类型, increase: 增员; attrition: 减员
-         * <p> 示例值：increase
-         *
-         * @param recordType
-         * @return
-         */
-        public Builder recordType(String recordType) {
-            this.recordType = recordType;
-            return this;
-        }
-
-        /**
-         * 增减员类型, increase: 增员; attrition: 减员
-         * <p> 示例值：increase
-         *
-         * @param recordType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventRecordTypeEnum}
-         * @return
-         */
-        public Builder recordType(com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordEventRecordTypeEnum recordType) {
-            this.recordType = recordType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 参保档案
-         * <p> 示例值：
-         *
-         * @param afterAdjustRecordDetail
-         * @return
-         */
-        public Builder afterAdjustRecordDetail(SocialArchiveDetail afterAdjustRecordDetail) {
-            this.afterAdjustRecordDetail = afterAdjustRecordDetail;
-            return this;
-        }
-
-
-        /**
-         * 参保档案
-         * <p> 示例值：
-         *
-         * @param beforeAdjustRecordDetail
-         * @return
-         */
-        public Builder beforeAdjustRecordDetail(SocialArchiveDetail beforeAdjustRecordDetail) {
-            this.beforeAdjustRecordDetail = beforeAdjustRecordDetail;
-            return this;
-        }
-
-
-        public SocialArchiveAdjustRecordEvent build() {
-            return new SocialArchiveAdjustRecordEvent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

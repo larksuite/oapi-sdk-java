@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MailAddress {
+  /**
+   * 邮件地址
+   *
+   * <p>示例值：user@xxx.xx
+   */
+  @SerializedName("mail_address")
+  private String mailAddress;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：Mike
+   */
+  @SerializedName("name")
+  private String name;
+
+  public String getMailAddress() {
+    return this.mailAddress;
+  }
+
+  public void setMailAddress(String mailAddress) {
+    this.mailAddress = mailAddress;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public MailAddress() {}
+
+  public MailAddress(Builder builder) {
     /**
      * 邮件地址
-     * <p> 示例值：mike@outlook.com
+     *
+     * <p>示例值：user@xxx.xx
      */
-    @SerializedName("mail_address")
-    private String mailAddress;
+    this.mailAddress = builder.mailAddress;
     /**
      * 名称
-     * <p> 示例值：Mike
+     *
+     * <p>示例值：Mike
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 邮件地址
+     *
+     * <p>示例值：user@xxx.xx
+     */
+    private String mailAddress;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：Mike
+     */
     private String name;
 
-    // builder 开始
-    public MailAddress() {
+    /**
+     * 邮件地址
+     *
+     * <p>示例值：user@xxx.xx
+     *
+     * @param mailAddress
+     * @return
+     */
+    public Builder mailAddress(String mailAddress) {
+      this.mailAddress = mailAddress;
+      return this;
     }
 
-    public MailAddress(Builder builder) {
-        /**
-         * 邮件地址
-         * <p> 示例值：mike@outlook.com
-         */
-        this.mailAddress = builder.mailAddress;
-        /**
-         * 名称
-         * <p> 示例值：Mike
-         */
-        this.name = builder.name;
+    /**
+     * 名称
+     *
+     * <p>示例值：Mike
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MailAddress build() {
+      return new MailAddress(this);
     }
+  }
 
-    public String getMailAddress() {
-        return this.mailAddress;
-    }
-
-    public void setMailAddress(String mailAddress) {
-        this.mailAddress = mailAddress;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 邮件地址
-         * <p> 示例值：mike@outlook.com
-         */
-        private String mailAddress;
-        /**
-         * 名称
-         * <p> 示例值：Mike
-         */
-        private String name;
-
-        /**
-         * 邮件地址
-         * <p> 示例值：mike@outlook.com
-         *
-         * @param mailAddress
-         * @return
-         */
-        public Builder mailAddress(String mailAddress) {
-            this.mailAddress = mailAddress;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：Mike
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public MailAddress build() {
-            return new MailAddress(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

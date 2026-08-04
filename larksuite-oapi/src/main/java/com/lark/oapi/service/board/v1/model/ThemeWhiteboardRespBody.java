@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ThemeWhiteboardRespBody {
-    /**
-     * 主题
-     * <p> 示例值：classic
-     */
-    @SerializedName("theme")
-    private String theme;
+  /**
+   * 主题
+   *
+   * <p>示例值：classic
+   */
+  @SerializedName("theme")
+  private String theme;
 
-    public String getTheme() {
-        return this.theme;
-    }
+  public String getTheme() {
+    return this.theme;
+  }
 
-    public void setTheme(String theme) {
-        this.theme = theme;
-    }
-
+  public void setTheme(String theme) {
+    this.theme = theme;
+  }
 }

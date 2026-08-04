@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchUserResultAi {
+  /**
+   * 搜索结果
+   *
+   * <p>示例值：
+   */
+  @SerializedName("search_results")
+  private SearchUserDataAi[] searchResults;
+
+  public SearchUserDataAi[] getSearchResults() {
+    return this.searchResults;
+  }
+
+  public void setSearchResults(SearchUserDataAi[] searchResults) {
+    this.searchResults = searchResults;
+  }
+
+  // builder 开始
+  public SearchUserResultAi() {}
+
+  public SearchUserResultAi(Builder builder) {
     /**
      * 搜索结果
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("search_results")
+    this.searchResults = builder.searchResults;
+  }
+
+  public static class Builder {
+    /**
+     * 搜索结果
+     *
+     * <p>示例值：
+     */
     private SearchUserDataAi[] searchResults;
 
-    // builder 开始
-    public SearchUserResultAi() {
+    /**
+     * 搜索结果
+     *
+     * <p>示例值：
+     *
+     * @param searchResults
+     * @return
+     */
+    public Builder searchResults(SearchUserDataAi[] searchResults) {
+      this.searchResults = searchResults;
+      return this;
     }
 
-    public SearchUserResultAi(Builder builder) {
-        /**
-         * 搜索结果
-         * <p> 示例值：
-         */
-        this.searchResults = builder.searchResults;
+    public SearchUserResultAi build() {
+      return new SearchUserResultAi(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public SearchUserDataAi[] getSearchResults() {
-        return this.searchResults;
-    }
-
-    public void setSearchResults(SearchUserDataAi[] searchResults) {
-        this.searchResults = searchResults;
-    }
-
-    public static class Builder {
-        /**
-         * 搜索结果
-         * <p> 示例值：
-         */
-        private SearchUserDataAi[] searchResults;
-
-        /**
-         * 搜索结果
-         * <p> 示例值：
-         *
-         * @param searchResults
-         * @return
-         */
-        public Builder searchResults(SearchUserDataAi[] searchResults) {
-            this.searchResults = searchResults;
-            return this;
-        }
-
-
-        public SearchUserResultAi build() {
-            return new SearchUserResultAi(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

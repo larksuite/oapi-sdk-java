@@ -13,186 +13,203 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryMultiTimelineJobFamilyReqBody {
+  /**
+   * 序列ID。ID获取方式：;-
+   * 调用[【新建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【查询租户的序列信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_family_ids")
+  private String[] jobFamilyIds;
+
+  /**
+   * 查询开始时间（包含）;- start_date 不能大于 end_date;- 必填字段，无默认值
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("start_date")
+  private String startDate;
+
+  /**
+   * 查询结束时间(不包含);- 必填字段，无默认值
+   *
+   * <p>示例值：2024-12-31
+   */
+  @SerializedName("end_date")
+  private String endDate;
+
+  /**
+   * 返回数据的字段列表，可选;- job_family_name：序列名称;- code：编码;- active：是否启用;- parent_job_family：上级序列 ;-
+   * selectable：是否可被使用;- pathway：通道;- description：描述;- effective_date：当前版本生效日期 ;-
+   * expiration_date：当前版本失效日期;- 无默认值，为空时只能查询到ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private String[] fields;
+
+  public String[] getJobFamilyIds() {
+    return this.jobFamilyIds;
+  }
+
+  public void setJobFamilyIds(String[] jobFamilyIds) {
+    this.jobFamilyIds = jobFamilyIds;
+  }
+
+  public String getStartDate() {
+    return this.startDate;
+  }
+
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+  public String getEndDate() {
+    return this.endDate;
+  }
+
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
+  }
+
+  public String[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(String[] fields) {
+    this.fields = fields;
+  }
+
+  // builder 开始
+  public QueryMultiTimelineJobFamilyReqBody() {}
+
+  public QueryMultiTimelineJobFamilyReqBody(Builder builder) {
     /**
-     * 序列 ID 列表
-     * <p> 示例值：
+     * 序列ID。ID获取方式：;-
+     * 调用[【新建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【查询租户的序列信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_family_ids")
+    this.jobFamilyIds = builder.jobFamilyIds;
+    /**
+     * 查询开始时间（包含）;- start_date 不能大于 end_date;- 必填字段，无默认值
+     *
+     * <p>示例值：2024-01-01
+     */
+    this.startDate = builder.startDate;
+    /**
+     * 查询结束时间(不包含);- 必填字段，无默认值
+     *
+     * <p>示例值：2024-12-31
+     */
+    this.endDate = builder.endDate;
+    /**
+     * 返回数据的字段列表，可选;- job_family_name：序列名称;- code：编码;- active：是否启用;- parent_job_family：上级序列 ;-
+     * selectable：是否可被使用;- pathway：通道;- description：描述;- effective_date：当前版本生效日期 ;-
+     * expiration_date：当前版本失效日期;- 无默认值，为空时只能查询到ID
+     *
+     * <p>示例值：
+     */
+    this.fields = builder.fields;
+  }
+
+  public static class Builder {
+    /**
+     * 序列ID。ID获取方式：;-
+     * 调用[【新建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【查询租户的序列信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列ID
+     *
+     * <p>示例值：
+     */
     private String[] jobFamilyIds;
+
     /**
-     * 查询开始时间（包含）
-     * <p> 示例值：2024-01-01
+     * 查询开始时间（包含）;- start_date 不能大于 end_date;- 必填字段，无默认值
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("start_date")
     private String startDate;
+
     /**
-     * 查询结束时间(包含)
-     * <p> 示例值：2024-12-31
+     * 查询结束时间(不包含);- 必填字段，无默认值
+     *
+     * <p>示例值：2024-12-31
      */
-    @SerializedName("end_date")
     private String endDate;
+
     /**
-     * 返回数据的字段列表，可选["job_family_name", "code", "active", "parent_job_family_id", "description", "effective_date"]
-     * <p> 示例值：
+     * 返回数据的字段列表，可选;- job_family_name：序列名称;- code：编码;- active：是否启用;- parent_job_family：上级序列 ;-
+     * selectable：是否可被使用;- pathway：通道;- description：描述;- effective_date：当前版本生效日期 ;-
+     * expiration_date：当前版本失效日期;- 无默认值，为空时只能查询到ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
     private String[] fields;
 
-    // builder 开始
-    public QueryMultiTimelineJobFamilyReqBody() {
+    /**
+     * 序列ID。ID获取方式：;-
+     * 调用[【新建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【查询租户的序列信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列ID
+     *
+     * <p>示例值：
+     *
+     * @param jobFamilyIds
+     * @return
+     */
+    public Builder jobFamilyIds(String[] jobFamilyIds) {
+      this.jobFamilyIds = jobFamilyIds;
+      return this;
     }
 
-    public QueryMultiTimelineJobFamilyReqBody(Builder builder) {
-        /**
-         * 序列 ID 列表
-         * <p> 示例值：
-         */
-        this.jobFamilyIds = builder.jobFamilyIds;
-        /**
-         * 查询开始时间（包含）
-         * <p> 示例值：2024-01-01
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 查询结束时间(包含)
-         * <p> 示例值：2024-12-31
-         */
-        this.endDate = builder.endDate;
-        /**
-         * 返回数据的字段列表，可选["job_family_name", "code", "active", "parent_job_family_id", "description", "effective_date"]
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
+    /**
+     * 查询开始时间（包含）;- start_date 不能大于 end_date;- 必填字段，无默认值
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param startDate
+     * @return
+     */
+    public Builder startDate(String startDate) {
+      this.startDate = startDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 查询结束时间(不包含);- 必填字段，无默认值
+     *
+     * <p>示例值：2024-12-31
+     *
+     * @param endDate
+     * @return
+     */
+    public Builder endDate(String endDate) {
+      this.endDate = endDate;
+      return this;
     }
 
-    public String[] getJobFamilyIds() {
-        return this.jobFamilyIds;
+    /**
+     * 返回数据的字段列表，可选;- job_family_name：序列名称;- code：编码;- active：是否启用;- parent_job_family：上级序列 ;-
+     * selectable：是否可被使用;- pathway：通道;- description：描述;- effective_date：当前版本生效日期 ;-
+     * expiration_date：当前版本失效日期;- 无默认值，为空时只能查询到ID
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(String[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public void setJobFamilyIds(String[] jobFamilyIds) {
-        this.jobFamilyIds = jobFamilyIds;
+    public QueryMultiTimelineJobFamilyReqBody build() {
+      return new QueryMultiTimelineJobFamilyReqBody(this);
     }
+  }
 
-    public String getStartDate() {
-        return this.startDate;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getEndDate() {
-        return this.endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
-    public String[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(String[] fields) {
-        this.fields = fields;
-    }
-
-    public static class Builder {
-        /**
-         * 序列 ID 列表
-         * <p> 示例值：
-         */
-        private String[] jobFamilyIds;
-        /**
-         * 查询开始时间（包含）
-         * <p> 示例值：2024-01-01
-         */
-        private String startDate;
-        /**
-         * 查询结束时间(包含)
-         * <p> 示例值：2024-12-31
-         */
-        private String endDate;
-        /**
-         * 返回数据的字段列表，可选["job_family_name", "code", "active", "parent_job_family_id", "description", "effective_date"]
-         * <p> 示例值：
-         */
-        private String[] fields;
-
-        /**
-         * 序列 ID 列表
-         * <p> 示例值：
-         *
-         * @param jobFamilyIds
-         * @return
-         */
-        public Builder jobFamilyIds(String[] jobFamilyIds) {
-            this.jobFamilyIds = jobFamilyIds;
-            return this;
-        }
-
-
-        /**
-         * 查询开始时间（包含）
-         * <p> 示例值：2024-01-01
-         *
-         * @param startDate
-         * @return
-         */
-        public Builder startDate(String startDate) {
-            this.startDate = startDate;
-            return this;
-        }
-
-
-        /**
-         * 查询结束时间(包含)
-         * <p> 示例值：2024-12-31
-         *
-         * @param endDate
-         * @return
-         */
-        public Builder endDate(String endDate) {
-            this.endDate = endDate;
-            return this;
-        }
-
-
-        /**
-         * 返回数据的字段列表，可选["job_family_name", "code", "active", "parent_job_family_id", "description", "effective_date"]
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        public QueryMultiTimelineJobFamilyReqBody build() {
-            return new QueryMultiTimelineJobFamilyReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

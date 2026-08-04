@@ -13,64 +13,51 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProtectSearchAgencyReq {
-    @Body
+  @Body private ProtectSearchAgencyReqBody body;
+
+  public ProtectSearchAgencyReqBody getProtectSearchAgencyReqBody() {
+    return this.body;
+  }
+
+  public void setProtectSearchAgencyReqBody(ProtectSearchAgencyReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public ProtectSearchAgencyReq() {}
+
+  public ProtectSearchAgencyReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private ProtectSearchAgencyReqBody body;
 
-    // builder 开始
-    public ProtectSearchAgencyReq() {
-    }
-
-    public ProtectSearchAgencyReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ProtectSearchAgencyReqBody getProtectSearchAgencyReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setProtectSearchAgencyReqBody(ProtectSearchAgencyReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder protectSearchAgencyReqBody(ProtectSearchAgencyReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private ProtectSearchAgencyReqBody body;
-
-        public ProtectSearchAgencyReqBody getProtectSearchAgencyReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder protectSearchAgencyReqBody(ProtectSearchAgencyReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public ProtectSearchAgencyReq build() {
-            return new ProtectSearchAgencyReq(this);
-        }
+    public ProtectSearchAgencyReq build() {
+      return new ProtectSearchAgencyReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

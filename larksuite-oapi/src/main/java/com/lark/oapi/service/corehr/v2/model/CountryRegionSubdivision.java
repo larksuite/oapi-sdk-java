@@ -13,272 +13,295 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CountryRegionSubdivision {
+  /**
+   * 省份/主要行政区 ID
+   *
+   * <p>示例值：6863326571462133262
+   */
+  @SerializedName("country_region_subdivision_id")
+  private String countryRegionSubdivisionId;
+
+  /**
+   * 省份/主要行政区名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  /**
+   * 所属国家/地区 ID，详细信息可通过[查询国家 /
+   * 地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+   *
+   * <p>示例值：6862995791674344967
+   */
+  @SerializedName("country_region_id")
+  private String countryRegionId;
+
+  /**
+   * 行政区类型，枚举值可通过飞书人事[枚举常量介绍](https://open.feishu.cn/document/server-docs/corehr-v1/feishu-people-enum-constant#402ea9a0)文档中行政区类型（subdivision_type）定义部分获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subdivision_type")
+  private Enum subdivisionType;
+
+  /**
+   * 省份/主要行政区编码（ISO 3166-2）
+   *
+   * <p>示例值：PSE-GZA
+   */
+  @SerializedName("iso_code")
+  private String isoCode;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  public String getCountryRegionSubdivisionId() {
+    return this.countryRegionSubdivisionId;
+  }
+
+  public void setCountryRegionSubdivisionId(String countryRegionSubdivisionId) {
+    this.countryRegionSubdivisionId = countryRegionSubdivisionId;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  public String getCountryRegionId() {
+    return this.countryRegionId;
+  }
+
+  public void setCountryRegionId(String countryRegionId) {
+    this.countryRegionId = countryRegionId;
+  }
+
+  public Enum getSubdivisionType() {
+    return this.subdivisionType;
+  }
+
+  public void setSubdivisionType(Enum subdivisionType) {
+    this.subdivisionType = subdivisionType;
+  }
+
+  public String getIsoCode() {
+    return this.isoCode;
+  }
+
+  public void setIsoCode(String isoCode) {
+    this.isoCode = isoCode;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public CountryRegionSubdivision() {}
+
+  public CountryRegionSubdivision(Builder builder) {
     /**
      * 省份/主要行政区 ID
-     * <p> 示例值：6863326571462133262
+     *
+     * <p>示例值：6863326571462133262
      */
-    @SerializedName("country_region_subdivision_id")
-    private String countryRegionSubdivisionId;
+    this.countryRegionSubdivisionId = builder.countryRegionSubdivisionId;
     /**
      * 省份/主要行政区名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n[] name;
+    this.name = builder.name;
     /**
-     * 所属国家/地区 ID，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
-     * <p> 示例值：6862995791674344967
+     * 所属国家/地区 ID，详细信息可通过[查询国家 /
+     * 地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+     *
+     * <p>示例值：6862995791674344967
      */
-    @SerializedName("country_region_id")
-    private String countryRegionId;
+    this.countryRegionId = builder.countryRegionId;
     /**
      * 行政区类型，枚举值可通过飞书人事[枚举常量介绍](https://open.feishu.cn/document/server-docs/corehr-v1/feishu-people-enum-constant#402ea9a0)文档中行政区类型（subdivision_type）定义部分获得
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("subdivision_type")
-    private Enum subdivisionType;
+    this.subdivisionType = builder.subdivisionType;
     /**
      * 省份/主要行政区编码（ISO 3166-2）
-     * <p> 示例值：PSE-GZA
+     *
+     * <p>示例值：PSE-GZA
      */
-    @SerializedName("iso_code")
-    private String isoCode;
+    this.isoCode = builder.isoCode;
     /**
      * 状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 省份/主要行政区 ID
+     *
+     * <p>示例值：6863326571462133262
+     */
+    private String countryRegionSubdivisionId;
+
+    /**
+     * 省份/主要行政区名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] name;
+
+    /**
+     * 所属国家/地区 ID，详细信息可通过[查询国家 /
+     * 地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+     *
+     * <p>示例值：6862995791674344967
+     */
+    private String countryRegionId;
+
+    /**
+     * 行政区类型，枚举值可通过飞书人事[枚举常量介绍](https://open.feishu.cn/document/server-docs/corehr-v1/feishu-people-enum-constant#402ea9a0)文档中行政区类型（subdivision_type）定义部分获得
+     *
+     * <p>示例值：
+     */
+    private Enum subdivisionType;
+
+    /**
+     * 省份/主要行政区编码（ISO 3166-2）
+     *
+     * <p>示例值：PSE-GZA
+     */
+    private String isoCode;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     */
     private Integer status;
 
-    // builder 开始
-    public CountryRegionSubdivision() {
+    /**
+     * 省份/主要行政区 ID
+     *
+     * <p>示例值：6863326571462133262
+     *
+     * @param countryRegionSubdivisionId
+     * @return
+     */
+    public Builder countryRegionSubdivisionId(String countryRegionSubdivisionId) {
+      this.countryRegionSubdivisionId = countryRegionSubdivisionId;
+      return this;
     }
 
-    public CountryRegionSubdivision(Builder builder) {
-        /**
-         * 省份/主要行政区 ID
-         * <p> 示例值：6863326571462133262
-         */
-        this.countryRegionSubdivisionId = builder.countryRegionSubdivisionId;
-        /**
-         * 省份/主要行政区名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 所属国家/地区 ID，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
-         * <p> 示例值：6862995791674344967
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 行政区类型，枚举值可通过飞书人事[枚举常量介绍](https://open.feishu.cn/document/server-docs/corehr-v1/feishu-people-enum-constant#402ea9a0)文档中行政区类型（subdivision_type）定义部分获得
-         * <p> 示例值：
-         */
-        this.subdivisionType = builder.subdivisionType;
-        /**
-         * 省份/主要行政区编码（ISO 3166-2）
-         * <p> 示例值：PSE-GZA
-         */
-        this.isoCode = builder.isoCode;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
+    /**
+     * 省份/主要行政区名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 所属国家/地区 ID，详细信息可通过[查询国家 /
+     * 地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+     *
+     * <p>示例值：6862995791674344967
+     *
+     * @param countryRegionId
+     * @return
+     */
+    public Builder countryRegionId(String countryRegionId) {
+      this.countryRegionId = countryRegionId;
+      return this;
     }
 
-    public String getCountryRegionSubdivisionId() {
-        return this.countryRegionSubdivisionId;
+    /**
+     * 行政区类型，枚举值可通过飞书人事[枚举常量介绍](https://open.feishu.cn/document/server-docs/corehr-v1/feishu-people-enum-constant#402ea9a0)文档中行政区类型（subdivision_type）定义部分获得
+     *
+     * <p>示例值：
+     *
+     * @param subdivisionType
+     * @return
+     */
+    public Builder subdivisionType(Enum subdivisionType) {
+      this.subdivisionType = subdivisionType;
+      return this;
     }
 
-    public void setCountryRegionSubdivisionId(String countryRegionSubdivisionId) {
-        this.countryRegionSubdivisionId = countryRegionSubdivisionId;
+    /**
+     * 省份/主要行政区编码（ISO 3166-2）
+     *
+     * <p>示例值：PSE-GZA
+     *
+     * @param isoCode
+     * @return
+     */
+    public Builder isoCode(String isoCode) {
+      this.isoCode = isoCode;
+      return this;
     }
 
-    public I18n[] getName() {
-        return this.name;
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public void setName(I18n[] name) {
-        this.name = name;
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     *
+     * @param status {@link
+     *     com.lark.oapi.service.corehr.v2.enums.CountryRegionSubdivisionBasicDataObjStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.corehr.v2.enums.CountryRegionSubdivisionBasicDataObjStatusEnum
+            status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public String getCountryRegionId() {
-        return this.countryRegionId;
+    public CountryRegionSubdivision build() {
+      return new CountryRegionSubdivision(this);
     }
+  }
 
-    public void setCountryRegionId(String countryRegionId) {
-        this.countryRegionId = countryRegionId;
-    }
-
-    public Enum getSubdivisionType() {
-        return this.subdivisionType;
-    }
-
-    public void setSubdivisionType(Enum subdivisionType) {
-        this.subdivisionType = subdivisionType;
-    }
-
-    public String getIsoCode() {
-        return this.isoCode;
-    }
-
-    public void setIsoCode(String isoCode) {
-        this.isoCode = isoCode;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 省份/主要行政区 ID
-         * <p> 示例值：6863326571462133262
-         */
-        private String countryRegionSubdivisionId;
-        /**
-         * 省份/主要行政区名称
-         * <p> 示例值：
-         */
-        private I18n[] name;
-        /**
-         * 所属国家/地区 ID，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
-         * <p> 示例值：6862995791674344967
-         */
-        private String countryRegionId;
-        /**
-         * 行政区类型，枚举值可通过飞书人事[枚举常量介绍](https://open.feishu.cn/document/server-docs/corehr-v1/feishu-people-enum-constant#402ea9a0)文档中行政区类型（subdivision_type）定义部分获得
-         * <p> 示例值：
-         */
-        private Enum subdivisionType;
-        /**
-         * 省份/主要行政区编码（ISO 3166-2）
-         * <p> 示例值：PSE-GZA
-         */
-        private String isoCode;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        private Integer status;
-
-        /**
-         * 省份/主要行政区 ID
-         * <p> 示例值：6863326571462133262
-         *
-         * @param countryRegionSubdivisionId
-         * @return
-         */
-        public Builder countryRegionSubdivisionId(String countryRegionSubdivisionId) {
-            this.countryRegionSubdivisionId = countryRegionSubdivisionId;
-            return this;
-        }
-
-
-        /**
-         * 省份/主要行政区名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 所属国家/地区 ID，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
-         * <p> 示例值：6862995791674344967
-         *
-         * @param countryRegionId
-         * @return
-         */
-        public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
-        }
-
-
-        /**
-         * 行政区类型，枚举值可通过飞书人事[枚举常量介绍](https://open.feishu.cn/document/server-docs/corehr-v1/feishu-people-enum-constant#402ea9a0)文档中行政区类型（subdivision_type）定义部分获得
-         * <p> 示例值：
-         *
-         * @param subdivisionType
-         * @return
-         */
-        public Builder subdivisionType(Enum subdivisionType) {
-            this.subdivisionType = subdivisionType;
-            return this;
-        }
-
-
-        /**
-         * 省份/主要行政区编码（ISO 3166-2）
-         * <p> 示例值：PSE-GZA
-         *
-         * @param isoCode
-         * @return
-         */
-        public Builder isoCode(String isoCode) {
-            this.isoCode = isoCode;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 状态
-         * <p> 示例值：1
-         *
-         * @param status {@link com.lark.oapi.service.corehr.v2.enums.CountryRegionSubdivisionBasicDataObjStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.corehr.v2.enums.CountryRegionSubdivisionBasicDataObjStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        public CountryRegionSubdivision build() {
-            return new CountryRegionSubdivision(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

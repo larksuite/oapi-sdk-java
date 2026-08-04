@@ -13,149 +13,135 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessRevokeAndWithdraw {
+  /**
+   * 按照指定的用户ID类型传递对应的用户ID。
+   *
+   * <p>示例值：ou_91791271921729102012
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /** 示例值： */
+  @SerializedName("reason")
+  private String reason;
+
+  /**
+   * 是否以系统身份操作，如果为false，则user_id必填
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("system_user")
+  private Boolean systemUser;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  public Boolean getSystemUser() {
+    return this.systemUser;
+  }
+
+  public void setSystemUser(Boolean systemUser) {
+    this.systemUser = systemUser;
+  }
+
+  // builder 开始
+  public ProcessRevokeAndWithdraw() {}
+
+  public ProcessRevokeAndWithdraw(Builder builder) {
     /**
      * 按照指定的用户ID类型传递对应的用户ID。
-     * <p> 示例值：ou_91791271921729102012
+     *
+     * <p>示例值：ou_91791271921729102012
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+    /** 示例值： */
+    this.reason = builder.reason;
+    /**
+     * 是否以系统身份操作，如果为false，则user_id必填
+     *
+     * <p>示例值：true
+     */
+    this.systemUser = builder.systemUser;
+  }
+
+  public static class Builder {
+    /**
+     * 按照指定的用户ID类型传递对应的用户ID。
+     *
+     * <p>示例值：ou_91791271921729102012
+     */
     private String userId;
-    /**
-     * 原因
-     * <p> 示例值：原因自定义字符串
-     */
-    @SerializedName("reason")
+
+    /** 示例值： */
     private String reason;
+
     /**
-     * true-系统身份操作
-     * <p> 示例值：true
+     * 是否以系统身份操作，如果为false，则user_id必填
+     *
+     * <p>示例值：true
      */
-    @SerializedName("system_user")
     private Boolean systemUser;
 
-    // builder 开始
-    public ProcessRevokeAndWithdraw() {
+    /**
+     * 按照指定的用户ID类型传递对应的用户ID。
+     *
+     * <p>示例值：ou_91791271921729102012
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public ProcessRevokeAndWithdraw(Builder builder) {
-        /**
-         * 按照指定的用户ID类型传递对应的用户ID。
-         * <p> 示例值：ou_91791271921729102012
-         */
-        this.userId = builder.userId;
-        /**
-         * 原因
-         * <p> 示例值：原因自定义字符串
-         */
-        this.reason = builder.reason;
-        /**
-         * true-系统身份操作
-         * <p> 示例值：true
-         */
-        this.systemUser = builder.systemUser;
+    /**
+     * 示例值：
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否以系统身份操作，如果为false，则user_id必填
+     *
+     * <p>示例值：true
+     *
+     * @param systemUser
+     * @return
+     */
+    public Builder systemUser(Boolean systemUser) {
+      this.systemUser = systemUser;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    public ProcessRevokeAndWithdraw build() {
+      return new ProcessRevokeAndWithdraw(this);
     }
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public Boolean getSystemUser() {
-        return this.systemUser;
-    }
-
-    public void setSystemUser(Boolean systemUser) {
-        this.systemUser = systemUser;
-    }
-
-    public static class Builder {
-        /**
-         * 按照指定的用户ID类型传递对应的用户ID。
-         * <p> 示例值：ou_91791271921729102012
-         */
-        private String userId;
-        /**
-         * 原因
-         * <p> 示例值：原因自定义字符串
-         */
-        private String reason;
-        /**
-         * true-系统身份操作
-         * <p> 示例值：true
-         */
-        private Boolean systemUser;
-
-        /**
-         * 按照指定的用户ID类型传递对应的用户ID。
-         * <p> 示例值：ou_91791271921729102012
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 原因
-         * <p> 示例值：原因自定义字符串
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * true-系统身份操作
-         * <p> 示例值：true
-         *
-         * @param systemUser
-         * @return
-         */
-        public Builder systemUser(Boolean systemUser) {
-            this.systemUser = systemUser;
-            return this;
-        }
-
-
-        public ProcessRevokeAndWithdraw build() {
-            return new ProcessRevokeAndWithdraw(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

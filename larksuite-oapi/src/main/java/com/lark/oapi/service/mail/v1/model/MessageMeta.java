@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageMeta {
+  /**
+   * 邮件的唯一标识符
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 邮件所属会话的唯一标识符
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("thread_id")
+  private String threadId;
+
+  /**
+   * 邮件所属文件夹的ID
+   *
+   * <p>示例值：INBOX
+   */
+  @SerializedName("folder_id")
+  private String folderId;
+
+  /**
+   * SMTP协议中使用的邮件ID（符合RFC 2822标准）
+   *
+   * <p>示例值：123456@example.com
+   */
+  @SerializedName("smtp_message_id")
+  private String smtpMessageId;
+
+  /**
+   * 创建/收/发信时间（毫秒）
+   *
+   * <p>示例值：1651234567890
+   */
+  @SerializedName("internal_date")
+  private String internalDate;
+
+  /**
+   * 邮件状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("message_state")
+  private Integer messageState;
+
+  /**
+   * 使用format参数后返回的邮件内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message")
+  private Message message;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public String getThreadId() {
+    return this.threadId;
+  }
+
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
+
+  public String getFolderId() {
+    return this.folderId;
+  }
+
+  public void setFolderId(String folderId) {
+    this.folderId = folderId;
+  }
+
+  public String getSmtpMessageId() {
+    return this.smtpMessageId;
+  }
+
+  public void setSmtpMessageId(String smtpMessageId) {
+    this.smtpMessageId = smtpMessageId;
+  }
+
+  public String getInternalDate() {
+    return this.internalDate;
+  }
+
+  public void setInternalDate(String internalDate) {
+    this.internalDate = internalDate;
+  }
+
+  public Integer getMessageState() {
+    return this.messageState;
+  }
+
+  public void setMessageState(Integer messageState) {
+    this.messageState = messageState;
+  }
+
+  public Message getMessage() {
+    return this.message;
+  }
+
+  public void setMessage(Message message) {
+    this.message = message;
+  }
+
+  // builder 开始
+  public MessageMeta() {}
+
+  public MessageMeta(Builder builder) {
     /**
      * 邮件的唯一标识符
-     * <p> 示例值：msg_123456
+     *
+     * <p>示例值：xxx
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * 邮件所属会话的唯一标识符
-     * <p> 示例值：thread_789
+     *
+     * <p>示例值：xxx
      */
-    @SerializedName("thread_id")
-    private String threadId;
+    this.threadId = builder.threadId;
     /**
      * 邮件所属文件夹的ID
-     * <p> 示例值：INBOX
+     *
+     * <p>示例值：INBOX
      */
-    @SerializedName("folder_id")
-    private String folderId;
+    this.folderId = builder.folderId;
     /**
      * SMTP协议中使用的邮件ID（符合RFC 2822标准）
-     * <p> 示例值：123456@example.com
+     *
+     * <p>示例值：123456@example.com
      */
-    @SerializedName("smtp_message_id")
-    private String smtpMessageId;
+    this.smtpMessageId = builder.smtpMessageId;
     /**
      * 创建/收/发信时间（毫秒）
-     * <p> 示例值：1651234567890
+     *
+     * <p>示例值：1651234567890
      */
-    @SerializedName("internal_date")
-    private String internalDate;
+    this.internalDate = builder.internalDate;
     /**
      * 邮件状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("message_state")
-    private Integer messageState;
+    this.messageState = builder.messageState;
     /**
      * 使用format参数后返回的邮件内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("message")
+    this.message = builder.message;
+  }
+
+  public static class Builder {
+    /**
+     * 邮件的唯一标识符
+     *
+     * <p>示例值：xxx
+     */
+    private String messageId;
+
+    /**
+     * 邮件所属会话的唯一标识符
+     *
+     * <p>示例值：xxx
+     */
+    private String threadId;
+
+    /**
+     * 邮件所属文件夹的ID
+     *
+     * <p>示例值：INBOX
+     */
+    private String folderId;
+
+    /**
+     * SMTP协议中使用的邮件ID（符合RFC 2822标准）
+     *
+     * <p>示例值：123456@example.com
+     */
+    private String smtpMessageId;
+
+    /**
+     * 创建/收/发信时间（毫秒）
+     *
+     * <p>示例值：1651234567890
+     */
+    private String internalDate;
+
+    /**
+     * 邮件状态
+     *
+     * <p>示例值：1
+     */
+    private Integer messageState;
+
+    /**
+     * 使用format参数后返回的邮件内容
+     *
+     * <p>示例值：
+     */
     private Message message;
 
-    // builder 开始
-    public MessageMeta() {
+    /**
+     * 邮件的唯一标识符
+     *
+     * <p>示例值：xxx
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public MessageMeta(Builder builder) {
-        /**
-         * 邮件的唯一标识符
-         * <p> 示例值：msg_123456
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 邮件所属会话的唯一标识符
-         * <p> 示例值：thread_789
-         */
-        this.threadId = builder.threadId;
-        /**
-         * 邮件所属文件夹的ID
-         * <p> 示例值：INBOX
-         */
-        this.folderId = builder.folderId;
-        /**
-         * SMTP协议中使用的邮件ID（符合RFC 2822标准）
-         * <p> 示例值：123456@example.com
-         */
-        this.smtpMessageId = builder.smtpMessageId;
-        /**
-         * 创建/收/发信时间（毫秒）
-         * <p> 示例值：1651234567890
-         */
-        this.internalDate = builder.internalDate;
-        /**
-         * 邮件状态
-         * <p> 示例值：1
-         */
-        this.messageState = builder.messageState;
-        /**
-         * 使用format参数后返回的邮件内容
-         * <p> 示例值：
-         */
-        this.message = builder.message;
+    /**
+     * 邮件所属会话的唯一标识符
+     *
+     * <p>示例值：xxx
+     *
+     * @param threadId
+     * @return
+     */
+    public Builder threadId(String threadId) {
+      this.threadId = threadId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 邮件所属文件夹的ID
+     *
+     * <p>示例值：INBOX
+     *
+     * @param folderId
+     * @return
+     */
+    public Builder folderId(String folderId) {
+      this.folderId = folderId;
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    /**
+     * SMTP协议中使用的邮件ID（符合RFC 2822标准）
+     *
+     * <p>示例值：123456@example.com
+     *
+     * @param smtpMessageId
+     * @return
+     */
+    public Builder smtpMessageId(String smtpMessageId) {
+      this.smtpMessageId = smtpMessageId;
+      return this;
     }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
+    /**
+     * 创建/收/发信时间（毫秒）
+     *
+     * <p>示例值：1651234567890
+     *
+     * @param internalDate
+     * @return
+     */
+    public Builder internalDate(String internalDate) {
+      this.internalDate = internalDate;
+      return this;
     }
 
-    public String getThreadId() {
-        return this.threadId;
+    /**
+     * 邮件状态
+     *
+     * <p>示例值：1
+     *
+     * @param messageState
+     * @return
+     */
+    public Builder messageState(Integer messageState) {
+      this.messageState = messageState;
+      return this;
     }
 
-    public void setThreadId(String threadId) {
-        this.threadId = threadId;
+    /**
+     * 使用format参数后返回的邮件内容
+     *
+     * <p>示例值：
+     *
+     * @param message
+     * @return
+     */
+    public Builder message(Message message) {
+      this.message = message;
+      return this;
     }
 
-    public String getFolderId() {
-        return this.folderId;
+    public MessageMeta build() {
+      return new MessageMeta(this);
     }
+  }
 
-    public void setFolderId(String folderId) {
-        this.folderId = folderId;
-    }
-
-    public String getSmtpMessageId() {
-        return this.smtpMessageId;
-    }
-
-    public void setSmtpMessageId(String smtpMessageId) {
-        this.smtpMessageId = smtpMessageId;
-    }
-
-    public String getInternalDate() {
-        return this.internalDate;
-    }
-
-    public void setInternalDate(String internalDate) {
-        this.internalDate = internalDate;
-    }
-
-    public Integer getMessageState() {
-        return this.messageState;
-    }
-
-    public void setMessageState(Integer messageState) {
-        this.messageState = messageState;
-    }
-
-    public Message getMessage() {
-        return this.message;
-    }
-
-    public void setMessage(Message message) {
-        this.message = message;
-    }
-
-    public static class Builder {
-        /**
-         * 邮件的唯一标识符
-         * <p> 示例值：msg_123456
-         */
-        private String messageId;
-        /**
-         * 邮件所属会话的唯一标识符
-         * <p> 示例值：thread_789
-         */
-        private String threadId;
-        /**
-         * 邮件所属文件夹的ID
-         * <p> 示例值：INBOX
-         */
-        private String folderId;
-        /**
-         * SMTP协议中使用的邮件ID（符合RFC 2822标准）
-         * <p> 示例值：123456@example.com
-         */
-        private String smtpMessageId;
-        /**
-         * 创建/收/发信时间（毫秒）
-         * <p> 示例值：1651234567890
-         */
-        private String internalDate;
-        /**
-         * 邮件状态
-         * <p> 示例值：1
-         */
-        private Integer messageState;
-        /**
-         * 使用format参数后返回的邮件内容
-         * <p> 示例值：
-         */
-        private Message message;
-
-        /**
-         * 邮件的唯一标识符
-         * <p> 示例值：msg_123456
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 邮件所属会话的唯一标识符
-         * <p> 示例值：thread_789
-         *
-         * @param threadId
-         * @return
-         */
-        public Builder threadId(String threadId) {
-            this.threadId = threadId;
-            return this;
-        }
-
-
-        /**
-         * 邮件所属文件夹的ID
-         * <p> 示例值：INBOX
-         *
-         * @param folderId
-         * @return
-         */
-        public Builder folderId(String folderId) {
-            this.folderId = folderId;
-            return this;
-        }
-
-
-        /**
-         * SMTP协议中使用的邮件ID（符合RFC 2822标准）
-         * <p> 示例值：123456@example.com
-         *
-         * @param smtpMessageId
-         * @return
-         */
-        public Builder smtpMessageId(String smtpMessageId) {
-            this.smtpMessageId = smtpMessageId;
-            return this;
-        }
-
-
-        /**
-         * 创建/收/发信时间（毫秒）
-         * <p> 示例值：1651234567890
-         *
-         * @param internalDate
-         * @return
-         */
-        public Builder internalDate(String internalDate) {
-            this.internalDate = internalDate;
-            return this;
-        }
-
-
-        /**
-         * 邮件状态
-         * <p> 示例值：1
-         *
-         * @param messageState
-         * @return
-         */
-        public Builder messageState(Integer messageState) {
-            this.messageState = messageState;
-            return this;
-        }
-
-
-        /**
-         * 使用format参数后返回的邮件内容
-         * <p> 示例值：
-         *
-         * @param message
-         * @return
-         */
-        public Builder message(Message message) {
-            this.message = message;
-            return this;
-        }
-
-
-        public MessageMeta build() {
-            return new MessageMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

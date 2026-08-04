@@ -13,75 +13,207 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Bot {
+  /**
+   * 消息卡片回调地址
+   *
+   * <p>示例值：https://www.example.com
+   */
+  @SerializedName("card_request_url")
+  private String cardRequestUrl;
+
+  /**
+   * 是否启用机器人菜单
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("bot_menu_enable")
+  private Boolean botMenuEnable;
+
+  /**
+   * 机器人菜单列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bot_menus")
+  private BotMenuNode[] botMenus;
+
+  /**
+   * 机器人菜单展示策略
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("bot_menu_display_strategy")
+  private Integer botMenuDisplayStrategy;
+
+  public String getCardRequestUrl() {
+    return this.cardRequestUrl;
+  }
+
+  public void setCardRequestUrl(String cardRequestUrl) {
+    this.cardRequestUrl = cardRequestUrl;
+  }
+
+  public Boolean getBotMenuEnable() {
+    return this.botMenuEnable;
+  }
+
+  public void setBotMenuEnable(Boolean botMenuEnable) {
+    this.botMenuEnable = botMenuEnable;
+  }
+
+  public BotMenuNode[] getBotMenus() {
+    return this.botMenus;
+  }
+
+  public void setBotMenus(BotMenuNode[] botMenus) {
+    this.botMenus = botMenus;
+  }
+
+  public Integer getBotMenuDisplayStrategy() {
+    return this.botMenuDisplayStrategy;
+  }
+
+  public void setBotMenuDisplayStrategy(Integer botMenuDisplayStrategy) {
+    this.botMenuDisplayStrategy = botMenuDisplayStrategy;
+  }
+
+  // builder 开始
+  public Bot() {}
+
+  public Bot(Builder builder) {
     /**
      * 消息卡片回调地址
-     * <p> 示例值：https://www.example.com
+     *
+     * <p>示例值：https://www.example.com
      */
-    @SerializedName("card_request_url")
+    this.cardRequestUrl = builder.cardRequestUrl;
+    /**
+     * 是否启用机器人菜单
+     *
+     * <p>示例值：true
+     */
+    this.botMenuEnable = builder.botMenuEnable;
+    /**
+     * 机器人菜单列表
+     *
+     * <p>示例值：
+     */
+    this.botMenus = builder.botMenus;
+    /**
+     * 机器人菜单展示策略
+     *
+     * <p>示例值：1
+     */
+    this.botMenuDisplayStrategy = builder.botMenuDisplayStrategy;
+  }
+
+  public static class Builder {
+    /**
+     * 消息卡片回调地址
+     *
+     * <p>示例值：https://www.example.com
+     */
     private String cardRequestUrl;
 
-    // builder 开始
-    public Bot() {
+    /**
+     * 是否启用机器人菜单
+     *
+     * <p>示例值：true
+     */
+    private Boolean botMenuEnable;
+
+    /**
+     * 机器人菜单列表
+     *
+     * <p>示例值：
+     */
+    private BotMenuNode[] botMenus;
+
+    /**
+     * 机器人菜单展示策略
+     *
+     * <p>示例值：1
+     */
+    private Integer botMenuDisplayStrategy;
+
+    /**
+     * 消息卡片回调地址
+     *
+     * <p>示例值：https://www.example.com
+     *
+     * @param cardRequestUrl
+     * @return
+     */
+    public Builder cardRequestUrl(String cardRequestUrl) {
+      this.cardRequestUrl = cardRequestUrl;
+      return this;
     }
 
-    public Bot(Builder builder) {
-        /**
-         * 消息卡片回调地址
-         * <p> 示例值：https://www.example.com
-         */
-        this.cardRequestUrl = builder.cardRequestUrl;
+    /**
+     * 是否启用机器人菜单
+     *
+     * <p>示例值：true
+     *
+     * @param botMenuEnable
+     * @return
+     */
+    public Builder botMenuEnable(Boolean botMenuEnable) {
+      this.botMenuEnable = botMenuEnable;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 机器人菜单列表
+     *
+     * <p>示例值：
+     *
+     * @param botMenus
+     * @return
+     */
+    public Builder botMenus(BotMenuNode[] botMenus) {
+      this.botMenus = botMenus;
+      return this;
     }
 
-    public String getCardRequestUrl() {
-        return this.cardRequestUrl;
+    /**
+     * 机器人菜单展示策略
+     *
+     * <p>示例值：1
+     *
+     * @param botMenuDisplayStrategy
+     * @return
+     */
+    public Builder botMenuDisplayStrategy(Integer botMenuDisplayStrategy) {
+      this.botMenuDisplayStrategy = botMenuDisplayStrategy;
+      return this;
     }
 
-    public void setCardRequestUrl(String cardRequestUrl) {
-        this.cardRequestUrl = cardRequestUrl;
+    /**
+     * 机器人菜单展示策略
+     *
+     * <p>示例值：1
+     *
+     * @param botMenuDisplayStrategy {@link
+     *     com.lark.oapi.service.application.v6.enums.BotBotMenuDisplayStrategyEnum}
+     * @return
+     */
+    public Builder botMenuDisplayStrategy(
+        com.lark.oapi.service.application.v6.enums.BotBotMenuDisplayStrategyEnum
+            botMenuDisplayStrategy) {
+      this.botMenuDisplayStrategy = botMenuDisplayStrategy.getValue();
+      return this;
     }
 
-    public static class Builder {
-        /**
-         * 消息卡片回调地址
-         * <p> 示例值：https://www.example.com
-         */
-        private String cardRequestUrl;
-
-        /**
-         * 消息卡片回调地址
-         * <p> 示例值：https://www.example.com
-         *
-         * @param cardRequestUrl
-         * @return
-         */
-        public Builder cardRequestUrl(String cardRequestUrl) {
-            this.cardRequestUrl = cardRequestUrl;
-            return this;
-        }
-
-
-        public Bot build() {
-            return new Bot(this);
-        }
+    public Bot build() {
+      return new Bot(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

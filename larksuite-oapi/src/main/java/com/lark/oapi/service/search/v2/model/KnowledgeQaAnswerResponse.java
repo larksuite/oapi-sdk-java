@@ -13,223 +13,237 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeQaAnswerResponse {
+  /**
+   * 答案;- 答案采用 markdown 语法；;- 答案中的引用注记格式为：`[[referenceIndex]](URL)`;-
+   * 答案中的图片格式为：`<qa_image>image_token</qa_image>`
+   *
+   * <p>示例值：**步骤指引**[[1]](https://xxxx)\n1. 点击“[设备申请](https://xxxx)” > 领用设备 > 个人办公使用……
+   */
+  @SerializedName("answer")
+  private String answer;
+
+  /**
+   * 思考过程
+   *
+   * <p>示例值：好的，我将回答“如何申请显示器”。\n首先……
+   */
+  @SerializedName("reasoning_content")
+  private String reasoningContent;
+
+  /**
+   * 业务状态码
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("status_code")
+  private Integer statusCode;
+
+  /**
+   * 业务状态消息
+   *
+   * <p>示例值：“”
+   */
+  @SerializedName("status_message")
+  private String statusMessage;
+
+  /**
+   * 参考列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("references")
+  private KnowledgeQaReference references;
+
+  public String getAnswer() {
+    return this.answer;
+  }
+
+  public void setAnswer(String answer) {
+    this.answer = answer;
+  }
+
+  public String getReasoningContent() {
+    return this.reasoningContent;
+  }
+
+  public void setReasoningContent(String reasoningContent) {
+    this.reasoningContent = reasoningContent;
+  }
+
+  public Integer getStatusCode() {
+    return this.statusCode;
+  }
+
+  public void setStatusCode(Integer statusCode) {
+    this.statusCode = statusCode;
+  }
+
+  public String getStatusMessage() {
+    return this.statusMessage;
+  }
+
+  public void setStatusMessage(String statusMessage) {
+    this.statusMessage = statusMessage;
+  }
+
+  public KnowledgeQaReference getReferences() {
+    return this.references;
+  }
+
+  public void setReferences(KnowledgeQaReference references) {
+    this.references = references;
+  }
+
+  // builder 开始
+  public KnowledgeQaAnswerResponse() {}
+
+  public KnowledgeQaAnswerResponse(Builder builder) {
     /**
-     * answer
-     * <p> 示例值：xxxxx
+     * 答案;- 答案采用 markdown 语法；;- 答案中的引用注记格式为：`[[referenceIndex]](URL)`;-
+     * 答案中的图片格式为：`<qa_image>image_token</qa_image>`
+     *
+     * <p>示例值：**步骤指引**[[1]](https://xxxx)\n1. 点击“[设备申请](https://xxxx)” > 领用设备 > 个人办公使用……
      */
-    @SerializedName("answer")
-    private String answer;
+    this.answer = builder.answer;
     /**
-     * reasoning_content
-     * <p> 示例值：xxxxxx
+     * 思考过程
+     *
+     * <p>示例值：好的，我将回答“如何申请显示器”。\n首先……
      */
-    @SerializedName("reasoning_content")
-    private String reasoningContent;
+    this.reasoningContent = builder.reasoningContent;
     /**
      * 业务状态码
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("status_code")
-    private Integer statusCode;
+    this.statusCode = builder.statusCode;
     /**
      * 业务状态消息
-     * <p> 示例值：“”
+     *
+     * <p>示例值：“”
      */
-    @SerializedName("status_message")
-    private String statusMessage;
+    this.statusMessage = builder.statusMessage;
     /**
      * 参考列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("references")
+    this.references = builder.references;
+  }
+
+  public static class Builder {
+    /**
+     * 答案;- 答案采用 markdown 语法；;- 答案中的引用注记格式为：`[[referenceIndex]](URL)`;-
+     * 答案中的图片格式为：`<qa_image>image_token</qa_image>`
+     *
+     * <p>示例值：**步骤指引**[[1]](https://xxxx)\n1. 点击“[设备申请](https://xxxx)” > 领用设备 > 个人办公使用……
+     */
+    private String answer;
+
+    /**
+     * 思考过程
+     *
+     * <p>示例值：好的，我将回答“如何申请显示器”。\n首先……
+     */
+    private String reasoningContent;
+
+    /**
+     * 业务状态码
+     *
+     * <p>示例值：0
+     */
+    private Integer statusCode;
+
+    /**
+     * 业务状态消息
+     *
+     * <p>示例值：“”
+     */
+    private String statusMessage;
+
+    /**
+     * 参考列表
+     *
+     * <p>示例值：
+     */
     private KnowledgeQaReference references;
 
-    // builder 开始
-    public KnowledgeQaAnswerResponse() {
+    /**
+     * 答案;- 答案采用 markdown 语法；;- 答案中的引用注记格式为：`[[referenceIndex]](URL)`;-
+     * 答案中的图片格式为：`<qa_image>image_token</qa_image>`
+     *
+     * <p>示例值：**步骤指引**[[1]](https://xxxx)\n1. 点击“[设备申请](https://xxxx)” > 领用设备 > 个人办公使用……
+     *
+     * @param answer
+     * @return
+     */
+    public Builder answer(String answer) {
+      this.answer = answer;
+      return this;
     }
 
-    public KnowledgeQaAnswerResponse(Builder builder) {
-        /**
-         * answer
-         * <p> 示例值：xxxxx
-         */
-        this.answer = builder.answer;
-        /**
-         * reasoning_content
-         * <p> 示例值：xxxxxx
-         */
-        this.reasoningContent = builder.reasoningContent;
-        /**
-         * 业务状态码
-         * <p> 示例值：0
-         */
-        this.statusCode = builder.statusCode;
-        /**
-         * 业务状态消息
-         * <p> 示例值：“”
-         */
-        this.statusMessage = builder.statusMessage;
-        /**
-         * 参考列表
-         * <p> 示例值：
-         */
-        this.references = builder.references;
+    /**
+     * 思考过程
+     *
+     * <p>示例值：好的，我将回答“如何申请显示器”。\n首先……
+     *
+     * @param reasoningContent
+     * @return
+     */
+    public Builder reasoningContent(String reasoningContent) {
+      this.reasoningContent = reasoningContent;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 业务状态码
+     *
+     * <p>示例值：0
+     *
+     * @param statusCode
+     * @return
+     */
+    public Builder statusCode(Integer statusCode) {
+      this.statusCode = statusCode;
+      return this;
     }
 
-    public String getAnswer() {
-        return this.answer;
+    /**
+     * 业务状态消息
+     *
+     * <p>示例值：“”
+     *
+     * @param statusMessage
+     * @return
+     */
+    public Builder statusMessage(String statusMessage) {
+      this.statusMessage = statusMessage;
+      return this;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    /**
+     * 参考列表
+     *
+     * <p>示例值：
+     *
+     * @param references
+     * @return
+     */
+    public Builder references(KnowledgeQaReference references) {
+      this.references = references;
+      return this;
     }
 
-    public String getReasoningContent() {
-        return this.reasoningContent;
+    public KnowledgeQaAnswerResponse build() {
+      return new KnowledgeQaAnswerResponse(this);
     }
+  }
 
-    public void setReasoningContent(String reasoningContent) {
-        this.reasoningContent = reasoningContent;
-    }
-
-    public Integer getStatusCode() {
-        return this.statusCode;
-    }
-
-    public void setStatusCode(Integer statusCode) {
-        this.statusCode = statusCode;
-    }
-
-    public String getStatusMessage() {
-        return this.statusMessage;
-    }
-
-    public void setStatusMessage(String statusMessage) {
-        this.statusMessage = statusMessage;
-    }
-
-    public KnowledgeQaReference getReferences() {
-        return this.references;
-    }
-
-    public void setReferences(KnowledgeQaReference references) {
-        this.references = references;
-    }
-
-    public static class Builder {
-        /**
-         * answer
-         * <p> 示例值：xxxxx
-         */
-        private String answer;
-        /**
-         * reasoning_content
-         * <p> 示例值：xxxxxx
-         */
-        private String reasoningContent;
-        /**
-         * 业务状态码
-         * <p> 示例值：0
-         */
-        private Integer statusCode;
-        /**
-         * 业务状态消息
-         * <p> 示例值：“”
-         */
-        private String statusMessage;
-        /**
-         * 参考列表
-         * <p> 示例值：
-         */
-        private KnowledgeQaReference references;
-
-        /**
-         * answer
-         * <p> 示例值：xxxxx
-         *
-         * @param answer
-         * @return
-         */
-        public Builder answer(String answer) {
-            this.answer = answer;
-            return this;
-        }
-
-
-        /**
-         * reasoning_content
-         * <p> 示例值：xxxxxx
-         *
-         * @param reasoningContent
-         * @return
-         */
-        public Builder reasoningContent(String reasoningContent) {
-            this.reasoningContent = reasoningContent;
-            return this;
-        }
-
-
-        /**
-         * 业务状态码
-         * <p> 示例值：0
-         *
-         * @param statusCode
-         * @return
-         */
-        public Builder statusCode(Integer statusCode) {
-            this.statusCode = statusCode;
-            return this;
-        }
-
-
-        /**
-         * 业务状态消息
-         * <p> 示例值：“”
-         *
-         * @param statusMessage
-         * @return
-         */
-        public Builder statusMessage(String statusMessage) {
-            this.statusMessage = statusMessage;
-            return this;
-        }
-
-
-        /**
-         * 参考列表
-         * <p> 示例值：
-         *
-         * @param references
-         * @return
-         */
-        public Builder references(KnowledgeQaReference references) {
-            this.references = references;
-            return this;
-        }
-
-
-        public KnowledgeQaAnswerResponse build() {
-            return new KnowledgeQaAnswerResponse(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

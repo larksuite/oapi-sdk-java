@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 适用范围左值
- */
+/** 适用范围左值 */
 public enum SocialPlanConditionLeftTypeEnum {
-    CITY(1), // 参保城市
-    CONTRACTSUBJECT(2), // 缴纳主体
-    ;
-    private Integer value;
+  CITY(1), // 参保城市
+  CONTRACTSUBJECT(2), // 缴纳主体
+  ;
+  private Integer value;
 
-    SocialPlanConditionLeftTypeEnum(Integer value) {
-        this.value = value;
-    }
+  SocialPlanConditionLeftTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

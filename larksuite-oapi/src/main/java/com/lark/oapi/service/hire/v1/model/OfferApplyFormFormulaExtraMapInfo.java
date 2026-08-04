@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OfferApplyFormFormulaExtraMapInfo {
+  /**
+   * 公式字段 ID，字段来源于Offer申请表 - 薪资信息模块。如value示例中的：6872592813776914699
+   *
+   * <p>示例值：object_id
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * object 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("value")
+  private I18n value;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public I18n getValue() {
+    return this.value;
+  }
+
+  public void setValue(I18n value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public OfferApplyFormFormulaExtraMapInfo() {}
+
+  public OfferApplyFormFormulaExtraMapInfo(Builder builder) {
     /**
-     * object ID
-     * <p> 示例值：object_id_1
+     * 公式字段 ID，字段来源于Offer申请表 - 薪资信息模块。如value示例中的：6872592813776914699
+     *
+     * <p>示例值：object_id
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * object 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 公式字段 ID，字段来源于Offer申请表 - 薪资信息模块。如value示例中的：6872592813776914699
+     *
+     * <p>示例值：object_id
+     */
+    private String key;
+
+    /**
+     * object 名称
+     *
+     * <p>示例值：
+     */
     private I18n value;
 
-    // builder 开始
-    public OfferApplyFormFormulaExtraMapInfo() {
+    /**
+     * 公式字段 ID，字段来源于Offer申请表 - 薪资信息模块。如value示例中的：6872592813776914699
+     *
+     * <p>示例值：object_id
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public OfferApplyFormFormulaExtraMapInfo(Builder builder) {
-        /**
-         * object ID
-         * <p> 示例值：object_id_1
-         */
-        this.key = builder.key;
-        /**
-         * object 名称
-         * <p> 示例值：
-         */
-        this.value = builder.value;
+    /**
+     * object 名称
+     *
+     * <p>示例值：
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(I18n value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OfferApplyFormFormulaExtraMapInfo build() {
+      return new OfferApplyFormFormulaExtraMapInfo(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public I18n getValue() {
-        return this.value;
-    }
-
-    public void setValue(I18n value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * object ID
-         * <p> 示例值：object_id_1
-         */
-        private String key;
-        /**
-         * object 名称
-         * <p> 示例值：
-         */
-        private I18n value;
-
-        /**
-         * object ID
-         * <p> 示例值：object_id_1
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * object 名称
-         * <p> 示例值：
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(I18n value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public OfferApplyFormFormulaExtraMapInfo build() {
-            return new OfferApplyFormFormulaExtraMapInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

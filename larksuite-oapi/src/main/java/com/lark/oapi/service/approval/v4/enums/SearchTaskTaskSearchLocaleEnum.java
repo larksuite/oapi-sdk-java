@@ -13,34 +13,32 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 地区
- */
+/** 语言。 */
 public enum SearchTaskTaskSearchLocaleEnum {
-    ZHCN("zh-CN"), // 中文
-    ENUS("en-US"), // 英文
-    JAJP("ja-JP"), // 日文
-    ZHHK("zh-HK"), // 繁体中文（中国香港）
-    ZHTW("zh-TW"), // 繁体中文（中国台湾）
-    DEDE("de-DE"), // 德语
-    ESES("es-ES"), // 西班牙语
-    FRFR("fr-FR"), // 法语
-    IDID("id-ID"), // 印度尼西亚语
-    ITIT("it-IT"), // 意大利语
-    KOKR("ko-KR"), // 韩语
-    PTBR("pt-BR"), // 葡萄牙语
-    THTH("th-TH"), // 泰语
-    VIVN("vi-VN"), // 越南语
-    MSMY("ms-MY"), // 马来语
-    RURU("ru-RU"), // 俄语
-    ;
-    private String value;
+  ZHCN("zh-CN"), // 中文
+  ENUS("en-US"), // 英文
+  JAJP("ja-JP"), // 日文
+  ZHHK("zh-HK"), // 繁体中文（中国香港）
+  ZHTW("zh-TW"), // 繁体中文（中国台湾）
+  DEDE("de-DE"), // 德语
+  ESES("es-ES"), // 西班牙语
+  FRFR("fr-FR"), // 法语
+  IDID("id-ID"), // 印度尼西亚语
+  ITIT("it-IT"), // 意大利语
+  KOKR("ko-KR"), // 韩语
+  PTBR("pt-BR"), // 葡萄牙语
+  THTH("th-TH"), // 泰语
+  VIVN("vi-VN"), // 越南语
+  MSMY("ms-MY"), // 马来语
+  RURU("ru-RU"), // 俄语
+  ;
+  private String value;
 
-    SearchTaskTaskSearchLocaleEnum(String value) {
-        this.value = value;
-    }
+  SearchTaskTaskSearchLocaleEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

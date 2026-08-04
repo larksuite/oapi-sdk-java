@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 部门ID类型
- */
+/** 部门ID类型 */
 public enum PatchEmployeeDepartmentIdTypeEnum {
-    DEPARTMENT_ID("department_id"), // department_id
-    OPEN_DEPARTMENT_ID("open_department_id"), // open_department_id
-    ;
-    private String value;
+  DEPARTMENT_ID("department_id"), // department_id
+  OPEN_DEPARTMENT_ID("open_department_id"), // open_department_id
+  ;
+  private String value;
 
-    PatchEmployeeDepartmentIdTypeEnum(String value) {
-        this.value = value;
-    }
+  PatchEmployeeDepartmentIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

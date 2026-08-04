@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OkrDetailObjectiveKr {
+  /**
+   * Key Result ID
+   *
+   * <p>示例值：6976243668438992428
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * pos
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("pos")
+  private Integer pos;
+
+  /**
+   * KeyResult打分（0 - 100）
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("score")
+  private Integer score;
+
+  /**
+   * KeyResult的权重（0 - 100）（废弃）
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("weight")
+  private Double weight;
+
+  /**
+   * KeyResult 内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("content")
+  private OkrName content;
+
+  /**
+   * 创建时间 毫秒
+   *
+   * <p>示例值：1624327915448
+   */
+  @SerializedName("create_time")
+  private Integer createTime;
+
+  /**
+   * 修改时间 毫秒
+   *
+   * <p>示例值：1624327915448
+   */
+  @SerializedName("modify_time")
+  private Integer modifyTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getPos() {
+    return this.pos;
+  }
+
+  public void setPos(Integer pos) {
+    this.pos = pos;
+  }
+
+  public Integer getScore() {
+    return this.score;
+  }
+
+  public void setScore(Integer score) {
+    this.score = score;
+  }
+
+  public Double getWeight() {
+    return this.weight;
+  }
+
+  public void setWeight(Double weight) {
+    this.weight = weight;
+  }
+
+  public OkrName getContent() {
+    return this.content;
+  }
+
+  public void setContent(OkrName content) {
+    this.content = content;
+  }
+
+  public Integer getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(Integer createTime) {
+    this.createTime = createTime;
+  }
+
+  public Integer getModifyTime() {
+    return this.modifyTime;
+  }
+
+  public void setModifyTime(Integer modifyTime) {
+    this.modifyTime = modifyTime;
+  }
+
+  // builder 开始
+  public OkrDetailObjectiveKr() {}
+
+  public OkrDetailObjectiveKr(Builder builder) {
     /**
      * Key Result ID
-     * <p> 示例值：6976243668438992428
+     *
+     * <p>示例值：6976243668438992428
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * pos
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("pos")
-    private Integer pos;
+    this.pos = builder.pos;
     /**
      * KeyResult打分（0 - 100）
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("score")
-    private Integer score;
+    this.score = builder.score;
     /**
      * KeyResult的权重（0 - 100）（废弃）
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("weight")
-    private Double weight;
+    this.weight = builder.weight;
     /**
      * KeyResult 内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("content")
-    private OkrName content;
+    this.content = builder.content;
     /**
      * 创建时间 毫秒
-     * <p> 示例值：1624327915448
+     *
+     * <p>示例值：1624327915448
      */
-    @SerializedName("create_time")
-    private Integer createTime;
+    this.createTime = builder.createTime;
     /**
      * 修改时间 毫秒
-     * <p> 示例值：1624327915448
+     *
+     * <p>示例值：1624327915448
      */
-    @SerializedName("modify_time")
+    this.modifyTime = builder.modifyTime;
+  }
+
+  public static class Builder {
+    /**
+     * Key Result ID
+     *
+     * <p>示例值：6976243668438992428
+     */
+    private String id;
+
+    /**
+     * pos
+     *
+     * <p>示例值：100
+     */
+    private Integer pos;
+
+    /**
+     * KeyResult打分（0 - 100）
+     *
+     * <p>示例值：100
+     */
+    private Integer score;
+
+    /**
+     * KeyResult的权重（0 - 100）（废弃）
+     *
+     * <p>示例值：100
+     */
+    private Double weight;
+
+    /**
+     * KeyResult 内容
+     *
+     * <p>示例值：
+     */
+    private OkrName content;
+
+    /**
+     * 创建时间 毫秒
+     *
+     * <p>示例值：1624327915448
+     */
+    private Integer createTime;
+
+    /**
+     * 修改时间 毫秒
+     *
+     * <p>示例值：1624327915448
+     */
     private Integer modifyTime;
 
-    // builder 开始
-    public OkrDetailObjectiveKr() {
+    /**
+     * Key Result ID
+     *
+     * <p>示例值：6976243668438992428
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public OkrDetailObjectiveKr(Builder builder) {
-        /**
-         * Key Result ID
-         * <p> 示例值：6976243668438992428
-         */
-        this.id = builder.id;
-        /**
-         * pos
-         * <p> 示例值：100
-         */
-        this.pos = builder.pos;
-        /**
-         * KeyResult打分（0 - 100）
-         * <p> 示例值：100
-         */
-        this.score = builder.score;
-        /**
-         * KeyResult的权重（0 - 100）（废弃）
-         * <p> 示例值：100
-         */
-        this.weight = builder.weight;
-        /**
-         * KeyResult 内容
-         * <p> 示例值：
-         */
-        this.content = builder.content;
-        /**
-         * 创建时间 毫秒
-         * <p> 示例值：1624327915448
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 修改时间 毫秒
-         * <p> 示例值：1624327915448
-         */
-        this.modifyTime = builder.modifyTime;
+    /**
+     * pos
+     *
+     * <p>示例值：100
+     *
+     * @param pos
+     * @return
+     */
+    public Builder pos(Integer pos) {
+      this.pos = pos;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * KeyResult打分（0 - 100）
+     *
+     * <p>示例值：100
+     *
+     * @param score
+     * @return
+     */
+    public Builder score(Integer score) {
+      this.score = score;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * KeyResult的权重（0 - 100）（废弃）
+     *
+     * <p>示例值：100
+     *
+     * @param weight
+     * @return
+     */
+    public Builder weight(Double weight) {
+      this.weight = weight;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * KeyResult 内容
+     *
+     * <p>示例值：
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(OkrName content) {
+      this.content = content;
+      return this;
     }
 
-    public Integer getPos() {
-        return this.pos;
+    /**
+     * 创建时间 毫秒
+     *
+     * <p>示例值：1624327915448
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(Integer createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setPos(Integer pos) {
-        this.pos = pos;
+    /**
+     * 修改时间 毫秒
+     *
+     * <p>示例值：1624327915448
+     *
+     * @param modifyTime
+     * @return
+     */
+    public Builder modifyTime(Integer modifyTime) {
+      this.modifyTime = modifyTime;
+      return this;
     }
 
-    public Integer getScore() {
-        return this.score;
+    public OkrDetailObjectiveKr build() {
+      return new OkrDetailObjectiveKr(this);
     }
+  }
 
-    public void setScore(Integer score) {
-        this.score = score;
-    }
-
-    public Double getWeight() {
-        return this.weight;
-    }
-
-    public void setWeight(Double weight) {
-        this.weight = weight;
-    }
-
-    public OkrName getContent() {
-        return this.content;
-    }
-
-    public void setContent(OkrName content) {
-        this.content = content;
-    }
-
-    public Integer getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(Integer createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getModifyTime() {
-        return this.modifyTime;
-    }
-
-    public void setModifyTime(Integer modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    public static class Builder {
-        /**
-         * Key Result ID
-         * <p> 示例值：6976243668438992428
-         */
-        private String id;
-        /**
-         * pos
-         * <p> 示例值：100
-         */
-        private Integer pos;
-        /**
-         * KeyResult打分（0 - 100）
-         * <p> 示例值：100
-         */
-        private Integer score;
-        /**
-         * KeyResult的权重（0 - 100）（废弃）
-         * <p> 示例值：100
-         */
-        private Double weight;
-        /**
-         * KeyResult 内容
-         * <p> 示例值：
-         */
-        private OkrName content;
-        /**
-         * 创建时间 毫秒
-         * <p> 示例值：1624327915448
-         */
-        private Integer createTime;
-        /**
-         * 修改时间 毫秒
-         * <p> 示例值：1624327915448
-         */
-        private Integer modifyTime;
-
-        /**
-         * Key Result ID
-         * <p> 示例值：6976243668438992428
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * pos
-         * <p> 示例值：100
-         *
-         * @param pos
-         * @return
-         */
-        public Builder pos(Integer pos) {
-            this.pos = pos;
-            return this;
-        }
-
-
-        /**
-         * KeyResult打分（0 - 100）
-         * <p> 示例值：100
-         *
-         * @param score
-         * @return
-         */
-        public Builder score(Integer score) {
-            this.score = score;
-            return this;
-        }
-
-
-        /**
-         * KeyResult的权重（0 - 100）（废弃）
-         * <p> 示例值：100
-         *
-         * @param weight
-         * @return
-         */
-        public Builder weight(Double weight) {
-            this.weight = weight;
-            return this;
-        }
-
-
-        /**
-         * KeyResult 内容
-         * <p> 示例值：
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(OkrName content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 创建时间 毫秒
-         * <p> 示例值：1624327915448
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(Integer createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 修改时间 毫秒
-         * <p> 示例值：1624327915448
-         *
-         * @param modifyTime
-         * @return
-         */
-        public Builder modifyTime(Integer modifyTime) {
-            this.modifyTime = modifyTime;
-            return this;
-        }
-
-
-        public OkrDetailObjectiveKr build() {
-            return new OkrDetailObjectiveKr(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

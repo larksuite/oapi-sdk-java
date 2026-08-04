@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 审批抄送状态，注：若不在集合中，报错
- */
+/** 审批抄送状态。;;**注意**：若不设置则查询全部状态，若不在集合中，则报错。 */
 public enum SearchCcInstanceCcSearchReadStatusEnum {
-    READ("READ"), // 已读
-    UNREAD("UNREAD"), // 未读
-    ALL("ALL"), // 所有状态
-    ;
-    private String value;
+  READ("READ"), // 已读
+  UNREAD("UNREAD"), // 未读
+  ALL("ALL"), // 所有状态
+  ;
+  private String value;
 
-    SearchCcInstanceCcSearchReadStatusEnum(String value) {
-        this.value = value;
-    }
+  SearchCcInstanceCcSearchReadStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

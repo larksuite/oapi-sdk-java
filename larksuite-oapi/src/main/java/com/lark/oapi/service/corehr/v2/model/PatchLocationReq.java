@@ -13,130 +13,135 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class PatchLocationReq {
+  /**
+   * 根据 client_token 是否一致来判断是否为同一请求
+   *
+   * <p>示例值：12454646
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  /**
+   * 地点ID。ID获取方式：;-
+   * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+   *
+   * <p>示例值：1616161616
+   */
+  @Path
+  @SerializedName("location_id")
+  private String locationId;
+
+  public String getLocationId() {
+    return this.locationId;
+  }
+
+  public void setLocationId(String locationId) {
+    this.locationId = locationId;
+  }
+
+  @Body private LocationUpdate body;
+
+  public LocationUpdate getLocationUpdate() {
+    return this.body;
+  }
+
+  public void setLocationUpdate(LocationUpdate body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchLocationReq() {}
+
+  public PatchLocationReq(Builder builder) {
     /**
      * 根据 client_token 是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
+     *
+     * <p>示例值：12454646
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
-     * 地点 ID
-     * <p> 示例值：1616161616
+     * 地点ID。ID获取方式：;-
+     * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+     *
+     * <p>示例值：1616161616
      */
-    @Path
-    @SerializedName("location_id")
-    private String locationId;
-    @Body
+    this.locationId = builder.locationId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String clientToken; // 根据 client_token 是否一致来判断是否为同一请求
+
+    /**
+     * 根据 client_token 是否一致来判断是否为同一请求
+     *
+     * <p>示例值：12454646
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    private String locationId; // 地点ID。ID获取方式：;-
+
+    // 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+
+    /**
+     * 地点ID。ID获取方式：;-
+     * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+     *
+     * <p>示例值：1616161616
+     *
+     * @param locationId
+     * @return
+     */
+    public Builder locationId(String locationId) {
+      this.locationId = locationId;
+      return this;
+    }
+
     private LocationUpdate body;
 
-    // builder 开始
-    public PatchLocationReq() {
-    }
-
-    public PatchLocationReq(Builder builder) {
-        /**
-         * 根据 client_token 是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 地点 ID
-         * <p> 示例值：1616161616
-         */
-        this.locationId = builder.locationId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public String getLocationId() {
-        return this.locationId;
-    }
-
-    public void setLocationId(String locationId) {
-        this.locationId = locationId;
-    }
-
     public LocationUpdate getLocationUpdate() {
-        return this.body;
+      return this.body;
     }
 
-    public void setLocationUpdate(LocationUpdate body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder locationUpdate(LocationUpdate body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据 client_token 是否一致来判断是否为同一请求
-        private String locationId; // 地点 ID
-        private LocationUpdate body;
-
-        /**
-         * 根据 client_token 是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 地点 ID
-         * <p> 示例值：1616161616
-         *
-         * @param locationId
-         * @return
-         */
-        public Builder locationId(String locationId) {
-            this.locationId = locationId;
-            return this;
-        }
-
-        public LocationUpdate getLocationUpdate() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder locationUpdate(LocationUpdate body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchLocationReq build() {
-            return new PatchLocationReq(this);
-        }
+    public PatchLocationReq build() {
+      return new PatchLocationReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

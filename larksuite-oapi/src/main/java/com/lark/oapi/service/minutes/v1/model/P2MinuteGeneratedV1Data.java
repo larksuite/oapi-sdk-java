@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2MinuteGeneratedV1Data {
-    /**
-     * 妙记唯一标识
-     * <p> 示例值：obcnq3b9jl72l83w4f14xxxx
-     */
-    @SerializedName("minute_token")
-    private String minuteToken;
-    /**
-     * 妙记来源
-     * <p> 示例值：
-     */
-    @SerializedName("minute_source")
-    private GeneratedSource minuteSource;
-    /**
-     * 需要推送事件的用户列表
-     * <p> 示例值：
-     */
-    @SerializedName("subscriber_ids")
-    private UserId[] subscriberIds;
+  /**
+   * 妙记唯一标识
+   *
+   * <p>示例值：obcnq3b9jl72l83w4f14xxxx
+   */
+  @SerializedName("minute_token")
+  private String minuteToken;
 
-    public String getMinuteToken() {
-        return this.minuteToken;
-    }
+  /**
+   * 妙记来源。目前只有**会议来源**的会返回数据。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("minute_source")
+  private GeneratedSource minuteSource;
 
-    public void setMinuteToken(String minuteToken) {
-        this.minuteToken = minuteToken;
-    }
+  /**
+   * 需要推送事件的用户列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subscriber_ids")
+  private UserId[] subscriberIds;
 
-    public GeneratedSource getMinuteSource() {
-        return this.minuteSource;
-    }
+  public String getMinuteToken() {
+    return this.minuteToken;
+  }
 
-    public void setMinuteSource(GeneratedSource minuteSource) {
-        this.minuteSource = minuteSource;
-    }
+  public void setMinuteToken(String minuteToken) {
+    this.minuteToken = minuteToken;
+  }
 
-    public UserId[] getSubscriberIds() {
-        return this.subscriberIds;
-    }
+  public GeneratedSource getMinuteSource() {
+    return this.minuteSource;
+  }
 
-    public void setSubscriberIds(UserId[] subscriberIds) {
-        this.subscriberIds = subscriberIds;
-    }
+  public void setMinuteSource(GeneratedSource minuteSource) {
+    this.minuteSource = minuteSource;
+  }
 
+  public UserId[] getSubscriberIds() {
+    return this.subscriberIds;
+  }
+
+  public void setSubscriberIds(UserId[] subscriberIds) {
+    this.subscriberIds = subscriberIds;
+  }
 }

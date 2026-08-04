@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GuestTraceInfo {
+  /**
+   * 创建来源
+   *
+   * <p>示例值：
+   */
+  @SerializedName("source")
+  private Integer source;
+
+  /**
+   * 是否邀请
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_invite")
+  private Boolean isInvite;
+
+  /**
+   * 邀请人id
+   *
+   * <p>示例值：123123123
+   */
+  @SerializedName("inviter_id")
+  private String inviterId;
+
+  /**
+   * 邀请
+   *
+   * <p>示例值：
+   */
+  @SerializedName("invite_option")
+  private InviteOption inviteOption;
+
+  /**
+   * 客户端的IP * /
+   *
+   * <p>示例值：1.1.1.1
+   */
+  @SerializedName("client_ip")
+  private String clientIp;
+
+  public Integer getSource() {
+    return this.source;
+  }
+
+  public void setSource(Integer source) {
+    this.source = source;
+  }
+
+  public Boolean getIsInvite() {
+    return this.isInvite;
+  }
+
+  public void setIsInvite(Boolean isInvite) {
+    this.isInvite = isInvite;
+  }
+
+  public String getInviterId() {
+    return this.inviterId;
+  }
+
+  public void setInviterId(String inviterId) {
+    this.inviterId = inviterId;
+  }
+
+  public InviteOption getInviteOption() {
+    return this.inviteOption;
+  }
+
+  public void setInviteOption(InviteOption inviteOption) {
+    this.inviteOption = inviteOption;
+  }
+
+  public String getClientIp() {
+    return this.clientIp;
+  }
+
+  public void setClientIp(String clientIp) {
+    this.clientIp = clientIp;
+  }
+
+  // builder 开始
+  public GuestTraceInfo() {}
+
+  public GuestTraceInfo(Builder builder) {
     /**
      * 创建来源
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("source")
-    private Integer source;
+    this.source = builder.source;
     /**
      * 是否邀请
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_invite")
-    private Boolean isInvite;
+    this.isInvite = builder.isInvite;
     /**
      * 邀请人id
-     * <p> 示例值：123123123
+     *
+     * <p>示例值：123123123
      */
-    @SerializedName("inviter_id")
-    private String inviterId;
+    this.inviterId = builder.inviterId;
     /**
      * 邀请
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("invite_option")
-    private InviteOption inviteOption;
+    this.inviteOption = builder.inviteOption;
     /**
      * 客户端的IP * /
-     * <p> 示例值：1.1.1.1
+     *
+     * <p>示例值：1.1.1.1
      */
-    @SerializedName("client_ip")
+    this.clientIp = builder.clientIp;
+  }
+
+  public static class Builder {
+    /**
+     * 创建来源
+     *
+     * <p>示例值：
+     */
+    private Integer source;
+
+    /**
+     * 是否邀请
+     *
+     * <p>示例值：
+     */
+    private Boolean isInvite;
+
+    /**
+     * 邀请人id
+     *
+     * <p>示例值：123123123
+     */
+    private String inviterId;
+
+    /**
+     * 邀请
+     *
+     * <p>示例值：
+     */
+    private InviteOption inviteOption;
+
+    /**
+     * 客户端的IP * /
+     *
+     * <p>示例值：1.1.1.1
+     */
     private String clientIp;
 
-    // builder 开始
-    public GuestTraceInfo() {
+    /**
+     * 创建来源
+     *
+     * <p>示例值：
+     *
+     * @param source
+     * @return
+     */
+    public Builder source(Integer source) {
+      this.source = source;
+      return this;
     }
 
-    public GuestTraceInfo(Builder builder) {
-        /**
-         * 创建来源
-         * <p> 示例值：
-         */
-        this.source = builder.source;
-        /**
-         * 是否邀请
-         * <p> 示例值：
-         */
-        this.isInvite = builder.isInvite;
-        /**
-         * 邀请人id
-         * <p> 示例值：123123123
-         */
-        this.inviterId = builder.inviterId;
-        /**
-         * 邀请
-         * <p> 示例值：
-         */
-        this.inviteOption = builder.inviteOption;
-        /**
-         * 客户端的IP * /
-         * <p> 示例值：1.1.1.1
-         */
-        this.clientIp = builder.clientIp;
+    /**
+     * 是否邀请
+     *
+     * <p>示例值：
+     *
+     * @param isInvite
+     * @return
+     */
+    public Builder isInvite(Boolean isInvite) {
+      this.isInvite = isInvite;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 邀请人id
+     *
+     * <p>示例值：123123123
+     *
+     * @param inviterId
+     * @return
+     */
+    public Builder inviterId(String inviterId) {
+      this.inviterId = inviterId;
+      return this;
     }
 
-    public Integer getSource() {
-        return this.source;
+    /**
+     * 邀请
+     *
+     * <p>示例值：
+     *
+     * @param inviteOption
+     * @return
+     */
+    public Builder inviteOption(InviteOption inviteOption) {
+      this.inviteOption = inviteOption;
+      return this;
     }
 
-    public void setSource(Integer source) {
-        this.source = source;
+    /**
+     * 客户端的IP * /
+     *
+     * <p>示例值：1.1.1.1
+     *
+     * @param clientIp
+     * @return
+     */
+    public Builder clientIp(String clientIp) {
+      this.clientIp = clientIp;
+      return this;
     }
 
-    public Boolean getIsInvite() {
-        return this.isInvite;
+    public GuestTraceInfo build() {
+      return new GuestTraceInfo(this);
     }
+  }
 
-    public void setIsInvite(Boolean isInvite) {
-        this.isInvite = isInvite;
-    }
-
-    public String getInviterId() {
-        return this.inviterId;
-    }
-
-    public void setInviterId(String inviterId) {
-        this.inviterId = inviterId;
-    }
-
-    public InviteOption getInviteOption() {
-        return this.inviteOption;
-    }
-
-    public void setInviteOption(InviteOption inviteOption) {
-        this.inviteOption = inviteOption;
-    }
-
-    public String getClientIp() {
-        return this.clientIp;
-    }
-
-    public void setClientIp(String clientIp) {
-        this.clientIp = clientIp;
-    }
-
-    public static class Builder {
-        /**
-         * 创建来源
-         * <p> 示例值：
-         */
-        private Integer source;
-        /**
-         * 是否邀请
-         * <p> 示例值：
-         */
-        private Boolean isInvite;
-        /**
-         * 邀请人id
-         * <p> 示例值：123123123
-         */
-        private String inviterId;
-        /**
-         * 邀请
-         * <p> 示例值：
-         */
-        private InviteOption inviteOption;
-        /**
-         * 客户端的IP * /
-         * <p> 示例值：1.1.1.1
-         */
-        private String clientIp;
-
-        /**
-         * 创建来源
-         * <p> 示例值：
-         *
-         * @param source
-         * @return
-         */
-        public Builder source(Integer source) {
-            this.source = source;
-            return this;
-        }
-
-
-        /**
-         * 是否邀请
-         * <p> 示例值：
-         *
-         * @param isInvite
-         * @return
-         */
-        public Builder isInvite(Boolean isInvite) {
-            this.isInvite = isInvite;
-            return this;
-        }
-
-
-        /**
-         * 邀请人id
-         * <p> 示例值：123123123
-         *
-         * @param inviterId
-         * @return
-         */
-        public Builder inviterId(String inviterId) {
-            this.inviterId = inviterId;
-            return this;
-        }
-
-
-        /**
-         * 邀请
-         * <p> 示例值：
-         *
-         * @param inviteOption
-         * @return
-         */
-        public Builder inviteOption(InviteOption inviteOption) {
-            this.inviteOption = inviteOption;
-            return this;
-        }
-
-
-        /**
-         * 客户端的IP * /
-         * <p> 示例值：1.1.1.1
-         *
-         * @param clientIp
-         * @return
-         */
-        public Builder clientIp(String clientIp) {
-            this.clientIp = clientIp;
-            return this;
-        }
-
-
-        public GuestTraceInfo build() {
-            return new GuestTraceInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

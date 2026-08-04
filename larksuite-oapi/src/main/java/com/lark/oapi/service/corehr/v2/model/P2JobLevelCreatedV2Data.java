@@ -13,34 +13,25 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2JobLevelCreatedV2Data {
-    /**
-     * 职级ID
-     * <p> 示例值：6969828847121885087
-     */
-    @SerializedName("job_level_id")
-    private String jobLevelId;
+  /**
+   * 职级ID。;-
+   * 调用[【查询单个职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)、[【通过职级
+   * ID
+   * 批量获取职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_level/batch_get)接口返回职级详细信息
+   *
+   * <p>示例值：6969828847121885087
+   */
+  @SerializedName("job_level_id")
+  private String jobLevelId;
 
-    public String getJobLevelId() {
-        return this.jobLevelId;
-    }
+  public String getJobLevelId() {
+    return this.jobLevelId;
+  }
 
-    public void setJobLevelId(String jobLevelId) {
-        this.jobLevelId = jobLevelId;
-    }
-
+  public void setJobLevelId(String jobLevelId) {
+    this.jobLevelId = jobLevelId;
+  }
 }

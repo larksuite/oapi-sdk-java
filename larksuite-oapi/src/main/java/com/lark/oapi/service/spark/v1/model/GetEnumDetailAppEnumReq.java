@@ -13,138 +13,143 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.spark.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.spark.v1.enums.*;
 
 public class GetEnumDetailAppEnumReq {
+  /**
+   * 访问的 database 环境，默认为 online（线上环境）
+   *
+   * <p>示例值：`online`、`dev`
+   */
+  @Query
+  @SerializedName("env")
+  private String env;
+
+  public String getEnv() {
+    return this.env;
+  }
+
+  public void setEnv(String env) {
+    this.env = env;
+  }
+
+  /**
+   * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为
+   * app_id
+   *
+   * <p>示例值：app_4jcn5n11bpf5v
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 枚举名称，可以从`获取自定义枚举列表`接口返回列表中，获取到枚举名称。
+   *
+   * <p>示例值：enum_demo_1
+   */
+  @Path
+  @SerializedName("enum_name")
+  private String enumName;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getEnumName() {
+    return this.enumName;
+  }
+
+  public void setEnumName(String enumName) {
+    this.enumName = enumName;
+  }
+
+  // builder 开始
+  public GetEnumDetailAppEnumReq() {}
+
+  public GetEnumDetailAppEnumReq(Builder builder) {
     /**
      * 访问的 database 环境，默认为 online（线上环境）
-     * <p> 示例值：online
+     *
+     * <p>示例值：`online`、`dev`
      */
-    @Query
-    @SerializedName("env")
-    private String env;
+    this.env = builder.env;
     /**
-     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-     * <p> 示例值：app_4jcn5n11bpf5v
+     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v
+     * 即为 app_id
+     *
+     * <p>示例值：app_4jcn5n11bpf5v
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
     /**
-     * 枚举名称
-     * <p> 示例值：enum_demo_1
+     * 枚举名称，可以从`获取自定义枚举列表`接口返回列表中，获取到枚举名称。
+     *
+     * <p>示例值：enum_demo_1
      */
-    @Path
-    @SerializedName("enum_name")
-    private String enumName;
+    this.enumName = builder.enumName;
+  }
 
-    // builder 开始
-    public GetEnumDetailAppEnumReq() {
+  public static class Builder {
+    private String env; // 访问的 database 环境，默认为 online（线上环境）
+
+    /**
+     * 访问的 database 环境，默认为 online（线上环境）
+     *
+     * <p>示例值：`online`、`dev`
+     *
+     * @param env
+     * @return
+     */
+    public Builder env(String env) {
+      this.env = env;
+      return this;
     }
 
-    public GetEnumDetailAppEnumReq(Builder builder) {
-        /**
-         * 访问的 database 环境，默认为 online（线上环境）
-         * <p> 示例值：online
-         */
-        this.env = builder.env;
-        /**
-         * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-         * <p> 示例值：app_4jcn5n11bpf5v
-         */
-        this.appId = builder.appId;
-        /**
-         * 枚举名称
-         * <p> 示例值：enum_demo_1
-         */
-        this.enumName = builder.enumName;
+    private String
+        appId; // 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的
+    // app_4jcn5n11bpf5v 即为 app_id
+    private String enumName; // 枚举名称，可以从`获取自定义枚举列表`接口返回列表中，获取到枚举名称。
+
+    /**
+     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v
+     * 即为 app_id
+     *
+     * <p>示例值：app_4jcn5n11bpf5v
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 枚举名称，可以从`获取自定义枚举列表`接口返回列表中，获取到枚举名称。
+     *
+     * <p>示例值：enum_demo_1
+     *
+     * @param enumName
+     * @return
+     */
+    public Builder enumName(String enumName) {
+      this.enumName = enumName;
+      return this;
     }
 
-    public String getEnv() {
-        return this.env;
+    public GetEnumDetailAppEnumReq build() {
+      return new GetEnumDetailAppEnumReq(this);
     }
+  }
 
-    public void setEnv(String env) {
-        this.env = env;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getEnumName() {
-        return this.enumName;
-    }
-
-    public void setEnumName(String enumName) {
-        this.enumName = enumName;
-    }
-
-    public static class Builder {
-        private String env; // 访问的 database 环境，默认为 online（线上环境）
-        private String appId; // 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-        private String enumName; // 枚举名称
-
-        /**
-         * 访问的 database 环境，默认为 online（线上环境）
-         * <p> 示例值：online
-         *
-         * @param env
-         * @return
-         */
-        public Builder env(String env) {
-            this.env = env;
-            return this;
-        }
-
-        /**
-         * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-         * <p> 示例值：app_4jcn5n11bpf5v
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 枚举名称
-         * <p> 示例值：enum_demo_1
-         *
-         * @param enumName
-         * @return
-         */
-        public Builder enumName(String enumName) {
-            this.enumName = enumName;
-            return this;
-        }
-
-
-        public GetEnumDetailAppEnumReq build() {
-            return new GetEnumDetailAppEnumReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

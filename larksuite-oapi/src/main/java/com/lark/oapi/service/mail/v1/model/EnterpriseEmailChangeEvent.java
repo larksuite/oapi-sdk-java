@@ -13,161 +13,164 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EnterpriseEmailChangeEvent {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("open_id")
+  private String openId;
+
+  /**
+   * 事件ID
+   *
+   * <p>示例值：123_123
+   */
+  @SerializedName("event_id")
+  private String eventId;
+
+  /**
+   * 事件类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("event_type")
+  private Integer eventType;
+
+  public String getOpenId() {
+    return this.openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  public String getEventId() {
+    return this.eventId;
+  }
+
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
+  }
+
+  public Integer getEventType() {
+    return this.eventType;
+  }
+
+  public void setEventType(Integer eventType) {
+    this.eventType = eventType;
+  }
+
+  // builder 开始
+  public EnterpriseEmailChangeEvent() {}
+
+  public EnterpriseEmailChangeEvent(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("open_id")
-    private String openId;
+    this.openId = builder.openId;
     /**
      * 事件ID
-     * <p> 示例值：123_123
+     *
+     * <p>示例值：123_123
      */
-    @SerializedName("event_id")
-    private String eventId;
+    this.eventId = builder.eventId;
     /**
      * 事件类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("event_type")
+    this.eventType = builder.eventType;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：
+     */
+    private String openId;
+
+    /**
+     * 事件ID
+     *
+     * <p>示例值：123_123
+     */
+    private String eventId;
+
+    /**
+     * 事件类型
+     *
+     * <p>示例值：1
+     */
     private Integer eventType;
 
-    // builder 开始
-    public EnterpriseEmailChangeEvent() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：
+     *
+     * @param openId
+     * @return
+     */
+    public Builder openId(String openId) {
+      this.openId = openId;
+      return this;
     }
 
-    public EnterpriseEmailChangeEvent(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        this.openId = builder.openId;
-        /**
-         * 事件ID
-         * <p> 示例值：123_123
-         */
-        this.eventId = builder.eventId;
-        /**
-         * 事件类型
-         * <p> 示例值：1
-         */
-        this.eventType = builder.eventType;
+    /**
+     * 事件ID
+     *
+     * <p>示例值：123_123
+     *
+     * @param eventId
+     * @return
+     */
+    public Builder eventId(String eventId) {
+      this.eventId = eventId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 事件类型
+     *
+     * <p>示例值：1
+     *
+     * @param eventType
+     * @return
+     */
+    public Builder eventType(Integer eventType) {
+      this.eventType = eventType;
+      return this;
     }
 
-    public String getOpenId() {
-        return this.openId;
+    /**
+     * 事件类型
+     *
+     * <p>示例值：1
+     *
+     * @param eventType {@link
+     *     com.lark.oapi.service.mail.v1.enums.EnterpriseEmailChangeEventEventTypeEnum}
+     * @return
+     */
+    public Builder eventType(
+        com.lark.oapi.service.mail.v1.enums.EnterpriseEmailChangeEventEventTypeEnum eventType) {
+      this.eventType = eventType.getValue();
+      return this;
     }
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
+    public EnterpriseEmailChangeEvent build() {
+      return new EnterpriseEmailChangeEvent(this);
     }
+  }
 
-    public String getEventId() {
-        return this.eventId;
-    }
-
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
-    }
-
-    public Integer getEventType() {
-        return this.eventType;
-    }
-
-    public void setEventType(Integer eventType) {
-        this.eventType = eventType;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        private String openId;
-        /**
-         * 事件ID
-         * <p> 示例值：123_123
-         */
-        private String eventId;
-        /**
-         * 事件类型
-         * <p> 示例值：1
-         */
-        private Integer eventType;
-
-        /**
-         * 用户ID
-         * <p> 示例值：
-         *
-         * @param openId
-         * @return
-         */
-        public Builder openId(String openId) {
-            this.openId = openId;
-            return this;
-        }
-
-
-        /**
-         * 事件ID
-         * <p> 示例值：123_123
-         *
-         * @param eventId
-         * @return
-         */
-        public Builder eventId(String eventId) {
-            this.eventId = eventId;
-            return this;
-        }
-
-
-        /**
-         * 事件类型
-         * <p> 示例值：1
-         *
-         * @param eventType
-         * @return
-         */
-        public Builder eventType(Integer eventType) {
-            this.eventType = eventType;
-            return this;
-        }
-
-        /**
-         * 事件类型
-         * <p> 示例值：1
-         *
-         * @param eventType {@link com.lark.oapi.service.mail.v1.enums.EnterpriseEmailChangeEventEventTypeEnum}
-         * @return
-         */
-        public Builder eventType(com.lark.oapi.service.mail.v1.enums.EnterpriseEmailChangeEventEventTypeEnum eventType) {
-            this.eventType = eventType.getValue();
-            return this;
-        }
-
-
-        public EnterpriseEmailChangeEvent build() {
-            return new EnterpriseEmailChangeEvent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

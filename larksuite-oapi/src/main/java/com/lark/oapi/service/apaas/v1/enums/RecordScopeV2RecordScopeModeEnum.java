@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.apaas.v1.enums;
 
-/**
- * 记录权限的模式
- */
+/** 记录权限的模式;;当取值为currentAndSubordinates或currentUser时，需设置fields参数 */
 public enum RecordScopeV2RecordScopeModeEnum {
-    RECORDSCOPEMODEENUMALL("all"), // 全部记录
-    RECORDSCOPEMODEENUMCURRENTANDSUBORDINATES("currentAndSubordinates"), // 包含本人及下属的记录
-    RECORDSCOPEMODEENUMCURRENTUSER("currentUser"), // 包含本人的记录
-    ;
-    private String value;
+  RECORDSCOPEMODEENUMALL("all"), // 全部记录
+  RECORDSCOPEMODEENUMCURRENTANDSUBORDINATES("currentAndSubordinates"), // 包含本人及下属的记录
+  RECORDSCOPEMODEENUMCURRENTUSER("currentUser"), // 包含本人的记录
+  ;
+  private String value;
 
-    RecordScopeV2RecordScopeModeEnum(String value) {
-        this.value = value;
-    }
+  RecordScopeV2RecordScopeModeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

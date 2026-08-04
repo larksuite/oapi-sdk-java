@@ -13,261 +13,286 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class SearchWebsiteJobPostReq {
+  /**
+   * 下一页页码
+   *
+   * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 每页获取记录数量，最大10，不传则默认值为10
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 指定查询结果中的部门 ID 类型。关于部门 ID
+   * 的详细介绍，可参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+   *
+   * <p>示例值："department_id"
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  /**
+   * 此次调用中使用的「职级 ID」的类型
+   *
+   * <p>示例值："job_level_id_type"
+   */
+  @Query
+  @SerializedName("job_level_id_type")
+  private String jobLevelIdType;
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  public String getJobLevelIdType() {
+    return this.jobLevelIdType;
+  }
+
+  public void setJobLevelIdType(String jobLevelIdType) {
+    this.jobLevelIdType = jobLevelIdType;
+  }
+
+  /**
+   * 官网
+   * ID，可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)获取
+   *
+   * <p>示例值：7098921721789513756
+   */
+  @Path
+  @SerializedName("website_id")
+  private String websiteId;
+
+  public String getWebsiteId() {
+    return this.websiteId;
+  }
+
+  public void setWebsiteId(String websiteId) {
+    this.websiteId = websiteId;
+  }
+
+  @Body private SearchWebsiteJobPostReqBody body;
+
+  public SearchWebsiteJobPostReqBody getSearchWebsiteJobPostReqBody() {
+    return this.body;
+  }
+
+  public void setSearchWebsiteJobPostReqBody(SearchWebsiteJobPostReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public SearchWebsiteJobPostReq() {}
+
+  public SearchWebsiteJobPostReq(Builder builder) {
     /**
      * 下一页页码
-     * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 每页获取记录数量，最大10
-     * <p> 示例值：10
+     * 每页获取记录数量，最大10，不传则默认值为10
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 用户 ID 类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 此次调用中使用的部门 ID 的类型
-     * <p> 示例值：
+     * 指定查询结果中的部门 ID 类型。关于部门 ID
+     * 的详细介绍，可参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+     *
+     * <p>示例值："department_id"
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
      * 此次调用中使用的「职级 ID」的类型
-     * <p> 示例值：
+     *
+     * <p>示例值："job_level_id_type"
      */
-    @Query
-    @SerializedName("job_level_id_type")
-    private String jobLevelIdType;
+    this.jobLevelIdType = builder.jobLevelIdType;
     /**
-     * 官网 ID
-     * <p> 示例值：111
+     * 官网
+     * ID，可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)获取
+     *
+     * <p>示例值：7098921721789513756
      */
-    @Path
-    @SerializedName("website_id")
-    private String websiteId;
-    @Body
+    this.websiteId = builder.websiteId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String pageToken; // 下一页页码
+    private Integer pageSize; // 每页获取记录数量，最大10，不传则默认值为10
+    private String userIdType; // 用户 ID 类型
+    private String departmentIdType; // 指定查询结果中的部门 ID 类型。关于部门 ID
+    // 的详细介绍，可参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+    private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
+
+    /**
+     * 下一页页码
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
+    /**
+     * 每页获取记录数量，最大10，不传则默认值为10
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 指定查询结果中的部门 ID 类型。关于部门 ID
+     * 的详细介绍，可参见[部门ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+     *
+     * <p>示例值："department_id"
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的「职级 ID」的类型
+     *
+     * <p>示例值："job_level_id_type"
+     *
+     * @param jobLevelIdType
+     * @return
+     */
+    public Builder jobLevelIdType(String jobLevelIdType) {
+      this.jobLevelIdType = jobLevelIdType;
+      return this;
+    }
+
+    private String websiteId; // 官网
+
+    // ID，可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)获取
+
+    /**
+     * 官网
+     * ID，可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)获取
+     *
+     * <p>示例值：7098921721789513756
+     *
+     * @param websiteId
+     * @return
+     */
+    public Builder websiteId(String websiteId) {
+      this.websiteId = websiteId;
+      return this;
+    }
+
     private SearchWebsiteJobPostReqBody body;
 
-    // builder 开始
-    public SearchWebsiteJobPostReq() {
-    }
-
-    public SearchWebsiteJobPostReq(Builder builder) {
-        /**
-         * 下一页页码
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页获取记录数量，最大10
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门 ID 的类型
-         * <p> 示例值：
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 此次调用中使用的「职级 ID」的类型
-         * <p> 示例值：
-         */
-        this.jobLevelIdType = builder.jobLevelIdType;
-        /**
-         * 官网 ID
-         * <p> 示例值：111
-         */
-        this.websiteId = builder.websiteId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public String getJobLevelIdType() {
-        return this.jobLevelIdType;
-    }
-
-    public void setJobLevelIdType(String jobLevelIdType) {
-        this.jobLevelIdType = jobLevelIdType;
-    }
-
-    public String getWebsiteId() {
-        return this.websiteId;
-    }
-
-    public void setWebsiteId(String websiteId) {
-        this.websiteId = websiteId;
-    }
-
     public SearchWebsiteJobPostReqBody getSearchWebsiteJobPostReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setSearchWebsiteJobPostReqBody(SearchWebsiteJobPostReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder searchWebsiteJobPostReqBody(SearchWebsiteJobPostReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String pageToken; // 下一页页码
-        private Integer pageSize; // 每页获取记录数量，最大10
-        private String userIdType; // 用户 ID 类型
-        private String departmentIdType; // 此次调用中使用的部门 ID 的类型
-        private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
-        private String websiteId; // 官网 ID
-        private SearchWebsiteJobPostReqBody body;
-
-        /**
-         * 下一页页码
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 每页获取记录数量，最大10
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 的类型
-         * <p> 示例值：
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的「职级 ID」的类型
-         * <p> 示例值：
-         *
-         * @param jobLevelIdType
-         * @return
-         */
-        public Builder jobLevelIdType(String jobLevelIdType) {
-            this.jobLevelIdType = jobLevelIdType;
-            return this;
-        }
-
-        /**
-         * 官网 ID
-         * <p> 示例值：111
-         *
-         * @param websiteId
-         * @return
-         */
-        public Builder websiteId(String websiteId) {
-            this.websiteId = websiteId;
-            return this;
-        }
-
-        public SearchWebsiteJobPostReqBody getSearchWebsiteJobPostReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder searchWebsiteJobPostReqBody(SearchWebsiteJobPostReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public SearchWebsiteJobPostReq build() {
-            return new SearchWebsiteJobPostReq(this);
-        }
+    public SearchWebsiteJobPostReq build() {
+      return new SearchWebsiteJobPostReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

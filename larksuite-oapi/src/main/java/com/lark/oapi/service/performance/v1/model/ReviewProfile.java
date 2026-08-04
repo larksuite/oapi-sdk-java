@@ -13,186 +13,203 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReviewProfile {
+  /**
+   * 被评估人 ID，ID
+   * 类型请参考：[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private User userId;
+
+  /**
+   * 周期
+   * ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list);
+   *
+   * <p>示例值：6992035450862224940
+   */
+  @SerializedName("semester_id")
+  private String semesterId;
+
+  /**
+   * 项目
+   * ID，详情可查看：[获取项目列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/activity/query);
+   *
+   * <p>示例值：6992035450862323244
+   */
+  @SerializedName("activity_id")
+  private String activityId;
+
+  /**
+   * 环节信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("stages")
+  private ReviewStage[] stages;
+
+  public User getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(User userId) {
+    this.userId = userId;
+  }
+
+  public String getSemesterId() {
+    return this.semesterId;
+  }
+
+  public void setSemesterId(String semesterId) {
+    this.semesterId = semesterId;
+  }
+
+  public String getActivityId() {
+    return this.activityId;
+  }
+
+  public void setActivityId(String activityId) {
+    this.activityId = activityId;
+  }
+
+  public ReviewStage[] getStages() {
+    return this.stages;
+  }
+
+  public void setStages(ReviewStage[] stages) {
+    this.stages = stages;
+  }
+
+  // builder 开始
+  public ReviewProfile() {}
+
+  public ReviewProfile(Builder builder) {
     /**
-     * 被评估人 ID
-     * <p> 示例值：
+     * 被评估人 ID，ID
+     * 类型请参考：[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview)
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+    /**
+     * 周期
+     * ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list);
+     *
+     * <p>示例值：6992035450862224940
+     */
+    this.semesterId = builder.semesterId;
+    /**
+     * 项目
+     * ID，详情可查看：[获取项目列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/activity/query);
+     *
+     * <p>示例值：6992035450862323244
+     */
+    this.activityId = builder.activityId;
+    /**
+     * 环节信息
+     *
+     * <p>示例值：
+     */
+    this.stages = builder.stages;
+  }
+
+  public static class Builder {
+    /**
+     * 被评估人 ID，ID
+     * 类型请参考：[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview)
+     *
+     * <p>示例值：
+     */
     private User userId;
+
     /**
-     * 绩效评估周期 ID
-     * <p> 示例值：6992035450862224940
+     * 周期
+     * ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list);
+     *
+     * <p>示例值：6992035450862224940
      */
-    @SerializedName("semester_id")
     private String semesterId;
+
     /**
-     * 绩效评估项目 ID
-     * <p> 示例值：6992035450862323244
+     * 项目
+     * ID，详情可查看：[获取项目列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/activity/query);
+     *
+     * <p>示例值：6992035450862323244
      */
-    @SerializedName("activity_id")
     private String activityId;
+
     /**
-     * 本周期内各环节内容
-     * <p> 示例值：
+     * 环节信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("stages")
     private ReviewStage[] stages;
 
-    // builder 开始
-    public ReviewProfile() {
+    /**
+     * 被评估人 ID，ID
+     * 类型请参考：[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview)
+     *
+     * <p>示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(User userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public ReviewProfile(Builder builder) {
-        /**
-         * 被评估人 ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 绩效评估周期 ID
-         * <p> 示例值：6992035450862224940
-         */
-        this.semesterId = builder.semesterId;
-        /**
-         * 绩效评估项目 ID
-         * <p> 示例值：6992035450862323244
-         */
-        this.activityId = builder.activityId;
-        /**
-         * 本周期内各环节内容
-         * <p> 示例值：
-         */
-        this.stages = builder.stages;
+    /**
+     * 周期
+     * ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list);
+     *
+     * <p>示例值：6992035450862224940
+     *
+     * @param semesterId
+     * @return
+     */
+    public Builder semesterId(String semesterId) {
+      this.semesterId = semesterId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 项目
+     * ID，详情可查看：[获取项目列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/activity/query);
+     *
+     * <p>示例值：6992035450862323244
+     *
+     * @param activityId
+     * @return
+     */
+    public Builder activityId(String activityId) {
+      this.activityId = activityId;
+      return this;
     }
 
-    public User getUserId() {
-        return this.userId;
+    /**
+     * 环节信息
+     *
+     * <p>示例值：
+     *
+     * @param stages
+     * @return
+     */
+    public Builder stages(ReviewStage[] stages) {
+      this.stages = stages;
+      return this;
     }
 
-    public void setUserId(User userId) {
-        this.userId = userId;
+    public ReviewProfile build() {
+      return new ReviewProfile(this);
     }
+  }
 
-    public String getSemesterId() {
-        return this.semesterId;
-    }
-
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
-    }
-
-    public String getActivityId() {
-        return this.activityId;
-    }
-
-    public void setActivityId(String activityId) {
-        this.activityId = activityId;
-    }
-
-    public ReviewStage[] getStages() {
-        return this.stages;
-    }
-
-    public void setStages(ReviewStage[] stages) {
-        this.stages = stages;
-    }
-
-    public static class Builder {
-        /**
-         * 被评估人 ID
-         * <p> 示例值：
-         */
-        private User userId;
-        /**
-         * 绩效评估周期 ID
-         * <p> 示例值：6992035450862224940
-         */
-        private String semesterId;
-        /**
-         * 绩效评估项目 ID
-         * <p> 示例值：6992035450862323244
-         */
-        private String activityId;
-        /**
-         * 本周期内各环节内容
-         * <p> 示例值：
-         */
-        private ReviewStage[] stages;
-
-        /**
-         * 被评估人 ID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(User userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估周期 ID
-         * <p> 示例值：6992035450862224940
-         *
-         * @param semesterId
-         * @return
-         */
-        public Builder semesterId(String semesterId) {
-            this.semesterId = semesterId;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估项目 ID
-         * <p> 示例值：6992035450862323244
-         *
-         * @param activityId
-         * @return
-         */
-        public Builder activityId(String activityId) {
-            this.activityId = activityId;
-            return this;
-        }
-
-
-        /**
-         * 本周期内各环节内容
-         * <p> 示例值：
-         *
-         * @param stages
-         * @return
-         */
-        public Builder stages(ReviewStage[] stages) {
-            this.stages = stages;
-            return this;
-        }
-
-
-        public ReviewProfile build() {
-            return new ReviewProfile(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

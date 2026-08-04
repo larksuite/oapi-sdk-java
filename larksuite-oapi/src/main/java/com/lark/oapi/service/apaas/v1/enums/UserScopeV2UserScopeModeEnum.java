@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.apaas.v1.enums;
 
-/**
- * 生效范围模式
- */
+/** 生效范围模式 */
 public enum UserScopeV2UserScopeModeEnum {
-    USERSCOPEMODEENUMALL("all"), // 所有角色生效
-    USERSCOPEMODEENUMROLE("role"), // 角色
-    USERSCOPEMODEENUMUSER("user"), // 用户
-    ;
-    private String value;
+  USERSCOPEMODEENUMALL("all"), // 所有角色生效
+  USERSCOPEMODEENUMROLE("role"), // 角色
+  USERSCOPEMODEENUMUSER("user"), // 用户
+  ;
+  private String value;
 
-    UserScopeV2UserScopeModeEnum(String value) {
-        this.value = value;
-    }
+  UserScopeV2UserScopeModeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

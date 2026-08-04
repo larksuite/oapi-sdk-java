@@ -13,215 +13,250 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.approval.v4.enums.*;
 
 public class ListInstanceCommentReq {
+  /**
+   * 用户ID类型，不填默认为open_id
+   *
+   * <p>示例值：user_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 用户 ID，ID 类型与 user_id_type 取值一致。
+   *
+   * <p>示例值：e5286g26
+   */
+  @Query
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 分页大小，用于限制一次请求返回的数据量上限。
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  /**
+   * 审批实例 Code。获取方式：;;-
+   * [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)
+   * 后，从返回结果中获取审批实例 Code。;- 调用[批量获取审批实例
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例
+   * Code。;-
+   * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+   * Code。;;**说明**：支持传入自定义审批实例 ID。
+   *
+   * <p>示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
+   */
+  @Path
+  @SerializedName("instance_id")
+  private String instanceId;
+
+  public String getInstanceId() {
+    return this.instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  // builder 开始
+  public ListInstanceCommentReq() {}
+
+  public ListInstanceCommentReq(Builder builder) {
     /**
      * 用户ID类型，不填默认为open_id
-     * <p> 示例值：user_id
+     *
+     * <p>示例值：user_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 用户ID
-     * <p> 示例值：e5286g26
+     * 用户 ID，ID 类型与 user_id_type 取值一致。
+     *
+     * <p>示例值：e5286g26
      */
-    @Query
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+     *
+     * <p>示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 分页大小
-     * <p> 示例值：10
+     * 分页大小，用于限制一次请求返回的数据量上限。
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 审批实例code（或者租户自定义审批实例ID）
-     * <p> 示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
+     * 审批实例 Code。获取方式：;;-
+     * [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)
+     * 后，从返回结果中获取审批实例 Code。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例
+     * Code。;-
+     * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+     * Code。;;**说明**：支持传入自定义审批实例 ID。
+     *
+     * <p>示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
      */
-    @Path
-    @SerializedName("instance_id")
-    private String instanceId;
+    this.instanceId = builder.instanceId;
+  }
 
-    // builder 开始
-    public ListInstanceCommentReq() {
+  public static class Builder {
+    private String userIdType; // 用户ID类型，不填默认为open_id
+    private String userId; // 用户 ID，ID 类型与 user_id_type 取值一致。
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private Integer pageSize; // 分页大小，用于限制一次请求返回的数据量上限。
+
+    /**
+     * 用户ID类型，不填默认为open_id
+     *
+     * <p>示例值：user_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public ListInstanceCommentReq(Builder builder) {
-        /**
-         * 用户ID类型，不填默认为open_id
-         * <p> 示例值：user_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 用户ID
-         * <p> 示例值：e5286g26
-         */
-        this.userId = builder.userId;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 审批实例code（或者租户自定义审批实例ID）
-         * <p> 示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
-         */
-        this.instanceId = builder.instanceId;
+    /**
+     * 用户ID类型，不填默认为open_id
+     *
+     * <p>示例值：user_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.approval.v4.enums.ListInstanceCommentListInstanceCommentUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.approval.v4.enums.ListInstanceCommentListInstanceCommentUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户 ID，ID 类型与 user_id_type 取值一致。
+     *
+     * <p>示例值：e5286g26
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    /**
+     * 分页大小，用于限制一次请求返回的数据量上限。
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    private String instanceId; // 审批实例 Code。获取方式：;;-
+
+    // [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create) 后，从返回结果中获取审批实例 Code。;- 调用[批量获取审批实例 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例 Code。;- 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例 Code。;;**说明**：支持传入自定义审批实例 ID。
+
+    /**
+     * 审批实例 Code。获取方式：;;-
+     * [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)
+     * 后，从返回结果中获取审批实例 Code。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例
+     * Code。;-
+     * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+     * Code。;;**说明**：支持传入自定义审批实例 ID。
+     *
+     * <p>示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
+     *
+     * @param instanceId
+     * @return
+     */
+    public Builder instanceId(String instanceId) {
+      this.instanceId = instanceId;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public ListInstanceCommentReq build() {
+      return new ListInstanceCommentReq(this);
     }
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getInstanceId() {
-        return this.instanceId;
-    }
-
-    public void setInstanceId(String instanceId) {
-        this.instanceId = instanceId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 用户ID类型，不填默认为open_id
-        private String userId; // 用户ID
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private Integer pageSize; // 分页大小
-        private String instanceId; // 审批实例code（或者租户自定义审批实例ID）
-
-        /**
-         * 用户ID类型，不填默认为open_id
-         * <p> 示例值：user_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户ID类型，不填默认为open_id
-         * <p> 示例值：user_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.ListInstanceCommentListInstanceCommentUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.ListInstanceCommentListInstanceCommentUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 用户ID
-         * <p> 示例值：e5286g26
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 审批实例code（或者租户自定义审批实例ID）
-         * <p> 示例值：6A123516-FB88-470D-A428-9AF58B71B3C0
-         *
-         * @param instanceId
-         * @return
-         */
-        public Builder instanceId(String instanceId) {
-            this.instanceId = instanceId;
-            return this;
-        }
-
-
-        public ListInstanceCommentReq build() {
-            return new ListInstanceCommentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

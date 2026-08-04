@@ -13,103 +13,126 @@
 
 package com.lark.oapi.service.corehr.v1.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.corehr.v1.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.corehr.v1.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class CompensationStandard {
-    private static final Logger log = LoggerFactory.getLogger(CompensationStandard.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(CompensationStandard.class);
+  private final Config config;
 
-    public CompensationStandard(Config config) {
-        this.config = config;
+  public CompensationStandard(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 获取员工薪资标准，- 调用此接口来获取员工匹配的薪资标准信息;- 请求时，可选传递员工的部门 ID、职级 ID、职务ID 、序列 ID 等筛选条件，用于匹配薪资标准;-
+   * 此接口将返回员工可匹配到的薪资标准全部信息，包括薪资标准表 ID、薪级薪等、薪资带宽、薪资标准值等
+   *
+   * <p>该接口会按照应用拥有的「薪资标准资源」的权限范围返回数据，请确定在「开发者后台 - 权限管理 - 数据权限-飞书人事(企业版)数据权限范围」中已申请「薪资标准资源」权限范围 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=match&project=corehr&resource=compensation_standard&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=match&project=corehr&resource=compensation_standard&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/MatchCompensationStandardSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/MatchCompensationStandardSample.java</a>
+   * ;
+   */
+  public MatchCompensationStandardResp match(
+      MatchCompensationStandardReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/corehr/v1/compensation_standards/match",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-    /**
-     * ，分页查询地点数据
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=match&project=corehr&resource=compensation_standard&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=match&project=corehr&resource=compensation_standard&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/MatchCompensationStandardSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/MatchCompensationStandardSample.java</a> ;
-     */
-    public MatchCompensationStandardResp match(MatchCompensationStandardReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/corehr/v1/compensation_standards/match"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        MatchCompensationStandardResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MatchCompensationStandardResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/compensation_standards/match"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    MatchCompensationStandardResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, MatchCompensationStandardResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/compensation_standards/match",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，分页查询地点数据
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=match&project=corehr&resource=compensation_standard&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=match&project=corehr&resource=compensation_standard&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/MatchCompensationStandardSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/MatchCompensationStandardSample.java</a> ;
-     */
-    public MatchCompensationStandardResp match(MatchCompensationStandardReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/corehr/v1/compensation_standards/match"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        MatchCompensationStandardResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MatchCompensationStandardResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/compensation_standards/match"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 获取员工薪资标准，- 调用此接口来获取员工匹配的薪资标准信息;- 请求时，可选传递员工的部门 ID、职级 ID、职务ID 、序列 ID 等筛选条件，用于匹配薪资标准;-
+   * 此接口将返回员工可匹配到的薪资标准全部信息，包括薪资标准表 ID、薪级薪等、薪资带宽、薪资标准值等
+   *
+   * <p>该接口会按照应用拥有的「薪资标准资源」的权限范围返回数据，请确定在「开发者后台 - 权限管理 - 数据权限-飞书人事(企业版)数据权限范围」中已申请「薪资标准资源」权限范围 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=match&project=corehr&resource=compensation_standard&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=match&project=corehr&resource=compensation_standard&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/MatchCompensationStandardSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/MatchCompensationStandardSample.java</a>
+   * ;
+   */
+  public MatchCompensationStandardResp match(MatchCompensationStandardReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/corehr/v1/compensation_standards/match",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    MatchCompensationStandardResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, MatchCompensationStandardResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/compensation_standards/match",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

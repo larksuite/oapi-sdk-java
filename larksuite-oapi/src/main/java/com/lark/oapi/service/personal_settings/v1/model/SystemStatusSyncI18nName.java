@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.personal_settings.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.personal_settings.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SystemStatusSyncI18nName {
+  /**
+   * 中文名
+   *
+   * <p>示例值：出差期间自动开启
+   */
+  @SerializedName("zh_cn")
+  private String zhCn;
+
+  /**
+   * 英文名
+   *
+   * <p>示例值：Auto display Business Trip
+   */
+  @SerializedName("en_us")
+  private String enUs;
+
+  /**
+   * 日文名
+   *
+   * <p>示例值：出張中に自動的にオンにする
+   */
+  @SerializedName("ja_jp")
+  private String jaJp;
+
+  public String getZhCn() {
+    return this.zhCn;
+  }
+
+  public void setZhCn(String zhCn) {
+    this.zhCn = zhCn;
+  }
+
+  public String getEnUs() {
+    return this.enUs;
+  }
+
+  public void setEnUs(String enUs) {
+    this.enUs = enUs;
+  }
+
+  public String getJaJp() {
+    return this.jaJp;
+  }
+
+  public void setJaJp(String jaJp) {
+    this.jaJp = jaJp;
+  }
+
+  // builder 开始
+  public SystemStatusSyncI18nName() {}
+
+  public SystemStatusSyncI18nName(Builder builder) {
     /**
      * 中文名
-     * <p> 示例值：出差期间自动开启
+     *
+     * <p>示例值：出差期间自动开启
      */
-    @SerializedName("zh_cn")
-    private String zhCn;
+    this.zhCn = builder.zhCn;
     /**
      * 英文名
-     * <p> 示例值：Auto display Business Trip
+     *
+     * <p>示例值：Auto display Business Trip
      */
-    @SerializedName("en_us")
-    private String enUs;
+    this.enUs = builder.enUs;
     /**
      * 日文名
-     * <p> 示例值：出張中に自動的にオンにする
+     *
+     * <p>示例值：出張中に自動的にオンにする
      */
-    @SerializedName("ja_jp")
+    this.jaJp = builder.jaJp;
+  }
+
+  public static class Builder {
+    /**
+     * 中文名
+     *
+     * <p>示例值：出差期间自动开启
+     */
+    private String zhCn;
+
+    /**
+     * 英文名
+     *
+     * <p>示例值：Auto display Business Trip
+     */
+    private String enUs;
+
+    /**
+     * 日文名
+     *
+     * <p>示例值：出張中に自動的にオンにする
+     */
     private String jaJp;
 
-    // builder 开始
-    public SystemStatusSyncI18nName() {
+    /**
+     * 中文名
+     *
+     * <p>示例值：出差期间自动开启
+     *
+     * @param zhCn
+     * @return
+     */
+    public Builder zhCn(String zhCn) {
+      this.zhCn = zhCn;
+      return this;
     }
 
-    public SystemStatusSyncI18nName(Builder builder) {
-        /**
-         * 中文名
-         * <p> 示例值：出差期间自动开启
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * 英文名
-         * <p> 示例值：Auto display Business Trip
-         */
-        this.enUs = builder.enUs;
-        /**
-         * 日文名
-         * <p> 示例值：出張中に自動的にオンにする
-         */
-        this.jaJp = builder.jaJp;
+    /**
+     * 英文名
+     *
+     * <p>示例值：Auto display Business Trip
+     *
+     * @param enUs
+     * @return
+     */
+    public Builder enUs(String enUs) {
+      this.enUs = enUs;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 日文名
+     *
+     * <p>示例值：出張中に自動的にオンにする
+     *
+     * @param jaJp
+     * @return
+     */
+    public Builder jaJp(String jaJp) {
+      this.jaJp = jaJp;
+      return this;
     }
 
-    public String getZhCn() {
-        return this.zhCn;
+    public SystemStatusSyncI18nName build() {
+      return new SystemStatusSyncI18nName(this);
     }
+  }
 
-    public void setZhCn(String zhCn) {
-        this.zhCn = zhCn;
-    }
-
-    public String getEnUs() {
-        return this.enUs;
-    }
-
-    public void setEnUs(String enUs) {
-        this.enUs = enUs;
-    }
-
-    public String getJaJp() {
-        return this.jaJp;
-    }
-
-    public void setJaJp(String jaJp) {
-        this.jaJp = jaJp;
-    }
-
-    public static class Builder {
-        /**
-         * 中文名
-         * <p> 示例值：出差期间自动开启
-         */
-        private String zhCn;
-        /**
-         * 英文名
-         * <p> 示例值：Auto display Business Trip
-         */
-        private String enUs;
-        /**
-         * 日文名
-         * <p> 示例值：出張中に自動的にオンにする
-         */
-        private String jaJp;
-
-        /**
-         * 中文名
-         * <p> 示例值：出差期间自动开启
-         *
-         * @param zhCn
-         * @return
-         */
-        public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
-        }
-
-
-        /**
-         * 英文名
-         * <p> 示例值：Auto display Business Trip
-         *
-         * @param enUs
-         * @return
-         */
-        public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
-        }
-
-
-        /**
-         * 日文名
-         * <p> 示例值：出張中に自動的にオンにする
-         *
-         * @param jaJp
-         * @return
-         */
-        public Builder jaJp(String jaJp) {
-            this.jaJp = jaJp;
-            return this;
-        }
-
-
-        public SystemStatusSyncI18nName build() {
-            return new SystemStatusSyncI18nName(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,482 +13,527 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AuditInfoItem {
+  /**
+   * 统计次数
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("count")
+  private Integer count;
+
+  /**
+   * 操作事件的名称，如“用户登录”“数据导出”
+   *
+   * <p>示例值：用户登录
+   */
+  @SerializedName("event_name")
+  private String eventName;
+
+  /**
+   * 操作事件的唯一标识ID，与event_name一一对应
+   *
+   * <p>示例值：1001
+   */
+  @SerializedName("event_name_id")
+  private Integer eventNameId;
+
+  /**
+   * 操作事件所属的模块ID，用于区分不同业务模块的操作
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("event_module")
+  private Integer eventModule;
+
+  /**
+   * 操作发起者的类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("operator_type")
+  private Integer operatorType;
+
+  /**
+   * 操作发起者的唯一标识，根据operator_type取值不同
+   *
+   * <p>示例值：EMP00123
+   */
+  @SerializedName("operator_value")
+  private String operatorValue;
+
+  /**
+   * 操作对象的类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("object_type")
+  private Integer objectType;
+
+  /**
+   * 操作对象的唯一标识，根据object_type取值不同
+   *
+   * <p>示例值：USER45678
+   */
+  @SerializedName("object_value")
+  private String objectValue;
+
+  /**
+   * 操作对象所属的租户
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("object_tenant")
+  private String objectTenant;
+
+  /**
+   * 操作发起者的IP地址
+   *
+   * <p>示例值：192.168.1.100
+   */
+  @SerializedName("ip")
+  private String ip;
+
+  /**
+   * 操作的详细审计信息，主要是城市
+   *
+   * <p>示例值：
+   */
+  @SerializedName("audit_detail")
+  private AuditDetail auditDetail;
+
+  /**
+   * 操作人所属租户
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("operator_tenant")
+  private String operatorTenant;
+
+  public Integer getCount() {
+    return this.count;
+  }
+
+  public void setCount(Integer count) {
+    this.count = count;
+  }
+
+  public String getEventName() {
+    return this.eventName;
+  }
+
+  public void setEventName(String eventName) {
+    this.eventName = eventName;
+  }
+
+  public Integer getEventNameId() {
+    return this.eventNameId;
+  }
+
+  public void setEventNameId(Integer eventNameId) {
+    this.eventNameId = eventNameId;
+  }
+
+  public Integer getEventModule() {
+    return this.eventModule;
+  }
+
+  public void setEventModule(Integer eventModule) {
+    this.eventModule = eventModule;
+  }
+
+  public Integer getOperatorType() {
+    return this.operatorType;
+  }
+
+  public void setOperatorType(Integer operatorType) {
+    this.operatorType = operatorType;
+  }
+
+  public String getOperatorValue() {
+    return this.operatorValue;
+  }
+
+  public void setOperatorValue(String operatorValue) {
+    this.operatorValue = operatorValue;
+  }
+
+  public Integer getObjectType() {
+    return this.objectType;
+  }
+
+  public void setObjectType(Integer objectType) {
+    this.objectType = objectType;
+  }
+
+  public String getObjectValue() {
+    return this.objectValue;
+  }
+
+  public void setObjectValue(String objectValue) {
+    this.objectValue = objectValue;
+  }
+
+  public String getObjectTenant() {
+    return this.objectTenant;
+  }
+
+  public void setObjectTenant(String objectTenant) {
+    this.objectTenant = objectTenant;
+  }
+
+  public String getIp() {
+    return this.ip;
+  }
+
+  public void setIp(String ip) {
+    this.ip = ip;
+  }
+
+  public AuditDetail getAuditDetail() {
+    return this.auditDetail;
+  }
+
+  public void setAuditDetail(AuditDetail auditDetail) {
+    this.auditDetail = auditDetail;
+  }
+
+  public String getOperatorTenant() {
+    return this.operatorTenant;
+  }
+
+  public void setOperatorTenant(String operatorTenant) {
+    this.operatorTenant = operatorTenant;
+  }
+
+  // builder 开始
+  public AuditInfoItem() {}
+
+  public AuditInfoItem(Builder builder) {
     /**
      * 统计次数
-     * <p> 示例值：3
+     *
+     * <p>示例值：3
      */
-    @SerializedName("count")
-    private Integer count;
+    this.count = builder.count;
     /**
      * 操作事件的名称，如“用户登录”“数据导出”
-     * <p> 示例值：用户登录
+     *
+     * <p>示例值：用户登录
      */
-    @SerializedName("event_name")
-    private String eventName;
+    this.eventName = builder.eventName;
     /**
      * 操作事件的唯一标识ID，与event_name一一对应
-     * <p> 示例值：1001
+     *
+     * <p>示例值：1001
      */
-    @SerializedName("event_name_id")
-    private Integer eventNameId;
+    this.eventNameId = builder.eventNameId;
     /**
      * 操作事件所属的模块ID，用于区分不同业务模块的操作
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("event_module")
-    private Integer eventModule;
+    this.eventModule = builder.eventModule;
     /**
      * 操作发起者的类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("operator_type")
-    private Integer operatorType;
+    this.operatorType = builder.operatorType;
     /**
      * 操作发起者的唯一标识，根据operator_type取值不同
-     * <p> 示例值：EMP00123
+     *
+     * <p>示例值：EMP00123
      */
-    @SerializedName("operator_value")
-    private String operatorValue;
+    this.operatorValue = builder.operatorValue;
     /**
      * 操作对象的类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("object_type")
-    private Integer objectType;
+    this.objectType = builder.objectType;
     /**
      * 操作对象的唯一标识，根据object_type取值不同
-     * <p> 示例值：USER45678
+     *
+     * <p>示例值：USER45678
      */
-    @SerializedName("object_value")
-    private String objectValue;
+    this.objectValue = builder.objectValue;
     /**
      * 操作对象所属的租户
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("object_tenant")
-    private String objectTenant;
+    this.objectTenant = builder.objectTenant;
     /**
      * 操作发起者的IP地址
-     * <p> 示例值：192.168.1.100
+     *
+     * <p>示例值：192.168.1.100
      */
-    @SerializedName("ip")
-    private String ip;
+    this.ip = builder.ip;
     /**
      * 操作的详细审计信息，主要是城市
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("audit_detail")
-    private AuditDetail auditDetail;
+    this.auditDetail = builder.auditDetail;
     /**
      * 操作人所属租户
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("operator_tenant")
+    this.operatorTenant = builder.operatorTenant;
+  }
+
+  public static class Builder {
+    /**
+     * 统计次数
+     *
+     * <p>示例值：3
+     */
+    private Integer count;
+
+    /**
+     * 操作事件的名称，如“用户登录”“数据导出”
+     *
+     * <p>示例值：用户登录
+     */
+    private String eventName;
+
+    /**
+     * 操作事件的唯一标识ID，与event_name一一对应
+     *
+     * <p>示例值：1001
+     */
+    private Integer eventNameId;
+
+    /**
+     * 操作事件所属的模块ID，用于区分不同业务模块的操作
+     *
+     * <p>示例值：2
+     */
+    private Integer eventModule;
+
+    /**
+     * 操作发起者的类型
+     *
+     * <p>示例值：1
+     */
+    private Integer operatorType;
+
+    /**
+     * 操作发起者的唯一标识，根据operator_type取值不同
+     *
+     * <p>示例值：EMP00123
+     */
+    private String operatorValue;
+
+    /**
+     * 操作对象的类型
+     *
+     * <p>示例值：1
+     */
+    private Integer objectType;
+
+    /**
+     * 操作对象的唯一标识，根据object_type取值不同
+     *
+     * <p>示例值：USER45678
+     */
+    private String objectValue;
+
+    /**
+     * 操作对象所属的租户
+     *
+     * <p>示例值：2
+     */
+    private String objectTenant;
+
+    /**
+     * 操作发起者的IP地址
+     *
+     * <p>示例值：192.168.1.100
+     */
+    private String ip;
+
+    /**
+     * 操作的详细审计信息，主要是城市
+     *
+     * <p>示例值：
+     */
+    private AuditDetail auditDetail;
+
+    /**
+     * 操作人所属租户
+     *
+     * <p>示例值：2
+     */
     private String operatorTenant;
 
-    // builder 开始
-    public AuditInfoItem() {
+    /**
+     * 统计次数
+     *
+     * <p>示例值：3
+     *
+     * @param count
+     * @return
+     */
+    public Builder count(Integer count) {
+      this.count = count;
+      return this;
     }
 
-    public AuditInfoItem(Builder builder) {
-        /**
-         * 统计次数
-         * <p> 示例值：3
-         */
-        this.count = builder.count;
-        /**
-         * 操作事件的名称，如“用户登录”“数据导出”
-         * <p> 示例值：用户登录
-         */
-        this.eventName = builder.eventName;
-        /**
-         * 操作事件的唯一标识ID，与event_name一一对应
-         * <p> 示例值：1001
-         */
-        this.eventNameId = builder.eventNameId;
-        /**
-         * 操作事件所属的模块ID，用于区分不同业务模块的操作
-         * <p> 示例值：2
-         */
-        this.eventModule = builder.eventModule;
-        /**
-         * 操作发起者的类型
-         * <p> 示例值：1
-         */
-        this.operatorType = builder.operatorType;
-        /**
-         * 操作发起者的唯一标识，根据operator_type取值不同
-         * <p> 示例值：EMP00123
-         */
-        this.operatorValue = builder.operatorValue;
-        /**
-         * 操作对象的类型
-         * <p> 示例值：1
-         */
-        this.objectType = builder.objectType;
-        /**
-         * 操作对象的唯一标识，根据object_type取值不同
-         * <p> 示例值：USER45678
-         */
-        this.objectValue = builder.objectValue;
-        /**
-         * 操作对象所属的租户
-         * <p> 示例值：2
-         */
-        this.objectTenant = builder.objectTenant;
-        /**
-         * 操作发起者的IP地址
-         * <p> 示例值：192.168.1.100
-         */
-        this.ip = builder.ip;
-        /**
-         * 操作的详细审计信息，主要是城市
-         * <p> 示例值：
-         */
-        this.auditDetail = builder.auditDetail;
-        /**
-         * 操作人所属租户
-         * <p> 示例值：2
-         */
-        this.operatorTenant = builder.operatorTenant;
+    /**
+     * 操作事件的名称，如“用户登录”“数据导出”
+     *
+     * <p>示例值：用户登录
+     *
+     * @param eventName
+     * @return
+     */
+    public Builder eventName(String eventName) {
+      this.eventName = eventName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作事件的唯一标识ID，与event_name一一对应
+     *
+     * <p>示例值：1001
+     *
+     * @param eventNameId
+     * @return
+     */
+    public Builder eventNameId(Integer eventNameId) {
+      this.eventNameId = eventNameId;
+      return this;
     }
 
-    public Integer getCount() {
-        return this.count;
+    /**
+     * 操作事件所属的模块ID，用于区分不同业务模块的操作
+     *
+     * <p>示例值：2
+     *
+     * @param eventModule
+     * @return
+     */
+    public Builder eventModule(Integer eventModule) {
+      this.eventModule = eventModule;
+      return this;
     }
 
-    public void setCount(Integer count) {
-        this.count = count;
+    /**
+     * 操作发起者的类型
+     *
+     * <p>示例值：1
+     *
+     * @param operatorType
+     * @return
+     */
+    public Builder operatorType(Integer operatorType) {
+      this.operatorType = operatorType;
+      return this;
     }
 
-    public String getEventName() {
-        return this.eventName;
+    /**
+     * 操作发起者的唯一标识，根据operator_type取值不同
+     *
+     * <p>示例值：EMP00123
+     *
+     * @param operatorValue
+     * @return
+     */
+    public Builder operatorValue(String operatorValue) {
+      this.operatorValue = operatorValue;
+      return this;
     }
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
+    /**
+     * 操作对象的类型
+     *
+     * <p>示例值：1
+     *
+     * @param objectType
+     * @return
+     */
+    public Builder objectType(Integer objectType) {
+      this.objectType = objectType;
+      return this;
     }
 
-    public Integer getEventNameId() {
-        return this.eventNameId;
+    /**
+     * 操作对象的唯一标识，根据object_type取值不同
+     *
+     * <p>示例值：USER45678
+     *
+     * @param objectValue
+     * @return
+     */
+    public Builder objectValue(String objectValue) {
+      this.objectValue = objectValue;
+      return this;
     }
 
-    public void setEventNameId(Integer eventNameId) {
-        this.eventNameId = eventNameId;
+    /**
+     * 操作对象所属的租户
+     *
+     * <p>示例值：2
+     *
+     * @param objectTenant
+     * @return
+     */
+    public Builder objectTenant(String objectTenant) {
+      this.objectTenant = objectTenant;
+      return this;
     }
 
-    public Integer getEventModule() {
-        return this.eventModule;
+    /**
+     * 操作发起者的IP地址
+     *
+     * <p>示例值：192.168.1.100
+     *
+     * @param ip
+     * @return
+     */
+    public Builder ip(String ip) {
+      this.ip = ip;
+      return this;
     }
 
-    public void setEventModule(Integer eventModule) {
-        this.eventModule = eventModule;
+    /**
+     * 操作的详细审计信息，主要是城市
+     *
+     * <p>示例值：
+     *
+     * @param auditDetail
+     * @return
+     */
+    public Builder auditDetail(AuditDetail auditDetail) {
+      this.auditDetail = auditDetail;
+      return this;
     }
 
-    public Integer getOperatorType() {
-        return this.operatorType;
+    /**
+     * 操作人所属租户
+     *
+     * <p>示例值：2
+     *
+     * @param operatorTenant
+     * @return
+     */
+    public Builder operatorTenant(String operatorTenant) {
+      this.operatorTenant = operatorTenant;
+      return this;
     }
 
-    public void setOperatorType(Integer operatorType) {
-        this.operatorType = operatorType;
+    public AuditInfoItem build() {
+      return new AuditInfoItem(this);
     }
+  }
 
-    public String getOperatorValue() {
-        return this.operatorValue;
-    }
-
-    public void setOperatorValue(String operatorValue) {
-        this.operatorValue = operatorValue;
-    }
-
-    public Integer getObjectType() {
-        return this.objectType;
-    }
-
-    public void setObjectType(Integer objectType) {
-        this.objectType = objectType;
-    }
-
-    public String getObjectValue() {
-        return this.objectValue;
-    }
-
-    public void setObjectValue(String objectValue) {
-        this.objectValue = objectValue;
-    }
-
-    public String getObjectTenant() {
-        return this.objectTenant;
-    }
-
-    public void setObjectTenant(String objectTenant) {
-        this.objectTenant = objectTenant;
-    }
-
-    public String getIp() {
-        return this.ip;
-    }
-
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
-
-    public AuditDetail getAuditDetail() {
-        return this.auditDetail;
-    }
-
-    public void setAuditDetail(AuditDetail auditDetail) {
-        this.auditDetail = auditDetail;
-    }
-
-    public String getOperatorTenant() {
-        return this.operatorTenant;
-    }
-
-    public void setOperatorTenant(String operatorTenant) {
-        this.operatorTenant = operatorTenant;
-    }
-
-    public static class Builder {
-        /**
-         * 统计次数
-         * <p> 示例值：3
-         */
-        private Integer count;
-        /**
-         * 操作事件的名称，如“用户登录”“数据导出”
-         * <p> 示例值：用户登录
-         */
-        private String eventName;
-        /**
-         * 操作事件的唯一标识ID，与event_name一一对应
-         * <p> 示例值：1001
-         */
-        private Integer eventNameId;
-        /**
-         * 操作事件所属的模块ID，用于区分不同业务模块的操作
-         * <p> 示例值：2
-         */
-        private Integer eventModule;
-        /**
-         * 操作发起者的类型
-         * <p> 示例值：1
-         */
-        private Integer operatorType;
-        /**
-         * 操作发起者的唯一标识，根据operator_type取值不同
-         * <p> 示例值：EMP00123
-         */
-        private String operatorValue;
-        /**
-         * 操作对象的类型
-         * <p> 示例值：1
-         */
-        private Integer objectType;
-        /**
-         * 操作对象的唯一标识，根据object_type取值不同
-         * <p> 示例值：USER45678
-         */
-        private String objectValue;
-        /**
-         * 操作对象所属的租户
-         * <p> 示例值：2
-         */
-        private String objectTenant;
-        /**
-         * 操作发起者的IP地址
-         * <p> 示例值：192.168.1.100
-         */
-        private String ip;
-        /**
-         * 操作的详细审计信息，主要是城市
-         * <p> 示例值：
-         */
-        private AuditDetail auditDetail;
-        /**
-         * 操作人所属租户
-         * <p> 示例值：2
-         */
-        private String operatorTenant;
-
-        /**
-         * 统计次数
-         * <p> 示例值：3
-         *
-         * @param count
-         * @return
-         */
-        public Builder count(Integer count) {
-            this.count = count;
-            return this;
-        }
-
-
-        /**
-         * 操作事件的名称，如“用户登录”“数据导出”
-         * <p> 示例值：用户登录
-         *
-         * @param eventName
-         * @return
-         */
-        public Builder eventName(String eventName) {
-            this.eventName = eventName;
-            return this;
-        }
-
-
-        /**
-         * 操作事件的唯一标识ID，与event_name一一对应
-         * <p> 示例值：1001
-         *
-         * @param eventNameId
-         * @return
-         */
-        public Builder eventNameId(Integer eventNameId) {
-            this.eventNameId = eventNameId;
-            return this;
-        }
-
-
-        /**
-         * 操作事件所属的模块ID，用于区分不同业务模块的操作
-         * <p> 示例值：2
-         *
-         * @param eventModule
-         * @return
-         */
-        public Builder eventModule(Integer eventModule) {
-            this.eventModule = eventModule;
-            return this;
-        }
-
-
-        /**
-         * 操作发起者的类型
-         * <p> 示例值：1
-         *
-         * @param operatorType
-         * @return
-         */
-        public Builder operatorType(Integer operatorType) {
-            this.operatorType = operatorType;
-            return this;
-        }
-
-
-        /**
-         * 操作发起者的唯一标识，根据operator_type取值不同
-         * <p> 示例值：EMP00123
-         *
-         * @param operatorValue
-         * @return
-         */
-        public Builder operatorValue(String operatorValue) {
-            this.operatorValue = operatorValue;
-            return this;
-        }
-
-
-        /**
-         * 操作对象的类型
-         * <p> 示例值：1
-         *
-         * @param objectType
-         * @return
-         */
-        public Builder objectType(Integer objectType) {
-            this.objectType = objectType;
-            return this;
-        }
-
-
-        /**
-         * 操作对象的唯一标识，根据object_type取值不同
-         * <p> 示例值：USER45678
-         *
-         * @param objectValue
-         * @return
-         */
-        public Builder objectValue(String objectValue) {
-            this.objectValue = objectValue;
-            return this;
-        }
-
-
-        /**
-         * 操作对象所属的租户
-         * <p> 示例值：2
-         *
-         * @param objectTenant
-         * @return
-         */
-        public Builder objectTenant(String objectTenant) {
-            this.objectTenant = objectTenant;
-            return this;
-        }
-
-
-        /**
-         * 操作发起者的IP地址
-         * <p> 示例值：192.168.1.100
-         *
-         * @param ip
-         * @return
-         */
-        public Builder ip(String ip) {
-            this.ip = ip;
-            return this;
-        }
-
-
-        /**
-         * 操作的详细审计信息，主要是城市
-         * <p> 示例值：
-         *
-         * @param auditDetail
-         * @return
-         */
-        public Builder auditDetail(AuditDetail auditDetail) {
-            this.auditDetail = auditDetail;
-            return this;
-        }
-
-
-        /**
-         * 操作人所属租户
-         * <p> 示例值：2
-         *
-         * @param operatorTenant
-         * @return
-         */
-        public Builder operatorTenant(String operatorTenant) {
-            this.operatorTenant = operatorTenant;
-            return this;
-        }
-
-
-        public AuditInfoItem build() {
-            return new AuditInfoItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

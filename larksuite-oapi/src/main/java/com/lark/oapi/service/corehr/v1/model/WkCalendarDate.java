@@ -13,198 +13,206 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WkCalendarDate {
+  /**
+   * 工作日历ID
+   *
+   * <p>示例值：7390282135276635692
+   */
+  @SerializedName("calendar_id")
+  private String calendarId;
+
+  /**
+   * 日期，格式："2006-01-02"
+   *
+   * <p>示例值：2006-01-02
+   */
+  @SerializedName("date")
+  private String date;
+
+  /**
+   * 日期类型
+   *
+   * <p>示例值：day_off
+   */
+  @SerializedName("date_type")
+  private String dateType;
+
+  /**
+   * 日期id
+   *
+   * <p>示例值：7390282135276635692
+   */
+  @SerializedName("id")
+  private String id;
+
+  public String getCalendarId() {
+    return this.calendarId;
+  }
+
+  public void setCalendarId(String calendarId) {
+    this.calendarId = calendarId;
+  }
+
+  public String getDate() {
+    return this.date;
+  }
+
+  public void setDate(String date) {
+    this.date = date;
+  }
+
+  public String getDateType() {
+    return this.dateType;
+  }
+
+  public void setDateType(String dateType) {
+    this.dateType = dateType;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  // builder 开始
+  public WkCalendarDate() {}
+
+  public WkCalendarDate(Builder builder) {
     /**
-     * 工作日历WKID
-     * <p> 示例值："7390282135276635692"
+     * 工作日历ID
+     *
+     * <p>示例值：7390282135276635692
      */
-    @SerializedName("calendar_id")
-    private String calendarId;
+    this.calendarId = builder.calendarId;
     /**
      * 日期，格式："2006-01-02"
-     * <p> 示例值："2006-01-02"
+     *
+     * <p>示例值：2006-01-02
      */
-    @SerializedName("date")
-    private String date;
+    this.date = builder.date;
     /**
      * 日期类型
-     * <p> 示例值："day_off"
+     *
+     * <p>示例值：day_off
      */
-    @SerializedName("date_type")
-    private String dateType;
+    this.dateType = builder.dateType;
     /**
      * 日期id
-     * <p> 示例值："7390282135276635692"
+     *
+     * <p>示例值：7390282135276635692
      */
-    @SerializedName("id")
+    this.id = builder.id;
+  }
+
+  public static class Builder {
+    /**
+     * 工作日历ID
+     *
+     * <p>示例值：7390282135276635692
+     */
+    private String calendarId;
+
+    /**
+     * 日期，格式："2006-01-02"
+     *
+     * <p>示例值：2006-01-02
+     */
+    private String date;
+
+    /**
+     * 日期类型
+     *
+     * <p>示例值：day_off
+     */
+    private String dateType;
+
+    /**
+     * 日期id
+     *
+     * <p>示例值：7390282135276635692
+     */
     private String id;
 
-    // builder 开始
-    public WkCalendarDate() {
+    /**
+     * 工作日历ID
+     *
+     * <p>示例值：7390282135276635692
+     *
+     * @param calendarId
+     * @return
+     */
+    public Builder calendarId(String calendarId) {
+      this.calendarId = calendarId;
+      return this;
     }
 
-    public WkCalendarDate(Builder builder) {
-        /**
-         * 工作日历WKID
-         * <p> 示例值："7390282135276635692"
-         */
-        this.calendarId = builder.calendarId;
-        /**
-         * 日期，格式："2006-01-02"
-         * <p> 示例值："2006-01-02"
-         */
-        this.date = builder.date;
-        /**
-         * 日期类型
-         * <p> 示例值："day_off"
-         */
-        this.dateType = builder.dateType;
-        /**
-         * 日期id
-         * <p> 示例值："7390282135276635692"
-         */
-        this.id = builder.id;
+    /**
+     * 日期，格式："2006-01-02"
+     *
+     * <p>示例值：2006-01-02
+     *
+     * @param date
+     * @return
+     */
+    public Builder date(String date) {
+      this.date = date;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 日期类型
+     *
+     * <p>示例值：day_off
+     *
+     * @param dateType
+     * @return
+     */
+    public Builder dateType(String dateType) {
+      this.dateType = dateType;
+      return this;
     }
 
-    public String getCalendarId() {
-        return this.calendarId;
+    /**
+     * 日期类型
+     *
+     * <p>示例值：day_off
+     *
+     * @param dateType {@link
+     *     com.lark.oapi.service.corehr.v1.enums.WkCalendarDateWorkCalendarDateTypeEnum}
+     * @return
+     */
+    public Builder dateType(
+        com.lark.oapi.service.corehr.v1.enums.WkCalendarDateWorkCalendarDateTypeEnum dateType) {
+      this.dateType = dateType.getValue();
+      return this;
     }
 
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
+    /**
+     * 日期id
+     *
+     * <p>示例值：7390282135276635692
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public String getDate() {
-        return this.date;
+    public WkCalendarDate build() {
+      return new WkCalendarDate(this);
     }
+  }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getDateType() {
-        return this.dateType;
-    }
-
-    public void setDateType(String dateType) {
-        this.dateType = dateType;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public static class Builder {
-        /**
-         * 工作日历WKID
-         * <p> 示例值："7390282135276635692"
-         */
-        private String calendarId;
-        /**
-         * 日期，格式："2006-01-02"
-         * <p> 示例值："2006-01-02"
-         */
-        private String date;
-        /**
-         * 日期类型
-         * <p> 示例值："day_off"
-         */
-        private String dateType;
-        /**
-         * 日期id
-         * <p> 示例值："7390282135276635692"
-         */
-        private String id;
-
-        /**
-         * 工作日历WKID
-         * <p> 示例值："7390282135276635692"
-         *
-         * @param calendarId
-         * @return
-         */
-        public Builder calendarId(String calendarId) {
-            this.calendarId = calendarId;
-            return this;
-        }
-
-
-        /**
-         * 日期，格式："2006-01-02"
-         * <p> 示例值："2006-01-02"
-         *
-         * @param date
-         * @return
-         */
-        public Builder date(String date) {
-            this.date = date;
-            return this;
-        }
-
-
-        /**
-         * 日期类型
-         * <p> 示例值："day_off"
-         *
-         * @param dateType
-         * @return
-         */
-        public Builder dateType(String dateType) {
-            this.dateType = dateType;
-            return this;
-        }
-
-        /**
-         * 日期类型
-         * <p> 示例值："day_off"
-         *
-         * @param dateType {@link com.lark.oapi.service.corehr.v1.enums.WkCalendarDateWorkCalendarDateTypeEnum}
-         * @return
-         */
-        public Builder dateType(com.lark.oapi.service.corehr.v1.enums.WkCalendarDateWorkCalendarDateTypeEnum dateType) {
-            this.dateType = dateType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 日期id
-         * <p> 示例值："7390282135276635692"
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        public WkCalendarDate build() {
-            return new WkCalendarDate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

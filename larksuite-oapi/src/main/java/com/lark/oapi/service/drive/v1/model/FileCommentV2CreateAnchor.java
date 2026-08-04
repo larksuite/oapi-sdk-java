@@ -13,408 +13,485 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FileCommentV2CreateAnchor {
+  /**
+   * 文档块级元素的唯一标识,用于将评论锚定到指定的内容块。可通过「获取文档所有块」接口获取目标文档的块级元素ID。
+   *
+   * <p>示例值：block1234567890abcdef
+   */
+  @SerializedName("block_id")
+  private String blockId;
+
+  /**
+   * 父文件token，可选
+   *
+   * <p>示例值：fldabc123xyz7sfjsfjh89
+   */
+  @SerializedName("parent_file_token")
+  private String parentFileToken;
+
+  /**
+   * 父文件类型，可选
+   *
+   * <p>示例值：docx
+   */
+  @SerializedName("parent_file_type")
+  private String parentFileType;
+
+  /**
+   * sheet划线评论的行序号，可选
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("sheet_row")
+  private Integer sheetRow;
+
+  /**
+   * sheet划线评论的列序号，可选
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("sheet_col")
+  private Integer sheetCol;
+
+  /**
+   * slide划线block元素类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("slide_block_type")
+  private String slideBlockType;
+
+  /**
+   * base划线评论的行记录标识
+   *
+   * <p>示例值：
+   */
+  @SerializedName("base_record_id")
+  private String baseRecordId;
+
+  /**
+   * base划线评论的视图标识
+   *
+   * <p>示例值：
+   */
+  @SerializedName("base_view_id")
+  private String baseViewId;
+
+  /**
+   * file类型划线评论的页序号
+   *
+   * <p>示例值：
+   */
+  @SerializedName("file_page_num")
+  private String filePageNum;
+
+  /**
+   * file类型的extra内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("file_extra")
+  private String fileExtra;
+
+  /**
+   * 划线锚点信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("content_anchor_id")
+  private String contentAnchorId;
+
+  public String getBlockId() {
+    return this.blockId;
+  }
+
+  public void setBlockId(String blockId) {
+    this.blockId = blockId;
+  }
+
+  public String getParentFileToken() {
+    return this.parentFileToken;
+  }
+
+  public void setParentFileToken(String parentFileToken) {
+    this.parentFileToken = parentFileToken;
+  }
+
+  public String getParentFileType() {
+    return this.parentFileType;
+  }
+
+  public void setParentFileType(String parentFileType) {
+    this.parentFileType = parentFileType;
+  }
+
+  public Integer getSheetRow() {
+    return this.sheetRow;
+  }
+
+  public void setSheetRow(Integer sheetRow) {
+    this.sheetRow = sheetRow;
+  }
+
+  public Integer getSheetCol() {
+    return this.sheetCol;
+  }
+
+  public void setSheetCol(Integer sheetCol) {
+    this.sheetCol = sheetCol;
+  }
+
+  public String getSlideBlockType() {
+    return this.slideBlockType;
+  }
+
+  public void setSlideBlockType(String slideBlockType) {
+    this.slideBlockType = slideBlockType;
+  }
+
+  public String getBaseRecordId() {
+    return this.baseRecordId;
+  }
+
+  public void setBaseRecordId(String baseRecordId) {
+    this.baseRecordId = baseRecordId;
+  }
+
+  public String getBaseViewId() {
+    return this.baseViewId;
+  }
+
+  public void setBaseViewId(String baseViewId) {
+    this.baseViewId = baseViewId;
+  }
+
+  public String getFilePageNum() {
+    return this.filePageNum;
+  }
+
+  public void setFilePageNum(String filePageNum) {
+    this.filePageNum = filePageNum;
+  }
+
+  public String getFileExtra() {
+    return this.fileExtra;
+  }
+
+  public void setFileExtra(String fileExtra) {
+    this.fileExtra = fileExtra;
+  }
+
+  public String getContentAnchorId() {
+    return this.contentAnchorId;
+  }
+
+  public void setContentAnchorId(String contentAnchorId) {
+    this.contentAnchorId = contentAnchorId;
+  }
+
+  // builder 开始
+  public FileCommentV2CreateAnchor() {}
+
+  public FileCommentV2CreateAnchor(Builder builder) {
     /**
      * 文档块级元素的唯一标识,用于将评论锚定到指定的内容块。可通过「获取文档所有块」接口获取目标文档的块级元素ID。
-     * <p> 示例值：block1234567890abcdef
+     *
+     * <p>示例值：block1234567890abcdef
      */
-    @SerializedName("block_id")
-    private String blockId;
+    this.blockId = builder.blockId;
     /**
      * 父文件token，可选
-     * <p> 示例值：fldabc123xyz7sfjsfjh89
+     *
+     * <p>示例值：fldabc123xyz7sfjsfjh89
      */
-    @SerializedName("parent_file_token")
-    private String parentFileToken;
+    this.parentFileToken = builder.parentFileToken;
     /**
      * 父文件类型，可选
-     * <p> 示例值：docx
+     *
+     * <p>示例值：docx
      */
-    @SerializedName("parent_file_type")
-    private String parentFileType;
+    this.parentFileType = builder.parentFileType;
     /**
      * sheet划线评论的行序号，可选
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("sheet_row")
-    private Integer sheetRow;
+    this.sheetRow = builder.sheetRow;
     /**
      * sheet划线评论的列序号，可选
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("sheet_col")
-    private Integer sheetCol;
+    this.sheetCol = builder.sheetCol;
     /**
      * slide划线block元素类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("slide_block_type")
-    private String slideBlockType;
+    this.slideBlockType = builder.slideBlockType;
     /**
      * base划线评论的行记录标识
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("base_record_id")
-    private String baseRecordId;
+    this.baseRecordId = builder.baseRecordId;
     /**
      * base划线评论的视图标识
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("base_view_id")
-    private String baseViewId;
+    this.baseViewId = builder.baseViewId;
     /**
      * file类型划线评论的页序号
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("file_page_num")
-    private String filePageNum;
+    this.filePageNum = builder.filePageNum;
     /**
      * file类型的extra内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("file_extra")
+    this.fileExtra = builder.fileExtra;
+    /**
+     * 划线锚点信息
+     *
+     * <p>示例值：
+     */
+    this.contentAnchorId = builder.contentAnchorId;
+  }
+
+  public static class Builder {
+    /**
+     * 文档块级元素的唯一标识,用于将评论锚定到指定的内容块。可通过「获取文档所有块」接口获取目标文档的块级元素ID。
+     *
+     * <p>示例值：block1234567890abcdef
+     */
+    private String blockId;
+
+    /**
+     * 父文件token，可选
+     *
+     * <p>示例值：fldabc123xyz7sfjsfjh89
+     */
+    private String parentFileToken;
+
+    /**
+     * 父文件类型，可选
+     *
+     * <p>示例值：docx
+     */
+    private String parentFileType;
+
+    /**
+     * sheet划线评论的行序号，可选
+     *
+     * <p>示例值：1
+     */
+    private Integer sheetRow;
+
+    /**
+     * sheet划线评论的列序号，可选
+     *
+     * <p>示例值：10
+     */
+    private Integer sheetCol;
+
+    /**
+     * slide划线block元素类型
+     *
+     * <p>示例值：
+     */
+    private String slideBlockType;
+
+    /**
+     * base划线评论的行记录标识
+     *
+     * <p>示例值：
+     */
+    private String baseRecordId;
+
+    /**
+     * base划线评论的视图标识
+     *
+     * <p>示例值：
+     */
+    private String baseViewId;
+
+    /**
+     * file类型划线评论的页序号
+     *
+     * <p>示例值：
+     */
+    private String filePageNum;
+
+    /**
+     * file类型的extra内容
+     *
+     * <p>示例值：
+     */
     private String fileExtra;
 
-    // builder 开始
-    public FileCommentV2CreateAnchor() {
+    /**
+     * 划线锚点信息
+     *
+     * <p>示例值：
+     */
+    private String contentAnchorId;
+
+    /**
+     * 文档块级元素的唯一标识,用于将评论锚定到指定的内容块。可通过「获取文档所有块」接口获取目标文档的块级元素ID。
+     *
+     * <p>示例值：block1234567890abcdef
+     *
+     * @param blockId
+     * @return
+     */
+    public Builder blockId(String blockId) {
+      this.blockId = blockId;
+      return this;
     }
 
-    public FileCommentV2CreateAnchor(Builder builder) {
-        /**
-         * 文档块级元素的唯一标识,用于将评论锚定到指定的内容块。可通过「获取文档所有块」接口获取目标文档的块级元素ID。
-         * <p> 示例值：block1234567890abcdef
-         */
-        this.blockId = builder.blockId;
-        /**
-         * 父文件token，可选
-         * <p> 示例值：fldabc123xyz7sfjsfjh89
-         */
-        this.parentFileToken = builder.parentFileToken;
-        /**
-         * 父文件类型，可选
-         * <p> 示例值：docx
-         */
-        this.parentFileType = builder.parentFileType;
-        /**
-         * sheet划线评论的行序号，可选
-         * <p> 示例值：1
-         */
-        this.sheetRow = builder.sheetRow;
-        /**
-         * sheet划线评论的列序号，可选
-         * <p> 示例值：10
-         */
-        this.sheetCol = builder.sheetCol;
-        /**
-         * slide划线block元素类型
-         * <p> 示例值：
-         */
-        this.slideBlockType = builder.slideBlockType;
-        /**
-         * base划线评论的行记录标识
-         * <p> 示例值：
-         */
-        this.baseRecordId = builder.baseRecordId;
-        /**
-         * base划线评论的视图标识
-         * <p> 示例值：
-         */
-        this.baseViewId = builder.baseViewId;
-        /**
-         * file类型划线评论的页序号
-         * <p> 示例值：
-         */
-        this.filePageNum = builder.filePageNum;
-        /**
-         * file类型的extra内容
-         * <p> 示例值：
-         */
-        this.fileExtra = builder.fileExtra;
+    /**
+     * 父文件token，可选
+     *
+     * <p>示例值：fldabc123xyz7sfjsfjh89
+     *
+     * @param parentFileToken
+     * @return
+     */
+    public Builder parentFileToken(String parentFileToken) {
+      this.parentFileToken = parentFileToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 父文件类型，可选
+     *
+     * <p>示例值：docx
+     *
+     * @param parentFileType
+     * @return
+     */
+    public Builder parentFileType(String parentFileType) {
+      this.parentFileType = parentFileType;
+      return this;
     }
 
-    public String getBlockId() {
-        return this.blockId;
+    /**
+     * sheet划线评论的行序号，可选
+     *
+     * <p>示例值：1
+     *
+     * @param sheetRow
+     * @return
+     */
+    public Builder sheetRow(Integer sheetRow) {
+      this.sheetRow = sheetRow;
+      return this;
     }
 
-    public void setBlockId(String blockId) {
-        this.blockId = blockId;
+    /**
+     * sheet划线评论的列序号，可选
+     *
+     * <p>示例值：10
+     *
+     * @param sheetCol
+     * @return
+     */
+    public Builder sheetCol(Integer sheetCol) {
+      this.sheetCol = sheetCol;
+      return this;
     }
 
-    public String getParentFileToken() {
-        return this.parentFileToken;
+    /**
+     * slide划线block元素类型
+     *
+     * <p>示例值：
+     *
+     * @param slideBlockType
+     * @return
+     */
+    public Builder slideBlockType(String slideBlockType) {
+      this.slideBlockType = slideBlockType;
+      return this;
     }
 
-    public void setParentFileToken(String parentFileToken) {
-        this.parentFileToken = parentFileToken;
+    /**
+     * base划线评论的行记录标识
+     *
+     * <p>示例值：
+     *
+     * @param baseRecordId
+     * @return
+     */
+    public Builder baseRecordId(String baseRecordId) {
+      this.baseRecordId = baseRecordId;
+      return this;
     }
 
-    public String getParentFileType() {
-        return this.parentFileType;
+    /**
+     * base划线评论的视图标识
+     *
+     * <p>示例值：
+     *
+     * @param baseViewId
+     * @return
+     */
+    public Builder baseViewId(String baseViewId) {
+      this.baseViewId = baseViewId;
+      return this;
     }
 
-    public void setParentFileType(String parentFileType) {
-        this.parentFileType = parentFileType;
+    /**
+     * file类型划线评论的页序号
+     *
+     * <p>示例值：
+     *
+     * @param filePageNum
+     * @return
+     */
+    public Builder filePageNum(String filePageNum) {
+      this.filePageNum = filePageNum;
+      return this;
     }
 
-    public Integer getSheetRow() {
-        return this.sheetRow;
+    /**
+     * file类型的extra内容
+     *
+     * <p>示例值：
+     *
+     * @param fileExtra
+     * @return
+     */
+    public Builder fileExtra(String fileExtra) {
+      this.fileExtra = fileExtra;
+      return this;
     }
 
-    public void setSheetRow(Integer sheetRow) {
-        this.sheetRow = sheetRow;
+    /**
+     * 划线锚点信息
+     *
+     * <p>示例值：
+     *
+     * @param contentAnchorId
+     * @return
+     */
+    public Builder contentAnchorId(String contentAnchorId) {
+      this.contentAnchorId = contentAnchorId;
+      return this;
     }
 
-    public Integer getSheetCol() {
-        return this.sheetCol;
+    public FileCommentV2CreateAnchor build() {
+      return new FileCommentV2CreateAnchor(this);
     }
+  }
 
-    public void setSheetCol(Integer sheetCol) {
-        this.sheetCol = sheetCol;
-    }
-
-    public String getSlideBlockType() {
-        return this.slideBlockType;
-    }
-
-    public void setSlideBlockType(String slideBlockType) {
-        this.slideBlockType = slideBlockType;
-    }
-
-    public String getBaseRecordId() {
-        return this.baseRecordId;
-    }
-
-    public void setBaseRecordId(String baseRecordId) {
-        this.baseRecordId = baseRecordId;
-    }
-
-    public String getBaseViewId() {
-        return this.baseViewId;
-    }
-
-    public void setBaseViewId(String baseViewId) {
-        this.baseViewId = baseViewId;
-    }
-
-    public String getFilePageNum() {
-        return this.filePageNum;
-    }
-
-    public void setFilePageNum(String filePageNum) {
-        this.filePageNum = filePageNum;
-    }
-
-    public String getFileExtra() {
-        return this.fileExtra;
-    }
-
-    public void setFileExtra(String fileExtra) {
-        this.fileExtra = fileExtra;
-    }
-
-    public static class Builder {
-        /**
-         * 文档块级元素的唯一标识,用于将评论锚定到指定的内容块。可通过「获取文档所有块」接口获取目标文档的块级元素ID。
-         * <p> 示例值：block1234567890abcdef
-         */
-        private String blockId;
-        /**
-         * 父文件token，可选
-         * <p> 示例值：fldabc123xyz7sfjsfjh89
-         */
-        private String parentFileToken;
-        /**
-         * 父文件类型，可选
-         * <p> 示例值：docx
-         */
-        private String parentFileType;
-        /**
-         * sheet划线评论的行序号，可选
-         * <p> 示例值：1
-         */
-        private Integer sheetRow;
-        /**
-         * sheet划线评论的列序号，可选
-         * <p> 示例值：10
-         */
-        private Integer sheetCol;
-        /**
-         * slide划线block元素类型
-         * <p> 示例值：
-         */
-        private String slideBlockType;
-        /**
-         * base划线评论的行记录标识
-         * <p> 示例值：
-         */
-        private String baseRecordId;
-        /**
-         * base划线评论的视图标识
-         * <p> 示例值：
-         */
-        private String baseViewId;
-        /**
-         * file类型划线评论的页序号
-         * <p> 示例值：
-         */
-        private String filePageNum;
-        /**
-         * file类型的extra内容
-         * <p> 示例值：
-         */
-        private String fileExtra;
-
-        /**
-         * 文档块级元素的唯一标识,用于将评论锚定到指定的内容块。可通过「获取文档所有块」接口获取目标文档的块级元素ID。
-         * <p> 示例值：block1234567890abcdef
-         *
-         * @param blockId
-         * @return
-         */
-        public Builder blockId(String blockId) {
-            this.blockId = blockId;
-            return this;
-        }
-
-
-        /**
-         * 父文件token，可选
-         * <p> 示例值：fldabc123xyz7sfjsfjh89
-         *
-         * @param parentFileToken
-         * @return
-         */
-        public Builder parentFileToken(String parentFileToken) {
-            this.parentFileToken = parentFileToken;
-            return this;
-        }
-
-
-        /**
-         * 父文件类型，可选
-         * <p> 示例值：docx
-         *
-         * @param parentFileType
-         * @return
-         */
-        public Builder parentFileType(String parentFileType) {
-            this.parentFileType = parentFileType;
-            return this;
-        }
-
-
-        /**
-         * sheet划线评论的行序号，可选
-         * <p> 示例值：1
-         *
-         * @param sheetRow
-         * @return
-         */
-        public Builder sheetRow(Integer sheetRow) {
-            this.sheetRow = sheetRow;
-            return this;
-        }
-
-
-        /**
-         * sheet划线评论的列序号，可选
-         * <p> 示例值：10
-         *
-         * @param sheetCol
-         * @return
-         */
-        public Builder sheetCol(Integer sheetCol) {
-            this.sheetCol = sheetCol;
-            return this;
-        }
-
-
-        /**
-         * slide划线block元素类型
-         * <p> 示例值：
-         *
-         * @param slideBlockType
-         * @return
-         */
-        public Builder slideBlockType(String slideBlockType) {
-            this.slideBlockType = slideBlockType;
-            return this;
-        }
-
-
-        /**
-         * base划线评论的行记录标识
-         * <p> 示例值：
-         *
-         * @param baseRecordId
-         * @return
-         */
-        public Builder baseRecordId(String baseRecordId) {
-            this.baseRecordId = baseRecordId;
-            return this;
-        }
-
-
-        /**
-         * base划线评论的视图标识
-         * <p> 示例值：
-         *
-         * @param baseViewId
-         * @return
-         */
-        public Builder baseViewId(String baseViewId) {
-            this.baseViewId = baseViewId;
-            return this;
-        }
-
-
-        /**
-         * file类型划线评论的页序号
-         * <p> 示例值：
-         *
-         * @param filePageNum
-         * @return
-         */
-        public Builder filePageNum(String filePageNum) {
-            this.filePageNum = filePageNum;
-            return this;
-        }
-
-
-        /**
-         * file类型的extra内容
-         * <p> 示例值：
-         *
-         * @param fileExtra
-         * @return
-         */
-        public Builder fileExtra(String fileExtra) {
-            this.fileExtra = fileExtra;
-            return this;
-        }
-
-
-        public FileCommentV2CreateAnchor build() {
-            return new FileCommentV2CreateAnchor(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

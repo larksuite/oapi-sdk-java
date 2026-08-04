@@ -13,106 +13,100 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class TrashUserMailboxMessageReq {
+  /**
+   * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+   *
+   * <p>示例值：me
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  /**
+   * 邮件ID，可通过列出邮件接口获得
+   *
+   * <p>示例值：NzR3Zkd5NGhBTS9NVkZnSklidDVGT3VoQmM4PQ==
+   */
+  @Path
+  @SerializedName("message_id")
+  private String messageId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  // builder 开始
+  public TrashUserMailboxMessageReq() {}
+
+  public TrashUserMailboxMessageReq(Builder builder) {
     /**
      * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-     * <p> 示例值：me
+     *
+     * <p>示例值：me
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
     /**
      * 邮件ID，可通过列出邮件接口获得
-     * <p> 示例值：NzR3Zkd5NGhBTS9NVkZnSklidDVGT3VoQmM4PQ==
+     *
+     * <p>示例值：NzR3Zkd5NGhBTS9NVkZnSklidDVGT3VoQmM4PQ==
      */
-    @Path
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
+  }
 
-    // builder 开始
-    public TrashUserMailboxMessageReq() {
+  public static class Builder {
+
+    private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+    private String messageId; // 邮件ID，可通过列出邮件接口获得
+
+    /**
+     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+     *
+     * <p>示例值：me
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
     }
 
-    public TrashUserMailboxMessageReq(Builder builder) {
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-         * <p> 示例值：me
-         */
-        this.userMailboxId = builder.userMailboxId;
-        /**
-         * 邮件ID，可通过列出邮件接口获得
-         * <p> 示例值：NzR3Zkd5NGhBTS9NVkZnSklidDVGT3VoQmM4PQ==
-         */
-        this.messageId = builder.messageId;
+    /**
+     * 邮件ID，可通过列出邮件接口获得
+     *
+     * <p>示例值：NzR3Zkd5NGhBTS9NVkZnSklidDVGT3VoQmM4PQ==
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TrashUserMailboxMessageReq build() {
+      return new TrashUserMailboxMessageReq(this);
     }
+  }
 
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public static class Builder {
-
-        private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-        private String messageId; // 邮件ID，可通过列出邮件接口获得
-
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-         * <p> 示例值：me
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-
-        /**
-         * 邮件ID，可通过列出邮件接口获得
-         * <p> 示例值：NzR3Zkd5NGhBTS9NVkZnSklidDVGT3VoQmM4PQ==
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        public TrashUserMailboxMessageReq build() {
-            return new TrashUserMailboxMessageReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

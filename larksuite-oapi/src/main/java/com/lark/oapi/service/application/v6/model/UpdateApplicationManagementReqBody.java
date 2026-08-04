@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateApplicationManagementReqBody {
+  /**
+   * 启用/停用应用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("enable")
+  private Boolean enable;
+
+  public Boolean getEnable() {
+    return this.enable;
+  }
+
+  public void setEnable(Boolean enable) {
+    this.enable = enable;
+  }
+
+  // builder 开始
+  public UpdateApplicationManagementReqBody() {}
+
+  public UpdateApplicationManagementReqBody(Builder builder) {
     /**
      * 启用/停用应用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("enable")
+    this.enable = builder.enable;
+  }
+
+  public static class Builder {
+    /**
+     * 启用/停用应用
+     *
+     * <p>示例值：true
+     */
     private Boolean enable;
 
-    // builder 开始
-    public UpdateApplicationManagementReqBody() {
+    /**
+     * 启用/停用应用
+     *
+     * <p>示例值：true
+     *
+     * @param enable
+     * @return
+     */
+    public Builder enable(Boolean enable) {
+      this.enable = enable;
+      return this;
     }
 
-    public UpdateApplicationManagementReqBody(Builder builder) {
-        /**
-         * 启用/停用应用
-         * <p> 示例值：true
-         */
-        this.enable = builder.enable;
+    public UpdateApplicationManagementReqBody build() {
+      return new UpdateApplicationManagementReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Boolean getEnable() {
-        return this.enable;
-    }
-
-    public void setEnable(Boolean enable) {
-        this.enable = enable;
-    }
-
-    public static class Builder {
-        /**
-         * 启用/停用应用
-         * <p> 示例值：true
-         */
-        private Boolean enable;
-
-        /**
-         * 启用/停用应用
-         * <p> 示例值：true
-         *
-         * @param enable
-         * @return
-         */
-        public Builder enable(Boolean enable) {
-            this.enable = enable;
-            return this;
-        }
-
-
-        public UpdateApplicationManagementReqBody build() {
-            return new UpdateApplicationManagementReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

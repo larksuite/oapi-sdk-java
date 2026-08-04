@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 出现不可用ID后的处理方式 0/1/2
- */
+/** 出现不可用ID后的处理方式 0/1/2;;**默认值**：`0` */
 public enum CreateChatMembersInviteMemberSucceedTypeEnum {
-    VALUE_0(0), // 保持以前的策略，存在不可用的 ID 会拉群失败，返回错误响应
-    VALUE_1(1), // 将可用 ID 全部拉入群，返回拉群成功的响应，并展示不可用的
-    VALUE_2(2), // 存在不可用的 ID 会拉群失败，返回错误响应，并展示出不可用的 ID
-    ;
-    private Integer value;
+  VALUE_0(0), // 不存在/不可见的 ID 会拉群失败，并返回错误响应。存在已离职 ID 时，会将其他可用 ID 拉入群聊，返回拉群成功的响应。
+  VALUE_1(1), // 将参数中可用的 ID 全部拉入群聊，返回拉群成功的响应，并展示剩余不可用的 ID 及原因。
+  VALUE_2(2), // 参数中只要存在任一不可用的 ID ，就会拉群失败，返回错误响应，并展示出不可用的 ID。
+  ;
+  private Integer value;
 
-    CreateChatMembersInviteMemberSucceedTypeEnum(Integer value) {
-        this.value = value;
-    }
+  CreateChatMembersInviteMemberSucceedTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

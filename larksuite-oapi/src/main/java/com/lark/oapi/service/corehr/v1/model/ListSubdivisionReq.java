@@ -13,139 +13,138 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class ListSubdivisionReq {
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：1231231987
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_size")
+  private String pageSize;
+
+  /**
+   * 国家/地区id，填写后只查询该国家/地区下的省份/行政区
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("country_region_id")
+  private String countryRegionId;
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(String pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getCountryRegionId() {
+    return this.countryRegionId;
+  }
+
+  public void setCountryRegionId(String countryRegionId) {
+    this.countryRegionId = countryRegionId;
+  }
+
+  // builder 开始
+  public ListSubdivisionReq() {}
+
+  public ListSubdivisionReq(Builder builder) {
     /**
-     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-     * <p> 示例值：1231231987
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：1231231987
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 每页获取记录数量，最大100
-     * <p> 示例值：100
+     * 分页大小
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_size")
-    private String pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 国家/地区id，填写后只查询该国家/地区下的省份/行政区
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("country_region_id")
-    private String countryRegionId;
+    this.countryRegionId = builder.countryRegionId;
+  }
 
-    // builder 开始
-    public ListSubdivisionReq() {
+  public static class Builder {
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String pageSize; // 分页大小
+    private String countryRegionId; // 国家/地区id，填写后只查询该国家/地区下的省份/行政区
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：1231231987
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public ListSubdivisionReq(Builder builder) {
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：1231231987
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 国家/地区id，填写后只查询该国家/地区下的省份/行政区
-         * <p> 示例值：100
-         */
-        this.countryRegionId = builder.countryRegionId;
+    /**
+     * 分页大小
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(String pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 国家/地区id，填写后只查询该国家/地区下的省份/行政区
+     *
+     * <p>示例值：100
+     *
+     * @param countryRegionId
+     * @return
+     */
+    public Builder countryRegionId(String countryRegionId) {
+      this.countryRegionId = countryRegionId;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    public ListSubdivisionReq build() {
+      return new ListSubdivisionReq(this);
     }
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(String pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getCountryRegionId() {
-        return this.countryRegionId;
-    }
-
-    public void setCountryRegionId(String countryRegionId) {
-        this.countryRegionId = countryRegionId;
-    }
-
-    public static class Builder {
-        private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-        private String pageSize; // 每页获取记录数量，最大100
-        private String countryRegionId; // 国家/地区id，填写后只查询该国家/地区下的省份/行政区
-
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：1231231987
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(String pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 国家/地区id，填写后只查询该国家/地区下的省份/行政区
-         * <p> 示例值：100
-         *
-         * @param countryRegionId
-         * @return
-         */
-        public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
-        }
-
-
-        public ListSubdivisionReq build() {
-            return new ListSubdivisionReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

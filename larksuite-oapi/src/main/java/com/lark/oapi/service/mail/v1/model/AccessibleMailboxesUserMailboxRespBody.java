@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AccessibleMailboxesUserMailboxRespBody {
-    /**
-     * 用户可访问的所有邮箱信息，包含主邮箱和公共邮箱
-     * <p> 示例值：
-     */
-    @SerializedName("accessible_mailboxes")
-    private EmailInfo[] accessibleMailboxes;
+  /**
+   * 用户可访问的所有邮箱信息，包含主邮箱和公共邮箱
+   *
+   * <p>示例值：
+   */
+  @SerializedName("accessible_mailboxes")
+  private EmailInfo[] accessibleMailboxes;
 
-    public EmailInfo[] getAccessibleMailboxes() {
-        return this.accessibleMailboxes;
-    }
+  public EmailInfo[] getAccessibleMailboxes() {
+    return this.accessibleMailboxes;
+  }
 
-    public void setAccessibleMailboxes(EmailInfo[] accessibleMailboxes) {
-        this.accessibleMailboxes = accessibleMailboxes;
-    }
-
+  public void setAccessibleMailboxes(EmailInfo[] accessibleMailboxes) {
+    this.accessibleMailboxes = accessibleMailboxes;
+  }
 }

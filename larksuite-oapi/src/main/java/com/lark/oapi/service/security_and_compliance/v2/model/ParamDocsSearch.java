@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParamDocsSearch {
+  /**
+   * 用户列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner_ids")
+  private String[] ownerIds;
+
+  /**
+   * 文档所处状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("doc_status")
+  private Integer[] docStatus;
+
+  /**
+   * 文档所属类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("doc_type")
+  private Integer[] docType;
+
+  /**
+   * 文档token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("doc_tokens")
+  private String[] docTokens;
+
+  /**
+   * 文档创建时间范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("create_time_range")
+  private TimeRange createTimeRange;
+
+  /**
+   * 文档更新时间范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("update_time_range")
+  private TimeRange updateTimeRange;
+
+  /**
+   * 搜索语句
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("query")
+  private String query;
+
+  public String[] getOwnerIds() {
+    return this.ownerIds;
+  }
+
+  public void setOwnerIds(String[] ownerIds) {
+    this.ownerIds = ownerIds;
+  }
+
+  public Integer[] getDocStatus() {
+    return this.docStatus;
+  }
+
+  public void setDocStatus(Integer[] docStatus) {
+    this.docStatus = docStatus;
+  }
+
+  public Integer[] getDocType() {
+    return this.docType;
+  }
+
+  public void setDocType(Integer[] docType) {
+    this.docType = docType;
+  }
+
+  public String[] getDocTokens() {
+    return this.docTokens;
+  }
+
+  public void setDocTokens(String[] docTokens) {
+    this.docTokens = docTokens;
+  }
+
+  public TimeRange getCreateTimeRange() {
+    return this.createTimeRange;
+  }
+
+  public void setCreateTimeRange(TimeRange createTimeRange) {
+    this.createTimeRange = createTimeRange;
+  }
+
+  public TimeRange getUpdateTimeRange() {
+    return this.updateTimeRange;
+  }
+
+  public void setUpdateTimeRange(TimeRange updateTimeRange) {
+    this.updateTimeRange = updateTimeRange;
+  }
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  // builder 开始
+  public ParamDocsSearch() {}
+
+  public ParamDocsSearch(Builder builder) {
     /**
      * 用户列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner_ids")
-    private String[] ownerIds;
+    this.ownerIds = builder.ownerIds;
     /**
      * 文档所处状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("doc_status")
-    private Integer[] docStatus;
+    this.docStatus = builder.docStatus;
     /**
      * 文档所属类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("doc_type")
-    private Integer[] docType;
+    this.docType = builder.docType;
     /**
      * 文档token
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("doc_tokens")
-    private String[] docTokens;
+    this.docTokens = builder.docTokens;
     /**
      * 文档创建时间范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("create_time_range")
-    private TimeRange createTimeRange;
+    this.createTimeRange = builder.createTimeRange;
     /**
      * 文档更新时间范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("update_time_range")
-    private TimeRange updateTimeRange;
+    this.updateTimeRange = builder.updateTimeRange;
     /**
      * 搜索语句
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("query")
+    this.query = builder.query;
+  }
+
+  public static class Builder {
+    /**
+     * 用户列表
+     *
+     * <p>示例值：
+     */
+    private String[] ownerIds;
+
+    /**
+     * 文档所处状态
+     *
+     * <p>示例值：
+     */
+    private Integer[] docStatus;
+
+    /**
+     * 文档所属类型
+     *
+     * <p>示例值：
+     */
+    private Integer[] docType;
+
+    /**
+     * 文档token
+     *
+     * <p>示例值：
+     */
+    private String[] docTokens;
+
+    /**
+     * 文档创建时间范围
+     *
+     * <p>示例值：
+     */
+    private TimeRange createTimeRange;
+
+    /**
+     * 文档更新时间范围
+     *
+     * <p>示例值：
+     */
+    private TimeRange updateTimeRange;
+
+    /**
+     * 搜索语句
+     *
+     * <p>示例值：test
+     */
     private String query;
 
-    // builder 开始
-    public ParamDocsSearch() {
+    /**
+     * 用户列表
+     *
+     * <p>示例值：
+     *
+     * @param ownerIds
+     * @return
+     */
+    public Builder ownerIds(String[] ownerIds) {
+      this.ownerIds = ownerIds;
+      return this;
     }
 
-    public ParamDocsSearch(Builder builder) {
-        /**
-         * 用户列表
-         * <p> 示例值：
-         */
-        this.ownerIds = builder.ownerIds;
-        /**
-         * 文档所处状态
-         * <p> 示例值：
-         */
-        this.docStatus = builder.docStatus;
-        /**
-         * 文档所属类型
-         * <p> 示例值：
-         */
-        this.docType = builder.docType;
-        /**
-         * 文档token
-         * <p> 示例值：
-         */
-        this.docTokens = builder.docTokens;
-        /**
-         * 文档创建时间范围
-         * <p> 示例值：
-         */
-        this.createTimeRange = builder.createTimeRange;
-        /**
-         * 文档更新时间范围
-         * <p> 示例值：
-         */
-        this.updateTimeRange = builder.updateTimeRange;
-        /**
-         * 搜索语句
-         * <p> 示例值：test
-         */
-        this.query = builder.query;
+    /**
+     * 文档所处状态
+     *
+     * <p>示例值：
+     *
+     * @param docStatus
+     * @return
+     */
+    public Builder docStatus(Integer[] docStatus) {
+      this.docStatus = docStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文档所属类型
+     *
+     * <p>示例值：
+     *
+     * @param docType
+     * @return
+     */
+    public Builder docType(Integer[] docType) {
+      this.docType = docType;
+      return this;
     }
 
-    public String[] getOwnerIds() {
-        return this.ownerIds;
+    /**
+     * 文档token
+     *
+     * <p>示例值：
+     *
+     * @param docTokens
+     * @return
+     */
+    public Builder docTokens(String[] docTokens) {
+      this.docTokens = docTokens;
+      return this;
     }
 
-    public void setOwnerIds(String[] ownerIds) {
-        this.ownerIds = ownerIds;
+    /**
+     * 文档创建时间范围
+     *
+     * <p>示例值：
+     *
+     * @param createTimeRange
+     * @return
+     */
+    public Builder createTimeRange(TimeRange createTimeRange) {
+      this.createTimeRange = createTimeRange;
+      return this;
     }
 
-    public Integer[] getDocStatus() {
-        return this.docStatus;
+    /**
+     * 文档更新时间范围
+     *
+     * <p>示例值：
+     *
+     * @param updateTimeRange
+     * @return
+     */
+    public Builder updateTimeRange(TimeRange updateTimeRange) {
+      this.updateTimeRange = updateTimeRange;
+      return this;
     }
 
-    public void setDocStatus(Integer[] docStatus) {
-        this.docStatus = docStatus;
+    /**
+     * 搜索语句
+     *
+     * <p>示例值：test
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public Integer[] getDocType() {
-        return this.docType;
+    public ParamDocsSearch build() {
+      return new ParamDocsSearch(this);
     }
+  }
 
-    public void setDocType(Integer[] docType) {
-        this.docType = docType;
-    }
-
-    public String[] getDocTokens() {
-        return this.docTokens;
-    }
-
-    public void setDocTokens(String[] docTokens) {
-        this.docTokens = docTokens;
-    }
-
-    public TimeRange getCreateTimeRange() {
-        return this.createTimeRange;
-    }
-
-    public void setCreateTimeRange(TimeRange createTimeRange) {
-        this.createTimeRange = createTimeRange;
-    }
-
-    public TimeRange getUpdateTimeRange() {
-        return this.updateTimeRange;
-    }
-
-    public void setUpdateTimeRange(TimeRange updateTimeRange) {
-        this.updateTimeRange = updateTimeRange;
-    }
-
-    public String getQuery() {
-        return this.query;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public static class Builder {
-        /**
-         * 用户列表
-         * <p> 示例值：
-         */
-        private String[] ownerIds;
-        /**
-         * 文档所处状态
-         * <p> 示例值：
-         */
-        private Integer[] docStatus;
-        /**
-         * 文档所属类型
-         * <p> 示例值：
-         */
-        private Integer[] docType;
-        /**
-         * 文档token
-         * <p> 示例值：
-         */
-        private String[] docTokens;
-        /**
-         * 文档创建时间范围
-         * <p> 示例值：
-         */
-        private TimeRange createTimeRange;
-        /**
-         * 文档更新时间范围
-         * <p> 示例值：
-         */
-        private TimeRange updateTimeRange;
-        /**
-         * 搜索语句
-         * <p> 示例值：test
-         */
-        private String query;
-
-        /**
-         * 用户列表
-         * <p> 示例值：
-         *
-         * @param ownerIds
-         * @return
-         */
-        public Builder ownerIds(String[] ownerIds) {
-            this.ownerIds = ownerIds;
-            return this;
-        }
-
-
-        /**
-         * 文档所处状态
-         * <p> 示例值：
-         *
-         * @param docStatus
-         * @return
-         */
-        public Builder docStatus(Integer[] docStatus) {
-            this.docStatus = docStatus;
-            return this;
-        }
-
-
-        /**
-         * 文档所属类型
-         * <p> 示例值：
-         *
-         * @param docType
-         * @return
-         */
-        public Builder docType(Integer[] docType) {
-            this.docType = docType;
-            return this;
-        }
-
-
-        /**
-         * 文档token
-         * <p> 示例值：
-         *
-         * @param docTokens
-         * @return
-         */
-        public Builder docTokens(String[] docTokens) {
-            this.docTokens = docTokens;
-            return this;
-        }
-
-
-        /**
-         * 文档创建时间范围
-         * <p> 示例值：
-         *
-         * @param createTimeRange
-         * @return
-         */
-        public Builder createTimeRange(TimeRange createTimeRange) {
-            this.createTimeRange = createTimeRange;
-            return this;
-        }
-
-
-        /**
-         * 文档更新时间范围
-         * <p> 示例值：
-         *
-         * @param updateTimeRange
-         * @return
-         */
-        public Builder updateTimeRange(TimeRange updateTimeRange) {
-            this.updateTimeRange = updateTimeRange;
-            return this;
-        }
-
-
-        /**
-         * 搜索语句
-         * <p> 示例值：test
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        public ParamDocsSearch build() {
-            return new ParamDocsSearch(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

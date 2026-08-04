@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ConvertCommonDataIdRespBody {
-    /**
-     * ID 信息列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private IdInfo[] items;
+  /**
+   * ID 信息列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private IdInfo[] items;
 
-    public IdInfo[] getItems() {
-        return this.items;
-    }
+  public IdInfo[] getItems() {
+    return this.items;
+  }
 
-    public void setItems(IdInfo[] items) {
-        this.items = items;
-    }
-
+  public void setItems(IdInfo[] items) {
+    this.items = items;
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DelEmployeeCustomOrgReqBody {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：7358801371828602412
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 自定义组织ID
+   *
+   * <p>示例值：7293841029445207596
+   */
+  @SerializedName("job_data_custom_org_id")
+  private String jobDataCustomOrgId;
+
+  /**
+   * 版本ID
+   *
+   * <p>示例值：7293841029445207593
+   */
+  @SerializedName("version_id")
+  private String versionId;
+
+  /**
+   * 自定义组织类型编码
+   *
+   * <p>示例值：custom_org_03
+   */
+  @SerializedName("object_api_name")
+  private String objectApiName;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getJobDataCustomOrgId() {
+    return this.jobDataCustomOrgId;
+  }
+
+  public void setJobDataCustomOrgId(String jobDataCustomOrgId) {
+    this.jobDataCustomOrgId = jobDataCustomOrgId;
+  }
+
+  public String getVersionId() {
+    return this.versionId;
+  }
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
+
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
+
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
+
+  // builder 开始
+  public DelEmployeeCustomOrgReqBody() {}
+
+  public DelEmployeeCustomOrgReqBody(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：7358801371828602412
+     *
+     * <p>示例值：7358801371828602412
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 自定义组织ID
-     * <p> 示例值：7293841029445207596
+     *
+     * <p>示例值：7293841029445207596
      */
-    @SerializedName("job_data_custom_org_id")
-    private String jobDataCustomOrgId;
+    this.jobDataCustomOrgId = builder.jobDataCustomOrgId;
     /**
      * 版本ID
-     * <p> 示例值：7293841029445207593
+     *
+     * <p>示例值：7293841029445207593
      */
-    @SerializedName("version_id")
-    private String versionId;
+    this.versionId = builder.versionId;
     /**
      * 自定义组织类型编码
-     * <p> 示例值：custom_org_03
+     *
+     * <p>示例值：custom_org_03
      */
-    @SerializedName("object_api_name")
+    this.objectApiName = builder.objectApiName;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：7358801371828602412
+     */
+    private String userId;
+
+    /**
+     * 自定义组织ID
+     *
+     * <p>示例值：7293841029445207596
+     */
+    private String jobDataCustomOrgId;
+
+    /**
+     * 版本ID
+     *
+     * <p>示例值：7293841029445207593
+     */
+    private String versionId;
+
+    /**
+     * 自定义组织类型编码
+     *
+     * <p>示例值：custom_org_03
+     */
     private String objectApiName;
 
-    // builder 开始
-    public DelEmployeeCustomOrgReqBody() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：7358801371828602412
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public DelEmployeeCustomOrgReqBody(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：7358801371828602412
-         */
-        this.userId = builder.userId;
-        /**
-         * 自定义组织ID
-         * <p> 示例值：7293841029445207596
-         */
-        this.jobDataCustomOrgId = builder.jobDataCustomOrgId;
-        /**
-         * 版本ID
-         * <p> 示例值：7293841029445207593
-         */
-        this.versionId = builder.versionId;
-        /**
-         * 自定义组织类型编码
-         * <p> 示例值：custom_org_03
-         */
-        this.objectApiName = builder.objectApiName;
+    /**
+     * 自定义组织ID
+     *
+     * <p>示例值：7293841029445207596
+     *
+     * @param jobDataCustomOrgId
+     * @return
+     */
+    public Builder jobDataCustomOrgId(String jobDataCustomOrgId) {
+      this.jobDataCustomOrgId = jobDataCustomOrgId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 版本ID
+     *
+     * <p>示例值：7293841029445207593
+     *
+     * @param versionId
+     * @return
+     */
+    public Builder versionId(String versionId) {
+      this.versionId = versionId;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 自定义组织类型编码
+     *
+     * <p>示例值：custom_org_03
+     *
+     * @param objectApiName
+     * @return
+     */
+    public Builder objectApiName(String objectApiName) {
+      this.objectApiName = objectApiName;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public DelEmployeeCustomOrgReqBody build() {
+      return new DelEmployeeCustomOrgReqBody(this);
     }
+  }
 
-    public String getJobDataCustomOrgId() {
-        return this.jobDataCustomOrgId;
-    }
-
-    public void setJobDataCustomOrgId(String jobDataCustomOrgId) {
-        this.jobDataCustomOrgId = jobDataCustomOrgId;
-    }
-
-    public String getVersionId() {
-        return this.versionId;
-    }
-
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
-    }
-
-    public String getObjectApiName() {
-        return this.objectApiName;
-    }
-
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：7358801371828602412
-         */
-        private String userId;
-        /**
-         * 自定义组织ID
-         * <p> 示例值：7293841029445207596
-         */
-        private String jobDataCustomOrgId;
-        /**
-         * 版本ID
-         * <p> 示例值：7293841029445207593
-         */
-        private String versionId;
-        /**
-         * 自定义组织类型编码
-         * <p> 示例值：custom_org_03
-         */
-        private String objectApiName;
-
-        /**
-         * 用户ID
-         * <p> 示例值：7358801371828602412
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 自定义组织ID
-         * <p> 示例值：7293841029445207596
-         *
-         * @param jobDataCustomOrgId
-         * @return
-         */
-        public Builder jobDataCustomOrgId(String jobDataCustomOrgId) {
-            this.jobDataCustomOrgId = jobDataCustomOrgId;
-            return this;
-        }
-
-
-        /**
-         * 版本ID
-         * <p> 示例值：7293841029445207593
-         *
-         * @param versionId
-         * @return
-         */
-        public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
-        }
-
-
-        /**
-         * 自定义组织类型编码
-         * <p> 示例值：custom_org_03
-         *
-         * @param objectApiName
-         * @return
-         */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
-
-
-        public DelEmployeeCustomOrgReqBody build() {
-            return new DelEmployeeCustomOrgReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,277 +13,294 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.performance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.performance.v1.enums.*;
 
 public class ListSemesterReq {
+  /**
+   * 周期开始时间最小值，毫秒时间戳，小于该时间开始的周期会被过滤掉
+   *
+   * <p>示例值：1630425599999
+   */
+  @Query
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 周期结束时间最大值，毫秒时间戳，大于该时间结束的周期会被过滤掉
+   *
+   * <p>示例值：1640425000000
+   */
+  @Query
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 周期年份，填写时按照周期年份筛选
+   *
+   * <p>示例值：2024
+   */
+  @Query
+  @SerializedName("year")
+  private Integer year;
+
+  /**
+   * 周期类型分组，填写时按照周期类型分组
+   *
+   * <p>示例值：Annual
+   */
+  @Query
+  @SerializedName("type_group")
+  private String typeGroup;
+
+  /**
+   * 周期类型，填写时按照周期类型筛选
+   *
+   * <p>示例值：April
+   */
+  @Query
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public Integer getYear() {
+    return this.year;
+  }
+
+  public void setYear(Integer year) {
+    this.year = year;
+  }
+
+  public String getTypeGroup() {
+    return this.typeGroup;
+  }
+
+  public void setTypeGroup(String typeGroup) {
+    this.typeGroup = typeGroup;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  // builder 开始
+  public ListSemesterReq() {}
+
+  public ListSemesterReq(Builder builder) {
     /**
-     * 周期开始时间
-     * <p> 示例值：1630425599999
+     * 周期开始时间最小值，毫秒时间戳，小于该时间开始的周期会被过滤掉
+     *
+     * <p>示例值：1630425599999
      */
-    @Query
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
-     * 周期结束时间
-     * <p> 示例值：1630425599999
+     * 周期结束时间最大值，毫秒时间戳，大于该时间结束的周期会被过滤掉
+     *
+     * <p>示例值：1640425000000
      */
-    @Query
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
-     * 年份
-     * <p> 示例值：2024
+     * 周期年份，填写时按照周期年份筛选
+     *
+     * <p>示例值：2024
      */
-    @Query
-    @SerializedName("year")
-    private Integer year;
+    this.year = builder.year;
     /**
-     * 周期类型分组
-     * <p> 示例值：Month
+     * 周期类型分组，填写时按照周期类型分组
+     *
+     * <p>示例值：Annual
      */
-    @Query
-    @SerializedName("type_group")
-    private String typeGroup;
+    this.typeGroup = builder.typeGroup;
     /**
-     * 周期类型
-     * <p> 示例值：June
+     * 周期类型，填写时按照周期类型筛选
+     *
+     * <p>示例值：April
      */
-    @Query
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
+  }
 
-    // builder 开始
-    public ListSemesterReq() {
+  public static class Builder {
+    private String startTime; // 周期开始时间最小值，毫秒时间戳，小于该时间开始的周期会被过滤掉
+    private String endTime; // 周期结束时间最大值，毫秒时间戳，大于该时间结束的周期会被过滤掉
+    private Integer year; // 周期年份，填写时按照周期年份筛选
+    private String typeGroup; // 周期类型分组，填写时按照周期类型分组
+    private String type; // 周期类型，填写时按照周期类型筛选
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 周期开始时间最小值，毫秒时间戳，小于该时间开始的周期会被过滤掉
+     *
+     * <p>示例值：1630425599999
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public ListSemesterReq(Builder builder) {
-        /**
-         * 周期开始时间
-         * <p> 示例值：1630425599999
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 周期结束时间
-         * <p> 示例值：1630425599999
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 年份
-         * <p> 示例值：2024
-         */
-        this.year = builder.year;
-        /**
-         * 周期类型分组
-         * <p> 示例值：Month
-         */
-        this.typeGroup = builder.typeGroup;
-        /**
-         * 周期类型
-         * <p> 示例值：June
-         */
-        this.type = builder.type;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
+    /**
+     * 周期结束时间最大值，毫秒时间戳，大于该时间结束的周期会被过滤掉
+     *
+     * <p>示例值：1640425000000
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 周期年份，填写时按照周期年份筛选
+     *
+     * <p>示例值：2024
+     *
+     * @param year
+     * @return
+     */
+    public Builder year(Integer year) {
+      this.year = year;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    /**
+     * 周期类型分组，填写时按照周期类型分组
+     *
+     * <p>示例值：Annual
+     *
+     * @param typeGroup
+     * @return
+     */
+    public Builder typeGroup(String typeGroup) {
+      this.typeGroup = typeGroup;
+      return this;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    /**
+     * 周期类型分组，填写时按照周期类型分组
+     *
+     * <p>示例值：Annual
+     *
+     * @param typeGroup {@link
+     *     com.lark.oapi.service.performance.v1.enums.ListSemesterListSemesterTypeGroupEnum}
+     * @return
+     */
+    public Builder typeGroup(
+        com.lark.oapi.service.performance.v1.enums.ListSemesterListSemesterTypeGroupEnum
+            typeGroup) {
+      this.typeGroup = typeGroup.getValue();
+      return this;
     }
 
-    public String getEndTime() {
-        return this.endTime;
+    /**
+     * 周期类型，填写时按照周期类型筛选
+     *
+     * <p>示例值：April
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    /**
+     * 周期类型，填写时按照周期类型筛选
+     *
+     * <p>示例值：April
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.performance.v1.enums.ListSemesterListSemesterTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.performance.v1.enums.ListSemesterListSemesterTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public Integer getYear() {
-        return this.year;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.performance.v1.enums.ListSemesterListSemesterUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.performance.v1.enums.ListSemesterListSemesterUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public String getTypeGroup() {
-        return this.typeGroup;
+    public ListSemesterReq build() {
+      return new ListSemesterReq(this);
     }
+  }
 
-    public void setTypeGroup(String typeGroup) {
-        this.typeGroup = typeGroup;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public static class Builder {
-        private String startTime; // 周期开始时间
-        private String endTime; // 周期结束时间
-        private Integer year; // 年份
-        private String typeGroup; // 周期类型分组
-        private String type; // 周期类型
-        private String userIdType; // 此次调用中使用的用户ID的类型
-
-        /**
-         * 周期开始时间
-         * <p> 示例值：1630425599999
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 周期结束时间
-         * <p> 示例值：1630425599999
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 年份
-         * <p> 示例值：2024
-         *
-         * @param year
-         * @return
-         */
-        public Builder year(Integer year) {
-            this.year = year;
-            return this;
-        }
-
-
-        /**
-         * 周期类型分组
-         * <p> 示例值：Month
-         *
-         * @param typeGroup
-         * @return
-         */
-        public Builder typeGroup(String typeGroup) {
-            this.typeGroup = typeGroup;
-            return this;
-        }
-
-        /**
-         * 周期类型分组
-         * <p> 示例值：Month
-         *
-         * @param typeGroup {@link com.lark.oapi.service.performance.v1.enums.ListSemesterTypeGroupEnum}
-         * @return
-         */
-        public Builder typeGroup(com.lark.oapi.service.performance.v1.enums.ListSemesterTypeGroupEnum typeGroup) {
-            this.typeGroup = typeGroup.getValue();
-            return this;
-        }
-
-
-        /**
-         * 周期类型
-         * <p> 示例值：June
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 周期类型
-         * <p> 示例值：June
-         *
-         * @param type {@link com.lark.oapi.service.performance.v1.enums.ListSemesterTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.performance.v1.enums.ListSemesterTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.performance.v1.enums.ListSemesterUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.performance.v1.enums.ListSemesterUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        public ListSemesterReq build() {
-            return new ListSemesterReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

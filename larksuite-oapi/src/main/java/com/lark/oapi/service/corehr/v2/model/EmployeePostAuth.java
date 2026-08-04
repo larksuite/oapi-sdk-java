@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeePostAuth {
+  /**
+   * 鉴权实体信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("grantee")
+  private EmployeeGrantee grantee;
+
+  /**
+   * domainKey列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("domain_keys")
+  private String[] domainKeys;
+
+  /**
+   * 列权限实体列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("col_permission_entities")
+  private String[] colPermissionEntities;
+
+  /**
+   * 行权限实体列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("row_permission_entities")
+  private String[] rowPermissionEntities;
+
+  /**
+   * 权限豁免字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("exempt_fields")
+  private String[] exemptFields;
+
+  public EmployeeGrantee getGrantee() {
+    return this.grantee;
+  }
+
+  public void setGrantee(EmployeeGrantee grantee) {
+    this.grantee = grantee;
+  }
+
+  public String[] getDomainKeys() {
+    return this.domainKeys;
+  }
+
+  public void setDomainKeys(String[] domainKeys) {
+    this.domainKeys = domainKeys;
+  }
+
+  public String[] getColPermissionEntities() {
+    return this.colPermissionEntities;
+  }
+
+  public void setColPermissionEntities(String[] colPermissionEntities) {
+    this.colPermissionEntities = colPermissionEntities;
+  }
+
+  public String[] getRowPermissionEntities() {
+    return this.rowPermissionEntities;
+  }
+
+  public void setRowPermissionEntities(String[] rowPermissionEntities) {
+    this.rowPermissionEntities = rowPermissionEntities;
+  }
+
+  public String[] getExemptFields() {
+    return this.exemptFields;
+  }
+
+  public void setExemptFields(String[] exemptFields) {
+    this.exemptFields = exemptFields;
+  }
+
+  // builder 开始
+  public EmployeePostAuth() {}
+
+  public EmployeePostAuth(Builder builder) {
     /**
      * 鉴权实体信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("grantee")
-    private EmployeeGrantee grantee;
+    this.grantee = builder.grantee;
     /**
      * domainKey列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("domain_keys")
-    private String[] domainKeys;
+    this.domainKeys = builder.domainKeys;
     /**
      * 列权限实体列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("col_permission_entities")
-    private String[] colPermissionEntities;
+    this.colPermissionEntities = builder.colPermissionEntities;
     /**
      * 行权限实体列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("row_permission_entities")
-    private String[] rowPermissionEntities;
+    this.rowPermissionEntities = builder.rowPermissionEntities;
     /**
      * 权限豁免字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("exempt_fields")
+    this.exemptFields = builder.exemptFields;
+  }
+
+  public static class Builder {
+    /**
+     * 鉴权实体信息
+     *
+     * <p>示例值：
+     */
+    private EmployeeGrantee grantee;
+
+    /**
+     * domainKey列表
+     *
+     * <p>示例值：
+     */
+    private String[] domainKeys;
+
+    /**
+     * 列权限实体列表
+     *
+     * <p>示例值：
+     */
+    private String[] colPermissionEntities;
+
+    /**
+     * 行权限实体列表
+     *
+     * <p>示例值：
+     */
+    private String[] rowPermissionEntities;
+
+    /**
+     * 权限豁免字段
+     *
+     * <p>示例值：
+     */
     private String[] exemptFields;
 
-    // builder 开始
-    public EmployeePostAuth() {
+    /**
+     * 鉴权实体信息
+     *
+     * <p>示例值：
+     *
+     * @param grantee
+     * @return
+     */
+    public Builder grantee(EmployeeGrantee grantee) {
+      this.grantee = grantee;
+      return this;
     }
 
-    public EmployeePostAuth(Builder builder) {
-        /**
-         * 鉴权实体信息
-         * <p> 示例值：
-         */
-        this.grantee = builder.grantee;
-        /**
-         * domainKey列表
-         * <p> 示例值：
-         */
-        this.domainKeys = builder.domainKeys;
-        /**
-         * 列权限实体列表
-         * <p> 示例值：
-         */
-        this.colPermissionEntities = builder.colPermissionEntities;
-        /**
-         * 行权限实体列表
-         * <p> 示例值：
-         */
-        this.rowPermissionEntities = builder.rowPermissionEntities;
-        /**
-         * 权限豁免字段
-         * <p> 示例值：
-         */
-        this.exemptFields = builder.exemptFields;
+    /**
+     * domainKey列表
+     *
+     * <p>示例值：
+     *
+     * @param domainKeys
+     * @return
+     */
+    public Builder domainKeys(String[] domainKeys) {
+      this.domainKeys = domainKeys;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 列权限实体列表
+     *
+     * <p>示例值：
+     *
+     * @param colPermissionEntities
+     * @return
+     */
+    public Builder colPermissionEntities(String[] colPermissionEntities) {
+      this.colPermissionEntities = colPermissionEntities;
+      return this;
     }
 
-    public EmployeeGrantee getGrantee() {
-        return this.grantee;
+    /**
+     * 行权限实体列表
+     *
+     * <p>示例值：
+     *
+     * @param rowPermissionEntities
+     * @return
+     */
+    public Builder rowPermissionEntities(String[] rowPermissionEntities) {
+      this.rowPermissionEntities = rowPermissionEntities;
+      return this;
     }
 
-    public void setGrantee(EmployeeGrantee grantee) {
-        this.grantee = grantee;
+    /**
+     * 权限豁免字段
+     *
+     * <p>示例值：
+     *
+     * @param exemptFields
+     * @return
+     */
+    public Builder exemptFields(String[] exemptFields) {
+      this.exemptFields = exemptFields;
+      return this;
     }
 
-    public String[] getDomainKeys() {
-        return this.domainKeys;
+    public EmployeePostAuth build() {
+      return new EmployeePostAuth(this);
     }
+  }
 
-    public void setDomainKeys(String[] domainKeys) {
-        this.domainKeys = domainKeys;
-    }
-
-    public String[] getColPermissionEntities() {
-        return this.colPermissionEntities;
-    }
-
-    public void setColPermissionEntities(String[] colPermissionEntities) {
-        this.colPermissionEntities = colPermissionEntities;
-    }
-
-    public String[] getRowPermissionEntities() {
-        return this.rowPermissionEntities;
-    }
-
-    public void setRowPermissionEntities(String[] rowPermissionEntities) {
-        this.rowPermissionEntities = rowPermissionEntities;
-    }
-
-    public String[] getExemptFields() {
-        return this.exemptFields;
-    }
-
-    public void setExemptFields(String[] exemptFields) {
-        this.exemptFields = exemptFields;
-    }
-
-    public static class Builder {
-        /**
-         * 鉴权实体信息
-         * <p> 示例值：
-         */
-        private EmployeeGrantee grantee;
-        /**
-         * domainKey列表
-         * <p> 示例值：
-         */
-        private String[] domainKeys;
-        /**
-         * 列权限实体列表
-         * <p> 示例值：
-         */
-        private String[] colPermissionEntities;
-        /**
-         * 行权限实体列表
-         * <p> 示例值：
-         */
-        private String[] rowPermissionEntities;
-        /**
-         * 权限豁免字段
-         * <p> 示例值：
-         */
-        private String[] exemptFields;
-
-        /**
-         * 鉴权实体信息
-         * <p> 示例值：
-         *
-         * @param grantee
-         * @return
-         */
-        public Builder grantee(EmployeeGrantee grantee) {
-            this.grantee = grantee;
-            return this;
-        }
-
-
-        /**
-         * domainKey列表
-         * <p> 示例值：
-         *
-         * @param domainKeys
-         * @return
-         */
-        public Builder domainKeys(String[] domainKeys) {
-            this.domainKeys = domainKeys;
-            return this;
-        }
-
-
-        /**
-         * 列权限实体列表
-         * <p> 示例值：
-         *
-         * @param colPermissionEntities
-         * @return
-         */
-        public Builder colPermissionEntities(String[] colPermissionEntities) {
-            this.colPermissionEntities = colPermissionEntities;
-            return this;
-        }
-
-
-        /**
-         * 行权限实体列表
-         * <p> 示例值：
-         *
-         * @param rowPermissionEntities
-         * @return
-         */
-        public Builder rowPermissionEntities(String[] rowPermissionEntities) {
-            this.rowPermissionEntities = rowPermissionEntities;
-            return this;
-        }
-
-
-        /**
-         * 权限豁免字段
-         * <p> 示例值：
-         *
-         * @param exemptFields
-         * @return
-         */
-        public Builder exemptFields(String[] exemptFields) {
-            this.exemptFields = exemptFields;
-            return this;
-        }
-
-
-        public EmployeePostAuth build() {
-            return new EmployeePostAuth(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DynamicGroupExpression {
+  /**
+   * 动态用户组表达式的左值，属性名称
+   *
+   * <p>示例值：user.name
+   */
+  @SerializedName("field")
+  private String field;
+
+  /**
+   * 操作符，表示左值进行什么操作
+   *
+   * <p>示例值：-eq
+   */
+  @SerializedName("operator")
+  private String operator;
+
+  /**
+   * 值，单个结果，用于单值运算，比如：等于操作
+   *
+   * <p>示例值：value
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 值，多个结果，用于多值操作，比如属于
+   *
+   * <p>示例值：
+   */
+  @SerializedName("values")
+  private String[] values;
+
+  public String getField() {
+    return this.field;
+  }
+
+  public void setField(String field) {
+    this.field = field;
+  }
+
+  public String getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public String[] getValues() {
+    return this.values;
+  }
+
+  public void setValues(String[] values) {
+    this.values = values;
+  }
+
+  // builder 开始
+  public DynamicGroupExpression() {}
+
+  public DynamicGroupExpression(Builder builder) {
     /**
      * 动态用户组表达式的左值，属性名称
-     * <p> 示例值：user.name
+     *
+     * <p>示例值：user.name
      */
-    @SerializedName("field")
-    private String field;
+    this.field = builder.field;
     /**
      * 操作符，表示左值进行什么操作
-     * <p> 示例值：-eq
+     *
+     * <p>示例值：-eq
      */
-    @SerializedName("operator")
-    private String operator;
+    this.operator = builder.operator;
     /**
      * 值，单个结果，用于单值运算，比如：等于操作
-     * <p> 示例值：value
+     *
+     * <p>示例值：value
      */
-    @SerializedName("value")
-    private String value;
+    this.value = builder.value;
     /**
      * 值，多个结果，用于多值操作，比如属于
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("values")
+    this.values = builder.values;
+  }
+
+  public static class Builder {
+    /**
+     * 动态用户组表达式的左值，属性名称
+     *
+     * <p>示例值：user.name
+     */
+    private String field;
+
+    /**
+     * 操作符，表示左值进行什么操作
+     *
+     * <p>示例值：-eq
+     */
+    private String operator;
+
+    /**
+     * 值，单个结果，用于单值运算，比如：等于操作
+     *
+     * <p>示例值：value
+     */
+    private String value;
+
+    /**
+     * 值，多个结果，用于多值操作，比如属于
+     *
+     * <p>示例值：
+     */
     private String[] values;
 
-    // builder 开始
-    public DynamicGroupExpression() {
+    /**
+     * 动态用户组表达式的左值，属性名称
+     *
+     * <p>示例值：user.name
+     *
+     * @param field
+     * @return
+     */
+    public Builder field(String field) {
+      this.field = field;
+      return this;
     }
 
-    public DynamicGroupExpression(Builder builder) {
-        /**
-         * 动态用户组表达式的左值，属性名称
-         * <p> 示例值：user.name
-         */
-        this.field = builder.field;
-        /**
-         * 操作符，表示左值进行什么操作
-         * <p> 示例值：-eq
-         */
-        this.operator = builder.operator;
-        /**
-         * 值，单个结果，用于单值运算，比如：等于操作
-         * <p> 示例值：value
-         */
-        this.value = builder.value;
-        /**
-         * 值，多个结果，用于多值操作，比如属于
-         * <p> 示例值：
-         */
-        this.values = builder.values;
+    /**
+     * 操作符，表示左值进行什么操作
+     *
+     * <p>示例值：-eq
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(String operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 值，单个结果，用于单值运算，比如：等于操作
+     *
+     * <p>示例值：value
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public String getField() {
-        return this.field;
+    /**
+     * 值，多个结果，用于多值操作，比如属于
+     *
+     * <p>示例值：
+     *
+     * @param values
+     * @return
+     */
+    public Builder values(String[] values) {
+      this.values = values;
+      return this;
     }
 
-    public void setField(String field) {
-        this.field = field;
+    public DynamicGroupExpression build() {
+      return new DynamicGroupExpression(this);
     }
+  }
 
-    public String getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public String[] getValues() {
-        return this.values;
-    }
-
-    public void setValues(String[] values) {
-        this.values = values;
-    }
-
-    public static class Builder {
-        /**
-         * 动态用户组表达式的左值，属性名称
-         * <p> 示例值：user.name
-         */
-        private String field;
-        /**
-         * 操作符，表示左值进行什么操作
-         * <p> 示例值：-eq
-         */
-        private String operator;
-        /**
-         * 值，单个结果，用于单值运算，比如：等于操作
-         * <p> 示例值：value
-         */
-        private String value;
-        /**
-         * 值，多个结果，用于多值操作，比如属于
-         * <p> 示例值：
-         */
-        private String[] values;
-
-        /**
-         * 动态用户组表达式的左值，属性名称
-         * <p> 示例值：user.name
-         *
-         * @param field
-         * @return
-         */
-        public Builder field(String field) {
-            this.field = field;
-            return this;
-        }
-
-
-        /**
-         * 操作符，表示左值进行什么操作
-         * <p> 示例值：-eq
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 值，单个结果，用于单值运算，比如：等于操作
-         * <p> 示例值：value
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 值，多个结果，用于多值操作，比如属于
-         * <p> 示例值：
-         *
-         * @param values
-         * @return
-         */
-        public Builder values(String[] values) {
-            this.values = values;
-            return this;
-        }
-
-
-        public DynamicGroupExpression build() {
-            return new DynamicGroupExpression(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

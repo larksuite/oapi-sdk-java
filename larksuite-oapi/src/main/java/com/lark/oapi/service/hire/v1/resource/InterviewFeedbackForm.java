@@ -13,103 +13,130 @@
 
 package com.lark.oapi.service.hire.v1.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.hire.v1.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class InterviewFeedbackForm {
-    private static final Logger log = LoggerFactory.getLogger(InterviewFeedbackForm.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(InterviewFeedbackForm.class);
+  private final Config config;
 
-    public InterviewFeedbackForm(Config config) {
-        this.config = config;
+  public InterviewFeedbackForm(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 获取面试评价表列表，获取面试评价表信息列表，评价表信息包括题目描述、题目选项等。可用于面试评价表展示等场景。
+   *
+   * <p>## 注意事项;- 面试评价表通过版本进行变更管理，每次修改评价表都会更新版本，同时变更评价表ID、模块ID、模块维度ID、选项ID、能力项ID。;-
+   * 当使用分页方式获取数据时，仅能获取到最新版本的面试评价表，当指定面试评价表 ID 列表时，可以获取到历史版本面评评价表。;;;;##
+   * 面试评价表产品示意图;![img_v3_02cu_dbef7451-9eaa-40f7-b0b4-9f2763f95d2g.jpg](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/bd4b1897cc67b112c3d8f15893e701b7_d7TrcHP0B4.jpg)
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=interview_feedback_form&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=interview_feedback_form&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListInterviewFeedbackFormSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListInterviewFeedbackFormSample.java</a>
+   * ;
+   */
+  public ListInterviewFeedbackFormResp list(
+      ListInterviewFeedbackFormReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/hire/v1/interview_feedback_forms",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=interview_feedback_form&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=interview_feedback_form&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListInterviewFeedbackFormSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListInterviewFeedbackFormSample.java</a> ;
-     */
-    public ListInterviewFeedbackFormResp list(ListInterviewFeedbackFormReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/hire/v1/interview_feedback_forms"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        ListInterviewFeedbackFormResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListInterviewFeedbackFormResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/interview_feedback_forms"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    ListInterviewFeedbackFormResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, ListInterviewFeedbackFormResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/hire/v1/interview_feedback_forms",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=interview_feedback_form&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=interview_feedback_form&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListInterviewFeedbackFormSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListInterviewFeedbackFormSample.java</a> ;
-     */
-    public ListInterviewFeedbackFormResp list(ListInterviewFeedbackFormReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/hire/v1/interview_feedback_forms"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        ListInterviewFeedbackFormResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListInterviewFeedbackFormResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/interview_feedback_forms"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 获取面试评价表列表，获取面试评价表信息列表，评价表信息包括题目描述、题目选项等。可用于面试评价表展示等场景。
+   *
+   * <p>## 注意事项;- 面试评价表通过版本进行变更管理，每次修改评价表都会更新版本，同时变更评价表ID、模块ID、模块维度ID、选项ID、能力项ID。;-
+   * 当使用分页方式获取数据时，仅能获取到最新版本的面试评价表，当指定面试评价表 ID 列表时，可以获取到历史版本面评评价表。;;;;##
+   * 面试评价表产品示意图;![img_v3_02cu_dbef7451-9eaa-40f7-b0b4-9f2763f95d2g.jpg](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/bd4b1897cc67b112c3d8f15893e701b7_d7TrcHP0B4.jpg)
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=interview_feedback_form&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=hire&resource=interview_feedback_form&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListInterviewFeedbackFormSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/ListInterviewFeedbackFormSample.java</a>
+   * ;
+   */
+  public ListInterviewFeedbackFormResp list(ListInterviewFeedbackFormReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/hire/v1/interview_feedback_forms",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    ListInterviewFeedbackFormResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, ListInterviewFeedbackFormResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/hire/v1/interview_feedback_forms",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

@@ -13,213 +13,222 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class CreateAppDataAssetReqBody {
+  /**
+   * 连接类型
+   *
+   * <p>示例值：direct
+   */
+  @SerializedName("connect_type")
+  private String connectType;
+
+  /**
+   * 数据源类型
+   *
+   * <p>示例值：file
+   */
+  @SerializedName("source_type")
+  private String sourceType;
+
+  /**
+   * 知识导入配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("import_knowledge_setting")
+  private DataAssetImportKnowledgeSetting importKnowledgeSetting;
+
+  /**
+   * 数据知识描述信息
+   *
+   * <p>示例值：{"zh_cn":"描述"}
+   */
+  @SerializedName("description")
+  private Map<String, String> description;
+
+  public String getConnectType() {
+    return this.connectType;
+  }
+
+  public void setConnectType(String connectType) {
+    this.connectType = connectType;
+  }
+
+  public String getSourceType() {
+    return this.sourceType;
+  }
+
+  public void setSourceType(String sourceType) {
+    this.sourceType = sourceType;
+  }
+
+  public DataAssetImportKnowledgeSetting getImportKnowledgeSetting() {
+    return this.importKnowledgeSetting;
+  }
+
+  public void setImportKnowledgeSetting(DataAssetImportKnowledgeSetting importKnowledgeSetting) {
+    this.importKnowledgeSetting = importKnowledgeSetting;
+  }
+
+  public Map<String, String> getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(Map<String, String> description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public CreateAppDataAssetReqBody() {}
+
+  public CreateAppDataAssetReqBody(Builder builder) {
     /**
      * 连接类型
-     * <p> 示例值：direct
+     *
+     * <p>示例值：direct
      */
-    @SerializedName("connect_type")
-    private String connectType;
+    this.connectType = builder.connectType;
     /**
      * 数据源类型
-     * <p> 示例值：
+     *
+     * <p>示例值：file
      */
-    @SerializedName("source_type")
-    private String sourceType;
+    this.sourceType = builder.sourceType;
     /**
      * 知识导入配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("import_knowledge_setting")
-    private DataAssetImportKnowledgeSetting importKnowledgeSetting;
+    this.importKnowledgeSetting = builder.importKnowledgeSetting;
     /**
      * 数据知识描述信息
-     * <p> 示例值：
+     *
+     * <p>示例值：{"zh_cn":"描述"}
      */
-    @SerializedName("description")
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 连接类型
+     *
+     * <p>示例值：direct
+     */
+    private String connectType;
+
+    /**
+     * 数据源类型
+     *
+     * <p>示例值：file
+     */
+    private String sourceType;
+
+    /**
+     * 知识导入配置
+     *
+     * <p>示例值：
+     */
+    private DataAssetImportKnowledgeSetting importKnowledgeSetting;
+
+    /**
+     * 数据知识描述信息
+     *
+     * <p>示例值：{"zh_cn":"描述"}
+     */
     private Map<String, String> description;
 
-    // builder 开始
-    public CreateAppDataAssetReqBody() {
+    /**
+     * 连接类型
+     *
+     * <p>示例值：direct
+     *
+     * @param connectType
+     * @return
+     */
+    public Builder connectType(String connectType) {
+      this.connectType = connectType;
+      return this;
     }
 
-    public CreateAppDataAssetReqBody(Builder builder) {
-        /**
-         * 连接类型
-         * <p> 示例值：direct
-         */
-        this.connectType = builder.connectType;
-        /**
-         * 数据源类型
-         * <p> 示例值：
-         */
-        this.sourceType = builder.sourceType;
-        /**
-         * 知识导入配置
-         * <p> 示例值：
-         */
-        this.importKnowledgeSetting = builder.importKnowledgeSetting;
-        /**
-         * 数据知识描述信息
-         * <p> 示例值：
-         */
-        this.description = builder.description;
+    /**
+     * 连接类型
+     *
+     * <p>示例值：direct
+     *
+     * @param connectType {@link
+     *     com.lark.oapi.service.aily.v1.enums.CreateAppDataAssetConnectTypeEnum}
+     * @return
+     */
+    public Builder connectType(
+        com.lark.oapi.service.aily.v1.enums.CreateAppDataAssetConnectTypeEnum connectType) {
+      this.connectType = connectType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据源类型
+     *
+     * <p>示例值：file
+     *
+     * @param sourceType
+     * @return
+     */
+    public Builder sourceType(String sourceType) {
+      this.sourceType = sourceType;
+      return this;
     }
 
-    public String getConnectType() {
-        return this.connectType;
+    /**
+     * 数据源类型
+     *
+     * <p>示例值：file
+     *
+     * @param sourceType {@link
+     *     com.lark.oapi.service.aily.v1.enums.CreateAppDataAssetSourceTypeEnum}
+     * @return
+     */
+    public Builder sourceType(
+        com.lark.oapi.service.aily.v1.enums.CreateAppDataAssetSourceTypeEnum sourceType) {
+      this.sourceType = sourceType.getValue();
+      return this;
     }
 
-    public void setConnectType(String connectType) {
-        this.connectType = connectType;
+    /**
+     * 知识导入配置
+     *
+     * <p>示例值：
+     *
+     * @param importKnowledgeSetting
+     * @return
+     */
+    public Builder importKnowledgeSetting(DataAssetImportKnowledgeSetting importKnowledgeSetting) {
+      this.importKnowledgeSetting = importKnowledgeSetting;
+      return this;
     }
 
-    public String getSourceType() {
-        return this.sourceType;
+    /**
+     * 数据知识描述信息
+     *
+     * <p>示例值：{"zh_cn":"描述"}
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(Map<String, String> description) {
+      this.description = description;
+      return this;
     }
 
-    public void setSourceType(String sourceType) {
-        this.sourceType = sourceType;
+    public CreateAppDataAssetReqBody build() {
+      return new CreateAppDataAssetReqBody(this);
     }
+  }
 
-    public DataAssetImportKnowledgeSetting getImportKnowledgeSetting() {
-        return this.importKnowledgeSetting;
-    }
-
-    public void setImportKnowledgeSetting(DataAssetImportKnowledgeSetting importKnowledgeSetting) {
-        this.importKnowledgeSetting = importKnowledgeSetting;
-    }
-
-    public Map<String, String> getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(Map<String, String> description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * 连接类型
-         * <p> 示例值：direct
-         */
-        private String connectType;
-        /**
-         * 数据源类型
-         * <p> 示例值：
-         */
-        private String sourceType;
-        /**
-         * 知识导入配置
-         * <p> 示例值：
-         */
-        private DataAssetImportKnowledgeSetting importKnowledgeSetting;
-        /**
-         * 数据知识描述信息
-         * <p> 示例值：
-         */
-        private Map<String, String> description;
-
-        /**
-         * 连接类型
-         * <p> 示例值：direct
-         *
-         * @param connectType
-         * @return
-         */
-        public Builder connectType(String connectType) {
-            this.connectType = connectType;
-            return this;
-        }
-
-        /**
-         * 连接类型
-         * <p> 示例值：direct
-         *
-         * @param connectType {@link com.lark.oapi.service.aily.v1.enums.CreateAppDataAssetConnectTypeEnum}
-         * @return
-         */
-        public Builder connectType(com.lark.oapi.service.aily.v1.enums.CreateAppDataAssetConnectTypeEnum connectType) {
-            this.connectType = connectType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 数据源类型
-         * <p> 示例值：
-         *
-         * @param sourceType
-         * @return
-         */
-        public Builder sourceType(String sourceType) {
-            this.sourceType = sourceType;
-            return this;
-        }
-
-        /**
-         * 数据源类型
-         * <p> 示例值：
-         *
-         * @param sourceType {@link com.lark.oapi.service.aily.v1.enums.CreateAppDataAssetSourceTypeEnum}
-         * @return
-         */
-        public Builder sourceType(com.lark.oapi.service.aily.v1.enums.CreateAppDataAssetSourceTypeEnum sourceType) {
-            this.sourceType = sourceType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 知识导入配置
-         * <p> 示例值：
-         *
-         * @param importKnowledgeSetting
-         * @return
-         */
-        public Builder importKnowledgeSetting(DataAssetImportKnowledgeSetting importKnowledgeSetting) {
-            this.importKnowledgeSetting = importKnowledgeSetting;
-            return this;
-        }
-
-
-        /**
-         * 数据知识描述信息
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(Map<String, String> description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public CreateAppDataAssetReqBody build() {
-            return new CreateAppDataAssetReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

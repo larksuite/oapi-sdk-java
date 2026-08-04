@@ -13,104 +13,101 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class GetTaskReq {
+  /**
+   * 表示user的ID的类型，支持open_id, user_id, union_id
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 要获取的任务guid
+   *
+   * <p>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+   */
+  @Path
+  @SerializedName("task_guid")
+  private String taskGuid;
+
+  public String getTaskGuid() {
+    return this.taskGuid;
+  }
+
+  public void setTaskGuid(String taskGuid) {
+    this.taskGuid = taskGuid;
+  }
+
+  // builder 开始
+  public GetTaskReq() {}
+
+  public GetTaskReq(Builder builder) {
     /**
      * 表示user的ID的类型，支持open_id, user_id, union_id
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 要获取的任务guid
-     * <p> 示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+     *
+     * <p>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
      */
-    @Path
-    @SerializedName("task_guid")
-    private String taskGuid;
+    this.taskGuid = builder.taskGuid;
+  }
 
-    // builder 开始
-    public GetTaskReq() {
+  public static class Builder {
+    private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
+
+    /**
+     * 表示user的ID的类型，支持open_id, user_id, union_id
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetTaskReq(Builder builder) {
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 要获取的任务guid
-         * <p> 示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
-         */
-        this.taskGuid = builder.taskGuid;
+    private String taskGuid; // 要获取的任务guid
+
+    /**
+     * 要获取的任务guid
+     *
+     * <p>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
+     *
+     * @param taskGuid
+     * @return
+     */
+    public Builder taskGuid(String taskGuid) {
+      this.taskGuid = taskGuid;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GetTaskReq build() {
+      return new GetTaskReq(this);
     }
+  }
 
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getTaskGuid() {
-        return this.taskGuid;
-    }
-
-    public void setTaskGuid(String taskGuid) {
-        this.taskGuid = taskGuid;
-    }
-
-    public static class Builder {
-        private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-        private String taskGuid; // 要获取的任务guid
-
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 要获取的任务guid
-         * <p> 示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0
-         *
-         * @param taskGuid
-         * @return
-         */
-        public Builder taskGuid(String taskGuid) {
-            this.taskGuid = taskGuid;
-            return this;
-        }
-
-
-        public GetTaskReq build() {
-            return new GetTaskReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

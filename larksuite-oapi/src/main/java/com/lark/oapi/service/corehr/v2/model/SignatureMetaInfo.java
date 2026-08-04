@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureMetaInfo {
+  /**
+   * 区域名称apiName
+   *
+   * <p>示例值：7246307700768902956
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 区域对应的唯一ID
+   *
+   * <p>示例值：7246307700768902956
+   */
+  @SerializedName("wk_id")
+  private String wkId;
+
+  /**
+   * 多语描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("label")
+  private I18n[] label;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public String getWkId() {
+    return this.wkId;
+  }
+
+  public void setWkId(String wkId) {
+    this.wkId = wkId;
+  }
+
+  public I18n[] getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(I18n[] label) {
+    this.label = label;
+  }
+
+  // builder 开始
+  public SignatureMetaInfo() {}
+
+  public SignatureMetaInfo(Builder builder) {
     /**
-     * 元数据api_name
-     * <p> 示例值：status
+     * 区域名称apiName
+     *
+     * <p>示例值：7246307700768902956
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
-     * wukong id
-     * <p> 示例值：123124124124123
+     * 区域对应的唯一ID
+     *
+     * <p>示例值：7246307700768902956
      */
-    @SerializedName("wk_id")
-    private String wkId;
+    this.wkId = builder.wkId;
     /**
      * 多语描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("label")
+    this.label = builder.label;
+  }
+
+  public static class Builder {
+    /**
+     * 区域名称apiName
+     *
+     * <p>示例值：7246307700768902956
+     */
+    private String apiName;
+
+    /**
+     * 区域对应的唯一ID
+     *
+     * <p>示例值：7246307700768902956
+     */
+    private String wkId;
+
+    /**
+     * 多语描述
+     *
+     * <p>示例值：
+     */
     private I18n[] label;
 
-    // builder 开始
-    public SignatureMetaInfo() {
+    /**
+     * 区域名称apiName
+     *
+     * <p>示例值：7246307700768902956
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public SignatureMetaInfo(Builder builder) {
-        /**
-         * 元数据api_name
-         * <p> 示例值：status
-         */
-        this.apiName = builder.apiName;
-        /**
-         * wukong id
-         * <p> 示例值：123124124124123
-         */
-        this.wkId = builder.wkId;
-        /**
-         * 多语描述
-         * <p> 示例值：
-         */
-        this.label = builder.label;
+    /**
+     * 区域对应的唯一ID
+     *
+     * <p>示例值：7246307700768902956
+     *
+     * @param wkId
+     * @return
+     */
+    public Builder wkId(String wkId) {
+      this.wkId = wkId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 多语描述
+     *
+     * <p>示例值：
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(I18n[] label) {
+      this.label = label;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    public SignatureMetaInfo build() {
+      return new SignatureMetaInfo(this);
     }
+  }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public String getWkId() {
-        return this.wkId;
-    }
-
-    public void setWkId(String wkId) {
-        this.wkId = wkId;
-    }
-
-    public I18n[] getLabel() {
-        return this.label;
-    }
-
-    public void setLabel(I18n[] label) {
-        this.label = label;
-    }
-
-    public static class Builder {
-        /**
-         * 元数据api_name
-         * <p> 示例值：status
-         */
-        private String apiName;
-        /**
-         * wukong id
-         * <p> 示例值：123124124124123
-         */
-        private String wkId;
-        /**
-         * 多语描述
-         * <p> 示例值：
-         */
-        private I18n[] label;
-
-        /**
-         * 元数据api_name
-         * <p> 示例值：status
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * wukong id
-         * <p> 示例值：123124124124123
-         *
-         * @param wkId
-         * @return
-         */
-        public Builder wkId(String wkId) {
-            this.wkId = wkId;
-            return this;
-        }
-
-
-        /**
-         * 多语描述
-         * <p> 示例值：
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(I18n[] label) {
-            this.label = label;
-            return this;
-        }
-
-
-        public SignatureMetaInfo build() {
-            return new SignatureMetaInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ScopeEntryDateInfo {
+  /**
+   * 开始日期
+   *
+   * <p>示例值：20220930
+   */
+  @SerializedName("from")
+  private String from;
+
+  /**
+   * 结束日期
+   *
+   * <p>示例值：20221025
+   */
+  @SerializedName("to")
+  private String to;
+
+  public String getFrom() {
+    return this.from;
+  }
+
+  public void setFrom(String from) {
+    this.from = from;
+  }
+
+  public String getTo() {
+    return this.to;
+  }
+
+  public void setTo(String to) {
+    this.to = to;
+  }
+
+  // builder 开始
+  public ScopeEntryDateInfo() {}
+
+  public ScopeEntryDateInfo(Builder builder) {
     /**
      * 开始日期
-     * <p> 示例值：20220930
+     *
+     * <p>示例值：20220930
      */
-    @SerializedName("from")
-    private String from;
+    this.from = builder.from;
     /**
      * 结束日期
-     * <p> 示例值：20221025
+     *
+     * <p>示例值：20221025
      */
-    @SerializedName("to")
+    this.to = builder.to;
+  }
+
+  public static class Builder {
+    /**
+     * 开始日期
+     *
+     * <p>示例值：20220930
+     */
+    private String from;
+
+    /**
+     * 结束日期
+     *
+     * <p>示例值：20221025
+     */
     private String to;
 
-    // builder 开始
-    public ScopeEntryDateInfo() {
+    /**
+     * 开始日期
+     *
+     * <p>示例值：20220930
+     *
+     * @param from
+     * @return
+     */
+    public Builder from(String from) {
+      this.from = from;
+      return this;
     }
 
-    public ScopeEntryDateInfo(Builder builder) {
-        /**
-         * 开始日期
-         * <p> 示例值：20220930
-         */
-        this.from = builder.from;
-        /**
-         * 结束日期
-         * <p> 示例值：20221025
-         */
-        this.to = builder.to;
+    /**
+     * 结束日期
+     *
+     * <p>示例值：20221025
+     *
+     * @param to
+     * @return
+     */
+    public Builder to(String to) {
+      this.to = to;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ScopeEntryDateInfo build() {
+      return new ScopeEntryDateInfo(this);
     }
+  }
 
-    public String getFrom() {
-        return this.from;
-    }
-
-    public void setFrom(String from) {
-        this.from = from;
-    }
-
-    public String getTo() {
-        return this.to;
-    }
-
-    public void setTo(String to) {
-        this.to = to;
-    }
-
-    public static class Builder {
-        /**
-         * 开始日期
-         * <p> 示例值：20220930
-         */
-        private String from;
-        /**
-         * 结束日期
-         * <p> 示例值：20221025
-         */
-        private String to;
-
-        /**
-         * 开始日期
-         * <p> 示例值：20220930
-         *
-         * @param from
-         * @return
-         */
-        public Builder from(String from) {
-            this.from = from;
-            return this;
-        }
-
-
-        /**
-         * 结束日期
-         * <p> 示例值：20221025
-         *
-         * @param to
-         * @return
-         */
-        public Builder to(String to) {
-            this.to = to;
-            return this;
-        }
-
-
-        public ScopeEntryDateInfo build() {
-            return new ScopeEntryDateInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

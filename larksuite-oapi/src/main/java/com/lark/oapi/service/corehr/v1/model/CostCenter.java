@@ -13,556 +13,611 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CostCenter {
+  /**
+   * 是否自动生成
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_autogenerate")
+  private Boolean isAutogenerate;
+
+  /**
+   * 成本中心 ID
+   *
+   * <p>示例值：6950635856373745165
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 成本中心名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  /**
+   * 当前实体是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 成本中心的编码
+   *
+   * <p>示例值：MDPD00000023
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 成本中心的描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n[] description;
+
+  /**
+   * 成本中心生效时间
+   *
+   * <p>示例值：20210802
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 成本中心失效时间
+   *
+   * <p>示例值：20210802
+   */
+  @SerializedName("expiration_time")
+  private String expirationTime;
+
+  /**
+   * 成本中心负责人ID，枚举值及详细信息可通过【批量查询雇佣信息】接口查询获得
+   *
+   * <p>示例值：xx
+   */
+  @SerializedName("managers")
+  private String[] managers;
+
+  /**
+   * 上级成本中心
+   *
+   * <p>示例值：MDPD00000023
+   */
+  @SerializedName("parent")
+  private String parent;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  /**
+   * 雇员ID
+   *
+   * <p>示例值：6950635856373745165
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 雇员占成本中心比例
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("rate")
+  private Integer rate;
+
+  /**
+   * 支持的业务线列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("support_cost_center")
+  private SupportCostCenterItem[] supportCostCenter;
+
+  public Boolean getIsAutogenerate() {
+    return this.isAutogenerate;
+  }
+
+  public void setIsAutogenerate(Boolean isAutogenerate) {
+    this.isAutogenerate = isAutogenerate;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public I18n[] getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n[] description) {
+    this.description = description;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getExpirationTime() {
+    return this.expirationTime;
+  }
+
+  public void setExpirationTime(String expirationTime) {
+    this.expirationTime = expirationTime;
+  }
+
+  public String[] getManagers() {
+    return this.managers;
+  }
+
+  public void setManagers(String[] managers) {
+    this.managers = managers;
+  }
+
+  public String getParent() {
+    return this.parent;
+  }
+
+  public void setParent(String parent) {
+    this.parent = parent;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public Integer getRate() {
+    return this.rate;
+  }
+
+  public void setRate(Integer rate) {
+    this.rate = rate;
+  }
+
+  public SupportCostCenterItem[] getSupportCostCenter() {
+    return this.supportCostCenter;
+  }
+
+  public void setSupportCostCenter(SupportCostCenterItem[] supportCostCenter) {
+    this.supportCostCenter = supportCostCenter;
+  }
+
+  // builder 开始
+  public CostCenter() {}
+
+  public CostCenter(Builder builder) {
     /**
      * 是否自动生成
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_autogenerate")
-    private Boolean isAutogenerate;
+    this.isAutogenerate = builder.isAutogenerate;
     /**
-     * 实体在CoreHR内部的唯一键
-     * <p> 示例值：6950635856373745165
+     * 成本中心 ID
+     *
+     * <p>示例值：6950635856373745165
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 实体名称
-     * <p> 示例值：
+     * 成本中心名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n[] name;
+    this.name = builder.name;
     /**
      * 当前实体是否启用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
      * 成本中心的编码
-     * <p> 示例值：CC-000001
+     *
+     * <p>示例值：MDPD00000023
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 成本中心的描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n[] description;
+    this.description = builder.description;
     /**
      * 成本中心生效时间
-     * <p> 示例值：20210802
+     *
+     * <p>示例值：20210802
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 成本中心失效时间
-     * <p> 示例值：20210802
+     *
+     * <p>示例值：20210802
      */
-    @SerializedName("expiration_time")
-    private String expirationTime;
+    this.expirationTime = builder.expirationTime;
     /**
-     * 成本中心管理员，lookup 到 Employment 的ID
-     * <p> 示例值：
+     * 成本中心负责人ID，枚举值及详细信息可通过【批量查询雇佣信息】接口查询获得
+     *
+     * <p>示例值：xx
      */
-    @SerializedName("managers")
-    private String[] managers;
+    this.managers = builder.managers;
     /**
      * 上级成本中心
-     * <p> 示例值：CC-00001
+     *
+     * <p>示例值：MDPD00000023
      */
-    @SerializedName("parent")
-    private String parent;
+    this.parent = builder.parent;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private ObjectFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
      * 雇员ID
-     * <p> 示例值：6950635856373745165
+     *
+     * <p>示例值：6950635856373745165
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 雇员占成本中心比例
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("rate")
-    private Integer rate;
+    this.rate = builder.rate;
     /**
      * 支持的业务线列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("support_cost_center")
+    this.supportCostCenter = builder.supportCostCenter;
+  }
+
+  public static class Builder {
+    /**
+     * 是否自动生成
+     *
+     * <p>示例值：true
+     */
+    private Boolean isAutogenerate;
+
+    /**
+     * 成本中心 ID
+     *
+     * <p>示例值：6950635856373745165
+     */
+    private String id;
+
+    /**
+     * 成本中心名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] name;
+
+    /**
+     * 当前实体是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean active;
+
+    /**
+     * 成本中心的编码
+     *
+     * <p>示例值：MDPD00000023
+     */
+    private String code;
+
+    /**
+     * 成本中心的描述
+     *
+     * <p>示例值：
+     */
+    private I18n[] description;
+
+    /**
+     * 成本中心生效时间
+     *
+     * <p>示例值：20210802
+     */
+    private String effectiveTime;
+
+    /**
+     * 成本中心失效时间
+     *
+     * <p>示例值：20210802
+     */
+    private String expirationTime;
+
+    /**
+     * 成本中心负责人ID，枚举值及详细信息可通过【批量查询雇佣信息】接口查询获得
+     *
+     * <p>示例值：xx
+     */
+    private String[] managers;
+
+    /**
+     * 上级成本中心
+     *
+     * <p>示例值：MDPD00000023
+     */
+    private String parent;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private ObjectFieldData[] customFields;
+
+    /**
+     * 雇员ID
+     *
+     * <p>示例值：6950635856373745165
+     */
+    private String employmentId;
+
+    /**
+     * 雇员占成本中心比例
+     *
+     * <p>示例值：100
+     */
+    private Integer rate;
+
+    /**
+     * 支持的业务线列表
+     *
+     * <p>示例值：
+     */
     private SupportCostCenterItem[] supportCostCenter;
 
-    // builder 开始
-    public CostCenter() {
+    /**
+     * 是否自动生成
+     *
+     * <p>示例值：true
+     *
+     * @param isAutogenerate
+     * @return
+     */
+    public Builder isAutogenerate(Boolean isAutogenerate) {
+      this.isAutogenerate = isAutogenerate;
+      return this;
     }
 
-    public CostCenter(Builder builder) {
-        /**
-         * 是否自动生成
-         * <p> 示例值：true
-         */
-        this.isAutogenerate = builder.isAutogenerate;
-        /**
-         * 实体在CoreHR内部的唯一键
-         * <p> 示例值：6950635856373745165
-         */
-        this.id = builder.id;
-        /**
-         * 实体名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 当前实体是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 成本中心的编码
-         * <p> 示例值：CC-000001
-         */
-        this.code = builder.code;
-        /**
-         * 成本中心的描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 成本中心生效时间
-         * <p> 示例值：20210802
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 成本中心失效时间
-         * <p> 示例值：20210802
-         */
-        this.expirationTime = builder.expirationTime;
-        /**
-         * 成本中心管理员，lookup 到 Employment 的ID
-         * <p> 示例值：
-         */
-        this.managers = builder.managers;
-        /**
-         * 上级成本中心
-         * <p> 示例值：CC-00001
-         */
-        this.parent = builder.parent;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 雇员ID
-         * <p> 示例值：6950635856373745165
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 雇员占成本中心比例
-         * <p> 示例值：100
-         */
-        this.rate = builder.rate;
-        /**
-         * 支持的业务线列表
-         * <p> 示例值：
-         */
-        this.supportCostCenter = builder.supportCostCenter;
+    /**
+     * 成本中心 ID
+     *
+     * <p>示例值：6950635856373745165
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 成本中心名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public Boolean getIsAutogenerate() {
-        return this.isAutogenerate;
+    /**
+     * 当前实体是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public void setIsAutogenerate(Boolean isAutogenerate) {
-        this.isAutogenerate = isAutogenerate;
+    /**
+     * 成本中心的编码
+     *
+     * <p>示例值：MDPD00000023
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 成本中心的描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n[] description) {
+      this.description = description;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 成本中心生效时间
+     *
+     * <p>示例值：20210802
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public I18n[] getName() {
-        return this.name;
+    /**
+     * 成本中心失效时间
+     *
+     * <p>示例值：20210802
+     *
+     * @param expirationTime
+     * @return
+     */
+    public Builder expirationTime(String expirationTime) {
+      this.expirationTime = expirationTime;
+      return this;
     }
 
-    public void setName(I18n[] name) {
-        this.name = name;
+    /**
+     * 成本中心负责人ID，枚举值及详细信息可通过【批量查询雇佣信息】接口查询获得
+     *
+     * <p>示例值：xx
+     *
+     * @param managers
+     * @return
+     */
+    public Builder managers(String[] managers) {
+      this.managers = managers;
+      return this;
     }
 
-    public Boolean getActive() {
-        return this.active;
+    /**
+     * 上级成本中心
+     *
+     * <p>示例值：MDPD00000023
+     *
+     * @param parent
+     * @return
+     */
+    public Builder parent(String parent) {
+      this.parent = parent;
+      return this;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    /**
+     * 雇员ID
+     *
+     * <p>示例值：6950635856373745165
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    /**
+     * 雇员占成本中心比例
+     *
+     * <p>示例值：100
+     *
+     * @param rate
+     * @return
+     */
+    public Builder rate(Integer rate) {
+      this.rate = rate;
+      return this;
     }
 
-    public I18n[] getDescription() {
-        return this.description;
+    /**
+     * 支持的业务线列表
+     *
+     * <p>示例值：
+     *
+     * @param supportCostCenter
+     * @return
+     */
+    public Builder supportCostCenter(SupportCostCenterItem[] supportCostCenter) {
+      this.supportCostCenter = supportCostCenter;
+      return this;
     }
 
-    public void setDescription(I18n[] description) {
-        this.description = description;
+    public CostCenter build() {
+      return new CostCenter(this);
     }
+  }
 
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public String getExpirationTime() {
-        return this.expirationTime;
-    }
-
-    public void setExpirationTime(String expirationTime) {
-        this.expirationTime = expirationTime;
-    }
-
-    public String[] getManagers() {
-        return this.managers;
-    }
-
-    public void setManagers(String[] managers) {
-        this.managers = managers;
-    }
-
-    public String getParent() {
-        return this.parent;
-    }
-
-    public void setParent(String parent) {
-        this.parent = parent;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public Integer getRate() {
-        return this.rate;
-    }
-
-    public void setRate(Integer rate) {
-        this.rate = rate;
-    }
-
-    public SupportCostCenterItem[] getSupportCostCenter() {
-        return this.supportCostCenter;
-    }
-
-    public void setSupportCostCenter(SupportCostCenterItem[] supportCostCenter) {
-        this.supportCostCenter = supportCostCenter;
-    }
-
-    public static class Builder {
-        /**
-         * 是否自动生成
-         * <p> 示例值：true
-         */
-        private Boolean isAutogenerate;
-        /**
-         * 实体在CoreHR内部的唯一键
-         * <p> 示例值：6950635856373745165
-         */
-        private String id;
-        /**
-         * 实体名称
-         * <p> 示例值：
-         */
-        private I18n[] name;
-        /**
-         * 当前实体是否启用
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 成本中心的编码
-         * <p> 示例值：CC-000001
-         */
-        private String code;
-        /**
-         * 成本中心的描述
-         * <p> 示例值：
-         */
-        private I18n[] description;
-        /**
-         * 成本中心生效时间
-         * <p> 示例值：20210802
-         */
-        private String effectiveTime;
-        /**
-         * 成本中心失效时间
-         * <p> 示例值：20210802
-         */
-        private String expirationTime;
-        /**
-         * 成本中心管理员，lookup 到 Employment 的ID
-         * <p> 示例值：
-         */
-        private String[] managers;
-        /**
-         * 上级成本中心
-         * <p> 示例值：CC-00001
-         */
-        private String parent;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-        /**
-         * 雇员ID
-         * <p> 示例值：6950635856373745165
-         */
-        private String employmentId;
-        /**
-         * 雇员占成本中心比例
-         * <p> 示例值：100
-         */
-        private Integer rate;
-        /**
-         * 支持的业务线列表
-         * <p> 示例值：
-         */
-        private SupportCostCenterItem[] supportCostCenter;
-
-        /**
-         * 是否自动生成
-         * <p> 示例值：true
-         *
-         * @param isAutogenerate
-         * @return
-         */
-        public Builder isAutogenerate(Boolean isAutogenerate) {
-            this.isAutogenerate = isAutogenerate;
-            return this;
-        }
-
-
-        /**
-         * 实体在CoreHR内部的唯一键
-         * <p> 示例值：6950635856373745165
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 实体名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 当前实体是否启用
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 成本中心的编码
-         * <p> 示例值：CC-000001
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 成本中心的描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n[] description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 成本中心生效时间
-         * <p> 示例值：20210802
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 成本中心失效时间
-         * <p> 示例值：20210802
-         *
-         * @param expirationTime
-         * @return
-         */
-        public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
-        }
-
-
-        /**
-         * 成本中心管理员，lookup 到 Employment 的ID
-         * <p> 示例值：
-         *
-         * @param managers
-         * @return
-         */
-        public Builder managers(String[] managers) {
-            this.managers = managers;
-            return this;
-        }
-
-
-        /**
-         * 上级成本中心
-         * <p> 示例值：CC-00001
-         *
-         * @param parent
-         * @return
-         */
-        public Builder parent(String parent) {
-            this.parent = parent;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 雇员ID
-         * <p> 示例值：6950635856373745165
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 雇员占成本中心比例
-         * <p> 示例值：100
-         *
-         * @param rate
-         * @return
-         */
-        public Builder rate(Integer rate) {
-            this.rate = rate;
-            return this;
-        }
-
-
-        /**
-         * 支持的业务线列表
-         * <p> 示例值：
-         *
-         * @param supportCostCenter
-         * @return
-         */
-        public Builder supportCostCenter(SupportCostCenterItem[] supportCostCenter) {
-            this.supportCostCenter = supportCostCenter;
-            return this;
-        }
-
-
-        public CostCenter build() {
-            return new CostCenter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

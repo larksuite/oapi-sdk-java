@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.payroll.v1.enums;
 
-/**
- * 报表类型
- */
+/** 报表类型 */
 public enum ListCostAllocationReportReportTypeEnum {
-    DEFAULT(0), // 默认
-    ACCRUED(1), // 计提
-    PAID(2), // 实发
-    ;
-    private Integer value;
+  DEFAULT(0), // 默认，表示没有开通计提和实发功能时的报表类型，开通计提和实发之后，该类型报表将无法发布。
+  ACCRUED(1), // 计提
+  PAID(2), // 实发
+  ;
+  private Integer value;
 
-    ListCostAllocationReportReportTypeEnum(Integer value) {
-        this.value = value;
-    }
+  ListCostAllocationReportReportTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

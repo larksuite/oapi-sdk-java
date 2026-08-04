@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 纪要产物类型
- */
+/** 纪要产物类型 */
 public enum NoteArtifactInfoArtifactTypeEnum {
-    UNKNOWN(0), // 未知类型
-    MAIN_DOC(1), // 主纪要文档
-    VERBATIM_DOC(2), // 逐字稿文档
-    ;
-    private Integer value;
+  UNKNOWN(0), // 保留值（正常业务流程中服务端不会返回）
+  MAIN_DOC(1), // 纪要文档
+  VERBATIM_DOC(2), // 逐字稿文档
+  ;
+  private Integer value;
 
-    NoteArtifactInfoArtifactTypeEnum(Integer value) {
-        this.value = value;
-    }
+  NoteArtifactInfoArtifactTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,161 +13,216 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateReactionCommentReactionReqBody {
+  /**
+   * 操作类型
+   *
+   * <p>示例值：add
+   */
+  @SerializedName("action")
+  private String action;
+
+  /**
+   * 回复 ID;;可通过调用 添加回复、获取回复信息 接口获取
+   *
+   * <p>示例值：1234567890
+   */
+  @SerializedName("reply_id")
+  private String replyId;
+
+  /**
+   * reaction 类型;;可选值：ANGRY, APPLAUSE, ATTENTION, AWESOME, BEAR, BEER, BETRAYED, BIGKISS, BLACKFACE,
+   * BLUBBER, BLUSH, BOMB, CAKE, CHUCKLE, CLAP, CLEAVER, COMFORT, CRAZY, CRY, CUCUMBER, DETERGENT,
+   * DIZZY, DONE, DONNOTGO, DROOL, DROWSY, DULL, DULLSTARE, EATING, EMBARRASSED, ENOUGH, ERROR,
+   * EYESCLOSED, FACEPALM, FINGERHEART, FISTBUMP, FOLLOWME, FROWN, GIFT, GLANCE, GOODJOB, HAMMER,
+   * HAUGHTY, HEADSET, HEART, HEARTBROKEN, HIGHFIVE, HUG, HUSKY, INNOCENTSMILE, JIAYI, JOYFUL, KISS,
+   * LAUGH, LIPS, LOL, LOOKDOWN, LOVE, MONEY, MUSCLE, NOSEPICK, OBSESSED, OK, PARTY, PETRIFIED,
+   * POOP, PRAISE, PROUD, PUKE, RAINBOWPUKE, ROSE, SALUTE, SCOWL, SHAKE, SHHH, SHOCKED, SHOWOFF,
+   * SHY, SICK, SILENT, SKULL, SLAP, SLEEP, SLIGHT, SMART, SMILE, SMIRK, SMOOCH, SMUG, SOB,
+   * SPEECHLESS, SPITBLOOD, STRIVE, SWEAT, TEARS, TEASE, TERROR, THANKS, THINKING, THUMBSUP,
+   * TOASTED, TONGUE, TRICK, UPPERLEFT, WAIL, WAVE, WELLDONE, WHAT, WHIMPER, WINK, WITTY, WOW,
+   * WRONGED, XBLUSH, YAWN, YEAH, FIREWORKS, BULL, CALF, AWESOMEN, 2021, CANDIEDHAWS, REDPACKET,
+   * FORTUNE, LUCK, FIRECRACKER, Yes, No, Get, LGTM, Lemon, EatingFood, Hundred, MinusOne,
+   * ThumbsDown, Fire, OKR, Drumstick, BubbleTea, Loudspeaker, Pin, Coffee, Alarm, Trophy, Music,
+   * Typing, Pepper, CheckMark, CrossMark.
+   *
+   * <p>示例值：ANGRY
+   */
+  @SerializedName("reaction_type")
+  private String reactionType;
+
+  public String getAction() {
+    return this.action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
+
+  public String getReplyId() {
+    return this.replyId;
+  }
+
+  public void setReplyId(String replyId) {
+    this.replyId = replyId;
+  }
+
+  public String getReactionType() {
+    return this.reactionType;
+  }
+
+  public void setReactionType(String reactionType) {
+    this.reactionType = reactionType;
+  }
+
+  // builder 开始
+  public UpdateReactionCommentReactionReqBody() {}
+
+  public UpdateReactionCommentReactionReqBody(Builder builder) {
     /**
-     * 操作类型: add/delete
-     * <p> 示例值：add/delete
+     * 操作类型
+     *
+     * <p>示例值：add
      */
-    @SerializedName("action")
+    this.action = builder.action;
+    /**
+     * 回复 ID;;可通过调用 添加回复、获取回复信息 接口获取
+     *
+     * <p>示例值：1234567890
+     */
+    this.replyId = builder.replyId;
+    /**
+     * reaction 类型;;可选值：ANGRY, APPLAUSE, ATTENTION, AWESOME, BEAR, BEER, BETRAYED, BIGKISS,
+     * BLACKFACE, BLUBBER, BLUSH, BOMB, CAKE, CHUCKLE, CLAP, CLEAVER, COMFORT, CRAZY, CRY, CUCUMBER,
+     * DETERGENT, DIZZY, DONE, DONNOTGO, DROOL, DROWSY, DULL, DULLSTARE, EATING, EMBARRASSED,
+     * ENOUGH, ERROR, EYESCLOSED, FACEPALM, FINGERHEART, FISTBUMP, FOLLOWME, FROWN, GIFT, GLANCE,
+     * GOODJOB, HAMMER, HAUGHTY, HEADSET, HEART, HEARTBROKEN, HIGHFIVE, HUG, HUSKY, INNOCENTSMILE,
+     * JIAYI, JOYFUL, KISS, LAUGH, LIPS, LOL, LOOKDOWN, LOVE, MONEY, MUSCLE, NOSEPICK, OBSESSED, OK,
+     * PARTY, PETRIFIED, POOP, PRAISE, PROUD, PUKE, RAINBOWPUKE, ROSE, SALUTE, SCOWL, SHAKE, SHHH,
+     * SHOCKED, SHOWOFF, SHY, SICK, SILENT, SKULL, SLAP, SLEEP, SLIGHT, SMART, SMILE, SMIRK, SMOOCH,
+     * SMUG, SOB, SPEECHLESS, SPITBLOOD, STRIVE, SWEAT, TEARS, TEASE, TERROR, THANKS, THINKING,
+     * THUMBSUP, TOASTED, TONGUE, TRICK, UPPERLEFT, WAIL, WAVE, WELLDONE, WHAT, WHIMPER, WINK,
+     * WITTY, WOW, WRONGED, XBLUSH, YAWN, YEAH, FIREWORKS, BULL, CALF, AWESOMEN, 2021, CANDIEDHAWS,
+     * REDPACKET, FORTUNE, LUCK, FIRECRACKER, Yes, No, Get, LGTM, Lemon, EatingFood, Hundred,
+     * MinusOne, ThumbsDown, Fire, OKR, Drumstick, BubbleTea, Loudspeaker, Pin, Coffee, Alarm,
+     * Trophy, Music, Typing, Pepper, CheckMark, CrossMark.
+     *
+     * <p>示例值：ANGRY
+     */
+    this.reactionType = builder.reactionType;
+  }
+
+  public static class Builder {
+    /**
+     * 操作类型
+     *
+     * <p>示例值：add
+     */
     private String action;
+
     /**
-     * 回复 ID
-     * <p> 示例值：1234567890
+     * 回复 ID;;可通过调用 添加回复、获取回复信息 接口获取
+     *
+     * <p>示例值：1234567890
      */
-    @SerializedName("reply_id")
     private String replyId;
+
     /**
-     * reaction 类型
-     * <p> 示例值：like
+     * reaction 类型;;可选值：ANGRY, APPLAUSE, ATTENTION, AWESOME, BEAR, BEER, BETRAYED, BIGKISS,
+     * BLACKFACE, BLUBBER, BLUSH, BOMB, CAKE, CHUCKLE, CLAP, CLEAVER, COMFORT, CRAZY, CRY, CUCUMBER,
+     * DETERGENT, DIZZY, DONE, DONNOTGO, DROOL, DROWSY, DULL, DULLSTARE, EATING, EMBARRASSED,
+     * ENOUGH, ERROR, EYESCLOSED, FACEPALM, FINGERHEART, FISTBUMP, FOLLOWME, FROWN, GIFT, GLANCE,
+     * GOODJOB, HAMMER, HAUGHTY, HEADSET, HEART, HEARTBROKEN, HIGHFIVE, HUG, HUSKY, INNOCENTSMILE,
+     * JIAYI, JOYFUL, KISS, LAUGH, LIPS, LOL, LOOKDOWN, LOVE, MONEY, MUSCLE, NOSEPICK, OBSESSED, OK,
+     * PARTY, PETRIFIED, POOP, PRAISE, PROUD, PUKE, RAINBOWPUKE, ROSE, SALUTE, SCOWL, SHAKE, SHHH,
+     * SHOCKED, SHOWOFF, SHY, SICK, SILENT, SKULL, SLAP, SLEEP, SLIGHT, SMART, SMILE, SMIRK, SMOOCH,
+     * SMUG, SOB, SPEECHLESS, SPITBLOOD, STRIVE, SWEAT, TEARS, TEASE, TERROR, THANKS, THINKING,
+     * THUMBSUP, TOASTED, TONGUE, TRICK, UPPERLEFT, WAIL, WAVE, WELLDONE, WHAT, WHIMPER, WINK,
+     * WITTY, WOW, WRONGED, XBLUSH, YAWN, YEAH, FIREWORKS, BULL, CALF, AWESOMEN, 2021, CANDIEDHAWS,
+     * REDPACKET, FORTUNE, LUCK, FIRECRACKER, Yes, No, Get, LGTM, Lemon, EatingFood, Hundred,
+     * MinusOne, ThumbsDown, Fire, OKR, Drumstick, BubbleTea, Loudspeaker, Pin, Coffee, Alarm,
+     * Trophy, Music, Typing, Pepper, CheckMark, CrossMark.
+     *
+     * <p>示例值：ANGRY
      */
-    @SerializedName("reaction_type")
     private String reactionType;
 
-    // builder 开始
-    public UpdateReactionCommentReactionReqBody() {
+    /**
+     * 操作类型
+     *
+     * <p>示例值：add
+     *
+     * @param action
+     * @return
+     */
+    public Builder action(String action) {
+      this.action = action;
+      return this;
     }
 
-    public UpdateReactionCommentReactionReqBody(Builder builder) {
-        /**
-         * 操作类型: add/delete
-         * <p> 示例值：add/delete
-         */
-        this.action = builder.action;
-        /**
-         * 回复 ID
-         * <p> 示例值：1234567890
-         */
-        this.replyId = builder.replyId;
-        /**
-         * reaction 类型
-         * <p> 示例值：like
-         */
-        this.reactionType = builder.reactionType;
+    /**
+     * 操作类型
+     *
+     * <p>示例值：add
+     *
+     * @param action {@link
+     *     com.lark.oapi.service.drive.v2.enums.UpdateReactionCommentReactionActionEnum}
+     * @return
+     */
+    public Builder action(
+        com.lark.oapi.service.drive.v2.enums.UpdateReactionCommentReactionActionEnum action) {
+      this.action = action.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 回复 ID;;可通过调用 添加回复、获取回复信息 接口获取
+     *
+     * <p>示例值：1234567890
+     *
+     * @param replyId
+     * @return
+     */
+    public Builder replyId(String replyId) {
+      this.replyId = replyId;
+      return this;
     }
 
-    public String getAction() {
-        return this.action;
+    /**
+     * reaction 类型;;可选值：ANGRY, APPLAUSE, ATTENTION, AWESOME, BEAR, BEER, BETRAYED, BIGKISS,
+     * BLACKFACE, BLUBBER, BLUSH, BOMB, CAKE, CHUCKLE, CLAP, CLEAVER, COMFORT, CRAZY, CRY, CUCUMBER,
+     * DETERGENT, DIZZY, DONE, DONNOTGO, DROOL, DROWSY, DULL, DULLSTARE, EATING, EMBARRASSED,
+     * ENOUGH, ERROR, EYESCLOSED, FACEPALM, FINGERHEART, FISTBUMP, FOLLOWME, FROWN, GIFT, GLANCE,
+     * GOODJOB, HAMMER, HAUGHTY, HEADSET, HEART, HEARTBROKEN, HIGHFIVE, HUG, HUSKY, INNOCENTSMILE,
+     * JIAYI, JOYFUL, KISS, LAUGH, LIPS, LOL, LOOKDOWN, LOVE, MONEY, MUSCLE, NOSEPICK, OBSESSED, OK,
+     * PARTY, PETRIFIED, POOP, PRAISE, PROUD, PUKE, RAINBOWPUKE, ROSE, SALUTE, SCOWL, SHAKE, SHHH,
+     * SHOCKED, SHOWOFF, SHY, SICK, SILENT, SKULL, SLAP, SLEEP, SLIGHT, SMART, SMILE, SMIRK, SMOOCH,
+     * SMUG, SOB, SPEECHLESS, SPITBLOOD, STRIVE, SWEAT, TEARS, TEASE, TERROR, THANKS, THINKING,
+     * THUMBSUP, TOASTED, TONGUE, TRICK, UPPERLEFT, WAIL, WAVE, WELLDONE, WHAT, WHIMPER, WINK,
+     * WITTY, WOW, WRONGED, XBLUSH, YAWN, YEAH, FIREWORKS, BULL, CALF, AWESOMEN, 2021, CANDIEDHAWS,
+     * REDPACKET, FORTUNE, LUCK, FIRECRACKER, Yes, No, Get, LGTM, Lemon, EatingFood, Hundred,
+     * MinusOne, ThumbsDown, Fire, OKR, Drumstick, BubbleTea, Loudspeaker, Pin, Coffee, Alarm,
+     * Trophy, Music, Typing, Pepper, CheckMark, CrossMark.
+     *
+     * <p>示例值：ANGRY
+     *
+     * @param reactionType
+     * @return
+     */
+    public Builder reactionType(String reactionType) {
+      this.reactionType = reactionType;
+      return this;
     }
 
-    public void setAction(String action) {
-        this.action = action;
+    public UpdateReactionCommentReactionReqBody build() {
+      return new UpdateReactionCommentReactionReqBody(this);
     }
+  }
 
-    public String getReplyId() {
-        return this.replyId;
-    }
-
-    public void setReplyId(String replyId) {
-        this.replyId = replyId;
-    }
-
-    public String getReactionType() {
-        return this.reactionType;
-    }
-
-    public void setReactionType(String reactionType) {
-        this.reactionType = reactionType;
-    }
-
-    public static class Builder {
-        /**
-         * 操作类型: add/delete
-         * <p> 示例值：add/delete
-         */
-        private String action;
-        /**
-         * 回复 ID
-         * <p> 示例值：1234567890
-         */
-        private String replyId;
-        /**
-         * reaction 类型
-         * <p> 示例值：like
-         */
-        private String reactionType;
-
-        /**
-         * 操作类型: add/delete
-         * <p> 示例值：add/delete
-         *
-         * @param action
-         * @return
-         */
-        public Builder action(String action) {
-            this.action = action;
-            return this;
-        }
-
-        /**
-         * 操作类型: add/delete
-         * <p> 示例值：add/delete
-         *
-         * @param action {@link com.lark.oapi.service.drive.v2.enums.UpdateReactionCommentReactionActionEnum}
-         * @return
-         */
-        public Builder action(com.lark.oapi.service.drive.v2.enums.UpdateReactionCommentReactionActionEnum action) {
-            this.action = action.getValue();
-            return this;
-        }
-
-
-        /**
-         * 回复 ID
-         * <p> 示例值：1234567890
-         *
-         * @param replyId
-         * @return
-         */
-        public Builder replyId(String replyId) {
-            this.replyId = replyId;
-            return this;
-        }
-
-
-        /**
-         * reaction 类型
-         * <p> 示例值：like
-         *
-         * @param reactionType
-         * @return
-         */
-        public Builder reactionType(String reactionType) {
-            this.reactionType = reactionType;
-            return this;
-        }
-
-
-        public UpdateReactionCommentReactionReqBody build() {
-            return new UpdateReactionCommentReactionReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

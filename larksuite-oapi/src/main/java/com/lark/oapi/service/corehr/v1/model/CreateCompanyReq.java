@@ -13,97 +13,92 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class CreateCompanyReq {
+  /**
+   * 操作的唯一标识，用于幂等的进行更新操作，根据client_token是否一致来判断是否为同一请求。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+   *
+   * <p>示例值："22ff85f7-5938-4579-9b57-d52cfeb05d52"
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  @Body private Company body;
+
+  public Company getCompany() {
+    return this.body;
+  }
+
+  public void setCompany(Company body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateCompanyReq() {}
+
+  public CreateCompanyReq(Builder builder) {
     /**
-     * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
+     * 操作的唯一标识，用于幂等的进行更新操作，根据client_token是否一致来判断是否为同一请求。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+     *
+     * <p>示例值："22ff85f7-5938-4579-9b57-d52cfeb05d52"
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
-    @Body
+    this.clientToken = builder.clientToken;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        clientToken; // 操作的唯一标识，用于幂等的进行更新操作，根据client_token是否一致来判断是否为同一请求。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+
+    /**
+     * 操作的唯一标识，用于幂等的进行更新操作，根据client_token是否一致来判断是否为同一请求。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+     *
+     * <p>示例值："22ff85f7-5938-4579-9b57-d52cfeb05d52"
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
     private Company body;
 
-    // builder 开始
-    public CreateCompanyReq() {
-    }
-
-    public CreateCompanyReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
     public Company getCompany() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCompany(Company body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder company(Company body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private Company body;
-
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        public Company getCompany() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder company(Company body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateCompanyReq build() {
-            return new CreateCompanyReq(this);
-        }
+    public CreateCompanyReq build() {
+      return new CreateCompanyReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

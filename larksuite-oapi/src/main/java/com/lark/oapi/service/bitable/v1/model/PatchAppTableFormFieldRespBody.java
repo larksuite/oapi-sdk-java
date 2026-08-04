@@ -13,34 +13,18 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchAppTableFormFieldRespBody {
-    /**
-     * 更新后的field值
-     * <p> 示例值：
-     */
-    @SerializedName("fields")
-    private AppTableFormPatchedField fields;
+  /** 示例值： */
+  @SerializedName("fields")
+  private AppTableFormPatchedField fields;
 
-    public AppTableFormPatchedField getFields() {
-        return this.fields;
-    }
+  public AppTableFormPatchedField getFields() {
+    return this.fields;
+  }
 
-    public void setFields(AppTableFormPatchedField fields) {
-        this.fields = fields;
-    }
-
+  public void setFields(AppTableFormPatchedField fields) {
+    this.fields = fields;
+  }
 }

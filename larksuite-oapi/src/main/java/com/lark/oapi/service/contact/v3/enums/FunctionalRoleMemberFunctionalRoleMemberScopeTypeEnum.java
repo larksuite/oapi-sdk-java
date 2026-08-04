@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.contact.v3.enums;
 
-/**
- * 管理范围的类型
- */
+/** 管理范围类型。 */
 public enum FunctionalRoleMemberFunctionalRoleMemberScopeTypeEnum {
-    ALL("All"), // 管理范围是全部
-    PART("Part"), // 管理范围是部分
-    NONE("None"), // 管理范围为空
-    ;
-    private String value;
+  ALL("All"), // 全部
+  PART("Part"), // 部分部门
+  NONE("None"), // 空，即未设置
+  ;
+  private String value;
 
-    FunctionalRoleMemberFunctionalRoleMemberScopeTypeEnum(String value) {
-        this.value = value;
-    }
+  FunctionalRoleMemberFunctionalRoleMemberScopeTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

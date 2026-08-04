@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 设备类型
- */
+/** 设备类型 */
 public enum DeviceChangeEventDeviceTerminalTypeEnum {
-    UNKNOWN(0), // 未知
-    MOBILE(1), // 移动端
-    PC(2), // 桌面端
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未知
+  MOBILE(1), // 移动端
+  PC(2), // 桌面端
+  ;
+  private Integer value;
 
-    DeviceChangeEventDeviceTerminalTypeEnum(Integer value) {
-        this.value = value;
-    }
+  DeviceChangeEventDeviceTerminalTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

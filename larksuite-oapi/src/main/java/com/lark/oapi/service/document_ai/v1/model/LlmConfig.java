@@ -13,358 +13,387 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LlmConfig {
+  /**
+   * 模型名称
+   *
+   * <p>示例值：miniCPM
+   */
+  @SerializedName("model")
+  private String model;
+
+  /**
+   * 消息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("messages")
+  private LlmMessage[] messages;
+
+  /**
+   * 默认1024，最多生成多少个tokens
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("max_tokens")
+  private Integer maxTokens;
+
+  /**
+   * 消息类型
+   *
+   * <p>示例值：single-round
+   */
+  @SerializedName("message_type")
+  private String messageType;
+
+  /**
+   * 默认1，每个query返回多少个预测结果
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("n")
+  private Integer n;
+
+  /**
+   * 默认0，越大模型结果越发散，如果为0默认每次取概率最高的作为next token。
+   *
+   * <p>示例值：0.0
+   */
+  @SerializedName("temperature")
+  private Double temperature;
+
+  /**
+   * 默认0，>0惩罚模型输出已经在输出中出现过的token
+   *
+   * <p>示例值：0.0
+   */
+  @SerializedName("presence_penalty")
+  private Double presencePenalty;
+
+  /**
+   * 默认0，>0惩罚模型输出同样的token，输出次数越多惩罚越大
+   *
+   * <p>示例值：0.0
+   */
+  @SerializedName("frequency_penalty")
+  private Double frequencyPenalty;
+
+  public String getModel() {
+    return this.model;
+  }
+
+  public void setModel(String model) {
+    this.model = model;
+  }
+
+  public LlmMessage[] getMessages() {
+    return this.messages;
+  }
+
+  public void setMessages(LlmMessage[] messages) {
+    this.messages = messages;
+  }
+
+  public Integer getMaxTokens() {
+    return this.maxTokens;
+  }
+
+  public void setMaxTokens(Integer maxTokens) {
+    this.maxTokens = maxTokens;
+  }
+
+  public String getMessageType() {
+    return this.messageType;
+  }
+
+  public void setMessageType(String messageType) {
+    this.messageType = messageType;
+  }
+
+  public Integer getN() {
+    return this.n;
+  }
+
+  public void setN(Integer n) {
+    this.n = n;
+  }
+
+  public Double getTemperature() {
+    return this.temperature;
+  }
+
+  public void setTemperature(Double temperature) {
+    this.temperature = temperature;
+  }
+
+  public Double getPresencePenalty() {
+    return this.presencePenalty;
+  }
+
+  public void setPresencePenalty(Double presencePenalty) {
+    this.presencePenalty = presencePenalty;
+  }
+
+  public Double getFrequencyPenalty() {
+    return this.frequencyPenalty;
+  }
+
+  public void setFrequencyPenalty(Double frequencyPenalty) {
+    this.frequencyPenalty = frequencyPenalty;
+  }
+
+  // builder 开始
+  public LlmConfig() {}
+
+  public LlmConfig(Builder builder) {
     /**
      * 模型名称
-     * <p> 示例值：miniCPM
+     *
+     * <p>示例值：miniCPM
      */
-    @SerializedName("model")
-    private String model;
+    this.model = builder.model;
     /**
      * 消息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("messages")
-    private LlmMessage[] messages;
+    this.messages = builder.messages;
     /**
      * 默认1024，最多生成多少个tokens
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("max_tokens")
-    private Integer maxTokens;
+    this.maxTokens = builder.maxTokens;
     /**
      * 消息类型
-     * <p> 示例值：single-round
+     *
+     * <p>示例值：single-round
      */
-    @SerializedName("message_type")
-    private String messageType;
+    this.messageType = builder.messageType;
     /**
      * 默认1，每个query返回多少个预测结果
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("n")
-    private Integer n;
+    this.n = builder.n;
     /**
      * 默认0，越大模型结果越发散，如果为0默认每次取概率最高的作为next token。
-     * <p> 示例值：0.0
+     *
+     * <p>示例值：0.0
      */
-    @SerializedName("temperature")
-    private Double temperature;
+    this.temperature = builder.temperature;
     /**
      * 默认0，>0惩罚模型输出已经在输出中出现过的token
-     * <p> 示例值：0.0
+     *
+     * <p>示例值：0.0
      */
-    @SerializedName("presence_penalty")
-    private Double presencePenalty;
+    this.presencePenalty = builder.presencePenalty;
     /**
      * 默认0，>0惩罚模型输出同样的token，输出次数越多惩罚越大
-     * <p> 示例值：0.0
+     *
+     * <p>示例值：0.0
      */
-    @SerializedName("frequency_penalty")
+    this.frequencyPenalty = builder.frequencyPenalty;
+  }
+
+  public static class Builder {
+    /**
+     * 模型名称
+     *
+     * <p>示例值：miniCPM
+     */
+    private String model;
+
+    /**
+     * 消息
+     *
+     * <p>示例值：
+     */
+    private LlmMessage[] messages;
+
+    /**
+     * 默认1024，最多生成多少个tokens
+     *
+     * <p>示例值：1
+     */
+    private Integer maxTokens;
+
+    /**
+     * 消息类型
+     *
+     * <p>示例值：single-round
+     */
+    private String messageType;
+
+    /**
+     * 默认1，每个query返回多少个预测结果
+     *
+     * <p>示例值：1
+     */
+    private Integer n;
+
+    /**
+     * 默认0，越大模型结果越发散，如果为0默认每次取概率最高的作为next token。
+     *
+     * <p>示例值：0.0
+     */
+    private Double temperature;
+
+    /**
+     * 默认0，>0惩罚模型输出已经在输出中出现过的token
+     *
+     * <p>示例值：0.0
+     */
+    private Double presencePenalty;
+
+    /**
+     * 默认0，>0惩罚模型输出同样的token，输出次数越多惩罚越大
+     *
+     * <p>示例值：0.0
+     */
     private Double frequencyPenalty;
 
-    // builder 开始
-    public LlmConfig() {
+    /**
+     * 模型名称
+     *
+     * <p>示例值：miniCPM
+     *
+     * @param model
+     * @return
+     */
+    public Builder model(String model) {
+      this.model = model;
+      return this;
     }
 
-    public LlmConfig(Builder builder) {
-        /**
-         * 模型名称
-         * <p> 示例值：miniCPM
-         */
-        this.model = builder.model;
-        /**
-         * 消息
-         * <p> 示例值：
-         */
-        this.messages = builder.messages;
-        /**
-         * 默认1024，最多生成多少个tokens
-         * <p> 示例值：1
-         */
-        this.maxTokens = builder.maxTokens;
-        /**
-         * 消息类型
-         * <p> 示例值：single-round
-         */
-        this.messageType = builder.messageType;
-        /**
-         * 默认1，每个query返回多少个预测结果
-         * <p> 示例值：1
-         */
-        this.n = builder.n;
-        /**
-         * 默认0，越大模型结果越发散，如果为0默认每次取概率最高的作为next token。
-         * <p> 示例值：0.0
-         */
-        this.temperature = builder.temperature;
-        /**
-         * 默认0，>0惩罚模型输出已经在输出中出现过的token
-         * <p> 示例值：0.0
-         */
-        this.presencePenalty = builder.presencePenalty;
-        /**
-         * 默认0，>0惩罚模型输出同样的token，输出次数越多惩罚越大
-         * <p> 示例值：0.0
-         */
-        this.frequencyPenalty = builder.frequencyPenalty;
+    /**
+     * 模型名称
+     *
+     * <p>示例值：miniCPM
+     *
+     * @param model {@link com.lark.oapi.service.document_ai.v1.enums.LlmConfigModelEnum}
+     * @return
+     */
+    public Builder model(com.lark.oapi.service.document_ai.v1.enums.LlmConfigModelEnum model) {
+      this.model = model.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 消息
+     *
+     * <p>示例值：
+     *
+     * @param messages
+     * @return
+     */
+    public Builder messages(LlmMessage[] messages) {
+      this.messages = messages;
+      return this;
     }
 
-    public String getModel() {
-        return this.model;
+    /**
+     * 默认1024，最多生成多少个tokens
+     *
+     * <p>示例值：1
+     *
+     * @param maxTokens
+     * @return
+     */
+    public Builder maxTokens(Integer maxTokens) {
+      this.maxTokens = maxTokens;
+      return this;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    /**
+     * 消息类型
+     *
+     * <p>示例值：single-round
+     *
+     * @param messageType
+     * @return
+     */
+    public Builder messageType(String messageType) {
+      this.messageType = messageType;
+      return this;
     }
 
-    public LlmMessage[] getMessages() {
-        return this.messages;
+    /**
+     * 消息类型
+     *
+     * <p>示例值：single-round
+     *
+     * @param messageType {@link
+     *     com.lark.oapi.service.document_ai.v1.enums.LlmConfigMessageTypeEnum}
+     * @return
+     */
+    public Builder messageType(
+        com.lark.oapi.service.document_ai.v1.enums.LlmConfigMessageTypeEnum messageType) {
+      this.messageType = messageType.getValue();
+      return this;
     }
 
-    public void setMessages(LlmMessage[] messages) {
-        this.messages = messages;
+    /**
+     * 默认1，每个query返回多少个预测结果
+     *
+     * <p>示例值：1
+     *
+     * @param n
+     * @return
+     */
+    public Builder n(Integer n) {
+      this.n = n;
+      return this;
     }
 
-    public Integer getMaxTokens() {
-        return this.maxTokens;
+    /**
+     * 默认0，越大模型结果越发散，如果为0默认每次取概率最高的作为next token。
+     *
+     * <p>示例值：0.0
+     *
+     * @param temperature
+     * @return
+     */
+    public Builder temperature(Double temperature) {
+      this.temperature = temperature;
+      return this;
     }
 
-    public void setMaxTokens(Integer maxTokens) {
-        this.maxTokens = maxTokens;
+    /**
+     * 默认0，>0惩罚模型输出已经在输出中出现过的token
+     *
+     * <p>示例值：0.0
+     *
+     * @param presencePenalty
+     * @return
+     */
+    public Builder presencePenalty(Double presencePenalty) {
+      this.presencePenalty = presencePenalty;
+      return this;
     }
 
-    public String getMessageType() {
-        return this.messageType;
+    /**
+     * 默认0，>0惩罚模型输出同样的token，输出次数越多惩罚越大
+     *
+     * <p>示例值：0.0
+     *
+     * @param frequencyPenalty
+     * @return
+     */
+    public Builder frequencyPenalty(Double frequencyPenalty) {
+      this.frequencyPenalty = frequencyPenalty;
+      return this;
     }
 
-    public void setMessageType(String messageType) {
-        this.messageType = messageType;
+    public LlmConfig build() {
+      return new LlmConfig(this);
     }
+  }
 
-    public Integer getN() {
-        return this.n;
-    }
-
-    public void setN(Integer n) {
-        this.n = n;
-    }
-
-    public Double getTemperature() {
-        return this.temperature;
-    }
-
-    public void setTemperature(Double temperature) {
-        this.temperature = temperature;
-    }
-
-    public Double getPresencePenalty() {
-        return this.presencePenalty;
-    }
-
-    public void setPresencePenalty(Double presencePenalty) {
-        this.presencePenalty = presencePenalty;
-    }
-
-    public Double getFrequencyPenalty() {
-        return this.frequencyPenalty;
-    }
-
-    public void setFrequencyPenalty(Double frequencyPenalty) {
-        this.frequencyPenalty = frequencyPenalty;
-    }
-
-    public static class Builder {
-        /**
-         * 模型名称
-         * <p> 示例值：miniCPM
-         */
-        private String model;
-        /**
-         * 消息
-         * <p> 示例值：
-         */
-        private LlmMessage[] messages;
-        /**
-         * 默认1024，最多生成多少个tokens
-         * <p> 示例值：1
-         */
-        private Integer maxTokens;
-        /**
-         * 消息类型
-         * <p> 示例值：single-round
-         */
-        private String messageType;
-        /**
-         * 默认1，每个query返回多少个预测结果
-         * <p> 示例值：1
-         */
-        private Integer n;
-        /**
-         * 默认0，越大模型结果越发散，如果为0默认每次取概率最高的作为next token。
-         * <p> 示例值：0.0
-         */
-        private Double temperature;
-        /**
-         * 默认0，>0惩罚模型输出已经在输出中出现过的token
-         * <p> 示例值：0.0
-         */
-        private Double presencePenalty;
-        /**
-         * 默认0，>0惩罚模型输出同样的token，输出次数越多惩罚越大
-         * <p> 示例值：0.0
-         */
-        private Double frequencyPenalty;
-
-        /**
-         * 模型名称
-         * <p> 示例值：miniCPM
-         *
-         * @param model
-         * @return
-         */
-        public Builder model(String model) {
-            this.model = model;
-            return this;
-        }
-
-        /**
-         * 模型名称
-         * <p> 示例值：miniCPM
-         *
-         * @param model {@link com.lark.oapi.service.document_ai.v1.enums.LlmConfigModelEnum}
-         * @return
-         */
-        public Builder model(com.lark.oapi.service.document_ai.v1.enums.LlmConfigModelEnum model) {
-            this.model = model.getValue();
-            return this;
-        }
-
-
-        /**
-         * 消息
-         * <p> 示例值：
-         *
-         * @param messages
-         * @return
-         */
-        public Builder messages(LlmMessage[] messages) {
-            this.messages = messages;
-            return this;
-        }
-
-
-        /**
-         * 默认1024，最多生成多少个tokens
-         * <p> 示例值：1
-         *
-         * @param maxTokens
-         * @return
-         */
-        public Builder maxTokens(Integer maxTokens) {
-            this.maxTokens = maxTokens;
-            return this;
-        }
-
-
-        /**
-         * 消息类型
-         * <p> 示例值：single-round
-         *
-         * @param messageType
-         * @return
-         */
-        public Builder messageType(String messageType) {
-            this.messageType = messageType;
-            return this;
-        }
-
-        /**
-         * 消息类型
-         * <p> 示例值：single-round
-         *
-         * @param messageType {@link com.lark.oapi.service.document_ai.v1.enums.LlmConfigMessageTypeEnum}
-         * @return
-         */
-        public Builder messageType(com.lark.oapi.service.document_ai.v1.enums.LlmConfigMessageTypeEnum messageType) {
-            this.messageType = messageType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 默认1，每个query返回多少个预测结果
-         * <p> 示例值：1
-         *
-         * @param n
-         * @return
-         */
-        public Builder n(Integer n) {
-            this.n = n;
-            return this;
-        }
-
-
-        /**
-         * 默认0，越大模型结果越发散，如果为0默认每次取概率最高的作为next token。
-         * <p> 示例值：0.0
-         *
-         * @param temperature
-         * @return
-         */
-        public Builder temperature(Double temperature) {
-            this.temperature = temperature;
-            return this;
-        }
-
-
-        /**
-         * 默认0，>0惩罚模型输出已经在输出中出现过的token
-         * <p> 示例值：0.0
-         *
-         * @param presencePenalty
-         * @return
-         */
-        public Builder presencePenalty(Double presencePenalty) {
-            this.presencePenalty = presencePenalty;
-            return this;
-        }
-
-
-        /**
-         * 默认0，>0惩罚模型输出同样的token，输出次数越多惩罚越大
-         * <p> 示例值：0.0
-         *
-         * @param frequencyPenalty
-         * @return
-         */
-        public Builder frequencyPenalty(Double frequencyPenalty) {
-            this.frequencyPenalty = frequencyPenalty;
-            return this;
-        }
-
-
-        public LlmConfig build() {
-            return new LlmConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,48 +13,39 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2EcoBackgroundCheckCanceledV1Data {
-    /**
-     * 背调 ID，招聘系统内唯一
-     * <p> 示例值：6931286400470354183
-     */
-    @SerializedName("background_check_id")
-    private String backgroundCheckId;
-    /**
-     * 终止原因
-     * <p> 示例值：主动拒绝此次背调
-     */
-    @SerializedName("termination_reason")
-    private String terminationReason;
+  /**
+   * 背调
+   * ID，招聘系统内唯一，可通过[创建背调](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check/events/created)事件获取
+   *
+   * <p>示例值：6931286400470354183
+   */
+  @SerializedName("background_check_id")
+  private String backgroundCheckId;
 
-    public String getBackgroundCheckId() {
-        return this.backgroundCheckId;
-    }
+  /**
+   * 终止原因
+   *
+   * <p>示例值：主动拒绝此次背调
+   */
+  @SerializedName("termination_reason")
+  private String terminationReason;
 
-    public void setBackgroundCheckId(String backgroundCheckId) {
-        this.backgroundCheckId = backgroundCheckId;
-    }
+  public String getBackgroundCheckId() {
+    return this.backgroundCheckId;
+  }
 
-    public String getTerminationReason() {
-        return this.terminationReason;
-    }
+  public void setBackgroundCheckId(String backgroundCheckId) {
+    this.backgroundCheckId = backgroundCheckId;
+  }
 
-    public void setTerminationReason(String terminationReason) {
-        this.terminationReason = terminationReason;
-    }
+  public String getTerminationReason() {
+    return this.terminationReason;
+  }
 
+  public void setTerminationReason(String terminationReason) {
+    this.terminationReason = terminationReason;
+  }
 }

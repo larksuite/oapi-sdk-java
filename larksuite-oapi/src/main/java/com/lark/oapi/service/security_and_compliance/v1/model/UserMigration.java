@@ -13,235 +13,249 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserMigration {
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 目标地理位置区域
+   *
+   * <p>示例值：us
+   */
+  @SerializedName("dest_geo")
+  private String destGeo;
+
+  /**
+   * 迁移任务 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * 用户迁移状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 迁移进度百分比，取值 0-100
+   *
+   * <p>示例值：
+   */
+  @SerializedName("progress")
+  private Integer progress;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getDestGeo() {
+    return this.destGeo;
+  }
+
+  public void setDestGeo(String destGeo) {
+    this.destGeo = destGeo;
+  }
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public Integer getProgress() {
+    return this.progress;
+  }
+
+  public void setProgress(Integer progress) {
+    this.progress = progress;
+  }
+
+  // builder 开始
+  public UserMigration() {}
+
+  public UserMigration(Builder builder) {
     /**
-     * 用户 id
-     * <p> 示例值：
+     * 用户 ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 目标地理位置区域
-     * <p> 示例值：
+     *
+     * <p>示例值：us
      */
-    @SerializedName("dest_geo")
-    private String destGeo;
+    this.destGeo = builder.destGeo;
     /**
-     * 最新迁移任务 id
-     * <p> 示例值：
+     * 迁移任务 ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
     /**
      * 用户迁移状态
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
-     * 用户迁移进度
-     * <p> 示例值：
+     * 迁移进度百分比，取值 0-100
+     *
+     * <p>示例值：
      */
-    @SerializedName("progress")
+    this.progress = builder.progress;
+  }
+
+  public static class Builder {
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：
+     */
+    private String userId;
+
+    /**
+     * 目标地理位置区域
+     *
+     * <p>示例值：us
+     */
+    private String destGeo;
+
+    /**
+     * 迁移任务 ID
+     *
+     * <p>示例值：
+     */
+    private String taskId;
+
+    /**
+     * 用户迁移状态
+     *
+     * <p>示例值：1
+     */
+    private String status;
+
+    /**
+     * 迁移进度百分比，取值 0-100
+     *
+     * <p>示例值：
+     */
     private Integer progress;
 
-    // builder 开始
-    public UserMigration() {
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public UserMigration(Builder builder) {
-        /**
-         * 用户 id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 目标地理位置区域
-         * <p> 示例值：
-         */
-        this.destGeo = builder.destGeo;
-        /**
-         * 最新迁移任务 id
-         * <p> 示例值：
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 用户迁移状态
-         * <p> 示例值：
-         */
-        this.status = builder.status;
-        /**
-         * 用户迁移进度
-         * <p> 示例值：
-         */
-        this.progress = builder.progress;
+    /**
+     * 目标地理位置区域
+     *
+     * <p>示例值：us
+     *
+     * @param destGeo
+     * @return
+     */
+    public Builder destGeo(String destGeo) {
+      this.destGeo = destGeo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 迁移任务 ID
+     *
+     * <p>示例值：
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 用户迁移状态
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 用户迁移状态
+     *
+     * <p>示例值：1
+     *
+     * @param status {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.UserMigrationMigrationStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.security_and_compliance.v1.enums.UserMigrationMigrationStatusEnum
+            status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public String getDestGeo() {
-        return this.destGeo;
+    /**
+     * 迁移进度百分比，取值 0-100
+     *
+     * <p>示例值：
+     *
+     * @param progress
+     * @return
+     */
+    public Builder progress(Integer progress) {
+      this.progress = progress;
+      return this;
     }
 
-    public void setDestGeo(String destGeo) {
-        this.destGeo = destGeo;
+    public UserMigration build() {
+      return new UserMigration(this);
     }
+  }
 
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Integer getProgress() {
-        return this.progress;
-    }
-
-    public void setProgress(Integer progress) {
-        this.progress = progress;
-    }
-
-    public static class Builder {
-        /**
-         * 用户 id
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 目标地理位置区域
-         * <p> 示例值：
-         */
-        private String destGeo;
-        /**
-         * 最新迁移任务 id
-         * <p> 示例值：
-         */
-        private String taskId;
-        /**
-         * 用户迁移状态
-         * <p> 示例值：
-         */
-        private String status;
-        /**
-         * 用户迁移进度
-         * <p> 示例值：
-         */
-        private Integer progress;
-
-        /**
-         * 用户 id
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 目标地理位置区域
-         * <p> 示例值：
-         *
-         * @param destGeo
-         * @return
-         */
-        public Builder destGeo(String destGeo) {
-            this.destGeo = destGeo;
-            return this;
-        }
-
-
-        /**
-         * 最新迁移任务 id
-         * <p> 示例值：
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * 用户迁移状态
-         * <p> 示例值：
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 用户迁移状态
-         * <p> 示例值：
-         *
-         * @param status {@link com.lark.oapi.service.security_and_compliance.v1.enums.UserMigrationMigrationStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.security_and_compliance.v1.enums.UserMigrationMigrationStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 用户迁移进度
-         * <p> 示例值：
-         *
-         * @param progress
-         * @return
-         */
-        public Builder progress(Integer progress) {
-            this.progress = progress;
-            return this;
-        }
-
-
-        public UserMigration build() {
-            return new UserMigration(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

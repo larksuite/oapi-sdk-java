@@ -13,75 +13,69 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteTabsChatTabReqBody {
+  /**
+   * 会话标签页 ID 列表，ID
+   * 可以在[添加会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/create)或者[拉取会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/list_tabs)接口返回值中获取。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tab_ids")
+  private String[] tabIds;
+
+  public String[] getTabIds() {
+    return this.tabIds;
+  }
+
+  public void setTabIds(String[] tabIds) {
+    this.tabIds = tabIds;
+  }
+
+  // builder 开始
+  public DeleteTabsChatTabReqBody() {}
+
+  public DeleteTabsChatTabReqBody(Builder builder) {
     /**
-     * 会话标签页ID列表，Tab ID可以在[添加会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/create)与[拉取会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/list_tabs)的返回值中获取
-     * <p> 示例值：["7101214603622940671", "7101214603622940672"]
+     * 会话标签页 ID 列表，ID
+     * 可以在[添加会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/create)或者[拉取会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/list_tabs)接口返回值中获取。
+     *
+     * <p>示例值：
      */
-    @SerializedName("tab_ids")
+    this.tabIds = builder.tabIds;
+  }
+
+  public static class Builder {
+    /**
+     * 会话标签页 ID 列表，ID
+     * 可以在[添加会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/create)或者[拉取会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/list_tabs)接口返回值中获取。
+     *
+     * <p>示例值：
+     */
     private String[] tabIds;
 
-    // builder 开始
-    public DeleteTabsChatTabReqBody() {
+    /**
+     * 会话标签页 ID 列表，ID
+     * 可以在[添加会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/create)或者[拉取会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/list_tabs)接口返回值中获取。
+     *
+     * <p>示例值：
+     *
+     * @param tabIds
+     * @return
+     */
+    public Builder tabIds(String[] tabIds) {
+      this.tabIds = tabIds;
+      return this;
     }
 
-    public DeleteTabsChatTabReqBody(Builder builder) {
-        /**
-         * 会话标签页ID列表，Tab ID可以在[添加会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/create)与[拉取会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/list_tabs)的返回值中获取
-         * <p> 示例值：["7101214603622940671", "7101214603622940672"]
-         */
-        this.tabIds = builder.tabIds;
+    public DeleteTabsChatTabReqBody build() {
+      return new DeleteTabsChatTabReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getTabIds() {
-        return this.tabIds;
-    }
-
-    public void setTabIds(String[] tabIds) {
-        this.tabIds = tabIds;
-    }
-
-    public static class Builder {
-        /**
-         * 会话标签页ID列表，Tab ID可以在[添加会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/create)与[拉取会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/list_tabs)的返回值中获取
-         * <p> 示例值：["7101214603622940671", "7101214603622940672"]
-         */
-        private String[] tabIds;
-
-        /**
-         * 会话标签页ID列表，Tab ID可以在[添加会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/create)与[拉取会话标签页](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-tab/list_tabs)的返回值中获取
-         * <p> 示例值：["7101214603622940671", "7101214603622940672"]
-         *
-         * @param tabIds
-         * @return
-         */
-        public Builder tabIds(String[] tabIds) {
-            this.tabIds = tabIds;
-            return this;
-        }
-
-
-        public DeleteTabsChatTabReqBody build() {
-            return new DeleteTabsChatTabReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

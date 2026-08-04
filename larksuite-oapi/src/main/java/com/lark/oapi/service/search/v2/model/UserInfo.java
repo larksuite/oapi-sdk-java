@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserInfo {
+  /**
+   * 用户使用语言类型
+   *
+   * <p>示例值：English
+   */
+  @SerializedName("user_language")
+  private String userLanguage;
+
+  /**
+   * 用户时区
+   *
+   * <p>示例值：zh
+   */
+  @SerializedName("timezone")
+  private String timezone;
+
+  /**
+   * 用户id
+   *
+   * <p>示例值：22
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 用户open id
+   *
+   * <p>示例值：ou_abc
+   */
+  @SerializedName("user_open_id")
+  private String userOpenId;
+
+  /**
+   * 租户id
+   *
+   * <p>示例值：22
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 地区
+   *
+   * <p>示例值：zh-cn
+   */
+  @SerializedName("locale")
+  private String locale;
+
+  public String getUserLanguage() {
+    return this.userLanguage;
+  }
+
+  public void setUserLanguage(String userLanguage) {
+    this.userLanguage = userLanguage;
+  }
+
+  public String getTimezone() {
+    return this.timezone;
+  }
+
+  public void setTimezone(String timezone) {
+    this.timezone = timezone;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getUserOpenId() {
+    return this.userOpenId;
+  }
+
+  public void setUserOpenId(String userOpenId) {
+    this.userOpenId = userOpenId;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  // builder 开始
+  public UserInfo() {}
+
+  public UserInfo(Builder builder) {
     /**
      * 用户使用语言类型
-     * <p> 示例值：English
+     *
+     * <p>示例值：English
      */
-    @SerializedName("user_language")
-    private String userLanguage;
+    this.userLanguage = builder.userLanguage;
     /**
      * 用户时区
-     * <p> 示例值：zh
+     *
+     * <p>示例值：zh
      */
-    @SerializedName("timezone")
-    private String timezone;
+    this.timezone = builder.timezone;
     /**
      * 用户id
-     * <p> 示例值：22
+     *
+     * <p>示例值：22
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 用户open id
-     * <p> 示例值：ou_abc
+     *
+     * <p>示例值：ou_abc
      */
-    @SerializedName("user_open_id")
-    private String userOpenId;
+    this.userOpenId = builder.userOpenId;
     /**
      * 租户id
-     * <p> 示例值：22
+     *
+     * <p>示例值：22
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 地区
-     * <p> 示例值：zh-cn
+     *
+     * <p>示例值：zh-cn
      */
-    @SerializedName("locale")
+    this.locale = builder.locale;
+  }
+
+  public static class Builder {
+    /**
+     * 用户使用语言类型
+     *
+     * <p>示例值：English
+     */
+    private String userLanguage;
+
+    /**
+     * 用户时区
+     *
+     * <p>示例值：zh
+     */
+    private String timezone;
+
+    /**
+     * 用户id
+     *
+     * <p>示例值：22
+     */
+    private String userId;
+
+    /**
+     * 用户open id
+     *
+     * <p>示例值：ou_abc
+     */
+    private String userOpenId;
+
+    /**
+     * 租户id
+     *
+     * <p>示例值：22
+     */
+    private String tenantId;
+
+    /**
+     * 地区
+     *
+     * <p>示例值：zh-cn
+     */
     private String locale;
 
-    // builder 开始
-    public UserInfo() {
+    /**
+     * 用户使用语言类型
+     *
+     * <p>示例值：English
+     *
+     * @param userLanguage
+     * @return
+     */
+    public Builder userLanguage(String userLanguage) {
+      this.userLanguage = userLanguage;
+      return this;
     }
 
-    public UserInfo(Builder builder) {
-        /**
-         * 用户使用语言类型
-         * <p> 示例值：English
-         */
-        this.userLanguage = builder.userLanguage;
-        /**
-         * 用户时区
-         * <p> 示例值：zh
-         */
-        this.timezone = builder.timezone;
-        /**
-         * 用户id
-         * <p> 示例值：22
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户open id
-         * <p> 示例值：ou_abc
-         */
-        this.userOpenId = builder.userOpenId;
-        /**
-         * 租户id
-         * <p> 示例值：22
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 地区
-         * <p> 示例值：zh-cn
-         */
-        this.locale = builder.locale;
+    /**
+     * 用户时区
+     *
+     * <p>示例值：zh
+     *
+     * @param timezone
+     * @return
+     */
+    public Builder timezone(String timezone) {
+      this.timezone = timezone;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户id
+     *
+     * <p>示例值：22
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getUserLanguage() {
-        return this.userLanguage;
+    /**
+     * 用户open id
+     *
+     * <p>示例值：ou_abc
+     *
+     * @param userOpenId
+     * @return
+     */
+    public Builder userOpenId(String userOpenId) {
+      this.userOpenId = userOpenId;
+      return this;
     }
 
-    public void setUserLanguage(String userLanguage) {
-        this.userLanguage = userLanguage;
+    /**
+     * 租户id
+     *
+     * <p>示例值：22
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public String getTimezone() {
-        return this.timezone;
+    /**
+     * 地区
+     *
+     * <p>示例值：zh-cn
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(String locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public void setTimezone(String timezone) {
-        this.timezone = timezone;
+    public UserInfo build() {
+      return new UserInfo(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getUserOpenId() {
-        return this.userOpenId;
-    }
-
-    public void setUserOpenId(String userOpenId) {
-        this.userOpenId = userOpenId;
-    }
-
-    public String getTenantId() {
-        return this.tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public String getLocale() {
-        return this.locale;
-    }
-
-    public void setLocale(String locale) {
-        this.locale = locale;
-    }
-
-    public static class Builder {
-        /**
-         * 用户使用语言类型
-         * <p> 示例值：English
-         */
-        private String userLanguage;
-        /**
-         * 用户时区
-         * <p> 示例值：zh
-         */
-        private String timezone;
-        /**
-         * 用户id
-         * <p> 示例值：22
-         */
-        private String userId;
-        /**
-         * 用户open id
-         * <p> 示例值：ou_abc
-         */
-        private String userOpenId;
-        /**
-         * 租户id
-         * <p> 示例值：22
-         */
-        private String tenantId;
-        /**
-         * 地区
-         * <p> 示例值：zh-cn
-         */
-        private String locale;
-
-        /**
-         * 用户使用语言类型
-         * <p> 示例值：English
-         *
-         * @param userLanguage
-         * @return
-         */
-        public Builder userLanguage(String userLanguage) {
-            this.userLanguage = userLanguage;
-            return this;
-        }
-
-
-        /**
-         * 用户时区
-         * <p> 示例值：zh
-         *
-         * @param timezone
-         * @return
-         */
-        public Builder timezone(String timezone) {
-            this.timezone = timezone;
-            return this;
-        }
-
-
-        /**
-         * 用户id
-         * <p> 示例值：22
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 用户open id
-         * <p> 示例值：ou_abc
-         *
-         * @param userOpenId
-         * @return
-         */
-        public Builder userOpenId(String userOpenId) {
-            this.userOpenId = userOpenId;
-            return this;
-        }
-
-
-        /**
-         * 租户id
-         * <p> 示例值：22
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 地区
-         * <p> 示例值：zh-cn
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
-        }
-
-
-        public UserInfo build() {
-            return new UserInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

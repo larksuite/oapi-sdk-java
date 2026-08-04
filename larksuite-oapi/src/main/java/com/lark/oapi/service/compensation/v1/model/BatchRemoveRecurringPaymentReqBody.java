@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchRemoveRecurringPaymentReqBody {
+  /**
+   * 需要删除的记录ID（通过[【查询经常性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/recurring_payment/query)
+   * 接口进行查询）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("record_ids")
+  private String[] recordIds;
+
+  /**
+   * 原因
+   *
+   * <p>示例值：删除错误创建的数据
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  public String[] getRecordIds() {
+    return this.recordIds;
+  }
+
+  public void setRecordIds(String[] recordIds) {
+    this.recordIds = recordIds;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  // builder 开始
+  public BatchRemoveRecurringPaymentReqBody() {}
+
+  public BatchRemoveRecurringPaymentReqBody(Builder builder) {
     /**
-     * 需要删除的记录ID
-     * <p> 示例值：
+     * 需要删除的记录ID（通过[【查询经常性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/recurring_payment/query)
+     * 接口进行查询）
+     *
+     * <p>示例值：
      */
-    @SerializedName("record_ids")
-    private String[] recordIds;
+    this.recordIds = builder.recordIds;
     /**
      * 原因
-     * <p> 示例值：这是个删除原因
+     *
+     * <p>示例值：删除错误创建的数据
      */
-    @SerializedName("reason")
+    this.reason = builder.reason;
+  }
+
+  public static class Builder {
+    /**
+     * 需要删除的记录ID（通过[【查询经常性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/recurring_payment/query)
+     * 接口进行查询）
+     *
+     * <p>示例值：
+     */
+    private String[] recordIds;
+
+    /**
+     * 原因
+     *
+     * <p>示例值：删除错误创建的数据
+     */
     private String reason;
 
-    // builder 开始
-    public BatchRemoveRecurringPaymentReqBody() {
+    /**
+     * 需要删除的记录ID（通过[【查询经常性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/recurring_payment/query)
+     * 接口进行查询）
+     *
+     * <p>示例值：
+     *
+     * @param recordIds
+     * @return
+     */
+    public Builder recordIds(String[] recordIds) {
+      this.recordIds = recordIds;
+      return this;
     }
 
-    public BatchRemoveRecurringPaymentReqBody(Builder builder) {
-        /**
-         * 需要删除的记录ID
-         * <p> 示例值：
-         */
-        this.recordIds = builder.recordIds;
-        /**
-         * 原因
-         * <p> 示例值：这是个删除原因
-         */
-        this.reason = builder.reason;
+    /**
+     * 原因
+     *
+     * <p>示例值：删除错误创建的数据
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BatchRemoveRecurringPaymentReqBody build() {
+      return new BatchRemoveRecurringPaymentReqBody(this);
     }
+  }
 
-    public String[] getRecordIds() {
-        return this.recordIds;
-    }
-
-    public void setRecordIds(String[] recordIds) {
-        this.recordIds = recordIds;
-    }
-
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public static class Builder {
-        /**
-         * 需要删除的记录ID
-         * <p> 示例值：
-         */
-        private String[] recordIds;
-        /**
-         * 原因
-         * <p> 示例值：这是个删除原因
-         */
-        private String reason;
-
-        /**
-         * 需要删除的记录ID
-         * <p> 示例值：
-         *
-         * @param recordIds
-         * @return
-         */
-        public Builder recordIds(String[] recordIds) {
-            this.recordIds = recordIds;
-            return this;
-        }
-
-
-        /**
-         * 原因
-         * <p> 示例值：这是个删除原因
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        public BatchRemoveRecurringPaymentReqBody build() {
-            return new BatchRemoveRecurringPaymentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

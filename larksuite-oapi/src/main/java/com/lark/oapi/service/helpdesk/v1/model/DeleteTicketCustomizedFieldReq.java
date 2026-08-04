@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 
 public class DeleteTicketCustomizedFieldReq {
+  /**
+   * 工单自定义字段ID
+   *
+   * <p>示例值：6948728206392295444
+   */
+  @Path
+  @SerializedName("ticket_customized_field_id")
+  private String ticketCustomizedFieldId;
+
+  public String getTicketCustomizedFieldId() {
+    return this.ticketCustomizedFieldId;
+  }
+
+  public void setTicketCustomizedFieldId(String ticketCustomizedFieldId) {
+    this.ticketCustomizedFieldId = ticketCustomizedFieldId;
+  }
+
+  // builder 开始
+  public DeleteTicketCustomizedFieldReq() {}
+
+  public DeleteTicketCustomizedFieldReq(Builder builder) {
     /**
      * 工单自定义字段ID
-     * <p> 示例值：6948728206392295444
+     *
+     * <p>示例值：6948728206392295444
      */
-    @Path
-    @SerializedName("ticket_customized_field_id")
-    private String ticketCustomizedFieldId;
+    this.ticketCustomizedFieldId = builder.ticketCustomizedFieldId;
+  }
 
-    // builder 开始
-    public DeleteTicketCustomizedFieldReq() {
+  public static class Builder {
+
+    private String ticketCustomizedFieldId; // 工单自定义字段ID
+
+    /**
+     * 工单自定义字段ID
+     *
+     * <p>示例值：6948728206392295444
+     *
+     * @param ticketCustomizedFieldId
+     * @return
+     */
+    public Builder ticketCustomizedFieldId(String ticketCustomizedFieldId) {
+      this.ticketCustomizedFieldId = ticketCustomizedFieldId;
+      return this;
     }
 
-    public DeleteTicketCustomizedFieldReq(Builder builder) {
-        /**
-         * 工单自定义字段ID
-         * <p> 示例值：6948728206392295444
-         */
-        this.ticketCustomizedFieldId = builder.ticketCustomizedFieldId;
+    public DeleteTicketCustomizedFieldReq build() {
+      return new DeleteTicketCustomizedFieldReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTicketCustomizedFieldId() {
-        return this.ticketCustomizedFieldId;
-    }
-
-    public void setTicketCustomizedFieldId(String ticketCustomizedFieldId) {
-        this.ticketCustomizedFieldId = ticketCustomizedFieldId;
-    }
-
-    public static class Builder {
-
-        private String ticketCustomizedFieldId; // 工单自定义字段ID
-
-        /**
-         * 工单自定义字段ID
-         * <p> 示例值：6948728206392295444
-         *
-         * @param ticketCustomizedFieldId
-         * @return
-         */
-        public Builder ticketCustomizedFieldId(String ticketCustomizedFieldId) {
-            this.ticketCustomizedFieldId = ticketCustomizedFieldId;
-            return this;
-        }
-
-
-        public DeleteTicketCustomizedFieldReq build() {
-            return new DeleteTicketCustomizedFieldReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

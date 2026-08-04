@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2PaymentActivityStatusChangedV1Data {
-    /**
-     * 发薪活动ID
-     * <p> 示例值：11111
-     */
-    @SerializedName("activity_id")
-    private String activityId;
-    /**
-     * 发薪活动状态，其中：400-已封存。
-     * <p> 示例值：400
-     */
-    @SerializedName("status")
-    private Integer status;
+  /**
+   * 发薪活动ID，详情可查看[查询发薪活动列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/payment_activity/list)
+   *
+   * <p>示例值：7433255159377444875
+   */
+  @SerializedName("activity_id")
+  private String activityId;
 
-    public String getActivityId() {
-        return this.activityId;
-    }
+  /**
+   * 发薪活动变更类型;- 2：封存;- 3：取消封存;- 4：撤销审批;- 5：跳过审批;- 6：审批通过
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public void setActivityId(String activityId) {
-        this.activityId = activityId;
-    }
+  public String getActivityId() {
+    return this.activityId;
+  }
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  public void setActivityId(String activityId) {
+    this.activityId = activityId;
+  }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  public Integer getStatus() {
+    return this.status;
+  }
 
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
 }

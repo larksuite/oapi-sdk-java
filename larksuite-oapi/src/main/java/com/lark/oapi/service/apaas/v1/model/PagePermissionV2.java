@@ -13,226 +13,234 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class PagePermissionV2 {
+  /**
+   * 所属角色的apiname
+   *
+   * <p>示例值：role_api_name
+   */
+  @SerializedName("role_api_name")
+  private String roleApiName;
+
+  /**
+   * 关联页面 apiName
+   *
+   * <p>示例值：page_api_name
+   */
+  @SerializedName("page_api_name")
+  private String pageApiName;
+
+  /**
+   * 有权限的子页面apiName;如果该页面没有子页面，则传当前页的apiName;如果该页面有子页面，则传子页面的apiName
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_tab_pages")
+  private String[] subTabPages;
+
+  /**
+   * 页面名称
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("page_name")
+  private Map<String, String> pageName;
+
+  /**
+   * 子页面的信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_tab_page_display_infos")
+  private SubPageSimpleInfoV2[] subTabPageDisplayInfos;
+
+  public String getRoleApiName() {
+    return this.roleApiName;
+  }
+
+  public void setRoleApiName(String roleApiName) {
+    this.roleApiName = roleApiName;
+  }
+
+  public String getPageApiName() {
+    return this.pageApiName;
+  }
+
+  public void setPageApiName(String pageApiName) {
+    this.pageApiName = pageApiName;
+  }
+
+  public String[] getSubTabPages() {
+    return this.subTabPages;
+  }
+
+  public void setSubTabPages(String[] subTabPages) {
+    this.subTabPages = subTabPages;
+  }
+
+  public Map<String, String> getPageName() {
+    return this.pageName;
+  }
+
+  public void setPageName(Map<String, String> pageName) {
+    this.pageName = pageName;
+  }
+
+  public SubPageSimpleInfoV2[] getSubTabPageDisplayInfos() {
+    return this.subTabPageDisplayInfos;
+  }
+
+  public void setSubTabPageDisplayInfos(SubPageSimpleInfoV2[] subTabPageDisplayInfos) {
+    this.subTabPageDisplayInfos = subTabPageDisplayInfos;
+  }
+
+  // builder 开始
+  public PagePermissionV2() {}
+
+  public PagePermissionV2(Builder builder) {
     /**
      * 所属角色的apiname
-     * <p> 示例值：role_api_name
+     *
+     * <p>示例值：role_api_name
      */
-    @SerializedName("role_api_name")
-    private String roleApiName;
+    this.roleApiName = builder.roleApiName;
     /**
      * 关联页面 apiName
-     * <p> 示例值：page_api_name
+     *
+     * <p>示例值：page_api_name
      */
-    @SerializedName("page_api_name")
-    private String pageApiName;
+    this.pageApiName = builder.pageApiName;
     /**
-     * 有权限的子页面标签页
-     * <p> 示例值：
+     * 有权限的子页面apiName;如果该页面没有子页面，则传当前页的apiName;如果该页面有子页面，则传子页面的apiName
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_tab_pages")
-    private String[] subTabPages;
+    this.subTabPages = builder.subTabPages;
     /**
      * 页面名称
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("page_name")
-    private Map<String, String> pageName;
+    this.pageName = builder.pageName;
     /**
      * 子页面的信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_tab_page_display_infos")
+    this.subTabPageDisplayInfos = builder.subTabPageDisplayInfos;
+  }
+
+  public static class Builder {
+    /**
+     * 所属角色的apiname
+     *
+     * <p>示例值：role_api_name
+     */
+    private String roleApiName;
+
+    /**
+     * 关联页面 apiName
+     *
+     * <p>示例值：page_api_name
+     */
+    private String pageApiName;
+
+    /**
+     * 有权限的子页面apiName;如果该页面没有子页面，则传当前页的apiName;如果该页面有子页面，则传子页面的apiName
+     *
+     * <p>示例值：
+     */
+    private String[] subTabPages;
+
+    /**
+     * 页面名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
+    private Map<String, String> pageName;
+
+    /**
+     * 子页面的信息
+     *
+     * <p>示例值：
+     */
     private SubPageSimpleInfoV2[] subTabPageDisplayInfos;
 
-    // builder 开始
-    public PagePermissionV2() {
+    /**
+     * 所属角色的apiname
+     *
+     * <p>示例值：role_api_name
+     *
+     * @param roleApiName
+     * @return
+     */
+    public Builder roleApiName(String roleApiName) {
+      this.roleApiName = roleApiName;
+      return this;
     }
 
-    public PagePermissionV2(Builder builder) {
-        /**
-         * 所属角色的apiname
-         * <p> 示例值：role_api_name
-         */
-        this.roleApiName = builder.roleApiName;
-        /**
-         * 关联页面 apiName
-         * <p> 示例值：page_api_name
-         */
-        this.pageApiName = builder.pageApiName;
-        /**
-         * 有权限的子页面标签页
-         * <p> 示例值：
-         */
-        this.subTabPages = builder.subTabPages;
-        /**
-         * 页面名称
-         * <p> 示例值：
-         */
-        this.pageName = builder.pageName;
-        /**
-         * 子页面的信息
-         * <p> 示例值：
-         */
-        this.subTabPageDisplayInfos = builder.subTabPageDisplayInfos;
+    /**
+     * 关联页面 apiName
+     *
+     * <p>示例值：page_api_name
+     *
+     * @param pageApiName
+     * @return
+     */
+    public Builder pageApiName(String pageApiName) {
+      this.pageApiName = pageApiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 有权限的子页面apiName;如果该页面没有子页面，则传当前页的apiName;如果该页面有子页面，则传子页面的apiName
+     *
+     * <p>示例值：
+     *
+     * @param subTabPages
+     * @return
+     */
+    public Builder subTabPages(String[] subTabPages) {
+      this.subTabPages = subTabPages;
+      return this;
     }
 
-    public String getRoleApiName() {
-        return this.roleApiName;
+    /**
+     * 页面名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param pageName
+     * @return
+     */
+    public Builder pageName(Map<String, String> pageName) {
+      this.pageName = pageName;
+      return this;
     }
 
-    public void setRoleApiName(String roleApiName) {
-        this.roleApiName = roleApiName;
+    /**
+     * 子页面的信息
+     *
+     * <p>示例值：
+     *
+     * @param subTabPageDisplayInfos
+     * @return
+     */
+    public Builder subTabPageDisplayInfos(SubPageSimpleInfoV2[] subTabPageDisplayInfos) {
+      this.subTabPageDisplayInfos = subTabPageDisplayInfos;
+      return this;
     }
 
-    public String getPageApiName() {
-        return this.pageApiName;
+    public PagePermissionV2 build() {
+      return new PagePermissionV2(this);
     }
+  }
 
-    public void setPageApiName(String pageApiName) {
-        this.pageApiName = pageApiName;
-    }
-
-    public String[] getSubTabPages() {
-        return this.subTabPages;
-    }
-
-    public void setSubTabPages(String[] subTabPages) {
-        this.subTabPages = subTabPages;
-    }
-
-    public Map<String, String> getPageName() {
-        return this.pageName;
-    }
-
-    public void setPageName(Map<String, String> pageName) {
-        this.pageName = pageName;
-    }
-
-    public SubPageSimpleInfoV2[] getSubTabPageDisplayInfos() {
-        return this.subTabPageDisplayInfos;
-    }
-
-    public void setSubTabPageDisplayInfos(SubPageSimpleInfoV2[] subTabPageDisplayInfos) {
-        this.subTabPageDisplayInfos = subTabPageDisplayInfos;
-    }
-
-    public static class Builder {
-        /**
-         * 所属角色的apiname
-         * <p> 示例值：role_api_name
-         */
-        private String roleApiName;
-        /**
-         * 关联页面 apiName
-         * <p> 示例值：page_api_name
-         */
-        private String pageApiName;
-        /**
-         * 有权限的子页面标签页
-         * <p> 示例值：
-         */
-        private String[] subTabPages;
-        /**
-         * 页面名称
-         * <p> 示例值：
-         */
-        private Map<String, String> pageName;
-        /**
-         * 子页面的信息
-         * <p> 示例值：
-         */
-        private SubPageSimpleInfoV2[] subTabPageDisplayInfos;
-
-        /**
-         * 所属角色的apiname
-         * <p> 示例值：role_api_name
-         *
-         * @param roleApiName
-         * @return
-         */
-        public Builder roleApiName(String roleApiName) {
-            this.roleApiName = roleApiName;
-            return this;
-        }
-
-
-        /**
-         * 关联页面 apiName
-         * <p> 示例值：page_api_name
-         *
-         * @param pageApiName
-         * @return
-         */
-        public Builder pageApiName(String pageApiName) {
-            this.pageApiName = pageApiName;
-            return this;
-        }
-
-
-        /**
-         * 有权限的子页面标签页
-         * <p> 示例值：
-         *
-         * @param subTabPages
-         * @return
-         */
-        public Builder subTabPages(String[] subTabPages) {
-            this.subTabPages = subTabPages;
-            return this;
-        }
-
-
-        /**
-         * 页面名称
-         * <p> 示例值：
-         *
-         * @param pageName
-         * @return
-         */
-        public Builder pageName(Map<String, String> pageName) {
-            this.pageName = pageName;
-            return this;
-        }
-
-
-        /**
-         * 子页面的信息
-         * <p> 示例值：
-         *
-         * @param subTabPageDisplayInfos
-         * @return
-         */
-        public Builder subTabPageDisplayInfos(SubPageSimpleInfoV2[] subTabPageDisplayInfos) {
-            this.subTabPageDisplayInfos = subTabPageDisplayInfos;
-            return this;
-        }
-
-
-        public PagePermissionV2 build() {
-            return new PagePermissionV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

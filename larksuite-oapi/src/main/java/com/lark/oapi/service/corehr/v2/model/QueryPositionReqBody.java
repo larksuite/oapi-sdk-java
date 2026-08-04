@@ -13,260 +13,309 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryPositionReqBody {
+  /**
+   * 部门 ID 列表;- department_ids参数的ID类型需与department_id_type参数取值一致;- 可通过飞书人事的[批量查询部门（
+   * V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 来获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_ids")
+  private String[] departmentIds;
+
+  /**
+   * 版本生效日期，格式是 YYYY-MM-DD
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 启停用状态：true 为启用，false 为停用，不传则默认都返回
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 需要查询的字段列表，为空时仅返回 wk_id。可选以下预置字段及自定义字段：;- "wk_id"：岗位 ID;- "name"：名称;- "code"：编码;- "active"：状态;-
+   * "department"：所属部门;- "cost_center"：岗位默认成本中心;- "job"：职务;- "job_family"：序列;- "job_level"：职级;-
+   * "job_grade"：职等;- "work_location"：工作地点;- "employee_type"：人员类型;- "working_hours_type"：工时制度;-
+   * "direct_leader"：直属上级;- "dotted_line_leader"：虚线上级;- "is_key_position"：是否关键岗位;-
+   * "description"：描述;- "effective_time"：版本生效日期;- "expiration_time"：版本过期时间;- "created_by"：创建人;-
+   * "custom_fields"：自定义字段(需传入具体的"custom_api_name")详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+   * ,比如:"shifouleixing_7795__c";;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private String[] fields;
+
+  /**
+   * 岗位 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("position_ids")
+  private String[] positionIds;
+
+  /**
+   * 岗位 Code 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("position_codes")
+  private String[] positionCodes;
+
+  public String[] getDepartmentIds() {
+    return this.departmentIds;
+  }
+
+  public void setDepartmentIds(String[] departmentIds) {
+    this.departmentIds = departmentIds;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(String[] fields) {
+    this.fields = fields;
+  }
+
+  public String[] getPositionIds() {
+    return this.positionIds;
+  }
+
+  public void setPositionIds(String[] positionIds) {
+    this.positionIds = positionIds;
+  }
+
+  public String[] getPositionCodes() {
+    return this.positionCodes;
+  }
+
+  public void setPositionCodes(String[] positionCodes) {
+    this.positionCodes = positionCodes;
+  }
+
+  // builder 开始
+  public QueryPositionReqBody() {}
+
+  public QueryPositionReqBody(Builder builder) {
     /**
-     * 部门 ID 列表
-     * <p> 示例值：
+     * 部门 ID 列表;- department_ids参数的ID类型需与department_id_type参数取值一致;- 可通过飞书人事的[批量查询部门（
+     * V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 来获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_ids")
-    private String[] departmentIds;
+    this.departmentIds = builder.departmentIds;
     /**
-     * 生效日期
-     * <p> 示例值：2020-01-01
+     * 版本生效日期，格式是 YYYY-MM-DD
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
-     * 启停用状态
-     * <p> 示例值：true
+     * 启停用状态：true 为启用，false 为停用，不传则默认都返回
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
-     * 返回数据的字段列表
-     * <p> 示例值：
+     * 需要查询的字段列表，为空时仅返回 wk_id。可选以下预置字段及自定义字段：;- "wk_id"：岗位 ID;- "name"：名称;- "code"：编码;-
+     * "active"：状态;- "department"：所属部门;- "cost_center"：岗位默认成本中心;- "job"：职务;- "job_family"：序列;-
+     * "job_level"：职级;- "job_grade"：职等;- "work_location"：工作地点;- "employee_type"：人员类型;-
+     * "working_hours_type"：工时制度;- "direct_leader"：直属上级;- "dotted_line_leader"：虚线上级;-
+     * "is_key_position"：是否关键岗位;- "description"：描述;- "effective_time"：版本生效日期;-
+     * "expiration_time"：版本过期时间;- "created_by"：创建人;-
+     * "custom_fields"：自定义字段(需传入具体的"custom_api_name")详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     * ,比如:"shifouleixing_7795__c";;
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
-    private String[] fields;
+    this.fields = builder.fields;
     /**
      * 岗位 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("position_ids")
-    private String[] positionIds;
+    this.positionIds = builder.positionIds;
     /**
      * 岗位 Code 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("position_codes")
+    this.positionCodes = builder.positionCodes;
+  }
+
+  public static class Builder {
+    /**
+     * 部门 ID 列表;- department_ids参数的ID类型需与department_id_type参数取值一致;- 可通过飞书人事的[批量查询部门（
+     * V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 来获取
+     *
+     * <p>示例值：
+     */
+    private String[] departmentIds;
+
+    /**
+     * 版本生效日期，格式是 YYYY-MM-DD
+     *
+     * <p>示例值：2020-01-01
+     */
+    private String effectiveTime;
+
+    /**
+     * 启停用状态：true 为启用，false 为停用，不传则默认都返回
+     *
+     * <p>示例值：true
+     */
+    private Boolean active;
+
+    /**
+     * 需要查询的字段列表，为空时仅返回 wk_id。可选以下预置字段及自定义字段：;- "wk_id"：岗位 ID;- "name"：名称;- "code"：编码;-
+     * "active"：状态;- "department"：所属部门;- "cost_center"：岗位默认成本中心;- "job"：职务;- "job_family"：序列;-
+     * "job_level"：职级;- "job_grade"：职等;- "work_location"：工作地点;- "employee_type"：人员类型;-
+     * "working_hours_type"：工时制度;- "direct_leader"：直属上级;- "dotted_line_leader"：虚线上级;-
+     * "is_key_position"：是否关键岗位;- "description"：描述;- "effective_time"：版本生效日期;-
+     * "expiration_time"：版本过期时间;- "created_by"：创建人;-
+     * "custom_fields"：自定义字段(需传入具体的"custom_api_name")详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     * ,比如:"shifouleixing_7795__c";;
+     *
+     * <p>示例值：
+     */
+    private String[] fields;
+
+    /**
+     * 岗位 ID 列表
+     *
+     * <p>示例值：
+     */
+    private String[] positionIds;
+
+    /**
+     * 岗位 Code 列表
+     *
+     * <p>示例值：
+     */
     private String[] positionCodes;
 
-    // builder 开始
-    public QueryPositionReqBody() {
+    /**
+     * 部门 ID 列表;- department_ids参数的ID类型需与department_id_type参数取值一致;- 可通过飞书人事的[批量查询部门（
+     * V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 来获取
+     *
+     * <p>示例值：
+     *
+     * @param departmentIds
+     * @return
+     */
+    public Builder departmentIds(String[] departmentIds) {
+      this.departmentIds = departmentIds;
+      return this;
     }
 
-    public QueryPositionReqBody(Builder builder) {
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-01-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 启停用状态
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-        /**
-         * 岗位 ID 列表
-         * <p> 示例值：
-         */
-        this.positionIds = builder.positionIds;
-        /**
-         * 岗位 Code 列表
-         * <p> 示例值：
-         */
-        this.positionCodes = builder.positionCodes;
+    /**
+     * 版本生效日期，格式是 YYYY-MM-DD
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 启停用状态：true 为启用，false 为停用，不传则默认都返回
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
+    /**
+     * 需要查询的字段列表，为空时仅返回 wk_id。可选以下预置字段及自定义字段：;- "wk_id"：岗位 ID;- "name"：名称;- "code"：编码;-
+     * "active"：状态;- "department"：所属部门;- "cost_center"：岗位默认成本中心;- "job"：职务;- "job_family"：序列;-
+     * "job_level"：职级;- "job_grade"：职等;- "work_location"：工作地点;- "employee_type"：人员类型;-
+     * "working_hours_type"：工时制度;- "direct_leader"：直属上级;- "dotted_line_leader"：虚线上级;-
+     * "is_key_position"：是否关键岗位;- "description"：描述;- "effective_time"：版本生效日期;-
+     * "expiration_time"：版本过期时间;- "created_by"：创建人;-
+     * "custom_fields"：自定义字段(需传入具体的"custom_api_name")详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     * ,比如:"shifouleixing_7795__c";;
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(String[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
+    /**
+     * 岗位 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param positionIds
+     * @return
+     */
+    public Builder positionIds(String[] positionIds) {
+      this.positionIds = positionIds;
+      return this;
     }
 
-    public String getEffectiveTime() {
-        return this.effectiveTime;
+    /**
+     * 岗位 Code 列表
+     *
+     * <p>示例值：
+     *
+     * @param positionCodes
+     * @return
+     */
+    public Builder positionCodes(String[] positionCodes) {
+      this.positionCodes = positionCodes;
+      return this;
     }
 
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
+    public QueryPositionReqBody build() {
+      return new QueryPositionReqBody(this);
     }
+  }
 
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public String[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(String[] fields) {
-        this.fields = fields;
-    }
-
-    public String[] getPositionIds() {
-        return this.positionIds;
-    }
-
-    public void setPositionIds(String[] positionIds) {
-        this.positionIds = positionIds;
-    }
-
-    public String[] getPositionCodes() {
-        return this.positionCodes;
-    }
-
-    public void setPositionCodes(String[] positionCodes) {
-        this.positionCodes = positionCodes;
-    }
-
-    public static class Builder {
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         */
-        private String[] departmentIds;
-        /**
-         * 生效日期
-         * <p> 示例值：2020-01-01
-         */
-        private String effectiveTime;
-        /**
-         * 启停用状态
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         */
-        private String[] fields;
-        /**
-         * 岗位 ID 列表
-         * <p> 示例值：
-         */
-        private String[] positionIds;
-        /**
-         * 岗位 Code 列表
-         * <p> 示例值：
-         */
-        private String[] positionCodes;
-
-        /**
-         * 部门 ID 列表
-         * <p> 示例值：
-         *
-         * @param departmentIds
-         * @return
-         */
-        public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
-        }
-
-
-        /**
-         * 生效日期
-         * <p> 示例值：2020-01-01
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 启停用状态
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 返回数据的字段列表
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        /**
-         * 岗位 ID 列表
-         * <p> 示例值：
-         *
-         * @param positionIds
-         * @return
-         */
-        public Builder positionIds(String[] positionIds) {
-            this.positionIds = positionIds;
-            return this;
-        }
-
-
-        /**
-         * 岗位 Code 列表
-         * <p> 示例值：
-         *
-         * @param positionCodes
-         * @return
-         */
-        public Builder positionCodes(String[] positionCodes) {
-            this.positionCodes = positionCodes;
-            return this;
-        }
-
-
-        public QueryPositionReqBody build() {
-            return new QueryPositionReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

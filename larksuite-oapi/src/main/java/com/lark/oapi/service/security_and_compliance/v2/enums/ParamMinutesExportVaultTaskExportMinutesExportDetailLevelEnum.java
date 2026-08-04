@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 细节级别
- */
+/** 细节级别 */
 public enum ParamMinutesExportVaultTaskExportMinutesExportDetailLevelEnum {
-    TEXTANDVIDEO("text_and_video"), // 视频与转写文本
-    ONLYTEXT("only_text"), // 仅文本
-    ONLYVIDEO("only_video"), // 仅视频
-    ;
-    private String value;
+  TEXTANDVIDEO("text_and_video"), // 视频与转写文本
+  ONLYTEXT("only_text"), // 仅文本
+  ONLYVIDEO("only_video"), // 仅视频
+  ;
+  private String value;
 
-    ParamMinutesExportVaultTaskExportMinutesExportDetailLevelEnum(String value) {
-        this.value = value;
-    }
+  ParamMinutesExportVaultTaskExportMinutesExportDetailLevelEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

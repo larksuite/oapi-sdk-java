@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SqlCommandsWorkspaceReqBody {
+  /**
+   * 要执行的 SQL 语句
+   *
+   * <p>示例值：SELECT name FROM student
+   */
+  @SerializedName("sql")
+  private String sql;
+
+  public String getSql() {
+    return this.sql;
+  }
+
+  public void setSql(String sql) {
+    this.sql = sql;
+  }
+
+  // builder 开始
+  public SqlCommandsWorkspaceReqBody() {}
+
+  public SqlCommandsWorkspaceReqBody(Builder builder) {
     /**
      * 要执行的 SQL 语句
-     * <p> 示例值：SELECT name FROM student
+     *
+     * <p>示例值：SELECT name FROM student
      */
-    @SerializedName("sql")
+    this.sql = builder.sql;
+  }
+
+  public static class Builder {
+    /**
+     * 要执行的 SQL 语句
+     *
+     * <p>示例值：SELECT name FROM student
+     */
     private String sql;
 
-    // builder 开始
-    public SqlCommandsWorkspaceReqBody() {
+    /**
+     * 要执行的 SQL 语句
+     *
+     * <p>示例值：SELECT name FROM student
+     *
+     * @param sql
+     * @return
+     */
+    public Builder sql(String sql) {
+      this.sql = sql;
+      return this;
     }
 
-    public SqlCommandsWorkspaceReqBody(Builder builder) {
-        /**
-         * 要执行的 SQL 语句
-         * <p> 示例值：SELECT name FROM student
-         */
-        this.sql = builder.sql;
+    public SqlCommandsWorkspaceReqBody build() {
+      return new SqlCommandsWorkspaceReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getSql() {
-        return this.sql;
-    }
-
-    public void setSql(String sql) {
-        this.sql = sql;
-    }
-
-    public static class Builder {
-        /**
-         * 要执行的 SQL 语句
-         * <p> 示例值：SELECT name FROM student
-         */
-        private String sql;
-
-        /**
-         * 要执行的 SQL 语句
-         * <p> 示例值：SELECT name FROM student
-         *
-         * @param sql
-         * @return
-         */
-        public Builder sql(String sql) {
-            this.sql = sql;
-            return this;
-        }
-
-
-        public SqlCommandsWorkspaceReqBody build() {
-            return new SqlCommandsWorkspaceReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

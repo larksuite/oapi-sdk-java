@@ -13,247 +13,260 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Notice {
+  /**
+   * 文档类型
+   *
+   * <p>示例值：docx
+   */
+  @SerializedName("file_type")
+  private String fileType;
+
+  /**
+   * 文档token
+   *
+   * <p>示例值：TLLKdcpDro9ijQxA33ycNMabcef
+   */
+  @SerializedName("file_token")
+  private String fileToken;
+
+  /**
+   * 发送者ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("from_user_id")
+  private UserId fromUserId;
+
+  /**
+   * 接收者ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("to_user_id")
+  private UserId toUserId;
+
+  /**
+   * 评论操作类型，枚举值：add_comment、add_reply
+   *
+   * <p>示例值：add_comment
+   */
+  @SerializedName("notice_type")
+  private String noticeType;
+
+  public String getFileType() {
+    return this.fileType;
+  }
+
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  public UserId getFromUserId() {
+    return this.fromUserId;
+  }
+
+  public void setFromUserId(UserId fromUserId) {
+    this.fromUserId = fromUserId;
+  }
+
+  public UserId getToUserId() {
+    return this.toUserId;
+  }
+
+  public void setToUserId(UserId toUserId) {
+    this.toUserId = toUserId;
+  }
+
+  public String getNoticeType() {
+    return this.noticeType;
+  }
+
+  public void setNoticeType(String noticeType) {
+    this.noticeType = noticeType;
+  }
+
+  // builder 开始
+  public Notice() {}
+
+  public Notice(Builder builder) {
     /**
      * 文档类型
-     * <p> 示例值：docx
+     *
+     * <p>示例值：docx
      */
-    @SerializedName("file_type")
-    private String fileType;
+    this.fileType = builder.fileType;
     /**
      * 文档token
-     * <p> 示例值：TLLKdcpDro9ijQxA33ycNMabcef
+     *
+     * <p>示例值：TLLKdcpDro9ijQxA33ycNMabcef
      */
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
     /**
      * 发送者ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("from_user_id")
-    private UserId fromUserId;
+    this.fromUserId = builder.fromUserId;
     /**
      * 接收者ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("to_user_id")
-    private UserId toUserId;
+    this.toUserId = builder.toUserId;
     /**
      * 评论操作类型，枚举值：add_comment、add_reply
-     * <p> 示例值：add_comment
+     *
+     * <p>示例值：add_comment
      */
-    @SerializedName("notice_type")
+    this.noticeType = builder.noticeType;
+  }
+
+  public static class Builder {
+    /**
+     * 文档类型
+     *
+     * <p>示例值：docx
+     */
+    private String fileType;
+
+    /**
+     * 文档token
+     *
+     * <p>示例值：TLLKdcpDro9ijQxA33ycNMabcef
+     */
+    private String fileToken;
+
+    /**
+     * 发送者ID
+     *
+     * <p>示例值：
+     */
+    private UserId fromUserId;
+
+    /**
+     * 接收者ID
+     *
+     * <p>示例值：
+     */
+    private UserId toUserId;
+
+    /**
+     * 评论操作类型，枚举值：add_comment、add_reply
+     *
+     * <p>示例值：add_comment
+     */
     private String noticeType;
 
-    // builder 开始
-    public Notice() {
+    /**
+     * 文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param fileType
+     * @return
+     */
+    public Builder fileType(String fileType) {
+      this.fileType = fileType;
+      return this;
     }
 
-    public Notice(Builder builder) {
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         */
-        this.fileType = builder.fileType;
-        /**
-         * 文档token
-         * <p> 示例值：TLLKdcpDro9ijQxA33ycNMabcef
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 发送者ID
-         * <p> 示例值：
-         */
-        this.fromUserId = builder.fromUserId;
-        /**
-         * 接收者ID
-         * <p> 示例值：
-         */
-        this.toUserId = builder.toUserId;
-        /**
-         * 评论操作类型，枚举值：add_comment、add_reply
-         * <p> 示例值：add_comment
-         */
-        this.noticeType = builder.noticeType;
+    /**
+     * 文档类型
+     *
+     * <p>示例值：docx
+     *
+     * @param fileType {@link com.lark.oapi.service.drive.v1.enums.NoticeFileTypeEnum}
+     * @return
+     */
+    public Builder fileType(com.lark.oapi.service.drive.v1.enums.NoticeFileTypeEnum fileType) {
+      this.fileType = fileType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文档token
+     *
+     * <p>示例值：TLLKdcpDro9ijQxA33ycNMabcef
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public String getFileType() {
-        return this.fileType;
+    /**
+     * 发送者ID
+     *
+     * <p>示例值：
+     *
+     * @param fromUserId
+     * @return
+     */
+    public Builder fromUserId(UserId fromUserId) {
+      this.fromUserId = fromUserId;
+      return this;
     }
 
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
+    /**
+     * 接收者ID
+     *
+     * <p>示例值：
+     *
+     * @param toUserId
+     * @return
+     */
+    public Builder toUserId(UserId toUserId) {
+      this.toUserId = toUserId;
+      return this;
     }
 
-    public String getFileToken() {
-        return this.fileToken;
+    /**
+     * 评论操作类型，枚举值：add_comment、add_reply
+     *
+     * <p>示例值：add_comment
+     *
+     * @param noticeType
+     * @return
+     */
+    public Builder noticeType(String noticeType) {
+      this.noticeType = noticeType;
+      return this;
     }
 
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
+    /**
+     * 评论操作类型，枚举值：add_comment、add_reply
+     *
+     * <p>示例值：add_comment
+     *
+     * @param noticeType {@link com.lark.oapi.service.drive.v1.enums.NoticeNoticeTypeEnum}
+     * @return
+     */
+    public Builder noticeType(
+        com.lark.oapi.service.drive.v1.enums.NoticeNoticeTypeEnum noticeType) {
+      this.noticeType = noticeType.getValue();
+      return this;
     }
 
-    public UserId getFromUserId() {
-        return this.fromUserId;
+    public Notice build() {
+      return new Notice(this);
     }
+  }
 
-    public void setFromUserId(UserId fromUserId) {
-        this.fromUserId = fromUserId;
-    }
-
-    public UserId getToUserId() {
-        return this.toUserId;
-    }
-
-    public void setToUserId(UserId toUserId) {
-        this.toUserId = toUserId;
-    }
-
-    public String getNoticeType() {
-        return this.noticeType;
-    }
-
-    public void setNoticeType(String noticeType) {
-        this.noticeType = noticeType;
-    }
-
-    public static class Builder {
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         */
-        private String fileType;
-        /**
-         * 文档token
-         * <p> 示例值：TLLKdcpDro9ijQxA33ycNMabcef
-         */
-        private String fileToken;
-        /**
-         * 发送者ID
-         * <p> 示例值：
-         */
-        private UserId fromUserId;
-        /**
-         * 接收者ID
-         * <p> 示例值：
-         */
-        private UserId toUserId;
-        /**
-         * 评论操作类型，枚举值：add_comment、add_reply
-         * <p> 示例值：add_comment
-         */
-        private String noticeType;
-
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         *
-         * @param fileType
-         * @return
-         */
-        public Builder fileType(String fileType) {
-            this.fileType = fileType;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：docx
-         *
-         * @param fileType {@link com.lark.oapi.service.drive.v1.enums.NoticeFileTypeEnum}
-         * @return
-         */
-        public Builder fileType(com.lark.oapi.service.drive.v1.enums.NoticeFileTypeEnum fileType) {
-            this.fileType = fileType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文档token
-         * <p> 示例值：TLLKdcpDro9ijQxA33ycNMabcef
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        /**
-         * 发送者ID
-         * <p> 示例值：
-         *
-         * @param fromUserId
-         * @return
-         */
-        public Builder fromUserId(UserId fromUserId) {
-            this.fromUserId = fromUserId;
-            return this;
-        }
-
-
-        /**
-         * 接收者ID
-         * <p> 示例值：
-         *
-         * @param toUserId
-         * @return
-         */
-        public Builder toUserId(UserId toUserId) {
-            this.toUserId = toUserId;
-            return this;
-        }
-
-
-        /**
-         * 评论操作类型，枚举值：add_comment、add_reply
-         * <p> 示例值：add_comment
-         *
-         * @param noticeType
-         * @return
-         */
-        public Builder noticeType(String noticeType) {
-            this.noticeType = noticeType;
-            return this;
-        }
-
-        /**
-         * 评论操作类型，枚举值：add_comment、add_reply
-         * <p> 示例值：add_comment
-         *
-         * @param noticeType {@link com.lark.oapi.service.drive.v1.enums.NoticeNoticeTypeEnum}
-         * @return
-         */
-        public Builder noticeType(com.lark.oapi.service.drive.v1.enums.NoticeNoticeTypeEnum noticeType) {
-            this.noticeType = noticeType.getValue();
-            return this;
-        }
-
-
-        public Notice build() {
-            return new Notice(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

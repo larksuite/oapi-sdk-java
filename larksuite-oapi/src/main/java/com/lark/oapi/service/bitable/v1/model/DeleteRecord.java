@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteRecord {
+  /**
+   * 是否成功删除
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("deleted")
+  private Boolean deleted;
+
+  /**
+   * 删除的记录id
+   *
+   * <p>示例值：recpCsf4ME
+   */
+  @SerializedName("record_id")
+  private String recordId;
+
+  public Boolean getDeleted() {
+    return this.deleted;
+  }
+
+  public void setDeleted(Boolean deleted) {
+    this.deleted = deleted;
+  }
+
+  public String getRecordId() {
+    return this.recordId;
+  }
+
+  public void setRecordId(String recordId) {
+    this.recordId = recordId;
+  }
+
+  // builder 开始
+  public DeleteRecord() {}
+
+  public DeleteRecord(Builder builder) {
     /**
      * 是否成功删除
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("deleted")
-    private Boolean deleted;
+    this.deleted = builder.deleted;
     /**
-     * 删除的记录 ID
-     * <p> 示例值：recpCsf4ME
+     * 删除的记录id
+     *
+     * <p>示例值：recpCsf4ME
      */
-    @SerializedName("record_id")
+    this.recordId = builder.recordId;
+  }
+
+  public static class Builder {
+    /**
+     * 是否成功删除
+     *
+     * <p>示例值：true
+     */
+    private Boolean deleted;
+
+    /**
+     * 删除的记录id
+     *
+     * <p>示例值：recpCsf4ME
+     */
     private String recordId;
 
-    // builder 开始
-    public DeleteRecord() {
+    /**
+     * 是否成功删除
+     *
+     * <p>示例值：true
+     *
+     * @param deleted
+     * @return
+     */
+    public Builder deleted(Boolean deleted) {
+      this.deleted = deleted;
+      return this;
     }
 
-    public DeleteRecord(Builder builder) {
-        /**
-         * 是否成功删除
-         * <p> 示例值：true
-         */
-        this.deleted = builder.deleted;
-        /**
-         * 删除的记录 ID
-         * <p> 示例值：recpCsf4ME
-         */
-        this.recordId = builder.recordId;
+    /**
+     * 删除的记录id
+     *
+     * <p>示例值：recpCsf4ME
+     *
+     * @param recordId
+     * @return
+     */
+    public Builder recordId(String recordId) {
+      this.recordId = recordId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteRecord build() {
+      return new DeleteRecord(this);
     }
+  }
 
-    public Boolean getDeleted() {
-        return this.deleted;
-    }
-
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
-    }
-
-    public String getRecordId() {
-        return this.recordId;
-    }
-
-    public void setRecordId(String recordId) {
-        this.recordId = recordId;
-    }
-
-    public static class Builder {
-        /**
-         * 是否成功删除
-         * <p> 示例值：true
-         */
-        private Boolean deleted;
-        /**
-         * 删除的记录 ID
-         * <p> 示例值：recpCsf4ME
-         */
-        private String recordId;
-
-        /**
-         * 是否成功删除
-         * <p> 示例值：true
-         *
-         * @param deleted
-         * @return
-         */
-        public Builder deleted(Boolean deleted) {
-            this.deleted = deleted;
-            return this;
-        }
-
-
-        /**
-         * 删除的记录 ID
-         * <p> 示例值：recpCsf4ME
-         *
-         * @param recordId
-         * @return
-         */
-        public Builder recordId(String recordId) {
-            this.recordId = recordId;
-            return this;
-        }
-
-
-        public DeleteRecord build() {
-            return new DeleteRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,358 +13,386 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppTableFieldForList {
+  /**
+   * 多维表格字段名称。名称中的首尾空格将会被去除。
+   *
+   * <p>示例值：字段名称
+   */
+  @SerializedName("field_name")
+  private String fieldName;
+
+  /**
+   * 多维表格字段类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * 字段属性，了解如何填写字段，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("property")
+  private AppTableFieldProperty property;
+
+  /**
+   * 字段的描述。可能是数组或字符串类型。由请求参数 `text_field_as_array` 决定。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private Object description;
+
+  /**
+   * 是否是索引列
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_primary")
+  private Boolean isPrimary;
+
+  /**
+   * 多维表格字段 ID
+   *
+   * <p>示例值：fldWJyCkFQ
+   */
+  @SerializedName("field_id")
+  private String fieldId;
+
+  /**
+   * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态。了解更多，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+   *
+   * <p>示例值：Progress
+   */
+  @SerializedName("ui_type")
+  private String uiType;
+
+  /**
+   * 是否是隐藏字段
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_hidden")
+  private Boolean isHidden;
+
+  public String getFieldName() {
+    return this.fieldName;
+  }
+
+  public void setFieldName(String fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public AppTableFieldProperty getProperty() {
+    return this.property;
+  }
+
+  public void setProperty(AppTableFieldProperty property) {
+    this.property = property;
+  }
+
+  public Object getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(Object description) {
+    this.description = description;
+  }
+
+  public Boolean getIsPrimary() {
+    return this.isPrimary;
+  }
+
+  public void setIsPrimary(Boolean isPrimary) {
+    this.isPrimary = isPrimary;
+  }
+
+  public String getFieldId() {
+    return this.fieldId;
+  }
+
+  public void setFieldId(String fieldId) {
+    this.fieldId = fieldId;
+  }
+
+  public String getUiType() {
+    return this.uiType;
+  }
+
+  public void setUiType(String uiType) {
+    this.uiType = uiType;
+  }
+
+  public Boolean getIsHidden() {
+    return this.isHidden;
+  }
+
+  public void setIsHidden(Boolean isHidden) {
+    this.isHidden = isHidden;
+  }
+
+  // builder 开始
+  public AppTableFieldForList() {}
+
+  public AppTableFieldForList(Builder builder) {
     /**
-     * 字段名
-     * <p> 示例值：字段名称
+     * 多维表格字段名称。名称中的首尾空格将会被去除。
+     *
+     * <p>示例值：字段名称
      */
-    @SerializedName("field_name")
-    private String fieldName;
+    this.fieldName = builder.fieldName;
     /**
-     * 字段类型
-     * <p> 示例值：1
+     * 多维表格字段类型
+     *
+     * <p>示例值：1
      */
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
-     * 字段属性
-     * <p> 示例值：
+     * 字段属性，了解如何填写字段，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("property")
-    private AppTableFieldProperty property;
+    this.property = builder.property;
     /**
-     * 字段的描述, text_field_as_array为false时值为字符串，为true则是对象数组
-     * <p> 示例值：
+     * 字段的描述。可能是数组或字符串类型。由请求参数 `text_field_as_array` 决定。
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private Object description;
+    this.description = builder.description;
     /**
      * 是否是索引列
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_primary")
-    private Boolean isPrimary;
+    this.isPrimary = builder.isPrimary;
     /**
-     * 字段Id
-     * <p> 示例值：fldWJyCkFQ
+     * 多维表格字段 ID
+     *
+     * <p>示例值：fldWJyCkFQ
      */
-    @SerializedName("field_id")
-    private String fieldId;
+    this.fieldId = builder.fieldId;
     /**
-     * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
-     * <p> 示例值：Progress
+     * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态。了解更多，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+     *
+     * <p>示例值：Progress
      */
-    @SerializedName("ui_type")
-    private String uiType;
+    this.uiType = builder.uiType;
     /**
      * 是否是隐藏字段
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_hidden")
+    this.isHidden = builder.isHidden;
+  }
+
+  public static class Builder {
+    /**
+     * 多维表格字段名称。名称中的首尾空格将会被去除。
+     *
+     * <p>示例值：字段名称
+     */
+    private String fieldName;
+
+    /**
+     * 多维表格字段类型
+     *
+     * <p>示例值：1
+     */
+    private Integer type;
+
+    /**
+     * 字段属性，了解如何填写字段，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+     *
+     * <p>示例值：
+     */
+    private AppTableFieldProperty property;
+
+    /**
+     * 字段的描述。可能是数组或字符串类型。由请求参数 `text_field_as_array` 决定。
+     *
+     * <p>示例值：
+     */
+    private Object description;
+
+    /**
+     * 是否是索引列
+     *
+     * <p>示例值：true
+     */
+    private Boolean isPrimary;
+
+    /**
+     * 多维表格字段 ID
+     *
+     * <p>示例值：fldWJyCkFQ
+     */
+    private String fieldId;
+
+    /**
+     * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态。了解更多，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+     *
+     * <p>示例值：Progress
+     */
+    private String uiType;
+
+    /**
+     * 是否是隐藏字段
+     *
+     * <p>示例值：false
+     */
     private Boolean isHidden;
 
-    // builder 开始
-    public AppTableFieldForList() {
+    /**
+     * 多维表格字段名称。名称中的首尾空格将会被去除。
+     *
+     * <p>示例值：字段名称
+     *
+     * @param fieldName
+     * @return
+     */
+    public Builder fieldName(String fieldName) {
+      this.fieldName = fieldName;
+      return this;
     }
 
-    public AppTableFieldForList(Builder builder) {
-        /**
-         * 字段名
-         * <p> 示例值：字段名称
-         */
-        this.fieldName = builder.fieldName;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 字段属性
-         * <p> 示例值：
-         */
-        this.property = builder.property;
-        /**
-         * 字段的描述, text_field_as_array为false时值为字符串，为true则是对象数组
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 是否是索引列
-         * <p> 示例值：true
-         */
-        this.isPrimary = builder.isPrimary;
-        /**
-         * 字段Id
-         * <p> 示例值：fldWJyCkFQ
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
-         * <p> 示例值：Progress
-         */
-        this.uiType = builder.uiType;
-        /**
-         * 是否是隐藏字段
-         * <p> 示例值：false
-         */
-        this.isHidden = builder.isHidden;
+    /**
+     * 多维表格字段类型
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 多维表格字段类型
+     *
+     * <p>示例值：1
+     *
+     * @param type {@link com.lark.oapi.service.bitable.v1.enums.AppTableFieldForListTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.bitable.v1.enums.AppTableFieldForListTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public String getFieldName() {
-        return this.fieldName;
+    /**
+     * 字段属性，了解如何填写字段，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+     *
+     * <p>示例值：
+     *
+     * @param property
+     * @return
+     */
+    public Builder property(AppTableFieldProperty property) {
+      this.property = property;
+      return this;
     }
 
-    public void setFieldName(String fieldName) {
-        this.fieldName = fieldName;
+    /**
+     * 字段的描述。可能是数组或字符串类型。由请求参数 `text_field_as_array` 决定。
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(Object description) {
+      this.description = description;
+      return this;
     }
 
-    public Integer getType() {
-        return this.type;
+    /**
+     * 是否是索引列
+     *
+     * <p>示例值：true
+     *
+     * @param isPrimary
+     * @return
+     */
+    public Builder isPrimary(Boolean isPrimary) {
+      this.isPrimary = isPrimary;
+      return this;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    /**
+     * 多维表格字段 ID
+     *
+     * <p>示例值：fldWJyCkFQ
+     *
+     * @param fieldId
+     * @return
+     */
+    public Builder fieldId(String fieldId) {
+      this.fieldId = fieldId;
+      return this;
     }
 
-    public AppTableFieldProperty getProperty() {
-        return this.property;
+    /**
+     * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态。了解更多，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+     *
+     * <p>示例值：Progress
+     *
+     * @param uiType
+     * @return
+     */
+    public Builder uiType(String uiType) {
+      this.uiType = uiType;
+      return this;
     }
 
-    public void setProperty(AppTableFieldProperty property) {
-        this.property = property;
+    /**
+     * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态。了解更多，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。
+     *
+     * <p>示例值：Progress
+     *
+     * @param uiType {@link com.lark.oapi.service.bitable.v1.enums.AppTableFieldForListUiTypeEnum}
+     * @return
+     */
+    public Builder uiType(
+        com.lark.oapi.service.bitable.v1.enums.AppTableFieldForListUiTypeEnum uiType) {
+      this.uiType = uiType.getValue();
+      return this;
     }
 
-    public Object getDescription() {
-        return this.description;
+    /**
+     * 是否是隐藏字段
+     *
+     * <p>示例值：false
+     *
+     * @param isHidden
+     * @return
+     */
+    public Builder isHidden(Boolean isHidden) {
+      this.isHidden = isHidden;
+      return this;
     }
 
-    public void setDescription(Object description) {
-        this.description = description;
+    public AppTableFieldForList build() {
+      return new AppTableFieldForList(this);
     }
+  }
 
-    public Boolean getIsPrimary() {
-        return this.isPrimary;
-    }
-
-    public void setIsPrimary(Boolean isPrimary) {
-        this.isPrimary = isPrimary;
-    }
-
-    public String getFieldId() {
-        return this.fieldId;
-    }
-
-    public void setFieldId(String fieldId) {
-        this.fieldId = fieldId;
-    }
-
-    public String getUiType() {
-        return this.uiType;
-    }
-
-    public void setUiType(String uiType) {
-        this.uiType = uiType;
-    }
-
-    public Boolean getIsHidden() {
-        return this.isHidden;
-    }
-
-    public void setIsHidden(Boolean isHidden) {
-        this.isHidden = isHidden;
-    }
-
-    public static class Builder {
-        /**
-         * 字段名
-         * <p> 示例值：字段名称
-         */
-        private String fieldName;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        private Integer type;
-        /**
-         * 字段属性
-         * <p> 示例值：
-         */
-        private AppTableFieldProperty property;
-        /**
-         * 字段的描述, text_field_as_array为false时值为字符串，为true则是对象数组
-         * <p> 示例值：
-         */
-        private Object description;
-        /**
-         * 是否是索引列
-         * <p> 示例值：true
-         */
-        private Boolean isPrimary;
-        /**
-         * 字段Id
-         * <p> 示例值：fldWJyCkFQ
-         */
-        private String fieldId;
-        /**
-         * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
-         * <p> 示例值：Progress
-         */
-        private String uiType;
-        /**
-         * 是否是隐藏字段
-         * <p> 示例值：false
-         */
-        private Boolean isHidden;
-
-        /**
-         * 字段名
-         * <p> 示例值：字段名称
-         *
-         * @param fieldName
-         * @return
-         */
-        public Builder fieldName(String fieldName) {
-            this.fieldName = fieldName;
-            return this;
-        }
-
-
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         *
-         * @param type {@link com.lark.oapi.service.bitable.v1.enums.AppTableFieldForListTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.bitable.v1.enums.AppTableFieldForListTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 字段属性
-         * <p> 示例值：
-         *
-         * @param property
-         * @return
-         */
-        public Builder property(AppTableFieldProperty property) {
-            this.property = property;
-            return this;
-        }
-
-
-        /**
-         * 字段的描述, text_field_as_array为false时值为字符串，为true则是对象数组
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(Object description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 是否是索引列
-         * <p> 示例值：true
-         *
-         * @param isPrimary
-         * @return
-         */
-        public Builder isPrimary(Boolean isPrimary) {
-            this.isPrimary = isPrimary;
-            return this;
-        }
-
-
-        /**
-         * 字段Id
-         * <p> 示例值：fldWJyCkFQ
-         *
-         * @param fieldId
-         * @return
-         */
-        public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
-        }
-
-
-        /**
-         * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
-         * <p> 示例值：Progress
-         *
-         * @param uiType
-         * @return
-         */
-        public Builder uiType(String uiType) {
-            this.uiType = uiType;
-            return this;
-        }
-
-        /**
-         * 字段在界面上的展示类型，例如进度字段是数字的一种展示形态
-         * <p> 示例值：Progress
-         *
-         * @param uiType {@link com.lark.oapi.service.bitable.v1.enums.AppTableFieldForListUiTypeEnum}
-         * @return
-         */
-        public Builder uiType(com.lark.oapi.service.bitable.v1.enums.AppTableFieldForListUiTypeEnum uiType) {
-            this.uiType = uiType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否是隐藏字段
-         * <p> 示例值：false
-         *
-         * @param isHidden
-         * @return
-         */
-        public Builder isHidden(Boolean isHidden) {
-            this.isHidden = isHidden;
-            return this;
-        }
-
-
-        public AppTableFieldForList build() {
-            return new AppTableFieldForList(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

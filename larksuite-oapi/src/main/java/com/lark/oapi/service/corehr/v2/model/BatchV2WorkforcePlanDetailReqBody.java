@@ -13,260 +13,279 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchV2WorkforcePlanDetailReqBody {
+  /**
+   * 编制规划方案ID，ID及详细信息可通过[获取编制规划方案列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/workforce_plan/list)接口查询获得。查询编制规划明细信息时，编制规划方案ID必填，是否为集中填报项目设置为false，不填写集中填报项目ID（是否填写不影响返回结果）
+   *
+   * <p>示例值：781234834512
+   */
+  @SerializedName("workforce_plan_id")
+  private String workforcePlanId;
+
+  /**
+   * 是否为集中填报项目。如果租户未使用集中填报功能，将此参数置空即可。如果查询集中填报明细，将此参数设置为true。;;**字段权限要求**：获取编制规划集中填报明细信息(corehr:workforce_plan_centralized_reporting_project_detail:read);该字段权限灰度中，如有需要请联系[飞书开放平台技术支持](https://applink.feishu.cn/TLJpeNdW)
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_centralized_reporting_project")
+  private Boolean isCentralizedReportingProject;
+
+  /**
+   * 编制规划集中填报项目ID，ID可通过访问集中填报页面，从URL中提取report_id参数。如果租户未使用集中填报功能，将此参数置空即可。查询集中填报信息时，集中填报项目ID必填，是否为集中填报项目设置为true，不填写编制规划方案ID（是否填写不影响返回结果）;;**字段权限要求**：获取编制规划集中填报明细信息(corehr:workforce_plan_centralized_reporting_project_detail:read);该字段权限灰度中，如有需要请联系[飞书开放平台技术支持](https://applink.feishu.cn/TLJpeNdW)
+   *
+   * <p>示例值：7140964208476371111
+   */
+  @SerializedName("centralized_reporting_project_id")
+  private String centralizedReportingProjectId;
+
+  /**
+   * 维度筛选
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dimension_id_in_datas")
+  private DimensionIdInData[] dimensionIdInDatas;
+
+  /**
+   * 是否包含缺维度的明细行数据，true为包含缺维度明细行数据，false为仅获取所有维度都有值的明细行数据，默认为 false
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("include_missing_dimension_rows")
+  private Boolean includeMissingDimensionRows;
+
+  /**
+   * 是否过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，true为过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，false为不过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，默认为
+   * false
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("filter_all_zero_value_rows")
+  private Boolean filterAllZeroValueRows;
+
+  public String getWorkforcePlanId() {
+    return this.workforcePlanId;
+  }
+
+  public void setWorkforcePlanId(String workforcePlanId) {
+    this.workforcePlanId = workforcePlanId;
+  }
+
+  public Boolean getIsCentralizedReportingProject() {
+    return this.isCentralizedReportingProject;
+  }
+
+  public void setIsCentralizedReportingProject(Boolean isCentralizedReportingProject) {
+    this.isCentralizedReportingProject = isCentralizedReportingProject;
+  }
+
+  public String getCentralizedReportingProjectId() {
+    return this.centralizedReportingProjectId;
+  }
+
+  public void setCentralizedReportingProjectId(String centralizedReportingProjectId) {
+    this.centralizedReportingProjectId = centralizedReportingProjectId;
+  }
+
+  public DimensionIdInData[] getDimensionIdInDatas() {
+    return this.dimensionIdInDatas;
+  }
+
+  public void setDimensionIdInDatas(DimensionIdInData[] dimensionIdInDatas) {
+    this.dimensionIdInDatas = dimensionIdInDatas;
+  }
+
+  public Boolean getIncludeMissingDimensionRows() {
+    return this.includeMissingDimensionRows;
+  }
+
+  public void setIncludeMissingDimensionRows(Boolean includeMissingDimensionRows) {
+    this.includeMissingDimensionRows = includeMissingDimensionRows;
+  }
+
+  public Boolean getFilterAllZeroValueRows() {
+    return this.filterAllZeroValueRows;
+  }
+
+  public void setFilterAllZeroValueRows(Boolean filterAllZeroValueRows) {
+    this.filterAllZeroValueRows = filterAllZeroValueRows;
+  }
+
+  // builder 开始
+  public BatchV2WorkforcePlanDetailReqBody() {}
+
+  public BatchV2WorkforcePlanDetailReqBody(Builder builder) {
     /**
-     * 编制规划方案ID，ID及详细信息可通过获取编制规划方案列表接口查询获得。查询编制规划明细信息时，编制规划方案ID必填，是否为集中填报项目设置为false，不填写集中填报项目ID（是否填写不影响返回结果）
-     * <p> 示例值：781234834512
+     * 编制规划方案ID，ID及详细信息可通过[获取编制规划方案列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/workforce_plan/list)接口查询获得。查询编制规划明细信息时，编制规划方案ID必填，是否为集中填报项目设置为false，不填写集中填报项目ID（是否填写不影响返回结果）
+     *
+     * <p>示例值：781234834512
      */
-    @SerializedName("workforce_plan_id")
-    private String workforcePlanId;
+    this.workforcePlanId = builder.workforcePlanId;
     /**
-     * 是否为集中填报项目。如果租户未使用集中填报功能，将此参数置空即可。如果查询集中填报明细，将此参数设置为true。
-     * <p> 示例值：false
+     * 是否为集中填报项目。如果租户未使用集中填报功能，将此参数置空即可。如果查询集中填报明细，将此参数设置为true。;;**字段权限要求**：获取编制规划集中填报明细信息(corehr:workforce_plan_centralized_reporting_project_detail:read);该字段权限灰度中，如有需要请联系[飞书开放平台技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_centralized_reporting_project")
-    private Boolean isCentralizedReportingProject;
+    this.isCentralizedReportingProject = builder.isCentralizedReportingProject;
     /**
-     * 编制规划集中填报项目ID，ID可通过访问集中填报页面，从URL中提取report_id参数。如果租户未使用集中填报功能，将此参数置空即可。查询集中填报信息时，集中填报项目ID必填，是否为集中填报项目设置为true，不填写编制规划方案ID（是否填写不影响返回结果）
-     * <p> 示例值：7140964208476371111
+     * 编制规划集中填报项目ID，ID可通过访问集中填报页面，从URL中提取report_id参数。如果租户未使用集中填报功能，将此参数置空即可。查询集中填报信息时，集中填报项目ID必填，是否为集中填报项目设置为true，不填写编制规划方案ID（是否填写不影响返回结果）;;**字段权限要求**：获取编制规划集中填报明细信息(corehr:workforce_plan_centralized_reporting_project_detail:read);该字段权限灰度中，如有需要请联系[飞书开放平台技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：7140964208476371111
      */
-    @SerializedName("centralized_reporting_project_id")
-    private String centralizedReportingProjectId;
+    this.centralizedReportingProjectId = builder.centralizedReportingProjectId;
     /**
      * 维度筛选
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dimension_id_in_datas")
-    private DimensionIdInData[] dimensionIdInDatas;
+    this.dimensionIdInDatas = builder.dimensionIdInDatas;
     /**
      * 是否包含缺维度的明细行数据，true为包含缺维度明细行数据，false为仅获取所有维度都有值的明细行数据，默认为 false
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("include_missing_dimension_rows")
-    private Boolean includeMissingDimensionRows;
+    this.includeMissingDimensionRows = builder.includeMissingDimensionRows;
     /**
-     * 是否过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，true为过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，false为不过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，默认为 false
-     * <p> 示例值：false
+     * 是否过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，true为过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，false为不过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，默认为
+     * false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("filter_all_zero_value_rows")
+    this.filterAllZeroValueRows = builder.filterAllZeroValueRows;
+  }
+
+  public static class Builder {
+    /**
+     * 编制规划方案ID，ID及详细信息可通过[获取编制规划方案列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/workforce_plan/list)接口查询获得。查询编制规划明细信息时，编制规划方案ID必填，是否为集中填报项目设置为false，不填写集中填报项目ID（是否填写不影响返回结果）
+     *
+     * <p>示例值：781234834512
+     */
+    private String workforcePlanId;
+
+    /**
+     * 是否为集中填报项目。如果租户未使用集中填报功能，将此参数置空即可。如果查询集中填报明细，将此参数设置为true。;;**字段权限要求**：获取编制规划集中填报明细信息(corehr:workforce_plan_centralized_reporting_project_detail:read);该字段权限灰度中，如有需要请联系[飞书开放平台技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：false
+     */
+    private Boolean isCentralizedReportingProject;
+
+    /**
+     * 编制规划集中填报项目ID，ID可通过访问集中填报页面，从URL中提取report_id参数。如果租户未使用集中填报功能，将此参数置空即可。查询集中填报信息时，集中填报项目ID必填，是否为集中填报项目设置为true，不填写编制规划方案ID（是否填写不影响返回结果）;;**字段权限要求**：获取编制规划集中填报明细信息(corehr:workforce_plan_centralized_reporting_project_detail:read);该字段权限灰度中，如有需要请联系[飞书开放平台技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：7140964208476371111
+     */
+    private String centralizedReportingProjectId;
+
+    /**
+     * 维度筛选
+     *
+     * <p>示例值：
+     */
+    private DimensionIdInData[] dimensionIdInDatas;
+
+    /**
+     * 是否包含缺维度的明细行数据，true为包含缺维度明细行数据，false为仅获取所有维度都有值的明细行数据，默认为 false
+     *
+     * <p>示例值：false
+     */
+    private Boolean includeMissingDimensionRows;
+
+    /**
+     * 是否过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，true为过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，false为不过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，默认为
+     * false
+     *
+     * <p>示例值：false
+     */
     private Boolean filterAllZeroValueRows;
 
-    // builder 开始
-    public BatchV2WorkforcePlanDetailReqBody() {
+    /**
+     * 编制规划方案ID，ID及详细信息可通过[获取编制规划方案列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/workforce_plan/list)接口查询获得。查询编制规划明细信息时，编制规划方案ID必填，是否为集中填报项目设置为false，不填写集中填报项目ID（是否填写不影响返回结果）
+     *
+     * <p>示例值：781234834512
+     *
+     * @param workforcePlanId
+     * @return
+     */
+    public Builder workforcePlanId(String workforcePlanId) {
+      this.workforcePlanId = workforcePlanId;
+      return this;
     }
 
-    public BatchV2WorkforcePlanDetailReqBody(Builder builder) {
-        /**
-         * 编制规划方案ID，ID及详细信息可通过获取编制规划方案列表接口查询获得。查询编制规划明细信息时，编制规划方案ID必填，是否为集中填报项目设置为false，不填写集中填报项目ID（是否填写不影响返回结果）
-         * <p> 示例值：781234834512
-         */
-        this.workforcePlanId = builder.workforcePlanId;
-        /**
-         * 是否为集中填报项目。如果租户未使用集中填报功能，将此参数置空即可。如果查询集中填报明细，将此参数设置为true。
-         * <p> 示例值：false
-         */
-        this.isCentralizedReportingProject = builder.isCentralizedReportingProject;
-        /**
-         * 编制规划集中填报项目ID，ID可通过访问集中填报页面，从URL中提取report_id参数。如果租户未使用集中填报功能，将此参数置空即可。查询集中填报信息时，集中填报项目ID必填，是否为集中填报项目设置为true，不填写编制规划方案ID（是否填写不影响返回结果）
-         * <p> 示例值：7140964208476371111
-         */
-        this.centralizedReportingProjectId = builder.centralizedReportingProjectId;
-        /**
-         * 维度筛选
-         * <p> 示例值：
-         */
-        this.dimensionIdInDatas = builder.dimensionIdInDatas;
-        /**
-         * 是否包含缺维度的明细行数据，true为包含缺维度明细行数据，false为仅获取所有维度都有值的明细行数据，默认为 false
-         * <p> 示例值：false
-         */
-        this.includeMissingDimensionRows = builder.includeMissingDimensionRows;
-        /**
-         * 是否过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，true为过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，false为不过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，默认为 false
-         * <p> 示例值：false
-         */
-        this.filterAllZeroValueRows = builder.filterAllZeroValueRows;
+    /**
+     * 是否为集中填报项目。如果租户未使用集中填报功能，将此参数置空即可。如果查询集中填报明细，将此参数设置为true。;;**字段权限要求**：获取编制规划集中填报明细信息(corehr:workforce_plan_centralized_reporting_project_detail:read);该字段权限灰度中，如有需要请联系[飞书开放平台技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：false
+     *
+     * @param isCentralizedReportingProject
+     * @return
+     */
+    public Builder isCentralizedReportingProject(Boolean isCentralizedReportingProject) {
+      this.isCentralizedReportingProject = isCentralizedReportingProject;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 编制规划集中填报项目ID，ID可通过访问集中填报页面，从URL中提取report_id参数。如果租户未使用集中填报功能，将此参数置空即可。查询集中填报信息时，集中填报项目ID必填，是否为集中填报项目设置为true，不填写编制规划方案ID（是否填写不影响返回结果）;;**字段权限要求**：获取编制规划集中填报明细信息(corehr:workforce_plan_centralized_reporting_project_detail:read);该字段权限灰度中，如有需要请联系[飞书开放平台技术支持](https://applink.feishu.cn/TLJpeNdW)
+     *
+     * <p>示例值：7140964208476371111
+     *
+     * @param centralizedReportingProjectId
+     * @return
+     */
+    public Builder centralizedReportingProjectId(String centralizedReportingProjectId) {
+      this.centralizedReportingProjectId = centralizedReportingProjectId;
+      return this;
     }
 
-    public String getWorkforcePlanId() {
-        return this.workforcePlanId;
+    /**
+     * 维度筛选
+     *
+     * <p>示例值：
+     *
+     * @param dimensionIdInDatas
+     * @return
+     */
+    public Builder dimensionIdInDatas(DimensionIdInData[] dimensionIdInDatas) {
+      this.dimensionIdInDatas = dimensionIdInDatas;
+      return this;
     }
 
-    public void setWorkforcePlanId(String workforcePlanId) {
-        this.workforcePlanId = workforcePlanId;
+    /**
+     * 是否包含缺维度的明细行数据，true为包含缺维度明细行数据，false为仅获取所有维度都有值的明细行数据，默认为 false
+     *
+     * <p>示例值：false
+     *
+     * @param includeMissingDimensionRows
+     * @return
+     */
+    public Builder includeMissingDimensionRows(Boolean includeMissingDimensionRows) {
+      this.includeMissingDimensionRows = includeMissingDimensionRows;
+      return this;
     }
 
-    public Boolean getIsCentralizedReportingProject() {
-        return this.isCentralizedReportingProject;
+    /**
+     * 是否过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，true为过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，false为不过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，默认为
+     * false
+     *
+     * <p>示例值：false
+     *
+     * @param filterAllZeroValueRows
+     * @return
+     */
+    public Builder filterAllZeroValueRows(Boolean filterAllZeroValueRows) {
+      this.filterAllZeroValueRows = filterAllZeroValueRows;
+      return this;
     }
 
-    public void setIsCentralizedReportingProject(Boolean isCentralizedReportingProject) {
-        this.isCentralizedReportingProject = isCentralizedReportingProject;
+    public BatchV2WorkforcePlanDetailReqBody build() {
+      return new BatchV2WorkforcePlanDetailReqBody(this);
     }
+  }
 
-    public String getCentralizedReportingProjectId() {
-        return this.centralizedReportingProjectId;
-    }
-
-    public void setCentralizedReportingProjectId(String centralizedReportingProjectId) {
-        this.centralizedReportingProjectId = centralizedReportingProjectId;
-    }
-
-    public DimensionIdInData[] getDimensionIdInDatas() {
-        return this.dimensionIdInDatas;
-    }
-
-    public void setDimensionIdInDatas(DimensionIdInData[] dimensionIdInDatas) {
-        this.dimensionIdInDatas = dimensionIdInDatas;
-    }
-
-    public Boolean getIncludeMissingDimensionRows() {
-        return this.includeMissingDimensionRows;
-    }
-
-    public void setIncludeMissingDimensionRows(Boolean includeMissingDimensionRows) {
-        this.includeMissingDimensionRows = includeMissingDimensionRows;
-    }
-
-    public Boolean getFilterAllZeroValueRows() {
-        return this.filterAllZeroValueRows;
-    }
-
-    public void setFilterAllZeroValueRows(Boolean filterAllZeroValueRows) {
-        this.filterAllZeroValueRows = filterAllZeroValueRows;
-    }
-
-    public static class Builder {
-        /**
-         * 编制规划方案ID，ID及详细信息可通过获取编制规划方案列表接口查询获得。查询编制规划明细信息时，编制规划方案ID必填，是否为集中填报项目设置为false，不填写集中填报项目ID（是否填写不影响返回结果）
-         * <p> 示例值：781234834512
-         */
-        private String workforcePlanId;
-        /**
-         * 是否为集中填报项目。如果租户未使用集中填报功能，将此参数置空即可。如果查询集中填报明细，将此参数设置为true。
-         * <p> 示例值：false
-         */
-        private Boolean isCentralizedReportingProject;
-        /**
-         * 编制规划集中填报项目ID，ID可通过访问集中填报页面，从URL中提取report_id参数。如果租户未使用集中填报功能，将此参数置空即可。查询集中填报信息时，集中填报项目ID必填，是否为集中填报项目设置为true，不填写编制规划方案ID（是否填写不影响返回结果）
-         * <p> 示例值：7140964208476371111
-         */
-        private String centralizedReportingProjectId;
-        /**
-         * 维度筛选
-         * <p> 示例值：
-         */
-        private DimensionIdInData[] dimensionIdInDatas;
-        /**
-         * 是否包含缺维度的明细行数据，true为包含缺维度明细行数据，false为仅获取所有维度都有值的明细行数据，默认为 false
-         * <p> 示例值：false
-         */
-        private Boolean includeMissingDimensionRows;
-        /**
-         * 是否过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，true为过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，false为不过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，默认为 false
-         * <p> 示例值：false
-         */
-        private Boolean filterAllZeroValueRows;
-
-        /**
-         * 编制规划方案ID，ID及详细信息可通过获取编制规划方案列表接口查询获得。查询编制规划明细信息时，编制规划方案ID必填，是否为集中填报项目设置为false，不填写集中填报项目ID（是否填写不影响返回结果）
-         * <p> 示例值：781234834512
-         *
-         * @param workforcePlanId
-         * @return
-         */
-        public Builder workforcePlanId(String workforcePlanId) {
-            this.workforcePlanId = workforcePlanId;
-            return this;
-        }
-
-
-        /**
-         * 是否为集中填报项目。如果租户未使用集中填报功能，将此参数置空即可。如果查询集中填报明细，将此参数设置为true。
-         * <p> 示例值：false
-         *
-         * @param isCentralizedReportingProject
-         * @return
-         */
-        public Builder isCentralizedReportingProject(Boolean isCentralizedReportingProject) {
-            this.isCentralizedReportingProject = isCentralizedReportingProject;
-            return this;
-        }
-
-
-        /**
-         * 编制规划集中填报项目ID，ID可通过访问集中填报页面，从URL中提取report_id参数。如果租户未使用集中填报功能，将此参数置空即可。查询集中填报信息时，集中填报项目ID必填，是否为集中填报项目设置为true，不填写编制规划方案ID（是否填写不影响返回结果）
-         * <p> 示例值：7140964208476371111
-         *
-         * @param centralizedReportingProjectId
-         * @return
-         */
-        public Builder centralizedReportingProjectId(String centralizedReportingProjectId) {
-            this.centralizedReportingProjectId = centralizedReportingProjectId;
-            return this;
-        }
-
-
-        /**
-         * 维度筛选
-         * <p> 示例值：
-         *
-         * @param dimensionIdInDatas
-         * @return
-         */
-        public Builder dimensionIdInDatas(DimensionIdInData[] dimensionIdInDatas) {
-            this.dimensionIdInDatas = dimensionIdInDatas;
-            return this;
-        }
-
-
-        /**
-         * 是否包含缺维度的明细行数据，true为包含缺维度明细行数据，false为仅获取所有维度都有值的明细行数据，默认为 false
-         * <p> 示例值：false
-         *
-         * @param includeMissingDimensionRows
-         * @return
-         */
-        public Builder includeMissingDimensionRows(Boolean includeMissingDimensionRows) {
-            this.includeMissingDimensionRows = includeMissingDimensionRows;
-            return this;
-        }
-
-
-        /**
-         * 是否过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，true为过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，false为不过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，默认为 false
-         * <p> 示例值：false
-         *
-         * @param filterAllZeroValueRows
-         * @return
-         */
-        public Builder filterAllZeroValueRows(Boolean filterAllZeroValueRows) {
-            this.filterAllZeroValueRows = filterAllZeroValueRows;
-            return this;
-        }
-
-
-        public BatchV2WorkforcePlanDetailReqBody build() {
-            return new BatchV2WorkforcePlanDetailReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

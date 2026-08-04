@@ -13,161 +13,164 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class NoteArtifactInfo {
+  /**
+   * 纪要产物类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("artifact_type")
+  private Integer artifactType;
+
+  /**
+   * 产物创建时间（unix时间，单位sec）
+   *
+   * <p>示例值：1773922587
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 产物的doc token
+   *
+   * <p>示例值：BkX1wpU0gi6WP4klwRGchoqZntv
+   */
+  @SerializedName("doc_token")
+  private String docToken;
+
+  public Integer getArtifactType() {
+    return this.artifactType;
+  }
+
+  public void setArtifactType(Integer artifactType) {
+    this.artifactType = artifactType;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getDocToken() {
+    return this.docToken;
+  }
+
+  public void setDocToken(String docToken) {
+    this.docToken = docToken;
+  }
+
+  // builder 开始
+  public NoteArtifactInfo() {}
+
+  public NoteArtifactInfo(Builder builder) {
     /**
      * 纪要产物类型
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("artifact_type")
+    this.artifactType = builder.artifactType;
+    /**
+     * 产物创建时间（unix时间，单位sec）
+     *
+     * <p>示例值：1773922587
+     */
+    this.createTime = builder.createTime;
+    /**
+     * 产物的doc token
+     *
+     * <p>示例值：BkX1wpU0gi6WP4klwRGchoqZntv
+     */
+    this.docToken = builder.docToken;
+  }
+
+  public static class Builder {
+    /**
+     * 纪要产物类型
+     *
+     * <p>示例值：1
+     */
     private Integer artifactType;
+
     /**
-     * 创建时间
-     * <p> 示例值：1773922587
+     * 产物创建时间（unix时间，单位sec）
+     *
+     * <p>示例值：1773922587
      */
-    @SerializedName("create_time")
     private String createTime;
+
     /**
-     * 产物doc token
-     * <p> 示例值：BkX1wpU0gi6WP4klwRGchoqZntv
+     * 产物的doc token
+     *
+     * <p>示例值：BkX1wpU0gi6WP4klwRGchoqZntv
      */
-    @SerializedName("doc_token")
     private String docToken;
 
-    // builder 开始
-    public NoteArtifactInfo() {
+    /**
+     * 纪要产物类型
+     *
+     * <p>示例值：1
+     *
+     * @param artifactType
+     * @return
+     */
+    public Builder artifactType(Integer artifactType) {
+      this.artifactType = artifactType;
+      return this;
     }
 
-    public NoteArtifactInfo(Builder builder) {
-        /**
-         * 纪要产物类型
-         * <p> 示例值：
-         */
-        this.artifactType = builder.artifactType;
-        /**
-         * 创建时间
-         * <p> 示例值：1773922587
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 产物doc token
-         * <p> 示例值：BkX1wpU0gi6WP4klwRGchoqZntv
-         */
-        this.docToken = builder.docToken;
+    /**
+     * 纪要产物类型
+     *
+     * <p>示例值：1
+     *
+     * @param artifactType {@link
+     *     com.lark.oapi.service.vc.v1.enums.NoteArtifactInfoArtifactTypeEnum}
+     * @return
+     */
+    public Builder artifactType(
+        com.lark.oapi.service.vc.v1.enums.NoteArtifactInfoArtifactTypeEnum artifactType) {
+      this.artifactType = artifactType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 产物创建时间（unix时间，单位sec）
+     *
+     * <p>示例值：1773922587
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public Integer getArtifactType() {
-        return this.artifactType;
+    /**
+     * 产物的doc token
+     *
+     * <p>示例值：BkX1wpU0gi6WP4klwRGchoqZntv
+     *
+     * @param docToken
+     * @return
+     */
+    public Builder docToken(String docToken) {
+      this.docToken = docToken;
+      return this;
     }
 
-    public void setArtifactType(Integer artifactType) {
-        this.artifactType = artifactType;
+    public NoteArtifactInfo build() {
+      return new NoteArtifactInfo(this);
     }
+  }
 
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getDocToken() {
-        return this.docToken;
-    }
-
-    public void setDocToken(String docToken) {
-        this.docToken = docToken;
-    }
-
-    public static class Builder {
-        /**
-         * 纪要产物类型
-         * <p> 示例值：
-         */
-        private Integer artifactType;
-        /**
-         * 创建时间
-         * <p> 示例值：1773922587
-         */
-        private String createTime;
-        /**
-         * 产物doc token
-         * <p> 示例值：BkX1wpU0gi6WP4klwRGchoqZntv
-         */
-        private String docToken;
-
-        /**
-         * 纪要产物类型
-         * <p> 示例值：
-         *
-         * @param artifactType
-         * @return
-         */
-        public Builder artifactType(Integer artifactType) {
-            this.artifactType = artifactType;
-            return this;
-        }
-
-        /**
-         * 纪要产物类型
-         * <p> 示例值：
-         *
-         * @param artifactType {@link com.lark.oapi.service.vc.v1.enums.NoteArtifactInfoArtifactTypeEnum}
-         * @return
-         */
-        public Builder artifactType(com.lark.oapi.service.vc.v1.enums.NoteArtifactInfoArtifactTypeEnum artifactType) {
-            this.artifactType = artifactType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1773922587
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 产物doc token
-         * <p> 示例值：BkX1wpU0gi6WP4klwRGchoqZntv
-         *
-         * @param docToken
-         * @return
-         */
-        public Builder docToken(String docToken) {
-            this.docToken = docToken;
-            return this;
-        }
-
-
-        public NoteArtifactInfo build() {
-            return new NoteArtifactInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

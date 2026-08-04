@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UatInstanceComment {
+  /**
+   * 评论 id
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 发表评论用户
+   *
+   * <p>示例值：f7cb567e
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 评论内容
+   *
+   * <p>示例值：ok
+   */
+  @SerializedName("comment")
+  private String comment;
+
+  /**
+   * 评论时间 （该接口中相关时间都为毫秒时间戳）
+   *
+   * <p>示例值：1564590532967
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 评论附件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("files")
+  private File[] files;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getComment() {
+    return this.comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public File[] getFiles() {
+    return this.files;
+  }
+
+  public void setFiles(File[] files) {
+    this.files = files;
+  }
+
+  // builder 开始
+  public UatInstanceComment() {}
+
+  public UatInstanceComment(Builder builder) {
     /**
      * 评论 id
-     * <p> 示例值：1234
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 发表评论用户
-     * <p> 示例值：f7cb567e
+     *
+     * <p>示例值：f7cb567e
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 评论内容
-     * <p> 示例值：ok
+     *
+     * <p>示例值：ok
      */
-    @SerializedName("comment")
-    private String comment;
+    this.comment = builder.comment;
     /**
-     * 评论时间
-     * <p> 示例值：评论时间
+     * 评论时间 （该接口中相关时间都为毫秒时间戳）
+     *
+     * <p>示例值：1564590532967
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 评论附件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("files")
+    this.files = builder.files;
+  }
+
+  public static class Builder {
+    /**
+     * 评论 id
+     *
+     * <p>示例值：1234
+     */
+    private String id;
+
+    /**
+     * 发表评论用户
+     *
+     * <p>示例值：f7cb567e
+     */
+    private String userId;
+
+    /**
+     * 评论内容
+     *
+     * <p>示例值：ok
+     */
+    private String comment;
+
+    /**
+     * 评论时间 （该接口中相关时间都为毫秒时间戳）
+     *
+     * <p>示例值：1564590532967
+     */
+    private String createTime;
+
+    /**
+     * 评论附件
+     *
+     * <p>示例值：
+     */
     private File[] files;
 
-    // builder 开始
-    public UatInstanceComment() {
+    /**
+     * 评论 id
+     *
+     * <p>示例值：1234
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UatInstanceComment(Builder builder) {
-        /**
-         * 评论 id
-         * <p> 示例值：1234
-         */
-        this.id = builder.id;
-        /**
-         * 发表评论用户
-         * <p> 示例值：f7cb567e
-         */
-        this.userId = builder.userId;
-        /**
-         * 评论内容
-         * <p> 示例值：ok
-         */
-        this.comment = builder.comment;
-        /**
-         * 评论时间
-         * <p> 示例值：评论时间
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 评论附件
-         * <p> 示例值：
-         */
-        this.files = builder.files;
+    /**
+     * 发表评论用户
+     *
+     * <p>示例值：f7cb567e
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评论内容
+     *
+     * <p>示例值：ok
+     *
+     * @param comment
+     * @return
+     */
+    public Builder comment(String comment) {
+      this.comment = comment;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 评论时间 （该接口中相关时间都为毫秒时间戳）
+     *
+     * <p>示例值：1564590532967
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 评论附件
+     *
+     * <p>示例值：
+     *
+     * @param files
+     * @return
+     */
+    public Builder files(File[] files) {
+      this.files = files;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    public UatInstanceComment build() {
+      return new UatInstanceComment(this);
     }
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getComment() {
-        return this.comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public File[] getFiles() {
-        return this.files;
-    }
-
-    public void setFiles(File[] files) {
-        this.files = files;
-    }
-
-    public static class Builder {
-        /**
-         * 评论 id
-         * <p> 示例值：1234
-         */
-        private String id;
-        /**
-         * 发表评论用户
-         * <p> 示例值：f7cb567e
-         */
-        private String userId;
-        /**
-         * 评论内容
-         * <p> 示例值：ok
-         */
-        private String comment;
-        /**
-         * 评论时间
-         * <p> 示例值：评论时间
-         */
-        private String createTime;
-        /**
-         * 评论附件
-         * <p> 示例值：
-         */
-        private File[] files;
-
-        /**
-         * 评论 id
-         * <p> 示例值：1234
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 发表评论用户
-         * <p> 示例值：f7cb567e
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 评论内容
-         * <p> 示例值：ok
-         *
-         * @param comment
-         * @return
-         */
-        public Builder comment(String comment) {
-            this.comment = comment;
-            return this;
-        }
-
-
-        /**
-         * 评论时间
-         * <p> 示例值：评论时间
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 评论附件
-         * <p> 示例值：
-         *
-         * @param files
-         * @return
-         */
-        public Builder files(File[] files) {
-            this.files = files;
-            return this;
-        }
-
-
-        public UatInstanceComment build() {
-            return new UatInstanceComment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,203 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ActiveCustomOrgReqBody {
+  /**
+   * 自定义组织 ID;- 可从
+   * [批量查询自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)的
+   * org_id 字段中获取。
+   *
+   * <p>示例值：6862995757234914823
+   */
+  @SerializedName("org_id")
+  private String orgId;
+
+  /**
+   * 组织类型编码，可在「飞书人事-设置-组织配置」中相应的自定义组织目录下查看
+   *
+   * <p>示例值：custom_org_01
+   */
+  @SerializedName("object_api_name")
+  private String objectApiName;
+
+  /**
+   * 启用/停用状态。;- active 传 true 代表启用;- active 传 false 代表停用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 自定义组织生效时间;- 填写格式： YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;- 日期范围要求:1900-01-01 ～
+   * 9999-12-31
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  public String getOrgId() {
+    return this.orgId;
+  }
+
+  public void setOrgId(String orgId) {
+    this.orgId = orgId;
+  }
+
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
+
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  // builder 开始
+  public ActiveCustomOrgReqBody() {}
+
+  public ActiveCustomOrgReqBody(Builder builder) {
     /**
-     * 组织ID
-     * <p> 示例值：6862995757234914823
+     * 自定义组织 ID;- 可从
+     * [批量查询自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)的
+     * org_id 字段中获取。
+     *
+     * <p>示例值：6862995757234914823
      */
-    @SerializedName("org_id")
+    this.orgId = builder.orgId;
+    /**
+     * 组织类型编码，可在「飞书人事-设置-组织配置」中相应的自定义组织目录下查看
+     *
+     * <p>示例值：custom_org_01
+     */
+    this.objectApiName = builder.objectApiName;
+    /**
+     * 启用/停用状态。;- active 传 true 代表启用;- active 传 false 代表停用
+     *
+     * <p>示例值：true
+     */
+    this.active = builder.active;
+    /**
+     * 自定义组织生效时间;- 填写格式： YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;- 日期范围要求:1900-01-01
+     * ～ 9999-12-31
+     *
+     * <p>示例值：2020-01-01
+     */
+    this.effectiveTime = builder.effectiveTime;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义组织 ID;- 可从
+     * [批量查询自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)的
+     * org_id 字段中获取。
+     *
+     * <p>示例值：6862995757234914823
+     */
     private String orgId;
+
     /**
-     * 组织类型编码
-     * <p> 示例值：apiname__c
+     * 组织类型编码，可在「飞书人事-设置-组织配置」中相应的自定义组织目录下查看
+     *
+     * <p>示例值：custom_org_01
      */
-    @SerializedName("object_api_name")
     private String objectApiName;
+
     /**
-     * 启用停用状态
-     * <p> 示例值：true
+     * 启用/停用状态。;- active 传 true 代表启用;- active 传 false 代表停用
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
     private Boolean active;
+
     /**
-     * 生效时间
-     * <p> 示例值：2020-01-01
+     * 自定义组织生效时间;- 填写格式： YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;- 日期范围要求:1900-01-01
+     * ～ 9999-12-31
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("effective_time")
     private String effectiveTime;
 
-    // builder 开始
-    public ActiveCustomOrgReqBody() {
+    /**
+     * 自定义组织 ID;- 可从
+     * [批量查询自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)的
+     * org_id 字段中获取。
+     *
+     * <p>示例值：6862995757234914823
+     *
+     * @param orgId
+     * @return
+     */
+    public Builder orgId(String orgId) {
+      this.orgId = orgId;
+      return this;
     }
 
-    public ActiveCustomOrgReqBody(Builder builder) {
-        /**
-         * 组织ID
-         * <p> 示例值：6862995757234914823
-         */
-        this.orgId = builder.orgId;
-        /**
-         * 组织类型编码
-         * <p> 示例值：apiname__c
-         */
-        this.objectApiName = builder.objectApiName;
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        this.effectiveTime = builder.effectiveTime;
+    /**
+     * 组织类型编码，可在「飞书人事-设置-组织配置」中相应的自定义组织目录下查看
+     *
+     * <p>示例值：custom_org_01
+     *
+     * @param objectApiName
+     * @return
+     */
+    public Builder objectApiName(String objectApiName) {
+      this.objectApiName = objectApiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 启用/停用状态。;- active 传 true 代表启用;- active 传 false 代表停用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public String getOrgId() {
-        return this.orgId;
+    /**
+     * 自定义组织生效时间;- 填写格式： YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;- 日期范围要求:1900-01-01
+     * ～ 9999-12-31
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public void setOrgId(String orgId) {
-        this.orgId = orgId;
+    public ActiveCustomOrgReqBody build() {
+      return new ActiveCustomOrgReqBody(this);
     }
+  }
 
-    public String getObjectApiName() {
-        return this.objectApiName;
-    }
-
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public static class Builder {
-        /**
-         * 组织ID
-         * <p> 示例值：6862995757234914823
-         */
-        private String orgId;
-        /**
-         * 组织类型编码
-         * <p> 示例值：apiname__c
-         */
-        private String objectApiName;
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        private String effectiveTime;
-
-        /**
-         * 组织ID
-         * <p> 示例值：6862995757234914823
-         *
-         * @param orgId
-         * @return
-         */
-        public Builder orgId(String orgId) {
-            this.orgId = orgId;
-            return this;
-        }
-
-
-        /**
-         * 组织类型编码
-         * <p> 示例值：apiname__c
-         *
-         * @param objectApiName
-         * @return
-         */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
-
-
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        public ActiveCustomOrgReqBody build() {
-            return new ActiveCustomOrgReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

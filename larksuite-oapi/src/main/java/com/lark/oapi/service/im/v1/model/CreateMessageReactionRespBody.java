@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateMessageReactionRespBody {
-    /**
-     * reaction资源ID
-     * <p> 示例值：
-     */
-    @SerializedName("reaction_id")
-    private String reactionId;
-    /**
-     * 添加reaction的操作人
-     * <p> 示例值：
-     */
-    @SerializedName("operator")
-    private Operator operator;
-    /**
-     * reaction动作的的unix timestamp(单位:ms)
-     * <p> 示例值：
-     */
-    @SerializedName("action_time")
-    private String actionTime;
-    /**
-     * reaction资源类型
-     * <p> 示例值：
-     */
-    @SerializedName("reaction_type")
-    private Emoji reactionType;
+  /**
+   * reaction资源ID
+   *
+   * <p>示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
+   */
+  @SerializedName("reaction_id")
+  private String reactionId;
 
-    public String getReactionId() {
-        return this.reactionId;
-    }
+  /**
+   * 操作者信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator")
+  private Operator operator;
 
-    public void setReactionId(String reactionId) {
-        this.reactionId = reactionId;
-    }
+  /**
+   * 添加消息表情回复的时间。Unix 时间戳，单位：ms
+   *
+   * <p>示例值：
+   */
+  @SerializedName("action_time")
+  private String actionTime;
 
-    public Operator getOperator() {
-        return this.operator;
-    }
+  /**
+   * 表情回复的资源类型。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reaction_type")
+  private Emoji reactionType;
 
-    public void setOperator(Operator operator) {
-        this.operator = operator;
-    }
+  public String getReactionId() {
+    return this.reactionId;
+  }
 
-    public String getActionTime() {
-        return this.actionTime;
-    }
+  public void setReactionId(String reactionId) {
+    this.reactionId = reactionId;
+  }
 
-    public void setActionTime(String actionTime) {
-        this.actionTime = actionTime;
-    }
+  public Operator getOperator() {
+    return this.operator;
+  }
 
-    public Emoji getReactionType() {
-        return this.reactionType;
-    }
+  public void setOperator(Operator operator) {
+    this.operator = operator;
+  }
 
-    public void setReactionType(Emoji reactionType) {
-        this.reactionType = reactionType;
-    }
+  public String getActionTime() {
+    return this.actionTime;
+  }
 
+  public void setActionTime(String actionTime) {
+    this.actionTime = actionTime;
+  }
+
+  public Emoji getReactionType() {
+    return this.reactionType;
+  }
+
+  public void setReactionType(Emoji reactionType) {
+    this.reactionType = reactionType;
+  }
 }

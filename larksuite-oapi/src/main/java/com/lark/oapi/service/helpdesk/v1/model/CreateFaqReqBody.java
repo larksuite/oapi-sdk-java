@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateFaqReqBody {
+  /**
+   * 知识库详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("faq")
+  private FaqCreateInfo faq;
+
+  public FaqCreateInfo getFaq() {
+    return this.faq;
+  }
+
+  public void setFaq(FaqCreateInfo faq) {
+    this.faq = faq;
+  }
+
+  // builder 开始
+  public CreateFaqReqBody() {}
+
+  public CreateFaqReqBody(Builder builder) {
     /**
      * 知识库详情
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("faq")
+    this.faq = builder.faq;
+  }
+
+  public static class Builder {
+    /**
+     * 知识库详情
+     *
+     * <p>示例值：
+     */
     private FaqCreateInfo faq;
 
-    // builder 开始
-    public CreateFaqReqBody() {
+    /**
+     * 知识库详情
+     *
+     * <p>示例值：
+     *
+     * @param faq
+     * @return
+     */
+    public Builder faq(FaqCreateInfo faq) {
+      this.faq = faq;
+      return this;
     }
 
-    public CreateFaqReqBody(Builder builder) {
-        /**
-         * 知识库详情
-         * <p> 示例值：
-         */
-        this.faq = builder.faq;
+    public CreateFaqReqBody build() {
+      return new CreateFaqReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public FaqCreateInfo getFaq() {
-        return this.faq;
-    }
-
-    public void setFaq(FaqCreateInfo faq) {
-        this.faq = faq;
-    }
-
-    public static class Builder {
-        /**
-         * 知识库详情
-         * <p> 示例值：
-         */
-        private FaqCreateInfo faq;
-
-        /**
-         * 知识库详情
-         * <p> 示例值：
-         *
-         * @param faq
-         * @return
-         */
-        public Builder faq(FaqCreateInfo faq) {
-            this.faq = faq;
-            return this;
-        }
-
-
-        public CreateFaqReqBody build() {
-            return new CreateFaqReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

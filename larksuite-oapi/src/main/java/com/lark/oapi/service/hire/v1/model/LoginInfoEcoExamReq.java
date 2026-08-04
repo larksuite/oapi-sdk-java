@@ -13,97 +13,96 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LoginInfoEcoExamReq {
+  /**
+   * 笔试
+   * ID。可通过[创建笔试](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam/events/created)事件获取
+   *
+   * <p>示例值：7178536692385679677
+   */
+  @Path
+  @SerializedName("exam_id")
+  private String examId;
+
+  public String getExamId() {
+    return this.examId;
+  }
+
+  public void setExamId(String examId) {
+    this.examId = examId;
+  }
+
+  @Body private LoginInfoEcoExamReqBody body;
+
+  public LoginInfoEcoExamReqBody getLoginInfoEcoExamReqBody() {
+    return this.body;
+  }
+
+  public void setLoginInfoEcoExamReqBody(LoginInfoEcoExamReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public LoginInfoEcoExamReq() {}
+
+  public LoginInfoEcoExamReq(Builder builder) {
     /**
-     * exam id
-     * <p> 示例值：7178536692385679677
+     * 笔试
+     * ID。可通过[创建笔试](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam/events/created)事件获取
+     *
+     * <p>示例值：7178536692385679677
      */
-    @Path
-    @SerializedName("exam_id")
-    private String examId;
-    @Body
+    this.examId = builder.examId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String examId; // 笔试
+
+    // ID。可通过[创建笔试](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam/events/created)事件获取
+
+    /**
+     * 笔试
+     * ID。可通过[创建笔试](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_exam/events/created)事件获取
+     *
+     * <p>示例值：7178536692385679677
+     *
+     * @param examId
+     * @return
+     */
+    public Builder examId(String examId) {
+      this.examId = examId;
+      return this;
+    }
+
     private LoginInfoEcoExamReqBody body;
 
-    // builder 开始
-    public LoginInfoEcoExamReq() {
-    }
-
-    public LoginInfoEcoExamReq(Builder builder) {
-        /**
-         * exam id
-         * <p> 示例值：7178536692385679677
-         */
-        this.examId = builder.examId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getExamId() {
-        return this.examId;
-    }
-
-    public void setExamId(String examId) {
-        this.examId = examId;
-    }
-
     public LoginInfoEcoExamReqBody getLoginInfoEcoExamReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setLoginInfoEcoExamReqBody(LoginInfoEcoExamReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder loginInfoEcoExamReqBody(LoginInfoEcoExamReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String examId; // exam id
-        private LoginInfoEcoExamReqBody body;
-
-        /**
-         * exam id
-         * <p> 示例值：7178536692385679677
-         *
-         * @param examId
-         * @return
-         */
-        public Builder examId(String examId) {
-            this.examId = examId;
-            return this;
-        }
-
-        public LoginInfoEcoExamReqBody getLoginInfoEcoExamReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder loginInfoEcoExamReqBody(LoginInfoEcoExamReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public LoginInfoEcoExamReq build() {
-            return new LoginInfoEcoExamReq(this);
-        }
+    public LoginInfoEcoExamReq build() {
+      return new LoginInfoEcoExamReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

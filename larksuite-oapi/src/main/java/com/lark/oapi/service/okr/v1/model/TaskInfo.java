@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TaskInfo {
+  /**
+   * 任务管理多维表格的 id
+   *
+   * <p>示例值：1234454545656575
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * 多维表格作为文档的 token
+   *
+   * <p>示例值：fdhjaskfhasdfhlkasdhfldkshgh
+   */
+  @SerializedName("app_token")
+  private String appToken;
+
+  /**
+   * 用户 id
+   *
+   * <p>示例值：ou-ux987dsf6x
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * OKR 内容 id
+   *
+   * <p>示例值：1234454545656575
+   */
+  @SerializedName("okr_id")
+  private String okrId;
+
+  /**
+   * OKR 周期 id
+   *
+   * <p>示例值：1234454545656575
+   */
+  @SerializedName("period_id")
+  private String periodId;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public String getAppToken() {
+    return this.appToken;
+  }
+
+  public void setAppToken(String appToken) {
+    this.appToken = appToken;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getOkrId() {
+    return this.okrId;
+  }
+
+  public void setOkrId(String okrId) {
+    this.okrId = okrId;
+  }
+
+  public String getPeriodId() {
+    return this.periodId;
+  }
+
+  public void setPeriodId(String periodId) {
+    this.periodId = periodId;
+  }
+
+  // builder 开始
+  public TaskInfo() {}
+
+  public TaskInfo(Builder builder) {
     /**
      * 任务管理多维表格的 id
-     * <p> 示例值：1234454545656575
+     *
+     * <p>示例值：1234454545656575
      */
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
     /**
      * 多维表格作为文档的 token
-     * <p> 示例值：fdhjaskfhasdfhlkasdhfldkshgh
+     *
+     * <p>示例值：fdhjaskfhasdfhlkasdhfldkshgh
      */
-    @SerializedName("app_token")
-    private String appToken;
+    this.appToken = builder.appToken;
     /**
      * 用户 id
-     * <p> 示例值：ou-ux987dsf6x
+     *
+     * <p>示例值：ou-ux987dsf6x
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * OKR 内容 id
-     * <p> 示例值：1234454545656575
+     *
+     * <p>示例值：1234454545656575
      */
-    @SerializedName("okr_id")
-    private String okrId;
+    this.okrId = builder.okrId;
     /**
      * OKR 周期 id
-     * <p> 示例值：1234454545656575
+     *
+     * <p>示例值：1234454545656575
      */
-    @SerializedName("period_id")
+    this.periodId = builder.periodId;
+  }
+
+  public static class Builder {
+    /**
+     * 任务管理多维表格的 id
+     *
+     * <p>示例值：1234454545656575
+     */
+    private String taskId;
+
+    /**
+     * 多维表格作为文档的 token
+     *
+     * <p>示例值：fdhjaskfhasdfhlkasdhfldkshgh
+     */
+    private String appToken;
+
+    /**
+     * 用户 id
+     *
+     * <p>示例值：ou-ux987dsf6x
+     */
+    private String userId;
+
+    /**
+     * OKR 内容 id
+     *
+     * <p>示例值：1234454545656575
+     */
+    private String okrId;
+
+    /**
+     * OKR 周期 id
+     *
+     * <p>示例值：1234454545656575
+     */
     private String periodId;
 
-    // builder 开始
-    public TaskInfo() {
+    /**
+     * 任务管理多维表格的 id
+     *
+     * <p>示例值：1234454545656575
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public TaskInfo(Builder builder) {
-        /**
-         * 任务管理多维表格的 id
-         * <p> 示例值：1234454545656575
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 多维表格作为文档的 token
-         * <p> 示例值：fdhjaskfhasdfhlkasdhfldkshgh
-         */
-        this.appToken = builder.appToken;
-        /**
-         * 用户 id
-         * <p> 示例值：ou-ux987dsf6x
-         */
-        this.userId = builder.userId;
-        /**
-         * OKR 内容 id
-         * <p> 示例值：1234454545656575
-         */
-        this.okrId = builder.okrId;
-        /**
-         * OKR 周期 id
-         * <p> 示例值：1234454545656575
-         */
-        this.periodId = builder.periodId;
+    /**
+     * 多维表格作为文档的 token
+     *
+     * <p>示例值：fdhjaskfhasdfhlkasdhfldkshgh
+     *
+     * @param appToken
+     * @return
+     */
+    public Builder appToken(String appToken) {
+      this.appToken = appToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户 id
+     *
+     * <p>示例值：ou-ux987dsf6x
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getTaskId() {
-        return this.taskId;
+    /**
+     * OKR 内容 id
+     *
+     * <p>示例值：1234454545656575
+     *
+     * @param okrId
+     * @return
+     */
+    public Builder okrId(String okrId) {
+      this.okrId = okrId;
+      return this;
     }
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
+    /**
+     * OKR 周期 id
+     *
+     * <p>示例值：1234454545656575
+     *
+     * @param periodId
+     * @return
+     */
+    public Builder periodId(String periodId) {
+      this.periodId = periodId;
+      return this;
     }
 
-    public String getAppToken() {
-        return this.appToken;
+    public TaskInfo build() {
+      return new TaskInfo(this);
     }
+  }
 
-    public void setAppToken(String appToken) {
-        this.appToken = appToken;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getOkrId() {
-        return this.okrId;
-    }
-
-    public void setOkrId(String okrId) {
-        this.okrId = okrId;
-    }
-
-    public String getPeriodId() {
-        return this.periodId;
-    }
-
-    public void setPeriodId(String periodId) {
-        this.periodId = periodId;
-    }
-
-    public static class Builder {
-        /**
-         * 任务管理多维表格的 id
-         * <p> 示例值：1234454545656575
-         */
-        private String taskId;
-        /**
-         * 多维表格作为文档的 token
-         * <p> 示例值：fdhjaskfhasdfhlkasdhfldkshgh
-         */
-        private String appToken;
-        /**
-         * 用户 id
-         * <p> 示例值：ou-ux987dsf6x
-         */
-        private String userId;
-        /**
-         * OKR 内容 id
-         * <p> 示例值：1234454545656575
-         */
-        private String okrId;
-        /**
-         * OKR 周期 id
-         * <p> 示例值：1234454545656575
-         */
-        private String periodId;
-
-        /**
-         * 任务管理多维表格的 id
-         * <p> 示例值：1234454545656575
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * 多维表格作为文档的 token
-         * <p> 示例值：fdhjaskfhasdfhlkasdhfldkshgh
-         *
-         * @param appToken
-         * @return
-         */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
-
-
-        /**
-         * 用户 id
-         * <p> 示例值：ou-ux987dsf6x
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * OKR 内容 id
-         * <p> 示例值：1234454545656575
-         *
-         * @param okrId
-         * @return
-         */
-        public Builder okrId(String okrId) {
-            this.okrId = okrId;
-            return this;
-        }
-
-
-        /**
-         * OKR 周期 id
-         * <p> 示例值：1234454545656575
-         *
-         * @param periodId
-         * @return
-         */
-        public Builder periodId(String periodId) {
-            this.periodId = periodId;
-            return this;
-        }
-
-
-        public TaskInfo build() {
-            return new TaskInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

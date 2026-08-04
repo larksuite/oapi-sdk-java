@@ -13,223 +13,245 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureTemplateRegionInfo {
+  /**
+   * 是否全球适用
+   *
+   * <p>示例值：global
+   */
+  @SerializedName("is_global_scope")
+  private String isGlobalScope;
+
+  /**
+   * 适用区域名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meta_infos")
+  private SignatureMetaInfo[] metaInfos;
+
+  /**
+   * 国家/地区 ID
+   * 列表，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("country_region_ids")
+  private String[] countryRegionIds;
+
+  /**
+   * 主要行政区 ID
+   * 列表，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口查询获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("country_region_subdivision_ids")
+  private String[] countryRegionSubdivisionIds;
+
+  /**
+   * 次级行政区L3 ID
+   * 列表，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口查询获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subregion_l3_ids")
+  private String[] subregionL3Ids;
+
+  public String getIsGlobalScope() {
+    return this.isGlobalScope;
+  }
+
+  public void setIsGlobalScope(String isGlobalScope) {
+    this.isGlobalScope = isGlobalScope;
+  }
+
+  public SignatureMetaInfo[] getMetaInfos() {
+    return this.metaInfos;
+  }
+
+  public void setMetaInfos(SignatureMetaInfo[] metaInfos) {
+    this.metaInfos = metaInfos;
+  }
+
+  public String[] getCountryRegionIds() {
+    return this.countryRegionIds;
+  }
+
+  public void setCountryRegionIds(String[] countryRegionIds) {
+    this.countryRegionIds = countryRegionIds;
+  }
+
+  public String[] getCountryRegionSubdivisionIds() {
+    return this.countryRegionSubdivisionIds;
+  }
+
+  public void setCountryRegionSubdivisionIds(String[] countryRegionSubdivisionIds) {
+    this.countryRegionSubdivisionIds = countryRegionSubdivisionIds;
+  }
+
+  public String[] getSubregionL3Ids() {
+    return this.subregionL3Ids;
+  }
+
+  public void setSubregionL3Ids(String[] subregionL3Ids) {
+    this.subregionL3Ids = subregionL3Ids;
+  }
+
+  // builder 开始
+  public SignatureTemplateRegionInfo() {}
+
+  public SignatureTemplateRegionInfo(Builder builder) {
     /**
      * 是否全球适用
-     * <p> 示例值：global
+     *
+     * <p>示例值：global
      */
-    @SerializedName("is_global_scope")
-    private String isGlobalScope;
+    this.isGlobalScope = builder.isGlobalScope;
     /**
      * 适用区域名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meta_infos")
+    this.metaInfos = builder.metaInfos;
+    /**
+     * 国家/地区 ID
+     * 列表，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+     *
+     * <p>示例值：
+     */
+    this.countryRegionIds = builder.countryRegionIds;
+    /**
+     * 主要行政区 ID
+     * 列表，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口查询获得
+     *
+     * <p>示例值：
+     */
+    this.countryRegionSubdivisionIds = builder.countryRegionSubdivisionIds;
+    /**
+     * 次级行政区L3 ID
+     * 列表，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口查询获得
+     *
+     * <p>示例值：
+     */
+    this.subregionL3Ids = builder.subregionL3Ids;
+  }
+
+  public static class Builder {
+    /**
+     * 是否全球适用
+     *
+     * <p>示例值：global
+     */
+    private String isGlobalScope;
+
+    /**
+     * 适用区域名称
+     *
+     * <p>示例值：
+     */
     private SignatureMetaInfo[] metaInfos;
+
     /**
-     * 国家/地区 ID 列表，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
-     * <p> 示例值：
+     * 国家/地区 ID
+     * 列表，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+     *
+     * <p>示例值：
      */
-    @SerializedName("country_region_ids")
     private String[] countryRegionIds;
+
     /**
-     * 主要行政区 ID 列表，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口查询获得
-     * <p> 示例值：
+     * 主要行政区 ID
+     * 列表，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口查询获得
+     *
+     * <p>示例值：
      */
-    @SerializedName("country_region_subdivision_ids")
     private String[] countryRegionSubdivisionIds;
+
     /**
-     * 次级行政区L3 ID 列表，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口查询获得
-     * <p> 示例值：
+     * 次级行政区L3 ID
+     * 列表，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口查询获得
+     *
+     * <p>示例值：
      */
-    @SerializedName("subregion_l3_ids")
     private String[] subregionL3Ids;
 
-    // builder 开始
-    public SignatureTemplateRegionInfo() {
+    /**
+     * 是否全球适用
+     *
+     * <p>示例值：global
+     *
+     * @param isGlobalScope
+     * @return
+     */
+    public Builder isGlobalScope(String isGlobalScope) {
+      this.isGlobalScope = isGlobalScope;
+      return this;
     }
 
-    public SignatureTemplateRegionInfo(Builder builder) {
-        /**
-         * 是否全球适用
-         * <p> 示例值：global
-         */
-        this.isGlobalScope = builder.isGlobalScope;
-        /**
-         * 适用区域名称
-         * <p> 示例值：
-         */
-        this.metaInfos = builder.metaInfos;
-        /**
-         * 国家/地区 ID 列表，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
-         * <p> 示例值：
-         */
-        this.countryRegionIds = builder.countryRegionIds;
-        /**
-         * 主要行政区 ID 列表，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口查询获得
-         * <p> 示例值：
-         */
-        this.countryRegionSubdivisionIds = builder.countryRegionSubdivisionIds;
-        /**
-         * 次级行政区L3 ID 列表，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口查询获得
-         * <p> 示例值：
-         */
-        this.subregionL3Ids = builder.subregionL3Ids;
+    /**
+     * 适用区域名称
+     *
+     * <p>示例值：
+     *
+     * @param metaInfos
+     * @return
+     */
+    public Builder metaInfos(SignatureMetaInfo[] metaInfos) {
+      this.metaInfos = metaInfos;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 国家/地区 ID
+     * 列表，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
+     *
+     * <p>示例值：
+     *
+     * @param countryRegionIds
+     * @return
+     */
+    public Builder countryRegionIds(String[] countryRegionIds) {
+      this.countryRegionIds = countryRegionIds;
+      return this;
     }
 
-    public String getIsGlobalScope() {
-        return this.isGlobalScope;
+    /**
+     * 主要行政区 ID
+     * 列表，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口查询获得
+     *
+     * <p>示例值：
+     *
+     * @param countryRegionSubdivisionIds
+     * @return
+     */
+    public Builder countryRegionSubdivisionIds(String[] countryRegionSubdivisionIds) {
+      this.countryRegionSubdivisionIds = countryRegionSubdivisionIds;
+      return this;
     }
 
-    public void setIsGlobalScope(String isGlobalScope) {
-        this.isGlobalScope = isGlobalScope;
+    /**
+     * 次级行政区L3 ID
+     * 列表，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口查询获得
+     *
+     * <p>示例值：
+     *
+     * @param subregionL3Ids
+     * @return
+     */
+    public Builder subregionL3Ids(String[] subregionL3Ids) {
+      this.subregionL3Ids = subregionL3Ids;
+      return this;
     }
 
-    public SignatureMetaInfo[] getMetaInfos() {
-        return this.metaInfos;
+    public SignatureTemplateRegionInfo build() {
+      return new SignatureTemplateRegionInfo(this);
     }
+  }
 
-    public void setMetaInfos(SignatureMetaInfo[] metaInfos) {
-        this.metaInfos = metaInfos;
-    }
-
-    public String[] getCountryRegionIds() {
-        return this.countryRegionIds;
-    }
-
-    public void setCountryRegionIds(String[] countryRegionIds) {
-        this.countryRegionIds = countryRegionIds;
-    }
-
-    public String[] getCountryRegionSubdivisionIds() {
-        return this.countryRegionSubdivisionIds;
-    }
-
-    public void setCountryRegionSubdivisionIds(String[] countryRegionSubdivisionIds) {
-        this.countryRegionSubdivisionIds = countryRegionSubdivisionIds;
-    }
-
-    public String[] getSubregionL3Ids() {
-        return this.subregionL3Ids;
-    }
-
-    public void setSubregionL3Ids(String[] subregionL3Ids) {
-        this.subregionL3Ids = subregionL3Ids;
-    }
-
-    public static class Builder {
-        /**
-         * 是否全球适用
-         * <p> 示例值：global
-         */
-        private String isGlobalScope;
-        /**
-         * 适用区域名称
-         * <p> 示例值：
-         */
-        private SignatureMetaInfo[] metaInfos;
-        /**
-         * 国家/地区 ID 列表，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
-         * <p> 示例值：
-         */
-        private String[] countryRegionIds;
-        /**
-         * 主要行政区 ID 列表，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口查询获得
-         * <p> 示例值：
-         */
-        private String[] countryRegionSubdivisionIds;
-        /**
-         * 次级行政区L3 ID 列表，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口查询获得
-         * <p> 示例值：
-         */
-        private String[] subregionL3Ids;
-
-        /**
-         * 是否全球适用
-         * <p> 示例值：global
-         *
-         * @param isGlobalScope
-         * @return
-         */
-        public Builder isGlobalScope(String isGlobalScope) {
-            this.isGlobalScope = isGlobalScope;
-            return this;
-        }
-
-
-        /**
-         * 适用区域名称
-         * <p> 示例值：
-         *
-         * @param metaInfos
-         * @return
-         */
-        public Builder metaInfos(SignatureMetaInfo[] metaInfos) {
-            this.metaInfos = metaInfos;
-            return this;
-        }
-
-
-        /**
-         * 国家/地区 ID 列表，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得
-         * <p> 示例值：
-         *
-         * @param countryRegionIds
-         * @return
-         */
-        public Builder countryRegionIds(String[] countryRegionIds) {
-            this.countryRegionIds = countryRegionIds;
-            return this;
-        }
-
-
-        /**
-         * 主要行政区 ID 列表，详细信息可通过[查询省份/主要行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口查询获得
-         * <p> 示例值：
-         *
-         * @param countryRegionSubdivisionIds
-         * @return
-         */
-        public Builder countryRegionSubdivisionIds(String[] countryRegionSubdivisionIds) {
-            this.countryRegionSubdivisionIds = countryRegionSubdivisionIds;
-            return this;
-        }
-
-
-        /**
-         * 次级行政区L3 ID 列表，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口查询获得
-         * <p> 示例值：
-         *
-         * @param subregionL3Ids
-         * @return
-         */
-        public Builder subregionL3Ids(String[] subregionL3Ids) {
-            this.subregionL3Ids = subregionL3Ids;
-            return this;
-        }
-
-
-        public SignatureTemplateRegionInfo build() {
-            return new SignatureTemplateRegionInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

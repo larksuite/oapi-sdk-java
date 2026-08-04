@@ -13,185 +13,198 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DimensionOption {
+  /**
+   * 选项
+   * ID，详情可查看：[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)返回结果中
+   * `data.items.modules.dimensions.option_items` 字段
+   *
+   * <p>示例值：7171693733661327361
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 最高职级建议
+   *
+   * <p>示例值：7171693733661327361
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 选项分数;;;**数据范围**：;- `0` ～ `100`
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("score_val")
+  private Long scoreVal;
+
+  /**
+   * 最高职级建议
+   *
+   * <p>示例值：
+   */
+  @SerializedName("alias_name")
+  private I18n aliasName;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public Long getScoreVal() {
+    return this.scoreVal;
+  }
+
+  public void setScoreVal(Long scoreVal) {
+    this.scoreVal = scoreVal;
+  }
+
+  public I18n getAliasName() {
+    return this.aliasName;
+  }
+
+  public void setAliasName(I18n aliasName) {
+    this.aliasName = aliasName;
+  }
+
+  // builder 开始
+  public DimensionOption() {}
+
+  public DimensionOption(Builder builder) {
     /**
-     * 选项ID
-     * <p> 示例值：7171693733661327361
+     * 选项
+     * ID，详情可查看：[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)返回结果中
+     * `data.items.modules.dimensions.option_items` 字段
+     *
+     * <p>示例值：7171693733661327361
      */
-    @SerializedName("id")
+    this.id = builder.id;
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：7171693733661327361
+     */
+    this.name = builder.name;
+    /**
+     * 选项分数;;;**数据范围**：;- `0` ～ `100`
+     *
+     * <p>示例值：10
+     */
+    this.scoreVal = builder.scoreVal;
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     */
+    this.aliasName = builder.aliasName;
+  }
+
+  public static class Builder {
+    /**
+     * 选项
+     * ID，详情可查看：[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)返回结果中
+     * `data.items.modules.dimensions.option_items` 字段
+     *
+     * <p>示例值：7171693733661327361
+     */
     private String id;
+
     /**
-     * 选项名称
-     * <p> 示例值：7171693733661327361
+     * 最高职级建议
+     *
+     * <p>示例值：7171693733661327361
      */
-    @SerializedName("name")
     private I18n name;
+
     /**
-     * 选项对应的分数
-     * <p> 示例值：10
+     * 选项分数;;;**数据范围**：;- `0` ～ `100`
+     *
+     * <p>示例值：10
      */
-    @SerializedName("score_val")
     private Long scoreVal;
+
     /**
-     * 选项全称
-     * <p> 示例值：
+     * 最高职级建议
+     *
+     * <p>示例值：
      */
-    @SerializedName("alias_name")
     private I18n aliasName;
 
-    // builder 开始
-    public DimensionOption() {
+    /**
+     * 选项
+     * ID，详情可查看：[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)返回结果中
+     * `data.items.modules.dimensions.option_items` 字段
+     *
+     * <p>示例值：7171693733661327361
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public DimensionOption(Builder builder) {
-        /**
-         * 选项ID
-         * <p> 示例值：7171693733661327361
-         */
-        this.id = builder.id;
-        /**
-         * 选项名称
-         * <p> 示例值：7171693733661327361
-         */
-        this.name = builder.name;
-        /**
-         * 选项对应的分数
-         * <p> 示例值：10
-         */
-        this.scoreVal = builder.scoreVal;
-        /**
-         * 选项全称
-         * <p> 示例值：
-         */
-        this.aliasName = builder.aliasName;
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：7171693733661327361
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 选项分数;;;**数据范围**：;- `0` ～ `100`
+     *
+     * <p>示例值：10
+     *
+     * @param scoreVal
+     * @return
+     */
+    public Builder scoreVal(Long scoreVal) {
+      this.scoreVal = scoreVal;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     *
+     * @param aliasName
+     * @return
+     */
+    public Builder aliasName(I18n aliasName) {
+      this.aliasName = aliasName;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public DimensionOption build() {
+      return new DimensionOption(this);
     }
+  }
 
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public Long getScoreVal() {
-        return this.scoreVal;
-    }
-
-    public void setScoreVal(Long scoreVal) {
-        this.scoreVal = scoreVal;
-    }
-
-    public I18n getAliasName() {
-        return this.aliasName;
-    }
-
-    public void setAliasName(I18n aliasName) {
-        this.aliasName = aliasName;
-    }
-
-    public static class Builder {
-        /**
-         * 选项ID
-         * <p> 示例值：7171693733661327361
-         */
-        private String id;
-        /**
-         * 选项名称
-         * <p> 示例值：7171693733661327361
-         */
-        private I18n name;
-        /**
-         * 选项对应的分数
-         * <p> 示例值：10
-         */
-        private Long scoreVal;
-        /**
-         * 选项全称
-         * <p> 示例值：
-         */
-        private I18n aliasName;
-
-        /**
-         * 选项ID
-         * <p> 示例值：7171693733661327361
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 选项名称
-         * <p> 示例值：7171693733661327361
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 选项对应的分数
-         * <p> 示例值：10
-         *
-         * @param scoreVal
-         * @return
-         */
-        public Builder scoreVal(Long scoreVal) {
-            this.scoreVal = scoreVal;
-            return this;
-        }
-
-
-        /**
-         * 选项全称
-         * <p> 示例值：
-         *
-         * @param aliasName
-         * @return
-         */
-        public Builder aliasName(I18n aliasName) {
-            this.aliasName = aliasName;
-            return this;
-        }
-
-
-        public DimensionOption build() {
-            return new DimensionOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

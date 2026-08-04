@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmploymentCustomOrgRecordEmployeeCustomOrgRespBody {
-    /**
-     * 自定义组织列表
-     * <p> 示例值：
-     */
-    @SerializedName("custom_org_list")
-    private EmpCustomOrgList[] customOrgList;
+  /**
+   * 自定义组织列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_org_list")
+  private EmpCustomOrgList[] customOrgList;
 
-    public EmpCustomOrgList[] getCustomOrgList() {
-        return this.customOrgList;
-    }
+  public EmpCustomOrgList[] getCustomOrgList() {
+    return this.customOrgList;
+  }
 
-    public void setCustomOrgList(EmpCustomOrgList[] customOrgList) {
-        this.customOrgList = customOrgList;
-    }
-
+  public void setCustomOrgList(EmpCustomOrgList[] customOrgList) {
+    this.customOrgList = customOrgList;
+  }
 }

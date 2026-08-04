@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ShareDoc {
+  /**
+   * 文档 URL
+   *
+   * <p>示例值：https://example.feishu.cn/docx/xxx
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 文档标题
+   *
+   * <p>示例值：会议讨论稿
+   */
+  @SerializedName("title")
+  private String title;
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  // builder 开始
+  public ShareDoc() {}
+
+  public ShareDoc(Builder builder) {
     /**
      * 文档 URL
-     * <p> 示例值：https://example.feishu.cn/docx/xxx
+     *
+     * <p>示例值：https://example.feishu.cn/docx/xxx
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 文档标题
-     * <p> 示例值：会议讨论稿
+     *
+     * <p>示例值：会议讨论稿
      */
-    @SerializedName("title")
+    this.title = builder.title;
+  }
+
+  public static class Builder {
+    /**
+     * 文档 URL
+     *
+     * <p>示例值：https://example.feishu.cn/docx/xxx
+     */
+    private String url;
+
+    /**
+     * 文档标题
+     *
+     * <p>示例值：会议讨论稿
+     */
     private String title;
 
-    // builder 开始
-    public ShareDoc() {
+    /**
+     * 文档 URL
+     *
+     * <p>示例值：https://example.feishu.cn/docx/xxx
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public ShareDoc(Builder builder) {
-        /**
-         * 文档 URL
-         * <p> 示例值：https://example.feishu.cn/docx/xxx
-         */
-        this.url = builder.url;
-        /**
-         * 文档标题
-         * <p> 示例值：会议讨论稿
-         */
-        this.title = builder.title;
+    /**
+     * 文档标题
+     *
+     * <p>示例值：会议讨论稿
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ShareDoc build() {
+      return new ShareDoc(this);
     }
+  }
 
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public static class Builder {
-        /**
-         * 文档 URL
-         * <p> 示例值：https://example.feishu.cn/docx/xxx
-         */
-        private String url;
-        /**
-         * 文档标题
-         * <p> 示例值：会议讨论稿
-         */
-        private String title;
-
-        /**
-         * 文档 URL
-         * <p> 示例值：https://example.feishu.cn/docx/xxx
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 文档标题
-         * <p> 示例值：会议讨论稿
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        public ShareDoc build() {
-            return new ShareDoc(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 启用状态
- */
+/** 启用状态 */
 public enum ChangeReasonActiveStatusEnum {
-    ACTIVEENABLE(1), // 启用
-    ACTIVEDISABLE(0), // 禁用
-    ;
-    private Integer value;
+  ACTIVEENABLE(1), // 启用
+  ACTIVEDISABLE(0), // 禁用
+  ;
+  private Integer value;
 
-    ChangeReasonActiveStatusEnum(Integer value) {
-        this.value = value;
-    }
+  ChangeReasonActiveStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

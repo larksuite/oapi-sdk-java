@@ -13,124 +13,120 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DocWikiTokenFilter {
+  /**
+   * 文档唯一标识
+   *
+   * <p>示例值：dox_9876543210fedcba
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 文档类型
+   *
+   * <p>示例值：SHORTCUT
+   */
+  @SerializedName("type")
+  private String type;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public DocWikiTokenFilter() {}
+
+  public DocWikiTokenFilter(Builder builder) {
     /**
      * 文档唯一标识
-     * <p> 示例值：dox_9876543210fedcba
+     *
+     * <p>示例值：dox_9876543210fedcba
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 文档类型
-     * <p> 示例值：SHORTCUT
+     *
+     * <p>示例值：SHORTCUT
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 文档唯一标识
+     *
+     * <p>示例值：dox_9876543210fedcba
+     */
+    private String token;
+
+    /**
+     * 文档类型
+     *
+     * <p>示例值：SHORTCUT
+     */
     private String type;
 
-    // builder 开始
-    public DocWikiTokenFilter() {
+    /**
+     * 文档唯一标识
+     *
+     * <p>示例值：dox_9876543210fedcba
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public DocWikiTokenFilter(Builder builder) {
-        /**
-         * 文档唯一标识
-         * <p> 示例值：dox_9876543210fedcba
-         */
-        this.token = builder.token;
-        /**
-         * 文档类型
-         * <p> 示例值：SHORTCUT
-         */
-        this.type = builder.type;
+    /**
+     * 文档类型
+     *
+     * <p>示例值：SHORTCUT
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文档类型
+     *
+     * <p>示例值：SHORTCUT
+     *
+     * @param type {@link com.lark.oapi.service.search.v2.enums.DocWikiTokenFilterTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.search.v2.enums.DocWikiTokenFilterTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    public DocWikiTokenFilter build() {
+      return new DocWikiTokenFilter(this);
     }
+  }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 文档唯一标识
-         * <p> 示例值：dox_9876543210fedcba
-         */
-        private String token;
-        /**
-         * 文档类型
-         * <p> 示例值：SHORTCUT
-         */
-        private String type;
-
-        /**
-         * 文档唯一标识
-         * <p> 示例值：dox_9876543210fedcba
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 文档类型
-         * <p> 示例值：SHORTCUT
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：SHORTCUT
-         *
-         * @param type {@link com.lark.oapi.service.search.v2.enums.DocWikiTokenFilterTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.search.v2.enums.DocWikiTokenFilterTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        public DocWikiTokenFilter build() {
-            return new DocWikiTokenFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

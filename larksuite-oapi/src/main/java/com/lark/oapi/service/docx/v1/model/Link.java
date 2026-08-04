@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Link {
+  /**
+   * 超链接指向的 url (需要 url_encode)
+   *
+   * <p>示例值：https%3A%2F%2Fopen.feishu.cn%2F
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public Link() {}
+
+  public Link(Builder builder) {
     /**
      * 超链接指向的 url (需要 url_encode)
-     * <p> 示例值：https%3A%2F%2Fopen.feishu.cn%2F
+     *
+     * <p>示例值：https%3A%2F%2Fopen.feishu.cn%2F
      */
-    @SerializedName("url")
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 超链接指向的 url (需要 url_encode)
+     *
+     * <p>示例值：https%3A%2F%2Fopen.feishu.cn%2F
+     */
     private String url;
 
-    // builder 开始
-    public Link() {
+    /**
+     * 超链接指向的 url (需要 url_encode)
+     *
+     * <p>示例值：https%3A%2F%2Fopen.feishu.cn%2F
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public Link(Builder builder) {
-        /**
-         * 超链接指向的 url (需要 url_encode)
-         * <p> 示例值：https%3A%2F%2Fopen.feishu.cn%2F
-         */
-        this.url = builder.url;
+    public Link build() {
+      return new Link(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * 超链接指向的 url (需要 url_encode)
-         * <p> 示例值：https%3A%2F%2Fopen.feishu.cn%2F
-         */
-        private String url;
-
-        /**
-         * 超链接指向的 url (需要 url_encode)
-         * <p> 示例值：https%3A%2F%2Fopen.feishu.cn%2F
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public Link build() {
-            return new Link(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

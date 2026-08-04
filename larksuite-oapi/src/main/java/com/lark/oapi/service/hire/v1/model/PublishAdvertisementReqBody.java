@@ -13,74 +13,68 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PublishAdvertisementReqBody {
+  /**
+   * 招聘渠道 ID，选择要发布的招聘官网，单次仅可发布 1 个渠道：;- 当发布内推平台时，可使用 job_channel_id = 3 来发布;;- 官网渠道的 ID
+   * 可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)」接口获取
+   *
+   * <p>示例值：6960663240925956631
+   */
+  @SerializedName("job_channel_id")
+  private String jobChannelId;
+
+  public String getJobChannelId() {
+    return this.jobChannelId;
+  }
+
+  public void setJobChannelId(String jobChannelId) {
+    this.jobChannelId = jobChannelId;
+  }
+
+  // builder 开始
+  public PublishAdvertisementReqBody() {}
+
+  public PublishAdvertisementReqBody(Builder builder) {
     /**
-     * 职位渠道 ID，选择要发布的招聘官网，单次仅可发布 1 个渠道，1. 内推平台提供对应的 id = 3，2. 官网渠道的 ID 通过接口「获取官网列表」获取
-     * <p> 示例值：6960663240925956631
+     * 招聘渠道 ID，选择要发布的招聘官网，单次仅可发布 1 个渠道：;- 当发布内推平台时，可使用 job_channel_id = 3 来发布;;- 官网渠道的 ID
+     * 可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)」接口获取
+     *
+     * <p>示例值：6960663240925956631
      */
-    @SerializedName("job_channel_id")
+    this.jobChannelId = builder.jobChannelId;
+  }
+
+  public static class Builder {
+    /**
+     * 招聘渠道 ID，选择要发布的招聘官网，单次仅可发布 1 个渠道：;- 当发布内推平台时，可使用 job_channel_id = 3 来发布;;- 官网渠道的 ID
+     * 可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)」接口获取
+     *
+     * <p>示例值：6960663240925956631
+     */
     private String jobChannelId;
 
-    // builder 开始
-    public PublishAdvertisementReqBody() {
+    /**
+     * 招聘渠道 ID，选择要发布的招聘官网，单次仅可发布 1 个渠道：;- 当发布内推平台时，可使用 job_channel_id = 3 来发布;;- 官网渠道的 ID
+     * 可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)」接口获取
+     *
+     * <p>示例值：6960663240925956631
+     *
+     * @param jobChannelId
+     * @return
+     */
+    public Builder jobChannelId(String jobChannelId) {
+      this.jobChannelId = jobChannelId;
+      return this;
     }
 
-    public PublishAdvertisementReqBody(Builder builder) {
-        /**
-         * 职位渠道 ID，选择要发布的招聘官网，单次仅可发布 1 个渠道，1. 内推平台提供对应的 id = 3，2. 官网渠道的 ID 通过接口「获取官网列表」获取
-         * <p> 示例值：6960663240925956631
-         */
-        this.jobChannelId = builder.jobChannelId;
+    public PublishAdvertisementReqBody build() {
+      return new PublishAdvertisementReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getJobChannelId() {
-        return this.jobChannelId;
-    }
-
-    public void setJobChannelId(String jobChannelId) {
-        this.jobChannelId = jobChannelId;
-    }
-
-    public static class Builder {
-        /**
-         * 职位渠道 ID，选择要发布的招聘官网，单次仅可发布 1 个渠道，1. 内推平台提供对应的 id = 3，2. 官网渠道的 ID 通过接口「获取官网列表」获取
-         * <p> 示例值：6960663240925956631
-         */
-        private String jobChannelId;
-
-        /**
-         * 职位渠道 ID，选择要发布的招聘官网，单次仅可发布 1 个渠道，1. 内推平台提供对应的 id = 3，2. 官网渠道的 ID 通过接口「获取官网列表」获取
-         * <p> 示例值：6960663240925956631
-         *
-         * @param jobChannelId
-         * @return
-         */
-        public Builder jobChannelId(String jobChannelId) {
-            this.jobChannelId = jobChannelId;
-            return this;
-        }
-
-
-        public PublishAdvertisementReqBody build() {
-            return new PublishAdvertisementReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

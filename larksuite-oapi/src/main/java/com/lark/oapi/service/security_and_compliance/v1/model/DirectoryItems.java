@@ -13,247 +13,265 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DirectoryItems {
+  /**
+   * 实体的 id
+   *
+   * <p>示例值：134jsi43d3ssi993d435452
+   */
+  @SerializedName("entity_id")
+  private String entityId;
+
+  /**
+   * 邮箱地址。当通过 mailbox 查询实体时，返回 mail address，如果没有，则返回空。
+   *
+   * <p>示例值：xxx@xxx.xx
+   */
+  @SerializedName("mail_address")
+  private String mailAddress;
+
+  /**
+   * 实体的数据驻留地
+   *
+   * <p>示例值：SG
+   */
+  @SerializedName("entity_location")
+  private String entityLocation;
+
+  /**
+   * 实体创建时间（毫秒级时间戳）
+   *
+   * <p>示例值：1615380573411
+   */
+  @SerializedName("entity_create_time")
+  private String entityCreateTime;
+
+  /**
+   * 实体的类型
+   *
+   * <p>示例值：sheets
+   */
+  @SerializedName("entity_type")
+  private String entityType;
+
+  public String getEntityId() {
+    return this.entityId;
+  }
+
+  public void setEntityId(String entityId) {
+    this.entityId = entityId;
+  }
+
+  public String getMailAddress() {
+    return this.mailAddress;
+  }
+
+  public void setMailAddress(String mailAddress) {
+    this.mailAddress = mailAddress;
+  }
+
+  public String getEntityLocation() {
+    return this.entityLocation;
+  }
+
+  public void setEntityLocation(String entityLocation) {
+    this.entityLocation = entityLocation;
+  }
+
+  public String getEntityCreateTime() {
+    return this.entityCreateTime;
+  }
+
+  public void setEntityCreateTime(String entityCreateTime) {
+    this.entityCreateTime = entityCreateTime;
+  }
+
+  public String getEntityType() {
+    return this.entityType;
+  }
+
+  public void setEntityType(String entityType) {
+    this.entityType = entityType;
+  }
+
+  // builder 开始
+  public DirectoryItems() {}
+
+  public DirectoryItems(Builder builder) {
     /**
      * 实体的 id
-     * <p> 示例值：134jsi43d3ssi993d435452
+     *
+     * <p>示例值：134jsi43d3ssi993d435452
      */
-    @SerializedName("entity_id")
-    private String entityId;
+    this.entityId = builder.entityId;
     /**
      * 邮箱地址。当通过 mailbox 查询实体时，返回 mail address，如果没有，则返回空。
-     * <p> 示例值：xxx@xxx.xx
+     *
+     * <p>示例值：xxx@xxx.xx
      */
-    @SerializedName("mail_address")
-    private String mailAddress;
+    this.mailAddress = builder.mailAddress;
     /**
      * 实体的数据驻留地
-     * <p> 示例值：SG
+     *
+     * <p>示例值：SG
      */
-    @SerializedName("entity_location")
-    private String entityLocation;
+    this.entityLocation = builder.entityLocation;
     /**
      * 实体创建时间（毫秒级时间戳）
-     * <p> 示例值：1615380573411
+     *
+     * <p>示例值：1615380573411
      */
-    @SerializedName("entity_create_time")
-    private String entityCreateTime;
+    this.entityCreateTime = builder.entityCreateTime;
     /**
      * 实体的类型
-     * <p> 示例值：sheets
+     *
+     * <p>示例值：sheets
      */
-    @SerializedName("entity_type")
+    this.entityType = builder.entityType;
+  }
+
+  public static class Builder {
+    /**
+     * 实体的 id
+     *
+     * <p>示例值：134jsi43d3ssi993d435452
+     */
+    private String entityId;
+
+    /**
+     * 邮箱地址。当通过 mailbox 查询实体时，返回 mail address，如果没有，则返回空。
+     *
+     * <p>示例值：xxx@xxx.xx
+     */
+    private String mailAddress;
+
+    /**
+     * 实体的数据驻留地
+     *
+     * <p>示例值：SG
+     */
+    private String entityLocation;
+
+    /**
+     * 实体创建时间（毫秒级时间戳）
+     *
+     * <p>示例值：1615380573411
+     */
+    private String entityCreateTime;
+
+    /**
+     * 实体的类型
+     *
+     * <p>示例值：sheets
+     */
     private String entityType;
 
-    // builder 开始
-    public DirectoryItems() {
+    /**
+     * 实体的 id
+     *
+     * <p>示例值：134jsi43d3ssi993d435452
+     *
+     * @param entityId
+     * @return
+     */
+    public Builder entityId(String entityId) {
+      this.entityId = entityId;
+      return this;
     }
 
-    public DirectoryItems(Builder builder) {
-        /**
-         * 实体的 id
-         * <p> 示例值：134jsi43d3ssi993d435452
-         */
-        this.entityId = builder.entityId;
-        /**
-         * 邮箱地址。当通过 mailbox 查询实体时，返回 mail address，如果没有，则返回空。
-         * <p> 示例值：xxx@xxx.xx
-         */
-        this.mailAddress = builder.mailAddress;
-        /**
-         * 实体的数据驻留地
-         * <p> 示例值：SG
-         */
-        this.entityLocation = builder.entityLocation;
-        /**
-         * 实体创建时间（毫秒级时间戳）
-         * <p> 示例值：1615380573411
-         */
-        this.entityCreateTime = builder.entityCreateTime;
-        /**
-         * 实体的类型
-         * <p> 示例值：sheets
-         */
-        this.entityType = builder.entityType;
+    /**
+     * 邮箱地址。当通过 mailbox 查询实体时，返回 mail address，如果没有，则返回空。
+     *
+     * <p>示例值：xxx@xxx.xx
+     *
+     * @param mailAddress
+     * @return
+     */
+    public Builder mailAddress(String mailAddress) {
+      this.mailAddress = mailAddress;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 实体的数据驻留地
+     *
+     * <p>示例值：SG
+     *
+     * @param entityLocation
+     * @return
+     */
+    public Builder entityLocation(String entityLocation) {
+      this.entityLocation = entityLocation;
+      return this;
     }
 
-    public String getEntityId() {
-        return this.entityId;
+    /**
+     * 实体的数据驻留地
+     *
+     * <p>示例值：SG
+     *
+     * @param entityLocation {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.DirectoryItemsEntityLocationEnum}
+     * @return
+     */
+    public Builder entityLocation(
+        com.lark.oapi.service.security_and_compliance.v1.enums.DirectoryItemsEntityLocationEnum
+            entityLocation) {
+      this.entityLocation = entityLocation.getValue();
+      return this;
     }
 
-    public void setEntityId(String entityId) {
-        this.entityId = entityId;
+    /**
+     * 实体创建时间（毫秒级时间戳）
+     *
+     * <p>示例值：1615380573411
+     *
+     * @param entityCreateTime
+     * @return
+     */
+    public Builder entityCreateTime(String entityCreateTime) {
+      this.entityCreateTime = entityCreateTime;
+      return this;
     }
 
-    public String getMailAddress() {
-        return this.mailAddress;
+    /**
+     * 实体的类型
+     *
+     * <p>示例值：sheets
+     *
+     * @param entityType
+     * @return
+     */
+    public Builder entityType(String entityType) {
+      this.entityType = entityType;
+      return this;
     }
 
-    public void setMailAddress(String mailAddress) {
-        this.mailAddress = mailAddress;
+    /**
+     * 实体的类型
+     *
+     * <p>示例值：sheets
+     *
+     * @param entityType {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.DirectoryItemsEntityTypeEnum}
+     * @return
+     */
+    public Builder entityType(
+        com.lark.oapi.service.security_and_compliance.v1.enums.DirectoryItemsEntityTypeEnum
+            entityType) {
+      this.entityType = entityType.getValue();
+      return this;
     }
 
-    public String getEntityLocation() {
-        return this.entityLocation;
+    public DirectoryItems build() {
+      return new DirectoryItems(this);
     }
+  }
 
-    public void setEntityLocation(String entityLocation) {
-        this.entityLocation = entityLocation;
-    }
-
-    public String getEntityCreateTime() {
-        return this.entityCreateTime;
-    }
-
-    public void setEntityCreateTime(String entityCreateTime) {
-        this.entityCreateTime = entityCreateTime;
-    }
-
-    public String getEntityType() {
-        return this.entityType;
-    }
-
-    public void setEntityType(String entityType) {
-        this.entityType = entityType;
-    }
-
-    public static class Builder {
-        /**
-         * 实体的 id
-         * <p> 示例值：134jsi43d3ssi993d435452
-         */
-        private String entityId;
-        /**
-         * 邮箱地址。当通过 mailbox 查询实体时，返回 mail address，如果没有，则返回空。
-         * <p> 示例值：xxx@xxx.xx
-         */
-        private String mailAddress;
-        /**
-         * 实体的数据驻留地
-         * <p> 示例值：SG
-         */
-        private String entityLocation;
-        /**
-         * 实体创建时间（毫秒级时间戳）
-         * <p> 示例值：1615380573411
-         */
-        private String entityCreateTime;
-        /**
-         * 实体的类型
-         * <p> 示例值：sheets
-         */
-        private String entityType;
-
-        /**
-         * 实体的 id
-         * <p> 示例值：134jsi43d3ssi993d435452
-         *
-         * @param entityId
-         * @return
-         */
-        public Builder entityId(String entityId) {
-            this.entityId = entityId;
-            return this;
-        }
-
-
-        /**
-         * 邮箱地址。当通过 mailbox 查询实体时，返回 mail address，如果没有，则返回空。
-         * <p> 示例值：xxx@xxx.xx
-         *
-         * @param mailAddress
-         * @return
-         */
-        public Builder mailAddress(String mailAddress) {
-            this.mailAddress = mailAddress;
-            return this;
-        }
-
-
-        /**
-         * 实体的数据驻留地
-         * <p> 示例值：SG
-         *
-         * @param entityLocation
-         * @return
-         */
-        public Builder entityLocation(String entityLocation) {
-            this.entityLocation = entityLocation;
-            return this;
-        }
-
-        /**
-         * 实体的数据驻留地
-         * <p> 示例值：SG
-         *
-         * @param entityLocation {@link com.lark.oapi.service.security_and_compliance.v1.enums.DirectoryItemsEntityLocationEnum}
-         * @return
-         */
-        public Builder entityLocation(com.lark.oapi.service.security_and_compliance.v1.enums.DirectoryItemsEntityLocationEnum entityLocation) {
-            this.entityLocation = entityLocation.getValue();
-            return this;
-        }
-
-
-        /**
-         * 实体创建时间（毫秒级时间戳）
-         * <p> 示例值：1615380573411
-         *
-         * @param entityCreateTime
-         * @return
-         */
-        public Builder entityCreateTime(String entityCreateTime) {
-            this.entityCreateTime = entityCreateTime;
-            return this;
-        }
-
-
-        /**
-         * 实体的类型
-         * <p> 示例值：sheets
-         *
-         * @param entityType
-         * @return
-         */
-        public Builder entityType(String entityType) {
-            this.entityType = entityType;
-            return this;
-        }
-
-        /**
-         * 实体的类型
-         * <p> 示例值：sheets
-         *
-         * @param entityType {@link com.lark.oapi.service.security_and_compliance.v1.enums.DirectoryItemsEntityTypeEnum}
-         * @return
-         */
-        public Builder entityType(com.lark.oapi.service.security_and_compliance.v1.enums.DirectoryItemsEntityTypeEnum entityType) {
-            this.entityType = entityType.getValue();
-            return this;
-        }
-
-
-        public DirectoryItems build() {
-            return new DirectoryItems(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

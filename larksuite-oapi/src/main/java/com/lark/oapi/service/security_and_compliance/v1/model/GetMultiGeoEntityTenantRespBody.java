@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetMultiGeoEntityTenantRespBody {
-    /**
-     * 多地理位置租户信息
-     * <p> 示例值：
-     */
-    @SerializedName("tenant")
-    private Tenant tenant;
+  /**
+   * 数据驻留租户信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tenant")
+  private Tenant tenant;
 
-    public Tenant getTenant() {
-        return this.tenant;
-    }
+  public Tenant getTenant() {
+    return this.tenant;
+  }
 
-    public void setTenant(Tenant tenant) {
-        this.tenant = tenant;
-    }
-
+  public void setTenant(Tenant tenant) {
+    this.tenant = tenant;
+  }
 }

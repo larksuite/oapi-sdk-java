@@ -13,116 +13,114 @@
 
 package com.lark.oapi.service.wiki.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.wiki.v2.enums.*;
 
 public class GetTaskReq {
+  /**
+   * 任务类型
+   *
+   * <p>示例值：move
+   */
+  @Query
+  @SerializedName("task_type")
+  private String taskType;
+
+  public String getTaskType() {
+    return this.taskType;
+  }
+
+  public void setTaskType(String taskType) {
+    this.taskType = taskType;
+  }
+
+  /**
+   * 任务id
+   *
+   * <p>示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+   */
+  @Path
+  @SerializedName("task_id")
+  private String taskId;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  // builder 开始
+  public GetTaskReq() {}
+
+  public GetTaskReq(Builder builder) {
     /**
      * 任务类型
-     * <p> 示例值：move
+     *
+     * <p>示例值：move
      */
-    @Query
-    @SerializedName("task_type")
-    private String taskType;
+    this.taskType = builder.taskType;
     /**
      * 任务id
-     * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+     *
+     * <p>示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
      */
-    @Path
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
+  }
 
-    // builder 开始
-    public GetTaskReq() {
+  public static class Builder {
+    private String taskType; // 任务类型
+
+    /**
+     * 任务类型
+     *
+     * <p>示例值：move
+     *
+     * @param taskType
+     * @return
+     */
+    public Builder taskType(String taskType) {
+      this.taskType = taskType;
+      return this;
     }
 
-    public GetTaskReq(Builder builder) {
-        /**
-         * 任务类型
-         * <p> 示例值：move
-         */
-        this.taskType = builder.taskType;
-        /**
-         * 任务id
-         * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
-         */
-        this.taskId = builder.taskId;
+    /**
+     * 任务类型
+     *
+     * <p>示例值：move
+     *
+     * @param taskType {@link com.lark.oapi.service.wiki.v2.enums.GetTaskTaskTypeEnum}
+     * @return
+     */
+    public Builder taskType(com.lark.oapi.service.wiki.v2.enums.GetTaskTaskTypeEnum taskType) {
+      this.taskType = taskType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String taskId; // 任务id
+
+    /**
+     * 任务id
+     *
+     * <p>示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public String getTaskType() {
-        return this.taskType;
+    public GetTaskReq build() {
+      return new GetTaskReq(this);
     }
+  }
 
-    public void setTaskType(String taskType) {
-        this.taskType = taskType;
-    }
-
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
-    public static class Builder {
-        private String taskType; // 任务类型
-        private String taskId; // 任务id
-
-        /**
-         * 任务类型
-         * <p> 示例值：move
-         *
-         * @param taskType
-         * @return
-         */
-        public Builder taskType(String taskType) {
-            this.taskType = taskType;
-            return this;
-        }
-
-        /**
-         * 任务类型
-         * <p> 示例值：move
-         *
-         * @param taskType {@link com.lark.oapi.service.wiki.v2.enums.GetTaskTaskTypeEnum}
-         * @return
-         */
-        public Builder taskType(com.lark.oapi.service.wiki.v2.enums.GetTaskTaskTypeEnum taskType) {
-            this.taskType = taskType.getValue();
-            return this;
-        }
-
-        /**
-         * 任务id
-         * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        public GetTaskReq build() {
-            return new GetTaskReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

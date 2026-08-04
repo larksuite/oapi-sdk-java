@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationResumeSource {
+  /**
+   * 投递来源 ID
+   *
+   * <p>示例值：614218419274131
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 投递来源名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 投递来源类型
+   *
+   * <p>示例值：10002
+   */
+  @SerializedName("resume_source_type")
+  private Integer resumeSourceType;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public Integer getResumeSourceType() {
+    return this.resumeSourceType;
+  }
+
+  public void setResumeSourceType(Integer resumeSourceType) {
+    this.resumeSourceType = resumeSourceType;
+  }
+
+  // builder 开始
+  public ApplicationResumeSource() {}
+
+  public ApplicationResumeSource(Builder builder) {
     /**
      * 投递来源 ID
-     * <p> 示例值：614218419274131
+     *
+     * <p>示例值：614218419274131
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 投递来源名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 投递来源类型
-     * <p> 示例值：10002
+     *
+     * <p>示例值：10002
      */
-    @SerializedName("resume_source_type")
+    this.resumeSourceType = builder.resumeSourceType;
+  }
+
+  public static class Builder {
+    /**
+     * 投递来源 ID
+     *
+     * <p>示例值：614218419274131
+     */
+    private String id;
+
+    /**
+     * 投递来源名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 投递来源类型
+     *
+     * <p>示例值：10002
+     */
     private Integer resumeSourceType;
 
-    // builder 开始
-    public ApplicationResumeSource() {
+    /**
+     * 投递来源 ID
+     *
+     * <p>示例值：614218419274131
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ApplicationResumeSource(Builder builder) {
-        /**
-         * 投递来源 ID
-         * <p> 示例值：614218419274131
-         */
-        this.id = builder.id;
-        /**
-         * 投递来源名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 投递来源类型
-         * <p> 示例值：10002
-         */
-        this.resumeSourceType = builder.resumeSourceType;
+    /**
+     * 投递来源名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 投递来源类型
+     *
+     * <p>示例值：10002
+     *
+     * @param resumeSourceType
+     * @return
+     */
+    public Builder resumeSourceType(Integer resumeSourceType) {
+      this.resumeSourceType = resumeSourceType;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public ApplicationResumeSource build() {
+      return new ApplicationResumeSource(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public Integer getResumeSourceType() {
-        return this.resumeSourceType;
-    }
-
-    public void setResumeSourceType(Integer resumeSourceType) {
-        this.resumeSourceType = resumeSourceType;
-    }
-
-    public static class Builder {
-        /**
-         * 投递来源 ID
-         * <p> 示例值：614218419274131
-         */
-        private String id;
-        /**
-         * 投递来源名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 投递来源类型
-         * <p> 示例值：10002
-         */
-        private Integer resumeSourceType;
-
-        /**
-         * 投递来源 ID
-         * <p> 示例值：614218419274131
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 投递来源名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 投递来源类型
-         * <p> 示例值：10002
-         *
-         * @param resumeSourceType
-         * @return
-         */
-        public Builder resumeSourceType(Integer resumeSourceType) {
-            this.resumeSourceType = resumeSourceType;
-            return this;
-        }
-
-
-        public ApplicationResumeSource build() {
-            return new ApplicationResumeSource(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

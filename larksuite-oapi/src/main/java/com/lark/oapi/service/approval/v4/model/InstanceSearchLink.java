@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InstanceSearchLink {
+  /**
+   * 审批实例 PC 端链接
+   *
+   * <p>示例值：https://www.example.com/
+   */
+  @SerializedName("pc_link")
+  private String pcLink;
+
+  /**
+   * 审批实例移动端链接
+   *
+   * <p>示例值：https://www.example.com/
+   */
+  @SerializedName("mobile_link")
+  private String mobileLink;
+
+  public String getPcLink() {
+    return this.pcLink;
+  }
+
+  public void setPcLink(String pcLink) {
+    this.pcLink = pcLink;
+  }
+
+  public String getMobileLink() {
+    return this.mobileLink;
+  }
+
+  public void setMobileLink(String mobileLink) {
+    this.mobileLink = mobileLink;
+  }
+
+  // builder 开始
+  public InstanceSearchLink() {}
+
+  public InstanceSearchLink(Builder builder) {
     /**
-     * 审批实例 pc 端链接
-     * <p> 示例值：https://www.baidu.com/
+     * 审批实例 PC 端链接
+     *
+     * <p>示例值：https://www.example.com/
      */
-    @SerializedName("pc_link")
-    private String pcLink;
+    this.pcLink = builder.pcLink;
     /**
      * 审批实例移动端链接
-     * <p> 示例值：https://www.baidu.com/
+     *
+     * <p>示例值：https://www.example.com/
      */
-    @SerializedName("mobile_link")
+    this.mobileLink = builder.mobileLink;
+  }
+
+  public static class Builder {
+    /**
+     * 审批实例 PC 端链接
+     *
+     * <p>示例值：https://www.example.com/
+     */
+    private String pcLink;
+
+    /**
+     * 审批实例移动端链接
+     *
+     * <p>示例值：https://www.example.com/
+     */
     private String mobileLink;
 
-    // builder 开始
-    public InstanceSearchLink() {
+    /**
+     * 审批实例 PC 端链接
+     *
+     * <p>示例值：https://www.example.com/
+     *
+     * @param pcLink
+     * @return
+     */
+    public Builder pcLink(String pcLink) {
+      this.pcLink = pcLink;
+      return this;
     }
 
-    public InstanceSearchLink(Builder builder) {
-        /**
-         * 审批实例 pc 端链接
-         * <p> 示例值：https://www.baidu.com/
-         */
-        this.pcLink = builder.pcLink;
-        /**
-         * 审批实例移动端链接
-         * <p> 示例值：https://www.baidu.com/
-         */
-        this.mobileLink = builder.mobileLink;
+    /**
+     * 审批实例移动端链接
+     *
+     * <p>示例值：https://www.example.com/
+     *
+     * @param mobileLink
+     * @return
+     */
+    public Builder mobileLink(String mobileLink) {
+      this.mobileLink = mobileLink;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public InstanceSearchLink build() {
+      return new InstanceSearchLink(this);
     }
+  }
 
-    public String getPcLink() {
-        return this.pcLink;
-    }
-
-    public void setPcLink(String pcLink) {
-        this.pcLink = pcLink;
-    }
-
-    public String getMobileLink() {
-        return this.mobileLink;
-    }
-
-    public void setMobileLink(String mobileLink) {
-        this.mobileLink = mobileLink;
-    }
-
-    public static class Builder {
-        /**
-         * 审批实例 pc 端链接
-         * <p> 示例值：https://www.baidu.com/
-         */
-        private String pcLink;
-        /**
-         * 审批实例移动端链接
-         * <p> 示例值：https://www.baidu.com/
-         */
-        private String mobileLink;
-
-        /**
-         * 审批实例 pc 端链接
-         * <p> 示例值：https://www.baidu.com/
-         *
-         * @param pcLink
-         * @return
-         */
-        public Builder pcLink(String pcLink) {
-            this.pcLink = pcLink;
-            return this;
-        }
-
-
-        /**
-         * 审批实例移动端链接
-         * <p> 示例值：https://www.baidu.com/
-         *
-         * @param mobileLink
-         * @return
-         */
-        public Builder mobileLink(String mobileLink) {
-            this.mobileLink = mobileLink;
-            return this;
-        }
-
-
-        public InstanceSearchLink build() {
-            return new InstanceSearchLink(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

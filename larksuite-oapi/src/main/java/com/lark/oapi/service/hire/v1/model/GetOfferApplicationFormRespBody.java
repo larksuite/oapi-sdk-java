@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetOfferApplicationFormRespBody {
-    /**
-     * Offer 申请表详情
-     * <p> 示例值：
-     */
-    @SerializedName("offer_apply_form")
-    private OfferApplyFormInfo offerApplyForm;
+  /**
+   * Offer 申请表详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("offer_apply_form")
+  private OfferApplyFormInfo offerApplyForm;
 
-    public OfferApplyFormInfo getOfferApplyForm() {
-        return this.offerApplyForm;
-    }
+  public OfferApplyFormInfo getOfferApplyForm() {
+    return this.offerApplyForm;
+  }
 
-    public void setOfferApplyForm(OfferApplyFormInfo offerApplyForm) {
-        this.offerApplyForm = offerApplyForm;
-    }
-
+  public void setOfferApplyForm(OfferApplyFormInfo offerApplyForm) {
+    this.offerApplyForm = offerApplyForm;
+  }
 }

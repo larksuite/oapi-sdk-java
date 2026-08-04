@@ -13,469 +13,678 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EditProbationReqBody {
+  /**
+   * 试用期人员的雇佣 ID，类型与查询参数 user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+   * User
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+   * Union
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+   * User
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+   * ID。然后通过[ID
+   * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。
+   *
+   * <p>示例值：7140964208476371111
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 试用期开始日期，格式："YYYY-MM-DD"，填写时满足以下规则;- 权限要求：<md-perm
+   * name="corehr:probation.probation_start_date:write" desc="读写试用期开始日期信息"
+   * support_app_types="custom,isv" >读写试用期开始日期信息</md-perm>;- 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 ;-
+   * 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 ;-
+   * 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 ;-
+   * 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 ;- 入职日期 <= 试用期开始日期 <= 试用期预计结束日期。
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("probation_start_date")
+  private String probationStartDate;
+
+  /**
+   * 试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 ;- 权限要求：<md-perm
+   * name="corehr:probation.probation_expected_end_date:write" desc="读写试用期预计结束日期信息"
+   * support_app_types="custom,isv" >读写试用期预计结束日期信息</md-perm>;- 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 ;-
+   * 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 ;-
+   * 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 ;-
+   * 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 ;- 试用期开始日期 <= 试用期预计结束日期
+   *
+   * <p>示例值：2025-01-01
+   */
+  @SerializedName("probation_expected_end_date")
+  private String probationExpectedEndDate;
+
+  /**
+   * 试用期结果，填写时满足以下规则 ;- 权限要求：<md-perm name="corehr:probation.probation_outcome:write"
+   * desc="写试用期结果字段" support_app_types="custom,isv" >写试用期结果字段</md-perm>;- 取值区分大小写。;-
+   * 填写「通过」时，必填「试用期实际结束日期」。;- 填写「延长」时，「延长后试用期预计结束日期」和「试用期预计延长时长」至少填写一项。;- 填写「未通过」时，需要置空「试用期实际结束日期」。
+   *
+   * <p>示例值：passed
+   */
+  @SerializedName("probation_outcome")
+  private String probationOutcome;
+
+  /**
+   * 试用期实际结束日期，格式："YYYY-MM-DD"，填写时满足以下规则;- 权限要求：<md-perm
+   * name="corehr:probation.actual_probation_end_date:write" desc="读写试用期实际结束日期信息"
+   * support_app_types="custom,isv" >读写试用期实际结束日期信息</md-perm>;- 需同时指定试用期结果为「通过」。;- 试用期开始时间 <=
+   * 试用期实际结束日期 <= 试用期预计结束日期。
+   *
+   * <p>示例值：2025-01-01
+   */
+  @SerializedName("actual_probation_end_date")
+  private String actualProbationEndDate;
+
+  /**
+   * 延长后试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则;- 权限要求：<md-perm
+   * name="corehr:probation.probation_extend_expected_end_date:write" desc="读写延长后试用期预计结束日期信息"
+   * support_app_types="custom,isv" >读写延长后试用期预计结束日期信息</md-perm>;- 需同时指定「试用期结果」为「延期」。;-
+   * 若同时填写「试用期预计延长时长」，需保持两者数据一致。;- 延长后试用期预计结束日期 > 试用期预计结束日期。
+   *
+   * <p>示例值：2025-01-01
+   */
+  @SerializedName("probation_extend_expected_end_date")
+  private String probationExtendExpectedEndDate;
+
+  /**
+   * 试用期预计延长时长，填写时满足以下规则;- 权限要求：<md-perm
+   * name="corehr:probation.extended_probation_period_duration:write" desc="读写试用期预计延长时长信息"
+   * support_app_types="custom,isv" >读写试用期预计延长时长信息</md-perm>;- 需同时指定「试用期结果」为「延期」。;-
+   * 填写时需要指定「试用期延长时长单位」。;- 若同时填写「延长后试用期预计结束日期」，需保持两者数据一致。;- 试用期预计延长时长 > 0。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("extended_probation_period_duration")
+  private Integer extendedProbationPeriodDuration;
+
+  /**
+   * 试用期延长时长单位，填写时满足以下规则;- 权限要求：<md-perm
+   * name="corehr:probation.extended_probation_period_duration:write" desc="读写试用期预计延长时长信息"
+   * support_app_types="custom,isv" >读写试用期预计延长时长信息</md-perm>;- 取值区分大小写。;- 需要和「试用期预计延长时长」一同填写。;-
+   * 需同时指定「试用期结果」为「延期」。
+   *
+   * <p>示例值：day
+   */
+  @SerializedName("extended_probation_period_unit")
+  private String extendedProbationPeriodUnit;
+
+  /**
+   * 备注;- 权限要求：<md-perm name="corehr:probation.notes:write" desc="读写试用期备注信息"
+   * support_app_types="custom,isv" >读写试用期备注信息</md-perm>
+   *
+   * <p>示例值：试用期表现良好。
+   */
+  @SerializedName("notes")
+  private String notes;
+
+  /**
+   * 员工自评;- 权限要求：<md-perm name="corehr:probation.self_review:write" desc="读写员工自评信息"
+   * support_app_types="custom,isv" >读写员工自评信息</md-perm>
+   *
+   * <p>示例值：试用期表现良好。
+   */
+  @SerializedName("self_review")
+  private String selfReview;
+
+  /**
+   * 自定义字段（当前不支持附件类型字段写入）;- 权限要求：<md-perm name="corehr:probation.custom_field:write"
+   * desc="读写试用期自定义字段信息" support_app_types="custom,isv" >读写试用期自定义字段信息</md-perm>;-
+   * 可填写的字段范围参考[人员档案配置](https://people.feishu.cn/people/hr-settings/profile) > 信息配置 > 试用期 中的自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldData[] customFields;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getProbationStartDate() {
+    return this.probationStartDate;
+  }
+
+  public void setProbationStartDate(String probationStartDate) {
+    this.probationStartDate = probationStartDate;
+  }
+
+  public String getProbationExpectedEndDate() {
+    return this.probationExpectedEndDate;
+  }
+
+  public void setProbationExpectedEndDate(String probationExpectedEndDate) {
+    this.probationExpectedEndDate = probationExpectedEndDate;
+  }
+
+  public String getProbationOutcome() {
+    return this.probationOutcome;
+  }
+
+  public void setProbationOutcome(String probationOutcome) {
+    this.probationOutcome = probationOutcome;
+  }
+
+  public String getActualProbationEndDate() {
+    return this.actualProbationEndDate;
+  }
+
+  public void setActualProbationEndDate(String actualProbationEndDate) {
+    this.actualProbationEndDate = actualProbationEndDate;
+  }
+
+  public String getProbationExtendExpectedEndDate() {
+    return this.probationExtendExpectedEndDate;
+  }
+
+  public void setProbationExtendExpectedEndDate(String probationExtendExpectedEndDate) {
+    this.probationExtendExpectedEndDate = probationExtendExpectedEndDate;
+  }
+
+  public Integer getExtendedProbationPeriodDuration() {
+    return this.extendedProbationPeriodDuration;
+  }
+
+  public void setExtendedProbationPeriodDuration(Integer extendedProbationPeriodDuration) {
+    this.extendedProbationPeriodDuration = extendedProbationPeriodDuration;
+  }
+
+  public String getExtendedProbationPeriodUnit() {
+    return this.extendedProbationPeriodUnit;
+  }
+
+  public void setExtendedProbationPeriodUnit(String extendedProbationPeriodUnit) {
+    this.extendedProbationPeriodUnit = extendedProbationPeriodUnit;
+  }
+
+  public String getNotes() {
+    return this.notes;
+  }
+
+  public void setNotes(String notes) {
+    this.notes = notes;
+  }
+
+  public String getSelfReview() {
+    return this.selfReview;
+  }
+
+  public void setSelfReview(String selfReview) {
+    this.selfReview = selfReview;
+  }
+
+  public CustomFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  // builder 开始
+  public EditProbationReqBody() {}
+
+  public EditProbationReqBody(Builder builder) {
     /**
-     * 试用期人员的雇佣 ID
-     * <p> 示例值：7140964208476371111
+     * 试用期人员的雇佣 ID，类型与查询参数 user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+     * Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。
+     *
+     * <p>示例值：7140964208476371111
      */
-    @SerializedName("employment_id")
+    this.employmentId = builder.employmentId;
+    /**
+     * 试用期开始日期，格式："YYYY-MM-DD"，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.probation_start_date:write" desc="读写试用期开始日期信息"
+     * support_app_types="custom,isv" >读写试用期开始日期信息</md-perm>;- 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 ;-
+     * 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 ;-
+     * 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 ;-
+     * 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 ;- 入职日期 <= 试用期开始日期 <=
+     * 试用期预计结束日期。
+     *
+     * <p>示例值：2024-01-01
+     */
+    this.probationStartDate = builder.probationStartDate;
+    /**
+     * 试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 ;- 权限要求：<md-perm
+     * name="corehr:probation.probation_expected_end_date:write" desc="读写试用期预计结束日期信息"
+     * support_app_types="custom,isv" >读写试用期预计结束日期信息</md-perm>;- 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 ;-
+     * 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 ;-
+     * 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 ;-
+     * 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 ;- 试用期开始日期 <= 试用期预计结束日期
+     *
+     * <p>示例值：2025-01-01
+     */
+    this.probationExpectedEndDate = builder.probationExpectedEndDate;
+    /**
+     * 试用期结果，填写时满足以下规则 ;- 权限要求：<md-perm name="corehr:probation.probation_outcome:write"
+     * desc="写试用期结果字段" support_app_types="custom,isv" >写试用期结果字段</md-perm>;- 取值区分大小写。;-
+     * 填写「通过」时，必填「试用期实际结束日期」。;- 填写「延长」时，「延长后试用期预计结束日期」和「试用期预计延长时长」至少填写一项。;-
+     * 填写「未通过」时，需要置空「试用期实际结束日期」。
+     *
+     * <p>示例值：passed
+     */
+    this.probationOutcome = builder.probationOutcome;
+    /**
+     * 试用期实际结束日期，格式："YYYY-MM-DD"，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.actual_probation_end_date:write" desc="读写试用期实际结束日期信息"
+     * support_app_types="custom,isv" >读写试用期实际结束日期信息</md-perm>;- 需同时指定试用期结果为「通过」。;- 试用期开始时间 <=
+     * 试用期实际结束日期 <= 试用期预计结束日期。
+     *
+     * <p>示例值：2025-01-01
+     */
+    this.actualProbationEndDate = builder.actualProbationEndDate;
+    /**
+     * 延长后试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.probation_extend_expected_end_date:write" desc="读写延长后试用期预计结束日期信息"
+     * support_app_types="custom,isv" >读写延长后试用期预计结束日期信息</md-perm>;- 需同时指定「试用期结果」为「延期」。;-
+     * 若同时填写「试用期预计延长时长」，需保持两者数据一致。;- 延长后试用期预计结束日期 > 试用期预计结束日期。
+     *
+     * <p>示例值：2025-01-01
+     */
+    this.probationExtendExpectedEndDate = builder.probationExtendExpectedEndDate;
+    /**
+     * 试用期预计延长时长，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.extended_probation_period_duration:write" desc="读写试用期预计延长时长信息"
+     * support_app_types="custom,isv" >读写试用期预计延长时长信息</md-perm>;- 需同时指定「试用期结果」为「延期」。;-
+     * 填写时需要指定「试用期延长时长单位」。;- 若同时填写「延长后试用期预计结束日期」，需保持两者数据一致。;- 试用期预计延长时长 > 0。
+     *
+     * <p>示例值：1
+     */
+    this.extendedProbationPeriodDuration = builder.extendedProbationPeriodDuration;
+    /**
+     * 试用期延长时长单位，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.extended_probation_period_duration:write" desc="读写试用期预计延长时长信息"
+     * support_app_types="custom,isv" >读写试用期预计延长时长信息</md-perm>;- 取值区分大小写。;- 需要和「试用期预计延长时长」一同填写。;-
+     * 需同时指定「试用期结果」为「延期」。
+     *
+     * <p>示例值：day
+     */
+    this.extendedProbationPeriodUnit = builder.extendedProbationPeriodUnit;
+    /**
+     * 备注;- 权限要求：<md-perm name="corehr:probation.notes:write" desc="读写试用期备注信息"
+     * support_app_types="custom,isv" >读写试用期备注信息</md-perm>
+     *
+     * <p>示例值：试用期表现良好。
+     */
+    this.notes = builder.notes;
+    /**
+     * 员工自评;- 权限要求：<md-perm name="corehr:probation.self_review:write" desc="读写员工自评信息"
+     * support_app_types="custom,isv" >读写员工自评信息</md-perm>
+     *
+     * <p>示例值：试用期表现良好。
+     */
+    this.selfReview = builder.selfReview;
+    /**
+     * 自定义字段（当前不支持附件类型字段写入）;- 权限要求：<md-perm name="corehr:probation.custom_field:write"
+     * desc="读写试用期自定义字段信息" support_app_types="custom,isv" >读写试用期自定义字段信息</md-perm>;-
+     * 可填写的字段范围参考[人员档案配置](https://people.feishu.cn/people/hr-settings/profile) > 信息配置 > 试用期 中的自定义字段
+     *
+     * <p>示例值：
+     */
+    this.customFields = builder.customFields;
+  }
+
+  public static class Builder {
+    /**
+     * 试用期人员的雇佣 ID，类型与查询参数 user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+     * Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。
+     *
+     * <p>示例值：7140964208476371111
+     */
     private String employmentId;
+
     /**
-     * 试用期开始日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 - 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 - 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 - 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 - 入职日期 <= 试用期开始日期 <= 试用期预计结束日期
-     * <p> 示例值：2024-01-01
+     * 试用期开始日期，格式："YYYY-MM-DD"，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.probation_start_date:write" desc="读写试用期开始日期信息"
+     * support_app_types="custom,isv" >读写试用期开始日期信息</md-perm>;- 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 ;-
+     * 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 ;-
+     * 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 ;-
+     * 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 ;- 入职日期 <= 试用期开始日期 <=
+     * 试用期预计结束日期。
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("probation_start_date")
     private String probationStartDate;
+
     /**
-     * 试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 - 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 - 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 - 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 - 试用期开始日期 <= 试用期预计结束日期
-     * <p> 示例值：2025-01-01
+     * 试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 ;- 权限要求：<md-perm
+     * name="corehr:probation.probation_expected_end_date:write" desc="读写试用期预计结束日期信息"
+     * support_app_types="custom,isv" >读写试用期预计结束日期信息</md-perm>;- 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 ;-
+     * 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 ;-
+     * 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 ;-
+     * 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 ;- 试用期开始日期 <= 试用期预计结束日期
+     *
+     * <p>示例值：2025-01-01
      */
-    @SerializedName("probation_expected_end_date")
     private String probationExpectedEndDate;
+
     /**
-     * 试用期结果，填写时满足以下规则 - 填写「通过」时，必填「试用期实际结束日期」。 - 填写「延长」时，「延长后试用期预计结束日期」和「试用期预计延长时长」至少填写一项。
-     * <p> 示例值：passed
+     * 试用期结果，填写时满足以下规则 ;- 权限要求：<md-perm name="corehr:probation.probation_outcome:write"
+     * desc="写试用期结果字段" support_app_types="custom,isv" >写试用期结果字段</md-perm>;- 取值区分大小写。;-
+     * 填写「通过」时，必填「试用期实际结束日期」。;- 填写「延长」时，「延长后试用期预计结束日期」和「试用期预计延长时长」至少填写一项。;-
+     * 填写「未通过」时，需要置空「试用期实际结束日期」。
+     *
+     * <p>示例值：passed
      */
-    @SerializedName("probation_outcome")
     private String probationOutcome;
+
     /**
-     * 试用期实际结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 需同时指定试用期结果为「通过」。 - 在试用期结果为空时，填写后将自动赋值试用期结果为「通过」。 - 试用期开始时间 <= 试用期实际结束日期 <= 试用期预计结束日期。
-     * <p> 示例值：2025-01-01
+     * 试用期实际结束日期，格式："YYYY-MM-DD"，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.actual_probation_end_date:write" desc="读写试用期实际结束日期信息"
+     * support_app_types="custom,isv" >读写试用期实际结束日期信息</md-perm>;- 需同时指定试用期结果为「通过」。;- 试用期开始时间 <=
+     * 试用期实际结束日期 <= 试用期预计结束日期。
+     *
+     * <p>示例值：2025-01-01
      */
-    @SerializedName("actual_probation_end_date")
     private String actualProbationEndDate;
+
     /**
-     * 延长后试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 需同时指定「试用期结果」为「延期」。 - 若同时填写「试用期预计延长时长」，需保持两者数据一致。 - 延长后试用期预计结束日期 > 试用期预计结束日期。
-     * <p> 示例值：2025-01-01
+     * 延长后试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.probation_extend_expected_end_date:write" desc="读写延长后试用期预计结束日期信息"
+     * support_app_types="custom,isv" >读写延长后试用期预计结束日期信息</md-perm>;- 需同时指定「试用期结果」为「延期」。;-
+     * 若同时填写「试用期预计延长时长」，需保持两者数据一致。;- 延长后试用期预计结束日期 > 试用期预计结束日期。
+     *
+     * <p>示例值：2025-01-01
      */
-    @SerializedName("probation_extend_expected_end_date")
     private String probationExtendExpectedEndDate;
+
     /**
-     * 试用期预计延长时长，填写时满足以下规则 - 需同时指定「试用期结果」为「延期」。 - 填写时需要指定「试用期延长时长单位」。 - 若同时填写「延长后试用期预计结束日期」，需保持两者数据一致。 - 试用期预计延长时长 > 0。
-     * <p> 示例值：1
+     * 试用期预计延长时长，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.extended_probation_period_duration:write" desc="读写试用期预计延长时长信息"
+     * support_app_types="custom,isv" >读写试用期预计延长时长信息</md-perm>;- 需同时指定「试用期结果」为「延期」。;-
+     * 填写时需要指定「试用期延长时长单位」。;- 若同时填写「延长后试用期预计结束日期」，需保持两者数据一致。;- 试用期预计延长时长 > 0。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("extended_probation_period_duration")
     private Integer extendedProbationPeriodDuration;
+
     /**
-     * 试用期延长时长单位，填写时满足以下规则 - 需要和「试用期预计延长时长」一同填写。 - 需同时指定「试用期结果」为「延期」。
-     * <p> 示例值：day
+     * 试用期延长时长单位，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.extended_probation_period_duration:write" desc="读写试用期预计延长时长信息"
+     * support_app_types="custom,isv" >读写试用期预计延长时长信息</md-perm>;- 取值区分大小写。;- 需要和「试用期预计延长时长」一同填写。;-
+     * 需同时指定「试用期结果」为「延期」。
+     *
+     * <p>示例值：day
      */
-    @SerializedName("extended_probation_period_unit")
     private String extendedProbationPeriodUnit;
+
     /**
-     * 备注
-     * <p> 示例值：试用期表现良好。
+     * 备注;- 权限要求：<md-perm name="corehr:probation.notes:write" desc="读写试用期备注信息"
+     * support_app_types="custom,isv" >读写试用期备注信息</md-perm>
+     *
+     * <p>示例值：试用期表现良好。
      */
-    @SerializedName("notes")
     private String notes;
+
     /**
-     * 员工自评
-     * <p> 示例值：试用期表现良好。
+     * 员工自评;- 权限要求：<md-perm name="corehr:probation.self_review:write" desc="读写员工自评信息"
+     * support_app_types="custom,isv" >读写员工自评信息</md-perm>
+     *
+     * <p>示例值：试用期表现良好。
      */
-    @SerializedName("self_review")
     private String selfReview;
+
     /**
-     * 自定义字段（当前不支持附件类型字段写入）
-     * <p> 示例值：
+     * 自定义字段（当前不支持附件类型字段写入）;- 权限要求：<md-perm name="corehr:probation.custom_field:write"
+     * desc="读写试用期自定义字段信息" support_app_types="custom,isv" >读写试用期自定义字段信息</md-perm>;-
+     * 可填写的字段范围参考[人员档案配置](https://people.feishu.cn/people/hr-settings/profile) > 信息配置 > 试用期 中的自定义字段
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
 
-    // builder 开始
-    public EditProbationReqBody() {
+    /**
+     * 试用期人员的雇佣 ID，类型与查询参数 user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+     * Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。
+     *
+     * <p>示例值：7140964208476371111
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public EditProbationReqBody(Builder builder) {
-        /**
-         * 试用期人员的雇佣 ID
-         * <p> 示例值：7140964208476371111
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 试用期开始日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 - 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 - 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 - 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 - 入职日期 <= 试用期开始日期 <= 试用期预计结束日期
-         * <p> 示例值：2024-01-01
-         */
-        this.probationStartDate = builder.probationStartDate;
-        /**
-         * 试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 - 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 - 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 - 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 - 试用期开始日期 <= 试用期预计结束日期
-         * <p> 示例值：2025-01-01
-         */
-        this.probationExpectedEndDate = builder.probationExpectedEndDate;
-        /**
-         * 试用期结果，填写时满足以下规则 - 填写「通过」时，必填「试用期实际结束日期」。 - 填写「延长」时，「延长后试用期预计结束日期」和「试用期预计延长时长」至少填写一项。
-         * <p> 示例值：passed
-         */
-        this.probationOutcome = builder.probationOutcome;
-        /**
-         * 试用期实际结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 需同时指定试用期结果为「通过」。 - 在试用期结果为空时，填写后将自动赋值试用期结果为「通过」。 - 试用期开始时间 <= 试用期实际结束日期 <= 试用期预计结束日期。
-         * <p> 示例值：2025-01-01
-         */
-        this.actualProbationEndDate = builder.actualProbationEndDate;
-        /**
-         * 延长后试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 需同时指定「试用期结果」为「延期」。 - 若同时填写「试用期预计延长时长」，需保持两者数据一致。 - 延长后试用期预计结束日期 > 试用期预计结束日期。
-         * <p> 示例值：2025-01-01
-         */
-        this.probationExtendExpectedEndDate = builder.probationExtendExpectedEndDate;
-        /**
-         * 试用期预计延长时长，填写时满足以下规则 - 需同时指定「试用期结果」为「延期」。 - 填写时需要指定「试用期延长时长单位」。 - 若同时填写「延长后试用期预计结束日期」，需保持两者数据一致。 - 试用期预计延长时长 > 0。
-         * <p> 示例值：1
-         */
-        this.extendedProbationPeriodDuration = builder.extendedProbationPeriodDuration;
-        /**
-         * 试用期延长时长单位，填写时满足以下规则 - 需要和「试用期预计延长时长」一同填写。 - 需同时指定「试用期结果」为「延期」。
-         * <p> 示例值：day
-         */
-        this.extendedProbationPeriodUnit = builder.extendedProbationPeriodUnit;
-        /**
-         * 备注
-         * <p> 示例值：试用期表现良好。
-         */
-        this.notes = builder.notes;
-        /**
-         * 员工自评
-         * <p> 示例值：试用期表现良好。
-         */
-        this.selfReview = builder.selfReview;
-        /**
-         * 自定义字段（当前不支持附件类型字段写入）
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
+    /**
+     * 试用期开始日期，格式："YYYY-MM-DD"，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.probation_start_date:write" desc="读写试用期开始日期信息"
+     * support_app_types="custom,isv" >读写试用期开始日期信息</md-perm>;- 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 ;-
+     * 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 ;-
+     * 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 ;-
+     * 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 ;- 入职日期 <= 试用期开始日期 <=
+     * 试用期预计结束日期。
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param probationStartDate
+     * @return
+     */
+    public Builder probationStartDate(String probationStartDate) {
+      this.probationStartDate = probationStartDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 ;- 权限要求：<md-perm
+     * name="corehr:probation.probation_expected_end_date:write" desc="读写试用期预计结束日期信息"
+     * support_app_types="custom,isv" >读写试用期预计结束日期信息</md-perm>;- 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 ;-
+     * 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 ;-
+     * 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 ;-
+     * 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 ;- 试用期开始日期 <= 试用期预计结束日期
+     *
+     * <p>示例值：2025-01-01
+     *
+     * @param probationExpectedEndDate
+     * @return
+     */
+    public Builder probationExpectedEndDate(String probationExpectedEndDate) {
+      this.probationExpectedEndDate = probationExpectedEndDate;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 试用期结果，填写时满足以下规则 ;- 权限要求：<md-perm name="corehr:probation.probation_outcome:write"
+     * desc="写试用期结果字段" support_app_types="custom,isv" >写试用期结果字段</md-perm>;- 取值区分大小写。;-
+     * 填写「通过」时，必填「试用期实际结束日期」。;- 填写「延长」时，「延长后试用期预计结束日期」和「试用期预计延长时长」至少填写一项。;-
+     * 填写「未通过」时，需要置空「试用期实际结束日期」。
+     *
+     * <p>示例值：passed
+     *
+     * @param probationOutcome
+     * @return
+     */
+    public Builder probationOutcome(String probationOutcome) {
+      this.probationOutcome = probationOutcome;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    /**
+     * 试用期结果，填写时满足以下规则 ;- 权限要求：<md-perm name="corehr:probation.probation_outcome:write"
+     * desc="写试用期结果字段" support_app_types="custom,isv" >写试用期结果字段</md-perm>;- 取值区分大小写。;-
+     * 填写「通过」时，必填「试用期实际结束日期」。;- 填写「延长」时，「延长后试用期预计结束日期」和「试用期预计延长时长」至少填写一项。;-
+     * 填写「未通过」时，需要置空「试用期实际结束日期」。
+     *
+     * <p>示例值：passed
+     *
+     * @param probationOutcome {@link
+     *     com.lark.oapi.service.corehr.v2.enums.EditProbationEditProbationProbationOutcomeEnum}
+     * @return
+     */
+    public Builder probationOutcome(
+        com.lark.oapi.service.corehr.v2.enums.EditProbationEditProbationProbationOutcomeEnum
+            probationOutcome) {
+      this.probationOutcome = probationOutcome.getValue();
+      return this;
     }
 
-    public String getProbationStartDate() {
-        return this.probationStartDate;
+    /**
+     * 试用期实际结束日期，格式："YYYY-MM-DD"，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.actual_probation_end_date:write" desc="读写试用期实际结束日期信息"
+     * support_app_types="custom,isv" >读写试用期实际结束日期信息</md-perm>;- 需同时指定试用期结果为「通过」。;- 试用期开始时间 <=
+     * 试用期实际结束日期 <= 试用期预计结束日期。
+     *
+     * <p>示例值：2025-01-01
+     *
+     * @param actualProbationEndDate
+     * @return
+     */
+    public Builder actualProbationEndDate(String actualProbationEndDate) {
+      this.actualProbationEndDate = actualProbationEndDate;
+      return this;
     }
 
-    public void setProbationStartDate(String probationStartDate) {
-        this.probationStartDate = probationStartDate;
+    /**
+     * 延长后试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.probation_extend_expected_end_date:write" desc="读写延长后试用期预计结束日期信息"
+     * support_app_types="custom,isv" >读写延长后试用期预计结束日期信息</md-perm>;- 需同时指定「试用期结果」为「延期」。;-
+     * 若同时填写「试用期预计延长时长」，需保持两者数据一致。;- 延长后试用期预计结束日期 > 试用期预计结束日期。
+     *
+     * <p>示例值：2025-01-01
+     *
+     * @param probationExtendExpectedEndDate
+     * @return
+     */
+    public Builder probationExtendExpectedEndDate(String probationExtendExpectedEndDate) {
+      this.probationExtendExpectedEndDate = probationExtendExpectedEndDate;
+      return this;
     }
 
-    public String getProbationExpectedEndDate() {
-        return this.probationExpectedEndDate;
+    /**
+     * 试用期预计延长时长，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.extended_probation_period_duration:write" desc="读写试用期预计延长时长信息"
+     * support_app_types="custom,isv" >读写试用期预计延长时长信息</md-perm>;- 需同时指定「试用期结果」为「延期」。;-
+     * 填写时需要指定「试用期延长时长单位」。;- 若同时填写「延长后试用期预计结束日期」，需保持两者数据一致。;- 试用期预计延长时长 > 0。
+     *
+     * <p>示例值：1
+     *
+     * @param extendedProbationPeriodDuration
+     * @return
+     */
+    public Builder extendedProbationPeriodDuration(Integer extendedProbationPeriodDuration) {
+      this.extendedProbationPeriodDuration = extendedProbationPeriodDuration;
+      return this;
     }
 
-    public void setProbationExpectedEndDate(String probationExpectedEndDate) {
-        this.probationExpectedEndDate = probationExpectedEndDate;
+    /**
+     * 试用期延长时长单位，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.extended_probation_period_duration:write" desc="读写试用期预计延长时长信息"
+     * support_app_types="custom,isv" >读写试用期预计延长时长信息</md-perm>;- 取值区分大小写。;- 需要和「试用期预计延长时长」一同填写。;-
+     * 需同时指定「试用期结果」为「延期」。
+     *
+     * <p>示例值：day
+     *
+     * @param extendedProbationPeriodUnit
+     * @return
+     */
+    public Builder extendedProbationPeriodUnit(String extendedProbationPeriodUnit) {
+      this.extendedProbationPeriodUnit = extendedProbationPeriodUnit;
+      return this;
     }
 
-    public String getProbationOutcome() {
-        return this.probationOutcome;
+    /**
+     * 试用期延长时长单位，填写时满足以下规则;- 权限要求：<md-perm
+     * name="corehr:probation.extended_probation_period_duration:write" desc="读写试用期预计延长时长信息"
+     * support_app_types="custom,isv" >读写试用期预计延长时长信息</md-perm>;- 取值区分大小写。;- 需要和「试用期预计延长时长」一同填写。;-
+     * 需同时指定「试用期结果」为「延期」。
+     *
+     * <p>示例值：day
+     *
+     * @param extendedProbationPeriodUnit {@link
+     *     com.lark.oapi.service.corehr.v2.enums.EditProbationEditProbationExtendedProbationPeriodUnitEnum}
+     * @return
+     */
+    public Builder extendedProbationPeriodUnit(
+        com.lark.oapi.service.corehr.v2.enums
+                .EditProbationEditProbationExtendedProbationPeriodUnitEnum
+            extendedProbationPeriodUnit) {
+      this.extendedProbationPeriodUnit = extendedProbationPeriodUnit.getValue();
+      return this;
     }
 
-    public void setProbationOutcome(String probationOutcome) {
-        this.probationOutcome = probationOutcome;
+    /**
+     * 备注;- 权限要求：<md-perm name="corehr:probation.notes:write" desc="读写试用期备注信息"
+     * support_app_types="custom,isv" >读写试用期备注信息</md-perm>
+     *
+     * <p>示例值：试用期表现良好。
+     *
+     * @param notes
+     * @return
+     */
+    public Builder notes(String notes) {
+      this.notes = notes;
+      return this;
     }
 
-    public String getActualProbationEndDate() {
-        return this.actualProbationEndDate;
+    /**
+     * 员工自评;- 权限要求：<md-perm name="corehr:probation.self_review:write" desc="读写员工自评信息"
+     * support_app_types="custom,isv" >读写员工自评信息</md-perm>
+     *
+     * <p>示例值：试用期表现良好。
+     *
+     * @param selfReview
+     * @return
+     */
+    public Builder selfReview(String selfReview) {
+      this.selfReview = selfReview;
+      return this;
     }
 
-    public void setActualProbationEndDate(String actualProbationEndDate) {
-        this.actualProbationEndDate = actualProbationEndDate;
+    /**
+     * 自定义字段（当前不支持附件类型字段写入）;- 权限要求：<md-perm name="corehr:probation.custom_field:write"
+     * desc="读写试用期自定义字段信息" support_app_types="custom,isv" >读写试用期自定义字段信息</md-perm>;-
+     * 可填写的字段范围参考[人员档案配置](https://people.feishu.cn/people/hr-settings/profile) > 信息配置 > 试用期 中的自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(CustomFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public String getProbationExtendExpectedEndDate() {
-        return this.probationExtendExpectedEndDate;
+    public EditProbationReqBody build() {
+      return new EditProbationReqBody(this);
     }
+  }
 
-    public void setProbationExtendExpectedEndDate(String probationExtendExpectedEndDate) {
-        this.probationExtendExpectedEndDate = probationExtendExpectedEndDate;
-    }
-
-    public Integer getExtendedProbationPeriodDuration() {
-        return this.extendedProbationPeriodDuration;
-    }
-
-    public void setExtendedProbationPeriodDuration(Integer extendedProbationPeriodDuration) {
-        this.extendedProbationPeriodDuration = extendedProbationPeriodDuration;
-    }
-
-    public String getExtendedProbationPeriodUnit() {
-        return this.extendedProbationPeriodUnit;
-    }
-
-    public void setExtendedProbationPeriodUnit(String extendedProbationPeriodUnit) {
-        this.extendedProbationPeriodUnit = extendedProbationPeriodUnit;
-    }
-
-    public String getNotes() {
-        return this.notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
-
-    public String getSelfReview() {
-        return this.selfReview;
-    }
-
-    public void setSelfReview(String selfReview) {
-        this.selfReview = selfReview;
-    }
-
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public static class Builder {
-        /**
-         * 试用期人员的雇佣 ID
-         * <p> 示例值：7140964208476371111
-         */
-        private String employmentId;
-        /**
-         * 试用期开始日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 - 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 - 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 - 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 - 入职日期 <= 试用期开始日期 <= 试用期预计结束日期
-         * <p> 示例值：2024-01-01
-         */
-        private String probationStartDate;
-        /**
-         * 试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 - 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 - 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 - 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 - 试用期开始日期 <= 试用期预计结束日期
-         * <p> 示例值：2025-01-01
-         */
-        private String probationExpectedEndDate;
-        /**
-         * 试用期结果，填写时满足以下规则 - 填写「通过」时，必填「试用期实际结束日期」。 - 填写「延长」时，「延长后试用期预计结束日期」和「试用期预计延长时长」至少填写一项。
-         * <p> 示例值：passed
-         */
-        private String probationOutcome;
-        /**
-         * 试用期实际结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 需同时指定试用期结果为「通过」。 - 在试用期结果为空时，填写后将自动赋值试用期结果为「通过」。 - 试用期开始时间 <= 试用期实际结束日期 <= 试用期预计结束日期。
-         * <p> 示例值：2025-01-01
-         */
-        private String actualProbationEndDate;
-        /**
-         * 延长后试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 需同时指定「试用期结果」为「延期」。 - 若同时填写「试用期预计延长时长」，需保持两者数据一致。 - 延长后试用期预计结束日期 > 试用期预计结束日期。
-         * <p> 示例值：2025-01-01
-         */
-        private String probationExtendExpectedEndDate;
-        /**
-         * 试用期预计延长时长，填写时满足以下规则 - 需同时指定「试用期结果」为「延期」。 - 填写时需要指定「试用期延长时长单位」。 - 若同时填写「延长后试用期预计结束日期」，需保持两者数据一致。 - 试用期预计延长时长 > 0。
-         * <p> 示例值：1
-         */
-        private Integer extendedProbationPeriodDuration;
-        /**
-         * 试用期延长时长单位，填写时满足以下规则 - 需要和「试用期预计延长时长」一同填写。 - 需同时指定「试用期结果」为「延期」。
-         * <p> 示例值：day
-         */
-        private String extendedProbationPeriodUnit;
-        /**
-         * 备注
-         * <p> 示例值：试用期表现良好。
-         */
-        private String notes;
-        /**
-         * 员工自评
-         * <p> 示例值：试用期表现良好。
-         */
-        private String selfReview;
-        /**
-         * 自定义字段（当前不支持附件类型字段写入）
-         * <p> 示例值：
-         */
-        private CustomFieldData[] customFields;
-
-        /**
-         * 试用期人员的雇佣 ID
-         * <p> 示例值：7140964208476371111
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 试用期开始日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 - 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 - 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 - 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 - 入职日期 <= 试用期开始日期 <= 试用期预计结束日期
-         * <p> 示例值：2024-01-01
-         *
-         * @param probationStartDate
-         * @return
-         */
-        public Builder probationStartDate(String probationStartDate) {
-            this.probationStartDate = probationStartDate;
-            return this;
-        }
-
-
-        /**
-         * 试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 「试用期开始日期」和「试用期预计结束日期」需要一同填写。 - 若该员工存在试用期记录，且同时填写「试用期开始日期」和「试用期预计结束日期」为空串，则删除该试用期记录。 - 若该员工不存在试用期记录，且填写「试用期开始日期」和「试用期预计结束日期」，则新增试用期记录。 - 若该员工不存在试用期记录，且未填写「试用期开始日期」和「试用期预计结束日期」，则试用期记录不会创建，其他写入数据不会生效。 - 试用期开始日期 <= 试用期预计结束日期
-         * <p> 示例值：2025-01-01
-         *
-         * @param probationExpectedEndDate
-         * @return
-         */
-        public Builder probationExpectedEndDate(String probationExpectedEndDate) {
-            this.probationExpectedEndDate = probationExpectedEndDate;
-            return this;
-        }
-
-
-        /**
-         * 试用期结果，填写时满足以下规则 - 填写「通过」时，必填「试用期实际结束日期」。 - 填写「延长」时，「延长后试用期预计结束日期」和「试用期预计延长时长」至少填写一项。
-         * <p> 示例值：passed
-         *
-         * @param probationOutcome
-         * @return
-         */
-        public Builder probationOutcome(String probationOutcome) {
-            this.probationOutcome = probationOutcome;
-            return this;
-        }
-
-        /**
-         * 试用期结果，填写时满足以下规则 - 填写「通过」时，必填「试用期实际结束日期」。 - 填写「延长」时，「延长后试用期预计结束日期」和「试用期预计延长时长」至少填写一项。
-         * <p> 示例值：passed
-         *
-         * @param probationOutcome {@link com.lark.oapi.service.corehr.v2.enums.EditProbationEditProbationProbationOutcomeEnum}
-         * @return
-         */
-        public Builder probationOutcome(com.lark.oapi.service.corehr.v2.enums.EditProbationEditProbationProbationOutcomeEnum probationOutcome) {
-            this.probationOutcome = probationOutcome.getValue();
-            return this;
-        }
-
-
-        /**
-         * 试用期实际结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 需同时指定试用期结果为「通过」。 - 在试用期结果为空时，填写后将自动赋值试用期结果为「通过」。 - 试用期开始时间 <= 试用期实际结束日期 <= 试用期预计结束日期。
-         * <p> 示例值：2025-01-01
-         *
-         * @param actualProbationEndDate
-         * @return
-         */
-        public Builder actualProbationEndDate(String actualProbationEndDate) {
-            this.actualProbationEndDate = actualProbationEndDate;
-            return this;
-        }
-
-
-        /**
-         * 延长后试用期预计结束日期，格式："YYYY-MM-DD"，填写时满足以下规则 - 需同时指定「试用期结果」为「延期」。 - 若同时填写「试用期预计延长时长」，需保持两者数据一致。 - 延长后试用期预计结束日期 > 试用期预计结束日期。
-         * <p> 示例值：2025-01-01
-         *
-         * @param probationExtendExpectedEndDate
-         * @return
-         */
-        public Builder probationExtendExpectedEndDate(String probationExtendExpectedEndDate) {
-            this.probationExtendExpectedEndDate = probationExtendExpectedEndDate;
-            return this;
-        }
-
-
-        /**
-         * 试用期预计延长时长，填写时满足以下规则 - 需同时指定「试用期结果」为「延期」。 - 填写时需要指定「试用期延长时长单位」。 - 若同时填写「延长后试用期预计结束日期」，需保持两者数据一致。 - 试用期预计延长时长 > 0。
-         * <p> 示例值：1
-         *
-         * @param extendedProbationPeriodDuration
-         * @return
-         */
-        public Builder extendedProbationPeriodDuration(Integer extendedProbationPeriodDuration) {
-            this.extendedProbationPeriodDuration = extendedProbationPeriodDuration;
-            return this;
-        }
-
-
-        /**
-         * 试用期延长时长单位，填写时满足以下规则 - 需要和「试用期预计延长时长」一同填写。 - 需同时指定「试用期结果」为「延期」。
-         * <p> 示例值：day
-         *
-         * @param extendedProbationPeriodUnit
-         * @return
-         */
-        public Builder extendedProbationPeriodUnit(String extendedProbationPeriodUnit) {
-            this.extendedProbationPeriodUnit = extendedProbationPeriodUnit;
-            return this;
-        }
-
-        /**
-         * 试用期延长时长单位，填写时满足以下规则 - 需要和「试用期预计延长时长」一同填写。 - 需同时指定「试用期结果」为「延期」。
-         * <p> 示例值：day
-         *
-         * @param extendedProbationPeriodUnit {@link com.lark.oapi.service.corehr.v2.enums.EditProbationEditProbationExtendedProbationPeriodUnitEnum}
-         * @return
-         */
-        public Builder extendedProbationPeriodUnit(com.lark.oapi.service.corehr.v2.enums.EditProbationEditProbationExtendedProbationPeriodUnitEnum extendedProbationPeriodUnit) {
-            this.extendedProbationPeriodUnit = extendedProbationPeriodUnit.getValue();
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：试用期表现良好。
-         *
-         * @param notes
-         * @return
-         */
-        public Builder notes(String notes) {
-            this.notes = notes;
-            return this;
-        }
-
-
-        /**
-         * 员工自评
-         * <p> 示例值：试用期表现良好。
-         *
-         * @param selfReview
-         * @return
-         */
-        public Builder selfReview(String selfReview) {
-            this.selfReview = selfReview;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段（当前不支持附件类型字段写入）
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        public EditProbationReqBody build() {
-            return new EditProbationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

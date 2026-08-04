@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Tenant {
+  /**
+   * 可选地理位置列表
+   *
+   * <p>示例值：["cn", "sg", "us", "jp"]
+   */
+  @SerializedName("available_geo_locations")
+  private String[] availableGeoLocations;
+
+  public String[] getAvailableGeoLocations() {
+    return this.availableGeoLocations;
+  }
+
+  public void setAvailableGeoLocations(String[] availableGeoLocations) {
+    this.availableGeoLocations = availableGeoLocations;
+  }
+
+  // builder 开始
+  public Tenant() {}
+
+  public Tenant(Builder builder) {
     /**
-     * 可选多地理位置列表
-     * <p> 示例值：["cn", "sg", "us", "jp"]
+     * 可选地理位置列表
+     *
+     * <p>示例值：["cn", "sg", "us", "jp"]
      */
-    @SerializedName("available_geo_locations")
+    this.availableGeoLocations = builder.availableGeoLocations;
+  }
+
+  public static class Builder {
+    /**
+     * 可选地理位置列表
+     *
+     * <p>示例值：["cn", "sg", "us", "jp"]
+     */
     private String[] availableGeoLocations;
 
-    // builder 开始
-    public Tenant() {
+    /**
+     * 可选地理位置列表
+     *
+     * <p>示例值：["cn", "sg", "us", "jp"]
+     *
+     * @param availableGeoLocations
+     * @return
+     */
+    public Builder availableGeoLocations(String[] availableGeoLocations) {
+      this.availableGeoLocations = availableGeoLocations;
+      return this;
     }
 
-    public Tenant(Builder builder) {
-        /**
-         * 可选多地理位置列表
-         * <p> 示例值：["cn", "sg", "us", "jp"]
-         */
-        this.availableGeoLocations = builder.availableGeoLocations;
+    public Tenant build() {
+      return new Tenant(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getAvailableGeoLocations() {
-        return this.availableGeoLocations;
-    }
-
-    public void setAvailableGeoLocations(String[] availableGeoLocations) {
-        this.availableGeoLocations = availableGeoLocations;
-    }
-
-    public static class Builder {
-        /**
-         * 可选多地理位置列表
-         * <p> 示例值：["cn", "sg", "us", "jp"]
-         */
-        private String[] availableGeoLocations;
-
-        /**
-         * 可选多地理位置列表
-         * <p> 示例值：["cn", "sg", "us", "jp"]
-         *
-         * @param availableGeoLocations
-         * @return
-         */
-        public Builder availableGeoLocations(String[] availableGeoLocations) {
-            this.availableGeoLocations = availableGeoLocations;
-            return this;
-        }
-
-
-        public Tenant build() {
-            return new Tenant(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,25 +13,24 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 文件类型
- */
+/** 待上传的文件类型 */
 public enum CreateFileCreateFileFileTypeEnum {
-    OPUS("opus"), // 上传opus音频文件
-    MP4("mp4"), // 上传mp4视频文件
-    PDF("pdf"), // 上传pdf格式文件
-    DOC("doc"), // 上传doc格式文件
-    XLS("xls"), // 上传xls格式文件
-    PPT("ppt"), // 上传ppt格式文件
-    STREAM("stream"), // 上传stream格式文件
-    ;
-    private String value;
+  OPUS("opus"), // OPUS 音频文件。其他格式的音频文件，请转为 OPUS 格式后上传。可使用 ffmpeg 转换格式：`ffmpeg -i SourceFile.mp3
+  // -acodec libopus -ac 1 -ar 16000 TargetFile.opus`
+  MP4("mp4"), // MP4 格式视频文件
+  PDF("pdf"), // PDF 格式文件
+  DOC("doc"), // DOC 格式文件
+  XLS("xls"), // XLS 格式文件
+  PPT("ppt"), // PPT 格式文件
+  STREAM("stream"), // stream 格式文件。若上传文件不属于以上枚举类型，可以使用 stream 格式
+  ;
+  private String value;
 
-    CreateFileCreateFileFileTypeEnum(String value) {
-        this.value = value;
-    }
+  CreateFileCreateFileFileTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

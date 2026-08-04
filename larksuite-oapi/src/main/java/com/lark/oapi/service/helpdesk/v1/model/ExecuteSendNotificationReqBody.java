@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExecuteSendNotificationReqBody {
+  /**
+   * 发送时间戳(毫秒)
+   *
+   * <p>示例值：1624326025000
+   */
+  @SerializedName("send_at")
+  private String sendAt;
+
+  public String getSendAt() {
+    return this.sendAt;
+  }
+
+  public void setSendAt(String sendAt) {
+    this.sendAt = sendAt;
+  }
+
+  // builder 开始
+  public ExecuteSendNotificationReqBody() {}
+
+  public ExecuteSendNotificationReqBody(Builder builder) {
     /**
      * 发送时间戳(毫秒)
-     * <p> 示例值：1624326025000
+     *
+     * <p>示例值：1624326025000
      */
-    @SerializedName("send_at")
+    this.sendAt = builder.sendAt;
+  }
+
+  public static class Builder {
+    /**
+     * 发送时间戳(毫秒)
+     *
+     * <p>示例值：1624326025000
+     */
     private String sendAt;
 
-    // builder 开始
-    public ExecuteSendNotificationReqBody() {
+    /**
+     * 发送时间戳(毫秒)
+     *
+     * <p>示例值：1624326025000
+     *
+     * @param sendAt
+     * @return
+     */
+    public Builder sendAt(String sendAt) {
+      this.sendAt = sendAt;
+      return this;
     }
 
-    public ExecuteSendNotificationReqBody(Builder builder) {
-        /**
-         * 发送时间戳(毫秒)
-         * <p> 示例值：1624326025000
-         */
-        this.sendAt = builder.sendAt;
+    public ExecuteSendNotificationReqBody build() {
+      return new ExecuteSendNotificationReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getSendAt() {
-        return this.sendAt;
-    }
-
-    public void setSendAt(String sendAt) {
-        this.sendAt = sendAt;
-    }
-
-    public static class Builder {
-        /**
-         * 发送时间戳(毫秒)
-         * <p> 示例值：1624326025000
-         */
-        private String sendAt;
-
-        /**
-         * 发送时间戳(毫秒)
-         * <p> 示例值：1624326025000
-         *
-         * @param sendAt
-         * @return
-         */
-        public Builder sendAt(String sendAt) {
-            this.sendAt = sendAt;
-            return this;
-        }
-
-
-        public ExecuteSendNotificationReqBody build() {
-            return new ExecuteSendNotificationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateReserveRespBody {
-    /**
-     * 预约数据
-     * <p> 示例值：
-     */
-    @SerializedName("reserve")
-    private Reserve reserve;
-    /**
-     * 预约参数检查信息
-     * <p> 示例值：
-     */
-    @SerializedName("reserve_correction_check_info")
-    private ReserveCorrectionCheckInfo reserveCorrectionCheckInfo;
+  /**
+   * 预约数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reserve")
+  private Reserve reserve;
 
-    public Reserve getReserve() {
-        return this.reserve;
-    }
+  /**
+   * 预约参数检查信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reserve_correction_check_info")
+  private ReserveCorrectionCheckInfo reserveCorrectionCheckInfo;
 
-    public void setReserve(Reserve reserve) {
-        this.reserve = reserve;
-    }
+  public Reserve getReserve() {
+    return this.reserve;
+  }
 
-    public ReserveCorrectionCheckInfo getReserveCorrectionCheckInfo() {
-        return this.reserveCorrectionCheckInfo;
-    }
+  public void setReserve(Reserve reserve) {
+    this.reserve = reserve;
+  }
 
-    public void setReserveCorrectionCheckInfo(ReserveCorrectionCheckInfo reserveCorrectionCheckInfo) {
-        this.reserveCorrectionCheckInfo = reserveCorrectionCheckInfo;
-    }
+  public ReserveCorrectionCheckInfo getReserveCorrectionCheckInfo() {
+    return this.reserveCorrectionCheckInfo;
+  }
 
+  public void setReserveCorrectionCheckInfo(ReserveCorrectionCheckInfo reserveCorrectionCheckInfo) {
+    this.reserveCorrectionCheckInfo = reserveCorrectionCheckInfo;
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 设备环境检测状态
- */
+/** 设备环境检测状态 */
 public enum ListDeviceRecordDeviceEnvDetectStatusEnum {
-    UNKNOWN(0), // 未知
-    SAFE(1), // 安全
-    UNSAFE(2), // 不安全
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未知
+  SAFE(1), // 安全
+  UNSAFE(2), // 不安全
+  ;
+  private Integer value;
 
-    ListDeviceRecordDeviceEnvDetectStatusEnum(Integer value) {
-        this.value = value;
-    }
+  ListDeviceRecordDeviceEnvDetectStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,260 +13,279 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AilySession {
+  /**
+   * 会话 ID
+   *
+   * <p>示例值：session_4dfunz7sp1g8m
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 会话的创建时间，毫秒时间戳
+   *
+   * <p>示例值：1711975665710
+   */
+  @SerializedName("created_at")
+  private String createdAt;
+
+  /**
+   * 会话的上次更新时间，毫秒时间戳
+   *
+   * <p>示例值：1711975665710
+   */
+  @SerializedName("modified_at")
+  private String modifiedAt;
+
+  /**
+   * 会话的创建人（Aily UserID）
+   *
+   * <p>示例值：1794840334557292
+   */
+  @SerializedName("created_by")
+  private String createdBy;
+
+  /**
+   * 可自行构造的 Context [上下文变量](https://aily.feishu.cn/hc/1u7kleqg/en70bqqj#6a446d5e)；在 Workflow
+   * 技能中可消费这部分全局变量
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("channel_context")
+  private String channelContext;
+
+  /**
+   * 会话的自定义变量内容，变量数据保存在服务端 Session 中，可在 `GetSession` 时原样返回，无需在 API 调用侧存储
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("metadata")
+  private String metadata;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getModifiedAt() {
+    return this.modifiedAt;
+  }
+
+  public void setModifiedAt(String modifiedAt) {
+    this.modifiedAt = modifiedAt;
+  }
+
+  public String getCreatedBy() {
+    return this.createdBy;
+  }
+
+  public void setCreatedBy(String createdBy) {
+    this.createdBy = createdBy;
+  }
+
+  public String getChannelContext() {
+    return this.channelContext;
+  }
+
+  public void setChannelContext(String channelContext) {
+    this.channelContext = channelContext;
+  }
+
+  public String getMetadata() {
+    return this.metadata;
+  }
+
+  public void setMetadata(String metadata) {
+    this.metadata = metadata;
+  }
+
+  // builder 开始
+  public AilySession() {}
+
+  public AilySession(Builder builder) {
     /**
      * 会话 ID
-     * <p> 示例值：session_4dfunz7sp1g8m
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 会话的创建时间，毫秒时间戳
-     * <p> 示例值：1711975665710
+     *
+     * <p>示例值：1711975665710
      */
-    @SerializedName("created_at")
-    private String createdAt;
+    this.createdAt = builder.createdAt;
     /**
      * 会话的上次更新时间，毫秒时间戳
-     * <p> 示例值：1711975665710
+     *
+     * <p>示例值：1711975665710
      */
-    @SerializedName("modified_at")
+    this.modifiedAt = builder.modifiedAt;
+    /**
+     * 会话的创建人（Aily UserID）
+     *
+     * <p>示例值：1794840334557292
+     */
+    this.createdBy = builder.createdBy;
+    /**
+     * 可自行构造的 Context [上下文变量](https://aily.feishu.cn/hc/1u7kleqg/en70bqqj#6a446d5e)；在 Workflow
+     * 技能中可消费这部分全局变量
+     *
+     * <p>示例值：{}
+     */
+    this.channelContext = builder.channelContext;
+    /**
+     * 会话的自定义变量内容，变量数据保存在服务端 Session 中，可在 `GetSession` 时原样返回，无需在 API 调用侧存储
+     *
+     * <p>示例值：{}
+     */
+    this.metadata = builder.metadata;
+  }
+
+  public static class Builder {
+    /**
+     * 会话 ID
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
+     */
+    private String id;
+
+    /**
+     * 会话的创建时间，毫秒时间戳
+     *
+     * <p>示例值：1711975665710
+     */
+    private String createdAt;
+
+    /**
+     * 会话的上次更新时间，毫秒时间戳
+     *
+     * <p>示例值：1711975665710
+     */
     private String modifiedAt;
+
     /**
-     * 会话的创建人
-     * <p> 示例值：1794840334557292
+     * 会话的创建人（Aily UserID）
+     *
+     * <p>示例值：1794840334557292
      */
-    @SerializedName("created_by")
     private String createdBy;
+
     /**
-     * 渠道上下文
-     * <p> 示例值：{}
+     * 可自行构造的 Context [上下文变量](https://aily.feishu.cn/hc/1u7kleqg/en70bqqj#6a446d5e)；在 Workflow
+     * 技能中可消费这部分全局变量
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("channel_context")
     private String channelContext;
+
     /**
-     * 其他透传信息
-     * <p> 示例值：{}
+     * 会话的自定义变量内容，变量数据保存在服务端 Session 中，可在 `GetSession` 时原样返回，无需在 API 调用侧存储
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("metadata")
     private String metadata;
 
-    // builder 开始
-    public AilySession() {
+    /**
+     * 会话 ID
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public AilySession(Builder builder) {
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         */
-        this.id = builder.id;
-        /**
-         * 会话的创建时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 会话的上次更新时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        this.modifiedAt = builder.modifiedAt;
-        /**
-         * 会话的创建人
-         * <p> 示例值：1794840334557292
-         */
-        this.createdBy = builder.createdBy;
-        /**
-         * 渠道上下文
-         * <p> 示例值：{}
-         */
-        this.channelContext = builder.channelContext;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
-        this.metadata = builder.metadata;
+    /**
+     * 会话的创建时间，毫秒时间戳
+     *
+     * <p>示例值：1711975665710
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(String createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会话的上次更新时间，毫秒时间戳
+     *
+     * <p>示例值：1711975665710
+     *
+     * @param modifiedAt
+     * @return
+     */
+    public Builder modifiedAt(String modifiedAt) {
+      this.modifiedAt = modifiedAt;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 会话的创建人（Aily UserID）
+     *
+     * <p>示例值：1794840334557292
+     *
+     * @param createdBy
+     * @return
+     */
+    public Builder createdBy(String createdBy) {
+      this.createdBy = createdBy;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 可自行构造的 Context [上下文变量](https://aily.feishu.cn/hc/1u7kleqg/en70bqqj#6a446d5e)；在 Workflow
+     * 技能中可消费这部分全局变量
+     *
+     * <p>示例值：{}
+     *
+     * @param channelContext
+     * @return
+     */
+    public Builder channelContext(String channelContext) {
+      this.channelContext = channelContext;
+      return this;
     }
 
-    public String getCreatedAt() {
-        return this.createdAt;
+    /**
+     * 会话的自定义变量内容，变量数据保存在服务端 Session 中，可在 `GetSession` 时原样返回，无需在 API 调用侧存储
+     *
+     * <p>示例值：{}
+     *
+     * @param metadata
+     * @return
+     */
+    public Builder metadata(String metadata) {
+      this.metadata = metadata;
+      return this;
     }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
+    public AilySession build() {
+      return new AilySession(this);
     }
+  }
 
-    public String getModifiedAt() {
-        return this.modifiedAt;
-    }
-
-    public void setModifiedAt(String modifiedAt) {
-        this.modifiedAt = modifiedAt;
-    }
-
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public String getChannelContext() {
-        return this.channelContext;
-    }
-
-    public void setChannelContext(String channelContext) {
-        this.channelContext = channelContext;
-    }
-
-    public String getMetadata() {
-        return this.metadata;
-    }
-
-    public void setMetadata(String metadata) {
-        this.metadata = metadata;
-    }
-
-    public static class Builder {
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         */
-        private String id;
-        /**
-         * 会话的创建时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        private String createdAt;
-        /**
-         * 会话的上次更新时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         */
-        private String modifiedAt;
-        /**
-         * 会话的创建人
-         * <p> 示例值：1794840334557292
-         */
-        private String createdBy;
-        /**
-         * 渠道上下文
-         * <p> 示例值：{}
-         */
-        private String channelContext;
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         */
-        private String metadata;
-
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 会话的创建时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 会话的上次更新时间，毫秒时间戳
-         * <p> 示例值：1711975665710
-         *
-         * @param modifiedAt
-         * @return
-         */
-        public Builder modifiedAt(String modifiedAt) {
-            this.modifiedAt = modifiedAt;
-            return this;
-        }
-
-
-        /**
-         * 会话的创建人
-         * <p> 示例值：1794840334557292
-         *
-         * @param createdBy
-         * @return
-         */
-        public Builder createdBy(String createdBy) {
-            this.createdBy = createdBy;
-            return this;
-        }
-
-
-        /**
-         * 渠道上下文
-         * <p> 示例值：{}
-         *
-         * @param channelContext
-         * @return
-         */
-        public Builder channelContext(String channelContext) {
-            this.channelContext = channelContext;
-            return this;
-        }
-
-
-        /**
-         * 其他透传信息
-         * <p> 示例值：{}
-         *
-         * @param metadata
-         * @return
-         */
-        public Builder metadata(String metadata) {
-            this.metadata = metadata;
-            return this;
-        }
-
-
-        public AilySession build() {
-            return new AilySession(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

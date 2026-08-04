@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CourseChannel {
+  /**
+   * 频道ID
+   *
+   * <p>示例值：3573_jv0p
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 频道名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public CourseChannel() {}
+
+  public CourseChannel(Builder builder) {
     /**
      * 频道ID
-     * <p> 示例值：3573_jv0p
+     *
+     * <p>示例值：3573_jv0p
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 频道名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 频道ID
+     *
+     * <p>示例值：3573_jv0p
+     */
+    private String id;
+
+    /**
+     * 频道名称
+     *
+     * <p>示例值：
+     */
     private I18n[] name;
 
-    // builder 开始
-    public CourseChannel() {
+    /**
+     * 频道ID
+     *
+     * <p>示例值：3573_jv0p
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public CourseChannel(Builder builder) {
-        /**
-         * 频道ID
-         * <p> 示例值：3573_jv0p
-         */
-        this.id = builder.id;
-        /**
-         * 频道名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 频道名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CourseChannel build() {
+      return new CourseChannel(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n[] getName() {
-        return this.name;
-    }
-
-    public void setName(I18n[] name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 频道ID
-         * <p> 示例值：3573_jv0p
-         */
-        private String id;
-        /**
-         * 频道名称
-         * <p> 示例值：
-         */
-        private I18n[] name;
-
-        /**
-         * 频道ID
-         * <p> 示例值：3573_jv0p
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 频道名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public CourseChannel build() {
-            return new CourseChannel(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

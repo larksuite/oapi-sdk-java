@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.lingo.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.lingo.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DocData {
+  /**
+   * 文档token
+   *
+   * <p>示例值：docxxxxxxxxx
+   */
+  @SerializedName("doc_token")
+  private String docToken;
+
+  /**
+   * 文档创建时间
+   *
+   * <p>示例值：1692242106
+   */
+  @SerializedName("created_at")
+  private String createdAt;
+
+  /**
+   * 文档最后更新时间
+   *
+   * <p>示例值：1692242106
+   */
+  @SerializedName("updated_at")
+  private String updatedAt;
+
+  /**
+   * 文档数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("doc_contents")
+  private DocContent[] docContents;
+
+  /**
+   * 根节点ID
+   *
+   * <p>示例值：blockxxxx
+   */
+  @SerializedName("root_content_id")
+  private String rootContentId;
+
+  public String getDocToken() {
+    return this.docToken;
+  }
+
+  public void setDocToken(String docToken) {
+    this.docToken = docToken;
+  }
+
+  public String getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public DocContent[] getDocContents() {
+    return this.docContents;
+  }
+
+  public void setDocContents(DocContent[] docContents) {
+    this.docContents = docContents;
+  }
+
+  public String getRootContentId() {
+    return this.rootContentId;
+  }
+
+  public void setRootContentId(String rootContentId) {
+    this.rootContentId = rootContentId;
+  }
+
+  // builder 开始
+  public DocData() {}
+
+  public DocData(Builder builder) {
     /**
      * 文档token
-     * <p> 示例值：docxxxxxxxxx
+     *
+     * <p>示例值：docxxxxxxxxx
      */
-    @SerializedName("doc_token")
-    private String docToken;
+    this.docToken = builder.docToken;
     /**
      * 文档创建时间
-     * <p> 示例值：1692242106
+     *
+     * <p>示例值：1692242106
      */
-    @SerializedName("created_at")
-    private String createdAt;
+    this.createdAt = builder.createdAt;
     /**
      * 文档最后更新时间
-     * <p> 示例值：1692242106
+     *
+     * <p>示例值：1692242106
      */
-    @SerializedName("updated_at")
-    private String updatedAt;
+    this.updatedAt = builder.updatedAt;
     /**
      * 文档数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("doc_contents")
-    private DocContent[] docContents;
+    this.docContents = builder.docContents;
     /**
      * 根节点ID
-     * <p> 示例值：blockxxxx
+     *
+     * <p>示例值：blockxxxx
      */
-    @SerializedName("root_content_id")
+    this.rootContentId = builder.rootContentId;
+  }
+
+  public static class Builder {
+    /**
+     * 文档token
+     *
+     * <p>示例值：docxxxxxxxxx
+     */
+    private String docToken;
+
+    /**
+     * 文档创建时间
+     *
+     * <p>示例值：1692242106
+     */
+    private String createdAt;
+
+    /**
+     * 文档最后更新时间
+     *
+     * <p>示例值：1692242106
+     */
+    private String updatedAt;
+
+    /**
+     * 文档数据
+     *
+     * <p>示例值：
+     */
+    private DocContent[] docContents;
+
+    /**
+     * 根节点ID
+     *
+     * <p>示例值：blockxxxx
+     */
     private String rootContentId;
 
-    // builder 开始
-    public DocData() {
+    /**
+     * 文档token
+     *
+     * <p>示例值：docxxxxxxxxx
+     *
+     * @param docToken
+     * @return
+     */
+    public Builder docToken(String docToken) {
+      this.docToken = docToken;
+      return this;
     }
 
-    public DocData(Builder builder) {
-        /**
-         * 文档token
-         * <p> 示例值：docxxxxxxxxx
-         */
-        this.docToken = builder.docToken;
-        /**
-         * 文档创建时间
-         * <p> 示例值：1692242106
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 文档最后更新时间
-         * <p> 示例值：1692242106
-         */
-        this.updatedAt = builder.updatedAt;
-        /**
-         * 文档数据
-         * <p> 示例值：
-         */
-        this.docContents = builder.docContents;
-        /**
-         * 根节点ID
-         * <p> 示例值：blockxxxx
-         */
-        this.rootContentId = builder.rootContentId;
+    /**
+     * 文档创建时间
+     *
+     * <p>示例值：1692242106
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(String createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文档最后更新时间
+     *
+     * <p>示例值：1692242106
+     *
+     * @param updatedAt
+     * @return
+     */
+    public Builder updatedAt(String updatedAt) {
+      this.updatedAt = updatedAt;
+      return this;
     }
 
-    public String getDocToken() {
-        return this.docToken;
+    /**
+     * 文档数据
+     *
+     * <p>示例值：
+     *
+     * @param docContents
+     * @return
+     */
+    public Builder docContents(DocContent[] docContents) {
+      this.docContents = docContents;
+      return this;
     }
 
-    public void setDocToken(String docToken) {
-        this.docToken = docToken;
+    /**
+     * 根节点ID
+     *
+     * <p>示例值：blockxxxx
+     *
+     * @param rootContentId
+     * @return
+     */
+    public Builder rootContentId(String rootContentId) {
+      this.rootContentId = rootContentId;
+      return this;
     }
 
-    public String getCreatedAt() {
-        return this.createdAt;
+    public DocData build() {
+      return new DocData(this);
     }
+  }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdatedAt() {
-        return this.updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public DocContent[] getDocContents() {
-        return this.docContents;
-    }
-
-    public void setDocContents(DocContent[] docContents) {
-        this.docContents = docContents;
-    }
-
-    public String getRootContentId() {
-        return this.rootContentId;
-    }
-
-    public void setRootContentId(String rootContentId) {
-        this.rootContentId = rootContentId;
-    }
-
-    public static class Builder {
-        /**
-         * 文档token
-         * <p> 示例值：docxxxxxxxxx
-         */
-        private String docToken;
-        /**
-         * 文档创建时间
-         * <p> 示例值：1692242106
-         */
-        private String createdAt;
-        /**
-         * 文档最后更新时间
-         * <p> 示例值：1692242106
-         */
-        private String updatedAt;
-        /**
-         * 文档数据
-         * <p> 示例值：
-         */
-        private DocContent[] docContents;
-        /**
-         * 根节点ID
-         * <p> 示例值：blockxxxx
-         */
-        private String rootContentId;
-
-        /**
-         * 文档token
-         * <p> 示例值：docxxxxxxxxx
-         *
-         * @param docToken
-         * @return
-         */
-        public Builder docToken(String docToken) {
-            this.docToken = docToken;
-            return this;
-        }
-
-
-        /**
-         * 文档创建时间
-         * <p> 示例值：1692242106
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 文档最后更新时间
-         * <p> 示例值：1692242106
-         *
-         * @param updatedAt
-         * @return
-         */
-        public Builder updatedAt(String updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
-        }
-
-
-        /**
-         * 文档数据
-         * <p> 示例值：
-         *
-         * @param docContents
-         * @return
-         */
-        public Builder docContents(DocContent[] docContents) {
-            this.docContents = docContents;
-            return this;
-        }
-
-
-        /**
-         * 根节点ID
-         * <p> 示例值：blockxxxx
-         *
-         * @param rootContentId
-         * @return
-         */
-        public Builder rootContentId(String rootContentId) {
-            this.rootContentId = rootContentId;
-            return this;
-        }
-
-
-        public DocData build() {
-            return new DocData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

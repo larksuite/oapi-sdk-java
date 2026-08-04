@@ -13,227 +13,258 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.contact.v3.enums.*;
 
 public class SimplelistGroupMemberReq {
+  /**
+   * 分页大小，用于限制一次请求返回的最大条目数。
+   *
+   * <p>示例值：50
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 用户组成员 ID 类型。;;- 当 `member_type` 取值为 `user`时，该参数表示用户 ID 类型，包括 open_id、union_id、user_id。;- 当
+   * `member_type` 取值为 `department`时，该参数表示部门 ID 类型，包括 department_id、open_department_id。
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("member_id_type")
+  private String memberIdType;
+
+  /**
+   * 用户组成员类型。
+   *
+   * <p>示例值：user
+   */
+  @Query
+  @SerializedName("member_type")
+  private String memberType;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getMemberIdType() {
+    return this.memberIdType;
+  }
+
+  public void setMemberIdType(String memberIdType) {
+    this.memberIdType = memberIdType;
+  }
+
+  public String getMemberType() {
+    return this.memberType;
+  }
+
+  public void setMemberType(String memberType) {
+    this.memberType = memberType;
+  }
+
+  /**
+   * 用户组 ID。;;用户组 ID
+   * 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的
+   * ID。
+   *
+   * <p>示例值：g128187
+   */
+  @Path
+  @SerializedName("group_id")
+  private String groupId;
+
+  public String getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
+  // builder 开始
+  public SimplelistGroupMemberReq() {}
+
+  public SimplelistGroupMemberReq(Builder builder) {
     /**
-     * 分页大小
-     * <p> 示例值：50
+     * 分页大小，用于限制一次请求返回的最大条目数。
+     *
+     * <p>示例值：50
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+     *
+     * <p>示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 欲获取成员ID类型。;当member_type=user时候，member_id_type表示user_id_type，枚举值open_id, union_id和user_id。;当member_type=department时候，member_id_type表示department_id_type，枚举值open_id和department_id。
-     * <p> 示例值：open_id
+     * 用户组成员 ID 类型。;;- 当 `member_type` 取值为 `user`时，该参数表示用户 ID 类型，包括 open_id、union_id、user_id。;- 当
+     * `member_type` 取值为 `department`时，该参数表示部门 ID 类型，包括 department_id、open_department_id。
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("member_id_type")
-    private String memberIdType;
+    this.memberIdType = builder.memberIdType;
     /**
-     * 欲获取的用户组成员类型。
-     * <p> 示例值：user
+     * 用户组成员类型。
+     *
+     * <p>示例值：user
      */
-    @Query
-    @SerializedName("member_type")
-    private String memberType;
+    this.memberType = builder.memberType;
     /**
-     * 用户组ID
-     * <p> 示例值：g128187
+     * 用户组 ID。;;用户组 ID
+     * 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的
+     * ID。
+     *
+     * <p>示例值：g128187
      */
-    @Path
-    @SerializedName("group_id")
-    private String groupId;
+    this.groupId = builder.groupId;
+  }
 
-    // builder 开始
-    public SimplelistGroupMemberReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小，用于限制一次请求返回的最大条目数。
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String memberIdType; // 用户组成员 ID 类型。;;- 当 `member_type` 取值为 `user`时，该参数表示用户 ID 类型，包括
+    // open_id、union_id、user_id。;- 当 `member_type` 取值为 `department`时，该参数表示部门 ID
+    // 类型，包括 department_id、open_department_id。
+    private String memberType; // 用户组成员类型。
+
+    /**
+     * 分页大小，用于限制一次请求返回的最大条目数。
+     *
+     * <p>示例值：50
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public SimplelistGroupMemberReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：50
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 欲获取成员ID类型。;当member_type=user时候，member_id_type表示user_id_type，枚举值open_id, union_id和user_id。;当member_type=department时候，member_id_type表示department_id_type，枚举值open_id和department_id。
-         * <p> 示例值：open_id
-         */
-        this.memberIdType = builder.memberIdType;
-        /**
-         * 欲获取的用户组成员类型。
-         * <p> 示例值：user
-         */
-        this.memberType = builder.memberType;
-        /**
-         * 用户组ID
-         * <p> 示例值：g128187
-         */
-        this.groupId = builder.groupId;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户组成员 ID 类型。;;- 当 `member_type` 取值为 `user`时，该参数表示用户 ID 类型，包括 open_id、union_id、user_id。;- 当
+     * `member_type` 取值为 `department`时，该参数表示部门 ID 类型，包括 department_id、open_department_id。
+     *
+     * <p>示例值：open_id
+     *
+     * @param memberIdType
+     * @return
+     */
+    public Builder memberIdType(String memberIdType) {
+      this.memberIdType = memberIdType;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 用户组成员 ID 类型。;;- 当 `member_type` 取值为 `user`时，该参数表示用户 ID 类型，包括 open_id、union_id、user_id。;- 当
+     * `member_type` 取值为 `department`时，该参数表示部门 ID 类型，包括 department_id、open_department_id。
+     *
+     * <p>示例值：open_id
+     *
+     * @param memberIdType {@link
+     *     com.lark.oapi.service.contact.v3.enums.SimplelistGroupMemberMemberIdTypeEnum}
+     * @return
+     */
+    public Builder memberIdType(
+        com.lark.oapi.service.contact.v3.enums.SimplelistGroupMemberMemberIdTypeEnum memberIdType) {
+      this.memberIdType = memberIdType.getValue();
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 用户组成员类型。
+     *
+     * <p>示例值：user
+     *
+     * @param memberType
+     * @return
+     */
+    public Builder memberType(String memberType) {
+      this.memberType = memberType;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 用户组成员类型。
+     *
+     * <p>示例值：user
+     *
+     * @param memberType {@link
+     *     com.lark.oapi.service.contact.v3.enums.SimplelistGroupMemberMemberTypeEnum}
+     * @return
+     */
+    public Builder memberType(
+        com.lark.oapi.service.contact.v3.enums.SimplelistGroupMemberMemberTypeEnum memberType) {
+      this.memberType = memberType.getValue();
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    private String groupId; // 用户组 ID。;;用户组 ID
+
+    // 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的 ID。
+
+    /**
+     * 用户组 ID。;;用户组 ID
+     * 可在创建用户组时从返回值中获取，你也可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口，获取用户组的
+     * ID。
+     *
+     * <p>示例值：g128187
+     *
+     * @param groupId
+     * @return
+     */
+    public Builder groupId(String groupId) {
+      this.groupId = groupId;
+      return this;
     }
 
-    public String getMemberIdType() {
-        return this.memberIdType;
+    public SimplelistGroupMemberReq build() {
+      return new SimplelistGroupMemberReq(this);
     }
+  }
 
-    public void setMemberIdType(String memberIdType) {
-        this.memberIdType = memberIdType;
-    }
-
-    public String getMemberType() {
-        return this.memberType;
-    }
-
-    public void setMemberType(String memberType) {
-        this.memberType = memberType;
-    }
-
-    public String getGroupId() {
-        return this.groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String memberIdType; // 欲获取成员ID类型。;当member_type=user时候，member_id_type表示user_id_type，枚举值open_id, union_id和user_id。;当member_type=department时候，member_id_type表示department_id_type，枚举值open_id和department_id。
-        private String memberType; // 欲获取的用户组成员类型。
-        private String groupId; // 用户组ID
-
-        /**
-         * 分页大小
-         * <p> 示例值：50
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 欲获取成员ID类型。;当member_type=user时候，member_id_type表示user_id_type，枚举值open_id, union_id和user_id。;当member_type=department时候，member_id_type表示department_id_type，枚举值open_id和department_id。
-         * <p> 示例值：open_id
-         *
-         * @param memberIdType
-         * @return
-         */
-        public Builder memberIdType(String memberIdType) {
-            this.memberIdType = memberIdType;
-            return this;
-        }
-
-        /**
-         * 欲获取成员ID类型。;当member_type=user时候，member_id_type表示user_id_type，枚举值open_id, union_id和user_id。;当member_type=department时候，member_id_type表示department_id_type，枚举值open_id和department_id。
-         * <p> 示例值：open_id
-         *
-         * @param memberIdType {@link com.lark.oapi.service.contact.v3.enums.SimplelistGroupMemberMemberIdTypeEnum}
-         * @return
-         */
-        public Builder memberIdType(com.lark.oapi.service.contact.v3.enums.SimplelistGroupMemberMemberIdTypeEnum memberIdType) {
-            this.memberIdType = memberIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 欲获取的用户组成员类型。
-         * <p> 示例值：user
-         *
-         * @param memberType
-         * @return
-         */
-        public Builder memberType(String memberType) {
-            this.memberType = memberType;
-            return this;
-        }
-
-        /**
-         * 欲获取的用户组成员类型。
-         * <p> 示例值：user
-         *
-         * @param memberType {@link com.lark.oapi.service.contact.v3.enums.SimplelistGroupMemberMemberTypeEnum}
-         * @return
-         */
-        public Builder memberType(com.lark.oapi.service.contact.v3.enums.SimplelistGroupMemberMemberTypeEnum memberType) {
-            this.memberType = memberType.getValue();
-            return this;
-        }
-
-        /**
-         * 用户组ID
-         * <p> 示例值：g128187
-         *
-         * @param groupId
-         * @return
-         */
-        public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
-        }
-
-
-        public SimplelistGroupMemberReq build() {
-            return new SimplelistGroupMemberReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

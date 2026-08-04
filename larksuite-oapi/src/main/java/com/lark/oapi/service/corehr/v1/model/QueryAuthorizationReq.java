@@ -13,287 +13,330 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class QueryAuthorizationReq {
+  /**
+   * 员工ID列表，最大100个（不传则默认查询全部员工）。ID类型与user_id_type的取值意义一致。默认为飞书人事中的
+   * ==employment_id==。;>;「**注意事项**」：;- 如果你需要不同类型的ID进行转换，可以使用
+   * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)
+   * 换取 ==employment_id==;- 如果需要一次查询多个员工ID，需通过 "employment_id_list=empId1&employment_id_list=empId2"
+   * 的方式传递，且调试台暂不支持多员工ID调试。
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("employment_id_list")
+  private String[] employmentIdList;
+
+  /**
+   * 角色 ID 列表，最大 100 个。当传该参数时，会根据rold_id过滤，只返回包含该角色的授权信息。;>;「**注意事项**」：;- 你可以使用
+   * [批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+   * 获取角色ID，或者在角色详情中获取（URL 末的数字）。;;-
+   * 如果需要一次查询多个角色ID，需通过需通过“rold_id_list=rold_id1&rold_id_list=rold_id2” 的方式传递，且调试台暂不支持多角色ID查询。
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("role_id_list")
+  private String[] roleIdList;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：6969864184272078374
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 每页获取记录数量，最大20(不传该参数，默认为20)
+   *
+   * <p>示例值：20
+   */
+  @Query
+  @SerializedName("page_size")
+  private String pageSize;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：people_corehr_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 授权时间大于，单位为秒（Unix时间戳）
+   *
+   * <p>示例值：1729773628
+   */
+  @Query
+  @SerializedName("updated_at_gte")
+  private String updatedAtGte;
+
+  /**
+   * 授权时间小于，单位为秒（Unix时间戳）
+   *
+   * <p>示例值：1729773628
+   */
+  @Query
+  @SerializedName("updated_at_lte")
+  private String updatedAtLte;
+
+  public String[] getEmploymentIdList() {
+    return this.employmentIdList;
+  }
+
+  public void setEmploymentIdList(String[] employmentIdList) {
+    this.employmentIdList = employmentIdList;
+  }
+
+  public String[] getRoleIdList() {
+    return this.roleIdList;
+  }
+
+  public void setRoleIdList(String[] roleIdList) {
+    this.roleIdList = roleIdList;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(String pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getUpdatedAtGte() {
+    return this.updatedAtGte;
+  }
+
+  public void setUpdatedAtGte(String updatedAtGte) {
+    this.updatedAtGte = updatedAtGte;
+  }
+
+  public String getUpdatedAtLte() {
+    return this.updatedAtLte;
+  }
+
+  public void setUpdatedAtLte(String updatedAtLte) {
+    this.updatedAtLte = updatedAtLte;
+  }
+
+  // builder 开始
+  public QueryAuthorizationReq() {}
+
+  public QueryAuthorizationReq(Builder builder) {
     /**
-     * 员工ID列表，最大100个（不传则默认查询全部员工）
-     * <p> 示例值：
+     * 员工ID列表，最大100个（不传则默认查询全部员工）。ID类型与user_id_type的取值意义一致。默认为飞书人事中的
+     * ==employment_id==。;>;「**注意事项**」：;- 如果你需要不同类型的ID进行转换，可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)
+     * 换取 ==employment_id==;- 如果需要一次查询多个员工ID，需通过
+     * "employment_id_list=empId1&employment_id_list=empId2" 的方式传递，且调试台暂不支持多员工ID调试。
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("employment_id_list")
-    private String[] employmentIdList;
+    this.employmentIdList = builder.employmentIdList;
     /**
-     * 角色 ID 列表，最大 100 个
-     * <p> 示例值：
+     * 角色 ID 列表，最大 100 个。当传该参数时，会根据rold_id过滤，只返回包含该角色的授权信息。;>;「**注意事项**」：;- 你可以使用
+     * [批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+     * 获取角色ID，或者在角色详情中获取（URL 末的数字）。;;-
+     * 如果需要一次查询多个角色ID，需通过需通过“rold_id_list=rold_id1&rold_id_list=rold_id2” 的方式传递，且调试台暂不支持多角色ID查询。
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("role_id_list")
-    private String[] roleIdList;
+    this.roleIdList = builder.roleIdList;
     /**
-     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-     * <p> 示例值：6969864184272078374
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：6969864184272078374
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 每页获取记录数量，最大20
-     * <p> 示例值：20
+     * 每页获取记录数量，最大20(不传该参数，默认为20)
+     *
+     * <p>示例值：20
      */
-    @Query
-    @SerializedName("page_size")
-    private String pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 用户 ID 类型
-     * <p> 示例值：people_corehr_id
+     *
+     * <p>示例值：people_corehr_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 授权时间大于
-     * <p> 示例值：1729773628
+     * 授权时间大于，单位为秒（Unix时间戳）
+     *
+     * <p>示例值：1729773628
      */
-    @Query
-    @SerializedName("updated_at_gte")
-    private String updatedAtGte;
+    this.updatedAtGte = builder.updatedAtGte;
     /**
-     * 授权时间小于
-     * <p> 示例值：1729773628
+     * 授权时间小于，单位为秒（Unix时间戳）
+     *
+     * <p>示例值：1729773628
      */
-    @Query
-    @SerializedName("updated_at_lte")
-    private String updatedAtLte;
+    this.updatedAtLte = builder.updatedAtLte;
+  }
 
-    // builder 开始
-    public QueryAuthorizationReq() {
+  public static class Builder {
+    private String[]
+        employmentIdList; // 员工ID列表，最大100个（不传则默认查询全部员工）。ID类型与user_id_type的取值意义一致。默认为飞书人事中的
+    // ==employment_id==。;>;「**注意事项**」：;- 如果你需要不同类型的ID进行转换，可以使用
+    // [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert) 换取 ==employment_id==;- 如果需要一次查询多个员工ID，需通过 "employment_id_list=empId1&employment_id_list=empId2" 的方式传递，且调试台暂不支持多员工ID调试。
+    private String[]
+        roleIdList; // 角色 ID 列表，最大 100 个。当传该参数时，会根据rold_id过滤，只返回包含该角色的授权信息。;>;「**注意事项**」：;- 你可以使用
+    // [批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+    // 获取角色ID，或者在角色详情中获取（URL 末的数字）。;;-
+    // 如果需要一次查询多个角色ID，需通过需通过“rold_id_list=rold_id1&rold_id_list=rold_id2” 的方式传递，且调试台暂不支持多角色ID查询。
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String pageSize; // 每页获取记录数量，最大20(不传该参数，默认为20)
+    private String userIdType; // 用户 ID 类型
+    private String updatedAtGte; // 授权时间大于，单位为秒（Unix时间戳）
+    private String updatedAtLte; // 授权时间小于，单位为秒（Unix时间戳）
+
+    /**
+     * 员工ID列表，最大100个（不传则默认查询全部员工）。ID类型与user_id_type的取值意义一致。默认为飞书人事中的
+     * ==employment_id==。;>;「**注意事项**」：;- 如果你需要不同类型的ID进行转换，可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)
+     * 换取 ==employment_id==;- 如果需要一次查询多个员工ID，需通过
+     * "employment_id_list=empId1&employment_id_list=empId2" 的方式传递，且调试台暂不支持多员工ID调试。
+     *
+     * <p>示例值：
+     *
+     * @param employmentIdList
+     * @return
+     */
+    public Builder employmentIdList(String[] employmentIdList) {
+      this.employmentIdList = employmentIdList;
+      return this;
     }
 
-    public QueryAuthorizationReq(Builder builder) {
-        /**
-         * 员工ID列表，最大100个（不传则默认查询全部员工）
-         * <p> 示例值：
-         */
-        this.employmentIdList = builder.employmentIdList;
-        /**
-         * 角色 ID 列表，最大 100 个
-         * <p> 示例值：
-         */
-        this.roleIdList = builder.roleIdList;
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：6969864184272078374
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页获取记录数量，最大20
-         * <p> 示例值：20
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 授权时间大于
-         * <p> 示例值：1729773628
-         */
-        this.updatedAtGte = builder.updatedAtGte;
-        /**
-         * 授权时间小于
-         * <p> 示例值：1729773628
-         */
-        this.updatedAtLte = builder.updatedAtLte;
+    /**
+     * 角色 ID 列表，最大 100 个。当传该参数时，会根据rold_id过滤，只返回包含该角色的授权信息。;>;「**注意事项**」：;- 你可以使用
+     * [批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+     * 获取角色ID，或者在角色详情中获取（URL 末的数字）。;;-
+     * 如果需要一次查询多个角色ID，需通过需通过“rold_id_list=rold_id1&rold_id_list=rold_id2” 的方式传递，且调试台暂不支持多角色ID查询。
+     *
+     * <p>示例值：
+     *
+     * @param roleIdList
+     * @return
+     */
+    public Builder roleIdList(String[] roleIdList) {
+      this.roleIdList = roleIdList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：6969864184272078374
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public String[] getEmploymentIdList() {
-        return this.employmentIdList;
+    /**
+     * 每页获取记录数量，最大20(不传该参数，默认为20)
+     *
+     * <p>示例值：20
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(String pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public void setEmploymentIdList(String[] employmentIdList) {
-        this.employmentIdList = employmentIdList;
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String[] getRoleIdList() {
-        return this.roleIdList;
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v1.enums.QueryAuthorizationQueryAuthorizationUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v1.enums.QueryAuthorizationQueryAuthorizationUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setRoleIdList(String[] roleIdList) {
-        this.roleIdList = roleIdList;
+    /**
+     * 授权时间大于，单位为秒（Unix时间戳）
+     *
+     * <p>示例值：1729773628
+     *
+     * @param updatedAtGte
+     * @return
+     */
+    public Builder updatedAtGte(String updatedAtGte) {
+      this.updatedAtGte = updatedAtGte;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 授权时间小于，单位为秒（Unix时间戳）
+     *
+     * <p>示例值：1729773628
+     *
+     * @param updatedAtLte
+     * @return
+     */
+    public Builder updatedAtLte(String updatedAtLte) {
+      this.updatedAtLte = updatedAtLte;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    public QueryAuthorizationReq build() {
+      return new QueryAuthorizationReq(this);
     }
+  }
 
-    public String getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(String pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getUpdatedAtGte() {
-        return this.updatedAtGte;
-    }
-
-    public void setUpdatedAtGte(String updatedAtGte) {
-        this.updatedAtGte = updatedAtGte;
-    }
-
-    public String getUpdatedAtLte() {
-        return this.updatedAtLte;
-    }
-
-    public void setUpdatedAtLte(String updatedAtLte) {
-        this.updatedAtLte = updatedAtLte;
-    }
-
-    public static class Builder {
-        private String[] employmentIdList; // 员工ID列表，最大100个（不传则默认查询全部员工）
-        private String[] roleIdList; // 角色 ID 列表，最大 100 个
-        private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-        private String pageSize; // 每页获取记录数量，最大20
-        private String userIdType; // 用户 ID 类型
-        private String updatedAtGte; // 授权时间大于
-        private String updatedAtLte; // 授权时间小于
-
-        /**
-         * 员工ID列表，最大100个（不传则默认查询全部员工）
-         * <p> 示例值：
-         *
-         * @param employmentIdList
-         * @return
-         */
-        public Builder employmentIdList(String[] employmentIdList) {
-            this.employmentIdList = employmentIdList;
-            return this;
-        }
-
-
-        /**
-         * 角色 ID 列表，最大 100 个
-         * <p> 示例值：
-         *
-         * @param roleIdList
-         * @return
-         */
-        public Builder roleIdList(String[] roleIdList) {
-            this.roleIdList = roleIdList;
-            return this;
-        }
-
-
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：6969864184272078374
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 每页获取记录数量，最大20
-         * <p> 示例值：20
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(String pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.QueryAuthorizationQueryAuthorizationUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.QueryAuthorizationQueryAuthorizationUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 授权时间大于
-         * <p> 示例值：1729773628
-         *
-         * @param updatedAtGte
-         * @return
-         */
-        public Builder updatedAtGte(String updatedAtGte) {
-            this.updatedAtGte = updatedAtGte;
-            return this;
-        }
-
-
-        /**
-         * 授权时间小于
-         * <p> 示例值：1729773628
-         *
-         * @param updatedAtLte
-         * @return
-         */
-        public Builder updatedAtLte(String updatedAtLte) {
-            this.updatedAtLte = updatedAtLte;
-            return this;
-        }
-
-
-        public QueryAuthorizationReq build() {
-            return new QueryAuthorizationReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

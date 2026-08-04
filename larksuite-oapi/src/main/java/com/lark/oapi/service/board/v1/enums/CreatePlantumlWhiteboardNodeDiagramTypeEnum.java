@@ -14,29 +14,30 @@
 package com.lark.oapi.service.board.v1.enums;
 
 /**
- *
+ * PlantUml语法类型（传0会自动识别语法类型，plantUML语法补充超集GML不可自动识别）;当syntax_type为2（Mermaid解析）时，diagram_type传 0， 默认为
+ * 0
  */
 public enum CreatePlantumlWhiteboardNodeDiagramTypeEnum {
-    UNKNOWN(0), // 未知
-    MIND_MAP(1), // 思维导图
-    SEQUENCE(2), // 时序图
-    ACTIVITY(3), // 活动图
-    CLASS(4), // 类图
-    ER(5), // ER
-    FLOWCHART(6), // 流程图
-    STATE(7), // 用例图
-    COMPONENT_DIAGRAM(8), // 组件图
-    STREAMING_ACTIVITY(101), // ai流式生成流程图
-    STREAMING_SEQUENCE(102), // ai流式生成时序图
-    TIMELINE_GML(201), // plantUML语法补充超集GML
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未知
+  MIND_MAP(1), // 思维导图
+  SEQUENCE(2), // 时序图
+  ACTIVITY(3), // 活动图
+  CLASS(4), // 类图
+  ER(5), // ER
+  FLOWCHART(6), // 流程图
+  STATE(7), // 用例图
+  COMPONENT_DIAGRAM(8), // 组件图
+  STREAMING_ACTIVITY(101), // ai流式生成流程图
+  STREAMING_SEQUENCE(102), // ai流式生成时序图
+  TIMELINE_GML(201), // plantUML语法补充超集GML
+  ;
+  private Integer value;
 
-    CreatePlantumlWhiteboardNodeDiagramTypeEnum(Integer value) {
-        this.value = value;
-    }
+  CreatePlantumlWhiteboardNodeDiagramTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

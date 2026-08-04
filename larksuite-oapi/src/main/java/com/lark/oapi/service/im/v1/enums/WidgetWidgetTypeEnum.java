@@ -13,19 +13,17 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 小组件类型
- */
+/** 小组件类型 */
 public enum WidgetWidgetTypeEnum {
-    URL("URL"), // 链接类型小组件
-    ;
-    private String value;
+  URL("URL"), // 链接类型小组件
+  ;
+  private String value;
 
-    WidgetWidgetTypeEnum(String value) {
-        this.value = value;
-    }
+  WidgetWidgetTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

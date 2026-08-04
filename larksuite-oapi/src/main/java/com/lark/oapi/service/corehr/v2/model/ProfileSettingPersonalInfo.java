@@ -13,556 +13,611 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingPersonalInfo {
+  /**
+   * 基本信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("personal_basic_info")
+  private ProfileSettingPersonalBasicInfo personalBasicInfo;
+
+  /**
+   * 紧急联系人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("emergency_contacts")
+  private ProfileSettingEmergencyContact[] emergencyContacts;
+
+  /**
+   * 银行账户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bank_accounts")
+  private ProfileSettingBankAccount[] bankAccounts;
+
+  /**
+   * 证件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("nationals")
+  private ProfileSettingNational[] nationals;
+
+  /**
+   * 居民身份信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resident_taxes")
+  private ProfileSettingResidentTax[] residentTaxes;
+
+  /**
+   * 家庭成员
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dependents")
+  private ProfileSettingDependent[] dependents;
+
+  /**
+   * 户口
+   *
+   * <p>示例值：
+   */
+  @SerializedName("hukou")
+  private ProfileSettingHukou hukou;
+
+  /**
+   * 联系地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("contact_addresses")
+  private ProfileSettingAddress[] contactAddresses;
+
+  /**
+   * 自定义分组
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_groups")
+  private ProfileSettingCustomGroup[] customGroups;
+
+  /**
+   * 公民身份列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("citizenship_statuses")
+  private ProfileSettingCitizenshipStatus[] citizenshipStatuses;
+
+  /**
+   * 多国个人信息列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("person_for_countries")
+  private ProfileSettingPersonForCountry[] personForCountries;
+
+  /**
+   * Visa 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("visas")
+  private ProfileSettingVisa[] visas;
+
+  /**
+   * Passport 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("passports")
+  private ProfileSettingPassport[] passports;
+
+  /**
+   * 证件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("national_v2s")
+  private ProfileSettingNational[] nationalV2s;
+
+  public ProfileSettingPersonalBasicInfo getPersonalBasicInfo() {
+    return this.personalBasicInfo;
+  }
+
+  public void setPersonalBasicInfo(ProfileSettingPersonalBasicInfo personalBasicInfo) {
+    this.personalBasicInfo = personalBasicInfo;
+  }
+
+  public ProfileSettingEmergencyContact[] getEmergencyContacts() {
+    return this.emergencyContacts;
+  }
+
+  public void setEmergencyContacts(ProfileSettingEmergencyContact[] emergencyContacts) {
+    this.emergencyContacts = emergencyContacts;
+  }
+
+  public ProfileSettingBankAccount[] getBankAccounts() {
+    return this.bankAccounts;
+  }
+
+  public void setBankAccounts(ProfileSettingBankAccount[] bankAccounts) {
+    this.bankAccounts = bankAccounts;
+  }
+
+  public ProfileSettingNational[] getNationals() {
+    return this.nationals;
+  }
+
+  public void setNationals(ProfileSettingNational[] nationals) {
+    this.nationals = nationals;
+  }
+
+  public ProfileSettingResidentTax[] getResidentTaxes() {
+    return this.residentTaxes;
+  }
+
+  public void setResidentTaxes(ProfileSettingResidentTax[] residentTaxes) {
+    this.residentTaxes = residentTaxes;
+  }
+
+  public ProfileSettingDependent[] getDependents() {
+    return this.dependents;
+  }
+
+  public void setDependents(ProfileSettingDependent[] dependents) {
+    this.dependents = dependents;
+  }
+
+  public ProfileSettingHukou getHukou() {
+    return this.hukou;
+  }
+
+  public void setHukou(ProfileSettingHukou hukou) {
+    this.hukou = hukou;
+  }
+
+  public ProfileSettingAddress[] getContactAddresses() {
+    return this.contactAddresses;
+  }
+
+  public void setContactAddresses(ProfileSettingAddress[] contactAddresses) {
+    this.contactAddresses = contactAddresses;
+  }
+
+  public ProfileSettingCustomGroup[] getCustomGroups() {
+    return this.customGroups;
+  }
+
+  public void setCustomGroups(ProfileSettingCustomGroup[] customGroups) {
+    this.customGroups = customGroups;
+  }
+
+  public ProfileSettingCitizenshipStatus[] getCitizenshipStatuses() {
+    return this.citizenshipStatuses;
+  }
+
+  public void setCitizenshipStatuses(ProfileSettingCitizenshipStatus[] citizenshipStatuses) {
+    this.citizenshipStatuses = citizenshipStatuses;
+  }
+
+  public ProfileSettingPersonForCountry[] getPersonForCountries() {
+    return this.personForCountries;
+  }
+
+  public void setPersonForCountries(ProfileSettingPersonForCountry[] personForCountries) {
+    this.personForCountries = personForCountries;
+  }
+
+  public ProfileSettingVisa[] getVisas() {
+    return this.visas;
+  }
+
+  public void setVisas(ProfileSettingVisa[] visas) {
+    this.visas = visas;
+  }
+
+  public ProfileSettingPassport[] getPassports() {
+    return this.passports;
+  }
+
+  public void setPassports(ProfileSettingPassport[] passports) {
+    this.passports = passports;
+  }
+
+  public ProfileSettingNational[] getNationalV2s() {
+    return this.nationalV2s;
+  }
+
+  public void setNationalV2s(ProfileSettingNational[] nationalV2s) {
+    this.nationalV2s = nationalV2s;
+  }
+
+  // builder 开始
+  public ProfileSettingPersonalInfo() {}
+
+  public ProfileSettingPersonalInfo(Builder builder) {
     /**
      * 基本信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("personal_basic_info")
-    private ProfileSettingPersonalBasicInfo personalBasicInfo;
+    this.personalBasicInfo = builder.personalBasicInfo;
     /**
      * 紧急联系人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("emergency_contacts")
-    private ProfileSettingEmergencyContact[] emergencyContacts;
+    this.emergencyContacts = builder.emergencyContacts;
     /**
      * 银行账户
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bank_accounts")
-    private ProfileSettingBankAccount[] bankAccounts;
+    this.bankAccounts = builder.bankAccounts;
     /**
      * 证件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("nationals")
-    private ProfileSettingNational[] nationals;
+    this.nationals = builder.nationals;
     /**
      * 居民身份信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("resident_taxes")
-    private ProfileSettingResidentTax[] residentTaxes;
+    this.residentTaxes = builder.residentTaxes;
     /**
      * 家庭成员
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dependents")
-    private ProfileSettingDependent[] dependents;
+    this.dependents = builder.dependents;
     /**
      * 户口
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("hukou")
-    private ProfileSettingHukou hukou;
+    this.hukou = builder.hukou;
     /**
      * 联系地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("contact_addresses")
-    private ProfileSettingAddress[] contactAddresses;
+    this.contactAddresses = builder.contactAddresses;
     /**
      * 自定义分组
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_groups")
-    private ProfileSettingCustomGroup[] customGroups;
+    this.customGroups = builder.customGroups;
     /**
      * 公民身份列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("citizenship_statuses")
-    private ProfileSettingCitizenshipStatus[] citizenshipStatuses;
+    this.citizenshipStatuses = builder.citizenshipStatuses;
     /**
      * 多国个人信息列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("person_for_countries")
-    private ProfileSettingPersonForCountry[] personForCountries;
+    this.personForCountries = builder.personForCountries;
     /**
      * Visa 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("visas")
-    private ProfileSettingVisa[] visas;
+    this.visas = builder.visas;
     /**
      * Passport 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("passports")
-    private ProfileSettingPassport[] passports;
+    this.passports = builder.passports;
     /**
      * 证件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("national_v2s")
+    this.nationalV2s = builder.nationalV2s;
+  }
+
+  public static class Builder {
+    /**
+     * 基本信息
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingPersonalBasicInfo personalBasicInfo;
+
+    /**
+     * 紧急联系人
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingEmergencyContact[] emergencyContacts;
+
+    /**
+     * 银行账户
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingBankAccount[] bankAccounts;
+
+    /**
+     * 证件
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingNational[] nationals;
+
+    /**
+     * 居民身份信息
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingResidentTax[] residentTaxes;
+
+    /**
+     * 家庭成员
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingDependent[] dependents;
+
+    /**
+     * 户口
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingHukou hukou;
+
+    /**
+     * 联系地址
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingAddress[] contactAddresses;
+
+    /**
+     * 自定义分组
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingCustomGroup[] customGroups;
+
+    /**
+     * 公民身份列表
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingCitizenshipStatus[] citizenshipStatuses;
+
+    /**
+     * 多国个人信息列表
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingPersonForCountry[] personForCountries;
+
+    /**
+     * Visa 列表
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingVisa[] visas;
+
+    /**
+     * Passport 列表
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingPassport[] passports;
+
+    /**
+     * 证件
+     *
+     * <p>示例值：
+     */
     private ProfileSettingNational[] nationalV2s;
 
-    // builder 开始
-    public ProfileSettingPersonalInfo() {
+    /**
+     * 基本信息
+     *
+     * <p>示例值：
+     *
+     * @param personalBasicInfo
+     * @return
+     */
+    public Builder personalBasicInfo(ProfileSettingPersonalBasicInfo personalBasicInfo) {
+      this.personalBasicInfo = personalBasicInfo;
+      return this;
     }
 
-    public ProfileSettingPersonalInfo(Builder builder) {
-        /**
-         * 基本信息
-         * <p> 示例值：
-         */
-        this.personalBasicInfo = builder.personalBasicInfo;
-        /**
-         * 紧急联系人
-         * <p> 示例值：
-         */
-        this.emergencyContacts = builder.emergencyContacts;
-        /**
-         * 银行账户
-         * <p> 示例值：
-         */
-        this.bankAccounts = builder.bankAccounts;
-        /**
-         * 证件
-         * <p> 示例值：
-         */
-        this.nationals = builder.nationals;
-        /**
-         * 居民身份信息
-         * <p> 示例值：
-         */
-        this.residentTaxes = builder.residentTaxes;
-        /**
-         * 家庭成员
-         * <p> 示例值：
-         */
-        this.dependents = builder.dependents;
-        /**
-         * 户口
-         * <p> 示例值：
-         */
-        this.hukou = builder.hukou;
-        /**
-         * 联系地址
-         * <p> 示例值：
-         */
-        this.contactAddresses = builder.contactAddresses;
-        /**
-         * 自定义分组
-         * <p> 示例值：
-         */
-        this.customGroups = builder.customGroups;
-        /**
-         * 公民身份列表
-         * <p> 示例值：
-         */
-        this.citizenshipStatuses = builder.citizenshipStatuses;
-        /**
-         * 多国个人信息列表
-         * <p> 示例值：
-         */
-        this.personForCountries = builder.personForCountries;
-        /**
-         * Visa 列表
-         * <p> 示例值：
-         */
-        this.visas = builder.visas;
-        /**
-         * Passport 列表
-         * <p> 示例值：
-         */
-        this.passports = builder.passports;
-        /**
-         * 证件
-         * <p> 示例值：
-         */
-        this.nationalV2s = builder.nationalV2s;
+    /**
+     * 紧急联系人
+     *
+     * <p>示例值：
+     *
+     * @param emergencyContacts
+     * @return
+     */
+    public Builder emergencyContacts(ProfileSettingEmergencyContact[] emergencyContacts) {
+      this.emergencyContacts = emergencyContacts;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 银行账户
+     *
+     * <p>示例值：
+     *
+     * @param bankAccounts
+     * @return
+     */
+    public Builder bankAccounts(ProfileSettingBankAccount[] bankAccounts) {
+      this.bankAccounts = bankAccounts;
+      return this;
     }
 
-    public ProfileSettingPersonalBasicInfo getPersonalBasicInfo() {
-        return this.personalBasicInfo;
+    /**
+     * 证件
+     *
+     * <p>示例值：
+     *
+     * @param nationals
+     * @return
+     */
+    public Builder nationals(ProfileSettingNational[] nationals) {
+      this.nationals = nationals;
+      return this;
     }
 
-    public void setPersonalBasicInfo(ProfileSettingPersonalBasicInfo personalBasicInfo) {
-        this.personalBasicInfo = personalBasicInfo;
+    /**
+     * 居民身份信息
+     *
+     * <p>示例值：
+     *
+     * @param residentTaxes
+     * @return
+     */
+    public Builder residentTaxes(ProfileSettingResidentTax[] residentTaxes) {
+      this.residentTaxes = residentTaxes;
+      return this;
     }
 
-    public ProfileSettingEmergencyContact[] getEmergencyContacts() {
-        return this.emergencyContacts;
+    /**
+     * 家庭成员
+     *
+     * <p>示例值：
+     *
+     * @param dependents
+     * @return
+     */
+    public Builder dependents(ProfileSettingDependent[] dependents) {
+      this.dependents = dependents;
+      return this;
     }
 
-    public void setEmergencyContacts(ProfileSettingEmergencyContact[] emergencyContacts) {
-        this.emergencyContacts = emergencyContacts;
+    /**
+     * 户口
+     *
+     * <p>示例值：
+     *
+     * @param hukou
+     * @return
+     */
+    public Builder hukou(ProfileSettingHukou hukou) {
+      this.hukou = hukou;
+      return this;
     }
 
-    public ProfileSettingBankAccount[] getBankAccounts() {
-        return this.bankAccounts;
+    /**
+     * 联系地址
+     *
+     * <p>示例值：
+     *
+     * @param contactAddresses
+     * @return
+     */
+    public Builder contactAddresses(ProfileSettingAddress[] contactAddresses) {
+      this.contactAddresses = contactAddresses;
+      return this;
     }
 
-    public void setBankAccounts(ProfileSettingBankAccount[] bankAccounts) {
-        this.bankAccounts = bankAccounts;
+    /**
+     * 自定义分组
+     *
+     * <p>示例值：
+     *
+     * @param customGroups
+     * @return
+     */
+    public Builder customGroups(ProfileSettingCustomGroup[] customGroups) {
+      this.customGroups = customGroups;
+      return this;
     }
 
-    public ProfileSettingNational[] getNationals() {
-        return this.nationals;
+    /**
+     * 公民身份列表
+     *
+     * <p>示例值：
+     *
+     * @param citizenshipStatuses
+     * @return
+     */
+    public Builder citizenshipStatuses(ProfileSettingCitizenshipStatus[] citizenshipStatuses) {
+      this.citizenshipStatuses = citizenshipStatuses;
+      return this;
     }
 
-    public void setNationals(ProfileSettingNational[] nationals) {
-        this.nationals = nationals;
+    /**
+     * 多国个人信息列表
+     *
+     * <p>示例值：
+     *
+     * @param personForCountries
+     * @return
+     */
+    public Builder personForCountries(ProfileSettingPersonForCountry[] personForCountries) {
+      this.personForCountries = personForCountries;
+      return this;
     }
 
-    public ProfileSettingResidentTax[] getResidentTaxes() {
-        return this.residentTaxes;
+    /**
+     * Visa 列表
+     *
+     * <p>示例值：
+     *
+     * @param visas
+     * @return
+     */
+    public Builder visas(ProfileSettingVisa[] visas) {
+      this.visas = visas;
+      return this;
     }
 
-    public void setResidentTaxes(ProfileSettingResidentTax[] residentTaxes) {
-        this.residentTaxes = residentTaxes;
+    /**
+     * Passport 列表
+     *
+     * <p>示例值：
+     *
+     * @param passports
+     * @return
+     */
+    public Builder passports(ProfileSettingPassport[] passports) {
+      this.passports = passports;
+      return this;
     }
 
-    public ProfileSettingDependent[] getDependents() {
-        return this.dependents;
+    /**
+     * 证件
+     *
+     * <p>示例值：
+     *
+     * @param nationalV2s
+     * @return
+     */
+    public Builder nationalV2s(ProfileSettingNational[] nationalV2s) {
+      this.nationalV2s = nationalV2s;
+      return this;
     }
 
-    public void setDependents(ProfileSettingDependent[] dependents) {
-        this.dependents = dependents;
+    public ProfileSettingPersonalInfo build() {
+      return new ProfileSettingPersonalInfo(this);
     }
+  }
 
-    public ProfileSettingHukou getHukou() {
-        return this.hukou;
-    }
-
-    public void setHukou(ProfileSettingHukou hukou) {
-        this.hukou = hukou;
-    }
-
-    public ProfileSettingAddress[] getContactAddresses() {
-        return this.contactAddresses;
-    }
-
-    public void setContactAddresses(ProfileSettingAddress[] contactAddresses) {
-        this.contactAddresses = contactAddresses;
-    }
-
-    public ProfileSettingCustomGroup[] getCustomGroups() {
-        return this.customGroups;
-    }
-
-    public void setCustomGroups(ProfileSettingCustomGroup[] customGroups) {
-        this.customGroups = customGroups;
-    }
-
-    public ProfileSettingCitizenshipStatus[] getCitizenshipStatuses() {
-        return this.citizenshipStatuses;
-    }
-
-    public void setCitizenshipStatuses(ProfileSettingCitizenshipStatus[] citizenshipStatuses) {
-        this.citizenshipStatuses = citizenshipStatuses;
-    }
-
-    public ProfileSettingPersonForCountry[] getPersonForCountries() {
-        return this.personForCountries;
-    }
-
-    public void setPersonForCountries(ProfileSettingPersonForCountry[] personForCountries) {
-        this.personForCountries = personForCountries;
-    }
-
-    public ProfileSettingVisa[] getVisas() {
-        return this.visas;
-    }
-
-    public void setVisas(ProfileSettingVisa[] visas) {
-        this.visas = visas;
-    }
-
-    public ProfileSettingPassport[] getPassports() {
-        return this.passports;
-    }
-
-    public void setPassports(ProfileSettingPassport[] passports) {
-        this.passports = passports;
-    }
-
-    public ProfileSettingNational[] getNationalV2s() {
-        return this.nationalV2s;
-    }
-
-    public void setNationalV2s(ProfileSettingNational[] nationalV2s) {
-        this.nationalV2s = nationalV2s;
-    }
-
-    public static class Builder {
-        /**
-         * 基本信息
-         * <p> 示例值：
-         */
-        private ProfileSettingPersonalBasicInfo personalBasicInfo;
-        /**
-         * 紧急联系人
-         * <p> 示例值：
-         */
-        private ProfileSettingEmergencyContact[] emergencyContacts;
-        /**
-         * 银行账户
-         * <p> 示例值：
-         */
-        private ProfileSettingBankAccount[] bankAccounts;
-        /**
-         * 证件
-         * <p> 示例值：
-         */
-        private ProfileSettingNational[] nationals;
-        /**
-         * 居民身份信息
-         * <p> 示例值：
-         */
-        private ProfileSettingResidentTax[] residentTaxes;
-        /**
-         * 家庭成员
-         * <p> 示例值：
-         */
-        private ProfileSettingDependent[] dependents;
-        /**
-         * 户口
-         * <p> 示例值：
-         */
-        private ProfileSettingHukou hukou;
-        /**
-         * 联系地址
-         * <p> 示例值：
-         */
-        private ProfileSettingAddress[] contactAddresses;
-        /**
-         * 自定义分组
-         * <p> 示例值：
-         */
-        private ProfileSettingCustomGroup[] customGroups;
-        /**
-         * 公民身份列表
-         * <p> 示例值：
-         */
-        private ProfileSettingCitizenshipStatus[] citizenshipStatuses;
-        /**
-         * 多国个人信息列表
-         * <p> 示例值：
-         */
-        private ProfileSettingPersonForCountry[] personForCountries;
-        /**
-         * Visa 列表
-         * <p> 示例值：
-         */
-        private ProfileSettingVisa[] visas;
-        /**
-         * Passport 列表
-         * <p> 示例值：
-         */
-        private ProfileSettingPassport[] passports;
-        /**
-         * 证件
-         * <p> 示例值：
-         */
-        private ProfileSettingNational[] nationalV2s;
-
-        /**
-         * 基本信息
-         * <p> 示例值：
-         *
-         * @param personalBasicInfo
-         * @return
-         */
-        public Builder personalBasicInfo(ProfileSettingPersonalBasicInfo personalBasicInfo) {
-            this.personalBasicInfo = personalBasicInfo;
-            return this;
-        }
-
-
-        /**
-         * 紧急联系人
-         * <p> 示例值：
-         *
-         * @param emergencyContacts
-         * @return
-         */
-        public Builder emergencyContacts(ProfileSettingEmergencyContact[] emergencyContacts) {
-            this.emergencyContacts = emergencyContacts;
-            return this;
-        }
-
-
-        /**
-         * 银行账户
-         * <p> 示例值：
-         *
-         * @param bankAccounts
-         * @return
-         */
-        public Builder bankAccounts(ProfileSettingBankAccount[] bankAccounts) {
-            this.bankAccounts = bankAccounts;
-            return this;
-        }
-
-
-        /**
-         * 证件
-         * <p> 示例值：
-         *
-         * @param nationals
-         * @return
-         */
-        public Builder nationals(ProfileSettingNational[] nationals) {
-            this.nationals = nationals;
-            return this;
-        }
-
-
-        /**
-         * 居民身份信息
-         * <p> 示例值：
-         *
-         * @param residentTaxes
-         * @return
-         */
-        public Builder residentTaxes(ProfileSettingResidentTax[] residentTaxes) {
-            this.residentTaxes = residentTaxes;
-            return this;
-        }
-
-
-        /**
-         * 家庭成员
-         * <p> 示例值：
-         *
-         * @param dependents
-         * @return
-         */
-        public Builder dependents(ProfileSettingDependent[] dependents) {
-            this.dependents = dependents;
-            return this;
-        }
-
-
-        /**
-         * 户口
-         * <p> 示例值：
-         *
-         * @param hukou
-         * @return
-         */
-        public Builder hukou(ProfileSettingHukou hukou) {
-            this.hukou = hukou;
-            return this;
-        }
-
-
-        /**
-         * 联系地址
-         * <p> 示例值：
-         *
-         * @param contactAddresses
-         * @return
-         */
-        public Builder contactAddresses(ProfileSettingAddress[] contactAddresses) {
-            this.contactAddresses = contactAddresses;
-            return this;
-        }
-
-
-        /**
-         * 自定义分组
-         * <p> 示例值：
-         *
-         * @param customGroups
-         * @return
-         */
-        public Builder customGroups(ProfileSettingCustomGroup[] customGroups) {
-            this.customGroups = customGroups;
-            return this;
-        }
-
-
-        /**
-         * 公民身份列表
-         * <p> 示例值：
-         *
-         * @param citizenshipStatuses
-         * @return
-         */
-        public Builder citizenshipStatuses(ProfileSettingCitizenshipStatus[] citizenshipStatuses) {
-            this.citizenshipStatuses = citizenshipStatuses;
-            return this;
-        }
-
-
-        /**
-         * 多国个人信息列表
-         * <p> 示例值：
-         *
-         * @param personForCountries
-         * @return
-         */
-        public Builder personForCountries(ProfileSettingPersonForCountry[] personForCountries) {
-            this.personForCountries = personForCountries;
-            return this;
-        }
-
-
-        /**
-         * Visa 列表
-         * <p> 示例值：
-         *
-         * @param visas
-         * @return
-         */
-        public Builder visas(ProfileSettingVisa[] visas) {
-            this.visas = visas;
-            return this;
-        }
-
-
-        /**
-         * Passport 列表
-         * <p> 示例值：
-         *
-         * @param passports
-         * @return
-         */
-        public Builder passports(ProfileSettingPassport[] passports) {
-            this.passports = passports;
-            return this;
-        }
-
-
-        /**
-         * 证件
-         * <p> 示例值：
-         *
-         * @param nationalV2s
-         * @return
-         */
-        public Builder nationalV2s(ProfileSettingNational[] nationalV2s) {
-            this.nationalV2s = nationalV2s;
-            return this;
-        }
-
-
-        public ProfileSettingPersonalInfo build() {
-            return new ProfileSettingPersonalInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,75 +13,69 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WithdrawProbationReqBody {
+  /**
+   * 试用期人员的雇佣
+   * ID，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+   *
+   * <p>示例值：7140964208476371111
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  // builder 开始
+  public WithdrawProbationReqBody() {}
+
+  public WithdrawProbationReqBody(Builder builder) {
     /**
-     * 试用期人员的雇佣 ID
-     * <p> 示例值：7140964208476371111
+     * 试用期人员的雇佣
+     * ID，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：7140964208476371111
      */
-    @SerializedName("employment_id")
+    this.employmentId = builder.employmentId;
+  }
+
+  public static class Builder {
+    /**
+     * 试用期人员的雇佣
+     * ID，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：7140964208476371111
+     */
     private String employmentId;
 
-    // builder 开始
-    public WithdrawProbationReqBody() {
+    /**
+     * 试用期人员的雇佣
+     * ID，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：7140964208476371111
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public WithdrawProbationReqBody(Builder builder) {
-        /**
-         * 试用期人员的雇佣 ID
-         * <p> 示例值：7140964208476371111
-         */
-        this.employmentId = builder.employmentId;
+    public WithdrawProbationReqBody build() {
+      return new WithdrawProbationReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public static class Builder {
-        /**
-         * 试用期人员的雇佣 ID
-         * <p> 示例值：7140964208476371111
-         */
-        private String employmentId;
-
-        /**
-         * 试用期人员的雇佣 ID
-         * <p> 示例值：7140964208476371111
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        public WithdrawProbationReqBody build() {
-            return new WithdrawProbationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

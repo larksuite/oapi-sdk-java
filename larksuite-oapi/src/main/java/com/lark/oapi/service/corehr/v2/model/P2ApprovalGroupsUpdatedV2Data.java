@@ -13,160 +13,168 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ApprovalGroupsUpdatedV2Data {
-    /**
-     * 组织架构调整审批组 ID
-     * <p> 示例值：6991776076699549697
-     */
-    @SerializedName("approval_group_id")
-    private String approvalGroupId;
-    /**
-     * 组织架构调整流程 ID
-     * <p> 示例值：6991776076699549697
-     */
-    @SerializedName("process_id")
-    private String processId;
-    /**
-     * 组织架构调整流程状态
-     * <p> 示例值：1
-     */
-    @SerializedName("approval_group_status")
-    private Integer approvalGroupStatus;
-    /**
-     * 调整主题
-     * <p> 示例值：测试组织架构调整
-     */
-    @SerializedName("topic")
-    private String topic;
-    /**
-     * 调整原因
-     * <p> 示例值：测试
-     */
-    @SerializedName("adjust_reason")
-    private String adjustReason;
-    /**
-     * 生效日期
-     * <p> 示例值：2022-03-01
-     */
-    @SerializedName("effective_date")
-    private String effectiveDate;
-    /**
-     * 发起人
-     * <p> 示例值：6974641477444060708
-     */
-    @SerializedName("created_by")
-    private String createdBy;
-    /**
-     * 组织架构调整任务 ID
-     * <p> 示例值：6991776076699549697
-     */
-    @SerializedName("draft_id")
-    private String draftId;
-    /**
-     * 组织架构调整任务状态
-     * <p> 示例值：1
-     */
-    @SerializedName("draft_status")
-    private Integer draftStatus;
-    /**
-     * 组织架构调整流程状态V2
-     * <p> 示例值：1
-     */
-    @SerializedName("approval_group_status_v2")
-    private Integer approvalGroupStatusV2;
+  /**
+   * 组织架构调整审批组 ID
+   *
+   * <p>示例值：6991776076699549697
+   */
+  @SerializedName("approval_group_id")
+  private String approvalGroupId;
 
-    public String getApprovalGroupId() {
-        return this.approvalGroupId;
-    }
+  /**
+   * 组织架构调整流程 ID， 用户通过『飞书人事-我的团队-组织架构』或『飞书 人事-人员管理-组织架构』 发起一个组织架构调整，并提交审批后，系统会根据管理员在审批流程中配置的规则，生成
+   * 一个或多个审批单据。
+   *
+   * <p>示例值：6991776076699549697
+   */
+  @SerializedName("process_id")
+  private String processId;
 
-    public void setApprovalGroupId(String approvalGroupId) {
-        this.approvalGroupId = approvalGroupId;
-    }
+  /**
+   * 组织架构调整流程状态，枚举类型， 描述该审批单据的状态。;<md-alert type="tip"
+   * icon="none">;【不推荐使用，无法区分审批通过、执行失败和等待执行状态，推荐使用approval_group_status_v2】;</md-alert>
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("approval_group_status")
+  private Integer approvalGroupStatus;
 
-    public String getProcessId() {
-        return this.processId;
-    }
+  /**
+   * 调整主题， 用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更主题
+   *
+   * <p>示例值：测试组织架构调整
+   */
+  @SerializedName("topic")
+  private String topic;
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
+  /**
+   * 调整原因，用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更详细原因， 便于审批人批阅。
+   *
+   * <p>示例值：测试
+   */
+  @SerializedName("adjust_reason")
+  private String adjustReason;
 
-    public Integer getApprovalGroupStatus() {
-        return this.approvalGroupStatus;
-    }
+  /**
+   * 生效日期;- 日期格式：YYYY-MM-DD;- 最小值： 1900-01-01;- 最大值： 9999-12-31
+   *
+   * <p>示例值：2022-03-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
 
-    public void setApprovalGroupStatus(Integer approvalGroupStatus) {
-        this.approvalGroupStatus = approvalGroupStatus;
-    }
+  /**
+   * 发起人，在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更发起人。
+   *
+   * <p>示例值：6974641477444060708
+   */
+  @SerializedName("created_by")
+  private String createdBy;
 
-    public String getTopic() {
-        return this.topic;
-    }
+  /**
+   * 组织架构调整 ID，用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』 时生成的唯一 ID。
+   *
+   * <p>示例值：6991776076699549697
+   */
+  @SerializedName("draft_id")
+  private String draftId;
 
-    public void setTopic(String topic) {
-        this.topic = topic;
-    }
+  /**
+   * 整个组织架构调整状态，枚举类型，一个组织架构调整可能涉及多个审批流程。 该状态描述整个调整的审核状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("draft_status")
+  private Integer draftStatus;
 
-    public String getAdjustReason() {
-        return this.adjustReason;
-    }
+  /**
+   * 组织架构调整流程状态，枚举类型，描述该审批单据的状态。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("approval_group_status_v2")
+  private Integer approvalGroupStatusV2;
 
-    public void setAdjustReason(String adjustReason) {
-        this.adjustReason = adjustReason;
-    }
+  public String getApprovalGroupId() {
+    return this.approvalGroupId;
+  }
 
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
+  public void setApprovalGroupId(String approvalGroupId) {
+    this.approvalGroupId = approvalGroupId;
+  }
 
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
+  public String getProcessId() {
+    return this.processId;
+  }
 
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
+  public Integer getApprovalGroupStatus() {
+    return this.approvalGroupStatus;
+  }
 
-    public String getDraftId() {
-        return this.draftId;
-    }
+  public void setApprovalGroupStatus(Integer approvalGroupStatus) {
+    this.approvalGroupStatus = approvalGroupStatus;
+  }
 
-    public void setDraftId(String draftId) {
-        this.draftId = draftId;
-    }
+  public String getTopic() {
+    return this.topic;
+  }
 
-    public Integer getDraftStatus() {
-        return this.draftStatus;
-    }
+  public void setTopic(String topic) {
+    this.topic = topic;
+  }
 
-    public void setDraftStatus(Integer draftStatus) {
-        this.draftStatus = draftStatus;
-    }
+  public String getAdjustReason() {
+    return this.adjustReason;
+  }
 
-    public Integer getApprovalGroupStatusV2() {
-        return this.approvalGroupStatusV2;
-    }
+  public void setAdjustReason(String adjustReason) {
+    this.adjustReason = adjustReason;
+  }
 
-    public void setApprovalGroupStatusV2(Integer approvalGroupStatusV2) {
-        this.approvalGroupStatusV2 = approvalGroupStatusV2;
-    }
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
 
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public String getCreatedBy() {
+    return this.createdBy;
+  }
+
+  public void setCreatedBy(String createdBy) {
+    this.createdBy = createdBy;
+  }
+
+  public String getDraftId() {
+    return this.draftId;
+  }
+
+  public void setDraftId(String draftId) {
+    this.draftId = draftId;
+  }
+
+  public Integer getDraftStatus() {
+    return this.draftStatus;
+  }
+
+  public void setDraftStatus(Integer draftStatus) {
+    this.draftStatus = draftStatus;
+  }
+
+  public Integer getApprovalGroupStatusV2() {
+    return this.approvalGroupStatusV2;
+  }
+
+  public void setApprovalGroupStatusV2(Integer approvalGroupStatusV2) {
+    this.approvalGroupStatusV2 = approvalGroupStatusV2;
+  }
 }

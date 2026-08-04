@@ -13,76 +13,86 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchMinuteRespBody {
-    /**
-     * 妙记列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private MinutesSearchItem[] items;
-    /**
-     * 总数
-     * <p> 示例值：10
-     */
-    @SerializedName("total")
-    private Integer total;
-    /**
-     * 是否还有更多
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 翻页 token
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
+  /**
+   * 妙记列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private MinutesSearchItem[] items;
 
-    public MinutesSearchItem[] getItems() {
-        return this.items;
-    }
+  /**
+   * 总数
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("total")
+  private Integer total;
 
-    public void setItems(MinutesSearchItem[] items) {
-        this.items = items;
-    }
+  /**
+   * 是否还有更多
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public Integer getTotal() {
-        return this.total;
-    }
+  /**
+   * 翻页 token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
+  /**
+   * 搜索补充提示信息，返回本次搜索的额外说明，例如：query被截断；搜索结果不全等
+   *
+   * <p>示例值：The query is too long and has been truncated to the first 50 characters for search.
+   */
+  @SerializedName("notice")
+  private String notice;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public MinutesSearchItem[] getItems() {
+    return this.items;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setItems(MinutesSearchItem[] items) {
+    this.items = items;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public Integer getTotal() {
+    return this.total;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getNotice() {
+    return this.notice;
+  }
+
+  public void setNotice(String notice) {
+    this.notice = notice;
+  }
 }

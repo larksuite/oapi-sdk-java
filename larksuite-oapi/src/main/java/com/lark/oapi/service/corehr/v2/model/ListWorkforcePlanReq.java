@@ -13,309 +13,322 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class ListWorkforcePlanReq {
+  /**
+   * 查询数量
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("limit")
+  private Integer limit;
+
+  /**
+   * 跳过数量
+   *
+   * <p>示例值：0
+   */
+  @Query
+  @SerializedName("offset")
+  private Integer offset;
+
+  /**
+   * 是否获取所有编制规划方案，默认为 false。;- true 所有编制规划方案列表。;- false 为仅获取当前生效的编制规划方案。
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("get_all_plan")
+  private Boolean getAllPlan;
+
+  /**
+   * 是否只获取已启用的方案，默认为 true。;- true 获取已启用编制规划方案;- false 获取所有编制规划方案，
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 分页标识
+   *
+   * <p>示例值：34523459
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 每页数量
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 开始日期
+   *
+   * <p>示例值：2026-01-01
+   */
+  @Query
+  @SerializedName("start_date")
+  private String startDate;
+
+  /**
+   * 结束日期
+   *
+   * <p>示例值：2026-12-31
+   */
+  @Query
+  @SerializedName("end_date")
+  private String endDate;
+
+  public Integer getLimit() {
+    return this.limit;
+  }
+
+  public void setLimit(Integer limit) {
+    this.limit = limit;
+  }
+
+  public Integer getOffset() {
+    return this.offset;
+  }
+
+  public void setOffset(Integer offset) {
+    this.offset = offset;
+  }
+
+  public Boolean getGetAllPlan() {
+    return this.getAllPlan;
+  }
+
+  public void setGetAllPlan(Boolean getAllPlan) {
+    this.getAllPlan = getAllPlan;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getStartDate() {
+    return this.startDate;
+  }
+
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+  public String getEndDate() {
+    return this.endDate;
+  }
+
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
+  }
+
+  // builder 开始
+  public ListWorkforcePlanReq() {}
+
+  public ListWorkforcePlanReq(Builder builder) {
     /**
      * 查询数量
-     * <p> 示例值：1
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("limit")
-    private Integer limit;
+    this.limit = builder.limit;
     /**
      * 跳过数量
-     * <p> 示例值：1
+     *
+     * <p>示例值：0
      */
-    @Query
-    @SerializedName("offset")
-    private Integer offset;
+    this.offset = builder.offset;
     /**
-     * 是否获取所有编制规划方案，true 所有编制规划方案列表，false 为仅获取当前生效的编制规划方案，默认为 false示例值：false
-     * <p> 示例值：
+     * 是否获取所有编制规划方案，默认为 false。;- true 所有编制规划方案列表。;- false 为仅获取当前生效的编制规划方案。
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("get_all_plan")
-    private Boolean getAllPlan;
+    this.getAllPlan = builder.getAllPlan;
     /**
-     * 是否只获取已启用的方案，true 获取已启用编制规划方案，false 获取所有编制规划方案，默认为 true示例值：true
-     * <p> 示例值：
+     * 是否只获取已启用的方案，默认为 true。;- true 获取已启用编制规划方案;- false 获取所有编制规划方案，
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
      * 分页标识
-     * <p> 示例值：34523459
+     *
+     * <p>示例值：34523459
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 每页数量
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 开始日期
-     * <p> 示例值：2026-01-01
+     *
+     * <p>示例值：2026-01-01
      */
-    @Query
-    @SerializedName("start_date")
-    private String startDate;
+    this.startDate = builder.startDate;
     /**
      * 结束日期
-     * <p> 示例值：2026-12-31
+     *
+     * <p>示例值：2026-12-31
      */
-    @Query
-    @SerializedName("end_date")
-    private String endDate;
+    this.endDate = builder.endDate;
+  }
 
-    // builder 开始
-    public ListWorkforcePlanReq() {
+  public static class Builder {
+    private Integer limit; // 查询数量
+    private Integer offset; // 跳过数量
+    private Boolean
+        getAllPlan; // 是否获取所有编制规划方案，默认为 false。;- true 所有编制规划方案列表。;- false 为仅获取当前生效的编制规划方案。
+    private Boolean active; // 是否只获取已启用的方案，默认为 true。;- true 获取已启用编制规划方案;- false 获取所有编制规划方案，
+    private String pageToken; // 分页标识
+    private Integer pageSize; // 每页数量
+    private String startDate; // 开始日期
+    private String endDate; // 结束日期
+
+    /**
+     * 查询数量
+     *
+     * <p>示例值：10
+     *
+     * @param limit
+     * @return
+     */
+    public Builder limit(Integer limit) {
+      this.limit = limit;
+      return this;
     }
 
-    public ListWorkforcePlanReq(Builder builder) {
-        /**
-         * 查询数量
-         * <p> 示例值：1
-         */
-        this.limit = builder.limit;
-        /**
-         * 跳过数量
-         * <p> 示例值：1
-         */
-        this.offset = builder.offset;
-        /**
-         * 是否获取所有编制规划方案，true 所有编制规划方案列表，false 为仅获取当前生效的编制规划方案，默认为 false示例值：false
-         * <p> 示例值：
-         */
-        this.getAllPlan = builder.getAllPlan;
-        /**
-         * 是否只获取已启用的方案，true 获取已启用编制规划方案，false 获取所有编制规划方案，默认为 true示例值：true
-         * <p> 示例值：
-         */
-        this.active = builder.active;
-        /**
-         * 分页标识
-         * <p> 示例值：34523459
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页数量
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 开始日期
-         * <p> 示例值：2026-01-01
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 结束日期
-         * <p> 示例值：2026-12-31
-         */
-        this.endDate = builder.endDate;
+    /**
+     * 跳过数量
+     *
+     * <p>示例值：0
+     *
+     * @param offset
+     * @return
+     */
+    public Builder offset(Integer offset) {
+      this.offset = offset;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否获取所有编制规划方案，默认为 false。;- true 所有编制规划方案列表。;- false 为仅获取当前生效的编制规划方案。
+     *
+     * <p>示例值：
+     *
+     * @param getAllPlan
+     * @return
+     */
+    public Builder getAllPlan(Boolean getAllPlan) {
+      this.getAllPlan = getAllPlan;
+      return this;
     }
 
-    public Integer getLimit() {
-        return this.limit;
+    /**
+     * 是否只获取已启用的方案，默认为 true。;- true 获取已启用编制规划方案;- false 获取所有编制规划方案，
+     *
+     * <p>示例值：
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public void setLimit(Integer limit) {
-        this.limit = limit;
+    /**
+     * 分页标识
+     *
+     * <p>示例值：34523459
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public Integer getOffset() {
-        return this.offset;
+    /**
+     * 每页数量
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public void setOffset(Integer offset) {
-        this.offset = offset;
+    /**
+     * 开始日期
+     *
+     * <p>示例值：2026-01-01
+     *
+     * @param startDate
+     * @return
+     */
+    public Builder startDate(String startDate) {
+      this.startDate = startDate;
+      return this;
     }
 
-    public Boolean getGetAllPlan() {
-        return this.getAllPlan;
+    /**
+     * 结束日期
+     *
+     * <p>示例值：2026-12-31
+     *
+     * @param endDate
+     * @return
+     */
+    public Builder endDate(String endDate) {
+      this.endDate = endDate;
+      return this;
     }
 
-    public void setGetAllPlan(Boolean getAllPlan) {
-        this.getAllPlan = getAllPlan;
+    public ListWorkforcePlanReq build() {
+      return new ListWorkforcePlanReq(this);
     }
+  }
 
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getStartDate() {
-        return this.startDate;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getEndDate() {
-        return this.endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
-    public static class Builder {
-        private Integer limit; // 查询数量
-        private Integer offset; // 跳过数量
-        private Boolean getAllPlan; // 是否获取所有编制规划方案，true 所有编制规划方案列表，false 为仅获取当前生效的编制规划方案，默认为 false示例值：false
-        private Boolean active; // 是否只获取已启用的方案，true 获取已启用编制规划方案，false 获取所有编制规划方案，默认为 true示例值：true
-        private String pageToken; // 分页标识
-        private Integer pageSize; // 每页数量
-        private String startDate; // 开始日期
-        private String endDate; // 结束日期
-
-        /**
-         * 查询数量
-         * <p> 示例值：1
-         *
-         * @param limit
-         * @return
-         */
-        public Builder limit(Integer limit) {
-            this.limit = limit;
-            return this;
-        }
-
-
-        /**
-         * 跳过数量
-         * <p> 示例值：1
-         *
-         * @param offset
-         * @return
-         */
-        public Builder offset(Integer offset) {
-            this.offset = offset;
-            return this;
-        }
-
-
-        /**
-         * 是否获取所有编制规划方案，true 所有编制规划方案列表，false 为仅获取当前生效的编制规划方案，默认为 false示例值：false
-         * <p> 示例值：
-         *
-         * @param getAllPlan
-         * @return
-         */
-        public Builder getAllPlan(Boolean getAllPlan) {
-            this.getAllPlan = getAllPlan;
-            return this;
-        }
-
-
-        /**
-         * 是否只获取已启用的方案，true 获取已启用编制规划方案，false 获取所有编制规划方案，默认为 true示例值：true
-         * <p> 示例值：
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 分页标识
-         * <p> 示例值：34523459
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 每页数量
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 开始日期
-         * <p> 示例值：2026-01-01
-         *
-         * @param startDate
-         * @return
-         */
-        public Builder startDate(String startDate) {
-            this.startDate = startDate;
-            return this;
-        }
-
-
-        /**
-         * 结束日期
-         * <p> 示例值：2026-12-31
-         *
-         * @param endDate
-         * @return
-         */
-        public Builder endDate(String endDate) {
-            this.endDate = endDate;
-            return this;
-        }
-
-
-        public ListWorkforcePlanReq build() {
-            return new ListWorkforcePlanReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

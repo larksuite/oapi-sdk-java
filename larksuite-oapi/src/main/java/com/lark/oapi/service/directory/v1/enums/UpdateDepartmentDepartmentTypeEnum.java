@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 部门类型
- */
+/** 部门类型 */
 public enum UpdateDepartmentDepartmentTypeEnum {
-    DEPARTMENT_TYPE_DIRECTORY_DEPARTMENT(0), // 部门
-    DEPARTMENT_TYPE_DIRECTORY_DIVISION(1), // 学校系
-    DEPARTMENT_TYPE_DIRECTORY_TEAM(2), // 项目、小组
-    ;
-    private Integer value;
+  DEPARTMENT_TYPE_DIRECTORY_DEPARTMENT(0), // 部门
+  DEPARTMENT_TYPE_DIRECTORY_DIVISION(1), // 学校系
+  DEPARTMENT_TYPE_DIRECTORY_TEAM(2), // 项目、小组
+  ;
+  private Integer value;
 
-    UpdateDepartmentDepartmentTypeEnum(Integer value) {
-        this.value = value;
-    }
+  UpdateDepartmentDepartmentTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

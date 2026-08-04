@@ -13,149 +13,161 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateRuleCustomOrgReqBody {
+  /**
+   * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+   *
+   * <p>示例值：custom_org_01
+   */
+  @SerializedName("object_api_name")
+  private String objectApiName;
+
+  /**
+   * 自定义组织 ID;- 可从
+   * [批量查询自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)的
+   * org_id 字段中获取。
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("org_id")
+  private String orgId;
+
+  /**
+   * 自动匹配的规则组。;- 需要在「飞书人事-设置-组织设置」中打开对应组织类型的自动匹配开关后，才可以使用匹配规则组字段。;- 各个==match_rule_groups==之间是并集关系;-
+   * 各个==match_rules==之间是交集关系
+   *
+   * <p>示例值：
+   */
+  @SerializedName("match_rule_groups")
+  private MatchRules[] matchRuleGroups;
+
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
+
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
+
+  public String getOrgId() {
+    return this.orgId;
+  }
+
+  public void setOrgId(String orgId) {
+    this.orgId = orgId;
+  }
+
+  public MatchRules[] getMatchRuleGroups() {
+    return this.matchRuleGroups;
+  }
+
+  public void setMatchRuleGroups(MatchRules[] matchRuleGroups) {
+    this.matchRuleGroups = matchRuleGroups;
+  }
+
+  // builder 开始
+  public UpdateRuleCustomOrgReqBody() {}
+
+  public UpdateRuleCustomOrgReqBody(Builder builder) {
     /**
-     * 组织类型编码
-     * <p> 示例值：apiname__c
+     * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+     *
+     * <p>示例值：custom_org_01
      */
-    @SerializedName("object_api_name")
+    this.objectApiName = builder.objectApiName;
+    /**
+     * 自定义组织 ID;- 可从
+     * [批量查询自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)的
+     * org_id 字段中获取。
+     *
+     * <p>示例值：6862995757234914824
+     */
+    this.orgId = builder.orgId;
+    /**
+     * 自动匹配的规则组。;- 需要在「飞书人事-设置-组织设置」中打开对应组织类型的自动匹配开关后，才可以使用匹配规则组字段。;-
+     * 各个==match_rule_groups==之间是并集关系;- 各个==match_rules==之间是交集关系
+     *
+     * <p>示例值：
+     */
+    this.matchRuleGroups = builder.matchRuleGroups;
+  }
+
+  public static class Builder {
+    /**
+     * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+     *
+     * <p>示例值：custom_org_01
+     */
     private String objectApiName;
+
     /**
-     * 组织ID
-     * <p> 示例值：6862995757234914824
+     * 自定义组织 ID;- 可从
+     * [批量查询自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)的
+     * org_id 字段中获取。
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("org_id")
     private String orgId;
+
     /**
-     * 匹配规则组，组间并集
-     * <p> 示例值：
+     * 自动匹配的规则组。;- 需要在「飞书人事-设置-组织设置」中打开对应组织类型的自动匹配开关后，才可以使用匹配规则组字段。;-
+     * 各个==match_rule_groups==之间是并集关系;- 各个==match_rules==之间是交集关系
+     *
+     * <p>示例值：
      */
-    @SerializedName("match_rule_groups")
     private MatchRules[] matchRuleGroups;
 
-    // builder 开始
-    public UpdateRuleCustomOrgReqBody() {
+    /**
+     * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+     *
+     * <p>示例值：custom_org_01
+     *
+     * @param objectApiName
+     * @return
+     */
+    public Builder objectApiName(String objectApiName) {
+      this.objectApiName = objectApiName;
+      return this;
     }
 
-    public UpdateRuleCustomOrgReqBody(Builder builder) {
-        /**
-         * 组织类型编码
-         * <p> 示例值：apiname__c
-         */
-        this.objectApiName = builder.objectApiName;
-        /**
-         * 组织ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.orgId = builder.orgId;
-        /**
-         * 匹配规则组，组间并集
-         * <p> 示例值：
-         */
-        this.matchRuleGroups = builder.matchRuleGroups;
+    /**
+     * 自定义组织 ID;- 可从
+     * [批量查询自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)的
+     * org_id 字段中获取。
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param orgId
+     * @return
+     */
+    public Builder orgId(String orgId) {
+      this.orgId = orgId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自动匹配的规则组。;- 需要在「飞书人事-设置-组织设置」中打开对应组织类型的自动匹配开关后，才可以使用匹配规则组字段。;-
+     * 各个==match_rule_groups==之间是并集关系;- 各个==match_rules==之间是交集关系
+     *
+     * <p>示例值：
+     *
+     * @param matchRuleGroups
+     * @return
+     */
+    public Builder matchRuleGroups(MatchRules[] matchRuleGroups) {
+      this.matchRuleGroups = matchRuleGroups;
+      return this;
     }
 
-    public String getObjectApiName() {
-        return this.objectApiName;
+    public UpdateRuleCustomOrgReqBody build() {
+      return new UpdateRuleCustomOrgReqBody(this);
     }
+  }
 
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
-    }
-
-    public String getOrgId() {
-        return this.orgId;
-    }
-
-    public void setOrgId(String orgId) {
-        this.orgId = orgId;
-    }
-
-    public MatchRules[] getMatchRuleGroups() {
-        return this.matchRuleGroups;
-    }
-
-    public void setMatchRuleGroups(MatchRules[] matchRuleGroups) {
-        this.matchRuleGroups = matchRuleGroups;
-    }
-
-    public static class Builder {
-        /**
-         * 组织类型编码
-         * <p> 示例值：apiname__c
-         */
-        private String objectApiName;
-        /**
-         * 组织ID
-         * <p> 示例值：6862995757234914824
-         */
-        private String orgId;
-        /**
-         * 匹配规则组，组间并集
-         * <p> 示例值：
-         */
-        private MatchRules[] matchRuleGroups;
-
-        /**
-         * 组织类型编码
-         * <p> 示例值：apiname__c
-         *
-         * @param objectApiName
-         * @return
-         */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
-
-
-        /**
-         * 组织ID
-         * <p> 示例值：6862995757234914824
-         *
-         * @param orgId
-         * @return
-         */
-        public Builder orgId(String orgId) {
-            this.orgId = orgId;
-            return this;
-        }
-
-
-        /**
-         * 匹配规则组，组间并集
-         * <p> 示例值：
-         *
-         * @param matchRuleGroups
-         * @return
-         */
-        public Builder matchRuleGroups(MatchRules[] matchRuleGroups) {
-            this.matchRuleGroups = matchRuleGroups;
-            return this;
-        }
-
-
-        public UpdateRuleCustomOrgReqBody build() {
-            return new UpdateRuleCustomOrgReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

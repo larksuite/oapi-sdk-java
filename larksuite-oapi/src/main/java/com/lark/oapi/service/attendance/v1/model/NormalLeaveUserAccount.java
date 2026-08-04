@@ -13,272 +13,290 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class NormalLeaveUserAccount {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：ou_089242a65fc7768d2f872567b462aXXX
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 假期ID
+   *
+   * <p>示例值：7476427589584551XXX
+   */
+  @SerializedName("leave_type_id")
+  private String leaveTypeId;
+
+  /**
+   * 数量(保留两位小数)
+   *
+   * <p>示例值：1.53
+   */
+  @SerializedName("quota")
+  private String quota;
+
+  /**
+   * 单位
+   *
+   * <p>示例值：day
+   */
+  @SerializedName("unit")
+  private String unit;
+
+  /**
+   * 子类型账户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_type_accounts")
+  private UserSubTypeAccount[] subTypeAccounts;
+
+  /**
+   * 假期余额详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("balances")
+  private NormalLeaveBalance[] balances;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getLeaveTypeId() {
+    return this.leaveTypeId;
+  }
+
+  public void setLeaveTypeId(String leaveTypeId) {
+    this.leaveTypeId = leaveTypeId;
+  }
+
+  public String getQuota() {
+    return this.quota;
+  }
+
+  public void setQuota(String quota) {
+    this.quota = quota;
+  }
+
+  public String getUnit() {
+    return this.unit;
+  }
+
+  public void setUnit(String unit) {
+    this.unit = unit;
+  }
+
+  public UserSubTypeAccount[] getSubTypeAccounts() {
+    return this.subTypeAccounts;
+  }
+
+  public void setSubTypeAccounts(UserSubTypeAccount[] subTypeAccounts) {
+    this.subTypeAccounts = subTypeAccounts;
+  }
+
+  public NormalLeaveBalance[] getBalances() {
+    return this.balances;
+  }
+
+  public void setBalances(NormalLeaveBalance[] balances) {
+    this.balances = balances;
+  }
+
+  // builder 开始
+  public NormalLeaveUserAccount() {}
+
+  public NormalLeaveUserAccount(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：
+     *
+     * <p>示例值：ou_089242a65fc7768d2f872567b462aXXX
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 假期ID
-     * <p> 示例值：7476427589584551938
+     *
+     * <p>示例值：7476427589584551XXX
      */
-    @SerializedName("leave_type_id")
-    private String leaveTypeId;
+    this.leaveTypeId = builder.leaveTypeId;
     /**
      * 数量(保留两位小数)
-     * <p> 示例值：1.53
+     *
+     * <p>示例值：1.53
      */
-    @SerializedName("quota")
-    private String quota;
+    this.quota = builder.quota;
     /**
      * 单位
-     * <p> 示例值：day
+     *
+     * <p>示例值：day
      */
-    @SerializedName("unit")
-    private String unit;
+    this.unit = builder.unit;
     /**
      * 子类型账户
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_type_accounts")
-    private UserSubTypeAccount[] subTypeAccounts;
+    this.subTypeAccounts = builder.subTypeAccounts;
     /**
      * 假期余额详情
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("balances")
+    this.balances = builder.balances;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：ou_089242a65fc7768d2f872567b462aXXX
+     */
+    private String userId;
+
+    /**
+     * 假期ID
+     *
+     * <p>示例值：7476427589584551XXX
+     */
+    private String leaveTypeId;
+
+    /**
+     * 数量(保留两位小数)
+     *
+     * <p>示例值：1.53
+     */
+    private String quota;
+
+    /**
+     * 单位
+     *
+     * <p>示例值：day
+     */
+    private String unit;
+
+    /**
+     * 子类型账户
+     *
+     * <p>示例值：
+     */
+    private UserSubTypeAccount[] subTypeAccounts;
+
+    /**
+     * 假期余额详情
+     *
+     * <p>示例值：
+     */
     private NormalLeaveBalance[] balances;
 
-    // builder 开始
-    public NormalLeaveUserAccount() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：ou_089242a65fc7768d2f872567b462aXXX
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public NormalLeaveUserAccount(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 假期ID
-         * <p> 示例值：7476427589584551938
-         */
-        this.leaveTypeId = builder.leaveTypeId;
-        /**
-         * 数量(保留两位小数)
-         * <p> 示例值：1.53
-         */
-        this.quota = builder.quota;
-        /**
-         * 单位
-         * <p> 示例值：day
-         */
-        this.unit = builder.unit;
-        /**
-         * 子类型账户
-         * <p> 示例值：
-         */
-        this.subTypeAccounts = builder.subTypeAccounts;
-        /**
-         * 假期余额详情
-         * <p> 示例值：
-         */
-        this.balances = builder.balances;
+    /**
+     * 假期ID
+     *
+     * <p>示例值：7476427589584551XXX
+     *
+     * @param leaveTypeId
+     * @return
+     */
+    public Builder leaveTypeId(String leaveTypeId) {
+      this.leaveTypeId = leaveTypeId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数量(保留两位小数)
+     *
+     * <p>示例值：1.53
+     *
+     * @param quota
+     * @return
+     */
+    public Builder quota(String quota) {
+      this.quota = quota;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 单位
+     *
+     * <p>示例值：day
+     *
+     * @param unit
+     * @return
+     */
+    public Builder unit(String unit) {
+      this.unit = unit;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 单位
+     *
+     * <p>示例值：day
+     *
+     * @param unit {@link
+     *     com.lark.oapi.service.attendance.v1.enums.NormalLeaveUserAccountLeaveBalanceUnitEnum}
+     * @return
+     */
+    public Builder unit(
+        com.lark.oapi.service.attendance.v1.enums.NormalLeaveUserAccountLeaveBalanceUnitEnum unit) {
+      this.unit = unit.getValue();
+      return this;
     }
 
-    public String getLeaveTypeId() {
-        return this.leaveTypeId;
+    /**
+     * 子类型账户
+     *
+     * <p>示例值：
+     *
+     * @param subTypeAccounts
+     * @return
+     */
+    public Builder subTypeAccounts(UserSubTypeAccount[] subTypeAccounts) {
+      this.subTypeAccounts = subTypeAccounts;
+      return this;
     }
 
-    public void setLeaveTypeId(String leaveTypeId) {
-        this.leaveTypeId = leaveTypeId;
+    /**
+     * 假期余额详情
+     *
+     * <p>示例值：
+     *
+     * @param balances
+     * @return
+     */
+    public Builder balances(NormalLeaveBalance[] balances) {
+      this.balances = balances;
+      return this;
     }
 
-    public String getQuota() {
-        return this.quota;
+    public NormalLeaveUserAccount build() {
+      return new NormalLeaveUserAccount(this);
     }
+  }
 
-    public void setQuota(String quota) {
-        this.quota = quota;
-    }
-
-    public String getUnit() {
-        return this.unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
-    public UserSubTypeAccount[] getSubTypeAccounts() {
-        return this.subTypeAccounts;
-    }
-
-    public void setSubTypeAccounts(UserSubTypeAccount[] subTypeAccounts) {
-        this.subTypeAccounts = subTypeAccounts;
-    }
-
-    public NormalLeaveBalance[] getBalances() {
-        return this.balances;
-    }
-
-    public void setBalances(NormalLeaveBalance[] balances) {
-        this.balances = balances;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 假期ID
-         * <p> 示例值：7476427589584551938
-         */
-        private String leaveTypeId;
-        /**
-         * 数量(保留两位小数)
-         * <p> 示例值：1.53
-         */
-        private String quota;
-        /**
-         * 单位
-         * <p> 示例值：day
-         */
-        private String unit;
-        /**
-         * 子类型账户
-         * <p> 示例值：
-         */
-        private UserSubTypeAccount[] subTypeAccounts;
-        /**
-         * 假期余额详情
-         * <p> 示例值：
-         */
-        private NormalLeaveBalance[] balances;
-
-        /**
-         * 用户ID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 假期ID
-         * <p> 示例值：7476427589584551938
-         *
-         * @param leaveTypeId
-         * @return
-         */
-        public Builder leaveTypeId(String leaveTypeId) {
-            this.leaveTypeId = leaveTypeId;
-            return this;
-        }
-
-
-        /**
-         * 数量(保留两位小数)
-         * <p> 示例值：1.53
-         *
-         * @param quota
-         * @return
-         */
-        public Builder quota(String quota) {
-            this.quota = quota;
-            return this;
-        }
-
-
-        /**
-         * 单位
-         * <p> 示例值：day
-         *
-         * @param unit
-         * @return
-         */
-        public Builder unit(String unit) {
-            this.unit = unit;
-            return this;
-        }
-
-        /**
-         * 单位
-         * <p> 示例值：day
-         *
-         * @param unit {@link com.lark.oapi.service.attendance.v1.enums.NormalLeaveUserAccountLeaveBalanceUnitEnum}
-         * @return
-         */
-        public Builder unit(com.lark.oapi.service.attendance.v1.enums.NormalLeaveUserAccountLeaveBalanceUnitEnum unit) {
-            this.unit = unit.getValue();
-            return this;
-        }
-
-
-        /**
-         * 子类型账户
-         * <p> 示例值：
-         *
-         * @param subTypeAccounts
-         * @return
-         */
-        public Builder subTypeAccounts(UserSubTypeAccount[] subTypeAccounts) {
-            this.subTypeAccounts = subTypeAccounts;
-            return this;
-        }
-
-
-        /**
-         * 假期余额详情
-         * <p> 示例值：
-         *
-         * @param balances
-         * @return
-         */
-        public Builder balances(NormalLeaveBalance[] balances) {
-            this.balances = balances;
-            return this;
-        }
-
-
-        public NormalLeaveUserAccount build() {
-            return new NormalLeaveUserAccount(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.application.v6.enums;
 
-/**
- * 通讯录可见性类型
- */
+/** 通讯录可见性类型 */
 public enum ApplicationAppContactsRangeContactsScopeTypeEnum {
-    EQUAL_TO_AVAILABILITY("equal_to_availability"), // 与应用可用范围一致
-    SOME("some"), // 部分成员
-    ALL("all"), // 全部成员
-    ;
-    private String value;
+  EQUAL_TO_AVAILABILITY("equal_to_availability"), // 与应用可用范围一致
+  SOME("some"), // 部分成员
+  ALL("all"), // 全部成员
+  ;
+  private String value;
 
-    ApplicationAppContactsRangeContactsScopeTypeEnum(String value) {
-        this.value = value;
-    }
+  ApplicationAppContactsRangeContactsScopeTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

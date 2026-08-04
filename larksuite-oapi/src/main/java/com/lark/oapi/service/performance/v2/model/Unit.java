@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Unit {
+  /**
+   * 评估内容 ID
+   *
+   * <p>示例值：7343513161666723843
+   */
+  @SerializedName("unit_id")
+  private String unitId;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private Field[] fields;
+
+  public String getUnitId() {
+    return this.unitId;
+  }
+
+  public void setUnitId(String unitId) {
+    this.unitId = unitId;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public Field[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(Field[] fields) {
+    this.fields = fields;
+  }
+
+  // builder 开始
+  public Unit() {}
+
+  public Unit(Builder builder) {
     /**
      * 评估内容 ID
-     * <p> 示例值：7343513161666723843
+     *
+     * <p>示例值：7343513161666723843
      */
-    @SerializedName("unit_id")
-    private String unitId;
+    this.unitId = builder.unitId;
     /**
-     * 评估内容名称
-     * <p> 示例值：
+     * 项目名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
+    this.fields = builder.fields;
+  }
+
+  public static class Builder {
+    /**
+     * 评估内容 ID
+     *
+     * <p>示例值：7343513161666723843
+     */
+    private String unitId;
+
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
+     *
+     * <p>示例值：
+     */
     private Field[] fields;
 
-    // builder 开始
-    public Unit() {
+    /**
+     * 评估内容 ID
+     *
+     * <p>示例值：7343513161666723843
+     *
+     * @param unitId
+     * @return
+     */
+    public Builder unitId(String unitId) {
+      this.unitId = unitId;
+      return this;
     }
 
-    public Unit(Builder builder) {
-        /**
-         * 评估内容 ID
-         * <p> 示例值：7343513161666723843
-         */
-        this.unitId = builder.unitId;
-        /**
-         * 评估内容名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(Field[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public String getUnitId() {
-        return this.unitId;
+    public Unit build() {
+      return new Unit(this);
     }
+  }
 
-    public void setUnitId(String unitId) {
-        this.unitId = unitId;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public Field[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(Field[] fields) {
-        this.fields = fields;
-    }
-
-    public static class Builder {
-        /**
-         * 评估内容 ID
-         * <p> 示例值：7343513161666723843
-         */
-        private String unitId;
-        /**
-         * 评估内容名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
-         * <p> 示例值：
-         */
-        private Field[] fields;
-
-        /**
-         * 评估内容 ID
-         * <p> 示例值：7343513161666723843
-         *
-         * @param unitId
-         * @return
-         */
-        public Builder unitId(String unitId) {
-            this.unitId = unitId;
-            return this;
-        }
-
-
-        /**
-         * 评估内容名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 评估题列表，指评估内容中的每个题，可能是评估项或者填写项
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(Field[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        public Unit build() {
-            return new Unit(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

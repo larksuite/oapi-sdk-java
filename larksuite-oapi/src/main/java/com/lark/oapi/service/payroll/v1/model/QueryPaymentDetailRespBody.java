@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryPaymentDetailRespBody {
-    /**
-     * 发薪明细列表
-     * <p> 示例值：
-     */
-    @SerializedName("payment_details")
-    private PaymentDetail[] paymentDetails;
-    /**
-     * 发薪明细总数
-     * <p> 示例值：50000
-     */
-    @SerializedName("total")
-    private Integer total;
+  /**
+   * 发薪明细列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("payment_details")
+  private PaymentDetail[] paymentDetails;
 
-    public PaymentDetail[] getPaymentDetails() {
-        return this.paymentDetails;
-    }
+  /**
+   * 发薪明细总数
+   *
+   * <p>示例值：50000
+   */
+  @SerializedName("total")
+  private Integer total;
 
-    public void setPaymentDetails(PaymentDetail[] paymentDetails) {
-        this.paymentDetails = paymentDetails;
-    }
+  public PaymentDetail[] getPaymentDetails() {
+    return this.paymentDetails;
+  }
 
-    public Integer getTotal() {
-        return this.total;
-    }
+  public void setPaymentDetails(PaymentDetail[] paymentDetails) {
+    this.paymentDetails = paymentDetails;
+  }
 
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
+  public Integer getTotal() {
+    return this.total;
+  }
 
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
 }

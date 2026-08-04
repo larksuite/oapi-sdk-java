@@ -13,198 +13,204 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QuotaConfig {
+  /**
+   * 配额归属实体ID，租户/用户/部门三选一，具体含义由所在字段区分（TenantQuota/UserQuota/DepartmentQuota）。最大可能为int64，需要自己转换为数字
+   *
+   * <p>示例值：7123456789012345678
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 配额上限，单位byte，最大可能为int64，需要自己转换为数字
+   *
+   * <p>示例值：10737418240
+   */
+  @SerializedName("limit")
+  private String limit;
+
+  /**
+   * 已使用容量，单位byte，最大可能为int64，需要自己转换为数字
+   *
+   * <p>示例值：2345678
+   */
+  @SerializedName("usage")
+  private String usage;
+
+  /**
+   * 配额作用范围
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getLimit() {
+    return this.limit;
+  }
+
+  public void setLimit(String limit) {
+    this.limit = limit;
+  }
+
+  public String getUsage() {
+    return this.usage;
+  }
+
+  public void setUsage(String usage) {
+    this.usage = usage;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public QuotaConfig() {}
+
+  public QuotaConfig(Builder builder) {
     /**
      * 配额归属实体ID，租户/用户/部门三选一，具体含义由所在字段区分（TenantQuota/UserQuota/DepartmentQuota）。最大可能为int64，需要自己转换为数字
-     * <p> 示例值：7123456789012345678
+     *
+     * <p>示例值：7123456789012345678
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 配额上限，单位byte，最大可能为int64，需要自己转换为数字
-     * <p> 示例值：10737418240
+     *
+     * <p>示例值：10737418240
      */
-    @SerializedName("limit")
-    private String limit;
+    this.limit = builder.limit;
     /**
      * 已使用容量，单位byte，最大可能为int64，需要自己转换为数字
-     * <p> 示例值：2345678
+     *
+     * <p>示例值：2345678
      */
-    @SerializedName("usage")
-    private String usage;
+    this.usage = builder.usage;
     /**
      * 配额作用范围
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 配额归属实体ID，租户/用户/部门三选一，具体含义由所在字段区分（TenantQuota/UserQuota/DepartmentQuota）。最大可能为int64，需要自己转换为数字
+     *
+     * <p>示例值：7123456789012345678
+     */
+    private String id;
+
+    /**
+     * 配额上限，单位byte，最大可能为int64，需要自己转换为数字
+     *
+     * <p>示例值：10737418240
+     */
+    private String limit;
+
+    /**
+     * 已使用容量，单位byte，最大可能为int64，需要自己转换为数字
+     *
+     * <p>示例值：2345678
+     */
+    private String usage;
+
+    /**
+     * 配额作用范围
+     *
+     * <p>示例值：1
+     */
     private Integer type;
 
-    // builder 开始
-    public QuotaConfig() {
+    /**
+     * 配额归属实体ID，租户/用户/部门三选一，具体含义由所在字段区分（TenantQuota/UserQuota/DepartmentQuota）。最大可能为int64，需要自己转换为数字
+     *
+     * <p>示例值：7123456789012345678
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public QuotaConfig(Builder builder) {
-        /**
-         * 配额归属实体ID，租户/用户/部门三选一，具体含义由所在字段区分（TenantQuota/UserQuota/DepartmentQuota）。最大可能为int64，需要自己转换为数字
-         * <p> 示例值：7123456789012345678
-         */
-        this.id = builder.id;
-        /**
-         * 配额上限，单位byte，最大可能为int64，需要自己转换为数字
-         * <p> 示例值：10737418240
-         */
-        this.limit = builder.limit;
-        /**
-         * 已使用容量，单位byte，最大可能为int64，需要自己转换为数字
-         * <p> 示例值：2345678
-         */
-        this.usage = builder.usage;
-        /**
-         * 配额作用范围
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
+    /**
+     * 配额上限，单位byte，最大可能为int64，需要自己转换为数字
+     *
+     * <p>示例值：10737418240
+     *
+     * @param limit
+     * @return
+     */
+    public Builder limit(String limit) {
+      this.limit = limit;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 已使用容量，单位byte，最大可能为int64，需要自己转换为数字
+     *
+     * <p>示例值：2345678
+     *
+     * @param usage
+     * @return
+     */
+    public Builder usage(String usage) {
+      this.usage = usage;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 配额作用范围
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 配额作用范围
+     *
+     * <p>示例值：1
+     *
+     * @param type {@link com.lark.oapi.service.drive.v2.enums.QuotaConfigTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.drive.v2.enums.QuotaConfigTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public String getLimit() {
-        return this.limit;
+    public QuotaConfig build() {
+      return new QuotaConfig(this);
     }
+  }
 
-    public void setLimit(String limit) {
-        this.limit = limit;
-    }
-
-    public String getUsage() {
-        return this.usage;
-    }
-
-    public void setUsage(String usage) {
-        this.usage = usage;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 配额归属实体ID，租户/用户/部门三选一，具体含义由所在字段区分（TenantQuota/UserQuota/DepartmentQuota）。最大可能为int64，需要自己转换为数字
-         * <p> 示例值：7123456789012345678
-         */
-        private String id;
-        /**
-         * 配额上限，单位byte，最大可能为int64，需要自己转换为数字
-         * <p> 示例值：10737418240
-         */
-        private String limit;
-        /**
-         * 已使用容量，单位byte，最大可能为int64，需要自己转换为数字
-         * <p> 示例值：2345678
-         */
-        private String usage;
-        /**
-         * 配额作用范围
-         * <p> 示例值：1
-         */
-        private Integer type;
-
-        /**
-         * 配额归属实体ID，租户/用户/部门三选一，具体含义由所在字段区分（TenantQuota/UserQuota/DepartmentQuota）。最大可能为int64，需要自己转换为数字
-         * <p> 示例值：7123456789012345678
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 配额上限，单位byte，最大可能为int64，需要自己转换为数字
-         * <p> 示例值：10737418240
-         *
-         * @param limit
-         * @return
-         */
-        public Builder limit(String limit) {
-            this.limit = limit;
-            return this;
-        }
-
-
-        /**
-         * 已使用容量，单位byte，最大可能为int64，需要自己转换为数字
-         * <p> 示例值：2345678
-         *
-         * @param usage
-         * @return
-         */
-        public Builder usage(String usage) {
-            this.usage = usage;
-            return this;
-        }
-
-
-        /**
-         * 配额作用范围
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 配额作用范围
-         * <p> 示例值：1
-         *
-         * @param type {@link com.lark.oapi.service.drive.v2.enums.QuotaConfigTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.drive.v2.enums.QuotaConfigTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        public QuotaConfig build() {
-            return new QuotaConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

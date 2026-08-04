@@ -13,494 +13,546 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Semester {
+  /**
+   * 周期
+   * ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list);<!--;
+   *
+   * <p>示例值：6992035450862224940
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 周期年份
+   *
+   * <p>示例值：2024
+   */
+  @SerializedName("year")
+  private Integer year;
+
+  /**
+   * 周期类型分组
+   *
+   * <p>示例值：Quarter
+   */
+  @SerializedName("type_group")
+  private String typeGroup;
+
+  /**
+   * 周期类型-->
+   *
+   * <p>示例值：June
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 周期状态
+   *
+   * <p>示例值：enabled
+   */
+  @SerializedName("progress")
+  private String progress;
+
+  /**
+   * 周期开始时间，毫秒时间戳
+   *
+   * <p>示例值：1625068800000
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 周期结束时间，毫秒时间戳
+   *
+   * <p>示例值：1640966399999
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 周期创建时间，毫秒时间戳
+   *
+   * <p>示例值：1625068800000
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 周期更新时间，毫秒时间戳
+   *
+   * <p>示例值：1625068800000
+   */
+  @SerializedName("modify_time")
+  private String modifyTime;
+
+  /**
+   * 绩效评估周期 创建人 ID，与入参 user_id_type 类型一致
+   *
+   * <p>示例值：ou_ce613028fe74745421f5dc320bb9c709
+   */
+  @SerializedName("create_user_id")
+  private String createUserId;
+
+  /**
+   * 绩效评估周期 更新人 ID，与入参 user_id_type 类型一致
+   *
+   * <p>示例值：ou_ce613028fe74745421f5dc320bb9c709
+   */
+  @SerializedName("modify_user_id")
+  private String modifyUserId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getYear() {
+    return this.year;
+  }
+
+  public void setYear(Integer year) {
+    this.year = year;
+  }
+
+  public String getTypeGroup() {
+    return this.typeGroup;
+  }
+
+  public void setTypeGroup(String typeGroup) {
+    this.typeGroup = typeGroup;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getProgress() {
+    return this.progress;
+  }
+
+  public void setProgress(String progress) {
+    this.progress = progress;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getModifyTime() {
+    return this.modifyTime;
+  }
+
+  public void setModifyTime(String modifyTime) {
+    this.modifyTime = modifyTime;
+  }
+
+  public String getCreateUserId() {
+    return this.createUserId;
+  }
+
+  public void setCreateUserId(String createUserId) {
+    this.createUserId = createUserId;
+  }
+
+  public String getModifyUserId() {
+    return this.modifyUserId;
+  }
+
+  public void setModifyUserId(String modifyUserId) {
+    this.modifyUserId = modifyUserId;
+  }
+
+  // builder 开始
+  public Semester() {}
+
+  public Semester(Builder builder) {
     /**
-     * 绩效评估周期 ID
-     * <p> 示例值：6992035450862224940
+     * 周期
+     * ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list);<!--;
+     *
+     * <p>示例值：6992035450862224940
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 年份
-     * <p> 示例值：2024
+     * 周期年份
+     *
+     * <p>示例值：2024
      */
-    @SerializedName("year")
-    private Integer year;
+    this.year = builder.year;
     /**
      * 周期类型分组
-     * <p> 示例值：Month
+     *
+     * <p>示例值：Quarter
      */
-    @SerializedName("type_group")
+    this.typeGroup = builder.typeGroup;
+    /**
+     * 周期类型-->
+     *
+     * <p>示例值：June
+     */
+    this.type = builder.type;
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     */
+    this.name = builder.name;
+    /**
+     * 周期状态
+     *
+     * <p>示例值：enabled
+     */
+    this.progress = builder.progress;
+    /**
+     * 周期开始时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     */
+    this.startTime = builder.startTime;
+    /**
+     * 周期结束时间，毫秒时间戳
+     *
+     * <p>示例值：1640966399999
+     */
+    this.endTime = builder.endTime;
+    /**
+     * 周期创建时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     */
+    this.createTime = builder.createTime;
+    /**
+     * 周期更新时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     */
+    this.modifyTime = builder.modifyTime;
+    /**
+     * 绩效评估周期 创建人 ID，与入参 user_id_type 类型一致
+     *
+     * <p>示例值：ou_ce613028fe74745421f5dc320bb9c709
+     */
+    this.createUserId = builder.createUserId;
+    /**
+     * 绩效评估周期 更新人 ID，与入参 user_id_type 类型一致
+     *
+     * <p>示例值：ou_ce613028fe74745421f5dc320bb9c709
+     */
+    this.modifyUserId = builder.modifyUserId;
+  }
+
+  public static class Builder {
+    /**
+     * 周期
+     * ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list);<!--;
+     *
+     * <p>示例值：6992035450862224940
+     */
+    private String id;
+
+    /**
+     * 周期年份
+     *
+     * <p>示例值：2024
+     */
+    private Integer year;
+
+    /**
+     * 周期类型分组
+     *
+     * <p>示例值：Quarter
+     */
     private String typeGroup;
+
     /**
-     * 周期类型
-     * <p> 示例值：June
+     * 周期类型-->
+     *
+     * <p>示例值：June
      */
-    @SerializedName("type")
     private String type;
+
     /**
-     * 绩效评估周期名称
-     * <p> 示例值：
+     * 周期名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
     private I18n name;
+
     /**
-     * 绩效评估周期 状态
-     * <p> 示例值：enabled
+     * 周期状态
+     *
+     * <p>示例值：enabled
      */
-    @SerializedName("progress")
     private String progress;
+
     /**
-     * 绩效评估周期开始时间
-     * <p> 示例值：1625068800000
+     * 周期开始时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
      */
-    @SerializedName("start_time")
     private String startTime;
+
     /**
-     * 绩效评估周期结束时间
-     * <p> 示例值：1640966399999
+     * 周期结束时间，毫秒时间戳
+     *
+     * <p>示例值：1640966399999
      */
-    @SerializedName("end_time")
     private String endTime;
+
     /**
-     * 绩效评估周期 创建时间
-     * <p> 示例值：1625068800000
+     * 周期创建时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
      */
-    @SerializedName("create_time")
     private String createTime;
+
     /**
-     * 绩效评估周期 更新时间
-     * <p> 示例值：1625068800000
+     * 周期更新时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
      */
-    @SerializedName("modify_time")
     private String modifyTime;
+
     /**
-     * 绩效评估周期 创建人 ID
-     * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
+     * 绩效评估周期 创建人 ID，与入参 user_id_type 类型一致
+     *
+     * <p>示例值：ou_ce613028fe74745421f5dc320bb9c709
      */
-    @SerializedName("create_user_id")
     private String createUserId;
+
     /**
-     * 绩效评估周期 更新人 ID
-     * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
+     * 绩效评估周期 更新人 ID，与入参 user_id_type 类型一致
+     *
+     * <p>示例值：ou_ce613028fe74745421f5dc320bb9c709
      */
-    @SerializedName("modify_user_id")
     private String modifyUserId;
 
-    // builder 开始
-    public Semester() {
+    /**
+     * 周期
+     * ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list);<!--;
+     *
+     * <p>示例值：6992035450862224940
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Semester(Builder builder) {
-        /**
-         * 绩效评估周期 ID
-         * <p> 示例值：6992035450862224940
-         */
-        this.id = builder.id;
-        /**
-         * 年份
-         * <p> 示例值：2024
-         */
-        this.year = builder.year;
-        /**
-         * 周期类型分组
-         * <p> 示例值：Month
-         */
-        this.typeGroup = builder.typeGroup;
-        /**
-         * 周期类型
-         * <p> 示例值：June
-         */
-        this.type = builder.type;
-        /**
-         * 绩效评估周期名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 绩效评估周期 状态
-         * <p> 示例值：enabled
-         */
-        this.progress = builder.progress;
-        /**
-         * 绩效评估周期开始时间
-         * <p> 示例值：1625068800000
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 绩效评估周期结束时间
-         * <p> 示例值：1640966399999
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 绩效评估周期 创建时间
-         * <p> 示例值：1625068800000
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 绩效评估周期 更新时间
-         * <p> 示例值：1625068800000
-         */
-        this.modifyTime = builder.modifyTime;
-        /**
-         * 绩效评估周期 创建人 ID
-         * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
-         */
-        this.createUserId = builder.createUserId;
-        /**
-         * 绩效评估周期 更新人 ID
-         * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
-         */
-        this.modifyUserId = builder.modifyUserId;
+    /**
+     * 周期年份
+     *
+     * <p>示例值：2024
+     *
+     * @param year
+     * @return
+     */
+    public Builder year(Integer year) {
+      this.year = year;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 周期类型分组
+     *
+     * <p>示例值：Quarter
+     *
+     * @param typeGroup
+     * @return
+     */
+    public Builder typeGroup(String typeGroup) {
+      this.typeGroup = typeGroup;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 周期类型-->
+     *
+     * <p>示例值：June
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public Integer getYear() {
-        return this.year;
+    /**
+     * 周期状态
+     *
+     * <p>示例值：enabled
+     *
+     * @param progress
+     * @return
+     */
+    public Builder progress(String progress) {
+      this.progress = progress;
+      return this;
     }
 
-    public void setYear(Integer year) {
-        this.year = year;
+    /**
+     * 周期状态
+     *
+     * <p>示例值：enabled
+     *
+     * @param progress {@link
+     *     com.lark.oapi.service.performance.v1.enums.SemesterSemesterProgressEnum}
+     * @return
+     */
+    public Builder progress(
+        com.lark.oapi.service.performance.v1.enums.SemesterSemesterProgressEnum progress) {
+      this.progress = progress.getValue();
+      return this;
     }
 
-    public String getTypeGroup() {
-        return this.typeGroup;
+    /**
+     * 周期开始时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public void setTypeGroup(String typeGroup) {
-        this.typeGroup = typeGroup;
+    /**
+     * 周期结束时间，毫秒时间戳
+     *
+     * <p>示例值：1640966399999
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 周期创建时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 周期更新时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     *
+     * @param modifyTime
+     * @return
+     */
+    public Builder modifyTime(String modifyTime) {
+      this.modifyTime = modifyTime;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 绩效评估周期 创建人 ID，与入参 user_id_type 类型一致
+     *
+     * <p>示例值：ou_ce613028fe74745421f5dc320bb9c709
+     *
+     * @param createUserId
+     * @return
+     */
+    public Builder createUserId(String createUserId) {
+      this.createUserId = createUserId;
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    /**
+     * 绩效评估周期 更新人 ID，与入参 user_id_type 类型一致
+     *
+     * <p>示例值：ou_ce613028fe74745421f5dc320bb9c709
+     *
+     * @param modifyUserId
+     * @return
+     */
+    public Builder modifyUserId(String modifyUserId) {
+      this.modifyUserId = modifyUserId;
+      return this;
     }
 
-    public String getProgress() {
-        return this.progress;
+    public Semester build() {
+      return new Semester(this);
     }
+  }
 
-    public void setProgress(String progress) {
-        this.progress = progress;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getModifyTime() {
-        return this.modifyTime;
-    }
-
-    public void setModifyTime(String modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    public String getCreateUserId() {
-        return this.createUserId;
-    }
-
-    public void setCreateUserId(String createUserId) {
-        this.createUserId = createUserId;
-    }
-
-    public String getModifyUserId() {
-        return this.modifyUserId;
-    }
-
-    public void setModifyUserId(String modifyUserId) {
-        this.modifyUserId = modifyUserId;
-    }
-
-    public static class Builder {
-        /**
-         * 绩效评估周期 ID
-         * <p> 示例值：6992035450862224940
-         */
-        private String id;
-        /**
-         * 年份
-         * <p> 示例值：2024
-         */
-        private Integer year;
-        /**
-         * 周期类型分组
-         * <p> 示例值：Month
-         */
-        private String typeGroup;
-        /**
-         * 周期类型
-         * <p> 示例值：June
-         */
-        private String type;
-        /**
-         * 绩效评估周期名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 绩效评估周期 状态
-         * <p> 示例值：enabled
-         */
-        private String progress;
-        /**
-         * 绩效评估周期开始时间
-         * <p> 示例值：1625068800000
-         */
-        private String startTime;
-        /**
-         * 绩效评估周期结束时间
-         * <p> 示例值：1640966399999
-         */
-        private String endTime;
-        /**
-         * 绩效评估周期 创建时间
-         * <p> 示例值：1625068800000
-         */
-        private String createTime;
-        /**
-         * 绩效评估周期 更新时间
-         * <p> 示例值：1625068800000
-         */
-        private String modifyTime;
-        /**
-         * 绩效评估周期 创建人 ID
-         * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
-         */
-        private String createUserId;
-        /**
-         * 绩效评估周期 更新人 ID
-         * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
-         */
-        private String modifyUserId;
-
-        /**
-         * 绩效评估周期 ID
-         * <p> 示例值：6992035450862224940
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 年份
-         * <p> 示例值：2024
-         *
-         * @param year
-         * @return
-         */
-        public Builder year(Integer year) {
-            this.year = year;
-            return this;
-        }
-
-
-        /**
-         * 周期类型分组
-         * <p> 示例值：Month
-         *
-         * @param typeGroup
-         * @return
-         */
-        public Builder typeGroup(String typeGroup) {
-            this.typeGroup = typeGroup;
-            return this;
-        }
-
-
-        /**
-         * 周期类型
-         * <p> 示例值：June
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估周期名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估周期 状态
-         * <p> 示例值：enabled
-         *
-         * @param progress
-         * @return
-         */
-        public Builder progress(String progress) {
-            this.progress = progress;
-            return this;
-        }
-
-        /**
-         * 绩效评估周期 状态
-         * <p> 示例值：enabled
-         *
-         * @param progress {@link com.lark.oapi.service.performance.v1.enums.SemesterSemesterProgressEnum}
-         * @return
-         */
-        public Builder progress(com.lark.oapi.service.performance.v1.enums.SemesterSemesterProgressEnum progress) {
-            this.progress = progress.getValue();
-            return this;
-        }
-
-
-        /**
-         * 绩效评估周期开始时间
-         * <p> 示例值：1625068800000
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估周期结束时间
-         * <p> 示例值：1640966399999
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估周期 创建时间
-         * <p> 示例值：1625068800000
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估周期 更新时间
-         * <p> 示例值：1625068800000
-         *
-         * @param modifyTime
-         * @return
-         */
-        public Builder modifyTime(String modifyTime) {
-            this.modifyTime = modifyTime;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估周期 创建人 ID
-         * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
-         *
-         * @param createUserId
-         * @return
-         */
-        public Builder createUserId(String createUserId) {
-            this.createUserId = createUserId;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估周期 更新人 ID
-         * <p> 示例值：ou_ce613028fe74745421f5dc320bb9c709
-         *
-         * @param modifyUserId
-         * @return
-         */
-        public Builder modifyUserId(String modifyUserId) {
-            this.modifyUserId = modifyUserId;
-            return this;
-        }
-
-
-        public Semester build() {
-            return new Semester(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

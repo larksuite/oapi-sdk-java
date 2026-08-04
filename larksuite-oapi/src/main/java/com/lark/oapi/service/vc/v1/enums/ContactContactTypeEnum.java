@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 联系人类型
- */
+/** 联系人类型 */
 public enum ContactContactTypeEnum {
-    USER(1), // 用户
-    USER_GROUP(2), // 用户组
-    DEPARTMENT(3), // 部门
-    ;
-    private Integer value;
+  USER(1), // 用户
+  USER_GROUP(2), // 用户组
+  DEPARTMENT(3), // 部门
+  ;
+  private Integer value;
 
-    ContactContactTypeEnum(Integer value) {
-        this.value = value;
-    }
+  ContactContactTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

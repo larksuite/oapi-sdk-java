@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.enums;
 
-/**
- * 风险类型
- */
+/** */
 public enum FileRiskDetectionRecordResultFileRiskDetectionRecordResultRiskTagEnum {
-    RISK("RISK"), // 有风险
-    NONRISK("NON_RISK"), // 无风险
-    NOTDETECT("NOT_DETECT"), // 未检测（因为文件格式/大小等原因不支持检测）
-    ;
-    private String value;
+  RISK("RISK"), //
+  NONRISK("NON_RISK"), //
+  NOTDETECT("NOT_DETECT"), //
+  ;
+  private String value;
 
-    FileRiskDetectionRecordResultFileRiskDetectionRecordResultRiskTagEnum(String value) {
-        this.value = value;
-    }
+  FileRiskDetectionRecordResultFileRiskDetectionRecordResultRiskTagEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

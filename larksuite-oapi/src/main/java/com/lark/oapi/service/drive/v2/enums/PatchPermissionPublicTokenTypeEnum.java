@@ -13,27 +13,27 @@
 
 package com.lark.oapi.service.drive.v2.enums;
 
-/**
- * 文件类型，需要与文件的 token 相匹配
- */
+/** 云文档类型，需要与云文档的 token 相匹配。 */
 public enum PatchPermissionPublicTokenTypeEnum {
-    DOC("doc"), // 旧版文档
-    SHEET("sheet"), // 电子表格
-    FILE("file"), // 云空间文件
-    WIKI("wiki"), // 知识库节点
-    BITABLE("bitable"), // 多维表格
-    DOCX("docx"), // 新版文档
-    MINDNOTE("mindnote"), // 思维笔记
-    MINUTES("minutes"), // 妙记
-    SLIDES("slides"), // 幻灯片
-    ;
-    private String value;
+  DOC(
+      "doc"), // 旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。
+  SHEET("sheet"), // 电子表格
+  FILE("file"), // 云空间文件
+  WIKI("wiki"), // 知识库节点
+  BITABLE("bitable"), // 多维表格
+  DOCX("docx"), // 新版文档
+  MINDNOTE("mindnote"), // 思维笔记
+  MINUTES("minutes"), // 妙记
+  SLIDES("slides"), // 幻灯片
+  APPS("apps"), // 妙搭应用
+  ;
+  private String value;
 
-    PatchPermissionPublicTokenTypeEnum(String value) {
-        this.value = value;
-    }
+  PatchPermissionPublicTokenTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

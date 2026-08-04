@@ -13,555 +13,680 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TaskSearch {
+  /**
+   * 任务审批人 ID，ID 类型与查询参数 user_id_type 保持一致。
+   *
+   * <p>示例值：lwiu098wj
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 审批定义 Code。获取方式：;;-
+   * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+   * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+   * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。;;**注意**：;;-
+   * user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。;;-
+   * approval_code 和 group_external_id 查询结果取并集。
+   *
+   * <p>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
+   */
+  @SerializedName("approval_code")
+  private String approvalCode;
+
+  /**
+   * 审批实例 Code。获取方式：;;-
+   * 调用[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)接口后，从响应参数
+   * instance_code 获取。;- 调用[批量获取审批实例
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)接口，获取所需的审批实例
+   * Code。;;**注意**：;;- user_id、approval_code、instance_code、instance_external_id、group_external_id
+   * 不能同时为空。;;- instance_code 和 instance_external_id 查询结果取并集。
+   *
+   * <p>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+   */
+  @SerializedName("instance_code")
+  private String instanceCode;
+
+  /**
+   * 审批实例的第三方 ID。;;**注意**：;;-
+   * user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。;;-
+   * instance_code 和 instance_external_id 查询结果取并集。
+   *
+   * <p>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
+   */
+  @SerializedName("instance_external_id")
+  private String instanceExternalId;
+
+  /**
+   * 审批定义分组的第三方 ID。;;**注意**：;;-
+   * user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。;;-
+   * approval_code 和 group_external_id 查询结果取并集。
+   *
+   * <p>示例值：1234567
+   */
+  @SerializedName("group_external_id")
+  private String groupExternalId;
+
+  /**
+   * 审批任务标题。;;**说明**：仅第三方审批存在审批任务标题。
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("task_title")
+  private String taskTitle;
+
+  /**
+   * 审批任务状态。;;**注意**：若不设置则查询全部状态，若不在集合中，则报错。
+   *
+   * <p>示例值：PENDING
+   */
+  @SerializedName("task_status")
+  private String taskStatus;
+
+  /**
+   * 任务查询开始时间，Unix 毫秒时间戳。与 task_start_time_to 参数构成时间段查询条件，仅会返回在该时间段内的审批任务。;;**注意**：查询时间跨度不得大于 30
+   * 天，开始和结束时间必须同时设置或者同时不设置。
+   *
+   * <p>示例值：1547654251506
+   */
+  @SerializedName("task_start_time_from")
+  private String taskStartTimeFrom;
+
+  /**
+   * 任务查询结束时间，Unix 毫秒时间戳。与 task_start_time_from 参数构成时间段查询条件，仅会返回在该时间段内的审批任务。;;**注意**：查询时间跨度不得大于 30
+   * 天，开始和结束时间必须同时设置或者同时不设置。
+   *
+   * <p>示例值：1547654251506
+   */
+  @SerializedName("task_start_time_to")
+  private String taskStartTimeTo;
+
+  /**
+   * 语言。
+   *
+   * <p>示例值：zh-CN
+   */
+  @SerializedName("locale")
+  private String locale;
+
+  /**
+   * 查询多种状态的任务，当填写此参数时，task_status 参数将失效。;;**可选值有**：;;- `PENDING`：审批中;- `REJECTED`：拒绝;-
+   * `APPROVED`：通过;- `TRANSFERRED`：转交;- `DONE`：已完成;- `RM_REPEAT`：去重;- `PROCESSED`：已处理
+   *
+   * <p>示例值：PENDING
+   */
+  @SerializedName("task_status_list")
+  private String[] taskStatusList;
+
+  /**
+   * 按任务时间排序
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("order")
+  private Integer order;
+
+  /**
+   * 是否包含撤销申请对应的审批单
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("with_revoked_instance")
+  private Boolean withRevokedInstance;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
+
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
+
+  public String getInstanceCode() {
+    return this.instanceCode;
+  }
+
+  public void setInstanceCode(String instanceCode) {
+    this.instanceCode = instanceCode;
+  }
+
+  public String getInstanceExternalId() {
+    return this.instanceExternalId;
+  }
+
+  public void setInstanceExternalId(String instanceExternalId) {
+    this.instanceExternalId = instanceExternalId;
+  }
+
+  public String getGroupExternalId() {
+    return this.groupExternalId;
+  }
+
+  public void setGroupExternalId(String groupExternalId) {
+    this.groupExternalId = groupExternalId;
+  }
+
+  public String getTaskTitle() {
+    return this.taskTitle;
+  }
+
+  public void setTaskTitle(String taskTitle) {
+    this.taskTitle = taskTitle;
+  }
+
+  public String getTaskStatus() {
+    return this.taskStatus;
+  }
+
+  public void setTaskStatus(String taskStatus) {
+    this.taskStatus = taskStatus;
+  }
+
+  public String getTaskStartTimeFrom() {
+    return this.taskStartTimeFrom;
+  }
+
+  public void setTaskStartTimeFrom(String taskStartTimeFrom) {
+    this.taskStartTimeFrom = taskStartTimeFrom;
+  }
+
+  public String getTaskStartTimeTo() {
+    return this.taskStartTimeTo;
+  }
+
+  public void setTaskStartTimeTo(String taskStartTimeTo) {
+    this.taskStartTimeTo = taskStartTimeTo;
+  }
+
+  public String getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  public String[] getTaskStatusList() {
+    return this.taskStatusList;
+  }
+
+  public void setTaskStatusList(String[] taskStatusList) {
+    this.taskStatusList = taskStatusList;
+  }
+
+  public Integer getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(Integer order) {
+    this.order = order;
+  }
+
+  public Boolean getWithRevokedInstance() {
+    return this.withRevokedInstance;
+  }
+
+  public void setWithRevokedInstance(Boolean withRevokedInstance) {
+    this.withRevokedInstance = withRevokedInstance;
+  }
+
+  // builder 开始
+  public TaskSearch() {}
+
+  public TaskSearch(Builder builder) {
     /**
-     * 根据x_user_type填写审批人id
-     * <p> 示例值：lwiu098wj
+     * 任务审批人 ID，ID 类型与查询参数 user_id_type 保持一致。
+     *
+     * <p>示例值：lwiu098wj
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 审批定义 code
-     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。;;**注意**：;;-
+     * user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。;;-
+     * approval_code 和 group_external_id 查询结果取并集。
+     *
+     * <p>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
      */
-    @SerializedName("approval_code")
-    private String approvalCode;
+    this.approvalCode = builder.approvalCode;
     /**
-     * 审批实例 code
-     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+     * 审批实例 Code。获取方式：;;-
+     * 调用[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)接口后，从响应参数
+     * instance_code 获取。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)接口，获取所需的审批实例
+     * Code。;;**注意**：;;- user_id、approval_code、instance_code、instance_external_id、group_external_id
+     * 不能同时为空。;;- instance_code 和 instance_external_id 查询结果取并集。
+     *
+     * <p>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
      */
-    @SerializedName("instance_code")
-    private String instanceCode;
+    this.instanceCode = builder.instanceCode;
     /**
-     * 审批实例第三方 id 注：和 approval_code 取并集
-     * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
+     * 审批实例的第三方 ID。;;**注意**：;;-
+     * user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。;;-
+     * instance_code 和 instance_external_id 查询结果取并集。
+     *
+     * <p>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
      */
-    @SerializedName("instance_external_id")
-    private String instanceExternalId;
+    this.instanceExternalId = builder.instanceExternalId;
     /**
-     * 审批定义分组第三方 id 注：和 instance_code 取并集
-     * <p> 示例值：1234567
+     * 审批定义分组的第三方 ID。;;**注意**：;;-
+     * user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。;;-
+     * approval_code 和 group_external_id 查询结果取并集。
+     *
+     * <p>示例值：1234567
      */
-    @SerializedName("group_external_id")
-    private String groupExternalId;
+    this.groupExternalId = builder.groupExternalId;
     /**
-     * 审批任务标题（只有第三方审批有）
-     * <p> 示例值：test
+     * 审批任务标题。;;**说明**：仅第三方审批存在审批任务标题。
+     *
+     * <p>示例值：test
      */
-    @SerializedName("task_title")
-    private String taskTitle;
+    this.taskTitle = builder.taskTitle;
     /**
-     * 审批任务状态，注：若不设置，查询全部状态 若不在集合中，报错
-     * <p> 示例值：PENDING
+     * 审批任务状态。;;**注意**：若不设置则查询全部状态，若不在集合中，则报错。
+     *
+     * <p>示例值：PENDING
      */
-    @SerializedName("task_status")
-    private String taskStatus;
+    this.taskStatus = builder.taskStatus;
     /**
-     * 任务查询开始时间（unix毫秒时间戳）
-     * <p> 示例值：1547654251506
+     * 任务查询开始时间，Unix 毫秒时间戳。与 task_start_time_to 参数构成时间段查询条件，仅会返回在该时间段内的审批任务。;;**注意**：查询时间跨度不得大于 30
+     * 天，开始和结束时间必须同时设置或者同时不设置。
+     *
+     * <p>示例值：1547654251506
      */
-    @SerializedName("task_start_time_from")
-    private String taskStartTimeFrom;
+    this.taskStartTimeFrom = builder.taskStartTimeFrom;
     /**
-     * 任务查询结束时间 (unix毫秒时间戳)
-     * <p> 示例值：1547654251506
+     * 任务查询结束时间，Unix 毫秒时间戳。与 task_start_time_from 参数构成时间段查询条件，仅会返回在该时间段内的审批任务。;;**注意**：查询时间跨度不得大于 30
+     * 天，开始和结束时间必须同时设置或者同时不设置。
+     *
+     * <p>示例值：1547654251506
      */
-    @SerializedName("task_start_time_to")
-    private String taskStartTimeTo;
+    this.taskStartTimeTo = builder.taskStartTimeTo;
     /**
-     * 地区
-     * <p> 示例值：zh-CN
+     * 语言。
+     *
+     * <p>示例值：zh-CN
      */
-    @SerializedName("locale")
-    private String locale;
+    this.locale = builder.locale;
     /**
-     * 可选择task_status中的多个状态，当填写此参数时，task_status失效
-     * <p> 示例值：PENDING
+     * 查询多种状态的任务，当填写此参数时，task_status 参数将失效。;;**可选值有**：;;- `PENDING`：审批中;- `REJECTED`：拒绝;-
+     * `APPROVED`：通过;- `TRANSFERRED`：转交;- `DONE`：已完成;- `RM_REPEAT`：去重;- `PROCESSED`：已处理
+     *
+     * <p>示例值：PENDING
      */
-    @SerializedName("task_status_list")
-    private String[] taskStatusList;
+    this.taskStatusList = builder.taskStatusList;
     /**
      * 按任务时间排序
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("order")
-    private Integer order;
+    this.order = builder.order;
     /**
      * 是否包含撤销申请对应的审批单
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("with_revoked_instance")
+    this.withRevokedInstance = builder.withRevokedInstance;
+  }
+
+  public static class Builder {
+    /**
+     * 任务审批人 ID，ID 类型与查询参数 user_id_type 保持一致。
+     *
+     * <p>示例值：lwiu098wj
+     */
+    private String userId;
+
+    /**
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。;;**注意**：;;-
+     * user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。;;-
+     * approval_code 和 group_external_id 查询结果取并集。
+     *
+     * <p>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
+     */
+    private String approvalCode;
+
+    /**
+     * 审批实例 Code。获取方式：;;-
+     * 调用[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)接口后，从响应参数
+     * instance_code 获取。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)接口，获取所需的审批实例
+     * Code。;;**注意**：;;- user_id、approval_code、instance_code、instance_external_id、group_external_id
+     * 不能同时为空。;;- instance_code 和 instance_external_id 查询结果取并集。
+     *
+     * <p>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+     */
+    private String instanceCode;
+
+    /**
+     * 审批实例的第三方 ID。;;**注意**：;;-
+     * user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。;;-
+     * instance_code 和 instance_external_id 查询结果取并集。
+     *
+     * <p>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
+     */
+    private String instanceExternalId;
+
+    /**
+     * 审批定义分组的第三方 ID。;;**注意**：;;-
+     * user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。;;-
+     * approval_code 和 group_external_id 查询结果取并集。
+     *
+     * <p>示例值：1234567
+     */
+    private String groupExternalId;
+
+    /**
+     * 审批任务标题。;;**说明**：仅第三方审批存在审批任务标题。
+     *
+     * <p>示例值：test
+     */
+    private String taskTitle;
+
+    /**
+     * 审批任务状态。;;**注意**：若不设置则查询全部状态，若不在集合中，则报错。
+     *
+     * <p>示例值：PENDING
+     */
+    private String taskStatus;
+
+    /**
+     * 任务查询开始时间，Unix 毫秒时间戳。与 task_start_time_to 参数构成时间段查询条件，仅会返回在该时间段内的审批任务。;;**注意**：查询时间跨度不得大于 30
+     * 天，开始和结束时间必须同时设置或者同时不设置。
+     *
+     * <p>示例值：1547654251506
+     */
+    private String taskStartTimeFrom;
+
+    /**
+     * 任务查询结束时间，Unix 毫秒时间戳。与 task_start_time_from 参数构成时间段查询条件，仅会返回在该时间段内的审批任务。;;**注意**：查询时间跨度不得大于 30
+     * 天，开始和结束时间必须同时设置或者同时不设置。
+     *
+     * <p>示例值：1547654251506
+     */
+    private String taskStartTimeTo;
+
+    /**
+     * 语言。
+     *
+     * <p>示例值：zh-CN
+     */
+    private String locale;
+
+    /**
+     * 查询多种状态的任务，当填写此参数时，task_status 参数将失效。;;**可选值有**：;;- `PENDING`：审批中;- `REJECTED`：拒绝;-
+     * `APPROVED`：通过;- `TRANSFERRED`：转交;- `DONE`：已完成;- `RM_REPEAT`：去重;- `PROCESSED`：已处理
+     *
+     * <p>示例值：PENDING
+     */
+    private String[] taskStatusList;
+
+    /**
+     * 按任务时间排序
+     *
+     * <p>示例值：2
+     */
+    private Integer order;
+
+    /**
+     * 是否包含撤销申请对应的审批单
+     *
+     * <p>示例值：false
+     */
     private Boolean withRevokedInstance;
 
-    // builder 开始
-    public TaskSearch() {
+    /**
+     * 任务审批人 ID，ID 类型与查询参数 user_id_type 保持一致。
+     *
+     * <p>示例值：lwiu098wj
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public TaskSearch(Builder builder) {
-        /**
-         * 根据x_user_type填写审批人id
-         * <p> 示例值：lwiu098wj
-         */
-        this.userId = builder.userId;
-        /**
-         * 审批定义 code
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
-         */
-        this.approvalCode = builder.approvalCode;
-        /**
-         * 审批实例 code
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
-         */
-        this.instanceCode = builder.instanceCode;
-        /**
-         * 审批实例第三方 id 注：和 approval_code 取并集
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
-         */
-        this.instanceExternalId = builder.instanceExternalId;
-        /**
-         * 审批定义分组第三方 id 注：和 instance_code 取并集
-         * <p> 示例值：1234567
-         */
-        this.groupExternalId = builder.groupExternalId;
-        /**
-         * 审批任务标题（只有第三方审批有）
-         * <p> 示例值：test
-         */
-        this.taskTitle = builder.taskTitle;
-        /**
-         * 审批任务状态，注：若不设置，查询全部状态 若不在集合中，报错
-         * <p> 示例值：PENDING
-         */
-        this.taskStatus = builder.taskStatus;
-        /**
-         * 任务查询开始时间（unix毫秒时间戳）
-         * <p> 示例值：1547654251506
-         */
-        this.taskStartTimeFrom = builder.taskStartTimeFrom;
-        /**
-         * 任务查询结束时间 (unix毫秒时间戳)
-         * <p> 示例值：1547654251506
-         */
-        this.taskStartTimeTo = builder.taskStartTimeTo;
-        /**
-         * 地区
-         * <p> 示例值：zh-CN
-         */
-        this.locale = builder.locale;
-        /**
-         * 可选择task_status中的多个状态，当填写此参数时，task_status失效
-         * <p> 示例值：PENDING
-         */
-        this.taskStatusList = builder.taskStatusList;
-        /**
-         * 按任务时间排序
-         * <p> 示例值：2
-         */
-        this.order = builder.order;
-        /**
-         * 是否包含撤销申请对应的审批单
-         * <p> 示例值：false
-         */
-        this.withRevokedInstance = builder.withRevokedInstance;
+    /**
+     * 审批定义 Code。获取方式：;;-
+     * 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数
+     * approval_code 获取。;- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval
+     * Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。;;**注意**：;;-
+     * user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。;;-
+     * approval_code 和 group_external_id 查询结果取并集。
+     *
+     * <p>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
+     *
+     * @param approvalCode
+     * @return
+     */
+    public Builder approvalCode(String approvalCode) {
+      this.approvalCode = approvalCode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 审批实例 Code。获取方式：;;-
+     * 调用[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)接口后，从响应参数
+     * instance_code 获取。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)接口，获取所需的审批实例
+     * Code。;;**注意**：;;- user_id、approval_code、instance_code、instance_external_id、group_external_id
+     * 不能同时为空。;;- instance_code 和 instance_external_id 查询结果取并集。
+     *
+     * <p>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
+     *
+     * @param instanceCode
+     * @return
+     */
+    public Builder instanceCode(String instanceCode) {
+      this.instanceCode = instanceCode;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 审批实例的第三方 ID。;;**注意**：;;-
+     * user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。;;-
+     * instance_code 和 instance_external_id 查询结果取并集。
+     *
+     * <p>示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
+     *
+     * @param instanceExternalId
+     * @return
+     */
+    public Builder instanceExternalId(String instanceExternalId) {
+      this.instanceExternalId = instanceExternalId;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 审批定义分组的第三方 ID。;;**注意**：;;-
+     * user_id、approval_code、instance_code、instance_external_id、group_external_id 不能同时为空。;;-
+     * approval_code 和 group_external_id 查询结果取并集。
+     *
+     * <p>示例值：1234567
+     *
+     * @param groupExternalId
+     * @return
+     */
+    public Builder groupExternalId(String groupExternalId) {
+      this.groupExternalId = groupExternalId;
+      return this;
     }
 
-    public String getApprovalCode() {
-        return this.approvalCode;
+    /**
+     * 审批任务标题。;;**说明**：仅第三方审批存在审批任务标题。
+     *
+     * <p>示例值：test
+     *
+     * @param taskTitle
+     * @return
+     */
+    public Builder taskTitle(String taskTitle) {
+      this.taskTitle = taskTitle;
+      return this;
     }
 
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
+    /**
+     * 审批任务状态。;;**注意**：若不设置则查询全部状态，若不在集合中，则报错。
+     *
+     * <p>示例值：PENDING
+     *
+     * @param taskStatus
+     * @return
+     */
+    public Builder taskStatus(String taskStatus) {
+      this.taskStatus = taskStatus;
+      return this;
     }
 
-    public String getInstanceCode() {
-        return this.instanceCode;
+    /**
+     * 审批任务状态。;;**注意**：若不设置则查询全部状态，若不在集合中，则报错。
+     *
+     * <p>示例值：PENDING
+     *
+     * @param taskStatus {@link
+     *     com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchTaskStatusEnum}
+     * @return
+     */
+    public Builder taskStatus(
+        com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchTaskStatusEnum taskStatus) {
+      this.taskStatus = taskStatus.getValue();
+      return this;
     }
 
-    public void setInstanceCode(String instanceCode) {
-        this.instanceCode = instanceCode;
+    /**
+     * 任务查询开始时间，Unix 毫秒时间戳。与 task_start_time_to 参数构成时间段查询条件，仅会返回在该时间段内的审批任务。;;**注意**：查询时间跨度不得大于 30
+     * 天，开始和结束时间必须同时设置或者同时不设置。
+     *
+     * <p>示例值：1547654251506
+     *
+     * @param taskStartTimeFrom
+     * @return
+     */
+    public Builder taskStartTimeFrom(String taskStartTimeFrom) {
+      this.taskStartTimeFrom = taskStartTimeFrom;
+      return this;
     }
 
-    public String getInstanceExternalId() {
-        return this.instanceExternalId;
+    /**
+     * 任务查询结束时间，Unix 毫秒时间戳。与 task_start_time_from 参数构成时间段查询条件，仅会返回在该时间段内的审批任务。;;**注意**：查询时间跨度不得大于 30
+     * 天，开始和结束时间必须同时设置或者同时不设置。
+     *
+     * <p>示例值：1547654251506
+     *
+     * @param taskStartTimeTo
+     * @return
+     */
+    public Builder taskStartTimeTo(String taskStartTimeTo) {
+      this.taskStartTimeTo = taskStartTimeTo;
+      return this;
     }
 
-    public void setInstanceExternalId(String instanceExternalId) {
-        this.instanceExternalId = instanceExternalId;
+    /**
+     * 语言。
+     *
+     * <p>示例值：zh-CN
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(String locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public String getGroupExternalId() {
-        return this.groupExternalId;
+    /**
+     * 语言。
+     *
+     * <p>示例值：zh-CN
+     *
+     * @param locale {@link com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchLocaleEnum}
+     * @return
+     */
+    public Builder locale(
+        com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchLocaleEnum locale) {
+      this.locale = locale.getValue();
+      return this;
     }
 
-    public void setGroupExternalId(String groupExternalId) {
-        this.groupExternalId = groupExternalId;
+    /**
+     * 查询多种状态的任务，当填写此参数时，task_status 参数将失效。;;**可选值有**：;;- `PENDING`：审批中;- `REJECTED`：拒绝;-
+     * `APPROVED`：通过;- `TRANSFERRED`：转交;- `DONE`：已完成;- `RM_REPEAT`：去重;- `PROCESSED`：已处理
+     *
+     * <p>示例值：PENDING
+     *
+     * @param taskStatusList
+     * @return
+     */
+    public Builder taskStatusList(String[] taskStatusList) {
+      this.taskStatusList = taskStatusList;
+      return this;
     }
 
-    public String getTaskTitle() {
-        return this.taskTitle;
+    /**
+     * 按任务时间排序
+     *
+     * <p>示例值：2
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(Integer order) {
+      this.order = order;
+      return this;
     }
 
-    public void setTaskTitle(String taskTitle) {
-        this.taskTitle = taskTitle;
+    /**
+     * 按任务时间排序
+     *
+     * <p>示例值：2
+     *
+     * @param order {@link com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchOrderEnum}
+     * @return
+     */
+    public Builder order(
+        com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchOrderEnum order) {
+      this.order = order.getValue();
+      return this;
     }
 
-    public String getTaskStatus() {
-        return this.taskStatus;
+    /**
+     * 是否包含撤销申请对应的审批单
+     *
+     * <p>示例值：false
+     *
+     * @param withRevokedInstance
+     * @return
+     */
+    public Builder withRevokedInstance(Boolean withRevokedInstance) {
+      this.withRevokedInstance = withRevokedInstance;
+      return this;
     }
 
-    public void setTaskStatus(String taskStatus) {
-        this.taskStatus = taskStatus;
+    public TaskSearch build() {
+      return new TaskSearch(this);
     }
+  }
 
-    public String getTaskStartTimeFrom() {
-        return this.taskStartTimeFrom;
-    }
-
-    public void setTaskStartTimeFrom(String taskStartTimeFrom) {
-        this.taskStartTimeFrom = taskStartTimeFrom;
-    }
-
-    public String getTaskStartTimeTo() {
-        return this.taskStartTimeTo;
-    }
-
-    public void setTaskStartTimeTo(String taskStartTimeTo) {
-        this.taskStartTimeTo = taskStartTimeTo;
-    }
-
-    public String getLocale() {
-        return this.locale;
-    }
-
-    public void setLocale(String locale) {
-        this.locale = locale;
-    }
-
-    public String[] getTaskStatusList() {
-        return this.taskStatusList;
-    }
-
-    public void setTaskStatusList(String[] taskStatusList) {
-        this.taskStatusList = taskStatusList;
-    }
-
-    public Integer getOrder() {
-        return this.order;
-    }
-
-    public void setOrder(Integer order) {
-        this.order = order;
-    }
-
-    public Boolean getWithRevokedInstance() {
-        return this.withRevokedInstance;
-    }
-
-    public void setWithRevokedInstance(Boolean withRevokedInstance) {
-        this.withRevokedInstance = withRevokedInstance;
-    }
-
-    public static class Builder {
-        /**
-         * 根据x_user_type填写审批人id
-         * <p> 示例值：lwiu098wj
-         */
-        private String userId;
-        /**
-         * 审批定义 code
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
-         */
-        private String approvalCode;
-        /**
-         * 审批实例 code
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
-         */
-        private String instanceCode;
-        /**
-         * 审批实例第三方 id 注：和 approval_code 取并集
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
-         */
-        private String instanceExternalId;
-        /**
-         * 审批定义分组第三方 id 注：和 instance_code 取并集
-         * <p> 示例值：1234567
-         */
-        private String groupExternalId;
-        /**
-         * 审批任务标题（只有第三方审批有）
-         * <p> 示例值：test
-         */
-        private String taskTitle;
-        /**
-         * 审批任务状态，注：若不设置，查询全部状态 若不在集合中，报错
-         * <p> 示例值：PENDING
-         */
-        private String taskStatus;
-        /**
-         * 任务查询开始时间（unix毫秒时间戳）
-         * <p> 示例值：1547654251506
-         */
-        private String taskStartTimeFrom;
-        /**
-         * 任务查询结束时间 (unix毫秒时间戳)
-         * <p> 示例值：1547654251506
-         */
-        private String taskStartTimeTo;
-        /**
-         * 地区
-         * <p> 示例值：zh-CN
-         */
-        private String locale;
-        /**
-         * 可选择task_status中的多个状态，当填写此参数时，task_status失效
-         * <p> 示例值：PENDING
-         */
-        private String[] taskStatusList;
-        /**
-         * 按任务时间排序
-         * <p> 示例值：2
-         */
-        private Integer order;
-        /**
-         * 是否包含撤销申请对应的审批单
-         * <p> 示例值：false
-         */
-        private Boolean withRevokedInstance;
-
-        /**
-         * 根据x_user_type填写审批人id
-         * <p> 示例值：lwiu098wj
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 审批定义 code
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED942
-         *
-         * @param approvalCode
-         * @return
-         */
-        public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
-        }
-
-
-        /**
-         * 审批实例 code
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED943
-         *
-         * @param instanceCode
-         * @return
-         */
-        public Builder instanceCode(String instanceCode) {
-            this.instanceCode = instanceCode;
-            return this;
-        }
-
-
-        /**
-         * 审批实例第三方 id 注：和 approval_code 取并集
-         * <p> 示例值：EB828003-9FFE-4B3F-AA50-2E199E2ED976
-         *
-         * @param instanceExternalId
-         * @return
-         */
-        public Builder instanceExternalId(String instanceExternalId) {
-            this.instanceExternalId = instanceExternalId;
-            return this;
-        }
-
-
-        /**
-         * 审批定义分组第三方 id 注：和 instance_code 取并集
-         * <p> 示例值：1234567
-         *
-         * @param groupExternalId
-         * @return
-         */
-        public Builder groupExternalId(String groupExternalId) {
-            this.groupExternalId = groupExternalId;
-            return this;
-        }
-
-
-        /**
-         * 审批任务标题（只有第三方审批有）
-         * <p> 示例值：test
-         *
-         * @param taskTitle
-         * @return
-         */
-        public Builder taskTitle(String taskTitle) {
-            this.taskTitle = taskTitle;
-            return this;
-        }
-
-
-        /**
-         * 审批任务状态，注：若不设置，查询全部状态 若不在集合中，报错
-         * <p> 示例值：PENDING
-         *
-         * @param taskStatus
-         * @return
-         */
-        public Builder taskStatus(String taskStatus) {
-            this.taskStatus = taskStatus;
-            return this;
-        }
-
-        /**
-         * 审批任务状态，注：若不设置，查询全部状态 若不在集合中，报错
-         * <p> 示例值：PENDING
-         *
-         * @param taskStatus {@link com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchTaskStatusEnum}
-         * @return
-         */
-        public Builder taskStatus(com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchTaskStatusEnum taskStatus) {
-            this.taskStatus = taskStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 任务查询开始时间（unix毫秒时间戳）
-         * <p> 示例值：1547654251506
-         *
-         * @param taskStartTimeFrom
-         * @return
-         */
-        public Builder taskStartTimeFrom(String taskStartTimeFrom) {
-            this.taskStartTimeFrom = taskStartTimeFrom;
-            return this;
-        }
-
-
-        /**
-         * 任务查询结束时间 (unix毫秒时间戳)
-         * <p> 示例值：1547654251506
-         *
-         * @param taskStartTimeTo
-         * @return
-         */
-        public Builder taskStartTimeTo(String taskStartTimeTo) {
-            this.taskStartTimeTo = taskStartTimeTo;
-            return this;
-        }
-
-
-        /**
-         * 地区
-         * <p> 示例值：zh-CN
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
-        }
-
-        /**
-         * 地区
-         * <p> 示例值：zh-CN
-         *
-         * @param locale {@link com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchLocaleEnum}
-         * @return
-         */
-        public Builder locale(com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchLocaleEnum locale) {
-            this.locale = locale.getValue();
-            return this;
-        }
-
-
-        /**
-         * 可选择task_status中的多个状态，当填写此参数时，task_status失效
-         * <p> 示例值：PENDING
-         *
-         * @param taskStatusList
-         * @return
-         */
-        public Builder taskStatusList(String[] taskStatusList) {
-            this.taskStatusList = taskStatusList;
-            return this;
-        }
-
-
-        /**
-         * 按任务时间排序
-         * <p> 示例值：2
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(Integer order) {
-            this.order = order;
-            return this;
-        }
-
-        /**
-         * 按任务时间排序
-         * <p> 示例值：2
-         *
-         * @param order {@link com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchOrderEnum}
-         * @return
-         */
-        public Builder order(com.lark.oapi.service.approval.v4.enums.TaskSearchTaskSearchOrderEnum order) {
-            this.order = order.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否包含撤销申请对应的审批单
-         * <p> 示例值：false
-         *
-         * @param withRevokedInstance
-         * @return
-         */
-        public Builder withRevokedInstance(Boolean withRevokedInstance) {
-            this.withRevokedInstance = withRevokedInstance;
-            return this;
-        }
-
-
-        public TaskSearch build() {
-            return new TaskSearch(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

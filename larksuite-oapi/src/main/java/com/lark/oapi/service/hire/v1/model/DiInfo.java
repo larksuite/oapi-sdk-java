@@ -13,296 +13,316 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DiInfo {
+  /**
+   * 附加信息 ID
+   *
+   * <p>示例值：6784008015948283904
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 投递ID
+   *
+   * <p>示例值：6784008015948283905
+   */
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 人才ID
+   *
+   * <p>示例值：6784008015948283906
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 数据来源
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("source_type")
+  private Integer sourceType;
+
+  /**
+   * 创建时间毫秒时间戳
+   *
+   * <p>示例值：1681301987
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间毫秒时间戳
+   *
+   * <p>示例值：1681301987
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 附加信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("di_data")
+  private DiData[] diData;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public Integer getSourceType() {
+    return this.sourceType;
+  }
+
+  public void setSourceType(Integer sourceType) {
+    this.sourceType = sourceType;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public DiData[] getDiData() {
+    return this.diData;
+  }
+
+  public void setDiData(DiData[] diData) {
+    this.diData = diData;
+  }
+
+  // builder 开始
+  public DiInfo() {}
+
+  public DiInfo(Builder builder) {
     /**
-     * DI信息 ID
-     * <p> 示例值："6784008015948283904"
+     * 附加信息 ID
+     *
+     * <p>示例值：6784008015948283904
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 投递ID
-     * <p> 示例值："6784008015948283905"
+     *
+     * <p>示例值：6784008015948283905
      */
-    @SerializedName("application_id")
-    private String applicationId;
+    this.applicationId = builder.applicationId;
     /**
      * 人才ID
-     * <p> 示例值："6784008015948283906"
+     *
+     * <p>示例值：6784008015948283906
      */
-    @SerializedName("talent_id")
-    private String talentId;
+    this.talentId = builder.talentId;
     /**
      * 数据来源
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("source_type")
-    private Integer sourceType;
+    this.sourceType = builder.sourceType;
     /**
      * 创建时间毫秒时间戳
-     * <p> 示例值："1681301987"
+     *
+     * <p>示例值：1681301987
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间毫秒时间戳
-     * <p> 示例值："1681301987"
+     *
+     * <p>示例值：1681301987
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
-     * 多元信息
-     * <p> 示例值：
+     * 附加信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("di_data")
+    this.diData = builder.diData;
+  }
+
+  public static class Builder {
+    /**
+     * 附加信息 ID
+     *
+     * <p>示例值：6784008015948283904
+     */
+    private String id;
+
+    /**
+     * 投递ID
+     *
+     * <p>示例值：6784008015948283905
+     */
+    private String applicationId;
+
+    /**
+     * 人才ID
+     *
+     * <p>示例值：6784008015948283906
+     */
+    private String talentId;
+
+    /**
+     * 数据来源
+     *
+     * <p>示例值：1
+     */
+    private Integer sourceType;
+
+    /**
+     * 创建时间毫秒时间戳
+     *
+     * <p>示例值：1681301987
+     */
+    private String createTime;
+
+    /**
+     * 更新时间毫秒时间戳
+     *
+     * <p>示例值：1681301987
+     */
+    private String updateTime;
+
+    /**
+     * 附加信息
+     *
+     * <p>示例值：
+     */
     private DiData[] diData;
 
-    // builder 开始
-    public DiInfo() {
+    /**
+     * 附加信息 ID
+     *
+     * <p>示例值：6784008015948283904
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public DiInfo(Builder builder) {
-        /**
-         * DI信息 ID
-         * <p> 示例值："6784008015948283904"
-         */
-        this.id = builder.id;
-        /**
-         * 投递ID
-         * <p> 示例值："6784008015948283905"
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 人才ID
-         * <p> 示例值："6784008015948283906"
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 数据来源
-         * <p> 示例值：1
-         */
-        this.sourceType = builder.sourceType;
-        /**
-         * 创建时间毫秒时间戳
-         * <p> 示例值："1681301987"
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间毫秒时间戳
-         * <p> 示例值："1681301987"
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 多元信息
-         * <p> 示例值：
-         */
-        this.diData = builder.diData;
+    /**
+     * 投递ID
+     *
+     * <p>示例值：6784008015948283905
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 人才ID
+     *
+     * <p>示例值：6784008015948283906
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 数据来源
+     *
+     * <p>示例值：1
+     *
+     * @param sourceType
+     * @return
+     */
+    public Builder sourceType(Integer sourceType) {
+      this.sourceType = sourceType;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 创建时间毫秒时间戳
+     *
+     * <p>示例值：1681301987
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getApplicationId() {
-        return this.applicationId;
+    /**
+     * 更新时间毫秒时间戳
+     *
+     * <p>示例值：1681301987
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
+    /**
+     * 附加信息
+     *
+     * <p>示例值：
+     *
+     * @param diData
+     * @return
+     */
+    public Builder diData(DiData[] diData) {
+      this.diData = diData;
+      return this;
     }
 
-    public String getTalentId() {
-        return this.talentId;
+    public DiInfo build() {
+      return new DiInfo(this);
     }
+  }
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
-    }
-
-    public Integer getSourceType() {
-        return this.sourceType;
-    }
-
-    public void setSourceType(Integer sourceType) {
-        this.sourceType = sourceType;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public DiData[] getDiData() {
-        return this.diData;
-    }
-
-    public void setDiData(DiData[] diData) {
-        this.diData = diData;
-    }
-
-    public static class Builder {
-        /**
-         * DI信息 ID
-         * <p> 示例值："6784008015948283904"
-         */
-        private String id;
-        /**
-         * 投递ID
-         * <p> 示例值："6784008015948283905"
-         */
-        private String applicationId;
-        /**
-         * 人才ID
-         * <p> 示例值："6784008015948283906"
-         */
-        private String talentId;
-        /**
-         * 数据来源
-         * <p> 示例值：1
-         */
-        private Integer sourceType;
-        /**
-         * 创建时间毫秒时间戳
-         * <p> 示例值："1681301987"
-         */
-        private String createTime;
-        /**
-         * 更新时间毫秒时间戳
-         * <p> 示例值："1681301987"
-         */
-        private String updateTime;
-        /**
-         * 多元信息
-         * <p> 示例值：
-         */
-        private DiData[] diData;
-
-        /**
-         * DI信息 ID
-         * <p> 示例值："6784008015948283904"
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 投递ID
-         * <p> 示例值："6784008015948283905"
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * 人才ID
-         * <p> 示例值："6784008015948283906"
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 数据来源
-         * <p> 示例值：1
-         *
-         * @param sourceType
-         * @return
-         */
-        public Builder sourceType(Integer sourceType) {
-            this.sourceType = sourceType;
-            return this;
-        }
-
-
-        /**
-         * 创建时间毫秒时间戳
-         * <p> 示例值："1681301987"
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间毫秒时间戳
-         * <p> 示例值："1681301987"
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 多元信息
-         * <p> 示例值：
-         *
-         * @param diData
-         * @return
-         */
-        public Builder diData(DiData[] diData) {
-            this.diData = diData;
-            return this;
-        }
-
-
-        public DiInfo build() {
-            return new DiInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

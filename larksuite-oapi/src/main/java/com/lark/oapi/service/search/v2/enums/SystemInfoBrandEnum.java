@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 客户端品牌
- */
+/** 客户端品牌 */
 public enum SystemInfoBrandEnum {
-    FEISHU("feishu"), // 飞书
-    LARK("lark"), // Lark
-    ;
-    private String value;
+  FEISHU("feishu"), // 飞书
+  LARK("lark"), // Lark
+  ;
+  private String value;
 
-    SystemInfoBrandEnum(String value) {
-        this.value = value;
-    }
+  SystemInfoBrandEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

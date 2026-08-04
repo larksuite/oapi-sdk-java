@@ -13,259 +13,274 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReferralRecommendInfo {
+  /**
+   * 与内推人关系
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("relationship")
+  private Integer relationship;
+
+  /**
+   * 熟悉程度
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("familiarity")
+  private Integer familiarity;
+
+  /**
+   * 推荐语
+   *
+   * <p>示例值：该同学十分优秀，经验丰富。
+   */
+  @SerializedName("comment")
+  private String comment;
+
+  /**
+   * 特殊关系
+   *
+   * <p>示例值：
+   */
+  @SerializedName("specific_relationship")
+  private SpecificRelationship specificRelationship;
+
+  /**
+   * 工作能力熟悉程度
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("work_ability_familiarity")
+  private Integer workAbilityFamiliarity;
+
+  /**
+   * 匹配度
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("match_degree")
+  private Integer matchDegree;
+
+  public Integer getRelationship() {
+    return this.relationship;
+  }
+
+  public void setRelationship(Integer relationship) {
+    this.relationship = relationship;
+  }
+
+  public Integer getFamiliarity() {
+    return this.familiarity;
+  }
+
+  public void setFamiliarity(Integer familiarity) {
+    this.familiarity = familiarity;
+  }
+
+  public String getComment() {
+    return this.comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
+
+  public SpecificRelationship getSpecificRelationship() {
+    return this.specificRelationship;
+  }
+
+  public void setSpecificRelationship(SpecificRelationship specificRelationship) {
+    this.specificRelationship = specificRelationship;
+  }
+
+  public Integer getWorkAbilityFamiliarity() {
+    return this.workAbilityFamiliarity;
+  }
+
+  public void setWorkAbilityFamiliarity(Integer workAbilityFamiliarity) {
+    this.workAbilityFamiliarity = workAbilityFamiliarity;
+  }
+
+  public Integer getMatchDegree() {
+    return this.matchDegree;
+  }
+
+  public void setMatchDegree(Integer matchDegree) {
+    this.matchDegree = matchDegree;
+  }
+
+  // builder 开始
+  public ReferralRecommendInfo() {}
+
+  public ReferralRecommendInfo(Builder builder) {
     /**
      * 与内推人关系
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("relationship")
-    private Integer relationship;
+    this.relationship = builder.relationship;
     /**
      * 熟悉程度
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("familiarity")
-    private Integer familiarity;
+    this.familiarity = builder.familiarity;
     /**
      * 推荐语
-     * <p> 示例值：该同学十分优秀，经验丰富。
+     *
+     * <p>示例值：该同学十分优秀，经验丰富。
      */
-    @SerializedName("comment")
-    private String comment;
+    this.comment = builder.comment;
     /**
      * 特殊关系
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("specific_relationship")
-    private SpecificRelationship specificRelationship;
+    this.specificRelationship = builder.specificRelationship;
     /**
      * 工作能力熟悉程度
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("work_ability_familiarity")
-    private Integer workAbilityFamiliarity;
+    this.workAbilityFamiliarity = builder.workAbilityFamiliarity;
     /**
      * 匹配度
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("match_degree")
+    this.matchDegree = builder.matchDegree;
+  }
+
+  public static class Builder {
+    /**
+     * 与内推人关系
+     *
+     * <p>示例值：1
+     */
+    private Integer relationship;
+
+    /**
+     * 熟悉程度
+     *
+     * <p>示例值：0
+     */
+    private Integer familiarity;
+
+    /**
+     * 推荐语
+     *
+     * <p>示例值：该同学十分优秀，经验丰富。
+     */
+    private String comment;
+
+    /**
+     * 特殊关系
+     *
+     * <p>示例值：
+     */
+    private SpecificRelationship specificRelationship;
+
+    /**
+     * 工作能力熟悉程度
+     *
+     * <p>示例值：1
+     */
+    private Integer workAbilityFamiliarity;
+
+    /**
+     * 匹配度
+     *
+     * <p>示例值：1
+     */
     private Integer matchDegree;
 
-    // builder 开始
-    public ReferralRecommendInfo() {
+    /**
+     * 与内推人关系
+     *
+     * <p>示例值：1
+     *
+     * @param relationship
+     * @return
+     */
+    public Builder relationship(Integer relationship) {
+      this.relationship = relationship;
+      return this;
     }
 
-    public ReferralRecommendInfo(Builder builder) {
-        /**
-         * 与内推人关系
-         * <p> 示例值：1
-         */
-        this.relationship = builder.relationship;
-        /**
-         * 熟悉程度
-         * <p> 示例值：0
-         */
-        this.familiarity = builder.familiarity;
-        /**
-         * 推荐语
-         * <p> 示例值：该同学十分优秀，经验丰富。
-         */
-        this.comment = builder.comment;
-        /**
-         * 特殊关系
-         * <p> 示例值：
-         */
-        this.specificRelationship = builder.specificRelationship;
-        /**
-         * 工作能力熟悉程度
-         * <p> 示例值：1
-         */
-        this.workAbilityFamiliarity = builder.workAbilityFamiliarity;
-        /**
-         * 匹配度
-         * <p> 示例值：1
-         */
-        this.matchDegree = builder.matchDegree;
+    /**
+     * 熟悉程度
+     *
+     * <p>示例值：0
+     *
+     * @param familiarity
+     * @return
+     */
+    public Builder familiarity(Integer familiarity) {
+      this.familiarity = familiarity;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 推荐语
+     *
+     * <p>示例值：该同学十分优秀，经验丰富。
+     *
+     * @param comment
+     * @return
+     */
+    public Builder comment(String comment) {
+      this.comment = comment;
+      return this;
     }
 
-    public Integer getRelationship() {
-        return this.relationship;
+    /**
+     * 特殊关系
+     *
+     * <p>示例值：
+     *
+     * @param specificRelationship
+     * @return
+     */
+    public Builder specificRelationship(SpecificRelationship specificRelationship) {
+      this.specificRelationship = specificRelationship;
+      return this;
     }
 
-    public void setRelationship(Integer relationship) {
-        this.relationship = relationship;
+    /**
+     * 工作能力熟悉程度
+     *
+     * <p>示例值：1
+     *
+     * @param workAbilityFamiliarity
+     * @return
+     */
+    public Builder workAbilityFamiliarity(Integer workAbilityFamiliarity) {
+      this.workAbilityFamiliarity = workAbilityFamiliarity;
+      return this;
     }
 
-    public Integer getFamiliarity() {
-        return this.familiarity;
+    /**
+     * 匹配度
+     *
+     * <p>示例值：1
+     *
+     * @param matchDegree
+     * @return
+     */
+    public Builder matchDegree(Integer matchDegree) {
+      this.matchDegree = matchDegree;
+      return this;
     }
 
-    public void setFamiliarity(Integer familiarity) {
-        this.familiarity = familiarity;
+    public ReferralRecommendInfo build() {
+      return new ReferralRecommendInfo(this);
     }
+  }
 
-    public String getComment() {
-        return this.comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public SpecificRelationship getSpecificRelationship() {
-        return this.specificRelationship;
-    }
-
-    public void setSpecificRelationship(SpecificRelationship specificRelationship) {
-        this.specificRelationship = specificRelationship;
-    }
-
-    public Integer getWorkAbilityFamiliarity() {
-        return this.workAbilityFamiliarity;
-    }
-
-    public void setWorkAbilityFamiliarity(Integer workAbilityFamiliarity) {
-        this.workAbilityFamiliarity = workAbilityFamiliarity;
-    }
-
-    public Integer getMatchDegree() {
-        return this.matchDegree;
-    }
-
-    public void setMatchDegree(Integer matchDegree) {
-        this.matchDegree = matchDegree;
-    }
-
-    public static class Builder {
-        /**
-         * 与内推人关系
-         * <p> 示例值：1
-         */
-        private Integer relationship;
-        /**
-         * 熟悉程度
-         * <p> 示例值：0
-         */
-        private Integer familiarity;
-        /**
-         * 推荐语
-         * <p> 示例值：该同学十分优秀，经验丰富。
-         */
-        private String comment;
-        /**
-         * 特殊关系
-         * <p> 示例值：
-         */
-        private SpecificRelationship specificRelationship;
-        /**
-         * 工作能力熟悉程度
-         * <p> 示例值：1
-         */
-        private Integer workAbilityFamiliarity;
-        /**
-         * 匹配度
-         * <p> 示例值：1
-         */
-        private Integer matchDegree;
-
-        /**
-         * 与内推人关系
-         * <p> 示例值：1
-         *
-         * @param relationship
-         * @return
-         */
-        public Builder relationship(Integer relationship) {
-            this.relationship = relationship;
-            return this;
-        }
-
-
-        /**
-         * 熟悉程度
-         * <p> 示例值：0
-         *
-         * @param familiarity
-         * @return
-         */
-        public Builder familiarity(Integer familiarity) {
-            this.familiarity = familiarity;
-            return this;
-        }
-
-
-        /**
-         * 推荐语
-         * <p> 示例值：该同学十分优秀，经验丰富。
-         *
-         * @param comment
-         * @return
-         */
-        public Builder comment(String comment) {
-            this.comment = comment;
-            return this;
-        }
-
-
-        /**
-         * 特殊关系
-         * <p> 示例值：
-         *
-         * @param specificRelationship
-         * @return
-         */
-        public Builder specificRelationship(SpecificRelationship specificRelationship) {
-            this.specificRelationship = specificRelationship;
-            return this;
-        }
-
-
-        /**
-         * 工作能力熟悉程度
-         * <p> 示例值：1
-         *
-         * @param workAbilityFamiliarity
-         * @return
-         */
-        public Builder workAbilityFamiliarity(Integer workAbilityFamiliarity) {
-            this.workAbilityFamiliarity = workAbilityFamiliarity;
-            return this;
-        }
-
-
-        /**
-         * 匹配度
-         * <p> 示例值：1
-         *
-         * @param matchDegree
-         * @return
-         */
-        public Builder matchDegree(Integer matchDegree) {
-            this.matchDegree = matchDegree;
-            return this;
-        }
-
-
-        public ReferralRecommendInfo build() {
-            return new ReferralRecommendInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,703 +13,778 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExternalReward {
+  /**
+   * 内推人ID
+   *
+   * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
+   */
+  @SerializedName("referral_user_id")
+  private String referralUserId;
+
+  /**
+   * 奖励创建人，管理员与内推人可见，若不传，则默认为「外部系统」
+   *
+   * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
+   */
+  @SerializedName("create_user_id")
+  private String createUserId;
+
+  /**
+   * 奖励确认人，若导入的「内推奖励状态」为「已确认」可传入，若不传，则默认为「外部系统」
+   *
+   * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
+   */
+  @SerializedName("confirm_user_id")
+  private String confirmUserId;
+
+  /**
+   * 奖励发放人，导入奖励状态为「已发放」的奖励传入，若不传，则默认为「外部系统」
+   *
+   * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
+   */
+  @SerializedName("pay_user_id")
+  private String payUserId;
+
+  /**
+   * 外部系统奖励唯一id（仅用于幂等）
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  /**
+   * 投递id，和「人才id」二选一
+   *
+   * <p>示例值：6930815272790114325
+   */
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 人才id，和「投递id」二选一
+   *
+   * <p>示例值：6930815272790114326
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 职位id，当参数包含「人才id」时，可以选填职位id
+   *
+   * <p>示例值：6930815272790114327
+   */
+  @SerializedName("job_id")
+  private String jobId;
+
+  /**
+   * 奖励原因
+   *
+   * <p>示例值：首次推荐
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  /**
+   * 导入的奖励规则类型，将展示在内推奖励明细中，管理员与内推人可见
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("rule_type")
+  private Integer ruleType;
+
+  /**
+   * 奖励额度
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bonus")
+  private BonusAmount bonus;
+
+  /**
+   * 导入的内推奖励状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("stage")
+  private Integer stage;
+
+  /**
+   * 奖励产生时间，内推奖励触发时间，若未传入，取接口传入时间
+   *
+   * <p>示例值：1704720275000
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 奖励确认时间，若导入的「内推奖励状态」为「已确认」可传入，若未传入，取接口传入时间
+   *
+   * <p>示例值：1704720275000
+   */
+  @SerializedName("confirm_time")
+  private String confirmTime;
+
+  /**
+   * 奖励发放时间，若导入的「内推奖励状态」为「已确认」可传入，若未传入，取接口传入时间
+   *
+   * <p>示例值：1704720275001
+   */
+  @SerializedName("pay_time")
+  private String payTime;
+
+  /**
+   * 入职时间，管理员与内推人可见，若为「入职奖励」可传入
+   *
+   * <p>示例值：1704720275002
+   */
+  @SerializedName("onboard_time")
+  private String onboardTime;
+
+  /**
+   * 入职时间，管理员与内推人可见，若为「入职奖励」可传入
+   *
+   * <p>示例值：1704720275003
+   */
+  @SerializedName("conversion_time")
+  private String conversionTime;
+
+  /**
+   * 操作备注，管理员与内推人可见，若为空，将展示为奖励原因
+   *
+   * <p>示例值：已发放
+   */
+  @SerializedName("comment")
+  private String comment;
+
+  public String getReferralUserId() {
+    return this.referralUserId;
+  }
+
+  public void setReferralUserId(String referralUserId) {
+    this.referralUserId = referralUserId;
+  }
+
+  public String getCreateUserId() {
+    return this.createUserId;
+  }
+
+  public void setCreateUserId(String createUserId) {
+    this.createUserId = createUserId;
+  }
+
+  public String getConfirmUserId() {
+    return this.confirmUserId;
+  }
+
+  public void setConfirmUserId(String confirmUserId) {
+    this.confirmUserId = confirmUserId;
+  }
+
+  public String getPayUserId() {
+    return this.payUserId;
+  }
+
+  public void setPayUserId(String payUserId) {
+    this.payUserId = payUserId;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public String getJobId() {
+    return this.jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  public Integer getRuleType() {
+    return this.ruleType;
+  }
+
+  public void setRuleType(Integer ruleType) {
+    this.ruleType = ruleType;
+  }
+
+  public BonusAmount getBonus() {
+    return this.bonus;
+  }
+
+  public void setBonus(BonusAmount bonus) {
+    this.bonus = bonus;
+  }
+
+  public Integer getStage() {
+    return this.stage;
+  }
+
+  public void setStage(Integer stage) {
+    this.stage = stage;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getConfirmTime() {
+    return this.confirmTime;
+  }
+
+  public void setConfirmTime(String confirmTime) {
+    this.confirmTime = confirmTime;
+  }
+
+  public String getPayTime() {
+    return this.payTime;
+  }
+
+  public void setPayTime(String payTime) {
+    this.payTime = payTime;
+  }
+
+  public String getOnboardTime() {
+    return this.onboardTime;
+  }
+
+  public void setOnboardTime(String onboardTime) {
+    this.onboardTime = onboardTime;
+  }
+
+  public String getConversionTime() {
+    return this.conversionTime;
+  }
+
+  public void setConversionTime(String conversionTime) {
+    this.conversionTime = conversionTime;
+  }
+
+  public String getComment() {
+    return this.comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
+
+  // builder 开始
+  public ExternalReward() {}
+
+  public ExternalReward(Builder builder) {
     /**
      * 内推人ID
-     * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
+     *
+     * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
      */
-    @SerializedName("referral_user_id")
-    private String referralUserId;
+    this.referralUserId = builder.referralUserId;
     /**
      * 奖励创建人，管理员与内推人可见，若不传，则默认为「外部系统」
-     * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
+     *
+     * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
      */
-    @SerializedName("create_user_id")
-    private String createUserId;
+    this.createUserId = builder.createUserId;
     /**
      * 奖励确认人，若导入的「内推奖励状态」为「已确认」可传入，若不传，则默认为「外部系统」
-     * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
+     *
+     * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
      */
-    @SerializedName("confirm_user_id")
-    private String confirmUserId;
+    this.confirmUserId = builder.confirmUserId;
     /**
      * 奖励发放人，导入奖励状态为「已发放」的奖励传入，若不传，则默认为「外部系统」
-     * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
+     *
+     * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
      */
-    @SerializedName("pay_user_id")
-    private String payUserId;
+    this.payUserId = builder.payUserId;
     /**
      * 外部系统奖励唯一id（仅用于幂等）
-     * <p> 示例值：6930815272790114324
+     *
+     * <p>示例值：6930815272790114324
      */
-    @SerializedName("external_id")
-    private String externalId;
+    this.externalId = builder.externalId;
     /**
      * 投递id，和「人才id」二选一
-     * <p> 示例值：6930815272790114325
+     *
+     * <p>示例值：6930815272790114325
      */
-    @SerializedName("application_id")
-    private String applicationId;
+    this.applicationId = builder.applicationId;
     /**
      * 人才id，和「投递id」二选一
-     * <p> 示例值：6930815272790114326
+     *
+     * <p>示例值：6930815272790114326
      */
-    @SerializedName("talent_id")
-    private String talentId;
+    this.talentId = builder.talentId;
     /**
      * 职位id，当参数包含「人才id」时，可以选填职位id
-     * <p> 示例值：6930815272790114327
+     *
+     * <p>示例值：6930815272790114327
      */
-    @SerializedName("job_id")
-    private String jobId;
+    this.jobId = builder.jobId;
     /**
      * 奖励原因
-     * <p> 示例值：首次推荐
+     *
+     * <p>示例值：首次推荐
      */
-    @SerializedName("reason")
-    private String reason;
+    this.reason = builder.reason;
     /**
      * 导入的奖励规则类型，将展示在内推奖励明细中，管理员与内推人可见
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("rule_type")
-    private Integer ruleType;
+    this.ruleType = builder.ruleType;
     /**
-     * 奖励数据
-     * <p> 示例值：
+     * 奖励额度
+     *
+     * <p>示例值：
      */
-    @SerializedName("bonus")
-    private BonusAmount bonus;
+    this.bonus = builder.bonus;
     /**
      * 导入的内推奖励状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("stage")
-    private Integer stage;
+    this.stage = builder.stage;
     /**
      * 奖励产生时间，内推奖励触发时间，若未传入，取接口传入时间
-     * <p> 示例值：1704720275000
+     *
+     * <p>示例值：1704720275000
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 奖励确认时间，若导入的「内推奖励状态」为「已确认」可传入，若未传入，取接口传入时间
-     * <p> 示例值：1704720275000
+     *
+     * <p>示例值：1704720275000
      */
-    @SerializedName("confirm_time")
-    private String confirmTime;
+    this.confirmTime = builder.confirmTime;
     /**
      * 奖励发放时间，若导入的「内推奖励状态」为「已确认」可传入，若未传入，取接口传入时间
-     * <p> 示例值：1704720275001
+     *
+     * <p>示例值：1704720275001
      */
-    @SerializedName("pay_time")
-    private String payTime;
+    this.payTime = builder.payTime;
     /**
      * 入职时间，管理员与内推人可见，若为「入职奖励」可传入
-     * <p> 示例值：1704720275002
+     *
+     * <p>示例值：1704720275002
      */
-    @SerializedName("onboard_time")
-    private String onboardTime;
+    this.onboardTime = builder.onboardTime;
     /**
      * 入职时间，管理员与内推人可见，若为「入职奖励」可传入
-     * <p> 示例值：1704720275003
+     *
+     * <p>示例值：1704720275003
      */
-    @SerializedName("conversion_time")
-    private String conversionTime;
+    this.conversionTime = builder.conversionTime;
     /**
      * 操作备注，管理员与内推人可见，若为空，将展示为奖励原因
-     * <p> 示例值：已发放
+     *
+     * <p>示例值：已发放
      */
-    @SerializedName("comment")
+    this.comment = builder.comment;
+  }
+
+  public static class Builder {
+    /**
+     * 内推人ID
+     *
+     * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
+     */
+    private String referralUserId;
+
+    /**
+     * 奖励创建人，管理员与内推人可见，若不传，则默认为「外部系统」
+     *
+     * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
+     */
+    private String createUserId;
+
+    /**
+     * 奖励确认人，若导入的「内推奖励状态」为「已确认」可传入，若不传，则默认为「外部系统」
+     *
+     * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
+     */
+    private String confirmUserId;
+
+    /**
+     * 奖励发放人，导入奖励状态为「已发放」的奖励传入，若不传，则默认为「外部系统」
+     *
+     * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
+     */
+    private String payUserId;
+
+    /**
+     * 外部系统奖励唯一id（仅用于幂等）
+     *
+     * <p>示例值：6930815272790114324
+     */
+    private String externalId;
+
+    /**
+     * 投递id，和「人才id」二选一
+     *
+     * <p>示例值：6930815272790114325
+     */
+    private String applicationId;
+
+    /**
+     * 人才id，和「投递id」二选一
+     *
+     * <p>示例值：6930815272790114326
+     */
+    private String talentId;
+
+    /**
+     * 职位id，当参数包含「人才id」时，可以选填职位id
+     *
+     * <p>示例值：6930815272790114327
+     */
+    private String jobId;
+
+    /**
+     * 奖励原因
+     *
+     * <p>示例值：首次推荐
+     */
+    private String reason;
+
+    /**
+     * 导入的奖励规则类型，将展示在内推奖励明细中，管理员与内推人可见
+     *
+     * <p>示例值：1
+     */
+    private Integer ruleType;
+
+    /**
+     * 奖励额度
+     *
+     * <p>示例值：
+     */
+    private BonusAmount bonus;
+
+    /**
+     * 导入的内推奖励状态
+     *
+     * <p>示例值：1
+     */
+    private Integer stage;
+
+    /**
+     * 奖励产生时间，内推奖励触发时间，若未传入，取接口传入时间
+     *
+     * <p>示例值：1704720275000
+     */
+    private String createTime;
+
+    /**
+     * 奖励确认时间，若导入的「内推奖励状态」为「已确认」可传入，若未传入，取接口传入时间
+     *
+     * <p>示例值：1704720275000
+     */
+    private String confirmTime;
+
+    /**
+     * 奖励发放时间，若导入的「内推奖励状态」为「已确认」可传入，若未传入，取接口传入时间
+     *
+     * <p>示例值：1704720275001
+     */
+    private String payTime;
+
+    /**
+     * 入职时间，管理员与内推人可见，若为「入职奖励」可传入
+     *
+     * <p>示例值：1704720275002
+     */
+    private String onboardTime;
+
+    /**
+     * 入职时间，管理员与内推人可见，若为「入职奖励」可传入
+     *
+     * <p>示例值：1704720275003
+     */
+    private String conversionTime;
+
+    /**
+     * 操作备注，管理员与内推人可见，若为空，将展示为奖励原因
+     *
+     * <p>示例值：已发放
+     */
     private String comment;
 
-    // builder 开始
-    public ExternalReward() {
+    /**
+     * 内推人ID
+     *
+     * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
+     *
+     * @param referralUserId
+     * @return
+     */
+    public Builder referralUserId(String referralUserId) {
+      this.referralUserId = referralUserId;
+      return this;
     }
 
-    public ExternalReward(Builder builder) {
-        /**
-         * 内推人ID
-         * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-         */
-        this.referralUserId = builder.referralUserId;
-        /**
-         * 奖励创建人，管理员与内推人可见，若不传，则默认为「外部系统」
-         * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-         */
-        this.createUserId = builder.createUserId;
-        /**
-         * 奖励确认人，若导入的「内推奖励状态」为「已确认」可传入，若不传，则默认为「外部系统」
-         * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-         */
-        this.confirmUserId = builder.confirmUserId;
-        /**
-         * 奖励发放人，导入奖励状态为「已发放」的奖励传入，若不传，则默认为「外部系统」
-         * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-         */
-        this.payUserId = builder.payUserId;
-        /**
-         * 外部系统奖励唯一id（仅用于幂等）
-         * <p> 示例值：6930815272790114324
-         */
-        this.externalId = builder.externalId;
-        /**
-         * 投递id，和「人才id」二选一
-         * <p> 示例值：6930815272790114325
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 人才id，和「投递id」二选一
-         * <p> 示例值：6930815272790114326
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 职位id，当参数包含「人才id」时，可以选填职位id
-         * <p> 示例值：6930815272790114327
-         */
-        this.jobId = builder.jobId;
-        /**
-         * 奖励原因
-         * <p> 示例值：首次推荐
-         */
-        this.reason = builder.reason;
-        /**
-         * 导入的奖励规则类型，将展示在内推奖励明细中，管理员与内推人可见
-         * <p> 示例值：1
-         */
-        this.ruleType = builder.ruleType;
-        /**
-         * 奖励数据
-         * <p> 示例值：
-         */
-        this.bonus = builder.bonus;
-        /**
-         * 导入的内推奖励状态
-         * <p> 示例值：1
-         */
-        this.stage = builder.stage;
-        /**
-         * 奖励产生时间，内推奖励触发时间，若未传入，取接口传入时间
-         * <p> 示例值：1704720275000
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 奖励确认时间，若导入的「内推奖励状态」为「已确认」可传入，若未传入，取接口传入时间
-         * <p> 示例值：1704720275000
-         */
-        this.confirmTime = builder.confirmTime;
-        /**
-         * 奖励发放时间，若导入的「内推奖励状态」为「已确认」可传入，若未传入，取接口传入时间
-         * <p> 示例值：1704720275001
-         */
-        this.payTime = builder.payTime;
-        /**
-         * 入职时间，管理员与内推人可见，若为「入职奖励」可传入
-         * <p> 示例值：1704720275002
-         */
-        this.onboardTime = builder.onboardTime;
-        /**
-         * 入职时间，管理员与内推人可见，若为「入职奖励」可传入
-         * <p> 示例值：1704720275003
-         */
-        this.conversionTime = builder.conversionTime;
-        /**
-         * 操作备注，管理员与内推人可见，若为空，将展示为奖励原因
-         * <p> 示例值：已发放
-         */
-        this.comment = builder.comment;
+    /**
+     * 奖励创建人，管理员与内推人可见，若不传，则默认为「外部系统」
+     *
+     * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
+     *
+     * @param createUserId
+     * @return
+     */
+    public Builder createUserId(String createUserId) {
+      this.createUserId = createUserId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 奖励确认人，若导入的「内推奖励状态」为「已确认」可传入，若不传，则默认为「外部系统」
+     *
+     * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
+     *
+     * @param confirmUserId
+     * @return
+     */
+    public Builder confirmUserId(String confirmUserId) {
+      this.confirmUserId = confirmUserId;
+      return this;
     }
 
-    public String getReferralUserId() {
-        return this.referralUserId;
+    /**
+     * 奖励发放人，导入奖励状态为「已发放」的奖励传入，若不传，则默认为「外部系统」
+     *
+     * <p>示例值：on_94a1ee5551019f18cd73d9f111898cf2
+     *
+     * @param payUserId
+     * @return
+     */
+    public Builder payUserId(String payUserId) {
+      this.payUserId = payUserId;
+      return this;
     }
 
-    public void setReferralUserId(String referralUserId) {
-        this.referralUserId = referralUserId;
+    /**
+     * 外部系统奖励唯一id（仅用于幂等）
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public String getCreateUserId() {
-        return this.createUserId;
+    /**
+     * 投递id，和「人才id」二选一
+     *
+     * <p>示例值：6930815272790114325
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public void setCreateUserId(String createUserId) {
-        this.createUserId = createUserId;
+    /**
+     * 人才id，和「投递id」二选一
+     *
+     * <p>示例值：6930815272790114326
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public String getConfirmUserId() {
-        return this.confirmUserId;
+    /**
+     * 职位id，当参数包含「人才id」时，可以选填职位id
+     *
+     * <p>示例值：6930815272790114327
+     *
+     * @param jobId
+     * @return
+     */
+    public Builder jobId(String jobId) {
+      this.jobId = jobId;
+      return this;
     }
 
-    public void setConfirmUserId(String confirmUserId) {
-        this.confirmUserId = confirmUserId;
+    /**
+     * 奖励原因
+     *
+     * <p>示例值：首次推荐
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public String getPayUserId() {
-        return this.payUserId;
+    /**
+     * 导入的奖励规则类型，将展示在内推奖励明细中，管理员与内推人可见
+     *
+     * <p>示例值：1
+     *
+     * @param ruleType
+     * @return
+     */
+    public Builder ruleType(Integer ruleType) {
+      this.ruleType = ruleType;
+      return this;
     }
 
-    public void setPayUserId(String payUserId) {
-        this.payUserId = payUserId;
+    /**
+     * 奖励额度
+     *
+     * <p>示例值：
+     *
+     * @param bonus
+     * @return
+     */
+    public Builder bonus(BonusAmount bonus) {
+      this.bonus = bonus;
+      return this;
     }
 
-    public String getExternalId() {
-        return this.externalId;
+    /**
+     * 导入的内推奖励状态
+     *
+     * <p>示例值：1
+     *
+     * @param stage
+     * @return
+     */
+    public Builder stage(Integer stage) {
+      this.stage = stage;
+      return this;
     }
 
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
+    /**
+     * 奖励产生时间，内推奖励触发时间，若未传入，取接口传入时间
+     *
+     * <p>示例值：1704720275000
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getApplicationId() {
-        return this.applicationId;
+    /**
+     * 奖励确认时间，若导入的「内推奖励状态」为「已确认」可传入，若未传入，取接口传入时间
+     *
+     * <p>示例值：1704720275000
+     *
+     * @param confirmTime
+     * @return
+     */
+    public Builder confirmTime(String confirmTime) {
+      this.confirmTime = confirmTime;
+      return this;
     }
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
+    /**
+     * 奖励发放时间，若导入的「内推奖励状态」为「已确认」可传入，若未传入，取接口传入时间
+     *
+     * <p>示例值：1704720275001
+     *
+     * @param payTime
+     * @return
+     */
+    public Builder payTime(String payTime) {
+      this.payTime = payTime;
+      return this;
     }
 
-    public String getTalentId() {
-        return this.talentId;
+    /**
+     * 入职时间，管理员与内推人可见，若为「入职奖励」可传入
+     *
+     * <p>示例值：1704720275002
+     *
+     * @param onboardTime
+     * @return
+     */
+    public Builder onboardTime(String onboardTime) {
+      this.onboardTime = onboardTime;
+      return this;
     }
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
+    /**
+     * 入职时间，管理员与内推人可见，若为「入职奖励」可传入
+     *
+     * <p>示例值：1704720275003
+     *
+     * @param conversionTime
+     * @return
+     */
+    public Builder conversionTime(String conversionTime) {
+      this.conversionTime = conversionTime;
+      return this;
     }
 
-    public String getJobId() {
-        return this.jobId;
+    /**
+     * 操作备注，管理员与内推人可见，若为空，将展示为奖励原因
+     *
+     * <p>示例值：已发放
+     *
+     * @param comment
+     * @return
+     */
+    public Builder comment(String comment) {
+      this.comment = comment;
+      return this;
     }
 
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
+    public ExternalReward build() {
+      return new ExternalReward(this);
     }
+  }
 
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public Integer getRuleType() {
-        return this.ruleType;
-    }
-
-    public void setRuleType(Integer ruleType) {
-        this.ruleType = ruleType;
-    }
-
-    public BonusAmount getBonus() {
-        return this.bonus;
-    }
-
-    public void setBonus(BonusAmount bonus) {
-        this.bonus = bonus;
-    }
-
-    public Integer getStage() {
-        return this.stage;
-    }
-
-    public void setStage(Integer stage) {
-        this.stage = stage;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getConfirmTime() {
-        return this.confirmTime;
-    }
-
-    public void setConfirmTime(String confirmTime) {
-        this.confirmTime = confirmTime;
-    }
-
-    public String getPayTime() {
-        return this.payTime;
-    }
-
-    public void setPayTime(String payTime) {
-        this.payTime = payTime;
-    }
-
-    public String getOnboardTime() {
-        return this.onboardTime;
-    }
-
-    public void setOnboardTime(String onboardTime) {
-        this.onboardTime = onboardTime;
-    }
-
-    public String getConversionTime() {
-        return this.conversionTime;
-    }
-
-    public void setConversionTime(String conversionTime) {
-        this.conversionTime = conversionTime;
-    }
-
-    public String getComment() {
-        return this.comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public static class Builder {
-        /**
-         * 内推人ID
-         * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-         */
-        private String referralUserId;
-        /**
-         * 奖励创建人，管理员与内推人可见，若不传，则默认为「外部系统」
-         * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-         */
-        private String createUserId;
-        /**
-         * 奖励确认人，若导入的「内推奖励状态」为「已确认」可传入，若不传，则默认为「外部系统」
-         * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-         */
-        private String confirmUserId;
-        /**
-         * 奖励发放人，导入奖励状态为「已发放」的奖励传入，若不传，则默认为「外部系统」
-         * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-         */
-        private String payUserId;
-        /**
-         * 外部系统奖励唯一id（仅用于幂等）
-         * <p> 示例值：6930815272790114324
-         */
-        private String externalId;
-        /**
-         * 投递id，和「人才id」二选一
-         * <p> 示例值：6930815272790114325
-         */
-        private String applicationId;
-        /**
-         * 人才id，和「投递id」二选一
-         * <p> 示例值：6930815272790114326
-         */
-        private String talentId;
-        /**
-         * 职位id，当参数包含「人才id」时，可以选填职位id
-         * <p> 示例值：6930815272790114327
-         */
-        private String jobId;
-        /**
-         * 奖励原因
-         * <p> 示例值：首次推荐
-         */
-        private String reason;
-        /**
-         * 导入的奖励规则类型，将展示在内推奖励明细中，管理员与内推人可见
-         * <p> 示例值：1
-         */
-        private Integer ruleType;
-        /**
-         * 奖励数据
-         * <p> 示例值：
-         */
-        private BonusAmount bonus;
-        /**
-         * 导入的内推奖励状态
-         * <p> 示例值：1
-         */
-        private Integer stage;
-        /**
-         * 奖励产生时间，内推奖励触发时间，若未传入，取接口传入时间
-         * <p> 示例值：1704720275000
-         */
-        private String createTime;
-        /**
-         * 奖励确认时间，若导入的「内推奖励状态」为「已确认」可传入，若未传入，取接口传入时间
-         * <p> 示例值：1704720275000
-         */
-        private String confirmTime;
-        /**
-         * 奖励发放时间，若导入的「内推奖励状态」为「已确认」可传入，若未传入，取接口传入时间
-         * <p> 示例值：1704720275001
-         */
-        private String payTime;
-        /**
-         * 入职时间，管理员与内推人可见，若为「入职奖励」可传入
-         * <p> 示例值：1704720275002
-         */
-        private String onboardTime;
-        /**
-         * 入职时间，管理员与内推人可见，若为「入职奖励」可传入
-         * <p> 示例值：1704720275003
-         */
-        private String conversionTime;
-        /**
-         * 操作备注，管理员与内推人可见，若为空，将展示为奖励原因
-         * <p> 示例值：已发放
-         */
-        private String comment;
-
-        /**
-         * 内推人ID
-         * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-         *
-         * @param referralUserId
-         * @return
-         */
-        public Builder referralUserId(String referralUserId) {
-            this.referralUserId = referralUserId;
-            return this;
-        }
-
-
-        /**
-         * 奖励创建人，管理员与内推人可见，若不传，则默认为「外部系统」
-         * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-         *
-         * @param createUserId
-         * @return
-         */
-        public Builder createUserId(String createUserId) {
-            this.createUserId = createUserId;
-            return this;
-        }
-
-
-        /**
-         * 奖励确认人，若导入的「内推奖励状态」为「已确认」可传入，若不传，则默认为「外部系统」
-         * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-         *
-         * @param confirmUserId
-         * @return
-         */
-        public Builder confirmUserId(String confirmUserId) {
-            this.confirmUserId = confirmUserId;
-            return this;
-        }
-
-
-        /**
-         * 奖励发放人，导入奖励状态为「已发放」的奖励传入，若不传，则默认为「外部系统」
-         * <p> 示例值：on_94a1ee5551019f18cd73d9f111898cf2
-         *
-         * @param payUserId
-         * @return
-         */
-        public Builder payUserId(String payUserId) {
-            this.payUserId = payUserId;
-            return this;
-        }
-
-
-        /**
-         * 外部系统奖励唯一id（仅用于幂等）
-         * <p> 示例值：6930815272790114324
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        /**
-         * 投递id，和「人才id」二选一
-         * <p> 示例值：6930815272790114325
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * 人才id，和「投递id」二选一
-         * <p> 示例值：6930815272790114326
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 职位id，当参数包含「人才id」时，可以选填职位id
-         * <p> 示例值：6930815272790114327
-         *
-         * @param jobId
-         * @return
-         */
-        public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
-        }
-
-
-        /**
-         * 奖励原因
-         * <p> 示例值：首次推荐
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * 导入的奖励规则类型，将展示在内推奖励明细中，管理员与内推人可见
-         * <p> 示例值：1
-         *
-         * @param ruleType
-         * @return
-         */
-        public Builder ruleType(Integer ruleType) {
-            this.ruleType = ruleType;
-            return this;
-        }
-
-
-        /**
-         * 奖励数据
-         * <p> 示例值：
-         *
-         * @param bonus
-         * @return
-         */
-        public Builder bonus(BonusAmount bonus) {
-            this.bonus = bonus;
-            return this;
-        }
-
-
-        /**
-         * 导入的内推奖励状态
-         * <p> 示例值：1
-         *
-         * @param stage
-         * @return
-         */
-        public Builder stage(Integer stage) {
-            this.stage = stage;
-            return this;
-        }
-
-
-        /**
-         * 奖励产生时间，内推奖励触发时间，若未传入，取接口传入时间
-         * <p> 示例值：1704720275000
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 奖励确认时间，若导入的「内推奖励状态」为「已确认」可传入，若未传入，取接口传入时间
-         * <p> 示例值：1704720275000
-         *
-         * @param confirmTime
-         * @return
-         */
-        public Builder confirmTime(String confirmTime) {
-            this.confirmTime = confirmTime;
-            return this;
-        }
-
-
-        /**
-         * 奖励发放时间，若导入的「内推奖励状态」为「已确认」可传入，若未传入，取接口传入时间
-         * <p> 示例值：1704720275001
-         *
-         * @param payTime
-         * @return
-         */
-        public Builder payTime(String payTime) {
-            this.payTime = payTime;
-            return this;
-        }
-
-
-        /**
-         * 入职时间，管理员与内推人可见，若为「入职奖励」可传入
-         * <p> 示例值：1704720275002
-         *
-         * @param onboardTime
-         * @return
-         */
-        public Builder onboardTime(String onboardTime) {
-            this.onboardTime = onboardTime;
-            return this;
-        }
-
-
-        /**
-         * 入职时间，管理员与内推人可见，若为「入职奖励」可传入
-         * <p> 示例值：1704720275003
-         *
-         * @param conversionTime
-         * @return
-         */
-        public Builder conversionTime(String conversionTime) {
-            this.conversionTime = conversionTime;
-            return this;
-        }
-
-
-        /**
-         * 操作备注，管理员与内推人可见，若为空，将展示为奖励原因
-         * <p> 示例值：已发放
-         *
-         * @param comment
-         * @return
-         */
-        public Builder comment(String comment) {
-            this.comment = comment;
-            return this;
-        }
-
-
-        public ExternalReward build() {
-            return new ExternalReward(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,129 +13,134 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class PatchNoteReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 备注
+   * ID，可通过[获取备注列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/list)获取
+   *
+   * <p>示例值：6960663240925956401
+   */
+  @Path
+  @SerializedName("note_id")
+  private String noteId;
+
+  public String getNoteId() {
+    return this.noteId;
+  }
+
+  public void setNoteId(String noteId) {
+    this.noteId = noteId;
+  }
+
+  @Body private PatchNoteReqBody body;
+
+  public PatchNoteReqBody getPatchNoteReqBody() {
+    return this.body;
+  }
+
+  public void setPatchNoteReqBody(PatchNoteReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchNoteReq() {}
+
+  public PatchNoteReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 备注 ID
-     * <p> 示例值：6960663240925956401
+     * 备注
+     * ID，可通过[获取备注列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/list)获取
+     *
+     * <p>示例值：6960663240925956401
      */
-    @Path
-    @SerializedName("note_id")
-    private String noteId;
-    @Body
+    this.noteId = builder.noteId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    private String noteId; // 备注
+
+    // ID，可通过[获取备注列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/list)获取
+
+    /**
+     * 备注
+     * ID，可通过[获取备注列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/note/list)获取
+     *
+     * <p>示例值：6960663240925956401
+     *
+     * @param noteId
+     * @return
+     */
+    public Builder noteId(String noteId) {
+      this.noteId = noteId;
+      return this;
+    }
+
     private PatchNoteReqBody body;
 
-    // builder 开始
-    public PatchNoteReq() {
-    }
-
-    public PatchNoteReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 备注 ID
-         * <p> 示例值：6960663240925956401
-         */
-        this.noteId = builder.noteId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getNoteId() {
-        return this.noteId;
-    }
-
-    public void setNoteId(String noteId) {
-        this.noteId = noteId;
-    }
-
     public PatchNoteReqBody getPatchNoteReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPatchNoteReqBody(PatchNoteReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder patchNoteReqBody(PatchNoteReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String noteId; // 备注 ID
-        private PatchNoteReqBody body;
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 备注 ID
-         * <p> 示例值：6960663240925956401
-         *
-         * @param noteId
-         * @return
-         */
-        public Builder noteId(String noteId) {
-            this.noteId = noteId;
-            return this;
-        }
-
-        public PatchNoteReqBody getPatchNoteReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder patchNoteReqBody(PatchNoteReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchNoteReq build() {
-            return new PatchNoteReq(this);
-        }
+    public PatchNoteReq build() {
+      return new PatchNoteReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

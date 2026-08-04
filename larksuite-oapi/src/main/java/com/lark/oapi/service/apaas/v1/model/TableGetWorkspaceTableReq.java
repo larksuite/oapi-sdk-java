@@ -13,106 +13,107 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class TableGetWorkspaceTableReq {
+  /**
+   * 工作空间id，可以从数据平台的 URL 中获取，如
+   * https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage
+   * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+   *
+   * <p>示例值：workspace_aadimx5uzpsls
+   */
+  @Path
+  @SerializedName("workspace_id")
+  private String workspaceId;
+
+  /**
+   * 数据表表名
+   *
+   * <p>示例值：table_name_1
+   */
+  @Path
+  @SerializedName("table_name")
+  private String tableName;
+
+  public String getWorkspaceId() {
+    return this.workspaceId;
+  }
+
+  public void setWorkspaceId(String workspaceId) {
+    this.workspaceId = workspaceId;
+  }
+
+  public String getTableName() {
+    return this.tableName;
+  }
+
+  public void setTableName(String tableName) {
+    this.tableName = tableName;
+  }
+
+  // builder 开始
+  public TableGetWorkspaceTableReq() {}
+
+  public TableGetWorkspaceTableReq(Builder builder) {
     /**
-     * 工作空间 id
-     * <p> 示例值：workspace_abc
+     * 工作空间id，可以从数据平台的 URL 中获取，如
+     * https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage
+     * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+     *
+     * <p>示例值：workspace_aadimx5uzpsls
      */
-    @Path
-    @SerializedName("workspace_id")
-    private String workspaceId;
+    this.workspaceId = builder.workspaceId;
     /**
      * 数据表表名
-     * <p> 示例值：table_name_1
+     *
+     * <p>示例值：table_name_1
      */
-    @Path
-    @SerializedName("table_name")
-    private String tableName;
+    this.tableName = builder.tableName;
+  }
 
-    // builder 开始
-    public TableGetWorkspaceTableReq() {
+  public static class Builder {
+
+    private String workspaceId; // 工作空间id，可以从数据平台的 URL 中获取，如
+    // https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage 中的 workspace_aadimx5uzpsls 就是 workspace_id
+    private String tableName; // 数据表表名
+
+    /**
+     * 工作空间id，可以从数据平台的 URL 中获取，如
+     * https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage
+     * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+     *
+     * <p>示例值：workspace_aadimx5uzpsls
+     *
+     * @param workspaceId
+     * @return
+     */
+    public Builder workspaceId(String workspaceId) {
+      this.workspaceId = workspaceId;
+      return this;
     }
 
-    public TableGetWorkspaceTableReq(Builder builder) {
-        /**
-         * 工作空间 id
-         * <p> 示例值：workspace_abc
-         */
-        this.workspaceId = builder.workspaceId;
-        /**
-         * 数据表表名
-         * <p> 示例值：table_name_1
-         */
-        this.tableName = builder.tableName;
+    /**
+     * 数据表表名
+     *
+     * <p>示例值：table_name_1
+     *
+     * @param tableName
+     * @return
+     */
+    public Builder tableName(String tableName) {
+      this.tableName = tableName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TableGetWorkspaceTableReq build() {
+      return new TableGetWorkspaceTableReq(this);
     }
+  }
 
-    public String getWorkspaceId() {
-        return this.workspaceId;
-    }
-
-    public void setWorkspaceId(String workspaceId) {
-        this.workspaceId = workspaceId;
-    }
-
-    public String getTableName() {
-        return this.tableName;
-    }
-
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
-    }
-
-    public static class Builder {
-
-        private String workspaceId; // 工作空间 id
-        private String tableName; // 数据表表名
-
-        /**
-         * 工作空间 id
-         * <p> 示例值：workspace_abc
-         *
-         * @param workspaceId
-         * @return
-         */
-        public Builder workspaceId(String workspaceId) {
-            this.workspaceId = workspaceId;
-            return this;
-        }
-
-
-        /**
-         * 数据表表名
-         * <p> 示例值：table_name_1
-         *
-         * @param tableName
-         * @return
-         */
-        public Builder tableName(String tableName) {
-            this.tableName = tableName;
-            return this;
-        }
-
-
-        public TableGetWorkspaceTableReq build() {
-            return new TableGetWorkspaceTableReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

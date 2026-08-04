@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LevelSetting {
+  /**
+   * 等级选项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("level_options")
+  private LevelOption[] levelOptions;
+
+  public LevelOption[] getLevelOptions() {
+    return this.levelOptions;
+  }
+
+  public void setLevelOptions(LevelOption[] levelOptions) {
+    this.levelOptions = levelOptions;
+  }
+
+  // builder 开始
+  public LevelSetting() {}
+
+  public LevelSetting(Builder builder) {
     /**
      * 等级选项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("level_options")
+    this.levelOptions = builder.levelOptions;
+  }
+
+  public static class Builder {
+    /**
+     * 等级选项
+     *
+     * <p>示例值：
+     */
     private LevelOption[] levelOptions;
 
-    // builder 开始
-    public LevelSetting() {
+    /**
+     * 等级选项
+     *
+     * <p>示例值：
+     *
+     * @param levelOptions
+     * @return
+     */
+    public Builder levelOptions(LevelOption[] levelOptions) {
+      this.levelOptions = levelOptions;
+      return this;
     }
 
-    public LevelSetting(Builder builder) {
-        /**
-         * 等级选项
-         * <p> 示例值：
-         */
-        this.levelOptions = builder.levelOptions;
+    public LevelSetting build() {
+      return new LevelSetting(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public LevelOption[] getLevelOptions() {
-        return this.levelOptions;
-    }
-
-    public void setLevelOptions(LevelOption[] levelOptions) {
-        this.levelOptions = levelOptions;
-    }
-
-    public static class Builder {
-        /**
-         * 等级选项
-         * <p> 示例值：
-         */
-        private LevelOption[] levelOptions;
-
-        /**
-         * 等级选项
-         * <p> 示例值：
-         *
-         * @param levelOptions
-         * @return
-         */
-        public Builder levelOptions(LevelOption[] levelOptions) {
-            this.levelOptions = levelOptions;
-            return this;
-        }
-
-
-        public LevelSetting build() {
-            return new LevelSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

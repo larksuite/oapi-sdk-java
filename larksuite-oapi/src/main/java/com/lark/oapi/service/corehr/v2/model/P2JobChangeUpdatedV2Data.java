@@ -13,202 +13,214 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2JobChangeUpdatedV2Data {
-    /**
-     * 异动员工雇员ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("employment_id")
-    private String employmentId;
-    /**
-     * Saas租户ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("tenant_id")
-    private String tenantId;
-    /**
-     * 流程ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("process_id")
-    private String processId;
-    /**
-     * 发起人雇员ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("initiator")
-    private String initiator;
-    /**
-     * 操作人雇员ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("operator")
-    private String operator;
-    /**
-     * 更新时间毫秒时间戳
-     * <p> 示例值：1714985958000
-     */
-    @SerializedName("updated_time")
-    private String updatedTime;
-    /**
-     * 异动记录ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("job_change_id")
-    private String jobChangeId;
-    /**
-     * 变更后异动状态
-     * <p> 示例值：1
-     */
-    @SerializedName("status")
-    private Integer status;
-    /**
-     * 操作原因
-     * <p> 示例值：操作原因
-     */
-    @SerializedName("operate_reason")
-    private String operateReason;
-    /**
-     * 变更类型
-     * <p> 示例值：1
-     */
-    @SerializedName("transfer_type")
-    private Integer transferType;
-    /**
-     * 所有更新过的字段，异动字段为元数据定义的字段api name，工作信息字段为"target_employment_change." + 元数据定义的字段api name
-     * <p> 示例值：
-     */
-    @SerializedName("updated_fields")
-    private String[] updatedFields;
-    /**
-     * 异动类型
-     * <p> 示例值：assignment_start_reason_option1
-     */
-    @SerializedName("transform_type")
-    private String transformType;
-    /**
-     * 异动原因
-     * <p> 示例值：reason_for_job_change_option1
-     */
-    @SerializedName("transform_reason")
-    private String transformReason;
+  /**
+   * 异动员工雇员ID，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
+  /**
+   * Saas租户ID
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
+  /**
+   * 流程ID，可通过【流程-获取单个流程详情】接口获取
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("process_id")
+  private String processId;
 
-    public String getTenantId() {
-        return this.tenantId;
-    }
+  /**
+   * 发起人雇员ID，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("initiator")
+  private String initiator;
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
+  /**
+   * 操作人雇员ID，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("operator")
+  private String operator;
 
-    public String getProcessId() {
-        return this.processId;
-    }
+  /**
+   * 更新时间毫秒时间戳;- 示例：1714985958000
+   *
+   * <p>示例值：1714985958000
+   */
+  @SerializedName("updated_time")
+  private String updatedTime;
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
+  /**
+   * 异动记录ID，可通过接口;[搜索异动信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/search)获取详细信息
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("job_change_id")
+  private String jobChangeId;
 
-    public String getInitiator() {
-        return this.initiator;
-    }
+  /**
+   * 变更后异动状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public void setInitiator(String initiator) {
-        this.initiator = initiator;
-    }
+  /**
+   * 操作原因
+   *
+   * <p>示例值：操作原因
+   */
+  @SerializedName("operate_reason")
+  private String operateReason;
 
-    public String getOperator() {
-        return this.operator;
-    }
+  /**
+   * 变更类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("transfer_type")
+  private Integer transferType;
 
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
+  /**
+   * 变更字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("updated_fields")
+  private String[] updatedFields;
 
-    public String getUpdatedTime() {
-        return this.updatedTime;
-    }
+  /**
+   * 异动类型，可通过接口;[获取异动类型列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取
+   *
+   * <p>示例值：assignment_start_reason_option1
+   */
+  @SerializedName("transform_type")
+  private String transformType;
 
-    public void setUpdatedTime(String updatedTime) {
-        this.updatedTime = updatedTime;
-    }
+  /**
+   * 异动原因，可通过接口;[获取异动原因列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_reason/query)获取详细信息
+   *
+   * <p>示例值：reason_for_job_change_option1
+   */
+  @SerializedName("transform_reason")
+  private String transformReason;
 
-    public String getJobChangeId() {
-        return this.jobChangeId;
-    }
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
 
-    public void setJobChangeId(String jobChangeId) {
-        this.jobChangeId = jobChangeId;
-    }
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  public String getTenantId() {
+    return this.tenantId;
+  }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
 
-    public String getOperateReason() {
-        return this.operateReason;
-    }
+  public String getProcessId() {
+    return this.processId;
+  }
 
-    public void setOperateReason(String operateReason) {
-        this.operateReason = operateReason;
-    }
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
 
-    public Integer getTransferType() {
-        return this.transferType;
-    }
+  public String getInitiator() {
+    return this.initiator;
+  }
 
-    public void setTransferType(Integer transferType) {
-        this.transferType = transferType;
-    }
+  public void setInitiator(String initiator) {
+    this.initiator = initiator;
+  }
 
-    public String[] getUpdatedFields() {
-        return this.updatedFields;
-    }
+  public String getOperator() {
+    return this.operator;
+  }
 
-    public void setUpdatedFields(String[] updatedFields) {
-        this.updatedFields = updatedFields;
-    }
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
 
-    public String getTransformType() {
-        return this.transformType;
-    }
+  public String getUpdatedTime() {
+    return this.updatedTime;
+  }
 
-    public void setTransformType(String transformType) {
-        this.transformType = transformType;
-    }
+  public void setUpdatedTime(String updatedTime) {
+    this.updatedTime = updatedTime;
+  }
 
-    public String getTransformReason() {
-        return this.transformReason;
-    }
+  public String getJobChangeId() {
+    return this.jobChangeId;
+  }
 
-    public void setTransformReason(String transformReason) {
-        this.transformReason = transformReason;
-    }
+  public void setJobChangeId(String jobChangeId) {
+    this.jobChangeId = jobChangeId;
+  }
 
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getOperateReason() {
+    return this.operateReason;
+  }
+
+  public void setOperateReason(String operateReason) {
+    this.operateReason = operateReason;
+  }
+
+  public Integer getTransferType() {
+    return this.transferType;
+  }
+
+  public void setTransferType(Integer transferType) {
+    this.transferType = transferType;
+  }
+
+  public String[] getUpdatedFields() {
+    return this.updatedFields;
+  }
+
+  public void setUpdatedFields(String[] updatedFields) {
+    this.updatedFields = updatedFields;
+  }
+
+  public String getTransformType() {
+    return this.transformType;
+  }
+
+  public void setTransformType(String transformType) {
+    this.transformType = transformType;
+  }
+
+  public String getTransformReason() {
+    return this.transformReason;
+  }
+
+  public void setTransformReason(String transformReason) {
+    this.transformReason = transformReason;
+  }
 }

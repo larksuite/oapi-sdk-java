@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AgentChat {
+  /**
+   * 智能体id
+   *
+   * <p>示例值：agent_4k4ue29hpwrx2
+   */
+  @SerializedName("agent_id")
+  private String agentId;
+
+  /**
+   * 用户请求对话内容，必填参数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_message")
+  private AgentUserMessage userMessage;
+
+  public String getAgentId() {
+    return this.agentId;
+  }
+
+  public void setAgentId(String agentId) {
+    this.agentId = agentId;
+  }
+
+  public AgentUserMessage getUserMessage() {
+    return this.userMessage;
+  }
+
+  public void setUserMessage(AgentUserMessage userMessage) {
+    this.userMessage = userMessage;
+  }
+
+  // builder 开始
+  public AgentChat() {}
+
+  public AgentChat(Builder builder) {
     /**
      * 智能体id
-     * <p> 示例值：agent_4k4ue29hpwrx2
+     *
+     * <p>示例值：agent_4k4ue29hpwrx2
      */
-    @SerializedName("agent_id")
-    private String agentId;
+    this.agentId = builder.agentId;
     /**
-     * 用户发送的消息
-     * <p> 示例值：
+     * 用户请求对话内容，必填参数
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_message")
+    this.userMessage = builder.userMessage;
+  }
+
+  public static class Builder {
+    /**
+     * 智能体id
+     *
+     * <p>示例值：agent_4k4ue29hpwrx2
+     */
+    private String agentId;
+
+    /**
+     * 用户请求对话内容，必填参数
+     *
+     * <p>示例值：
+     */
     private AgentUserMessage userMessage;
 
-    // builder 开始
-    public AgentChat() {
+    /**
+     * 智能体id
+     *
+     * <p>示例值：agent_4k4ue29hpwrx2
+     *
+     * @param agentId
+     * @return
+     */
+    public Builder agentId(String agentId) {
+      this.agentId = agentId;
+      return this;
     }
 
-    public AgentChat(Builder builder) {
-        /**
-         * 智能体id
-         * <p> 示例值：agent_4k4ue29hpwrx2
-         */
-        this.agentId = builder.agentId;
-        /**
-         * 用户发送的消息
-         * <p> 示例值：
-         */
-        this.userMessage = builder.userMessage;
+    /**
+     * 用户请求对话内容，必填参数
+     *
+     * <p>示例值：
+     *
+     * @param userMessage
+     * @return
+     */
+    public Builder userMessage(AgentUserMessage userMessage) {
+      this.userMessage = userMessage;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AgentChat build() {
+      return new AgentChat(this);
     }
+  }
 
-    public String getAgentId() {
-        return this.agentId;
-    }
-
-    public void setAgentId(String agentId) {
-        this.agentId = agentId;
-    }
-
-    public AgentUserMessage getUserMessage() {
-        return this.userMessage;
-    }
-
-    public void setUserMessage(AgentUserMessage userMessage) {
-        this.userMessage = userMessage;
-    }
-
-    public static class Builder {
-        /**
-         * 智能体id
-         * <p> 示例值：agent_4k4ue29hpwrx2
-         */
-        private String agentId;
-        /**
-         * 用户发送的消息
-         * <p> 示例值：
-         */
-        private AgentUserMessage userMessage;
-
-        /**
-         * 智能体id
-         * <p> 示例值：agent_4k4ue29hpwrx2
-         *
-         * @param agentId
-         * @return
-         */
-        public Builder agentId(String agentId) {
-            this.agentId = agentId;
-            return this;
-        }
-
-
-        /**
-         * 用户发送的消息
-         * <p> 示例值：
-         *
-         * @param userMessage
-         * @return
-         */
-        public Builder userMessage(AgentUserMessage userMessage) {
-            this.userMessage = userMessage;
-            return this;
-        }
-
-
-        public AgentChat build() {
-            return new AgentChat(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

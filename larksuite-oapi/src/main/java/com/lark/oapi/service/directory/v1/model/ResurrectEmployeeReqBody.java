@@ -13,112 +13,95 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ResurrectEmployeeReqBody {
+  /**
+   * 部门信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_order_in_departments")
+  private UpsertUserDepartmentSortInfo[] employeeOrderInDepartments;
+
+  /** 示例值： */
+  @SerializedName("options")
+  private ResurrectEmployeeOptions options;
+
+  public UpsertUserDepartmentSortInfo[] getEmployeeOrderInDepartments() {
+    return this.employeeOrderInDepartments;
+  }
+
+  public void setEmployeeOrderInDepartments(
+      UpsertUserDepartmentSortInfo[] employeeOrderInDepartments) {
+    this.employeeOrderInDepartments = employeeOrderInDepartments;
+  }
+
+  public ResurrectEmployeeOptions getOptions() {
+    return this.options;
+  }
+
+  public void setOptions(ResurrectEmployeeOptions options) {
+    this.options = options;
+  }
+
+  // builder 开始
+  public ResurrectEmployeeReqBody() {}
+
+  public ResurrectEmployeeReqBody(Builder builder) {
     /**
      * 部门信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_order_in_departments")
-    private UpsertUserDepartmentSortInfo[] employeeOrderInDepartments;
+    this.employeeOrderInDepartments = builder.employeeOrderInDepartments;
+    /** 示例值： */
+    this.options = builder.options;
+  }
+
+  public static class Builder {
     /**
-     * 选项
-     * <p> 示例值：
+     * 部门信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("options")
+    private UpsertUserDepartmentSortInfo[] employeeOrderInDepartments;
+
+    /** 示例值： */
     private ResurrectEmployeeOptions options;
 
-    // builder 开始
-    public ResurrectEmployeeReqBody() {
+    /**
+     * 部门信息
+     *
+     * <p>示例值：
+     *
+     * @param employeeOrderInDepartments
+     * @return
+     */
+    public Builder employeeOrderInDepartments(
+        UpsertUserDepartmentSortInfo[] employeeOrderInDepartments) {
+      this.employeeOrderInDepartments = employeeOrderInDepartments;
+      return this;
     }
 
-    public ResurrectEmployeeReqBody(Builder builder) {
-        /**
-         * 部门信息
-         * <p> 示例值：
-         */
-        this.employeeOrderInDepartments = builder.employeeOrderInDepartments;
-        /**
-         * 选项
-         * <p> 示例值：
-         */
-        this.options = builder.options;
+    /**
+     * 示例值：
+     *
+     * @param options
+     * @return
+     */
+    public Builder options(ResurrectEmployeeOptions options) {
+      this.options = options;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ResurrectEmployeeReqBody build() {
+      return new ResurrectEmployeeReqBody(this);
     }
+  }
 
-    public UpsertUserDepartmentSortInfo[] getEmployeeOrderInDepartments() {
-        return this.employeeOrderInDepartments;
-    }
-
-    public void setEmployeeOrderInDepartments(UpsertUserDepartmentSortInfo[] employeeOrderInDepartments) {
-        this.employeeOrderInDepartments = employeeOrderInDepartments;
-    }
-
-    public ResurrectEmployeeOptions getOptions() {
-        return this.options;
-    }
-
-    public void setOptions(ResurrectEmployeeOptions options) {
-        this.options = options;
-    }
-
-    public static class Builder {
-        /**
-         * 部门信息
-         * <p> 示例值：
-         */
-        private UpsertUserDepartmentSortInfo[] employeeOrderInDepartments;
-        /**
-         * 选项
-         * <p> 示例值：
-         */
-        private ResurrectEmployeeOptions options;
-
-        /**
-         * 部门信息
-         * <p> 示例值：
-         *
-         * @param employeeOrderInDepartments
-         * @return
-         */
-        public Builder employeeOrderInDepartments(UpsertUserDepartmentSortInfo[] employeeOrderInDepartments) {
-            this.employeeOrderInDepartments = employeeOrderInDepartments;
-            return this;
-        }
-
-
-        /**
-         * 选项
-         * <p> 示例值：
-         *
-         * @param options
-         * @return
-         */
-        public Builder options(ResurrectEmployeeOptions options) {
-            this.options = options;
-            return this;
-        }
-
-
-        public ResurrectEmployeeReqBody build() {
-            return new ResurrectEmployeeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

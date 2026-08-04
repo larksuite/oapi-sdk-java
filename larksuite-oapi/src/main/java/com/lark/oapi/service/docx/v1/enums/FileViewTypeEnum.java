@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.docx.v1.enums;
 
-/**
- * 视图类型，卡片视图（默认）或预览视图
- */
+/** 视图类型，卡片视图（默认）或预览视图 */
 public enum FileViewTypeEnum {
-    CARD(1), // 卡片视图
-    PREVIEW(2), // 预览视图
-    ;
-    private Integer value;
+  CARD(1), // 卡片视图
+  PREVIEW(2), // 预览视图
+  ;
+  private Integer value;
 
-    FileViewTypeEnum(Integer value) {
-        this.value = value;
-    }
+  FileViewTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

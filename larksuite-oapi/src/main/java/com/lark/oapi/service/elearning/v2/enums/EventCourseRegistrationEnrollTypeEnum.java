@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.elearning.v2.enums;
 
-/**
- * 注册类型
- */
+/** 注册类型 */
 public enum EventCourseRegistrationEnrollTypeEnum {
-    ASSIGNED(1), // 被管理员指派
-    SELFENROLL(2), // 学员自主加入
-    RULE(3), // 按照规则自动加入
-    APPLIED(4), // 学员申请被批准加入
-    ;
-    private Integer value;
+  ASSIGNED(1), // 被管理员指派
+  SELFENROLL(2), // 学员自主加入
+  RULE(3), // 按照规则自动加入
+  APPLIED(4), // 学员申请被批准加入
+  ;
+  private Integer value;
 
-    EventCourseRegistrationEnrollTypeEnum(Integer value) {
-        this.value = value;
-    }
+  EventCourseRegistrationEnrollTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

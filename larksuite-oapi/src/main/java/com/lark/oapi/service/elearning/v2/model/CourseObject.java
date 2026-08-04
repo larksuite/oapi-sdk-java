@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CourseObject {
+  /**
+   * 课程 ID
+   *
+   * <p>示例值：630e0d9116ee3ede14857160
+   */
+  @SerializedName("object_id")
+  private String objectId;
+
+  /**
+   * 课程类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("object_type")
+  private Integer objectType;
+
+  public String getObjectId() {
+    return this.objectId;
+  }
+
+  public void setObjectId(String objectId) {
+    this.objectId = objectId;
+  }
+
+  public Integer getObjectType() {
+    return this.objectType;
+  }
+
+  public void setObjectType(Integer objectType) {
+    this.objectType = objectType;
+  }
+
+  // builder 开始
+  public CourseObject() {}
+
+  public CourseObject(Builder builder) {
     /**
      * 课程 ID
-     * <p> 示例值：630e0d9116ee3ede14857160
+     *
+     * <p>示例值：630e0d9116ee3ede14857160
      */
-    @SerializedName("object_id")
-    private String objectId;
+    this.objectId = builder.objectId;
     /**
      * 课程类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("object_type")
+    this.objectType = builder.objectType;
+  }
+
+  public static class Builder {
+    /**
+     * 课程 ID
+     *
+     * <p>示例值：630e0d9116ee3ede14857160
+     */
+    private String objectId;
+
+    /**
+     * 课程类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     */
     private Integer objectType;
 
-    // builder 开始
-    public CourseObject() {
+    /**
+     * 课程 ID
+     *
+     * <p>示例值：630e0d9116ee3ede14857160
+     *
+     * @param objectId
+     * @return
+     */
+    public Builder objectId(String objectId) {
+      this.objectId = objectId;
+      return this;
     }
 
-    public CourseObject(Builder builder) {
-        /**
-         * 课程 ID
-         * <p> 示例值：630e0d9116ee3ede14857160
-         */
-        this.objectId = builder.objectId;
-        /**
-         * 课程类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        this.objectType = builder.objectType;
+    /**
+     * 课程类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     *
+     * @param objectType
+     * @return
+     */
+    public Builder objectType(Integer objectType) {
+      this.objectType = objectType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CourseObject build() {
+      return new CourseObject(this);
     }
+  }
 
-    public String getObjectId() {
-        return this.objectId;
-    }
-
-    public void setObjectId(String objectId) {
-        this.objectId = objectId;
-    }
-
-    public Integer getObjectType() {
-        return this.objectType;
-    }
-
-    public void setObjectType(Integer objectType) {
-        this.objectType = objectType;
-    }
-
-    public static class Builder {
-        /**
-         * 课程 ID
-         * <p> 示例值：630e0d9116ee3ede14857160
-         */
-        private String objectId;
-        /**
-         * 课程类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        private Integer objectType;
-
-        /**
-         * 课程 ID
-         * <p> 示例值：630e0d9116ee3ede14857160
-         *
-         * @param objectId
-         * @return
-         */
-        public Builder objectId(String objectId) {
-            this.objectId = objectId;
-            return this;
-        }
-
-
-        /**
-         * 课程类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         *
-         * @param objectType
-         * @return
-         */
-        public Builder objectType(Integer objectType) {
-            this.objectType = objectType;
-            return this;
-        }
-
-
-        public CourseObject build() {
-            return new CourseObject(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

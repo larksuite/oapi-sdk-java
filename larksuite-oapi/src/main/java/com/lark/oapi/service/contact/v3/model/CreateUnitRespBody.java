@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateUnitRespBody {
-    /**
-     * 单位ID，可自定义
-     * <p> 示例值：BU121
-     */
-    @SerializedName("unit_id")
-    private String unitId;
+  /**
+   * 单位 ID。后续可使用该 ID 对单位进行修改、删除、查询以及绑定部门等操作。
+   *
+   * <p>示例值：BU121
+   */
+  @SerializedName("unit_id")
+  private String unitId;
 
-    public String getUnitId() {
-        return this.unitId;
-    }
+  public String getUnitId() {
+    return this.unitId;
+  }
 
-    public void setUnitId(String unitId) {
-        this.unitId = unitId;
-    }
-
+  public void setUnitId(String unitId) {
+    this.unitId = unitId;
+  }
 }

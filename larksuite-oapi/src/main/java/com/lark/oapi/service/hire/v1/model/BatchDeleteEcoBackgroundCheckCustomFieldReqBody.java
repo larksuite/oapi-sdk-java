@@ -13,74 +13,68 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchDeleteEcoBackgroundCheckCustomFieldReqBody {
+  /**
+   * 背调账号
+   * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+   *
+   * <p>示例值：6995842370159937061
+   */
+  @SerializedName("account_id")
+  private String accountId;
+
+  public String getAccountId() {
+    return this.accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  // builder 开始
+  public BatchDeleteEcoBackgroundCheckCustomFieldReqBody() {}
+
+  public BatchDeleteEcoBackgroundCheckCustomFieldReqBody(Builder builder) {
     /**
-     * 背调账号 ID，可在「账号绑定」事件中获取
-     * <p> 示例值：a001
+     * 背调账号
+     * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+     *
+     * <p>示例值：6995842370159937061
      */
-    @SerializedName("account_id")
+    this.accountId = builder.accountId;
+  }
+
+  public static class Builder {
+    /**
+     * 背调账号
+     * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+     *
+     * <p>示例值：6995842370159937061
+     */
     private String accountId;
 
-    // builder 开始
-    public BatchDeleteEcoBackgroundCheckCustomFieldReqBody() {
+    /**
+     * 背调账号
+     * ID，可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+     *
+     * <p>示例值：6995842370159937061
+     *
+     * @param accountId
+     * @return
+     */
+    public Builder accountId(String accountId) {
+      this.accountId = accountId;
+      return this;
     }
 
-    public BatchDeleteEcoBackgroundCheckCustomFieldReqBody(Builder builder) {
-        /**
-         * 背调账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：a001
-         */
-        this.accountId = builder.accountId;
+    public BatchDeleteEcoBackgroundCheckCustomFieldReqBody build() {
+      return new BatchDeleteEcoBackgroundCheckCustomFieldReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAccountId() {
-        return this.accountId;
-    }
-
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
-
-    public static class Builder {
-        /**
-         * 背调账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：a001
-         */
-        private String accountId;
-
-        /**
-         * 背调账号 ID，可在「账号绑定」事件中获取
-         * <p> 示例值：a001
-         *
-         * @param accountId
-         * @return
-         */
-        public Builder accountId(String accountId) {
-            this.accountId = accountId;
-            return this;
-        }
-
-
-        public BatchDeleteEcoBackgroundCheckCustomFieldReqBody build() {
-            return new BatchDeleteEcoBackgroundCheckCustomFieldReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

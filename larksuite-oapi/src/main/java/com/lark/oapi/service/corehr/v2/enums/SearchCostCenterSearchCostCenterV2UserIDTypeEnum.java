@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 用户 ID 类型
- */
+/** 用户 ID 类型 */
 public enum SearchCostCenterSearchCostCenterV2UserIDTypeEnum {
-    USER_ID("user_id"), // 以 user_id 来识别用户
-    UNION_ID("union_id"), // 以 union_id 来识别用户
-    OPEN_ID("open_id"), // 以 open_id 来识别用户
-    PEOPLE_COREHR_ID("people_corehr_id"), // 以飞书人事的 ID 来识别用户
-    ;
-    private String value;
+  USER_ID("user_id"), // 以 user_id 来识别用户
+  UNION_ID("union_id"), // 以 union_id 来识别用户
+  OPEN_ID("open_id"), // 以 open_id 来识别用户
+  PEOPLE_COREHR_ID("people_corehr_id"), // 以飞书人事的 ID 来识别用户
+  ;
+  private String value;
 
-    SearchCostCenterSearchCostCenterV2UserIDTypeEnum(String value) {
-        this.value = value;
-    }
+  SearchCostCenterSearchCostCenterV2UserIDTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

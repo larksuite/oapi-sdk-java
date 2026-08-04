@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchMeetingReqBody {
+  /**
+   * 搜索关键词;长度范围：1 字符 ～ 50 字符;
+   *
+   * <p>示例值：周会
+   */
+  @SerializedName("query")
+  private String query;
+
+  /**
+   * 会议搜索的过滤条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meeting_filter")
+  private MeetingFilter meetingFilter;
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  public MeetingFilter getMeetingFilter() {
+    return this.meetingFilter;
+  }
+
+  public void setMeetingFilter(MeetingFilter meetingFilter) {
+    this.meetingFilter = meetingFilter;
+  }
+
+  // builder 开始
+  public SearchMeetingReqBody() {}
+
+  public SearchMeetingReqBody(Builder builder) {
     /**
-     * 搜索关键词;;**数据校验规则：** 长度范围：1 字符 ～ 50 字符;
-     * <p> 示例值：周会
+     * 搜索关键词;长度范围：1 字符 ～ 50 字符;
+     *
+     * <p>示例值：周会
      */
-    @SerializedName("query")
+    this.query = builder.query;
+    /**
+     * 会议搜索的过滤条件
+     *
+     * <p>示例值：
+     */
+    this.meetingFilter = builder.meetingFilter;
+  }
+
+  public static class Builder {
+    /**
+     * 搜索关键词;长度范围：1 字符 ～ 50 字符;
+     *
+     * <p>示例值：周会
+     */
     private String query;
+
     /**
-     * 视频会议过滤参数
-     * <p> 示例值：
+     * 会议搜索的过滤条件
+     *
+     * <p>示例值：
      */
-    @SerializedName("meeting_filter")
     private MeetingFilter meetingFilter;
 
-    // builder 开始
-    public SearchMeetingReqBody() {
+    /**
+     * 搜索关键词;长度范围：1 字符 ～ 50 字符;
+     *
+     * <p>示例值：周会
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public SearchMeetingReqBody(Builder builder) {
-        /**
-         * 搜索关键词;;**数据校验规则：** 长度范围：1 字符 ～ 50 字符;
-         * <p> 示例值：周会
-         */
-        this.query = builder.query;
-        /**
-         * 视频会议过滤参数
-         * <p> 示例值：
-         */
-        this.meetingFilter = builder.meetingFilter;
+    /**
+     * 会议搜索的过滤条件
+     *
+     * <p>示例值：
+     *
+     * @param meetingFilter
+     * @return
+     */
+    public Builder meetingFilter(MeetingFilter meetingFilter) {
+      this.meetingFilter = meetingFilter;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SearchMeetingReqBody build() {
+      return new SearchMeetingReqBody(this);
     }
+  }
 
-    public String getQuery() {
-        return this.query;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public MeetingFilter getMeetingFilter() {
-        return this.meetingFilter;
-    }
-
-    public void setMeetingFilter(MeetingFilter meetingFilter) {
-        this.meetingFilter = meetingFilter;
-    }
-
-    public static class Builder {
-        /**
-         * 搜索关键词;;**数据校验规则：** 长度范围：1 字符 ～ 50 字符;
-         * <p> 示例值：周会
-         */
-        private String query;
-        /**
-         * 视频会议过滤参数
-         * <p> 示例值：
-         */
-        private MeetingFilter meetingFilter;
-
-        /**
-         * 搜索关键词;;**数据校验规则：** 长度范围：1 字符 ～ 50 字符;
-         * <p> 示例值：周会
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        /**
-         * 视频会议过滤参数
-         * <p> 示例值：
-         *
-         * @param meetingFilter
-         * @return
-         */
-        public Builder meetingFilter(MeetingFilter meetingFilter) {
-            this.meetingFilter = meetingFilter;
-            return this;
-        }
-
-
-        public SearchMeetingReqBody build() {
-            return new SearchMeetingReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

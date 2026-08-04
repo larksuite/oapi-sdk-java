@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeDependent {
+  /**
+   * 员工id
+   *
+   * <p>示例值：7475686493613920050
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 家属列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dependents")
+  private Dependent[] dependents;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public Dependent[] getDependents() {
+    return this.dependents;
+  }
+
+  public void setDependents(Dependent[] dependents) {
+    this.dependents = dependents;
+  }
+
+  // builder 开始
+  public EmployeeDependent() {}
+
+  public EmployeeDependent(Builder builder) {
     /**
      * 员工id
-     * <p> 示例值：7475686493613920050
+     *
+     * <p>示例值：7475686493613920050
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 家属列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dependents")
+    this.dependents = builder.dependents;
+  }
+
+  public static class Builder {
+    /**
+     * 员工id
+     *
+     * <p>示例值：7475686493613920050
+     */
+    private String employmentId;
+
+    /**
+     * 家属列表
+     *
+     * <p>示例值：
+     */
     private Dependent[] dependents;
 
-    // builder 开始
-    public EmployeeDependent() {
+    /**
+     * 员工id
+     *
+     * <p>示例值：7475686493613920050
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public EmployeeDependent(Builder builder) {
-        /**
-         * 员工id
-         * <p> 示例值：7475686493613920050
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 家属列表
-         * <p> 示例值：
-         */
-        this.dependents = builder.dependents;
+    /**
+     * 家属列表
+     *
+     * <p>示例值：
+     *
+     * @param dependents
+     * @return
+     */
+    public Builder dependents(Dependent[] dependents) {
+      this.dependents = dependents;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EmployeeDependent build() {
+      return new EmployeeDependent(this);
     }
+  }
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public Dependent[] getDependents() {
-        return this.dependents;
-    }
-
-    public void setDependents(Dependent[] dependents) {
-        this.dependents = dependents;
-    }
-
-    public static class Builder {
-        /**
-         * 员工id
-         * <p> 示例值：7475686493613920050
-         */
-        private String employmentId;
-        /**
-         * 家属列表
-         * <p> 示例值：
-         */
-        private Dependent[] dependents;
-
-        /**
-         * 员工id
-         * <p> 示例值：7475686493613920050
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 家属列表
-         * <p> 示例值：
-         *
-         * @param dependents
-         * @return
-         */
-        public Builder dependents(Dependent[] dependents) {
-            this.dependents = dependents;
-            return this;
-        }
-
-
-        public EmployeeDependent build() {
-            return new EmployeeDependent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,29 +13,27 @@
 
 package com.lark.oapi.service.performance.v2.enums;
 
-/**
- * 环节类型
- */
+/** 环节类型 */
 public enum TemplateStageStageTypeEnum {
-    SUMMARIZE_KEY_OUTPUTS("summarize_key_outputs"), // 工作总结环节
-    REVIEW("review"), // 评估型环节
-    COMMUNICATION_AND_OPEN_RESULT("communication_and_open_result"), // 结果沟通环节
-    VIEW_RESULT("view_result"), // 绩效结果查看环节
-    RECONSIDERATION("reconsideration"), // 结果复议环节
-    ADJUST_REVIEW("calibration"), // 校准环节
-    INVITATION("invitation"), // 360°邀请环节
-    CONFIRM_INVITATION("confirm_invitation"), // 360°确认环节
-    METRIC_SETTING("metric_setting"), // 指标制定环节
-    METRIC_CONFIRM("metric_confirm"), // 指标确认环节
-    DATA_SOURCE_INPUT("data_source_input"), // 数据源录入环节
-    ;
-    private String value;
+  SUMMARIZE_KEY_OUTPUTS("summarize_key_outputs"), // 工作总结环节
+  REVIEW("review"), // 评估型环节
+  COMMUNICATION_AND_OPEN_RESULT("communication_and_open_result"), // 结果沟通环节
+  VIEW_RESULT("view_result"), // 绩效结果查看环节
+  RECONSIDERATION("reconsideration"), // 结果复议环节
+  ADJUST_REVIEW("calibration"), // 校准环节
+  INVITATION("invitation"), // 360°邀请环节
+  CONFIRM_INVITATION("confirm_invitation"), // 360°确认环节
+  METRIC_SETTING("metric_setting"), // 指标制定环节
+  METRIC_CONFIRM("metric_confirm"), // 指标确认环节
+  DATA_SOURCE_INPUT("data_source_input"), // 数据源录入环节
+  ;
+  private String value;
 
-    TemplateStageStageTypeEnum(String value) {
-        this.value = value;
-    }
+  TemplateStageStageTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

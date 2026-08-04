@@ -13,131 +13,129 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class ExecuteApplicationFlowReq {
+  /**
+   * 应用命名空间(低代码平台->我的应用->应用管理->可查看到)
+   *
+   * <p>示例值：package_7344545d87__c
+   */
+  @Path
+  @SerializedName("namespace")
+  private String namespace;
+
+  /**
+   * 流程API名称（低代码平台->我的应用->开发->流程->展开为表格->可查看到）
+   *
+   * <p>示例值：deleteObject_99c656599f
+   */
+  @Path
+  @SerializedName("flow_id")
+  private String flowId;
+
+  public String getNamespace() {
+    return this.namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  public String getFlowId() {
+    return this.flowId;
+  }
+
+  public void setFlowId(String flowId) {
+    this.flowId = flowId;
+  }
+
+  @Body private ExecuteApplicationFlowReqBody body;
+
+  public ExecuteApplicationFlowReqBody getExecuteApplicationFlowReqBody() {
+    return this.body;
+  }
+
+  public void setExecuteApplicationFlowReqBody(ExecuteApplicationFlowReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public ExecuteApplicationFlowReq() {}
+
+  public ExecuteApplicationFlowReq(Builder builder) {
     /**
-     * 应用id
-     * <p> 示例值：123
+     * 应用命名空间(低代码平台->我的应用->应用管理->可查看到)
+     *
+     * <p>示例值：package_7344545d87__c
      */
-    @Path
-    @SerializedName("namespace")
-    private String namespace;
+    this.namespace = builder.namespace;
     /**
-     * 流程api name
-     * <p> 示例值：deleteObject_99c0b74799f
+     * 流程API名称（低代码平台->我的应用->开发->流程->展开为表格->可查看到）
+     *
+     * <p>示例值：deleteObject_99c656599f
      */
-    @Path
-    @SerializedName("flow_id")
-    private String flowId;
-    @Body
+    this.flowId = builder.flowId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String namespace; // 应用命名空间(低代码平台->我的应用->应用管理->可查看到)
+    private String flowId; // 流程API名称（低代码平台->我的应用->开发->流程->展开为表格->可查看到）
+
+    /**
+     * 应用命名空间(低代码平台->我的应用->应用管理->可查看到)
+     *
+     * <p>示例值：package_7344545d87__c
+     *
+     * @param namespace
+     * @return
+     */
+    public Builder namespace(String namespace) {
+      this.namespace = namespace;
+      return this;
+    }
+
+    /**
+     * 流程API名称（低代码平台->我的应用->开发->流程->展开为表格->可查看到）
+     *
+     * <p>示例值：deleteObject_99c656599f
+     *
+     * @param flowId
+     * @return
+     */
+    public Builder flowId(String flowId) {
+      this.flowId = flowId;
+      return this;
+    }
+
     private ExecuteApplicationFlowReqBody body;
 
-    // builder 开始
-    public ExecuteApplicationFlowReq() {
-    }
-
-    public ExecuteApplicationFlowReq(Builder builder) {
-        /**
-         * 应用id
-         * <p> 示例值：123
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 流程api name
-         * <p> 示例值：deleteObject_99c0b74799f
-         */
-        this.flowId = builder.flowId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getNamespace() {
-        return this.namespace;
-    }
-
-    public void setNamespace(String namespace) {
-        this.namespace = namespace;
-    }
-
-    public String getFlowId() {
-        return this.flowId;
-    }
-
-    public void setFlowId(String flowId) {
-        this.flowId = flowId;
-    }
-
     public ExecuteApplicationFlowReqBody getExecuteApplicationFlowReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setExecuteApplicationFlowReqBody(ExecuteApplicationFlowReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder executeApplicationFlowReqBody(ExecuteApplicationFlowReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String namespace; // 应用id
-        private String flowId; // 流程api name
-        private ExecuteApplicationFlowReqBody body;
-
-        /**
-         * 应用id
-         * <p> 示例值：123
-         *
-         * @param namespace
-         * @return
-         */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
-
-        /**
-         * 流程api name
-         * <p> 示例值：deleteObject_99c0b74799f
-         *
-         * @param flowId
-         * @return
-         */
-        public Builder flowId(String flowId) {
-            this.flowId = flowId;
-            return this;
-        }
-
-        public ExecuteApplicationFlowReqBody getExecuteApplicationFlowReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder executeApplicationFlowReqBody(ExecuteApplicationFlowReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public ExecuteApplicationFlowReq build() {
-            return new ExecuteApplicationFlowReq(this);
-        }
+    public ExecuteApplicationFlowReq build() {
+      return new ExecuteApplicationFlowReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,195 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DefaultCostCenter {
+  /**
+   * 成本中心
+   * ID;-可以调用[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口，获取对应成本中心信息的成本中心ID。
+   *
+   * <p>示例值：7039123253031711012
+   */
+  @SerializedName("cost_center_id")
+  private String costCenterId;
+
+  /**
+   * 生效日期
+   *
+   * <p>示例值：2025-01-01
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 是否继承岗位/部门的默认成本中心
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_herit")
+  private Boolean isHerit;
+
+  /**
+   * 继承来源
+   *
+   * <p>示例值：department
+   */
+  @SerializedName("inherit_source")
+  private String inheritSource;
+
+  public String getCostCenterId() {
+    return this.costCenterId;
+  }
+
+  public void setCostCenterId(String costCenterId) {
+    this.costCenterId = costCenterId;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public Boolean getIsHerit() {
+    return this.isHerit;
+  }
+
+  public void setIsHerit(Boolean isHerit) {
+    this.isHerit = isHerit;
+  }
+
+  public String getInheritSource() {
+    return this.inheritSource;
+  }
+
+  public void setInheritSource(String inheritSource) {
+    this.inheritSource = inheritSource;
+  }
+
+  // builder 开始
+  public DefaultCostCenter() {}
+
+  public DefaultCostCenter(Builder builder) {
     /**
-     * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
-     * <p> 示例值：6950635856373745165
+     * 成本中心
+     * ID;-可以调用[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口，获取对应成本中心信息的成本中心ID。
+     *
+     * <p>示例值：7039123253031711012
      */
-    @SerializedName("cost_center_id")
-    private String costCenterId;
+    this.costCenterId = builder.costCenterId;
     /**
      * 生效日期
-     * <p> 示例值：2025-01-01
+     *
+     * <p>示例值：2025-01-01
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 是否继承岗位/部门的默认成本中心
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_herit")
-    private Boolean isHerit;
+    this.isHerit = builder.isHerit;
     /**
      * 继承来源
-     * <p> 示例值：department
+     *
+     * <p>示例值：department
      */
-    @SerializedName("inherit_source")
+    this.inheritSource = builder.inheritSource;
+  }
+
+  public static class Builder {
+    /**
+     * 成本中心
+     * ID;-可以调用[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口，获取对应成本中心信息的成本中心ID。
+     *
+     * <p>示例值：7039123253031711012
+     */
+    private String costCenterId;
+
+    /**
+     * 生效日期
+     *
+     * <p>示例值：2025-01-01
+     */
+    private String effectiveTime;
+
+    /**
+     * 是否继承岗位/部门的默认成本中心
+     *
+     * <p>示例值：false
+     */
+    private Boolean isHerit;
+
+    /**
+     * 继承来源
+     *
+     * <p>示例值：department
+     */
     private String inheritSource;
 
-    // builder 开始
-    public DefaultCostCenter() {
+    /**
+     * 成本中心
+     * ID;-可以调用[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口，获取对应成本中心信息的成本中心ID。
+     *
+     * <p>示例值：7039123253031711012
+     *
+     * @param costCenterId
+     * @return
+     */
+    public Builder costCenterId(String costCenterId) {
+      this.costCenterId = costCenterId;
+      return this;
     }
 
-    public DefaultCostCenter(Builder builder) {
-        /**
-         * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
-         * <p> 示例值：6950635856373745165
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * 生效日期
-         * <p> 示例值：2025-01-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 是否继承岗位/部门的默认成本中心
-         * <p> 示例值：false
-         */
-        this.isHerit = builder.isHerit;
-        /**
-         * 继承来源
-         * <p> 示例值：department
-         */
-        this.inheritSource = builder.inheritSource;
+    /**
+     * 生效日期
+     *
+     * <p>示例值：2025-01-01
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否继承岗位/部门的默认成本中心
+     *
+     * <p>示例值：false
+     *
+     * @param isHerit
+     * @return
+     */
+    public Builder isHerit(Boolean isHerit) {
+      this.isHerit = isHerit;
+      return this;
     }
 
-    public String getCostCenterId() {
-        return this.costCenterId;
+    /**
+     * 继承来源
+     *
+     * <p>示例值：department
+     *
+     * @param inheritSource
+     * @return
+     */
+    public Builder inheritSource(String inheritSource) {
+      this.inheritSource = inheritSource;
+      return this;
     }
 
-    public void setCostCenterId(String costCenterId) {
-        this.costCenterId = costCenterId;
+    public DefaultCostCenter build() {
+      return new DefaultCostCenter(this);
     }
+  }
 
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public Boolean getIsHerit() {
-        return this.isHerit;
-    }
-
-    public void setIsHerit(Boolean isHerit) {
-        this.isHerit = isHerit;
-    }
-
-    public String getInheritSource() {
-        return this.inheritSource;
-    }
-
-    public void setInheritSource(String inheritSource) {
-        this.inheritSource = inheritSource;
-    }
-
-    public static class Builder {
-        /**
-         * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
-         * <p> 示例值：6950635856373745165
-         */
-        private String costCenterId;
-        /**
-         * 生效日期
-         * <p> 示例值：2025-01-01
-         */
-        private String effectiveTime;
-        /**
-         * 是否继承岗位/部门的默认成本中心
-         * <p> 示例值：false
-         */
-        private Boolean isHerit;
-        /**
-         * 继承来源
-         * <p> 示例值：department
-         */
-        private String inheritSource;
-
-        /**
-         * 成本中心 ID，可以通过【查询单个成本中心信息】接口获取对应的成本中心信息
-         * <p> 示例值：6950635856373745165
-         *
-         * @param costCenterId
-         * @return
-         */
-        public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
-        }
-
-
-        /**
-         * 生效日期
-         * <p> 示例值：2025-01-01
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 是否继承岗位/部门的默认成本中心
-         * <p> 示例值：false
-         *
-         * @param isHerit
-         * @return
-         */
-        public Builder isHerit(Boolean isHerit) {
-            this.isHerit = isHerit;
-            return this;
-        }
-
-
-        /**
-         * 继承来源
-         * <p> 示例值：department
-         *
-         * @param inheritSource
-         * @return
-         */
-        public Builder inheritSource(String inheritSource) {
-            this.inheritSource = inheritSource;
-            return this;
-        }
-
-
-        public DefaultCostCenter build() {
-            return new DefaultCostCenter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

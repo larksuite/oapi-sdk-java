@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TicketMessageContent {
+  /**
+   * 内容
+   *
+   * <p>示例值：请问vpn怎么下载
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 消息类型；text：纯文本；post：富文本；image：图片
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("msg_type")
+  private String msgType;
+
+  /**
+   * 图片ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("image_keys")
+  private String[] imageKeys;
+
+  /**
+   * 图片ID
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("image_key")
+  private String imageKey;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getMsgType() {
+    return this.msgType;
+  }
+
+  public void setMsgType(String msgType) {
+    this.msgType = msgType;
+  }
+
+  public String[] getImageKeys() {
+    return this.imageKeys;
+  }
+
+  public void setImageKeys(String[] imageKeys) {
+    this.imageKeys = imageKeys;
+  }
+
+  public String getImageKey() {
+    return this.imageKey;
+  }
+
+  public void setImageKey(String imageKey) {
+    this.imageKey = imageKey;
+  }
+
+  // builder 开始
+  public TicketMessageContent() {}
+
+  public TicketMessageContent(Builder builder) {
     /**
      * 内容
-     * <p> 示例值：请问vpn怎么下载
+     *
+     * <p>示例值：请问vpn怎么下载
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 消息类型；text：纯文本；post：富文本；image：图片
-     * <p> 示例值：text
+     *
+     * <p>示例值：text
      */
-    @SerializedName("msg_type")
+    this.msgType = builder.msgType;
+    /**
+     * 图片ID
+     *
+     * <p>示例值：
+     */
+    this.imageKeys = builder.imageKeys;
+    /**
+     * 图片ID
+     *
+     * <p>示例值：xxx
+     */
+    this.imageKey = builder.imageKey;
+  }
+
+  public static class Builder {
+    /**
+     * 内容
+     *
+     * <p>示例值：请问vpn怎么下载
+     */
+    private String content;
+
+    /**
+     * 消息类型；text：纯文本；post：富文本；image：图片
+     *
+     * <p>示例值：text
+     */
     private String msgType;
+
     /**
      * 图片ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("image_keys")
     private String[] imageKeys;
+
     /**
      * 图片ID
-     * <p> 示例值：xxx
+     *
+     * <p>示例值：xxx
      */
-    @SerializedName("image_key")
     private String imageKey;
 
-    // builder 开始
-    public TicketMessageContent() {
+    /**
+     * 内容
+     *
+     * <p>示例值：请问vpn怎么下载
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public TicketMessageContent(Builder builder) {
-        /**
-         * 内容
-         * <p> 示例值：请问vpn怎么下载
-         */
-        this.content = builder.content;
-        /**
-         * 消息类型；text：纯文本；post：富文本；image：图片
-         * <p> 示例值：text
-         */
-        this.msgType = builder.msgType;
-        /**
-         * 图片ID
-         * <p> 示例值：
-         */
-        this.imageKeys = builder.imageKeys;
-        /**
-         * 图片ID
-         * <p> 示例值：xxx
-         */
-        this.imageKey = builder.imageKey;
+    /**
+     * 消息类型；text：纯文本；post：富文本；image：图片
+     *
+     * <p>示例值：text
+     *
+     * @param msgType
+     * @return
+     */
+    public Builder msgType(String msgType) {
+      this.msgType = msgType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 图片ID
+     *
+     * <p>示例值：
+     *
+     * @param imageKeys
+     * @return
+     */
+    public Builder imageKeys(String[] imageKeys) {
+      this.imageKeys = imageKeys;
+      return this;
     }
 
-    public String getContent() {
-        return this.content;
+    /**
+     * 图片ID
+     *
+     * <p>示例值：xxx
+     *
+     * @param imageKey
+     * @return
+     */
+    public Builder imageKey(String imageKey) {
+      this.imageKey = imageKey;
+      return this;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public TicketMessageContent build() {
+      return new TicketMessageContent(this);
     }
+  }
 
-    public String getMsgType() {
-        return this.msgType;
-    }
-
-    public void setMsgType(String msgType) {
-        this.msgType = msgType;
-    }
-
-    public String[] getImageKeys() {
-        return this.imageKeys;
-    }
-
-    public void setImageKeys(String[] imageKeys) {
-        this.imageKeys = imageKeys;
-    }
-
-    public String getImageKey() {
-        return this.imageKey;
-    }
-
-    public void setImageKey(String imageKey) {
-        this.imageKey = imageKey;
-    }
-
-    public static class Builder {
-        /**
-         * 内容
-         * <p> 示例值：请问vpn怎么下载
-         */
-        private String content;
-        /**
-         * 消息类型；text：纯文本；post：富文本；image：图片
-         * <p> 示例值：text
-         */
-        private String msgType;
-        /**
-         * 图片ID
-         * <p> 示例值：
-         */
-        private String[] imageKeys;
-        /**
-         * 图片ID
-         * <p> 示例值：xxx
-         */
-        private String imageKey;
-
-        /**
-         * 内容
-         * <p> 示例值：请问vpn怎么下载
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 消息类型；text：纯文本；post：富文本；image：图片
-         * <p> 示例值：text
-         *
-         * @param msgType
-         * @return
-         */
-        public Builder msgType(String msgType) {
-            this.msgType = msgType;
-            return this;
-        }
-
-
-        /**
-         * 图片ID
-         * <p> 示例值：
-         *
-         * @param imageKeys
-         * @return
-         */
-        public Builder imageKeys(String[] imageKeys) {
-            this.imageKeys = imageKeys;
-            return this;
-        }
-
-
-        /**
-         * 图片ID
-         * <p> 示例值：xxx
-         *
-         * @param imageKey
-         * @return
-         */
-        public Builder imageKey(String imageKey) {
-            this.imageKey = imageKey;
-            return this;
-        }
-
-
-        public TicketMessageContent build() {
-            return new TicketMessageContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

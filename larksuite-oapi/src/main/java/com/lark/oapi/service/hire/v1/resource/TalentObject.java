@@ -13,101 +13,123 @@
 
 package com.lark.oapi.service.hire.v1.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.hire.v1.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.hire.v1.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class TalentObject {
-    private static final Logger log = LoggerFactory.getLogger(TalentObject.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(TalentObject.class);
+  private final Config config;
 
-    public TalentObject(Config config) {
-        this.config = config;
+  public TalentObject(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 获取人才字段，获取全部人才字段详细信息，包含字段名称、字段描述、字段类型、启用状态等信息。
+   *
+   * <p>##
+   * 概念说明;在「飞书招聘」-「设置」-「候选人字段管理」中，人才中的字段按照模块进行组织，一个模块下可以包含多个字段，对应人才字段类型中`模块`类型，如下图所示。;;![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/ef34f907d66c16101567d67d48b08b06_NDaFV3Wupm.png?maxWidth=500);
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=hire&resource=talent_object&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=hire&resource=talent_object&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/QueryTalentObjectSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/QueryTalentObjectSample.java</a>
+   * ;
+   */
+  public QueryTalentObjectResp query(RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/hire/v1/talent_objects/query",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            null);
 
-    /**
-     * 获取人才字段，获取人才字段
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/QueryTalentObjectSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/QueryTalentObjectSample.java</a> ;
-     */
-    public QueryTalentObjectResp query(RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    // 反序列化
+    QueryTalentObjectResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTalentObjectResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/hire/v1/talent_objects/query",
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/hire/v1/talent_objects/query"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , null);
-
-        // 反序列化
-        QueryTalentObjectResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTalentObjectResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/talent_objects/query"
-                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        return resp;
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 获取人才字段，获取人才字段
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query">https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/QueryTalentObjectSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/QueryTalentObjectSample.java</a> ;
-     */
-    public QueryTalentObjectResp query() throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    return resp;
+  }
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/hire/v1/talent_objects/query"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , null);
+  /**
+   * 获取人才字段，获取全部人才字段详细信息，包含字段名称、字段描述、字段类型、启用状态等信息。
+   *
+   * <p>##
+   * 概念说明;在「飞书招聘」-「设置」-「候选人字段管理」中，人才中的字段按照模块进行组织，一个模块下可以包含多个字段，对应人才字段类型中`模块`类型，如下图所示。;;![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/ef34f907d66c16101567d67d48b08b06_NDaFV3Wupm.png?maxWidth=500);
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=hire&resource=talent_object&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=hire&resource=talent_object&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/QueryTalentObjectSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/hirev1/QueryTalentObjectSample.java</a>
+   * ;
+   */
+  public QueryTalentObjectResp query() throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        // 反序列化
-        QueryTalentObjectResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTalentObjectResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/hire/v1/talent_objects/query"
-                    , Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/hire/v1/talent_objects/query",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            null);
 
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+    // 反序列化
+    QueryTalentObjectResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTalentObjectResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/hire/v1/talent_objects/query",
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
 
-        resp.setRawResponse(httpResponse);
-        return resp;
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    return resp;
+  }
 }

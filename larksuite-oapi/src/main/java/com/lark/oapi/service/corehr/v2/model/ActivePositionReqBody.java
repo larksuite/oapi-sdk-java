@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ActivePositionReqBody {
+  /**
+   * 岗位ID，详细信息可通过[查询岗位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口获得
+   *
+   * <p>示例值：6862995757234914823
+   */
+  @SerializedName("position_id")
+  private String positionId;
+
+  /**
+   * 可选值：true（启用）、false（停用）
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 版本生效时间
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  public String getPositionId() {
+    return this.positionId;
+  }
+
+  public void setPositionId(String positionId) {
+    this.positionId = positionId;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  // builder 开始
+  public ActivePositionReqBody() {}
+
+  public ActivePositionReqBody(Builder builder) {
     /**
-     * 岗位ID
-     * <p> 示例值：6862995757234914823
+     * 岗位ID，详细信息可通过[查询岗位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口获得
+     *
+     * <p>示例值：6862995757234914823
      */
-    @SerializedName("position_id")
+    this.positionId = builder.positionId;
+    /**
+     * 可选值：true（启用）、false（停用）
+     *
+     * <p>示例值：true
+     */
+    this.active = builder.active;
+    /**
+     * 版本生效时间
+     *
+     * <p>示例值：2020-01-01
+     */
+    this.effectiveTime = builder.effectiveTime;
+  }
+
+  public static class Builder {
+    /**
+     * 岗位ID，详细信息可通过[查询岗位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口获得
+     *
+     * <p>示例值：6862995757234914823
+     */
     private String positionId;
+
     /**
-     * 启用停用状态
-     * <p> 示例值：true
+     * 可选值：true（启用）、false（停用）
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
     private Boolean active;
+
     /**
-     * 生效时间
-     * <p> 示例值：2020-01-01
+     * 版本生效时间
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("effective_time")
     private String effectiveTime;
 
-    // builder 开始
-    public ActivePositionReqBody() {
+    /**
+     * 岗位ID，详细信息可通过[查询岗位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口获得
+     *
+     * <p>示例值：6862995757234914823
+     *
+     * @param positionId
+     * @return
+     */
+    public Builder positionId(String positionId) {
+      this.positionId = positionId;
+      return this;
     }
 
-    public ActivePositionReqBody(Builder builder) {
-        /**
-         * 岗位ID
-         * <p> 示例值：6862995757234914823
-         */
-        this.positionId = builder.positionId;
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        this.effectiveTime = builder.effectiveTime;
+    /**
+     * 可选值：true（启用）、false（停用）
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 版本生效时间
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public String getPositionId() {
-        return this.positionId;
+    public ActivePositionReqBody build() {
+      return new ActivePositionReqBody(this);
     }
+  }
 
-    public void setPositionId(String positionId) {
-        this.positionId = positionId;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public static class Builder {
-        /**
-         * 岗位ID
-         * <p> 示例值：6862995757234914823
-         */
-        private String positionId;
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        private String effectiveTime;
-
-        /**
-         * 岗位ID
-         * <p> 示例值：6862995757234914823
-         *
-         * @param positionId
-         * @return
-         */
-        public Builder positionId(String positionId) {
-            this.positionId = positionId;
-            return this;
-        }
-
-
-        /**
-         * 启用停用状态
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        public ActivePositionReqBody build() {
-            return new ActivePositionReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

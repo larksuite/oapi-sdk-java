@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateAppTableRespBody {
-    /**
-     * table id
-     * <p> 示例值：tblKz5D60T4JlfcT
-     */
-    @SerializedName("table_id")
-    private String tableId;
-    /**
-     * 默认表格视图的id，该字段仅在请求参数中填写了default_view_name或fields才会返回
-     * <p> 示例值：vew3y6oFgo
-     */
-    @SerializedName("default_view_id")
-    private String defaultViewId;
-    /**
-     * 数据表初始字段的id列表，该字段仅在请求参数中填写了fields才会返回
-     * <p> 示例值：["fldO1Q5uD2"]
-     */
-    @SerializedName("field_id_list")
-    private String[] fieldIdList;
+  /**
+   * 多维表格数据表的 ID
+   *
+   * <p>示例值：tbl1AybU4ogJYXKA
+   */
+  @SerializedName("table_id")
+  private String tableId;
 
-    public String getTableId() {
-        return this.tableId;
-    }
+  /**
+   * 默认表格视图的 ID。该字段仅在请求参数中填写了`default_view_name` 或 `fields` 字段才会返回
+   *
+   * <p>示例值：vew3y6oFgo
+   */
+  @SerializedName("default_view_id")
+  private String defaultViewId;
 
-    public void setTableId(String tableId) {
-        this.tableId = tableId;
-    }
+  /**
+   * 数据表初始字段的 ID 列表，该字段仅在请求参数中填写了 `fields` 才会返回
+   *
+   * <p>示例值：["fldO1Q5uD2"]
+   */
+  @SerializedName("field_id_list")
+  private String[] fieldIdList;
 
-    public String getDefaultViewId() {
-        return this.defaultViewId;
-    }
+  public String getTableId() {
+    return this.tableId;
+  }
 
-    public void setDefaultViewId(String defaultViewId) {
-        this.defaultViewId = defaultViewId;
-    }
+  public void setTableId(String tableId) {
+    this.tableId = tableId;
+  }
 
-    public String[] getFieldIdList() {
-        return this.fieldIdList;
-    }
+  public String getDefaultViewId() {
+    return this.defaultViewId;
+  }
 
-    public void setFieldIdList(String[] fieldIdList) {
-        this.fieldIdList = fieldIdList;
-    }
+  public void setDefaultViewId(String defaultViewId) {
+    this.defaultViewId = defaultViewId;
+  }
 
+  public String[] getFieldIdList() {
+    return this.fieldIdList;
+  }
+
+  public void setFieldIdList(String[] fieldIdList) {
+    this.fieldIdList = fieldIdList;
+  }
 }

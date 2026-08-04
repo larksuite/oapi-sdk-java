@@ -17,13 +17,13 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.wiki.v1.resource.Node;
 
 public class V1 {
-    private final Node node; // 知识库
+  private final Node node; // node
 
-    public V1(Config config) {
-        this.node = new Node(config);
-    }
+  public V1(Config config) {
+    this.node = new Node(config);
+  }
 
-    public Node node() {
-        return node;
-    }
+  public Node node() {
+    return node;
+  }
 }

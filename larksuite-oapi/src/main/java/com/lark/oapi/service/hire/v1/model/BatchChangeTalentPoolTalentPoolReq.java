@@ -13,97 +13,98 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchChangeTalentPoolTalentPoolReq {
+  /**
+   * 人才库
+   * ID，可通过[获取人才库列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_pool/search)接口获取
+   *
+   * <p>示例值：6930815272790114325
+   */
+  @Path
+  @SerializedName("talent_pool_id")
+  private String talentPoolId;
+
+  public String getTalentPoolId() {
+    return this.talentPoolId;
+  }
+
+  public void setTalentPoolId(String talentPoolId) {
+    this.talentPoolId = talentPoolId;
+  }
+
+  @Body private BatchChangeTalentPoolTalentPoolReqBody body;
+
+  public BatchChangeTalentPoolTalentPoolReqBody getBatchChangeTalentPoolTalentPoolReqBody() {
+    return this.body;
+  }
+
+  public void setBatchChangeTalentPoolTalentPoolReqBody(
+      BatchChangeTalentPoolTalentPoolReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchChangeTalentPoolTalentPoolReq() {}
+
+  public BatchChangeTalentPoolTalentPoolReq(Builder builder) {
     /**
-     * 人才库ID
-     * <p> 示例值：6930815272790114325
+     * 人才库
+     * ID，可通过[获取人才库列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_pool/search)接口获取
+     *
+     * <p>示例值：6930815272790114325
      */
-    @Path
-    @SerializedName("talent_pool_id")
-    private String talentPoolId;
-    @Body
+    this.talentPoolId = builder.talentPoolId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String talentPoolId; // 人才库
+
+    // ID，可通过[获取人才库列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_pool/search)接口获取
+
+    /**
+     * 人才库
+     * ID，可通过[获取人才库列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_pool/search)接口获取
+     *
+     * <p>示例值：6930815272790114325
+     *
+     * @param talentPoolId
+     * @return
+     */
+    public Builder talentPoolId(String talentPoolId) {
+      this.talentPoolId = talentPoolId;
+      return this;
+    }
+
     private BatchChangeTalentPoolTalentPoolReqBody body;
 
-    // builder 开始
-    public BatchChangeTalentPoolTalentPoolReq() {
-    }
-
-    public BatchChangeTalentPoolTalentPoolReq(Builder builder) {
-        /**
-         * 人才库ID
-         * <p> 示例值：6930815272790114325
-         */
-        this.talentPoolId = builder.talentPoolId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTalentPoolId() {
-        return this.talentPoolId;
-    }
-
-    public void setTalentPoolId(String talentPoolId) {
-        this.talentPoolId = talentPoolId;
-    }
-
     public BatchChangeTalentPoolTalentPoolReqBody getBatchChangeTalentPoolTalentPoolReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchChangeTalentPoolTalentPoolReqBody(BatchChangeTalentPoolTalentPoolReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchChangeTalentPoolTalentPoolReqBody(
+        BatchChangeTalentPoolTalentPoolReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String talentPoolId; // 人才库ID
-        private BatchChangeTalentPoolTalentPoolReqBody body;
-
-        /**
-         * 人才库ID
-         * <p> 示例值：6930815272790114325
-         *
-         * @param talentPoolId
-         * @return
-         */
-        public Builder talentPoolId(String talentPoolId) {
-            this.talentPoolId = talentPoolId;
-            return this;
-        }
-
-        public BatchChangeTalentPoolTalentPoolReqBody getBatchChangeTalentPoolTalentPoolReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchChangeTalentPoolTalentPoolReqBody(BatchChangeTalentPoolTalentPoolReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchChangeTalentPoolTalentPoolReq build() {
-            return new BatchChangeTalentPoolTalentPoolReq(this);
-        }
+    public BatchChangeTalentPoolTalentPoolReq build() {
+      return new BatchChangeTalentPoolTalentPoolReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

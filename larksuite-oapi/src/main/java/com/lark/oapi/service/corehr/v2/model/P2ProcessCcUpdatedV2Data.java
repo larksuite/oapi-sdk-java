@@ -13,76 +13,71 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ProcessCcUpdatedV2Data {
-    /**
-     * 流程实例ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("process_id")
-    private String processId;
-    /**
-     * 抄送单据ID
-     * <p> 示例值：7072306364927985187
-     */
-    @SerializedName("approver_id")
-    private String approverId;
-    /**
-     * 单据状态
-     * <p> 示例值：5
-     */
-    @SerializedName("status")
-    private Integer status;
-    /**
-     * 业务类型
-     * <p> 示例值：renewal_record
-     */
-    @SerializedName("biz_type")
-    private String bizType;
+  /**
+   * 流程运行实例
+   * id，详细信息可通过[获取单个流程详情](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)获取
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("process_id")
+  private String processId;
 
-    public String getProcessId() {
-        return this.processId;
-    }
+  /**
+   * 抄送单据ID
+   *
+   * <p>示例值：7072306364927985187
+   */
+  @SerializedName("approver_id")
+  private String approverId;
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
+  /**
+   * 单据状态
+   *
+   * <p>示例值：5
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public String getApproverId() {
-        return this.approverId;
-    }
+  /**
+   * 业务类型，详情请查看[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/process-form_variable_data/access-guide)
+   *
+   * <p>示例值：renewal_record
+   */
+  @SerializedName("biz_type")
+  private String bizType;
 
-    public void setApproverId(String approverId) {
-        this.approverId = approverId;
-    }
+  public String getProcessId() {
+    return this.processId;
+  }
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  public String getApproverId() {
+    return this.approverId;
+  }
 
-    public String getBizType() {
-        return this.bizType;
-    }
+  public void setApproverId(String approverId) {
+    this.approverId = approverId;
+  }
 
-    public void setBizType(String bizType) {
-        this.bizType = bizType;
-    }
+  public Integer getStatus() {
+    return this.status;
+  }
 
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getBizType() {
+    return this.bizType;
+  }
+
+  public void setBizType(String bizType) {
+    this.bizType = bizType;
+  }
 }

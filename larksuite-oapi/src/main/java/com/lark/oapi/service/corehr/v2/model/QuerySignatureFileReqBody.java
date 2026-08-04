@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QuerySignatureFileReqBody {
+  /**
+   * 电子签文件状态状态列表，多个状态之间为「或」的关系；枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签文件状态（signature_file_state）枚举定义部分获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("states")
+  private String[] states;
+
+  /**
+   * 电子签模板ID列表，返回的电子签文件使用的模板在该数组中；;可以通过[【获取电子签模板内容】](ssl:/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_template/search)接口获取模板ID;;注意：多个模板ID之间是或的关系;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("template_ids")
+  private String[] templateIds;
+
+  public String[] getStates() {
+    return this.states;
+  }
+
+  public void setStates(String[] states) {
+    this.states = states;
+  }
+
+  public String[] getTemplateIds() {
+    return this.templateIds;
+  }
+
+  public void setTemplateIds(String[] templateIds) {
+    this.templateIds = templateIds;
+  }
+
+  // builder 开始
+  public QuerySignatureFileReqBody() {}
+
+  public QuerySignatureFileReqBody(Builder builder) {
     /**
-     * 电子签文件状态状态列表，多个状态之间为「或」的关系
-     * <p> 示例值：
+     * 电子签文件状态状态列表，多个状态之间为「或」的关系；枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签文件状态（signature_file_state）枚举定义部分获得
+     *
+     * <p>示例值：
      */
-    @SerializedName("states")
+    this.states = builder.states;
+    /**
+     * 电子签模板ID列表，返回的电子签文件使用的模板在该数组中；;可以通过[【获取电子签模板内容】](ssl:/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_template/search)接口获取模板ID;;注意：多个模板ID之间是或的关系;
+     *
+     * <p>示例值：
+     */
+    this.templateIds = builder.templateIds;
+  }
+
+  public static class Builder {
+    /**
+     * 电子签文件状态状态列表，多个状态之间为「或」的关系；枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签文件状态（signature_file_state）枚举定义部分获得
+     *
+     * <p>示例值：
+     */
     private String[] states;
+
     /**
-     * 电子签模板ID列表，返回的电子签文件使用的模板id在该list中
-     * <p> 示例值：
+     * 电子签模板ID列表，返回的电子签文件使用的模板在该数组中；;可以通过[【获取电子签模板内容】](ssl:/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_template/search)接口获取模板ID;;注意：多个模板ID之间是或的关系;
+     *
+     * <p>示例值：
      */
-    @SerializedName("template_ids")
     private String[] templateIds;
 
-    // builder 开始
-    public QuerySignatureFileReqBody() {
+    /**
+     * 电子签文件状态状态列表，多个状态之间为「或」的关系；枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签文件状态（signature_file_state）枚举定义部分获得
+     *
+     * <p>示例值：
+     *
+     * @param states
+     * @return
+     */
+    public Builder states(String[] states) {
+      this.states = states;
+      return this;
     }
 
-    public QuerySignatureFileReqBody(Builder builder) {
-        /**
-         * 电子签文件状态状态列表，多个状态之间为「或」的关系
-         * <p> 示例值：
-         */
-        this.states = builder.states;
-        /**
-         * 电子签模板ID列表，返回的电子签文件使用的模板id在该list中
-         * <p> 示例值：
-         */
-        this.templateIds = builder.templateIds;
+    /**
+     * 电子签模板ID列表，返回的电子签文件使用的模板在该数组中；;可以通过[【获取电子签模板内容】](ssl:/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_template/search)接口获取模板ID;;注意：多个模板ID之间是或的关系;
+     *
+     * <p>示例值：
+     *
+     * @param templateIds
+     * @return
+     */
+    public Builder templateIds(String[] templateIds) {
+      this.templateIds = templateIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public QuerySignatureFileReqBody build() {
+      return new QuerySignatureFileReqBody(this);
     }
+  }
 
-    public String[] getStates() {
-        return this.states;
-    }
-
-    public void setStates(String[] states) {
-        this.states = states;
-    }
-
-    public String[] getTemplateIds() {
-        return this.templateIds;
-    }
-
-    public void setTemplateIds(String[] templateIds) {
-        this.templateIds = templateIds;
-    }
-
-    public static class Builder {
-        /**
-         * 电子签文件状态状态列表，多个状态之间为「或」的关系
-         * <p> 示例值：
-         */
-        private String[] states;
-        /**
-         * 电子签模板ID列表，返回的电子签文件使用的模板id在该list中
-         * <p> 示例值：
-         */
-        private String[] templateIds;
-
-        /**
-         * 电子签文件状态状态列表，多个状态之间为「或」的关系
-         * <p> 示例值：
-         *
-         * @param states
-         * @return
-         */
-        public Builder states(String[] states) {
-            this.states = states;
-            return this;
-        }
-
-
-        /**
-         * 电子签模板ID列表，返回的电子签文件使用的模板id在该list中
-         * <p> 示例值：
-         *
-         * @param templateIds
-         * @return
-         */
-        public Builder templateIds(String[] templateIds) {
-            this.templateIds = templateIds;
-            return this;
-        }
-
-
-        public QuerySignatureFileReqBody build() {
-            return new QuerySignatureFileReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

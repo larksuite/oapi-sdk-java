@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 状态
- */
+/** 状态 */
 public enum CityBasicDataObjStatusEnum {
-    ACTIVE(1), // 生效
-    INACTIVE(0), // 失效
-    ;
-    private Integer value;
+  ACTIVE(1), // 生效
+  INACTIVE(0), // 失效
+  ;
+  private Integer value;
 
-    CityBasicDataObjStatusEnum(Integer value) {
-        this.value = value;
-    }
+  CityBasicDataObjStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

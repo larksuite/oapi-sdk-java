@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 动作
- */
+/** 动作 */
 public enum FeedGroupRuleFeedGroupRuleActionEnum {
-    ADD("add"), // 添加
-    REMOVE("remove"), // 移除
-    ;
-    private String value;
+  ADD("add"), // 添加
+  REMOVE("remove"), // 移除
+  ;
+  private String value;
 
-    FeedGroupRuleFeedGroupRuleActionEnum(String value) {
-        this.value = value;
-    }
+  FeedGroupRuleFeedGroupRuleActionEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

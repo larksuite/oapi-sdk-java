@@ -13,331 +13,348 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExtInfo {
+  /**
+   * docType
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_type")
+  private String subType;
+
+  /** 示例值： */
+  @SerializedName("version")
+  private String version;
+
+  /**
+   * 封面图
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bg_image")
+  private String bgImage;
+
+  /**
+   * 标题颜色
+   *
+   * <p>示例值：
+   */
+  @SerializedName("title_color")
+  private String titleColor;
+
+  /**
+   * 群公告文档对应的群ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ga_chat_id")
+  private String gaChatId;
+
+  /**
+   * 最后修改时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("modified_time")
+  private String modifiedTime;
+
+  /**
+   * DeleteFlag use common.DeleteFlag\nObjType use common.ObjType , support doc/sheet/bitable/slide
+   *
+   * <p>示例值：
+   */
+  @SerializedName("icon")
+  private Icon icon;
+
+  /**
+   * 文档副本是否拷贝中
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_copying")
+  private Boolean isCopying;
+
+  public String getSubType() {
+    return this.subType;
+  }
+
+  public void setSubType(String subType) {
+    this.subType = subType;
+  }
+
+  public String getVersion() {
+    return this.version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  public String getBgImage() {
+    return this.bgImage;
+  }
+
+  public void setBgImage(String bgImage) {
+    this.bgImage = bgImage;
+  }
+
+  public String getTitleColor() {
+    return this.titleColor;
+  }
+
+  public void setTitleColor(String titleColor) {
+    this.titleColor = titleColor;
+  }
+
+  public String getGaChatId() {
+    return this.gaChatId;
+  }
+
+  public void setGaChatId(String gaChatId) {
+    this.gaChatId = gaChatId;
+  }
+
+  public String getModifiedTime() {
+    return this.modifiedTime;
+  }
+
+  public void setModifiedTime(String modifiedTime) {
+    this.modifiedTime = modifiedTime;
+  }
+
+  public Icon getIcon() {
+    return this.icon;
+  }
+
+  public void setIcon(Icon icon) {
+    this.icon = icon;
+  }
+
+  public Boolean getIsCopying() {
+    return this.isCopying;
+  }
+
+  public void setIsCopying(Boolean isCopying) {
+    this.isCopying = isCopying;
+  }
+
+  // builder 开始
+  public ExtInfo() {}
+
+  public ExtInfo(Builder builder) {
     /**
      * docType
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_type")
-    private String subType;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("version")
-    private String version;
+    this.subType = builder.subType;
+    /** 示例值： */
+    this.version = builder.version;
     /**
      * 封面图
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bg_image")
-    private String bgImage;
+    this.bgImage = builder.bgImage;
     /**
      * 标题颜色
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("title_color")
-    private String titleColor;
+    this.titleColor = builder.titleColor;
     /**
      * 群公告文档对应的群ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ga_chat_id")
-    private String gaChatId;
+    this.gaChatId = builder.gaChatId;
     /**
      * 最后修改时间
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("modified_time")
-    private String modifiedTime;
+    this.modifiedTime = builder.modifiedTime;
     /**
-     * DeleteFlag use common.DeleteFlag\nObjType use common.ObjType , support doc/sheet/bitable/slide
-     * <p> 示例值：
+     * DeleteFlag use common.DeleteFlag\nObjType use common.ObjType , support
+     * doc/sheet/bitable/slide
+     *
+     * <p>示例值：
      */
-    @SerializedName("icon")
-    private Icon icon;
+    this.icon = builder.icon;
     /**
      * 文档副本是否拷贝中
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_copying")
+    this.isCopying = builder.isCopying;
+  }
+
+  public static class Builder {
+    /**
+     * docType
+     *
+     * <p>示例值：
+     */
+    private String subType;
+
+    /** 示例值： */
+    private String version;
+
+    /**
+     * 封面图
+     *
+     * <p>示例值：
+     */
+    private String bgImage;
+
+    /**
+     * 标题颜色
+     *
+     * <p>示例值：
+     */
+    private String titleColor;
+
+    /**
+     * 群公告文档对应的群ID
+     *
+     * <p>示例值：
+     */
+    private String gaChatId;
+
+    /**
+     * 最后修改时间
+     *
+     * <p>示例值：
+     */
+    private String modifiedTime;
+
+    /**
+     * DeleteFlag use common.DeleteFlag\nObjType use common.ObjType , support
+     * doc/sheet/bitable/slide
+     *
+     * <p>示例值：
+     */
+    private Icon icon;
+
+    /**
+     * 文档副本是否拷贝中
+     *
+     * <p>示例值：
+     */
     private Boolean isCopying;
 
-    // builder 开始
-    public ExtInfo() {
+    /**
+     * docType
+     *
+     * <p>示例值：
+     *
+     * @param subType
+     * @return
+     */
+    public Builder subType(String subType) {
+      this.subType = subType;
+      return this;
     }
 
-    public ExtInfo(Builder builder) {
-        /**
-         * docType
-         * <p> 示例值：
-         */
-        this.subType = builder.subType;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.version = builder.version;
-        /**
-         * 封面图
-         * <p> 示例值：
-         */
-        this.bgImage = builder.bgImage;
-        /**
-         * 标题颜色
-         * <p> 示例值：
-         */
-        this.titleColor = builder.titleColor;
-        /**
-         * 群公告文档对应的群ID
-         * <p> 示例值：
-         */
-        this.gaChatId = builder.gaChatId;
-        /**
-         * 最后修改时间
-         * <p> 示例值：
-         */
-        this.modifiedTime = builder.modifiedTime;
-        /**
-         * DeleteFlag use common.DeleteFlag\nObjType use common.ObjType , support doc/sheet/bitable/slide
-         * <p> 示例值：
-         */
-        this.icon = builder.icon;
-        /**
-         * 文档副本是否拷贝中
-         * <p> 示例值：
-         */
-        this.isCopying = builder.isCopying;
+    /**
+     * 示例值：
+     *
+     * @param version
+     * @return
+     */
+    public Builder version(String version) {
+      this.version = version;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 封面图
+     *
+     * <p>示例值：
+     *
+     * @param bgImage
+     * @return
+     */
+    public Builder bgImage(String bgImage) {
+      this.bgImage = bgImage;
+      return this;
     }
 
-    public String getSubType() {
-        return this.subType;
+    /**
+     * 标题颜色
+     *
+     * <p>示例值：
+     *
+     * @param titleColor
+     * @return
+     */
+    public Builder titleColor(String titleColor) {
+      this.titleColor = titleColor;
+      return this;
     }
 
-    public void setSubType(String subType) {
-        this.subType = subType;
+    /**
+     * 群公告文档对应的群ID
+     *
+     * <p>示例值：
+     *
+     * @param gaChatId
+     * @return
+     */
+    public Builder gaChatId(String gaChatId) {
+      this.gaChatId = gaChatId;
+      return this;
     }
 
-    public String getVersion() {
-        return this.version;
+    /**
+     * 最后修改时间
+     *
+     * <p>示例值：
+     *
+     * @param modifiedTime
+     * @return
+     */
+    public Builder modifiedTime(String modifiedTime) {
+      this.modifiedTime = modifiedTime;
+      return this;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    /**
+     * DeleteFlag use common.DeleteFlag\nObjType use common.ObjType , support
+     * doc/sheet/bitable/slide
+     *
+     * <p>示例值：
+     *
+     * @param icon
+     * @return
+     */
+    public Builder icon(Icon icon) {
+      this.icon = icon;
+      return this;
     }
 
-    public String getBgImage() {
-        return this.bgImage;
+    /**
+     * 文档副本是否拷贝中
+     *
+     * <p>示例值：
+     *
+     * @param isCopying
+     * @return
+     */
+    public Builder isCopying(Boolean isCopying) {
+      this.isCopying = isCopying;
+      return this;
     }
 
-    public void setBgImage(String bgImage) {
-        this.bgImage = bgImage;
+    public ExtInfo build() {
+      return new ExtInfo(this);
     }
+  }
 
-    public String getTitleColor() {
-        return this.titleColor;
-    }
-
-    public void setTitleColor(String titleColor) {
-        this.titleColor = titleColor;
-    }
-
-    public String getGaChatId() {
-        return this.gaChatId;
-    }
-
-    public void setGaChatId(String gaChatId) {
-        this.gaChatId = gaChatId;
-    }
-
-    public String getModifiedTime() {
-        return this.modifiedTime;
-    }
-
-    public void setModifiedTime(String modifiedTime) {
-        this.modifiedTime = modifiedTime;
-    }
-
-    public Icon getIcon() {
-        return this.icon;
-    }
-
-    public void setIcon(Icon icon) {
-        this.icon = icon;
-    }
-
-    public Boolean getIsCopying() {
-        return this.isCopying;
-    }
-
-    public void setIsCopying(Boolean isCopying) {
-        this.isCopying = isCopying;
-    }
-
-    public static class Builder {
-        /**
-         * docType
-         * <p> 示例值：
-         */
-        private String subType;
-        /**
-         * <p> 示例值：
-         */
-        private String version;
-        /**
-         * 封面图
-         * <p> 示例值：
-         */
-        private String bgImage;
-        /**
-         * 标题颜色
-         * <p> 示例值：
-         */
-        private String titleColor;
-        /**
-         * 群公告文档对应的群ID
-         * <p> 示例值：
-         */
-        private String gaChatId;
-        /**
-         * 最后修改时间
-         * <p> 示例值：
-         */
-        private String modifiedTime;
-        /**
-         * DeleteFlag use common.DeleteFlag\nObjType use common.ObjType , support doc/sheet/bitable/slide
-         * <p> 示例值：
-         */
-        private Icon icon;
-        /**
-         * 文档副本是否拷贝中
-         * <p> 示例值：
-         */
-        private Boolean isCopying;
-
-        /**
-         * docType
-         * <p> 示例值：
-         *
-         * @param subType
-         * @return
-         */
-        public Builder subType(String subType) {
-            this.subType = subType;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param version
-         * @return
-         */
-        public Builder version(String version) {
-            this.version = version;
-            return this;
-        }
-
-
-        /**
-         * 封面图
-         * <p> 示例值：
-         *
-         * @param bgImage
-         * @return
-         */
-        public Builder bgImage(String bgImage) {
-            this.bgImage = bgImage;
-            return this;
-        }
-
-
-        /**
-         * 标题颜色
-         * <p> 示例值：
-         *
-         * @param titleColor
-         * @return
-         */
-        public Builder titleColor(String titleColor) {
-            this.titleColor = titleColor;
-            return this;
-        }
-
-
-        /**
-         * 群公告文档对应的群ID
-         * <p> 示例值：
-         *
-         * @param gaChatId
-         * @return
-         */
-        public Builder gaChatId(String gaChatId) {
-            this.gaChatId = gaChatId;
-            return this;
-        }
-
-
-        /**
-         * 最后修改时间
-         * <p> 示例值：
-         *
-         * @param modifiedTime
-         * @return
-         */
-        public Builder modifiedTime(String modifiedTime) {
-            this.modifiedTime = modifiedTime;
-            return this;
-        }
-
-
-        /**
-         * DeleteFlag use common.DeleteFlag\nObjType use common.ObjType , support doc/sheet/bitable/slide
-         * <p> 示例值：
-         *
-         * @param icon
-         * @return
-         */
-        public Builder icon(Icon icon) {
-            this.icon = icon;
-            return this;
-        }
-
-
-        /**
-         * 文档副本是否拷贝中
-         * <p> 示例值：
-         *
-         * @param isCopying
-         * @return
-         */
-        public Builder isCopying(Boolean isCopying) {
-            this.isCopying = isCopying;
-            return this;
-        }
-
-
-        public ExtInfo build() {
-            return new ExtInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Label {
+  /**
+   * 标签ID
+   *
+   * <p>示例值：7620003644728938013
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 标签名称，可选填写。最长255个字符。
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 标签背景颜色，可选填写。支持以下颜色值：blue、indigo、purple、violet、carmine、red、orange、yellow、lime、green、turquoise、wathet
+   *
+   * <p>示例值：blue
+   */
+  @SerializedName("background_color")
+  private String backgroundColor;
+
+  /**
+   * 带有该标签的未读邮件数量
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("messages_unread")
+  private Integer messagesUnread;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getBackgroundColor() {
+    return this.backgroundColor;
+  }
+
+  public void setBackgroundColor(String backgroundColor) {
+    this.backgroundColor = backgroundColor;
+  }
+
+  public Integer getMessagesUnread() {
+    return this.messagesUnread;
+  }
+
+  public void setMessagesUnread(Integer messagesUnread) {
+    this.messagesUnread = messagesUnread;
+  }
+
+  // builder 开始
+  public Label() {}
+
+  public Label(Builder builder) {
     /**
      * 标签ID
-     * <p> 示例值：7620003644728938013
+     *
+     * <p>示例值：7620003644728938013
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 标签名称，最长 255 个字符。支持嵌套标签，嵌套层级之间以 / 分隔（如 a/b/c 表示三级嵌套标签）。创建或更新嵌套标签时，需要传入完整路径（如 a/b/c），不能只传最后一级名称。
-     * <p> 示例值：test
+     * 标签名称，可选填写。最长255个字符。
+     *
+     * <p>示例值：test
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 标签背景颜色，支持以下颜色值：blue、indigo、purple、violet、carmine、red、orange、yellow、lime、green、turquoise、wathet
-     * <p> 示例值：blue
+     * 标签背景颜色，可选填写。支持以下颜色值：blue、indigo、purple、violet、carmine、red、orange、yellow、lime、green、turquoise、wathet
+     *
+     * <p>示例值：blue
      */
-    @SerializedName("background_color")
-    private String backgroundColor;
+    this.backgroundColor = builder.backgroundColor;
     /**
      * 带有该标签的未读邮件数量
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("messages_unread")
+    this.messagesUnread = builder.messagesUnread;
+  }
+
+  public static class Builder {
+    /**
+     * 标签ID
+     *
+     * <p>示例值：7620003644728938013
+     */
+    private String id;
+
+    /**
+     * 标签名称，可选填写。最长255个字符。
+     *
+     * <p>示例值：test
+     */
+    private String name;
+
+    /**
+     * 标签背景颜色，可选填写。支持以下颜色值：blue、indigo、purple、violet、carmine、red、orange、yellow、lime、green、turquoise、wathet
+     *
+     * <p>示例值：blue
+     */
+    private String backgroundColor;
+
+    /**
+     * 带有该标签的未读邮件数量
+     *
+     * <p>示例值：0
+     */
     private Integer messagesUnread;
 
-    // builder 开始
-    public Label() {
+    /**
+     * 标签ID
+     *
+     * <p>示例值：7620003644728938013
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Label(Builder builder) {
-        /**
-         * 标签ID
-         * <p> 示例值：7620003644728938013
-         */
-        this.id = builder.id;
-        /**
-         * 标签名称，最长 255 个字符。支持嵌套标签，嵌套层级之间以 / 分隔（如 a/b/c 表示三级嵌套标签）。创建或更新嵌套标签时，需要传入完整路径（如 a/b/c），不能只传最后一级名称。
-         * <p> 示例值：test
-         */
-        this.name = builder.name;
-        /**
-         * 标签背景颜色，支持以下颜色值：blue、indigo、purple、violet、carmine、red、orange、yellow、lime、green、turquoise、wathet
-         * <p> 示例值：blue
-         */
-        this.backgroundColor = builder.backgroundColor;
-        /**
-         * 带有该标签的未读邮件数量
-         * <p> 示例值：0
-         */
-        this.messagesUnread = builder.messagesUnread;
+    /**
+     * 标签名称，可选填写。最长255个字符。
+     *
+     * <p>示例值：test
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 标签背景颜色，可选填写。支持以下颜色值：blue、indigo、purple、violet、carmine、red、orange、yellow、lime、green、turquoise、wathet
+     *
+     * <p>示例值：blue
+     *
+     * @param backgroundColor
+     * @return
+     */
+    public Builder backgroundColor(String backgroundColor) {
+      this.backgroundColor = backgroundColor;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 带有该标签的未读邮件数量
+     *
+     * <p>示例值：0
+     *
+     * @param messagesUnread
+     * @return
+     */
+    public Builder messagesUnread(Integer messagesUnread) {
+      this.messagesUnread = messagesUnread;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public Label build() {
+      return new Label(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getBackgroundColor() {
-        return this.backgroundColor;
-    }
-
-    public void setBackgroundColor(String backgroundColor) {
-        this.backgroundColor = backgroundColor;
-    }
-
-    public Integer getMessagesUnread() {
-        return this.messagesUnread;
-    }
-
-    public void setMessagesUnread(Integer messagesUnread) {
-        this.messagesUnread = messagesUnread;
-    }
-
-    public static class Builder {
-        /**
-         * 标签ID
-         * <p> 示例值：7620003644728938013
-         */
-        private String id;
-        /**
-         * 标签名称，最长 255 个字符。支持嵌套标签，嵌套层级之间以 / 分隔（如 a/b/c 表示三级嵌套标签）。创建或更新嵌套标签时，需要传入完整路径（如 a/b/c），不能只传最后一级名称。
-         * <p> 示例值：test
-         */
-        private String name;
-        /**
-         * 标签背景颜色，支持以下颜色值：blue、indigo、purple、violet、carmine、red、orange、yellow、lime、green、turquoise、wathet
-         * <p> 示例值：blue
-         */
-        private String backgroundColor;
-        /**
-         * 带有该标签的未读邮件数量
-         * <p> 示例值：0
-         */
-        private Integer messagesUnread;
-
-        /**
-         * 标签ID
-         * <p> 示例值：7620003644728938013
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 标签名称，最长 255 个字符。支持嵌套标签，嵌套层级之间以 / 分隔（如 a/b/c 表示三级嵌套标签）。创建或更新嵌套标签时，需要传入完整路径（如 a/b/c），不能只传最后一级名称。
-         * <p> 示例值：test
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 标签背景颜色，支持以下颜色值：blue、indigo、purple、violet、carmine、red、orange、yellow、lime、green、turquoise、wathet
-         * <p> 示例值：blue
-         *
-         * @param backgroundColor
-         * @return
-         */
-        public Builder backgroundColor(String backgroundColor) {
-            this.backgroundColor = backgroundColor;
-            return this;
-        }
-
-
-        /**
-         * 带有该标签的未读邮件数量
-         * <p> 示例值：0
-         *
-         * @param messagesUnread
-         * @return
-         */
-        public Builder messagesUnread(Integer messagesUnread) {
-            this.messagesUnread = messagesUnread;
-            return this;
-        }
-
-
-        public Label build() {
-            return new Label(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

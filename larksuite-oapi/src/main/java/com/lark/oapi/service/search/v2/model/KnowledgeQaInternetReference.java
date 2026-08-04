@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeQaInternetReference {
+  /**
+   * 网页标题
+   *
+   * <p>示例值：显示器列表
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 网页内容
+   *
+   * <p>示例值：热门的显示器型号有……
+   */
+  @SerializedName("summary")
+  private String summary;
+
+  /**
+   * 网页链接
+   *
+   * <p>示例值：https://example.web.link
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getSummary() {
+    return this.summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public KnowledgeQaInternetReference() {}
+
+  public KnowledgeQaInternetReference(Builder builder) {
     /**
-     * title
-     * <p> 示例值：xxxxxx
+     * 网页标题
+     *
+     * <p>示例值：显示器列表
      */
-    @SerializedName("title")
+    this.title = builder.title;
+    /**
+     * 网页内容
+     *
+     * <p>示例值：热门的显示器型号有……
+     */
+    this.summary = builder.summary;
+    /**
+     * 网页链接
+     *
+     * <p>示例值：https://example.web.link
+     */
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 网页标题
+     *
+     * <p>示例值：显示器列表
+     */
     private String title;
+
     /**
-     * summary
-     * <p> 示例值：xxxxx
+     * 网页内容
+     *
+     * <p>示例值：热门的显示器型号有……
      */
-    @SerializedName("summary")
     private String summary;
+
     /**
-     * url
-     * <p> 示例值：xxxxxx
+     * 网页链接
+     *
+     * <p>示例值：https://example.web.link
      */
-    @SerializedName("url")
     private String url;
 
-    // builder 开始
-    public KnowledgeQaInternetReference() {
+    /**
+     * 网页标题
+     *
+     * <p>示例值：显示器列表
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public KnowledgeQaInternetReference(Builder builder) {
-        /**
-         * title
-         * <p> 示例值：xxxxxx
-         */
-        this.title = builder.title;
-        /**
-         * summary
-         * <p> 示例值：xxxxx
-         */
-        this.summary = builder.summary;
-        /**
-         * url
-         * <p> 示例值：xxxxxx
-         */
-        this.url = builder.url;
+    /**
+     * 网页内容
+     *
+     * <p>示例值：热门的显示器型号有……
+     *
+     * @param summary
+     * @return
+     */
+    public Builder summary(String summary) {
+      this.summary = summary;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 网页链接
+     *
+     * <p>示例值：https://example.web.link
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    public KnowledgeQaInternetReference build() {
+      return new KnowledgeQaInternetReference(this);
     }
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getSummary() {
-        return this.summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * title
-         * <p> 示例值：xxxxxx
-         */
-        private String title;
-        /**
-         * summary
-         * <p> 示例值：xxxxx
-         */
-        private String summary;
-        /**
-         * url
-         * <p> 示例值：xxxxxx
-         */
-        private String url;
-
-        /**
-         * title
-         * <p> 示例值：xxxxxx
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * summary
-         * <p> 示例值：xxxxx
-         *
-         * @param summary
-         * @return
-         */
-        public Builder summary(String summary) {
-            this.summary = summary;
-            return this;
-        }
-
-
-        /**
-         * url
-         * <p> 示例值：xxxxxx
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public KnowledgeQaInternetReference build() {
-            return new KnowledgeQaInternetReference(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

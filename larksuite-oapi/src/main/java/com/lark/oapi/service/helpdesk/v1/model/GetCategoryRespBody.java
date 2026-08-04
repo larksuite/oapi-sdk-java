@@ -13,90 +13,86 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetCategoryRespBody {
-    /**
-     * category id
-     * <p> 示例值：
-     */
-    @SerializedName("category_id")
-    private String categoryId;
-    /**
-     * category id, for backward compatibility
-     * <p> 示例值：
-     */
-    @SerializedName("id")
-    private String id;
-    /**
-     * category name
-     * <p> 示例值：
-     */
-    @SerializedName("name")
-    private String name;
-    /**
-     * helpdesk id
-     * <p> 示例值：
-     */
-    @SerializedName("helpdesk_id")
-    private String helpdeskId;
-    /**
-     * category language
-     * <p> 示例值：
-     */
-    @SerializedName("language")
-    private String language;
+  /**
+   * 知识库分类ID
+   *
+   * <p>示例值：6948728206392295444
+   */
+  @SerializedName("category_id")
+  private String categoryId;
 
-    public String getCategoryId() {
-        return this.categoryId;
-    }
+  /**
+   * 知识库分类ID，（旧版，请使用category_id）
+   *
+   * <p>示例值：6948728206392295444
+   */
+  @SerializedName("id")
+  private String id;
 
-    public void setCategoryId(String categoryId) {
-        this.categoryId = categoryId;
-    }
+  /**
+   * 名称
+   *
+   * <p>示例值：创建团队和邀请成员
+   */
+  @SerializedName("name")
+  private String name;
 
-    public String getId() {
-        return this.id;
-    }
+  /**
+   * 服务台ID
+   *
+   * <p>示例值：6939771743531696147
+   */
+  @SerializedName("helpdesk_id")
+  private String helpdeskId;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  /**
+   * 语言
+   *
+   * <p>示例值：zh_cn
+   */
+  @SerializedName("language")
+  private String language;
 
-    public String getName() {
-        return this.name;
-    }
+  public String getCategoryId() {
+    return this.categoryId;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setCategoryId(String categoryId) {
+    this.categoryId = categoryId;
+  }
 
-    public String getHelpdeskId() {
-        return this.helpdeskId;
-    }
+  public String getId() {
+    return this.id;
+  }
 
-    public void setHelpdeskId(String helpdeskId) {
-        this.helpdeskId = helpdeskId;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public String getLanguage() {
-        return this.language;
-    }
+  public String getName() {
+    return this.name;
+  }
 
-    public void setLanguage(String language) {
-        this.language = language;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
+  public String getHelpdeskId() {
+    return this.helpdeskId;
+  }
+
+  public void setHelpdeskId(String helpdeskId) {
+    this.helpdeskId = helpdeskId;
+  }
+
+  public String getLanguage() {
+    return this.language;
+  }
+
+  public void setLanguage(String language) {
+    this.language = language;
+  }
 }

@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 实体类型
- */
+/** 实体类型 */
 public enum IncrementalSwitchEntityIncrementalSwitchEntityTypeEnum {
-    DEPARTMENT("DEPARTMENT"), // 部门
-    PUBLIC_MAILBOX("PUBLIC_MAILBOX"), // 公共邮箱
-    USER("USER"), // 用户
-    GROUP("GROUP"), // 用户组
-    ;
-    private String value;
+  DEPARTMENT("DEPARTMENT"), // 部门
+  PUBLIC_MAILBOX("PUBLIC_MAILBOX"), // 公共邮箱
+  USER("USER"), // 用户
+  GROUP("GROUP"), // 用户组
+  ;
+  private String value;
 
-    IncrementalSwitchEntityIncrementalSwitchEntityTypeEnum(String value) {
-        this.value = value;
-    }
+  IncrementalSwitchEntityIncrementalSwitchEntityTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,148 +13,152 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OperateAgencyAccountAgencyReqBody {
+  /**
+   * 操作类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("option")
+  private Integer option;
+
+  /**
+   * 猎头
+   * ID，可通过[查询猎头供应商下猎头列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/get_agency_account)接口获取
+   *
+   * <p>示例值：7398623155442682156
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 禁用原因，仅当`option`为`1`时，必填
+   *
+   * <p>示例值：这个人特别不负责
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  public Integer getOption() {
+    return this.option;
+  }
+
+  public void setOption(Integer option) {
+    this.option = option;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  // builder 开始
+  public OperateAgencyAccountAgencyReqBody() {}
+
+  public OperateAgencyAccountAgencyReqBody(Builder builder) {
     /**
      * 操作类型
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("option")
+    this.option = builder.option;
+    /**
+     * 猎头
+     * ID，可通过[查询猎头供应商下猎头列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/get_agency_account)接口获取
+     *
+     * <p>示例值：7398623155442682156
+     */
+    this.id = builder.id;
+    /**
+     * 禁用原因，仅当`option`为`1`时，必填
+     *
+     * <p>示例值：这个人特别不负责
+     */
+    this.reason = builder.reason;
+  }
+
+  public static class Builder {
+    /**
+     * 操作类型
+     *
+     * <p>示例值：1
+     */
     private Integer option;
+
     /**
-     * 猎头 ID
-     * <p> 示例值：7398623155442682156
+     * 猎头
+     * ID，可通过[查询猎头供应商下猎头列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/get_agency_account)接口获取
+     *
+     * <p>示例值：7398623155442682156
      */
-    @SerializedName("id")
     private String id;
+
     /**
-     * 禁用原因，仅当禁用操作时，必填
-     * <p> 示例值：这个人特别不负责
+     * 禁用原因，仅当`option`为`1`时，必填
+     *
+     * <p>示例值：这个人特别不负责
      */
-    @SerializedName("reason")
     private String reason;
 
-    // builder 开始
-    public OperateAgencyAccountAgencyReqBody() {
+    /**
+     * 操作类型
+     *
+     * <p>示例值：1
+     *
+     * @param option
+     * @return
+     */
+    public Builder option(Integer option) {
+      this.option = option;
+      return this;
     }
 
-    public OperateAgencyAccountAgencyReqBody(Builder builder) {
-        /**
-         * 操作类型
-         * <p> 示例值：
-         */
-        this.option = builder.option;
-        /**
-         * 猎头 ID
-         * <p> 示例值：7398623155442682156
-         */
-        this.id = builder.id;
-        /**
-         * 禁用原因，仅当禁用操作时，必填
-         * <p> 示例值：这个人特别不负责
-         */
-        this.reason = builder.reason;
+    /**
+     * 猎头
+     * ID，可通过[查询猎头供应商下猎头列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/get_agency_account)接口获取
+     *
+     * <p>示例值：7398623155442682156
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 禁用原因，仅当`option`为`1`时，必填
+     *
+     * <p>示例值：这个人特别不负责
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public Integer getOption() {
-        return this.option;
+    public OperateAgencyAccountAgencyReqBody build() {
+      return new OperateAgencyAccountAgencyReqBody(this);
     }
+  }
 
-    public void setOption(Integer option) {
-        this.option = option;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public static class Builder {
-        /**
-         * 操作类型
-         * <p> 示例值：
-         */
-        private Integer option;
-        /**
-         * 猎头 ID
-         * <p> 示例值：7398623155442682156
-         */
-        private String id;
-        /**
-         * 禁用原因，仅当禁用操作时，必填
-         * <p> 示例值：这个人特别不负责
-         */
-        private String reason;
-
-        /**
-         * 操作类型
-         * <p> 示例值：
-         *
-         * @param option
-         * @return
-         */
-        public Builder option(Integer option) {
-            this.option = option;
-            return this;
-        }
-
-
-        /**
-         * 猎头 ID
-         * <p> 示例值：7398623155442682156
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 禁用原因，仅当禁用操作时，必填
-         * <p> 示例值：这个人特别不负责
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        public OperateAgencyAccountAgencyReqBody build() {
-            return new OperateAgencyAccountAgencyReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

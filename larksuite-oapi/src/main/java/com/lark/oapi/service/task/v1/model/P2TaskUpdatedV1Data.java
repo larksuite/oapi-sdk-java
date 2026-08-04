@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.task.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2TaskUpdatedV1Data {
-    /**
-     * 任务ID
-     * <p> 示例值：626cf808-4c26-4f27-9da8-01f2eb73d717
-     */
-    @SerializedName("task_id")
-    private String taskId;
-    /**
-     * 通知类型（1：任务详情发生变化，2：任务协作者发生变化，3：任务关注者发生变化，4：任务提醒时间发生变化，5：任务完成，6：任务取消完成，7：任务删除）
-     * <p> 示例值：1
-     */
-    @SerializedName("obj_type")
-    private Integer objType;
+  /**
+   * 任务ID
+   *
+   * <p>示例值：626cf808-4c26-4f27-9da8-01f2eb73d717
+   */
+  @SerializedName("task_id")
+  private String taskId;
 
-    public String getTaskId() {
-        return this.taskId;
-    }
+  /**
+   * 通知类型（1：任务详情发生变化，2：任务协作者发生变化，3：任务关注者发生变化，4：任务提醒时间发生变化，5：任务完成，6：任务取消完成，7：任务删除）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("obj_type")
+  private Integer objType;
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
+  public String getTaskId() {
+    return this.taskId;
+  }
 
-    public Integer getObjType() {
-        return this.objType;
-    }
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
 
-    public void setObjType(Integer objType) {
-        this.objType = objType;
-    }
+  public Integer getObjType() {
+    return this.objType;
+  }
 
+  public void setObjType(Integer objType) {
+    this.objType = objType;
+  }
 }

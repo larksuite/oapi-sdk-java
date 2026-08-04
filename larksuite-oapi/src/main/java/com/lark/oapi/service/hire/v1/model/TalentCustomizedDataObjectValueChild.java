@@ -13,111 +13,110 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentCustomizedDataObjectValueChild {
+  /**
+   * 自定义字段
+   * ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query);接口获取。
+   *
+   * <p>示例值：6934193211960330504
+   */
+  @SerializedName("object_id")
+  private String objectId;
+
+  /**
+   * 自定义字段值，请参考本文「自定义字段数据格式说明」。
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getObjectId() {
+    return this.objectId;
+  }
+
+  public void setObjectId(String objectId) {
+    this.objectId = objectId;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public TalentCustomizedDataObjectValueChild() {}
+
+  public TalentCustomizedDataObjectValueChild(Builder builder) {
     /**
-     * 自定义字段 ID
-     * <p> 示例值：6934193211960330504
+     * 自定义字段
+     * ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query);接口获取。
+     *
+     * <p>示例值：6934193211960330504
      */
-    @SerializedName("object_id")
+    this.objectId = builder.objectId;
+    /**
+     * 自定义字段值，请参考本文「自定义字段数据格式说明」。
+     *
+     * <p>示例值：张三
+     */
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义字段
+     * ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query);接口获取。
+     *
+     * <p>示例值：6934193211960330504
+     */
     private String objectId;
+
     /**
-     * 自定义字段值
-     * <p> 示例值：张三
+     * 自定义字段值，请参考本文「自定义字段数据格式说明」。
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("value")
     private String value;
 
-    // builder 开始
-    public TalentCustomizedDataObjectValueChild() {
+    /**
+     * 自定义字段
+     * ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query);接口获取。
+     *
+     * <p>示例值：6934193211960330504
+     *
+     * @param objectId
+     * @return
+     */
+    public Builder objectId(String objectId) {
+      this.objectId = objectId;
+      return this;
     }
 
-    public TalentCustomizedDataObjectValueChild(Builder builder) {
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：6934193211960330504
-         */
-        this.objectId = builder.objectId;
-        /**
-         * 自定义字段值
-         * <p> 示例值：张三
-         */
-        this.value = builder.value;
+    /**
+     * 自定义字段值，请参考本文「自定义字段数据格式说明」。
+     *
+     * <p>示例值：张三
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TalentCustomizedDataObjectValueChild build() {
+      return new TalentCustomizedDataObjectValueChild(this);
     }
+  }
 
-    public String getObjectId() {
-        return this.objectId;
-    }
-
-    public void setObjectId(String objectId) {
-        this.objectId = objectId;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：6934193211960330504
-         */
-        private String objectId;
-        /**
-         * 自定义字段值
-         * <p> 示例值：张三
-         */
-        private String value;
-
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：6934193211960330504
-         *
-         * @param objectId
-         * @return
-         */
-        public Builder objectId(String objectId) {
-            this.objectId = objectId;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段值
-         * <p> 示例值：张三
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public TalentCustomizedDataObjectValueChild build() {
-            return new TalentCustomizedDataObjectValueChild(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

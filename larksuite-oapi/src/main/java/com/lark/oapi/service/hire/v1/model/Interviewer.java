@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Interviewer {
+  /**
+   * 面试官userID
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 认证状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("verify_status")
+  private Integer verifyStatus;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public Integer getVerifyStatus() {
+    return this.verifyStatus;
+  }
+
+  public void setVerifyStatus(Integer verifyStatus) {
+    this.verifyStatus = verifyStatus;
+  }
+
+  // builder 开始
+  public Interviewer() {}
+
+  public Interviewer(Builder builder) {
     /**
      * 面试官userID
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 认证状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("verify_status")
+    this.verifyStatus = builder.verifyStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 面试官userID
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    private String userId;
+
+    /**
+     * 认证状态
+     *
+     * <p>示例值：1
+     */
     private Integer verifyStatus;
 
-    // builder 开始
-    public Interviewer() {
+    /**
+     * 面试官userID
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public Interviewer(Builder builder) {
-        /**
-         * 面试官userID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.userId = builder.userId;
-        /**
-         * 认证状态
-         * <p> 示例值：1
-         */
-        this.verifyStatus = builder.verifyStatus;
+    /**
+     * 认证状态
+     *
+     * <p>示例值：1
+     *
+     * @param verifyStatus
+     * @return
+     */
+    public Builder verifyStatus(Integer verifyStatus) {
+      this.verifyStatus = verifyStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Interviewer build() {
+      return new Interviewer(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public Integer getVerifyStatus() {
-        return this.verifyStatus;
-    }
-
-    public void setVerifyStatus(Integer verifyStatus) {
-        this.verifyStatus = verifyStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 面试官userID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String userId;
-        /**
-         * 认证状态
-         * <p> 示例值：1
-         */
-        private Integer verifyStatus;
-
-        /**
-         * 面试官userID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 认证状态
-         * <p> 示例值：1
-         *
-         * @param verifyStatus
-         * @return
-         */
-        public Builder verifyStatus(Integer verifyStatus) {
-            this.verifyStatus = verifyStatus;
-            return this;
-        }
-
-
-        public Interviewer build() {
-            return new Interviewer(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

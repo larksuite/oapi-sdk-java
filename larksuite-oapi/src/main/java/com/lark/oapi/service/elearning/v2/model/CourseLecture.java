@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CourseLecture {
+  /**
+   * 认证老师 ID
+   *
+   * <p>示例值：7045003935224170028
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 认证老师名
+   *
+   * <p>示例值：李十八
+   */
+  @SerializedName("name")
+  private String name;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public CourseLecture() {}
+
+  public CourseLecture(Builder builder) {
     /**
      * 认证老师 ID
-     * <p> 示例值：7045003935224170028
+     *
+     * <p>示例值：7045003935224170028
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 认证老师名
-     * <p> 示例值：李十八
+     *
+     * <p>示例值：李十八
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 认证老师 ID
+     *
+     * <p>示例值：7045003935224170028
+     */
+    private String id;
+
+    /**
+     * 认证老师名
+     *
+     * <p>示例值：李十八
+     */
     private String name;
 
-    // builder 开始
-    public CourseLecture() {
+    /**
+     * 认证老师 ID
+     *
+     * <p>示例值：7045003935224170028
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public CourseLecture(Builder builder) {
-        /**
-         * 认证老师 ID
-         * <p> 示例值：7045003935224170028
-         */
-        this.id = builder.id;
-        /**
-         * 认证老师名
-         * <p> 示例值：李十八
-         */
-        this.name = builder.name;
+    /**
+     * 认证老师名
+     *
+     * <p>示例值：李十八
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CourseLecture build() {
+      return new CourseLecture(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 认证老师 ID
-         * <p> 示例值：7045003935224170028
-         */
-        private String id;
-        /**
-         * 认证老师名
-         * <p> 示例值：李十八
-         */
-        private String name;
-
-        /**
-         * 认证老师 ID
-         * <p> 示例值：7045003935224170028
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 认证老师名
-         * <p> 示例值：李十八
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public CourseLecture build() {
-            return new CourseLecture(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

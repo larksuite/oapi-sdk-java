@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SemesterStage {
+  /**
+   * 周期环节ID
+   *
+   * <p>示例值：7343513161666707458
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 模板环节列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("stages")
+  private TemplateStage[] stages;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public TemplateStage[] getStages() {
+    return this.stages;
+  }
+
+  public void setStages(TemplateStage[] stages) {
+    this.stages = stages;
+  }
+
+  // builder 开始
+  public SemesterStage() {}
+
+  public SemesterStage(Builder builder) {
     /**
-     * 周期环节id
-     * <p> 示例值：7343513161666707459
+     * 周期环节ID
+     *
+     * <p>示例值：7343513161666707458
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 周期环节名称
-     * <p> 示例值：
+     * 项目名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 模板环节列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("stages")
+    this.stages = builder.stages;
+  }
+
+  public static class Builder {
+    /**
+     * 周期环节ID
+     *
+     * <p>示例值：7343513161666707458
+     */
+    private String id;
+
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 模板环节列表
+     *
+     * <p>示例值：
+     */
     private TemplateStage[] stages;
 
-    // builder 开始
-    public SemesterStage() {
+    /**
+     * 周期环节ID
+     *
+     * <p>示例值：7343513161666707458
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public SemesterStage(Builder builder) {
-        /**
-         * 周期环节id
-         * <p> 示例值：7343513161666707459
-         */
-        this.id = builder.id;
-        /**
-         * 周期环节名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 模板环节列表
-         * <p> 示例值：
-         */
-        this.stages = builder.stages;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 模板环节列表
+     *
+     * <p>示例值：
+     *
+     * @param stages
+     * @return
+     */
+    public Builder stages(TemplateStage[] stages) {
+      this.stages = stages;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public SemesterStage build() {
+      return new SemesterStage(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public TemplateStage[] getStages() {
-        return this.stages;
-    }
-
-    public void setStages(TemplateStage[] stages) {
-        this.stages = stages;
-    }
-
-    public static class Builder {
-        /**
-         * 周期环节id
-         * <p> 示例值：7343513161666707459
-         */
-        private String id;
-        /**
-         * 周期环节名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 模板环节列表
-         * <p> 示例值：
-         */
-        private TemplateStage[] stages;
-
-        /**
-         * 周期环节id
-         * <p> 示例值：7343513161666707459
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 周期环节名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 模板环节列表
-         * <p> 示例值：
-         *
-         * @param stages
-         * @return
-         */
-        public Builder stages(TemplateStage[] stages) {
-            this.stages = stages;
-            return this;
-        }
-
-
-        public SemesterStage build() {
-            return new SemesterStage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

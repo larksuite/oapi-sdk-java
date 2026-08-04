@@ -13,263 +13,276 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class EnumOption {
+  /**
+   * 选项ID
+   *
+   * <p>示例值：123123
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 选项自定义ID
+   *
+   * <p>示例值：123123
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("value")
+  private I18nText value;
+
+  /**
+   * 枚举项国际化描述 仅限people admin兼容使用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private Map<String, String> description;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_enabled")
+  private Boolean isEnabled;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public I18nText getValue() {
+    return this.value;
+  }
+
+  public void setValue(I18nText value) {
+    this.value = value;
+  }
+
+  public Map<String, String> getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(Map<String, String> description) {
+    this.description = description;
+  }
+
+  public Boolean getIsEnabled() {
+    return this.isEnabled;
+  }
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
+
+  // builder 开始
+  public EnumOption() {}
+
+  public EnumOption(Builder builder) {
     /**
      * 选项ID
-     * <p> 示例值：123123
+     *
+     * <p>示例值：123123
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 选项自定义ID
-     * <p> 示例值：123123
+     *
+     * <p>示例值：123123
      */
-    @SerializedName("external_id")
-    private String externalId;
+    this.externalId = builder.externalId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("value")
-    private I18nText value;
+    this.value = builder.value;
     /**
      * 枚举项国际化描述 仅限people admin兼容使用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private Map<String, String> description;
+    this.description = builder.description;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_enabled")
+    this.isEnabled = builder.isEnabled;
+  }
+
+  public static class Builder {
+    /**
+     * 选项ID
+     *
+     * <p>示例值：123123
+     */
+    private String id;
+
+    /**
+     * 选项自定义ID
+     *
+     * <p>示例值：123123
+     */
+    private String externalId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText value;
+
+    /**
+     * 枚举项国际化描述 仅限people admin兼容使用
+     *
+     * <p>示例值：
+     */
+    private Map<String, String> description;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     */
     private Boolean isEnabled;
 
-    // builder 开始
-    public EnumOption() {
+    /**
+     * 选项ID
+     *
+     * <p>示例值：123123
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public EnumOption(Builder builder) {
-        /**
-         * 选项ID
-         * <p> 示例值：123123
-         */
-        this.id = builder.id;
-        /**
-         * 选项自定义ID
-         * <p> 示例值：123123
-         */
-        this.externalId = builder.externalId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.value = builder.value;
-        /**
-         * 枚举项国际化描述 仅限people admin兼容使用
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.isEnabled = builder.isEnabled;
+    /**
+     * 选项自定义ID
+     *
+     * <p>示例值：123123
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(I18nText value) {
+      this.value = value;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 枚举项国际化描述 仅限people admin兼容使用
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(Map<String, String> description) {
+      this.description = description;
+      return this;
     }
 
-    public String getExternalId() {
-        return this.externalId;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     *
+     * @param isEnabled
+     * @return
+     */
+    public Builder isEnabled(Boolean isEnabled) {
+      this.isEnabled = isEnabled;
+      return this;
     }
 
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
+    public EnumOption build() {
+      return new EnumOption(this);
     }
+  }
 
-    public I18nText getName() {
-        return this.name;
-    }
-
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public I18nText getValue() {
-        return this.value;
-    }
-
-    public void setValue(I18nText value) {
-        this.value = value;
-    }
-
-    public Map<String, String> getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(Map<String, String> description) {
-        this.description = description;
-    }
-
-    public Boolean getIsEnabled() {
-        return this.isEnabled;
-    }
-
-    public void setIsEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
-    }
-
-    public static class Builder {
-        /**
-         * 选项ID
-         * <p> 示例值：123123
-         */
-        private String id;
-        /**
-         * 选项自定义ID
-         * <p> 示例值：123123
-         */
-        private String externalId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText value;
-        /**
-         * 枚举项国际化描述 仅限people admin兼容使用
-         * <p> 示例值：
-         */
-        private Map<String, String> description;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean isEnabled;
-
-        /**
-         * 选项ID
-         * <p> 示例值：123123
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 选项自定义ID
-         * <p> 示例值：123123
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(I18nText value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 枚举项国际化描述 仅限people admin兼容使用
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(Map<String, String> description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param isEnabled
-         * @return
-         */
-        public Builder isEnabled(Boolean isEnabled) {
-            this.isEnabled = isEnabled;
-            return this;
-        }
-
-
-        public EnumOption build() {
-            return new EnumOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

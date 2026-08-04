@@ -13,161 +13,165 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingSubtitleSsdSpeaker {
+  /**
+   * 用户id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 说话人聚类结果
+   *
+   * <p>示例值：7127834524783853596
+   */
+  @SerializedName("speaker_id")
+  private Integer speakerId;
+
+  /**
+   * 说话人类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("speaker_id_type")
+  private Integer speakerIdType;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public Integer getSpeakerId() {
+    return this.speakerId;
+  }
+
+  public void setSpeakerId(Integer speakerId) {
+    this.speakerId = speakerId;
+  }
+
+  public Integer getSpeakerIdType() {
+    return this.speakerIdType;
+  }
+
+  public void setSpeakerIdType(Integer speakerIdType) {
+    this.speakerIdType = speakerIdType;
+  }
+
+  // builder 开始
+  public MeetingSubtitleSsdSpeaker() {}
+
+  public MeetingSubtitleSsdSpeaker(Builder builder) {
     /**
      * 用户id
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 说话人聚类结果
-     * <p> 示例值：1
+     *
+     * <p>示例值：7127834524783853596
      */
-    @SerializedName("speaker_id")
-    private Integer speakerId;
+    this.speakerId = builder.speakerId;
     /**
      * 说话人类型
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("speaker_id_type")
+    this.speakerIdType = builder.speakerIdType;
+  }
+
+  public static class Builder {
+    /**
+     * 用户id
+     *
+     * <p>示例值：1
+     */
+    private String userId;
+
+    /**
+     * 说话人聚类结果
+     *
+     * <p>示例值：7127834524783853596
+     */
+    private Integer speakerId;
+
+    /**
+     * 说话人类型
+     *
+     * <p>示例值：1
+     */
     private Integer speakerIdType;
 
-    // builder 开始
-    public MeetingSubtitleSsdSpeaker() {
+    /**
+     * 用户id
+     *
+     * <p>示例值：1
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public MeetingSubtitleSsdSpeaker(Builder builder) {
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 说话人聚类结果
-         * <p> 示例值：1
-         */
-        this.speakerId = builder.speakerId;
-        /**
-         * 说话人类型
-         * <p> 示例值：
-         */
-        this.speakerIdType = builder.speakerIdType;
+    /**
+     * 说话人聚类结果
+     *
+     * <p>示例值：7127834524783853596
+     *
+     * @param speakerId
+     * @return
+     */
+    public Builder speakerId(Integer speakerId) {
+      this.speakerId = speakerId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 说话人类型
+     *
+     * <p>示例值：1
+     *
+     * @param speakerIdType
+     * @return
+     */
+    public Builder speakerIdType(Integer speakerIdType) {
+      this.speakerIdType = speakerIdType;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 说话人类型
+     *
+     * <p>示例值：1
+     *
+     * @param speakerIdType {@link
+     *     com.lark.oapi.service.vc.v1.enums.MeetingSubtitleSsdSpeakerMeetingSubtitleSpeakerIdTypeEnum}
+     * @return
+     */
+    public Builder speakerIdType(
+        com.lark.oapi.service.vc.v1.enums.MeetingSubtitleSsdSpeakerMeetingSubtitleSpeakerIdTypeEnum
+            speakerIdType) {
+      this.speakerIdType = speakerIdType.getValue();
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public MeetingSubtitleSsdSpeaker build() {
+      return new MeetingSubtitleSsdSpeaker(this);
     }
+  }
 
-    public Integer getSpeakerId() {
-        return this.speakerId;
-    }
-
-    public void setSpeakerId(Integer speakerId) {
-        this.speakerId = speakerId;
-    }
-
-    public Integer getSpeakerIdType() {
-        return this.speakerIdType;
-    }
-
-    public void setSpeakerIdType(Integer speakerIdType) {
-        this.speakerIdType = speakerIdType;
-    }
-
-    public static class Builder {
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 说话人聚类结果
-         * <p> 示例值：1
-         */
-        private Integer speakerId;
-        /**
-         * 说话人类型
-         * <p> 示例值：
-         */
-        private Integer speakerIdType;
-
-        /**
-         * 用户id
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 说话人聚类结果
-         * <p> 示例值：1
-         *
-         * @param speakerId
-         * @return
-         */
-        public Builder speakerId(Integer speakerId) {
-            this.speakerId = speakerId;
-            return this;
-        }
-
-
-        /**
-         * 说话人类型
-         * <p> 示例值：
-         *
-         * @param speakerIdType
-         * @return
-         */
-        public Builder speakerIdType(Integer speakerIdType) {
-            this.speakerIdType = speakerIdType;
-            return this;
-        }
-
-        /**
-         * 说话人类型
-         * <p> 示例值：
-         *
-         * @param speakerIdType {@link com.lark.oapi.service.vc.v1.enums.MeetingSubtitleSsdSpeakerMeetingSubtitleSpeakerIdTypeEnum}
-         * @return
-         */
-        public Builder speakerIdType(com.lark.oapi.service.vc.v1.enums.MeetingSubtitleSsdSpeakerMeetingSubtitleSpeakerIdTypeEnum speakerIdType) {
-            this.speakerIdType = speakerIdType.getValue();
-            return this;
-        }
-
-
-        public MeetingSubtitleSsdSpeaker build() {
-            return new MeetingSubtitleSsdSpeaker(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,32 +13,31 @@
 package com.lark.oapi.service.block;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.block.v2.V2;
 import com.lark.oapi.service.block.v2.model.*;
 import com.lark.oapi.service.block.v2.resource.Entity;
 import com.lark.oapi.service.block.v2.resource.Message;
 
 public class BlockService {
-    private final V2 v2;
-    private final Entity entity; // 服务端 API
-    private final Message message; // 服务端 API
+  private final V2 v2;
+  private final Entity entity; // entity
+  private final Message message; // message
 
-    public BlockService(Config config) {
-        this.v2 = new V2(config);
-        this.entity = new Entity(config);
-        this.message = new Message(config);
-    }
+  public BlockService(Config config) {
+    this.v2 = new V2(config);
+    this.entity = new Entity(config);
+    this.message = new Message(config);
+  }
 
-    public V2 v2() {
-        return v2;
-    }
+  public V2 v2() {
+    return v2;
+  }
 
-    public Entity entity() {
-        return entity;
-    }
+  public Entity entity() {
+    return entity;
+  }
 
-    public Message message() {
-        return message;
-    }
+  public Message message() {
+    return message;
+  }
 }

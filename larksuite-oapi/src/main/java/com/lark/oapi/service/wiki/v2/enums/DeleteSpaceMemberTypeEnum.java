@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.wiki.v2.enums;
 
-/**
- * 知识库协作者类型
- */
+/** 知识库协作者类型 */
 public enum DeleteSpaceMemberTypeEnum {
-    USER("user"), // 用户
-    CHAT("chat"), // 群组
-    DEPARTMENT("department"), // 组织架构
-    ;
-    private String value;
+  USER("user"), // 用户
+  CHAT("chat"), // 群组
+  DEPARTMENT("department"), // 组织架构
+  ;
+  private String value;
 
-    DeleteSpaceMemberTypeEnum(String value) {
-        this.value = value;
-    }
+  DeleteSpaceMemberTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

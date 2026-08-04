@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateFolderFileReqBody {
+  /**
+   * 文件夹名称;;;**长度限制**： 1~256 个字节
+   *
+   * <p>示例值：产品优化项目
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 父文件夹的
+   * token。参数为空字符串时，表示在根目录下创建文件夹。你可参考[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)获取某个文件夹的
+   * token。了解更多，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+   *
+   * <p>示例值：fldbcO1UuPz8VwnpPx5a92abcef
+   */
+  @SerializedName("folder_token")
+  private String folderToken;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getFolderToken() {
+    return this.folderToken;
+  }
+
+  public void setFolderToken(String folderToken) {
+    this.folderToken = folderToken;
+  }
+
+  // builder 开始
+  public CreateFolderFileReqBody() {}
+
+  public CreateFolderFileReqBody(Builder builder) {
     /**
-     * 文件夹名称
-     * <p> 示例值：New Folder
+     * 文件夹名称;;;**长度限制**： 1~256 个字节
+     *
+     * <p>示例值：产品优化项目
      */
-    @SerializedName("name")
+    this.name = builder.name;
+    /**
+     * 父文件夹的
+     * token。参数为空字符串时，表示在根目录下创建文件夹。你可参考[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)获取某个文件夹的
+     * token。了解更多，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+     *
+     * <p>示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     */
+    this.folderToken = builder.folderToken;
+  }
+
+  public static class Builder {
+    /**
+     * 文件夹名称;;;**长度限制**： 1~256 个字节
+     *
+     * <p>示例值：产品优化项目
+     */
     private String name;
+
     /**
-     * 父文件夹token
-     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     * 父文件夹的
+     * token。参数为空字符串时，表示在根目录下创建文件夹。你可参考[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)获取某个文件夹的
+     * token。了解更多，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+     *
+     * <p>示例值：fldbcO1UuPz8VwnpPx5a92abcef
      */
-    @SerializedName("folder_token")
     private String folderToken;
 
-    // builder 开始
-    public CreateFolderFileReqBody() {
+    /**
+     * 文件夹名称;;;**长度限制**： 1~256 个字节
+     *
+     * <p>示例值：产品优化项目
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public CreateFolderFileReqBody(Builder builder) {
-        /**
-         * 文件夹名称
-         * <p> 示例值：New Folder
-         */
-        this.name = builder.name;
-        /**
-         * 父文件夹token
-         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         */
-        this.folderToken = builder.folderToken;
+    /**
+     * 父文件夹的
+     * token。参数为空字符串时，表示在根目录下创建文件夹。你可参考[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)获取某个文件夹的
+     * token。了解更多，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+     *
+     * <p>示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     *
+     * @param folderToken
+     * @return
+     */
+    public Builder folderToken(String folderToken) {
+      this.folderToken = folderToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateFolderFileReqBody build() {
+      return new CreateFolderFileReqBody(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getFolderToken() {
-        return this.folderToken;
-    }
-
-    public void setFolderToken(String folderToken) {
-        this.folderToken = folderToken;
-    }
-
-    public static class Builder {
-        /**
-         * 文件夹名称
-         * <p> 示例值：New Folder
-         */
-        private String name;
-        /**
-         * 父文件夹token
-         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         */
-        private String folderToken;
-
-        /**
-         * 文件夹名称
-         * <p> 示例值：New Folder
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 父文件夹token
-         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         *
-         * @param folderToken
-         * @return
-         */
-        public Builder folderToken(String folderToken) {
-            this.folderToken = folderToken;
-            return this;
-        }
-
-
-        public CreateFolderFileReqBody build() {
-            return new CreateFolderFileReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

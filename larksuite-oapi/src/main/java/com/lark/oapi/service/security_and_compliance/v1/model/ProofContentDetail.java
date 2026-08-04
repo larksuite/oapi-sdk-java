@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProofContentDetail {
+  /**
+   * 检测器
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("detect_mode")
+  private Integer detectMode;
+
+  /**
+   * 检测的证据信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("detect_proof_contexts")
+  private DetectProofContext[] detectProofContexts;
+
+  public Integer getDetectMode() {
+    return this.detectMode;
+  }
+
+  public void setDetectMode(Integer detectMode) {
+    this.detectMode = detectMode;
+  }
+
+  public DetectProofContext[] getDetectProofContexts() {
+    return this.detectProofContexts;
+  }
+
+  public void setDetectProofContexts(DetectProofContext[] detectProofContexts) {
+    this.detectProofContexts = detectProofContexts;
+  }
+
+  // builder 开始
+  public ProofContentDetail() {}
+
+  public ProofContentDetail(Builder builder) {
     /**
      * 检测器
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("detect_mode")
-    private Integer detectMode;
+    this.detectMode = builder.detectMode;
     /**
      * 检测的证据信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("detect_proof_contexts")
+    this.detectProofContexts = builder.detectProofContexts;
+  }
+
+  public static class Builder {
+    /**
+     * 检测器
+     *
+     * <p>示例值：1
+     */
+    private Integer detectMode;
+
+    /**
+     * 检测的证据信息
+     *
+     * <p>示例值：
+     */
     private DetectProofContext[] detectProofContexts;
 
-    // builder 开始
-    public ProofContentDetail() {
+    /**
+     * 检测器
+     *
+     * <p>示例值：1
+     *
+     * @param detectMode
+     * @return
+     */
+    public Builder detectMode(Integer detectMode) {
+      this.detectMode = detectMode;
+      return this;
     }
 
-    public ProofContentDetail(Builder builder) {
-        /**
-         * 检测器
-         * <p> 示例值：1
-         */
-        this.detectMode = builder.detectMode;
-        /**
-         * 检测的证据信息
-         * <p> 示例值：
-         */
-        this.detectProofContexts = builder.detectProofContexts;
+    /**
+     * 检测的证据信息
+     *
+     * <p>示例值：
+     *
+     * @param detectProofContexts
+     * @return
+     */
+    public Builder detectProofContexts(DetectProofContext[] detectProofContexts) {
+      this.detectProofContexts = detectProofContexts;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ProofContentDetail build() {
+      return new ProofContentDetail(this);
     }
+  }
 
-    public Integer getDetectMode() {
-        return this.detectMode;
-    }
-
-    public void setDetectMode(Integer detectMode) {
-        this.detectMode = detectMode;
-    }
-
-    public DetectProofContext[] getDetectProofContexts() {
-        return this.detectProofContexts;
-    }
-
-    public void setDetectProofContexts(DetectProofContext[] detectProofContexts) {
-        this.detectProofContexts = detectProofContexts;
-    }
-
-    public static class Builder {
-        /**
-         * 检测器
-         * <p> 示例值：1
-         */
-        private Integer detectMode;
-        /**
-         * 检测的证据信息
-         * <p> 示例值：
-         */
-        private DetectProofContext[] detectProofContexts;
-
-        /**
-         * 检测器
-         * <p> 示例值：1
-         *
-         * @param detectMode
-         * @return
-         */
-        public Builder detectMode(Integer detectMode) {
-            this.detectMode = detectMode;
-            return this;
-        }
-
-
-        /**
-         * 检测的证据信息
-         * <p> 示例值：
-         *
-         * @param detectProofContexts
-         * @return
-         */
-        public Builder detectProofContexts(DetectProofContext[] detectProofContexts) {
-            this.detectProofContexts = detectProofContexts;
-            return this;
-        }
-
-
-        public ProofContentDetail build() {
-            return new ProofContentDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

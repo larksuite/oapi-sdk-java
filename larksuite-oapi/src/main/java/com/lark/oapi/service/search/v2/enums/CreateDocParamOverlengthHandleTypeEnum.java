@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 如果文本块超过最大长度的话，确定返回错误还是进行截断，默认是返回错误
- */
+/** 如果文本块超过最大长度的话，确定返回错误还是进行截断，默认是返回错误 */
 public enum CreateDocParamOverlengthHandleTypeEnum {
-    RETURNERROR(1), // 超过最大长度时返回错误
-    TRUNCATE(2), // 超过最大长度时进行截断
-    ;
-    private Integer value;
+  RETURNERROR(1), // 超过最大长度时返回错误
+  TRUNCATE(2), // 超过最大长度时进行截断
+  ;
+  private Integer value;
 
-    CreateDocParamOverlengthHandleTypeEnum(Integer value) {
-        this.value = value;
-    }
+  CreateDocParamOverlengthHandleTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

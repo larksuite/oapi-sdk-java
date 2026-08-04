@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TableProperty {
+  /**
+   * 行数;- **创建块**接口中，该字段最大值为 9 ;- **创建嵌套块**接口中，在单个表格单元格不超过上限 2000 情况下，该字段无固定最大值
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("row_size")
+  private Integer rowSize;
+
+  /**
+   * 列数;- **创建块**接口中，该字段最大值为 9 ;- **创建嵌套块**接口中，该字段最大值为 100
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("column_size")
+  private Integer columnSize;
+
+  /**
+   * 列宽，单位像素（px）
+   *
+   * <p>示例值：[100]
+   */
+  @SerializedName("column_width")
+  private Integer[] columnWidth;
+
+  /**
+   * 单元格合并信息。创建 Table 时，此属性只读，将由系统自动生成。如果需要合并单元格，可以通过更新块接口的子请求 `merge_table_cells` 实现
+   *
+   * <p>示例值：
+   */
+  @SerializedName("merge_info")
+  private TableMergeInfo[] mergeInfo;
+
+  /**
+   * 设置首行为标题行
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("header_row")
+  private Boolean headerRow;
+
+  /**
+   * 设置首列为标题列
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("header_column")
+  private Boolean headerColumn;
+
+  public Integer getRowSize() {
+    return this.rowSize;
+  }
+
+  public void setRowSize(Integer rowSize) {
+    this.rowSize = rowSize;
+  }
+
+  public Integer getColumnSize() {
+    return this.columnSize;
+  }
+
+  public void setColumnSize(Integer columnSize) {
+    this.columnSize = columnSize;
+  }
+
+  public Integer[] getColumnWidth() {
+    return this.columnWidth;
+  }
+
+  public void setColumnWidth(Integer[] columnWidth) {
+    this.columnWidth = columnWidth;
+  }
+
+  public TableMergeInfo[] getMergeInfo() {
+    return this.mergeInfo;
+  }
+
+  public void setMergeInfo(TableMergeInfo[] mergeInfo) {
+    this.mergeInfo = mergeInfo;
+  }
+
+  public Boolean getHeaderRow() {
+    return this.headerRow;
+  }
+
+  public void setHeaderRow(Boolean headerRow) {
+    this.headerRow = headerRow;
+  }
+
+  public Boolean getHeaderColumn() {
+    return this.headerColumn;
+  }
+
+  public void setHeaderColumn(Boolean headerColumn) {
+    this.headerColumn = headerColumn;
+  }
+
+  // builder 开始
+  public TableProperty() {}
+
+  public TableProperty(Builder builder) {
     /**
-     * 行数
-     * <p> 示例值：1
+     * 行数;- **创建块**接口中，该字段最大值为 9 ;- **创建嵌套块**接口中，在单个表格单元格不超过上限 2000 情况下，该字段无固定最大值
+     *
+     * <p>示例值：1
      */
-    @SerializedName("row_size")
-    private Integer rowSize;
+    this.rowSize = builder.rowSize;
     /**
-     * 列数
-     * <p> 示例值：1
+     * 列数;- **创建块**接口中，该字段最大值为 9 ;- **创建嵌套块**接口中，该字段最大值为 100
+     *
+     * <p>示例值：1
      */
-    @SerializedName("column_size")
-    private Integer columnSize;
+    this.columnSize = builder.columnSize;
     /**
-     * 列宽，单位px
-     * <p> 示例值：100
+     * 列宽，单位像素（px）
+     *
+     * <p>示例值：[100]
      */
-    @SerializedName("column_width")
-    private Integer[] columnWidth;
+    this.columnWidth = builder.columnWidth;
     /**
-     * 单元格合并信息
-     * <p> 示例值：
+     * 单元格合并信息。创建 Table 时，此属性只读，将由系统自动生成。如果需要合并单元格，可以通过更新块接口的子请求 `merge_table_cells` 实现
+     *
+     * <p>示例值：
      */
-    @SerializedName("merge_info")
-    private TableMergeInfo[] mergeInfo;
+    this.mergeInfo = builder.mergeInfo;
     /**
      * 设置首行为标题行
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("header_row")
-    private Boolean headerRow;
+    this.headerRow = builder.headerRow;
     /**
      * 设置首列为标题列
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("header_column")
+    this.headerColumn = builder.headerColumn;
+  }
+
+  public static class Builder {
+    /**
+     * 行数;- **创建块**接口中，该字段最大值为 9 ;- **创建嵌套块**接口中，在单个表格单元格不超过上限 2000 情况下，该字段无固定最大值
+     *
+     * <p>示例值：1
+     */
+    private Integer rowSize;
+
+    /**
+     * 列数;- **创建块**接口中，该字段最大值为 9 ;- **创建嵌套块**接口中，该字段最大值为 100
+     *
+     * <p>示例值：1
+     */
+    private Integer columnSize;
+
+    /**
+     * 列宽，单位像素（px）
+     *
+     * <p>示例值：[100]
+     */
+    private Integer[] columnWidth;
+
+    /**
+     * 单元格合并信息。创建 Table 时，此属性只读，将由系统自动生成。如果需要合并单元格，可以通过更新块接口的子请求 `merge_table_cells` 实现
+     *
+     * <p>示例值：
+     */
+    private TableMergeInfo[] mergeInfo;
+
+    /**
+     * 设置首行为标题行
+     *
+     * <p>示例值：false
+     */
+    private Boolean headerRow;
+
+    /**
+     * 设置首列为标题列
+     *
+     * <p>示例值：false
+     */
     private Boolean headerColumn;
 
-    // builder 开始
-    public TableProperty() {
+    /**
+     * 行数;- **创建块**接口中，该字段最大值为 9 ;- **创建嵌套块**接口中，在单个表格单元格不超过上限 2000 情况下，该字段无固定最大值
+     *
+     * <p>示例值：1
+     *
+     * @param rowSize
+     * @return
+     */
+    public Builder rowSize(Integer rowSize) {
+      this.rowSize = rowSize;
+      return this;
     }
 
-    public TableProperty(Builder builder) {
-        /**
-         * 行数
-         * <p> 示例值：1
-         */
-        this.rowSize = builder.rowSize;
-        /**
-         * 列数
-         * <p> 示例值：1
-         */
-        this.columnSize = builder.columnSize;
-        /**
-         * 列宽，单位px
-         * <p> 示例值：100
-         */
-        this.columnWidth = builder.columnWidth;
-        /**
-         * 单元格合并信息
-         * <p> 示例值：
-         */
-        this.mergeInfo = builder.mergeInfo;
-        /**
-         * 设置首行为标题行
-         * <p> 示例值：false
-         */
-        this.headerRow = builder.headerRow;
-        /**
-         * 设置首列为标题列
-         * <p> 示例值：false
-         */
-        this.headerColumn = builder.headerColumn;
+    /**
+     * 列数;- **创建块**接口中，该字段最大值为 9 ;- **创建嵌套块**接口中，该字段最大值为 100
+     *
+     * <p>示例值：1
+     *
+     * @param columnSize
+     * @return
+     */
+    public Builder columnSize(Integer columnSize) {
+      this.columnSize = columnSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 列宽，单位像素（px）
+     *
+     * <p>示例值：[100]
+     *
+     * @param columnWidth
+     * @return
+     */
+    public Builder columnWidth(Integer[] columnWidth) {
+      this.columnWidth = columnWidth;
+      return this;
     }
 
-    public Integer getRowSize() {
-        return this.rowSize;
+    /**
+     * 单元格合并信息。创建 Table 时，此属性只读，将由系统自动生成。如果需要合并单元格，可以通过更新块接口的子请求 `merge_table_cells` 实现
+     *
+     * <p>示例值：
+     *
+     * @param mergeInfo
+     * @return
+     */
+    public Builder mergeInfo(TableMergeInfo[] mergeInfo) {
+      this.mergeInfo = mergeInfo;
+      return this;
     }
 
-    public void setRowSize(Integer rowSize) {
-        this.rowSize = rowSize;
+    /**
+     * 设置首行为标题行
+     *
+     * <p>示例值：false
+     *
+     * @param headerRow
+     * @return
+     */
+    public Builder headerRow(Boolean headerRow) {
+      this.headerRow = headerRow;
+      return this;
     }
 
-    public Integer getColumnSize() {
-        return this.columnSize;
+    /**
+     * 设置首列为标题列
+     *
+     * <p>示例值：false
+     *
+     * @param headerColumn
+     * @return
+     */
+    public Builder headerColumn(Boolean headerColumn) {
+      this.headerColumn = headerColumn;
+      return this;
     }
 
-    public void setColumnSize(Integer columnSize) {
-        this.columnSize = columnSize;
+    public TableProperty build() {
+      return new TableProperty(this);
     }
+  }
 
-    public Integer[] getColumnWidth() {
-        return this.columnWidth;
-    }
-
-    public void setColumnWidth(Integer[] columnWidth) {
-        this.columnWidth = columnWidth;
-    }
-
-    public TableMergeInfo[] getMergeInfo() {
-        return this.mergeInfo;
-    }
-
-    public void setMergeInfo(TableMergeInfo[] mergeInfo) {
-        this.mergeInfo = mergeInfo;
-    }
-
-    public Boolean getHeaderRow() {
-        return this.headerRow;
-    }
-
-    public void setHeaderRow(Boolean headerRow) {
-        this.headerRow = headerRow;
-    }
-
-    public Boolean getHeaderColumn() {
-        return this.headerColumn;
-    }
-
-    public void setHeaderColumn(Boolean headerColumn) {
-        this.headerColumn = headerColumn;
-    }
-
-    public static class Builder {
-        /**
-         * 行数
-         * <p> 示例值：1
-         */
-        private Integer rowSize;
-        /**
-         * 列数
-         * <p> 示例值：1
-         */
-        private Integer columnSize;
-        /**
-         * 列宽，单位px
-         * <p> 示例值：100
-         */
-        private Integer[] columnWidth;
-        /**
-         * 单元格合并信息
-         * <p> 示例值：
-         */
-        private TableMergeInfo[] mergeInfo;
-        /**
-         * 设置首行为标题行
-         * <p> 示例值：false
-         */
-        private Boolean headerRow;
-        /**
-         * 设置首列为标题列
-         * <p> 示例值：false
-         */
-        private Boolean headerColumn;
-
-        /**
-         * 行数
-         * <p> 示例值：1
-         *
-         * @param rowSize
-         * @return
-         */
-        public Builder rowSize(Integer rowSize) {
-            this.rowSize = rowSize;
-            return this;
-        }
-
-
-        /**
-         * 列数
-         * <p> 示例值：1
-         *
-         * @param columnSize
-         * @return
-         */
-        public Builder columnSize(Integer columnSize) {
-            this.columnSize = columnSize;
-            return this;
-        }
-
-
-        /**
-         * 列宽，单位px
-         * <p> 示例值：100
-         *
-         * @param columnWidth
-         * @return
-         */
-        public Builder columnWidth(Integer[] columnWidth) {
-            this.columnWidth = columnWidth;
-            return this;
-        }
-
-
-        /**
-         * 单元格合并信息
-         * <p> 示例值：
-         *
-         * @param mergeInfo
-         * @return
-         */
-        public Builder mergeInfo(TableMergeInfo[] mergeInfo) {
-            this.mergeInfo = mergeInfo;
-            return this;
-        }
-
-
-        /**
-         * 设置首行为标题行
-         * <p> 示例值：false
-         *
-         * @param headerRow
-         * @return
-         */
-        public Builder headerRow(Boolean headerRow) {
-            this.headerRow = headerRow;
-            return this;
-        }
-
-
-        /**
-         * 设置首列为标题列
-         * <p> 示例值：false
-         *
-         * @param headerColumn
-         * @return
-         */
-        public Builder headerColumn(Boolean headerColumn) {
-            this.headerColumn = headerColumn;
-            return this;
-        }
-
-
-        public TableProperty build() {
-            return new TableProperty(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

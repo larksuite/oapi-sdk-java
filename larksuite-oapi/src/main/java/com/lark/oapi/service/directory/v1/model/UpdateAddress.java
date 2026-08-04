@@ -13,519 +13,569 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateAddress {
+  /**
+   * ID
+   *
+   * <p>示例值：6872549699048439828
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_enabled")
+  private Boolean isEnabled;
+
+  /**
+   * 邮编
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("post_code")
+  private String postCode;
+
+  /**
+   * 国家 国家/地区主数据统一编码
+   *
+   * <p>示例值：MDCT00000256
+   */
+  @SerializedName("country")
+  private String country;
+
+  /**
+   * 省份 省份主数据统一编码
+   *
+   * <p>示例值：MDCT00000256
+   */
+  @SerializedName("province")
+  private String province;
+
+  /**
+   * 城市 城市主数据统一编码
+   *
+   * <p>示例值：MDCT00000256
+   */
+  @SerializedName("city")
+  private String city;
+
+  /**
+   * 区县 区县主数据统一编码
+   *
+   * <p>示例值：MDCT00000256
+   */
+  @SerializedName("county")
+  private String county;
+
+  /**
+   * 地址类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("types")
+  private String[] types;
+
+  /**
+   * 地点，为0代表置空
+   *
+   * <p>示例值：6872549699048439828
+   */
+  @SerializedName("place_id")
+  private String placeId;
+
+  /**
+   * 是否主要地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_main")
+  private Boolean isMain;
+
+  /**
+   * 是否公开地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_public")
+  private Boolean isPublic;
+
+  /**
+   * 外部ID
+   *
+   * <p>示例值：custom_id
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public Boolean getIsEnabled() {
+    return this.isEnabled;
+  }
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
+
+  public String getPostCode() {
+    return this.postCode;
+  }
+
+  public void setPostCode(String postCode) {
+    this.postCode = postCode;
+  }
+
+  public String getCountry() {
+    return this.country;
+  }
+
+  public void setCountry(String country) {
+    this.country = country;
+  }
+
+  public String getProvince() {
+    return this.province;
+  }
+
+  public void setProvince(String province) {
+    this.province = province;
+  }
+
+  public String getCity() {
+    return this.city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+  public String getCounty() {
+    return this.county;
+  }
+
+  public void setCounty(String county) {
+    this.county = county;
+  }
+
+  public String[] getTypes() {
+    return this.types;
+  }
+
+  public void setTypes(String[] types) {
+    this.types = types;
+  }
+
+  public String getPlaceId() {
+    return this.placeId;
+  }
+
+  public void setPlaceId(String placeId) {
+    this.placeId = placeId;
+  }
+
+  public Boolean getIsMain() {
+    return this.isMain;
+  }
+
+  public void setIsMain(Boolean isMain) {
+    this.isMain = isMain;
+  }
+
+  public Boolean getIsPublic() {
+    return this.isPublic;
+  }
+
+  public void setIsPublic(Boolean isPublic) {
+    this.isPublic = isPublic;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  // builder 开始
+  public UpdateAddress() {}
+
+  public UpdateAddress(Builder builder) {
     /**
      * ID
-     * <p> 示例值：6872549699048439828
+     *
+     * <p>示例值：6872549699048439828
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_enabled")
-    private Boolean isEnabled;
+    this.isEnabled = builder.isEnabled;
     /**
      * 邮编
-     * <p> 示例值：123456
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("post_code")
-    private String postCode;
+    this.postCode = builder.postCode;
     /**
      * 国家 国家/地区主数据统一编码
-     * <p> 示例值：MDCT00000256
+     *
+     * <p>示例值：MDCT00000256
      */
-    @SerializedName("country")
-    private String country;
+    this.country = builder.country;
     /**
      * 省份 省份主数据统一编码
-     * <p> 示例值：MDCT00000256
+     *
+     * <p>示例值：MDCT00000256
      */
-    @SerializedName("province")
-    private String province;
+    this.province = builder.province;
     /**
      * 城市 城市主数据统一编码
-     * <p> 示例值：MDCT00000256
+     *
+     * <p>示例值：MDCT00000256
      */
-    @SerializedName("city")
-    private String city;
+    this.city = builder.city;
     /**
      * 区县 区县主数据统一编码
-     * <p> 示例值：MDCT00000256
+     *
+     * <p>示例值：MDCT00000256
      */
-    @SerializedName("county")
-    private String county;
+    this.county = builder.county;
     /**
      * 地址类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("types")
-    private String[] types;
+    this.types = builder.types;
     /**
      * 地点，为0代表置空
-     * <p> 示例值：6872549699048439828
+     *
+     * <p>示例值：6872549699048439828
      */
-    @SerializedName("place_id")
-    private String placeId;
+    this.placeId = builder.placeId;
     /**
      * 是否主要地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_main")
-    private Boolean isMain;
+    this.isMain = builder.isMain;
     /**
      * 是否公开地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_public")
-    private Boolean isPublic;
+    this.isPublic = builder.isPublic;
     /**
      * 外部ID
-     * <p> 示例值：custom_id
+     *
+     * <p>示例值：custom_id
      */
-    @SerializedName("external_id")
+    this.externalId = builder.externalId;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：6872549699048439828
+     */
+    private String id;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     */
+    private Boolean isEnabled;
+
+    /**
+     * 邮编
+     *
+     * <p>示例值：123456
+     */
+    private String postCode;
+
+    /**
+     * 国家 国家/地区主数据统一编码
+     *
+     * <p>示例值：MDCT00000256
+     */
+    private String country;
+
+    /**
+     * 省份 省份主数据统一编码
+     *
+     * <p>示例值：MDCT00000256
+     */
+    private String province;
+
+    /**
+     * 城市 城市主数据统一编码
+     *
+     * <p>示例值：MDCT00000256
+     */
+    private String city;
+
+    /**
+     * 区县 区县主数据统一编码
+     *
+     * <p>示例值：MDCT00000256
+     */
+    private String county;
+
+    /**
+     * 地址类型
+     *
+     * <p>示例值：
+     */
+    private String[] types;
+
+    /**
+     * 地点，为0代表置空
+     *
+     * <p>示例值：6872549699048439828
+     */
+    private String placeId;
+
+    /**
+     * 是否主要地址
+     *
+     * <p>示例值：
+     */
+    private Boolean isMain;
+
+    /**
+     * 是否公开地址
+     *
+     * <p>示例值：
+     */
+    private Boolean isPublic;
+
+    /**
+     * 外部ID
+     *
+     * <p>示例值：custom_id
+     */
     private String externalId;
 
-    // builder 开始
-    public UpdateAddress() {
+    /**
+     * ID
+     *
+     * <p>示例值：6872549699048439828
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UpdateAddress(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：6872549699048439828
-         */
-        this.id = builder.id;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.isEnabled = builder.isEnabled;
-        /**
-         * 邮编
-         * <p> 示例值：123456
-         */
-        this.postCode = builder.postCode;
-        /**
-         * 国家 国家/地区主数据统一编码
-         * <p> 示例值：MDCT00000256
-         */
-        this.country = builder.country;
-        /**
-         * 省份 省份主数据统一编码
-         * <p> 示例值：MDCT00000256
-         */
-        this.province = builder.province;
-        /**
-         * 城市 城市主数据统一编码
-         * <p> 示例值：MDCT00000256
-         */
-        this.city = builder.city;
-        /**
-         * 区县 区县主数据统一编码
-         * <p> 示例值：MDCT00000256
-         */
-        this.county = builder.county;
-        /**
-         * 地址类型
-         * <p> 示例值：
-         */
-        this.types = builder.types;
-        /**
-         * 地点，为0代表置空
-         * <p> 示例值：6872549699048439828
-         */
-        this.placeId = builder.placeId;
-        /**
-         * 是否主要地址
-         * <p> 示例值：
-         */
-        this.isMain = builder.isMain;
-        /**
-         * 是否公开地址
-         * <p> 示例值：
-         */
-        this.isPublic = builder.isPublic;
-        /**
-         * 外部ID
-         * <p> 示例值：custom_id
-         */
-        this.externalId = builder.externalId;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     *
+     * @param isEnabled
+     * @return
+     */
+    public Builder isEnabled(Boolean isEnabled) {
+      this.isEnabled = isEnabled;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 邮编
+     *
+     * <p>示例值：123456
+     *
+     * @param postCode
+     * @return
+     */
+    public Builder postCode(String postCode) {
+      this.postCode = postCode;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 国家 国家/地区主数据统一编码
+     *
+     * <p>示例值：MDCT00000256
+     *
+     * @param country
+     * @return
+     */
+    public Builder country(String country) {
+      this.country = country;
+      return this;
     }
 
-    public I18nText getName() {
-        return this.name;
+    /**
+     * 省份 省份主数据统一编码
+     *
+     * <p>示例值：MDCT00000256
+     *
+     * @param province
+     * @return
+     */
+    public Builder province(String province) {
+      this.province = province;
+      return this;
     }
 
-    public void setName(I18nText name) {
-        this.name = name;
+    /**
+     * 城市 城市主数据统一编码
+     *
+     * <p>示例值：MDCT00000256
+     *
+     * @param city
+     * @return
+     */
+    public Builder city(String city) {
+      this.city = city;
+      return this;
     }
 
-    public Boolean getIsEnabled() {
-        return this.isEnabled;
+    /**
+     * 区县 区县主数据统一编码
+     *
+     * <p>示例值：MDCT00000256
+     *
+     * @param county
+     * @return
+     */
+    public Builder county(String county) {
+      this.county = county;
+      return this;
     }
 
-    public void setIsEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
+    /**
+     * 地址类型
+     *
+     * <p>示例值：
+     *
+     * @param types
+     * @return
+     */
+    public Builder types(String[] types) {
+      this.types = types;
+      return this;
     }
 
-    public String getPostCode() {
-        return this.postCode;
+    /**
+     * 地点，为0代表置空
+     *
+     * <p>示例值：6872549699048439828
+     *
+     * @param placeId
+     * @return
+     */
+    public Builder placeId(String placeId) {
+      this.placeId = placeId;
+      return this;
     }
 
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
+    /**
+     * 是否主要地址
+     *
+     * <p>示例值：
+     *
+     * @param isMain
+     * @return
+     */
+    public Builder isMain(Boolean isMain) {
+      this.isMain = isMain;
+      return this;
     }
 
-    public String getCountry() {
-        return this.country;
+    /**
+     * 是否公开地址
+     *
+     * <p>示例值：
+     *
+     * @param isPublic
+     * @return
+     */
+    public Builder isPublic(Boolean isPublic) {
+      this.isPublic = isPublic;
+      return this;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    /**
+     * 外部ID
+     *
+     * <p>示例值：custom_id
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public String getProvince() {
-        return this.province;
+    public UpdateAddress build() {
+      return new UpdateAddress(this);
     }
+  }
 
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getCity() {
-        return this.city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getCounty() {
-        return this.county;
-    }
-
-    public void setCounty(String county) {
-        this.county = county;
-    }
-
-    public String[] getTypes() {
-        return this.types;
-    }
-
-    public void setTypes(String[] types) {
-        this.types = types;
-    }
-
-    public String getPlaceId() {
-        return this.placeId;
-    }
-
-    public void setPlaceId(String placeId) {
-        this.placeId = placeId;
-    }
-
-    public Boolean getIsMain() {
-        return this.isMain;
-    }
-
-    public void setIsMain(Boolean isMain) {
-        this.isMain = isMain;
-    }
-
-    public Boolean getIsPublic() {
-        return this.isPublic;
-    }
-
-    public void setIsPublic(Boolean isPublic) {
-        this.isPublic = isPublic;
-    }
-
-    public String getExternalId() {
-        return this.externalId;
-    }
-
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：6872549699048439828
-         */
-        private String id;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean isEnabled;
-        /**
-         * 邮编
-         * <p> 示例值：123456
-         */
-        private String postCode;
-        /**
-         * 国家 国家/地区主数据统一编码
-         * <p> 示例值：MDCT00000256
-         */
-        private String country;
-        /**
-         * 省份 省份主数据统一编码
-         * <p> 示例值：MDCT00000256
-         */
-        private String province;
-        /**
-         * 城市 城市主数据统一编码
-         * <p> 示例值：MDCT00000256
-         */
-        private String city;
-        /**
-         * 区县 区县主数据统一编码
-         * <p> 示例值：MDCT00000256
-         */
-        private String county;
-        /**
-         * 地址类型
-         * <p> 示例值：
-         */
-        private String[] types;
-        /**
-         * 地点，为0代表置空
-         * <p> 示例值：6872549699048439828
-         */
-        private String placeId;
-        /**
-         * 是否主要地址
-         * <p> 示例值：
-         */
-        private Boolean isMain;
-        /**
-         * 是否公开地址
-         * <p> 示例值：
-         */
-        private Boolean isPublic;
-        /**
-         * 外部ID
-         * <p> 示例值：custom_id
-         */
-        private String externalId;
-
-        /**
-         * ID
-         * <p> 示例值：6872549699048439828
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param isEnabled
-         * @return
-         */
-        public Builder isEnabled(Boolean isEnabled) {
-            this.isEnabled = isEnabled;
-            return this;
-        }
-
-
-        /**
-         * 邮编
-         * <p> 示例值：123456
-         *
-         * @param postCode
-         * @return
-         */
-        public Builder postCode(String postCode) {
-            this.postCode = postCode;
-            return this;
-        }
-
-
-        /**
-         * 国家 国家/地区主数据统一编码
-         * <p> 示例值：MDCT00000256
-         *
-         * @param country
-         * @return
-         */
-        public Builder country(String country) {
-            this.country = country;
-            return this;
-        }
-
-
-        /**
-         * 省份 省份主数据统一编码
-         * <p> 示例值：MDCT00000256
-         *
-         * @param province
-         * @return
-         */
-        public Builder province(String province) {
-            this.province = province;
-            return this;
-        }
-
-
-        /**
-         * 城市 城市主数据统一编码
-         * <p> 示例值：MDCT00000256
-         *
-         * @param city
-         * @return
-         */
-        public Builder city(String city) {
-            this.city = city;
-            return this;
-        }
-
-
-        /**
-         * 区县 区县主数据统一编码
-         * <p> 示例值：MDCT00000256
-         *
-         * @param county
-         * @return
-         */
-        public Builder county(String county) {
-            this.county = county;
-            return this;
-        }
-
-
-        /**
-         * 地址类型
-         * <p> 示例值：
-         *
-         * @param types
-         * @return
-         */
-        public Builder types(String[] types) {
-            this.types = types;
-            return this;
-        }
-
-
-        /**
-         * 地点，为0代表置空
-         * <p> 示例值：6872549699048439828
-         *
-         * @param placeId
-         * @return
-         */
-        public Builder placeId(String placeId) {
-            this.placeId = placeId;
-            return this;
-        }
-
-
-        /**
-         * 是否主要地址
-         * <p> 示例值：
-         *
-         * @param isMain
-         * @return
-         */
-        public Builder isMain(Boolean isMain) {
-            this.isMain = isMain;
-            return this;
-        }
-
-
-        /**
-         * 是否公开地址
-         * <p> 示例值：
-         *
-         * @param isPublic
-         * @return
-         */
-        public Builder isPublic(Boolean isPublic) {
-            this.isPublic = isPublic;
-            return this;
-        }
-
-
-        /**
-         * 外部ID
-         * <p> 示例值：custom_id
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        public UpdateAddress build() {
-            return new UpdateAddress(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

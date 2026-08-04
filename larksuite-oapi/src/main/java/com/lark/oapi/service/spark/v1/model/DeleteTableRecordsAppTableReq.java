@@ -13,171 +13,184 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.spark.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.spark.v1.enums.*;
 
 public class DeleteTableRecordsAppTableReq {
+  /**
+   * 筛选条件，遵循 PostgREST 语法，详情可查看
+   * https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering;此处用法和查询数据记录一致
+   *
+   * <p>示例值：age=gt.10
+   */
+  @Query
+  @SerializedName("filter")
+  private String filter;
+
+  /**
+   * 访问的 database 环境，默认为 online（线上环境）
+   *
+   * <p>示例值：`online`、`dev`
+   */
+  @Query
+  @SerializedName("env")
+  private String env;
+
+  public String getFilter() {
+    return this.filter;
+  }
+
+  public void setFilter(String filter) {
+    this.filter = filter;
+  }
+
+  public String getEnv() {
+    return this.env;
+  }
+
+  public void setEnv(String env) {
+    this.env = env;
+  }
+
+  /**
+   * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为
+   * app_id
+   *
+   * <p>示例值：app_4jcn5n11bpf5v
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+   *
+   * <p>示例值：student_table
+   */
+  @Path
+  @SerializedName("table_name")
+  private String tableName;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getTableName() {
+    return this.tableName;
+  }
+
+  public void setTableName(String tableName) {
+    this.tableName = tableName;
+  }
+
+  // builder 开始
+  public DeleteTableRecordsAppTableReq() {}
+
+  public DeleteTableRecordsAppTableReq(Builder builder) {
     /**
-     * 筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering;此处用法和查询数据记录一致
-     * <p> 示例值：age=gt.10
+     * 筛选条件，遵循 PostgREST 语法，详情可查看
+     * https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering;此处用法和查询数据记录一致
+     *
+     * <p>示例值：age=gt.10
      */
-    @Query
-    @SerializedName("filter")
-    private String filter;
+    this.filter = builder.filter;
     /**
      * 访问的 database 环境，默认为 online（线上环境）
-     * <p> 示例值：online
+     *
+     * <p>示例值：`online`、`dev`
      */
-    @Query
-    @SerializedName("env")
-    private String env;
+    this.env = builder.env;
     /**
-     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-     * <p> 示例值：app_4jcn5n11bpf5v
+     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v
+     * 即为 app_id
+     *
+     * <p>示例值：app_4jcn5n11bpf5v
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
     /**
-     * 数据表表名
-     * <p> 示例值：table_name_1
+     * 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+     *
+     * <p>示例值：student_table
      */
-    @Path
-    @SerializedName("table_name")
-    private String tableName;
+    this.tableName = builder.tableName;
+  }
 
-    // builder 开始
-    public DeleteTableRecordsAppTableReq() {
+  public static class Builder {
+    private String filter; // 筛选条件，遵循 PostgREST 语法，详情可查看
+    // https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering;此处用法和查询数据记录一致
+    private String env; // 访问的 database 环境，默认为 online（线上环境）
+
+    /**
+     * 筛选条件，遵循 PostgREST 语法，详情可查看
+     * https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering;此处用法和查询数据记录一致
+     *
+     * <p>示例值：age=gt.10
+     *
+     * @param filter
+     * @return
+     */
+    public Builder filter(String filter) {
+      this.filter = filter;
+      return this;
     }
 
-    public DeleteTableRecordsAppTableReq(Builder builder) {
-        /**
-         * 筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering;此处用法和查询数据记录一致
-         * <p> 示例值：age=gt.10
-         */
-        this.filter = builder.filter;
-        /**
-         * 访问的 database 环境，默认为 online（线上环境）
-         * <p> 示例值：online
-         */
-        this.env = builder.env;
-        /**
-         * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-         * <p> 示例值：app_4jcn5n11bpf5v
-         */
-        this.appId = builder.appId;
-        /**
-         * 数据表表名
-         * <p> 示例值：table_name_1
-         */
-        this.tableName = builder.tableName;
+    /**
+     * 访问的 database 环境，默认为 online（线上环境）
+     *
+     * <p>示例值：`online`、`dev`
+     *
+     * @param env
+     * @return
+     */
+    public Builder env(String env) {
+      this.env = env;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String
+        appId; // 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的
+    // app_4jcn5n11bpf5v 即为 app_id
+    private String tableName; // 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+
+    /**
+     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v
+     * 即为 app_id
+     *
+     * <p>示例值：app_4jcn5n11bpf5v
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public String getFilter() {
-        return this.filter;
+    /**
+     * 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+     *
+     * <p>示例值：student_table
+     *
+     * @param tableName
+     * @return
+     */
+    public Builder tableName(String tableName) {
+      this.tableName = tableName;
+      return this;
     }
 
-    public void setFilter(String filter) {
-        this.filter = filter;
+    public DeleteTableRecordsAppTableReq build() {
+      return new DeleteTableRecordsAppTableReq(this);
     }
+  }
 
-    public String getEnv() {
-        return this.env;
-    }
-
-    public void setEnv(String env) {
-        this.env = env;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getTableName() {
-        return this.tableName;
-    }
-
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
-    }
-
-    public static class Builder {
-        private String filter; // 筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering;此处用法和查询数据记录一致
-        private String env; // 访问的 database 环境，默认为 online（线上环境）
-        private String appId; // 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-        private String tableName; // 数据表表名
-
-        /**
-         * 筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering;此处用法和查询数据记录一致
-         * <p> 示例值：age=gt.10
-         *
-         * @param filter
-         * @return
-         */
-        public Builder filter(String filter) {
-            this.filter = filter;
-            return this;
-        }
-
-        /**
-         * 访问的 database 环境，默认为 online（线上环境）
-         * <p> 示例值：online
-         *
-         * @param env
-         * @return
-         */
-        public Builder env(String env) {
-            this.env = env;
-            return this;
-        }
-
-        /**
-         * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-         * <p> 示例值：app_4jcn5n11bpf5v
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 数据表表名
-         * <p> 示例值：table_name_1
-         *
-         * @param tableName
-         * @return
-         */
-        public Builder tableName(String tableName) {
-            this.tableName = tableName;
-            return this;
-        }
-
-
-        public DeleteTableRecordsAppTableReq build() {
-            return new DeleteTableRecordsAppTableReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

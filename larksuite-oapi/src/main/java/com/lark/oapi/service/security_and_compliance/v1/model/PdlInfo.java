@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PdlInfo {
+  /**
+   * 人员的id
+   *
+   * <p>示例值：ou_c99c5f35d542efc7ee492afe11af19ef
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * PDL时间轴数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("infos")
+  private Pdl[] infos;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Pdl[] getInfos() {
+    return this.infos;
+  }
+
+  public void setInfos(Pdl[] infos) {
+    this.infos = infos;
+  }
+
+  // builder 开始
+  public PdlInfo() {}
+
+  public PdlInfo(Builder builder) {
     /**
      * 人员的id
-     * <p> 示例值：ou_c99c5f35d542efc7ee492afe11af19ef
+     *
+     * <p>示例值：ou_c99c5f35d542efc7ee492afe11af19ef
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * PDL时间轴数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("infos")
+    this.infos = builder.infos;
+  }
+
+  public static class Builder {
+    /**
+     * 人员的id
+     *
+     * <p>示例值：ou_c99c5f35d542efc7ee492afe11af19ef
+     */
+    private String id;
+
+    /**
+     * PDL时间轴数据
+     *
+     * <p>示例值：
+     */
     private Pdl[] infos;
 
-    // builder 开始
-    public PdlInfo() {
+    /**
+     * 人员的id
+     *
+     * <p>示例值：ou_c99c5f35d542efc7ee492afe11af19ef
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public PdlInfo(Builder builder) {
-        /**
-         * 人员的id
-         * <p> 示例值：ou_c99c5f35d542efc7ee492afe11af19ef
-         */
-        this.id = builder.id;
-        /**
-         * PDL时间轴数据
-         * <p> 示例值：
-         */
-        this.infos = builder.infos;
+    /**
+     * PDL时间轴数据
+     *
+     * <p>示例值：
+     *
+     * @param infos
+     * @return
+     */
+    public Builder infos(Pdl[] infos) {
+      this.infos = infos;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PdlInfo build() {
+      return new PdlInfo(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Pdl[] getInfos() {
-        return this.infos;
-    }
-
-    public void setInfos(Pdl[] infos) {
-        this.infos = infos;
-    }
-
-    public static class Builder {
-        /**
-         * 人员的id
-         * <p> 示例值：ou_c99c5f35d542efc7ee492afe11af19ef
-         */
-        private String id;
-        /**
-         * PDL时间轴数据
-         * <p> 示例值：
-         */
-        private Pdl[] infos;
-
-        /**
-         * 人员的id
-         * <p> 示例值：ou_c99c5f35d542efc7ee492afe11af19ef
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * PDL时间轴数据
-         * <p> 示例值：
-         *
-         * @param infos
-         * @return
-         */
-        public Builder infos(Pdl[] infos) {
-            this.infos = infos;
-            return this;
-        }
-
-
-        public PdlInfo build() {
-            return new PdlInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

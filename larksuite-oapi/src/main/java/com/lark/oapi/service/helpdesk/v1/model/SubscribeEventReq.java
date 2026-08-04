@@ -13,65 +13,52 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 
 public class SubscribeEventReq {
-    @Body
+  @Body private SubscribeEventReqBody body;
+
+  public SubscribeEventReqBody getSubscribeEventReqBody() {
+    return this.body;
+  }
+
+  public void setSubscribeEventReqBody(SubscribeEventReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public SubscribeEventReq() {}
+
+  public SubscribeEventReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private SubscribeEventReqBody body;
 
-    // builder 开始
-    public SubscribeEventReq() {
-    }
-
-    public SubscribeEventReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public SubscribeEventReqBody getSubscribeEventReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setSubscribeEventReqBody(SubscribeEventReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder subscribeEventReqBody(SubscribeEventReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private SubscribeEventReqBody body;
-
-        public SubscribeEventReqBody getSubscribeEventReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder subscribeEventReqBody(SubscribeEventReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public SubscribeEventReq build() {
-            return new SubscribeEventReq(this);
-        }
+    public SubscribeEventReq build() {
+      return new SubscribeEventReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

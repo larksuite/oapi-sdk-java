@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetChatModerationRespBody {
-    /**
-     * 群发言模式（all_members/only_owner/moderator_list，其中 moderator_list 表示部分用户可发言的模式）
-     * <p> 示例值：moderator_list
-     */
-    @SerializedName("moderation_setting")
-    private String moderationSetting;
-    /**
-     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-     * <p> 示例值：0
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否还有更多项
-     * <p> 示例值：false
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 可发言用户列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private ListModerator[] items;
+  /**
+   * 群发言模式，可能值有：;;- all_members：所有群成员可发言;- only_owner：仅群主或管理员可发言;- moderator_list：指定群成员可发言
+   *
+   * <p>示例值：moderator_list
+   */
+  @SerializedName("moderation_setting")
+  private String moderationSetting;
 
-    public String getModerationSetting() {
-        return this.moderationSetting;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setModerationSetting(String moderationSetting) {
-        this.moderationSetting = moderationSetting;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 可发言用户列表，当群发言模式为 `moderator_list` 时，该参数有返回值。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private ListModerator[] items;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public String getModerationSetting() {
+    return this.moderationSetting;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setModerationSetting(String moderationSetting) {
+    this.moderationSetting = moderationSetting;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public ListModerator[] getItems() {
-        return this.items;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public void setItems(ListModerator[] items) {
-        this.items = items;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public ListModerator[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(ListModerator[] items) {
+    this.items = items;
+  }
 }

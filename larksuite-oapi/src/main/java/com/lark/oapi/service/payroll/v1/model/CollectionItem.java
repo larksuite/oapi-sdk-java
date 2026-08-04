@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollectionItem {
+  /**
+   * 填报模板ID
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("template_id")
+  private String templateId;
+
+  /**
+   * 填报模板版本ID
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("template_version_id")
+  private String templateVersionId;
+
+  /**
+   * 填报项ID
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("item_id")
+  private String itemId;
+
+  /**
+   * 算薪周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("item_name")
+  private I18n itemName;
+
+  /**
+   * 填报项类型，1-文本，2-金额，3-数值，4-百分比，5-日期，6-日期范围
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("field_type")
+  private Integer fieldType;
+
+  /**
+   * 小数位数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("decimal_places")
+  private Integer decimalPlaces;
+
+  /**
+   * 计算方式，1-加和，2-最新值
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("calc_method")
+  private Integer calcMethod;
+
+  /**
+   * 是否预置填报项
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("preset")
+  private Boolean preset;
+
+  /**
+   * 是否必填
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_required")
+  private Boolean isRequired;
+
+  public String getTemplateId() {
+    return this.templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
+  public String getTemplateVersionId() {
+    return this.templateVersionId;
+  }
+
+  public void setTemplateVersionId(String templateVersionId) {
+    this.templateVersionId = templateVersionId;
+  }
+
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  public void setItemId(String itemId) {
+    this.itemId = itemId;
+  }
+
+  public I18n getItemName() {
+    return this.itemName;
+  }
+
+  public void setItemName(I18n itemName) {
+    this.itemName = itemName;
+  }
+
+  public Integer getFieldType() {
+    return this.fieldType;
+  }
+
+  public void setFieldType(Integer fieldType) {
+    this.fieldType = fieldType;
+  }
+
+  public Integer getDecimalPlaces() {
+    return this.decimalPlaces;
+  }
+
+  public void setDecimalPlaces(Integer decimalPlaces) {
+    this.decimalPlaces = decimalPlaces;
+  }
+
+  public Integer getCalcMethod() {
+    return this.calcMethod;
+  }
+
+  public void setCalcMethod(Integer calcMethod) {
+    this.calcMethod = calcMethod;
+  }
+
+  public Boolean getPreset() {
+    return this.preset;
+  }
+
+  public void setPreset(Boolean preset) {
+    this.preset = preset;
+  }
+
+  public Boolean getIsRequired() {
+    return this.isRequired;
+  }
+
+  public void setIsRequired(Boolean isRequired) {
+    this.isRequired = isRequired;
+  }
+
+  // builder 开始
+  public CollectionItem() {}
+
+  public CollectionItem(Builder builder) {
     /**
      * 填报模板ID
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("template_id")
-    private String templateId;
+    this.templateId = builder.templateId;
     /**
      * 填报模板版本ID
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("template_version_id")
-    private String templateVersionId;
+    this.templateVersionId = builder.templateVersionId;
     /**
      * 填报项ID
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("item_id")
-    private String itemId;
+    this.itemId = builder.itemId;
     /**
-     * 填报项名称
-     * <p> 示例值：
+     * 算薪周期名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("item_name")
-    private I18n itemName;
+    this.itemName = builder.itemName;
     /**
      * 填报项类型，1-文本，2-金额，3-数值，4-百分比，5-日期，6-日期范围
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("field_type")
-    private Integer fieldType;
+    this.fieldType = builder.fieldType;
     /**
      * 小数位数
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("decimal_places")
-    private Integer decimalPlaces;
+    this.decimalPlaces = builder.decimalPlaces;
     /**
      * 计算方式，1-加和，2-最新值
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("calc_method")
-    private Integer calcMethod;
+    this.calcMethod = builder.calcMethod;
     /**
      * 是否预置填报项
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("preset")
-    private Boolean preset;
+    this.preset = builder.preset;
     /**
      * 是否必填
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_required")
+    this.isRequired = builder.isRequired;
+  }
+
+  public static class Builder {
+    /**
+     * 填报模板ID
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String templateId;
+
+    /**
+     * 填报模板版本ID
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String templateVersionId;
+
+    /**
+     * 填报项ID
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String itemId;
+
+    /**
+     * 算薪周期名称
+     *
+     * <p>示例值：
+     */
+    private I18n itemName;
+
+    /**
+     * 填报项类型，1-文本，2-金额，3-数值，4-百分比，5-日期，6-日期范围
+     *
+     * <p>示例值：1
+     */
+    private Integer fieldType;
+
+    /**
+     * 小数位数
+     *
+     * <p>示例值：1
+     */
+    private Integer decimalPlaces;
+
+    /**
+     * 计算方式，1-加和，2-最新值
+     *
+     * <p>示例值：1
+     */
+    private Integer calcMethod;
+
+    /**
+     * 是否预置填报项
+     *
+     * <p>示例值：true
+     */
+    private Boolean preset;
+
+    /**
+     * 是否必填
+     *
+     * <p>示例值：true
+     */
     private Boolean isRequired;
 
-    // builder 开始
-    public CollectionItem() {
+    /**
+     * 填报模板ID
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param templateId
+     * @return
+     */
+    public Builder templateId(String templateId) {
+      this.templateId = templateId;
+      return this;
     }
 
-    public CollectionItem(Builder builder) {
-        /**
-         * 填报模板ID
-         * <p> 示例值：7202076988667019308
-         */
-        this.templateId = builder.templateId;
-        /**
-         * 填报模板版本ID
-         * <p> 示例值：7202076988667019308
-         */
-        this.templateVersionId = builder.templateVersionId;
-        /**
-         * 填报项ID
-         * <p> 示例值：7202076988667019308
-         */
-        this.itemId = builder.itemId;
-        /**
-         * 填报项名称
-         * <p> 示例值：
-         */
-        this.itemName = builder.itemName;
-        /**
-         * 填报项类型，1-文本，2-金额，3-数值，4-百分比，5-日期，6-日期范围
-         * <p> 示例值：1
-         */
-        this.fieldType = builder.fieldType;
-        /**
-         * 小数位数
-         * <p> 示例值：1
-         */
-        this.decimalPlaces = builder.decimalPlaces;
-        /**
-         * 计算方式，1-加和，2-最新值
-         * <p> 示例值：1
-         */
-        this.calcMethod = builder.calcMethod;
-        /**
-         * 是否预置填报项
-         * <p> 示例值：true
-         */
-        this.preset = builder.preset;
-        /**
-         * 是否必填
-         * <p> 示例值：true
-         */
-        this.isRequired = builder.isRequired;
+    /**
+     * 填报模板版本ID
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param templateVersionId
+     * @return
+     */
+    public Builder templateVersionId(String templateVersionId) {
+      this.templateVersionId = templateVersionId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 填报项ID
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param itemId
+     * @return
+     */
+    public Builder itemId(String itemId) {
+      this.itemId = itemId;
+      return this;
     }
 
-    public String getTemplateId() {
-        return this.templateId;
+    /**
+     * 算薪周期名称
+     *
+     * <p>示例值：
+     *
+     * @param itemName
+     * @return
+     */
+    public Builder itemName(I18n itemName) {
+      this.itemName = itemName;
+      return this;
     }
 
-    public void setTemplateId(String templateId) {
-        this.templateId = templateId;
+    /**
+     * 填报项类型，1-文本，2-金额，3-数值，4-百分比，5-日期，6-日期范围
+     *
+     * <p>示例值：1
+     *
+     * @param fieldType
+     * @return
+     */
+    public Builder fieldType(Integer fieldType) {
+      this.fieldType = fieldType;
+      return this;
     }
 
-    public String getTemplateVersionId() {
-        return this.templateVersionId;
+    /**
+     * 小数位数
+     *
+     * <p>示例值：1
+     *
+     * @param decimalPlaces
+     * @return
+     */
+    public Builder decimalPlaces(Integer decimalPlaces) {
+      this.decimalPlaces = decimalPlaces;
+      return this;
     }
 
-    public void setTemplateVersionId(String templateVersionId) {
-        this.templateVersionId = templateVersionId;
+    /**
+     * 计算方式，1-加和，2-最新值
+     *
+     * <p>示例值：1
+     *
+     * @param calcMethod
+     * @return
+     */
+    public Builder calcMethod(Integer calcMethod) {
+      this.calcMethod = calcMethod;
+      return this;
     }
 
-    public String getItemId() {
-        return this.itemId;
+    /**
+     * 是否预置填报项
+     *
+     * <p>示例值：true
+     *
+     * @param preset
+     * @return
+     */
+    public Builder preset(Boolean preset) {
+      this.preset = preset;
+      return this;
     }
 
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
+    /**
+     * 是否必填
+     *
+     * <p>示例值：true
+     *
+     * @param isRequired
+     * @return
+     */
+    public Builder isRequired(Boolean isRequired) {
+      this.isRequired = isRequired;
+      return this;
     }
 
-    public I18n getItemName() {
-        return this.itemName;
+    public CollectionItem build() {
+      return new CollectionItem(this);
     }
+  }
 
-    public void setItemName(I18n itemName) {
-        this.itemName = itemName;
-    }
-
-    public Integer getFieldType() {
-        return this.fieldType;
-    }
-
-    public void setFieldType(Integer fieldType) {
-        this.fieldType = fieldType;
-    }
-
-    public Integer getDecimalPlaces() {
-        return this.decimalPlaces;
-    }
-
-    public void setDecimalPlaces(Integer decimalPlaces) {
-        this.decimalPlaces = decimalPlaces;
-    }
-
-    public Integer getCalcMethod() {
-        return this.calcMethod;
-    }
-
-    public void setCalcMethod(Integer calcMethod) {
-        this.calcMethod = calcMethod;
-    }
-
-    public Boolean getPreset() {
-        return this.preset;
-    }
-
-    public void setPreset(Boolean preset) {
-        this.preset = preset;
-    }
-
-    public Boolean getIsRequired() {
-        return this.isRequired;
-    }
-
-    public void setIsRequired(Boolean isRequired) {
-        this.isRequired = isRequired;
-    }
-
-    public static class Builder {
-        /**
-         * 填报模板ID
-         * <p> 示例值：7202076988667019308
-         */
-        private String templateId;
-        /**
-         * 填报模板版本ID
-         * <p> 示例值：7202076988667019308
-         */
-        private String templateVersionId;
-        /**
-         * 填报项ID
-         * <p> 示例值：7202076988667019308
-         */
-        private String itemId;
-        /**
-         * 填报项名称
-         * <p> 示例值：
-         */
-        private I18n itemName;
-        /**
-         * 填报项类型，1-文本，2-金额，3-数值，4-百分比，5-日期，6-日期范围
-         * <p> 示例值：1
-         */
-        private Integer fieldType;
-        /**
-         * 小数位数
-         * <p> 示例值：1
-         */
-        private Integer decimalPlaces;
-        /**
-         * 计算方式，1-加和，2-最新值
-         * <p> 示例值：1
-         */
-        private Integer calcMethod;
-        /**
-         * 是否预置填报项
-         * <p> 示例值：true
-         */
-        private Boolean preset;
-        /**
-         * 是否必填
-         * <p> 示例值：true
-         */
-        private Boolean isRequired;
-
-        /**
-         * 填报模板ID
-         * <p> 示例值：7202076988667019308
-         *
-         * @param templateId
-         * @return
-         */
-        public Builder templateId(String templateId) {
-            this.templateId = templateId;
-            return this;
-        }
-
-
-        /**
-         * 填报模板版本ID
-         * <p> 示例值：7202076988667019308
-         *
-         * @param templateVersionId
-         * @return
-         */
-        public Builder templateVersionId(String templateVersionId) {
-            this.templateVersionId = templateVersionId;
-            return this;
-        }
-
-
-        /**
-         * 填报项ID
-         * <p> 示例值：7202076988667019308
-         *
-         * @param itemId
-         * @return
-         */
-        public Builder itemId(String itemId) {
-            this.itemId = itemId;
-            return this;
-        }
-
-
-        /**
-         * 填报项名称
-         * <p> 示例值：
-         *
-         * @param itemName
-         * @return
-         */
-        public Builder itemName(I18n itemName) {
-            this.itemName = itemName;
-            return this;
-        }
-
-
-        /**
-         * 填报项类型，1-文本，2-金额，3-数值，4-百分比，5-日期，6-日期范围
-         * <p> 示例值：1
-         *
-         * @param fieldType
-         * @return
-         */
-        public Builder fieldType(Integer fieldType) {
-            this.fieldType = fieldType;
-            return this;
-        }
-
-
-        /**
-         * 小数位数
-         * <p> 示例值：1
-         *
-         * @param decimalPlaces
-         * @return
-         */
-        public Builder decimalPlaces(Integer decimalPlaces) {
-            this.decimalPlaces = decimalPlaces;
-            return this;
-        }
-
-
-        /**
-         * 计算方式，1-加和，2-最新值
-         * <p> 示例值：1
-         *
-         * @param calcMethod
-         * @return
-         */
-        public Builder calcMethod(Integer calcMethod) {
-            this.calcMethod = calcMethod;
-            return this;
-        }
-
-
-        /**
-         * 是否预置填报项
-         * <p> 示例值：true
-         *
-         * @param preset
-         * @return
-         */
-        public Builder preset(Boolean preset) {
-            this.preset = preset;
-            return this;
-        }
-
-
-        /**
-         * 是否必填
-         * <p> 示例值：true
-         *
-         * @param isRequired
-         * @return
-         */
-        public Builder isRequired(Boolean isRequired) {
-            this.isRequired = isRequired;
-            return this;
-        }
-
-
-        public CollectionItem build() {
-            return new CollectionItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

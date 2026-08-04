@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollectionActivityDataWithDetails {
+  /**
+   * 活动id（对于往期填报/往期更正，指的是被更正的那条填报活动明细对应的活动id，即原始的那个活动id）
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("activity_id")
+  private String activityId;
+
+  /**
+   * 填报活动关联的填报模板id
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("template_id")
+  private String templateId;
+
+  /**
+   * 填报活动关联的填报模板版本id
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("template_version_id")
+  private String templateVersionId;
+
+  /**
+   * 计薪期间（对于往期填报/往期更正，指的是被更正的那条填报活动明细对应的计薪期间，即原始的那个活动的计薪期间）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("calendar_period")
+  private CalendarPeriod calendarPeriod;
+
+  /**
+   * 生效日期，对应计薪期间的结束日期（取CalendarPeriod的结束日期。对于往期更正/往期补填场景，取目标（原始）period的结束日期。是一个date字段，YYYY-MM-DD）
+   *
+   * <p>示例值：2022-01-01
+   */
+  @SerializedName("calendar_effective_date")
+  private String calendarEffectiveDate;
+
+  /**
+   * 国家/地区多值列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("country_regions")
+  private CountryRegion[] countryRegions;
+
+  /**
+   * 员工的填报活动明细数据列表，不同活动员工可能会有多条明细数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("collection_employee_datas")
+  private CollectionEmployeeData[] collectionEmployeeDatas;
+
+  /**
+   * 填报活动审批通过时间，毫秒时间戳
+   *
+   * <p>示例值：1723797063000
+   */
+  @SerializedName("activity_approval_pass_time")
+  private String activityApprovalPassTime;
+
+  public String getActivityId() {
+    return this.activityId;
+  }
+
+  public void setActivityId(String activityId) {
+    this.activityId = activityId;
+  }
+
+  public String getTemplateId() {
+    return this.templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
+  public String getTemplateVersionId() {
+    return this.templateVersionId;
+  }
+
+  public void setTemplateVersionId(String templateVersionId) {
+    this.templateVersionId = templateVersionId;
+  }
+
+  public CalendarPeriod getCalendarPeriod() {
+    return this.calendarPeriod;
+  }
+
+  public void setCalendarPeriod(CalendarPeriod calendarPeriod) {
+    this.calendarPeriod = calendarPeriod;
+  }
+
+  public String getCalendarEffectiveDate() {
+    return this.calendarEffectiveDate;
+  }
+
+  public void setCalendarEffectiveDate(String calendarEffectiveDate) {
+    this.calendarEffectiveDate = calendarEffectiveDate;
+  }
+
+  public CountryRegion[] getCountryRegions() {
+    return this.countryRegions;
+  }
+
+  public void setCountryRegions(CountryRegion[] countryRegions) {
+    this.countryRegions = countryRegions;
+  }
+
+  public CollectionEmployeeData[] getCollectionEmployeeDatas() {
+    return this.collectionEmployeeDatas;
+  }
+
+  public void setCollectionEmployeeDatas(CollectionEmployeeData[] collectionEmployeeDatas) {
+    this.collectionEmployeeDatas = collectionEmployeeDatas;
+  }
+
+  public String getActivityApprovalPassTime() {
+    return this.activityApprovalPassTime;
+  }
+
+  public void setActivityApprovalPassTime(String activityApprovalPassTime) {
+    this.activityApprovalPassTime = activityApprovalPassTime;
+  }
+
+  // builder 开始
+  public CollectionActivityDataWithDetails() {}
+
+  public CollectionActivityDataWithDetails(Builder builder) {
     /**
      * 活动id（对于往期填报/往期更正，指的是被更正的那条填报活动明细对应的活动id，即原始的那个活动id）
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("activity_id")
-    private String activityId;
+    this.activityId = builder.activityId;
     /**
      * 填报活动关联的填报模板id
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("template_id")
-    private String templateId;
+    this.templateId = builder.templateId;
     /**
      * 填报活动关联的填报模板版本id
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("template_version_id")
-    private String templateVersionId;
+    this.templateVersionId = builder.templateVersionId;
     /**
      * 计薪期间（对于往期填报/往期更正，指的是被更正的那条填报活动明细对应的计薪期间，即原始的那个活动的计薪期间）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("calendar_period")
-    private CalendarPeriod calendarPeriod;
+    this.calendarPeriod = builder.calendarPeriod;
     /**
      * 生效日期，对应计薪期间的结束日期（取CalendarPeriod的结束日期。对于往期更正/往期补填场景，取目标（原始）period的结束日期。是一个date字段，YYYY-MM-DD）
-     * <p> 示例值：2022-01-01
+     *
+     * <p>示例值：2022-01-01
      */
-    @SerializedName("calendar_effective_date")
-    private String calendarEffectiveDate;
+    this.calendarEffectiveDate = builder.calendarEffectiveDate;
     /**
      * 国家/地区多值列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("country_regions")
-    private CountryRegion[] countryRegions;
+    this.countryRegions = builder.countryRegions;
     /**
      * 员工的填报活动明细数据列表，不同活动员工可能会有多条明细数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("collection_employee_datas")
-    private CollectionEmployeeData[] collectionEmployeeDatas;
+    this.collectionEmployeeDatas = builder.collectionEmployeeDatas;
     /**
      * 填报活动审批通过时间，毫秒时间戳
-     * <p> 示例值：1723797063000
+     *
+     * <p>示例值：1723797063000
      */
-    @SerializedName("activity_approval_pass_time")
+    this.activityApprovalPassTime = builder.activityApprovalPassTime;
+  }
+
+  public static class Builder {
+    /**
+     * 活动id（对于往期填报/往期更正，指的是被更正的那条填报活动明细对应的活动id，即原始的那个活动id）
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String activityId;
+
+    /**
+     * 填报活动关联的填报模板id
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String templateId;
+
+    /**
+     * 填报活动关联的填报模板版本id
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String templateVersionId;
+
+    /**
+     * 计薪期间（对于往期填报/往期更正，指的是被更正的那条填报活动明细对应的计薪期间，即原始的那个活动的计薪期间）
+     *
+     * <p>示例值：
+     */
+    private CalendarPeriod calendarPeriod;
+
+    /**
+     * 生效日期，对应计薪期间的结束日期（取CalendarPeriod的结束日期。对于往期更正/往期补填场景，取目标（原始）period的结束日期。是一个date字段，YYYY-MM-DD）
+     *
+     * <p>示例值：2022-01-01
+     */
+    private String calendarEffectiveDate;
+
+    /**
+     * 国家/地区多值列表
+     *
+     * <p>示例值：
+     */
+    private CountryRegion[] countryRegions;
+
+    /**
+     * 员工的填报活动明细数据列表，不同活动员工可能会有多条明细数据
+     *
+     * <p>示例值：
+     */
+    private CollectionEmployeeData[] collectionEmployeeDatas;
+
+    /**
+     * 填报活动审批通过时间，毫秒时间戳
+     *
+     * <p>示例值：1723797063000
+     */
     private String activityApprovalPassTime;
 
-    // builder 开始
-    public CollectionActivityDataWithDetails() {
+    /**
+     * 活动id（对于往期填报/往期更正，指的是被更正的那条填报活动明细对应的活动id，即原始的那个活动id）
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param activityId
+     * @return
+     */
+    public Builder activityId(String activityId) {
+      this.activityId = activityId;
+      return this;
     }
 
-    public CollectionActivityDataWithDetails(Builder builder) {
-        /**
-         * 活动id（对于往期填报/往期更正，指的是被更正的那条填报活动明细对应的活动id，即原始的那个活动id）
-         * <p> 示例值：7202076988667019308
-         */
-        this.activityId = builder.activityId;
-        /**
-         * 填报活动关联的填报模板id
-         * <p> 示例值：7202076988667019308
-         */
-        this.templateId = builder.templateId;
-        /**
-         * 填报活动关联的填报模板版本id
-         * <p> 示例值：7202076988667019308
-         */
-        this.templateVersionId = builder.templateVersionId;
-        /**
-         * 计薪期间（对于往期填报/往期更正，指的是被更正的那条填报活动明细对应的计薪期间，即原始的那个活动的计薪期间）
-         * <p> 示例值：
-         */
-        this.calendarPeriod = builder.calendarPeriod;
-        /**
-         * 生效日期，对应计薪期间的结束日期（取CalendarPeriod的结束日期。对于往期更正/往期补填场景，取目标（原始）period的结束日期。是一个date字段，YYYY-MM-DD）
-         * <p> 示例值：2022-01-01
-         */
-        this.calendarEffectiveDate = builder.calendarEffectiveDate;
-        /**
-         * 国家/地区多值列表
-         * <p> 示例值：
-         */
-        this.countryRegions = builder.countryRegions;
-        /**
-         * 员工的填报活动明细数据列表，不同活动员工可能会有多条明细数据
-         * <p> 示例值：
-         */
-        this.collectionEmployeeDatas = builder.collectionEmployeeDatas;
-        /**
-         * 填报活动审批通过时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
-        this.activityApprovalPassTime = builder.activityApprovalPassTime;
+    /**
+     * 填报活动关联的填报模板id
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param templateId
+     * @return
+     */
+    public Builder templateId(String templateId) {
+      this.templateId = templateId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 填报活动关联的填报模板版本id
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param templateVersionId
+     * @return
+     */
+    public Builder templateVersionId(String templateVersionId) {
+      this.templateVersionId = templateVersionId;
+      return this;
     }
 
-    public String getActivityId() {
-        return this.activityId;
+    /**
+     * 计薪期间（对于往期填报/往期更正，指的是被更正的那条填报活动明细对应的计薪期间，即原始的那个活动的计薪期间）
+     *
+     * <p>示例值：
+     *
+     * @param calendarPeriod
+     * @return
+     */
+    public Builder calendarPeriod(CalendarPeriod calendarPeriod) {
+      this.calendarPeriod = calendarPeriod;
+      return this;
     }
 
-    public void setActivityId(String activityId) {
-        this.activityId = activityId;
+    /**
+     * 生效日期，对应计薪期间的结束日期（取CalendarPeriod的结束日期。对于往期更正/往期补填场景，取目标（原始）period的结束日期。是一个date字段，YYYY-MM-DD）
+     *
+     * <p>示例值：2022-01-01
+     *
+     * @param calendarEffectiveDate
+     * @return
+     */
+    public Builder calendarEffectiveDate(String calendarEffectiveDate) {
+      this.calendarEffectiveDate = calendarEffectiveDate;
+      return this;
     }
 
-    public String getTemplateId() {
-        return this.templateId;
+    /**
+     * 国家/地区多值列表
+     *
+     * <p>示例值：
+     *
+     * @param countryRegions
+     * @return
+     */
+    public Builder countryRegions(CountryRegion[] countryRegions) {
+      this.countryRegions = countryRegions;
+      return this;
     }
 
-    public void setTemplateId(String templateId) {
-        this.templateId = templateId;
+    /**
+     * 员工的填报活动明细数据列表，不同活动员工可能会有多条明细数据
+     *
+     * <p>示例值：
+     *
+     * @param collectionEmployeeDatas
+     * @return
+     */
+    public Builder collectionEmployeeDatas(CollectionEmployeeData[] collectionEmployeeDatas) {
+      this.collectionEmployeeDatas = collectionEmployeeDatas;
+      return this;
     }
 
-    public String getTemplateVersionId() {
-        return this.templateVersionId;
+    /**
+     * 填报活动审批通过时间，毫秒时间戳
+     *
+     * <p>示例值：1723797063000
+     *
+     * @param activityApprovalPassTime
+     * @return
+     */
+    public Builder activityApprovalPassTime(String activityApprovalPassTime) {
+      this.activityApprovalPassTime = activityApprovalPassTime;
+      return this;
     }
 
-    public void setTemplateVersionId(String templateVersionId) {
-        this.templateVersionId = templateVersionId;
+    public CollectionActivityDataWithDetails build() {
+      return new CollectionActivityDataWithDetails(this);
     }
+  }
 
-    public CalendarPeriod getCalendarPeriod() {
-        return this.calendarPeriod;
-    }
-
-    public void setCalendarPeriod(CalendarPeriod calendarPeriod) {
-        this.calendarPeriod = calendarPeriod;
-    }
-
-    public String getCalendarEffectiveDate() {
-        return this.calendarEffectiveDate;
-    }
-
-    public void setCalendarEffectiveDate(String calendarEffectiveDate) {
-        this.calendarEffectiveDate = calendarEffectiveDate;
-    }
-
-    public CountryRegion[] getCountryRegions() {
-        return this.countryRegions;
-    }
-
-    public void setCountryRegions(CountryRegion[] countryRegions) {
-        this.countryRegions = countryRegions;
-    }
-
-    public CollectionEmployeeData[] getCollectionEmployeeDatas() {
-        return this.collectionEmployeeDatas;
-    }
-
-    public void setCollectionEmployeeDatas(CollectionEmployeeData[] collectionEmployeeDatas) {
-        this.collectionEmployeeDatas = collectionEmployeeDatas;
-    }
-
-    public String getActivityApprovalPassTime() {
-        return this.activityApprovalPassTime;
-    }
-
-    public void setActivityApprovalPassTime(String activityApprovalPassTime) {
-        this.activityApprovalPassTime = activityApprovalPassTime;
-    }
-
-    public static class Builder {
-        /**
-         * 活动id（对于往期填报/往期更正，指的是被更正的那条填报活动明细对应的活动id，即原始的那个活动id）
-         * <p> 示例值：7202076988667019308
-         */
-        private String activityId;
-        /**
-         * 填报活动关联的填报模板id
-         * <p> 示例值：7202076988667019308
-         */
-        private String templateId;
-        /**
-         * 填报活动关联的填报模板版本id
-         * <p> 示例值：7202076988667019308
-         */
-        private String templateVersionId;
-        /**
-         * 计薪期间（对于往期填报/往期更正，指的是被更正的那条填报活动明细对应的计薪期间，即原始的那个活动的计薪期间）
-         * <p> 示例值：
-         */
-        private CalendarPeriod calendarPeriod;
-        /**
-         * 生效日期，对应计薪期间的结束日期（取CalendarPeriod的结束日期。对于往期更正/往期补填场景，取目标（原始）period的结束日期。是一个date字段，YYYY-MM-DD）
-         * <p> 示例值：2022-01-01
-         */
-        private String calendarEffectiveDate;
-        /**
-         * 国家/地区多值列表
-         * <p> 示例值：
-         */
-        private CountryRegion[] countryRegions;
-        /**
-         * 员工的填报活动明细数据列表，不同活动员工可能会有多条明细数据
-         * <p> 示例值：
-         */
-        private CollectionEmployeeData[] collectionEmployeeDatas;
-        /**
-         * 填报活动审批通过时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         */
-        private String activityApprovalPassTime;
-
-        /**
-         * 活动id（对于往期填报/往期更正，指的是被更正的那条填报活动明细对应的活动id，即原始的那个活动id）
-         * <p> 示例值：7202076988667019308
-         *
-         * @param activityId
-         * @return
-         */
-        public Builder activityId(String activityId) {
-            this.activityId = activityId;
-            return this;
-        }
-
-
-        /**
-         * 填报活动关联的填报模板id
-         * <p> 示例值：7202076988667019308
-         *
-         * @param templateId
-         * @return
-         */
-        public Builder templateId(String templateId) {
-            this.templateId = templateId;
-            return this;
-        }
-
-
-        /**
-         * 填报活动关联的填报模板版本id
-         * <p> 示例值：7202076988667019308
-         *
-         * @param templateVersionId
-         * @return
-         */
-        public Builder templateVersionId(String templateVersionId) {
-            this.templateVersionId = templateVersionId;
-            return this;
-        }
-
-
-        /**
-         * 计薪期间（对于往期填报/往期更正，指的是被更正的那条填报活动明细对应的计薪期间，即原始的那个活动的计薪期间）
-         * <p> 示例值：
-         *
-         * @param calendarPeriod
-         * @return
-         */
-        public Builder calendarPeriod(CalendarPeriod calendarPeriod) {
-            this.calendarPeriod = calendarPeriod;
-            return this;
-        }
-
-
-        /**
-         * 生效日期，对应计薪期间的结束日期（取CalendarPeriod的结束日期。对于往期更正/往期补填场景，取目标（原始）period的结束日期。是一个date字段，YYYY-MM-DD）
-         * <p> 示例值：2022-01-01
-         *
-         * @param calendarEffectiveDate
-         * @return
-         */
-        public Builder calendarEffectiveDate(String calendarEffectiveDate) {
-            this.calendarEffectiveDate = calendarEffectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 国家/地区多值列表
-         * <p> 示例值：
-         *
-         * @param countryRegions
-         * @return
-         */
-        public Builder countryRegions(CountryRegion[] countryRegions) {
-            this.countryRegions = countryRegions;
-            return this;
-        }
-
-
-        /**
-         * 员工的填报活动明细数据列表，不同活动员工可能会有多条明细数据
-         * <p> 示例值：
-         *
-         * @param collectionEmployeeDatas
-         * @return
-         */
-        public Builder collectionEmployeeDatas(CollectionEmployeeData[] collectionEmployeeDatas) {
-            this.collectionEmployeeDatas = collectionEmployeeDatas;
-            return this;
-        }
-
-
-        /**
-         * 填报活动审批通过时间，毫秒时间戳
-         * <p> 示例值：1723797063000
-         *
-         * @param activityApprovalPassTime
-         * @return
-         */
-        public Builder activityApprovalPassTime(String activityApprovalPassTime) {
-            this.activityApprovalPassTime = activityApprovalPassTime;
-            return this;
-        }
-
-
-        public CollectionActivityDataWithDetails build() {
-            return new CollectionActivityDataWithDetails(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

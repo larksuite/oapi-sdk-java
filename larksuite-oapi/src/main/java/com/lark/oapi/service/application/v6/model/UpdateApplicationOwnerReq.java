@@ -13,142 +13,152 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.application.v6.enums.*;
 
 public class UpdateApplicationOwnerReq {
+  /**
+   * 用户ID类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 应用 ID，获取方式参见
+   * [app_id](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology#b047be0c)。
+   *
+   * <p>示例值：cli_***
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  @Body private UpdateApplicationOwnerReqBody body;
+
+  public UpdateApplicationOwnerReqBody getUpdateApplicationOwnerReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateApplicationOwnerReqBody(UpdateApplicationOwnerReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateApplicationOwnerReq() {}
+
+  public UpdateApplicationOwnerReq(Builder builder) {
     /**
      * 用户ID类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 应用ID
-     * <p> 示例值：cli_a306c5476fb8d00c
+     * 应用 ID，获取方式参见
+     * [app_id](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology#b047be0c)。
+     *
+     * <p>示例值：cli_***
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-    @Body
+    this.appId = builder.appId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 用户ID类型
+
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.application.v6.enums.UpdateApplicationOwnerUpdateApplicationOwnerUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.application.v6.enums
+                .UpdateApplicationOwnerUpdateApplicationOwnerUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    private String appId; // 应用 ID，获取方式参见
+
+    // [app_id](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology#b047be0c)。
+
+    /**
+     * 应用 ID，获取方式参见
+     * [app_id](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/terminology#b047be0c)。
+     *
+     * <p>示例值：cli_***
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
+    }
+
     private UpdateApplicationOwnerReqBody body;
 
-    // builder 开始
-    public UpdateApplicationOwnerReq() {
-    }
-
-    public UpdateApplicationOwnerReq(Builder builder) {
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 应用ID
-         * <p> 示例值：cli_a306c5476fb8d00c
-         */
-        this.appId = builder.appId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
     public UpdateApplicationOwnerReqBody getUpdateApplicationOwnerReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateApplicationOwnerReqBody(UpdateApplicationOwnerReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateApplicationOwnerReqBody(UpdateApplicationOwnerReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 用户ID类型
-        private String appId; // 应用ID
-        private UpdateApplicationOwnerReqBody body;
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.application.v6.enums.UpdateApplicationOwnerUpdateApplicationOwnerUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.application.v6.enums.UpdateApplicationOwnerUpdateApplicationOwnerUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 应用ID
-         * <p> 示例值：cli_a306c5476fb8d00c
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-        public UpdateApplicationOwnerReqBody getUpdateApplicationOwnerReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateApplicationOwnerReqBody(UpdateApplicationOwnerReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateApplicationOwnerReq build() {
-            return new UpdateApplicationOwnerReq(this);
-        }
+    public UpdateApplicationOwnerReq build() {
+      return new UpdateApplicationOwnerReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

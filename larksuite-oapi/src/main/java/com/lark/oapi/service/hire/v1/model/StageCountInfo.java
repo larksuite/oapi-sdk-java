@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class StageCountInfo {
+  /**
+   * 阶段内数量
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("count")
+  private Integer count;
+
+  /**
+   * 投递阶段，如果变更类型为阶段变更，则为变更后的投递阶段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("stage")
+  private ApplicationStageInfo stage;
+
+  public Integer getCount() {
+    return this.count;
+  }
+
+  public void setCount(Integer count) {
+    this.count = count;
+  }
+
+  public ApplicationStageInfo getStage() {
+    return this.stage;
+  }
+
+  public void setStage(ApplicationStageInfo stage) {
+    this.stage = stage;
+  }
+
+  // builder 开始
+  public StageCountInfo() {}
+
+  public StageCountInfo(Builder builder) {
     /**
      * 阶段内数量
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("count")
-    private Integer count;
+    this.count = builder.count;
     /**
-     * 阶段信息
-     * <p> 示例值：
+     * 投递阶段，如果变更类型为阶段变更，则为变更后的投递阶段
+     *
+     * <p>示例值：
      */
-    @SerializedName("stage")
+    this.stage = builder.stage;
+  }
+
+  public static class Builder {
+    /**
+     * 阶段内数量
+     *
+     * <p>示例值：1
+     */
+    private Integer count;
+
+    /**
+     * 投递阶段，如果变更类型为阶段变更，则为变更后的投递阶段
+     *
+     * <p>示例值：
+     */
     private ApplicationStageInfo stage;
 
-    // builder 开始
-    public StageCountInfo() {
+    /**
+     * 阶段内数量
+     *
+     * <p>示例值：1
+     *
+     * @param count
+     * @return
+     */
+    public Builder count(Integer count) {
+      this.count = count;
+      return this;
     }
 
-    public StageCountInfo(Builder builder) {
-        /**
-         * 阶段内数量
-         * <p> 示例值：1
-         */
-        this.count = builder.count;
-        /**
-         * 阶段信息
-         * <p> 示例值：
-         */
-        this.stage = builder.stage;
+    /**
+     * 投递阶段，如果变更类型为阶段变更，则为变更后的投递阶段
+     *
+     * <p>示例值：
+     *
+     * @param stage
+     * @return
+     */
+    public Builder stage(ApplicationStageInfo stage) {
+      this.stage = stage;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public StageCountInfo build() {
+      return new StageCountInfo(this);
     }
+  }
 
-    public Integer getCount() {
-        return this.count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
-    }
-
-    public ApplicationStageInfo getStage() {
-        return this.stage;
-    }
-
-    public void setStage(ApplicationStageInfo stage) {
-        this.stage = stage;
-    }
-
-    public static class Builder {
-        /**
-         * 阶段内数量
-         * <p> 示例值：1
-         */
-        private Integer count;
-        /**
-         * 阶段信息
-         * <p> 示例值：
-         */
-        private ApplicationStageInfo stage;
-
-        /**
-         * 阶段内数量
-         * <p> 示例值：1
-         *
-         * @param count
-         * @return
-         */
-        public Builder count(Integer count) {
-            this.count = count;
-            return this;
-        }
-
-
-        /**
-         * 阶段信息
-         * <p> 示例值：
-         *
-         * @param stage
-         * @return
-         */
-        public Builder stage(ApplicationStageInfo stage) {
-            this.stage = stage;
-            return this;
-        }
-
-
-        public StageCountInfo build() {
-            return new StageCountInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

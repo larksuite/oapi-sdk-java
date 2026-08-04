@@ -13,111 +13,107 @@
 
 package com.lark.oapi.service.mdm.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mdm.v3.enums.*;
 
 public class ListCountryRegionReqBody {
+  /**
+   * 过滤参数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter")
+  private Filter filter;
+
+  /**
+   * 此参数可忽略
+   *
+   * <p>示例值：
+   */
+  @SerializedName("common")
+  private Common common;
+
+  public Filter getFilter() {
+    return this.filter;
+  }
+
+  public void setFilter(Filter filter) {
+    this.filter = filter;
+  }
+
+  public Common getCommon() {
+    return this.common;
+  }
+
+  public void setCommon(Common common) {
+    this.common = common;
+  }
+
+  // builder 开始
+  public ListCountryRegionReqBody() {}
+
+  public ListCountryRegionReqBody(Builder builder) {
     /**
-     * filter
-     * <p> 示例值：
+     * 过滤参数
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter")
+    this.filter = builder.filter;
+    /**
+     * 此参数可忽略
+     *
+     * <p>示例值：
+     */
+    this.common = builder.common;
+  }
+
+  public static class Builder {
+    /**
+     * 过滤参数
+     *
+     * <p>示例值：
+     */
     private Filter filter;
+
     /**
-     * common
-     * <p> 示例值：
+     * 此参数可忽略
+     *
+     * <p>示例值：
      */
-    @SerializedName("common")
     private Common common;
 
-    // builder 开始
-    public ListCountryRegionReqBody() {
+    /**
+     * 过滤参数
+     *
+     * <p>示例值：
+     *
+     * @param filter
+     * @return
+     */
+    public Builder filter(Filter filter) {
+      this.filter = filter;
+      return this;
     }
 
-    public ListCountryRegionReqBody(Builder builder) {
-        /**
-         * filter
-         * <p> 示例值：
-         */
-        this.filter = builder.filter;
-        /**
-         * common
-         * <p> 示例值：
-         */
-        this.common = builder.common;
+    /**
+     * 此参数可忽略
+     *
+     * <p>示例值：
+     *
+     * @param common
+     * @return
+     */
+    public Builder common(Common common) {
+      this.common = common;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ListCountryRegionReqBody build() {
+      return new ListCountryRegionReqBody(this);
     }
+  }
 
-    public Filter getFilter() {
-        return this.filter;
-    }
-
-    public void setFilter(Filter filter) {
-        this.filter = filter;
-    }
-
-    public Common getCommon() {
-        return this.common;
-    }
-
-    public void setCommon(Common common) {
-        this.common = common;
-    }
-
-    public static class Builder {
-        /**
-         * filter
-         * <p> 示例值：
-         */
-        private Filter filter;
-        /**
-         * common
-         * <p> 示例值：
-         */
-        private Common common;
-
-        /**
-         * filter
-         * <p> 示例值：
-         *
-         * @param filter
-         * @return
-         */
-        public Builder filter(Filter filter) {
-            this.filter = filter;
-            return this;
-        }
-
-
-        /**
-         * common
-         * <p> 示例值：
-         *
-         * @param common
-         * @return
-         */
-        public Builder common(Common common) {
-            this.common = common;
-            return this;
-        }
-
-
-        public ListCountryRegionReqBody build() {
-            return new ListCountryRegionReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

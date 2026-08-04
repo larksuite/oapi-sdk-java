@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollectionTemplateSnapshot {
+  /**
+   * 填报模板ID
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("template_id")
+  private String templateId;
+
+  /**
+   * 算薪周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("template_name")
+  private I18n templateName;
+
+  /**
+   * 填报模板版本ID（主键ID）
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("template_version_id")
+  private String templateVersionId;
+
+  /**
+   * 填报项列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private CollectionItem[] items;
+
+  /**
+   * 填报活动id
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("activity_id")
+  private String activityId;
+
+  public String getTemplateId() {
+    return this.templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
+  public I18n getTemplateName() {
+    return this.templateName;
+  }
+
+  public void setTemplateName(I18n templateName) {
+    this.templateName = templateName;
+  }
+
+  public String getTemplateVersionId() {
+    return this.templateVersionId;
+  }
+
+  public void setTemplateVersionId(String templateVersionId) {
+    this.templateVersionId = templateVersionId;
+  }
+
+  public CollectionItem[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(CollectionItem[] items) {
+    this.items = items;
+  }
+
+  public String getActivityId() {
+    return this.activityId;
+  }
+
+  public void setActivityId(String activityId) {
+    this.activityId = activityId;
+  }
+
+  // builder 开始
+  public CollectionTemplateSnapshot() {}
+
+  public CollectionTemplateSnapshot(Builder builder) {
     /**
      * 填报模板ID
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("template_id")
-    private String templateId;
+    this.templateId = builder.templateId;
     /**
-     * 填报模板名称
-     * <p> 示例值：
+     * 算薪周期名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("template_name")
-    private I18n templateName;
+    this.templateName = builder.templateName;
     /**
      * 填报模板版本ID（主键ID）
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("template_version_id")
-    private String templateVersionId;
+    this.templateVersionId = builder.templateVersionId;
     /**
      * 填报项列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("items")
-    private CollectionItem[] items;
+    this.items = builder.items;
     /**
      * 填报活动id
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("activity_id")
+    this.activityId = builder.activityId;
+  }
+
+  public static class Builder {
+    /**
+     * 填报模板ID
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String templateId;
+
+    /**
+     * 算薪周期名称
+     *
+     * <p>示例值：
+     */
+    private I18n templateName;
+
+    /**
+     * 填报模板版本ID（主键ID）
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String templateVersionId;
+
+    /**
+     * 填报项列表
+     *
+     * <p>示例值：
+     */
+    private CollectionItem[] items;
+
+    /**
+     * 填报活动id
+     *
+     * <p>示例值：7202076988667019308
+     */
     private String activityId;
 
-    // builder 开始
-    public CollectionTemplateSnapshot() {
+    /**
+     * 填报模板ID
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param templateId
+     * @return
+     */
+    public Builder templateId(String templateId) {
+      this.templateId = templateId;
+      return this;
     }
 
-    public CollectionTemplateSnapshot(Builder builder) {
-        /**
-         * 填报模板ID
-         * <p> 示例值：7202076988667019308
-         */
-        this.templateId = builder.templateId;
-        /**
-         * 填报模板名称
-         * <p> 示例值：
-         */
-        this.templateName = builder.templateName;
-        /**
-         * 填报模板版本ID（主键ID）
-         * <p> 示例值：7202076988667019308
-         */
-        this.templateVersionId = builder.templateVersionId;
-        /**
-         * 填报项列表
-         * <p> 示例值：
-         */
-        this.items = builder.items;
-        /**
-         * 填报活动id
-         * <p> 示例值：7202076988667019308
-         */
-        this.activityId = builder.activityId;
+    /**
+     * 算薪周期名称
+     *
+     * <p>示例值：
+     *
+     * @param templateName
+     * @return
+     */
+    public Builder templateName(I18n templateName) {
+      this.templateName = templateName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 填报模板版本ID（主键ID）
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param templateVersionId
+     * @return
+     */
+    public Builder templateVersionId(String templateVersionId) {
+      this.templateVersionId = templateVersionId;
+      return this;
     }
 
-    public String getTemplateId() {
-        return this.templateId;
+    /**
+     * 填报项列表
+     *
+     * <p>示例值：
+     *
+     * @param items
+     * @return
+     */
+    public Builder items(CollectionItem[] items) {
+      this.items = items;
+      return this;
     }
 
-    public void setTemplateId(String templateId) {
-        this.templateId = templateId;
+    /**
+     * 填报活动id
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param activityId
+     * @return
+     */
+    public Builder activityId(String activityId) {
+      this.activityId = activityId;
+      return this;
     }
 
-    public I18n getTemplateName() {
-        return this.templateName;
+    public CollectionTemplateSnapshot build() {
+      return new CollectionTemplateSnapshot(this);
     }
+  }
 
-    public void setTemplateName(I18n templateName) {
-        this.templateName = templateName;
-    }
-
-    public String getTemplateVersionId() {
-        return this.templateVersionId;
-    }
-
-    public void setTemplateVersionId(String templateVersionId) {
-        this.templateVersionId = templateVersionId;
-    }
-
-    public CollectionItem[] getItems() {
-        return this.items;
-    }
-
-    public void setItems(CollectionItem[] items) {
-        this.items = items;
-    }
-
-    public String getActivityId() {
-        return this.activityId;
-    }
-
-    public void setActivityId(String activityId) {
-        this.activityId = activityId;
-    }
-
-    public static class Builder {
-        /**
-         * 填报模板ID
-         * <p> 示例值：7202076988667019308
-         */
-        private String templateId;
-        /**
-         * 填报模板名称
-         * <p> 示例值：
-         */
-        private I18n templateName;
-        /**
-         * 填报模板版本ID（主键ID）
-         * <p> 示例值：7202076988667019308
-         */
-        private String templateVersionId;
-        /**
-         * 填报项列表
-         * <p> 示例值：
-         */
-        private CollectionItem[] items;
-        /**
-         * 填报活动id
-         * <p> 示例值：7202076988667019308
-         */
-        private String activityId;
-
-        /**
-         * 填报模板ID
-         * <p> 示例值：7202076988667019308
-         *
-         * @param templateId
-         * @return
-         */
-        public Builder templateId(String templateId) {
-            this.templateId = templateId;
-            return this;
-        }
-
-
-        /**
-         * 填报模板名称
-         * <p> 示例值：
-         *
-         * @param templateName
-         * @return
-         */
-        public Builder templateName(I18n templateName) {
-            this.templateName = templateName;
-            return this;
-        }
-
-
-        /**
-         * 填报模板版本ID（主键ID）
-         * <p> 示例值：7202076988667019308
-         *
-         * @param templateVersionId
-         * @return
-         */
-        public Builder templateVersionId(String templateVersionId) {
-            this.templateVersionId = templateVersionId;
-            return this;
-        }
-
-
-        /**
-         * 填报项列表
-         * <p> 示例值：
-         *
-         * @param items
-         * @return
-         */
-        public Builder items(CollectionItem[] items) {
-            this.items = items;
-            return this;
-        }
-
-
-        /**
-         * 填报活动id
-         * <p> 示例值：7202076988667019308
-         *
-         * @param activityId
-         * @return
-         */
-        public Builder activityId(String activityId) {
-            this.activityId = activityId;
-            return this;
-        }
-
-
-        public CollectionTemplateSnapshot build() {
-            return new CollectionTemplateSnapshot(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

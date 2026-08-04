@@ -13,130 +13,130 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class PatchPreHireReq {
+  /**
+   * 根据client_token是否一致来判断是否为同一请求
+   *
+   * <p>示例值：12454646
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  /**
+   * 待入职ID
+   *
+   * <p>示例值：1616161616
+   */
+  @Path
+  @SerializedName("pre_hire_id")
+  private String preHireId;
+
+  public String getPreHireId() {
+    return this.preHireId;
+  }
+
+  public void setPreHireId(String preHireId) {
+    this.preHireId = preHireId;
+  }
+
+  @Body private PreHire body;
+
+  public PreHire getPreHire() {
+    return this.body;
+  }
+
+  public void setPreHire(PreHire body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchPreHireReq() {}
+
+  public PatchPreHireReq(Builder builder) {
     /**
      * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
+     *
+     * <p>示例值：12454646
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
      * 待入职ID
-     * <p> 示例值：1616161616
+     *
+     * <p>示例值：1616161616
      */
-    @Path
-    @SerializedName("pre_hire_id")
-    private String preHireId;
-    @Body
+    this.preHireId = builder.preHireId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String clientToken; // 根据client_token是否一致来判断是否为同一请求
+
+    /**
+     * 根据client_token是否一致来判断是否为同一请求
+     *
+     * <p>示例值：12454646
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    private String preHireId; // 待入职ID
+
+    /**
+     * 待入职ID
+     *
+     * <p>示例值：1616161616
+     *
+     * @param preHireId
+     * @return
+     */
+    public Builder preHireId(String preHireId) {
+      this.preHireId = preHireId;
+      return this;
+    }
+
     private PreHire body;
 
-    // builder 开始
-    public PatchPreHireReq() {
-    }
-
-    public PatchPreHireReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 待入职ID
-         * <p> 示例值：1616161616
-         */
-        this.preHireId = builder.preHireId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public String getPreHireId() {
-        return this.preHireId;
-    }
-
-    public void setPreHireId(String preHireId) {
-        this.preHireId = preHireId;
-    }
-
     public PreHire getPreHire() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPreHire(PreHire body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder preHire(PreHire body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private String preHireId; // 待入职ID
-        private PreHire body;
-
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 待入职ID
-         * <p> 示例值：1616161616
-         *
-         * @param preHireId
-         * @return
-         */
-        public Builder preHireId(String preHireId) {
-            this.preHireId = preHireId;
-            return this;
-        }
-
-        public PreHire getPreHire() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder preHire(PreHire body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchPreHireReq build() {
-            return new PatchPreHireReq(this);
-        }
+    public PatchPreHireReq build() {
+      return new PatchPreHireReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

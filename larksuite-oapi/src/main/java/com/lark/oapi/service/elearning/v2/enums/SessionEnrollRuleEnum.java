@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.elearning.v2.enums;
 
-/**
- * 报名时间类型
- */
+/** 报名时间类型 */
 public enum SessionEnrollRuleEnum {
-    BEFORESESSIONSTART(0), // 活动开始前x秒报名截止
-    SPECIFIEDTIME(1), // 指定报名的开始和截止时间
-    NOLIMIT(2), // 不限制报名时间
-    ;
-    private Integer value;
+  BEFORESESSIONSTART(0), // 活动开始前x秒报名截止
+  SPECIFIEDTIME(1), // 指定报名的开始和截止时间
+  NOLIMIT(2), // 不限制报名时间
+  ;
+  private Integer value;
 
-    SessionEnrollRuleEnum(Integer value) {
-        this.value = value;
-    }
+  SessionEnrollRuleEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

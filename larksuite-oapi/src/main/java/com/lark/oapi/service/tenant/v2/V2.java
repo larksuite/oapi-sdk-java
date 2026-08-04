@@ -18,19 +18,19 @@ import com.lark.oapi.service.tenant.v2.resource.Tenant;
 import com.lark.oapi.service.tenant.v2.resource.TenantProductAssignInfo;
 
 public class V2 {
-    private final Tenant tenant; // 企业信息
-    private final TenantProductAssignInfo tenantProductAssignInfo; // tenant.product_assign_info
+  private final Tenant tenant; // tenant
+  private final TenantProductAssignInfo tenantProductAssignInfo; // tenant.product_assign_info
 
-    public V2(Config config) {
-        this.tenant = new Tenant(config);
-        this.tenantProductAssignInfo = new TenantProductAssignInfo(config);
-    }
+  public V2(Config config) {
+    this.tenant = new Tenant(config);
+    this.tenantProductAssignInfo = new TenantProductAssignInfo(config);
+  }
 
-    public Tenant tenant() {
-        return tenant;
-    }
+  public Tenant tenant() {
+    return tenant;
+  }
 
-    public TenantProductAssignInfo tenantProductAssignInfo() {
-        return tenantProductAssignInfo;
-    }
+  public TenantProductAssignInfo tenantProductAssignInfo() {
+    return tenantProductAssignInfo;
+  }
 }

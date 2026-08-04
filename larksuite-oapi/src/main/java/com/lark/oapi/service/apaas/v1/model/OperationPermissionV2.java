@@ -13,189 +13,192 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class OperationPermissionV2 {
+  /**
+   * 角色的apiName
+   *
+   * <p>示例值：role_65445dff6ed
+   */
+  @SerializedName("role_api_name")
+  private String roleApiName;
+
+  /**
+   * 关联流程或云函数的apiName
+   *
+   * <p>示例值：automation_adfjion
+   */
+  @SerializedName("operation_api_name")
+  private String operationApiName;
+
+  /**
+   * 关联流程或云函数的类型;枚举：functionV2/automation
+   *
+   * <p>示例值：automation
+   */
+  @SerializedName("operation_type")
+  private String operationType;
+
+  /**
+   * 关联对象或数据集的名称
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("operation_name")
+  private Map<String, String> operationName;
+
+  public String getRoleApiName() {
+    return this.roleApiName;
+  }
+
+  public void setRoleApiName(String roleApiName) {
+    this.roleApiName = roleApiName;
+  }
+
+  public String getOperationApiName() {
+    return this.operationApiName;
+  }
+
+  public void setOperationApiName(String operationApiName) {
+    this.operationApiName = operationApiName;
+  }
+
+  public String getOperationType() {
+    return this.operationType;
+  }
+
+  public void setOperationType(String operationType) {
+    this.operationType = operationType;
+  }
+
+  public Map<String, String> getOperationName() {
+    return this.operationName;
+  }
+
+  public void setOperationName(Map<String, String> operationName) {
+    this.operationName = operationName;
+  }
+
+  // builder 开始
+  public OperationPermissionV2() {}
+
+  public OperationPermissionV2(Builder builder) {
     /**
      * 角色的apiName
-     * <p> 示例值：role_65445dff6ed
+     *
+     * <p>示例值：role_65445dff6ed
      */
-    @SerializedName("role_api_name")
-    private String roleApiName;
+    this.roleApiName = builder.roleApiName;
     /**
-     * 关联对象或数据集的apiName
-     * <p> 示例值：automation_adfjion
+     * 关联流程或云函数的apiName
+     *
+     * <p>示例值：automation_adfjion
      */
-    @SerializedName("operation_api_name")
-    private String operationApiName;
+    this.operationApiName = builder.operationApiName;
     /**
-     * 关联对象或数据集的类型
-     * <p> 示例值：automation
+     * 关联流程或云函数的类型;枚举：functionV2/automation
+     *
+     * <p>示例值：automation
      */
-    @SerializedName("operation_type")
-    private String operationType;
+    this.operationType = builder.operationType;
     /**
      * 关联对象或数据集的名称
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("operation_name")
+    this.operationName = builder.operationName;
+  }
+
+  public static class Builder {
+    /**
+     * 角色的apiName
+     *
+     * <p>示例值：role_65445dff6ed
+     */
+    private String roleApiName;
+
+    /**
+     * 关联流程或云函数的apiName
+     *
+     * <p>示例值：automation_adfjion
+     */
+    private String operationApiName;
+
+    /**
+     * 关联流程或云函数的类型;枚举：functionV2/automation
+     *
+     * <p>示例值：automation
+     */
+    private String operationType;
+
+    /**
+     * 关联对象或数据集的名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
     private Map<String, String> operationName;
 
-    // builder 开始
-    public OperationPermissionV2() {
+    /**
+     * 角色的apiName
+     *
+     * <p>示例值：role_65445dff6ed
+     *
+     * @param roleApiName
+     * @return
+     */
+    public Builder roleApiName(String roleApiName) {
+      this.roleApiName = roleApiName;
+      return this;
     }
 
-    public OperationPermissionV2(Builder builder) {
-        /**
-         * 角色的apiName
-         * <p> 示例值：role_65445dff6ed
-         */
-        this.roleApiName = builder.roleApiName;
-        /**
-         * 关联对象或数据集的apiName
-         * <p> 示例值：automation_adfjion
-         */
-        this.operationApiName = builder.operationApiName;
-        /**
-         * 关联对象或数据集的类型
-         * <p> 示例值：automation
-         */
-        this.operationType = builder.operationType;
-        /**
-         * 关联对象或数据集的名称
-         * <p> 示例值：
-         */
-        this.operationName = builder.operationName;
+    /**
+     * 关联流程或云函数的apiName
+     *
+     * <p>示例值：automation_adfjion
+     *
+     * @param operationApiName
+     * @return
+     */
+    public Builder operationApiName(String operationApiName) {
+      this.operationApiName = operationApiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 关联流程或云函数的类型;枚举：functionV2/automation
+     *
+     * <p>示例值：automation
+     *
+     * @param operationType
+     * @return
+     */
+    public Builder operationType(String operationType) {
+      this.operationType = operationType;
+      return this;
     }
 
-    public String getRoleApiName() {
-        return this.roleApiName;
+    /**
+     * 关联对象或数据集的名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param operationName
+     * @return
+     */
+    public Builder operationName(Map<String, String> operationName) {
+      this.operationName = operationName;
+      return this;
     }
 
-    public void setRoleApiName(String roleApiName) {
-        this.roleApiName = roleApiName;
+    public OperationPermissionV2 build() {
+      return new OperationPermissionV2(this);
     }
+  }
 
-    public String getOperationApiName() {
-        return this.operationApiName;
-    }
-
-    public void setOperationApiName(String operationApiName) {
-        this.operationApiName = operationApiName;
-    }
-
-    public String getOperationType() {
-        return this.operationType;
-    }
-
-    public void setOperationType(String operationType) {
-        this.operationType = operationType;
-    }
-
-    public Map<String, String> getOperationName() {
-        return this.operationName;
-    }
-
-    public void setOperationName(Map<String, String> operationName) {
-        this.operationName = operationName;
-    }
-
-    public static class Builder {
-        /**
-         * 角色的apiName
-         * <p> 示例值：role_65445dff6ed
-         */
-        private String roleApiName;
-        /**
-         * 关联对象或数据集的apiName
-         * <p> 示例值：automation_adfjion
-         */
-        private String operationApiName;
-        /**
-         * 关联对象或数据集的类型
-         * <p> 示例值：automation
-         */
-        private String operationType;
-        /**
-         * 关联对象或数据集的名称
-         * <p> 示例值：
-         */
-        private Map<String, String> operationName;
-
-        /**
-         * 角色的apiName
-         * <p> 示例值：role_65445dff6ed
-         *
-         * @param roleApiName
-         * @return
-         */
-        public Builder roleApiName(String roleApiName) {
-            this.roleApiName = roleApiName;
-            return this;
-        }
-
-
-        /**
-         * 关联对象或数据集的apiName
-         * <p> 示例值：automation_adfjion
-         *
-         * @param operationApiName
-         * @return
-         */
-        public Builder operationApiName(String operationApiName) {
-            this.operationApiName = operationApiName;
-            return this;
-        }
-
-
-        /**
-         * 关联对象或数据集的类型
-         * <p> 示例值：automation
-         *
-         * @param operationType
-         * @return
-         */
-        public Builder operationType(String operationType) {
-            this.operationType = operationType;
-            return this;
-        }
-
-
-        /**
-         * 关联对象或数据集的名称
-         * <p> 示例值：
-         *
-         * @param operationName
-         * @return
-         */
-        public Builder operationName(Map<String, String> operationName) {
-            this.operationName = operationName;
-            return this;
-        }
-
-
-        public OperationPermissionV2 build() {
-            return new OperationPermissionV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

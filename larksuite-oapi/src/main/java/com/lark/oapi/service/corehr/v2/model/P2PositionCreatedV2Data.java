@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2PositionCreatedV2Data {
-    /**
-     * 岗位ID
-     * <p> 示例值：201571101
-     */
-    @SerializedName("position_id")
-    private String positionId;
+  /**
+   * 岗位ID，可通过[查询岗位](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口去获取岗位详细信息
+   *
+   * <p>示例值：201571101
+   */
+  @SerializedName("position_id")
+  private String positionId;
 
-    public String getPositionId() {
-        return this.positionId;
-    }
+  public String getPositionId() {
+    return this.positionId;
+  }
 
-    public void setPositionId(String positionId) {
-        this.positionId = positionId;
-    }
-
+  public void setPositionId(String positionId) {
+    this.positionId = positionId;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Operator {
+  /**
+   * 用户名称
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("operator_name")
+  private String operatorName;
+
+  /**
+   * 用户id
+   *
+   * <p>示例值：ou_ff0b7ba35fb********67dfc8b885136
+   */
+  @SerializedName("operator_id")
+  private UserId operatorId;
+
+  public String getOperatorName() {
+    return this.operatorName;
+  }
+
+  public void setOperatorName(String operatorName) {
+    this.operatorName = operatorName;
+  }
+
+  public UserId getOperatorId() {
+    return this.operatorId;
+  }
+
+  public void setOperatorId(UserId operatorId) {
+    this.operatorId = operatorId;
+  }
+
+  // builder 开始
+  public Operator() {}
+
+  public Operator(Builder builder) {
     /**
      * 用户名称
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("operator_name")
-    private String operatorName;
+    this.operatorName = builder.operatorName;
     /**
-     * 用户 ID
-     * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
+     * 用户id
+     *
+     * <p>示例值：ou_ff0b7ba35fb********67dfc8b885136
      */
-    @SerializedName("operator_id")
+    this.operatorId = builder.operatorId;
+  }
+
+  public static class Builder {
+    /**
+     * 用户名称
+     *
+     * <p>示例值：张三
+     */
+    private String operatorName;
+
+    /**
+     * 用户id
+     *
+     * <p>示例值：ou_ff0b7ba35fb********67dfc8b885136
+     */
     private UserId operatorId;
 
-    // builder 开始
-    public Operator() {
+    /**
+     * 用户名称
+     *
+     * <p>示例值：张三
+     *
+     * @param operatorName
+     * @return
+     */
+    public Builder operatorName(String operatorName) {
+      this.operatorName = operatorName;
+      return this;
     }
 
-    public Operator(Builder builder) {
-        /**
-         * 用户名称
-         * <p> 示例值：张三
-         */
-        this.operatorName = builder.operatorName;
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
-         */
-        this.operatorId = builder.operatorId;
+    /**
+     * 用户id
+     *
+     * <p>示例值：ou_ff0b7ba35fb********67dfc8b885136
+     *
+     * @param operatorId
+     * @return
+     */
+    public Builder operatorId(UserId operatorId) {
+      this.operatorId = operatorId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Operator build() {
+      return new Operator(this);
     }
+  }
 
-    public String getOperatorName() {
-        return this.operatorName;
-    }
-
-    public void setOperatorName(String operatorName) {
-        this.operatorName = operatorName;
-    }
-
-    public UserId getOperatorId() {
-        return this.operatorId;
-    }
-
-    public void setOperatorId(UserId operatorId) {
-        this.operatorId = operatorId;
-    }
-
-    public static class Builder {
-        /**
-         * 用户名称
-         * <p> 示例值：张三
-         */
-        private String operatorName;
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
-         */
-        private UserId operatorId;
-
-        /**
-         * 用户名称
-         * <p> 示例值：张三
-         *
-         * @param operatorName
-         * @return
-         */
-        public Builder operatorName(String operatorName) {
-            this.operatorName = operatorName;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_ff0b7ba35fb********67dfc8b885136
-         *
-         * @param operatorId
-         * @return
-         */
-        public Builder operatorId(UserId operatorId) {
-            this.operatorId = operatorId;
-            return this;
-        }
-
-
-        public Operator build() {
-            return new Operator(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

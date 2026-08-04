@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyAiVcMeetingTodoTaskResult {
+  /**
+   * 会议待办for快捷指令
+   *
+   * <p>示例值：会议待办是xxx，或因录制未打开，待办未生成
+   */
+  @SerializedName("meeting_todo_task_or_fail_reason")
+  private String meetingTodoTaskOrFailReason;
+
+  /**
+   * 会议待办for自由对话
+   *
+   * <p>示例值：会议待办是xxx
+   */
+  @SerializedName("meeting_todo_task")
+  private String meetingTodoTask;
+
+  public String getMeetingTodoTaskOrFailReason() {
+    return this.meetingTodoTaskOrFailReason;
+  }
+
+  public void setMeetingTodoTaskOrFailReason(String meetingTodoTaskOrFailReason) {
+    this.meetingTodoTaskOrFailReason = meetingTodoTaskOrFailReason;
+  }
+
+  public String getMeetingTodoTask() {
+    return this.meetingTodoTask;
+  }
+
+  public void setMeetingTodoTask(String meetingTodoTask) {
+    this.meetingTodoTask = meetingTodoTask;
+  }
+
+  // builder 开始
+  public MyAiVcMeetingTodoTaskResult() {}
+
+  public MyAiVcMeetingTodoTaskResult(Builder builder) {
     /**
      * 会议待办for快捷指令
-     * <p> 示例值：会议待办是xxx，或因录制未打开，待办未生成
+     *
+     * <p>示例值：会议待办是xxx，或因录制未打开，待办未生成
      */
-    @SerializedName("meeting_todo_task_or_fail_reason")
-    private String meetingTodoTaskOrFailReason;
+    this.meetingTodoTaskOrFailReason = builder.meetingTodoTaskOrFailReason;
     /**
      * 会议待办for自由对话
-     * <p> 示例值：会议待办是xxx
+     *
+     * <p>示例值：会议待办是xxx
      */
-    @SerializedName("meeting_todo_task")
+    this.meetingTodoTask = builder.meetingTodoTask;
+  }
+
+  public static class Builder {
+    /**
+     * 会议待办for快捷指令
+     *
+     * <p>示例值：会议待办是xxx，或因录制未打开，待办未生成
+     */
+    private String meetingTodoTaskOrFailReason;
+
+    /**
+     * 会议待办for自由对话
+     *
+     * <p>示例值：会议待办是xxx
+     */
     private String meetingTodoTask;
 
-    // builder 开始
-    public MyAiVcMeetingTodoTaskResult() {
+    /**
+     * 会议待办for快捷指令
+     *
+     * <p>示例值：会议待办是xxx，或因录制未打开，待办未生成
+     *
+     * @param meetingTodoTaskOrFailReason
+     * @return
+     */
+    public Builder meetingTodoTaskOrFailReason(String meetingTodoTaskOrFailReason) {
+      this.meetingTodoTaskOrFailReason = meetingTodoTaskOrFailReason;
+      return this;
     }
 
-    public MyAiVcMeetingTodoTaskResult(Builder builder) {
-        /**
-         * 会议待办for快捷指令
-         * <p> 示例值：会议待办是xxx，或因录制未打开，待办未生成
-         */
-        this.meetingTodoTaskOrFailReason = builder.meetingTodoTaskOrFailReason;
-        /**
-         * 会议待办for自由对话
-         * <p> 示例值：会议待办是xxx
-         */
-        this.meetingTodoTask = builder.meetingTodoTask;
+    /**
+     * 会议待办for自由对话
+     *
+     * <p>示例值：会议待办是xxx
+     *
+     * @param meetingTodoTask
+     * @return
+     */
+    public Builder meetingTodoTask(String meetingTodoTask) {
+      this.meetingTodoTask = meetingTodoTask;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MyAiVcMeetingTodoTaskResult build() {
+      return new MyAiVcMeetingTodoTaskResult(this);
     }
+  }
 
-    public String getMeetingTodoTaskOrFailReason() {
-        return this.meetingTodoTaskOrFailReason;
-    }
-
-    public void setMeetingTodoTaskOrFailReason(String meetingTodoTaskOrFailReason) {
-        this.meetingTodoTaskOrFailReason = meetingTodoTaskOrFailReason;
-    }
-
-    public String getMeetingTodoTask() {
-        return this.meetingTodoTask;
-    }
-
-    public void setMeetingTodoTask(String meetingTodoTask) {
-        this.meetingTodoTask = meetingTodoTask;
-    }
-
-    public static class Builder {
-        /**
-         * 会议待办for快捷指令
-         * <p> 示例值：会议待办是xxx，或因录制未打开，待办未生成
-         */
-        private String meetingTodoTaskOrFailReason;
-        /**
-         * 会议待办for自由对话
-         * <p> 示例值：会议待办是xxx
-         */
-        private String meetingTodoTask;
-
-        /**
-         * 会议待办for快捷指令
-         * <p> 示例值：会议待办是xxx，或因录制未打开，待办未生成
-         *
-         * @param meetingTodoTaskOrFailReason
-         * @return
-         */
-        public Builder meetingTodoTaskOrFailReason(String meetingTodoTaskOrFailReason) {
-            this.meetingTodoTaskOrFailReason = meetingTodoTaskOrFailReason;
-            return this;
-        }
-
-
-        /**
-         * 会议待办for自由对话
-         * <p> 示例值：会议待办是xxx
-         *
-         * @param meetingTodoTask
-         * @return
-         */
-        public Builder meetingTodoTask(String meetingTodoTask) {
-            this.meetingTodoTask = meetingTodoTask;
-            return this;
-        }
-
-
-        public MyAiVcMeetingTodoTaskResult build() {
-            return new MyAiVcMeetingTodoTaskResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Option {
+  /**
+   * 选项的GUID。
+   *
+   * <p>示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
+   */
+  @SerializedName("guid")
+  private String guid;
+
+  /**
+   * 选项名称，不能为空，最大50个字符
+   *
+   * <p>示例值：高优
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 选项的颜色索引值，可以是0～54中的一个数字。如果不填写则会随机选一个。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("color_index")
+  private Integer colorIndex;
+
+  /**
+   * 选项是否隐藏。隐藏后的选项在界面不可见，也不可以再通过openAPI将字段值设为该选项。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_hidden")
+  private Boolean isHidden;
+
+  public String getGuid() {
+    return this.guid;
+  }
+
+  public void setGuid(String guid) {
+    this.guid = guid;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Integer getColorIndex() {
+    return this.colorIndex;
+  }
+
+  public void setColorIndex(Integer colorIndex) {
+    this.colorIndex = colorIndex;
+  }
+
+  public Boolean getIsHidden() {
+    return this.isHidden;
+  }
+
+  public void setIsHidden(Boolean isHidden) {
+    this.isHidden = isHidden;
+  }
+
+  // builder 开始
+  public Option() {}
+
+  public Option(Builder builder) {
     /**
-     * 选项的GUID
-     * <p> 示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
+     * 选项的GUID。
+     *
+     * <p>示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
      */
-    @SerializedName("guid")
-    private String guid;
+    this.guid = builder.guid;
     /**
      * 选项名称，不能为空，最大50个字符
-     * <p> 示例值：高优
+     *
+     * <p>示例值：高优
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 选项的颜色索引值，可以是0～54中的一个数字。如果不填写则会随机选一个。
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("color_index")
-    private Integer colorIndex;
+    this.colorIndex = builder.colorIndex;
     /**
-     * 选项是否隐藏。隐藏后的选项在界面不可见，也不可以再通过openapi将字段值设为该选项。
-     * <p> 示例值：false
+     * 选项是否隐藏。隐藏后的选项在界面不可见，也不可以再通过openAPI将字段值设为该选项。
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_hidden")
+    this.isHidden = builder.isHidden;
+  }
+
+  public static class Builder {
+    /**
+     * 选项的GUID。
+     *
+     * <p>示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
+     */
+    private String guid;
+
+    /**
+     * 选项名称，不能为空，最大50个字符
+     *
+     * <p>示例值：高优
+     */
+    private String name;
+
+    /**
+     * 选项的颜色索引值，可以是0～54中的一个数字。如果不填写则会随机选一个。
+     *
+     * <p>示例值：1
+     */
+    private Integer colorIndex;
+
+    /**
+     * 选项是否隐藏。隐藏后的选项在界面不可见，也不可以再通过openAPI将字段值设为该选项。
+     *
+     * <p>示例值：false
+     */
     private Boolean isHidden;
 
-    // builder 开始
-    public Option() {
+    /**
+     * 选项的GUID。
+     *
+     * <p>示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
+     *
+     * @param guid
+     * @return
+     */
+    public Builder guid(String guid) {
+      this.guid = guid;
+      return this;
     }
 
-    public Option(Builder builder) {
-        /**
-         * 选项的GUID
-         * <p> 示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
-         */
-        this.guid = builder.guid;
-        /**
-         * 选项名称，不能为空，最大50个字符
-         * <p> 示例值：高优
-         */
-        this.name = builder.name;
-        /**
-         * 选项的颜色索引值，可以是0～54中的一个数字。如果不填写则会随机选一个。
-         * <p> 示例值：1
-         */
-        this.colorIndex = builder.colorIndex;
-        /**
-         * 选项是否隐藏。隐藏后的选项在界面不可见，也不可以再通过openapi将字段值设为该选项。
-         * <p> 示例值：false
-         */
-        this.isHidden = builder.isHidden;
+    /**
+     * 选项名称，不能为空，最大50个字符
+     *
+     * <p>示例值：高优
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 选项的颜色索引值，可以是0～54中的一个数字。如果不填写则会随机选一个。
+     *
+     * <p>示例值：1
+     *
+     * @param colorIndex
+     * @return
+     */
+    public Builder colorIndex(Integer colorIndex) {
+      this.colorIndex = colorIndex;
+      return this;
     }
 
-    public String getGuid() {
-        return this.guid;
+    /**
+     * 选项是否隐藏。隐藏后的选项在界面不可见，也不可以再通过openAPI将字段值设为该选项。
+     *
+     * <p>示例值：false
+     *
+     * @param isHidden
+     * @return
+     */
+    public Builder isHidden(Boolean isHidden) {
+      this.isHidden = isHidden;
+      return this;
     }
 
-    public void setGuid(String guid) {
-        this.guid = guid;
+    public Option build() {
+      return new Option(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getColorIndex() {
-        return this.colorIndex;
-    }
-
-    public void setColorIndex(Integer colorIndex) {
-        this.colorIndex = colorIndex;
-    }
-
-    public Boolean getIsHidden() {
-        return this.isHidden;
-    }
-
-    public void setIsHidden(Boolean isHidden) {
-        this.isHidden = isHidden;
-    }
-
-    public static class Builder {
-        /**
-         * 选项的GUID
-         * <p> 示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
-         */
-        private String guid;
-        /**
-         * 选项名称，不能为空，最大50个字符
-         * <p> 示例值：高优
-         */
-        private String name;
-        /**
-         * 选项的颜色索引值，可以是0～54中的一个数字。如果不填写则会随机选一个。
-         * <p> 示例值：1
-         */
-        private Integer colorIndex;
-        /**
-         * 选项是否隐藏。隐藏后的选项在界面不可见，也不可以再通过openapi将字段值设为该选项。
-         * <p> 示例值：false
-         */
-        private Boolean isHidden;
-
-        /**
-         * 选项的GUID
-         * <p> 示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152
-         *
-         * @param guid
-         * @return
-         */
-        public Builder guid(String guid) {
-            this.guid = guid;
-            return this;
-        }
-
-
-        /**
-         * 选项名称，不能为空，最大50个字符
-         * <p> 示例值：高优
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 选项的颜色索引值，可以是0～54中的一个数字。如果不填写则会随机选一个。
-         * <p> 示例值：1
-         *
-         * @param colorIndex
-         * @return
-         */
-        public Builder colorIndex(Integer colorIndex) {
-            this.colorIndex = colorIndex;
-            return this;
-        }
-
-
-        /**
-         * 选项是否隐藏。隐藏后的选项在界面不可见，也不可以再通过openapi将字段值设为该选项。
-         * <p> 示例值：false
-         *
-         * @param isHidden
-         * @return
-         */
-        public Builder isHidden(Boolean isHidden) {
-            this.isHidden = isHidden;
-            return this;
-        }
-
-
-        public Option build() {
-            return new Option(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

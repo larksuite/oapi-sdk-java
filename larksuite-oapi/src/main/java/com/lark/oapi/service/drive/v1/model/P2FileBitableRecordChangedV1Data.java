@@ -13,132 +13,134 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2FileBitableRecordChangedV1Data {
-    /**
-     * 文档类型
-     * <p> 示例值：
-     */
-    @SerializedName("file_type")
-    private String fileType;
-    /**
-     * 文档token
-     * <p> 示例值：
-     */
-    @SerializedName("file_token")
-    private String fileToken;
-    /**
-     * 多维表格数据表ID
-     * <p> 示例值：
-     */
-    @SerializedName("table_id")
-    private String tableId;
-    /**
-     * 多维表格数据表的版本号
-     * <p> 示例值：
-     */
-    @SerializedName("revision")
-    private Integer revision;
-    /**
-     * 操作者ID
-     * <p> 示例值：
-     */
-    @SerializedName("operator_id")
-    private UserId operatorId;
-    /**
-     * 行变更操作列表
-     * <p> 示例值：
-     */
-    @SerializedName("action_list")
-    private BitableTableRecordAction[] actionList;
-    /**
-     * 订阅用户id列表
-     * <p> 示例值：
-     */
-    @SerializedName("subscriber_id_list")
-    private UserId[] subscriberIdList;
-    /**
-     * 编辑时间（格式：时间戳；单位：秒）
-     * <p> 示例值：
-     */
-    @SerializedName("update_time")
-    private Integer updateTime;
+  /**
+   * 文件类型，即 bitable
+   *
+   * <p>示例值：bitable
+   */
+  @SerializedName("file_type")
+  private String fileType;
 
-    public String getFileType() {
-        return this.fileType;
-    }
+  /**
+   * 多维表格 token
+   *
+   * <p>示例值：bascnItn6oHUSEL8RDUdF6abcef
+   */
+  @SerializedName("file_token")
+  private String fileToken;
 
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
+  /**
+   * 发生变更的数据表 ID
+   *
+   * <p>示例值：tblOaqBWfGeabcef
+   */
+  @SerializedName("table_id")
+  private String tableId;
 
-    public String getFileToken() {
-        return this.fileToken;
-    }
+  /**
+   * 多维表格数据表的版本号
+   *
+   * <p>示例值：41
+   */
+  @SerializedName("revision")
+  private Integer revision;
 
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
+  /**
+   * 操作人 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator_id")
+  private UserId operatorId;
 
-    public String getTableId() {
-        return this.tableId;
-    }
+  /**
+   * 行变更操作列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("action_list")
+  private BitableTableRecordAction[] actionList;
 
-    public void setTableId(String tableId) {
-        this.tableId = tableId;
-    }
+  /**
+   * 订阅的用户列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subscriber_id_list")
+  private UserId[] subscriberIdList;
 
-    public Integer getRevision() {
-        return this.revision;
-    }
+  /**
+   * 编辑时间（格式：时间戳；单位：秒）
+   *
+   * <p>示例值：1717040601
+   */
+  @SerializedName("update_time")
+  private Integer updateTime;
 
-    public void setRevision(Integer revision) {
-        this.revision = revision;
-    }
+  public String getFileType() {
+    return this.fileType;
+  }
 
-    public UserId getOperatorId() {
-        return this.operatorId;
-    }
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
 
-    public void setOperatorId(UserId operatorId) {
-        this.operatorId = operatorId;
-    }
+  public String getFileToken() {
+    return this.fileToken;
+  }
 
-    public BitableTableRecordAction[] getActionList() {
-        return this.actionList;
-    }
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
 
-    public void setActionList(BitableTableRecordAction[] actionList) {
-        this.actionList = actionList;
-    }
+  public String getTableId() {
+    return this.tableId;
+  }
 
-    public UserId[] getSubscriberIdList() {
-        return this.subscriberIdList;
-    }
+  public void setTableId(String tableId) {
+    this.tableId = tableId;
+  }
 
-    public void setSubscriberIdList(UserId[] subscriberIdList) {
-        this.subscriberIdList = subscriberIdList;
-    }
+  public Integer getRevision() {
+    return this.revision;
+  }
 
-    public Integer getUpdateTime() {
-        return this.updateTime;
-    }
+  public void setRevision(Integer revision) {
+    this.revision = revision;
+  }
 
-    public void setUpdateTime(Integer updateTime) {
-        this.updateTime = updateTime;
-    }
+  public UserId getOperatorId() {
+    return this.operatorId;
+  }
 
+  public void setOperatorId(UserId operatorId) {
+    this.operatorId = operatorId;
+  }
+
+  public BitableTableRecordAction[] getActionList() {
+    return this.actionList;
+  }
+
+  public void setActionList(BitableTableRecordAction[] actionList) {
+    this.actionList = actionList;
+  }
+
+  public UserId[] getSubscriberIdList() {
+    return this.subscriberIdList;
+  }
+
+  public void setSubscriberIdList(UserId[] subscriberIdList) {
+    this.subscriberIdList = subscriberIdList;
+  }
+
+  public Integer getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(Integer updateTime) {
+    this.updateTime = updateTime;
+  }
 }

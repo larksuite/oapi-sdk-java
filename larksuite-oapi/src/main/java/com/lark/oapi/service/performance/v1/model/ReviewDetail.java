@@ -13,445 +13,505 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReviewDetail {
+  /**
+   * 评估模板
+   * ID，详情可查看：[获取评估模板](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/review_template/query);
+   *
+   * <p>示例值：6982759008972326447
+   */
+  @SerializedName("template_id")
+  private String templateId;
+
+  /**
+   * 评估内容 ID
+   *
+   * <p>示例值：6982759008973882926
+   */
+  @SerializedName("unit_id")
+  private String unitId;
+
+  /**
+   * 评估字段 ID
+   *
+   * <p>示例值：6982759009698137641
+   */
+  @SerializedName("field_id")
+  private String fieldId;
+
+  /**
+   * 被评估人 ID，ID
+   * 类型请参考：[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reviewer_user_id")
+  private User reviewerUserId;
+
+  /**
+   * 最后提交时间，毫秒时间戳
+   *
+   * <p>示例值：1627977114000
+   */
+  @SerializedName("submit_time")
+  private String submitTime;
+
+  /**
+   * 评估项
+   * ID，详情可查看：[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query); ;;**说明**：当
+   * option_id 或 score 有值的时候有值
+   *
+   * <p>示例值：6982759009698137641
+   */
+  @SerializedName("indicator_id")
+  private String indicatorId;
+
+  /**
+   * 评估项结果等级 ID; ;;**说明**：当前评估项是评级型评估项数据时有值
+   *
+   * <p>示例值：6966127279593686572
+   */
+  @SerializedName("option_id")
+  private String optionId;
+
+  /**
+   * 评分型评估项填写内容; ;;**说明**：当前评估项是评分型评估项数据时有值
+   *
+   * <p>示例值：0.4
+   */
+  @SerializedName("score")
+  private String score;
+
+  /**
+   * 填写项填写内容 ;;;**说明**：当前评估项是填写项数据时有值
+   *
+   * <p>示例值：与公司共同发展
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 绩效系数值
+   *
+   * <p>示例值：3.0
+   */
+  @SerializedName("perf_coefficient_result")
+  private String perfCoefficientResult;
+
+  /**
+   * 富文本格式的填写内容，解析方式见
+   * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+   *
+   * <p>示例值：{"ops":[{"name":"insert","text":"与公司共同发展","attributes":{"bold":true}}]}
+   */
+  @SerializedName("richtext")
+  private String richtext;
+
+  public String getTemplateId() {
+    return this.templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
+  public String getUnitId() {
+    return this.unitId;
+  }
+
+  public void setUnitId(String unitId) {
+    this.unitId = unitId;
+  }
+
+  public String getFieldId() {
+    return this.fieldId;
+  }
+
+  public void setFieldId(String fieldId) {
+    this.fieldId = fieldId;
+  }
+
+  public User getReviewerUserId() {
+    return this.reviewerUserId;
+  }
+
+  public void setReviewerUserId(User reviewerUserId) {
+    this.reviewerUserId = reviewerUserId;
+  }
+
+  public String getSubmitTime() {
+    return this.submitTime;
+  }
+
+  public void setSubmitTime(String submitTime) {
+    this.submitTime = submitTime;
+  }
+
+  public String getIndicatorId() {
+    return this.indicatorId;
+  }
+
+  public void setIndicatorId(String indicatorId) {
+    this.indicatorId = indicatorId;
+  }
+
+  public String getOptionId() {
+    return this.optionId;
+  }
+
+  public void setOptionId(String optionId) {
+    this.optionId = optionId;
+  }
+
+  public String getScore() {
+    return this.score;
+  }
+
+  public void setScore(String score) {
+    this.score = score;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getPerfCoefficientResult() {
+    return this.perfCoefficientResult;
+  }
+
+  public void setPerfCoefficientResult(String perfCoefficientResult) {
+    this.perfCoefficientResult = perfCoefficientResult;
+  }
+
+  public String getRichtext() {
+    return this.richtext;
+  }
+
+  public void setRichtext(String richtext) {
+    this.richtext = richtext;
+  }
+
+  // builder 开始
+  public ReviewDetail() {}
+
+  public ReviewDetail(Builder builder) {
     /**
-     * 评估模板 ID
-     * <p> 示例值：6982759008972326447
+     * 评估模板
+     * ID，详情可查看：[获取评估模板](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/review_template/query);
+     *
+     * <p>示例值：6982759008972326447
      */
-    @SerializedName("template_id")
-    private String templateId;
+    this.templateId = builder.templateId;
     /**
      * 评估内容 ID
-     * <p> 示例值：6982759008973882926
+     *
+     * <p>示例值：6982759008973882926
      */
-    @SerializedName("unit_id")
-    private String unitId;
+    this.unitId = builder.unitId;
     /**
-     * 评估控件 ID
-     * <p> 示例值：6982759009698137641
+     * 评估字段 ID
+     *
+     * <p>示例值：6982759009698137641
      */
-    @SerializedName("field_id")
-    private String fieldId;
+    this.fieldId = builder.fieldId;
     /**
-     * 评估人 ID
-     * <p> 示例值：
+     * 被评估人 ID，ID
+     * 类型请参考：[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview)
+     *
+     * <p>示例值：
      */
-    @SerializedName("reviewer_user_id")
-    private User reviewerUserId;
+    this.reviewerUserId = builder.reviewerUserId;
     /**
-     * 最后提交时间
-     * <p> 示例值：1627977114000
+     * 最后提交时间，毫秒时间戳
+     *
+     * <p>示例值：1627977114000
      */
-    @SerializedName("submit_time")
-    private String submitTime;
+    this.submitTime = builder.submitTime;
     /**
-     * 评估项 ID，option_id 或 score 有值的时候有值
-     * <p> 示例值：6982759009698137641
+     * 评估项
+     * ID，详情可查看：[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query); ;;**说明**：当
+     * option_id 或 score 有值的时候有值
+     *
+     * <p>示例值：6982759009698137641
      */
-    @SerializedName("indicator_id")
-    private String indicatorId;
+    this.indicatorId = builder.indicatorId;
     /**
-     * 评估项结果等级 ID，有值表示当前数据是评级型评估项数据
-     * <p> 示例值：6966127279593686572
+     * 评估项结果等级 ID; ;;**说明**：当前评估项是评级型评估项数据时有值
+     *
+     * <p>示例值：6966127279593686572
      */
-    @SerializedName("option_id")
-    private String optionId;
+    this.optionId = builder.optionId;
     /**
-     * 评分型评估项填写内容，有值表示当前数据是评分型评估项数据
-     * <p> 示例值：0.4
+     * 评分型评估项填写内容; ;;**说明**：当前评估项是评分型评估项数据时有值
+     *
+     * <p>示例值：0.4
      */
-    @SerializedName("score")
-    private String score;
+    this.score = builder.score;
     /**
-     * 填写项填写内容，有值表示当前数据是填写项数据
-     * <p> 示例值：与公司共同发展
+     * 填写项填写内容 ;;;**说明**：当前评估项是填写项数据时有值
+     *
+     * <p>示例值：与公司共同发展
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 绩效系数值
-     * <p> 示例值：3.0
+     *
+     * <p>示例值：3.0
      */
-    @SerializedName("perf_coefficient_result")
-    private String perfCoefficientResult;
+    this.perfCoefficientResult = builder.perfCoefficientResult;
     /**
-     * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-     * <p> 示例值：{"ops":[{"name":"insert","text":"与公司共同发展","attributes":{"bold":true}}]}
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{"ops":[{"name":"insert","text":"与公司共同发展","attributes":{"bold":true}}]}
      */
-    @SerializedName("richtext")
+    this.richtext = builder.richtext;
+  }
+
+  public static class Builder {
+    /**
+     * 评估模板
+     * ID，详情可查看：[获取评估模板](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/review_template/query);
+     *
+     * <p>示例值：6982759008972326447
+     */
+    private String templateId;
+
+    /**
+     * 评估内容 ID
+     *
+     * <p>示例值：6982759008973882926
+     */
+    private String unitId;
+
+    /**
+     * 评估字段 ID
+     *
+     * <p>示例值：6982759009698137641
+     */
+    private String fieldId;
+
+    /**
+     * 被评估人 ID，ID
+     * 类型请参考：[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview)
+     *
+     * <p>示例值：
+     */
+    private User reviewerUserId;
+
+    /**
+     * 最后提交时间，毫秒时间戳
+     *
+     * <p>示例值：1627977114000
+     */
+    private String submitTime;
+
+    /**
+     * 评估项
+     * ID，详情可查看：[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query); ;;**说明**：当
+     * option_id 或 score 有值的时候有值
+     *
+     * <p>示例值：6982759009698137641
+     */
+    private String indicatorId;
+
+    /**
+     * 评估项结果等级 ID; ;;**说明**：当前评估项是评级型评估项数据时有值
+     *
+     * <p>示例值：6966127279593686572
+     */
+    private String optionId;
+
+    /**
+     * 评分型评估项填写内容; ;;**说明**：当前评估项是评分型评估项数据时有值
+     *
+     * <p>示例值：0.4
+     */
+    private String score;
+
+    /**
+     * 填写项填写内容 ;;;**说明**：当前评估项是填写项数据时有值
+     *
+     * <p>示例值：与公司共同发展
+     */
+    private String text;
+
+    /**
+     * 绩效系数值
+     *
+     * <p>示例值：3.0
+     */
+    private String perfCoefficientResult;
+
+    /**
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{"ops":[{"name":"insert","text":"与公司共同发展","attributes":{"bold":true}}]}
+     */
     private String richtext;
 
-    // builder 开始
-    public ReviewDetail() {
+    /**
+     * 评估模板
+     * ID，详情可查看：[获取评估模板](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/review_template/query);
+     *
+     * <p>示例值：6982759008972326447
+     *
+     * @param templateId
+     * @return
+     */
+    public Builder templateId(String templateId) {
+      this.templateId = templateId;
+      return this;
     }
 
-    public ReviewDetail(Builder builder) {
-        /**
-         * 评估模板 ID
-         * <p> 示例值：6982759008972326447
-         */
-        this.templateId = builder.templateId;
-        /**
-         * 评估内容 ID
-         * <p> 示例值：6982759008973882926
-         */
-        this.unitId = builder.unitId;
-        /**
-         * 评估控件 ID
-         * <p> 示例值：6982759009698137641
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 评估人 ID
-         * <p> 示例值：
-         */
-        this.reviewerUserId = builder.reviewerUserId;
-        /**
-         * 最后提交时间
-         * <p> 示例值：1627977114000
-         */
-        this.submitTime = builder.submitTime;
-        /**
-         * 评估项 ID，option_id 或 score 有值的时候有值
-         * <p> 示例值：6982759009698137641
-         */
-        this.indicatorId = builder.indicatorId;
-        /**
-         * 评估项结果等级 ID，有值表示当前数据是评级型评估项数据
-         * <p> 示例值：6966127279593686572
-         */
-        this.optionId = builder.optionId;
-        /**
-         * 评分型评估项填写内容，有值表示当前数据是评分型评估项数据
-         * <p> 示例值：0.4
-         */
-        this.score = builder.score;
-        /**
-         * 填写项填写内容，有值表示当前数据是填写项数据
-         * <p> 示例值：与公司共同发展
-         */
-        this.text = builder.text;
-        /**
-         * 绩效系数值
-         * <p> 示例值：3.0
-         */
-        this.perfCoefficientResult = builder.perfCoefficientResult;
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"与公司共同发展","attributes":{"bold":true}}]}
-         */
-        this.richtext = builder.richtext;
+    /**
+     * 评估内容 ID
+     *
+     * <p>示例值：6982759008973882926
+     *
+     * @param unitId
+     * @return
+     */
+    public Builder unitId(String unitId) {
+      this.unitId = unitId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评估字段 ID
+     *
+     * <p>示例值：6982759009698137641
+     *
+     * @param fieldId
+     * @return
+     */
+    public Builder fieldId(String fieldId) {
+      this.fieldId = fieldId;
+      return this;
     }
 
-    public String getTemplateId() {
-        return this.templateId;
+    /**
+     * 被评估人 ID，ID
+     * 类型请参考：[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview)
+     *
+     * <p>示例值：
+     *
+     * @param reviewerUserId
+     * @return
+     */
+    public Builder reviewerUserId(User reviewerUserId) {
+      this.reviewerUserId = reviewerUserId;
+      return this;
     }
 
-    public void setTemplateId(String templateId) {
-        this.templateId = templateId;
+    /**
+     * 最后提交时间，毫秒时间戳
+     *
+     * <p>示例值：1627977114000
+     *
+     * @param submitTime
+     * @return
+     */
+    public Builder submitTime(String submitTime) {
+      this.submitTime = submitTime;
+      return this;
     }
 
-    public String getUnitId() {
-        return this.unitId;
+    /**
+     * 评估项
+     * ID，详情可查看：[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query); ;;**说明**：当
+     * option_id 或 score 有值的时候有值
+     *
+     * <p>示例值：6982759009698137641
+     *
+     * @param indicatorId
+     * @return
+     */
+    public Builder indicatorId(String indicatorId) {
+      this.indicatorId = indicatorId;
+      return this;
     }
 
-    public void setUnitId(String unitId) {
-        this.unitId = unitId;
+    /**
+     * 评估项结果等级 ID; ;;**说明**：当前评估项是评级型评估项数据时有值
+     *
+     * <p>示例值：6966127279593686572
+     *
+     * @param optionId
+     * @return
+     */
+    public Builder optionId(String optionId) {
+      this.optionId = optionId;
+      return this;
     }
 
-    public String getFieldId() {
-        return this.fieldId;
+    /**
+     * 评分型评估项填写内容; ;;**说明**：当前评估项是评分型评估项数据时有值
+     *
+     * <p>示例值：0.4
+     *
+     * @param score
+     * @return
+     */
+    public Builder score(String score) {
+      this.score = score;
+      return this;
     }
 
-    public void setFieldId(String fieldId) {
-        this.fieldId = fieldId;
+    /**
+     * 填写项填写内容 ;;;**说明**：当前评估项是填写项数据时有值
+     *
+     * <p>示例值：与公司共同发展
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public User getReviewerUserId() {
-        return this.reviewerUserId;
+    /**
+     * 绩效系数值
+     *
+     * <p>示例值：3.0
+     *
+     * @param perfCoefficientResult
+     * @return
+     */
+    public Builder perfCoefficientResult(String perfCoefficientResult) {
+      this.perfCoefficientResult = perfCoefficientResult;
+      return this;
     }
 
-    public void setReviewerUserId(User reviewerUserId) {
-        this.reviewerUserId = reviewerUserId;
+    /**
+     * 富文本格式的填写内容，解析方式见
+     * [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
+     *
+     * <p>示例值：{"ops":[{"name":"insert","text":"与公司共同发展","attributes":{"bold":true}}]}
+     *
+     * @param richtext
+     * @return
+     */
+    public Builder richtext(String richtext) {
+      this.richtext = richtext;
+      return this;
     }
 
-    public String getSubmitTime() {
-        return this.submitTime;
+    public ReviewDetail build() {
+      return new ReviewDetail(this);
     }
+  }
 
-    public void setSubmitTime(String submitTime) {
-        this.submitTime = submitTime;
-    }
-
-    public String getIndicatorId() {
-        return this.indicatorId;
-    }
-
-    public void setIndicatorId(String indicatorId) {
-        this.indicatorId = indicatorId;
-    }
-
-    public String getOptionId() {
-        return this.optionId;
-    }
-
-    public void setOptionId(String optionId) {
-        this.optionId = optionId;
-    }
-
-    public String getScore() {
-        return this.score;
-    }
-
-    public void setScore(String score) {
-        this.score = score;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getPerfCoefficientResult() {
-        return this.perfCoefficientResult;
-    }
-
-    public void setPerfCoefficientResult(String perfCoefficientResult) {
-        this.perfCoefficientResult = perfCoefficientResult;
-    }
-
-    public String getRichtext() {
-        return this.richtext;
-    }
-
-    public void setRichtext(String richtext) {
-        this.richtext = richtext;
-    }
-
-    public static class Builder {
-        /**
-         * 评估模板 ID
-         * <p> 示例值：6982759008972326447
-         */
-        private String templateId;
-        /**
-         * 评估内容 ID
-         * <p> 示例值：6982759008973882926
-         */
-        private String unitId;
-        /**
-         * 评估控件 ID
-         * <p> 示例值：6982759009698137641
-         */
-        private String fieldId;
-        /**
-         * 评估人 ID
-         * <p> 示例值：
-         */
-        private User reviewerUserId;
-        /**
-         * 最后提交时间
-         * <p> 示例值：1627977114000
-         */
-        private String submitTime;
-        /**
-         * 评估项 ID，option_id 或 score 有值的时候有值
-         * <p> 示例值：6982759009698137641
-         */
-        private String indicatorId;
-        /**
-         * 评估项结果等级 ID，有值表示当前数据是评级型评估项数据
-         * <p> 示例值：6966127279593686572
-         */
-        private String optionId;
-        /**
-         * 评分型评估项填写内容，有值表示当前数据是评分型评估项数据
-         * <p> 示例值：0.4
-         */
-        private String score;
-        /**
-         * 填写项填写内容，有值表示当前数据是填写项数据
-         * <p> 示例值：与公司共同发展
-         */
-        private String text;
-        /**
-         * 绩效系数值
-         * <p> 示例值：3.0
-         */
-        private String perfCoefficientResult;
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"与公司共同发展","attributes":{"bold":true}}]}
-         */
-        private String richtext;
-
-        /**
-         * 评估模板 ID
-         * <p> 示例值：6982759008972326447
-         *
-         * @param templateId
-         * @return
-         */
-        public Builder templateId(String templateId) {
-            this.templateId = templateId;
-            return this;
-        }
-
-
-        /**
-         * 评估内容 ID
-         * <p> 示例值：6982759008973882926
-         *
-         * @param unitId
-         * @return
-         */
-        public Builder unitId(String unitId) {
-            this.unitId = unitId;
-            return this;
-        }
-
-
-        /**
-         * 评估控件 ID
-         * <p> 示例值：6982759009698137641
-         *
-         * @param fieldId
-         * @return
-         */
-        public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
-        }
-
-
-        /**
-         * 评估人 ID
-         * <p> 示例值：
-         *
-         * @param reviewerUserId
-         * @return
-         */
-        public Builder reviewerUserId(User reviewerUserId) {
-            this.reviewerUserId = reviewerUserId;
-            return this;
-        }
-
-
-        /**
-         * 最后提交时间
-         * <p> 示例值：1627977114000
-         *
-         * @param submitTime
-         * @return
-         */
-        public Builder submitTime(String submitTime) {
-            this.submitTime = submitTime;
-            return this;
-        }
-
-
-        /**
-         * 评估项 ID，option_id 或 score 有值的时候有值
-         * <p> 示例值：6982759009698137641
-         *
-         * @param indicatorId
-         * @return
-         */
-        public Builder indicatorId(String indicatorId) {
-            this.indicatorId = indicatorId;
-            return this;
-        }
-
-
-        /**
-         * 评估项结果等级 ID，有值表示当前数据是评级型评估项数据
-         * <p> 示例值：6966127279593686572
-         *
-         * @param optionId
-         * @return
-         */
-        public Builder optionId(String optionId) {
-            this.optionId = optionId;
-            return this;
-        }
-
-
-        /**
-         * 评分型评估项填写内容，有值表示当前数据是评分型评估项数据
-         * <p> 示例值：0.4
-         *
-         * @param score
-         * @return
-         */
-        public Builder score(String score) {
-            this.score = score;
-            return this;
-        }
-
-
-        /**
-         * 填写项填写内容，有值表示当前数据是填写项数据
-         * <p> 示例值：与公司共同发展
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 绩效系数值
-         * <p> 示例值：3.0
-         *
-         * @param perfCoefficientResult
-         * @return
-         */
-        public Builder perfCoefficientResult(String perfCoefficientResult) {
-            this.perfCoefficientResult = perfCoefficientResult;
-            return this;
-        }
-
-
-        /**
-         * 富文本格式的填写内容，解析方式见 [editor](https://open.larkoffice.com/document/client-docs/gadget/component-component/basic-component/form/editor#51af2f4f)
-         * <p> 示例值：{"ops":[{"name":"insert","text":"与公司共同发展","attributes":{"bold":true}}]}
-         *
-         * @param richtext
-         * @return
-         */
-        public Builder richtext(String richtext) {
-            this.richtext = richtext;
-            return this;
-        }
-
-
-        public ReviewDetail build() {
-            return new ReviewDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

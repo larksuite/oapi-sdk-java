@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class IntRange {
+  /**
+   * 大于
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("greate_than")
+  private Integer greateThan;
+
+  /**
+   * 大于等于
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("greate_equal_than")
+  private Integer greateEqualThan;
+
+  /**
+   * 小于
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("less_than")
+  private Integer lessThan;
+
+  /**
+   * 小于等于
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("less_equal_than")
+  private Integer lessEqualThan;
+
+  public Integer getGreateThan() {
+    return this.greateThan;
+  }
+
+  public void setGreateThan(Integer greateThan) {
+    this.greateThan = greateThan;
+  }
+
+  public Integer getGreateEqualThan() {
+    return this.greateEqualThan;
+  }
+
+  public void setGreateEqualThan(Integer greateEqualThan) {
+    this.greateEqualThan = greateEqualThan;
+  }
+
+  public Integer getLessThan() {
+    return this.lessThan;
+  }
+
+  public void setLessThan(Integer lessThan) {
+    this.lessThan = lessThan;
+  }
+
+  public Integer getLessEqualThan() {
+    return this.lessEqualThan;
+  }
+
+  public void setLessEqualThan(Integer lessEqualThan) {
+    this.lessEqualThan = lessEqualThan;
+  }
+
+  // builder 开始
+  public IntRange() {}
+
+  public IntRange(Builder builder) {
     /**
      * 大于
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("greate_than")
-    private Integer greateThan;
+    this.greateThan = builder.greateThan;
     /**
      * 大于等于
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("greate_equal_than")
-    private Integer greateEqualThan;
+    this.greateEqualThan = builder.greateEqualThan;
     /**
      * 小于
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("less_than")
-    private Integer lessThan;
+    this.lessThan = builder.lessThan;
     /**
      * 小于等于
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("less_equal_than")
+    this.lessEqualThan = builder.lessEqualThan;
+  }
+
+  public static class Builder {
+    /**
+     * 大于
+     *
+     * <p>示例值：1
+     */
+    private Integer greateThan;
+
+    /**
+     * 大于等于
+     *
+     * <p>示例值：1
+     */
+    private Integer greateEqualThan;
+
+    /**
+     * 小于
+     *
+     * <p>示例值：1
+     */
+    private Integer lessThan;
+
+    /**
+     * 小于等于
+     *
+     * <p>示例值：1
+     */
     private Integer lessEqualThan;
 
-    // builder 开始
-    public IntRange() {
+    /**
+     * 大于
+     *
+     * <p>示例值：1
+     *
+     * @param greateThan
+     * @return
+     */
+    public Builder greateThan(Integer greateThan) {
+      this.greateThan = greateThan;
+      return this;
     }
 
-    public IntRange(Builder builder) {
-        /**
-         * 大于
-         * <p> 示例值：1
-         */
-        this.greateThan = builder.greateThan;
-        /**
-         * 大于等于
-         * <p> 示例值：1
-         */
-        this.greateEqualThan = builder.greateEqualThan;
-        /**
-         * 小于
-         * <p> 示例值：1
-         */
-        this.lessThan = builder.lessThan;
-        /**
-         * 小于等于
-         * <p> 示例值：1
-         */
-        this.lessEqualThan = builder.lessEqualThan;
+    /**
+     * 大于等于
+     *
+     * <p>示例值：1
+     *
+     * @param greateEqualThan
+     * @return
+     */
+    public Builder greateEqualThan(Integer greateEqualThan) {
+      this.greateEqualThan = greateEqualThan;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 小于
+     *
+     * <p>示例值：1
+     *
+     * @param lessThan
+     * @return
+     */
+    public Builder lessThan(Integer lessThan) {
+      this.lessThan = lessThan;
+      return this;
     }
 
-    public Integer getGreateThan() {
-        return this.greateThan;
+    /**
+     * 小于等于
+     *
+     * <p>示例值：1
+     *
+     * @param lessEqualThan
+     * @return
+     */
+    public Builder lessEqualThan(Integer lessEqualThan) {
+      this.lessEqualThan = lessEqualThan;
+      return this;
     }
 
-    public void setGreateThan(Integer greateThan) {
-        this.greateThan = greateThan;
+    public IntRange build() {
+      return new IntRange(this);
     }
+  }
 
-    public Integer getGreateEqualThan() {
-        return this.greateEqualThan;
-    }
-
-    public void setGreateEqualThan(Integer greateEqualThan) {
-        this.greateEqualThan = greateEqualThan;
-    }
-
-    public Integer getLessThan() {
-        return this.lessThan;
-    }
-
-    public void setLessThan(Integer lessThan) {
-        this.lessThan = lessThan;
-    }
-
-    public Integer getLessEqualThan() {
-        return this.lessEqualThan;
-    }
-
-    public void setLessEqualThan(Integer lessEqualThan) {
-        this.lessEqualThan = lessEqualThan;
-    }
-
-    public static class Builder {
-        /**
-         * 大于
-         * <p> 示例值：1
-         */
-        private Integer greateThan;
-        /**
-         * 大于等于
-         * <p> 示例值：1
-         */
-        private Integer greateEqualThan;
-        /**
-         * 小于
-         * <p> 示例值：1
-         */
-        private Integer lessThan;
-        /**
-         * 小于等于
-         * <p> 示例值：1
-         */
-        private Integer lessEqualThan;
-
-        /**
-         * 大于
-         * <p> 示例值：1
-         *
-         * @param greateThan
-         * @return
-         */
-        public Builder greateThan(Integer greateThan) {
-            this.greateThan = greateThan;
-            return this;
-        }
-
-
-        /**
-         * 大于等于
-         * <p> 示例值：1
-         *
-         * @param greateEqualThan
-         * @return
-         */
-        public Builder greateEqualThan(Integer greateEqualThan) {
-            this.greateEqualThan = greateEqualThan;
-            return this;
-        }
-
-
-        /**
-         * 小于
-         * <p> 示例值：1
-         *
-         * @param lessThan
-         * @return
-         */
-        public Builder lessThan(Integer lessThan) {
-            this.lessThan = lessThan;
-            return this;
-        }
-
-
-        /**
-         * 小于等于
-         * <p> 示例值：1
-         *
-         * @param lessEqualThan
-         * @return
-         */
-        public Builder lessEqualThan(Integer lessEqualThan) {
-            this.lessEqualThan = lessEqualThan;
-            return this;
-        }
-
-
-        public IntRange build() {
-            return new IntRange(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

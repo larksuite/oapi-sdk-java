@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Suggestion {
+  /**
+   * 推荐的内容
+   *
+   * <p>示例值：今天天气如何
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 推荐的技能
+   *
+   * <p>示例值：skill_xxx
+   */
+  @SerializedName("skill_id")
+  private String skillId;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getSkillId() {
+    return this.skillId;
+  }
+
+  public void setSkillId(String skillId) {
+    this.skillId = skillId;
+  }
+
+  // builder 开始
+  public Suggestion() {}
+
+  public Suggestion(Builder builder) {
     /**
      * 推荐的内容
-     * <p> 示例值：今天天气如何
+     *
+     * <p>示例值：今天天气如何
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 推荐的技能
-     * <p> 示例值：skill_xxx
+     *
+     * <p>示例值：skill_xxx
      */
-    @SerializedName("skill_id")
+    this.skillId = builder.skillId;
+  }
+
+  public static class Builder {
+    /**
+     * 推荐的内容
+     *
+     * <p>示例值：今天天气如何
+     */
+    private String content;
+
+    /**
+     * 推荐的技能
+     *
+     * <p>示例值：skill_xxx
+     */
     private String skillId;
 
-    // builder 开始
-    public Suggestion() {
+    /**
+     * 推荐的内容
+     *
+     * <p>示例值：今天天气如何
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public Suggestion(Builder builder) {
-        /**
-         * 推荐的内容
-         * <p> 示例值：今天天气如何
-         */
-        this.content = builder.content;
-        /**
-         * 推荐的技能
-         * <p> 示例值：skill_xxx
-         */
-        this.skillId = builder.skillId;
+    /**
+     * 推荐的技能
+     *
+     * <p>示例值：skill_xxx
+     *
+     * @param skillId
+     * @return
+     */
+    public Builder skillId(String skillId) {
+      this.skillId = skillId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Suggestion build() {
+      return new Suggestion(this);
     }
+  }
 
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getSkillId() {
-        return this.skillId;
-    }
-
-    public void setSkillId(String skillId) {
-        this.skillId = skillId;
-    }
-
-    public static class Builder {
-        /**
-         * 推荐的内容
-         * <p> 示例值：今天天气如何
-         */
-        private String content;
-        /**
-         * 推荐的技能
-         * <p> 示例值：skill_xxx
-         */
-        private String skillId;
-
-        /**
-         * 推荐的内容
-         * <p> 示例值：今天天气如何
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 推荐的技能
-         * <p> 示例值：skill_xxx
-         *
-         * @param skillId
-         * @return
-         */
-        public Builder skillId(String skillId) {
-            this.skillId = skillId;
-            return this;
-        }
-
-
-        public Suggestion build() {
-            return new Suggestion(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

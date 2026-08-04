@@ -13,297 +13,443 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class App {
+  /**
+   * 应用唯一标识，系统自动生成，用于在接口中定位具体应用。可通过应用创建接口或开发者后台获取
+   *
+   * <p>示例值：app_7d2f8a4b1c9e6035
+   */
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 应用类型;可选值：HTML
+   *
+   * <p>示例值：HTML
+   */
+  @SerializedName("app_type")
+  private String appType;
+
+  /**
+   * 应用名称，用于在管理后台和前端展示，支持中英文，长度不超过64字符
+   *
+   * <p>示例值：智能客服助手
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 应用功能说明，用于向用户介绍应用核心能力，长度不超过200字符
+   *
+   * <p>示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 应用图标访问地址，支持PNG/JPG格式，建议尺寸为128×128像素
+   *
+   * <p>示例值：https://example.com/app-icons/customer-service.png
+   */
+  @SerializedName("icon_url")
+  private String iconUrl;
+
+  /**
+   * 应用创建时间，遵循ISO 8601 UTC格式，由系统自动生成
+   *
+   * <p>示例值：2026-05-18T10:00:00Z
+   */
+  @SerializedName("created_at")
+  private String createdAt;
+
+  /**
+   * 应用最后更新时间，遵循ISO 8601 UTC格式，应用信息变更时自动更新
+   *
+   * <p>示例值：2026-06-20T14:30:00Z
+   */
+  @SerializedName("updated_at")
+  private String updatedAt;
+
+  /**
+   * 应用是否已发布
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_published")
+  private Boolean isPublished;
+
+  /**
+   * 应用发布后的访问地址
+   *
+   * <p>示例值：http://www.tos.dlxka.com
+   */
+  @SerializedName("online_url")
+  private String onlineUrl;
+
+  /**
+   * 应用对应的文档 token
+   *
+   * <p>示例值：wfjgyiyN2Fk17H8cgfFanWe
+   */
+  @SerializedName("meta_token")
+  private String metaToken;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getAppType() {
+    return this.appType;
+  }
+
+  public void setAppType(String appType) {
+    this.appType = appType;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getIconUrl() {
+    return this.iconUrl;
+  }
+
+  public void setIconUrl(String iconUrl) {
+    this.iconUrl = iconUrl;
+  }
+
+  public String getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public Boolean getIsPublished() {
+    return this.isPublished;
+  }
+
+  public void setIsPublished(Boolean isPublished) {
+    this.isPublished = isPublished;
+  }
+
+  public String getOnlineUrl() {
+    return this.onlineUrl;
+  }
+
+  public void setOnlineUrl(String onlineUrl) {
+    this.onlineUrl = onlineUrl;
+  }
+
+  public String getMetaToken() {
+    return this.metaToken;
+  }
+
+  public void setMetaToken(String metaToken) {
+    this.metaToken = metaToken;
+  }
+
+  // builder 开始
+  public App() {}
+
+  public App(Builder builder) {
     /**
      * 应用唯一标识，系统自动生成，用于在接口中定位具体应用。可通过应用创建接口或开发者后台获取
-     * <p> 示例值：app_7d2f8a4b1c9e6035
+     *
+     * <p>示例值：app_7d2f8a4b1c9e6035
      */
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
     /**
-     * 应用类型
-     * <p> 示例值：
+     * 应用类型;可选值：HTML
+     *
+     * <p>示例值：HTML
      */
-    @SerializedName("app_type")
-    private String appType;
+    this.appType = builder.appType;
     /**
      * 应用名称，用于在管理后台和前端展示，支持中英文，长度不超过64字符
-     * <p> 示例值：智能客服助手
+     *
+     * <p>示例值：智能客服助手
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 应用功能说明，用于向用户介绍应用核心能力，长度不超过200字符
-     * <p> 示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
+     *
+     * <p>示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 应用图标访问地址，支持PNG/JPG格式，建议尺寸为128×128像素
-     * <p> 示例值：https://example.com/app-icons/customer-service.png
+     *
+     * <p>示例值：https://example.com/app-icons/customer-service.png
      */
-    @SerializedName("icon_url")
-    private String iconUrl;
+    this.iconUrl = builder.iconUrl;
     /**
      * 应用创建时间，遵循ISO 8601 UTC格式，由系统自动生成
-     * <p> 示例值：2026-05-18T10:00:00Z
+     *
+     * <p>示例值：2026-05-18T10:00:00Z
      */
-    @SerializedName("created_at")
-    private String createdAt;
+    this.createdAt = builder.createdAt;
     /**
      * 应用最后更新时间，遵循ISO 8601 UTC格式，应用信息变更时自动更新
-     * <p> 示例值：2026-06-20T14:30:00Z
+     *
+     * <p>示例值：2026-06-20T14:30:00Z
      */
-    @SerializedName("updated_at")
+    this.updatedAt = builder.updatedAt;
+    /**
+     * 应用是否已发布
+     *
+     * <p>示例值：true
+     */
+    this.isPublished = builder.isPublished;
+    /**
+     * 应用发布后的访问地址
+     *
+     * <p>示例值：http://www.tos.dlxka.com
+     */
+    this.onlineUrl = builder.onlineUrl;
+    /**
+     * 应用对应的文档 token
+     *
+     * <p>示例值：wfjgyiyN2Fk17H8cgfFanWe
+     */
+    this.metaToken = builder.metaToken;
+  }
+
+  public static class Builder {
+    /**
+     * 应用唯一标识，系统自动生成，用于在接口中定位具体应用。可通过应用创建接口或开发者后台获取
+     *
+     * <p>示例值：app_7d2f8a4b1c9e6035
+     */
+    private String appId;
+
+    /**
+     * 应用类型;可选值：HTML
+     *
+     * <p>示例值：HTML
+     */
+    private String appType;
+
+    /**
+     * 应用名称，用于在管理后台和前端展示，支持中英文，长度不超过64字符
+     *
+     * <p>示例值：智能客服助手
+     */
+    private String name;
+
+    /**
+     * 应用功能说明，用于向用户介绍应用核心能力，长度不超过200字符
+     *
+     * <p>示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
+     */
+    private String description;
+
+    /**
+     * 应用图标访问地址，支持PNG/JPG格式，建议尺寸为128×128像素
+     *
+     * <p>示例值：https://example.com/app-icons/customer-service.png
+     */
+    private String iconUrl;
+
+    /**
+     * 应用创建时间，遵循ISO 8601 UTC格式，由系统自动生成
+     *
+     * <p>示例值：2026-05-18T10:00:00Z
+     */
+    private String createdAt;
+
+    /**
+     * 应用最后更新时间，遵循ISO 8601 UTC格式，应用信息变更时自动更新
+     *
+     * <p>示例值：2026-06-20T14:30:00Z
+     */
     private String updatedAt;
 
-    // builder 开始
-    public App() {
+    /**
+     * 应用是否已发布
+     *
+     * <p>示例值：true
+     */
+    private Boolean isPublished;
+
+    /**
+     * 应用发布后的访问地址
+     *
+     * <p>示例值：http://www.tos.dlxka.com
+     */
+    private String onlineUrl;
+
+    /**
+     * 应用对应的文档 token
+     *
+     * <p>示例值：wfjgyiyN2Fk17H8cgfFanWe
+     */
+    private String metaToken;
+
+    /**
+     * 应用唯一标识，系统自动生成，用于在接口中定位具体应用。可通过应用创建接口或开发者后台获取
+     *
+     * <p>示例值：app_7d2f8a4b1c9e6035
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public App(Builder builder) {
-        /**
-         * 应用唯一标识，系统自动生成，用于在接口中定位具体应用。可通过应用创建接口或开发者后台获取
-         * <p> 示例值：app_7d2f8a4b1c9e6035
-         */
-        this.appId = builder.appId;
-        /**
-         * 应用类型
-         * <p> 示例值：
-         */
-        this.appType = builder.appType;
-        /**
-         * 应用名称，用于在管理后台和前端展示，支持中英文，长度不超过64字符
-         * <p> 示例值：智能客服助手
-         */
-        this.name = builder.name;
-        /**
-         * 应用功能说明，用于向用户介绍应用核心能力，长度不超过200字符
-         * <p> 示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
-         */
-        this.description = builder.description;
-        /**
-         * 应用图标访问地址，支持PNG/JPG格式，建议尺寸为128×128像素
-         * <p> 示例值：https://example.com/app-icons/customer-service.png
-         */
-        this.iconUrl = builder.iconUrl;
-        /**
-         * 应用创建时间，遵循ISO 8601 UTC格式，由系统自动生成
-         * <p> 示例值：2026-05-18T10:00:00Z
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 应用最后更新时间，遵循ISO 8601 UTC格式，应用信息变更时自动更新
-         * <p> 示例值：2026-06-20T14:30:00Z
-         */
-        this.updatedAt = builder.updatedAt;
+    /**
+     * 应用类型;可选值：HTML
+     *
+     * <p>示例值：HTML
+     *
+     * @param appType
+     * @return
+     */
+    public Builder appType(String appType) {
+      this.appType = appType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 应用名称，用于在管理后台和前端展示，支持中英文，长度不超过64字符
+     *
+     * <p>示例值：智能客服助手
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getAppId() {
-        return this.appId;
+    /**
+     * 应用功能说明，用于向用户介绍应用核心能力，长度不超过200字符
+     *
+     * <p>示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public void setAppId(String appId) {
-        this.appId = appId;
+    /**
+     * 应用图标访问地址，支持PNG/JPG格式，建议尺寸为128×128像素
+     *
+     * <p>示例值：https://example.com/app-icons/customer-service.png
+     *
+     * @param iconUrl
+     * @return
+     */
+    public Builder iconUrl(String iconUrl) {
+      this.iconUrl = iconUrl;
+      return this;
     }
 
-    public String getAppType() {
-        return this.appType;
+    /**
+     * 应用创建时间，遵循ISO 8601 UTC格式，由系统自动生成
+     *
+     * <p>示例值：2026-05-18T10:00:00Z
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(String createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public void setAppType(String appType) {
-        this.appType = appType;
+    /**
+     * 应用最后更新时间，遵循ISO 8601 UTC格式，应用信息变更时自动更新
+     *
+     * <p>示例值：2026-06-20T14:30:00Z
+     *
+     * @param updatedAt
+     * @return
+     */
+    public Builder updatedAt(String updatedAt) {
+      this.updatedAt = updatedAt;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 应用是否已发布
+     *
+     * <p>示例值：true
+     *
+     * @param isPublished
+     * @return
+     */
+    public Builder isPublished(Boolean isPublished) {
+      this.isPublished = isPublished;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 应用发布后的访问地址
+     *
+     * <p>示例值：http://www.tos.dlxka.com
+     *
+     * @param onlineUrl
+     * @return
+     */
+    public Builder onlineUrl(String onlineUrl) {
+      this.onlineUrl = onlineUrl;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * 应用对应的文档 token
+     *
+     * <p>示例值：wfjgyiyN2Fk17H8cgfFanWe
+     *
+     * @param metaToken
+     * @return
+     */
+    public Builder metaToken(String metaToken) {
+      this.metaToken = metaToken;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public App build() {
+      return new App(this);
     }
+  }
 
-    public String getIconUrl() {
-        return this.iconUrl;
-    }
-
-    public void setIconUrl(String iconUrl) {
-        this.iconUrl = iconUrl;
-    }
-
-    public String getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdatedAt() {
-        return this.updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public static class Builder {
-        /**
-         * 应用唯一标识，系统自动生成，用于在接口中定位具体应用。可通过应用创建接口或开发者后台获取
-         * <p> 示例值：app_7d2f8a4b1c9e6035
-         */
-        private String appId;
-        /**
-         * 应用类型
-         * <p> 示例值：
-         */
-        private String appType;
-        /**
-         * 应用名称，用于在管理后台和前端展示，支持中英文，长度不超过64字符
-         * <p> 示例值：智能客服助手
-         */
-        private String name;
-        /**
-         * 应用功能说明，用于向用户介绍应用核心能力，长度不超过200字符
-         * <p> 示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
-         */
-        private String description;
-        /**
-         * 应用图标访问地址，支持PNG/JPG格式，建议尺寸为128×128像素
-         * <p> 示例值：https://example.com/app-icons/customer-service.png
-         */
-        private String iconUrl;
-        /**
-         * 应用创建时间，遵循ISO 8601 UTC格式，由系统自动生成
-         * <p> 示例值：2026-05-18T10:00:00Z
-         */
-        private String createdAt;
-        /**
-         * 应用最后更新时间，遵循ISO 8601 UTC格式，应用信息变更时自动更新
-         * <p> 示例值：2026-06-20T14:30:00Z
-         */
-        private String updatedAt;
-
-        /**
-         * 应用唯一标识，系统自动生成，用于在接口中定位具体应用。可通过应用创建接口或开发者后台获取
-         * <p> 示例值：app_7d2f8a4b1c9e6035
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 应用类型
-         * <p> 示例值：
-         *
-         * @param appType
-         * @return
-         */
-        public Builder appType(String appType) {
-            this.appType = appType;
-            return this;
-        }
-
-
-        /**
-         * 应用名称，用于在管理后台和前端展示，支持中英文，长度不超过64字符
-         * <p> 示例值：智能客服助手
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 应用功能说明，用于向用户介绍应用核心能力，长度不超过200字符
-         * <p> 示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 应用图标访问地址，支持PNG/JPG格式，建议尺寸为128×128像素
-         * <p> 示例值：https://example.com/app-icons/customer-service.png
-         *
-         * @param iconUrl
-         * @return
-         */
-        public Builder iconUrl(String iconUrl) {
-            this.iconUrl = iconUrl;
-            return this;
-        }
-
-
-        /**
-         * 应用创建时间，遵循ISO 8601 UTC格式，由系统自动生成
-         * <p> 示例值：2026-05-18T10:00:00Z
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(String createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 应用最后更新时间，遵循ISO 8601 UTC格式，应用信息变更时自动更新
-         * <p> 示例值：2026-06-20T14:30:00Z
-         *
-         * @param updatedAt
-         * @return
-         */
-        public Builder updatedAt(String updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
-        }
-
-
-        public App build() {
-            return new App(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

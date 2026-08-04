@@ -13,531 +13,582 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DocFilter {
+  /**
+   * 文档所有者OpenID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("creator_ids")
+  private String[] creatorIds;
+
+  /**
+   * 文档类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("doc_types")
+  private String[] docTypes;
+
+  /**
+   * 搜索文件夹内的文档（文件夹token列表）;注：如果存在该字段则wiki筛选器失效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("folder_tokens")
+  private String[] folderTokens;
+
+  /**
+   * 仅搜文档标题
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("only_title")
+  private Boolean onlyTitle;
+
+  /**
+   * 浏览文档的时间范围（秒级时间戳，包含start和end字段）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("open_time")
+  private TimeRange openTime;
+
+  /**
+   * 排序方式
+   *
+   * <p>示例值：CREATE_TIME
+   */
+  @SerializedName("sort_type")
+  private String sortType;
+
+  /**
+   * 文档创建的时间范围（秒级时间戳，包含start和end字段）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("create_time")
+  private TimeRange createTime;
+
+  /**
+   * 搜索在会话内的文档
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_ids")
+  private String[] chatIds;
+
+  /**
+   * 文档分享者OpenID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sharer_ids")
+  private String[] sharerIds;
+
+  /**
+   * 仅搜文档评论
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("only_comment")
+  private Boolean onlyComment;
+
+  /**
+   * 【我编辑的文档】的时间范围（秒级时间戳，包含start和end字段）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("my_edit_time")
+  private TimeRange myEditTime;
+
+  /**
+   * 【我评论的文档】的时间范围（秒级时间戳，包含start和end字段）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("my_comment_time")
+  private TimeRange myCommentTime;
+
+  /**
+   * 文档创建者者OpenID，注意和creator_ids区分开
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_creator_ids")
+  private String[] originalCreatorIds;
+
+  public String[] getCreatorIds() {
+    return this.creatorIds;
+  }
+
+  public void setCreatorIds(String[] creatorIds) {
+    this.creatorIds = creatorIds;
+  }
+
+  public String[] getDocTypes() {
+    return this.docTypes;
+  }
+
+  public void setDocTypes(String[] docTypes) {
+    this.docTypes = docTypes;
+  }
+
+  public String[] getFolderTokens() {
+    return this.folderTokens;
+  }
+
+  public void setFolderTokens(String[] folderTokens) {
+    this.folderTokens = folderTokens;
+  }
+
+  public Boolean getOnlyTitle() {
+    return this.onlyTitle;
+  }
+
+  public void setOnlyTitle(Boolean onlyTitle) {
+    this.onlyTitle = onlyTitle;
+  }
+
+  public TimeRange getOpenTime() {
+    return this.openTime;
+  }
+
+  public void setOpenTime(TimeRange openTime) {
+    this.openTime = openTime;
+  }
+
+  public String getSortType() {
+    return this.sortType;
+  }
+
+  public void setSortType(String sortType) {
+    this.sortType = sortType;
+  }
+
+  public TimeRange getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(TimeRange createTime) {
+    this.createTime = createTime;
+  }
+
+  public String[] getChatIds() {
+    return this.chatIds;
+  }
+
+  public void setChatIds(String[] chatIds) {
+    this.chatIds = chatIds;
+  }
+
+  public String[] getSharerIds() {
+    return this.sharerIds;
+  }
+
+  public void setSharerIds(String[] sharerIds) {
+    this.sharerIds = sharerIds;
+  }
+
+  public Boolean getOnlyComment() {
+    return this.onlyComment;
+  }
+
+  public void setOnlyComment(Boolean onlyComment) {
+    this.onlyComment = onlyComment;
+  }
+
+  public TimeRange getMyEditTime() {
+    return this.myEditTime;
+  }
+
+  public void setMyEditTime(TimeRange myEditTime) {
+    this.myEditTime = myEditTime;
+  }
+
+  public TimeRange getMyCommentTime() {
+    return this.myCommentTime;
+  }
+
+  public void setMyCommentTime(TimeRange myCommentTime) {
+    this.myCommentTime = myCommentTime;
+  }
+
+  public String[] getOriginalCreatorIds() {
+    return this.originalCreatorIds;
+  }
+
+  public void setOriginalCreatorIds(String[] originalCreatorIds) {
+    this.originalCreatorIds = originalCreatorIds;
+  }
+
+  // builder 开始
+  public DocFilter() {}
+
+  public DocFilter(Builder builder) {
     /**
      * 文档所有者OpenID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("creator_ids")
-    private String[] creatorIds;
+    this.creatorIds = builder.creatorIds;
     /**
      * 文档类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("doc_types")
-    private String[] docTypes;
+    this.docTypes = builder.docTypes;
     /**
-     * 搜索文件夹内的文档（文件夹token列表）
-     * <p> 示例值：
+     * 搜索文件夹内的文档（文件夹token列表）;注：如果存在该字段则wiki筛选器失效
+     *
+     * <p>示例值：
      */
-    @SerializedName("folder_tokens")
-    private String[] folderTokens;
+    this.folderTokens = builder.folderTokens;
     /**
      * 仅搜文档标题
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("only_title")
-    private Boolean onlyTitle;
+    this.onlyTitle = builder.onlyTitle;
     /**
      * 浏览文档的时间范围（秒级时间戳，包含start和end字段）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("open_time")
-    private TimeRange openTime;
+    this.openTime = builder.openTime;
     /**
      * 排序方式
-     * <p> 示例值：CREATE_TIME_ASC
+     *
+     * <p>示例值：CREATE_TIME
      */
-    @SerializedName("sort_type")
-    private String sortType;
+    this.sortType = builder.sortType;
     /**
      * 文档创建的时间范围（秒级时间戳，包含start和end字段）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("create_time")
-    private TimeRange createTime;
+    this.createTime = builder.createTime;
     /**
      * 搜索在会话内的文档
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_ids")
-    private String[] chatIds;
+    this.chatIds = builder.chatIds;
     /**
      * 文档分享者OpenID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sharer_ids")
-    private String[] sharerIds;
+    this.sharerIds = builder.sharerIds;
     /**
      * 仅搜文档评论
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("only_comment")
-    private Boolean onlyComment;
+    this.onlyComment = builder.onlyComment;
     /**
      * 【我编辑的文档】的时间范围（秒级时间戳，包含start和end字段）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("my_edit_time")
-    private TimeRange myEditTime;
+    this.myEditTime = builder.myEditTime;
     /**
      * 【我评论的文档】的时间范围（秒级时间戳，包含start和end字段）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("my_comment_time")
-    private TimeRange myCommentTime;
+    this.myCommentTime = builder.myCommentTime;
     /**
      * 文档创建者者OpenID，注意和creator_ids区分开
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_creator_ids")
+    this.originalCreatorIds = builder.originalCreatorIds;
+  }
+
+  public static class Builder {
+    /**
+     * 文档所有者OpenID
+     *
+     * <p>示例值：
+     */
+    private String[] creatorIds;
+
+    /**
+     * 文档类型
+     *
+     * <p>示例值：
+     */
+    private String[] docTypes;
+
+    /**
+     * 搜索文件夹内的文档（文件夹token列表）;注：如果存在该字段则wiki筛选器失效
+     *
+     * <p>示例值：
+     */
+    private String[] folderTokens;
+
+    /**
+     * 仅搜文档标题
+     *
+     * <p>示例值：false
+     */
+    private Boolean onlyTitle;
+
+    /**
+     * 浏览文档的时间范围（秒级时间戳，包含start和end字段）
+     *
+     * <p>示例值：
+     */
+    private TimeRange openTime;
+
+    /**
+     * 排序方式
+     *
+     * <p>示例值：CREATE_TIME
+     */
+    private String sortType;
+
+    /**
+     * 文档创建的时间范围（秒级时间戳，包含start和end字段）
+     *
+     * <p>示例值：
+     */
+    private TimeRange createTime;
+
+    /**
+     * 搜索在会话内的文档
+     *
+     * <p>示例值：
+     */
+    private String[] chatIds;
+
+    /**
+     * 文档分享者OpenID
+     *
+     * <p>示例值：
+     */
+    private String[] sharerIds;
+
+    /**
+     * 仅搜文档评论
+     *
+     * <p>示例值：false
+     */
+    private Boolean onlyComment;
+
+    /**
+     * 【我编辑的文档】的时间范围（秒级时间戳，包含start和end字段）
+     *
+     * <p>示例值：
+     */
+    private TimeRange myEditTime;
+
+    /**
+     * 【我评论的文档】的时间范围（秒级时间戳，包含start和end字段）
+     *
+     * <p>示例值：
+     */
+    private TimeRange myCommentTime;
+
+    /**
+     * 文档创建者者OpenID，注意和creator_ids区分开
+     *
+     * <p>示例值：
+     */
     private String[] originalCreatorIds;
 
-    // builder 开始
-    public DocFilter() {
+    /**
+     * 文档所有者OpenID
+     *
+     * <p>示例值：
+     *
+     * @param creatorIds
+     * @return
+     */
+    public Builder creatorIds(String[] creatorIds) {
+      this.creatorIds = creatorIds;
+      return this;
     }
 
-    public DocFilter(Builder builder) {
-        /**
-         * 文档所有者OpenID
-         * <p> 示例值：
-         */
-        this.creatorIds = builder.creatorIds;
-        /**
-         * 文档类型
-         * <p> 示例值：
-         */
-        this.docTypes = builder.docTypes;
-        /**
-         * 搜索文件夹内的文档（文件夹token列表）
-         * <p> 示例值：
-         */
-        this.folderTokens = builder.folderTokens;
-        /**
-         * 仅搜文档标题
-         * <p> 示例值：false
-         */
-        this.onlyTitle = builder.onlyTitle;
-        /**
-         * 浏览文档的时间范围（秒级时间戳，包含start和end字段）
-         * <p> 示例值：
-         */
-        this.openTime = builder.openTime;
-        /**
-         * 排序方式
-         * <p> 示例值：CREATE_TIME_ASC
-         */
-        this.sortType = builder.sortType;
-        /**
-         * 文档创建的时间范围（秒级时间戳，包含start和end字段）
-         * <p> 示例值：
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 搜索在会话内的文档
-         * <p> 示例值：
-         */
-        this.chatIds = builder.chatIds;
-        /**
-         * 文档分享者OpenID
-         * <p> 示例值：
-         */
-        this.sharerIds = builder.sharerIds;
-        /**
-         * 仅搜文档评论
-         * <p> 示例值：false
-         */
-        this.onlyComment = builder.onlyComment;
-        /**
-         * 【我编辑的文档】的时间范围（秒级时间戳，包含start和end字段）
-         * <p> 示例值：
-         */
-        this.myEditTime = builder.myEditTime;
-        /**
-         * 【我评论的文档】的时间范围（秒级时间戳，包含start和end字段）
-         * <p> 示例值：
-         */
-        this.myCommentTime = builder.myCommentTime;
-        /**
-         * 文档创建者者OpenID，注意和creator_ids区分开
-         * <p> 示例值：
-         */
-        this.originalCreatorIds = builder.originalCreatorIds;
+    /**
+     * 文档类型
+     *
+     * <p>示例值：
+     *
+     * @param docTypes
+     * @return
+     */
+    public Builder docTypes(String[] docTypes) {
+      this.docTypes = docTypes;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 搜索文件夹内的文档（文件夹token列表）;注：如果存在该字段则wiki筛选器失效
+     *
+     * <p>示例值：
+     *
+     * @param folderTokens
+     * @return
+     */
+    public Builder folderTokens(String[] folderTokens) {
+      this.folderTokens = folderTokens;
+      return this;
     }
 
-    public String[] getCreatorIds() {
-        return this.creatorIds;
+    /**
+     * 仅搜文档标题
+     *
+     * <p>示例值：false
+     *
+     * @param onlyTitle
+     * @return
+     */
+    public Builder onlyTitle(Boolean onlyTitle) {
+      this.onlyTitle = onlyTitle;
+      return this;
     }
 
-    public void setCreatorIds(String[] creatorIds) {
-        this.creatorIds = creatorIds;
+    /**
+     * 浏览文档的时间范围（秒级时间戳，包含start和end字段）
+     *
+     * <p>示例值：
+     *
+     * @param openTime
+     * @return
+     */
+    public Builder openTime(TimeRange openTime) {
+      this.openTime = openTime;
+      return this;
     }
 
-    public String[] getDocTypes() {
-        return this.docTypes;
+    /**
+     * 排序方式
+     *
+     * <p>示例值：CREATE_TIME
+     *
+     * @param sortType
+     * @return
+     */
+    public Builder sortType(String sortType) {
+      this.sortType = sortType;
+      return this;
     }
 
-    public void setDocTypes(String[] docTypes) {
-        this.docTypes = docTypes;
+    /**
+     * 排序方式
+     *
+     * <p>示例值：CREATE_TIME
+     *
+     * @param sortType {@link com.lark.oapi.service.search.v2.enums.DocFilterSortTypeEnum}
+     * @return
+     */
+    public Builder sortType(com.lark.oapi.service.search.v2.enums.DocFilterSortTypeEnum sortType) {
+      this.sortType = sortType.getValue();
+      return this;
     }
 
-    public String[] getFolderTokens() {
-        return this.folderTokens;
+    /**
+     * 文档创建的时间范围（秒级时间戳，包含start和end字段）
+     *
+     * <p>示例值：
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(TimeRange createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setFolderTokens(String[] folderTokens) {
-        this.folderTokens = folderTokens;
+    /**
+     * 搜索在会话内的文档
+     *
+     * <p>示例值：
+     *
+     * @param chatIds
+     * @return
+     */
+    public Builder chatIds(String[] chatIds) {
+      this.chatIds = chatIds;
+      return this;
     }
 
-    public Boolean getOnlyTitle() {
-        return this.onlyTitle;
+    /**
+     * 文档分享者OpenID
+     *
+     * <p>示例值：
+     *
+     * @param sharerIds
+     * @return
+     */
+    public Builder sharerIds(String[] sharerIds) {
+      this.sharerIds = sharerIds;
+      return this;
     }
 
-    public void setOnlyTitle(Boolean onlyTitle) {
-        this.onlyTitle = onlyTitle;
+    /**
+     * 仅搜文档评论
+     *
+     * <p>示例值：false
+     *
+     * @param onlyComment
+     * @return
+     */
+    public Builder onlyComment(Boolean onlyComment) {
+      this.onlyComment = onlyComment;
+      return this;
     }
 
-    public TimeRange getOpenTime() {
-        return this.openTime;
+    /**
+     * 【我编辑的文档】的时间范围（秒级时间戳，包含start和end字段）
+     *
+     * <p>示例值：
+     *
+     * @param myEditTime
+     * @return
+     */
+    public Builder myEditTime(TimeRange myEditTime) {
+      this.myEditTime = myEditTime;
+      return this;
     }
 
-    public void setOpenTime(TimeRange openTime) {
-        this.openTime = openTime;
+    /**
+     * 【我评论的文档】的时间范围（秒级时间戳，包含start和end字段）
+     *
+     * <p>示例值：
+     *
+     * @param myCommentTime
+     * @return
+     */
+    public Builder myCommentTime(TimeRange myCommentTime) {
+      this.myCommentTime = myCommentTime;
+      return this;
     }
 
-    public String getSortType() {
-        return this.sortType;
+    /**
+     * 文档创建者者OpenID，注意和creator_ids区分开
+     *
+     * <p>示例值：
+     *
+     * @param originalCreatorIds
+     * @return
+     */
+    public Builder originalCreatorIds(String[] originalCreatorIds) {
+      this.originalCreatorIds = originalCreatorIds;
+      return this;
     }
 
-    public void setSortType(String sortType) {
-        this.sortType = sortType;
+    public DocFilter build() {
+      return new DocFilter(this);
     }
+  }
 
-    public TimeRange getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(TimeRange createTime) {
-        this.createTime = createTime;
-    }
-
-    public String[] getChatIds() {
-        return this.chatIds;
-    }
-
-    public void setChatIds(String[] chatIds) {
-        this.chatIds = chatIds;
-    }
-
-    public String[] getSharerIds() {
-        return this.sharerIds;
-    }
-
-    public void setSharerIds(String[] sharerIds) {
-        this.sharerIds = sharerIds;
-    }
-
-    public Boolean getOnlyComment() {
-        return this.onlyComment;
-    }
-
-    public void setOnlyComment(Boolean onlyComment) {
-        this.onlyComment = onlyComment;
-    }
-
-    public TimeRange getMyEditTime() {
-        return this.myEditTime;
-    }
-
-    public void setMyEditTime(TimeRange myEditTime) {
-        this.myEditTime = myEditTime;
-    }
-
-    public TimeRange getMyCommentTime() {
-        return this.myCommentTime;
-    }
-
-    public void setMyCommentTime(TimeRange myCommentTime) {
-        this.myCommentTime = myCommentTime;
-    }
-
-    public String[] getOriginalCreatorIds() {
-        return this.originalCreatorIds;
-    }
-
-    public void setOriginalCreatorIds(String[] originalCreatorIds) {
-        this.originalCreatorIds = originalCreatorIds;
-    }
-
-    public static class Builder {
-        /**
-         * 文档所有者OpenID
-         * <p> 示例值：
-         */
-        private String[] creatorIds;
-        /**
-         * 文档类型
-         * <p> 示例值：
-         */
-        private String[] docTypes;
-        /**
-         * 搜索文件夹内的文档（文件夹token列表）
-         * <p> 示例值：
-         */
-        private String[] folderTokens;
-        /**
-         * 仅搜文档标题
-         * <p> 示例值：false
-         */
-        private Boolean onlyTitle;
-        /**
-         * 浏览文档的时间范围（秒级时间戳，包含start和end字段）
-         * <p> 示例值：
-         */
-        private TimeRange openTime;
-        /**
-         * 排序方式
-         * <p> 示例值：CREATE_TIME_ASC
-         */
-        private String sortType;
-        /**
-         * 文档创建的时间范围（秒级时间戳，包含start和end字段）
-         * <p> 示例值：
-         */
-        private TimeRange createTime;
-        /**
-         * 搜索在会话内的文档
-         * <p> 示例值：
-         */
-        private String[] chatIds;
-        /**
-         * 文档分享者OpenID
-         * <p> 示例值：
-         */
-        private String[] sharerIds;
-        /**
-         * 仅搜文档评论
-         * <p> 示例值：false
-         */
-        private Boolean onlyComment;
-        /**
-         * 【我编辑的文档】的时间范围（秒级时间戳，包含start和end字段）
-         * <p> 示例值：
-         */
-        private TimeRange myEditTime;
-        /**
-         * 【我评论的文档】的时间范围（秒级时间戳，包含start和end字段）
-         * <p> 示例值：
-         */
-        private TimeRange myCommentTime;
-        /**
-         * 文档创建者者OpenID，注意和creator_ids区分开
-         * <p> 示例值：
-         */
-        private String[] originalCreatorIds;
-
-        /**
-         * 文档所有者OpenID
-         * <p> 示例值：
-         *
-         * @param creatorIds
-         * @return
-         */
-        public Builder creatorIds(String[] creatorIds) {
-            this.creatorIds = creatorIds;
-            return this;
-        }
-
-
-        /**
-         * 文档类型
-         * <p> 示例值：
-         *
-         * @param docTypes
-         * @return
-         */
-        public Builder docTypes(String[] docTypes) {
-            this.docTypes = docTypes;
-            return this;
-        }
-
-
-        /**
-         * 搜索文件夹内的文档（文件夹token列表）
-         * <p> 示例值：
-         *
-         * @param folderTokens
-         * @return
-         */
-        public Builder folderTokens(String[] folderTokens) {
-            this.folderTokens = folderTokens;
-            return this;
-        }
-
-
-        /**
-         * 仅搜文档标题
-         * <p> 示例值：false
-         *
-         * @param onlyTitle
-         * @return
-         */
-        public Builder onlyTitle(Boolean onlyTitle) {
-            this.onlyTitle = onlyTitle;
-            return this;
-        }
-
-
-        /**
-         * 浏览文档的时间范围（秒级时间戳，包含start和end字段）
-         * <p> 示例值：
-         *
-         * @param openTime
-         * @return
-         */
-        public Builder openTime(TimeRange openTime) {
-            this.openTime = openTime;
-            return this;
-        }
-
-
-        /**
-         * 排序方式
-         * <p> 示例值：CREATE_TIME_ASC
-         *
-         * @param sortType
-         * @return
-         */
-        public Builder sortType(String sortType) {
-            this.sortType = sortType;
-            return this;
-        }
-
-        /**
-         * 排序方式
-         * <p> 示例值：CREATE_TIME_ASC
-         *
-         * @param sortType {@link com.lark.oapi.service.search.v2.enums.DocFilterSortTypeEnum}
-         * @return
-         */
-        public Builder sortType(com.lark.oapi.service.search.v2.enums.DocFilterSortTypeEnum sortType) {
-            this.sortType = sortType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文档创建的时间范围（秒级时间戳，包含start和end字段）
-         * <p> 示例值：
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(TimeRange createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 搜索在会话内的文档
-         * <p> 示例值：
-         *
-         * @param chatIds
-         * @return
-         */
-        public Builder chatIds(String[] chatIds) {
-            this.chatIds = chatIds;
-            return this;
-        }
-
-
-        /**
-         * 文档分享者OpenID
-         * <p> 示例值：
-         *
-         * @param sharerIds
-         * @return
-         */
-        public Builder sharerIds(String[] sharerIds) {
-            this.sharerIds = sharerIds;
-            return this;
-        }
-
-
-        /**
-         * 仅搜文档评论
-         * <p> 示例值：false
-         *
-         * @param onlyComment
-         * @return
-         */
-        public Builder onlyComment(Boolean onlyComment) {
-            this.onlyComment = onlyComment;
-            return this;
-        }
-
-
-        /**
-         * 【我编辑的文档】的时间范围（秒级时间戳，包含start和end字段）
-         * <p> 示例值：
-         *
-         * @param myEditTime
-         * @return
-         */
-        public Builder myEditTime(TimeRange myEditTime) {
-            this.myEditTime = myEditTime;
-            return this;
-        }
-
-
-        /**
-         * 【我评论的文档】的时间范围（秒级时间戳，包含start和end字段）
-         * <p> 示例值：
-         *
-         * @param myCommentTime
-         * @return
-         */
-        public Builder myCommentTime(TimeRange myCommentTime) {
-            this.myCommentTime = myCommentTime;
-            return this;
-        }
-
-
-        /**
-         * 文档创建者者OpenID，注意和creator_ids区分开
-         * <p> 示例值：
-         *
-         * @param originalCreatorIds
-         * @return
-         */
-        public Builder originalCreatorIds(String[] originalCreatorIds) {
-            this.originalCreatorIds = originalCreatorIds;
-            return this;
-        }
-
-
-        public DocFilter build() {
-            return new DocFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

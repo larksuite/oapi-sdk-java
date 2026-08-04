@@ -13,355 +13,380 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class ListSignatureTemplateInfoWithThumbnailReq {
+  /**
+   * 分页大小；如果不填，默认为10
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求可以不填，表示从头（0）开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：0
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 模版名
+   *
+   * <p>示例值：入职模板
+   */
+  @Query
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 模版类别，多个类别之间请使用英文逗号分隔；;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板类别（signature_template_category）枚举定义部分获得
+   *
+   * <p>示例值：contract_agreement,certificate
+   */
+  @Query
+  @SerializedName("category_apiname")
+  private String categoryApiname;
+
+  /**
+   * 模板用途，多个用途之间使用英文逗号分隔；;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板用途（signature_template_usage）枚举定义部分获得
+   *
+   * <p>示例值：dispatch,general
+   */
+  @Query
+  @SerializedName("usage_apiname")
+  private String usageApiname;
+
+  /**
+   * 是否停用
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 是否需要模板适用区域信息;默认false，不会返回region_info信息
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("need_region_info")
+  private Boolean needRegionInfo;
+
+  /**
+   * 电子签模板适用范围，多个用途之间使用英文逗号分隔；;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板适用范围（signature_template_applicability）枚举定义部分获得
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("applicability_apinames")
+  private String[] applicabilityApinames;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getCategoryApiname() {
+    return this.categoryApiname;
+  }
+
+  public void setCategoryApiname(String categoryApiname) {
+    this.categoryApiname = categoryApiname;
+  }
+
+  public String getUsageApiname() {
+    return this.usageApiname;
+  }
+
+  public void setUsageApiname(String usageApiname) {
+    this.usageApiname = usageApiname;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public Boolean getNeedRegionInfo() {
+    return this.needRegionInfo;
+  }
+
+  public void setNeedRegionInfo(Boolean needRegionInfo) {
+    this.needRegionInfo = needRegionInfo;
+  }
+
+  public String[] getApplicabilityApinames() {
+    return this.applicabilityApinames;
+  }
+
+  public void setApplicabilityApinames(String[] applicabilityApinames) {
+    this.applicabilityApinames = applicabilityApinames;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  // builder 开始
+  public ListSignatureTemplateInfoWithThumbnailReq() {}
+
+  public ListSignatureTemplateInfoWithThumbnailReq(Builder builder) {
     /**
-     * 分页大小
-     * <p> 示例值：
+     * 分页大小；如果不填，默认为10
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求可以不填，表示从头（0）开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：
+     *
+     * <p>示例值：0
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 模版名
-     * <p> 示例值：入职电子签模板
+     *
+     * <p>示例值：入职模板
      */
-    @Query
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 模板类别;多个类别之间使用英文,分隔
-     * <p> 示例值：contract_agreement,certificate
+     * 模版类别，多个类别之间请使用英文逗号分隔；;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板类别（signature_template_category）枚举定义部分获得
+     *
+     * <p>示例值：contract_agreement,certificate
      */
-    @Query
-    @SerializedName("category_apiname")
-    private String categoryApiname;
+    this.categoryApiname = builder.categoryApiname;
     /**
-     * 模板用途;多个用途之间使用英文,分隔
-     * <p> 示例值：dispatch,general
+     * 模板用途，多个用途之间使用英文逗号分隔；;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板用途（signature_template_usage）枚举定义部分获得
+     *
+     * <p>示例值：dispatch,general
      */
-    @Query
-    @SerializedName("usage_apiname")
-    private String usageApiname;
+    this.usageApiname = builder.usageApiname;
     /**
      * 是否停用
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
      * 是否需要模板适用区域信息;默认false，不会返回region_info信息
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("need_region_info")
-    private Boolean needRegionInfo;
+    this.needRegionInfo = builder.needRegionInfo;
     /**
-     * 电子签适用范围
-     * <p> 示例值：
+     * 电子签模板适用范围，多个用途之间使用英文逗号分隔；;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板适用范围（signature_template_applicability）枚举定义部分获得
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("applicability_apinames")
-    private String[] applicabilityApinames;
+    this.applicabilityApinames = builder.applicabilityApinames;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
+  }
 
-    // builder 开始
-    public ListSignatureTemplateInfoWithThumbnailReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小；如果不填，默认为10
+    private String
+        pageToken; // 分页标记，第一次请求可以不填，表示从头（0）开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String name; // 模版名
+    private String
+        categoryApiname; // 模版类别，多个类别之间请使用英文逗号分隔；;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板类别（signature_template_category）枚举定义部分获得
+    private String
+        usageApiname; // 模板用途，多个用途之间使用英文逗号分隔；;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板用途（signature_template_usage）枚举定义部分获得
+    private Boolean active; // 是否停用
+    private Boolean needRegionInfo; // 是否需要模板适用区域信息;默认false，不会返回region_info信息
+    private String[]
+        applicabilityApinames; // 电子签模板适用范围，多个用途之间使用英文逗号分隔；;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板适用范围（signature_template_applicability）枚举定义部分获得
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 分页大小；如果不填，默认为10
+     *
+     * <p>示例值：
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListSignatureTemplateInfoWithThumbnailReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求可以不填，表示从头（0）开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 模版名
-         * <p> 示例值：入职电子签模板
-         */
-        this.name = builder.name;
-        /**
-         * 模板类别;多个类别之间使用英文,分隔
-         * <p> 示例值：contract_agreement,certificate
-         */
-        this.categoryApiname = builder.categoryApiname;
-        /**
-         * 模板用途;多个用途之间使用英文,分隔
-         * <p> 示例值：dispatch,general
-         */
-        this.usageApiname = builder.usageApiname;
-        /**
-         * 是否停用
-         * <p> 示例值：false
-         */
-        this.active = builder.active;
-        /**
-         * 是否需要模板适用区域信息;默认false，不会返回region_info信息
-         * <p> 示例值：false
-         */
-        this.needRegionInfo = builder.needRegionInfo;
-        /**
-         * 电子签适用范围
-         * <p> 示例值：
-         */
-        this.applicabilityApinames = builder.applicabilityApinames;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
+    /**
+     * 分页标记，第一次请求可以不填，表示从头（0）开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：0
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 模版名
+     *
+     * <p>示例值：入职模板
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 模版类别，多个类别之间请使用英文逗号分隔；;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板类别（signature_template_category）枚举定义部分获得
+     *
+     * <p>示例值：contract_agreement,certificate
+     *
+     * @param categoryApiname
+     * @return
+     */
+    public Builder categoryApiname(String categoryApiname) {
+      this.categoryApiname = categoryApiname;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 模板用途，多个用途之间使用英文逗号分隔；;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板用途（signature_template_usage）枚举定义部分获得
+     *
+     * <p>示例值：dispatch,general
+     *
+     * @param usageApiname
+     * @return
+     */
+    public Builder usageApiname(String usageApiname) {
+      this.usageApiname = usageApiname;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 是否停用
+     *
+     * <p>示例值：false
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    /**
+     * 是否需要模板适用区域信息;默认false，不会返回region_info信息
+     *
+     * <p>示例值：false
+     *
+     * @param needRegionInfo
+     * @return
+     */
+    public Builder needRegionInfo(Boolean needRegionInfo) {
+      this.needRegionInfo = needRegionInfo;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 电子签模板适用范围，多个用途之间使用英文逗号分隔；;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板适用范围（signature_template_applicability）枚举定义部分获得
+     *
+     * <p>示例值：
+     *
+     * @param applicabilityApinames
+     * @return
+     */
+    public Builder applicabilityApinames(String[] applicabilityApinames) {
+      this.applicabilityApinames = applicabilityApinames;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getCategoryApiname() {
-        return this.categoryApiname;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.ListSignatureTemplateInfoWithThumbnailBatchGetSignatureTemplateInfoWithThumbnailUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .ListSignatureTemplateInfoWithThumbnailBatchGetSignatureTemplateInfoWithThumbnailUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setCategoryApiname(String categoryApiname) {
-        this.categoryApiname = categoryApiname;
+    public ListSignatureTemplateInfoWithThumbnailReq build() {
+      return new ListSignatureTemplateInfoWithThumbnailReq(this);
     }
+  }
 
-    public String getUsageApiname() {
-        return this.usageApiname;
-    }
-
-    public void setUsageApiname(String usageApiname) {
-        this.usageApiname = usageApiname;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public Boolean getNeedRegionInfo() {
-        return this.needRegionInfo;
-    }
-
-    public void setNeedRegionInfo(Boolean needRegionInfo) {
-        this.needRegionInfo = needRegionInfo;
-    }
-
-    public String[] getApplicabilityApinames() {
-        return this.applicabilityApinames;
-    }
-
-    public void setApplicabilityApinames(String[] applicabilityApinames) {
-        this.applicabilityApinames = applicabilityApinames;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求可以不填，表示从头（0）开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String name; // 模版名
-        private String categoryApiname; // 模板类别;多个类别之间使用英文,分隔
-        private String usageApiname; // 模板用途;多个用途之间使用英文,分隔
-        private Boolean active; // 是否停用
-        private Boolean needRegionInfo; // 是否需要模板适用区域信息;默认false，不会返回region_info信息
-        private String[] applicabilityApinames; // 电子签适用范围
-        private String userIdType; // 此次调用中使用的用户ID的类型
-
-        /**
-         * 分页大小
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求可以不填，表示从头（0）开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 模版名
-         * <p> 示例值：入职电子签模板
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 模板类别;多个类别之间使用英文,分隔
-         * <p> 示例值：contract_agreement,certificate
-         *
-         * @param categoryApiname
-         * @return
-         */
-        public Builder categoryApiname(String categoryApiname) {
-            this.categoryApiname = categoryApiname;
-            return this;
-        }
-
-
-        /**
-         * 模板用途;多个用途之间使用英文,分隔
-         * <p> 示例值：dispatch,general
-         *
-         * @param usageApiname
-         * @return
-         */
-        public Builder usageApiname(String usageApiname) {
-            this.usageApiname = usageApiname;
-            return this;
-        }
-
-
-        /**
-         * 是否停用
-         * <p> 示例值：false
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 是否需要模板适用区域信息;默认false，不会返回region_info信息
-         * <p> 示例值：false
-         *
-         * @param needRegionInfo
-         * @return
-         */
-        public Builder needRegionInfo(Boolean needRegionInfo) {
-            this.needRegionInfo = needRegionInfo;
-            return this;
-        }
-
-
-        /**
-         * 电子签适用范围
-         * <p> 示例值：
-         *
-         * @param applicabilityApinames
-         * @return
-         */
-        public Builder applicabilityApinames(String[] applicabilityApinames) {
-            this.applicabilityApinames = applicabilityApinames;
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.ListSignatureTemplateInfoWithThumbnailBatchGetSignatureTemplateInfoWithThumbnailUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.ListSignatureTemplateInfoWithThumbnailBatchGetSignatureTemplateInfoWithThumbnailUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        public ListSignatureTemplateInfoWithThumbnailReq build() {
-            return new ListSignatureTemplateInfoWithThumbnailReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

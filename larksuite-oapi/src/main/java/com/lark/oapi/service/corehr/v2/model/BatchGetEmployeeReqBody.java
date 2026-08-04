@@ -13,223 +13,265 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchGetEmployeeReqBody {
+  /**
+   * 需要查询的字段列表;;-
+   * 参考[【字段下钻】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/query-employment-fields);-
+   * 为空时仅返回 employment_id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private String[] fields;
+
+  /**
+   * 雇佣 ID 列表;- 以下请求参数中「employment_ids」，「person_ids」，「work_emails」不得均为空;-
+   * 请根据需求选择一种模式进行查询，若单次请求中多个请求参数有值，按照【employment_ids > person_ids > work_emails】的顺序只识别第一个有值的请求参数;-
+   * ID 类型需要与 user_id_type 保持一致。;-
+   * 在[【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create)时返回的
+   * ID。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employment_ids")
+  private String[] employmentIds;
+
+  /**
+   * 个人信息 ID 列表，employment_ids参数有值时该参数不生效。;-
+   * 在[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)时返回的
+   * ID。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("person_ids")
+  private String[] personIds;
+
+  /**
+   * 主工作邮箱列表，「employment_ids」，「person_ids」参数有值时该参数不生效。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_emails")
+  private String[] workEmails;
+
+  /**
+   * username列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_names")
+  private String[] userNames;
+
+  public String[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(String[] fields) {
+    this.fields = fields;
+  }
+
+  public String[] getEmploymentIds() {
+    return this.employmentIds;
+  }
+
+  public void setEmploymentIds(String[] employmentIds) {
+    this.employmentIds = employmentIds;
+  }
+
+  public String[] getPersonIds() {
+    return this.personIds;
+  }
+
+  public void setPersonIds(String[] personIds) {
+    this.personIds = personIds;
+  }
+
+  public String[] getWorkEmails() {
+    return this.workEmails;
+  }
+
+  public void setWorkEmails(String[] workEmails) {
+    this.workEmails = workEmails;
+  }
+
+  public String[] getUserNames() {
+    return this.userNames;
+  }
+
+  public void setUserNames(String[] userNames) {
+    this.userNames = userNames;
+  }
+
+  // builder 开始
+  public BatchGetEmployeeReqBody() {}
+
+  public BatchGetEmployeeReqBody(Builder builder) {
     /**
-     * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
-     * <p> 示例值：
+     * 需要查询的字段列表;;-
+     * 参考[【字段下钻】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/query-employment-fields);-
+     * 为空时仅返回 employment_id
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
-    private String[] fields;
+    this.fields = builder.fields;
     /**
-     * 雇佣 ID 列表
-     * <p> 示例值：
+     * 雇佣 ID 列表;- 以下请求参数中「employment_ids」，「person_ids」，「work_emails」不得均为空;-
+     * 请根据需求选择一种模式进行查询，若单次请求中多个请求参数有值，按照【employment_ids > person_ids >
+     * work_emails】的顺序只识别第一个有值的请求参数;- ID 类型需要与 user_id_type 保持一致。;-
+     * 在[【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create)时返回的
+     * ID。
+     *
+     * <p>示例值：
      */
-    @SerializedName("employment_ids")
-    private String[] employmentIds;
+    this.employmentIds = builder.employmentIds;
     /**
-     * 个人信息 ID 列表，employment_ids参数有值时该参数不生效
-     * <p> 示例值：
+     * 个人信息 ID 列表，employment_ids参数有值时该参数不生效。;-
+     * 在[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)时返回的
+     * ID。
+     *
+     * <p>示例值：
      */
-    @SerializedName("person_ids")
-    private String[] personIds;
+    this.personIds = builder.personIds;
     /**
-     * 主工作邮箱列表
-     * <p> 示例值：
+     * 主工作邮箱列表，「employment_ids」，「person_ids」参数有值时该参数不生效。
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_emails")
-    private String[] workEmails;
+    this.workEmails = builder.workEmails;
     /**
      * username列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_names")
+    this.userNames = builder.userNames;
+  }
+
+  public static class Builder {
+    /**
+     * 需要查询的字段列表;;-
+     * 参考[【字段下钻】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/query-employment-fields);-
+     * 为空时仅返回 employment_id
+     *
+     * <p>示例值：
+     */
+    private String[] fields;
+
+    /**
+     * 雇佣 ID 列表;- 以下请求参数中「employment_ids」，「person_ids」，「work_emails」不得均为空;-
+     * 请根据需求选择一种模式进行查询，若单次请求中多个请求参数有值，按照【employment_ids > person_ids >
+     * work_emails】的顺序只识别第一个有值的请求参数;- ID 类型需要与 user_id_type 保持一致。;-
+     * 在[【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create)时返回的
+     * ID。
+     *
+     * <p>示例值：
+     */
+    private String[] employmentIds;
+
+    /**
+     * 个人信息 ID 列表，employment_ids参数有值时该参数不生效。;-
+     * 在[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)时返回的
+     * ID。
+     *
+     * <p>示例值：
+     */
+    private String[] personIds;
+
+    /**
+     * 主工作邮箱列表，「employment_ids」，「person_ids」参数有值时该参数不生效。
+     *
+     * <p>示例值：
+     */
+    private String[] workEmails;
+
+    /**
+     * username列表
+     *
+     * <p>示例值：
+     */
     private String[] userNames;
 
-    // builder 开始
-    public BatchGetEmployeeReqBody() {
+    /**
+     * 需要查询的字段列表;;-
+     * 参考[【字段下钻】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/query-employment-fields);-
+     * 为空时仅返回 employment_id
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(String[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public BatchGetEmployeeReqBody(Builder builder) {
-        /**
-         * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-        /**
-         * 雇佣 ID 列表
-         * <p> 示例值：
-         */
-        this.employmentIds = builder.employmentIds;
-        /**
-         * 个人信息 ID 列表，employment_ids参数有值时该参数不生效
-         * <p> 示例值：
-         */
-        this.personIds = builder.personIds;
-        /**
-         * 主工作邮箱列表
-         * <p> 示例值：
-         */
-        this.workEmails = builder.workEmails;
-        /**
-         * username列表
-         * <p> 示例值：
-         */
-        this.userNames = builder.userNames;
+    /**
+     * 雇佣 ID 列表;- 以下请求参数中「employment_ids」，「person_ids」，「work_emails」不得均为空;-
+     * 请根据需求选择一种模式进行查询，若单次请求中多个请求参数有值，按照【employment_ids > person_ids >
+     * work_emails】的顺序只识别第一个有值的请求参数;- ID 类型需要与 user_id_type 保持一致。;-
+     * 在[【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create)时返回的
+     * ID。
+     *
+     * <p>示例值：
+     *
+     * @param employmentIds
+     * @return
+     */
+    public Builder employmentIds(String[] employmentIds) {
+      this.employmentIds = employmentIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 个人信息 ID 列表，employment_ids参数有值时该参数不生效。;-
+     * 在[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)时返回的
+     * ID。
+     *
+     * <p>示例值：
+     *
+     * @param personIds
+     * @return
+     */
+    public Builder personIds(String[] personIds) {
+      this.personIds = personIds;
+      return this;
     }
 
-    public String[] getFields() {
-        return this.fields;
+    /**
+     * 主工作邮箱列表，「employment_ids」，「person_ids」参数有值时该参数不生效。
+     *
+     * <p>示例值：
+     *
+     * @param workEmails
+     * @return
+     */
+    public Builder workEmails(String[] workEmails) {
+      this.workEmails = workEmails;
+      return this;
     }
 
-    public void setFields(String[] fields) {
-        this.fields = fields;
+    /**
+     * username列表
+     *
+     * <p>示例值：
+     *
+     * @param userNames
+     * @return
+     */
+    public Builder userNames(String[] userNames) {
+      this.userNames = userNames;
+      return this;
     }
 
-    public String[] getEmploymentIds() {
-        return this.employmentIds;
+    public BatchGetEmployeeReqBody build() {
+      return new BatchGetEmployeeReqBody(this);
     }
+  }
 
-    public void setEmploymentIds(String[] employmentIds) {
-        this.employmentIds = employmentIds;
-    }
-
-    public String[] getPersonIds() {
-        return this.personIds;
-    }
-
-    public void setPersonIds(String[] personIds) {
-        this.personIds = personIds;
-    }
-
-    public String[] getWorkEmails() {
-        return this.workEmails;
-    }
-
-    public void setWorkEmails(String[] workEmails) {
-        this.workEmails = workEmails;
-    }
-
-    public String[] getUserNames() {
-        return this.userNames;
-    }
-
-    public void setUserNames(String[] userNames) {
-        this.userNames = userNames;
-    }
-
-    public static class Builder {
-        /**
-         * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
-         * <p> 示例值：
-         */
-        private String[] fields;
-        /**
-         * 雇佣 ID 列表
-         * <p> 示例值：
-         */
-        private String[] employmentIds;
-        /**
-         * 个人信息 ID 列表，employment_ids参数有值时该参数不生效
-         * <p> 示例值：
-         */
-        private String[] personIds;
-        /**
-         * 主工作邮箱列表
-         * <p> 示例值：
-         */
-        private String[] workEmails;
-        /**
-         * username列表
-         * <p> 示例值：
-         */
-        private String[] userNames;
-
-        /**
-         * 返回数据的字段列表，填写方式：为空时默认仅返回 ID
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        /**
-         * 雇佣 ID 列表
-         * <p> 示例值：
-         *
-         * @param employmentIds
-         * @return
-         */
-        public Builder employmentIds(String[] employmentIds) {
-            this.employmentIds = employmentIds;
-            return this;
-        }
-
-
-        /**
-         * 个人信息 ID 列表，employment_ids参数有值时该参数不生效
-         * <p> 示例值：
-         *
-         * @param personIds
-         * @return
-         */
-        public Builder personIds(String[] personIds) {
-            this.personIds = personIds;
-            return this;
-        }
-
-
-        /**
-         * 主工作邮箱列表
-         * <p> 示例值：
-         *
-         * @param workEmails
-         * @return
-         */
-        public Builder workEmails(String[] workEmails) {
-            this.workEmails = workEmails;
-            return this;
-        }
-
-
-        /**
-         * username列表
-         * <p> 示例值：
-         *
-         * @param userNames
-         * @return
-         */
-        public Builder userNames(String[] userNames) {
-            this.userNames = userNames;
-            return this;
-        }
-
-
-        public BatchGetEmployeeReqBody build() {
-            return new BatchGetEmployeeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

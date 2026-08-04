@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobCustomizedData {
+  /**
+   * 自定义字段 ID
+   *
+   * <p>示例值：7281257045172308287
+   */
+  @SerializedName("object_id")
+  private String objectId;
+
+  /**
+   * 字段名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 字段类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("object_type")
+  private Integer objectType;
+
+  /**
+   * 自定义字段值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("value")
+  private JobCustomizedValue value;
+
+  public String getObjectId() {
+    return this.objectId;
+  }
+
+  public void setObjectId(String objectId) {
+    this.objectId = objectId;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public Integer getObjectType() {
+    return this.objectType;
+  }
+
+  public void setObjectType(Integer objectType) {
+    this.objectType = objectType;
+  }
+
+  public JobCustomizedValue getValue() {
+    return this.value;
+  }
+
+  public void setValue(JobCustomizedValue value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public JobCustomizedData() {}
+
+  public JobCustomizedData(Builder builder) {
     /**
      * 自定义字段 ID
-     * <p> 示例值：xxxx
+     *
+     * <p>示例值：7281257045172308287
      */
-    @SerializedName("object_id")
-    private String objectId;
+    this.objectId = builder.objectId;
     /**
      * 字段名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 字段类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("object_type")
-    private Integer objectType;
+    this.objectType = builder.objectType;
     /**
      * 自定义字段值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义字段 ID
+     *
+     * <p>示例值：7281257045172308287
+     */
+    private String objectId;
+
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     */
+    private Integer objectType;
+
+    /**
+     * 自定义字段值
+     *
+     * <p>示例值：
+     */
     private JobCustomizedValue value;
 
-    // builder 开始
-    public JobCustomizedData() {
+    /**
+     * 自定义字段 ID
+     *
+     * <p>示例值：7281257045172308287
+     *
+     * @param objectId
+     * @return
+     */
+    public Builder objectId(String objectId) {
+      this.objectId = objectId;
+      return this;
     }
 
-    public JobCustomizedData(Builder builder) {
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：xxxx
-         */
-        this.objectId = builder.objectId;
-        /**
-         * 字段名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        this.objectType = builder.objectType;
-        /**
-         * 自定义字段值
-         * <p> 示例值：
-         */
-        this.value = builder.value;
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     *
+     * @param objectType
+     * @return
+     */
+    public Builder objectType(Integer objectType) {
+      this.objectType = objectType;
+      return this;
     }
 
-    public String getObjectId() {
-        return this.objectId;
+    /**
+     * 自定义字段值
+     *
+     * <p>示例值：
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(JobCustomizedValue value) {
+      this.value = value;
+      return this;
     }
 
-    public void setObjectId(String objectId) {
-        this.objectId = objectId;
+    public JobCustomizedData build() {
+      return new JobCustomizedData(this);
     }
+  }
 
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public Integer getObjectType() {
-        return this.objectType;
-    }
-
-    public void setObjectType(Integer objectType) {
-        this.objectType = objectType;
-    }
-
-    public JobCustomizedValue getValue() {
-        return this.value;
-    }
-
-    public void setValue(JobCustomizedValue value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：xxxx
-         */
-        private String objectId;
-        /**
-         * 字段名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        private Integer objectType;
-        /**
-         * 自定义字段值
-         * <p> 示例值：
-         */
-        private JobCustomizedValue value;
-
-        /**
-         * 自定义字段 ID
-         * <p> 示例值：xxxx
-         *
-         * @param objectId
-         * @return
-         */
-        public Builder objectId(String objectId) {
-            this.objectId = objectId;
-            return this;
-        }
-
-
-        /**
-         * 字段名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         *
-         * @param objectType
-         * @return
-         */
-        public Builder objectType(Integer objectType) {
-            this.objectType = objectType;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段值
-         * <p> 示例值：
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(JobCustomizedValue value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public JobCustomizedData build() {
-            return new JobCustomizedData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

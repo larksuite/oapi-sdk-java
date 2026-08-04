@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.contact.v3.enums;
 
-/**
- * 资源处理类型
- */
+/** 资源处理类型 */
 public enum ResourceAcceptResourceProcessingTypeEnum {
-    TRANSFER("1"), // 转移资源
-    RETAIN("2"), // 保留资源
-    DELETE("3"), // 删除资源
-    ;
-    private String value;
+  TRANSFER("1"), // 转移资源
+  RETAIN("2"), // 保留资源
+  DELETE("3"), // 删除资源
+  ;
+  private String value;
 
-    ResourceAcceptResourceProcessingTypeEnum(String value) {
-        this.value = value;
-    }
+  ResourceAcceptResourceProcessingTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

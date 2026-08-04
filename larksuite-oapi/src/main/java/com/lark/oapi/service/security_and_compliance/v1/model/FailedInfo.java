@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FailedInfo {
+  /**
+   * 失败记录的唯一标识，用于定位和追踪具体的失败事件，可通过失败日志查询接口获取
+   *
+   * <p>示例值：oc_75a1e78d8ba768dded4df6b0000bb981
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 失败状态码，对应具体的失败类型（如参数错误、权限不足、资源不存在等），不同状态码映射不同的业务处理逻辑
+   *
+   * <p>示例值：5001
+   */
+  @SerializedName("code")
+  private Integer code;
+
+  /**
+   * 失败详情描述，包含失败原因的人性化说明，用于辅助开发者快速定位问题根源
+   *
+   * <p>示例值：openID convert to larkID failed
+   */
+  @SerializedName("msg")
+  private String msg;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getCode() {
+    return this.code;
+  }
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+  public String getMsg() {
+    return this.msg;
+  }
+
+  public void setMsg(String msg) {
+    this.msg = msg;
+  }
+
+  // builder 开始
+  public FailedInfo() {}
+
+  public FailedInfo(Builder builder) {
     /**
      * 失败记录的唯一标识，用于定位和追踪具体的失败事件，可通过失败日志查询接口获取
-     * <p> 示例值：ou_0b26f6b7bc5091dabbaa1dfbed38dee3
+     *
+     * <p>示例值：oc_75a1e78d8ba768dded4df6b0000bb981
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 失败状态码，对应具体的失败类型（如参数错误、权限不足、资源不存在等），不同状态码映射不同的业务处理逻辑
-     * <p> 示例值：5001
+     *
+     * <p>示例值：5001
      */
-    @SerializedName("code")
-    private Integer code;
+    this.code = builder.code;
     /**
      * 失败详情描述，包含失败原因的人性化说明，用于辅助开发者快速定位问题根源
-     * <p> 示例值：openID convert to lark userID failed
+     *
+     * <p>示例值：openID convert to larkID failed
      */
-    @SerializedName("msg")
+    this.msg = builder.msg;
+  }
+
+  public static class Builder {
+    /**
+     * 失败记录的唯一标识，用于定位和追踪具体的失败事件，可通过失败日志查询接口获取
+     *
+     * <p>示例值：oc_75a1e78d8ba768dded4df6b0000bb981
+     */
+    private String id;
+
+    /**
+     * 失败状态码，对应具体的失败类型（如参数错误、权限不足、资源不存在等），不同状态码映射不同的业务处理逻辑
+     *
+     * <p>示例值：5001
+     */
+    private Integer code;
+
+    /**
+     * 失败详情描述，包含失败原因的人性化说明，用于辅助开发者快速定位问题根源
+     *
+     * <p>示例值：openID convert to larkID failed
+     */
     private String msg;
 
-    // builder 开始
-    public FailedInfo() {
+    /**
+     * 失败记录的唯一标识，用于定位和追踪具体的失败事件，可通过失败日志查询接口获取
+     *
+     * <p>示例值：oc_75a1e78d8ba768dded4df6b0000bb981
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public FailedInfo(Builder builder) {
-        /**
-         * 失败记录的唯一标识，用于定位和追踪具体的失败事件，可通过失败日志查询接口获取
-         * <p> 示例值：ou_0b26f6b7bc5091dabbaa1dfbed38dee3
-         */
-        this.id = builder.id;
-        /**
-         * 失败状态码，对应具体的失败类型（如参数错误、权限不足、资源不存在等），不同状态码映射不同的业务处理逻辑
-         * <p> 示例值：5001
-         */
-        this.code = builder.code;
-        /**
-         * 失败详情描述，包含失败原因的人性化说明，用于辅助开发者快速定位问题根源
-         * <p> 示例值：openID convert to lark userID failed
-         */
-        this.msg = builder.msg;
+    /**
+     * 失败状态码，对应具体的失败类型（如参数错误、权限不足、资源不存在等），不同状态码映射不同的业务处理逻辑
+     *
+     * <p>示例值：5001
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(Integer code) {
+      this.code = code;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 失败详情描述，包含失败原因的人性化说明，用于辅助开发者快速定位问题根源
+     *
+     * <p>示例值：openID convert to larkID failed
+     *
+     * @param msg
+     * @return
+     */
+    public Builder msg(String msg) {
+      this.msg = msg;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public FailedInfo build() {
+      return new FailedInfo(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Integer getCode() {
-        return this.code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return this.msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public static class Builder {
-        /**
-         * 失败记录的唯一标识，用于定位和追踪具体的失败事件，可通过失败日志查询接口获取
-         * <p> 示例值：ou_0b26f6b7bc5091dabbaa1dfbed38dee3
-         */
-        private String id;
-        /**
-         * 失败状态码，对应具体的失败类型（如参数错误、权限不足、资源不存在等），不同状态码映射不同的业务处理逻辑
-         * <p> 示例值：5001
-         */
-        private Integer code;
-        /**
-         * 失败详情描述，包含失败原因的人性化说明，用于辅助开发者快速定位问题根源
-         * <p> 示例值：openID convert to lark userID failed
-         */
-        private String msg;
-
-        /**
-         * 失败记录的唯一标识，用于定位和追踪具体的失败事件，可通过失败日志查询接口获取
-         * <p> 示例值：ou_0b26f6b7bc5091dabbaa1dfbed38dee3
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 失败状态码，对应具体的失败类型（如参数错误、权限不足、资源不存在等），不同状态码映射不同的业务处理逻辑
-         * <p> 示例值：5001
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(Integer code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 失败详情描述，包含失败原因的人性化说明，用于辅助开发者快速定位问题根源
-         * <p> 示例值：openID convert to lark userID failed
-         *
-         * @param msg
-         * @return
-         */
-        public Builder msg(String msg) {
-            this.msg = msg;
-            return this;
-        }
-
-
-        public FailedInfo build() {
-            return new FailedInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

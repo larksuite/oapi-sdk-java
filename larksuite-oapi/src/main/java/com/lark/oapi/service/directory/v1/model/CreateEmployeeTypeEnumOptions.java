@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateEmployeeTypeEnumOptions {
+  /**
+   * 数据来源
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("data_source")
+  private Integer dataSource;
+
+  public Integer getDataSource() {
+    return this.dataSource;
+  }
+
+  public void setDataSource(Integer dataSource) {
+    this.dataSource = dataSource;
+  }
+
+  // builder 开始
+  public CreateEmployeeTypeEnumOptions() {}
+
+  public CreateEmployeeTypeEnumOptions(Builder builder) {
     /**
      * 数据来源
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("data_source")
+    this.dataSource = builder.dataSource;
+  }
+
+  public static class Builder {
+    /**
+     * 数据来源
+     *
+     * <p>示例值：1
+     */
     private Integer dataSource;
 
-    // builder 开始
-    public CreateEmployeeTypeEnumOptions() {
+    /**
+     * 数据来源
+     *
+     * <p>示例值：1
+     *
+     * @param dataSource
+     * @return
+     */
+    public Builder dataSource(Integer dataSource) {
+      this.dataSource = dataSource;
+      return this;
     }
 
-    public CreateEmployeeTypeEnumOptions(Builder builder) {
-        /**
-         * 数据来源
-         * <p> 示例值：
-         */
-        this.dataSource = builder.dataSource;
+    public CreateEmployeeTypeEnumOptions build() {
+      return new CreateEmployeeTypeEnumOptions(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Integer getDataSource() {
-        return this.dataSource;
-    }
-
-    public void setDataSource(Integer dataSource) {
-        this.dataSource = dataSource;
-    }
-
-    public static class Builder {
-        /**
-         * 数据来源
-         * <p> 示例值：
-         */
-        private Integer dataSource;
-
-        /**
-         * 数据来源
-         * <p> 示例值：
-         *
-         * @param dataSource
-         * @return
-         */
-        public Builder dataSource(Integer dataSource) {
-            this.dataSource = dataSource;
-            return this;
-        }
-
-
-        public CreateEmployeeTypeEnumOptions build() {
-            return new CreateEmployeeTypeEnumOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,65 +13,52 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class ActivePathwayReq {
-    @Body
+  @Body private ActivePathwayReqBody body;
+
+  public ActivePathwayReqBody getActivePathwayReqBody() {
+    return this.body;
+  }
+
+  public void setActivePathwayReqBody(ActivePathwayReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public ActivePathwayReq() {}
+
+  public ActivePathwayReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private ActivePathwayReqBody body;
 
-    // builder 开始
-    public ActivePathwayReq() {
-    }
-
-    public ActivePathwayReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public ActivePathwayReqBody getActivePathwayReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setActivePathwayReqBody(ActivePathwayReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder activePathwayReqBody(ActivePathwayReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private ActivePathwayReqBody body;
-
-        public ActivePathwayReqBody getActivePathwayReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder activePathwayReqBody(ActivePathwayReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public ActivePathwayReq build() {
-            return new ActivePathwayReq(this);
-        }
+    public ActivePathwayReq build() {
+      return new ActivePathwayReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

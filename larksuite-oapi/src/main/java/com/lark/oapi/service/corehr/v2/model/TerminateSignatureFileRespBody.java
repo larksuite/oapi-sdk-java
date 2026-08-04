@@ -13,90 +13,86 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TerminateSignatureFileRespBody {
-    /**
-     * 欲终止的文件总数量
-     * <p> 示例值：10
-     */
-    @SerializedName("total_count")
-    private Integer totalCount;
-    /**
-     * 成功总数量
-     * <p> 示例值：5
-     */
-    @SerializedName("success_count")
-    private Integer successCount;
-    /**
-     * 失败总数量
-     * <p> 示例值：5
-     */
-    @SerializedName("fail_count")
-    private Integer failCount;
-    /**
-     * 终止成功的文件id列表
-     * <p> 示例值：
-     */
-    @SerializedName("success_file_id_list")
-    private String[] successFileIdList;
-    /**
-     * 终止失败的文件id和对应的原因列表
-     * <p> 示例值：
-     */
-    @SerializedName("fail_file_id_and_reasons")
-    private TerminateSignatureFailIdAndReason[] failFileIdAndReasons;
+  /**
+   * 欲终止的文件总数量
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("total_count")
+  private Integer totalCount;
 
-    public Integer getTotalCount() {
-        return this.totalCount;
-    }
+  /**
+   * 成功总数量
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("success_count")
+  private Integer successCount;
 
-    public void setTotalCount(Integer totalCount) {
-        this.totalCount = totalCount;
-    }
+  /**
+   * 失败总数量
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("fail_count")
+  private Integer failCount;
 
-    public Integer getSuccessCount() {
-        return this.successCount;
-    }
+  /**
+   * 终止成功的文件id列表，可以通过[【获取电子签文件列表】](ssl:/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)接口获取文件详情信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("success_file_id_list")
+  private String[] successFileIdList;
 
-    public void setSuccessCount(Integer successCount) {
-        this.successCount = successCount;
-    }
+  /**
+   * 终止失败的文件id和对应的原因列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fail_file_id_and_reasons")
+  private TerminateSignatureFailIdAndReason[] failFileIdAndReasons;
 
-    public Integer getFailCount() {
-        return this.failCount;
-    }
+  public Integer getTotalCount() {
+    return this.totalCount;
+  }
 
-    public void setFailCount(Integer failCount) {
-        this.failCount = failCount;
-    }
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
 
-    public String[] getSuccessFileIdList() {
-        return this.successFileIdList;
-    }
+  public Integer getSuccessCount() {
+    return this.successCount;
+  }
 
-    public void setSuccessFileIdList(String[] successFileIdList) {
-        this.successFileIdList = successFileIdList;
-    }
+  public void setSuccessCount(Integer successCount) {
+    this.successCount = successCount;
+  }
 
-    public TerminateSignatureFailIdAndReason[] getFailFileIdAndReasons() {
-        return this.failFileIdAndReasons;
-    }
+  public Integer getFailCount() {
+    return this.failCount;
+  }
 
-    public void setFailFileIdAndReasons(TerminateSignatureFailIdAndReason[] failFileIdAndReasons) {
-        this.failFileIdAndReasons = failFileIdAndReasons;
-    }
+  public void setFailCount(Integer failCount) {
+    this.failCount = failCount;
+  }
 
+  public String[] getSuccessFileIdList() {
+    return this.successFileIdList;
+  }
+
+  public void setSuccessFileIdList(String[] successFileIdList) {
+    this.successFileIdList = successFileIdList;
+  }
+
+  public TerminateSignatureFailIdAndReason[] getFailFileIdAndReasons() {
+    return this.failFileIdAndReasons;
+  }
+
+  public void setFailFileIdAndReasons(TerminateSignatureFailIdAndReason[] failFileIdAndReasons) {
+    this.failFileIdAndReasons = failFileIdAndReasons;
+  }
 }

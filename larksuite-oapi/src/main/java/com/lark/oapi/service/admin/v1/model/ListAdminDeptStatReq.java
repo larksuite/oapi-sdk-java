@@ -13,355 +13,379 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.admin.v1.enums.*;
 
 public class ListAdminDeptStatReq {
+  /**
+   * 部门ID类型
+   *
+   * <p>示例值：open_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  /**
+   * 起始日期（包含），格式是YYYY-mm-dd（CN UTC+8，非CN UTC+0）
+   *
+   * <p>示例值：2020-02-15
+   */
+  @Query
+  @SerializedName("start_date")
+  private String startDate;
+
+  /**
+   * 终止日期（包含），格式是YYYY-mm-dd，与起止日期start_date之间相差不能超过91天（包含91天）（CN UTC+8，非CN UTC+0）
+   *
+   * <p>示例值：2020-02-15
+   */
+  @Query
+  @SerializedName("end_date")
+  private String endDate;
+
+  /**
+   * 部门的 ID，取决于department_id_type，仅支持根部门及其下前4级子部门（通过管理后台部门详情获取）
+   *
+   * <p>示例值：od-382e2793cfc9471f892e8a672987654c
+   */
+  @Query
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 是否包含子部门，如果该值为false，则只查出本部门直属用户活跃和功能使用数据；如果该值为true，则查出该部门以及其子部门（子部门层级最多不超过根部门下的前4级）的用户活跃和功能使用数据
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("contains_child_dept")
+  private Boolean containsChildDept;
+
+  /**
+   * 默认值是10，表示每页返回10条数据
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：2
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 需跨域访问的Geo数据，每个Geo仅包含本Geo数据，不传默认查本地数据，调用前需要先开通MG(cn、sg、jp、us)
+   *
+   * <p>示例值：cn
+   */
+  @Query
+  @SerializedName("target_geo")
+  private String targetGeo;
+
+  /**
+   * 是否返回分产品版本数据，默认false，不返回
+   *
+   * <p>示例值：true(默认是false)
+   */
+  @Query
+  @SerializedName("with_product_version")
+  private Boolean withProductVersion;
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  public String getStartDate() {
+    return this.startDate;
+  }
+
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+  public String getEndDate() {
+    return this.endDate;
+  }
+
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public Boolean getContainsChildDept() {
+    return this.containsChildDept;
+  }
+
+  public void setContainsChildDept(Boolean containsChildDept) {
+    this.containsChildDept = containsChildDept;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getTargetGeo() {
+    return this.targetGeo;
+  }
+
+  public void setTargetGeo(String targetGeo) {
+    this.targetGeo = targetGeo;
+  }
+
+  public Boolean getWithProductVersion() {
+    return this.withProductVersion;
+  }
+
+  public void setWithProductVersion(Boolean withProductVersion) {
+    this.withProductVersion = withProductVersion;
+  }
+
+  // builder 开始
+  public ListAdminDeptStatReq() {}
+
+  public ListAdminDeptStatReq(Builder builder) {
     /**
      * 部门ID类型
-     * <p> 示例值：open_department_id
+     *
+     * <p>示例值：open_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
-     * 起始日期（包含），格式是YYYY-mm-dd
-     * <p> 示例值：2020-02-15
+     * 起始日期（包含），格式是YYYY-mm-dd（CN UTC+8，非CN UTC+0）
+     *
+     * <p>示例值：2020-02-15
      */
-    @Query
-    @SerializedName("start_date")
-    private String startDate;
+    this.startDate = builder.startDate;
     /**
-     * 终止日期（包含），格式是YYYY-mm-dd，起止日期之间相差不能超过91天（包含91天）
-     * <p> 示例值：2020-02-15
+     * 终止日期（包含），格式是YYYY-mm-dd，与起止日期start_date之间相差不能超过91天（包含91天）（CN UTC+8，非CN UTC+0）
+     *
+     * <p>示例值：2020-02-15
      */
-    @Query
-    @SerializedName("end_date")
-    private String endDate;
+    this.endDate = builder.endDate;
     /**
-     * 部门的 ID，取决于department_id_type，仅支持根部门及其下前4级子部门
-     * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
+     * 部门的 ID，取决于department_id_type，仅支持根部门及其下前4级子部门（通过管理后台部门详情获取）
+     *
+     * <p>示例值：od-382e2793cfc9471f892e8a672987654c
      */
-    @Query
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
      * 是否包含子部门，如果该值为false，则只查出本部门直属用户活跃和功能使用数据；如果该值为true，则查出该部门以及其子部门（子部门层级最多不超过根部门下的前4级）的用户活跃和功能使用数据
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("contains_child_dept")
-    private Boolean containsChildDept;
+    this.containsChildDept = builder.containsChildDept;
     /**
-     * 分页大小，默认是10
-     * <p> 示例值：10
+     * 默认值是10，表示每页返回10条数据
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；当返回的has_more为true时，会返回新的page_token，再次调用接口，传入这个page_token，将获得下一页数据
-     * <p> 示例值：2
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：2
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 跨域访问的geo
-     * <p> 示例值：cn
+     * 需跨域访问的Geo数据，每个Geo仅包含本Geo数据，不传默认查本地数据，调用前需要先开通MG(cn、sg、jp、us)
+     *
+     * <p>示例值：cn
      */
-    @Query
-    @SerializedName("target_geo")
-    private String targetGeo;
+    this.targetGeo = builder.targetGeo;
     /**
-     * 是否返回分产品版本数据
-     * <p> 示例值：true
+     * 是否返回分产品版本数据，默认false，不返回
+     *
+     * <p>示例值：true(默认是false)
      */
-    @Query
-    @SerializedName("with_product_version")
-    private Boolean withProductVersion;
+    this.withProductVersion = builder.withProductVersion;
+  }
 
-    // builder 开始
-    public ListAdminDeptStatReq() {
+  public static class Builder {
+    private String departmentIdType; // 部门ID类型
+    private String startDate; // 起始日期（包含），格式是YYYY-mm-dd（CN UTC+8，非CN UTC+0）
+    private String
+        endDate; // 终止日期（包含），格式是YYYY-mm-dd，与起止日期start_date之间相差不能超过91天（包含91天）（CN UTC+8，非CN UTC+0）
+    private String departmentId; // 部门的 ID，取决于department_id_type，仅支持根部门及其下前4级子部门（通过管理后台部门详情获取）
+    private Boolean
+        containsChildDept; // 是否包含子部门，如果该值为false，则只查出本部门直属用户活跃和功能使用数据；如果该值为true，则查出该部门以及其子部门（子部门层级最多不超过根部门下的前4级）的用户活跃和功能使用数据
+    private Integer pageSize; // 默认值是10，表示每页返回10条数据
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String targetGeo; // 需跨域访问的Geo数据，每个Geo仅包含本Geo数据，不传默认查本地数据，调用前需要先开通MG(cn、sg、jp、us)
+    private Boolean withProductVersion; // 是否返回分产品版本数据，默认false，不返回
+
+    /**
+     * 部门ID类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
     }
 
-    public ListAdminDeptStatReq(Builder builder) {
-        /**
-         * 部门ID类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 起始日期（包含），格式是YYYY-mm-dd
-         * <p> 示例值：2020-02-15
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 终止日期（包含），格式是YYYY-mm-dd，起止日期之间相差不能超过91天（包含91天）
-         * <p> 示例值：2020-02-15
-         */
-        this.endDate = builder.endDate;
-        /**
-         * 部门的 ID，取决于department_id_type，仅支持根部门及其下前4级子部门
-         * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 是否包含子部门，如果该值为false，则只查出本部门直属用户活跃和功能使用数据；如果该值为true，则查出该部门以及其子部门（子部门层级最多不超过根部门下的前4级）的用户活跃和功能使用数据
-         * <p> 示例值：false
-         */
-        this.containsChildDept = builder.containsChildDept;
-        /**
-         * 分页大小，默认是10
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；当返回的has_more为true时，会返回新的page_token，再次调用接口，传入这个page_token，将获得下一页数据
-         * <p> 示例值：2
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 跨域访问的geo
-         * <p> 示例值：cn
-         */
-        this.targetGeo = builder.targetGeo;
-        /**
-         * 是否返回分产品版本数据
-         * <p> 示例值：true
-         */
-        this.withProductVersion = builder.withProductVersion;
+    /**
+     * 部门ID类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.admin.v1.enums.ListAdminDeptStatApiMGetDepartmentDailyStatisticsDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.admin.v1.enums
+                .ListAdminDeptStatApiMGetDepartmentDailyStatisticsDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 起始日期（包含），格式是YYYY-mm-dd（CN UTC+8，非CN UTC+0）
+     *
+     * <p>示例值：2020-02-15
+     *
+     * @param startDate
+     * @return
+     */
+    public Builder startDate(String startDate) {
+      this.startDate = startDate;
+      return this;
     }
 
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
+    /**
+     * 终止日期（包含），格式是YYYY-mm-dd，与起止日期start_date之间相差不能超过91天（包含91天）（CN UTC+8，非CN UTC+0）
+     *
+     * <p>示例值：2020-02-15
+     *
+     * @param endDate
+     * @return
+     */
+    public Builder endDate(String endDate) {
+      this.endDate = endDate;
+      return this;
     }
 
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
+    /**
+     * 部门的 ID，取决于department_id_type，仅支持根部门及其下前4级子部门（通过管理后台部门详情获取）
+     *
+     * <p>示例值：od-382e2793cfc9471f892e8a672987654c
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public String getStartDate() {
-        return this.startDate;
+    /**
+     * 是否包含子部门，如果该值为false，则只查出本部门直属用户活跃和功能使用数据；如果该值为true，则查出该部门以及其子部门（子部门层级最多不超过根部门下的前4级）的用户活跃和功能使用数据
+     *
+     * <p>示例值：false
+     *
+     * @param containsChildDept
+     * @return
+     */
+    public Builder containsChildDept(Boolean containsChildDept) {
+      this.containsChildDept = containsChildDept;
+      return this;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
+    /**
+     * 默认值是10，表示每页返回10条数据
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public String getEndDate() {
-        return this.endDate;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：2
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
+    /**
+     * 需跨域访问的Geo数据，每个Geo仅包含本Geo数据，不传默认查本地数据，调用前需要先开通MG(cn、sg、jp、us)
+     *
+     * <p>示例值：cn
+     *
+     * @param targetGeo
+     * @return
+     */
+    public Builder targetGeo(String targetGeo) {
+      this.targetGeo = targetGeo;
+      return this;
     }
 
-    public String getDepartmentId() {
-        return this.departmentId;
+    /**
+     * 是否返回分产品版本数据，默认false，不返回
+     *
+     * <p>示例值：true(默认是false)
+     *
+     * @param withProductVersion
+     * @return
+     */
+    public Builder withProductVersion(Boolean withProductVersion) {
+      this.withProductVersion = withProductVersion;
+      return this;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    public ListAdminDeptStatReq build() {
+      return new ListAdminDeptStatReq(this);
     }
+  }
 
-    public Boolean getContainsChildDept() {
-        return this.containsChildDept;
-    }
-
-    public void setContainsChildDept(Boolean containsChildDept) {
-        this.containsChildDept = containsChildDept;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getTargetGeo() {
-        return this.targetGeo;
-    }
-
-    public void setTargetGeo(String targetGeo) {
-        this.targetGeo = targetGeo;
-    }
-
-    public Boolean getWithProductVersion() {
-        return this.withProductVersion;
-    }
-
-    public void setWithProductVersion(Boolean withProductVersion) {
-        this.withProductVersion = withProductVersion;
-    }
-
-    public static class Builder {
-        private String departmentIdType; // 部门ID类型
-        private String startDate; // 起始日期（包含），格式是YYYY-mm-dd
-        private String endDate; // 终止日期（包含），格式是YYYY-mm-dd，起止日期之间相差不能超过91天（包含91天）
-        private String departmentId; // 部门的 ID，取决于department_id_type，仅支持根部门及其下前4级子部门
-        private Boolean containsChildDept; // 是否包含子部门，如果该值为false，则只查出本部门直属用户活跃和功能使用数据；如果该值为true，则查出该部门以及其子部门（子部门层级最多不超过根部门下的前4级）的用户活跃和功能使用数据
-        private Integer pageSize; // 分页大小，默认是10
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；当返回的has_more为true时，会返回新的page_token，再次调用接口，传入这个page_token，将获得下一页数据
-        private String targetGeo; // 跨域访问的geo
-        private Boolean withProductVersion; // 是否返回分产品版本数据
-
-        /**
-         * 部门ID类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 部门ID类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.admin.v1.enums.ListAdminDeptStatApiMGetDepartmentDailyStatisticsDepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.admin.v1.enums.ListAdminDeptStatApiMGetDepartmentDailyStatisticsDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 起始日期（包含），格式是YYYY-mm-dd
-         * <p> 示例值：2020-02-15
-         *
-         * @param startDate
-         * @return
-         */
-        public Builder startDate(String startDate) {
-            this.startDate = startDate;
-            return this;
-        }
-
-
-        /**
-         * 终止日期（包含），格式是YYYY-mm-dd，起止日期之间相差不能超过91天（包含91天）
-         * <p> 示例值：2020-02-15
-         *
-         * @param endDate
-         * @return
-         */
-        public Builder endDate(String endDate) {
-            this.endDate = endDate;
-            return this;
-        }
-
-
-        /**
-         * 部门的 ID，取决于department_id_type，仅支持根部门及其下前4级子部门
-         * <p> 示例值：od-382e2793cfc9471f892e8a672987654c
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 是否包含子部门，如果该值为false，则只查出本部门直属用户活跃和功能使用数据；如果该值为true，则查出该部门以及其子部门（子部门层级最多不超过根部门下的前4级）的用户活跃和功能使用数据
-         * <p> 示例值：false
-         *
-         * @param containsChildDept
-         * @return
-         */
-        public Builder containsChildDept(Boolean containsChildDept) {
-            this.containsChildDept = containsChildDept;
-            return this;
-        }
-
-
-        /**
-         * 分页大小，默认是10
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；当返回的has_more为true时，会返回新的page_token，再次调用接口，传入这个page_token，将获得下一页数据
-         * <p> 示例值：2
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 跨域访问的geo
-         * <p> 示例值：cn
-         *
-         * @param targetGeo
-         * @return
-         */
-        public Builder targetGeo(String targetGeo) {
-            this.targetGeo = targetGeo;
-            return this;
-        }
-
-
-        /**
-         * 是否返回分产品版本数据
-         * <p> 示例值：true
-         *
-         * @param withProductVersion
-         * @return
-         */
-        public Builder withProductVersion(Boolean withProductVersion) {
-            this.withProductVersion = withProductVersion;
-            return this;
-        }
-
-
-        public ListAdminDeptStatReq build() {
-            return new ListAdminDeptStatReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

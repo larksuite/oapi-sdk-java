@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SaveDatasourceRecordReqBody {
+  /**
+   * 数据源code。可从[获取外部数据源配置信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/datasource/list);或者
+   * 「飞书人事后台-设置-算薪数据设置-外部数据源配置」页面 获取
+   *
+   * <p>示例值：test__c
+   */
+  @SerializedName("source_code")
+  private String sourceCode;
+
+  /**
+   * 需保存的记录列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("records")
+  private DatasourceRecord[] records;
+
+  public String getSourceCode() {
+    return this.sourceCode;
+  }
+
+  public void setSourceCode(String sourceCode) {
+    this.sourceCode = sourceCode;
+  }
+
+  public DatasourceRecord[] getRecords() {
+    return this.records;
+  }
+
+  public void setRecords(DatasourceRecord[] records) {
+    this.records = records;
+  }
+
+  // builder 开始
+  public SaveDatasourceRecordReqBody() {}
+
+  public SaveDatasourceRecordReqBody(Builder builder) {
     /**
-     * 数据源code
-     * <p> 示例值：test__c
+     * 数据源code。可从[获取外部数据源配置信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/datasource/list);或者
+     * 「飞书人事后台-设置-算薪数据设置-外部数据源配置」页面 获取
+     *
+     * <p>示例值：test__c
      */
-    @SerializedName("source_code")
-    private String sourceCode;
+    this.sourceCode = builder.sourceCode;
     /**
      * 需保存的记录列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("records")
+    this.records = builder.records;
+  }
+
+  public static class Builder {
+    /**
+     * 数据源code。可从[获取外部数据源配置信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/datasource/list);或者
+     * 「飞书人事后台-设置-算薪数据设置-外部数据源配置」页面 获取
+     *
+     * <p>示例值：test__c
+     */
+    private String sourceCode;
+
+    /**
+     * 需保存的记录列表
+     *
+     * <p>示例值：
+     */
     private DatasourceRecord[] records;
 
-    // builder 开始
-    public SaveDatasourceRecordReqBody() {
+    /**
+     * 数据源code。可从[获取外部数据源配置信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/datasource/list);或者
+     * 「飞书人事后台-设置-算薪数据设置-外部数据源配置」页面 获取
+     *
+     * <p>示例值：test__c
+     *
+     * @param sourceCode
+     * @return
+     */
+    public Builder sourceCode(String sourceCode) {
+      this.sourceCode = sourceCode;
+      return this;
     }
 
-    public SaveDatasourceRecordReqBody(Builder builder) {
-        /**
-         * 数据源code
-         * <p> 示例值：test__c
-         */
-        this.sourceCode = builder.sourceCode;
-        /**
-         * 需保存的记录列表
-         * <p> 示例值：
-         */
-        this.records = builder.records;
+    /**
+     * 需保存的记录列表
+     *
+     * <p>示例值：
+     *
+     * @param records
+     * @return
+     */
+    public Builder records(DatasourceRecord[] records) {
+      this.records = records;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SaveDatasourceRecordReqBody build() {
+      return new SaveDatasourceRecordReqBody(this);
     }
+  }
 
-    public String getSourceCode() {
-        return this.sourceCode;
-    }
-
-    public void setSourceCode(String sourceCode) {
-        this.sourceCode = sourceCode;
-    }
-
-    public DatasourceRecord[] getRecords() {
-        return this.records;
-    }
-
-    public void setRecords(DatasourceRecord[] records) {
-        this.records = records;
-    }
-
-    public static class Builder {
-        /**
-         * 数据源code
-         * <p> 示例值：test__c
-         */
-        private String sourceCode;
-        /**
-         * 需保存的记录列表
-         * <p> 示例值：
-         */
-        private DatasourceRecord[] records;
-
-        /**
-         * 数据源code
-         * <p> 示例值：test__c
-         *
-         * @param sourceCode
-         * @return
-         */
-        public Builder sourceCode(String sourceCode) {
-            this.sourceCode = sourceCode;
-            return this;
-        }
-
-
-        /**
-         * 需保存的记录列表
-         * <p> 示例值：
-         *
-         * @param records
-         * @return
-         */
-        public Builder records(DatasourceRecord[] records) {
-            this.records = records;
-            return this;
-        }
-
-
-        public SaveDatasourceRecordReqBody build() {
-            return new SaveDatasourceRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

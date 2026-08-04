@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 行级异常
- */
+/** 行级异常 */
 public enum AbnormalRecordRowErrorEnum {
-    SUCCESS(0), // 成功
-    FORBIDDEN(1000), // 没权限
-    ;
-    private Integer value;
+  SUCCESS(0), // 成功
+  FORBIDDEN(1000), // 没权限
+  ;
+  private Integer value;
 
-    AbnormalRecordRowErrorEnum(Integer value) {
-        this.value = value;
-    }
+  AbnormalRecordRowErrorEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

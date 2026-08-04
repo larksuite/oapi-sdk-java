@@ -13,72 +13,68 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class GetJobLevelReq {
+  /**
+   * 职级ID。ID获取方式：;-
+   * 调用[【新建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/create)[【查询租户的职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID
+   *
+   * <p>示例值：1515
+   */
+  @Path
+  @SerializedName("job_level_id")
+  private String jobLevelId;
+
+  public String getJobLevelId() {
+    return this.jobLevelId;
+  }
+
+  public void setJobLevelId(String jobLevelId) {
+    this.jobLevelId = jobLevelId;
+  }
+
+  // builder 开始
+  public GetJobLevelReq() {}
+
+  public GetJobLevelReq(Builder builder) {
     /**
-     * 职务级别 ID
-     * <p> 示例值：1515
+     * 职级ID。ID获取方式：;-
+     * 调用[【新建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/create)[【查询租户的职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID
+     *
+     * <p>示例值：1515
      */
-    @Path
-    @SerializedName("job_level_id")
-    private String jobLevelId;
+    this.jobLevelId = builder.jobLevelId;
+  }
 
-    // builder 开始
-    public GetJobLevelReq() {
+  public static class Builder {
+
+    private String jobLevelId; // 职级ID。ID获取方式：;-
+
+    // 调用[【新建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/create)[【查询租户的职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID
+
+    /**
+     * 职级ID。ID获取方式：;-
+     * 调用[【新建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/create)[【查询租户的职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID
+     *
+     * <p>示例值：1515
+     *
+     * @param jobLevelId
+     * @return
+     */
+    public Builder jobLevelId(String jobLevelId) {
+      this.jobLevelId = jobLevelId;
+      return this;
     }
 
-    public GetJobLevelReq(Builder builder) {
-        /**
-         * 职务级别 ID
-         * <p> 示例值：1515
-         */
-        this.jobLevelId = builder.jobLevelId;
+    public GetJobLevelReq build() {
+      return new GetJobLevelReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getJobLevelId() {
-        return this.jobLevelId;
-    }
-
-    public void setJobLevelId(String jobLevelId) {
-        this.jobLevelId = jobLevelId;
-    }
-
-    public static class Builder {
-
-        private String jobLevelId; // 职务级别 ID
-
-        /**
-         * 职务级别 ID
-         * <p> 示例值：1515
-         *
-         * @param jobLevelId
-         * @return
-         */
-        public Builder jobLevelId(String jobLevelId) {
-            this.jobLevelId = jobLevelId;
-            return this;
-        }
-
-
-        public GetJobLevelReq build() {
-            return new GetJobLevelReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

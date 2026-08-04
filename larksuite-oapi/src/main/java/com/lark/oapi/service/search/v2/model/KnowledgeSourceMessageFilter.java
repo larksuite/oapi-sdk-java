@@ -13,112 +13,131 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeSourceMessageFilter {
+  /**
+   * 群 ID 列表。包括单聊和群组的 ID。群 ID 获取方式：;-
+   * [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的
+   * chat_id。;-
+   * 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的
+   * chat_id。;-
+   * 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的
+   * chat_id。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_ids")
+  private String[] chatIds;
+
+  /**
+   * 时间范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("time_range")
+  private TimeRange timeRange;
+
+  public String[] getChatIds() {
+    return this.chatIds;
+  }
+
+  public void setChatIds(String[] chatIds) {
+    this.chatIds = chatIds;
+  }
+
+  public TimeRange getTimeRange() {
+    return this.timeRange;
+  }
+
+  public void setTimeRange(TimeRange timeRange) {
+    this.timeRange = timeRange;
+  }
+
+  // builder 开始
+  public KnowledgeSourceMessageFilter() {}
+
+  public KnowledgeSourceMessageFilter(Builder builder) {
     /**
-     * 会话 ID 列表
-     * <p> 示例值：
+     * 群 ID 列表。包括单聊和群组的 ID。群 ID 获取方式：;-
+     * [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的
+     * chat_id。;-
+     * 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的
+     * chat_id。;-
+     * 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的
+     * chat_id。
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_ids")
-    private String[] chatIds;
+    this.chatIds = builder.chatIds;
     /**
      * 时间范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("time_range")
+    this.timeRange = builder.timeRange;
+  }
+
+  public static class Builder {
+    /**
+     * 群 ID 列表。包括单聊和群组的 ID。群 ID 获取方式：;-
+     * [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的
+     * chat_id。;-
+     * 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的
+     * chat_id。;-
+     * 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的
+     * chat_id。
+     *
+     * <p>示例值：
+     */
+    private String[] chatIds;
+
+    /**
+     * 时间范围
+     *
+     * <p>示例值：
+     */
     private TimeRange timeRange;
 
-    // builder 开始
-    public KnowledgeSourceMessageFilter() {
+    /**
+     * 群 ID 列表。包括单聊和群组的 ID。群 ID 获取方式：;-
+     * [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的
+     * chat_id。;-
+     * 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的
+     * chat_id。;-
+     * 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的
+     * chat_id。
+     *
+     * <p>示例值：
+     *
+     * @param chatIds
+     * @return
+     */
+    public Builder chatIds(String[] chatIds) {
+      this.chatIds = chatIds;
+      return this;
     }
 
-    public KnowledgeSourceMessageFilter(Builder builder) {
-        /**
-         * 会话 ID 列表
-         * <p> 示例值：
-         */
-        this.chatIds = builder.chatIds;
-        /**
-         * 时间范围
-         * <p> 示例值：
-         */
-        this.timeRange = builder.timeRange;
+    /**
+     * 时间范围
+     *
+     * <p>示例值：
+     *
+     * @param timeRange
+     * @return
+     */
+    public Builder timeRange(TimeRange timeRange) {
+      this.timeRange = timeRange;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public KnowledgeSourceMessageFilter build() {
+      return new KnowledgeSourceMessageFilter(this);
     }
+  }
 
-    public String[] getChatIds() {
-        return this.chatIds;
-    }
-
-    public void setChatIds(String[] chatIds) {
-        this.chatIds = chatIds;
-    }
-
-    public TimeRange getTimeRange() {
-        return this.timeRange;
-    }
-
-    public void setTimeRange(TimeRange timeRange) {
-        this.timeRange = timeRange;
-    }
-
-    public static class Builder {
-        /**
-         * 会话 ID 列表
-         * <p> 示例值：
-         */
-        private String[] chatIds;
-        /**
-         * 时间范围
-         * <p> 示例值：
-         */
-        private TimeRange timeRange;
-
-        /**
-         * 会话 ID 列表
-         * <p> 示例值：
-         *
-         * @param chatIds
-         * @return
-         */
-        public Builder chatIds(String[] chatIds) {
-            this.chatIds = chatIds;
-            return this;
-        }
-
-
-        /**
-         * 时间范围
-         * <p> 示例值：
-         *
-         * @param timeRange
-         * @return
-         */
-        public Builder timeRange(TimeRange timeRange) {
-            this.timeRange = timeRange;
-            return this;
-        }
-
-
-        public KnowledgeSourceMessageFilter build() {
-            return new KnowledgeSourceMessageFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ShareGroup {
+  /**
+   * 用户组的open_id
+   *
+   * <p>示例值：ou-12121212
+   */
+  @SerializedName("open_group_id")
+  private String openGroupId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  public String getOpenGroupId() {
+    return this.openGroupId;
+  }
+
+  public void setOpenGroupId(String openGroupId) {
+    this.openGroupId = openGroupId;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public ShareGroup() {}
+
+  public ShareGroup(Builder builder) {
     /**
      * 用户组的open_id
-     * <p> 示例值：ou-12121212
+     *
+     * <p>示例值：ou-12121212
      */
-    @SerializedName("open_group_id")
-    private String openGroupId;
+    this.openGroupId = builder.openGroupId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 用户组的open_id
+     *
+     * <p>示例值：ou-12121212
+     */
+    private String openGroupId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
     private I18nText name;
 
-    // builder 开始
-    public ShareGroup() {
+    /**
+     * 用户组的open_id
+     *
+     * <p>示例值：ou-12121212
+     *
+     * @param openGroupId
+     * @return
+     */
+    public Builder openGroupId(String openGroupId) {
+      this.openGroupId = openGroupId;
+      return this;
     }
 
-    public ShareGroup(Builder builder) {
-        /**
-         * 用户组的open_id
-         * <p> 示例值：ou-12121212
-         */
-        this.openGroupId = builder.openGroupId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ShareGroup build() {
+      return new ShareGroup(this);
     }
+  }
 
-    public String getOpenGroupId() {
-        return this.openGroupId;
-    }
-
-    public void setOpenGroupId(String openGroupId) {
-        this.openGroupId = openGroupId;
-    }
-
-    public I18nText getName() {
-        return this.name;
-    }
-
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 用户组的open_id
-         * <p> 示例值：ou-12121212
-         */
-        private String openGroupId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-
-        /**
-         * 用户组的open_id
-         * <p> 示例值：ou-12121212
-         *
-         * @param openGroupId
-         * @return
-         */
-        public Builder openGroupId(String openGroupId) {
-            this.openGroupId = openGroupId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public ShareGroup build() {
-            return new ShareGroup(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

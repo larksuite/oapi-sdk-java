@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BitableTableRecordAction {
+  /**
+   * 发生变更的记录 ID
+   *
+   * <p>示例值：rec9sabcef
+   */
+  @SerializedName("record_id")
+  private String recordId;
+
+  /**
+   * 支持的记录变更类型。枚举值有：;- record_added：新增行记录;- record_deleted：删除行记录;- record_edited：修改行记录
+   *
+   * <p>示例值：record_edited
+   */
+  @SerializedName("action")
+  private String action;
+
+  /**
+   * 发生变更前的记录值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("before_value")
+  private BitableTableRecordActionField[] beforeValue;
+
+  /**
+   * 发生变更后的字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("after_value")
+  private BitableTableRecordActionField[] afterValue;
+
+  public String getRecordId() {
+    return this.recordId;
+  }
+
+  public void setRecordId(String recordId) {
+    this.recordId = recordId;
+  }
+
+  public String getAction() {
+    return this.action;
+  }
+
+  public void setAction(String action) {
+    this.action = action;
+  }
+
+  public BitableTableRecordActionField[] getBeforeValue() {
+    return this.beforeValue;
+  }
+
+  public void setBeforeValue(BitableTableRecordActionField[] beforeValue) {
+    this.beforeValue = beforeValue;
+  }
+
+  public BitableTableRecordActionField[] getAfterValue() {
+    return this.afterValue;
+  }
+
+  public void setAfterValue(BitableTableRecordActionField[] afterValue) {
+    this.afterValue = afterValue;
+  }
+
+  // builder 开始
+  public BitableTableRecordAction() {}
+
+  public BitableTableRecordAction(Builder builder) {
     /**
-     * 记录 ID
-     * <p> 示例值：
+     * 发生变更的记录 ID
+     *
+     * <p>示例值：rec9sabcef
      */
-    @SerializedName("record_id")
+    this.recordId = builder.recordId;
+    /**
+     * 支持的记录变更类型。枚举值有：;- record_added：新增行记录;- record_deleted：删除行记录;- record_edited：修改行记录
+     *
+     * <p>示例值：record_edited
+     */
+    this.action = builder.action;
+    /**
+     * 发生变更前的记录值
+     *
+     * <p>示例值：
+     */
+    this.beforeValue = builder.beforeValue;
+    /**
+     * 发生变更后的字段
+     *
+     * <p>示例值：
+     */
+    this.afterValue = builder.afterValue;
+  }
+
+  public static class Builder {
+    /**
+     * 发生变更的记录 ID
+     *
+     * <p>示例值：rec9sabcef
+     */
     private String recordId;
+
     /**
-     * 操作类型
-     * <p> 示例值：
+     * 支持的记录变更类型。枚举值有：;- record_added：新增行记录;- record_deleted：删除行记录;- record_edited：修改行记录
+     *
+     * <p>示例值：record_edited
      */
-    @SerializedName("action")
     private String action;
+
     /**
-     * 操作前的记录值
-     * <p> 示例值：
+     * 发生变更前的记录值
+     *
+     * <p>示例值：
      */
-    @SerializedName("before_value")
     private BitableTableRecordActionField[] beforeValue;
+
     /**
-     * 操作后的记录值
-     * <p> 示例值：
+     * 发生变更后的字段
+     *
+     * <p>示例值：
      */
-    @SerializedName("after_value")
     private BitableTableRecordActionField[] afterValue;
 
-    // builder 开始
-    public BitableTableRecordAction() {
+    /**
+     * 发生变更的记录 ID
+     *
+     * <p>示例值：rec9sabcef
+     *
+     * @param recordId
+     * @return
+     */
+    public Builder recordId(String recordId) {
+      this.recordId = recordId;
+      return this;
     }
 
-    public BitableTableRecordAction(Builder builder) {
-        /**
-         * 记录 ID
-         * <p> 示例值：
-         */
-        this.recordId = builder.recordId;
-        /**
-         * 操作类型
-         * <p> 示例值：
-         */
-        this.action = builder.action;
-        /**
-         * 操作前的记录值
-         * <p> 示例值：
-         */
-        this.beforeValue = builder.beforeValue;
-        /**
-         * 操作后的记录值
-         * <p> 示例值：
-         */
-        this.afterValue = builder.afterValue;
+    /**
+     * 支持的记录变更类型。枚举值有：;- record_added：新增行记录;- record_deleted：删除行记录;- record_edited：修改行记录
+     *
+     * <p>示例值：record_edited
+     *
+     * @param action
+     * @return
+     */
+    public Builder action(String action) {
+      this.action = action;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 发生变更前的记录值
+     *
+     * <p>示例值：
+     *
+     * @param beforeValue
+     * @return
+     */
+    public Builder beforeValue(BitableTableRecordActionField[] beforeValue) {
+      this.beforeValue = beforeValue;
+      return this;
     }
 
-    public String getRecordId() {
-        return this.recordId;
+    /**
+     * 发生变更后的字段
+     *
+     * <p>示例值：
+     *
+     * @param afterValue
+     * @return
+     */
+    public Builder afterValue(BitableTableRecordActionField[] afterValue) {
+      this.afterValue = afterValue;
+      return this;
     }
 
-    public void setRecordId(String recordId) {
-        this.recordId = recordId;
+    public BitableTableRecordAction build() {
+      return new BitableTableRecordAction(this);
     }
+  }
 
-    public String getAction() {
-        return this.action;
-    }
-
-    public void setAction(String action) {
-        this.action = action;
-    }
-
-    public BitableTableRecordActionField[] getBeforeValue() {
-        return this.beforeValue;
-    }
-
-    public void setBeforeValue(BitableTableRecordActionField[] beforeValue) {
-        this.beforeValue = beforeValue;
-    }
-
-    public BitableTableRecordActionField[] getAfterValue() {
-        return this.afterValue;
-    }
-
-    public void setAfterValue(BitableTableRecordActionField[] afterValue) {
-        this.afterValue = afterValue;
-    }
-
-    public static class Builder {
-        /**
-         * 记录 ID
-         * <p> 示例值：
-         */
-        private String recordId;
-        /**
-         * 操作类型
-         * <p> 示例值：
-         */
-        private String action;
-        /**
-         * 操作前的记录值
-         * <p> 示例值：
-         */
-        private BitableTableRecordActionField[] beforeValue;
-        /**
-         * 操作后的记录值
-         * <p> 示例值：
-         */
-        private BitableTableRecordActionField[] afterValue;
-
-        /**
-         * 记录 ID
-         * <p> 示例值：
-         *
-         * @param recordId
-         * @return
-         */
-        public Builder recordId(String recordId) {
-            this.recordId = recordId;
-            return this;
-        }
-
-
-        /**
-         * 操作类型
-         * <p> 示例值：
-         *
-         * @param action
-         * @return
-         */
-        public Builder action(String action) {
-            this.action = action;
-            return this;
-        }
-
-
-        /**
-         * 操作前的记录值
-         * <p> 示例值：
-         *
-         * @param beforeValue
-         * @return
-         */
-        public Builder beforeValue(BitableTableRecordActionField[] beforeValue) {
-            this.beforeValue = beforeValue;
-            return this;
-        }
-
-
-        /**
-         * 操作后的记录值
-         * <p> 示例值：
-         *
-         * @param afterValue
-         * @return
-         */
-        public Builder afterValue(BitableTableRecordActionField[] afterValue) {
-            this.afterValue = afterValue;
-            return this;
-        }
-
-
-        public BitableTableRecordAction build() {
-            return new BitableTableRecordAction(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

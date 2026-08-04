@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.ehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.ehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.ehr.v1.enums.*;
 
 public class GetAttachmentReq {
+  /**
+   * 文件 token
+   *
+   * <p>示例值：09bf7b924f9a4a69875788891b5970d8
+   */
+  @Path
+  @SerializedName("token")
+  private String token;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  // builder 开始
+  public GetAttachmentReq() {}
+
+  public GetAttachmentReq(Builder builder) {
     /**
      * 文件 token
-     * <p> 示例值：09bf7b924f9a4a69875788891b5970d8
+     *
+     * <p>示例值：09bf7b924f9a4a69875788891b5970d8
      */
-    @Path
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
+  }
 
-    // builder 开始
-    public GetAttachmentReq() {
+  public static class Builder {
+
+    private String token; // 文件 token
+
+    /**
+     * 文件 token
+     *
+     * <p>示例值：09bf7b924f9a4a69875788891b5970d8
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public GetAttachmentReq(Builder builder) {
-        /**
-         * 文件 token
-         * <p> 示例值：09bf7b924f9a4a69875788891b5970d8
-         */
-        this.token = builder.token;
+    public GetAttachmentReq build() {
+      return new GetAttachmentReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getToken() {
-        return this.token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public static class Builder {
-
-        private String token; // 文件 token
-
-        /**
-         * 文件 token
-         * <p> 示例值：09bf7b924f9a4a69875788891b5970d8
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        public GetAttachmentReq build() {
-            return new GetAttachmentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

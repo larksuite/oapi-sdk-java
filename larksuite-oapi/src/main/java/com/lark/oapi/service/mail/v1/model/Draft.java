@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Draft {
+  /**
+   * 草稿ID
+   *
+   * <p>示例值：268dce11-85f7-427d-8756-6be3abc850fd
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 草稿内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message")
+  private Message message;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Message getMessage() {
+    return this.message;
+  }
+
+  public void setMessage(Message message) {
+    this.message = message;
+  }
+
+  // builder 开始
+  public Draft() {}
+
+  public Draft(Builder builder) {
     /**
      * 草稿ID
-     * <p> 示例值：268dce11-85f7-427d-8756-6be3abc850fd
+     *
+     * <p>示例值：268dce11-85f7-427d-8756-6be3abc850fd
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 草稿内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("message")
+    this.message = builder.message;
+  }
+
+  public static class Builder {
+    /**
+     * 草稿ID
+     *
+     * <p>示例值：268dce11-85f7-427d-8756-6be3abc850fd
+     */
+    private String id;
+
+    /**
+     * 草稿内容
+     *
+     * <p>示例值：
+     */
     private Message message;
 
-    // builder 开始
-    public Draft() {
+    /**
+     * 草稿ID
+     *
+     * <p>示例值：268dce11-85f7-427d-8756-6be3abc850fd
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Draft(Builder builder) {
-        /**
-         * 草稿ID
-         * <p> 示例值：268dce11-85f7-427d-8756-6be3abc850fd
-         */
-        this.id = builder.id;
-        /**
-         * 草稿内容
-         * <p> 示例值：
-         */
-        this.message = builder.message;
+    /**
+     * 草稿内容
+     *
+     * <p>示例值：
+     *
+     * @param message
+     * @return
+     */
+    public Builder message(Message message) {
+      this.message = message;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Draft build() {
+      return new Draft(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Message getMessage() {
-        return this.message;
-    }
-
-    public void setMessage(Message message) {
-        this.message = message;
-    }
-
-    public static class Builder {
-        /**
-         * 草稿ID
-         * <p> 示例值：268dce11-85f7-427d-8756-6be3abc850fd
-         */
-        private String id;
-        /**
-         * 草稿内容
-         * <p> 示例值：
-         */
-        private Message message;
-
-        /**
-         * 草稿ID
-         * <p> 示例值：268dce11-85f7-427d-8756-6be3abc850fd
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 草稿内容
-         * <p> 示例值：
-         *
-         * @param message
-         * @return
-         */
-        public Builder message(Message message) {
-            this.message = message;
-            return this;
-        }
-
-
-        public Draft build() {
-            return new Draft(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

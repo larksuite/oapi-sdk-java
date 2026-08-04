@@ -13,72 +13,68 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class DeleteJobDataReq {
+  /**
+   * 需要删除的任职信息 ID;-
+   * 通过[【批量查询员工任职】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)可以获得
+   *
+   * <p>示例值：467642764726472
+   */
+  @Path
+  @SerializedName("job_data_id")
+  private String jobDataId;
+
+  public String getJobDataId() {
+    return this.jobDataId;
+  }
+
+  public void setJobDataId(String jobDataId) {
+    this.jobDataId = jobDataId;
+  }
+
+  // builder 开始
+  public DeleteJobDataReq() {}
+
+  public DeleteJobDataReq(Builder builder) {
     /**
-     * 需要删除的任职信息 ID
-     * <p> 示例值：467642764726472
+     * 需要删除的任职信息 ID;-
+     * 通过[【批量查询员工任职】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)可以获得
+     *
+     * <p>示例值：467642764726472
      */
-    @Path
-    @SerializedName("job_data_id")
-    private String jobDataId;
+    this.jobDataId = builder.jobDataId;
+  }
 
-    // builder 开始
-    public DeleteJobDataReq() {
+  public static class Builder {
+
+    private String jobDataId; // 需要删除的任职信息 ID;-
+
+    // 通过[【批量查询员工任职】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)可以获得
+
+    /**
+     * 需要删除的任职信息 ID;-
+     * 通过[【批量查询员工任职】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)可以获得
+     *
+     * <p>示例值：467642764726472
+     *
+     * @param jobDataId
+     * @return
+     */
+    public Builder jobDataId(String jobDataId) {
+      this.jobDataId = jobDataId;
+      return this;
     }
 
-    public DeleteJobDataReq(Builder builder) {
-        /**
-         * 需要删除的任职信息 ID
-         * <p> 示例值：467642764726472
-         */
-        this.jobDataId = builder.jobDataId;
+    public DeleteJobDataReq build() {
+      return new DeleteJobDataReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getJobDataId() {
-        return this.jobDataId;
-    }
-
-    public void setJobDataId(String jobDataId) {
-        this.jobDataId = jobDataId;
-    }
-
-    public static class Builder {
-
-        private String jobDataId; // 需要删除的任职信息 ID
-
-        /**
-         * 需要删除的任职信息 ID
-         * <p> 示例值：467642764726472
-         *
-         * @param jobDataId
-         * @return
-         */
-        public Builder jobDataId(String jobDataId) {
-            this.jobDataId = jobDataId;
-            return this;
-        }
-
-
-        public DeleteJobDataReq build() {
-            return new DeleteJobDataReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

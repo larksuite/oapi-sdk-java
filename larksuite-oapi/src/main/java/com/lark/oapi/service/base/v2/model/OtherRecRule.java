@@ -13,173 +13,176 @@
 
 package com.lark.oapi.service.base.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.base.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OtherRecRule {
+  /**
+   * 记录筛选条件，用于指定可阅读的记录。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("conditions")
+  private RecRuleCondition[] conditions;
+
+  /**
+   * 多个筛选条件的关系
+   *
+   * <p>示例值：and
+   */
+  @SerializedName("conjunction")
+  private String conjunction;
+
+  /**
+   * 规则筛选记录对应的权限
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("perm")
+  private Integer perm;
+
+  public RecRuleCondition[] getConditions() {
+    return this.conditions;
+  }
+
+  public void setConditions(RecRuleCondition[] conditions) {
+    this.conditions = conditions;
+  }
+
+  public String getConjunction() {
+    return this.conjunction;
+  }
+
+  public void setConjunction(String conjunction) {
+    this.conjunction = conjunction;
+  }
+
+  public Integer getPerm() {
+    return this.perm;
+  }
+
+  public void setPerm(Integer perm) {
+    this.perm = perm;
+  }
+
+  // builder 开始
+  public OtherRecRule() {}
+
+  public OtherRecRule(Builder builder) {
     /**
-     * 记录筛选条件
-     * <p> 示例值：
+     * 记录筛选条件，用于指定可阅读的记录。
+     *
+     * <p>示例值：
      */
-    @SerializedName("conditions")
-    private RecRuleCondition[] conditions;
+    this.conditions = builder.conditions;
     /**
      * 多个筛选条件的关系
-     * <p> 示例值：and
+     *
+     * <p>示例值：and
      */
-    @SerializedName("conjunction")
-    private String conjunction;
+    this.conjunction = builder.conjunction;
     /**
      * 规则筛选记录对应的权限
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("perm")
+    this.perm = builder.perm;
+  }
+
+  public static class Builder {
+    /**
+     * 记录筛选条件，用于指定可阅读的记录。
+     *
+     * <p>示例值：
+     */
+    private RecRuleCondition[] conditions;
+
+    /**
+     * 多个筛选条件的关系
+     *
+     * <p>示例值：and
+     */
+    private String conjunction;
+
+    /**
+     * 规则筛选记录对应的权限
+     *
+     * <p>示例值：1
+     */
     private Integer perm;
 
-    // builder 开始
-    public OtherRecRule() {
+    /**
+     * 记录筛选条件，用于指定可阅读的记录。
+     *
+     * <p>示例值：
+     *
+     * @param conditions
+     * @return
+     */
+    public Builder conditions(RecRuleCondition[] conditions) {
+      this.conditions = conditions;
+      return this;
     }
 
-    public OtherRecRule(Builder builder) {
-        /**
-         * 记录筛选条件
-         * <p> 示例值：
-         */
-        this.conditions = builder.conditions;
-        /**
-         * 多个筛选条件的关系
-         * <p> 示例值：and
-         */
-        this.conjunction = builder.conjunction;
-        /**
-         * 规则筛选记录对应的权限
-         * <p> 示例值：1
-         */
-        this.perm = builder.perm;
+    /**
+     * 多个筛选条件的关系
+     *
+     * <p>示例值：and
+     *
+     * @param conjunction
+     * @return
+     */
+    public Builder conjunction(String conjunction) {
+      this.conjunction = conjunction;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 多个筛选条件的关系
+     *
+     * <p>示例值：and
+     *
+     * @param conjunction {@link com.lark.oapi.service.base.v2.enums.OtherRecRuleConjunctionEnum}
+     * @return
+     */
+    public Builder conjunction(
+        com.lark.oapi.service.base.v2.enums.OtherRecRuleConjunctionEnum conjunction) {
+      this.conjunction = conjunction.getValue();
+      return this;
     }
 
-    public RecRuleCondition[] getConditions() {
-        return this.conditions;
+    /**
+     * 规则筛选记录对应的权限
+     *
+     * <p>示例值：1
+     *
+     * @param perm
+     * @return
+     */
+    public Builder perm(Integer perm) {
+      this.perm = perm;
+      return this;
     }
 
-    public void setConditions(RecRuleCondition[] conditions) {
-        this.conditions = conditions;
+    /**
+     * 规则筛选记录对应的权限
+     *
+     * <p>示例值：1
+     *
+     * @param perm {@link com.lark.oapi.service.base.v2.enums.OtherRecRulePermEnum}
+     * @return
+     */
+    public Builder perm(com.lark.oapi.service.base.v2.enums.OtherRecRulePermEnum perm) {
+      this.perm = perm.getValue();
+      return this;
     }
 
-    public String getConjunction() {
-        return this.conjunction;
+    public OtherRecRule build() {
+      return new OtherRecRule(this);
     }
+  }
 
-    public void setConjunction(String conjunction) {
-        this.conjunction = conjunction;
-    }
-
-    public Integer getPerm() {
-        return this.perm;
-    }
-
-    public void setPerm(Integer perm) {
-        this.perm = perm;
-    }
-
-    public static class Builder {
-        /**
-         * 记录筛选条件
-         * <p> 示例值：
-         */
-        private RecRuleCondition[] conditions;
-        /**
-         * 多个筛选条件的关系
-         * <p> 示例值：and
-         */
-        private String conjunction;
-        /**
-         * 规则筛选记录对应的权限
-         * <p> 示例值：1
-         */
-        private Integer perm;
-
-        /**
-         * 记录筛选条件
-         * <p> 示例值：
-         *
-         * @param conditions
-         * @return
-         */
-        public Builder conditions(RecRuleCondition[] conditions) {
-            this.conditions = conditions;
-            return this;
-        }
-
-
-        /**
-         * 多个筛选条件的关系
-         * <p> 示例值：and
-         *
-         * @param conjunction
-         * @return
-         */
-        public Builder conjunction(String conjunction) {
-            this.conjunction = conjunction;
-            return this;
-        }
-
-        /**
-         * 多个筛选条件的关系
-         * <p> 示例值：and
-         *
-         * @param conjunction {@link com.lark.oapi.service.base.v2.enums.OtherRecRuleConjunctionEnum}
-         * @return
-         */
-        public Builder conjunction(com.lark.oapi.service.base.v2.enums.OtherRecRuleConjunctionEnum conjunction) {
-            this.conjunction = conjunction.getValue();
-            return this;
-        }
-
-
-        /**
-         * 规则筛选记录对应的权限
-         * <p> 示例值：1
-         *
-         * @param perm
-         * @return
-         */
-        public Builder perm(Integer perm) {
-            this.perm = perm;
-            return this;
-        }
-
-        /**
-         * 规则筛选记录对应的权限
-         * <p> 示例值：1
-         *
-         * @param perm {@link com.lark.oapi.service.base.v2.enums.OtherRecRulePermEnum}
-         * @return
-         */
-        public Builder perm(com.lark.oapi.service.base.v2.enums.OtherRecRulePermEnum perm) {
-            this.perm = perm.getValue();
-            return this;
-        }
-
-
-        public OtherRecRule build() {
-            return new OtherRecRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

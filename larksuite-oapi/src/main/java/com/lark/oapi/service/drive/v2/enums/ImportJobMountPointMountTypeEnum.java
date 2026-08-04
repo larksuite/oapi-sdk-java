@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.drive.v2.enums;
 
-/**
- * 挂载类型
- */
+/** 挂载类型 */
 public enum ImportJobMountPointMountTypeEnum {
-    SPACE(1), // 挂载 SPACE
-    WIKI(2), // 挂载 WIKI
-    EMPTY(3), // 导入但不进行挂载
-    DOCX(4), // 导入作为 Docx 的子 block
-    SHEET(5), // 导入作为 Sheet 的子 block
-    ;
-    private Integer value;
+  SPACE(1), // 挂载 SPACE
+  WIKI(2), // 挂载 WIKI
+  EMPTY(3), // 导入但不进行挂载
+  DOCX(4), // 导入作为 Docx 的子 block
+  SHEET(5), // 导入作为 Sheet 的子 block
+  ;
+  private Integer value;
 
-    ImportJobMountPointMountTypeEnum(Integer value) {
-        this.value = value;
-    }
+  ImportJobMountPointMountTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

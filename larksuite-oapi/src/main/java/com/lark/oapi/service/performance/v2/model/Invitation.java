@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Invitation {
+  /**
+   * 被评估人ID
+   *
+   * <p>示例值：ou_3245842393d09e9428ad4655da6e30b2
+   */
+  @SerializedName("reviewee_user_id")
+  private String revieweeUserId;
+
+  /**
+   * 评估人列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reviewers")
+  private InvitationReviewer[] reviewers;
+
+  public String getRevieweeUserId() {
+    return this.revieweeUserId;
+  }
+
+  public void setRevieweeUserId(String revieweeUserId) {
+    this.revieweeUserId = revieweeUserId;
+  }
+
+  public InvitationReviewer[] getReviewers() {
+    return this.reviewers;
+  }
+
+  public void setReviewers(InvitationReviewer[] reviewers) {
+    this.reviewers = reviewers;
+  }
+
+  // builder 开始
+  public Invitation() {}
+
+  public Invitation(Builder builder) {
     /**
      * 被评估人ID
-     * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b2
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b2
      */
-    @SerializedName("reviewee_user_id")
-    private String revieweeUserId;
+    this.revieweeUserId = builder.revieweeUserId;
     /**
      * 评估人列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reviewers")
+    this.reviewers = builder.reviewers;
+  }
+
+  public static class Builder {
+    /**
+     * 被评估人ID
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b2
+     */
+    private String revieweeUserId;
+
+    /**
+     * 评估人列表
+     *
+     * <p>示例值：
+     */
     private InvitationReviewer[] reviewers;
 
-    // builder 开始
-    public Invitation() {
+    /**
+     * 被评估人ID
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b2
+     *
+     * @param revieweeUserId
+     * @return
+     */
+    public Builder revieweeUserId(String revieweeUserId) {
+      this.revieweeUserId = revieweeUserId;
+      return this;
     }
 
-    public Invitation(Builder builder) {
-        /**
-         * 被评估人ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b2
-         */
-        this.revieweeUserId = builder.revieweeUserId;
-        /**
-         * 评估人列表
-         * <p> 示例值：
-         */
-        this.reviewers = builder.reviewers;
+    /**
+     * 评估人列表
+     *
+     * <p>示例值：
+     *
+     * @param reviewers
+     * @return
+     */
+    public Builder reviewers(InvitationReviewer[] reviewers) {
+      this.reviewers = reviewers;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Invitation build() {
+      return new Invitation(this);
     }
+  }
 
-    public String getRevieweeUserId() {
-        return this.revieweeUserId;
-    }
-
-    public void setRevieweeUserId(String revieweeUserId) {
-        this.revieweeUserId = revieweeUserId;
-    }
-
-    public InvitationReviewer[] getReviewers() {
-        return this.reviewers;
-    }
-
-    public void setReviewers(InvitationReviewer[] reviewers) {
-        this.reviewers = reviewers;
-    }
-
-    public static class Builder {
-        /**
-         * 被评估人ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b2
-         */
-        private String revieweeUserId;
-        /**
-         * 评估人列表
-         * <p> 示例值：
-         */
-        private InvitationReviewer[] reviewers;
-
-        /**
-         * 被评估人ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b2
-         *
-         * @param revieweeUserId
-         * @return
-         */
-        public Builder revieweeUserId(String revieweeUserId) {
-            this.revieweeUserId = revieweeUserId;
-            return this;
-        }
-
-
-        /**
-         * 评估人列表
-         * <p> 示例值：
-         *
-         * @param reviewers
-         * @return
-         */
-        public Builder reviewers(InvitationReviewer[] reviewers) {
-            this.reviewers = reviewers;
-            return this;
-        }
-
-
-        public Invitation build() {
-            return new Invitation(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

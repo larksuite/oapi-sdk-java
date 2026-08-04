@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 详情页title展示模式
- */
+/** 审批详情页 title 展示模式。 */
 public enum InstanceCreateInstanceCreateTitleDisplayMethodEnum {
-    DISPLAY_ALL(0), // 如果都有title，展示approval 和instance的title，竖线分割。
-    DISPLAY_INSTANCE_TITLE(1), // 如果都有title，只展示instance的title
-    ;
-    private Integer value;
+  DISPLAY_ALL(0), // 如果审批定义和审批实例都有 title，则全部展示，通过竖线分割。
+  DISPLAY_INSTANCE_TITLE(1), // 如果审批定义和审批实例都有 title，只展示审批实例的 title。
+  ;
+  private Integer value;
 
-    InstanceCreateInstanceCreateTitleDisplayMethodEnum(Integer value) {
-        this.value = value;
-    }
+  InstanceCreateInstanceCreateTitleDisplayMethodEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

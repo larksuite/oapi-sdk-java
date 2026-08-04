@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.enums;
 
-/**
- * 文档类型
- */
+/** 文档类型 */
 public enum DocumentDocumentTypeEnum {
-    DOC(2), // 文档
-    SHEET(3), // 电子表格
-    MINDNOTE(11), // 思维笔记
-    FILE(12), // 文件
-    BITTABLE(8), // 多维表格
-    ;
-    private Integer value;
+  DOC(2), // 文档
+  SHEET(3), // 电子表格
+  MINDNOTE(11), // 思维笔记
+  FILE(12), // 文件
+  BITTABLE(8), // 多维表格
+  ;
+  private Integer value;
 
-    DocumentDocumentTypeEnum(Integer value) {
-        this.value = value;
-    }
+  DocumentDocumentTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

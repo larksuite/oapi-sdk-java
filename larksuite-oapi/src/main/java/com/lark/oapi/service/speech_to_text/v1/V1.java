@@ -17,13 +17,13 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.speech_to_text.v1.resource.Speech;
 
 public class V1 {
-    private final Speech speech; // 语音识别
+  private final Speech speech; // speech
 
-    public V1(Config config) {
-        this.speech = new Speech(config);
-    }
+  public V1(Config config) {
+    this.speech = new Speech(config);
+  }
 
-    public Speech speech() {
-        return speech;
-    }
+  public Speech speech() {
+    return speech;
+  }
 }

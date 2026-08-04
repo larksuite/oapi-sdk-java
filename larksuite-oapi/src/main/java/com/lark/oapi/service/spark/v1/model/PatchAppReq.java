@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.spark.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.spark.v1.enums.*;
 
 public class PatchAppReq {
+  /**
+   * 妙搭应用唯一标识，可通过「创建妙搭应用」或「查询妙搭应用列表」接口获取
+   *
+   * <p>示例值：app_4k6af8utt2s0n
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  @Body private PatchAppReqBody body;
+
+  public PatchAppReqBody getPatchAppReqBody() {
+    return this.body;
+  }
+
+  public void setPatchAppReqBody(PatchAppReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchAppReq() {}
+
+  public PatchAppReq(Builder builder) {
     /**
      * 妙搭应用唯一标识，可通过「创建妙搭应用」或「查询妙搭应用列表」接口获取
-     * <p> 示例值：app_4k6af8utt2s0n
+     *
+     * <p>示例值：app_4k6af8utt2s0n
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-    @Body
+    this.appId = builder.appId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String appId; // 妙搭应用唯一标识，可通过「创建妙搭应用」或「查询妙搭应用列表」接口获取
+
+    /**
+     * 妙搭应用唯一标识，可通过「创建妙搭应用」或「查询妙搭应用列表」接口获取
+     *
+     * <p>示例值：app_4k6af8utt2s0n
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
+    }
+
     private PatchAppReqBody body;
 
-    // builder 开始
-    public PatchAppReq() {
-    }
-
-    public PatchAppReq(Builder builder) {
-        /**
-         * 妙搭应用唯一标识，可通过「创建妙搭应用」或「查询妙搭应用列表」接口获取
-         * <p> 示例值：app_4k6af8utt2s0n
-         */
-        this.appId = builder.appId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
     public PatchAppReqBody getPatchAppReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPatchAppReqBody(PatchAppReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder patchAppReqBody(PatchAppReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String appId; // 妙搭应用唯一标识，可通过「创建妙搭应用」或「查询妙搭应用列表」接口获取
-        private PatchAppReqBody body;
-
-        /**
-         * 妙搭应用唯一标识，可通过「创建妙搭应用」或「查询妙搭应用列表」接口获取
-         * <p> 示例值：app_4k6af8utt2s0n
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-        public PatchAppReqBody getPatchAppReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder patchAppReqBody(PatchAppReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchAppReq build() {
-            return new PatchAppReq(this);
-        }
+    public PatchAppReq build() {
+      return new PatchAppReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

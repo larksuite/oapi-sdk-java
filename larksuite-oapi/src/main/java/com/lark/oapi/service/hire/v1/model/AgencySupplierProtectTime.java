@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AgencySupplierProtectTime {
+  /**
+   * 保护时长，单位（天）
+   *
+   * <p>示例值：180
+   */
+  @SerializedName("day")
+  private Long day;
+
+  /**
+   * 是否使用统一设置，当为`false`时代表`保护时长（day）`由用户自定义设置，否则由招聘系统预设
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("use_default")
+  private Boolean useDefault;
+
+  public Long getDay() {
+    return this.day;
+  }
+
+  public void setDay(Long day) {
+    this.day = day;
+  }
+
+  public Boolean getUseDefault() {
+    return this.useDefault;
+  }
+
+  public void setUseDefault(Boolean useDefault) {
+    this.useDefault = useDefault;
+  }
+
+  // builder 开始
+  public AgencySupplierProtectTime() {}
+
+  public AgencySupplierProtectTime(Builder builder) {
     /**
      * 保护时长，单位（天）
-     * <p> 示例值：180
+     *
+     * <p>示例值：180
      */
-    @SerializedName("day")
-    private Long day;
+    this.day = builder.day;
     /**
-     * 是否使用统一设置
-     * <p> 示例值：true
+     * 是否使用统一设置，当为`false`时代表`保护时长（day）`由用户自定义设置，否则由招聘系统预设
+     *
+     * <p>示例值：true
      */
-    @SerializedName("use_default")
+    this.useDefault = builder.useDefault;
+  }
+
+  public static class Builder {
+    /**
+     * 保护时长，单位（天）
+     *
+     * <p>示例值：180
+     */
+    private Long day;
+
+    /**
+     * 是否使用统一设置，当为`false`时代表`保护时长（day）`由用户自定义设置，否则由招聘系统预设
+     *
+     * <p>示例值：true
+     */
     private Boolean useDefault;
 
-    // builder 开始
-    public AgencySupplierProtectTime() {
+    /**
+     * 保护时长，单位（天）
+     *
+     * <p>示例值：180
+     *
+     * @param day
+     * @return
+     */
+    public Builder day(Long day) {
+      this.day = day;
+      return this;
     }
 
-    public AgencySupplierProtectTime(Builder builder) {
-        /**
-         * 保护时长，单位（天）
-         * <p> 示例值：180
-         */
-        this.day = builder.day;
-        /**
-         * 是否使用统一设置
-         * <p> 示例值：true
-         */
-        this.useDefault = builder.useDefault;
+    /**
+     * 是否使用统一设置，当为`false`时代表`保护时长（day）`由用户自定义设置，否则由招聘系统预设
+     *
+     * <p>示例值：true
+     *
+     * @param useDefault
+     * @return
+     */
+    public Builder useDefault(Boolean useDefault) {
+      this.useDefault = useDefault;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AgencySupplierProtectTime build() {
+      return new AgencySupplierProtectTime(this);
     }
+  }
 
-    public Long getDay() {
-        return this.day;
-    }
-
-    public void setDay(Long day) {
-        this.day = day;
-    }
-
-    public Boolean getUseDefault() {
-        return this.useDefault;
-    }
-
-    public void setUseDefault(Boolean useDefault) {
-        this.useDefault = useDefault;
-    }
-
-    public static class Builder {
-        /**
-         * 保护时长，单位（天）
-         * <p> 示例值：180
-         */
-        private Long day;
-        /**
-         * 是否使用统一设置
-         * <p> 示例值：true
-         */
-        private Boolean useDefault;
-
-        /**
-         * 保护时长，单位（天）
-         * <p> 示例值：180
-         *
-         * @param day
-         * @return
-         */
-        public Builder day(Long day) {
-            this.day = day;
-            return this;
-        }
-
-
-        /**
-         * 是否使用统一设置
-         * <p> 示例值：true
-         *
-         * @param useDefault
-         * @return
-         */
-        public Builder useDefault(Boolean useDefault) {
-            this.useDefault = useDefault;
-            return this;
-        }
-
-
-        public AgencySupplierProtectTime build() {
-            return new AgencySupplierProtectTime(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

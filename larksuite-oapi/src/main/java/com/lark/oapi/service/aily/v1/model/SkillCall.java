@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SkillCall {
+  /**
+   * 中断调用 schema
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("skill_call_id")
+  private String skillCallId;
+
+  /**
+   * 用户对中断的响应内容
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("input")
+  private String input;
+
+  /**
+   * WAITING_USER_MESSAGE or WAITING_USER_RESPOND
+   *
+   * <p>示例值：WAITING_USER_RESPOND
+   */
+  @SerializedName("waiting_type")
+  private String waitingType;
+
+  /**
+   * input 的 DSL，用户可参考 DSL 来写 input
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("input_dsl")
+  private String inputDsl;
+
+  public String getSkillCallId() {
+    return this.skillCallId;
+  }
+
+  public void setSkillCallId(String skillCallId) {
+    this.skillCallId = skillCallId;
+  }
+
+  public String getInput() {
+    return this.input;
+  }
+
+  public void setInput(String input) {
+    this.input = input;
+  }
+
+  public String getWaitingType() {
+    return this.waitingType;
+  }
+
+  public void setWaitingType(String waitingType) {
+    this.waitingType = waitingType;
+  }
+
+  public String getInputDsl() {
+    return this.inputDsl;
+  }
+
+  public void setInputDsl(String inputDsl) {
+    this.inputDsl = inputDsl;
+  }
+
+  // builder 开始
+  public SkillCall() {}
+
+  public SkillCall(Builder builder) {
     /**
      * 中断调用 schema
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("skill_call_id")
-    private String skillCallId;
+    this.skillCallId = builder.skillCallId;
     /**
      * 用户对中断的响应内容
-     * <p> 示例值：{}
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("input")
-    private String input;
+    this.input = builder.input;
     /**
      * WAITING_USER_MESSAGE or WAITING_USER_RESPOND
-     * <p> 示例值：WAITING_USER_RESPOND
+     *
+     * <p>示例值：WAITING_USER_RESPOND
      */
-    @SerializedName("waiting_type")
-    private String waitingType;
+    this.waitingType = builder.waitingType;
     /**
      * input 的 DSL，用户可参考 DSL 来写 input
-     * <p> 示例值：{}
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("input_dsl")
+    this.inputDsl = builder.inputDsl;
+  }
+
+  public static class Builder {
+    /**
+     * 中断调用 schema
+     *
+     * <p>示例值：123
+     */
+    private String skillCallId;
+
+    /**
+     * 用户对中断的响应内容
+     *
+     * <p>示例值：{}
+     */
+    private String input;
+
+    /**
+     * WAITING_USER_MESSAGE or WAITING_USER_RESPOND
+     *
+     * <p>示例值：WAITING_USER_RESPOND
+     */
+    private String waitingType;
+
+    /**
+     * input 的 DSL，用户可参考 DSL 来写 input
+     *
+     * <p>示例值：{}
+     */
     private String inputDsl;
 
-    // builder 开始
-    public SkillCall() {
+    /**
+     * 中断调用 schema
+     *
+     * <p>示例值：123
+     *
+     * @param skillCallId
+     * @return
+     */
+    public Builder skillCallId(String skillCallId) {
+      this.skillCallId = skillCallId;
+      return this;
     }
 
-    public SkillCall(Builder builder) {
-        /**
-         * 中断调用 schema
-         * <p> 示例值：123
-         */
-        this.skillCallId = builder.skillCallId;
-        /**
-         * 用户对中断的响应内容
-         * <p> 示例值：{}
-         */
-        this.input = builder.input;
-        /**
-         * WAITING_USER_MESSAGE or WAITING_USER_RESPOND
-         * <p> 示例值：WAITING_USER_RESPOND
-         */
-        this.waitingType = builder.waitingType;
-        /**
-         * input 的 DSL，用户可参考 DSL 来写 input
-         * <p> 示例值：{}
-         */
-        this.inputDsl = builder.inputDsl;
+    /**
+     * 用户对中断的响应内容
+     *
+     * <p>示例值：{}
+     *
+     * @param input
+     * @return
+     */
+    public Builder input(String input) {
+      this.input = input;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * WAITING_USER_MESSAGE or WAITING_USER_RESPOND
+     *
+     * <p>示例值：WAITING_USER_RESPOND
+     *
+     * @param waitingType
+     * @return
+     */
+    public Builder waitingType(String waitingType) {
+      this.waitingType = waitingType;
+      return this;
     }
 
-    public String getSkillCallId() {
-        return this.skillCallId;
+    /**
+     * input 的 DSL，用户可参考 DSL 来写 input
+     *
+     * <p>示例值：{}
+     *
+     * @param inputDsl
+     * @return
+     */
+    public Builder inputDsl(String inputDsl) {
+      this.inputDsl = inputDsl;
+      return this;
     }
 
-    public void setSkillCallId(String skillCallId) {
-        this.skillCallId = skillCallId;
+    public SkillCall build() {
+      return new SkillCall(this);
     }
+  }
 
-    public String getInput() {
-        return this.input;
-    }
-
-    public void setInput(String input) {
-        this.input = input;
-    }
-
-    public String getWaitingType() {
-        return this.waitingType;
-    }
-
-    public void setWaitingType(String waitingType) {
-        this.waitingType = waitingType;
-    }
-
-    public String getInputDsl() {
-        return this.inputDsl;
-    }
-
-    public void setInputDsl(String inputDsl) {
-        this.inputDsl = inputDsl;
-    }
-
-    public static class Builder {
-        /**
-         * 中断调用 schema
-         * <p> 示例值：123
-         */
-        private String skillCallId;
-        /**
-         * 用户对中断的响应内容
-         * <p> 示例值：{}
-         */
-        private String input;
-        /**
-         * WAITING_USER_MESSAGE or WAITING_USER_RESPOND
-         * <p> 示例值：WAITING_USER_RESPOND
-         */
-        private String waitingType;
-        /**
-         * input 的 DSL，用户可参考 DSL 来写 input
-         * <p> 示例值：{}
-         */
-        private String inputDsl;
-
-        /**
-         * 中断调用 schema
-         * <p> 示例值：123
-         *
-         * @param skillCallId
-         * @return
-         */
-        public Builder skillCallId(String skillCallId) {
-            this.skillCallId = skillCallId;
-            return this;
-        }
-
-
-        /**
-         * 用户对中断的响应内容
-         * <p> 示例值：{}
-         *
-         * @param input
-         * @return
-         */
-        public Builder input(String input) {
-            this.input = input;
-            return this;
-        }
-
-
-        /**
-         * WAITING_USER_MESSAGE or WAITING_USER_RESPOND
-         * <p> 示例值：WAITING_USER_RESPOND
-         *
-         * @param waitingType
-         * @return
-         */
-        public Builder waitingType(String waitingType) {
-            this.waitingType = waitingType;
-            return this;
-        }
-
-
-        /**
-         * input 的 DSL，用户可参考 DSL 来写 input
-         * <p> 示例值：{}
-         *
-         * @param inputDsl
-         * @return
-         */
-        public Builder inputDsl(String inputDsl) {
-            this.inputDsl = inputDsl;
-            return this;
-        }
-
-
-        public SkillCall build() {
-            return new SkillCall(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

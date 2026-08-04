@@ -13,445 +13,501 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LumpSumPaymentForUpdate {
+  /**
+   * 一次性支付记录
+   * id（通过[【查询一次性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/lump_sum_payment/query)
+   * 接口进行查询）
+   *
+   * <p>示例值：7397033607132351532
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 总金额，字符串表达的数字，单位为该一次性支付记录 currency_id 对应的币种
+   *
+   * <p>示例值：2000.00
+   */
+  @SerializedName("total_amount")
+  private String totalAmount;
+
+  /**
+   * 绑定期，单位为月
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("binding_period")
+  private Integer bindingPeriod;
+
+  /**
+   * 币种
+   * id（通过[【查询币种】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search))
+   * 接口进行查询）
+   *
+   * <p>示例值：6863329932261459464
+   */
+  @SerializedName("currency_id")
+  private String currencyId;
+
+  /**
+   * 发放次数，必须与 details 的长度一致
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("issuance_frequency")
+  private Integer issuanceFrequency;
+
+  /**
+   * 备注
+   *
+   * <p>示例值：该员工奖金数据不正确，予以更正
+   */
+  @SerializedName("remark")
+  private String remark;
+
+  /**
+   * 一次性支付记录所属期开始日期
+   *
+   * <p>示例值：2024-08-01
+   */
+  @SerializedName("reference_period_start_date")
+  private String referencePeriodStartDate;
+
+  /**
+   * 一次性支付记录所属期结束日期
+   *
+   * <p>示例值：2024-08-01
+   */
+  @SerializedName("reference_period_end_date")
+  private String referencePeriodEndDate;
+
+  /**
+   * 发放明细列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("details")
+  private LumpSumPaymentDetailForUpdate[] details;
+
+  /**
+   * 绑定期带小数
+   *
+   * <p>示例值：12
+   */
+  @SerializedName("binding_period_decimal")
+  private String bindingPeriodDecimal;
+
+  /**
+   * 操作来源
+   *
+   * <p>示例值：apaas_spot
+   */
+  @SerializedName("operation_source")
+  private String operationSource;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTotalAmount() {
+    return this.totalAmount;
+  }
+
+  public void setTotalAmount(String totalAmount) {
+    this.totalAmount = totalAmount;
+  }
+
+  public Integer getBindingPeriod() {
+    return this.bindingPeriod;
+  }
+
+  public void setBindingPeriod(Integer bindingPeriod) {
+    this.bindingPeriod = bindingPeriod;
+  }
+
+  public String getCurrencyId() {
+    return this.currencyId;
+  }
+
+  public void setCurrencyId(String currencyId) {
+    this.currencyId = currencyId;
+  }
+
+  public Integer getIssuanceFrequency() {
+    return this.issuanceFrequency;
+  }
+
+  public void setIssuanceFrequency(Integer issuanceFrequency) {
+    this.issuanceFrequency = issuanceFrequency;
+  }
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  public String getReferencePeriodStartDate() {
+    return this.referencePeriodStartDate;
+  }
+
+  public void setReferencePeriodStartDate(String referencePeriodStartDate) {
+    this.referencePeriodStartDate = referencePeriodStartDate;
+  }
+
+  public String getReferencePeriodEndDate() {
+    return this.referencePeriodEndDate;
+  }
+
+  public void setReferencePeriodEndDate(String referencePeriodEndDate) {
+    this.referencePeriodEndDate = referencePeriodEndDate;
+  }
+
+  public LumpSumPaymentDetailForUpdate[] getDetails() {
+    return this.details;
+  }
+
+  public void setDetails(LumpSumPaymentDetailForUpdate[] details) {
+    this.details = details;
+  }
+
+  public String getBindingPeriodDecimal() {
+    return this.bindingPeriodDecimal;
+  }
+
+  public void setBindingPeriodDecimal(String bindingPeriodDecimal) {
+    this.bindingPeriodDecimal = bindingPeriodDecimal;
+  }
+
+  public String getOperationSource() {
+    return this.operationSource;
+  }
+
+  public void setOperationSource(String operationSource) {
+    this.operationSource = operationSource;
+  }
+
+  // builder 开始
+  public LumpSumPaymentForUpdate() {}
+
+  public LumpSumPaymentForUpdate(Builder builder) {
     /**
-     * 一次性支付记录id
-     * <p> 示例值：7397033607132351532
+     * 一次性支付记录
+     * id（通过[【查询一次性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/lump_sum_payment/query)
+     * 接口进行查询）
+     *
+     * <p>示例值：7397033607132351532
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 总金额，字符串表达的数字
-     * <p> 示例值：2000.00
+     * 总金额，字符串表达的数字，单位为该一次性支付记录 currency_id 对应的币种
+     *
+     * <p>示例值：2000.00
      */
-    @SerializedName("total_amount")
-    private String totalAmount;
+    this.totalAmount = builder.totalAmount;
     /**
      * 绑定期，单位为月
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("binding_period")
-    private Integer bindingPeriod;
+    this.bindingPeriod = builder.bindingPeriod;
     /**
-     * 币种id
-     * <p> 示例值：6863329932261459464
+     * 币种
+     * id（通过[【查询币种】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search))
+     * 接口进行查询）
+     *
+     * <p>示例值：6863329932261459464
      */
-    @SerializedName("currency_id")
-    private String currencyId;
+    this.currencyId = builder.currencyId;
     /**
-     * 发放次数，必须与details的长度一致
-     * <p> 示例值：3
+     * 发放次数，必须与 details 的长度一致
+     *
+     * <p>示例值：3
      */
-    @SerializedName("issuance_frequency")
-    private Integer issuanceFrequency;
+    this.issuanceFrequency = builder.issuanceFrequency;
     /**
      * 备注
-     * <p> 示例值：备注
+     *
+     * <p>示例值：该员工奖金数据不正确，予以更正
      */
-    @SerializedName("remark")
-    private String remark;
+    this.remark = builder.remark;
     /**
      * 一次性支付记录所属期开始日期
-     * <p> 示例值：2024-08-01
+     *
+     * <p>示例值：2024-08-01
      */
-    @SerializedName("reference_period_start_date")
-    private String referencePeriodStartDate;
+    this.referencePeriodStartDate = builder.referencePeriodStartDate;
     /**
      * 一次性支付记录所属期结束日期
-     * <p> 示例值：2024-08-01
+     *
+     * <p>示例值：2024-08-01
      */
-    @SerializedName("reference_period_end_date")
-    private String referencePeriodEndDate;
+    this.referencePeriodEndDate = builder.referencePeriodEndDate;
     /**
      * 发放明细列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("details")
-    private LumpSumPaymentDetailForUpdate[] details;
+    this.details = builder.details;
     /**
      * 绑定期带小数
-     * <p> 示例值：12
+     *
+     * <p>示例值：12
      */
-    @SerializedName("binding_period_decimal")
-    private String bindingPeriodDecimal;
+    this.bindingPeriodDecimal = builder.bindingPeriodDecimal;
     /**
      * 操作来源
-     * <p> 示例值：apaas_spot
+     *
+     * <p>示例值：apaas_spot
      */
-    @SerializedName("operation_source")
+    this.operationSource = builder.operationSource;
+  }
+
+  public static class Builder {
+    /**
+     * 一次性支付记录
+     * id（通过[【查询一次性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/lump_sum_payment/query)
+     * 接口进行查询）
+     *
+     * <p>示例值：7397033607132351532
+     */
+    private String id;
+
+    /**
+     * 总金额，字符串表达的数字，单位为该一次性支付记录 currency_id 对应的币种
+     *
+     * <p>示例值：2000.00
+     */
+    private String totalAmount;
+
+    /**
+     * 绑定期，单位为月
+     *
+     * <p>示例值：2
+     */
+    private Integer bindingPeriod;
+
+    /**
+     * 币种
+     * id（通过[【查询币种】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search))
+     * 接口进行查询）
+     *
+     * <p>示例值：6863329932261459464
+     */
+    private String currencyId;
+
+    /**
+     * 发放次数，必须与 details 的长度一致
+     *
+     * <p>示例值：3
+     */
+    private Integer issuanceFrequency;
+
+    /**
+     * 备注
+     *
+     * <p>示例值：该员工奖金数据不正确，予以更正
+     */
+    private String remark;
+
+    /**
+     * 一次性支付记录所属期开始日期
+     *
+     * <p>示例值：2024-08-01
+     */
+    private String referencePeriodStartDate;
+
+    /**
+     * 一次性支付记录所属期结束日期
+     *
+     * <p>示例值：2024-08-01
+     */
+    private String referencePeriodEndDate;
+
+    /**
+     * 发放明细列表
+     *
+     * <p>示例值：
+     */
+    private LumpSumPaymentDetailForUpdate[] details;
+
+    /**
+     * 绑定期带小数
+     *
+     * <p>示例值：12
+     */
+    private String bindingPeriodDecimal;
+
+    /**
+     * 操作来源
+     *
+     * <p>示例值：apaas_spot
+     */
     private String operationSource;
 
-    // builder 开始
-    public LumpSumPaymentForUpdate() {
+    /**
+     * 一次性支付记录
+     * id（通过[【查询一次性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/lump_sum_payment/query)
+     * 接口进行查询）
+     *
+     * <p>示例值：7397033607132351532
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public LumpSumPaymentForUpdate(Builder builder) {
-        /**
-         * 一次性支付记录id
-         * <p> 示例值：7397033607132351532
-         */
-        this.id = builder.id;
-        /**
-         * 总金额，字符串表达的数字
-         * <p> 示例值：2000.00
-         */
-        this.totalAmount = builder.totalAmount;
-        /**
-         * 绑定期，单位为月
-         * <p> 示例值：2
-         */
-        this.bindingPeriod = builder.bindingPeriod;
-        /**
-         * 币种id
-         * <p> 示例值：6863329932261459464
-         */
-        this.currencyId = builder.currencyId;
-        /**
-         * 发放次数，必须与details的长度一致
-         * <p> 示例值：3
-         */
-        this.issuanceFrequency = builder.issuanceFrequency;
-        /**
-         * 备注
-         * <p> 示例值：备注
-         */
-        this.remark = builder.remark;
-        /**
-         * 一次性支付记录所属期开始日期
-         * <p> 示例值：2024-08-01
-         */
-        this.referencePeriodStartDate = builder.referencePeriodStartDate;
-        /**
-         * 一次性支付记录所属期结束日期
-         * <p> 示例值：2024-08-01
-         */
-        this.referencePeriodEndDate = builder.referencePeriodEndDate;
-        /**
-         * 发放明细列表
-         * <p> 示例值：
-         */
-        this.details = builder.details;
-        /**
-         * 绑定期带小数
-         * <p> 示例值：12
-         */
-        this.bindingPeriodDecimal = builder.bindingPeriodDecimal;
-        /**
-         * 操作来源
-         * <p> 示例值：apaas_spot
-         */
-        this.operationSource = builder.operationSource;
+    /**
+     * 总金额，字符串表达的数字，单位为该一次性支付记录 currency_id 对应的币种
+     *
+     * <p>示例值：2000.00
+     *
+     * @param totalAmount
+     * @return
+     */
+    public Builder totalAmount(String totalAmount) {
+      this.totalAmount = totalAmount;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 绑定期，单位为月
+     *
+     * <p>示例值：2
+     *
+     * @param bindingPeriod
+     * @return
+     */
+    public Builder bindingPeriod(Integer bindingPeriod) {
+      this.bindingPeriod = bindingPeriod;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 币种
+     * id（通过[【查询币种】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search))
+     * 接口进行查询）
+     *
+     * <p>示例值：6863329932261459464
+     *
+     * @param currencyId
+     * @return
+     */
+    public Builder currencyId(String currencyId) {
+      this.currencyId = currencyId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 发放次数，必须与 details 的长度一致
+     *
+     * <p>示例值：3
+     *
+     * @param issuanceFrequency
+     * @return
+     */
+    public Builder issuanceFrequency(Integer issuanceFrequency) {
+      this.issuanceFrequency = issuanceFrequency;
+      return this;
     }
 
-    public String getTotalAmount() {
-        return this.totalAmount;
+    /**
+     * 备注
+     *
+     * <p>示例值：该员工奖金数据不正确，予以更正
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(String remark) {
+      this.remark = remark;
+      return this;
     }
 
-    public void setTotalAmount(String totalAmount) {
-        this.totalAmount = totalAmount;
+    /**
+     * 一次性支付记录所属期开始日期
+     *
+     * <p>示例值：2024-08-01
+     *
+     * @param referencePeriodStartDate
+     * @return
+     */
+    public Builder referencePeriodStartDate(String referencePeriodStartDate) {
+      this.referencePeriodStartDate = referencePeriodStartDate;
+      return this;
     }
 
-    public Integer getBindingPeriod() {
-        return this.bindingPeriod;
+    /**
+     * 一次性支付记录所属期结束日期
+     *
+     * <p>示例值：2024-08-01
+     *
+     * @param referencePeriodEndDate
+     * @return
+     */
+    public Builder referencePeriodEndDate(String referencePeriodEndDate) {
+      this.referencePeriodEndDate = referencePeriodEndDate;
+      return this;
     }
 
-    public void setBindingPeriod(Integer bindingPeriod) {
-        this.bindingPeriod = bindingPeriod;
+    /**
+     * 发放明细列表
+     *
+     * <p>示例值：
+     *
+     * @param details
+     * @return
+     */
+    public Builder details(LumpSumPaymentDetailForUpdate[] details) {
+      this.details = details;
+      return this;
     }
 
-    public String getCurrencyId() {
-        return this.currencyId;
+    /**
+     * 绑定期带小数
+     *
+     * <p>示例值：12
+     *
+     * @param bindingPeriodDecimal
+     * @return
+     */
+    public Builder bindingPeriodDecimal(String bindingPeriodDecimal) {
+      this.bindingPeriodDecimal = bindingPeriodDecimal;
+      return this;
     }
 
-    public void setCurrencyId(String currencyId) {
-        this.currencyId = currencyId;
+    /**
+     * 操作来源
+     *
+     * <p>示例值：apaas_spot
+     *
+     * @param operationSource
+     * @return
+     */
+    public Builder operationSource(String operationSource) {
+      this.operationSource = operationSource;
+      return this;
     }
 
-    public Integer getIssuanceFrequency() {
-        return this.issuanceFrequency;
+    public LumpSumPaymentForUpdate build() {
+      return new LumpSumPaymentForUpdate(this);
     }
+  }
 
-    public void setIssuanceFrequency(Integer issuanceFrequency) {
-        this.issuanceFrequency = issuanceFrequency;
-    }
-
-    public String getRemark() {
-        return this.remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public String getReferencePeriodStartDate() {
-        return this.referencePeriodStartDate;
-    }
-
-    public void setReferencePeriodStartDate(String referencePeriodStartDate) {
-        this.referencePeriodStartDate = referencePeriodStartDate;
-    }
-
-    public String getReferencePeriodEndDate() {
-        return this.referencePeriodEndDate;
-    }
-
-    public void setReferencePeriodEndDate(String referencePeriodEndDate) {
-        this.referencePeriodEndDate = referencePeriodEndDate;
-    }
-
-    public LumpSumPaymentDetailForUpdate[] getDetails() {
-        return this.details;
-    }
-
-    public void setDetails(LumpSumPaymentDetailForUpdate[] details) {
-        this.details = details;
-    }
-
-    public String getBindingPeriodDecimal() {
-        return this.bindingPeriodDecimal;
-    }
-
-    public void setBindingPeriodDecimal(String bindingPeriodDecimal) {
-        this.bindingPeriodDecimal = bindingPeriodDecimal;
-    }
-
-    public String getOperationSource() {
-        return this.operationSource;
-    }
-
-    public void setOperationSource(String operationSource) {
-        this.operationSource = operationSource;
-    }
-
-    public static class Builder {
-        /**
-         * 一次性支付记录id
-         * <p> 示例值：7397033607132351532
-         */
-        private String id;
-        /**
-         * 总金额，字符串表达的数字
-         * <p> 示例值：2000.00
-         */
-        private String totalAmount;
-        /**
-         * 绑定期，单位为月
-         * <p> 示例值：2
-         */
-        private Integer bindingPeriod;
-        /**
-         * 币种id
-         * <p> 示例值：6863329932261459464
-         */
-        private String currencyId;
-        /**
-         * 发放次数，必须与details的长度一致
-         * <p> 示例值：3
-         */
-        private Integer issuanceFrequency;
-        /**
-         * 备注
-         * <p> 示例值：备注
-         */
-        private String remark;
-        /**
-         * 一次性支付记录所属期开始日期
-         * <p> 示例值：2024-08-01
-         */
-        private String referencePeriodStartDate;
-        /**
-         * 一次性支付记录所属期结束日期
-         * <p> 示例值：2024-08-01
-         */
-        private String referencePeriodEndDate;
-        /**
-         * 发放明细列表
-         * <p> 示例值：
-         */
-        private LumpSumPaymentDetailForUpdate[] details;
-        /**
-         * 绑定期带小数
-         * <p> 示例值：12
-         */
-        private String bindingPeriodDecimal;
-        /**
-         * 操作来源
-         * <p> 示例值：apaas_spot
-         */
-        private String operationSource;
-
-        /**
-         * 一次性支付记录id
-         * <p> 示例值：7397033607132351532
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 总金额，字符串表达的数字
-         * <p> 示例值：2000.00
-         *
-         * @param totalAmount
-         * @return
-         */
-        public Builder totalAmount(String totalAmount) {
-            this.totalAmount = totalAmount;
-            return this;
-        }
-
-
-        /**
-         * 绑定期，单位为月
-         * <p> 示例值：2
-         *
-         * @param bindingPeriod
-         * @return
-         */
-        public Builder bindingPeriod(Integer bindingPeriod) {
-            this.bindingPeriod = bindingPeriod;
-            return this;
-        }
-
-
-        /**
-         * 币种id
-         * <p> 示例值：6863329932261459464
-         *
-         * @param currencyId
-         * @return
-         */
-        public Builder currencyId(String currencyId) {
-            this.currencyId = currencyId;
-            return this;
-        }
-
-
-        /**
-         * 发放次数，必须与details的长度一致
-         * <p> 示例值：3
-         *
-         * @param issuanceFrequency
-         * @return
-         */
-        public Builder issuanceFrequency(Integer issuanceFrequency) {
-            this.issuanceFrequency = issuanceFrequency;
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：备注
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        /**
-         * 一次性支付记录所属期开始日期
-         * <p> 示例值：2024-08-01
-         *
-         * @param referencePeriodStartDate
-         * @return
-         */
-        public Builder referencePeriodStartDate(String referencePeriodStartDate) {
-            this.referencePeriodStartDate = referencePeriodStartDate;
-            return this;
-        }
-
-
-        /**
-         * 一次性支付记录所属期结束日期
-         * <p> 示例值：2024-08-01
-         *
-         * @param referencePeriodEndDate
-         * @return
-         */
-        public Builder referencePeriodEndDate(String referencePeriodEndDate) {
-            this.referencePeriodEndDate = referencePeriodEndDate;
-            return this;
-        }
-
-
-        /**
-         * 发放明细列表
-         * <p> 示例值：
-         *
-         * @param details
-         * @return
-         */
-        public Builder details(LumpSumPaymentDetailForUpdate[] details) {
-            this.details = details;
-            return this;
-        }
-
-
-        /**
-         * 绑定期带小数
-         * <p> 示例值：12
-         *
-         * @param bindingPeriodDecimal
-         * @return
-         */
-        public Builder bindingPeriodDecimal(String bindingPeriodDecimal) {
-            this.bindingPeriodDecimal = bindingPeriodDecimal;
-            return this;
-        }
-
-
-        /**
-         * 操作来源
-         * <p> 示例值：apaas_spot
-         *
-         * @param operationSource
-         * @return
-         */
-        public Builder operationSource(String operationSource) {
-            this.operationSource = operationSource;
-            return this;
-        }
-
-
-        public LumpSumPaymentForUpdate build() {
-            return new LumpSumPaymentForUpdate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

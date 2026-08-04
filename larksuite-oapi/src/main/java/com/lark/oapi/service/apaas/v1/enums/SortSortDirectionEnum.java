@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.apaas.v1.enums;
 
-/**
- * 排序方向，值为 "ASC" 或者 "DESC"，代表升序和降序
- */
+/** 排序方向，值为 "ASC" 或者 "DESC"，代表升序和降序 */
 public enum SortSortDirectionEnum {
-    SORTDIRECTIONASC("ASC"), // 升序
-    SORTDIRECTIONDESC("DESC"), // 降序
-    ;
-    private String value;
+  SORTDIRECTIONASC("ASC"), // 升序
+  SORTDIRECTIONDESC("DESC"), // 降序
+  ;
+  private String value;
 
-    SortSortDirectionEnum(String value) {
-        this.value = value;
-    }
+  SortSortDirectionEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

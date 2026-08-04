@@ -13,161 +13,148 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OutRecord {
-    /**
-     * 外出时间单位，枚举值hour,half_day,day
-     * <p> 示例值：hour
-     */
-    @SerializedName("duration_unit")
-    private String durationUnit;
+  /** 示例值：hour */
+  @SerializedName("duration_unit")
+  private String durationUnit;
+
+  /**
+   * 外出开始时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("start_time")
+  private OutTime startTime;
+
+  /**
+   * 外出结束时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("end_time")
+  private OutTime endTime;
+
+  public String getDurationUnit() {
+    return this.durationUnit;
+  }
+
+  public void setDurationUnit(String durationUnit) {
+    this.durationUnit = durationUnit;
+  }
+
+  public OutTime getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(OutTime startTime) {
+    this.startTime = startTime;
+  }
+
+  public OutTime getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(OutTime endTime) {
+    this.endTime = endTime;
+  }
+
+  // builder 开始
+  public OutRecord() {}
+
+  public OutRecord(Builder builder) {
+    /** 示例值：hour */
+    this.durationUnit = builder.durationUnit;
     /**
      * 外出开始时间
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("start_time")
-    private OutTime startTime;
+    this.startTime = builder.startTime;
     /**
      * 外出结束时间
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("end_time")
+    this.endTime = builder.endTime;
+  }
+
+  public static class Builder {
+    /** 示例值：hour */
+    private String durationUnit;
+
+    /**
+     * 外出开始时间
+     *
+     * <p>示例值：
+     */
+    private OutTime startTime;
+
+    /**
+     * 外出结束时间
+     *
+     * <p>示例值：
+     */
     private OutTime endTime;
 
-    // builder 开始
-    public OutRecord() {
+    /**
+     * 示例值：hour
+     *
+     * @param durationUnit
+     * @return
+     */
+    public Builder durationUnit(String durationUnit) {
+      this.durationUnit = durationUnit;
+      return this;
     }
 
-    public OutRecord(Builder builder) {
-        /**
-         * 外出时间单位，枚举值hour,half_day,day
-         * <p> 示例值：hour
-         */
-        this.durationUnit = builder.durationUnit;
-        /**
-         * 外出开始时间
-         * <p> 示例值：
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 外出结束时间
-         * <p> 示例值：
-         */
-        this.endTime = builder.endTime;
+    /**
+     * 示例值：hour
+     *
+     * @param durationUnit {@link
+     *     com.lark.oapi.service.attendance.v1.enums.OutRecordDurationUnitEnum}
+     * @return
+     */
+    public Builder durationUnit(
+        com.lark.oapi.service.attendance.v1.enums.OutRecordDurationUnitEnum durationUnit) {
+      this.durationUnit = durationUnit.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 外出开始时间
+     *
+     * <p>示例值：
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(OutTime startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getDurationUnit() {
-        return this.durationUnit;
+    /**
+     * 外出结束时间
+     *
+     * <p>示例值：
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(OutTime endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setDurationUnit(String durationUnit) {
-        this.durationUnit = durationUnit;
+    public OutRecord build() {
+      return new OutRecord(this);
     }
+  }
 
-    public OutTime getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(OutTime startTime) {
-        this.startTime = startTime;
-    }
-
-    public OutTime getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(OutTime endTime) {
-        this.endTime = endTime;
-    }
-
-    public static class Builder {
-        /**
-         * 外出时间单位，枚举值hour,half_day,day
-         * <p> 示例值：hour
-         */
-        private String durationUnit;
-        /**
-         * 外出开始时间
-         * <p> 示例值：
-         */
-        private OutTime startTime;
-        /**
-         * 外出结束时间
-         * <p> 示例值：
-         */
-        private OutTime endTime;
-
-        /**
-         * 外出时间单位，枚举值hour,half_day,day
-         * <p> 示例值：hour
-         *
-         * @param durationUnit
-         * @return
-         */
-        public Builder durationUnit(String durationUnit) {
-            this.durationUnit = durationUnit;
-            return this;
-        }
-
-        /**
-         * 外出时间单位，枚举值hour,half_day,day
-         * <p> 示例值：hour
-         *
-         * @param durationUnit {@link com.lark.oapi.service.attendance.v1.enums.OutRecordDurationUnitEnum}
-         * @return
-         */
-        public Builder durationUnit(com.lark.oapi.service.attendance.v1.enums.OutRecordDurationUnitEnum durationUnit) {
-            this.durationUnit = durationUnit.getValue();
-            return this;
-        }
-
-
-        /**
-         * 外出开始时间
-         * <p> 示例值：
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(OutTime startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 外出结束时间
-         * <p> 示例值：
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(OutTime endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        public OutRecord build() {
-            return new OutRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

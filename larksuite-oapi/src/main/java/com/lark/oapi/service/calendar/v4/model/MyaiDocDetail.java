@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyaiDocDetail {
+  /**
+   * 文档标题
+   *
+   * <p>示例值：none
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 文档链接
+   *
+   * <p>示例值：none
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 文档Token
+   *
+   * <p>示例值：none
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 文档类型
+   *
+   * <p>示例值：none
+   */
+  @SerializedName("doc_type")
+  private String docType;
+
+  /**
+   * 文档附加信息
+   *
+   * <p>示例值：none
+   */
+  @SerializedName("extra")
+  private String extra;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getDocType() {
+    return this.docType;
+  }
+
+  public void setDocType(String docType) {
+    this.docType = docType;
+  }
+
+  public String getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(String extra) {
+    this.extra = extra;
+  }
+
+  // builder 开始
+  public MyaiDocDetail() {}
+
+  public MyaiDocDetail(Builder builder) {
     /**
      * 文档标题
-     * <p> 示例值：none
+     *
+     * <p>示例值：none
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 文档链接
-     * <p> 示例值：none
+     *
+     * <p>示例值：none
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 文档Token
-     * <p> 示例值：none
+     *
+     * <p>示例值：none
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 文档类型
-     * <p> 示例值：none
+     *
+     * <p>示例值：none
      */
-    @SerializedName("doc_type")
-    private String docType;
+    this.docType = builder.docType;
     /**
      * 文档附加信息
-     * <p> 示例值：none
+     *
+     * <p>示例值：none
      */
-    @SerializedName("extra")
+    this.extra = builder.extra;
+  }
+
+  public static class Builder {
+    /**
+     * 文档标题
+     *
+     * <p>示例值：none
+     */
+    private String title;
+
+    /**
+     * 文档链接
+     *
+     * <p>示例值：none
+     */
+    private String url;
+
+    /**
+     * 文档Token
+     *
+     * <p>示例值：none
+     */
+    private String token;
+
+    /**
+     * 文档类型
+     *
+     * <p>示例值：none
+     */
+    private String docType;
+
+    /**
+     * 文档附加信息
+     *
+     * <p>示例值：none
+     */
     private String extra;
 
-    // builder 开始
-    public MyaiDocDetail() {
+    /**
+     * 文档标题
+     *
+     * <p>示例值：none
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public MyaiDocDetail(Builder builder) {
-        /**
-         * 文档标题
-         * <p> 示例值：none
-         */
-        this.title = builder.title;
-        /**
-         * 文档链接
-         * <p> 示例值：none
-         */
-        this.url = builder.url;
-        /**
-         * 文档Token
-         * <p> 示例值：none
-         */
-        this.token = builder.token;
-        /**
-         * 文档类型
-         * <p> 示例值：none
-         */
-        this.docType = builder.docType;
-        /**
-         * 文档附加信息
-         * <p> 示例值：none
-         */
-        this.extra = builder.extra;
+    /**
+     * 文档链接
+     *
+     * <p>示例值：none
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文档Token
+     *
+     * <p>示例值：none
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 文档类型
+     *
+     * <p>示例值：none
+     *
+     * @param docType
+     * @return
+     */
+    public Builder docType(String docType) {
+      this.docType = docType;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 文档附加信息
+     *
+     * <p>示例值：none
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(String extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public String getUrl() {
-        return this.url;
+    public MyaiDocDetail build() {
+      return new MyaiDocDetail(this);
     }
+  }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getToken() {
-        return this.token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getDocType() {
-        return this.docType;
-    }
-
-    public void setDocType(String docType) {
-        this.docType = docType;
-    }
-
-    public String getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(String extra) {
-        this.extra = extra;
-    }
-
-    public static class Builder {
-        /**
-         * 文档标题
-         * <p> 示例值：none
-         */
-        private String title;
-        /**
-         * 文档链接
-         * <p> 示例值：none
-         */
-        private String url;
-        /**
-         * 文档Token
-         * <p> 示例值：none
-         */
-        private String token;
-        /**
-         * 文档类型
-         * <p> 示例值：none
-         */
-        private String docType;
-        /**
-         * 文档附加信息
-         * <p> 示例值：none
-         */
-        private String extra;
-
-        /**
-         * 文档标题
-         * <p> 示例值：none
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 文档链接
-         * <p> 示例值：none
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 文档Token
-         * <p> 示例值：none
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 文档类型
-         * <p> 示例值：none
-         *
-         * @param docType
-         * @return
-         */
-        public Builder docType(String docType) {
-            this.docType = docType;
-            return this;
-        }
-
-
-        /**
-         * 文档附加信息
-         * <p> 示例值：none
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(String extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        public MyaiDocDetail build() {
-            return new MyaiDocDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

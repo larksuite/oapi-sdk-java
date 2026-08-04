@@ -13,164 +13,164 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class AbnormalRecord {
+  /**
+   * 异常ID
+   *
+   * <p>示例值：eedasfwe
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 行级异常
+   *
+   * <p>示例值：
+   */
+  @SerializedName("row_error")
+  private Integer rowError;
+
+  /**
+   * 列级异常，key为字段名,value为下列枚举
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_errors")
+  private Map<String, Integer> fieldErrors;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getRowError() {
+    return this.rowError;
+  }
+
+  public void setRowError(Integer rowError) {
+    this.rowError = rowError;
+  }
+
+  public Map<String, Integer> getFieldErrors() {
+    return this.fieldErrors;
+  }
+
+  public void setFieldErrors(Map<String, Integer> fieldErrors) {
+    this.fieldErrors = fieldErrors;
+  }
+
+  // builder 开始
+  public AbnormalRecord() {}
+
+  public AbnormalRecord(Builder builder) {
     /**
      * 异常ID
-     * <p> 示例值：eedasfwe
+     *
+     * <p>示例值：eedasfwe
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 行级异常
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("row_error")
-    private Integer rowError;
+    this.rowError = builder.rowError;
     /**
-     * 列级异常
-     * <p> 示例值：
+     * 列级异常，key为字段名,value为下列枚举
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_errors")
+    this.fieldErrors = builder.fieldErrors;
+  }
+
+  public static class Builder {
+    /**
+     * 异常ID
+     *
+     * <p>示例值：eedasfwe
+     */
+    private String id;
+
+    /**
+     * 行级异常
+     *
+     * <p>示例值：
+     */
+    private Integer rowError;
+
+    /**
+     * 列级异常，key为字段名,value为下列枚举
+     *
+     * <p>示例值：
+     */
     private Map<String, Integer> fieldErrors;
 
-    // builder 开始
-    public AbnormalRecord() {
+    /**
+     * 异常ID
+     *
+     * <p>示例值：eedasfwe
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public AbnormalRecord(Builder builder) {
-        /**
-         * 异常ID
-         * <p> 示例值：eedasfwe
-         */
-        this.id = builder.id;
-        /**
-         * 行级异常
-         * <p> 示例值：
-         */
-        this.rowError = builder.rowError;
-        /**
-         * 列级异常
-         * <p> 示例值：
-         */
-        this.fieldErrors = builder.fieldErrors;
+    /**
+     * 行级异常
+     *
+     * <p>示例值：
+     *
+     * @param rowError
+     * @return
+     */
+    public Builder rowError(Integer rowError) {
+      this.rowError = rowError;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 行级异常
+     *
+     * <p>示例值：
+     *
+     * @param rowError {@link com.lark.oapi.service.directory.v1.enums.AbnormalRecordRowErrorEnum}
+     * @return
+     */
+    public Builder rowError(
+        com.lark.oapi.service.directory.v1.enums.AbnormalRecordRowErrorEnum rowError) {
+      this.rowError = rowError.getValue();
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 列级异常，key为字段名,value为下列枚举
+     *
+     * <p>示例值：
+     *
+     * @param fieldErrors
+     * @return
+     */
+    public Builder fieldErrors(Map<String, Integer> fieldErrors) {
+      this.fieldErrors = fieldErrors;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public AbnormalRecord build() {
+      return new AbnormalRecord(this);
     }
+  }
 
-    public Integer getRowError() {
-        return this.rowError;
-    }
-
-    public void setRowError(Integer rowError) {
-        this.rowError = rowError;
-    }
-
-    public Map<String, Integer> getFieldErrors() {
-        return this.fieldErrors;
-    }
-
-    public void setFieldErrors(Map<String, Integer> fieldErrors) {
-        this.fieldErrors = fieldErrors;
-    }
-
-    public static class Builder {
-        /**
-         * 异常ID
-         * <p> 示例值：eedasfwe
-         */
-        private String id;
-        /**
-         * 行级异常
-         * <p> 示例值：
-         */
-        private Integer rowError;
-        /**
-         * 列级异常
-         * <p> 示例值：
-         */
-        private Map<String, Integer> fieldErrors;
-
-        /**
-         * 异常ID
-         * <p> 示例值：eedasfwe
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 行级异常
-         * <p> 示例值：
-         *
-         * @param rowError
-         * @return
-         */
-        public Builder rowError(Integer rowError) {
-            this.rowError = rowError;
-            return this;
-        }
-
-        /**
-         * 行级异常
-         * <p> 示例值：
-         *
-         * @param rowError {@link com.lark.oapi.service.directory.v1.enums.AbnormalRecordRowErrorEnum}
-         * @return
-         */
-        public Builder rowError(com.lark.oapi.service.directory.v1.enums.AbnormalRecordRowErrorEnum rowError) {
-            this.rowError = rowError.getValue();
-            return this;
-        }
-
-
-        /**
-         * 列级异常
-         * <p> 示例值：
-         *
-         * @param fieldErrors
-         * @return
-         */
-        public Builder fieldErrors(Map<String, Integer> fieldErrors) {
-            this.fieldErrors = fieldErrors;
-            return this;
-        }
-
-
-        public AbnormalRecord build() {
-            return new AbnormalRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalculationActivity {
+  /**
+   * 算薪活动唯一标识
+   *
+   * <p>示例值：7371828319837012009
+   */
+  @SerializedName("calculation_activity_id")
+  private String calculationActivityId;
+
+  /**
+   * 算薪活动名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("calculation_activity_names")
+  private I18nContent[] calculationActivityNames;
+
+  public String getCalculationActivityId() {
+    return this.calculationActivityId;
+  }
+
+  public void setCalculationActivityId(String calculationActivityId) {
+    this.calculationActivityId = calculationActivityId;
+  }
+
+  public I18nContent[] getCalculationActivityNames() {
+    return this.calculationActivityNames;
+  }
+
+  public void setCalculationActivityNames(I18nContent[] calculationActivityNames) {
+    this.calculationActivityNames = calculationActivityNames;
+  }
+
+  // builder 开始
+  public CalculationActivity() {}
+
+  public CalculationActivity(Builder builder) {
     /**
      * 算薪活动唯一标识
-     * <p> 示例值：7371828319837012009
+     *
+     * <p>示例值：7371828319837012009
      */
-    @SerializedName("calculation_activity_id")
-    private String calculationActivityId;
+    this.calculationActivityId = builder.calculationActivityId;
     /**
      * 算薪活动名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("calculation_activity_names")
+    this.calculationActivityNames = builder.calculationActivityNames;
+  }
+
+  public static class Builder {
+    /**
+     * 算薪活动唯一标识
+     *
+     * <p>示例值：7371828319837012009
+     */
+    private String calculationActivityId;
+
+    /**
+     * 算薪活动名称
+     *
+     * <p>示例值：
+     */
     private I18nContent[] calculationActivityNames;
 
-    // builder 开始
-    public CalculationActivity() {
+    /**
+     * 算薪活动唯一标识
+     *
+     * <p>示例值：7371828319837012009
+     *
+     * @param calculationActivityId
+     * @return
+     */
+    public Builder calculationActivityId(String calculationActivityId) {
+      this.calculationActivityId = calculationActivityId;
+      return this;
     }
 
-    public CalculationActivity(Builder builder) {
-        /**
-         * 算薪活动唯一标识
-         * <p> 示例值：7371828319837012009
-         */
-        this.calculationActivityId = builder.calculationActivityId;
-        /**
-         * 算薪活动名称
-         * <p> 示例值：
-         */
-        this.calculationActivityNames = builder.calculationActivityNames;
+    /**
+     * 算薪活动名称
+     *
+     * <p>示例值：
+     *
+     * @param calculationActivityNames
+     * @return
+     */
+    public Builder calculationActivityNames(I18nContent[] calculationActivityNames) {
+      this.calculationActivityNames = calculationActivityNames;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CalculationActivity build() {
+      return new CalculationActivity(this);
     }
+  }
 
-    public String getCalculationActivityId() {
-        return this.calculationActivityId;
-    }
-
-    public void setCalculationActivityId(String calculationActivityId) {
-        this.calculationActivityId = calculationActivityId;
-    }
-
-    public I18nContent[] getCalculationActivityNames() {
-        return this.calculationActivityNames;
-    }
-
-    public void setCalculationActivityNames(I18nContent[] calculationActivityNames) {
-        this.calculationActivityNames = calculationActivityNames;
-    }
-
-    public static class Builder {
-        /**
-         * 算薪活动唯一标识
-         * <p> 示例值：7371828319837012009
-         */
-        private String calculationActivityId;
-        /**
-         * 算薪活动名称
-         * <p> 示例值：
-         */
-        private I18nContent[] calculationActivityNames;
-
-        /**
-         * 算薪活动唯一标识
-         * <p> 示例值：7371828319837012009
-         *
-         * @param calculationActivityId
-         * @return
-         */
-        public Builder calculationActivityId(String calculationActivityId) {
-            this.calculationActivityId = calculationActivityId;
-            return this;
-        }
-
-
-        /**
-         * 算薪活动名称
-         * <p> 示例值：
-         *
-         * @param calculationActivityNames
-         * @return
-         */
-        public Builder calculationActivityNames(I18nContent[] calculationActivityNames) {
-            this.calculationActivityNames = calculationActivityNames;
-            return this;
-        }
-
-
-        public CalculationActivity build() {
-            return new CalculationActivity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,198 +13,213 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CopyFileReqBody {
+  /**
+   * 复制的新文件的名称;;**数据校验规则**：最大长度为 `256` 字节
+   *
+   * <p>示例值：Demo copy
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 被复制的源文件的类型。必须与 `file_token`
+   * 对应的源文件实际类型一致。;;;;**注意**：该参数为必填，请忽略左侧必填列的“否”。若该参数值为空或与实际文件类型不匹配，接口将返回失败。
+   *
+   * <p>示例值：docx
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 目标文件夹的 token。若传入根文件夹 token，表示复制的新文件将被创建在云空间根目录。了解如何获取文件夹
+   * token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+   *
+   * <p>示例值：fldbcO1UuPz8VwnpPx5a92abcef
+   */
+  @SerializedName("folder_token")
+  private String folderToken;
+
+  /**
+   * 自定义请求附加参数，用于实现特殊的复制语义
+   *
+   * <p>示例值：
+   */
+  @SerializedName("extra")
+  private Property[] extra;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getFolderToken() {
+    return this.folderToken;
+  }
+
+  public void setFolderToken(String folderToken) {
+    this.folderToken = folderToken;
+  }
+
+  public Property[] getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(Property[] extra) {
+    this.extra = extra;
+  }
+
+  // builder 开始
+  public CopyFileReqBody() {}
+
+  public CopyFileReqBody(Builder builder) {
     /**
-     * 被复制文件的新名称
-     * <p> 示例值：test.txt
+     * 复制的新文件的名称;;**数据校验规则**：最大长度为 `256` 字节
+     *
+     * <p>示例值：Demo copy
      */
-    @SerializedName("name")
+    this.name = builder.name;
+    /**
+     * 被复制的源文件的类型。必须与 `file_token`
+     * 对应的源文件实际类型一致。;;;;**注意**：该参数为必填，请忽略左侧必填列的“否”。若该参数值为空或与实际文件类型不匹配，接口将返回失败。
+     *
+     * <p>示例值：docx
+     */
+    this.type = builder.type;
+    /**
+     * 目标文件夹的 token。若传入根文件夹 token，表示复制的新文件将被创建在云空间根目录。了解如何获取文件夹
+     * token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+     *
+     * <p>示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     */
+    this.folderToken = builder.folderToken;
+    /**
+     * 自定义请求附加参数，用于实现特殊的复制语义
+     *
+     * <p>示例值：
+     */
+    this.extra = builder.extra;
+  }
+
+  public static class Builder {
+    /**
+     * 复制的新文件的名称;;**数据校验规则**：最大长度为 `256` 字节
+     *
+     * <p>示例值：Demo copy
+     */
     private String name;
+
     /**
-     * 被复制文件的类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
-     * <p> 示例值：doc
+     * 被复制的源文件的类型。必须与 `file_token`
+     * 对应的源文件实际类型一致。;;;;**注意**：该参数为必填，请忽略左侧必填列的“否”。若该参数值为空或与实际文件类型不匹配，接口将返回失败。
+     *
+     * <p>示例值：docx
      */
-    @SerializedName("type")
     private String type;
+
     /**
-     * 文件被复制到的目标文件夹token
-     * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     * 目标文件夹的 token。若传入根文件夹 token，表示复制的新文件将被创建在云空间根目录。了解如何获取文件夹
+     * token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+     *
+     * <p>示例值：fldbcO1UuPz8VwnpPx5a92abcef
      */
-    @SerializedName("folder_token")
     private String folderToken;
+
     /**
-     * 用户自定义请求附加参数，用于实现特殊的复制语义
-     * <p> 示例值：
+     * 自定义请求附加参数，用于实现特殊的复制语义
+     *
+     * <p>示例值：
      */
-    @SerializedName("extra")
     private Property[] extra;
 
-    // builder 开始
-    public CopyFileReqBody() {
+    /**
+     * 复制的新文件的名称;;**数据校验规则**：最大长度为 `256` 字节
+     *
+     * <p>示例值：Demo copy
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public CopyFileReqBody(Builder builder) {
-        /**
-         * 被复制文件的新名称
-         * <p> 示例值：test.txt
-         */
-        this.name = builder.name;
-        /**
-         * 被复制文件的类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
-         * <p> 示例值：doc
-         */
-        this.type = builder.type;
-        /**
-         * 文件被复制到的目标文件夹token
-         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         */
-        this.folderToken = builder.folderToken;
-        /**
-         * 用户自定义请求附加参数，用于实现特殊的复制语义
-         * <p> 示例值：
-         */
-        this.extra = builder.extra;
+    /**
+     * 被复制的源文件的类型。必须与 `file_token`
+     * 对应的源文件实际类型一致。;;;;**注意**：该参数为必填，请忽略左侧必填列的“否”。若该参数值为空或与实际文件类型不匹配，接口将返回失败。
+     *
+     * <p>示例值：docx
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 被复制的源文件的类型。必须与 `file_token`
+     * 对应的源文件实际类型一致。;;;;**注意**：该参数为必填，请忽略左侧必填列的“否”。若该参数值为空或与实际文件类型不匹配，接口将返回失败。
+     *
+     * <p>示例值：docx
+     *
+     * @param type {@link com.lark.oapi.service.drive.v1.enums.CopyFileTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.drive.v1.enums.CopyFileTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 目标文件夹的 token。若传入根文件夹 token，表示复制的新文件将被创建在云空间根目录。了解如何获取文件夹
+     * token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+     *
+     * <p>示例值：fldbcO1UuPz8VwnpPx5a92abcef
+     *
+     * @param folderToken
+     * @return
+     */
+    public Builder folderToken(String folderToken) {
+      this.folderToken = folderToken;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 自定义请求附加参数，用于实现特殊的复制语义
+     *
+     * <p>示例值：
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(Property[] extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public CopyFileReqBody build() {
+      return new CopyFileReqBody(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getFolderToken() {
-        return this.folderToken;
-    }
-
-    public void setFolderToken(String folderToken) {
-        this.folderToken = folderToken;
-    }
-
-    public Property[] getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(Property[] extra) {
-        this.extra = extra;
-    }
-
-    public static class Builder {
-        /**
-         * 被复制文件的新名称
-         * <p> 示例值：test.txt
-         */
-        private String name;
-        /**
-         * 被复制文件的类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
-         * <p> 示例值：doc
-         */
-        private String type;
-        /**
-         * 文件被复制到的目标文件夹token
-         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         */
-        private String folderToken;
-        /**
-         * 用户自定义请求附加参数，用于实现特殊的复制语义
-         * <p> 示例值：
-         */
-        private Property[] extra;
-
-        /**
-         * 被复制文件的新名称
-         * <p> 示例值：test.txt
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 被复制文件的类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
-         * <p> 示例值：doc
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 被复制文件的类型，如果该值为空或者与文件实际类型不匹配，接口会返回失败。
-         * <p> 示例值：doc
-         *
-         * @param type {@link com.lark.oapi.service.drive.v1.enums.CopyFileTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.drive.v1.enums.CopyFileTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文件被复制到的目标文件夹token
-         * <p> 示例值：fldbcO1UuPz8VwnpPx5a92abcef
-         *
-         * @param folderToken
-         * @return
-         */
-        public Builder folderToken(String folderToken) {
-            this.folderToken = folderToken;
-            return this;
-        }
-
-
-        /**
-         * 用户自定义请求附加参数，用于实现特殊的复制语义
-         * <p> 示例值：
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(Property[] extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        public CopyFileReqBody build() {
-            return new CopyFileReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

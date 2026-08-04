@@ -13,103 +13,105 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class GetInterviewRecordReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 面试评价
+   * ID，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口获取
+   *
+   * <p>示例值：7171693733661327361
+   */
+  @Path
+  @SerializedName("interview_record_id")
+  private String interviewRecordId;
+
+  public String getInterviewRecordId() {
+    return this.interviewRecordId;
+  }
+
+  public void setInterviewRecordId(String interviewRecordId) {
+    this.interviewRecordId = interviewRecordId;
+  }
+
+  // builder 开始
+  public GetInterviewRecordReq() {}
+
+  public GetInterviewRecordReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 面试记录ID
-     * <p> 示例值：7171693733661327361
+     * 面试评价
+     * ID，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口获取
+     *
+     * <p>示例值：7171693733661327361
      */
-    @Path
-    @SerializedName("interview_record_id")
-    private String interviewRecordId;
+    this.interviewRecordId = builder.interviewRecordId;
+  }
 
-    // builder 开始
-    public GetInterviewRecordReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetInterviewRecordReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 面试记录ID
-         * <p> 示例值：7171693733661327361
-         */
-        this.interviewRecordId = builder.interviewRecordId;
+    private String interviewRecordId; // 面试评价
+
+    // ID，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口获取
+
+    /**
+     * 面试评价
+     * ID，可通过[获取面试信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview/list)接口获取
+     *
+     * <p>示例值：7171693733661327361
+     *
+     * @param interviewRecordId
+     * @return
+     */
+    public Builder interviewRecordId(String interviewRecordId) {
+      this.interviewRecordId = interviewRecordId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GetInterviewRecordReq build() {
+      return new GetInterviewRecordReq(this);
     }
+  }
 
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getInterviewRecordId() {
-        return this.interviewRecordId;
-    }
-
-    public void setInterviewRecordId(String interviewRecordId) {
-        this.interviewRecordId = interviewRecordId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String interviewRecordId; // 面试记录ID
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 面试记录ID
-         * <p> 示例值：7171693733661327361
-         *
-         * @param interviewRecordId
-         * @return
-         */
-        public Builder interviewRecordId(String interviewRecordId) {
-            this.interviewRecordId = interviewRecordId;
-            return this;
-        }
-
-
-        public GetInterviewRecordReq build() {
-            return new GetInterviewRecordReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

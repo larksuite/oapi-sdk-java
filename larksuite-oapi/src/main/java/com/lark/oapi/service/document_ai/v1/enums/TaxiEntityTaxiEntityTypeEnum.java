@@ -13,34 +13,32 @@
 
 package com.lark.oapi.service.document_ai.v1.enums;
 
-/**
- * 识别的字段种类
- */
+/** 识别的字段种类 */
 public enum TaxiEntityTaxiEntityTypeEnum {
-    CARNUMBER("car_number"), // 车号
-    STARTTIME("start_time"), // 上车时间
-    ENDTIME("end_time"), // 下车时间
-    DISTANCE("distance"), // 里程
-    STARTDATE("start_date"), // 日期
-    TOTALAMOUNT("total_amount"), // 出租车价格
-    INVOICECODE("invoice_code"), // 发票代码
-    INVOICENO("invoice_no"), // 发票号码
-    PRICE("price"), // 单价
-    DISPATCHFEE("dispatch_fee"), // 电召费
-    ADDITIONALFEE("additional_fee"), // 附加费
-    ISSEALED("is_sealed"), // 是否盖章
-    SELLERNAMEINSEAL("seller_name_in_seal"), // 印章内销售方名称
-    SELLERTAXPAYERNOINSEAL("seller_taxpayer_no_in_seal"), // 印章内销售方税号
-    TITLETRIAL("title_trial"), // 发票名称
-    INVOICESPECIALSEAL("invoice_special_seal"), // 印章名称
-    ;
-    private String value;
+  CARNUMBER("car_number"), // 车号
+  STARTTIME("start_time"), // 上车时间
+  ENDTIME("end_time"), // 下车时间
+  DISTANCE("distance"), // 里程
+  STARTDATE("start_date"), // 日期
+  TOTALAMOUNT("total_amount"), // 出租车价格
+  INVOICECODE("invoice_code"), // 发票代码
+  INVOICENO("invoice_no"), // 发票号码
+  PRICE("price"), // 单价
+  DISPATCHFEE("dispatch_fee"), // 电召费
+  ADDITIONALFEE("additional_fee"), // 附加费
+  ISSEALED("is_sealed"), // 是否盖章
+  SELLERNAMEINSEAL("seller_name_in_seal"), // 印章内销售方名称
+  SELLERTAXPAYERNOINSEAL("seller_taxpayer_no_in_seal"), // 印章内销售方税号
+  TITLETRIAL("title_trial"), // 发票名称
+  INVOICESPECIALSEAL("invoice_special_seal"), // 印章名称
+  ;
+  private String value;
 
-    TaxiEntityTaxiEntityTypeEnum(String value) {
-        this.value = value;
-    }
+  TaxiEntityTaxiEntityTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

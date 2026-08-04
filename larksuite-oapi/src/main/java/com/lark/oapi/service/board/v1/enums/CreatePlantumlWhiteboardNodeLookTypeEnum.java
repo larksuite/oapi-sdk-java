@@ -13,19 +13,17 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 外观类型
- */
+/** 外观类型 */
 public enum CreatePlantumlWhiteboardNodeLookTypeEnum {
-    LARKAI(1), // LarkAI样式
-    ;
-    private Integer value;
+  LARKAI(1), // LarkAI样式
+  ;
+  private Integer value;
 
-    CreatePlantumlWhiteboardNodeLookTypeEnum(Integer value) {
-        this.value = value;
-    }
+  CreatePlantumlWhiteboardNodeLookTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

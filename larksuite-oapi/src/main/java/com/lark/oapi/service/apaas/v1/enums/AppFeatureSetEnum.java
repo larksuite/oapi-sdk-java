@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.apaas.v1.enums;
 
-/**
- * aPaaS 产品应用的版本
- */
+/** aPaaS 产品应用的版本 */
 public enum AppFeatureSetEnum {
-    PAID("paid"), // 付费版
-    FREE("free"), // 免费版
-    ;
-    private String value;
+  PAID("paid"), // 付费版
+  FREE("free"), // 免费版
+  ;
+  private String value;
 
-    AppFeatureSetEnum(String value) {
-        this.value = value;
-    }
+  AppFeatureSetEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

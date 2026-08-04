@@ -14,22 +14,24 @@
 package com.lark.oapi.service.contact.v3.enums;
 
 /**
- * 员工类型
+ * 员工类型。;;**说明**：支持读取自定义员工类型的 int 值。如果该参数的取值不为 1 ~
+ * 5，则你可调用[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)接口查询相应的自定义员工类型信息（employee_type
+ * 对应 **查询人员类型** 接口返回的 enum_value）。
  */
 public enum UserEventEmployeeTypeEnum {
-    FULL_TIME(1), // 正式员工
-    INTERNSHIP(2), // 实习生
-    OUTSOURCING(3), // 外包
-    LABOR(4), // 劳务
-    CONSULTANT(5), // 顾问
-    ;
-    private Integer value;
+  FULL_TIME(1), // 正式员工
+  INTERNSHIP(2), // 实习生
+  OUTSOURCING(3), // 外包
+  LABOR(4), // 劳务
+  CONSULTANT(5), // 顾问
+  ;
+  private Integer value;
 
-    UserEventEmployeeTypeEnum(Integer value) {
-        this.value = value;
-    }
+  UserEventEmployeeTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

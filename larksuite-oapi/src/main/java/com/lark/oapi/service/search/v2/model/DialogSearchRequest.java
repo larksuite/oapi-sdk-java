@@ -13,284 +13,305 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DialogSearchRequest {
+  /**
+   * 用户问题
+   *
+   * <p>示例值：帮我找一下昨天发的文档
+   */
+  @SerializedName("tool_raw_instruction")
+  private String toolRawInstruction;
+
+  /**
+   * 场景上下文的schema版本号
+   *
+   * <p>示例值：v1
+   */
+  @SerializedName("scenario_context_schema_version")
+  private String scenarioContextSchemaVersion;
+
+  /**
+   * 场景上下文
+   *
+   * <p>示例值：
+   */
+  @SerializedName("scenario_context")
+  private ScenarioContext scenarioContext;
+
+  /**
+   * agent类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("agent_type")
+  private Integer agentType;
+
+  /**
+   * 返回结果的数据类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("response_type")
+  private Integer responseType;
+
+  /**
+   * passage_param
+   *
+   * <p>示例值：
+   */
+  @SerializedName("passage_param")
+  private PassageParam passageParam;
+
+  public String getToolRawInstruction() {
+    return this.toolRawInstruction;
+  }
+
+  public void setToolRawInstruction(String toolRawInstruction) {
+    this.toolRawInstruction = toolRawInstruction;
+  }
+
+  public String getScenarioContextSchemaVersion() {
+    return this.scenarioContextSchemaVersion;
+  }
+
+  public void setScenarioContextSchemaVersion(String scenarioContextSchemaVersion) {
+    this.scenarioContextSchemaVersion = scenarioContextSchemaVersion;
+  }
+
+  public ScenarioContext getScenarioContext() {
+    return this.scenarioContext;
+  }
+
+  public void setScenarioContext(ScenarioContext scenarioContext) {
+    this.scenarioContext = scenarioContext;
+  }
+
+  public Integer getAgentType() {
+    return this.agentType;
+  }
+
+  public void setAgentType(Integer agentType) {
+    this.agentType = agentType;
+  }
+
+  public Integer getResponseType() {
+    return this.responseType;
+  }
+
+  public void setResponseType(Integer responseType) {
+    this.responseType = responseType;
+  }
+
+  public PassageParam getPassageParam() {
+    return this.passageParam;
+  }
+
+  public void setPassageParam(PassageParam passageParam) {
+    this.passageParam = passageParam;
+  }
+
+  // builder 开始
+  public DialogSearchRequest() {}
+
+  public DialogSearchRequest(Builder builder) {
     /**
      * 用户问题
-     * <p> 示例值：帮我找一下昨天发的文档
+     *
+     * <p>示例值：帮我找一下昨天发的文档
      */
-    @SerializedName("tool_raw_instruction")
-    private String toolRawInstruction;
+    this.toolRawInstruction = builder.toolRawInstruction;
     /**
      * 场景上下文的schema版本号
-     * <p> 示例值：v1
+     *
+     * <p>示例值：v1
      */
-    @SerializedName("scenario_context_schema_version")
-    private String scenarioContextSchemaVersion;
+    this.scenarioContextSchemaVersion = builder.scenarioContextSchemaVersion;
     /**
      * 场景上下文
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("scenario_context")
-    private ScenarioContext scenarioContext;
+    this.scenarioContext = builder.scenarioContext;
     /**
      * agent类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("agent_type")
-    private Integer agentType;
+    this.agentType = builder.agentType;
     /**
      * 返回结果的数据类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("response_type")
-    private Integer responseType;
+    this.responseType = builder.responseType;
     /**
      * passage_param
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("passage_param")
+    this.passageParam = builder.passageParam;
+  }
+
+  public static class Builder {
+    /**
+     * 用户问题
+     *
+     * <p>示例值：帮我找一下昨天发的文档
+     */
+    private String toolRawInstruction;
+
+    /**
+     * 场景上下文的schema版本号
+     *
+     * <p>示例值：v1
+     */
+    private String scenarioContextSchemaVersion;
+
+    /**
+     * 场景上下文
+     *
+     * <p>示例值：
+     */
+    private ScenarioContext scenarioContext;
+
+    /**
+     * agent类型
+     *
+     * <p>示例值：1
+     */
+    private Integer agentType;
+
+    /**
+     * 返回结果的数据类型
+     *
+     * <p>示例值：1
+     */
+    private Integer responseType;
+
+    /**
+     * passage_param
+     *
+     * <p>示例值：
+     */
     private PassageParam passageParam;
 
-    // builder 开始
-    public DialogSearchRequest() {
+    /**
+     * 用户问题
+     *
+     * <p>示例值：帮我找一下昨天发的文档
+     *
+     * @param toolRawInstruction
+     * @return
+     */
+    public Builder toolRawInstruction(String toolRawInstruction) {
+      this.toolRawInstruction = toolRawInstruction;
+      return this;
     }
 
-    public DialogSearchRequest(Builder builder) {
-        /**
-         * 用户问题
-         * <p> 示例值：帮我找一下昨天发的文档
-         */
-        this.toolRawInstruction = builder.toolRawInstruction;
-        /**
-         * 场景上下文的schema版本号
-         * <p> 示例值：v1
-         */
-        this.scenarioContextSchemaVersion = builder.scenarioContextSchemaVersion;
-        /**
-         * 场景上下文
-         * <p> 示例值：
-         */
-        this.scenarioContext = builder.scenarioContext;
-        /**
-         * agent类型
-         * <p> 示例值：1
-         */
-        this.agentType = builder.agentType;
-        /**
-         * 返回结果的数据类型
-         * <p> 示例值：1
-         */
-        this.responseType = builder.responseType;
-        /**
-         * passage_param
-         * <p> 示例值：
-         */
-        this.passageParam = builder.passageParam;
+    /**
+     * 场景上下文的schema版本号
+     *
+     * <p>示例值：v1
+     *
+     * @param scenarioContextSchemaVersion
+     * @return
+     */
+    public Builder scenarioContextSchemaVersion(String scenarioContextSchemaVersion) {
+      this.scenarioContextSchemaVersion = scenarioContextSchemaVersion;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 场景上下文
+     *
+     * <p>示例值：
+     *
+     * @param scenarioContext
+     * @return
+     */
+    public Builder scenarioContext(ScenarioContext scenarioContext) {
+      this.scenarioContext = scenarioContext;
+      return this;
     }
 
-    public String getToolRawInstruction() {
-        return this.toolRawInstruction;
+    /**
+     * agent类型
+     *
+     * <p>示例值：1
+     *
+     * @param agentType
+     * @return
+     */
+    public Builder agentType(Integer agentType) {
+      this.agentType = agentType;
+      return this;
     }
 
-    public void setToolRawInstruction(String toolRawInstruction) {
-        this.toolRawInstruction = toolRawInstruction;
+    /**
+     * agent类型
+     *
+     * <p>示例值：1
+     *
+     * @param agentType {@link
+     *     com.lark.oapi.service.search.v2.enums.DialogSearchRequestAgentTypeEnum}
+     * @return
+     */
+    public Builder agentType(
+        com.lark.oapi.service.search.v2.enums.DialogSearchRequestAgentTypeEnum agentType) {
+      this.agentType = agentType.getValue();
+      return this;
     }
 
-    public String getScenarioContextSchemaVersion() {
-        return this.scenarioContextSchemaVersion;
+    /**
+     * 返回结果的数据类型
+     *
+     * <p>示例值：1
+     *
+     * @param responseType
+     * @return
+     */
+    public Builder responseType(Integer responseType) {
+      this.responseType = responseType;
+      return this;
     }
 
-    public void setScenarioContextSchemaVersion(String scenarioContextSchemaVersion) {
-        this.scenarioContextSchemaVersion = scenarioContextSchemaVersion;
+    /**
+     * 返回结果的数据类型
+     *
+     * <p>示例值：1
+     *
+     * @param responseType {@link
+     *     com.lark.oapi.service.search.v2.enums.DialogSearchRequestResponseTypeEnum}
+     * @return
+     */
+    public Builder responseType(
+        com.lark.oapi.service.search.v2.enums.DialogSearchRequestResponseTypeEnum responseType) {
+      this.responseType = responseType.getValue();
+      return this;
     }
 
-    public ScenarioContext getScenarioContext() {
-        return this.scenarioContext;
+    /**
+     * passage_param
+     *
+     * <p>示例值：
+     *
+     * @param passageParam
+     * @return
+     */
+    public Builder passageParam(PassageParam passageParam) {
+      this.passageParam = passageParam;
+      return this;
     }
 
-    public void setScenarioContext(ScenarioContext scenarioContext) {
-        this.scenarioContext = scenarioContext;
+    public DialogSearchRequest build() {
+      return new DialogSearchRequest(this);
     }
+  }
 
-    public Integer getAgentType() {
-        return this.agentType;
-    }
-
-    public void setAgentType(Integer agentType) {
-        this.agentType = agentType;
-    }
-
-    public Integer getResponseType() {
-        return this.responseType;
-    }
-
-    public void setResponseType(Integer responseType) {
-        this.responseType = responseType;
-    }
-
-    public PassageParam getPassageParam() {
-        return this.passageParam;
-    }
-
-    public void setPassageParam(PassageParam passageParam) {
-        this.passageParam = passageParam;
-    }
-
-    public static class Builder {
-        /**
-         * 用户问题
-         * <p> 示例值：帮我找一下昨天发的文档
-         */
-        private String toolRawInstruction;
-        /**
-         * 场景上下文的schema版本号
-         * <p> 示例值：v1
-         */
-        private String scenarioContextSchemaVersion;
-        /**
-         * 场景上下文
-         * <p> 示例值：
-         */
-        private ScenarioContext scenarioContext;
-        /**
-         * agent类型
-         * <p> 示例值：1
-         */
-        private Integer agentType;
-        /**
-         * 返回结果的数据类型
-         * <p> 示例值：1
-         */
-        private Integer responseType;
-        /**
-         * passage_param
-         * <p> 示例值：
-         */
-        private PassageParam passageParam;
-
-        /**
-         * 用户问题
-         * <p> 示例值：帮我找一下昨天发的文档
-         *
-         * @param toolRawInstruction
-         * @return
-         */
-        public Builder toolRawInstruction(String toolRawInstruction) {
-            this.toolRawInstruction = toolRawInstruction;
-            return this;
-        }
-
-
-        /**
-         * 场景上下文的schema版本号
-         * <p> 示例值：v1
-         *
-         * @param scenarioContextSchemaVersion
-         * @return
-         */
-        public Builder scenarioContextSchemaVersion(String scenarioContextSchemaVersion) {
-            this.scenarioContextSchemaVersion = scenarioContextSchemaVersion;
-            return this;
-        }
-
-
-        /**
-         * 场景上下文
-         * <p> 示例值：
-         *
-         * @param scenarioContext
-         * @return
-         */
-        public Builder scenarioContext(ScenarioContext scenarioContext) {
-            this.scenarioContext = scenarioContext;
-            return this;
-        }
-
-
-        /**
-         * agent类型
-         * <p> 示例值：1
-         *
-         * @param agentType
-         * @return
-         */
-        public Builder agentType(Integer agentType) {
-            this.agentType = agentType;
-            return this;
-        }
-
-        /**
-         * agent类型
-         * <p> 示例值：1
-         *
-         * @param agentType {@link com.lark.oapi.service.search.v2.enums.DialogSearchRequestAgentTypeEnum}
-         * @return
-         */
-        public Builder agentType(com.lark.oapi.service.search.v2.enums.DialogSearchRequestAgentTypeEnum agentType) {
-            this.agentType = agentType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 返回结果的数据类型
-         * <p> 示例值：1
-         *
-         * @param responseType
-         * @return
-         */
-        public Builder responseType(Integer responseType) {
-            this.responseType = responseType;
-            return this;
-        }
-
-        /**
-         * 返回结果的数据类型
-         * <p> 示例值：1
-         *
-         * @param responseType {@link com.lark.oapi.service.search.v2.enums.DialogSearchRequestResponseTypeEnum}
-         * @return
-         */
-        public Builder responseType(com.lark.oapi.service.search.v2.enums.DialogSearchRequestResponseTypeEnum responseType) {
-            this.responseType = responseType.getValue();
-            return this;
-        }
-
-
-        /**
-         * passage_param
-         * <p> 示例值：
-         *
-         * @param passageParam
-         * @return
-         */
-        public Builder passageParam(PassageParam passageParam) {
-            this.passageParam = passageParam;
-            return this;
-        }
-
-
-        public DialogSearchRequest build() {
-            return new DialogSearchRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

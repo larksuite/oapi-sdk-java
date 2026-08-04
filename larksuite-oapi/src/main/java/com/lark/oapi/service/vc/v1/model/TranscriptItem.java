@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TranscriptItem {
+  /**
+   * 发言人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("speaker")
+  private MeetingAgentEventUser speaker;
+
+  /**
+   * 字幕文本
+   *
+   * <p>示例值：大家好，今天的会议主题是……
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 语言类型
+   *
+   * <p>示例值：zh
+   */
+  @SerializedName("language")
+  private String language;
+
+  /**
+   * 句子开始时间（毫秒级时间戳）
+   *
+   * <p>示例值：1712345678000
+   */
+  @SerializedName("start_time_ms")
+  private String startTimeMs;
+
+  /**
+   * 句子结束时间（毫秒级时间戳）
+   *
+   * <p>示例值：1712345682000
+   */
+  @SerializedName("end_time_ms")
+  private String endTimeMs;
+
+  /**
+   * 句子 ID（用于去重和排序）
+   *
+   * <p>示例值：1001
+   */
+  @SerializedName("sentence_id")
+  private String sentenceId;
+
+  public MeetingAgentEventUser getSpeaker() {
+    return this.speaker;
+  }
+
+  public void setSpeaker(MeetingAgentEventUser speaker) {
+    this.speaker = speaker;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getLanguage() {
+    return this.language;
+  }
+
+  public void setLanguage(String language) {
+    this.language = language;
+  }
+
+  public String getStartTimeMs() {
+    return this.startTimeMs;
+  }
+
+  public void setStartTimeMs(String startTimeMs) {
+    this.startTimeMs = startTimeMs;
+  }
+
+  public String getEndTimeMs() {
+    return this.endTimeMs;
+  }
+
+  public void setEndTimeMs(String endTimeMs) {
+    this.endTimeMs = endTimeMs;
+  }
+
+  public String getSentenceId() {
+    return this.sentenceId;
+  }
+
+  public void setSentenceId(String sentenceId) {
+    this.sentenceId = sentenceId;
+  }
+
+  // builder 开始
+  public TranscriptItem() {}
+
+  public TranscriptItem(Builder builder) {
     /**
      * 发言人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("speaker")
-    private MeetingAgentEventUser speaker;
+    this.speaker = builder.speaker;
     /**
      * 字幕文本
-     * <p> 示例值：大家好，今天的会议主题是……
+     *
+     * <p>示例值：大家好，今天的会议主题是……
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 语言类型
-     * <p> 示例值：zh
+     *
+     * <p>示例值：zh
      */
-    @SerializedName("language")
-    private String language;
+    this.language = builder.language;
     /**
      * 句子开始时间（毫秒级时间戳）
-     * <p> 示例值：1712345678000
+     *
+     * <p>示例值：1712345678000
      */
-    @SerializedName("start_time_ms")
-    private String startTimeMs;
+    this.startTimeMs = builder.startTimeMs;
     /**
      * 句子结束时间（毫秒级时间戳）
-     * <p> 示例值：1712345682000
+     *
+     * <p>示例值：1712345682000
      */
-    @SerializedName("end_time_ms")
-    private String endTimeMs;
+    this.endTimeMs = builder.endTimeMs;
     /**
      * 句子 ID（用于去重和排序）
-     * <p> 示例值：1001
+     *
+     * <p>示例值：1001
      */
-    @SerializedName("sentence_id")
+    this.sentenceId = builder.sentenceId;
+  }
+
+  public static class Builder {
+    /**
+     * 发言人
+     *
+     * <p>示例值：
+     */
+    private MeetingAgentEventUser speaker;
+
+    /**
+     * 字幕文本
+     *
+     * <p>示例值：大家好，今天的会议主题是……
+     */
+    private String text;
+
+    /**
+     * 语言类型
+     *
+     * <p>示例值：zh
+     */
+    private String language;
+
+    /**
+     * 句子开始时间（毫秒级时间戳）
+     *
+     * <p>示例值：1712345678000
+     */
+    private String startTimeMs;
+
+    /**
+     * 句子结束时间（毫秒级时间戳）
+     *
+     * <p>示例值：1712345682000
+     */
+    private String endTimeMs;
+
+    /**
+     * 句子 ID（用于去重和排序）
+     *
+     * <p>示例值：1001
+     */
     private String sentenceId;
 
-    // builder 开始
-    public TranscriptItem() {
+    /**
+     * 发言人
+     *
+     * <p>示例值：
+     *
+     * @param speaker
+     * @return
+     */
+    public Builder speaker(MeetingAgentEventUser speaker) {
+      this.speaker = speaker;
+      return this;
     }
 
-    public TranscriptItem(Builder builder) {
-        /**
-         * 发言人
-         * <p> 示例值：
-         */
-        this.speaker = builder.speaker;
-        /**
-         * 字幕文本
-         * <p> 示例值：大家好，今天的会议主题是……
-         */
-        this.text = builder.text;
-        /**
-         * 语言类型
-         * <p> 示例值：zh
-         */
-        this.language = builder.language;
-        /**
-         * 句子开始时间（毫秒级时间戳）
-         * <p> 示例值：1712345678000
-         */
-        this.startTimeMs = builder.startTimeMs;
-        /**
-         * 句子结束时间（毫秒级时间戳）
-         * <p> 示例值：1712345682000
-         */
-        this.endTimeMs = builder.endTimeMs;
-        /**
-         * 句子 ID（用于去重和排序）
-         * <p> 示例值：1001
-         */
-        this.sentenceId = builder.sentenceId;
+    /**
+     * 字幕文本
+     *
+     * <p>示例值：大家好，今天的会议主题是……
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 语言类型
+     *
+     * <p>示例值：zh
+     *
+     * @param language
+     * @return
+     */
+    public Builder language(String language) {
+      this.language = language;
+      return this;
     }
 
-    public MeetingAgentEventUser getSpeaker() {
-        return this.speaker;
+    /**
+     * 句子开始时间（毫秒级时间戳）
+     *
+     * <p>示例值：1712345678000
+     *
+     * @param startTimeMs
+     * @return
+     */
+    public Builder startTimeMs(String startTimeMs) {
+      this.startTimeMs = startTimeMs;
+      return this;
     }
 
-    public void setSpeaker(MeetingAgentEventUser speaker) {
-        this.speaker = speaker;
+    /**
+     * 句子结束时间（毫秒级时间戳）
+     *
+     * <p>示例值：1712345682000
+     *
+     * @param endTimeMs
+     * @return
+     */
+    public Builder endTimeMs(String endTimeMs) {
+      this.endTimeMs = endTimeMs;
+      return this;
     }
 
-    public String getText() {
-        return this.text;
+    /**
+     * 句子 ID（用于去重和排序）
+     *
+     * <p>示例值：1001
+     *
+     * @param sentenceId
+     * @return
+     */
+    public Builder sentenceId(String sentenceId) {
+      this.sentenceId = sentenceId;
+      return this;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public TranscriptItem build() {
+      return new TranscriptItem(this);
     }
+  }
 
-    public String getLanguage() {
-        return this.language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public String getStartTimeMs() {
-        return this.startTimeMs;
-    }
-
-    public void setStartTimeMs(String startTimeMs) {
-        this.startTimeMs = startTimeMs;
-    }
-
-    public String getEndTimeMs() {
-        return this.endTimeMs;
-    }
-
-    public void setEndTimeMs(String endTimeMs) {
-        this.endTimeMs = endTimeMs;
-    }
-
-    public String getSentenceId() {
-        return this.sentenceId;
-    }
-
-    public void setSentenceId(String sentenceId) {
-        this.sentenceId = sentenceId;
-    }
-
-    public static class Builder {
-        /**
-         * 发言人
-         * <p> 示例值：
-         */
-        private MeetingAgentEventUser speaker;
-        /**
-         * 字幕文本
-         * <p> 示例值：大家好，今天的会议主题是……
-         */
-        private String text;
-        /**
-         * 语言类型
-         * <p> 示例值：zh
-         */
-        private String language;
-        /**
-         * 句子开始时间（毫秒级时间戳）
-         * <p> 示例值：1712345678000
-         */
-        private String startTimeMs;
-        /**
-         * 句子结束时间（毫秒级时间戳）
-         * <p> 示例值：1712345682000
-         */
-        private String endTimeMs;
-        /**
-         * 句子 ID（用于去重和排序）
-         * <p> 示例值：1001
-         */
-        private String sentenceId;
-
-        /**
-         * 发言人
-         * <p> 示例值：
-         *
-         * @param speaker
-         * @return
-         */
-        public Builder speaker(MeetingAgentEventUser speaker) {
-            this.speaker = speaker;
-            return this;
-        }
-
-
-        /**
-         * 字幕文本
-         * <p> 示例值：大家好，今天的会议主题是……
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 语言类型
-         * <p> 示例值：zh
-         *
-         * @param language
-         * @return
-         */
-        public Builder language(String language) {
-            this.language = language;
-            return this;
-        }
-
-
-        /**
-         * 句子开始时间（毫秒级时间戳）
-         * <p> 示例值：1712345678000
-         *
-         * @param startTimeMs
-         * @return
-         */
-        public Builder startTimeMs(String startTimeMs) {
-            this.startTimeMs = startTimeMs;
-            return this;
-        }
-
-
-        /**
-         * 句子结束时间（毫秒级时间戳）
-         * <p> 示例值：1712345682000
-         *
-         * @param endTimeMs
-         * @return
-         */
-        public Builder endTimeMs(String endTimeMs) {
-            this.endTimeMs = endTimeMs;
-            return this;
-        }
-
-
-        /**
-         * 句子 ID（用于去重和排序）
-         * <p> 示例值：1001
-         *
-         * @param sentenceId
-         * @return
-         */
-        public Builder sentenceId(String sentenceId) {
-            this.sentenceId = sentenceId;
-            return this;
-        }
-
-
-        public TranscriptItem build() {
-            return new TranscriptItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

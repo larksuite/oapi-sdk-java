@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmergencyContact {
+  /**
+   * ID
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 姓名
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 关系
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("relationship")
+  private String relationship;
+
+  /**
+   * 电话
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("phone")
+  private String phone;
+
+  /**
+   * 是否主要联系人
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("is_primary")
+  private Boolean isPrimary;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getRelationship() {
+    return this.relationship;
+  }
+
+  public void setRelationship(String relationship) {
+    this.relationship = relationship;
+  }
+
+  public String getPhone() {
+    return this.phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+  public Boolean getIsPrimary() {
+    return this.isPrimary;
+  }
+
+  public void setIsPrimary(Boolean isPrimary) {
+    this.isPrimary = isPrimary;
+  }
+
+  // builder 开始
+  public EmergencyContact() {}
+
+  public EmergencyContact(Builder builder) {
     /**
      * ID
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 姓名
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 关系
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("relationship")
-    private String relationship;
+    this.relationship = builder.relationship;
     /**
      * 电话
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("phone")
-    private String phone;
+    this.phone = builder.phone;
     /**
      * 是否主要联系人
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("is_primary")
+    this.isPrimary = builder.isPrimary;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：无
+     */
+    private String id;
+
+    /**
+     * 姓名
+     *
+     * <p>示例值：无
+     */
+    private String name;
+
+    /**
+     * 关系
+     *
+     * <p>示例值：无
+     */
+    private String relationship;
+
+    /**
+     * 电话
+     *
+     * <p>示例值：无
+     */
+    private String phone;
+
+    /**
+     * 是否主要联系人
+     *
+     * <p>示例值：无
+     */
     private Boolean isPrimary;
 
-    // builder 开始
-    public EmergencyContact() {
+    /**
+     * ID
+     *
+     * <p>示例值：无
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public EmergencyContact(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：无
-         */
-        this.id = builder.id;
-        /**
-         * 姓名
-         * <p> 示例值：无
-         */
-        this.name = builder.name;
-        /**
-         * 关系
-         * <p> 示例值：无
-         */
-        this.relationship = builder.relationship;
-        /**
-         * 电话
-         * <p> 示例值：无
-         */
-        this.phone = builder.phone;
-        /**
-         * 是否主要联系人
-         * <p> 示例值：无
-         */
-        this.isPrimary = builder.isPrimary;
+    /**
+     * 姓名
+     *
+     * <p>示例值：无
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 关系
+     *
+     * <p>示例值：无
+     *
+     * @param relationship
+     * @return
+     */
+    public Builder relationship(String relationship) {
+      this.relationship = relationship;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 电话
+     *
+     * <p>示例值：无
+     *
+     * @param phone
+     * @return
+     */
+    public Builder phone(String phone) {
+      this.phone = phone;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 是否主要联系人
+     *
+     * <p>示例值：无
+     *
+     * @param isPrimary
+     * @return
+     */
+    public Builder isPrimary(Boolean isPrimary) {
+      this.isPrimary = isPrimary;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    public EmergencyContact build() {
+      return new EmergencyContact(this);
     }
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getRelationship() {
-        return this.relationship;
-    }
-
-    public void setRelationship(String relationship) {
-        this.relationship = relationship;
-    }
-
-    public String getPhone() {
-        return this.phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public Boolean getIsPrimary() {
-        return this.isPrimary;
-    }
-
-    public void setIsPrimary(Boolean isPrimary) {
-        this.isPrimary = isPrimary;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：无
-         */
-        private String id;
-        /**
-         * 姓名
-         * <p> 示例值：无
-         */
-        private String name;
-        /**
-         * 关系
-         * <p> 示例值：无
-         */
-        private String relationship;
-        /**
-         * 电话
-         * <p> 示例值：无
-         */
-        private String phone;
-        /**
-         * 是否主要联系人
-         * <p> 示例值：无
-         */
-        private Boolean isPrimary;
-
-        /**
-         * ID
-         * <p> 示例值：无
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 姓名
-         * <p> 示例值：无
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 关系
-         * <p> 示例值：无
-         *
-         * @param relationship
-         * @return
-         */
-        public Builder relationship(String relationship) {
-            this.relationship = relationship;
-            return this;
-        }
-
-
-        /**
-         * 电话
-         * <p> 示例值：无
-         *
-         * @param phone
-         * @return
-         */
-        public Builder phone(String phone) {
-            this.phone = phone;
-            return this;
-        }
-
-
-        /**
-         * 是否主要联系人
-         * <p> 示例值：无
-         *
-         * @param isPrimary
-         * @return
-         */
-        public Builder isPrimary(Boolean isPrimary) {
-            this.isPrimary = isPrimary;
-            return this;
-        }
-
-
-        public EmergencyContact build() {
-            return new EmergencyContact(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

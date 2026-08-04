@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubjectiveCheckOutput {
+  /**
+   * 关键点
+   *
+   * <p>示例值：
+   */
+  @SerializedName("keypoints")
+  private String[] keypoints;
+
+  /**
+   * 关键点详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("key_point_match_details")
+  private KeyPointMatchDetails[] keyPointMatchDetails;
+
+  /**
+   * 用户prompt输出
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_prompt_outputs")
+  private String[] userPromptOutputs;
+
+  /**
+   * 状态码
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("status_code")
+  private Integer statusCode;
+
+  public String[] getKeypoints() {
+    return this.keypoints;
+  }
+
+  public void setKeypoints(String[] keypoints) {
+    this.keypoints = keypoints;
+  }
+
+  public KeyPointMatchDetails[] getKeyPointMatchDetails() {
+    return this.keyPointMatchDetails;
+  }
+
+  public void setKeyPointMatchDetails(KeyPointMatchDetails[] keyPointMatchDetails) {
+    this.keyPointMatchDetails = keyPointMatchDetails;
+  }
+
+  public String[] getUserPromptOutputs() {
+    return this.userPromptOutputs;
+  }
+
+  public void setUserPromptOutputs(String[] userPromptOutputs) {
+    this.userPromptOutputs = userPromptOutputs;
+  }
+
+  public Integer getStatusCode() {
+    return this.statusCode;
+  }
+
+  public void setStatusCode(Integer statusCode) {
+    this.statusCode = statusCode;
+  }
+
+  // builder 开始
+  public SubjectiveCheckOutput() {}
+
+  public SubjectiveCheckOutput(Builder builder) {
     /**
      * 关键点
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("keypoints")
-    private String[] keypoints;
+    this.keypoints = builder.keypoints;
     /**
      * 关键点详情
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("key_point_match_details")
-    private KeyPointMatchDetails[] keyPointMatchDetails;
+    this.keyPointMatchDetails = builder.keyPointMatchDetails;
     /**
      * 用户prompt输出
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_prompt_outputs")
-    private String[] userPromptOutputs;
+    this.userPromptOutputs = builder.userPromptOutputs;
     /**
      * 状态码
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("status_code")
+    this.statusCode = builder.statusCode;
+  }
+
+  public static class Builder {
+    /**
+     * 关键点
+     *
+     * <p>示例值：
+     */
+    private String[] keypoints;
+
+    /**
+     * 关键点详情
+     *
+     * <p>示例值：
+     */
+    private KeyPointMatchDetails[] keyPointMatchDetails;
+
+    /**
+     * 用户prompt输出
+     *
+     * <p>示例值：
+     */
+    private String[] userPromptOutputs;
+
+    /**
+     * 状态码
+     *
+     * <p>示例值：0
+     */
     private Integer statusCode;
 
-    // builder 开始
-    public SubjectiveCheckOutput() {
+    /**
+     * 关键点
+     *
+     * <p>示例值：
+     *
+     * @param keypoints
+     * @return
+     */
+    public Builder keypoints(String[] keypoints) {
+      this.keypoints = keypoints;
+      return this;
     }
 
-    public SubjectiveCheckOutput(Builder builder) {
-        /**
-         * 关键点
-         * <p> 示例值：
-         */
-        this.keypoints = builder.keypoints;
-        /**
-         * 关键点详情
-         * <p> 示例值：
-         */
-        this.keyPointMatchDetails = builder.keyPointMatchDetails;
-        /**
-         * 用户prompt输出
-         * <p> 示例值：
-         */
-        this.userPromptOutputs = builder.userPromptOutputs;
-        /**
-         * 状态码
-         * <p> 示例值：0
-         */
-        this.statusCode = builder.statusCode;
+    /**
+     * 关键点详情
+     *
+     * <p>示例值：
+     *
+     * @param keyPointMatchDetails
+     * @return
+     */
+    public Builder keyPointMatchDetails(KeyPointMatchDetails[] keyPointMatchDetails) {
+      this.keyPointMatchDetails = keyPointMatchDetails;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户prompt输出
+     *
+     * <p>示例值：
+     *
+     * @param userPromptOutputs
+     * @return
+     */
+    public Builder userPromptOutputs(String[] userPromptOutputs) {
+      this.userPromptOutputs = userPromptOutputs;
+      return this;
     }
 
-    public String[] getKeypoints() {
-        return this.keypoints;
+    /**
+     * 状态码
+     *
+     * <p>示例值：0
+     *
+     * @param statusCode
+     * @return
+     */
+    public Builder statusCode(Integer statusCode) {
+      this.statusCode = statusCode;
+      return this;
     }
 
-    public void setKeypoints(String[] keypoints) {
-        this.keypoints = keypoints;
+    public SubjectiveCheckOutput build() {
+      return new SubjectiveCheckOutput(this);
     }
+  }
 
-    public KeyPointMatchDetails[] getKeyPointMatchDetails() {
-        return this.keyPointMatchDetails;
-    }
-
-    public void setKeyPointMatchDetails(KeyPointMatchDetails[] keyPointMatchDetails) {
-        this.keyPointMatchDetails = keyPointMatchDetails;
-    }
-
-    public String[] getUserPromptOutputs() {
-        return this.userPromptOutputs;
-    }
-
-    public void setUserPromptOutputs(String[] userPromptOutputs) {
-        this.userPromptOutputs = userPromptOutputs;
-    }
-
-    public Integer getStatusCode() {
-        return this.statusCode;
-    }
-
-    public void setStatusCode(Integer statusCode) {
-        this.statusCode = statusCode;
-    }
-
-    public static class Builder {
-        /**
-         * 关键点
-         * <p> 示例值：
-         */
-        private String[] keypoints;
-        /**
-         * 关键点详情
-         * <p> 示例值：
-         */
-        private KeyPointMatchDetails[] keyPointMatchDetails;
-        /**
-         * 用户prompt输出
-         * <p> 示例值：
-         */
-        private String[] userPromptOutputs;
-        /**
-         * 状态码
-         * <p> 示例值：0
-         */
-        private Integer statusCode;
-
-        /**
-         * 关键点
-         * <p> 示例值：
-         *
-         * @param keypoints
-         * @return
-         */
-        public Builder keypoints(String[] keypoints) {
-            this.keypoints = keypoints;
-            return this;
-        }
-
-
-        /**
-         * 关键点详情
-         * <p> 示例值：
-         *
-         * @param keyPointMatchDetails
-         * @return
-         */
-        public Builder keyPointMatchDetails(KeyPointMatchDetails[] keyPointMatchDetails) {
-            this.keyPointMatchDetails = keyPointMatchDetails;
-            return this;
-        }
-
-
-        /**
-         * 用户prompt输出
-         * <p> 示例值：
-         *
-         * @param userPromptOutputs
-         * @return
-         */
-        public Builder userPromptOutputs(String[] userPromptOutputs) {
-            this.userPromptOutputs = userPromptOutputs;
-            return this;
-        }
-
-
-        /**
-         * 状态码
-         * <p> 示例值：0
-         *
-         * @param statusCode
-         * @return
-         */
-        public Builder statusCode(Integer statusCode) {
-            this.statusCode = statusCode;
-            return this;
-        }
-
-
-        public SubjectiveCheckOutput build() {
-            return new SubjectiveCheckOutput(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

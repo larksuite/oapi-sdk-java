@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Todo {
+  /**
+   * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("evaluation")
+  private TodoCommon evaluation;
+
+  /**
+   * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("offer")
+  private TodoCommon offer;
+
+  /**
+   * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("exam")
+  private TodoCommon exam;
+
+  /**
+   * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("interview")
+  private TodoCommon interview;
+
+  public TodoCommon getEvaluation() {
+    return this.evaluation;
+  }
+
+  public void setEvaluation(TodoCommon evaluation) {
+    this.evaluation = evaluation;
+  }
+
+  public TodoCommon getOffer() {
+    return this.offer;
+  }
+
+  public void setOffer(TodoCommon offer) {
+    this.offer = offer;
+  }
+
+  public TodoCommon getExam() {
+    return this.exam;
+  }
+
+  public void setExam(TodoCommon exam) {
+    this.exam = exam;
+  }
+
+  public TodoCommon getInterview() {
+    return this.interview;
+  }
+
+  public void setInterview(TodoCommon interview) {
+    this.interview = interview;
+  }
+
+  // builder 开始
+  public Todo() {}
+
+  public Todo(Builder builder) {
     /**
-     * 简历评估待办信息，仅当 type=evaluation 时返回
-     * <p> 示例值：
+     * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("evaluation")
+    this.evaluation = builder.evaluation;
+    /**
+     * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+     *
+     * <p>示例值：
+     */
+    this.offer = builder.offer;
+    /**
+     * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+     *
+     * <p>示例值：
+     */
+    this.exam = builder.exam;
+    /**
+     * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+     *
+     * <p>示例值：
+     */
+    this.interview = builder.interview;
+  }
+
+  public static class Builder {
+    /**
+     * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+     *
+     * <p>示例值：
+     */
     private TodoCommon evaluation;
+
     /**
-     * Offer 待办信息，仅当 type=offer 时返回
-     * <p> 示例值：
+     * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("offer")
     private TodoCommon offer;
+
     /**
-     * 笔试待办信息，仅当 type=exam 时返回
-     * <p> 示例值：
+     * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("exam")
     private TodoCommon exam;
+
     /**
-     * 面试待办信息，仅当 type=interview 时返回
-     * <p> 示例值：
+     * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("interview")
     private TodoCommon interview;
 
-    // builder 开始
-    public Todo() {
+    /**
+     * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+     *
+     * <p>示例值：
+     *
+     * @param evaluation
+     * @return
+     */
+    public Builder evaluation(TodoCommon evaluation) {
+      this.evaluation = evaluation;
+      return this;
     }
 
-    public Todo(Builder builder) {
-        /**
-         * 简历评估待办信息，仅当 type=evaluation 时返回
-         * <p> 示例值：
-         */
-        this.evaluation = builder.evaluation;
-        /**
-         * Offer 待办信息，仅当 type=offer 时返回
-         * <p> 示例值：
-         */
-        this.offer = builder.offer;
-        /**
-         * 笔试待办信息，仅当 type=exam 时返回
-         * <p> 示例值：
-         */
-        this.exam = builder.exam;
-        /**
-         * 面试待办信息，仅当 type=interview 时返回
-         * <p> 示例值：
-         */
-        this.interview = builder.interview;
+    /**
+     * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+     *
+     * <p>示例值：
+     *
+     * @param offer
+     * @return
+     */
+    public Builder offer(TodoCommon offer) {
+      this.offer = offer;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+     *
+     * <p>示例值：
+     *
+     * @param exam
+     * @return
+     */
+    public Builder exam(TodoCommon exam) {
+      this.exam = exam;
+      return this;
     }
 
-    public TodoCommon getEvaluation() {
-        return this.evaluation;
+    /**
+     * 简历评估待办事项，仅当待办类型为 `evaluation` 时返回
+     *
+     * <p>示例值：
+     *
+     * @param interview
+     * @return
+     */
+    public Builder interview(TodoCommon interview) {
+      this.interview = interview;
+      return this;
     }
 
-    public void setEvaluation(TodoCommon evaluation) {
-        this.evaluation = evaluation;
+    public Todo build() {
+      return new Todo(this);
     }
+  }
 
-    public TodoCommon getOffer() {
-        return this.offer;
-    }
-
-    public void setOffer(TodoCommon offer) {
-        this.offer = offer;
-    }
-
-    public TodoCommon getExam() {
-        return this.exam;
-    }
-
-    public void setExam(TodoCommon exam) {
-        this.exam = exam;
-    }
-
-    public TodoCommon getInterview() {
-        return this.interview;
-    }
-
-    public void setInterview(TodoCommon interview) {
-        this.interview = interview;
-    }
-
-    public static class Builder {
-        /**
-         * 简历评估待办信息，仅当 type=evaluation 时返回
-         * <p> 示例值：
-         */
-        private TodoCommon evaluation;
-        /**
-         * Offer 待办信息，仅当 type=offer 时返回
-         * <p> 示例值：
-         */
-        private TodoCommon offer;
-        /**
-         * 笔试待办信息，仅当 type=exam 时返回
-         * <p> 示例值：
-         */
-        private TodoCommon exam;
-        /**
-         * 面试待办信息，仅当 type=interview 时返回
-         * <p> 示例值：
-         */
-        private TodoCommon interview;
-
-        /**
-         * 简历评估待办信息，仅当 type=evaluation 时返回
-         * <p> 示例值：
-         *
-         * @param evaluation
-         * @return
-         */
-        public Builder evaluation(TodoCommon evaluation) {
-            this.evaluation = evaluation;
-            return this;
-        }
-
-
-        /**
-         * Offer 待办信息，仅当 type=offer 时返回
-         * <p> 示例值：
-         *
-         * @param offer
-         * @return
-         */
-        public Builder offer(TodoCommon offer) {
-            this.offer = offer;
-            return this;
-        }
-
-
-        /**
-         * 笔试待办信息，仅当 type=exam 时返回
-         * <p> 示例值：
-         *
-         * @param exam
-         * @return
-         */
-        public Builder exam(TodoCommon exam) {
-            this.exam = exam;
-            return this;
-        }
-
-
-        /**
-         * 面试待办信息，仅当 type=interview 时返回
-         * <p> 示例值：
-         *
-         * @param interview
-         * @return
-         */
-        public Builder interview(TodoCommon interview) {
-            this.interview = interview;
-            return this;
-        }
-
-
-        public Todo build() {
-            return new Todo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

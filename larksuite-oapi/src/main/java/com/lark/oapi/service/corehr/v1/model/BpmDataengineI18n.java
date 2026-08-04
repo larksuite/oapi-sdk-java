@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BpmDataengineI18n {
+  /**
+   * （基于系统兼容性，该参数名称在文档中展示为zh_cn，但在实际返回的 JSON Key 中展示为 zh-CN）i18n类型字段，中文值
+   *
+   * <p>示例值：申请人为空
+   */
+  @SerializedName("zh_cn")
+  private String zhCn;
+
+  /**
+   * （基于系统兼容性，该参数名称在文档中展示为en_us，但在实际返回的 JSON Key 中展示为 en-US）i18n类型字段，英文值
+   *
+   * <p>示例值：Applicant Is empty
+   */
+  @SerializedName("en_us")
+  private String enUs;
+
+  public String getZhCn() {
+    return this.zhCn;
+  }
+
+  public void setZhCn(String zhCn) {
+    this.zhCn = zhCn;
+  }
+
+  public String getEnUs() {
+    return this.enUs;
+  }
+
+  public void setEnUs(String enUs) {
+    this.enUs = enUs;
+  }
+
+  // builder 开始
+  public BpmDataengineI18n() {}
+
+  public BpmDataengineI18n(Builder builder) {
     /**
-     * i18n类型字段，中文值
-     * <p> 示例值：北京
+     * （基于系统兼容性，该参数名称在文档中展示为zh_cn，但在实际返回的 JSON Key 中展示为 zh-CN）i18n类型字段，中文值
+     *
+     * <p>示例值：申请人为空
      */
-    @SerializedName("zh_cn")
+    this.zhCn = builder.zhCn;
+    /**
+     * （基于系统兼容性，该参数名称在文档中展示为en_us，但在实际返回的 JSON Key 中展示为 en-US）i18n类型字段，英文值
+     *
+     * <p>示例值：Applicant Is empty
+     */
+    this.enUs = builder.enUs;
+  }
+
+  public static class Builder {
+    /**
+     * （基于系统兼容性，该参数名称在文档中展示为zh_cn，但在实际返回的 JSON Key 中展示为 zh-CN）i18n类型字段，中文值
+     *
+     * <p>示例值：申请人为空
+     */
     private String zhCn;
+
     /**
-     * i18n类型字段，英文值
-     * <p> 示例值：Beijing
+     * （基于系统兼容性，该参数名称在文档中展示为en_us，但在实际返回的 JSON Key 中展示为 en-US）i18n类型字段，英文值
+     *
+     * <p>示例值：Applicant Is empty
      */
-    @SerializedName("en_us")
     private String enUs;
 
-    // builder 开始
-    public BpmDataengineI18n() {
+    /**
+     * （基于系统兼容性，该参数名称在文档中展示为zh_cn，但在实际返回的 JSON Key 中展示为 zh-CN）i18n类型字段，中文值
+     *
+     * <p>示例值：申请人为空
+     *
+     * @param zhCn
+     * @return
+     */
+    public Builder zhCn(String zhCn) {
+      this.zhCn = zhCn;
+      return this;
     }
 
-    public BpmDataengineI18n(Builder builder) {
-        /**
-         * i18n类型字段，中文值
-         * <p> 示例值：北京
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * i18n类型字段，英文值
-         * <p> 示例值：Beijing
-         */
-        this.enUs = builder.enUs;
+    /**
+     * （基于系统兼容性，该参数名称在文档中展示为en_us，但在实际返回的 JSON Key 中展示为 en-US）i18n类型字段，英文值
+     *
+     * <p>示例值：Applicant Is empty
+     *
+     * @param enUs
+     * @return
+     */
+    public Builder enUs(String enUs) {
+      this.enUs = enUs;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BpmDataengineI18n build() {
+      return new BpmDataengineI18n(this);
     }
+  }
 
-    public String getZhCn() {
-        return this.zhCn;
-    }
-
-    public void setZhCn(String zhCn) {
-        this.zhCn = zhCn;
-    }
-
-    public String getEnUs() {
-        return this.enUs;
-    }
-
-    public void setEnUs(String enUs) {
-        this.enUs = enUs;
-    }
-
-    public static class Builder {
-        /**
-         * i18n类型字段，中文值
-         * <p> 示例值：北京
-         */
-        private String zhCn;
-        /**
-         * i18n类型字段，英文值
-         * <p> 示例值：Beijing
-         */
-        private String enUs;
-
-        /**
-         * i18n类型字段，中文值
-         * <p> 示例值：北京
-         *
-         * @param zhCn
-         * @return
-         */
-        public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
-        }
-
-
-        /**
-         * i18n类型字段，英文值
-         * <p> 示例值：Beijing
-         *
-         * @param enUs
-         * @return
-         */
-        public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
-        }
-
-
-        public BpmDataengineI18n build() {
-            return new BpmDataengineI18n(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

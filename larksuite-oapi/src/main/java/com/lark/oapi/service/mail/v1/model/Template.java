@@ -13,408 +13,455 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Template {
+  /**
+   * 模板 id
+   *
+   * <p>示例值：7281187859195772947
+   */
+  @SerializedName("template_id")
+  private String templateId;
+
+  /**
+   * 模板名称，不超过 100 字符
+   *
+   * <p>示例值：销售跟进模板
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 邮件主题，不超过 1000 字符
+   *
+   * <p>示例值：关于本周订单跟进
+   */
+  @SerializedName("subject")
+  private String subject;
+
+  /**
+   * 模板正文（HTML 或纯文本）。单模板正文大小上限 3 MB（3 \* 1024 \* 1024 字节），超过将返回错误码 1230006 template content size
+   * limit exceeded。
+   *
+   * <p>示例值：
+   *
+   * <p>Hi ${name},
+   */
+  @SerializedName("template_content")
+  private String templateContent;
+
+  /**
+   * 是否为纯文本模式。`true` 表示模板正文按纯文本渲染，`false` 表示按 HTML 渲染。默认 `false`（HTML 模式）。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_plain_text_mode")
+  private Boolean isPlainTextMode;
+
+  /**
+   * 默认收件人地址列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tos")
+  private MailAddress[] tos;
+
+  /**
+   * 默认抄送地址列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ccs")
+  private MailAddress[] ccs;
+
+  /**
+   * 默认密送地址列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bccs")
+  private MailAddress[] bccs;
+
+  /**
+   * 模板附件与内嵌图片列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attachments")
+  private TemplateAttachment[] attachments;
+
+  /**
+   * 模板创建时间（毫秒级时间戳字符串，避免 JS 弱类型侧 i64 精度丢失）
+   *
+   * <p>示例值：1716279320000
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  public String getTemplateId() {
+    return this.templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getSubject() {
+    return this.subject;
+  }
+
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
+
+  public String getTemplateContent() {
+    return this.templateContent;
+  }
+
+  public void setTemplateContent(String templateContent) {
+    this.templateContent = templateContent;
+  }
+
+  public Boolean getIsPlainTextMode() {
+    return this.isPlainTextMode;
+  }
+
+  public void setIsPlainTextMode(Boolean isPlainTextMode) {
+    this.isPlainTextMode = isPlainTextMode;
+  }
+
+  public MailAddress[] getTos() {
+    return this.tos;
+  }
+
+  public void setTos(MailAddress[] tos) {
+    this.tos = tos;
+  }
+
+  public MailAddress[] getCcs() {
+    return this.ccs;
+  }
+
+  public void setCcs(MailAddress[] ccs) {
+    this.ccs = ccs;
+  }
+
+  public MailAddress[] getBccs() {
+    return this.bccs;
+  }
+
+  public void setBccs(MailAddress[] bccs) {
+    this.bccs = bccs;
+  }
+
+  public TemplateAttachment[] getAttachments() {
+    return this.attachments;
+  }
+
+  public void setAttachments(TemplateAttachment[] attachments) {
+    this.attachments = attachments;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  // builder 开始
+  public Template() {}
+
+  public Template(Builder builder) {
     /**
      * 模板 id
-     * <p> 示例值：7281187859195772947
+     *
+     * <p>示例值：7281187859195772947
      */
-    @SerializedName("template_id")
-    private String templateId;
+    this.templateId = builder.templateId;
     /**
      * 模板名称，不超过 100 字符
-     * <p> 示例值：销售跟进模板
+     *
+     * <p>示例值：销售跟进模板
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 邮件主题，不超过 1000 字符
-     * <p> 示例值：关于本周订单跟进
+     *
+     * <p>示例值：关于本周订单跟进
      */
-    @SerializedName("subject")
-    private String subject;
+    this.subject = builder.subject;
     /**
-     * 模板正文（HTML 或纯文本）。单模板正文大小上限 3 MB（3 \* 1024 \* 1024 字节），超过将返回错误码 1230006 template content size limit exceeded。
-     * <p> 示例值：<p>Hi ${name},</p>
+     * 模板正文（HTML 或纯文本）。单模板正文大小上限 3 MB（3 \* 1024 \* 1024 字节），超过将返回错误码 1230006 template content size
+     * limit exceeded。
+     *
+     * <p>示例值：
+     *
+     * <p>Hi ${name},
      */
-    @SerializedName("template_content")
-    private String templateContent;
+    this.templateContent = builder.templateContent;
     /**
      * 是否为纯文本模式。`true` 表示模板正文按纯文本渲染，`false` 表示按 HTML 渲染。默认 `false`（HTML 模式）。
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_plain_text_mode")
-    private Boolean isPlainTextMode;
+    this.isPlainTextMode = builder.isPlainTextMode;
     /**
      * 默认收件人地址列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("tos")
-    private MailAddress[] tos;
+    this.tos = builder.tos;
     /**
      * 默认抄送地址列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ccs")
-    private MailAddress[] ccs;
+    this.ccs = builder.ccs;
     /**
      * 默认密送地址列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bccs")
-    private MailAddress[] bccs;
+    this.bccs = builder.bccs;
     /**
      * 模板附件与内嵌图片列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("attachments")
-    private TemplateAttachment[] attachments;
+    this.attachments = builder.attachments;
     /**
      * 模板创建时间（毫秒级时间戳字符串，避免 JS 弱类型侧 i64 精度丢失）
-     * <p> 示例值：1716279320000
+     *
+     * <p>示例值：1716279320000
      */
-    @SerializedName("create_time")
+    this.createTime = builder.createTime;
+  }
+
+  public static class Builder {
+    /**
+     * 模板 id
+     *
+     * <p>示例值：7281187859195772947
+     */
+    private String templateId;
+
+    /**
+     * 模板名称，不超过 100 字符
+     *
+     * <p>示例值：销售跟进模板
+     */
+    private String name;
+
+    /**
+     * 邮件主题，不超过 1000 字符
+     *
+     * <p>示例值：关于本周订单跟进
+     */
+    private String subject;
+
+    /**
+     * 模板正文（HTML 或纯文本）。单模板正文大小上限 3 MB（3 \* 1024 \* 1024 字节），超过将返回错误码 1230006 template content size
+     * limit exceeded。
+     *
+     * <p>示例值：
+     *
+     * <p>Hi ${name},
+     */
+    private String templateContent;
+
+    /**
+     * 是否为纯文本模式。`true` 表示模板正文按纯文本渲染，`false` 表示按 HTML 渲染。默认 `false`（HTML 模式）。
+     *
+     * <p>示例值：false
+     */
+    private Boolean isPlainTextMode;
+
+    /**
+     * 默认收件人地址列表
+     *
+     * <p>示例值：
+     */
+    private MailAddress[] tos;
+
+    /**
+     * 默认抄送地址列表
+     *
+     * <p>示例值：
+     */
+    private MailAddress[] ccs;
+
+    /**
+     * 默认密送地址列表
+     *
+     * <p>示例值：
+     */
+    private MailAddress[] bccs;
+
+    /**
+     * 模板附件与内嵌图片列表
+     *
+     * <p>示例值：
+     */
+    private TemplateAttachment[] attachments;
+
+    /**
+     * 模板创建时间（毫秒级时间戳字符串，避免 JS 弱类型侧 i64 精度丢失）
+     *
+     * <p>示例值：1716279320000
+     */
     private String createTime;
 
-    // builder 开始
-    public Template() {
+    /**
+     * 模板 id
+     *
+     * <p>示例值：7281187859195772947
+     *
+     * @param templateId
+     * @return
+     */
+    public Builder templateId(String templateId) {
+      this.templateId = templateId;
+      return this;
     }
 
-    public Template(Builder builder) {
-        /**
-         * 模板 id
-         * <p> 示例值：7281187859195772947
-         */
-        this.templateId = builder.templateId;
-        /**
-         * 模板名称，不超过 100 字符
-         * <p> 示例值：销售跟进模板
-         */
-        this.name = builder.name;
-        /**
-         * 邮件主题，不超过 1000 字符
-         * <p> 示例值：关于本周订单跟进
-         */
-        this.subject = builder.subject;
-        /**
-         * 模板正文（HTML 或纯文本）。单模板正文大小上限 3 MB（3 \* 1024 \* 1024 字节），超过将返回错误码 1230006 template content size limit exceeded。
-         * <p> 示例值：<p>Hi ${name},</p>
-         */
-        this.templateContent = builder.templateContent;
-        /**
-         * 是否为纯文本模式。`true` 表示模板正文按纯文本渲染，`false` 表示按 HTML 渲染。默认 `false`（HTML 模式）。
-         * <p> 示例值：false
-         */
-        this.isPlainTextMode = builder.isPlainTextMode;
-        /**
-         * 默认收件人地址列表
-         * <p> 示例值：
-         */
-        this.tos = builder.tos;
-        /**
-         * 默认抄送地址列表
-         * <p> 示例值：
-         */
-        this.ccs = builder.ccs;
-        /**
-         * 默认密送地址列表
-         * <p> 示例值：
-         */
-        this.bccs = builder.bccs;
-        /**
-         * 模板附件与内嵌图片列表
-         * <p> 示例值：
-         */
-        this.attachments = builder.attachments;
-        /**
-         * 模板创建时间（毫秒级时间戳字符串，避免 JS 弱类型侧 i64 精度丢失）
-         * <p> 示例值：1716279320000
-         */
-        this.createTime = builder.createTime;
+    /**
+     * 模板名称，不超过 100 字符
+     *
+     * <p>示例值：销售跟进模板
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 邮件主题，不超过 1000 字符
+     *
+     * <p>示例值：关于本周订单跟进
+     *
+     * @param subject
+     * @return
+     */
+    public Builder subject(String subject) {
+      this.subject = subject;
+      return this;
     }
 
-    public String getTemplateId() {
-        return this.templateId;
+    /**
+     * 模板正文（HTML 或纯文本）。单模板正文大小上限 3 MB（3 \* 1024 \* 1024 字节），超过将返回错误码 1230006 template content size
+     * limit exceeded。
+     *
+     * <p>示例值：
+     *
+     * <p>Hi ${name},
+     *
+     * @param templateContent
+     * @return
+     */
+    public Builder templateContent(String templateContent) {
+      this.templateContent = templateContent;
+      return this;
     }
 
-    public void setTemplateId(String templateId) {
-        this.templateId = templateId;
+    /**
+     * 是否为纯文本模式。`true` 表示模板正文按纯文本渲染，`false` 表示按 HTML 渲染。默认 `false`（HTML 模式）。
+     *
+     * <p>示例值：false
+     *
+     * @param isPlainTextMode
+     * @return
+     */
+    public Builder isPlainTextMode(Boolean isPlainTextMode) {
+      this.isPlainTextMode = isPlainTextMode;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 默认收件人地址列表
+     *
+     * <p>示例值：
+     *
+     * @param tos
+     * @return
+     */
+    public Builder tos(MailAddress[] tos) {
+      this.tos = tos;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 默认抄送地址列表
+     *
+     * <p>示例值：
+     *
+     * @param ccs
+     * @return
+     */
+    public Builder ccs(MailAddress[] ccs) {
+      this.ccs = ccs;
+      return this;
     }
 
-    public String getSubject() {
-        return this.subject;
+    /**
+     * 默认密送地址列表
+     *
+     * <p>示例值：
+     *
+     * @param bccs
+     * @return
+     */
+    public Builder bccs(MailAddress[] bccs) {
+      this.bccs = bccs;
+      return this;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    /**
+     * 模板附件与内嵌图片列表
+     *
+     * <p>示例值：
+     *
+     * @param attachments
+     * @return
+     */
+    public Builder attachments(TemplateAttachment[] attachments) {
+      this.attachments = attachments;
+      return this;
     }
 
-    public String getTemplateContent() {
-        return this.templateContent;
+    /**
+     * 模板创建时间（毫秒级时间戳字符串，避免 JS 弱类型侧 i64 精度丢失）
+     *
+     * <p>示例值：1716279320000
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setTemplateContent(String templateContent) {
-        this.templateContent = templateContent;
+    public Template build() {
+      return new Template(this);
     }
+  }
 
-    public Boolean getIsPlainTextMode() {
-        return this.isPlainTextMode;
-    }
-
-    public void setIsPlainTextMode(Boolean isPlainTextMode) {
-        this.isPlainTextMode = isPlainTextMode;
-    }
-
-    public MailAddress[] getTos() {
-        return this.tos;
-    }
-
-    public void setTos(MailAddress[] tos) {
-        this.tos = tos;
-    }
-
-    public MailAddress[] getCcs() {
-        return this.ccs;
-    }
-
-    public void setCcs(MailAddress[] ccs) {
-        this.ccs = ccs;
-    }
-
-    public MailAddress[] getBccs() {
-        return this.bccs;
-    }
-
-    public void setBccs(MailAddress[] bccs) {
-        this.bccs = bccs;
-    }
-
-    public TemplateAttachment[] getAttachments() {
-        return this.attachments;
-    }
-
-    public void setAttachments(TemplateAttachment[] attachments) {
-        this.attachments = attachments;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public static class Builder {
-        /**
-         * 模板 id
-         * <p> 示例值：7281187859195772947
-         */
-        private String templateId;
-        /**
-         * 模板名称，不超过 100 字符
-         * <p> 示例值：销售跟进模板
-         */
-        private String name;
-        /**
-         * 邮件主题，不超过 1000 字符
-         * <p> 示例值：关于本周订单跟进
-         */
-        private String subject;
-        /**
-         * 模板正文（HTML 或纯文本）。单模板正文大小上限 3 MB（3 \* 1024 \* 1024 字节），超过将返回错误码 1230006 template content size limit exceeded。
-         * <p> 示例值：<p>Hi ${name},</p>
-         */
-        private String templateContent;
-        /**
-         * 是否为纯文本模式。`true` 表示模板正文按纯文本渲染，`false` 表示按 HTML 渲染。默认 `false`（HTML 模式）。
-         * <p> 示例值：false
-         */
-        private Boolean isPlainTextMode;
-        /**
-         * 默认收件人地址列表
-         * <p> 示例值：
-         */
-        private MailAddress[] tos;
-        /**
-         * 默认抄送地址列表
-         * <p> 示例值：
-         */
-        private MailAddress[] ccs;
-        /**
-         * 默认密送地址列表
-         * <p> 示例值：
-         */
-        private MailAddress[] bccs;
-        /**
-         * 模板附件与内嵌图片列表
-         * <p> 示例值：
-         */
-        private TemplateAttachment[] attachments;
-        /**
-         * 模板创建时间（毫秒级时间戳字符串，避免 JS 弱类型侧 i64 精度丢失）
-         * <p> 示例值：1716279320000
-         */
-        private String createTime;
-
-        /**
-         * 模板 id
-         * <p> 示例值：7281187859195772947
-         *
-         * @param templateId
-         * @return
-         */
-        public Builder templateId(String templateId) {
-            this.templateId = templateId;
-            return this;
-        }
-
-
-        /**
-         * 模板名称，不超过 100 字符
-         * <p> 示例值：销售跟进模板
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 邮件主题，不超过 1000 字符
-         * <p> 示例值：关于本周订单跟进
-         *
-         * @param subject
-         * @return
-         */
-        public Builder subject(String subject) {
-            this.subject = subject;
-            return this;
-        }
-
-
-        /**
-         * 模板正文（HTML 或纯文本）。单模板正文大小上限 3 MB（3 \* 1024 \* 1024 字节），超过将返回错误码 1230006 template content size limit exceeded。
-         * <p> 示例值：<p>Hi ${name},</p>
-         *
-         * @param templateContent
-         * @return
-         */
-        public Builder templateContent(String templateContent) {
-            this.templateContent = templateContent;
-            return this;
-        }
-
-
-        /**
-         * 是否为纯文本模式。`true` 表示模板正文按纯文本渲染，`false` 表示按 HTML 渲染。默认 `false`（HTML 模式）。
-         * <p> 示例值：false
-         *
-         * @param isPlainTextMode
-         * @return
-         */
-        public Builder isPlainTextMode(Boolean isPlainTextMode) {
-            this.isPlainTextMode = isPlainTextMode;
-            return this;
-        }
-
-
-        /**
-         * 默认收件人地址列表
-         * <p> 示例值：
-         *
-         * @param tos
-         * @return
-         */
-        public Builder tos(MailAddress[] tos) {
-            this.tos = tos;
-            return this;
-        }
-
-
-        /**
-         * 默认抄送地址列表
-         * <p> 示例值：
-         *
-         * @param ccs
-         * @return
-         */
-        public Builder ccs(MailAddress[] ccs) {
-            this.ccs = ccs;
-            return this;
-        }
-
-
-        /**
-         * 默认密送地址列表
-         * <p> 示例值：
-         *
-         * @param bccs
-         * @return
-         */
-        public Builder bccs(MailAddress[] bccs) {
-            this.bccs = bccs;
-            return this;
-        }
-
-
-        /**
-         * 模板附件与内嵌图片列表
-         * <p> 示例值：
-         *
-         * @param attachments
-         * @return
-         */
-        public Builder attachments(TemplateAttachment[] attachments) {
-            this.attachments = attachments;
-            return this;
-        }
-
-
-        /**
-         * 模板创建时间（毫秒级时间戳字符串，避免 JS 弱类型侧 i64 精度丢失）
-         * <p> 示例值：1716279320000
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        public Template build() {
-            return new Template(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

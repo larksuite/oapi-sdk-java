@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubscribeDepartment {
+  /**
+   * 预定管理部门ID，使用open_department_id
+   *
+   * <p>示例值：od-47d8b570b0a011e9679a755efcc5f61a
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 预定部门名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_name")
+  private String departmentName;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getDepartmentName() {
+    return this.departmentName;
+  }
+
+  public void setDepartmentName(String departmentName) {
+    this.departmentName = departmentName;
+  }
+
+  // builder 开始
+  public SubscribeDepartment() {}
+
+  public SubscribeDepartment(Builder builder) {
     /**
-     * 可预定部门id
-     * <p> 示例值：od-47d8b570b0a011e9679a755efcc5f61a
+     * 预定管理部门ID，使用open_department_id
+     *
+     * <p>示例值：od-47d8b570b0a011e9679a755efcc5f61a
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
      * 预定部门名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_name")
+    this.departmentName = builder.departmentName;
+  }
+
+  public static class Builder {
+    /**
+     * 预定管理部门ID，使用open_department_id
+     *
+     * <p>示例值：od-47d8b570b0a011e9679a755efcc5f61a
+     */
+    private String departmentId;
+
+    /**
+     * 预定部门名称
+     *
+     * <p>示例值：
+     */
     private String departmentName;
 
-    // builder 开始
-    public SubscribeDepartment() {
+    /**
+     * 预定管理部门ID，使用open_department_id
+     *
+     * <p>示例值：od-47d8b570b0a011e9679a755efcc5f61a
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public SubscribeDepartment(Builder builder) {
-        /**
-         * 可预定部门id
-         * <p> 示例值：od-47d8b570b0a011e9679a755efcc5f61a
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 预定部门名称
-         * <p> 示例值：
-         */
-        this.departmentName = builder.departmentName;
+    /**
+     * 预定部门名称
+     *
+     * <p>示例值：
+     *
+     * @param departmentName
+     * @return
+     */
+    public Builder departmentName(String departmentName) {
+      this.departmentName = departmentName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SubscribeDepartment build() {
+      return new SubscribeDepartment(this);
     }
+  }
 
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getDepartmentName() {
-        return this.departmentName;
-    }
-
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
-    }
-
-    public static class Builder {
-        /**
-         * 可预定部门id
-         * <p> 示例值：od-47d8b570b0a011e9679a755efcc5f61a
-         */
-        private String departmentId;
-        /**
-         * 预定部门名称
-         * <p> 示例值：
-         */
-        private String departmentName;
-
-        /**
-         * 可预定部门id
-         * <p> 示例值：od-47d8b570b0a011e9679a755efcc5f61a
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 预定部门名称
-         * <p> 示例值：
-         *
-         * @param departmentName
-         * @return
-         */
-        public Builder departmentName(String departmentName) {
-            this.departmentName = departmentName;
-            return this;
-        }
-
-
-        public SubscribeDepartment build() {
-            return new SubscribeDepartment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,143 +13,121 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PolicyLog {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
+  /** 示例值： */
+  @SerializedName("has_more")
+  private Boolean hasMore;
+
+  /** 示例值： */
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 策略日志列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private PolicyLogItem[] items;
+
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public PolicyLogItem[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(PolicyLogItem[] items) {
+    this.items = items;
+  }
+
+  // builder 开始
+  public PolicyLog() {}
+
+  public PolicyLog(Builder builder) {
+    /** 示例值： */
+    this.hasMore = builder.hasMore;
+    /** 示例值： */
+    this.pageToken = builder.pageToken;
     /**
      * 策略日志列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("items")
+    this.items = builder.items;
+  }
+
+  public static class Builder {
+    /** 示例值： */
+    private Boolean hasMore;
+
+    /** 示例值： */
+    private String pageToken;
+
+    /**
+     * 策略日志列表
+     *
+     * <p>示例值：
+     */
     private PolicyLogItem[] items;
 
-    // builder 开始
-    public PolicyLog() {
+    /**
+     * 示例值：
+     *
+     * @param hasMore
+     * @return
+     */
+    public Builder hasMore(Boolean hasMore) {
+      this.hasMore = hasMore;
+      return this;
     }
 
-    public PolicyLog(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.hasMore = builder.hasMore;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 策略日志列表
-         * <p> 示例值：
-         */
-        this.items = builder.items;
+    /**
+     * 示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 策略日志列表
+     *
+     * <p>示例值：
+     *
+     * @param items
+     * @return
+     */
+    public Builder items(PolicyLogItem[] items) {
+      this.items = items;
+      return this;
     }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
+    public PolicyLog build() {
+      return new PolicyLog(this);
     }
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public PolicyLogItem[] getItems() {
-        return this.items;
-    }
-
-    public void setItems(PolicyLogItem[] items) {
-        this.items = items;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private Boolean hasMore;
-        /**
-         * <p> 示例值：
-         */
-        private String pageToken;
-        /**
-         * 策略日志列表
-         * <p> 示例值：
-         */
-        private PolicyLogItem[] items;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param hasMore
-         * @return
-         */
-        public Builder hasMore(Boolean hasMore) {
-            this.hasMore = hasMore;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 策略日志列表
-         * <p> 示例值：
-         *
-         * @param items
-         * @return
-         */
-        public Builder items(PolicyLogItem[] items) {
-            this.items = items;
-            return this;
-        }
-
-
-        public PolicyLog build() {
-            return new PolicyLog(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

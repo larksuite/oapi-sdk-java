@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.document_ai.v1.enums;
 
-/**
- * ocr 参数，当前支持force, pdf, unused三种格式
- */
+/** ocr 参数，当前支持force, pdf, unused三种格式 */
 public enum FieldExtractionContractOcrModeEnum {
-    FORCE("force"), // pdf类型文件直接走OCR解析
-    AUTO("auto"), // pdf类型文件先走本地解析，无法解析（扫描/图片版）再走OCR
-    UNUSED("unused"), // 不调用OCR，扫描/图片PDF返回不可解析信息
-    ;
-    private String value;
+  FORCE("force"), // pdf类型文件直接走OCR解析
+  AUTO("auto"), // pdf类型文件先走本地解析，无法解析（扫描/图片版）再走OCR
+  UNUSED("unused"), // 不调用OCR，扫描/图片PDF返回不可解析信息
+  ;
+  private String value;
 
-    FieldExtractionContractOcrModeEnum(String value) {
-        this.value = value;
-    }
+  FieldExtractionContractOcrModeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

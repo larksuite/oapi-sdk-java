@@ -13,231 +13,239 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.im.v1.enums.*;
 
 public class ListChatReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 群组排序方式
+   *
+   * <p>示例值：ByCreateTimeAsc
+   */
+  @Query
+  @SerializedName("sort_type")
+  private String sortType;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+   *
+   * <p>示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 分页大小，用来限制一次请求返回的数据条目数。
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 群类型过滤;逗号分隔 group/p2p(多值),默认 group; 仅 UAT 支持拉 p2p 单聊;
+   *
+   * <p>示例值：group,p2p
+   */
+  @Query
+  @SerializedName("types")
+  private String types;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getSortType() {
+    return this.sortType;
+  }
+
+  public void setSortType(String sortType) {
+    this.sortType = sortType;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getTypes() {
+    return this.types;
+  }
+
+  public void setTypes(String types) {
+    this.types = types;
+  }
+
+  // builder 开始
+  public ListChatReq() {}
+
+  public ListChatReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 群组排序方式
-     * <p> 示例值：ByCreateTimeAsc
+     *
+     * <p>示例值：ByCreateTimeAsc
      */
-    @Query
-    @SerializedName("sort_type")
-    private String sortType;
+    this.sortType = builder.sortType;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-     * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
+     *
+     * <p>示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 分页大小
-     * <p> 示例值：10
+     * 分页大小，用来限制一次请求返回的数据条目数。
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 群类型过滤;逗号分隔 group/p2p(多值),默认 group; 仅 UAT 支持拉 p2p 单聊;
-     * <p> 示例值：group,p2p
+     *
+     * <p>示例值：group,p2p
      */
-    @Query
-    @SerializedName("types")
-    private String types;
+    this.types = builder.types;
+  }
 
-    // builder 开始
-    public ListChatReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String sortType; // 群组排序方式
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+    private Integer pageSize; // 分页大小，用来限制一次请求返回的数据条目数。
+    private String types; // 群类型过滤;逗号分隔 group/p2p(多值),默认 group; 仅 UAT 支持拉 p2p 单聊;
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public ListChatReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 群组排序方式
-         * <p> 示例值：ByCreateTimeAsc
-         */
-        this.sortType = builder.sortType;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 群类型过滤;逗号分隔 group/p2p(多值),默认 group; 仅 UAT 支持拉 p2p 单聊;
-         * <p> 示例值：group,p2p
-         */
-        this.types = builder.types;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.im.v1.enums.ListChatListChatUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.im.v1.enums.ListChatListChatUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 群组排序方式
+     *
+     * <p>示例值：ByCreateTimeAsc
+     *
+     * @param sortType
+     * @return
+     */
+    public Builder sortType(String sortType) {
+      this.sortType = sortType;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 群组排序方式
+     *
+     * <p>示例值：ByCreateTimeAsc
+     *
+     * @param sortType {@link com.lark.oapi.service.im.v1.enums.ListChatListChatSortTypeEnum}
+     * @return
+     */
+    public Builder sortType(
+        com.lark.oapi.service.im.v1.enums.ListChatListChatSortTypeEnum sortType) {
+      this.sortType = sortType.getValue();
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+     *
+     * <p>示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public String getSortType() {
-        return this.sortType;
+    /**
+     * 分页大小，用来限制一次请求返回的数据条目数。
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public void setSortType(String sortType) {
-        this.sortType = sortType;
+    /**
+     * 群类型过滤;逗号分隔 group/p2p(多值),默认 group; 仅 UAT 支持拉 p2p 单聊;
+     *
+     * <p>示例值：group,p2p
+     *
+     * @param types
+     * @return
+     */
+    public Builder types(String types) {
+      this.types = types;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    public ListChatReq build() {
+      return new ListChatReq(this);
     }
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getTypes() {
-        return this.types;
-    }
-
-    public void setTypes(String types) {
-        this.types = types;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String sortType; // 群组排序方式
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-        private Integer pageSize; // 分页大小
-        private String types; // 群类型过滤;逗号分隔 group/p2p(多值),默认 group; 仅 UAT 支持拉 p2p 单聊;
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.ListChatListChatUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.im.v1.enums.ListChatListChatUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 群组排序方式
-         * <p> 示例值：ByCreateTimeAsc
-         *
-         * @param sortType
-         * @return
-         */
-        public Builder sortType(String sortType) {
-            this.sortType = sortType;
-            return this;
-        }
-
-        /**
-         * 群组排序方式
-         * <p> 示例值：ByCreateTimeAsc
-         *
-         * @param sortType {@link com.lark.oapi.service.im.v1.enums.ListChatListChatSortTypeEnum}
-         * @return
-         */
-        public Builder sortType(com.lark.oapi.service.im.v1.enums.ListChatListChatSortTypeEnum sortType) {
-            this.sortType = sortType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：dmJCRHhpd3JRbGV1VEVNRFFyTitRWDY5ZFkybmYrMEUwMUFYT0VMMWdENEtuYUhsNUxGMDIwemtvdE5ORjBNQQ==
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 群类型过滤;逗号分隔 group/p2p(多值),默认 group; 仅 UAT 支持拉 p2p 单聊;
-         * <p> 示例值：group,p2p
-         *
-         * @param types
-         * @return
-         */
-        public Builder types(String types) {
-            this.types = types;
-            return this;
-        }
-
-
-        public ListChatReq build() {
-            return new ListChatReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

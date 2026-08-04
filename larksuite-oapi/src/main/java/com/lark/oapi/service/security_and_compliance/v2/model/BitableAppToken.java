@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BitableAppToken {
+  /**
+   * 多维表格唯一标识符
+   *
+   * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
+   */
+  @SerializedName("app_token")
+  private String appToken;
+
+  /**
+   * 文档类型
+   *
+   * <p>示例值：bitable
+   */
+  @SerializedName("object_type")
+  private String objectType;
+
+  public String getAppToken() {
+    return this.appToken;
+  }
+
+  public void setAppToken(String appToken) {
+    this.appToken = appToken;
+  }
+
+  public String getObjectType() {
+    return this.objectType;
+  }
+
+  public void setObjectType(String objectType) {
+    this.objectType = objectType;
+  }
+
+  // builder 开始
+  public BitableAppToken() {}
+
+  public BitableAppToken(Builder builder) {
     /**
      * 多维表格唯一标识符
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    @SerializedName("app_token")
-    private String appToken;
+    this.appToken = builder.appToken;
     /**
      * 文档类型
-     * <p> 示例值：bitable
+     *
+     * <p>示例值：bitable
      */
-    @SerializedName("object_type")
+    this.objectType = builder.objectType;
+  }
+
+  public static class Builder {
+    /**
+     * 多维表格唯一标识符
+     *
+     * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     */
+    private String appToken;
+
+    /**
+     * 文档类型
+     *
+     * <p>示例值：bitable
+     */
     private String objectType;
 
-    // builder 开始
-    public BitableAppToken() {
+    /**
+     * 多维表格唯一标识符
+     *
+     * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * @param appToken
+     * @return
+     */
+    public Builder appToken(String appToken) {
+      this.appToken = appToken;
+      return this;
     }
 
-    public BitableAppToken(Builder builder) {
-        /**
-         * 多维表格唯一标识符
-         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         */
-        this.appToken = builder.appToken;
-        /**
-         * 文档类型
-         * <p> 示例值：bitable
-         */
-        this.objectType = builder.objectType;
+    /**
+     * 文档类型
+     *
+     * <p>示例值：bitable
+     *
+     * @param objectType
+     * @return
+     */
+    public Builder objectType(String objectType) {
+      this.objectType = objectType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BitableAppToken build() {
+      return new BitableAppToken(this);
     }
+  }
 
-    public String getAppToken() {
-        return this.appToken;
-    }
-
-    public void setAppToken(String appToken) {
-        this.appToken = appToken;
-    }
-
-    public String getObjectType() {
-        return this.objectType;
-    }
-
-    public void setObjectType(String objectType) {
-        this.objectType = objectType;
-    }
-
-    public static class Builder {
-        /**
-         * 多维表格唯一标识符
-         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         */
-        private String appToken;
-        /**
-         * 文档类型
-         * <p> 示例值：bitable
-         */
-        private String objectType;
-
-        /**
-         * 多维表格唯一标识符
-         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         *
-         * @param appToken
-         * @return
-         */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
-
-
-        /**
-         * 文档类型
-         * <p> 示例值：bitable
-         *
-         * @param objectType
-         * @return
-         */
-        public Builder objectType(String objectType) {
-            this.objectType = objectType;
-            return this;
-        }
-
-
-        public BitableAppToken build() {
-            return new BitableAppToken(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

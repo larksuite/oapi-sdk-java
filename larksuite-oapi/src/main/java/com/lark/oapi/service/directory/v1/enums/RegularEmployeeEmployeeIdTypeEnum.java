@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 员工ID类型
- */
+/** 员工ID类型 */
 public enum RegularEmployeeEmployeeIdTypeEnum {
-    OPEN_ID("open_id"), // open_id
-    UNION_ID("union_id"), // union_id
-    EMPLOYEE_ID("employee_id"), // employee_id
-    ;
-    private String value;
+  OPEN_ID("open_id"), // open_id
+  UNION_ID("union_id"), // union_id
+  EMPLOYEE_ID("employee_id"), // employee_id
+  ;
+  private String value;
 
-    RegularEmployeeEmployeeIdTypeEnum(String value) {
-        this.value = value;
-    }
+  RegularEmployeeEmployeeIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

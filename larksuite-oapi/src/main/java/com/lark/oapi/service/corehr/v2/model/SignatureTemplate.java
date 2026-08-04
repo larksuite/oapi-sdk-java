@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureTemplate {
+  /**
+   * 电子签模板id
+   *
+   * <p>示例值：7246307700768902956
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 模板基本信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("brief_info")
+  private SignatureTemplateBriefInfo briefInfo;
+
+  /**
+   * 模板内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("content_info")
+  private SignatureTemplateContentInfo contentInfo;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public SignatureTemplateBriefInfo getBriefInfo() {
+    return this.briefInfo;
+  }
+
+  public void setBriefInfo(SignatureTemplateBriefInfo briefInfo) {
+    this.briefInfo = briefInfo;
+  }
+
+  public SignatureTemplateContentInfo getContentInfo() {
+    return this.contentInfo;
+  }
+
+  public void setContentInfo(SignatureTemplateContentInfo contentInfo) {
+    this.contentInfo = contentInfo;
+  }
+
+  // builder 开始
+  public SignatureTemplate() {}
+
+  public SignatureTemplate(Builder builder) {
     /**
      * 电子签模板id
-     * <p> 示例值：12313
+     *
+     * <p>示例值：7246307700768902956
      */
-    @SerializedName("id")
+    this.id = builder.id;
+    /**
+     * 模板基本信息
+     *
+     * <p>示例值：
+     */
+    this.briefInfo = builder.briefInfo;
+    /**
+     * 模板内容
+     *
+     * <p>示例值：
+     */
+    this.contentInfo = builder.contentInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 电子签模板id
+     *
+     * <p>示例值：7246307700768902956
+     */
     private String id;
+
     /**
-     * 简略信息
-     * <p> 示例值：
+     * 模板基本信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("brief_info")
     private SignatureTemplateBriefInfo briefInfo;
+
     /**
-     * 模板内容信息
-     * <p> 示例值：
+     * 模板内容
+     *
+     * <p>示例值：
      */
-    @SerializedName("content_info")
     private SignatureTemplateContentInfo contentInfo;
 
-    // builder 开始
-    public SignatureTemplate() {
+    /**
+     * 电子签模板id
+     *
+     * <p>示例值：7246307700768902956
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public SignatureTemplate(Builder builder) {
-        /**
-         * 电子签模板id
-         * <p> 示例值：12313
-         */
-        this.id = builder.id;
-        /**
-         * 简略信息
-         * <p> 示例值：
-         */
-        this.briefInfo = builder.briefInfo;
-        /**
-         * 模板内容信息
-         * <p> 示例值：
-         */
-        this.contentInfo = builder.contentInfo;
+    /**
+     * 模板基本信息
+     *
+     * <p>示例值：
+     *
+     * @param briefInfo
+     * @return
+     */
+    public Builder briefInfo(SignatureTemplateBriefInfo briefInfo) {
+      this.briefInfo = briefInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 模板内容
+     *
+     * <p>示例值：
+     *
+     * @param contentInfo
+     * @return
+     */
+    public Builder contentInfo(SignatureTemplateContentInfo contentInfo) {
+      this.contentInfo = contentInfo;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public SignatureTemplate build() {
+      return new SignatureTemplate(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public SignatureTemplateBriefInfo getBriefInfo() {
-        return this.briefInfo;
-    }
-
-    public void setBriefInfo(SignatureTemplateBriefInfo briefInfo) {
-        this.briefInfo = briefInfo;
-    }
-
-    public SignatureTemplateContentInfo getContentInfo() {
-        return this.contentInfo;
-    }
-
-    public void setContentInfo(SignatureTemplateContentInfo contentInfo) {
-        this.contentInfo = contentInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 电子签模板id
-         * <p> 示例值：12313
-         */
-        private String id;
-        /**
-         * 简略信息
-         * <p> 示例值：
-         */
-        private SignatureTemplateBriefInfo briefInfo;
-        /**
-         * 模板内容信息
-         * <p> 示例值：
-         */
-        private SignatureTemplateContentInfo contentInfo;
-
-        /**
-         * 电子签模板id
-         * <p> 示例值：12313
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 简略信息
-         * <p> 示例值：
-         *
-         * @param briefInfo
-         * @return
-         */
-        public Builder briefInfo(SignatureTemplateBriefInfo briefInfo) {
-            this.briefInfo = briefInfo;
-            return this;
-        }
-
-
-        /**
-         * 模板内容信息
-         * <p> 示例值：
-         *
-         * @param contentInfo
-         * @return
-         */
-        public Builder contentInfo(SignatureTemplateContentInfo contentInfo) {
-            this.contentInfo = contentInfo;
-            return this;
-        }
-
-
-        public SignatureTemplate build() {
-            return new SignatureTemplate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

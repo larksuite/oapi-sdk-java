@@ -13,198 +13,205 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BankAccount {
+  /**
+   * 账户ID
+   *
+   * <p>示例值：6949105962285219841
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 账户名称
+   *
+   * <p>示例值：公司账户
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 账户类型
+   *
+   * <p>示例值：Corporate
+   */
+  @SerializedName("account_type")
+  private String accountType;
+
+  /**
+   * 备注
+   *
+   * <p>示例值：账号备注
+   */
+  @SerializedName("remark")
+  private String remark;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getAccountType() {
+    return this.accountType;
+  }
+
+  public void setAccountType(String accountType) {
+    this.accountType = accountType;
+  }
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  // builder 开始
+  public BankAccount() {}
+
+  public BankAccount(Builder builder) {
     /**
      * 账户ID
-     * <p> 示例值：6949105962285219841
+     *
+     * <p>示例值：6949105962285219841
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 账户名称
-     * <p> 示例值：公司账户
+     *
+     * <p>示例值：公司账户
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 账户类型
-     * <p> 示例值：
+     *
+     * <p>示例值：Corporate
      */
-    @SerializedName("account_type")
-    private String accountType;
+    this.accountType = builder.accountType;
     /**
      * 备注
-     * <p> 示例值：账号备注
+     *
+     * <p>示例值：账号备注
      */
-    @SerializedName("remark")
+    this.remark = builder.remark;
+  }
+
+  public static class Builder {
+    /**
+     * 账户ID
+     *
+     * <p>示例值：6949105962285219841
+     */
+    private String id;
+
+    /**
+     * 账户名称
+     *
+     * <p>示例值：公司账户
+     */
+    private String name;
+
+    /**
+     * 账户类型
+     *
+     * <p>示例值：Corporate
+     */
+    private String accountType;
+
+    /**
+     * 备注
+     *
+     * <p>示例值：账号备注
+     */
     private String remark;
 
-    // builder 开始
-    public BankAccount() {
+    /**
+     * 账户ID
+     *
+     * <p>示例值：6949105962285219841
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public BankAccount(Builder builder) {
-        /**
-         * 账户ID
-         * <p> 示例值：6949105962285219841
-         */
-        this.id = builder.id;
-        /**
-         * 账户名称
-         * <p> 示例值：公司账户
-         */
-        this.name = builder.name;
-        /**
-         * 账户类型
-         * <p> 示例值：
-         */
-        this.accountType = builder.accountType;
-        /**
-         * 备注
-         * <p> 示例值：账号备注
-         */
-        this.remark = builder.remark;
+    /**
+     * 账户名称
+     *
+     * <p>示例值：公司账户
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 账户类型
+     *
+     * <p>示例值：Corporate
+     *
+     * @param accountType
+     * @return
+     */
+    public Builder accountType(String accountType) {
+      this.accountType = accountType;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 账户类型
+     *
+     * <p>示例值：Corporate
+     *
+     * @param accountType {@link com.lark.oapi.service.approval.v4.enums.BankAccountAccountTypeEnum}
+     * @return
+     */
+    public Builder accountType(
+        com.lark.oapi.service.approval.v4.enums.BankAccountAccountTypeEnum accountType) {
+      this.accountType = accountType.getValue();
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 备注
+     *
+     * <p>示例值：账号备注
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(String remark) {
+      this.remark = remark;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    public BankAccount build() {
+      return new BankAccount(this);
     }
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAccountType() {
-        return this.accountType;
-    }
-
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
-    }
-
-    public String getRemark() {
-        return this.remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public static class Builder {
-        /**
-         * 账户ID
-         * <p> 示例值：6949105962285219841
-         */
-        private String id;
-        /**
-         * 账户名称
-         * <p> 示例值：公司账户
-         */
-        private String name;
-        /**
-         * 账户类型
-         * <p> 示例值：
-         */
-        private String accountType;
-        /**
-         * 备注
-         * <p> 示例值：账号备注
-         */
-        private String remark;
-
-        /**
-         * 账户ID
-         * <p> 示例值：6949105962285219841
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 账户名称
-         * <p> 示例值：公司账户
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 账户类型
-         * <p> 示例值：
-         *
-         * @param accountType
-         * @return
-         */
-        public Builder accountType(String accountType) {
-            this.accountType = accountType;
-            return this;
-        }
-
-        /**
-         * 账户类型
-         * <p> 示例值：
-         *
-         * @param accountType {@link com.lark.oapi.service.approval.v4.enums.BankAccountAccountTypeEnum}
-         * @return
-         */
-        public Builder accountType(com.lark.oapi.service.approval.v4.enums.BankAccountAccountTypeEnum accountType) {
-            this.accountType = accountType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：账号备注
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        public BankAccount build() {
-            return new BankAccount(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

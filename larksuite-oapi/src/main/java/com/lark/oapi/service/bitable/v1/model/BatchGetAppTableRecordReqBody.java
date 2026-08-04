@@ -13,198 +13,210 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchGetAppTableRecordReqBody {
+  /**
+   * 记录 ID
+   * 列表。调用[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)获取。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("record_ids")
+  private String[] recordIds;
+
+  /**
+   * 此次调用中使用的用户 id 的类型
+   *
+   * <p>示例值：open_id
+   */
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 是否返回记录的分享链接。可选值：;- true：返回分享链接;- false：不返回分享链接;;**默认值**：false
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("with_shared_url")
+  private Boolean withSharedUrl;
+
+  /**
+   * 是否返回自动计算的字段。可选值：;- true：返回自动计算的字段;- false：不返回自动计算的字段;;**默认值**：false
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("automatic_fields")
+  private Boolean automaticFields;
+
+  public String[] getRecordIds() {
+    return this.recordIds;
+  }
+
+  public void setRecordIds(String[] recordIds) {
+    this.recordIds = recordIds;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public Boolean getWithSharedUrl() {
+    return this.withSharedUrl;
+  }
+
+  public void setWithSharedUrl(Boolean withSharedUrl) {
+    this.withSharedUrl = withSharedUrl;
+  }
+
+  public Boolean getAutomaticFields() {
+    return this.automaticFields;
+  }
+
+  public void setAutomaticFields(Boolean automaticFields) {
+    this.automaticFields = automaticFields;
+  }
+
+  // builder 开始
+  public BatchGetAppTableRecordReqBody() {}
+
+  public BatchGetAppTableRecordReqBody(Builder builder) {
     /**
-     * 记录 id 列表
-     * <p> 示例值：
+     * 记录 ID
+     * 列表。调用[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)获取。
+     *
+     * <p>示例值：
      */
-    @SerializedName("record_ids")
-    private String[] recordIds;
+    this.recordIds = builder.recordIds;
     /**
      * 此次调用中使用的用户 id 的类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @SerializedName("user_id_type")
+    this.userIdType = builder.userIdType;
+    /**
+     * 是否返回记录的分享链接。可选值：;- true：返回分享链接;- false：不返回分享链接;;**默认值**：false
+     *
+     * <p>示例值：true
+     */
+    this.withSharedUrl = builder.withSharedUrl;
+    /**
+     * 是否返回自动计算的字段。可选值：;- true：返回自动计算的字段;- false：不返回自动计算的字段;;**默认值**：false
+     *
+     * <p>示例值：true
+     */
+    this.automaticFields = builder.automaticFields;
+  }
+
+  public static class Builder {
+    /**
+     * 记录 ID
+     * 列表。调用[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)获取。
+     *
+     * <p>示例值：
+     */
+    private String[] recordIds;
+
+    /**
+     * 此次调用中使用的用户 id 的类型
+     *
+     * <p>示例值：open_id
+     */
     private String userIdType;
+
     /**
-     * 控制是否返回记录的分享链接，true 表示返回分享链接
-     * <p> 示例值：
+     * 是否返回记录的分享链接。可选值：;- true：返回分享链接;- false：不返回分享链接;;**默认值**：false
+     *
+     * <p>示例值：true
      */
-    @SerializedName("with_shared_url")
     private Boolean withSharedUrl;
+
     /**
-     * 控制是否返回自动计算的字段，true 表示返回
-     * <p> 示例值：
+     * 是否返回自动计算的字段。可选值：;- true：返回自动计算的字段;- false：不返回自动计算的字段;;**默认值**：false
+     *
+     * <p>示例值：true
      */
-    @SerializedName("automatic_fields")
     private Boolean automaticFields;
 
-    // builder 开始
-    public BatchGetAppTableRecordReqBody() {
+    /**
+     * 记录 ID
+     * 列表。调用[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)获取。
+     *
+     * <p>示例值：
+     *
+     * @param recordIds
+     * @return
+     */
+    public Builder recordIds(String[] recordIds) {
+      this.recordIds = recordIds;
+      return this;
     }
 
-    public BatchGetAppTableRecordReqBody(Builder builder) {
-        /**
-         * 记录 id 列表
-         * <p> 示例值：
-         */
-        this.recordIds = builder.recordIds;
-        /**
-         * 此次调用中使用的用户 id 的类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 控制是否返回记录的分享链接，true 表示返回分享链接
-         * <p> 示例值：
-         */
-        this.withSharedUrl = builder.withSharedUrl;
-        /**
-         * 控制是否返回自动计算的字段，true 表示返回
-         * <p> 示例值：
-         */
-        this.automaticFields = builder.automaticFields;
+    /**
+     * 此次调用中使用的用户 id 的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的用户 id 的类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.bitable.v1.enums.BatchGetAppTableRecordUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.bitable.v1.enums.BatchGetAppTableRecordUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public String[] getRecordIds() {
-        return this.recordIds;
+    /**
+     * 是否返回记录的分享链接。可选值：;- true：返回分享链接;- false：不返回分享链接;;**默认值**：false
+     *
+     * <p>示例值：true
+     *
+     * @param withSharedUrl
+     * @return
+     */
+    public Builder withSharedUrl(Boolean withSharedUrl) {
+      this.withSharedUrl = withSharedUrl;
+      return this;
     }
 
-    public void setRecordIds(String[] recordIds) {
-        this.recordIds = recordIds;
+    /**
+     * 是否返回自动计算的字段。可选值：;- true：返回自动计算的字段;- false：不返回自动计算的字段;;**默认值**：false
+     *
+     * <p>示例值：true
+     *
+     * @param automaticFields
+     * @return
+     */
+    public Builder automaticFields(Boolean automaticFields) {
+      this.automaticFields = automaticFields;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public BatchGetAppTableRecordReqBody build() {
+      return new BatchGetAppTableRecordReqBody(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public Boolean getWithSharedUrl() {
-        return this.withSharedUrl;
-    }
-
-    public void setWithSharedUrl(Boolean withSharedUrl) {
-        this.withSharedUrl = withSharedUrl;
-    }
-
-    public Boolean getAutomaticFields() {
-        return this.automaticFields;
-    }
-
-    public void setAutomaticFields(Boolean automaticFields) {
-        this.automaticFields = automaticFields;
-    }
-
-    public static class Builder {
-        /**
-         * 记录 id 列表
-         * <p> 示例值：
-         */
-        private String[] recordIds;
-        /**
-         * 此次调用中使用的用户 id 的类型
-         * <p> 示例值：open_id
-         */
-        private String userIdType;
-        /**
-         * 控制是否返回记录的分享链接，true 表示返回分享链接
-         * <p> 示例值：
-         */
-        private Boolean withSharedUrl;
-        /**
-         * 控制是否返回自动计算的字段，true 表示返回
-         * <p> 示例值：
-         */
-        private Boolean automaticFields;
-
-        /**
-         * 记录 id 列表
-         * <p> 示例值：
-         *
-         * @param recordIds
-         * @return
-         */
-        public Builder recordIds(String[] recordIds) {
-            this.recordIds = recordIds;
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的用户 id 的类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户 id 的类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.bitable.v1.enums.BatchGetAppTableRecordUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.bitable.v1.enums.BatchGetAppTableRecordUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 控制是否返回记录的分享链接，true 表示返回分享链接
-         * <p> 示例值：
-         *
-         * @param withSharedUrl
-         * @return
-         */
-        public Builder withSharedUrl(Boolean withSharedUrl) {
-            this.withSharedUrl = withSharedUrl;
-            return this;
-        }
-
-
-        /**
-         * 控制是否返回自动计算的字段，true 表示返回
-         * <p> 示例值：
-         *
-         * @param automaticFields
-         * @return
-         */
-        public Builder automaticFields(Boolean automaticFields) {
-            this.automaticFields = automaticFields;
-            return this;
-        }
-
-
-        public BatchGetAppTableRecordReqBody build() {
-            return new BatchGetAppTableRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

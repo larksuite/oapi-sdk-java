@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 会话所处的业务模式
- */
+/** 会话所处的业务模式 */
 public enum MyAiAvPluginScenarioContextWorkModeEnum {
-    CHAT(1), // 聊天模式
-    INLINE(2), // inline 模式
-    ;
-    private Integer value;
+  CHAT(1), // 聊天模式
+  INLINE(2), // inline 模式
+  ;
+  private Integer value;
 
-    MyAiAvPluginScenarioContextWorkModeEnum(Integer value) {
-        this.value = value;
-    }
+  MyAiAvPluginScenarioContextWorkModeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

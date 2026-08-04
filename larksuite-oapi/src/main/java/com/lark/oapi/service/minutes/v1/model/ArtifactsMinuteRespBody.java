@@ -13,90 +13,86 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ArtifactsMinuteRespBody {
-    /**
-     * 妙记总结
-     * <p> 示例值：妙记总结
-     */
-    @SerializedName("summary")
-    private String summary;
-    /**
-     * 妙记章节
-     * <p> 示例值：
-     */
-    @SerializedName("minute_chapters")
-    private MinuteChapter[] minuteChapters;
-    /**
-     * 妙记待办
-     * <p> 示例值：
-     */
-    @SerializedName("minute_todos")
-    private MinuteTodo[] minuteTodos;
-    /**
-     * 妙记推荐关键词
-     * <p> 示例值：
-     */
-    @SerializedName("keywords")
-    private String[] keywords;
-    /**
-     * 妙记逐字稿
-     * <p> 示例值：<string>
-     */
-    @SerializedName("transcript")
-    private String transcript;
+  /**
+   * 妙记总结
+   *
+   * <p>示例值：妙记总结
+   */
+  @SerializedName("summary")
+  private String summary;
 
-    public String getSummary() {
-        return this.summary;
-    }
+  /**
+   * 妙记章节
+   *
+   * <p>示例值：
+   */
+  @SerializedName("minute_chapters")
+  private MinuteChapter[] minuteChapters;
 
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
+  /**
+   * 妙记待办
+   *
+   * <p>示例值：
+   */
+  @SerializedName("minute_todos")
+  private MinuteTodo[] minuteTodos;
 
-    public MinuteChapter[] getMinuteChapters() {
-        return this.minuteChapters;
-    }
+  /**
+   * 妙记推荐关键词
+   *
+   * <p>示例值：
+   */
+  @SerializedName("keywords")
+  private String[] keywords;
 
-    public void setMinuteChapters(MinuteChapter[] minuteChapters) {
-        this.minuteChapters = minuteChapters;
-    }
+  /**
+   * 妙记逐字稿
+   *
+   * <p>示例值：<string>
+   */
+  @SerializedName("transcript")
+  private String transcript;
 
-    public MinuteTodo[] getMinuteTodos() {
-        return this.minuteTodos;
-    }
+  public String getSummary() {
+    return this.summary;
+  }
 
-    public void setMinuteTodos(MinuteTodo[] minuteTodos) {
-        this.minuteTodos = minuteTodos;
-    }
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
 
-    public String[] getKeywords() {
-        return this.keywords;
-    }
+  public MinuteChapter[] getMinuteChapters() {
+    return this.minuteChapters;
+  }
 
-    public void setKeywords(String[] keywords) {
-        this.keywords = keywords;
-    }
+  public void setMinuteChapters(MinuteChapter[] minuteChapters) {
+    this.minuteChapters = minuteChapters;
+  }
 
-    public String getTranscript() {
-        return this.transcript;
-    }
+  public MinuteTodo[] getMinuteTodos() {
+    return this.minuteTodos;
+  }
 
-    public void setTranscript(String transcript) {
-        this.transcript = transcript;
-    }
+  public void setMinuteTodos(MinuteTodo[] minuteTodos) {
+    this.minuteTodos = minuteTodos;
+  }
 
+  public String[] getKeywords() {
+    return this.keywords;
+  }
+
+  public void setKeywords(String[] keywords) {
+    this.keywords = keywords;
+  }
+
+  public String getTranscript() {
+    return this.transcript;
+  }
+
+  public void setTranscript(String transcript) {
+    this.transcript = transcript;
+  }
 }

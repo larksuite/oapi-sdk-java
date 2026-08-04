@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.lingo.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.lingo.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Term {
+  /**
+   * 名称的值
+   *
+   * <p>示例值：飞书词典
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 名称展示范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("display_status")
+  private DisplayStatus displayStatus;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public DisplayStatus getDisplayStatus() {
+    return this.displayStatus;
+  }
+
+  public void setDisplayStatus(DisplayStatus displayStatus) {
+    this.displayStatus = displayStatus;
+  }
+
+  // builder 开始
+  public Term() {}
+
+  public Term(Builder builder) {
     /**
-     * 名称
-     * <p> 示例值：企业百科
+     * 名称的值
+     *
+     * <p>示例值：飞书词典
      */
-    @SerializedName("key")
+    this.key = builder.key;
+    /**
+     * 名称展示范围
+     *
+     * <p>示例值：
+     */
+    this.displayStatus = builder.displayStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 名称的值
+     *
+     * <p>示例值：飞书词典
+     */
     private String key;
+
     /**
-     * 展示状态
-     * <p> 示例值：
+     * 名称展示范围
+     *
+     * <p>示例值：
      */
-    @SerializedName("display_status")
     private DisplayStatus displayStatus;
 
-    // builder 开始
-    public Term() {
+    /**
+     * 名称的值
+     *
+     * <p>示例值：飞书词典
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public Term(Builder builder) {
-        /**
-         * 名称
-         * <p> 示例值：企业百科
-         */
-        this.key = builder.key;
-        /**
-         * 展示状态
-         * <p> 示例值：
-         */
-        this.displayStatus = builder.displayStatus;
+    /**
+     * 名称展示范围
+     *
+     * <p>示例值：
+     *
+     * @param displayStatus
+     * @return
+     */
+    public Builder displayStatus(DisplayStatus displayStatus) {
+      this.displayStatus = displayStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Term build() {
+      return new Term(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public DisplayStatus getDisplayStatus() {
-        return this.displayStatus;
-    }
-
-    public void setDisplayStatus(DisplayStatus displayStatus) {
-        this.displayStatus = displayStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 名称
-         * <p> 示例值：企业百科
-         */
-        private String key;
-        /**
-         * 展示状态
-         * <p> 示例值：
-         */
-        private DisplayStatus displayStatus;
-
-        /**
-         * 名称
-         * <p> 示例值：企业百科
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 展示状态
-         * <p> 示例值：
-         *
-         * @param displayStatus
-         * @return
-         */
-        public Builder displayStatus(DisplayStatus displayStatus) {
-            this.displayStatus = displayStatus;
-            return this;
-        }
-
-
-        public Term build() {
-            return new Term(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,106 +13,100 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.search.v2.enums.*;
 
 public class DeleteDataSourceItemReq {
+  /**
+   * 数据源的ID
+   *
+   * <p>示例值：service_ticket
+   */
+  @Path
+  @SerializedName("data_source_id")
+  private String dataSourceId;
+
+  /**
+   * 数据记录的ID
+   *
+   * <p>示例值：01010111
+   */
+  @Path
+  @SerializedName("item_id")
+  private String itemId;
+
+  public String getDataSourceId() {
+    return this.dataSourceId;
+  }
+
+  public void setDataSourceId(String dataSourceId) {
+    this.dataSourceId = dataSourceId;
+  }
+
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  public void setItemId(String itemId) {
+    this.itemId = itemId;
+  }
+
+  // builder 开始
+  public DeleteDataSourceItemReq() {}
+
+  public DeleteDataSourceItemReq(Builder builder) {
     /**
      * 数据源的ID
-     * <p> 示例值：service_ticket
+     *
+     * <p>示例值：service_ticket
      */
-    @Path
-    @SerializedName("data_source_id")
-    private String dataSourceId;
+    this.dataSourceId = builder.dataSourceId;
     /**
      * 数据记录的ID
-     * <p> 示例值：01010111
+     *
+     * <p>示例值：01010111
      */
-    @Path
-    @SerializedName("item_id")
-    private String itemId;
+    this.itemId = builder.itemId;
+  }
 
-    // builder 开始
-    public DeleteDataSourceItemReq() {
+  public static class Builder {
+
+    private String dataSourceId; // 数据源的ID
+    private String itemId; // 数据记录的ID
+
+    /**
+     * 数据源的ID
+     *
+     * <p>示例值：service_ticket
+     *
+     * @param dataSourceId
+     * @return
+     */
+    public Builder dataSourceId(String dataSourceId) {
+      this.dataSourceId = dataSourceId;
+      return this;
     }
 
-    public DeleteDataSourceItemReq(Builder builder) {
-        /**
-         * 数据源的ID
-         * <p> 示例值：service_ticket
-         */
-        this.dataSourceId = builder.dataSourceId;
-        /**
-         * 数据记录的ID
-         * <p> 示例值：01010111
-         */
-        this.itemId = builder.itemId;
+    /**
+     * 数据记录的ID
+     *
+     * <p>示例值：01010111
+     *
+     * @param itemId
+     * @return
+     */
+    public Builder itemId(String itemId) {
+      this.itemId = itemId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteDataSourceItemReq build() {
+      return new DeleteDataSourceItemReq(this);
     }
+  }
 
-    public String getDataSourceId() {
-        return this.dataSourceId;
-    }
-
-    public void setDataSourceId(String dataSourceId) {
-        this.dataSourceId = dataSourceId;
-    }
-
-    public String getItemId() {
-        return this.itemId;
-    }
-
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
-    }
-
-    public static class Builder {
-
-        private String dataSourceId; // 数据源的ID
-        private String itemId; // 数据记录的ID
-
-        /**
-         * 数据源的ID
-         * <p> 示例值：service_ticket
-         *
-         * @param dataSourceId
-         * @return
-         */
-        public Builder dataSourceId(String dataSourceId) {
-            this.dataSourceId = dataSourceId;
-            return this;
-        }
-
-
-        /**
-         * 数据记录的ID
-         * <p> 示例值：01010111
-         *
-         * @param itemId
-         * @return
-         */
-        public Builder itemId(String itemId) {
-            this.itemId = itemId;
-            return this;
-        }
-
-
-        public DeleteDataSourceItemReq build() {
-            return new DeleteDataSourceItemReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

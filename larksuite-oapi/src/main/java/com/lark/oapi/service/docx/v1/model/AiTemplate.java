@@ -13,37 +13,23 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AiTemplate {
 
-    // builder 开始
-    public AiTemplate() {
-    }
+  // builder 开始
+  public AiTemplate() {}
 
-    public AiTemplate(Builder builder) {
-    }
+  public AiTemplate(Builder builder) {}
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
+  public static class Builder {
 
-    public static class Builder {
-
-        public AiTemplate build() {
-            return new AiTemplate(this);
-        }
+    public AiTemplate build() {
+      return new AiTemplate(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

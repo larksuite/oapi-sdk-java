@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarPrimaryBatchReq {
+  /**
+   * 用户ID列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  // builder 开始
+  public CalendarPrimaryBatchReq() {}
+
+  public CalendarPrimaryBatchReq(Builder builder) {
     /**
      * 用户ID列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
+    this.userIds = builder.userIds;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID列表
+     *
+     * <p>示例值：
+     */
     private String[] userIds;
 
-    // builder 开始
-    public CalendarPrimaryBatchReq() {
+    /**
+     * 用户ID列表
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public CalendarPrimaryBatchReq(Builder builder) {
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
+    public CalendarPrimaryBatchReq build() {
+      return new CalendarPrimaryBatchReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         */
-        private String[] userIds;
-
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        public CalendarPrimaryBatchReq build() {
-            return new CalendarPrimaryBatchReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

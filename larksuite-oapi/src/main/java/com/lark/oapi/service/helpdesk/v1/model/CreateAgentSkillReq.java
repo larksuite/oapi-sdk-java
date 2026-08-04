@@ -13,65 +13,52 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 
 public class CreateAgentSkillReq {
-    @Body
+  @Body private CreateAgentSkillReqBody body;
+
+  public CreateAgentSkillReqBody getCreateAgentSkillReqBody() {
+    return this.body;
+  }
+
+  public void setCreateAgentSkillReqBody(CreateAgentSkillReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateAgentSkillReq() {}
+
+  public CreateAgentSkillReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private CreateAgentSkillReqBody body;
 
-    // builder 开始
-    public CreateAgentSkillReq() {
-    }
-
-    public CreateAgentSkillReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public CreateAgentSkillReqBody getCreateAgentSkillReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCreateAgentSkillReqBody(CreateAgentSkillReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder createAgentSkillReqBody(CreateAgentSkillReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private CreateAgentSkillReqBody body;
-
-        public CreateAgentSkillReqBody getCreateAgentSkillReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder createAgentSkillReqBody(CreateAgentSkillReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateAgentSkillReq build() {
-            return new CreateAgentSkillReq(this);
-        }
+    public CreateAgentSkillReq build() {
+      return new CreateAgentSkillReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

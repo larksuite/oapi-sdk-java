@@ -31,97 +31,97 @@ import com.lark.oapi.service.contact.v3.resource.User;
 import com.lark.oapi.service.contact.v3.resource.WorkCity;
 
 public class V3 {
-    private final CustomAttr customAttr; // 自定义用户字段
-    private final CustomAttrEvent customAttrEvent; // 事件
-    private final Department department; // 部门
-    private final EmployeeTypeEnum employeeTypeEnum; // 人员类型
-    private final FunctionalRole functionalRole; // functional_role
-    private final FunctionalRoleMember functionalRoleMember; // functional_role.member
-    private final Group group; // 用户组
-    private final GroupMember groupMember; // 用户组成员
-    private final JobFamily jobFamily; // job_family
-    private final JobLevel jobLevel; // job_level
-    private final JobTitle jobTitle; // job_title
-    private final Scope scope; // 通讯录权限范围
-    private final Unit unit; // 单位
-    private final User user; // 用户
-    private final WorkCity workCity; // work_city
+  private final CustomAttr customAttr; // custom_attr
+  private final CustomAttrEvent customAttrEvent; // custom_attr_event
+  private final Department department; // department
+  private final EmployeeTypeEnum employeeTypeEnum; // employee_type_enum
+  private final FunctionalRole functionalRole; // functional_role
+  private final FunctionalRoleMember functionalRoleMember; // functional_role.member
+  private final Group group; // group
+  private final GroupMember groupMember; // group.member
+  private final JobFamily jobFamily; // job_family
+  private final JobLevel jobLevel; // job_level
+  private final JobTitle jobTitle; // job_title
+  private final Scope scope; // scope
+  private final Unit unit; // unit
+  private final User user; // user
+  private final WorkCity workCity; // work_city
 
-    public V3(Config config) {
-        this.customAttr = new CustomAttr(config);
-        this.customAttrEvent = new CustomAttrEvent(config);
-        this.department = new Department(config);
-        this.employeeTypeEnum = new EmployeeTypeEnum(config);
-        this.functionalRole = new FunctionalRole(config);
-        this.functionalRoleMember = new FunctionalRoleMember(config);
-        this.group = new Group(config);
-        this.groupMember = new GroupMember(config);
-        this.jobFamily = new JobFamily(config);
-        this.jobLevel = new JobLevel(config);
-        this.jobTitle = new JobTitle(config);
-        this.scope = new Scope(config);
-        this.unit = new Unit(config);
-        this.user = new User(config);
-        this.workCity = new WorkCity(config);
-    }
+  public V3(Config config) {
+    this.customAttr = new CustomAttr(config);
+    this.customAttrEvent = new CustomAttrEvent(config);
+    this.department = new Department(config);
+    this.employeeTypeEnum = new EmployeeTypeEnum(config);
+    this.functionalRole = new FunctionalRole(config);
+    this.functionalRoleMember = new FunctionalRoleMember(config);
+    this.group = new Group(config);
+    this.groupMember = new GroupMember(config);
+    this.jobFamily = new JobFamily(config);
+    this.jobLevel = new JobLevel(config);
+    this.jobTitle = new JobTitle(config);
+    this.scope = new Scope(config);
+    this.unit = new Unit(config);
+    this.user = new User(config);
+    this.workCity = new WorkCity(config);
+  }
 
-    public CustomAttr customAttr() {
-        return customAttr;
-    }
+  public CustomAttr customAttr() {
+    return customAttr;
+  }
 
-    public CustomAttrEvent customAttrEvent() {
-        return customAttrEvent;
-    }
+  public CustomAttrEvent customAttrEvent() {
+    return customAttrEvent;
+  }
 
-    public Department department() {
-        return department;
-    }
+  public Department department() {
+    return department;
+  }
 
-    public EmployeeTypeEnum employeeTypeEnum() {
-        return employeeTypeEnum;
-    }
+  public EmployeeTypeEnum employeeTypeEnum() {
+    return employeeTypeEnum;
+  }
 
-    public FunctionalRole functionalRole() {
-        return functionalRole;
-    }
+  public FunctionalRole functionalRole() {
+    return functionalRole;
+  }
 
-    public FunctionalRoleMember functionalRoleMember() {
-        return functionalRoleMember;
-    }
+  public FunctionalRoleMember functionalRoleMember() {
+    return functionalRoleMember;
+  }
 
-    public Group group() {
-        return group;
-    }
+  public Group group() {
+    return group;
+  }
 
-    public GroupMember groupMember() {
-        return groupMember;
-    }
+  public GroupMember groupMember() {
+    return groupMember;
+  }
 
-    public JobFamily jobFamily() {
-        return jobFamily;
-    }
+  public JobFamily jobFamily() {
+    return jobFamily;
+  }
 
-    public JobLevel jobLevel() {
-        return jobLevel;
-    }
+  public JobLevel jobLevel() {
+    return jobLevel;
+  }
 
-    public JobTitle jobTitle() {
-        return jobTitle;
-    }
+  public JobTitle jobTitle() {
+    return jobTitle;
+  }
 
-    public Scope scope() {
-        return scope;
-    }
+  public Scope scope() {
+    return scope;
+  }
 
-    public Unit unit() {
-        return unit;
-    }
+  public Unit unit() {
+    return unit;
+  }
 
-    public User user() {
-        return user;
-    }
+  public User user() {
+    return user;
+  }
 
-    public WorkCity workCity() {
-        return workCity;
-    }
+  public WorkCity workCity() {
+    return workCity;
+  }
 }

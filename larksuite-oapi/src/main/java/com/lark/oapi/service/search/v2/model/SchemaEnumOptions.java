@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SchemaEnumOptions {
+  /**
+   * 用户自定filter 枚举值数组，最大长度为50
+   *
+   * <p>示例值：v1
+   */
+  @SerializedName("possible_values")
+  private String[] possibleValues;
+
+  public String[] getPossibleValues() {
+    return this.possibleValues;
+  }
+
+  public void setPossibleValues(String[] possibleValues) {
+    this.possibleValues = possibleValues;
+  }
+
+  // builder 开始
+  public SchemaEnumOptions() {}
+
+  public SchemaEnumOptions(Builder builder) {
     /**
      * 用户自定filter 枚举值数组，最大长度为50
-     * <p> 示例值：v1
+     *
+     * <p>示例值：v1
      */
-    @SerializedName("possible_values")
+    this.possibleValues = builder.possibleValues;
+  }
+
+  public static class Builder {
+    /**
+     * 用户自定filter 枚举值数组，最大长度为50
+     *
+     * <p>示例值：v1
+     */
     private String[] possibleValues;
 
-    // builder 开始
-    public SchemaEnumOptions() {
+    /**
+     * 用户自定filter 枚举值数组，最大长度为50
+     *
+     * <p>示例值：v1
+     *
+     * @param possibleValues
+     * @return
+     */
+    public Builder possibleValues(String[] possibleValues) {
+      this.possibleValues = possibleValues;
+      return this;
     }
 
-    public SchemaEnumOptions(Builder builder) {
-        /**
-         * 用户自定filter 枚举值数组，最大长度为50
-         * <p> 示例值：v1
-         */
-        this.possibleValues = builder.possibleValues;
+    public SchemaEnumOptions build() {
+      return new SchemaEnumOptions(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getPossibleValues() {
-        return this.possibleValues;
-    }
-
-    public void setPossibleValues(String[] possibleValues) {
-        this.possibleValues = possibleValues;
-    }
-
-    public static class Builder {
-        /**
-         * 用户自定filter 枚举值数组，最大长度为50
-         * <p> 示例值：v1
-         */
-        private String[] possibleValues;
-
-        /**
-         * 用户自定filter 枚举值数组，最大长度为50
-         * <p> 示例值：v1
-         *
-         * @param possibleValues
-         * @return
-         */
-        public Builder possibleValues(String[] possibleValues) {
-            this.possibleValues = possibleValues;
-            return this;
-        }
-
-
-        public SchemaEnumOptions build() {
-            return new SchemaEnumOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

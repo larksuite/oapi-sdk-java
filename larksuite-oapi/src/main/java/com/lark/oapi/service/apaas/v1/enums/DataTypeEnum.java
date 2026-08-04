@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.apaas.v1.enums;
 
-/**
- * 变更类型
- */
+/** 变更类型 */
 public enum DataTypeEnum {
-    INSERT("INSERT"), // 插入数据记录
-    UPDATE("UPDATE"), // 更新数据记录
-    DELETE("DELETE"), // 删除数据记录
-    ;
-    private String value;
+  INSERT("INSERT"), // 插入数据记录
+  UPDATE("UPDATE"), // 更新数据记录
+  DELETE("DELETE"), // 删除数据记录
+  ;
+  private String value;
 
-    DataTypeEnum(String value) {
-        this.value = value;
-    }
+  DataTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreatePositionRespBody {
-    /**
-     * 岗位ID
-     * <p> 示例值：12345678
-     */
-    @SerializedName("position_id")
-    private String positionId;
+  /**
+   * 岗位ID
+   *
+   * <p>示例值：12345678
+   */
+  @SerializedName("position_id")
+  private String positionId;
 
-    public String getPositionId() {
-        return this.positionId;
-    }
+  public String getPositionId() {
+    return this.positionId;
+  }
 
-    public void setPositionId(String positionId) {
-        this.positionId = positionId;
-    }
-
+  public void setPositionId(String positionId) {
+    this.positionId = positionId;
+  }
 }

@@ -13,37 +13,35 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 资源名
- */
+/** 资源名 */
 public enum StandardDimensionApiNameEnum {
-    COMPANY("company"), // 合同主体
-    DEPARTMENT("department"), // 部门
-    JOB_FAMILY("job_family"), // 序列
-    JOB_LEVEL("job_level"), // 职级
-    JOB_GRADE("job_grade"), // 职等
-    JOB("job"), // 职务
-    WORK_LOCATION("work_location"), // 工作地点
-    WORKFORCE_TYPE("workforce_type"), // 人员类型
-    RECRUITMENT_TYPE("recruitment_type"), // 招聘类型
-    CPST_PLAN("cpst_plan"), // 薪资方案
-    SALARY_LEVEL("salary_level"), // 薪级薪等
-    CPST_CHANGE_REASON("cpst_change_reason"), // 定调薪原因
-    INDICATOR("indicator"), // 绩效评估项
-    SCORE_GRADE("score_grade"), // 绩效等级
-    CUSTOM_ORG_01("custom_org_01"), // 自定义组织01
-    CUSTOM_ORG_02("custom_org_02"), // 自定义组织02
-    CUSTOM_ORG_03("custom_org_03"), // 自定义组织03
-    CUSTOM_ORG_04("custom_org_04"), // 自定义组织04
-    CUSTOM_ORG_05("custom_org_05"), // 自定义组织05
-    ;
-    private String value;
+  COMPANY("company"), // 合同主体
+  DEPARTMENT("department"), // 部门
+  JOB_FAMILY("job_family"), // 序列
+  JOB_LEVEL("job_level"), // 职级
+  JOB_GRADE("job_grade"), // 职等
+  JOB("job"), // 职务
+  WORK_LOCATION("work_location"), // 工作地点
+  WORKFORCE_TYPE("workforce_type"), // 人员类型
+  RECRUITMENT_TYPE("recruitment_type"), // 招聘类型
+  CPST_PLAN("cpst_plan"), // 薪资方案
+  SALARY_LEVEL("salary_level"), // 薪级薪等
+  CPST_CHANGE_REASON("cpst_change_reason"), // 定调薪原因
+  INDICATOR("indicator"), // 绩效评估项
+  SCORE_GRADE("score_grade"), // 绩效等级
+  CUSTOM_ORG_01("custom_org_01"), // 自定义组织01
+  CUSTOM_ORG_02("custom_org_02"), // 自定义组织02
+  CUSTOM_ORG_03("custom_org_03"), // 自定义组织03
+  CUSTOM_ORG_04("custom_org_04"), // 自定义组织04
+  CUSTOM_ORG_05("custom_org_05"), // 自定义组织05
+  ;
+  private String value;
 
-    StandardDimensionApiNameEnum(String value) {
-        this.value = value;
-    }
+  StandardDimensionApiNameEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

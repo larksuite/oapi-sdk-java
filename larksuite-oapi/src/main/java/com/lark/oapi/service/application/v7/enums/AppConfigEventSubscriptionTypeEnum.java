@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.application.v7.enums;
 
-/**
- * 订阅方式
- */
+/** 订阅方式 */
 public enum AppConfigEventSubscriptionTypeEnum {
-    WEBHOOK("webhook"), // 将事件发送至开发者服务器
-    WEBSOCKET("websocket"), // 将事件发送至websocket长链接
-    ;
-    private String value;
+  WEBHOOK("webhook"), // 将事件发送至开发者服务器
+  WEBSOCKET("websocket"), // 将事件发送至websocket长链接
+  ;
+  private String value;
 
-    AppConfigEventSubscriptionTypeEnum(String value) {
-        this.value = value;
-    }
+  AppConfigEventSubscriptionTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

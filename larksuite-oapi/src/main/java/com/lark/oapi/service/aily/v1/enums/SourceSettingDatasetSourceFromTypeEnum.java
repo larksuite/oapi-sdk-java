@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.aily.v1.enums;
 
-/**
- * 数据源具体来源
- */
+/** 数据源具体来源 */
 public enum SourceSettingDatasetSourceFromTypeEnum {
-    DATASETSOURCEFROMTYPEQIANCHUAN("qianchuan"), // 巨量千川外部导入
-    DATASETSOURCEFROMTYPEMYSQL("mysql"), // MySQL外部导入
-    DATASETSOURCEFROMTYPECLICKHOUSE("ClickHouse"), // ClickHouse外部导入
-    ;
-    private String value;
+  DATASETSOURCEFROMTYPEQIANCHUAN("qianchuan"), // 巨量千川外部导入
+  DATASETSOURCEFROMTYPEMYSQL("mysql"), // MySQL外部导入
+  DATASETSOURCEFROMTYPECLICKHOUSE("ClickHouse"), // ClickHouse外部导入
+  ;
+  private String value;
 
-    SourceSettingDatasetSourceFromTypeEnum(String value) {
-        this.value = value;
-    }
+  SourceSettingDatasetSourceFromTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

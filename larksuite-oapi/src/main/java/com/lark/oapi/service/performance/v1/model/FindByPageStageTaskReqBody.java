@@ -13,260 +13,279 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FindByPageStageTaskReqBody {
+  /**
+   * 周期
+   * ID，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+   *
+   * <p>示例值：7033710017401751071
+   */
+  @SerializedName("semester_id")
+  private String semesterId;
+
+  /**
+   * 任务分类，填写则获取指定分类的任务;;;**可选项有**：;- `1`：待完成;- `2`：已完成;- `3`：已逾期（仅当租户设置不允许逾期提交时才有此分类）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("task_option_lists")
+  private Integer[] taskOptionLists;
+
+  /**
+   * 任务截止时间最小值，毫秒时间戳，填写则查询在此时间之后截止的任务
+   *
+   * <p>示例值：1630425599999
+   */
+  @SerializedName("after_time")
+  private String afterTime;
+
+  /**
+   * 任务截止时间最大值，毫秒时间戳，填写则查询在此时间之前截止的任务
+   *
+   * <p>示例值：1630425599999
+   */
+  @SerializedName("before_time")
+  private String beforeTime;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+   */
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：30
+   */
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  public String getSemesterId() {
+    return this.semesterId;
+  }
+
+  public void setSemesterId(String semesterId) {
+    this.semesterId = semesterId;
+  }
+
+  public Integer[] getTaskOptionLists() {
+    return this.taskOptionLists;
+  }
+
+  public void setTaskOptionLists(Integer[] taskOptionLists) {
+    this.taskOptionLists = taskOptionLists;
+  }
+
+  public String getAfterTime() {
+    return this.afterTime;
+  }
+
+  public void setAfterTime(String afterTime) {
+    this.afterTime = afterTime;
+  }
+
+  public String getBeforeTime() {
+    return this.beforeTime;
+  }
+
+  public void setBeforeTime(String beforeTime) {
+    this.beforeTime = beforeTime;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  // builder 开始
+  public FindByPageStageTaskReqBody() {}
+
+  public FindByPageStageTaskReqBody(Builder builder) {
     /**
-     * 周期ID，可以通过「查询周期」接口获得
-     * <p> 示例值：7033710017401751071
+     * 周期
+     * ID，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：7033710017401751071
      */
-    @SerializedName("semester_id")
-    private String semesterId;
+    this.semesterId = builder.semesterId;
     /**
-     * 任务分类(不传默认包含所有)
-     * <p> 示例值：
+     * 任务分类，填写则获取指定分类的任务;;;**可选项有**：;- `1`：待完成;- `2`：已完成;- `3`：已逾期（仅当租户设置不允许逾期提交时才有此分类）
+     *
+     * <p>示例值：
      */
-    @SerializedName("task_option_lists")
-    private Integer[] taskOptionLists;
+    this.taskOptionLists = builder.taskOptionLists;
     /**
-     * 查询晚于当前时间截止的环节
-     * <p> 示例值：1630425599999
+     * 任务截止时间最小值，毫秒时间戳，填写则查询在此时间之后截止的任务
+     *
+     * <p>示例值：1630425599999
      */
-    @SerializedName("after_time")
-    private String afterTime;
+    this.afterTime = builder.afterTime;
     /**
-     * 查询早于当前时间截止的环节
-     * <p> 示例值：1630425599999
+     * 任务截止时间最大值，毫秒时间戳，填写则查询在此时间之前截止的任务
+     *
+     * <p>示例值：1630425599999
      */
-    @SerializedName("before_time")
-    private String beforeTime;
+    this.beforeTime = builder.beforeTime;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+     *
+     * <p>示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
      */
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 分页大小
-     * <p> 示例值：
+     *
+     * <p>示例值：30
      */
-    @SerializedName("page_size")
+    this.pageSize = builder.pageSize;
+  }
+
+  public static class Builder {
+    /**
+     * 周期
+     * ID，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：7033710017401751071
+     */
+    private String semesterId;
+
+    /**
+     * 任务分类，填写则获取指定分类的任务;;;**可选项有**：;- `1`：待完成;- `2`：已完成;- `3`：已逾期（仅当租户设置不允许逾期提交时才有此分类）
+     *
+     * <p>示例值：
+     */
+    private Integer[] taskOptionLists;
+
+    /**
+     * 任务截止时间最小值，毫秒时间戳，填写则查询在此时间之后截止的任务
+     *
+     * <p>示例值：1630425599999
+     */
+    private String afterTime;
+
+    /**
+     * 任务截止时间最大值，毫秒时间戳，填写则查询在此时间之前截止的任务
+     *
+     * <p>示例值：1630425599999
+     */
+    private String beforeTime;
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+     */
+    private String pageToken;
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：30
+     */
     private Integer pageSize;
 
-    // builder 开始
-    public FindByPageStageTaskReqBody() {
+    /**
+     * 周期
+     * ID，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：7033710017401751071
+     *
+     * @param semesterId
+     * @return
+     */
+    public Builder semesterId(String semesterId) {
+      this.semesterId = semesterId;
+      return this;
     }
 
-    public FindByPageStageTaskReqBody(Builder builder) {
-        /**
-         * 周期ID，可以通过「查询周期」接口获得
-         * <p> 示例值：7033710017401751071
-         */
-        this.semesterId = builder.semesterId;
-        /**
-         * 任务分类(不传默认包含所有)
-         * <p> 示例值：
-         */
-        this.taskOptionLists = builder.taskOptionLists;
-        /**
-         * 查询晚于当前时间截止的环节
-         * <p> 示例值：1630425599999
-         */
-        this.afterTime = builder.afterTime;
-        /**
-         * 查询早于当前时间截止的环节
-         * <p> 示例值：1630425599999
-         */
-        this.beforeTime = builder.beforeTime;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
+    /**
+     * 任务分类，填写则获取指定分类的任务;;;**可选项有**：;- `1`：待完成;- `2`：已完成;- `3`：已逾期（仅当租户设置不允许逾期提交时才有此分类）
+     *
+     * <p>示例值：
+     *
+     * @param taskOptionLists
+     * @return
+     */
+    public Builder taskOptionLists(Integer[] taskOptionLists) {
+      this.taskOptionLists = taskOptionLists;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 任务截止时间最小值，毫秒时间戳，填写则查询在此时间之后截止的任务
+     *
+     * <p>示例值：1630425599999
+     *
+     * @param afterTime
+     * @return
+     */
+    public Builder afterTime(String afterTime) {
+      this.afterTime = afterTime;
+      return this;
     }
 
-    public String getSemesterId() {
-        return this.semesterId;
+    /**
+     * 任务截止时间最大值，毫秒时间戳，填写则查询在此时间之前截止的任务
+     *
+     * <p>示例值：1630425599999
+     *
+     * @param beforeTime
+     * @return
+     */
+    public Builder beforeTime(String beforeTime) {
+      this.beforeTime = beforeTime;
+      return this;
     }
 
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public Integer[] getTaskOptionLists() {
-        return this.taskOptionLists;
+    /**
+     * 分页大小
+     *
+     * <p>示例值：30
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public void setTaskOptionLists(Integer[] taskOptionLists) {
-        this.taskOptionLists = taskOptionLists;
+    public FindByPageStageTaskReqBody build() {
+      return new FindByPageStageTaskReqBody(this);
     }
+  }
 
-    public String getAfterTime() {
-        return this.afterTime;
-    }
-
-    public void setAfterTime(String afterTime) {
-        this.afterTime = afterTime;
-    }
-
-    public String getBeforeTime() {
-        return this.beforeTime;
-    }
-
-    public void setBeforeTime(String beforeTime) {
-        this.beforeTime = beforeTime;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public static class Builder {
-        /**
-         * 周期ID，可以通过「查询周期」接口获得
-         * <p> 示例值：7033710017401751071
-         */
-        private String semesterId;
-        /**
-         * 任务分类(不传默认包含所有)
-         * <p> 示例值：
-         */
-        private Integer[] taskOptionLists;
-        /**
-         * 查询晚于当前时间截止的环节
-         * <p> 示例值：1630425599999
-         */
-        private String afterTime;
-        /**
-         * 查询早于当前时间截止的环节
-         * <p> 示例值：1630425599999
-         */
-        private String beforeTime;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
-         */
-        private String pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：
-         */
-        private Integer pageSize;
-
-        /**
-         * 周期ID，可以通过「查询周期」接口获得
-         * <p> 示例值：7033710017401751071
-         *
-         * @param semesterId
-         * @return
-         */
-        public Builder semesterId(String semesterId) {
-            this.semesterId = semesterId;
-            return this;
-        }
-
-
-        /**
-         * 任务分类(不传默认包含所有)
-         * <p> 示例值：
-         *
-         * @param taskOptionLists
-         * @return
-         */
-        public Builder taskOptionLists(Integer[] taskOptionLists) {
-            this.taskOptionLists = taskOptionLists;
-            return this;
-        }
-
-
-        /**
-         * 查询晚于当前时间截止的环节
-         * <p> 示例值：1630425599999
-         *
-         * @param afterTime
-         * @return
-         */
-        public Builder afterTime(String afterTime) {
-            this.afterTime = afterTime;
-            return this;
-        }
-
-
-        /**
-         * 查询早于当前时间截止的环节
-         * <p> 示例值：1630425599999
-         *
-         * @param beforeTime
-         * @return
-         */
-        public Builder beforeTime(String beforeTime) {
-            this.beforeTime = beforeTime;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 分页大小
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        public FindByPageStageTaskReqBody build() {
-            return new FindByPageStageTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

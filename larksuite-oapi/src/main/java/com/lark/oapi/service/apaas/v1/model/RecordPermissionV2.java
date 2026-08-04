@@ -13,485 +13,528 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class RecordPermissionV2 {
+  /**
+   * 记录权限的api_name;;获取方式：由用户自定义;;数据校验规则：;;长度范围：0 ～ 255 字符
+   *
+   * <p>示例值：record_api_name
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 记录权限的名称
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("name")
+  private Map<String, String> name;
+
+  /**
+   * 具体所拥有的权限列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("access_permissions")
+  private Integer[] accessPermissions;
+
+  /**
+   * 记录权限的范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("record_scope")
+  private RecordScopeV2 recordScope;
+
+  /**
+   * 用户或角色范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_scope")
+  private UserScopeV2 userScope;
+
+  /**
+   * 数据对象的api_name
+   *
+   * <p>示例值：data_api_name
+   */
+  @SerializedName("data_model_api_name")
+  private String dataModelApiName;
+
+  /**
+   * 数据对象的类型，object 或 dataset
+   *
+   * <p>示例值：object
+   */
+  @SerializedName("data_model_type")
+  private String dataModelType;
+
+  /**
+   * 创建人
+   *
+   * <p>示例值：123890741274
+   */
+  @SerializedName("created_by")
+  private String createdBy;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1757845063
+   */
+  @SerializedName("created_at")
+  private Integer createdAt;
+
+  /**
+   * 更新人
+   *
+   * <p>示例值：182961296491
+   */
+  @SerializedName("updated_by")
+  private String updatedBy;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1757845063
+   */
+  @SerializedName("updated_at")
+  private Integer updatedAt;
+
+  /**
+   * 是否停用
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("disabled")
+  private Boolean disabled;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Map<String, String> getName() {
+    return this.name;
+  }
+
+  public void setName(Map<String, String> name) {
+    this.name = name;
+  }
+
+  public Integer[] getAccessPermissions() {
+    return this.accessPermissions;
+  }
+
+  public void setAccessPermissions(Integer[] accessPermissions) {
+    this.accessPermissions = accessPermissions;
+  }
+
+  public RecordScopeV2 getRecordScope() {
+    return this.recordScope;
+  }
+
+  public void setRecordScope(RecordScopeV2 recordScope) {
+    this.recordScope = recordScope;
+  }
+
+  public UserScopeV2 getUserScope() {
+    return this.userScope;
+  }
+
+  public void setUserScope(UserScopeV2 userScope) {
+    this.userScope = userScope;
+  }
+
+  public String getDataModelApiName() {
+    return this.dataModelApiName;
+  }
+
+  public void setDataModelApiName(String dataModelApiName) {
+    this.dataModelApiName = dataModelApiName;
+  }
+
+  public String getDataModelType() {
+    return this.dataModelType;
+  }
+
+  public void setDataModelType(String dataModelType) {
+    this.dataModelType = dataModelType;
+  }
+
+  public String getCreatedBy() {
+    return this.createdBy;
+  }
+
+  public void setCreatedBy(String createdBy) {
+    this.createdBy = createdBy;
+  }
+
+  public Integer getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(Integer createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getUpdatedBy() {
+    return this.updatedBy;
+  }
+
+  public void setUpdatedBy(String updatedBy) {
+    this.updatedBy = updatedBy;
+  }
+
+  public Integer getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(Integer updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public Boolean getDisabled() {
+    return this.disabled;
+  }
+
+  public void setDisabled(Boolean disabled) {
+    this.disabled = disabled;
+  }
+
+  // builder 开始
+  public RecordPermissionV2() {}
+
+  public RecordPermissionV2(Builder builder) {
     /**
-     * 记录权限的apiName
-     * <p> 示例值：record_api_name
+     * 记录权限的api_name;;获取方式：由用户自定义;;数据校验规则：;;长度范围：0 ～ 255 字符
+     *
+     * <p>示例值：record_api_name
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 记录权限的名称
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("name")
-    private Map<String, String> name;
+    this.name = builder.name;
     /**
      * 具体所拥有的权限列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("access_permissions")
-    private Integer[] accessPermissions;
+    this.accessPermissions = builder.accessPermissions;
     /**
      * 记录权限的范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("record_scope")
-    private RecordScopeV2 recordScope;
+    this.recordScope = builder.recordScope;
     /**
      * 用户或角色范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_scope")
-    private UserScopeV2 userScope;
+    this.userScope = builder.userScope;
     /**
      * 数据对象的api_name
-     * <p> 示例值：data_api_name
+     *
+     * <p>示例值：data_api_name
      */
-    @SerializedName("data_model_api_name")
-    private String dataModelApiName;
+    this.dataModelApiName = builder.dataModelApiName;
     /**
      * 数据对象的类型，object 或 dataset
-     * <p> 示例值：object
+     *
+     * <p>示例值：object
      */
-    @SerializedName("data_model_type")
-    private String dataModelType;
+    this.dataModelType = builder.dataModelType;
     /**
      * 创建人
-     * <p> 示例值：123890741274
+     *
+     * <p>示例值：123890741274
      */
-    @SerializedName("created_by")
-    private String createdBy;
+    this.createdBy = builder.createdBy;
     /**
      * 创建时间
-     * <p> 示例值：1757845063
+     *
+     * <p>示例值：1757845063
      */
-    @SerializedName("created_at")
-    private Integer createdAt;
+    this.createdAt = builder.createdAt;
     /**
      * 更新人
-     * <p> 示例值：182961296491
+     *
+     * <p>示例值：182961296491
      */
-    @SerializedName("updated_by")
-    private String updatedBy;
+    this.updatedBy = builder.updatedBy;
     /**
      * 更新时间
-     * <p> 示例值：1757845063
+     *
+     * <p>示例值：1757845063
      */
-    @SerializedName("updated_at")
-    private Integer updatedAt;
+    this.updatedAt = builder.updatedAt;
     /**
      * 是否停用
-     * <p> 示例值：
+     *
+     * <p>示例值：false
      */
-    @SerializedName("disabled")
+    this.disabled = builder.disabled;
+  }
+
+  public static class Builder {
+    /**
+     * 记录权限的api_name;;获取方式：由用户自定义;;数据校验规则：;;长度范围：0 ～ 255 字符
+     *
+     * <p>示例值：record_api_name
+     */
+    private String apiName;
+
+    /**
+     * 记录权限的名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
+    private Map<String, String> name;
+
+    /**
+     * 具体所拥有的权限列表
+     *
+     * <p>示例值：
+     */
+    private Integer[] accessPermissions;
+
+    /**
+     * 记录权限的范围
+     *
+     * <p>示例值：
+     */
+    private RecordScopeV2 recordScope;
+
+    /**
+     * 用户或角色范围
+     *
+     * <p>示例值：
+     */
+    private UserScopeV2 userScope;
+
+    /**
+     * 数据对象的api_name
+     *
+     * <p>示例值：data_api_name
+     */
+    private String dataModelApiName;
+
+    /**
+     * 数据对象的类型，object 或 dataset
+     *
+     * <p>示例值：object
+     */
+    private String dataModelType;
+
+    /**
+     * 创建人
+     *
+     * <p>示例值：123890741274
+     */
+    private String createdBy;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1757845063
+     */
+    private Integer createdAt;
+
+    /**
+     * 更新人
+     *
+     * <p>示例值：182961296491
+     */
+    private String updatedBy;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1757845063
+     */
+    private Integer updatedAt;
+
+    /**
+     * 是否停用
+     *
+     * <p>示例值：false
+     */
     private Boolean disabled;
 
-    // builder 开始
-    public RecordPermissionV2() {
+    /**
+     * 记录权限的api_name;;获取方式：由用户自定义;;数据校验规则：;;长度范围：0 ～ 255 字符
+     *
+     * <p>示例值：record_api_name
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public RecordPermissionV2(Builder builder) {
-        /**
-         * 记录权限的apiName
-         * <p> 示例值：record_api_name
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 记录权限的名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 具体所拥有的权限列表
-         * <p> 示例值：
-         */
-        this.accessPermissions = builder.accessPermissions;
-        /**
-         * 记录权限的范围
-         * <p> 示例值：
-         */
-        this.recordScope = builder.recordScope;
-        /**
-         * 用户或角色范围
-         * <p> 示例值：
-         */
-        this.userScope = builder.userScope;
-        /**
-         * 数据对象的api_name
-         * <p> 示例值：data_api_name
-         */
-        this.dataModelApiName = builder.dataModelApiName;
-        /**
-         * 数据对象的类型，object 或 dataset
-         * <p> 示例值：object
-         */
-        this.dataModelType = builder.dataModelType;
-        /**
-         * 创建人
-         * <p> 示例值：123890741274
-         */
-        this.createdBy = builder.createdBy;
-        /**
-         * 创建时间
-         * <p> 示例值：1757845063
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 更新人
-         * <p> 示例值：182961296491
-         */
-        this.updatedBy = builder.updatedBy;
-        /**
-         * 更新时间
-         * <p> 示例值：1757845063
-         */
-        this.updatedAt = builder.updatedAt;
-        /**
-         * 是否停用
-         * <p> 示例值：
-         */
-        this.disabled = builder.disabled;
+    /**
+     * 记录权限的名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(Map<String, String> name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 具体所拥有的权限列表
+     *
+     * <p>示例值：
+     *
+     * @param accessPermissions
+     * @return
+     */
+    public Builder accessPermissions(Integer[] accessPermissions) {
+      this.accessPermissions = accessPermissions;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 记录权限的范围
+     *
+     * <p>示例值：
+     *
+     * @param recordScope
+     * @return
+     */
+    public Builder recordScope(RecordScopeV2 recordScope) {
+      this.recordScope = recordScope;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    /**
+     * 用户或角色范围
+     *
+     * <p>示例值：
+     *
+     * @param userScope
+     * @return
+     */
+    public Builder userScope(UserScopeV2 userScope) {
+      this.userScope = userScope;
+      return this;
     }
 
-    public Map<String, String> getName() {
-        return this.name;
+    /**
+     * 数据对象的api_name
+     *
+     * <p>示例值：data_api_name
+     *
+     * @param dataModelApiName
+     * @return
+     */
+    public Builder dataModelApiName(String dataModelApiName) {
+      this.dataModelApiName = dataModelApiName;
+      return this;
     }
 
-    public void setName(Map<String, String> name) {
-        this.name = name;
+    /**
+     * 数据对象的类型，object 或 dataset
+     *
+     * <p>示例值：object
+     *
+     * @param dataModelType
+     * @return
+     */
+    public Builder dataModelType(String dataModelType) {
+      this.dataModelType = dataModelType;
+      return this;
     }
 
-    public Integer[] getAccessPermissions() {
-        return this.accessPermissions;
+    /**
+     * 创建人
+     *
+     * <p>示例值：123890741274
+     *
+     * @param createdBy
+     * @return
+     */
+    public Builder createdBy(String createdBy) {
+      this.createdBy = createdBy;
+      return this;
     }
 
-    public void setAccessPermissions(Integer[] accessPermissions) {
-        this.accessPermissions = accessPermissions;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1757845063
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(Integer createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public RecordScopeV2 getRecordScope() {
-        return this.recordScope;
+    /**
+     * 更新人
+     *
+     * <p>示例值：182961296491
+     *
+     * @param updatedBy
+     * @return
+     */
+    public Builder updatedBy(String updatedBy) {
+      this.updatedBy = updatedBy;
+      return this;
     }
 
-    public void setRecordScope(RecordScopeV2 recordScope) {
-        this.recordScope = recordScope;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1757845063
+     *
+     * @param updatedAt
+     * @return
+     */
+    public Builder updatedAt(Integer updatedAt) {
+      this.updatedAt = updatedAt;
+      return this;
     }
 
-    public UserScopeV2 getUserScope() {
-        return this.userScope;
+    /**
+     * 是否停用
+     *
+     * <p>示例值：false
+     *
+     * @param disabled
+     * @return
+     */
+    public Builder disabled(Boolean disabled) {
+      this.disabled = disabled;
+      return this;
     }
 
-    public void setUserScope(UserScopeV2 userScope) {
-        this.userScope = userScope;
+    public RecordPermissionV2 build() {
+      return new RecordPermissionV2(this);
     }
+  }
 
-    public String getDataModelApiName() {
-        return this.dataModelApiName;
-    }
-
-    public void setDataModelApiName(String dataModelApiName) {
-        this.dataModelApiName = dataModelApiName;
-    }
-
-    public String getDataModelType() {
-        return this.dataModelType;
-    }
-
-    public void setDataModelType(String dataModelType) {
-        this.dataModelType = dataModelType;
-    }
-
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Integer getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(Integer createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdatedBy() {
-        return this.updatedBy;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
-    public Integer getUpdatedAt() {
-        return this.updatedAt;
-    }
-
-    public void setUpdatedAt(Integer updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public Boolean getDisabled() {
-        return this.disabled;
-    }
-
-    public void setDisabled(Boolean disabled) {
-        this.disabled = disabled;
-    }
-
-    public static class Builder {
-        /**
-         * 记录权限的apiName
-         * <p> 示例值：record_api_name
-         */
-        private String apiName;
-        /**
-         * 记录权限的名称
-         * <p> 示例值：
-         */
-        private Map<String, String> name;
-        /**
-         * 具体所拥有的权限列表
-         * <p> 示例值：
-         */
-        private Integer[] accessPermissions;
-        /**
-         * 记录权限的范围
-         * <p> 示例值：
-         */
-        private RecordScopeV2 recordScope;
-        /**
-         * 用户或角色范围
-         * <p> 示例值：
-         */
-        private UserScopeV2 userScope;
-        /**
-         * 数据对象的api_name
-         * <p> 示例值：data_api_name
-         */
-        private String dataModelApiName;
-        /**
-         * 数据对象的类型，object 或 dataset
-         * <p> 示例值：object
-         */
-        private String dataModelType;
-        /**
-         * 创建人
-         * <p> 示例值：123890741274
-         */
-        private String createdBy;
-        /**
-         * 创建时间
-         * <p> 示例值：1757845063
-         */
-        private Integer createdAt;
-        /**
-         * 更新人
-         * <p> 示例值：182961296491
-         */
-        private String updatedBy;
-        /**
-         * 更新时间
-         * <p> 示例值：1757845063
-         */
-        private Integer updatedAt;
-        /**
-         * 是否停用
-         * <p> 示例值：
-         */
-        private Boolean disabled;
-
-        /**
-         * 记录权限的apiName
-         * <p> 示例值：record_api_name
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 记录权限的名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(Map<String, String> name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 具体所拥有的权限列表
-         * <p> 示例值：
-         *
-         * @param accessPermissions
-         * @return
-         */
-        public Builder accessPermissions(Integer[] accessPermissions) {
-            this.accessPermissions = accessPermissions;
-            return this;
-        }
-
-
-        /**
-         * 记录权限的范围
-         * <p> 示例值：
-         *
-         * @param recordScope
-         * @return
-         */
-        public Builder recordScope(RecordScopeV2 recordScope) {
-            this.recordScope = recordScope;
-            return this;
-        }
-
-
-        /**
-         * 用户或角色范围
-         * <p> 示例值：
-         *
-         * @param userScope
-         * @return
-         */
-        public Builder userScope(UserScopeV2 userScope) {
-            this.userScope = userScope;
-            return this;
-        }
-
-
-        /**
-         * 数据对象的api_name
-         * <p> 示例值：data_api_name
-         *
-         * @param dataModelApiName
-         * @return
-         */
-        public Builder dataModelApiName(String dataModelApiName) {
-            this.dataModelApiName = dataModelApiName;
-            return this;
-        }
-
-
-        /**
-         * 数据对象的类型，object 或 dataset
-         * <p> 示例值：object
-         *
-         * @param dataModelType
-         * @return
-         */
-        public Builder dataModelType(String dataModelType) {
-            this.dataModelType = dataModelType;
-            return this;
-        }
-
-
-        /**
-         * 创建人
-         * <p> 示例值：123890741274
-         *
-         * @param createdBy
-         * @return
-         */
-        public Builder createdBy(String createdBy) {
-            this.createdBy = createdBy;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1757845063
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(Integer createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 更新人
-         * <p> 示例值：182961296491
-         *
-         * @param updatedBy
-         * @return
-         */
-        public Builder updatedBy(String updatedBy) {
-            this.updatedBy = updatedBy;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1757845063
-         *
-         * @param updatedAt
-         * @return
-         */
-        public Builder updatedAt(Integer updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
-        }
-
-
-        /**
-         * 是否停用
-         * <p> 示例值：
-         *
-         * @param disabled
-         * @return
-         */
-        public Builder disabled(Boolean disabled) {
-            this.disabled = disabled;
-            return this;
-        }
-
-
-        public RecordPermissionV2 build() {
-            return new RecordPermissionV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

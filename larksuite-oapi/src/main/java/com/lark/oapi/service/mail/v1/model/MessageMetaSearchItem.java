@@ -13,445 +13,485 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageMetaSearchItem {
+  /**
+   * 创建时间戳
+   *
+   * <p>示例值：1698729600
+   */
+  @SerializedName("created_timestamp")
+  private String createdTimestamp;
+
+  /**
+   * 所有者
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("owner")
+  private String owner;
+
+  /**
+   * 所有者ID
+   *
+   * <p>示例值：U_123456789
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  /**
+   * 主题
+   *
+   * <p>示例值：关于Q4季度项目进度的同步通知
+   */
+  @SerializedName("subject")
+  private String subject;
+
+  /**
+   * 发件人
+   *
+   * <p>示例值：zhangsan@example.com
+   */
+  @SerializedName("mail_from")
+  private String mailFrom;
+
+  /**
+   * 收件人
+   *
+   * <p>示例值：lisi@example.com,wangwu@example.com
+   */
+  @SerializedName("mail_to")
+  private String mailTo;
+
+  /**
+   * 消息ID
+   *
+   * <p>示例值：<1234567890.1.1698729600@example.com>
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 线程ID
+   *
+   * <p>示例值：thread_9876543210
+   */
+  @SerializedName("thread_id")
+  private String threadId;
+
+  /**
+   * 消息业务ID
+   *
+   * <p>示例值：biz_msg_20231031001
+   */
+  @SerializedName("message_biz_id")
+  private String messageBizId;
+
+  /**
+   * 条目ID
+   *
+   * <p>示例值：item_1000000001
+   */
+  @SerializedName("item_id")
+  private String itemId;
+
+  public String getCreatedTimestamp() {
+    return this.createdTimestamp;
+  }
+
+  public void setCreatedTimestamp(String createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+  }
+
+  public String getOwner() {
+    return this.owner;
+  }
+
+  public void setOwner(String owner) {
+    this.owner = owner;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public String getSubject() {
+    return this.subject;
+  }
+
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
+
+  public String getMailFrom() {
+    return this.mailFrom;
+  }
+
+  public void setMailFrom(String mailFrom) {
+    this.mailFrom = mailFrom;
+  }
+
+  public String getMailTo() {
+    return this.mailTo;
+  }
+
+  public void setMailTo(String mailTo) {
+    this.mailTo = mailTo;
+  }
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getThreadId() {
+    return this.threadId;
+  }
+
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
+
+  public String getMessageBizId() {
+    return this.messageBizId;
+  }
+
+  public void setMessageBizId(String messageBizId) {
+    this.messageBizId = messageBizId;
+  }
+
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  public void setItemId(String itemId) {
+    this.itemId = itemId;
+  }
+
+  // builder 开始
+  public MessageMetaSearchItem() {}
+
+  public MessageMetaSearchItem(Builder builder) {
     /**
      * 创建时间戳
-     * <p> 示例值：1698729600
+     *
+     * <p>示例值：1698729600
      */
-    @SerializedName("created_timestamp")
-    private String createdTimestamp;
+    this.createdTimestamp = builder.createdTimestamp;
     /**
      * 所有者
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("owner")
-    private String owner;
+    this.owner = builder.owner;
     /**
      * 所有者ID
-     * <p> 示例值：U_123456789
+     *
+     * <p>示例值：U_123456789
      */
-    @SerializedName("owner_id")
-    private String ownerId;
+    this.ownerId = builder.ownerId;
     /**
      * 主题
-     * <p> 示例值：关于Q4季度项目进度的同步通知
+     *
+     * <p>示例值：关于Q4季度项目进度的同步通知
      */
-    @SerializedName("subject")
-    private String subject;
+    this.subject = builder.subject;
     /**
      * 发件人
-     * <p> 示例值：zhangsan@example.com
+     *
+     * <p>示例值：zhangsan@example.com
      */
-    @SerializedName("mail_from")
-    private String mailFrom;
+    this.mailFrom = builder.mailFrom;
     /**
      * 收件人
-     * <p> 示例值：lisi@example.com,wangwu@example.com
+     *
+     * <p>示例值：lisi@example.com,wangwu@example.com
      */
-    @SerializedName("mail_to")
-    private String mailTo;
+    this.mailTo = builder.mailTo;
     /**
      * 消息ID
-     * <p> 示例值：<1234567890.1.1698729600@example.com>
+     *
+     * <p>示例值：<1234567890.1.1698729600@example.com>
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * 状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 线程ID
-     * <p> 示例值：thread_9876543210
+     *
+     * <p>示例值：thread_9876543210
      */
-    @SerializedName("thread_id")
-    private String threadId;
+    this.threadId = builder.threadId;
     /**
      * 消息业务ID
-     * <p> 示例值：biz_msg_20231031001
+     *
+     * <p>示例值：biz_msg_20231031001
      */
-    @SerializedName("message_biz_id")
-    private String messageBizId;
+    this.messageBizId = builder.messageBizId;
     /**
      * 条目ID
-     * <p> 示例值：item_1000000001
+     *
+     * <p>示例值：item_1000000001
      */
-    @SerializedName("item_id")
+    this.itemId = builder.itemId;
+  }
+
+  public static class Builder {
+    /**
+     * 创建时间戳
+     *
+     * <p>示例值：1698729600
+     */
+    private String createdTimestamp;
+
+    /**
+     * 所有者
+     *
+     * <p>示例值：张三
+     */
+    private String owner;
+
+    /**
+     * 所有者ID
+     *
+     * <p>示例值：U_123456789
+     */
+    private String ownerId;
+
+    /**
+     * 主题
+     *
+     * <p>示例值：关于Q4季度项目进度的同步通知
+     */
+    private String subject;
+
+    /**
+     * 发件人
+     *
+     * <p>示例值：zhangsan@example.com
+     */
+    private String mailFrom;
+
+    /**
+     * 收件人
+     *
+     * <p>示例值：lisi@example.com,wangwu@example.com
+     */
+    private String mailTo;
+
+    /**
+     * 消息ID
+     *
+     * <p>示例值：<1234567890.1.1698729600@example.com>
+     */
+    private String messageId;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：0
+     */
+    private Integer status;
+
+    /**
+     * 线程ID
+     *
+     * <p>示例值：thread_9876543210
+     */
+    private String threadId;
+
+    /**
+     * 消息业务ID
+     *
+     * <p>示例值：biz_msg_20231031001
+     */
+    private String messageBizId;
+
+    /**
+     * 条目ID
+     *
+     * <p>示例值：item_1000000001
+     */
     private String itemId;
 
-    // builder 开始
-    public MessageMetaSearchItem() {
+    /**
+     * 创建时间戳
+     *
+     * <p>示例值：1698729600
+     *
+     * @param createdTimestamp
+     * @return
+     */
+    public Builder createdTimestamp(String createdTimestamp) {
+      this.createdTimestamp = createdTimestamp;
+      return this;
     }
 
-    public MessageMetaSearchItem(Builder builder) {
-        /**
-         * 创建时间戳
-         * <p> 示例值：1698729600
-         */
-        this.createdTimestamp = builder.createdTimestamp;
-        /**
-         * 所有者
-         * <p> 示例值：张三
-         */
-        this.owner = builder.owner;
-        /**
-         * 所有者ID
-         * <p> 示例值：U_123456789
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 主题
-         * <p> 示例值：关于Q4季度项目进度的同步通知
-         */
-        this.subject = builder.subject;
-        /**
-         * 发件人
-         * <p> 示例值：zhangsan@example.com
-         */
-        this.mailFrom = builder.mailFrom;
-        /**
-         * 收件人
-         * <p> 示例值：lisi@example.com,wangwu@example.com
-         */
-        this.mailTo = builder.mailTo;
-        /**
-         * 消息ID
-         * <p> 示例值：<1234567890.1.1698729600@example.com>
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 状态
-         * <p> 示例值：0
-         */
-        this.status = builder.status;
-        /**
-         * 线程ID
-         * <p> 示例值：thread_9876543210
-         */
-        this.threadId = builder.threadId;
-        /**
-         * 消息业务ID
-         * <p> 示例值：biz_msg_20231031001
-         */
-        this.messageBizId = builder.messageBizId;
-        /**
-         * 条目ID
-         * <p> 示例值：item_1000000001
-         */
-        this.itemId = builder.itemId;
+    /**
+     * 所有者
+     *
+     * <p>示例值：张三
+     *
+     * @param owner
+     * @return
+     */
+    public Builder owner(String owner) {
+      this.owner = owner;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 所有者ID
+     *
+     * <p>示例值：U_123456789
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public String getCreatedTimestamp() {
-        return this.createdTimestamp;
+    /**
+     * 主题
+     *
+     * <p>示例值：关于Q4季度项目进度的同步通知
+     *
+     * @param subject
+     * @return
+     */
+    public Builder subject(String subject) {
+      this.subject = subject;
+      return this;
     }
 
-    public void setCreatedTimestamp(String createdTimestamp) {
-        this.createdTimestamp = createdTimestamp;
+    /**
+     * 发件人
+     *
+     * <p>示例值：zhangsan@example.com
+     *
+     * @param mailFrom
+     * @return
+     */
+    public Builder mailFrom(String mailFrom) {
+      this.mailFrom = mailFrom;
+      return this;
     }
 
-    public String getOwner() {
-        return this.owner;
+    /**
+     * 收件人
+     *
+     * <p>示例值：lisi@example.com,wangwu@example.com
+     *
+     * @param mailTo
+     * @return
+     */
+    public Builder mailTo(String mailTo) {
+      this.mailTo = mailTo;
+      return this;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
+    /**
+     * 消息ID
+     *
+     * <p>示例值：<1234567890.1.1698729600@example.com>
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public String getOwnerId() {
-        return this.ownerId;
+    /**
+     * 状态
+     *
+     * <p>示例值：0
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
+    /**
+     * 线程ID
+     *
+     * <p>示例值：thread_9876543210
+     *
+     * @param threadId
+     * @return
+     */
+    public Builder threadId(String threadId) {
+      this.threadId = threadId;
+      return this;
     }
 
-    public String getSubject() {
-        return this.subject;
+    /**
+     * 消息业务ID
+     *
+     * <p>示例值：biz_msg_20231031001
+     *
+     * @param messageBizId
+     * @return
+     */
+    public Builder messageBizId(String messageBizId) {
+      this.messageBizId = messageBizId;
+      return this;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    /**
+     * 条目ID
+     *
+     * <p>示例值：item_1000000001
+     *
+     * @param itemId
+     * @return
+     */
+    public Builder itemId(String itemId) {
+      this.itemId = itemId;
+      return this;
     }
 
-    public String getMailFrom() {
-        return this.mailFrom;
+    public MessageMetaSearchItem build() {
+      return new MessageMetaSearchItem(this);
     }
+  }
 
-    public void setMailFrom(String mailFrom) {
-        this.mailFrom = mailFrom;
-    }
-
-    public String getMailTo() {
-        return this.mailTo;
-    }
-
-    public void setMailTo(String mailTo) {
-        this.mailTo = mailTo;
-    }
-
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getThreadId() {
-        return this.threadId;
-    }
-
-    public void setThreadId(String threadId) {
-        this.threadId = threadId;
-    }
-
-    public String getMessageBizId() {
-        return this.messageBizId;
-    }
-
-    public void setMessageBizId(String messageBizId) {
-        this.messageBizId = messageBizId;
-    }
-
-    public String getItemId() {
-        return this.itemId;
-    }
-
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
-    }
-
-    public static class Builder {
-        /**
-         * 创建时间戳
-         * <p> 示例值：1698729600
-         */
-        private String createdTimestamp;
-        /**
-         * 所有者
-         * <p> 示例值：张三
-         */
-        private String owner;
-        /**
-         * 所有者ID
-         * <p> 示例值：U_123456789
-         */
-        private String ownerId;
-        /**
-         * 主题
-         * <p> 示例值：关于Q4季度项目进度的同步通知
-         */
-        private String subject;
-        /**
-         * 发件人
-         * <p> 示例值：zhangsan@example.com
-         */
-        private String mailFrom;
-        /**
-         * 收件人
-         * <p> 示例值：lisi@example.com,wangwu@example.com
-         */
-        private String mailTo;
-        /**
-         * 消息ID
-         * <p> 示例值：<1234567890.1.1698729600@example.com>
-         */
-        private String messageId;
-        /**
-         * 状态
-         * <p> 示例值：0
-         */
-        private Integer status;
-        /**
-         * 线程ID
-         * <p> 示例值：thread_9876543210
-         */
-        private String threadId;
-        /**
-         * 消息业务ID
-         * <p> 示例值：biz_msg_20231031001
-         */
-        private String messageBizId;
-        /**
-         * 条目ID
-         * <p> 示例值：item_1000000001
-         */
-        private String itemId;
-
-        /**
-         * 创建时间戳
-         * <p> 示例值：1698729600
-         *
-         * @param createdTimestamp
-         * @return
-         */
-        public Builder createdTimestamp(String createdTimestamp) {
-            this.createdTimestamp = createdTimestamp;
-            return this;
-        }
-
-
-        /**
-         * 所有者
-         * <p> 示例值：张三
-         *
-         * @param owner
-         * @return
-         */
-        public Builder owner(String owner) {
-            this.owner = owner;
-            return this;
-        }
-
-
-        /**
-         * 所有者ID
-         * <p> 示例值：U_123456789
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        /**
-         * 主题
-         * <p> 示例值：关于Q4季度项目进度的同步通知
-         *
-         * @param subject
-         * @return
-         */
-        public Builder subject(String subject) {
-            this.subject = subject;
-            return this;
-        }
-
-
-        /**
-         * 发件人
-         * <p> 示例值：zhangsan@example.com
-         *
-         * @param mailFrom
-         * @return
-         */
-        public Builder mailFrom(String mailFrom) {
-            this.mailFrom = mailFrom;
-            return this;
-        }
-
-
-        /**
-         * 收件人
-         * <p> 示例值：lisi@example.com,wangwu@example.com
-         *
-         * @param mailTo
-         * @return
-         */
-        public Builder mailTo(String mailTo) {
-            this.mailTo = mailTo;
-            return this;
-        }
-
-
-        /**
-         * 消息ID
-         * <p> 示例值：<1234567890.1.1698729600@example.com>
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：0
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 线程ID
-         * <p> 示例值：thread_9876543210
-         *
-         * @param threadId
-         * @return
-         */
-        public Builder threadId(String threadId) {
-            this.threadId = threadId;
-            return this;
-        }
-
-
-        /**
-         * 消息业务ID
-         * <p> 示例值：biz_msg_20231031001
-         *
-         * @param messageBizId
-         * @return
-         */
-        public Builder messageBizId(String messageBizId) {
-            this.messageBizId = messageBizId;
-            return this;
-        }
-
-
-        /**
-         * 条目ID
-         * <p> 示例值：item_1000000001
-         *
-         * @param itemId
-         * @return
-         */
-        public Builder itemId(String itemId) {
-            this.itemId = itemId;
-            return this;
-        }
-
-
-        public MessageMetaSearchItem build() {
-            return new MessageMetaSearchItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

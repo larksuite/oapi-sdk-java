@@ -13,90 +13,86 @@
 
 package com.lark.oapi.service.auth.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2UserAccessTokenRevokedV4Data {
-    /**
-     * 撤销token的类型
-     * <p> 示例值：user_access_token refresh_token
-     */
-    @SerializedName("revoke_token_type")
-    private String revokeTokenType;
-    /**
-     * 撤销token的原因
-     * <p> 示例值：Revoked by security and risk control action.
-     */
-    @SerializedName("revoke_reason")
-    private String revokeReason;
-    /**
-     * 用户open_id
-     * <p> 示例值：ou_c99c5f35d542efc7ee492afe11af19ef
-     */
-    @SerializedName("open_id")
-    private String openId;
-    /**
-     * 用户union_id
-     * <p> 示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
-     */
-    @SerializedName("union_id")
-    private String unionId;
-    /**
-     * 租户内用户的唯一标识
-     * <p> 示例值：gg895344
-     */
-    @SerializedName("user_id")
-    private String userId;
+  /**
+   * 撤销token的类型
+   *
+   * <p>示例值：user_access_token refresh_token
+   */
+  @SerializedName("revoke_token_type")
+  private String revokeTokenType;
 
-    public String getRevokeTokenType() {
-        return this.revokeTokenType;
-    }
+  /**
+   * 撤销token的原因
+   *
+   * <p>示例值：Revoked by security and risk control action.
+   */
+  @SerializedName("revoke_reason")
+  private String revokeReason;
 
-    public void setRevokeTokenType(String revokeTokenType) {
-        this.revokeTokenType = revokeTokenType;
-    }
+  /**
+   * 用户open_id
+   *
+   * <p>示例值：ou_c99c5f35d542efc7ee492afe11af19ef
+   */
+  @SerializedName("open_id")
+  private String openId;
 
-    public String getRevokeReason() {
-        return this.revokeReason;
-    }
+  /**
+   * 用户union_id
+   *
+   * <p>示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
+   */
+  @SerializedName("union_id")
+  private String unionId;
 
-    public void setRevokeReason(String revokeReason) {
-        this.revokeReason = revokeReason;
-    }
+  /**
+   * 租户内用户的唯一标识
+   *
+   * <p>示例值：gg895344
+   */
+  @SerializedName("user_id")
+  private String userId;
 
-    public String getOpenId() {
-        return this.openId;
-    }
+  public String getRevokeTokenType() {
+    return this.revokeTokenType;
+  }
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
+  public void setRevokeTokenType(String revokeTokenType) {
+    this.revokeTokenType = revokeTokenType;
+  }
 
-    public String getUnionId() {
-        return this.unionId;
-    }
+  public String getRevokeReason() {
+    return this.revokeReason;
+  }
 
-    public void setUnionId(String unionId) {
-        this.unionId = unionId;
-    }
+  public void setRevokeReason(String revokeReason) {
+    this.revokeReason = revokeReason;
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
+  public String getOpenId() {
+    return this.openId;
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
 
+  public String getUnionId() {
+    return this.unionId;
+  }
+
+  public void setUnionId(String unionId) {
+    this.unionId = unionId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
 }

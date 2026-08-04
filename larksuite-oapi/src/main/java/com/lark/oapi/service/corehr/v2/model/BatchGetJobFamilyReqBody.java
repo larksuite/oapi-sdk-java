@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchGetJobFamilyReqBody {
+  /**
+   * 序列ID列表。;- 序列 ID 列表和序列 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+   * ID获取方式：调用[【创建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_family_ids")
+  private String[] jobFamilyIds;
+
+  /**
+   * 序列 Code 列表。;- 序列 ID 列表和序列 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+   * Code获取方式：调用[【创建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列Code
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_family_codes")
+  private String[] jobFamilyCodes;
+
+  public String[] getJobFamilyIds() {
+    return this.jobFamilyIds;
+  }
+
+  public void setJobFamilyIds(String[] jobFamilyIds) {
+    this.jobFamilyIds = jobFamilyIds;
+  }
+
+  public String[] getJobFamilyCodes() {
+    return this.jobFamilyCodes;
+  }
+
+  public void setJobFamilyCodes(String[] jobFamilyCodes) {
+    this.jobFamilyCodes = jobFamilyCodes;
+  }
+
+  // builder 开始
+  public BatchGetJobFamilyReqBody() {}
+
+  public BatchGetJobFamilyReqBody(Builder builder) {
     /**
-     * 序列 ID 列表
-     * <p> 示例值：
+     * 序列ID列表。;- 序列 ID 列表和序列 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+     * ID获取方式：调用[【创建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_family_ids")
+    this.jobFamilyIds = builder.jobFamilyIds;
+    /**
+     * 序列 Code 列表。;- 序列 ID 列表和序列 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+     * Code获取方式：调用[【创建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列Code
+     *
+     * <p>示例值：
+     */
+    this.jobFamilyCodes = builder.jobFamilyCodes;
+  }
+
+  public static class Builder {
+    /**
+     * 序列ID列表。;- 序列 ID 列表和序列 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+     * ID获取方式：调用[【创建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列ID
+     *
+     * <p>示例值：
+     */
     private String[] jobFamilyIds;
+
     /**
-     * 序列 Code 列表
-     * <p> 示例值：
+     * 序列 Code 列表。;- 序列 ID 列表和序列 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+     * Code获取方式：调用[【创建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列Code
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_family_codes")
     private String[] jobFamilyCodes;
 
-    // builder 开始
-    public BatchGetJobFamilyReqBody() {
+    /**
+     * 序列ID列表。;- 序列 ID 列表和序列 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+     * ID获取方式：调用[【创建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列ID
+     *
+     * <p>示例值：
+     *
+     * @param jobFamilyIds
+     * @return
+     */
+    public Builder jobFamilyIds(String[] jobFamilyIds) {
+      this.jobFamilyIds = jobFamilyIds;
+      return this;
     }
 
-    public BatchGetJobFamilyReqBody(Builder builder) {
-        /**
-         * 序列 ID 列表
-         * <p> 示例值：
-         */
-        this.jobFamilyIds = builder.jobFamilyIds;
-        /**
-         * 序列 Code 列表
-         * <p> 示例值：
-         */
-        this.jobFamilyCodes = builder.jobFamilyCodes;
+    /**
+     * 序列 Code 列表。;- 序列 ID 列表和序列 Code 列表至少有一项有值，否则接口将调用失败。;- 未设置时表示不筛选该条件;-
+     * Code获取方式：调用[【创建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列Code
+     *
+     * <p>示例值：
+     *
+     * @param jobFamilyCodes
+     * @return
+     */
+    public Builder jobFamilyCodes(String[] jobFamilyCodes) {
+      this.jobFamilyCodes = jobFamilyCodes;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BatchGetJobFamilyReqBody build() {
+      return new BatchGetJobFamilyReqBody(this);
     }
+  }
 
-    public String[] getJobFamilyIds() {
-        return this.jobFamilyIds;
-    }
-
-    public void setJobFamilyIds(String[] jobFamilyIds) {
-        this.jobFamilyIds = jobFamilyIds;
-    }
-
-    public String[] getJobFamilyCodes() {
-        return this.jobFamilyCodes;
-    }
-
-    public void setJobFamilyCodes(String[] jobFamilyCodes) {
-        this.jobFamilyCodes = jobFamilyCodes;
-    }
-
-    public static class Builder {
-        /**
-         * 序列 ID 列表
-         * <p> 示例值：
-         */
-        private String[] jobFamilyIds;
-        /**
-         * 序列 Code 列表
-         * <p> 示例值：
-         */
-        private String[] jobFamilyCodes;
-
-        /**
-         * 序列 ID 列表
-         * <p> 示例值：
-         *
-         * @param jobFamilyIds
-         * @return
-         */
-        public Builder jobFamilyIds(String[] jobFamilyIds) {
-            this.jobFamilyIds = jobFamilyIds;
-            return this;
-        }
-
-
-        /**
-         * 序列 Code 列表
-         * <p> 示例值：
-         *
-         * @param jobFamilyCodes
-         * @return
-         */
-        public Builder jobFamilyCodes(String[] jobFamilyCodes) {
-            this.jobFamilyCodes = jobFamilyCodes;
-            return this;
-        }
-
-
-        public BatchGetJobFamilyReqBody build() {
-            return new BatchGetJobFamilyReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

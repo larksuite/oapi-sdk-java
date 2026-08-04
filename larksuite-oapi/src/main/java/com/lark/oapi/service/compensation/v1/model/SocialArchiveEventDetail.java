@@ -13,259 +13,281 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SocialArchiveEventDetail {
+  /**
+   * 参保档案类型
+   *
+   * <p>示例值：social_insurance
+   */
+  @SerializedName("insurance_type")
+  private String insuranceType;
+
+  /**
+   * 档案变更类型
+   *
+   * <p>示例值：increase
+   */
+  @SerializedName("operate_type")
+  private String operateType;
+
+  /**
+   * 变更事件来源
+   *
+   * <p>示例值：new_join
+   */
+  @SerializedName("source_type")
+  private String sourceType;
+
+  /**
+   * 参保档案
+   *
+   * <p>示例值：
+   */
+  @SerializedName("after_social_archive_detail")
+  private SocialArchiveDetail afterSocialArchiveDetail;
+
+  /**
+   * 参保档案
+   *
+   * <p>示例值：
+   */
+  @SerializedName("before_social_archive_detail")
+  private SocialArchiveDetail beforeSocialArchiveDetail;
+
+  public String getInsuranceType() {
+    return this.insuranceType;
+  }
+
+  public void setInsuranceType(String insuranceType) {
+    this.insuranceType = insuranceType;
+  }
+
+  public String getOperateType() {
+    return this.operateType;
+  }
+
+  public void setOperateType(String operateType) {
+    this.operateType = operateType;
+  }
+
+  public String getSourceType() {
+    return this.sourceType;
+  }
+
+  public void setSourceType(String sourceType) {
+    this.sourceType = sourceType;
+  }
+
+  public SocialArchiveDetail getAfterSocialArchiveDetail() {
+    return this.afterSocialArchiveDetail;
+  }
+
+  public void setAfterSocialArchiveDetail(SocialArchiveDetail afterSocialArchiveDetail) {
+    this.afterSocialArchiveDetail = afterSocialArchiveDetail;
+  }
+
+  public SocialArchiveDetail getBeforeSocialArchiveDetail() {
+    return this.beforeSocialArchiveDetail;
+  }
+
+  public void setBeforeSocialArchiveDetail(SocialArchiveDetail beforeSocialArchiveDetail) {
+    this.beforeSocialArchiveDetail = beforeSocialArchiveDetail;
+  }
+
+  // builder 开始
+  public SocialArchiveEventDetail() {}
+
+  public SocialArchiveEventDetail(Builder builder) {
     /**
-     * 社保档案类型。social_insurance社保、provident_fund公积金
-     * <p> 示例值：social_insurance
+     * 参保档案类型
+     *
+     * <p>示例值：social_insurance
      */
-    @SerializedName("insurance_type")
+    this.insuranceType = builder.insuranceType;
+    /**
+     * 档案变更类型
+     *
+     * <p>示例值：increase
+     */
+    this.operateType = builder.operateType;
+    /**
+     * 变更事件来源
+     *
+     * <p>示例值：new_join
+     */
+    this.sourceType = builder.sourceType;
+    /**
+     * 参保档案
+     *
+     * <p>示例值：
+     */
+    this.afterSocialArchiveDetail = builder.afterSocialArchiveDetail;
+    /**
+     * 参保档案
+     *
+     * <p>示例值：
+     */
+    this.beforeSocialArchiveDetail = builder.beforeSocialArchiveDetail;
+  }
+
+  public static class Builder {
+    /**
+     * 参保档案类型
+     *
+     * <p>示例值：social_insurance
+     */
     private String insuranceType;
+
     /**
-     * 档案变更类型。increase新增、adjust调整、delete删除
-     * <p> 示例值：add
+     * 档案变更类型
+     *
+     * <p>示例值：increase
      */
-    @SerializedName("operate_type")
     private String operateType;
+
     /**
-     * 变更事件来源。new_join增员、intern_to_official实习生转正、employee_type_change雇员类型变更、dismission离职、job_change变更、import_increase增员导入、import_adjust调整导入、manual_edit手动编辑、manual_adjust手动调整、manual_delete手动删除、to_attrition_import待减员导入新增、plan_sync_arc方案同步档案
-     * <p> 示例值：new_join
+     * 变更事件来源
+     *
+     * <p>示例值：new_join
      */
-    @SerializedName("source_type")
     private String sourceType;
+
     /**
      * 参保档案
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("after_social_archive_detail")
     private SocialArchiveDetail afterSocialArchiveDetail;
+
     /**
      * 参保档案
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("before_social_archive_detail")
     private SocialArchiveDetail beforeSocialArchiveDetail;
 
-    // builder 开始
-    public SocialArchiveEventDetail() {
+    /**
+     * 参保档案类型
+     *
+     * <p>示例值：social_insurance
+     *
+     * @param insuranceType
+     * @return
+     */
+    public Builder insuranceType(String insuranceType) {
+      this.insuranceType = insuranceType;
+      return this;
     }
 
-    public SocialArchiveEventDetail(Builder builder) {
-        /**
-         * 社保档案类型。social_insurance社保、provident_fund公积金
-         * <p> 示例值：social_insurance
-         */
-        this.insuranceType = builder.insuranceType;
-        /**
-         * 档案变更类型。increase新增、adjust调整、delete删除
-         * <p> 示例值：add
-         */
-        this.operateType = builder.operateType;
-        /**
-         * 变更事件来源。new_join增员、intern_to_official实习生转正、employee_type_change雇员类型变更、dismission离职、job_change变更、import_increase增员导入、import_adjust调整导入、manual_edit手动编辑、manual_adjust手动调整、manual_delete手动删除、to_attrition_import待减员导入新增、plan_sync_arc方案同步档案
-         * <p> 示例值：new_join
-         */
-        this.sourceType = builder.sourceType;
-        /**
-         * 参保档案
-         * <p> 示例值：
-         */
-        this.afterSocialArchiveDetail = builder.afterSocialArchiveDetail;
-        /**
-         * 参保档案
-         * <p> 示例值：
-         */
-        this.beforeSocialArchiveDetail = builder.beforeSocialArchiveDetail;
+    /**
+     * 参保档案类型
+     *
+     * <p>示例值：social_insurance
+     *
+     * @param insuranceType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailInsuranceTypeEnum}
+     * @return
+     */
+    public Builder insuranceType(
+        com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailInsuranceTypeEnum
+            insuranceType) {
+      this.insuranceType = insuranceType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 档案变更类型
+     *
+     * <p>示例值：increase
+     *
+     * @param operateType
+     * @return
+     */
+    public Builder operateType(String operateType) {
+      this.operateType = operateType;
+      return this;
     }
 
-    public String getInsuranceType() {
-        return this.insuranceType;
+    /**
+     * 档案变更类型
+     *
+     * <p>示例值：increase
+     *
+     * @param operateType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailOperateTypeEnum}
+     * @return
+     */
+    public Builder operateType(
+        com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailOperateTypeEnum
+            operateType) {
+      this.operateType = operateType.getValue();
+      return this;
     }
 
-    public void setInsuranceType(String insuranceType) {
-        this.insuranceType = insuranceType;
+    /**
+     * 变更事件来源
+     *
+     * <p>示例值：new_join
+     *
+     * @param sourceType
+     * @return
+     */
+    public Builder sourceType(String sourceType) {
+      this.sourceType = sourceType;
+      return this;
     }
 
-    public String getOperateType() {
-        return this.operateType;
+    /**
+     * 变更事件来源
+     *
+     * <p>示例值：new_join
+     *
+     * @param sourceType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailSourceTypeEnum}
+     * @return
+     */
+    public Builder sourceType(
+        com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailSourceTypeEnum
+            sourceType) {
+      this.sourceType = sourceType.getValue();
+      return this;
     }
 
-    public void setOperateType(String operateType) {
-        this.operateType = operateType;
+    /**
+     * 参保档案
+     *
+     * <p>示例值：
+     *
+     * @param afterSocialArchiveDetail
+     * @return
+     */
+    public Builder afterSocialArchiveDetail(SocialArchiveDetail afterSocialArchiveDetail) {
+      this.afterSocialArchiveDetail = afterSocialArchiveDetail;
+      return this;
     }
 
-    public String getSourceType() {
-        return this.sourceType;
+    /**
+     * 参保档案
+     *
+     * <p>示例值：
+     *
+     * @param beforeSocialArchiveDetail
+     * @return
+     */
+    public Builder beforeSocialArchiveDetail(SocialArchiveDetail beforeSocialArchiveDetail) {
+      this.beforeSocialArchiveDetail = beforeSocialArchiveDetail;
+      return this;
     }
 
-    public void setSourceType(String sourceType) {
-        this.sourceType = sourceType;
+    public SocialArchiveEventDetail build() {
+      return new SocialArchiveEventDetail(this);
     }
+  }
 
-    public SocialArchiveDetail getAfterSocialArchiveDetail() {
-        return this.afterSocialArchiveDetail;
-    }
-
-    public void setAfterSocialArchiveDetail(SocialArchiveDetail afterSocialArchiveDetail) {
-        this.afterSocialArchiveDetail = afterSocialArchiveDetail;
-    }
-
-    public SocialArchiveDetail getBeforeSocialArchiveDetail() {
-        return this.beforeSocialArchiveDetail;
-    }
-
-    public void setBeforeSocialArchiveDetail(SocialArchiveDetail beforeSocialArchiveDetail) {
-        this.beforeSocialArchiveDetail = beforeSocialArchiveDetail;
-    }
-
-    public static class Builder {
-        /**
-         * 社保档案类型。social_insurance社保、provident_fund公积金
-         * <p> 示例值：social_insurance
-         */
-        private String insuranceType;
-        /**
-         * 档案变更类型。increase新增、adjust调整、delete删除
-         * <p> 示例值：add
-         */
-        private String operateType;
-        /**
-         * 变更事件来源。new_join增员、intern_to_official实习生转正、employee_type_change雇员类型变更、dismission离职、job_change变更、import_increase增员导入、import_adjust调整导入、manual_edit手动编辑、manual_adjust手动调整、manual_delete手动删除、to_attrition_import待减员导入新增、plan_sync_arc方案同步档案
-         * <p> 示例值：new_join
-         */
-        private String sourceType;
-        /**
-         * 参保档案
-         * <p> 示例值：
-         */
-        private SocialArchiveDetail afterSocialArchiveDetail;
-        /**
-         * 参保档案
-         * <p> 示例值：
-         */
-        private SocialArchiveDetail beforeSocialArchiveDetail;
-
-        /**
-         * 社保档案类型。social_insurance社保、provident_fund公积金
-         * <p> 示例值：social_insurance
-         *
-         * @param insuranceType
-         * @return
-         */
-        public Builder insuranceType(String insuranceType) {
-            this.insuranceType = insuranceType;
-            return this;
-        }
-
-        /**
-         * 社保档案类型。social_insurance社保、provident_fund公积金
-         * <p> 示例值：social_insurance
-         *
-         * @param insuranceType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailInsuranceTypeEnum}
-         * @return
-         */
-        public Builder insuranceType(com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailInsuranceTypeEnum insuranceType) {
-            this.insuranceType = insuranceType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 档案变更类型。increase新增、adjust调整、delete删除
-         * <p> 示例值：add
-         *
-         * @param operateType
-         * @return
-         */
-        public Builder operateType(String operateType) {
-            this.operateType = operateType;
-            return this;
-        }
-
-        /**
-         * 档案变更类型。increase新增、adjust调整、delete删除
-         * <p> 示例值：add
-         *
-         * @param operateType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailOperateTypeEnum}
-         * @return
-         */
-        public Builder operateType(com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailOperateTypeEnum operateType) {
-            this.operateType = operateType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 变更事件来源。new_join增员、intern_to_official实习生转正、employee_type_change雇员类型变更、dismission离职、job_change变更、import_increase增员导入、import_adjust调整导入、manual_edit手动编辑、manual_adjust手动调整、manual_delete手动删除、to_attrition_import待减员导入新增、plan_sync_arc方案同步档案
-         * <p> 示例值：new_join
-         *
-         * @param sourceType
-         * @return
-         */
-        public Builder sourceType(String sourceType) {
-            this.sourceType = sourceType;
-            return this;
-        }
-
-        /**
-         * 变更事件来源。new_join增员、intern_to_official实习生转正、employee_type_change雇员类型变更、dismission离职、job_change变更、import_increase增员导入、import_adjust调整导入、manual_edit手动编辑、manual_adjust手动调整、manual_delete手动删除、to_attrition_import待减员导入新增、plan_sync_arc方案同步档案
-         * <p> 示例值：new_join
-         *
-         * @param sourceType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailSourceTypeEnum}
-         * @return
-         */
-        public Builder sourceType(com.lark.oapi.service.compensation.v1.enums.SocialArchiveEventDetailSourceTypeEnum sourceType) {
-            this.sourceType = sourceType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 参保档案
-         * <p> 示例值：
-         *
-         * @param afterSocialArchiveDetail
-         * @return
-         */
-        public Builder afterSocialArchiveDetail(SocialArchiveDetail afterSocialArchiveDetail) {
-            this.afterSocialArchiveDetail = afterSocialArchiveDetail;
-            return this;
-        }
-
-
-        /**
-         * 参保档案
-         * <p> 示例值：
-         *
-         * @param beforeSocialArchiveDetail
-         * @return
-         */
-        public Builder beforeSocialArchiveDetail(SocialArchiveDetail beforeSocialArchiveDetail) {
-            this.beforeSocialArchiveDetail = beforeSocialArchiveDetail;
-            return this;
-        }
-
-
-        public SocialArchiveEventDetail build() {
-            return new SocialArchiveEventDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

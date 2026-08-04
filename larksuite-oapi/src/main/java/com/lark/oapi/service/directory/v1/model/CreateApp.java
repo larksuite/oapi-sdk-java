@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateApp {
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 头像的文件key
+   *
+   * <p>示例值：da7a0018a447d8b665a
+   */
+  @SerializedName("avatar_key")
+  private String avatarKey;
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public String getAvatarKey() {
+    return this.avatarKey;
+  }
+
+  public void setAvatarKey(String avatarKey) {
+    this.avatarKey = avatarKey;
+  }
+
+  // builder 开始
+  public CreateApp() {}
+
+  public CreateApp(Builder builder) {
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 头像的文件key
-     * <p> 示例值：da7a0018a447d8b665a
+     *
+     * <p>示例值：da7a0018a447d8b665a
      */
-    @SerializedName("avatar_key")
+    this.avatarKey = builder.avatarKey;
+  }
+
+  public static class Builder {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 头像的文件key
+     *
+     * <p>示例值：da7a0018a447d8b665a
+     */
     private String avatarKey;
 
-    // builder 开始
-    public CreateApp() {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public CreateApp(Builder builder) {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 头像的文件key
-         * <p> 示例值：da7a0018a447d8b665a
-         */
-        this.avatarKey = builder.avatarKey;
+    /**
+     * 头像的文件key
+     *
+     * <p>示例值：da7a0018a447d8b665a
+     *
+     * @param avatarKey
+     * @return
+     */
+    public Builder avatarKey(String avatarKey) {
+      this.avatarKey = avatarKey;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateApp build() {
+      return new CreateApp(this);
     }
+  }
 
-    public I18nText getName() {
-        return this.name;
-    }
-
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public String getAvatarKey() {
-        return this.avatarKey;
-    }
-
-    public void setAvatarKey(String avatarKey) {
-        this.avatarKey = avatarKey;
-    }
-
-    public static class Builder {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 头像的文件key
-         * <p> 示例值：da7a0018a447d8b665a
-         */
-        private String avatarKey;
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 头像的文件key
-         * <p> 示例值：da7a0018a447d8b665a
-         *
-         * @param avatarKey
-         * @return
-         */
-        public Builder avatarKey(String avatarKey) {
-            this.avatarKey = avatarKey;
-            return this;
-        }
-
-
-        public CreateApp build() {
-            return new CreateApp(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

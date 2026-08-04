@@ -13,48 +13,43 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2PositionUpdatedV2Data {
-    /**
-     * 岗位 ID
-     * <p> 示例值：7043711774159341101
-     */
-    @SerializedName("position_id")
-    private String positionId;
-    /**
-     * 发生变更的字段
-     * <p> 示例值：
-     */
-    @SerializedName("field_changes")
-    private String[] fieldChanges;
+  /**
+   * 岗位ID，可通过[查询岗位](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口去获取岗位详细信息
+   *
+   * <p>示例值：7043711774159341101
+   */
+  @SerializedName("position_id")
+  private String positionId;
 
-    public String getPositionId() {
-        return this.positionId;
-    }
+  /**
+   * 发生变更的字段，包括以下预置字段及自定义字段：;- "name"：名称;- "code"：编码;- "active"：状态;- "department"：所属部门;-
+   * "cost_center"：岗位默认成本中心;- "job"：职务;- "job_family"：序列;- "job_level"：职级;- "job_grade"：职等;-
+   * "work_location"：工作地点;- "employee_type"：人员类型;- "working_hours_type"：工时制度;-
+   * "direct_leader"：直属上级;- "dotted_line_leader"：虚线上级;- "is_key_position"：是否关键岗位;-
+   * "description"：描述;- "effective_time"：版本生效日期;-
+   * "expiration_time"：版本过期时间;;自定义字段详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_changes")
+  private String[] fieldChanges;
 
-    public void setPositionId(String positionId) {
-        this.positionId = positionId;
-    }
+  public String getPositionId() {
+    return this.positionId;
+  }
 
-    public String[] getFieldChanges() {
-        return this.fieldChanges;
-    }
+  public void setPositionId(String positionId) {
+    this.positionId = positionId;
+  }
 
-    public void setFieldChanges(String[] fieldChanges) {
-        this.fieldChanges = fieldChanges;
-    }
+  public String[] getFieldChanges() {
+    return this.fieldChanges;
+  }
 
+  public void setFieldChanges(String[] fieldChanges) {
+    this.fieldChanges = fieldChanges;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DocToken {
+  /**
+   * 云文档token
+   *
+   * <p>示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+   */
+  @SerializedName("doc_token")
+  private String docToken;
+
+  /**
+   * 文档类型
+   *
+   * <p>示例值：doc
+   */
+  @SerializedName("object_type")
+  private String objectType;
+
+  public String getDocToken() {
+    return this.docToken;
+  }
+
+  public void setDocToken(String docToken) {
+    this.docToken = docToken;
+  }
+
+  public String getObjectType() {
+    return this.objectType;
+  }
+
+  public void setObjectType(String objectType) {
+    this.objectType = objectType;
+  }
+
+  // builder 开始
+  public DocToken() {}
+
+  public DocToken(Builder builder) {
     /**
      * 云文档token
-     * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+     *
+     * <p>示例值：doxcnePuYufKa49ISjhD8Ih0ikh
      */
-    @SerializedName("doc_token")
-    private String docToken;
+    this.docToken = builder.docToken;
     /**
      * 文档类型
-     * <p> 示例值：doc
+     *
+     * <p>示例值：doc
      */
-    @SerializedName("object_type")
+    this.objectType = builder.objectType;
+  }
+
+  public static class Builder {
+    /**
+     * 云文档token
+     *
+     * <p>示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+     */
+    private String docToken;
+
+    /**
+     * 文档类型
+     *
+     * <p>示例值：doc
+     */
     private String objectType;
 
-    // builder 开始
-    public DocToken() {
+    /**
+     * 云文档token
+     *
+     * <p>示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+     *
+     * @param docToken
+     * @return
+     */
+    public Builder docToken(String docToken) {
+      this.docToken = docToken;
+      return this;
     }
 
-    public DocToken(Builder builder) {
-        /**
-         * 云文档token
-         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-         */
-        this.docToken = builder.docToken;
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         */
-        this.objectType = builder.objectType;
+    /**
+     * 文档类型
+     *
+     * <p>示例值：doc
+     *
+     * @param objectType
+     * @return
+     */
+    public Builder objectType(String objectType) {
+      this.objectType = objectType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DocToken build() {
+      return new DocToken(this);
     }
+  }
 
-    public String getDocToken() {
-        return this.docToken;
-    }
-
-    public void setDocToken(String docToken) {
-        this.docToken = docToken;
-    }
-
-    public String getObjectType() {
-        return this.objectType;
-    }
-
-    public void setObjectType(String objectType) {
-        this.objectType = objectType;
-    }
-
-    public static class Builder {
-        /**
-         * 云文档token
-         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-         */
-        private String docToken;
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         */
-        private String objectType;
-
-        /**
-         * 云文档token
-         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-         *
-         * @param docToken
-         * @return
-         */
-        public Builder docToken(String docToken) {
-            this.docToken = docToken;
-            return this;
-        }
-
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         *
-         * @param objectType
-         * @return
-         */
-        public Builder objectType(String objectType) {
-            this.objectType = objectType;
-            return this;
-        }
-
-
-        public DocToken build() {
-            return new DocToken(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

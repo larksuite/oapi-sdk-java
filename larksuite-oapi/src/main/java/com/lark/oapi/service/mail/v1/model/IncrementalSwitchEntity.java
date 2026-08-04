@@ -13,235 +13,249 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class IncrementalSwitchEntity {
+  /**
+   * 实体类型
+   *
+   * <p>示例值：DEPARTMENT
+   */
+  @SerializedName("entity_type")
+  private String entityType;
+
+  /**
+   * 用户ID
+   *
+   * <p>示例值：abcd
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 邮箱地址
+   *
+   * <p>示例值：test@test.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 部门ID
+   *
+   * <p>示例值：xxxx
+   */
+  @SerializedName("lark_department_id")
+  private String larkDepartmentId;
+
+  /**
+   * 用户组ID
+   *
+   * <p>示例值：xxxx
+   */
+  @SerializedName("group_id")
+  private String groupId;
+
+  public String getEntityType() {
+    return this.entityType;
+  }
+
+  public void setEntityType(String entityType) {
+    this.entityType = entityType;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getLarkDepartmentId() {
+    return this.larkDepartmentId;
+  }
+
+  public void setLarkDepartmentId(String larkDepartmentId) {
+    this.larkDepartmentId = larkDepartmentId;
+  }
+
+  public String getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
+  // builder 开始
+  public IncrementalSwitchEntity() {}
+
+  public IncrementalSwitchEntity(Builder builder) {
     /**
      * 实体类型
-     * <p> 示例值：
+     *
+     * <p>示例值：DEPARTMENT
      */
-    @SerializedName("entity_type")
-    private String entityType;
+    this.entityType = builder.entityType;
     /**
      * 用户ID
-     * <p> 示例值：abcd
+     *
+     * <p>示例值：abcd
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 邮箱地址
-     * <p> 示例值：test@test.com
+     *
+     * <p>示例值：test@test.com
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 部门ID
-     * <p> 示例值：xxxx
+     *
+     * <p>示例值：xxxx
      */
-    @SerializedName("lark_department_id")
-    private String larkDepartmentId;
+    this.larkDepartmentId = builder.larkDepartmentId;
     /**
      * 用户组ID
-     * <p> 示例值：xxxx
+     *
+     * <p>示例值：xxxx
      */
-    @SerializedName("group_id")
+    this.groupId = builder.groupId;
+  }
+
+  public static class Builder {
+    /**
+     * 实体类型
+     *
+     * <p>示例值：DEPARTMENT
+     */
+    private String entityType;
+
+    /**
+     * 用户ID
+     *
+     * <p>示例值：abcd
+     */
+    private String userId;
+
+    /**
+     * 邮箱地址
+     *
+     * <p>示例值：test@test.com
+     */
+    private String email;
+
+    /**
+     * 部门ID
+     *
+     * <p>示例值：xxxx
+     */
+    private String larkDepartmentId;
+
+    /**
+     * 用户组ID
+     *
+     * <p>示例值：xxxx
+     */
     private String groupId;
 
-    // builder 开始
-    public IncrementalSwitchEntity() {
+    /**
+     * 实体类型
+     *
+     * <p>示例值：DEPARTMENT
+     *
+     * @param entityType
+     * @return
+     */
+    public Builder entityType(String entityType) {
+      this.entityType = entityType;
+      return this;
     }
 
-    public IncrementalSwitchEntity(Builder builder) {
-        /**
-         * 实体类型
-         * <p> 示例值：
-         */
-        this.entityType = builder.entityType;
-        /**
-         * 用户ID
-         * <p> 示例值：abcd
-         */
-        this.userId = builder.userId;
-        /**
-         * 邮箱地址
-         * <p> 示例值：test@test.com
-         */
-        this.email = builder.email;
-        /**
-         * 部门ID
-         * <p> 示例值：xxxx
-         */
-        this.larkDepartmentId = builder.larkDepartmentId;
-        /**
-         * 用户组ID
-         * <p> 示例值：xxxx
-         */
-        this.groupId = builder.groupId;
+    /**
+     * 实体类型
+     *
+     * <p>示例值：DEPARTMENT
+     *
+     * @param entityType {@link
+     *     com.lark.oapi.service.mail.v1.enums.IncrementalSwitchEntityIncrementalSwitchEntityTypeEnum}
+     * @return
+     */
+    public Builder entityType(
+        com.lark.oapi.service.mail.v1.enums.IncrementalSwitchEntityIncrementalSwitchEntityTypeEnum
+            entityType) {
+      this.entityType = entityType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户ID
+     *
+     * <p>示例值：abcd
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getEntityType() {
-        return this.entityType;
+    /**
+     * 邮箱地址
+     *
+     * <p>示例值：test@test.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public void setEntityType(String entityType) {
-        this.entityType = entityType;
+    /**
+     * 部门ID
+     *
+     * <p>示例值：xxxx
+     *
+     * @param larkDepartmentId
+     * @return
+     */
+    public Builder larkDepartmentId(String larkDepartmentId) {
+      this.larkDepartmentId = larkDepartmentId;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 用户组ID
+     *
+     * <p>示例值：xxxx
+     *
+     * @param groupId
+     * @return
+     */
+    public Builder groupId(String groupId) {
+      this.groupId = groupId;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public IncrementalSwitchEntity build() {
+      return new IncrementalSwitchEntity(this);
     }
+  }
 
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getLarkDepartmentId() {
-        return this.larkDepartmentId;
-    }
-
-    public void setLarkDepartmentId(String larkDepartmentId) {
-        this.larkDepartmentId = larkDepartmentId;
-    }
-
-    public String getGroupId() {
-        return this.groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    public static class Builder {
-        /**
-         * 实体类型
-         * <p> 示例值：
-         */
-        private String entityType;
-        /**
-         * 用户ID
-         * <p> 示例值：abcd
-         */
-        private String userId;
-        /**
-         * 邮箱地址
-         * <p> 示例值：test@test.com
-         */
-        private String email;
-        /**
-         * 部门ID
-         * <p> 示例值：xxxx
-         */
-        private String larkDepartmentId;
-        /**
-         * 用户组ID
-         * <p> 示例值：xxxx
-         */
-        private String groupId;
-
-        /**
-         * 实体类型
-         * <p> 示例值：
-         *
-         * @param entityType
-         * @return
-         */
-        public Builder entityType(String entityType) {
-            this.entityType = entityType;
-            return this;
-        }
-
-        /**
-         * 实体类型
-         * <p> 示例值：
-         *
-         * @param entityType {@link com.lark.oapi.service.mail.v1.enums.IncrementalSwitchEntityIncrementalSwitchEntityTypeEnum}
-         * @return
-         */
-        public Builder entityType(com.lark.oapi.service.mail.v1.enums.IncrementalSwitchEntityIncrementalSwitchEntityTypeEnum entityType) {
-            this.entityType = entityType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 用户ID
-         * <p> 示例值：abcd
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 邮箱地址
-         * <p> 示例值：test@test.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 部门ID
-         * <p> 示例值：xxxx
-         *
-         * @param larkDepartmentId
-         * @return
-         */
-        public Builder larkDepartmentId(String larkDepartmentId) {
-            this.larkDepartmentId = larkDepartmentId;
-            return this;
-        }
-
-
-        /**
-         * 用户组ID
-         * <p> 示例值：xxxx
-         *
-         * @param groupId
-         * @return
-         */
-        public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
-        }
-
-
-        public IncrementalSwitchEntity build() {
-            return new IncrementalSwitchEntity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

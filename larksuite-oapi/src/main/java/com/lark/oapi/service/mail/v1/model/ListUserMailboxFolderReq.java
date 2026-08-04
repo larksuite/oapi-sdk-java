@@ -13,116 +13,116 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class ListUserMailboxFolderReq {
+  /**
+   * 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("folder_type")
+  private Integer folderType;
+
+  public Integer getFolderType() {
+    return this.folderType;
+  }
+
+  public void setFolderType(Integer folderType) {
+    this.folderType = folderType;
+  }
+
+  /**
+   * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+   *
+   * <p>示例值：user@xxx.xx 或 me
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  // builder 开始
+  public ListUserMailboxFolderReq() {}
+
+  public ListUserMailboxFolderReq(Builder builder) {
     /**
      * 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("folder_type")
-    private Integer folderType;
+    this.folderType = builder.folderType;
     /**
-     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户;
-     * <p> 示例值：user@xxx.xx 或 me
+     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+     *
+     * <p>示例值：user@xxx.xx 或 me
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
+  }
 
-    // builder 开始
-    public ListUserMailboxFolderReq() {
+  public static class Builder {
+    private Integer folderType; // 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
+
+    /**
+     * 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
+     *
+     * <p>示例值：1
+     *
+     * @param folderType
+     * @return
+     */
+    public Builder folderType(Integer folderType) {
+      this.folderType = folderType;
+      return this;
     }
 
-    public ListUserMailboxFolderReq(Builder builder) {
-        /**
-         * 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
-         * <p> 示例值：1
-         */
-        this.folderType = builder.folderType;
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户;
-         * <p> 示例值：user@xxx.xx 或 me
-         */
-        this.userMailboxId = builder.userMailboxId;
+    /**
+     * 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
+     *
+     * <p>示例值：1
+     *
+     * @param folderType {@link
+     *     com.lark.oapi.service.mail.v1.enums.ListUserMailboxFolderFolderTypeEnum}
+     * @return
+     */
+    public Builder folderType(
+        com.lark.oapi.service.mail.v1.enums.ListUserMailboxFolderFolderTypeEnum folderType) {
+      this.folderType = folderType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+
+    /**
+     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
+     *
+     * <p>示例值：user@xxx.xx 或 me
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
     }
 
-    public Integer getFolderType() {
-        return this.folderType;
+    public ListUserMailboxFolderReq build() {
+      return new ListUserMailboxFolderReq(this);
     }
+  }
 
-    public void setFolderType(Integer folderType) {
-        this.folderType = folderType;
-    }
-
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public static class Builder {
-        private Integer folderType; // 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
-        private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户;
-
-        /**
-         * 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
-         * <p> 示例值：1
-         *
-         * @param folderType
-         * @return
-         */
-        public Builder folderType(Integer folderType) {
-            this.folderType = folderType;
-            return this;
-        }
-
-        /**
-         * 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
-         * <p> 示例值：1
-         *
-         * @param folderType {@link com.lark.oapi.service.mail.v1.enums.ListUserMailboxFolderFolderTypeEnum}
-         * @return
-         */
-        public Builder folderType(com.lark.oapi.service.mail.v1.enums.ListUserMailboxFolderFolderTypeEnum folderType) {
-            this.folderType = folderType.getValue();
-            return this;
-        }
-
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户;
-         * <p> 示例值：user@xxx.xx 或 me
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-
-        public ListUserMailboxFolderReq build() {
-            return new ListUserMailboxFolderReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

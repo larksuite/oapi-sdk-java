@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ContractPeriod {
+  /**
+   * 合同周期类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("period_type")
+  private Integer periodType;
+
+  /**
+   * 合同时长
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("period")
+  private Integer period;
+
+  public Integer getPeriodType() {
+    return this.periodType;
+  }
+
+  public void setPeriodType(Integer periodType) {
+    this.periodType = periodType;
+  }
+
+  public Integer getPeriod() {
+    return this.period;
+  }
+
+  public void setPeriod(Integer period) {
+    this.period = period;
+  }
+
+  // builder 开始
+  public ContractPeriod() {}
+
+  public ContractPeriod(Builder builder) {
     /**
      * 合同周期类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("period_type")
-    private Integer periodType;
+    this.periodType = builder.periodType;
     /**
      * 合同时长
-     * <p> 示例值：3
+     *
+     * <p>示例值：3
      */
-    @SerializedName("period")
+    this.period = builder.period;
+  }
+
+  public static class Builder {
+    /**
+     * 合同周期类型
+     *
+     * <p>示例值：1
+     */
+    private Integer periodType;
+
+    /**
+     * 合同时长
+     *
+     * <p>示例值：3
+     */
     private Integer period;
 
-    // builder 开始
-    public ContractPeriod() {
+    /**
+     * 合同周期类型
+     *
+     * <p>示例值：1
+     *
+     * @param periodType
+     * @return
+     */
+    public Builder periodType(Integer periodType) {
+      this.periodType = periodType;
+      return this;
     }
 
-    public ContractPeriod(Builder builder) {
-        /**
-         * 合同周期类型
-         * <p> 示例值：1
-         */
-        this.periodType = builder.periodType;
-        /**
-         * 合同时长
-         * <p> 示例值：3
-         */
-        this.period = builder.period;
+    /**
+     * 合同时长
+     *
+     * <p>示例值：3
+     *
+     * @param period
+     * @return
+     */
+    public Builder period(Integer period) {
+      this.period = period;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ContractPeriod build() {
+      return new ContractPeriod(this);
     }
+  }
 
-    public Integer getPeriodType() {
-        return this.periodType;
-    }
-
-    public void setPeriodType(Integer periodType) {
-        this.periodType = periodType;
-    }
-
-    public Integer getPeriod() {
-        return this.period;
-    }
-
-    public void setPeriod(Integer period) {
-        this.period = period;
-    }
-
-    public static class Builder {
-        /**
-         * 合同周期类型
-         * <p> 示例值：1
-         */
-        private Integer periodType;
-        /**
-         * 合同时长
-         * <p> 示例值：3
-         */
-        private Integer period;
-
-        /**
-         * 合同周期类型
-         * <p> 示例值：1
-         *
-         * @param periodType
-         * @return
-         */
-        public Builder periodType(Integer periodType) {
-            this.periodType = periodType;
-            return this;
-        }
-
-
-        /**
-         * 合同时长
-         * <p> 示例值：3
-         *
-         * @param period
-         * @return
-         */
-        public Builder period(Integer period) {
-            this.period = period;
-            return this;
-        }
-
-
-        public ContractPeriod build() {
-            return new ContractPeriod(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

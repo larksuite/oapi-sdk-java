@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserSearchItem {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：4d7a3c6g
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 包含用户基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+   *
+   * <p>示例值：飞书<h>搜索</h>
+   */
+  @SerializedName("display_info")
+  private String displayInfo;
+
+  /**
+   * 用户元信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meta_data")
+  private UserSearchMeta metaData;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getDisplayInfo() {
+    return this.displayInfo;
+  }
+
+  public void setDisplayInfo(String displayInfo) {
+    this.displayInfo = displayInfo;
+  }
+
+  public UserSearchMeta getMetaData() {
+    return this.metaData;
+  }
+
+  public void setMetaData(UserSearchMeta metaData) {
+    this.metaData = metaData;
+  }
+
+  // builder 开始
+  public UserSearchItem() {}
+
+  public UserSearchItem(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：4d7a3c6g
+     *
+     * <p>示例值：4d7a3c6g
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 包含用户基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-     * <p> 示例值：飞书<h>搜索</h>
+     *
+     * <p>示例值：飞书<h>搜索</h>
      */
-    @SerializedName("display_info")
-    private String displayInfo;
+    this.displayInfo = builder.displayInfo;
     /**
      * 用户元信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meta_data")
+    this.metaData = builder.metaData;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：4d7a3c6g
+     */
+    private String id;
+
+    /**
+     * 包含用户基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+     *
+     * <p>示例值：飞书<h>搜索</h>
+     */
+    private String displayInfo;
+
+    /**
+     * 用户元信息
+     *
+     * <p>示例值：
+     */
     private UserSearchMeta metaData;
 
-    // builder 开始
-    public UserSearchItem() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：4d7a3c6g
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UserSearchItem(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：4d7a3c6g
-         */
-        this.id = builder.id;
-        /**
-         * 包含用户基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：飞书<h>搜索</h>
-         */
-        this.displayInfo = builder.displayInfo;
-        /**
-         * 用户元信息
-         * <p> 示例值：
-         */
-        this.metaData = builder.metaData;
+    /**
+     * 包含用户基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+     *
+     * <p>示例值：飞书<h>搜索</h>
+     *
+     * @param displayInfo
+     * @return
+     */
+    public Builder displayInfo(String displayInfo) {
+      this.displayInfo = displayInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户元信息
+     *
+     * <p>示例值：
+     *
+     * @param metaData
+     * @return
+     */
+    public Builder metaData(UserSearchMeta metaData) {
+      this.metaData = metaData;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public UserSearchItem build() {
+      return new UserSearchItem(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDisplayInfo() {
-        return this.displayInfo;
-    }
-
-    public void setDisplayInfo(String displayInfo) {
-        this.displayInfo = displayInfo;
-    }
-
-    public UserSearchMeta getMetaData() {
-        return this.metaData;
-    }
-
-    public void setMetaData(UserSearchMeta metaData) {
-        this.metaData = metaData;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：4d7a3c6g
-         */
-        private String id;
-        /**
-         * 包含用户基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：飞书<h>搜索</h>
-         */
-        private String displayInfo;
-        /**
-         * 用户元信息
-         * <p> 示例值：
-         */
-        private UserSearchMeta metaData;
-
-        /**
-         * 用户ID
-         * <p> 示例值：4d7a3c6g
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 包含用户基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：飞书<h>搜索</h>
-         *
-         * @param displayInfo
-         * @return
-         */
-        public Builder displayInfo(String displayInfo) {
-            this.displayInfo = displayInfo;
-            return this;
-        }
-
-
-        /**
-         * 用户元信息
-         * <p> 示例值：
-         *
-         * @param metaData
-         * @return
-         */
-        public Builder metaData(UserSearchMeta metaData) {
-            this.metaData = metaData;
-            return this;
-        }
-
-
-        public UserSearchItem build() {
-            return new UserSearchItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

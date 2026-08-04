@@ -13,124 +13,123 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class StageTaskStatusNum {
+  /**
+   * 任务分类
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("task_option_id")
+  private Integer taskOptionId;
+
+  /**
+   * 环节任务数量
+   *
+   * <p>示例值：4
+   */
+  @SerializedName("stage_num")
+  private Integer stageNum;
+
+  public Integer getTaskOptionId() {
+    return this.taskOptionId;
+  }
+
+  public void setTaskOptionId(Integer taskOptionId) {
+    this.taskOptionId = taskOptionId;
+  }
+
+  public Integer getStageNum() {
+    return this.stageNum;
+  }
+
+  public void setStageNum(Integer stageNum) {
+    this.stageNum = stageNum;
+  }
+
+  // builder 开始
+  public StageTaskStatusNum() {}
+
+  public StageTaskStatusNum(Builder builder) {
     /**
-     * 支持的ID
-     * <p> 示例值：1
+     * 任务分类
+     *
+     * <p>示例值：1
      */
-    @SerializedName("task_option_id")
+    this.taskOptionId = builder.taskOptionId;
+    /**
+     * 环节任务数量
+     *
+     * <p>示例值：4
+     */
+    this.stageNum = builder.stageNum;
+  }
+
+  public static class Builder {
+    /**
+     * 任务分类
+     *
+     * <p>示例值：1
+     */
     private Integer taskOptionId;
+
     /**
-     * 对Stage分类聚合
-     * <p> 示例值：4
+     * 环节任务数量
+     *
+     * <p>示例值：4
      */
-    @SerializedName("stage_num")
     private Integer stageNum;
 
-    // builder 开始
-    public StageTaskStatusNum() {
+    /**
+     * 任务分类
+     *
+     * <p>示例值：1
+     *
+     * @param taskOptionId
+     * @return
+     */
+    public Builder taskOptionId(Integer taskOptionId) {
+      this.taskOptionId = taskOptionId;
+      return this;
     }
 
-    public StageTaskStatusNum(Builder builder) {
-        /**
-         * 支持的ID
-         * <p> 示例值：1
-         */
-        this.taskOptionId = builder.taskOptionId;
-        /**
-         * 对Stage分类聚合
-         * <p> 示例值：4
-         */
-        this.stageNum = builder.stageNum;
+    /**
+     * 任务分类
+     *
+     * <p>示例值：1
+     *
+     * @param taskOptionId {@link
+     *     com.lark.oapi.service.performance.v1.enums.StageTaskStatusNumTaskOptionIdEnum}
+     * @return
+     */
+    public Builder taskOptionId(
+        com.lark.oapi.service.performance.v1.enums.StageTaskStatusNumTaskOptionIdEnum
+            taskOptionId) {
+      this.taskOptionId = taskOptionId.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 环节任务数量
+     *
+     * <p>示例值：4
+     *
+     * @param stageNum
+     * @return
+     */
+    public Builder stageNum(Integer stageNum) {
+      this.stageNum = stageNum;
+      return this;
     }
 
-    public Integer getTaskOptionId() {
-        return this.taskOptionId;
+    public StageTaskStatusNum build() {
+      return new StageTaskStatusNum(this);
     }
+  }
 
-    public void setTaskOptionId(Integer taskOptionId) {
-        this.taskOptionId = taskOptionId;
-    }
-
-    public Integer getStageNum() {
-        return this.stageNum;
-    }
-
-    public void setStageNum(Integer stageNum) {
-        this.stageNum = stageNum;
-    }
-
-    public static class Builder {
-        /**
-         * 支持的ID
-         * <p> 示例值：1
-         */
-        private Integer taskOptionId;
-        /**
-         * 对Stage分类聚合
-         * <p> 示例值：4
-         */
-        private Integer stageNum;
-
-        /**
-         * 支持的ID
-         * <p> 示例值：1
-         *
-         * @param taskOptionId
-         * @return
-         */
-        public Builder taskOptionId(Integer taskOptionId) {
-            this.taskOptionId = taskOptionId;
-            return this;
-        }
-
-        /**
-         * 支持的ID
-         * <p> 示例值：1
-         *
-         * @param taskOptionId {@link com.lark.oapi.service.performance.v1.enums.StageTaskStatusNumTaskOptionIdEnum}
-         * @return
-         */
-        public Builder taskOptionId(com.lark.oapi.service.performance.v1.enums.StageTaskStatusNumTaskOptionIdEnum taskOptionId) {
-            this.taskOptionId = taskOptionId.getValue();
-            return this;
-        }
-
-
-        /**
-         * 对Stage分类聚合
-         * <p> 示例值：4
-         *
-         * @param stageNum
-         * @return
-         */
-        public Builder stageNum(Integer stageNum) {
-            this.stageNum = stageNum;
-            return this;
-        }
-
-
-        public StageTaskStatusNum build() {
-            return new StageTaskStatusNum(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

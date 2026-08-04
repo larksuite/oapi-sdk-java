@@ -14,16 +14,23 @@
 package com.lark.oapi.service.event.v1;
 
 import com.lark.oapi.core.Config;
+import com.lark.oapi.service.event.v1.resource.Connection;
 import com.lark.oapi.service.event.v1.resource.OutboundIp;
 
 public class V1 {
-    private final OutboundIp outboundIp; // 事件订阅
+  private final Connection connection; // connection
+  private final OutboundIp outboundIp; // outbound_ip
 
-    public V1(Config config) {
-        this.outboundIp = new OutboundIp(config);
-    }
+  public V1(Config config) {
+    this.connection = new Connection(config);
+    this.outboundIp = new OutboundIp(config);
+  }
 
-    public OutboundIp outboundIp() {
-        return outboundIp;
-    }
+  public Connection connection() {
+    return connection;
+  }
+
+  public OutboundIp outboundIp() {
+    return outboundIp;
+  }
 }

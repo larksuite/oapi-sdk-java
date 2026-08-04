@@ -13,334 +13,363 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingActivityItem {
+  /**
+   * 会议数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meeting")
+  private MeetingAgentEventMeeting meeting;
+
+  /**
+   * 会中活动子类型；取值 participant_joined / participant_left / transcript_received / chat_received /
+   * magic_share_started / magic_share_ended
+   *
+   * <p>示例值：participant_joined
+   */
+  @SerializedName("activity_event_type")
+  private String activityEventType;
+
+  /**
+   * 参会人入会内容（activity_event_type = participant_joined 时填充）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("participant_joined_items")
+  private ParticipantJoinedItem[] participantJoinedItems;
+
+  /**
+   * 参会人离会内容（activity_event_type = participant_left 时填充）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("participant_left_items")
+  private ParticipantLeftItem[] participantLeftItems;
+
+  /**
+   * 字幕内容（activity_event_type = transcript_received 时填充）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("transcript_received_items")
+  private TranscriptItem[] transcriptReceivedItems;
+
+  /**
+   * 聊天消息内容（activity_event_type = chat_received 时填充）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_received_items")
+  private ChatMessageItem[] chatReceivedItems;
+
+  /**
+   * 妙享开始内容（activity_event_type = magic_share_started 时填充）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("magic_share_started_items")
+  private MagicShareStartedItem[] magicShareStartedItems;
+
+  /**
+   * 妙享结束内容（activity_event_type = magic_share_ended 时填充）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("magic_share_ended_items")
+  private MagicShareEndedItem[] magicShareEndedItems;
+
+  public MeetingAgentEventMeeting getMeeting() {
+    return this.meeting;
+  }
+
+  public void setMeeting(MeetingAgentEventMeeting meeting) {
+    this.meeting = meeting;
+  }
+
+  public String getActivityEventType() {
+    return this.activityEventType;
+  }
+
+  public void setActivityEventType(String activityEventType) {
+    this.activityEventType = activityEventType;
+  }
+
+  public ParticipantJoinedItem[] getParticipantJoinedItems() {
+    return this.participantJoinedItems;
+  }
+
+  public void setParticipantJoinedItems(ParticipantJoinedItem[] participantJoinedItems) {
+    this.participantJoinedItems = participantJoinedItems;
+  }
+
+  public ParticipantLeftItem[] getParticipantLeftItems() {
+    return this.participantLeftItems;
+  }
+
+  public void setParticipantLeftItems(ParticipantLeftItem[] participantLeftItems) {
+    this.participantLeftItems = participantLeftItems;
+  }
+
+  public TranscriptItem[] getTranscriptReceivedItems() {
+    return this.transcriptReceivedItems;
+  }
+
+  public void setTranscriptReceivedItems(TranscriptItem[] transcriptReceivedItems) {
+    this.transcriptReceivedItems = transcriptReceivedItems;
+  }
+
+  public ChatMessageItem[] getChatReceivedItems() {
+    return this.chatReceivedItems;
+  }
+
+  public void setChatReceivedItems(ChatMessageItem[] chatReceivedItems) {
+    this.chatReceivedItems = chatReceivedItems;
+  }
+
+  public MagicShareStartedItem[] getMagicShareStartedItems() {
+    return this.magicShareStartedItems;
+  }
+
+  public void setMagicShareStartedItems(MagicShareStartedItem[] magicShareStartedItems) {
+    this.magicShareStartedItems = magicShareStartedItems;
+  }
+
+  public MagicShareEndedItem[] getMagicShareEndedItems() {
+    return this.magicShareEndedItems;
+  }
+
+  public void setMagicShareEndedItems(MagicShareEndedItem[] magicShareEndedItems) {
+    this.magicShareEndedItems = magicShareEndedItems;
+  }
+
+  // builder 开始
+  public MeetingActivityItem() {}
+
+  public MeetingActivityItem(Builder builder) {
     /**
      * 会议数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meeting")
-    private MeetingAgentEventMeeting meeting;
+    this.meeting = builder.meeting;
     /**
-     * 会中活动子类型；取值 participant_joined / participant_left / transcript_received / chat_received / magic_share_started / magic_share_ended
-     * <p> 示例值：participant_joined
+     * 会中活动子类型；取值 participant_joined / participant_left / transcript_received / chat_received /
+     * magic_share_started / magic_share_ended
+     *
+     * <p>示例值：participant_joined
      */
-    @SerializedName("activity_event_type")
-    private String activityEventType;
+    this.activityEventType = builder.activityEventType;
     /**
      * 参会人入会内容（activity_event_type = participant_joined 时填充）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("participant_joined_items")
-    private ParticipantJoinedItem[] participantJoinedItems;
+    this.participantJoinedItems = builder.participantJoinedItems;
     /**
      * 参会人离会内容（activity_event_type = participant_left 时填充）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("participant_left_items")
-    private ParticipantLeftItem[] participantLeftItems;
+    this.participantLeftItems = builder.participantLeftItems;
     /**
      * 字幕内容（activity_event_type = transcript_received 时填充）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("transcript_received_items")
-    private TranscriptItem[] transcriptReceivedItems;
+    this.transcriptReceivedItems = builder.transcriptReceivedItems;
     /**
      * 聊天消息内容（activity_event_type = chat_received 时填充）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_received_items")
-    private ChatMessageItem[] chatReceivedItems;
+    this.chatReceivedItems = builder.chatReceivedItems;
     /**
      * 妙享开始内容（activity_event_type = magic_share_started 时填充）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("magic_share_started_items")
-    private MagicShareStartedItem[] magicShareStartedItems;
+    this.magicShareStartedItems = builder.magicShareStartedItems;
     /**
      * 妙享结束内容（activity_event_type = magic_share_ended 时填充）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("magic_share_ended_items")
+    this.magicShareEndedItems = builder.magicShareEndedItems;
+  }
+
+  public static class Builder {
+    /**
+     * 会议数据
+     *
+     * <p>示例值：
+     */
+    private MeetingAgentEventMeeting meeting;
+
+    /**
+     * 会中活动子类型；取值 participant_joined / participant_left / transcript_received / chat_received /
+     * magic_share_started / magic_share_ended
+     *
+     * <p>示例值：participant_joined
+     */
+    private String activityEventType;
+
+    /**
+     * 参会人入会内容（activity_event_type = participant_joined 时填充）
+     *
+     * <p>示例值：
+     */
+    private ParticipantJoinedItem[] participantJoinedItems;
+
+    /**
+     * 参会人离会内容（activity_event_type = participant_left 时填充）
+     *
+     * <p>示例值：
+     */
+    private ParticipantLeftItem[] participantLeftItems;
+
+    /**
+     * 字幕内容（activity_event_type = transcript_received 时填充）
+     *
+     * <p>示例值：
+     */
+    private TranscriptItem[] transcriptReceivedItems;
+
+    /**
+     * 聊天消息内容（activity_event_type = chat_received 时填充）
+     *
+     * <p>示例值：
+     */
+    private ChatMessageItem[] chatReceivedItems;
+
+    /**
+     * 妙享开始内容（activity_event_type = magic_share_started 时填充）
+     *
+     * <p>示例值：
+     */
+    private MagicShareStartedItem[] magicShareStartedItems;
+
+    /**
+     * 妙享结束内容（activity_event_type = magic_share_ended 时填充）
+     *
+     * <p>示例值：
+     */
     private MagicShareEndedItem[] magicShareEndedItems;
 
-    // builder 开始
-    public MeetingActivityItem() {
+    /**
+     * 会议数据
+     *
+     * <p>示例值：
+     *
+     * @param meeting
+     * @return
+     */
+    public Builder meeting(MeetingAgentEventMeeting meeting) {
+      this.meeting = meeting;
+      return this;
     }
 
-    public MeetingActivityItem(Builder builder) {
-        /**
-         * 会议数据
-         * <p> 示例值：
-         */
-        this.meeting = builder.meeting;
-        /**
-         * 会中活动子类型；取值 participant_joined / participant_left / transcript_received / chat_received / magic_share_started / magic_share_ended
-         * <p> 示例值：participant_joined
-         */
-        this.activityEventType = builder.activityEventType;
-        /**
-         * 参会人入会内容（activity_event_type = participant_joined 时填充）
-         * <p> 示例值：
-         */
-        this.participantJoinedItems = builder.participantJoinedItems;
-        /**
-         * 参会人离会内容（activity_event_type = participant_left 时填充）
-         * <p> 示例值：
-         */
-        this.participantLeftItems = builder.participantLeftItems;
-        /**
-         * 字幕内容（activity_event_type = transcript_received 时填充）
-         * <p> 示例值：
-         */
-        this.transcriptReceivedItems = builder.transcriptReceivedItems;
-        /**
-         * 聊天消息内容（activity_event_type = chat_received 时填充）
-         * <p> 示例值：
-         */
-        this.chatReceivedItems = builder.chatReceivedItems;
-        /**
-         * 妙享开始内容（activity_event_type = magic_share_started 时填充）
-         * <p> 示例值：
-         */
-        this.magicShareStartedItems = builder.magicShareStartedItems;
-        /**
-         * 妙享结束内容（activity_event_type = magic_share_ended 时填充）
-         * <p> 示例值：
-         */
-        this.magicShareEndedItems = builder.magicShareEndedItems;
+    /**
+     * 会中活动子类型；取值 participant_joined / participant_left / transcript_received / chat_received /
+     * magic_share_started / magic_share_ended
+     *
+     * <p>示例值：participant_joined
+     *
+     * @param activityEventType
+     * @return
+     */
+    public Builder activityEventType(String activityEventType) {
+      this.activityEventType = activityEventType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 参会人入会内容（activity_event_type = participant_joined 时填充）
+     *
+     * <p>示例值：
+     *
+     * @param participantJoinedItems
+     * @return
+     */
+    public Builder participantJoinedItems(ParticipantJoinedItem[] participantJoinedItems) {
+      this.participantJoinedItems = participantJoinedItems;
+      return this;
     }
 
-    public MeetingAgentEventMeeting getMeeting() {
-        return this.meeting;
+    /**
+     * 参会人离会内容（activity_event_type = participant_left 时填充）
+     *
+     * <p>示例值：
+     *
+     * @param participantLeftItems
+     * @return
+     */
+    public Builder participantLeftItems(ParticipantLeftItem[] participantLeftItems) {
+      this.participantLeftItems = participantLeftItems;
+      return this;
     }
 
-    public void setMeeting(MeetingAgentEventMeeting meeting) {
-        this.meeting = meeting;
+    /**
+     * 字幕内容（activity_event_type = transcript_received 时填充）
+     *
+     * <p>示例值：
+     *
+     * @param transcriptReceivedItems
+     * @return
+     */
+    public Builder transcriptReceivedItems(TranscriptItem[] transcriptReceivedItems) {
+      this.transcriptReceivedItems = transcriptReceivedItems;
+      return this;
     }
 
-    public String getActivityEventType() {
-        return this.activityEventType;
+    /**
+     * 聊天消息内容（activity_event_type = chat_received 时填充）
+     *
+     * <p>示例值：
+     *
+     * @param chatReceivedItems
+     * @return
+     */
+    public Builder chatReceivedItems(ChatMessageItem[] chatReceivedItems) {
+      this.chatReceivedItems = chatReceivedItems;
+      return this;
     }
 
-    public void setActivityEventType(String activityEventType) {
-        this.activityEventType = activityEventType;
+    /**
+     * 妙享开始内容（activity_event_type = magic_share_started 时填充）
+     *
+     * <p>示例值：
+     *
+     * @param magicShareStartedItems
+     * @return
+     */
+    public Builder magicShareStartedItems(MagicShareStartedItem[] magicShareStartedItems) {
+      this.magicShareStartedItems = magicShareStartedItems;
+      return this;
     }
 
-    public ParticipantJoinedItem[] getParticipantJoinedItems() {
-        return this.participantJoinedItems;
+    /**
+     * 妙享结束内容（activity_event_type = magic_share_ended 时填充）
+     *
+     * <p>示例值：
+     *
+     * @param magicShareEndedItems
+     * @return
+     */
+    public Builder magicShareEndedItems(MagicShareEndedItem[] magicShareEndedItems) {
+      this.magicShareEndedItems = magicShareEndedItems;
+      return this;
     }
 
-    public void setParticipantJoinedItems(ParticipantJoinedItem[] participantJoinedItems) {
-        this.participantJoinedItems = participantJoinedItems;
+    public MeetingActivityItem build() {
+      return new MeetingActivityItem(this);
     }
+  }
 
-    public ParticipantLeftItem[] getParticipantLeftItems() {
-        return this.participantLeftItems;
-    }
-
-    public void setParticipantLeftItems(ParticipantLeftItem[] participantLeftItems) {
-        this.participantLeftItems = participantLeftItems;
-    }
-
-    public TranscriptItem[] getTranscriptReceivedItems() {
-        return this.transcriptReceivedItems;
-    }
-
-    public void setTranscriptReceivedItems(TranscriptItem[] transcriptReceivedItems) {
-        this.transcriptReceivedItems = transcriptReceivedItems;
-    }
-
-    public ChatMessageItem[] getChatReceivedItems() {
-        return this.chatReceivedItems;
-    }
-
-    public void setChatReceivedItems(ChatMessageItem[] chatReceivedItems) {
-        this.chatReceivedItems = chatReceivedItems;
-    }
-
-    public MagicShareStartedItem[] getMagicShareStartedItems() {
-        return this.magicShareStartedItems;
-    }
-
-    public void setMagicShareStartedItems(MagicShareStartedItem[] magicShareStartedItems) {
-        this.magicShareStartedItems = magicShareStartedItems;
-    }
-
-    public MagicShareEndedItem[] getMagicShareEndedItems() {
-        return this.magicShareEndedItems;
-    }
-
-    public void setMagicShareEndedItems(MagicShareEndedItem[] magicShareEndedItems) {
-        this.magicShareEndedItems = magicShareEndedItems;
-    }
-
-    public static class Builder {
-        /**
-         * 会议数据
-         * <p> 示例值：
-         */
-        private MeetingAgentEventMeeting meeting;
-        /**
-         * 会中活动子类型；取值 participant_joined / participant_left / transcript_received / chat_received / magic_share_started / magic_share_ended
-         * <p> 示例值：participant_joined
-         */
-        private String activityEventType;
-        /**
-         * 参会人入会内容（activity_event_type = participant_joined 时填充）
-         * <p> 示例值：
-         */
-        private ParticipantJoinedItem[] participantJoinedItems;
-        /**
-         * 参会人离会内容（activity_event_type = participant_left 时填充）
-         * <p> 示例值：
-         */
-        private ParticipantLeftItem[] participantLeftItems;
-        /**
-         * 字幕内容（activity_event_type = transcript_received 时填充）
-         * <p> 示例值：
-         */
-        private TranscriptItem[] transcriptReceivedItems;
-        /**
-         * 聊天消息内容（activity_event_type = chat_received 时填充）
-         * <p> 示例值：
-         */
-        private ChatMessageItem[] chatReceivedItems;
-        /**
-         * 妙享开始内容（activity_event_type = magic_share_started 时填充）
-         * <p> 示例值：
-         */
-        private MagicShareStartedItem[] magicShareStartedItems;
-        /**
-         * 妙享结束内容（activity_event_type = magic_share_ended 时填充）
-         * <p> 示例值：
-         */
-        private MagicShareEndedItem[] magicShareEndedItems;
-
-        /**
-         * 会议数据
-         * <p> 示例值：
-         *
-         * @param meeting
-         * @return
-         */
-        public Builder meeting(MeetingAgentEventMeeting meeting) {
-            this.meeting = meeting;
-            return this;
-        }
-
-
-        /**
-         * 会中活动子类型；取值 participant_joined / participant_left / transcript_received / chat_received / magic_share_started / magic_share_ended
-         * <p> 示例值：participant_joined
-         *
-         * @param activityEventType
-         * @return
-         */
-        public Builder activityEventType(String activityEventType) {
-            this.activityEventType = activityEventType;
-            return this;
-        }
-
-
-        /**
-         * 参会人入会内容（activity_event_type = participant_joined 时填充）
-         * <p> 示例值：
-         *
-         * @param participantJoinedItems
-         * @return
-         */
-        public Builder participantJoinedItems(ParticipantJoinedItem[] participantJoinedItems) {
-            this.participantJoinedItems = participantJoinedItems;
-            return this;
-        }
-
-
-        /**
-         * 参会人离会内容（activity_event_type = participant_left 时填充）
-         * <p> 示例值：
-         *
-         * @param participantLeftItems
-         * @return
-         */
-        public Builder participantLeftItems(ParticipantLeftItem[] participantLeftItems) {
-            this.participantLeftItems = participantLeftItems;
-            return this;
-        }
-
-
-        /**
-         * 字幕内容（activity_event_type = transcript_received 时填充）
-         * <p> 示例值：
-         *
-         * @param transcriptReceivedItems
-         * @return
-         */
-        public Builder transcriptReceivedItems(TranscriptItem[] transcriptReceivedItems) {
-            this.transcriptReceivedItems = transcriptReceivedItems;
-            return this;
-        }
-
-
-        /**
-         * 聊天消息内容（activity_event_type = chat_received 时填充）
-         * <p> 示例值：
-         *
-         * @param chatReceivedItems
-         * @return
-         */
-        public Builder chatReceivedItems(ChatMessageItem[] chatReceivedItems) {
-            this.chatReceivedItems = chatReceivedItems;
-            return this;
-        }
-
-
-        /**
-         * 妙享开始内容（activity_event_type = magic_share_started 时填充）
-         * <p> 示例值：
-         *
-         * @param magicShareStartedItems
-         * @return
-         */
-        public Builder magicShareStartedItems(MagicShareStartedItem[] magicShareStartedItems) {
-            this.magicShareStartedItems = magicShareStartedItems;
-            return this;
-        }
-
-
-        /**
-         * 妙享结束内容（activity_event_type = magic_share_ended 时填充）
-         * <p> 示例值：
-         *
-         * @param magicShareEndedItems
-         * @return
-         */
-        public Builder magicShareEndedItems(MagicShareEndedItem[] magicShareEndedItems) {
-            this.magicShareEndedItems = magicShareEndedItems;
-            return this;
-        }
-
-
-        public MeetingActivityItem build() {
-            return new MeetingActivityItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

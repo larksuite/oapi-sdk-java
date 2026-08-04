@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PresentDataCallbackDialogRequest {
+  /**
+   * message_id
+   *
+   * <p>示例值：""
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * status
+   *
+   * <p>示例值：
+   */
+  @SerializedName("status")
+  private Status status;
+
+  /**
+   * callback_info
+   *
+   * <p>示例值：""
+   */
+  @SerializedName("callback_info")
+  private String callbackInfo;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public Status getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Status status) {
+    this.status = status;
+  }
+
+  public String getCallbackInfo() {
+    return this.callbackInfo;
+  }
+
+  public void setCallbackInfo(String callbackInfo) {
+    this.callbackInfo = callbackInfo;
+  }
+
+  // builder 开始
+  public PresentDataCallbackDialogRequest() {}
+
+  public PresentDataCallbackDialogRequest(Builder builder) {
     /**
      * message_id
-     * <p> 示例值：""
+     *
+     * <p>示例值：""
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * status
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("status")
-    private Status status;
+    this.status = builder.status;
     /**
      * callback_info
-     * <p> 示例值：""
+     *
+     * <p>示例值：""
      */
-    @SerializedName("callback_info")
+    this.callbackInfo = builder.callbackInfo;
+  }
+
+  public static class Builder {
+    /**
+     * message_id
+     *
+     * <p>示例值：""
+     */
+    private String messageId;
+
+    /**
+     * status
+     *
+     * <p>示例值：
+     */
+    private Status status;
+
+    /**
+     * callback_info
+     *
+     * <p>示例值：""
+     */
     private String callbackInfo;
 
-    // builder 开始
-    public PresentDataCallbackDialogRequest() {
+    /**
+     * message_id
+     *
+     * <p>示例值：""
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public PresentDataCallbackDialogRequest(Builder builder) {
-        /**
-         * message_id
-         * <p> 示例值：""
-         */
-        this.messageId = builder.messageId;
-        /**
-         * status
-         * <p> 示例值：
-         */
-        this.status = builder.status;
-        /**
-         * callback_info
-         * <p> 示例值：""
-         */
-        this.callbackInfo = builder.callbackInfo;
+    /**
+     * status
+     *
+     * <p>示例值：
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Status status) {
+      this.status = status;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * callback_info
+     *
+     * <p>示例值：""
+     *
+     * @param callbackInfo
+     * @return
+     */
+    public Builder callbackInfo(String callbackInfo) {
+      this.callbackInfo = callbackInfo;
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    public PresentDataCallbackDialogRequest build() {
+      return new PresentDataCallbackDialogRequest(this);
     }
+  }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public Status getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public String getCallbackInfo() {
-        return this.callbackInfo;
-    }
-
-    public void setCallbackInfo(String callbackInfo) {
-        this.callbackInfo = callbackInfo;
-    }
-
-    public static class Builder {
-        /**
-         * message_id
-         * <p> 示例值：""
-         */
-        private String messageId;
-        /**
-         * status
-         * <p> 示例值：
-         */
-        private Status status;
-        /**
-         * callback_info
-         * <p> 示例值：""
-         */
-        private String callbackInfo;
-
-        /**
-         * message_id
-         * <p> 示例值：""
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * status
-         * <p> 示例值：
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Status status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * callback_info
-         * <p> 示例值：""
-         *
-         * @param callbackInfo
-         * @return
-         */
-        public Builder callbackInfo(String callbackInfo) {
-            this.callbackInfo = callbackInfo;
-            return this;
-        }
-
-
-        public PresentDataCallbackDialogRequest build() {
-            return new PresentDataCallbackDialogRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

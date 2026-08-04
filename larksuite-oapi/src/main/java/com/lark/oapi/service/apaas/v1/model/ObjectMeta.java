@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ObjectMeta {
+  /**
+   * 对象信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("object")
+  private Object object;
+
+  /**
+   * 字段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private ObjectField[] fields;
+
+  public Object getObject() {
+    return this.object;
+  }
+
+  public void setObject(Object object) {
+    this.object = object;
+  }
+
+  public ObjectField[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(ObjectField[] fields) {
+    this.fields = fields;
+  }
+
+  // builder 开始
+  public ObjectMeta() {}
+
+  public ObjectMeta(Builder builder) {
     /**
      * 对象信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("object")
-    private Object object;
+    this.object = builder.object;
     /**
      * 字段信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
+    this.fields = builder.fields;
+  }
+
+  public static class Builder {
+    /**
+     * 对象信息
+     *
+     * <p>示例值：
+     */
+    private Object object;
+
+    /**
+     * 字段信息
+     *
+     * <p>示例值：
+     */
     private ObjectField[] fields;
 
-    // builder 开始
-    public ObjectMeta() {
+    /**
+     * 对象信息
+     *
+     * <p>示例值：
+     *
+     * @param object
+     * @return
+     */
+    public Builder object(Object object) {
+      this.object = object;
+      return this;
     }
 
-    public ObjectMeta(Builder builder) {
-        /**
-         * 对象信息
-         * <p> 示例值：
-         */
-        this.object = builder.object;
-        /**
-         * 字段信息
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
+    /**
+     * 字段信息
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(ObjectField[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ObjectMeta build() {
+      return new ObjectMeta(this);
     }
+  }
 
-    public Object getObject() {
-        return this.object;
-    }
-
-    public void setObject(Object object) {
-        this.object = object;
-    }
-
-    public ObjectField[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(ObjectField[] fields) {
-        this.fields = fields;
-    }
-
-    public static class Builder {
-        /**
-         * 对象信息
-         * <p> 示例值：
-         */
-        private Object object;
-        /**
-         * 字段信息
-         * <p> 示例值：
-         */
-        private ObjectField[] fields;
-
-        /**
-         * 对象信息
-         * <p> 示例值：
-         *
-         * @param object
-         * @return
-         */
-        public Builder object(Object object) {
-            this.object = object;
-            return this;
-        }
-
-
-        /**
-         * 字段信息
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(ObjectField[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        public ObjectMeta build() {
-            return new ObjectMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

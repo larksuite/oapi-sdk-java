@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationTalentAwardInfo {
+  /**
+   * ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 获奖时间
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("award_time")
+  private Long awardTime;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("desc")
+  private String desc;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public Long getAwardTime() {
+    return this.awardTime;
+  }
+
+  public void setAwardTime(Long awardTime) {
+    this.awardTime = awardTime;
+  }
+
+  public String getDesc() {
+    return this.desc;
+  }
+
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
+
+  // builder 开始
+  public ApplicationTalentAwardInfo() {}
+
+  public ApplicationTalentAwardInfo(Builder builder) {
     /**
      * ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 名称
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 获奖时间
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("award_time")
-    private Long awardTime;
+    this.awardTime = builder.awardTime;
     /**
      * 描述
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("desc")
+    this.desc = builder.desc;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：1
+     */
+    private String id;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：1
+     */
+    private String title;
+
+    /**
+     * 获奖时间
+     *
+     * <p>示例值：1
+     */
+    private Long awardTime;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：1
+     */
     private String desc;
 
-    // builder 开始
-    public ApplicationTalentAwardInfo() {
+    /**
+     * ID
+     *
+     * <p>示例值：1
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ApplicationTalentAwardInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 名称
-         * <p> 示例值：1
-         */
-        this.title = builder.title;
-        /**
-         * 获奖时间
-         * <p> 示例值：1
-         */
-        this.awardTime = builder.awardTime;
-        /**
-         * 描述
-         * <p> 示例值：1
-         */
-        this.desc = builder.desc;
+    /**
+     * 名称
+     *
+     * <p>示例值：1
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 获奖时间
+     *
+     * <p>示例值：1
+     *
+     * @param awardTime
+     * @return
+     */
+    public Builder awardTime(Long awardTime) {
+      this.awardTime = awardTime;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 描述
+     *
+     * <p>示例值：1
+     *
+     * @param desc
+     * @return
+     */
+    public Builder desc(String desc) {
+      this.desc = desc;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public ApplicationTalentAwardInfo build() {
+      return new ApplicationTalentAwardInfo(this);
     }
+  }
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Long getAwardTime() {
-        return this.awardTime;
-    }
-
-    public void setAwardTime(Long awardTime) {
-        this.awardTime = awardTime;
-    }
-
-    public String getDesc() {
-        return this.desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：1
-         */
-        private String id;
-        /**
-         * 名称
-         * <p> 示例值：1
-         */
-        private String title;
-        /**
-         * 获奖时间
-         * <p> 示例值：1
-         */
-        private Long awardTime;
-        /**
-         * 描述
-         * <p> 示例值：1
-         */
-        private String desc;
-
-        /**
-         * ID
-         * <p> 示例值：1
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：1
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 获奖时间
-         * <p> 示例值：1
-         *
-         * @param awardTime
-         * @return
-         */
-        public Builder awardTime(Long awardTime) {
-            this.awardTime = awardTime;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：1
-         *
-         * @param desc
-         * @return
-         */
-        public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
-        }
-
-
-        public ApplicationTalentAwardInfo build() {
-            return new ApplicationTalentAwardInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

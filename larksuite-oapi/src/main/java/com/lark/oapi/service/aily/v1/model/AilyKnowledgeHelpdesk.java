@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AilyKnowledgeHelpdesk {
+  /**
+   * 服务台ID
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("helpdesk_id")
+  private String helpdeskId;
+
+  /**
+   * 服务台标题
+   *
+   * <p>示例值：title
+   */
+  @SerializedName("title")
+  private String title;
+
+  public String getHelpdeskId() {
+    return this.helpdeskId;
+  }
+
+  public void setHelpdeskId(String helpdeskId) {
+    this.helpdeskId = helpdeskId;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  // builder 开始
+  public AilyKnowledgeHelpdesk() {}
+
+  public AilyKnowledgeHelpdesk(Builder builder) {
     /**
      * 服务台ID
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("helpdesk_id")
-    private String helpdeskId;
+    this.helpdeskId = builder.helpdeskId;
     /**
      * 服务台标题
-     * <p> 示例值：title
+     *
+     * <p>示例值：title
      */
-    @SerializedName("title")
+    this.title = builder.title;
+  }
+
+  public static class Builder {
+    /**
+     * 服务台ID
+     *
+     * <p>示例值：123
+     */
+    private String helpdeskId;
+
+    /**
+     * 服务台标题
+     *
+     * <p>示例值：title
+     */
     private String title;
 
-    // builder 开始
-    public AilyKnowledgeHelpdesk() {
+    /**
+     * 服务台ID
+     *
+     * <p>示例值：123
+     *
+     * @param helpdeskId
+     * @return
+     */
+    public Builder helpdeskId(String helpdeskId) {
+      this.helpdeskId = helpdeskId;
+      return this;
     }
 
-    public AilyKnowledgeHelpdesk(Builder builder) {
-        /**
-         * 服务台ID
-         * <p> 示例值：123
-         */
-        this.helpdeskId = builder.helpdeskId;
-        /**
-         * 服务台标题
-         * <p> 示例值：title
-         */
-        this.title = builder.title;
+    /**
+     * 服务台标题
+     *
+     * <p>示例值：title
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AilyKnowledgeHelpdesk build() {
+      return new AilyKnowledgeHelpdesk(this);
     }
+  }
 
-    public String getHelpdeskId() {
-        return this.helpdeskId;
-    }
-
-    public void setHelpdeskId(String helpdeskId) {
-        this.helpdeskId = helpdeskId;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public static class Builder {
-        /**
-         * 服务台ID
-         * <p> 示例值：123
-         */
-        private String helpdeskId;
-        /**
-         * 服务台标题
-         * <p> 示例值：title
-         */
-        private String title;
-
-        /**
-         * 服务台ID
-         * <p> 示例值：123
-         *
-         * @param helpdeskId
-         * @return
-         */
-        public Builder helpdeskId(String helpdeskId) {
-            this.helpdeskId = helpdeskId;
-            return this;
-        }
-
-
-        /**
-         * 服务台标题
-         * <p> 示例值：title
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        public AilyKnowledgeHelpdesk build() {
-            return new AilyKnowledgeHelpdesk(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

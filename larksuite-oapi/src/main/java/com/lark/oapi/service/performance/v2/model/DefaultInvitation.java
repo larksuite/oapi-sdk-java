@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DefaultInvitation {
+  /**
+   * 邀请关系列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("invitations")
+  private Invitation[] invitations;
+
+  public Invitation[] getInvitations() {
+    return this.invitations;
+  }
+
+  public void setInvitations(Invitation[] invitations) {
+    this.invitations = invitations;
+  }
+
+  // builder 开始
+  public DefaultInvitation() {}
+
+  public DefaultInvitation(Builder builder) {
     /**
      * 邀请关系列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("invitations")
+    this.invitations = builder.invitations;
+  }
+
+  public static class Builder {
+    /**
+     * 邀请关系列表
+     *
+     * <p>示例值：
+     */
     private Invitation[] invitations;
 
-    // builder 开始
-    public DefaultInvitation() {
+    /**
+     * 邀请关系列表
+     *
+     * <p>示例值：
+     *
+     * @param invitations
+     * @return
+     */
+    public Builder invitations(Invitation[] invitations) {
+      this.invitations = invitations;
+      return this;
     }
 
-    public DefaultInvitation(Builder builder) {
-        /**
-         * 邀请关系列表
-         * <p> 示例值：
-         */
-        this.invitations = builder.invitations;
+    public DefaultInvitation build() {
+      return new DefaultInvitation(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Invitation[] getInvitations() {
-        return this.invitations;
-    }
-
-    public void setInvitations(Invitation[] invitations) {
-        this.invitations = invitations;
-    }
-
-    public static class Builder {
-        /**
-         * 邀请关系列表
-         * <p> 示例值：
-         */
-        private Invitation[] invitations;
-
-        /**
-         * 邀请关系列表
-         * <p> 示例值：
-         *
-         * @param invitations
-         * @return
-         */
-        public Builder invitations(Invitation[] invitations) {
-            this.invitations = invitations;
-            return this;
-        }
-
-
-        public DefaultInvitation build() {
-            return new DefaultInvitation(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

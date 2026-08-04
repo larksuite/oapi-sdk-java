@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PermissionGroupInfo {
+  /**
+   * 权限点 ID列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("permission_ids")
+  private String[] permissionIds;
+
+  /**
+   * 管理范围规则
+   *
+   * <p>示例值：
+   */
+  @SerializedName("scope_rule")
+  private PermissionScopeRule scopeRule;
+
+  public String[] getPermissionIds() {
+    return this.permissionIds;
+  }
+
+  public void setPermissionIds(String[] permissionIds) {
+    this.permissionIds = permissionIds;
+  }
+
+  public PermissionScopeRule getScopeRule() {
+    return this.scopeRule;
+  }
+
+  public void setScopeRule(PermissionScopeRule scopeRule) {
+    this.scopeRule = scopeRule;
+  }
+
+  // builder 开始
+  public PermissionGroupInfo() {}
+
+  public PermissionGroupInfo(Builder builder) {
     /**
-     * 权限点ID列表
-     * <p> 示例值：
+     * 权限点 ID列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("permission_ids")
+    this.permissionIds = builder.permissionIds;
+    /**
+     * 管理范围规则
+     *
+     * <p>示例值：
+     */
+    this.scopeRule = builder.scopeRule;
+  }
+
+  public static class Builder {
+    /**
+     * 权限点 ID列表
+     *
+     * <p>示例值：
+     */
     private String[] permissionIds;
+
     /**
-     * 管理范围
-     * <p> 示例值：
+     * 管理范围规则
+     *
+     * <p>示例值：
      */
-    @SerializedName("scope_rule")
     private PermissionScopeRule scopeRule;
 
-    // builder 开始
-    public PermissionGroupInfo() {
+    /**
+     * 权限点 ID列表
+     *
+     * <p>示例值：
+     *
+     * @param permissionIds
+     * @return
+     */
+    public Builder permissionIds(String[] permissionIds) {
+      this.permissionIds = permissionIds;
+      return this;
     }
 
-    public PermissionGroupInfo(Builder builder) {
-        /**
-         * 权限点ID列表
-         * <p> 示例值：
-         */
-        this.permissionIds = builder.permissionIds;
-        /**
-         * 管理范围
-         * <p> 示例值：
-         */
-        this.scopeRule = builder.scopeRule;
+    /**
+     * 管理范围规则
+     *
+     * <p>示例值：
+     *
+     * @param scopeRule
+     * @return
+     */
+    public Builder scopeRule(PermissionScopeRule scopeRule) {
+      this.scopeRule = scopeRule;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PermissionGroupInfo build() {
+      return new PermissionGroupInfo(this);
     }
+  }
 
-    public String[] getPermissionIds() {
-        return this.permissionIds;
-    }
-
-    public void setPermissionIds(String[] permissionIds) {
-        this.permissionIds = permissionIds;
-    }
-
-    public PermissionScopeRule getScopeRule() {
-        return this.scopeRule;
-    }
-
-    public void setScopeRule(PermissionScopeRule scopeRule) {
-        this.scopeRule = scopeRule;
-    }
-
-    public static class Builder {
-        /**
-         * 权限点ID列表
-         * <p> 示例值：
-         */
-        private String[] permissionIds;
-        /**
-         * 管理范围
-         * <p> 示例值：
-         */
-        private PermissionScopeRule scopeRule;
-
-        /**
-         * 权限点ID列表
-         * <p> 示例值：
-         *
-         * @param permissionIds
-         * @return
-         */
-        public Builder permissionIds(String[] permissionIds) {
-            this.permissionIds = permissionIds;
-            return this;
-        }
-
-
-        /**
-         * 管理范围
-         * <p> 示例值：
-         *
-         * @param scopeRule
-         * @return
-         */
-        public Builder scopeRule(PermissionScopeRule scopeRule) {
-            this.scopeRule = scopeRule;
-            return this;
-        }
-
-
-        public PermissionGroupInfo build() {
-            return new PermissionGroupInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class UpdatePublicMailboxReq {
+  /**
+   * 公共邮箱唯一标识或公共邮箱地址
+   *
+   * <p>示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+   */
+  @Path
+  @SerializedName("public_mailbox_id")
+  private String publicMailboxId;
+
+  public String getPublicMailboxId() {
+    return this.publicMailboxId;
+  }
+
+  public void setPublicMailboxId(String publicMailboxId) {
+    this.publicMailboxId = publicMailboxId;
+  }
+
+  @Body private PublicMailbox body;
+
+  public PublicMailbox getPublicMailbox() {
+    return this.body;
+  }
+
+  public void setPublicMailbox(PublicMailbox body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdatePublicMailboxReq() {}
+
+  public UpdatePublicMailboxReq(Builder builder) {
     /**
      * 公共邮箱唯一标识或公共邮箱地址
-     * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
      */
-    @Path
-    @SerializedName("public_mailbox_id")
-    private String publicMailboxId;
-    @Body
+    this.publicMailboxId = builder.publicMailboxId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String publicMailboxId; // 公共邮箱唯一标识或公共邮箱地址
+
+    /**
+     * 公共邮箱唯一标识或公共邮箱地址
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
+     *
+     * @param publicMailboxId
+     * @return
+     */
+    public Builder publicMailboxId(String publicMailboxId) {
+      this.publicMailboxId = publicMailboxId;
+      return this;
+    }
+
     private PublicMailbox body;
 
-    // builder 开始
-    public UpdatePublicMailboxReq() {
-    }
-
-    public UpdatePublicMailboxReq(Builder builder) {
-        /**
-         * 公共邮箱唯一标识或公共邮箱地址
-         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
-         */
-        this.publicMailboxId = builder.publicMailboxId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getPublicMailboxId() {
-        return this.publicMailboxId;
-    }
-
-    public void setPublicMailboxId(String publicMailboxId) {
-        this.publicMailboxId = publicMailboxId;
-    }
-
     public PublicMailbox getPublicMailbox() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPublicMailbox(PublicMailbox body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder publicMailbox(PublicMailbox body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String publicMailboxId; // 公共邮箱唯一标识或公共邮箱地址
-        private PublicMailbox body;
-
-        /**
-         * 公共邮箱唯一标识或公共邮箱地址
-         * <p> 示例值：xxxxxxxxxxxxxxx 或 test_public_mailbox@xxx.xx
-         *
-         * @param publicMailboxId
-         * @return
-         */
-        public Builder publicMailboxId(String publicMailboxId) {
-            this.publicMailboxId = publicMailboxId;
-            return this;
-        }
-
-        public PublicMailbox getPublicMailbox() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder publicMailbox(PublicMailbox body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdatePublicMailboxReq build() {
-            return new UpdatePublicMailboxReq(this);
-        }
+    public UpdatePublicMailboxReq build() {
+      return new UpdatePublicMailboxReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

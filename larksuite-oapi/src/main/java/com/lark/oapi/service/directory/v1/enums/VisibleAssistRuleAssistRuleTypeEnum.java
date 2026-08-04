@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 规则集类型
- */
+/** 规则集类型 */
 public enum VisibleAssistRuleAssistRuleTypeEnum {
-    HIGH(1), // 高优先级规则集
-    LOW(2), // 低优先级规则集
-    ;
-    private Integer value;
+  HIGH(1), // 高优先级规则集
+  LOW(2), // 低优先级规则集
+  ;
+  private Integer value;
 
-    VisibleAssistRuleAssistRuleTypeEnum(Integer value) {
-        this.value = value;
-    }
+  VisibleAssistRuleAssistRuleTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

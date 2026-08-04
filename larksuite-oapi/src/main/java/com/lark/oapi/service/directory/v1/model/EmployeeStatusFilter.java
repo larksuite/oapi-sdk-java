@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeStatusFilter {
+  /**
+   * 用户雇员状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("staff_status")
+  private Integer staffStatus;
+
+  /**
+   * 用户活跃状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("active_status")
+  private Integer activeStatus;
+
+  public Integer getStaffStatus() {
+    return this.staffStatus;
+  }
+
+  public void setStaffStatus(Integer staffStatus) {
+    this.staffStatus = staffStatus;
+  }
+
+  public Integer getActiveStatus() {
+    return this.activeStatus;
+  }
+
+  public void setActiveStatus(Integer activeStatus) {
+    this.activeStatus = activeStatus;
+  }
+
+  // builder 开始
+  public EmployeeStatusFilter() {}
+
+  public EmployeeStatusFilter(Builder builder) {
     /**
      * 用户雇员状态
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("staff_status")
-    private Integer staffStatus;
+    this.staffStatus = builder.staffStatus;
     /**
      * 用户活跃状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("active_status")
+    this.activeStatus = builder.activeStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 用户雇员状态
+     *
+     * <p>示例值：1
+     */
+    private Integer staffStatus;
+
+    /**
+     * 用户活跃状态
+     *
+     * <p>示例值：
+     */
     private Integer activeStatus;
 
-    // builder 开始
-    public EmployeeStatusFilter() {
+    /**
+     * 用户雇员状态
+     *
+     * <p>示例值：1
+     *
+     * @param staffStatus
+     * @return
+     */
+    public Builder staffStatus(Integer staffStatus) {
+      this.staffStatus = staffStatus;
+      return this;
     }
 
-    public EmployeeStatusFilter(Builder builder) {
-        /**
-         * 用户雇员状态
-         * <p> 示例值：
-         */
-        this.staffStatus = builder.staffStatus;
-        /**
-         * 用户活跃状态
-         * <p> 示例值：
-         */
-        this.activeStatus = builder.activeStatus;
+    /**
+     * 用户活跃状态
+     *
+     * <p>示例值：
+     *
+     * @param activeStatus
+     * @return
+     */
+    public Builder activeStatus(Integer activeStatus) {
+      this.activeStatus = activeStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EmployeeStatusFilter build() {
+      return new EmployeeStatusFilter(this);
     }
+  }
 
-    public Integer getStaffStatus() {
-        return this.staffStatus;
-    }
-
-    public void setStaffStatus(Integer staffStatus) {
-        this.staffStatus = staffStatus;
-    }
-
-    public Integer getActiveStatus() {
-        return this.activeStatus;
-    }
-
-    public void setActiveStatus(Integer activeStatus) {
-        this.activeStatus = activeStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 用户雇员状态
-         * <p> 示例值：
-         */
-        private Integer staffStatus;
-        /**
-         * 用户活跃状态
-         * <p> 示例值：
-         */
-        private Integer activeStatus;
-
-        /**
-         * 用户雇员状态
-         * <p> 示例值：
-         *
-         * @param staffStatus
-         * @return
-         */
-        public Builder staffStatus(Integer staffStatus) {
-            this.staffStatus = staffStatus;
-            return this;
-        }
-
-
-        /**
-         * 用户活跃状态
-         * <p> 示例值：
-         *
-         * @param activeStatus
-         * @return
-         */
-        public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
-        }
-
-
-        public EmployeeStatusFilter build() {
-            return new EmployeeStatusFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

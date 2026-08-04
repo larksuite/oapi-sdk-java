@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CancelOnboardApplicationReqBody {
+  /**
+   * 终止类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("termination_type")
+  private Integer terminationType;
+
+  /**
+   * 终止的具体原因的id列表，详细信息请参考[获取终止投递原因](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/termination_reason/list)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("termination_reason_id_list")
+  private String[] terminationReasonIdList;
+
+  /**
+   * 备注
+   *
+   * <p>示例值：候选人经历不匹配
+   */
+  @SerializedName("termination_reason_notes")
+  private String terminationReasonNotes;
+
+  public Integer getTerminationType() {
+    return this.terminationType;
+  }
+
+  public void setTerminationType(Integer terminationType) {
+    this.terminationType = terminationType;
+  }
+
+  public String[] getTerminationReasonIdList() {
+    return this.terminationReasonIdList;
+  }
+
+  public void setTerminationReasonIdList(String[] terminationReasonIdList) {
+    this.terminationReasonIdList = terminationReasonIdList;
+  }
+
+  public String getTerminationReasonNotes() {
+    return this.terminationReasonNotes;
+  }
+
+  public void setTerminationReasonNotes(String terminationReasonNotes) {
+    this.terminationReasonNotes = terminationReasonNotes;
+  }
+
+  // builder 开始
+  public CancelOnboardApplicationReqBody() {}
+
+  public CancelOnboardApplicationReqBody(Builder builder) {
     /**
      * 终止类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("termination_type")
-    private Integer terminationType;
+    this.terminationType = builder.terminationType;
     /**
-     * 终止原因 ID 列表
-     * <p> 示例值：11111
+     * 终止的具体原因的id列表，详细信息请参考[获取终止投递原因](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/termination_reason/list)
+     *
+     * <p>示例值：
      */
-    @SerializedName("termination_reason_id_list")
-    private String[] terminationReasonIdList;
+    this.terminationReasonIdList = builder.terminationReasonIdList;
     /**
      * 备注
-     * <p> 示例值：测试
+     *
+     * <p>示例值：候选人经历不匹配
      */
-    @SerializedName("termination_reason_notes")
+    this.terminationReasonNotes = builder.terminationReasonNotes;
+  }
+
+  public static class Builder {
+    /**
+     * 终止类型
+     *
+     * <p>示例值：1
+     */
+    private Integer terminationType;
+
+    /**
+     * 终止的具体原因的id列表，详细信息请参考[获取终止投递原因](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/termination_reason/list)
+     *
+     * <p>示例值：
+     */
+    private String[] terminationReasonIdList;
+
+    /**
+     * 备注
+     *
+     * <p>示例值：候选人经历不匹配
+     */
     private String terminationReasonNotes;
 
-    // builder 开始
-    public CancelOnboardApplicationReqBody() {
+    /**
+     * 终止类型
+     *
+     * <p>示例值：1
+     *
+     * @param terminationType
+     * @return
+     */
+    public Builder terminationType(Integer terminationType) {
+      this.terminationType = terminationType;
+      return this;
     }
 
-    public CancelOnboardApplicationReqBody(Builder builder) {
-        /**
-         * 终止类型
-         * <p> 示例值：1
-         */
-        this.terminationType = builder.terminationType;
-        /**
-         * 终止原因 ID 列表
-         * <p> 示例值：11111
-         */
-        this.terminationReasonIdList = builder.terminationReasonIdList;
-        /**
-         * 备注
-         * <p> 示例值：测试
-         */
-        this.terminationReasonNotes = builder.terminationReasonNotes;
+    /**
+     * 终止的具体原因的id列表，详细信息请参考[获取终止投递原因](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/termination_reason/list)
+     *
+     * <p>示例值：
+     *
+     * @param terminationReasonIdList
+     * @return
+     */
+    public Builder terminationReasonIdList(String[] terminationReasonIdList) {
+      this.terminationReasonIdList = terminationReasonIdList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 备注
+     *
+     * <p>示例值：候选人经历不匹配
+     *
+     * @param terminationReasonNotes
+     * @return
+     */
+    public Builder terminationReasonNotes(String terminationReasonNotes) {
+      this.terminationReasonNotes = terminationReasonNotes;
+      return this;
     }
 
-    public Integer getTerminationType() {
-        return this.terminationType;
+    public CancelOnboardApplicationReqBody build() {
+      return new CancelOnboardApplicationReqBody(this);
     }
+  }
 
-    public void setTerminationType(Integer terminationType) {
-        this.terminationType = terminationType;
-    }
-
-    public String[] getTerminationReasonIdList() {
-        return this.terminationReasonIdList;
-    }
-
-    public void setTerminationReasonIdList(String[] terminationReasonIdList) {
-        this.terminationReasonIdList = terminationReasonIdList;
-    }
-
-    public String getTerminationReasonNotes() {
-        return this.terminationReasonNotes;
-    }
-
-    public void setTerminationReasonNotes(String terminationReasonNotes) {
-        this.terminationReasonNotes = terminationReasonNotes;
-    }
-
-    public static class Builder {
-        /**
-         * 终止类型
-         * <p> 示例值：1
-         */
-        private Integer terminationType;
-        /**
-         * 终止原因 ID 列表
-         * <p> 示例值：11111
-         */
-        private String[] terminationReasonIdList;
-        /**
-         * 备注
-         * <p> 示例值：测试
-         */
-        private String terminationReasonNotes;
-
-        /**
-         * 终止类型
-         * <p> 示例值：1
-         *
-         * @param terminationType
-         * @return
-         */
-        public Builder terminationType(Integer terminationType) {
-            this.terminationType = terminationType;
-            return this;
-        }
-
-
-        /**
-         * 终止原因 ID 列表
-         * <p> 示例值：11111
-         *
-         * @param terminationReasonIdList
-         * @return
-         */
-        public Builder terminationReasonIdList(String[] terminationReasonIdList) {
-            this.terminationReasonIdList = terminationReasonIdList;
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：测试
-         *
-         * @param terminationReasonNotes
-         * @return
-         */
-        public Builder terminationReasonNotes(String terminationReasonNotes) {
-            this.terminationReasonNotes = terminationReasonNotes;
-            return this;
-        }
-
-
-        public CancelOnboardApplicationReqBody build() {
-            return new CancelOnboardApplicationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

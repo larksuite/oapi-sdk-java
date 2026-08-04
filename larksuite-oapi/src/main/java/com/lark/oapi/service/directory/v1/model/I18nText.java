@@ -13,152 +13,150 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class I18nText {
+  /**
+   * 默认值
+   *
+   * <p>示例值：张三;;**数据校验规则**：;;长度范围：1-64 字符
+   */
+  @SerializedName("default_value")
+  private String defaultValue;
+
+  /**
+   * 国际化值，key为zh_cn, ja_jp, en_us, value为对应的值
+   *
+   * <p>示例值：{"en_us":"test"}
+   */
+  @SerializedName("i18n_value")
+  private Map<String, String> i18nValue;
+
+  /**
+   * 默认语种, 取值包括zh_cn,ja_jp,en_us等
+   *
+   * <p>示例值：zh_cn
+   */
+  @SerializedName("default_locale")
+  private String defaultLocale;
+
+  public String getDefaultValue() {
+    return this.defaultValue;
+  }
+
+  public void setDefaultValue(String defaultValue) {
+    this.defaultValue = defaultValue;
+  }
+
+  public Map<String, String> getI18nValue() {
+    return this.i18nValue;
+  }
+
+  public void setI18nValue(Map<String, String> i18nValue) {
+    this.i18nValue = i18nValue;
+  }
+
+  public String getDefaultLocale() {
+    return this.defaultLocale;
+  }
+
+  public void setDefaultLocale(String defaultLocale) {
+    this.defaultLocale = defaultLocale;
+  }
+
+  // builder 开始
+  public I18nText() {}
+
+  public I18nText(Builder builder) {
     /**
      * 默认值
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三;;**数据校验规则**：;;长度范围：1-64 字符
      */
-    @SerializedName("default_value")
-    private String defaultValue;
+    this.defaultValue = builder.defaultValue;
     /**
      * 国际化值，key为zh_cn, ja_jp, en_us, value为对应的值
-     * <p> 示例值：
+     *
+     * <p>示例值：{"en_us":"test"}
      */
-    @SerializedName("i18n_value")
-    private Map<String, String> i18nValue;
+    this.i18nValue = builder.i18nValue;
     /**
      * 默认语种, 取值包括zh_cn,ja_jp,en_us等
-     * <p> 示例值：zh_cn
+     *
+     * <p>示例值：zh_cn
      */
-    @SerializedName("default_locale")
+    this.defaultLocale = builder.defaultLocale;
+  }
+
+  public static class Builder {
+    /**
+     * 默认值
+     *
+     * <p>示例值：张三;;**数据校验规则**：;;长度范围：1-64 字符
+     */
+    private String defaultValue;
+
+    /**
+     * 国际化值，key为zh_cn, ja_jp, en_us, value为对应的值
+     *
+     * <p>示例值：{"en_us":"test"}
+     */
+    private Map<String, String> i18nValue;
+
+    /**
+     * 默认语种, 取值包括zh_cn,ja_jp,en_us等
+     *
+     * <p>示例值：zh_cn
+     */
     private String defaultLocale;
 
-    // builder 开始
-    public I18nText() {
+    /**
+     * 默认值
+     *
+     * <p>示例值：张三;;**数据校验规则**：;;长度范围：1-64 字符
+     *
+     * @param defaultValue
+     * @return
+     */
+    public Builder defaultValue(String defaultValue) {
+      this.defaultValue = defaultValue;
+      return this;
     }
 
-    public I18nText(Builder builder) {
-        /**
-         * 默认值
-         * <p> 示例值：张三
-         */
-        this.defaultValue = builder.defaultValue;
-        /**
-         * 国际化值，key为zh_cn, ja_jp, en_us, value为对应的值
-         * <p> 示例值：
-         */
-        this.i18nValue = builder.i18nValue;
-        /**
-         * 默认语种, 取值包括zh_cn,ja_jp,en_us等
-         * <p> 示例值：zh_cn
-         */
-        this.defaultLocale = builder.defaultLocale;
+    /**
+     * 国际化值，key为zh_cn, ja_jp, en_us, value为对应的值
+     *
+     * <p>示例值：{"en_us":"test"}
+     *
+     * @param i18nValue
+     * @return
+     */
+    public Builder i18nValue(Map<String, String> i18nValue) {
+      this.i18nValue = i18nValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 默认语种, 取值包括zh_cn,ja_jp,en_us等
+     *
+     * <p>示例值：zh_cn
+     *
+     * @param defaultLocale
+     * @return
+     */
+    public Builder defaultLocale(String defaultLocale) {
+      this.defaultLocale = defaultLocale;
+      return this;
     }
 
-    public String getDefaultValue() {
-        return this.defaultValue;
+    public I18nText build() {
+      return new I18nText(this);
     }
+  }
 
-    public void setDefaultValue(String defaultValue) {
-        this.defaultValue = defaultValue;
-    }
-
-    public Map<String, String> getI18nValue() {
-        return this.i18nValue;
-    }
-
-    public void setI18nValue(Map<String, String> i18nValue) {
-        this.i18nValue = i18nValue;
-    }
-
-    public String getDefaultLocale() {
-        return this.defaultLocale;
-    }
-
-    public void setDefaultLocale(String defaultLocale) {
-        this.defaultLocale = defaultLocale;
-    }
-
-    public static class Builder {
-        /**
-         * 默认值
-         * <p> 示例值：张三
-         */
-        private String defaultValue;
-        /**
-         * 国际化值，key为zh_cn, ja_jp, en_us, value为对应的值
-         * <p> 示例值：
-         */
-        private Map<String, String> i18nValue;
-        /**
-         * 默认语种, 取值包括zh_cn,ja_jp,en_us等
-         * <p> 示例值：zh_cn
-         */
-        private String defaultLocale;
-
-        /**
-         * 默认值
-         * <p> 示例值：张三
-         *
-         * @param defaultValue
-         * @return
-         */
-        public Builder defaultValue(String defaultValue) {
-            this.defaultValue = defaultValue;
-            return this;
-        }
-
-
-        /**
-         * 国际化值，key为zh_cn, ja_jp, en_us, value为对应的值
-         * <p> 示例值：
-         *
-         * @param i18nValue
-         * @return
-         */
-        public Builder i18nValue(Map<String, String> i18nValue) {
-            this.i18nValue = i18nValue;
-            return this;
-        }
-
-
-        /**
-         * 默认语种, 取值包括zh_cn,ja_jp,en_us等
-         * <p> 示例值：zh_cn
-         *
-         * @param defaultLocale
-         * @return
-         */
-        public Builder defaultLocale(String defaultLocale) {
-            this.defaultLocale = defaultLocale;
-            return this;
-        }
-
-
-        public I18nText build() {
-            return new I18nText(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

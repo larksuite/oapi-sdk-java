@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubscribeAuditLogFile {
+  /**
+   * 文件 id
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("file_id")
+  private String fileId;
+
+  /**
+   * 文件地址
+   *
+   * <p>示例值：example.gz
+   */
+  @SerializedName("file_url")
+  private String fileUrl;
+
+  /**
+   * 文件过期时间，秒级时间戳
+   *
+   * <p>示例值：1741759604
+   */
+  @SerializedName("file_url_expire_time")
+  private Integer fileUrlExpireTime;
+
+  /**
+   * 文件大小
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("file_size")
+  private Integer fileSize;
+
+  /**
+   * 文件打包的日志的开始时间
+   *
+   * <p>示例值：1741759604
+   */
+  @SerializedName("start_time")
+  private Integer startTime;
+
+  /**
+   * 文件打包的日志的结束时间
+   *
+   * <p>示例值：1741759704
+   */
+  @SerializedName("end_time")
+  private Integer endTime;
+
+  public String getFileId() {
+    return this.fileId;
+  }
+
+  public void setFileId(String fileId) {
+    this.fileId = fileId;
+  }
+
+  public String getFileUrl() {
+    return this.fileUrl;
+  }
+
+  public void setFileUrl(String fileUrl) {
+    this.fileUrl = fileUrl;
+  }
+
+  public Integer getFileUrlExpireTime() {
+    return this.fileUrlExpireTime;
+  }
+
+  public void setFileUrlExpireTime(Integer fileUrlExpireTime) {
+    this.fileUrlExpireTime = fileUrlExpireTime;
+  }
+
+  public Integer getFileSize() {
+    return this.fileSize;
+  }
+
+  public void setFileSize(Integer fileSize) {
+    this.fileSize = fileSize;
+  }
+
+  public Integer getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(Integer startTime) {
+    this.startTime = startTime;
+  }
+
+  public Integer getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(Integer endTime) {
+    this.endTime = endTime;
+  }
+
+  // builder 开始
+  public SubscribeAuditLogFile() {}
+
+  public SubscribeAuditLogFile(Builder builder) {
     /**
      * 文件 id
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("file_id")
-    private String fileId;
+    this.fileId = builder.fileId;
     /**
      * 文件地址
-     * <p> 示例值：example.gz
+     *
+     * <p>示例值：example.gz
      */
-    @SerializedName("file_url")
-    private String fileUrl;
+    this.fileUrl = builder.fileUrl;
     /**
      * 文件过期时间，秒级时间戳
-     * <p> 示例值：1741759604
+     *
+     * <p>示例值：1741759604
      */
-    @SerializedName("file_url_expire_time")
-    private Integer fileUrlExpireTime;
+    this.fileUrlExpireTime = builder.fileUrlExpireTime;
     /**
      * 文件大小
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("file_size")
-    private Integer fileSize;
+    this.fileSize = builder.fileSize;
     /**
      * 文件打包的日志的开始时间
-     * <p> 示例值：1741759604
+     *
+     * <p>示例值：1741759604
      */
-    @SerializedName("start_time")
-    private Integer startTime;
+    this.startTime = builder.startTime;
     /**
      * 文件打包的日志的结束时间
-     * <p> 示例值：1741759704
+     *
+     * <p>示例值：1741759704
      */
-    @SerializedName("end_time")
+    this.endTime = builder.endTime;
+  }
+
+  public static class Builder {
+    /**
+     * 文件 id
+     *
+     * <p>示例值：example
+     */
+    private String fileId;
+
+    /**
+     * 文件地址
+     *
+     * <p>示例值：example.gz
+     */
+    private String fileUrl;
+
+    /**
+     * 文件过期时间，秒级时间戳
+     *
+     * <p>示例值：1741759604
+     */
+    private Integer fileUrlExpireTime;
+
+    /**
+     * 文件大小
+     *
+     * <p>示例值：10
+     */
+    private Integer fileSize;
+
+    /**
+     * 文件打包的日志的开始时间
+     *
+     * <p>示例值：1741759604
+     */
+    private Integer startTime;
+
+    /**
+     * 文件打包的日志的结束时间
+     *
+     * <p>示例值：1741759704
+     */
     private Integer endTime;
 
-    // builder 开始
-    public SubscribeAuditLogFile() {
+    /**
+     * 文件 id
+     *
+     * <p>示例值：example
+     *
+     * @param fileId
+     * @return
+     */
+    public Builder fileId(String fileId) {
+      this.fileId = fileId;
+      return this;
     }
 
-    public SubscribeAuditLogFile(Builder builder) {
-        /**
-         * 文件 id
-         * <p> 示例值：example
-         */
-        this.fileId = builder.fileId;
-        /**
-         * 文件地址
-         * <p> 示例值：example.gz
-         */
-        this.fileUrl = builder.fileUrl;
-        /**
-         * 文件过期时间，秒级时间戳
-         * <p> 示例值：1741759604
-         */
-        this.fileUrlExpireTime = builder.fileUrlExpireTime;
-        /**
-         * 文件大小
-         * <p> 示例值：10
-         */
-        this.fileSize = builder.fileSize;
-        /**
-         * 文件打包的日志的开始时间
-         * <p> 示例值：1741759604
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 文件打包的日志的结束时间
-         * <p> 示例值：1741759704
-         */
-        this.endTime = builder.endTime;
+    /**
+     * 文件地址
+     *
+     * <p>示例值：example.gz
+     *
+     * @param fileUrl
+     * @return
+     */
+    public Builder fileUrl(String fileUrl) {
+      this.fileUrl = fileUrl;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文件过期时间，秒级时间戳
+     *
+     * <p>示例值：1741759604
+     *
+     * @param fileUrlExpireTime
+     * @return
+     */
+    public Builder fileUrlExpireTime(Integer fileUrlExpireTime) {
+      this.fileUrlExpireTime = fileUrlExpireTime;
+      return this;
     }
 
-    public String getFileId() {
-        return this.fileId;
+    /**
+     * 文件大小
+     *
+     * <p>示例值：10
+     *
+     * @param fileSize
+     * @return
+     */
+    public Builder fileSize(Integer fileSize) {
+      this.fileSize = fileSize;
+      return this;
     }
 
-    public void setFileId(String fileId) {
-        this.fileId = fileId;
+    /**
+     * 文件打包的日志的开始时间
+     *
+     * <p>示例值：1741759604
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(Integer startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getFileUrl() {
-        return this.fileUrl;
+    /**
+     * 文件打包的日志的结束时间
+     *
+     * <p>示例值：1741759704
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(Integer endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setFileUrl(String fileUrl) {
-        this.fileUrl = fileUrl;
+    public SubscribeAuditLogFile build() {
+      return new SubscribeAuditLogFile(this);
     }
+  }
 
-    public Integer getFileUrlExpireTime() {
-        return this.fileUrlExpireTime;
-    }
-
-    public void setFileUrlExpireTime(Integer fileUrlExpireTime) {
-        this.fileUrlExpireTime = fileUrlExpireTime;
-    }
-
-    public Integer getFileSize() {
-        return this.fileSize;
-    }
-
-    public void setFileSize(Integer fileSize) {
-        this.fileSize = fileSize;
-    }
-
-    public Integer getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(Integer startTime) {
-        this.startTime = startTime;
-    }
-
-    public Integer getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(Integer endTime) {
-        this.endTime = endTime;
-    }
-
-    public static class Builder {
-        /**
-         * 文件 id
-         * <p> 示例值：example
-         */
-        private String fileId;
-        /**
-         * 文件地址
-         * <p> 示例值：example.gz
-         */
-        private String fileUrl;
-        /**
-         * 文件过期时间，秒级时间戳
-         * <p> 示例值：1741759604
-         */
-        private Integer fileUrlExpireTime;
-        /**
-         * 文件大小
-         * <p> 示例值：10
-         */
-        private Integer fileSize;
-        /**
-         * 文件打包的日志的开始时间
-         * <p> 示例值：1741759604
-         */
-        private Integer startTime;
-        /**
-         * 文件打包的日志的结束时间
-         * <p> 示例值：1741759704
-         */
-        private Integer endTime;
-
-        /**
-         * 文件 id
-         * <p> 示例值：example
-         *
-         * @param fileId
-         * @return
-         */
-        public Builder fileId(String fileId) {
-            this.fileId = fileId;
-            return this;
-        }
-
-
-        /**
-         * 文件地址
-         * <p> 示例值：example.gz
-         *
-         * @param fileUrl
-         * @return
-         */
-        public Builder fileUrl(String fileUrl) {
-            this.fileUrl = fileUrl;
-            return this;
-        }
-
-
-        /**
-         * 文件过期时间，秒级时间戳
-         * <p> 示例值：1741759604
-         *
-         * @param fileUrlExpireTime
-         * @return
-         */
-        public Builder fileUrlExpireTime(Integer fileUrlExpireTime) {
-            this.fileUrlExpireTime = fileUrlExpireTime;
-            return this;
-        }
-
-
-        /**
-         * 文件大小
-         * <p> 示例值：10
-         *
-         * @param fileSize
-         * @return
-         */
-        public Builder fileSize(Integer fileSize) {
-            this.fileSize = fileSize;
-            return this;
-        }
-
-
-        /**
-         * 文件打包的日志的开始时间
-         * <p> 示例值：1741759604
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(Integer startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 文件打包的日志的结束时间
-         * <p> 示例值：1741759704
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(Integer endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        public SubscribeAuditLogFile build() {
-            return new SubscribeAuditLogFile(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

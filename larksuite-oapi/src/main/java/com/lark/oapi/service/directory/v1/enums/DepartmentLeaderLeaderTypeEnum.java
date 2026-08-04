@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 部门负责人类型
- */
+/** 部门负责人类型 */
 public enum DepartmentLeaderLeaderTypeEnum {
-    DEPARTMENT_LEADER_TYPE_DIRECTORY_MAIN(1), // 主
-    DEPARTMENT_LEADER_TYPE_DIRECTORY_DEPUTY(2), // 副
-    ;
-    private Integer value;
+  DEPARTMENT_LEADER_TYPE_DIRECTORY_MAIN(1), // 主
+  DEPARTMENT_LEADER_TYPE_DIRECTORY_DEPUTY(2), // 副
+  ;
+  private Integer value;
 
-    DepartmentLeaderLeaderTypeEnum(Integer value) {
-        this.value = value;
-    }
+  DepartmentLeaderLeaderTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

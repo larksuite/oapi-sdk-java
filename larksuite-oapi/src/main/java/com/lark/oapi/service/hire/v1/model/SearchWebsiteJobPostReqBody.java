@@ -13,370 +13,400 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchWebsiteJobPostReqBody {
+  /**
+   * 职位类别列表，详情请参考：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_type_id_list")
+  private String[] jobTypeIdList;
+
+  /**
+   * 职位城市列表，详情请参考：[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("city_code_list")
+  private String[] cityCodeList;
+
+  /**
+   * 职能分类列表，详情请参考：[获取职能分类列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_function/list)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_function_id_list")
+  private String[] jobFunctionIdList;
+
+  /**
+   * 职位项目列表，详情请参考：[获取项目列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/subject/list)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subject_id_list")
+  private String[] subjectIdList;
+
+  /**
+   * 关键字
+   *
+   * <p>示例值：HR
+   */
+  @SerializedName("keyword")
+  private String keyword;
+
+  /**
+   * 最早更新时间，毫秒级时间戳
+   *
+   * <p>示例值：1618500278663
+   */
+  @SerializedName("update_start_time")
+  private String updateStartTime;
+
+  /**
+   * 最晚更新时间，毫秒级时间戳
+   *
+   * <p>示例值：1618500278663
+   */
+  @SerializedName("update_end_time")
+  private String updateEndTime;
+
+  /**
+   * 最早创建时间，毫秒级时间戳
+   *
+   * <p>示例值：1618500278663
+   */
+  @SerializedName("create_start_time")
+  private String createStartTime;
+
+  /**
+   * 最晚创建时间，毫秒级时间戳
+   *
+   * <p>示例值：1618500278663
+   */
+  @SerializedName("create_end_time")
+  private String createEndTime;
+
+  public String[] getJobTypeIdList() {
+    return this.jobTypeIdList;
+  }
+
+  public void setJobTypeIdList(String[] jobTypeIdList) {
+    this.jobTypeIdList = jobTypeIdList;
+  }
+
+  public String[] getCityCodeList() {
+    return this.cityCodeList;
+  }
+
+  public void setCityCodeList(String[] cityCodeList) {
+    this.cityCodeList = cityCodeList;
+  }
+
+  public String[] getJobFunctionIdList() {
+    return this.jobFunctionIdList;
+  }
+
+  public void setJobFunctionIdList(String[] jobFunctionIdList) {
+    this.jobFunctionIdList = jobFunctionIdList;
+  }
+
+  public String[] getSubjectIdList() {
+    return this.subjectIdList;
+  }
+
+  public void setSubjectIdList(String[] subjectIdList) {
+    this.subjectIdList = subjectIdList;
+  }
+
+  public String getKeyword() {
+    return this.keyword;
+  }
+
+  public void setKeyword(String keyword) {
+    this.keyword = keyword;
+  }
+
+  public String getUpdateStartTime() {
+    return this.updateStartTime;
+  }
+
+  public void setUpdateStartTime(String updateStartTime) {
+    this.updateStartTime = updateStartTime;
+  }
+
+  public String getUpdateEndTime() {
+    return this.updateEndTime;
+  }
+
+  public void setUpdateEndTime(String updateEndTime) {
+    this.updateEndTime = updateEndTime;
+  }
+
+  public String getCreateStartTime() {
+    return this.createStartTime;
+  }
+
+  public void setCreateStartTime(String createStartTime) {
+    this.createStartTime = createStartTime;
+  }
+
+  public String getCreateEndTime() {
+    return this.createEndTime;
+  }
+
+  public void setCreateEndTime(String createEndTime) {
+    this.createEndTime = createEndTime;
+  }
+
+  // builder 开始
+  public SearchWebsiteJobPostReqBody() {}
+
+  public SearchWebsiteJobPostReqBody(Builder builder) {
     /**
-     * 职位类型列表
-     * <p> 示例值：6916472453069883661
+     * 职位类别列表，详情请参考：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_type_id_list")
-    private String[] jobTypeIdList;
+    this.jobTypeIdList = builder.jobTypeIdList;
     /**
-     * 职位城市列表
-     * <p> 示例值：CT_1
+     * 职位城市列表，详情请参考：[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)
+     *
+     * <p>示例值：
      */
-    @SerializedName("city_code_list")
-    private String[] cityCodeList;
+    this.cityCodeList = builder.cityCodeList;
     /**
-     * 职能分类列表
-     * <p> 示例值：6916472453069883661
+     * 职能分类列表，详情请参考：[获取职能分类列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_function/list)
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_function_id_list")
-    private String[] jobFunctionIdList;
+    this.jobFunctionIdList = builder.jobFunctionIdList;
     /**
-     * 职位项目列表
-     * <p> 示例值：6916472453069883661
+     * 职位项目列表，详情请参考：[获取项目列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/subject/list)
+     *
+     * <p>示例值：
      */
-    @SerializedName("subject_id_list")
-    private String[] subjectIdList;
+    this.subjectIdList = builder.subjectIdList;
     /**
      * 关键字
-     * <p> 示例值：HR
+     *
+     * <p>示例值：HR
      */
-    @SerializedName("keyword")
+    this.keyword = builder.keyword;
+    /**
+     * 最早更新时间，毫秒级时间戳
+     *
+     * <p>示例值：1618500278663
+     */
+    this.updateStartTime = builder.updateStartTime;
+    /**
+     * 最晚更新时间，毫秒级时间戳
+     *
+     * <p>示例值：1618500278663
+     */
+    this.updateEndTime = builder.updateEndTime;
+    /**
+     * 最早创建时间，毫秒级时间戳
+     *
+     * <p>示例值：1618500278663
+     */
+    this.createStartTime = builder.createStartTime;
+    /**
+     * 最晚创建时间，毫秒级时间戳
+     *
+     * <p>示例值：1618500278663
+     */
+    this.createEndTime = builder.createEndTime;
+  }
+
+  public static class Builder {
+    /**
+     * 职位类别列表，详情请参考：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)
+     *
+     * <p>示例值：
+     */
+    private String[] jobTypeIdList;
+
+    /**
+     * 职位城市列表，详情请参考：[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)
+     *
+     * <p>示例值：
+     */
+    private String[] cityCodeList;
+
+    /**
+     * 职能分类列表，详情请参考：[获取职能分类列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_function/list)
+     *
+     * <p>示例值：
+     */
+    private String[] jobFunctionIdList;
+
+    /**
+     * 职位项目列表，详情请参考：[获取项目列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/subject/list)
+     *
+     * <p>示例值：
+     */
+    private String[] subjectIdList;
+
+    /**
+     * 关键字
+     *
+     * <p>示例值：HR
+     */
     private String keyword;
+
     /**
-     * 最早更新时间,毫秒级时间戳
-     * <p> 示例值：1618500278663
+     * 最早更新时间，毫秒级时间戳
+     *
+     * <p>示例值：1618500278663
      */
-    @SerializedName("update_start_time")
     private String updateStartTime;
+
     /**
-     * 最晚更新时间,毫秒级时间戳
-     * <p> 示例值：1618500278663
+     * 最晚更新时间，毫秒级时间戳
+     *
+     * <p>示例值：1618500278663
      */
-    @SerializedName("update_end_time")
     private String updateEndTime;
+
     /**
-     * 最早创建时间,毫秒级时间戳
-     * <p> 示例值：1618500278663
+     * 最早创建时间，毫秒级时间戳
+     *
+     * <p>示例值：1618500278663
      */
-    @SerializedName("create_start_time")
     private String createStartTime;
+
     /**
-     * 最晚创建时间,毫秒级时间戳
-     * <p> 示例值：1618500278663
+     * 最晚创建时间，毫秒级时间戳
+     *
+     * <p>示例值：1618500278663
      */
-    @SerializedName("create_end_time")
     private String createEndTime;
 
-    // builder 开始
-    public SearchWebsiteJobPostReqBody() {
+    /**
+     * 职位类别列表，详情请参考：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)
+     *
+     * <p>示例值：
+     *
+     * @param jobTypeIdList
+     * @return
+     */
+    public Builder jobTypeIdList(String[] jobTypeIdList) {
+      this.jobTypeIdList = jobTypeIdList;
+      return this;
     }
 
-    public SearchWebsiteJobPostReqBody(Builder builder) {
-        /**
-         * 职位类型列表
-         * <p> 示例值：6916472453069883661
-         */
-        this.jobTypeIdList = builder.jobTypeIdList;
-        /**
-         * 职位城市列表
-         * <p> 示例值：CT_1
-         */
-        this.cityCodeList = builder.cityCodeList;
-        /**
-         * 职能分类列表
-         * <p> 示例值：6916472453069883661
-         */
-        this.jobFunctionIdList = builder.jobFunctionIdList;
-        /**
-         * 职位项目列表
-         * <p> 示例值：6916472453069883661
-         */
-        this.subjectIdList = builder.subjectIdList;
-        /**
-         * 关键字
-         * <p> 示例值：HR
-         */
-        this.keyword = builder.keyword;
-        /**
-         * 最早更新时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        this.updateStartTime = builder.updateStartTime;
-        /**
-         * 最晚更新时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        this.updateEndTime = builder.updateEndTime;
-        /**
-         * 最早创建时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        this.createStartTime = builder.createStartTime;
-        /**
-         * 最晚创建时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        this.createEndTime = builder.createEndTime;
+    /**
+     * 职位城市列表，详情请参考：[查询地点列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/query)
+     *
+     * <p>示例值：
+     *
+     * @param cityCodeList
+     * @return
+     */
+    public Builder cityCodeList(String[] cityCodeList) {
+      this.cityCodeList = cityCodeList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 职能分类列表，详情请参考：[获取职能分类列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_function/list)
+     *
+     * <p>示例值：
+     *
+     * @param jobFunctionIdList
+     * @return
+     */
+    public Builder jobFunctionIdList(String[] jobFunctionIdList) {
+      this.jobFunctionIdList = jobFunctionIdList;
+      return this;
     }
 
-    public String[] getJobTypeIdList() {
-        return this.jobTypeIdList;
+    /**
+     * 职位项目列表，详情请参考：[获取项目列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/subject/list)
+     *
+     * <p>示例值：
+     *
+     * @param subjectIdList
+     * @return
+     */
+    public Builder subjectIdList(String[] subjectIdList) {
+      this.subjectIdList = subjectIdList;
+      return this;
     }
 
-    public void setJobTypeIdList(String[] jobTypeIdList) {
-        this.jobTypeIdList = jobTypeIdList;
+    /**
+     * 关键字
+     *
+     * <p>示例值：HR
+     *
+     * @param keyword
+     * @return
+     */
+    public Builder keyword(String keyword) {
+      this.keyword = keyword;
+      return this;
     }
 
-    public String[] getCityCodeList() {
-        return this.cityCodeList;
+    /**
+     * 最早更新时间，毫秒级时间戳
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param updateStartTime
+     * @return
+     */
+    public Builder updateStartTime(String updateStartTime) {
+      this.updateStartTime = updateStartTime;
+      return this;
     }
 
-    public void setCityCodeList(String[] cityCodeList) {
-        this.cityCodeList = cityCodeList;
+    /**
+     * 最晚更新时间，毫秒级时间戳
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param updateEndTime
+     * @return
+     */
+    public Builder updateEndTime(String updateEndTime) {
+      this.updateEndTime = updateEndTime;
+      return this;
     }
 
-    public String[] getJobFunctionIdList() {
-        return this.jobFunctionIdList;
+    /**
+     * 最早创建时间，毫秒级时间戳
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param createStartTime
+     * @return
+     */
+    public Builder createStartTime(String createStartTime) {
+      this.createStartTime = createStartTime;
+      return this;
     }
 
-    public void setJobFunctionIdList(String[] jobFunctionIdList) {
-        this.jobFunctionIdList = jobFunctionIdList;
+    /**
+     * 最晚创建时间，毫秒级时间戳
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param createEndTime
+     * @return
+     */
+    public Builder createEndTime(String createEndTime) {
+      this.createEndTime = createEndTime;
+      return this;
     }
 
-    public String[] getSubjectIdList() {
-        return this.subjectIdList;
+    public SearchWebsiteJobPostReqBody build() {
+      return new SearchWebsiteJobPostReqBody(this);
     }
+  }
 
-    public void setSubjectIdList(String[] subjectIdList) {
-        this.subjectIdList = subjectIdList;
-    }
-
-    public String getKeyword() {
-        return this.keyword;
-    }
-
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
-    }
-
-    public String getUpdateStartTime() {
-        return this.updateStartTime;
-    }
-
-    public void setUpdateStartTime(String updateStartTime) {
-        this.updateStartTime = updateStartTime;
-    }
-
-    public String getUpdateEndTime() {
-        return this.updateEndTime;
-    }
-
-    public void setUpdateEndTime(String updateEndTime) {
-        this.updateEndTime = updateEndTime;
-    }
-
-    public String getCreateStartTime() {
-        return this.createStartTime;
-    }
-
-    public void setCreateStartTime(String createStartTime) {
-        this.createStartTime = createStartTime;
-    }
-
-    public String getCreateEndTime() {
-        return this.createEndTime;
-    }
-
-    public void setCreateEndTime(String createEndTime) {
-        this.createEndTime = createEndTime;
-    }
-
-    public static class Builder {
-        /**
-         * 职位类型列表
-         * <p> 示例值：6916472453069883661
-         */
-        private String[] jobTypeIdList;
-        /**
-         * 职位城市列表
-         * <p> 示例值：CT_1
-         */
-        private String[] cityCodeList;
-        /**
-         * 职能分类列表
-         * <p> 示例值：6916472453069883661
-         */
-        private String[] jobFunctionIdList;
-        /**
-         * 职位项目列表
-         * <p> 示例值：6916472453069883661
-         */
-        private String[] subjectIdList;
-        /**
-         * 关键字
-         * <p> 示例值：HR
-         */
-        private String keyword;
-        /**
-         * 最早更新时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        private String updateStartTime;
-        /**
-         * 最晚更新时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        private String updateEndTime;
-        /**
-         * 最早创建时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        private String createStartTime;
-        /**
-         * 最晚创建时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         */
-        private String createEndTime;
-
-        /**
-         * 职位类型列表
-         * <p> 示例值：6916472453069883661
-         *
-         * @param jobTypeIdList
-         * @return
-         */
-        public Builder jobTypeIdList(String[] jobTypeIdList) {
-            this.jobTypeIdList = jobTypeIdList;
-            return this;
-        }
-
-
-        /**
-         * 职位城市列表
-         * <p> 示例值：CT_1
-         *
-         * @param cityCodeList
-         * @return
-         */
-        public Builder cityCodeList(String[] cityCodeList) {
-            this.cityCodeList = cityCodeList;
-            return this;
-        }
-
-
-        /**
-         * 职能分类列表
-         * <p> 示例值：6916472453069883661
-         *
-         * @param jobFunctionIdList
-         * @return
-         */
-        public Builder jobFunctionIdList(String[] jobFunctionIdList) {
-            this.jobFunctionIdList = jobFunctionIdList;
-            return this;
-        }
-
-
-        /**
-         * 职位项目列表
-         * <p> 示例值：6916472453069883661
-         *
-         * @param subjectIdList
-         * @return
-         */
-        public Builder subjectIdList(String[] subjectIdList) {
-            this.subjectIdList = subjectIdList;
-            return this;
-        }
-
-
-        /**
-         * 关键字
-         * <p> 示例值：HR
-         *
-         * @param keyword
-         * @return
-         */
-        public Builder keyword(String keyword) {
-            this.keyword = keyword;
-            return this;
-        }
-
-
-        /**
-         * 最早更新时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         *
-         * @param updateStartTime
-         * @return
-         */
-        public Builder updateStartTime(String updateStartTime) {
-            this.updateStartTime = updateStartTime;
-            return this;
-        }
-
-
-        /**
-         * 最晚更新时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         *
-         * @param updateEndTime
-         * @return
-         */
-        public Builder updateEndTime(String updateEndTime) {
-            this.updateEndTime = updateEndTime;
-            return this;
-        }
-
-
-        /**
-         * 最早创建时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         *
-         * @param createStartTime
-         * @return
-         */
-        public Builder createStartTime(String createStartTime) {
-            this.createStartTime = createStartTime;
-            return this;
-        }
-
-
-        /**
-         * 最晚创建时间,毫秒级时间戳
-         * <p> 示例值：1618500278663
-         *
-         * @param createEndTime
-         * @return
-         */
-        public Builder createEndTime(String createEndTime) {
-            this.createEndTime = createEndTime;
-            return this;
-        }
-
-
-        public SearchWebsiteJobPostReqBody build() {
-            return new SearchWebsiteJobPostReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,19 +13,17 @@
 
 package com.lark.oapi.service.base.v2.enums;
 
-/**
- * Block类型
- */
+/** 仪表盘类型 */
 public enum BlockRoleBlockTypeEnum {
-    DASHBOARD("dashboard"), // 仪表盘
-    ;
-    private String value;
+  DASHBOARD("dashboard"), // 仪表盘
+  ;
+  private String value;
 
-    BlockRoleBlockTypeEnum(String value) {
-        this.value = value;
-    }
+  BlockRoleBlockTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

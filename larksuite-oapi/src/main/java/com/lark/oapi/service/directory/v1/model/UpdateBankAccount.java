@@ -13,408 +13,443 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateBankAccount {
+  /**
+   * ID
+   *
+   * <p>示例值：123123123
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 开户人姓名
+   *
+   * <p>示例值：rewasr
+   */
+  @SerializedName("account_user_name")
+  private String accountUserName;
+
+  /**
+   * 银行卡号
+   *
+   * <p>示例值：123123123
+   */
+  @SerializedName("account_number")
+  private String accountNumber;
+
+  /**
+   * 支行ID
+   *
+   * <p>示例值：12312123312
+   */
+  @SerializedName("sub_bank_id")
+  private String subBankId;
+
+  /**
+   * 银行卡类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bank_card_type")
+  private String bankCardType;
+
+  /**
+   * 国家/地区
+   *
+   * <p>示例值：MDM_123123
+   */
+  @SerializedName("country")
+  private String country;
+
+  /**
+   * 货币 https://md.bytedance.net/v1/main-data/currency 币种编码
+   *
+   * <p>示例值：MDM_123123
+   */
+  @SerializedName("currency")
+  private String currency;
+
+  /**
+   * 校验码
+   *
+   * <p>示例值：123123
+   */
+  @SerializedName("check_code")
+  private String checkCode;
+
+  /**
+   * 是否主卡
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_main")
+  private Boolean isMain;
+
+  /**
+   * 标准版兼容字段，后续会废弃，优先使用SubBankID
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("bank_name")
+  private String bankName;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getAccountUserName() {
+    return this.accountUserName;
+  }
+
+  public void setAccountUserName(String accountUserName) {
+    this.accountUserName = accountUserName;
+  }
+
+  public String getAccountNumber() {
+    return this.accountNumber;
+  }
+
+  public void setAccountNumber(String accountNumber) {
+    this.accountNumber = accountNumber;
+  }
+
+  public String getSubBankId() {
+    return this.subBankId;
+  }
+
+  public void setSubBankId(String subBankId) {
+    this.subBankId = subBankId;
+  }
+
+  public String getBankCardType() {
+    return this.bankCardType;
+  }
+
+  public void setBankCardType(String bankCardType) {
+    this.bankCardType = bankCardType;
+  }
+
+  public String getCountry() {
+    return this.country;
+  }
+
+  public void setCountry(String country) {
+    this.country = country;
+  }
+
+  public String getCurrency() {
+    return this.currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+  public String getCheckCode() {
+    return this.checkCode;
+  }
+
+  public void setCheckCode(String checkCode) {
+    this.checkCode = checkCode;
+  }
+
+  public Boolean getIsMain() {
+    return this.isMain;
+  }
+
+  public void setIsMain(Boolean isMain) {
+    this.isMain = isMain;
+  }
+
+  public String getBankName() {
+    return this.bankName;
+  }
+
+  public void setBankName(String bankName) {
+    this.bankName = bankName;
+  }
+
+  // builder 开始
+  public UpdateBankAccount() {}
+
+  public UpdateBankAccount(Builder builder) {
     /**
      * ID
-     * <p> 示例值：123123123
+     *
+     * <p>示例值：123123123
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 开户人姓名
-     * <p> 示例值：rewasr
+     *
+     * <p>示例值：rewasr
      */
-    @SerializedName("account_user_name")
-    private String accountUserName;
+    this.accountUserName = builder.accountUserName;
     /**
      * 银行卡号
-     * <p> 示例值：123123123
+     *
+     * <p>示例值：123123123
      */
-    @SerializedName("account_number")
-    private String accountNumber;
+    this.accountNumber = builder.accountNumber;
     /**
      * 支行ID
-     * <p> 示例值：12312123312
+     *
+     * <p>示例值：12312123312
      */
-    @SerializedName("sub_bank_id")
-    private String subBankId;
+    this.subBankId = builder.subBankId;
     /**
      * 银行卡类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bank_card_type")
-    private String bankCardType;
+    this.bankCardType = builder.bankCardType;
     /**
      * 国家/地区
-     * <p> 示例值：MDM_123123
+     *
+     * <p>示例值：MDM_123123
      */
-    @SerializedName("country")
-    private String country;
+    this.country = builder.country;
     /**
      * 货币 https://md.bytedance.net/v1/main-data/currency 币种编码
-     * <p> 示例值：MDM_123123
+     *
+     * <p>示例值：MDM_123123
      */
-    @SerializedName("currency")
-    private String currency;
+    this.currency = builder.currency;
     /**
      * 校验码
-     * <p> 示例值：123123
+     *
+     * <p>示例值：123123
      */
-    @SerializedName("check_code")
-    private String checkCode;
+    this.checkCode = builder.checkCode;
     /**
      * 是否主卡
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_main")
-    private Boolean isMain;
+    this.isMain = builder.isMain;
     /**
      * 标准版兼容字段，后续会废弃，优先使用SubBankID
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("bank_name")
+    this.bankName = builder.bankName;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：123123123
+     */
+    private String id;
+
+    /**
+     * 开户人姓名
+     *
+     * <p>示例值：rewasr
+     */
+    private String accountUserName;
+
+    /**
+     * 银行卡号
+     *
+     * <p>示例值：123123123
+     */
+    private String accountNumber;
+
+    /**
+     * 支行ID
+     *
+     * <p>示例值：12312123312
+     */
+    private String subBankId;
+
+    /**
+     * 银行卡类型
+     *
+     * <p>示例值：
+     */
+    private String bankCardType;
+
+    /**
+     * 国家/地区
+     *
+     * <p>示例值：MDM_123123
+     */
+    private String country;
+
+    /**
+     * 货币 https://md.bytedance.net/v1/main-data/currency 币种编码
+     *
+     * <p>示例值：MDM_123123
+     */
+    private String currency;
+
+    /**
+     * 校验码
+     *
+     * <p>示例值：123123
+     */
+    private String checkCode;
+
+    /**
+     * 是否主卡
+     *
+     * <p>示例值：
+     */
+    private Boolean isMain;
+
+    /**
+     * 标准版兼容字段，后续会废弃，优先使用SubBankID
+     *
+     * <p>示例值：test
+     */
     private String bankName;
 
-    // builder 开始
-    public UpdateBankAccount() {
+    /**
+     * ID
+     *
+     * <p>示例值：123123123
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UpdateBankAccount(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：123123123
-         */
-        this.id = builder.id;
-        /**
-         * 开户人姓名
-         * <p> 示例值：rewasr
-         */
-        this.accountUserName = builder.accountUserName;
-        /**
-         * 银行卡号
-         * <p> 示例值：123123123
-         */
-        this.accountNumber = builder.accountNumber;
-        /**
-         * 支行ID
-         * <p> 示例值：12312123312
-         */
-        this.subBankId = builder.subBankId;
-        /**
-         * 银行卡类型
-         * <p> 示例值：
-         */
-        this.bankCardType = builder.bankCardType;
-        /**
-         * 国家/地区
-         * <p> 示例值：MDM_123123
-         */
-        this.country = builder.country;
-        /**
-         * 货币 https://md.bytedance.net/v1/main-data/currency 币种编码
-         * <p> 示例值：MDM_123123
-         */
-        this.currency = builder.currency;
-        /**
-         * 校验码
-         * <p> 示例值：123123
-         */
-        this.checkCode = builder.checkCode;
-        /**
-         * 是否主卡
-         * <p> 示例值：
-         */
-        this.isMain = builder.isMain;
-        /**
-         * 标准版兼容字段，后续会废弃，优先使用SubBankID
-         * <p> 示例值：test
-         */
-        this.bankName = builder.bankName;
+    /**
+     * 开户人姓名
+     *
+     * <p>示例值：rewasr
+     *
+     * @param accountUserName
+     * @return
+     */
+    public Builder accountUserName(String accountUserName) {
+      this.accountUserName = accountUserName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 银行卡号
+     *
+     * <p>示例值：123123123
+     *
+     * @param accountNumber
+     * @return
+     */
+    public Builder accountNumber(String accountNumber) {
+      this.accountNumber = accountNumber;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 支行ID
+     *
+     * <p>示例值：12312123312
+     *
+     * @param subBankId
+     * @return
+     */
+    public Builder subBankId(String subBankId) {
+      this.subBankId = subBankId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 银行卡类型
+     *
+     * <p>示例值：
+     *
+     * @param bankCardType
+     * @return
+     */
+    public Builder bankCardType(String bankCardType) {
+      this.bankCardType = bankCardType;
+      return this;
     }
 
-    public String getAccountUserName() {
-        return this.accountUserName;
+    /**
+     * 国家/地区
+     *
+     * <p>示例值：MDM_123123
+     *
+     * @param country
+     * @return
+     */
+    public Builder country(String country) {
+      this.country = country;
+      return this;
     }
 
-    public void setAccountUserName(String accountUserName) {
-        this.accountUserName = accountUserName;
+    /**
+     * 货币 https://md.bytedance.net/v1/main-data/currency 币种编码
+     *
+     * <p>示例值：MDM_123123
+     *
+     * @param currency
+     * @return
+     */
+    public Builder currency(String currency) {
+      this.currency = currency;
+      return this;
     }
 
-    public String getAccountNumber() {
-        return this.accountNumber;
+    /**
+     * 校验码
+     *
+     * <p>示例值：123123
+     *
+     * @param checkCode
+     * @return
+     */
+    public Builder checkCode(String checkCode) {
+      this.checkCode = checkCode;
+      return this;
     }
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
+    /**
+     * 是否主卡
+     *
+     * <p>示例值：
+     *
+     * @param isMain
+     * @return
+     */
+    public Builder isMain(Boolean isMain) {
+      this.isMain = isMain;
+      return this;
     }
 
-    public String getSubBankId() {
-        return this.subBankId;
+    /**
+     * 标准版兼容字段，后续会废弃，优先使用SubBankID
+     *
+     * <p>示例值：test
+     *
+     * @param bankName
+     * @return
+     */
+    public Builder bankName(String bankName) {
+      this.bankName = bankName;
+      return this;
     }
 
-    public void setSubBankId(String subBankId) {
-        this.subBankId = subBankId;
+    public UpdateBankAccount build() {
+      return new UpdateBankAccount(this);
     }
+  }
 
-    public String getBankCardType() {
-        return this.bankCardType;
-    }
-
-    public void setBankCardType(String bankCardType) {
-        this.bankCardType = bankCardType;
-    }
-
-    public String getCountry() {
-        return this.country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getCurrency() {
-        return this.currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    public String getCheckCode() {
-        return this.checkCode;
-    }
-
-    public void setCheckCode(String checkCode) {
-        this.checkCode = checkCode;
-    }
-
-    public Boolean getIsMain() {
-        return this.isMain;
-    }
-
-    public void setIsMain(Boolean isMain) {
-        this.isMain = isMain;
-    }
-
-    public String getBankName() {
-        return this.bankName;
-    }
-
-    public void setBankName(String bankName) {
-        this.bankName = bankName;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：123123123
-         */
-        private String id;
-        /**
-         * 开户人姓名
-         * <p> 示例值：rewasr
-         */
-        private String accountUserName;
-        /**
-         * 银行卡号
-         * <p> 示例值：123123123
-         */
-        private String accountNumber;
-        /**
-         * 支行ID
-         * <p> 示例值：12312123312
-         */
-        private String subBankId;
-        /**
-         * 银行卡类型
-         * <p> 示例值：
-         */
-        private String bankCardType;
-        /**
-         * 国家/地区
-         * <p> 示例值：MDM_123123
-         */
-        private String country;
-        /**
-         * 货币 https://md.bytedance.net/v1/main-data/currency 币种编码
-         * <p> 示例值：MDM_123123
-         */
-        private String currency;
-        /**
-         * 校验码
-         * <p> 示例值：123123
-         */
-        private String checkCode;
-        /**
-         * 是否主卡
-         * <p> 示例值：
-         */
-        private Boolean isMain;
-        /**
-         * 标准版兼容字段，后续会废弃，优先使用SubBankID
-         * <p> 示例值：test
-         */
-        private String bankName;
-
-        /**
-         * ID
-         * <p> 示例值：123123123
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 开户人姓名
-         * <p> 示例值：rewasr
-         *
-         * @param accountUserName
-         * @return
-         */
-        public Builder accountUserName(String accountUserName) {
-            this.accountUserName = accountUserName;
-            return this;
-        }
-
-
-        /**
-         * 银行卡号
-         * <p> 示例值：123123123
-         *
-         * @param accountNumber
-         * @return
-         */
-        public Builder accountNumber(String accountNumber) {
-            this.accountNumber = accountNumber;
-            return this;
-        }
-
-
-        /**
-         * 支行ID
-         * <p> 示例值：12312123312
-         *
-         * @param subBankId
-         * @return
-         */
-        public Builder subBankId(String subBankId) {
-            this.subBankId = subBankId;
-            return this;
-        }
-
-
-        /**
-         * 银行卡类型
-         * <p> 示例值：
-         *
-         * @param bankCardType
-         * @return
-         */
-        public Builder bankCardType(String bankCardType) {
-            this.bankCardType = bankCardType;
-            return this;
-        }
-
-
-        /**
-         * 国家/地区
-         * <p> 示例值：MDM_123123
-         *
-         * @param country
-         * @return
-         */
-        public Builder country(String country) {
-            this.country = country;
-            return this;
-        }
-
-
-        /**
-         * 货币 https://md.bytedance.net/v1/main-data/currency 币种编码
-         * <p> 示例值：MDM_123123
-         *
-         * @param currency
-         * @return
-         */
-        public Builder currency(String currency) {
-            this.currency = currency;
-            return this;
-        }
-
-
-        /**
-         * 校验码
-         * <p> 示例值：123123
-         *
-         * @param checkCode
-         * @return
-         */
-        public Builder checkCode(String checkCode) {
-            this.checkCode = checkCode;
-            return this;
-        }
-
-
-        /**
-         * 是否主卡
-         * <p> 示例值：
-         *
-         * @param isMain
-         * @return
-         */
-        public Builder isMain(Boolean isMain) {
-            this.isMain = isMain;
-            return this;
-        }
-
-
-        /**
-         * 标准版兼容字段，后续会废弃，优先使用SubBankID
-         * <p> 示例值：test
-         *
-         * @param bankName
-         * @return
-         */
-        public Builder bankName(String bankName) {
-            this.bankName = bankName;
-            return this;
-        }
-
-
-        public UpdateBankAccount build() {
-            return new UpdateBankAccount(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

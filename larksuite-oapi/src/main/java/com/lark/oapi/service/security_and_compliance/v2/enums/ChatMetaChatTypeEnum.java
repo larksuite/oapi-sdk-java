@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 会话类型
- */
+/** 会话类型 */
 public enum ChatMetaChatTypeEnum {
-    P2P(1), //
-    GROUP(2), //
-    ;
-    private Integer value;
+  P2P(1), //
+  GROUP(2), //
+  ;
+  private Integer value;
 
-    ChatMetaChatTypeEnum(Integer value) {
-        this.value = value;
-    }
+  ChatMetaChatTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

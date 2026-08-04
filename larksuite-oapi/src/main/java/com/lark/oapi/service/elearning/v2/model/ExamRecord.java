@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExamRecord {
+  /**
+   * 得分
+   *
+   * <p>示例值：20
+   */
+  @SerializedName("score")
+  private Integer score;
+
+  /**
+   * 作答时长（已经作答才有），毫秒
+   *
+   * <p>示例值：8562
+   */
+  @SerializedName("answering_duration")
+  private String answeringDuration;
+
+  /**
+   * 考生交卷时间
+   *
+   * <p>示例值：1629961800520
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  public Integer getScore() {
+    return this.score;
+  }
+
+  public void setScore(Integer score) {
+    this.score = score;
+  }
+
+  public String getAnsweringDuration() {
+    return this.answeringDuration;
+  }
+
+  public void setAnsweringDuration(String answeringDuration) {
+    this.answeringDuration = answeringDuration;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  // builder 开始
+  public ExamRecord() {}
+
+  public ExamRecord(Builder builder) {
     /**
      * 得分
-     * <p> 示例值：20
+     *
+     * <p>示例值：20
      */
-    @SerializedName("score")
-    private Integer score;
+    this.score = builder.score;
     /**
      * 作答时长（已经作答才有），毫秒
-     * <p> 示例值：8562
+     *
+     * <p>示例值：8562
      */
-    @SerializedName("answering_duration")
-    private String answeringDuration;
+    this.answeringDuration = builder.answeringDuration;
     /**
      * 考生交卷时间
-     * <p> 示例值：1629961800520
+     *
+     * <p>示例值：1629961800520
      */
-    @SerializedName("end_time")
+    this.endTime = builder.endTime;
+  }
+
+  public static class Builder {
+    /**
+     * 得分
+     *
+     * <p>示例值：20
+     */
+    private Integer score;
+
+    /**
+     * 作答时长（已经作答才有），毫秒
+     *
+     * <p>示例值：8562
+     */
+    private String answeringDuration;
+
+    /**
+     * 考生交卷时间
+     *
+     * <p>示例值：1629961800520
+     */
     private String endTime;
 
-    // builder 开始
-    public ExamRecord() {
+    /**
+     * 得分
+     *
+     * <p>示例值：20
+     *
+     * @param score
+     * @return
+     */
+    public Builder score(Integer score) {
+      this.score = score;
+      return this;
     }
 
-    public ExamRecord(Builder builder) {
-        /**
-         * 得分
-         * <p> 示例值：20
-         */
-        this.score = builder.score;
-        /**
-         * 作答时长（已经作答才有），毫秒
-         * <p> 示例值：8562
-         */
-        this.answeringDuration = builder.answeringDuration;
-        /**
-         * 考生交卷时间
-         * <p> 示例值：1629961800520
-         */
-        this.endTime = builder.endTime;
+    /**
+     * 作答时长（已经作答才有），毫秒
+     *
+     * <p>示例值：8562
+     *
+     * @param answeringDuration
+     * @return
+     */
+    public Builder answeringDuration(String answeringDuration) {
+      this.answeringDuration = answeringDuration;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 考生交卷时间
+     *
+     * <p>示例值：1629961800520
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public Integer getScore() {
-        return this.score;
+    public ExamRecord build() {
+      return new ExamRecord(this);
     }
+  }
 
-    public void setScore(Integer score) {
-        this.score = score;
-    }
-
-    public String getAnsweringDuration() {
-        return this.answeringDuration;
-    }
-
-    public void setAnsweringDuration(String answeringDuration) {
-        this.answeringDuration = answeringDuration;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public static class Builder {
-        /**
-         * 得分
-         * <p> 示例值：20
-         */
-        private Integer score;
-        /**
-         * 作答时长（已经作答才有），毫秒
-         * <p> 示例值：8562
-         */
-        private String answeringDuration;
-        /**
-         * 考生交卷时间
-         * <p> 示例值：1629961800520
-         */
-        private String endTime;
-
-        /**
-         * 得分
-         * <p> 示例值：20
-         *
-         * @param score
-         * @return
-         */
-        public Builder score(Integer score) {
-            this.score = score;
-            return this;
-        }
-
-
-        /**
-         * 作答时长（已经作答才有），毫秒
-         * <p> 示例值：8562
-         *
-         * @param answeringDuration
-         * @return
-         */
-        public Builder answeringDuration(String answeringDuration) {
-            this.answeringDuration = answeringDuration;
-            return this;
-        }
-
-
-        /**
-         * 考生交卷时间
-         * <p> 示例值：1629961800520
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        public ExamRecord build() {
-            return new ExamRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

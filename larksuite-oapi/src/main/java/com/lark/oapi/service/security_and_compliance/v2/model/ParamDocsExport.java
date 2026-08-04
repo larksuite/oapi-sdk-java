@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParamDocsExport {
+  /**
+   * 导出文档权限信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("with_doc_permission")
+  private Boolean withDocPermission;
+
+  /**
+   * 导出文档评论信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("with_comment_json")
+  private Boolean withCommentJson;
+
+  public Boolean getWithDocPermission() {
+    return this.withDocPermission;
+  }
+
+  public void setWithDocPermission(Boolean withDocPermission) {
+    this.withDocPermission = withDocPermission;
+  }
+
+  public Boolean getWithCommentJson() {
+    return this.withCommentJson;
+  }
+
+  public void setWithCommentJson(Boolean withCommentJson) {
+    this.withCommentJson = withCommentJson;
+  }
+
+  // builder 开始
+  public ParamDocsExport() {}
+
+  public ParamDocsExport(Builder builder) {
     /**
      * 导出文档权限信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("with_doc_permission")
-    private Boolean withDocPermission;
+    this.withDocPermission = builder.withDocPermission;
     /**
      * 导出文档评论信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("with_comment_json")
+    this.withCommentJson = builder.withCommentJson;
+  }
+
+  public static class Builder {
+    /**
+     * 导出文档权限信息
+     *
+     * <p>示例值：
+     */
+    private Boolean withDocPermission;
+
+    /**
+     * 导出文档评论信息
+     *
+     * <p>示例值：
+     */
     private Boolean withCommentJson;
 
-    // builder 开始
-    public ParamDocsExport() {
+    /**
+     * 导出文档权限信息
+     *
+     * <p>示例值：
+     *
+     * @param withDocPermission
+     * @return
+     */
+    public Builder withDocPermission(Boolean withDocPermission) {
+      this.withDocPermission = withDocPermission;
+      return this;
     }
 
-    public ParamDocsExport(Builder builder) {
-        /**
-         * 导出文档权限信息
-         * <p> 示例值：
-         */
-        this.withDocPermission = builder.withDocPermission;
-        /**
-         * 导出文档评论信息
-         * <p> 示例值：
-         */
-        this.withCommentJson = builder.withCommentJson;
+    /**
+     * 导出文档评论信息
+     *
+     * <p>示例值：
+     *
+     * @param withCommentJson
+     * @return
+     */
+    public Builder withCommentJson(Boolean withCommentJson) {
+      this.withCommentJson = withCommentJson;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ParamDocsExport build() {
+      return new ParamDocsExport(this);
     }
+  }
 
-    public Boolean getWithDocPermission() {
-        return this.withDocPermission;
-    }
-
-    public void setWithDocPermission(Boolean withDocPermission) {
-        this.withDocPermission = withDocPermission;
-    }
-
-    public Boolean getWithCommentJson() {
-        return this.withCommentJson;
-    }
-
-    public void setWithCommentJson(Boolean withCommentJson) {
-        this.withCommentJson = withCommentJson;
-    }
-
-    public static class Builder {
-        /**
-         * 导出文档权限信息
-         * <p> 示例值：
-         */
-        private Boolean withDocPermission;
-        /**
-         * 导出文档评论信息
-         * <p> 示例值：
-         */
-        private Boolean withCommentJson;
-
-        /**
-         * 导出文档权限信息
-         * <p> 示例值：
-         *
-         * @param withDocPermission
-         * @return
-         */
-        public Builder withDocPermission(Boolean withDocPermission) {
-            this.withDocPermission = withDocPermission;
-            return this;
-        }
-
-
-        /**
-         * 导出文档评论信息
-         * <p> 示例值：
-         *
-         * @param withCommentJson
-         * @return
-         */
-        public Builder withCommentJson(Boolean withCommentJson) {
-            this.withCommentJson = withCommentJson;
-            return this;
-        }
-
-
-        public ParamDocsExport build() {
-            return new ParamDocsExport(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

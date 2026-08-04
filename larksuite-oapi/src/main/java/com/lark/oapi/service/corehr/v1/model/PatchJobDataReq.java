@@ -13,253 +13,279 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class PatchJobDataReq {
+  /**
+   * 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+   *
+   * <p>示例值："fe599b60-450f-46ff-b2ef-9f6675625b97"
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：people_corehr_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 此次调用中使用的部门 ID 类型
+   *
+   * <p>示例值：open_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  /**
+   * 是否强校验。值为 true 时，会对入参进行业务校验，并产生异动记录、发送异动事件。;- 默认值：true ;- 仅在新增任职版本时生效，即当 version_id 有值时该字段不生效;-
+   * 使用此功能时，试用期相关字段不支持;- 当响应返回的任职数据无变化时，请检查人事系统-异动管理
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("strict_verify")
+  private String strictVerify;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  public String getStrictVerify() {
+    return this.strictVerify;
+  }
+
+  public void setStrictVerify(String strictVerify) {
+    this.strictVerify = strictVerify;
+  }
+
+  /**
+   * 任职信息ID
+   *
+   * <p>示例值：151515
+   */
+  @Path
+  @SerializedName("job_data_id")
+  private String jobDataId;
+
+  public String getJobDataId() {
+    return this.jobDataId;
+  }
+
+  public void setJobDataId(String jobDataId) {
+    this.jobDataId = jobDataId;
+  }
+
+  @Body private JobData body;
+
+  public JobData getJobData() {
+    return this.body;
+  }
+
+  public void setJobData(JobData body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchJobDataReq() {}
+
+  public PatchJobDataReq(Builder builder) {
     /**
-     * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
+     * 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+     *
+     * <p>示例值："fe599b60-450f-46ff-b2ef-9f6675625b97"
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
      * 用户 ID 类型
-     * <p> 示例值：people_corehr_id
+     *
+     * <p>示例值：people_corehr_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 此次调用中使用的部门 ID 类型
-     * <p> 示例值：open_department_id
+     *
+     * <p>示例值：open_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
-     * 是否强校验。值为 true 时，会对入参进行业务校验，并产生异动记录、发送异动事件。;- 默认值：false;- 仅在新增任职版本时生效，当 version_id 不为空时该字段不生效
-     * <p> 示例值：false
+     * 是否强校验。值为 true 时，会对入参进行业务校验，并产生异动记录、发送异动事件。;- 默认值：true ;- 仅在新增任职版本时生效，即当 version_id
+     * 有值时该字段不生效;- 使用此功能时，试用期相关字段不支持;- 当响应返回的任职数据无变化时，请检查人事系统-异动管理
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("strict_verify")
-    private String strictVerify;
+    this.strictVerify = builder.strictVerify;
     /**
      * 任职信息ID
-     * <p> 示例值：151515
+     *
+     * <p>示例值：151515
      */
-    @Path
-    @SerializedName("job_data_id")
-    private String jobDataId;
-    @Body
+    this.jobDataId = builder.jobDataId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        clientToken; // 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+    private String userIdType; // 用户 ID 类型
+    private String departmentIdType; // 此次调用中使用的部门 ID 类型
+    private String
+        strictVerify; // 是否强校验。值为 true 时，会对入参进行业务校验，并产生异动记录、发送异动事件。;- 默认值：true ;- 仅在新增任职版本时生效，即当
+
+    // version_id 有值时该字段不生效;- 使用此功能时，试用期相关字段不支持;- 当响应返回的任职数据无变化时，请检查人事系统-异动管理
+
+    /**
+     * 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+     *
+     * <p>示例值："fe599b60-450f-46ff-b2ef-9f6675625b97"
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v1.enums.PatchJobDataPatchJobDataUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v1.enums.PatchJobDataPatchJobDataUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.corehr.v1.enums.PatchJobDataPatchJobDataDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.corehr.v1.enums.PatchJobDataPatchJobDataDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 是否强校验。值为 true 时，会对入参进行业务校验，并产生异动记录、发送异动事件。;- 默认值：true ;- 仅在新增任职版本时生效，即当 version_id
+     * 有值时该字段不生效;- 使用此功能时，试用期相关字段不支持;- 当响应返回的任职数据无变化时，请检查人事系统-异动管理
+     *
+     * <p>示例值：false
+     *
+     * @param strictVerify
+     * @return
+     */
+    public Builder strictVerify(String strictVerify) {
+      this.strictVerify = strictVerify;
+      return this;
+    }
+
+    private String jobDataId; // 任职信息ID
+
+    /**
+     * 任职信息ID
+     *
+     * <p>示例值：151515
+     *
+     * @param jobDataId
+     * @return
+     */
+    public Builder jobDataId(String jobDataId) {
+      this.jobDataId = jobDataId;
+      return this;
+    }
+
     private JobData body;
 
-    // builder 开始
-    public PatchJobDataReq() {
-    }
-
-    public PatchJobDataReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 是否强校验。值为 true 时，会对入参进行业务校验，并产生异动记录、发送异动事件。;- 默认值：false;- 仅在新增任职版本时生效，当 version_id 不为空时该字段不生效
-         * <p> 示例值：false
-         */
-        this.strictVerify = builder.strictVerify;
-        /**
-         * 任职信息ID
-         * <p> 示例值：151515
-         */
-        this.jobDataId = builder.jobDataId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public String getStrictVerify() {
-        return this.strictVerify;
-    }
-
-    public void setStrictVerify(String strictVerify) {
-        this.strictVerify = strictVerify;
-    }
-
-    public String getJobDataId() {
-        return this.jobDataId;
-    }
-
-    public void setJobDataId(String jobDataId) {
-        this.jobDataId = jobDataId;
-    }
-
     public JobData getJobData() {
-        return this.body;
+      return this.body;
     }
 
-    public void setJobData(JobData body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder jobData(JobData body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private String userIdType; // 用户 ID 类型
-        private String departmentIdType; // 此次调用中使用的部门 ID 类型
-        private String strictVerify; // 是否强校验。值为 true 时，会对入参进行业务校验，并产生异动记录、发送异动事件。;- 默认值：false;- 仅在新增任职版本时生效，当 version_id 不为空时该字段不生效
-        private String jobDataId; // 任职信息ID
-        private JobData body;
-
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.PatchJobDataPatchJobDataUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.PatchJobDataPatchJobDataUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.PatchJobDataPatchJobDataDepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.PatchJobDataPatchJobDataDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 是否强校验。值为 true 时，会对入参进行业务校验，并产生异动记录、发送异动事件。;- 默认值：false;- 仅在新增任职版本时生效，当 version_id 不为空时该字段不生效
-         * <p> 示例值：false
-         *
-         * @param strictVerify
-         * @return
-         */
-        public Builder strictVerify(String strictVerify) {
-            this.strictVerify = strictVerify;
-            return this;
-        }
-
-        /**
-         * 任职信息ID
-         * <p> 示例值：151515
-         *
-         * @param jobDataId
-         * @return
-         */
-        public Builder jobDataId(String jobDataId) {
-            this.jobDataId = jobDataId;
-            return this;
-        }
-
-        public JobData getJobData() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder jobData(JobData body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchJobDataReq build() {
-            return new PatchJobDataReq(this);
-        }
+    public PatchJobDataReq build() {
+      return new PatchJobDataReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

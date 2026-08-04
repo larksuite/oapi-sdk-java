@@ -14,19 +14,21 @@
 package com.lark.oapi.service.base.v2.enums;
 
 /**
- * 其他记录权限，仅在table_perm为2时有效
+ * 其他记录权限，仅在 `table_perm` 为 2 （数据表权限为可编辑）时生效。;- 当 `other_perm` 为 1 时，表示未命中 `rec_rule` 的记录仅可阅读，不可编辑;-
+ * 当 `other_perm` 为 0 时，表示既未命中 `rec_rule`、也未命中 `other_rec_rule` 的记录会被禁止阅读。即你可以通过 `other_rec_rule`
+ * 进一步指定可阅读的记录范围。
  */
 public enum RecRuleOtherPermEnum {
-    NOPERM(0), // 禁止查看
-    READ(1), // 仅可阅读
-    ;
-    private Integer value;
+  NOPERM(0), // 禁止查看
+  READ(1), // 仅可阅读
+  ;
+  private Integer value;
 
-    RecRuleOtherPermEnum(Integer value) {
-        this.value = value;
-    }
+  RecRuleOtherPermEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

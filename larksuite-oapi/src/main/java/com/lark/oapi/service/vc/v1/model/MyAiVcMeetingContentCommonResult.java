@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyAiVcMeetingContentCommonResult {
+  /**
+   * 会议内容问答for自由对话
+   *
+   * <p>示例值：该会议xxx
+   */
+  @SerializedName("meeting_content_reply")
+  private String meetingContentReply;
+
+  public String getMeetingContentReply() {
+    return this.meetingContentReply;
+  }
+
+  public void setMeetingContentReply(String meetingContentReply) {
+    this.meetingContentReply = meetingContentReply;
+  }
+
+  // builder 开始
+  public MyAiVcMeetingContentCommonResult() {}
+
+  public MyAiVcMeetingContentCommonResult(Builder builder) {
     /**
      * 会议内容问答for自由对话
-     * <p> 示例值：该会议xxx
+     *
+     * <p>示例值：该会议xxx
      */
-    @SerializedName("meeting_content_reply")
+    this.meetingContentReply = builder.meetingContentReply;
+  }
+
+  public static class Builder {
+    /**
+     * 会议内容问答for自由对话
+     *
+     * <p>示例值：该会议xxx
+     */
     private String meetingContentReply;
 
-    // builder 开始
-    public MyAiVcMeetingContentCommonResult() {
+    /**
+     * 会议内容问答for自由对话
+     *
+     * <p>示例值：该会议xxx
+     *
+     * @param meetingContentReply
+     * @return
+     */
+    public Builder meetingContentReply(String meetingContentReply) {
+      this.meetingContentReply = meetingContentReply;
+      return this;
     }
 
-    public MyAiVcMeetingContentCommonResult(Builder builder) {
-        /**
-         * 会议内容问答for自由对话
-         * <p> 示例值：该会议xxx
-         */
-        this.meetingContentReply = builder.meetingContentReply;
+    public MyAiVcMeetingContentCommonResult build() {
+      return new MyAiVcMeetingContentCommonResult(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getMeetingContentReply() {
-        return this.meetingContentReply;
-    }
-
-    public void setMeetingContentReply(String meetingContentReply) {
-        this.meetingContentReply = meetingContentReply;
-    }
-
-    public static class Builder {
-        /**
-         * 会议内容问答for自由对话
-         * <p> 示例值：该会议xxx
-         */
-        private String meetingContentReply;
-
-        /**
-         * 会议内容问答for自由对话
-         * <p> 示例值：该会议xxx
-         *
-         * @param meetingContentReply
-         * @return
-         */
-        public Builder meetingContentReply(String meetingContentReply) {
-            this.meetingContentReply = meetingContentReply;
-            return this;
-        }
-
-
-        public MyAiVcMeetingContentCommonResult build() {
-            return new MyAiVcMeetingContentCommonResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

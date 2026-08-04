@@ -13,130 +13,135 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class PatchJobLevelReq {
+  /**
+   * 根据client_token是否一致来判断是否为同一请求
+   *
+   * <p>示例值：12454646
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  /**
+   * 职级ID。ID获取方式：;-
+   * 调用[【新建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/create)[【查询租户的职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID
+   *
+   * <p>示例值：1616161616
+   */
+  @Path
+  @SerializedName("job_level_id")
+  private String jobLevelId;
+
+  public String getJobLevelId() {
+    return this.jobLevelId;
+  }
+
+  public void setJobLevelId(String jobLevelId) {
+    this.jobLevelId = jobLevelId;
+  }
+
+  @Body private JobLevel body;
+
+  public JobLevel getJobLevel() {
+    return this.body;
+  }
+
+  public void setJobLevel(JobLevel body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchJobLevelReq() {}
+
+  public PatchJobLevelReq(Builder builder) {
     /**
      * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
+     *
+     * <p>示例值：12454646
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
-     * 级别ID
-     * <p> 示例值：1616161616
+     * 职级ID。ID获取方式：;-
+     * 调用[【新建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/create)[【查询租户的职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID
+     *
+     * <p>示例值：1616161616
      */
-    @Path
-    @SerializedName("job_level_id")
-    private String jobLevelId;
-    @Body
+    this.jobLevelId = builder.jobLevelId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String clientToken; // 根据client_token是否一致来判断是否为同一请求
+
+    /**
+     * 根据client_token是否一致来判断是否为同一请求
+     *
+     * <p>示例值：12454646
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    private String jobLevelId; // 职级ID。ID获取方式：;-
+
+    // 调用[【新建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/create)[【查询租户的职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID
+
+    /**
+     * 职级ID。ID获取方式：;-
+     * 调用[【新建职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/create)[【查询租户的职级信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)等接口可以返回职级ID
+     *
+     * <p>示例值：1616161616
+     *
+     * @param jobLevelId
+     * @return
+     */
+    public Builder jobLevelId(String jobLevelId) {
+      this.jobLevelId = jobLevelId;
+      return this;
+    }
+
     private JobLevel body;
 
-    // builder 开始
-    public PatchJobLevelReq() {
-    }
-
-    public PatchJobLevelReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 级别ID
-         * <p> 示例值：1616161616
-         */
-        this.jobLevelId = builder.jobLevelId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public String getJobLevelId() {
-        return this.jobLevelId;
-    }
-
-    public void setJobLevelId(String jobLevelId) {
-        this.jobLevelId = jobLevelId;
-    }
-
     public JobLevel getJobLevel() {
-        return this.body;
+      return this.body;
     }
 
-    public void setJobLevel(JobLevel body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder jobLevel(JobLevel body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private String jobLevelId; // 级别ID
-        private JobLevel body;
-
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 级别ID
-         * <p> 示例值：1616161616
-         *
-         * @param jobLevelId
-         * @return
-         */
-        public Builder jobLevelId(String jobLevelId) {
-            this.jobLevelId = jobLevelId;
-            return this;
-        }
-
-        public JobLevel getJobLevel() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder jobLevel(JobLevel body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchJobLevelReq build() {
-            return new PatchJobLevelReq(this);
-        }
+    public PatchJobLevelReq build() {
+      return new PatchJobLevelReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

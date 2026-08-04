@@ -13,408 +13,443 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomHead {
+  /**
+   * 请求方的id deprecated
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("Id")
+  private String id;
+
+  /**
+   * 请求方的组织，在多租户业务中使用
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("TenantID")
+  private String tenantID;
+
+  /**
+   * 请求方的appid
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("AppID")
+  private String appID;
+
+  /**
+   * 开放平台的OpenID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("OpenID")
+  private String openID;
+
+  /**
+   * 如果小程序登录，这个是原始的信息，和OpenID是一个意思
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("TenantKey")
+  private String tenantKey;
+
+  /**
+   * 登录结果
+   *
+   * <p>示例值：
+   */
+  @SerializedName("Auth")
+  private CustomAuthInfo auth;
+
+  /**
+   * http header
+   *
+   * <p>示例值：
+   */
+  @SerializedName("HttpHeader")
+  private CustomHttpHeader httpHeader;
+
+  /**
+   * 所在区域，参考:A tour of Lobster
+   *
+   * <p>示例值：zh
+   */
+  @SerializedName("Locale")
+  private String locale;
+
+  /**
+   * 客户端信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("Client")
+  private CustomClientInfo client;
+
+  /**
+   * Session标识
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("SessionUUID")
+  private String sessionUUID;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTenantID() {
+    return this.tenantID;
+  }
+
+  public void setTenantID(String tenantID) {
+    this.tenantID = tenantID;
+  }
+
+  public String getAppID() {
+    return this.appID;
+  }
+
+  public void setAppID(String appID) {
+    this.appID = appID;
+  }
+
+  public String getOpenID() {
+    return this.openID;
+  }
+
+  public void setOpenID(String openID) {
+    this.openID = openID;
+  }
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  public CustomAuthInfo getAuth() {
+    return this.auth;
+  }
+
+  public void setAuth(CustomAuthInfo auth) {
+    this.auth = auth;
+  }
+
+  public CustomHttpHeader getHttpHeader() {
+    return this.httpHeader;
+  }
+
+  public void setHttpHeader(CustomHttpHeader httpHeader) {
+    this.httpHeader = httpHeader;
+  }
+
+  public String getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  public CustomClientInfo getClient() {
+    return this.client;
+  }
+
+  public void setClient(CustomClientInfo client) {
+    this.client = client;
+  }
+
+  public String getSessionUUID() {
+    return this.sessionUUID;
+  }
+
+  public void setSessionUUID(String sessionUUID) {
+    this.sessionUUID = sessionUUID;
+  }
+
+  // builder 开始
+  public CustomHead() {}
+
+  public CustomHead(Builder builder) {
     /**
      * 请求方的id deprecated
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("Id")
-    private String id;
+    this.id = builder.id;
     /**
      * 请求方的组织，在多租户业务中使用
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("TenantID")
-    private String tenantID;
+    this.tenantID = builder.tenantID;
     /**
      * 请求方的appid
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("AppID")
-    private String appID;
+    this.appID = builder.appID;
     /**
      * 开放平台的OpenID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("OpenID")
-    private String openID;
+    this.openID = builder.openID;
     /**
      * 如果小程序登录，这个是原始的信息，和OpenID是一个意思
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("TenantKey")
-    private String tenantKey;
+    this.tenantKey = builder.tenantKey;
     /**
      * 登录结果
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("Auth")
-    private CustomAuthInfo auth;
+    this.auth = builder.auth;
     /**
      * http header
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("HttpHeader")
-    private CustomHttpHeader httpHeader;
+    this.httpHeader = builder.httpHeader;
     /**
      * 所在区域，参考:A tour of Lobster
-     * <p> 示例值：zh
+     *
+     * <p>示例值：zh
      */
-    @SerializedName("Locale")
-    private String locale;
+    this.locale = builder.locale;
     /**
      * 客户端信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("Client")
-    private CustomClientInfo client;
+    this.client = builder.client;
     /**
      * Session标识
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("SessionUUID")
+    this.sessionUUID = builder.sessionUUID;
+  }
+
+  public static class Builder {
+    /**
+     * 请求方的id deprecated
+     *
+     * <p>示例值：1
+     */
+    private String id;
+
+    /**
+     * 请求方的组织，在多租户业务中使用
+     *
+     * <p>示例值：1
+     */
+    private String tenantID;
+
+    /**
+     * 请求方的appid
+     *
+     * <p>示例值：1
+     */
+    private String appID;
+
+    /**
+     * 开放平台的OpenID
+     *
+     * <p>示例值：1
+     */
+    private String openID;
+
+    /**
+     * 如果小程序登录，这个是原始的信息，和OpenID是一个意思
+     *
+     * <p>示例值：1
+     */
+    private String tenantKey;
+
+    /**
+     * 登录结果
+     *
+     * <p>示例值：
+     */
+    private CustomAuthInfo auth;
+
+    /**
+     * http header
+     *
+     * <p>示例值：
+     */
+    private CustomHttpHeader httpHeader;
+
+    /**
+     * 所在区域，参考:A tour of Lobster
+     *
+     * <p>示例值：zh
+     */
+    private String locale;
+
+    /**
+     * 客户端信息
+     *
+     * <p>示例值：
+     */
+    private CustomClientInfo client;
+
+    /**
+     * Session标识
+     *
+     * <p>示例值：1
+     */
     private String sessionUUID;
 
-    // builder 开始
-    public CustomHead() {
+    /**
+     * 请求方的id deprecated
+     *
+     * <p>示例值：1
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public CustomHead(Builder builder) {
-        /**
-         * 请求方的id deprecated
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 请求方的组织，在多租户业务中使用
-         * <p> 示例值：1
-         */
-        this.tenantID = builder.tenantID;
-        /**
-         * 请求方的appid
-         * <p> 示例值：1
-         */
-        this.appID = builder.appID;
-        /**
-         * 开放平台的OpenID
-         * <p> 示例值：1
-         */
-        this.openID = builder.openID;
-        /**
-         * 如果小程序登录，这个是原始的信息，和OpenID是一个意思
-         * <p> 示例值：1
-         */
-        this.tenantKey = builder.tenantKey;
-        /**
-         * 登录结果
-         * <p> 示例值：
-         */
-        this.auth = builder.auth;
-        /**
-         * http header
-         * <p> 示例值：
-         */
-        this.httpHeader = builder.httpHeader;
-        /**
-         * 所在区域，参考:A tour of Lobster
-         * <p> 示例值：zh
-         */
-        this.locale = builder.locale;
-        /**
-         * 客户端信息
-         * <p> 示例值：
-         */
-        this.client = builder.client;
-        /**
-         * Session标识
-         * <p> 示例值：1
-         */
-        this.sessionUUID = builder.sessionUUID;
+    /**
+     * 请求方的组织，在多租户业务中使用
+     *
+     * <p>示例值：1
+     *
+     * @param tenantID
+     * @return
+     */
+    public Builder tenantID(String tenantID) {
+      this.tenantID = tenantID;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 请求方的appid
+     *
+     * <p>示例值：1
+     *
+     * @param appID
+     * @return
+     */
+    public Builder appID(String appID) {
+      this.appID = appID;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 开放平台的OpenID
+     *
+     * <p>示例值：1
+     *
+     * @param openID
+     * @return
+     */
+    public Builder openID(String openID) {
+      this.openID = openID;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 如果小程序登录，这个是原始的信息，和OpenID是一个意思
+     *
+     * <p>示例值：1
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public String getTenantID() {
-        return this.tenantID;
+    /**
+     * 登录结果
+     *
+     * <p>示例值：
+     *
+     * @param auth
+     * @return
+     */
+    public Builder auth(CustomAuthInfo auth) {
+      this.auth = auth;
+      return this;
     }
 
-    public void setTenantID(String tenantID) {
-        this.tenantID = tenantID;
+    /**
+     * http header
+     *
+     * <p>示例值：
+     *
+     * @param httpHeader
+     * @return
+     */
+    public Builder httpHeader(CustomHttpHeader httpHeader) {
+      this.httpHeader = httpHeader;
+      return this;
     }
 
-    public String getAppID() {
-        return this.appID;
+    /**
+     * 所在区域，参考:A tour of Lobster
+     *
+     * <p>示例值：zh
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(String locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public void setAppID(String appID) {
-        this.appID = appID;
+    /**
+     * 客户端信息
+     *
+     * <p>示例值：
+     *
+     * @param client
+     * @return
+     */
+    public Builder client(CustomClientInfo client) {
+      this.client = client;
+      return this;
     }
 
-    public String getOpenID() {
-        return this.openID;
+    /**
+     * Session标识
+     *
+     * <p>示例值：1
+     *
+     * @param sessionUUID
+     * @return
+     */
+    public Builder sessionUUID(String sessionUUID) {
+      this.sessionUUID = sessionUUID;
+      return this;
     }
 
-    public void setOpenID(String openID) {
-        this.openID = openID;
+    public CustomHead build() {
+      return new CustomHead(this);
     }
+  }
 
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
-
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
-
-    public CustomAuthInfo getAuth() {
-        return this.auth;
-    }
-
-    public void setAuth(CustomAuthInfo auth) {
-        this.auth = auth;
-    }
-
-    public CustomHttpHeader getHttpHeader() {
-        return this.httpHeader;
-    }
-
-    public void setHttpHeader(CustomHttpHeader httpHeader) {
-        this.httpHeader = httpHeader;
-    }
-
-    public String getLocale() {
-        return this.locale;
-    }
-
-    public void setLocale(String locale) {
-        this.locale = locale;
-    }
-
-    public CustomClientInfo getClient() {
-        return this.client;
-    }
-
-    public void setClient(CustomClientInfo client) {
-        this.client = client;
-    }
-
-    public String getSessionUUID() {
-        return this.sessionUUID;
-    }
-
-    public void setSessionUUID(String sessionUUID) {
-        this.sessionUUID = sessionUUID;
-    }
-
-    public static class Builder {
-        /**
-         * 请求方的id deprecated
-         * <p> 示例值：1
-         */
-        private String id;
-        /**
-         * 请求方的组织，在多租户业务中使用
-         * <p> 示例值：1
-         */
-        private String tenantID;
-        /**
-         * 请求方的appid
-         * <p> 示例值：1
-         */
-        private String appID;
-        /**
-         * 开放平台的OpenID
-         * <p> 示例值：1
-         */
-        private String openID;
-        /**
-         * 如果小程序登录，这个是原始的信息，和OpenID是一个意思
-         * <p> 示例值：1
-         */
-        private String tenantKey;
-        /**
-         * 登录结果
-         * <p> 示例值：
-         */
-        private CustomAuthInfo auth;
-        /**
-         * http header
-         * <p> 示例值：
-         */
-        private CustomHttpHeader httpHeader;
-        /**
-         * 所在区域，参考:A tour of Lobster
-         * <p> 示例值：zh
-         */
-        private String locale;
-        /**
-         * 客户端信息
-         * <p> 示例值：
-         */
-        private CustomClientInfo client;
-        /**
-         * Session标识
-         * <p> 示例值：1
-         */
-        private String sessionUUID;
-
-        /**
-         * 请求方的id deprecated
-         * <p> 示例值：1
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 请求方的组织，在多租户业务中使用
-         * <p> 示例值：1
-         *
-         * @param tenantID
-         * @return
-         */
-        public Builder tenantID(String tenantID) {
-            this.tenantID = tenantID;
-            return this;
-        }
-
-
-        /**
-         * 请求方的appid
-         * <p> 示例值：1
-         *
-         * @param appID
-         * @return
-         */
-        public Builder appID(String appID) {
-            this.appID = appID;
-            return this;
-        }
-
-
-        /**
-         * 开放平台的OpenID
-         * <p> 示例值：1
-         *
-         * @param openID
-         * @return
-         */
-        public Builder openID(String openID) {
-            this.openID = openID;
-            return this;
-        }
-
-
-        /**
-         * 如果小程序登录，这个是原始的信息，和OpenID是一个意思
-         * <p> 示例值：1
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        /**
-         * 登录结果
-         * <p> 示例值：
-         *
-         * @param auth
-         * @return
-         */
-        public Builder auth(CustomAuthInfo auth) {
-            this.auth = auth;
-            return this;
-        }
-
-
-        /**
-         * http header
-         * <p> 示例值：
-         *
-         * @param httpHeader
-         * @return
-         */
-        public Builder httpHeader(CustomHttpHeader httpHeader) {
-            this.httpHeader = httpHeader;
-            return this;
-        }
-
-
-        /**
-         * 所在区域，参考:A tour of Lobster
-         * <p> 示例值：zh
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
-        }
-
-
-        /**
-         * 客户端信息
-         * <p> 示例值：
-         *
-         * @param client
-         * @return
-         */
-        public Builder client(CustomClientInfo client) {
-            this.client = client;
-            return this;
-        }
-
-
-        /**
-         * Session标识
-         * <p> 示例值：1
-         *
-         * @param sessionUUID
-         * @return
-         */
-        public Builder sessionUUID(String sessionUUID) {
-            this.sessionUUID = sessionUUID;
-            return this;
-        }
-
-
-        public CustomHead build() {
-            return new CustomHead(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

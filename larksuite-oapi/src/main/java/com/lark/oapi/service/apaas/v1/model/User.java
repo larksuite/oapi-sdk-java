@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class User {
+  /**
+   * 用户KunlunID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 用户名称
+   *
+   * <p>示例值：发起人名称
+   */
+  @SerializedName("name")
+  private String name;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public User() {}
+
+  public User(Builder builder) {
     /**
-     * 用户ID
-     * <p> 示例值：
+     * 用户KunlunID
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 用户名称
-     * <p> 示例值：yijie
+     *
+     * <p>示例值：发起人名称
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 用户KunlunID
+     *
+     * <p>示例值：
+     */
+    private String userId;
+
+    /**
+     * 用户名称
+     *
+     * <p>示例值：发起人名称
+     */
     private String name;
 
-    // builder 开始
-    public User() {
+    /**
+     * 用户KunlunID
+     *
+     * <p>示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public User(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户名称
-         * <p> 示例值：yijie
-         */
-        this.name = builder.name;
+    /**
+     * 用户名称
+     *
+     * <p>示例值：发起人名称
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public User build() {
+      return new User(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 用户名称
-         * <p> 示例值：yijie
-         */
-        private String name;
-
-        /**
-         * 用户ID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 用户名称
-         * <p> 示例值：yijie
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public User build() {
-            return new User(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

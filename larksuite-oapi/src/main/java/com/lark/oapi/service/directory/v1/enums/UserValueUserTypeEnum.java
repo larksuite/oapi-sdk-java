@@ -13,19 +13,17 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 人员类型
- */
+/** 人员类型 */
 public enum UserValueUserTypeEnum {
-    CUSTOM_FIELD_VALUE_USER_TYPE_EMPLOYEE("1"), // 员工
-    ;
-    private String value;
+  CUSTOM_FIELD_VALUE_USER_TYPE_EMPLOYEE("1"), // 员工
+  ;
+  private String value;
 
-    UserValueUserTypeEnum(String value) {
-        this.value = value;
-    }
+  UserValueUserTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,149 +13,161 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.cardkit.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SettingsCardReqBody {
+  /**
+   * 卡片配置相关字段转义后的字符串，包括 `config` 和 `card_link` 字段。;;;**注意**：;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。;-
+   * 本字段仅支持[卡片 JSON 2.0
+   * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)中的对应字段。
+   *
+   * <p>示例值：{\"config\":{\"streaming_mode\":true,\"streaming_config\":{\"print_frequency_ms\":{\"default\":70,\"android\":70,\"ios\":70,\"pc\":70},\"print_step\":{\"default\":1,\"android\":1,\"ios\":1,\"pc\":1},\"print_strategy\":\"fast\"}}}
+   */
+  @SerializedName("settings")
+  private String settings;
+
+  /**
+   * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+   *
+   * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+   */
+  @SerializedName("uuid")
+  private String uuid;
+
+  /**
+   * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+   * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("sequence")
+  private Integer sequence;
+
+  public String getSettings() {
+    return this.settings;
+  }
+
+  public void setSettings(String settings) {
+    this.settings = settings;
+  }
+
+  public String getUuid() {
+    return this.uuid;
+  }
+
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
+  public Integer getSequence() {
+    return this.sequence;
+  }
+
+  public void setSequence(Integer sequence) {
+    this.sequence = sequence;
+  }
+
+  // builder 开始
+  public SettingsCardReqBody() {}
+
+  public SettingsCardReqBody(Builder builder) {
     /**
-     * 卡片设置
-     * <p> 示例值：{\"config\":{\"streaming_mode\":true,\"enable_forward\":true,\"update_multi\":true,\"width_mode\":\"fill\",\"enable_forward_interaction\":false},\"card_link\":{\"url\":\"https://open.feishu.cn\",\"android_url\":\"https://open.feishu.cn\",\"ios_url\":\"https://open.feishu.cn\",\"pc_url\":\"https://open.feishu.cn\"}}
+     * 卡片配置相关字段转义后的字符串，包括 `config` 和 `card_link` 字段。;;;**注意**：;- 以下示例值未转义，使用时请注意将其转为 JSON
+     * 序列化后的字符串。;- 本字段仅支持[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)中的对应字段。
+     *
+     * <p>示例值：{\"config\":{\"streaming_mode\":true,\"streaming_config\":{\"print_frequency_ms\":{\"default\":70,\"android\":70,\"ios\":70,\"pc\":70},\"print_step\":{\"default\":1,\"android\":1,\"ios\":1,\"pc\":1},\"print_strategy\":\"fast\"}}}
      */
-    @SerializedName("settings")
+    this.settings = builder.settings;
+    /**
+     * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+     *
+     * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+     */
+    this.uuid = builder.uuid;
+    /**
+     * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+     * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数
+     *
+     * <p>示例值：1
+     */
+    this.sequence = builder.sequence;
+  }
+
+  public static class Builder {
+    /**
+     * 卡片配置相关字段转义后的字符串，包括 `config` 和 `card_link` 字段。;;;**注意**：;- 以下示例值未转义，使用时请注意将其转为 JSON
+     * 序列化后的字符串。;- 本字段仅支持[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)中的对应字段。
+     *
+     * <p>示例值：{\"config\":{\"streaming_mode\":true,\"streaming_config\":{\"print_frequency_ms\":{\"default\":70,\"android\":70,\"ios\":70,\"pc\":70},\"print_step\":{\"default\":1,\"android\":1,\"ios\":1,\"pc\":1},\"print_strategy\":\"fast\"}}}
+     */
     private String settings;
+
     /**
-     * UUID
-     * <p> 示例值：191857678434
+     * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+     *
+     * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
      */
-    @SerializedName("uuid")
     private String uuid;
+
     /**
-     * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-     * <p> 示例值：1712578784
+     * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+     * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数
+     *
+     * <p>示例值：1
      */
-    @SerializedName("sequence")
     private Integer sequence;
 
-    // builder 开始
-    public SettingsCardReqBody() {
+    /**
+     * 卡片配置相关字段转义后的字符串，包括 `config` 和 `card_link` 字段。;;;**注意**：;- 以下示例值未转义，使用时请注意将其转为 JSON
+     * 序列化后的字符串。;- 本字段仅支持[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)中的对应字段。
+     *
+     * <p>示例值：{\"config\":{\"streaming_mode\":true,\"streaming_config\":{\"print_frequency_ms\":{\"default\":70,\"android\":70,\"ios\":70,\"pc\":70},\"print_step\":{\"default\":1,\"android\":1,\"ios\":1,\"pc\":1},\"print_strategy\":\"fast\"}}}
+     *
+     * @param settings
+     * @return
+     */
+    public Builder settings(String settings) {
+      this.settings = settings;
+      return this;
     }
 
-    public SettingsCardReqBody(Builder builder) {
-        /**
-         * 卡片设置
-         * <p> 示例值：{\"config\":{\"streaming_mode\":true,\"enable_forward\":true,\"update_multi\":true,\"width_mode\":\"fill\",\"enable_forward_interaction\":false},\"card_link\":{\"url\":\"https://open.feishu.cn\",\"android_url\":\"https://open.feishu.cn\",\"ios_url\":\"https://open.feishu.cn\",\"pc_url\":\"https://open.feishu.cn\"}}
-         */
-        this.settings = builder.settings;
-        /**
-         * UUID
-         * <p> 示例值：191857678434
-         */
-        this.uuid = builder.uuid;
-        /**
-         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-         * <p> 示例值：1712578784
-         */
-        this.sequence = builder.sequence;
+    /**
+     * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+     *
+     * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+     *
+     * @param uuid
+     * @return
+     */
+    public Builder uuid(String uuid) {
+      this.uuid = uuid;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+     * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数
+     *
+     * <p>示例值：1
+     *
+     * @param sequence
+     * @return
+     */
+    public Builder sequence(Integer sequence) {
+      this.sequence = sequence;
+      return this;
     }
 
-    public String getSettings() {
-        return this.settings;
+    public SettingsCardReqBody build() {
+      return new SettingsCardReqBody(this);
     }
+  }
 
-    public void setSettings(String settings) {
-        this.settings = settings;
-    }
-
-    public String getUuid() {
-        return this.uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    public Integer getSequence() {
-        return this.sequence;
-    }
-
-    public void setSequence(Integer sequence) {
-        this.sequence = sequence;
-    }
-
-    public static class Builder {
-        /**
-         * 卡片设置
-         * <p> 示例值：{\"config\":{\"streaming_mode\":true,\"enable_forward\":true,\"update_multi\":true,\"width_mode\":\"fill\",\"enable_forward_interaction\":false},\"card_link\":{\"url\":\"https://open.feishu.cn\",\"android_url\":\"https://open.feishu.cn\",\"ios_url\":\"https://open.feishu.cn\",\"pc_url\":\"https://open.feishu.cn\"}}
-         */
-        private String settings;
-        /**
-         * UUID
-         * <p> 示例值：191857678434
-         */
-        private String uuid;
-        /**
-         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-         * <p> 示例值：1712578784
-         */
-        private Integer sequence;
-
-        /**
-         * 卡片设置
-         * <p> 示例值：{\"config\":{\"streaming_mode\":true,\"enable_forward\":true,\"update_multi\":true,\"width_mode\":\"fill\",\"enable_forward_interaction\":false},\"card_link\":{\"url\":\"https://open.feishu.cn\",\"android_url\":\"https://open.feishu.cn\",\"ios_url\":\"https://open.feishu.cn\",\"pc_url\":\"https://open.feishu.cn\"}}
-         *
-         * @param settings
-         * @return
-         */
-        public Builder settings(String settings) {
-            this.settings = settings;
-            return this;
-        }
-
-
-        /**
-         * UUID
-         * <p> 示例值：191857678434
-         *
-         * @param uuid
-         * @return
-         */
-        public Builder uuid(String uuid) {
-            this.uuid = uuid;
-            return this;
-        }
-
-
-        /**
-         * 卡片处于流式更新模式时，进行卡片操作的顺序序号，用于保证多次更新的时序性。值为正整数，一次流式状态的多次更新操作（streaming_mode 一次从 true 到 false 期间）需要保证 sequence 递增，否则将报错。推荐使用时间戳。
-         * <p> 示例值：1712578784
-         *
-         * @param sequence
-         * @return
-         */
-        public Builder sequence(Integer sequence) {
-            this.sequence = sequence;
-            return this;
-        }
-
-
-        public SettingsCardReqBody build() {
-            return new SettingsCardReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

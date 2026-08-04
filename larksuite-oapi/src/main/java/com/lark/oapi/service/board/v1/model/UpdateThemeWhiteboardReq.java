@@ -13,98 +13,102 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.board.v1.enums.*;
 
 public class UpdateThemeWhiteboardReq {
+  /**
+   * 画板 id，唯一标识，可通过云文档下的文档接口
+   * [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)
+   * 获取，`block_type` 为 43 的 block 即为画板，对应的 <code>block.token</code> 就是画板的<code>whiteboard_id</code>
+   *
+   * <p>示例值：KRy1wHU6dhmdWIbgkSIbqikMcQc
+   */
+  @Path
+  @SerializedName("whiteboard_id")
+  private String whiteboardId;
+
+  public String getWhiteboardId() {
+    return this.whiteboardId;
+  }
+
+  public void setWhiteboardId(String whiteboardId) {
+    this.whiteboardId = whiteboardId;
+  }
+
+  @Body private UpdateThemeWhiteboardReqBody body;
+
+  public UpdateThemeWhiteboardReqBody getUpdateThemeWhiteboardReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateThemeWhiteboardReqBody(UpdateThemeWhiteboardReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateThemeWhiteboardReq() {}
+
+  public UpdateThemeWhiteboardReq(Builder builder) {
     /**
-     * 画板 id，唯一标识
-     * <p> 示例值：KRy1wHU6dhmdWIbgkSIbqikMcQc
+     * 画板 id，唯一标识，可通过云文档下的文档接口
+     * [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)
+     * 获取，`block_type` 为 43 的 block 即为画板，对应的 <code>block.token</code> 就是画板的<code>whiteboard_id
+     * </code>
+     *
+     * <p>示例值：KRy1wHU6dhmdWIbgkSIbqikMcQc
      */
-    @Path
-    @SerializedName("whiteboard_id")
-    private String whiteboardId;
-    @Body
+    this.whiteboardId = builder.whiteboardId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String whiteboardId; // 画板 id，唯一标识，可通过云文档下的文档接口
+
+    // [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list) 获取，`block_type` 为 43 的 block 即为画板，对应的 <code>block.token</code> 就是画板的<code>whiteboard_id</code>
+
+    /**
+     * 画板 id，唯一标识，可通过云文档下的文档接口
+     * [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)
+     * 获取，`block_type` 为 43 的 block 即为画板，对应的 <code>block.token</code> 就是画板的<code>whiteboard_id
+     * </code>
+     *
+     * <p>示例值：KRy1wHU6dhmdWIbgkSIbqikMcQc
+     *
+     * @param whiteboardId
+     * @return
+     */
+    public Builder whiteboardId(String whiteboardId) {
+      this.whiteboardId = whiteboardId;
+      return this;
+    }
+
     private UpdateThemeWhiteboardReqBody body;
 
-    // builder 开始
-    public UpdateThemeWhiteboardReq() {
-    }
-
-    public UpdateThemeWhiteboardReq(Builder builder) {
-        /**
-         * 画板 id，唯一标识
-         * <p> 示例值：KRy1wHU6dhmdWIbgkSIbqikMcQc
-         */
-        this.whiteboardId = builder.whiteboardId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getWhiteboardId() {
-        return this.whiteboardId;
-    }
-
-    public void setWhiteboardId(String whiteboardId) {
-        this.whiteboardId = whiteboardId;
-    }
-
     public UpdateThemeWhiteboardReqBody getUpdateThemeWhiteboardReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateThemeWhiteboardReqBody(UpdateThemeWhiteboardReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateThemeWhiteboardReqBody(UpdateThemeWhiteboardReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String whiteboardId; // 画板 id，唯一标识
-        private UpdateThemeWhiteboardReqBody body;
-
-        /**
-         * 画板 id，唯一标识
-         * <p> 示例值：KRy1wHU6dhmdWIbgkSIbqikMcQc
-         *
-         * @param whiteboardId
-         * @return
-         */
-        public Builder whiteboardId(String whiteboardId) {
-            this.whiteboardId = whiteboardId;
-            return this;
-        }
-
-        public UpdateThemeWhiteboardReqBody getUpdateThemeWhiteboardReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateThemeWhiteboardReqBody(UpdateThemeWhiteboardReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateThemeWhiteboardReq build() {
-            return new UpdateThemeWhiteboardReq(this);
-        }
+    public UpdateThemeWhiteboardReq build() {
+      return new UpdateThemeWhiteboardReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

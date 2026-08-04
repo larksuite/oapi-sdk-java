@@ -13,124 +13,127 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QuerySocialArchiveAdjustRecordReqBody {
+  /**
+   * 用户ID列表，与入参 user_id_type
+   * 类型一致。ID可通过接口[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id_list")
+  private String[] userIdList;
+
+  /**
+   * 增减员类型, increase: 增员; attrition: 减员
+   *
+   * <p>示例值：increase
+   */
+  @SerializedName("record_type")
+  private String recordType;
+
+  public String[] getUserIdList() {
+    return this.userIdList;
+  }
+
+  public void setUserIdList(String[] userIdList) {
+    this.userIdList = userIdList;
+  }
+
+  public String getRecordType() {
+    return this.recordType;
+  }
+
+  public void setRecordType(String recordType) {
+    this.recordType = recordType;
+  }
+
+  // builder 开始
+  public QuerySocialArchiveAdjustRecordReqBody() {}
+
+  public QuerySocialArchiveAdjustRecordReqBody(Builder builder) {
     /**
-     * lark_user_id列表，用户ID列表，获取方式可参考查询参数中的「user_id_type」字段。最大200个。
-     * <p> 示例值：
+     * 用户ID列表，与入参 user_id_type
+     * 类型一致。ID可通过接口[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id_list")
+    this.userIdList = builder.userIdList;
+    /**
+     * 增减员类型, increase: 增员; attrition: 减员
+     *
+     * <p>示例值：increase
+     */
+    this.recordType = builder.recordType;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID列表，与入参 user_id_type
+     * 类型一致。ID可通过接口[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取
+     *
+     * <p>示例值：
+     */
     private String[] userIdList;
+
     /**
-     * 增减员类型, increase: 增员; attrtion: 减员
-     * <p> 示例值：increase
+     * 增减员类型, increase: 增员; attrition: 减员
+     *
+     * <p>示例值：increase
      */
-    @SerializedName("record_type")
     private String recordType;
 
-    // builder 开始
-    public QuerySocialArchiveAdjustRecordReqBody() {
+    /**
+     * 用户ID列表，与入参 user_id_type
+     * 类型一致。ID可通过接口[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取
+     *
+     * <p>示例值：
+     *
+     * @param userIdList
+     * @return
+     */
+    public Builder userIdList(String[] userIdList) {
+      this.userIdList = userIdList;
+      return this;
     }
 
-    public QuerySocialArchiveAdjustRecordReqBody(Builder builder) {
-        /**
-         * lark_user_id列表，用户ID列表，获取方式可参考查询参数中的「user_id_type」字段。最大200个。
-         * <p> 示例值：
-         */
-        this.userIdList = builder.userIdList;
-        /**
-         * 增减员类型, increase: 增员; attrtion: 减员
-         * <p> 示例值：increase
-         */
-        this.recordType = builder.recordType;
+    /**
+     * 增减员类型, increase: 增员; attrition: 减员
+     *
+     * <p>示例值：increase
+     *
+     * @param recordType
+     * @return
+     */
+    public Builder recordType(String recordType) {
+      this.recordType = recordType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 增减员类型, increase: 增员; attrition: 减员
+     *
+     * <p>示例值：increase
+     *
+     * @param recordType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.QuerySocialArchiveAdjustRecordRecordTypeEnum}
+     * @return
+     */
+    public Builder recordType(
+        com.lark.oapi.service.compensation.v1.enums.QuerySocialArchiveAdjustRecordRecordTypeEnum
+            recordType) {
+      this.recordType = recordType.getValue();
+      return this;
     }
 
-    public String[] getUserIdList() {
-        return this.userIdList;
+    public QuerySocialArchiveAdjustRecordReqBody build() {
+      return new QuerySocialArchiveAdjustRecordReqBody(this);
     }
+  }
 
-    public void setUserIdList(String[] userIdList) {
-        this.userIdList = userIdList;
-    }
-
-    public String getRecordType() {
-        return this.recordType;
-    }
-
-    public void setRecordType(String recordType) {
-        this.recordType = recordType;
-    }
-
-    public static class Builder {
-        /**
-         * lark_user_id列表，用户ID列表，获取方式可参考查询参数中的「user_id_type」字段。最大200个。
-         * <p> 示例值：
-         */
-        private String[] userIdList;
-        /**
-         * 增减员类型, increase: 增员; attrtion: 减员
-         * <p> 示例值：increase
-         */
-        private String recordType;
-
-        /**
-         * lark_user_id列表，用户ID列表，获取方式可参考查询参数中的「user_id_type」字段。最大200个。
-         * <p> 示例值：
-         *
-         * @param userIdList
-         * @return
-         */
-        public Builder userIdList(String[] userIdList) {
-            this.userIdList = userIdList;
-            return this;
-        }
-
-
-        /**
-         * 增减员类型, increase: 增员; attrtion: 减员
-         * <p> 示例值：increase
-         *
-         * @param recordType
-         * @return
-         */
-        public Builder recordType(String recordType) {
-            this.recordType = recordType;
-            return this;
-        }
-
-        /**
-         * 增减员类型, increase: 增员; attrtion: 减员
-         * <p> 示例值：increase
-         *
-         * @param recordType {@link com.lark.oapi.service.compensation.v1.enums.QuerySocialArchiveAdjustRecordRecordTypeEnum}
-         * @return
-         */
-        public Builder recordType(com.lark.oapi.service.compensation.v1.enums.QuerySocialArchiveAdjustRecordRecordTypeEnum recordType) {
-            this.recordType = recordType.getValue();
-            return this;
-        }
-
-
-        public QuerySocialArchiveAdjustRecordReqBody build() {
-            return new QuerySocialArchiveAdjustRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

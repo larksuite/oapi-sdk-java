@@ -13,259 +13,274 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateApplicationReqBody {
+  /**
+   * 人才ID
+   *
+   * <p>示例值：12312312312
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 职位ID
+   *
+   * <p>示例值：12312312312
+   */
+  @SerializedName("job_id")
+  private String jobId;
+
+  /**
+   * 人员ID
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 简历来源 ID，可通过获取简历来源列表接口查询。若简历来源类型属于「员工转岗」或「实习生转正」，人才需处于已入职状态。
+   *
+   * <p>示例值：7115289562569591070
+   */
+  @SerializedName("resume_source_id")
+  private String resumeSourceId;
+
+  /**
+   * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("application_preferred_city_code_list")
+  private String[] applicationPreferredCityCodeList;
+
+  /**
+   * 投递方式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("delivery_type")
+  private Integer deliveryType;
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public String getJobId() {
+    return this.jobId;
+  }
+
+  public void setJobId(String jobId) {
+    this.jobId = jobId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getResumeSourceId() {
+    return this.resumeSourceId;
+  }
+
+  public void setResumeSourceId(String resumeSourceId) {
+    this.resumeSourceId = resumeSourceId;
+  }
+
+  public String[] getApplicationPreferredCityCodeList() {
+    return this.applicationPreferredCityCodeList;
+  }
+
+  public void setApplicationPreferredCityCodeList(String[] applicationPreferredCityCodeList) {
+    this.applicationPreferredCityCodeList = applicationPreferredCityCodeList;
+  }
+
+  public Integer getDeliveryType() {
+    return this.deliveryType;
+  }
+
+  public void setDeliveryType(Integer deliveryType) {
+    this.deliveryType = deliveryType;
+  }
+
+  // builder 开始
+  public CreateApplicationReqBody() {}
+
+  public CreateApplicationReqBody(Builder builder) {
     /**
      * 人才ID
-     * <p> 示例值：12312312312
+     *
+     * <p>示例值：12312312312
      */
-    @SerializedName("talent_id")
-    private String talentId;
+    this.talentId = builder.talentId;
     /**
      * 职位ID
-     * <p> 示例值：12312312312
+     *
+     * <p>示例值：12312312312
      */
-    @SerializedName("job_id")
-    private String jobId;
+    this.jobId = builder.jobId;
     /**
      * 人员ID
-     * <p> 示例值：6930815272790114324
+     *
+     * <p>示例值：6930815272790114324
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 简历来源 ID，可通过「获取简历来源」接口查询。若简历来源类型属于「员工转岗」或「实习生转正」，人才需处于已入职状态。
-     * <p> 示例值：7115289562569591070
+     * 简历来源 ID，可通过获取简历来源列表接口查询。若简历来源类型属于「员工转岗」或「实习生转正」，人才需处于已入职状态。
+     *
+     * <p>示例值：7115289562569591070
      */
-    @SerializedName("resume_source_id")
-    private String resumeSourceId;
+    this.resumeSourceId = builder.resumeSourceId;
     /**
      * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-     * <p> 示例值：["CT_1"]
+     *
+     * <p>示例值：
      */
-    @SerializedName("application_preferred_city_code_list")
-    private String[] applicationPreferredCityCodeList;
+    this.applicationPreferredCityCodeList = builder.applicationPreferredCityCodeList;
     /**
      * 投递方式
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("delivery_type")
+    this.deliveryType = builder.deliveryType;
+  }
+
+  public static class Builder {
+    /**
+     * 人才ID
+     *
+     * <p>示例值：12312312312
+     */
+    private String talentId;
+
+    /**
+     * 职位ID
+     *
+     * <p>示例值：12312312312
+     */
+    private String jobId;
+
+    /**
+     * 人员ID
+     *
+     * <p>示例值：6930815272790114324
+     */
+    private String userId;
+
+    /**
+     * 简历来源 ID，可通过获取简历来源列表接口查询。若简历来源类型属于「员工转岗」或「实习生转正」，人才需处于已入职状态。
+     *
+     * <p>示例值：7115289562569591070
+     */
+    private String resumeSourceId;
+
+    /**
+     * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
+     *
+     * <p>示例值：
+     */
+    private String[] applicationPreferredCityCodeList;
+
+    /**
+     * 投递方式
+     *
+     * <p>示例值：1
+     */
     private Integer deliveryType;
 
-    // builder 开始
-    public CreateApplicationReqBody() {
+    /**
+     * 人才ID
+     *
+     * <p>示例值：12312312312
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public CreateApplicationReqBody(Builder builder) {
-        /**
-         * 人才ID
-         * <p> 示例值：12312312312
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 职位ID
-         * <p> 示例值：12312312312
-         */
-        this.jobId = builder.jobId;
-        /**
-         * 人员ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.userId = builder.userId;
-        /**
-         * 简历来源 ID，可通过「获取简历来源」接口查询。若简历来源类型属于「员工转岗」或「实习生转正」，人才需处于已入职状态。
-         * <p> 示例值：7115289562569591070
-         */
-        this.resumeSourceId = builder.resumeSourceId;
-        /**
-         * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-         * <p> 示例值：["CT_1"]
-         */
-        this.applicationPreferredCityCodeList = builder.applicationPreferredCityCodeList;
-        /**
-         * 投递方式
-         * <p> 示例值：1
-         */
-        this.deliveryType = builder.deliveryType;
+    /**
+     * 职位ID
+     *
+     * <p>示例值：12312312312
+     *
+     * @param jobId
+     * @return
+     */
+    public Builder jobId(String jobId) {
+      this.jobId = jobId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 人员ID
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getTalentId() {
-        return this.talentId;
+    /**
+     * 简历来源 ID，可通过获取简历来源列表接口查询。若简历来源类型属于「员工转岗」或「实习生转正」，人才需处于已入职状态。
+     *
+     * <p>示例值：7115289562569591070
+     *
+     * @param resumeSourceId
+     * @return
+     */
+    public Builder resumeSourceId(String resumeSourceId) {
+      this.resumeSourceId = resumeSourceId;
+      return this;
     }
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
+    /**
+     * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
+     *
+     * <p>示例值：
+     *
+     * @param applicationPreferredCityCodeList
+     * @return
+     */
+    public Builder applicationPreferredCityCodeList(String[] applicationPreferredCityCodeList) {
+      this.applicationPreferredCityCodeList = applicationPreferredCityCodeList;
+      return this;
     }
 
-    public String getJobId() {
-        return this.jobId;
+    /**
+     * 投递方式
+     *
+     * <p>示例值：1
+     *
+     * @param deliveryType
+     * @return
+     */
+    public Builder deliveryType(Integer deliveryType) {
+      this.deliveryType = deliveryType;
+      return this;
     }
 
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
+    public CreateApplicationReqBody build() {
+      return new CreateApplicationReqBody(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getResumeSourceId() {
-        return this.resumeSourceId;
-    }
-
-    public void setResumeSourceId(String resumeSourceId) {
-        this.resumeSourceId = resumeSourceId;
-    }
-
-    public String[] getApplicationPreferredCityCodeList() {
-        return this.applicationPreferredCityCodeList;
-    }
-
-    public void setApplicationPreferredCityCodeList(String[] applicationPreferredCityCodeList) {
-        this.applicationPreferredCityCodeList = applicationPreferredCityCodeList;
-    }
-
-    public Integer getDeliveryType() {
-        return this.deliveryType;
-    }
-
-    public void setDeliveryType(Integer deliveryType) {
-        this.deliveryType = deliveryType;
-    }
-
-    public static class Builder {
-        /**
-         * 人才ID
-         * <p> 示例值：12312312312
-         */
-        private String talentId;
-        /**
-         * 职位ID
-         * <p> 示例值：12312312312
-         */
-        private String jobId;
-        /**
-         * 人员ID
-         * <p> 示例值：6930815272790114324
-         */
-        private String userId;
-        /**
-         * 简历来源 ID，可通过「获取简历来源」接口查询。若简历来源类型属于「员工转岗」或「实习生转正」，人才需处于已入职状态。
-         * <p> 示例值：7115289562569591070
-         */
-        private String resumeSourceId;
-        /**
-         * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-         * <p> 示例值：["CT_1"]
-         */
-        private String[] applicationPreferredCityCodeList;
-        /**
-         * 投递方式
-         * <p> 示例值：1
-         */
-        private Integer deliveryType;
-
-        /**
-         * 人才ID
-         * <p> 示例值：12312312312
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 职位ID
-         * <p> 示例值：12312312312
-         *
-         * @param jobId
-         * @return
-         */
-        public Builder jobId(String jobId) {
-            this.jobId = jobId;
-            return this;
-        }
-
-
-        /**
-         * 人员ID
-         * <p> 示例值：6930815272790114324
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 简历来源 ID，可通过「获取简历来源」接口查询。若简历来源类型属于「员工转岗」或「实习生转正」，人才需处于已入职状态。
-         * <p> 示例值：7115289562569591070
-         *
-         * @param resumeSourceId
-         * @return
-         */
-        public Builder resumeSourceId(String resumeSourceId) {
-            this.resumeSourceId = resumeSourceId;
-            return this;
-        }
-
-
-        /**
-         * 意向投递城市列表，可从「获取职位信息」返回的工作地点列表获取
-         * <p> 示例值：["CT_1"]
-         *
-         * @param applicationPreferredCityCodeList
-         * @return
-         */
-        public Builder applicationPreferredCityCodeList(String[] applicationPreferredCityCodeList) {
-            this.applicationPreferredCityCodeList = applicationPreferredCityCodeList;
-            return this;
-        }
-
-
-        /**
-         * 投递方式
-         * <p> 示例值：1
-         *
-         * @param deliveryType
-         * @return
-         */
-        public Builder deliveryType(Integer deliveryType) {
-            this.deliveryType = deliveryType;
-            return this;
-        }
-
-
-        public CreateApplicationReqBody build() {
-            return new CreateApplicationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

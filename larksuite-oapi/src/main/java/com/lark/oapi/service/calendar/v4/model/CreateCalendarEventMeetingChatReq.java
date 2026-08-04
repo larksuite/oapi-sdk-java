@@ -13,106 +13,112 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.calendar.v4.enums.*;
 
 public class CreateCalendarEventMeetingChatReq {
+  /**
+   * 日程所在的日历 ID。了解更多，参见[日历 ID
+   * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+   *
+   * <p>示例值：feishu.cn_xxx@group.calendar.feishu.cn
+   */
+  @Path
+  @SerializedName("calendar_id")
+  private String calendarId;
+
+  /**
+   * 日程 ID。;;创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。;-
+   * [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);-
+   * [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+   *
+   * <p>示例值：75d28f9b-e35c-4230-8a83-123_0
+   */
+  @Path
+  @SerializedName("event_id")
+  private String eventId;
+
+  public String getCalendarId() {
+    return this.calendarId;
+  }
+
+  public void setCalendarId(String calendarId) {
+    this.calendarId = calendarId;
+  }
+
+  public String getEventId() {
+    return this.eventId;
+  }
+
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
+  }
+
+  // builder 开始
+  public CreateCalendarEventMeetingChatReq() {}
+
+  public CreateCalendarEventMeetingChatReq(Builder builder) {
     /**
-     * 日历ID
-     * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
+     * 日程所在的日历 ID。了解更多，参见[日历 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+     *
+     * <p>示例值：feishu.cn_xxx@group.calendar.feishu.cn
      */
-    @Path
-    @SerializedName("calendar_id")
-    private String calendarId;
+    this.calendarId = builder.calendarId;
     /**
-     * 日程ID
-     * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
+     * 日程 ID。;;创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。;-
+     * [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);-
+     * [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+     *
+     * <p>示例值：75d28f9b-e35c-4230-8a83-123_0
      */
-    @Path
-    @SerializedName("event_id")
-    private String eventId;
+    this.eventId = builder.eventId;
+  }
 
-    // builder 开始
-    public CreateCalendarEventMeetingChatReq() {
+  public static class Builder {
+
+    private String calendarId; // 日程所在的日历 ID。了解更多，参见[日历 ID
+    // 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+    private String eventId; // 日程 ID。;;创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。;-
+
+    // [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+
+    /**
+     * 日程所在的日历 ID。了解更多，参见[日历 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+     *
+     * <p>示例值：feishu.cn_xxx@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
+    public Builder calendarId(String calendarId) {
+      this.calendarId = calendarId;
+      return this;
     }
 
-    public CreateCalendarEventMeetingChatReq(Builder builder) {
-        /**
-         * 日历ID
-         * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
-         */
-        this.calendarId = builder.calendarId;
-        /**
-         * 日程ID
-         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
-         */
-        this.eventId = builder.eventId;
+    /**
+     * 日程 ID。;;创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。;-
+     * [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);-
+     * [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+     *
+     * <p>示例值：75d28f9b-e35c-4230-8a83-123_0
+     *
+     * @param eventId
+     * @return
+     */
+    public Builder eventId(String eventId) {
+      this.eventId = eventId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateCalendarEventMeetingChatReq build() {
+      return new CreateCalendarEventMeetingChatReq(this);
     }
+  }
 
-    public String getCalendarId() {
-        return this.calendarId;
-    }
-
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
-    }
-
-    public String getEventId() {
-        return this.eventId;
-    }
-
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
-    }
-
-    public static class Builder {
-
-        private String calendarId; // 日历ID
-        private String eventId; // 日程ID
-
-        /**
-         * 日历ID
-         * <p> 示例值：feishu.cn_HF9U2MbibE8PPpjro6xjqa@group.calendar.feishu.cn
-         *
-         * @param calendarId
-         * @return
-         */
-        public Builder calendarId(String calendarId) {
-            this.calendarId = calendarId;
-            return this;
-        }
-
-
-        /**
-         * 日程ID
-         * <p> 示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0
-         *
-         * @param eventId
-         * @return
-         */
-        public Builder eventId(String eventId) {
-            this.eventId = eventId;
-            return this;
-        }
-
-
-        public CreateCalendarEventMeetingChatReq build() {
-            return new CreateCalendarEventMeetingChatReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

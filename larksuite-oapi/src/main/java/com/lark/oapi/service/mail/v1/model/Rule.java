@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Rule {
+  /**
+   * 规则 id
+   *
+   * <p>示例值：123124123123
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 匹配条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("condition")
+  private RuleCondition condition;
+
+  /**
+   * 匹配命中后的操作
+   *
+   * <p>示例值：
+   */
+  @SerializedName("action")
+  private RuleAction action;
+
+  /**
+   * 是否终止规则
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("ignore_the_rest_of_rules")
+  private Boolean ignoreTheRestOfRules;
+
+  /**
+   * 规则名称
+   *
+   * <p>示例值：将李三的邮件标记为垃圾邮件
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_enable")
+  private Boolean isEnable;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public RuleCondition getCondition() {
+    return this.condition;
+  }
+
+  public void setCondition(RuleCondition condition) {
+    this.condition = condition;
+  }
+
+  public RuleAction getAction() {
+    return this.action;
+  }
+
+  public void setAction(RuleAction action) {
+    this.action = action;
+  }
+
+  public Boolean getIgnoreTheRestOfRules() {
+    return this.ignoreTheRestOfRules;
+  }
+
+  public void setIgnoreTheRestOfRules(Boolean ignoreTheRestOfRules) {
+    this.ignoreTheRestOfRules = ignoreTheRestOfRules;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Boolean getIsEnable() {
+    return this.isEnable;
+  }
+
+  public void setIsEnable(Boolean isEnable) {
+    this.isEnable = isEnable;
+  }
+
+  // builder 开始
+  public Rule() {}
+
+  public Rule(Builder builder) {
     /**
      * 规则 id
-     * <p> 示例值：123124123123
+     *
+     * <p>示例值：123124123123
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 匹配条件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("condition")
-    private RuleCondition condition;
+    this.condition = builder.condition;
     /**
      * 匹配命中后的操作
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("action")
-    private RuleAction action;
+    this.action = builder.action;
     /**
-     * 是否终点规则
-     * <p> 示例值：false
+     * 是否终止规则
+     *
+     * <p>示例值：false
      */
-    @SerializedName("ignore_the_rest_of_rules")
-    private Boolean ignoreTheRestOfRules;
+    this.ignoreTheRestOfRules = builder.ignoreTheRestOfRules;
     /**
      * 规则名称
-     * <p> 示例值：将李三的邮件标记为垃圾邮件
+     *
+     * <p>示例值：将李三的邮件标记为垃圾邮件
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 是否启用
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_enable")
+    this.isEnable = builder.isEnable;
+  }
+
+  public static class Builder {
+    /**
+     * 规则 id
+     *
+     * <p>示例值：123124123123
+     */
+    private String id;
+
+    /**
+     * 匹配条件
+     *
+     * <p>示例值：
+     */
+    private RuleCondition condition;
+
+    /**
+     * 匹配命中后的操作
+     *
+     * <p>示例值：
+     */
+    private RuleAction action;
+
+    /**
+     * 是否终止规则
+     *
+     * <p>示例值：false
+     */
+    private Boolean ignoreTheRestOfRules;
+
+    /**
+     * 规则名称
+     *
+     * <p>示例值：将李三的邮件标记为垃圾邮件
+     */
+    private String name;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：false
+     */
     private Boolean isEnable;
 
-    // builder 开始
-    public Rule() {
+    /**
+     * 规则 id
+     *
+     * <p>示例值：123124123123
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Rule(Builder builder) {
-        /**
-         * 规则 id
-         * <p> 示例值：123124123123
-         */
-        this.id = builder.id;
-        /**
-         * 匹配条件
-         * <p> 示例值：
-         */
-        this.condition = builder.condition;
-        /**
-         * 匹配命中后的操作
-         * <p> 示例值：
-         */
-        this.action = builder.action;
-        /**
-         * 是否终点规则
-         * <p> 示例值：false
-         */
-        this.ignoreTheRestOfRules = builder.ignoreTheRestOfRules;
-        /**
-         * 规则名称
-         * <p> 示例值：将李三的邮件标记为垃圾邮件
-         */
-        this.name = builder.name;
-        /**
-         * 是否启用
-         * <p> 示例值：false
-         */
-        this.isEnable = builder.isEnable;
+    /**
+     * 匹配条件
+     *
+     * <p>示例值：
+     *
+     * @param condition
+     * @return
+     */
+    public Builder condition(RuleCondition condition) {
+      this.condition = condition;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 匹配命中后的操作
+     *
+     * <p>示例值：
+     *
+     * @param action
+     * @return
+     */
+    public Builder action(RuleAction action) {
+      this.action = action;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 是否终止规则
+     *
+     * <p>示例值：false
+     *
+     * @param ignoreTheRestOfRules
+     * @return
+     */
+    public Builder ignoreTheRestOfRules(Boolean ignoreTheRestOfRules) {
+      this.ignoreTheRestOfRules = ignoreTheRestOfRules;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 规则名称
+     *
+     * <p>示例值：将李三的邮件标记为垃圾邮件
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public RuleCondition getCondition() {
-        return this.condition;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：false
+     *
+     * @param isEnable
+     * @return
+     */
+    public Builder isEnable(Boolean isEnable) {
+      this.isEnable = isEnable;
+      return this;
     }
 
-    public void setCondition(RuleCondition condition) {
-        this.condition = condition;
+    public Rule build() {
+      return new Rule(this);
     }
+  }
 
-    public RuleAction getAction() {
-        return this.action;
-    }
-
-    public void setAction(RuleAction action) {
-        this.action = action;
-    }
-
-    public Boolean getIgnoreTheRestOfRules() {
-        return this.ignoreTheRestOfRules;
-    }
-
-    public void setIgnoreTheRestOfRules(Boolean ignoreTheRestOfRules) {
-        this.ignoreTheRestOfRules = ignoreTheRestOfRules;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Boolean getIsEnable() {
-        return this.isEnable;
-    }
-
-    public void setIsEnable(Boolean isEnable) {
-        this.isEnable = isEnable;
-    }
-
-    public static class Builder {
-        /**
-         * 规则 id
-         * <p> 示例值：123124123123
-         */
-        private String id;
-        /**
-         * 匹配条件
-         * <p> 示例值：
-         */
-        private RuleCondition condition;
-        /**
-         * 匹配命中后的操作
-         * <p> 示例值：
-         */
-        private RuleAction action;
-        /**
-         * 是否终点规则
-         * <p> 示例值：false
-         */
-        private Boolean ignoreTheRestOfRules;
-        /**
-         * 规则名称
-         * <p> 示例值：将李三的邮件标记为垃圾邮件
-         */
-        private String name;
-        /**
-         * 是否启用
-         * <p> 示例值：false
-         */
-        private Boolean isEnable;
-
-        /**
-         * 规则 id
-         * <p> 示例值：123124123123
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 匹配条件
-         * <p> 示例值：
-         *
-         * @param condition
-         * @return
-         */
-        public Builder condition(RuleCondition condition) {
-            this.condition = condition;
-            return this;
-        }
-
-
-        /**
-         * 匹配命中后的操作
-         * <p> 示例值：
-         *
-         * @param action
-         * @return
-         */
-        public Builder action(RuleAction action) {
-            this.action = action;
-            return this;
-        }
-
-
-        /**
-         * 是否终点规则
-         * <p> 示例值：false
-         *
-         * @param ignoreTheRestOfRules
-         * @return
-         */
-        public Builder ignoreTheRestOfRules(Boolean ignoreTheRestOfRules) {
-            this.ignoreTheRestOfRules = ignoreTheRestOfRules;
-            return this;
-        }
-
-
-        /**
-         * 规则名称
-         * <p> 示例值：将李三的邮件标记为垃圾邮件
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：false
-         *
-         * @param isEnable
-         * @return
-         */
-        public Builder isEnable(Boolean isEnable) {
-            this.isEnable = isEnable;
-            return this;
-        }
-
-
-        public Rule build() {
-            return new Rule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

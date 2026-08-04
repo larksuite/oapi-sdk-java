@@ -19,25 +19,25 @@ import com.lark.oapi.service.report.v1.resource.RuleView;
 import com.lark.oapi.service.report.v1.resource.Task;
 
 public class V1 {
-    private final Rule rule; // 规则
-    private final RuleView ruleView; // 规则看板
-    private final Task task; // 任务
+  private final Rule rule; // rule
+  private final RuleView ruleView; // rule.view
+  private final Task task; // task
 
-    public V1(Config config) {
-        this.rule = new Rule(config);
-        this.ruleView = new RuleView(config);
-        this.task = new Task(config);
-    }
+  public V1(Config config) {
+    this.rule = new Rule(config);
+    this.ruleView = new RuleView(config);
+    this.task = new Task(config);
+  }
 
-    public Rule rule() {
-        return rule;
-    }
+  public Rule rule() {
+    return rule;
+  }
 
-    public RuleView ruleView() {
-        return ruleView;
-    }
+  public RuleView ruleView() {
+    return ruleView;
+  }
 
-    public Task task() {
-        return task;
-    }
+  public Task task() {
+    return task;
+  }
 }

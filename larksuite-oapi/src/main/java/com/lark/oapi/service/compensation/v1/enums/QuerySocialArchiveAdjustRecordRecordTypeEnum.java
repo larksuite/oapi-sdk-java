@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 增减员类型, increase: 增员; attrtion: 减员
- */
+/** 增减员类型, increase: 增员; attrition: 减员 */
 public enum QuerySocialArchiveAdjustRecordRecordTypeEnum {
-    INCREASE("increase"), // 增员
-    ATTRITION("attrition"), // 减员
-    ;
-    private String value;
+  INCREASE("increase"), // 增员
+  ATTRITION("attrition"), // 减员
+  ;
+  private String value;
 
-    QuerySocialArchiveAdjustRecordRecordTypeEnum(String value) {
-        this.value = value;
-    }
+  QuerySocialArchiveAdjustRecordRecordTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

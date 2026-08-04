@@ -13,48 +13,39 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2CostCenterUpdatedV2Data {
-    /**
-     * 成本中心ID
-     * <p> 示例值：6969828847121885087
-     */
-    @SerializedName("cost_center_id")
-    private String costCenterId;
-    /**
-     * 发生变更的字段
-     * <p> 示例值：
-     */
-    @SerializedName("field_changes")
-    private String[] fieldChanges;
+  /**
+   * 成本中心ID。;-
+   * 调用[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口返回成本中心详细信息
+   *
+   * <p>示例值：6969828847121885087
+   */
+  @SerializedName("cost_center_id")
+  private String costCenterId;
 
-    public String getCostCenterId() {
-        return this.costCenterId;
-    }
+  /**
+   * 发生变更的字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_changes")
+  private String[] fieldChanges;
 
-    public void setCostCenterId(String costCenterId) {
-        this.costCenterId = costCenterId;
-    }
+  public String getCostCenterId() {
+    return this.costCenterId;
+  }
 
-    public String[] getFieldChanges() {
-        return this.fieldChanges;
-    }
+  public void setCostCenterId(String costCenterId) {
+    this.costCenterId = costCenterId;
+  }
 
-    public void setFieldChanges(String[] fieldChanges) {
-        this.fieldChanges = fieldChanges;
-    }
+  public String[] getFieldChanges() {
+    return this.fieldChanges;
+  }
 
+  public void setFieldChanges(String[] fieldChanges) {
+    this.fieldChanges = fieldChanges;
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 员工ID类型
- */
+/** 员工ID类型 */
 public enum DeleteDepartmentEmployeeIdTypeEnum {
-    OPEN_ID("open_id"), // 标识一个用户在某个应用中的身份
-    EMPLOYEE_ID("employee_id"), // 标识一个用户在某个租户内的身份
-    UNION_ID("union_id"), // 标识一个用户在某个应用开发商下的身份
-    ;
-    private String value;
+  OPEN_ID("open_id"), // 标识一个用户在某个应用中的身份
+  EMPLOYEE_ID("employee_id"), // 标识一个用户在某个租户内的身份
+  UNION_ID("union_id"), // 标识一个用户在某个应用开发商下的身份
+  ;
+  private String value;
 
-    DeleteDepartmentEmployeeIdTypeEnum(String value) {
-        this.value = value;
-    }
+  DeleteDepartmentEmployeeIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

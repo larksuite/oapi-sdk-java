@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExtractPrice {
+  /**
+   * 交易金额
+   *
+   * <p>示例值：200000
+   */
+  @SerializedName("contract_price")
+  private Double contractPrice;
+
+  /**
+   * 从原文中抽取的交易金额
+   *
+   * <p>示例值："200000"
+   */
+  @SerializedName("contract_price_original")
+  private String contractPriceOriginal;
+
+  /**
+   * 原文中描述交易金额的文字
+   *
+   * <p>示例值：本合同项下总金额共计￥200000（贰拾万元整）
+   */
+  @SerializedName("text")
+  private String text;
+
+  public Double getContractPrice() {
+    return this.contractPrice;
+  }
+
+  public void setContractPrice(Double contractPrice) {
+    this.contractPrice = contractPrice;
+  }
+
+  public String getContractPriceOriginal() {
+    return this.contractPriceOriginal;
+  }
+
+  public void setContractPriceOriginal(String contractPriceOriginal) {
+    this.contractPriceOriginal = contractPriceOriginal;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  // builder 开始
+  public ExtractPrice() {}
+
+  public ExtractPrice(Builder builder) {
     /**
      * 交易金额
-     * <p> 示例值：200000
+     *
+     * <p>示例值：200000
      */
-    @SerializedName("contract_price")
-    private Double contractPrice;
+    this.contractPrice = builder.contractPrice;
     /**
      * 从原文中抽取的交易金额
-     * <p> 示例值："200000"
+     *
+     * <p>示例值："200000"
      */
-    @SerializedName("contract_price_original")
-    private String contractPriceOriginal;
+    this.contractPriceOriginal = builder.contractPriceOriginal;
     /**
      * 原文中描述交易金额的文字
-     * <p> 示例值：本合同项下总金额共计￥200000（贰拾万元整）
+     *
+     * <p>示例值：本合同项下总金额共计￥200000（贰拾万元整）
      */
-    @SerializedName("text")
+    this.text = builder.text;
+  }
+
+  public static class Builder {
+    /**
+     * 交易金额
+     *
+     * <p>示例值：200000
+     */
+    private Double contractPrice;
+
+    /**
+     * 从原文中抽取的交易金额
+     *
+     * <p>示例值："200000"
+     */
+    private String contractPriceOriginal;
+
+    /**
+     * 原文中描述交易金额的文字
+     *
+     * <p>示例值：本合同项下总金额共计￥200000（贰拾万元整）
+     */
     private String text;
 
-    // builder 开始
-    public ExtractPrice() {
+    /**
+     * 交易金额
+     *
+     * <p>示例值：200000
+     *
+     * @param contractPrice
+     * @return
+     */
+    public Builder contractPrice(Double contractPrice) {
+      this.contractPrice = contractPrice;
+      return this;
     }
 
-    public ExtractPrice(Builder builder) {
-        /**
-         * 交易金额
-         * <p> 示例值：200000
-         */
-        this.contractPrice = builder.contractPrice;
-        /**
-         * 从原文中抽取的交易金额
-         * <p> 示例值："200000"
-         */
-        this.contractPriceOriginal = builder.contractPriceOriginal;
-        /**
-         * 原文中描述交易金额的文字
-         * <p> 示例值：本合同项下总金额共计￥200000（贰拾万元整）
-         */
-        this.text = builder.text;
+    /**
+     * 从原文中抽取的交易金额
+     *
+     * <p>示例值："200000"
+     *
+     * @param contractPriceOriginal
+     * @return
+     */
+    public Builder contractPriceOriginal(String contractPriceOriginal) {
+      this.contractPriceOriginal = contractPriceOriginal;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 原文中描述交易金额的文字
+     *
+     * <p>示例值：本合同项下总金额共计￥200000（贰拾万元整）
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public Double getContractPrice() {
-        return this.contractPrice;
+    public ExtractPrice build() {
+      return new ExtractPrice(this);
     }
+  }
 
-    public void setContractPrice(Double contractPrice) {
-        this.contractPrice = contractPrice;
-    }
-
-    public String getContractPriceOriginal() {
-        return this.contractPriceOriginal;
-    }
-
-    public void setContractPriceOriginal(String contractPriceOriginal) {
-        this.contractPriceOriginal = contractPriceOriginal;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public static class Builder {
-        /**
-         * 交易金额
-         * <p> 示例值：200000
-         */
-        private Double contractPrice;
-        /**
-         * 从原文中抽取的交易金额
-         * <p> 示例值："200000"
-         */
-        private String contractPriceOriginal;
-        /**
-         * 原文中描述交易金额的文字
-         * <p> 示例值：本合同项下总金额共计￥200000（贰拾万元整）
-         */
-        private String text;
-
-        /**
-         * 交易金额
-         * <p> 示例值：200000
-         *
-         * @param contractPrice
-         * @return
-         */
-        public Builder contractPrice(Double contractPrice) {
-            this.contractPrice = contractPrice;
-            return this;
-        }
-
-
-        /**
-         * 从原文中抽取的交易金额
-         * <p> 示例值："200000"
-         *
-         * @param contractPriceOriginal
-         * @return
-         */
-        public Builder contractPriceOriginal(String contractPriceOriginal) {
-            this.contractPriceOriginal = contractPriceOriginal;
-            return this;
-        }
-
-
-        /**
-         * 原文中描述交易金额的文字
-         * <p> 示例值：本合同项下总金额共计￥200000（贰拾万元整）
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        public ExtractPrice build() {
-            return new ExtractPrice(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

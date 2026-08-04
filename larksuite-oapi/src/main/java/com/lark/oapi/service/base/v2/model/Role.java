@@ -13,226 +13,234 @@
 
 package com.lark.oapi.service.base.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.base.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class Role {
+  /**
+   * 自定义角色名称
+   *
+   * <p>示例值：自定义角色1
+   */
+  @SerializedName("role_name")
+  private String roleName;
+
+  /**
+   * 数据表权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("table_roles")
+  private TableRole[] tableRoles;
+
+  /**
+   * 自定义权限的 ID
+   *
+   * <p>示例值：roljRpwIUt
+   */
+  @SerializedName("role_id")
+  private String roleId;
+
+  /**
+   * 针对仪表盘的权限设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("block_roles")
+  private BlockRole[] blockRoles;
+
+  /**
+   * base权限
+   *
+   * <p>示例值：{"base_complex_edit": 1, "copy": 0}
+   */
+  @SerializedName("base_rule")
+  private Map<String, Integer> baseRule;
+
+  public String getRoleName() {
+    return this.roleName;
+  }
+
+  public void setRoleName(String roleName) {
+    this.roleName = roleName;
+  }
+
+  public TableRole[] getTableRoles() {
+    return this.tableRoles;
+  }
+
+  public void setTableRoles(TableRole[] tableRoles) {
+    this.tableRoles = tableRoles;
+  }
+
+  public String getRoleId() {
+    return this.roleId;
+  }
+
+  public void setRoleId(String roleId) {
+    this.roleId = roleId;
+  }
+
+  public BlockRole[] getBlockRoles() {
+    return this.blockRoles;
+  }
+
+  public void setBlockRoles(BlockRole[] blockRoles) {
+    this.blockRoles = blockRoles;
+  }
+
+  public Map<String, Integer> getBaseRule() {
+    return this.baseRule;
+  }
+
+  public void setBaseRule(Map<String, Integer> baseRule) {
+    this.baseRule = baseRule;
+  }
+
+  // builder 开始
+  public Role() {}
+
+  public Role(Builder builder) {
     /**
-     * 自定义权限的名字
-     * <p> 示例值：自定义权限1
+     * 自定义角色名称
+     *
+     * <p>示例值：自定义角色1
      */
-    @SerializedName("role_name")
-    private String roleName;
+    this.roleName = builder.roleName;
     /**
      * 数据表权限
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("table_roles")
-    private TableRole[] tableRoles;
+    this.tableRoles = builder.tableRoles;
     /**
-     * 自定义权限的id
-     * <p> 示例值：roljRpwIUt
+     * 自定义权限的 ID
+     *
+     * <p>示例值：roljRpwIUt
      */
-    @SerializedName("role_id")
-    private String roleId;
+    this.roleId = builder.roleId;
     /**
-     * block权限
-     * <p> 示例值：
+     * 针对仪表盘的权限设置
+     *
+     * <p>示例值：
      */
-    @SerializedName("block_roles")
-    private BlockRole[] blockRoles;
+    this.blockRoles = builder.blockRoles;
     /**
      * base权限
-     * <p> 示例值：{"duplicate": 1, "copy": 2}
+     *
+     * <p>示例值：{"base_complex_edit": 1, "copy": 0}
      */
-    @SerializedName("base_rule")
+    this.baseRule = builder.baseRule;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义角色名称
+     *
+     * <p>示例值：自定义角色1
+     */
+    private String roleName;
+
+    /**
+     * 数据表权限
+     *
+     * <p>示例值：
+     */
+    private TableRole[] tableRoles;
+
+    /**
+     * 自定义权限的 ID
+     *
+     * <p>示例值：roljRpwIUt
+     */
+    private String roleId;
+
+    /**
+     * 针对仪表盘的权限设置
+     *
+     * <p>示例值：
+     */
+    private BlockRole[] blockRoles;
+
+    /**
+     * base权限
+     *
+     * <p>示例值：{"base_complex_edit": 1, "copy": 0}
+     */
     private Map<String, Integer> baseRule;
 
-    // builder 开始
-    public Role() {
+    /**
+     * 自定义角色名称
+     *
+     * <p>示例值：自定义角色1
+     *
+     * @param roleName
+     * @return
+     */
+    public Builder roleName(String roleName) {
+      this.roleName = roleName;
+      return this;
     }
 
-    public Role(Builder builder) {
-        /**
-         * 自定义权限的名字
-         * <p> 示例值：自定义权限1
-         */
-        this.roleName = builder.roleName;
-        /**
-         * 数据表权限
-         * <p> 示例值：
-         */
-        this.tableRoles = builder.tableRoles;
-        /**
-         * 自定义权限的id
-         * <p> 示例值：roljRpwIUt
-         */
-        this.roleId = builder.roleId;
-        /**
-         * block权限
-         * <p> 示例值：
-         */
-        this.blockRoles = builder.blockRoles;
-        /**
-         * base权限
-         * <p> 示例值：{"duplicate": 1, "copy": 2}
-         */
-        this.baseRule = builder.baseRule;
+    /**
+     * 数据表权限
+     *
+     * <p>示例值：
+     *
+     * @param tableRoles
+     * @return
+     */
+    public Builder tableRoles(TableRole[] tableRoles) {
+      this.tableRoles = tableRoles;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义权限的 ID
+     *
+     * <p>示例值：roljRpwIUt
+     *
+     * @param roleId
+     * @return
+     */
+    public Builder roleId(String roleId) {
+      this.roleId = roleId;
+      return this;
     }
 
-    public String getRoleName() {
-        return this.roleName;
+    /**
+     * 针对仪表盘的权限设置
+     *
+     * <p>示例值：
+     *
+     * @param blockRoles
+     * @return
+     */
+    public Builder blockRoles(BlockRole[] blockRoles) {
+      this.blockRoles = blockRoles;
+      return this;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    /**
+     * base权限
+     *
+     * <p>示例值：{"base_complex_edit": 1, "copy": 0}
+     *
+     * @param baseRule
+     * @return
+     */
+    public Builder baseRule(Map<String, Integer> baseRule) {
+      this.baseRule = baseRule;
+      return this;
     }
 
-    public TableRole[] getTableRoles() {
-        return this.tableRoles;
+    public Role build() {
+      return new Role(this);
     }
+  }
 
-    public void setTableRoles(TableRole[] tableRoles) {
-        this.tableRoles = tableRoles;
-    }
-
-    public String getRoleId() {
-        return this.roleId;
-    }
-
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-
-    public BlockRole[] getBlockRoles() {
-        return this.blockRoles;
-    }
-
-    public void setBlockRoles(BlockRole[] blockRoles) {
-        this.blockRoles = blockRoles;
-    }
-
-    public Map<String, Integer> getBaseRule() {
-        return this.baseRule;
-    }
-
-    public void setBaseRule(Map<String, Integer> baseRule) {
-        this.baseRule = baseRule;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义权限的名字
-         * <p> 示例值：自定义权限1
-         */
-        private String roleName;
-        /**
-         * 数据表权限
-         * <p> 示例值：
-         */
-        private TableRole[] tableRoles;
-        /**
-         * 自定义权限的id
-         * <p> 示例值：roljRpwIUt
-         */
-        private String roleId;
-        /**
-         * block权限
-         * <p> 示例值：
-         */
-        private BlockRole[] blockRoles;
-        /**
-         * base权限
-         * <p> 示例值：{"duplicate": 1, "copy": 2}
-         */
-        private Map<String, Integer> baseRule;
-
-        /**
-         * 自定义权限的名字
-         * <p> 示例值：自定义权限1
-         *
-         * @param roleName
-         * @return
-         */
-        public Builder roleName(String roleName) {
-            this.roleName = roleName;
-            return this;
-        }
-
-
-        /**
-         * 数据表权限
-         * <p> 示例值：
-         *
-         * @param tableRoles
-         * @return
-         */
-        public Builder tableRoles(TableRole[] tableRoles) {
-            this.tableRoles = tableRoles;
-            return this;
-        }
-
-
-        /**
-         * 自定义权限的id
-         * <p> 示例值：roljRpwIUt
-         *
-         * @param roleId
-         * @return
-         */
-        public Builder roleId(String roleId) {
-            this.roleId = roleId;
-            return this;
-        }
-
-
-        /**
-         * block权限
-         * <p> 示例值：
-         *
-         * @param blockRoles
-         * @return
-         */
-        public Builder blockRoles(BlockRole[] blockRoles) {
-            this.blockRoles = blockRoles;
-            return this;
-        }
-
-
-        /**
-         * base权限
-         * <p> 示例值：{"duplicate": 1, "copy": 2}
-         *
-         * @param baseRule
-         * @return
-         */
-        public Builder baseRule(Map<String, Integer> baseRule) {
-            this.baseRule = baseRule;
-            return this;
-        }
-
-
-        public Role build() {
-            return new Role(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class User {
+  /**
+   * 内部用户返回，用户的 user_id，根据 user_id_type 类型返回
+   *
+   * <p>示例值：od-asd2dasdasd
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 外部用户返回，用户的 email
+   *
+   * <p>示例值：abc@bytedance.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  // builder 开始
+  public User() {}
+
+  public User(Builder builder) {
     /**
      * 内部用户返回，用户的 user_id，根据 user_id_type 类型返回
-     * <p> 示例值：od-asd2dasdasd
+     *
+     * <p>示例值：od-asd2dasdasd
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 外部用户返回，用户的 email
-     * <p> 示例值：abc@bytedance.com
+     *
+     * <p>示例值：abc@bytedance.com
      */
-    @SerializedName("email")
+    this.email = builder.email;
+  }
+
+  public static class Builder {
+    /**
+     * 内部用户返回，用户的 user_id，根据 user_id_type 类型返回
+     *
+     * <p>示例值：od-asd2dasdasd
+     */
+    private String userId;
+
+    /**
+     * 外部用户返回，用户的 email
+     *
+     * <p>示例值：abc@bytedance.com
+     */
     private String email;
 
-    // builder 开始
-    public User() {
+    /**
+     * 内部用户返回，用户的 user_id，根据 user_id_type 类型返回
+     *
+     * <p>示例值：od-asd2dasdasd
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public User(Builder builder) {
-        /**
-         * 内部用户返回，用户的 user_id，根据 user_id_type 类型返回
-         * <p> 示例值：od-asd2dasdasd
-         */
-        this.userId = builder.userId;
-        /**
-         * 外部用户返回，用户的 email
-         * <p> 示例值：abc@bytedance.com
-         */
-        this.email = builder.email;
+    /**
+     * 外部用户返回，用户的 email
+     *
+     * <p>示例值：abc@bytedance.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public User build() {
+      return new User(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public static class Builder {
-        /**
-         * 内部用户返回，用户的 user_id，根据 user_id_type 类型返回
-         * <p> 示例值：od-asd2dasdasd
-         */
-        private String userId;
-        /**
-         * 外部用户返回，用户的 email
-         * <p> 示例值：abc@bytedance.com
-         */
-        private String email;
-
-        /**
-         * 内部用户返回，用户的 user_id，根据 user_id_type 类型返回
-         * <p> 示例值：od-asd2dasdasd
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 外部用户返回，用户的 email
-         * <p> 示例值：abc@bytedance.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        public User build() {
-            return new User(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

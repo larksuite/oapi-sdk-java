@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageProgress {
+  /**
+   * 进度条类型
+   *
+   * <p>示例值：LIST
+   */
+  @SerializedName("progress_type")
+  private String progressType;
+
+  /**
+   * 进度条项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("progress_items")
+  private ProgressItem[] progressItems;
+
+  public String getProgressType() {
+    return this.progressType;
+  }
+
+  public void setProgressType(String progressType) {
+    this.progressType = progressType;
+  }
+
+  public ProgressItem[] getProgressItems() {
+    return this.progressItems;
+  }
+
+  public void setProgressItems(ProgressItem[] progressItems) {
+    this.progressItems = progressItems;
+  }
+
+  // builder 开始
+  public MessageProgress() {}
+
+  public MessageProgress(Builder builder) {
     /**
      * 进度条类型
-     * <p> 示例值：LIST
+     *
+     * <p>示例值：LIST
      */
-    @SerializedName("progress_type")
-    private String progressType;
+    this.progressType = builder.progressType;
     /**
      * 进度条项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("progress_items")
+    this.progressItems = builder.progressItems;
+  }
+
+  public static class Builder {
+    /**
+     * 进度条类型
+     *
+     * <p>示例值：LIST
+     */
+    private String progressType;
+
+    /**
+     * 进度条项
+     *
+     * <p>示例值：
+     */
     private ProgressItem[] progressItems;
 
-    // builder 开始
-    public MessageProgress() {
+    /**
+     * 进度条类型
+     *
+     * <p>示例值：LIST
+     *
+     * @param progressType
+     * @return
+     */
+    public Builder progressType(String progressType) {
+      this.progressType = progressType;
+      return this;
     }
 
-    public MessageProgress(Builder builder) {
-        /**
-         * 进度条类型
-         * <p> 示例值：LIST
-         */
-        this.progressType = builder.progressType;
-        /**
-         * 进度条项
-         * <p> 示例值：
-         */
-        this.progressItems = builder.progressItems;
+    /**
+     * 进度条类型
+     *
+     * <p>示例值：LIST
+     *
+     * @param progressType {@link
+     *     com.lark.oapi.service.aily.v1.enums.MessageProgressProgressTypeEnum}
+     * @return
+     */
+    public Builder progressType(
+        com.lark.oapi.service.aily.v1.enums.MessageProgressProgressTypeEnum progressType) {
+      this.progressType = progressType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 进度条项
+     *
+     * <p>示例值：
+     *
+     * @param progressItems
+     * @return
+     */
+    public Builder progressItems(ProgressItem[] progressItems) {
+      this.progressItems = progressItems;
+      return this;
     }
 
-    public String getProgressType() {
-        return this.progressType;
+    public MessageProgress build() {
+      return new MessageProgress(this);
     }
+  }
 
-    public void setProgressType(String progressType) {
-        this.progressType = progressType;
-    }
-
-    public ProgressItem[] getProgressItems() {
-        return this.progressItems;
-    }
-
-    public void setProgressItems(ProgressItem[] progressItems) {
-        this.progressItems = progressItems;
-    }
-
-    public static class Builder {
-        /**
-         * 进度条类型
-         * <p> 示例值：LIST
-         */
-        private String progressType;
-        /**
-         * 进度条项
-         * <p> 示例值：
-         */
-        private ProgressItem[] progressItems;
-
-        /**
-         * 进度条类型
-         * <p> 示例值：LIST
-         *
-         * @param progressType
-         * @return
-         */
-        public Builder progressType(String progressType) {
-            this.progressType = progressType;
-            return this;
-        }
-
-        /**
-         * 进度条类型
-         * <p> 示例值：LIST
-         *
-         * @param progressType {@link com.lark.oapi.service.aily.v1.enums.MessageProgressProgressTypeEnum}
-         * @return
-         */
-        public Builder progressType(com.lark.oapi.service.aily.v1.enums.MessageProgressProgressTypeEnum progressType) {
-            this.progressType = progressType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 进度条项
-         * <p> 示例值：
-         *
-         * @param progressItems
-         * @return
-         */
-        public Builder progressItems(ProgressItem[] progressItems) {
-            this.progressItems = progressItems;
-            return this;
-        }
-
-
-        public MessageProgress build() {
-            return new MessageProgress(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

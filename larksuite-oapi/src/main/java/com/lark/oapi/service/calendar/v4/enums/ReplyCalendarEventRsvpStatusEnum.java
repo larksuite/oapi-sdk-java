@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.calendar.v4.enums;
 
-/**
- * rsvp-日程状态
- */
+/** 日程参与人 RSVP 状态，即日程回复状态。 */
 public enum ReplyCalendarEventRsvpStatusEnum {
-    ACCEPT("accept"), // 接受
-    DECLINE("decline"), // 拒绝
-    TENTATIVE("tentative"), // 待定
-    ;
-    private String value;
+  ACCEPT("accept"), // 接受
+  DECLINE("decline"), // 拒绝
+  TENTATIVE("tentative"), // 待定
+  ;
+  private String value;
 
-    ReplyCalendarEventRsvpStatusEnum(String value) {
-        this.value = value;
-    }
+  ReplyCalendarEventRsvpStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

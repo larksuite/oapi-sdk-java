@@ -13,106 +13,107 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class EnumGetWorkspaceEnumReq {
+  /**
+   * 工作空间id，可以从数据平台的 URL 中获取，如
+   * https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage
+   * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+   *
+   * <p>示例值：workspace_aadimx5uzpsls
+   */
+  @Path
+  @SerializedName("workspace_id")
+  private String workspaceId;
+
+  /**
+   * 枚举名称
+   *
+   * <p>示例值：enum_demo_1
+   */
+  @Path
+  @SerializedName("enum_name")
+  private String enumName;
+
+  public String getWorkspaceId() {
+    return this.workspaceId;
+  }
+
+  public void setWorkspaceId(String workspaceId) {
+    this.workspaceId = workspaceId;
+  }
+
+  public String getEnumName() {
+    return this.enumName;
+  }
+
+  public void setEnumName(String enumName) {
+    this.enumName = enumName;
+  }
+
+  // builder 开始
+  public EnumGetWorkspaceEnumReq() {}
+
+  public EnumGetWorkspaceEnumReq(Builder builder) {
     /**
-     * 工作空间 id
-     * <p> 示例值：workspace_abc
+     * 工作空间id，可以从数据平台的 URL 中获取，如
+     * https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage
+     * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+     *
+     * <p>示例值：workspace_aadimx5uzpsls
      */
-    @Path
-    @SerializedName("workspace_id")
-    private String workspaceId;
+    this.workspaceId = builder.workspaceId;
     /**
      * 枚举名称
-     * <p> 示例值：enum_demo_1
+     *
+     * <p>示例值：enum_demo_1
      */
-    @Path
-    @SerializedName("enum_name")
-    private String enumName;
+    this.enumName = builder.enumName;
+  }
 
-    // builder 开始
-    public EnumGetWorkspaceEnumReq() {
+  public static class Builder {
+
+    private String workspaceId; // 工作空间id，可以从数据平台的 URL 中获取，如
+    // https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage 中的 workspace_aadimx5uzpsls 就是 workspace_id
+    private String enumName; // 枚举名称
+
+    /**
+     * 工作空间id，可以从数据平台的 URL 中获取，如
+     * https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage
+     * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+     *
+     * <p>示例值：workspace_aadimx5uzpsls
+     *
+     * @param workspaceId
+     * @return
+     */
+    public Builder workspaceId(String workspaceId) {
+      this.workspaceId = workspaceId;
+      return this;
     }
 
-    public EnumGetWorkspaceEnumReq(Builder builder) {
-        /**
-         * 工作空间 id
-         * <p> 示例值：workspace_abc
-         */
-        this.workspaceId = builder.workspaceId;
-        /**
-         * 枚举名称
-         * <p> 示例值：enum_demo_1
-         */
-        this.enumName = builder.enumName;
+    /**
+     * 枚举名称
+     *
+     * <p>示例值：enum_demo_1
+     *
+     * @param enumName
+     * @return
+     */
+    public Builder enumName(String enumName) {
+      this.enumName = enumName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EnumGetWorkspaceEnumReq build() {
+      return new EnumGetWorkspaceEnumReq(this);
     }
+  }
 
-    public String getWorkspaceId() {
-        return this.workspaceId;
-    }
-
-    public void setWorkspaceId(String workspaceId) {
-        this.workspaceId = workspaceId;
-    }
-
-    public String getEnumName() {
-        return this.enumName;
-    }
-
-    public void setEnumName(String enumName) {
-        this.enumName = enumName;
-    }
-
-    public static class Builder {
-
-        private String workspaceId; // 工作空间 id
-        private String enumName; // 枚举名称
-
-        /**
-         * 工作空间 id
-         * <p> 示例值：workspace_abc
-         *
-         * @param workspaceId
-         * @return
-         */
-        public Builder workspaceId(String workspaceId) {
-            this.workspaceId = workspaceId;
-            return this;
-        }
-
-
-        /**
-         * 枚举名称
-         * <p> 示例值：enum_demo_1
-         *
-         * @param enumName
-         * @return
-         */
-        public Builder enumName(String enumName) {
-            this.enumName = enumName;
-            return this;
-        }
-
-
-        public EnumGetWorkspaceEnumReq build() {
-            return new EnumGetWorkspaceEnumReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

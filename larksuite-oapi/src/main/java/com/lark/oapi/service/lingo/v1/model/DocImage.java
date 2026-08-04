@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.lingo.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.lingo.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DocImage {
+  /**
+   * 图片key
+   *
+   * <p>示例值：v2_xxxxxxxxxxxx
+   */
+  @SerializedName("image_key")
+  private String imageKey;
+
+  public String getImageKey() {
+    return this.imageKey;
+  }
+
+  public void setImageKey(String imageKey) {
+    this.imageKey = imageKey;
+  }
+
+  // builder 开始
+  public DocImage() {}
+
+  public DocImage(Builder builder) {
     /**
      * 图片key
-     * <p> 示例值：v2_xxxxxxxxxxxx
+     *
+     * <p>示例值：v2_xxxxxxxxxxxx
      */
-    @SerializedName("image_key")
+    this.imageKey = builder.imageKey;
+  }
+
+  public static class Builder {
+    /**
+     * 图片key
+     *
+     * <p>示例值：v2_xxxxxxxxxxxx
+     */
     private String imageKey;
 
-    // builder 开始
-    public DocImage() {
+    /**
+     * 图片key
+     *
+     * <p>示例值：v2_xxxxxxxxxxxx
+     *
+     * @param imageKey
+     * @return
+     */
+    public Builder imageKey(String imageKey) {
+      this.imageKey = imageKey;
+      return this;
     }
 
-    public DocImage(Builder builder) {
-        /**
-         * 图片key
-         * <p> 示例值：v2_xxxxxxxxxxxx
-         */
-        this.imageKey = builder.imageKey;
+    public DocImage build() {
+      return new DocImage(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getImageKey() {
-        return this.imageKey;
-    }
-
-    public void setImageKey(String imageKey) {
-        this.imageKey = imageKey;
-    }
-
-    public static class Builder {
-        /**
-         * 图片key
-         * <p> 示例值：v2_xxxxxxxxxxxx
-         */
-        private String imageKey;
-
-        /**
-         * 图片key
-         * <p> 示例值：v2_xxxxxxxxxxxx
-         *
-         * @param imageKey
-         * @return
-         */
-        public Builder imageKey(String imageKey) {
-            this.imageKey = imageKey;
-            return this;
-        }
-
-
-        public DocImage build() {
-            return new DocImage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

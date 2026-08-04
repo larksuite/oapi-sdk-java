@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 需要获取的草稿内容样式，取值：metadata / full（默认）/ raw
- */
+/** 需要获取的草稿内容样式，取值：metadata / full（默认）/ raw */
 public enum GetUserMailboxDraftFormatEnum {
-    METADATA("metadata"), // 草稿元数据信息，包括邮件摘要、主题、收发件人等信息
-    RAW("raw"), // 获取草稿EML
-    FULL("full"), // 邮件全文，获取包括纯文本、HTML等在内的邮件全文信息
-    ;
-    private String value;
+  METADATA("metadata"), // 草稿元数据信息，包括邮件摘要、主题、收发件人等信息
+  RAW("raw"), // 获取草稿EML
+  FULL("full"), // 邮件全文，获取包括纯文本、HTML等在内的邮件全文信息
+  ;
+  private String value;
 
-    GetUserMailboxDraftFormatEnum(String value) {
-        this.value = value;
-    }
+  GetUserMailboxDraftFormatEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

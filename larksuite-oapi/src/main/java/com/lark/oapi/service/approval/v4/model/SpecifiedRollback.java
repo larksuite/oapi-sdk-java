@@ -13,223 +13,257 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SpecifiedRollback {
+  /**
+   * 当前审批任务的审批人的用户 ID，ID 类型与查询参数 user_id_type
+   * 取值一致。可调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+   * task_list 参数中获取用户 ID 以及任务状态必须为 PENDING。
+   *
+   * <p>示例值：893g4c45
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 当前需要回退的审批任务
+   * ID。可调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+   * task_list 参数中获取任务 ID 以及任务状态必须为 PENDING。
+   *
+   * <p>示例值：7026591166355210260
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * 退回原因
+   *
+   * <p>示例值：申请事项填写不具体，请重新填写
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  /**
+   * 扩展字段。;;**注意**：灰度参数，暂未开放使用。
+   *
+   * <p>示例值：demo
+   */
+  @SerializedName("extra")
+  private String extra;
+
+  /**
+   * 需要退回到的任务
+   * node_key。可调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+   * timeline 参数中获取，且动态类型 type 必须为 PASS。
+   *
+   * <p>示例值：["START","APPROVAL_27997_285502","APPROVAL_462205_2734554"]
+   */
+  @SerializedName("task_def_key_list")
+  private String[] taskDefKeyList;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  public String getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(String extra) {
+    this.extra = extra;
+  }
+
+  public String[] getTaskDefKeyList() {
+    return this.taskDefKeyList;
+  }
+
+  public void setTaskDefKeyList(String[] taskDefKeyList) {
+    this.taskDefKeyList = taskDefKeyList;
+  }
+
+  // builder 开始
+  public SpecifiedRollback() {}
+
+  public SpecifiedRollback(Builder builder) {
     /**
-     * 用户ID
-     * <p> 示例值：893g4c45
+     * 当前审批任务的审批人的用户 ID，ID 类型与查询参数 user_id_type
+     * 取值一致。可调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+     * task_list 参数中获取用户 ID 以及任务状态必须为 PENDING。
+     *
+     * <p>示例值：893g4c45
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 回退的任务ID
-     * <p> 示例值：7026591166355210260
+     * 当前需要回退的审批任务
+     * ID。可调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+     * task_list 参数中获取任务 ID 以及任务状态必须为 PENDING。
+     *
+     * <p>示例值：7026591166355210260
      */
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
     /**
      * 退回原因
-     * <p> 示例值：申请事项填写不具体，请重新填写
+     *
+     * <p>示例值：申请事项填写不具体，请重新填写
      */
-    @SerializedName("reason")
+    this.reason = builder.reason;
+    /**
+     * 扩展字段。;;**注意**：灰度参数，暂未开放使用。
+     *
+     * <p>示例值：demo
+     */
+    this.extra = builder.extra;
+    /**
+     * 需要退回到的任务
+     * node_key。可调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+     * timeline 参数中获取，且动态类型 type 必须为 PASS。
+     *
+     * <p>示例值：["START","APPROVAL_27997_285502","APPROVAL_462205_2734554"]
+     */
+    this.taskDefKeyList = builder.taskDefKeyList;
+  }
+
+  public static class Builder {
+    /**
+     * 当前审批任务的审批人的用户 ID，ID 类型与查询参数 user_id_type
+     * 取值一致。可调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+     * task_list 参数中获取用户 ID 以及任务状态必须为 PENDING。
+     *
+     * <p>示例值：893g4c45
+     */
+    private String userId;
+
+    /**
+     * 当前需要回退的审批任务
+     * ID。可调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+     * task_list 参数中获取任务 ID 以及任务状态必须为 PENDING。
+     *
+     * <p>示例值：7026591166355210260
+     */
+    private String taskId;
+
+    /**
+     * 退回原因
+     *
+     * <p>示例值：申请事项填写不具体，请重新填写
+     */
     private String reason;
+
     /**
-     * 扩展字段
-     * <p> 示例值：暂不填写
+     * 扩展字段。;;**注意**：灰度参数，暂未开放使用。
+     *
+     * <p>示例值：demo
      */
-    @SerializedName("extra")
     private String extra;
+
     /**
-     * 指定退回的任务node_key，从实例详情中获取timeline中获取，必须是PASS的任务node_key
-     * <p> 示例值：["START","APPROVAL_27997_285502","APPROVAL_462205_2734554"]
+     * 需要退回到的任务
+     * node_key。可调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+     * timeline 参数中获取，且动态类型 type 必须为 PASS。
+     *
+     * <p>示例值：["START","APPROVAL_27997_285502","APPROVAL_462205_2734554"]
      */
-    @SerializedName("task_def_key_list")
     private String[] taskDefKeyList;
 
-    // builder 开始
-    public SpecifiedRollback() {
+    /**
+     * 当前审批任务的审批人的用户 ID，ID 类型与查询参数 user_id_type
+     * 取值一致。可调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+     * task_list 参数中获取用户 ID 以及任务状态必须为 PENDING。
+     *
+     * <p>示例值：893g4c45
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public SpecifiedRollback(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：893g4c45
-         */
-        this.userId = builder.userId;
-        /**
-         * 回退的任务ID
-         * <p> 示例值：7026591166355210260
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 退回原因
-         * <p> 示例值：申请事项填写不具体，请重新填写
-         */
-        this.reason = builder.reason;
-        /**
-         * 扩展字段
-         * <p> 示例值：暂不填写
-         */
-        this.extra = builder.extra;
-        /**
-         * 指定退回的任务node_key，从实例详情中获取timeline中获取，必须是PASS的任务node_key
-         * <p> 示例值：["START","APPROVAL_27997_285502","APPROVAL_462205_2734554"]
-         */
-        this.taskDefKeyList = builder.taskDefKeyList;
+    /**
+     * 当前需要回退的审批任务
+     * ID。可调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+     * task_list 参数中获取任务 ID 以及任务状态必须为 PENDING。
+     *
+     * <p>示例值：7026591166355210260
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 退回原因
+     *
+     * <p>示例值：申请事项填写不具体，请重新填写
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 扩展字段。;;**注意**：灰度参数，暂未开放使用。
+     *
+     * <p>示例值：demo
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(String extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 需要退回到的任务
+     * node_key。可调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)，从返回结果的
+     * timeline 参数中获取，且动态类型 type 必须为 PASS。
+     *
+     * <p>示例值：["START","APPROVAL_27997_285502","APPROVAL_462205_2734554"]
+     *
+     * @param taskDefKeyList
+     * @return
+     */
+    public Builder taskDefKeyList(String[] taskDefKeyList) {
+      this.taskDefKeyList = taskDefKeyList;
+      return this;
     }
 
-    public String getTaskId() {
-        return this.taskId;
+    public SpecifiedRollback build() {
+      return new SpecifiedRollback(this);
     }
+  }
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public String getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(String extra) {
-        this.extra = extra;
-    }
-
-    public String[] getTaskDefKeyList() {
-        return this.taskDefKeyList;
-    }
-
-    public void setTaskDefKeyList(String[] taskDefKeyList) {
-        this.taskDefKeyList = taskDefKeyList;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：893g4c45
-         */
-        private String userId;
-        /**
-         * 回退的任务ID
-         * <p> 示例值：7026591166355210260
-         */
-        private String taskId;
-        /**
-         * 退回原因
-         * <p> 示例值：申请事项填写不具体，请重新填写
-         */
-        private String reason;
-        /**
-         * 扩展字段
-         * <p> 示例值：暂不填写
-         */
-        private String extra;
-        /**
-         * 指定退回的任务node_key，从实例详情中获取timeline中获取，必须是PASS的任务node_key
-         * <p> 示例值：["START","APPROVAL_27997_285502","APPROVAL_462205_2734554"]
-         */
-        private String[] taskDefKeyList;
-
-        /**
-         * 用户ID
-         * <p> 示例值：893g4c45
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 回退的任务ID
-         * <p> 示例值：7026591166355210260
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * 退回原因
-         * <p> 示例值：申请事项填写不具体，请重新填写
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * 扩展字段
-         * <p> 示例值：暂不填写
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(String extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        /**
-         * 指定退回的任务node_key，从实例详情中获取timeline中获取，必须是PASS的任务node_key
-         * <p> 示例值：["START","APPROVAL_27997_285502","APPROVAL_462205_2734554"]
-         *
-         * @param taskDefKeyList
-         * @return
-         */
-        public Builder taskDefKeyList(String[] taskDefKeyList) {
-            this.taskDefKeyList = taskDefKeyList;
-            return this;
-        }
-
-
-        public SpecifiedRollback build() {
-            return new SpecifiedRollback(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

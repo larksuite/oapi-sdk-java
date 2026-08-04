@@ -13,346 +13,373 @@
 
 package com.lark.oapi.service.mdm.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mdm.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExtendField {
+  /**
+   * 字段类型
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("field_type")
+  private Integer fieldType;
+
+  /**
+   * 字段类型为 单行文本框(0)、多行文本框(1)、单选框(3)、下拉单选框(5) 时的值
+   *
+   * <p>示例值：文本值
+   */
+  @SerializedName("field_value")
+  private String fieldValue;
+
+  /**
+   * 字段类型为 多选框(4) 下拉多选(6) 时的值
+   *
+   * <p>示例值：["2021-09-23","2021-10-14"]
+   */
+  @SerializedName("options")
+  private String[] options;
+
+  /**
+   * 字段类型为 数字(2) 时的值
+   *
+   * <p>示例值：1.11
+   */
+  @SerializedName("num")
+  private Double num;
+
+  /**
+   * 字段类型是 日期(7)时候的值
+   *
+   * <p>示例值：2021-10-14
+   */
+  @SerializedName("date")
+  private String date;
+
+  /**
+   * 字段类型是 日期区间(8) 时候的值 数组长度为2 0-startTime 1-endTime
+   *
+   * <p>示例值：2021-10-14
+   */
+  @SerializedName("range_date")
+  private String[] rangeDate;
+
+  /**
+   * 字段编码
+   *
+   * <p>示例值：X00000001
+   */
+  @SerializedName("field_code")
+  private String fieldCode;
+
+  /**
+   * 附件列表 字段类型是 附件(12) 时候的值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("appendix")
+  private Appendix[] appendix;
+
+  public Integer getFieldType() {
+    return this.fieldType;
+  }
+
+  public void setFieldType(Integer fieldType) {
+    this.fieldType = fieldType;
+  }
+
+  public String getFieldValue() {
+    return this.fieldValue;
+  }
+
+  public void setFieldValue(String fieldValue) {
+    this.fieldValue = fieldValue;
+  }
+
+  public String[] getOptions() {
+    return this.options;
+  }
+
+  public void setOptions(String[] options) {
+    this.options = options;
+  }
+
+  public Double getNum() {
+    return this.num;
+  }
+
+  public void setNum(Double num) {
+    this.num = num;
+  }
+
+  public String getDate() {
+    return this.date;
+  }
+
+  public void setDate(String date) {
+    this.date = date;
+  }
+
+  public String[] getRangeDate() {
+    return this.rangeDate;
+  }
+
+  public void setRangeDate(String[] rangeDate) {
+    this.rangeDate = rangeDate;
+  }
+
+  public String getFieldCode() {
+    return this.fieldCode;
+  }
+
+  public void setFieldCode(String fieldCode) {
+    this.fieldCode = fieldCode;
+  }
+
+  public Appendix[] getAppendix() {
+    return this.appendix;
+  }
+
+  public void setAppendix(Appendix[] appendix) {
+    this.appendix = appendix;
+  }
+
+  // builder 开始
+  public ExtendField() {}
+
+  public ExtendField(Builder builder) {
     /**
      * 字段类型
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("field_type")
-    private Integer fieldType;
+    this.fieldType = builder.fieldType;
     /**
      * 字段类型为 单行文本框(0)、多行文本框(1)、单选框(3)、下拉单选框(5) 时的值
-     * <p> 示例值：文本值
+     *
+     * <p>示例值：文本值
      */
-    @SerializedName("field_value")
-    private String fieldValue;
+    this.fieldValue = builder.fieldValue;
     /**
      * 字段类型为 多选框(4) 下拉多选(6) 时的值
-     * <p> 示例值：["2021-09-23","2021-10-14"]
+     *
+     * <p>示例值：["2021-09-23","2021-10-14"]
      */
-    @SerializedName("options")
-    private String[] options;
+    this.options = builder.options;
     /**
      * 字段类型为 数字(2) 时的值
-     * <p> 示例值：1.11
+     *
+     * <p>示例值：1.11
      */
-    @SerializedName("num")
-    private Double num;
+    this.num = builder.num;
     /**
      * 字段类型是 日期(7)时候的值
-     * <p> 示例值：2021-10-14
+     *
+     * <p>示例值：2021-10-14
      */
-    @SerializedName("date")
-    private String date;
+    this.date = builder.date;
     /**
-     * 字段类型是 日期区间(8) 时候的值    数组长度为2      0-startTime   1-endTime
-     * <p> 示例值：2021-10-14
+     * 字段类型是 日期区间(8) 时候的值 数组长度为2 0-startTime 1-endTime
+     *
+     * <p>示例值：2021-10-14
      */
-    @SerializedName("range_date")
-    private String[] rangeDate;
+    this.rangeDate = builder.rangeDate;
     /**
      * 字段编码
-     * <p> 示例值：X00000001
+     *
+     * <p>示例值：X00000001
      */
-    @SerializedName("field_code")
-    private String fieldCode;
+    this.fieldCode = builder.fieldCode;
     /**
      * 附件列表 字段类型是 附件(12) 时候的值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("appendix")
+    this.appendix = builder.appendix;
+  }
+
+  public static class Builder {
+    /**
+     * 字段类型
+     *
+     * <p>示例值：0
+     */
+    private Integer fieldType;
+
+    /**
+     * 字段类型为 单行文本框(0)、多行文本框(1)、单选框(3)、下拉单选框(5) 时的值
+     *
+     * <p>示例值：文本值
+     */
+    private String fieldValue;
+
+    /**
+     * 字段类型为 多选框(4) 下拉多选(6) 时的值
+     *
+     * <p>示例值：["2021-09-23","2021-10-14"]
+     */
+    private String[] options;
+
+    /**
+     * 字段类型为 数字(2) 时的值
+     *
+     * <p>示例值：1.11
+     */
+    private Double num;
+
+    /**
+     * 字段类型是 日期(7)时候的值
+     *
+     * <p>示例值：2021-10-14
+     */
+    private String date;
+
+    /**
+     * 字段类型是 日期区间(8) 时候的值 数组长度为2 0-startTime 1-endTime
+     *
+     * <p>示例值：2021-10-14
+     */
+    private String[] rangeDate;
+
+    /**
+     * 字段编码
+     *
+     * <p>示例值：X00000001
+     */
+    private String fieldCode;
+
+    /**
+     * 附件列表 字段类型是 附件(12) 时候的值
+     *
+     * <p>示例值：
+     */
     private Appendix[] appendix;
 
-    // builder 开始
-    public ExtendField() {
+    /**
+     * 字段类型
+     *
+     * <p>示例值：0
+     *
+     * @param fieldType
+     * @return
+     */
+    public Builder fieldType(Integer fieldType) {
+      this.fieldType = fieldType;
+      return this;
     }
 
-    public ExtendField(Builder builder) {
-        /**
-         * 字段类型
-         * <p> 示例值：0
-         */
-        this.fieldType = builder.fieldType;
-        /**
-         * 字段类型为 单行文本框(0)、多行文本框(1)、单选框(3)、下拉单选框(5) 时的值
-         * <p> 示例值：文本值
-         */
-        this.fieldValue = builder.fieldValue;
-        /**
-         * 字段类型为 多选框(4) 下拉多选(6) 时的值
-         * <p> 示例值：["2021-09-23","2021-10-14"]
-         */
-        this.options = builder.options;
-        /**
-         * 字段类型为 数字(2) 时的值
-         * <p> 示例值：1.11
-         */
-        this.num = builder.num;
-        /**
-         * 字段类型是 日期(7)时候的值
-         * <p> 示例值：2021-10-14
-         */
-        this.date = builder.date;
-        /**
-         * 字段类型是 日期区间(8) 时候的值    数组长度为2      0-startTime   1-endTime
-         * <p> 示例值：2021-10-14
-         */
-        this.rangeDate = builder.rangeDate;
-        /**
-         * 字段编码
-         * <p> 示例值：X00000001
-         */
-        this.fieldCode = builder.fieldCode;
-        /**
-         * 附件列表 字段类型是 附件(12) 时候的值
-         * <p> 示例值：
-         */
-        this.appendix = builder.appendix;
+    /**
+     * 字段类型
+     *
+     * <p>示例值：0
+     *
+     * @param fieldType {@link com.lark.oapi.service.mdm.v1.enums.ExtendFieldFieldTypeEnum}
+     * @return
+     */
+    public Builder fieldType(
+        com.lark.oapi.service.mdm.v1.enums.ExtendFieldFieldTypeEnum fieldType) {
+      this.fieldType = fieldType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段类型为 单行文本框(0)、多行文本框(1)、单选框(3)、下拉单选框(5) 时的值
+     *
+     * <p>示例值：文本值
+     *
+     * @param fieldValue
+     * @return
+     */
+    public Builder fieldValue(String fieldValue) {
+      this.fieldValue = fieldValue;
+      return this;
     }
 
-    public Integer getFieldType() {
-        return this.fieldType;
+    /**
+     * 字段类型为 多选框(4) 下拉多选(6) 时的值
+     *
+     * <p>示例值：["2021-09-23","2021-10-14"]
+     *
+     * @param options
+     * @return
+     */
+    public Builder options(String[] options) {
+      this.options = options;
+      return this;
     }
 
-    public void setFieldType(Integer fieldType) {
-        this.fieldType = fieldType;
+    /**
+     * 字段类型为 数字(2) 时的值
+     *
+     * <p>示例值：1.11
+     *
+     * @param num
+     * @return
+     */
+    public Builder num(Double num) {
+      this.num = num;
+      return this;
     }
 
-    public String getFieldValue() {
-        return this.fieldValue;
+    /**
+     * 字段类型是 日期(7)时候的值
+     *
+     * <p>示例值：2021-10-14
+     *
+     * @param date
+     * @return
+     */
+    public Builder date(String date) {
+      this.date = date;
+      return this;
     }
 
-    public void setFieldValue(String fieldValue) {
-        this.fieldValue = fieldValue;
+    /**
+     * 字段类型是 日期区间(8) 时候的值 数组长度为2 0-startTime 1-endTime
+     *
+     * <p>示例值：2021-10-14
+     *
+     * @param rangeDate
+     * @return
+     */
+    public Builder rangeDate(String[] rangeDate) {
+      this.rangeDate = rangeDate;
+      return this;
     }
 
-    public String[] getOptions() {
-        return this.options;
+    /**
+     * 字段编码
+     *
+     * <p>示例值：X00000001
+     *
+     * @param fieldCode
+     * @return
+     */
+    public Builder fieldCode(String fieldCode) {
+      this.fieldCode = fieldCode;
+      return this;
     }
 
-    public void setOptions(String[] options) {
-        this.options = options;
+    /**
+     * 附件列表 字段类型是 附件(12) 时候的值
+     *
+     * <p>示例值：
+     *
+     * @param appendix
+     * @return
+     */
+    public Builder appendix(Appendix[] appendix) {
+      this.appendix = appendix;
+      return this;
     }
 
-    public Double getNum() {
-        return this.num;
+    public ExtendField build() {
+      return new ExtendField(this);
     }
+  }
 
-    public void setNum(Double num) {
-        this.num = num;
-    }
-
-    public String getDate() {
-        return this.date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String[] getRangeDate() {
-        return this.rangeDate;
-    }
-
-    public void setRangeDate(String[] rangeDate) {
-        this.rangeDate = rangeDate;
-    }
-
-    public String getFieldCode() {
-        return this.fieldCode;
-    }
-
-    public void setFieldCode(String fieldCode) {
-        this.fieldCode = fieldCode;
-    }
-
-    public Appendix[] getAppendix() {
-        return this.appendix;
-    }
-
-    public void setAppendix(Appendix[] appendix) {
-        this.appendix = appendix;
-    }
-
-    public static class Builder {
-        /**
-         * 字段类型
-         * <p> 示例值：0
-         */
-        private Integer fieldType;
-        /**
-         * 字段类型为 单行文本框(0)、多行文本框(1)、单选框(3)、下拉单选框(5) 时的值
-         * <p> 示例值：文本值
-         */
-        private String fieldValue;
-        /**
-         * 字段类型为 多选框(4) 下拉多选(6) 时的值
-         * <p> 示例值：["2021-09-23","2021-10-14"]
-         */
-        private String[] options;
-        /**
-         * 字段类型为 数字(2) 时的值
-         * <p> 示例值：1.11
-         */
-        private Double num;
-        /**
-         * 字段类型是 日期(7)时候的值
-         * <p> 示例值：2021-10-14
-         */
-        private String date;
-        /**
-         * 字段类型是 日期区间(8) 时候的值    数组长度为2      0-startTime   1-endTime
-         * <p> 示例值：2021-10-14
-         */
-        private String[] rangeDate;
-        /**
-         * 字段编码
-         * <p> 示例值：X00000001
-         */
-        private String fieldCode;
-        /**
-         * 附件列表 字段类型是 附件(12) 时候的值
-         * <p> 示例值：
-         */
-        private Appendix[] appendix;
-
-        /**
-         * 字段类型
-         * <p> 示例值：0
-         *
-         * @param fieldType
-         * @return
-         */
-        public Builder fieldType(Integer fieldType) {
-            this.fieldType = fieldType;
-            return this;
-        }
-
-        /**
-         * 字段类型
-         * <p> 示例值：0
-         *
-         * @param fieldType {@link com.lark.oapi.service.mdm.v1.enums.ExtendFieldFieldTypeEnum}
-         * @return
-         */
-        public Builder fieldType(com.lark.oapi.service.mdm.v1.enums.ExtendFieldFieldTypeEnum fieldType) {
-            this.fieldType = fieldType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 字段类型为 单行文本框(0)、多行文本框(1)、单选框(3)、下拉单选框(5) 时的值
-         * <p> 示例值：文本值
-         *
-         * @param fieldValue
-         * @return
-         */
-        public Builder fieldValue(String fieldValue) {
-            this.fieldValue = fieldValue;
-            return this;
-        }
-
-
-        /**
-         * 字段类型为 多选框(4) 下拉多选(6) 时的值
-         * <p> 示例值：["2021-09-23","2021-10-14"]
-         *
-         * @param options
-         * @return
-         */
-        public Builder options(String[] options) {
-            this.options = options;
-            return this;
-        }
-
-
-        /**
-         * 字段类型为 数字(2) 时的值
-         * <p> 示例值：1.11
-         *
-         * @param num
-         * @return
-         */
-        public Builder num(Double num) {
-            this.num = num;
-            return this;
-        }
-
-
-        /**
-         * 字段类型是 日期(7)时候的值
-         * <p> 示例值：2021-10-14
-         *
-         * @param date
-         * @return
-         */
-        public Builder date(String date) {
-            this.date = date;
-            return this;
-        }
-
-
-        /**
-         * 字段类型是 日期区间(8) 时候的值    数组长度为2      0-startTime   1-endTime
-         * <p> 示例值：2021-10-14
-         *
-         * @param rangeDate
-         * @return
-         */
-        public Builder rangeDate(String[] rangeDate) {
-            this.rangeDate = rangeDate;
-            return this;
-        }
-
-
-        /**
-         * 字段编码
-         * <p> 示例值：X00000001
-         *
-         * @param fieldCode
-         * @return
-         */
-        public Builder fieldCode(String fieldCode) {
-            this.fieldCode = fieldCode;
-            return this;
-        }
-
-
-        /**
-         * 附件列表 字段类型是 附件(12) 时候的值
-         * <p> 示例值：
-         *
-         * @param appendix
-         * @return
-         */
-        public Builder appendix(Appendix[] appendix) {
-            this.appendix = appendix;
-            return this;
-        }
-
-
-        public ExtendField build() {
-            return new ExtendField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

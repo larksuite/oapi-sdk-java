@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LeaveTypesLeaveRespBody {
-    /**
-     * 假期类型列表
-     * <p> 示例值：
-     */
-    @SerializedName("leave_type_list")
-    private LeaveType[] leaveTypeList;
-    /**
-     * 是否有下一页
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 下一页页码
-     * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-     */
-    @SerializedName("page_token")
-    private String pageToken;
+  /**
+   * 假期类型列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leave_type_list")
+  private LeaveType[] leaveTypeList;
 
-    public LeaveType[] getLeaveTypeList() {
-        return this.leaveTypeList;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setLeaveTypeList(LeaveType[] leaveTypeList) {
-        this.leaveTypeList = leaveTypeList;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public LeaveType[] getLeaveTypeList() {
+    return this.leaveTypeList;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setLeaveTypeList(LeaveType[] leaveTypeList) {
+    this.leaveTypeList = leaveTypeList;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 }

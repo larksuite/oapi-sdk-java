@@ -13,131 +13,145 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.cardkit.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.cardkit.v1.enums.*;
 
 public class ContentCardElementReq {
+  /**
+   * 卡片实体
+   * ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取
+   *
+   * <p>示例值：7355439197428236291
+   */
+  @Path
+  @SerializedName("card_id")
+  private String cardId;
+
+  /**
+   * 卡片实体中，普通文本元素或富文本组件的 ID。对应卡片 JSON 中的 `element_id` 属性或搭建工具中的组件 ID 属性，由开发者自定义。;;**注意**： ;;- 仅支持[卡片
+   * JSON 2.0
+   * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)或卡片搭建工具搭建的[新版卡片](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/feishu-card-cardkit/cardkit-upgraded-version-card-release-notes)。;-
+   * 对于搭建工具中的卡片，此处仅支持传入富文本组件的组件 ID。即仅支持对富文本组件中的内容进行流式更新。
+   *
+   * <p>示例值：markdown_1
+   */
+  @Path
+  @SerializedName("element_id")
+  private String elementId;
+
+  public String getCardId() {
+    return this.cardId;
+  }
+
+  public void setCardId(String cardId) {
+    this.cardId = cardId;
+  }
+
+  public String getElementId() {
+    return this.elementId;
+  }
+
+  public void setElementId(String elementId) {
+    this.elementId = elementId;
+  }
+
+  @Body private ContentCardElementReqBody body;
+
+  public ContentCardElementReqBody getContentCardElementReqBody() {
+    return this.body;
+  }
+
+  public void setContentCardElementReqBody(ContentCardElementReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public ContentCardElementReq() {}
+
+  public ContentCardElementReq(Builder builder) {
     /**
-     * 卡片ID
-     * <p> 示例值：7355439197428236291
+     * 卡片实体
+     * ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取
+     *
+     * <p>示例值：7355439197428236291
      */
-    @Path
-    @SerializedName("card_id")
-    private String cardId;
+    this.cardId = builder.cardId;
     /**
-     * 组件ID
-     * <p> 示例值：elem_63529372
+     * 卡片实体中，普通文本元素或富文本组件的 ID。对应卡片 JSON 中的 `element_id` 属性或搭建工具中的组件 ID 属性，由开发者自定义。;;**注意**： ;;-
+     * 仅支持[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)或卡片搭建工具搭建的[新版卡片](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/feishu-card-cardkit/cardkit-upgraded-version-card-release-notes)。;-
+     * 对于搭建工具中的卡片，此处仅支持传入富文本组件的组件 ID。即仅支持对富文本组件中的内容进行流式更新。
+     *
+     * <p>示例值：markdown_1
      */
-    @Path
-    @SerializedName("element_id")
-    private String elementId;
-    @Body
+    this.elementId = builder.elementId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String cardId; // 卡片实体
+    // ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取
+    private String elementId; // 卡片实体中，普通文本元素或富文本组件的 ID。对应卡片 JSON 中的 `element_id` 属性或搭建工具中的组件 ID
+
+    // 属性，由开发者自定义。;;**注意**： ;;- 仅支持[卡片 JSON 2.0
+    // 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)或卡片搭建工具搭建的[新版卡片](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/feishu-card-cardkit/cardkit-upgraded-version-card-release-notes)。;- 对于搭建工具中的卡片，此处仅支持传入富文本组件的组件 ID。即仅支持对富文本组件中的内容进行流式更新。
+
+    /**
+     * 卡片实体
+     * ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取
+     *
+     * <p>示例值：7355439197428236291
+     *
+     * @param cardId
+     * @return
+     */
+    public Builder cardId(String cardId) {
+      this.cardId = cardId;
+      return this;
+    }
+
+    /**
+     * 卡片实体中，普通文本元素或富文本组件的 ID。对应卡片 JSON 中的 `element_id` 属性或搭建工具中的组件 ID 属性，由开发者自定义。;;**注意**： ;;-
+     * 仅支持[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)或卡片搭建工具搭建的[新版卡片](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/feishu-card-cardkit/cardkit-upgraded-version-card-release-notes)。;-
+     * 对于搭建工具中的卡片，此处仅支持传入富文本组件的组件 ID。即仅支持对富文本组件中的内容进行流式更新。
+     *
+     * <p>示例值：markdown_1
+     *
+     * @param elementId
+     * @return
+     */
+    public Builder elementId(String elementId) {
+      this.elementId = elementId;
+      return this;
+    }
+
     private ContentCardElementReqBody body;
 
-    // builder 开始
-    public ContentCardElementReq() {
-    }
-
-    public ContentCardElementReq(Builder builder) {
-        /**
-         * 卡片ID
-         * <p> 示例值：7355439197428236291
-         */
-        this.cardId = builder.cardId;
-        /**
-         * 组件ID
-         * <p> 示例值：elem_63529372
-         */
-        this.elementId = builder.elementId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getCardId() {
-        return this.cardId;
-    }
-
-    public void setCardId(String cardId) {
-        this.cardId = cardId;
-    }
-
-    public String getElementId() {
-        return this.elementId;
-    }
-
-    public void setElementId(String elementId) {
-        this.elementId = elementId;
-    }
-
     public ContentCardElementReqBody getContentCardElementReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setContentCardElementReqBody(ContentCardElementReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder contentCardElementReqBody(ContentCardElementReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String cardId; // 卡片ID
-        private String elementId; // 组件ID
-        private ContentCardElementReqBody body;
-
-        /**
-         * 卡片ID
-         * <p> 示例值：7355439197428236291
-         *
-         * @param cardId
-         * @return
-         */
-        public Builder cardId(String cardId) {
-            this.cardId = cardId;
-            return this;
-        }
-
-        /**
-         * 组件ID
-         * <p> 示例值：elem_63529372
-         *
-         * @param elementId
-         * @return
-         */
-        public Builder elementId(String elementId) {
-            this.elementId = elementId;
-            return this;
-        }
-
-        public ContentCardElementReqBody getContentCardElementReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder contentCardElementReqBody(ContentCardElementReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public ContentCardElementReq build() {
-            return new ContentCardElementReq(this);
-        }
+    public ContentCardElementReq build() {
+      return new ContentCardElementReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

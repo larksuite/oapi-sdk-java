@@ -13,124 +13,120 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.cardkit.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Card {
+  /**
+   * 卡片数据的类型。取固定值 `card_json`。
+   *
+   * <p>示例值：card_json
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 卡片 JSON 数据的内容。;;**注意**：;- 仅支持 JSON 2.0 版本的卡片结构。;;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。
+   *
+   * <p>示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"项目进度更新提醒\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"截至今日，项目完成度已达80%\"}]}}
+   */
+  @SerializedName("data")
+  private String data;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getData() {
+    return this.data;
+  }
+
+  public void setData(String data) {
+    this.data = data;
+  }
+
+  // builder 开始
+  public Card() {}
+
+  public Card(Builder builder) {
     /**
-     * 卡片数据的类型
-     * <p> 示例值：card_json
+     * 卡片数据的类型。取固定值 `card_json`。
+     *
+     * <p>示例值：card_json
      */
-    @SerializedName("type")
+    this.type = builder.type;
+    /**
+     * 卡片 JSON 数据的内容。;;**注意**：;- 仅支持 JSON 2.0 版本的卡片结构。;;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。
+     *
+     * <p>示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"项目进度更新提醒\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"截至今日，项目完成度已达80%\"}]}}
+     */
+    this.data = builder.data;
+  }
+
+  public static class Builder {
+    /**
+     * 卡片数据的类型。取固定值 `card_json`。
+     *
+     * <p>示例值：card_json
+     */
     private String type;
+
     /**
-     * 卡片数据内容，与卡片数据的类型相对应
-     * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
+     * 卡片 JSON 数据的内容。;;**注意**：;- 仅支持 JSON 2.0 版本的卡片结构。;;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。
+     *
+     * <p>示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"项目进度更新提醒\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"截至今日，项目完成度已达80%\"}]}}
      */
-    @SerializedName("data")
     private String data;
 
-    // builder 开始
-    public Card() {
+    /**
+     * 卡片数据的类型。取固定值 `card_json`。
+     *
+     * <p>示例值：card_json
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public Card(Builder builder) {
-        /**
-         * 卡片数据的类型
-         * <p> 示例值：card_json
-         */
-        this.type = builder.type;
-        /**
-         * 卡片数据内容，与卡片数据的类型相对应
-         * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
-         */
-        this.data = builder.data;
+    /**
+     * 卡片数据的类型。取固定值 `card_json`。
+     *
+     * <p>示例值：card_json
+     *
+     * @param type {@link com.lark.oapi.service.cardkit.v1.enums.CardTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.cardkit.v1.enums.CardTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 卡片 JSON 数据的内容。;;**注意**：;- 仅支持 JSON 2.0 版本的卡片结构。;;- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。
+     *
+     * <p>示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"项目进度更新提醒\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"截至今日，项目完成度已达80%\"}]}}
+     *
+     * @param data
+     * @return
+     */
+    public Builder data(String data) {
+      this.data = data;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public Card build() {
+      return new Card(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getData() {
-        return this.data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public static class Builder {
-        /**
-         * 卡片数据的类型
-         * <p> 示例值：card_json
-         */
-        private String type;
-        /**
-         * 卡片数据内容，与卡片数据的类型相对应
-         * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
-         */
-        private String data;
-
-        /**
-         * 卡片数据的类型
-         * <p> 示例值：card_json
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 卡片数据的类型
-         * <p> 示例值：card_json
-         *
-         * @param type {@link com.lark.oapi.service.cardkit.v1.enums.CardTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.cardkit.v1.enums.CardTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 卡片数据内容，与卡片数据的类型相对应
-         * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
-         *
-         * @param data
-         * @return
-         */
-        public Builder data(String data) {
-            this.data = data;
-            return this;
-        }
-
-
-        public Card build() {
-            return new Card(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

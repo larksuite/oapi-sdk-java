@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UrlValue {
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("link_text")
+  private I18nText linkText;
+
+  /**
+   * 移动端网页链接
+   *
+   * <p>示例值：https://m.bytedance.com/afnasjfna
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 桌面端网页链接
+   *
+   * <p>示例值：http://www.fs.cn
+   */
+  @SerializedName("pcurl")
+  private String pcurl;
+
+  public I18nText getLinkText() {
+    return this.linkText;
+  }
+
+  public void setLinkText(I18nText linkText) {
+    this.linkText = linkText;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getPcurl() {
+    return this.pcurl;
+  }
+
+  public void setPcurl(String pcurl) {
+    this.pcurl = pcurl;
+  }
+
+  // builder 开始
+  public UrlValue() {}
+
+  public UrlValue(Builder builder) {
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("link_text")
-    private I18nText linkText;
+    this.linkText = builder.linkText;
     /**
      * 移动端网页链接
-     * <p> 示例值：https://m.bytedance.com/afnasjfna
+     *
+     * <p>示例值：https://m.bytedance.com/afnasjfna
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 桌面端网页链接
-     * <p> 示例值：http://www.fs.cn
+     *
+     * <p>示例值：http://www.fs.cn
      */
-    @SerializedName("pcurl")
+    this.pcurl = builder.pcurl;
+  }
+
+  public static class Builder {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText linkText;
+
+    /**
+     * 移动端网页链接
+     *
+     * <p>示例值：https://m.bytedance.com/afnasjfna
+     */
+    private String url;
+
+    /**
+     * 桌面端网页链接
+     *
+     * <p>示例值：http://www.fs.cn
+     */
     private String pcurl;
 
-    // builder 开始
-    public UrlValue() {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param linkText
+     * @return
+     */
+    public Builder linkText(I18nText linkText) {
+      this.linkText = linkText;
+      return this;
     }
 
-    public UrlValue(Builder builder) {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.linkText = builder.linkText;
-        /**
-         * 移动端网页链接
-         * <p> 示例值：https://m.bytedance.com/afnasjfna
-         */
-        this.url = builder.url;
-        /**
-         * 桌面端网页链接
-         * <p> 示例值：http://www.fs.cn
-         */
-        this.pcurl = builder.pcurl;
+    /**
+     * 移动端网页链接
+     *
+     * <p>示例值：https://m.bytedance.com/afnasjfna
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 桌面端网页链接
+     *
+     * <p>示例值：http://www.fs.cn
+     *
+     * @param pcurl
+     * @return
+     */
+    public Builder pcurl(String pcurl) {
+      this.pcurl = pcurl;
+      return this;
     }
 
-    public I18nText getLinkText() {
-        return this.linkText;
+    public UrlValue build() {
+      return new UrlValue(this);
     }
+  }
 
-    public void setLinkText(I18nText linkText) {
-        this.linkText = linkText;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getPcurl() {
-        return this.pcurl;
-    }
-
-    public void setPcurl(String pcurl) {
-        this.pcurl = pcurl;
-    }
-
-    public static class Builder {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText linkText;
-        /**
-         * 移动端网页链接
-         * <p> 示例值：https://m.bytedance.com/afnasjfna
-         */
-        private String url;
-        /**
-         * 桌面端网页链接
-         * <p> 示例值：http://www.fs.cn
-         */
-        private String pcurl;
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param linkText
-         * @return
-         */
-        public Builder linkText(I18nText linkText) {
-            this.linkText = linkText;
-            return this;
-        }
-
-
-        /**
-         * 移动端网页链接
-         * <p> 示例值：https://m.bytedance.com/afnasjfna
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 桌面端网页链接
-         * <p> 示例值：http://www.fs.cn
-         *
-         * @param pcurl
-         * @return
-         */
-        public Builder pcurl(String pcurl) {
-            this.pcurl = pcurl;
-            return this;
-        }
-
-
-        public UrlValue build() {
-            return new UrlValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

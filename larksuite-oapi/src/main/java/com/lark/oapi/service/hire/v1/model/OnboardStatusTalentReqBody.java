@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OnboardStatusTalentReqBody {
+  /**
+   * 操作类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("operation")
+  private Integer operation;
+
+  /**
+   * 入职时间，毫秒时间戳；当操作类型为入职的时候时必填;
+   *
+   * <p>示例值：1676548784889
+   */
+  @SerializedName("onboard_time")
+  private String onboardTime;
+
+  /**
+   * 离职时间，毫秒时间戳；当操作类型为离职的时候时必填;
+   *
+   * <p>示例值：1676548784890
+   */
+  @SerializedName("overboard_time")
+  private String overboardTime;
+
+  public Integer getOperation() {
+    return this.operation;
+  }
+
+  public void setOperation(Integer operation) {
+    this.operation = operation;
+  }
+
+  public String getOnboardTime() {
+    return this.onboardTime;
+  }
+
+  public void setOnboardTime(String onboardTime) {
+    this.onboardTime = onboardTime;
+  }
+
+  public String getOverboardTime() {
+    return this.overboardTime;
+  }
+
+  public void setOverboardTime(String overboardTime) {
+    this.overboardTime = overboardTime;
+  }
+
+  // builder 开始
+  public OnboardStatusTalentReqBody() {}
+
+  public OnboardStatusTalentReqBody(Builder builder) {
     /**
-     * 操作类型 1:入职 2:离职
-     * <p> 示例值：1
+     * 操作类型
+     *
+     * <p>示例值：1
      */
-    @SerializedName("operation")
+    this.operation = builder.operation;
+    /**
+     * 入职时间，毫秒时间戳；当操作类型为入职的时候时必填;
+     *
+     * <p>示例值：1676548784889
+     */
+    this.onboardTime = builder.onboardTime;
+    /**
+     * 离职时间，毫秒时间戳；当操作类型为离职的时候时必填;
+     *
+     * <p>示例值：1676548784890
+     */
+    this.overboardTime = builder.overboardTime;
+  }
+
+  public static class Builder {
+    /**
+     * 操作类型
+     *
+     * <p>示例值：1
+     */
     private Integer operation;
+
     /**
-     * 毫秒时间戳
-     * <p> 示例值：1676548784889
+     * 入职时间，毫秒时间戳；当操作类型为入职的时候时必填;
+     *
+     * <p>示例值：1676548784889
      */
-    @SerializedName("onboard_time")
     private String onboardTime;
+
     /**
-     * 毫秒时间戳
-     * <p> 示例值：1676548784890
+     * 离职时间，毫秒时间戳；当操作类型为离职的时候时必填;
+     *
+     * <p>示例值：1676548784890
      */
-    @SerializedName("overboard_time")
     private String overboardTime;
 
-    // builder 开始
-    public OnboardStatusTalentReqBody() {
+    /**
+     * 操作类型
+     *
+     * <p>示例值：1
+     *
+     * @param operation
+     * @return
+     */
+    public Builder operation(Integer operation) {
+      this.operation = operation;
+      return this;
     }
 
-    public OnboardStatusTalentReqBody(Builder builder) {
-        /**
-         * 操作类型 1:入职 2:离职
-         * <p> 示例值：1
-         */
-        this.operation = builder.operation;
-        /**
-         * 毫秒时间戳
-         * <p> 示例值：1676548784889
-         */
-        this.onboardTime = builder.onboardTime;
-        /**
-         * 毫秒时间戳
-         * <p> 示例值：1676548784890
-         */
-        this.overboardTime = builder.overboardTime;
+    /**
+     * 入职时间，毫秒时间戳；当操作类型为入职的时候时必填;
+     *
+     * <p>示例值：1676548784889
+     *
+     * @param onboardTime
+     * @return
+     */
+    public Builder onboardTime(String onboardTime) {
+      this.onboardTime = onboardTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 离职时间，毫秒时间戳；当操作类型为离职的时候时必填;
+     *
+     * <p>示例值：1676548784890
+     *
+     * @param overboardTime
+     * @return
+     */
+    public Builder overboardTime(String overboardTime) {
+      this.overboardTime = overboardTime;
+      return this;
     }
 
-    public Integer getOperation() {
-        return this.operation;
+    public OnboardStatusTalentReqBody build() {
+      return new OnboardStatusTalentReqBody(this);
     }
+  }
 
-    public void setOperation(Integer operation) {
-        this.operation = operation;
-    }
-
-    public String getOnboardTime() {
-        return this.onboardTime;
-    }
-
-    public void setOnboardTime(String onboardTime) {
-        this.onboardTime = onboardTime;
-    }
-
-    public String getOverboardTime() {
-        return this.overboardTime;
-    }
-
-    public void setOverboardTime(String overboardTime) {
-        this.overboardTime = overboardTime;
-    }
-
-    public static class Builder {
-        /**
-         * 操作类型 1:入职 2:离职
-         * <p> 示例值：1
-         */
-        private Integer operation;
-        /**
-         * 毫秒时间戳
-         * <p> 示例值：1676548784889
-         */
-        private String onboardTime;
-        /**
-         * 毫秒时间戳
-         * <p> 示例值：1676548784890
-         */
-        private String overboardTime;
-
-        /**
-         * 操作类型 1:入职 2:离职
-         * <p> 示例值：1
-         *
-         * @param operation
-         * @return
-         */
-        public Builder operation(Integer operation) {
-            this.operation = operation;
-            return this;
-        }
-
-
-        /**
-         * 毫秒时间戳
-         * <p> 示例值：1676548784889
-         *
-         * @param onboardTime
-         * @return
-         */
-        public Builder onboardTime(String onboardTime) {
-            this.onboardTime = onboardTime;
-            return this;
-        }
-
-
-        /**
-         * 毫秒时间戳
-         * <p> 示例值：1676548784890
-         *
-         * @param overboardTime
-         * @return
-         */
-        public Builder overboardTime(String overboardTime) {
-            this.overboardTime = overboardTime;
-            return this;
-        }
-
-
-        public OnboardStatusTalentReqBody build() {
-            return new OnboardStatusTalentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

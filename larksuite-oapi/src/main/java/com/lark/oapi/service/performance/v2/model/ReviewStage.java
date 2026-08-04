@@ -13,284 +13,304 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReviewStage {
+  /**
+   * 环节 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("stage_id")
+  private String stageId;
+
+  /**
+   * 环节类型
+   *
+   * <p>示例值：review
+   */
+  @SerializedName("stage_type")
+  private String stageType;
+
+  /**
+   * 评估型环节的执行人角色
+   *
+   * <p>示例值：
+   */
+  @SerializedName("review_stage_roles")
+  private String[] reviewStageRoles;
+
+  /**
+   * 该环节对应的环节模板的 ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("template_id")
+  private String templateId;
+
+  /**
+   * 评估内容记录。多人评估的环节有多份记录，比如 360 评估环节。如果开启了 360 匿名评估，并且是对全部查看者匿名，则评估记录数低于匿名下限，则不返回 360 评估记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("records")
+  private ReviewRecord[] records;
+
+  /**
+   * 评估型环节的执行人角色
+   *
+   * <p>示例值：reviewee
+   */
+  @SerializedName("review_stage_role")
+  private String reviewStageRole;
+
+  public String getStageId() {
+    return this.stageId;
+  }
+
+  public void setStageId(String stageId) {
+    this.stageId = stageId;
+  }
+
+  public String getStageType() {
+    return this.stageType;
+  }
+
+  public void setStageType(String stageType) {
+    this.stageType = stageType;
+  }
+
+  public String[] getReviewStageRoles() {
+    return this.reviewStageRoles;
+  }
+
+  public void setReviewStageRoles(String[] reviewStageRoles) {
+    this.reviewStageRoles = reviewStageRoles;
+  }
+
+  public String getTemplateId() {
+    return this.templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
+  public ReviewRecord[] getRecords() {
+    return this.records;
+  }
+
+  public void setRecords(ReviewRecord[] records) {
+    this.records = records;
+  }
+
+  public String getReviewStageRole() {
+    return this.reviewStageRole;
+  }
+
+  public void setReviewStageRole(String reviewStageRole) {
+    this.reviewStageRole = reviewStageRole;
+  }
+
+  // builder 开始
+  public ReviewStage() {}
+
+  public ReviewStage(Builder builder) {
     /**
      * 环节 ID
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("stage_id")
-    private String stageId;
+    this.stageId = builder.stageId;
     /**
      * 环节类型
-     * <p> 示例值：review
+     *
+     * <p>示例值：review
      */
-    @SerializedName("stage_type")
-    private String stageType;
+    this.stageType = builder.stageType;
     /**
      * 评估型环节的执行人角色
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("review_stage_roles")
-    private String[] reviewStageRoles;
+    this.reviewStageRoles = builder.reviewStageRoles;
     /**
      * 该环节对应的环节模板的 ID
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("template_id")
-    private String templateId;
+    this.templateId = builder.templateId;
     /**
      * 评估内容记录。多人评估的环节有多份记录，比如 360 评估环节。如果开启了 360 匿名评估，并且是对全部查看者匿名，则评估记录数低于匿名下限，则不返回 360 评估记录
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("records")
-    private ReviewRecord[] records;
+    this.records = builder.records;
     /**
      * 评估型环节的执行人角色
-     * <p> 示例值：reviewee
+     *
+     * <p>示例值：reviewee
      */
-    @SerializedName("review_stage_role")
+    this.reviewStageRole = builder.reviewStageRole;
+  }
+
+  public static class Builder {
+    /**
+     * 环节 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String stageId;
+
+    /**
+     * 环节类型
+     *
+     * <p>示例值：review
+     */
+    private String stageType;
+
+    /**
+     * 评估型环节的执行人角色
+     *
+     * <p>示例值：
+     */
+    private String[] reviewStageRoles;
+
+    /**
+     * 该环节对应的环节模板的 ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String templateId;
+
+    /**
+     * 评估内容记录。多人评估的环节有多份记录，比如 360 评估环节。如果开启了 360 匿名评估，并且是对全部查看者匿名，则评估记录数低于匿名下限，则不返回 360 评估记录
+     *
+     * <p>示例值：
+     */
+    private ReviewRecord[] records;
+
+    /**
+     * 评估型环节的执行人角色
+     *
+     * <p>示例值：reviewee
+     */
     private String reviewStageRole;
 
-    // builder 开始
-    public ReviewStage() {
+    /**
+     * 环节 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param stageId
+     * @return
+     */
+    public Builder stageId(String stageId) {
+      this.stageId = stageId;
+      return this;
     }
 
-    public ReviewStage(Builder builder) {
-        /**
-         * 环节 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.stageId = builder.stageId;
-        /**
-         * 环节类型
-         * <p> 示例值：review
-         */
-        this.stageType = builder.stageType;
-        /**
-         * 评估型环节的执行人角色
-         * <p> 示例值：
-         */
-        this.reviewStageRoles = builder.reviewStageRoles;
-        /**
-         * 该环节对应的环节模板的 ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.templateId = builder.templateId;
-        /**
-         * 评估内容记录。多人评估的环节有多份记录，比如 360 评估环节。如果开启了 360 匿名评估，并且是对全部查看者匿名，则评估记录数低于匿名下限，则不返回 360 评估记录
-         * <p> 示例值：
-         */
-        this.records = builder.records;
-        /**
-         * 评估型环节的执行人角色
-         * <p> 示例值：reviewee
-         */
-        this.reviewStageRole = builder.reviewStageRole;
+    /**
+     * 环节类型
+     *
+     * <p>示例值：review
+     *
+     * @param stageType
+     * @return
+     */
+    public Builder stageType(String stageType) {
+      this.stageType = stageType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 环节类型
+     *
+     * <p>示例值：review
+     *
+     * @param stageType {@link com.lark.oapi.service.performance.v2.enums.ReviewStageStageTypeEnum}
+     * @return
+     */
+    public Builder stageType(
+        com.lark.oapi.service.performance.v2.enums.ReviewStageStageTypeEnum stageType) {
+      this.stageType = stageType.getValue();
+      return this;
     }
 
-    public String getStageId() {
-        return this.stageId;
+    /**
+     * 评估型环节的执行人角色
+     *
+     * <p>示例值：
+     *
+     * @param reviewStageRoles
+     * @return
+     */
+    public Builder reviewStageRoles(String[] reviewStageRoles) {
+      this.reviewStageRoles = reviewStageRoles;
+      return this;
     }
 
-    public void setStageId(String stageId) {
-        this.stageId = stageId;
+    /**
+     * 该环节对应的环节模板的 ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param templateId
+     * @return
+     */
+    public Builder templateId(String templateId) {
+      this.templateId = templateId;
+      return this;
     }
 
-    public String getStageType() {
-        return this.stageType;
+    /**
+     * 评估内容记录。多人评估的环节有多份记录，比如 360 评估环节。如果开启了 360 匿名评估，并且是对全部查看者匿名，则评估记录数低于匿名下限，则不返回 360 评估记录
+     *
+     * <p>示例值：
+     *
+     * @param records
+     * @return
+     */
+    public Builder records(ReviewRecord[] records) {
+      this.records = records;
+      return this;
     }
 
-    public void setStageType(String stageType) {
-        this.stageType = stageType;
+    /**
+     * 评估型环节的执行人角色
+     *
+     * <p>示例值：reviewee
+     *
+     * @param reviewStageRole
+     * @return
+     */
+    public Builder reviewStageRole(String reviewStageRole) {
+      this.reviewStageRole = reviewStageRole;
+      return this;
     }
 
-    public String[] getReviewStageRoles() {
-        return this.reviewStageRoles;
+    /**
+     * 评估型环节的执行人角色
+     *
+     * <p>示例值：reviewee
+     *
+     * @param reviewStageRole {@link
+     *     com.lark.oapi.service.performance.v2.enums.ReviewStageReviewStageRoleEnum}
+     * @return
+     */
+    public Builder reviewStageRole(
+        com.lark.oapi.service.performance.v2.enums.ReviewStageReviewStageRoleEnum reviewStageRole) {
+      this.reviewStageRole = reviewStageRole.getValue();
+      return this;
     }
 
-    public void setReviewStageRoles(String[] reviewStageRoles) {
-        this.reviewStageRoles = reviewStageRoles;
+    public ReviewStage build() {
+      return new ReviewStage(this);
     }
+  }
 
-    public String getTemplateId() {
-        return this.templateId;
-    }
-
-    public void setTemplateId(String templateId) {
-        this.templateId = templateId;
-    }
-
-    public ReviewRecord[] getRecords() {
-        return this.records;
-    }
-
-    public void setRecords(ReviewRecord[] records) {
-        this.records = records;
-    }
-
-    public String getReviewStageRole() {
-        return this.reviewStageRole;
-    }
-
-    public void setReviewStageRole(String reviewStageRole) {
-        this.reviewStageRole = reviewStageRole;
-    }
-
-    public static class Builder {
-        /**
-         * 环节 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String stageId;
-        /**
-         * 环节类型
-         * <p> 示例值：review
-         */
-        private String stageType;
-        /**
-         * 评估型环节的执行人角色
-         * <p> 示例值：
-         */
-        private String[] reviewStageRoles;
-        /**
-         * 该环节对应的环节模板的 ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String templateId;
-        /**
-         * 评估内容记录。多人评估的环节有多份记录，比如 360 评估环节。如果开启了 360 匿名评估，并且是对全部查看者匿名，则评估记录数低于匿名下限，则不返回 360 评估记录
-         * <p> 示例值：
-         */
-        private ReviewRecord[] records;
-        /**
-         * 评估型环节的执行人角色
-         * <p> 示例值：reviewee
-         */
-        private String reviewStageRole;
-
-        /**
-         * 环节 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param stageId
-         * @return
-         */
-        public Builder stageId(String stageId) {
-            this.stageId = stageId;
-            return this;
-        }
-
-
-        /**
-         * 环节类型
-         * <p> 示例值：review
-         *
-         * @param stageType
-         * @return
-         */
-        public Builder stageType(String stageType) {
-            this.stageType = stageType;
-            return this;
-        }
-
-        /**
-         * 环节类型
-         * <p> 示例值：review
-         *
-         * @param stageType {@link com.lark.oapi.service.performance.v2.enums.ReviewStageStageTypeEnum}
-         * @return
-         */
-        public Builder stageType(com.lark.oapi.service.performance.v2.enums.ReviewStageStageTypeEnum stageType) {
-            this.stageType = stageType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 评估型环节的执行人角色
-         * <p> 示例值：
-         *
-         * @param reviewStageRoles
-         * @return
-         */
-        public Builder reviewStageRoles(String[] reviewStageRoles) {
-            this.reviewStageRoles = reviewStageRoles;
-            return this;
-        }
-
-
-        /**
-         * 该环节对应的环节模板的 ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param templateId
-         * @return
-         */
-        public Builder templateId(String templateId) {
-            this.templateId = templateId;
-            return this;
-        }
-
-
-        /**
-         * 评估内容记录。多人评估的环节有多份记录，比如 360 评估环节。如果开启了 360 匿名评估，并且是对全部查看者匿名，则评估记录数低于匿名下限，则不返回 360 评估记录
-         * <p> 示例值：
-         *
-         * @param records
-         * @return
-         */
-        public Builder records(ReviewRecord[] records) {
-            this.records = records;
-            return this;
-        }
-
-
-        /**
-         * 评估型环节的执行人角色
-         * <p> 示例值：reviewee
-         *
-         * @param reviewStageRole
-         * @return
-         */
-        public Builder reviewStageRole(String reviewStageRole) {
-            this.reviewStageRole = reviewStageRole;
-            return this;
-        }
-
-        /**
-         * 评估型环节的执行人角色
-         * <p> 示例值：reviewee
-         *
-         * @param reviewStageRole {@link com.lark.oapi.service.performance.v2.enums.ReviewStageReviewStageRoleEnum}
-         * @return
-         */
-        public Builder reviewStageRole(com.lark.oapi.service.performance.v2.enums.ReviewStageReviewStageRoleEnum reviewStageRole) {
-            this.reviewStageRole = reviewStageRole.getValue();
-            return this;
-        }
-
-
-        public ReviewStage build() {
-            return new ReviewStage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

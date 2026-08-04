@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeDefaultCostCenter {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：7475686493613920050
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 默认成本中心信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("default_cost_centers")
+  private EmploymentDefaultCostCenter[] defaultCostCenters;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public EmploymentDefaultCostCenter[] getDefaultCostCenters() {
+    return this.defaultCostCenters;
+  }
+
+  public void setDefaultCostCenters(EmploymentDefaultCostCenter[] defaultCostCenters) {
+    this.defaultCostCenters = defaultCostCenters;
+  }
+
+  // builder 开始
+  public EmployeeDefaultCostCenter() {}
+
+  public EmployeeDefaultCostCenter(Builder builder) {
     /**
-     * 用户id
-     * <p> 示例值：7475686493613920050
+     * 用户ID
+     *
+     * <p>示例值：7475686493613920050
      */
-    @SerializedName("employment_id")
+    this.employmentId = builder.employmentId;
+    /**
+     * 默认成本中心信息
+     *
+     * <p>示例值：
+     */
+    this.defaultCostCenters = builder.defaultCostCenters;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：7475686493613920050
+     */
     private String employmentId;
+
     /**
-     * 默认成本中心
-     * <p> 示例值：
+     * 默认成本中心信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("default_cost_centers")
     private EmploymentDefaultCostCenter[] defaultCostCenters;
 
-    // builder 开始
-    public EmployeeDefaultCostCenter() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：7475686493613920050
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public EmployeeDefaultCostCenter(Builder builder) {
-        /**
-         * 用户id
-         * <p> 示例值：7475686493613920050
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 默认成本中心
-         * <p> 示例值：
-         */
-        this.defaultCostCenters = builder.defaultCostCenters;
+    /**
+     * 默认成本中心信息
+     *
+     * <p>示例值：
+     *
+     * @param defaultCostCenters
+     * @return
+     */
+    public Builder defaultCostCenters(EmploymentDefaultCostCenter[] defaultCostCenters) {
+      this.defaultCostCenters = defaultCostCenters;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EmployeeDefaultCostCenter build() {
+      return new EmployeeDefaultCostCenter(this);
     }
+  }
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public EmploymentDefaultCostCenter[] getDefaultCostCenters() {
-        return this.defaultCostCenters;
-    }
-
-    public void setDefaultCostCenters(EmploymentDefaultCostCenter[] defaultCostCenters) {
-        this.defaultCostCenters = defaultCostCenters;
-    }
-
-    public static class Builder {
-        /**
-         * 用户id
-         * <p> 示例值：7475686493613920050
-         */
-        private String employmentId;
-        /**
-         * 默认成本中心
-         * <p> 示例值：
-         */
-        private EmploymentDefaultCostCenter[] defaultCostCenters;
-
-        /**
-         * 用户id
-         * <p> 示例值：7475686493613920050
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 默认成本中心
-         * <p> 示例值：
-         *
-         * @param defaultCostCenters
-         * @return
-         */
-        public Builder defaultCostCenters(EmploymentDefaultCostCenter[] defaultCostCenters) {
-            this.defaultCostCenters = defaultCostCenters;
-            return this;
-        }
-
-
-        public EmployeeDefaultCostCenter build() {
-            return new EmployeeDefaultCostCenter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

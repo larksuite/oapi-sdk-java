@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RejectApprovalTaskReqBody {
+  /**
+   * 操作人 ID
+   *
+   * <p>示例值：1783981209205788
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 审批意见
+   *
+   * <p>示例值：拒绝
+   */
+  @SerializedName("opinion")
+  private String opinion;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getOpinion() {
+    return this.opinion;
+  }
+
+  public void setOpinion(String opinion) {
+    this.opinion = opinion;
+  }
+
+  // builder 开始
+  public RejectApprovalTaskReqBody() {}
+
+  public RejectApprovalTaskReqBody(Builder builder) {
     /**
-     * 操作用户id
-     * <p> 示例值：
+     * 操作人 ID
+     *
+     * <p>示例值：1783981209205788
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 审批意见
-     * <p> 示例值：拒绝
+     *
+     * <p>示例值：拒绝
      */
-    @SerializedName("opinion")
+    this.opinion = builder.opinion;
+  }
+
+  public static class Builder {
+    /**
+     * 操作人 ID
+     *
+     * <p>示例值：1783981209205788
+     */
+    private String userId;
+
+    /**
+     * 审批意见
+     *
+     * <p>示例值：拒绝
+     */
     private String opinion;
 
-    // builder 开始
-    public RejectApprovalTaskReqBody() {
+    /**
+     * 操作人 ID
+     *
+     * <p>示例值：1783981209205788
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public RejectApprovalTaskReqBody(Builder builder) {
-        /**
-         * 操作用户id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 审批意见
-         * <p> 示例值：拒绝
-         */
-        this.opinion = builder.opinion;
+    /**
+     * 审批意见
+     *
+     * <p>示例值：拒绝
+     *
+     * @param opinion
+     * @return
+     */
+    public Builder opinion(String opinion) {
+      this.opinion = opinion;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public RejectApprovalTaskReqBody build() {
+      return new RejectApprovalTaskReqBody(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getOpinion() {
-        return this.opinion;
-    }
-
-    public void setOpinion(String opinion) {
-        this.opinion = opinion;
-    }
-
-    public static class Builder {
-        /**
-         * 操作用户id
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 审批意见
-         * <p> 示例值：拒绝
-         */
-        private String opinion;
-
-        /**
-         * 操作用户id
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 审批意见
-         * <p> 示例值：拒绝
-         *
-         * @param opinion
-         * @return
-         */
-        public Builder opinion(String opinion) {
-            this.opinion = opinion;
-            return this;
-        }
-
-
-        public RejectApprovalTaskReqBody build() {
-            return new RejectApprovalTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

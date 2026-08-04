@@ -13,71 +13,67 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetRoleReq {
+  /**
+   * 角色 ID，调用
+   * [获取角色列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/list)获取。
+   *
+   * <p>示例值：7350589232462807068
+   */
+  @Path
+  @SerializedName("role_id")
+  private String roleId;
+
+  public String getRoleId() {
+    return this.roleId;
+  }
+
+  public void setRoleId(String roleId) {
+    this.roleId = roleId;
+  }
+
+  // builder 开始
+  public GetRoleReq() {}
+
+  public GetRoleReq(Builder builder) {
     /**
-     * 角色ID
-     * <p> 示例值：
+     * 角色 ID，调用
+     * [获取角色列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/list)获取。
+     *
+     * <p>示例值：7350589232462807068
      */
-    @Path
-    @SerializedName("role_id")
-    private String roleId;
+    this.roleId = builder.roleId;
+  }
 
-    // builder 开始
-    public GetRoleReq() {
+  public static class Builder {
+
+    private String roleId; // 角色 ID，调用
+
+    // [获取角色列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/list)获取。
+
+    /**
+     * 角色 ID，调用
+     * [获取角色列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/role/list)获取。
+     *
+     * <p>示例值：7350589232462807068
+     *
+     * @param roleId
+     * @return
+     */
+    public Builder roleId(String roleId) {
+      this.roleId = roleId;
+      return this;
     }
 
-    public GetRoleReq(Builder builder) {
-        /**
-         * 角色ID
-         * <p> 示例值：
-         */
-        this.roleId = builder.roleId;
+    public GetRoleReq build() {
+      return new GetRoleReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getRoleId() {
-        return this.roleId;
-    }
-
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-
-    public static class Builder {
-
-        private String roleId; // 角色ID
-
-        /**
-         * 角色ID
-         * <p> 示例值：
-         *
-         * @param roleId
-         * @return
-         */
-        public Builder roleId(String roleId) {
-            this.roleId = roleId;
-            return this;
-        }
-
-
-        public GetRoleReq build() {
-            return new GetRoleReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

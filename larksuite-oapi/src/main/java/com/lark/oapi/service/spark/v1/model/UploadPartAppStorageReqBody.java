@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UploadPartAppStorageReqBody {
+  /**
+   * 上传请求 ID，可通过`分片上传文件 - 创建上传请求`获取。
+   *
+   * <p>示例值：upload_abc123xyz456
+   */
+  @SerializedName("upload_id")
+  private String uploadId;
+
+  /**
+   * 分片编号从 1 开始
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("chunk_index")
+  private Integer chunkIndex;
+
+  /**
+   * 对应分片文件的二进制内容，不限制文件格式，需要与`创建上传请求`接口中的文件 MIME 类型一致。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("file")
+  private java.io.File file;
+
+  /**
+   * 对应分片文件的 md5
+   *
+   * <p>示例值：ef176a6c424f954fa42d4cde03949897
+   */
+  @SerializedName("chunk_check_sum")
+  private String chunkCheckSum;
+
+  public String getUploadId() {
+    return this.uploadId;
+  }
+
+  public void setUploadId(String uploadId) {
+    this.uploadId = uploadId;
+  }
+
+  public Integer getChunkIndex() {
+    return this.chunkIndex;
+  }
+
+  public void setChunkIndex(Integer chunkIndex) {
+    this.chunkIndex = chunkIndex;
+  }
+
+  public java.io.File getFile() {
+    return this.file;
+  }
+
+  public void setFile(java.io.File file) {
+    this.file = file;
+  }
+
+  public String getChunkCheckSum() {
+    return this.chunkCheckSum;
+  }
+
+  public void setChunkCheckSum(String chunkCheckSum) {
+    this.chunkCheckSum = chunkCheckSum;
+  }
+
+  // builder 开始
+  public UploadPartAppStorageReqBody() {}
+
+  public UploadPartAppStorageReqBody(Builder builder) {
     /**
-     * 上传请求 ID
-     * <p> 示例值：upload_abc123xyz456
+     * 上传请求 ID，可通过`分片上传文件 - 创建上传请求`获取。
+     *
+     * <p>示例值：upload_abc123xyz456
      */
-    @SerializedName("upload_id")
-    private String uploadId;
+    this.uploadId = builder.uploadId;
     /**
      * 分片编号从 1 开始
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("chunk_index")
+    this.chunkIndex = builder.chunkIndex;
+    /**
+     * 对应分片文件的二进制内容，不限制文件格式，需要与`创建上传请求`接口中的文件 MIME 类型一致。
+     *
+     * <p>示例值：
+     */
+    this.file = builder.file;
+    /**
+     * 对应分片文件的 md5
+     *
+     * <p>示例值：ef176a6c424f954fa42d4cde03949897
+     */
+    this.chunkCheckSum = builder.chunkCheckSum;
+  }
+
+  public static class Builder {
+    /**
+     * 上传请求 ID，可通过`分片上传文件 - 创建上传请求`获取。
+     *
+     * <p>示例值：upload_abc123xyz456
+     */
+    private String uploadId;
+
+    /**
+     * 分片编号从 1 开始
+     *
+     * <p>示例值：1
+     */
     private Integer chunkIndex;
+
     /**
-     * 对应分片文件的二进制内容
-     * <p> 示例值：
+     * 对应分片文件的二进制内容，不限制文件格式，需要与`创建上传请求`接口中的文件 MIME 类型一致。
+     *
+     * <p>示例值：
      */
-    @SerializedName("file")
     private java.io.File file;
+
     /**
-     * 文件分片的 md5
-     * <p> 示例值：ef176a6c424f954fa42d4cde03949897
+     * 对应分片文件的 md5
+     *
+     * <p>示例值：ef176a6c424f954fa42d4cde03949897
      */
-    @SerializedName("chunk_check_sum")
     private String chunkCheckSum;
 
-    // builder 开始
-    public UploadPartAppStorageReqBody() {
+    /**
+     * 上传请求 ID，可通过`分片上传文件 - 创建上传请求`获取。
+     *
+     * <p>示例值：upload_abc123xyz456
+     *
+     * @param uploadId
+     * @return
+     */
+    public Builder uploadId(String uploadId) {
+      this.uploadId = uploadId;
+      return this;
     }
 
-    public UploadPartAppStorageReqBody(Builder builder) {
-        /**
-         * 上传请求 ID
-         * <p> 示例值：upload_abc123xyz456
-         */
-        this.uploadId = builder.uploadId;
-        /**
-         * 分片编号从 1 开始
-         * <p> 示例值：1
-         */
-        this.chunkIndex = builder.chunkIndex;
-        /**
-         * 对应分片文件的二进制内容
-         * <p> 示例值：
-         */
-        this.file = builder.file;
-        /**
-         * 文件分片的 md5
-         * <p> 示例值：ef176a6c424f954fa42d4cde03949897
-         */
-        this.chunkCheckSum = builder.chunkCheckSum;
+    /**
+     * 分片编号从 1 开始
+     *
+     * <p>示例值：1
+     *
+     * @param chunkIndex
+     * @return
+     */
+    public Builder chunkIndex(Integer chunkIndex) {
+      this.chunkIndex = chunkIndex;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 对应分片文件的二进制内容，不限制文件格式，需要与`创建上传请求`接口中的文件 MIME 类型一致。
+     *
+     * <p>示例值：
+     *
+     * @param file
+     * @return
+     */
+    public Builder file(java.io.File file) {
+      this.file = file;
+      return this;
     }
 
-    public String getUploadId() {
-        return this.uploadId;
+    /**
+     * 对应分片文件的 md5
+     *
+     * <p>示例值：ef176a6c424f954fa42d4cde03949897
+     *
+     * @param chunkCheckSum
+     * @return
+     */
+    public Builder chunkCheckSum(String chunkCheckSum) {
+      this.chunkCheckSum = chunkCheckSum;
+      return this;
     }
 
-    public void setUploadId(String uploadId) {
-        this.uploadId = uploadId;
+    public UploadPartAppStorageReqBody build() {
+      return new UploadPartAppStorageReqBody(this);
     }
+  }
 
-    public Integer getChunkIndex() {
-        return this.chunkIndex;
-    }
-
-    public void setChunkIndex(Integer chunkIndex) {
-        this.chunkIndex = chunkIndex;
-    }
-
-    public java.io.File getFile() {
-        return this.file;
-    }
-
-    public void setFile(java.io.File file) {
-        this.file = file;
-    }
-
-    public String getChunkCheckSum() {
-        return this.chunkCheckSum;
-    }
-
-    public void setChunkCheckSum(String chunkCheckSum) {
-        this.chunkCheckSum = chunkCheckSum;
-    }
-
-    public static class Builder {
-        /**
-         * 上传请求 ID
-         * <p> 示例值：upload_abc123xyz456
-         */
-        private String uploadId;
-        /**
-         * 分片编号从 1 开始
-         * <p> 示例值：1
-         */
-        private Integer chunkIndex;
-        /**
-         * 对应分片文件的二进制内容
-         * <p> 示例值：
-         */
-        private java.io.File file;
-        /**
-         * 文件分片的 md5
-         * <p> 示例值：ef176a6c424f954fa42d4cde03949897
-         */
-        private String chunkCheckSum;
-
-        /**
-         * 上传请求 ID
-         * <p> 示例值：upload_abc123xyz456
-         *
-         * @param uploadId
-         * @return
-         */
-        public Builder uploadId(String uploadId) {
-            this.uploadId = uploadId;
-            return this;
-        }
-
-
-        /**
-         * 分片编号从 1 开始
-         * <p> 示例值：1
-         *
-         * @param chunkIndex
-         * @return
-         */
-        public Builder chunkIndex(Integer chunkIndex) {
-            this.chunkIndex = chunkIndex;
-            return this;
-        }
-
-
-        /**
-         * 对应分片文件的二进制内容
-         * <p> 示例值：
-         *
-         * @param file
-         * @return
-         */
-        public Builder file(java.io.File file) {
-            this.file = file;
-            return this;
-        }
-
-
-        /**
-         * 文件分片的 md5
-         * <p> 示例值：ef176a6c424f954fa42d4cde03949897
-         *
-         * @param chunkCheckSum
-         * @return
-         */
-        public Builder chunkCheckSum(String chunkCheckSum) {
-            this.chunkCheckSum = chunkCheckSum;
-            return this;
-        }
-
-
-        public UploadPartAppStorageReqBody build() {
-            return new UploadPartAppStorageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

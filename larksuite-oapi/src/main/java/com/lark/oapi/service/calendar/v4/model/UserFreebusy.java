@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserFreebusy {
+  /**
+   * 日历上请求时间区间内的忙闲信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("freebusy_items")
+  private Freebusy[] freebusyItems;
+
+  /**
+   * 日历创建者的用户 ID，根据查询参数 user_id_type 设置的 ID 类型进行返回。
+   *
+   * <p>示例值：ou_c186b6833e2d5faf2bc587e71ddabcef
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  public Freebusy[] getFreebusyItems() {
+    return this.freebusyItems;
+  }
+
+  public void setFreebusyItems(Freebusy[] freebusyItems) {
+    this.freebusyItems = freebusyItems;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public UserFreebusy() {}
+
+  public UserFreebusy(Builder builder) {
     /**
      * 日历上请求时间区间内的忙闲信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("freebusy_items")
-    private Freebusy[] freebusyItems;
+    this.freebusyItems = builder.freebusyItems;
     /**
-     * 日历的创建者userID
-     * <p> 示例值：
+     * 日历创建者的用户 ID，根据查询参数 user_id_type 设置的 ID 类型进行返回。
+     *
+     * <p>示例值：ou_c186b6833e2d5faf2bc587e71ddabcef
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * 日历上请求时间区间内的忙闲信息
+     *
+     * <p>示例值：
+     */
+    private Freebusy[] freebusyItems;
+
+    /**
+     * 日历创建者的用户 ID，根据查询参数 user_id_type 设置的 ID 类型进行返回。
+     *
+     * <p>示例值：ou_c186b6833e2d5faf2bc587e71ddabcef
+     */
     private String userId;
 
-    // builder 开始
-    public UserFreebusy() {
+    /**
+     * 日历上请求时间区间内的忙闲信息
+     *
+     * <p>示例值：
+     *
+     * @param freebusyItems
+     * @return
+     */
+    public Builder freebusyItems(Freebusy[] freebusyItems) {
+      this.freebusyItems = freebusyItems;
+      return this;
     }
 
-    public UserFreebusy(Builder builder) {
-        /**
-         * 日历上请求时间区间内的忙闲信息
-         * <p> 示例值：
-         */
-        this.freebusyItems = builder.freebusyItems;
-        /**
-         * 日历的创建者userID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
+    /**
+     * 日历创建者的用户 ID，根据查询参数 user_id_type 设置的 ID 类型进行返回。
+     *
+     * <p>示例值：ou_c186b6833e2d5faf2bc587e71ddabcef
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UserFreebusy build() {
+      return new UserFreebusy(this);
     }
+  }
 
-    public Freebusy[] getFreebusyItems() {
-        return this.freebusyItems;
-    }
-
-    public void setFreebusyItems(Freebusy[] freebusyItems) {
-        this.freebusyItems = freebusyItems;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 日历上请求时间区间内的忙闲信息
-         * <p> 示例值：
-         */
-        private Freebusy[] freebusyItems;
-        /**
-         * 日历的创建者userID
-         * <p> 示例值：
-         */
-        private String userId;
-
-        /**
-         * 日历上请求时间区间内的忙闲信息
-         * <p> 示例值：
-         *
-         * @param freebusyItems
-         * @return
-         */
-        public Builder freebusyItems(Freebusy[] freebusyItems) {
-            this.freebusyItems = freebusyItems;
-            return this;
-        }
-
-
-        /**
-         * 日历的创建者userID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public UserFreebusy build() {
-            return new UserFreebusy(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,139 +13,138 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.directory.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.directory.v1.enums.*;
 
 public class ListCollaborationTenantReq {
+  /**
+   * 分页大小
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：g102aggaEYLRMSHU6DENYI4HMBAJB75XOQN2CUTV
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  // builder 开始
+  public ListCollaborationTenantReq() {}
+
+  public ListCollaborationTenantReq(Builder builder) {
     /**
      * 分页大小
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：g102aggaEYLRMSHU6DENYI4HMBAJB75XOQN2CUTV
+     *
+     * <p>示例值：g102aggaEYLRMSHU6DENYI4HMBAJB75XOQN2CUTV
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
+  }
 
-    // builder 开始
-    public ListCollaborationTenantReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String tenantId; // 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListCollaborationTenantReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：g102aggaEYLRMSHU6DENYI4HMBAJB75XOQN2CUTV
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
-         * <p> 示例值：1
-         */
-        this.tenantId = builder.tenantId;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：g102aggaEYLRMSHU6DENYI4HMBAJB75XOQN2CUTV
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
+     *
+     * <p>示例值：1
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    public ListCollaborationTenantReq build() {
+      return new ListCollaborationTenantReq(this);
     }
+  }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getTenantId() {
-        return this.tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String tenantId; // 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
-
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：g102aggaEYLRMSHU6DENYI4HMBAJB75XOQN2CUTV
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
-         * <p> 示例值：1
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        public ListCollaborationTenantReq build() {
-            return new ListCollaborationTenantReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

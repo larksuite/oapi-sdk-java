@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppDlpExecuteLog {
+  /**
+   * 事件名称
+   *
+   * <p>示例值：MYAIDLP
+   */
+  @SerializedName("event_name")
+  private String eventName;
+
+  /**
+   * 用户的open_id
+   *
+   * <p>示例值：ou_04444ce34fe049fb495d150dddeac36a
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 执行时间
+   *
+   * <p>示例值：1689685605
+   */
+  @SerializedName("execute_time")
+  private String executeTime;
+
+  /**
+   * 执行动作
+   *
+   * <p>示例值：拦截
+   */
+  @SerializedName("action_name")
+  private String actionName;
+
+  /**
+   * 命中策略列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("hit_policies")
+  private String[] hitPolicies;
+
+  /**
+   * 指令id
+   *
+   * <p>示例值：7d8a6e6df7621556ce0d21922b676706ccs
+   */
+  @SerializedName("entity_id")
+  private String entityId;
+
+  /**
+   * 证据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("evidences")
+  private DlpExecuteEvidence evidences;
+
+  public String getEventName() {
+    return this.eventName;
+  }
+
+  public void setEventName(String eventName) {
+    this.eventName = eventName;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getExecuteTime() {
+    return this.executeTime;
+  }
+
+  public void setExecuteTime(String executeTime) {
+    this.executeTime = executeTime;
+  }
+
+  public String getActionName() {
+    return this.actionName;
+  }
+
+  public void setActionName(String actionName) {
+    this.actionName = actionName;
+  }
+
+  public String[] getHitPolicies() {
+    return this.hitPolicies;
+  }
+
+  public void setHitPolicies(String[] hitPolicies) {
+    this.hitPolicies = hitPolicies;
+  }
+
+  public String getEntityId() {
+    return this.entityId;
+  }
+
+  public void setEntityId(String entityId) {
+    this.entityId = entityId;
+  }
+
+  public DlpExecuteEvidence getEvidences() {
+    return this.evidences;
+  }
+
+  public void setEvidences(DlpExecuteEvidence evidences) {
+    this.evidences = evidences;
+  }
+
+  // builder 开始
+  public AppDlpExecuteLog() {}
+
+  public AppDlpExecuteLog(Builder builder) {
     /**
      * 事件名称
-     * <p> 示例值："MYAIDLP"
+     *
+     * <p>示例值：MYAIDLP
      */
-    @SerializedName("event_name")
-    private String eventName;
+    this.eventName = builder.eventName;
     /**
      * 用户的open_id
-     * <p> 示例值："ou_04444ce34fe049fb495d150dddeac36a"
+     *
+     * <p>示例值：ou_04444ce34fe049fb495d150dddeac36a
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 执行时间
-     * <p> 示例值：1689685605
+     *
+     * <p>示例值：1689685605
      */
-    @SerializedName("execute_time")
-    private String executeTime;
+    this.executeTime = builder.executeTime;
     /**
      * 执行动作
-     * <p> 示例值："拦截"
+     *
+     * <p>示例值：拦截
      */
-    @SerializedName("action_name")
-    private String actionName;
+    this.actionName = builder.actionName;
     /**
      * 命中策略列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("hit_policies")
-    private String[] hitPolicies;
+    this.hitPolicies = builder.hitPolicies;
     /**
      * 指令id
-     * <p> 示例值："7d8a6e6df7621556ce0d21922b676706ccs"
+     *
+     * <p>示例值：7d8a6e6df7621556ce0d21922b676706ccs
      */
-    @SerializedName("entity_id")
-    private String entityId;
+    this.entityId = builder.entityId;
     /**
      * 证据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("evidences")
+    this.evidences = builder.evidences;
+  }
+
+  public static class Builder {
+    /**
+     * 事件名称
+     *
+     * <p>示例值：MYAIDLP
+     */
+    private String eventName;
+
+    /**
+     * 用户的open_id
+     *
+     * <p>示例值：ou_04444ce34fe049fb495d150dddeac36a
+     */
+    private String userId;
+
+    /**
+     * 执行时间
+     *
+     * <p>示例值：1689685605
+     */
+    private String executeTime;
+
+    /**
+     * 执行动作
+     *
+     * <p>示例值：拦截
+     */
+    private String actionName;
+
+    /**
+     * 命中策略列表
+     *
+     * <p>示例值：
+     */
+    private String[] hitPolicies;
+
+    /**
+     * 指令id
+     *
+     * <p>示例值：7d8a6e6df7621556ce0d21922b676706ccs
+     */
+    private String entityId;
+
+    /**
+     * 证据
+     *
+     * <p>示例值：
+     */
     private DlpExecuteEvidence evidences;
 
-    // builder 开始
-    public AppDlpExecuteLog() {
+    /**
+     * 事件名称
+     *
+     * <p>示例值：MYAIDLP
+     *
+     * @param eventName
+     * @return
+     */
+    public Builder eventName(String eventName) {
+      this.eventName = eventName;
+      return this;
     }
 
-    public AppDlpExecuteLog(Builder builder) {
-        /**
-         * 事件名称
-         * <p> 示例值："MYAIDLP"
-         */
-        this.eventName = builder.eventName;
-        /**
-         * 用户的open_id
-         * <p> 示例值："ou_04444ce34fe049fb495d150dddeac36a"
-         */
-        this.userId = builder.userId;
-        /**
-         * 执行时间
-         * <p> 示例值：1689685605
-         */
-        this.executeTime = builder.executeTime;
-        /**
-         * 执行动作
-         * <p> 示例值："拦截"
-         */
-        this.actionName = builder.actionName;
-        /**
-         * 命中策略列表
-         * <p> 示例值：
-         */
-        this.hitPolicies = builder.hitPolicies;
-        /**
-         * 指令id
-         * <p> 示例值："7d8a6e6df7621556ce0d21922b676706ccs"
-         */
-        this.entityId = builder.entityId;
-        /**
-         * 证据
-         * <p> 示例值：
-         */
-        this.evidences = builder.evidences;
+    /**
+     * 用户的open_id
+     *
+     * <p>示例值：ou_04444ce34fe049fb495d150dddeac36a
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 执行时间
+     *
+     * <p>示例值：1689685605
+     *
+     * @param executeTime
+     * @return
+     */
+    public Builder executeTime(String executeTime) {
+      this.executeTime = executeTime;
+      return this;
     }
 
-    public String getEventName() {
-        return this.eventName;
+    /**
+     * 执行动作
+     *
+     * <p>示例值：拦截
+     *
+     * @param actionName
+     * @return
+     */
+    public Builder actionName(String actionName) {
+      this.actionName = actionName;
+      return this;
     }
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
+    /**
+     * 命中策略列表
+     *
+     * <p>示例值：
+     *
+     * @param hitPolicies
+     * @return
+     */
+    public Builder hitPolicies(String[] hitPolicies) {
+      this.hitPolicies = hitPolicies;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 指令id
+     *
+     * <p>示例值：7d8a6e6df7621556ce0d21922b676706ccs
+     *
+     * @param entityId
+     * @return
+     */
+    public Builder entityId(String entityId) {
+      this.entityId = entityId;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 证据
+     *
+     * <p>示例值：
+     *
+     * @param evidences
+     * @return
+     */
+    public Builder evidences(DlpExecuteEvidence evidences) {
+      this.evidences = evidences;
+      return this;
     }
 
-    public String getExecuteTime() {
-        return this.executeTime;
+    public AppDlpExecuteLog build() {
+      return new AppDlpExecuteLog(this);
     }
+  }
 
-    public void setExecuteTime(String executeTime) {
-        this.executeTime = executeTime;
-    }
-
-    public String getActionName() {
-        return this.actionName;
-    }
-
-    public void setActionName(String actionName) {
-        this.actionName = actionName;
-    }
-
-    public String[] getHitPolicies() {
-        return this.hitPolicies;
-    }
-
-    public void setHitPolicies(String[] hitPolicies) {
-        this.hitPolicies = hitPolicies;
-    }
-
-    public String getEntityId() {
-        return this.entityId;
-    }
-
-    public void setEntityId(String entityId) {
-        this.entityId = entityId;
-    }
-
-    public DlpExecuteEvidence getEvidences() {
-        return this.evidences;
-    }
-
-    public void setEvidences(DlpExecuteEvidence evidences) {
-        this.evidences = evidences;
-    }
-
-    public static class Builder {
-        /**
-         * 事件名称
-         * <p> 示例值："MYAIDLP"
-         */
-        private String eventName;
-        /**
-         * 用户的open_id
-         * <p> 示例值："ou_04444ce34fe049fb495d150dddeac36a"
-         */
-        private String userId;
-        /**
-         * 执行时间
-         * <p> 示例值：1689685605
-         */
-        private String executeTime;
-        /**
-         * 执行动作
-         * <p> 示例值："拦截"
-         */
-        private String actionName;
-        /**
-         * 命中策略列表
-         * <p> 示例值：
-         */
-        private String[] hitPolicies;
-        /**
-         * 指令id
-         * <p> 示例值："7d8a6e6df7621556ce0d21922b676706ccs"
-         */
-        private String entityId;
-        /**
-         * 证据
-         * <p> 示例值：
-         */
-        private DlpExecuteEvidence evidences;
-
-        /**
-         * 事件名称
-         * <p> 示例值："MYAIDLP"
-         *
-         * @param eventName
-         * @return
-         */
-        public Builder eventName(String eventName) {
-            this.eventName = eventName;
-            return this;
-        }
-
-
-        /**
-         * 用户的open_id
-         * <p> 示例值："ou_04444ce34fe049fb495d150dddeac36a"
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 执行时间
-         * <p> 示例值：1689685605
-         *
-         * @param executeTime
-         * @return
-         */
-        public Builder executeTime(String executeTime) {
-            this.executeTime = executeTime;
-            return this;
-        }
-
-
-        /**
-         * 执行动作
-         * <p> 示例值："拦截"
-         *
-         * @param actionName
-         * @return
-         */
-        public Builder actionName(String actionName) {
-            this.actionName = actionName;
-            return this;
-        }
-
-
-        /**
-         * 命中策略列表
-         * <p> 示例值：
-         *
-         * @param hitPolicies
-         * @return
-         */
-        public Builder hitPolicies(String[] hitPolicies) {
-            this.hitPolicies = hitPolicies;
-            return this;
-        }
-
-
-        /**
-         * 指令id
-         * <p> 示例值："7d8a6e6df7621556ce0d21922b676706ccs"
-         *
-         * @param entityId
-         * @return
-         */
-        public Builder entityId(String entityId) {
-            this.entityId = entityId;
-            return this;
-        }
-
-
-        /**
-         * 证据
-         * <p> 示例值：
-         *
-         * @param evidences
-         * @return
-         */
-        public Builder evidences(DlpExecuteEvidence evidences) {
-            this.evidences = evidences;
-            return this;
-        }
-
-
-        public AppDlpExecuteLog build() {
-            return new AppDlpExecuteLog(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

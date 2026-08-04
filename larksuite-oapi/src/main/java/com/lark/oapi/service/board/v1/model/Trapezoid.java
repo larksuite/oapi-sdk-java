@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Trapezoid {
+  /**
+   * 梯形上底长（短边）。默认为下底边长度的2/3，不能超过下底边长度。
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("top_length")
+  private Double topLength;
+
+  public Double getTopLength() {
+    return this.topLength;
+  }
+
+  public void setTopLength(Double topLength) {
+    this.topLength = topLength;
+  }
+
+  // builder 开始
+  public Trapezoid() {}
+
+  public Trapezoid(Builder builder) {
     /**
      * 梯形上底长（短边）。默认为下底边长度的2/3，不能超过下底边长度。
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("top_length")
+    this.topLength = builder.topLength;
+  }
+
+  public static class Builder {
+    /**
+     * 梯形上底长（短边）。默认为下底边长度的2/3，不能超过下底边长度。
+     *
+     * <p>示例值：10
+     */
     private Double topLength;
 
-    // builder 开始
-    public Trapezoid() {
+    /**
+     * 梯形上底长（短边）。默认为下底边长度的2/3，不能超过下底边长度。
+     *
+     * <p>示例值：10
+     *
+     * @param topLength
+     * @return
+     */
+    public Builder topLength(Double topLength) {
+      this.topLength = topLength;
+      return this;
     }
 
-    public Trapezoid(Builder builder) {
-        /**
-         * 梯形上底长（短边）。默认为下底边长度的2/3，不能超过下底边长度。
-         * <p> 示例值：10
-         */
-        this.topLength = builder.topLength;
+    public Trapezoid build() {
+      return new Trapezoid(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Double getTopLength() {
-        return this.topLength;
-    }
-
-    public void setTopLength(Double topLength) {
-        this.topLength = topLength;
-    }
-
-    public static class Builder {
-        /**
-         * 梯形上底长（短边）。默认为下底边长度的2/3，不能超过下底边长度。
-         * <p> 示例值：10
-         */
-        private Double topLength;
-
-        /**
-         * 梯形上底长（短边）。默认为下底边长度的2/3，不能超过下底边长度。
-         * <p> 示例值：10
-         *
-         * @param topLength
-         * @return
-         */
-        public Builder topLength(Double topLength) {
-            this.topLength = topLength;
-            return this;
-        }
-
-
-        public Trapezoid build() {
-            return new Trapezoid(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

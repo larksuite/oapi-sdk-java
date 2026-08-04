@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.task.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Comment {
+  /**
+   * 评论内容。;<md-alert>;评论内容和富文本评论内容同时存在时只使用富文本评论内容。;</md-alert>
+   *
+   * <p>示例值：举杯邀明月，对影成三人
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 评论的父ID，创建评论时若不为空则为某条评论的回复，若为空则不是回复
+   *
+   * <p>示例值：6937231762296684564
+   */
+  @SerializedName("parent_id")
+  private String parentId;
+
+  /**
+   * 评论ID，由飞书服务器发号
+   *
+   * <p>示例值：6937231762296684564
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 评论创建的时间戳，单位为毫秒，用于展示，创建时不用填写
+   *
+   * <p>示例值：1657075055135
+   */
+  @SerializedName("create_milli_time")
+  private String createMilliTime;
+
+  /**
+   * 富文本评论内容。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+   *
+   * <p>示例值：举杯邀明月，对影成三人<at id=7058204817822318612></at>
+   */
+  @SerializedName("rich_content")
+  private String richContent;
+
+  /**
+   * 评论的创建者 ID。在创建评论时无需填充该字段
+   *
+   * <p>示例值：ou_99e1a581b36ecc4862cbfbce473f346a
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getCreateMilliTime() {
+    return this.createMilliTime;
+  }
+
+  public void setCreateMilliTime(String createMilliTime) {
+    this.createMilliTime = createMilliTime;
+  }
+
+  public String getRichContent() {
+    return this.richContent;
+  }
+
+  public void setRichContent(String richContent) {
+    this.richContent = richContent;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  // builder 开始
+  public Comment() {}
+
+  public Comment(Builder builder) {
     /**
      * 评论内容。;<md-alert>;评论内容和富文本评论内容同时存在时只使用富文本评论内容。;</md-alert>
-     * <p> 示例值：举杯邀明月，对影成三人
+     *
+     * <p>示例值：举杯邀明月，对影成三人
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 评论的父ID，创建评论时若不为空则为某条评论的回复，若为空则不是回复
-     * <p> 示例值：6937231762296684564
+     *
+     * <p>示例值：6937231762296684564
      */
-    @SerializedName("parent_id")
-    private String parentId;
+    this.parentId = builder.parentId;
     /**
      * 评论ID，由飞书服务器发号
-     * <p> 示例值：6937231762296684564
+     *
+     * <p>示例值：6937231762296684564
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 评论创建的时间戳，单位为毫秒，用于展示，创建时不用填写
-     * <p> 示例值：1657075055135
+     *
+     * <p>示例值：1657075055135
      */
-    @SerializedName("create_milli_time")
-    private String createMilliTime;
+    this.createMilliTime = builder.createMilliTime;
     /**
      * 富文本评论内容。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
-     * <p> 示例值：举杯邀明月，对影成三人<at id=7058204817822318612></at>
+     *
+     * <p>示例值：举杯邀明月，对影成三人<at id=7058204817822318612></at>
      */
-    @SerializedName("rich_content")
-    private String richContent;
+    this.richContent = builder.richContent;
     /**
      * 评论的创建者 ID。在创建评论时无需填充该字段
-     * <p> 示例值：ou_99e1a581b36ecc4862cbfbce473f346a
+     *
+     * <p>示例值：ou_99e1a581b36ecc4862cbfbce473f346a
      */
-    @SerializedName("creator_id")
+    this.creatorId = builder.creatorId;
+  }
+
+  public static class Builder {
+    /**
+     * 评论内容。;<md-alert>;评论内容和富文本评论内容同时存在时只使用富文本评论内容。;</md-alert>
+     *
+     * <p>示例值：举杯邀明月，对影成三人
+     */
+    private String content;
+
+    /**
+     * 评论的父ID，创建评论时若不为空则为某条评论的回复，若为空则不是回复
+     *
+     * <p>示例值：6937231762296684564
+     */
+    private String parentId;
+
+    /**
+     * 评论ID，由飞书服务器发号
+     *
+     * <p>示例值：6937231762296684564
+     */
+    private String id;
+
+    /**
+     * 评论创建的时间戳，单位为毫秒，用于展示，创建时不用填写
+     *
+     * <p>示例值：1657075055135
+     */
+    private String createMilliTime;
+
+    /**
+     * 富文本评论内容。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+     *
+     * <p>示例值：举杯邀明月，对影成三人<at id=7058204817822318612></at>
+     */
+    private String richContent;
+
+    /**
+     * 评论的创建者 ID。在创建评论时无需填充该字段
+     *
+     * <p>示例值：ou_99e1a581b36ecc4862cbfbce473f346a
+     */
     private String creatorId;
 
-    // builder 开始
-    public Comment() {
+    /**
+     * 评论内容。;<md-alert>;评论内容和富文本评论内容同时存在时只使用富文本评论内容。;</md-alert>
+     *
+     * <p>示例值：举杯邀明月，对影成三人
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public Comment(Builder builder) {
-        /**
-         * 评论内容。;<md-alert>;评论内容和富文本评论内容同时存在时只使用富文本评论内容。;</md-alert>
-         * <p> 示例值：举杯邀明月，对影成三人
-         */
-        this.content = builder.content;
-        /**
-         * 评论的父ID，创建评论时若不为空则为某条评论的回复，若为空则不是回复
-         * <p> 示例值：6937231762296684564
-         */
-        this.parentId = builder.parentId;
-        /**
-         * 评论ID，由飞书服务器发号
-         * <p> 示例值：6937231762296684564
-         */
-        this.id = builder.id;
-        /**
-         * 评论创建的时间戳，单位为毫秒，用于展示，创建时不用填写
-         * <p> 示例值：1657075055135
-         */
-        this.createMilliTime = builder.createMilliTime;
-        /**
-         * 富文本评论内容。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
-         * <p> 示例值：举杯邀明月，对影成三人<at id=7058204817822318612></at>
-         */
-        this.richContent = builder.richContent;
-        /**
-         * 评论的创建者 ID。在创建评论时无需填充该字段
-         * <p> 示例值：ou_99e1a581b36ecc4862cbfbce473f346a
-         */
-        this.creatorId = builder.creatorId;
+    /**
+     * 评论的父ID，创建评论时若不为空则为某条评论的回复，若为空则不是回复
+     *
+     * <p>示例值：6937231762296684564
+     *
+     * @param parentId
+     * @return
+     */
+    public Builder parentId(String parentId) {
+      this.parentId = parentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评论ID，由飞书服务器发号
+     *
+     * <p>示例值：6937231762296684564
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public String getContent() {
-        return this.content;
+    /**
+     * 评论创建的时间戳，单位为毫秒，用于展示，创建时不用填写
+     *
+     * <p>示例值：1657075055135
+     *
+     * @param createMilliTime
+     * @return
+     */
+    public Builder createMilliTime(String createMilliTime) {
+      this.createMilliTime = createMilliTime;
+      return this;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    /**
+     * 富文本评论内容。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
+     *
+     * <p>示例值：举杯邀明月，对影成三人<at id=7058204817822318612></at>
+     *
+     * @param richContent
+     * @return
+     */
+    public Builder richContent(String richContent) {
+      this.richContent = richContent;
+      return this;
     }
 
-    public String getParentId() {
-        return this.parentId;
+    /**
+     * 评论的创建者 ID。在创建评论时无需填充该字段
+     *
+     * <p>示例值：ou_99e1a581b36ecc4862cbfbce473f346a
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
+    public Comment build() {
+      return new Comment(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getCreateMilliTime() {
-        return this.createMilliTime;
-    }
-
-    public void setCreateMilliTime(String createMilliTime) {
-        this.createMilliTime = createMilliTime;
-    }
-
-    public String getRichContent() {
-        return this.richContent;
-    }
-
-    public void setRichContent(String richContent) {
-        this.richContent = richContent;
-    }
-
-    public String getCreatorId() {
-        return this.creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public static class Builder {
-        /**
-         * 评论内容。;<md-alert>;评论内容和富文本评论内容同时存在时只使用富文本评论内容。;</md-alert>
-         * <p> 示例值：举杯邀明月，对影成三人
-         */
-        private String content;
-        /**
-         * 评论的父ID，创建评论时若不为空则为某条评论的回复，若为空则不是回复
-         * <p> 示例值：6937231762296684564
-         */
-        private String parentId;
-        /**
-         * 评论ID，由飞书服务器发号
-         * <p> 示例值：6937231762296684564
-         */
-        private String id;
-        /**
-         * 评论创建的时间戳，单位为毫秒，用于展示，创建时不用填写
-         * <p> 示例值：1657075055135
-         */
-        private String createMilliTime;
-        /**
-         * 富文本评论内容。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
-         * <p> 示例值：举杯邀明月，对影成三人<at id=7058204817822318612></at>
-         */
-        private String richContent;
-        /**
-         * 评论的创建者 ID。在创建评论时无需填充该字段
-         * <p> 示例值：ou_99e1a581b36ecc4862cbfbce473f346a
-         */
-        private String creatorId;
-
-        /**
-         * 评论内容。;<md-alert>;评论内容和富文本评论内容同时存在时只使用富文本评论内容。;</md-alert>
-         * <p> 示例值：举杯邀明月，对影成三人
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 评论的父ID，创建评论时若不为空则为某条评论的回复，若为空则不是回复
-         * <p> 示例值：6937231762296684564
-         *
-         * @param parentId
-         * @return
-         */
-        public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
-        }
-
-
-        /**
-         * 评论ID，由飞书服务器发号
-         * <p> 示例值：6937231762296684564
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 评论创建的时间戳，单位为毫秒，用于展示，创建时不用填写
-         * <p> 示例值：1657075055135
-         *
-         * @param createMilliTime
-         * @return
-         */
-        public Builder createMilliTime(String createMilliTime) {
-            this.createMilliTime = createMilliTime;
-            return this;
-        }
-
-
-        /**
-         * 富文本评论内容。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)
-         * <p> 示例值：举杯邀明月，对影成三人<at id=7058204817822318612></at>
-         *
-         * @param richContent
-         * @return
-         */
-        public Builder richContent(String richContent) {
-            this.richContent = richContent;
-            return this;
-        }
-
-
-        /**
-         * 评论的创建者 ID。在创建评论时无需填充该字段
-         * <p> 示例值：ou_99e1a581b36ecc4862cbfbce473f346a
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        public Comment build() {
-            return new Comment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

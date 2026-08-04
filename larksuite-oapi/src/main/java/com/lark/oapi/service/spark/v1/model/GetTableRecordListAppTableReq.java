@@ -13,336 +13,403 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.spark.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.spark.v1.enums.*;
 
 public class GetTableRecordListAppTableReq {
+  /**
+   * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看
+   * https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering
+   *
+   * <p>示例值：_id,_created_at,name
+   */
+  @Query
+  @SerializedName("select")
+  private String select;
+
+  /**
+   * 筛选条件，遵循 PostgREST 语法，详情可查看
+   * https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering
+   *
+   * <p>示例值：age=gt.10
+   */
+  @Query
+  @SerializedName("filter")
+  private String filter;
+
+  /**
+   * 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;遵循 PostgREST
+   * 语法，详情可查看;https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering
+   *
+   * <p>示例值：age.desc,score.asc
+   */
+  @Query
+  @SerializedName("order")
+  private String order;
+
+  /**
+   * 访问的 database 环境，默认为 online（线上环境）
+   *
+   * <p>示例值：`online`、`dev`
+   */
+  @Query
+  @SerializedName("env")
+  private String env;
+
+  /**
+   * 此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;-
+   * `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;-
+   * `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105
+   * 了解更多：如何获取 Open ID;- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的
+   * Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033
+   * 了解更多：如何获取 Union ID？
+   *
+   * <p>示例值：miaoda_user_id
+   */
+  @Query
+  @SerializedName("user_identifier_type")
+  private String userIdentifierType;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getSelect() {
+    return this.select;
+  }
+
+  public void setSelect(String select) {
+    this.select = select;
+  }
+
+  public String getFilter() {
+    return this.filter;
+  }
+
+  public void setFilter(String filter) {
+    this.filter = filter;
+  }
+
+  public String getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(String order) {
+    this.order = order;
+  }
+
+  public String getEnv() {
+    return this.env;
+  }
+
+  public void setEnv(String env) {
+    this.env = env;
+  }
+
+  public String getUserIdentifierType() {
+    return this.userIdentifierType;
+  }
+
+  public void setUserIdentifierType(String userIdentifierType) {
+    this.userIdentifierType = userIdentifierType;
+  }
+
+  /**
+   * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为
+   * app_id
+   *
+   * <p>示例值：app_4jcn5n11bpf5v
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+   *
+   * <p>示例值：student_table
+   */
+  @Path
+  @SerializedName("table_name")
+  private String tableName;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getTableName() {
+    return this.tableName;
+  }
+
+  public void setTableName(String tableName) {
+    this.tableName = tableName;
+  }
+
+  // builder 开始
+  public GetTableRecordListAppTableReq() {}
+
+  public GetTableRecordListAppTableReq(Builder builder) {
     /**
      * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering
-     * <p> 示例值：_id,_created_at,name
+     * 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看
+     * https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering
+     *
+     * <p>示例值：_id,_created_at,name
      */
-    @Query
-    @SerializedName("select")
-    private String select;
+    this.select = builder.select;
     /**
-     * 筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering
-     * <p> 示例值：age=gt.10
+     * 筛选条件，遵循 PostgREST 语法，详情可查看
+     * https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering
+     *
+     * <p>示例值：age=gt.10
      */
-    @Query
-    @SerializedName("filter")
-    private String filter;
+    this.filter = builder.filter;
     /**
-     * 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;尊许 PostgREST 语法，详情可查看;https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering
-     * <p> 示例值：age.desc,score.asc
+     * 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;遵循 PostgREST
+     * 语法，详情可查看;https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering
+     *
+     * <p>示例值：age.desc,score.asc
      */
-    @Query
-    @SerializedName("order")
-    private String order;
+    this.order = builder.order;
     /**
      * 访问的 database 环境，默认为 online（线上环境）
-     * <p> 示例值：online
+     *
+     * <p>示例值：`online`、`dev`
      */
-    @Query
-    @SerializedName("env")
-    private String env;
+    this.env = builder.env;
     /**
-     * 此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;- `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID;- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033 了解更多：如何获取 Union ID？;;默认值：`miaoda_user_id`
-     * <p> 示例值：miaoda_user_id
+     * 此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;-
+     * `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;-
+     * `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105
+     * 了解更多：如何获取 Open ID;- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的
+     * Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033
+     * 了解更多：如何获取 Union ID？
+     *
+     * <p>示例值：miaoda_user_id
      */
-    @Query
-    @SerializedName("user_identifier_type")
-    private String userIdentifierType;
+    this.userIdentifierType = builder.userIdentifierType;
     /**
-     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-     * <p> 示例值：app_4jcn5n11bpf5v
+     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v
+     * 即为 app_id
+     *
+     * <p>示例值：app_4jcn5n11bpf5v
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
     /**
-     * 数据表表名
-     * <p> 示例值：table_name_1
+     * 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+     *
+     * <p>示例值：student_table
      */
-    @Path
-    @SerializedName("table_name")
-    private String tableName;
+    this.tableName = builder.tableName;
+  }
 
-    // builder 开始
-    public GetTableRecordListAppTableReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String select; // 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看
+    // https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering
+    private String filter; // 筛选条件，遵循 PostgREST 语法，详情可查看
+    // https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering
+    private String order; // 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;遵循 PostgREST
+    // 语法，详情可查看;https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering
+    private String env; // 访问的 database 环境，默认为 online（线上环境）
+    private String userIdentifierType; // 此次调用使用的用户 ID 类型，将使用指定的 ID
+
+    // 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;-
+    // `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;-
+    // `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID
+    // 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID;-
+    // `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID
+    // 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union
+    // ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033
+    // 了解更多：如何获取 Union ID？
+
+    /**
+     * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public GetTableRecordListAppTableReq(Builder builder) {
-        /**
-         * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering
-         * <p> 示例值：_id,_created_at,name
-         */
-        this.select = builder.select;
-        /**
-         * 筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering
-         * <p> 示例值：age=gt.10
-         */
-        this.filter = builder.filter;
-        /**
-         * 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;尊许 PostgREST 语法，详情可查看;https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering
-         * <p> 示例值：age.desc,score.asc
-         */
-        this.order = builder.order;
-        /**
-         * 访问的 database 环境，默认为 online（线上环境）
-         * <p> 示例值：online
-         */
-        this.env = builder.env;
-        /**
-         * 此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;- `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID;- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033 了解更多：如何获取 Union ID？;;默认值：`miaoda_user_id`
-         * <p> 示例值：miaoda_user_id
-         */
-        this.userIdentifierType = builder.userIdentifierType;
-        /**
-         * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-         * <p> 示例值：app_4jcn5n11bpf5v
-         */
-        this.appId = builder.appId;
-        /**
-         * 数据表表名
-         * <p> 示例值：table_name_1
-         */
-        this.tableName = builder.tableName;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看
+     * https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering
+     *
+     * <p>示例值：_id,_created_at,name
+     *
+     * @param select
+     * @return
+     */
+    public Builder select(String select) {
+      this.select = select;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 筛选条件，遵循 PostgREST 语法，详情可查看
+     * https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering
+     *
+     * <p>示例值：age=gt.10
+     *
+     * @param filter
+     * @return
+     */
+    public Builder filter(String filter) {
+      this.filter = filter;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;遵循 PostgREST
+     * 语法，详情可查看;https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering
+     *
+     * <p>示例值：age.desc,score.asc
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(String order) {
+      this.order = order;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 访问的 database 环境，默认为 online（线上环境）
+     *
+     * <p>示例值：`online`、`dev`
+     *
+     * @param env
+     * @return
+     */
+    public Builder env(String env) {
+      this.env = env;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    /**
+     * 此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;-
+     * `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;-
+     * `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105
+     * 了解更多：如何获取 Open ID;- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的
+     * Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033
+     * 了解更多：如何获取 Union ID？
+     *
+     * <p>示例值：miaoda_user_id
+     *
+     * @param userIdentifierType
+     * @return
+     */
+    public Builder userIdentifierType(String userIdentifierType) {
+      this.userIdentifierType = userIdentifierType;
+      return this;
     }
 
-    public String getSelect() {
-        return this.select;
+    private String
+        appId; // 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的
+    // app_4jcn5n11bpf5v 即为 app_id
+    private String tableName; // 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+
+    /**
+     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v
+     * 即为 app_id
+     *
+     * <p>示例值：app_4jcn5n11bpf5v
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public void setSelect(String select) {
-        this.select = select;
+    /**
+     * 妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取
+     *
+     * <p>示例值：student_table
+     *
+     * @param tableName
+     * @return
+     */
+    public Builder tableName(String tableName) {
+      this.tableName = tableName;
+      return this;
     }
 
-    public String getFilter() {
-        return this.filter;
+    public GetTableRecordListAppTableReq build() {
+      return new GetTableRecordListAppTableReq(this);
     }
+  }
 
-    public void setFilter(String filter) {
-        this.filter = filter;
-    }
-
-    public String getOrder() {
-        return this.order;
-    }
-
-    public void setOrder(String order) {
-        this.order = order;
-    }
-
-    public String getEnv() {
-        return this.env;
-    }
-
-    public void setEnv(String env) {
-        this.env = env;
-    }
-
-    public String getUserIdentifierType() {
-        return this.userIdentifierType;
-    }
-
-    public void setUserIdentifierType(String userIdentifierType) {
-        this.userIdentifierType = userIdentifierType;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getTableName() {
-        return this.tableName;
-    }
-
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String select; // 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering
-        private String filter; // 筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering
-        private String order; // 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;尊许 PostgREST 语法，详情可查看;https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering
-        private String env; // 访问的 database 环境，默认为 online（线上环境）
-        private String userIdentifierType; // 此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;- `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID;- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033 了解更多：如何获取 Union ID？;;默认值：`miaoda_user_id`
-        private String appId; // 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-        private String tableName; // 数据表表名
-
-        /**
-         * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering
-         * <p> 示例值：_id,_created_at,name
-         *
-         * @param select
-         * @return
-         */
-        public Builder select(String select) {
-            this.select = select;
-            return this;
-        }
-
-        /**
-         * 筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering
-         * <p> 示例值：age=gt.10
-         *
-         * @param filter
-         * @return
-         */
-        public Builder filter(String filter) {
-            this.filter = filter;
-            return this;
-        }
-
-        /**
-         * 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;尊许 PostgREST 语法，详情可查看;https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering
-         * <p> 示例值：age.desc,score.asc
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(String order) {
-            this.order = order;
-            return this;
-        }
-
-        /**
-         * 访问的 database 环境，默认为 online（线上环境）
-         * <p> 示例值：online
-         *
-         * @param env
-         * @return
-         */
-        public Builder env(String env) {
-            this.env = env;
-            return this;
-        }
-
-        /**
-         * 此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。;示例值：`miaoda_user_id`;可选值：;- `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330;- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID;- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033 了解更多：如何获取 Union ID？;;默认值：`miaoda_user_id`
-         * <p> 示例值：miaoda_user_id
-         *
-         * @param userIdentifierType
-         * @return
-         */
-        public Builder userIdentifierType(String userIdentifierType) {
-            this.userIdentifierType = userIdentifierType;
-            return this;
-        }
-
-        /**
-         * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-         * <p> 示例值：app_4jcn5n11bpf5v
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 数据表表名
-         * <p> 示例值：table_name_1
-         *
-         * @param tableName
-         * @return
-         */
-        public Builder tableName(String tableName) {
-            this.tableName = tableName;
-            return this;
-        }
-
-
-        public GetTableRecordListAppTableReq build() {
-            return new GetTableRecordListAppTableReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

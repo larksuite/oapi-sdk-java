@@ -13,45 +13,43 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * 消息类型
- */
+/** 消息类型 */
 public enum MessageSearchMetaTypeEnum {
-    UNKNOWN("unknown"), // unknown
-    POST("post"), // post
-    FILE("file"), // file
-    TEXT("text"), // text
-    IMAGE("image"), // image
-    SYSTEM("system"), // system
-    AUDIO("audio"), // audio
-    EMAIL("email"), // email
-    SHARE_GROUP_CHAT("share_group_chat"), // share_group_chat
-    STICKER("sticker"), // sticker
-    MERGE_FORWARD("merge_forward"), // merge_forward
-    CALENDAR("calendar"), // calendar
-    CLOUD_FILE("cloud_file"), // cloud_file
-    CARD("card"), // card
-    MEDIA("media"), // media
-    SHARE_CALENDAR_EVENT("share_calendar_event"), // share_calendar_event
-    HONGBAO("hongbao"), // hongbao
-    GENERAL_CALENDAR("general_calendar"), // general_calendar
-    VIDEO_CHAT("video_chat"), // video_chat
-    LOCATION("location"), // location
-    COMMERCIALIZED_HONGBAO("commercialized_hongbao"), // commercialized_hongbao
-    SHARE_USER_CARD("share_user_card"), // share_user_card
-    TODO("todo"), // todo
-    FOLDER("folder"), // folder
-    DIAGNOSE("diagnose"), // diagnose
-    VOTE("vote"), // vote
-    LINK("link"), // link
-    ;
-    private String value;
+  UNKNOWN("unknown"), // unknown
+  POST("post"), // post
+  FILE("file"), // file
+  TEXT("text"), // text
+  IMAGE("image"), // image
+  SYSTEM("system"), // system
+  AUDIO("audio"), // audio
+  EMAIL("email"), // email
+  SHARE_GROUP_CHAT("share_group_chat"), // share_group_chat
+  STICKER("sticker"), // sticker
+  MERGE_FORWARD("merge_forward"), // merge_forward
+  CALENDAR("calendar"), // calendar
+  CLOUD_FILE("cloud_file"), // cloud_file
+  CARD("card"), // card
+  MEDIA("media"), // media
+  SHARE_CALENDAR_EVENT("share_calendar_event"), // share_calendar_event
+  HONGBAO("hongbao"), // hongbao
+  GENERAL_CALENDAR("general_calendar"), // general_calendar
+  VIDEO_CHAT("video_chat"), // video_chat
+  LOCATION("location"), // location
+  COMMERCIALIZED_HONGBAO("commercialized_hongbao"), // commercialized_hongbao
+  SHARE_USER_CARD("share_user_card"), // share_user_card
+  TODO("todo"), // todo
+  FOLDER("folder"), // folder
+  DIAGNOSE("diagnose"), // diagnose
+  VOTE("vote"), // vote
+  LINK("link"), // link
+  ;
+  private String value;
 
-    MessageSearchMetaTypeEnum(String value) {
-        this.value = value;
-    }
+  MessageSearchMetaTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

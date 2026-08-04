@@ -13,408 +13,443 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.cardkit.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KaCardTemplate {
+  /**
+   * 卡片模板 ID
+   *
+   * <p>示例值：AAqSZ3wf5hupo
+   */
+  @SerializedName("template_id")
+  private String templateId;
+
+  /**
+   * 卡片模板名
+   *
+   * <p>示例值：卡片名称
+   */
+  @SerializedName("template_name")
+  private String templateName;
+
+  /**
+   * 卡片模板所有者
+   *
+   * <p>示例值：cli_***
+   */
+  @SerializedName("template_owner")
+  private String templateOwner;
+
+  /**
+   * 卡片模板版本名
+   *
+   * <p>示例值：1.0.0
+   */
+  @SerializedName("template_version_name")
+  private String templateVersionName;
+
+  /**
+   * 卡片模板发布状态
+   *
+   * <p>示例值：PUBLISHED
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 卡片模板创建时间（毫秒）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 卡片模板更新时间（毫秒）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 调用权限配置
+   *
+   * <p>示例值：{"webhook_type":null,"webhook_ids":null,"app_type":2,"app_ids":null,"editor_webhook_ids":null,"editor_app_ids":null}
+   */
+  @SerializedName("host_config")
+  private String hostConfig;
+
+  /**
+   * 未同步的卡片模板版本
+   *
+   * <p>示例值：
+   */
+  @SerializedName("template_versions")
+  private String[] templateVersions;
+
+  /**
+   * 绑定的 APP 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bind_apps")
+  private String[] bindApps;
+
+  public String getTemplateId() {
+    return this.templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
+  }
+
+  public String getTemplateName() {
+    return this.templateName;
+  }
+
+  public void setTemplateName(String templateName) {
+    this.templateName = templateName;
+  }
+
+  public String getTemplateOwner() {
+    return this.templateOwner;
+  }
+
+  public void setTemplateOwner(String templateOwner) {
+    this.templateOwner = templateOwner;
+  }
+
+  public String getTemplateVersionName() {
+    return this.templateVersionName;
+  }
+
+  public void setTemplateVersionName(String templateVersionName) {
+    this.templateVersionName = templateVersionName;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getHostConfig() {
+    return this.hostConfig;
+  }
+
+  public void setHostConfig(String hostConfig) {
+    this.hostConfig = hostConfig;
+  }
+
+  public String[] getTemplateVersions() {
+    return this.templateVersions;
+  }
+
+  public void setTemplateVersions(String[] templateVersions) {
+    this.templateVersions = templateVersions;
+  }
+
+  public String[] getBindApps() {
+    return this.bindApps;
+  }
+
+  public void setBindApps(String[] bindApps) {
+    this.bindApps = bindApps;
+  }
+
+  // builder 开始
+  public KaCardTemplate() {}
+
+  public KaCardTemplate(Builder builder) {
     /**
      * 卡片模板 ID
-     * <p> 示例值：AAqSZ3wf5hupo
+     *
+     * <p>示例值：AAqSZ3wf5hupo
      */
-    @SerializedName("template_id")
-    private String templateId;
+    this.templateId = builder.templateId;
     /**
      * 卡片模板名
-     * <p> 示例值：卡片名称
+     *
+     * <p>示例值：卡片名称
      */
-    @SerializedName("template_name")
-    private String templateName;
+    this.templateName = builder.templateName;
     /**
      * 卡片模板所有者
-     * <p> 示例值：cli_a62a4fe4e938d01c
+     *
+     * <p>示例值：cli_***
      */
-    @SerializedName("template_owner")
-    private String templateOwner;
+    this.templateOwner = builder.templateOwner;
     /**
      * 卡片模板版本名
-     * <p> 示例值：1.0.0
+     *
+     * <p>示例值：1.0.0
      */
-    @SerializedName("template_version_name")
-    private String templateVersionName;
+    this.templateVersionName = builder.templateVersionName;
     /**
      * 卡片模板发布状态
-     * <p> 示例值：PUBLISHED
+     *
+     * <p>示例值：PUBLISHED
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 卡片模板创建时间（毫秒）
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 卡片模板更新时间（毫秒）
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 调用权限配置
-     * <p> 示例值：{"webhook_type":null,"webhook_ids":null,"app_type":2,"app_ids":null,"editor_webhook_ids":null,"editor_app_ids":null}
+     *
+     * <p>示例值：{"webhook_type":null,"webhook_ids":null,"app_type":2,"app_ids":null,"editor_webhook_ids":null,"editor_app_ids":null}
      */
-    @SerializedName("host_config")
-    private String hostConfig;
+    this.hostConfig = builder.hostConfig;
     /**
      * 未同步的卡片模板版本
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("template_versions")
-    private String[] templateVersions;
+    this.templateVersions = builder.templateVersions;
     /**
      * 绑定的 APP 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bind_apps")
+    this.bindApps = builder.bindApps;
+  }
+
+  public static class Builder {
+    /**
+     * 卡片模板 ID
+     *
+     * <p>示例值：AAqSZ3wf5hupo
+     */
+    private String templateId;
+
+    /**
+     * 卡片模板名
+     *
+     * <p>示例值：卡片名称
+     */
+    private String templateName;
+
+    /**
+     * 卡片模板所有者
+     *
+     * <p>示例值：cli_***
+     */
+    private String templateOwner;
+
+    /**
+     * 卡片模板版本名
+     *
+     * <p>示例值：1.0.0
+     */
+    private String templateVersionName;
+
+    /**
+     * 卡片模板发布状态
+     *
+     * <p>示例值：PUBLISHED
+     */
+    private String status;
+
+    /**
+     * 卡片模板创建时间（毫秒）
+     *
+     * <p>示例值：1
+     */
+    private String createTime;
+
+    /**
+     * 卡片模板更新时间（毫秒）
+     *
+     * <p>示例值：1
+     */
+    private String updateTime;
+
+    /**
+     * 调用权限配置
+     *
+     * <p>示例值：{"webhook_type":null,"webhook_ids":null,"app_type":2,"app_ids":null,"editor_webhook_ids":null,"editor_app_ids":null}
+     */
+    private String hostConfig;
+
+    /**
+     * 未同步的卡片模板版本
+     *
+     * <p>示例值：
+     */
+    private String[] templateVersions;
+
+    /**
+     * 绑定的 APP 列表
+     *
+     * <p>示例值：
+     */
     private String[] bindApps;
 
-    // builder 开始
-    public KaCardTemplate() {
+    /**
+     * 卡片模板 ID
+     *
+     * <p>示例值：AAqSZ3wf5hupo
+     *
+     * @param templateId
+     * @return
+     */
+    public Builder templateId(String templateId) {
+      this.templateId = templateId;
+      return this;
     }
 
-    public KaCardTemplate(Builder builder) {
-        /**
-         * 卡片模板 ID
-         * <p> 示例值：AAqSZ3wf5hupo
-         */
-        this.templateId = builder.templateId;
-        /**
-         * 卡片模板名
-         * <p> 示例值：卡片名称
-         */
-        this.templateName = builder.templateName;
-        /**
-         * 卡片模板所有者
-         * <p> 示例值：cli_a62a4fe4e938d01c
-         */
-        this.templateOwner = builder.templateOwner;
-        /**
-         * 卡片模板版本名
-         * <p> 示例值：1.0.0
-         */
-        this.templateVersionName = builder.templateVersionName;
-        /**
-         * 卡片模板发布状态
-         * <p> 示例值：PUBLISHED
-         */
-        this.status = builder.status;
-        /**
-         * 卡片模板创建时间（毫秒）
-         * <p> 示例值：1
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 卡片模板更新时间（毫秒）
-         * <p> 示例值：1
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 调用权限配置
-         * <p> 示例值：{"webhook_type":null,"webhook_ids":null,"app_type":2,"app_ids":null,"editor_webhook_ids":null,"editor_app_ids":null}
-         */
-        this.hostConfig = builder.hostConfig;
-        /**
-         * 未同步的卡片模板版本
-         * <p> 示例值：
-         */
-        this.templateVersions = builder.templateVersions;
-        /**
-         * 绑定的 APP 列表
-         * <p> 示例值：
-         */
-        this.bindApps = builder.bindApps;
+    /**
+     * 卡片模板名
+     *
+     * <p>示例值：卡片名称
+     *
+     * @param templateName
+     * @return
+     */
+    public Builder templateName(String templateName) {
+      this.templateName = templateName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 卡片模板所有者
+     *
+     * <p>示例值：cli_***
+     *
+     * @param templateOwner
+     * @return
+     */
+    public Builder templateOwner(String templateOwner) {
+      this.templateOwner = templateOwner;
+      return this;
     }
 
-    public String getTemplateId() {
-        return this.templateId;
+    /**
+     * 卡片模板版本名
+     *
+     * <p>示例值：1.0.0
+     *
+     * @param templateVersionName
+     * @return
+     */
+    public Builder templateVersionName(String templateVersionName) {
+      this.templateVersionName = templateVersionName;
+      return this;
     }
 
-    public void setTemplateId(String templateId) {
-        this.templateId = templateId;
+    /**
+     * 卡片模板发布状态
+     *
+     * <p>示例值：PUBLISHED
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public String getTemplateName() {
-        return this.templateName;
+    /**
+     * 卡片模板创建时间（毫秒）
+     *
+     * <p>示例值：1
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setTemplateName(String templateName) {
-        this.templateName = templateName;
+    /**
+     * 卡片模板更新时间（毫秒）
+     *
+     * <p>示例值：1
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public String getTemplateOwner() {
-        return this.templateOwner;
+    /**
+     * 调用权限配置
+     *
+     * <p>示例值：{"webhook_type":null,"webhook_ids":null,"app_type":2,"app_ids":null,"editor_webhook_ids":null,"editor_app_ids":null}
+     *
+     * @param hostConfig
+     * @return
+     */
+    public Builder hostConfig(String hostConfig) {
+      this.hostConfig = hostConfig;
+      return this;
     }
 
-    public void setTemplateOwner(String templateOwner) {
-        this.templateOwner = templateOwner;
+    /**
+     * 未同步的卡片模板版本
+     *
+     * <p>示例值：
+     *
+     * @param templateVersions
+     * @return
+     */
+    public Builder templateVersions(String[] templateVersions) {
+      this.templateVersions = templateVersions;
+      return this;
     }
 
-    public String getTemplateVersionName() {
-        return this.templateVersionName;
+    /**
+     * 绑定的 APP 列表
+     *
+     * <p>示例值：
+     *
+     * @param bindApps
+     * @return
+     */
+    public Builder bindApps(String[] bindApps) {
+      this.bindApps = bindApps;
+      return this;
     }
 
-    public void setTemplateVersionName(String templateVersionName) {
-        this.templateVersionName = templateVersionName;
+    public KaCardTemplate build() {
+      return new KaCardTemplate(this);
     }
+  }
 
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getHostConfig() {
-        return this.hostConfig;
-    }
-
-    public void setHostConfig(String hostConfig) {
-        this.hostConfig = hostConfig;
-    }
-
-    public String[] getTemplateVersions() {
-        return this.templateVersions;
-    }
-
-    public void setTemplateVersions(String[] templateVersions) {
-        this.templateVersions = templateVersions;
-    }
-
-    public String[] getBindApps() {
-        return this.bindApps;
-    }
-
-    public void setBindApps(String[] bindApps) {
-        this.bindApps = bindApps;
-    }
-
-    public static class Builder {
-        /**
-         * 卡片模板 ID
-         * <p> 示例值：AAqSZ3wf5hupo
-         */
-        private String templateId;
-        /**
-         * 卡片模板名
-         * <p> 示例值：卡片名称
-         */
-        private String templateName;
-        /**
-         * 卡片模板所有者
-         * <p> 示例值：cli_a62a4fe4e938d01c
-         */
-        private String templateOwner;
-        /**
-         * 卡片模板版本名
-         * <p> 示例值：1.0.0
-         */
-        private String templateVersionName;
-        /**
-         * 卡片模板发布状态
-         * <p> 示例值：PUBLISHED
-         */
-        private String status;
-        /**
-         * 卡片模板创建时间（毫秒）
-         * <p> 示例值：1
-         */
-        private String createTime;
-        /**
-         * 卡片模板更新时间（毫秒）
-         * <p> 示例值：1
-         */
-        private String updateTime;
-        /**
-         * 调用权限配置
-         * <p> 示例值：{"webhook_type":null,"webhook_ids":null,"app_type":2,"app_ids":null,"editor_webhook_ids":null,"editor_app_ids":null}
-         */
-        private String hostConfig;
-        /**
-         * 未同步的卡片模板版本
-         * <p> 示例值：
-         */
-        private String[] templateVersions;
-        /**
-         * 绑定的 APP 列表
-         * <p> 示例值：
-         */
-        private String[] bindApps;
-
-        /**
-         * 卡片模板 ID
-         * <p> 示例值：AAqSZ3wf5hupo
-         *
-         * @param templateId
-         * @return
-         */
-        public Builder templateId(String templateId) {
-            this.templateId = templateId;
-            return this;
-        }
-
-
-        /**
-         * 卡片模板名
-         * <p> 示例值：卡片名称
-         *
-         * @param templateName
-         * @return
-         */
-        public Builder templateName(String templateName) {
-            this.templateName = templateName;
-            return this;
-        }
-
-
-        /**
-         * 卡片模板所有者
-         * <p> 示例值：cli_a62a4fe4e938d01c
-         *
-         * @param templateOwner
-         * @return
-         */
-        public Builder templateOwner(String templateOwner) {
-            this.templateOwner = templateOwner;
-            return this;
-        }
-
-
-        /**
-         * 卡片模板版本名
-         * <p> 示例值：1.0.0
-         *
-         * @param templateVersionName
-         * @return
-         */
-        public Builder templateVersionName(String templateVersionName) {
-            this.templateVersionName = templateVersionName;
-            return this;
-        }
-
-
-        /**
-         * 卡片模板发布状态
-         * <p> 示例值：PUBLISHED
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 卡片模板创建时间（毫秒）
-         * <p> 示例值：1
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 卡片模板更新时间（毫秒）
-         * <p> 示例值：1
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 调用权限配置
-         * <p> 示例值：{"webhook_type":null,"webhook_ids":null,"app_type":2,"app_ids":null,"editor_webhook_ids":null,"editor_app_ids":null}
-         *
-         * @param hostConfig
-         * @return
-         */
-        public Builder hostConfig(String hostConfig) {
-            this.hostConfig = hostConfig;
-            return this;
-        }
-
-
-        /**
-         * 未同步的卡片模板版本
-         * <p> 示例值：
-         *
-         * @param templateVersions
-         * @return
-         */
-        public Builder templateVersions(String[] templateVersions) {
-            this.templateVersions = templateVersions;
-            return this;
-        }
-
-
-        /**
-         * 绑定的 APP 列表
-         * <p> 示例值：
-         *
-         * @param bindApps
-         * @return
-         */
-        public Builder bindApps(String[] bindApps) {
-            this.bindApps = bindApps;
-            return this;
-        }
-
-
-        public KaCardTemplate build() {
-            return new KaCardTemplate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

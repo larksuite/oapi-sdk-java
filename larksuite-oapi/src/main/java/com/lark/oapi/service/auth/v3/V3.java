@@ -19,25 +19,25 @@ import com.lark.oapi.service.auth.v3.resource.AppTicket;
 import com.lark.oapi.service.auth.v3.resource.TenantAccessToken;
 
 public class V3 {
-    private final AppAccessToken appAccessToken; // app_access_token
-    private final AppTicket appTicket; // app_ticket
-    private final TenantAccessToken tenantAccessToken; // tenant_access_token
+  private final AppAccessToken appAccessToken; // app_access_token
+  private final AppTicket appTicket; // app_ticket
+  private final TenantAccessToken tenantAccessToken; // tenant_access_token
 
-    public V3(Config config) {
-        this.appAccessToken = new AppAccessToken(config);
-        this.appTicket = new AppTicket(config);
-        this.tenantAccessToken = new TenantAccessToken(config);
-    }
+  public V3(Config config) {
+    this.appAccessToken = new AppAccessToken(config);
+    this.appTicket = new AppTicket(config);
+    this.tenantAccessToken = new TenantAccessToken(config);
+  }
 
-    public AppAccessToken appAccessToken() {
-        return appAccessToken;
-    }
+  public AppAccessToken appAccessToken() {
+    return appAccessToken;
+  }
 
-    public AppTicket appTicket() {
-        return appTicket;
-    }
+  public AppTicket appTicket() {
+    return appTicket;
+  }
 
-    public TenantAccessToken tenantAccessToken() {
-        return tenantAccessToken;
-    }
+  public TenantAccessToken tenantAccessToken() {
+    return tenantAccessToken;
+  }
 }

@@ -13,109 +13,106 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.im.v1.enums.*;
 
 public class BatchQueryMessageReactionReq {
+  /**
+   * 用户 ID 类型，控制接口返回值中表情添加者的ID
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private BatchQueryMessageReactionReqBody body;
+
+  public BatchQueryMessageReactionReqBody getBatchQueryMessageReactionReqBody() {
+    return this.body;
+  }
+
+  public void setBatchQueryMessageReactionReqBody(BatchQueryMessageReactionReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchQueryMessageReactionReq() {}
+
+  public BatchQueryMessageReactionReq(Builder builder) {
     /**
      * 用户 ID 类型，控制接口返回值中表情添加者的ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 用户 ID 类型，控制接口返回值中表情添加者的ID
+
+    /**
+     * 用户 ID 类型，控制接口返回值中表情添加者的ID
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型，控制接口返回值中表情添加者的ID
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.im.v1.enums.BatchQueryMessageReactionUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.im.v1.enums.BatchQueryMessageReactionUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private BatchQueryMessageReactionReqBody body;
 
-    // builder 开始
-    public BatchQueryMessageReactionReq() {
-    }
-
-    public BatchQueryMessageReactionReq(Builder builder) {
-        /**
-         * 用户 ID 类型，控制接口返回值中表情添加者的ID
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public BatchQueryMessageReactionReqBody getBatchQueryMessageReactionReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchQueryMessageReactionReqBody(BatchQueryMessageReactionReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchQueryMessageReactionReqBody(BatchQueryMessageReactionReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 用户 ID 类型，控制接口返回值中表情添加者的ID
-        private BatchQueryMessageReactionReqBody body;
-
-        /**
-         * 用户 ID 类型，控制接口返回值中表情添加者的ID
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型，控制接口返回值中表情添加者的ID
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.im.v1.enums.BatchQueryMessageReactionUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.im.v1.enums.BatchQueryMessageReactionUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public BatchQueryMessageReactionReqBody getBatchQueryMessageReactionReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchQueryMessageReactionReqBody(BatchQueryMessageReactionReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchQueryMessageReactionReq build() {
-            return new BatchQueryMessageReactionReq(this);
-        }
+    public BatchQueryMessageReactionReq build() {
+      return new BatchQueryMessageReactionReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

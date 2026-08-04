@@ -17,55 +17,62 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.im.v2.resource.AppFeedCard;
 import com.lark.oapi.service.im.v2.resource.AppFeedCardBatch;
 import com.lark.oapi.service.im.v2.resource.BizEntityTagRelation;
+import com.lark.oapi.service.im.v2.resource.Chat;
 import com.lark.oapi.service.im.v2.resource.ChatButton;
 import com.lark.oapi.service.im.v2.resource.FeedCard;
 import com.lark.oapi.service.im.v2.resource.Tag;
 import com.lark.oapi.service.im.v2.resource.UrlPreview;
 
 public class V2 {
-    private final AppFeedCard appFeedCard; // app_feed_card
-    private final AppFeedCardBatch appFeedCardBatch; // app_feed_card.batch
-    private final BizEntityTagRelation bizEntityTagRelation; // biz_entity_tag_relation
-    private final ChatButton chatButton; // chat_button
-    private final FeedCard feedCard; // feed_card
-    private final Tag tag; // tag
-    private final UrlPreview urlPreview; // url_preview
+  private final AppFeedCard appFeedCard; // app_feed_card
+  private final AppFeedCardBatch appFeedCardBatch; // app_feed_card.batch
+  private final BizEntityTagRelation bizEntityTagRelation; // biz_entity_tag_relation
+  private final Chat chat; // chat
+  private final ChatButton chatButton; // chat_button
+  private final FeedCard feedCard; // feed_card
+  private final Tag tag; // tag
+  private final UrlPreview urlPreview; // url_preview
 
-    public V2(Config config) {
-        this.appFeedCard = new AppFeedCard(config);
-        this.appFeedCardBatch = new AppFeedCardBatch(config);
-        this.bizEntityTagRelation = new BizEntityTagRelation(config);
-        this.chatButton = new ChatButton(config);
-        this.feedCard = new FeedCard(config);
-        this.tag = new Tag(config);
-        this.urlPreview = new UrlPreview(config);
-    }
+  public V2(Config config) {
+    this.appFeedCard = new AppFeedCard(config);
+    this.appFeedCardBatch = new AppFeedCardBatch(config);
+    this.bizEntityTagRelation = new BizEntityTagRelation(config);
+    this.chat = new Chat(config);
+    this.chatButton = new ChatButton(config);
+    this.feedCard = new FeedCard(config);
+    this.tag = new Tag(config);
+    this.urlPreview = new UrlPreview(config);
+  }
 
-    public AppFeedCard appFeedCard() {
-        return appFeedCard;
-    }
+  public AppFeedCard appFeedCard() {
+    return appFeedCard;
+  }
 
-    public AppFeedCardBatch appFeedCardBatch() {
-        return appFeedCardBatch;
-    }
+  public AppFeedCardBatch appFeedCardBatch() {
+    return appFeedCardBatch;
+  }
 
-    public BizEntityTagRelation bizEntityTagRelation() {
-        return bizEntityTagRelation;
-    }
+  public BizEntityTagRelation bizEntityTagRelation() {
+    return bizEntityTagRelation;
+  }
 
-    public ChatButton chatButton() {
-        return chatButton;
-    }
+  public Chat chat() {
+    return chat;
+  }
 
-    public FeedCard feedCard() {
-        return feedCard;
-    }
+  public ChatButton chatButton() {
+    return chatButton;
+  }
 
-    public Tag tag() {
-        return tag;
-    }
+  public FeedCard feedCard() {
+    return feedCard;
+  }
 
-    public UrlPreview urlPreview() {
-        return urlPreview;
-    }
+  public Tag tag() {
+    return tag;
+  }
+
+  public UrlPreview urlPreview() {
+    return urlPreview;
+  }
 }

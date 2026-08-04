@@ -13,20 +13,20 @@
 
 package com.lark.oapi.service.application.v6.enums;
 
-/**
- * 返回值的部门ID的类型
- */
-public enum ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeDepartmentIDTypeEnum {
-    DEPARTMENT_ID("department_id"), // 以自定义department_id来标识部门
-    OPEN_DEPARTMENT_ID("open_department_id"), // 以open_department_id来标识部门
-    ;
-    private String value;
+/** 返回值的部门ID的类型 */
+public enum
+    ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeDepartmentIDTypeEnum {
+  DEPARTMENT_ID("department_id"), // 以自定义department_id来标识部门
+  OPEN_DEPARTMENT_ID("open_department_id"), // 以open_department_id来标识部门
+  ;
+  private String value;
 
-    ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeDepartmentIDTypeEnum(String value) {
-        this.value = value;
-    }
+  ContactsRangeSuggestApplicationAppVersionGetAppVersionContactsRangeDepartmentIDTypeEnum(
+      String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

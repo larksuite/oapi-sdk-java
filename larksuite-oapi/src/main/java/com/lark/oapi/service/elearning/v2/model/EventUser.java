@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EventUser {
+  /**
+   * 用户的 user_id，根据 user_id_type 类型返回
+   *
+   * <p>示例值：{"user_id": "xxxxx","union_id": "on_xxxxxx","open_id": "ou_xxxxxxx"}
+   */
+  @SerializedName("user_id")
+  private UserId userId;
+
+  /**
+   * 用户的 email
+   *
+   * <p>示例值：abc@bytedance.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 用户的手机号
+   *
+   * <p>示例值：+8618912345678
+   */
+  @SerializedName("phone")
+  private String phone;
+
+  public UserId getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(UserId userId) {
+    this.userId = userId;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getPhone() {
+    return this.phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+  // builder 开始
+  public EventUser() {}
+
+  public EventUser(Builder builder) {
     /**
      * 用户的 user_id，根据 user_id_type 类型返回
-     * <p> 示例值：{"user_id": "xxxxx","union_id": "on_xxxxxx","open_id": "ou_xxxxxxx"}
+     *
+     * <p>示例值：{"user_id": "xxxxx","union_id": "on_xxxxxx","open_id": "ou_xxxxxxx"}
      */
-    @SerializedName("user_id")
-    private UserId userId;
+    this.userId = builder.userId;
     /**
      * 用户的 email
-     * <p> 示例值：abc@bytedance.com
+     *
+     * <p>示例值：abc@bytedance.com
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 用户的手机号
-     * <p> 示例值：+8618912345678
+     *
+     * <p>示例值：+8618912345678
      */
-    @SerializedName("phone")
+    this.phone = builder.phone;
+  }
+
+  public static class Builder {
+    /**
+     * 用户的 user_id，根据 user_id_type 类型返回
+     *
+     * <p>示例值：{"user_id": "xxxxx","union_id": "on_xxxxxx","open_id": "ou_xxxxxxx"}
+     */
+    private UserId userId;
+
+    /**
+     * 用户的 email
+     *
+     * <p>示例值：abc@bytedance.com
+     */
+    private String email;
+
+    /**
+     * 用户的手机号
+     *
+     * <p>示例值：+8618912345678
+     */
     private String phone;
 
-    // builder 开始
-    public EventUser() {
+    /**
+     * 用户的 user_id，根据 user_id_type 类型返回
+     *
+     * <p>示例值：{"user_id": "xxxxx","union_id": "on_xxxxxx","open_id": "ou_xxxxxxx"}
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(UserId userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public EventUser(Builder builder) {
-        /**
-         * 用户的 user_id，根据 user_id_type 类型返回
-         * <p> 示例值：{"user_id": "xxxxx","union_id": "on_xxxxxx","open_id": "ou_xxxxxxx"}
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户的 email
-         * <p> 示例值：abc@bytedance.com
-         */
-        this.email = builder.email;
-        /**
-         * 用户的手机号
-         * <p> 示例值：+8618912345678
-         */
-        this.phone = builder.phone;
+    /**
+     * 用户的 email
+     *
+     * <p>示例值：abc@bytedance.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户的手机号
+     *
+     * <p>示例值：+8618912345678
+     *
+     * @param phone
+     * @return
+     */
+    public Builder phone(String phone) {
+      this.phone = phone;
+      return this;
     }
 
-    public UserId getUserId() {
-        return this.userId;
+    public EventUser build() {
+      return new EventUser(this);
     }
+  }
 
-    public void setUserId(UserId userId) {
-        this.userId = userId;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return this.phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public static class Builder {
-        /**
-         * 用户的 user_id，根据 user_id_type 类型返回
-         * <p> 示例值：{"user_id": "xxxxx","union_id": "on_xxxxxx","open_id": "ou_xxxxxxx"}
-         */
-        private UserId userId;
-        /**
-         * 用户的 email
-         * <p> 示例值：abc@bytedance.com
-         */
-        private String email;
-        /**
-         * 用户的手机号
-         * <p> 示例值：+8618912345678
-         */
-        private String phone;
-
-        /**
-         * 用户的 user_id，根据 user_id_type 类型返回
-         * <p> 示例值：{"user_id": "xxxxx","union_id": "on_xxxxxx","open_id": "ou_xxxxxxx"}
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(UserId userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 用户的 email
-         * <p> 示例值：abc@bytedance.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 用户的手机号
-         * <p> 示例值：+8618912345678
-         *
-         * @param phone
-         * @return
-         */
-        public Builder phone(String phone) {
-            this.phone = phone;
-            return this;
-        }
-
-
-        public EventUser build() {
-            return new EventUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

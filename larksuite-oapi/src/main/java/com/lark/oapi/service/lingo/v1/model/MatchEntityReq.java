@@ -13,97 +13,92 @@
 
 package com.lark.oapi.service.lingo.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.lingo.v1.enums.*;
 
 public class MatchEntityReq {
+  /**
+   * 词库ID(不传时默认在全员词库内搜索);;如以应用身份搜索非全员词库中的词条，需要在“词库设置”页面添加应用；若以用户身份搜索非全员词库中的词条，该用户需要拥有对应词库的可见权限。
+   *
+   * <p>示例值：7202510112396640276
+   */
+  @Query
+  @SerializedName("repo_id")
+  private String repoId;
+
+  public String getRepoId() {
+    return this.repoId;
+  }
+
+  public void setRepoId(String repoId) {
+    this.repoId = repoId;
+  }
+
+  @Body private MatchEntityReqBody body;
+
+  public MatchEntityReqBody getMatchEntityReqBody() {
+    return this.body;
+  }
+
+  public void setMatchEntityReqBody(MatchEntityReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public MatchEntityReq() {}
+
+  public MatchEntityReq(Builder builder) {
     /**
-     * 词库ID
-     * <p> 示例值：7202510112396640276
+     * 词库ID(不传时默认在全员词库内搜索);;如以应用身份搜索非全员词库中的词条，需要在“词库设置”页面添加应用；若以用户身份搜索非全员词库中的词条，该用户需要拥有对应词库的可见权限。
+     *
+     * <p>示例值：7202510112396640276
      */
-    @Query
-    @SerializedName("repo_id")
-    private String repoId;
-    @Body
+    this.repoId = builder.repoId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        repoId; // 词库ID(不传时默认在全员词库内搜索);;如以应用身份搜索非全员词库中的词条，需要在“词库设置”页面添加应用；若以用户身份搜索非全员词库中的词条，该用户需要拥有对应词库的可见权限。
+
+    /**
+     * 词库ID(不传时默认在全员词库内搜索);;如以应用身份搜索非全员词库中的词条，需要在“词库设置”页面添加应用；若以用户身份搜索非全员词库中的词条，该用户需要拥有对应词库的可见权限。
+     *
+     * <p>示例值：7202510112396640276
+     *
+     * @param repoId
+     * @return
+     */
+    public Builder repoId(String repoId) {
+      this.repoId = repoId;
+      return this;
+    }
+
     private MatchEntityReqBody body;
 
-    // builder 开始
-    public MatchEntityReq() {
-    }
-
-    public MatchEntityReq(Builder builder) {
-        /**
-         * 词库ID
-         * <p> 示例值：7202510112396640276
-         */
-        this.repoId = builder.repoId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getRepoId() {
-        return this.repoId;
-    }
-
-    public void setRepoId(String repoId) {
-        this.repoId = repoId;
-    }
-
     public MatchEntityReqBody getMatchEntityReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setMatchEntityReqBody(MatchEntityReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder matchEntityReqBody(MatchEntityReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String repoId; // 词库ID
-        private MatchEntityReqBody body;
-
-        /**
-         * 词库ID
-         * <p> 示例值：7202510112396640276
-         *
-         * @param repoId
-         * @return
-         */
-        public Builder repoId(String repoId) {
-            this.repoId = repoId;
-            return this;
-        }
-
-        public MatchEntityReqBody getMatchEntityReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder matchEntityReqBody(MatchEntityReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public MatchEntityReq build() {
-            return new MatchEntityReq(this);
-        }
+    public MatchEntityReq build() {
+      return new MatchEntityReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.application.v5.enums;
 
-/**
- * 推荐应用类型，默认为用户不可移除的推荐应用列表
- */
+/** 推荐应用类型，默认为用户不可移除的推荐应用列表 */
 public enum RecommendApplicationRecommendTypeEnum {
-    USERUNREMOVABLE("user_unremovable"), // 用户不可移除的推荐应用列表
-    USERREMOVABLE("user_removable"), // 用户可移除的推荐应用列表
-    ;
-    private String value;
+  USERUNREMOVABLE("user_unremovable"), // 用户不可移除的推荐应用列表
+  USERREMOVABLE("user_removable"), // 用户可移除的推荐应用列表
+  ;
+  private String value;
 
-    RecommendApplicationRecommendTypeEnum(String value) {
-        this.value = value;
-    }
+  RecommendApplicationRecommendTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

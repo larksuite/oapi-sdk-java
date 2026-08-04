@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollaborationRule {
+  /**
+   * 规则ID
+   *
+   * <p>示例值：12121
+   */
+  @SerializedName("rule_id")
+  private String ruleId;
+
+  /**
+   * 实体数量之和需要小于100
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subjects")
+  private CollaborationRuleEntities subjects;
+
+  /**
+   * 是否生效，如果规则主体超出了分享的范围，则is_valid为false，规则主体将不返回
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("subject_is_valid")
+  private Boolean subjectIsValid;
+
+  /**
+   * 实体数量之和需要小于100
+   *
+   * <p>示例值：
+   */
+  @SerializedName("objects")
+  private CollaborationRuleEntities objects;
+
+  /**
+   * 是否生效，如果规则客体超出了分享的范围，则is_valid为false，规则客体将不返回
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("object_is_valid")
+  private Boolean objectIsValid;
+
+  public String getRuleId() {
+    return this.ruleId;
+  }
+
+  public void setRuleId(String ruleId) {
+    this.ruleId = ruleId;
+  }
+
+  public CollaborationRuleEntities getSubjects() {
+    return this.subjects;
+  }
+
+  public void setSubjects(CollaborationRuleEntities subjects) {
+    this.subjects = subjects;
+  }
+
+  public Boolean getSubjectIsValid() {
+    return this.subjectIsValid;
+  }
+
+  public void setSubjectIsValid(Boolean subjectIsValid) {
+    this.subjectIsValid = subjectIsValid;
+  }
+
+  public CollaborationRuleEntities getObjects() {
+    return this.objects;
+  }
+
+  public void setObjects(CollaborationRuleEntities objects) {
+    this.objects = objects;
+  }
+
+  public Boolean getObjectIsValid() {
+    return this.objectIsValid;
+  }
+
+  public void setObjectIsValid(Boolean objectIsValid) {
+    this.objectIsValid = objectIsValid;
+  }
+
+  // builder 开始
+  public CollaborationRule() {}
+
+  public CollaborationRule(Builder builder) {
     /**
      * 规则ID
-     * <p> 示例值：12121
+     *
+     * <p>示例值：12121
      */
-    @SerializedName("rule_id")
-    private String ruleId;
+    this.ruleId = builder.ruleId;
     /**
      * 实体数量之和需要小于100
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("subjects")
-    private CollaborationRuleEntities subjects;
+    this.subjects = builder.subjects;
     /**
      * 是否生效，如果规则主体超出了分享的范围，则is_valid为false，规则主体将不返回
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("subject_is_valid")
-    private Boolean subjectIsValid;
+    this.subjectIsValid = builder.subjectIsValid;
     /**
      * 实体数量之和需要小于100
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("objects")
-    private CollaborationRuleEntities objects;
+    this.objects = builder.objects;
     /**
      * 是否生效，如果规则客体超出了分享的范围，则is_valid为false，规则客体将不返回
-     * <p> 示例值：
+     *
+     * <p>示例值：true
      */
-    @SerializedName("object_is_valid")
+    this.objectIsValid = builder.objectIsValid;
+  }
+
+  public static class Builder {
+    /**
+     * 规则ID
+     *
+     * <p>示例值：12121
+     */
+    private String ruleId;
+
+    /**
+     * 实体数量之和需要小于100
+     *
+     * <p>示例值：
+     */
+    private CollaborationRuleEntities subjects;
+
+    /**
+     * 是否生效，如果规则主体超出了分享的范围，则is_valid为false，规则主体将不返回
+     *
+     * <p>示例值：true
+     */
+    private Boolean subjectIsValid;
+
+    /**
+     * 实体数量之和需要小于100
+     *
+     * <p>示例值：
+     */
+    private CollaborationRuleEntities objects;
+
+    /**
+     * 是否生效，如果规则客体超出了分享的范围，则is_valid为false，规则客体将不返回
+     *
+     * <p>示例值：true
+     */
     private Boolean objectIsValid;
 
-    // builder 开始
-    public CollaborationRule() {
+    /**
+     * 规则ID
+     *
+     * <p>示例值：12121
+     *
+     * @param ruleId
+     * @return
+     */
+    public Builder ruleId(String ruleId) {
+      this.ruleId = ruleId;
+      return this;
     }
 
-    public CollaborationRule(Builder builder) {
-        /**
-         * 规则ID
-         * <p> 示例值：12121
-         */
-        this.ruleId = builder.ruleId;
-        /**
-         * 实体数量之和需要小于100
-         * <p> 示例值：
-         */
-        this.subjects = builder.subjects;
-        /**
-         * 是否生效，如果规则主体超出了分享的范围，则is_valid为false，规则主体将不返回
-         * <p> 示例值：true
-         */
-        this.subjectIsValid = builder.subjectIsValid;
-        /**
-         * 实体数量之和需要小于100
-         * <p> 示例值：
-         */
-        this.objects = builder.objects;
-        /**
-         * 是否生效，如果规则客体超出了分享的范围，则is_valid为false，规则客体将不返回
-         * <p> 示例值：
-         */
-        this.objectIsValid = builder.objectIsValid;
+    /**
+     * 实体数量之和需要小于100
+     *
+     * <p>示例值：
+     *
+     * @param subjects
+     * @return
+     */
+    public Builder subjects(CollaborationRuleEntities subjects) {
+      this.subjects = subjects;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否生效，如果规则主体超出了分享的范围，则is_valid为false，规则主体将不返回
+     *
+     * <p>示例值：true
+     *
+     * @param subjectIsValid
+     * @return
+     */
+    public Builder subjectIsValid(Boolean subjectIsValid) {
+      this.subjectIsValid = subjectIsValid;
+      return this;
     }
 
-    public String getRuleId() {
-        return this.ruleId;
+    /**
+     * 实体数量之和需要小于100
+     *
+     * <p>示例值：
+     *
+     * @param objects
+     * @return
+     */
+    public Builder objects(CollaborationRuleEntities objects) {
+      this.objects = objects;
+      return this;
     }
 
-    public void setRuleId(String ruleId) {
-        this.ruleId = ruleId;
+    /**
+     * 是否生效，如果规则客体超出了分享的范围，则is_valid为false，规则客体将不返回
+     *
+     * <p>示例值：true
+     *
+     * @param objectIsValid
+     * @return
+     */
+    public Builder objectIsValid(Boolean objectIsValid) {
+      this.objectIsValid = objectIsValid;
+      return this;
     }
 
-    public CollaborationRuleEntities getSubjects() {
-        return this.subjects;
+    public CollaborationRule build() {
+      return new CollaborationRule(this);
     }
+  }
 
-    public void setSubjects(CollaborationRuleEntities subjects) {
-        this.subjects = subjects;
-    }
-
-    public Boolean getSubjectIsValid() {
-        return this.subjectIsValid;
-    }
-
-    public void setSubjectIsValid(Boolean subjectIsValid) {
-        this.subjectIsValid = subjectIsValid;
-    }
-
-    public CollaborationRuleEntities getObjects() {
-        return this.objects;
-    }
-
-    public void setObjects(CollaborationRuleEntities objects) {
-        this.objects = objects;
-    }
-
-    public Boolean getObjectIsValid() {
-        return this.objectIsValid;
-    }
-
-    public void setObjectIsValid(Boolean objectIsValid) {
-        this.objectIsValid = objectIsValid;
-    }
-
-    public static class Builder {
-        /**
-         * 规则ID
-         * <p> 示例值：12121
-         */
-        private String ruleId;
-        /**
-         * 实体数量之和需要小于100
-         * <p> 示例值：
-         */
-        private CollaborationRuleEntities subjects;
-        /**
-         * 是否生效，如果规则主体超出了分享的范围，则is_valid为false，规则主体将不返回
-         * <p> 示例值：true
-         */
-        private Boolean subjectIsValid;
-        /**
-         * 实体数量之和需要小于100
-         * <p> 示例值：
-         */
-        private CollaborationRuleEntities objects;
-        /**
-         * 是否生效，如果规则客体超出了分享的范围，则is_valid为false，规则客体将不返回
-         * <p> 示例值：
-         */
-        private Boolean objectIsValid;
-
-        /**
-         * 规则ID
-         * <p> 示例值：12121
-         *
-         * @param ruleId
-         * @return
-         */
-        public Builder ruleId(String ruleId) {
-            this.ruleId = ruleId;
-            return this;
-        }
-
-
-        /**
-         * 实体数量之和需要小于100
-         * <p> 示例值：
-         *
-         * @param subjects
-         * @return
-         */
-        public Builder subjects(CollaborationRuleEntities subjects) {
-            this.subjects = subjects;
-            return this;
-        }
-
-
-        /**
-         * 是否生效，如果规则主体超出了分享的范围，则is_valid为false，规则主体将不返回
-         * <p> 示例值：true
-         *
-         * @param subjectIsValid
-         * @return
-         */
-        public Builder subjectIsValid(Boolean subjectIsValid) {
-            this.subjectIsValid = subjectIsValid;
-            return this;
-        }
-
-
-        /**
-         * 实体数量之和需要小于100
-         * <p> 示例值：
-         *
-         * @param objects
-         * @return
-         */
-        public Builder objects(CollaborationRuleEntities objects) {
-            this.objects = objects;
-            return this;
-        }
-
-
-        /**
-         * 是否生效，如果规则客体超出了分享的范围，则is_valid为false，规则客体将不返回
-         * <p> 示例值：
-         *
-         * @param objectIsValid
-         * @return
-         */
-        public Builder objectIsValid(Boolean objectIsValid) {
-            this.objectIsValid = objectIsValid;
-            return this;
-        }
-
-
-        public CollaborationRule build() {
-            return new CollaborationRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

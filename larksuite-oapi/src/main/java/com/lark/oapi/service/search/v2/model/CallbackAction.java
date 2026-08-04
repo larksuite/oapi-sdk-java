@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CallbackAction {
+  /**
+   * tag
+   *
+   * <p>示例值：""
+   */
+  @SerializedName("tag")
+  private String tag;
+
+  /**
+   * CallbackActionValue
+   *
+   * <p>示例值：
+   */
+  @SerializedName("value")
+  private CallbackActionValue value;
+
+  public String getTag() {
+    return this.tag;
+  }
+
+  public void setTag(String tag) {
+    this.tag = tag;
+  }
+
+  public CallbackActionValue getValue() {
+    return this.value;
+  }
+
+  public void setValue(CallbackActionValue value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public CallbackAction() {}
+
+  public CallbackAction(Builder builder) {
     /**
      * tag
-     * <p> 示例值：""
+     *
+     * <p>示例值：""
      */
-    @SerializedName("tag")
-    private String tag;
+    this.tag = builder.tag;
     /**
      * CallbackActionValue
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * tag
+     *
+     * <p>示例值：""
+     */
+    private String tag;
+
+    /**
+     * CallbackActionValue
+     *
+     * <p>示例值：
+     */
     private CallbackActionValue value;
 
-    // builder 开始
-    public CallbackAction() {
+    /**
+     * tag
+     *
+     * <p>示例值：""
+     *
+     * @param tag
+     * @return
+     */
+    public Builder tag(String tag) {
+      this.tag = tag;
+      return this;
     }
 
-    public CallbackAction(Builder builder) {
-        /**
-         * tag
-         * <p> 示例值：""
-         */
-        this.tag = builder.tag;
-        /**
-         * CallbackActionValue
-         * <p> 示例值：
-         */
-        this.value = builder.value;
+    /**
+     * CallbackActionValue
+     *
+     * <p>示例值：
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(CallbackActionValue value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CallbackAction build() {
+      return new CallbackAction(this);
     }
+  }
 
-    public String getTag() {
-        return this.tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public CallbackActionValue getValue() {
-        return this.value;
-    }
-
-    public void setValue(CallbackActionValue value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * tag
-         * <p> 示例值：""
-         */
-        private String tag;
-        /**
-         * CallbackActionValue
-         * <p> 示例值：
-         */
-        private CallbackActionValue value;
-
-        /**
-         * tag
-         * <p> 示例值：""
-         *
-         * @param tag
-         * @return
-         */
-        public Builder tag(String tag) {
-            this.tag = tag;
-            return this;
-        }
-
-
-        /**
-         * CallbackActionValue
-         * <p> 示例值：
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(CallbackActionValue value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public CallbackAction build() {
-            return new CallbackAction(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

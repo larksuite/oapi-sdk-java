@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetUserMigrationRespBody {
-    /**
-     * 用户迁移
-     * <p> 示例值：
-     */
-    @SerializedName("user_migration")
-    private UserMigration userMigration;
+  /**
+   * 用户迁移
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_migration")
+  private UserMigration userMigration;
 
-    public UserMigration getUserMigration() {
-        return this.userMigration;
-    }
+  public UserMigration getUserMigration() {
+    return this.userMigration;
+  }
 
-    public void setUserMigration(UserMigration userMigration) {
-        this.userMigration = userMigration;
-    }
-
+  public void setUserMigration(UserMigration userMigration) {
+    this.userMigration = userMigration;
+  }
 }

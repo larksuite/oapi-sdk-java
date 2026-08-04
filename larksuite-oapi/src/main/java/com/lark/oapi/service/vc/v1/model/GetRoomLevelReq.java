@@ -13,72 +13,63 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class GetRoomLevelReq {
+  /**
+   * 层级ID，查询租户层级可传0
+   *
+   * <p>示例值：omb_57c9cc7d9a81e27e54c8fabfd02759e7
+   */
+  @Path
+  @SerializedName("room_level_id")
+  private String roomLevelId;
+
+  public String getRoomLevelId() {
+    return this.roomLevelId;
+  }
+
+  public void setRoomLevelId(String roomLevelId) {
+    this.roomLevelId = roomLevelId;
+  }
+
+  // builder 开始
+  public GetRoomLevelReq() {}
+
+  public GetRoomLevelReq(Builder builder) {
     /**
      * 层级ID，查询租户层级可传0
-     * <p> 示例值：omb_57c9cc7d9a81e27e54c8fabfd02759e7
+     *
+     * <p>示例值：omb_57c9cc7d9a81e27e54c8fabfd02759e7
      */
-    @Path
-    @SerializedName("room_level_id")
-    private String roomLevelId;
+    this.roomLevelId = builder.roomLevelId;
+  }
 
-    // builder 开始
-    public GetRoomLevelReq() {
+  public static class Builder {
+
+    private String roomLevelId; // 层级ID，查询租户层级可传0
+
+    /**
+     * 层级ID，查询租户层级可传0
+     *
+     * <p>示例值：omb_57c9cc7d9a81e27e54c8fabfd02759e7
+     *
+     * @param roomLevelId
+     * @return
+     */
+    public Builder roomLevelId(String roomLevelId) {
+      this.roomLevelId = roomLevelId;
+      return this;
     }
 
-    public GetRoomLevelReq(Builder builder) {
-        /**
-         * 层级ID，查询租户层级可传0
-         * <p> 示例值：omb_57c9cc7d9a81e27e54c8fabfd02759e7
-         */
-        this.roomLevelId = builder.roomLevelId;
+    public GetRoomLevelReq build() {
+      return new GetRoomLevelReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getRoomLevelId() {
-        return this.roomLevelId;
-    }
-
-    public void setRoomLevelId(String roomLevelId) {
-        this.roomLevelId = roomLevelId;
-    }
-
-    public static class Builder {
-
-        private String roomLevelId; // 层级ID，查询租户层级可传0
-
-        /**
-         * 层级ID，查询租户层级可传0
-         * <p> 示例值：omb_57c9cc7d9a81e27e54c8fabfd02759e7
-         *
-         * @param roomLevelId
-         * @return
-         */
-        public Builder roomLevelId(String roomLevelId) {
-            this.roomLevelId = roomLevelId;
-            return this;
-        }
-
-
-        public GetRoomLevelReq build() {
-            return new GetRoomLevelReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,411 +13,448 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class LarkOapiCommonHead {
+  /**
+   * 请求方的id deprecated
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 请求方的组织，在多租户业务中使用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 请求方的appid
+   *
+   * <p>示例值：
+   */
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 开放平台的OpenID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("open_id")
+  private String openId;
+
+  /**
+   * 如果小程序登录，这个是原始的信息，和OpenID是一个意思
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
+
+  /**
+   * thrift --gen go idl/common.thrift
+   *
+   * <p>示例值：
+   */
+  @SerializedName("auth")
+  private AuthInfo auth;
+
+  /**
+   * $ plugin output
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private Map<String, String> fields;
+
+  /**
+   * Header的环境
+   *
+   * <p>示例值：
+   */
+  @SerializedName("env")
+  private String env;
+
+  /**
+   * 200: optional HttpHeader HttpHeader (api.json="HttpHeader"), //$ 从HttpHeader透传的HttpHeader\n$
+   * 所在区域，参考:https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE的简称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("locale")
+  private String locale;
+
+  /**
+   * $ 客户端信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("client")
+  private ClientInfo client;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getOpenId() {
+    return this.openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  public AuthInfo getAuth() {
+    return this.auth;
+  }
+
+  public void setAuth(AuthInfo auth) {
+    this.auth = auth;
+  }
+
+  public Map<String, String> getFields() {
+    return this.fields;
+  }
+
+  public void setFields(Map<String, String> fields) {
+    this.fields = fields;
+  }
+
+  public String getEnv() {
+    return this.env;
+  }
+
+  public void setEnv(String env) {
+    this.env = env;
+  }
+
+  public String getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  public ClientInfo getClient() {
+    return this.client;
+  }
+
+  public void setClient(ClientInfo client) {
+    this.client = client;
+  }
+
+  // builder 开始
+  public LarkOapiCommonHead() {}
+
+  public LarkOapiCommonHead(Builder builder) {
     /**
      * 请求方的id deprecated
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 请求方的组织，在多租户业务中使用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 请求方的appid
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
     /**
      * 开放平台的OpenID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("open_id")
-    private String openId;
+    this.openId = builder.openId;
     /**
      * 如果小程序登录，这个是原始的信息，和OpenID是一个意思
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("tenant_key")
-    private String tenantKey;
+    this.tenantKey = builder.tenantKey;
     /**
      * thrift --gen go idl/common.thrift
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("auth")
-    private AuthInfo auth;
+    this.auth = builder.auth;
     /**
      * $ plugin output
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
-    private Map<String, String> fields;
+    this.fields = builder.fields;
     /**
      * Header的环境
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("env")
-    private String env;
+    this.env = builder.env;
     /**
-     * 200: optional HttpHeader HttpHeader (api.json="HttpHeader"), //$ 从HttpHeader透传的HttpHeader\n$ 所在区域，参考:https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE的简称
-     * <p> 示例值：
+     * 200: optional HttpHeader HttpHeader (api.json="HttpHeader"), //$ 从HttpHeader透传的HttpHeader\n$
+     * 所在区域，参考:https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE的简称
+     *
+     * <p>示例值：
      */
-    @SerializedName("locale")
-    private String locale;
+    this.locale = builder.locale;
     /**
      * $ 客户端信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("client")
+    this.client = builder.client;
+  }
+
+  public static class Builder {
+    /**
+     * 请求方的id deprecated
+     *
+     * <p>示例值：
+     */
+    private String id;
+
+    /**
+     * 请求方的组织，在多租户业务中使用
+     *
+     * <p>示例值：
+     */
+    private String tenantId;
+
+    /**
+     * 请求方的appid
+     *
+     * <p>示例值：
+     */
+    private String appId;
+
+    /**
+     * 开放平台的OpenID
+     *
+     * <p>示例值：
+     */
+    private String openId;
+
+    /**
+     * 如果小程序登录，这个是原始的信息，和OpenID是一个意思
+     *
+     * <p>示例值：
+     */
+    private String tenantKey;
+
+    /**
+     * thrift --gen go idl/common.thrift
+     *
+     * <p>示例值：
+     */
+    private AuthInfo auth;
+
+    /**
+     * $ plugin output
+     *
+     * <p>示例值：
+     */
+    private Map<String, String> fields;
+
+    /**
+     * Header的环境
+     *
+     * <p>示例值：
+     */
+    private String env;
+
+    /**
+     * 200: optional HttpHeader HttpHeader (api.json="HttpHeader"), //$ 从HttpHeader透传的HttpHeader\n$
+     * 所在区域，参考:https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE的简称
+     *
+     * <p>示例值：
+     */
+    private String locale;
+
+    /**
+     * $ 客户端信息
+     *
+     * <p>示例值：
+     */
     private ClientInfo client;
 
-    // builder 开始
-    public LarkOapiCommonHead() {
+    /**
+     * 请求方的id deprecated
+     *
+     * <p>示例值：
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public LarkOapiCommonHead(Builder builder) {
-        /**
-         * 请求方的id deprecated
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         * 请求方的组织，在多租户业务中使用
-         * <p> 示例值：
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 请求方的appid
-         * <p> 示例值：
-         */
-        this.appId = builder.appId;
-        /**
-         * 开放平台的OpenID
-         * <p> 示例值：
-         */
-        this.openId = builder.openId;
-        /**
-         * 如果小程序登录，这个是原始的信息，和OpenID是一个意思
-         * <p> 示例值：
-         */
-        this.tenantKey = builder.tenantKey;
-        /**
-         * thrift --gen go idl/common.thrift
-         * <p> 示例值：
-         */
-        this.auth = builder.auth;
-        /**
-         * $ plugin output
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-        /**
-         * Header的环境
-         * <p> 示例值：
-         */
-        this.env = builder.env;
-        /**
-         * 200: optional HttpHeader HttpHeader (api.json="HttpHeader"), //$ 从HttpHeader透传的HttpHeader\n$ 所在区域，参考:https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE的简称
-         * <p> 示例值：
-         */
-        this.locale = builder.locale;
-        /**
-         * $ 客户端信息
-         * <p> 示例值：
-         */
-        this.client = builder.client;
+    /**
+     * 请求方的组织，在多租户业务中使用
+     *
+     * <p>示例值：
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 请求方的appid
+     *
+     * <p>示例值：
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 开放平台的OpenID
+     *
+     * <p>示例值：
+     *
+     * @param openId
+     * @return
+     */
+    public Builder openId(String openId) {
+      this.openId = openId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 如果小程序登录，这个是原始的信息，和OpenID是一个意思
+     *
+     * <p>示例值：
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public String getTenantId() {
-        return this.tenantId;
+    /**
+     * thrift --gen go idl/common.thrift
+     *
+     * <p>示例值：
+     *
+     * @param auth
+     * @return
+     */
+    public Builder auth(AuthInfo auth) {
+      this.auth = auth;
+      return this;
     }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
+    /**
+     * $ plugin output
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(Map<String, String> fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public String getAppId() {
-        return this.appId;
+    /**
+     * Header的环境
+     *
+     * <p>示例值：
+     *
+     * @param env
+     * @return
+     */
+    public Builder env(String env) {
+      this.env = env;
+      return this;
     }
 
-    public void setAppId(String appId) {
-        this.appId = appId;
+    /**
+     * 200: optional HttpHeader HttpHeader (api.json="HttpHeader"), //$ 从HttpHeader透传的HttpHeader\n$
+     * 所在区域，参考:https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE的简称
+     *
+     * <p>示例值：
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(String locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public String getOpenId() {
-        return this.openId;
+    /**
+     * $ 客户端信息
+     *
+     * <p>示例值：
+     *
+     * @param client
+     * @return
+     */
+    public Builder client(ClientInfo client) {
+      this.client = client;
+      return this;
     }
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
+    public LarkOapiCommonHead build() {
+      return new LarkOapiCommonHead(this);
     }
+  }
 
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
-
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
-
-    public AuthInfo getAuth() {
-        return this.auth;
-    }
-
-    public void setAuth(AuthInfo auth) {
-        this.auth = auth;
-    }
-
-    public Map<String, String> getFields() {
-        return this.fields;
-    }
-
-    public void setFields(Map<String, String> fields) {
-        this.fields = fields;
-    }
-
-    public String getEnv() {
-        return this.env;
-    }
-
-    public void setEnv(String env) {
-        this.env = env;
-    }
-
-    public String getLocale() {
-        return this.locale;
-    }
-
-    public void setLocale(String locale) {
-        this.locale = locale;
-    }
-
-    public ClientInfo getClient() {
-        return this.client;
-    }
-
-    public void setClient(ClientInfo client) {
-        this.client = client;
-    }
-
-    public static class Builder {
-        /**
-         * 请求方的id deprecated
-         * <p> 示例值：
-         */
-        private String id;
-        /**
-         * 请求方的组织，在多租户业务中使用
-         * <p> 示例值：
-         */
-        private String tenantId;
-        /**
-         * 请求方的appid
-         * <p> 示例值：
-         */
-        private String appId;
-        /**
-         * 开放平台的OpenID
-         * <p> 示例值：
-         */
-        private String openId;
-        /**
-         * 如果小程序登录，这个是原始的信息，和OpenID是一个意思
-         * <p> 示例值：
-         */
-        private String tenantKey;
-        /**
-         * thrift --gen go idl/common.thrift
-         * <p> 示例值：
-         */
-        private AuthInfo auth;
-        /**
-         * $ plugin output
-         * <p> 示例值：
-         */
-        private Map<String, String> fields;
-        /**
-         * Header的环境
-         * <p> 示例值：
-         */
-        private String env;
-        /**
-         * 200: optional HttpHeader HttpHeader (api.json="HttpHeader"), //$ 从HttpHeader透传的HttpHeader\n$ 所在区域，参考:https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE的简称
-         * <p> 示例值：
-         */
-        private String locale;
-        /**
-         * $ 客户端信息
-         * <p> 示例值：
-         */
-        private ClientInfo client;
-
-        /**
-         * 请求方的id deprecated
-         * <p> 示例值：
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 请求方的组织，在多租户业务中使用
-         * <p> 示例值：
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 请求方的appid
-         * <p> 示例值：
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 开放平台的OpenID
-         * <p> 示例值：
-         *
-         * @param openId
-         * @return
-         */
-        public Builder openId(String openId) {
-            this.openId = openId;
-            return this;
-        }
-
-
-        /**
-         * 如果小程序登录，这个是原始的信息，和OpenID是一个意思
-         * <p> 示例值：
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        /**
-         * thrift --gen go idl/common.thrift
-         * <p> 示例值：
-         *
-         * @param auth
-         * @return
-         */
-        public Builder auth(AuthInfo auth) {
-            this.auth = auth;
-            return this;
-        }
-
-
-        /**
-         * $ plugin output
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(Map<String, String> fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        /**
-         * Header的环境
-         * <p> 示例值：
-         *
-         * @param env
-         * @return
-         */
-        public Builder env(String env) {
-            this.env = env;
-            return this;
-        }
-
-
-        /**
-         * 200: optional HttpHeader HttpHeader (api.json="HttpHeader"), //$ 从HttpHeader透传的HttpHeader\n$ 所在区域，参考:https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE的简称
-         * <p> 示例值：
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
-        }
-
-
-        /**
-         * $ 客户端信息
-         * <p> 示例值：
-         *
-         * @param client
-         * @return
-         */
-        public Builder client(ClientInfo client) {
-            this.client = client;
-            return this;
-        }
-
-
-        public LarkOapiCommonHead build() {
-            return new LarkOapiCommonHead(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

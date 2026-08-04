@@ -13,105 +13,108 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteWebsiteChannelReq {
+  /**
+   * 官网
+   * ID，可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)获取
+   *
+   * <p>示例值：1618209327096
+   */
+  @Path
+  @SerializedName("website_id")
+  private String websiteId;
+
+  /**
+   * 推广渠道
+   * ID，可通过[获取推广渠道列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-channel/list)获取
+   *
+   * <p>示例值：7085989097067563300
+   */
+  @Path
+  @SerializedName("channel_id")
+  private String channelId;
+
+  public String getWebsiteId() {
+    return this.websiteId;
+  }
+
+  public void setWebsiteId(String websiteId) {
+    this.websiteId = websiteId;
+  }
+
+  public String getChannelId() {
+    return this.channelId;
+  }
+
+  public void setChannelId(String channelId) {
+    this.channelId = channelId;
+  }
+
+  // builder 开始
+  public DeleteWebsiteChannelReq() {}
+
+  public DeleteWebsiteChannelReq(Builder builder) {
     /**
-     * 官网 ID
-     * <p> 示例值：1618209327096
+     * 官网
+     * ID，可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)获取
+     *
+     * <p>示例值：1618209327096
      */
-    @Path
-    @SerializedName("website_id")
-    private String websiteId;
+    this.websiteId = builder.websiteId;
     /**
-     * 推广渠道 ID
-     * <p> 示例值：7085989097067563300
+     * 推广渠道
+     * ID，可通过[获取推广渠道列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-channel/list)获取
+     *
+     * <p>示例值：7085989097067563300
      */
-    @Path
-    @SerializedName("channel_id")
-    private String channelId;
+    this.channelId = builder.channelId;
+  }
 
-    // builder 开始
-    public DeleteWebsiteChannelReq() {
+  public static class Builder {
+
+    private String websiteId; // 官网
+    // ID，可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)获取
+    private String channelId; // 推广渠道
+
+    // ID，可通过[获取推广渠道列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-channel/list)获取
+
+    /**
+     * 官网
+     * ID，可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)获取
+     *
+     * <p>示例值：1618209327096
+     *
+     * @param websiteId
+     * @return
+     */
+    public Builder websiteId(String websiteId) {
+      this.websiteId = websiteId;
+      return this;
     }
 
-    public DeleteWebsiteChannelReq(Builder builder) {
-        /**
-         * 官网 ID
-         * <p> 示例值：1618209327096
-         */
-        this.websiteId = builder.websiteId;
-        /**
-         * 推广渠道 ID
-         * <p> 示例值：7085989097067563300
-         */
-        this.channelId = builder.channelId;
+    /**
+     * 推广渠道
+     * ID，可通过[获取推广渠道列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website-channel/list)获取
+     *
+     * <p>示例值：7085989097067563300
+     *
+     * @param channelId
+     * @return
+     */
+    public Builder channelId(String channelId) {
+      this.channelId = channelId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteWebsiteChannelReq build() {
+      return new DeleteWebsiteChannelReq(this);
     }
+  }
 
-    public String getWebsiteId() {
-        return this.websiteId;
-    }
-
-    public void setWebsiteId(String websiteId) {
-        this.websiteId = websiteId;
-    }
-
-    public String getChannelId() {
-        return this.channelId;
-    }
-
-    public void setChannelId(String channelId) {
-        this.channelId = channelId;
-    }
-
-    public static class Builder {
-
-        private String websiteId; // 官网 ID
-        private String channelId; // 推广渠道 ID
-
-        /**
-         * 官网 ID
-         * <p> 示例值：1618209327096
-         *
-         * @param websiteId
-         * @return
-         */
-        public Builder websiteId(String websiteId) {
-            this.websiteId = websiteId;
-            return this;
-        }
-
-
-        /**
-         * 推广渠道 ID
-         * <p> 示例值：7085989097067563300
-         *
-         * @param channelId
-         * @return
-         */
-        public Builder channelId(String channelId) {
-            this.channelId = channelId;
-            return this;
-        }
-
-
-        public DeleteWebsiteChannelReq build() {
-            return new DeleteWebsiteChannelReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

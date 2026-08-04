@@ -13,272 +13,289 @@
 
 package com.lark.oapi.service.application.v5.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v5.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Application {
+  /**
+   * 应用ID
+   *
+   * <p>示例值：cli_***
+   */
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 应用名
+   *
+   * <p>示例值：效率工具
+   */
+  @SerializedName("app_name")
+  private String appName;
+
+  /**
+   * 应用描述
+   *
+   * <p>示例值：SMB同学圈
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 应用类型
+   *
+   * <p>示例值：app
+   */
+  @SerializedName("app_type")
+  private String appType;
+
+  /**
+   * 应用图标
+   *
+   * <p>示例值：https://s1-xxxxxx/static-resource/v1/ca597e6e-28c1-4178-961a-1xxxxx
+   */
+  @SerializedName("avatar_url")
+  private String avatarUrl;
+
+  /**
+   * 可以打开应用的方式, 包含移动端小程序applink、移动端网页applink、PC端小程序applink、移动端小程序applink、PC端网页applink、机器人applink
+   *
+   * <p>示例值：
+   */
+  @SerializedName("open_methods")
+  private OpenMethod[] openMethods;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getAppName() {
+    return this.appName;
+  }
+
+  public void setAppName(String appName) {
+    this.appName = appName;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getAppType() {
+    return this.appType;
+  }
+
+  public void setAppType(String appType) {
+    this.appType = appType;
+  }
+
+  public String getAvatarUrl() {
+    return this.avatarUrl;
+  }
+
+  public void setAvatarUrl(String avatarUrl) {
+    this.avatarUrl = avatarUrl;
+  }
+
+  public OpenMethod[] getOpenMethods() {
+    return this.openMethods;
+  }
+
+  public void setOpenMethods(OpenMethod[] openMethods) {
+    this.openMethods = openMethods;
+  }
+
+  // builder 开始
+  public Application() {}
+
+  public Application(Builder builder) {
     /**
-     * 应用id
-     * <p> 示例值：cli_9ea69ba8026xxxx
+     * 应用ID
+     *
+     * <p>示例值：cli_***
      */
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
     /**
      * 应用名
-     * <p> 示例值：SMB同学圈
+     *
+     * <p>示例值：效率工具
      */
-    @SerializedName("app_name")
-    private String appName;
+    this.appName = builder.appName;
     /**
      * 应用描述
-     * <p> 示例值：SMB同学圈
+     *
+     * <p>示例值：SMB同学圈
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 应用类型
-     * <p> 示例值：app
+     *
+     * <p>示例值：app
      */
-    @SerializedName("app_type")
-    private String appType;
+    this.appType = builder.appType;
     /**
      * 应用图标
-     * <p> 示例值：https://sf1-ttcdn-xxx/xxx/da710014fc4c975xxx
+     *
+     * <p>示例值：https://s1-xxxxxx/static-resource/v1/ca597e6e-28c1-4178-961a-1xxxxx
      */
-    @SerializedName("avatar_url")
-    private String avatarUrl;
+    this.avatarUrl = builder.avatarUrl;
     /**
      * 可以打开应用的方式, 包含移动端小程序applink、移动端网页applink、PC端小程序applink、移动端小程序applink、PC端网页applink、机器人applink
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("open_methods")
+    this.openMethods = builder.openMethods;
+  }
+
+  public static class Builder {
+    /**
+     * 应用ID
+     *
+     * <p>示例值：cli_***
+     */
+    private String appId;
+
+    /**
+     * 应用名
+     *
+     * <p>示例值：效率工具
+     */
+    private String appName;
+
+    /**
+     * 应用描述
+     *
+     * <p>示例值：SMB同学圈
+     */
+    private String description;
+
+    /**
+     * 应用类型
+     *
+     * <p>示例值：app
+     */
+    private String appType;
+
+    /**
+     * 应用图标
+     *
+     * <p>示例值：https://s1-xxxxxx/static-resource/v1/ca597e6e-28c1-4178-961a-1xxxxx
+     */
+    private String avatarUrl;
+
+    /**
+     * 可以打开应用的方式, 包含移动端小程序applink、移动端网页applink、PC端小程序applink、移动端小程序applink、PC端网页applink、机器人applink
+     *
+     * <p>示例值：
+     */
     private OpenMethod[] openMethods;
 
-    // builder 开始
-    public Application() {
+    /**
+     * 应用ID
+     *
+     * <p>示例值：cli_***
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public Application(Builder builder) {
-        /**
-         * 应用id
-         * <p> 示例值：cli_9ea69ba8026xxxx
-         */
-        this.appId = builder.appId;
-        /**
-         * 应用名
-         * <p> 示例值：SMB同学圈
-         */
-        this.appName = builder.appName;
-        /**
-         * 应用描述
-         * <p> 示例值：SMB同学圈
-         */
-        this.description = builder.description;
-        /**
-         * 应用类型
-         * <p> 示例值：app
-         */
-        this.appType = builder.appType;
-        /**
-         * 应用图标
-         * <p> 示例值：https://sf1-ttcdn-xxx/xxx/da710014fc4c975xxx
-         */
-        this.avatarUrl = builder.avatarUrl;
-        /**
-         * 可以打开应用的方式, 包含移动端小程序applink、移动端网页applink、PC端小程序applink、移动端小程序applink、PC端网页applink、机器人applink
-         * <p> 示例值：
-         */
-        this.openMethods = builder.openMethods;
+    /**
+     * 应用名
+     *
+     * <p>示例值：效率工具
+     *
+     * @param appName
+     * @return
+     */
+    public Builder appName(String appName) {
+      this.appName = appName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 应用描述
+     *
+     * <p>示例值：SMB同学圈
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getAppId() {
-        return this.appId;
+    /**
+     * 应用类型
+     *
+     * <p>示例值：app
+     *
+     * @param appType
+     * @return
+     */
+    public Builder appType(String appType) {
+      this.appType = appType;
+      return this;
     }
 
-    public void setAppId(String appId) {
-        this.appId = appId;
+    /**
+     * 应用类型
+     *
+     * <p>示例值：app
+     *
+     * @param appType {@link com.lark.oapi.service.application.v5.enums.ApplicationAppTypeEnum}
+     * @return
+     */
+    public Builder appType(
+        com.lark.oapi.service.application.v5.enums.ApplicationAppTypeEnum appType) {
+      this.appType = appType.getValue();
+      return this;
     }
 
-    public String getAppName() {
-        return this.appName;
+    /**
+     * 应用图标
+     *
+     * <p>示例值：https://s1-xxxxxx/static-resource/v1/ca597e6e-28c1-4178-961a-1xxxxx
+     *
+     * @param avatarUrl
+     * @return
+     */
+    public Builder avatarUrl(String avatarUrl) {
+      this.avatarUrl = avatarUrl;
+      return this;
     }
 
-    public void setAppName(String appName) {
-        this.appName = appName;
+    /**
+     * 可以打开应用的方式, 包含移动端小程序applink、移动端网页applink、PC端小程序applink、移动端小程序applink、PC端网页applink、机器人applink
+     *
+     * <p>示例值：
+     *
+     * @param openMethods
+     * @return
+     */
+    public Builder openMethods(OpenMethod[] openMethods) {
+      this.openMethods = openMethods;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    public Application build() {
+      return new Application(this);
     }
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getAppType() {
-        return this.appType;
-    }
-
-    public void setAppType(String appType) {
-        this.appType = appType;
-    }
-
-    public String getAvatarUrl() {
-        return this.avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
-
-    public OpenMethod[] getOpenMethods() {
-        return this.openMethods;
-    }
-
-    public void setOpenMethods(OpenMethod[] openMethods) {
-        this.openMethods = openMethods;
-    }
-
-    public static class Builder {
-        /**
-         * 应用id
-         * <p> 示例值：cli_9ea69ba8026xxxx
-         */
-        private String appId;
-        /**
-         * 应用名
-         * <p> 示例值：SMB同学圈
-         */
-        private String appName;
-        /**
-         * 应用描述
-         * <p> 示例值：SMB同学圈
-         */
-        private String description;
-        /**
-         * 应用类型
-         * <p> 示例值：app
-         */
-        private String appType;
-        /**
-         * 应用图标
-         * <p> 示例值：https://sf1-ttcdn-xxx/xxx/da710014fc4c975xxx
-         */
-        private String avatarUrl;
-        /**
-         * 可以打开应用的方式, 包含移动端小程序applink、移动端网页applink、PC端小程序applink、移动端小程序applink、PC端网页applink、机器人applink
-         * <p> 示例值：
-         */
-        private OpenMethod[] openMethods;
-
-        /**
-         * 应用id
-         * <p> 示例值：cli_9ea69ba8026xxxx
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 应用名
-         * <p> 示例值：SMB同学圈
-         *
-         * @param appName
-         * @return
-         */
-        public Builder appName(String appName) {
-            this.appName = appName;
-            return this;
-        }
-
-
-        /**
-         * 应用描述
-         * <p> 示例值：SMB同学圈
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 应用类型
-         * <p> 示例值：app
-         *
-         * @param appType
-         * @return
-         */
-        public Builder appType(String appType) {
-            this.appType = appType;
-            return this;
-        }
-
-        /**
-         * 应用类型
-         * <p> 示例值：app
-         *
-         * @param appType {@link com.lark.oapi.service.application.v5.enums.ApplicationAppTypeEnum}
-         * @return
-         */
-        public Builder appType(com.lark.oapi.service.application.v5.enums.ApplicationAppTypeEnum appType) {
-            this.appType = appType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 应用图标
-         * <p> 示例值：https://sf1-ttcdn-xxx/xxx/da710014fc4c975xxx
-         *
-         * @param avatarUrl
-         * @return
-         */
-        public Builder avatarUrl(String avatarUrl) {
-            this.avatarUrl = avatarUrl;
-            return this;
-        }
-
-
-        /**
-         * 可以打开应用的方式, 包含移动端小程序applink、移动端网页applink、PC端小程序applink、移动端小程序applink、PC端网页applink、机器人applink
-         * <p> 示例值：
-         *
-         * @param openMethods
-         * @return
-         */
-        public Builder openMethods(OpenMethod[] openMethods) {
-            this.openMethods = openMethods;
-            return this;
-        }
-
-
-        public Application build() {
-            return new Application(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

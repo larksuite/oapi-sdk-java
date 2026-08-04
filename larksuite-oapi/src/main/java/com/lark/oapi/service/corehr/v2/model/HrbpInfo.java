@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class HrbpInfo {
+  /**
+   * hrbp id
+   *
+   * <p>示例值：6846027341358024200
+   */
+  @SerializedName("hrbp_id")
+  private String hrbpId;
+
+  /**
+   * hrbp类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("hrbp_type")
+  private Enum hrbpType;
+
+  /**
+   * 授权类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("auth_type")
+  private Enum authType;
+
+  /**
+   * 员工id
+   *
+   * <p>示例值：6846027341358024200
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 顺序
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("order")
+  private Integer order;
+
+  public String getHrbpId() {
+    return this.hrbpId;
+  }
+
+  public void setHrbpId(String hrbpId) {
+    this.hrbpId = hrbpId;
+  }
+
+  public Enum getHrbpType() {
+    return this.hrbpType;
+  }
+
+  public void setHrbpType(Enum hrbpType) {
+    this.hrbpType = hrbpType;
+  }
+
+  public Enum getAuthType() {
+    return this.authType;
+  }
+
+  public void setAuthType(Enum authType) {
+    this.authType = authType;
+  }
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public Integer getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(Integer order) {
+    this.order = order;
+  }
+
+  // builder 开始
+  public HrbpInfo() {}
+
+  public HrbpInfo(Builder builder) {
     /**
      * hrbp id
-     * <p> 示例值：6846027341358024200
+     *
+     * <p>示例值：6846027341358024200
      */
-    @SerializedName("hrbp_id")
-    private String hrbpId;
+    this.hrbpId = builder.hrbpId;
     /**
      * hrbp类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("hrbp_type")
-    private Enum hrbpType;
+    this.hrbpType = builder.hrbpType;
     /**
      * 授权类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("auth_type")
-    private Enum authType;
+    this.authType = builder.authType;
     /**
      * 员工id
-     * <p> 示例值：6846027341358024200
+     *
+     * <p>示例值：6846027341358024200
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 顺序
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("order")
+    this.order = builder.order;
+  }
+
+  public static class Builder {
+    /**
+     * hrbp id
+     *
+     * <p>示例值：6846027341358024200
+     */
+    private String hrbpId;
+
+    /**
+     * hrbp类型
+     *
+     * <p>示例值：
+     */
+    private Enum hrbpType;
+
+    /**
+     * 授权类型
+     *
+     * <p>示例值：
+     */
+    private Enum authType;
+
+    /**
+     * 员工id
+     *
+     * <p>示例值：6846027341358024200
+     */
+    private String employmentId;
+
+    /**
+     * 顺序
+     *
+     * <p>示例值：1
+     */
     private Integer order;
 
-    // builder 开始
-    public HrbpInfo() {
+    /**
+     * hrbp id
+     *
+     * <p>示例值：6846027341358024200
+     *
+     * @param hrbpId
+     * @return
+     */
+    public Builder hrbpId(String hrbpId) {
+      this.hrbpId = hrbpId;
+      return this;
     }
 
-    public HrbpInfo(Builder builder) {
-        /**
-         * hrbp id
-         * <p> 示例值：6846027341358024200
-         */
-        this.hrbpId = builder.hrbpId;
-        /**
-         * hrbp类型
-         * <p> 示例值：
-         */
-        this.hrbpType = builder.hrbpType;
-        /**
-         * 授权类型
-         * <p> 示例值：
-         */
-        this.authType = builder.authType;
-        /**
-         * 员工id
-         * <p> 示例值：6846027341358024200
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 顺序
-         * <p> 示例值：1
-         */
-        this.order = builder.order;
+    /**
+     * hrbp类型
+     *
+     * <p>示例值：
+     *
+     * @param hrbpType
+     * @return
+     */
+    public Builder hrbpType(Enum hrbpType) {
+      this.hrbpType = hrbpType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 授权类型
+     *
+     * <p>示例值：
+     *
+     * @param authType
+     * @return
+     */
+    public Builder authType(Enum authType) {
+      this.authType = authType;
+      return this;
     }
 
-    public String getHrbpId() {
-        return this.hrbpId;
+    /**
+     * 员工id
+     *
+     * <p>示例值：6846027341358024200
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public void setHrbpId(String hrbpId) {
-        this.hrbpId = hrbpId;
+    /**
+     * 顺序
+     *
+     * <p>示例值：1
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(Integer order) {
+      this.order = order;
+      return this;
     }
 
-    public Enum getHrbpType() {
-        return this.hrbpType;
+    public HrbpInfo build() {
+      return new HrbpInfo(this);
     }
+  }
 
-    public void setHrbpType(Enum hrbpType) {
-        this.hrbpType = hrbpType;
-    }
-
-    public Enum getAuthType() {
-        return this.authType;
-    }
-
-    public void setAuthType(Enum authType) {
-        this.authType = authType;
-    }
-
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public Integer getOrder() {
-        return this.order;
-    }
-
-    public void setOrder(Integer order) {
-        this.order = order;
-    }
-
-    public static class Builder {
-        /**
-         * hrbp id
-         * <p> 示例值：6846027341358024200
-         */
-        private String hrbpId;
-        /**
-         * hrbp类型
-         * <p> 示例值：
-         */
-        private Enum hrbpType;
-        /**
-         * 授权类型
-         * <p> 示例值：
-         */
-        private Enum authType;
-        /**
-         * 员工id
-         * <p> 示例值：6846027341358024200
-         */
-        private String employmentId;
-        /**
-         * 顺序
-         * <p> 示例值：1
-         */
-        private Integer order;
-
-        /**
-         * hrbp id
-         * <p> 示例值：6846027341358024200
-         *
-         * @param hrbpId
-         * @return
-         */
-        public Builder hrbpId(String hrbpId) {
-            this.hrbpId = hrbpId;
-            return this;
-        }
-
-
-        /**
-         * hrbp类型
-         * <p> 示例值：
-         *
-         * @param hrbpType
-         * @return
-         */
-        public Builder hrbpType(Enum hrbpType) {
-            this.hrbpType = hrbpType;
-            return this;
-        }
-
-
-        /**
-         * 授权类型
-         * <p> 示例值：
-         *
-         * @param authType
-         * @return
-         */
-        public Builder authType(Enum authType) {
-            this.authType = authType;
-            return this;
-        }
-
-
-        /**
-         * 员工id
-         * <p> 示例值：6846027341358024200
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 顺序
-         * <p> 示例值：1
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(Integer order) {
-            this.order = order;
-            return this;
-        }
-
-
-        public HrbpInfo build() {
-            return new HrbpInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VisibleScopeUnit {
+  /**
+   * id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 名字
+   *
+   * <p>示例值：研发
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 仅在 scopeType
+   * 为部门时具有该字段，区分内外部门。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("department_type")
+  private Integer departmentType;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Integer getDepartmentType() {
+    return this.departmentType;
+  }
+
+  public void setDepartmentType(Integer departmentType) {
+    this.departmentType = departmentType;
+  }
+
+  // builder 开始
+  public VisibleScopeUnit() {}
+
+  public VisibleScopeUnit(Builder builder) {
     /**
      * id
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 名字
-     * <p> 示例值：研发
+     *
+     * <p>示例值：研发
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 仅在 scopeType 为部门时具有该字段，区分内外部门。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：1
+     * 仅在 scopeType
+     * 为部门时具有该字段，区分内外部门。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
      */
-    @SerializedName("department_type")
+    this.departmentType = builder.departmentType;
+  }
+
+  public static class Builder {
+    /**
+     * id
+     *
+     * <p>示例值：1
+     */
+    private String id;
+
+    /**
+     * 名字
+     *
+     * <p>示例值：研发
+     */
+    private String name;
+
+    /**
+     * 仅在 scopeType
+     * 为部门时具有该字段，区分内外部门。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     */
     private Integer departmentType;
 
-    // builder 开始
-    public VisibleScopeUnit() {
+    /**
+     * id
+     *
+     * <p>示例值：1
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public VisibleScopeUnit(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * 名字
-         * <p> 示例值：研发
-         */
-        this.name = builder.name;
-        /**
-         * 仅在 scopeType 为部门时具有该字段，区分内外部门。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        this.departmentType = builder.departmentType;
+    /**
+     * 名字
+     *
+     * <p>示例值：研发
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 仅在 scopeType
+     * 为部门时具有该字段，区分内外部门。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：1
+     *
+     * @param departmentType
+     * @return
+     */
+    public Builder departmentType(Integer departmentType) {
+      this.departmentType = departmentType;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public VisibleScopeUnit build() {
+      return new VisibleScopeUnit(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getDepartmentType() {
-        return this.departmentType;
-    }
-
-    public void setDepartmentType(Integer departmentType) {
-        this.departmentType = departmentType;
-    }
-
-    public static class Builder {
-        /**
-         * id
-         * <p> 示例值：1
-         */
-        private String id;
-        /**
-         * 名字
-         * <p> 示例值：研发
-         */
-        private String name;
-        /**
-         * 仅在 scopeType 为部门时具有该字段，区分内外部门。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         */
-        private Integer departmentType;
-
-        /**
-         * id
-         * <p> 示例值：1
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 名字
-         * <p> 示例值：研发
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 仅在 scopeType 为部门时具有该字段，区分内外部门。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：1
-         *
-         * @param departmentType
-         * @return
-         */
-        public Builder departmentType(Integer departmentType) {
-            this.departmentType = departmentType;
-            return this;
-        }
-
-
-        public VisibleScopeUnit build() {
-            return new VisibleScopeUnit(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

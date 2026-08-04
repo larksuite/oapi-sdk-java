@@ -13,18 +13,17 @@
 package com.lark.oapi.service.docs;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.docs.v1.V1;
 import com.lark.oapi.service.docs.v1.model.*;
 
 public class DocsService {
-    private final V1 v1;
+  private final V1 v1;
 
-    public DocsService(Config config) {
-        this.v1 = new V1(config);
-    }
+  public DocsService(Config config) {
+    this.v1 = new V1(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 }

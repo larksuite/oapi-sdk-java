@@ -13,235 +13,359 @@
 
 package com.lark.oapi.service.docx.v1.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.docx.v1.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.docx.v1.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class ChatAnnouncementBlockChildren {
-    private static final Logger log = LoggerFactory.getLogger(ChatAnnouncementBlockChildren.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(ChatAnnouncementBlockChildren.class);
+  private final Config config;
 
-    public ChatAnnouncementBlockChildren(Config config) {
-        this.config = config;
+  public ChatAnnouncementBlockChildren(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 删除群公告中的块;，指定需要操作的块，删除其指定范围的子块。如果操作成功，接口将返回应用删除操作后的群公告版本号。;
+   *
+   * <p>## 前提条件;;-
+   * 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。;-
+   * 调用当前接口的用户或者机器人必须在对应的群组内。;- 操作内部群的群公告时，请确保当前调用身份（tenant_access_token 或
+   * user_access_token）与对应群组在同一租户下。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=docx&resource=chat.announcement.block.children&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=docx&resource=chat.announcement.block.children&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/BatchDeleteChatAnnouncementBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/BatchDeleteChatAnnouncementBlockChildrenSample.java</a>
+   * ;
+   */
+  public BatchDeleteChatAnnouncementBlockChildrenResp batchDelete(
+      BatchDeleteChatAnnouncementBlockChildrenReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "DELETE",
+            "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children/batch_delete",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=docx&resource=chat.announcement.block.children&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=docx&resource=chat.announcement.block.children&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/BatchDeleteChatAnnouncementBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/BatchDeleteChatAnnouncementBlockChildrenSample.java</a> ;
-     */
-    public BatchDeleteChatAnnouncementBlockChildrenResp batchDelete(BatchDeleteChatAnnouncementBlockChildrenReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-                , "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children/batch_delete"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        BatchDeleteChatAnnouncementBlockChildrenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteChatAnnouncementBlockChildrenResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children/batch_delete"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    BatchDeleteChatAnnouncementBlockChildrenResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, BatchDeleteChatAnnouncementBlockChildrenResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children/batch_delete",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=docx&resource=chat.announcement.block.children&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=docx&resource=chat.announcement.block.children&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/BatchDeleteChatAnnouncementBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/BatchDeleteChatAnnouncementBlockChildrenSample.java</a> ;
-     */
-    public BatchDeleteChatAnnouncementBlockChildrenResp batchDelete(BatchDeleteChatAnnouncementBlockChildrenReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-                , "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children/batch_delete"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        BatchDeleteChatAnnouncementBlockChildrenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, BatchDeleteChatAnnouncementBlockChildrenResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children/batch_delete"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 删除群公告中的块;，指定需要操作的块，删除其指定范围的子块。如果操作成功，接口将返回应用删除操作后的群公告版本号。;
+   *
+   * <p>## 前提条件;;-
+   * 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。;-
+   * 调用当前接口的用户或者机器人必须在对应的群组内。;- 操作内部群的群公告时，请确保当前调用身份（tenant_access_token 或
+   * user_access_token）与对应群组在同一租户下。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=docx&resource=chat.announcement.block.children&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=batch_delete&project=docx&resource=chat.announcement.block.children&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/BatchDeleteChatAnnouncementBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/BatchDeleteChatAnnouncementBlockChildrenSample.java</a>
+   * ;
+   */
+  public BatchDeleteChatAnnouncementBlockChildrenResp batchDelete(
+      BatchDeleteChatAnnouncementBlockChildrenReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "DELETE",
+            "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children/batch_delete",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    BatchDeleteChatAnnouncementBlockChildrenResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, BatchDeleteChatAnnouncementBlockChildrenResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children/batch_delete",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=docx&resource=chat.announcement.block.children&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=docx&resource=chat.announcement.block.children&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/CreateChatAnnouncementBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/CreateChatAnnouncementBlockChildrenSample.java</a> ;
-     */
-    public CreateChatAnnouncementBlockChildrenResp create(CreateChatAnnouncementBlockChildrenReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        CreateChatAnnouncementBlockChildrenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateChatAnnouncementBlockChildrenResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 在群公告中创建块，在指定块的子块列表中，新创建一批子块，并放置到指定位置。如果操作成功，接口将返回新创建子块的富文本内容。调用该接口前，你可参考[群公告概述-基本概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/upgraded-group-announcement/group-announcement-overview)了解块的父子关系规则。
+   *
+   * <p>**应用频率限制**：单个应用调用频率上限为每秒 5 次，超过该频率限制，接口将返回 HTTP 状态码 <font color="blue">400</font> 及错误码 <font
+   * color="blue">99991400</font>；;;**群公告频率限制**：单篇群公告并发编辑上限为每秒 3 次，超过该频率限制，接口将返回 HTTP 状态码 <font
+   * color="blue">429</font>，编辑操作包括：;- 创建块;- 批量更新块;- 删除块;;当请求被限频，应用需要处理限频状态码，并使用指数退避算法或其它一些频控策略降低对
+   * API 的调用速率。;;## 前提条件;;-
+   * 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。;-
+   * 调用当前接口的用户或者机器人必须在对应的群组内，且需要拥有群公告的编辑权限。;- 操作内部群的群公告时，请确保当前调用身份（tenant_access_token 或
+   * user_access_token）与对应群组在同一租户下。;;## 使用限制;;- 如果群组配置了 **仅群主和群管理员可编辑群信息**，则仅有群主、群管理员，或者是创建群组且具有
+   * **更新应用所创建群的群信息（im:chat:operate_as_owner）** 权限的机器人，可以更新群公告信息。;- 如果群组没有配置
+   * **仅群主和群管理员可编辑群信息**，则所有群成员可以更新群公告信息。;; ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=docx&resource=chat.announcement.block.children&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=docx&resource=chat.announcement.block.children&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/CreateChatAnnouncementBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/CreateChatAnnouncementBlockChildrenSample.java</a>
+   * ;
+   */
+  public CreateChatAnnouncementBlockChildrenResp create(
+      CreateChatAnnouncementBlockChildrenReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=docx&resource=chat.announcement.block.children&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=docx&resource=chat.announcement.block.children&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/CreateChatAnnouncementBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/CreateChatAnnouncementBlockChildrenSample.java</a> ;
-     */
-    public CreateChatAnnouncementBlockChildrenResp create(CreateChatAnnouncementBlockChildrenReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
-
-        // 反序列化
-        CreateChatAnnouncementBlockChildrenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateChatAnnouncementBlockChildrenResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    CreateChatAnnouncementBlockChildrenResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, CreateChatAnnouncementBlockChildrenResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=docx&resource=chat.announcement.block.children&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=docx&resource=chat.announcement.block.children&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/GetChatAnnouncementBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/GetChatAnnouncementBlockChildrenSample.java</a> ;
-     */
-    public GetChatAnnouncementBlockChildrenResp get(GetChatAnnouncementBlockChildrenReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        GetChatAnnouncementBlockChildrenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetChatAnnouncementBlockChildrenResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 在群公告中创建块，在指定块的子块列表中，新创建一批子块，并放置到指定位置。如果操作成功，接口将返回新创建子块的富文本内容。调用该接口前，你可参考[群公告概述-基本概念](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/upgraded-group-announcement/group-announcement-overview)了解块的父子关系规则。
+   *
+   * <p>**应用频率限制**：单个应用调用频率上限为每秒 5 次，超过该频率限制，接口将返回 HTTP 状态码 <font color="blue">400</font> 及错误码 <font
+   * color="blue">99991400</font>；;;**群公告频率限制**：单篇群公告并发编辑上限为每秒 3 次，超过该频率限制，接口将返回 HTTP 状态码 <font
+   * color="blue">429</font>，编辑操作包括：;- 创建块;- 批量更新块;- 删除块;;当请求被限频，应用需要处理限频状态码，并使用指数退避算法或其它一些频控策略降低对
+   * API 的调用速率。;;## 前提条件;;-
+   * 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。;-
+   * 调用当前接口的用户或者机器人必须在对应的群组内，且需要拥有群公告的编辑权限。;- 操作内部群的群公告时，请确保当前调用身份（tenant_access_token 或
+   * user_access_token）与对应群组在同一租户下。;;## 使用限制;;- 如果群组配置了 **仅群主和群管理员可编辑群信息**，则仅有群主、群管理员，或者是创建群组且具有
+   * **更新应用所创建群的群信息（im:chat:operate_as_owner）** 权限的机器人，可以更新群公告信息。;- 如果群组没有配置
+   * **仅群主和群管理员可编辑群信息**，则所有群成员可以更新群公告信息。;; ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=docx&resource=chat.announcement.block.children&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=docx&resource=chat.announcement.block.children&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/CreateChatAnnouncementBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/CreateChatAnnouncementBlockChildrenSample.java</a>
+   * ;
+   */
+  public CreateChatAnnouncementBlockChildrenResp create(CreateChatAnnouncementBlockChildrenReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
 
-        return resp;
+    // 反序列化
+    CreateChatAnnouncementBlockChildrenResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, CreateChatAnnouncementBlockChildrenResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=docx&resource=chat.announcement.block.children&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=docx&resource=chat.announcement.block.children&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/GetChatAnnouncementBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/GetChatAnnouncementBlockChildrenSample.java</a> ;
-     */
-    public GetChatAnnouncementBlockChildrenResp get(GetChatAnnouncementBlockChildrenReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children"
-                , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        GetChatAnnouncementBlockChildrenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetChatAnnouncementBlockChildrenResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 获取所有子块;，获取群公告中指定块的所有子块的富文本内容并分页返回。;
+   *
+   * <p>**应用频率限制**：单个应用调用频率上限为每秒 10 次，超过该频率限制，接口将返回 HTTP 状态码 <font color="blue">400</font> 及错误码
+   * <font color="blue">99991400</font>。当请求被限频，应用需要处理限频状态码，并使用指数退避算法或其它一些频控策略降低对 API 的调用速率。;;##
+   * 前提条件;;-
+   * 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。;-
+   * 调用当前接口的用户或者机器人必须在对应的群组内。;- 获取内部群信息时，调用当前接口的用户或者机器人必须与对应群组在同一租户下。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=docx&resource=chat.announcement.block.children&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=docx&resource=chat.announcement.block.children&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/GetChatAnnouncementBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/GetChatAnnouncementBlockChildrenSample.java</a>
+   * ;
+   */
+  public GetChatAnnouncementBlockChildrenResp get(
+      GetChatAnnouncementBlockChildrenReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
+
+    // 反序列化
+    GetChatAnnouncementBlockChildrenResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, GetChatAnnouncementBlockChildrenResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 获取所有子块;，获取群公告中指定块的所有子块的富文本内容并分页返回。;
+   *
+   * <p>**应用频率限制**：单个应用调用频率上限为每秒 10 次，超过该频率限制，接口将返回 HTTP 状态码 <font color="blue">400</font> 及错误码
+   * <font color="blue">99991400</font>。当请求被限频，应用需要处理限频状态码，并使用指数退避算法或其它一些频控策略降低对 API 的调用速率。;;##
+   * 前提条件;;-
+   * 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。;-
+   * 调用当前接口的用户或者机器人必须在对应的群组内。;- 获取内部群信息时，调用当前接口的用户或者机器人必须与对应群组在同一租户下。 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=docx&resource=chat.announcement.block.children&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=docx&resource=chat.announcement.block.children&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/GetChatAnnouncementBlockChildrenSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/docxv1/GetChatAnnouncementBlockChildrenSample.java</a>
+   * ;
+   */
+  public GetChatAnnouncementBlockChildrenResp get(GetChatAnnouncementBlockChildrenReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children",
+            Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User),
+            req);
+
+    // 反序列化
+    GetChatAnnouncementBlockChildrenResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, GetChatAnnouncementBlockChildrenResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/docx/v1/chats/:chat_id/announcement/blocks/:block_id/children",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

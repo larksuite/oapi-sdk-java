@@ -22,43 +22,43 @@ import com.lark.oapi.service.search.v2.resource.Message;
 import com.lark.oapi.service.search.v2.resource.Schema;
 
 public class V2 {
-    private final App app; // app
-    private final DataSource dataSource; // 数据源
-    private final DataSourceItem dataSourceItem; // 数据项
-    private final DocWiki docWiki; // doc_wiki
-    private final Message message; // message
-    private final Schema schema; // 数据范式
+  private final App app; // app
+  private final DataSource dataSource; // data_source
+  private final DataSourceItem dataSourceItem; // data_source.item
+  private final DocWiki docWiki; // doc_wiki
+  private final Message message; // message
+  private final Schema schema; // schema
 
-    public V2(Config config) {
-        this.app = new App(config);
-        this.dataSource = new DataSource(config);
-        this.dataSourceItem = new DataSourceItem(config);
-        this.docWiki = new DocWiki(config);
-        this.message = new Message(config);
-        this.schema = new Schema(config);
-    }
+  public V2(Config config) {
+    this.app = new App(config);
+    this.dataSource = new DataSource(config);
+    this.dataSourceItem = new DataSourceItem(config);
+    this.docWiki = new DocWiki(config);
+    this.message = new Message(config);
+    this.schema = new Schema(config);
+  }
 
-    public App app() {
-        return app;
-    }
+  public App app() {
+    return app;
+  }
 
-    public DataSource dataSource() {
-        return dataSource;
-    }
+  public DataSource dataSource() {
+    return dataSource;
+  }
 
-    public DataSourceItem dataSourceItem() {
-        return dataSourceItem;
-    }
+  public DataSourceItem dataSourceItem() {
+    return dataSourceItem;
+  }
 
-    public DocWiki docWiki() {
-        return docWiki;
-    }
+  public DocWiki docWiki() {
+    return docWiki;
+  }
 
-    public Message message() {
-        return message;
-    }
+  public Message message() {
+    return message;
+  }
 
-    public Schema schema() {
-        return schema;
-    }
+  public Schema schema() {
+    return schema;
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 统计类型
- */
+/** 统计类型 */
 public enum QueryUserStatsDataQueryStatisticsDataStatsTypeEnum {
-    DAILY("daily"), // 日度统计
-    MONTH("month"), // 月度统计
-    ;
-    private String value;
+  DAILY("daily"), // 日度统计
+  MONTH("month"), // 月度统计
+  ;
+  private String value;
 
-    QueryUserStatsDataQueryStatisticsDataStatsTypeEnum(String value) {
-        this.value = value;
-    }
+  QueryUserStatsDataQueryStatisticsDataStatsTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

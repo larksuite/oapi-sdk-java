@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PublicMailbox {
+  /**
+   * 公共邮箱唯一标识
+   *
+   * <p>示例值：xxxxxxxxxxxxxxx
+   */
+  @SerializedName("public_mailbox_id")
+  private String publicMailboxId;
+
+  /**
+   * 公共邮箱地址
+   *
+   * <p>示例值：test_public_mailbox@xxx.xx
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 公共邮箱名称
+   *
+   * <p>示例值：test public mailbox
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 数据驻留地
+   *
+   * <p>示例值：cn
+   */
+  @SerializedName("geo")
+  private String geo;
+
+  public String getPublicMailboxId() {
+    return this.publicMailboxId;
+  }
+
+  public void setPublicMailboxId(String publicMailboxId) {
+    this.publicMailboxId = publicMailboxId;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getGeo() {
+    return this.geo;
+  }
+
+  public void setGeo(String geo) {
+    this.geo = geo;
+  }
+
+  // builder 开始
+  public PublicMailbox() {}
+
+  public PublicMailbox(Builder builder) {
     /**
      * 公共邮箱唯一标识
-     * <p> 示例值：xxxxxxxxxxxxxxx
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx
      */
-    @SerializedName("public_mailbox_id")
-    private String publicMailboxId;
+    this.publicMailboxId = builder.publicMailboxId;
     /**
      * 公共邮箱地址
-     * <p> 示例值：test_public_mailbox@xxx.xx
+     *
+     * <p>示例值：test_public_mailbox@xxx.xx
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 公共邮箱名称
-     * <p> 示例值：test public mailbox
+     *
+     * <p>示例值：test public mailbox
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 数据驻留地
-     * <p> 示例值：cn
+     *
+     * <p>示例值：cn
      */
-    @SerializedName("geo")
+    this.geo = builder.geo;
+  }
+
+  public static class Builder {
+    /**
+     * 公共邮箱唯一标识
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx
+     */
+    private String publicMailboxId;
+
+    /**
+     * 公共邮箱地址
+     *
+     * <p>示例值：test_public_mailbox@xxx.xx
+     */
+    private String email;
+
+    /**
+     * 公共邮箱名称
+     *
+     * <p>示例值：test public mailbox
+     */
+    private String name;
+
+    /**
+     * 数据驻留地
+     *
+     * <p>示例值：cn
+     */
     private String geo;
 
-    // builder 开始
-    public PublicMailbox() {
+    /**
+     * 公共邮箱唯一标识
+     *
+     * <p>示例值：xxxxxxxxxxxxxxx
+     *
+     * @param publicMailboxId
+     * @return
+     */
+    public Builder publicMailboxId(String publicMailboxId) {
+      this.publicMailboxId = publicMailboxId;
+      return this;
     }
 
-    public PublicMailbox(Builder builder) {
-        /**
-         * 公共邮箱唯一标识
-         * <p> 示例值：xxxxxxxxxxxxxxx
-         */
-        this.publicMailboxId = builder.publicMailboxId;
-        /**
-         * 公共邮箱地址
-         * <p> 示例值：test_public_mailbox@xxx.xx
-         */
-        this.email = builder.email;
-        /**
-         * 公共邮箱名称
-         * <p> 示例值：test public mailbox
-         */
-        this.name = builder.name;
-        /**
-         * 数据驻留地
-         * <p> 示例值：cn
-         */
-        this.geo = builder.geo;
+    /**
+     * 公共邮箱地址
+     *
+     * <p>示例值：test_public_mailbox@xxx.xx
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 公共邮箱名称
+     *
+     * <p>示例值：test public mailbox
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getPublicMailboxId() {
-        return this.publicMailboxId;
+    /**
+     * 数据驻留地
+     *
+     * <p>示例值：cn
+     *
+     * @param geo
+     * @return
+     */
+    public Builder geo(String geo) {
+      this.geo = geo;
+      return this;
     }
 
-    public void setPublicMailboxId(String publicMailboxId) {
-        this.publicMailboxId = publicMailboxId;
+    public PublicMailbox build() {
+      return new PublicMailbox(this);
     }
+  }
 
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGeo() {
-        return this.geo;
-    }
-
-    public void setGeo(String geo) {
-        this.geo = geo;
-    }
-
-    public static class Builder {
-        /**
-         * 公共邮箱唯一标识
-         * <p> 示例值：xxxxxxxxxxxxxxx
-         */
-        private String publicMailboxId;
-        /**
-         * 公共邮箱地址
-         * <p> 示例值：test_public_mailbox@xxx.xx
-         */
-        private String email;
-        /**
-         * 公共邮箱名称
-         * <p> 示例值：test public mailbox
-         */
-        private String name;
-        /**
-         * 数据驻留地
-         * <p> 示例值：cn
-         */
-        private String geo;
-
-        /**
-         * 公共邮箱唯一标识
-         * <p> 示例值：xxxxxxxxxxxxxxx
-         *
-         * @param publicMailboxId
-         * @return
-         */
-        public Builder publicMailboxId(String publicMailboxId) {
-            this.publicMailboxId = publicMailboxId;
-            return this;
-        }
-
-
-        /**
-         * 公共邮箱地址
-         * <p> 示例值：test_public_mailbox@xxx.xx
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 公共邮箱名称
-         * <p> 示例值：test public mailbox
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 数据驻留地
-         * <p> 示例值：cn
-         *
-         * @param geo
-         * @return
-         */
-        public Builder geo(String geo) {
-            this.geo = geo;
-            return this;
-        }
-
-
-        public PublicMailbox build() {
-            return new PublicMailbox(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

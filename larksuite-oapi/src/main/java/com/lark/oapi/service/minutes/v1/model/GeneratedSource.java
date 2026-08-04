@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.minutes.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GeneratedSource {
+  /**
+   * 来源类型。;;**可选值有：**;;-`meeting`: 会议来源
+   *
+   * <p>示例值：meeting
+   */
+  @SerializedName("source_type")
+  private String sourceType;
+
+  /**
+   * 来源实体id。;;-`meeting`: 对应的是会议ID（meeting id）
+   *
+   * <p>示例值：6911188411934433028
+   */
+  @SerializedName("source_entity_id")
+  private String sourceEntityId;
+
+  public String getSourceType() {
+    return this.sourceType;
+  }
+
+  public void setSourceType(String sourceType) {
+    this.sourceType = sourceType;
+  }
+
+  public String getSourceEntityId() {
+    return this.sourceEntityId;
+  }
+
+  public void setSourceEntityId(String sourceEntityId) {
+    this.sourceEntityId = sourceEntityId;
+  }
+
+  // builder 开始
+  public GeneratedSource() {}
+
+  public GeneratedSource(Builder builder) {
     /**
-     * 来源类型
-     * <p> 示例值：meeting
+     * 来源类型。;;**可选值有：**;;-`meeting`: 会议来源
+     *
+     * <p>示例值：meeting
      */
-    @SerializedName("source_type")
+    this.sourceType = builder.sourceType;
+    /**
+     * 来源实体id。;;-`meeting`: 对应的是会议ID（meeting id）
+     *
+     * <p>示例值：6911188411934433028
+     */
+    this.sourceEntityId = builder.sourceEntityId;
+  }
+
+  public static class Builder {
+    /**
+     * 来源类型。;;**可选值有：**;;-`meeting`: 会议来源
+     *
+     * <p>示例值：meeting
+     */
     private String sourceType;
+
     /**
-     * 来源实体id，如果是会议的话，就是meeting id
-     * <p> 示例值：6911188411934433028
+     * 来源实体id。;;-`meeting`: 对应的是会议ID（meeting id）
+     *
+     * <p>示例值：6911188411934433028
      */
-    @SerializedName("source_entity_id")
     private String sourceEntityId;
 
-    // builder 开始
-    public GeneratedSource() {
+    /**
+     * 来源类型。;;**可选值有：**;;-`meeting`: 会议来源
+     *
+     * <p>示例值：meeting
+     *
+     * @param sourceType
+     * @return
+     */
+    public Builder sourceType(String sourceType) {
+      this.sourceType = sourceType;
+      return this;
     }
 
-    public GeneratedSource(Builder builder) {
-        /**
-         * 来源类型
-         * <p> 示例值：meeting
-         */
-        this.sourceType = builder.sourceType;
-        /**
-         * 来源实体id，如果是会议的话，就是meeting id
-         * <p> 示例值：6911188411934433028
-         */
-        this.sourceEntityId = builder.sourceEntityId;
+    /**
+     * 来源实体id。;;-`meeting`: 对应的是会议ID（meeting id）
+     *
+     * <p>示例值：6911188411934433028
+     *
+     * @param sourceEntityId
+     * @return
+     */
+    public Builder sourceEntityId(String sourceEntityId) {
+      this.sourceEntityId = sourceEntityId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GeneratedSource build() {
+      return new GeneratedSource(this);
     }
+  }
 
-    public String getSourceType() {
-        return this.sourceType;
-    }
-
-    public void setSourceType(String sourceType) {
-        this.sourceType = sourceType;
-    }
-
-    public String getSourceEntityId() {
-        return this.sourceEntityId;
-    }
-
-    public void setSourceEntityId(String sourceEntityId) {
-        this.sourceEntityId = sourceEntityId;
-    }
-
-    public static class Builder {
-        /**
-         * 来源类型
-         * <p> 示例值：meeting
-         */
-        private String sourceType;
-        /**
-         * 来源实体id，如果是会议的话，就是meeting id
-         * <p> 示例值：6911188411934433028
-         */
-        private String sourceEntityId;
-
-        /**
-         * 来源类型
-         * <p> 示例值：meeting
-         *
-         * @param sourceType
-         * @return
-         */
-        public Builder sourceType(String sourceType) {
-            this.sourceType = sourceType;
-            return this;
-        }
-
-
-        /**
-         * 来源实体id，如果是会议的话，就是meeting id
-         * <p> 示例值：6911188411934433028
-         *
-         * @param sourceEntityId
-         * @return
-         */
-        public Builder sourceEntityId(String sourceEntityId) {
-            this.sourceEntityId = sourceEntityId;
-            return this;
-        }
-
-
-        public GeneratedSource build() {
-            return new GeneratedSource(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

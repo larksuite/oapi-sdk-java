@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WebsiteDeliveryLanguage {
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_data")
+  private WebsiteDeliveryCustomizedData[] customizedData;
+
+  /**
+   * 语言
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("language")
+  private Integer language;
+
+  /**
+   * 熟悉程度
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("proficiency")
+  private Integer proficiency;
+
+  public WebsiteDeliveryCustomizedData[] getCustomizedData() {
+    return this.customizedData;
+  }
+
+  public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+    this.customizedData = customizedData;
+  }
+
+  public Integer getLanguage() {
+    return this.language;
+  }
+
+  public void setLanguage(Integer language) {
+    this.language = language;
+  }
+
+  public Integer getProficiency() {
+    return this.proficiency;
+  }
+
+  public void setProficiency(Integer proficiency) {
+    this.proficiency = proficiency;
+  }
+
+  // builder 开始
+  public WebsiteDeliveryLanguage() {}
+
+  public WebsiteDeliveryLanguage(Builder builder) {
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("customized_data")
-    private WebsiteDeliveryCustomizedData[] customizedData;
+    this.customizedData = builder.customizedData;
     /**
      * 语言
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("language")
-    private Integer language;
+    this.language = builder.language;
     /**
      * 熟悉程度
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("proficiency")
+    this.proficiency = builder.proficiency;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private WebsiteDeliveryCustomizedData[] customizedData;
+
+    /**
+     * 语言
+     *
+     * <p>示例值：1
+     */
+    private Integer language;
+
+    /**
+     * 熟悉程度
+     *
+     * <p>示例值：1
+     */
     private Integer proficiency;
 
-    // builder 开始
-    public WebsiteDeliveryLanguage() {
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customizedData
+     * @return
+     */
+    public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
+      this.customizedData = customizedData;
+      return this;
     }
 
-    public WebsiteDeliveryLanguage(Builder builder) {
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedData = builder.customizedData;
-        /**
-         * 语言
-         * <p> 示例值：1
-         */
-        this.language = builder.language;
-        /**
-         * 熟悉程度
-         * <p> 示例值：1
-         */
-        this.proficiency = builder.proficiency;
+    /**
+     * 语言
+     *
+     * <p>示例值：1
+     *
+     * @param language
+     * @return
+     */
+    public Builder language(Integer language) {
+      this.language = language;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 熟悉程度
+     *
+     * <p>示例值：1
+     *
+     * @param proficiency
+     * @return
+     */
+    public Builder proficiency(Integer proficiency) {
+      this.proficiency = proficiency;
+      return this;
     }
 
-    public WebsiteDeliveryCustomizedData[] getCustomizedData() {
-        return this.customizedData;
+    public WebsiteDeliveryLanguage build() {
+      return new WebsiteDeliveryLanguage(this);
     }
+  }
 
-    public void setCustomizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-        this.customizedData = customizedData;
-    }
-
-    public Integer getLanguage() {
-        return this.language;
-    }
-
-    public void setLanguage(Integer language) {
-        this.language = language;
-    }
-
-    public Integer getProficiency() {
-        return this.proficiency;
-    }
-
-    public void setProficiency(Integer proficiency) {
-        this.proficiency = proficiency;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private WebsiteDeliveryCustomizedData[] customizedData;
-        /**
-         * 语言
-         * <p> 示例值：1
-         */
-        private Integer language;
-        /**
-         * 熟悉程度
-         * <p> 示例值：1
-         */
-        private Integer proficiency;
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customizedData
-         * @return
-         */
-        public Builder customizedData(WebsiteDeliveryCustomizedData[] customizedData) {
-            this.customizedData = customizedData;
-            return this;
-        }
-
-
-        /**
-         * 语言
-         * <p> 示例值：1
-         *
-         * @param language
-         * @return
-         */
-        public Builder language(Integer language) {
-            this.language = language;
-            return this;
-        }
-
-
-        /**
-         * 熟悉程度
-         * <p> 示例值：1
-         *
-         * @param proficiency
-         * @return
-         */
-        public Builder proficiency(Integer proficiency) {
-            this.proficiency = proficiency;
-            return this;
-        }
-
-
-        public WebsiteDeliveryLanguage build() {
-            return new WebsiteDeliveryLanguage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

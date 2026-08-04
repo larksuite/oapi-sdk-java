@@ -13,111 +13,118 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EntityInfo {
+  /**
+   * 实体code，枚举如下;- `talent`：人才;- `application`：投递;- `interview`：面试;-
+   * `interview_appointment_project`：预约面试;- `jobfair`：集中面试;- `exam_session`：集中笔试;- `offer`：Offer;-
+   * `job`：职位;- `job_recruitment`：招聘需求;- `reward`：内推奖励;- `info_session`：宣讲会;- `bi`：BI;-
+   * `subject`：对应项目
+   *
+   * <p>示例值：application
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 实体名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public EntityInfo() {}
+
+  public EntityInfo(Builder builder) {
     /**
-     * 实体code
-     * <p> 示例值：application
+     * 实体code，枚举如下;- `talent`：人才;- `application`：投递;- `interview`：面试;-
+     * `interview_appointment_project`：预约面试;- `jobfair`：集中面试;- `exam_session`：集中笔试;- `offer`：Offer;-
+     * `job`：职位;- `job_recruitment`：招聘需求;- `reward`：内推奖励;- `info_session`：宣讲会;- `bi`：BI;-
+     * `subject`：对应项目
+     *
+     * <p>示例值：application
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 实体名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 实体code，枚举如下;- `talent`：人才;- `application`：投递;- `interview`：面试;-
+     * `interview_appointment_project`：预约面试;- `jobfair`：集中面试;- `exam_session`：集中笔试;- `offer`：Offer;-
+     * `job`：职位;- `job_recruitment`：招聘需求;- `reward`：内推奖励;- `info_session`：宣讲会;- `bi`：BI;-
+     * `subject`：对应项目
+     *
+     * <p>示例值：application
+     */
+    private String code;
+
+    /**
+     * 实体名称
+     *
+     * <p>示例值：
+     */
     private I18n name;
 
-    // builder 开始
-    public EntityInfo() {
+    /**
+     * 实体code，枚举如下;- `talent`：人才;- `application`：投递;- `interview`：面试;-
+     * `interview_appointment_project`：预约面试;- `jobfair`：集中面试;- `exam_session`：集中笔试;- `offer`：Offer;-
+     * `job`：职位;- `job_recruitment`：招聘需求;- `reward`：内推奖励;- `info_session`：宣讲会;- `bi`：BI;-
+     * `subject`：对应项目
+     *
+     * <p>示例值：application
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public EntityInfo(Builder builder) {
-        /**
-         * 实体code
-         * <p> 示例值：application
-         */
-        this.code = builder.code;
-        /**
-         * 实体名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 实体名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EntityInfo build() {
+      return new EntityInfo(this);
     }
+  }
 
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 实体code
-         * <p> 示例值：application
-         */
-        private String code;
-        /**
-         * 实体名称
-         * <p> 示例值：
-         */
-        private I18n name;
-
-        /**
-         * 实体code
-         * <p> 示例值：application
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 实体名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public EntityInfo build() {
-            return new EntityInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

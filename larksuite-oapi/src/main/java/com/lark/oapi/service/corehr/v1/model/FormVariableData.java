@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FormVariableData {
+  /**
+   * 表单字段变量对象
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_variable_values")
+  private FormFieldVariable[] fieldVariableValues;
+
+  public FormFieldVariable[] getFieldVariableValues() {
+    return this.fieldVariableValues;
+  }
+
+  public void setFieldVariableValues(FormFieldVariable[] fieldVariableValues) {
+    this.fieldVariableValues = fieldVariableValues;
+  }
+
+  // builder 开始
+  public FormVariableData() {}
+
+  public FormVariableData(Builder builder) {
     /**
      * 表单字段变量对象
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_variable_values")
+    this.fieldVariableValues = builder.fieldVariableValues;
+  }
+
+  public static class Builder {
+    /**
+     * 表单字段变量对象
+     *
+     * <p>示例值：
+     */
     private FormFieldVariable[] fieldVariableValues;
 
-    // builder 开始
-    public FormVariableData() {
+    /**
+     * 表单字段变量对象
+     *
+     * <p>示例值：
+     *
+     * @param fieldVariableValues
+     * @return
+     */
+    public Builder fieldVariableValues(FormFieldVariable[] fieldVariableValues) {
+      this.fieldVariableValues = fieldVariableValues;
+      return this;
     }
 
-    public FormVariableData(Builder builder) {
-        /**
-         * 表单字段变量对象
-         * <p> 示例值：
-         */
-        this.fieldVariableValues = builder.fieldVariableValues;
+    public FormVariableData build() {
+      return new FormVariableData(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public FormFieldVariable[] getFieldVariableValues() {
-        return this.fieldVariableValues;
-    }
-
-    public void setFieldVariableValues(FormFieldVariable[] fieldVariableValues) {
-        this.fieldVariableValues = fieldVariableValues;
-    }
-
-    public static class Builder {
-        /**
-         * 表单字段变量对象
-         * <p> 示例值：
-         */
-        private FormFieldVariable[] fieldVariableValues;
-
-        /**
-         * 表单字段变量对象
-         * <p> 示例值：
-         *
-         * @param fieldVariableValues
-         * @return
-         */
-        public Builder fieldVariableValues(FormFieldVariable[] fieldVariableValues) {
-            this.fieldVariableValues = fieldVariableValues;
-            return this;
-        }
-
-
-        public FormVariableData build() {
-            return new FormVariableData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

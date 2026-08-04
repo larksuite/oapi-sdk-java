@@ -13,118 +13,118 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2DeviceApplyRecordDeviceApplyEventV2Data {
-    /**
-     * 设备申报记录ID
-     * <p> 示例值：7088763625288187923
-     */
-    @SerializedName("device_apply_record_id")
-    private String deviceApplyRecordId;
-    /**
-     * 设备记录
-     * <p> 示例值：
-     */
-    @SerializedName("device_record")
-    private DeviceRecordEvent deviceRecord;
-    /**
-     * 申报时间
-     * <p> 示例值：2022-11-28 17:21:26
-     */
-    @SerializedName("apply_time")
-    private String applyTime;
-    /**
-     * 申报状态
-     * <p> 示例值：0
-     */
-    @SerializedName("apply_status")
-    private Integer applyStatus;
-    /**
-     * 申报人ID
-     * <p> 示例值：
-     */
-    @SerializedName("operator")
-    private UserId operator;
-    /**
-     * 申报设备归属
-     * <p> 示例值：0
-     */
-    @SerializedName("apply_device_ownership")
-    private Integer applyDeviceOwnership;
-    /**
-     * 申报理由
-     * <p> 示例值：reason
-     */
-    @SerializedName("apply_reason")
-    private String applyReason;
+  /**
+   * 设备申报记录ID
+   *
+   * <p>示例值：7088763625288187923
+   */
+  @SerializedName("device_apply_record_id")
+  private String deviceApplyRecordId;
 
-    public String getDeviceApplyRecordId() {
-        return this.deviceApplyRecordId;
-    }
+  /**
+   * 设备记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("device_record")
+  private DeviceRecordEvent deviceRecord;
 
-    public void setDeviceApplyRecordId(String deviceApplyRecordId) {
-        this.deviceApplyRecordId = deviceApplyRecordId;
-    }
+  /**
+   * 申报时间
+   *
+   * <p>示例值：2022-11-28 17:21:26
+   */
+  @SerializedName("apply_time")
+  private String applyTime;
 
-    public DeviceRecordEvent getDeviceRecord() {
-        return this.deviceRecord;
-    }
+  /**
+   * 申报状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("apply_status")
+  private Integer applyStatus;
 
-    public void setDeviceRecord(DeviceRecordEvent deviceRecord) {
-        this.deviceRecord = deviceRecord;
-    }
+  /**
+   * 申报人ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator")
+  private UserId operator;
 
-    public String getApplyTime() {
-        return this.applyTime;
-    }
+  /**
+   * 申报设备归属
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("apply_device_ownership")
+  private Integer applyDeviceOwnership;
 
-    public void setApplyTime(String applyTime) {
-        this.applyTime = applyTime;
-    }
+  /**
+   * 申报理由
+   *
+   * <p>示例值：reason
+   */
+  @SerializedName("apply_reason")
+  private String applyReason;
 
-    public Integer getApplyStatus() {
-        return this.applyStatus;
-    }
+  public String getDeviceApplyRecordId() {
+    return this.deviceApplyRecordId;
+  }
 
-    public void setApplyStatus(Integer applyStatus) {
-        this.applyStatus = applyStatus;
-    }
+  public void setDeviceApplyRecordId(String deviceApplyRecordId) {
+    this.deviceApplyRecordId = deviceApplyRecordId;
+  }
 
-    public UserId getOperator() {
-        return this.operator;
-    }
+  public DeviceRecordEvent getDeviceRecord() {
+    return this.deviceRecord;
+  }
 
-    public void setOperator(UserId operator) {
-        this.operator = operator;
-    }
+  public void setDeviceRecord(DeviceRecordEvent deviceRecord) {
+    this.deviceRecord = deviceRecord;
+  }
 
-    public Integer getApplyDeviceOwnership() {
-        return this.applyDeviceOwnership;
-    }
+  public String getApplyTime() {
+    return this.applyTime;
+  }
 
-    public void setApplyDeviceOwnership(Integer applyDeviceOwnership) {
-        this.applyDeviceOwnership = applyDeviceOwnership;
-    }
+  public void setApplyTime(String applyTime) {
+    this.applyTime = applyTime;
+  }
 
-    public String getApplyReason() {
-        return this.applyReason;
-    }
+  public Integer getApplyStatus() {
+    return this.applyStatus;
+  }
 
-    public void setApplyReason(String applyReason) {
-        this.applyReason = applyReason;
-    }
+  public void setApplyStatus(Integer applyStatus) {
+    this.applyStatus = applyStatus;
+  }
 
+  public UserId getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(UserId operator) {
+    this.operator = operator;
+  }
+
+  public Integer getApplyDeviceOwnership() {
+    return this.applyDeviceOwnership;
+  }
+
+  public void setApplyDeviceOwnership(Integer applyDeviceOwnership) {
+    this.applyDeviceOwnership = applyDeviceOwnership;
+  }
+
+  public String getApplyReason() {
+    return this.applyReason;
+  }
+
+  public void setApplyReason(String applyReason) {
+    this.applyReason = applyReason;
+  }
 }

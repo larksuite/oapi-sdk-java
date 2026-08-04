@@ -13,198 +13,204 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ContentParagraphElement {
+  /**
+   * 元素类型
+   *
+   * <p>示例值：textRun
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 文本
+   *
+   * <p>示例值：
+   */
+  @SerializedName("textRun")
+  private ContentTextRun textRun;
+
+  /**
+   * 飞书云文档
+   *
+   * <p>示例值：
+   */
+  @SerializedName("docsLink")
+  private ContentDocsLink docsLink;
+
+  /**
+   * 艾特用户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("person")
+  private ContentPerson person;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public ContentTextRun getTextRun() {
+    return this.textRun;
+  }
+
+  public void setTextRun(ContentTextRun textRun) {
+    this.textRun = textRun;
+  }
+
+  public ContentDocsLink getDocsLink() {
+    return this.docsLink;
+  }
+
+  public void setDocsLink(ContentDocsLink docsLink) {
+    this.docsLink = docsLink;
+  }
+
+  public ContentPerson getPerson() {
+    return this.person;
+  }
+
+  public void setPerson(ContentPerson person) {
+    this.person = person;
+  }
+
+  // builder 开始
+  public ContentParagraphElement() {}
+
+  public ContentParagraphElement(Builder builder) {
     /**
      * 元素类型
-     * <p> 示例值：textRun
+     *
+     * <p>示例值：textRun
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 文本
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("textRun")
-    private ContentTextRun textRun;
+    this.textRun = builder.textRun;
     /**
      * 飞书云文档
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("docsLink")
-    private ContentDocsLink docsLink;
+    this.docsLink = builder.docsLink;
     /**
      * 艾特用户
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("person")
+    this.person = builder.person;
+  }
+
+  public static class Builder {
+    /**
+     * 元素类型
+     *
+     * <p>示例值：textRun
+     */
+    private String type;
+
+    /**
+     * 文本
+     *
+     * <p>示例值：
+     */
+    private ContentTextRun textRun;
+
+    /**
+     * 飞书云文档
+     *
+     * <p>示例值：
+     */
+    private ContentDocsLink docsLink;
+
+    /**
+     * 艾特用户
+     *
+     * <p>示例值：
+     */
     private ContentPerson person;
 
-    // builder 开始
-    public ContentParagraphElement() {
+    /**
+     * 元素类型
+     *
+     * <p>示例值：textRun
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public ContentParagraphElement(Builder builder) {
-        /**
-         * 元素类型
-         * <p> 示例值：textRun
-         */
-        this.type = builder.type;
-        /**
-         * 文本
-         * <p> 示例值：
-         */
-        this.textRun = builder.textRun;
-        /**
-         * 飞书云文档
-         * <p> 示例值：
-         */
-        this.docsLink = builder.docsLink;
-        /**
-         * 艾特用户
-         * <p> 示例值：
-         */
-        this.person = builder.person;
+    /**
+     * 元素类型
+     *
+     * <p>示例值：textRun
+     *
+     * @param type {@link com.lark.oapi.service.okr.v1.enums.ContentParagraphElementTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.okr.v1.enums.ContentParagraphElementTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文本
+     *
+     * <p>示例值：
+     *
+     * @param textRun
+     * @return
+     */
+    public Builder textRun(ContentTextRun textRun) {
+      this.textRun = textRun;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 飞书云文档
+     *
+     * <p>示例值：
+     *
+     * @param docsLink
+     * @return
+     */
+    public Builder docsLink(ContentDocsLink docsLink) {
+      this.docsLink = docsLink;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 艾特用户
+     *
+     * <p>示例值：
+     *
+     * @param person
+     * @return
+     */
+    public Builder person(ContentPerson person) {
+      this.person = person;
+      return this;
     }
 
-    public ContentTextRun getTextRun() {
-        return this.textRun;
+    public ContentParagraphElement build() {
+      return new ContentParagraphElement(this);
     }
+  }
 
-    public void setTextRun(ContentTextRun textRun) {
-        this.textRun = textRun;
-    }
-
-    public ContentDocsLink getDocsLink() {
-        return this.docsLink;
-    }
-
-    public void setDocsLink(ContentDocsLink docsLink) {
-        this.docsLink = docsLink;
-    }
-
-    public ContentPerson getPerson() {
-        return this.person;
-    }
-
-    public void setPerson(ContentPerson person) {
-        this.person = person;
-    }
-
-    public static class Builder {
-        /**
-         * 元素类型
-         * <p> 示例值：textRun
-         */
-        private String type;
-        /**
-         * 文本
-         * <p> 示例值：
-         */
-        private ContentTextRun textRun;
-        /**
-         * 飞书云文档
-         * <p> 示例值：
-         */
-        private ContentDocsLink docsLink;
-        /**
-         * 艾特用户
-         * <p> 示例值：
-         */
-        private ContentPerson person;
-
-        /**
-         * 元素类型
-         * <p> 示例值：textRun
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 元素类型
-         * <p> 示例值：textRun
-         *
-         * @param type {@link com.lark.oapi.service.okr.v1.enums.ContentParagraphElementTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.okr.v1.enums.ContentParagraphElementTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文本
-         * <p> 示例值：
-         *
-         * @param textRun
-         * @return
-         */
-        public Builder textRun(ContentTextRun textRun) {
-            this.textRun = textRun;
-            return this;
-        }
-
-
-        /**
-         * 飞书云文档
-         * <p> 示例值：
-         *
-         * @param docsLink
-         * @return
-         */
-        public Builder docsLink(ContentDocsLink docsLink) {
-            this.docsLink = docsLink;
-            return this;
-        }
-
-
-        /**
-         * 艾特用户
-         * <p> 示例值：
-         *
-         * @param person
-         * @return
-         */
-        public Builder person(ContentPerson person) {
-            this.person = person;
-            return this;
-        }
-
-
-        public ContentParagraphElement build() {
-            return new ContentParagraphElement(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

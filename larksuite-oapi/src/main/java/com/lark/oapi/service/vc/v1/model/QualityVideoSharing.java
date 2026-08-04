@@ -13,445 +13,485 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QualityVideoSharing {
+  /**
+   * 时间
+   *
+   * <p>示例值：2022.12.23 11:16:00 (GMT+08:00)
+   */
+  @SerializedName("time")
+  private String time;
+
+  /**
+   * 码率（接收）
+   *
+   * <p>示例值：8kbps
+   */
+  @SerializedName("bitrate_received")
+  private String bitrateReceived;
+
+  /**
+   * 延迟（接收）
+   *
+   * <p>示例值：100ms
+   */
+  @SerializedName("latency_received")
+  private String latencyReceived;
+
+  /**
+   * 抖动（接收）
+   *
+   * <p>示例值：100ms
+   */
+  @SerializedName("jitter_received")
+  private String jitterReceived;
+
+  /**
+   * 最大分辨率（接收）
+   *
+   * <p>示例值：1080P
+   */
+  @SerializedName("maximum_resolution_received")
+  private String maximumResolutionReceived;
+
+  /**
+   * 帧率（接收）
+   *
+   * <p>示例值：100fps
+   */
+  @SerializedName("framerate_received")
+  private String framerateReceived;
+
+  /**
+   * 码率（发送）
+   *
+   * <p>示例值：9kbps
+   */
+  @SerializedName("bitrate_sent")
+  private String bitrateSent;
+
+  /**
+   * 延迟（发送）
+   *
+   * <p>示例值：100ms
+   */
+  @SerializedName("latency_sent")
+  private String latencySent;
+
+  /**
+   * 抖动（发送）
+   *
+   * <p>示例值：100ms
+   */
+  @SerializedName("jitter_sent")
+  private String jitterSent;
+
+  /**
+   * 最大分辨率（发送）
+   *
+   * <p>示例值：4K
+   */
+  @SerializedName("maximum_resolution_sent")
+  private String maximumResolutionSent;
+
+  /**
+   * 帧率（发送）
+   *
+   * <p>示例值：90fps
+   */
+  @SerializedName("framerate_sent")
+  private String framerateSent;
+
+  public String getTime() {
+    return this.time;
+  }
+
+  public void setTime(String time) {
+    this.time = time;
+  }
+
+  public String getBitrateReceived() {
+    return this.bitrateReceived;
+  }
+
+  public void setBitrateReceived(String bitrateReceived) {
+    this.bitrateReceived = bitrateReceived;
+  }
+
+  public String getLatencyReceived() {
+    return this.latencyReceived;
+  }
+
+  public void setLatencyReceived(String latencyReceived) {
+    this.latencyReceived = latencyReceived;
+  }
+
+  public String getJitterReceived() {
+    return this.jitterReceived;
+  }
+
+  public void setJitterReceived(String jitterReceived) {
+    this.jitterReceived = jitterReceived;
+  }
+
+  public String getMaximumResolutionReceived() {
+    return this.maximumResolutionReceived;
+  }
+
+  public void setMaximumResolutionReceived(String maximumResolutionReceived) {
+    this.maximumResolutionReceived = maximumResolutionReceived;
+  }
+
+  public String getFramerateReceived() {
+    return this.framerateReceived;
+  }
+
+  public void setFramerateReceived(String framerateReceived) {
+    this.framerateReceived = framerateReceived;
+  }
+
+  public String getBitrateSent() {
+    return this.bitrateSent;
+  }
+
+  public void setBitrateSent(String bitrateSent) {
+    this.bitrateSent = bitrateSent;
+  }
+
+  public String getLatencySent() {
+    return this.latencySent;
+  }
+
+  public void setLatencySent(String latencySent) {
+    this.latencySent = latencySent;
+  }
+
+  public String getJitterSent() {
+    return this.jitterSent;
+  }
+
+  public void setJitterSent(String jitterSent) {
+    this.jitterSent = jitterSent;
+  }
+
+  public String getMaximumResolutionSent() {
+    return this.maximumResolutionSent;
+  }
+
+  public void setMaximumResolutionSent(String maximumResolutionSent) {
+    this.maximumResolutionSent = maximumResolutionSent;
+  }
+
+  public String getFramerateSent() {
+    return this.framerateSent;
+  }
+
+  public void setFramerateSent(String framerateSent) {
+    this.framerateSent = framerateSent;
+  }
+
+  // builder 开始
+  public QualityVideoSharing() {}
+
+  public QualityVideoSharing(Builder builder) {
     /**
      * 时间
-     * <p> 示例值：2022.12.23 11:16:00 (GMT+08:00)
+     *
+     * <p>示例值：2022.12.23 11:16:00 (GMT+08:00)
      */
-    @SerializedName("time")
-    private String time;
+    this.time = builder.time;
     /**
      * 码率（接收）
-     * <p> 示例值：8kbps
+     *
+     * <p>示例值：8kbps
      */
-    @SerializedName("bitrate_received")
-    private String bitrateReceived;
+    this.bitrateReceived = builder.bitrateReceived;
     /**
      * 延迟（接收）
-     * <p> 示例值：100ms
+     *
+     * <p>示例值：100ms
      */
-    @SerializedName("latency_received")
-    private String latencyReceived;
+    this.latencyReceived = builder.latencyReceived;
     /**
      * 抖动（接收）
-     * <p> 示例值：100ms
+     *
+     * <p>示例值：100ms
      */
-    @SerializedName("jitter_received")
-    private String jitterReceived;
+    this.jitterReceived = builder.jitterReceived;
     /**
      * 最大分辨率（接收）
-     * <p> 示例值：1080P
+     *
+     * <p>示例值：1080P
      */
-    @SerializedName("maximum_resolution_received")
-    private String maximumResolutionReceived;
+    this.maximumResolutionReceived = builder.maximumResolutionReceived;
     /**
      * 帧率（接收）
-     * <p> 示例值：100fps
+     *
+     * <p>示例值：100fps
      */
-    @SerializedName("framerate_received")
-    private String framerateReceived;
+    this.framerateReceived = builder.framerateReceived;
     /**
      * 码率（发送）
-     * <p> 示例值：9kbps
+     *
+     * <p>示例值：9kbps
      */
-    @SerializedName("bitrate_sent")
-    private String bitrateSent;
+    this.bitrateSent = builder.bitrateSent;
     /**
      * 延迟（发送）
-     * <p> 示例值：100ms
+     *
+     * <p>示例值：100ms
      */
-    @SerializedName("latency_sent")
-    private String latencySent;
+    this.latencySent = builder.latencySent;
     /**
      * 抖动（发送）
-     * <p> 示例值：100ms
+     *
+     * <p>示例值：100ms
      */
-    @SerializedName("jitter_sent")
-    private String jitterSent;
+    this.jitterSent = builder.jitterSent;
     /**
      * 最大分辨率（发送）
-     * <p> 示例值：4K
+     *
+     * <p>示例值：4K
      */
-    @SerializedName("maximum_resolution_sent")
-    private String maximumResolutionSent;
+    this.maximumResolutionSent = builder.maximumResolutionSent;
     /**
      * 帧率（发送）
-     * <p> 示例值：90fps
+     *
+     * <p>示例值：90fps
      */
-    @SerializedName("framerate_sent")
+    this.framerateSent = builder.framerateSent;
+  }
+
+  public static class Builder {
+    /**
+     * 时间
+     *
+     * <p>示例值：2022.12.23 11:16:00 (GMT+08:00)
+     */
+    private String time;
+
+    /**
+     * 码率（接收）
+     *
+     * <p>示例值：8kbps
+     */
+    private String bitrateReceived;
+
+    /**
+     * 延迟（接收）
+     *
+     * <p>示例值：100ms
+     */
+    private String latencyReceived;
+
+    /**
+     * 抖动（接收）
+     *
+     * <p>示例值：100ms
+     */
+    private String jitterReceived;
+
+    /**
+     * 最大分辨率（接收）
+     *
+     * <p>示例值：1080P
+     */
+    private String maximumResolutionReceived;
+
+    /**
+     * 帧率（接收）
+     *
+     * <p>示例值：100fps
+     */
+    private String framerateReceived;
+
+    /**
+     * 码率（发送）
+     *
+     * <p>示例值：9kbps
+     */
+    private String bitrateSent;
+
+    /**
+     * 延迟（发送）
+     *
+     * <p>示例值：100ms
+     */
+    private String latencySent;
+
+    /**
+     * 抖动（发送）
+     *
+     * <p>示例值：100ms
+     */
+    private String jitterSent;
+
+    /**
+     * 最大分辨率（发送）
+     *
+     * <p>示例值：4K
+     */
+    private String maximumResolutionSent;
+
+    /**
+     * 帧率（发送）
+     *
+     * <p>示例值：90fps
+     */
     private String framerateSent;
 
-    // builder 开始
-    public QualityVideoSharing() {
+    /**
+     * 时间
+     *
+     * <p>示例值：2022.12.23 11:16:00 (GMT+08:00)
+     *
+     * @param time
+     * @return
+     */
+    public Builder time(String time) {
+      this.time = time;
+      return this;
     }
 
-    public QualityVideoSharing(Builder builder) {
-        /**
-         * 时间
-         * <p> 示例值：2022.12.23 11:16:00 (GMT+08:00)
-         */
-        this.time = builder.time;
-        /**
-         * 码率（接收）
-         * <p> 示例值：8kbps
-         */
-        this.bitrateReceived = builder.bitrateReceived;
-        /**
-         * 延迟（接收）
-         * <p> 示例值：100ms
-         */
-        this.latencyReceived = builder.latencyReceived;
-        /**
-         * 抖动（接收）
-         * <p> 示例值：100ms
-         */
-        this.jitterReceived = builder.jitterReceived;
-        /**
-         * 最大分辨率（接收）
-         * <p> 示例值：1080P
-         */
-        this.maximumResolutionReceived = builder.maximumResolutionReceived;
-        /**
-         * 帧率（接收）
-         * <p> 示例值：100fps
-         */
-        this.framerateReceived = builder.framerateReceived;
-        /**
-         * 码率（发送）
-         * <p> 示例值：9kbps
-         */
-        this.bitrateSent = builder.bitrateSent;
-        /**
-         * 延迟（发送）
-         * <p> 示例值：100ms
-         */
-        this.latencySent = builder.latencySent;
-        /**
-         * 抖动（发送）
-         * <p> 示例值：100ms
-         */
-        this.jitterSent = builder.jitterSent;
-        /**
-         * 最大分辨率（发送）
-         * <p> 示例值：4K
-         */
-        this.maximumResolutionSent = builder.maximumResolutionSent;
-        /**
-         * 帧率（发送）
-         * <p> 示例值：90fps
-         */
-        this.framerateSent = builder.framerateSent;
+    /**
+     * 码率（接收）
+     *
+     * <p>示例值：8kbps
+     *
+     * @param bitrateReceived
+     * @return
+     */
+    public Builder bitrateReceived(String bitrateReceived) {
+      this.bitrateReceived = bitrateReceived;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 延迟（接收）
+     *
+     * <p>示例值：100ms
+     *
+     * @param latencyReceived
+     * @return
+     */
+    public Builder latencyReceived(String latencyReceived) {
+      this.latencyReceived = latencyReceived;
+      return this;
     }
 
-    public String getTime() {
-        return this.time;
+    /**
+     * 抖动（接收）
+     *
+     * <p>示例值：100ms
+     *
+     * @param jitterReceived
+     * @return
+     */
+    public Builder jitterReceived(String jitterReceived) {
+      this.jitterReceived = jitterReceived;
+      return this;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    /**
+     * 最大分辨率（接收）
+     *
+     * <p>示例值：1080P
+     *
+     * @param maximumResolutionReceived
+     * @return
+     */
+    public Builder maximumResolutionReceived(String maximumResolutionReceived) {
+      this.maximumResolutionReceived = maximumResolutionReceived;
+      return this;
     }
 
-    public String getBitrateReceived() {
-        return this.bitrateReceived;
+    /**
+     * 帧率（接收）
+     *
+     * <p>示例值：100fps
+     *
+     * @param framerateReceived
+     * @return
+     */
+    public Builder framerateReceived(String framerateReceived) {
+      this.framerateReceived = framerateReceived;
+      return this;
     }
 
-    public void setBitrateReceived(String bitrateReceived) {
-        this.bitrateReceived = bitrateReceived;
+    /**
+     * 码率（发送）
+     *
+     * <p>示例值：9kbps
+     *
+     * @param bitrateSent
+     * @return
+     */
+    public Builder bitrateSent(String bitrateSent) {
+      this.bitrateSent = bitrateSent;
+      return this;
     }
 
-    public String getLatencyReceived() {
-        return this.latencyReceived;
+    /**
+     * 延迟（发送）
+     *
+     * <p>示例值：100ms
+     *
+     * @param latencySent
+     * @return
+     */
+    public Builder latencySent(String latencySent) {
+      this.latencySent = latencySent;
+      return this;
     }
 
-    public void setLatencyReceived(String latencyReceived) {
-        this.latencyReceived = latencyReceived;
+    /**
+     * 抖动（发送）
+     *
+     * <p>示例值：100ms
+     *
+     * @param jitterSent
+     * @return
+     */
+    public Builder jitterSent(String jitterSent) {
+      this.jitterSent = jitterSent;
+      return this;
     }
 
-    public String getJitterReceived() {
-        return this.jitterReceived;
+    /**
+     * 最大分辨率（发送）
+     *
+     * <p>示例值：4K
+     *
+     * @param maximumResolutionSent
+     * @return
+     */
+    public Builder maximumResolutionSent(String maximumResolutionSent) {
+      this.maximumResolutionSent = maximumResolutionSent;
+      return this;
     }
 
-    public void setJitterReceived(String jitterReceived) {
-        this.jitterReceived = jitterReceived;
+    /**
+     * 帧率（发送）
+     *
+     * <p>示例值：90fps
+     *
+     * @param framerateSent
+     * @return
+     */
+    public Builder framerateSent(String framerateSent) {
+      this.framerateSent = framerateSent;
+      return this;
     }
 
-    public String getMaximumResolutionReceived() {
-        return this.maximumResolutionReceived;
+    public QualityVideoSharing build() {
+      return new QualityVideoSharing(this);
     }
+  }
 
-    public void setMaximumResolutionReceived(String maximumResolutionReceived) {
-        this.maximumResolutionReceived = maximumResolutionReceived;
-    }
-
-    public String getFramerateReceived() {
-        return this.framerateReceived;
-    }
-
-    public void setFramerateReceived(String framerateReceived) {
-        this.framerateReceived = framerateReceived;
-    }
-
-    public String getBitrateSent() {
-        return this.bitrateSent;
-    }
-
-    public void setBitrateSent(String bitrateSent) {
-        this.bitrateSent = bitrateSent;
-    }
-
-    public String getLatencySent() {
-        return this.latencySent;
-    }
-
-    public void setLatencySent(String latencySent) {
-        this.latencySent = latencySent;
-    }
-
-    public String getJitterSent() {
-        return this.jitterSent;
-    }
-
-    public void setJitterSent(String jitterSent) {
-        this.jitterSent = jitterSent;
-    }
-
-    public String getMaximumResolutionSent() {
-        return this.maximumResolutionSent;
-    }
-
-    public void setMaximumResolutionSent(String maximumResolutionSent) {
-        this.maximumResolutionSent = maximumResolutionSent;
-    }
-
-    public String getFramerateSent() {
-        return this.framerateSent;
-    }
-
-    public void setFramerateSent(String framerateSent) {
-        this.framerateSent = framerateSent;
-    }
-
-    public static class Builder {
-        /**
-         * 时间
-         * <p> 示例值：2022.12.23 11:16:00 (GMT+08:00)
-         */
-        private String time;
-        /**
-         * 码率（接收）
-         * <p> 示例值：8kbps
-         */
-        private String bitrateReceived;
-        /**
-         * 延迟（接收）
-         * <p> 示例值：100ms
-         */
-        private String latencyReceived;
-        /**
-         * 抖动（接收）
-         * <p> 示例值：100ms
-         */
-        private String jitterReceived;
-        /**
-         * 最大分辨率（接收）
-         * <p> 示例值：1080P
-         */
-        private String maximumResolutionReceived;
-        /**
-         * 帧率（接收）
-         * <p> 示例值：100fps
-         */
-        private String framerateReceived;
-        /**
-         * 码率（发送）
-         * <p> 示例值：9kbps
-         */
-        private String bitrateSent;
-        /**
-         * 延迟（发送）
-         * <p> 示例值：100ms
-         */
-        private String latencySent;
-        /**
-         * 抖动（发送）
-         * <p> 示例值：100ms
-         */
-        private String jitterSent;
-        /**
-         * 最大分辨率（发送）
-         * <p> 示例值：4K
-         */
-        private String maximumResolutionSent;
-        /**
-         * 帧率（发送）
-         * <p> 示例值：90fps
-         */
-        private String framerateSent;
-
-        /**
-         * 时间
-         * <p> 示例值：2022.12.23 11:16:00 (GMT+08:00)
-         *
-         * @param time
-         * @return
-         */
-        public Builder time(String time) {
-            this.time = time;
-            return this;
-        }
-
-
-        /**
-         * 码率（接收）
-         * <p> 示例值：8kbps
-         *
-         * @param bitrateReceived
-         * @return
-         */
-        public Builder bitrateReceived(String bitrateReceived) {
-            this.bitrateReceived = bitrateReceived;
-            return this;
-        }
-
-
-        /**
-         * 延迟（接收）
-         * <p> 示例值：100ms
-         *
-         * @param latencyReceived
-         * @return
-         */
-        public Builder latencyReceived(String latencyReceived) {
-            this.latencyReceived = latencyReceived;
-            return this;
-        }
-
-
-        /**
-         * 抖动（接收）
-         * <p> 示例值：100ms
-         *
-         * @param jitterReceived
-         * @return
-         */
-        public Builder jitterReceived(String jitterReceived) {
-            this.jitterReceived = jitterReceived;
-            return this;
-        }
-
-
-        /**
-         * 最大分辨率（接收）
-         * <p> 示例值：1080P
-         *
-         * @param maximumResolutionReceived
-         * @return
-         */
-        public Builder maximumResolutionReceived(String maximumResolutionReceived) {
-            this.maximumResolutionReceived = maximumResolutionReceived;
-            return this;
-        }
-
-
-        /**
-         * 帧率（接收）
-         * <p> 示例值：100fps
-         *
-         * @param framerateReceived
-         * @return
-         */
-        public Builder framerateReceived(String framerateReceived) {
-            this.framerateReceived = framerateReceived;
-            return this;
-        }
-
-
-        /**
-         * 码率（发送）
-         * <p> 示例值：9kbps
-         *
-         * @param bitrateSent
-         * @return
-         */
-        public Builder bitrateSent(String bitrateSent) {
-            this.bitrateSent = bitrateSent;
-            return this;
-        }
-
-
-        /**
-         * 延迟（发送）
-         * <p> 示例值：100ms
-         *
-         * @param latencySent
-         * @return
-         */
-        public Builder latencySent(String latencySent) {
-            this.latencySent = latencySent;
-            return this;
-        }
-
-
-        /**
-         * 抖动（发送）
-         * <p> 示例值：100ms
-         *
-         * @param jitterSent
-         * @return
-         */
-        public Builder jitterSent(String jitterSent) {
-            this.jitterSent = jitterSent;
-            return this;
-        }
-
-
-        /**
-         * 最大分辨率（发送）
-         * <p> 示例值：4K
-         *
-         * @param maximumResolutionSent
-         * @return
-         */
-        public Builder maximumResolutionSent(String maximumResolutionSent) {
-            this.maximumResolutionSent = maximumResolutionSent;
-            return this;
-        }
-
-
-        /**
-         * 帧率（发送）
-         * <p> 示例值：90fps
-         *
-         * @param framerateSent
-         * @return
-         */
-        public Builder framerateSent(String framerateSent) {
-            this.framerateSent = framerateSent;
-            return this;
-        }
-
-
-        public QualityVideoSharing build() {
-            return new QualityVideoSharing(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

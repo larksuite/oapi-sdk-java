@@ -13,702 +13,777 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Text {
+  /**
+   * 文字内容
+   *
+   * <p>示例值：文字内容
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 文字字重
+   *
+   * <p>示例值：regular
+   */
+  @SerializedName("font_weight")
+  private String fontWeight;
+
+  /**
+   * 文字大小，单位 px，默认为 14 px
+   *
+   * <p>示例值：14
+   */
+  @SerializedName("font_size")
+  private Integer fontSize;
+
+  /**
+   * 水平对齐
+   *
+   * <p>示例值：center
+   */
+  @SerializedName("horizontal_align")
+  private String horizontalAlign;
+
+  /**
+   * 垂直对齐
+   *
+   * <p>示例值：mid
+   */
+  @SerializedName("vertical_align")
+  private String verticalAlign;
+
+  /**
+   * 文字颜色，16 进制 rgb 值
+   *
+   * <p>示例值：#6db5a3
+   */
+  @SerializedName("text_color")
+  private String textColor;
+
+  /**
+   * 文字背景色，16 进制 rgb 值
+   *
+   * <p>示例值：#6db5a3
+   */
+  @SerializedName("text_background_color")
+  private String textBackgroundColor;
+
+  /**
+   * 是否存在删除线
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("line_through")
+  private Boolean lineThrough;
+
+  /**
+   * 是否存在下划线
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("underline")
+  private Boolean underline;
+
+  /**
+   * 是否斜体
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("italic")
+  private Boolean italic;
+
+  /**
+   * 文字旋转角度
+   *
+   * <p>示例值：90
+   */
+  @SerializedName("angle")
+  private Integer angle;
+
+  /**
+   * 文字颜色主题配色编码值
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("theme_text_color_code")
+  private Integer themeTextColorCode;
+
+  /**
+   * 文字背景颜色主题配色编码值
+   *
+   * <p>示例值：-1
+   */
+  @SerializedName("theme_text_background_color_code")
+  private Integer themeTextBackgroundColorCode;
+
+  /**
+   * 富文本（富文本有值时候会覆盖上面的text信息）;如果整段文本只有一个样式，不推荐使用富文本;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("rich_text")
+  private RichText richText;
+
+  /**
+   * 文字颜色类型，0=系统颜色，1=自定义颜色
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("text_color_type")
+  private Integer textColorType;
+
+  /**
+   * 文字背景颜色类型，0=系统颜色，1=自定义颜色
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("text_background_color_type")
+  private Integer textBackgroundColorType;
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getFontWeight() {
+    return this.fontWeight;
+  }
+
+  public void setFontWeight(String fontWeight) {
+    this.fontWeight = fontWeight;
+  }
+
+  public Integer getFontSize() {
+    return this.fontSize;
+  }
+
+  public void setFontSize(Integer fontSize) {
+    this.fontSize = fontSize;
+  }
+
+  public String getHorizontalAlign() {
+    return this.horizontalAlign;
+  }
+
+  public void setHorizontalAlign(String horizontalAlign) {
+    this.horizontalAlign = horizontalAlign;
+  }
+
+  public String getVerticalAlign() {
+    return this.verticalAlign;
+  }
+
+  public void setVerticalAlign(String verticalAlign) {
+    this.verticalAlign = verticalAlign;
+  }
+
+  public String getTextColor() {
+    return this.textColor;
+  }
+
+  public void setTextColor(String textColor) {
+    this.textColor = textColor;
+  }
+
+  public String getTextBackgroundColor() {
+    return this.textBackgroundColor;
+  }
+
+  public void setTextBackgroundColor(String textBackgroundColor) {
+    this.textBackgroundColor = textBackgroundColor;
+  }
+
+  public Boolean getLineThrough() {
+    return this.lineThrough;
+  }
+
+  public void setLineThrough(Boolean lineThrough) {
+    this.lineThrough = lineThrough;
+  }
+
+  public Boolean getUnderline() {
+    return this.underline;
+  }
+
+  public void setUnderline(Boolean underline) {
+    this.underline = underline;
+  }
+
+  public Boolean getItalic() {
+    return this.italic;
+  }
+
+  public void setItalic(Boolean italic) {
+    this.italic = italic;
+  }
+
+  public Integer getAngle() {
+    return this.angle;
+  }
+
+  public void setAngle(Integer angle) {
+    this.angle = angle;
+  }
+
+  public Integer getThemeTextColorCode() {
+    return this.themeTextColorCode;
+  }
+
+  public void setThemeTextColorCode(Integer themeTextColorCode) {
+    this.themeTextColorCode = themeTextColorCode;
+  }
+
+  public Integer getThemeTextBackgroundColorCode() {
+    return this.themeTextBackgroundColorCode;
+  }
+
+  public void setThemeTextBackgroundColorCode(Integer themeTextBackgroundColorCode) {
+    this.themeTextBackgroundColorCode = themeTextBackgroundColorCode;
+  }
+
+  public RichText getRichText() {
+    return this.richText;
+  }
+
+  public void setRichText(RichText richText) {
+    this.richText = richText;
+  }
+
+  public Integer getTextColorType() {
+    return this.textColorType;
+  }
+
+  public void setTextColorType(Integer textColorType) {
+    this.textColorType = textColorType;
+  }
+
+  public Integer getTextBackgroundColorType() {
+    return this.textBackgroundColorType;
+  }
+
+  public void setTextBackgroundColorType(Integer textBackgroundColorType) {
+    this.textBackgroundColorType = textBackgroundColorType;
+  }
+
+  // builder 开始
+  public Text() {}
+
+  public Text(Builder builder) {
     /**
      * 文字内容
-     * <p> 示例值：文字内容
+     *
+     * <p>示例值：文字内容
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 文字字重
-     * <p> 示例值：regular
+     *
+     * <p>示例值：regular
      */
-    @SerializedName("font_weight")
-    private String fontWeight;
+    this.fontWeight = builder.fontWeight;
     /**
-     * 文字大小
-     * <p> 示例值：14
+     * 文字大小，单位 px，默认为 14 px
+     *
+     * <p>示例值：14
      */
-    @SerializedName("font_size")
-    private Integer fontSize;
+    this.fontSize = builder.fontSize;
     /**
      * 水平对齐
-     * <p> 示例值：
+     *
+     * <p>示例值：center
      */
-    @SerializedName("horizontal_align")
-    private String horizontalAlign;
+    this.horizontalAlign = builder.horizontalAlign;
     /**
      * 垂直对齐
-     * <p> 示例值：
+     *
+     * <p>示例值：mid
      */
-    @SerializedName("vertical_align")
-    private String verticalAlign;
+    this.verticalAlign = builder.verticalAlign;
     /**
      * 文字颜色，16 进制 rgb 值
-     * <p> 示例值：#6db5a3
+     *
+     * <p>示例值：#6db5a3
      */
-    @SerializedName("text_color")
-    private String textColor;
+    this.textColor = builder.textColor;
     /**
      * 文字背景色，16 进制 rgb 值
-     * <p> 示例值：#6db5a3
+     *
+     * <p>示例值：#6db5a3
      */
-    @SerializedName("text_background_color")
-    private String textBackgroundColor;
+    this.textBackgroundColor = builder.textBackgroundColor;
     /**
      * 是否存在删除线
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("line_through")
-    private Boolean lineThrough;
+    this.lineThrough = builder.lineThrough;
     /**
      * 是否存在下划线
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("underline")
-    private Boolean underline;
+    this.underline = builder.underline;
     /**
      * 是否斜体
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("italic")
-    private Boolean italic;
+    this.italic = builder.italic;
     /**
      * 文字旋转角度
-     * <p> 示例值：90
+     *
+     * <p>示例值：90
      */
-    @SerializedName("angle")
-    private Integer angle;
+    this.angle = builder.angle;
     /**
      * 文字颜色主题配色编码值
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("theme_text_color_code")
-    private Integer themeTextColorCode;
+    this.themeTextColorCode = builder.themeTextColorCode;
     /**
      * 文字背景颜色主题配色编码值
-     * <p> 示例值：-1
+     *
+     * <p>示例值：-1
      */
-    @SerializedName("theme_text_background_color_code")
-    private Integer themeTextBackgroundColorCode;
+    this.themeTextBackgroundColorCode = builder.themeTextBackgroundColorCode;
     /**
-     * 富文本
-     * <p> 示例值：
+     * 富文本（富文本有值时候会覆盖上面的text信息）;如果整段文本只有一个样式，不推荐使用富文本;
+     *
+     * <p>示例值：
      */
-    @SerializedName("rich_text")
-    private RichText richText;
+    this.richText = builder.richText;
     /**
      * 文字颜色类型，0=系统颜色，1=自定义颜色
-     * <p> 示例值：
+     *
+     * <p>示例值：0
      */
-    @SerializedName("text_color_type")
-    private Integer textColorType;
+    this.textColorType = builder.textColorType;
     /**
      * 文字背景颜色类型，0=系统颜色，1=自定义颜色
-     * <p> 示例值：
+     *
+     * <p>示例值：0
      */
-    @SerializedName("text_background_color_type")
+    this.textBackgroundColorType = builder.textBackgroundColorType;
+  }
+
+  public static class Builder {
+    /**
+     * 文字内容
+     *
+     * <p>示例值：文字内容
+     */
+    private String text;
+
+    /**
+     * 文字字重
+     *
+     * <p>示例值：regular
+     */
+    private String fontWeight;
+
+    /**
+     * 文字大小，单位 px，默认为 14 px
+     *
+     * <p>示例值：14
+     */
+    private Integer fontSize;
+
+    /**
+     * 水平对齐
+     *
+     * <p>示例值：center
+     */
+    private String horizontalAlign;
+
+    /**
+     * 垂直对齐
+     *
+     * <p>示例值：mid
+     */
+    private String verticalAlign;
+
+    /**
+     * 文字颜色，16 进制 rgb 值
+     *
+     * <p>示例值：#6db5a3
+     */
+    private String textColor;
+
+    /**
+     * 文字背景色，16 进制 rgb 值
+     *
+     * <p>示例值：#6db5a3
+     */
+    private String textBackgroundColor;
+
+    /**
+     * 是否存在删除线
+     *
+     * <p>示例值：true
+     */
+    private Boolean lineThrough;
+
+    /**
+     * 是否存在下划线
+     *
+     * <p>示例值：true
+     */
+    private Boolean underline;
+
+    /**
+     * 是否斜体
+     *
+     * <p>示例值：true
+     */
+    private Boolean italic;
+
+    /**
+     * 文字旋转角度
+     *
+     * <p>示例值：90
+     */
+    private Integer angle;
+
+    /**
+     * 文字颜色主题配色编码值
+     *
+     * <p>示例值：0
+     */
+    private Integer themeTextColorCode;
+
+    /**
+     * 文字背景颜色主题配色编码值
+     *
+     * <p>示例值：-1
+     */
+    private Integer themeTextBackgroundColorCode;
+
+    /**
+     * 富文本（富文本有值时候会覆盖上面的text信息）;如果整段文本只有一个样式，不推荐使用富文本;
+     *
+     * <p>示例值：
+     */
+    private RichText richText;
+
+    /**
+     * 文字颜色类型，0=系统颜色，1=自定义颜色
+     *
+     * <p>示例值：0
+     */
+    private Integer textColorType;
+
+    /**
+     * 文字背景颜色类型，0=系统颜色，1=自定义颜色
+     *
+     * <p>示例值：0
+     */
     private Integer textBackgroundColorType;
 
-    // builder 开始
-    public Text() {
+    /**
+     * 文字内容
+     *
+     * <p>示例值：文字内容
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public Text(Builder builder) {
-        /**
-         * 文字内容
-         * <p> 示例值：文字内容
-         */
-        this.text = builder.text;
-        /**
-         * 文字字重
-         * <p> 示例值：regular
-         */
-        this.fontWeight = builder.fontWeight;
-        /**
-         * 文字大小
-         * <p> 示例值：14
-         */
-        this.fontSize = builder.fontSize;
-        /**
-         * 水平对齐
-         * <p> 示例值：
-         */
-        this.horizontalAlign = builder.horizontalAlign;
-        /**
-         * 垂直对齐
-         * <p> 示例值：
-         */
-        this.verticalAlign = builder.verticalAlign;
-        /**
-         * 文字颜色，16 进制 rgb 值
-         * <p> 示例值：#6db5a3
-         */
-        this.textColor = builder.textColor;
-        /**
-         * 文字背景色，16 进制 rgb 值
-         * <p> 示例值：#6db5a3
-         */
-        this.textBackgroundColor = builder.textBackgroundColor;
-        /**
-         * 是否存在删除线
-         * <p> 示例值：true
-         */
-        this.lineThrough = builder.lineThrough;
-        /**
-         * 是否存在下划线
-         * <p> 示例值：true
-         */
-        this.underline = builder.underline;
-        /**
-         * 是否斜体
-         * <p> 示例值：true
-         */
-        this.italic = builder.italic;
-        /**
-         * 文字旋转角度
-         * <p> 示例值：90
-         */
-        this.angle = builder.angle;
-        /**
-         * 文字颜色主题配色编码值
-         * <p> 示例值：0
-         */
-        this.themeTextColorCode = builder.themeTextColorCode;
-        /**
-         * 文字背景颜色主题配色编码值
-         * <p> 示例值：-1
-         */
-        this.themeTextBackgroundColorCode = builder.themeTextBackgroundColorCode;
-        /**
-         * 富文本
-         * <p> 示例值：
-         */
-        this.richText = builder.richText;
-        /**
-         * 文字颜色类型，0=系统颜色，1=自定义颜色
-         * <p> 示例值：
-         */
-        this.textColorType = builder.textColorType;
-        /**
-         * 文字背景颜色类型，0=系统颜色，1=自定义颜色
-         * <p> 示例值：
-         */
-        this.textBackgroundColorType = builder.textBackgroundColorType;
+    /**
+     * 文字字重
+     *
+     * <p>示例值：regular
+     *
+     * @param fontWeight
+     * @return
+     */
+    public Builder fontWeight(String fontWeight) {
+      this.fontWeight = fontWeight;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文字字重
+     *
+     * <p>示例值：regular
+     *
+     * @param fontWeight {@link com.lark.oapi.service.board.v1.enums.TextFontWeightEnum}
+     * @return
+     */
+    public Builder fontWeight(com.lark.oapi.service.board.v1.enums.TextFontWeightEnum fontWeight) {
+      this.fontWeight = fontWeight.getValue();
+      return this;
     }
 
-    public String getText() {
-        return this.text;
+    /**
+     * 文字大小，单位 px，默认为 14 px
+     *
+     * <p>示例值：14
+     *
+     * @param fontSize
+     * @return
+     */
+    public Builder fontSize(Integer fontSize) {
+      this.fontSize = fontSize;
+      return this;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    /**
+     * 水平对齐
+     *
+     * <p>示例值：center
+     *
+     * @param horizontalAlign
+     * @return
+     */
+    public Builder horizontalAlign(String horizontalAlign) {
+      this.horizontalAlign = horizontalAlign;
+      return this;
     }
 
-    public String getFontWeight() {
-        return this.fontWeight;
+    /**
+     * 水平对齐
+     *
+     * <p>示例值：center
+     *
+     * @param horizontalAlign {@link com.lark.oapi.service.board.v1.enums.TextHorizontalAlignEnum}
+     * @return
+     */
+    public Builder horizontalAlign(
+        com.lark.oapi.service.board.v1.enums.TextHorizontalAlignEnum horizontalAlign) {
+      this.horizontalAlign = horizontalAlign.getValue();
+      return this;
     }
 
-    public void setFontWeight(String fontWeight) {
-        this.fontWeight = fontWeight;
+    /**
+     * 垂直对齐
+     *
+     * <p>示例值：mid
+     *
+     * @param verticalAlign
+     * @return
+     */
+    public Builder verticalAlign(String verticalAlign) {
+      this.verticalAlign = verticalAlign;
+      return this;
     }
 
-    public Integer getFontSize() {
-        return this.fontSize;
+    /**
+     * 垂直对齐
+     *
+     * <p>示例值：mid
+     *
+     * @param verticalAlign {@link com.lark.oapi.service.board.v1.enums.TextVerticalAlignEnum}
+     * @return
+     */
+    public Builder verticalAlign(
+        com.lark.oapi.service.board.v1.enums.TextVerticalAlignEnum verticalAlign) {
+      this.verticalAlign = verticalAlign.getValue();
+      return this;
     }
 
-    public void setFontSize(Integer fontSize) {
-        this.fontSize = fontSize;
+    /**
+     * 文字颜色，16 进制 rgb 值
+     *
+     * <p>示例值：#6db5a3
+     *
+     * @param textColor
+     * @return
+     */
+    public Builder textColor(String textColor) {
+      this.textColor = textColor;
+      return this;
     }
 
-    public String getHorizontalAlign() {
-        return this.horizontalAlign;
+    /**
+     * 文字背景色，16 进制 rgb 值
+     *
+     * <p>示例值：#6db5a3
+     *
+     * @param textBackgroundColor
+     * @return
+     */
+    public Builder textBackgroundColor(String textBackgroundColor) {
+      this.textBackgroundColor = textBackgroundColor;
+      return this;
     }
 
-    public void setHorizontalAlign(String horizontalAlign) {
-        this.horizontalAlign = horizontalAlign;
+    /**
+     * 是否存在删除线
+     *
+     * <p>示例值：true
+     *
+     * @param lineThrough
+     * @return
+     */
+    public Builder lineThrough(Boolean lineThrough) {
+      this.lineThrough = lineThrough;
+      return this;
     }
 
-    public String getVerticalAlign() {
-        return this.verticalAlign;
+    /**
+     * 是否存在下划线
+     *
+     * <p>示例值：true
+     *
+     * @param underline
+     * @return
+     */
+    public Builder underline(Boolean underline) {
+      this.underline = underline;
+      return this;
     }
 
-    public void setVerticalAlign(String verticalAlign) {
-        this.verticalAlign = verticalAlign;
+    /**
+     * 是否斜体
+     *
+     * <p>示例值：true
+     *
+     * @param italic
+     * @return
+     */
+    public Builder italic(Boolean italic) {
+      this.italic = italic;
+      return this;
     }
 
-    public String getTextColor() {
-        return this.textColor;
+    /**
+     * 文字旋转角度
+     *
+     * <p>示例值：90
+     *
+     * @param angle
+     * @return
+     */
+    public Builder angle(Integer angle) {
+      this.angle = angle;
+      return this;
     }
 
-    public void setTextColor(String textColor) {
-        this.textColor = textColor;
+    /**
+     * 文字旋转角度
+     *
+     * <p>示例值：90
+     *
+     * @param angle {@link com.lark.oapi.service.board.v1.enums.TextTextAngleEnum}
+     * @return
+     */
+    public Builder angle(com.lark.oapi.service.board.v1.enums.TextTextAngleEnum angle) {
+      this.angle = angle.getValue();
+      return this;
     }
 
-    public String getTextBackgroundColor() {
-        return this.textBackgroundColor;
+    /**
+     * 文字颜色主题配色编码值
+     *
+     * <p>示例值：0
+     *
+     * @param themeTextColorCode
+     * @return
+     */
+    public Builder themeTextColorCode(Integer themeTextColorCode) {
+      this.themeTextColorCode = themeTextColorCode;
+      return this;
     }
 
-    public void setTextBackgroundColor(String textBackgroundColor) {
-        this.textBackgroundColor = textBackgroundColor;
+    /**
+     * 文字背景颜色主题配色编码值
+     *
+     * <p>示例值：-1
+     *
+     * @param themeTextBackgroundColorCode
+     * @return
+     */
+    public Builder themeTextBackgroundColorCode(Integer themeTextBackgroundColorCode) {
+      this.themeTextBackgroundColorCode = themeTextBackgroundColorCode;
+      return this;
     }
 
-    public Boolean getLineThrough() {
-        return this.lineThrough;
+    /**
+     * 富文本（富文本有值时候会覆盖上面的text信息）;如果整段文本只有一个样式，不推荐使用富文本;
+     *
+     * <p>示例值：
+     *
+     * @param richText
+     * @return
+     */
+    public Builder richText(RichText richText) {
+      this.richText = richText;
+      return this;
     }
 
-    public void setLineThrough(Boolean lineThrough) {
-        this.lineThrough = lineThrough;
+    /**
+     * 文字颜色类型，0=系统颜色，1=自定义颜色
+     *
+     * <p>示例值：0
+     *
+     * @param textColorType
+     * @return
+     */
+    public Builder textColorType(Integer textColorType) {
+      this.textColorType = textColorType;
+      return this;
     }
 
-    public Boolean getUnderline() {
-        return this.underline;
+    /**
+     * 文字颜色类型，0=系统颜色，1=自定义颜色
+     *
+     * <p>示例值：0
+     *
+     * @param textColorType {@link com.lark.oapi.service.board.v1.enums.TextColorTypeEnum}
+     * @return
+     */
+    public Builder textColorType(
+        com.lark.oapi.service.board.v1.enums.TextColorTypeEnum textColorType) {
+      this.textColorType = textColorType.getValue();
+      return this;
     }
 
-    public void setUnderline(Boolean underline) {
-        this.underline = underline;
+    /**
+     * 文字背景颜色类型，0=系统颜色，1=自定义颜色
+     *
+     * <p>示例值：0
+     *
+     * @param textBackgroundColorType
+     * @return
+     */
+    public Builder textBackgroundColorType(Integer textBackgroundColorType) {
+      this.textBackgroundColorType = textBackgroundColorType;
+      return this;
     }
 
-    public Boolean getItalic() {
-        return this.italic;
+    /**
+     * 文字背景颜色类型，0=系统颜色，1=自定义颜色
+     *
+     * <p>示例值：0
+     *
+     * @param textBackgroundColorType {@link com.lark.oapi.service.board.v1.enums.TextColorTypeEnum}
+     * @return
+     */
+    public Builder textBackgroundColorType(
+        com.lark.oapi.service.board.v1.enums.TextColorTypeEnum textBackgroundColorType) {
+      this.textBackgroundColorType = textBackgroundColorType.getValue();
+      return this;
     }
 
-    public void setItalic(Boolean italic) {
-        this.italic = italic;
+    public Text build() {
+      return new Text(this);
     }
+  }
 
-    public Integer getAngle() {
-        return this.angle;
-    }
-
-    public void setAngle(Integer angle) {
-        this.angle = angle;
-    }
-
-    public Integer getThemeTextColorCode() {
-        return this.themeTextColorCode;
-    }
-
-    public void setThemeTextColorCode(Integer themeTextColorCode) {
-        this.themeTextColorCode = themeTextColorCode;
-    }
-
-    public Integer getThemeTextBackgroundColorCode() {
-        return this.themeTextBackgroundColorCode;
-    }
-
-    public void setThemeTextBackgroundColorCode(Integer themeTextBackgroundColorCode) {
-        this.themeTextBackgroundColorCode = themeTextBackgroundColorCode;
-    }
-
-    public RichText getRichText() {
-        return this.richText;
-    }
-
-    public void setRichText(RichText richText) {
-        this.richText = richText;
-    }
-
-    public Integer getTextColorType() {
-        return this.textColorType;
-    }
-
-    public void setTextColorType(Integer textColorType) {
-        this.textColorType = textColorType;
-    }
-
-    public Integer getTextBackgroundColorType() {
-        return this.textBackgroundColorType;
-    }
-
-    public void setTextBackgroundColorType(Integer textBackgroundColorType) {
-        this.textBackgroundColorType = textBackgroundColorType;
-    }
-
-    public static class Builder {
-        /**
-         * 文字内容
-         * <p> 示例值：文字内容
-         */
-        private String text;
-        /**
-         * 文字字重
-         * <p> 示例值：regular
-         */
-        private String fontWeight;
-        /**
-         * 文字大小
-         * <p> 示例值：14
-         */
-        private Integer fontSize;
-        /**
-         * 水平对齐
-         * <p> 示例值：
-         */
-        private String horizontalAlign;
-        /**
-         * 垂直对齐
-         * <p> 示例值：
-         */
-        private String verticalAlign;
-        /**
-         * 文字颜色，16 进制 rgb 值
-         * <p> 示例值：#6db5a3
-         */
-        private String textColor;
-        /**
-         * 文字背景色，16 进制 rgb 值
-         * <p> 示例值：#6db5a3
-         */
-        private String textBackgroundColor;
-        /**
-         * 是否存在删除线
-         * <p> 示例值：true
-         */
-        private Boolean lineThrough;
-        /**
-         * 是否存在下划线
-         * <p> 示例值：true
-         */
-        private Boolean underline;
-        /**
-         * 是否斜体
-         * <p> 示例值：true
-         */
-        private Boolean italic;
-        /**
-         * 文字旋转角度
-         * <p> 示例值：90
-         */
-        private Integer angle;
-        /**
-         * 文字颜色主题配色编码值
-         * <p> 示例值：0
-         */
-        private Integer themeTextColorCode;
-        /**
-         * 文字背景颜色主题配色编码值
-         * <p> 示例值：-1
-         */
-        private Integer themeTextBackgroundColorCode;
-        /**
-         * 富文本
-         * <p> 示例值：
-         */
-        private RichText richText;
-        /**
-         * 文字颜色类型，0=系统颜色，1=自定义颜色
-         * <p> 示例值：
-         */
-        private Integer textColorType;
-        /**
-         * 文字背景颜色类型，0=系统颜色，1=自定义颜色
-         * <p> 示例值：
-         */
-        private Integer textBackgroundColorType;
-
-        /**
-         * 文字内容
-         * <p> 示例值：文字内容
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 文字字重
-         * <p> 示例值：regular
-         *
-         * @param fontWeight
-         * @return
-         */
-        public Builder fontWeight(String fontWeight) {
-            this.fontWeight = fontWeight;
-            return this;
-        }
-
-        /**
-         * 文字字重
-         * <p> 示例值：regular
-         *
-         * @param fontWeight {@link com.lark.oapi.service.board.v1.enums.TextFontWeightEnum}
-         * @return
-         */
-        public Builder fontWeight(com.lark.oapi.service.board.v1.enums.TextFontWeightEnum fontWeight) {
-            this.fontWeight = fontWeight.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文字大小
-         * <p> 示例值：14
-         *
-         * @param fontSize
-         * @return
-         */
-        public Builder fontSize(Integer fontSize) {
-            this.fontSize = fontSize;
-            return this;
-        }
-
-
-        /**
-         * 水平对齐
-         * <p> 示例值：
-         *
-         * @param horizontalAlign
-         * @return
-         */
-        public Builder horizontalAlign(String horizontalAlign) {
-            this.horizontalAlign = horizontalAlign;
-            return this;
-        }
-
-        /**
-         * 水平对齐
-         * <p> 示例值：
-         *
-         * @param horizontalAlign {@link com.lark.oapi.service.board.v1.enums.TextHorizontalAlignEnum}
-         * @return
-         */
-        public Builder horizontalAlign(com.lark.oapi.service.board.v1.enums.TextHorizontalAlignEnum horizontalAlign) {
-            this.horizontalAlign = horizontalAlign.getValue();
-            return this;
-        }
-
-
-        /**
-         * 垂直对齐
-         * <p> 示例值：
-         *
-         * @param verticalAlign
-         * @return
-         */
-        public Builder verticalAlign(String verticalAlign) {
-            this.verticalAlign = verticalAlign;
-            return this;
-        }
-
-        /**
-         * 垂直对齐
-         * <p> 示例值：
-         *
-         * @param verticalAlign {@link com.lark.oapi.service.board.v1.enums.TextVerticalAlignEnum}
-         * @return
-         */
-        public Builder verticalAlign(com.lark.oapi.service.board.v1.enums.TextVerticalAlignEnum verticalAlign) {
-            this.verticalAlign = verticalAlign.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文字颜色，16 进制 rgb 值
-         * <p> 示例值：#6db5a3
-         *
-         * @param textColor
-         * @return
-         */
-        public Builder textColor(String textColor) {
-            this.textColor = textColor;
-            return this;
-        }
-
-
-        /**
-         * 文字背景色，16 进制 rgb 值
-         * <p> 示例值：#6db5a3
-         *
-         * @param textBackgroundColor
-         * @return
-         */
-        public Builder textBackgroundColor(String textBackgroundColor) {
-            this.textBackgroundColor = textBackgroundColor;
-            return this;
-        }
-
-
-        /**
-         * 是否存在删除线
-         * <p> 示例值：true
-         *
-         * @param lineThrough
-         * @return
-         */
-        public Builder lineThrough(Boolean lineThrough) {
-            this.lineThrough = lineThrough;
-            return this;
-        }
-
-
-        /**
-         * 是否存在下划线
-         * <p> 示例值：true
-         *
-         * @param underline
-         * @return
-         */
-        public Builder underline(Boolean underline) {
-            this.underline = underline;
-            return this;
-        }
-
-
-        /**
-         * 是否斜体
-         * <p> 示例值：true
-         *
-         * @param italic
-         * @return
-         */
-        public Builder italic(Boolean italic) {
-            this.italic = italic;
-            return this;
-        }
-
-
-        /**
-         * 文字旋转角度
-         * <p> 示例值：90
-         *
-         * @param angle
-         * @return
-         */
-        public Builder angle(Integer angle) {
-            this.angle = angle;
-            return this;
-        }
-
-        /**
-         * 文字旋转角度
-         * <p> 示例值：90
-         *
-         * @param angle {@link com.lark.oapi.service.board.v1.enums.TextTextAngleEnum}
-         * @return
-         */
-        public Builder angle(com.lark.oapi.service.board.v1.enums.TextTextAngleEnum angle) {
-            this.angle = angle.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文字颜色主题配色编码值
-         * <p> 示例值：0
-         *
-         * @param themeTextColorCode
-         * @return
-         */
-        public Builder themeTextColorCode(Integer themeTextColorCode) {
-            this.themeTextColorCode = themeTextColorCode;
-            return this;
-        }
-
-
-        /**
-         * 文字背景颜色主题配色编码值
-         * <p> 示例值：-1
-         *
-         * @param themeTextBackgroundColorCode
-         * @return
-         */
-        public Builder themeTextBackgroundColorCode(Integer themeTextBackgroundColorCode) {
-            this.themeTextBackgroundColorCode = themeTextBackgroundColorCode;
-            return this;
-        }
-
-
-        /**
-         * 富文本
-         * <p> 示例值：
-         *
-         * @param richText
-         * @return
-         */
-        public Builder richText(RichText richText) {
-            this.richText = richText;
-            return this;
-        }
-
-
-        /**
-         * 文字颜色类型，0=系统颜色，1=自定义颜色
-         * <p> 示例值：
-         *
-         * @param textColorType
-         * @return
-         */
-        public Builder textColorType(Integer textColorType) {
-            this.textColorType = textColorType;
-            return this;
-        }
-
-        /**
-         * 文字颜色类型，0=系统颜色，1=自定义颜色
-         * <p> 示例值：
-         *
-         * @param textColorType {@link com.lark.oapi.service.board.v1.enums.TextColorTypeEnum}
-         * @return
-         */
-        public Builder textColorType(com.lark.oapi.service.board.v1.enums.TextColorTypeEnum textColorType) {
-            this.textColorType = textColorType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文字背景颜色类型，0=系统颜色，1=自定义颜色
-         * <p> 示例值：
-         *
-         * @param textBackgroundColorType
-         * @return
-         */
-        public Builder textBackgroundColorType(Integer textBackgroundColorType) {
-            this.textBackgroundColorType = textBackgroundColorType;
-            return this;
-        }
-
-        /**
-         * 文字背景颜色类型，0=系统颜色，1=自定义颜色
-         * <p> 示例值：
-         *
-         * @param textBackgroundColorType {@link com.lark.oapi.service.board.v1.enums.TextColorTypeEnum}
-         * @return
-         */
-        public Builder textBackgroundColorType(com.lark.oapi.service.board.v1.enums.TextColorTypeEnum textBackgroundColorType) {
-            this.textBackgroundColorType = textBackgroundColorType.getValue();
-            return this;
-        }
-
-
-        public Text build() {
-            return new Text(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

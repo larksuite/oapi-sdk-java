@@ -13,29 +13,27 @@
 
 package com.lark.oapi.service.performance.v2.enums;
 
-/**
- * 执行角色
- */
+/** 执行角色 */
 public enum TemplateStagePerformRoleEnum {
-    REVIEWEE("reviewee"), // 被评估人
-    INVITED_REVIEWER("invited_reviewer"), // 360°评估人
-    SOLID_LINE_LEADER("solid_line_leader"), // 实线上级
-    DOTTED_LINE_LEADER("dotted_line_leader"), // 虚线上级
-    SECONDARY_SOLID_LINE_LEADER("secondary_solid_line_leader"), // 第二实线上级
-    DIRECT_PROJECT_LEADER("direct_project_leader"), // 项目直属上级
-    CUSTOM_REVIEW_ROLE("custom_review_role"), // 自定义评估角色
-    METRIC_REVIEWER("metric_reviewer"), // 指标评价人角色
-    ADJUSTER("adjuster"), // 校准人角色
-    APPEAL_HANDLER("appeal_handler"), // 申诉处理角色
-    DATA_SOURCE_ADMIN("data_source_admin"), // 数据源录入角色
-    ;
-    private String value;
+  REVIEWEE("reviewee"), // 被评估人
+  INVITED_REVIEWER("invited_reviewer"), // 360°评估人
+  SOLID_LINE_LEADER("solid_line_leader"), // 实线上级
+  DOTTED_LINE_LEADER("dotted_line_leader"), // 虚线上级
+  SECONDARY_SOLID_LINE_LEADER("secondary_solid_line_leader"), // 第二实线上级
+  DIRECT_PROJECT_LEADER("direct_project_leader"), // 项目直属上级
+  CUSTOM_REVIEW_ROLE("custom_review_role"), // 自定义评估角色
+  METRIC_REVIEWER("metric_reviewer"), // 指标评价人
+  ADJUSTER("adjuster"), // 校准人
+  APPEAL_HANDLER("appeal_handler"), // 复议处理人
+  DATA_SOURCE_ADMIN("data_source_admin"), // 数据源录入人
+  ;
+  private String value;
 
-    TemplateStagePerformRoleEnum(String value) {
-        this.value = value;
-    }
+  TemplateStagePerformRoleEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

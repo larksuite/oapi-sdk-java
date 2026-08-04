@@ -13,272 +13,288 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PayGroup {
+  /**
+   * 薪资组ID
+   *
+   * <p>示例值：6823630319749580301
+   */
+  @SerializedName("pay_group_id")
+  private String payGroupId;
+
+  /**
+   * 算薪周期名称
+   *
+   * <p>示例值：CHN - 审核
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 薪资组编码
+   *
+   * <p>示例值：PAY_GROUP-3-8
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 薪资组状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 薪资组所属国家/地区
+   *
+   * <p>示例值：
+   */
+  @SerializedName("country_region")
+  private CountryRegion countryRegion;
+
+  /**
+   * 是否适用全球
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_global_region")
+  private Boolean isGlobalRegion;
+
+  public String getPayGroupId() {
+    return this.payGroupId;
+  }
+
+  public void setPayGroupId(String payGroupId) {
+    this.payGroupId = payGroupId;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public CountryRegion getCountryRegion() {
+    return this.countryRegion;
+  }
+
+  public void setCountryRegion(CountryRegion countryRegion) {
+    this.countryRegion = countryRegion;
+  }
+
+  public Boolean getIsGlobalRegion() {
+    return this.isGlobalRegion;
+  }
+
+  public void setIsGlobalRegion(Boolean isGlobalRegion) {
+    this.isGlobalRegion = isGlobalRegion;
+  }
+
+  // builder 开始
+  public PayGroup() {}
+
+  public PayGroup(Builder builder) {
     /**
      * 薪资组ID
-     * <p> 示例值：6823630319749580301
+     *
+     * <p>示例值：6823630319749580301
      */
-    @SerializedName("pay_group_id")
-    private String payGroupId;
+    this.payGroupId = builder.payGroupId;
     /**
-     * 薪资组名称
-     * <p> 示例值：CHN - 审核
+     * 算薪周期名称
+     *
+     * <p>示例值：CHN - 审核
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 薪资组编码
-     * <p> 示例值：PAY_GROUP-3-8
+     *
+     * <p>示例值：PAY_GROUP-3-8
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 薪资组状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 薪资组所属国家/地区
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("country_region")
-    private CountryRegion countryRegion;
+    this.countryRegion = builder.countryRegion;
     /**
      * 是否适用全球
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_global_region")
+    this.isGlobalRegion = builder.isGlobalRegion;
+  }
+
+  public static class Builder {
+    /**
+     * 薪资组ID
+     *
+     * <p>示例值：6823630319749580301
+     */
+    private String payGroupId;
+
+    /**
+     * 算薪周期名称
+     *
+     * <p>示例值：CHN - 审核
+     */
+    private I18n name;
+
+    /**
+     * 薪资组编码
+     *
+     * <p>示例值：PAY_GROUP-3-8
+     */
+    private String code;
+
+    /**
+     * 薪资组状态
+     *
+     * <p>示例值：1
+     */
+    private Integer status;
+
+    /**
+     * 薪资组所属国家/地区
+     *
+     * <p>示例值：
+     */
+    private CountryRegion countryRegion;
+
+    /**
+     * 是否适用全球
+     *
+     * <p>示例值：
+     */
     private Boolean isGlobalRegion;
 
-    // builder 开始
-    public PayGroup() {
+    /**
+     * 薪资组ID
+     *
+     * <p>示例值：6823630319749580301
+     *
+     * @param payGroupId
+     * @return
+     */
+    public Builder payGroupId(String payGroupId) {
+      this.payGroupId = payGroupId;
+      return this;
     }
 
-    public PayGroup(Builder builder) {
-        /**
-         * 薪资组ID
-         * <p> 示例值：6823630319749580301
-         */
-        this.payGroupId = builder.payGroupId;
-        /**
-         * 薪资组名称
-         * <p> 示例值：CHN - 审核
-         */
-        this.name = builder.name;
-        /**
-         * 薪资组编码
-         * <p> 示例值：PAY_GROUP-3-8
-         */
-        this.code = builder.code;
-        /**
-         * 薪资组状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-        /**
-         * 薪资组所属国家/地区
-         * <p> 示例值：
-         */
-        this.countryRegion = builder.countryRegion;
-        /**
-         * 是否适用全球
-         * <p> 示例值：
-         */
-        this.isGlobalRegion = builder.isGlobalRegion;
+    /**
+     * 算薪周期名称
+     *
+     * <p>示例值：CHN - 审核
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 薪资组编码
+     *
+     * <p>示例值：PAY_GROUP-3-8
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public String getPayGroupId() {
-        return this.payGroupId;
+    /**
+     * 薪资组状态
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public void setPayGroupId(String payGroupId) {
-        this.payGroupId = payGroupId;
+    /**
+     * 薪资组状态
+     *
+     * <p>示例值：1
+     *
+     * @param status {@link com.lark.oapi.service.payroll.v1.enums.PaygroupStatusEnum}
+     * @return
+     */
+    public Builder status(com.lark.oapi.service.payroll.v1.enums.PaygroupStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 薪资组所属国家/地区
+     *
+     * <p>示例值：
+     *
+     * @param countryRegion
+     * @return
+     */
+    public Builder countryRegion(CountryRegion countryRegion) {
+      this.countryRegion = countryRegion;
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    /**
+     * 是否适用全球
+     *
+     * <p>示例值：
+     *
+     * @param isGlobalRegion
+     * @return
+     */
+    public Builder isGlobalRegion(Boolean isGlobalRegion) {
+      this.isGlobalRegion = isGlobalRegion;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    public PayGroup build() {
+      return new PayGroup(this);
     }
+  }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public CountryRegion getCountryRegion() {
-        return this.countryRegion;
-    }
-
-    public void setCountryRegion(CountryRegion countryRegion) {
-        this.countryRegion = countryRegion;
-    }
-
-    public Boolean getIsGlobalRegion() {
-        return this.isGlobalRegion;
-    }
-
-    public void setIsGlobalRegion(Boolean isGlobalRegion) {
-        this.isGlobalRegion = isGlobalRegion;
-    }
-
-    public static class Builder {
-        /**
-         * 薪资组ID
-         * <p> 示例值：6823630319749580301
-         */
-        private String payGroupId;
-        /**
-         * 薪资组名称
-         * <p> 示例值：CHN - 审核
-         */
-        private I18n name;
-        /**
-         * 薪资组编码
-         * <p> 示例值：PAY_GROUP-3-8
-         */
-        private String code;
-        /**
-         * 薪资组状态
-         * <p> 示例值：1
-         */
-        private Integer status;
-        /**
-         * 薪资组所属国家/地区
-         * <p> 示例值：
-         */
-        private CountryRegion countryRegion;
-        /**
-         * 是否适用全球
-         * <p> 示例值：
-         */
-        private Boolean isGlobalRegion;
-
-        /**
-         * 薪资组ID
-         * <p> 示例值：6823630319749580301
-         *
-         * @param payGroupId
-         * @return
-         */
-        public Builder payGroupId(String payGroupId) {
-            this.payGroupId = payGroupId;
-            return this;
-        }
-
-
-        /**
-         * 薪资组名称
-         * <p> 示例值：CHN - 审核
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 薪资组编码
-         * <p> 示例值：PAY_GROUP-3-8
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 薪资组状态
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 薪资组状态
-         * <p> 示例值：1
-         *
-         * @param status {@link com.lark.oapi.service.payroll.v1.enums.PaygroupStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.payroll.v1.enums.PaygroupStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 薪资组所属国家/地区
-         * <p> 示例值：
-         *
-         * @param countryRegion
-         * @return
-         */
-        public Builder countryRegion(CountryRegion countryRegion) {
-            this.countryRegion = countryRegion;
-            return this;
-        }
-
-
-        /**
-         * 是否适用全球
-         * <p> 示例值：
-         *
-         * @param isGlobalRegion
-         * @return
-         */
-        public Builder isGlobalRegion(Boolean isGlobalRegion) {
-            this.isGlobalRegion = isGlobalRegion;
-            return this;
-        }
-
-
-        public PayGroup build() {
-            return new PayGroup(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

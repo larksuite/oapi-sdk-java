@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TimeRange {
+  /**
+   * 用户查询的开始时间，秒级时间戳
+   *
+   * <p>示例值：1345673356
+   */
+  @SerializedName("start_at")
+  private String startAt;
+
+  /**
+   * 用户查询的结束时间，秒级时间戳
+   *
+   * <p>示例值：1573456854
+   */
+  @SerializedName("end_at")
+  private String endAt;
+
+  public String getStartAt() {
+    return this.startAt;
+  }
+
+  public void setStartAt(String startAt) {
+    this.startAt = startAt;
+  }
+
+  public String getEndAt() {
+    return this.endAt;
+  }
+
+  public void setEndAt(String endAt) {
+    this.endAt = endAt;
+  }
+
+  // builder 开始
+  public TimeRange() {}
+
+  public TimeRange(Builder builder) {
     /**
      * 用户查询的开始时间，秒级时间戳
-     * <p> 示例值：1345673356
+     *
+     * <p>示例值：1345673356
      */
-    @SerializedName("start_at")
-    private String startAt;
+    this.startAt = builder.startAt;
     /**
      * 用户查询的结束时间，秒级时间戳
-     * <p> 示例值：1573456854
+     *
+     * <p>示例值：1573456854
      */
-    @SerializedName("end_at")
+    this.endAt = builder.endAt;
+  }
+
+  public static class Builder {
+    /**
+     * 用户查询的开始时间，秒级时间戳
+     *
+     * <p>示例值：1345673356
+     */
+    private String startAt;
+
+    /**
+     * 用户查询的结束时间，秒级时间戳
+     *
+     * <p>示例值：1573456854
+     */
     private String endAt;
 
-    // builder 开始
-    public TimeRange() {
+    /**
+     * 用户查询的开始时间，秒级时间戳
+     *
+     * <p>示例值：1345673356
+     *
+     * @param startAt
+     * @return
+     */
+    public Builder startAt(String startAt) {
+      this.startAt = startAt;
+      return this;
     }
 
-    public TimeRange(Builder builder) {
-        /**
-         * 用户查询的开始时间，秒级时间戳
-         * <p> 示例值：1345673356
-         */
-        this.startAt = builder.startAt;
-        /**
-         * 用户查询的结束时间，秒级时间戳
-         * <p> 示例值：1573456854
-         */
-        this.endAt = builder.endAt;
+    /**
+     * 用户查询的结束时间，秒级时间戳
+     *
+     * <p>示例值：1573456854
+     *
+     * @param endAt
+     * @return
+     */
+    public Builder endAt(String endAt) {
+      this.endAt = endAt;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TimeRange build() {
+      return new TimeRange(this);
     }
+  }
 
-    public String getStartAt() {
-        return this.startAt;
-    }
-
-    public void setStartAt(String startAt) {
-        this.startAt = startAt;
-    }
-
-    public String getEndAt() {
-        return this.endAt;
-    }
-
-    public void setEndAt(String endAt) {
-        this.endAt = endAt;
-    }
-
-    public static class Builder {
-        /**
-         * 用户查询的开始时间，秒级时间戳
-         * <p> 示例值：1345673356
-         */
-        private String startAt;
-        /**
-         * 用户查询的结束时间，秒级时间戳
-         * <p> 示例值：1573456854
-         */
-        private String endAt;
-
-        /**
-         * 用户查询的开始时间，秒级时间戳
-         * <p> 示例值：1345673356
-         *
-         * @param startAt
-         * @return
-         */
-        public Builder startAt(String startAt) {
-            this.startAt = startAt;
-            return this;
-        }
-
-
-        /**
-         * 用户查询的结束时间，秒级时间戳
-         * <p> 示例值：1573456854
-         *
-         * @param endAt
-         * @return
-         */
-        public Builder endAt(String endAt) {
-            this.endAt = endAt;
-            return this;
-        }
-
-
-        public TimeRange build() {
-            return new TimeRange(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

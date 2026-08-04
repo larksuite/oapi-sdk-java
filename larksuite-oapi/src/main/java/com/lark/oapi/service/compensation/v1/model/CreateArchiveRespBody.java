@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateArchiveRespBody {
-    /**
-     * 定调薪任务创建的唯一ID
-     * <p> 示例值：123e4567-e89b-42d3-a456-426614174000
-     */
-    @SerializedName("unique_id")
-    private String uniqueId;
-    /**
-     * 薪档案的TID
-     * <p> 示例值：7434007780111336970
-     */
-    @SerializedName("archive_tid")
-    private String archiveTid;
+  /**
+   * 定调薪任务创建的唯一ID
+   *
+   * <p>示例值：123e4567-e89b-42d3-a456-426614174000
+   */
+  @SerializedName("unique_id")
+  private String uniqueId;
 
-    public String getUniqueId() {
-        return this.uniqueId;
-    }
+  /**
+   * 薪资档案的TID
+   *
+   * <p>示例值：7434007780111336970
+   */
+  @SerializedName("archive_tid")
+  private String archiveTid;
 
-    public void setUniqueId(String uniqueId) {
-        this.uniqueId = uniqueId;
-    }
+  public String getUniqueId() {
+    return this.uniqueId;
+  }
 
-    public String getArchiveTid() {
-        return this.archiveTid;
-    }
+  public void setUniqueId(String uniqueId) {
+    this.uniqueId = uniqueId;
+  }
 
-    public void setArchiveTid(String archiveTid) {
-        this.archiveTid = archiveTid;
-    }
+  public String getArchiveTid() {
+    return this.archiveTid;
+  }
 
+  public void setArchiveTid(String archiveTid) {
+    this.archiveTid = archiveTid;
+  }
 }

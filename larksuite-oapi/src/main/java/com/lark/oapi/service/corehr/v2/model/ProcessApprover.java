@@ -13,235 +13,222 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessApprover {
+  /** 示例值：2 */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 用户id，按user_id_type类型传递。如果system_approval为false，则必填审批任务“approver_id”对应的原审批人的user_id；为true时非必填。
+   *
+   * <p>示例值：ou_91791271921729102012
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 是否为系统身份审批。;;true - 使用系统身份审批，若使用系统身份，将代替approver_id对应的原审批人进行审批，原审批人将失去审批任务的查看权限；false -
+   * 按照所传的人员身份审批
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("system_approval")
+  private Boolean systemApproval;
+
+  /**
+   * 通过/拒绝原因，当拒绝时原因必填;;**默认值**：""
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  /** 示例值： */
+  @SerializedName("field_values_v2")
+  private ProcessFormVariableV2[] fieldValuesV2;
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public Boolean getSystemApproval() {
+    return this.systemApproval;
+  }
+
+  public void setSystemApproval(Boolean systemApproval) {
+    this.systemApproval = systemApproval;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  public ProcessFormVariableV2[] getFieldValuesV2() {
+    return this.fieldValuesV2;
+  }
+
+  public void setFieldValuesV2(ProcessFormVariableV2[] fieldValuesV2) {
+    this.fieldValuesV2 = fieldValuesV2;
+  }
+
+  // builder 开始
+  public ProcessApprover() {}
+
+  public ProcessApprover(Builder builder) {
+    /** 示例值：2 */
+    this.status = builder.status;
     /**
-     * 将审批任务修改为同意/拒绝
-     * <p> 示例值：2
+     * 用户id，按user_id_type类型传递。如果system_approval为false，则必填审批任务“approver_id”对应的原审批人的user_id；为true时非必填。
+     *
+     * <p>示例值：ou_91791271921729102012
      */
-    @SerializedName("status")
+    this.userId = builder.userId;
+    /**
+     * 是否为系统身份审批。;;true - 使用系统身份审批，若使用系统身份，将代替approver_id对应的原审批人进行审批，原审批人将失去审批任务的查看权限；false -
+     * 按照所传的人员身份审批
+     *
+     * <p>示例值：true
+     */
+    this.systemApproval = builder.systemApproval;
+    /**
+     * 通过/拒绝原因，当拒绝时原因必填;;**默认值**：""
+     *
+     * <p>示例值：
+     */
+    this.reason = builder.reason;
+    /** 示例值： */
+    this.fieldValuesV2 = builder.fieldValuesV2;
+  }
+
+  public static class Builder {
+    /** 示例值：2 */
     private Integer status;
+
     /**
-     * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
-     * <p> 示例值：ou_91791271921729102012
+     * 用户id，按user_id_type类型传递。如果system_approval为false，则必填审批任务“approver_id”对应的原审批人的user_id；为true时非必填。
+     *
+     * <p>示例值：ou_91791271921729102012
      */
-    @SerializedName("user_id")
     private String userId;
+
     /**
-     * true - 使用系统身份审批
-     * <p> 示例值：true
+     * 是否为系统身份审批。;;true - 使用系统身份审批，若使用系统身份，将代替approver_id对应的原审批人进行审批，原审批人将失去审批任务的查看权限；false -
+     * 按照所传的人员身份审批
+     *
+     * <p>示例值：true
      */
-    @SerializedName("system_approval")
     private Boolean systemApproval;
+
     /**
-     * 通过原因，长度限制为1000
-     * <p> 示例值：原因自定义字符串
+     * 通过/拒绝原因，当拒绝时原因必填;;**默认值**：""
+     *
+     * <p>示例值：
      */
-    @SerializedName("reason")
     private String reason;
-    /**
-     * 表单数据
-     * <p> 示例值：
-     */
-    @SerializedName("field_values_v2")
+
+    /** 示例值： */
     private ProcessFormVariableV2[] fieldValuesV2;
 
-    // builder 开始
-    public ProcessApprover() {
+    /**
+     * 示例值：2
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public ProcessApprover(Builder builder) {
-        /**
-         * 将审批任务修改为同意/拒绝
-         * <p> 示例值：2
-         */
-        this.status = builder.status;
-        /**
-         * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
-         * <p> 示例值：ou_91791271921729102012
-         */
-        this.userId = builder.userId;
-        /**
-         * true - 使用系统身份审批
-         * <p> 示例值：true
-         */
-        this.systemApproval = builder.systemApproval;
-        /**
-         * 通过原因，长度限制为1000
-         * <p> 示例值：原因自定义字符串
-         */
-        this.reason = builder.reason;
-        /**
-         * 表单数据
-         * <p> 示例值：
-         */
-        this.fieldValuesV2 = builder.fieldValuesV2;
+    /**
+     * 示例值：2
+     *
+     * @param status {@link
+     *     com.lark.oapi.service.corehr.v2.enums.ProcessApproverProcessApproverStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.corehr.v2.enums.ProcessApproverProcessApproverStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户id，按user_id_type类型传递。如果system_approval为false，则必填审批任务“approver_id”对应的原审批人的user_id；为true时非必填。
+     *
+     * <p>示例值：ou_91791271921729102012
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public Integer getStatus() {
-        return this.status;
+    /**
+     * 是否为系统身份审批。;;true - 使用系统身份审批，若使用系统身份，将代替approver_id对应的原审批人进行审批，原审批人将失去审批任务的查看权限；false -
+     * 按照所传的人员身份审批
+     *
+     * <p>示例值：true
+     *
+     * @param systemApproval
+     * @return
+     */
+    public Builder systemApproval(Boolean systemApproval) {
+      this.systemApproval = systemApproval;
+      return this;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    /**
+     * 通过/拒绝原因，当拒绝时原因必填;;**默认值**：""
+     *
+     * <p>示例值：
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 示例值：
+     *
+     * @param fieldValuesV2
+     * @return
+     */
+    public Builder fieldValuesV2(ProcessFormVariableV2[] fieldValuesV2) {
+      this.fieldValuesV2 = fieldValuesV2;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public ProcessApprover build() {
+      return new ProcessApprover(this);
     }
+  }
 
-    public Boolean getSystemApproval() {
-        return this.systemApproval;
-    }
-
-    public void setSystemApproval(Boolean systemApproval) {
-        this.systemApproval = systemApproval;
-    }
-
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public ProcessFormVariableV2[] getFieldValuesV2() {
-        return this.fieldValuesV2;
-    }
-
-    public void setFieldValuesV2(ProcessFormVariableV2[] fieldValuesV2) {
-        this.fieldValuesV2 = fieldValuesV2;
-    }
-
-    public static class Builder {
-        /**
-         * 将审批任务修改为同意/拒绝
-         * <p> 示例值：2
-         */
-        private Integer status;
-        /**
-         * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
-         * <p> 示例值：ou_91791271921729102012
-         */
-        private String userId;
-        /**
-         * true - 使用系统身份审批
-         * <p> 示例值：true
-         */
-        private Boolean systemApproval;
-        /**
-         * 通过原因，长度限制为1000
-         * <p> 示例值：原因自定义字符串
-         */
-        private String reason;
-        /**
-         * 表单数据
-         * <p> 示例值：
-         */
-        private ProcessFormVariableV2[] fieldValuesV2;
-
-        /**
-         * 将审批任务修改为同意/拒绝
-         * <p> 示例值：2
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 将审批任务修改为同意/拒绝
-         * <p> 示例值：2
-         *
-         * @param status {@link com.lark.oapi.service.corehr.v2.enums.ProcessApproverProcessApproverStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.corehr.v2.enums.ProcessApproverProcessApproverStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 按user_id_type类型传递。如果system_approval为false，则必填。否则非必填。
-         * <p> 示例值：ou_91791271921729102012
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * true - 使用系统身份审批
-         * <p> 示例值：true
-         *
-         * @param systemApproval
-         * @return
-         */
-        public Builder systemApproval(Boolean systemApproval) {
-            this.systemApproval = systemApproval;
-            return this;
-        }
-
-
-        /**
-         * 通过原因，长度限制为1000
-         * <p> 示例值：原因自定义字符串
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * 表单数据
-         * <p> 示例值：
-         *
-         * @param fieldValuesV2
-         * @return
-         */
-        public Builder fieldValuesV2(ProcessFormVariableV2[] fieldValuesV2) {
-            this.fieldValuesV2 = fieldValuesV2;
-            return this;
-        }
-
-
-        public ProcessApprover build() {
-            return new ProcessApprover(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UrlDetail {
+  /**
+   * 文件为空，使用url则是原url
+   *
+   * <p>示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
+   */
+  @SerializedName("origin_url")
+  private String originUrl;
+
+  /**
+   * 文件 url
+   *
+   * <p>示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20210819/a8c1a1f1-47ae-4147-9deb-a8bf2cd833b1.jpg~tplv-ottatrvjsm-image.image?x-expires=1634941752&x-signature=oaZ6Tfv50ryUesNwKTUTnBlJivY%3D#.jpg
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 文件标识码
+   *
+   * <p>示例值：D93653C3-2609-4EE0-8041-61DC1D84F0B5
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 错误信息，没有则为空
+   *
+   * <p>示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png:cannot find filetype
+   */
+  @SerializedName("message")
+  private String message;
+
+  public String getOriginUrl() {
+    return this.originUrl;
+  }
+
+  public void setOriginUrl(String originUrl) {
+    this.originUrl = originUrl;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getMessage() {
+    return this.message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  // builder 开始
+  public UrlDetail() {}
+
+  public UrlDetail(Builder builder) {
     /**
      * 文件为空，使用url则是原url
-     * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
+     *
+     * <p>示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
      */
-    @SerializedName("origin_url")
-    private String originUrl;
+    this.originUrl = builder.originUrl;
     /**
      * 文件 url
-     * <p> 示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20210819/a8c1a1f1-47ae-4147-9deb-a8bf2cd833b1.jpg~tplv-ottatrvjsm-image.image?x-expires=1634941752&x-signature=oaZ6Tfv50ryUesNwKTUTnBlJivY%3D#.jpg
+     *
+     * <p>示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20210819/a8c1a1f1-47ae-4147-9deb-a8bf2cd833b1.jpg~tplv-ottatrvjsm-image.image?x-expires=1634941752&x-signature=oaZ6Tfv50ryUesNwKTUTnBlJivY%3D#.jpg
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 文件标识码
-     * <p> 示例值：D93653C3-2609-4EE0-8041-61DC1D84F0B5
+     *
+     * <p>示例值：D93653C3-2609-4EE0-8041-61DC1D84F0B5
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 错误信息，没有则为空
-     * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png:cannot find filetype
+     *
+     * <p>示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png:cannot find filetype
      */
-    @SerializedName("message")
+    this.message = builder.message;
+  }
+
+  public static class Builder {
+    /**
+     * 文件为空，使用url则是原url
+     *
+     * <p>示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
+     */
+    private String originUrl;
+
+    /**
+     * 文件 url
+     *
+     * <p>示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20210819/a8c1a1f1-47ae-4147-9deb-a8bf2cd833b1.jpg~tplv-ottatrvjsm-image.image?x-expires=1634941752&x-signature=oaZ6Tfv50ryUesNwKTUTnBlJivY%3D#.jpg
+     */
+    private String url;
+
+    /**
+     * 文件标识码
+     *
+     * <p>示例值：D93653C3-2609-4EE0-8041-61DC1D84F0B5
+     */
+    private String code;
+
+    /**
+     * 错误信息，没有则为空
+     *
+     * <p>示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png:cannot find filetype
+     */
     private String message;
 
-    // builder 开始
-    public UrlDetail() {
+    /**
+     * 文件为空，使用url则是原url
+     *
+     * <p>示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
+     *
+     * @param originUrl
+     * @return
+     */
+    public Builder originUrl(String originUrl) {
+      this.originUrl = originUrl;
+      return this;
     }
 
-    public UrlDetail(Builder builder) {
-        /**
-         * 文件为空，使用url则是原url
-         * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
-         */
-        this.originUrl = builder.originUrl;
-        /**
-         * 文件 url
-         * <p> 示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20210819/a8c1a1f1-47ae-4147-9deb-a8bf2cd833b1.jpg~tplv-ottatrvjsm-image.image?x-expires=1634941752&x-signature=oaZ6Tfv50ryUesNwKTUTnBlJivY%3D#.jpg
-         */
-        this.url = builder.url;
-        /**
-         * 文件标识码
-         * <p> 示例值：D93653C3-2609-4EE0-8041-61DC1D84F0B5
-         */
-        this.code = builder.code;
-        /**
-         * 错误信息，没有则为空
-         * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png:cannot find filetype
-         */
-        this.message = builder.message;
+    /**
+     * 文件 url
+     *
+     * <p>示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20210819/a8c1a1f1-47ae-4147-9deb-a8bf2cd833b1.jpg~tplv-ottatrvjsm-image.image?x-expires=1634941752&x-signature=oaZ6Tfv50ryUesNwKTUTnBlJivY%3D#.jpg
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文件标识码
+     *
+     * <p>示例值：D93653C3-2609-4EE0-8041-61DC1D84F0B5
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public String getOriginUrl() {
-        return this.originUrl;
+    /**
+     * 错误信息，没有则为空
+     *
+     * <p>示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png:cannot find filetype
+     *
+     * @param message
+     * @return
+     */
+    public Builder message(String message) {
+      this.message = message;
+      return this;
     }
 
-    public void setOriginUrl(String originUrl) {
-        this.originUrl = originUrl;
+    public UrlDetail build() {
+      return new UrlDetail(this);
     }
+  }
 
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return this.message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public static class Builder {
-        /**
-         * 文件为空，使用url则是原url
-         * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
-         */
-        private String originUrl;
-        /**
-         * 文件 url
-         * <p> 示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20210819/a8c1a1f1-47ae-4147-9deb-a8bf2cd833b1.jpg~tplv-ottatrvjsm-image.image?x-expires=1634941752&x-signature=oaZ6Tfv50ryUesNwKTUTnBlJivY%3D#.jpg
-         */
-        private String url;
-        /**
-         * 文件标识码
-         * <p> 示例值：D93653C3-2609-4EE0-8041-61DC1D84F0B5
-         */
-        private String code;
-        /**
-         * 错误信息，没有则为空
-         * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png:cannot find filetype
-         */
-        private String message;
-
-        /**
-         * 文件为空，使用url则是原url
-         * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png
-         *
-         * @param originUrl
-         * @return
-         */
-        public Builder originUrl(String originUrl) {
-            this.originUrl = originUrl;
-            return this;
-        }
-
-
-        /**
-         * 文件 url
-         * <p> 示例值：https://p3-approval-sign.byteimg.com/lark-approval-attachment/image/20210819/a8c1a1f1-47ae-4147-9deb-a8bf2cd833b1.jpg~tplv-ottatrvjsm-image.image?x-expires=1634941752&x-signature=oaZ6Tfv50ryUesNwKTUTnBlJivY%3D#.jpg
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 文件标识码
-         * <p> 示例值：D93653C3-2609-4EE0-8041-61DC1D84F0B5
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 错误信息，没有则为空
-         * <p> 示例值：https://xxxxx.com/i/2022/06/08/xxxxx.png:cannot find filetype
-         *
-         * @param message
-         * @return
-         */
-        public Builder message(String message) {
-            this.message = message;
-            return this;
-        }
-
-
-        public UrlDetail build() {
-            return new UrlDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

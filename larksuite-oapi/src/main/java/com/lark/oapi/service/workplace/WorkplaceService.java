@@ -13,7 +13,6 @@
 package com.lark.oapi.service.workplace;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.workplace.v1.V1;
 import com.lark.oapi.service.workplace.v1.model.*;
 import com.lark.oapi.service.workplace.v1.resource.CustomWorkplaceAccessData;
@@ -21,31 +20,31 @@ import com.lark.oapi.service.workplace.v1.resource.WorkplaceAccessData;
 import com.lark.oapi.service.workplace.v1.resource.WorkplaceBlockAccessData;
 
 public class WorkplaceService {
-    private final V1 v1;
-    private final CustomWorkplaceAccessData customWorkplaceAccessData; // custom_workplace_access_data
-    private final WorkplaceAccessData workplaceAccessData; // workplace_access_data
-    private final WorkplaceBlockAccessData workplaceBlockAccessData; // workplace_block_access_data
+  private final V1 v1;
+  private final CustomWorkplaceAccessData customWorkplaceAccessData; // custom_workplace_access_data
+  private final WorkplaceAccessData workplaceAccessData; // workplace_access_data
+  private final WorkplaceBlockAccessData workplaceBlockAccessData; // workplace_block_access_data
 
-    public WorkplaceService(Config config) {
-        this.v1 = new V1(config);
-        this.customWorkplaceAccessData = new CustomWorkplaceAccessData(config);
-        this.workplaceAccessData = new WorkplaceAccessData(config);
-        this.workplaceBlockAccessData = new WorkplaceBlockAccessData(config);
-    }
+  public WorkplaceService(Config config) {
+    this.v1 = new V1(config);
+    this.customWorkplaceAccessData = new CustomWorkplaceAccessData(config);
+    this.workplaceAccessData = new WorkplaceAccessData(config);
+    this.workplaceBlockAccessData = new WorkplaceBlockAccessData(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public CustomWorkplaceAccessData customWorkplaceAccessData() {
-        return customWorkplaceAccessData;
-    }
+  public CustomWorkplaceAccessData customWorkplaceAccessData() {
+    return customWorkplaceAccessData;
+  }
 
-    public WorkplaceAccessData workplaceAccessData() {
-        return workplaceAccessData;
-    }
+  public WorkplaceAccessData workplaceAccessData() {
+    return workplaceAccessData;
+  }
 
-    public WorkplaceBlockAccessData workplaceBlockAccessData() {
-        return workplaceBlockAccessData;
-    }
+  public WorkplaceBlockAccessData workplaceBlockAccessData() {
+    return workplaceBlockAccessData;
+  }
 }

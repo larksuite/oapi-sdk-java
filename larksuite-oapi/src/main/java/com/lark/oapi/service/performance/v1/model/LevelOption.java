@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LevelOption {
+  /**
+   * optionid
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("label")
+  private I18n label;
+
+  /**
+   * 评估项等级顺序
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("order")
+  private Integer order;
+
+  /**
+   * 颜色
+   *
+   * <p>示例值：#fde2e2
+   */
+  @SerializedName("color")
+  private String color;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public I18n getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(I18n label) {
+    this.label = label;
+  }
+
+  public Integer getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(Integer order) {
+    this.order = order;
+  }
+
+  public String getColor() {
+    return this.color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  // builder 开始
+  public LevelOption() {}
+
+  public LevelOption(Builder builder) {
     /**
      * optionid
-     * <p> 示例值：1234
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 名称
-     * <p> 示例值：
+     * 周期名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
-     * 选项label
-     * <p> 示例值：
+     * 周期名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("label")
-    private I18n label;
+    this.label = builder.label;
     /**
      * 评估项等级顺序
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("order")
-    private Integer order;
+    this.order = builder.order;
     /**
      * 颜色
-     * <p> 示例值：#fde2e2
+     *
+     * <p>示例值：#fde2e2
      */
-    @SerializedName("color")
+    this.color = builder.color;
+  }
+
+  public static class Builder {
+    /**
+     * optionid
+     *
+     * <p>示例值：1234
+     */
+    private String id;
+
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     */
+    private I18n label;
+
+    /**
+     * 评估项等级顺序
+     *
+     * <p>示例值：1
+     */
+    private Integer order;
+
+    /**
+     * 颜色
+     *
+     * <p>示例值：#fde2e2
+     */
     private String color;
 
-    // builder 开始
-    public LevelOption() {
+    /**
+     * optionid
+     *
+     * <p>示例值：1234
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public LevelOption(Builder builder) {
-        /**
-         * optionid
-         * <p> 示例值：1234
-         */
-        this.id = builder.id;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 选项label
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 评估项等级顺序
-         * <p> 示例值：1
-         */
-        this.order = builder.order;
-        /**
-         * 颜色
-         * <p> 示例值：#fde2e2
-         */
-        this.color = builder.color;
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(I18n label) {
+      this.label = label;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 评估项等级顺序
+     *
+     * <p>示例值：1
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(Integer order) {
+      this.order = order;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 颜色
+     *
+     * <p>示例值：#fde2e2
+     *
+     * @param color
+     * @return
+     */
+    public Builder color(String color) {
+      this.color = color;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    public LevelOption build() {
+      return new LevelOption(this);
     }
+  }
 
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public I18n getLabel() {
-        return this.label;
-    }
-
-    public void setLabel(I18n label) {
-        this.label = label;
-    }
-
-    public Integer getOrder() {
-        return this.order;
-    }
-
-    public void setOrder(Integer order) {
-        this.order = order;
-    }
-
-    public String getColor() {
-        return this.color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public static class Builder {
-        /**
-         * optionid
-         * <p> 示例值：1234
-         */
-        private String id;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 选项label
-         * <p> 示例值：
-         */
-        private I18n label;
-        /**
-         * 评估项等级顺序
-         * <p> 示例值：1
-         */
-        private Integer order;
-        /**
-         * 颜色
-         * <p> 示例值：#fde2e2
-         */
-        private String color;
-
-        /**
-         * optionid
-         * <p> 示例值：1234
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 选项label
-         * <p> 示例值：
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(I18n label) {
-            this.label = label;
-            return this;
-        }
-
-
-        /**
-         * 评估项等级顺序
-         * <p> 示例值：1
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(Integer order) {
-            this.order = order;
-            return this;
-        }
-
-
-        /**
-         * 颜色
-         * <p> 示例值：#fde2e2
-         *
-         * @param color
-         * @return
-         */
-        public Builder color(String color) {
-            this.color = color;
-            return this;
-        }
-
-
-        public LevelOption build() {
-            return new LevelOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

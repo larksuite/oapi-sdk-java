@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobRecruiter {
+  /**
+   * 职位ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 招聘负责人ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("recruiter_id")
+  private String recruiterId;
+
+  /**
+   * 用人经理ID列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("hiring_manager_id_list")
+  private String[] hiringManagerIdList;
+
+  /**
+   * 协助人ID列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("assistant_id_list")
+  private String[] assistantIdList;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getRecruiterId() {
+    return this.recruiterId;
+  }
+
+  public void setRecruiterId(String recruiterId) {
+    this.recruiterId = recruiterId;
+  }
+
+  public String[] getHiringManagerIdList() {
+    return this.hiringManagerIdList;
+  }
+
+  public void setHiringManagerIdList(String[] hiringManagerIdList) {
+    this.hiringManagerIdList = hiringManagerIdList;
+  }
+
+  public String[] getAssistantIdList() {
+    return this.assistantIdList;
+  }
+
+  public void setAssistantIdList(String[] assistantIdList) {
+    this.assistantIdList = assistantIdList;
+  }
+
+  // builder 开始
+  public JobRecruiter() {}
+
+  public JobRecruiter(Builder builder) {
     /**
      * 职位ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 招聘负责人ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("recruiter_id")
-    private String recruiterId;
+    this.recruiterId = builder.recruiterId;
     /**
      * 用人经理ID列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("hiring_manager_id_list")
-    private String[] hiringManagerIdList;
+    this.hiringManagerIdList = builder.hiringManagerIdList;
     /**
      * 协助人ID列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("assistant_id_list")
+    this.assistantIdList = builder.assistantIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 职位ID
+     *
+     * <p>示例值：
+     */
+    private String id;
+
+    /**
+     * 招聘负责人ID
+     *
+     * <p>示例值：
+     */
+    private String recruiterId;
+
+    /**
+     * 用人经理ID列表
+     *
+     * <p>示例值：
+     */
+    private String[] hiringManagerIdList;
+
+    /**
+     * 协助人ID列表
+     *
+     * <p>示例值：
+     */
     private String[] assistantIdList;
 
-    // builder 开始
-    public JobRecruiter() {
+    /**
+     * 职位ID
+     *
+     * <p>示例值：
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public JobRecruiter(Builder builder) {
-        /**
-         * 职位ID
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         * 招聘负责人ID
-         * <p> 示例值：
-         */
-        this.recruiterId = builder.recruiterId;
-        /**
-         * 用人经理ID列表
-         * <p> 示例值：
-         */
-        this.hiringManagerIdList = builder.hiringManagerIdList;
-        /**
-         * 协助人ID列表
-         * <p> 示例值：
-         */
-        this.assistantIdList = builder.assistantIdList;
+    /**
+     * 招聘负责人ID
+     *
+     * <p>示例值：
+     *
+     * @param recruiterId
+     * @return
+     */
+    public Builder recruiterId(String recruiterId) {
+      this.recruiterId = recruiterId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用人经理ID列表
+     *
+     * <p>示例值：
+     *
+     * @param hiringManagerIdList
+     * @return
+     */
+    public Builder hiringManagerIdList(String[] hiringManagerIdList) {
+      this.hiringManagerIdList = hiringManagerIdList;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 协助人ID列表
+     *
+     * <p>示例值：
+     *
+     * @param assistantIdList
+     * @return
+     */
+    public Builder assistantIdList(String[] assistantIdList) {
+      this.assistantIdList = assistantIdList;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public JobRecruiter build() {
+      return new JobRecruiter(this);
     }
+  }
 
-    public String getRecruiterId() {
-        return this.recruiterId;
-    }
-
-    public void setRecruiterId(String recruiterId) {
-        this.recruiterId = recruiterId;
-    }
-
-    public String[] getHiringManagerIdList() {
-        return this.hiringManagerIdList;
-    }
-
-    public void setHiringManagerIdList(String[] hiringManagerIdList) {
-        this.hiringManagerIdList = hiringManagerIdList;
-    }
-
-    public String[] getAssistantIdList() {
-        return this.assistantIdList;
-    }
-
-    public void setAssistantIdList(String[] assistantIdList) {
-        this.assistantIdList = assistantIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 职位ID
-         * <p> 示例值：
-         */
-        private String id;
-        /**
-         * 招聘负责人ID
-         * <p> 示例值：
-         */
-        private String recruiterId;
-        /**
-         * 用人经理ID列表
-         * <p> 示例值：
-         */
-        private String[] hiringManagerIdList;
-        /**
-         * 协助人ID列表
-         * <p> 示例值：
-         */
-        private String[] assistantIdList;
-
-        /**
-         * 职位ID
-         * <p> 示例值：
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 招聘负责人ID
-         * <p> 示例值：
-         *
-         * @param recruiterId
-         * @return
-         */
-        public Builder recruiterId(String recruiterId) {
-            this.recruiterId = recruiterId;
-            return this;
-        }
-
-
-        /**
-         * 用人经理ID列表
-         * <p> 示例值：
-         *
-         * @param hiringManagerIdList
-         * @return
-         */
-        public Builder hiringManagerIdList(String[] hiringManagerIdList) {
-            this.hiringManagerIdList = hiringManagerIdList;
-            return this;
-        }
-
-
-        /**
-         * 协助人ID列表
-         * <p> 示例值：
-         *
-         * @param assistantIdList
-         * @return
-         */
-        public Builder assistantIdList(String[] assistantIdList) {
-            this.assistantIdList = assistantIdList;
-            return this;
-        }
-
-
-        public JobRecruiter build() {
-            return new JobRecruiter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

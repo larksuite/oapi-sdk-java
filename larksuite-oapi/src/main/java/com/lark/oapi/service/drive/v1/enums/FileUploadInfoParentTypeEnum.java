@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 上传点类型
- */
+/** 上传点类型 */
 public enum FileUploadInfoParentTypeEnum {
-    EXPLORER("explorer"), // 云空间
-    WIKI("wiki"), // 知识库
-    ;
-    private String value;
+  EXPLORER("explorer"), // 云空间
+  WIKI("wiki"), // 知识库
+  ;
+  private String value;
 
-    FileUploadInfoParentTypeEnum(String value) {
-        this.value = value;
-    }
+  FileUploadInfoParentTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

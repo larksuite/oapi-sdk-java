@@ -13,130 +13,129 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class SearchMeetingReq {
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token获取查询结果
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 分页大小，**默认15**，最大单页**不超过30**;;**注意：** 最多返回**150条**记录
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  @Body private SearchMeetingReqBody body;
+
+  public SearchMeetingReqBody getSearchMeetingReqBody() {
+    return this.body;
+  }
+
+  public void setSearchMeetingReqBody(SearchMeetingReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public SearchMeetingReq() {}
+
+  public SearchMeetingReq(Builder builder) {
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token获取查询结果
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 分页大小，**默认15**，最大单页**不超过30**;;**注意：** 总计最多返回**150条** 记录
-     * <p> 示例值：
+     * 分页大小，**默认15**，最大单页**不超过30**;;**注意：** 最多返回**150条**记录
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
-    @Body
+    this.pageSize = builder.pageSize;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token获取查询结果
+    private Integer pageSize; // 分页大小，**默认15**，最大单页**不超过30**;;**注意：** 最多返回**150条**记录
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token获取查询结果
+     *
+     * <p>示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
+    /**
+     * 分页大小，**默认15**，最大单页**不超过30**;;**注意：** 最多返回**150条**记录
+     *
+     * <p>示例值：
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
     private SearchMeetingReqBody body;
 
-    // builder 开始
-    public SearchMeetingReq() {
-    }
-
-    public SearchMeetingReq(Builder builder) {
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token获取查询结果
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 分页大小，**默认15**，最大单页**不超过30**;;**注意：** 总计最多返回**150条** 记录
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
     public SearchMeetingReqBody getSearchMeetingReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setSearchMeetingReqBody(SearchMeetingReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder searchMeetingReqBody(SearchMeetingReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token获取查询结果
-        private Integer pageSize; // 分页大小，**默认15**，最大单页**不超过30**;;**注意：** 总计最多返回**150条** 记录
-        private SearchMeetingReqBody body;
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token获取查询结果
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 分页大小，**默认15**，最大单页**不超过30**;;**注意：** 总计最多返回**150条** 记录
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        public SearchMeetingReqBody getSearchMeetingReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder searchMeetingReqBody(SearchMeetingReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public SearchMeetingReq build() {
-            return new SearchMeetingReq(this);
-        }
+    public SearchMeetingReq build() {
+      return new SearchMeetingReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

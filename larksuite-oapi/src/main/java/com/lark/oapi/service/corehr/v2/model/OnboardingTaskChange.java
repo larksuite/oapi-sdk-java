@@ -13,124 +13,166 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OnboardingTaskChange {
+  /**
+   * 变更后任务状态
+   *
+   * <p>示例值：in_progress
+   */
+  @SerializedName("after_status")
+  private String afterStatus;
+
+  /**
+   * 任务标识码;;如果是系统内置的任务，标识码与名称对应关系如下：;;其中『创建账户SSO』为隐藏的任务节点，在『个人信息』前自动执行;;| 名称 | task code |;| ---- |
+   * --- |;| 职位信息 | 1 |;| 个人信息 | 2 |;|创建账户SSO|3|;|签到|
+   * 4|;|签署入职文件|9|;;;如果标识码不在上面，说明是自定义任务节点，如：3095697a-065f-4627-a47c-46fe958a6754，名称的获取方式如下：;-
+   * 通过pre_hire_id调用[搜索待入职人员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口或[查询待入职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/query);-
+   * 查询字段fields中添加onboarding_info.onboarding_task_list;-
+   * 查询后返回的onboarding_task_list结构体中则包含code和名字的对应关系，示例如下;```;{; "code": 0,; "data": {; "has_more":
+   * false,; "items": [; {; "onboarding_info": {; "onboarding_task_list": [; {; "task_code": "2",;
+   * "task_name": "填写个人信息",; "task_status": "in_progress"; },; {; "task_code":
+   * "3095697a-065f-4627-a47c-46fe958a6754",; "task_name": "修改入职日期",; "task_status":
+   * "uninitialized"; },; {; "task_code": "d37b9d7c-232d-4a55-98fa-541318234ede",; "task_name":
+   * "工签补充任务",; "task_status": "uninitialized"; }; ]; },; "pre_hire_id": "7186491930107561516"; };
+   * ]; },; "msg": "success";};```;
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("task_code")
+  private String taskCode;
+
+  public String getAfterStatus() {
+    return this.afterStatus;
+  }
+
+  public void setAfterStatus(String afterStatus) {
+    this.afterStatus = afterStatus;
+  }
+
+  public String getTaskCode() {
+    return this.taskCode;
+  }
+
+  public void setTaskCode(String taskCode) {
+    this.taskCode = taskCode;
+  }
+
+  // builder 开始
+  public OnboardingTaskChange() {}
+
+  public OnboardingTaskChange(Builder builder) {
     /**
      * 变更后任务状态
-     * <p> 示例值：in_progress
+     *
+     * <p>示例值：in_progress
      */
-    @SerializedName("after_status")
-    private String afterStatus;
+    this.afterStatus = builder.afterStatus;
     /**
-     * 任务标识
-     * <p> 示例值：2
+     * 任务标识码;;如果是系统内置的任务，标识码与名称对应关系如下：;;其中『创建账户SSO』为隐藏的任务节点，在『个人信息』前自动执行;;| 名称 | task code |;| ----
+     * | --- |;| 职位信息 | 1 |;| 个人信息 | 2 |;|创建账户SSO|3|;|签到|
+     * 4|;|签署入职文件|9|;;;如果标识码不在上面，说明是自定义任务节点，如：3095697a-065f-4627-a47c-46fe958a6754，名称的获取方式如下：;-
+     * 通过pre_hire_id调用[搜索待入职人员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口或[查询待入职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/query);-
+     * 查询字段fields中添加onboarding_info.onboarding_task_list;-
+     * 查询后返回的onboarding_task_list结构体中则包含code和名字的对应关系，示例如下;```;{; "code": 0,; "data": {; "has_more":
+     * false,; "items": [; {; "onboarding_info": {; "onboarding_task_list": [; {; "task_code": "2",;
+     * "task_name": "填写个人信息",; "task_status": "in_progress"; },; {; "task_code":
+     * "3095697a-065f-4627-a47c-46fe958a6754",; "task_name": "修改入职日期",; "task_status":
+     * "uninitialized"; },; {; "task_code": "d37b9d7c-232d-4a55-98fa-541318234ede",; "task_name":
+     * "工签补充任务",; "task_status": "uninitialized"; }; ]; },; "pre_hire_id": "7186491930107561516"; };
+     * ]; },; "msg": "success";};```;
+     *
+     * <p>示例值：2
      */
-    @SerializedName("task_code")
+    this.taskCode = builder.taskCode;
+  }
+
+  public static class Builder {
+    /**
+     * 变更后任务状态
+     *
+     * <p>示例值：in_progress
+     */
+    private String afterStatus;
+
+    /**
+     * 任务标识码;;如果是系统内置的任务，标识码与名称对应关系如下：;;其中『创建账户SSO』为隐藏的任务节点，在『个人信息』前自动执行;;| 名称 | task code |;| ----
+     * | --- |;| 职位信息 | 1 |;| 个人信息 | 2 |;|创建账户SSO|3|;|签到|
+     * 4|;|签署入职文件|9|;;;如果标识码不在上面，说明是自定义任务节点，如：3095697a-065f-4627-a47c-46fe958a6754，名称的获取方式如下：;-
+     * 通过pre_hire_id调用[搜索待入职人员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口或[查询待入职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/query);-
+     * 查询字段fields中添加onboarding_info.onboarding_task_list;-
+     * 查询后返回的onboarding_task_list结构体中则包含code和名字的对应关系，示例如下;```;{; "code": 0,; "data": {; "has_more":
+     * false,; "items": [; {; "onboarding_info": {; "onboarding_task_list": [; {; "task_code": "2",;
+     * "task_name": "填写个人信息",; "task_status": "in_progress"; },; {; "task_code":
+     * "3095697a-065f-4627-a47c-46fe958a6754",; "task_name": "修改入职日期",; "task_status":
+     * "uninitialized"; },; {; "task_code": "d37b9d7c-232d-4a55-98fa-541318234ede",; "task_name":
+     * "工签补充任务",; "task_status": "uninitialized"; }; ]; },; "pre_hire_id": "7186491930107561516"; };
+     * ]; },; "msg": "success";};```;
+     *
+     * <p>示例值：2
+     */
     private String taskCode;
 
-    // builder 开始
-    public OnboardingTaskChange() {
+    /**
+     * 变更后任务状态
+     *
+     * <p>示例值：in_progress
+     *
+     * @param afterStatus
+     * @return
+     */
+    public Builder afterStatus(String afterStatus) {
+      this.afterStatus = afterStatus;
+      return this;
     }
 
-    public OnboardingTaskChange(Builder builder) {
-        /**
-         * 变更后任务状态
-         * <p> 示例值：in_progress
-         */
-        this.afterStatus = builder.afterStatus;
-        /**
-         * 任务标识
-         * <p> 示例值：2
-         */
-        this.taskCode = builder.taskCode;
+    /**
+     * 变更后任务状态
+     *
+     * <p>示例值：in_progress
+     *
+     * @param afterStatus {@link
+     *     com.lark.oapi.service.corehr.v2.enums.OnboardingTaskChangeAfterStatusEnum}
+     * @return
+     */
+    public Builder afterStatus(
+        com.lark.oapi.service.corehr.v2.enums.OnboardingTaskChangeAfterStatusEnum afterStatus) {
+      this.afterStatus = afterStatus.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 任务标识码;;如果是系统内置的任务，标识码与名称对应关系如下：;;其中『创建账户SSO』为隐藏的任务节点，在『个人信息』前自动执行;;| 名称 | task code |;| ----
+     * | --- |;| 职位信息 | 1 |;| 个人信息 | 2 |;|创建账户SSO|3|;|签到|
+     * 4|;|签署入职文件|9|;;;如果标识码不在上面，说明是自定义任务节点，如：3095697a-065f-4627-a47c-46fe958a6754，名称的获取方式如下：;-
+     * 通过pre_hire_id调用[搜索待入职人员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)接口或[查询待入职](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/query);-
+     * 查询字段fields中添加onboarding_info.onboarding_task_list;-
+     * 查询后返回的onboarding_task_list结构体中则包含code和名字的对应关系，示例如下;```;{; "code": 0,; "data": {; "has_more":
+     * false,; "items": [; {; "onboarding_info": {; "onboarding_task_list": [; {; "task_code": "2",;
+     * "task_name": "填写个人信息",; "task_status": "in_progress"; },; {; "task_code":
+     * "3095697a-065f-4627-a47c-46fe958a6754",; "task_name": "修改入职日期",; "task_status":
+     * "uninitialized"; },; {; "task_code": "d37b9d7c-232d-4a55-98fa-541318234ede",; "task_name":
+     * "工签补充任务",; "task_status": "uninitialized"; }; ]; },; "pre_hire_id": "7186491930107561516"; };
+     * ]; },; "msg": "success";};```;
+     *
+     * <p>示例值：2
+     *
+     * @param taskCode
+     * @return
+     */
+    public Builder taskCode(String taskCode) {
+      this.taskCode = taskCode;
+      return this;
     }
 
-    public String getAfterStatus() {
-        return this.afterStatus;
+    public OnboardingTaskChange build() {
+      return new OnboardingTaskChange(this);
     }
+  }
 
-    public void setAfterStatus(String afterStatus) {
-        this.afterStatus = afterStatus;
-    }
-
-    public String getTaskCode() {
-        return this.taskCode;
-    }
-
-    public void setTaskCode(String taskCode) {
-        this.taskCode = taskCode;
-    }
-
-    public static class Builder {
-        /**
-         * 变更后任务状态
-         * <p> 示例值：in_progress
-         */
-        private String afterStatus;
-        /**
-         * 任务标识
-         * <p> 示例值：2
-         */
-        private String taskCode;
-
-        /**
-         * 变更后任务状态
-         * <p> 示例值：in_progress
-         *
-         * @param afterStatus
-         * @return
-         */
-        public Builder afterStatus(String afterStatus) {
-            this.afterStatus = afterStatus;
-            return this;
-        }
-
-        /**
-         * 变更后任务状态
-         * <p> 示例值：in_progress
-         *
-         * @param afterStatus {@link com.lark.oapi.service.corehr.v2.enums.OnboardingTaskChangeAfterStatusEnum}
-         * @return
-         */
-        public Builder afterStatus(com.lark.oapi.service.corehr.v2.enums.OnboardingTaskChangeAfterStatusEnum afterStatus) {
-            this.afterStatus = afterStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 任务标识
-         * <p> 示例值：2
-         *
-         * @param taskCode
-         * @return
-         */
-        public Builder taskCode(String taskCode) {
-            this.taskCode = taskCode;
-            return this;
-        }
-
-
-        public OnboardingTaskChange build() {
-            return new OnboardingTaskChange(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ReviewDataChangedV2Data {
-    /**
-     * 评估数据列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private ReviewDataChange[] items;
+  /**
+   * 评估数据列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private ReviewDataChange[] items;
 
-    public ReviewDataChange[] getItems() {
-        return this.items;
-    }
+  public ReviewDataChange[] getItems() {
+    return this.items;
+  }
 
-    public void setItems(ReviewDataChange[] items) {
-        this.items = items;
-    }
-
+  public void setItems(ReviewDataChange[] items) {
+    this.items = items;
+  }
 }

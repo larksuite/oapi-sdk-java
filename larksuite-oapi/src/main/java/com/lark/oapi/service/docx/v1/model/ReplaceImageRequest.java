@@ -13,272 +13,304 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReplaceImageRequest {
+  /**
+   * 图片
+   * Token。可参考[如何插入图片-第二步：上传图片素材](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/faq#1908ddf0)上传图片得到图片
+   * Token。
+   *
+   * <p>示例值：boxbckbfvfcqEg22hAzN8Dabcef
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 图片宽度，单位像素（px）;1. 优先使用本次请求传入的 width 值；;2. 若本次请求未传 width，且为首次更新（待更新的图片块 token
+   * 为空），服务端将检测并使用请求传入的图片的实际 width；检测失败将兜底为 100 px。;3. 若本次请求未传 width，且非首次更新，width 字段将保持原值不变。
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("width")
+  private Integer width;
+
+  /**
+   * 图片高度，单位像素（px）;1. 优先使用本次请求传入的 height 值；;2. 若本次请求未传 height，且为首次更新（待更新的图片块 token
+   * 为空），服务端将检测并使用请求传入的图片的实际 height；检测失败将兜底为 100 px。;3. 若本次请求未传 height，且非首次更新，height 字段将保持原值不变。
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("height")
+  private Integer height;
+
+  /**
+   * 对齐方式
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("align")
+  private Integer align;
+
+  /**
+   * 图片描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("caption")
+  private Caption caption;
+
+  /**
+   * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
+   *
+   * <p>示例值：0.8427495291902072
+   */
+  @SerializedName("scale")
+  private Double scale;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public Integer getWidth() {
+    return this.width;
+  }
+
+  public void setWidth(Integer width) {
+    this.width = width;
+  }
+
+  public Integer getHeight() {
+    return this.height;
+  }
+
+  public void setHeight(Integer height) {
+    this.height = height;
+  }
+
+  public Integer getAlign() {
+    return this.align;
+  }
+
+  public void setAlign(Integer align) {
+    this.align = align;
+  }
+
+  public Caption getCaption() {
+    return this.caption;
+  }
+
+  public void setCaption(Caption caption) {
+    this.caption = caption;
+  }
+
+  public Double getScale() {
+    return this.scale;
+  }
+
+  public void setScale(Double scale) {
+    this.scale = scale;
+  }
+
+  // builder 开始
+  public ReplaceImageRequest() {}
+
+  public ReplaceImageRequest(Builder builder) {
     /**
-     * 图片 token
-     * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
+     * 图片
+     * Token。可参考[如何插入图片-第二步：上传图片素材](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/faq#1908ddf0)上传图片得到图片
+     * Token。
+     *
+     * <p>示例值：boxbckbfvfcqEg22hAzN8Dabcef
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
-     * 图片宽度，单位 px
-     * <p> 示例值：100
+     * 图片宽度，单位像素（px）;1. 优先使用本次请求传入的 width 值；;2. 若本次请求未传 width，且为首次更新（待更新的图片块 token
+     * 为空），服务端将检测并使用请求传入的图片的实际 width；检测失败将兜底为 100 px。;3. 若本次请求未传 width，且非首次更新，width 字段将保持原值不变。
+     *
+     * <p>示例值：100
      */
-    @SerializedName("width")
-    private Integer width;
+    this.width = builder.width;
     /**
-     * 图片高度，单位 px
-     * <p> 示例值：100
+     * 图片高度，单位像素（px）;1. 优先使用本次请求传入的 height 值；;2. 若本次请求未传 height，且为首次更新（待更新的图片块 token
+     * 为空），服务端将检测并使用请求传入的图片的实际 height；检测失败将兜底为 100 px。;3. 若本次请求未传 height，且非首次更新，height 字段将保持原值不变。
+     *
+     * <p>示例值：100
      */
-    @SerializedName("height")
-    private Integer height;
+    this.height = builder.height;
     /**
      * 对齐方式
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("align")
-    private Integer align;
+    this.align = builder.align;
     /**
      * 图片描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("caption")
-    private Caption caption;
+    this.caption = builder.caption;
     /**
      * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
-     * <p> 示例值：0.8427495291902072
+     *
+     * <p>示例值：0.8427495291902072
      */
-    @SerializedName("scale")
+    this.scale = builder.scale;
+  }
+
+  public static class Builder {
+    /**
+     * 图片
+     * Token。可参考[如何插入图片-第二步：上传图片素材](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/faq#1908ddf0)上传图片得到图片
+     * Token。
+     *
+     * <p>示例值：boxbckbfvfcqEg22hAzN8Dabcef
+     */
+    private String token;
+
+    /**
+     * 图片宽度，单位像素（px）;1. 优先使用本次请求传入的 width 值；;2. 若本次请求未传 width，且为首次更新（待更新的图片块 token
+     * 为空），服务端将检测并使用请求传入的图片的实际 width；检测失败将兜底为 100 px。;3. 若本次请求未传 width，且非首次更新，width 字段将保持原值不变。
+     *
+     * <p>示例值：100
+     */
+    private Integer width;
+
+    /**
+     * 图片高度，单位像素（px）;1. 优先使用本次请求传入的 height 值；;2. 若本次请求未传 height，且为首次更新（待更新的图片块 token
+     * 为空），服务端将检测并使用请求传入的图片的实际 height；检测失败将兜底为 100 px。;3. 若本次请求未传 height，且非首次更新，height 字段将保持原值不变。
+     *
+     * <p>示例值：100
+     */
+    private Integer height;
+
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：2
+     */
+    private Integer align;
+
+    /**
+     * 图片描述
+     *
+     * <p>示例值：
+     */
+    private Caption caption;
+
+    /**
+     * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
+     *
+     * <p>示例值：0.8427495291902072
+     */
     private Double scale;
 
-    // builder 开始
-    public ReplaceImageRequest() {
+    /**
+     * 图片
+     * Token。可参考[如何插入图片-第二步：上传图片素材](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/faq#1908ddf0)上传图片得到图片
+     * Token。
+     *
+     * <p>示例值：boxbckbfvfcqEg22hAzN8Dabcef
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public ReplaceImageRequest(Builder builder) {
-        /**
-         * 图片 token
-         * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
-         */
-        this.token = builder.token;
-        /**
-         * 图片宽度，单位 px
-         * <p> 示例值：100
-         */
-        this.width = builder.width;
-        /**
-         * 图片高度，单位 px
-         * <p> 示例值：100
-         */
-        this.height = builder.height;
-        /**
-         * 对齐方式
-         * <p> 示例值：2
-         */
-        this.align = builder.align;
-        /**
-         * 图片描述
-         * <p> 示例值：
-         */
-        this.caption = builder.caption;
-        /**
-         * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
-         * <p> 示例值：0.8427495291902072
-         */
-        this.scale = builder.scale;
+    /**
+     * 图片宽度，单位像素（px）;1. 优先使用本次请求传入的 width 值；;2. 若本次请求未传 width，且为首次更新（待更新的图片块 token
+     * 为空），服务端将检测并使用请求传入的图片的实际 width；检测失败将兜底为 100 px。;3. 若本次请求未传 width，且非首次更新，width 字段将保持原值不变。
+     *
+     * <p>示例值：100
+     *
+     * @param width
+     * @return
+     */
+    public Builder width(Integer width) {
+      this.width = width;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 图片高度，单位像素（px）;1. 优先使用本次请求传入的 height 值；;2. 若本次请求未传 height，且为首次更新（待更新的图片块 token
+     * 为空），服务端将检测并使用请求传入的图片的实际 height；检测失败将兜底为 100 px。;3. 若本次请求未传 height，且非首次更新，height 字段将保持原值不变。
+     *
+     * <p>示例值：100
+     *
+     * @param height
+     * @return
+     */
+    public Builder height(Integer height) {
+      this.height = height;
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：2
+     *
+     * @param align
+     * @return
+     */
+    public Builder align(Integer align) {
+      this.align = align;
+      return this;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：2
+     *
+     * @param align {@link com.lark.oapi.service.docx.v1.enums.ReplaceImageRequestAlignEnum}
+     * @return
+     */
+    public Builder align(com.lark.oapi.service.docx.v1.enums.ReplaceImageRequestAlignEnum align) {
+      this.align = align.getValue();
+      return this;
     }
 
-    public Integer getWidth() {
-        return this.width;
+    /**
+     * 图片描述
+     *
+     * <p>示例值：
+     *
+     * @param caption
+     * @return
+     */
+    public Builder caption(Caption caption) {
+      this.caption = caption;
+      return this;
     }
 
-    public void setWidth(Integer width) {
-        this.width = width;
+    /**
+     * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
+     *
+     * <p>示例值：0.8427495291902072
+     *
+     * @param scale
+     * @return
+     */
+    public Builder scale(Double scale) {
+      this.scale = scale;
+      return this;
     }
 
-    public Integer getHeight() {
-        return this.height;
+    public ReplaceImageRequest build() {
+      return new ReplaceImageRequest(this);
     }
+  }
 
-    public void setHeight(Integer height) {
-        this.height = height;
-    }
-
-    public Integer getAlign() {
-        return this.align;
-    }
-
-    public void setAlign(Integer align) {
-        this.align = align;
-    }
-
-    public Caption getCaption() {
-        return this.caption;
-    }
-
-    public void setCaption(Caption caption) {
-        this.caption = caption;
-    }
-
-    public Double getScale() {
-        return this.scale;
-    }
-
-    public void setScale(Double scale) {
-        this.scale = scale;
-    }
-
-    public static class Builder {
-        /**
-         * 图片 token
-         * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
-         */
-        private String token;
-        /**
-         * 图片宽度，单位 px
-         * <p> 示例值：100
-         */
-        private Integer width;
-        /**
-         * 图片高度，单位 px
-         * <p> 示例值：100
-         */
-        private Integer height;
-        /**
-         * 对齐方式
-         * <p> 示例值：2
-         */
-        private Integer align;
-        /**
-         * 图片描述
-         * <p> 示例值：
-         */
-        private Caption caption;
-        /**
-         * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
-         * <p> 示例值：0.8427495291902072
-         */
-        private Double scale;
-
-        /**
-         * 图片 token
-         * <p> 示例值：boxbckbfvfcqEg22hAzN8Dh9gJd
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 图片宽度，单位 px
-         * <p> 示例值：100
-         *
-         * @param width
-         * @return
-         */
-        public Builder width(Integer width) {
-            this.width = width;
-            return this;
-        }
-
-
-        /**
-         * 图片高度，单位 px
-         * <p> 示例值：100
-         *
-         * @param height
-         * @return
-         */
-        public Builder height(Integer height) {
-            this.height = height;
-            return this;
-        }
-
-
-        /**
-         * 对齐方式
-         * <p> 示例值：2
-         *
-         * @param align
-         * @return
-         */
-        public Builder align(Integer align) {
-            this.align = align;
-            return this;
-        }
-
-        /**
-         * 对齐方式
-         * <p> 示例值：2
-         *
-         * @param align {@link com.lark.oapi.service.docx.v1.enums.ReplaceImageRequestAlignEnum}
-         * @return
-         */
-        public Builder align(com.lark.oapi.service.docx.v1.enums.ReplaceImageRequestAlignEnum align) {
-            this.align = align.getValue();
-            return this;
-        }
-
-
-        /**
-         * 图片描述
-         * <p> 示例值：
-         *
-         * @param caption
-         * @return
-         */
-        public Builder caption(Caption caption) {
-            this.caption = caption;
-            return this;
-        }
-
-
-        /**
-         * 图片缩放比例，图片会根据宽高*scale等比例缩放进行展示。
-         * <p> 示例值：0.8427495291902072
-         *
-         * @param scale
-         * @return
-         */
-        public Builder scale(Double scale) {
-            this.scale = scale;
-            return this;
-        }
-
-
-        public ReplaceImageRequest build() {
-            return new ReplaceImageRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

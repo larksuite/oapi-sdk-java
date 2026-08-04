@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TenantRestrictionNetworkAllowListPolicy {
+  /**
+   * 只能登录本企业账号
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("self_only")
+  private Boolean selfOnly;
+
+  /**
+   * 除本企业外，允许登录的其他企业租户编码。企业编码可已通过登录目标企业的飞书管理后台查看
+   *
+   * <p>示例值：
+   */
+  @SerializedName("allow_tenants")
+  private String[] allowTenants;
+
+  /**
+   * 限制登录租户范围策略，是否仅验证
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("observe_mode")
+  private Boolean observeMode;
+
+  public Boolean getSelfOnly() {
+    return this.selfOnly;
+  }
+
+  public void setSelfOnly(Boolean selfOnly) {
+    this.selfOnly = selfOnly;
+  }
+
+  public String[] getAllowTenants() {
+    return this.allowTenants;
+  }
+
+  public void setAllowTenants(String[] allowTenants) {
+    this.allowTenants = allowTenants;
+  }
+
+  public Boolean getObserveMode() {
+    return this.observeMode;
+  }
+
+  public void setObserveMode(Boolean observeMode) {
+    this.observeMode = observeMode;
+  }
+
+  // builder 开始
+  public TenantRestrictionNetworkAllowListPolicy() {}
+
+  public TenantRestrictionNetworkAllowListPolicy(Builder builder) {
     /**
      * 只能登录本企业账号
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("self_only")
-    private Boolean selfOnly;
+    this.selfOnly = builder.selfOnly;
     /**
-     * 除本企业外，允许登录的其他企业租户编码
-     * <p> 示例值：
+     * 除本企业外，允许登录的其他企业租户编码。企业编码可已通过登录目标企业的飞书管理后台查看
+     *
+     * <p>示例值：
      */
-    @SerializedName("allow_tenants")
-    private String[] allowTenants;
+    this.allowTenants = builder.allowTenants;
     /**
      * 限制登录租户范围策略，是否仅验证
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("observe_mode")
+    this.observeMode = builder.observeMode;
+  }
+
+  public static class Builder {
+    /**
+     * 只能登录本企业账号
+     *
+     * <p>示例值：true
+     */
+    private Boolean selfOnly;
+
+    /**
+     * 除本企业外，允许登录的其他企业租户编码。企业编码可已通过登录目标企业的飞书管理后台查看
+     *
+     * <p>示例值：
+     */
+    private String[] allowTenants;
+
+    /**
+     * 限制登录租户范围策略，是否仅验证
+     *
+     * <p>示例值：false
+     */
     private Boolean observeMode;
 
-    // builder 开始
-    public TenantRestrictionNetworkAllowListPolicy() {
+    /**
+     * 只能登录本企业账号
+     *
+     * <p>示例值：true
+     *
+     * @param selfOnly
+     * @return
+     */
+    public Builder selfOnly(Boolean selfOnly) {
+      this.selfOnly = selfOnly;
+      return this;
     }
 
-    public TenantRestrictionNetworkAllowListPolicy(Builder builder) {
-        /**
-         * 只能登录本企业账号
-         * <p> 示例值：true
-         */
-        this.selfOnly = builder.selfOnly;
-        /**
-         * 除本企业外，允许登录的其他企业租户编码
-         * <p> 示例值：
-         */
-        this.allowTenants = builder.allowTenants;
-        /**
-         * 限制登录租户范围策略，是否仅验证
-         * <p> 示例值：false
-         */
-        this.observeMode = builder.observeMode;
+    /**
+     * 除本企业外，允许登录的其他企业租户编码。企业编码可已通过登录目标企业的飞书管理后台查看
+     *
+     * <p>示例值：
+     *
+     * @param allowTenants
+     * @return
+     */
+    public Builder allowTenants(String[] allowTenants) {
+      this.allowTenants = allowTenants;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 限制登录租户范围策略，是否仅验证
+     *
+     * <p>示例值：false
+     *
+     * @param observeMode
+     * @return
+     */
+    public Builder observeMode(Boolean observeMode) {
+      this.observeMode = observeMode;
+      return this;
     }
 
-    public Boolean getSelfOnly() {
-        return this.selfOnly;
+    public TenantRestrictionNetworkAllowListPolicy build() {
+      return new TenantRestrictionNetworkAllowListPolicy(this);
     }
+  }
 
-    public void setSelfOnly(Boolean selfOnly) {
-        this.selfOnly = selfOnly;
-    }
-
-    public String[] getAllowTenants() {
-        return this.allowTenants;
-    }
-
-    public void setAllowTenants(String[] allowTenants) {
-        this.allowTenants = allowTenants;
-    }
-
-    public Boolean getObserveMode() {
-        return this.observeMode;
-    }
-
-    public void setObserveMode(Boolean observeMode) {
-        this.observeMode = observeMode;
-    }
-
-    public static class Builder {
-        /**
-         * 只能登录本企业账号
-         * <p> 示例值：true
-         */
-        private Boolean selfOnly;
-        /**
-         * 除本企业外，允许登录的其他企业租户编码
-         * <p> 示例值：
-         */
-        private String[] allowTenants;
-        /**
-         * 限制登录租户范围策略，是否仅验证
-         * <p> 示例值：false
-         */
-        private Boolean observeMode;
-
-        /**
-         * 只能登录本企业账号
-         * <p> 示例值：true
-         *
-         * @param selfOnly
-         * @return
-         */
-        public Builder selfOnly(Boolean selfOnly) {
-            this.selfOnly = selfOnly;
-            return this;
-        }
-
-
-        /**
-         * 除本企业外，允许登录的其他企业租户编码
-         * <p> 示例值：
-         *
-         * @param allowTenants
-         * @return
-         */
-        public Builder allowTenants(String[] allowTenants) {
-            this.allowTenants = allowTenants;
-            return this;
-        }
-
-
-        /**
-         * 限制登录租户范围策略，是否仅验证
-         * <p> 示例值：false
-         *
-         * @param observeMode
-         * @return
-         */
-        public Builder observeMode(Boolean observeMode) {
-            this.observeMode = observeMode;
-            return this;
-        }
-
-
-        public TenantRestrictionNetworkAllowListPolicy build() {
-            return new TenantRestrictionNetworkAllowListPolicy(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

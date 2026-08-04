@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SiteApplication {
+  /**
+   * 外部id，用于转换内部id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  /**
+   * 职位id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_post_id")
+  private String jobPostId;
+
+  /**
+   * 简历信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resume")
+  private SiteApplicationResume resume;
+
+  /**
+   * 投递状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("status")
+  private String status;
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  public String getJobPostId() {
+    return this.jobPostId;
+  }
+
+  public void setJobPostId(String jobPostId) {
+    this.jobPostId = jobPostId;
+  }
+
+  public SiteApplicationResume getResume() {
+    return this.resume;
+  }
+
+  public void setResume(SiteApplicationResume resume) {
+    this.resume = resume;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public SiteApplication() {}
+
+  public SiteApplication(Builder builder) {
     /**
      * 外部id，用于转换内部id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("external_id")
-    private String externalId;
+    this.externalId = builder.externalId;
     /**
      * 职位id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_post_id")
-    private String jobPostId;
+    this.jobPostId = builder.jobPostId;
     /**
      * 简历信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("resume")
-    private SiteApplicationResume resume;
+    this.resume = builder.resume;
     /**
      * 投递状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("status")
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 外部id，用于转换内部id
+     *
+     * <p>示例值：
+     */
+    private String externalId;
+
+    /**
+     * 职位id
+     *
+     * <p>示例值：
+     */
+    private String jobPostId;
+
+    /**
+     * 简历信息
+     *
+     * <p>示例值：
+     */
+    private SiteApplicationResume resume;
+
+    /**
+     * 投递状态
+     *
+     * <p>示例值：
+     */
     private String status;
 
-    // builder 开始
-    public SiteApplication() {
+    /**
+     * 外部id，用于转换内部id
+     *
+     * <p>示例值：
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public SiteApplication(Builder builder) {
-        /**
-         * 外部id，用于转换内部id
-         * <p> 示例值：
-         */
-        this.externalId = builder.externalId;
-        /**
-         * 职位id
-         * <p> 示例值：
-         */
-        this.jobPostId = builder.jobPostId;
-        /**
-         * 简历信息
-         * <p> 示例值：
-         */
-        this.resume = builder.resume;
-        /**
-         * 投递状态
-         * <p> 示例值：
-         */
-        this.status = builder.status;
+    /**
+     * 职位id
+     *
+     * <p>示例值：
+     *
+     * @param jobPostId
+     * @return
+     */
+    public Builder jobPostId(String jobPostId) {
+      this.jobPostId = jobPostId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 简历信息
+     *
+     * <p>示例值：
+     *
+     * @param resume
+     * @return
+     */
+    public Builder resume(SiteApplicationResume resume) {
+      this.resume = resume;
+      return this;
     }
 
-    public String getExternalId() {
-        return this.externalId;
+    /**
+     * 投递状态
+     *
+     * <p>示例值：
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
+    public SiteApplication build() {
+      return new SiteApplication(this);
     }
+  }
 
-    public String getJobPostId() {
-        return this.jobPostId;
-    }
-
-    public void setJobPostId(String jobPostId) {
-        this.jobPostId = jobPostId;
-    }
-
-    public SiteApplicationResume getResume() {
-        return this.resume;
-    }
-
-    public void setResume(SiteApplicationResume resume) {
-        this.resume = resume;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 外部id，用于转换内部id
-         * <p> 示例值：
-         */
-        private String externalId;
-        /**
-         * 职位id
-         * <p> 示例值：
-         */
-        private String jobPostId;
-        /**
-         * 简历信息
-         * <p> 示例值：
-         */
-        private SiteApplicationResume resume;
-        /**
-         * 投递状态
-         * <p> 示例值：
-         */
-        private String status;
-
-        /**
-         * 外部id，用于转换内部id
-         * <p> 示例值：
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        /**
-         * 职位id
-         * <p> 示例值：
-         *
-         * @param jobPostId
-         * @return
-         */
-        public Builder jobPostId(String jobPostId) {
-            this.jobPostId = jobPostId;
-            return this;
-        }
-
-
-        /**
-         * 简历信息
-         * <p> 示例值：
-         *
-         * @param resume
-         * @return
-         */
-        public Builder resume(SiteApplicationResume resume) {
-            this.resume = resume;
-            return this;
-        }
-
-
-        /**
-         * 投递状态
-         * <p> 示例值：
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        public SiteApplication build() {
-            return new SiteApplication(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

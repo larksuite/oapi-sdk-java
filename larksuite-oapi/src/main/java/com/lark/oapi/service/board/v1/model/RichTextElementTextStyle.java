@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RichTextElementTextStyle {
+  /**
+   * 文字字重(可选值有：regular：常规, bold：加粗)
+   *
+   * <p>示例值：bold
+   */
+  @SerializedName("font_weight")
+  private String fontWeight;
+
+  /**
+   * 文字大小，单位 px，默认为 14 px
+   *
+   * <p>示例值：14
+   */
+  @SerializedName("font_size")
+  private Integer fontSize;
+
+  /**
+   * 文字颜色，16 进制 rgb 值
+   *
+   * <p>示例值：#000000
+   */
+  @SerializedName("text_color")
+  private String textColor;
+
+  /**
+   * 文字背景色，16 进制 rgb 值
+   *
+   * <p>示例值：#000000
+   */
+  @SerializedName("text_background_color")
+  private String textBackgroundColor;
+
+  /**
+   * 是否存在删除线
+   *
+   * <p>示例值：
+   */
+  @SerializedName("line_through")
+  private Boolean lineThrough;
+
+  /**
+   * 是否存在下划线
+   *
+   * <p>示例值：
+   */
+  @SerializedName("underline")
+  private Boolean underline;
+
+  /**
+   * 是否斜体
+   *
+   * <p>示例值：
+   */
+  @SerializedName("italic")
+  private Boolean italic;
+
+  public String getFontWeight() {
+    return this.fontWeight;
+  }
+
+  public void setFontWeight(String fontWeight) {
+    this.fontWeight = fontWeight;
+  }
+
+  public Integer getFontSize() {
+    return this.fontSize;
+  }
+
+  public void setFontSize(Integer fontSize) {
+    this.fontSize = fontSize;
+  }
+
+  public String getTextColor() {
+    return this.textColor;
+  }
+
+  public void setTextColor(String textColor) {
+    this.textColor = textColor;
+  }
+
+  public String getTextBackgroundColor() {
+    return this.textBackgroundColor;
+  }
+
+  public void setTextBackgroundColor(String textBackgroundColor) {
+    this.textBackgroundColor = textBackgroundColor;
+  }
+
+  public Boolean getLineThrough() {
+    return this.lineThrough;
+  }
+
+  public void setLineThrough(Boolean lineThrough) {
+    this.lineThrough = lineThrough;
+  }
+
+  public Boolean getUnderline() {
+    return this.underline;
+  }
+
+  public void setUnderline(Boolean underline) {
+    this.underline = underline;
+  }
+
+  public Boolean getItalic() {
+    return this.italic;
+  }
+
+  public void setItalic(Boolean italic) {
+    this.italic = italic;
+  }
+
+  // builder 开始
+  public RichTextElementTextStyle() {}
+
+  public RichTextElementTextStyle(Builder builder) {
     /**
-     * 文字字重
-     * <p> 示例值：bold
+     * 文字字重(可选值有：regular：常规, bold：加粗)
+     *
+     * <p>示例值：bold
      */
-    @SerializedName("font_weight")
-    private String fontWeight;
+    this.fontWeight = builder.fontWeight;
     /**
-     * 文字大小
-     * <p> 示例值：14
+     * 文字大小，单位 px，默认为 14 px
+     *
+     * <p>示例值：14
      */
-    @SerializedName("font_size")
-    private Integer fontSize;
+    this.fontSize = builder.fontSize;
     /**
      * 文字颜色，16 进制 rgb 值
-     * <p> 示例值：#000000
+     *
+     * <p>示例值：#000000
      */
-    @SerializedName("text_color")
-    private String textColor;
+    this.textColor = builder.textColor;
     /**
      * 文字背景色，16 进制 rgb 值
-     * <p> 示例值：#000000
+     *
+     * <p>示例值：#000000
      */
-    @SerializedName("text_background_color")
-    private String textBackgroundColor;
+    this.textBackgroundColor = builder.textBackgroundColor;
     /**
      * 是否存在删除线
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("line_through")
-    private Boolean lineThrough;
+    this.lineThrough = builder.lineThrough;
     /**
      * 是否存在下划线
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("underline")
-    private Boolean underline;
+    this.underline = builder.underline;
     /**
      * 是否斜体
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("italic")
+    this.italic = builder.italic;
+  }
+
+  public static class Builder {
+    /**
+     * 文字字重(可选值有：regular：常规, bold：加粗)
+     *
+     * <p>示例值：bold
+     */
+    private String fontWeight;
+
+    /**
+     * 文字大小，单位 px，默认为 14 px
+     *
+     * <p>示例值：14
+     */
+    private Integer fontSize;
+
+    /**
+     * 文字颜色，16 进制 rgb 值
+     *
+     * <p>示例值：#000000
+     */
+    private String textColor;
+
+    /**
+     * 文字背景色，16 进制 rgb 值
+     *
+     * <p>示例值：#000000
+     */
+    private String textBackgroundColor;
+
+    /**
+     * 是否存在删除线
+     *
+     * <p>示例值：
+     */
+    private Boolean lineThrough;
+
+    /**
+     * 是否存在下划线
+     *
+     * <p>示例值：
+     */
+    private Boolean underline;
+
+    /**
+     * 是否斜体
+     *
+     * <p>示例值：
+     */
     private Boolean italic;
 
-    // builder 开始
-    public RichTextElementTextStyle() {
+    /**
+     * 文字字重(可选值有：regular：常规, bold：加粗)
+     *
+     * <p>示例值：bold
+     *
+     * @param fontWeight
+     * @return
+     */
+    public Builder fontWeight(String fontWeight) {
+      this.fontWeight = fontWeight;
+      return this;
     }
 
-    public RichTextElementTextStyle(Builder builder) {
-        /**
-         * 文字字重
-         * <p> 示例值：bold
-         */
-        this.fontWeight = builder.fontWeight;
-        /**
-         * 文字大小
-         * <p> 示例值：14
-         */
-        this.fontSize = builder.fontSize;
-        /**
-         * 文字颜色，16 进制 rgb 值
-         * <p> 示例值：#000000
-         */
-        this.textColor = builder.textColor;
-        /**
-         * 文字背景色，16 进制 rgb 值
-         * <p> 示例值：#000000
-         */
-        this.textBackgroundColor = builder.textBackgroundColor;
-        /**
-         * 是否存在删除线
-         * <p> 示例值：
-         */
-        this.lineThrough = builder.lineThrough;
-        /**
-         * 是否存在下划线
-         * <p> 示例值：
-         */
-        this.underline = builder.underline;
-        /**
-         * 是否斜体
-         * <p> 示例值：
-         */
-        this.italic = builder.italic;
+    /**
+     * 文字大小，单位 px，默认为 14 px
+     *
+     * <p>示例值：14
+     *
+     * @param fontSize
+     * @return
+     */
+    public Builder fontSize(Integer fontSize) {
+      this.fontSize = fontSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文字颜色，16 进制 rgb 值
+     *
+     * <p>示例值：#000000
+     *
+     * @param textColor
+     * @return
+     */
+    public Builder textColor(String textColor) {
+      this.textColor = textColor;
+      return this;
     }
 
-    public String getFontWeight() {
-        return this.fontWeight;
+    /**
+     * 文字背景色，16 进制 rgb 值
+     *
+     * <p>示例值：#000000
+     *
+     * @param textBackgroundColor
+     * @return
+     */
+    public Builder textBackgroundColor(String textBackgroundColor) {
+      this.textBackgroundColor = textBackgroundColor;
+      return this;
     }
 
-    public void setFontWeight(String fontWeight) {
-        this.fontWeight = fontWeight;
+    /**
+     * 是否存在删除线
+     *
+     * <p>示例值：
+     *
+     * @param lineThrough
+     * @return
+     */
+    public Builder lineThrough(Boolean lineThrough) {
+      this.lineThrough = lineThrough;
+      return this;
     }
 
-    public Integer getFontSize() {
-        return this.fontSize;
+    /**
+     * 是否存在下划线
+     *
+     * <p>示例值：
+     *
+     * @param underline
+     * @return
+     */
+    public Builder underline(Boolean underline) {
+      this.underline = underline;
+      return this;
     }
 
-    public void setFontSize(Integer fontSize) {
-        this.fontSize = fontSize;
+    /**
+     * 是否斜体
+     *
+     * <p>示例值：
+     *
+     * @param italic
+     * @return
+     */
+    public Builder italic(Boolean italic) {
+      this.italic = italic;
+      return this;
     }
 
-    public String getTextColor() {
-        return this.textColor;
+    public RichTextElementTextStyle build() {
+      return new RichTextElementTextStyle(this);
     }
+  }
 
-    public void setTextColor(String textColor) {
-        this.textColor = textColor;
-    }
-
-    public String getTextBackgroundColor() {
-        return this.textBackgroundColor;
-    }
-
-    public void setTextBackgroundColor(String textBackgroundColor) {
-        this.textBackgroundColor = textBackgroundColor;
-    }
-
-    public Boolean getLineThrough() {
-        return this.lineThrough;
-    }
-
-    public void setLineThrough(Boolean lineThrough) {
-        this.lineThrough = lineThrough;
-    }
-
-    public Boolean getUnderline() {
-        return this.underline;
-    }
-
-    public void setUnderline(Boolean underline) {
-        this.underline = underline;
-    }
-
-    public Boolean getItalic() {
-        return this.italic;
-    }
-
-    public void setItalic(Boolean italic) {
-        this.italic = italic;
-    }
-
-    public static class Builder {
-        /**
-         * 文字字重
-         * <p> 示例值：bold
-         */
-        private String fontWeight;
-        /**
-         * 文字大小
-         * <p> 示例值：14
-         */
-        private Integer fontSize;
-        /**
-         * 文字颜色，16 进制 rgb 值
-         * <p> 示例值：#000000
-         */
-        private String textColor;
-        /**
-         * 文字背景色，16 进制 rgb 值
-         * <p> 示例值：#000000
-         */
-        private String textBackgroundColor;
-        /**
-         * 是否存在删除线
-         * <p> 示例值：
-         */
-        private Boolean lineThrough;
-        /**
-         * 是否存在下划线
-         * <p> 示例值：
-         */
-        private Boolean underline;
-        /**
-         * 是否斜体
-         * <p> 示例值：
-         */
-        private Boolean italic;
-
-        /**
-         * 文字字重
-         * <p> 示例值：bold
-         *
-         * @param fontWeight
-         * @return
-         */
-        public Builder fontWeight(String fontWeight) {
-            this.fontWeight = fontWeight;
-            return this;
-        }
-
-
-        /**
-         * 文字大小
-         * <p> 示例值：14
-         *
-         * @param fontSize
-         * @return
-         */
-        public Builder fontSize(Integer fontSize) {
-            this.fontSize = fontSize;
-            return this;
-        }
-
-
-        /**
-         * 文字颜色，16 进制 rgb 值
-         * <p> 示例值：#000000
-         *
-         * @param textColor
-         * @return
-         */
-        public Builder textColor(String textColor) {
-            this.textColor = textColor;
-            return this;
-        }
-
-
-        /**
-         * 文字背景色，16 进制 rgb 值
-         * <p> 示例值：#000000
-         *
-         * @param textBackgroundColor
-         * @return
-         */
-        public Builder textBackgroundColor(String textBackgroundColor) {
-            this.textBackgroundColor = textBackgroundColor;
-            return this;
-        }
-
-
-        /**
-         * 是否存在删除线
-         * <p> 示例值：
-         *
-         * @param lineThrough
-         * @return
-         */
-        public Builder lineThrough(Boolean lineThrough) {
-            this.lineThrough = lineThrough;
-            return this;
-        }
-
-
-        /**
-         * 是否存在下划线
-         * <p> 示例值：
-         *
-         * @param underline
-         * @return
-         */
-        public Builder underline(Boolean underline) {
-            this.underline = underline;
-            return this;
-        }
-
-
-        /**
-         * 是否斜体
-         * <p> 示例值：
-         *
-         * @param italic
-         * @return
-         */
-        public Builder italic(Boolean italic) {
-            this.italic = italic;
-            return this;
-        }
-
-
-        public RichTextElementTextStyle build() {
-            return new RichTextElementTextStyle(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

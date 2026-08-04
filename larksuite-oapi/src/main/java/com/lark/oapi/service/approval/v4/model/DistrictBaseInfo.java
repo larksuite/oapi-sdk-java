@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DistrictBaseInfo {
+  /**
+   * 区域的唯一标识
+   *
+   * <p>示例值：1814991
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：China
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 层级
+   *
+   * <p>示例值：Country
+   */
+  @SerializedName("level")
+  private String level;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getLevel() {
+    return this.level;
+  }
+
+  public void setLevel(String level) {
+    this.level = level;
+  }
+
+  // builder 开始
+  public DistrictBaseInfo() {}
+
+  public DistrictBaseInfo(Builder builder) {
     /**
      * 区域的唯一标识
-     * <p> 示例值：1814991
+     *
+     * <p>示例值：1814991
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 名称
-     * <p> 示例值：China
+     *
+     * <p>示例值：China
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 层级
-     * <p> 示例值：Country
+     *
+     * <p>示例值：Country
      */
-    @SerializedName("level")
+    this.level = builder.level;
+  }
+
+  public static class Builder {
+    /**
+     * 区域的唯一标识
+     *
+     * <p>示例值：1814991
+     */
+    private String id;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：China
+     */
+    private String name;
+
+    /**
+     * 层级
+     *
+     * <p>示例值：Country
+     */
     private String level;
 
-    // builder 开始
-    public DistrictBaseInfo() {
+    /**
+     * 区域的唯一标识
+     *
+     * <p>示例值：1814991
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public DistrictBaseInfo(Builder builder) {
-        /**
-         * 区域的唯一标识
-         * <p> 示例值：1814991
-         */
-        this.id = builder.id;
-        /**
-         * 名称
-         * <p> 示例值：China
-         */
-        this.name = builder.name;
-        /**
-         * 层级
-         * <p> 示例值：Country
-         */
-        this.level = builder.level;
+    /**
+     * 名称
+     *
+     * <p>示例值：China
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 层级
+     *
+     * <p>示例值：Country
+     *
+     * @param level
+     * @return
+     */
+    public Builder level(String level) {
+      this.level = level;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public DistrictBaseInfo build() {
+      return new DistrictBaseInfo(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLevel() {
-        return this.level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
-    public static class Builder {
-        /**
-         * 区域的唯一标识
-         * <p> 示例值：1814991
-         */
-        private String id;
-        /**
-         * 名称
-         * <p> 示例值：China
-         */
-        private String name;
-        /**
-         * 层级
-         * <p> 示例值：Country
-         */
-        private String level;
-
-        /**
-         * 区域的唯一标识
-         * <p> 示例值：1814991
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：China
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 层级
-         * <p> 示例值：Country
-         *
-         * @param level
-         * @return
-         */
-        public Builder level(String level) {
-            this.level = level;
-            return this;
-        }
-
-
-        public DistrictBaseInfo build() {
-            return new DistrictBaseInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

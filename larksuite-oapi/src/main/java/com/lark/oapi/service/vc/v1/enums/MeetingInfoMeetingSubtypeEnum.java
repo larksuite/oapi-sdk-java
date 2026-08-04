@@ -13,29 +13,27 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 会议子类型
- */
+/** 会议子类型 */
 public enum MeetingInfoMeetingSubtypeEnum {
-    DEFAULT(0), // 全部类型（默认）
-    SCREEN_SHARE(1), // 投屏
-    WIRED_SCREEN_SHARE(2), // 有线投屏
-    FOLLOW_SHARE(3), // 妙享
-    CHAT_ROOM(4), // 聊天室
-    SAME_PAGE_MEETING(5), // 飞阅会
-    ENTERPRISE_PHONE_CALL(6), // 企业电话
-    IP_PHONE_CALL(7), // ip电话
-    WEBNIAR(8), // webniar会议
-    OFFLINE(9), // 离线会议
-    MINUTES_MEETING(10), // 妙记会议
-    ;
-    private Integer value;
+  DEFAULT(0), // 全部类型（默认）
+  SCREEN_SHARE(1), // 投屏
+  WIRED_SCREEN_SHARE(2), // 有线投屏
+  FOLLOW_SHARE(3), // 妙享
+  CHAT_ROOM(4), // 聊天室
+  SAME_PAGE_MEETING(5), // 飞阅会
+  ENTERPRISE_PHONE_CALL(6), // 企业电话
+  IP_PHONE_CALL(7), // ip电话
+  WEBNIAR(8), // webniar会议
+  OFFLINE(9), // 离线会议
+  MINUTES_MEETING(10), // 妙记会议
+  ;
+  private Integer value;
 
-    MeetingInfoMeetingSubtypeEnum(Integer value) {
-        this.value = value;
-    }
+  MeetingInfoMeetingSubtypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,129 +13,129 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class QueryLocationReq {
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token,下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 每页限制
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  @Body private QueryLocationReqBody body;
+
+  public QueryLocationReqBody getQueryLocationReqBody() {
+    return this.body;
+  }
+
+  public void setQueryLocationReqBody(QueryLocationReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public QueryLocationReq() {}
+
+  public QueryLocationReq(Builder builder) {
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token,下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 每页限制, 数据校验规则 1-100
-     * <p> 示例值：100
+     * 每页限制
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
-    @Body
+    this.pageSize = builder.pageSize;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token,下次遍历可采用该 page_token
+    // 获取查询结果
+    private Integer pageSize; // 每页限制
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token,下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
+    /**
+     * 每页限制
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
     private QueryLocationReqBody body;
 
-    // builder 开始
-    public QueryLocationReq() {
-    }
-
-    public QueryLocationReq(Builder builder) {
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token,下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页限制, 数据校验规则 1-100
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
     public QueryLocationReqBody getQueryLocationReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setQueryLocationReqBody(QueryLocationReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder queryLocationReqBody(QueryLocationReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token,下次遍历可采用该 page_token 获取查询结果
-        private Integer pageSize; // 每页限制, 数据校验规则 1-100
-        private QueryLocationReqBody body;
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token,下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 每页限制, 数据校验规则 1-100
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        public QueryLocationReqBody getQueryLocationReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder queryLocationReqBody(QueryLocationReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public QueryLocationReq build() {
-            return new QueryLocationReq(this);
-        }
+    public QueryLocationReq build() {
+      return new QueryLocationReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

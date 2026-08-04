@@ -13,186 +13,203 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryMultiTimelineLocationReqBody {
+  /**
+   * 地点ID。ID获取方式：;-
+   * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("location_ids")
+  private String[] locationIds;
+
+  /**
+   * 查询开始时间（包含）
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("start_date")
+  private String startDate;
+
+  /**
+   * 查询结束时间(不包含)
+   *
+   * <p>示例值：2024-12-31
+   */
+  @SerializedName("end_date")
+  private String endDate;
+
+  /**
+   * 返回数据的字段列表，可选值;- location_name：地点名称;- code：编码;- active ：是否启用;- parent_location：上级地点;-
+   * description：描述;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;- location_usage：地点用途;-
+   * working_hours_type：工时制度;- locale：区域设置;- time_zone：时区;- display_language：默认语言;- address：地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private String[] fields;
+
+  public String[] getLocationIds() {
+    return this.locationIds;
+  }
+
+  public void setLocationIds(String[] locationIds) {
+    this.locationIds = locationIds;
+  }
+
+  public String getStartDate() {
+    return this.startDate;
+  }
+
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+  public String getEndDate() {
+    return this.endDate;
+  }
+
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
+  }
+
+  public String[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(String[] fields) {
+    this.fields = fields;
+  }
+
+  // builder 开始
+  public QueryMultiTimelineLocationReqBody() {}
+
+  public QueryMultiTimelineLocationReqBody(Builder builder) {
     /**
-     * 地点 ID 列表
-     * <p> 示例值：
+     * 地点ID。ID获取方式：;-
+     * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("location_ids")
-    private String[] locationIds;
+    this.locationIds = builder.locationIds;
     /**
      * 查询开始时间（包含）
-     * <p> 示例值：2024-01-01
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("start_date")
+    this.startDate = builder.startDate;
+    /**
+     * 查询结束时间(不包含)
+     *
+     * <p>示例值：2024-12-31
+     */
+    this.endDate = builder.endDate;
+    /**
+     * 返回数据的字段列表，可选值;- location_name：地点名称;- code：编码;- active ：是否启用;- parent_location：上级地点;-
+     * description：描述;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;- location_usage：地点用途;-
+     * working_hours_type：工时制度;- locale：区域设置;- time_zone：时区;- display_language：默认语言;- address：地址
+     *
+     * <p>示例值：
+     */
+    this.fields = builder.fields;
+  }
+
+  public static class Builder {
+    /**
+     * 地点ID。ID获取方式：;-
+     * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+     *
+     * <p>示例值：
+     */
+    private String[] locationIds;
+
+    /**
+     * 查询开始时间（包含）
+     *
+     * <p>示例值：2024-01-01
+     */
     private String startDate;
+
     /**
-     * 查询结束时间(包含)
-     * <p> 示例值：2024-12-31
+     * 查询结束时间(不包含)
+     *
+     * <p>示例值：2024-12-31
      */
-    @SerializedName("end_date")
     private String endDate;
+
     /**
-     * 返回数据的字段列表，可选["location_name", "code", "active", "parent_location_id", "description", "effective_date"]
-     * <p> 示例值：
+     * 返回数据的字段列表，可选值;- location_name：地点名称;- code：编码;- active ：是否启用;- parent_location：上级地点;-
+     * description：描述;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;- location_usage：地点用途;-
+     * working_hours_type：工时制度;- locale：区域设置;- time_zone：时区;- display_language：默认语言;- address：地址
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
     private String[] fields;
 
-    // builder 开始
-    public QueryMultiTimelineLocationReqBody() {
+    /**
+     * 地点ID。ID获取方式：;-
+     * 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID
+     *
+     * <p>示例值：
+     *
+     * @param locationIds
+     * @return
+     */
+    public Builder locationIds(String[] locationIds) {
+      this.locationIds = locationIds;
+      return this;
     }
 
-    public QueryMultiTimelineLocationReqBody(Builder builder) {
-        /**
-         * 地点 ID 列表
-         * <p> 示例值：
-         */
-        this.locationIds = builder.locationIds;
-        /**
-         * 查询开始时间（包含）
-         * <p> 示例值：2024-01-01
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 查询结束时间(包含)
-         * <p> 示例值：2024-12-31
-         */
-        this.endDate = builder.endDate;
-        /**
-         * 返回数据的字段列表，可选["location_name", "code", "active", "parent_location_id", "description", "effective_date"]
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
+    /**
+     * 查询开始时间（包含）
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param startDate
+     * @return
+     */
+    public Builder startDate(String startDate) {
+      this.startDate = startDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 查询结束时间(不包含)
+     *
+     * <p>示例值：2024-12-31
+     *
+     * @param endDate
+     * @return
+     */
+    public Builder endDate(String endDate) {
+      this.endDate = endDate;
+      return this;
     }
 
-    public String[] getLocationIds() {
-        return this.locationIds;
+    /**
+     * 返回数据的字段列表，可选值;- location_name：地点名称;- code：编码;- active ：是否启用;- parent_location：上级地点;-
+     * description：描述;- effective_date：当前版本生效日期;- expiration_date：当前版本失效日期;- location_usage：地点用途;-
+     * working_hours_type：工时制度;- locale：区域设置;- time_zone：时区;- display_language：默认语言;- address：地址
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(String[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public void setLocationIds(String[] locationIds) {
-        this.locationIds = locationIds;
+    public QueryMultiTimelineLocationReqBody build() {
+      return new QueryMultiTimelineLocationReqBody(this);
     }
+  }
 
-    public String getStartDate() {
-        return this.startDate;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getEndDate() {
-        return this.endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
-    public String[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(String[] fields) {
-        this.fields = fields;
-    }
-
-    public static class Builder {
-        /**
-         * 地点 ID 列表
-         * <p> 示例值：
-         */
-        private String[] locationIds;
-        /**
-         * 查询开始时间（包含）
-         * <p> 示例值：2024-01-01
-         */
-        private String startDate;
-        /**
-         * 查询结束时间(包含)
-         * <p> 示例值：2024-12-31
-         */
-        private String endDate;
-        /**
-         * 返回数据的字段列表，可选["location_name", "code", "active", "parent_location_id", "description", "effective_date"]
-         * <p> 示例值：
-         */
-        private String[] fields;
-
-        /**
-         * 地点 ID 列表
-         * <p> 示例值：
-         *
-         * @param locationIds
-         * @return
-         */
-        public Builder locationIds(String[] locationIds) {
-            this.locationIds = locationIds;
-            return this;
-        }
-
-
-        /**
-         * 查询开始时间（包含）
-         * <p> 示例值：2024-01-01
-         *
-         * @param startDate
-         * @return
-         */
-        public Builder startDate(String startDate) {
-            this.startDate = startDate;
-            return this;
-        }
-
-
-        /**
-         * 查询结束时间(包含)
-         * <p> 示例值：2024-12-31
-         *
-         * @param endDate
-         * @return
-         */
-        public Builder endDate(String endDate) {
-            this.endDate = endDate;
-            return this;
-        }
-
-
-        /**
-         * 返回数据的字段列表，可选["location_name", "code", "active", "parent_location_id", "description", "effective_date"]
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        public QueryMultiTimelineLocationReqBody build() {
-            return new QueryMultiTimelineLocationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

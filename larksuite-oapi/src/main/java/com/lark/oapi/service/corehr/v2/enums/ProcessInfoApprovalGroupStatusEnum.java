@@ -13,24 +13,23 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 组织架构调整流程状态
- */
+/** 组织架构调整流程状态 ==（不建议使用，推荐使用draft_status）== */
 public enum ProcessInfoApprovalGroupStatusEnum {
-    NEW("0"), // 待发起
-    APPROVING("1"), // 审批中
-    APPROVED("2"), // 审批通过
-    DONE("3"), // 已完成
-    REJECTED("4"), // 已拒绝
-    CANCELED("5"), // 已撤销
-    ;
-    private String value;
+  NEW("0"), // 待发起，是指该审批单据还未成功发起。
+  APPROVING("1"), // 审批中， 流程成功发起，并等待审批人审批。 可以通过『飞书人事-审批-我发起的』 / 『飞书人事-我的团队/人员管理-组织架构-调整记录』 找到审批单据。
+  APPROVED("2"), // 审批通过，该单据已通过审批， 调整记录等待写入。 一方面，组织架构调整支持拆单功能， 同一个调整可能发起多个审批， 当前审批单可能依赖其他审批通过才能写入。
+  DONE("3"), // 已完成,;==该状态不代表调整的记录生效完成== 由于记录可能是未来生效， 因此记录的状态需通过 人员异动变更事件 和 部门变更事件获取。; -
+  // 人员异动变更事件：[飞书人事-异动-事件](/ssl:/ttdoc/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_change/job-change-events); - 部门变更事件: [飞书人事-组织管理-事件](/ssl:/ttdoc/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/created); - 岗位变更事件: 【飞书人事-岗职务管理-岗位-事件】(岗位灰度内)
+  REJECTED("4"), // 已拒绝： 审批未通过。
+  CANCELED("5"), // 已撤销，用户主动撤销审批， 流程会进入已撤销状态。
+  ;
+  private String value;
 
-    ProcessInfoApprovalGroupStatusEnum(String value) {
-        this.value = value;
-    }
+  ProcessInfoApprovalGroupStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyaiCardStatus {
+  /**
+   * 卡片原来的状态
+   *
+   * <p>示例值：CREATED
+   */
+  @SerializedName("from_status")
+  private String fromStatus;
+
+  /**
+   * 卡片的新状态
+   *
+   * <p>示例值：INVALIDATED
+   */
+  @SerializedName("to_status")
+  private String toStatus;
+
+  public String getFromStatus() {
+    return this.fromStatus;
+  }
+
+  public void setFromStatus(String fromStatus) {
+    this.fromStatus = fromStatus;
+  }
+
+  public String getToStatus() {
+    return this.toStatus;
+  }
+
+  public void setToStatus(String toStatus) {
+    this.toStatus = toStatus;
+  }
+
+  // builder 开始
+  public MyaiCardStatus() {}
+
+  public MyaiCardStatus(Builder builder) {
     /**
      * 卡片原来的状态
-     * <p> 示例值：CREATED
+     *
+     * <p>示例值：CREATED
      */
-    @SerializedName("from_status")
-    private String fromStatus;
+    this.fromStatus = builder.fromStatus;
     /**
      * 卡片的新状态
-     * <p> 示例值：INVALIDATED
+     *
+     * <p>示例值：INVALIDATED
      */
-    @SerializedName("to_status")
+    this.toStatus = builder.toStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 卡片原来的状态
+     *
+     * <p>示例值：CREATED
+     */
+    private String fromStatus;
+
+    /**
+     * 卡片的新状态
+     *
+     * <p>示例值：INVALIDATED
+     */
     private String toStatus;
 
-    // builder 开始
-    public MyaiCardStatus() {
+    /**
+     * 卡片原来的状态
+     *
+     * <p>示例值：CREATED
+     *
+     * @param fromStatus
+     * @return
+     */
+    public Builder fromStatus(String fromStatus) {
+      this.fromStatus = fromStatus;
+      return this;
     }
 
-    public MyaiCardStatus(Builder builder) {
-        /**
-         * 卡片原来的状态
-         * <p> 示例值：CREATED
-         */
-        this.fromStatus = builder.fromStatus;
-        /**
-         * 卡片的新状态
-         * <p> 示例值：INVALIDATED
-         */
-        this.toStatus = builder.toStatus;
+    /**
+     * 卡片的新状态
+     *
+     * <p>示例值：INVALIDATED
+     *
+     * @param toStatus
+     * @return
+     */
+    public Builder toStatus(String toStatus) {
+      this.toStatus = toStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MyaiCardStatus build() {
+      return new MyaiCardStatus(this);
     }
+  }
 
-    public String getFromStatus() {
-        return this.fromStatus;
-    }
-
-    public void setFromStatus(String fromStatus) {
-        this.fromStatus = fromStatus;
-    }
-
-    public String getToStatus() {
-        return this.toStatus;
-    }
-
-    public void setToStatus(String toStatus) {
-        this.toStatus = toStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 卡片原来的状态
-         * <p> 示例值：CREATED
-         */
-        private String fromStatus;
-        /**
-         * 卡片的新状态
-         * <p> 示例值：INVALIDATED
-         */
-        private String toStatus;
-
-        /**
-         * 卡片原来的状态
-         * <p> 示例值：CREATED
-         *
-         * @param fromStatus
-         * @return
-         */
-        public Builder fromStatus(String fromStatus) {
-            this.fromStatus = fromStatus;
-            return this;
-        }
-
-
-        /**
-         * 卡片的新状态
-         * <p> 示例值：INVALIDATED
-         *
-         * @param toStatus
-         * @return
-         */
-        public Builder toStatus(String toStatus) {
-            this.toStatus = toStatus;
-            return this;
-        }
-
-
-        public MyaiCardStatus build() {
-            return new MyaiCardStatus(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

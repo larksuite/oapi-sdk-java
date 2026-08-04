@@ -13,137 +13,149 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class ListWorkspaceTableReq {
+  /**
+   * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500。
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果。
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  /**
+   * 工作空间id，可以从数据平台的 URL 中获取，如
+   * https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage
+   * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+   *
+   * <p>示例值：workspace_aadimx5uzpsls
+   */
+  @Path
+  @SerializedName("workspace_id")
+  private String workspaceId;
+
+  public String getWorkspaceId() {
+    return this.workspaceId;
+  }
+
+  public void setWorkspaceId(String workspaceId) {
+    this.workspaceId = workspaceId;
+  }
+
+  // builder 开始
+  public ListWorkspaceTableReq() {}
+
+  public ListWorkspaceTableReq(Builder builder) {
     /**
      * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500。
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 工作空间 id
-     * <p> 示例值：worksapce_abc
+     * 工作空间id，可以从数据平台的 URL 中获取，如
+     * https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage
+     * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+     *
+     * <p>示例值：workspace_aadimx5uzpsls
      */
-    @Path
-    @SerializedName("workspace_id")
-    private String workspaceId;
+    this.workspaceId = builder.workspaceId;
+  }
 
-    // builder 开始
-    public ListWorkspaceTableReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500。
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+
+    // 获取查询结果。
+
+    /**
+     * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500。
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListWorkspaceTableReq(Builder builder) {
-        /**
-         * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500。
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果。
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 工作空间 id
-         * <p> 示例值：worksapce_abc
-         */
-        this.workspaceId = builder.workspaceId;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果。
+     *
+     * <p>示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String workspaceId; // 工作空间id，可以从数据平台的 URL 中获取，如
+
+    // https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage 中的 workspace_aadimx5uzpsls 就是 workspace_id
+
+    /**
+     * 工作空间id，可以从数据平台的 URL 中获取，如
+     * https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage
+     * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+     *
+     * <p>示例值：workspace_aadimx5uzpsls
+     *
+     * @param workspaceId
+     * @return
+     */
+    public Builder workspaceId(String workspaceId) {
+      this.workspaceId = workspaceId;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    public ListWorkspaceTableReq build() {
+      return new ListWorkspaceTableReq(this);
     }
+  }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getWorkspaceId() {
-        return this.workspaceId;
-    }
-
-    public void setWorkspaceId(String workspaceId) {
-        this.workspaceId = workspaceId;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500。
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果。
-        private String workspaceId; // 工作空间 id
-
-        /**
-         * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500。
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果。
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 工作空间 id
-         * <p> 示例值：worksapce_abc
-         *
-         * @param workspaceId
-         * @return
-         */
-        public Builder workspaceId(String workspaceId) {
-            this.workspaceId = workspaceId;
-            return this;
-        }
-
-
-        public ListWorkspaceTableReq build() {
-            return new ListWorkspaceTableReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

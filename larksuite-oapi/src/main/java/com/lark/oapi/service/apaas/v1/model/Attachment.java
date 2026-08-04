@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Attachment {
+  /**
+   * 文件的唯一标识，用于给字段赋值或下载文件
+   *
+   * <p>示例值：e85a1edeae2240f5b89ae67e481f8788
+   */
+  @SerializedName("file_id")
+  private String fileId;
+
+  public String getFileId() {
+    return this.fileId;
+  }
+
+  public void setFileId(String fileId) {
+    this.fileId = fileId;
+  }
+
+  // builder 开始
+  public Attachment() {}
+
+  public Attachment(Builder builder) {
     /**
      * 文件的唯一标识，用于给字段赋值或下载文件
-     * <p> 示例值：e85a1edeae2240f5b89ae67e481f8788
+     *
+     * <p>示例值：e85a1edeae2240f5b89ae67e481f8788
      */
-    @SerializedName("file_id")
+    this.fileId = builder.fileId;
+  }
+
+  public static class Builder {
+    /**
+     * 文件的唯一标识，用于给字段赋值或下载文件
+     *
+     * <p>示例值：e85a1edeae2240f5b89ae67e481f8788
+     */
     private String fileId;
 
-    // builder 开始
-    public Attachment() {
+    /**
+     * 文件的唯一标识，用于给字段赋值或下载文件
+     *
+     * <p>示例值：e85a1edeae2240f5b89ae67e481f8788
+     *
+     * @param fileId
+     * @return
+     */
+    public Builder fileId(String fileId) {
+      this.fileId = fileId;
+      return this;
     }
 
-    public Attachment(Builder builder) {
-        /**
-         * 文件的唯一标识，用于给字段赋值或下载文件
-         * <p> 示例值：e85a1edeae2240f5b89ae67e481f8788
-         */
-        this.fileId = builder.fileId;
+    public Attachment build() {
+      return new Attachment(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getFileId() {
-        return this.fileId;
-    }
-
-    public void setFileId(String fileId) {
-        this.fileId = fileId;
-    }
-
-    public static class Builder {
-        /**
-         * 文件的唯一标识，用于给字段赋值或下载文件
-         * <p> 示例值：e85a1edeae2240f5b89ae67e481f8788
-         */
-        private String fileId;
-
-        /**
-         * 文件的唯一标识，用于给字段赋值或下载文件
-         * <p> 示例值：e85a1edeae2240f5b89ae67e481f8788
-         *
-         * @param fileId
-         * @return
-         */
-        public Builder fileId(String fileId) {
-            this.fileId = fileId;
-            return this;
-        }
-
-
-        public Attachment build() {
-            return new Attachment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

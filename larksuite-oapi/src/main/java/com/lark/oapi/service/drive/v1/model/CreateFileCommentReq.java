@@ -13,187 +13,196 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class CreateFileCommentReq {
+  /**
+   * 云文档类型
+   *
+   * <p>示例值：doc
+   */
+  @Query
+  @SerializedName("file_type")
+  private String fileType;
+
+  /**
+   * 此次调用中使用的用户 ID 的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getFileType() {
+    return this.fileType;
+  }
+
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 文档 Token;;可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。
+   *
+   * <p>示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  @Body private FileComment body;
+
+  public FileComment getFileComment() {
+    return this.body;
+  }
+
+  public void setFileComment(FileComment body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateFileCommentReq() {}
+
+  public CreateFileCommentReq(Builder builder) {
     /**
-     * 文档类型
-     * <p> 示例值：doc
+     * 云文档类型
+     *
+     * <p>示例值：doc
      */
-    @Query
-    @SerializedName("file_type")
-    private String fileType;
+    this.fileType = builder.fileType;
     /**
      * 此次调用中使用的用户 ID 的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 文档token
-     * <p> 示例值：doccnGp4UK1UskrOEJwBXd3****
+     * 文档 Token;;可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。
+     *
+     * <p>示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
-    @Body
+    this.fileToken = builder.fileToken;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String fileType; // 云文档类型
+    private String userIdType; // 此次调用中使用的用户 ID 的类型
+
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：doc
+     *
+     * @param fileType
+     * @return
+     */
+    public Builder fileType(String fileType) {
+      this.fileType = fileType;
+      return this;
+    }
+
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：doc
+     *
+     * @param fileType {@link com.lark.oapi.service.drive.v1.enums.CreateFileCommentFileTypeEnum}
+     * @return
+     */
+    public Builder fileType(
+        com.lark.oapi.service.drive.v1.enums.CreateFileCommentFileTypeEnum fileType) {
+      this.fileType = fileType.getValue();
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户 ID 的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户 ID 的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.drive.v1.enums.CreateFileCommentUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.drive.v1.enums.CreateFileCommentUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    private String fileToken; // 文档 Token;;可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。
+
+    /**
+     * 文档 Token;;可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。
+     *
+     * <p>示例值：XIHSdYSI7oMEU1xrsnxc8fabcef
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
+    }
+
     private FileComment body;
 
-    // builder 开始
-    public CreateFileCommentReq() {
-    }
-
-    public CreateFileCommentReq(Builder builder) {
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         */
-        this.fileType = builder.fileType;
-        /**
-         * 此次调用中使用的用户 ID 的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 文档token
-         * <p> 示例值：doccnGp4UK1UskrOEJwBXd3****
-         */
-        this.fileToken = builder.fileToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getFileType() {
-        return this.fileType;
-    }
-
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
     public FileComment getFileComment() {
-        return this.body;
+      return this.body;
     }
 
-    public void setFileComment(FileComment body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder fileComment(FileComment body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String fileType; // 文档类型
-        private String userIdType; // 此次调用中使用的用户 ID 的类型
-        private String fileToken; // 文档token
-        private FileComment body;
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         *
-         * @param fileType
-         * @return
-         */
-        public Builder fileType(String fileType) {
-            this.fileType = fileType;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         *
-         * @param fileType {@link com.lark.oapi.service.drive.v1.enums.CreateFileCommentFileTypeEnum}
-         * @return
-         */
-        public Builder fileType(com.lark.oapi.service.drive.v1.enums.CreateFileCommentFileTypeEnum fileType) {
-            this.fileType = fileType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户 ID 的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户 ID 的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.CreateFileCommentUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.drive.v1.enums.CreateFileCommentUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 文档token
-         * <p> 示例值：doccnGp4UK1UskrOEJwBXd3****
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-        public FileComment getFileComment() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder fileComment(FileComment body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateFileCommentReq build() {
-            return new CreateFileCommentReq(this);
-        }
+    public CreateFileCommentReq build() {
+      return new CreateFileCommentReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

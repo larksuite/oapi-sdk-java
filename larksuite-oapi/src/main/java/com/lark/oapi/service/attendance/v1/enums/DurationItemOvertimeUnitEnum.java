@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 加班单位
- */
+/** 加班单位 */
 public enum DurationItemOvertimeUnitEnum {
-    UNKNOWN(0), // 未知
-    DAY(1), // 天
-    HOUR(3), // 小时
-    MINUTE(5), // 分钟
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未知
+  DAY(1), // 天
+  HOUR(3), // 小时
+  MINUTE(5), // 分钟
+  ;
+  private Integer value;
 
-    DurationItemOvertimeUnitEnum(Integer value) {
-        this.value = value;
-    }
+  DurationItemOvertimeUnitEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

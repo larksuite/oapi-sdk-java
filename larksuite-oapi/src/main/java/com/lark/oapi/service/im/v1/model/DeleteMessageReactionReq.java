@@ -13,106 +13,130 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.im.v1.enums.*;
 
 public class DeleteMessageReactionReq {
+  /**
+   * 待删除表情回复的消息 ID。ID 获取方式：; ;-
+   * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+   * `message_id` 参数获取。;-
+   * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+   * `message_id`。;-
+   * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+   * `message_id` 参数获取。
+   *
+   * <p>示例值：om_8964d1b4*********2b31383276113
+   */
+  @Path
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 待删除的表情回复 ID，该 ID 获取方式：;;-
+   * 调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口添加表情回复后，在返回结果中获取。;;-
+   * 调用[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)接口，获取某一表情回复的
+   * ID。
+   *
+   * <p>示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
+   */
+  @Path
+  @SerializedName("reaction_id")
+  private String reactionId;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public String getReactionId() {
+    return this.reactionId;
+  }
+
+  public void setReactionId(String reactionId) {
+    this.reactionId = reactionId;
+  }
+
+  // builder 开始
+  public DeleteMessageReactionReq() {}
+
+  public DeleteMessageReactionReq(Builder builder) {
     /**
-     * 待删除reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-     * <p> 示例值：om_8964d1b4*********2b31383276113
+     * 待删除表情回复的消息 ID。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id` 参数获取。
+     *
+     * <p>示例值：om_8964d1b4*********2b31383276113
      */
-    @Path
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
-     * 待删除reaction的资源id，可通过调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口或[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)获得
-     * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
+     * 待删除的表情回复 ID，该 ID 获取方式：;;-
+     * 调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口添加表情回复后，在返回结果中获取。;;-
+     * 调用[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)接口，获取某一表情回复的
+     * ID。
+     *
+     * <p>示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
      */
-    @Path
-    @SerializedName("reaction_id")
-    private String reactionId;
+    this.reactionId = builder.reactionId;
+  }
 
-    // builder 开始
-    public DeleteMessageReactionReq() {
+  public static class Builder {
+
+    private String messageId; // 待删除表情回复的消息 ID。ID 获取方式：; ;-
+    // 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。;- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。;- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。
+    private String reactionId; // 待删除的表情回复 ID，该 ID 获取方式：;;-
+
+    // 调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口添加表情回复后，在返回结果中获取。;;- 调用[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)接口，获取某一表情回复的 ID。
+
+    /**
+     * 待删除表情回复的消息 ID。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id` 参数获取。
+     *
+     * <p>示例值：om_8964d1b4*********2b31383276113
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public DeleteMessageReactionReq(Builder builder) {
-        /**
-         * 待删除reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_8964d1b4*********2b31383276113
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 待删除reaction的资源id，可通过调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口或[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)获得
-         * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
-         */
-        this.reactionId = builder.reactionId;
+    /**
+     * 待删除的表情回复 ID，该 ID 获取方式：;;-
+     * 调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口添加表情回复后，在返回结果中获取。;;-
+     * 调用[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)接口，获取某一表情回复的
+     * ID。
+     *
+     * <p>示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
+     *
+     * @param reactionId
+     * @return
+     */
+    public Builder reactionId(String reactionId) {
+      this.reactionId = reactionId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteMessageReactionReq build() {
+      return new DeleteMessageReactionReq(this);
     }
+  }
 
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public String getReactionId() {
-        return this.reactionId;
-    }
-
-    public void setReactionId(String reactionId) {
-        this.reactionId = reactionId;
-    }
-
-    public static class Builder {
-
-        private String messageId; // 待删除reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-        private String reactionId; // 待删除reaction的资源id，可通过调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口或[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)获得
-
-        /**
-         * 待删除reaction的消息ID，详情参见[消息ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/intro#ac79c1c2)
-         * <p> 示例值：om_8964d1b4*********2b31383276113
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 待删除reaction的资源id，可通过调用[添加消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/create)接口或[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)获得
-         * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_
-         *
-         * @param reactionId
-         * @return
-         */
-        public Builder reactionId(String reactionId) {
-            this.reactionId = reactionId;
-            return this;
-        }
-
-
-        public DeleteMessageReactionReq build() {
-            return new DeleteMessageReactionReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

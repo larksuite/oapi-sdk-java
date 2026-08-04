@@ -13,131 +13,157 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.bitable.v1.enums.*;
 
 public class UpdateAppWorkflowReq {
+  /**
+   * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+   * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+   * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+   * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+   * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+   * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+   * app_token
+   * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+   *
+   * <p>示例值：appbcbWCzen6D8dezh
+   */
+  @Path
+  @SerializedName("app_token")
+  private String appToken;
+
+  /**
+   * 自动化工作流
+   * ID，通过[列出自动化流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-workflow/list)接口获取。
+   *
+   * <p>示例值：730887xxxx552638996
+   */
+  @Path
+  @SerializedName("workflow_id")
+  private String workflowId;
+
+  public String getAppToken() {
+    return this.appToken;
+  }
+
+  public void setAppToken(String appToken) {
+    this.appToken = appToken;
+  }
+
+  public String getWorkflowId() {
+    return this.workflowId;
+  }
+
+  public void setWorkflowId(String workflowId) {
+    this.workflowId = workflowId;
+  }
+
+  @Body private UpdateAppWorkflowReqBody body;
+
+  public UpdateAppWorkflowReqBody getUpdateAppWorkflowReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateAppWorkflowReqBody(UpdateAppWorkflowReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateAppWorkflowReq() {}
+
+  public UpdateAppWorkflowReq(Builder builder) {
     /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezh
+     * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+     * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+     * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+     * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+     * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+     * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+     * app_token
+     * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+     *
+     * <p>示例值：appbcbWCzen6D8dezh
      */
-    @Path
-    @SerializedName("app_token")
-    private String appToken;
+    this.appToken = builder.appToken;
     /**
-     * workflow_id
-     * <p> 示例值：730887xxxx552638996
+     * 自动化工作流
+     * ID，通过[列出自动化流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-workflow/list)接口获取。
+     *
+     * <p>示例值：730887xxxx552638996
      */
-    @Path
-    @SerializedName("workflow_id")
-    private String workflowId;
-    @Body
+    this.workflowId = builder.workflowId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String appToken; // 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以
+    // ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：;
+    // ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+    private String workflowId; // 自动化工作流
+
+    // ID，通过[列出自动化流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-workflow/list)接口获取。
+
+    /**
+     * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+     * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+     * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+     * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+     * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+     * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+     * app_token
+     * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+     *
+     * <p>示例值：appbcbWCzen6D8dezh
+     *
+     * @param appToken
+     * @return
+     */
+    public Builder appToken(String appToken) {
+      this.appToken = appToken;
+      return this;
+    }
+
+    /**
+     * 自动化工作流
+     * ID，通过[列出自动化流程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-workflow/list)接口获取。
+     *
+     * <p>示例值：730887xxxx552638996
+     *
+     * @param workflowId
+     * @return
+     */
+    public Builder workflowId(String workflowId) {
+      this.workflowId = workflowId;
+      return this;
+    }
+
     private UpdateAppWorkflowReqBody body;
 
-    // builder 开始
-    public UpdateAppWorkflowReq() {
-    }
-
-    public UpdateAppWorkflowReq(Builder builder) {
-        /**
-         * bitable app token
-         * <p> 示例值：appbcbWCzen6D8dezh
-         */
-        this.appToken = builder.appToken;
-        /**
-         * workflow_id
-         * <p> 示例值：730887xxxx552638996
-         */
-        this.workflowId = builder.workflowId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAppToken() {
-        return this.appToken;
-    }
-
-    public void setAppToken(String appToken) {
-        this.appToken = appToken;
-    }
-
-    public String getWorkflowId() {
-        return this.workflowId;
-    }
-
-    public void setWorkflowId(String workflowId) {
-        this.workflowId = workflowId;
-    }
-
     public UpdateAppWorkflowReqBody getUpdateAppWorkflowReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateAppWorkflowReqBody(UpdateAppWorkflowReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateAppWorkflowReqBody(UpdateAppWorkflowReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String appToken; // bitable app token
-        private String workflowId; // workflow_id
-        private UpdateAppWorkflowReqBody body;
-
-        /**
-         * bitable app token
-         * <p> 示例值：appbcbWCzen6D8dezh
-         *
-         * @param appToken
-         * @return
-         */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
-
-        /**
-         * workflow_id
-         * <p> 示例值：730887xxxx552638996
-         *
-         * @param workflowId
-         * @return
-         */
-        public Builder workflowId(String workflowId) {
-            this.workflowId = workflowId;
-            return this;
-        }
-
-        public UpdateAppWorkflowReqBody getUpdateAppWorkflowReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateAppWorkflowReqBody(UpdateAppWorkflowReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateAppWorkflowReq build() {
-            return new UpdateAppWorkflowReq(this);
-        }
+    public UpdateAppWorkflowReq build() {
+      return new UpdateAppWorkflowReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

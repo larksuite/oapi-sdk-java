@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TerminateSignatureFileReqBody {
+  /**
+   * 欲终止的电子签文件id列表，文件ID可以通过调用「获取电子签文件列表」接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ids")
+  private String[] ids;
+
+  /**
+   * 操作人ID，ID的格式取决于query传参中传入的user_id_type字段；ID获取方式见「查询参数」
+   *
+   * <p>示例值：7386593105085988xxx
+   */
+  @SerializedName("operator")
+  private String operator;
+
+  /**
+   * 终止原因，不得超过300字符
+   *
+   * <p>示例值：请求流程发生变化，需要重新签署，因此终止签署流程中的文件
+   */
+  @SerializedName("terminate_reason")
+  private String terminateReason;
+
+  public String[] getIds() {
+    return this.ids;
+  }
+
+  public void setIds(String[] ids) {
+    this.ids = ids;
+  }
+
+  public String getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public String getTerminateReason() {
+    return this.terminateReason;
+  }
+
+  public void setTerminateReason(String terminateReason) {
+    this.terminateReason = terminateReason;
+  }
+
+  // builder 开始
+  public TerminateSignatureFileReqBody() {}
+
+  public TerminateSignatureFileReqBody(Builder builder) {
     /**
-     * 欲终止的电子签文件id列表
-     * <p> 示例值：
+     * 欲终止的电子签文件id列表，文件ID可以通过调用「获取电子签文件列表」接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("ids")
+    this.ids = builder.ids;
+    /**
+     * 操作人ID，ID的格式取决于query传参中传入的user_id_type字段；ID获取方式见「查询参数」
+     *
+     * <p>示例值：7386593105085988xxx
+     */
+    this.operator = builder.operator;
+    /**
+     * 终止原因，不得超过300字符
+     *
+     * <p>示例值：请求流程发生变化，需要重新签署，因此终止签署流程中的文件
+     */
+    this.terminateReason = builder.terminateReason;
+  }
+
+  public static class Builder {
+    /**
+     * 欲终止的电子签文件id列表，文件ID可以通过调用「获取电子签文件列表」接口获取
+     *
+     * <p>示例值：
+     */
     private String[] ids;
+
     /**
-     * 操作人ID
-     * <p> 示例值：7386593105085988884
+     * 操作人ID，ID的格式取决于query传参中传入的user_id_type字段；ID获取方式见「查询参数」
+     *
+     * <p>示例值：7386593105085988xxx
      */
-    @SerializedName("operator")
     private String operator;
+
     /**
-     * 终止原因
-     * <p> 示例值：需要重新签署, 因此终止签署的文件
+     * 终止原因，不得超过300字符
+     *
+     * <p>示例值：请求流程发生变化，需要重新签署，因此终止签署流程中的文件
      */
-    @SerializedName("terminate_reason")
     private String terminateReason;
 
-    // builder 开始
-    public TerminateSignatureFileReqBody() {
+    /**
+     * 欲终止的电子签文件id列表，文件ID可以通过调用「获取电子签文件列表」接口获取
+     *
+     * <p>示例值：
+     *
+     * @param ids
+     * @return
+     */
+    public Builder ids(String[] ids) {
+      this.ids = ids;
+      return this;
     }
 
-    public TerminateSignatureFileReqBody(Builder builder) {
-        /**
-         * 欲终止的电子签文件id列表
-         * <p> 示例值：
-         */
-        this.ids = builder.ids;
-        /**
-         * 操作人ID
-         * <p> 示例值：7386593105085988884
-         */
-        this.operator = builder.operator;
-        /**
-         * 终止原因
-         * <p> 示例值：需要重新签署, 因此终止签署的文件
-         */
-        this.terminateReason = builder.terminateReason;
+    /**
+     * 操作人ID，ID的格式取决于query传参中传入的user_id_type字段；ID获取方式见「查询参数」
+     *
+     * <p>示例值：7386593105085988xxx
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(String operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 终止原因，不得超过300字符
+     *
+     * <p>示例值：请求流程发生变化，需要重新签署，因此终止签署流程中的文件
+     *
+     * @param terminateReason
+     * @return
+     */
+    public Builder terminateReason(String terminateReason) {
+      this.terminateReason = terminateReason;
+      return this;
     }
 
-    public String[] getIds() {
-        return this.ids;
+    public TerminateSignatureFileReqBody build() {
+      return new TerminateSignatureFileReqBody(this);
     }
+  }
 
-    public void setIds(String[] ids) {
-        this.ids = ids;
-    }
-
-    public String getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public String getTerminateReason() {
-        return this.terminateReason;
-    }
-
-    public void setTerminateReason(String terminateReason) {
-        this.terminateReason = terminateReason;
-    }
-
-    public static class Builder {
-        /**
-         * 欲终止的电子签文件id列表
-         * <p> 示例值：
-         */
-        private String[] ids;
-        /**
-         * 操作人ID
-         * <p> 示例值：7386593105085988884
-         */
-        private String operator;
-        /**
-         * 终止原因
-         * <p> 示例值：需要重新签署, 因此终止签署的文件
-         */
-        private String terminateReason;
-
-        /**
-         * 欲终止的电子签文件id列表
-         * <p> 示例值：
-         *
-         * @param ids
-         * @return
-         */
-        public Builder ids(String[] ids) {
-            this.ids = ids;
-            return this;
-        }
-
-
-        /**
-         * 操作人ID
-         * <p> 示例值：7386593105085988884
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 终止原因
-         * <p> 示例值：需要重新签署, 因此终止签署的文件
-         *
-         * @param terminateReason
-         * @return
-         */
-        public Builder terminateReason(String terminateReason) {
-            this.terminateReason = terminateReason;
-            return this;
-        }
-
-
-        public TerminateSignatureFileReqBody build() {
-            return new TerminateSignatureFileReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

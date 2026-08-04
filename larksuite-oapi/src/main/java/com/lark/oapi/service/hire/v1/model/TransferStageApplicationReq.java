@@ -13,97 +13,96 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TransferStageApplicationReq {
+  /**
+   * 投递
+   * ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+   *
+   * <p>示例值：6960663240925956401
+   */
+  @Path
+  @SerializedName("application_id")
+  private String applicationId;
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  @Body private TransferStageApplicationReqBody body;
+
+  public TransferStageApplicationReqBody getTransferStageApplicationReqBody() {
+    return this.body;
+  }
+
+  public void setTransferStageApplicationReqBody(TransferStageApplicationReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public TransferStageApplicationReq() {}
+
+  public TransferStageApplicationReq(Builder builder) {
     /**
-     * 投递 ID
-     * <p> 示例值：6960663240925956401
+     * 投递
+     * ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+     *
+     * <p>示例值：6960663240925956401
      */
-    @Path
-    @SerializedName("application_id")
-    private String applicationId;
-    @Body
+    this.applicationId = builder.applicationId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String applicationId; // 投递
+
+    // ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+
+    /**
+     * 投递
+     * ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取
+     *
+     * <p>示例值：6960663240925956401
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
+    }
+
     private TransferStageApplicationReqBody body;
 
-    // builder 开始
-    public TransferStageApplicationReq() {
-    }
-
-    public TransferStageApplicationReq(Builder builder) {
-        /**
-         * 投递 ID
-         * <p> 示例值：6960663240925956401
-         */
-        this.applicationId = builder.applicationId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getApplicationId() {
-        return this.applicationId;
-    }
-
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
-    }
-
     public TransferStageApplicationReqBody getTransferStageApplicationReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setTransferStageApplicationReqBody(TransferStageApplicationReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder transferStageApplicationReqBody(TransferStageApplicationReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String applicationId; // 投递 ID
-        private TransferStageApplicationReqBody body;
-
-        /**
-         * 投递 ID
-         * <p> 示例值：6960663240925956401
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-        public TransferStageApplicationReqBody getTransferStageApplicationReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder transferStageApplicationReqBody(TransferStageApplicationReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public TransferStageApplicationReq build() {
-            return new TransferStageApplicationReq(this);
-        }
+    public TransferStageApplicationReq build() {
+      return new TransferStageApplicationReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

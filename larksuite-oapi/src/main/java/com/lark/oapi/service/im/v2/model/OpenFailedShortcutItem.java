@@ -13,124 +13,123 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenFailedShortcutItem {
+  /**
+   * OpenShortcut 是用户置顶列表中的一项。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("shortcut")
+  private OpenShortcut shortcut;
+
+  /**
+   * 该项失败的具体原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reason")
+  private Integer reason;
+
+  public OpenShortcut getShortcut() {
+    return this.shortcut;
+  }
+
+  public void setShortcut(OpenShortcut shortcut) {
+    this.shortcut = shortcut;
+  }
+
+  public Integer getReason() {
+    return this.reason;
+  }
+
+  public void setReason(Integer reason) {
+    this.reason = reason;
+  }
+
+  // builder 开始
+  public OpenFailedShortcutItem() {}
+
+  public OpenFailedShortcutItem(Builder builder) {
     /**
      * OpenShortcut 是用户置顶列表中的一项。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("shortcut")
-    private OpenShortcut shortcut;
+    this.shortcut = builder.shortcut;
     /**
      * 该项失败的具体原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reason")
+    this.reason = builder.reason;
+  }
+
+  public static class Builder {
+    /**
+     * OpenShortcut 是用户置顶列表中的一项。
+     *
+     * <p>示例值：
+     */
+    private OpenShortcut shortcut;
+
+    /**
+     * 该项失败的具体原因
+     *
+     * <p>示例值：
+     */
     private Integer reason;
 
-    // builder 开始
-    public OpenFailedShortcutItem() {
+    /**
+     * OpenShortcut 是用户置顶列表中的一项。
+     *
+     * <p>示例值：
+     *
+     * @param shortcut
+     * @return
+     */
+    public Builder shortcut(OpenShortcut shortcut) {
+      this.shortcut = shortcut;
+      return this;
     }
 
-    public OpenFailedShortcutItem(Builder builder) {
-        /**
-         * OpenShortcut 是用户置顶列表中的一项。
-         * <p> 示例值：
-         */
-        this.shortcut = builder.shortcut;
-        /**
-         * 该项失败的具体原因
-         * <p> 示例值：
-         */
-        this.reason = builder.reason;
+    /**
+     * 该项失败的具体原因
+     *
+     * <p>示例值：
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(Integer reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 该项失败的具体原因
+     *
+     * <p>示例值：
+     *
+     * @param reason {@link
+     *     com.lark.oapi.service.im.v2.enums.OpenFailedShortcutItemOpenShortcutFailedReasonEnum}
+     * @return
+     */
+    public Builder reason(
+        com.lark.oapi.service.im.v2.enums.OpenFailedShortcutItemOpenShortcutFailedReasonEnum
+            reason) {
+      this.reason = reason.getValue();
+      return this;
     }
 
-    public OpenShortcut getShortcut() {
-        return this.shortcut;
+    public OpenFailedShortcutItem build() {
+      return new OpenFailedShortcutItem(this);
     }
+  }
 
-    public void setShortcut(OpenShortcut shortcut) {
-        this.shortcut = shortcut;
-    }
-
-    public Integer getReason() {
-        return this.reason;
-    }
-
-    public void setReason(Integer reason) {
-        this.reason = reason;
-    }
-
-    public static class Builder {
-        /**
-         * OpenShortcut 是用户置顶列表中的一项。
-         * <p> 示例值：
-         */
-        private OpenShortcut shortcut;
-        /**
-         * 该项失败的具体原因
-         * <p> 示例值：
-         */
-        private Integer reason;
-
-        /**
-         * OpenShortcut 是用户置顶列表中的一项。
-         * <p> 示例值：
-         *
-         * @param shortcut
-         * @return
-         */
-        public Builder shortcut(OpenShortcut shortcut) {
-            this.shortcut = shortcut;
-            return this;
-        }
-
-
-        /**
-         * 该项失败的具体原因
-         * <p> 示例值：
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(Integer reason) {
-            this.reason = reason;
-            return this;
-        }
-
-        /**
-         * 该项失败的具体原因
-         * <p> 示例值：
-         *
-         * @param reason {@link com.lark.oapi.service.im.v2.enums.OpenFailedShortcutItemOpenShortcutFailedReasonEnum}
-         * @return
-         */
-        public Builder reason(com.lark.oapi.service.im.v2.enums.OpenFailedShortcutItemOpenShortcutFailedReasonEnum reason) {
-            this.reason = reason.getValue();
-            return this;
-        }
-
-
-        public OpenFailedShortcutItem build() {
-            return new OpenFailedShortcutItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

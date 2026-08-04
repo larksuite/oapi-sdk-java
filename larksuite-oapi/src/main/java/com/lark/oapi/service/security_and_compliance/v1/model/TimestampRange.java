@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TimestampRange {
+  /**
+   * 时间段的起始毫秒时间戳。当pdl_time_range值不为空时，必填。
+   *
+   * <p>示例值：1672502400000
+   */
+  @SerializedName("start")
+  private String start;
+
+  /**
+   * 时间段的终止毫秒时间戳。当pdl_time_range值不为空时，必填。
+   *
+   * <p>示例值：1693670400000
+   */
+  @SerializedName("end")
+  private String end;
+
+  public String getStart() {
+    return this.start;
+  }
+
+  public void setStart(String start) {
+    this.start = start;
+  }
+
+  public String getEnd() {
+    return this.end;
+  }
+
+  public void setEnd(String end) {
+    this.end = end;
+  }
+
+  // builder 开始
+  public TimestampRange() {}
+
+  public TimestampRange(Builder builder) {
     /**
-     * 时间段的起始毫秒时间戳
-     * <p> 示例值：1672502400000
+     * 时间段的起始毫秒时间戳。当pdl_time_range值不为空时，必填。
+     *
+     * <p>示例值：1672502400000
      */
-    @SerializedName("start")
+    this.start = builder.start;
+    /**
+     * 时间段的终止毫秒时间戳。当pdl_time_range值不为空时，必填。
+     *
+     * <p>示例值：1693670400000
+     */
+    this.end = builder.end;
+  }
+
+  public static class Builder {
+    /**
+     * 时间段的起始毫秒时间戳。当pdl_time_range值不为空时，必填。
+     *
+     * <p>示例值：1672502400000
+     */
     private String start;
+
     /**
-     * 时间段的终止毫秒时间戳
-     * <p> 示例值：1693670400000
+     * 时间段的终止毫秒时间戳。当pdl_time_range值不为空时，必填。
+     *
+     * <p>示例值：1693670400000
      */
-    @SerializedName("end")
     private String end;
 
-    // builder 开始
-    public TimestampRange() {
+    /**
+     * 时间段的起始毫秒时间戳。当pdl_time_range值不为空时，必填。
+     *
+     * <p>示例值：1672502400000
+     *
+     * @param start
+     * @return
+     */
+    public Builder start(String start) {
+      this.start = start;
+      return this;
     }
 
-    public TimestampRange(Builder builder) {
-        /**
-         * 时间段的起始毫秒时间戳
-         * <p> 示例值：1672502400000
-         */
-        this.start = builder.start;
-        /**
-         * 时间段的终止毫秒时间戳
-         * <p> 示例值：1693670400000
-         */
-        this.end = builder.end;
+    /**
+     * 时间段的终止毫秒时间戳。当pdl_time_range值不为空时，必填。
+     *
+     * <p>示例值：1693670400000
+     *
+     * @param end
+     * @return
+     */
+    public Builder end(String end) {
+      this.end = end;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TimestampRange build() {
+      return new TimestampRange(this);
     }
+  }
 
-    public String getStart() {
-        return this.start;
-    }
-
-    public void setStart(String start) {
-        this.start = start;
-    }
-
-    public String getEnd() {
-        return this.end;
-    }
-
-    public void setEnd(String end) {
-        this.end = end;
-    }
-
-    public static class Builder {
-        /**
-         * 时间段的起始毫秒时间戳
-         * <p> 示例值：1672502400000
-         */
-        private String start;
-        /**
-         * 时间段的终止毫秒时间戳
-         * <p> 示例值：1693670400000
-         */
-        private String end;
-
-        /**
-         * 时间段的起始毫秒时间戳
-         * <p> 示例值：1672502400000
-         *
-         * @param start
-         * @return
-         */
-        public Builder start(String start) {
-            this.start = start;
-            return this;
-        }
-
-
-        /**
-         * 时间段的终止毫秒时间戳
-         * <p> 示例值：1693670400000
-         *
-         * @param end
-         * @return
-         */
-        public Builder end(String end) {
-            this.end = end;
-            return this;
-        }
-
-
-        public TimestampRange build() {
-            return new TimestampRange(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeVisa {
+  /**
+   * 员工id
+   *
+   * <p>示例值：7475686493613920050
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * Visa 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("visas")
+  private Visa[] visas;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public Visa[] getVisas() {
+    return this.visas;
+  }
+
+  public void setVisas(Visa[] visas) {
+    this.visas = visas;
+  }
+
+  // builder 开始
+  public EmployeeVisa() {}
+
+  public EmployeeVisa(Builder builder) {
     /**
      * 员工id
-     * <p> 示例值：7475686493613920050
+     *
+     * <p>示例值：7475686493613920050
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * Visa 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("visas")
+    this.visas = builder.visas;
+  }
+
+  public static class Builder {
+    /**
+     * 员工id
+     *
+     * <p>示例值：7475686493613920050
+     */
+    private String employmentId;
+
+    /**
+     * Visa 列表
+     *
+     * <p>示例值：
+     */
     private Visa[] visas;
 
-    // builder 开始
-    public EmployeeVisa() {
+    /**
+     * 员工id
+     *
+     * <p>示例值：7475686493613920050
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public EmployeeVisa(Builder builder) {
-        /**
-         * 员工id
-         * <p> 示例值：7475686493613920050
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * Visa 列表
-         * <p> 示例值：
-         */
-        this.visas = builder.visas;
+    /**
+     * Visa 列表
+     *
+     * <p>示例值：
+     *
+     * @param visas
+     * @return
+     */
+    public Builder visas(Visa[] visas) {
+      this.visas = visas;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EmployeeVisa build() {
+      return new EmployeeVisa(this);
     }
+  }
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public Visa[] getVisas() {
-        return this.visas;
-    }
-
-    public void setVisas(Visa[] visas) {
-        this.visas = visas;
-    }
-
-    public static class Builder {
-        /**
-         * 员工id
-         * <p> 示例值：7475686493613920050
-         */
-        private String employmentId;
-        /**
-         * Visa 列表
-         * <p> 示例值：
-         */
-        private Visa[] visas;
-
-        /**
-         * 员工id
-         * <p> 示例值：7475686493613920050
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * Visa 列表
-         * <p> 示例值：
-         *
-         * @param visas
-         * @return
-         */
-        public Builder visas(Visa[] visas) {
-            this.visas = visas;
-            return this;
-        }
-
-
-        public EmployeeVisa build() {
-            return new EmployeeVisa(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

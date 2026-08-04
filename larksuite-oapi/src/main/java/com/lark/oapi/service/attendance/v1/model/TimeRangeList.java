@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TimeRangeList {
+  /**
+   * 日期day
+   *
+   * <p>示例值：20220501
+   */
+  @SerializedName("day")
+  private Integer day;
+
+  /**
+   * 时间范围，是一个list
+   *
+   * <p>示例值：
+   */
+  @SerializedName("time_ranges")
+  private TimeRange[] timeRanges;
+
+  public Integer getDay() {
+    return this.day;
+  }
+
+  public void setDay(Integer day) {
+    this.day = day;
+  }
+
+  public TimeRange[] getTimeRanges() {
+    return this.timeRanges;
+  }
+
+  public void setTimeRanges(TimeRange[] timeRanges) {
+    this.timeRanges = timeRanges;
+  }
+
+  // builder 开始
+  public TimeRangeList() {}
+
+  public TimeRangeList(Builder builder) {
     /**
      * 日期day
-     * <p> 示例值：20220501
+     *
+     * <p>示例值：20220501
      */
-    @SerializedName("day")
-    private Integer day;
+    this.day = builder.day;
     /**
      * 时间范围，是一个list
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("time_ranges")
+    this.timeRanges = builder.timeRanges;
+  }
+
+  public static class Builder {
+    /**
+     * 日期day
+     *
+     * <p>示例值：20220501
+     */
+    private Integer day;
+
+    /**
+     * 时间范围，是一个list
+     *
+     * <p>示例值：
+     */
     private TimeRange[] timeRanges;
 
-    // builder 开始
-    public TimeRangeList() {
+    /**
+     * 日期day
+     *
+     * <p>示例值：20220501
+     *
+     * @param day
+     * @return
+     */
+    public Builder day(Integer day) {
+      this.day = day;
+      return this;
     }
 
-    public TimeRangeList(Builder builder) {
-        /**
-         * 日期day
-         * <p> 示例值：20220501
-         */
-        this.day = builder.day;
-        /**
-         * 时间范围，是一个list
-         * <p> 示例值：
-         */
-        this.timeRanges = builder.timeRanges;
+    /**
+     * 时间范围，是一个list
+     *
+     * <p>示例值：
+     *
+     * @param timeRanges
+     * @return
+     */
+    public Builder timeRanges(TimeRange[] timeRanges) {
+      this.timeRanges = timeRanges;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TimeRangeList build() {
+      return new TimeRangeList(this);
     }
+  }
 
-    public Integer getDay() {
-        return this.day;
-    }
-
-    public void setDay(Integer day) {
-        this.day = day;
-    }
-
-    public TimeRange[] getTimeRanges() {
-        return this.timeRanges;
-    }
-
-    public void setTimeRanges(TimeRange[] timeRanges) {
-        this.timeRanges = timeRanges;
-    }
-
-    public static class Builder {
-        /**
-         * 日期day
-         * <p> 示例值：20220501
-         */
-        private Integer day;
-        /**
-         * 时间范围，是一个list
-         * <p> 示例值：
-         */
-        private TimeRange[] timeRanges;
-
-        /**
-         * 日期day
-         * <p> 示例值：20220501
-         *
-         * @param day
-         * @return
-         */
-        public Builder day(Integer day) {
-            this.day = day;
-            return this;
-        }
-
-
-        /**
-         * 时间范围，是一个list
-         * <p> 示例值：
-         *
-         * @param timeRanges
-         * @return
-         */
-        public Builder timeRanges(TimeRange[] timeRanges) {
-            this.timeRanges = timeRanges;
-            return this;
-        }
-
-
-        public TimeRangeList build() {
-            return new TimeRangeList(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

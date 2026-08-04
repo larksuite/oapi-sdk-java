@@ -23,51 +23,53 @@ import com.lark.oapi.service.security_and_compliance.v2.V2;
 import com.lark.oapi.service.security_and_compliance.v2.model.*;
 
 public class SecurityAndComplianceService {
-    private final V1 v1;
-    private final MultiGeoEntityTenant multiGeoEntityTenant; // multi_geo_entity.tenant
-    private final OpenapiLog openapiLog; // openapi_log
-    private final UserMigration userMigration; // 用户迁移
-    private final V2 v2;
+  private final V1 v1;
+  private final MultiGeoEntityTenant multiGeoEntityTenant; // multi_geo_entity.tenant
+  private final OpenapiLog openapiLog; // openapi_log
+  private final UserMigration userMigration; // user_migration
+  private final V2 v2;
 
-    public SecurityAndComplianceService(Config config) {
-        this.v1 = new V1(config);
-        this.multiGeoEntityTenant = new MultiGeoEntityTenant(config);
-        this.openapiLog = new OpenapiLog(config);
-        this.userMigration = new UserMigration(config);
-        this.v2 = new V2(config);
-    }
+  public SecurityAndComplianceService(Config config) {
+    this.v1 = new V1(config);
+    this.multiGeoEntityTenant = new MultiGeoEntityTenant(config);
+    this.openapiLog = new OpenapiLog(config);
+    this.userMigration = new UserMigration(config);
+    this.v2 = new V2(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public MultiGeoEntityTenant multiGeoEntityTenant() {
-        return multiGeoEntityTenant;
-    }
+  public MultiGeoEntityTenant multiGeoEntityTenant() {
+    return multiGeoEntityTenant;
+  }
 
-    public OpenapiLog openapiLog() {
-        return openapiLog;
-    }
+  public OpenapiLog openapiLog() {
+    return openapiLog;
+  }
 
-    public UserMigration userMigration() {
-        return userMigration;
-    }
+  public UserMigration userMigration() {
+    return userMigration;
+  }
 
-    public V2 v2() {
-        return v2;
-    }
+  public V2 v2() {
+    return v2;
+  }
 
-    public abstract static class P2DeviceApplyRecordDeviceApplyEventV2Handler implements IEventHandler<P2DeviceApplyRecordDeviceApplyEventV2> {
-        @Override
-        public P2DeviceApplyRecordDeviceApplyEventV2 getEvent() {
-            return new P2DeviceApplyRecordDeviceApplyEventV2();
-        }
+  public abstract static class P2DeviceApplyRecordDeviceApplyEventV2Handler
+      implements IEventHandler<P2DeviceApplyRecordDeviceApplyEventV2> {
+    @Override
+    public P2DeviceApplyRecordDeviceApplyEventV2 getEvent() {
+      return new P2DeviceApplyRecordDeviceApplyEventV2();
     }
+  }
 
-    public abstract static class P2DeviceRecordDeviceChangeEventV2Handler implements IEventHandler<P2DeviceRecordDeviceChangeEventV2> {
-        @Override
-        public P2DeviceRecordDeviceChangeEventV2 getEvent() {
-            return new P2DeviceRecordDeviceChangeEventV2();
-        }
+  public abstract static class P2DeviceRecordDeviceChangeEventV2Handler
+      implements IEventHandler<P2DeviceRecordDeviceChangeEventV2> {
+    @Override
+    public P2DeviceRecordDeviceChangeEventV2 getEvent() {
+      return new P2DeviceRecordDeviceChangeEventV2();
     }
+  }
 }

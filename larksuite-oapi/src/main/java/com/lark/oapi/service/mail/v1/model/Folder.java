@@ -13,272 +13,292 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Folder {
+  /**
+   * folder id
+   *
+   * <p>示例值：7620095646711680541
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 文件夹名称
+   *
+   * <p>示例值：newsletter 相关
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 父文件夹 id，该值为 0 表示根文件夹，id 获取方式见
+   * [列出邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)
+   *
+   * <p>示例值：725627422334644
+   */
+  @SerializedName("parent_folder_id")
+  private String parentFolderId;
+
+  /**
+   * 文件夹类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("folder_type")
+  private Integer folderType;
+
+  /**
+   * 未读邮件数量
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("unread_message_count")
+  private Integer unreadMessageCount;
+
+  /**
+   * 未读会话数量
+   *
+   * <p>示例值：4
+   */
+  @SerializedName("unread_thread_count")
+  private Integer unreadThreadCount;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getParentFolderId() {
+    return this.parentFolderId;
+  }
+
+  public void setParentFolderId(String parentFolderId) {
+    this.parentFolderId = parentFolderId;
+  }
+
+  public Integer getFolderType() {
+    return this.folderType;
+  }
+
+  public void setFolderType(Integer folderType) {
+    this.folderType = folderType;
+  }
+
+  public Integer getUnreadMessageCount() {
+    return this.unreadMessageCount;
+  }
+
+  public void setUnreadMessageCount(Integer unreadMessageCount) {
+    this.unreadMessageCount = unreadMessageCount;
+  }
+
+  public Integer getUnreadThreadCount() {
+    return this.unreadThreadCount;
+  }
+
+  public void setUnreadThreadCount(Integer unreadThreadCount) {
+    this.unreadThreadCount = unreadThreadCount;
+  }
+
+  // builder 开始
+  public Folder() {}
+
+  public Folder(Builder builder) {
     /**
      * folder id
-     * <p> 示例值：7620095646711680541
+     *
+     * <p>示例值：7620095646711680541
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 文件夹名称
-     * <p> 示例值：newsletter 相关
+     *
+     * <p>示例值：newsletter 相关
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 父文件夹 id，该值为 0 表示根文件夹
-     * <p> 示例值：725627422334644
+     * 父文件夹 id，该值为 0 表示根文件夹，id 获取方式见
+     * [列出邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)
+     *
+     * <p>示例值：725627422334644
      */
-    @SerializedName("parent_folder_id")
-    private String parentFolderId;
+    this.parentFolderId = builder.parentFolderId;
     /**
      * 文件夹类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("folder_type")
-    private Integer folderType;
+    this.folderType = builder.folderType;
     /**
      * 未读邮件数量
-     * <p> 示例值：3
+     *
+     * <p>示例值：3
      */
-    @SerializedName("unread_message_count")
-    private Integer unreadMessageCount;
+    this.unreadMessageCount = builder.unreadMessageCount;
     /**
      * 未读会话数量
-     * <p> 示例值：4
+     *
+     * <p>示例值：4
      */
-    @SerializedName("unread_thread_count")
+    this.unreadThreadCount = builder.unreadThreadCount;
+  }
+
+  public static class Builder {
+    /**
+     * folder id
+     *
+     * <p>示例值：7620095646711680541
+     */
+    private String id;
+
+    /**
+     * 文件夹名称
+     *
+     * <p>示例值：newsletter 相关
+     */
+    private String name;
+
+    /**
+     * 父文件夹 id，该值为 0 表示根文件夹，id 获取方式见
+     * [列出邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)
+     *
+     * <p>示例值：725627422334644
+     */
+    private String parentFolderId;
+
+    /**
+     * 文件夹类型
+     *
+     * <p>示例值：1
+     */
+    private Integer folderType;
+
+    /**
+     * 未读邮件数量
+     *
+     * <p>示例值：3
+     */
+    private Integer unreadMessageCount;
+
+    /**
+     * 未读会话数量
+     *
+     * <p>示例值：4
+     */
     private Integer unreadThreadCount;
 
-    // builder 开始
-    public Folder() {
+    /**
+     * folder id
+     *
+     * <p>示例值：7620095646711680541
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Folder(Builder builder) {
-        /**
-         * folder id
-         * <p> 示例值：7620095646711680541
-         */
-        this.id = builder.id;
-        /**
-         * 文件夹名称
-         * <p> 示例值：newsletter 相关
-         */
-        this.name = builder.name;
-        /**
-         * 父文件夹 id，该值为 0 表示根文件夹
-         * <p> 示例值：725627422334644
-         */
-        this.parentFolderId = builder.parentFolderId;
-        /**
-         * 文件夹类型
-         * <p> 示例值：1
-         */
-        this.folderType = builder.folderType;
-        /**
-         * 未读邮件数量
-         * <p> 示例值：3
-         */
-        this.unreadMessageCount = builder.unreadMessageCount;
-        /**
-         * 未读会话数量
-         * <p> 示例值：4
-         */
-        this.unreadThreadCount = builder.unreadThreadCount;
+    /**
+     * 文件夹名称
+     *
+     * <p>示例值：newsletter 相关
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 父文件夹 id，该值为 0 表示根文件夹，id 获取方式见
+     * [列出邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)
+     *
+     * <p>示例值：725627422334644
+     *
+     * @param parentFolderId
+     * @return
+     */
+    public Builder parentFolderId(String parentFolderId) {
+      this.parentFolderId = parentFolderId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 文件夹类型
+     *
+     * <p>示例值：1
+     *
+     * @param folderType
+     * @return
+     */
+    public Builder folderType(Integer folderType) {
+      this.folderType = folderType;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 文件夹类型
+     *
+     * <p>示例值：1
+     *
+     * @param folderType {@link com.lark.oapi.service.mail.v1.enums.FolderFolderTypeEnum}
+     * @return
+     */
+    public Builder folderType(com.lark.oapi.service.mail.v1.enums.FolderFolderTypeEnum folderType) {
+      this.folderType = folderType.getValue();
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 未读邮件数量
+     *
+     * <p>示例值：3
+     *
+     * @param unreadMessageCount
+     * @return
+     */
+    public Builder unreadMessageCount(Integer unreadMessageCount) {
+      this.unreadMessageCount = unreadMessageCount;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 未读会话数量
+     *
+     * <p>示例值：4
+     *
+     * @param unreadThreadCount
+     * @return
+     */
+    public Builder unreadThreadCount(Integer unreadThreadCount) {
+      this.unreadThreadCount = unreadThreadCount;
+      return this;
     }
 
-    public String getParentFolderId() {
-        return this.parentFolderId;
+    public Folder build() {
+      return new Folder(this);
     }
+  }
 
-    public void setParentFolderId(String parentFolderId) {
-        this.parentFolderId = parentFolderId;
-    }
-
-    public Integer getFolderType() {
-        return this.folderType;
-    }
-
-    public void setFolderType(Integer folderType) {
-        this.folderType = folderType;
-    }
-
-    public Integer getUnreadMessageCount() {
-        return this.unreadMessageCount;
-    }
-
-    public void setUnreadMessageCount(Integer unreadMessageCount) {
-        this.unreadMessageCount = unreadMessageCount;
-    }
-
-    public Integer getUnreadThreadCount() {
-        return this.unreadThreadCount;
-    }
-
-    public void setUnreadThreadCount(Integer unreadThreadCount) {
-        this.unreadThreadCount = unreadThreadCount;
-    }
-
-    public static class Builder {
-        /**
-         * folder id
-         * <p> 示例值：7620095646711680541
-         */
-        private String id;
-        /**
-         * 文件夹名称
-         * <p> 示例值：newsletter 相关
-         */
-        private String name;
-        /**
-         * 父文件夹 id，该值为 0 表示根文件夹
-         * <p> 示例值：725627422334644
-         */
-        private String parentFolderId;
-        /**
-         * 文件夹类型
-         * <p> 示例值：1
-         */
-        private Integer folderType;
-        /**
-         * 未读邮件数量
-         * <p> 示例值：3
-         */
-        private Integer unreadMessageCount;
-        /**
-         * 未读会话数量
-         * <p> 示例值：4
-         */
-        private Integer unreadThreadCount;
-
-        /**
-         * folder id
-         * <p> 示例值：7620095646711680541
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 文件夹名称
-         * <p> 示例值：newsletter 相关
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 父文件夹 id，该值为 0 表示根文件夹
-         * <p> 示例值：725627422334644
-         *
-         * @param parentFolderId
-         * @return
-         */
-        public Builder parentFolderId(String parentFolderId) {
-            this.parentFolderId = parentFolderId;
-            return this;
-        }
-
-
-        /**
-         * 文件夹类型
-         * <p> 示例值：1
-         *
-         * @param folderType
-         * @return
-         */
-        public Builder folderType(Integer folderType) {
-            this.folderType = folderType;
-            return this;
-        }
-
-        /**
-         * 文件夹类型
-         * <p> 示例值：1
-         *
-         * @param folderType {@link com.lark.oapi.service.mail.v1.enums.FolderFolderTypeEnum}
-         * @return
-         */
-        public Builder folderType(com.lark.oapi.service.mail.v1.enums.FolderFolderTypeEnum folderType) {
-            this.folderType = folderType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 未读邮件数量
-         * <p> 示例值：3
-         *
-         * @param unreadMessageCount
-         * @return
-         */
-        public Builder unreadMessageCount(Integer unreadMessageCount) {
-            this.unreadMessageCount = unreadMessageCount;
-            return this;
-        }
-
-
-        /**
-         * 未读会话数量
-         * <p> 示例值：4
-         *
-         * @param unreadThreadCount
-         * @return
-         */
-        public Builder unreadThreadCount(Integer unreadThreadCount) {
-            this.unreadThreadCount = unreadThreadCount;
-            return this;
-        }
-
-
-        public Folder build() {
-            return new Folder(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

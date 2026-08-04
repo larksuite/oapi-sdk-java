@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListFunctionalRoleMemberRespBody {
-    /**
-     * 角色成员列表
-     * <p> 示例值：
-     */
-    @SerializedName("members")
-    private FunctionalRoleMember[] members;
-    /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：2132323
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否还有值
-     * <p> 示例值：false
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 角色成员列表。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("members")
+  private FunctionalRoleMember[] members;
 
-    public FunctionalRoleMember[] getMembers() {
-        return this.members;
-    }
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：2132323
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setMembers(FunctionalRoleMember[] members) {
-        this.members = members;
-    }
+  /**
+   * 是否还有值
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public FunctionalRoleMember[] getMembers() {
+    return this.members;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setMembers(FunctionalRoleMember[] members) {
+    this.members = members;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 }

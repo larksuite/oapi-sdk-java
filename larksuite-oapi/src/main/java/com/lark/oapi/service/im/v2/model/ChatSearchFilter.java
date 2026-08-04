@@ -13,186 +13,233 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatSearchFilter {
+  /**
+   * 群组类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("search_types")
+  private String[] searchTypes;
+
+  /**
+   * 群成员ID;成员ID即是User ID，获取方式：https://open.feishu.cn/document/server-docs/contact-v3/user/get
+   *
+   * <p>示例值：
+   */
+  @SerializedName("member_ids")
+  private String[] memberIds;
+
+  /**
+   * 是否自己创建或者管理的群组
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_manager")
+  private Boolean isManager;
+
+  /**
+   * 是否关闭以人搜群功能： 先通过群成员名搜索，再搜群组(默认开启)
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("disable_search_by_user")
+  private Boolean disableSearchByUser;
+
+  /**
+   * 群模式筛选器，支持按普通群/话题群过滤
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_modes")
+  private String[] chatModes;
+
+  public String[] getSearchTypes() {
+    return this.searchTypes;
+  }
+
+  public void setSearchTypes(String[] searchTypes) {
+    this.searchTypes = searchTypes;
+  }
+
+  public String[] getMemberIds() {
+    return this.memberIds;
+  }
+
+  public void setMemberIds(String[] memberIds) {
+    this.memberIds = memberIds;
+  }
+
+  public Boolean getIsManager() {
+    return this.isManager;
+  }
+
+  public void setIsManager(Boolean isManager) {
+    this.isManager = isManager;
+  }
+
+  public Boolean getDisableSearchByUser() {
+    return this.disableSearchByUser;
+  }
+
+  public void setDisableSearchByUser(Boolean disableSearchByUser) {
+    this.disableSearchByUser = disableSearchByUser;
+  }
+
+  public String[] getChatModes() {
+    return this.chatModes;
+  }
+
+  public void setChatModes(String[] chatModes) {
+    this.chatModes = chatModes;
+  }
+
+  // builder 开始
+  public ChatSearchFilter() {}
+
+  public ChatSearchFilter(Builder builder) {
     /**
      * 群组类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("search_types")
-    private String[] searchTypes;
+    this.searchTypes = builder.searchTypes;
     /**
-     * 群成员ID
-     * <p> 示例值：
+     * 群成员ID;成员ID即是User ID，获取方式：https://open.feishu.cn/document/server-docs/contact-v3/user/get
+     *
+     * <p>示例值：
      */
-    @SerializedName("member_ids")
-    private String[] memberIds;
+    this.memberIds = builder.memberIds;
     /**
      * 是否自己创建或者管理的群组
-     * <p> 示例值：
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_manager")
-    private Boolean isManager;
+    this.isManager = builder.isManager;
     /**
      * 是否关闭以人搜群功能： 先通过群成员名搜索，再搜群组(默认开启)
-     * <p> 示例值：
+     *
+     * <p>示例值：true
      */
-    @SerializedName("disable_search_by_user")
+    this.disableSearchByUser = builder.disableSearchByUser;
+    /**
+     * 群模式筛选器，支持按普通群/话题群过滤
+     *
+     * <p>示例值：
+     */
+    this.chatModes = builder.chatModes;
+  }
+
+  public static class Builder {
+    /**
+     * 群组类型
+     *
+     * <p>示例值：
+     */
+    private String[] searchTypes;
+
+    /**
+     * 群成员ID;成员ID即是User ID，获取方式：https://open.feishu.cn/document/server-docs/contact-v3/user/get
+     *
+     * <p>示例值：
+     */
+    private String[] memberIds;
+
+    /**
+     * 是否自己创建或者管理的群组
+     *
+     * <p>示例值：true
+     */
+    private Boolean isManager;
+
+    /**
+     * 是否关闭以人搜群功能： 先通过群成员名搜索，再搜群组(默认开启)
+     *
+     * <p>示例值：true
+     */
     private Boolean disableSearchByUser;
 
-    // builder 开始
-    public ChatSearchFilter() {
+    /**
+     * 群模式筛选器，支持按普通群/话题群过滤
+     *
+     * <p>示例值：
+     */
+    private String[] chatModes;
+
+    /**
+     * 群组类型
+     *
+     * <p>示例值：
+     *
+     * @param searchTypes
+     * @return
+     */
+    public Builder searchTypes(String[] searchTypes) {
+      this.searchTypes = searchTypes;
+      return this;
     }
 
-    public ChatSearchFilter(Builder builder) {
-        /**
-         * 群组类型
-         * <p> 示例值：
-         */
-        this.searchTypes = builder.searchTypes;
-        /**
-         * 群成员ID
-         * <p> 示例值：
-         */
-        this.memberIds = builder.memberIds;
-        /**
-         * 是否自己创建或者管理的群组
-         * <p> 示例值：
-         */
-        this.isManager = builder.isManager;
-        /**
-         * 是否关闭以人搜群功能： 先通过群成员名搜索，再搜群组(默认开启)
-         * <p> 示例值：
-         */
-        this.disableSearchByUser = builder.disableSearchByUser;
+    /**
+     * 群成员ID;成员ID即是User ID，获取方式：https://open.feishu.cn/document/server-docs/contact-v3/user/get
+     *
+     * <p>示例值：
+     *
+     * @param memberIds
+     * @return
+     */
+    public Builder memberIds(String[] memberIds) {
+      this.memberIds = memberIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否自己创建或者管理的群组
+     *
+     * <p>示例值：true
+     *
+     * @param isManager
+     * @return
+     */
+    public Builder isManager(Boolean isManager) {
+      this.isManager = isManager;
+      return this;
     }
 
-    public String[] getSearchTypes() {
-        return this.searchTypes;
+    /**
+     * 是否关闭以人搜群功能： 先通过群成员名搜索，再搜群组(默认开启)
+     *
+     * <p>示例值：true
+     *
+     * @param disableSearchByUser
+     * @return
+     */
+    public Builder disableSearchByUser(Boolean disableSearchByUser) {
+      this.disableSearchByUser = disableSearchByUser;
+      return this;
     }
 
-    public void setSearchTypes(String[] searchTypes) {
-        this.searchTypes = searchTypes;
+    /**
+     * 群模式筛选器，支持按普通群/话题群过滤
+     *
+     * <p>示例值：
+     *
+     * @param chatModes
+     * @return
+     */
+    public Builder chatModes(String[] chatModes) {
+      this.chatModes = chatModes;
+      return this;
     }
 
-    public String[] getMemberIds() {
-        return this.memberIds;
+    public ChatSearchFilter build() {
+      return new ChatSearchFilter(this);
     }
+  }
 
-    public void setMemberIds(String[] memberIds) {
-        this.memberIds = memberIds;
-    }
-
-    public Boolean getIsManager() {
-        return this.isManager;
-    }
-
-    public void setIsManager(Boolean isManager) {
-        this.isManager = isManager;
-    }
-
-    public Boolean getDisableSearchByUser() {
-        return this.disableSearchByUser;
-    }
-
-    public void setDisableSearchByUser(Boolean disableSearchByUser) {
-        this.disableSearchByUser = disableSearchByUser;
-    }
-
-    public static class Builder {
-        /**
-         * 群组类型
-         * <p> 示例值：
-         */
-        private String[] searchTypes;
-        /**
-         * 群成员ID
-         * <p> 示例值：
-         */
-        private String[] memberIds;
-        /**
-         * 是否自己创建或者管理的群组
-         * <p> 示例值：
-         */
-        private Boolean isManager;
-        /**
-         * 是否关闭以人搜群功能： 先通过群成员名搜索，再搜群组(默认开启)
-         * <p> 示例值：
-         */
-        private Boolean disableSearchByUser;
-
-        /**
-         * 群组类型
-         * <p> 示例值：
-         *
-         * @param searchTypes
-         * @return
-         */
-        public Builder searchTypes(String[] searchTypes) {
-            this.searchTypes = searchTypes;
-            return this;
-        }
-
-
-        /**
-         * 群成员ID
-         * <p> 示例值：
-         *
-         * @param memberIds
-         * @return
-         */
-        public Builder memberIds(String[] memberIds) {
-            this.memberIds = memberIds;
-            return this;
-        }
-
-
-        /**
-         * 是否自己创建或者管理的群组
-         * <p> 示例值：
-         *
-         * @param isManager
-         * @return
-         */
-        public Builder isManager(Boolean isManager) {
-            this.isManager = isManager;
-            return this;
-        }
-
-
-        /**
-         * 是否关闭以人搜群功能： 先通过群成员名搜索，再搜群组(默认开启)
-         * <p> 示例值：
-         *
-         * @param disableSearchByUser
-         * @return
-         */
-        public Builder disableSearchByUser(Boolean disableSearchByUser) {
-            this.disableSearchByUser = disableSearchByUser;
-            return this;
-        }
-
-
-        public ChatSearchFilter build() {
-            return new ChatSearchFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

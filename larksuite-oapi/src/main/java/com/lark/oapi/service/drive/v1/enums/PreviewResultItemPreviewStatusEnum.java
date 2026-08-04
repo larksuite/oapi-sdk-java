@@ -13,35 +13,33 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 预览状态
- */
+/** 预览状态 */
 public enum PreviewResultItemPreviewStatusEnum {
-    READY(0), // 就绪
-    PROCESSING(1), // 处理中
-    FAILED(2), // 失败
-    FAILED_NOT_RETRY(3), // 失败且不重试
-    INVALID_EXTENTION(4), // 扩展名无效
-    FILE_TOO_LARGE(5), // 文件过大
-    EMPTY_FILE(6), // 空文件
-    NO_SUPPORT(7), // 不支持
-    INVALID_PREVIEW_TYPE(8), // 预览类型无效
-    NEED_PASSWORD(9), // 需要密码
-    FILE_INVALID(10), // 文件无效
-    TOO_MANY_PAGES(11), // 页数过多
-    ARCHIVE_INVALID_FORMAT(1001), // 压缩包格式无效
-    ARCHIVE_TOO_MANY_NODES(1002), // 压缩包节点过多
-    ARCHIVE_TOO_MANY_NODES_PER_DIR(1003), // 压缩包单目录节点过多
-    THIRD_ENC_NO_PERMISSION(1004), // 第三方加密无权限
-    NOT_SUPPORT_DECRYPT_THIRD_ENC_FILE(1006), // 不支持解密的第三方加密文件
-    ;
-    private Integer value;
+  READY(0), // 就绪
+  PROCESSING(1), // 处理中
+  FAILED(2), // 失败
+  FAILED_NOT_RETRY(3), // 失败且不重试
+  INVALID_EXTENTION(4), // 扩展名无效
+  FILE_TOO_LARGE(5), // 文件过大
+  EMPTY_FILE(6), // 空文件
+  NO_SUPPORT(7), // 不支持
+  INVALID_PREVIEW_TYPE(8), // 预览类型无效
+  NEED_PASSWORD(9), // 需要密码
+  FILE_INVALID(10), // 文件无效
+  TOO_MANY_PAGES(11), // 页数过多
+  ARCHIVE_INVALID_FORMAT(1001), // 压缩包格式无效
+  ARCHIVE_TOO_MANY_NODES(1002), // 压缩包节点过多
+  ARCHIVE_TOO_MANY_NODES_PER_DIR(1003), // 压缩包单目录节点过多
+  THIRD_ENC_NO_PERMISSION(1004), // 第三方加密无权限
+  NOT_SUPPORT_DECRYPT_THIRD_ENC_FILE(1006), // 不支持解密的第三方加密文件
+  ;
+  private Integer value;
 
-    PreviewResultItemPreviewStatusEnum(Integer value) {
-        this.value = value;
-    }
+  PreviewResultItemPreviewStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

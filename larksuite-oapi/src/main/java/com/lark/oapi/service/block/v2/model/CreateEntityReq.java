@@ -13,64 +13,51 @@
 
 package com.lark.oapi.service.block.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateEntityReq {
-    @Body
+  @Body private CreateEntityReqBody body;
+
+  public CreateEntityReqBody getCreateEntityReqBody() {
+    return this.body;
+  }
+
+  public void setCreateEntityReqBody(CreateEntityReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateEntityReq() {}
+
+  public CreateEntityReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private CreateEntityReqBody body;
 
-    // builder 开始
-    public CreateEntityReq() {
-    }
-
-    public CreateEntityReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public CreateEntityReqBody getCreateEntityReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCreateEntityReqBody(CreateEntityReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder createEntityReqBody(CreateEntityReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private CreateEntityReqBody body;
-
-        public CreateEntityReqBody getCreateEntityReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder createEntityReqBody(CreateEntityReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateEntityReq build() {
-            return new CreateEntityReq(this);
-        }
+    public CreateEntityReq build() {
+      return new CreateEntityReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

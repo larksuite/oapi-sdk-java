@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateChatMenuTreeReqBody {
+  /**
+   * 要向群内追加的菜单
+   *
+   * <p>示例值：
+   */
+  @SerializedName("menu_tree")
+  private ChatMenuTree menuTree;
+
+  public ChatMenuTree getMenuTree() {
+    return this.menuTree;
+  }
+
+  public void setMenuTree(ChatMenuTree menuTree) {
+    this.menuTree = menuTree;
+  }
+
+  // builder 开始
+  public CreateChatMenuTreeReqBody() {}
+
+  public CreateChatMenuTreeReqBody(Builder builder) {
     /**
      * 要向群内追加的菜单
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("menu_tree")
+    this.menuTree = builder.menuTree;
+  }
+
+  public static class Builder {
+    /**
+     * 要向群内追加的菜单
+     *
+     * <p>示例值：
+     */
     private ChatMenuTree menuTree;
 
-    // builder 开始
-    public CreateChatMenuTreeReqBody() {
+    /**
+     * 要向群内追加的菜单
+     *
+     * <p>示例值：
+     *
+     * @param menuTree
+     * @return
+     */
+    public Builder menuTree(ChatMenuTree menuTree) {
+      this.menuTree = menuTree;
+      return this;
     }
 
-    public CreateChatMenuTreeReqBody(Builder builder) {
-        /**
-         * 要向群内追加的菜单
-         * <p> 示例值：
-         */
-        this.menuTree = builder.menuTree;
+    public CreateChatMenuTreeReqBody build() {
+      return new CreateChatMenuTreeReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public ChatMenuTree getMenuTree() {
-        return this.menuTree;
-    }
-
-    public void setMenuTree(ChatMenuTree menuTree) {
-        this.menuTree = menuTree;
-    }
-
-    public static class Builder {
-        /**
-         * 要向群内追加的菜单
-         * <p> 示例值：
-         */
-        private ChatMenuTree menuTree;
-
-        /**
-         * 要向群内追加的菜单
-         * <p> 示例值：
-         *
-         * @param menuTree
-         * @return
-         */
-        public Builder menuTree(ChatMenuTree menuTree) {
-            this.menuTree = menuTree;
-            return this;
-        }
-
-
-        public CreateChatMenuTreeReqBody build() {
-            return new CreateChatMenuTreeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

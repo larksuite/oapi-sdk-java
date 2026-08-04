@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingAgentEventMeeting {
+  /**
+   * 会议ID
+   *
+   * <p>示例值：7628148899983674909
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 会议主题
+   *
+   * <p>示例值：周会
+   */
+  @SerializedName("topic")
+  private String topic;
+
+  /**
+   * 9位会议号
+   *
+   * <p>示例值：123456789
+   */
+  @SerializedName("meeting_no")
+  private String meetingNo;
+
+  /**
+   * 会议开始时间（unix时间，单位sec）
+   *
+   * <p>示例值：1712345678
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 会议结束时间（unix时间，单位sec）
+   *
+   * <p>示例值：1712349278
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 会议主持人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("host_user")
+  private MeetingAgentEventUser hostUser;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTopic() {
+    return this.topic;
+  }
+
+  public void setTopic(String topic) {
+    this.topic = topic;
+  }
+
+  public String getMeetingNo() {
+    return this.meetingNo;
+  }
+
+  public void setMeetingNo(String meetingNo) {
+    this.meetingNo = meetingNo;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public MeetingAgentEventUser getHostUser() {
+    return this.hostUser;
+  }
+
+  public void setHostUser(MeetingAgentEventUser hostUser) {
+    this.hostUser = hostUser;
+  }
+
+  // builder 开始
+  public MeetingAgentEventMeeting() {}
+
+  public MeetingAgentEventMeeting(Builder builder) {
     /**
      * 会议ID
-     * <p> 示例值：7628148899983674909
+     *
+     * <p>示例值：7628148899983674909
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 会议主题
-     * <p> 示例值：周会
+     *
+     * <p>示例值：周会
      */
-    @SerializedName("topic")
-    private String topic;
+    this.topic = builder.topic;
     /**
      * 9位会议号
-     * <p> 示例值：123456789
+     *
+     * <p>示例值：123456789
      */
-    @SerializedName("meeting_no")
-    private String meetingNo;
+    this.meetingNo = builder.meetingNo;
     /**
      * 会议开始时间（unix时间，单位sec）
-     * <p> 示例值：1712345678
+     *
+     * <p>示例值：1712345678
      */
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
      * 会议结束时间（unix时间，单位sec）
-     * <p> 示例值：1712349278
+     *
+     * <p>示例值：1712349278
      */
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 会议主持人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("host_user")
+    this.hostUser = builder.hostUser;
+  }
+
+  public static class Builder {
+    /**
+     * 会议ID
+     *
+     * <p>示例值：7628148899983674909
+     */
+    private String id;
+
+    /**
+     * 会议主题
+     *
+     * <p>示例值：周会
+     */
+    private String topic;
+
+    /**
+     * 9位会议号
+     *
+     * <p>示例值：123456789
+     */
+    private String meetingNo;
+
+    /**
+     * 会议开始时间（unix时间，单位sec）
+     *
+     * <p>示例值：1712345678
+     */
+    private String startTime;
+
+    /**
+     * 会议结束时间（unix时间，单位sec）
+     *
+     * <p>示例值：1712349278
+     */
+    private String endTime;
+
+    /**
+     * 会议主持人
+     *
+     * <p>示例值：
+     */
     private MeetingAgentEventUser hostUser;
 
-    // builder 开始
-    public MeetingAgentEventMeeting() {
+    /**
+     * 会议ID
+     *
+     * <p>示例值：7628148899983674909
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public MeetingAgentEventMeeting(Builder builder) {
-        /**
-         * 会议ID
-         * <p> 示例值：7628148899983674909
-         */
-        this.id = builder.id;
-        /**
-         * 会议主题
-         * <p> 示例值：周会
-         */
-        this.topic = builder.topic;
-        /**
-         * 9位会议号
-         * <p> 示例值：123456789
-         */
-        this.meetingNo = builder.meetingNo;
-        /**
-         * 会议开始时间（unix时间，单位sec）
-         * <p> 示例值：1712345678
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 会议结束时间（unix时间，单位sec）
-         * <p> 示例值：1712349278
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 会议主持人
-         * <p> 示例值：
-         */
-        this.hostUser = builder.hostUser;
+    /**
+     * 会议主题
+     *
+     * <p>示例值：周会
+     *
+     * @param topic
+     * @return
+     */
+    public Builder topic(String topic) {
+      this.topic = topic;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 9位会议号
+     *
+     * <p>示例值：123456789
+     *
+     * @param meetingNo
+     * @return
+     */
+    public Builder meetingNo(String meetingNo) {
+      this.meetingNo = meetingNo;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 会议开始时间（unix时间，单位sec）
+     *
+     * <p>示例值：1712345678
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 会议结束时间（unix时间，单位sec）
+     *
+     * <p>示例值：1712349278
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getTopic() {
-        return this.topic;
+    /**
+     * 会议主持人
+     *
+     * <p>示例值：
+     *
+     * @param hostUser
+     * @return
+     */
+    public Builder hostUser(MeetingAgentEventUser hostUser) {
+      this.hostUser = hostUser;
+      return this;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
+    public MeetingAgentEventMeeting build() {
+      return new MeetingAgentEventMeeting(this);
     }
+  }
 
-    public String getMeetingNo() {
-        return this.meetingNo;
-    }
-
-    public void setMeetingNo(String meetingNo) {
-        this.meetingNo = meetingNo;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public MeetingAgentEventUser getHostUser() {
-        return this.hostUser;
-    }
-
-    public void setHostUser(MeetingAgentEventUser hostUser) {
-        this.hostUser = hostUser;
-    }
-
-    public static class Builder {
-        /**
-         * 会议ID
-         * <p> 示例值：7628148899983674909
-         */
-        private String id;
-        /**
-         * 会议主题
-         * <p> 示例值：周会
-         */
-        private String topic;
-        /**
-         * 9位会议号
-         * <p> 示例值：123456789
-         */
-        private String meetingNo;
-        /**
-         * 会议开始时间（unix时间，单位sec）
-         * <p> 示例值：1712345678
-         */
-        private String startTime;
-        /**
-         * 会议结束时间（unix时间，单位sec）
-         * <p> 示例值：1712349278
-         */
-        private String endTime;
-        /**
-         * 会议主持人
-         * <p> 示例值：
-         */
-        private MeetingAgentEventUser hostUser;
-
-        /**
-         * 会议ID
-         * <p> 示例值：7628148899983674909
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 会议主题
-         * <p> 示例值：周会
-         *
-         * @param topic
-         * @return
-         */
-        public Builder topic(String topic) {
-            this.topic = topic;
-            return this;
-        }
-
-
-        /**
-         * 9位会议号
-         * <p> 示例值：123456789
-         *
-         * @param meetingNo
-         * @return
-         */
-        public Builder meetingNo(String meetingNo) {
-            this.meetingNo = meetingNo;
-            return this;
-        }
-
-
-        /**
-         * 会议开始时间（unix时间，单位sec）
-         * <p> 示例值：1712345678
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 会议结束时间（unix时间，单位sec）
-         * <p> 示例值：1712349278
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 会议主持人
-         * <p> 示例值：
-         *
-         * @param hostUser
-         * @return
-         */
-        public Builder hostUser(MeetingAgentEventUser hostUser) {
-            this.hostUser = hostUser;
-            return this;
-        }
-
-
-        public MeetingAgentEventMeeting build() {
-            return new MeetingAgentEventMeeting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

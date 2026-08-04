@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ResourceAttribute {
+  /**
+   * 资源属性Key
+   *
+   * <p>示例值：FileToken
+   */
+  @SerializedName("resource_key")
+  private String resourceKey;
+
+  /**
+   * 资源属性ID
+   *
+   * <p>示例值：78697689739864232
+   */
+  @SerializedName("resource_id")
+  private String resourceId;
+
+  /**
+   * 资源属性值
+   *
+   * <p>示例值：'text'
+   */
+  @SerializedName("resource_value")
+  private String resourceValue;
+
+  public String getResourceKey() {
+    return this.resourceKey;
+  }
+
+  public void setResourceKey(String resourceKey) {
+    this.resourceKey = resourceKey;
+  }
+
+  public String getResourceId() {
+    return this.resourceId;
+  }
+
+  public void setResourceId(String resourceId) {
+    this.resourceId = resourceId;
+  }
+
+  public String getResourceValue() {
+    return this.resourceValue;
+  }
+
+  public void setResourceValue(String resourceValue) {
+    this.resourceValue = resourceValue;
+  }
+
+  // builder 开始
+  public ResourceAttribute() {}
+
+  public ResourceAttribute(Builder builder) {
     /**
      * 资源属性Key
-     * <p> 示例值：FileToken
+     *
+     * <p>示例值：FileToken
      */
-    @SerializedName("resource_key")
-    private String resourceKey;
+    this.resourceKey = builder.resourceKey;
     /**
      * 资源属性ID
-     * <p> 示例值：78697689739864232
+     *
+     * <p>示例值：78697689739864232
      */
-    @SerializedName("resource_id")
-    private String resourceId;
+    this.resourceId = builder.resourceId;
     /**
      * 资源属性值
-     * <p> 示例值：'text'
+     *
+     * <p>示例值：'text'
      */
-    @SerializedName("resource_value")
+    this.resourceValue = builder.resourceValue;
+  }
+
+  public static class Builder {
+    /**
+     * 资源属性Key
+     *
+     * <p>示例值：FileToken
+     */
+    private String resourceKey;
+
+    /**
+     * 资源属性ID
+     *
+     * <p>示例值：78697689739864232
+     */
+    private String resourceId;
+
+    /**
+     * 资源属性值
+     *
+     * <p>示例值：'text'
+     */
     private String resourceValue;
 
-    // builder 开始
-    public ResourceAttribute() {
+    /**
+     * 资源属性Key
+     *
+     * <p>示例值：FileToken
+     *
+     * @param resourceKey
+     * @return
+     */
+    public Builder resourceKey(String resourceKey) {
+      this.resourceKey = resourceKey;
+      return this;
     }
 
-    public ResourceAttribute(Builder builder) {
-        /**
-         * 资源属性Key
-         * <p> 示例值：FileToken
-         */
-        this.resourceKey = builder.resourceKey;
-        /**
-         * 资源属性ID
-         * <p> 示例值：78697689739864232
-         */
-        this.resourceId = builder.resourceId;
-        /**
-         * 资源属性值
-         * <p> 示例值：'text'
-         */
-        this.resourceValue = builder.resourceValue;
+    /**
+     * 资源属性ID
+     *
+     * <p>示例值：78697689739864232
+     *
+     * @param resourceId
+     * @return
+     */
+    public Builder resourceId(String resourceId) {
+      this.resourceId = resourceId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 资源属性值
+     *
+     * <p>示例值：'text'
+     *
+     * @param resourceValue
+     * @return
+     */
+    public Builder resourceValue(String resourceValue) {
+      this.resourceValue = resourceValue;
+      return this;
     }
 
-    public String getResourceKey() {
-        return this.resourceKey;
+    public ResourceAttribute build() {
+      return new ResourceAttribute(this);
     }
+  }
 
-    public void setResourceKey(String resourceKey) {
-        this.resourceKey = resourceKey;
-    }
-
-    public String getResourceId() {
-        return this.resourceId;
-    }
-
-    public void setResourceId(String resourceId) {
-        this.resourceId = resourceId;
-    }
-
-    public String getResourceValue() {
-        return this.resourceValue;
-    }
-
-    public void setResourceValue(String resourceValue) {
-        this.resourceValue = resourceValue;
-    }
-
-    public static class Builder {
-        /**
-         * 资源属性Key
-         * <p> 示例值：FileToken
-         */
-        private String resourceKey;
-        /**
-         * 资源属性ID
-         * <p> 示例值：78697689739864232
-         */
-        private String resourceId;
-        /**
-         * 资源属性值
-         * <p> 示例值：'text'
-         */
-        private String resourceValue;
-
-        /**
-         * 资源属性Key
-         * <p> 示例值：FileToken
-         *
-         * @param resourceKey
-         * @return
-         */
-        public Builder resourceKey(String resourceKey) {
-            this.resourceKey = resourceKey;
-            return this;
-        }
-
-
-        /**
-         * 资源属性ID
-         * <p> 示例值：78697689739864232
-         *
-         * @param resourceId
-         * @return
-         */
-        public Builder resourceId(String resourceId) {
-            this.resourceId = resourceId;
-            return this;
-        }
-
-
-        /**
-         * 资源属性值
-         * <p> 示例值：'text'
-         *
-         * @param resourceValue
-         * @return
-         */
-        public Builder resourceValue(String resourceValue) {
-            this.resourceValue = resourceValue;
-            return this;
-        }
-
-
-        public ResourceAttribute build() {
-            return new ResourceAttribute(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

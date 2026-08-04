@@ -13,333 +13,365 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Connector {
+  /**
+   * 目标多维表格 token
+   *
+   * <p>示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 目标表 ID
+   *
+   * <p>示例值：tbljrm2jMSJdR9gf
+   */
+  @SerializedName("table_id")
+  private String tableId;
+
+  /**
+   * 数据源路径
+   *
+   * <p>示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id":
+   * "vewJj1D366"}
+   */
+  @SerializedName("src_table_path")
+  private String srcTablePath;
+
+  /**
+   * 数据源类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("source_type")
+  private String sourceType;
+
+  /**
+   * 同步频率
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("sync_type")
+  private String syncType;
+
+  /**
+   * 字段同步方式
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("field_sync_type")
+  private String fieldSyncType;
+
+  /**
+   * 同步字段信息，当 field_sync_type = 2 时才有值
+   *
+   * <p>示例值：["fld9PBu621"]
+   */
+  @SerializedName("sync_fields")
+  private String[] syncFields;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getTableId() {
+    return this.tableId;
+  }
+
+  public void setTableId(String tableId) {
+    this.tableId = tableId;
+  }
+
+  public String getSrcTablePath() {
+    return this.srcTablePath;
+  }
+
+  public void setSrcTablePath(String srcTablePath) {
+    this.srcTablePath = srcTablePath;
+  }
+
+  public String getSourceType() {
+    return this.sourceType;
+  }
+
+  public void setSourceType(String sourceType) {
+    this.sourceType = sourceType;
+  }
+
+  public String getSyncType() {
+    return this.syncType;
+  }
+
+  public void setSyncType(String syncType) {
+    this.syncType = syncType;
+  }
+
+  public String getFieldSyncType() {
+    return this.fieldSyncType;
+  }
+
+  public void setFieldSyncType(String fieldSyncType) {
+    this.fieldSyncType = fieldSyncType;
+  }
+
+  public String[] getSyncFields() {
+    return this.syncFields;
+  }
+
+  public void setSyncFields(String[] syncFields) {
+    this.syncFields = syncFields;
+  }
+
+  // builder 开始
+  public Connector() {}
+
+  public Connector(Builder builder) {
     /**
-     * 目标文档token
-     * <p> 示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
+     * 目标多维表格 token
+     *
+     * <p>示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
-     * 目标表id
-     * <p> 示例值：tbljrm2jMSJdR9gf
+     * 目标表 ID
+     *
+     * <p>示例值：tbljrm2jMSJdR9gf
      */
-    @SerializedName("table_id")
-    private String tableId;
+    this.tableId = builder.tableId;
     /**
      * 数据源路径
-     * <p> 示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id": "vewJj1D366"}
+     *
+     * <p>示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id":
+     * "vewJj1D366"}
      */
-    @SerializedName("src_table_path")
-    private String srcTablePath;
+    this.srcTablePath = builder.srcTablePath;
     /**
      * 数据源类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("source_type")
-    private String sourceType;
+    this.sourceType = builder.sourceType;
     /**
      * 同步频率
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("sync_type")
-    private String syncType;
+    this.syncType = builder.syncType;
     /**
      * 字段同步方式
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("field_sync_type")
-    private String fieldSyncType;
+    this.fieldSyncType = builder.fieldSyncType;
     /**
      * 同步字段信息，当 field_sync_type = 2 时才有值
-     * <p> 示例值：["fld9PBu621"]
+     *
+     * <p>示例值：["fld9PBu621"]
      */
-    @SerializedName("sync_fields")
+    this.syncFields = builder.syncFields;
+  }
+
+  public static class Builder {
+    /**
+     * 目标多维表格 token
+     *
+     * <p>示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
+     */
+    private String token;
+
+    /**
+     * 目标表 ID
+     *
+     * <p>示例值：tbljrm2jMSJdR9gf
+     */
+    private String tableId;
+
+    /**
+     * 数据源路径
+     *
+     * <p>示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id":
+     * "vewJj1D366"}
+     */
+    private String srcTablePath;
+
+    /**
+     * 数据源类型
+     *
+     * <p>示例值：1
+     */
+    private String sourceType;
+
+    /**
+     * 同步频率
+     *
+     * <p>示例值：2
+     */
+    private String syncType;
+
+    /**
+     * 字段同步方式
+     *
+     * <p>示例值：2
+     */
+    private String fieldSyncType;
+
+    /**
+     * 同步字段信息，当 field_sync_type = 2 时才有值
+     *
+     * <p>示例值：["fld9PBu621"]
+     */
     private String[] syncFields;
 
-    // builder 开始
-    public Connector() {
+    /**
+     * 目标多维表格 token
+     *
+     * <p>示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public Connector(Builder builder) {
-        /**
-         * 目标文档token
-         * <p> 示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
-         */
-        this.token = builder.token;
-        /**
-         * 目标表id
-         * <p> 示例值：tbljrm2jMSJdR9gf
-         */
-        this.tableId = builder.tableId;
-        /**
-         * 数据源路径
-         * <p> 示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id": "vewJj1D366"}
-         */
-        this.srcTablePath = builder.srcTablePath;
-        /**
-         * 数据源类型
-         * <p> 示例值：1
-         */
-        this.sourceType = builder.sourceType;
-        /**
-         * 同步频率
-         * <p> 示例值：2
-         */
-        this.syncType = builder.syncType;
-        /**
-         * 字段同步方式
-         * <p> 示例值：2
-         */
-        this.fieldSyncType = builder.fieldSyncType;
-        /**
-         * 同步字段信息，当 field_sync_type = 2 时才有值
-         * <p> 示例值：["fld9PBu621"]
-         */
-        this.syncFields = builder.syncFields;
+    /**
+     * 目标表 ID
+     *
+     * <p>示例值：tbljrm2jMSJdR9gf
+     *
+     * @param tableId
+     * @return
+     */
+    public Builder tableId(String tableId) {
+      this.tableId = tableId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据源路径
+     *
+     * <p>示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id":
+     * "vewJj1D366"}
+     *
+     * @param srcTablePath
+     * @return
+     */
+    public Builder srcTablePath(String srcTablePath) {
+      this.srcTablePath = srcTablePath;
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    /**
+     * 数据源类型
+     *
+     * <p>示例值：1
+     *
+     * @param sourceType
+     * @return
+     */
+    public Builder sourceType(String sourceType) {
+      this.sourceType = sourceType;
+      return this;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    /**
+     * 数据源类型
+     *
+     * <p>示例值：1
+     *
+     * @param sourceType {@link
+     *     com.lark.oapi.service.bitable.v1.enums.ConnectorConnectorSourceTypeEnum}
+     * @return
+     */
+    public Builder sourceType(
+        com.lark.oapi.service.bitable.v1.enums.ConnectorConnectorSourceTypeEnum sourceType) {
+      this.sourceType = sourceType.getValue();
+      return this;
     }
 
-    public String getTableId() {
-        return this.tableId;
+    /**
+     * 同步频率
+     *
+     * <p>示例值：2
+     *
+     * @param syncType
+     * @return
+     */
+    public Builder syncType(String syncType) {
+      this.syncType = syncType;
+      return this;
     }
 
-    public void setTableId(String tableId) {
-        this.tableId = tableId;
+    /**
+     * 同步频率
+     *
+     * <p>示例值：2
+     *
+     * @param syncType {@link com.lark.oapi.service.bitable.v1.enums.ConnectorConnectorSyncTypeEnum}
+     * @return
+     */
+    public Builder syncType(
+        com.lark.oapi.service.bitable.v1.enums.ConnectorConnectorSyncTypeEnum syncType) {
+      this.syncType = syncType.getValue();
+      return this;
     }
 
-    public String getSrcTablePath() {
-        return this.srcTablePath;
+    /**
+     * 字段同步方式
+     *
+     * <p>示例值：2
+     *
+     * @param fieldSyncType
+     * @return
+     */
+    public Builder fieldSyncType(String fieldSyncType) {
+      this.fieldSyncType = fieldSyncType;
+      return this;
     }
 
-    public void setSrcTablePath(String srcTablePath) {
-        this.srcTablePath = srcTablePath;
+    /**
+     * 字段同步方式
+     *
+     * <p>示例值：2
+     *
+     * @param fieldSyncType {@link
+     *     com.lark.oapi.service.bitable.v1.enums.ConnectorConnectorFieldSyncTypeEnum}
+     * @return
+     */
+    public Builder fieldSyncType(
+        com.lark.oapi.service.bitable.v1.enums.ConnectorConnectorFieldSyncTypeEnum fieldSyncType) {
+      this.fieldSyncType = fieldSyncType.getValue();
+      return this;
     }
 
-    public String getSourceType() {
-        return this.sourceType;
+    /**
+     * 同步字段信息，当 field_sync_type = 2 时才有值
+     *
+     * <p>示例值：["fld9PBu621"]
+     *
+     * @param syncFields
+     * @return
+     */
+    public Builder syncFields(String[] syncFields) {
+      this.syncFields = syncFields;
+      return this;
     }
 
-    public void setSourceType(String sourceType) {
-        this.sourceType = sourceType;
+    public Connector build() {
+      return new Connector(this);
     }
+  }
 
-    public String getSyncType() {
-        return this.syncType;
-    }
-
-    public void setSyncType(String syncType) {
-        this.syncType = syncType;
-    }
-
-    public String getFieldSyncType() {
-        return this.fieldSyncType;
-    }
-
-    public void setFieldSyncType(String fieldSyncType) {
-        this.fieldSyncType = fieldSyncType;
-    }
-
-    public String[] getSyncFields() {
-        return this.syncFields;
-    }
-
-    public void setSyncFields(String[] syncFields) {
-        this.syncFields = syncFields;
-    }
-
-    public static class Builder {
-        /**
-         * 目标文档token
-         * <p> 示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
-         */
-        private String token;
-        /**
-         * 目标表id
-         * <p> 示例值：tbljrm2jMSJdR9gf
-         */
-        private String tableId;
-        /**
-         * 数据源路径
-         * <p> 示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id": "vewJj1D366"}
-         */
-        private String srcTablePath;
-        /**
-         * 数据源类型
-         * <p> 示例值：1
-         */
-        private String sourceType;
-        /**
-         * 同步频率
-         * <p> 示例值：2
-         */
-        private String syncType;
-        /**
-         * 字段同步方式
-         * <p> 示例值：2
-         */
-        private String fieldSyncType;
-        /**
-         * 同步字段信息，当 field_sync_type = 2 时才有值
-         * <p> 示例值：["fld9PBu621"]
-         */
-        private String[] syncFields;
-
-        /**
-         * 目标文档token
-         * <p> 示例值：OqfIbgJYkaECb7sECGSb9Wbqc7g
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 目标表id
-         * <p> 示例值：tbljrm2jMSJdR9gf
-         *
-         * @param tableId
-         * @return
-         */
-        public Builder tableId(String tableId) {
-            this.tableId = tableId;
-            return this;
-        }
-
-
-        /**
-         * 数据源路径
-         * <p> 示例值：{"token": "YqM2b5VJ3aAx88sXFaYbsYsyctb", "table_id": "tblRcDVB4WhKfxAp", "view_id": "vewJj1D366"}
-         *
-         * @param srcTablePath
-         * @return
-         */
-        public Builder srcTablePath(String srcTablePath) {
-            this.srcTablePath = srcTablePath;
-            return this;
-        }
-
-
-        /**
-         * 数据源类型
-         * <p> 示例值：1
-         *
-         * @param sourceType
-         * @return
-         */
-        public Builder sourceType(String sourceType) {
-            this.sourceType = sourceType;
-            return this;
-        }
-
-        /**
-         * 数据源类型
-         * <p> 示例值：1
-         *
-         * @param sourceType {@link com.lark.oapi.service.bitable.v1.enums.ConnectorConnectorSourceTypeEnum}
-         * @return
-         */
-        public Builder sourceType(com.lark.oapi.service.bitable.v1.enums.ConnectorConnectorSourceTypeEnum sourceType) {
-            this.sourceType = sourceType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 同步频率
-         * <p> 示例值：2
-         *
-         * @param syncType
-         * @return
-         */
-        public Builder syncType(String syncType) {
-            this.syncType = syncType;
-            return this;
-        }
-
-        /**
-         * 同步频率
-         * <p> 示例值：2
-         *
-         * @param syncType {@link com.lark.oapi.service.bitable.v1.enums.ConnectorConnectorSyncTypeEnum}
-         * @return
-         */
-        public Builder syncType(com.lark.oapi.service.bitable.v1.enums.ConnectorConnectorSyncTypeEnum syncType) {
-            this.syncType = syncType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 字段同步方式
-         * <p> 示例值：2
-         *
-         * @param fieldSyncType
-         * @return
-         */
-        public Builder fieldSyncType(String fieldSyncType) {
-            this.fieldSyncType = fieldSyncType;
-            return this;
-        }
-
-        /**
-         * 字段同步方式
-         * <p> 示例值：2
-         *
-         * @param fieldSyncType {@link com.lark.oapi.service.bitable.v1.enums.ConnectorConnectorFieldSyncTypeEnum}
-         * @return
-         */
-        public Builder fieldSyncType(com.lark.oapi.service.bitable.v1.enums.ConnectorConnectorFieldSyncTypeEnum fieldSyncType) {
-            this.fieldSyncType = fieldSyncType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 同步字段信息，当 field_sync_type = 2 时才有值
-         * <p> 示例值：["fld9PBu621"]
-         *
-         * @param syncFields
-         * @return
-         */
-        public Builder syncFields(String[] syncFields) {
-            this.syncFields = syncFields;
-            return this;
-        }
-
-
-        public Connector build() {
-            return new Connector(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

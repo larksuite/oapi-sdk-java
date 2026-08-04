@@ -13,138 +13,139 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class GetByTalentInterviewReq {
+  /**
+   * 人才
+   * ID，可通过[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @Query
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 此次调用中使用的「职级 ID」的类型
+   *
+   * <p>示例值：job_level_id
+   */
+  @Query
+  @SerializedName("job_level_id_type")
+  private String jobLevelIdType;
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getJobLevelIdType() {
+    return this.jobLevelIdType;
+  }
+
+  public void setJobLevelIdType(String jobLevelIdType) {
+    this.jobLevelIdType = jobLevelIdType;
+  }
+
+  // builder 开始
+  public GetByTalentInterviewReq() {}
+
+  public GetByTalentInterviewReq(Builder builder) {
     /**
-     * 人才 ID
-     * <p> 示例值：6949805467799537964
+     * 人才
+     * ID，可通过[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+     *
+     * <p>示例值：6949805467799537964
      */
-    @Query
-    @SerializedName("talent_id")
-    private String talentId;
+    this.talentId = builder.talentId;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 此次调用中使用的「职级 ID」的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：job_level_id
      */
-    @Query
-    @SerializedName("job_level_id_type")
-    private String jobLevelIdType;
+    this.jobLevelIdType = builder.jobLevelIdType;
+  }
 
-    // builder 开始
-    public GetByTalentInterviewReq() {
+  public static class Builder {
+    private String talentId; // 人才
+    // ID，可通过[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
+
+    /**
+     * 人才
+     * ID，可通过[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public GetByTalentInterviewReq(Builder builder) {
-        /**
-         * 人才 ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的「职级 ID」的类型
-         * <p> 示例值：
-         */
-        this.jobLevelIdType = builder.jobLevelIdType;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的「职级 ID」的类型
+     *
+     * <p>示例值：job_level_id
+     *
+     * @param jobLevelIdType
+     * @return
+     */
+    public Builder jobLevelIdType(String jobLevelIdType) {
+      this.jobLevelIdType = jobLevelIdType;
+      return this;
     }
 
-    public String getTalentId() {
-        return this.talentId;
+    public GetByTalentInterviewReq build() {
+      return new GetByTalentInterviewReq(this);
     }
+  }
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getJobLevelIdType() {
-        return this.jobLevelIdType;
-    }
-
-    public void setJobLevelIdType(String jobLevelIdType) {
-        this.jobLevelIdType = jobLevelIdType;
-    }
-
-    public static class Builder {
-        private String talentId; // 人才 ID
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String jobLevelIdType; // 此次调用中使用的「职级 ID」的类型
-
-        /**
-         * 人才 ID
-         * <p> 示例值：6949805467799537964
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的「职级 ID」的类型
-         * <p> 示例值：
-         *
-         * @param jobLevelIdType
-         * @return
-         */
-        public Builder jobLevelIdType(String jobLevelIdType) {
-            this.jobLevelIdType = jobLevelIdType;
-            return this;
-        }
-
-
-        public GetByTalentInterviewReq build() {
-            return new GetByTalentInterviewReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

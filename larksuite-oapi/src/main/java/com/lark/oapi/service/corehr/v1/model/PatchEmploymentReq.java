@@ -13,220 +13,236 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class PatchEmploymentReq {
+  /**
+   * 根据client_token是否一致来判断是否为同一请求
+   *
+   * <p>示例值：12454646
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：people_corehr_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 此次调用中使用的部门 ID 类型
+   *
+   * <p>示例值：department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  /**
+   * 雇佣 ID;- 类型应与 user_id_type 一致
+   *
+   * <p>示例值：1616161616
+   */
+  @Path
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  @Body private Employment body;
+
+  public Employment getEmployment() {
+    return this.body;
+  }
+
+  public void setEmployment(Employment body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchEmploymentReq() {}
+
+  public PatchEmploymentReq(Builder builder) {
     /**
      * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
+     *
+     * <p>示例值：12454646
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
      * 用户 ID 类型
-     * <p> 示例值：people_corehr_id
+     *
+     * <p>示例值：people_corehr_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 此次调用中使用的部门 ID 类型
-     * <p> 示例值：department_id
+     *
+     * <p>示例值：department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
-     * 雇员ID
-     * <p> 示例值：1616161616
+     * 雇佣 ID;- 类型应与 user_id_type 一致
+     *
+     * <p>示例值：1616161616
      */
-    @Path
-    @SerializedName("employment_id")
-    private String employmentId;
-    @Body
+    this.employmentId = builder.employmentId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String clientToken; // 根据client_token是否一致来判断是否为同一请求
+    private String userIdType; // 用户 ID 类型
+    private String departmentIdType; // 此次调用中使用的部门 ID 类型
+
+    /**
+     * 根据client_token是否一致来判断是否为同一请求
+     *
+     * <p>示例值：12454646
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v1.enums.PatchEmploymentPatchEmploymentUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v1.enums.PatchEmploymentPatchEmploymentUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.corehr.v1.enums.PatchEmploymentPatchEmploymentDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.corehr.v1.enums.PatchEmploymentPatchEmploymentDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
+    }
+
+    private String employmentId; // 雇佣 ID;- 类型应与 user_id_type 一致
+
+    /**
+     * 雇佣 ID;- 类型应与 user_id_type 一致
+     *
+     * <p>示例值：1616161616
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
+    }
+
     private Employment body;
 
-    // builder 开始
-    public PatchEmploymentReq() {
-    }
-
-    public PatchEmploymentReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 雇员ID
-         * <p> 示例值：1616161616
-         */
-        this.employmentId = builder.employmentId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
     public Employment getEmployment() {
-        return this.body;
+      return this.body;
     }
 
-    public void setEmployment(Employment body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder employment(Employment body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private String userIdType; // 用户 ID 类型
-        private String departmentIdType; // 此次调用中使用的部门 ID 类型
-        private String employmentId; // 雇员ID
-        private Employment body;
-
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.PatchEmploymentPatchEmploymentUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.PatchEmploymentPatchEmploymentUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v1.enums.PatchEmploymentPatchEmploymentDepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v1.enums.PatchEmploymentPatchEmploymentDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 雇员ID
-         * <p> 示例值：1616161616
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-        public Employment getEmployment() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder employment(Employment body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchEmploymentReq build() {
-            return new PatchEmploymentReq(this);
-        }
+    public PatchEmploymentReq build() {
+      return new PatchEmploymentReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GlobalOption {
+  /**
+   * Unique identifier of global option;
+   *
+   * <p>示例值：option_12adea
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * Label of enumerated value of a global option
+   *
+   * <p>示例值：
+   */
+  @SerializedName("label")
+  private GlobalOptionLabel label;
+
+  /**
+   * option list
+   *
+   * <p>示例值：
+   */
+  @SerializedName("options")
+  private GlobalOptionElement[] options;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1727431743472
+   */
+  @SerializedName("created_at")
+  private Integer createdAt;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1727431743472
+   */
+  @SerializedName("updated_at")
+  private Integer updatedAt;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public GlobalOptionLabel getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(GlobalOptionLabel label) {
+    this.label = label;
+  }
+
+  public GlobalOptionElement[] getOptions() {
+    return this.options;
+  }
+
+  public void setOptions(GlobalOptionElement[] options) {
+    this.options = options;
+  }
+
+  public Integer getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(Integer createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public Integer getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(Integer updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  // builder 开始
+  public GlobalOption() {}
+
+  public GlobalOption(Builder builder) {
     /**
-     * 全局选项 API 名称
-     * <p> 示例值：option_12adea
+     * Unique identifier of global option;
+     *
+     * <p>示例值：option_12adea
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
-     * 全局选项名称
-     * <p> 示例值：
+     * Label of enumerated value of a global option
+     *
+     * <p>示例值：
      */
-    @SerializedName("label")
-    private GlobalOptionLabel label;
+    this.label = builder.label;
     /**
-     * 选项列表
-     * <p> 示例值：
+     * option list
+     *
+     * <p>示例值：
      */
-    @SerializedName("options")
-    private GlobalOptionElement[] options;
+    this.options = builder.options;
     /**
      * 创建时间
-     * <p> 示例值：1727431743472
+     *
+     * <p>示例值：1727431743472
      */
-    @SerializedName("created_at")
-    private Integer createdAt;
+    this.createdAt = builder.createdAt;
     /**
      * 更新时间
-     * <p> 示例值：1727431743472
+     *
+     * <p>示例值：1727431743472
      */
-    @SerializedName("updated_at")
+    this.updatedAt = builder.updatedAt;
+  }
+
+  public static class Builder {
+    /**
+     * Unique identifier of global option;
+     *
+     * <p>示例值：option_12adea
+     */
+    private String apiName;
+
+    /**
+     * Label of enumerated value of a global option
+     *
+     * <p>示例值：
+     */
+    private GlobalOptionLabel label;
+
+    /**
+     * option list
+     *
+     * <p>示例值：
+     */
+    private GlobalOptionElement[] options;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1727431743472
+     */
+    private Integer createdAt;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1727431743472
+     */
     private Integer updatedAt;
 
-    // builder 开始
-    public GlobalOption() {
+    /**
+     * Unique identifier of global option;
+     *
+     * <p>示例值：option_12adea
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public GlobalOption(Builder builder) {
-        /**
-         * 全局选项 API 名称
-         * <p> 示例值：option_12adea
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 全局选项名称
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 选项列表
-         * <p> 示例值：
-         */
-        this.options = builder.options;
-        /**
-         * 创建时间
-         * <p> 示例值：1727431743472
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 更新时间
-         * <p> 示例值：1727431743472
-         */
-        this.updatedAt = builder.updatedAt;
+    /**
+     * Label of enumerated value of a global option
+     *
+     * <p>示例值：
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(GlobalOptionLabel label) {
+      this.label = label;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * option list
+     *
+     * <p>示例值：
+     *
+     * @param options
+     * @return
+     */
+    public Builder options(GlobalOptionElement[] options) {
+      this.options = options;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1727431743472
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(Integer createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1727431743472
+     *
+     * @param updatedAt
+     * @return
+     */
+    public Builder updatedAt(Integer updatedAt) {
+      this.updatedAt = updatedAt;
+      return this;
     }
 
-    public GlobalOptionLabel getLabel() {
-        return this.label;
+    public GlobalOption build() {
+      return new GlobalOption(this);
     }
+  }
 
-    public void setLabel(GlobalOptionLabel label) {
-        this.label = label;
-    }
-
-    public GlobalOptionElement[] getOptions() {
-        return this.options;
-    }
-
-    public void setOptions(GlobalOptionElement[] options) {
-        this.options = options;
-    }
-
-    public Integer getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(Integer createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Integer getUpdatedAt() {
-        return this.updatedAt;
-    }
-
-    public void setUpdatedAt(Integer updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public static class Builder {
-        /**
-         * 全局选项 API 名称
-         * <p> 示例值：option_12adea
-         */
-        private String apiName;
-        /**
-         * 全局选项名称
-         * <p> 示例值：
-         */
-        private GlobalOptionLabel label;
-        /**
-         * 选项列表
-         * <p> 示例值：
-         */
-        private GlobalOptionElement[] options;
-        /**
-         * 创建时间
-         * <p> 示例值：1727431743472
-         */
-        private Integer createdAt;
-        /**
-         * 更新时间
-         * <p> 示例值：1727431743472
-         */
-        private Integer updatedAt;
-
-        /**
-         * 全局选项 API 名称
-         * <p> 示例值：option_12adea
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 全局选项名称
-         * <p> 示例值：
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(GlobalOptionLabel label) {
-            this.label = label;
-            return this;
-        }
-
-
-        /**
-         * 选项列表
-         * <p> 示例值：
-         *
-         * @param options
-         * @return
-         */
-        public Builder options(GlobalOptionElement[] options) {
-            this.options = options;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1727431743472
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(Integer createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1727431743472
-         *
-         * @param updatedAt
-         * @return
-         */
-        public Builder updatedAt(Integer updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
-        }
-
-
-        public GlobalOption build() {
-            return new GlobalOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

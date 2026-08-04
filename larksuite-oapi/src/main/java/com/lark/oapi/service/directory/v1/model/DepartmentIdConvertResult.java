@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentIdConvertResult {
+  /**
+   * ID
+   *
+   * <p>示例值：ahjdsioad
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 部门ID
+   *
+   * <p>示例值：ahjdsioad
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 部门OpenID
+   *
+   * <p>示例值：od-9d2eae75a1789adawdaw112wae177bd60c1
+   */
+  @SerializedName("open_department_id")
+  private String openDepartmentId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getOpenDepartmentId() {
+    return this.openDepartmentId;
+  }
+
+  public void setOpenDepartmentId(String openDepartmentId) {
+    this.openDepartmentId = openDepartmentId;
+  }
+
+  // builder 开始
+  public DepartmentIdConvertResult() {}
+
+  public DepartmentIdConvertResult(Builder builder) {
     /**
      * ID
-     * <p> 示例值：ahjdsioad
+     *
+     * <p>示例值：ahjdsioad
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 部门ID
-     * <p> 示例值：ahjdsioad
+     *
+     * <p>示例值：ahjdsioad
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
      * 部门OpenID
-     * <p> 示例值：od-9d2eae75a1789adawdaw112wae177bd60c1
+     *
+     * <p>示例值：od-9d2eae75a1789adawdaw112wae177bd60c1
      */
-    @SerializedName("open_department_id")
+    this.openDepartmentId = builder.openDepartmentId;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：ahjdsioad
+     */
+    private String id;
+
+    /**
+     * 部门ID
+     *
+     * <p>示例值：ahjdsioad
+     */
+    private String departmentId;
+
+    /**
+     * 部门OpenID
+     *
+     * <p>示例值：od-9d2eae75a1789adawdaw112wae177bd60c1
+     */
     private String openDepartmentId;
 
-    // builder 开始
-    public DepartmentIdConvertResult() {
+    /**
+     * ID
+     *
+     * <p>示例值：ahjdsioad
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public DepartmentIdConvertResult(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：ahjdsioad
-         */
-        this.id = builder.id;
-        /**
-         * 部门ID
-         * <p> 示例值：ahjdsioad
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 部门OpenID
-         * <p> 示例值：od-9d2eae75a1789adawdaw112wae177bd60c1
-         */
-        this.openDepartmentId = builder.openDepartmentId;
+    /**
+     * 部门ID
+     *
+     * <p>示例值：ahjdsioad
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门OpenID
+     *
+     * <p>示例值：od-9d2eae75a1789adawdaw112wae177bd60c1
+     *
+     * @param openDepartmentId
+     * @return
+     */
+    public Builder openDepartmentId(String openDepartmentId) {
+      this.openDepartmentId = openDepartmentId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public DepartmentIdConvertResult build() {
+      return new DepartmentIdConvertResult(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getOpenDepartmentId() {
-        return this.openDepartmentId;
-    }
-
-    public void setOpenDepartmentId(String openDepartmentId) {
-        this.openDepartmentId = openDepartmentId;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：ahjdsioad
-         */
-        private String id;
-        /**
-         * 部门ID
-         * <p> 示例值：ahjdsioad
-         */
-        private String departmentId;
-        /**
-         * 部门OpenID
-         * <p> 示例值：od-9d2eae75a1789adawdaw112wae177bd60c1
-         */
-        private String openDepartmentId;
-
-        /**
-         * ID
-         * <p> 示例值：ahjdsioad
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 部门ID
-         * <p> 示例值：ahjdsioad
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 部门OpenID
-         * <p> 示例值：od-9d2eae75a1789adawdaw112wae177bd60c1
-         *
-         * @param openDepartmentId
-         * @return
-         */
-        public Builder openDepartmentId(String openDepartmentId) {
-            this.openDepartmentId = openDepartmentId;
-            return this;
-        }
-
-
-        public DepartmentIdConvertResult build() {
-            return new DepartmentIdConvertResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

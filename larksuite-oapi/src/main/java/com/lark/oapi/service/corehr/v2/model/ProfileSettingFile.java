@@ -13,223 +13,241 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingFile {
+  /**
+   * 文件 ID;;-
+   * 可通过[【上传文件】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/upload)接口获取;-
+   * 只传该字段即可，大小、类型等字段可以不传递
+   *
+   * <p>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
+   */
+  @SerializedName("file_id")
+  private String fileId;
+
+  /**
+   * 文件 MIME 类型
+   *
+   * <p>示例值：zip
+   */
+  @SerializedName("mime_type")
+  private String mimeType;
+
+  /**
+   * 文件名
+   *
+   * <p>示例值：附件.zip
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 文件大小（KB）
+   *
+   * <p>示例值：1000
+   */
+  @SerializedName("size")
+  private String size;
+
+  /**
+   * 文件 Token
+   *
+   * <p>示例值：0a423bc7ea7c4a439d066bf070616782
+   */
+  @SerializedName("token")
+  private String token;
+
+  public String getFileId() {
+    return this.fileId;
+  }
+
+  public void setFileId(String fileId) {
+    this.fileId = fileId;
+  }
+
+  public String getMimeType() {
+    return this.mimeType;
+  }
+
+  public void setMimeType(String mimeType) {
+    this.mimeType = mimeType;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getSize() {
+    return this.size;
+  }
+
+  public void setSize(String size) {
+    this.size = size;
+  }
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  // builder 开始
+  public ProfileSettingFile() {}
+
+  public ProfileSettingFile(Builder builder) {
     /**
-     * 文件ID
-     * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
+     * 文件 ID;;-
+     * 可通过[【上传文件】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/upload)接口获取;-
+     * 只传该字段即可，大小、类型等字段可以不传递
+     *
+     * <p>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
      */
-    @SerializedName("file_id")
-    private String fileId;
+    this.fileId = builder.fileId;
     /**
-     * 文件MIME类型
-     * <p> 示例值：zip
+     * 文件 MIME 类型
+     *
+     * <p>示例值：zip
      */
-    @SerializedName("mime_type")
-    private String mimeType;
+    this.mimeType = builder.mimeType;
     /**
      * 文件名
-     * <p> 示例值：附件.zip
+     *
+     * <p>示例值：附件.zip
      */
-    @SerializedName("name")
+    this.name = builder.name;
+    /**
+     * 文件大小（KB）
+     *
+     * <p>示例值：1000
+     */
+    this.size = builder.size;
+    /**
+     * 文件 Token
+     *
+     * <p>示例值：0a423bc7ea7c4a439d066bf070616782
+     */
+    this.token = builder.token;
+  }
+
+  public static class Builder {
+    /**
+     * 文件 ID;;-
+     * 可通过[【上传文件】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/upload)接口获取;-
+     * 只传该字段即可，大小、类型等字段可以不传递
+     *
+     * <p>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
+     */
+    private String fileId;
+
+    /**
+     * 文件 MIME 类型
+     *
+     * <p>示例值：zip
+     */
+    private String mimeType;
+
+    /**
+     * 文件名
+     *
+     * <p>示例值：附件.zip
+     */
     private String name;
+
     /**
-     * 文件大小(KB)
-     * <p> 示例值：1000
+     * 文件大小（KB）
+     *
+     * <p>示例值：1000
      */
-    @SerializedName("size")
     private String size;
+
     /**
-     * 文件token
-     * <p> 示例值：0a423bc7ea7c4a439d066bf070616782
+     * 文件 Token
+     *
+     * <p>示例值：0a423bc7ea7c4a439d066bf070616782
      */
-    @SerializedName("token")
     private String token;
 
-    // builder 开始
-    public ProfileSettingFile() {
+    /**
+     * 文件 ID;;-
+     * 可通过[【上传文件】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/person/upload)接口获取;-
+     * 只传该字段即可，大小、类型等字段可以不传递
+     *
+     * <p>示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
+     *
+     * @param fileId
+     * @return
+     */
+    public Builder fileId(String fileId) {
+      this.fileId = fileId;
+      return this;
     }
 
-    public ProfileSettingFile(Builder builder) {
-        /**
-         * 文件ID
-         * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
-         */
-        this.fileId = builder.fileId;
-        /**
-         * 文件MIME类型
-         * <p> 示例值：zip
-         */
-        this.mimeType = builder.mimeType;
-        /**
-         * 文件名
-         * <p> 示例值：附件.zip
-         */
-        this.name = builder.name;
-        /**
-         * 文件大小(KB)
-         * <p> 示例值：1000
-         */
-        this.size = builder.size;
-        /**
-         * 文件token
-         * <p> 示例值：0a423bc7ea7c4a439d066bf070616782
-         */
-        this.token = builder.token;
+    /**
+     * 文件 MIME 类型
+     *
+     * <p>示例值：zip
+     *
+     * @param mimeType
+     * @return
+     */
+    public Builder mimeType(String mimeType) {
+      this.mimeType = mimeType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文件名
+     *
+     * <p>示例值：附件.zip
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getFileId() {
-        return this.fileId;
+    /**
+     * 文件大小（KB）
+     *
+     * <p>示例值：1000
+     *
+     * @param size
+     * @return
+     */
+    public Builder size(String size) {
+      this.size = size;
+      return this;
     }
 
-    public void setFileId(String fileId) {
-        this.fileId = fileId;
+    /**
+     * 文件 Token
+     *
+     * <p>示例值：0a423bc7ea7c4a439d066bf070616782
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public String getMimeType() {
-        return this.mimeType;
+    public ProfileSettingFile build() {
+      return new ProfileSettingFile(this);
     }
+  }
 
-    public void setMimeType(String mimeType) {
-        this.mimeType = mimeType;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSize() {
-        return this.size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public String getToken() {
-        return this.token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public static class Builder {
-        /**
-         * 文件ID
-         * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
-         */
-        private String fileId;
-        /**
-         * 文件MIME类型
-         * <p> 示例值：zip
-         */
-        private String mimeType;
-        /**
-         * 文件名
-         * <p> 示例值：附件.zip
-         */
-        private String name;
-        /**
-         * 文件大小(KB)
-         * <p> 示例值：1000
-         */
-        private String size;
-        /**
-         * 文件token
-         * <p> 示例值：0a423bc7ea7c4a439d066bf070616782
-         */
-        private String token;
-
-        /**
-         * 文件ID
-         * <p> 示例值：150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200
-         *
-         * @param fileId
-         * @return
-         */
-        public Builder fileId(String fileId) {
-            this.fileId = fileId;
-            return this;
-        }
-
-
-        /**
-         * 文件MIME类型
-         * <p> 示例值：zip
-         *
-         * @param mimeType
-         * @return
-         */
-        public Builder mimeType(String mimeType) {
-            this.mimeType = mimeType;
-            return this;
-        }
-
-
-        /**
-         * 文件名
-         * <p> 示例值：附件.zip
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 文件大小(KB)
-         * <p> 示例值：1000
-         *
-         * @param size
-         * @return
-         */
-        public Builder size(String size) {
-            this.size = size;
-            return this;
-        }
-
-
-        /**
-         * 文件token
-         * <p> 示例值：0a423bc7ea7c4a439d066bf070616782
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        public ProfileSettingFile build() {
-            return new ProfileSettingFile(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

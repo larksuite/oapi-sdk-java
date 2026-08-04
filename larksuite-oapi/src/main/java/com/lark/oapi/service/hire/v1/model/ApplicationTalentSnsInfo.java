@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationTalentSnsInfo {
+  /**
+   * ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * SNS类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("sns_type")
+  private Long snsType;
+
+  /**
+   * SNS链接
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("link")
+  private String link;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Long getSnsType() {
+    return this.snsType;
+  }
+
+  public void setSnsType(Long snsType) {
+    this.snsType = snsType;
+  }
+
+  public String getLink() {
+    return this.link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  // builder 开始
+  public ApplicationTalentSnsInfo() {}
+
+  public ApplicationTalentSnsInfo(Builder builder) {
     /**
      * ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * SNS类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("sns_type")
-    private Long snsType;
+    this.snsType = builder.snsType;
     /**
      * SNS链接
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("link")
+    this.link = builder.link;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：1
+     */
+    private String id;
+
+    /**
+     * SNS类型
+     *
+     * <p>示例值：1
+     */
+    private Long snsType;
+
+    /**
+     * SNS链接
+     *
+     * <p>示例值：1
+     */
     private String link;
 
-    // builder 开始
-    public ApplicationTalentSnsInfo() {
+    /**
+     * ID
+     *
+     * <p>示例值：1
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ApplicationTalentSnsInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：1
-         */
-        this.id = builder.id;
-        /**
-         * SNS类型
-         * <p> 示例值：1
-         */
-        this.snsType = builder.snsType;
-        /**
-         * SNS链接
-         * <p> 示例值：1
-         */
-        this.link = builder.link;
+    /**
+     * SNS类型
+     *
+     * <p>示例值：1
+     *
+     * @param snsType
+     * @return
+     */
+    public Builder snsType(Long snsType) {
+      this.snsType = snsType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * SNS链接
+     *
+     * <p>示例值：1
+     *
+     * @param link
+     * @return
+     */
+    public Builder link(String link) {
+      this.link = link;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public ApplicationTalentSnsInfo build() {
+      return new ApplicationTalentSnsInfo(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Long getSnsType() {
-        return this.snsType;
-    }
-
-    public void setSnsType(Long snsType) {
-        this.snsType = snsType;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：1
-         */
-        private String id;
-        /**
-         * SNS类型
-         * <p> 示例值：1
-         */
-        private Long snsType;
-        /**
-         * SNS链接
-         * <p> 示例值：1
-         */
-        private String link;
-
-        /**
-         * ID
-         * <p> 示例值：1
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * SNS类型
-         * <p> 示例值：1
-         *
-         * @param snsType
-         * @return
-         */
-        public Builder snsType(Long snsType) {
-            this.snsType = snsType;
-            return this;
-        }
-
-
-        /**
-         * SNS链接
-         * <p> 示例值：1
-         *
-         * @param link
-         * @return
-         */
-        public Builder link(String link) {
-            this.link = link;
-            return this;
-        }
-
-
-        public ApplicationTalentSnsInfo build() {
-            return new ApplicationTalentSnsInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

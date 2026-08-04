@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ResurrectEmployeeOptions {
+  /**
+   * 分配给员工的席位ID列表。可通过下方接口获取到该租户的可用席位ID，参见[获取席位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。当在混合license模式下，此字段为必填。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subscription_ids")
+  private String[] subscriptionIds;
+
+  public String[] getSubscriptionIds() {
+    return this.subscriptionIds;
+  }
+
+  public void setSubscriptionIds(String[] subscriptionIds) {
+    this.subscriptionIds = subscriptionIds;
+  }
+
+  // builder 开始
+  public ResurrectEmployeeOptions() {}
+
+  public ResurrectEmployeeOptions(Builder builder) {
     /**
-     * License订阅ID
-     * <p> 示例值：
+     * 分配给员工的席位ID列表。可通过下方接口获取到该租户的可用席位ID，参见[获取席位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。当在混合license模式下，此字段为必填。
+     *
+     * <p>示例值：
      */
-    @SerializedName("subscription_ids")
+    this.subscriptionIds = builder.subscriptionIds;
+  }
+
+  public static class Builder {
+    /**
+     * 分配给员工的席位ID列表。可通过下方接口获取到该租户的可用席位ID，参见[获取席位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。当在混合license模式下，此字段为必填。
+     *
+     * <p>示例值：
+     */
     private String[] subscriptionIds;
 
-    // builder 开始
-    public ResurrectEmployeeOptions() {
+    /**
+     * 分配给员工的席位ID列表。可通过下方接口获取到该租户的可用席位ID，参见[获取席位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。当在混合license模式下，此字段为必填。
+     *
+     * <p>示例值：
+     *
+     * @param subscriptionIds
+     * @return
+     */
+    public Builder subscriptionIds(String[] subscriptionIds) {
+      this.subscriptionIds = subscriptionIds;
+      return this;
     }
 
-    public ResurrectEmployeeOptions(Builder builder) {
-        /**
-         * License订阅ID
-         * <p> 示例值：
-         */
-        this.subscriptionIds = builder.subscriptionIds;
+    public ResurrectEmployeeOptions build() {
+      return new ResurrectEmployeeOptions(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getSubscriptionIds() {
-        return this.subscriptionIds;
-    }
-
-    public void setSubscriptionIds(String[] subscriptionIds) {
-        this.subscriptionIds = subscriptionIds;
-    }
-
-    public static class Builder {
-        /**
-         * License订阅ID
-         * <p> 示例值：
-         */
-        private String[] subscriptionIds;
-
-        /**
-         * License订阅ID
-         * <p> 示例值：
-         *
-         * @param subscriptionIds
-         * @return
-         */
-        public Builder subscriptionIds(String[] subscriptionIds) {
-            this.subscriptionIds = subscriptionIds;
-            return this;
-        }
-
-
-        public ResurrectEmployeeOptions build() {
-            return new ResurrectEmployeeOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

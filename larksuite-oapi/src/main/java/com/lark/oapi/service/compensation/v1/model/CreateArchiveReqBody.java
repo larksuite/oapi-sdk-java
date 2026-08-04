@@ -13,445 +13,489 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateArchiveReqBody {
+  /**
+   * 外部幂等id，表示操作的唯一标识，避免重复发起，格式为标准的UUIDV4（32 个十六进制字符 + 4 个连字符）
+   *
+   * <p>示例值：123e4567-e89b-42d3-a456-426614174000
+   */
+  @SerializedName("unique_id")
+  private String uniqueId;
+
+  /**
+   * 操作人ID，具体类型由入参中的 user_id_type 指定，选择应用身份鉴权时，该参数不能为空
+   *
+   * <p>示例值：7337149697626801708
+   */
+  @SerializedName("operator_id")
+  private String operatorId;
+
+  /**
+   * 员工id，具体类型由入参中的 user_id_type 指定
+   *
+   * <p>示例值：7337149697626801708
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 生效时间，日期格式为 YYYY-MM-DD，字符长度为10
+   *
+   * <p>示例值：2024-11-12
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 币种ID，通过[查询货币信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)接口可获得
+   *
+   * <p>示例值：6863329932261459464
+   */
+  @SerializedName("currency_id")
+  private String currencyId;
+
+  /**
+   * 薪资方案ID，通过[批量查询薪资方案](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)接口可获得
+   *
+   * <p>示例值：7431430313074247212
+   */
+  @SerializedName("plan_id")
+  private String planId;
+
+  /**
+   * 薪资方案TID，通过[批量查询薪资方案](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)可获得
+   *
+   * <p>示例值：7431430313074279980
+   */
+  @SerializedName("plan_tid")
+  private String planTid;
+
+  /**
+   * 调薪原因ID，通过[批量查询定调薪原因](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)接口可获得
+   *
+   * <p>示例值：7125907336899888684
+   */
+  @SerializedName("change_reason_id")
+  private String changeReasonId;
+
+  /**
+   * - 薪资项值集合，所填薪资项信息必须是该方案中的薪资项;- 仅需填写方案中可编辑的薪资项即可，不可编辑的薪资项不能传入，否则会校验报错。 ;-
+   * 根据参数plan_id，可通过[批量查询薪资方案](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)接口获得对应的具体方案信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("item_value_lists")
+  private ArchiveItemValue[] itemValueLists;
+
+  /**
+   * 调薪说明，长度不超过1000字符
+   *
+   * <p>示例值：因2024年Q2绩效优秀，对该同学调薪10%
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 更正说明，长度不超过1000字符，如果本次操作为更正员工薪资档案时，该字段即为更正调薪的说明。
+   *
+   * <p>示例值：更正2024年Q2绩效调薪金额
+   */
+  @SerializedName("edit_remark")
+  private String editRemark;
+
+  public String getUniqueId() {
+    return this.uniqueId;
+  }
+
+  public void setUniqueId(String uniqueId) {
+    this.uniqueId = uniqueId;
+  }
+
+  public String getOperatorId() {
+    return this.operatorId;
+  }
+
+  public void setOperatorId(String operatorId) {
+    this.operatorId = operatorId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getCurrencyId() {
+    return this.currencyId;
+  }
+
+  public void setCurrencyId(String currencyId) {
+    this.currencyId = currencyId;
+  }
+
+  public String getPlanId() {
+    return this.planId;
+  }
+
+  public void setPlanId(String planId) {
+    this.planId = planId;
+  }
+
+  public String getPlanTid() {
+    return this.planTid;
+  }
+
+  public void setPlanTid(String planTid) {
+    this.planTid = planTid;
+  }
+
+  public String getChangeReasonId() {
+    return this.changeReasonId;
+  }
+
+  public void setChangeReasonId(String changeReasonId) {
+    this.changeReasonId = changeReasonId;
+  }
+
+  public ArchiveItemValue[] getItemValueLists() {
+    return this.itemValueLists;
+  }
+
+  public void setItemValueLists(ArchiveItemValue[] itemValueLists) {
+    this.itemValueLists = itemValueLists;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getEditRemark() {
+    return this.editRemark;
+  }
+
+  public void setEditRemark(String editRemark) {
+    this.editRemark = editRemark;
+  }
+
+  // builder 开始
+  public CreateArchiveReqBody() {}
+
+  public CreateArchiveReqBody(Builder builder) {
     /**
-     * 外部幂等id，表示操作的唯一标识，避免重复发起，格式为标准的UUIDV4,
-     * <p> 示例值：123e4567-e89b-42d3-a456-426614174000
+     * 外部幂等id，表示操作的唯一标识，避免重复发起，格式为标准的UUIDV4（32 个十六进制字符 + 4 个连字符）
+     *
+     * <p>示例值：123e4567-e89b-42d3-a456-426614174000
      */
-    @SerializedName("unique_id")
-    private String uniqueId;
+    this.uniqueId = builder.uniqueId;
     /**
      * 操作人ID，具体类型由入参中的 user_id_type 指定，选择应用身份鉴权时，该参数不能为空
-     * <p> 示例值：7337149697626801708
+     *
+     * <p>示例值：7337149697626801708
      */
-    @SerializedName("operator_id")
-    private String operatorId;
+    this.operatorId = builder.operatorId;
     /**
      * 员工id，具体类型由入参中的 user_id_type 指定
-     * <p> 示例值：7337149697626801708
+     *
+     * <p>示例值：7337149697626801708
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+    /**
+     * 生效时间，日期格式为 YYYY-MM-DD，字符长度为10
+     *
+     * <p>示例值：2024-11-12
+     */
+    this.effectiveTime = builder.effectiveTime;
+    /**
+     * 币种ID，通过[查询货币信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)接口可获得
+     *
+     * <p>示例值：6863329932261459464
+     */
+    this.currencyId = builder.currencyId;
+    /**
+     * 薪资方案ID，通过[批量查询薪资方案](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)接口可获得
+     *
+     * <p>示例值：7431430313074247212
+     */
+    this.planId = builder.planId;
+    /**
+     * 薪资方案TID，通过[批量查询薪资方案](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)可获得
+     *
+     * <p>示例值：7431430313074279980
+     */
+    this.planTid = builder.planTid;
+    /**
+     * 调薪原因ID，通过[批量查询定调薪原因](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)接口可获得
+     *
+     * <p>示例值：7125907336899888684
+     */
+    this.changeReasonId = builder.changeReasonId;
+    /**
+     * - 薪资项值集合，所填薪资项信息必须是该方案中的薪资项;- 仅需填写方案中可编辑的薪资项即可，不可编辑的薪资项不能传入，否则会校验报错。 ;-
+     * 根据参数plan_id，可通过[批量查询薪资方案](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)接口获得对应的具体方案信息
+     *
+     * <p>示例值：
+     */
+    this.itemValueLists = builder.itemValueLists;
+    /**
+     * 调薪说明，长度不超过1000字符
+     *
+     * <p>示例值：因2024年Q2绩效优秀，对该同学调薪10%
+     */
+    this.description = builder.description;
+    /**
+     * 更正说明，长度不超过1000字符，如果本次操作为更正员工薪资档案时，该字段即为更正调薪的说明。
+     *
+     * <p>示例值：更正2024年Q2绩效调薪金额
+     */
+    this.editRemark = builder.editRemark;
+  }
+
+  public static class Builder {
+    /**
+     * 外部幂等id，表示操作的唯一标识，避免重复发起，格式为标准的UUIDV4（32 个十六进制字符 + 4 个连字符）
+     *
+     * <p>示例值：123e4567-e89b-42d3-a456-426614174000
+     */
+    private String uniqueId;
+
+    /**
+     * 操作人ID，具体类型由入参中的 user_id_type 指定，选择应用身份鉴权时，该参数不能为空
+     *
+     * <p>示例值：7337149697626801708
+     */
+    private String operatorId;
+
+    /**
+     * 员工id，具体类型由入参中的 user_id_type 指定
+     *
+     * <p>示例值：7337149697626801708
+     */
     private String userId;
+
     /**
-     * 生效时间，日期格式
-     * <p> 示例值：2024-11-12
+     * 生效时间，日期格式为 YYYY-MM-DD，字符长度为10
+     *
+     * <p>示例值：2024-11-12
      */
-    @SerializedName("effective_time")
     private String effectiveTime;
+
     /**
-     * 币种ID，获取来源https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search?appId=cli_a63f5fc01866100c
-     * <p> 示例值：6863329932261459464
+     * 币种ID，通过[查询货币信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)接口可获得
+     *
+     * <p>示例值：6863329932261459464
      */
-    @SerializedName("currency_id")
     private String currencyId;
+
     /**
-     * 薪资方案ID，获取来源：https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list
-     * <p> 示例值：7431430313074247212
+     * 薪资方案ID，通过[批量查询薪资方案](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)接口可获得
+     *
+     * <p>示例值：7431430313074247212
      */
-    @SerializedName("plan_id")
     private String planId;
+
     /**
-     * 薪资方案TID，获取来源：https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list
-     * <p> 示例值：7431430313074279980
+     * 薪资方案TID，通过[批量查询薪资方案](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)可获得
+     *
+     * <p>示例值：7431430313074279980
      */
-    @SerializedName("plan_tid")
     private String planTid;
+
     /**
-     * 调薪原因ID，获取来源：https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list
-     * <p> 示例值：7125907336899888684
+     * 调薪原因ID，通过[批量查询定调薪原因](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)接口可获得
+     *
+     * <p>示例值：7125907336899888684
      */
-    @SerializedName("change_reason_id")
     private String changeReasonId;
+
     /**
-     * 薪资项值集合
-     * <p> 示例值：
+     * - 薪资项值集合，所填薪资项信息必须是该方案中的薪资项;- 仅需填写方案中可编辑的薪资项即可，不可编辑的薪资项不能传入，否则会校验报错。 ;-
+     * 根据参数plan_id，可通过[批量查询薪资方案](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)接口获得对应的具体方案信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("item_value_lists")
     private ArchiveItemValue[] itemValueLists;
+
     /**
-     * 调薪说明
-     * <p> 示例值：调薪说明
+     * 调薪说明，长度不超过1000字符
+     *
+     * <p>示例值：因2024年Q2绩效优秀，对该同学调薪10%
      */
-    @SerializedName("description")
     private String description;
+
     /**
-     * 更正说明，当员工在当天存在调薪记录时，该字段即为更正调薪的说明
-     * <p> 示例值：更正调薪说明
+     * 更正说明，长度不超过1000字符，如果本次操作为更正员工薪资档案时，该字段即为更正调薪的说明。
+     *
+     * <p>示例值：更正2024年Q2绩效调薪金额
      */
-    @SerializedName("edit_remark")
     private String editRemark;
 
-    // builder 开始
-    public CreateArchiveReqBody() {
+    /**
+     * 外部幂等id，表示操作的唯一标识，避免重复发起，格式为标准的UUIDV4（32 个十六进制字符 + 4 个连字符）
+     *
+     * <p>示例值：123e4567-e89b-42d3-a456-426614174000
+     *
+     * @param uniqueId
+     * @return
+     */
+    public Builder uniqueId(String uniqueId) {
+      this.uniqueId = uniqueId;
+      return this;
     }
 
-    public CreateArchiveReqBody(Builder builder) {
-        /**
-         * 外部幂等id，表示操作的唯一标识，避免重复发起，格式为标准的UUIDV4,
-         * <p> 示例值：123e4567-e89b-42d3-a456-426614174000
-         */
-        this.uniqueId = builder.uniqueId;
-        /**
-         * 操作人ID，具体类型由入参中的 user_id_type 指定，选择应用身份鉴权时，该参数不能为空
-         * <p> 示例值：7337149697626801708
-         */
-        this.operatorId = builder.operatorId;
-        /**
-         * 员工id，具体类型由入参中的 user_id_type 指定
-         * <p> 示例值：7337149697626801708
-         */
-        this.userId = builder.userId;
-        /**
-         * 生效时间，日期格式
-         * <p> 示例值：2024-11-12
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 币种ID，获取来源https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search?appId=cli_a63f5fc01866100c
-         * <p> 示例值：6863329932261459464
-         */
-        this.currencyId = builder.currencyId;
-        /**
-         * 薪资方案ID，获取来源：https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list
-         * <p> 示例值：7431430313074247212
-         */
-        this.planId = builder.planId;
-        /**
-         * 薪资方案TID，获取来源：https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list
-         * <p> 示例值：7431430313074279980
-         */
-        this.planTid = builder.planTid;
-        /**
-         * 调薪原因ID，获取来源：https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list
-         * <p> 示例值：7125907336899888684
-         */
-        this.changeReasonId = builder.changeReasonId;
-        /**
-         * 薪资项值集合
-         * <p> 示例值：
-         */
-        this.itemValueLists = builder.itemValueLists;
-        /**
-         * 调薪说明
-         * <p> 示例值：调薪说明
-         */
-        this.description = builder.description;
-        /**
-         * 更正说明，当员工在当天存在调薪记录时，该字段即为更正调薪的说明
-         * <p> 示例值：更正调薪说明
-         */
-        this.editRemark = builder.editRemark;
+    /**
+     * 操作人ID，具体类型由入参中的 user_id_type 指定，选择应用身份鉴权时，该参数不能为空
+     *
+     * <p>示例值：7337149697626801708
+     *
+     * @param operatorId
+     * @return
+     */
+    public Builder operatorId(String operatorId) {
+      this.operatorId = operatorId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 员工id，具体类型由入参中的 user_id_type 指定
+     *
+     * <p>示例值：7337149697626801708
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getUniqueId() {
-        return this.uniqueId;
+    /**
+     * 生效时间，日期格式为 YYYY-MM-DD，字符长度为10
+     *
+     * <p>示例值：2024-11-12
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public void setUniqueId(String uniqueId) {
-        this.uniqueId = uniqueId;
+    /**
+     * 币种ID，通过[查询货币信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)接口可获得
+     *
+     * <p>示例值：6863329932261459464
+     *
+     * @param currencyId
+     * @return
+     */
+    public Builder currencyId(String currencyId) {
+      this.currencyId = currencyId;
+      return this;
     }
 
-    public String getOperatorId() {
-        return this.operatorId;
+    /**
+     * 薪资方案ID，通过[批量查询薪资方案](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)接口可获得
+     *
+     * <p>示例值：7431430313074247212
+     *
+     * @param planId
+     * @return
+     */
+    public Builder planId(String planId) {
+      this.planId = planId;
+      return this;
     }
 
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
+    /**
+     * 薪资方案TID，通过[批量查询薪资方案](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)可获得
+     *
+     * <p>示例值：7431430313074279980
+     *
+     * @param planTid
+     * @return
+     */
+    public Builder planTid(String planTid) {
+      this.planTid = planTid;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 调薪原因ID，通过[批量查询定调薪原因](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list)接口可获得
+     *
+     * <p>示例值：7125907336899888684
+     *
+     * @param changeReasonId
+     * @return
+     */
+    public Builder changeReasonId(String changeReasonId) {
+      this.changeReasonId = changeReasonId;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * - 薪资项值集合，所填薪资项信息必须是该方案中的薪资项;- 仅需填写方案中可编辑的薪资项即可，不可编辑的薪资项不能传入，否则会校验报错。 ;-
+     * 根据参数plan_id，可通过[批量查询薪资方案](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list)接口获得对应的具体方案信息
+     *
+     * <p>示例值：
+     *
+     * @param itemValueLists
+     * @return
+     */
+    public Builder itemValueLists(ArchiveItemValue[] itemValueLists) {
+      this.itemValueLists = itemValueLists;
+      return this;
     }
 
-    public String getEffectiveTime() {
-        return this.effectiveTime;
+    /**
+     * 调薪说明，长度不超过1000字符
+     *
+     * <p>示例值：因2024年Q2绩效优秀，对该同学调薪10%
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
+    /**
+     * 更正说明，长度不超过1000字符，如果本次操作为更正员工薪资档案时，该字段即为更正调薪的说明。
+     *
+     * <p>示例值：更正2024年Q2绩效调薪金额
+     *
+     * @param editRemark
+     * @return
+     */
+    public Builder editRemark(String editRemark) {
+      this.editRemark = editRemark;
+      return this;
     }
 
-    public String getCurrencyId() {
-        return this.currencyId;
+    public CreateArchiveReqBody build() {
+      return new CreateArchiveReqBody(this);
     }
+  }
 
-    public void setCurrencyId(String currencyId) {
-        this.currencyId = currencyId;
-    }
-
-    public String getPlanId() {
-        return this.planId;
-    }
-
-    public void setPlanId(String planId) {
-        this.planId = planId;
-    }
-
-    public String getPlanTid() {
-        return this.planTid;
-    }
-
-    public void setPlanTid(String planTid) {
-        this.planTid = planTid;
-    }
-
-    public String getChangeReasonId() {
-        return this.changeReasonId;
-    }
-
-    public void setChangeReasonId(String changeReasonId) {
-        this.changeReasonId = changeReasonId;
-    }
-
-    public ArchiveItemValue[] getItemValueLists() {
-        return this.itemValueLists;
-    }
-
-    public void setItemValueLists(ArchiveItemValue[] itemValueLists) {
-        this.itemValueLists = itemValueLists;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getEditRemark() {
-        return this.editRemark;
-    }
-
-    public void setEditRemark(String editRemark) {
-        this.editRemark = editRemark;
-    }
-
-    public static class Builder {
-        /**
-         * 外部幂等id，表示操作的唯一标识，避免重复发起，格式为标准的UUIDV4,
-         * <p> 示例值：123e4567-e89b-42d3-a456-426614174000
-         */
-        private String uniqueId;
-        /**
-         * 操作人ID，具体类型由入参中的 user_id_type 指定，选择应用身份鉴权时，该参数不能为空
-         * <p> 示例值：7337149697626801708
-         */
-        private String operatorId;
-        /**
-         * 员工id，具体类型由入参中的 user_id_type 指定
-         * <p> 示例值：7337149697626801708
-         */
-        private String userId;
-        /**
-         * 生效时间，日期格式
-         * <p> 示例值：2024-11-12
-         */
-        private String effectiveTime;
-        /**
-         * 币种ID，获取来源https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search?appId=cli_a63f5fc01866100c
-         * <p> 示例值：6863329932261459464
-         */
-        private String currencyId;
-        /**
-         * 薪资方案ID，获取来源：https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list
-         * <p> 示例值：7431430313074247212
-         */
-        private String planId;
-        /**
-         * 薪资方案TID，获取来源：https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list
-         * <p> 示例值：7431430313074279980
-         */
-        private String planTid;
-        /**
-         * 调薪原因ID，获取来源：https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list
-         * <p> 示例值：7125907336899888684
-         */
-        private String changeReasonId;
-        /**
-         * 薪资项值集合
-         * <p> 示例值：
-         */
-        private ArchiveItemValue[] itemValueLists;
-        /**
-         * 调薪说明
-         * <p> 示例值：调薪说明
-         */
-        private String description;
-        /**
-         * 更正说明，当员工在当天存在调薪记录时，该字段即为更正调薪的说明
-         * <p> 示例值：更正调薪说明
-         */
-        private String editRemark;
-
-        /**
-         * 外部幂等id，表示操作的唯一标识，避免重复发起，格式为标准的UUIDV4,
-         * <p> 示例值：123e4567-e89b-42d3-a456-426614174000
-         *
-         * @param uniqueId
-         * @return
-         */
-        public Builder uniqueId(String uniqueId) {
-            this.uniqueId = uniqueId;
-            return this;
-        }
-
-
-        /**
-         * 操作人ID，具体类型由入参中的 user_id_type 指定，选择应用身份鉴权时，该参数不能为空
-         * <p> 示例值：7337149697626801708
-         *
-         * @param operatorId
-         * @return
-         */
-        public Builder operatorId(String operatorId) {
-            this.operatorId = operatorId;
-            return this;
-        }
-
-
-        /**
-         * 员工id，具体类型由入参中的 user_id_type 指定
-         * <p> 示例值：7337149697626801708
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 生效时间，日期格式
-         * <p> 示例值：2024-11-12
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 币种ID，获取来源https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search?appId=cli_a63f5fc01866100c
-         * <p> 示例值：6863329932261459464
-         *
-         * @param currencyId
-         * @return
-         */
-        public Builder currencyId(String currencyId) {
-            this.currencyId = currencyId;
-            return this;
-        }
-
-
-        /**
-         * 薪资方案ID，获取来源：https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list
-         * <p> 示例值：7431430313074247212
-         *
-         * @param planId
-         * @return
-         */
-        public Builder planId(String planId) {
-            this.planId = planId;
-            return this;
-        }
-
-
-        /**
-         * 薪资方案TID，获取来源：https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/plan/list
-         * <p> 示例值：7431430313074279980
-         *
-         * @param planTid
-         * @return
-         */
-        public Builder planTid(String planTid) {
-            this.planTid = planTid;
-            return this;
-        }
-
-
-        /**
-         * 调薪原因ID，获取来源：https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/change_reason/list
-         * <p> 示例值：7125907336899888684
-         *
-         * @param changeReasonId
-         * @return
-         */
-        public Builder changeReasonId(String changeReasonId) {
-            this.changeReasonId = changeReasonId;
-            return this;
-        }
-
-
-        /**
-         * 薪资项值集合
-         * <p> 示例值：
-         *
-         * @param itemValueLists
-         * @return
-         */
-        public Builder itemValueLists(ArchiveItemValue[] itemValueLists) {
-            this.itemValueLists = itemValueLists;
-            return this;
-        }
-
-
-        /**
-         * 调薪说明
-         * <p> 示例值：调薪说明
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 更正说明，当员工在当天存在调薪记录时，该字段即为更正调薪的说明
-         * <p> 示例值：更正调薪说明
-         *
-         * @param editRemark
-         * @return
-         */
-        public Builder editRemark(String editRemark) {
-            this.editRemark = editRemark;
-            return this;
-        }
-
-
-        public CreateArchiveReqBody build() {
-            return new CreateArchiveReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

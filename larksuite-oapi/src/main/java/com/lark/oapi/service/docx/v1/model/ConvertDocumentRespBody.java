@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ConvertDocumentRespBody {
-    /**
-     * 第一级 Block 对应的临时 ID 列表， index 代表了 Block 的顺序
-     * <p> 示例值：
-     */
-    @SerializedName("first_level_block_ids")
-    private String[] firstLevelBlockIds;
-    /**
-     * 带有父子关系的 Block 列表
-     * <p> 示例值：
-     */
-    @SerializedName("blocks")
-    private Block[] blocks;
-    /**
-     * 如果要转换的内容中带有图片，这里记录了临时 Block ID 和 Image URL 的对应关系
-     * <p> 示例值：
-     */
-    @SerializedName("block_id_to_image_urls")
-    private BlockIdToImageUrl[] blockIdToImageUrls;
+  /**
+   * 第一级 Block 对应的临时 ID 列表， index 代表了 Block 的顺序
+   *
+   * <p>示例值：
+   */
+  @SerializedName("first_level_block_ids")
+  private String[] firstLevelBlockIds;
 
-    public String[] getFirstLevelBlockIds() {
-        return this.firstLevelBlockIds;
-    }
+  /**
+   * 带有父子关系的 Block 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("blocks")
+  private Block[] blocks;
 
-    public void setFirstLevelBlockIds(String[] firstLevelBlockIds) {
-        this.firstLevelBlockIds = firstLevelBlockIds;
-    }
+  /**
+   * 如果要转换的内容中带有图片，这里记录了临时 Block ID 和 Image URL 的对应关系
+   *
+   * <p>示例值：
+   */
+  @SerializedName("block_id_to_image_urls")
+  private BlockIdToImageUrl[] blockIdToImageUrls;
 
-    public Block[] getBlocks() {
-        return this.blocks;
-    }
+  public String[] getFirstLevelBlockIds() {
+    return this.firstLevelBlockIds;
+  }
 
-    public void setBlocks(Block[] blocks) {
-        this.blocks = blocks;
-    }
+  public void setFirstLevelBlockIds(String[] firstLevelBlockIds) {
+    this.firstLevelBlockIds = firstLevelBlockIds;
+  }
 
-    public BlockIdToImageUrl[] getBlockIdToImageUrls() {
-        return this.blockIdToImageUrls;
-    }
+  public Block[] getBlocks() {
+    return this.blocks;
+  }
 
-    public void setBlockIdToImageUrls(BlockIdToImageUrl[] blockIdToImageUrls) {
-        this.blockIdToImageUrls = blockIdToImageUrls;
-    }
+  public void setBlocks(Block[] blocks) {
+    this.blocks = blocks;
+  }
 
+  public BlockIdToImageUrl[] getBlockIdToImageUrls() {
+    return this.blockIdToImageUrls;
+  }
+
+  public void setBlockIdToImageUrls(BlockIdToImageUrl[] blockIdToImageUrls) {
+    this.blockIdToImageUrls = blockIdToImageUrls;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v7.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppSlashCommandI18nText {
+  /**
+   * app slash command的说明的国际化文案
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n")
+  private AppSlashCommandI18n i18n;
+
+  /**
+   * app slash command的说明的默认文案
+   *
+   * <p>示例值：查询应用状态
+   */
+  @SerializedName("default_value")
+  private String defaultValue;
+
+  public AppSlashCommandI18n getI18n() {
+    return this.i18n;
+  }
+
+  public void setI18n(AppSlashCommandI18n i18n) {
+    this.i18n = i18n;
+  }
+
+  public String getDefaultValue() {
+    return this.defaultValue;
+  }
+
+  public void setDefaultValue(String defaultValue) {
+    this.defaultValue = defaultValue;
+  }
+
+  // builder 开始
+  public AppSlashCommandI18nText() {}
+
+  public AppSlashCommandI18nText(Builder builder) {
     /**
      * app slash command的说明的国际化文案
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n")
-    private AppSlashCommandI18n i18n;
+    this.i18n = builder.i18n;
     /**
      * app slash command的说明的默认文案
-     * <p> 示例值：查询应用状态
+     *
+     * <p>示例值：查询应用状态
      */
-    @SerializedName("default_value")
+    this.defaultValue = builder.defaultValue;
+  }
+
+  public static class Builder {
+    /**
+     * app slash command的说明的国际化文案
+     *
+     * <p>示例值：
+     */
+    private AppSlashCommandI18n i18n;
+
+    /**
+     * app slash command的说明的默认文案
+     *
+     * <p>示例值：查询应用状态
+     */
     private String defaultValue;
 
-    // builder 开始
-    public AppSlashCommandI18nText() {
+    /**
+     * app slash command的说明的国际化文案
+     *
+     * <p>示例值：
+     *
+     * @param i18n
+     * @return
+     */
+    public Builder i18n(AppSlashCommandI18n i18n) {
+      this.i18n = i18n;
+      return this;
     }
 
-    public AppSlashCommandI18nText(Builder builder) {
-        /**
-         * app slash command的说明的国际化文案
-         * <p> 示例值：
-         */
-        this.i18n = builder.i18n;
-        /**
-         * app slash command的说明的默认文案
-         * <p> 示例值：查询应用状态
-         */
-        this.defaultValue = builder.defaultValue;
+    /**
+     * app slash command的说明的默认文案
+     *
+     * <p>示例值：查询应用状态
+     *
+     * @param defaultValue
+     * @return
+     */
+    public Builder defaultValue(String defaultValue) {
+      this.defaultValue = defaultValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AppSlashCommandI18nText build() {
+      return new AppSlashCommandI18nText(this);
     }
+  }
 
-    public AppSlashCommandI18n getI18n() {
-        return this.i18n;
-    }
-
-    public void setI18n(AppSlashCommandI18n i18n) {
-        this.i18n = i18n;
-    }
-
-    public String getDefaultValue() {
-        return this.defaultValue;
-    }
-
-    public void setDefaultValue(String defaultValue) {
-        this.defaultValue = defaultValue;
-    }
-
-    public static class Builder {
-        /**
-         * app slash command的说明的国际化文案
-         * <p> 示例值：
-         */
-        private AppSlashCommandI18n i18n;
-        /**
-         * app slash command的说明的默认文案
-         * <p> 示例值：查询应用状态
-         */
-        private String defaultValue;
-
-        /**
-         * app slash command的说明的国际化文案
-         * <p> 示例值：
-         *
-         * @param i18n
-         * @return
-         */
-        public Builder i18n(AppSlashCommandI18n i18n) {
-            this.i18n = i18n;
-            return this;
-        }
-
-
-        /**
-         * app slash command的说明的默认文案
-         * <p> 示例值：查询应用状态
-         *
-         * @param defaultValue
-         * @return
-         */
-        public Builder defaultValue(String defaultValue) {
-            this.defaultValue = defaultValue;
-            return this;
-        }
-
-
-        public AppSlashCommandI18nText build() {
-            return new AppSlashCommandI18nText(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

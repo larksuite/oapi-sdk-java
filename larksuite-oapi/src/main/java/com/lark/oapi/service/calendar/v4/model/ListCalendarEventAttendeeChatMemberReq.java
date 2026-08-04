@@ -13,283 +13,322 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.calendar.v4.enums.*;
 
 public class ListCalendarEventAttendeeChatMemberReq {
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+   *
+   * <p>示例值：23jhysaxxxxsysy
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 一次请求返回的最大群成员数量。
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 应用身份下指定操作用户的日历日程数据
+   *
+   * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+   */
+  @Query
+  @SerializedName("op_user_id")
+  private String opUserId;
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getOpUserId() {
+    return this.opUserId;
+  }
+
+  public void setOpUserId(String opUserId) {
+    this.opUserId = opUserId;
+  }
+
+  /**
+   * 日程所在的日历 ID。关于日历 ID 可参见[日历 ID
+   * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+   *
+   * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+   */
+  @Path
+  @SerializedName("calendar_id")
+  private String calendarId;
+
+  /**
+   * 日程 ID。;;创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。;-
+   * [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);-
+   * [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+   *
+   * <p>示例值：xxxxxxxxx_0
+   */
+  @Path
+  @SerializedName("event_id")
+  private String eventId;
+
+  /**
+   * 群组类型参与人 ID。;;添加日程参与人时，会返回参与人
+   * ID（attendee_id），你也可以调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)接口，查询指定日程的参与人
+   * ID。
+   *
+   * <p>示例值：chat_xxxxxx
+   */
+  @Path
+  @SerializedName("attendee_id")
+  private String attendeeId;
+
+  public String getCalendarId() {
+    return this.calendarId;
+  }
+
+  public void setCalendarId(String calendarId) {
+    this.calendarId = calendarId;
+  }
+
+  public String getEventId() {
+    return this.eventId;
+  }
+
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
+  }
+
+  public String getAttendeeId() {
+    return this.attendeeId;
+  }
+
+  public void setAttendeeId(String attendeeId) {
+    this.attendeeId = attendeeId;
+  }
+
+  // builder 开始
+  public ListCalendarEventAttendeeChatMemberReq() {}
+
+  public ListCalendarEventAttendeeChatMemberReq(Builder builder) {
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-     * <p> 示例值：23jhysaxxxxsysy
+     *
+     * <p>示例值：23jhysaxxxxsysy
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 分页大小
-     * <p> 示例值：10
+     * 一次请求返回的最大群成员数量。
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 应用身份下指定操作用户的日历日程数据
-     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
      */
-    @Query
-    @SerializedName("op_user_id")
-    private String opUserId;
+    this.opUserId = builder.opUserId;
     /**
-     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     * 日程所在的日历 ID。关于日历 ID 可参见[日历 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
-    @Path
-    @SerializedName("calendar_id")
-    private String calendarId;
+    this.calendarId = builder.calendarId;
     /**
-     * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-     * <p> 示例值：xxxxxxxxx_0
+     * 日程 ID。;;创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。;-
+     * [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);-
+     * [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+     *
+     * <p>示例值：xxxxxxxxx_0
      */
-    @Path
-    @SerializedName("event_id")
-    private String eventId;
+    this.eventId = builder.eventId;
     /**
-     * 群参与人 ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
-     * <p> 示例值：chat_xxxxxx
+     * 群组类型参与人 ID。;;添加日程参与人时，会返回参与人
+     * ID（attendee_id），你也可以调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)接口，查询指定日程的参与人
+     * ID。
+     *
+     * <p>示例值：chat_xxxxxx
      */
-    @Path
-    @SerializedName("attendee_id")
-    private String attendeeId;
+    this.attendeeId = builder.attendeeId;
+  }
 
-    // builder 开始
-    public ListCalendarEventAttendeeChatMemberReq() {
+  public static class Builder {
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+    private Integer pageSize; // 一次请求返回的最大群成员数量。
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String opUserId; // 应用身份下指定操作用户的日历日程数据
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+     *
+     * <p>示例值：23jhysaxxxxsysy
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public ListCalendarEventAttendeeChatMemberReq(Builder builder) {
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：23jhysaxxxxsysy
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 应用身份下指定操作用户的日历日程数据
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         */
-        this.opUserId = builder.opUserId;
-        /**
-         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         */
-        this.calendarId = builder.calendarId;
-        /**
-         * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-         * <p> 示例值：xxxxxxxxx_0
-         */
-        this.eventId = builder.eventId;
-        /**
-         * 群参与人 ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
-         * <p> 示例值：chat_xxxxxx
-         */
-        this.attendeeId = builder.attendeeId;
+    /**
+     * 一次请求返回的最大群成员数量。
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.calendar.v4.enums.ListCalendarEventAttendeeChatMemberUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.calendar.v4.enums.ListCalendarEventAttendeeChatMemberUserIdTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    /**
+     * 应用身份下指定操作用户的日历日程数据
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     *
+     * @param opUserId
+     * @return
+     */
+    public Builder opUserId(String opUserId) {
+      this.opUserId = opUserId;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    private String calendarId; // 日程所在的日历 ID。关于日历 ID 可参见[日历 ID
+    // 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+    private String eventId; // 日程 ID。;;创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。;-
+    // [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+    private String attendeeId; // 群组类型参与人 ID。;;添加日程参与人时，会返回参与人
+
+    // ID（attendee_id），你也可以调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)接口，查询指定日程的参与人 ID。
+
+    /**
+     * 日程所在的日历 ID。关于日历 ID 可参见[日历 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
+    public Builder calendarId(String calendarId) {
+      this.calendarId = calendarId;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 日程 ID。;;创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。;-
+     * [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);-
+     * [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+     *
+     * <p>示例值：xxxxxxxxx_0
+     *
+     * @param eventId
+     * @return
+     */
+    public Builder eventId(String eventId) {
+      this.eventId = eventId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 群组类型参与人 ID。;;添加日程参与人时，会返回参与人
+     * ID（attendee_id），你也可以调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)接口，查询指定日程的参与人
+     * ID。
+     *
+     * <p>示例值：chat_xxxxxx
+     *
+     * @param attendeeId
+     * @return
+     */
+    public Builder attendeeId(String attendeeId) {
+      this.attendeeId = attendeeId;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    public ListCalendarEventAttendeeChatMemberReq build() {
+      return new ListCalendarEventAttendeeChatMemberReq(this);
     }
+  }
 
-    public String getOpUserId() {
-        return this.opUserId;
-    }
-
-    public void setOpUserId(String opUserId) {
-        this.opUserId = opUserId;
-    }
-
-    public String getCalendarId() {
-        return this.calendarId;
-    }
-
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
-    }
-
-    public String getEventId() {
-        return this.eventId;
-    }
-
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
-    }
-
-    public String getAttendeeId() {
-        return this.attendeeId;
-    }
-
-    public void setAttendeeId(String attendeeId) {
-        this.attendeeId = attendeeId;
-    }
-
-    public static class Builder {
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-        private Integer pageSize; // 分页大小
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String opUserId; // 应用身份下指定操作用户的日历日程数据
-        private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-        private String eventId; // 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-        private String attendeeId; // 群参与人 ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：23jhysaxxxxsysy
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.ListCalendarEventAttendeeChatMemberUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.ListCalendarEventAttendeeChatMemberUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 应用身份下指定操作用户的日历日程数据
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         *
-         * @param opUserId
-         * @return
-         */
-        public Builder opUserId(String opUserId) {
-            this.opUserId = opUserId;
-            return this;
-        }
-
-        /**
-         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         *
-         * @param calendarId
-         * @return
-         */
-        public Builder calendarId(String calendarId) {
-            this.calendarId = calendarId;
-            return this;
-        }
-
-
-        /**
-         * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-         * <p> 示例值：xxxxxxxxx_0
-         *
-         * @param eventId
-         * @return
-         */
-        public Builder eventId(String eventId) {
-            this.eventId = eventId;
-            return this;
-        }
-
-
-        /**
-         * 群参与人 ID。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
-         * <p> 示例值：chat_xxxxxx
-         *
-         * @param attendeeId
-         * @return
-         */
-        public Builder attendeeId(String attendeeId) {
-            this.attendeeId = attendeeId;
-            return this;
-        }
-
-
-        public ListCalendarEventAttendeeChatMemberReq build() {
-            return new ListCalendarEventAttendeeChatMemberReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

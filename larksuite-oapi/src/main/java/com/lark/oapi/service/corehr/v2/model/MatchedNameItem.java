@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MatchedNameItem {
+  /**
+   * 匹配到的数据ID
+   *
+   * <p>示例值："7628452466778244613"
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 匹配到的数据名称
+   *
+   * <p>示例值："部门A"
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 匹配到的名称路径
+   *
+   * <p>示例值："部门A/部门B/部门C"
+   */
+  @SerializedName("name_path")
+  private String namePath;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getNamePath() {
+    return this.namePath;
+  }
+
+  public void setNamePath(String namePath) {
+    this.namePath = namePath;
+  }
+
+  // builder 开始
+  public MatchedNameItem() {}
+
+  public MatchedNameItem(Builder builder) {
     /**
      * 匹配到的数据ID
-     * <p> 示例值："7628452466778244613"
+     *
+     * <p>示例值："7628452466778244613"
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 匹配到的数据名称
-     * <p> 示例值："部门A"
+     *
+     * <p>示例值："部门A"
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 匹配到的名称路径
-     * <p> 示例值："部门A/部门B/部门C"
+     *
+     * <p>示例值："部门A/部门B/部门C"
      */
-    @SerializedName("name_path")
+    this.namePath = builder.namePath;
+  }
+
+  public static class Builder {
+    /**
+     * 匹配到的数据ID
+     *
+     * <p>示例值："7628452466778244613"
+     */
+    private String id;
+
+    /**
+     * 匹配到的数据名称
+     *
+     * <p>示例值："部门A"
+     */
+    private String name;
+
+    /**
+     * 匹配到的名称路径
+     *
+     * <p>示例值："部门A/部门B/部门C"
+     */
     private String namePath;
 
-    // builder 开始
-    public MatchedNameItem() {
+    /**
+     * 匹配到的数据ID
+     *
+     * <p>示例值："7628452466778244613"
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public MatchedNameItem(Builder builder) {
-        /**
-         * 匹配到的数据ID
-         * <p> 示例值："7628452466778244613"
-         */
-        this.id = builder.id;
-        /**
-         * 匹配到的数据名称
-         * <p> 示例值："部门A"
-         */
-        this.name = builder.name;
-        /**
-         * 匹配到的名称路径
-         * <p> 示例值："部门A/部门B/部门C"
-         */
-        this.namePath = builder.namePath;
+    /**
+     * 匹配到的数据名称
+     *
+     * <p>示例值："部门A"
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 匹配到的名称路径
+     *
+     * <p>示例值："部门A/部门B/部门C"
+     *
+     * @param namePath
+     * @return
+     */
+    public Builder namePath(String namePath) {
+      this.namePath = namePath;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public MatchedNameItem build() {
+      return new MatchedNameItem(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getNamePath() {
-        return this.namePath;
-    }
-
-    public void setNamePath(String namePath) {
-        this.namePath = namePath;
-    }
-
-    public static class Builder {
-        /**
-         * 匹配到的数据ID
-         * <p> 示例值："7628452466778244613"
-         */
-        private String id;
-        /**
-         * 匹配到的数据名称
-         * <p> 示例值："部门A"
-         */
-        private String name;
-        /**
-         * 匹配到的名称路径
-         * <p> 示例值："部门A/部门B/部门C"
-         */
-        private String namePath;
-
-        /**
-         * 匹配到的数据ID
-         * <p> 示例值："7628452466778244613"
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 匹配到的数据名称
-         * <p> 示例值："部门A"
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 匹配到的名称路径
-         * <p> 示例值："部门A/部门B/部门C"
-         *
-         * @param namePath
-         * @return
-         */
-        public Builder namePath(String namePath) {
-            this.namePath = namePath;
-            return this;
-        }
-
-
-        public MatchedNameItem build() {
-            return new MatchedNameItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LangText {
+  /**
+   * 语言码
+   *
+   * <p>示例值：cn_zh
+   */
+  @SerializedName("lang")
+  private String lang;
+
+  /**
+   * 语言码对应的文本
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getLang() {
+    return this.lang;
+  }
+
+  public void setLang(String lang) {
+    this.lang = lang;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public LangText() {}
+
+  public LangText(Builder builder) {
     /**
      * 语言码
-     * <p> 示例值：cn_zh
+     *
+     * <p>示例值：cn_zh
      */
-    @SerializedName("lang")
-    private String lang;
+    this.lang = builder.lang;
     /**
-     * 语言码对应的文本阿
-     * <p> 示例值：test
+     * 语言码对应的文本
+     *
+     * <p>示例值：test
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 语言码
+     *
+     * <p>示例值：cn_zh
+     */
+    private String lang;
+
+    /**
+     * 语言码对应的文本
+     *
+     * <p>示例值：test
+     */
     private String value;
 
-    // builder 开始
-    public LangText() {
+    /**
+     * 语言码
+     *
+     * <p>示例值：cn_zh
+     *
+     * @param lang
+     * @return
+     */
+    public Builder lang(String lang) {
+      this.lang = lang;
+      return this;
     }
 
-    public LangText(Builder builder) {
-        /**
-         * 语言码
-         * <p> 示例值：cn_zh
-         */
-        this.lang = builder.lang;
-        /**
-         * 语言码对应的文本阿
-         * <p> 示例值：test
-         */
-        this.value = builder.value;
+    /**
+     * 语言码对应的文本
+     *
+     * <p>示例值：test
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public LangText build() {
+      return new LangText(this);
     }
+  }
 
-    public String getLang() {
-        return this.lang;
-    }
-
-    public void setLang(String lang) {
-        this.lang = lang;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 语言码
-         * <p> 示例值：cn_zh
-         */
-        private String lang;
-        /**
-         * 语言码对应的文本阿
-         * <p> 示例值：test
-         */
-        private String value;
-
-        /**
-         * 语言码
-         * <p> 示例值：cn_zh
-         *
-         * @param lang
-         * @return
-         */
-        public Builder lang(String lang) {
-            this.lang = lang;
-            return this;
-        }
-
-
-        /**
-         * 语言码对应的文本阿
-         * <p> 示例值：test
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public LangText build() {
-            return new LangText(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

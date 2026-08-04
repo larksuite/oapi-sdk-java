@@ -13,21 +13,20 @@
 
 package com.lark.oapi.service.wiki.v2.enums;
 
-/**
- * 表示知识空间类型（团队空间 或 个人空间）
- */
+/** 表示知识空间类型（团队空间 或 个人空间 或 我的文档库） */
 public enum SpaceSpaceTypeEnum {
-    TEAM("team"), // 团队空间
-    PERSON("person"), // 个人空间
-    MYLIBRARY("my_library"), // 我的文档库
-    ;
-    private String value;
+  TEAM("team"), // 团队空间
+  PERSON("person"), // 个人空间
+  MYLIBRARY("my_library"), // 我的文档库，归个人管理。一人仅可拥有一个，无法添加其他管理员
+  MYLIBRARYRESIGNED("my_library_resigned"), // 离职文档库，离职成员的个人文档库，成员离职后将转移给指定成员管理。
+  ;
+  private String value;
 
-    SpaceSpaceTypeEnum(String value) {
-        this.value = value;
-    }
+  SpaceSpaceTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

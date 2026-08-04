@@ -13,27 +13,25 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 风险邮件原因
- */
+/** 风险邮件原因 */
 public enum SecurityLevelRiskReasonEnum {
-    NO_REASON("NO_REASON"), // 未知
-    IMPERSONATE_DOMAIN("IMPERSONATE_DOMAIN"), // 相似域名仿冒
-    IMPERSONATE_KP_NAME("IMPERSONATE_KP_NAME"), // KP姓名仿冒
-    UNAUTH_EXTERNAL("UNAUTH_EXTERNAL"), // 未认证外部域名
-    MALICIOUS_URL("MALICIOUS_URL"), // 恶意链接
-    MALICIOUS_ATTACHMENT("MALICIOUS_ATTACHMENT"), // 高危附件
-    PHISHING("PHISHING"), // 钓鱼邮件
-    IMPERSONATE_PARTNER("IMPERSONATE_PARTNER"), // 仿冒合作伙伴
-    EXTERNAL_ENCRYPTION_ATTACHMENT("EXTERNAL_ENCRYPTION_ATTACHMENT"), // 外部邮件携带加密附件
-    ;
-    private String value;
+  NO_REASON("NO_REASON"), // 未知
+  IMPERSONATE_DOMAIN("IMPERSONATE_DOMAIN"), // 相似域名仿冒
+  IMPERSONATE_KP_NAME("IMPERSONATE_KP_NAME"), // KP姓名仿冒
+  UNAUTH_EXTERNAL("UNAUTH_EXTERNAL"), // 未认证外部域名
+  MALICIOUS_URL("MALICIOUS_URL"), // 恶意链接
+  MALICIOUS_ATTACHMENT("MALICIOUS_ATTACHMENT"), // 高危附件
+  PHISHING("PHISHING"), // 钓鱼邮件
+  IMPERSONATE_PARTNER("IMPERSONATE_PARTNER"), // 仿冒合作伙伴
+  EXTERNAL_ENCRYPTION_ATTACHMENT("EXTERNAL_ENCRYPTION_ATTACHMENT"), // 外部邮件携带加密附件
+  ;
+  private String value;
 
-    SecurityLevelRiskReasonEnum(String value) {
-        this.value = value;
-    }
+  SecurityLevelRiskReasonEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

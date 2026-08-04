@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MetricTag {
+  /**
+   * 标签 ID
+   *
+   * <p>示例值：7302271694582841364
+   */
+  @SerializedName("tag_id")
+  private String tagId;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tag_name")
+  private I18n tagName;
+
+  /**
+   * 标签顺序
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("index")
+  private Integer index;
+
+  /**
+   * 创建时间戳（单位：毫秒）
+   *
+   * <p>示例值：1678870702466
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间戳（单位：毫秒）
+   *
+   * <p>示例值：1605529625257
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  public String getTagId() {
+    return this.tagId;
+  }
+
+  public void setTagId(String tagId) {
+    this.tagId = tagId;
+  }
+
+  public I18n getTagName() {
+    return this.tagName;
+  }
+
+  public void setTagName(I18n tagName) {
+    this.tagName = tagName;
+  }
+
+  public Integer getIndex() {
+    return this.index;
+  }
+
+  public void setIndex(Integer index) {
+    this.index = index;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  // builder 开始
+  public MetricTag() {}
+
+  public MetricTag(Builder builder) {
     /**
      * 标签 ID
-     * <p> 示例值：7302271694582841364
+     *
+     * <p>示例值：7302271694582841364
      */
-    @SerializedName("tag_id")
-    private String tagId;
+    this.tagId = builder.tagId;
     /**
-     * 标签名称
-     * <p> 示例值：
+     * 项目名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("tag_name")
-    private I18n tagName;
+    this.tagName = builder.tagName;
     /**
      * 标签顺序
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("index")
-    private Integer index;
+    this.index = builder.index;
     /**
      * 创建时间戳（单位：毫秒）
-     * <p> 示例值：1678870702466
+     *
+     * <p>示例值：1678870702466
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间戳（单位：毫秒）
-     * <p> 示例值：1605529625257
+     *
+     * <p>示例值：1605529625257
      */
-    @SerializedName("update_time")
+    this.updateTime = builder.updateTime;
+  }
+
+  public static class Builder {
+    /**
+     * 标签 ID
+     *
+     * <p>示例值：7302271694582841364
+     */
+    private String tagId;
+
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    private I18n tagName;
+
+    /**
+     * 标签顺序
+     *
+     * <p>示例值：100
+     */
+    private Integer index;
+
+    /**
+     * 创建时间戳（单位：毫秒）
+     *
+     * <p>示例值：1678870702466
+     */
+    private String createTime;
+
+    /**
+     * 更新时间戳（单位：毫秒）
+     *
+     * <p>示例值：1605529625257
+     */
     private String updateTime;
 
-    // builder 开始
-    public MetricTag() {
+    /**
+     * 标签 ID
+     *
+     * <p>示例值：7302271694582841364
+     *
+     * @param tagId
+     * @return
+     */
+    public Builder tagId(String tagId) {
+      this.tagId = tagId;
+      return this;
     }
 
-    public MetricTag(Builder builder) {
-        /**
-         * 标签 ID
-         * <p> 示例值：7302271694582841364
-         */
-        this.tagId = builder.tagId;
-        /**
-         * 标签名称
-         * <p> 示例值：
-         */
-        this.tagName = builder.tagName;
-        /**
-         * 标签顺序
-         * <p> 示例值：100
-         */
-        this.index = builder.index;
-        /**
-         * 创建时间戳（单位：毫秒）
-         * <p> 示例值：1678870702466
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间戳（单位：毫秒）
-         * <p> 示例值：1605529625257
-         */
-        this.updateTime = builder.updateTime;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param tagName
+     * @return
+     */
+    public Builder tagName(I18n tagName) {
+      this.tagName = tagName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 标签顺序
+     *
+     * <p>示例值：100
+     *
+     * @param index
+     * @return
+     */
+    public Builder index(Integer index) {
+      this.index = index;
+      return this;
     }
 
-    public String getTagId() {
-        return this.tagId;
+    /**
+     * 创建时间戳（单位：毫秒）
+     *
+     * <p>示例值：1678870702466
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setTagId(String tagId) {
-        this.tagId = tagId;
+    /**
+     * 更新时间戳（单位：毫秒）
+     *
+     * <p>示例值：1605529625257
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public I18n getTagName() {
-        return this.tagName;
+    public MetricTag build() {
+      return new MetricTag(this);
     }
+  }
 
-    public void setTagName(I18n tagName) {
-        this.tagName = tagName;
-    }
-
-    public Integer getIndex() {
-        return this.index;
-    }
-
-    public void setIndex(Integer index) {
-        this.index = index;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public static class Builder {
-        /**
-         * 标签 ID
-         * <p> 示例值：7302271694582841364
-         */
-        private String tagId;
-        /**
-         * 标签名称
-         * <p> 示例值：
-         */
-        private I18n tagName;
-        /**
-         * 标签顺序
-         * <p> 示例值：100
-         */
-        private Integer index;
-        /**
-         * 创建时间戳（单位：毫秒）
-         * <p> 示例值：1678870702466
-         */
-        private String createTime;
-        /**
-         * 更新时间戳（单位：毫秒）
-         * <p> 示例值：1605529625257
-         */
-        private String updateTime;
-
-        /**
-         * 标签 ID
-         * <p> 示例值：7302271694582841364
-         *
-         * @param tagId
-         * @return
-         */
-        public Builder tagId(String tagId) {
-            this.tagId = tagId;
-            return this;
-        }
-
-
-        /**
-         * 标签名称
-         * <p> 示例值：
-         *
-         * @param tagName
-         * @return
-         */
-        public Builder tagName(I18n tagName) {
-            this.tagName = tagName;
-            return this;
-        }
-
-
-        /**
-         * 标签顺序
-         * <p> 示例值：100
-         *
-         * @param index
-         * @return
-         */
-        public Builder index(Integer index) {
-            this.index = index;
-            return this;
-        }
-
-
-        /**
-         * 创建时间戳（单位：毫秒）
-         * <p> 示例值：1678870702466
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间戳（单位：毫秒）
-         * <p> 示例值：1605529625257
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        public MetricTag build() {
-            return new MetricTag(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

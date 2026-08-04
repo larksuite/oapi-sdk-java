@@ -13,149 +13,161 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeSourceWikiFilter {
+  /**
+   * 知识库文档 token 列表。获取方式参考[如何获取云文档资源相关
+   * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("wiki_tokens")
+  private String[] wikiTokens;
+
+  /**
+   * 知识库节点 token 列表。获取方式参考[如何获取云文档资源相关
+   * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("node_tokens")
+  private String[] nodeTokens;
+
+  /**
+   * 知识库空间 ID 列表。获取方式参考[如何获取云文档资源相关
+   * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("space_ids")
+  private String[] spaceIds;
+
+  public String[] getWikiTokens() {
+    return this.wikiTokens;
+  }
+
+  public void setWikiTokens(String[] wikiTokens) {
+    this.wikiTokens = wikiTokens;
+  }
+
+  public String[] getNodeTokens() {
+    return this.nodeTokens;
+  }
+
+  public void setNodeTokens(String[] nodeTokens) {
+    this.nodeTokens = nodeTokens;
+  }
+
+  public String[] getSpaceIds() {
+    return this.spaceIds;
+  }
+
+  public void setSpaceIds(String[] spaceIds) {
+    this.spaceIds = spaceIds;
+  }
+
+  // builder 开始
+  public KnowledgeSourceWikiFilter() {}
+
+  public KnowledgeSourceWikiFilter(Builder builder) {
     /**
-     * 知识库文档 token 列表
-     * <p> 示例值：
+     * 知识库文档 token 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("wiki_tokens")
+    this.wikiTokens = builder.wikiTokens;
+    /**
+     * 知识库节点 token 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
+     */
+    this.nodeTokens = builder.nodeTokens;
+    /**
+     * 知识库空间 ID 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
+     */
+    this.spaceIds = builder.spaceIds;
+  }
+
+  public static class Builder {
+    /**
+     * 知识库文档 token 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
+     */
     private String[] wikiTokens;
+
     /**
-     * 知识库节点 token 列表
-     * <p> 示例值：
+     * 知识库节点 token 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("node_tokens")
     private String[] nodeTokens;
+
     /**
-     * 知识库空间 ID 列表
-     * <p> 示例值：
+     * 知识库空间 ID 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("space_ids")
     private String[] spaceIds;
 
-    // builder 开始
-    public KnowledgeSourceWikiFilter() {
+    /**
+     * 知识库文档 token 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
+     *
+     * @param wikiTokens
+     * @return
+     */
+    public Builder wikiTokens(String[] wikiTokens) {
+      this.wikiTokens = wikiTokens;
+      return this;
     }
 
-    public KnowledgeSourceWikiFilter(Builder builder) {
-        /**
-         * 知识库文档 token 列表
-         * <p> 示例值：
-         */
-        this.wikiTokens = builder.wikiTokens;
-        /**
-         * 知识库节点 token 列表
-         * <p> 示例值：
-         */
-        this.nodeTokens = builder.nodeTokens;
-        /**
-         * 知识库空间 ID 列表
-         * <p> 示例值：
-         */
-        this.spaceIds = builder.spaceIds;
+    /**
+     * 知识库节点 token 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
+     *
+     * @param nodeTokens
+     * @return
+     */
+    public Builder nodeTokens(String[] nodeTokens) {
+      this.nodeTokens = nodeTokens;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 知识库空间 ID 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
+     *
+     * @param spaceIds
+     * @return
+     */
+    public Builder spaceIds(String[] spaceIds) {
+      this.spaceIds = spaceIds;
+      return this;
     }
 
-    public String[] getWikiTokens() {
-        return this.wikiTokens;
+    public KnowledgeSourceWikiFilter build() {
+      return new KnowledgeSourceWikiFilter(this);
     }
+  }
 
-    public void setWikiTokens(String[] wikiTokens) {
-        this.wikiTokens = wikiTokens;
-    }
-
-    public String[] getNodeTokens() {
-        return this.nodeTokens;
-    }
-
-    public void setNodeTokens(String[] nodeTokens) {
-        this.nodeTokens = nodeTokens;
-    }
-
-    public String[] getSpaceIds() {
-        return this.spaceIds;
-    }
-
-    public void setSpaceIds(String[] spaceIds) {
-        this.spaceIds = spaceIds;
-    }
-
-    public static class Builder {
-        /**
-         * 知识库文档 token 列表
-         * <p> 示例值：
-         */
-        private String[] wikiTokens;
-        /**
-         * 知识库节点 token 列表
-         * <p> 示例值：
-         */
-        private String[] nodeTokens;
-        /**
-         * 知识库空间 ID 列表
-         * <p> 示例值：
-         */
-        private String[] spaceIds;
-
-        /**
-         * 知识库文档 token 列表
-         * <p> 示例值：
-         *
-         * @param wikiTokens
-         * @return
-         */
-        public Builder wikiTokens(String[] wikiTokens) {
-            this.wikiTokens = wikiTokens;
-            return this;
-        }
-
-
-        /**
-         * 知识库节点 token 列表
-         * <p> 示例值：
-         *
-         * @param nodeTokens
-         * @return
-         */
-        public Builder nodeTokens(String[] nodeTokens) {
-            this.nodeTokens = nodeTokens;
-            return this;
-        }
-
-
-        /**
-         * 知识库空间 ID 列表
-         * <p> 示例值：
-         *
-         * @param spaceIds
-         * @return
-         */
-        public Builder spaceIds(String[] spaceIds) {
-            this.spaceIds = spaceIds;
-            return this;
-        }
-
-
-        public KnowledgeSourceWikiFilter build() {
-            return new KnowledgeSourceWikiFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

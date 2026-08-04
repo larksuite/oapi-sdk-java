@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.baike.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UploadFileRespBody {
-    /**
-     * 文件 token
-     * <p> 示例值：boxbcEcmKiD3SGHvgqWTpvdc7jc
-     */
-    @SerializedName("file_token")
-    private String fileToken;
+  /**
+   * 文件 token
+   *
+   * <p>示例值：boxbcEcmKiD****vgqWTpvdc7jc
+   */
+  @SerializedName("file_token")
+  private String fileToken;
 
-    public String getFileToken() {
-        return this.fileToken;
-    }
+  public String getFileToken() {
+    return this.fileToken;
+  }
 
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
 }

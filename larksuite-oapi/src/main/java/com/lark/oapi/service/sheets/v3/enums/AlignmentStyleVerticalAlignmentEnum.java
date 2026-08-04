@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.sheets.v3.enums;
 
-/**
- * 垂直对齐策略
- */
+/** 垂直对齐策略 */
 public enum AlignmentStyleVerticalAlignmentEnum {
-    TOP("Top"), // 顶部对齐
-    MIDDLE("Middle"), // 垂直居中
-    BOTTOM("Bottom"), // 底部对齐
-    ;
-    private String value;
+  TOP("Top"), // 顶部对齐
+  MIDDLE("Middle"), // 垂直居中
+  BOTTOM("Bottom"), // 底部对齐
+  ;
+  private String value;
 
-    AlignmentStyleVerticalAlignmentEnum(String value) {
-        this.value = value;
-    }
+  AlignmentStyleVerticalAlignmentEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobDataView {
+  /**
+   * job data视图列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("views")
+  private JobDataDataView[] views;
+
+  public JobDataDataView[] getViews() {
+    return this.views;
+  }
+
+  public void setViews(JobDataDataView[] views) {
+    this.views = views;
+  }
+
+  // builder 开始
+  public JobDataView() {}
+
+  public JobDataView(Builder builder) {
     /**
      * job data视图列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("views")
+    this.views = builder.views;
+  }
+
+  public static class Builder {
+    /**
+     * job data视图列表
+     *
+     * <p>示例值：
+     */
     private JobDataDataView[] views;
 
-    // builder 开始
-    public JobDataView() {
+    /**
+     * job data视图列表
+     *
+     * <p>示例值：
+     *
+     * @param views
+     * @return
+     */
+    public Builder views(JobDataDataView[] views) {
+      this.views = views;
+      return this;
     }
 
-    public JobDataView(Builder builder) {
-        /**
-         * job data视图列表
-         * <p> 示例值：
-         */
-        this.views = builder.views;
+    public JobDataView build() {
+      return new JobDataView(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public JobDataDataView[] getViews() {
-        return this.views;
-    }
-
-    public void setViews(JobDataDataView[] views) {
-        this.views = views;
-    }
-
-    public static class Builder {
-        /**
-         * job data视图列表
-         * <p> 示例值：
-         */
-        private JobDataDataView[] views;
-
-        /**
-         * job data视图列表
-         * <p> 示例值：
-         *
-         * @param views
-         * @return
-         */
-        public Builder views(JobDataDataView[] views) {
-            this.views = views;
-            return this;
-        }
-
-
-        public JobDataView build() {
-            return new JobDataView(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

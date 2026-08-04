@@ -13,111 +13,114 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MoveTalentTalentPoolReqBody {
+  /**
+   * 人才 ID，可通过接口
+   * [获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)
+   * 获取
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("talent_id")
+  private String talentId;
+
+  /**
+   * 加入类型，加入后是否从其他库移出
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("add_type")
+  private Integer addType;
+
+  public String getTalentId() {
+    return this.talentId;
+  }
+
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
+
+  public Integer getAddType() {
+    return this.addType;
+  }
+
+  public void setAddType(Integer addType) {
+    this.addType = addType;
+  }
+
+  // builder 开始
+  public MoveTalentTalentPoolReqBody() {}
+
+  public MoveTalentTalentPoolReqBody(Builder builder) {
     /**
-     * 人才ID
-     * <p> 示例值：6930815272790114324
+     * 人才 ID，可通过接口
+     * [获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)
+     * 获取
+     *
+     * <p>示例值：6930815272790114324
      */
-    @SerializedName("talent_id")
+    this.talentId = builder.talentId;
+    /**
+     * 加入类型，加入后是否从其他库移出
+     *
+     * <p>示例值：1
+     */
+    this.addType = builder.addType;
+  }
+
+  public static class Builder {
+    /**
+     * 人才 ID，可通过接口
+     * [获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)
+     * 获取
+     *
+     * <p>示例值：6930815272790114324
+     */
     private String talentId;
+
     /**
-     * 操作类型
-     * <p> 示例值：
+     * 加入类型，加入后是否从其他库移出
+     *
+     * <p>示例值：1
      */
-    @SerializedName("add_type")
     private Integer addType;
 
-    // builder 开始
-    public MoveTalentTalentPoolReqBody() {
+    /**
+     * 人才 ID，可通过接口
+     * [获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)
+     * 获取
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param talentId
+     * @return
+     */
+    public Builder talentId(String talentId) {
+      this.talentId = talentId;
+      return this;
     }
 
-    public MoveTalentTalentPoolReqBody(Builder builder) {
-        /**
-         * 人才ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.talentId = builder.talentId;
-        /**
-         * 操作类型
-         * <p> 示例值：
-         */
-        this.addType = builder.addType;
+    /**
+     * 加入类型，加入后是否从其他库移出
+     *
+     * <p>示例值：1
+     *
+     * @param addType
+     * @return
+     */
+    public Builder addType(Integer addType) {
+      this.addType = addType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MoveTalentTalentPoolReqBody build() {
+      return new MoveTalentTalentPoolReqBody(this);
     }
+  }
 
-    public String getTalentId() {
-        return this.talentId;
-    }
-
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
-    }
-
-    public Integer getAddType() {
-        return this.addType;
-    }
-
-    public void setAddType(Integer addType) {
-        this.addType = addType;
-    }
-
-    public static class Builder {
-        /**
-         * 人才ID
-         * <p> 示例值：6930815272790114324
-         */
-        private String talentId;
-        /**
-         * 操作类型
-         * <p> 示例值：
-         */
-        private Integer addType;
-
-        /**
-         * 人才ID
-         * <p> 示例值：6930815272790114324
-         *
-         * @param talentId
-         * @return
-         */
-        public Builder talentId(String talentId) {
-            this.talentId = talentId;
-            return this;
-        }
-
-
-        /**
-         * 操作类型
-         * <p> 示例值：
-         *
-         * @param addType
-         * @return
-         */
-        public Builder addType(Integer addType) {
-            this.addType = addType;
-            return this;
-        }
-
-
-        public MoveTalentTalentPoolReqBody build() {
-            return new MoveTalentTalentPoolReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

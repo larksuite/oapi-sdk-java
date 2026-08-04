@@ -13,358 +13,391 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserMessageSubscription {
+  /**
+   * 订阅ID
+   *
+   * <p>示例值：7624381840576482832
+   */
+  @SerializedName("subscription_id")
+  private String subscriptionId;
+
+  /**
+   * 订阅者ID
+   *
+   * <p>示例值：ou_04d3620d98a287f97a1429cfeab93e2b
+   */
+  @SerializedName("subscriber_id")
+  private String subscriberId;
+
+  /**
+   * 订阅资源类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resource_type")
+  private Integer resourceType;
+
+  /**
+   * 资源ID
+   *
+   * <p>示例值：ou_04d3620d98a287f97a1429cfeab93e2b
+   */
+  @SerializedName("resource_id")
+  private String resourceId;
+
+  /**
+   * 订阅状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1775189731407
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1775189731407
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 版本号
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("version")
+  private String version;
+
+  public String getSubscriptionId() {
+    return this.subscriptionId;
+  }
+
+  public void setSubscriptionId(String subscriptionId) {
+    this.subscriptionId = subscriptionId;
+  }
+
+  public String getSubscriberId() {
+    return this.subscriberId;
+  }
+
+  public void setSubscriberId(String subscriberId) {
+    this.subscriberId = subscriberId;
+  }
+
+  public Integer getResourceType() {
+    return this.resourceType;
+  }
+
+  public void setResourceType(Integer resourceType) {
+    this.resourceType = resourceType;
+  }
+
+  public String getResourceId() {
+    return this.resourceId;
+  }
+
+  public void setResourceId(String resourceId) {
+    this.resourceId = resourceId;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getVersion() {
+    return this.version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  // builder 开始
+  public UserMessageSubscription() {}
+
+  public UserMessageSubscription(Builder builder) {
     /**
      * 订阅ID
-     * <p> 示例值：7624381840576482832
+     *
+     * <p>示例值：7624381840576482832
      */
-    @SerializedName("subscription_id")
-    private String subscriptionId;
+    this.subscriptionId = builder.subscriptionId;
     /**
      * 订阅者ID
-     * <p> 示例值：ou_04d3620d98a287f97a1429cfeab93e2b
+     *
+     * <p>示例值：ou_04d3620d98a287f97a1429cfeab93e2b
      */
-    @SerializedName("subscriber_id")
-    private String subscriberId;
+    this.subscriberId = builder.subscriberId;
     /**
      * 订阅资源类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("resource_type")
-    private Integer resourceType;
+    this.resourceType = builder.resourceType;
     /**
      * 资源ID
-     * <p> 示例值：ou_04d3620d98a287f97a1429cfeab93e2b
+     *
+     * <p>示例值：ou_04d3620d98a287f97a1429cfeab93e2b
      */
-    @SerializedName("resource_id")
-    private String resourceId;
+    this.resourceId = builder.resourceId;
     /**
      * 订阅状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 创建时间
-     * <p> 示例值：1775189731407
+     *
+     * <p>示例值：1775189731407
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间
-     * <p> 示例值：1775189731407
+     *
+     * <p>示例值：1775189731407
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 版本号
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("version")
+    this.version = builder.version;
+  }
+
+  public static class Builder {
+    /**
+     * 订阅ID
+     *
+     * <p>示例值：7624381840576482832
+     */
+    private String subscriptionId;
+
+    /**
+     * 订阅者ID
+     *
+     * <p>示例值：ou_04d3620d98a287f97a1429cfeab93e2b
+     */
+    private String subscriberId;
+
+    /**
+     * 订阅资源类型
+     *
+     * <p>示例值：
+     */
+    private Integer resourceType;
+
+    /**
+     * 资源ID
+     *
+     * <p>示例值：ou_04d3620d98a287f97a1429cfeab93e2b
+     */
+    private String resourceId;
+
+    /**
+     * 订阅状态
+     *
+     * <p>示例值：
+     */
+    private Integer status;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1775189731407
+     */
+    private String createTime;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1775189731407
+     */
+    private String updateTime;
+
+    /**
+     * 版本号
+     *
+     * <p>示例值：1
+     */
     private String version;
 
-    // builder 开始
-    public UserMessageSubscription() {
+    /**
+     * 订阅ID
+     *
+     * <p>示例值：7624381840576482832
+     *
+     * @param subscriptionId
+     * @return
+     */
+    public Builder subscriptionId(String subscriptionId) {
+      this.subscriptionId = subscriptionId;
+      return this;
     }
 
-    public UserMessageSubscription(Builder builder) {
-        /**
-         * 订阅ID
-         * <p> 示例值：7624381840576482832
-         */
-        this.subscriptionId = builder.subscriptionId;
-        /**
-         * 订阅者ID
-         * <p> 示例值：ou_04d3620d98a287f97a1429cfeab93e2b
-         */
-        this.subscriberId = builder.subscriberId;
-        /**
-         * 订阅资源类型
-         * <p> 示例值：
-         */
-        this.resourceType = builder.resourceType;
-        /**
-         * 资源ID
-         * <p> 示例值：ou_04d3620d98a287f97a1429cfeab93e2b
-         */
-        this.resourceId = builder.resourceId;
-        /**
-         * 订阅状态
-         * <p> 示例值：
-         */
-        this.status = builder.status;
-        /**
-         * 创建时间
-         * <p> 示例值：1775189731407
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1775189731407
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 版本号
-         * <p> 示例值：1
-         */
-        this.version = builder.version;
+    /**
+     * 订阅者ID
+     *
+     * <p>示例值：ou_04d3620d98a287f97a1429cfeab93e2b
+     *
+     * @param subscriberId
+     * @return
+     */
+    public Builder subscriberId(String subscriberId) {
+      this.subscriberId = subscriberId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 订阅资源类型
+     *
+     * <p>示例值：
+     *
+     * @param resourceType
+     * @return
+     */
+    public Builder resourceType(Integer resourceType) {
+      this.resourceType = resourceType;
+      return this;
     }
 
-    public String getSubscriptionId() {
-        return this.subscriptionId;
+    /**
+     * 订阅资源类型
+     *
+     * <p>示例值：
+     *
+     * @param resourceType {@link
+     *     com.lark.oapi.service.im.v1.enums.UserMessageSubscriptionMessageSubscriptionResourceTypeEnum}
+     * @return
+     */
+    public Builder resourceType(
+        com.lark.oapi.service.im.v1.enums.UserMessageSubscriptionMessageSubscriptionResourceTypeEnum
+            resourceType) {
+      this.resourceType = resourceType.getValue();
+      return this;
     }
 
-    public void setSubscriptionId(String subscriptionId) {
-        this.subscriptionId = subscriptionId;
+    /**
+     * 资源ID
+     *
+     * <p>示例值：ou_04d3620d98a287f97a1429cfeab93e2b
+     *
+     * @param resourceId
+     * @return
+     */
+    public Builder resourceId(String resourceId) {
+      this.resourceId = resourceId;
+      return this;
     }
 
-    public String getSubscriberId() {
-        return this.subscriberId;
+    /**
+     * 订阅状态
+     *
+     * <p>示例值：
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public void setSubscriberId(String subscriberId) {
-        this.subscriberId = subscriberId;
+    /**
+     * 订阅状态
+     *
+     * <p>示例值：
+     *
+     * @param status {@link
+     *     com.lark.oapi.service.im.v1.enums.UserMessageSubscriptionMessageSubscriptionStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.im.v1.enums.UserMessageSubscriptionMessageSubscriptionStatusEnum
+            status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public Integer getResourceType() {
-        return this.resourceType;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1775189731407
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setResourceType(Integer resourceType) {
-        this.resourceType = resourceType;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1775189731407
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public String getResourceId() {
-        return this.resourceId;
+    /**
+     * 版本号
+     *
+     * <p>示例值：1
+     *
+     * @param version
+     * @return
+     */
+    public Builder version(String version) {
+      this.version = version;
+      return this;
     }
 
-    public void setResourceId(String resourceId) {
-        this.resourceId = resourceId;
+    public UserMessageSubscription build() {
+      return new UserMessageSubscription(this);
     }
+  }
 
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getVersion() {
-        return this.version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public static class Builder {
-        /**
-         * 订阅ID
-         * <p> 示例值：7624381840576482832
-         */
-        private String subscriptionId;
-        /**
-         * 订阅者ID
-         * <p> 示例值：ou_04d3620d98a287f97a1429cfeab93e2b
-         */
-        private String subscriberId;
-        /**
-         * 订阅资源类型
-         * <p> 示例值：
-         */
-        private Integer resourceType;
-        /**
-         * 资源ID
-         * <p> 示例值：ou_04d3620d98a287f97a1429cfeab93e2b
-         */
-        private String resourceId;
-        /**
-         * 订阅状态
-         * <p> 示例值：
-         */
-        private Integer status;
-        /**
-         * 创建时间
-         * <p> 示例值：1775189731407
-         */
-        private String createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1775189731407
-         */
-        private String updateTime;
-        /**
-         * 版本号
-         * <p> 示例值：1
-         */
-        private String version;
-
-        /**
-         * 订阅ID
-         * <p> 示例值：7624381840576482832
-         *
-         * @param subscriptionId
-         * @return
-         */
-        public Builder subscriptionId(String subscriptionId) {
-            this.subscriptionId = subscriptionId;
-            return this;
-        }
-
-
-        /**
-         * 订阅者ID
-         * <p> 示例值：ou_04d3620d98a287f97a1429cfeab93e2b
-         *
-         * @param subscriberId
-         * @return
-         */
-        public Builder subscriberId(String subscriberId) {
-            this.subscriberId = subscriberId;
-            return this;
-        }
-
-
-        /**
-         * 订阅资源类型
-         * <p> 示例值：
-         *
-         * @param resourceType
-         * @return
-         */
-        public Builder resourceType(Integer resourceType) {
-            this.resourceType = resourceType;
-            return this;
-        }
-
-        /**
-         * 订阅资源类型
-         * <p> 示例值：
-         *
-         * @param resourceType {@link com.lark.oapi.service.im.v1.enums.UserMessageSubscriptionMessageSubscriptionResourceTypeEnum}
-         * @return
-         */
-        public Builder resourceType(com.lark.oapi.service.im.v1.enums.UserMessageSubscriptionMessageSubscriptionResourceTypeEnum resourceType) {
-            this.resourceType = resourceType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 资源ID
-         * <p> 示例值：ou_04d3620d98a287f97a1429cfeab93e2b
-         *
-         * @param resourceId
-         * @return
-         */
-        public Builder resourceId(String resourceId) {
-            this.resourceId = resourceId;
-            return this;
-        }
-
-
-        /**
-         * 订阅状态
-         * <p> 示例值：
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 订阅状态
-         * <p> 示例值：
-         *
-         * @param status {@link com.lark.oapi.service.im.v1.enums.UserMessageSubscriptionMessageSubscriptionStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.im.v1.enums.UserMessageSubscriptionMessageSubscriptionStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1775189731407
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1775189731407
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 版本号
-         * <p> 示例值：1
-         *
-         * @param version
-         * @return
-         */
-        public Builder version(String version) {
-            this.version = version;
-            return this;
-        }
-
-
-        public UserMessageSubscription build() {
-            return new UserMessageSubscription(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

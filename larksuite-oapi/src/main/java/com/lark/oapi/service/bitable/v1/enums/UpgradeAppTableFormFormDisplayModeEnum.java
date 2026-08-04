@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.bitable.v1.enums;
 
-/**
- * 表单布局模式。可选值;- traditional：传统布局;- one_question_per_page：一页一题布局:
- */
+/** 表单布局模式。 */
 public enum UpgradeAppTableFormFormDisplayModeEnum {
-    TRADITIONAL("traditional"), // 传统布局
-    ONE_QUESTION_PER_PAGE("one_question_per_page"), // 一页一题布局
-    ;
-    private String value;
+  TRADITIONAL("traditional"), // 传统布局
+  ONE_QUESTION_PER_PAGE("one_question_per_page"), // 一页一题布局
+  ;
+  private String value;
 
-    UpgradeAppTableFormFormDisplayModeEnum(String value) {
-        this.value = value;
-    }
+  UpgradeAppTableFormFormDisplayModeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

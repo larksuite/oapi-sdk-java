@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.aily.v1.enums;
 
-/**
- * 切片规则
- */
+/** 切片规则 */
 public enum DataAssetKnowledgeChunkSettingRuleTypeEnum {
-    SEPARATOR("separator"), // 按标识符
-    INTELLIGENT("intelligent"), // 智能切片
-    ;
-    private String value;
+  SEPARATOR("separator"), // 按标识符
+  INTELLIGENT("intelligent"), // 智能切片
+  ;
+  private String value;
 
-    DataAssetKnowledgeChunkSettingRuleTypeEnum(String value) {
-        this.value = value;
-    }
+  DataAssetKnowledgeChunkSettingRuleTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

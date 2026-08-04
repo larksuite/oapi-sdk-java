@@ -13,34 +13,32 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 动态类型，不同类型 ext 内的 user_id_list 含义不一样
- */
+/** 动态类型。不同的动态类型，对应 ext 返回值也不同，具体参考以下各枚举值描述。 */
 public enum InstanceTimelineTypeEnum {
-    START("START"), // 审批开始
-    PASS("PASS"), // 通过
-    REJECT("REJECT"), // 拒绝
-    AUTOPASS("AUTO_PASS"), // 自动通过
-    AUTOREJECT("AUTO_REJECT"), // 自动拒绝
-    REMOVEREPEAT("REMOVE_REPEAT"), // 去重
-    TRANSFER("TRANSFER"), // 转交
-    ADDAPPROVERBEFORE("ADD_APPROVER_BEFORE"), // 前加签
-    ADDAPPROVER("ADD_APPROVER"), // 并加签
-    ADDAPPROVERAFTER("ADD_APPROVER_AFTER"), // 后加签
-    DELETEAPPROVER("DELETE_APPROVER"), // 减签
-    ROLLBACKSELECTED("ROLLBACK_SELECTED"), // 指定回退
-    ROLLBACK("ROLLBACK"), // 全部回退
-    CANCEL("CANCEL"), // 撤回
-    DELETE("DELETE"), // 删除
-    CC("CC"), // 抄送
-    ;
-    private String value;
+  START("START"), // 审批开始。对应的 ext 参数不会返回值。
+  PASS("PASS"), // 通过。对应的 ext 参数不会返回值。
+  REJECT("REJECT"), // 拒绝。对应的 ext 参数不会返回值。
+  AUTOPASS("AUTO_PASS"), // 自动通过。对应的 ext 参数不会返回值。
+  AUTOREJECT("AUTO_REJECT"), // 自动拒绝。对应的 ext 参数不会返回值。
+  REMOVEREPEAT("REMOVE_REPEAT"), // 去重。对应的 ext 参数不会返回值。
+  TRANSFER("TRANSFER"), // 转交。对应的 ext 参数返回的 user_id_list 包含被转交人的用户 ID。
+  ADDAPPROVERBEFORE("ADD_APPROVER_BEFORE"), // 前加签。对应的 ext 参数返回的 user_id_list 包含被加签人的用户 ID。
+  ADDAPPROVER("ADD_APPROVER"), // 并加签。对应的 ext 参数返回的 user_id_list 包含被加签人的用户 ID。
+  ADDAPPROVERAFTER("ADD_APPROVER_AFTER"), // 后加签。对应的 ext 参数返回的 user_id_list 包含被加签人的用户 ID。
+  DELETEAPPROVER("DELETE_APPROVER"), // 减签。对应的 ext 参数返回的 user_id_list 包含被加签人的用户 ID。
+  ROLLBACKSELECTED("ROLLBACK_SELECTED"), // 指定回退。对应的 ext 参数不会返回值。
+  ROLLBACK("ROLLBACK"), // 全部回退。对应的 ext 参数不会返回值。
+  CANCEL("CANCEL"), // 撤回。对应的 ext 参数不会返回值。
+  DELETE("DELETE"), // 删除。对应的 ext 参数不会返回值。
+  CC("CC"), // 抄送。对应的 ext 参数返回的 user_id 包含抄送人的用户 ID。
+  ;
+  private String value;
 
-    InstanceTimelineTypeEnum(String value) {
-        this.value = value;
-    }
+  InstanceTimelineTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

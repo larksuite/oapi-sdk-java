@@ -13,382 +13,420 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TextStyle {
+  /**
+   * 对齐方式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("align")
+  private Integer align;
+
+  /**
+   * todo 的完成状态。支持对 Todo 块进行修改
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("done")
+  private Boolean done;
+
+  /**
+   * 文本的折叠状态。支持对 Heading1~9、和有子块的 Text、Ordered、Bullet 和 Todo 块进行修改
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("folded")
+  private Boolean folded;
+
+  /**
+   * 代码块的语言类型。仅支持对 Code 块进行修改
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("language")
+  private Integer language;
+
+  /**
+   * 代码块是否自动换行。支持对 Code 块进行修改
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("wrap")
+  private Boolean wrap;
+
+  /**
+   * 块的背景色
+   *
+   * <p>示例值：LightGrayBackground
+   */
+  @SerializedName("background_color")
+  private String backgroundColor;
+
+  /**
+   * 首行缩进级别。仅支持对 Text 块进行修改。
+   *
+   * <p>示例值：NoIndent
+   */
+  @SerializedName("indentation_level")
+  private String indentationLevel;
+
+  /**
+   * 用于确定有序列表项编号，为具体数值或'auto';- 开始新列表时，有序列表编号从 1 开始，sequence='1';- 手动修改为非连续编号时，有序列表编号为设定的具体数值，如
+   * sequence='3';- 继续编号时，有序列表编号自动连续，sequence='auto';- 部分历史数据和通过 OpenAPI 创建的有序列表不返回此字段
+   *
+   * <p>示例值："auto"
+   */
+  @SerializedName("sequence")
+  private String sequence;
+
+  public Integer getAlign() {
+    return this.align;
+  }
+
+  public void setAlign(Integer align) {
+    this.align = align;
+  }
+
+  public Boolean getDone() {
+    return this.done;
+  }
+
+  public void setDone(Boolean done) {
+    this.done = done;
+  }
+
+  public Boolean getFolded() {
+    return this.folded;
+  }
+
+  public void setFolded(Boolean folded) {
+    this.folded = folded;
+  }
+
+  public Integer getLanguage() {
+    return this.language;
+  }
+
+  public void setLanguage(Integer language) {
+    this.language = language;
+  }
+
+  public Boolean getWrap() {
+    return this.wrap;
+  }
+
+  public void setWrap(Boolean wrap) {
+    this.wrap = wrap;
+  }
+
+  public String getBackgroundColor() {
+    return this.backgroundColor;
+  }
+
+  public void setBackgroundColor(String backgroundColor) {
+    this.backgroundColor = backgroundColor;
+  }
+
+  public String getIndentationLevel() {
+    return this.indentationLevel;
+  }
+
+  public void setIndentationLevel(String indentationLevel) {
+    this.indentationLevel = indentationLevel;
+  }
+
+  public String getSequence() {
+    return this.sequence;
+  }
+
+  public void setSequence(String sequence) {
+    this.sequence = sequence;
+  }
+
+  // builder 开始
+  public TextStyle() {}
+
+  public TextStyle(Builder builder) {
     /**
      * 对齐方式
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("align")
+    this.align = builder.align;
+    /**
+     * todo 的完成状态。支持对 Todo 块进行修改
+     *
+     * <p>示例值：true
+     */
+    this.done = builder.done;
+    /**
+     * 文本的折叠状态。支持对 Heading1~9、和有子块的 Text、Ordered、Bullet 和 Todo 块进行修改
+     *
+     * <p>示例值：true
+     */
+    this.folded = builder.folded;
+    /**
+     * 代码块的语言类型。仅支持对 Code 块进行修改
+     *
+     * <p>示例值：1
+     */
+    this.language = builder.language;
+    /**
+     * 代码块是否自动换行。支持对 Code 块进行修改
+     *
+     * <p>示例值：true
+     */
+    this.wrap = builder.wrap;
+    /**
+     * 块的背景色
+     *
+     * <p>示例值：LightGrayBackground
+     */
+    this.backgroundColor = builder.backgroundColor;
+    /**
+     * 首行缩进级别。仅支持对 Text 块进行修改。
+     *
+     * <p>示例值：NoIndent
+     */
+    this.indentationLevel = builder.indentationLevel;
+    /**
+     * 用于确定有序列表项编号，为具体数值或'auto';- 开始新列表时，有序列表编号从 1 开始，sequence='1';- 手动修改为非连续编号时，有序列表编号为设定的具体数值，如
+     * sequence='3';- 继续编号时，有序列表编号自动连续，sequence='auto';- 部分历史数据和通过 OpenAPI 创建的有序列表不返回此字段
+     *
+     * <p>示例值："auto"
+     */
+    this.sequence = builder.sequence;
+  }
+
+  public static class Builder {
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：1
+     */
     private Integer align;
+
     /**
-     * todo 的完成状态
-     * <p> 示例值：true
+     * todo 的完成状态。支持对 Todo 块进行修改
+     *
+     * <p>示例值：true
      */
-    @SerializedName("done")
     private Boolean done;
+
     /**
-     * 文本的折叠状态
-     * <p> 示例值：true
+     * 文本的折叠状态。支持对 Heading1~9、和有子块的 Text、Ordered、Bullet 和 Todo 块进行修改
+     *
+     * <p>示例值：true
      */
-    @SerializedName("folded")
     private Boolean folded;
+
     /**
-     * 代码块语言
-     * <p> 示例值：1
+     * 代码块的语言类型。仅支持对 Code 块进行修改
+     *
+     * <p>示例值：1
      */
-    @SerializedName("language")
     private Integer language;
+
     /**
-     * 代码块是否自动换行
-     * <p> 示例值：true
+     * 代码块是否自动换行。支持对 Code 块进行修改
+     *
+     * <p>示例值：true
      */
-    @SerializedName("wrap")
     private Boolean wrap;
+
     /**
-     * 块背景色
-     * <p> 示例值：LightGrayBackground
+     * 块的背景色
+     *
+     * <p>示例值：LightGrayBackground
      */
-    @SerializedName("background_color")
     private String backgroundColor;
+
     /**
-     * 首行缩进级别
-     * <p> 示例值：NoIndent
+     * 首行缩进级别。仅支持对 Text 块进行修改。
+     *
+     * <p>示例值：NoIndent
      */
-    @SerializedName("indentation_level")
     private String indentationLevel;
+
     /**
-     * 用于确定有序列表项编号，为具体数值或'auto'
-     * <p> 示例值："auto"
+     * 用于确定有序列表项编号，为具体数值或'auto';- 开始新列表时，有序列表编号从 1 开始，sequence='1';- 手动修改为非连续编号时，有序列表编号为设定的具体数值，如
+     * sequence='3';- 继续编号时，有序列表编号自动连续，sequence='auto';- 部分历史数据和通过 OpenAPI 创建的有序列表不返回此字段
+     *
+     * <p>示例值："auto"
      */
-    @SerializedName("sequence")
     private String sequence;
 
-    // builder 开始
-    public TextStyle() {
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：1
+     *
+     * @param align
+     * @return
+     */
+    public Builder align(Integer align) {
+      this.align = align;
+      return this;
     }
 
-    public TextStyle(Builder builder) {
-        /**
-         * 对齐方式
-         * <p> 示例值：1
-         */
-        this.align = builder.align;
-        /**
-         * todo 的完成状态
-         * <p> 示例值：true
-         */
-        this.done = builder.done;
-        /**
-         * 文本的折叠状态
-         * <p> 示例值：true
-         */
-        this.folded = builder.folded;
-        /**
-         * 代码块语言
-         * <p> 示例值：1
-         */
-        this.language = builder.language;
-        /**
-         * 代码块是否自动换行
-         * <p> 示例值：true
-         */
-        this.wrap = builder.wrap;
-        /**
-         * 块背景色
-         * <p> 示例值：LightGrayBackground
-         */
-        this.backgroundColor = builder.backgroundColor;
-        /**
-         * 首行缩进级别
-         * <p> 示例值：NoIndent
-         */
-        this.indentationLevel = builder.indentationLevel;
-        /**
-         * 用于确定有序列表项编号，为具体数值或'auto'
-         * <p> 示例值："auto"
-         */
-        this.sequence = builder.sequence;
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：1
+     *
+     * @param align {@link com.lark.oapi.service.docx.v1.enums.TextStyleAlignEnum}
+     * @return
+     */
+    public Builder align(com.lark.oapi.service.docx.v1.enums.TextStyleAlignEnum align) {
+      this.align = align.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * todo 的完成状态。支持对 Todo 块进行修改
+     *
+     * <p>示例值：true
+     *
+     * @param done
+     * @return
+     */
+    public Builder done(Boolean done) {
+      this.done = done;
+      return this;
     }
 
-    public Integer getAlign() {
-        return this.align;
+    /**
+     * 文本的折叠状态。支持对 Heading1~9、和有子块的 Text、Ordered、Bullet 和 Todo 块进行修改
+     *
+     * <p>示例值：true
+     *
+     * @param folded
+     * @return
+     */
+    public Builder folded(Boolean folded) {
+      this.folded = folded;
+      return this;
     }
 
-    public void setAlign(Integer align) {
-        this.align = align;
+    /**
+     * 代码块的语言类型。仅支持对 Code 块进行修改
+     *
+     * <p>示例值：1
+     *
+     * @param language
+     * @return
+     */
+    public Builder language(Integer language) {
+      this.language = language;
+      return this;
     }
 
-    public Boolean getDone() {
-        return this.done;
+    /**
+     * 代码块的语言类型。仅支持对 Code 块进行修改
+     *
+     * <p>示例值：1
+     *
+     * @param language {@link com.lark.oapi.service.docx.v1.enums.TextStyleCodeLanguageEnum}
+     * @return
+     */
+    public Builder language(
+        com.lark.oapi.service.docx.v1.enums.TextStyleCodeLanguageEnum language) {
+      this.language = language.getValue();
+      return this;
     }
 
-    public void setDone(Boolean done) {
-        this.done = done;
+    /**
+     * 代码块是否自动换行。支持对 Code 块进行修改
+     *
+     * <p>示例值：true
+     *
+     * @param wrap
+     * @return
+     */
+    public Builder wrap(Boolean wrap) {
+      this.wrap = wrap;
+      return this;
     }
 
-    public Boolean getFolded() {
-        return this.folded;
+    /**
+     * 块的背景色
+     *
+     * <p>示例值：LightGrayBackground
+     *
+     * @param backgroundColor
+     * @return
+     */
+    public Builder backgroundColor(String backgroundColor) {
+      this.backgroundColor = backgroundColor;
+      return this;
     }
 
-    public void setFolded(Boolean folded) {
-        this.folded = folded;
+    /**
+     * 块的背景色
+     *
+     * <p>示例值：LightGrayBackground
+     *
+     * @param backgroundColor {@link
+     *     com.lark.oapi.service.docx.v1.enums.TextStyleTextBackgroundColorEnum}
+     * @return
+     */
+    public Builder backgroundColor(
+        com.lark.oapi.service.docx.v1.enums.TextStyleTextBackgroundColorEnum backgroundColor) {
+      this.backgroundColor = backgroundColor.getValue();
+      return this;
     }
 
-    public Integer getLanguage() {
-        return this.language;
+    /**
+     * 首行缩进级别。仅支持对 Text 块进行修改。
+     *
+     * <p>示例值：NoIndent
+     *
+     * @param indentationLevel
+     * @return
+     */
+    public Builder indentationLevel(String indentationLevel) {
+      this.indentationLevel = indentationLevel;
+      return this;
     }
 
-    public void setLanguage(Integer language) {
-        this.language = language;
+    /**
+     * 首行缩进级别。仅支持对 Text 块进行修改。
+     *
+     * <p>示例值：NoIndent
+     *
+     * @param indentationLevel {@link
+     *     com.lark.oapi.service.docx.v1.enums.TextStyleIndentationLevelEnum}
+     * @return
+     */
+    public Builder indentationLevel(
+        com.lark.oapi.service.docx.v1.enums.TextStyleIndentationLevelEnum indentationLevel) {
+      this.indentationLevel = indentationLevel.getValue();
+      return this;
     }
 
-    public Boolean getWrap() {
-        return this.wrap;
+    /**
+     * 用于确定有序列表项编号，为具体数值或'auto';- 开始新列表时，有序列表编号从 1 开始，sequence='1';- 手动修改为非连续编号时，有序列表编号为设定的具体数值，如
+     * sequence='3';- 继续编号时，有序列表编号自动连续，sequence='auto';- 部分历史数据和通过 OpenAPI 创建的有序列表不返回此字段
+     *
+     * <p>示例值："auto"
+     *
+     * @param sequence
+     * @return
+     */
+    public Builder sequence(String sequence) {
+      this.sequence = sequence;
+      return this;
     }
 
-    public void setWrap(Boolean wrap) {
-        this.wrap = wrap;
+    public TextStyle build() {
+      return new TextStyle(this);
     }
+  }
 
-    public String getBackgroundColor() {
-        return this.backgroundColor;
-    }
-
-    public void setBackgroundColor(String backgroundColor) {
-        this.backgroundColor = backgroundColor;
-    }
-
-    public String getIndentationLevel() {
-        return this.indentationLevel;
-    }
-
-    public void setIndentationLevel(String indentationLevel) {
-        this.indentationLevel = indentationLevel;
-    }
-
-    public String getSequence() {
-        return this.sequence;
-    }
-
-    public void setSequence(String sequence) {
-        this.sequence = sequence;
-    }
-
-    public static class Builder {
-        /**
-         * 对齐方式
-         * <p> 示例值：1
-         */
-        private Integer align;
-        /**
-         * todo 的完成状态
-         * <p> 示例值：true
-         */
-        private Boolean done;
-        /**
-         * 文本的折叠状态
-         * <p> 示例值：true
-         */
-        private Boolean folded;
-        /**
-         * 代码块语言
-         * <p> 示例值：1
-         */
-        private Integer language;
-        /**
-         * 代码块是否自动换行
-         * <p> 示例值：true
-         */
-        private Boolean wrap;
-        /**
-         * 块背景色
-         * <p> 示例值：LightGrayBackground
-         */
-        private String backgroundColor;
-        /**
-         * 首行缩进级别
-         * <p> 示例值：NoIndent
-         */
-        private String indentationLevel;
-        /**
-         * 用于确定有序列表项编号，为具体数值或'auto'
-         * <p> 示例值："auto"
-         */
-        private String sequence;
-
-        /**
-         * 对齐方式
-         * <p> 示例值：1
-         *
-         * @param align
-         * @return
-         */
-        public Builder align(Integer align) {
-            this.align = align;
-            return this;
-        }
-
-        /**
-         * 对齐方式
-         * <p> 示例值：1
-         *
-         * @param align {@link com.lark.oapi.service.docx.v1.enums.TextStyleAlignEnum}
-         * @return
-         */
-        public Builder align(com.lark.oapi.service.docx.v1.enums.TextStyleAlignEnum align) {
-            this.align = align.getValue();
-            return this;
-        }
-
-
-        /**
-         * todo 的完成状态
-         * <p> 示例值：true
-         *
-         * @param done
-         * @return
-         */
-        public Builder done(Boolean done) {
-            this.done = done;
-            return this;
-        }
-
-
-        /**
-         * 文本的折叠状态
-         * <p> 示例值：true
-         *
-         * @param folded
-         * @return
-         */
-        public Builder folded(Boolean folded) {
-            this.folded = folded;
-            return this;
-        }
-
-
-        /**
-         * 代码块语言
-         * <p> 示例值：1
-         *
-         * @param language
-         * @return
-         */
-        public Builder language(Integer language) {
-            this.language = language;
-            return this;
-        }
-
-        /**
-         * 代码块语言
-         * <p> 示例值：1
-         *
-         * @param language {@link com.lark.oapi.service.docx.v1.enums.TextStyleCodeLanguageEnum}
-         * @return
-         */
-        public Builder language(com.lark.oapi.service.docx.v1.enums.TextStyleCodeLanguageEnum language) {
-            this.language = language.getValue();
-            return this;
-        }
-
-
-        /**
-         * 代码块是否自动换行
-         * <p> 示例值：true
-         *
-         * @param wrap
-         * @return
-         */
-        public Builder wrap(Boolean wrap) {
-            this.wrap = wrap;
-            return this;
-        }
-
-
-        /**
-         * 块背景色
-         * <p> 示例值：LightGrayBackground
-         *
-         * @param backgroundColor
-         * @return
-         */
-        public Builder backgroundColor(String backgroundColor) {
-            this.backgroundColor = backgroundColor;
-            return this;
-        }
-
-        /**
-         * 块背景色
-         * <p> 示例值：LightGrayBackground
-         *
-         * @param backgroundColor {@link com.lark.oapi.service.docx.v1.enums.TextStyleTextBackgroundColorEnum}
-         * @return
-         */
-        public Builder backgroundColor(com.lark.oapi.service.docx.v1.enums.TextStyleTextBackgroundColorEnum backgroundColor) {
-            this.backgroundColor = backgroundColor.getValue();
-            return this;
-        }
-
-
-        /**
-         * 首行缩进级别
-         * <p> 示例值：NoIndent
-         *
-         * @param indentationLevel
-         * @return
-         */
-        public Builder indentationLevel(String indentationLevel) {
-            this.indentationLevel = indentationLevel;
-            return this;
-        }
-
-        /**
-         * 首行缩进级别
-         * <p> 示例值：NoIndent
-         *
-         * @param indentationLevel {@link com.lark.oapi.service.docx.v1.enums.TextStyleIndentationLevelEnum}
-         * @return
-         */
-        public Builder indentationLevel(com.lark.oapi.service.docx.v1.enums.TextStyleIndentationLevelEnum indentationLevel) {
-            this.indentationLevel = indentationLevel.getValue();
-            return this;
-        }
-
-
-        /**
-         * 用于确定有序列表项编号，为具体数值或'auto'
-         * <p> 示例值："auto"
-         *
-         * @param sequence
-         * @return
-         */
-        public Builder sequence(String sequence) {
-            this.sequence = sequence;
-            return this;
-        }
-
-
-        public TextStyle build() {
-            return new TextStyle(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

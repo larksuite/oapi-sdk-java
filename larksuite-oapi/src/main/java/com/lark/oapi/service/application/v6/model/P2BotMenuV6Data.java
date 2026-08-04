@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2BotMenuV6Data {
-    /**
-     * 用户信息
-     * <p> 示例值：
-     */
-    @SerializedName("operator")
-    private Operator operator;
-    /**
-     * 菜单事件的唯一标识
-     * <p> 示例值：menu2022********67dfc8b885136
-     */
-    @SerializedName("event_key")
-    private String eventKey;
-    /**
-     * 用户点击菜单时间
-     * <p> 示例值：1669364458
-     */
-    @SerializedName("timestamp")
-    private Long timestamp;
+  /**
+   * 用户信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator")
+  private Operator operator;
 
-    public Operator getOperator() {
-        return this.operator;
-    }
+  /**
+   * 菜单事件的唯一标识
+   *
+   * <p>示例值：menu2022********67dfc8b885136
+   */
+  @SerializedName("event_key")
+  private String eventKey;
 
-    public void setOperator(Operator operator) {
-        this.operator = operator;
-    }
+  /**
+   * 用户点击菜单时间
+   *
+   * <p>示例值：1669364458
+   */
+  @SerializedName("timestamp")
+  private Long timestamp;
 
-    public String getEventKey() {
-        return this.eventKey;
-    }
+  public Operator getOperator() {
+    return this.operator;
+  }
 
-    public void setEventKey(String eventKey) {
-        this.eventKey = eventKey;
-    }
+  public void setOperator(Operator operator) {
+    this.operator = operator;
+  }
 
-    public Long getTimestamp() {
-        return this.timestamp;
-    }
+  public String getEventKey() {
+    return this.eventKey;
+  }
 
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
-    }
+  public void setEventKey(String eventKey) {
+    this.eventKey = eventKey;
+  }
 
+  public Long getTimestamp() {
+    return this.timestamp;
+  }
+
+  public void setTimestamp(Long timestamp) {
+    this.timestamp = timestamp;
+  }
 }

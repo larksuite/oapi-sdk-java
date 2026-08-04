@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Svg {
+  /**
+   * svg 代码
+   *
+   * <p>示例值：<svg width="100" height="100"><circle cx="50" cy="50" r="40" stroke="black"
+   * stroke-width="2" fill="red" /></svg>
+   */
+  @SerializedName("svg_code")
+  private String svgCode;
+
+  /**
+   * 资源外部标识
+   *
+   * <p>示例值：emoji_ok_v2.png
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 资源类型
+   *
+   * <p>示例值：125
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  public String getSvgCode() {
+    return this.svgCode;
+  }
+
+  public void setSvgCode(String svgCode) {
+    this.svgCode = svgCode;
+  }
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public Svg() {}
+
+  public Svg(Builder builder) {
     /**
-     * svg code
-     * <p> 示例值：code
+     * svg 代码
+     *
+     * <p>示例值：<svg width="100" height="100"><circle cx="50" cy="50" r="40" stroke="black"
+     * stroke-width="2" fill="red" /></svg>
      */
-    @SerializedName("svg_code")
-    private String svgCode;
+    this.svgCode = builder.svgCode;
     /**
      * 资源外部标识
-     * <p> 示例值：emoji_ok_v2.png
+     *
+     * <p>示例值：emoji_ok_v2.png
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * 资源类型
-     * <p> 示例值：125
+     *
+     * <p>示例值：125
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * svg 代码
+     *
+     * <p>示例值：<svg width="100" height="100"><circle cx="50" cy="50" r="40" stroke="black"
+     * stroke-width="2" fill="red" /></svg>
+     */
+    private String svgCode;
+
+    /**
+     * 资源外部标识
+     *
+     * <p>示例值：emoji_ok_v2.png
+     */
+    private String key;
+
+    /**
+     * 资源类型
+     *
+     * <p>示例值：125
+     */
     private Integer type;
 
-    // builder 开始
-    public Svg() {
+    /**
+     * svg 代码
+     *
+     * <p>示例值：<svg width="100" height="100"><circle cx="50" cy="50" r="40" stroke="black"
+     * stroke-width="2" fill="red" /></svg>
+     *
+     * @param svgCode
+     * @return
+     */
+    public Builder svgCode(String svgCode) {
+      this.svgCode = svgCode;
+      return this;
     }
 
-    public Svg(Builder builder) {
-        /**
-         * svg code
-         * <p> 示例值：code
-         */
-        this.svgCode = builder.svgCode;
-        /**
-         * 资源外部标识
-         * <p> 示例值：emoji_ok_v2.png
-         */
-        this.key = builder.key;
-        /**
-         * 资源类型
-         * <p> 示例值：125
-         */
-        this.type = builder.type;
+    /**
+     * 资源外部标识
+     *
+     * <p>示例值：emoji_ok_v2.png
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 资源类型
+     *
+     * <p>示例值：125
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public String getSvgCode() {
-        return this.svgCode;
+    public Svg build() {
+      return new Svg(this);
     }
+  }
 
-    public void setSvgCode(String svgCode) {
-        this.svgCode = svgCode;
-    }
-
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * svg code
-         * <p> 示例值：code
-         */
-        private String svgCode;
-        /**
-         * 资源外部标识
-         * <p> 示例值：emoji_ok_v2.png
-         */
-        private String key;
-        /**
-         * 资源类型
-         * <p> 示例值：125
-         */
-        private Integer type;
-
-        /**
-         * svg code
-         * <p> 示例值：code
-         *
-         * @param svgCode
-         * @return
-         */
-        public Builder svgCode(String svgCode) {
-            this.svgCode = svgCode;
-            return this;
-        }
-
-
-        /**
-         * 资源外部标识
-         * <p> 示例值：emoji_ok_v2.png
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 资源类型
-         * <p> 示例值：125
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public Svg build() {
-            return new Svg(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

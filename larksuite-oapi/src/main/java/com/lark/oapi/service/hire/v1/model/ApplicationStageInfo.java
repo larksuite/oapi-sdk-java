@@ -13,185 +13,194 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationStageInfo {
+  /**
+   * 阶段
+   * ID，可通过以下接口获取投递阶段信息[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)
+   *
+   * <p>示例值：614218419274131
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 中文名称
+   *
+   * <p>示例值：面试
+   */
+  @SerializedName("zh_name")
+  private String zhName;
+
+  /**
+   * 英文名称
+   *
+   * <p>示例值：Interview
+   */
+  @SerializedName("en_name")
+  private String enName;
+
+  /**
+   * 阶段类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getZhName() {
+    return this.zhName;
+  }
+
+  public void setZhName(String zhName) {
+    this.zhName = zhName;
+  }
+
+  public String getEnName() {
+    return this.enName;
+  }
+
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public ApplicationStageInfo() {}
+
+  public ApplicationStageInfo(Builder builder) {
     /**
-     * 阶段 ID
-     * <p> 示例值：614218419274131
+     * 阶段
+     * ID，可通过以下接口获取投递阶段信息[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)
+     *
+     * <p>示例值：614218419274131
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 阶段中文名字
-     * <p> 示例值：面试
+     * 中文名称
+     *
+     * <p>示例值：面试
      */
-    @SerializedName("zh_name")
-    private String zhName;
+    this.zhName = builder.zhName;
     /**
-     * 英文名
-     * <p> 示例值：Interview
+     * 英文名称
+     *
+     * <p>示例值：Interview
      */
-    @SerializedName("en_name")
-    private String enName;
+    this.enName = builder.enName;
     /**
      * 阶段类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 阶段
+     * ID，可通过以下接口获取投递阶段信息[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)
+     *
+     * <p>示例值：614218419274131
+     */
+    private String id;
+
+    /**
+     * 中文名称
+     *
+     * <p>示例值：面试
+     */
+    private String zhName;
+
+    /**
+     * 英文名称
+     *
+     * <p>示例值：Interview
+     */
+    private String enName;
+
+    /**
+     * 阶段类型
+     *
+     * <p>示例值：1
+     */
     private Integer type;
 
-    // builder 开始
-    public ApplicationStageInfo() {
+    /**
+     * 阶段
+     * ID，可通过以下接口获取投递阶段信息[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)
+     *
+     * <p>示例值：614218419274131
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ApplicationStageInfo(Builder builder) {
-        /**
-         * 阶段 ID
-         * <p> 示例值：614218419274131
-         */
-        this.id = builder.id;
-        /**
-         * 阶段中文名字
-         * <p> 示例值：面试
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 英文名
-         * <p> 示例值：Interview
-         */
-        this.enName = builder.enName;
-        /**
-         * 阶段类型
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
+    /**
+     * 中文名称
+     *
+     * <p>示例值：面试
+     *
+     * @param zhName
+     * @return
+     */
+    public Builder zhName(String zhName) {
+      this.zhName = zhName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 英文名称
+     *
+     * <p>示例值：Interview
+     *
+     * @param enName
+     * @return
+     */
+    public Builder enName(String enName) {
+      this.enName = enName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 阶段类型
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public ApplicationStageInfo build() {
+      return new ApplicationStageInfo(this);
     }
+  }
 
-    public String getZhName() {
-        return this.zhName;
-    }
-
-    public void setZhName(String zhName) {
-        this.zhName = zhName;
-    }
-
-    public String getEnName() {
-        return this.enName;
-    }
-
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 阶段 ID
-         * <p> 示例值：614218419274131
-         */
-        private String id;
-        /**
-         * 阶段中文名字
-         * <p> 示例值：面试
-         */
-        private String zhName;
-        /**
-         * 英文名
-         * <p> 示例值：Interview
-         */
-        private String enName;
-        /**
-         * 阶段类型
-         * <p> 示例值：1
-         */
-        private Integer type;
-
-        /**
-         * 阶段 ID
-         * <p> 示例值：614218419274131
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 阶段中文名字
-         * <p> 示例值：面试
-         *
-         * @param zhName
-         * @return
-         */
-        public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
-        }
-
-
-        /**
-         * 英文名
-         * <p> 示例值：Interview
-         *
-         * @param enName
-         * @return
-         */
-        public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
-        }
-
-
-        /**
-         * 阶段类型
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public ApplicationStageInfo build() {
-            return new ApplicationStageInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

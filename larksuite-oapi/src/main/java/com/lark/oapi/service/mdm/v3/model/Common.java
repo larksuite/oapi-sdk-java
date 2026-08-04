@@ -13,151 +13,150 @@
 
 package com.lark.oapi.service.mdm.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
+import com.lark.oapi.service.mdm.v3.enums.*;
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class Common {
+  /**
+   * 租户id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 语言集
+   *
+   * <p>示例值：
+   */
+  @SerializedName("languages")
+  private String[] languages;
+
+  /**
+   * 自定义执行器
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_executors")
+  private Map<String, String> customExecutors;
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String[] getLanguages() {
+    return this.languages;
+  }
+
+  public void setLanguages(String[] languages) {
+    this.languages = languages;
+  }
+
+  public Map<String, String> getCustomExecutors() {
+    return this.customExecutors;
+  }
+
+  public void setCustomExecutors(Map<String, String> customExecutors) {
+    this.customExecutors = customExecutors;
+  }
+
+  // builder 开始
+  public Common() {}
+
+  public Common(Builder builder) {
     /**
      * 租户id
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 语言集
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("languages")
-    private String[] languages;
+    this.languages = builder.languages;
     /**
      * 自定义执行器
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_executors")
+    this.customExecutors = builder.customExecutors;
+  }
+
+  public static class Builder {
+    /**
+     * 租户id
+     *
+     * <p>示例值：1
+     */
+    private String tenantId;
+
+    /**
+     * 语言集
+     *
+     * <p>示例值：
+     */
+    private String[] languages;
+
+    /**
+     * 自定义执行器
+     *
+     * <p>示例值：
+     */
     private Map<String, String> customExecutors;
 
-    // builder 开始
-    public Common() {
+    /**
+     * 租户id
+     *
+     * <p>示例值：1
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public Common(Builder builder) {
-        /**
-         * 租户id
-         * <p> 示例值：1
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 语言集
-         * <p> 示例值：
-         */
-        this.languages = builder.languages;
-        /**
-         * 自定义执行器
-         * <p> 示例值：
-         */
-        this.customExecutors = builder.customExecutors;
+    /**
+     * 语言集
+     *
+     * <p>示例值：
+     *
+     * @param languages
+     * @return
+     */
+    public Builder languages(String[] languages) {
+      this.languages = languages;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义执行器
+     *
+     * <p>示例值：
+     *
+     * @param customExecutors
+     * @return
+     */
+    public Builder customExecutors(Map<String, String> customExecutors) {
+      this.customExecutors = customExecutors;
+      return this;
     }
 
-    public String getTenantId() {
-        return this.tenantId;
+    public Common build() {
+      return new Common(this);
     }
+  }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public String[] getLanguages() {
-        return this.languages;
-    }
-
-    public void setLanguages(String[] languages) {
-        this.languages = languages;
-    }
-
-    public Map<String, String> getCustomExecutors() {
-        return this.customExecutors;
-    }
-
-    public void setCustomExecutors(Map<String, String> customExecutors) {
-        this.customExecutors = customExecutors;
-    }
-
-    public static class Builder {
-        /**
-         * 租户id
-         * <p> 示例值：1
-         */
-        private String tenantId;
-        /**
-         * 语言集
-         * <p> 示例值：
-         */
-        private String[] languages;
-        /**
-         * 自定义执行器
-         * <p> 示例值：
-         */
-        private Map<String, String> customExecutors;
-
-        /**
-         * 租户id
-         * <p> 示例值：1
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 语言集
-         * <p> 示例值：
-         *
-         * @param languages
-         * @return
-         */
-        public Builder languages(String[] languages) {
-            this.languages = languages;
-            return this;
-        }
-
-
-        /**
-         * 自定义执行器
-         * <p> 示例值：
-         *
-         * @param customExecutors
-         * @return
-         */
-        public Builder customExecutors(Map<String, String> customExecutors) {
-            this.customExecutors = customExecutors;
-            return this;
-        }
-
-
-        public Common build() {
-            return new Common(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GroupSet {
+  /**
+   * 用户组分组 ID
+   *
+   * <p>示例值：42dg1f52bg1g17da
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 租户ID
+   *
+   * <p>示例值：9223372036854775807
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 命名空间
+   *
+   * <p>示例值：admin
+   */
+  @SerializedName("namespace")
+  private String namespace;
+
+  /**
+   * 外部 ID，原 facade 那边的 CustomID 改名
+   *
+   * <p>示例值：abcdefg
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 用户组分组类型，1对应普通用户组的分组，2对应动态用户组的分组
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * 用户组分组下的用户组数量
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("group_count")
+  private Integer groupCount;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1727577286660828000
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1727577286660828000
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String getNamespace() {
+    return this.namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public Integer getGroupCount() {
+    return this.groupCount;
+  }
+
+  public void setGroupCount(Integer groupCount) {
+    this.groupCount = groupCount;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  // builder 开始
+  public GroupSet() {}
+
+  public GroupSet(Builder builder) {
     /**
      * 用户组分组 ID
-     * <p> 示例值：42dg1f52bg1g17da
+     *
+     * <p>示例值：42dg1f52bg1g17da
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 租户ID
-     * <p> 示例值：9223372036854775807
+     *
+     * <p>示例值：9223372036854775807
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 命名空间
-     * <p> 示例值：admin
+     *
+     * <p>示例值：admin
      */
-    @SerializedName("namespace")
-    private String namespace;
+    this.namespace = builder.namespace;
     /**
      * 外部 ID，原 facade 那边的 CustomID 改名
-     * <p> 示例值：abcdefg
+     *
+     * <p>示例值：abcdefg
      */
-    @SerializedName("external_id")
-    private String externalId;
+    this.externalId = builder.externalId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 用户组分组类型，1对应普通用户组的分组，2对应动态用户组的分组
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
      * 用户组分组下的用户组数量
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("group_count")
-    private Integer groupCount;
+    this.groupCount = builder.groupCount;
     /**
      * 创建时间
-     * <p> 示例值：1727577286660828000
+     *
+     * <p>示例值：1727577286660828000
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间
-     * <p> 示例值：1727577286660828000
+     *
+     * <p>示例值：1727577286660828000
      */
-    @SerializedName("update_time")
+    this.updateTime = builder.updateTime;
+  }
+
+  public static class Builder {
+    /**
+     * 用户组分组 ID
+     *
+     * <p>示例值：42dg1f52bg1g17da
+     */
+    private String id;
+
+    /**
+     * 租户ID
+     *
+     * <p>示例值：9223372036854775807
+     */
+    private String tenantId;
+
+    /**
+     * 命名空间
+     *
+     * <p>示例值：admin
+     */
+    private String namespace;
+
+    /**
+     * 外部 ID，原 facade 那边的 CustomID 改名
+     *
+     * <p>示例值：abcdefg
+     */
+    private String externalId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 用户组分组类型，1对应普通用户组的分组，2对应动态用户组的分组
+     *
+     * <p>示例值：1
+     */
+    private Integer type;
+
+    /**
+     * 用户组分组下的用户组数量
+     *
+     * <p>示例值：1
+     */
+    private Integer groupCount;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1727577286660828000
+     */
+    private String createTime;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1727577286660828000
+     */
     private String updateTime;
 
-    // builder 开始
-    public GroupSet() {
+    /**
+     * 用户组分组 ID
+     *
+     * <p>示例值：42dg1f52bg1g17da
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public GroupSet(Builder builder) {
-        /**
-         * 用户组分组 ID
-         * <p> 示例值：42dg1f52bg1g17da
-         */
-        this.id = builder.id;
-        /**
-         * 租户ID
-         * <p> 示例值：9223372036854775807
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 命名空间
-         * <p> 示例值：admin
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 外部 ID，原 facade 那边的 CustomID 改名
-         * <p> 示例值：abcdefg
-         */
-        this.externalId = builder.externalId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 用户组分组类型，1对应普通用户组的分组，2对应动态用户组的分组
-         * <p> 示例值：1
-         */
-        this.type = builder.type;
-        /**
-         * 用户组分组下的用户组数量
-         * <p> 示例值：1
-         */
-        this.groupCount = builder.groupCount;
-        /**
-         * 创建时间
-         * <p> 示例值：1727577286660828000
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1727577286660828000
-         */
-        this.updateTime = builder.updateTime;
+    /**
+     * 租户ID
+     *
+     * <p>示例值：9223372036854775807
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 命名空间
+     *
+     * <p>示例值：admin
+     *
+     * @param namespace
+     * @return
+     */
+    public Builder namespace(String namespace) {
+      this.namespace = namespace;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 外部 ID，原 facade 那边的 CustomID 改名
+     *
+     * <p>示例值：abcdefg
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public String getTenantId() {
-        return this.tenantId;
+    /**
+     * 用户组分组类型，1对应普通用户组的分组，2对应动态用户组的分组
+     *
+     * <p>示例值：1
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
+    /**
+     * 用户组分组下的用户组数量
+     *
+     * <p>示例值：1
+     *
+     * @param groupCount
+     * @return
+     */
+    public Builder groupCount(Integer groupCount) {
+      this.groupCount = groupCount;
+      return this;
     }
 
-    public String getNamespace() {
-        return this.namespace;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1727577286660828000
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setNamespace(String namespace) {
-        this.namespace = namespace;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1727577286660828000
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public String getExternalId() {
-        return this.externalId;
+    public GroupSet build() {
+      return new GroupSet(this);
     }
+  }
 
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
-    }
-
-    public I18nText getName() {
-        return this.name;
-    }
-
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public Integer getGroupCount() {
-        return this.groupCount;
-    }
-
-    public void setGroupCount(Integer groupCount) {
-        this.groupCount = groupCount;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public static class Builder {
-        /**
-         * 用户组分组 ID
-         * <p> 示例值：42dg1f52bg1g17da
-         */
-        private String id;
-        /**
-         * 租户ID
-         * <p> 示例值：9223372036854775807
-         */
-        private String tenantId;
-        /**
-         * 命名空间
-         * <p> 示例值：admin
-         */
-        private String namespace;
-        /**
-         * 外部 ID，原 facade 那边的 CustomID 改名
-         * <p> 示例值：abcdefg
-         */
-        private String externalId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 用户组分组类型，1对应普通用户组的分组，2对应动态用户组的分组
-         * <p> 示例值：1
-         */
-        private Integer type;
-        /**
-         * 用户组分组下的用户组数量
-         * <p> 示例值：1
-         */
-        private Integer groupCount;
-        /**
-         * 创建时间
-         * <p> 示例值：1727577286660828000
-         */
-        private String createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1727577286660828000
-         */
-        private String updateTime;
-
-        /**
-         * 用户组分组 ID
-         * <p> 示例值：42dg1f52bg1g17da
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 租户ID
-         * <p> 示例值：9223372036854775807
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 命名空间
-         * <p> 示例值：admin
-         *
-         * @param namespace
-         * @return
-         */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
-
-
-        /**
-         * 外部 ID，原 facade 那边的 CustomID 改名
-         * <p> 示例值：abcdefg
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 用户组分组类型，1对应普通用户组的分组，2对应动态用户组的分组
-         * <p> 示例值：1
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 用户组分组下的用户组数量
-         * <p> 示例值：1
-         *
-         * @param groupCount
-         * @return
-         */
-        public Builder groupCount(Integer groupCount) {
-            this.groupCount = groupCount;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1727577286660828000
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1727577286660828000
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        public GroupSet build() {
-            return new GroupSet(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

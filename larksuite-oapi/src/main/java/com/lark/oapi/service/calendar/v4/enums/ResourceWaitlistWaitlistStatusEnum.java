@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.calendar.v4.enums;
 
-/**
- * 候补状态
- */
+/** 候补状态 */
 public enum ResourceWaitlistWaitlistStatusEnum {
-    WAITING("Waiting"), // 候补中
-    FAILED("Failed"), // 候补失败
-    ;
-    private String value;
+  WAITING("Waiting"), // 候补中
+  FAILED("Failed"), // 候补失败
+  ;
+  private String value;
 
-    ResourceWaitlistWaitlistStatusEnum(String value) {
-        this.value = value;
-    }
+  ResourceWaitlistWaitlistStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

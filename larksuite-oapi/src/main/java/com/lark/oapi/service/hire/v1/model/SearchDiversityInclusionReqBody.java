@@ -13,111 +13,122 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchDiversityInclusionReqBody {
+  /**
+   * 人才 ID 列表，如何获取人才 ID
+   * 请参考[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list);;**特殊说明：**;-
+   * 当通过人才 ID 列表查询时会返回对应人才最新投递的申请表附加信息。;- 当人才 ID 列表或投递 ID 列表同时存在将以人才 ID 列表为准。;- 当人才 ID 列表和投递 ID
+   * 列表都没有填写时则返回空数据。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("talent_ids")
+  private String[] talentIds;
+
+  /**
+   * 投递 ID 列表，如何获取投递 ID
+   * 请参考[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("application_ids")
+  private String[] applicationIds;
+
+  public String[] getTalentIds() {
+    return this.talentIds;
+  }
+
+  public void setTalentIds(String[] talentIds) {
+    this.talentIds = talentIds;
+  }
+
+  public String[] getApplicationIds() {
+    return this.applicationIds;
+  }
+
+  public void setApplicationIds(String[] applicationIds) {
+    this.applicationIds = applicationIds;
+  }
+
+  // builder 开始
+  public SearchDiversityInclusionReqBody() {}
+
+  public SearchDiversityInclusionReqBody(Builder builder) {
     /**
-     * 需要查询DI数据的人才ID列表
-     * <p> 示例值：
+     * 人才 ID 列表，如何获取人才 ID
+     * 请参考[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list);;**特殊说明：**;-
+     * 当通过人才 ID 列表查询时会返回对应人才最新投递的申请表附加信息。;- 当人才 ID 列表或投递 ID 列表同时存在将以人才 ID 列表为准。;- 当人才 ID 列表和投递 ID
+     * 列表都没有填写时则返回空数据。
+     *
+     * <p>示例值：
      */
-    @SerializedName("talent_ids")
+    this.talentIds = builder.talentIds;
+    /**
+     * 投递 ID 列表，如何获取投递 ID
+     * 请参考[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)
+     *
+     * <p>示例值：
+     */
+    this.applicationIds = builder.applicationIds;
+  }
+
+  public static class Builder {
+    /**
+     * 人才 ID 列表，如何获取人才 ID
+     * 请参考[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list);;**特殊说明：**;-
+     * 当通过人才 ID 列表查询时会返回对应人才最新投递的申请表附加信息。;- 当人才 ID 列表或投递 ID 列表同时存在将以人才 ID 列表为准。;- 当人才 ID 列表和投递 ID
+     * 列表都没有填写时则返回空数据。
+     *
+     * <p>示例值：
+     */
     private String[] talentIds;
+
     /**
-     * 需要查询DI数据的投递ID列表
-     * <p> 示例值：
+     * 投递 ID 列表，如何获取投递 ID
+     * 请参考[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)
+     *
+     * <p>示例值：
      */
-    @SerializedName("application_ids")
     private String[] applicationIds;
 
-    // builder 开始
-    public SearchDiversityInclusionReqBody() {
+    /**
+     * 人才 ID 列表，如何获取人才 ID
+     * 请参考[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list);;**特殊说明：**;-
+     * 当通过人才 ID 列表查询时会返回对应人才最新投递的申请表附加信息。;- 当人才 ID 列表或投递 ID 列表同时存在将以人才 ID 列表为准。;- 当人才 ID 列表和投递 ID
+     * 列表都没有填写时则返回空数据。
+     *
+     * <p>示例值：
+     *
+     * @param talentIds
+     * @return
+     */
+    public Builder talentIds(String[] talentIds) {
+      this.talentIds = talentIds;
+      return this;
     }
 
-    public SearchDiversityInclusionReqBody(Builder builder) {
-        /**
-         * 需要查询DI数据的人才ID列表
-         * <p> 示例值：
-         */
-        this.talentIds = builder.talentIds;
-        /**
-         * 需要查询DI数据的投递ID列表
-         * <p> 示例值：
-         */
-        this.applicationIds = builder.applicationIds;
+    /**
+     * 投递 ID 列表，如何获取投递 ID
+     * 请参考[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)
+     *
+     * <p>示例值：
+     *
+     * @param applicationIds
+     * @return
+     */
+    public Builder applicationIds(String[] applicationIds) {
+      this.applicationIds = applicationIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SearchDiversityInclusionReqBody build() {
+      return new SearchDiversityInclusionReqBody(this);
     }
+  }
 
-    public String[] getTalentIds() {
-        return this.talentIds;
-    }
-
-    public void setTalentIds(String[] talentIds) {
-        this.talentIds = talentIds;
-    }
-
-    public String[] getApplicationIds() {
-        return this.applicationIds;
-    }
-
-    public void setApplicationIds(String[] applicationIds) {
-        this.applicationIds = applicationIds;
-    }
-
-    public static class Builder {
-        /**
-         * 需要查询DI数据的人才ID列表
-         * <p> 示例值：
-         */
-        private String[] talentIds;
-        /**
-         * 需要查询DI数据的投递ID列表
-         * <p> 示例值：
-         */
-        private String[] applicationIds;
-
-        /**
-         * 需要查询DI数据的人才ID列表
-         * <p> 示例值：
-         *
-         * @param talentIds
-         * @return
-         */
-        public Builder talentIds(String[] talentIds) {
-            this.talentIds = talentIds;
-            return this;
-        }
-
-
-        /**
-         * 需要查询DI数据的投递ID列表
-         * <p> 示例值：
-         *
-         * @param applicationIds
-         * @return
-         */
-        public Builder applicationIds(String[] applicationIds) {
-            this.applicationIds = applicationIds;
-            return this;
-        }
-
-
-        public SearchDiversityInclusionReqBody build() {
-            return new SearchDiversityInclusionReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

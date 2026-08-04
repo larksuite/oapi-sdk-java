@@ -13,75 +13,69 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParentsDepartmentReqBody {
+  /**
+   * 部门 ID 列表，一次性最多传入 100 个部门 ID;-
+   * 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)等接口可以返回部门ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_id_list")
+  private String[] departmentIdList;
+
+  public String[] getDepartmentIdList() {
+    return this.departmentIdList;
+  }
+
+  public void setDepartmentIdList(String[] departmentIdList) {
+    this.departmentIdList = departmentIdList;
+  }
+
+  // builder 开始
+  public ParentsDepartmentReqBody() {}
+
+  public ParentsDepartmentReqBody(Builder builder) {
     /**
-     * 部门 ID 列表，一次性最多传入 100 个部门 ID
-     * <p> 示例值：
+     * 部门 ID 列表，一次性最多传入 100 个部门 ID;-
+     * 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)等接口可以返回部门ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_id_list")
+    this.departmentIdList = builder.departmentIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 部门 ID 列表，一次性最多传入 100 个部门 ID;-
+     * 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)等接口可以返回部门ID
+     *
+     * <p>示例值：
+     */
     private String[] departmentIdList;
 
-    // builder 开始
-    public ParentsDepartmentReqBody() {
+    /**
+     * 部门 ID 列表，一次性最多传入 100 个部门 ID;-
+     * 调用[【创建部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/create)[【搜索部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)等接口可以返回部门ID
+     *
+     * <p>示例值：
+     *
+     * @param departmentIdList
+     * @return
+     */
+    public Builder departmentIdList(String[] departmentIdList) {
+      this.departmentIdList = departmentIdList;
+      return this;
     }
 
-    public ParentsDepartmentReqBody(Builder builder) {
-        /**
-         * 部门 ID 列表，一次性最多传入 100 个部门 ID
-         * <p> 示例值：
-         */
-        this.departmentIdList = builder.departmentIdList;
+    public ParentsDepartmentReqBody build() {
+      return new ParentsDepartmentReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getDepartmentIdList() {
-        return this.departmentIdList;
-    }
-
-    public void setDepartmentIdList(String[] departmentIdList) {
-        this.departmentIdList = departmentIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 部门 ID 列表，一次性最多传入 100 个部门 ID
-         * <p> 示例值：
-         */
-        private String[] departmentIdList;
-
-        /**
-         * 部门 ID 列表，一次性最多传入 100 个部门 ID
-         * <p> 示例值：
-         *
-         * @param departmentIdList
-         * @return
-         */
-        public Builder departmentIdList(String[] departmentIdList) {
-            this.departmentIdList = departmentIdList;
-            return this;
-        }
-
-
-        public ParentsDepartmentReqBody build() {
-            return new ParentsDepartmentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

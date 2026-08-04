@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListTalentFolderRespBody {
-    /**
-     * 是否有下一页
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 下一页页码
-     * <p> 示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 文件夹列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private TalentFolderForList[] items;
+  /**
+   * 是否有下一页
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  /**
+   * 下一页页码
+   *
+   * <p>示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  /**
+   * 文件夹列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private TalentFolderForList[] items;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
-    public TalentFolderForList[] getItems() {
-        return this.items;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setItems(TalentFolderForList[] items) {
-        this.items = items;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
+  public TalentFolderForList[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(TalentFolderForList[] items) {
+    this.items = items;
+  }
 }

@@ -17,13 +17,13 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.personal_settings.v1.resource.SystemStatus;
 
 public class V1 {
-    private final SystemStatus systemStatus; // 系统状态
+  private final SystemStatus systemStatus; // system_status
 
-    public V1(Config config) {
-        this.systemStatus = new SystemStatus(config);
-    }
+  public V1(Config config) {
+    this.systemStatus = new SystemStatus(config);
+  }
 
-    public SystemStatus systemStatus() {
-        return systemStatus;
-    }
+  public SystemStatus systemStatus() {
+    return systemStatus;
+  }
 }

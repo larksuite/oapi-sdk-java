@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchDocWikiReqBody {
+  /**
+   * 搜索关键词（query至少搭配一种doc/wiki筛选器）
+   *
+   * <p>示例值：飞书文档使用指南
+   */
+  @SerializedName("query")
+  private String query;
+
+  /**
+   * 文档过滤参数（doc_filter与wiki_filter至少传一个）
+   *
+   * <p>示例值：{"folder_tokens": ["fld_123456"]}
+   */
+  @SerializedName("doc_filter")
+  private DocFilter docFilter;
+
+  /**
+   * Wiki过滤参数（doc_filter与wiki_filter至少传一个）
+   *
+   * <p>示例值：{"creator_ids": ["ou_789012"], "space_ids": ["space_123456"]}
+   */
+  @SerializedName("wiki_filter")
+  private WikiFilter wikiFilter;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token获取查询结果
+   *
+   * <p>示例值：token_1234567890fedcba
+   */
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：15
+   */
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  public DocFilter getDocFilter() {
+    return this.docFilter;
+  }
+
+  public void setDocFilter(DocFilter docFilter) {
+    this.docFilter = docFilter;
+  }
+
+  public WikiFilter getWikiFilter() {
+    return this.wikiFilter;
+  }
+
+  public void setWikiFilter(WikiFilter wikiFilter) {
+    this.wikiFilter = wikiFilter;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  // builder 开始
+  public SearchDocWikiReqBody() {}
+
+  public SearchDocWikiReqBody(Builder builder) {
     /**
-     * 搜索关键词
-     * <p> 示例值：飞书文档使用指南
+     * 搜索关键词（query至少搭配一种doc/wiki筛选器）
+     *
+     * <p>示例值：飞书文档使用指南
      */
-    @SerializedName("query")
-    private String query;
+    this.query = builder.query;
     /**
-     * 文档过滤参数
-     * <p> 示例值：{"folder_tokens": ["fld_123456"]}
+     * 文档过滤参数（doc_filter与wiki_filter至少传一个）
+     *
+     * <p>示例值：{"folder_tokens": ["fld_123456"]}
      */
-    @SerializedName("doc_filter")
-    private DocFilter docFilter;
+    this.docFilter = builder.docFilter;
     /**
-     * Wiki过滤参数
-     * <p> 示例值：{"creator_ids": ["ou_789012"], "space_ids": ["space_123456"]}
+     * Wiki过滤参数（doc_filter与wiki_filter至少传一个）
+     *
+     * <p>示例值：{"creator_ids": ["ou_789012"], "space_ids": ["space_123456"]}
      */
-    @SerializedName("wiki_filter")
-    private WikiFilter wikiFilter;
+    this.wikiFilter = builder.wikiFilter;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token获取查询结果
-     * <p> 示例值：token_1234567890fedcba
+     *
+     * <p>示例值：token_1234567890fedcba
      */
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 分页大小
-     * <p> 示例值：15
+     *
+     * <p>示例值：15
      */
-    @SerializedName("page_size")
+    this.pageSize = builder.pageSize;
+  }
+
+  public static class Builder {
+    /**
+     * 搜索关键词（query至少搭配一种doc/wiki筛选器）
+     *
+     * <p>示例值：飞书文档使用指南
+     */
+    private String query;
+
+    /**
+     * 文档过滤参数（doc_filter与wiki_filter至少传一个）
+     *
+     * <p>示例值：{"folder_tokens": ["fld_123456"]}
+     */
+    private DocFilter docFilter;
+
+    /**
+     * Wiki过滤参数（doc_filter与wiki_filter至少传一个）
+     *
+     * <p>示例值：{"creator_ids": ["ou_789012"], "space_ids": ["space_123456"]}
+     */
+    private WikiFilter wikiFilter;
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token获取查询结果
+     *
+     * <p>示例值：token_1234567890fedcba
+     */
+    private String pageToken;
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：15
+     */
     private Integer pageSize;
 
-    // builder 开始
-    public SearchDocWikiReqBody() {
+    /**
+     * 搜索关键词（query至少搭配一种doc/wiki筛选器）
+     *
+     * <p>示例值：飞书文档使用指南
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public SearchDocWikiReqBody(Builder builder) {
-        /**
-         * 搜索关键词
-         * <p> 示例值：飞书文档使用指南
-         */
-        this.query = builder.query;
-        /**
-         * 文档过滤参数
-         * <p> 示例值：{"folder_tokens": ["fld_123456"]}
-         */
-        this.docFilter = builder.docFilter;
-        /**
-         * Wiki过滤参数
-         * <p> 示例值：{"creator_ids": ["ou_789012"], "space_ids": ["space_123456"]}
-         */
-        this.wikiFilter = builder.wikiFilter;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token获取查询结果
-         * <p> 示例值：token_1234567890fedcba
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：15
-         */
-        this.pageSize = builder.pageSize;
+    /**
+     * 文档过滤参数（doc_filter与wiki_filter至少传一个）
+     *
+     * <p>示例值：{"folder_tokens": ["fld_123456"]}
+     *
+     * @param docFilter
+     * @return
+     */
+    public Builder docFilter(DocFilter docFilter) {
+      this.docFilter = docFilter;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * Wiki过滤参数（doc_filter与wiki_filter至少传一个）
+     *
+     * <p>示例值：{"creator_ids": ["ou_789012"], "space_ids": ["space_123456"]}
+     *
+     * @param wikiFilter
+     * @return
+     */
+    public Builder wikiFilter(WikiFilter wikiFilter) {
+      this.wikiFilter = wikiFilter;
+      return this;
     }
 
-    public String getQuery() {
-        return this.query;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token获取查询结果
+     *
+     * <p>示例值：token_1234567890fedcba
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    /**
+     * 分页大小
+     *
+     * <p>示例值：15
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public DocFilter getDocFilter() {
-        return this.docFilter;
+    public SearchDocWikiReqBody build() {
+      return new SearchDocWikiReqBody(this);
     }
+  }
 
-    public void setDocFilter(DocFilter docFilter) {
-        this.docFilter = docFilter;
-    }
-
-    public WikiFilter getWikiFilter() {
-        return this.wikiFilter;
-    }
-
-    public void setWikiFilter(WikiFilter wikiFilter) {
-        this.wikiFilter = wikiFilter;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public static class Builder {
-        /**
-         * 搜索关键词
-         * <p> 示例值：飞书文档使用指南
-         */
-        private String query;
-        /**
-         * 文档过滤参数
-         * <p> 示例值：{"folder_tokens": ["fld_123456"]}
-         */
-        private DocFilter docFilter;
-        /**
-         * Wiki过滤参数
-         * <p> 示例值：{"creator_ids": ["ou_789012"], "space_ids": ["space_123456"]}
-         */
-        private WikiFilter wikiFilter;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token获取查询结果
-         * <p> 示例值：token_1234567890fedcba
-         */
-        private String pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：15
-         */
-        private Integer pageSize;
-
-        /**
-         * 搜索关键词
-         * <p> 示例值：飞书文档使用指南
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        /**
-         * 文档过滤参数
-         * <p> 示例值：{"folder_tokens": ["fld_123456"]}
-         *
-         * @param docFilter
-         * @return
-         */
-        public Builder docFilter(DocFilter docFilter) {
-            this.docFilter = docFilter;
-            return this;
-        }
-
-
-        /**
-         * Wiki过滤参数
-         * <p> 示例值：{"creator_ids": ["ou_789012"], "space_ids": ["space_123456"]}
-         *
-         * @param wikiFilter
-         * @return
-         */
-        public Builder wikiFilter(WikiFilter wikiFilter) {
-            this.wikiFilter = wikiFilter;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token获取查询结果
-         * <p> 示例值：token_1234567890fedcba
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 分页大小
-         * <p> 示例值：15
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        public SearchDocWikiReqBody build() {
-            return new SearchDocWikiReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

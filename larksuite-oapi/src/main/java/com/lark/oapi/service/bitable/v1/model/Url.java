@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Url {
+  /**
+   * url text
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * url link
+   *
+   * <p>示例值：
+   */
+  @SerializedName("link")
+  private String link;
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getLink() {
+    return this.link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  // builder 开始
+  public Url() {}
+
+  public Url(Builder builder) {
     /**
      * url text
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * url link
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("link")
+    this.link = builder.link;
+  }
+
+  public static class Builder {
+    /**
+     * url text
+     *
+     * <p>示例值：
+     */
+    private String text;
+
+    /**
+     * url link
+     *
+     * <p>示例值：
+     */
     private String link;
 
-    // builder 开始
-    public Url() {
+    /**
+     * url text
+     *
+     * <p>示例值：
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public Url(Builder builder) {
-        /**
-         * url text
-         * <p> 示例值：
-         */
-        this.text = builder.text;
-        /**
-         * url link
-         * <p> 示例值：
-         */
-        this.link = builder.link;
+    /**
+     * url link
+     *
+     * <p>示例值：
+     *
+     * @param link
+     * @return
+     */
+    public Builder link(String link) {
+      this.link = link;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Url build() {
+      return new Url(this);
     }
+  }
 
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public static class Builder {
-        /**
-         * url text
-         * <p> 示例值：
-         */
-        private String text;
-        /**
-         * url link
-         * <p> 示例值：
-         */
-        private String link;
-
-        /**
-         * url text
-         * <p> 示例值：
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * url link
-         * <p> 示例值：
-         *
-         * @param link
-         * @return
-         */
-        public Builder link(String link) {
-            this.link = link;
-            return this;
-        }
-
-
-        public Url build() {
-            return new Url(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

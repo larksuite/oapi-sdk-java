@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TableImg {
+  /**
+   * 图片返回的结果是base64还是url
+   *
+   * <p>示例值：base64
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 图片的base64
+   *
+   * <p>示例值：data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=
+   */
+  @SerializedName("base64")
+  private String base64;
+
+  /**
+   * 图片链接
+   *
+   * <p>示例值：https://picsum.photos/400/300
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getBase64() {
+    return this.base64;
+  }
+
+  public void setBase64(String base64) {
+    this.base64 = base64;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public TableImg() {}
+
+  public TableImg(Builder builder) {
     /**
      * 图片返回的结果是base64还是url
-     * <p> 示例值：base64
+     *
+     * <p>示例值：base64
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 图片的base64
-     * <p> 示例值：data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=
+     *
+     * <p>示例值：data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=
      */
-    @SerializedName("base64")
-    private String base64;
+    this.base64 = builder.base64;
     /**
      * 图片链接
-     * <p> 示例值：https://picsum.photos/400/300
+     *
+     * <p>示例值：https://picsum.photos/400/300
      */
-    @SerializedName("url")
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 图片返回的结果是base64还是url
+     *
+     * <p>示例值：base64
+     */
+    private String type;
+
+    /**
+     * 图片的base64
+     *
+     * <p>示例值：data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=
+     */
+    private String base64;
+
+    /**
+     * 图片链接
+     *
+     * <p>示例值：https://picsum.photos/400/300
+     */
     private String url;
 
-    // builder 开始
-    public TableImg() {
+    /**
+     * 图片返回的结果是base64还是url
+     *
+     * <p>示例值：base64
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public TableImg(Builder builder) {
-        /**
-         * 图片返回的结果是base64还是url
-         * <p> 示例值：base64
-         */
-        this.type = builder.type;
-        /**
-         * 图片的base64
-         * <p> 示例值：data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=
-         */
-        this.base64 = builder.base64;
-        /**
-         * 图片链接
-         * <p> 示例值：https://picsum.photos/400/300
-         */
-        this.url = builder.url;
+    /**
+     * 图片的base64
+     *
+     * <p>示例值：data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=
+     *
+     * @param base64
+     * @return
+     */
+    public Builder base64(String base64) {
+      this.base64 = base64;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 图片链接
+     *
+     * <p>示例值：https://picsum.photos/400/300
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public TableImg build() {
+      return new TableImg(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getBase64() {
-        return this.base64;
-    }
-
-    public void setBase64(String base64) {
-        this.base64 = base64;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * 图片返回的结果是base64还是url
-         * <p> 示例值：base64
-         */
-        private String type;
-        /**
-         * 图片的base64
-         * <p> 示例值：data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=
-         */
-        private String base64;
-        /**
-         * 图片链接
-         * <p> 示例值：https://picsum.photos/400/300
-         */
-        private String url;
-
-        /**
-         * 图片返回的结果是base64还是url
-         * <p> 示例值：base64
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 图片的base64
-         * <p> 示例值：data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=
-         *
-         * @param base64
-         * @return
-         */
-        public Builder base64(String base64) {
-            this.base64 = base64;
-            return this;
-        }
-
-
-        /**
-         * 图片链接
-         * <p> 示例值：https://picsum.photos/400/300
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public TableImg build() {
-            return new TableImg(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

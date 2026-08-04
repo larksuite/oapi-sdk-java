@@ -13,180 +13,205 @@
 
 package com.lark.oapi.service.wiki.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.wiki.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TaskResult {
+  /**
+   * 任务id
+   *
+   * <p>示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务结果
+   *
+   * <p>示例值：
+   */
+  @SerializedName("move_result")
+  private MoveResult[] moveResult;
+
+  /** 示例值： */
+  @SerializedName("delete_space_result")
+  private DeleteSpaceResult deleteSpaceResult;
+
+  /** 示例值： */
+  @SerializedName("simple_task_result")
+  private SimpleTaskResult simpleTaskResult;
+
+  /**
+   * MoveWikiToDocs任务结果
+   *
+   * <p>示例值：
+   */
+  @SerializedName("move_wiki_to_docs_result")
+  private MoveWikiToDocsResult moveWikiToDocsResult;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public MoveResult[] getMoveResult() {
+    return this.moveResult;
+  }
+
+  public void setMoveResult(MoveResult[] moveResult) {
+    this.moveResult = moveResult;
+  }
+
+  public DeleteSpaceResult getDeleteSpaceResult() {
+    return this.deleteSpaceResult;
+  }
+
+  public void setDeleteSpaceResult(DeleteSpaceResult deleteSpaceResult) {
+    this.deleteSpaceResult = deleteSpaceResult;
+  }
+
+  public SimpleTaskResult getSimpleTaskResult() {
+    return this.simpleTaskResult;
+  }
+
+  public void setSimpleTaskResult(SimpleTaskResult simpleTaskResult) {
+    this.simpleTaskResult = simpleTaskResult;
+  }
+
+  public MoveWikiToDocsResult getMoveWikiToDocsResult() {
+    return this.moveWikiToDocsResult;
+  }
+
+  public void setMoveWikiToDocsResult(MoveWikiToDocsResult moveWikiToDocsResult) {
+    this.moveWikiToDocsResult = moveWikiToDocsResult;
+  }
+
+  // builder 开始
+  public TaskResult() {}
+
+  public TaskResult(Builder builder) {
     /**
      * 任务id
-     * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+     *
+     * <p>示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
      */
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
     /**
      * [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务结果
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("move_result")
+    this.moveResult = builder.moveResult;
+    /** 示例值： */
+    this.deleteSpaceResult = builder.deleteSpaceResult;
+    /** 示例值： */
+    this.simpleTaskResult = builder.simpleTaskResult;
+    /**
+     * MoveWikiToDocs任务结果
+     *
+     * <p>示例值：
+     */
+    this.moveWikiToDocsResult = builder.moveWikiToDocsResult;
+  }
+
+  public static class Builder {
+    /**
+     * 任务id
+     *
+     * <p>示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+     */
+    private String taskId;
+
+    /**
+     * [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务结果
+     *
+     * <p>示例值：
+     */
     private MoveResult[] moveResult;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("delete_space_result")
+
+    /** 示例值： */
     private DeleteSpaceResult deleteSpaceResult;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("simple_task_result")
+
+    /** 示例值： */
     private SimpleTaskResult simpleTaskResult;
 
-    // builder 开始
-    public TaskResult() {
+    /**
+     * MoveWikiToDocs任务结果
+     *
+     * <p>示例值：
+     */
+    private MoveWikiToDocsResult moveWikiToDocsResult;
+
+    /**
+     * 任务id
+     *
+     * <p>示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public TaskResult(Builder builder) {
-        /**
-         * 任务id
-         * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
-         */
-        this.taskId = builder.taskId;
-        /**
-         * [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务结果
-         * <p> 示例值：
-         */
-        this.moveResult = builder.moveResult;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.deleteSpaceResult = builder.deleteSpaceResult;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.simpleTaskResult = builder.simpleTaskResult;
+    /**
+     * [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务结果
+     *
+     * <p>示例值：
+     *
+     * @param moveResult
+     * @return
+     */
+    public Builder moveResult(MoveResult[] moveResult) {
+      this.moveResult = moveResult;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param deleteSpaceResult
+     * @return
+     */
+    public Builder deleteSpaceResult(DeleteSpaceResult deleteSpaceResult) {
+      this.deleteSpaceResult = deleteSpaceResult;
+      return this;
     }
 
-    public String getTaskId() {
-        return this.taskId;
+    /**
+     * 示例值：
+     *
+     * @param simpleTaskResult
+     * @return
+     */
+    public Builder simpleTaskResult(SimpleTaskResult simpleTaskResult) {
+      this.simpleTaskResult = simpleTaskResult;
+      return this;
     }
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
+    /**
+     * MoveWikiToDocs任务结果
+     *
+     * <p>示例值：
+     *
+     * @param moveWikiToDocsResult
+     * @return
+     */
+    public Builder moveWikiToDocsResult(MoveWikiToDocsResult moveWikiToDocsResult) {
+      this.moveWikiToDocsResult = moveWikiToDocsResult;
+      return this;
     }
 
-    public MoveResult[] getMoveResult() {
-        return this.moveResult;
+    public TaskResult build() {
+      return new TaskResult(this);
     }
+  }
 
-    public void setMoveResult(MoveResult[] moveResult) {
-        this.moveResult = moveResult;
-    }
-
-    public DeleteSpaceResult getDeleteSpaceResult() {
-        return this.deleteSpaceResult;
-    }
-
-    public void setDeleteSpaceResult(DeleteSpaceResult deleteSpaceResult) {
-        this.deleteSpaceResult = deleteSpaceResult;
-    }
-
-    public SimpleTaskResult getSimpleTaskResult() {
-        return this.simpleTaskResult;
-    }
-
-    public void setSimpleTaskResult(SimpleTaskResult simpleTaskResult) {
-        this.simpleTaskResult = simpleTaskResult;
-    }
-
-    public static class Builder {
-        /**
-         * 任务id
-         * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
-         */
-        private String taskId;
-        /**
-         * [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务结果
-         * <p> 示例值：
-         */
-        private MoveResult[] moveResult;
-        /**
-         * <p> 示例值：
-         */
-        private DeleteSpaceResult deleteSpaceResult;
-        /**
-         * <p> 示例值：
-         */
-        private SimpleTaskResult simpleTaskResult;
-
-        /**
-         * 任务id
-         * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * [移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务结果
-         * <p> 示例值：
-         *
-         * @param moveResult
-         * @return
-         */
-        public Builder moveResult(MoveResult[] moveResult) {
-            this.moveResult = moveResult;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param deleteSpaceResult
-         * @return
-         */
-        public Builder deleteSpaceResult(DeleteSpaceResult deleteSpaceResult) {
-            this.deleteSpaceResult = deleteSpaceResult;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param simpleTaskResult
-         * @return
-         */
-        public Builder simpleTaskResult(SimpleTaskResult simpleTaskResult) {
-            this.simpleTaskResult = simpleTaskResult;
-            return this;
-        }
-
-
-        public TaskResult build() {
-            return new TaskResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

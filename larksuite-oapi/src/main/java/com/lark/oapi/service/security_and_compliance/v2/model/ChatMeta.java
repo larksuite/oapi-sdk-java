@@ -13,235 +13,248 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatMeta {
+  /**
+   * 会话ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * 会话类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_type")
+  private Integer chatType;
+
+  /**
+   * 会话名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_name")
+  private String chatName;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 是否为外部会话
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_external")
+  private Boolean isExternal;
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public Integer getChatType() {
+    return this.chatType;
+  }
+
+  public void setChatType(Integer chatType) {
+    this.chatType = chatType;
+  }
+
+  public String getChatName() {
+    return this.chatName;
+  }
+
+  public void setChatName(String chatName) {
+    this.chatName = chatName;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public Boolean getIsExternal() {
+    return this.isExternal;
+  }
+
+  public void setIsExternal(Boolean isExternal) {
+    this.isExternal = isExternal;
+  }
+
+  // builder 开始
+  public ChatMeta() {}
+
+  public ChatMeta(Builder builder) {
     /**
      * 会话ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
      * 会话类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_type")
-    private Integer chatType;
+    this.chatType = builder.chatType;
     /**
      * 会话名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_name")
-    private String chatName;
+    this.chatName = builder.chatName;
     /**
      * 创建时间
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 是否为外部会话
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_external")
+    this.isExternal = builder.isExternal;
+  }
+
+  public static class Builder {
+    /**
+     * 会话ID
+     *
+     * <p>示例值：
+     */
+    private String chatId;
+
+    /**
+     * 会话类型
+     *
+     * <p>示例值：
+     */
+    private Integer chatType;
+
+    /**
+     * 会话名称
+     *
+     * <p>示例值：
+     */
+    private String chatName;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：
+     */
+    private String createTime;
+
+    /**
+     * 是否为外部会话
+     *
+     * <p>示例值：
+     */
     private Boolean isExternal;
 
-    // builder 开始
-    public ChatMeta() {
+    /**
+     * 会话ID
+     *
+     * <p>示例值：
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public ChatMeta(Builder builder) {
-        /**
-         * 会话ID
-         * <p> 示例值：
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 会话类型
-         * <p> 示例值：
-         */
-        this.chatType = builder.chatType;
-        /**
-         * 会话名称
-         * <p> 示例值：
-         */
-        this.chatName = builder.chatName;
-        /**
-         * 创建时间
-         * <p> 示例值：
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 是否为外部会话
-         * <p> 示例值：
-         */
-        this.isExternal = builder.isExternal;
+    /**
+     * 会话类型
+     *
+     * <p>示例值：
+     *
+     * @param chatType
+     * @return
+     */
+    public Builder chatType(Integer chatType) {
+      this.chatType = chatType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会话类型
+     *
+     * <p>示例值：
+     *
+     * @param chatType {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.ChatMetaChatTypeEnum}
+     * @return
+     */
+    public Builder chatType(
+        com.lark.oapi.service.security_and_compliance.v2.enums.ChatMetaChatTypeEnum chatType) {
+      this.chatType = chatType.getValue();
+      return this;
     }
 
-    public String getChatId() {
-        return this.chatId;
+    /**
+     * 会话名称
+     *
+     * <p>示例值：
+     *
+     * @param chatName
+     * @return
+     */
+    public Builder chatName(String chatName) {
+      this.chatName = chatName;
+      return this;
     }
 
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public Integer getChatType() {
-        return this.chatType;
+    /**
+     * 是否为外部会话
+     *
+     * <p>示例值：
+     *
+     * @param isExternal
+     * @return
+     */
+    public Builder isExternal(Boolean isExternal) {
+      this.isExternal = isExternal;
+      return this;
     }
 
-    public void setChatType(Integer chatType) {
-        this.chatType = chatType;
+    public ChatMeta build() {
+      return new ChatMeta(this);
     }
+  }
 
-    public String getChatName() {
-        return this.chatName;
-    }
-
-    public void setChatName(String chatName) {
-        this.chatName = chatName;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public Boolean getIsExternal() {
-        return this.isExternal;
-    }
-
-    public void setIsExternal(Boolean isExternal) {
-        this.isExternal = isExternal;
-    }
-
-    public static class Builder {
-        /**
-         * 会话ID
-         * <p> 示例值：
-         */
-        private String chatId;
-        /**
-         * 会话类型
-         * <p> 示例值：
-         */
-        private Integer chatType;
-        /**
-         * 会话名称
-         * <p> 示例值：
-         */
-        private String chatName;
-        /**
-         * 创建时间
-         * <p> 示例值：
-         */
-        private String createTime;
-        /**
-         * 是否为外部会话
-         * <p> 示例值：
-         */
-        private Boolean isExternal;
-
-        /**
-         * 会话ID
-         * <p> 示例值：
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * 会话类型
-         * <p> 示例值：
-         *
-         * @param chatType
-         * @return
-         */
-        public Builder chatType(Integer chatType) {
-            this.chatType = chatType;
-            return this;
-        }
-
-        /**
-         * 会话类型
-         * <p> 示例值：
-         *
-         * @param chatType {@link com.lark.oapi.service.security_and_compliance.v2.enums.ChatMetaChatTypeEnum}
-         * @return
-         */
-        public Builder chatType(com.lark.oapi.service.security_and_compliance.v2.enums.ChatMetaChatTypeEnum chatType) {
-            this.chatType = chatType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 会话名称
-         * <p> 示例值：
-         *
-         * @param chatName
-         * @return
-         */
-        public Builder chatName(String chatName) {
-            this.chatName = chatName;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 是否为外部会话
-         * <p> 示例值：
-         *
-         * @param isExternal
-         * @return
-         */
-        public Builder isExternal(Boolean isExternal) {
-            this.isExternal = isExternal;
-            return this;
-        }
-
-
-        public ChatMeta build() {
-            return new ChatMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,142 +13,144 @@
 
 package com.lark.oapi.service.acs.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.acs.v1.enums.*;
 
 public class CreateRuleExternalReq {
+  /**
+   * 权限组id-为空创建,不为空则更新
+   *
+   * <p>示例值：7298933941867135276
+   */
+  @Query
+  @SerializedName("rule_id")
+  private String ruleId;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getRuleId() {
+    return this.ruleId;
+  }
+
+  public void setRuleId(String ruleId) {
+    this.ruleId = ruleId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private CreateRuleExternalReqBody body;
+
+  public CreateRuleExternalReqBody getCreateRuleExternalReqBody() {
+    return this.body;
+  }
+
+  public void setCreateRuleExternalReqBody(CreateRuleExternalReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateRuleExternalReq() {}
+
+  public CreateRuleExternalReq(Builder builder) {
     /**
      * 权限组id-为空创建,不为空则更新
-     * <p> 示例值：7298933941867135276
+     *
+     * <p>示例值：7298933941867135276
      */
-    @Query
-    @SerializedName("rule_id")
-    private String ruleId;
+    this.ruleId = builder.ruleId;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String ruleId; // 权限组id-为空创建,不为空则更新
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 权限组id-为空创建,不为空则更新
+     *
+     * <p>示例值：7298933941867135276
+     *
+     * @param ruleId
+     * @return
+     */
+    public Builder ruleId(String ruleId) {
+      this.ruleId = ruleId;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.acs.v1.enums.CreateRuleExternalCreateRuleExternalUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.acs.v1.enums.CreateRuleExternalCreateRuleExternalUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private CreateRuleExternalReqBody body;
 
-    // builder 开始
-    public CreateRuleExternalReq() {
-    }
-
-    public CreateRuleExternalReq(Builder builder) {
-        /**
-         * 权限组id-为空创建,不为空则更新
-         * <p> 示例值：7298933941867135276
-         */
-        this.ruleId = builder.ruleId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getRuleId() {
-        return this.ruleId;
-    }
-
-    public void setRuleId(String ruleId) {
-        this.ruleId = ruleId;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public CreateRuleExternalReqBody getCreateRuleExternalReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCreateRuleExternalReqBody(CreateRuleExternalReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder createRuleExternalReqBody(CreateRuleExternalReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String ruleId; // 权限组id-为空创建,不为空则更新
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private CreateRuleExternalReqBody body;
-
-        /**
-         * 权限组id-为空创建,不为空则更新
-         * <p> 示例值：7298933941867135276
-         *
-         * @param ruleId
-         * @return
-         */
-        public Builder ruleId(String ruleId) {
-            this.ruleId = ruleId;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.acs.v1.enums.CreateRuleExternalUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.acs.v1.enums.CreateRuleExternalUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public CreateRuleExternalReqBody getCreateRuleExternalReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder createRuleExternalReqBody(CreateRuleExternalReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateRuleExternalReq build() {
-            return new CreateRuleExternalReq(this);
-        }
+    public CreateRuleExternalReq build() {
+      return new CreateRuleExternalReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

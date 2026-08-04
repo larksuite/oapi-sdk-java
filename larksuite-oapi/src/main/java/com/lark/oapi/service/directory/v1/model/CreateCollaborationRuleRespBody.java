@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateCollaborationRuleRespBody {
-    /**
-     * 添加的规则ID
-     * <p> 示例值：1212121
-     */
-    @SerializedName("add_rule_id")
-    private String addRuleId;
+  /**
+   * 添加的规则ID
+   *
+   * <p>示例值：1212121
+   */
+  @SerializedName("add_rule_id")
+  private String addRuleId;
 
-    public String getAddRuleId() {
-        return this.addRuleId;
-    }
+  public String getAddRuleId() {
+    return this.addRuleId;
+  }
 
-    public void setAddRuleId(String addRuleId) {
-        this.addRuleId = addRuleId;
-    }
-
+  public void setAddRuleId(String addRuleId) {
+    this.addRuleId = addRuleId;
+  }
 }

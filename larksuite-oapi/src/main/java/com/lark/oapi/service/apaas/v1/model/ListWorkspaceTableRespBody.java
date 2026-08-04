@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListWorkspaceTableRespBody {
-    /**
-     * 是否还有更多项
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ+G8JG6tK7+ZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 数据表列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private WorkspaceDataTable[] items;
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ+G8JG6tK7+ZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  /**
+   * 数据表列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private WorkspaceDataTable[] items;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
-    public WorkspaceDataTable[] getItems() {
-        return this.items;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setItems(WorkspaceDataTable[] items) {
-        this.items = items;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
+  public WorkspaceDataTable[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(WorkspaceDataTable[] items) {
+    this.items = items;
+  }
 }

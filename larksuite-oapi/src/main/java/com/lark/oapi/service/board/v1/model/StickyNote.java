@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class StickyNote {
+  /**
+   * 用户id
+   *
+   * <p>示例值：12345678
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 是否展示用户信息
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("show_author_info")
+  private Boolean showAuthorInfo;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public Boolean getShowAuthorInfo() {
+    return this.showAuthorInfo;
+  }
+
+  public void setShowAuthorInfo(Boolean showAuthorInfo) {
+    this.showAuthorInfo = showAuthorInfo;
+  }
+
+  // builder 开始
+  public StickyNote() {}
+
+  public StickyNote(Builder builder) {
     /**
      * 用户id
-     * <p> 示例值：
+     *
+     * <p>示例值：12345678
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 是否展示用户信息
-     * <p> 示例值：
+     *
+     * <p>示例值：true
      */
-    @SerializedName("show_author_info")
+    this.showAuthorInfo = builder.showAuthorInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 用户id
+     *
+     * <p>示例值：12345678
+     */
+    private String userId;
+
+    /**
+     * 是否展示用户信息
+     *
+     * <p>示例值：true
+     */
     private Boolean showAuthorInfo;
 
-    // builder 开始
-    public StickyNote() {
+    /**
+     * 用户id
+     *
+     * <p>示例值：12345678
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public StickyNote(Builder builder) {
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 是否展示用户信息
-         * <p> 示例值：
-         */
-        this.showAuthorInfo = builder.showAuthorInfo;
+    /**
+     * 是否展示用户信息
+     *
+     * <p>示例值：true
+     *
+     * @param showAuthorInfo
+     * @return
+     */
+    public Builder showAuthorInfo(Boolean showAuthorInfo) {
+      this.showAuthorInfo = showAuthorInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public StickyNote build() {
+      return new StickyNote(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public Boolean getShowAuthorInfo() {
-        return this.showAuthorInfo;
-    }
-
-    public void setShowAuthorInfo(Boolean showAuthorInfo) {
-        this.showAuthorInfo = showAuthorInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 用户id
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 是否展示用户信息
-         * <p> 示例值：
-         */
-        private Boolean showAuthorInfo;
-
-        /**
-         * 用户id
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 是否展示用户信息
-         * <p> 示例值：
-         *
-         * @param showAuthorInfo
-         * @return
-         */
-        public Builder showAuthorInfo(Boolean showAuthorInfo) {
-            this.showAuthorInfo = showAuthorInfo;
-            return this;
-        }
-
-
-        public StickyNote build() {
-            return new StickyNote(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

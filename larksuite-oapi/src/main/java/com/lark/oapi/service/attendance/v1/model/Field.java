@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Field {
+  /**
+   * 分组编号
+   *
+   * <p>示例值：50121
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 分组名称
+   *
+   * <p>示例值：工号
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 字段列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("child_fields")
+  private ChildField[] childFields;
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public ChildField[] getChildFields() {
+    return this.childFields;
+  }
+
+  public void setChildFields(ChildField[] childFields) {
+    this.childFields = childFields;
+  }
+
+  // builder 开始
+  public Field() {}
+
+  public Field(Builder builder) {
     /**
-     * 字段编号
-     * <p> 示例值：50121
+     * 分组编号
+     *
+     * <p>示例值：50121
      */
-    @SerializedName("code")
+    this.code = builder.code;
+    /**
+     * 分组名称
+     *
+     * <p>示例值：工号
+     */
+    this.title = builder.title;
+    /**
+     * 字段列表
+     *
+     * <p>示例值：
+     */
+    this.childFields = builder.childFields;
+  }
+
+  public static class Builder {
+    /**
+     * 分组编号
+     *
+     * <p>示例值：50121
+     */
     private String code;
+
     /**
-     * 字段名称
-     * <p> 示例值：工号
+     * 分组名称
+     *
+     * <p>示例值：工号
      */
-    @SerializedName("title")
     private String title;
+
     /**
-     * 子字段列表
-     * <p> 示例值：
+     * 字段列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("child_fields")
     private ChildField[] childFields;
 
-    // builder 开始
-    public Field() {
+    /**
+     * 分组编号
+     *
+     * <p>示例值：50121
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public Field(Builder builder) {
-        /**
-         * 字段编号
-         * <p> 示例值：50121
-         */
-        this.code = builder.code;
-        /**
-         * 字段名称
-         * <p> 示例值：工号
-         */
-        this.title = builder.title;
-        /**
-         * 子字段列表
-         * <p> 示例值：
-         */
-        this.childFields = builder.childFields;
+    /**
+     * 分组名称
+     *
+     * <p>示例值：工号
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段列表
+     *
+     * <p>示例值：
+     *
+     * @param childFields
+     * @return
+     */
+    public Builder childFields(ChildField[] childFields) {
+      this.childFields = childFields;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    public Field build() {
+      return new Field(this);
     }
+  }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public ChildField[] getChildFields() {
-        return this.childFields;
-    }
-
-    public void setChildFields(ChildField[] childFields) {
-        this.childFields = childFields;
-    }
-
-    public static class Builder {
-        /**
-         * 字段编号
-         * <p> 示例值：50121
-         */
-        private String code;
-        /**
-         * 字段名称
-         * <p> 示例值：工号
-         */
-        private String title;
-        /**
-         * 子字段列表
-         * <p> 示例值：
-         */
-        private ChildField[] childFields;
-
-        /**
-         * 字段编号
-         * <p> 示例值：50121
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 字段名称
-         * <p> 示例值：工号
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 子字段列表
-         * <p> 示例值：
-         *
-         * @param childFields
-         * @return
-         */
-        public Builder childFields(ChildField[] childFields) {
-            this.childFields = childFields;
-            return this;
-        }
-
-
-        public Field build() {
-            return new Field(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

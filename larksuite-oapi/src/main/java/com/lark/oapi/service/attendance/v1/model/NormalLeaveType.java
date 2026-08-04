@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class NormalLeaveType {
+  /**
+   * 假期类型ID
+   *
+   * <p>示例值：7476427589584551XXX
+   */
+  @SerializedName("leave_type_id")
+  private String leaveTypeId;
+
+  /**
+   * 假期类型多语言名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("names")
+  private I18nResource[] names;
+
+  /**
+   * 是否限额
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_balance_used")
+  private Boolean isBalanceUsed;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_active")
+  private Boolean isActive;
+
+  public String getLeaveTypeId() {
+    return this.leaveTypeId;
+  }
+
+  public void setLeaveTypeId(String leaveTypeId) {
+    this.leaveTypeId = leaveTypeId;
+  }
+
+  public I18nResource[] getNames() {
+    return this.names;
+  }
+
+  public void setNames(I18nResource[] names) {
+    this.names = names;
+  }
+
+  public Boolean getIsBalanceUsed() {
+    return this.isBalanceUsed;
+  }
+
+  public void setIsBalanceUsed(Boolean isBalanceUsed) {
+    this.isBalanceUsed = isBalanceUsed;
+  }
+
+  public Boolean getIsActive() {
+    return this.isActive;
+  }
+
+  public void setIsActive(Boolean isActive) {
+    this.isActive = isActive;
+  }
+
+  // builder 开始
+  public NormalLeaveType() {}
+
+  public NormalLeaveType(Builder builder) {
     /**
      * 假期类型ID
-     * <p> 示例值：7476427589584551938
+     *
+     * <p>示例值：7476427589584551XXX
      */
-    @SerializedName("leave_type_id")
-    private String leaveTypeId;
+    this.leaveTypeId = builder.leaveTypeId;
     /**
      * 假期类型多语言名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("names")
-    private I18nResource[] names;
+    this.names = builder.names;
     /**
      * 是否限额
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_balance_used")
-    private Boolean isBalanceUsed;
+    this.isBalanceUsed = builder.isBalanceUsed;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_active")
+    this.isActive = builder.isActive;
+  }
+
+  public static class Builder {
+    /**
+     * 假期类型ID
+     *
+     * <p>示例值：7476427589584551XXX
+     */
+    private String leaveTypeId;
+
+    /**
+     * 假期类型多语言名称
+     *
+     * <p>示例值：
+     */
+    private I18nResource[] names;
+
+    /**
+     * 是否限额
+     *
+     * <p>示例值：
+     */
+    private Boolean isBalanceUsed;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     */
     private Boolean isActive;
 
-    // builder 开始
-    public NormalLeaveType() {
+    /**
+     * 假期类型ID
+     *
+     * <p>示例值：7476427589584551XXX
+     *
+     * @param leaveTypeId
+     * @return
+     */
+    public Builder leaveTypeId(String leaveTypeId) {
+      this.leaveTypeId = leaveTypeId;
+      return this;
     }
 
-    public NormalLeaveType(Builder builder) {
-        /**
-         * 假期类型ID
-         * <p> 示例值：7476427589584551938
-         */
-        this.leaveTypeId = builder.leaveTypeId;
-        /**
-         * 假期类型多语言名称
-         * <p> 示例值：
-         */
-        this.names = builder.names;
-        /**
-         * 是否限额
-         * <p> 示例值：
-         */
-        this.isBalanceUsed = builder.isBalanceUsed;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.isActive = builder.isActive;
+    /**
+     * 假期类型多语言名称
+     *
+     * <p>示例值：
+     *
+     * @param names
+     * @return
+     */
+    public Builder names(I18nResource[] names) {
+      this.names = names;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否限额
+     *
+     * <p>示例值：
+     *
+     * @param isBalanceUsed
+     * @return
+     */
+    public Builder isBalanceUsed(Boolean isBalanceUsed) {
+      this.isBalanceUsed = isBalanceUsed;
+      return this;
     }
 
-    public String getLeaveTypeId() {
-        return this.leaveTypeId;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     *
+     * @param isActive
+     * @return
+     */
+    public Builder isActive(Boolean isActive) {
+      this.isActive = isActive;
+      return this;
     }
 
-    public void setLeaveTypeId(String leaveTypeId) {
-        this.leaveTypeId = leaveTypeId;
+    public NormalLeaveType build() {
+      return new NormalLeaveType(this);
     }
+  }
 
-    public I18nResource[] getNames() {
-        return this.names;
-    }
-
-    public void setNames(I18nResource[] names) {
-        this.names = names;
-    }
-
-    public Boolean getIsBalanceUsed() {
-        return this.isBalanceUsed;
-    }
-
-    public void setIsBalanceUsed(Boolean isBalanceUsed) {
-        this.isBalanceUsed = isBalanceUsed;
-    }
-
-    public Boolean getIsActive() {
-        return this.isActive;
-    }
-
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
-    }
-
-    public static class Builder {
-        /**
-         * 假期类型ID
-         * <p> 示例值：7476427589584551938
-         */
-        private String leaveTypeId;
-        /**
-         * 假期类型多语言名称
-         * <p> 示例值：
-         */
-        private I18nResource[] names;
-        /**
-         * 是否限额
-         * <p> 示例值：
-         */
-        private Boolean isBalanceUsed;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean isActive;
-
-        /**
-         * 假期类型ID
-         * <p> 示例值：7476427589584551938
-         *
-         * @param leaveTypeId
-         * @return
-         */
-        public Builder leaveTypeId(String leaveTypeId) {
-            this.leaveTypeId = leaveTypeId;
-            return this;
-        }
-
-
-        /**
-         * 假期类型多语言名称
-         * <p> 示例值：
-         *
-         * @param names
-         * @return
-         */
-        public Builder names(I18nResource[] names) {
-            this.names = names;
-            return this;
-        }
-
-
-        /**
-         * 是否限额
-         * <p> 示例值：
-         *
-         * @param isBalanceUsed
-         * @return
-         */
-        public Builder isBalanceUsed(Boolean isBalanceUsed) {
-            this.isBalanceUsed = isBalanceUsed;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param isActive
-         * @return
-         */
-        public Builder isActive(Boolean isActive) {
-            this.isActive = isActive;
-            return this;
-        }
-
-
-        public NormalLeaveType build() {
-            return new NormalLeaveType(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,161 +13,159 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchTasklistReqBody {
+  /** 示例值： */
+  @SerializedName("tasklist")
+  private InputTasklist tasklist;
+
+  /**
+   * 要更新的字段名，支持;<md-enum>;<md-enum-item key="name" >更新清单名</md-enum-item>;<md-enum-item key="owner"
+   * >更新清单所有者</md-enum-item>;</md-enum>
+   *
+   * <p>示例值：
+   */
+  @SerializedName("update_fields")
+  private String[] updateFields;
+
+  /**
+   * 该字段表示如果更新了新的所有者，则将原所有者设为指定的新的角色。仅在更新清单所有者时生效。支持"editor",
+   * "viewer"和"none"。默认为"none"。;;如果不设置或设为"none"，原清单所有者将不具有任何清单的角色。如果没有通过其他渠道（比如通过协作群组间接授权），原清单所有者将失去对清单的所有权限。
+   *
+   * <p>示例值：editor
+   */
+  @SerializedName("origin_owner_to_role")
+  private String originOwnerToRole;
+
+  public InputTasklist getTasklist() {
+    return this.tasklist;
+  }
+
+  public void setTasklist(InputTasklist tasklist) {
+    this.tasklist = tasklist;
+  }
+
+  public String[] getUpdateFields() {
+    return this.updateFields;
+  }
+
+  public void setUpdateFields(String[] updateFields) {
+    this.updateFields = updateFields;
+  }
+
+  public String getOriginOwnerToRole() {
+    return this.originOwnerToRole;
+  }
+
+  public void setOriginOwnerToRole(String originOwnerToRole) {
+    this.originOwnerToRole = originOwnerToRole;
+  }
+
+  // builder 开始
+  public PatchTasklistReqBody() {}
+
+  public PatchTasklistReqBody(Builder builder) {
+    /** 示例值： */
+    this.tasklist = builder.tasklist;
     /**
-     * 要更新清单的数据
-     * <p> 示例值：
+     * 要更新的字段名，支持;<md-enum>;<md-enum-item key="name" >更新清单名</md-enum-item>;<md-enum-item key="owner"
+     * >更新清单所有者</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：
      */
-    @SerializedName("tasklist")
+    this.updateFields = builder.updateFields;
+    /**
+     * 该字段表示如果更新了新的所有者，则将原所有者设为指定的新的角色。仅在更新清单所有者时生效。支持"editor",
+     * "viewer"和"none"。默认为"none"。;;如果不设置或设为"none"，原清单所有者将不具有任何清单的角色。如果没有通过其他渠道（比如通过协作群组间接授权），原清单所有者将失去对清单的所有权限。
+     *
+     * <p>示例值：editor
+     */
+    this.originOwnerToRole = builder.originOwnerToRole;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private InputTasklist tasklist;
+
     /**
-     * 要更新的字段名，只支持更新"owner", "name"两个字段
-     * <p> 示例值：
+     * 要更新的字段名，支持;<md-enum>;<md-enum-item key="name" >更新清单名</md-enum-item>;<md-enum-item key="owner"
+     * >更新清单所有者</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：
      */
-    @SerializedName("update_fields")
     private String[] updateFields;
+
     /**
-     * 该字段表示如果更新了新的负责人，则将原负责人设为指定的协作人角色。仅在update_fields包含owner字段时生效。根据清单的角色设计方式，不允许提前为清单的负责人添加其他角色，但负责人更新后，原有负责人会无法访问该清单。该字段可以帮助避免原负责人彻底退出清单。
-     * <p> 示例值：editor
+     * 该字段表示如果更新了新的所有者，则将原所有者设为指定的新的角色。仅在更新清单所有者时生效。支持"editor",
+     * "viewer"和"none"。默认为"none"。;;如果不设置或设为"none"，原清单所有者将不具有任何清单的角色。如果没有通过其他渠道（比如通过协作群组间接授权），原清单所有者将失去对清单的所有权限。
+     *
+     * <p>示例值：editor
      */
-    @SerializedName("origin_owner_to_role")
     private String originOwnerToRole;
 
-    // builder 开始
-    public PatchTasklistReqBody() {
+    /**
+     * 示例值：
+     *
+     * @param tasklist
+     * @return
+     */
+    public Builder tasklist(InputTasklist tasklist) {
+      this.tasklist = tasklist;
+      return this;
     }
 
-    public PatchTasklistReqBody(Builder builder) {
-        /**
-         * 要更新清单的数据
-         * <p> 示例值：
-         */
-        this.tasklist = builder.tasklist;
-        /**
-         * 要更新的字段名，只支持更新"owner", "name"两个字段
-         * <p> 示例值：
-         */
-        this.updateFields = builder.updateFields;
-        /**
-         * 该字段表示如果更新了新的负责人，则将原负责人设为指定的协作人角色。仅在update_fields包含owner字段时生效。根据清单的角色设计方式，不允许提前为清单的负责人添加其他角色，但负责人更新后，原有负责人会无法访问该清单。该字段可以帮助避免原负责人彻底退出清单。
-         * <p> 示例值：editor
-         */
-        this.originOwnerToRole = builder.originOwnerToRole;
+    /**
+     * 要更新的字段名，支持;<md-enum>;<md-enum-item key="name" >更新清单名</md-enum-item>;<md-enum-item key="owner"
+     * >更新清单所有者</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：
+     *
+     * @param updateFields
+     * @return
+     */
+    public Builder updateFields(String[] updateFields) {
+      this.updateFields = updateFields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 该字段表示如果更新了新的所有者，则将原所有者设为指定的新的角色。仅在更新清单所有者时生效。支持"editor",
+     * "viewer"和"none"。默认为"none"。;;如果不设置或设为"none"，原清单所有者将不具有任何清单的角色。如果没有通过其他渠道（比如通过协作群组间接授权），原清单所有者将失去对清单的所有权限。
+     *
+     * <p>示例值：editor
+     *
+     * @param originOwnerToRole
+     * @return
+     */
+    public Builder originOwnerToRole(String originOwnerToRole) {
+      this.originOwnerToRole = originOwnerToRole;
+      return this;
     }
 
-    public InputTasklist getTasklist() {
-        return this.tasklist;
+    /**
+     * 该字段表示如果更新了新的所有者，则将原所有者设为指定的新的角色。仅在更新清单所有者时生效。支持"editor",
+     * "viewer"和"none"。默认为"none"。;;如果不设置或设为"none"，原清单所有者将不具有任何清单的角色。如果没有通过其他渠道（比如通过协作群组间接授权），原清单所有者将失去对清单的所有权限。
+     *
+     * <p>示例值：editor
+     *
+     * @param originOwnerToRole {@link
+     *     com.lark.oapi.service.task.v2.enums.PatchTasklistOriginOwnerToRoleEnum}
+     * @return
+     */
+    public Builder originOwnerToRole(
+        com.lark.oapi.service.task.v2.enums.PatchTasklistOriginOwnerToRoleEnum originOwnerToRole) {
+      this.originOwnerToRole = originOwnerToRole.getValue();
+      return this;
     }
 
-    public void setTasklist(InputTasklist tasklist) {
-        this.tasklist = tasklist;
+    public PatchTasklistReqBody build() {
+      return new PatchTasklistReqBody(this);
     }
+  }
 
-    public String[] getUpdateFields() {
-        return this.updateFields;
-    }
-
-    public void setUpdateFields(String[] updateFields) {
-        this.updateFields = updateFields;
-    }
-
-    public String getOriginOwnerToRole() {
-        return this.originOwnerToRole;
-    }
-
-    public void setOriginOwnerToRole(String originOwnerToRole) {
-        this.originOwnerToRole = originOwnerToRole;
-    }
-
-    public static class Builder {
-        /**
-         * 要更新清单的数据
-         * <p> 示例值：
-         */
-        private InputTasklist tasklist;
-        /**
-         * 要更新的字段名，只支持更新"owner", "name"两个字段
-         * <p> 示例值：
-         */
-        private String[] updateFields;
-        /**
-         * 该字段表示如果更新了新的负责人，则将原负责人设为指定的协作人角色。仅在update_fields包含owner字段时生效。根据清单的角色设计方式，不允许提前为清单的负责人添加其他角色，但负责人更新后，原有负责人会无法访问该清单。该字段可以帮助避免原负责人彻底退出清单。
-         * <p> 示例值：editor
-         */
-        private String originOwnerToRole;
-
-        /**
-         * 要更新清单的数据
-         * <p> 示例值：
-         *
-         * @param tasklist
-         * @return
-         */
-        public Builder tasklist(InputTasklist tasklist) {
-            this.tasklist = tasklist;
-            return this;
-        }
-
-
-        /**
-         * 要更新的字段名，只支持更新"owner", "name"两个字段
-         * <p> 示例值：
-         *
-         * @param updateFields
-         * @return
-         */
-        public Builder updateFields(String[] updateFields) {
-            this.updateFields = updateFields;
-            return this;
-        }
-
-
-        /**
-         * 该字段表示如果更新了新的负责人，则将原负责人设为指定的协作人角色。仅在update_fields包含owner字段时生效。根据清单的角色设计方式，不允许提前为清单的负责人添加其他角色，但负责人更新后，原有负责人会无法访问该清单。该字段可以帮助避免原负责人彻底退出清单。
-         * <p> 示例值：editor
-         *
-         * @param originOwnerToRole
-         * @return
-         */
-        public Builder originOwnerToRole(String originOwnerToRole) {
-            this.originOwnerToRole = originOwnerToRole;
-            return this;
-        }
-
-        /**
-         * 该字段表示如果更新了新的负责人，则将原负责人设为指定的协作人角色。仅在update_fields包含owner字段时生效。根据清单的角色设计方式，不允许提前为清单的负责人添加其他角色，但负责人更新后，原有负责人会无法访问该清单。该字段可以帮助避免原负责人彻底退出清单。
-         * <p> 示例值：editor
-         *
-         * @param originOwnerToRole {@link com.lark.oapi.service.task.v2.enums.PatchTasklistOriginOwnerToRoleEnum}
-         * @return
-         */
-        public Builder originOwnerToRole(com.lark.oapi.service.task.v2.enums.PatchTasklistOriginOwnerToRoleEnum originOwnerToRole) {
-            this.originOwnerToRole = originOwnerToRole.getValue();
-            return this;
-        }
-
-
-        public PatchTasklistReqBody build() {
-            return new PatchTasklistReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

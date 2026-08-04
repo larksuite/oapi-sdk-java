@@ -13,34 +13,25 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2JobFamilyCreatedV2Data {
-    /**
-     * 序列ID
-     * <p> 示例值：6969828847121885087
-     */
-    @SerializedName("job_family_id")
-    private String jobFamilyId;
+  /**
+   * 序列ID。;-
+   * 调用[【查询单个序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)、[【通过序列
+   * ID
+   * 批量查询序列信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)接口返回序列详细信息
+   *
+   * <p>示例值：6969828847121885087
+   */
+  @SerializedName("job_family_id")
+  private String jobFamilyId;
 
-    public String getJobFamilyId() {
-        return this.jobFamilyId;
-    }
+  public String getJobFamilyId() {
+    return this.jobFamilyId;
+  }
 
-    public void setJobFamilyId(String jobFamilyId) {
-        this.jobFamilyId = jobFamilyId;
-    }
-
+  public void setJobFamilyId(String jobFamilyId) {
+    this.jobFamilyId = jobFamilyId;
+  }
 }

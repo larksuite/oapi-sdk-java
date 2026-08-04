@@ -13,223 +13,237 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetLeaveEmployExpireRecordReqBody {
+  /**
+   * 员工ID，与user_id_type保持一致
+   *
+   * <p>示例值：6982509313466189342
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 假期类型ID，可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)获取
+   *
+   * <p>示例值：7111688079785723436
+   */
+  @SerializedName("leave_type_id")
+  private String leaveTypeId;
+
+  /**
+   * 失效最早日期，格式为yyyy-MM-dd
+   *
+   * <p>示例值：2023-04-10
+   */
+  @SerializedName("start_expiration_date")
+  private String startExpirationDate;
+
+  /**
+   * 失效最晚日期，格式为yyyy-MM-dd
+   *
+   * <p>示例值：2023-05-10
+   */
+  @SerializedName("end_expiration_date")
+  private String endExpirationDate;
+
+  /**
+   * Time offset, East Eighth District: 480 = 8 * 60, if this parameter is not provided, East Eighth
+   * District is used by default
+   *
+   * <p>示例值：480
+   */
+  @SerializedName("time_offset")
+  private Integer timeOffset;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getLeaveTypeId() {
+    return this.leaveTypeId;
+  }
+
+  public void setLeaveTypeId(String leaveTypeId) {
+    this.leaveTypeId = leaveTypeId;
+  }
+
+  public String getStartExpirationDate() {
+    return this.startExpirationDate;
+  }
+
+  public void setStartExpirationDate(String startExpirationDate) {
+    this.startExpirationDate = startExpirationDate;
+  }
+
+  public String getEndExpirationDate() {
+    return this.endExpirationDate;
+  }
+
+  public void setEndExpirationDate(String endExpirationDate) {
+    this.endExpirationDate = endExpirationDate;
+  }
+
+  public Integer getTimeOffset() {
+    return this.timeOffset;
+  }
+
+  public void setTimeOffset(Integer timeOffset) {
+    this.timeOffset = timeOffset;
+  }
+
+  // builder 开始
+  public GetLeaveEmployExpireRecordReqBody() {}
+
+  public GetLeaveEmployExpireRecordReqBody(Builder builder) {
     /**
-     * 员工ID
-     * <p> 示例值：1
+     * 员工ID，与user_id_type保持一致
+     *
+     * <p>示例值：6982509313466189342
      */
-    @SerializedName("employment_id")
+    this.employmentId = builder.employmentId;
+    /**
+     * 假期类型ID，可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)获取
+     *
+     * <p>示例值：7111688079785723436
+     */
+    this.leaveTypeId = builder.leaveTypeId;
+    /**
+     * 失效最早日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2023-04-10
+     */
+    this.startExpirationDate = builder.startExpirationDate;
+    /**
+     * 失效最晚日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2023-05-10
+     */
+    this.endExpirationDate = builder.endExpirationDate;
+    /**
+     * Time offset, East Eighth District: 480 = 8 * 60, if this parameter is not provided, East
+     * Eighth District is used by default
+     *
+     * <p>示例值：480
+     */
+    this.timeOffset = builder.timeOffset;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID，与user_id_type保持一致
+     *
+     * <p>示例值：6982509313466189342
+     */
     private String employmentId;
+
     /**
-     * 假期类型ID
-     * <p> 示例值：1
+     * 假期类型ID，可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)获取
+     *
+     * <p>示例值：7111688079785723436
      */
-    @SerializedName("leave_type_id")
     private String leaveTypeId;
+
     /**
-     * 失效最早日期  2023-04-10 格式
-     * <p> 示例值：2023-04-10
+     * 失效最早日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2023-04-10
      */
-    @SerializedName("start_expiration_date")
     private String startExpirationDate;
+
     /**
-     * 失效最晚日期 2023-05-10 格式
-     * <p> 示例值：2023-05-10
+     * 失效最晚日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2023-05-10
      */
-    @SerializedName("end_expiration_date")
     private String endExpirationDate;
+
     /**
-     * 时间偏移，东八区：480    8*60， 如果没有这个参数，默认东八区
-     * <p> 示例值：480
+     * Time offset, East Eighth District: 480 = 8 * 60, if this parameter is not provided, East
+     * Eighth District is used by default
+     *
+     * <p>示例值：480
      */
-    @SerializedName("time_offset")
     private Integer timeOffset;
 
-    // builder 开始
-    public GetLeaveEmployExpireRecordReqBody() {
+    /**
+     * 员工ID，与user_id_type保持一致
+     *
+     * <p>示例值：6982509313466189342
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public GetLeaveEmployExpireRecordReqBody(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：1
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 假期类型ID
-         * <p> 示例值：1
-         */
-        this.leaveTypeId = builder.leaveTypeId;
-        /**
-         * 失效最早日期  2023-04-10 格式
-         * <p> 示例值：2023-04-10
-         */
-        this.startExpirationDate = builder.startExpirationDate;
-        /**
-         * 失效最晚日期 2023-05-10 格式
-         * <p> 示例值：2023-05-10
-         */
-        this.endExpirationDate = builder.endExpirationDate;
-        /**
-         * 时间偏移，东八区：480    8*60， 如果没有这个参数，默认东八区
-         * <p> 示例值：480
-         */
-        this.timeOffset = builder.timeOffset;
+    /**
+     * 假期类型ID，可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)获取
+     *
+     * <p>示例值：7111688079785723436
+     *
+     * @param leaveTypeId
+     * @return
+     */
+    public Builder leaveTypeId(String leaveTypeId) {
+      this.leaveTypeId = leaveTypeId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 失效最早日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2023-04-10
+     *
+     * @param startExpirationDate
+     * @return
+     */
+    public Builder startExpirationDate(String startExpirationDate) {
+      this.startExpirationDate = startExpirationDate;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 失效最晚日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2023-05-10
+     *
+     * @param endExpirationDate
+     * @return
+     */
+    public Builder endExpirationDate(String endExpirationDate) {
+      this.endExpirationDate = endExpirationDate;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    /**
+     * Time offset, East Eighth District: 480 = 8 * 60, if this parameter is not provided, East
+     * Eighth District is used by default
+     *
+     * <p>示例值：480
+     *
+     * @param timeOffset
+     * @return
+     */
+    public Builder timeOffset(Integer timeOffset) {
+      this.timeOffset = timeOffset;
+      return this;
     }
 
-    public String getLeaveTypeId() {
-        return this.leaveTypeId;
+    public GetLeaveEmployExpireRecordReqBody build() {
+      return new GetLeaveEmployExpireRecordReqBody(this);
     }
+  }
 
-    public void setLeaveTypeId(String leaveTypeId) {
-        this.leaveTypeId = leaveTypeId;
-    }
-
-    public String getStartExpirationDate() {
-        return this.startExpirationDate;
-    }
-
-    public void setStartExpirationDate(String startExpirationDate) {
-        this.startExpirationDate = startExpirationDate;
-    }
-
-    public String getEndExpirationDate() {
-        return this.endExpirationDate;
-    }
-
-    public void setEndExpirationDate(String endExpirationDate) {
-        this.endExpirationDate = endExpirationDate;
-    }
-
-    public Integer getTimeOffset() {
-        return this.timeOffset;
-    }
-
-    public void setTimeOffset(Integer timeOffset) {
-        this.timeOffset = timeOffset;
-    }
-
-    public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：1
-         */
-        private String employmentId;
-        /**
-         * 假期类型ID
-         * <p> 示例值：1
-         */
-        private String leaveTypeId;
-        /**
-         * 失效最早日期  2023-04-10 格式
-         * <p> 示例值：2023-04-10
-         */
-        private String startExpirationDate;
-        /**
-         * 失效最晚日期 2023-05-10 格式
-         * <p> 示例值：2023-05-10
-         */
-        private String endExpirationDate;
-        /**
-         * 时间偏移，东八区：480    8*60， 如果没有这个参数，默认东八区
-         * <p> 示例值：480
-         */
-        private Integer timeOffset;
-
-        /**
-         * 员工ID
-         * <p> 示例值：1
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 假期类型ID
-         * <p> 示例值：1
-         *
-         * @param leaveTypeId
-         * @return
-         */
-        public Builder leaveTypeId(String leaveTypeId) {
-            this.leaveTypeId = leaveTypeId;
-            return this;
-        }
-
-
-        /**
-         * 失效最早日期  2023-04-10 格式
-         * <p> 示例值：2023-04-10
-         *
-         * @param startExpirationDate
-         * @return
-         */
-        public Builder startExpirationDate(String startExpirationDate) {
-            this.startExpirationDate = startExpirationDate;
-            return this;
-        }
-
-
-        /**
-         * 失效最晚日期 2023-05-10 格式
-         * <p> 示例值：2023-05-10
-         *
-         * @param endExpirationDate
-         * @return
-         */
-        public Builder endExpirationDate(String endExpirationDate) {
-            this.endExpirationDate = endExpirationDate;
-            return this;
-        }
-
-
-        /**
-         * 时间偏移，东八区：480    8*60， 如果没有这个参数，默认东八区
-         * <p> 示例值：480
-         *
-         * @param timeOffset
-         * @return
-         */
-        public Builder timeOffset(Integer timeOffset) {
-            this.timeOffset = timeOffset;
-            return this;
-        }
-
-
-        public GetLeaveEmployExpireRecordReqBody build() {
-            return new GetLeaveEmployExpireRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

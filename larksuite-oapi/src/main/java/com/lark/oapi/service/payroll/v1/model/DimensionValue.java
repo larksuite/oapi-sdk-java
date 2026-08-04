@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DimensionValue {
+  /**
+   * 汇总维度对象标识。从[批量查询成本分摊方案](/ssl:%2FuAjLw4CM%2FukTMukTMukTM%2Fpayroll-v1%2Fcost_allocation_plan%2Flist)开放平台接口获取。
+   *
+   * <p>示例值：jobData
+   */
+  @SerializedName("obj_api_name")
+  private String objApiName;
+
+  /**
+   * 汇总维度字段标识。从[批量查询成本分摊方案](/ssl:%2FuAjLw4CM%2FukTMukTMukTM%2Fpayroll-v1%2Fcost_allocation_plan%2Flist)开放平台接口获取。
+   *
+   * <p>示例值：company
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 汇总维度值
+   *
+   * <p>示例值：测试公司
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getObjApiName() {
+    return this.objApiName;
+  }
+
+  public void setObjApiName(String objApiName) {
+    this.objApiName = objApiName;
+  }
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public DimensionValue() {}
+
+  public DimensionValue(Builder builder) {
     /**
-     * 汇总维度对象标识
-     * <p> 示例值：jobData
+     * 汇总维度对象标识。从[批量查询成本分摊方案](/ssl:%2FuAjLw4CM%2FukTMukTMukTM%2Fpayroll-v1%2Fcost_allocation_plan%2Flist)开放平台接口获取。
+     *
+     * <p>示例值：jobData
      */
-    @SerializedName("obj_api_name")
-    private String objApiName;
+    this.objApiName = builder.objApiName;
     /**
-     * 汇总维度字段标识
-     * <p> 示例值：company
+     * 汇总维度字段标识。从[批量查询成本分摊方案](/ssl:%2FuAjLw4CM%2FukTMukTMukTM%2Fpayroll-v1%2Fcost_allocation_plan%2Flist)开放平台接口获取。
+     *
+     * <p>示例值：company
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 汇总维度值
-     * <p> 示例值：测试公司
+     *
+     * <p>示例值：测试公司
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 汇总维度对象标识。从[批量查询成本分摊方案](/ssl:%2FuAjLw4CM%2FukTMukTMukTM%2Fpayroll-v1%2Fcost_allocation_plan%2Flist)开放平台接口获取。
+     *
+     * <p>示例值：jobData
+     */
+    private String objApiName;
+
+    /**
+     * 汇总维度字段标识。从[批量查询成本分摊方案](/ssl:%2FuAjLw4CM%2FukTMukTMukTM%2Fpayroll-v1%2Fcost_allocation_plan%2Flist)开放平台接口获取。
+     *
+     * <p>示例值：company
+     */
+    private String apiName;
+
+    /**
+     * 汇总维度值
+     *
+     * <p>示例值：测试公司
+     */
     private String value;
 
-    // builder 开始
-    public DimensionValue() {
+    /**
+     * 汇总维度对象标识。从[批量查询成本分摊方案](/ssl:%2FuAjLw4CM%2FukTMukTMukTM%2Fpayroll-v1%2Fcost_allocation_plan%2Flist)开放平台接口获取。
+     *
+     * <p>示例值：jobData
+     *
+     * @param objApiName
+     * @return
+     */
+    public Builder objApiName(String objApiName) {
+      this.objApiName = objApiName;
+      return this;
     }
 
-    public DimensionValue(Builder builder) {
-        /**
-         * 汇总维度对象标识
-         * <p> 示例值：jobData
-         */
-        this.objApiName = builder.objApiName;
-        /**
-         * 汇总维度字段标识
-         * <p> 示例值：company
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 汇总维度值
-         * <p> 示例值：测试公司
-         */
-        this.value = builder.value;
+    /**
+     * 汇总维度字段标识。从[批量查询成本分摊方案](/ssl:%2FuAjLw4CM%2FukTMukTMukTM%2Fpayroll-v1%2Fcost_allocation_plan%2Flist)开放平台接口获取。
+     *
+     * <p>示例值：company
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 汇总维度值
+     *
+     * <p>示例值：测试公司
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public String getObjApiName() {
-        return this.objApiName;
+    public DimensionValue build() {
+      return new DimensionValue(this);
     }
+  }
 
-    public void setObjApiName(String objApiName) {
-        this.objApiName = objApiName;
-    }
-
-    public String getApiName() {
-        return this.apiName;
-    }
-
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 汇总维度对象标识
-         * <p> 示例值：jobData
-         */
-        private String objApiName;
-        /**
-         * 汇总维度字段标识
-         * <p> 示例值：company
-         */
-        private String apiName;
-        /**
-         * 汇总维度值
-         * <p> 示例值：测试公司
-         */
-        private String value;
-
-        /**
-         * 汇总维度对象标识
-         * <p> 示例值：jobData
-         *
-         * @param objApiName
-         * @return
-         */
-        public Builder objApiName(String objApiName) {
-            this.objApiName = objApiName;
-            return this;
-        }
-
-
-        /**
-         * 汇总维度字段标识
-         * <p> 示例值：company
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 汇总维度值
-         * <p> 示例值：测试公司
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public DimensionValue build() {
-            return new DimensionValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

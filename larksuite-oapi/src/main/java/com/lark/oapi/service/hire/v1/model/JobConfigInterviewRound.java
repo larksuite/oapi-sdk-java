@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobConfigInterviewRound {
+  /**
+   * 面试官列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("interviewer_list")
+  private IdNameObject[] interviewerList;
+
+  /**
+   * 面试轮次
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("round")
+  private Integer round;
+
+  public IdNameObject[] getInterviewerList() {
+    return this.interviewerList;
+  }
+
+  public void setInterviewerList(IdNameObject[] interviewerList) {
+    this.interviewerList = interviewerList;
+  }
+
+  public Integer getRound() {
+    return this.round;
+  }
+
+  public void setRound(Integer round) {
+    this.round = round;
+  }
+
+  // builder 开始
+  public JobConfigInterviewRound() {}
+
+  public JobConfigInterviewRound(Builder builder) {
     /**
      * 面试官列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("interviewer_list")
-    private IdNameObject[] interviewerList;
+    this.interviewerList = builder.interviewerList;
     /**
      * 面试轮次
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("round")
+    this.round = builder.round;
+  }
+
+  public static class Builder {
+    /**
+     * 面试官列表
+     *
+     * <p>示例值：
+     */
+    private IdNameObject[] interviewerList;
+
+    /**
+     * 面试轮次
+     *
+     * <p>示例值：1
+     */
     private Integer round;
 
-    // builder 开始
-    public JobConfigInterviewRound() {
+    /**
+     * 面试官列表
+     *
+     * <p>示例值：
+     *
+     * @param interviewerList
+     * @return
+     */
+    public Builder interviewerList(IdNameObject[] interviewerList) {
+      this.interviewerList = interviewerList;
+      return this;
     }
 
-    public JobConfigInterviewRound(Builder builder) {
-        /**
-         * 面试官列表
-         * <p> 示例值：
-         */
-        this.interviewerList = builder.interviewerList;
-        /**
-         * 面试轮次
-         * <p> 示例值：1
-         */
-        this.round = builder.round;
+    /**
+     * 面试轮次
+     *
+     * <p>示例值：1
+     *
+     * @param round
+     * @return
+     */
+    public Builder round(Integer round) {
+      this.round = round;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public JobConfigInterviewRound build() {
+      return new JobConfigInterviewRound(this);
     }
+  }
 
-    public IdNameObject[] getInterviewerList() {
-        return this.interviewerList;
-    }
-
-    public void setInterviewerList(IdNameObject[] interviewerList) {
-        this.interviewerList = interviewerList;
-    }
-
-    public Integer getRound() {
-        return this.round;
-    }
-
-    public void setRound(Integer round) {
-        this.round = round;
-    }
-
-    public static class Builder {
-        /**
-         * 面试官列表
-         * <p> 示例值：
-         */
-        private IdNameObject[] interviewerList;
-        /**
-         * 面试轮次
-         * <p> 示例值：1
-         */
-        private Integer round;
-
-        /**
-         * 面试官列表
-         * <p> 示例值：
-         *
-         * @param interviewerList
-         * @return
-         */
-        public Builder interviewerList(IdNameObject[] interviewerList) {
-            this.interviewerList = interviewerList;
-            return this;
-        }
-
-
-        /**
-         * 面试轮次
-         * <p> 示例值：1
-         *
-         * @param round
-         * @return
-         */
-        public Builder round(Integer round) {
-            this.round = round;
-            return this;
-        }
-
-
-        public JobConfigInterviewRound build() {
-            return new JobConfigInterviewRound(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

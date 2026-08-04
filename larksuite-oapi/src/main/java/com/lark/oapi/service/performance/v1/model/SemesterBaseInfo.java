@@ -13,186 +13,195 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SemesterBaseInfo {
+  /**
+   * 周期
+   * ID，详情可查看[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)
+   *
+   * <p>示例值：7263150499637264385
+   */
+  @SerializedName("semester_id")
+  private String semesterId;
+
+  /**
+   * 周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("semester_name")
+  private I18n semesterName;
+
+  /**
+   * 周期开始时间，毫秒时间戳
+   *
+   * <p>示例值：1625068800000
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 周期结束时间，毫秒时间戳
+   *
+   * <p>示例值：1625068800000
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  public String getSemesterId() {
+    return this.semesterId;
+  }
+
+  public void setSemesterId(String semesterId) {
+    this.semesterId = semesterId;
+  }
+
+  public I18n getSemesterName() {
+    return this.semesterName;
+  }
+
+  public void setSemesterName(I18n semesterName) {
+    this.semesterName = semesterName;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  // builder 开始
+  public SemesterBaseInfo() {}
+
+  public SemesterBaseInfo(Builder builder) {
     /**
-     * 周期ID
-     * <p> 示例值：7263150499637264385
+     * 周期
+     * ID，详情可查看[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)
+     *
+     * <p>示例值：7263150499637264385
      */
-    @SerializedName("semester_id")
-    private String semesterId;
+    this.semesterId = builder.semesterId;
     /**
      * 周期名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("semester_name")
+    this.semesterName = builder.semesterName;
+    /**
+     * 周期开始时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     */
+    this.startTime = builder.startTime;
+    /**
+     * 周期结束时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     */
+    this.endTime = builder.endTime;
+  }
+
+  public static class Builder {
+    /**
+     * 周期
+     * ID，详情可查看[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)
+     *
+     * <p>示例值：7263150499637264385
+     */
+    private String semesterId;
+
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     */
     private I18n semesterName;
+
     /**
-     * 开始时间
-     * <p> 示例值：1625068800000
+     * 周期开始时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
      */
-    @SerializedName("start_time")
     private String startTime;
+
     /**
-     * 结束时间
-     * <p> 示例值：1625068800000
+     * 周期结束时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
      */
-    @SerializedName("end_time")
     private String endTime;
 
-    // builder 开始
-    public SemesterBaseInfo() {
+    /**
+     * 周期
+     * ID，详情可查看[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)
+     *
+     * <p>示例值：7263150499637264385
+     *
+     * @param semesterId
+     * @return
+     */
+    public Builder semesterId(String semesterId) {
+      this.semesterId = semesterId;
+      return this;
     }
 
-    public SemesterBaseInfo(Builder builder) {
-        /**
-         * 周期ID
-         * <p> 示例值：7263150499637264385
-         */
-        this.semesterId = builder.semesterId;
-        /**
-         * 周期名称
-         * <p> 示例值：
-         */
-        this.semesterName = builder.semesterName;
-        /**
-         * 开始时间
-         * <p> 示例值：1625068800000
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：1625068800000
-         */
-        this.endTime = builder.endTime;
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     *
+     * @param semesterName
+     * @return
+     */
+    public Builder semesterName(I18n semesterName) {
+      this.semesterName = semesterName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 周期开始时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getSemesterId() {
-        return this.semesterId;
+    /**
+     * 周期结束时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
+    public SemesterBaseInfo build() {
+      return new SemesterBaseInfo(this);
     }
+  }
 
-    public I18n getSemesterName() {
-        return this.semesterName;
-    }
-
-    public void setSemesterName(I18n semesterName) {
-        this.semesterName = semesterName;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public static class Builder {
-        /**
-         * 周期ID
-         * <p> 示例值：7263150499637264385
-         */
-        private String semesterId;
-        /**
-         * 周期名称
-         * <p> 示例值：
-         */
-        private I18n semesterName;
-        /**
-         * 开始时间
-         * <p> 示例值：1625068800000
-         */
-        private String startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：1625068800000
-         */
-        private String endTime;
-
-        /**
-         * 周期ID
-         * <p> 示例值：7263150499637264385
-         *
-         * @param semesterId
-         * @return
-         */
-        public Builder semesterId(String semesterId) {
-            this.semesterId = semesterId;
-            return this;
-        }
-
-
-        /**
-         * 周期名称
-         * <p> 示例值：
-         *
-         * @param semesterName
-         * @return
-         */
-        public Builder semesterName(I18n semesterName) {
-            this.semesterName = semesterName;
-            return this;
-        }
-
-
-        /**
-         * 开始时间
-         * <p> 示例值：1625068800000
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：1625068800000
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        public SemesterBaseInfo build() {
-            return new SemesterBaseInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

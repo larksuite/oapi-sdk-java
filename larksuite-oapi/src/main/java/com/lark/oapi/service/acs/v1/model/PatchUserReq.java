@@ -13,142 +13,144 @@
 
 package com.lark.oapi.service.acs.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.acs.v1.enums.*;
 
 public class PatchUserReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @Path
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  @Body private User body;
+
+  public User getUser() {
+    return this.body;
+  }
+
+  public void setUser(User body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchUserReq() {}
+
+  public PatchUserReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 用户 ID
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @Path
-    @SerializedName("user_id")
-    private String userId;
-    @Body
+    this.userId = builder.userId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link com.lark.oapi.service.acs.v1.enums.PatchUserPatchUserUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.acs.v1.enums.PatchUserPatchUserUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    private String userId; // 用户 ID
+
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
+    }
+
     private User body;
 
-    // builder 开始
-    public PatchUserReq() {
-    }
-
-    public PatchUserReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.userId = builder.userId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
     public User getUser() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUser(User body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder user(User body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String userId; // 用户 ID
-        private User body;
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.acs.v1.enums.PatchUserUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.acs.v1.enums.PatchUserUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 用户 ID
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-        public User getUser() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder user(User body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchUserReq build() {
-            return new PatchUserReq(this);
-        }
+    public PatchUserReq build() {
+      return new PatchUserReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

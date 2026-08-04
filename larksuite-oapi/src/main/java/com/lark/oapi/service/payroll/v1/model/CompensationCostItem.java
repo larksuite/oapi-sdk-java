@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CompensationCostItem {
+  /**
+   * 发薪人数
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("number_of_individuals_for_payment")
+  private Integer numberOfIndividualsForPayment;
+
+  /**
+   * 成本项数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("compensation_costs")
+  private CompensationCost[] compensationCosts;
+
+  public Integer getNumberOfIndividualsForPayment() {
+    return this.numberOfIndividualsForPayment;
+  }
+
+  public void setNumberOfIndividualsForPayment(Integer numberOfIndividualsForPayment) {
+    this.numberOfIndividualsForPayment = numberOfIndividualsForPayment;
+  }
+
+  public CompensationCost[] getCompensationCosts() {
+    return this.compensationCosts;
+  }
+
+  public void setCompensationCosts(CompensationCost[] compensationCosts) {
+    this.compensationCosts = compensationCosts;
+  }
+
+  // builder 开始
+  public CompensationCostItem() {}
+
+  public CompensationCostItem(Builder builder) {
     /**
      * 发薪人数
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("number_of_individuals_for_payment")
-    private Integer numberOfIndividualsForPayment;
+    this.numberOfIndividualsForPayment = builder.numberOfIndividualsForPayment;
     /**
      * 成本项数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("compensation_costs")
+    this.compensationCosts = builder.compensationCosts;
+  }
+
+  public static class Builder {
+    /**
+     * 发薪人数
+     *
+     * <p>示例值：100
+     */
+    private Integer numberOfIndividualsForPayment;
+
+    /**
+     * 成本项数据
+     *
+     * <p>示例值：
+     */
     private CompensationCost[] compensationCosts;
 
-    // builder 开始
-    public CompensationCostItem() {
+    /**
+     * 发薪人数
+     *
+     * <p>示例值：100
+     *
+     * @param numberOfIndividualsForPayment
+     * @return
+     */
+    public Builder numberOfIndividualsForPayment(Integer numberOfIndividualsForPayment) {
+      this.numberOfIndividualsForPayment = numberOfIndividualsForPayment;
+      return this;
     }
 
-    public CompensationCostItem(Builder builder) {
-        /**
-         * 发薪人数
-         * <p> 示例值：100
-         */
-        this.numberOfIndividualsForPayment = builder.numberOfIndividualsForPayment;
-        /**
-         * 成本项数据
-         * <p> 示例值：
-         */
-        this.compensationCosts = builder.compensationCosts;
+    /**
+     * 成本项数据
+     *
+     * <p>示例值：
+     *
+     * @param compensationCosts
+     * @return
+     */
+    public Builder compensationCosts(CompensationCost[] compensationCosts) {
+      this.compensationCosts = compensationCosts;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CompensationCostItem build() {
+      return new CompensationCostItem(this);
     }
+  }
 
-    public Integer getNumberOfIndividualsForPayment() {
-        return this.numberOfIndividualsForPayment;
-    }
-
-    public void setNumberOfIndividualsForPayment(Integer numberOfIndividualsForPayment) {
-        this.numberOfIndividualsForPayment = numberOfIndividualsForPayment;
-    }
-
-    public CompensationCost[] getCompensationCosts() {
-        return this.compensationCosts;
-    }
-
-    public void setCompensationCosts(CompensationCost[] compensationCosts) {
-        this.compensationCosts = compensationCosts;
-    }
-
-    public static class Builder {
-        /**
-         * 发薪人数
-         * <p> 示例值：100
-         */
-        private Integer numberOfIndividualsForPayment;
-        /**
-         * 成本项数据
-         * <p> 示例值：
-         */
-        private CompensationCost[] compensationCosts;
-
-        /**
-         * 发薪人数
-         * <p> 示例值：100
-         *
-         * @param numberOfIndividualsForPayment
-         * @return
-         */
-        public Builder numberOfIndividualsForPayment(Integer numberOfIndividualsForPayment) {
-            this.numberOfIndividualsForPayment = numberOfIndividualsForPayment;
-            return this;
-        }
-
-
-        /**
-         * 成本项数据
-         * <p> 示例值：
-         *
-         * @param compensationCosts
-         * @return
-         */
-        public Builder compensationCosts(CompensationCost[] compensationCosts) {
-            this.compensationCosts = compensationCosts;
-            return this;
-        }
-
-
-        public CompensationCostItem build() {
-            return new CompensationCostItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class I18n {
+  /**
+   * -
+   *
+   * <p>示例值：2052
+   */
+  @SerializedName("language_code")
+  private String languageCode;
+
+  /**
+   * -
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("text")
+  private String text;
+
+  public String getLanguageCode() {
+    return this.languageCode;
+  }
+
+  public void setLanguageCode(String languageCode) {
+    this.languageCode = languageCode;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  // builder 开始
+  public I18n() {}
+
+  public I18n(Builder builder) {
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：2052
      */
-    @SerializedName("language_code")
+    this.languageCode = builder.languageCode;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     */
+    this.text = builder.text;
+  }
+
+  public static class Builder {
+    /**
+     * -
+     *
+     * <p>示例值：2052
+     */
     private String languageCode;
+
     /**
      * -
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("text")
     private String text;
 
-    // builder 开始
-    public I18n() {
+    /**
+     * -
+     *
+     * <p>示例值：2052
+     *
+     * @param languageCode
+     * @return
+     */
+    public Builder languageCode(String languageCode) {
+      this.languageCode = languageCode;
+      return this;
     }
 
-    public I18n(Builder builder) {
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.languageCode = builder.languageCode;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        this.text = builder.text;
+    /**
+     * -
+     *
+     * <p>示例值：-
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public I18n build() {
+      return new I18n(this);
     }
+  }
 
-    public String getLanguageCode() {
-        return this.languageCode;
-    }
-
-    public void setLanguageCode(String languageCode) {
-        this.languageCode = languageCode;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public static class Builder {
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String languageCode;
-        /**
-         * -
-         * <p> 示例值：-
-         */
-        private String text;
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param languageCode
-         * @return
-         */
-        public Builder languageCode(String languageCode) {
-            this.languageCode = languageCode;
-            return this;
-        }
-
-
-        /**
-         * -
-         * <p> 示例值：-
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        public I18n build() {
-            return new I18n(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

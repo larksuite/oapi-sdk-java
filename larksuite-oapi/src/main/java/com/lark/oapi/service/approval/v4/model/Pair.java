@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Pair {
+  /**
+   * 字段key
+   *
+   * <p>示例值：key
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 字段value
+   *
+   * <p>示例值：value
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public Pair() {}
+
+  public Pair(Builder builder) {
     /**
      * 字段key
-     * <p> 示例值：key
+     *
+     * <p>示例值：key
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * 字段value
-     * <p> 示例值：value
+     *
+     * <p>示例值：value
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 字段key
+     *
+     * <p>示例值：key
+     */
+    private String key;
+
+    /**
+     * 字段value
+     *
+     * <p>示例值：value
+     */
     private String value;
 
-    // builder 开始
-    public Pair() {
+    /**
+     * 字段key
+     *
+     * <p>示例值：key
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public Pair(Builder builder) {
-        /**
-         * 字段key
-         * <p> 示例值：key
-         */
-        this.key = builder.key;
-        /**
-         * 字段value
-         * <p> 示例值：value
-         */
-        this.value = builder.value;
+    /**
+     * 字段value
+     *
+     * <p>示例值：value
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Pair build() {
+      return new Pair(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 字段key
-         * <p> 示例值：key
-         */
-        private String key;
-        /**
-         * 字段value
-         * <p> 示例值：value
-         */
-        private String value;
-
-        /**
-         * 字段key
-         * <p> 示例值：key
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 字段value
-         * <p> 示例值：value
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public Pair build() {
-            return new Pair(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReconciliationReferralAccountReqBody {
+  /**
+   * 对账时段的起始交易时间，毫秒时间戳
+   *
+   * <p>示例值：1685416831621
+   */
+  @SerializedName("start_trans_time")
+  private String startTransTime;
+
+  /**
+   * 对账时段的截止交易时间，毫秒时间戳
+   *
+   * <p>示例值：1685416831622
+   */
+  @SerializedName("end_trans_time")
+  private String endTransTime;
+
+  /**
+   * 账户积分变动信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("trade_details")
+  private TradeDetail[] tradeDetails;
+
+  public String getStartTransTime() {
+    return this.startTransTime;
+  }
+
+  public void setStartTransTime(String startTransTime) {
+    this.startTransTime = startTransTime;
+  }
+
+  public String getEndTransTime() {
+    return this.endTransTime;
+  }
+
+  public void setEndTransTime(String endTransTime) {
+    this.endTransTime = endTransTime;
+  }
+
+  public TradeDetail[] getTradeDetails() {
+    return this.tradeDetails;
+  }
+
+  public void setTradeDetails(TradeDetail[] tradeDetails) {
+    this.tradeDetails = tradeDetails;
+  }
+
+  // builder 开始
+  public ReconciliationReferralAccountReqBody() {}
+
+  public ReconciliationReferralAccountReqBody(Builder builder) {
     /**
-     * 按时间范围进行对账时 时间段的起始交易时间
-     * <p> 示例值：1685416831621
+     * 对账时段的起始交易时间，毫秒时间戳
+     *
+     * <p>示例值：1685416831621
      */
-    @SerializedName("start_trans_time")
+    this.startTransTime = builder.startTransTime;
+    /**
+     * 对账时段的截止交易时间，毫秒时间戳
+     *
+     * <p>示例值：1685416831622
+     */
+    this.endTransTime = builder.endTransTime;
+    /**
+     * 账户积分变动信息
+     *
+     * <p>示例值：
+     */
+    this.tradeDetails = builder.tradeDetails;
+  }
+
+  public static class Builder {
+    /**
+     * 对账时段的起始交易时间，毫秒时间戳
+     *
+     * <p>示例值：1685416831621
+     */
     private String startTransTime;
+
     /**
-     * 按时间范围进行对账时 时间段的截止交易时间
-     * <p> 示例值：1685416831622
+     * 对账时段的截止交易时间，毫秒时间戳
+     *
+     * <p>示例值：1685416831622
      */
-    @SerializedName("end_trans_time")
     private String endTransTime;
+
     /**
-     * 交易信息
-     * <p> 示例值：
+     * 账户积分变动信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("trade_details")
     private TradeDetail[] tradeDetails;
 
-    // builder 开始
-    public ReconciliationReferralAccountReqBody() {
+    /**
+     * 对账时段的起始交易时间，毫秒时间戳
+     *
+     * <p>示例值：1685416831621
+     *
+     * @param startTransTime
+     * @return
+     */
+    public Builder startTransTime(String startTransTime) {
+      this.startTransTime = startTransTime;
+      return this;
     }
 
-    public ReconciliationReferralAccountReqBody(Builder builder) {
-        /**
-         * 按时间范围进行对账时 时间段的起始交易时间
-         * <p> 示例值：1685416831621
-         */
-        this.startTransTime = builder.startTransTime;
-        /**
-         * 按时间范围进行对账时 时间段的截止交易时间
-         * <p> 示例值：1685416831622
-         */
-        this.endTransTime = builder.endTransTime;
-        /**
-         * 交易信息
-         * <p> 示例值：
-         */
-        this.tradeDetails = builder.tradeDetails;
+    /**
+     * 对账时段的截止交易时间，毫秒时间戳
+     *
+     * <p>示例值：1685416831622
+     *
+     * @param endTransTime
+     * @return
+     */
+    public Builder endTransTime(String endTransTime) {
+      this.endTransTime = endTransTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 账户积分变动信息
+     *
+     * <p>示例值：
+     *
+     * @param tradeDetails
+     * @return
+     */
+    public Builder tradeDetails(TradeDetail[] tradeDetails) {
+      this.tradeDetails = tradeDetails;
+      return this;
     }
 
-    public String getStartTransTime() {
-        return this.startTransTime;
+    public ReconciliationReferralAccountReqBody build() {
+      return new ReconciliationReferralAccountReqBody(this);
     }
+  }
 
-    public void setStartTransTime(String startTransTime) {
-        this.startTransTime = startTransTime;
-    }
-
-    public String getEndTransTime() {
-        return this.endTransTime;
-    }
-
-    public void setEndTransTime(String endTransTime) {
-        this.endTransTime = endTransTime;
-    }
-
-    public TradeDetail[] getTradeDetails() {
-        return this.tradeDetails;
-    }
-
-    public void setTradeDetails(TradeDetail[] tradeDetails) {
-        this.tradeDetails = tradeDetails;
-    }
-
-    public static class Builder {
-        /**
-         * 按时间范围进行对账时 时间段的起始交易时间
-         * <p> 示例值：1685416831621
-         */
-        private String startTransTime;
-        /**
-         * 按时间范围进行对账时 时间段的截止交易时间
-         * <p> 示例值：1685416831622
-         */
-        private String endTransTime;
-        /**
-         * 交易信息
-         * <p> 示例值：
-         */
-        private TradeDetail[] tradeDetails;
-
-        /**
-         * 按时间范围进行对账时 时间段的起始交易时间
-         * <p> 示例值：1685416831621
-         *
-         * @param startTransTime
-         * @return
-         */
-        public Builder startTransTime(String startTransTime) {
-            this.startTransTime = startTransTime;
-            return this;
-        }
-
-
-        /**
-         * 按时间范围进行对账时 时间段的截止交易时间
-         * <p> 示例值：1685416831622
-         *
-         * @param endTransTime
-         * @return
-         */
-        public Builder endTransTime(String endTransTime) {
-            this.endTransTime = endTransTime;
-            return this;
-        }
-
-
-        /**
-         * 交易信息
-         * <p> 示例值：
-         *
-         * @param tradeDetails
-         * @return
-         */
-        public Builder tradeDetails(TradeDetail[] tradeDetails) {
-            this.tradeDetails = tradeDetails;
-            return this;
-        }
-
-
-        public ReconciliationReferralAccountReqBody build() {
-            return new ReconciliationReferralAccountReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

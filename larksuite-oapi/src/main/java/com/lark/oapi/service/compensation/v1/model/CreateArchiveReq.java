@@ -13,106 +13,94 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.compensation.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.compensation.v1.enums.*;
 
 public class CreateArchiveReq {
+  /** 示例值：open_id */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private CreateArchiveReqBody body;
+
+  public CreateArchiveReqBody getCreateArchiveReqBody() {
+    return this.body;
+  }
+
+  public void setCreateArchiveReqBody(CreateArchiveReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateArchiveReq() {}
+
+  public CreateArchiveReq(Builder builder) {
+    /** 示例值：open_id */
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; //
+
     /**
-     * <p> 示例值：open_id
+     * 示例值：open_id
+     *
+     * @param userIdType
+     * @return
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.CreateArchiveUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.compensation.v1.enums.CreateArchiveUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private CreateArchiveReqBody body;
 
-    // builder 开始
-    public CreateArchiveReq() {
-    }
-
-    public CreateArchiveReq(Builder builder) {
-        /**
-         *
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public CreateArchiveReqBody getCreateArchiveReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCreateArchiveReqBody(CreateArchiveReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder createArchiveReqBody(CreateArchiveReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; //
-        private CreateArchiveReqBody body;
-
-        /**
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.compensation.v1.enums.CreateArchiveUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.compensation.v1.enums.CreateArchiveUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public CreateArchiveReqBody getCreateArchiveReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder createArchiveReqBody(CreateArchiveReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateArchiveReq build() {
-            return new CreateArchiveReq(this);
-        }
+    public CreateArchiveReq build() {
+      return new CreateArchiveReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

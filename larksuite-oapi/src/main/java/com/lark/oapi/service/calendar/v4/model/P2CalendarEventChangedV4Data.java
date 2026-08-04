@@ -13,90 +13,94 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2CalendarEventChangedV4Data {
-    /**
-     * 日历id
-     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-     */
-    @SerializedName("calendar_id")
-    private String calendarId;
-    /**
-     * 需要推送事件的用户列表
-     * <p> 示例值：
-     */
-    @SerializedName("user_id_list")
-    private UserId[] userIdList;
-    /**
-     * 发生变更的日程ID
-     * <p> 示例值：efa67a98-06a8-4df5-8559-746c8f4477ef_0
-     */
-    @SerializedName("calendar_event_id")
-    private String calendarEventId;
-    /**
-     * 变更类型
-     * <p> 示例值：create
-     */
-    @SerializedName("change_type")
-    private String changeType;
-    /**
-     * RSVP变更详情
-     * <p> 示例值：
-     */
-    @SerializedName("rsvp_infos")
-    private OpenEventRsvpInfo[] rsvpInfos;
+  /**
+   * 日程所在的日历 ID。
+   *
+   * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+   */
+  @SerializedName("calendar_id")
+  private String calendarId;
 
-    public String getCalendarId() {
-        return this.calendarId;
-    }
+  /**
+   * 需要推送事件的用户列表。关于用户不同 ID
+   * 的介绍，参见[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction).
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id_list")
+  private UserId[] userIdList;
 
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
-    }
+  /**
+   * 发生变更的日程 ID。;;**注意**：该参数在灰度测试阶段，如需使用请咨询你的商务对接人或者[技术支持](https://applink.feishu.cn/TLJpeNdW)。
+   *
+   * <p>示例值：efa67a98-06a8-4df5-8559-746c8f4477ef_0
+   */
+  @SerializedName("calendar_event_id")
+  private String calendarEventId;
 
-    public UserId[] getUserIdList() {
-        return this.userIdList;
-    }
+  /**
+   * 日程变更类型。;;**可能值有：**;- create：日程在日历上被创建。新建日程或者作为参与人被邀请进日程，都属于 create 类型。;- update：日程发生了变更。;-
+   * delete：日程从日历上消失。删除日程或者作为参与人被移出了日程，都属于 delete 类型。;-
+   * rsvp：用户类型的参与人主动对日程进行回复（包括回复接收、拒绝、待定）。;;**事件聚合策略**：;;在实际推送事件时，同一个日历（calendarID）、同一个日程（eventID）的变更事件，会以
+   * 3 秒为一个窗口进行聚合推送事件。在 3 秒内：;;- 日程进行了 create + delete 变更时，不推送事件。;- 日程进行了 create + update 变更时，推送
+   * create 变更类型的事件。;- 日程进行了 delete + update 变更时，推送 delete 变更类型的事件。;- 日程进行了 update + update
+   * 变更时，只推送最后一次 update 变更类型的事件。;- 有多次 rsvp 变更时，只推送最后一次 rsvp
+   * 变更类型的事件。;;;**注意**：该参数在灰度测试阶段，如需使用请咨询你的商务对接人或[技术支持](https://applink.feishu.cn/TLJpeNdW)。
+   *
+   * <p>示例值：create
+   */
+  @SerializedName("change_type")
+  private String changeType;
 
-    public void setUserIdList(UserId[] userIdList) {
-        this.userIdList = userIdList;
-    }
+  /**
+   * RSVP 变更详情，即日程参与人的回复状态。;;**注意**：;;- 该参数仅包含用户类型参与人的变更详情。;-
+   * 该参数在灰度测试阶段，如需使用请咨询你的商务对接人或[技术支持](https://applink.feishu.cn/TLJpeNdW)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("rsvp_infos")
+  private OpenEventRsvpInfo[] rsvpInfos;
 
-    public String getCalendarEventId() {
-        return this.calendarEventId;
-    }
+  public String getCalendarId() {
+    return this.calendarId;
+  }
 
-    public void setCalendarEventId(String calendarEventId) {
-        this.calendarEventId = calendarEventId;
-    }
+  public void setCalendarId(String calendarId) {
+    this.calendarId = calendarId;
+  }
 
-    public String getChangeType() {
-        return this.changeType;
-    }
+  public UserId[] getUserIdList() {
+    return this.userIdList;
+  }
 
-    public void setChangeType(String changeType) {
-        this.changeType = changeType;
-    }
+  public void setUserIdList(UserId[] userIdList) {
+    this.userIdList = userIdList;
+  }
 
-    public OpenEventRsvpInfo[] getRsvpInfos() {
-        return this.rsvpInfos;
-    }
+  public String getCalendarEventId() {
+    return this.calendarEventId;
+  }
 
-    public void setRsvpInfos(OpenEventRsvpInfo[] rsvpInfos) {
-        this.rsvpInfos = rsvpInfos;
-    }
+  public void setCalendarEventId(String calendarEventId) {
+    this.calendarEventId = calendarEventId;
+  }
 
+  public String getChangeType() {
+    return this.changeType;
+  }
+
+  public void setChangeType(String changeType) {
+    this.changeType = changeType;
+  }
+
+  public OpenEventRsvpInfo[] getRsvpInfos() {
+    return this.rsvpInfos;
+  }
+
+  public void setRsvpInfos(OpenEventRsvpInfo[] rsvpInfos) {
+    this.rsvpInfos = rsvpInfos;
+  }
 }

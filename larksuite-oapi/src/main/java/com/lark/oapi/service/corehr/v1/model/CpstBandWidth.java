@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CpstBandWidth {
+  /**
+   * 上限
+   *
+   * <p>示例值：15000
+   */
+  @SerializedName("upper_limit")
+  private String upperLimit;
+
+  /**
+   * 下限
+   *
+   * <p>示例值：10000
+   */
+  @SerializedName("lower_limit")
+  private String lowerLimit;
+
+  public String getUpperLimit() {
+    return this.upperLimit;
+  }
+
+  public void setUpperLimit(String upperLimit) {
+    this.upperLimit = upperLimit;
+  }
+
+  public String getLowerLimit() {
+    return this.lowerLimit;
+  }
+
+  public void setLowerLimit(String lowerLimit) {
+    this.lowerLimit = lowerLimit;
+  }
+
+  // builder 开始
+  public CpstBandWidth() {}
+
+  public CpstBandWidth(Builder builder) {
     /**
      * 上限
-     * <p> 示例值：15000
+     *
+     * <p>示例值：15000
      */
-    @SerializedName("upper_limit")
-    private String upperLimit;
+    this.upperLimit = builder.upperLimit;
     /**
      * 下限
-     * <p> 示例值：10000
+     *
+     * <p>示例值：10000
      */
-    @SerializedName("lower_limit")
+    this.lowerLimit = builder.lowerLimit;
+  }
+
+  public static class Builder {
+    /**
+     * 上限
+     *
+     * <p>示例值：15000
+     */
+    private String upperLimit;
+
+    /**
+     * 下限
+     *
+     * <p>示例值：10000
+     */
     private String lowerLimit;
 
-    // builder 开始
-    public CpstBandWidth() {
+    /**
+     * 上限
+     *
+     * <p>示例值：15000
+     *
+     * @param upperLimit
+     * @return
+     */
+    public Builder upperLimit(String upperLimit) {
+      this.upperLimit = upperLimit;
+      return this;
     }
 
-    public CpstBandWidth(Builder builder) {
-        /**
-         * 上限
-         * <p> 示例值：15000
-         */
-        this.upperLimit = builder.upperLimit;
-        /**
-         * 下限
-         * <p> 示例值：10000
-         */
-        this.lowerLimit = builder.lowerLimit;
+    /**
+     * 下限
+     *
+     * <p>示例值：10000
+     *
+     * @param lowerLimit
+     * @return
+     */
+    public Builder lowerLimit(String lowerLimit) {
+      this.lowerLimit = lowerLimit;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CpstBandWidth build() {
+      return new CpstBandWidth(this);
     }
+  }
 
-    public String getUpperLimit() {
-        return this.upperLimit;
-    }
-
-    public void setUpperLimit(String upperLimit) {
-        this.upperLimit = upperLimit;
-    }
-
-    public String getLowerLimit() {
-        return this.lowerLimit;
-    }
-
-    public void setLowerLimit(String lowerLimit) {
-        this.lowerLimit = lowerLimit;
-    }
-
-    public static class Builder {
-        /**
-         * 上限
-         * <p> 示例值：15000
-         */
-        private String upperLimit;
-        /**
-         * 下限
-         * <p> 示例值：10000
-         */
-        private String lowerLimit;
-
-        /**
-         * 上限
-         * <p> 示例值：15000
-         *
-         * @param upperLimit
-         * @return
-         */
-        public Builder upperLimit(String upperLimit) {
-            this.upperLimit = upperLimit;
-            return this;
-        }
-
-
-        /**
-         * 下限
-         * <p> 示例值：10000
-         *
-         * @param lowerLimit
-         * @return
-         */
-        public Builder lowerLimit(String lowerLimit) {
-            this.lowerLimit = lowerLimit;
-            return this;
-        }
-
-
-        public CpstBandWidth build() {
-            return new CpstBandWidth(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

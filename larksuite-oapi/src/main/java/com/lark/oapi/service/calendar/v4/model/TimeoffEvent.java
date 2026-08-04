@@ -13,297 +13,333 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TimeoffEvent {
+  /**
+   * 休假申请的唯一标识id
+   *
+   * <p>示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39-XXXXXX
+   */
+  @SerializedName("timeoff_event_id")
+  private String timeoffEventId;
+
+  /**
+   * 用户 ID。ID 类型需要与 user_id_type 的值保持一致。关于用户 ID 可参见[用户相关的 ID
+   * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+   *
+   * <p>示例值：ou_XXXXXXXXXX
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 休假人的时区
+   *
+   * <p>示例值：Asia/Shanghai
+   */
+  @SerializedName("timezone")
+  private String timezone;
+
+  /**
+   * 休假开始时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，且与end_time对应，不符合将返回错误
+   *
+   * <p>示例值：2021-01-01
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 休假结束时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，与start_time对应，不符合将返回错误
+   *
+   * <p>示例值：2021-01-02
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 休假日程标题，可自定义例如："请假中(全天) / 1-Day Time Off"，"请假中(半天) / 0.5-Day Time Off"，"长期休假中 / Leave of
+   * Absence"，"请假中"
+   *
+   * <p>示例值：请假日程标题
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 休假日程描述，可自定义,例如：;"若拒绝或删除此日程，飞书中相应的“请假”标签将自动消失，而请假系统中的休假申请不会被撤销。;;If the event is rejected or
+   * deleted, corresponding "On Leave" tag in Feishu will disappear, while the leave request in the
+   * time off system will not be revoked."
+   *
+   * <p>示例值：请假日程描述
+   */
+  @SerializedName("description")
+  private String description;
+
+  public String getTimeoffEventId() {
+    return this.timeoffEventId;
+  }
+
+  public void setTimeoffEventId(String timeoffEventId) {
+    this.timeoffEventId = timeoffEventId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getTimezone() {
+    return this.timezone;
+  }
+
+  public void setTimezone(String timezone) {
+    this.timezone = timezone;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public TimeoffEvent() {}
+
+  public TimeoffEvent(Builder builder) {
     /**
-     * 请假日程ID。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
-     * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39-XXXXXX
+     * 休假申请的唯一标识id
+     *
+     * <p>示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39-XXXXXX
      */
-    @SerializedName("timeoff_event_id")
+    this.timeoffEventId = builder.timeoffEventId;
+    /**
+     * 用户 ID。ID 类型需要与 user_id_type 的值保持一致。关于用户 ID 可参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：ou_XXXXXXXXXX
+     */
+    this.userId = builder.userId;
+    /**
+     * 休假人的时区
+     *
+     * <p>示例值：Asia/Shanghai
+     */
+    this.timezone = builder.timezone;
+    /**
+     * 休假开始时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，且与end_time对应，不符合将返回错误
+     *
+     * <p>示例值：2021-01-01
+     */
+    this.startTime = builder.startTime;
+    /**
+     * 休假结束时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，与start_time对应，不符合将返回错误
+     *
+     * <p>示例值：2021-01-02
+     */
+    this.endTime = builder.endTime;
+    /**
+     * 休假日程标题，可自定义例如："请假中(全天) / 1-Day Time Off"，"请假中(半天) / 0.5-Day Time Off"，"长期休假中 / Leave of
+     * Absence"，"请假中"
+     *
+     * <p>示例值：请假日程标题
+     */
+    this.title = builder.title;
+    /**
+     * 休假日程描述，可自定义,例如：;"若拒绝或删除此日程，飞书中相应的“请假”标签将自动消失，而请假系统中的休假申请不会被撤销。;;If the event is rejected or
+     * deleted, corresponding "On Leave" tag in Feishu will disappear, while the leave request in
+     * the time off system will not be revoked."
+     *
+     * <p>示例值：请假日程描述
+     */
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 休假申请的唯一标识id
+     *
+     * <p>示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39-XXXXXX
+     */
     private String timeoffEventId;
+
     /**
-     * 用户id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：ou_XXXXXXXXXX
+     * 用户 ID。ID 类型需要与 user_id_type 的值保持一致。关于用户 ID 可参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：ou_XXXXXXXXXX
      */
-    @SerializedName("user_id")
     private String userId;
+
     /**
-     * 时区
-     * <p> 示例值：Asia/Shanghai
+     * 休假人的时区
+     *
+     * <p>示例值：Asia/Shanghai
      */
-    @SerializedName("timezone")
     private String timezone;
+
     /**
-     * 休假开始时间：;有时间戳(1609430400)和日期(2021-01-01)两种格式，其它格式无效；;时间戳格式是按小时休假日程，日期格式是全天休假日程；;start_time与end_time格式需保持一致，否则无效。
-     * <p> 示例值：2021-01-01
+     * 休假开始时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，且与end_time对应，不符合将返回错误
+     *
+     * <p>示例值：2021-01-01
      */
-    @SerializedName("start_time")
     private String startTime;
+
     /**
-     * 休假结束时间：;有时间戳(1609430400)和日期(2021-01-01)两种格式，其它格式无效；;时间戳格式是按小时休假日程，日期格式是全天休假日程；;start_time与end_time格式需保持一致，否则无效。
-     * <p> 示例值：2021-01-01
+     * 休假结束时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，与start_time对应，不符合将返回错误
+     *
+     * <p>示例值：2021-01-02
      */
-    @SerializedName("end_time")
     private String endTime;
+
     /**
-     * 自定义请假日程标题，没有设置则为默认日程标题
-     * <p> 示例值：请假中(全天) / 1-Day Time Off
+     * 休假日程标题，可自定义例如："请假中(全天) / 1-Day Time Off"，"请假中(半天) / 0.5-Day Time Off"，"长期休假中 / Leave of
+     * Absence"，"请假中"
+     *
+     * <p>示例值：请假日程标题
      */
-    @SerializedName("title")
     private String title;
+
     /**
-     * 自定义请假日程描述，没有设置则为默认日程描述
-     * <p> 示例值：若删除此日程，飞书中相应的“请假”标签将自动消失，而请假系统中的休假申请不会被撤销。
+     * 休假日程描述，可自定义,例如：;"若拒绝或删除此日程，飞书中相应的“请假”标签将自动消失，而请假系统中的休假申请不会被撤销。;;If the event is rejected or
+     * deleted, corresponding "On Leave" tag in Feishu will disappear, while the leave request in
+     * the time off system will not be revoked."
+     *
+     * <p>示例值：请假日程描述
      */
-    @SerializedName("description")
     private String description;
 
-    // builder 开始
-    public TimeoffEvent() {
+    /**
+     * 休假申请的唯一标识id
+     *
+     * <p>示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39-XXXXXX
+     *
+     * @param timeoffEventId
+     * @return
+     */
+    public Builder timeoffEventId(String timeoffEventId) {
+      this.timeoffEventId = timeoffEventId;
+      return this;
     }
 
-    public TimeoffEvent(Builder builder) {
-        /**
-         * 请假日程ID。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
-         * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39-XXXXXX
-         */
-        this.timeoffEventId = builder.timeoffEventId;
-        /**
-         * 用户id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-         * <p> 示例值：ou_XXXXXXXXXX
-         */
-        this.userId = builder.userId;
-        /**
-         * 时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        this.timezone = builder.timezone;
-        /**
-         * 休假开始时间：;有时间戳(1609430400)和日期(2021-01-01)两种格式，其它格式无效；;时间戳格式是按小时休假日程，日期格式是全天休假日程；;start_time与end_time格式需保持一致，否则无效。
-         * <p> 示例值：2021-01-01
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 休假结束时间：;有时间戳(1609430400)和日期(2021-01-01)两种格式，其它格式无效；;时间戳格式是按小时休假日程，日期格式是全天休假日程；;start_time与end_time格式需保持一致，否则无效。
-         * <p> 示例值：2021-01-01
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 自定义请假日程标题，没有设置则为默认日程标题
-         * <p> 示例值：请假中(全天) / 1-Day Time Off
-         */
-        this.title = builder.title;
-        /**
-         * 自定义请假日程描述，没有设置则为默认日程描述
-         * <p> 示例值：若删除此日程，飞书中相应的“请假”标签将自动消失，而请假系统中的休假申请不会被撤销。
-         */
-        this.description = builder.description;
+    /**
+     * 用户 ID。ID 类型需要与 user_id_type 的值保持一致。关于用户 ID 可参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：ou_XXXXXXXXXX
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 休假人的时区
+     *
+     * <p>示例值：Asia/Shanghai
+     *
+     * @param timezone
+     * @return
+     */
+    public Builder timezone(String timezone) {
+      this.timezone = timezone;
+      return this;
     }
 
-    public String getTimeoffEventId() {
-        return this.timeoffEventId;
+    /**
+     * 休假开始时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，且与end_time对应，不符合将返回错误
+     *
+     * <p>示例值：2021-01-01
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public void setTimeoffEventId(String timeoffEventId) {
-        this.timeoffEventId = timeoffEventId;
+    /**
+     * 休假结束时间（时间戳）/日期（2021-01-01），为日期时将生成全天日程，与start_time对应，不符合将返回错误
+     *
+     * <p>示例值：2021-01-02
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 休假日程标题，可自定义例如："请假中(全天) / 1-Day Time Off"，"请假中(半天) / 0.5-Day Time Off"，"长期休假中 / Leave of
+     * Absence"，"请假中"
+     *
+     * <p>示例值：请假日程标题
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 休假日程描述，可自定义,例如：;"若拒绝或删除此日程，飞书中相应的“请假”标签将自动消失，而请假系统中的休假申请不会被撤销。;;If the event is rejected or
+     * deleted, corresponding "On Leave" tag in Feishu will disappear, while the leave request in
+     * the time off system will not be revoked."
+     *
+     * <p>示例值：请假日程描述
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getTimezone() {
-        return this.timezone;
+    public TimeoffEvent build() {
+      return new TimeoffEvent(this);
     }
+  }
 
-    public void setTimezone(String timezone) {
-        this.timezone = timezone;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * 请假日程ID。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
-         * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39-XXXXXX
-         */
-        private String timeoffEventId;
-        /**
-         * 用户id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-         * <p> 示例值：ou_XXXXXXXXXX
-         */
-        private String userId;
-        /**
-         * 时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        private String timezone;
-        /**
-         * 休假开始时间：;有时间戳(1609430400)和日期(2021-01-01)两种格式，其它格式无效；;时间戳格式是按小时休假日程，日期格式是全天休假日程；;start_time与end_time格式需保持一致，否则无效。
-         * <p> 示例值：2021-01-01
-         */
-        private String startTime;
-        /**
-         * 休假结束时间：;有时间戳(1609430400)和日期(2021-01-01)两种格式，其它格式无效；;时间戳格式是按小时休假日程，日期格式是全天休假日程；;start_time与end_time格式需保持一致，否则无效。
-         * <p> 示例值：2021-01-01
-         */
-        private String endTime;
-        /**
-         * 自定义请假日程标题，没有设置则为默认日程标题
-         * <p> 示例值：请假中(全天) / 1-Day Time Off
-         */
-        private String title;
-        /**
-         * 自定义请假日程描述，没有设置则为默认日程描述
-         * <p> 示例值：若删除此日程，飞书中相应的“请假”标签将自动消失，而请假系统中的休假申请不会被撤销。
-         */
-        private String description;
-
-        /**
-         * 请假日程ID。参见[请假日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/timeoff_event/introduction#b6611a02)
-         * <p> 示例值：timeoff:XXXXXX-XXXX-0917-1623-aa493d591a39-XXXXXX
-         *
-         * @param timeoffEventId
-         * @return
-         */
-        public Builder timeoffEventId(String timeoffEventId) {
-            this.timeoffEventId = timeoffEventId;
-            return this;
-        }
-
-
-        /**
-         * 用户id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-         * <p> 示例值：ou_XXXXXXXXXX
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 时区
-         * <p> 示例值：Asia/Shanghai
-         *
-         * @param timezone
-         * @return
-         */
-        public Builder timezone(String timezone) {
-            this.timezone = timezone;
-            return this;
-        }
-
-
-        /**
-         * 休假开始时间：;有时间戳(1609430400)和日期(2021-01-01)两种格式，其它格式无效；;时间戳格式是按小时休假日程，日期格式是全天休假日程；;start_time与end_time格式需保持一致，否则无效。
-         * <p> 示例值：2021-01-01
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 休假结束时间：;有时间戳(1609430400)和日期(2021-01-01)两种格式，其它格式无效；;时间戳格式是按小时休假日程，日期格式是全天休假日程；;start_time与end_time格式需保持一致，否则无效。
-         * <p> 示例值：2021-01-01
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 自定义请假日程标题，没有设置则为默认日程标题
-         * <p> 示例值：请假中(全天) / 1-Day Time Off
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 自定义请假日程描述，没有设置则为默认日程描述
-         * <p> 示例值：若删除此日程，飞书中相应的“请假”标签将自动消失，而请假系统中的休假申请不会被撤销。
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public TimeoffEvent build() {
-            return new TimeoffEvent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

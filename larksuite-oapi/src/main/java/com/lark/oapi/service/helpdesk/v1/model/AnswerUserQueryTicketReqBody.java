@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AnswerUserQueryTicketReqBody {
+  /**
+   * 事件ID,可从订阅事件中提取
+   *
+   * <p>示例值：abcd
+   */
+  @SerializedName("event_id")
+  private String eventId;
+
+  /**
+   * faq结果列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("faqs")
+  private UserQueryFaqInfo[] faqs;
+
+  public String getEventId() {
+    return this.eventId;
+  }
+
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
+  }
+
+  public UserQueryFaqInfo[] getFaqs() {
+    return this.faqs;
+  }
+
+  public void setFaqs(UserQueryFaqInfo[] faqs) {
+    this.faqs = faqs;
+  }
+
+  // builder 开始
+  public AnswerUserQueryTicketReqBody() {}
+
+  public AnswerUserQueryTicketReqBody(Builder builder) {
     /**
      * 事件ID,可从订阅事件中提取
-     * <p> 示例值：abcd
+     *
+     * <p>示例值：abcd
      */
-    @SerializedName("event_id")
-    private String eventId;
+    this.eventId = builder.eventId;
     /**
      * faq结果列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("faqs")
+    this.faqs = builder.faqs;
+  }
+
+  public static class Builder {
+    /**
+     * 事件ID,可从订阅事件中提取
+     *
+     * <p>示例值：abcd
+     */
+    private String eventId;
+
+    /**
+     * faq结果列表
+     *
+     * <p>示例值：
+     */
     private UserQueryFaqInfo[] faqs;
 
-    // builder 开始
-    public AnswerUserQueryTicketReqBody() {
+    /**
+     * 事件ID,可从订阅事件中提取
+     *
+     * <p>示例值：abcd
+     *
+     * @param eventId
+     * @return
+     */
+    public Builder eventId(String eventId) {
+      this.eventId = eventId;
+      return this;
     }
 
-    public AnswerUserQueryTicketReqBody(Builder builder) {
-        /**
-         * 事件ID,可从订阅事件中提取
-         * <p> 示例值：abcd
-         */
-        this.eventId = builder.eventId;
-        /**
-         * faq结果列表
-         * <p> 示例值：
-         */
-        this.faqs = builder.faqs;
+    /**
+     * faq结果列表
+     *
+     * <p>示例值：
+     *
+     * @param faqs
+     * @return
+     */
+    public Builder faqs(UserQueryFaqInfo[] faqs) {
+      this.faqs = faqs;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AnswerUserQueryTicketReqBody build() {
+      return new AnswerUserQueryTicketReqBody(this);
     }
+  }
 
-    public String getEventId() {
-        return this.eventId;
-    }
-
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
-    }
-
-    public UserQueryFaqInfo[] getFaqs() {
-        return this.faqs;
-    }
-
-    public void setFaqs(UserQueryFaqInfo[] faqs) {
-        this.faqs = faqs;
-    }
-
-    public static class Builder {
-        /**
-         * 事件ID,可从订阅事件中提取
-         * <p> 示例值：abcd
-         */
-        private String eventId;
-        /**
-         * faq结果列表
-         * <p> 示例值：
-         */
-        private UserQueryFaqInfo[] faqs;
-
-        /**
-         * 事件ID,可从订阅事件中提取
-         * <p> 示例值：abcd
-         *
-         * @param eventId
-         * @return
-         */
-        public Builder eventId(String eventId) {
-            this.eventId = eventId;
-            return this;
-        }
-
-
-        /**
-         * faq结果列表
-         * <p> 示例值：
-         *
-         * @param faqs
-         * @return
-         */
-        public Builder faqs(UserQueryFaqInfo[] faqs) {
-            this.faqs = faqs;
-            return this;
-        }
-
-
-        public AnswerUserQueryTicketReqBody build() {
-            return new AnswerUserQueryTicketReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

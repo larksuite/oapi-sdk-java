@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListCalendarAclRespBody {
-    /**
-     * 入参日历对应的acl列表
-     * <p> 示例值：
-     */
-    @SerializedName("acls")
-    private CalendarAcl[] acls;
-    /**
-     * 是否有下一页数据
-     * <p> 示例值：false
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 下次请求需要带上的分页标记，90 天有效期
-     * <p> 示例值：xxx
-     */
-    @SerializedName("page_token")
-    private String pageToken;
+  /**
+   * 日历对应的访问控制列表。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("acls")
+  private CalendarAcl[] acls;
 
-    public CalendarAcl[] getAcls() {
-        return this.acls;
-    }
+  /**
+   * 是否有下一页数据
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setAcls(CalendarAcl[] acls) {
-        this.acls = acls;
-    }
+  /**
+   * 下次请求需要带上的分页标记，90 天有效期
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public CalendarAcl[] getAcls() {
+    return this.acls;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setAcls(CalendarAcl[] acls) {
+    this.acls = acls;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 }

@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetExportRespBody {
-    /**
-     * 任务状态
-     * <p> 示例值：3
-     */
-    @SerializedName("status")
-    private Integer status;
-    /**
-     * 文件下载地址
-     * <p> 示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
-     */
-    @SerializedName("url")
-    private String url;
-    /**
-     * 文件token
-     * <p> 示例值：6yHu7Igp7Igy62Ez6fLr6IJz7j9i5WMe6fHq5yZeY2Jz6yLqYAMAY46fZfEz64Lr5fYyYQ==
-     */
-    @SerializedName("file_token")
-    private String fileToken;
-    /**
-     * 失败信息
-     * <p> 示例值：no permission
-     */
-    @SerializedName("fail_msg")
-    private String failMsg;
+  /**
+   * 任务状态
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  /**
+   * 文件下载地址
+   *
+   * <p>示例值：https://lf1-ttcdn-tos.pstatp.com/obj/xxx
+   */
+  @SerializedName("url")
+  private String url;
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  /**
+   * 文件token
+   *
+   * <p>示例值：6yHu7Igp7Igy62Ez6fLr6IJz7j9i5WMe6fHq5yZeY2Jz6yLqYAMAY46fZfEz64Lr5fYyYQ==
+   */
+  @SerializedName("file_token")
+  private String fileToken;
 
-    public String getUrl() {
-        return this.url;
-    }
+  /**
+   * 失败信息
+   *
+   * <p>示例值：no permission
+   */
+  @SerializedName("fail_msg")
+  private String failMsg;
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+  public Integer getStatus() {
+    return this.status;
+  }
 
-    public String getFileToken() {
-        return this.fileToken;
-    }
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
 
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
+  public String getUrl() {
+    return this.url;
+  }
 
-    public String getFailMsg() {
-        return this.failMsg;
-    }
+  public void setUrl(String url) {
+    this.url = url;
+  }
 
-    public void setFailMsg(String failMsg) {
-        this.failMsg = failMsg;
-    }
+  public String getFileToken() {
+    return this.fileToken;
+  }
 
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  public String getFailMsg() {
+    return this.failMsg;
+  }
+
+  public void setFailMsg(String failMsg) {
+    this.failMsg = failMsg;
+  }
 }

@@ -13,270 +13,312 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class RecordsGetWorkspaceTableReq {
+  /**
+   * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看
+   * `https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering`
+   *
+   * <p>示例值：_id,_created_at,name
+   */
+  @Query
+  @SerializedName("select")
+  private String select;
+
+  /**
+   * 筛选条件，尊许 PostgREST 语法，详情可查看
+   * `https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering`;-
+   * 示例：;查找 student 表中 age 大于 10 的学生列表：age=gt.10, URLEncode 后拼在 filter 中。
+   *
+   * <p>示例值：age%3Dgt.10
+   */
+  @Query
+  @SerializedName("filter")
+  private String filter;
+
+  /**
+   * 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;尊许 PostgREST
+   * 语法，详情可查看;`https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering`
+   *
+   * <p>示例值：age.desc,score.asc
+   */
+  @Query
+  @SerializedName("order")
+  private String order;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getSelect() {
+    return this.select;
+  }
+
+  public void setSelect(String select) {
+    this.select = select;
+  }
+
+  public String getFilter() {
+    return this.filter;
+  }
+
+  public void setFilter(String filter) {
+    this.filter = filter;
+  }
+
+  public String getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(String order) {
+    this.order = order;
+  }
+
+  /**
+   * 工作空间id，可以从数据平台的 URL 中获取，如
+   * `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage`
+   * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+   *
+   * <p>示例值：workspace_aadimx5uzpsls
+   */
+  @Path
+  @SerializedName("workspace_id")
+  private String workspaceId;
+
+  /**
+   * 数据表表名，可以从数据平台获取对应的数据表名。
+   *
+   * <p>示例值：table_name_1
+   */
+  @Path
+  @SerializedName("table_name")
+  private String tableName;
+
+  public String getWorkspaceId() {
+    return this.workspaceId;
+  }
+
+  public void setWorkspaceId(String workspaceId) {
+    this.workspaceId = workspaceId;
+  }
+
+  public String getTableName() {
+    return this.tableName;
+  }
+
+  public void setTableName(String tableName) {
+    this.tableName = tableName;
+  }
+
+  // builder 开始
+  public RecordsGetWorkspaceTableReq() {}
+
+  public RecordsGetWorkspaceTableReq(Builder builder) {
     /**
      * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering
-     * <p> 示例值：_id,_created_at,name
+     * 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看
+     * `https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering`
+     *
+     * <p>示例值：_id,_created_at,name
      */
-    @Query
-    @SerializedName("select")
-    private String select;
+    this.select = builder.select;
     /**
-     * 筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering
-     * <p> 示例值：age=gt.10
+     * 筛选条件，尊许 PostgREST 语法，详情可查看
+     * `https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering`;-
+     * 示例：;查找 student 表中 age 大于 10 的学生列表：age=gt.10, URLEncode 后拼在 filter 中。
+     *
+     * <p>示例值：age%3Dgt.10
      */
-    @Query
-    @SerializedName("filter")
-    private String filter;
+    this.filter = builder.filter;
     /**
-     * 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;尊许 PostgREST 语法，详情可查看;https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering
-     * <p> 示例值：age.desc,score.asc
+     * 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;尊许 PostgREST
+     * 语法，详情可查看;`https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering`
+     *
+     * <p>示例值：age.desc,score.asc
      */
-    @Query
-    @SerializedName("order")
-    private String order;
+    this.order = builder.order;
     /**
-     * 工作空间id
-     * <p> 示例值：workspace_abc
+     * 工作空间id，可以从数据平台的 URL 中获取，如
+     * `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage`
+     * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+     *
+     * <p>示例值：workspace_aadimx5uzpsls
      */
-    @Path
-    @SerializedName("workspace_id")
-    private String workspaceId;
+    this.workspaceId = builder.workspaceId;
     /**
-     * 数据表表名
-     * <p> 示例值：table_name_1
+     * 数据表表名，可以从数据平台获取对应的数据表名。
+     *
+     * <p>示例值：table_name_1
      */
-    @Path
-    @SerializedName("table_name")
-    private String tableName;
+    this.tableName = builder.tableName;
+  }
 
-    // builder 开始
-    public RecordsGetWorkspaceTableReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String select; // 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看
+    // `https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering`
+    private String filter; // 筛选条件，尊许 PostgREST 语法，详情可查看
+    // `https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering`;-
+    // 示例：;查找 student 表中 age 大于 10 的学生列表：age=gt.10, URLEncode 后拼在 filter 中。
+    private String order; // 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;尊许 PostgREST
+
+    // 语法，详情可查看;`https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering`
+
+    /**
+     * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public RecordsGetWorkspaceTableReq(Builder builder) {
-        /**
-         * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering
-         * <p> 示例值：_id,_created_at,name
-         */
-        this.select = builder.select;
-        /**
-         * 筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering
-         * <p> 示例值：age=gt.10
-         */
-        this.filter = builder.filter;
-        /**
-         * 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;尊许 PostgREST 语法，详情可查看;https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering
-         * <p> 示例值：age.desc,score.asc
-         */
-        this.order = builder.order;
-        /**
-         * 工作空间id
-         * <p> 示例值：workspace_abc
-         */
-        this.workspaceId = builder.workspaceId;
-        /**
-         * 数据表表名
-         * <p> 示例值：table_name_1
-         */
-        this.tableName = builder.tableName;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看
+     * `https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering`
+     *
+     * <p>示例值：_id,_created_at,name
+     *
+     * @param select
+     * @return
+     */
+    public Builder select(String select) {
+      this.select = select;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 筛选条件，尊许 PostgREST 语法，详情可查看
+     * `https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering`;-
+     * 示例：;查找 student 表中 age 大于 10 的学生列表：age=gt.10, URLEncode 后拼在 filter 中。
+     *
+     * <p>示例值：age%3Dgt.10
+     *
+     * @param filter
+     * @return
+     */
+    public Builder filter(String filter) {
+      this.filter = filter;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;尊许 PostgREST
+     * 语法，详情可查看;`https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering`
+     *
+     * <p>示例值：age.desc,score.asc
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(String order) {
+      this.order = order;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    private String workspaceId; // 工作空间id，可以从数据平台的 URL 中获取，如
+    // `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage` 中的 workspace_aadimx5uzpsls 就是 workspace_id
+    private String tableName; // 数据表表名，可以从数据平台获取对应的数据表名。
+
+    /**
+     * 工作空间id，可以从数据平台的 URL 中获取，如
+     * `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&tab=objectManage`
+     * 中的 workspace_aadimx5uzpsls 就是 workspace_id
+     *
+     * <p>示例值：workspace_aadimx5uzpsls
+     *
+     * @param workspaceId
+     * @return
+     */
+    public Builder workspaceId(String workspaceId) {
+      this.workspaceId = workspaceId;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    /**
+     * 数据表表名，可以从数据平台获取对应的数据表名。
+     *
+     * <p>示例值：table_name_1
+     *
+     * @param tableName
+     * @return
+     */
+    public Builder tableName(String tableName) {
+      this.tableName = tableName;
+      return this;
     }
 
-    public String getSelect() {
-        return this.select;
+    public RecordsGetWorkspaceTableReq build() {
+      return new RecordsGetWorkspaceTableReq(this);
     }
+  }
 
-    public void setSelect(String select) {
-        this.select = select;
-    }
-
-    public String getFilter() {
-        return this.filter;
-    }
-
-    public void setFilter(String filter) {
-        this.filter = filter;
-    }
-
-    public String getOrder() {
-        return this.order;
-    }
-
-    public void setOrder(String order) {
-        this.order = order;
-    }
-
-    public String getWorkspaceId() {
-        return this.workspaceId;
-    }
-
-    public void setWorkspaceId(String workspaceId) {
-        this.workspaceId = workspaceId;
-    }
-
-    public String getTableName() {
-        return this.tableName;
-    }
-
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String select; // 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering
-        private String filter; // 筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering
-        private String order; // 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;尊许 PostgREST 语法，详情可查看;https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering
-        private String workspaceId; // 工作空间id
-        private String tableName; // 数据表表名
-
-        /**
-         * 分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 返回的列，默认为 *，即返回所有列。;遵循 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering
-         * <p> 示例值：_id,_created_at,name
-         *
-         * @param select
-         * @return
-         */
-        public Builder select(String select) {
-            this.select = select;
-            return this;
-        }
-
-        /**
-         * 筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering
-         * <p> 示例值：age=gt.10
-         *
-         * @param filter
-         * @return
-         */
-        public Builder filter(String filter) {
-            this.filter = filter;
-            return this;
-        }
-
-        /**
-         * 排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。;尊许 PostgREST 语法，详情可查看;https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering
-         * <p> 示例值：age.desc,score.asc
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(String order) {
-            this.order = order;
-            return this;
-        }
-
-        /**
-         * 工作空间id
-         * <p> 示例值：workspace_abc
-         *
-         * @param workspaceId
-         * @return
-         */
-        public Builder workspaceId(String workspaceId) {
-            this.workspaceId = workspaceId;
-            return this;
-        }
-
-
-        /**
-         * 数据表表名
-         * <p> 示例值：table_name_1
-         *
-         * @param tableName
-         * @return
-         */
-        public Builder tableName(String tableName) {
-            this.tableName = tableName;
-            return this;
-        }
-
-
-        public RecordsGetWorkspaceTableReq build() {
-            return new RecordsGetWorkspaceTableReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

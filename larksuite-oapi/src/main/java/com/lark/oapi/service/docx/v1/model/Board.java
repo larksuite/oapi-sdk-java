@@ -13,198 +13,204 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Board {
+  /**
+   * 画板 token
+   *
+   * <p>示例值：EfSPwsv03hVDKJbh1FWczJbWn90
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 对齐方式
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("align")
+  private Integer align;
+
+  /**
+   * 宽度，单位 px；不填时自动适应文档宽度；值超出文档最大宽度时，页面渲染为文档最大宽度
+   *
+   * <p>示例值：300
+   */
+  @SerializedName("width")
+  private Integer width;
+
+  /**
+   * 高度，单位 px；不填时自动根据画板内容计算；值超出屏幕两倍高度时，页面渲染为屏幕两倍高度
+   *
+   * <p>示例值：300
+   */
+  @SerializedName("height")
+  private Integer height;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public Integer getAlign() {
+    return this.align;
+  }
+
+  public void setAlign(Integer align) {
+    this.align = align;
+  }
+
+  public Integer getWidth() {
+    return this.width;
+  }
+
+  public void setWidth(Integer width) {
+    this.width = width;
+  }
+
+  public Integer getHeight() {
+    return this.height;
+  }
+
+  public void setHeight(Integer height) {
+    this.height = height;
+  }
+
+  // builder 开始
+  public Board() {}
+
+  public Board(Builder builder) {
     /**
      * 画板 token
-     * <p> 示例值：EfSPwsv03hVDKJbh1FWczJbWn90
+     *
+     * <p>示例值：EfSPwsv03hVDKJbh1FWczJbWn90
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 对齐方式
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("align")
-    private Integer align;
+    this.align = builder.align;
     /**
      * 宽度，单位 px；不填时自动适应文档宽度；值超出文档最大宽度时，页面渲染为文档最大宽度
-     * <p> 示例值：300
+     *
+     * <p>示例值：300
      */
-    @SerializedName("width")
-    private Integer width;
+    this.width = builder.width;
     /**
      * 高度，单位 px；不填时自动根据画板内容计算；值超出屏幕两倍高度时，页面渲染为屏幕两倍高度
-     * <p> 示例值：300
+     *
+     * <p>示例值：300
      */
-    @SerializedName("height")
+    this.height = builder.height;
+  }
+
+  public static class Builder {
+    /**
+     * 画板 token
+     *
+     * <p>示例值：EfSPwsv03hVDKJbh1FWczJbWn90
+     */
+    private String token;
+
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：2
+     */
+    private Integer align;
+
+    /**
+     * 宽度，单位 px；不填时自动适应文档宽度；值超出文档最大宽度时，页面渲染为文档最大宽度
+     *
+     * <p>示例值：300
+     */
+    private Integer width;
+
+    /**
+     * 高度，单位 px；不填时自动根据画板内容计算；值超出屏幕两倍高度时，页面渲染为屏幕两倍高度
+     *
+     * <p>示例值：300
+     */
     private Integer height;
 
-    // builder 开始
-    public Board() {
+    /**
+     * 画板 token
+     *
+     * <p>示例值：EfSPwsv03hVDKJbh1FWczJbWn90
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public Board(Builder builder) {
-        /**
-         * 画板 token
-         * <p> 示例值：EfSPwsv03hVDKJbh1FWczJbWn90
-         */
-        this.token = builder.token;
-        /**
-         * 对齐方式
-         * <p> 示例值：2
-         */
-        this.align = builder.align;
-        /**
-         * 宽度，单位 px；不填时自动适应文档宽度；值超出文档最大宽度时，页面渲染为文档最大宽度
-         * <p> 示例值：300
-         */
-        this.width = builder.width;
-        /**
-         * 高度，单位 px；不填时自动根据画板内容计算；值超出屏幕两倍高度时，页面渲染为屏幕两倍高度
-         * <p> 示例值：300
-         */
-        this.height = builder.height;
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：2
+     *
+     * @param align
+     * @return
+     */
+    public Builder align(Integer align) {
+      this.align = align;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：2
+     *
+     * @param align {@link com.lark.oapi.service.docx.v1.enums.BoardAlignEnum}
+     * @return
+     */
+    public Builder align(com.lark.oapi.service.docx.v1.enums.BoardAlignEnum align) {
+      this.align = align.getValue();
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    /**
+     * 宽度，单位 px；不填时自动适应文档宽度；值超出文档最大宽度时，页面渲染为文档最大宽度
+     *
+     * <p>示例值：300
+     *
+     * @param width
+     * @return
+     */
+    public Builder width(Integer width) {
+      this.width = width;
+      return this;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    /**
+     * 高度，单位 px；不填时自动根据画板内容计算；值超出屏幕两倍高度时，页面渲染为屏幕两倍高度
+     *
+     * <p>示例值：300
+     *
+     * @param height
+     * @return
+     */
+    public Builder height(Integer height) {
+      this.height = height;
+      return this;
     }
 
-    public Integer getAlign() {
-        return this.align;
+    public Board build() {
+      return new Board(this);
     }
+  }
 
-    public void setAlign(Integer align) {
-        this.align = align;
-    }
-
-    public Integer getWidth() {
-        return this.width;
-    }
-
-    public void setWidth(Integer width) {
-        this.width = width;
-    }
-
-    public Integer getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(Integer height) {
-        this.height = height;
-    }
-
-    public static class Builder {
-        /**
-         * 画板 token
-         * <p> 示例值：EfSPwsv03hVDKJbh1FWczJbWn90
-         */
-        private String token;
-        /**
-         * 对齐方式
-         * <p> 示例值：2
-         */
-        private Integer align;
-        /**
-         * 宽度，单位 px；不填时自动适应文档宽度；值超出文档最大宽度时，页面渲染为文档最大宽度
-         * <p> 示例值：300
-         */
-        private Integer width;
-        /**
-         * 高度，单位 px；不填时自动根据画板内容计算；值超出屏幕两倍高度时，页面渲染为屏幕两倍高度
-         * <p> 示例值：300
-         */
-        private Integer height;
-
-        /**
-         * 画板 token
-         * <p> 示例值：EfSPwsv03hVDKJbh1FWczJbWn90
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 对齐方式
-         * <p> 示例值：2
-         *
-         * @param align
-         * @return
-         */
-        public Builder align(Integer align) {
-            this.align = align;
-            return this;
-        }
-
-        /**
-         * 对齐方式
-         * <p> 示例值：2
-         *
-         * @param align {@link com.lark.oapi.service.docx.v1.enums.BoardAlignEnum}
-         * @return
-         */
-        public Builder align(com.lark.oapi.service.docx.v1.enums.BoardAlignEnum align) {
-            this.align = align.getValue();
-            return this;
-        }
-
-
-        /**
-         * 宽度，单位 px；不填时自动适应文档宽度；值超出文档最大宽度时，页面渲染为文档最大宽度
-         * <p> 示例值：300
-         *
-         * @param width
-         * @return
-         */
-        public Builder width(Integer width) {
-            this.width = width;
-            return this;
-        }
-
-
-        /**
-         * 高度，单位 px；不填时自动根据画板内容计算；值超出屏幕两倍高度时，页面渲染为屏幕两倍高度
-         * <p> 示例值：300
-         *
-         * @param height
-         * @return
-         */
-        public Builder height(Integer height) {
-            this.height = height;
-            return this;
-        }
-
-
-        public Board build() {
-            return new Board(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

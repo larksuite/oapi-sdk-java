@@ -13,223 +13,241 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchDeleteCalendarEventAttendeeReqBody {
+  /**
+   * 需要删除的参与人 ID 列表。;;添加日程参与人时，会返回参与人
+   * ID（attendee_id），你也可以调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)接口，查询指定日程的参与人
+   * ID。;- 一次最多删除500个参与人（与delete_ids一起计算）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attendee_ids")
+  private String[] attendeeIds;
+
+  /**
+   * 参与人类型对应的 ID，该 ID 是 attendee_ids 字段的补充字段。;- 一次最多删除500个参与人（与attendee_ids一起计算）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("delete_ids")
+  private CalendarEventAttendeeId[] deleteIds;
+
+  /**
+   * 删除日程参与人时，是否向参与人发送 Bot 通知。;;**可选值有**：;- true（默认值）：发送;- false：不发送
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("need_notification")
+  private Boolean needNotification;
+
+  /**
+   * 使用管理员身份访问时，要修改的实例（仅用于重复日程修改其中的一个实例，非重复日程无需填此字段）。
+   *
+   * <p>示例值：1647320400
+   */
+  @SerializedName("instance_start_time_admin")
+  private String instanceStartTimeAdmin;
+
+  /**
+   * 是否启用会议室管理员身份（需先在管理后台设置某人为会议室管理员）。;;**可选值有**：;- true：启用;- false（默认值）：不启用
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_enable_admin")
+  private Boolean isEnableAdmin;
+
+  public String[] getAttendeeIds() {
+    return this.attendeeIds;
+  }
+
+  public void setAttendeeIds(String[] attendeeIds) {
+    this.attendeeIds = attendeeIds;
+  }
+
+  public CalendarEventAttendeeId[] getDeleteIds() {
+    return this.deleteIds;
+  }
+
+  public void setDeleteIds(CalendarEventAttendeeId[] deleteIds) {
+    this.deleteIds = deleteIds;
+  }
+
+  public Boolean getNeedNotification() {
+    return this.needNotification;
+  }
+
+  public void setNeedNotification(Boolean needNotification) {
+    this.needNotification = needNotification;
+  }
+
+  public String getInstanceStartTimeAdmin() {
+    return this.instanceStartTimeAdmin;
+  }
+
+  public void setInstanceStartTimeAdmin(String instanceStartTimeAdmin) {
+    this.instanceStartTimeAdmin = instanceStartTimeAdmin;
+  }
+
+  public Boolean getIsEnableAdmin() {
+    return this.isEnableAdmin;
+  }
+
+  public void setIsEnableAdmin(Boolean isEnableAdmin) {
+    this.isEnableAdmin = isEnableAdmin;
+  }
+
+  // builder 开始
+  public BatchDeleteCalendarEventAttendeeReqBody() {}
+
+  public BatchDeleteCalendarEventAttendeeReqBody(Builder builder) {
     /**
-     * 要移除的参与人 ID 列表。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
-     * <p> 示例值：["user_xxxxx", "chat_xxxxx", "resource_xxxxx", "third_party_xxxxx"]
+     * 需要删除的参与人 ID 列表。;;添加日程参与人时，会返回参与人
+     * ID（attendee_id），你也可以调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)接口，查询指定日程的参与人
+     * ID。;- 一次最多删除500个参与人（与delete_ids一起计算）
+     *
+     * <p>示例值：
      */
-    @SerializedName("attendee_ids")
+    this.attendeeIds = builder.attendeeIds;
+    /**
+     * 参与人类型对应的 ID，该 ID 是 attendee_ids 字段的补充字段。;- 一次最多删除500个参与人（与attendee_ids一起计算）
+     *
+     * <p>示例值：
+     */
+    this.deleteIds = builder.deleteIds;
+    /**
+     * 删除日程参与人时，是否向参与人发送 Bot 通知。;;**可选值有**：;- true（默认值）：发送;- false：不发送
+     *
+     * <p>示例值：false
+     */
+    this.needNotification = builder.needNotification;
+    /**
+     * 使用管理员身份访问时，要修改的实例（仅用于重复日程修改其中的一个实例，非重复日程无需填此字段）。
+     *
+     * <p>示例值：1647320400
+     */
+    this.instanceStartTimeAdmin = builder.instanceStartTimeAdmin;
+    /**
+     * 是否启用会议室管理员身份（需先在管理后台设置某人为会议室管理员）。;;**可选值有**：;- true：启用;- false（默认值）：不启用
+     *
+     * <p>示例值：false
+     */
+    this.isEnableAdmin = builder.isEnableAdmin;
+  }
+
+  public static class Builder {
+    /**
+     * 需要删除的参与人 ID 列表。;;添加日程参与人时，会返回参与人
+     * ID（attendee_id），你也可以调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)接口，查询指定日程的参与人
+     * ID。;- 一次最多删除500个参与人（与delete_ids一起计算）
+     *
+     * <p>示例值：
+     */
     private String[] attendeeIds;
+
     /**
-     * 需要删除的参与人类型实体ID，作为attendee_ids字段的补充。
-     * <p> 示例值：
+     * 参与人类型对应的 ID，该 ID 是 attendee_ids 字段的补充字段。;- 一次最多删除500个参与人（与attendee_ids一起计算）
+     *
+     * <p>示例值：
      */
-    @SerializedName("delete_ids")
     private CalendarEventAttendeeId[] deleteIds;
+
     /**
-     * 删除日程参与人时是否要给参与人发送bot通知，默认为true
-     * <p> 示例值：false
+     * 删除日程参与人时，是否向参与人发送 Bot 通知。;;**可选值有**：;- true（默认值）：发送;- false：不发送
+     *
+     * <p>示例值：false
      */
-    @SerializedName("need_notification")
     private Boolean needNotification;
+
     /**
-     * 使用管理员身份访问时要修改的实例
-     * <p> 示例值：1647320400
+     * 使用管理员身份访问时，要修改的实例（仅用于重复日程修改其中的一个实例，非重复日程无需填此字段）。
+     *
+     * <p>示例值：1647320400
      */
-    @SerializedName("instance_start_time_admin")
     private String instanceStartTimeAdmin;
+
     /**
-     * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
-     * <p> 示例值：false
+     * 是否启用会议室管理员身份（需先在管理后台设置某人为会议室管理员）。;;**可选值有**：;- true：启用;- false（默认值）：不启用
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_enable_admin")
     private Boolean isEnableAdmin;
 
-    // builder 开始
-    public BatchDeleteCalendarEventAttendeeReqBody() {
+    /**
+     * 需要删除的参与人 ID 列表。;;添加日程参与人时，会返回参与人
+     * ID（attendee_id），你也可以调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)接口，查询指定日程的参与人
+     * ID。;- 一次最多删除500个参与人（与delete_ids一起计算）
+     *
+     * <p>示例值：
+     *
+     * @param attendeeIds
+     * @return
+     */
+    public Builder attendeeIds(String[] attendeeIds) {
+      this.attendeeIds = attendeeIds;
+      return this;
     }
 
-    public BatchDeleteCalendarEventAttendeeReqBody(Builder builder) {
-        /**
-         * 要移除的参与人 ID 列表。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
-         * <p> 示例值：["user_xxxxx", "chat_xxxxx", "resource_xxxxx", "third_party_xxxxx"]
-         */
-        this.attendeeIds = builder.attendeeIds;
-        /**
-         * 需要删除的参与人类型实体ID，作为attendee_ids字段的补充。
-         * <p> 示例值：
-         */
-        this.deleteIds = builder.deleteIds;
-        /**
-         * 删除日程参与人时是否要给参与人发送bot通知，默认为true
-         * <p> 示例值：false
-         */
-        this.needNotification = builder.needNotification;
-        /**
-         * 使用管理员身份访问时要修改的实例
-         * <p> 示例值：1647320400
-         */
-        this.instanceStartTimeAdmin = builder.instanceStartTimeAdmin;
-        /**
-         * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
-         * <p> 示例值：false
-         */
-        this.isEnableAdmin = builder.isEnableAdmin;
+    /**
+     * 参与人类型对应的 ID，该 ID 是 attendee_ids 字段的补充字段。;- 一次最多删除500个参与人（与attendee_ids一起计算）
+     *
+     * <p>示例值：
+     *
+     * @param deleteIds
+     * @return
+     */
+    public Builder deleteIds(CalendarEventAttendeeId[] deleteIds) {
+      this.deleteIds = deleteIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 删除日程参与人时，是否向参与人发送 Bot 通知。;;**可选值有**：;- true（默认值）：发送;- false：不发送
+     *
+     * <p>示例值：false
+     *
+     * @param needNotification
+     * @return
+     */
+    public Builder needNotification(Boolean needNotification) {
+      this.needNotification = needNotification;
+      return this;
     }
 
-    public String[] getAttendeeIds() {
-        return this.attendeeIds;
+    /**
+     * 使用管理员身份访问时，要修改的实例（仅用于重复日程修改其中的一个实例，非重复日程无需填此字段）。
+     *
+     * <p>示例值：1647320400
+     *
+     * @param instanceStartTimeAdmin
+     * @return
+     */
+    public Builder instanceStartTimeAdmin(String instanceStartTimeAdmin) {
+      this.instanceStartTimeAdmin = instanceStartTimeAdmin;
+      return this;
     }
 
-    public void setAttendeeIds(String[] attendeeIds) {
-        this.attendeeIds = attendeeIds;
+    /**
+     * 是否启用会议室管理员身份（需先在管理后台设置某人为会议室管理员）。;;**可选值有**：;- true：启用;- false（默认值）：不启用
+     *
+     * <p>示例值：false
+     *
+     * @param isEnableAdmin
+     * @return
+     */
+    public Builder isEnableAdmin(Boolean isEnableAdmin) {
+      this.isEnableAdmin = isEnableAdmin;
+      return this;
     }
 
-    public CalendarEventAttendeeId[] getDeleteIds() {
-        return this.deleteIds;
+    public BatchDeleteCalendarEventAttendeeReqBody build() {
+      return new BatchDeleteCalendarEventAttendeeReqBody(this);
     }
+  }
 
-    public void setDeleteIds(CalendarEventAttendeeId[] deleteIds) {
-        this.deleteIds = deleteIds;
-    }
-
-    public Boolean getNeedNotification() {
-        return this.needNotification;
-    }
-
-    public void setNeedNotification(Boolean needNotification) {
-        this.needNotification = needNotification;
-    }
-
-    public String getInstanceStartTimeAdmin() {
-        return this.instanceStartTimeAdmin;
-    }
-
-    public void setInstanceStartTimeAdmin(String instanceStartTimeAdmin) {
-        this.instanceStartTimeAdmin = instanceStartTimeAdmin;
-    }
-
-    public Boolean getIsEnableAdmin() {
-        return this.isEnableAdmin;
-    }
-
-    public void setIsEnableAdmin(Boolean isEnableAdmin) {
-        this.isEnableAdmin = isEnableAdmin;
-    }
-
-    public static class Builder {
-        /**
-         * 要移除的参与人 ID 列表。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
-         * <p> 示例值：["user_xxxxx", "chat_xxxxx", "resource_xxxxx", "third_party_xxxxx"]
-         */
-        private String[] attendeeIds;
-        /**
-         * 需要删除的参与人类型实体ID，作为attendee_ids字段的补充。
-         * <p> 示例值：
-         */
-        private CalendarEventAttendeeId[] deleteIds;
-        /**
-         * 删除日程参与人时是否要给参与人发送bot通知，默认为true
-         * <p> 示例值：false
-         */
-        private Boolean needNotification;
-        /**
-         * 使用管理员身份访问时要修改的实例
-         * <p> 示例值：1647320400
-         */
-        private String instanceStartTimeAdmin;
-        /**
-         * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
-         * <p> 示例值：false
-         */
-        private Boolean isEnableAdmin;
-
-        /**
-         * 要移除的参与人 ID 列表。参见[参与人ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/introduction#4998889c)
-         * <p> 示例值：["user_xxxxx", "chat_xxxxx", "resource_xxxxx", "third_party_xxxxx"]
-         *
-         * @param attendeeIds
-         * @return
-         */
-        public Builder attendeeIds(String[] attendeeIds) {
-            this.attendeeIds = attendeeIds;
-            return this;
-        }
-
-
-        /**
-         * 需要删除的参与人类型实体ID，作为attendee_ids字段的补充。
-         * <p> 示例值：
-         *
-         * @param deleteIds
-         * @return
-         */
-        public Builder deleteIds(CalendarEventAttendeeId[] deleteIds) {
-            this.deleteIds = deleteIds;
-            return this;
-        }
-
-
-        /**
-         * 删除日程参与人时是否要给参与人发送bot通知，默认为true
-         * <p> 示例值：false
-         *
-         * @param needNotification
-         * @return
-         */
-        public Builder needNotification(Boolean needNotification) {
-            this.needNotification = needNotification;
-            return this;
-        }
-
-
-        /**
-         * 使用管理员身份访问时要修改的实例
-         * <p> 示例值：1647320400
-         *
-         * @param instanceStartTimeAdmin
-         * @return
-         */
-        public Builder instanceStartTimeAdmin(String instanceStartTimeAdmin) {
-            this.instanceStartTimeAdmin = instanceStartTimeAdmin;
-            return this;
-        }
-
-
-        /**
-         * 是否启用管理员身份(需先在管理后台设置某人为会议室管理员)
-         * <p> 示例值：false
-         *
-         * @param isEnableAdmin
-         * @return
-         */
-        public Builder isEnableAdmin(Boolean isEnableAdmin) {
-            this.isEnableAdmin = isEnableAdmin;
-            return this;
-        }
-
-
-        public BatchDeleteCalendarEventAttendeeReqBody build() {
-            return new BatchDeleteCalendarEventAttendeeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

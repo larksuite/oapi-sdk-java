@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FieldVariableSubVlaueForReview {
+  /**
+   * 用于关联list_values和record_values类型变量值中的key
+   *
+   * <p>示例值：key1
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 变量值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("value")
+  private FieldVariableValueToForReview value;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public FieldVariableValueToForReview getValue() {
+    return this.value;
+  }
+
+  public void setValue(FieldVariableValueToForReview value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public FieldVariableSubVlaueForReview() {}
+
+  public FieldVariableSubVlaueForReview(Builder builder) {
     /**
-     * 用于关联list和record类型变量值中的key
-     * <p> 示例值：key1
+     * 用于关联list_values和record_values类型变量值中的key
+     *
+     * <p>示例值：key1
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * 变量值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 用于关联list_values和record_values类型变量值中的key
+     *
+     * <p>示例值：key1
+     */
+    private String key;
+
+    /**
+     * 变量值
+     *
+     * <p>示例值：
+     */
     private FieldVariableValueToForReview value;
 
-    // builder 开始
-    public FieldVariableSubVlaueForReview() {
+    /**
+     * 用于关联list_values和record_values类型变量值中的key
+     *
+     * <p>示例值：key1
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public FieldVariableSubVlaueForReview(Builder builder) {
-        /**
-         * 用于关联list和record类型变量值中的key
-         * <p> 示例值：key1
-         */
-        this.key = builder.key;
-        /**
-         * 变量值
-         * <p> 示例值：
-         */
-        this.value = builder.value;
+    /**
+     * 变量值
+     *
+     * <p>示例值：
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(FieldVariableValueToForReview value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public FieldVariableSubVlaueForReview build() {
+      return new FieldVariableSubVlaueForReview(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public FieldVariableValueToForReview getValue() {
-        return this.value;
-    }
-
-    public void setValue(FieldVariableValueToForReview value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 用于关联list和record类型变量值中的key
-         * <p> 示例值：key1
-         */
-        private String key;
-        /**
-         * 变量值
-         * <p> 示例值：
-         */
-        private FieldVariableValueToForReview value;
-
-        /**
-         * 用于关联list和record类型变量值中的key
-         * <p> 示例值：key1
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 变量值
-         * <p> 示例值：
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(FieldVariableValueToForReview value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public FieldVariableSubVlaueForReview build() {
-            return new FieldVariableSubVlaueForReview(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

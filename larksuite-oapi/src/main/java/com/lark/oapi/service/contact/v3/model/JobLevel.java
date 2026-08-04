@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobLevel {
+  /**
+   * 职级名称
+   *
+   * <p>示例值：高级专家
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 职级描述
+   *
+   * <p>示例值：公司内部中高级职称，有一定专业技术能力的人员
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 职级的排序，可填入自然数100-100000的数值，系统按照数值大小从小到大排序。不填写该字段时，默认新增排序在当前职级列表中最后位（最大值）
+   *
+   * <p>示例值：200
+   */
+  @SerializedName("order")
+  private Integer order;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("status")
+  private Boolean status;
+
+  /**
+   * 职级 ID。后续可通过该 ID 删除、更新、查询职级。
+   *
+   * <p>示例值：mga5oa8ayjlp9rb
+   */
+  @SerializedName("job_level_id")
+  private String jobLevelId;
+
+  /**
+   * 多语言名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_name")
+  private I18nContent[] i18nName;
+
+  /**
+   * 多语言描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_description")
+  private I18nContent[] i18nDescription;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Integer getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(Integer order) {
+    this.order = order;
+  }
+
+  public Boolean getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Boolean status) {
+    this.status = status;
+  }
+
+  public String getJobLevelId() {
+    return this.jobLevelId;
+  }
+
+  public void setJobLevelId(String jobLevelId) {
+    this.jobLevelId = jobLevelId;
+  }
+
+  public I18nContent[] getI18nName() {
+    return this.i18nName;
+  }
+
+  public void setI18nName(I18nContent[] i18nName) {
+    this.i18nName = i18nName;
+  }
+
+  public I18nContent[] getI18nDescription() {
+    return this.i18nDescription;
+  }
+
+  public void setI18nDescription(I18nContent[] i18nDescription) {
+    this.i18nDescription = i18nDescription;
+  }
+
+  // builder 开始
+  public JobLevel() {}
+
+  public JobLevel(Builder builder) {
     /**
      * 职级名称
-     * <p> 示例值：高级专家
+     *
+     * <p>示例值：高级专家
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 职级描述
-     * <p> 示例值：公司内部中高级职称，有一定专业技术能力的人员
+     *
+     * <p>示例值：公司内部中高级职称，有一定专业技术能力的人员
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 职级的排序，可填入自然数100-100000的数值，系统按照数值大小从小到大排序。不填写该字段时，默认新增排序在当前职级列表中最后位（最大值）
-     * <p> 示例值：200
+     *
+     * <p>示例值：200
      */
-    @SerializedName("order")
-    private Integer order;
+    this.order = builder.order;
     /**
      * 是否启用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("status")
-    private Boolean status;
+    this.status = builder.status;
     /**
-     * 职级ID
-     * <p> 示例值：mga5oa8ayjlp9rb
+     * 职级 ID。后续可通过该 ID 删除、更新、查询职级。
+     *
+     * <p>示例值：mga5oa8ayjlp9rb
      */
-    @SerializedName("job_level_id")
-    private String jobLevelId;
+    this.jobLevelId = builder.jobLevelId;
     /**
      * 多语言名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_name")
-    private I18nContent[] i18nName;
+    this.i18nName = builder.i18nName;
     /**
      * 多语言描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_description")
+    this.i18nDescription = builder.i18nDescription;
+  }
+
+  public static class Builder {
+    /**
+     * 职级名称
+     *
+     * <p>示例值：高级专家
+     */
+    private String name;
+
+    /**
+     * 职级描述
+     *
+     * <p>示例值：公司内部中高级职称，有一定专业技术能力的人员
+     */
+    private String description;
+
+    /**
+     * 职级的排序，可填入自然数100-100000的数值，系统按照数值大小从小到大排序。不填写该字段时，默认新增排序在当前职级列表中最后位（最大值）
+     *
+     * <p>示例值：200
+     */
+    private Integer order;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean status;
+
+    /**
+     * 职级 ID。后续可通过该 ID 删除、更新、查询职级。
+     *
+     * <p>示例值：mga5oa8ayjlp9rb
+     */
+    private String jobLevelId;
+
+    /**
+     * 多语言名称
+     *
+     * <p>示例值：
+     */
+    private I18nContent[] i18nName;
+
+    /**
+     * 多语言描述
+     *
+     * <p>示例值：
+     */
     private I18nContent[] i18nDescription;
 
-    // builder 开始
-    public JobLevel() {
+    /**
+     * 职级名称
+     *
+     * <p>示例值：高级专家
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public JobLevel(Builder builder) {
-        /**
-         * 职级名称
-         * <p> 示例值：高级专家
-         */
-        this.name = builder.name;
-        /**
-         * 职级描述
-         * <p> 示例值：公司内部中高级职称，有一定专业技术能力的人员
-         */
-        this.description = builder.description;
-        /**
-         * 职级的排序，可填入自然数100-100000的数值，系统按照数值大小从小到大排序。不填写该字段时，默认新增排序在当前职级列表中最后位（最大值）
-         * <p> 示例值：200
-         */
-        this.order = builder.order;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.status = builder.status;
-        /**
-         * 职级ID
-         * <p> 示例值：mga5oa8ayjlp9rb
-         */
-        this.jobLevelId = builder.jobLevelId;
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         */
-        this.i18nName = builder.i18nName;
-        /**
-         * 多语言描述
-         * <p> 示例值：
-         */
-        this.i18nDescription = builder.i18nDescription;
+    /**
+     * 职级描述
+     *
+     * <p>示例值：公司内部中高级职称，有一定专业技术能力的人员
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 职级的排序，可填入自然数100-100000的数值，系统按照数值大小从小到大排序。不填写该字段时，默认新增排序在当前职级列表中最后位（最大值）
+     *
+     * <p>示例值：200
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(Integer order) {
+      this.order = order;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Boolean status) {
+      this.status = status;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 职级 ID。后续可通过该 ID 删除、更新、查询职级。
+     *
+     * <p>示例值：mga5oa8ayjlp9rb
+     *
+     * @param jobLevelId
+     * @return
+     */
+    public Builder jobLevelId(String jobLevelId) {
+      this.jobLevelId = jobLevelId;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * 多语言名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nName
+     * @return
+     */
+    public Builder i18nName(I18nContent[] i18nName) {
+      this.i18nName = i18nName;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * 多语言描述
+     *
+     * <p>示例值：
+     *
+     * @param i18nDescription
+     * @return
+     */
+    public Builder i18nDescription(I18nContent[] i18nDescription) {
+      this.i18nDescription = i18nDescription;
+      return this;
     }
 
-    public Integer getOrder() {
-        return this.order;
+    public JobLevel build() {
+      return new JobLevel(this);
     }
+  }
 
-    public void setOrder(Integer order) {
-        this.order = order;
-    }
-
-    public Boolean getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
-
-    public String getJobLevelId() {
-        return this.jobLevelId;
-    }
-
-    public void setJobLevelId(String jobLevelId) {
-        this.jobLevelId = jobLevelId;
-    }
-
-    public I18nContent[] getI18nName() {
-        return this.i18nName;
-    }
-
-    public void setI18nName(I18nContent[] i18nName) {
-        this.i18nName = i18nName;
-    }
-
-    public I18nContent[] getI18nDescription() {
-        return this.i18nDescription;
-    }
-
-    public void setI18nDescription(I18nContent[] i18nDescription) {
-        this.i18nDescription = i18nDescription;
-    }
-
-    public static class Builder {
-        /**
-         * 职级名称
-         * <p> 示例值：高级专家
-         */
-        private String name;
-        /**
-         * 职级描述
-         * <p> 示例值：公司内部中高级职称，有一定专业技术能力的人员
-         */
-        private String description;
-        /**
-         * 职级的排序，可填入自然数100-100000的数值，系统按照数值大小从小到大排序。不填写该字段时，默认新增排序在当前职级列表中最后位（最大值）
-         * <p> 示例值：200
-         */
-        private Integer order;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean status;
-        /**
-         * 职级ID
-         * <p> 示例值：mga5oa8ayjlp9rb
-         */
-        private String jobLevelId;
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         */
-        private I18nContent[] i18nName;
-        /**
-         * 多语言描述
-         * <p> 示例值：
-         */
-        private I18nContent[] i18nDescription;
-
-        /**
-         * 职级名称
-         * <p> 示例值：高级专家
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 职级描述
-         * <p> 示例值：公司内部中高级职称，有一定专业技术能力的人员
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 职级的排序，可填入自然数100-100000的数值，系统按照数值大小从小到大排序。不填写该字段时，默认新增排序在当前职级列表中最后位（最大值）
-         * <p> 示例值：200
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(Integer order) {
-            this.order = order;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Boolean status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 职级ID
-         * <p> 示例值：mga5oa8ayjlp9rb
-         *
-         * @param jobLevelId
-         * @return
-         */
-        public Builder jobLevelId(String jobLevelId) {
-            this.jobLevelId = jobLevelId;
-            return this;
-        }
-
-
-        /**
-         * 多语言名称
-         * <p> 示例值：
-         *
-         * @param i18nName
-         * @return
-         */
-        public Builder i18nName(I18nContent[] i18nName) {
-            this.i18nName = i18nName;
-            return this;
-        }
-
-
-        /**
-         * 多语言描述
-         * <p> 示例值：
-         *
-         * @param i18nDescription
-         * @return
-         */
-        public Builder i18nDescription(I18nContent[] i18nDescription) {
-            this.i18nDescription = i18nDescription;
-            return this;
-        }
-
-
-        public JobLevel build() {
-            return new JobLevel(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

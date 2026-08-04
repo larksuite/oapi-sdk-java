@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobHighlight {
+  /**
+   * 职位亮点列表，详情请查看：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中职位亮枚举定义」
+   *
+   * <p>示例值：7281257045172308287
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 职位亮点中文名称
+   *
+   * <p>示例值：团队氛围好
+   */
+  @SerializedName("zh_name")
+  private String zhName;
+
+  /**
+   * 职位亮点英文名称
+   *
+   * <p>示例值：Positive team atmosphere
+   */
+  @SerializedName("en_name")
+  private String enName;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getZhName() {
+    return this.zhName;
+  }
+
+  public void setZhName(String zhName) {
+    this.zhName = zhName;
+  }
+
+  public String getEnName() {
+    return this.enName;
+  }
+
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
+
+  // builder 开始
+  public JobHighlight() {}
+
+  public JobHighlight(Builder builder) {
     /**
-     * 职位亮点 ID
-     * <p> 示例值：6301
+     * 职位亮点列表，详情请查看：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中职位亮枚举定义」
+     *
+     * <p>示例值：7281257045172308287
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 职位亮点中文名称
-     * <p> 示例值：团队氛围好
+     *
+     * <p>示例值：团队氛围好
      */
-    @SerializedName("zh_name")
-    private String zhName;
+    this.zhName = builder.zhName;
     /**
      * 职位亮点英文名称
-     * <p> 示例值：Positive team atmosphere
+     *
+     * <p>示例值：Positive team atmosphere
      */
-    @SerializedName("en_name")
+    this.enName = builder.enName;
+  }
+
+  public static class Builder {
+    /**
+     * 职位亮点列表，详情请查看：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中职位亮枚举定义」
+     *
+     * <p>示例值：7281257045172308287
+     */
+    private String id;
+
+    /**
+     * 职位亮点中文名称
+     *
+     * <p>示例值：团队氛围好
+     */
+    private String zhName;
+
+    /**
+     * 职位亮点英文名称
+     *
+     * <p>示例值：Positive team atmosphere
+     */
     private String enName;
 
-    // builder 开始
-    public JobHighlight() {
+    /**
+     * 职位亮点列表，详情请查看：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中职位亮枚举定义」
+     *
+     * <p>示例值：7281257045172308287
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public JobHighlight(Builder builder) {
-        /**
-         * 职位亮点 ID
-         * <p> 示例值：6301
-         */
-        this.id = builder.id;
-        /**
-         * 职位亮点中文名称
-         * <p> 示例值：团队氛围好
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 职位亮点英文名称
-         * <p> 示例值：Positive team atmosphere
-         */
-        this.enName = builder.enName;
+    /**
+     * 职位亮点中文名称
+     *
+     * <p>示例值：团队氛围好
+     *
+     * @param zhName
+     * @return
+     */
+    public Builder zhName(String zhName) {
+      this.zhName = zhName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 职位亮点英文名称
+     *
+     * <p>示例值：Positive team atmosphere
+     *
+     * @param enName
+     * @return
+     */
+    public Builder enName(String enName) {
+      this.enName = enName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public JobHighlight build() {
+      return new JobHighlight(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getZhName() {
-        return this.zhName;
-    }
-
-    public void setZhName(String zhName) {
-        this.zhName = zhName;
-    }
-
-    public String getEnName() {
-        return this.enName;
-    }
-
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
-
-    public static class Builder {
-        /**
-         * 职位亮点 ID
-         * <p> 示例值：6301
-         */
-        private String id;
-        /**
-         * 职位亮点中文名称
-         * <p> 示例值：团队氛围好
-         */
-        private String zhName;
-        /**
-         * 职位亮点英文名称
-         * <p> 示例值：Positive team atmosphere
-         */
-        private String enName;
-
-        /**
-         * 职位亮点 ID
-         * <p> 示例值：6301
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 职位亮点中文名称
-         * <p> 示例值：团队氛围好
-         *
-         * @param zhName
-         * @return
-         */
-        public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
-        }
-
-
-        /**
-         * 职位亮点英文名称
-         * <p> 示例值：Positive team atmosphere
-         *
-         * @param enName
-         * @return
-         */
-        public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
-        }
-
-
-        public JobHighlight build() {
-            return new JobHighlight(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

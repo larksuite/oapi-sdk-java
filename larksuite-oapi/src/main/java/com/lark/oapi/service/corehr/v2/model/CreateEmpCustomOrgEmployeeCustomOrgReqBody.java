@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateEmpCustomOrgEmployeeCustomOrgReqBody {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：00067
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 自定义组织类型编码
+   *
+   * <p>示例值：custom_org_03
+   */
+  @SerializedName("object_api_name")
+  private String objectApiName;
+
+  /**
+   * 自定义组织列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_org_with_rates")
+  private CustomOrgWithRate[] customOrgWithRates;
+
+  /**
+   * 变更原因
+   *
+   * <p>示例值：开放平台变更
+   */
+  @SerializedName("start_reason")
+  private String startReason;
+
+  /**
+   * 生效时间
+   *
+   * <p>示例值：2024-06-01
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
+
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
+
+  public CustomOrgWithRate[] getCustomOrgWithRates() {
+    return this.customOrgWithRates;
+  }
+
+  public void setCustomOrgWithRates(CustomOrgWithRate[] customOrgWithRates) {
+    this.customOrgWithRates = customOrgWithRates;
+  }
+
+  public String getStartReason() {
+    return this.startReason;
+  }
+
+  public void setStartReason(String startReason) {
+    this.startReason = startReason;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  // builder 开始
+  public CreateEmpCustomOrgEmployeeCustomOrgReqBody() {}
+
+  public CreateEmpCustomOrgEmployeeCustomOrgReqBody(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：00067
+     *
+     * <p>示例值：00067
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 自定义组织类型编码
-     * <p> 示例值：custom_org_03
+     *
+     * <p>示例值：custom_org_03
      */
-    @SerializedName("object_api_name")
-    private String objectApiName;
+    this.objectApiName = builder.objectApiName;
     /**
      * 自定义组织列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_org_with_rates")
-    private CustomOrgWithRate[] customOrgWithRates;
+    this.customOrgWithRates = builder.customOrgWithRates;
     /**
      * 变更原因
-     * <p> 示例值：开放平台变更
+     *
+     * <p>示例值：开放平台变更
      */
-    @SerializedName("start_reason")
-    private String startReason;
+    this.startReason = builder.startReason;
     /**
      * 生效时间
-     * <p> 示例值：2024-06-01
+     *
+     * <p>示例值：2024-06-01
      */
-    @SerializedName("effective_time")
+    this.effectiveTime = builder.effectiveTime;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：00067
+     */
+    private String userId;
+
+    /**
+     * 自定义组织类型编码
+     *
+     * <p>示例值：custom_org_03
+     */
+    private String objectApiName;
+
+    /**
+     * 自定义组织列表
+     *
+     * <p>示例值：
+     */
+    private CustomOrgWithRate[] customOrgWithRates;
+
+    /**
+     * 变更原因
+     *
+     * <p>示例值：开放平台变更
+     */
+    private String startReason;
+
+    /**
+     * 生效时间
+     *
+     * <p>示例值：2024-06-01
+     */
     private String effectiveTime;
 
-    // builder 开始
-    public CreateEmpCustomOrgEmployeeCustomOrgReqBody() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：00067
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public CreateEmpCustomOrgEmployeeCustomOrgReqBody(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：00067
-         */
-        this.userId = builder.userId;
-        /**
-         * 自定义组织类型编码
-         * <p> 示例值：custom_org_03
-         */
-        this.objectApiName = builder.objectApiName;
-        /**
-         * 自定义组织列表
-         * <p> 示例值：
-         */
-        this.customOrgWithRates = builder.customOrgWithRates;
-        /**
-         * 变更原因
-         * <p> 示例值：开放平台变更
-         */
-        this.startReason = builder.startReason;
-        /**
-         * 生效时间
-         * <p> 示例值：2024-06-01
-         */
-        this.effectiveTime = builder.effectiveTime;
+    /**
+     * 自定义组织类型编码
+     *
+     * <p>示例值：custom_org_03
+     *
+     * @param objectApiName
+     * @return
+     */
+    public Builder objectApiName(String objectApiName) {
+      this.objectApiName = objectApiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义组织列表
+     *
+     * <p>示例值：
+     *
+     * @param customOrgWithRates
+     * @return
+     */
+    public Builder customOrgWithRates(CustomOrgWithRate[] customOrgWithRates) {
+      this.customOrgWithRates = customOrgWithRates;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 变更原因
+     *
+     * <p>示例值：开放平台变更
+     *
+     * @param startReason
+     * @return
+     */
+    public Builder startReason(String startReason) {
+      this.startReason = startReason;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 生效时间
+     *
+     * <p>示例值：2024-06-01
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public String getObjectApiName() {
-        return this.objectApiName;
+    public CreateEmpCustomOrgEmployeeCustomOrgReqBody build() {
+      return new CreateEmpCustomOrgEmployeeCustomOrgReqBody(this);
     }
+  }
 
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
-    }
-
-    public CustomOrgWithRate[] getCustomOrgWithRates() {
-        return this.customOrgWithRates;
-    }
-
-    public void setCustomOrgWithRates(CustomOrgWithRate[] customOrgWithRates) {
-        this.customOrgWithRates = customOrgWithRates;
-    }
-
-    public String getStartReason() {
-        return this.startReason;
-    }
-
-    public void setStartReason(String startReason) {
-        this.startReason = startReason;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：00067
-         */
-        private String userId;
-        /**
-         * 自定义组织类型编码
-         * <p> 示例值：custom_org_03
-         */
-        private String objectApiName;
-        /**
-         * 自定义组织列表
-         * <p> 示例值：
-         */
-        private CustomOrgWithRate[] customOrgWithRates;
-        /**
-         * 变更原因
-         * <p> 示例值：开放平台变更
-         */
-        private String startReason;
-        /**
-         * 生效时间
-         * <p> 示例值：2024-06-01
-         */
-        private String effectiveTime;
-
-        /**
-         * 用户ID
-         * <p> 示例值：00067
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 自定义组织类型编码
-         * <p> 示例值：custom_org_03
-         *
-         * @param objectApiName
-         * @return
-         */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
-
-
-        /**
-         * 自定义组织列表
-         * <p> 示例值：
-         *
-         * @param customOrgWithRates
-         * @return
-         */
-        public Builder customOrgWithRates(CustomOrgWithRate[] customOrgWithRates) {
-            this.customOrgWithRates = customOrgWithRates;
-            return this;
-        }
-
-
-        /**
-         * 变更原因
-         * <p> 示例值：开放平台变更
-         *
-         * @param startReason
-         * @return
-         */
-        public Builder startReason(String startReason) {
-            this.startReason = startReason;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2024-06-01
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        public CreateEmpCustomOrgEmployeeCustomOrgReqBody build() {
-            return new CreateEmpCustomOrgEmployeeCustomOrgReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

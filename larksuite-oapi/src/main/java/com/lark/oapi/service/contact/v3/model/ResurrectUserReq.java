@@ -13,187 +13,207 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.contact.v3.enums.*;
 
 public class ResurrectUserReq {
+  /**
+   * 用户id类型
+   *
+   * <p>示例值：user_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 此次调用中使用的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+   * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+   *
+   * <p>示例值：department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  /**
+   * 用户 ID。ID 类型需要与查询参数中的 user_id_type类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户
+   * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @Path
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  @Body private ResurrectUserReqBody body;
+
+  public ResurrectUserReqBody getResurrectUserReqBody() {
+    return this.body;
+  }
+
+  public void setResurrectUserReqBody(ResurrectUserReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public ResurrectUserReq() {}
+
+  public ResurrectUserReq(Builder builder) {
     /**
      * 用户id类型
-     * <p> 示例值：user_id
+     *
+     * <p>示例值：user_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 部门id类型
-     * <p> 示例值：department_id
+     * 此次调用中使用的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+     *
+     * <p>示例值：department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
-     * 用户ID，需要与查询参数中的user_id_type类型保持一致。
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     * 用户 ID。ID 类型需要与查询参数中的 user_id_type类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @Path
-    @SerializedName("user_id")
-    private String userId;
-    @Body
+    this.userId = builder.userId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 用户id类型
+    private String departmentIdType; // 此次调用中使用的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+
+    // 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+
+    /**
+     * 用户id类型
+     *
+     * <p>示例值：user_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户id类型
+     *
+     * <p>示例值：user_id
+     *
+     * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.ResurrectUserUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.contact.v3.enums.ResurrectUserUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+     *
+     * <p>示例值：department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+     *
+     * <p>示例值：department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.contact.v3.enums.ResurrectUserDepartmentIdTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.contact.v3.enums.ResurrectUserDepartmentIdTypeEnum departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
+    }
+
+    private String userId; // 用户 ID。ID 类型需要与查询参数中的 user_id_type类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户
+
+    // ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。
+
+    /**
+     * 用户 ID。ID 类型需要与查询参数中的 user_id_type类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
+    }
+
     private ResurrectUserReqBody body;
 
-    // builder 开始
-    public ResurrectUserReq() {
-    }
-
-    public ResurrectUserReq(Builder builder) {
-        /**
-         * 用户id类型
-         * <p> 示例值：user_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 部门id类型
-         * <p> 示例值：department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 用户ID，需要与查询参数中的user_id_type类型保持一致。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.userId = builder.userId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
     public ResurrectUserReqBody getResurrectUserReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setResurrectUserReqBody(ResurrectUserReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder resurrectUserReqBody(ResurrectUserReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 用户id类型
-        private String departmentIdType; // 部门id类型
-        private String userId; // 用户ID，需要与查询参数中的user_id_type类型保持一致。
-        private ResurrectUserReqBody body;
-
-        /**
-         * 用户id类型
-         * <p> 示例值：user_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户id类型
-         * <p> 示例值：user_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.ResurrectUserUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.ResurrectUserUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 部门id类型
-         * <p> 示例值：department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 部门id类型
-         * <p> 示例值：department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.ResurrectUserDepartmentIdTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.ResurrectUserDepartmentIdTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 用户ID，需要与查询参数中的user_id_type类型保持一致。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-        public ResurrectUserReqBody getResurrectUserReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder resurrectUserReqBody(ResurrectUserReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public ResurrectUserReq build() {
-            return new ResurrectUserReq(this);
-        }
+    public ResurrectUserReq build() {
+      return new ResurrectUserReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

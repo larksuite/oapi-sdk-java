@@ -13,112 +13,119 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BasicJobData {
+  /**
+   * 任职信息
+   * ID，可通过[【查询单个任职信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/get);获取详细信息
+   *
+   * <p>示例值：1000000
+   */
+  @SerializedName("job_data_id")
+  private String jobDataId;
+
+  /**
+   * 雇佣
+   * ID，可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取详细信息;-
+   * 与 user_id_type 类型一致
+   *
+   * <p>示例值：6893014062142064135
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  public String getJobDataId() {
+    return this.jobDataId;
+  }
+
+  public void setJobDataId(String jobDataId) {
+    this.jobDataId = jobDataId;
+  }
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  // builder 开始
+  public BasicJobData() {}
+
+  public BasicJobData(Builder builder) {
     /**
-     * 任职信息 ID
-     * <p> 示例值：1000000
+     * 任职信息
+     * ID，可通过[【查询单个任职信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/get);获取详细信息
+     *
+     * <p>示例值：1000000
      */
-    @SerializedName("job_data_id")
+    this.jobDataId = builder.jobDataId;
+    /**
+     * 雇佣
+     * ID，可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取详细信息;-
+     * 与 user_id_type 类型一致
+     *
+     * <p>示例值：6893014062142064135
+     */
+    this.employmentId = builder.employmentId;
+  }
+
+  public static class Builder {
+    /**
+     * 任职信息
+     * ID，可通过[【查询单个任职信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/get);获取详细信息
+     *
+     * <p>示例值：1000000
+     */
     private String jobDataId;
+
     /**
-     * 雇佣 ID
-     * <p> 示例值：6893014062142064135
+     * 雇佣
+     * ID，可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取详细信息;-
+     * 与 user_id_type 类型一致
+     *
+     * <p>示例值：6893014062142064135
      */
-    @SerializedName("employment_id")
     private String employmentId;
 
-    // builder 开始
-    public BasicJobData() {
+    /**
+     * 任职信息
+     * ID，可通过[【查询单个任职信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/get);获取详细信息
+     *
+     * <p>示例值：1000000
+     *
+     * @param jobDataId
+     * @return
+     */
+    public Builder jobDataId(String jobDataId) {
+      this.jobDataId = jobDataId;
+      return this;
     }
 
-    public BasicJobData(Builder builder) {
-        /**
-         * 任职信息 ID
-         * <p> 示例值：1000000
-         */
-        this.jobDataId = builder.jobDataId;
-        /**
-         * 雇佣 ID
-         * <p> 示例值：6893014062142064135
-         */
-        this.employmentId = builder.employmentId;
+    /**
+     * 雇佣
+     * ID，可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取详细信息;-
+     * 与 user_id_type 类型一致
+     *
+     * <p>示例值：6893014062142064135
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BasicJobData build() {
+      return new BasicJobData(this);
     }
+  }
 
-    public String getJobDataId() {
-        return this.jobDataId;
-    }
-
-    public void setJobDataId(String jobDataId) {
-        this.jobDataId = jobDataId;
-    }
-
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public static class Builder {
-        /**
-         * 任职信息 ID
-         * <p> 示例值：1000000
-         */
-        private String jobDataId;
-        /**
-         * 雇佣 ID
-         * <p> 示例值：6893014062142064135
-         */
-        private String employmentId;
-
-        /**
-         * 任职信息 ID
-         * <p> 示例值：1000000
-         *
-         * @param jobDataId
-         * @return
-         */
-        public Builder jobDataId(String jobDataId) {
-            this.jobDataId = jobDataId;
-            return this;
-        }
-
-
-        /**
-         * 雇佣 ID
-         * <p> 示例值：6893014062142064135
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        public BasicJobData build() {
-            return new BasicJobData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

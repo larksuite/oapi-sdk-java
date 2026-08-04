@@ -13,130 +13,130 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class PatchTasklistReq {
+  /**
+   * 表示user的ID的类型，支持open_id, user_id, union_id
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 要更新的清单的全局唯一GUID
+   *
+   * <p>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+   */
+  @Path
+  @SerializedName("tasklist_guid")
+  private String tasklistGuid;
+
+  public String getTasklistGuid() {
+    return this.tasklistGuid;
+  }
+
+  public void setTasklistGuid(String tasklistGuid) {
+    this.tasklistGuid = tasklistGuid;
+  }
+
+  @Body private PatchTasklistReqBody body;
+
+  public PatchTasklistReqBody getPatchTasklistReqBody() {
+    return this.body;
+  }
+
+  public void setPatchTasklistReqBody(PatchTasklistReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchTasklistReq() {}
+
+  public PatchTasklistReq(Builder builder) {
     /**
      * 表示user的ID的类型，支持open_id, user_id, union_id
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 要更新的清单的全局唯一GUID
-     * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+     *
+     * <p>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
      */
-    @Path
-    @SerializedName("tasklist_guid")
-    private String tasklistGuid;
-    @Body
+    this.tasklistGuid = builder.tasklistGuid;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
+
+    /**
+     * 表示user的ID的类型，支持open_id, user_id, union_id
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    private String tasklistGuid; // 要更新的清单的全局唯一GUID
+
+    /**
+     * 要更新的清单的全局唯一GUID
+     *
+     * <p>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
+     *
+     * @param tasklistGuid
+     * @return
+     */
+    public Builder tasklistGuid(String tasklistGuid) {
+      this.tasklistGuid = tasklistGuid;
+      return this;
+    }
+
     private PatchTasklistReqBody body;
 
-    // builder 开始
-    public PatchTasklistReq() {
-    }
-
-    public PatchTasklistReq(Builder builder) {
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 要更新的清单的全局唯一GUID
-         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         */
-        this.tasklistGuid = builder.tasklistGuid;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getTasklistGuid() {
-        return this.tasklistGuid;
-    }
-
-    public void setTasklistGuid(String tasklistGuid) {
-        this.tasklistGuid = tasklistGuid;
-    }
-
     public PatchTasklistReqBody getPatchTasklistReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPatchTasklistReqBody(PatchTasklistReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder patchTasklistReqBody(PatchTasklistReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-        private String tasklistGuid; // 要更新的清单的全局唯一GUID
-        private PatchTasklistReqBody body;
-
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 要更新的清单的全局唯一GUID
-         * <p> 示例值：d300a75f-c56a-4be9-80d1-e47653028ceb
-         *
-         * @param tasklistGuid
-         * @return
-         */
-        public Builder tasklistGuid(String tasklistGuid) {
-            this.tasklistGuid = tasklistGuid;
-            return this;
-        }
-
-        public PatchTasklistReqBody getPatchTasklistReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder patchTasklistReqBody(PatchTasklistReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchTasklistReq build() {
-            return new PatchTasklistReq(this);
-        }
+    public PatchTasklistReq build() {
+      return new PatchTasklistReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

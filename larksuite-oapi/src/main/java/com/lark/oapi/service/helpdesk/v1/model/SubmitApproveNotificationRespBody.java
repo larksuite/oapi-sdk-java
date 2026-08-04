@@ -13,34 +13,23 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubmitApproveNotificationRespBody {
-    /**
-     * 是否有权限创建或者管理审批流程 （有两种情况会导致没有权限： 1：用户没有安装服务台小程序，需要在https://app.feishu.cn/app/cli_9f9f8825d53b900d 安装小程序 2：用户安装的服务台小程序版本过低）
-     * <p> 示例值：true
-     */
-    @SerializedName("has_access")
-    private Boolean hasAccess;
+  /**
+   * 是否有权限创建或者管理审批流程 （有两种情况会导致没有权限： 1：用户没有安装服务台小程序，需要在https://app.feishu.cn/app/cli_*** 安装小程序
+   * 2：用户安装的服务台小程序版本过低）
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_access")
+  private Boolean hasAccess;
 
-    public Boolean getHasAccess() {
-        return this.hasAccess;
-    }
+  public Boolean getHasAccess() {
+    return this.hasAccess;
+  }
 
-    public void setHasAccess(Boolean hasAccess) {
-        this.hasAccess = hasAccess;
-    }
-
+  public void setHasAccess(Boolean hasAccess) {
+    this.hasAccess = hasAccess;
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.docx.v1.enums;
 
-/**
- * 链接类型
- */
+/** 链接类型 */
 public enum LinkPreviewLinkPreviewURLTypeEnum {
-    MESSAGELINK("MessageLink"), // 消息链接
-    UNDEFINED("Undefined"), // 未定义的链接类型
-    ;
-    private String value;
+  MESSAGELINK("MessageLink"), // 消息链接
+  UNDEFINED("Undefined"), // 未定义的链接类型
+  ;
+  private String value;
 
-    LinkPreviewLinkPreviewURLTypeEnum(String value) {
-        this.value = value;
-    }
+  LinkPreviewLinkPreviewURLTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

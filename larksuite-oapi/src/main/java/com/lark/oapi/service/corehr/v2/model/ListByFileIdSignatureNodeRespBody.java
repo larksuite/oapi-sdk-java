@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListByFileIdSignatureNodeRespBody {
-    /**
-     * 返回的电子签节点列表
-     * <p> 示例值：
-     */
-    @SerializedName("signature_nodes")
-    private SignatureNode[] signatureNodes;
+  /**
+   * 电子签文件签署流程各个节点列表信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("signature_nodes")
+  private SignatureNode[] signatureNodes;
 
-    public SignatureNode[] getSignatureNodes() {
-        return this.signatureNodes;
-    }
+  public SignatureNode[] getSignatureNodes() {
+    return this.signatureNodes;
+  }
 
-    public void setSignatureNodes(SignatureNode[] signatureNodes) {
-        this.signatureNodes = signatureNodes;
-    }
-
+  public void setSignatureNodes(SignatureNode[] signatureNodes) {
+    this.signatureNodes = signatureNodes;
+  }
 }

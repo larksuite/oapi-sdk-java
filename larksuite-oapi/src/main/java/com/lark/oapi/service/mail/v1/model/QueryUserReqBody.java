@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryUserReqBody {
+  /**
+   * 需要查询的邮箱地址列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("email_list")
+  private String[] emailList;
+
+  public String[] getEmailList() {
+    return this.emailList;
+  }
+
+  public void setEmailList(String[] emailList) {
+    this.emailList = emailList;
+  }
+
+  // builder 开始
+  public QueryUserReqBody() {}
+
+  public QueryUserReqBody(Builder builder) {
     /**
      * 需要查询的邮箱地址列表
-     * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
+     *
+     * <p>示例值：
      */
-    @SerializedName("email_list")
+    this.emailList = builder.emailList;
+  }
+
+  public static class Builder {
+    /**
+     * 需要查询的邮箱地址列表
+     *
+     * <p>示例值：
+     */
     private String[] emailList;
 
-    // builder 开始
-    public QueryUserReqBody() {
+    /**
+     * 需要查询的邮箱地址列表
+     *
+     * <p>示例值：
+     *
+     * @param emailList
+     * @return
+     */
+    public Builder emailList(String[] emailList) {
+      this.emailList = emailList;
+      return this;
     }
 
-    public QueryUserReqBody(Builder builder) {
-        /**
-         * 需要查询的邮箱地址列表
-         * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
-         */
-        this.emailList = builder.emailList;
+    public QueryUserReqBody build() {
+      return new QueryUserReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getEmailList() {
-        return this.emailList;
-    }
-
-    public void setEmailList(String[] emailList) {
-        this.emailList = emailList;
-    }
-
-    public static class Builder {
-        /**
-         * 需要查询的邮箱地址列表
-         * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
-         */
-        private String[] emailList;
-
-        /**
-         * 需要查询的邮箱地址列表
-         * <p> 示例值：["aaa@lark.com","bbb@lark.com"]
-         *
-         * @param emailList
-         * @return
-         */
-        public Builder emailList(String[] emailList) {
-            this.emailList = emailList;
-            return this;
-        }
-
-
-        public QueryUserReqBody build() {
-            return new QueryUserReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

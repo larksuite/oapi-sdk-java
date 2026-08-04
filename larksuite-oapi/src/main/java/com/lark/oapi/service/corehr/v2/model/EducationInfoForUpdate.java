@@ -13,297 +13,265 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EducationInfoForUpdate {
+  /** 示例值： */
+  @SerializedName("school_name")
+  private String schoolName;
+
+  /**
+   * 学历，枚举值可通过文档[枚举常量介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)学历（level_of_education）枚举定义获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("education")
+  private String education;
+
+  /** 示例值： */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /** 示例值： */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /** 示例值： */
+  @SerializedName("field_of_study")
+  private String fieldOfStudy;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  /**
+   * 学位，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+   * object_api_name：education;- custom_api_name：degree
+   *
+   * <p>示例值：
+   */
+  @SerializedName("degree")
+  private String degree;
+
+  public String getSchoolName() {
+    return this.schoolName;
+  }
+
+  public void setSchoolName(String schoolName) {
+    this.schoolName = schoolName;
+  }
+
+  public String getEducation() {
+    return this.education;
+  }
+
+  public void setEducation(String education) {
+    this.education = education;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getFieldOfStudy() {
+    return this.fieldOfStudy;
+  }
+
+  public void setFieldOfStudy(String fieldOfStudy) {
+    this.fieldOfStudy = fieldOfStudy;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public String getDegree() {
+    return this.degree;
+  }
+
+  public void setDegree(String degree) {
+    this.degree = degree;
+  }
+
+  // builder 开始
+  public EducationInfoForUpdate() {}
+
+  public EducationInfoForUpdate(Builder builder) {
+    /** 示例值： */
+    this.schoolName = builder.schoolName;
     /**
-     * 学校名称
-     * <p> 示例值：长安大学
+     * 学历，枚举值可通过文档[枚举常量介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)学历（level_of_education）枚举定义获得
+     *
+     * <p>示例值：
      */
-    @SerializedName("school_name")
-    private String schoolName;
-    /**
-     * 学历
-     * <p> 示例值：phd
-     */
-    @SerializedName("education")
-    private String education;
-    /**
-     * 开始时间
-     * <p> 示例值：2017-04-01
-     */
-    @SerializedName("start_time")
-    private String startTime;
-    /**
-     * 结束时间
-     * <p> 示例值：2018-04-01
-     */
-    @SerializedName("end_time")
-    private String endTime;
-    /**
-     * 专业
-     * <p> 示例值：医学影像技术
-     */
-    @SerializedName("field_of_study")
-    private String fieldOfStudy;
+    this.education = builder.education;
+    /** 示例值： */
+    this.startTime = builder.startTime;
+    /** 示例值： */
+    this.endTime = builder.endTime;
+    /** 示例值： */
+    this.fieldOfStudy = builder.fieldOfStudy;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private ObjectFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
-     * 学位
-     * <p> 示例值：
+     * 学位，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：education;- custom_api_name：degree
+     *
+     * <p>示例值：
      */
-    @SerializedName("degree")
+    this.degree = builder.degree;
+  }
+
+  public static class Builder {
+    /** 示例值： */
+    private String schoolName;
+
+    /**
+     * 学历，枚举值可通过文档[枚举常量介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)学历（level_of_education）枚举定义获得
+     *
+     * <p>示例值：
+     */
+    private String education;
+
+    /** 示例值： */
+    private String startTime;
+
+    /** 示例值： */
+    private String endTime;
+
+    /** 示例值： */
+    private String fieldOfStudy;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private ObjectFieldData[] customFields;
+
+    /**
+     * 学位，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：education;- custom_api_name：degree
+     *
+     * <p>示例值：
+     */
     private String degree;
 
-    // builder 开始
-    public EducationInfoForUpdate() {
+    /**
+     * 示例值：
+     *
+     * @param schoolName
+     * @return
+     */
+    public Builder schoolName(String schoolName) {
+      this.schoolName = schoolName;
+      return this;
     }
 
-    public EducationInfoForUpdate(Builder builder) {
-        /**
-         * 学校名称
-         * <p> 示例值：长安大学
-         */
-        this.schoolName = builder.schoolName;
-        /**
-         * 学历
-         * <p> 示例值：phd
-         */
-        this.education = builder.education;
-        /**
-         * 开始时间
-         * <p> 示例值：2017-04-01
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：2018-04-01
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 专业
-         * <p> 示例值：医学影像技术
-         */
-        this.fieldOfStudy = builder.fieldOfStudy;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 学位
-         * <p> 示例值：
-         */
-        this.degree = builder.degree;
+    /**
+     * 学历，枚举值可通过文档[枚举常量介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)学历（level_of_education）枚举定义获得
+     *
+     * <p>示例值：
+     *
+     * @param education
+     * @return
+     */
+    public Builder education(String education) {
+      this.education = education;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getSchoolName() {
-        return this.schoolName;
+    /**
+     * 示例值：
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setSchoolName(String schoolName) {
-        this.schoolName = schoolName;
+    /**
+     * 示例值：
+     *
+     * @param fieldOfStudy
+     * @return
+     */
+    public Builder fieldOfStudy(String fieldOfStudy) {
+      this.fieldOfStudy = fieldOfStudy;
+      return this;
     }
 
-    public String getEducation() {
-        return this.education;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setEducation(String education) {
-        this.education = education;
+    /**
+     * 学位，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：;-
+     * object_api_name：education;- custom_api_name：degree
+     *
+     * <p>示例值：
+     *
+     * @param degree
+     * @return
+     */
+    public Builder degree(String degree) {
+      this.degree = degree;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    public EducationInfoForUpdate build() {
+      return new EducationInfoForUpdate(this);
     }
+  }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getFieldOfStudy() {
-        return this.fieldOfStudy;
-    }
-
-    public void setFieldOfStudy(String fieldOfStudy) {
-        this.fieldOfStudy = fieldOfStudy;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public String getDegree() {
-        return this.degree;
-    }
-
-    public void setDegree(String degree) {
-        this.degree = degree;
-    }
-
-    public static class Builder {
-        /**
-         * 学校名称
-         * <p> 示例值：长安大学
-         */
-        private String schoolName;
-        /**
-         * 学历
-         * <p> 示例值：phd
-         */
-        private String education;
-        /**
-         * 开始时间
-         * <p> 示例值：2017-04-01
-         */
-        private String startTime;
-        /**
-         * 结束时间
-         * <p> 示例值：2018-04-01
-         */
-        private String endTime;
-        /**
-         * 专业
-         * <p> 示例值：医学影像技术
-         */
-        private String fieldOfStudy;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-        /**
-         * 学位
-         * <p> 示例值：
-         */
-        private String degree;
-
-        /**
-         * 学校名称
-         * <p> 示例值：长安大学
-         *
-         * @param schoolName
-         * @return
-         */
-        public Builder schoolName(String schoolName) {
-            this.schoolName = schoolName;
-            return this;
-        }
-
-
-        /**
-         * 学历
-         * <p> 示例值：phd
-         *
-         * @param education
-         * @return
-         */
-        public Builder education(String education) {
-            this.education = education;
-            return this;
-        }
-
-
-        /**
-         * 开始时间
-         * <p> 示例值：2017-04-01
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：2018-04-01
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 专业
-         * <p> 示例值：医学影像技术
-         *
-         * @param fieldOfStudy
-         * @return
-         */
-        public Builder fieldOfStudy(String fieldOfStudy) {
-            this.fieldOfStudy = fieldOfStudy;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 学位
-         * <p> 示例值：
-         *
-         * @param degree
-         * @return
-         */
-        public Builder degree(String degree) {
-            this.degree = degree;
-            return this;
-        }
-
-
-        public EducationInfoForUpdate build() {
-            return new EducationInfoForUpdate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

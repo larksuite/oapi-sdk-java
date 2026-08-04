@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TimeRange {
+  /**
+   * 开始时间
+   *
+   * <p>示例值：1751385600
+   */
+  @SerializedName("start_time_stamp")
+  private Integer startTimeStamp;
+
+  /**
+   * 结束时间
+   *
+   * <p>示例值：1751385600
+   */
+  @SerializedName("end_time_stamp")
+  private Integer endTimeStamp;
+
+  public Integer getStartTimeStamp() {
+    return this.startTimeStamp;
+  }
+
+  public void setStartTimeStamp(Integer startTimeStamp) {
+    this.startTimeStamp = startTimeStamp;
+  }
+
+  public Integer getEndTimeStamp() {
+    return this.endTimeStamp;
+  }
+
+  public void setEndTimeStamp(Integer endTimeStamp) {
+    this.endTimeStamp = endTimeStamp;
+  }
+
+  // builder 开始
+  public TimeRange() {}
+
+  public TimeRange(Builder builder) {
     /**
      * 开始时间
-     * <p> 示例值：1751385600
+     *
+     * <p>示例值：1751385600
      */
-    @SerializedName("start_time_stamp")
-    private Integer startTimeStamp;
+    this.startTimeStamp = builder.startTimeStamp;
     /**
      * 结束时间
-     * <p> 示例值：1751385600
+     *
+     * <p>示例值：1751385600
      */
-    @SerializedName("end_time_stamp")
+    this.endTimeStamp = builder.endTimeStamp;
+  }
+
+  public static class Builder {
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1751385600
+     */
+    private Integer startTimeStamp;
+
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1751385600
+     */
     private Integer endTimeStamp;
 
-    // builder 开始
-    public TimeRange() {
+    /**
+     * 开始时间
+     *
+     * <p>示例值：1751385600
+     *
+     * @param startTimeStamp
+     * @return
+     */
+    public Builder startTimeStamp(Integer startTimeStamp) {
+      this.startTimeStamp = startTimeStamp;
+      return this;
     }
 
-    public TimeRange(Builder builder) {
-        /**
-         * 开始时间
-         * <p> 示例值：1751385600
-         */
-        this.startTimeStamp = builder.startTimeStamp;
-        /**
-         * 结束时间
-         * <p> 示例值：1751385600
-         */
-        this.endTimeStamp = builder.endTimeStamp;
+    /**
+     * 结束时间
+     *
+     * <p>示例值：1751385600
+     *
+     * @param endTimeStamp
+     * @return
+     */
+    public Builder endTimeStamp(Integer endTimeStamp) {
+      this.endTimeStamp = endTimeStamp;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TimeRange build() {
+      return new TimeRange(this);
     }
+  }
 
-    public Integer getStartTimeStamp() {
-        return this.startTimeStamp;
-    }
-
-    public void setStartTimeStamp(Integer startTimeStamp) {
-        this.startTimeStamp = startTimeStamp;
-    }
-
-    public Integer getEndTimeStamp() {
-        return this.endTimeStamp;
-    }
-
-    public void setEndTimeStamp(Integer endTimeStamp) {
-        this.endTimeStamp = endTimeStamp;
-    }
-
-    public static class Builder {
-        /**
-         * 开始时间
-         * <p> 示例值：1751385600
-         */
-        private Integer startTimeStamp;
-        /**
-         * 结束时间
-         * <p> 示例值：1751385600
-         */
-        private Integer endTimeStamp;
-
-        /**
-         * 开始时间
-         * <p> 示例值：1751385600
-         *
-         * @param startTimeStamp
-         * @return
-         */
-        public Builder startTimeStamp(Integer startTimeStamp) {
-            this.startTimeStamp = startTimeStamp;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：1751385600
-         *
-         * @param endTimeStamp
-         * @return
-         */
-        public Builder endTimeStamp(Integer endTimeStamp) {
-            this.endTimeStamp = endTimeStamp;
-            return this;
-        }
-
-
-        public TimeRange build() {
-            return new TimeRange(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,74 +13,64 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobRequirementUpdateOption {
+  /**
+   * 是否需要修改关联的职位
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("need_update_related_job")
+  private Boolean needUpdateRelatedJob;
+
+  public Boolean getNeedUpdateRelatedJob() {
+    return this.needUpdateRelatedJob;
+  }
+
+  public void setNeedUpdateRelatedJob(Boolean needUpdateRelatedJob) {
+    this.needUpdateRelatedJob = needUpdateRelatedJob;
+  }
+
+  // builder 开始
+  public JobRequirementUpdateOption() {}
+
+  public JobRequirementUpdateOption(Builder builder) {
     /**
      * 是否需要修改关联的职位
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("need_update_related_job")
+    this.needUpdateRelatedJob = builder.needUpdateRelatedJob;
+  }
+
+  public static class Builder {
+    /**
+     * 是否需要修改关联的职位
+     *
+     * <p>示例值：false
+     */
     private Boolean needUpdateRelatedJob;
 
-    // builder 开始
-    public JobRequirementUpdateOption() {
+    /**
+     * 是否需要修改关联的职位
+     *
+     * <p>示例值：false
+     *
+     * @param needUpdateRelatedJob
+     * @return
+     */
+    public Builder needUpdateRelatedJob(Boolean needUpdateRelatedJob) {
+      this.needUpdateRelatedJob = needUpdateRelatedJob;
+      return this;
     }
 
-    public JobRequirementUpdateOption(Builder builder) {
-        /**
-         * 是否需要修改关联的职位
-         * <p> 示例值：false
-         */
-        this.needUpdateRelatedJob = builder.needUpdateRelatedJob;
+    public JobRequirementUpdateOption build() {
+      return new JobRequirementUpdateOption(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Boolean getNeedUpdateRelatedJob() {
-        return this.needUpdateRelatedJob;
-    }
-
-    public void setNeedUpdateRelatedJob(Boolean needUpdateRelatedJob) {
-        this.needUpdateRelatedJob = needUpdateRelatedJob;
-    }
-
-    public static class Builder {
-        /**
-         * 是否需要修改关联的职位
-         * <p> 示例值：false
-         */
-        private Boolean needUpdateRelatedJob;
-
-        /**
-         * 是否需要修改关联的职位
-         * <p> 示例值：false
-         *
-         * @param needUpdateRelatedJob
-         * @return
-         */
-        public Builder needUpdateRelatedJob(Boolean needUpdateRelatedJob) {
-            this.needUpdateRelatedJob = needUpdateRelatedJob;
-            return this;
-        }
-
-
-        public JobRequirementUpdateOption build() {
-            return new JobRequirementUpdateOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

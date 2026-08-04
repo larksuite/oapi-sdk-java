@@ -13,116 +13,159 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class DeleteFileReq {
+  /**
+   * 被删除文件的类型
+   *
+   * <p>示例值：file
+   */
+  @Query
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 是否异步删除，如果传true，则直接异步处理
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("async")
+  private Boolean async;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public Boolean getAsync() {
+    return this.async;
+  }
+
+  public void setAsync(Boolean async) {
+    this.async = async;
+  }
+
+  /**
+   * 需要删除的文件或文件夹 token。;;了解如何获取文件
+   * token，参考[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。;;了解如何获取文件夹
+   * token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+   *
+   * <p>示例值：boxcnrHpsg1QDqXAAAyachabcef
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  // builder 开始
+  public DeleteFileReq() {}
+
+  public DeleteFileReq(Builder builder) {
     /**
      * 被删除文件的类型
-     * <p> 示例值：file
+     *
+     * <p>示例值：file
      */
-    @Query
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
-     * 需要删除的文件token
-     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+     * 是否异步删除，如果传true，则直接异步处理
+     *
+     * <p>示例值：
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
+    this.async = builder.async;
+    /**
+     * 需要删除的文件或文件夹 token。;;了解如何获取文件
+     * token，参考[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。;;了解如何获取文件夹
+     * token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+     *
+     * <p>示例值：boxcnrHpsg1QDqXAAAyachabcef
+     */
+    this.fileToken = builder.fileToken;
+  }
 
-    // builder 开始
-    public DeleteFileReq() {
+  public static class Builder {
+    private String type; // 被删除文件的类型
+    private Boolean async; // 是否异步删除，如果传true，则直接异步处理
+
+    /**
+     * 被删除文件的类型
+     *
+     * <p>示例值：file
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public DeleteFileReq(Builder builder) {
-        /**
-         * 被删除文件的类型
-         * <p> 示例值：file
-         */
-        this.type = builder.type;
-        /**
-         * 需要删除的文件token
-         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-         */
-        this.fileToken = builder.fileToken;
+    /**
+     * 被删除文件的类型
+     *
+     * <p>示例值：file
+     *
+     * @param type {@link com.lark.oapi.service.drive.v1.enums.DeleteFileTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.drive.v1.enums.DeleteFileTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否异步删除，如果传true，则直接异步处理
+     *
+     * <p>示例值：
+     *
+     * @param async
+     * @return
+     */
+    public Builder async(Boolean async) {
+      this.async = async;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    private String fileToken; // 需要删除的文件或文件夹 token。;;了解如何获取文件
+
+    // token，参考[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。;;了解如何获取文件夹 token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+
+    /**
+     * 需要删除的文件或文件夹 token。;;了解如何获取文件
+     * token，参考[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。;;了解如何获取文件夹
+     * token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+     *
+     * <p>示例值：boxcnrHpsg1QDqXAAAyachabcef
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public DeleteFileReq build() {
+      return new DeleteFileReq(this);
     }
+  }
 
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public static class Builder {
-        private String type; // 被删除文件的类型
-        private String fileToken; // 需要删除的文件token
-
-        /**
-         * 被删除文件的类型
-         * <p> 示例值：file
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 被删除文件的类型
-         * <p> 示例值：file
-         *
-         * @param type {@link com.lark.oapi.service.drive.v1.enums.DeleteFileTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.drive.v1.enums.DeleteFileTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-        /**
-         * 需要删除的文件token
-         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        public DeleteFileReq build() {
-            return new DeleteFileReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

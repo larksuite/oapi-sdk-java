@@ -13,149 +13,157 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.cardkit.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ContentCardElementReqBody {
+  /**
+   * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+   *
+   * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+   */
+  @SerializedName("uuid")
+  private String uuid;
+
+  /**
+   * 新的全量文本内容。使用时请注意转义为字符串。;;**注意**：;- 若 content 中含有代码块，你需将代码块前后的空格去掉，否则可能导致代码渲染失败。;-
+   * 若旧文本为传入的新文本的前缀子串，新增文本将在旧文本末尾继续以打字机效果输出；若新旧文本前缀不同，全量文本将直接上屏输出，无打字机效果。
+   *
+   * <p>示例值：这是更新后的文本内容。将以打字机式的效果输出
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+   * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("sequence")
+  private Integer sequence;
+
+  public String getUuid() {
+    return this.uuid;
+  }
+
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public Integer getSequence() {
+    return this.sequence;
+  }
+
+  public void setSequence(Integer sequence) {
+    this.sequence = sequence;
+  }
+
+  // builder 开始
+  public ContentCardElementReqBody() {}
+
+  public ContentCardElementReqBody(Builder builder) {
     /**
-     * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-     * <p> 示例值：191857678434
+     * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+     *
+     * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
      */
-    @SerializedName("uuid")
+    this.uuid = builder.uuid;
+    /**
+     * 新的全量文本内容。使用时请注意转义为字符串。;;**注意**：;- 若 content 中含有代码块，你需将代码块前后的空格去掉，否则可能导致代码渲染失败。;-
+     * 若旧文本为传入的新文本的前缀子串，新增文本将在旧文本末尾继续以打字机效果输出；若新旧文本前缀不同，全量文本将直接上屏输出，无打字机效果。
+     *
+     * <p>示例值：这是更新后的文本内容。将以打字机式的效果输出
+     */
+    this.content = builder.content;
+    /**
+     * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+     * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数。
+     *
+     * <p>示例值：1
+     */
+    this.sequence = builder.sequence;
+  }
+
+  public static class Builder {
+    /**
+     * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+     *
+     * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+     */
     private String uuid;
+
     /**
-     * 更新后的文本内容
-     * <p> 示例值：{\"content\":\"更新后的文本内容\"}
+     * 新的全量文本内容。使用时请注意转义为字符串。;;**注意**：;- 若 content 中含有代码块，你需将代码块前后的空格去掉，否则可能导致代码渲染失败。;-
+     * 若旧文本为传入的新文本的前缀子串，新增文本将在旧文本末尾继续以打字机效果输出；若新旧文本前缀不同，全量文本将直接上屏输出，无打字机效果。
+     *
+     * <p>示例值：这是更新后的文本内容。将以打字机式的效果输出
      */
-    @SerializedName("content")
     private String content;
+
     /**
-     * 顺序序号，用于保证更新文本内容的时序性。在卡片的单次 streaming 模式周期中（steaming 状态从开始到停止），该值需为递增的正整数，否则将报错。
-     * <p> 示例值：1712578784
+     * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+     * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("sequence")
     private Integer sequence;
 
-    // builder 开始
-    public ContentCardElementReqBody() {
+    /**
+     * 幂等 ID，可通过传入唯一的 UUID 以保证相同批次的操作只进行一次。
+     *
+     * <p>示例值：a0d69e20-1dd1-458b-k525-dfeca4015204
+     *
+     * @param uuid
+     * @return
+     */
+    public Builder uuid(String uuid) {
+      this.uuid = uuid;
+      return this;
     }
 
-    public ContentCardElementReqBody(Builder builder) {
-        /**
-         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-         * <p> 示例值：191857678434
-         */
-        this.uuid = builder.uuid;
-        /**
-         * 更新后的文本内容
-         * <p> 示例值：{\"content\":\"更新后的文本内容\"}
-         */
-        this.content = builder.content;
-        /**
-         * 顺序序号，用于保证更新文本内容的时序性。在卡片的单次 streaming 模式周期中（steaming 状态从开始到停止），该值需为递增的正整数，否则将报错。
-         * <p> 示例值：1712578784
-         */
-        this.sequence = builder.sequence;
+    /**
+     * 新的全量文本内容。使用时请注意转义为字符串。;;**注意**：;- 若 content 中含有代码块，你需将代码块前后的空格去掉，否则可能导致代码渲染失败。;-
+     * 若旧文本为传入的新文本的前缀子串，新增文本将在旧文本末尾继续以打字机效果输出；若新旧文本前缀不同，全量文本将直接上屏输出，无打字机效果。
+     *
+     * <p>示例值：这是更新后的文本内容。将以打字机式的效果输出
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作卡片的序号。用于保证多次更新的时序性。;;**注意**：;请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence
+     * 的值相较于上一次操作严格递增。;;;**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数。
+     *
+     * <p>示例值：1
+     *
+     * @param sequence
+     * @return
+     */
+    public Builder sequence(Integer sequence) {
+      this.sequence = sequence;
+      return this;
     }
 
-    public String getUuid() {
-        return this.uuid;
+    public ContentCardElementReqBody build() {
+      return new ContentCardElementReqBody(this);
     }
+  }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getSequence() {
-        return this.sequence;
-    }
-
-    public void setSequence(Integer sequence) {
-        this.sequence = sequence;
-    }
-
-    public static class Builder {
-        /**
-         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-         * <p> 示例值：191857678434
-         */
-        private String uuid;
-        /**
-         * 更新后的文本内容
-         * <p> 示例值：{\"content\":\"更新后的文本内容\"}
-         */
-        private String content;
-        /**
-         * 顺序序号，用于保证更新文本内容的时序性。在卡片的单次 streaming 模式周期中（steaming 状态从开始到停止），该值需为递增的正整数，否则将报错。
-         * <p> 示例值：1712578784
-         */
-        private Integer sequence;
-
-        /**
-         * 幂等 id，可通过传入唯一的 uuid 以保证相同批次的操作只进行一次。
-         * <p> 示例值：191857678434
-         *
-         * @param uuid
-         * @return
-         */
-        public Builder uuid(String uuid) {
-            this.uuid = uuid;
-            return this;
-        }
-
-
-        /**
-         * 更新后的文本内容
-         * <p> 示例值：{\"content\":\"更新后的文本内容\"}
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 顺序序号，用于保证更新文本内容的时序性。在卡片的单次 streaming 模式周期中（steaming 状态从开始到停止），该值需为递增的正整数，否则将报错。
-         * <p> 示例值：1712578784
-         *
-         * @param sequence
-         * @return
-         */
-        public Builder sequence(Integer sequence) {
-            this.sequence = sequence;
-            return this;
-        }
-
-
-        public ContentCardElementReqBody build() {
-            return new ContentCardElementReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

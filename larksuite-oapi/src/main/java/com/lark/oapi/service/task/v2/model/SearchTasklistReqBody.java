@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchTasklistReqBody {
+  /**
+   * query (长度范围：0 ～ 50 字符)
+   *
+   * <p>示例值：测试任务清单
+   */
+  @SerializedName("query")
+  private String query;
+
+  /**
+   * 过滤参数，包括创建时间，创建人，不设置时不过滤
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter")
+  private TasklistSearchFilter filter;
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  public TasklistSearchFilter getFilter() {
+    return this.filter;
+  }
+
+  public void setFilter(TasklistSearchFilter filter) {
+    this.filter = filter;
+  }
+
+  // builder 开始
+  public SearchTasklistReqBody() {}
+
+  public SearchTasklistReqBody(Builder builder) {
     /**
      * query (长度范围：0 ～ 50 字符)
-     * <p> 示例值：测试任务清单
+     *
+     * <p>示例值：测试任务清单
      */
-    @SerializedName("query")
-    private String query;
+    this.query = builder.query;
     /**
-     * filter
-     * <p> 示例值：
+     * 过滤参数，包括创建时间，创建人，不设置时不过滤
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter")
+    this.filter = builder.filter;
+  }
+
+  public static class Builder {
+    /**
+     * query (长度范围：0 ～ 50 字符)
+     *
+     * <p>示例值：测试任务清单
+     */
+    private String query;
+
+    /**
+     * 过滤参数，包括创建时间，创建人，不设置时不过滤
+     *
+     * <p>示例值：
+     */
     private TasklistSearchFilter filter;
 
-    // builder 开始
-    public SearchTasklistReqBody() {
+    /**
+     * query (长度范围：0 ～ 50 字符)
+     *
+     * <p>示例值：测试任务清单
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public SearchTasklistReqBody(Builder builder) {
-        /**
-         * query (长度范围：0 ～ 50 字符)
-         * <p> 示例值：测试任务清单
-         */
-        this.query = builder.query;
-        /**
-         * filter
-         * <p> 示例值：
-         */
-        this.filter = builder.filter;
+    /**
+     * 过滤参数，包括创建时间，创建人，不设置时不过滤
+     *
+     * <p>示例值：
+     *
+     * @param filter
+     * @return
+     */
+    public Builder filter(TasklistSearchFilter filter) {
+      this.filter = filter;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SearchTasklistReqBody build() {
+      return new SearchTasklistReqBody(this);
     }
+  }
 
-    public String getQuery() {
-        return this.query;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public TasklistSearchFilter getFilter() {
-        return this.filter;
-    }
-
-    public void setFilter(TasklistSearchFilter filter) {
-        this.filter = filter;
-    }
-
-    public static class Builder {
-        /**
-         * query (长度范围：0 ～ 50 字符)
-         * <p> 示例值：测试任务清单
-         */
-        private String query;
-        /**
-         * filter
-         * <p> 示例值：
-         */
-        private TasklistSearchFilter filter;
-
-        /**
-         * query (长度范围：0 ～ 50 字符)
-         * <p> 示例值：测试任务清单
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        /**
-         * filter
-         * <p> 示例值：
-         *
-         * @param filter
-         * @return
-         */
-        public Builder filter(TasklistSearchFilter filter) {
-            this.filter = filter;
-            return this;
-        }
-
-
-        public SearchTasklistReqBody build() {
-            return new SearchTasklistReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

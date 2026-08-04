@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MailContact {
+  /**
+   * 联系人 id
+   *
+   * <p>示例值：7256274576546463764
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 联系人姓名
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 联系人公司
+   *
+   * <p>示例值：张三科技有限公司
+   */
+  @SerializedName("company")
+  private String company;
+
+  /**
+   * 联系人手机号
+   *
+   * <p>示例值：19912341234
+   */
+  @SerializedName("phone")
+  private String phone;
+
+  /**
+   * 联系人邮箱
+   *
+   * <p>示例值：zhangsan@example.com
+   */
+  @SerializedName("mail_address")
+  private String mailAddress;
+
+  /**
+   * 联系人标签
+   *
+   * <p>示例值：朋友
+   */
+  @SerializedName("tag")
+  private String tag;
+
+  /**
+   * 联系人备注
+   *
+   * <p>示例值：飞书发布会认识
+   */
+  @SerializedName("remark")
+  private String remark;
+
+  /**
+   * 联系人头像
+   *
+   * <p>示例值：https://exampleimg.com/xxxx.jpg
+   */
+  @SerializedName("avatar")
+  private String avatar;
+
+  /**
+   * 联系人职位
+   *
+   * <p>示例值：CFO
+   */
+  @SerializedName("position")
+  private String position;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getCompany() {
+    return this.company;
+  }
+
+  public void setCompany(String company) {
+    this.company = company;
+  }
+
+  public String getPhone() {
+    return this.phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+  public String getMailAddress() {
+    return this.mailAddress;
+  }
+
+  public void setMailAddress(String mailAddress) {
+    this.mailAddress = mailAddress;
+  }
+
+  public String getTag() {
+    return this.tag;
+  }
+
+  public void setTag(String tag) {
+    this.tag = tag;
+  }
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  public String getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(String avatar) {
+    this.avatar = avatar;
+  }
+
+  public String getPosition() {
+    return this.position;
+  }
+
+  public void setPosition(String position) {
+    this.position = position;
+  }
+
+  // builder 开始
+  public MailContact() {}
+
+  public MailContact(Builder builder) {
     /**
      * 联系人 id
-     * <p> 示例值：7256274576546463764
+     *
+     * <p>示例值：7256274576546463764
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 联系人姓名
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 联系人公司
-     * <p> 示例值：张三科技有限公司
+     *
+     * <p>示例值：张三科技有限公司
      */
-    @SerializedName("company")
-    private String company;
+    this.company = builder.company;
     /**
      * 联系人手机号
-     * <p> 示例值：19912341234
+     *
+     * <p>示例值：19912341234
      */
-    @SerializedName("phone")
-    private String phone;
+    this.phone = builder.phone;
     /**
      * 联系人邮箱
-     * <p> 示例值：zhangsan@example.com
+     *
+     * <p>示例值：zhangsan@example.com
      */
-    @SerializedName("mail_address")
-    private String mailAddress;
+    this.mailAddress = builder.mailAddress;
     /**
      * 联系人标签
-     * <p> 示例值：朋友
+     *
+     * <p>示例值：朋友
      */
-    @SerializedName("tag")
-    private String tag;
+    this.tag = builder.tag;
     /**
      * 联系人备注
-     * <p> 示例值：飞书发布会认识
+     *
+     * <p>示例值：飞书发布会认识
      */
-    @SerializedName("remark")
-    private String remark;
+    this.remark = builder.remark;
     /**
      * 联系人头像
-     * <p> 示例值：https://exampeimg.com/xxxx.jpg
+     *
+     * <p>示例值：https://exampleimg.com/xxxx.jpg
      */
-    @SerializedName("avatar")
-    private String avatar;
+    this.avatar = builder.avatar;
     /**
      * 联系人职位
-     * <p> 示例值：CFO
+     *
+     * <p>示例值：CFO
      */
-    @SerializedName("position")
+    this.position = builder.position;
+  }
+
+  public static class Builder {
+    /**
+     * 联系人 id
+     *
+     * <p>示例值：7256274576546463764
+     */
+    private String id;
+
+    /**
+     * 联系人姓名
+     *
+     * <p>示例值：张三
+     */
+    private String name;
+
+    /**
+     * 联系人公司
+     *
+     * <p>示例值：张三科技有限公司
+     */
+    private String company;
+
+    /**
+     * 联系人手机号
+     *
+     * <p>示例值：19912341234
+     */
+    private String phone;
+
+    /**
+     * 联系人邮箱
+     *
+     * <p>示例值：zhangsan@example.com
+     */
+    private String mailAddress;
+
+    /**
+     * 联系人标签
+     *
+     * <p>示例值：朋友
+     */
+    private String tag;
+
+    /**
+     * 联系人备注
+     *
+     * <p>示例值：飞书发布会认识
+     */
+    private String remark;
+
+    /**
+     * 联系人头像
+     *
+     * <p>示例值：https://exampleimg.com/xxxx.jpg
+     */
+    private String avatar;
+
+    /**
+     * 联系人职位
+     *
+     * <p>示例值：CFO
+     */
     private String position;
 
-    // builder 开始
-    public MailContact() {
+    /**
+     * 联系人 id
+     *
+     * <p>示例值：7256274576546463764
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public MailContact(Builder builder) {
-        /**
-         * 联系人 id
-         * <p> 示例值：7256274576546463764
-         */
-        this.id = builder.id;
-        /**
-         * 联系人姓名
-         * <p> 示例值：张三
-         */
-        this.name = builder.name;
-        /**
-         * 联系人公司
-         * <p> 示例值：张三科技有限公司
-         */
-        this.company = builder.company;
-        /**
-         * 联系人手机号
-         * <p> 示例值：19912341234
-         */
-        this.phone = builder.phone;
-        /**
-         * 联系人邮箱
-         * <p> 示例值：zhangsan@example.com
-         */
-        this.mailAddress = builder.mailAddress;
-        /**
-         * 联系人标签
-         * <p> 示例值：朋友
-         */
-        this.tag = builder.tag;
-        /**
-         * 联系人备注
-         * <p> 示例值：飞书发布会认识
-         */
-        this.remark = builder.remark;
-        /**
-         * 联系人头像
-         * <p> 示例值：https://exampeimg.com/xxxx.jpg
-         */
-        this.avatar = builder.avatar;
-        /**
-         * 联系人职位
-         * <p> 示例值：CFO
-         */
-        this.position = builder.position;
+    /**
+     * 联系人姓名
+     *
+     * <p>示例值：张三
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 联系人公司
+     *
+     * <p>示例值：张三科技有限公司
+     *
+     * @param company
+     * @return
+     */
+    public Builder company(String company) {
+      this.company = company;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 联系人手机号
+     *
+     * <p>示例值：19912341234
+     *
+     * @param phone
+     * @return
+     */
+    public Builder phone(String phone) {
+      this.phone = phone;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 联系人邮箱
+     *
+     * <p>示例值：zhangsan@example.com
+     *
+     * @param mailAddress
+     * @return
+     */
+    public Builder mailAddress(String mailAddress) {
+      this.mailAddress = mailAddress;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 联系人标签
+     *
+     * <p>示例值：朋友
+     *
+     * @param tag
+     * @return
+     */
+    public Builder tag(String tag) {
+      this.tag = tag;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 联系人备注
+     *
+     * <p>示例值：飞书发布会认识
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(String remark) {
+      this.remark = remark;
+      return this;
     }
 
-    public String getCompany() {
-        return this.company;
+    /**
+     * 联系人头像
+     *
+     * <p>示例值：https://exampleimg.com/xxxx.jpg
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(String avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
+    /**
+     * 联系人职位
+     *
+     * <p>示例值：CFO
+     *
+     * @param position
+     * @return
+     */
+    public Builder position(String position) {
+      this.position = position;
+      return this;
     }
 
-    public String getPhone() {
-        return this.phone;
+    public MailContact build() {
+      return new MailContact(this);
     }
+  }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getMailAddress() {
-        return this.mailAddress;
-    }
-
-    public void setMailAddress(String mailAddress) {
-        this.mailAddress = mailAddress;
-    }
-
-    public String getTag() {
-        return this.tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public String getRemark() {
-        return this.remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public String getAvatar() {
-        return this.avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getPosition() {
-        return this.position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
-    public static class Builder {
-        /**
-         * 联系人 id
-         * <p> 示例值：7256274576546463764
-         */
-        private String id;
-        /**
-         * 联系人姓名
-         * <p> 示例值：张三
-         */
-        private String name;
-        /**
-         * 联系人公司
-         * <p> 示例值：张三科技有限公司
-         */
-        private String company;
-        /**
-         * 联系人手机号
-         * <p> 示例值：19912341234
-         */
-        private String phone;
-        /**
-         * 联系人邮箱
-         * <p> 示例值：zhangsan@example.com
-         */
-        private String mailAddress;
-        /**
-         * 联系人标签
-         * <p> 示例值：朋友
-         */
-        private String tag;
-        /**
-         * 联系人备注
-         * <p> 示例值：飞书发布会认识
-         */
-        private String remark;
-        /**
-         * 联系人头像
-         * <p> 示例值：https://exampeimg.com/xxxx.jpg
-         */
-        private String avatar;
-        /**
-         * 联系人职位
-         * <p> 示例值：CFO
-         */
-        private String position;
-
-        /**
-         * 联系人 id
-         * <p> 示例值：7256274576546463764
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 联系人姓名
-         * <p> 示例值：张三
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 联系人公司
-         * <p> 示例值：张三科技有限公司
-         *
-         * @param company
-         * @return
-         */
-        public Builder company(String company) {
-            this.company = company;
-            return this;
-        }
-
-
-        /**
-         * 联系人手机号
-         * <p> 示例值：19912341234
-         *
-         * @param phone
-         * @return
-         */
-        public Builder phone(String phone) {
-            this.phone = phone;
-            return this;
-        }
-
-
-        /**
-         * 联系人邮箱
-         * <p> 示例值：zhangsan@example.com
-         *
-         * @param mailAddress
-         * @return
-         */
-        public Builder mailAddress(String mailAddress) {
-            this.mailAddress = mailAddress;
-            return this;
-        }
-
-
-        /**
-         * 联系人标签
-         * <p> 示例值：朋友
-         *
-         * @param tag
-         * @return
-         */
-        public Builder tag(String tag) {
-            this.tag = tag;
-            return this;
-        }
-
-
-        /**
-         * 联系人备注
-         * <p> 示例值：飞书发布会认识
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        /**
-         * 联系人头像
-         * <p> 示例值：https://exampeimg.com/xxxx.jpg
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(String avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        /**
-         * 联系人职位
-         * <p> 示例值：CFO
-         *
-         * @param position
-         * @return
-         */
-        public Builder position(String position) {
-            this.position = position;
-            return this;
-        }
-
-
-        public MailContact build() {
-            return new MailContact(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

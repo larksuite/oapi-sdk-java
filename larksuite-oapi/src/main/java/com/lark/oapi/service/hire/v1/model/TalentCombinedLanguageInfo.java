@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentCombinedLanguageInfo {
+  /**
+   * 语言能力 ID，无效字段，请勿使用
+   *
+   * <p>示例值：6891560630172518670
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 语言类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("language")
+  private Integer language;
+
+  /**
+   * 语言精通程度
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("proficiency")
+  private Integer proficiency;
+
+  /**
+   * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_data")
+  private TalentCustomizedDataObjectValue[] customizedData;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getLanguage() {
+    return this.language;
+  }
+
+  public void setLanguage(Integer language) {
+    this.language = language;
+  }
+
+  public Integer getProficiency() {
+    return this.proficiency;
+  }
+
+  public void setProficiency(Integer proficiency) {
+    this.proficiency = proficiency;
+  }
+
+  public TalentCustomizedDataObjectValue[] getCustomizedData() {
+    return this.customizedData;
+  }
+
+  public void setCustomizedData(TalentCustomizedDataObjectValue[] customizedData) {
+    this.customizedData = customizedData;
+  }
+
+  // builder 开始
+  public TalentCombinedLanguageInfo() {}
+
+  public TalentCombinedLanguageInfo(Builder builder) {
     /**
-     * ID
-     * <p> 示例值：6891560630172518670
+     * 语言能力 ID，无效字段，请勿使用
+     *
+     * <p>示例值：6891560630172518670
      */
-    @SerializedName("id")
+    this.id = builder.id;
+    /**
+     * 语言类型
+     *
+     * <p>示例值：1
+     */
+    this.language = builder.language;
+    /**
+     * 语言精通程度
+     *
+     * <p>示例值：1
+     */
+    this.proficiency = builder.proficiency;
+    /**
+     * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+     *
+     * <p>示例值：
+     */
+    this.customizedData = builder.customizedData;
+  }
+
+  public static class Builder {
+    /**
+     * 语言能力 ID，无效字段，请勿使用
+     *
+     * <p>示例值：6891560630172518670
+     */
     private String id;
+
     /**
-     * 语言
-     * <p> 示例值：1
+     * 语言类型
+     *
+     * <p>示例值：1
      */
-    @SerializedName("language")
     private Integer language;
+
     /**
-     * 精通程度
-     * <p> 示例值：1
+     * 语言精通程度
+     *
+     * <p>示例值：1
      */
-    @SerializedName("proficiency")
     private Integer proficiency;
+
     /**
-     * 自定义字段
-     * <p> 示例值：
+     * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+     *
+     * <p>示例值：
      */
-    @SerializedName("customized_data")
     private TalentCustomizedDataObjectValue[] customizedData;
 
-    // builder 开始
-    public TalentCombinedLanguageInfo() {
+    /**
+     * 语言能力 ID，无效字段，请勿使用
+     *
+     * <p>示例值：6891560630172518670
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public TalentCombinedLanguageInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
-        this.id = builder.id;
-        /**
-         * 语言
-         * <p> 示例值：1
-         */
-        this.language = builder.language;
-        /**
-         * 精通程度
-         * <p> 示例值：1
-         */
-        this.proficiency = builder.proficiency;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedData = builder.customizedData;
+    /**
+     * 语言类型
+     *
+     * <p>示例值：1
+     *
+     * @param language
+     * @return
+     */
+    public Builder language(Integer language) {
+      this.language = language;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 语言精通程度
+     *
+     * <p>示例值：1
+     *
+     * @param proficiency
+     * @return
+     */
+    public Builder proficiency(Integer proficiency) {
+      this.proficiency = proficiency;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 自定义字段列表;;;**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`
+     *
+     * <p>示例值：
+     *
+     * @param customizedData
+     * @return
+     */
+    public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
+      this.customizedData = customizedData;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public TalentCombinedLanguageInfo build() {
+      return new TalentCombinedLanguageInfo(this);
     }
+  }
 
-    public Integer getLanguage() {
-        return this.language;
-    }
-
-    public void setLanguage(Integer language) {
-        this.language = language;
-    }
-
-    public Integer getProficiency() {
-        return this.proficiency;
-    }
-
-    public void setProficiency(Integer proficiency) {
-        this.proficiency = proficiency;
-    }
-
-    public TalentCustomizedDataObjectValue[] getCustomizedData() {
-        return this.customizedData;
-    }
-
-    public void setCustomizedData(TalentCustomizedDataObjectValue[] customizedData) {
-        this.customizedData = customizedData;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         */
-        private String id;
-        /**
-         * 语言
-         * <p> 示例值：1
-         */
-        private Integer language;
-        /**
-         * 精通程度
-         * <p> 示例值：1
-         */
-        private Integer proficiency;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private TalentCustomizedDataObjectValue[] customizedData;
-
-        /**
-         * ID
-         * <p> 示例值：6891560630172518670
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 语言
-         * <p> 示例值：1
-         *
-         * @param language
-         * @return
-         */
-        public Builder language(Integer language) {
-            this.language = language;
-            return this;
-        }
-
-
-        /**
-         * 精通程度
-         * <p> 示例值：1
-         *
-         * @param proficiency
-         * @return
-         */
-        public Builder proficiency(Integer proficiency) {
-            this.proficiency = proficiency;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customizedData
-         * @return
-         */
-        public Builder customizedData(TalentCustomizedDataObjectValue[] customizedData) {
-            this.customizedData = customizedData;
-            return this;
-        }
-
-
-        public TalentCombinedLanguageInfo build() {
-            return new TalentCombinedLanguageInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

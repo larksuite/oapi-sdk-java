@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeCheckInfo {
+  /**
+   * 员工ID
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 是否符合条件
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_eligible")
+  private Boolean isEligible;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public Boolean getIsEligible() {
+    return this.isEligible;
+  }
+
+  public void setIsEligible(Boolean isEligible) {
+    this.isEligible = isEligible;
+  }
+
+  // builder 开始
+  public EmployeeCheckInfo() {}
+
+  public EmployeeCheckInfo(Builder builder) {
     /**
      * 员工ID
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 是否符合条件
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_eligible")
+    this.isEligible = builder.isEligible;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：123
+     */
+    private String employmentId;
+
+    /**
+     * 是否符合条件
+     *
+     * <p>示例值：true
+     */
     private Boolean isEligible;
 
-    // builder 开始
-    public EmployeeCheckInfo() {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：123
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public EmployeeCheckInfo(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：123
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 是否符合条件
-         * <p> 示例值：true
-         */
-        this.isEligible = builder.isEligible;
+    /**
+     * 是否符合条件
+     *
+     * <p>示例值：true
+     *
+     * @param isEligible
+     * @return
+     */
+    public Builder isEligible(Boolean isEligible) {
+      this.isEligible = isEligible;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EmployeeCheckInfo build() {
+      return new EmployeeCheckInfo(this);
     }
+  }
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public Boolean getIsEligible() {
-        return this.isEligible;
-    }
-
-    public void setIsEligible(Boolean isEligible) {
-        this.isEligible = isEligible;
-    }
-
-    public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：123
-         */
-        private String employmentId;
-        /**
-         * 是否符合条件
-         * <p> 示例值：true
-         */
-        private Boolean isEligible;
-
-        /**
-         * 员工ID
-         * <p> 示例值：123
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 是否符合条件
-         * <p> 示例值：true
-         *
-         * @param isEligible
-         * @return
-         */
-        public Builder isEligible(Boolean isEligible) {
-            this.isEligible = isEligible;
-            return this;
-        }
-
-
-        public EmployeeCheckInfo build() {
-            return new EmployeeCheckInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

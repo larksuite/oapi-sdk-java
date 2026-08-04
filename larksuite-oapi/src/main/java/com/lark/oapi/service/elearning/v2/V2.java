@@ -17,13 +17,13 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.elearning.v2.resource.CourseRegistration;
 
 public class V2 {
-    private final CourseRegistration courseRegistration; // course_registration
+  private final CourseRegistration courseRegistration; // course_registration
 
-    public V2(Config config) {
-        this.courseRegistration = new CourseRegistration(config);
-    }
+  public V2(Config config) {
+    this.courseRegistration = new CourseRegistration(config);
+  }
 
-    public CourseRegistration courseRegistration() {
-        return courseRegistration;
-    }
+  public CourseRegistration courseRegistration() {
+    return courseRegistration;
+  }
 }

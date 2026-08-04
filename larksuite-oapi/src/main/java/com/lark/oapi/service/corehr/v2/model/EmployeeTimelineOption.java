@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeTimelineOption {
+  /**
+   * 对象名
+   *
+   * <p>示例值：employment
+   */
+  @SerializedName("object")
+  private String object;
+
+  /**
+   * 是否查全纪录
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("all_record")
+  private Boolean allRecord;
+
+  /**
+   * 生效时间
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  public String getObject() {
+    return this.object;
+  }
+
+  public void setObject(String object) {
+    this.object = object;
+  }
+
+  public Boolean getAllRecord() {
+    return this.allRecord;
+  }
+
+  public void setAllRecord(Boolean allRecord) {
+    this.allRecord = allRecord;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  // builder 开始
+  public EmployeeTimelineOption() {}
+
+  public EmployeeTimelineOption(Builder builder) {
     /**
      * 对象名
-     * <p> 示例值：employment
+     *
+     * <p>示例值：employment
      */
-    @SerializedName("object")
-    private String object;
+    this.object = builder.object;
     /**
      * 是否查全纪录
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("all_record")
-    private Boolean allRecord;
+    this.allRecord = builder.allRecord;
     /**
      * 生效时间
-     * <p> 示例值：2024-01-01
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("effective_time")
+    this.effectiveTime = builder.effectiveTime;
+  }
+
+  public static class Builder {
+    /**
+     * 对象名
+     *
+     * <p>示例值：employment
+     */
+    private String object;
+
+    /**
+     * 是否查全纪录
+     *
+     * <p>示例值：false
+     */
+    private Boolean allRecord;
+
+    /**
+     * 生效时间
+     *
+     * <p>示例值：2024-01-01
+     */
     private String effectiveTime;
 
-    // builder 开始
-    public EmployeeTimelineOption() {
+    /**
+     * 对象名
+     *
+     * <p>示例值：employment
+     *
+     * @param object
+     * @return
+     */
+    public Builder object(String object) {
+      this.object = object;
+      return this;
     }
 
-    public EmployeeTimelineOption(Builder builder) {
-        /**
-         * 对象名
-         * <p> 示例值：employment
-         */
-        this.object = builder.object;
-        /**
-         * 是否查全纪录
-         * <p> 示例值：false
-         */
-        this.allRecord = builder.allRecord;
-        /**
-         * 生效时间
-         * <p> 示例值：2024-01-01
-         */
-        this.effectiveTime = builder.effectiveTime;
+    /**
+     * 是否查全纪录
+     *
+     * <p>示例值：false
+     *
+     * @param allRecord
+     * @return
+     */
+    public Builder allRecord(Boolean allRecord) {
+      this.allRecord = allRecord;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 生效时间
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public String getObject() {
-        return this.object;
+    public EmployeeTimelineOption build() {
+      return new EmployeeTimelineOption(this);
     }
+  }
 
-    public void setObject(String object) {
-        this.object = object;
-    }
-
-    public Boolean getAllRecord() {
-        return this.allRecord;
-    }
-
-    public void setAllRecord(Boolean allRecord) {
-        this.allRecord = allRecord;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public static class Builder {
-        /**
-         * 对象名
-         * <p> 示例值：employment
-         */
-        private String object;
-        /**
-         * 是否查全纪录
-         * <p> 示例值：false
-         */
-        private Boolean allRecord;
-        /**
-         * 生效时间
-         * <p> 示例值：2024-01-01
-         */
-        private String effectiveTime;
-
-        /**
-         * 对象名
-         * <p> 示例值：employment
-         *
-         * @param object
-         * @return
-         */
-        public Builder object(String object) {
-            this.object = object;
-            return this;
-        }
-
-
-        /**
-         * 是否查全纪录
-         * <p> 示例值：false
-         *
-         * @param allRecord
-         * @return
-         */
-        public Builder allRecord(Boolean allRecord) {
-            this.allRecord = allRecord;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2024-01-01
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        public EmployeeTimelineOption build() {
-            return new EmployeeTimelineOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

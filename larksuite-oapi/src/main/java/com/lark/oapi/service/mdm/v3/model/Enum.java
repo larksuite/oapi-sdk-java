@@ -13,114 +13,108 @@
 
 package com.lark.oapi.service.mdm.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
+import com.lark.oapi.service.mdm.v3.enums.*;
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class Enum {
+  /**
+   * 入参languages中排序第一的语言对应的值。
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 入参languages中所有语言对应的值。
+   *
+   * <p>示例值：{"zh-CN":"欧洲"}
+   */
+  @SerializedName("multilingual_name")
+  private Map<String, String> multilingualName;
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public Map<String, String> getMultilingualName() {
+    return this.multilingualName;
+  }
+
+  public void setMultilingualName(Map<String, String> multilingualName) {
+    this.multilingualName = multilingualName;
+  }
+
+  // builder 开始
+  public Enum() {}
+
+  public Enum(Builder builder) {
     /**
-     * 枚举值
-     * <p> 示例值：-
+     * 入参languages中排序第一的语言对应的值。
+     *
+     * <p>示例值：2
      */
-    @SerializedName("value")
+    this.value = builder.value;
+    /**
+     * 入参languages中所有语言对应的值。
+     *
+     * <p>示例值：{"zh-CN":"欧洲"}
+     */
+    this.multilingualName = builder.multilingualName;
+  }
+
+  public static class Builder {
+    /**
+     * 入参languages中排序第一的语言对应的值。
+     *
+     * <p>示例值：2
+     */
     private String value;
+
     /**
-     * 多语言枚举名，结构：{"zh-CN":"中文", "en-US": "english"}
-     * <p> 示例值：
+     * 入参languages中所有语言对应的值。
+     *
+     * <p>示例值：{"zh-CN":"欧洲"}
      */
-    @SerializedName("multilingual_name")
     private Map<String, String> multilingualName;
 
-    // builder 开始
-    public Enum() {
+    /**
+     * 入参languages中排序第一的语言对应的值。
+     *
+     * <p>示例值：2
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public Enum(Builder builder) {
-        /**
-         * 枚举值
-         * <p> 示例值：-
-         */
-        this.value = builder.value;
-        /**
-         * 多语言枚举名，结构：{"zh-CN":"中文", "en-US": "english"}
-         * <p> 示例值：
-         */
-        this.multilingualName = builder.multilingualName;
+    /**
+     * 入参languages中所有语言对应的值。
+     *
+     * <p>示例值：{"zh-CN":"欧洲"}
+     *
+     * @param multilingualName
+     * @return
+     */
+    public Builder multilingualName(Map<String, String> multilingualName) {
+      this.multilingualName = multilingualName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Enum build() {
+      return new Enum(this);
     }
+  }
 
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public Map<String, String> getMultilingualName() {
-        return this.multilingualName;
-    }
-
-    public void setMultilingualName(Map<String, String> multilingualName) {
-        this.multilingualName = multilingualName;
-    }
-
-    public static class Builder {
-        /**
-         * 枚举值
-         * <p> 示例值：-
-         */
-        private String value;
-        /**
-         * 多语言枚举名，结构：{"zh-CN":"中文", "en-US": "english"}
-         * <p> 示例值：
-         */
-        private Map<String, String> multilingualName;
-
-        /**
-         * 枚举值
-         * <p> 示例值：-
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 多语言枚举名，结构：{"zh-CN":"中文", "en-US": "english"}
-         * <p> 示例值：
-         *
-         * @param multilingualName
-         * @return
-         */
-        public Builder multilingualName(Map<String, String> multilingualName) {
-            this.multilingualName = multilingualName;
-            return this;
-        }
-
-
-        public Enum build() {
-            return new Enum(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

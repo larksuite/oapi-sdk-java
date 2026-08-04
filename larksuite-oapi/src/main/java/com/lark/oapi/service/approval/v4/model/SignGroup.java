@@ -13,276 +13,219 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignGroup {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("instance_code")
+  /** 示例值： */
+  @SerializedName("instance_code")
+  private String instanceCode;
+
+  /** 示例值： */
+  @SerializedName("user_id")
+  private UserId userId;
+
+  /** 示例值： */
+  @SerializedName("account_code")
+  private String accountCode;
+
+  /** 示例值： */
+  @SerializedName("boilerplate_unique_code")
+  private String boilerplateUniqueCode;
+
+  /** 示例值： */
+  @SerializedName("start_time")
+  private Integer startTime;
+
+  /** 示例值： */
+  @SerializedName("end_time")
+  private Integer endTime;
+
+  /** 示例值： */
+  @SerializedName("type")
+  private String type;
+
+  public String getInstanceCode() {
+    return this.instanceCode;
+  }
+
+  public void setInstanceCode(String instanceCode) {
+    this.instanceCode = instanceCode;
+  }
+
+  public UserId getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(UserId userId) {
+    this.userId = userId;
+  }
+
+  public String getAccountCode() {
+    return this.accountCode;
+  }
+
+  public void setAccountCode(String accountCode) {
+    this.accountCode = accountCode;
+  }
+
+  public String getBoilerplateUniqueCode() {
+    return this.boilerplateUniqueCode;
+  }
+
+  public void setBoilerplateUniqueCode(String boilerplateUniqueCode) {
+    this.boilerplateUniqueCode = boilerplateUniqueCode;
+  }
+
+  public Integer getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(Integer startTime) {
+    this.startTime = startTime;
+  }
+
+  public Integer getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(Integer endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public SignGroup() {}
+
+  public SignGroup(Builder builder) {
+    /** 示例值： */
+    this.instanceCode = builder.instanceCode;
+    /** 示例值： */
+    this.userId = builder.userId;
+    /** 示例值： */
+    this.accountCode = builder.accountCode;
+    /** 示例值： */
+    this.boilerplateUniqueCode = builder.boilerplateUniqueCode;
+    /** 示例值： */
+    this.startTime = builder.startTime;
+    /** 示例值： */
+    this.endTime = builder.endTime;
+    /** 示例值： */
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private String instanceCode;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("user_id")
+
+    /** 示例值： */
     private UserId userId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("account_code")
+
+    /** 示例值： */
     private String accountCode;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("boilerplate_unique_code")
+
+    /** 示例值： */
     private String boilerplateUniqueCode;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("start_time")
+
+    /** 示例值： */
     private Integer startTime;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("end_time")
+
+    /** 示例值： */
     private Integer endTime;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("type")
+
+    /** 示例值： */
     private String type;
 
-    // builder 开始
-    public SignGroup() {
+    /**
+     * 示例值：
+     *
+     * @param instanceCode
+     * @return
+     */
+    public Builder instanceCode(String instanceCode) {
+      this.instanceCode = instanceCode;
+      return this;
     }
 
-    public SignGroup(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.instanceCode = builder.instanceCode;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.accountCode = builder.accountCode;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.boilerplateUniqueCode = builder.boilerplateUniqueCode;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.startTime = builder.startTime;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.endTime = builder.endTime;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.type = builder.type;
+    /**
+     * 示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(UserId userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param accountCode
+     * @return
+     */
+    public Builder accountCode(String accountCode) {
+      this.accountCode = accountCode;
+      return this;
     }
 
-    public String getInstanceCode() {
-        return this.instanceCode;
+    /**
+     * 示例值：
+     *
+     * @param boilerplateUniqueCode
+     * @return
+     */
+    public Builder boilerplateUniqueCode(String boilerplateUniqueCode) {
+      this.boilerplateUniqueCode = boilerplateUniqueCode;
+      return this;
     }
 
-    public void setInstanceCode(String instanceCode) {
-        this.instanceCode = instanceCode;
+    /**
+     * 示例值：
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(Integer startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public UserId getUserId() {
-        return this.userId;
+    /**
+     * 示例值：
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(Integer endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setUserId(UserId userId) {
-        this.userId = userId;
+    /**
+     * 示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getAccountCode() {
-        return this.accountCode;
+    public SignGroup build() {
+      return new SignGroup(this);
     }
+  }
 
-    public void setAccountCode(String accountCode) {
-        this.accountCode = accountCode;
-    }
-
-    public String getBoilerplateUniqueCode() {
-        return this.boilerplateUniqueCode;
-    }
-
-    public void setBoilerplateUniqueCode(String boilerplateUniqueCode) {
-        this.boilerplateUniqueCode = boilerplateUniqueCode;
-    }
-
-    public Integer getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(Integer startTime) {
-        this.startTime = startTime;
-    }
-
-    public Integer getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(Integer endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private String instanceCode;
-        /**
-         * <p> 示例值：
-         */
-        private UserId userId;
-        /**
-         * <p> 示例值：
-         */
-        private String accountCode;
-        /**
-         * <p> 示例值：
-         */
-        private String boilerplateUniqueCode;
-        /**
-         * <p> 示例值：
-         */
-        private Integer startTime;
-        /**
-         * <p> 示例值：
-         */
-        private Integer endTime;
-        /**
-         * <p> 示例值：
-         */
-        private String type;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param instanceCode
-         * @return
-         */
-        public Builder instanceCode(String instanceCode) {
-            this.instanceCode = instanceCode;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(UserId userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param accountCode
-         * @return
-         */
-        public Builder accountCode(String accountCode) {
-            this.accountCode = accountCode;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param boilerplateUniqueCode
-         * @return
-         */
-        public Builder boilerplateUniqueCode(String boilerplateUniqueCode) {
-            this.boilerplateUniqueCode = boilerplateUniqueCode;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(Integer startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(Integer endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public SignGroup build() {
-            return new SignGroup(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

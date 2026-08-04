@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ResumeLanguage {
+  /**
+   * 语言等级
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("level")
+  private Integer level;
+
+  /**
+   * 语言描述
+   *
+   * <p>示例值：英语四级:600
+   */
+  @SerializedName("description")
+  private String description;
+
+  public Integer getLevel() {
+    return this.level;
+  }
+
+  public void setLevel(Integer level) {
+    this.level = level;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public ResumeLanguage() {}
+
+  public ResumeLanguage(Builder builder) {
     /**
      * 语言等级
-     * <p> 示例值：6
+     *
+     * <p>示例值：2
      */
-    @SerializedName("level")
-    private Integer level;
+    this.level = builder.level;
     /**
      * 语言描述
-     * <p> 示例值：英语
+     *
+     * <p>示例值：英语四级:600
      */
-    @SerializedName("description")
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 语言等级
+     *
+     * <p>示例值：2
+     */
+    private Integer level;
+
+    /**
+     * 语言描述
+     *
+     * <p>示例值：英语四级:600
+     */
     private String description;
 
-    // builder 开始
-    public ResumeLanguage() {
+    /**
+     * 语言等级
+     *
+     * <p>示例值：2
+     *
+     * @param level
+     * @return
+     */
+    public Builder level(Integer level) {
+      this.level = level;
+      return this;
     }
 
-    public ResumeLanguage(Builder builder) {
-        /**
-         * 语言等级
-         * <p> 示例值：6
-         */
-        this.level = builder.level;
-        /**
-         * 语言描述
-         * <p> 示例值：英语
-         */
-        this.description = builder.description;
+    /**
+     * 语言描述
+     *
+     * <p>示例值：英语四级:600
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ResumeLanguage build() {
+      return new ResumeLanguage(this);
     }
+  }
 
-    public Integer getLevel() {
-        return this.level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * 语言等级
-         * <p> 示例值：6
-         */
-        private Integer level;
-        /**
-         * 语言描述
-         * <p> 示例值：英语
-         */
-        private String description;
-
-        /**
-         * 语言等级
-         * <p> 示例值：6
-         *
-         * @param level
-         * @return
-         */
-        public Builder level(Integer level) {
-            this.level = level;
-            return this;
-        }
-
-
-        /**
-         * 语言描述
-         * <p> 示例值：英语
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public ResumeLanguage build() {
-            return new ResumeLanguage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

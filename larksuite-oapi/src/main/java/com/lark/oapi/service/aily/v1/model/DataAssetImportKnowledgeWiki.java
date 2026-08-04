@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DataAssetImportKnowledgeWiki {
+  /**
+   * 飞书知识空间ID，可以通过[搜索
+   * Wiki](https://open.larkoffice.com/document/server-docs/docs/wiki-v2/search_wiki)API获取
+   *
+   * <p>示例值：798546548961351
+   */
+  @SerializedName("space_id")
+  private String spaceId;
+
+  /**
+   * 指定知识空间子节点时使用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_docs")
+  private DataAssetImportKnowledgeWikiSubDoc[] subDocs;
+
+  /**
+   * 知识空间URL
+   *
+   * <p>示例值：https://ai-tenant.feishu-boe.cn/wiki/space/7283525110814736404
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getSpaceId() {
+    return this.spaceId;
+  }
+
+  public void setSpaceId(String spaceId) {
+    this.spaceId = spaceId;
+  }
+
+  public DataAssetImportKnowledgeWikiSubDoc[] getSubDocs() {
+    return this.subDocs;
+  }
+
+  public void setSubDocs(DataAssetImportKnowledgeWikiSubDoc[] subDocs) {
+    this.subDocs = subDocs;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public DataAssetImportKnowledgeWiki() {}
+
+  public DataAssetImportKnowledgeWiki(Builder builder) {
     /**
-     * 飞书知识空间ID
-     * <p> 示例值：798546548961351
+     * 飞书知识空间ID，可以通过[搜索
+     * Wiki](https://open.larkoffice.com/document/server-docs/docs/wiki-v2/search_wiki)API获取
+     *
+     * <p>示例值：798546548961351
      */
-    @SerializedName("space_id")
-    private String spaceId;
+    this.spaceId = builder.spaceId;
     /**
      * 指定知识空间子节点时使用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_docs")
-    private DataAssetImportKnowledgeWikiSubDoc[] subDocs;
+    this.subDocs = builder.subDocs;
     /**
      * 知识空间URL
-     * <p> 示例值：https://ai-tenant.feishu-boe.cn/wiki/space/7283525110814736404
+     *
+     * <p>示例值：https://ai-tenant.feishu-boe.cn/wiki/space/7283525110814736404
      */
-    @SerializedName("url")
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 飞书知识空间ID，可以通过[搜索
+     * Wiki](https://open.larkoffice.com/document/server-docs/docs/wiki-v2/search_wiki)API获取
+     *
+     * <p>示例值：798546548961351
+     */
+    private String spaceId;
+
+    /**
+     * 指定知识空间子节点时使用
+     *
+     * <p>示例值：
+     */
+    private DataAssetImportKnowledgeWikiSubDoc[] subDocs;
+
+    /**
+     * 知识空间URL
+     *
+     * <p>示例值：https://ai-tenant.feishu-boe.cn/wiki/space/7283525110814736404
+     */
     private String url;
 
-    // builder 开始
-    public DataAssetImportKnowledgeWiki() {
+    /**
+     * 飞书知识空间ID，可以通过[搜索
+     * Wiki](https://open.larkoffice.com/document/server-docs/docs/wiki-v2/search_wiki)API获取
+     *
+     * <p>示例值：798546548961351
+     *
+     * @param spaceId
+     * @return
+     */
+    public Builder spaceId(String spaceId) {
+      this.spaceId = spaceId;
+      return this;
     }
 
-    public DataAssetImportKnowledgeWiki(Builder builder) {
-        /**
-         * 飞书知识空间ID
-         * <p> 示例值：798546548961351
-         */
-        this.spaceId = builder.spaceId;
-        /**
-         * 指定知识空间子节点时使用
-         * <p> 示例值：
-         */
-        this.subDocs = builder.subDocs;
-        /**
-         * 知识空间URL
-         * <p> 示例值：https://ai-tenant.feishu-boe.cn/wiki/space/7283525110814736404
-         */
-        this.url = builder.url;
+    /**
+     * 指定知识空间子节点时使用
+     *
+     * <p>示例值：
+     *
+     * @param subDocs
+     * @return
+     */
+    public Builder subDocs(DataAssetImportKnowledgeWikiSubDoc[] subDocs) {
+      this.subDocs = subDocs;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 知识空间URL
+     *
+     * <p>示例值：https://ai-tenant.feishu-boe.cn/wiki/space/7283525110814736404
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public String getSpaceId() {
-        return this.spaceId;
+    public DataAssetImportKnowledgeWiki build() {
+      return new DataAssetImportKnowledgeWiki(this);
     }
+  }
 
-    public void setSpaceId(String spaceId) {
-        this.spaceId = spaceId;
-    }
-
-    public DataAssetImportKnowledgeWikiSubDoc[] getSubDocs() {
-        return this.subDocs;
-    }
-
-    public void setSubDocs(DataAssetImportKnowledgeWikiSubDoc[] subDocs) {
-        this.subDocs = subDocs;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * 飞书知识空间ID
-         * <p> 示例值：798546548961351
-         */
-        private String spaceId;
-        /**
-         * 指定知识空间子节点时使用
-         * <p> 示例值：
-         */
-        private DataAssetImportKnowledgeWikiSubDoc[] subDocs;
-        /**
-         * 知识空间URL
-         * <p> 示例值：https://ai-tenant.feishu-boe.cn/wiki/space/7283525110814736404
-         */
-        private String url;
-
-        /**
-         * 飞书知识空间ID
-         * <p> 示例值：798546548961351
-         *
-         * @param spaceId
-         * @return
-         */
-        public Builder spaceId(String spaceId) {
-            this.spaceId = spaceId;
-            return this;
-        }
-
-
-        /**
-         * 指定知识空间子节点时使用
-         * <p> 示例值：
-         *
-         * @param subDocs
-         * @return
-         */
-        public Builder subDocs(DataAssetImportKnowledgeWikiSubDoc[] subDocs) {
-            this.subDocs = subDocs;
-            return this;
-        }
-
-
-        /**
-         * 知识空间URL
-         * <p> 示例值：https://ai-tenant.feishu-boe.cn/wiki/space/7283525110814736404
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public DataAssetImportKnowledgeWiki build() {
-            return new DataAssetImportKnowledgeWiki(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

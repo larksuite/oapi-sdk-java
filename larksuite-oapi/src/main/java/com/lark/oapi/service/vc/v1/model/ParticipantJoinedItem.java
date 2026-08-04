@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParticipantJoinedItem {
+  /**
+   * 入会的参会人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("participant")
+  private MeetingAgentEventUser participant;
+
+  /**
+   * 入会时间（毫秒级时间戳）
+   *
+   * <p>示例值：1712345678000
+   */
+  @SerializedName("join_time")
+  private String joinTime;
+
+  public MeetingAgentEventUser getParticipant() {
+    return this.participant;
+  }
+
+  public void setParticipant(MeetingAgentEventUser participant) {
+    this.participant = participant;
+  }
+
+  public String getJoinTime() {
+    return this.joinTime;
+  }
+
+  public void setJoinTime(String joinTime) {
+    this.joinTime = joinTime;
+  }
+
+  // builder 开始
+  public ParticipantJoinedItem() {}
+
+  public ParticipantJoinedItem(Builder builder) {
     /**
      * 入会的参会人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("participant")
-    private MeetingAgentEventUser participant;
+    this.participant = builder.participant;
     /**
      * 入会时间（毫秒级时间戳）
-     * <p> 示例值：1712345678000
+     *
+     * <p>示例值：1712345678000
      */
-    @SerializedName("join_time")
+    this.joinTime = builder.joinTime;
+  }
+
+  public static class Builder {
+    /**
+     * 入会的参会人
+     *
+     * <p>示例值：
+     */
+    private MeetingAgentEventUser participant;
+
+    /**
+     * 入会时间（毫秒级时间戳）
+     *
+     * <p>示例值：1712345678000
+     */
     private String joinTime;
 
-    // builder 开始
-    public ParticipantJoinedItem() {
+    /**
+     * 入会的参会人
+     *
+     * <p>示例值：
+     *
+     * @param participant
+     * @return
+     */
+    public Builder participant(MeetingAgentEventUser participant) {
+      this.participant = participant;
+      return this;
     }
 
-    public ParticipantJoinedItem(Builder builder) {
-        /**
-         * 入会的参会人
-         * <p> 示例值：
-         */
-        this.participant = builder.participant;
-        /**
-         * 入会时间（毫秒级时间戳）
-         * <p> 示例值：1712345678000
-         */
-        this.joinTime = builder.joinTime;
+    /**
+     * 入会时间（毫秒级时间戳）
+     *
+     * <p>示例值：1712345678000
+     *
+     * @param joinTime
+     * @return
+     */
+    public Builder joinTime(String joinTime) {
+      this.joinTime = joinTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ParticipantJoinedItem build() {
+      return new ParticipantJoinedItem(this);
     }
+  }
 
-    public MeetingAgentEventUser getParticipant() {
-        return this.participant;
-    }
-
-    public void setParticipant(MeetingAgentEventUser participant) {
-        this.participant = participant;
-    }
-
-    public String getJoinTime() {
-        return this.joinTime;
-    }
-
-    public void setJoinTime(String joinTime) {
-        this.joinTime = joinTime;
-    }
-
-    public static class Builder {
-        /**
-         * 入会的参会人
-         * <p> 示例值：
-         */
-        private MeetingAgentEventUser participant;
-        /**
-         * 入会时间（毫秒级时间戳）
-         * <p> 示例值：1712345678000
-         */
-        private String joinTime;
-
-        /**
-         * 入会的参会人
-         * <p> 示例值：
-         *
-         * @param participant
-         * @return
-         */
-        public Builder participant(MeetingAgentEventUser participant) {
-            this.participant = participant;
-            return this;
-        }
-
-
-        /**
-         * 入会时间（毫秒级时间戳）
-         * <p> 示例值：1712345678000
-         *
-         * @param joinTime
-         * @return
-         */
-        public Builder joinTime(String joinTime) {
-            this.joinTime = joinTime;
-            return this;
-        }
-
-
-        public ParticipantJoinedItem build() {
-            return new ParticipantJoinedItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

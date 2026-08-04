@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QuotaDetail {
+  /**
+   * 用户信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_info")
+  private UserInfo userInfo;
+
+  /**
+   * 部门
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_info")
+  private DepartmentInfo[] departmentInfo;
+
+  /**
+   * 每个业务的使用量列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("biz_lists")
+  private BizInfo[] bizLists;
+
+  public UserInfo getUserInfo() {
+    return this.userInfo;
+  }
+
+  public void setUserInfo(UserInfo userInfo) {
+    this.userInfo = userInfo;
+  }
+
+  public DepartmentInfo[] getDepartmentInfo() {
+    return this.departmentInfo;
+  }
+
+  public void setDepartmentInfo(DepartmentInfo[] departmentInfo) {
+    this.departmentInfo = departmentInfo;
+  }
+
+  public BizInfo[] getBizLists() {
+    return this.bizLists;
+  }
+
+  public void setBizLists(BizInfo[] bizLists) {
+    this.bizLists = bizLists;
+  }
+
+  // builder 开始
+  public QuotaDetail() {}
+
+  public QuotaDetail(Builder builder) {
     /**
      * 用户信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_info")
-    private UserInfo userInfo;
+    this.userInfo = builder.userInfo;
     /**
      * 部门
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_info")
-    private DepartmentInfo[] departmentInfo;
+    this.departmentInfo = builder.departmentInfo;
     /**
      * 每个业务的使用量列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("biz_lists")
+    this.bizLists = builder.bizLists;
+  }
+
+  public static class Builder {
+    /**
+     * 用户信息
+     *
+     * <p>示例值：
+     */
+    private UserInfo userInfo;
+
+    /**
+     * 部门
+     *
+     * <p>示例值：
+     */
+    private DepartmentInfo[] departmentInfo;
+
+    /**
+     * 每个业务的使用量列表
+     *
+     * <p>示例值：
+     */
     private BizInfo[] bizLists;
 
-    // builder 开始
-    public QuotaDetail() {
+    /**
+     * 用户信息
+     *
+     * <p>示例值：
+     *
+     * @param userInfo
+     * @return
+     */
+    public Builder userInfo(UserInfo userInfo) {
+      this.userInfo = userInfo;
+      return this;
     }
 
-    public QuotaDetail(Builder builder) {
-        /**
-         * 用户信息
-         * <p> 示例值：
-         */
-        this.userInfo = builder.userInfo;
-        /**
-         * 部门
-         * <p> 示例值：
-         */
-        this.departmentInfo = builder.departmentInfo;
-        /**
-         * 每个业务的使用量列表
-         * <p> 示例值：
-         */
-        this.bizLists = builder.bizLists;
+    /**
+     * 部门
+     *
+     * <p>示例值：
+     *
+     * @param departmentInfo
+     * @return
+     */
+    public Builder departmentInfo(DepartmentInfo[] departmentInfo) {
+      this.departmentInfo = departmentInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 每个业务的使用量列表
+     *
+     * <p>示例值：
+     *
+     * @param bizLists
+     * @return
+     */
+    public Builder bizLists(BizInfo[] bizLists) {
+      this.bizLists = bizLists;
+      return this;
     }
 
-    public UserInfo getUserInfo() {
-        return this.userInfo;
+    public QuotaDetail build() {
+      return new QuotaDetail(this);
     }
+  }
 
-    public void setUserInfo(UserInfo userInfo) {
-        this.userInfo = userInfo;
-    }
-
-    public DepartmentInfo[] getDepartmentInfo() {
-        return this.departmentInfo;
-    }
-
-    public void setDepartmentInfo(DepartmentInfo[] departmentInfo) {
-        this.departmentInfo = departmentInfo;
-    }
-
-    public BizInfo[] getBizLists() {
-        return this.bizLists;
-    }
-
-    public void setBizLists(BizInfo[] bizLists) {
-        this.bizLists = bizLists;
-    }
-
-    public static class Builder {
-        /**
-         * 用户信息
-         * <p> 示例值：
-         */
-        private UserInfo userInfo;
-        /**
-         * 部门
-         * <p> 示例值：
-         */
-        private DepartmentInfo[] departmentInfo;
-        /**
-         * 每个业务的使用量列表
-         * <p> 示例值：
-         */
-        private BizInfo[] bizLists;
-
-        /**
-         * 用户信息
-         * <p> 示例值：
-         *
-         * @param userInfo
-         * @return
-         */
-        public Builder userInfo(UserInfo userInfo) {
-            this.userInfo = userInfo;
-            return this;
-        }
-
-
-        /**
-         * 部门
-         * <p> 示例值：
-         *
-         * @param departmentInfo
-         * @return
-         */
-        public Builder departmentInfo(DepartmentInfo[] departmentInfo) {
-            this.departmentInfo = departmentInfo;
-            return this;
-        }
-
-
-        /**
-         * 每个业务的使用量列表
-         * <p> 示例值：
-         *
-         * @param bizLists
-         * @return
-         */
-        public Builder bizLists(BizInfo[] bizLists) {
-            this.bizLists = bizLists;
-            return this;
-        }
-
-
-        public QuotaDetail build() {
-            return new QuotaDetail(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -14,20 +14,21 @@
 package com.lark.oapi.service.corehr.v2.enums;
 
 /**
- * 此次调用中使用的部门 ID 类型
+ * 此次调用中使用的部门 ID 类型，三种类型的 ID 都可通过飞书人事的[批量查询部门（
+ * V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 来获取
  */
 public enum PatchPositionPatchPositionDepartmentIDTypeEnum {
-    OPEN_DEPARTMENT_ID("open_department_id"), // 以 open_department_id 来标识部门
-    DEPARTMENT_ID("department_id"), // 以 department_id 来标识部门
-    PEOPLE_COREHR_DEPARTMENT_ID("people_corehr_department_id"), // 以 people_corehr_department_id 来标识部门
-    ;
-    private String value;
+  OPEN_DEPARTMENT_ID("open_department_id"), // 以 open_department_id 来标识部门
+  DEPARTMENT_ID("department_id"), // 以 department_id 来标识部门
+  PEOPLE_COREHR_DEPARTMENT_ID("people_corehr_department_id"), // 以 people_corehr_department_id 来标识部门
+  ;
+  private String value;
 
-    PatchPositionPatchPositionDepartmentIDTypeEnum(String value) {
-        this.value = value;
-    }
+  PatchPositionPatchPositionDepartmentIDTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

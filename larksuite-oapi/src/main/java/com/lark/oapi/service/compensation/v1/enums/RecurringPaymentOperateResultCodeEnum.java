@@ -13,37 +13,40 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 操作结果状态码
- */
+/** 操作结果状态码 */
 public enum RecurringPaymentOperateResultCodeEnum {
-    VALUE_0(0), // 操作成功
-    VALUE_21280001(21280001), // 每次发放金额格式不正确
-    VALUE_21280002(21280002), // 发放开始时间格式不正确
-    VALUE_21280003(21280003), // 发放结束时间格式不正确
-    VALUE_21270304(21270304), // 没有该经常性支付记录权限
-    VALUE_21270305(21270305), // 经常性支付类型薪酬项不存在
-    VALUE_21270306(21270306), // 币种不存在
-    VALUE_21270307(21270307), // 发放方式不存在
-    VALUE_21270308(21270308), // 发放开始时间大于发放结束时间
-    VALUE_21270309(21270309), // 员工不在薪酬项规则适用范围之内
-    VALUE_21270310(21270310), // 发放方式不匹配薪酬项规则
-    VALUE_21270311(21270311), // 币种不匹配薪酬项规则
-    VALUE_21270312(21270312), // 发放开始日期早于当前日期不可删除
-    VALUE_21270313(21270313), // 该经常性支付记录不存在
-    VALUE_21270314(21270314), // 发放频率不匹配薪酬项
-    VALUE_21270315(21270315), // 发放开始日期和结束日期有重叠
-    VALUE_21270316(21270316), // 发放国家为空
-    VALUE_21270317(21270317), // 发放国家不存在
-    VALUE_21270318(21270318), // 单次发放金额不允许为0
-    ;
-    private Integer value;
+  VALUE_0(0), // "Success" 操作成功
+  VALUE_21280001(21280001), // "The format of the single payment amount is incorrect" 单次发放金额格式不正确
+  VALUE_21280002(21280002), // "The format of the distribution start time is incorrect" 发放开始时间格式不正确
+  VALUE_21280003(21280003), // "The format of the issuance end time is incorrect" 发放结束时间格式不正确
+  VALUE_21270304(21270304), // "No permission for recurring payment record" 没有该经常性支付记录权限
+  VALUE_21270305(21270305), // "The recurring payment type salary item does not exist" 经常性支付类型薪酬项不存在
+  VALUE_21270306(21270306), // "The currency does not exist" 币种不存在
+  VALUE_21270307(21270307), // "The distribution method does not exist" 发放方式不存在
+  VALUE_21270308(
+      21270308), // "The distribution start time is greater than the distribution end time"
+  // 发放开始时间大于发放结束时间
+  VALUE_21270309(21270309), // "Employees are not covered by the remuneration rules" 员工不在薪酬项规则适用范围之内
+  VALUE_21270310(
+      21270310), // "The payment method does not match the salary item rules" 发放方式不匹配薪酬项规则
+  VALUE_21270311(21270311), // "Currency mismatch compensation item rules" 币种不匹配薪酬项规则
+  VALUE_21270312(
+      21270312), // "The distribution start date is earlier than the current date and cannot be
+  // deleted" 发放开始日期早于当前日期不可删除
+  VALUE_21270313(21270313), // "The recurring payment record does not exist" 该经常性支付记录不存在
+  VALUE_21270314(21270314), // "Payment frequency does not match the salary item" 发放频率不匹配薪酬项
+  VALUE_21270315(21270315), // "The distribution start date and end date overlap" 发放开始日期和结束日期有重叠
+  VALUE_21270316(21270316), // "Issuing country is empty" 发放国家为空
+  VALUE_21270317(21270317), // "Issuing country does not exist" 发放国家不存在
+  VALUE_21270318(21270318), // "The single payment amount cannot be 0" 单次发放金额不允许为0
+  ;
+  private Integer value;
 
-    RecurringPaymentOperateResultCodeEnum(Integer value) {
-        this.value = value;
-    }
+  RecurringPaymentOperateResultCodeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

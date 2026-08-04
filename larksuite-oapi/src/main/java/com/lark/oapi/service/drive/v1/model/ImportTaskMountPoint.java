@@ -13,124 +13,126 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ImportTaskMountPoint {
+  /**
+   * 挂载类型。取固定值 1，表示将该云文档挂载至云空间下。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("mount_type")
+  private Integer mountType;
+
+  /**
+   * 云文档挂载的文件夹的 token，即云空间下文件夹的 token。空表示云空间根目录。了解如何获取文件夹
+   * token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+   *
+   * <p>示例值：AbqrfuRTjlJEIJduwDwcnIabcef
+   */
+  @SerializedName("mount_key")
+  private String mountKey;
+
+  public Integer getMountType() {
+    return this.mountType;
+  }
+
+  public void setMountType(Integer mountType) {
+    this.mountType = mountType;
+  }
+
+  public String getMountKey() {
+    return this.mountKey;
+  }
+
+  public void setMountKey(String mountKey) {
+    this.mountKey = mountKey;
+  }
+
+  // builder 开始
+  public ImportTaskMountPoint() {}
+
+  public ImportTaskMountPoint(Builder builder) {
     /**
-     * 挂载类型
-     * <p> 示例值：1
+     * 挂载类型。取固定值 1，表示将该云文档挂载至云空间下。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("mount_type")
+    this.mountType = builder.mountType;
+    /**
+     * 云文档挂载的文件夹的 token，即云空间下文件夹的 token。空表示云空间根目录。了解如何获取文件夹
+     * token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+     *
+     * <p>示例值：AbqrfuRTjlJEIJduwDwcnIabcef
+     */
+    this.mountKey = builder.mountKey;
+  }
+
+  public static class Builder {
+    /**
+     * 挂载类型。取固定值 1，表示将该云文档挂载至云空间下。
+     *
+     * <p>示例值：1
+     */
     private Integer mountType;
+
     /**
-     * 挂载位置,对于mount_type=1, 云空间目录token，空表示根目录
-     * <p> 示例值：fldxxxxxxxx
+     * 云文档挂载的文件夹的 token，即云空间下文件夹的 token。空表示云空间根目录。了解如何获取文件夹
+     * token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+     *
+     * <p>示例值：AbqrfuRTjlJEIJduwDwcnIabcef
      */
-    @SerializedName("mount_key")
     private String mountKey;
 
-    // builder 开始
-    public ImportTaskMountPoint() {
+    /**
+     * 挂载类型。取固定值 1，表示将该云文档挂载至云空间下。
+     *
+     * <p>示例值：1
+     *
+     * @param mountType
+     * @return
+     */
+    public Builder mountType(Integer mountType) {
+      this.mountType = mountType;
+      return this;
     }
 
-    public ImportTaskMountPoint(Builder builder) {
-        /**
-         * 挂载类型
-         * <p> 示例值：1
-         */
-        this.mountType = builder.mountType;
-        /**
-         * 挂载位置,对于mount_type=1, 云空间目录token，空表示根目录
-         * <p> 示例值：fldxxxxxxxx
-         */
-        this.mountKey = builder.mountKey;
+    /**
+     * 挂载类型。取固定值 1，表示将该云文档挂载至云空间下。
+     *
+     * <p>示例值：1
+     *
+     * @param mountType {@link
+     *     com.lark.oapi.service.drive.v1.enums.ImportTaskMountPointMountTypeEnum}
+     * @return
+     */
+    public Builder mountType(
+        com.lark.oapi.service.drive.v1.enums.ImportTaskMountPointMountTypeEnum mountType) {
+      this.mountType = mountType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 云文档挂载的文件夹的 token，即云空间下文件夹的 token。空表示云空间根目录。了解如何获取文件夹
+     * token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。
+     *
+     * <p>示例值：AbqrfuRTjlJEIJduwDwcnIabcef
+     *
+     * @param mountKey
+     * @return
+     */
+    public Builder mountKey(String mountKey) {
+      this.mountKey = mountKey;
+      return this;
     }
 
-    public Integer getMountType() {
-        return this.mountType;
+    public ImportTaskMountPoint build() {
+      return new ImportTaskMountPoint(this);
     }
+  }
 
-    public void setMountType(Integer mountType) {
-        this.mountType = mountType;
-    }
-
-    public String getMountKey() {
-        return this.mountKey;
-    }
-
-    public void setMountKey(String mountKey) {
-        this.mountKey = mountKey;
-    }
-
-    public static class Builder {
-        /**
-         * 挂载类型
-         * <p> 示例值：1
-         */
-        private Integer mountType;
-        /**
-         * 挂载位置,对于mount_type=1, 云空间目录token，空表示根目录
-         * <p> 示例值：fldxxxxxxxx
-         */
-        private String mountKey;
-
-        /**
-         * 挂载类型
-         * <p> 示例值：1
-         *
-         * @param mountType
-         * @return
-         */
-        public Builder mountType(Integer mountType) {
-            this.mountType = mountType;
-            return this;
-        }
-
-        /**
-         * 挂载类型
-         * <p> 示例值：1
-         *
-         * @param mountType {@link com.lark.oapi.service.drive.v1.enums.ImportTaskMountPointMountTypeEnum}
-         * @return
-         */
-        public Builder mountType(com.lark.oapi.service.drive.v1.enums.ImportTaskMountPointMountTypeEnum mountType) {
-            this.mountType = mountType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 挂载位置,对于mount_type=1, 云空间目录token，空表示根目录
-         * <p> 示例值：fldxxxxxxxx
-         *
-         * @param mountKey
-         * @return
-         */
-        public Builder mountKey(String mountKey) {
-            this.mountKey = mountKey;
-            return this;
-        }
-
-
-        public ImportTaskMountPoint build() {
-            return new ImportTaskMountPoint(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

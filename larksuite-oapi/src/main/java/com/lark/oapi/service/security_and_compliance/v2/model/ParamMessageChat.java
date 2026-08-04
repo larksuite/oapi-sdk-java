@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParamMessageChat {
+  /**
+   * 消息创建时间范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("create_time_range")
+  private TimeRange createTimeRange;
+
+  /**
+   * 会话ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_ids")
+  private String[] chatIds;
+
+  public TimeRange getCreateTimeRange() {
+    return this.createTimeRange;
+  }
+
+  public void setCreateTimeRange(TimeRange createTimeRange) {
+    this.createTimeRange = createTimeRange;
+  }
+
+  public String[] getChatIds() {
+    return this.chatIds;
+  }
+
+  public void setChatIds(String[] chatIds) {
+    this.chatIds = chatIds;
+  }
+
+  // builder 开始
+  public ParamMessageChat() {}
+
+  public ParamMessageChat(Builder builder) {
     /**
      * 消息创建时间范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("create_time_range")
-    private TimeRange createTimeRange;
+    this.createTimeRange = builder.createTimeRange;
     /**
      * 会话ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_ids")
+    this.chatIds = builder.chatIds;
+  }
+
+  public static class Builder {
+    /**
+     * 消息创建时间范围
+     *
+     * <p>示例值：
+     */
+    private TimeRange createTimeRange;
+
+    /**
+     * 会话ID
+     *
+     * <p>示例值：
+     */
     private String[] chatIds;
 
-    // builder 开始
-    public ParamMessageChat() {
+    /**
+     * 消息创建时间范围
+     *
+     * <p>示例值：
+     *
+     * @param createTimeRange
+     * @return
+     */
+    public Builder createTimeRange(TimeRange createTimeRange) {
+      this.createTimeRange = createTimeRange;
+      return this;
     }
 
-    public ParamMessageChat(Builder builder) {
-        /**
-         * 消息创建时间范围
-         * <p> 示例值：
-         */
-        this.createTimeRange = builder.createTimeRange;
-        /**
-         * 会话ID
-         * <p> 示例值：
-         */
-        this.chatIds = builder.chatIds;
+    /**
+     * 会话ID
+     *
+     * <p>示例值：
+     *
+     * @param chatIds
+     * @return
+     */
+    public Builder chatIds(String[] chatIds) {
+      this.chatIds = chatIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ParamMessageChat build() {
+      return new ParamMessageChat(this);
     }
+  }
 
-    public TimeRange getCreateTimeRange() {
-        return this.createTimeRange;
-    }
-
-    public void setCreateTimeRange(TimeRange createTimeRange) {
-        this.createTimeRange = createTimeRange;
-    }
-
-    public String[] getChatIds() {
-        return this.chatIds;
-    }
-
-    public void setChatIds(String[] chatIds) {
-        this.chatIds = chatIds;
-    }
-
-    public static class Builder {
-        /**
-         * 消息创建时间范围
-         * <p> 示例值：
-         */
-        private TimeRange createTimeRange;
-        /**
-         * 会话ID
-         * <p> 示例值：
-         */
-        private String[] chatIds;
-
-        /**
-         * 消息创建时间范围
-         * <p> 示例值：
-         *
-         * @param createTimeRange
-         * @return
-         */
-        public Builder createTimeRange(TimeRange createTimeRange) {
-            this.createTimeRange = createTimeRange;
-            return this;
-        }
-
-
-        /**
-         * 会话ID
-         * <p> 示例值：
-         *
-         * @param chatIds
-         * @return
-         */
-        public Builder chatIds(String[] chatIds) {
-            this.chatIds = chatIds;
-            return this;
-        }
-
-
-        public ParamMessageChat build() {
-            return new ParamMessageChat(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

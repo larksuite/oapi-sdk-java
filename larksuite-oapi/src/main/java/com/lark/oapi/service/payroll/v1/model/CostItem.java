@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CostItem {
+  /**
+   * 成本项的唯一标识
+   *
+   * <p>示例值：7433424967234601004
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 成本项名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nContent[] name;
+
+  /**
+   * 成本项是否启用更正
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("enable_correct")
+  private Boolean enableCorrect;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18nContent[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18nContent[] name) {
+    this.name = name;
+  }
+
+  public Boolean getEnableCorrect() {
+    return this.enableCorrect;
+  }
+
+  public void setEnableCorrect(Boolean enableCorrect) {
+    this.enableCorrect = enableCorrect;
+  }
+
+  // builder 开始
+  public CostItem() {}
+
+  public CostItem(Builder builder) {
     /**
      * 成本项的唯一标识
-     * <p> 示例值：7433424967234601004
+     *
+     * <p>示例值：7433424967234601004
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 成本项名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nContent[] name;
+    this.name = builder.name;
     /**
      * 成本项是否启用更正
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("enable_correct")
+    this.enableCorrect = builder.enableCorrect;
+  }
+
+  public static class Builder {
+    /**
+     * 成本项的唯一标识
+     *
+     * <p>示例值：7433424967234601004
+     */
+    private String id;
+
+    /**
+     * 成本项名称
+     *
+     * <p>示例值：
+     */
+    private I18nContent[] name;
+
+    /**
+     * 成本项是否启用更正
+     *
+     * <p>示例值：true
+     */
     private Boolean enableCorrect;
 
-    // builder 开始
-    public CostItem() {
+    /**
+     * 成本项的唯一标识
+     *
+     * <p>示例值：7433424967234601004
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public CostItem(Builder builder) {
-        /**
-         * 成本项的唯一标识
-         * <p> 示例值：7433424967234601004
-         */
-        this.id = builder.id;
-        /**
-         * 成本项名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 成本项是否启用更正
-         * <p> 示例值：true
-         */
-        this.enableCorrect = builder.enableCorrect;
+    /**
+     * 成本项名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nContent[] name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 成本项是否启用更正
+     *
+     * <p>示例值：true
+     *
+     * @param enableCorrect
+     * @return
+     */
+    public Builder enableCorrect(Boolean enableCorrect) {
+      this.enableCorrect = enableCorrect;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public CostItem build() {
+      return new CostItem(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18nContent[] getName() {
-        return this.name;
-    }
-
-    public void setName(I18nContent[] name) {
-        this.name = name;
-    }
-
-    public Boolean getEnableCorrect() {
-        return this.enableCorrect;
-    }
-
-    public void setEnableCorrect(Boolean enableCorrect) {
-        this.enableCorrect = enableCorrect;
-    }
-
-    public static class Builder {
-        /**
-         * 成本项的唯一标识
-         * <p> 示例值：7433424967234601004
-         */
-        private String id;
-        /**
-         * 成本项名称
-         * <p> 示例值：
-         */
-        private I18nContent[] name;
-        /**
-         * 成本项是否启用更正
-         * <p> 示例值：true
-         */
-        private Boolean enableCorrect;
-
-        /**
-         * 成本项的唯一标识
-         * <p> 示例值：7433424967234601004
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 成本项名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nContent[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 成本项是否启用更正
-         * <p> 示例值：true
-         *
-         * @param enableCorrect
-         * @return
-         */
-        public Builder enableCorrect(Boolean enableCorrect) {
-            this.enableCorrect = enableCorrect;
-            return this;
-        }
-
-
-        public CostItem build() {
-            return new CostItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,72 +13,51 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LocationInfoEvent {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("coord")
+  /** 示例值： */
+  @SerializedName("coord")
+  private Coordinate coord;
+
+  public Coordinate getCoord() {
+    return this.coord;
+  }
+
+  public void setCoord(Coordinate coord) {
+    this.coord = coord;
+  }
+
+  // builder 开始
+  public LocationInfoEvent() {}
+
+  public LocationInfoEvent(Builder builder) {
+    /** 示例值： */
+    this.coord = builder.coord;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private Coordinate coord;
 
-    // builder 开始
-    public LocationInfoEvent() {
+    /**
+     * 示例值：
+     *
+     * @param coord
+     * @return
+     */
+    public Builder coord(Coordinate coord) {
+      this.coord = coord;
+      return this;
     }
 
-    public LocationInfoEvent(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.coord = builder.coord;
+    public LocationInfoEvent build() {
+      return new LocationInfoEvent(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Coordinate getCoord() {
-        return this.coord;
-    }
-
-    public void setCoord(Coordinate coord) {
-        this.coord = coord;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private Coordinate coord;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param coord
-         * @return
-         */
-        public Builder coord(Coordinate coord) {
-            this.coord = coord;
-            return this;
-        }
-
-
-        public LocationInfoEvent build() {
-            return new LocationInfoEvent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

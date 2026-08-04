@@ -13,106 +13,118 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.sheets.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.sheets.v3.enums.*;
 
 public class GetSpreadsheetSheetReq {
+  /**
+   * 电子表格的
+   * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+   * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+   * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+   *
+   * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+   */
+  @Path
+  @SerializedName("spreadsheet_token")
+  private String spreadsheetToken;
+
+  /**
+   * 工作表的
+   * ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取
+   * ID。
+   *
+   * <p>示例值：giDk9k
+   */
+  @Path
+  @SerializedName("sheet_id")
+  private String sheetId;
+
+  public String getSpreadsheetToken() {
+    return this.spreadsheetToken;
+  }
+
+  public void setSpreadsheetToken(String spreadsheetToken) {
+    this.spreadsheetToken = spreadsheetToken;
+  }
+
+  public String getSheetId() {
+    return this.sheetId;
+  }
+
+  public void setSheetId(String sheetId) {
+    this.sheetId = sheetId;
+  }
+
+  // builder 开始
+  public GetSpreadsheetSheetReq() {}
+
+  public GetSpreadsheetSheetReq(Builder builder) {
     /**
-     * 表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
-     * <p> 示例值：shtxxxxxxxxxxxxxxx
+     * 电子表格的
+     * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+     * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+     * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
      */
-    @Path
-    @SerializedName("spreadsheet_token")
-    private String spreadsheetToken;
+    this.spreadsheetToken = builder.spreadsheetToken;
     /**
-     * 工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
-     * <p> 示例值：giDk9k
+     * 工作表的
+     * ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取
+     * ID。
+     *
+     * <p>示例值：giDk9k
      */
-    @Path
-    @SerializedName("sheet_id")
-    private String sheetId;
+    this.sheetId = builder.sheetId;
+  }
 
-    // builder 开始
-    public GetSpreadsheetSheetReq() {
+  public static class Builder {
+
+    private String spreadsheetToken; // 电子表格的
+    // token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;- 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+    private String sheetId; // 工作表的
+
+    // ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。
+
+    /**
+     * 电子表格的
+     * token。可通过以下两种方式获取。了解更多，参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)。;-
+     * 电子表格的 URL：https://sample.feishu.cn/sheets/==Iow7sNNEphp3WbtnbCscPqabcef==;-
+     * 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+     *
+     * @param spreadsheetToken
+     * @return
+     */
+    public Builder spreadsheetToken(String spreadsheetToken) {
+      this.spreadsheetToken = spreadsheetToken;
+      return this;
     }
 
-    public GetSpreadsheetSheetReq(Builder builder) {
-        /**
-         * 表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
-         * <p> 示例值：shtxxxxxxxxxxxxxxx
-         */
-        this.spreadsheetToken = builder.spreadsheetToken;
-        /**
-         * 工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
-         * <p> 示例值：giDk9k
-         */
-        this.sheetId = builder.sheetId;
+    /**
+     * 工作表的
+     * ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取
+     * ID。
+     *
+     * <p>示例值：giDk9k
+     *
+     * @param sheetId
+     * @return
+     */
+    public Builder sheetId(String sheetId) {
+      this.sheetId = sheetId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GetSpreadsheetSheetReq build() {
+      return new GetSpreadsheetSheetReq(this);
     }
+  }
 
-    public String getSpreadsheetToken() {
-        return this.spreadsheetToken;
-    }
-
-    public void setSpreadsheetToken(String spreadsheetToken) {
-        this.spreadsheetToken = spreadsheetToken;
-    }
-
-    public String getSheetId() {
-        return this.sheetId;
-    }
-
-    public void setSheetId(String sheetId) {
-        this.sheetId = sheetId;
-    }
-
-    public static class Builder {
-
-        private String spreadsheetToken; // 表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
-        private String sheetId; // 工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
-
-        /**
-         * 表格的token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)
-         * <p> 示例值：shtxxxxxxxxxxxxxxx
-         *
-         * @param spreadsheetToken
-         * @return
-         */
-        public Builder spreadsheetToken(String spreadsheetToken) {
-            this.spreadsheetToken = spreadsheetToken;
-            return this;
-        }
-
-
-        /**
-         * 工作表的id，获取方式见[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
-         * <p> 示例值：giDk9k
-         *
-         * @param sheetId
-         * @return
-         */
-        public Builder sheetId(String sheetId) {
-            this.sheetId = sheetId;
-            return this;
-        }
-
-
-        public GetSpreadsheetSheetReq build() {
-            return new GetSpreadsheetSheetReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

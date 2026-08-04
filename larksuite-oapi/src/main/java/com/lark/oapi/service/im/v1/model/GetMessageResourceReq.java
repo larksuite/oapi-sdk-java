@@ -13,138 +13,166 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.im.v1.enums.*;
 
 public class GetMessageResourceReq {
+  /**
+   * 资源类型;;**可选值有：**;- `image`：对应消息中的图片或富文本消息中的图片。;- `file`：对应消息中的文件、音频、视频（表情包除外）。
+   *
+   * <p>示例值：image
+   */
+  @Query
+  @SerializedName("type")
+  private String type;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  /**
+   * 待查询的消息 ID。ID 获取方式：; ;-
+   * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+   * `message_id` 参数获取。;-
+   * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+   * `message_id`。;-
+   * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+   * `message_id` 参数获取。
+   *
+   * <p>示例值：om_dc13264520392913993dd051dba21dcf
+   */
+  @Path
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 待查询资源的
+   * Key。你可以调用[获取指定消息的内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get)接口，通过消息
+   * ID 获取消息内容中的资源 Key。;;**注意**：路径参数 `file_key` 和 `message_id` 需要匹配。
+   *
+   * <p>示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
+   */
+  @Path
+  @SerializedName("file_key")
+  private String fileKey;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public String getFileKey() {
+    return this.fileKey;
+  }
+
+  public void setFileKey(String fileKey) {
+    this.fileKey = fileKey;
+  }
+
+  // builder 开始
+  public GetMessageResourceReq() {}
+
+  public GetMessageResourceReq(Builder builder) {
     /**
-     * 资源类型，可选"image, file“； image对应消息中的 图片，富文本消息中的图片。  file对应消息中的 文件、音频、视频、（表情包除外）
-     * <p> 示例值：image
+     * 资源类型;;**可选值有：**;- `image`：对应消息中的图片或富文本消息中的图片。;- `file`：对应消息中的文件、音频、视频（表情包除外）。
+     *
+     * <p>示例值：image
      */
-    @Query
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
-     * 待查询资源对应的消息ID
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     * 待查询的消息 ID。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id` 参数获取。
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
      */
-    @Path
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
-     * 待查询资源的key;;**注意**：请求的 file_key 和 message_id 需要匹配
-     * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
+     * 待查询资源的
+     * Key。你可以调用[获取指定消息的内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get)接口，通过消息
+     * ID 获取消息内容中的资源 Key。;;**注意**：路径参数 `file_key` 和 `message_id` 需要匹配。
+     *
+     * <p>示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
      */
-    @Path
-    @SerializedName("file_key")
-    private String fileKey;
+    this.fileKey = builder.fileKey;
+  }
 
-    // builder 开始
-    public GetMessageResourceReq() {
+  public static class Builder {
+    private String
+        type; // 资源类型;;**可选值有：**;- `image`：对应消息中的图片或富文本消息中的图片。;- `file`：对应消息中的文件、音频、视频（表情包除外）。
+
+    /**
+     * 资源类型;;**可选值有：**;- `image`：对应消息中的图片或富文本消息中的图片。;- `file`：对应消息中的文件、音频、视频（表情包除外）。
+     *
+     * <p>示例值：image
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public GetMessageResourceReq(Builder builder) {
-        /**
-         * 资源类型，可选"image, file“； image对应消息中的 图片，富文本消息中的图片。  file对应消息中的 文件、音频、视频、（表情包除外）
-         * <p> 示例值：image
-         */
-        this.type = builder.type;
-        /**
-         * 待查询资源对应的消息ID
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 待查询资源的key;;**注意**：请求的 file_key 和 message_id 需要匹配
-         * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
-         */
-        this.fileKey = builder.fileKey;
+    private String messageId; // 待查询的消息 ID。ID 获取方式：; ;-
+    // 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。;- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。;- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。
+    private String fileKey; // 待查询资源的
+
+    // Key。你可以调用[获取指定消息的内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get)接口，通过消息 ID 获取消息内容中的资源 Key。;;**注意**：路径参数 `file_key` 和 `message_id` 需要匹配。
+
+    /**
+     * 待查询的消息 ID。ID 获取方式：; ;-
+     * 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的
+     * `message_id` 参数获取。;-
+     * 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的
+     * `message_id`。;-
+     * 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的
+     * `message_id` 参数获取。
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 待查询资源的
+     * Key。你可以调用[获取指定消息的内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get)接口，通过消息
+     * ID 获取消息内容中的资源 Key。;;**注意**：路径参数 `file_key` 和 `message_id` 需要匹配。
+     *
+     * <p>示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
+     *
+     * @param fileKey
+     * @return
+     */
+    public Builder fileKey(String fileKey) {
+      this.fileKey = fileKey;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public GetMessageResourceReq build() {
+      return new GetMessageResourceReq(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public String getFileKey() {
-        return this.fileKey;
-    }
-
-    public void setFileKey(String fileKey) {
-        this.fileKey = fileKey;
-    }
-
-    public static class Builder {
-        private String type; // 资源类型，可选"image, file“； image对应消息中的 图片，富文本消息中的图片。  file对应消息中的 文件、音频、视频、（表情包除外）
-        private String messageId; // 待查询资源对应的消息ID
-        private String fileKey; // 待查询资源的key;;**注意**：请求的 file_key 和 message_id 需要匹配
-
-        /**
-         * 资源类型，可选"image, file“； image对应消息中的 图片，富文本消息中的图片。  file对应消息中的 文件、音频、视频、（表情包除外）
-         * <p> 示例值：image
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 待查询资源对应的消息ID
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 待查询资源的key;;**注意**：请求的 file_key 和 message_id 需要匹配
-         * <p> 示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g
-         *
-         * @param fileKey
-         * @return
-         */
-        public Builder fileKey(String fileKey) {
-            this.fileKey = fileKey;
-            return this;
-        }
-
-
-        public GetMessageResourceReq build() {
-            return new GetMessageResourceReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

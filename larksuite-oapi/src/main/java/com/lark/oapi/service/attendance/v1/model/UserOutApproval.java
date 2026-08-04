@@ -13,186 +13,401 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserOutApproval {
+  /**
+   * 审批实例id
+   *
+   * <p>示例值：6737202939523236113
+   */
+  @SerializedName("approval_id")
+  private String approvalId;
+
+  /**
+   * 外出时长（单位秒）
+   *
+   * <p>示例值：28800
+   */
+  @SerializedName("interval")
+  private Integer interval;
+
+  /**
+   * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2021-01-04 09:00:00
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2021-01-04 19:00:00
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 外出理由
+   *
+   * <p>示例值：外出办事
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  /**
+   * 审批通过时间
+   *
+   * <p>示例值：2021-01-04 12:00:00
+   */
+  @SerializedName("approve_pass_time")
+  private String approvePassTime;
+
+  /**
+   * 审批申请时间
+   *
+   * <p>示例值：2021-01-04 11:00:00
+   */
+  @SerializedName("approve_apply_time")
+  private String approveApplyTime;
+
+  /**
+   * 审批状态
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 时区
+   *
+   * <p>示例值：zh
+   */
+  @SerializedName("time_zone")
+  private String timeZone;
+
+  public String getApprovalId() {
+    return this.approvalId;
+  }
+
+  public void setApprovalId(String approvalId) {
+    this.approvalId = approvalId;
+  }
+
+  public Integer getInterval() {
+    return this.interval;
+  }
+
+  public void setInterval(Integer interval) {
+    this.interval = interval;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  public String getApprovePassTime() {
+    return this.approvePassTime;
+  }
+
+  public void setApprovePassTime(String approvePassTime) {
+    this.approvePassTime = approvePassTime;
+  }
+
+  public String getApproveApplyTime() {
+    return this.approveApplyTime;
+  }
+
+  public void setApproveApplyTime(String approveApplyTime) {
+    this.approveApplyTime = approveApplyTime;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getTimeZone() {
+    return this.timeZone;
+  }
+
+  public void setTimeZone(String timeZone) {
+    this.timeZone = timeZone;
+  }
+
+  // builder 开始
+  public UserOutApproval() {}
+
+  public UserOutApproval(Builder builder) {
     /**
-     * 审批用户工号
-     * <p> 示例值：abd754f7
+     * 审批实例id
+     *
+     * <p>示例值：6737202939523236113
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.approvalId = builder.approvalId;
     /**
-     * 审批作用日期
-     * <p> 示例值：20210101
+     * 外出时长（单位秒）
+     *
+     * <p>示例值：28800
      */
-    @SerializedName("date")
-    private String date;
+    this.interval = builder.interval;
     /**
-     * 外出信息
-     * <p> 示例值：
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 09:00:00
      */
-    @SerializedName("outs")
-    private UserOut[] outs;
+    this.startTime = builder.startTime;
     /**
-     * 审批作用时区
-     * <p> 示例值：Asia/Shanghai
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 19:00:00
      */
-    @SerializedName("time_zone")
+    this.endTime = builder.endTime;
+    /**
+     * 外出理由
+     *
+     * <p>示例值：外出办事
+     */
+    this.reason = builder.reason;
+    /**
+     * 审批通过时间
+     *
+     * <p>示例值：2021-01-04 12:00:00
+     */
+    this.approvePassTime = builder.approvePassTime;
+    /**
+     * 审批申请时间
+     *
+     * <p>示例值：2021-01-04 11:00:00
+     */
+    this.approveApplyTime = builder.approveApplyTime;
+    /**
+     * 审批状态
+     *
+     * <p>示例值：3
+     */
+    this.status = builder.status;
+    /**
+     * 时区
+     *
+     * <p>示例值：zh
+     */
+    this.timeZone = builder.timeZone;
+  }
+
+  public static class Builder {
+    /**
+     * 审批实例id
+     *
+     * <p>示例值：6737202939523236113
+     */
+    private String approvalId;
+
+    /**
+     * 外出时长（单位秒）
+     *
+     * <p>示例值：28800
+     */
+    private Integer interval;
+
+    /**
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 09:00:00
+     */
+    private String startTime;
+
+    /**
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 19:00:00
+     */
+    private String endTime;
+
+    /**
+     * 外出理由
+     *
+     * <p>示例值：外出办事
+     */
+    private String reason;
+
+    /**
+     * 审批通过时间
+     *
+     * <p>示例值：2021-01-04 12:00:00
+     */
+    private String approvePassTime;
+
+    /**
+     * 审批申请时间
+     *
+     * <p>示例值：2021-01-04 11:00:00
+     */
+    private String approveApplyTime;
+
+    /**
+     * 审批状态
+     *
+     * <p>示例值：3
+     */
+    private Integer status;
+
+    /**
+     * 时区
+     *
+     * <p>示例值：zh
+     */
     private String timeZone;
 
-    // builder 开始
-    public UserOutApproval() {
+    /**
+     * 审批实例id
+     *
+     * <p>示例值：6737202939523236113
+     *
+     * @param approvalId
+     * @return
+     */
+    public Builder approvalId(String approvalId) {
+      this.approvalId = approvalId;
+      return this;
     }
 
-    public UserOutApproval(Builder builder) {
-        /**
-         * 审批用户工号
-         * <p> 示例值：abd754f7
-         */
-        this.userId = builder.userId;
-        /**
-         * 审批作用日期
-         * <p> 示例值：20210101
-         */
-        this.date = builder.date;
-        /**
-         * 外出信息
-         * <p> 示例值：
-         */
-        this.outs = builder.outs;
-        /**
-         * 审批作用时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        this.timeZone = builder.timeZone;
+    /**
+     * 外出时长（单位秒）
+     *
+     * <p>示例值：28800
+     *
+     * @param interval
+     * @return
+     */
+    public Builder interval(Integer interval) {
+      this.interval = interval;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 开始时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 09:00:00
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 结束时间，时间格式为 yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2021-01-04 19:00:00
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 外出理由
+     *
+     * <p>示例值：外出办事
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public String getDate() {
-        return this.date;
+    /**
+     * 审批通过时间
+     *
+     * <p>示例值：2021-01-04 12:00:00
+     *
+     * @param approvePassTime
+     * @return
+     */
+    public Builder approvePassTime(String approvePassTime) {
+      this.approvePassTime = approvePassTime;
+      return this;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    /**
+     * 审批申请时间
+     *
+     * <p>示例值：2021-01-04 11:00:00
+     *
+     * @param approveApplyTime
+     * @return
+     */
+    public Builder approveApplyTime(String approveApplyTime) {
+      this.approveApplyTime = approveApplyTime;
+      return this;
     }
 
-    public UserOut[] getOuts() {
-        return this.outs;
+    /**
+     * 审批状态
+     *
+     * <p>示例值：3
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public void setOuts(UserOut[] outs) {
-        this.outs = outs;
+    /**
+     * 时区
+     *
+     * <p>示例值：zh
+     *
+     * @param timeZone
+     * @return
+     */
+    public Builder timeZone(String timeZone) {
+      this.timeZone = timeZone;
+      return this;
     }
 
-    public String getTimeZone() {
-        return this.timeZone;
+    public UserOutApproval build() {
+      return new UserOutApproval(this);
     }
+  }
 
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
-    }
-
-    public static class Builder {
-        /**
-         * 审批用户工号
-         * <p> 示例值：abd754f7
-         */
-        private String userId;
-        /**
-         * 审批作用日期
-         * <p> 示例值：20210101
-         */
-        private String date;
-        /**
-         * 外出信息
-         * <p> 示例值：
-         */
-        private UserOut[] outs;
-        /**
-         * 审批作用时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        private String timeZone;
-
-        /**
-         * 审批用户工号
-         * <p> 示例值：abd754f7
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 审批作用日期
-         * <p> 示例值：20210101
-         *
-         * @param date
-         * @return
-         */
-        public Builder date(String date) {
-            this.date = date;
-            return this;
-        }
-
-
-        /**
-         * 外出信息
-         * <p> 示例值：
-         *
-         * @param outs
-         * @return
-         */
-        public Builder outs(UserOut[] outs) {
-            this.outs = outs;
-            return this;
-        }
-
-
-        /**
-         * 审批作用时区
-         * <p> 示例值：Asia/Shanghai
-         *
-         * @param timeZone
-         * @return
-         */
-        public Builder timeZone(String timeZone) {
-            this.timeZone = timeZone;
-            return this;
-        }
-
-
-        public UserOutApproval build() {
-            return new UserOutApproval(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

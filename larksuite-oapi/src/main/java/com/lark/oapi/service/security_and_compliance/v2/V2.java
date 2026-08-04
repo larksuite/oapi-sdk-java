@@ -18,19 +18,19 @@ import com.lark.oapi.service.security_and_compliance.v2.resource.DeviceApplyReco
 import com.lark.oapi.service.security_and_compliance.v2.resource.DeviceRecord;
 
 public class V2 {
-    private final DeviceApplyRecord deviceApplyRecord; // device_apply_record
-    private final DeviceRecord deviceRecord; // device_record
+  private final DeviceApplyRecord deviceApplyRecord; // device_apply_record
+  private final DeviceRecord deviceRecord; // device_record
 
-    public V2(Config config) {
-        this.deviceApplyRecord = new DeviceApplyRecord(config);
-        this.deviceRecord = new DeviceRecord(config);
-    }
+  public V2(Config config) {
+    this.deviceApplyRecord = new DeviceApplyRecord(config);
+    this.deviceRecord = new DeviceRecord(config);
+  }
 
-    public DeviceApplyRecord deviceApplyRecord() {
-        return deviceApplyRecord;
-    }
+  public DeviceApplyRecord deviceApplyRecord() {
+    return deviceApplyRecord;
+  }
 
-    public DeviceRecord deviceRecord() {
-        return deviceRecord;
-    }
+  public DeviceRecord deviceRecord() {
+    return deviceRecord;
+  }
 }

@@ -13,118 +13,118 @@
 
 package com.lark.oapi.service.moments.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ReactionCreatedV1Data {
-    /**
-     * reaction 类型
-     * <p> 示例值："OK"
-     */
-    @SerializedName("type")
-    private String type;
-    /**
-     * reaction 所属用户ID
-     * <p> 示例值：
-     */
-    @SerializedName("user_id")
-    private UserId userId;
-    /**
-     * reaction 所属实体ID
-     * <p> 示例值："248381241"
-     */
-    @SerializedName("entity_id")
-    private String entityId;
-    /**
-     * Reaction的ID
-     * <p> 示例值："MS8yL1NPQg=="
-     */
-    @SerializedName("id")
-    private String id;
-    /**
-     * 表情回复所属实体类型
-     * <p> 示例值：1
-     */
-    @SerializedName("entity_type")
-    private Integer entityType;
-    /**
-     * 表情回复人类型
-     * <p> 示例值：1
-     */
-    @SerializedName("user_type")
-    private Integer userType;
-    /**
-     * reaction创建时间
-     * <p> 示例值："2022-05-23T00:00:00+08:00"
-     */
-    @SerializedName("create_time")
-    private String createTime;
+  /**
+   * 表情互动类型
+   *
+   * <p>示例值：OK
+   */
+  @SerializedName("type")
+  private String type;
 
-    public String getType() {
-        return this.type;
-    }
+  /**
+   * 用户 ID（仅实名下有值）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private UserId userId;
 
-    public void setType(String type) {
-        this.type = type;
-    }
+  /**
+   * 表情互动所属实体ID
+   *
+   * <p>示例值：248381241
+   */
+  @SerializedName("entity_id")
+  private String entityId;
 
-    public UserId getUserId() {
-        return this.userId;
-    }
+  /**
+   * 表情互动的ID
+   *
+   * <p>示例值：248381243
+   */
+  @SerializedName("id")
+  private String id;
 
-    public void setUserId(UserId userId) {
-        this.userId = userId;
-    }
+  /**
+   * 表情回复所属实体类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("entity_type")
+  private Integer entityType;
 
-    public String getEntityId() {
-        return this.entityId;
-    }
+  /**
+   * 表情回复人类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("user_type")
+  private Integer userType;
 
-    public void setEntityId(String entityId) {
-        this.entityId = entityId;
-    }
+  /**
+   * 表情互动创建时间
+   *
+   * <p>示例值：2022-05-23T00:00:00+08:00
+   */
+  @SerializedName("create_time")
+  private String createTime;
 
-    public String getId() {
-        return this.id;
-    }
+  public String getType() {
+    return this.type;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public void setType(String type) {
+    this.type = type;
+  }
 
-    public Integer getEntityType() {
-        return this.entityType;
-    }
+  public UserId getUserId() {
+    return this.userId;
+  }
 
-    public void setEntityType(Integer entityType) {
-        this.entityType = entityType;
-    }
+  public void setUserId(UserId userId) {
+    this.userId = userId;
+  }
 
-    public Integer getUserType() {
-        return this.userType;
-    }
+  public String getEntityId() {
+    return this.entityId;
+  }
 
-    public void setUserType(Integer userType) {
-        this.userType = userType;
-    }
+  public void setEntityId(String entityId) {
+    this.entityId = entityId;
+  }
 
-    public String getCreateTime() {
-        return this.createTime;
-    }
+  public String getId() {
+    return this.id;
+  }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
+  public Integer getEntityType() {
+    return this.entityType;
+  }
+
+  public void setEntityType(Integer entityType) {
+    this.entityType = entityType;
+  }
+
+  public Integer getUserType() {
+    return this.userType;
+  }
+
+  public void setUserType(Integer userType) {
+    this.userType = userType;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
 }

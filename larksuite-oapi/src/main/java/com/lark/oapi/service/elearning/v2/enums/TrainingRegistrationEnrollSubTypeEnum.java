@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.elearning.v2.enums;
 
-/**
- * 加入渠道
- */
+/** 加入渠道 */
 public enum TrainingRegistrationEnrollSubTypeEnum {
-    BYTELEARNING(0), // 学习平台内部加入
-    FEISHUEVENTS(1), // 飞书日程加入
-    ;
-    private Integer value;
+  BYTELEARNING(0), // 学习平台内部加入
+  FEISHUEVENTS(1), // 飞书日程加入
+  ;
+  private Integer value;
 
-    TrainingRegistrationEnrollSubTypeEnum(Integer value) {
-        this.value = value;
-    }
+  TrainingRegistrationEnrollSubTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

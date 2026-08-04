@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.moments.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2CommentDeletedV1Data {
-    /**
-     * 评论 ID
-     * <p> 示例值："248381240"
-     */
-    @SerializedName("id")
-    private String id;
-    /**
-     * 评论所属帖子的ID
-     * <p> 示例值："248381241"
-     */
-    @SerializedName("post_id")
-    private String postId;
+  /**
+   * 评论 ID
+   *
+   * <p>示例值：248381240
+   */
+  @SerializedName("id")
+  private String id;
 
-    public String getId() {
-        return this.id;
-    }
+  /**
+   * 评论所属帖子的ID
+   *
+   * <p>示例值：248381241
+   */
+  @SerializedName("post_id")
+  private String postId;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public String getId() {
+    return this.id;
+  }
 
-    public String getPostId() {
-        return this.postId;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public void setPostId(String postId) {
-        this.postId = postId;
-    }
+  public String getPostId() {
+    return this.postId;
+  }
 
+  public void setPostId(String postId) {
+    this.postId = postId;
+  }
 }

@@ -13,161 +13,166 @@
 
 package com.lark.oapi.service.personal_settings.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.personal_settings.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SystemStatusUserOpenResultEntity {
+  /**
+   * 用户ID
+   *
+   * <p>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
+   *
+   * <p>示例值：1665990378
+   */
+  @SerializedName("end_time")
+  private Integer endTime;
+
+  /**
+   * 开启结果
+   *
+   * <p>示例值：success_show
+   */
+  @SerializedName("result")
+  private String result;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public Integer getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(Integer endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getResult() {
+    return this.result;
+  }
+
+  public void setResult(String result) {
+    this.result = result;
+  }
+
+  // builder 开始
+  public SystemStatusUserOpenResultEntity() {}
+
+  public SystemStatusUserOpenResultEntity(Builder builder) {
     /**
      * 用户ID
-     * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+     *
+     * <p>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
-     * <p> 示例值：1665990378
+     *
+     * <p>示例值：1665990378
      */
-    @SerializedName("end_time")
-    private Integer endTime;
+    this.endTime = builder.endTime;
     /**
      * 开启结果
-     * <p> 示例值：success_show
+     *
+     * <p>示例值：success_show
      */
-    @SerializedName("result")
+    this.result = builder.result;
+  }
+
+  public static class Builder {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+     */
+    private String userId;
+
+    /**
+     * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
+     *
+     * <p>示例值：1665990378
+     */
+    private Integer endTime;
+
+    /**
+     * 开启结果
+     *
+     * <p>示例值：success_show
+     */
     private String result;
 
-    // builder 开始
-    public SystemStatusUserOpenResultEntity() {
+    /**
+     * 用户ID
+     *
+     * <p>示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public SystemStatusUserOpenResultEntity(Builder builder) {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-         */
-        this.userId = builder.userId;
-        /**
-         * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
-         * <p> 示例值：1665990378
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 开启结果
-         * <p> 示例值：success_show
-         */
-        this.result = builder.result;
+    /**
+     * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
+     *
+     * <p>示例值：1665990378
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(Integer endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 开启结果
+     *
+     * <p>示例值：success_show
+     *
+     * @param result
+     * @return
+     */
+    public Builder result(String result) {
+      this.result = result;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 开启结果
+     *
+     * <p>示例值：success_show
+     *
+     * @param result {@link
+     *     com.lark.oapi.service.personal_settings.v1.enums.SystemStatusUserOpenResultEntitySystemStatusUserOpenResultEnum}
+     * @return
+     */
+    public Builder result(
+        com.lark.oapi.service.personal_settings.v1.enums
+                .SystemStatusUserOpenResultEntitySystemStatusUserOpenResultEnum
+            result) {
+      this.result = result.getValue();
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public SystemStatusUserOpenResultEntity build() {
+      return new SystemStatusUserOpenResultEntity(this);
     }
+  }
 
-    public Integer getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(Integer endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getResult() {
-        return this.result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID
-         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-         */
-        private String userId;
-        /**
-         * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
-         * <p> 示例值：1665990378
-         */
-        private Integer endTime;
-        /**
-         * 开启结果
-         * <p> 示例值：success_show
-         */
-        private String result;
-
-        /**
-         * 用户ID
-         * <p> 示例值：ou_53edd3282dbc2fdbe5c593cfa5ce82ab
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 结束时间，传入的应为秒单位的时间戳，距当前的时间跨度不能超过365天。
-         * <p> 示例值：1665990378
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(Integer endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 开启结果
-         * <p> 示例值：success_show
-         *
-         * @param result
-         * @return
-         */
-        public Builder result(String result) {
-            this.result = result;
-            return this;
-        }
-
-        /**
-         * 开启结果
-         * <p> 示例值：success_show
-         *
-         * @param result {@link com.lark.oapi.service.personal_settings.v1.enums.SystemStatusUserOpenResultEntitySystemStatusUserOpenResultEnum}
-         * @return
-         */
-        public Builder result(com.lark.oapi.service.personal_settings.v1.enums.SystemStatusUserOpenResultEntitySystemStatusUserOpenResultEnum result) {
-            this.result = result.getValue();
-            return this;
-        }
-
-
-        public SystemStatusUserOpenResultEntity build() {
-            return new SystemStatusUserOpenResultEntity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

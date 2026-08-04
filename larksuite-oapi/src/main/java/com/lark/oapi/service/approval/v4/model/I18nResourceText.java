@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class I18nResourceText {
+  /**
+   * 文案 key。key 以 `@i18n@`
+   * 开头，该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语言环境使用对应的文案，如果没有传用户当前的语言环境文案，则会使用默认的语言文案。
+   *
+   * <p>示例值：@i18n@1
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 文案内容
+   *
+   * <p>示例值：people
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public I18nResourceText() {}
+
+  public I18nResourceText(Builder builder) {
     /**
-     * 文案key
-     * <p> 示例值：@i18n@1
+     * 文案 key。key 以 `@i18n@`
+     * 开头，该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语言环境使用对应的文案，如果没有传用户当前的语言环境文案，则会使用默认的语言文案。
+     *
+     * <p>示例值：@i18n@1
      */
-    @SerializedName("key")
+    this.key = builder.key;
+    /**
+     * 文案内容
+     *
+     * <p>示例值：people
+     */
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 文案 key。key 以 `@i18n@`
+     * 开头，该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语言环境使用对应的文案，如果没有传用户当前的语言环境文案，则会使用默认的语言文案。
+     *
+     * <p>示例值：@i18n@1
+     */
     private String key;
+
     /**
-     * 文案
-     * <p> 示例值：people
+     * 文案内容
+     *
+     * <p>示例值：people
      */
-    @SerializedName("value")
     private String value;
 
-    // builder 开始
-    public I18nResourceText() {
+    /**
+     * 文案 key。key 以 `@i18n@`
+     * 开头，该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语言环境使用对应的文案，如果没有传用户当前的语言环境文案，则会使用默认的语言文案。
+     *
+     * <p>示例值：@i18n@1
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public I18nResourceText(Builder builder) {
-        /**
-         * 文案key
-         * <p> 示例值：@i18n@1
-         */
-        this.key = builder.key;
-        /**
-         * 文案
-         * <p> 示例值：people
-         */
-        this.value = builder.value;
+    /**
+     * 文案内容
+     *
+     * <p>示例值：people
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public I18nResourceText build() {
+      return new I18nResourceText(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 文案key
-         * <p> 示例值：@i18n@1
-         */
-        private String key;
-        /**
-         * 文案
-         * <p> 示例值：people
-         */
-        private String value;
-
-        /**
-         * 文案key
-         * <p> 示例值：@i18n@1
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 文案
-         * <p> 示例值：people
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public I18nResourceText build() {
-            return new I18nResourceText(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

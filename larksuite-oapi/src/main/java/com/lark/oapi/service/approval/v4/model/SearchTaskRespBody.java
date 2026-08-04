@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchTaskRespBody {
-    /**
-     * 查询返回条数
-     * <p> 示例值：10
-     */
-    @SerializedName("count")
-    private Integer count;
-    /**
-     * 审批任务列表
-     * <p> 示例值：
-     */
-    @SerializedName("task_list")
-    private TaskSearchItem[] taskList;
-    /**
-     * 翻页 Token
-     * <p> 示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有更多任务可供拉取
-     * <p> 示例值：false
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 查询结果中包含的审批任务总数
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("count")
+  private Integer count;
 
-    public Integer getCount() {
-        return this.count;
-    }
+  /**
+   * 审批任务列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("task_list")
+  private TaskSearchItem[] taskList;
 
-    public void setCount(Integer count) {
-        this.count = count;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public TaskSearchItem[] getTaskList() {
-        return this.taskList;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setTaskList(TaskSearchItem[] taskList) {
-        this.taskList = taskList;
-    }
+  public Integer getCount() {
+    return this.count;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public void setCount(Integer count) {
+    this.count = count;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public TaskSearchItem[] getTaskList() {
+    return this.taskList;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setTaskList(TaskSearchItem[] taskList) {
+    this.taskList = taskList;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 }

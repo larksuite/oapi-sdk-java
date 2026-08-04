@@ -13,7 +13,6 @@
 package com.lark.oapi.service.lingo;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.lingo.v1.V1;
 import com.lark.oapi.service.lingo.v1.model.*;
 import com.lark.oapi.service.lingo.v1.resource.Classification;
@@ -23,43 +22,43 @@ import com.lark.oapi.service.lingo.v1.resource.File;
 import com.lark.oapi.service.lingo.v1.resource.Repo;
 
 public class LingoService {
-    private final V1 v1;
-    private final Classification classification; // classification
-    private final Draft draft; // draft
-    private final Entity entity; // entity
-    private final File file; // file
-    private final Repo repo; // repo
+  private final V1 v1;
+  private final Classification classification; // classification
+  private final Draft draft; // draft
+  private final Entity entity; // entity
+  private final File file; // file
+  private final Repo repo; // repo
 
-    public LingoService(Config config) {
-        this.v1 = new V1(config);
-        this.classification = new Classification(config);
-        this.draft = new Draft(config);
-        this.entity = new Entity(config);
-        this.file = new File(config);
-        this.repo = new Repo(config);
-    }
+  public LingoService(Config config) {
+    this.v1 = new V1(config);
+    this.classification = new Classification(config);
+    this.draft = new Draft(config);
+    this.entity = new Entity(config);
+    this.file = new File(config);
+    this.repo = new Repo(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public Classification classification() {
-        return classification;
-    }
+  public Classification classification() {
+    return classification;
+  }
 
-    public Draft draft() {
-        return draft;
-    }
+  public Draft draft() {
+    return draft;
+  }
 
-    public Entity entity() {
-        return entity;
-    }
+  public Entity entity() {
+    return entity;
+  }
 
-    public File file() {
-        return file;
-    }
+  public File file() {
+    return file;
+  }
 
-    public Repo repo() {
-        return repo;
-    }
+  public Repo repo() {
+    return repo;
+  }
 }

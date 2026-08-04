@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DmpOriginalData {
+  /**
+   * 员工工号
+   *
+   * <p>示例值：12345
+   */
+  @SerializedName("employee_number")
+  private String employeeNumber;
+
+  /**
+   * 时间轴信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("time_periods")
+  private DmpTimelineField[] timePeriods;
+
+  public String getEmployeeNumber() {
+    return this.employeeNumber;
+  }
+
+  public void setEmployeeNumber(String employeeNumber) {
+    this.employeeNumber = employeeNumber;
+  }
+
+  public DmpTimelineField[] getTimePeriods() {
+    return this.timePeriods;
+  }
+
+  public void setTimePeriods(DmpTimelineField[] timePeriods) {
+    this.timePeriods = timePeriods;
+  }
+
+  // builder 开始
+  public DmpOriginalData() {}
+
+  public DmpOriginalData(Builder builder) {
     /**
      * 员工工号
-     * <p> 示例值：12345
+     *
+     * <p>示例值：12345
      */
-    @SerializedName("employee_number")
-    private String employeeNumber;
+    this.employeeNumber = builder.employeeNumber;
     /**
      * 时间轴信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("time_periods")
+    this.timePeriods = builder.timePeriods;
+  }
+
+  public static class Builder {
+    /**
+     * 员工工号
+     *
+     * <p>示例值：12345
+     */
+    private String employeeNumber;
+
+    /**
+     * 时间轴信息
+     *
+     * <p>示例值：
+     */
     private DmpTimelineField[] timePeriods;
 
-    // builder 开始
-    public DmpOriginalData() {
+    /**
+     * 员工工号
+     *
+     * <p>示例值：12345
+     *
+     * @param employeeNumber
+     * @return
+     */
+    public Builder employeeNumber(String employeeNumber) {
+      this.employeeNumber = employeeNumber;
+      return this;
     }
 
-    public DmpOriginalData(Builder builder) {
-        /**
-         * 员工工号
-         * <p> 示例值：12345
-         */
-        this.employeeNumber = builder.employeeNumber;
-        /**
-         * 时间轴信息
-         * <p> 示例值：
-         */
-        this.timePeriods = builder.timePeriods;
+    /**
+     * 时间轴信息
+     *
+     * <p>示例值：
+     *
+     * @param timePeriods
+     * @return
+     */
+    public Builder timePeriods(DmpTimelineField[] timePeriods) {
+      this.timePeriods = timePeriods;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DmpOriginalData build() {
+      return new DmpOriginalData(this);
     }
+  }
 
-    public String getEmployeeNumber() {
-        return this.employeeNumber;
-    }
-
-    public void setEmployeeNumber(String employeeNumber) {
-        this.employeeNumber = employeeNumber;
-    }
-
-    public DmpTimelineField[] getTimePeriods() {
-        return this.timePeriods;
-    }
-
-    public void setTimePeriods(DmpTimelineField[] timePeriods) {
-        this.timePeriods = timePeriods;
-    }
-
-    public static class Builder {
-        /**
-         * 员工工号
-         * <p> 示例值：12345
-         */
-        private String employeeNumber;
-        /**
-         * 时间轴信息
-         * <p> 示例值：
-         */
-        private DmpTimelineField[] timePeriods;
-
-        /**
-         * 员工工号
-         * <p> 示例值：12345
-         *
-         * @param employeeNumber
-         * @return
-         */
-        public Builder employeeNumber(String employeeNumber) {
-            this.employeeNumber = employeeNumber;
-            return this;
-        }
-
-
-        /**
-         * 时间轴信息
-         * <p> 示例值：
-         *
-         * @param timePeriods
-         * @return
-         */
-        public Builder timePeriods(DmpTimelineField[] timePeriods) {
-            this.timePeriods = timePeriods;
-            return this;
-        }
-
-
-        public DmpOriginalData build() {
-            return new DmpOriginalData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

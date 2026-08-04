@@ -13,26 +13,24 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * source_type
- */
+/** 知识来源 */
 public enum KnowledgeQaEnterpriseReferenceSourceTypeEnum {
-    HELPDESK(1), // 服务台
-    WIKI(2), // wiki
-    DOC(3), // doc
-    LINGO(5), // lingo
-    MESSAGE(6), // message
-    COMMENT(7), // 文档评论
-    MINUTES(8), // 飞书妙记
-    MAIL(9), // 邮件
-    ;
-    private Integer value;
+  HELPDESK(1), // 服务台 FAQ
+  WIKI(2), // 知识库文档
+  DOC(3), // 云空间文档
+  LINGO(5), // Lingo 企业词典
+  MESSAGE(6), // 消息
+  COMMENT(7), // 文档评论
+  MINUTES(8), // 飞书妙记
+  MAIL(9), // 邮件
+  ;
+  private Integer value;
 
-    KnowledgeQaEnterpriseReferenceSourceTypeEnum(Integer value) {
-        this.value = value;
-    }
+  KnowledgeQaEnterpriseReferenceSourceTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

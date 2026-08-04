@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomColumnFilter {
+  /**
+   * 字段api name
+   *
+   * <p>示例值：work_location
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 运算符
+   *
+   * <p>示例值：等于
+   */
+  @SerializedName("operator")
+  private String operator;
+
+  /**
+   * 右值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("values")
+  private String[] values;
+
+  /**
+   * 是否下钻
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_strand_id_in")
+  private Boolean isStrandIdIn;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public String getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public String[] getValues() {
+    return this.values;
+  }
+
+  public void setValues(String[] values) {
+    this.values = values;
+  }
+
+  public Boolean getIsStrandIdIn() {
+    return this.isStrandIdIn;
+  }
+
+  public void setIsStrandIdIn(Boolean isStrandIdIn) {
+    this.isStrandIdIn = isStrandIdIn;
+  }
+
+  // builder 开始
+  public CustomColumnFilter() {}
+
+  public CustomColumnFilter(Builder builder) {
     /**
      * 字段api name
-     * <p> 示例值：work_location
+     *
+     * <p>示例值：work_location
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 运算符
-     * <p> 示例值：等于
+     *
+     * <p>示例值：等于
      */
-    @SerializedName("operator")
-    private String operator;
+    this.operator = builder.operator;
     /**
      * 右值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("values")
-    private String[] values;
+    this.values = builder.values;
     /**
      * 是否下钻
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_strand_id_in")
+    this.isStrandIdIn = builder.isStrandIdIn;
+  }
+
+  public static class Builder {
+    /**
+     * 字段api name
+     *
+     * <p>示例值：work_location
+     */
+    private String apiName;
+
+    /**
+     * 运算符
+     *
+     * <p>示例值：等于
+     */
+    private String operator;
+
+    /**
+     * 右值
+     *
+     * <p>示例值：
+     */
+    private String[] values;
+
+    /**
+     * 是否下钻
+     *
+     * <p>示例值：true
+     */
     private Boolean isStrandIdIn;
 
-    // builder 开始
-    public CustomColumnFilter() {
+    /**
+     * 字段api name
+     *
+     * <p>示例值：work_location
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public CustomColumnFilter(Builder builder) {
-        /**
-         * 字段api name
-         * <p> 示例值：work_location
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 运算符
-         * <p> 示例值：等于
-         */
-        this.operator = builder.operator;
-        /**
-         * 右值
-         * <p> 示例值：
-         */
-        this.values = builder.values;
-        /**
-         * 是否下钻
-         * <p> 示例值：true
-         */
-        this.isStrandIdIn = builder.isStrandIdIn;
+    /**
+     * 运算符
+     *
+     * <p>示例值：等于
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(String operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 右值
+     *
+     * <p>示例值：
+     *
+     * @param values
+     * @return
+     */
+    public Builder values(String[] values) {
+      this.values = values;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 是否下钻
+     *
+     * <p>示例值：true
+     *
+     * @param isStrandIdIn
+     * @return
+     */
+    public Builder isStrandIdIn(Boolean isStrandIdIn) {
+      this.isStrandIdIn = isStrandIdIn;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    public CustomColumnFilter build() {
+      return new CustomColumnFilter(this);
     }
+  }
 
-    public String getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public String[] getValues() {
-        return this.values;
-    }
-
-    public void setValues(String[] values) {
-        this.values = values;
-    }
-
-    public Boolean getIsStrandIdIn() {
-        return this.isStrandIdIn;
-    }
-
-    public void setIsStrandIdIn(Boolean isStrandIdIn) {
-        this.isStrandIdIn = isStrandIdIn;
-    }
-
-    public static class Builder {
-        /**
-         * 字段api name
-         * <p> 示例值：work_location
-         */
-        private String apiName;
-        /**
-         * 运算符
-         * <p> 示例值：等于
-         */
-        private String operator;
-        /**
-         * 右值
-         * <p> 示例值：
-         */
-        private String[] values;
-        /**
-         * 是否下钻
-         * <p> 示例值：true
-         */
-        private Boolean isStrandIdIn;
-
-        /**
-         * 字段api name
-         * <p> 示例值：work_location
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 运算符
-         * <p> 示例值：等于
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 右值
-         * <p> 示例值：
-         *
-         * @param values
-         * @return
-         */
-        public Builder values(String[] values) {
-            this.values = values;
-            return this;
-        }
-
-
-        /**
-         * 是否下钻
-         * <p> 示例值：true
-         *
-         * @param isStrandIdIn
-         * @return
-         */
-        public Builder isStrandIdIn(Boolean isStrandIdIn) {
-            this.isStrandIdIn = isStrandIdIn;
-            return this;
-        }
-
-
-        public CustomColumnFilter build() {
-            return new CustomColumnFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

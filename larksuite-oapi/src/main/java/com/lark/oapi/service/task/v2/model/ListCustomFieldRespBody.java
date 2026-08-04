@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListCustomFieldRespBody {
-    /**
-     * 返回的自定义字段列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private CustomField[] items;
-    /**
-     * 用于获取下一页数据的page_token
-     * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有下一页的数据
-     * <p> 示例值：false
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 返回的自定义字段列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private CustomField[] items;
 
-    public CustomField[] getItems() {
-        return this.items;
-    }
+  /**
+   * 用于获取下一页数据的page_token
+   *
+   * <p>示例值：aWQ9NzEwMjMzMjMxMDE=
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setItems(CustomField[] items) {
-        this.items = items;
-    }
+  /**
+   * 是否有下一页的数据
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public CustomField[] getItems() {
+    return this.items;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setItems(CustomField[] items) {
+    this.items = items;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 }

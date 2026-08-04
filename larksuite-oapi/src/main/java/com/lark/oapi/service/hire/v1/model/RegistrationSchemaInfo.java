@@ -13,111 +13,110 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RegistrationSchemaInfo {
+  /**
+   * 面试登记表
+   * ID，详情可查看：[获取面试登记表模板列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_registration_schema/list)
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("schema_id")
+  private String schemaId;
+
+  /**
+   * 面试登记表名称
+   *
+   * <p>示例值：默认申请表
+   */
+  @SerializedName("name")
+  private String name;
+
+  public String getSchemaId() {
+    return this.schemaId;
+  }
+
+  public void setSchemaId(String schemaId) {
+    this.schemaId = schemaId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public RegistrationSchemaInfo() {}
+
+  public RegistrationSchemaInfo(Builder builder) {
     /**
-     * 信息登记表ID
-     * <p> 示例值：6930815272790114324
+     * 面试登记表
+     * ID，详情可查看：[获取面试登记表模板列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_registration_schema/list)
+     *
+     * <p>示例值：6930815272790114324
      */
-    @SerializedName("schema_id")
+    this.schemaId = builder.schemaId;
+    /**
+     * 面试登记表名称
+     *
+     * <p>示例值：默认申请表
+     */
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 面试登记表
+     * ID，详情可查看：[获取面试登记表模板列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_registration_schema/list)
+     *
+     * <p>示例值：6930815272790114324
+     */
     private String schemaId;
+
     /**
-     * 信息登记表名称
-     * <p> 示例值：默认登记表
+     * 面试登记表名称
+     *
+     * <p>示例值：默认申请表
      */
-    @SerializedName("name")
     private String name;
 
-    // builder 开始
-    public RegistrationSchemaInfo() {
+    /**
+     * 面试登记表
+     * ID，详情可查看：[获取面试登记表模板列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_registration_schema/list)
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param schemaId
+     * @return
+     */
+    public Builder schemaId(String schemaId) {
+      this.schemaId = schemaId;
+      return this;
     }
 
-    public RegistrationSchemaInfo(Builder builder) {
-        /**
-         * 信息登记表ID
-         * <p> 示例值：6930815272790114324
-         */
-        this.schemaId = builder.schemaId;
-        /**
-         * 信息登记表名称
-         * <p> 示例值：默认登记表
-         */
-        this.name = builder.name;
+    /**
+     * 面试登记表名称
+     *
+     * <p>示例值：默认申请表
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public RegistrationSchemaInfo build() {
+      return new RegistrationSchemaInfo(this);
     }
+  }
 
-    public String getSchemaId() {
-        return this.schemaId;
-    }
-
-    public void setSchemaId(String schemaId) {
-        this.schemaId = schemaId;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 信息登记表ID
-         * <p> 示例值：6930815272790114324
-         */
-        private String schemaId;
-        /**
-         * 信息登记表名称
-         * <p> 示例值：默认登记表
-         */
-        private String name;
-
-        /**
-         * 信息登记表ID
-         * <p> 示例值：6930815272790114324
-         *
-         * @param schemaId
-         * @return
-         */
-        public Builder schemaId(String schemaId) {
-            this.schemaId = schemaId;
-            return this;
-        }
-
-
-        /**
-         * 信息登记表名称
-         * <p> 示例值：默认登记表
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public RegistrationSchemaInfo build() {
-            return new RegistrationSchemaInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

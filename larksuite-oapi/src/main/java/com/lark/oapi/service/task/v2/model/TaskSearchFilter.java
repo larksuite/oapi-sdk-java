@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TaskSearchFilter {
+  /**
+   * 创建人 IDs
+   *
+   * <p>示例值：
+   */
+  @SerializedName("creator_ids")
+  private String[] creatorIds;
+
+  /**
+   * 负责人 IDs
+   *
+   * <p>示例值：
+   */
+  @SerializedName("assignee_ids")
+  private String[] assigneeIds;
+
+  /**
+   * 完成状态，设置为true只返回已完成任务，设置为false只返回未完成任务，未设置时不筛选
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_completed")
+  private Boolean isCompleted;
+
+  /**
+   * 截止时间，无需同时设置，但开始时间需要小于结束时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("due_time")
+  private TimeRange dueTime;
+
+  /**
+   * 关注人 IDs
+   *
+   * <p>示例值：
+   */
+  @SerializedName("follower_ids")
+  private String[] followerIds;
+
+  public String[] getCreatorIds() {
+    return this.creatorIds;
+  }
+
+  public void setCreatorIds(String[] creatorIds) {
+    this.creatorIds = creatorIds;
+  }
+
+  public String[] getAssigneeIds() {
+    return this.assigneeIds;
+  }
+
+  public void setAssigneeIds(String[] assigneeIds) {
+    this.assigneeIds = assigneeIds;
+  }
+
+  public Boolean getIsCompleted() {
+    return this.isCompleted;
+  }
+
+  public void setIsCompleted(Boolean isCompleted) {
+    this.isCompleted = isCompleted;
+  }
+
+  public TimeRange getDueTime() {
+    return this.dueTime;
+  }
+
+  public void setDueTime(TimeRange dueTime) {
+    this.dueTime = dueTime;
+  }
+
+  public String[] getFollowerIds() {
+    return this.followerIds;
+  }
+
+  public void setFollowerIds(String[] followerIds) {
+    this.followerIds = followerIds;
+  }
+
+  // builder 开始
+  public TaskSearchFilter() {}
+
+  public TaskSearchFilter(Builder builder) {
     /**
      * 创建人 IDs
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("creator_ids")
-    private String[] creatorIds;
+    this.creatorIds = builder.creatorIds;
     /**
      * 负责人 IDs
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("assignee_ids")
-    private String[] assigneeIds;
+    this.assigneeIds = builder.assigneeIds;
     /**
-     * 完成状态
-     * <p> 示例值：
+     * 完成状态，设置为true只返回已完成任务，设置为false只返回未完成任务，未设置时不筛选
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_completed")
-    private Boolean isCompleted;
+    this.isCompleted = builder.isCompleted;
     /**
-     * 截止时间
-     * <p> 示例值：
+     * 截止时间，无需同时设置，但开始时间需要小于结束时间
+     *
+     * <p>示例值：
      */
-    @SerializedName("due_time")
-    private TimeRange dueTime;
+    this.dueTime = builder.dueTime;
     /**
      * 关注人 IDs
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("follower_ids")
+    this.followerIds = builder.followerIds;
+  }
+
+  public static class Builder {
+    /**
+     * 创建人 IDs
+     *
+     * <p>示例值：
+     */
+    private String[] creatorIds;
+
+    /**
+     * 负责人 IDs
+     *
+     * <p>示例值：
+     */
+    private String[] assigneeIds;
+
+    /**
+     * 完成状态，设置为true只返回已完成任务，设置为false只返回未完成任务，未设置时不筛选
+     *
+     * <p>示例值：false
+     */
+    private Boolean isCompleted;
+
+    /**
+     * 截止时间，无需同时设置，但开始时间需要小于结束时间
+     *
+     * <p>示例值：
+     */
+    private TimeRange dueTime;
+
+    /**
+     * 关注人 IDs
+     *
+     * <p>示例值：
+     */
     private String[] followerIds;
 
-    // builder 开始
-    public TaskSearchFilter() {
+    /**
+     * 创建人 IDs
+     *
+     * <p>示例值：
+     *
+     * @param creatorIds
+     * @return
+     */
+    public Builder creatorIds(String[] creatorIds) {
+      this.creatorIds = creatorIds;
+      return this;
     }
 
-    public TaskSearchFilter(Builder builder) {
-        /**
-         * 创建人 IDs
-         * <p> 示例值：
-         */
-        this.creatorIds = builder.creatorIds;
-        /**
-         * 负责人 IDs
-         * <p> 示例值：
-         */
-        this.assigneeIds = builder.assigneeIds;
-        /**
-         * 完成状态
-         * <p> 示例值：
-         */
-        this.isCompleted = builder.isCompleted;
-        /**
-         * 截止时间
-         * <p> 示例值：
-         */
-        this.dueTime = builder.dueTime;
-        /**
-         * 关注人 IDs
-         * <p> 示例值：
-         */
-        this.followerIds = builder.followerIds;
+    /**
+     * 负责人 IDs
+     *
+     * <p>示例值：
+     *
+     * @param assigneeIds
+     * @return
+     */
+    public Builder assigneeIds(String[] assigneeIds) {
+      this.assigneeIds = assigneeIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 完成状态，设置为true只返回已完成任务，设置为false只返回未完成任务，未设置时不筛选
+     *
+     * <p>示例值：false
+     *
+     * @param isCompleted
+     * @return
+     */
+    public Builder isCompleted(Boolean isCompleted) {
+      this.isCompleted = isCompleted;
+      return this;
     }
 
-    public String[] getCreatorIds() {
-        return this.creatorIds;
+    /**
+     * 截止时间，无需同时设置，但开始时间需要小于结束时间
+     *
+     * <p>示例值：
+     *
+     * @param dueTime
+     * @return
+     */
+    public Builder dueTime(TimeRange dueTime) {
+      this.dueTime = dueTime;
+      return this;
     }
 
-    public void setCreatorIds(String[] creatorIds) {
-        this.creatorIds = creatorIds;
+    /**
+     * 关注人 IDs
+     *
+     * <p>示例值：
+     *
+     * @param followerIds
+     * @return
+     */
+    public Builder followerIds(String[] followerIds) {
+      this.followerIds = followerIds;
+      return this;
     }
 
-    public String[] getAssigneeIds() {
-        return this.assigneeIds;
+    public TaskSearchFilter build() {
+      return new TaskSearchFilter(this);
     }
+  }
 
-    public void setAssigneeIds(String[] assigneeIds) {
-        this.assigneeIds = assigneeIds;
-    }
-
-    public Boolean getIsCompleted() {
-        return this.isCompleted;
-    }
-
-    public void setIsCompleted(Boolean isCompleted) {
-        this.isCompleted = isCompleted;
-    }
-
-    public TimeRange getDueTime() {
-        return this.dueTime;
-    }
-
-    public void setDueTime(TimeRange dueTime) {
-        this.dueTime = dueTime;
-    }
-
-    public String[] getFollowerIds() {
-        return this.followerIds;
-    }
-
-    public void setFollowerIds(String[] followerIds) {
-        this.followerIds = followerIds;
-    }
-
-    public static class Builder {
-        /**
-         * 创建人 IDs
-         * <p> 示例值：
-         */
-        private String[] creatorIds;
-        /**
-         * 负责人 IDs
-         * <p> 示例值：
-         */
-        private String[] assigneeIds;
-        /**
-         * 完成状态
-         * <p> 示例值：
-         */
-        private Boolean isCompleted;
-        /**
-         * 截止时间
-         * <p> 示例值：
-         */
-        private TimeRange dueTime;
-        /**
-         * 关注人 IDs
-         * <p> 示例值：
-         */
-        private String[] followerIds;
-
-        /**
-         * 创建人 IDs
-         * <p> 示例值：
-         *
-         * @param creatorIds
-         * @return
-         */
-        public Builder creatorIds(String[] creatorIds) {
-            this.creatorIds = creatorIds;
-            return this;
-        }
-
-
-        /**
-         * 负责人 IDs
-         * <p> 示例值：
-         *
-         * @param assigneeIds
-         * @return
-         */
-        public Builder assigneeIds(String[] assigneeIds) {
-            this.assigneeIds = assigneeIds;
-            return this;
-        }
-
-
-        /**
-         * 完成状态
-         * <p> 示例值：
-         *
-         * @param isCompleted
-         * @return
-         */
-        public Builder isCompleted(Boolean isCompleted) {
-            this.isCompleted = isCompleted;
-            return this;
-        }
-
-
-        /**
-         * 截止时间
-         * <p> 示例值：
-         *
-         * @param dueTime
-         * @return
-         */
-        public Builder dueTime(TimeRange dueTime) {
-            this.dueTime = dueTime;
-            return this;
-        }
-
-
-        /**
-         * 关注人 IDs
-         * <p> 示例值：
-         *
-         * @param followerIds
-         * @return
-         */
-        public Builder followerIds(String[] followerIds) {
-            this.followerIds = followerIds;
-            return this;
-        }
-
-
-        public TaskSearchFilter build() {
-            return new TaskSearchFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

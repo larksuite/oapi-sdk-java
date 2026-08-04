@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 按会议类型筛选（最多一个筛选条件）
- */
+/** 按会议类型筛选（最多一个筛选条件） */
 public enum MeetingListExportMeetingTypeEnum {
-    ALL(1), // 全部类型（默认）
-    MEETING(2), // 视频会议
-    SHARE_SCREEN(3), // 本地投屏
-    ;
-    private Integer value;
+  ALL(1), // 全部类型（默认）
+  MEETING(2), // 视频会议
+  SHARE_SCREEN(3), // 本地投屏
+  ;
+  private Integer value;
 
-    MeetingListExportMeetingTypeEnum(Integer value) {
-        this.value = value;
-    }
+  MeetingListExportMeetingTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

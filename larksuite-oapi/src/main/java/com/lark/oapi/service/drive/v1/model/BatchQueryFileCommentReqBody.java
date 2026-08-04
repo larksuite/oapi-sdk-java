@@ -13,112 +13,149 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchQueryFileCommentReqBody {
+  /**
+   * 需要获取数据的评论 ID ，可通过调用获取云文档所有评论接口获取 comment_id，允许的最大元素个数为100
+   *
+   * <p>示例值：1654857036541825633
+   */
+  @SerializedName("comment_ids")
+  private String[] commentIds;
+
+  /**
+   * 是否需要获取评论卡片上挂载的Reaction数据，默认值为false
+   *
+   * <p>示例值：
+   */
+  @SerializedName("need_reaction")
+  private Boolean needReaction;
+
+  /**
+   * 是否需要获取评论关系
+   *
+   * <p>示例值：
+   */
+  @SerializedName("need_relation")
+  private Boolean needRelation;
+
+  public String[] getCommentIds() {
+    return this.commentIds;
+  }
+
+  public void setCommentIds(String[] commentIds) {
+    this.commentIds = commentIds;
+  }
+
+  public Boolean getNeedReaction() {
+    return this.needReaction;
+  }
+
+  public void setNeedReaction(Boolean needReaction) {
+    this.needReaction = needReaction;
+  }
+
+  public Boolean getNeedRelation() {
+    return this.needRelation;
+  }
+
+  public void setNeedRelation(Boolean needRelation) {
+    this.needRelation = needRelation;
+  }
+
+  // builder 开始
+  public BatchQueryFileCommentReqBody() {}
+
+  public BatchQueryFileCommentReqBody(Builder builder) {
     /**
-     * 需要获取数据的评论id
-     * <p> 示例值：1654857036541812356
+     * 需要获取数据的评论 ID ，可通过调用获取云文档所有评论接口获取 comment_id，允许的最大元素个数为100
+     *
+     * <p>示例值：1654857036541825633
      */
-    @SerializedName("comment_ids")
+    this.commentIds = builder.commentIds;
+    /**
+     * 是否需要获取评论卡片上挂载的Reaction数据，默认值为false
+     *
+     * <p>示例值：
+     */
+    this.needReaction = builder.needReaction;
+    /**
+     * 是否需要获取评论关系
+     *
+     * <p>示例值：
+     */
+    this.needRelation = builder.needRelation;
+  }
+
+  public static class Builder {
+    /**
+     * 需要获取数据的评论 ID ，可通过调用获取云文档所有评论接口获取 comment_id，允许的最大元素个数为100
+     *
+     * <p>示例值：1654857036541825633
+     */
     private String[] commentIds;
+
     /**
-     * 是否需要获取评论卡片上挂载的Reaction数据
-     * <p> 示例值：
+     * 是否需要获取评论卡片上挂载的Reaction数据，默认值为false
+     *
+     * <p>示例值：
      */
-    @SerializedName("need_reaction")
     private Boolean needReaction;
 
-    // builder 开始
-    public BatchQueryFileCommentReqBody() {
+    /**
+     * 是否需要获取评论关系
+     *
+     * <p>示例值：
+     */
+    private Boolean needRelation;
+
+    /**
+     * 需要获取数据的评论 ID ，可通过调用获取云文档所有评论接口获取 comment_id，允许的最大元素个数为100
+     *
+     * <p>示例值：1654857036541825633
+     *
+     * @param commentIds
+     * @return
+     */
+    public Builder commentIds(String[] commentIds) {
+      this.commentIds = commentIds;
+      return this;
     }
 
-    public BatchQueryFileCommentReqBody(Builder builder) {
-        /**
-         * 需要获取数据的评论id
-         * <p> 示例值：1654857036541812356
-         */
-        this.commentIds = builder.commentIds;
-        /**
-         * 是否需要获取评论卡片上挂载的Reaction数据
-         * <p> 示例值：
-         */
-        this.needReaction = builder.needReaction;
+    /**
+     * 是否需要获取评论卡片上挂载的Reaction数据，默认值为false
+     *
+     * <p>示例值：
+     *
+     * @param needReaction
+     * @return
+     */
+    public Builder needReaction(Boolean needReaction) {
+      this.needReaction = needReaction;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否需要获取评论关系
+     *
+     * <p>示例值：
+     *
+     * @param needRelation
+     * @return
+     */
+    public Builder needRelation(Boolean needRelation) {
+      this.needRelation = needRelation;
+      return this;
     }
 
-    public String[] getCommentIds() {
-        return this.commentIds;
+    public BatchQueryFileCommentReqBody build() {
+      return new BatchQueryFileCommentReqBody(this);
     }
+  }
 
-    public void setCommentIds(String[] commentIds) {
-        this.commentIds = commentIds;
-    }
-
-    public Boolean getNeedReaction() {
-        return this.needReaction;
-    }
-
-    public void setNeedReaction(Boolean needReaction) {
-        this.needReaction = needReaction;
-    }
-
-    public static class Builder {
-        /**
-         * 需要获取数据的评论id
-         * <p> 示例值：1654857036541812356
-         */
-        private String[] commentIds;
-        /**
-         * 是否需要获取评论卡片上挂载的Reaction数据
-         * <p> 示例值：
-         */
-        private Boolean needReaction;
-
-        /**
-         * 需要获取数据的评论id
-         * <p> 示例值：1654857036541812356
-         *
-         * @param commentIds
-         * @return
-         */
-        public Builder commentIds(String[] commentIds) {
-            this.commentIds = commentIds;
-            return this;
-        }
-
-
-        /**
-         * 是否需要获取评论卡片上挂载的Reaction数据
-         * <p> 示例值：
-         *
-         * @param needReaction
-         * @return
-         */
-        public Builder needReaction(Boolean needReaction) {
-            this.needReaction = needReaction;
-            return this;
-        }
-
-
-        public BatchQueryFileCommentReqBody build() {
-            return new BatchQueryFileCommentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,116 +13,117 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class DeleteEmploymentReq {
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：people_corehr_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 需要删除的雇佣信息对应的ID
+   *
+   * <p>示例值：65536878783232
+   */
+  @Path
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  // builder 开始
+  public DeleteEmploymentReq() {}
+
+  public DeleteEmploymentReq(Builder builder) {
     /**
      * 用户 ID 类型
-     * <p> 示例值：people_corehr_id
+     *
+     * <p>示例值：people_corehr_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 需要删除的雇佣信息对应的ID
-     * <p> 示例值：65536878783232
+     *
+     * <p>示例值：65536878783232
      */
-    @Path
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
+  }
 
-    // builder 开始
-    public DeleteEmploymentReq() {
+  public static class Builder {
+    private String userIdType; // 用户 ID 类型
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public DeleteEmploymentReq(Builder builder) {
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 需要删除的雇佣信息对应的ID
-         * <p> 示例值：65536878783232
-         */
-        this.employmentId = builder.employmentId;
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v1.enums.DeleteEmploymentDeleteEmploymentUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v1.enums.DeleteEmploymentDeleteEmploymentUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String employmentId; // 需要删除的雇佣信息对应的ID
+
+    /**
+     * 需要删除的雇佣信息对应的ID
+     *
+     * <p>示例值：65536878783232
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public DeleteEmploymentReq build() {
+      return new DeleteEmploymentReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 用户 ID 类型
-        private String employmentId; // 需要删除的雇佣信息对应的ID
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.DeleteEmploymentDeleteEmploymentUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.DeleteEmploymentDeleteEmploymentUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 需要删除的雇佣信息对应的ID
-         * <p> 示例值：65536878783232
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        public DeleteEmploymentReq build() {
-            return new DeleteEmploymentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

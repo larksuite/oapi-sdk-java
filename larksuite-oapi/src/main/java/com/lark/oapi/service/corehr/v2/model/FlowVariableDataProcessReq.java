@@ -13,194 +13,210 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class FlowVariableDataProcessReq {
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：people_corehr_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 此次调用中使用的部门 ID 类型
+   *
+   * <p>示例值：people_corehr_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  /**
+   * 需要查询变量key
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("variable_keys")
+  private String[] variableKeys;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  public String[] getVariableKeys() {
+    return this.variableKeys;
+  }
+
+  public void setVariableKeys(String[] variableKeys) {
+    this.variableKeys = variableKeys;
+  }
+
+  /**
+   * 流程实例ID。可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口获取
+   *
+   * <p>示例值：7341373094948242956
+   */
+  @Path
+  @SerializedName("process_id")
+  private String processId;
+
+  public String getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  // builder 开始
+  public FlowVariableDataProcessReq() {}
+
+  public FlowVariableDataProcessReq(Builder builder) {
     /**
      * 用户 ID 类型
-     * <p> 示例值：people_corehr_id
+     *
+     * <p>示例值：people_corehr_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 此次调用中使用的部门 ID 类型
-     * <p> 示例值：people_corehr_department_id
+     *
+     * <p>示例值：people_corehr_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
      * 需要查询变量key
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("variable_keys")
-    private String[] variableKeys;
+    this.variableKeys = builder.variableKeys;
     /**
-     * 流程实例id
-     * <p> 示例值：7341373094948242956
+     * 流程实例ID。可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口获取
+     *
+     * <p>示例值：7341373094948242956
      */
-    @Path
-    @SerializedName("process_id")
-    private String processId;
+    this.processId = builder.processId;
+  }
 
-    // builder 开始
-    public FlowVariableDataProcessReq() {
+  public static class Builder {
+    private String userIdType; // 用户 ID 类型
+    private String departmentIdType; // 此次调用中使用的部门 ID 类型
+    private String[] variableKeys; // 需要查询变量key
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public FlowVariableDataProcessReq(Builder builder) {
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：people_corehr_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 需要查询变量key
-         * <p> 示例值：
-         */
-        this.variableKeys = builder.variableKeys;
-        /**
-         * 流程实例id
-         * <p> 示例值：7341373094948242956
-         */
-        this.processId = builder.processId;
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.FlowVariableDataProcessFlowVariableDataProcessUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .FlowVariableDataProcessFlowVariableDataProcessUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：people_corehr_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：people_corehr_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.FlowVariableDataProcessFlowVariableDataProcessDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .FlowVariableDataProcessFlowVariableDataProcessDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    /**
+     * 需要查询变量key
+     *
+     * <p>示例值：
+     *
+     * @param variableKeys
+     * @return
+     */
+    public Builder variableKeys(String[] variableKeys) {
+      this.variableKeys = variableKeys;
+      return this;
     }
 
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
+    private String
+        processId; // 流程实例ID。可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口获取
+
+    /**
+     * 流程实例ID。可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口获取
+     *
+     * <p>示例值：7341373094948242956
+     *
+     * @param processId
+     * @return
+     */
+    public Builder processId(String processId) {
+      this.processId = processId;
+      return this;
     }
 
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
+    public FlowVariableDataProcessReq build() {
+      return new FlowVariableDataProcessReq(this);
     }
+  }
 
-    public String[] getVariableKeys() {
-        return this.variableKeys;
-    }
-
-    public void setVariableKeys(String[] variableKeys) {
-        this.variableKeys = variableKeys;
-    }
-
-    public String getProcessId() {
-        return this.processId;
-    }
-
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 用户 ID 类型
-        private String departmentIdType; // 此次调用中使用的部门 ID 类型
-        private String[] variableKeys; // 需要查询变量key
-        private String processId; // 流程实例id
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.FlowVariableDataProcessFlowVariableDataProcessUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.FlowVariableDataProcessFlowVariableDataProcessUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：people_corehr_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：people_corehr_department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.FlowVariableDataProcessFlowVariableDataProcessDepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.FlowVariableDataProcessFlowVariableDataProcessDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 需要查询变量key
-         * <p> 示例值：
-         *
-         * @param variableKeys
-         * @return
-         */
-        public Builder variableKeys(String[] variableKeys) {
-            this.variableKeys = variableKeys;
-            return this;
-        }
-
-        /**
-         * 流程实例id
-         * <p> 示例值：7341373094948242956
-         *
-         * @param processId
-         * @return
-         */
-        public Builder processId(String processId) {
-            this.processId = processId;
-            return this;
-        }
-
-
-        public FlowVariableDataProcessReq build() {
-            return new FlowVariableDataProcessReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

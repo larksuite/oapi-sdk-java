@@ -13,106 +13,79 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PreviewContent {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("preview_id")
+  /** 示例值： */
+  @SerializedName("preview_id")
+  private String previewId;
+
+  /** 示例值： */
+  @SerializedName("preview_url")
+  private String previewUrl;
+
+  public String getPreviewId() {
+    return this.previewId;
+  }
+
+  public void setPreviewId(String previewId) {
+    this.previewId = previewId;
+  }
+
+  public String getPreviewUrl() {
+    return this.previewUrl;
+  }
+
+  public void setPreviewUrl(String previewUrl) {
+    this.previewUrl = previewUrl;
+  }
+
+  // builder 开始
+  public PreviewContent() {}
+
+  public PreviewContent(Builder builder) {
+    /** 示例值： */
+    this.previewId = builder.previewId;
+    /** 示例值： */
+    this.previewUrl = builder.previewUrl;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private String previewId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("preview_url")
+
+    /** 示例值： */
     private String previewUrl;
 
-    // builder 开始
-    public PreviewContent() {
+    /**
+     * 示例值：
+     *
+     * @param previewId
+     * @return
+     */
+    public Builder previewId(String previewId) {
+      this.previewId = previewId;
+      return this;
     }
 
-    public PreviewContent(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.previewId = builder.previewId;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.previewUrl = builder.previewUrl;
+    /**
+     * 示例值：
+     *
+     * @param previewUrl
+     * @return
+     */
+    public Builder previewUrl(String previewUrl) {
+      this.previewUrl = previewUrl;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PreviewContent build() {
+      return new PreviewContent(this);
     }
+  }
 
-    public String getPreviewId() {
-        return this.previewId;
-    }
-
-    public void setPreviewId(String previewId) {
-        this.previewId = previewId;
-    }
-
-    public String getPreviewUrl() {
-        return this.previewUrl;
-    }
-
-    public void setPreviewUrl(String previewUrl) {
-        this.previewUrl = previewUrl;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private String previewId;
-        /**
-         * <p> 示例值：
-         */
-        private String previewUrl;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param previewId
-         * @return
-         */
-        public Builder previewId(String previewId) {
-            this.previewId = previewId;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param previewUrl
-         * @return
-         */
-        public Builder previewUrl(String previewUrl) {
-            this.previewUrl = previewUrl;
-            return this;
-        }
-
-
-        public PreviewContent build() {
-            return new PreviewContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

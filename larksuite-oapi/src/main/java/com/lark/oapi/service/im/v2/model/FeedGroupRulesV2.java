@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FeedGroupRulesV2 {
+  /**
+   * 规则列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("rules")
+  private FeedGroupRuleV2[] rules;
+
+  public FeedGroupRuleV2[] getRules() {
+    return this.rules;
+  }
+
+  public void setRules(FeedGroupRuleV2[] rules) {
+    this.rules = rules;
+  }
+
+  // builder 开始
+  public FeedGroupRulesV2() {}
+
+  public FeedGroupRulesV2(Builder builder) {
     /**
      * 规则列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("rules")
+    this.rules = builder.rules;
+  }
+
+  public static class Builder {
+    /**
+     * 规则列表
+     *
+     * <p>示例值：
+     */
     private FeedGroupRuleV2[] rules;
 
-    // builder 开始
-    public FeedGroupRulesV2() {
+    /**
+     * 规则列表
+     *
+     * <p>示例值：
+     *
+     * @param rules
+     * @return
+     */
+    public Builder rules(FeedGroupRuleV2[] rules) {
+      this.rules = rules;
+      return this;
     }
 
-    public FeedGroupRulesV2(Builder builder) {
-        /**
-         * 规则列表
-         * <p> 示例值：
-         */
-        this.rules = builder.rules;
+    public FeedGroupRulesV2 build() {
+      return new FeedGroupRulesV2(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public FeedGroupRuleV2[] getRules() {
-        return this.rules;
-    }
-
-    public void setRules(FeedGroupRuleV2[] rules) {
-        this.rules = rules;
-    }
-
-    public static class Builder {
-        /**
-         * 规则列表
-         * <p> 示例值：
-         */
-        private FeedGroupRuleV2[] rules;
-
-        /**
-         * 规则列表
-         * <p> 示例值：
-         *
-         * @param rules
-         * @return
-         */
-        public Builder rules(FeedGroupRuleV2[] rules) {
-            this.rules = rules;
-            return this;
-        }
-
-
-        public FeedGroupRulesV2 build() {
-            return new FeedGroupRulesV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

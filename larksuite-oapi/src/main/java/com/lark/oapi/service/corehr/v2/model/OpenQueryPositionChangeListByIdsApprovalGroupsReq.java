@@ -13,187 +13,207 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class OpenQueryPositionChangeListByIdsApprovalGroupsReq {
+  /**
+   * 组织架构调整流程 ID， 用户通过『飞书人事-我的团队-组织架构』或『飞书人事-人员管理-组织架构』
+   * 发起一个组织架构调整，并提交审批后，系统会根据管理员在审批流程中配置的规则，生成一个或多个审批单据。可通过「组织架构调整状态变更」的事件来获取
+   *
+   * <p>示例值：6893014062142064111
+   */
+  @Query
+  @SerializedName("process_id")
+  private String processId;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 此次调用中使用的部门 ID 类型
+   *
+   * <p>示例值：open_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  public String getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  @Body private OpenQueryPositionChangeListByIdsApprovalGroupsReqBody body;
+
+  public OpenQueryPositionChangeListByIdsApprovalGroupsReqBody
+      getOpenQueryPositionChangeListByIdsApprovalGroupsReqBody() {
+    return this.body;
+  }
+
+  public void setOpenQueryPositionChangeListByIdsApprovalGroupsReqBody(
+      OpenQueryPositionChangeListByIdsApprovalGroupsReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public OpenQueryPositionChangeListByIdsApprovalGroupsReq() {}
+
+  public OpenQueryPositionChangeListByIdsApprovalGroupsReq(Builder builder) {
     /**
-     * 组织架构调整流程 ID
-     * <p> 示例值：6893014062142064111
+     * 组织架构调整流程 ID， 用户通过『飞书人事-我的团队-组织架构』或『飞书人事-人员管理-组织架构』
+     * 发起一个组织架构调整，并提交审批后，系统会根据管理员在审批流程中配置的规则，生成一个或多个审批单据。可通过「组织架构调整状态变更」的事件来获取
+     *
+     * <p>示例值：6893014062142064111
      */
-    @Query
-    @SerializedName("process_id")
-    private String processId;
+    this.processId = builder.processId;
     /**
      * 用户 ID 类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 此次调用中使用的部门 ID 类型
-     * <p> 示例值：open_department_id
+     *
+     * <p>示例值：open_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
-    @Body
+    this.departmentIdType = builder.departmentIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String processId; // 组织架构调整流程 ID， 用户通过『飞书人事-我的团队-组织架构』或『飞书人事-人员管理-组织架构』
+    // 发起一个组织架构调整，并提交审批后，系统会根据管理员在审批流程中配置的规则，生成一个或多个审批单据。可通过「组织架构调整状态变更」的事件来获取
+    private String userIdType; // 用户 ID 类型
+    private String departmentIdType; // 此次调用中使用的部门 ID 类型
+
+    /**
+     * 组织架构调整流程 ID， 用户通过『飞书人事-我的团队-组织架构』或『飞书人事-人员管理-组织架构』
+     * 发起一个组织架构调整，并提交审批后，系统会根据管理员在审批流程中配置的规则，生成一个或多个审批单据。可通过「组织架构调整状态变更」的事件来获取
+     *
+     * <p>示例值：6893014062142064111
+     *
+     * @param processId
+     * @return
+     */
+    public Builder processId(String processId) {
+      this.processId = processId;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.OpenQueryPositionChangeListByIdsApprovalGroupsOpenQueryPositionChangeListByIdsApprovalGroupsUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .OpenQueryPositionChangeListByIdsApprovalGroupsOpenQueryPositionChangeListByIdsApprovalGroupsUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.OpenQueryPositionChangeListByIdsApprovalGroupsOpenQueryPositionChangeListByIdsApprovalGroupsDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.corehr.v2.enums
+                .OpenQueryPositionChangeListByIdsApprovalGroupsOpenQueryPositionChangeListByIdsApprovalGroupsDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
+    }
+
     private OpenQueryPositionChangeListByIdsApprovalGroupsReqBody body;
 
-    // builder 开始
-    public OpenQueryPositionChangeListByIdsApprovalGroupsReq() {
+    public OpenQueryPositionChangeListByIdsApprovalGroupsReqBody
+        getOpenQueryPositionChangeListByIdsApprovalGroupsReqBody() {
+      return this.body;
     }
 
-    public OpenQueryPositionChangeListByIdsApprovalGroupsReq(Builder builder) {
-        /**
-         * 组织架构调整流程 ID
-         * <p> 示例值：6893014062142064111
-         */
-        this.processId = builder.processId;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        this.body = builder.body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder openQueryPositionChangeListByIdsApprovalGroupsReqBody(
+        OpenQueryPositionChangeListByIdsApprovalGroupsReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OpenQueryPositionChangeListByIdsApprovalGroupsReq build() {
+      return new OpenQueryPositionChangeListByIdsApprovalGroupsReq(this);
     }
+  }
 
-    public String getProcessId() {
-        return this.processId;
-    }
-
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public OpenQueryPositionChangeListByIdsApprovalGroupsReqBody getOpenQueryPositionChangeListByIdsApprovalGroupsReqBody() {
-        return this.body;
-    }
-
-    public void setOpenQueryPositionChangeListByIdsApprovalGroupsReqBody(OpenQueryPositionChangeListByIdsApprovalGroupsReqBody body) {
-        this.body = body;
-    }
-
-    public static class Builder {
-        private String processId; // 组织架构调整流程 ID
-        private String userIdType; // 用户 ID 类型
-        private String departmentIdType; // 此次调用中使用的部门 ID 类型
-        private OpenQueryPositionChangeListByIdsApprovalGroupsReqBody body;
-
-        /**
-         * 组织架构调整流程 ID
-         * <p> 示例值：6893014062142064111
-         *
-         * @param processId
-         * @return
-         */
-        public Builder processId(String processId) {
-            this.processId = processId;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v2.enums.OpenQueryPositionChangeListByIdsApprovalGroupsOpenQueryPositionChangeListByIdsApprovalGroupsUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v2.enums.OpenQueryPositionChangeListByIdsApprovalGroupsOpenQueryPositionChangeListByIdsApprovalGroupsUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门 ID 类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.OpenQueryPositionChangeListByIdsApprovalGroupsOpenQueryPositionChangeListByIdsApprovalGroupsDepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.OpenQueryPositionChangeListByIdsApprovalGroupsOpenQueryPositionChangeListByIdsApprovalGroupsDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        public OpenQueryPositionChangeListByIdsApprovalGroupsReqBody getOpenQueryPositionChangeListByIdsApprovalGroupsReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder openQueryPositionChangeListByIdsApprovalGroupsReqBody(OpenQueryPositionChangeListByIdsApprovalGroupsReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public OpenQueryPositionChangeListByIdsApprovalGroupsReq build() {
-            return new OpenQueryPositionChangeListByIdsApprovalGroupsReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

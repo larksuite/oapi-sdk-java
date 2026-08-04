@@ -13,98 +13,98 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.spark.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.spark.v1.enums.*;
 
 public class UploadAppStorageReq {
+  /**
+   * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为
+   * app_id
+   *
+   * <p>示例值：app_4jcn5n11bpf5v
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  @Body private UploadAppStorageReqBody body;
+
+  public UploadAppStorageReqBody getUploadAppStorageReqBody() {
+    return this.body;
+  }
+
+  public void setUploadAppStorageReqBody(UploadAppStorageReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UploadAppStorageReq() {}
+
+  public UploadAppStorageReq(Builder builder) {
     /**
-     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-     * <p> 示例值：app_4jcn5n11bpf5v
+     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v
+     * 即为 app_id
+     *
+     * <p>示例值：app_4jcn5n11bpf5v
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-    @Body
+    this.appId = builder.appId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String
+        appId; // 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的
+
+    // app_4jcn5n11bpf5v 即为 app_id
+
+    /**
+     * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v
+     * 即为 app_id
+     *
+     * <p>示例值：app_4jcn5n11bpf5v
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
+    }
+
     private UploadAppStorageReqBody body;
 
-    // builder 开始
-    public UploadAppStorageReq() {
-    }
-
-    public UploadAppStorageReq(Builder builder) {
-        /**
-         * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-         * <p> 示例值：app_4jcn5n11bpf5v
-         */
-        this.appId = builder.appId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
     public UploadAppStorageReqBody getUploadAppStorageReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUploadAppStorageReqBody(UploadAppStorageReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder uploadAppStorageReqBody(UploadAppStorageReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String appId; // 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-        private UploadAppStorageReqBody body;
-
-        /**
-         * 妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id
-         * <p> 示例值：app_4jcn5n11bpf5v
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-        public UploadAppStorageReqBody getUploadAppStorageReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder uploadAppStorageReqBody(UploadAppStorageReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UploadAppStorageReq build() {
-            return new UploadAppStorageReq(this);
-        }
+    public UploadAppStorageReq build() {
+      return new UploadAppStorageReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmploymentColumnValueForAgent {
+  /**
+   * 字段key
+   *
+   * <p>示例值：employment.work_location
+   */
+  @SerializedName("field_key")
+  private String fieldKey;
+
+  /**
+   * 字段值
+   *
+   * <p>示例值：7109475834939434
+   */
+  @SerializedName("column_value")
+  private String columnValue;
+
+  /**
+   * 是否有权限
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("has_permission")
+  private Boolean hasPermission;
+
+  public String getFieldKey() {
+    return this.fieldKey;
+  }
+
+  public void setFieldKey(String fieldKey) {
+    this.fieldKey = fieldKey;
+  }
+
+  public String getColumnValue() {
+    return this.columnValue;
+  }
+
+  public void setColumnValue(String columnValue) {
+    this.columnValue = columnValue;
+  }
+
+  public Boolean getHasPermission() {
+    return this.hasPermission;
+  }
+
+  public void setHasPermission(Boolean hasPermission) {
+    this.hasPermission = hasPermission;
+  }
+
+  // builder 开始
+  public EmploymentColumnValueForAgent() {}
+
+  public EmploymentColumnValueForAgent(Builder builder) {
     /**
      * 字段key
-     * <p> 示例值：employment.work_location
+     *
+     * <p>示例值：employment.work_location
      */
-    @SerializedName("field_key")
-    private String fieldKey;
+    this.fieldKey = builder.fieldKey;
     /**
      * 字段值
-     * <p> 示例值：7109475834939434
+     *
+     * <p>示例值：7109475834939434
      */
-    @SerializedName("column_value")
-    private String columnValue;
+    this.columnValue = builder.columnValue;
     /**
      * 是否有权限
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("has_permission")
+    this.hasPermission = builder.hasPermission;
+  }
+
+  public static class Builder {
+    /**
+     * 字段key
+     *
+     * <p>示例值：employment.work_location
+     */
+    private String fieldKey;
+
+    /**
+     * 字段值
+     *
+     * <p>示例值：7109475834939434
+     */
+    private String columnValue;
+
+    /**
+     * 是否有权限
+     *
+     * <p>示例值：false
+     */
     private Boolean hasPermission;
 
-    // builder 开始
-    public EmploymentColumnValueForAgent() {
+    /**
+     * 字段key
+     *
+     * <p>示例值：employment.work_location
+     *
+     * @param fieldKey
+     * @return
+     */
+    public Builder fieldKey(String fieldKey) {
+      this.fieldKey = fieldKey;
+      return this;
     }
 
-    public EmploymentColumnValueForAgent(Builder builder) {
-        /**
-         * 字段key
-         * <p> 示例值：employment.work_location
-         */
-        this.fieldKey = builder.fieldKey;
-        /**
-         * 字段值
-         * <p> 示例值：7109475834939434
-         */
-        this.columnValue = builder.columnValue;
-        /**
-         * 是否有权限
-         * <p> 示例值：false
-         */
-        this.hasPermission = builder.hasPermission;
+    /**
+     * 字段值
+     *
+     * <p>示例值：7109475834939434
+     *
+     * @param columnValue
+     * @return
+     */
+    public Builder columnValue(String columnValue) {
+      this.columnValue = columnValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否有权限
+     *
+     * <p>示例值：false
+     *
+     * @param hasPermission
+     * @return
+     */
+    public Builder hasPermission(Boolean hasPermission) {
+      this.hasPermission = hasPermission;
+      return this;
     }
 
-    public String getFieldKey() {
-        return this.fieldKey;
+    public EmploymentColumnValueForAgent build() {
+      return new EmploymentColumnValueForAgent(this);
     }
+  }
 
-    public void setFieldKey(String fieldKey) {
-        this.fieldKey = fieldKey;
-    }
-
-    public String getColumnValue() {
-        return this.columnValue;
-    }
-
-    public void setColumnValue(String columnValue) {
-        this.columnValue = columnValue;
-    }
-
-    public Boolean getHasPermission() {
-        return this.hasPermission;
-    }
-
-    public void setHasPermission(Boolean hasPermission) {
-        this.hasPermission = hasPermission;
-    }
-
-    public static class Builder {
-        /**
-         * 字段key
-         * <p> 示例值：employment.work_location
-         */
-        private String fieldKey;
-        /**
-         * 字段值
-         * <p> 示例值：7109475834939434
-         */
-        private String columnValue;
-        /**
-         * 是否有权限
-         * <p> 示例值：false
-         */
-        private Boolean hasPermission;
-
-        /**
-         * 字段key
-         * <p> 示例值：employment.work_location
-         *
-         * @param fieldKey
-         * @return
-         */
-        public Builder fieldKey(String fieldKey) {
-            this.fieldKey = fieldKey;
-            return this;
-        }
-
-
-        /**
-         * 字段值
-         * <p> 示例值：7109475834939434
-         *
-         * @param columnValue
-         * @return
-         */
-        public Builder columnValue(String columnValue) {
-            this.columnValue = columnValue;
-            return this;
-        }
-
-
-        /**
-         * 是否有权限
-         * <p> 示例值：false
-         *
-         * @param hasPermission
-         * @return
-         */
-        public Builder hasPermission(Boolean hasPermission) {
-            this.hasPermission = hasPermission;
-            return this;
-        }
-
-
-        public EmploymentColumnValueForAgent build() {
-            return new EmploymentColumnValueForAgent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

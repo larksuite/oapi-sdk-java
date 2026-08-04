@@ -13,138 +13,143 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class DownloadUrlUserMailboxMessageAttachmentReq {
+  /**
+   * 附件 id 列表
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("attachment_ids")
+  private String[] attachmentIds;
+
+  public String[] getAttachmentIds() {
+    return this.attachmentIds;
+  }
+
+  public void setAttachmentIds(String[] attachmentIds) {
+    this.attachmentIds = attachmentIds;
+  }
+
+  /**
+   * 用户邮箱地址 或 输入me代表当前调用接口用户
+   *
+   * <p>示例值：user@xxx.xx 或 me
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  /**
+   * 用户邮件 id，获取方式见
+   * [列出邮件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list)
+   *
+   * <p>示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
+   */
+  @Path
+  @SerializedName("message_id")
+  private String messageId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  // builder 开始
+  public DownloadUrlUserMailboxMessageAttachmentReq() {}
+
+  public DownloadUrlUserMailboxMessageAttachmentReq(Builder builder) {
     /**
      * 附件 id 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("attachment_ids")
-    private String[] attachmentIds;
+    this.attachmentIds = builder.attachmentIds;
     /**
      * 用户邮箱地址 或 输入me代表当前调用接口用户
-     * <p> 示例值：user@xxx.xx 或 me
+     *
+     * <p>示例值：user@xxx.xx 或 me
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
     /**
-     * 用户邮件 id
-     * <p> 示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
+     * 用户邮件 id，获取方式见
+     * [列出邮件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list)
+     *
+     * <p>示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
      */
-    @Path
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
+  }
 
-    // builder 开始
-    public DownloadUrlUserMailboxMessageAttachmentReq() {
+  public static class Builder {
+    private String[] attachmentIds; // 附件 id 列表
+
+    /**
+     * 附件 id 列表
+     *
+     * <p>示例值：
+     *
+     * @param attachmentIds
+     * @return
+     */
+    public Builder attachmentIds(String[] attachmentIds) {
+      this.attachmentIds = attachmentIds;
+      return this;
     }
 
-    public DownloadUrlUserMailboxMessageAttachmentReq(Builder builder) {
-        /**
-         * 附件 id 列表
-         * <p> 示例值：
-         */
-        this.attachmentIds = builder.attachmentIds;
-        /**
-         * 用户邮箱地址 或 输入me代表当前调用接口用户
-         * <p> 示例值：user@xxx.xx 或 me
-         */
-        this.userMailboxId = builder.userMailboxId;
-        /**
-         * 用户邮件 id
-         * <p> 示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
-         */
-        this.messageId = builder.messageId;
+    private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
+    private String messageId; // 用户邮件 id，获取方式见
+
+    // [列出邮件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list)
+
+    /**
+     * 用户邮箱地址 或 输入me代表当前调用接口用户
+     *
+     * <p>示例值：user@xxx.xx 或 me
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户邮件 id，获取方式见
+     * [列出邮件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list)
+     *
+     * <p>示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public String[] getAttachmentIds() {
-        return this.attachmentIds;
+    public DownloadUrlUserMailboxMessageAttachmentReq build() {
+      return new DownloadUrlUserMailboxMessageAttachmentReq(this);
     }
+  }
 
-    public void setAttachmentIds(String[] attachmentIds) {
-        this.attachmentIds = attachmentIds;
-    }
-
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public static class Builder {
-        private String[] attachmentIds; // 附件 id 列表
-        private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
-        private String messageId; // 用户邮件 id
-
-        /**
-         * 附件 id 列表
-         * <p> 示例值：
-         *
-         * @param attachmentIds
-         * @return
-         */
-        public Builder attachmentIds(String[] attachmentIds) {
-            this.attachmentIds = attachmentIds;
-            return this;
-        }
-
-        /**
-         * 用户邮箱地址 或 输入me代表当前调用接口用户
-         * <p> 示例值：user@xxx.xx 或 me
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-
-        /**
-         * 用户邮件 id
-         * <p> 示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        public DownloadUrlUserMailboxMessageAttachmentReq build() {
-            return new DownloadUrlUserMailboxMessageAttachmentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

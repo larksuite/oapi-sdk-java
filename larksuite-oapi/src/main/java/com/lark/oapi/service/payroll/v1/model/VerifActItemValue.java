@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerifActItemValue {
+  /**
+   * item_id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("item_id")
+  private String itemId;
+
+  /**
+   * 值
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 是否引用项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_ref")
+  private Boolean isRef;
+
+  /**
+   * 引用项名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private IdWithName name;
+
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  public void setItemId(String itemId) {
+    this.itemId = itemId;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public Boolean getIsRef() {
+    return this.isRef;
+  }
+
+  public void setIsRef(Boolean isRef) {
+    this.isRef = isRef;
+  }
+
+  public IdWithName getName() {
+    return this.name;
+  }
+
+  public void setName(IdWithName name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public VerifActItemValue() {}
+
+  public VerifActItemValue(Builder builder) {
     /**
      * item_id
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("item_id")
-    private String itemId;
+    this.itemId = builder.itemId;
     /**
      * 值
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("value")
-    private String value;
+    this.value = builder.value;
     /**
      * 是否引用项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_ref")
-    private Boolean isRef;
+    this.isRef = builder.isRef;
     /**
      * 引用项名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * item_id
+     *
+     * <p>示例值：1
+     */
+    private String itemId;
+
+    /**
+     * 值
+     *
+     * <p>示例值：1
+     */
+    private String value;
+
+    /**
+     * 是否引用项
+     *
+     * <p>示例值：
+     */
+    private Boolean isRef;
+
+    /**
+     * 引用项名称
+     *
+     * <p>示例值：
+     */
     private IdWithName name;
 
-    // builder 开始
-    public VerifActItemValue() {
+    /**
+     * item_id
+     *
+     * <p>示例值：1
+     *
+     * @param itemId
+     * @return
+     */
+    public Builder itemId(String itemId) {
+      this.itemId = itemId;
+      return this;
     }
 
-    public VerifActItemValue(Builder builder) {
-        /**
-         * item_id
-         * <p> 示例值：1
-         */
-        this.itemId = builder.itemId;
-        /**
-         * 值
-         * <p> 示例值：1
-         */
-        this.value = builder.value;
-        /**
-         * 是否引用项
-         * <p> 示例值：
-         */
-        this.isRef = builder.isRef;
-        /**
-         * 引用项名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 值
+     *
+     * <p>示例值：1
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否引用项
+     *
+     * <p>示例值：
+     *
+     * @param isRef
+     * @return
+     */
+    public Builder isRef(Boolean isRef) {
+      this.isRef = isRef;
+      return this;
     }
 
-    public String getItemId() {
-        return this.itemId;
+    /**
+     * 引用项名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(IdWithName name) {
+      this.name = name;
+      return this;
     }
 
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
+    public VerifActItemValue build() {
+      return new VerifActItemValue(this);
     }
+  }
 
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public Boolean getIsRef() {
-        return this.isRef;
-    }
-
-    public void setIsRef(Boolean isRef) {
-        this.isRef = isRef;
-    }
-
-    public IdWithName getName() {
-        return this.name;
-    }
-
-    public void setName(IdWithName name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * item_id
-         * <p> 示例值：1
-         */
-        private String itemId;
-        /**
-         * 值
-         * <p> 示例值：1
-         */
-        private String value;
-        /**
-         * 是否引用项
-         * <p> 示例值：
-         */
-        private Boolean isRef;
-        /**
-         * 引用项名称
-         * <p> 示例值：
-         */
-        private IdWithName name;
-
-        /**
-         * item_id
-         * <p> 示例值：1
-         *
-         * @param itemId
-         * @return
-         */
-        public Builder itemId(String itemId) {
-            this.itemId = itemId;
-            return this;
-        }
-
-
-        /**
-         * 值
-         * <p> 示例值：1
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 是否引用项
-         * <p> 示例值：
-         *
-         * @param isRef
-         * @return
-         */
-        public Builder isRef(Boolean isRef) {
-            this.isRef = isRef;
-            return this;
-        }
-
-
-        /**
-         * 引用项名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(IdWithName name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public VerifActItemValue build() {
-            return new VerifActItemValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

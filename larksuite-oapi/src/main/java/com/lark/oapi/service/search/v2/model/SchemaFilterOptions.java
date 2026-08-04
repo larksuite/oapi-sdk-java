@@ -13,370 +13,406 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SchemaFilterOptions {
+  /**
+   * 筛选器展示名称
+   *
+   * <p>示例值：创建人
+   */
+  @SerializedName("display_name")
+  private String displayName;
+
+  /**
+   * 数据源的国际化展示名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_display_name")
+  private I18nMeta i18nDisplayName;
+
+  /**
+   * 指明该筛选器支持单选或多选，默认单选
+   *
+   * <p>示例值：single
+   */
+  @SerializedName("option_mode")
+  private String optionMode;
+
+  /**
+   * 关联的综合筛选器。只有 filter_type 为"user"和"time"时可以关联。"user" -> "from"；"time" -> "date"。
+   *
+   * <p>示例值：From
+   */
+  @SerializedName("associated_smart_filter")
+  private String associatedSmartFilter;
+
+  /**
+   * 筛选器类型
+   *
+   * <p>示例值：user
+   */
+  @SerializedName("filter_type")
+  private String filterType;
+
+  /**
+   * 预定义的展示枚举值。在 filter_type 为 "predefine_enum" 时必须填写
+   *
+   * <p>示例值：
+   */
+  @SerializedName("predefine_enum_values")
+  private SchemaPredefineEnumStruct[] predefineEnumValues;
+
+  /**
+   * 是否开启客户端筛选器
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("enable_client_filter")
+  private Boolean enableClientFilter;
+
+  /**
+   * 可搜筛选器关联的数据源标识
+   *
+   * <p>示例值：7264565154409461234
+   */
+  @SerializedName("reference_datasource_id")
+  private String referenceDatasourceId;
+
+  public String getDisplayName() {
+    return this.displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  public I18nMeta getI18nDisplayName() {
+    return this.i18nDisplayName;
+  }
+
+  public void setI18nDisplayName(I18nMeta i18nDisplayName) {
+    this.i18nDisplayName = i18nDisplayName;
+  }
+
+  public String getOptionMode() {
+    return this.optionMode;
+  }
+
+  public void setOptionMode(String optionMode) {
+    this.optionMode = optionMode;
+  }
+
+  public String getAssociatedSmartFilter() {
+    return this.associatedSmartFilter;
+  }
+
+  public void setAssociatedSmartFilter(String associatedSmartFilter) {
+    this.associatedSmartFilter = associatedSmartFilter;
+  }
+
+  public String getFilterType() {
+    return this.filterType;
+  }
+
+  public void setFilterType(String filterType) {
+    this.filterType = filterType;
+  }
+
+  public SchemaPredefineEnumStruct[] getPredefineEnumValues() {
+    return this.predefineEnumValues;
+  }
+
+  public void setPredefineEnumValues(SchemaPredefineEnumStruct[] predefineEnumValues) {
+    this.predefineEnumValues = predefineEnumValues;
+  }
+
+  public Boolean getEnableClientFilter() {
+    return this.enableClientFilter;
+  }
+
+  public void setEnableClientFilter(Boolean enableClientFilter) {
+    this.enableClientFilter = enableClientFilter;
+  }
+
+  public String getReferenceDatasourceId() {
+    return this.referenceDatasourceId;
+  }
+
+  public void setReferenceDatasourceId(String referenceDatasourceId) {
+    this.referenceDatasourceId = referenceDatasourceId;
+  }
+
+  // builder 开始
+  public SchemaFilterOptions() {}
+
+  public SchemaFilterOptions(Builder builder) {
     /**
      * 筛选器展示名称
-     * <p> 示例值：创建人
+     *
+     * <p>示例值：创建人
      */
-    @SerializedName("display_name")
-    private String displayName;
+    this.displayName = builder.displayName;
     /**
-     * 筛选器展示名称国际化字段
-     * <p> 示例值：
+     * 数据源的国际化展示名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_display_name")
-    private I18nMeta i18nDisplayName;
+    this.i18nDisplayName = builder.i18nDisplayName;
     /**
      * 指明该筛选器支持单选或多选，默认单选
-     * <p> 示例值：single
+     *
+     * <p>示例值：single
      */
-    @SerializedName("option_mode")
-    private String optionMode;
+    this.optionMode = builder.optionMode;
     /**
      * 关联的综合筛选器。只有 filter_type 为"user"和"time"时可以关联。"user" -> "from"；"time" -> "date"。
-     * <p> 示例值：From
+     *
+     * <p>示例值：From
      */
-    @SerializedName("associated_smart_filter")
-    private String associatedSmartFilter;
+    this.associatedSmartFilter = builder.associatedSmartFilter;
     /**
      * 筛选器类型
-     * <p> 示例值：user
+     *
+     * <p>示例值：user
      */
-    @SerializedName("filter_type")
-    private String filterType;
+    this.filterType = builder.filterType;
     /**
      * 预定义的展示枚举值。在 filter_type 为 "predefine_enum" 时必须填写
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("predefine_enum_values")
-    private SchemaPredefineEnumStruct[] predefineEnumValues;
+    this.predefineEnumValues = builder.predefineEnumValues;
     /**
      * 是否开启客户端筛选器
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("enable_client_filter")
-    private Boolean enableClientFilter;
+    this.enableClientFilter = builder.enableClientFilter;
     /**
      * 可搜筛选器关联的数据源标识
-     * <p> 示例值：7264565154409461234
+     *
+     * <p>示例值：7264565154409461234
      */
-    @SerializedName("reference_datasource_id")
+    this.referenceDatasourceId = builder.referenceDatasourceId;
+  }
+
+  public static class Builder {
+    /**
+     * 筛选器展示名称
+     *
+     * <p>示例值：创建人
+     */
+    private String displayName;
+
+    /**
+     * 数据源的国际化展示名称
+     *
+     * <p>示例值：
+     */
+    private I18nMeta i18nDisplayName;
+
+    /**
+     * 指明该筛选器支持单选或多选，默认单选
+     *
+     * <p>示例值：single
+     */
+    private String optionMode;
+
+    /**
+     * 关联的综合筛选器。只有 filter_type 为"user"和"time"时可以关联。"user" -> "from"；"time" -> "date"。
+     *
+     * <p>示例值：From
+     */
+    private String associatedSmartFilter;
+
+    /**
+     * 筛选器类型
+     *
+     * <p>示例值：user
+     */
+    private String filterType;
+
+    /**
+     * 预定义的展示枚举值。在 filter_type 为 "predefine_enum" 时必须填写
+     *
+     * <p>示例值：
+     */
+    private SchemaPredefineEnumStruct[] predefineEnumValues;
+
+    /**
+     * 是否开启客户端筛选器
+     *
+     * <p>示例值：true
+     */
+    private Boolean enableClientFilter;
+
+    /**
+     * 可搜筛选器关联的数据源标识
+     *
+     * <p>示例值：7264565154409461234
+     */
     private String referenceDatasourceId;
 
-    // builder 开始
-    public SchemaFilterOptions() {
+    /**
+     * 筛选器展示名称
+     *
+     * <p>示例值：创建人
+     *
+     * @param displayName
+     * @return
+     */
+    public Builder displayName(String displayName) {
+      this.displayName = displayName;
+      return this;
     }
 
-    public SchemaFilterOptions(Builder builder) {
-        /**
-         * 筛选器展示名称
-         * <p> 示例值：创建人
-         */
-        this.displayName = builder.displayName;
-        /**
-         * 筛选器展示名称国际化字段
-         * <p> 示例值：
-         */
-        this.i18nDisplayName = builder.i18nDisplayName;
-        /**
-         * 指明该筛选器支持单选或多选，默认单选
-         * <p> 示例值：single
-         */
-        this.optionMode = builder.optionMode;
-        /**
-         * 关联的综合筛选器。只有 filter_type 为"user"和"time"时可以关联。"user" -> "from"；"time" -> "date"。
-         * <p> 示例值：From
-         */
-        this.associatedSmartFilter = builder.associatedSmartFilter;
-        /**
-         * 筛选器类型
-         * <p> 示例值：user
-         */
-        this.filterType = builder.filterType;
-        /**
-         * 预定义的展示枚举值。在 filter_type 为 "predefine_enum" 时必须填写
-         * <p> 示例值：
-         */
-        this.predefineEnumValues = builder.predefineEnumValues;
-        /**
-         * 是否开启客户端筛选器
-         * <p> 示例值：true
-         */
-        this.enableClientFilter = builder.enableClientFilter;
-        /**
-         * 可搜筛选器关联的数据源标识
-         * <p> 示例值：7264565154409461234
-         */
-        this.referenceDatasourceId = builder.referenceDatasourceId;
+    /**
+     * 数据源的国际化展示名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nDisplayName
+     * @return
+     */
+    public Builder i18nDisplayName(I18nMeta i18nDisplayName) {
+      this.i18nDisplayName = i18nDisplayName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 指明该筛选器支持单选或多选，默认单选
+     *
+     * <p>示例值：single
+     *
+     * @param optionMode
+     * @return
+     */
+    public Builder optionMode(String optionMode) {
+      this.optionMode = optionMode;
+      return this;
     }
 
-    public String getDisplayName() {
-        return this.displayName;
+    /**
+     * 指明该筛选器支持单选或多选，默认单选
+     *
+     * <p>示例值：single
+     *
+     * @param optionMode {@link
+     *     com.lark.oapi.service.search.v2.enums.SchemaFilterOptionsOptionModeEnum}
+     * @return
+     */
+    public Builder optionMode(
+        com.lark.oapi.service.search.v2.enums.SchemaFilterOptionsOptionModeEnum optionMode) {
+      this.optionMode = optionMode.getValue();
+      return this;
     }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+    /**
+     * 关联的综合筛选器。只有 filter_type 为"user"和"time"时可以关联。"user" -> "from"；"time" -> "date"。
+     *
+     * <p>示例值：From
+     *
+     * @param associatedSmartFilter
+     * @return
+     */
+    public Builder associatedSmartFilter(String associatedSmartFilter) {
+      this.associatedSmartFilter = associatedSmartFilter;
+      return this;
     }
 
-    public I18nMeta getI18nDisplayName() {
-        return this.i18nDisplayName;
+    /**
+     * 关联的综合筛选器。只有 filter_type 为"user"和"time"时可以关联。"user" -> "from"；"time" -> "date"。
+     *
+     * <p>示例值：From
+     *
+     * @param associatedSmartFilter {@link
+     *     com.lark.oapi.service.search.v2.enums.SchemaFilterOptionsSmartFilterEnum}
+     * @return
+     */
+    public Builder associatedSmartFilter(
+        com.lark.oapi.service.search.v2.enums.SchemaFilterOptionsSmartFilterEnum
+            associatedSmartFilter) {
+      this.associatedSmartFilter = associatedSmartFilter.getValue();
+      return this;
     }
 
-    public void setI18nDisplayName(I18nMeta i18nDisplayName) {
-        this.i18nDisplayName = i18nDisplayName;
+    /**
+     * 筛选器类型
+     *
+     * <p>示例值：user
+     *
+     * @param filterType
+     * @return
+     */
+    public Builder filterType(String filterType) {
+      this.filterType = filterType;
+      return this;
     }
 
-    public String getOptionMode() {
-        return this.optionMode;
+    /**
+     * 筛选器类型
+     *
+     * <p>示例值：user
+     *
+     * @param filterType {@link
+     *     com.lark.oapi.service.search.v2.enums.SchemaFilterOptionsOpensearchFilterTypeEnum}
+     * @return
+     */
+    public Builder filterType(
+        com.lark.oapi.service.search.v2.enums.SchemaFilterOptionsOpensearchFilterTypeEnum
+            filterType) {
+      this.filterType = filterType.getValue();
+      return this;
     }
 
-    public void setOptionMode(String optionMode) {
-        this.optionMode = optionMode;
+    /**
+     * 预定义的展示枚举值。在 filter_type 为 "predefine_enum" 时必须填写
+     *
+     * <p>示例值：
+     *
+     * @param predefineEnumValues
+     * @return
+     */
+    public Builder predefineEnumValues(SchemaPredefineEnumStruct[] predefineEnumValues) {
+      this.predefineEnumValues = predefineEnumValues;
+      return this;
     }
 
-    public String getAssociatedSmartFilter() {
-        return this.associatedSmartFilter;
+    /**
+     * 是否开启客户端筛选器
+     *
+     * <p>示例值：true
+     *
+     * @param enableClientFilter
+     * @return
+     */
+    public Builder enableClientFilter(Boolean enableClientFilter) {
+      this.enableClientFilter = enableClientFilter;
+      return this;
     }
 
-    public void setAssociatedSmartFilter(String associatedSmartFilter) {
-        this.associatedSmartFilter = associatedSmartFilter;
+    /**
+     * 可搜筛选器关联的数据源标识
+     *
+     * <p>示例值：7264565154409461234
+     *
+     * @param referenceDatasourceId
+     * @return
+     */
+    public Builder referenceDatasourceId(String referenceDatasourceId) {
+      this.referenceDatasourceId = referenceDatasourceId;
+      return this;
     }
 
-    public String getFilterType() {
-        return this.filterType;
+    public SchemaFilterOptions build() {
+      return new SchemaFilterOptions(this);
     }
+  }
 
-    public void setFilterType(String filterType) {
-        this.filterType = filterType;
-    }
-
-    public SchemaPredefineEnumStruct[] getPredefineEnumValues() {
-        return this.predefineEnumValues;
-    }
-
-    public void setPredefineEnumValues(SchemaPredefineEnumStruct[] predefineEnumValues) {
-        this.predefineEnumValues = predefineEnumValues;
-    }
-
-    public Boolean getEnableClientFilter() {
-        return this.enableClientFilter;
-    }
-
-    public void setEnableClientFilter(Boolean enableClientFilter) {
-        this.enableClientFilter = enableClientFilter;
-    }
-
-    public String getReferenceDatasourceId() {
-        return this.referenceDatasourceId;
-    }
-
-    public void setReferenceDatasourceId(String referenceDatasourceId) {
-        this.referenceDatasourceId = referenceDatasourceId;
-    }
-
-    public static class Builder {
-        /**
-         * 筛选器展示名称
-         * <p> 示例值：创建人
-         */
-        private String displayName;
-        /**
-         * 筛选器展示名称国际化字段
-         * <p> 示例值：
-         */
-        private I18nMeta i18nDisplayName;
-        /**
-         * 指明该筛选器支持单选或多选，默认单选
-         * <p> 示例值：single
-         */
-        private String optionMode;
-        /**
-         * 关联的综合筛选器。只有 filter_type 为"user"和"time"时可以关联。"user" -> "from"；"time" -> "date"。
-         * <p> 示例值：From
-         */
-        private String associatedSmartFilter;
-        /**
-         * 筛选器类型
-         * <p> 示例值：user
-         */
-        private String filterType;
-        /**
-         * 预定义的展示枚举值。在 filter_type 为 "predefine_enum" 时必须填写
-         * <p> 示例值：
-         */
-        private SchemaPredefineEnumStruct[] predefineEnumValues;
-        /**
-         * 是否开启客户端筛选器
-         * <p> 示例值：true
-         */
-        private Boolean enableClientFilter;
-        /**
-         * 可搜筛选器关联的数据源标识
-         * <p> 示例值：7264565154409461234
-         */
-        private String referenceDatasourceId;
-
-        /**
-         * 筛选器展示名称
-         * <p> 示例值：创建人
-         *
-         * @param displayName
-         * @return
-         */
-        public Builder displayName(String displayName) {
-            this.displayName = displayName;
-            return this;
-        }
-
-
-        /**
-         * 筛选器展示名称国际化字段
-         * <p> 示例值：
-         *
-         * @param i18nDisplayName
-         * @return
-         */
-        public Builder i18nDisplayName(I18nMeta i18nDisplayName) {
-            this.i18nDisplayName = i18nDisplayName;
-            return this;
-        }
-
-
-        /**
-         * 指明该筛选器支持单选或多选，默认单选
-         * <p> 示例值：single
-         *
-         * @param optionMode
-         * @return
-         */
-        public Builder optionMode(String optionMode) {
-            this.optionMode = optionMode;
-            return this;
-        }
-
-        /**
-         * 指明该筛选器支持单选或多选，默认单选
-         * <p> 示例值：single
-         *
-         * @param optionMode {@link com.lark.oapi.service.search.v2.enums.SchemaFilterOptionsOptionModeEnum}
-         * @return
-         */
-        public Builder optionMode(com.lark.oapi.service.search.v2.enums.SchemaFilterOptionsOptionModeEnum optionMode) {
-            this.optionMode = optionMode.getValue();
-            return this;
-        }
-
-
-        /**
-         * 关联的综合筛选器。只有 filter_type 为"user"和"time"时可以关联。"user" -> "from"；"time" -> "date"。
-         * <p> 示例值：From
-         *
-         * @param associatedSmartFilter
-         * @return
-         */
-        public Builder associatedSmartFilter(String associatedSmartFilter) {
-            this.associatedSmartFilter = associatedSmartFilter;
-            return this;
-        }
-
-        /**
-         * 关联的综合筛选器。只有 filter_type 为"user"和"time"时可以关联。"user" -> "from"；"time" -> "date"。
-         * <p> 示例值：From
-         *
-         * @param associatedSmartFilter {@link com.lark.oapi.service.search.v2.enums.SchemaFilterOptionsSmartFilterEnum}
-         * @return
-         */
-        public Builder associatedSmartFilter(com.lark.oapi.service.search.v2.enums.SchemaFilterOptionsSmartFilterEnum associatedSmartFilter) {
-            this.associatedSmartFilter = associatedSmartFilter.getValue();
-            return this;
-        }
-
-
-        /**
-         * 筛选器类型
-         * <p> 示例值：user
-         *
-         * @param filterType
-         * @return
-         */
-        public Builder filterType(String filterType) {
-            this.filterType = filterType;
-            return this;
-        }
-
-        /**
-         * 筛选器类型
-         * <p> 示例值：user
-         *
-         * @param filterType {@link com.lark.oapi.service.search.v2.enums.SchemaFilterOptionsOpensearchFilterTypeEnum}
-         * @return
-         */
-        public Builder filterType(com.lark.oapi.service.search.v2.enums.SchemaFilterOptionsOpensearchFilterTypeEnum filterType) {
-            this.filterType = filterType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 预定义的展示枚举值。在 filter_type 为 "predefine_enum" 时必须填写
-         * <p> 示例值：
-         *
-         * @param predefineEnumValues
-         * @return
-         */
-        public Builder predefineEnumValues(SchemaPredefineEnumStruct[] predefineEnumValues) {
-            this.predefineEnumValues = predefineEnumValues;
-            return this;
-        }
-
-
-        /**
-         * 是否开启客户端筛选器
-         * <p> 示例值：true
-         *
-         * @param enableClientFilter
-         * @return
-         */
-        public Builder enableClientFilter(Boolean enableClientFilter) {
-            this.enableClientFilter = enableClientFilter;
-            return this;
-        }
-
-
-        /**
-         * 可搜筛选器关联的数据源标识
-         * <p> 示例值：7264565154409461234
-         *
-         * @param referenceDatasourceId
-         * @return
-         */
-        public Builder referenceDatasourceId(String referenceDatasourceId) {
-            this.referenceDatasourceId = referenceDatasourceId;
-            return this;
-        }
-
-
-        public SchemaFilterOptions build() {
-            return new SchemaFilterOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

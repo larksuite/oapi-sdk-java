@@ -13,226 +13,234 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class CustomAuthInfo {
+  /**
+   * session key
+   *
+   * <p>示例值：wewrerewrwer
+   */
+  @SerializedName("SessionKey")
+  private String sessionKey;
+
+  /**
+   * feishu id for internal app.
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("UserID")
+  private String userID;
+
+  /**
+   * app id of open platform.
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("OpenAppID")
+  private String openAppID;
+
+  /**
+   * auth type
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("AuthType")
+  private String authType;
+
+  /**
+   * extra
+   *
+   * <p>示例值：
+   */
+  @SerializedName("Extra")
+  private Map<String, String> extra;
+
+  public String getSessionKey() {
+    return this.sessionKey;
+  }
+
+  public void setSessionKey(String sessionKey) {
+    this.sessionKey = sessionKey;
+  }
+
+  public String getUserID() {
+    return this.userID;
+  }
+
+  public void setUserID(String userID) {
+    this.userID = userID;
+  }
+
+  public String getOpenAppID() {
+    return this.openAppID;
+  }
+
+  public void setOpenAppID(String openAppID) {
+    this.openAppID = openAppID;
+  }
+
+  public String getAuthType() {
+    return this.authType;
+  }
+
+  public void setAuthType(String authType) {
+    this.authType = authType;
+  }
+
+  public Map<String, String> getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(Map<String, String> extra) {
+    this.extra = extra;
+  }
+
+  // builder 开始
+  public CustomAuthInfo() {}
+
+  public CustomAuthInfo(Builder builder) {
     /**
      * session key
-     * <p> 示例值：wewrerewrwer
+     *
+     * <p>示例值：wewrerewrwer
      */
-    @SerializedName("SessionKey")
-    private String sessionKey;
+    this.sessionKey = builder.sessionKey;
     /**
      * feishu id for internal app.
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("UserID")
-    private String userID;
+    this.userID = builder.userID;
     /**
      * app id of open platform.
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("OpenAppID")
-    private String openAppID;
+    this.openAppID = builder.openAppID;
     /**
      * auth type
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("AuthType")
-    private String authType;
+    this.authType = builder.authType;
     /**
      * extra
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("Extra")
+    this.extra = builder.extra;
+  }
+
+  public static class Builder {
+    /**
+     * session key
+     *
+     * <p>示例值：wewrerewrwer
+     */
+    private String sessionKey;
+
+    /**
+     * feishu id for internal app.
+     *
+     * <p>示例值：1
+     */
+    private String userID;
+
+    /**
+     * app id of open platform.
+     *
+     * <p>示例值：1
+     */
+    private String openAppID;
+
+    /**
+     * auth type
+     *
+     * <p>示例值：1
+     */
+    private String authType;
+
+    /**
+     * extra
+     *
+     * <p>示例值：
+     */
     private Map<String, String> extra;
 
-    // builder 开始
-    public CustomAuthInfo() {
+    /**
+     * session key
+     *
+     * <p>示例值：wewrerewrwer
+     *
+     * @param sessionKey
+     * @return
+     */
+    public Builder sessionKey(String sessionKey) {
+      this.sessionKey = sessionKey;
+      return this;
     }
 
-    public CustomAuthInfo(Builder builder) {
-        /**
-         * session key
-         * <p> 示例值：wewrerewrwer
-         */
-        this.sessionKey = builder.sessionKey;
-        /**
-         * feishu id for internal app.
-         * <p> 示例值：1
-         */
-        this.userID = builder.userID;
-        /**
-         * app id of open platform.
-         * <p> 示例值：1
-         */
-        this.openAppID = builder.openAppID;
-        /**
-         * auth type
-         * <p> 示例值：1
-         */
-        this.authType = builder.authType;
-        /**
-         * extra
-         * <p> 示例值：
-         */
-        this.extra = builder.extra;
+    /**
+     * feishu id for internal app.
+     *
+     * <p>示例值：1
+     *
+     * @param userID
+     * @return
+     */
+    public Builder userID(String userID) {
+      this.userID = userID;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * app id of open platform.
+     *
+     * <p>示例值：1
+     *
+     * @param openAppID
+     * @return
+     */
+    public Builder openAppID(String openAppID) {
+      this.openAppID = openAppID;
+      return this;
     }
 
-    public String getSessionKey() {
-        return this.sessionKey;
+    /**
+     * auth type
+     *
+     * <p>示例值：1
+     *
+     * @param authType
+     * @return
+     */
+    public Builder authType(String authType) {
+      this.authType = authType;
+      return this;
     }
 
-    public void setSessionKey(String sessionKey) {
-        this.sessionKey = sessionKey;
+    /**
+     * extra
+     *
+     * <p>示例值：
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(Map<String, String> extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public String getUserID() {
-        return this.userID;
+    public CustomAuthInfo build() {
+      return new CustomAuthInfo(this);
     }
+  }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
-
-    public String getOpenAppID() {
-        return this.openAppID;
-    }
-
-    public void setOpenAppID(String openAppID) {
-        this.openAppID = openAppID;
-    }
-
-    public String getAuthType() {
-        return this.authType;
-    }
-
-    public void setAuthType(String authType) {
-        this.authType = authType;
-    }
-
-    public Map<String, String> getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(Map<String, String> extra) {
-        this.extra = extra;
-    }
-
-    public static class Builder {
-        /**
-         * session key
-         * <p> 示例值：wewrerewrwer
-         */
-        private String sessionKey;
-        /**
-         * feishu id for internal app.
-         * <p> 示例值：1
-         */
-        private String userID;
-        /**
-         * app id of open platform.
-         * <p> 示例值：1
-         */
-        private String openAppID;
-        /**
-         * auth type
-         * <p> 示例值：1
-         */
-        private String authType;
-        /**
-         * extra
-         * <p> 示例值：
-         */
-        private Map<String, String> extra;
-
-        /**
-         * session key
-         * <p> 示例值：wewrerewrwer
-         *
-         * @param sessionKey
-         * @return
-         */
-        public Builder sessionKey(String sessionKey) {
-            this.sessionKey = sessionKey;
-            return this;
-        }
-
-
-        /**
-         * feishu id for internal app.
-         * <p> 示例值：1
-         *
-         * @param userID
-         * @return
-         */
-        public Builder userID(String userID) {
-            this.userID = userID;
-            return this;
-        }
-
-
-        /**
-         * app id of open platform.
-         * <p> 示例值：1
-         *
-         * @param openAppID
-         * @return
-         */
-        public Builder openAppID(String openAppID) {
-            this.openAppID = openAppID;
-            return this;
-        }
-
-
-        /**
-         * auth type
-         * <p> 示例值：1
-         *
-         * @param authType
-         * @return
-         */
-        public Builder authType(String authType) {
-            this.authType = authType;
-            return this;
-        }
-
-
-        /**
-         * extra
-         * <p> 示例值：
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(Map<String, String> extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        public CustomAuthInfo build() {
-            return new CustomAuthInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.speech_to_text.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FileConfig {
+  /**
+   * 仅包含字母数字和下划线的 16 位字符串作为文件的标识，用户生成
+   *
+   * <p>示例值：qwe12dd34567890w
+   */
+  @SerializedName("file_id")
+  private String fileId;
+
+  /**
+   * 语音格式，目前仅支持：pcm
+   *
+   * <p>示例值：pcm
+   */
+  @SerializedName("format")
+  private String format;
+
+  /**
+   * 引擎类型，目前仅支持：16k_auto 中英混合
+   *
+   * <p>示例值：16k_auto
+   */
+  @SerializedName("engine_type")
+  private String engineType;
+
+  public String getFileId() {
+    return this.fileId;
+  }
+
+  public void setFileId(String fileId) {
+    this.fileId = fileId;
+  }
+
+  public String getFormat() {
+    return this.format;
+  }
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
+
+  public String getEngineType() {
+    return this.engineType;
+  }
+
+  public void setEngineType(String engineType) {
+    this.engineType = engineType;
+  }
+
+  // builder 开始
+  public FileConfig() {}
+
+  public FileConfig(Builder builder) {
     /**
      * 仅包含字母数字和下划线的 16 位字符串作为文件的标识，用户生成
-     * <p> 示例值：qwe12dd34567890w
+     *
+     * <p>示例值：qwe12dd34567890w
      */
-    @SerializedName("file_id")
-    private String fileId;
+    this.fileId = builder.fileId;
     /**
      * 语音格式，目前仅支持：pcm
-     * <p> 示例值：pcm
+     *
+     * <p>示例值：pcm
      */
-    @SerializedName("format")
-    private String format;
+    this.format = builder.format;
     /**
      * 引擎类型，目前仅支持：16k_auto 中英混合
-     * <p> 示例值：16k_auto
+     *
+     * <p>示例值：16k_auto
      */
-    @SerializedName("engine_type")
+    this.engineType = builder.engineType;
+  }
+
+  public static class Builder {
+    /**
+     * 仅包含字母数字和下划线的 16 位字符串作为文件的标识，用户生成
+     *
+     * <p>示例值：qwe12dd34567890w
+     */
+    private String fileId;
+
+    /**
+     * 语音格式，目前仅支持：pcm
+     *
+     * <p>示例值：pcm
+     */
+    private String format;
+
+    /**
+     * 引擎类型，目前仅支持：16k_auto 中英混合
+     *
+     * <p>示例值：16k_auto
+     */
     private String engineType;
 
-    // builder 开始
-    public FileConfig() {
+    /**
+     * 仅包含字母数字和下划线的 16 位字符串作为文件的标识，用户生成
+     *
+     * <p>示例值：qwe12dd34567890w
+     *
+     * @param fileId
+     * @return
+     */
+    public Builder fileId(String fileId) {
+      this.fileId = fileId;
+      return this;
     }
 
-    public FileConfig(Builder builder) {
-        /**
-         * 仅包含字母数字和下划线的 16 位字符串作为文件的标识，用户生成
-         * <p> 示例值：qwe12dd34567890w
-         */
-        this.fileId = builder.fileId;
-        /**
-         * 语音格式，目前仅支持：pcm
-         * <p> 示例值：pcm
-         */
-        this.format = builder.format;
-        /**
-         * 引擎类型，目前仅支持：16k_auto 中英混合
-         * <p> 示例值：16k_auto
-         */
-        this.engineType = builder.engineType;
+    /**
+     * 语音格式，目前仅支持：pcm
+     *
+     * <p>示例值：pcm
+     *
+     * @param format
+     * @return
+     */
+    public Builder format(String format) {
+      this.format = format;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 引擎类型，目前仅支持：16k_auto 中英混合
+     *
+     * <p>示例值：16k_auto
+     *
+     * @param engineType
+     * @return
+     */
+    public Builder engineType(String engineType) {
+      this.engineType = engineType;
+      return this;
     }
 
-    public String getFileId() {
-        return this.fileId;
+    public FileConfig build() {
+      return new FileConfig(this);
     }
+  }
 
-    public void setFileId(String fileId) {
-        this.fileId = fileId;
-    }
-
-    public String getFormat() {
-        return this.format;
-    }
-
-    public void setFormat(String format) {
-        this.format = format;
-    }
-
-    public String getEngineType() {
-        return this.engineType;
-    }
-
-    public void setEngineType(String engineType) {
-        this.engineType = engineType;
-    }
-
-    public static class Builder {
-        /**
-         * 仅包含字母数字和下划线的 16 位字符串作为文件的标识，用户生成
-         * <p> 示例值：qwe12dd34567890w
-         */
-        private String fileId;
-        /**
-         * 语音格式，目前仅支持：pcm
-         * <p> 示例值：pcm
-         */
-        private String format;
-        /**
-         * 引擎类型，目前仅支持：16k_auto 中英混合
-         * <p> 示例值：16k_auto
-         */
-        private String engineType;
-
-        /**
-         * 仅包含字母数字和下划线的 16 位字符串作为文件的标识，用户生成
-         * <p> 示例值：qwe12dd34567890w
-         *
-         * @param fileId
-         * @return
-         */
-        public Builder fileId(String fileId) {
-            this.fileId = fileId;
-            return this;
-        }
-
-
-        /**
-         * 语音格式，目前仅支持：pcm
-         * <p> 示例值：pcm
-         *
-         * @param format
-         * @return
-         */
-        public Builder format(String format) {
-            this.format = format;
-            return this;
-        }
-
-
-        /**
-         * 引擎类型，目前仅支持：16k_auto 中英混合
-         * <p> 示例值：16k_auto
-         *
-         * @param engineType
-         * @return
-         */
-        public Builder engineType(String engineType) {
-            this.engineType = engineType;
-            return this;
-        }
-
-
-        public FileConfig build() {
-            return new FileConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

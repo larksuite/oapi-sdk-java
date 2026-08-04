@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateCertificate {
+  /**
+   * ID
+   *
+   * <p>示例值：12312312
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 证件号
+   *
+   * <p>示例值：1231231
+   */
+  @SerializedName("credential_number")
+  private String credentialNumber;
+
+  /**
+   * 证件类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("credential_type")
+  private String credentialType;
+
+  /**
+   * 到期日期 格式：2007-07-20， 无固定期限或者长期有效，使用PermanentDate常量
+   *
+   * <p>示例值：2022-02-02
+   */
+  @SerializedName("expiry_date")
+  private String expiryDate;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getCredentialNumber() {
+    return this.credentialNumber;
+  }
+
+  public void setCredentialNumber(String credentialNumber) {
+    this.credentialNumber = credentialNumber;
+  }
+
+  public String getCredentialType() {
+    return this.credentialType;
+  }
+
+  public void setCredentialType(String credentialType) {
+    this.credentialType = credentialType;
+  }
+
+  public String getExpiryDate() {
+    return this.expiryDate;
+  }
+
+  public void setExpiryDate(String expiryDate) {
+    this.expiryDate = expiryDate;
+  }
+
+  // builder 开始
+  public UpdateCertificate() {}
+
+  public UpdateCertificate(Builder builder) {
     /**
      * ID
-     * <p> 示例值：12312312
+     *
+     * <p>示例值：12312312
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 证件号
-     * <p> 示例值：1231231
+     *
+     * <p>示例值：1231231
      */
-    @SerializedName("credential_number")
-    private String credentialNumber;
+    this.credentialNumber = builder.credentialNumber;
     /**
      * 证件类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("credential_type")
-    private String credentialType;
+    this.credentialType = builder.credentialType;
     /**
      * 到期日期 格式：2007-07-20， 无固定期限或者长期有效，使用PermanentDate常量
-     * <p> 示例值：2022-02-02
+     *
+     * <p>示例值：2022-02-02
      */
-    @SerializedName("expiry_date")
+    this.expiryDate = builder.expiryDate;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：12312312
+     */
+    private String id;
+
+    /**
+     * 证件号
+     *
+     * <p>示例值：1231231
+     */
+    private String credentialNumber;
+
+    /**
+     * 证件类型
+     *
+     * <p>示例值：
+     */
+    private String credentialType;
+
+    /**
+     * 到期日期 格式：2007-07-20， 无固定期限或者长期有效，使用PermanentDate常量
+     *
+     * <p>示例值：2022-02-02
+     */
     private String expiryDate;
 
-    // builder 开始
-    public UpdateCertificate() {
+    /**
+     * ID
+     *
+     * <p>示例值：12312312
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UpdateCertificate(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：12312312
-         */
-        this.id = builder.id;
-        /**
-         * 证件号
-         * <p> 示例值：1231231
-         */
-        this.credentialNumber = builder.credentialNumber;
-        /**
-         * 证件类型
-         * <p> 示例值：
-         */
-        this.credentialType = builder.credentialType;
-        /**
-         * 到期日期 格式：2007-07-20， 无固定期限或者长期有效，使用PermanentDate常量
-         * <p> 示例值：2022-02-02
-         */
-        this.expiryDate = builder.expiryDate;
+    /**
+     * 证件号
+     *
+     * <p>示例值：1231231
+     *
+     * @param credentialNumber
+     * @return
+     */
+    public Builder credentialNumber(String credentialNumber) {
+      this.credentialNumber = credentialNumber;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 证件类型
+     *
+     * <p>示例值：
+     *
+     * @param credentialType
+     * @return
+     */
+    public Builder credentialType(String credentialType) {
+      this.credentialType = credentialType;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 到期日期 格式：2007-07-20， 无固定期限或者长期有效，使用PermanentDate常量
+     *
+     * <p>示例值：2022-02-02
+     *
+     * @param expiryDate
+     * @return
+     */
+    public Builder expiryDate(String expiryDate) {
+      this.expiryDate = expiryDate;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public UpdateCertificate build() {
+      return new UpdateCertificate(this);
     }
+  }
 
-    public String getCredentialNumber() {
-        return this.credentialNumber;
-    }
-
-    public void setCredentialNumber(String credentialNumber) {
-        this.credentialNumber = credentialNumber;
-    }
-
-    public String getCredentialType() {
-        return this.credentialType;
-    }
-
-    public void setCredentialType(String credentialType) {
-        this.credentialType = credentialType;
-    }
-
-    public String getExpiryDate() {
-        return this.expiryDate;
-    }
-
-    public void setExpiryDate(String expiryDate) {
-        this.expiryDate = expiryDate;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：12312312
-         */
-        private String id;
-        /**
-         * 证件号
-         * <p> 示例值：1231231
-         */
-        private String credentialNumber;
-        /**
-         * 证件类型
-         * <p> 示例值：
-         */
-        private String credentialType;
-        /**
-         * 到期日期 格式：2007-07-20， 无固定期限或者长期有效，使用PermanentDate常量
-         * <p> 示例值：2022-02-02
-         */
-        private String expiryDate;
-
-        /**
-         * ID
-         * <p> 示例值：12312312
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 证件号
-         * <p> 示例值：1231231
-         *
-         * @param credentialNumber
-         * @return
-         */
-        public Builder credentialNumber(String credentialNumber) {
-            this.credentialNumber = credentialNumber;
-            return this;
-        }
-
-
-        /**
-         * 证件类型
-         * <p> 示例值：
-         *
-         * @param credentialType
-         * @return
-         */
-        public Builder credentialType(String credentialType) {
-            this.credentialType = credentialType;
-            return this;
-        }
-
-
-        /**
-         * 到期日期 格式：2007-07-20， 无固定期限或者长期有效，使用PermanentDate常量
-         * <p> 示例值：2022-02-02
-         *
-         * @param expiryDate
-         * @return
-         */
-        public Builder expiryDate(String expiryDate) {
-            this.expiryDate = expiryDate;
-            return this;
-        }
-
-
-        public UpdateCertificate build() {
-            return new UpdateCertificate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

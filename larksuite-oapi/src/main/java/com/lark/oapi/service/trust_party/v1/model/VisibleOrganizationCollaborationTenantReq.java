@@ -13,293 +13,329 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.trust_party.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.trust_party.v1.enums.*;
 
 public class VisibleOrganizationCollaborationTenantReq {
+  /**
+   * 此次调用中使用的部门ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  /**
+   * 请求关联组织的部门ID，0代表根部门，与target_group_id二选一；可以从[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获得
+   *
+   * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @Query
+  @SerializedName("target_department_id")
+  private String targetDepartmentId;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：AQD9/Rn9eij9Pm39ED40/TIx6jupqdAcfLY%2B51xMvNU=
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 请求的可见实体数量
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 此次调用中使用的用户组ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("group_id_type")
+  private String groupIdType;
+
+  /**
+   * 请求关联组织的用户组ID，与target_department_id二选一；可以从[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获得
+   *
+   * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @Query
+  @SerializedName("target_group_id")
+  private String targetGroupId;
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  public String getTargetDepartmentId() {
+    return this.targetDepartmentId;
+  }
+
+  public void setTargetDepartmentId(String targetDepartmentId) {
+    this.targetDepartmentId = targetDepartmentId;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getGroupIdType() {
+    return this.groupIdType;
+  }
+
+  public void setGroupIdType(String groupIdType) {
+    this.groupIdType = groupIdType;
+  }
+
+  public String getTargetGroupId() {
+    return this.targetGroupId;
+  }
+
+  public void setTargetGroupId(String targetGroupId) {
+    this.targetGroupId = targetGroupId;
+  }
+
+  /**
+   * 对方关联组织的 tenant
+   * key。可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+   *
+   * <p>示例值：4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @Path
+  @SerializedName("target_tenant_key")
+  private String targetTenantKey;
+
+  public String getTargetTenantKey() {
+    return this.targetTenantKey;
+  }
+
+  public void setTargetTenantKey(String targetTenantKey) {
+    this.targetTenantKey = targetTenantKey;
+  }
+
+  // builder 开始
+  public VisibleOrganizationCollaborationTenantReq() {}
+
+  public VisibleOrganizationCollaborationTenantReq(Builder builder) {
     /**
      * 此次调用中使用的部门ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
-     * 请求关联组织的部门ID，0代表根部门，与target_group_id二选一
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     * 请求关联组织的部门ID，0代表根部门，与target_group_id二选一；可以从[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获得
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
-    @Query
-    @SerializedName("target_department_id")
-    private String targetDepartmentId;
+    this.targetDepartmentId = builder.targetDepartmentId;
     /**
-     * 下一页分页的token
-     * <p> 示例值：AQD9/Rn9eij9Pm39ED40/TIx6jupqdAcfLY%2B51xMvNU=
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：AQD9/Rn9eij9Pm39ED40/TIx6jupqdAcfLY%2B51xMvNU=
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 请求的可见实体数量
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 此次调用中使用的用户组ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("group_id_type")
-    private String groupIdType;
+    this.groupIdType = builder.groupIdType;
     /**
-     * 请求关联组织的用户组ID，与target_department_id二选一
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     * 请求关联组织的用户组ID，与target_department_id二选一；可以从[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获得
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
-    @Query
-    @SerializedName("target_group_id")
-    private String targetGroupId;
+    this.targetGroupId = builder.targetGroupId;
     /**
-     * 对方关联组织的租户key
-     * <p> 示例值：4e6ac4d14bcd5071a37a39de902c7141
+     * 对方关联组织的 tenant
+     * key。可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+     *
+     * <p>示例值：4e6ac4d14bcd5071a37a39de902c7141
      */
-    @Path
-    @SerializedName("target_tenant_key")
-    private String targetTenantKey;
+    this.targetTenantKey = builder.targetTenantKey;
+  }
 
-    // builder 开始
-    public VisibleOrganizationCollaborationTenantReq() {
+  public static class Builder {
+    private String departmentIdType; // 此次调用中使用的部门ID的类型
+    private String
+        targetDepartmentId; // 请求关联组织的部门ID，0代表根部门，与target_group_id二选一；可以从[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获得
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private Integer pageSize; // 请求的可见实体数量
+    private String groupIdType; // 此次调用中使用的用户组ID的类型
+    private String
+        targetGroupId; // 请求关联组织的用户组ID，与target_department_id二选一；可以从[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获得
+
+    /**
+     * 此次调用中使用的部门ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
     }
 
-    public VisibleOrganizationCollaborationTenantReq(Builder builder) {
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 请求关联组织的部门ID，0代表根部门，与target_group_id二选一
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.targetDepartmentId = builder.targetDepartmentId;
-        /**
-         * 下一页分页的token
-         * <p> 示例值：AQD9/Rn9eij9Pm39ED40/TIx6jupqdAcfLY%2B51xMvNU=
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 请求的可见实体数量
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 此次调用中使用的用户组ID的类型
-         * <p> 示例值：
-         */
-        this.groupIdType = builder.groupIdType;
-        /**
-         * 请求关联组织的用户组ID，与target_department_id二选一
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.targetGroupId = builder.targetGroupId;
-        /**
-         * 对方关联组织的租户key
-         * <p> 示例值：4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.targetTenantKey = builder.targetTenantKey;
+    /**
+     * 此次调用中使用的部门ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.trust_party.v1.enums.VisibleOrganizationCollaborationTenantGetVisibleOrganizationCollaborationTenantDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.trust_party.v1.enums
+                .VisibleOrganizationCollaborationTenantGetVisibleOrganizationCollaborationTenantDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 请求关联组织的部门ID，0代表根部门，与target_group_id二选一；可以从[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获得
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param targetDepartmentId
+     * @return
+     */
+    public Builder targetDepartmentId(String targetDepartmentId) {
+      this.targetDepartmentId = targetDepartmentId;
+      return this;
     }
 
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：AQD9/Rn9eij9Pm39ED40/TIx6jupqdAcfLY%2B51xMvNU=
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
+    /**
+     * 请求的可见实体数量
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public String getTargetDepartmentId() {
-        return this.targetDepartmentId;
+    /**
+     * 此次调用中使用的用户组ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param groupIdType
+     * @return
+     */
+    public Builder groupIdType(String groupIdType) {
+      this.groupIdType = groupIdType;
+      return this;
     }
 
-    public void setTargetDepartmentId(String targetDepartmentId) {
-        this.targetDepartmentId = targetDepartmentId;
+    /**
+     * 此次调用中使用的用户组ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param groupIdType {@link
+     *     com.lark.oapi.service.trust_party.v1.enums.VisibleOrganizationCollaborationTenantGetVisibleOrganizationCollaborationTenantGroupIDTypeEnum}
+     * @return
+     */
+    public Builder groupIdType(
+        com.lark.oapi.service.trust_party.v1.enums
+                .VisibleOrganizationCollaborationTenantGetVisibleOrganizationCollaborationTenantGroupIDTypeEnum
+            groupIdType) {
+      this.groupIdType = groupIdType.getValue();
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 请求关联组织的用户组ID，与target_department_id二选一；可以从[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获得
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param targetGroupId
+     * @return
+     */
+    public Builder targetGroupId(String targetGroupId) {
+      this.targetGroupId = targetGroupId;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    private String targetTenantKey; // 对方关联组织的 tenant
+
+    // key。可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+
+    /**
+     * 对方关联组织的 tenant
+     * key。可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+     *
+     * <p>示例值：4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param targetTenantKey
+     * @return
+     */
+    public Builder targetTenantKey(String targetTenantKey) {
+      this.targetTenantKey = targetTenantKey;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    public VisibleOrganizationCollaborationTenantReq build() {
+      return new VisibleOrganizationCollaborationTenantReq(this);
     }
+  }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getGroupIdType() {
-        return this.groupIdType;
-    }
-
-    public void setGroupIdType(String groupIdType) {
-        this.groupIdType = groupIdType;
-    }
-
-    public String getTargetGroupId() {
-        return this.targetGroupId;
-    }
-
-    public void setTargetGroupId(String targetGroupId) {
-        this.targetGroupId = targetGroupId;
-    }
-
-    public String getTargetTenantKey() {
-        return this.targetTenantKey;
-    }
-
-    public void setTargetTenantKey(String targetTenantKey) {
-        this.targetTenantKey = targetTenantKey;
-    }
-
-    public static class Builder {
-        private String departmentIdType; // 此次调用中使用的部门ID的类型
-        private String targetDepartmentId; // 请求关联组织的部门ID，0代表根部门，与target_group_id二选一
-        private String pageToken; // 下一页分页的token
-        private Integer pageSize; // 请求的可见实体数量
-        private String groupIdType; // 此次调用中使用的用户组ID的类型
-        private String targetGroupId; // 请求关联组织的用户组ID，与target_department_id二选一
-        private String targetTenantKey; // 对方关联组织的租户key
-
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.trust_party.v1.enums.VisibleOrganizationCollaborationTenantDepartmentIdTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.trust_party.v1.enums.VisibleOrganizationCollaborationTenantDepartmentIdTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 请求关联组织的部门ID，0代表根部门，与target_group_id二选一
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param targetDepartmentId
-         * @return
-         */
-        public Builder targetDepartmentId(String targetDepartmentId) {
-            this.targetDepartmentId = targetDepartmentId;
-            return this;
-        }
-
-        /**
-         * 下一页分页的token
-         * <p> 示例值：AQD9/Rn9eij9Pm39ED40/TIx6jupqdAcfLY%2B51xMvNU=
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 请求的可见实体数量
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户组ID的类型
-         * <p> 示例值：
-         *
-         * @param groupIdType
-         * @return
-         */
-        public Builder groupIdType(String groupIdType) {
-            this.groupIdType = groupIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户组ID的类型
-         * <p> 示例值：
-         *
-         * @param groupIdType {@link com.lark.oapi.service.trust_party.v1.enums.VisibleOrganizationCollaborationTenantGroupIdTypeEnum}
-         * @return
-         */
-        public Builder groupIdType(com.lark.oapi.service.trust_party.v1.enums.VisibleOrganizationCollaborationTenantGroupIdTypeEnum groupIdType) {
-            this.groupIdType = groupIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 请求关联组织的用户组ID，与target_department_id二选一
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param targetGroupId
-         * @return
-         */
-        public Builder targetGroupId(String targetGroupId) {
-            this.targetGroupId = targetGroupId;
-            return this;
-        }
-
-        /**
-         * 对方关联组织的租户key
-         * <p> 示例值：4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param targetTenantKey
-         * @return
-         */
-        public Builder targetTenantKey(String targetTenantKey) {
-            this.targetTenantKey = targetTenantKey;
-            return this;
-        }
-
-
-        public VisibleOrganizationCollaborationTenantReq build() {
-            return new VisibleOrganizationCollaborationTenantReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LarkIdaasDirectoryPageResponse {
+  /**
+   * 是否还有后续结果
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
+
+  /**
+   * 下一次的游标，只在PageType=CURSOR 时有效
+   *
+   * <p>示例值：asdfasdfasdf
+   */
+  @SerializedName("cursor")
+  private String cursor;
+
+  /**
+   * 总条数，只在PageType=Offset 时有效
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("total")
+  private String total;
+
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String getCursor() {
+    return this.cursor;
+  }
+
+  public void setCursor(String cursor) {
+    this.cursor = cursor;
+  }
+
+  public String getTotal() {
+    return this.total;
+  }
+
+  public void setTotal(String total) {
+    this.total = total;
+  }
+
+  // builder 开始
+  public LarkIdaasDirectoryPageResponse() {}
+
+  public LarkIdaasDirectoryPageResponse(Builder builder) {
     /**
      * 是否还有后续结果
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+    this.hasMore = builder.hasMore;
     /**
      * 下一次的游标，只在PageType=CURSOR 时有效
-     * <p> 示例值：asdfasdfasdf
+     *
+     * <p>示例值：asdfasdfasdf
      */
-    @SerializedName("cursor")
-    private String cursor;
+    this.cursor = builder.cursor;
     /**
      * 总条数，只在PageType=Offset 时有效
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("total")
+    this.total = builder.total;
+  }
+
+  public static class Builder {
+    /**
+     * 是否还有后续结果
+     *
+     * <p>示例值：
+     */
+    private Boolean hasMore;
+
+    /**
+     * 下一次的游标，只在PageType=CURSOR 时有效
+     *
+     * <p>示例值：asdfasdfasdf
+     */
+    private String cursor;
+
+    /**
+     * 总条数，只在PageType=Offset 时有效
+     *
+     * <p>示例值：100
+     */
     private String total;
 
-    // builder 开始
-    public LarkIdaasDirectoryPageResponse() {
+    /**
+     * 是否还有后续结果
+     *
+     * <p>示例值：
+     *
+     * @param hasMore
+     * @return
+     */
+    public Builder hasMore(Boolean hasMore) {
+      this.hasMore = hasMore;
+      return this;
     }
 
-    public LarkIdaasDirectoryPageResponse(Builder builder) {
-        /**
-         * 是否还有后续结果
-         * <p> 示例值：
-         */
-        this.hasMore = builder.hasMore;
-        /**
-         * 下一次的游标，只在PageType=CURSOR 时有效
-         * <p> 示例值：asdfasdfasdf
-         */
-        this.cursor = builder.cursor;
-        /**
-         * 总条数，只在PageType=Offset 时有效
-         * <p> 示例值：100
-         */
-        this.total = builder.total;
+    /**
+     * 下一次的游标，只在PageType=CURSOR 时有效
+     *
+     * <p>示例值：asdfasdfasdf
+     *
+     * @param cursor
+     * @return
+     */
+    public Builder cursor(String cursor) {
+      this.cursor = cursor;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 总条数，只在PageType=Offset 时有效
+     *
+     * <p>示例值：100
+     *
+     * @param total
+     * @return
+     */
+    public Builder total(String total) {
+      this.total = total;
+      return this;
     }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
+    public LarkIdaasDirectoryPageResponse build() {
+      return new LarkIdaasDirectoryPageResponse(this);
     }
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
-
-    public String getCursor() {
-        return this.cursor;
-    }
-
-    public void setCursor(String cursor) {
-        this.cursor = cursor;
-    }
-
-    public String getTotal() {
-        return this.total;
-    }
-
-    public void setTotal(String total) {
-        this.total = total;
-    }
-
-    public static class Builder {
-        /**
-         * 是否还有后续结果
-         * <p> 示例值：
-         */
-        private Boolean hasMore;
-        /**
-         * 下一次的游标，只在PageType=CURSOR 时有效
-         * <p> 示例值：asdfasdfasdf
-         */
-        private String cursor;
-        /**
-         * 总条数，只在PageType=Offset 时有效
-         * <p> 示例值：100
-         */
-        private String total;
-
-        /**
-         * 是否还有后续结果
-         * <p> 示例值：
-         *
-         * @param hasMore
-         * @return
-         */
-        public Builder hasMore(Boolean hasMore) {
-            this.hasMore = hasMore;
-            return this;
-        }
-
-
-        /**
-         * 下一次的游标，只在PageType=CURSOR 时有效
-         * <p> 示例值：asdfasdfasdf
-         *
-         * @param cursor
-         * @return
-         */
-        public Builder cursor(String cursor) {
-            this.cursor = cursor;
-            return this;
-        }
-
-
-        /**
-         * 总条数，只在PageType=Offset 时有效
-         * <p> 示例值：100
-         *
-         * @param total
-         * @return
-         */
-        public Builder total(String total) {
-            this.total = total;
-            return this;
-        }
-
-
-        public LarkIdaasDirectoryPageResponse build() {
-            return new LarkIdaasDirectoryPageResponse(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerifFilterValue {
+  /**
+   * 左值api_name
+   *
+   * <p>示例值：api_name
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 字段类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("field_type")
+  private Integer fieldType;
+
+  /**
+   * 右值
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 外部id（左值为引用项时有值）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("ref_id")
+  private String refId;
+
+  /**
+   * 币种
+   *
+   * <p>示例值：
+   */
+  @SerializedName("currency")
+  private IdWithName currency;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Integer getFieldType() {
+    return this.fieldType;
+  }
+
+  public void setFieldType(Integer fieldType) {
+    this.fieldType = fieldType;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public String getRefId() {
+    return this.refId;
+  }
+
+  public void setRefId(String refId) {
+    this.refId = refId;
+  }
+
+  public IdWithName getCurrency() {
+    return this.currency;
+  }
+
+  public void setCurrency(IdWithName currency) {
+    this.currency = currency;
+  }
+
+  // builder 开始
+  public VerifFilterValue() {}
+
+  public VerifFilterValue(Builder builder) {
     /**
      * 左值api_name
-     * <p> 示例值：api_name
+     *
+     * <p>示例值：api_name
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 字段类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("field_type")
-    private Integer fieldType;
+    this.fieldType = builder.fieldType;
     /**
      * 右值
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("value")
-    private String value;
+    this.value = builder.value;
     /**
      * 外部id（左值为引用项时有值）
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("ref_id")
-    private String refId;
+    this.refId = builder.refId;
     /**
      * 币种
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("currency")
+    this.currency = builder.currency;
+  }
+
+  public static class Builder {
+    /**
+     * 左值api_name
+     *
+     * <p>示例值：api_name
+     */
+    private String apiName;
+
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     */
+    private Integer fieldType;
+
+    /**
+     * 右值
+     *
+     * <p>示例值：1
+     */
+    private String value;
+
+    /**
+     * 外部id（左值为引用项时有值）
+     *
+     * <p>示例值：1
+     */
+    private String refId;
+
+    /**
+     * 币种
+     *
+     * <p>示例值：
+     */
     private IdWithName currency;
 
-    // builder 开始
-    public VerifFilterValue() {
+    /**
+     * 左值api_name
+     *
+     * <p>示例值：api_name
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public VerifFilterValue(Builder builder) {
-        /**
-         * 左值api_name
-         * <p> 示例值：api_name
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        this.fieldType = builder.fieldType;
-        /**
-         * 右值
-         * <p> 示例值：1
-         */
-        this.value = builder.value;
-        /**
-         * 外部id（左值为引用项时有值）
-         * <p> 示例值：1
-         */
-        this.refId = builder.refId;
-        /**
-         * 币种
-         * <p> 示例值：
-         */
-        this.currency = builder.currency;
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     *
+     * @param fieldType
+     * @return
+     */
+    public Builder fieldType(Integer fieldType) {
+      this.fieldType = fieldType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 右值
+     *
+     * <p>示例值：1
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 外部id（左值为引用项时有值）
+     *
+     * <p>示例值：1
+     *
+     * @param refId
+     * @return
+     */
+    public Builder refId(String refId) {
+      this.refId = refId;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    /**
+     * 币种
+     *
+     * <p>示例值：
+     *
+     * @param currency
+     * @return
+     */
+    public Builder currency(IdWithName currency) {
+      this.currency = currency;
+      return this;
     }
 
-    public Integer getFieldType() {
-        return this.fieldType;
+    public VerifFilterValue build() {
+      return new VerifFilterValue(this);
     }
+  }
 
-    public void setFieldType(Integer fieldType) {
-        this.fieldType = fieldType;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public String getRefId() {
-        return this.refId;
-    }
-
-    public void setRefId(String refId) {
-        this.refId = refId;
-    }
-
-    public IdWithName getCurrency() {
-        return this.currency;
-    }
-
-    public void setCurrency(IdWithName currency) {
-        this.currency = currency;
-    }
-
-    public static class Builder {
-        /**
-         * 左值api_name
-         * <p> 示例值：api_name
-         */
-        private String apiName;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        private Integer fieldType;
-        /**
-         * 右值
-         * <p> 示例值：1
-         */
-        private String value;
-        /**
-         * 外部id（左值为引用项时有值）
-         * <p> 示例值：1
-         */
-        private String refId;
-        /**
-         * 币种
-         * <p> 示例值：
-         */
-        private IdWithName currency;
-
-        /**
-         * 左值api_name
-         * <p> 示例值：api_name
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         *
-         * @param fieldType
-         * @return
-         */
-        public Builder fieldType(Integer fieldType) {
-            this.fieldType = fieldType;
-            return this;
-        }
-
-
-        /**
-         * 右值
-         * <p> 示例值：1
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 外部id（左值为引用项时有值）
-         * <p> 示例值：1
-         *
-         * @param refId
-         * @return
-         */
-        public Builder refId(String refId) {
-            this.refId = refId;
-            return this;
-        }
-
-
-        /**
-         * 币种
-         * <p> 示例值：
-         *
-         * @param currency
-         * @return
-         */
-        public Builder currency(IdWithName currency) {
-            this.currency = currency;
-            return this;
-        }
-
-
-        public VerifFilterValue build() {
-            return new VerifFilterValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

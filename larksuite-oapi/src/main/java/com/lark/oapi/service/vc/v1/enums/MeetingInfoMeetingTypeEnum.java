@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 会议类型
- */
+/** 会议类型 */
 public enum MeetingInfoMeetingTypeEnum {
-    ALL(1), // 全部类型（默认）
-    MEETING(2), // 视频会议
-    SHARE_SCREEN(3), // 本地投屏
-    ;
-    private Integer value;
+  ALL(1), // 全部类型（默认）
+  MEETING(2), // 视频会议
+  SHARE_SCREEN(3), // 本地投屏
+  ;
+  private Integer value;
 
-    MeetingInfoMeetingTypeEnum(Integer value) {
-        this.value = value;
-    }
+  MeetingInfoMeetingTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,19 +13,17 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 匹配条件
- */
+/** 匹配条件 */
 public enum AddVisibleAssistRuleMatchConditionEnum {
-    HAS_SAME_SUPERIOR_DEPARTMENT(1), // 主客体有相同的上级部门
-    ;
-    private Integer value;
+  HAS_SAME_SUPERIOR_DEPARTMENT(1), // 主客体有相同的上级部门
+  ;
+  private Integer value;
 
-    AddVisibleAssistRuleMatchConditionEnum(Integer value) {
-        this.value = value;
-    }
+  AddVisibleAssistRuleMatchConditionEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

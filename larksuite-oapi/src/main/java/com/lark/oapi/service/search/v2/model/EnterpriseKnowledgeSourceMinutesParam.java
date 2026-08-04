@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EnterpriseKnowledgeSourceMinutesParam {
+  /**
+   * 是否搜索飞书妙记。默认为 `false`。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("searchable")
+  private Boolean searchable;
+
+  public Boolean getSearchable() {
+    return this.searchable;
+  }
+
+  public void setSearchable(Boolean searchable) {
+    this.searchable = searchable;
+  }
+
+  // builder 开始
+  public EnterpriseKnowledgeSourceMinutesParam() {}
+
+  public EnterpriseKnowledgeSourceMinutesParam(Builder builder) {
     /**
      * 是否搜索飞书妙记。默认为 `false`。
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("searchable")
+    this.searchable = builder.searchable;
+  }
+
+  public static class Builder {
+    /**
+     * 是否搜索飞书妙记。默认为 `false`。
+     *
+     * <p>示例值：true
+     */
     private Boolean searchable;
 
-    // builder 开始
-    public EnterpriseKnowledgeSourceMinutesParam() {
+    /**
+     * 是否搜索飞书妙记。默认为 `false`。
+     *
+     * <p>示例值：true
+     *
+     * @param searchable
+     * @return
+     */
+    public Builder searchable(Boolean searchable) {
+      this.searchable = searchable;
+      return this;
     }
 
-    public EnterpriseKnowledgeSourceMinutesParam(Builder builder) {
-        /**
-         * 是否搜索飞书妙记。默认为 `false`。
-         * <p> 示例值：true
-         */
-        this.searchable = builder.searchable;
+    public EnterpriseKnowledgeSourceMinutesParam build() {
+      return new EnterpriseKnowledgeSourceMinutesParam(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Boolean getSearchable() {
-        return this.searchable;
-    }
-
-    public void setSearchable(Boolean searchable) {
-        this.searchable = searchable;
-    }
-
-    public static class Builder {
-        /**
-         * 是否搜索飞书妙记。默认为 `false`。
-         * <p> 示例值：true
-         */
-        private Boolean searchable;
-
-        /**
-         * 是否搜索飞书妙记。默认为 `false`。
-         * <p> 示例值：true
-         *
-         * @param searchable
-         * @return
-         */
-        public Builder searchable(Boolean searchable) {
-            this.searchable = searchable;
-            return this;
-        }
-
-
-        public EnterpriseKnowledgeSourceMinutesParam build() {
-            return new EnterpriseKnowledgeSourceMinutesParam(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

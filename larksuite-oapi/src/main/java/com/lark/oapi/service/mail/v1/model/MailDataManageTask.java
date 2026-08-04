@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MailDataManageTask {
+  /**
+   * 任务ID
+   *
+   * <p>示例值：MKT20240515001
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * 任务状态
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("task_status")
+  private Integer taskStatus;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public Integer getTaskStatus() {
+    return this.taskStatus;
+  }
+
+  public void setTaskStatus(Integer taskStatus) {
+    this.taskStatus = taskStatus;
+  }
+
+  // builder 开始
+  public MailDataManageTask() {}
+
+  public MailDataManageTask(Builder builder) {
     /**
      * 任务ID
-     * <p> 示例值：MKT20240515001
+     *
+     * <p>示例值：MKT20240515001
      */
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
     /**
      * 任务状态
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("task_status")
+    this.taskStatus = builder.taskStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 任务ID
+     *
+     * <p>示例值：MKT20240515001
+     */
+    private String taskId;
+
+    /**
+     * 任务状态
+     *
+     * <p>示例值：2
+     */
     private Integer taskStatus;
 
-    // builder 开始
-    public MailDataManageTask() {
+    /**
+     * 任务ID
+     *
+     * <p>示例值：MKT20240515001
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public MailDataManageTask(Builder builder) {
-        /**
-         * 任务ID
-         * <p> 示例值：MKT20240515001
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 任务状态
-         * <p> 示例值：2
-         */
-        this.taskStatus = builder.taskStatus;
+    /**
+     * 任务状态
+     *
+     * <p>示例值：2
+     *
+     * @param taskStatus
+     * @return
+     */
+    public Builder taskStatus(Integer taskStatus) {
+      this.taskStatus = taskStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MailDataManageTask build() {
+      return new MailDataManageTask(this);
     }
+  }
 
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
-    public Integer getTaskStatus() {
-        return this.taskStatus;
-    }
-
-    public void setTaskStatus(Integer taskStatus) {
-        this.taskStatus = taskStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 任务ID
-         * <p> 示例值：MKT20240515001
-         */
-        private String taskId;
-        /**
-         * 任务状态
-         * <p> 示例值：2
-         */
-        private Integer taskStatus;
-
-        /**
-         * 任务ID
-         * <p> 示例值：MKT20240515001
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * 任务状态
-         * <p> 示例值：2
-         *
-         * @param taskStatus
-         * @return
-         */
-        public Builder taskStatus(Integer taskStatus) {
-            this.taskStatus = taskStatus;
-            return this;
-        }
-
-
-        public MailDataManageTask build() {
-            return new MailDataManageTask(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

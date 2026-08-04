@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchUpdateLumpSumPaymentReqBody {
+  /**
+   * 要更正的一次性支付记录列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("records")
+  private LumpSumPaymentForUpdate[] records;
+
+  public LumpSumPaymentForUpdate[] getRecords() {
+    return this.records;
+  }
+
+  public void setRecords(LumpSumPaymentForUpdate[] records) {
+    this.records = records;
+  }
+
+  // builder 开始
+  public BatchUpdateLumpSumPaymentReqBody() {}
+
+  public BatchUpdateLumpSumPaymentReqBody(Builder builder) {
     /**
      * 要更正的一次性支付记录列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("records")
+    this.records = builder.records;
+  }
+
+  public static class Builder {
+    /**
+     * 要更正的一次性支付记录列表
+     *
+     * <p>示例值：
+     */
     private LumpSumPaymentForUpdate[] records;
 
-    // builder 开始
-    public BatchUpdateLumpSumPaymentReqBody() {
+    /**
+     * 要更正的一次性支付记录列表
+     *
+     * <p>示例值：
+     *
+     * @param records
+     * @return
+     */
+    public Builder records(LumpSumPaymentForUpdate[] records) {
+      this.records = records;
+      return this;
     }
 
-    public BatchUpdateLumpSumPaymentReqBody(Builder builder) {
-        /**
-         * 要更正的一次性支付记录列表
-         * <p> 示例值：
-         */
-        this.records = builder.records;
+    public BatchUpdateLumpSumPaymentReqBody build() {
+      return new BatchUpdateLumpSumPaymentReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public LumpSumPaymentForUpdate[] getRecords() {
-        return this.records;
-    }
-
-    public void setRecords(LumpSumPaymentForUpdate[] records) {
-        this.records = records;
-    }
-
-    public static class Builder {
-        /**
-         * 要更正的一次性支付记录列表
-         * <p> 示例值：
-         */
-        private LumpSumPaymentForUpdate[] records;
-
-        /**
-         * 要更正的一次性支付记录列表
-         * <p> 示例值：
-         *
-         * @param records
-         * @return
-         */
-        public Builder records(LumpSumPaymentForUpdate[] records) {
-            this.records = records;
-            return this;
-        }
-
-
-        public BatchUpdateLumpSumPaymentReqBody build() {
-            return new BatchUpdateLumpSumPaymentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

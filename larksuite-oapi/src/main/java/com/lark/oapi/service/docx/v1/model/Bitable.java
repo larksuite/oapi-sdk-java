@@ -13,124 +13,121 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Bitable {
+  /**
+   * 多维表格文档 Token
+   *
+   * <p>示例值：basbcqH9FfRn3sWCCBOtdNVpCsb_tblSAh8fEwhuMXQg
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("view_type")
+  private Integer viewType;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public Integer getViewType() {
+    return this.viewType;
+  }
+
+  public void setViewType(Integer viewType) {
+    this.viewType = viewType;
+  }
+
+  // builder 开始
+  public Bitable() {}
+
+  public Bitable(Builder builder) {
     /**
      * 多维表格文档 Token
-     * <p> 示例值：basbcqH9FfRn3sWCCBOtdNVpCsb_tblSAh8fEwhuMXQg
+     *
+     * <p>示例值：basbcqH9FfRn3sWCCBOtdNVpCsb_tblSAh8fEwhuMXQg
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("view_type")
+    this.viewType = builder.viewType;
+  }
+
+  public static class Builder {
+    /**
+     * 多维表格文档 Token
+     *
+     * <p>示例值：basbcqH9FfRn3sWCCBOtdNVpCsb_tblSAh8fEwhuMXQg
+     */
+    private String token;
+
+    /**
+     * 类型
+     *
+     * <p>示例值：1
+     */
     private Integer viewType;
 
-    // builder 开始
-    public Bitable() {
+    /**
+     * 多维表格文档 Token
+     *
+     * <p>示例值：basbcqH9FfRn3sWCCBOtdNVpCsb_tblSAh8fEwhuMXQg
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public Bitable(Builder builder) {
-        /**
-         * 多维表格文档 Token
-         * <p> 示例值：basbcqH9FfRn3sWCCBOtdNVpCsb_tblSAh8fEwhuMXQg
-         */
-        this.token = builder.token;
-        /**
-         * 类型
-         * <p> 示例值：1
-         */
-        this.viewType = builder.viewType;
+    /**
+     * 类型
+     *
+     * <p>示例值：1
+     *
+     * @param viewType
+     * @return
+     */
+    public Builder viewType(Integer viewType) {
+      this.viewType = viewType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 类型
+     *
+     * <p>示例值：1
+     *
+     * @param viewType {@link com.lark.oapi.service.docx.v1.enums.BitableBitableViewTypeEnum}
+     * @return
+     */
+    public Builder viewType(
+        com.lark.oapi.service.docx.v1.enums.BitableBitableViewTypeEnum viewType) {
+      this.viewType = viewType.getValue();
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    public Bitable build() {
+      return new Bitable(this);
     }
+  }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public Integer getViewType() {
-        return this.viewType;
-    }
-
-    public void setViewType(Integer viewType) {
-        this.viewType = viewType;
-    }
-
-    public static class Builder {
-        /**
-         * 多维表格文档 Token
-         * <p> 示例值：basbcqH9FfRn3sWCCBOtdNVpCsb_tblSAh8fEwhuMXQg
-         */
-        private String token;
-        /**
-         * 类型
-         * <p> 示例值：1
-         */
-        private Integer viewType;
-
-        /**
-         * 多维表格文档 Token
-         * <p> 示例值：basbcqH9FfRn3sWCCBOtdNVpCsb_tblSAh8fEwhuMXQg
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 类型
-         * <p> 示例值：1
-         *
-         * @param viewType
-         * @return
-         */
-        public Builder viewType(Integer viewType) {
-            this.viewType = viewType;
-            return this;
-        }
-
-        /**
-         * 类型
-         * <p> 示例值：1
-         *
-         * @param viewType {@link com.lark.oapi.service.docx.v1.enums.BitableBitableViewTypeEnum}
-         * @return
-         */
-        public Builder viewType(com.lark.oapi.service.docx.v1.enums.BitableBitableViewTypeEnum viewType) {
-            this.viewType = viewType.getValue();
-            return this;
-        }
-
-
-        public Bitable build() {
-            return new Bitable(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

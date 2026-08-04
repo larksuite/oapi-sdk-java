@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingSearchItem {
+  /**
+   * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+   *
+   * <p>示例值：6911188411932033028
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 包含基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+   *
+   * <p>示例值：会议名 \n 片段1＜h>搜索词/h>片段2\n 会议时间 | 组织者：组织者姓名 | ID: 会议ID
+   */
+  @SerializedName("display_info")
+  private String displayInfo;
+
+  /**
+   * 会议元信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meta_data")
+  private MeetingMeta metaData;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getDisplayInfo() {
+    return this.displayInfo;
+  }
+
+  public void setDisplayInfo(String displayInfo) {
+    this.displayInfo = displayInfo;
+  }
+
+  public MeetingMeta getMetaData() {
+    return this.metaData;
+  }
+
+  public void setMetaData(MeetingMeta metaData) {
+    this.metaData = metaData;
+  }
+
+  // builder 开始
+  public MeetingSearchItem() {}
+
+  public MeetingSearchItem(Builder builder) {
     /**
      * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-     * <p> 示例值：6911188411932033028
+     *
+     * <p>示例值：6911188411932033028
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 包含基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-     * <p> 示例值：会议名 \n 片段1＜h>搜索词/h>片段2\n 会议时间 | 组织者：组织者姓名 | ID: 会议ID
+     *
+     * <p>示例值：会议名 \n 片段1＜h>搜索词/h>片段2\n 会议时间 | 组织者：组织者姓名 | ID: 会议ID
      */
-    @SerializedName("display_info")
-    private String displayInfo;
+    this.displayInfo = builder.displayInfo;
     /**
      * 会议元信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meta_data")
+    this.metaData = builder.metaData;
+  }
+
+  public static class Builder {
+    /**
+     * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+     *
+     * <p>示例值：6911188411932033028
+     */
+    private String id;
+
+    /**
+     * 包含基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+     *
+     * <p>示例值：会议名 \n 片段1＜h>搜索词/h>片段2\n 会议时间 | 组织者：组织者姓名 | ID: 会议ID
+     */
+    private String displayInfo;
+
+    /**
+     * 会议元信息
+     *
+     * <p>示例值：
+     */
     private MeetingMeta metaData;
 
-    // builder 开始
-    public MeetingSearchItem() {
+    /**
+     * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
+     *
+     * <p>示例值：6911188411932033028
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public MeetingSearchItem(Builder builder) {
-        /**
-         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-         * <p> 示例值：6911188411932033028
-         */
-        this.id = builder.id;
-        /**
-         * 包含基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：会议名 \n 片段1＜h>搜索词/h>片段2\n 会议时间 | 组织者：组织者姓名 | ID: 会议ID
-         */
-        this.displayInfo = builder.displayInfo;
-        /**
-         * 会议元信息
-         * <p> 示例值：
-         */
-        this.metaData = builder.metaData;
+    /**
+     * 包含基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
+     *
+     * <p>示例值：会议名 \n 片段1＜h>搜索词/h>片段2\n 会议时间 | 组织者：组织者姓名 | ID: 会议ID
+     *
+     * @param displayInfo
+     * @return
+     */
+    public Builder displayInfo(String displayInfo) {
+      this.displayInfo = displayInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会议元信息
+     *
+     * <p>示例值：
+     *
+     * @param metaData
+     * @return
+     */
+    public Builder metaData(MeetingMeta metaData) {
+      this.metaData = metaData;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public MeetingSearchItem build() {
+      return new MeetingSearchItem(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDisplayInfo() {
-        return this.displayInfo;
-    }
-
-    public void setDisplayInfo(String displayInfo) {
-        this.displayInfo = displayInfo;
-    }
-
-    public MeetingMeta getMetaData() {
-        return this.metaData;
-    }
-
-    public void setMetaData(MeetingMeta metaData) {
-        this.metaData = metaData;
-    }
-
-    public static class Builder {
-        /**
-         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-         * <p> 示例值：6911188411932033028
-         */
-        private String id;
-        /**
-         * 包含基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：会议名 \n 片段1＜h>搜索词/h>片段2\n 会议时间 | 组织者：组织者姓名 | ID: 会议ID
-         */
-        private String displayInfo;
-        /**
-         * 会议元信息
-         * <p> 示例值：
-         */
-        private MeetingMeta metaData;
-
-        /**
-         * 会议ID（视频会议的唯一标识，视频会议开始后才会产生）
-         * <p> 示例值：6911188411932033028
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 包含基本信息的卡片，用户搜索关键词命中的文本片段，使用<h></h>标签包裹标注
-         * <p> 示例值：会议名 \n 片段1＜h>搜索词/h>片段2\n 会议时间 | 组织者：组织者姓名 | ID: 会议ID
-         *
-         * @param displayInfo
-         * @return
-         */
-        public Builder displayInfo(String displayInfo) {
-            this.displayInfo = displayInfo;
-            return this;
-        }
-
-
-        /**
-         * 会议元信息
-         * <p> 示例值：
-         *
-         * @param metaData
-         * @return
-         */
-        public Builder metaData(MeetingMeta metaData) {
-            this.metaData = metaData;
-            return this;
-        }
-
-
-        public MeetingSearchItem build() {
-            return new MeetingSearchItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

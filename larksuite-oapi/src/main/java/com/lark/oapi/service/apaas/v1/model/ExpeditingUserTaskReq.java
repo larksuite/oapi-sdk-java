@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class ExpeditingUserTaskReq {
+  /**
+   * 任务ID，可以通过[查询人工任务](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query)获取
+   *
+   * <p>示例值：1234
+   */
+  @Path
+  @SerializedName("task_id")
+  private String taskId;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  @Body private ExpeditingUserTaskReqBody body;
+
+  public ExpeditingUserTaskReqBody getExpeditingUserTaskReqBody() {
+    return this.body;
+  }
+
+  public void setExpeditingUserTaskReqBody(ExpeditingUserTaskReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public ExpeditingUserTaskReq() {}
+
+  public ExpeditingUserTaskReq(Builder builder) {
     /**
-     * 任务ID
-     * <p> 示例值：1234
+     * 任务ID，可以通过[查询人工任务](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query)获取
+     *
+     * <p>示例值：1234
      */
-    @Path
-    @SerializedName("task_id")
-    private String taskId;
-    @Body
+    this.taskId = builder.taskId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String taskId; // 任务ID，可以通过[查询人工任务](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query)获取
+
+    /**
+     * 任务ID，可以通过[查询人工任务](/uAjLw4CM/ukTMukTMukTM/apaas-v1/user_task/query)获取
+     *
+     * <p>示例值：1234
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
+    }
+
     private ExpeditingUserTaskReqBody body;
 
-    // builder 开始
-    public ExpeditingUserTaskReq() {
-    }
-
-    public ExpeditingUserTaskReq(Builder builder) {
-        /**
-         * 任务ID
-         * <p> 示例值：1234
-         */
-        this.taskId = builder.taskId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
     public ExpeditingUserTaskReqBody getExpeditingUserTaskReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setExpeditingUserTaskReqBody(ExpeditingUserTaskReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder expeditingUserTaskReqBody(ExpeditingUserTaskReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String taskId; // 任务ID
-        private ExpeditingUserTaskReqBody body;
-
-        /**
-         * 任务ID
-         * <p> 示例值：1234
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-        public ExpeditingUserTaskReqBody getExpeditingUserTaskReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder expeditingUserTaskReqBody(ExpeditingUserTaskReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public ExpeditingUserTaskReq build() {
-            return new ExpeditingUserTaskReq(this);
-        }
+    public ExpeditingUserTaskReq build() {
+      return new ExpeditingUserTaskReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,45 +13,43 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 消息类型
- */
+/** 消息类型 */
 public enum UnreadAtMessageLarkImMessageMessageTypeEnum {
-    TEXT_IMAGE("1"), // TEXT_IMAGE
-    POST("2"), // POST
-    FILE("3"), // FILE
-    TEXT("4"), // TEXT
-    IMAGE("5"), // IMAGE
-    SYSTEM("6"), // SYSTEM
-    AUDIO("7"), // AUDIO
-    EMAIL("8"), // EMAIL
-    SHARE_GROUP_CHAT("9"), // SHARE_GROUP_CHAT
-    STICKER("10"), // STICKER
-    MERGE_FORWARD("11"), // MERGE_FORWARD
-    CALENDAR("12"), // CALENDAR
-    CLOUD_FILE("13"), // CLOUD_FILE
-    CARD("14"), // CARD
-    MEDIA("15"), // MEDIA
-    SHARE_CALENDAR_EVENT("16"), // SHARE_CALENDAR_EVENT
-    HONGBAO("17"), // HONGBAO
-    GENERAL_CALENDER("18"), // GENERAL_CALENDER
-    VIDEO_CHAT("19"), // VIDEO_CHAT
-    LOCATION("20"), // LOCATION
-    CUSTOMIZE("21"), // CUSTOMIZE
-    COMMERCIALIZED_HONGBAO("22"), // COMMERCIALIZED_HONGBAO
-    SHARE_USER_CARD("23"), // SHARE_USER_CARD
-    TODO("24"), // TODO
-    FOLDER("25"), // FOLDER
-    DIAGNOSE("26"), // DIAGNOSE
-    VOTE("27"), // VOTE
-    ;
-    private String value;
+  TEXT_IMAGE("1"), // TEXT_IMAGE
+  POST("2"), // POST
+  FILE("3"), // FILE
+  TEXT("4"), // TEXT
+  IMAGE("5"), // IMAGE
+  SYSTEM("6"), // SYSTEM
+  AUDIO("7"), // AUDIO
+  EMAIL("8"), // EMAIL
+  SHARE_GROUP_CHAT("9"), // SHARE_GROUP_CHAT
+  STICKER("10"), // STICKER
+  MERGE_FORWARD("11"), // MERGE_FORWARD
+  CALENDAR("12"), // CALENDAR
+  CLOUD_FILE("13"), // CLOUD_FILE
+  CARD("14"), // CARD
+  MEDIA("15"), // MEDIA
+  SHARE_CALENDAR_EVENT("16"), // SHARE_CALENDAR_EVENT
+  HONGBAO("17"), // HONGBAO
+  GENERAL_CALENDER("18"), // GENERAL_CALENDER
+  VIDEO_CHAT("19"), // VIDEO_CHAT
+  LOCATION("20"), // LOCATION
+  CUSTOMIZE("21"), // CUSTOMIZE
+  COMMERCIALIZED_HONGBAO("22"), // COMMERCIALIZED_HONGBAO
+  SHARE_USER_CARD("23"), // SHARE_USER_CARD
+  TODO("24"), // TODO
+  FOLDER("25"), // FOLDER
+  DIAGNOSE("26"), // DIAGNOSE
+  VOTE("27"), // VOTE
+  ;
+  private String value;
 
-    UnreadAtMessageLarkImMessageMessageTypeEnum(String value) {
-        this.value = value;
-    }
+  UnreadAtMessageLarkImMessageMessageTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

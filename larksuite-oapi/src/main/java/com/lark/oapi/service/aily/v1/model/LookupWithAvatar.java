@@ -13,186 +13,275 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LookupWithAvatar {
+  /**
+   * kunlun userId
+   *
+   * <p>示例值：1787137372910676
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 人员名称
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 租户ID
+   *
+   * <p>示例值：200001
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 飞书 User ID
+   *
+   * <p>示例值：7563596720278863891
+   */
+  @SerializedName("lark_user_id")
+  private String larkUserId;
+
+  /**
+   * 开放平台 user_id
+   *
+   * <p>示例值：5f7g42d9
+   */
+  @SerializedName("open_user_id")
+  private String openUserId;
+
+  /**
+   * 开放平台 open_id
+   *
+   * <p>示例值：ou_80cbb9df643ab3872f6a0b1dc8f46078
+   */
+  @SerializedName("open_id")
+  private String openId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String getLarkUserId() {
+    return this.larkUserId;
+  }
+
+  public void setLarkUserId(String larkUserId) {
+    this.larkUserId = larkUserId;
+  }
+
+  public String getOpenUserId() {
+    return this.openUserId;
+  }
+
+  public void setOpenUserId(String openUserId) {
+    this.openUserId = openUserId;
+  }
+
+  public String getOpenId() {
+    return this.openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  // builder 开始
+  public LookupWithAvatar() {}
+
+  public LookupWithAvatar(Builder builder) {
     /**
-     * 唯一标识
-     * <p> 示例值：10001
+     * kunlun userId
+     *
+     * <p>示例值：1787137372910676
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 数据条目名称
-     * <p> 示例值：张三
+     * 人员名称
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 租户ID
-     * <p> 示例值：200001
+     *
+     * <p>示例值：200001
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 飞书 User ID
-     * <p> 示例值：5f7g42d9
+     *
+     * <p>示例值：7563596720278863891
      */
-    @SerializedName("lark_user_id")
+    this.larkUserId = builder.larkUserId;
+    /**
+     * 开放平台 user_id
+     *
+     * <p>示例值：5f7g42d9
+     */
+    this.openUserId = builder.openUserId;
+    /**
+     * 开放平台 open_id
+     *
+     * <p>示例值：ou_80cbb9df643ab3872f6a0b1dc8f46078
+     */
+    this.openId = builder.openId;
+  }
+
+  public static class Builder {
+    /**
+     * kunlun userId
+     *
+     * <p>示例值：1787137372910676
+     */
+    private String id;
+
+    /**
+     * 人员名称
+     *
+     * <p>示例值：张三
+     */
+    private String name;
+
+    /**
+     * 租户ID
+     *
+     * <p>示例值：200001
+     */
+    private String tenantId;
+
+    /**
+     * 飞书 User ID
+     *
+     * <p>示例值：7563596720278863891
+     */
     private String larkUserId;
 
-    // builder 开始
-    public LookupWithAvatar() {
+    /**
+     * 开放平台 user_id
+     *
+     * <p>示例值：5f7g42d9
+     */
+    private String openUserId;
+
+    /**
+     * 开放平台 open_id
+     *
+     * <p>示例值：ou_80cbb9df643ab3872f6a0b1dc8f46078
+     */
+    private String openId;
+
+    /**
+     * kunlun userId
+     *
+     * <p>示例值：1787137372910676
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public LookupWithAvatar(Builder builder) {
-        /**
-         * 唯一标识
-         * <p> 示例值：10001
-         */
-        this.id = builder.id;
-        /**
-         * 数据条目名称
-         * <p> 示例值：张三
-         */
-        this.name = builder.name;
-        /**
-         * 租户ID
-         * <p> 示例值：200001
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 飞书 User ID
-         * <p> 示例值：5f7g42d9
-         */
-        this.larkUserId = builder.larkUserId;
+    /**
+     * 人员名称
+     *
+     * <p>示例值：张三
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 租户ID
+     *
+     * <p>示例值：200001
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 飞书 User ID
+     *
+     * <p>示例值：7563596720278863891
+     *
+     * @param larkUserId
+     * @return
+     */
+    public Builder larkUserId(String larkUserId) {
+      this.larkUserId = larkUserId;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 开放平台 user_id
+     *
+     * <p>示例值：5f7g42d9
+     *
+     * @param openUserId
+     * @return
+     */
+    public Builder openUserId(String openUserId) {
+      this.openUserId = openUserId;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 开放平台 open_id
+     *
+     * <p>示例值：ou_80cbb9df643ab3872f6a0b1dc8f46078
+     *
+     * @param openId
+     * @return
+     */
+    public Builder openId(String openId) {
+      this.openId = openId;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public LookupWithAvatar build() {
+      return new LookupWithAvatar(this);
     }
+  }
 
-    public String getTenantId() {
-        return this.tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public String getLarkUserId() {
-        return this.larkUserId;
-    }
-
-    public void setLarkUserId(String larkUserId) {
-        this.larkUserId = larkUserId;
-    }
-
-    public static class Builder {
-        /**
-         * 唯一标识
-         * <p> 示例值：10001
-         */
-        private String id;
-        /**
-         * 数据条目名称
-         * <p> 示例值：张三
-         */
-        private String name;
-        /**
-         * 租户ID
-         * <p> 示例值：200001
-         */
-        private String tenantId;
-        /**
-         * 飞书 User ID
-         * <p> 示例值：5f7g42d9
-         */
-        private String larkUserId;
-
-        /**
-         * 唯一标识
-         * <p> 示例值：10001
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 数据条目名称
-         * <p> 示例值：张三
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 租户ID
-         * <p> 示例值：200001
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 飞书 User ID
-         * <p> 示例值：5f7g42d9
-         *
-         * @param larkUserId
-         * @return
-         */
-        public Builder larkUserId(String larkUserId) {
-            this.larkUserId = larkUserId;
-            return this;
-        }
-
-
-        public LookupWithAvatar build() {
-            return new LookupWithAvatar(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

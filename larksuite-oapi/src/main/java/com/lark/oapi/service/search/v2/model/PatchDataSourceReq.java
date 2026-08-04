@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.search.v2.enums.*;
 
 public class PatchDataSourceReq {
+  /**
+   * 数据源的唯一标识
+   *
+   * <p>示例值：6953903108179099667
+   */
+  @Path
+  @SerializedName("data_source_id")
+  private String dataSourceId;
+
+  public String getDataSourceId() {
+    return this.dataSourceId;
+  }
+
+  public void setDataSourceId(String dataSourceId) {
+    this.dataSourceId = dataSourceId;
+  }
+
+  @Body private PatchDataSourceReqBody body;
+
+  public PatchDataSourceReqBody getPatchDataSourceReqBody() {
+    return this.body;
+  }
+
+  public void setPatchDataSourceReqBody(PatchDataSourceReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchDataSourceReq() {}
+
+  public PatchDataSourceReq(Builder builder) {
     /**
      * 数据源的唯一标识
-     * <p> 示例值：service_ticket
+     *
+     * <p>示例值：6953903108179099667
      */
-    @Path
-    @SerializedName("data_source_id")
-    private String dataSourceId;
-    @Body
+    this.dataSourceId = builder.dataSourceId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String dataSourceId; // 数据源的唯一标识
+
+    /**
+     * 数据源的唯一标识
+     *
+     * <p>示例值：6953903108179099667
+     *
+     * @param dataSourceId
+     * @return
+     */
+    public Builder dataSourceId(String dataSourceId) {
+      this.dataSourceId = dataSourceId;
+      return this;
+    }
+
     private PatchDataSourceReqBody body;
 
-    // builder 开始
-    public PatchDataSourceReq() {
-    }
-
-    public PatchDataSourceReq(Builder builder) {
-        /**
-         * 数据源的唯一标识
-         * <p> 示例值：service_ticket
-         */
-        this.dataSourceId = builder.dataSourceId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getDataSourceId() {
-        return this.dataSourceId;
-    }
-
-    public void setDataSourceId(String dataSourceId) {
-        this.dataSourceId = dataSourceId;
-    }
-
     public PatchDataSourceReqBody getPatchDataSourceReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPatchDataSourceReqBody(PatchDataSourceReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder patchDataSourceReqBody(PatchDataSourceReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String dataSourceId; // 数据源的唯一标识
-        private PatchDataSourceReqBody body;
-
-        /**
-         * 数据源的唯一标识
-         * <p> 示例值：service_ticket
-         *
-         * @param dataSourceId
-         * @return
-         */
-        public Builder dataSourceId(String dataSourceId) {
-            this.dataSourceId = dataSourceId;
-            return this;
-        }
-
-        public PatchDataSourceReqBody getPatchDataSourceReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder patchDataSourceReqBody(PatchDataSourceReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchDataSourceReq build() {
-            return new PatchDataSourceReq(this);
-        }
+    public PatchDataSourceReq build() {
+      return new PatchDataSourceReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.contact.v3.enums;
 
-/**
- * 动态用户组计算状态，只读，创建、更新用户组时不需要填写
- */
+/** 动态用户组计算状态，只读，创建、更新用户组时不需要填写 */
 public enum DynamicGroupRuleGroupStatusEnum {
-    COMPLETED("completed"), // 计算完成
-    FAILURE("failure"), // 计算失败
-    CREATING("creating"), // 创建中
-    UPDATING("updating"), // 更新中
-    ;
-    private String value;
+  COMPLETED("completed"), // 计算完成
+  FAILURE("failure"), // 计算失败
+  CREATING("creating"), // 创建中
+  UPDATING("updating"), // 更新中
+  ;
+  private String value;
 
-    DynamicGroupRuleGroupStatusEnum(String value) {
-        this.value = value;
-    }
+  DynamicGroupRuleGroupStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 终端管控客户端状态
- */
+/** 终端管控客户端状态 */
 public enum ListDeviceRecordLSAClientStatusEnum {
-    BOUND(1), // 已绑定
-    UNBOUND(2), // 未绑定
-    ;
-    private Integer value;
+  BOUND(1), // 已绑定
+  UNBOUND(2), // 未绑定
+  ;
+  private Integer value;
 
-    ListDeviceRecordLSAClientStatusEnum(Integer value) {
-        this.value = value;
-    }
+  ListDeviceRecordLSAClientStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

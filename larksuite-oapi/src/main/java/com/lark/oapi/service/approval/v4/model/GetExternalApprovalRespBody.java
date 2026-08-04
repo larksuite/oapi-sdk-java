@@ -13,146 +13,152 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetExternalApprovalRespBody {
-    /**
-     * 审批定义名称
-     * <p> 示例值：@i18n@1
-     */
-    @SerializedName("approval_name")
-    private String approvalName;
-    /**
-     * 审批定义code
-     * <p> 示例值：permission_test
-     */
-    @SerializedName("approval_code")
-    private String approvalCode;
-    /**
-     * 审批定义所属分组
-     * <p> 示例值：work_group
-     */
-    @SerializedName("group_code")
-    private String groupCode;
-    /**
-     * 分组名称
-     * <p> 示例值：@i18n@2
-     */
-    @SerializedName("group_name")
-    private String groupName;
-    /**
-     * 审批定义的说明
-     * <p> 示例值：@i18n@2
-     */
-    @SerializedName("description")
-    private String description;
-    /**
-     * 三方审批定义相关
-     * <p> 示例值：
-     */
-    @SerializedName("external")
-    private ApprovalCreateExternal external;
-    /**
-     * 可见人列表
-     * <p> 示例值：
-     */
-    @SerializedName("viewers")
-    private ApprovalCreateViewers[] viewers;
-    /**
-     * 国际化文案
-     * <p> 示例值：
-     */
-    @SerializedName("i18n_resources")
-    private I18nResource[] i18nResources;
-    /**
-     * 流程管理员
-     * <p> 示例值：
-     */
-    @SerializedName("managers")
-    private String[] managers;
+  /**
+   * 审批定义名称。当前参数返回的是 @i18n@ 开头的 key，需要通过 i18n_resources.texts 参数值查阅当前 key 对应的取值（value）。
+   *
+   * <p>示例值：@i18n@1
+   */
+  @SerializedName("approval_name")
+  private String approvalName;
 
-    public String getApprovalName() {
-        return this.approvalName;
-    }
+  /**
+   * 创建三方审批定义时传入的
+   * approval_code。;;**注意**：[创建三方审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/external_approval/create)接口的请求参数
+   * approval_code 与响应参数 approval_code 不一定相同，当前参数所返回的是作为请求参数的 approval_code 的值。
+   *
+   * <p>示例值：permission_test
+   */
+  @SerializedName("approval_code")
+  private String approvalCode;
 
-    public void setApprovalName(String approvalName) {
-        this.approvalName = approvalName;
-    }
+  /**
+   * 审批定义所属分组
+   *
+   * <p>示例值：work_group
+   */
+  @SerializedName("group_code")
+  private String groupCode;
 
-    public String getApprovalCode() {
-        return this.approvalCode;
-    }
+  /**
+   * 分组名称。当前参数返回的是 @i18n@ 开头的 key，需要通过 i18n_resources.texts 参数值查阅当前 key 对应的取值（value）。
+   *
+   * <p>示例值：@i18n@2
+   */
+  @SerializedName("group_name")
+  private String groupName;
 
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
-    }
+  /**
+   * 审批定义的说明。当前参数返回的是 @i18n@ 开头的 key，需要通过 i18n_resources.texts 参数值查阅当前 key 对应的取值（value）。
+   *
+   * <p>示例值：@i18n@2
+   */
+  @SerializedName("description")
+  private String description;
 
-    public String getGroupCode() {
-        return this.groupCode;
-    }
+  /**
+   * 三方审批定义相关信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("external")
+  private ApprovalCreateExternal external;
 
-    public void setGroupCode(String groupCode) {
-        this.groupCode = groupCode;
-    }
+  /**
+   * 可见人列表，在可见范围内的用户可在审批发起页看到当前审批。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("viewers")
+  private ApprovalCreateViewers[] viewers;
 
-    public String getGroupName() {
-        return this.groupName;
-    }
+  /**
+   * 国际化文案
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_resources")
+  private I18nResource[] i18nResources;
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
+  /**
+   * 审批流程管理员列表，列表内包含的是用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("managers")
+  private String[] managers;
 
-    public String getDescription() {
-        return this.description;
-    }
+  public String getApprovalName() {
+    return this.approvalName;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public void setApprovalName(String approvalName) {
+    this.approvalName = approvalName;
+  }
 
-    public ApprovalCreateExternal getExternal() {
-        return this.external;
-    }
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
 
-    public void setExternal(ApprovalCreateExternal external) {
-        this.external = external;
-    }
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
 
-    public ApprovalCreateViewers[] getViewers() {
-        return this.viewers;
-    }
+  public String getGroupCode() {
+    return this.groupCode;
+  }
 
-    public void setViewers(ApprovalCreateViewers[] viewers) {
-        this.viewers = viewers;
-    }
+  public void setGroupCode(String groupCode) {
+    this.groupCode = groupCode;
+  }
 
-    public I18nResource[] getI18nResources() {
-        return this.i18nResources;
-    }
+  public String getGroupName() {
+    return this.groupName;
+  }
 
-    public void setI18nResources(I18nResource[] i18nResources) {
-        this.i18nResources = i18nResources;
-    }
+  public void setGroupName(String groupName) {
+    this.groupName = groupName;
+  }
 
-    public String[] getManagers() {
-        return this.managers;
-    }
+  public String getDescription() {
+    return this.description;
+  }
 
-    public void setManagers(String[] managers) {
-        this.managers = managers;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
+  public ApprovalCreateExternal getExternal() {
+    return this.external;
+  }
+
+  public void setExternal(ApprovalCreateExternal external) {
+    this.external = external;
+  }
+
+  public ApprovalCreateViewers[] getViewers() {
+    return this.viewers;
+  }
+
+  public void setViewers(ApprovalCreateViewers[] viewers) {
+    this.viewers = viewers;
+  }
+
+  public I18nResource[] getI18nResources() {
+    return this.i18nResources;
+  }
+
+  public void setI18nResources(I18nResource[] i18nResources) {
+    this.i18nResources = i18nResources;
+  }
+
+  public String[] getManagers() {
+    return this.managers;
+  }
+
+  public void setManagers(String[] managers) {
+    this.managers = managers;
+  }
 }

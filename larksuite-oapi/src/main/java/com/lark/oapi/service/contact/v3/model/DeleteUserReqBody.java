@@ -13,371 +13,493 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteUserReqBody {
+  /**
+   * 部门群接收者的用户 ID。被删除用户为部门群群主时，转让群主给指定接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+   * 获取方式可参见[如何获取不同的用户
+   * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+   * 不指定该参数时，如果被删除用户是部门群群主，则群主会默认转让给群内第一个入群的人。
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("department_chat_acceptor_user_id")
+  private String departmentChatAcceptorUserId;
+
+  /**
+   * 外部群接收者的用户 ID。被删除用户为外部群群主时，转让群主给指定接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+   * 获取方式可参见[如何获取不同的用户
+   * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+   * 不指定该参数时，如果被删除用户是外部群群主，则群主会默认转让给群内与被删除用户在同一组织的第一个入群的人。如果组织内只有被删除用户在群里，则解散外部群。
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("external_chat_acceptor_user_id")
+  private String externalChatAcceptorUserId;
+
+  /**
+   * 文档接收者的用户 ID。用户被删除时，其拥有的文档转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+   * 获取方式可参见[如何获取不同的用户
+   * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+   * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则将文档资源保留在该用户名下。;- 文档转让后，只改变文档所有者，其他权限不受影响。
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("docs_acceptor_user_id")
+  private String docsAcceptorUserId;
+
+  /**
+   * 日程接收者的用户 ID。用户被删除时，其拥有的日程转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+   * 获取方式可参见[如何获取不同的用户
+   * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+   * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则直接删除日程资源。
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("calendar_acceptor_user_id")
+  private String calendarAcceptorUserId;
+
+  /**
+   * 应用接收者的用户 ID。用户被删除时，其创建的应用转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+   * 获取方式可参见[如何获取不同的用户
+   * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+   * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则保留应用在该用户名下，但该用户无法登录开发者后台进行应用管理。企业管理员可以在管理后台手动转移应用给其他人。
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("application_acceptor_user_id")
+  private String applicationAcceptorUserId;
+
+  /**
+   * 妙记接收者的用户 ID。用户被删除时，其拥有的妙记资源转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+   * 获取方式可参见[如何获取不同的用户
+   * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+   * 如果不指定接收者，则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则将妙记保留在该用户名下。;- 妙记转让后，只改变妙记所有者，不影响已分享的妙记链接。
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("minutes_acceptor_user_id")
+  private String minutesAcceptorUserId;
+
+  /**
+   * 飞书问卷接收者的用户 ID。用户被删除时，其拥有的飞书问卷资源转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+   * 获取方式可参见[如何获取不同的用户
+   * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+   * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则直接删除飞书问卷资源。
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("survey_acceptor_user_id")
+  private String surveyAcceptorUserId;
+
+  /**
+   * 用户邮件资源的处理方式。;;该参数为可选参数，如果未传值，则默认将邮件资源转让给被删除用户的直属上级。如果被删除用户无直属上级，则保留邮件资源在该用户名下。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("email_acceptor")
+  private ResourceAcceptor emailAcceptor;
+
+  /**
+   * 用户集成平台资源的接收者的用户 ID。;;**注意：**;;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户
+   * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+   * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则保留应用在该用户名下，但该用户无法登录飞书集成平台。企业管理员可以在管理后台手动转移应用给其他人。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("anycross_acceptor_user_id")
+  private String anycrossAcceptorUserId;
+
+  public String getDepartmentChatAcceptorUserId() {
+    return this.departmentChatAcceptorUserId;
+  }
+
+  public void setDepartmentChatAcceptorUserId(String departmentChatAcceptorUserId) {
+    this.departmentChatAcceptorUserId = departmentChatAcceptorUserId;
+  }
+
+  public String getExternalChatAcceptorUserId() {
+    return this.externalChatAcceptorUserId;
+  }
+
+  public void setExternalChatAcceptorUserId(String externalChatAcceptorUserId) {
+    this.externalChatAcceptorUserId = externalChatAcceptorUserId;
+  }
+
+  public String getDocsAcceptorUserId() {
+    return this.docsAcceptorUserId;
+  }
+
+  public void setDocsAcceptorUserId(String docsAcceptorUserId) {
+    this.docsAcceptorUserId = docsAcceptorUserId;
+  }
+
+  public String getCalendarAcceptorUserId() {
+    return this.calendarAcceptorUserId;
+  }
+
+  public void setCalendarAcceptorUserId(String calendarAcceptorUserId) {
+    this.calendarAcceptorUserId = calendarAcceptorUserId;
+  }
+
+  public String getApplicationAcceptorUserId() {
+    return this.applicationAcceptorUserId;
+  }
+
+  public void setApplicationAcceptorUserId(String applicationAcceptorUserId) {
+    this.applicationAcceptorUserId = applicationAcceptorUserId;
+  }
+
+  public String getMinutesAcceptorUserId() {
+    return this.minutesAcceptorUserId;
+  }
+
+  public void setMinutesAcceptorUserId(String minutesAcceptorUserId) {
+    this.minutesAcceptorUserId = minutesAcceptorUserId;
+  }
+
+  public String getSurveyAcceptorUserId() {
+    return this.surveyAcceptorUserId;
+  }
+
+  public void setSurveyAcceptorUserId(String surveyAcceptorUserId) {
+    this.surveyAcceptorUserId = surveyAcceptorUserId;
+  }
+
+  public ResourceAcceptor getEmailAcceptor() {
+    return this.emailAcceptor;
+  }
+
+  public void setEmailAcceptor(ResourceAcceptor emailAcceptor) {
+    this.emailAcceptor = emailAcceptor;
+  }
+
+  public String getAnycrossAcceptorUserId() {
+    return this.anycrossAcceptorUserId;
+  }
+
+  public void setAnycrossAcceptorUserId(String anycrossAcceptorUserId) {
+    this.anycrossAcceptorUserId = anycrossAcceptorUserId;
+  }
+
+  // builder 开始
+  public DeleteUserReqBody() {}
+
+  public DeleteUserReqBody(Builder builder) {
     /**
-     * 部门群接收者。被删除用户为部门群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内第一个入群的人
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     * 部门群接收者的用户 ID。被删除用户为部门群群主时，转让群主给指定接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定该参数时，如果被删除用户是部门群群主，则群主会默认转让给群内第一个入群的人。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("department_chat_acceptor_user_id")
+    this.departmentChatAcceptorUserId = builder.departmentChatAcceptorUserId;
+    /**
+     * 外部群接收者的用户 ID。被删除用户为外部群群主时，转让群主给指定接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定该参数时，如果被删除用户是外部群群主，则群主会默认转让给群内与被删除用户在同一组织的第一个入群的人。如果组织内只有被删除用户在群里，则解散外部群。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    this.externalChatAcceptorUserId = builder.externalChatAcceptorUserId;
+    /**
+     * 文档接收者的用户 ID。用户被删除时，其拥有的文档转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则将文档资源保留在该用户名下。;- 文档转让后，只改变文档所有者，其他权限不受影响。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    this.docsAcceptorUserId = builder.docsAcceptorUserId;
+    /**
+     * 日程接收者的用户 ID。用户被删除时，其拥有的日程转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则直接删除日程资源。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    this.calendarAcceptorUserId = builder.calendarAcceptorUserId;
+    /**
+     * 应用接收者的用户 ID。用户被删除时，其创建的应用转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则保留应用在该用户名下，但该用户无法登录开发者后台进行应用管理。企业管理员可以在管理后台手动转移应用给其他人。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    this.applicationAcceptorUserId = builder.applicationAcceptorUserId;
+    /**
+     * 妙记接收者的用户 ID。用户被删除时，其拥有的妙记资源转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 如果不指定接收者，则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则将妙记保留在该用户名下。;- 妙记转让后，只改变妙记所有者，不影响已分享的妙记链接。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    this.minutesAcceptorUserId = builder.minutesAcceptorUserId;
+    /**
+     * 飞书问卷接收者的用户 ID。用户被删除时，其拥有的飞书问卷资源转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则直接删除飞书问卷资源。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    this.surveyAcceptorUserId = builder.surveyAcceptorUserId;
+    /**
+     * 用户邮件资源的处理方式。;;该参数为可选参数，如果未传值，则默认将邮件资源转让给被删除用户的直属上级。如果被删除用户无直属上级，则保留邮件资源在该用户名下。
+     *
+     * <p>示例值：
+     */
+    this.emailAcceptor = builder.emailAcceptor;
+    /**
+     * 用户集成平台资源的接收者的用户 ID。;;**注意：**;;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则保留应用在该用户名下，但该用户无法登录飞书集成平台。企业管理员可以在管理后台手动转移应用给其他人。
+     *
+     * <p>示例值：
+     */
+    this.anycrossAcceptorUserId = builder.anycrossAcceptorUserId;
+  }
+
+  public static class Builder {
+    /**
+     * 部门群接收者的用户 ID。被删除用户为部门群群主时，转让群主给指定接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定该参数时，如果被删除用户是部门群群主，则群主会默认转让给群内第一个入群的人。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
     private String departmentChatAcceptorUserId;
+
     /**
-     * 外部群接收者。被删除用户为外部群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内与被删除用户在同一组织的第一个入群的人，如果组织内只有该用户在群里，则解散外部群
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     * 外部群接收者的用户 ID。被删除用户为外部群群主时，转让群主给指定接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定该参数时，如果被删除用户是外部群群主，则群主会默认转让给群内与被删除用户在同一组织的第一个入群的人。如果组织内只有被删除用户在群里，则解散外部群。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("external_chat_acceptor_user_id")
     private String externalChatAcceptorUserId;
+
     /**
-     * 文档接收者。用户被删除时，其拥有的文档转让给接收者。不指定接收者则默认转让给直属上级，如果无直属上级则将文档资源保留在该用户名下。
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     * 文档接收者的用户 ID。用户被删除时，其拥有的文档转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则将文档资源保留在该用户名下。;- 文档转让后，只改变文档所有者，其他权限不受影响。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("docs_acceptor_user_id")
     private String docsAcceptorUserId;
+
     /**
-     * 日程接收者。用户被删除时，其拥有的日程转让给接收者，不指定接收者则默认转让给直属上级，如果无直属上级则直接删除日程资源。
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     * 日程接收者的用户 ID。用户被删除时，其拥有的日程转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则直接删除日程资源。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("calendar_acceptor_user_id")
     private String calendarAcceptorUserId;
+
     /**
-     * 应用接受者。用户被删除时，其创建的应用转让给接收者，不指定接收者则默认转让给直属上级。如果无直属上级则保留应用在该用户名下，但该用户无法登录开发者后台进行应用管理，管理员可以在管理后台手动转移应用给其他人。
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     * 应用接收者的用户 ID。用户被删除时，其创建的应用转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则保留应用在该用户名下，但该用户无法登录开发者后台进行应用管理。企业管理员可以在管理后台手动转移应用给其他人。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("application_acceptor_user_id")
     private String applicationAcceptorUserId;
+
     /**
-     * 妙记接收者。用户被删除时，其拥有的妙记资源转让给接收者。如果不指定接收者，则默认转让给直属上级。如果无直属上级则将妙记保留在该用户名下。
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     * 妙记接收者的用户 ID。用户被删除时，其拥有的妙记资源转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 如果不指定接收者，则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则将妙记保留在该用户名下。;- 妙记转让后，只改变妙记所有者，不影响已分享的妙记链接。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("minutes_acceptor_user_id")
     private String minutesAcceptorUserId;
+
     /**
-     * 飞书问卷接收者。用户被删除时，其拥有的飞书问卷资源转让给接收者，不指定接收者则默认转让给直属上级，如果无直属上级则直接删除飞书问卷资源。
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     * 飞书问卷接收者的用户 ID。用户被删除时，其拥有的飞书问卷资源转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则直接删除飞书问卷资源。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("survey_acceptor_user_id")
     private String surveyAcceptorUserId;
+
     /**
-     * 用户邮件资源处理方式。用户被删除时，根据传递的操作指令对其拥有的邮件资源做对应处理。未传递指令时默认将邮件资源转让给直属上级，如果无直属上级则保留邮件资源在该用户名下。
-     * <p> 示例值：
+     * 用户邮件资源的处理方式。;;该参数为可选参数，如果未传值，则默认将邮件资源转让给被删除用户的直属上级。如果被删除用户无直属上级，则保留邮件资源在该用户名下。
+     *
+     * <p>示例值：
      */
-    @SerializedName("email_acceptor")
     private ResourceAcceptor emailAcceptor;
+
     /**
-     * 用户集成平台资源接收者
-     * <p> 示例值：
+     * 用户集成平台资源的接收者的用户 ID。;;**注意：**;;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则保留应用在该用户名下，但该用户无法登录飞书集成平台。企业管理员可以在管理后台手动转移应用给其他人。
+     *
+     * <p>示例值：
      */
-    @SerializedName("anycross_acceptor_user_id")
     private String anycrossAcceptorUserId;
 
-    // builder 开始
-    public DeleteUserReqBody() {
+    /**
+     * 部门群接收者的用户 ID。被删除用户为部门群群主时，转让群主给指定接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定该参数时，如果被删除用户是部门群群主，则群主会默认转让给群内第一个入群的人。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param departmentChatAcceptorUserId
+     * @return
+     */
+    public Builder departmentChatAcceptorUserId(String departmentChatAcceptorUserId) {
+      this.departmentChatAcceptorUserId = departmentChatAcceptorUserId;
+      return this;
     }
 
-    public DeleteUserReqBody(Builder builder) {
-        /**
-         * 部门群接收者。被删除用户为部门群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内第一个入群的人
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.departmentChatAcceptorUserId = builder.departmentChatAcceptorUserId;
-        /**
-         * 外部群接收者。被删除用户为外部群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内与被删除用户在同一组织的第一个入群的人，如果组织内只有该用户在群里，则解散外部群
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.externalChatAcceptorUserId = builder.externalChatAcceptorUserId;
-        /**
-         * 文档接收者。用户被删除时，其拥有的文档转让给接收者。不指定接收者则默认转让给直属上级，如果无直属上级则将文档资源保留在该用户名下。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.docsAcceptorUserId = builder.docsAcceptorUserId;
-        /**
-         * 日程接收者。用户被删除时，其拥有的日程转让给接收者，不指定接收者则默认转让给直属上级，如果无直属上级则直接删除日程资源。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.calendarAcceptorUserId = builder.calendarAcceptorUserId;
-        /**
-         * 应用接受者。用户被删除时，其创建的应用转让给接收者，不指定接收者则默认转让给直属上级。如果无直属上级则保留应用在该用户名下，但该用户无法登录开发者后台进行应用管理，管理员可以在管理后台手动转移应用给其他人。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.applicationAcceptorUserId = builder.applicationAcceptorUserId;
-        /**
-         * 妙记接收者。用户被删除时，其拥有的妙记资源转让给接收者。如果不指定接收者，则默认转让给直属上级。如果无直属上级则将妙记保留在该用户名下。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.minutesAcceptorUserId = builder.minutesAcceptorUserId;
-        /**
-         * 飞书问卷接收者。用户被删除时，其拥有的飞书问卷资源转让给接收者，不指定接收者则默认转让给直属上级，如果无直属上级则直接删除飞书问卷资源。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.surveyAcceptorUserId = builder.surveyAcceptorUserId;
-        /**
-         * 用户邮件资源处理方式。用户被删除时，根据传递的操作指令对其拥有的邮件资源做对应处理。未传递指令时默认将邮件资源转让给直属上级，如果无直属上级则保留邮件资源在该用户名下。
-         * <p> 示例值：
-         */
-        this.emailAcceptor = builder.emailAcceptor;
-        /**
-         * 用户集成平台资源接收者
-         * <p> 示例值：
-         */
-        this.anycrossAcceptorUserId = builder.anycrossAcceptorUserId;
+    /**
+     * 外部群接收者的用户 ID。被删除用户为外部群群主时，转让群主给指定接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定该参数时，如果被删除用户是外部群群主，则群主会默认转让给群内与被删除用户在同一组织的第一个入群的人。如果组织内只有被删除用户在群里，则解散外部群。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param externalChatAcceptorUserId
+     * @return
+     */
+    public Builder externalChatAcceptorUserId(String externalChatAcceptorUserId) {
+      this.externalChatAcceptorUserId = externalChatAcceptorUserId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文档接收者的用户 ID。用户被删除时，其拥有的文档转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则将文档资源保留在该用户名下。;- 文档转让后，只改变文档所有者，其他权限不受影响。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param docsAcceptorUserId
+     * @return
+     */
+    public Builder docsAcceptorUserId(String docsAcceptorUserId) {
+      this.docsAcceptorUserId = docsAcceptorUserId;
+      return this;
     }
 
-    public String getDepartmentChatAcceptorUserId() {
-        return this.departmentChatAcceptorUserId;
+    /**
+     * 日程接收者的用户 ID。用户被删除时，其拥有的日程转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则直接删除日程资源。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param calendarAcceptorUserId
+     * @return
+     */
+    public Builder calendarAcceptorUserId(String calendarAcceptorUserId) {
+      this.calendarAcceptorUserId = calendarAcceptorUserId;
+      return this;
     }
 
-    public void setDepartmentChatAcceptorUserId(String departmentChatAcceptorUserId) {
-        this.departmentChatAcceptorUserId = departmentChatAcceptorUserId;
+    /**
+     * 应用接收者的用户 ID。用户被删除时，其创建的应用转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则保留应用在该用户名下，但该用户无法登录开发者后台进行应用管理。企业管理员可以在管理后台手动转移应用给其他人。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param applicationAcceptorUserId
+     * @return
+     */
+    public Builder applicationAcceptorUserId(String applicationAcceptorUserId) {
+      this.applicationAcceptorUserId = applicationAcceptorUserId;
+      return this;
     }
 
-    public String getExternalChatAcceptorUserId() {
-        return this.externalChatAcceptorUserId;
+    /**
+     * 妙记接收者的用户 ID。用户被删除时，其拥有的妙记资源转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 如果不指定接收者，则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则将妙记保留在该用户名下。;- 妙记转让后，只改变妙记所有者，不影响已分享的妙记链接。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param minutesAcceptorUserId
+     * @return
+     */
+    public Builder minutesAcceptorUserId(String minutesAcceptorUserId) {
+      this.minutesAcceptorUserId = minutesAcceptorUserId;
+      return this;
     }
 
-    public void setExternalChatAcceptorUserId(String externalChatAcceptorUserId) {
-        this.externalChatAcceptorUserId = externalChatAcceptorUserId;
+    /**
+     * 飞书问卷接收者的用户 ID。用户被删除时，其拥有的飞书问卷资源转让给接收者。;;**注意**：;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID
+     * 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则直接删除飞书问卷资源。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param surveyAcceptorUserId
+     * @return
+     */
+    public Builder surveyAcceptorUserId(String surveyAcceptorUserId) {
+      this.surveyAcceptorUserId = surveyAcceptorUserId;
+      return this;
     }
 
-    public String getDocsAcceptorUserId() {
-        return this.docsAcceptorUserId;
+    /**
+     * 用户邮件资源的处理方式。;;该参数为可选参数，如果未传值，则默认将邮件资源转让给被删除用户的直属上级。如果被删除用户无直属上级，则保留邮件资源在该用户名下。
+     *
+     * <p>示例值：
+     *
+     * @param emailAcceptor
+     * @return
+     */
+    public Builder emailAcceptor(ResourceAcceptor emailAcceptor) {
+      this.emailAcceptor = emailAcceptor;
+      return this;
     }
 
-    public void setDocsAcceptorUserId(String docsAcceptorUserId) {
-        this.docsAcceptorUserId = docsAcceptorUserId;
+    /**
+     * 用户集成平台资源的接收者的用户 ID。;;**注意：**;;- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;-
+     * 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则保留应用在该用户名下，但该用户无法登录飞书集成平台。企业管理员可以在管理后台手动转移应用给其他人。
+     *
+     * <p>示例值：
+     *
+     * @param anycrossAcceptorUserId
+     * @return
+     */
+    public Builder anycrossAcceptorUserId(String anycrossAcceptorUserId) {
+      this.anycrossAcceptorUserId = anycrossAcceptorUserId;
+      return this;
     }
 
-    public String getCalendarAcceptorUserId() {
-        return this.calendarAcceptorUserId;
+    public DeleteUserReqBody build() {
+      return new DeleteUserReqBody(this);
     }
+  }
 
-    public void setCalendarAcceptorUserId(String calendarAcceptorUserId) {
-        this.calendarAcceptorUserId = calendarAcceptorUserId;
-    }
-
-    public String getApplicationAcceptorUserId() {
-        return this.applicationAcceptorUserId;
-    }
-
-    public void setApplicationAcceptorUserId(String applicationAcceptorUserId) {
-        this.applicationAcceptorUserId = applicationAcceptorUserId;
-    }
-
-    public String getMinutesAcceptorUserId() {
-        return this.minutesAcceptorUserId;
-    }
-
-    public void setMinutesAcceptorUserId(String minutesAcceptorUserId) {
-        this.minutesAcceptorUserId = minutesAcceptorUserId;
-    }
-
-    public String getSurveyAcceptorUserId() {
-        return this.surveyAcceptorUserId;
-    }
-
-    public void setSurveyAcceptorUserId(String surveyAcceptorUserId) {
-        this.surveyAcceptorUserId = surveyAcceptorUserId;
-    }
-
-    public ResourceAcceptor getEmailAcceptor() {
-        return this.emailAcceptor;
-    }
-
-    public void setEmailAcceptor(ResourceAcceptor emailAcceptor) {
-        this.emailAcceptor = emailAcceptor;
-    }
-
-    public String getAnycrossAcceptorUserId() {
-        return this.anycrossAcceptorUserId;
-    }
-
-    public void setAnycrossAcceptorUserId(String anycrossAcceptorUserId) {
-        this.anycrossAcceptorUserId = anycrossAcceptorUserId;
-    }
-
-    public static class Builder {
-        /**
-         * 部门群接收者。被删除用户为部门群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内第一个入群的人
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String departmentChatAcceptorUserId;
-        /**
-         * 外部群接收者。被删除用户为外部群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内与被删除用户在同一组织的第一个入群的人，如果组织内只有该用户在群里，则解散外部群
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String externalChatAcceptorUserId;
-        /**
-         * 文档接收者。用户被删除时，其拥有的文档转让给接收者。不指定接收者则默认转让给直属上级，如果无直属上级则将文档资源保留在该用户名下。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String docsAcceptorUserId;
-        /**
-         * 日程接收者。用户被删除时，其拥有的日程转让给接收者，不指定接收者则默认转让给直属上级，如果无直属上级则直接删除日程资源。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String calendarAcceptorUserId;
-        /**
-         * 应用接受者。用户被删除时，其创建的应用转让给接收者，不指定接收者则默认转让给直属上级。如果无直属上级则保留应用在该用户名下，但该用户无法登录开发者后台进行应用管理，管理员可以在管理后台手动转移应用给其他人。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String applicationAcceptorUserId;
-        /**
-         * 妙记接收者。用户被删除时，其拥有的妙记资源转让给接收者。如果不指定接收者，则默认转让给直属上级。如果无直属上级则将妙记保留在该用户名下。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String minutesAcceptorUserId;
-        /**
-         * 飞书问卷接收者。用户被删除时，其拥有的飞书问卷资源转让给接收者，不指定接收者则默认转让给直属上级，如果无直属上级则直接删除飞书问卷资源。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String surveyAcceptorUserId;
-        /**
-         * 用户邮件资源处理方式。用户被删除时，根据传递的操作指令对其拥有的邮件资源做对应处理。未传递指令时默认将邮件资源转让给直属上级，如果无直属上级则保留邮件资源在该用户名下。
-         * <p> 示例值：
-         */
-        private ResourceAcceptor emailAcceptor;
-        /**
-         * 用户集成平台资源接收者
-         * <p> 示例值：
-         */
-        private String anycrossAcceptorUserId;
-
-        /**
-         * 部门群接收者。被删除用户为部门群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内第一个入群的人
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param departmentChatAcceptorUserId
-         * @return
-         */
-        public Builder departmentChatAcceptorUserId(String departmentChatAcceptorUserId) {
-            this.departmentChatAcceptorUserId = departmentChatAcceptorUserId;
-            return this;
-        }
-
-
-        /**
-         * 外部群接收者。被删除用户为外部群群主时，转让群主给指定接收者，不指定接收者则默认转让给群内与被删除用户在同一组织的第一个入群的人，如果组织内只有该用户在群里，则解散外部群
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param externalChatAcceptorUserId
-         * @return
-         */
-        public Builder externalChatAcceptorUserId(String externalChatAcceptorUserId) {
-            this.externalChatAcceptorUserId = externalChatAcceptorUserId;
-            return this;
-        }
-
-
-        /**
-         * 文档接收者。用户被删除时，其拥有的文档转让给接收者。不指定接收者则默认转让给直属上级，如果无直属上级则将文档资源保留在该用户名下。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param docsAcceptorUserId
-         * @return
-         */
-        public Builder docsAcceptorUserId(String docsAcceptorUserId) {
-            this.docsAcceptorUserId = docsAcceptorUserId;
-            return this;
-        }
-
-
-        /**
-         * 日程接收者。用户被删除时，其拥有的日程转让给接收者，不指定接收者则默认转让给直属上级，如果无直属上级则直接删除日程资源。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param calendarAcceptorUserId
-         * @return
-         */
-        public Builder calendarAcceptorUserId(String calendarAcceptorUserId) {
-            this.calendarAcceptorUserId = calendarAcceptorUserId;
-            return this;
-        }
-
-
-        /**
-         * 应用接受者。用户被删除时，其创建的应用转让给接收者，不指定接收者则默认转让给直属上级。如果无直属上级则保留应用在该用户名下，但该用户无法登录开发者后台进行应用管理，管理员可以在管理后台手动转移应用给其他人。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param applicationAcceptorUserId
-         * @return
-         */
-        public Builder applicationAcceptorUserId(String applicationAcceptorUserId) {
-            this.applicationAcceptorUserId = applicationAcceptorUserId;
-            return this;
-        }
-
-
-        /**
-         * 妙记接收者。用户被删除时，其拥有的妙记资源转让给接收者。如果不指定接收者，则默认转让给直属上级。如果无直属上级则将妙记保留在该用户名下。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param minutesAcceptorUserId
-         * @return
-         */
-        public Builder minutesAcceptorUserId(String minutesAcceptorUserId) {
-            this.minutesAcceptorUserId = minutesAcceptorUserId;
-            return this;
-        }
-
-
-        /**
-         * 飞书问卷接收者。用户被删除时，其拥有的飞书问卷资源转让给接收者，不指定接收者则默认转让给直属上级，如果无直属上级则直接删除飞书问卷资源。
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param surveyAcceptorUserId
-         * @return
-         */
-        public Builder surveyAcceptorUserId(String surveyAcceptorUserId) {
-            this.surveyAcceptorUserId = surveyAcceptorUserId;
-            return this;
-        }
-
-
-        /**
-         * 用户邮件资源处理方式。用户被删除时，根据传递的操作指令对其拥有的邮件资源做对应处理。未传递指令时默认将邮件资源转让给直属上级，如果无直属上级则保留邮件资源在该用户名下。
-         * <p> 示例值：
-         *
-         * @param emailAcceptor
-         * @return
-         */
-        public Builder emailAcceptor(ResourceAcceptor emailAcceptor) {
-            this.emailAcceptor = emailAcceptor;
-            return this;
-        }
-
-
-        /**
-         * 用户集成平台资源接收者
-         * <p> 示例值：
-         *
-         * @param anycrossAcceptorUserId
-         * @return
-         */
-        public Builder anycrossAcceptorUserId(String anycrossAcceptorUserId) {
-            this.anycrossAcceptorUserId = anycrossAcceptorUserId;
-            return this;
-        }
-
-
-        public DeleteUserReqBody build() {
-            return new DeleteUserReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

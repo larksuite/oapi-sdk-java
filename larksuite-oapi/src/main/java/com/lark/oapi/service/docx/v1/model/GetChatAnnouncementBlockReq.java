@@ -13,183 +13,222 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.docx.v1.enums.*;
 
 public class GetChatAnnouncementBlockReq {
+  /**
+   * 查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限。
+   *
+   * <p>示例值：-1
+   */
+  @Query
+  @SerializedName("revision_id")
+  private Integer revisionId;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public Integer getRevisionId() {
+    return this.revisionId;
+  }
+
+  public void setRevisionId(Integer revisionId) {
+    this.revisionId = revisionId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 群 ID。获取方式：;;-
+   * [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的
+   * chat_id。;-
+   * 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的
+   * chat_id。;-
+   * 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的
+   * chat_id。;;**注意**：单聊（群类型为 `p2p`）不支持获取群公告。
+   *
+   * <p>示例值：oc_5ad11d72b830411d72b836c20
+   */
+  @Path
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * Block
+   * 的唯一标识。你可通过调用[获取群公告所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement-block/list)接口获取块的
+   * block_id。
+   *
+   * <p>示例值：doxcnO6UW6wAw2qIcYf4hZabcef
+   */
+  @Path
+  @SerializedName("block_id")
+  private String blockId;
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public String getBlockId() {
+    return this.blockId;
+  }
+
+  public void setBlockId(String blockId) {
+    this.blockId = blockId;
+  }
+
+  // builder 开始
+  public GetChatAnnouncementBlockReq() {}
+
+  public GetChatAnnouncementBlockReq(Builder builder) {
     /**
-     * 查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限
-     * <p> 示例值：-1
+     * 查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为
+     * 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限。
+     *
+     * <p>示例值：-1
      */
-    @Query
-    @SerializedName("revision_id")
-    private Integer revisionId;
+    this.revisionId = builder.revisionId;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 群公告对应的群 ID
-     * <p> 示例值：oc_5ad11d72b830411d72b836c20
+     * 群 ID。获取方式：;;-
+     * [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的
+     * chat_id。;-
+     * 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的
+     * chat_id。;-
+     * 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的
+     * chat_id。;;**注意**：单聊（群类型为 `p2p`）不支持获取群公告。
+     *
+     * <p>示例值：oc_5ad11d72b830411d72b836c20
      */
-    @Path
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
-     * Block 的唯一标识
-     * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZabcef
+     * Block
+     * 的唯一标识。你可通过调用[获取群公告所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement-block/list)接口获取块的
+     * block_id。
+     *
+     * <p>示例值：doxcnO6UW6wAw2qIcYf4hZabcef
      */
-    @Path
-    @SerializedName("block_id")
-    private String blockId;
+    this.blockId = builder.blockId;
+  }
 
-    // builder 开始
-    public GetChatAnnouncementBlockReq() {
+  public static class Builder {
+    private Integer revisionId; // 查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为
+    // 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限。
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为
+     * 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限。
+     *
+     * <p>示例值：-1
+     *
+     * @param revisionId
+     * @return
+     */
+    public Builder revisionId(Integer revisionId) {
+      this.revisionId = revisionId;
+      return this;
     }
 
-    public GetChatAnnouncementBlockReq(Builder builder) {
-        /**
-         * 查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限
-         * <p> 示例值：-1
-         */
-        this.revisionId = builder.revisionId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 群公告对应的群 ID
-         * <p> 示例值：oc_5ad11d72b830411d72b836c20
-         */
-        this.chatId = builder.chatId;
-        /**
-         * Block 的唯一标识
-         * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZabcef
-         */
-        this.blockId = builder.blockId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.docx.v1.enums.GetChatAnnouncementBlockOpenAPIGetChatAnnouncementBlockUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.docx.v1.enums
+                .GetChatAnnouncementBlockOpenAPIGetChatAnnouncementBlockUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public Integer getRevisionId() {
-        return this.revisionId;
+    private String chatId; // 群 ID。获取方式：;;-
+    // [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。;- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。;- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。;;**注意**：单聊（群类型为 `p2p`）不支持获取群公告。
+    private String blockId; // Block
+
+    // 的唯一标识。你可通过调用[获取群公告所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement-block/list)接口获取块的 block_id。
+
+    /**
+     * 群 ID。获取方式：;;-
+     * [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的
+     * chat_id。;-
+     * 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的
+     * chat_id。;-
+     * 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的
+     * chat_id。;;**注意**：单聊（群类型为 `p2p`）不支持获取群公告。
+     *
+     * <p>示例值：oc_5ad11d72b830411d72b836c20
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public void setRevisionId(Integer revisionId) {
-        this.revisionId = revisionId;
+    /**
+     * Block
+     * 的唯一标识。你可通过调用[获取群公告所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/chat-announcement-block/list)接口获取块的
+     * block_id。
+     *
+     * <p>示例值：doxcnO6UW6wAw2qIcYf4hZabcef
+     *
+     * @param blockId
+     * @return
+     */
+    public Builder blockId(String blockId) {
+      this.blockId = blockId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public GetChatAnnouncementBlockReq build() {
+      return new GetChatAnnouncementBlockReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public String getBlockId() {
-        return this.blockId;
-    }
-
-    public void setBlockId(String blockId) {
-        this.blockId = blockId;
-    }
-
-    public static class Builder {
-        private Integer revisionId; // 查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String chatId; // 群公告对应的群 ID
-        private String blockId; // Block 的唯一标识
-
-        /**
-         * 查询的群公告版本，-1 表示群公告最新版本。群公告创建后，版本为 1。若查询的版本为群公告最新版本，则需要持有群公告的阅读权限；若查询的版本为群公告的历史版本，则需要持有群公告的更新权限
-         * <p> 示例值：-1
-         *
-         * @param revisionId
-         * @return
-         */
-        public Builder revisionId(Integer revisionId) {
-            this.revisionId = revisionId;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.docx.v1.enums.GetChatAnnouncementBlockUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.docx.v1.enums.GetChatAnnouncementBlockUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 群公告对应的群 ID
-         * <p> 示例值：oc_5ad11d72b830411d72b836c20
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * Block 的唯一标识
-         * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZabcef
-         *
-         * @param blockId
-         * @return
-         */
-        public Builder blockId(String blockId) {
-            this.blockId = blockId;
-            return this;
-        }
-
-
-        public GetChatAnnouncementBlockReq build() {
-            return new GetChatAnnouncementBlockReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateAppOptions {
+  /**
+   * appUser 指定geo/unit 不传则使用tenantGeo
+   *
+   * <p>示例值：cn
+   */
+  @SerializedName("geo_name")
+  private String geoName;
+
+  public String getGeoName() {
+    return this.geoName;
+  }
+
+  public void setGeoName(String geoName) {
+    this.geoName = geoName;
+  }
+
+  // builder 开始
+  public CreateAppOptions() {}
+
+  public CreateAppOptions(Builder builder) {
     /**
      * appUser 指定geo/unit 不传则使用tenantGeo
-     * <p> 示例值：cn
+     *
+     * <p>示例值：cn
      */
-    @SerializedName("geo_name")
+    this.geoName = builder.geoName;
+  }
+
+  public static class Builder {
+    /**
+     * appUser 指定geo/unit 不传则使用tenantGeo
+     *
+     * <p>示例值：cn
+     */
     private String geoName;
 
-    // builder 开始
-    public CreateAppOptions() {
+    /**
+     * appUser 指定geo/unit 不传则使用tenantGeo
+     *
+     * <p>示例值：cn
+     *
+     * @param geoName
+     * @return
+     */
+    public Builder geoName(String geoName) {
+      this.geoName = geoName;
+      return this;
     }
 
-    public CreateAppOptions(Builder builder) {
-        /**
-         * appUser 指定geo/unit 不传则使用tenantGeo
-         * <p> 示例值：cn
-         */
-        this.geoName = builder.geoName;
+    public CreateAppOptions build() {
+      return new CreateAppOptions(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getGeoName() {
-        return this.geoName;
-    }
-
-    public void setGeoName(String geoName) {
-        this.geoName = geoName;
-    }
-
-    public static class Builder {
-        /**
-         * appUser 指定geo/unit 不传则使用tenantGeo
-         * <p> 示例值：cn
-         */
-        private String geoName;
-
-        /**
-         * appUser 指定geo/unit 不传则使用tenantGeo
-         * <p> 示例值：cn
-         *
-         * @param geoName
-         * @return
-         */
-        public Builder geoName(String geoName) {
-            this.geoName = geoName;
-            return this;
-        }
-
-
-        public CreateAppOptions build() {
-            return new CreateAppOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

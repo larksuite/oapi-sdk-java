@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.performance.v1.enums;
 
-/**
- * 环节任务状态
- */
+/** 环节任务状态 */
 public enum StageTaskInfoStageTaskStatusEnum {
-    NEED_TODO("need_todo"), // 有未完成且未逾期的任务
-    OVERDUE("overdue"), // 未完成的任务全部已逾期
-    ALL_DONE("all_done"), // 全部任务均已完成
-    STAGE_PAUSE("stage_pause"), // 环节暂停
-    ;
-    private String value;
+  NEED_TODO("need_todo"), // 还有待完成的任务
+  OVERDUE("overdue"), // 剩余未完成的任务均已逾期
+  ALL_DONE("all_done"), // 全部任务均已完成
+  STAGE_PAUSE("stage_pause"), // 环节被暂停
+  ;
+  private String value;
 
-    StageTaskInfoStageTaskStatusEnum(String value) {
-        this.value = value;
-    }
+  StageTaskInfoStageTaskStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

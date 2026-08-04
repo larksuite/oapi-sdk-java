@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ObjectFieldData {
+  /**
+   * 字段名
+   *
+   * <p>示例值：custom_field_1__c
+   */
+  @SerializedName("field_name")
+  private String fieldName;
+
+  /**
+   * 字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])
+   *
+   * <p>示例值：Sandy
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getFieldName() {
+    return this.fieldName;
+  }
+
+  public void setFieldName(String fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public ObjectFieldData() {}
+
+  public ObjectFieldData(Builder builder) {
     /**
      * 字段名
-     * <p> 示例值：name
+     *
+     * <p>示例值：custom_field_1__c
      */
-    @SerializedName("field_name")
-    private String fieldName;
+    this.fieldName = builder.fieldName;
     /**
      * 字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])
-     * <p> 示例值：Sandy
+     *
+     * <p>示例值：Sandy
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 字段名
+     *
+     * <p>示例值：custom_field_1__c
+     */
+    private String fieldName;
+
+    /**
+     * 字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])
+     *
+     * <p>示例值：Sandy
+     */
     private String value;
 
-    // builder 开始
-    public ObjectFieldData() {
+    /**
+     * 字段名
+     *
+     * <p>示例值：custom_field_1__c
+     *
+     * @param fieldName
+     * @return
+     */
+    public Builder fieldName(String fieldName) {
+      this.fieldName = fieldName;
+      return this;
     }
 
-    public ObjectFieldData(Builder builder) {
-        /**
-         * 字段名
-         * <p> 示例值：name
-         */
-        this.fieldName = builder.fieldName;
-        /**
-         * 字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])
-         * <p> 示例值：Sandy
-         */
-        this.value = builder.value;
+    /**
+     * 字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])
+     *
+     * <p>示例值：Sandy
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ObjectFieldData build() {
+      return new ObjectFieldData(this);
     }
+  }
 
-    public String getFieldName() {
-        return this.fieldName;
-    }
-
-    public void setFieldName(String fieldName) {
-        this.fieldName = fieldName;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 字段名
-         * <p> 示例值：name
-         */
-        private String fieldName;
-        /**
-         * 字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])
-         * <p> 示例值：Sandy
-         */
-        private String value;
-
-        /**
-         * 字段名
-         * <p> 示例值：name
-         *
-         * @param fieldName
-         * @return
-         */
-        public Builder fieldName(String fieldName) {
-            this.fieldName = fieldName;
-            return this;
-        }
-
-
-        /**
-         * 字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])
-         * <p> 示例值：Sandy
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public ObjectFieldData build() {
-            return new ObjectFieldData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

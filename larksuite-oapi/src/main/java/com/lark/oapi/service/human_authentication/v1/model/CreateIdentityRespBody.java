@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.human_authentication.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateIdentityRespBody {
-    /**
-     * 用户绑定实名身份的uid
-     * <p> 示例值：ou_2eb5483cb377daa5054bc6f86e2089a5
-     */
-    @SerializedName("verify_uid")
-    private String verifyUid;
+  /**
+   * 用户绑定实名身份的uid
+   *
+   * <p>示例值：ou_2eb5483cb377daa5054bc6f86e2089a5
+   */
+  @SerializedName("verify_uid")
+  private String verifyUid;
 
-    public String getVerifyUid() {
-        return this.verifyUid;
-    }
+  public String getVerifyUid() {
+    return this.verifyUid;
+  }
 
-    public void setVerifyUid(String verifyUid) {
-        this.verifyUid = verifyUid;
-    }
-
+  public void setVerifyUid(String verifyUid) {
+    this.verifyUid = verifyUid;
+  }
 }

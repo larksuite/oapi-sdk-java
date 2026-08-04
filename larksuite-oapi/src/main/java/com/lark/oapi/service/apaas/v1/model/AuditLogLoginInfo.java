@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AuditLogLoginInfo {
+  /**
+   * 登录类型：;- 11001: 飞书登录;- 11003: 账号密码登录
+   *
+   * <p>示例值：11001
+   */
+  @SerializedName("login_type")
+  private String loginType;
+
+  public String getLoginType() {
+    return this.loginType;
+  }
+
+  public void setLoginType(String loginType) {
+    this.loginType = loginType;
+  }
+
+  // builder 开始
+  public AuditLogLoginInfo() {}
+
+  public AuditLogLoginInfo(Builder builder) {
     /**
-     * 登录类型：11001-飞书登录；11003-账号密码登录
-     * <p> 示例值：11001
+     * 登录类型：;- 11001: 飞书登录;- 11003: 账号密码登录
+     *
+     * <p>示例值：11001
      */
-    @SerializedName("login_type")
+    this.loginType = builder.loginType;
+  }
+
+  public static class Builder {
+    /**
+     * 登录类型：;- 11001: 飞书登录;- 11003: 账号密码登录
+     *
+     * <p>示例值：11001
+     */
     private String loginType;
 
-    // builder 开始
-    public AuditLogLoginInfo() {
+    /**
+     * 登录类型：;- 11001: 飞书登录;- 11003: 账号密码登录
+     *
+     * <p>示例值：11001
+     *
+     * @param loginType
+     * @return
+     */
+    public Builder loginType(String loginType) {
+      this.loginType = loginType;
+      return this;
     }
 
-    public AuditLogLoginInfo(Builder builder) {
-        /**
-         * 登录类型：11001-飞书登录；11003-账号密码登录
-         * <p> 示例值：11001
-         */
-        this.loginType = builder.loginType;
+    public AuditLogLoginInfo build() {
+      return new AuditLogLoginInfo(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getLoginType() {
-        return this.loginType;
-    }
-
-    public void setLoginType(String loginType) {
-        this.loginType = loginType;
-    }
-
-    public static class Builder {
-        /**
-         * 登录类型：11001-飞书登录；11003-账号密码登录
-         * <p> 示例值：11001
-         */
-        private String loginType;
-
-        /**
-         * 登录类型：11001-飞书登录；11003-账号密码登录
-         * <p> 示例值：11001
-         *
-         * @param loginType
-         * @return
-         */
-        public Builder loginType(String loginType) {
-            this.loginType = loginType;
-            return this;
-        }
-
-
-        public AuditLogLoginInfo build() {
-            return new AuditLogLoginInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

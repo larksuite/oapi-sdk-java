@@ -13,161 +13,163 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VatEntity {
+  /**
+   * 识别的实体类型
+   *
+   * <p>示例值：buyer_name
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 识别出字段的文本信息
+   *
+   * <p>示例值：发呆公司
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 识别出的票据详细信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private KvEntity[][] items;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public KvEntity[][] getItems() {
+    return this.items;
+  }
+
+  public void setItems(KvEntity[][] items) {
+    this.items = items;
+  }
+
+  // builder 开始
+  public VatEntity() {}
+
+  public VatEntity(Builder builder) {
     /**
      * 识别的实体类型
-     * <p> 示例值：buyer_name
+     *
+     * <p>示例值：buyer_name
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 识别出字段的文本信息
-     * <p> 示例值：发呆公司
+     *
+     * <p>示例值：发呆公司
      */
-    @SerializedName("value")
-    private String value;
+    this.value = builder.value;
     /**
      * 识别出的票据详细信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("items")
+    this.items = builder.items;
+  }
+
+  public static class Builder {
+    /**
+     * 识别的实体类型
+     *
+     * <p>示例值：buyer_name
+     */
+    private String type;
+
+    /**
+     * 识别出字段的文本信息
+     *
+     * <p>示例值：发呆公司
+     */
+    private String value;
+
+    /**
+     * 识别出的票据详细信息
+     *
+     * <p>示例值：
+     */
     private KvEntity[][] items;
 
-    // builder 开始
-    public VatEntity() {
+    /**
+     * 识别的实体类型
+     *
+     * <p>示例值：buyer_name
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public VatEntity(Builder builder) {
-        /**
-         * 识别的实体类型
-         * <p> 示例值：buyer_name
-         */
-        this.type = builder.type;
-        /**
-         * 识别出字段的文本信息
-         * <p> 示例值：发呆公司
-         */
-        this.value = builder.value;
-        /**
-         * 识别出的票据详细信息
-         * <p> 示例值：
-         */
-        this.items = builder.items;
+    /**
+     * 识别的实体类型
+     *
+     * <p>示例值：buyer_name
+     *
+     * @param type {@link com.lark.oapi.service.document_ai.v1.enums.VatEntityVatEntityTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.document_ai.v1.enums.VatEntityVatEntityTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 识别出字段的文本信息
+     *
+     * <p>示例值：发呆公司
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 识别出的票据详细信息
+     *
+     * <p>示例值：
+     *
+     * @param items
+     * @return
+     */
+    public Builder items(KvEntity[][] items) {
+      this.items = items;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public VatEntity build() {
+      return new VatEntity(this);
     }
+  }
 
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public KvEntity[][] getItems() {
-        return this.items;
-    }
-
-    public void setItems(KvEntity[][] items) {
-        this.items = items;
-    }
-
-    public static class Builder {
-        /**
-         * 识别的实体类型
-         * <p> 示例值：buyer_name
-         */
-        private String type;
-        /**
-         * 识别出字段的文本信息
-         * <p> 示例值：发呆公司
-         */
-        private String value;
-        /**
-         * 识别出的票据详细信息
-         * <p> 示例值：
-         */
-        private KvEntity[][] items;
-
-        /**
-         * 识别的实体类型
-         * <p> 示例值：buyer_name
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 识别的实体类型
-         * <p> 示例值：buyer_name
-         *
-         * @param type {@link com.lark.oapi.service.document_ai.v1.enums.VatEntityVatEntityTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.document_ai.v1.enums.VatEntityVatEntityTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 识别出字段的文本信息
-         * <p> 示例值：发呆公司
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 识别出的票据详细信息
-         * <p> 示例值：
-         *
-         * @param items
-         * @return
-         */
-        public Builder items(KvEntity[][] items) {
-            this.items = items;
-            return this;
-        }
-
-
-        public VatEntity build() {
-            return new VatEntity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

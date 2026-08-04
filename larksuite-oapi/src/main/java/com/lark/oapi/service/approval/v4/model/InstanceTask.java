@@ -13,432 +13,469 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InstanceTask {
+  /**
+   * 审批任务 ID
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 审批人的 user_id，自动通过、自动拒绝时该参数返回值为空。
+   *
+   * <p>示例值：f7cb567e
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 审批人的 open_id，自动通过、自动拒绝时该参数返回值为空。
+   *
+   * <p>示例值：ou_123457
+   */
+  @SerializedName("open_id")
+  private String openId;
+
+  /**
+   * 审批任务状态
+   *
+   * <p>示例值：PENDING
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 审批任务所属的审批节点 ID
+   *
+   * <p>示例值：46e6d96cfa756980907209209ec03b64
+   */
+  @SerializedName("node_id")
+  private String nodeId;
+
+  /**
+   * 审批任务所属的审批节点名称
+   *
+   * <p>示例值：开始
+   */
+  @SerializedName("node_name")
+  private String nodeName;
+
+  /**
+   * 审批任务所属的审批节点的自定义 ID。如果没设置自定义 ID，则不返回该参数值。
+   *
+   * <p>示例值：manager
+   */
+  @SerializedName("custom_node_id")
+  private String customNodeId;
+
+  /**
+   * 审批方式
+   *
+   * <p>示例值：AND
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 审批任务的开始时间，毫秒级时间戳。
+   *
+   * <p>示例值：1564590532967
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 审批任务的完成时间，毫秒级时间戳。未完成时返回 0。
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getOpenId() {
+    return this.openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getNodeId() {
+    return this.nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
+  public String getNodeName() {
+    return this.nodeName;
+  }
+
+  public void setNodeName(String nodeName) {
+    this.nodeName = nodeName;
+  }
+
+  public String getCustomNodeId() {
+    return this.customNodeId;
+  }
+
+  public void setCustomNodeId(String customNodeId) {
+    this.customNodeId = customNodeId;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  // builder 开始
+  public InstanceTask() {}
+
+  public InstanceTask(Builder builder) {
     /**
-     * task id
-     * <p> 示例值：1234
+     * 审批任务 ID
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 审批人的用户id，自动通过、自动拒绝 时为空
-     * <p> 示例值：f7cb567e
+     * 审批人的 user_id，自动通过、自动拒绝时该参数返回值为空。
+     *
+     * <p>示例值：f7cb567e
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 审批人 open id
-     * <p> 示例值：ou_123457
+     * 审批人的 open_id，自动通过、自动拒绝时该参数返回值为空。
+     *
+     * <p>示例值：ou_123457
      */
-    @SerializedName("open_id")
-    private String openId;
+    this.openId = builder.openId;
     /**
-     * 任务状态
-     * <p> 示例值：PENDING
+     * 审批任务状态
+     *
+     * <p>示例值：PENDING
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
-     * task 所属节点 id
-     * <p> 示例值：46e6d96cfa756980907209209ec03b64
+     * 审批任务所属的审批节点 ID
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
      */
-    @SerializedName("node_id")
-    private String nodeId;
+    this.nodeId = builder.nodeId;
     /**
-     * task 所属节点名称
-     * <p> 示例值：开始
+     * 审批任务所属的审批节点名称
+     *
+     * <p>示例值：开始
      */
-    @SerializedName("node_name")
-    private String nodeName;
+    this.nodeName = builder.nodeName;
     /**
-     * task 所属节点自定义 id, 如果没设置自定义 id, 则不返回该字段
-     * <p> 示例值：manager
+     * 审批任务所属的审批节点的自定义 ID。如果没设置自定义 ID，则不返回该参数值。
+     *
+     * <p>示例值：manager
      */
-    @SerializedName("custom_node_id")
-    private String customNodeId;
+    this.customNodeId = builder.customNodeId;
     /**
      * 审批方式
-     * <p> 示例值：AND
+     *
+     * <p>示例值：AND
      */
-    @SerializedName("type")
+    this.type = builder.type;
+    /**
+     * 审批任务的开始时间，毫秒级时间戳。
+     *
+     * <p>示例值：1564590532967
+     */
+    this.startTime = builder.startTime;
+    /**
+     * 审批任务的完成时间，毫秒级时间戳。未完成时返回 0。
+     *
+     * <p>示例值：0
+     */
+    this.endTime = builder.endTime;
+  }
+
+  public static class Builder {
+    /**
+     * 审批任务 ID
+     *
+     * <p>示例值：1234
+     */
+    private String id;
+
+    /**
+     * 审批人的 user_id，自动通过、自动拒绝时该参数返回值为空。
+     *
+     * <p>示例值：f7cb567e
+     */
+    private String userId;
+
+    /**
+     * 审批人的 open_id，自动通过、自动拒绝时该参数返回值为空。
+     *
+     * <p>示例值：ou_123457
+     */
+    private String openId;
+
+    /**
+     * 审批任务状态
+     *
+     * <p>示例值：PENDING
+     */
+    private String status;
+
+    /**
+     * 审批任务所属的审批节点 ID
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
+     */
+    private String nodeId;
+
+    /**
+     * 审批任务所属的审批节点名称
+     *
+     * <p>示例值：开始
+     */
+    private String nodeName;
+
+    /**
+     * 审批任务所属的审批节点的自定义 ID。如果没设置自定义 ID，则不返回该参数值。
+     *
+     * <p>示例值：manager
+     */
+    private String customNodeId;
+
+    /**
+     * 审批方式
+     *
+     * <p>示例值：AND
+     */
     private String type;
+
     /**
-     * task 开始时间
-     * <p> 示例值：1564590532967
+     * 审批任务的开始时间，毫秒级时间戳。
+     *
+     * <p>示例值：1564590532967
      */
-    @SerializedName("start_time")
     private String startTime;
+
     /**
-     * task 完成时间, 未完成为 0
-     * <p> 示例值：0
+     * 审批任务的完成时间，毫秒级时间戳。未完成时返回 0。
+     *
+     * <p>示例值：0
      */
-    @SerializedName("end_time")
     private String endTime;
 
-    // builder 开始
-    public InstanceTask() {
+    /**
+     * 审批任务 ID
+     *
+     * <p>示例值：1234
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public InstanceTask(Builder builder) {
-        /**
-         * task id
-         * <p> 示例值：1234
-         */
-        this.id = builder.id;
-        /**
-         * 审批人的用户id，自动通过、自动拒绝 时为空
-         * <p> 示例值：f7cb567e
-         */
-        this.userId = builder.userId;
-        /**
-         * 审批人 open id
-         * <p> 示例值：ou_123457
-         */
-        this.openId = builder.openId;
-        /**
-         * 任务状态
-         * <p> 示例值：PENDING
-         */
-        this.status = builder.status;
-        /**
-         * task 所属节点 id
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         */
-        this.nodeId = builder.nodeId;
-        /**
-         * task 所属节点名称
-         * <p> 示例值：开始
-         */
-        this.nodeName = builder.nodeName;
-        /**
-         * task 所属节点自定义 id, 如果没设置自定义 id, 则不返回该字段
-         * <p> 示例值：manager
-         */
-        this.customNodeId = builder.customNodeId;
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         */
-        this.type = builder.type;
-        /**
-         * task 开始时间
-         * <p> 示例值：1564590532967
-         */
-        this.startTime = builder.startTime;
-        /**
-         * task 完成时间, 未完成为 0
-         * <p> 示例值：0
-         */
-        this.endTime = builder.endTime;
+    /**
+     * 审批人的 user_id，自动通过、自动拒绝时该参数返回值为空。
+     *
+     * <p>示例值：f7cb567e
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 审批人的 open_id，自动通过、自动拒绝时该参数返回值为空。
+     *
+     * <p>示例值：ou_123457
+     *
+     * @param openId
+     * @return
+     */
+    public Builder openId(String openId) {
+      this.openId = openId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 审批任务状态
+     *
+     * <p>示例值：PENDING
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 审批任务状态
+     *
+     * <p>示例值：PENDING
+     *
+     * @param status {@link com.lark.oapi.service.approval.v4.enums.InstanceTaskStatusEnum}
+     * @return
+     */
+    public Builder status(com.lark.oapi.service.approval.v4.enums.InstanceTaskStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 审批任务所属的审批节点 ID
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
+     *
+     * @param nodeId
+     * @return
+     */
+    public Builder nodeId(String nodeId) {
+      this.nodeId = nodeId;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 审批任务所属的审批节点名称
+     *
+     * <p>示例值：开始
+     *
+     * @param nodeName
+     * @return
+     */
+    public Builder nodeName(String nodeName) {
+      this.nodeName = nodeName;
+      return this;
     }
 
-    public String getOpenId() {
-        return this.openId;
+    /**
+     * 审批任务所属的审批节点的自定义 ID。如果没设置自定义 ID，则不返回该参数值。
+     *
+     * <p>示例值：manager
+     *
+     * @param customNodeId
+     * @return
+     */
+    public Builder customNodeId(String customNodeId) {
+      this.customNodeId = customNodeId;
+      return this;
     }
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
+    /**
+     * 审批方式
+     *
+     * <p>示例值：AND
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getStatus() {
-        return this.status;
+    /**
+     * 审批方式
+     *
+     * <p>示例值：AND
+     *
+     * @param type {@link com.lark.oapi.service.approval.v4.enums.InstanceTaskTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.approval.v4.enums.InstanceTaskTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    /**
+     * 审批任务的开始时间，毫秒级时间戳。
+     *
+     * <p>示例值：1564590532967
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getNodeId() {
-        return this.nodeId;
+    /**
+     * 审批任务的完成时间，毫秒级时间戳。未完成时返回 0。
+     *
+     * <p>示例值：0
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
+    public InstanceTask build() {
+      return new InstanceTask(this);
     }
+  }
 
-    public String getNodeName() {
-        return this.nodeName;
-    }
-
-    public void setNodeName(String nodeName) {
-        this.nodeName = nodeName;
-    }
-
-    public String getCustomNodeId() {
-        return this.customNodeId;
-    }
-
-    public void setCustomNodeId(String customNodeId) {
-        this.customNodeId = customNodeId;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public static class Builder {
-        /**
-         * task id
-         * <p> 示例值：1234
-         */
-        private String id;
-        /**
-         * 审批人的用户id，自动通过、自动拒绝 时为空
-         * <p> 示例值：f7cb567e
-         */
-        private String userId;
-        /**
-         * 审批人 open id
-         * <p> 示例值：ou_123457
-         */
-        private String openId;
-        /**
-         * 任务状态
-         * <p> 示例值：PENDING
-         */
-        private String status;
-        /**
-         * task 所属节点 id
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         */
-        private String nodeId;
-        /**
-         * task 所属节点名称
-         * <p> 示例值：开始
-         */
-        private String nodeName;
-        /**
-         * task 所属节点自定义 id, 如果没设置自定义 id, 则不返回该字段
-         * <p> 示例值：manager
-         */
-        private String customNodeId;
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         */
-        private String type;
-        /**
-         * task 开始时间
-         * <p> 示例值：1564590532967
-         */
-        private String startTime;
-        /**
-         * task 完成时间, 未完成为 0
-         * <p> 示例值：0
-         */
-        private String endTime;
-
-        /**
-         * task id
-         * <p> 示例值：1234
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 审批人的用户id，自动通过、自动拒绝 时为空
-         * <p> 示例值：f7cb567e
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 审批人 open id
-         * <p> 示例值：ou_123457
-         *
-         * @param openId
-         * @return
-         */
-        public Builder openId(String openId) {
-            this.openId = openId;
-            return this;
-        }
-
-
-        /**
-         * 任务状态
-         * <p> 示例值：PENDING
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 任务状态
-         * <p> 示例值：PENDING
-         *
-         * @param status {@link com.lark.oapi.service.approval.v4.enums.InstanceTaskStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.approval.v4.enums.InstanceTaskStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * task 所属节点 id
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         *
-         * @param nodeId
-         * @return
-         */
-        public Builder nodeId(String nodeId) {
-            this.nodeId = nodeId;
-            return this;
-        }
-
-
-        /**
-         * task 所属节点名称
-         * <p> 示例值：开始
-         *
-         * @param nodeName
-         * @return
-         */
-        public Builder nodeName(String nodeName) {
-            this.nodeName = nodeName;
-            return this;
-        }
-
-
-        /**
-         * task 所属节点自定义 id, 如果没设置自定义 id, 则不返回该字段
-         * <p> 示例值：manager
-         *
-         * @param customNodeId
-         * @return
-         */
-        public Builder customNodeId(String customNodeId) {
-            this.customNodeId = customNodeId;
-            return this;
-        }
-
-
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         *
-         * @param type {@link com.lark.oapi.service.approval.v4.enums.InstanceTaskTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.approval.v4.enums.InstanceTaskTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * task 开始时间
-         * <p> 示例值：1564590532967
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * task 完成时间, 未完成为 0
-         * <p> 示例值：0
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        public InstanceTask build() {
-            return new InstanceTask(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateCustomField {
+  /**
+   * 外部自定义id
+   *
+   * <p>示例值：custom_id
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_name")
+  private I18nText fieldName;
+
+  /**
+   * 字段类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_type")
+  private String fieldType;
+
+  /**
+   * 所属实体类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("entity_type")
+  private String entityType;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18nText description;
+
+  /**
+   * 枚举值元数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enum_meta")
+  private CreateEnumMeta enumMeta;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_enabled")
+  private Boolean isEnabled;
+
+  /**
+   * 创建来源
+   *
+   * <p>示例值：
+   */
+  @SerializedName("create_source")
+  private String createSource;
+
+  /**
+   * 组织维度，仅当EntityType=Departments时生效
+   *
+   * <p>示例值：f
+   */
+  @SerializedName("org_dimensionof_dept_field")
+  private String orgDimensionofDeptField;
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  public I18nText getFieldName() {
+    return this.fieldName;
+  }
+
+  public void setFieldName(I18nText fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  public String getFieldType() {
+    return this.fieldType;
+  }
+
+  public void setFieldType(String fieldType) {
+    this.fieldType = fieldType;
+  }
+
+  public String getEntityType() {
+    return this.entityType;
+  }
+
+  public void setEntityType(String entityType) {
+    this.entityType = entityType;
+  }
+
+  public I18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18nText description) {
+    this.description = description;
+  }
+
+  public CreateEnumMeta getEnumMeta() {
+    return this.enumMeta;
+  }
+
+  public void setEnumMeta(CreateEnumMeta enumMeta) {
+    this.enumMeta = enumMeta;
+  }
+
+  public Boolean getIsEnabled() {
+    return this.isEnabled;
+  }
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
+
+  public String getCreateSource() {
+    return this.createSource;
+  }
+
+  public void setCreateSource(String createSource) {
+    this.createSource = createSource;
+  }
+
+  public String getOrgDimensionofDeptField() {
+    return this.orgDimensionofDeptField;
+  }
+
+  public void setOrgDimensionofDeptField(String orgDimensionofDeptField) {
+    this.orgDimensionofDeptField = orgDimensionofDeptField;
+  }
+
+  // builder 开始
+  public CreateCustomField() {}
+
+  public CreateCustomField(Builder builder) {
     /**
      * 外部自定义id
-     * <p> 示例值：custom_id
+     *
+     * <p>示例值：custom_id
      */
-    @SerializedName("external_id")
-    private String externalId;
+    this.externalId = builder.externalId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_name")
-    private I18nText fieldName;
+    this.fieldName = builder.fieldName;
     /**
      * 字段类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("field_type")
-    private String fieldType;
+    this.fieldType = builder.fieldType;
     /**
      * 所属实体类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("entity_type")
-    private String entityType;
+    this.entityType = builder.entityType;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18nText description;
+    this.description = builder.description;
     /**
      * 枚举值元数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("enum_meta")
-    private CreateEnumMeta enumMeta;
+    this.enumMeta = builder.enumMeta;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_enabled")
-    private Boolean isEnabled;
+    this.isEnabled = builder.isEnabled;
     /**
      * 创建来源
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("create_source")
-    private String createSource;
+    this.createSource = builder.createSource;
     /**
      * 组织维度，仅当EntityType=Departments时生效
-     * <p> 示例值：f
+     *
+     * <p>示例值：f
      */
-    @SerializedName("org_dimensionof_dept_field")
+    this.orgDimensionofDeptField = builder.orgDimensionofDeptField;
+  }
+
+  public static class Builder {
+    /**
+     * 外部自定义id
+     *
+     * <p>示例值：custom_id
+     */
+    private String externalId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText fieldName;
+
+    /**
+     * 字段类型
+     *
+     * <p>示例值：
+     */
+    private String fieldType;
+
+    /**
+     * 所属实体类型
+     *
+     * <p>示例值：
+     */
+    private String entityType;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText description;
+
+    /**
+     * 枚举值元数据
+     *
+     * <p>示例值：
+     */
+    private CreateEnumMeta enumMeta;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     */
+    private Boolean isEnabled;
+
+    /**
+     * 创建来源
+     *
+     * <p>示例值：
+     */
+    private String createSource;
+
+    /**
+     * 组织维度，仅当EntityType=Departments时生效
+     *
+     * <p>示例值：f
+     */
     private String orgDimensionofDeptField;
 
-    // builder 开始
-    public CreateCustomField() {
+    /**
+     * 外部自定义id
+     *
+     * <p>示例值：custom_id
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public CreateCustomField(Builder builder) {
-        /**
-         * 外部自定义id
-         * <p> 示例值：custom_id
-         */
-        this.externalId = builder.externalId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.fieldName = builder.fieldName;
-        /**
-         * 字段类型
-         * <p> 示例值：
-         */
-        this.fieldType = builder.fieldType;
-        /**
-         * 所属实体类型
-         * <p> 示例值：
-         */
-        this.entityType = builder.entityType;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 枚举值元数据
-         * <p> 示例值：
-         */
-        this.enumMeta = builder.enumMeta;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.isEnabled = builder.isEnabled;
-        /**
-         * 创建来源
-         * <p> 示例值：
-         */
-        this.createSource = builder.createSource;
-        /**
-         * 组织维度，仅当EntityType=Departments时生效
-         * <p> 示例值：f
-         */
-        this.orgDimensionofDeptField = builder.orgDimensionofDeptField;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param fieldName
+     * @return
+     */
+    public Builder fieldName(I18nText fieldName) {
+      this.fieldName = fieldName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段类型
+     *
+     * <p>示例值：
+     *
+     * @param fieldType
+     * @return
+     */
+    public Builder fieldType(String fieldType) {
+      this.fieldType = fieldType;
+      return this;
     }
 
-    public String getExternalId() {
-        return this.externalId;
+    /**
+     * 所属实体类型
+     *
+     * <p>示例值：
+     *
+     * @param entityType
+     * @return
+     */
+    public Builder entityType(String entityType) {
+      this.entityType = entityType;
+      return this;
     }
 
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public I18nText getFieldName() {
-        return this.fieldName;
+    /**
+     * 枚举值元数据
+     *
+     * <p>示例值：
+     *
+     * @param enumMeta
+     * @return
+     */
+    public Builder enumMeta(CreateEnumMeta enumMeta) {
+      this.enumMeta = enumMeta;
+      return this;
     }
 
-    public void setFieldName(I18nText fieldName) {
-        this.fieldName = fieldName;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     *
+     * @param isEnabled
+     * @return
+     */
+    public Builder isEnabled(Boolean isEnabled) {
+      this.isEnabled = isEnabled;
+      return this;
     }
 
-    public String getFieldType() {
-        return this.fieldType;
+    /**
+     * 创建来源
+     *
+     * <p>示例值：
+     *
+     * @param createSource
+     * @return
+     */
+    public Builder createSource(String createSource) {
+      this.createSource = createSource;
+      return this;
     }
 
-    public void setFieldType(String fieldType) {
-        this.fieldType = fieldType;
+    /**
+     * 组织维度，仅当EntityType=Departments时生效
+     *
+     * <p>示例值：f
+     *
+     * @param orgDimensionofDeptField
+     * @return
+     */
+    public Builder orgDimensionofDeptField(String orgDimensionofDeptField) {
+      this.orgDimensionofDeptField = orgDimensionofDeptField;
+      return this;
     }
 
-    public String getEntityType() {
-        return this.entityType;
+    public CreateCustomField build() {
+      return new CreateCustomField(this);
     }
+  }
 
-    public void setEntityType(String entityType) {
-        this.entityType = entityType;
-    }
-
-    public I18nText getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18nText description) {
-        this.description = description;
-    }
-
-    public CreateEnumMeta getEnumMeta() {
-        return this.enumMeta;
-    }
-
-    public void setEnumMeta(CreateEnumMeta enumMeta) {
-        this.enumMeta = enumMeta;
-    }
-
-    public Boolean getIsEnabled() {
-        return this.isEnabled;
-    }
-
-    public void setIsEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
-    }
-
-    public String getCreateSource() {
-        return this.createSource;
-    }
-
-    public void setCreateSource(String createSource) {
-        this.createSource = createSource;
-    }
-
-    public String getOrgDimensionofDeptField() {
-        return this.orgDimensionofDeptField;
-    }
-
-    public void setOrgDimensionofDeptField(String orgDimensionofDeptField) {
-        this.orgDimensionofDeptField = orgDimensionofDeptField;
-    }
-
-    public static class Builder {
-        /**
-         * 外部自定义id
-         * <p> 示例值：custom_id
-         */
-        private String externalId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText fieldName;
-        /**
-         * 字段类型
-         * <p> 示例值：
-         */
-        private String fieldType;
-        /**
-         * 所属实体类型
-         * <p> 示例值：
-         */
-        private String entityType;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText description;
-        /**
-         * 枚举值元数据
-         * <p> 示例值：
-         */
-        private CreateEnumMeta enumMeta;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean isEnabled;
-        /**
-         * 创建来源
-         * <p> 示例值：
-         */
-        private String createSource;
-        /**
-         * 组织维度，仅当EntityType=Departments时生效
-         * <p> 示例值：f
-         */
-        private String orgDimensionofDeptField;
-
-        /**
-         * 外部自定义id
-         * <p> 示例值：custom_id
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param fieldName
-         * @return
-         */
-        public Builder fieldName(I18nText fieldName) {
-            this.fieldName = fieldName;
-            return this;
-        }
-
-
-        /**
-         * 字段类型
-         * <p> 示例值：
-         *
-         * @param fieldType
-         * @return
-         */
-        public Builder fieldType(String fieldType) {
-            this.fieldType = fieldType;
-            return this;
-        }
-
-
-        /**
-         * 所属实体类型
-         * <p> 示例值：
-         *
-         * @param entityType
-         * @return
-         */
-        public Builder entityType(String entityType) {
-            this.entityType = entityType;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 枚举值元数据
-         * <p> 示例值：
-         *
-         * @param enumMeta
-         * @return
-         */
-        public Builder enumMeta(CreateEnumMeta enumMeta) {
-            this.enumMeta = enumMeta;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param isEnabled
-         * @return
-         */
-        public Builder isEnabled(Boolean isEnabled) {
-            this.isEnabled = isEnabled;
-            return this;
-        }
-
-
-        /**
-         * 创建来源
-         * <p> 示例值：
-         *
-         * @param createSource
-         * @return
-         */
-        public Builder createSource(String createSource) {
-            this.createSource = createSource;
-            return this;
-        }
-
-
-        /**
-         * 组织维度，仅当EntityType=Departments时生效
-         * <p> 示例值：f
-         *
-         * @param orgDimensionofDeptField
-         * @return
-         */
-        public Builder orgDimensionofDeptField(String orgDimensionofDeptField) {
-            this.orgDimensionofDeptField = orgDimensionofDeptField;
-            return this;
-        }
-
-
-        public CreateCustomField build() {
-            return new CreateCustomField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

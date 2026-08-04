@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExternalApprovalItem {
+  /**
+   * 审批定义code
+   *
+   * <p>示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
+   */
+  @SerializedName("approval_code")
+  private String approvalCode;
+
+  /**
+   * 三方审批定义ID
+   *
+   * <p>示例值：permission_test
+   */
+  @SerializedName("approval_external_id")
+  private String approvalExternalId;
+
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
+
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
+
+  public String getApprovalExternalId() {
+    return this.approvalExternalId;
+  }
+
+  public void setApprovalExternalId(String approvalExternalId) {
+    this.approvalExternalId = approvalExternalId;
+  }
+
+  // builder 开始
+  public ExternalApprovalItem() {}
+
+  public ExternalApprovalItem(Builder builder) {
     /**
      * 审批定义code
-     * <p> 示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
+     *
+     * <p>示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
      */
-    @SerializedName("approval_code")
-    private String approvalCode;
+    this.approvalCode = builder.approvalCode;
     /**
      * 三方审批定义ID
-     * <p> 示例值：permission_test
+     *
+     * <p>示例值：permission_test
      */
-    @SerializedName("approval_external_id")
+    this.approvalExternalId = builder.approvalExternalId;
+  }
+
+  public static class Builder {
+    /**
+     * 审批定义code
+     *
+     * <p>示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
+     */
+    private String approvalCode;
+
+    /**
+     * 三方审批定义ID
+     *
+     * <p>示例值：permission_test
+     */
     private String approvalExternalId;
 
-    // builder 开始
-    public ExternalApprovalItem() {
+    /**
+     * 审批定义code
+     *
+     * <p>示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
+     *
+     * @param approvalCode
+     * @return
+     */
+    public Builder approvalCode(String approvalCode) {
+      this.approvalCode = approvalCode;
+      return this;
     }
 
-    public ExternalApprovalItem(Builder builder) {
-        /**
-         * 审批定义code
-         * <p> 示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
-         */
-        this.approvalCode = builder.approvalCode;
-        /**
-         * 三方审批定义ID
-         * <p> 示例值：permission_test
-         */
-        this.approvalExternalId = builder.approvalExternalId;
+    /**
+     * 三方审批定义ID
+     *
+     * <p>示例值：permission_test
+     *
+     * @param approvalExternalId
+     * @return
+     */
+    public Builder approvalExternalId(String approvalExternalId) {
+      this.approvalExternalId = approvalExternalId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ExternalApprovalItem build() {
+      return new ExternalApprovalItem(this);
     }
+  }
 
-    public String getApprovalCode() {
-        return this.approvalCode;
-    }
-
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
-    }
-
-    public String getApprovalExternalId() {
-        return this.approvalExternalId;
-    }
-
-    public void setApprovalExternalId(String approvalExternalId) {
-        this.approvalExternalId = approvalExternalId;
-    }
-
-    public static class Builder {
-        /**
-         * 审批定义code
-         * <p> 示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
-         */
-        private String approvalCode;
-        /**
-         * 三方审批定义ID
-         * <p> 示例值：permission_test
-         */
-        private String approvalExternalId;
-
-        /**
-         * 审批定义code
-         * <p> 示例值：C30381C8-7A5F-4717-A9CF-C233BF0202D4
-         *
-         * @param approvalCode
-         * @return
-         */
-        public Builder approvalCode(String approvalCode) {
-            this.approvalCode = approvalCode;
-            return this;
-        }
-
-
-        /**
-         * 三方审批定义ID
-         * <p> 示例值：permission_test
-         *
-         * @param approvalExternalId
-         * @return
-         */
-        public Builder approvalExternalId(String approvalExternalId) {
-            this.approvalExternalId = approvalExternalId;
-            return this;
-        }
-
-
-        public ExternalApprovalItem build() {
-            return new ExternalApprovalItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

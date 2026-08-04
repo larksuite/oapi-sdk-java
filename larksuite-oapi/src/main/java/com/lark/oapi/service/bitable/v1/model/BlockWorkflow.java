@@ -13,161 +13,162 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BlockWorkflow {
+  /**
+   * 工作流唯一键
+   *
+   * <p>示例值：12412312421312
+   */
+  @SerializedName("workflow_id")
+  private String workflowId;
+
+  /**
+   * 工作流标题
+   *
+   * <p>示例值：工作流
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 工作流状态
+   *
+   * <p>示例值：Enable
+   */
+  @SerializedName("status")
+  private String status;
+
+  public String getWorkflowId() {
+    return this.workflowId;
+  }
+
+  public void setWorkflowId(String workflowId) {
+    this.workflowId = workflowId;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public BlockWorkflow() {}
+
+  public BlockWorkflow(Builder builder) {
     /**
      * 工作流唯一键
-     * <p> 示例值：12412312421312
+     *
+     * <p>示例值：12412312421312
      */
-    @SerializedName("workflow_id")
-    private String workflowId;
+    this.workflowId = builder.workflowId;
     /**
      * 工作流标题
-     * <p> 示例值：工作流
+     *
+     * <p>示例值：工作流
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 工作流状态
-     * <p> 示例值：Enable
+     *
+     * <p>示例值：Enable
      */
-    @SerializedName("status")
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 工作流唯一键
+     *
+     * <p>示例值：12412312421312
+     */
+    private String workflowId;
+
+    /**
+     * 工作流标题
+     *
+     * <p>示例值：工作流
+     */
+    private String title;
+
+    /**
+     * 工作流状态
+     *
+     * <p>示例值：Enable
+     */
     private String status;
 
-    // builder 开始
-    public BlockWorkflow() {
+    /**
+     * 工作流唯一键
+     *
+     * <p>示例值：12412312421312
+     *
+     * @param workflowId
+     * @return
+     */
+    public Builder workflowId(String workflowId) {
+      this.workflowId = workflowId;
+      return this;
     }
 
-    public BlockWorkflow(Builder builder) {
-        /**
-         * 工作流唯一键
-         * <p> 示例值：12412312421312
-         */
-        this.workflowId = builder.workflowId;
-        /**
-         * 工作流标题
-         * <p> 示例值：工作流
-         */
-        this.title = builder.title;
-        /**
-         * 工作流状态
-         * <p> 示例值：Enable
-         */
-        this.status = builder.status;
+    /**
+     * 工作流标题
+     *
+     * <p>示例值：工作流
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 工作流状态
+     *
+     * <p>示例值：Enable
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public String getWorkflowId() {
-        return this.workflowId;
+    /**
+     * 工作流状态
+     *
+     * <p>示例值：Enable
+     *
+     * @param status {@link com.lark.oapi.service.bitable.v1.enums.BlockWorkflowStatusEnum}
+     * @return
+     */
+    public Builder status(com.lark.oapi.service.bitable.v1.enums.BlockWorkflowStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public void setWorkflowId(String workflowId) {
-        this.workflowId = workflowId;
+    public BlockWorkflow build() {
+      return new BlockWorkflow(this);
     }
+  }
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 工作流唯一键
-         * <p> 示例值：12412312421312
-         */
-        private String workflowId;
-        /**
-         * 工作流标题
-         * <p> 示例值：工作流
-         */
-        private String title;
-        /**
-         * 工作流状态
-         * <p> 示例值：Enable
-         */
-        private String status;
-
-        /**
-         * 工作流唯一键
-         * <p> 示例值：12412312421312
-         *
-         * @param workflowId
-         * @return
-         */
-        public Builder workflowId(String workflowId) {
-            this.workflowId = workflowId;
-            return this;
-        }
-
-
-        /**
-         * 工作流标题
-         * <p> 示例值：工作流
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 工作流状态
-         * <p> 示例值：Enable
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 工作流状态
-         * <p> 示例值：Enable
-         *
-         * @param status {@link com.lark.oapi.service.bitable.v1.enums.BlockWorkflowStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.bitable.v1.enums.BlockWorkflowStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        public BlockWorkflow build() {
-            return new BlockWorkflow(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

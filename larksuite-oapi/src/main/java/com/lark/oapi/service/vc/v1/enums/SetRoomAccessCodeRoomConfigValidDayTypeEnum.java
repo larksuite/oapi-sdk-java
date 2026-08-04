@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 有效天数
- */
+/** 有效天数 */
 public enum SetRoomAccessCodeRoomConfigValidDayTypeEnum {
-    DAY(1), // 1天
-    WEEK(7), // 7天
-    MONTH(30), // 30天
-    ;
-    private Integer value;
+  DAY(1), // 1天
+  WEEK(7), // 7天
+  MONTH(30), // 30天
+  ;
+  private Integer value;
 
-    SetRoomAccessCodeRoomConfigValidDayTypeEnum(Integer value) {
-        this.value = value;
-    }
+  SetRoomAccessCodeRoomConfigValidDayTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

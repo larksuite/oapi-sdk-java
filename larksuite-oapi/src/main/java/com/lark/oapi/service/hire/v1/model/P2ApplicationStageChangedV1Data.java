@@ -13,72 +13,73 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ApplicationStageChangedV1Data {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("application_id")
-    private String applicationId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("origin_stage_id")
-    private String originStageId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("target_stage_id")
-    private String targetStageId;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("update_time")
-    private Long updateTime;
+  /**
+   * 投递
+   * ID，详情请参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+   *
+   * <p>示例值：6891470273284114702
+   */
+  @SerializedName("application_id")
+  private String applicationId;
 
-    public String getApplicationId() {
-        return this.applicationId;
-    }
+  /**
+   * 投递阶段转移前的阶段
+   * ID，详情请参考[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)
+   *
+   * <p>示例值：6891470273281123213
+   */
+  @SerializedName("origin_stage_id")
+  private String originStageId;
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
-    }
+  /**
+   * 投递阶段转移后的阶段
+   * ID，详情请参考[获取招聘流程信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_process/list)
+   *
+   * <p>示例值：6891470273281123214
+   */
+  @SerializedName("target_stage_id")
+  private String targetStageId;
 
-    public String getOriginStageId() {
-        return this.originStageId;
-    }
+  /**
+   * 投递阶段变更时间戳（单位：毫秒）
+   *
+   * <p>示例值：1652806656258
+   */
+  @SerializedName("update_time")
+  private Long updateTime;
 
-    public void setOriginStageId(String originStageId) {
-        this.originStageId = originStageId;
-    }
+  public String getApplicationId() {
+    return this.applicationId;
+  }
 
-    public String getTargetStageId() {
-        return this.targetStageId;
-    }
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
 
-    public void setTargetStageId(String targetStageId) {
-        this.targetStageId = targetStageId;
-    }
+  public String getOriginStageId() {
+    return this.originStageId;
+  }
 
-    public Long getUpdateTime() {
-        return this.updateTime;
-    }
+  public void setOriginStageId(String originStageId) {
+    this.originStageId = originStageId;
+  }
 
-    public void setUpdateTime(Long updateTime) {
-        this.updateTime = updateTime;
-    }
+  public String getTargetStageId() {
+    return this.targetStageId;
+  }
 
+  public void setTargetStageId(String targetStageId) {
+    this.targetStageId = targetStageId;
+  }
+
+  public Long getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(Long updateTime) {
+    this.updateTime = updateTime;
+  }
 }

@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListAuditInfoRespBody {
-    /**
-     * 是否有下一页数据
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 下一页分页的token
-     * <p> 示例值：LC39/f1%2B/Sz9Uv39Gf39/ew/cd5WY0gfGYFdixOW9cVk4bC79ituO/gx0qpPn1bYf92nz/kI0nNJOG3wCwDJKoNU%2BtyaXbpI8pV/9UNDMZT0BNeyanFH17Wv711Qh9anR3l2GjQfc2fUqXtxg1YPp63XyhYY4iRMv54ySRG7r%2BI89iS3zAoPzFuuU1MUJKsf
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 返回的具体数据内容
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private AuditInfo[] items;
+  /**
+   * 是否有下一页数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  /**
+   * 下一页分页的token
+   *
+   * <p>示例值：LC39/f1%2B/Sz9Uv39Gf39/ew/cd5WY0gfGYFdixOW9cVk4bC79ituO/gx0qpPn1bYf92nz/kI0nNJOG3wCwDJKoNU%2BtyaXbpI8pV/9UNDMZT0BNeyanFH17Wv711Qh9anR3l2GjQfc2fUqXtxg1YPp63XyhYY4iRMv54ySRG7r%2BI89iS3zAoPzFuuU1MUJKsf
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  /**
+   * 返回的具体数据内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private AuditInfo[] items;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
-    public AuditInfo[] getItems() {
-        return this.items;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setItems(AuditInfo[] items) {
-        this.items = items;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
+  public AuditInfo[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(AuditInfo[] items) {
+    this.items = items;
+  }
 }

@@ -13,124 +13,123 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatCard {
+  /**
+   * 群聊天会话 ID。获取方式参考[群 ID 说明](ssl:ttdoc//uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+   *
+   * <p>示例值：7052227140476993555
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * 对齐方式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("align")
+  private Integer align;
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public Integer getAlign() {
+    return this.align;
+  }
+
+  public void setAlign(Integer align) {
+    this.align = align;
+  }
+
+  // builder 开始
+  public ChatCard() {}
+
+  public ChatCard(Builder builder) {
     /**
-     * 群聊天会话 ID
-     * <p> 示例值：7052227140476993555
+     * 群聊天会话 ID。获取方式参考[群 ID
+     * 说明](ssl:ttdoc//uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     *
+     * <p>示例值：7052227140476993555
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
      * 对齐方式
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("align")
+    this.align = builder.align;
+  }
+
+  public static class Builder {
+    /**
+     * 群聊天会话 ID。获取方式参考[群 ID
+     * 说明](ssl:ttdoc//uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     *
+     * <p>示例值：7052227140476993555
+     */
+    private String chatId;
+
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：1
+     */
     private Integer align;
 
-    // builder 开始
-    public ChatCard() {
+    /**
+     * 群聊天会话 ID。获取方式参考[群 ID
+     * 说明](ssl:ttdoc//uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+     *
+     * <p>示例值：7052227140476993555
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public ChatCard(Builder builder) {
-        /**
-         * 群聊天会话 ID
-         * <p> 示例值：7052227140476993555
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 对齐方式
-         * <p> 示例值：1
-         */
-        this.align = builder.align;
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：1
+     *
+     * @param align
+     * @return
+     */
+    public Builder align(Integer align) {
+      this.align = align;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 对齐方式
+     *
+     * <p>示例值：1
+     *
+     * @param align {@link com.lark.oapi.service.docx.v1.enums.ChatCardAlignEnum}
+     * @return
+     */
+    public Builder align(com.lark.oapi.service.docx.v1.enums.ChatCardAlignEnum align) {
+      this.align = align.getValue();
+      return this;
     }
 
-    public String getChatId() {
-        return this.chatId;
+    public ChatCard build() {
+      return new ChatCard(this);
     }
+  }
 
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public Integer getAlign() {
-        return this.align;
-    }
-
-    public void setAlign(Integer align) {
-        this.align = align;
-    }
-
-    public static class Builder {
-        /**
-         * 群聊天会话 ID
-         * <p> 示例值：7052227140476993555
-         */
-        private String chatId;
-        /**
-         * 对齐方式
-         * <p> 示例值：1
-         */
-        private Integer align;
-
-        /**
-         * 群聊天会话 ID
-         * <p> 示例值：7052227140476993555
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * 对齐方式
-         * <p> 示例值：1
-         *
-         * @param align
-         * @return
-         */
-        public Builder align(Integer align) {
-            this.align = align;
-            return this;
-        }
-
-        /**
-         * 对齐方式
-         * <p> 示例值：1
-         *
-         * @param align {@link com.lark.oapi.service.docx.v1.enums.ChatCardAlignEnum}
-         * @return
-         */
-        public Builder align(com.lark.oapi.service.docx.v1.enums.ChatCardAlignEnum align) {
-            this.align = align.getValue();
-            return this;
-        }
-
-
-        public ChatCard build() {
-            return new ChatCard(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

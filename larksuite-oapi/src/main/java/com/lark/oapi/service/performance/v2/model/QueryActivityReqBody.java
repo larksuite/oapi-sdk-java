@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryActivityReqBody {
+  /**
+   * 评估周期 ID
+   * 列表，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)获取;;;**注意**：若填写了
+   * `activity_ids` 参数时，此参数无效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("semester_ids")
+  private String[] semesterIds;
+
+  /**
+   * 项目 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("activity_ids")
+  private String[] activityIds;
+
+  public String[] getSemesterIds() {
+    return this.semesterIds;
+  }
+
+  public void setSemesterIds(String[] semesterIds) {
+    this.semesterIds = semesterIds;
+  }
+
+  public String[] getActivityIds() {
+    return this.activityIds;
+  }
+
+  public void setActivityIds(String[] activityIds) {
+    this.activityIds = activityIds;
+  }
+
+  // builder 开始
+  public QueryActivityReqBody() {}
+
+  public QueryActivityReqBody(Builder builder) {
     /**
-     * 评估周期 ID 列表，获取指定评估周期的项目 ID，semester_id 可通过【获取周期】接口获得
-     * <p> 示例值：
+     * 评估周期 ID
+     * 列表，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)获取;;;**注意**：若填写了
+     * `activity_ids` 参数时，此参数无效
+     *
+     * <p>示例值：
      */
-    @SerializedName("semester_ids")
+    this.semesterIds = builder.semesterIds;
+    /**
+     * 项目 ID 列表
+     *
+     * <p>示例值：
+     */
+    this.activityIds = builder.activityIds;
+  }
+
+  public static class Builder {
+    /**
+     * 评估周期 ID
+     * 列表，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)获取;;;**注意**：若填写了
+     * `activity_ids` 参数时，此参数无效
+     *
+     * <p>示例值：
+     */
     private String[] semesterIds;
+
     /**
-     * 项目 ID 列表，如果同时传了「semester_ids」，则优先以「activity_ids」进行查询
-     * <p> 示例值：
+     * 项目 ID 列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("activity_ids")
     private String[] activityIds;
 
-    // builder 开始
-    public QueryActivityReqBody() {
+    /**
+     * 评估周期 ID
+     * 列表，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)获取;;;**注意**：若填写了
+     * `activity_ids` 参数时，此参数无效
+     *
+     * <p>示例值：
+     *
+     * @param semesterIds
+     * @return
+     */
+    public Builder semesterIds(String[] semesterIds) {
+      this.semesterIds = semesterIds;
+      return this;
     }
 
-    public QueryActivityReqBody(Builder builder) {
-        /**
-         * 评估周期 ID 列表，获取指定评估周期的项目 ID，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：
-         */
-        this.semesterIds = builder.semesterIds;
-        /**
-         * 项目 ID 列表，如果同时传了「semester_ids」，则优先以「activity_ids」进行查询
-         * <p> 示例值：
-         */
-        this.activityIds = builder.activityIds;
+    /**
+     * 项目 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param activityIds
+     * @return
+     */
+    public Builder activityIds(String[] activityIds) {
+      this.activityIds = activityIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public QueryActivityReqBody build() {
+      return new QueryActivityReqBody(this);
     }
+  }
 
-    public String[] getSemesterIds() {
-        return this.semesterIds;
-    }
-
-    public void setSemesterIds(String[] semesterIds) {
-        this.semesterIds = semesterIds;
-    }
-
-    public String[] getActivityIds() {
-        return this.activityIds;
-    }
-
-    public void setActivityIds(String[] activityIds) {
-        this.activityIds = activityIds;
-    }
-
-    public static class Builder {
-        /**
-         * 评估周期 ID 列表，获取指定评估周期的项目 ID，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：
-         */
-        private String[] semesterIds;
-        /**
-         * 项目 ID 列表，如果同时传了「semester_ids」，则优先以「activity_ids」进行查询
-         * <p> 示例值：
-         */
-        private String[] activityIds;
-
-        /**
-         * 评估周期 ID 列表，获取指定评估周期的项目 ID，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：
-         *
-         * @param semesterIds
-         * @return
-         */
-        public Builder semesterIds(String[] semesterIds) {
-            this.semesterIds = semesterIds;
-            return this;
-        }
-
-
-        /**
-         * 项目 ID 列表，如果同时传了「semester_ids」，则优先以「activity_ids」进行查询
-         * <p> 示例值：
-         *
-         * @param activityIds
-         * @return
-         */
-        public Builder activityIds(String[] activityIds) {
-            this.activityIds = activityIds;
-            return this;
-        }
-
-
-        public QueryActivityReqBody build() {
-            return new QueryActivityReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

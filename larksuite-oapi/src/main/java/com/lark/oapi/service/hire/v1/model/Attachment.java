@@ -13,222 +13,232 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Attachment {
+  /**
+   * 附件 ID
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 附件下载地址，有效期为 30 分钟
+   *
+   * <p>示例值：https://hire.feishu.cn/blob/xx/
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 附件文件名
+   *
+   * <p>示例值：xx的简历.prd
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 附件媒体类型/MIME，遵守统一标准，请参考[百度百科-MIME](https://baike.baidu.com/item/MIME/2900607)
+   *
+   * <p>示例值：application/pdf
+   */
+  @SerializedName("mime")
+  private String mime;
+
+  /**
+   * 附件创建时间，毫秒时间戳（int64类型）
+   *
+   * <p>示例值：1618899376480
+   */
+  @SerializedName("create_time")
+  private Long createTime;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getMime() {
+    return this.mime;
+  }
+
+  public void setMime(String mime) {
+    this.mime = mime;
+  }
+
+  public Long getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(Long createTime) {
+    this.createTime = createTime;
+  }
+
+  // builder 开始
+  public Attachment() {}
+
+  public Attachment(Builder builder) {
     /**
-     * 附件id
-     * <p> 示例值：6949805467799537964
+     * 附件 ID
+     *
+     * <p>示例值：6949805467799537964
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 附件的url
-     * <p> 示例值：https://hire.feishu.cn/blob/xx/
+     * 附件下载地址，有效期为 30 分钟
+     *
+     * <p>示例值：https://hire.feishu.cn/blob/xx/
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 附件文件名
-     * <p> 示例值：xx的简历.prd
+     *
+     * <p>示例值：xx的简历.prd
      */
-    @SerializedName("name")
+    this.name = builder.name;
+    /**
+     * 附件媒体类型/MIME，遵守统一标准，请参考[百度百科-MIME](https://baike.baidu.com/item/MIME/2900607)
+     *
+     * <p>示例值：application/pdf
+     */
+    this.mime = builder.mime;
+    /**
+     * 附件创建时间，毫秒时间戳（int64类型）
+     *
+     * <p>示例值：1618899376480
+     */
+    this.createTime = builder.createTime;
+  }
+
+  public static class Builder {
+    /**
+     * 附件 ID
+     *
+     * <p>示例值：6949805467799537964
+     */
+    private String id;
+
+    /**
+     * 附件下载地址，有效期为 30 分钟
+     *
+     * <p>示例值：https://hire.feishu.cn/blob/xx/
+     */
+    private String url;
+
+    /**
+     * 附件文件名
+     *
+     * <p>示例值：xx的简历.prd
+     */
     private String name;
+
     /**
-     * 媒体类型/MIME
-     * <p> 示例值：application/pdf
+     * 附件媒体类型/MIME，遵守统一标准，请参考[百度百科-MIME](https://baike.baidu.com/item/MIME/2900607)
+     *
+     * <p>示例值：application/pdf
      */
-    @SerializedName("mime")
     private String mime;
+
     /**
-     * 附件创建时间（单位ms）
-     * <p> 示例值：1618899376480
+     * 附件创建时间，毫秒时间戳（int64类型）
+     *
+     * <p>示例值：1618899376480
      */
-    @SerializedName("create_time")
     private Long createTime;
 
-    // builder 开始
-    public Attachment() {
+    /**
+     * 附件 ID
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Attachment(Builder builder) {
-        /**
-         * 附件id
-         * <p> 示例值：6949805467799537964
-         */
-        this.id = builder.id;
-        /**
-         * 附件的url
-         * <p> 示例值：https://hire.feishu.cn/blob/xx/
-         */
-        this.url = builder.url;
-        /**
-         * 附件文件名
-         * <p> 示例值：xx的简历.prd
-         */
-        this.name = builder.name;
-        /**
-         * 媒体类型/MIME
-         * <p> 示例值：application/pdf
-         */
-        this.mime = builder.mime;
-        /**
-         * 附件创建时间（单位ms）
-         * <p> 示例值：1618899376480
-         */
-        this.createTime = builder.createTime;
+    /**
+     * 附件下载地址，有效期为 30 分钟
+     *
+     * <p>示例值：https://hire.feishu.cn/blob/xx/
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 附件文件名
+     *
+     * <p>示例值：xx的简历.prd
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 附件媒体类型/MIME，遵守统一标准，请参考[百度百科-MIME](https://baike.baidu.com/item/MIME/2900607)
+     *
+     * <p>示例值：application/pdf
+     *
+     * @param mime
+     * @return
+     */
+    public Builder mime(String mime) {
+      this.mime = mime;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 附件创建时间，毫秒时间戳（int64类型）
+     *
+     * <p>示例值：1618899376480
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(Long createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getUrl() {
-        return this.url;
+    public Attachment build() {
+      return new Attachment(this);
     }
+  }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getMime() {
-        return this.mime;
-    }
-
-    public void setMime(String mime) {
-        this.mime = mime;
-    }
-
-    public Long getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(Long createTime) {
-        this.createTime = createTime;
-    }
-
-    public static class Builder {
-        /**
-         * 附件id
-         * <p> 示例值：6949805467799537964
-         */
-        private String id;
-        /**
-         * 附件的url
-         * <p> 示例值：https://hire.feishu.cn/blob/xx/
-         */
-        private String url;
-        /**
-         * 附件文件名
-         * <p> 示例值：xx的简历.prd
-         */
-        private String name;
-        /**
-         * 媒体类型/MIME
-         * <p> 示例值：application/pdf
-         */
-        private String mime;
-        /**
-         * 附件创建时间（单位ms）
-         * <p> 示例值：1618899376480
-         */
-        private Long createTime;
-
-        /**
-         * 附件id
-         * <p> 示例值：6949805467799537964
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 附件的url
-         * <p> 示例值：https://hire.feishu.cn/blob/xx/
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 附件文件名
-         * <p> 示例值：xx的简历.prd
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 媒体类型/MIME
-         * <p> 示例值：application/pdf
-         *
-         * @param mime
-         * @return
-         */
-        public Builder mime(String mime) {
-            this.mime = mime;
-            return this;
-        }
-
-
-        /**
-         * 附件创建时间（单位ms）
-         * <p> 示例值：1618899376480
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(Long createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        public Attachment build() {
-            return new Attachment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

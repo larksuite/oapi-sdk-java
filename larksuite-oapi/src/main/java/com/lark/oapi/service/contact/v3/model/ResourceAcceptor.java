@@ -13,124 +13,131 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ResourceAcceptor {
+  /**
+   * 处理方式。
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("processing_type")
+  private String processingType;
+
+  /**
+   * 邮件资源接收者的用户 ID。ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户
+   * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;;**说明**：仅当
+   * `processing_type` 取值为 `1` 时，需要设置该参数值。
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("acceptor_user_id")
+  private String acceptorUserId;
+
+  public String getProcessingType() {
+    return this.processingType;
+  }
+
+  public void setProcessingType(String processingType) {
+    this.processingType = processingType;
+  }
+
+  public String getAcceptorUserId() {
+    return this.acceptorUserId;
+  }
+
+  public void setAcceptorUserId(String acceptorUserId) {
+    this.acceptorUserId = acceptorUserId;
+  }
+
+  // builder 开始
+  public ResourceAcceptor() {}
+
+  public ResourceAcceptor(Builder builder) {
     /**
-     * 邮件处理方式
-     * <p> 示例值：1
+     * 处理方式。
+     *
+     * <p>示例值：1
      */
-    @SerializedName("processing_type")
+    this.processingType = builder.processingType;
+    /**
+     * 邮件资源接收者的用户 ID。ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;;**说明**：仅当
+     * `processing_type` 取值为 `1` 时，需要设置该参数值。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    this.acceptorUserId = builder.acceptorUserId;
+  }
+
+  public static class Builder {
+    /**
+     * 处理方式。
+     *
+     * <p>示例值：1
+     */
     private String processingType;
+
     /**
-     * 在 processing_type 为 1 （转移资源时），邮件资源接收者
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     * 邮件资源接收者的用户 ID。ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;;**说明**：仅当
+     * `processing_type` 取值为 `1` 时，需要设置该参数值。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("acceptor_user_id")
     private String acceptorUserId;
 
-    // builder 开始
-    public ResourceAcceptor() {
+    /**
+     * 处理方式。
+     *
+     * <p>示例值：1
+     *
+     * @param processingType
+     * @return
+     */
+    public Builder processingType(String processingType) {
+      this.processingType = processingType;
+      return this;
     }
 
-    public ResourceAcceptor(Builder builder) {
-        /**
-         * 邮件处理方式
-         * <p> 示例值：1
-         */
-        this.processingType = builder.processingType;
-        /**
-         * 在 processing_type 为 1 （转移资源时），邮件资源接收者
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.acceptorUserId = builder.acceptorUserId;
+    /**
+     * 处理方式。
+     *
+     * <p>示例值：1
+     *
+     * @param processingType {@link
+     *     com.lark.oapi.service.contact.v3.enums.ResourceAcceptorResourceProcessingTypeEnum}
+     * @return
+     */
+    public Builder processingType(
+        com.lark.oapi.service.contact.v3.enums.ResourceAcceptorResourceProcessingTypeEnum
+            processingType) {
+      this.processingType = processingType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 邮件资源接收者的用户 ID。ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户
+     * ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。;;**说明**：仅当
+     * `processing_type` 取值为 `1` 时，需要设置该参数值。
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param acceptorUserId
+     * @return
+     */
+    public Builder acceptorUserId(String acceptorUserId) {
+      this.acceptorUserId = acceptorUserId;
+      return this;
     }
 
-    public String getProcessingType() {
-        return this.processingType;
+    public ResourceAcceptor build() {
+      return new ResourceAcceptor(this);
     }
+  }
 
-    public void setProcessingType(String processingType) {
-        this.processingType = processingType;
-    }
-
-    public String getAcceptorUserId() {
-        return this.acceptorUserId;
-    }
-
-    public void setAcceptorUserId(String acceptorUserId) {
-        this.acceptorUserId = acceptorUserId;
-    }
-
-    public static class Builder {
-        /**
-         * 邮件处理方式
-         * <p> 示例值：1
-         */
-        private String processingType;
-        /**
-         * 在 processing_type 为 1 （转移资源时），邮件资源接收者
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String acceptorUserId;
-
-        /**
-         * 邮件处理方式
-         * <p> 示例值：1
-         *
-         * @param processingType
-         * @return
-         */
-        public Builder processingType(String processingType) {
-            this.processingType = processingType;
-            return this;
-        }
-
-        /**
-         * 邮件处理方式
-         * <p> 示例值：1
-         *
-         * @param processingType {@link com.lark.oapi.service.contact.v3.enums.ResourceAcceptorResourceProcessingTypeEnum}
-         * @return
-         */
-        public Builder processingType(com.lark.oapi.service.contact.v3.enums.ResourceAcceptorResourceProcessingTypeEnum processingType) {
-            this.processingType = processingType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 在 processing_type 为 1 （转移资源时），邮件资源接收者
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param acceptorUserId
-         * @return
-         */
-        public Builder acceptorUserId(String acceptorUserId) {
-            this.acceptorUserId = acceptorUserId;
-            return this;
-        }
-
-
-        public ResourceAcceptor build() {
-            return new ResourceAcceptor(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

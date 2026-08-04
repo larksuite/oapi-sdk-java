@@ -13,72 +13,71 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.contact.v3.enums.*;
 
 public class GetWorkCityReq {
+  /**
+   * 工作城市
+   * ID。你可以调用[获取租户工作城市列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/work_city/list)接口，获取工作城市
+   * ID。
+   *
+   * <p>示例值：dd39369b19b9
+   */
+  @Path
+  @SerializedName("work_city_id")
+  private String workCityId;
+
+  public String getWorkCityId() {
+    return this.workCityId;
+  }
+
+  public void setWorkCityId(String workCityId) {
+    this.workCityId = workCityId;
+  }
+
+  // builder 开始
+  public GetWorkCityReq() {}
+
+  public GetWorkCityReq(Builder builder) {
     /**
-     * 工作城市ID
-     * <p> 示例值：dd39369b19b9
+     * 工作城市
+     * ID。你可以调用[获取租户工作城市列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/work_city/list)接口，获取工作城市
+     * ID。
+     *
+     * <p>示例值：dd39369b19b9
      */
-    @Path
-    @SerializedName("work_city_id")
-    private String workCityId;
+    this.workCityId = builder.workCityId;
+  }
 
-    // builder 开始
-    public GetWorkCityReq() {
+  public static class Builder {
+
+    private String workCityId; // 工作城市
+
+    // ID。你可以调用[获取租户工作城市列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/work_city/list)接口，获取工作城市 ID。
+
+    /**
+     * 工作城市
+     * ID。你可以调用[获取租户工作城市列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/work_city/list)接口，获取工作城市
+     * ID。
+     *
+     * <p>示例值：dd39369b19b9
+     *
+     * @param workCityId
+     * @return
+     */
+    public Builder workCityId(String workCityId) {
+      this.workCityId = workCityId;
+      return this;
     }
 
-    public GetWorkCityReq(Builder builder) {
-        /**
-         * 工作城市ID
-         * <p> 示例值：dd39369b19b9
-         */
-        this.workCityId = builder.workCityId;
+    public GetWorkCityReq build() {
+      return new GetWorkCityReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getWorkCityId() {
-        return this.workCityId;
-    }
-
-    public void setWorkCityId(String workCityId) {
-        this.workCityId = workCityId;
-    }
-
-    public static class Builder {
-
-        private String workCityId; // 工作城市ID
-
-        /**
-         * 工作城市ID
-         * <p> 示例值：dd39369b19b9
-         *
-         * @param workCityId
-         * @return
-         */
-        public Builder workCityId(String workCityId) {
-            this.workCityId = workCityId;
-            return this;
-        }
-
-
-        public GetWorkCityReq build() {
-            return new GetWorkCityReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

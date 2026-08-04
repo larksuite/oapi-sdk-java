@@ -13,97 +13,96 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchEhrImportTaskReq {
+  /**
+   * 导入任务 ID，任务 ID 来源于导入 e-HR 事件中的 task_id，详情参考[导入
+   * e-HR](;https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/event/import-ehr)
+   *
+   * <p>示例值：6914551145542568199
+   */
+  @Path
+  @SerializedName("ehr_import_task_id")
+  private String ehrImportTaskId;
+
+  public String getEhrImportTaskId() {
+    return this.ehrImportTaskId;
+  }
+
+  public void setEhrImportTaskId(String ehrImportTaskId) {
+    this.ehrImportTaskId = ehrImportTaskId;
+  }
+
+  @Body private EhrImportTask body;
+
+  public EhrImportTask getEhrImportTask() {
+    return this.body;
+  }
+
+  public void setEhrImportTask(EhrImportTask body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchEhrImportTaskReq() {}
+
+  public PatchEhrImportTaskReq(Builder builder) {
     /**
-     * 导入任务 ID
-     * <p> 示例值：623455234
+     * 导入任务 ID，任务 ID 来源于导入 e-HR 事件中的 task_id，详情参考[导入
+     * e-HR](;https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/event/import-ehr)
+     *
+     * <p>示例值：6914551145542568199
      */
-    @Path
-    @SerializedName("ehr_import_task_id")
-    private String ehrImportTaskId;
-    @Body
+    this.ehrImportTaskId = builder.ehrImportTaskId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String ehrImportTaskId; // 导入任务 ID，任务 ID 来源于导入 e-HR 事件中的 task_id，详情参考[导入
+
+    // e-HR](;https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/event/import-ehr)
+
+    /**
+     * 导入任务 ID，任务 ID 来源于导入 e-HR 事件中的 task_id，详情参考[导入
+     * e-HR](;https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/event/import-ehr)
+     *
+     * <p>示例值：6914551145542568199
+     *
+     * @param ehrImportTaskId
+     * @return
+     */
+    public Builder ehrImportTaskId(String ehrImportTaskId) {
+      this.ehrImportTaskId = ehrImportTaskId;
+      return this;
+    }
+
     private EhrImportTask body;
 
-    // builder 开始
-    public PatchEhrImportTaskReq() {
-    }
-
-    public PatchEhrImportTaskReq(Builder builder) {
-        /**
-         * 导入任务 ID
-         * <p> 示例值：623455234
-         */
-        this.ehrImportTaskId = builder.ehrImportTaskId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getEhrImportTaskId() {
-        return this.ehrImportTaskId;
-    }
-
-    public void setEhrImportTaskId(String ehrImportTaskId) {
-        this.ehrImportTaskId = ehrImportTaskId;
-    }
-
     public EhrImportTask getEhrImportTask() {
-        return this.body;
+      return this.body;
     }
 
-    public void setEhrImportTask(EhrImportTask body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder ehrImportTask(EhrImportTask body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String ehrImportTaskId; // 导入任务 ID
-        private EhrImportTask body;
-
-        /**
-         * 导入任务 ID
-         * <p> 示例值：623455234
-         *
-         * @param ehrImportTaskId
-         * @return
-         */
-        public Builder ehrImportTaskId(String ehrImportTaskId) {
-            this.ehrImportTaskId = ehrImportTaskId;
-            return this;
-        }
-
-        public EhrImportTask getEhrImportTask() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder ehrImportTask(EhrImportTask body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchEhrImportTaskReq build() {
-            return new PatchEhrImportTaskReq(this);
-        }
+    public PatchEhrImportTaskReq build() {
+      return new PatchEhrImportTaskReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

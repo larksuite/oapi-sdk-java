@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EcoBackgroundCheckCreateEventCustomKv {
+  /**
+   * 自定义字段标识，由[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)接口传入
+   *
+   * <p>示例值：candidate_extra_info
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 自定义字段值，用户在发起背调时填入，详情可参考[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)传入的自定义字段类型
+   *
+   * <p>示例值：这是一些额外信息
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public EcoBackgroundCheckCreateEventCustomKv() {}
+
+  public EcoBackgroundCheckCreateEventCustomKv(Builder builder) {
     /**
-     * 自定义字段标识
-     * <p> 示例值：auth_token
+     * 自定义字段标识，由[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)接口传入
+     *
+     * <p>示例值：candidate_extra_info
      */
-    @SerializedName("key")
+    this.key = builder.key;
+    /**
+     * 自定义字段值，用户在发起背调时填入，详情可参考[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)传入的自定义字段类型
+     *
+     * <p>示例值：这是一些额外信息
+     */
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义字段标识，由[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)接口传入
+     *
+     * <p>示例值：candidate_extra_info
+     */
     private String key;
+
     /**
-     * 自定义字段值
-     * <p> 示例值：apikey_1233kkka
+     * 自定义字段值，用户在发起背调时填入，详情可参考[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)传入的自定义字段类型
+     *
+     * <p>示例值：这是一些额外信息
      */
-    @SerializedName("value")
     private String value;
 
-    // builder 开始
-    public EcoBackgroundCheckCreateEventCustomKv() {
+    /**
+     * 自定义字段标识，由[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)接口传入
+     *
+     * <p>示例值：candidate_extra_info
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public EcoBackgroundCheckCreateEventCustomKv(Builder builder) {
-        /**
-         * 自定义字段标识
-         * <p> 示例值：auth_token
-         */
-        this.key = builder.key;
-        /**
-         * 自定义字段值
-         * <p> 示例值：apikey_1233kkka
-         */
-        this.value = builder.value;
+    /**
+     * 自定义字段值，用户在发起背调时填入，详情可参考[创建背调自定义字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_custom_field/create)传入的自定义字段类型
+     *
+     * <p>示例值：这是一些额外信息
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EcoBackgroundCheckCreateEventCustomKv build() {
+      return new EcoBackgroundCheckCreateEventCustomKv(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义字段标识
-         * <p> 示例值：auth_token
-         */
-        private String key;
-        /**
-         * 自定义字段值
-         * <p> 示例值：apikey_1233kkka
-         */
-        private String value;
-
-        /**
-         * 自定义字段标识
-         * <p> 示例值：auth_token
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段值
-         * <p> 示例值：apikey_1233kkka
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public EcoBackgroundCheckCreateEventCustomKv build() {
-            return new EcoBackgroundCheckCreateEventCustomKv(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

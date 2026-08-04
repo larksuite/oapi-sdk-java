@@ -33,222 +33,234 @@ import com.lark.oapi.service.contact.v3.resource.User;
 import com.lark.oapi.service.contact.v3.resource.WorkCity;
 
 public class ContactService {
-    private final V3 v3;
-    private final CustomAttr customAttr; // 自定义用户字段
-    private final CustomAttrEvent customAttrEvent; // 事件
-    private final Department department; // 部门
-    private final EmployeeTypeEnum employeeTypeEnum; // 人员类型
-    private final FunctionalRole functionalRole; // functional_role
-    private final FunctionalRoleMember functionalRoleMember; // functional_role.member
-    private final Group group; // 用户组
-    private final GroupMember groupMember; // 用户组成员
-    private final JobFamily jobFamily; // job_family
-    private final JobLevel jobLevel; // job_level
-    private final JobTitle jobTitle; // job_title
-    private final Scope scope; // 通讯录权限范围
-    private final Unit unit; // 单位
-    private final User user; // 用户
-    private final WorkCity workCity; // work_city
+  private final V3 v3;
+  private final CustomAttr customAttr; // custom_attr
+  private final CustomAttrEvent customAttrEvent; // custom_attr_event
+  private final Department department; // department
+  private final EmployeeTypeEnum employeeTypeEnum; // employee_type_enum
+  private final FunctionalRole functionalRole; // functional_role
+  private final FunctionalRoleMember functionalRoleMember; // functional_role.member
+  private final Group group; // group
+  private final GroupMember groupMember; // group.member
+  private final JobFamily jobFamily; // job_family
+  private final JobLevel jobLevel; // job_level
+  private final JobTitle jobTitle; // job_title
+  private final Scope scope; // scope
+  private final Unit unit; // unit
+  private final User user; // user
+  private final WorkCity workCity; // work_city
 
-    public ContactService(Config config) {
-        this.v3 = new V3(config);
-        this.customAttr = new CustomAttr(config);
-        this.customAttrEvent = new CustomAttrEvent(config);
-        this.department = new Department(config);
-        this.employeeTypeEnum = new EmployeeTypeEnum(config);
-        this.functionalRole = new FunctionalRole(config);
-        this.functionalRoleMember = new FunctionalRoleMember(config);
-        this.group = new Group(config);
-        this.groupMember = new GroupMember(config);
-        this.jobFamily = new JobFamily(config);
-        this.jobLevel = new JobLevel(config);
-        this.jobTitle = new JobTitle(config);
-        this.scope = new Scope(config);
-        this.unit = new Unit(config);
-        this.user = new User(config);
-        this.workCity = new WorkCity(config);
-    }
+  public ContactService(Config config) {
+    this.v3 = new V3(config);
+    this.customAttr = new CustomAttr(config);
+    this.customAttrEvent = new CustomAttrEvent(config);
+    this.department = new Department(config);
+    this.employeeTypeEnum = new EmployeeTypeEnum(config);
+    this.functionalRole = new FunctionalRole(config);
+    this.functionalRoleMember = new FunctionalRoleMember(config);
+    this.group = new Group(config);
+    this.groupMember = new GroupMember(config);
+    this.jobFamily = new JobFamily(config);
+    this.jobLevel = new JobLevel(config);
+    this.jobTitle = new JobTitle(config);
+    this.scope = new Scope(config);
+    this.unit = new Unit(config);
+    this.user = new User(config);
+    this.workCity = new WorkCity(config);
+  }
 
-    public V3 v3() {
-        return v3;
-    }
+  public V3 v3() {
+    return v3;
+  }
 
-    public CustomAttr customAttr() {
-        return customAttr;
-    }
+  public CustomAttr customAttr() {
+    return customAttr;
+  }
 
-    public CustomAttrEvent customAttrEvent() {
-        return customAttrEvent;
-    }
+  public CustomAttrEvent customAttrEvent() {
+    return customAttrEvent;
+  }
 
-    public Department department() {
-        return department;
-    }
+  public Department department() {
+    return department;
+  }
 
-    public EmployeeTypeEnum employeeTypeEnum() {
-        return employeeTypeEnum;
-    }
+  public EmployeeTypeEnum employeeTypeEnum() {
+    return employeeTypeEnum;
+  }
 
-    public FunctionalRole functionalRole() {
-        return functionalRole;
-    }
+  public FunctionalRole functionalRole() {
+    return functionalRole;
+  }
 
-    public FunctionalRoleMember functionalRoleMember() {
-        return functionalRoleMember;
-    }
+  public FunctionalRoleMember functionalRoleMember() {
+    return functionalRoleMember;
+  }
 
-    public Group group() {
-        return group;
-    }
+  public Group group() {
+    return group;
+  }
 
-    public GroupMember groupMember() {
-        return groupMember;
-    }
+  public GroupMember groupMember() {
+    return groupMember;
+  }
 
-    public JobFamily jobFamily() {
-        return jobFamily;
-    }
+  public JobFamily jobFamily() {
+    return jobFamily;
+  }
 
-    public JobLevel jobLevel() {
-        return jobLevel;
-    }
+  public JobLevel jobLevel() {
+    return jobLevel;
+  }
 
-    public JobTitle jobTitle() {
-        return jobTitle;
-    }
+  public JobTitle jobTitle() {
+    return jobTitle;
+  }
 
-    public Scope scope() {
-        return scope;
-    }
+  public Scope scope() {
+    return scope;
+  }
 
-    public Unit unit() {
-        return unit;
-    }
+  public Unit unit() {
+    return unit;
+  }
 
-    public User user() {
-        return user;
-    }
+  public User user() {
+    return user;
+  }
 
-    public WorkCity workCity() {
-        return workCity;
-    }
+  public WorkCity workCity() {
+    return workCity;
+  }
 
-    public abstract static class P2CustomAttrEventUpdatedV3Handler implements IEventHandler<P2CustomAttrEventUpdatedV3> {
-        @Override
-        public P2CustomAttrEventUpdatedV3 getEvent() {
-            return new P2CustomAttrEventUpdatedV3();
-        }
+  public abstract static class P2CustomAttrEventUpdatedV3Handler
+      implements IEventHandler<P2CustomAttrEventUpdatedV3> {
+    @Override
+    public P2CustomAttrEventUpdatedV3 getEvent() {
+      return new P2CustomAttrEventUpdatedV3();
     }
+  }
 
-    public abstract static class P2DepartmentCreatedV3Handler implements IEventHandler<P2DepartmentCreatedV3> {
-        @Override
-        public P2DepartmentCreatedV3 getEvent() {
-            return new P2DepartmentCreatedV3();
-        }
+  public abstract static class P2DepartmentCreatedV3Handler
+      implements IEventHandler<P2DepartmentCreatedV3> {
+    @Override
+    public P2DepartmentCreatedV3 getEvent() {
+      return new P2DepartmentCreatedV3();
     }
+  }
 
-    public abstract static class P2DepartmentDeletedV3Handler implements IEventHandler<P2DepartmentDeletedV3> {
-        @Override
-        public P2DepartmentDeletedV3 getEvent() {
-            return new P2DepartmentDeletedV3();
-        }
+  public abstract static class P2DepartmentDeletedV3Handler
+      implements IEventHandler<P2DepartmentDeletedV3> {
+    @Override
+    public P2DepartmentDeletedV3 getEvent() {
+      return new P2DepartmentDeletedV3();
     }
+  }
 
-    public abstract static class P2DepartmentUpdatedV3Handler implements IEventHandler<P2DepartmentUpdatedV3> {
-        @Override
-        public P2DepartmentUpdatedV3 getEvent() {
-            return new P2DepartmentUpdatedV3();
-        }
+  public abstract static class P2DepartmentUpdatedV3Handler
+      implements IEventHandler<P2DepartmentUpdatedV3> {
+    @Override
+    public P2DepartmentUpdatedV3 getEvent() {
+      return new P2DepartmentUpdatedV3();
     }
+  }
 
-    public abstract static class P2EmployeeTypeEnumActivedV3Handler implements IEventHandler<P2EmployeeTypeEnumActivedV3> {
-        @Override
-        public P2EmployeeTypeEnumActivedV3 getEvent() {
-            return new P2EmployeeTypeEnumActivedV3();
-        }
+  public abstract static class P2EmployeeTypeEnumActivedV3Handler
+      implements IEventHandler<P2EmployeeTypeEnumActivedV3> {
+    @Override
+    public P2EmployeeTypeEnumActivedV3 getEvent() {
+      return new P2EmployeeTypeEnumActivedV3();
     }
+  }
 
-    public abstract static class P2EmployeeTypeEnumCreatedV3Handler implements IEventHandler<P2EmployeeTypeEnumCreatedV3> {
-        @Override
-        public P2EmployeeTypeEnumCreatedV3 getEvent() {
-            return new P2EmployeeTypeEnumCreatedV3();
-        }
+  public abstract static class P2EmployeeTypeEnumCreatedV3Handler
+      implements IEventHandler<P2EmployeeTypeEnumCreatedV3> {
+    @Override
+    public P2EmployeeTypeEnumCreatedV3 getEvent() {
+      return new P2EmployeeTypeEnumCreatedV3();
     }
+  }
 
-    public abstract static class P2EmployeeTypeEnumDeactivatedV3Handler implements IEventHandler<P2EmployeeTypeEnumDeactivatedV3> {
-        @Override
-        public P2EmployeeTypeEnumDeactivatedV3 getEvent() {
-            return new P2EmployeeTypeEnumDeactivatedV3();
-        }
+  public abstract static class P2EmployeeTypeEnumDeactivatedV3Handler
+      implements IEventHandler<P2EmployeeTypeEnumDeactivatedV3> {
+    @Override
+    public P2EmployeeTypeEnumDeactivatedV3 getEvent() {
+      return new P2EmployeeTypeEnumDeactivatedV3();
     }
+  }
 
-    public abstract static class P2EmployeeTypeEnumDeletedV3Handler implements IEventHandler<P2EmployeeTypeEnumDeletedV3> {
-        @Override
-        public P2EmployeeTypeEnumDeletedV3 getEvent() {
-            return new P2EmployeeTypeEnumDeletedV3();
-        }
+  public abstract static class P2EmployeeTypeEnumDeletedV3Handler
+      implements IEventHandler<P2EmployeeTypeEnumDeletedV3> {
+    @Override
+    public P2EmployeeTypeEnumDeletedV3 getEvent() {
+      return new P2EmployeeTypeEnumDeletedV3();
     }
+  }
 
-    public abstract static class P2EmployeeTypeEnumUpdatedV3Handler implements IEventHandler<P2EmployeeTypeEnumUpdatedV3> {
-        @Override
-        public P2EmployeeTypeEnumUpdatedV3 getEvent() {
-            return new P2EmployeeTypeEnumUpdatedV3();
-        }
+  public abstract static class P2EmployeeTypeEnumUpdatedV3Handler
+      implements IEventHandler<P2EmployeeTypeEnumUpdatedV3> {
+    @Override
+    public P2EmployeeTypeEnumUpdatedV3 getEvent() {
+      return new P2EmployeeTypeEnumUpdatedV3();
     }
+  }
 
-    public abstract static class P2ScopeUpdatedV3Handler implements IEventHandler<P2ScopeUpdatedV3> {
-        @Override
-        public P2ScopeUpdatedV3 getEvent() {
-            return new P2ScopeUpdatedV3();
-        }
+  public abstract static class P2ScopeUpdatedV3Handler implements IEventHandler<P2ScopeUpdatedV3> {
+    @Override
+    public P2ScopeUpdatedV3 getEvent() {
+      return new P2ScopeUpdatedV3();
     }
+  }
 
-    public abstract static class P2UserCreatedV3Handler implements IEventHandler<P2UserCreatedV3> {
-        @Override
-        public P2UserCreatedV3 getEvent() {
-            return new P2UserCreatedV3();
-        }
+  public abstract static class P2UserCreatedV3Handler implements IEventHandler<P2UserCreatedV3> {
+    @Override
+    public P2UserCreatedV3 getEvent() {
+      return new P2UserCreatedV3();
     }
+  }
 
-    public abstract static class P2UserDeletedV3Handler implements IEventHandler<P2UserDeletedV3> {
-        @Override
-        public P2UserDeletedV3 getEvent() {
-            return new P2UserDeletedV3();
-        }
+  public abstract static class P2UserDeletedV3Handler implements IEventHandler<P2UserDeletedV3> {
+    @Override
+    public P2UserDeletedV3 getEvent() {
+      return new P2UserDeletedV3();
     }
+  }
 
-    public abstract static class P2UserUpdatedV3Handler implements IEventHandler<P2UserUpdatedV3> {
-        @Override
-        public P2UserUpdatedV3 getEvent() {
-            return new P2UserUpdatedV3();
-        }
+  public abstract static class P2UserUpdatedV3Handler implements IEventHandler<P2UserUpdatedV3> {
+    @Override
+    public P2UserUpdatedV3 getEvent() {
+      return new P2UserUpdatedV3();
     }
+  }
 
-    public abstract static class P1UserChangedV3Handler implements IEventHandler<P1UserChangedV3> {
-        @Override
-        public P1UserChangedV3 getEvent() {
-            return new P1UserChangedV3();
-        }
+  public abstract static class P1UserChangedV3Handler implements IEventHandler<P1UserChangedV3> {
+    @Override
+    public P1UserChangedV3 getEvent() {
+      return new P1UserChangedV3();
     }
+  }
 
-    public abstract static class P1UserStatusChangedV3Handler implements IEventHandler<P1UserStatusChangedV3> {
-        @Override
-        public P1UserStatusChangedV3 getEvent() {
-            return new P1UserStatusChangedV3();
-        }
+  public abstract static class P1UserStatusChangedV3Handler
+      implements IEventHandler<P1UserStatusChangedV3> {
+    @Override
+    public P1UserStatusChangedV3 getEvent() {
+      return new P1UserStatusChangedV3();
     }
+  }
 
-    public abstract static class P1DepartmentChangedV3Handler implements IEventHandler<P1DepartmentChangedV3> {
-        @Override
-        public P1DepartmentChangedV3 getEvent() {
-            return new P1DepartmentChangedV3();
-        }
+  public abstract static class P1DepartmentChangedV3Handler
+      implements IEventHandler<P1DepartmentChangedV3> {
+    @Override
+    public P1DepartmentChangedV3 getEvent() {
+      return new P1DepartmentChangedV3();
     }
+  }
 
-    public abstract static class P1ContactScopeChangedV3Handler implements IEventHandler<P1ContactScopeChangedV3> {
-        @Override
-        public P1ContactScopeChangedV3 getEvent() {
-            return new P1ContactScopeChangedV3();
-        }
+  public abstract static class P1ContactScopeChangedV3Handler
+      implements IEventHandler<P1ContactScopeChangedV3> {
+    @Override
+    public P1ContactScopeChangedV3 getEvent() {
+      return new P1ContactScopeChangedV3();
     }
+  }
 }

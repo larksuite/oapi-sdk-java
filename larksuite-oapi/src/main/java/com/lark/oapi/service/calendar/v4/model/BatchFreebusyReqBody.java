@@ -13,260 +13,295 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchFreebusyReqBody {
+  /**
+   * 获取忙闲信息的开始时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+   * 格式。;;**注意**：time_min 与 time_max 的时间间隔不能超过 2 周。
+   *
+   * <p>示例值：2020-10-28T12:00:00+08:00
+   */
+  @SerializedName("time_min")
+  private String timeMin;
+
+  /**
+   * 获取忙闲信息的结束时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+   * 格式。;;**注意**：time_min 与 time_max 的时间间隔不能超过 2 周。
+   *
+   * <p>示例值：2020-10-29T12:00:00+08:00
+   */
+  @SerializedName("time_max")
+  private String timeMax;
+
+  /**
+   * 用户 ID 列表。多个 ID 传入格式为 `["ou_c186b6833e2d5faf2bc587e71ddabcef",
+   * "ou_7d8a6e6df7621556ce0d21922b676706"]`。;;需要传入与查询参数 user_id_type 相匹配的
+   * id。例如，`user_id_type=open_id` 时，需要传入用户的 open_id。了解用户 ID 参见[用户相关的 ID
+   * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  /**
+   * 是否包含用户绑定的三方日历中的日程忙闲。;;**取值**：;- true（默认值）：包含;- false：不包含
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("include_external_calendar")
+  private Boolean includeExternalCalendar;
+
+  /**
+   * 是否只查询忙碌日程信息。;;**取值**：;- true（默认值）：是，查询结果不包含空闲日程。;- false：否，查询结果包含空闲日程。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("only_busy")
+  private Boolean onlyBusy;
+
+  /**
+   * 是否需要RSVP状态信息
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("need_rsvp_status")
+  private Boolean needRsvpStatus;
+
+  public String getTimeMin() {
+    return this.timeMin;
+  }
+
+  public void setTimeMin(String timeMin) {
+    this.timeMin = timeMin;
+  }
+
+  public String getTimeMax() {
+    return this.timeMax;
+  }
+
+  public void setTimeMax(String timeMax) {
+    this.timeMax = timeMax;
+  }
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  public Boolean getIncludeExternalCalendar() {
+    return this.includeExternalCalendar;
+  }
+
+  public void setIncludeExternalCalendar(Boolean includeExternalCalendar) {
+    this.includeExternalCalendar = includeExternalCalendar;
+  }
+
+  public Boolean getOnlyBusy() {
+    return this.onlyBusy;
+  }
+
+  public void setOnlyBusy(Boolean onlyBusy) {
+    this.onlyBusy = onlyBusy;
+  }
+
+  public Boolean getNeedRsvpStatus() {
+    return this.needRsvpStatus;
+  }
+
+  public void setNeedRsvpStatus(Boolean needRsvpStatus) {
+    this.needRsvpStatus = needRsvpStatus;
+  }
+
+  // builder 开始
+  public BatchFreebusyReqBody() {}
+
+  public BatchFreebusyReqBody(Builder builder) {
     /**
-     * 获取忙闲信息的开始时间，RFC3339 date_time格式；time_min与time_max的时间区间不能超过3个月。
-     * <p> 示例值：2020-10-28T12:00:00+08:00
+     * 获取忙闲信息的开始时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+     * 格式。;;**注意**：time_min 与 time_max 的时间间隔不能超过 2 周。
+     *
+     * <p>示例值：2020-10-28T12:00:00+08:00
      */
-    @SerializedName("time_min")
-    private String timeMin;
+    this.timeMin = builder.timeMin;
     /**
-     * 获取忙闲信息的开始时间，RFC3339 date_time格式；time_min与time_max的时间区间不能超过3个月。
-     * <p> 示例值：2020-10-28T12:00:00+08:00
+     * 获取忙闲信息的结束时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+     * 格式。;;**注意**：time_min 与 time_max 的时间间隔不能超过 2 周。
+     *
+     * <p>示例值：2020-10-29T12:00:00+08:00
      */
-    @SerializedName("time_max")
-    private String timeMax;
+    this.timeMax = builder.timeMax;
     /**
-     * 用户ID列表
-     * <p> 示例值：
+     * 用户 ID 列表。多个 ID 传入格式为 `["ou_c186b6833e2d5faf2bc587e71ddabcef",
+     * "ou_7d8a6e6df7621556ce0d21922b676706"]`。;;需要传入与查询参数 user_id_type 相匹配的
+     * id。例如，`user_id_type=open_id` 时，需要传入用户的 open_id。了解用户 ID 参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
-    private String[] userIds;
+    this.userIds = builder.userIds;
     /**
-     * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
-     * <p> 示例值：true
+     * 是否包含用户绑定的三方日历中的日程忙闲。;;**取值**：;- true（默认值）：包含;- false：不包含
+     *
+     * <p>示例值：true
      */
-    @SerializedName("include_external_calendar")
-    private Boolean includeExternalCalendar;
+    this.includeExternalCalendar = builder.includeExternalCalendar;
     /**
-     * 是否包含标记为空闲的日程，不传默认为true，即包含空闲日程。
-     * <p> 示例值：true
+     * 是否只查询忙碌日程信息。;;**取值**：;- true（默认值）：是，查询结果不包含空闲日程。;- false：否，查询结果包含空闲日程。
+     *
+     * <p>示例值：true
      */
-    @SerializedName("only_busy")
-    private Boolean onlyBusy;
+    this.onlyBusy = builder.onlyBusy;
     /**
      * 是否需要RSVP状态信息
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("need_rsvp_status")
+    this.needRsvpStatus = builder.needRsvpStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 获取忙闲信息的开始时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+     * 格式。;;**注意**：time_min 与 time_max 的时间间隔不能超过 2 周。
+     *
+     * <p>示例值：2020-10-28T12:00:00+08:00
+     */
+    private String timeMin;
+
+    /**
+     * 获取忙闲信息的结束时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+     * 格式。;;**注意**：time_min 与 time_max 的时间间隔不能超过 2 周。
+     *
+     * <p>示例值：2020-10-29T12:00:00+08:00
+     */
+    private String timeMax;
+
+    /**
+     * 用户 ID 列表。多个 ID 传入格式为 `["ou_c186b6833e2d5faf2bc587e71ddabcef",
+     * "ou_7d8a6e6df7621556ce0d21922b676706"]`。;;需要传入与查询参数 user_id_type 相匹配的
+     * id。例如，`user_id_type=open_id` 时，需要传入用户的 open_id。了解用户 ID 参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：
+     */
+    private String[] userIds;
+
+    /**
+     * 是否包含用户绑定的三方日历中的日程忙闲。;;**取值**：;- true（默认值）：包含;- false：不包含
+     *
+     * <p>示例值：true
+     */
+    private Boolean includeExternalCalendar;
+
+    /**
+     * 是否只查询忙碌日程信息。;;**取值**：;- true（默认值）：是，查询结果不包含空闲日程。;- false：否，查询结果包含空闲日程。
+     *
+     * <p>示例值：true
+     */
+    private Boolean onlyBusy;
+
+    /**
+     * 是否需要RSVP状态信息
+     *
+     * <p>示例值：true
+     */
     private Boolean needRsvpStatus;
 
-    // builder 开始
-    public BatchFreebusyReqBody() {
+    /**
+     * 获取忙闲信息的开始时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+     * 格式。;;**注意**：time_min 与 time_max 的时间间隔不能超过 2 周。
+     *
+     * <p>示例值：2020-10-28T12:00:00+08:00
+     *
+     * @param timeMin
+     * @return
+     */
+    public Builder timeMin(String timeMin) {
+      this.timeMin = timeMin;
+      return this;
     }
 
-    public BatchFreebusyReqBody(Builder builder) {
-        /**
-         * 获取忙闲信息的开始时间，RFC3339 date_time格式；time_min与time_max的时间区间不能超过3个月。
-         * <p> 示例值：2020-10-28T12:00:00+08:00
-         */
-        this.timeMin = builder.timeMin;
-        /**
-         * 获取忙闲信息的开始时间，RFC3339 date_time格式；time_min与time_max的时间区间不能超过3个月。
-         * <p> 示例值：2020-10-28T12:00:00+08:00
-         */
-        this.timeMax = builder.timeMax;
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
-         * <p> 示例值：true
-         */
-        this.includeExternalCalendar = builder.includeExternalCalendar;
-        /**
-         * 是否包含标记为空闲的日程，不传默认为true，即包含空闲日程。
-         * <p> 示例值：true
-         */
-        this.onlyBusy = builder.onlyBusy;
-        /**
-         * 是否需要RSVP状态信息
-         * <p> 示例值：true
-         */
-        this.needRsvpStatus = builder.needRsvpStatus;
+    /**
+     * 获取忙闲信息的结束时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+     * 格式。;;**注意**：time_min 与 time_max 的时间间隔不能超过 2 周。
+     *
+     * <p>示例值：2020-10-29T12:00:00+08:00
+     *
+     * @param timeMax
+     * @return
+     */
+    public Builder timeMax(String timeMax) {
+      this.timeMax = timeMax;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户 ID 列表。多个 ID 传入格式为 `["ou_c186b6833e2d5faf2bc587e71ddabcef",
+     * "ou_7d8a6e6df7621556ce0d21922b676706"]`。;;需要传入与查询参数 user_id_type 相匹配的
+     * id。例如，`user_id_type=open_id` 时，需要传入用户的 open_id。了解用户 ID 参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public String getTimeMin() {
-        return this.timeMin;
+    /**
+     * 是否包含用户绑定的三方日历中的日程忙闲。;;**取值**：;- true（默认值）：包含;- false：不包含
+     *
+     * <p>示例值：true
+     *
+     * @param includeExternalCalendar
+     * @return
+     */
+    public Builder includeExternalCalendar(Boolean includeExternalCalendar) {
+      this.includeExternalCalendar = includeExternalCalendar;
+      return this;
     }
 
-    public void setTimeMin(String timeMin) {
-        this.timeMin = timeMin;
+    /**
+     * 是否只查询忙碌日程信息。;;**取值**：;- true（默认值）：是，查询结果不包含空闲日程。;- false：否，查询结果包含空闲日程。
+     *
+     * <p>示例值：true
+     *
+     * @param onlyBusy
+     * @return
+     */
+    public Builder onlyBusy(Boolean onlyBusy) {
+      this.onlyBusy = onlyBusy;
+      return this;
     }
 
-    public String getTimeMax() {
-        return this.timeMax;
+    /**
+     * 是否需要RSVP状态信息
+     *
+     * <p>示例值：true
+     *
+     * @param needRsvpStatus
+     * @return
+     */
+    public Builder needRsvpStatus(Boolean needRsvpStatus) {
+      this.needRsvpStatus = needRsvpStatus;
+      return this;
     }
 
-    public void setTimeMax(String timeMax) {
-        this.timeMax = timeMax;
+    public BatchFreebusyReqBody build() {
+      return new BatchFreebusyReqBody(this);
     }
+  }
 
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public Boolean getIncludeExternalCalendar() {
-        return this.includeExternalCalendar;
-    }
-
-    public void setIncludeExternalCalendar(Boolean includeExternalCalendar) {
-        this.includeExternalCalendar = includeExternalCalendar;
-    }
-
-    public Boolean getOnlyBusy() {
-        return this.onlyBusy;
-    }
-
-    public void setOnlyBusy(Boolean onlyBusy) {
-        this.onlyBusy = onlyBusy;
-    }
-
-    public Boolean getNeedRsvpStatus() {
-        return this.needRsvpStatus;
-    }
-
-    public void setNeedRsvpStatus(Boolean needRsvpStatus) {
-        this.needRsvpStatus = needRsvpStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 获取忙闲信息的开始时间，RFC3339 date_time格式；time_min与time_max的时间区间不能超过3个月。
-         * <p> 示例值：2020-10-28T12:00:00+08:00
-         */
-        private String timeMin;
-        /**
-         * 获取忙闲信息的开始时间，RFC3339 date_time格式；time_min与time_max的时间区间不能超过3个月。
-         * <p> 示例值：2020-10-28T12:00:00+08:00
-         */
-        private String timeMax;
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         */
-        private String[] userIds;
-        /**
-         * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
-         * <p> 示例值：true
-         */
-        private Boolean includeExternalCalendar;
-        /**
-         * 是否包含标记为空闲的日程，不传默认为true，即包含空闲日程。
-         * <p> 示例值：true
-         */
-        private Boolean onlyBusy;
-        /**
-         * 是否需要RSVP状态信息
-         * <p> 示例值：true
-         */
-        private Boolean needRsvpStatus;
-
-        /**
-         * 获取忙闲信息的开始时间，RFC3339 date_time格式；time_min与time_max的时间区间不能超过3个月。
-         * <p> 示例值：2020-10-28T12:00:00+08:00
-         *
-         * @param timeMin
-         * @return
-         */
-        public Builder timeMin(String timeMin) {
-            this.timeMin = timeMin;
-            return this;
-        }
-
-
-        /**
-         * 获取忙闲信息的开始时间，RFC3339 date_time格式；time_min与time_max的时间区间不能超过3个月。
-         * <p> 示例值：2020-10-28T12:00:00+08:00
-         *
-         * @param timeMax
-         * @return
-         */
-        public Builder timeMax(String timeMax) {
-            this.timeMax = timeMax;
-            return this;
-        }
-
-
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        /**
-         * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
-         * <p> 示例值：true
-         *
-         * @param includeExternalCalendar
-         * @return
-         */
-        public Builder includeExternalCalendar(Boolean includeExternalCalendar) {
-            this.includeExternalCalendar = includeExternalCalendar;
-            return this;
-        }
-
-
-        /**
-         * 是否包含标记为空闲的日程，不传默认为true，即包含空闲日程。
-         * <p> 示例值：true
-         *
-         * @param onlyBusy
-         * @return
-         */
-        public Builder onlyBusy(Boolean onlyBusy) {
-            this.onlyBusy = onlyBusy;
-            return this;
-        }
-
-
-        /**
-         * 是否需要RSVP状态信息
-         * <p> 示例值：true
-         *
-         * @param needRsvpStatus
-         * @return
-         */
-        public Builder needRsvpStatus(Boolean needRsvpStatus) {
-            this.needRsvpStatus = needRsvpStatus;
-            return this;
-        }
-
-
-        public BatchFreebusyReqBody build() {
-            return new BatchFreebusyReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

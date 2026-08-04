@@ -18,34 +18,37 @@ import com.lark.oapi.service.elearning.v2.V2;
 import com.lark.oapi.service.elearning.v2.model.*;
 
 public class ElearningService {
-    private final V2 v2;
+  private final V2 v2;
 
-    public ElearningService(Config config) {
-        this.v2 = new V2(config);
-    }
+  public ElearningService(Config config) {
+    this.v2 = new V2(config);
+  }
 
-    public V2 v2() {
-        return v2;
-    }
+  public V2 v2() {
+    return v2;
+  }
 
-    public abstract static class P2CourseRegistrationCreatedV2Handler implements IEventHandler<P2CourseRegistrationCreatedV2> {
-        @Override
-        public P2CourseRegistrationCreatedV2 getEvent() {
-            return new P2CourseRegistrationCreatedV2();
-        }
+  public abstract static class P2CourseRegistrationCreatedV2Handler
+      implements IEventHandler<P2CourseRegistrationCreatedV2> {
+    @Override
+    public P2CourseRegistrationCreatedV2 getEvent() {
+      return new P2CourseRegistrationCreatedV2();
     }
+  }
 
-    public abstract static class P2CourseRegistrationDeletedV2Handler implements IEventHandler<P2CourseRegistrationDeletedV2> {
-        @Override
-        public P2CourseRegistrationDeletedV2 getEvent() {
-            return new P2CourseRegistrationDeletedV2();
-        }
+  public abstract static class P2CourseRegistrationDeletedV2Handler
+      implements IEventHandler<P2CourseRegistrationDeletedV2> {
+    @Override
+    public P2CourseRegistrationDeletedV2 getEvent() {
+      return new P2CourseRegistrationDeletedV2();
     }
+  }
 
-    public abstract static class P2CourseRegistrationUpdatedV2Handler implements IEventHandler<P2CourseRegistrationUpdatedV2> {
-        @Override
-        public P2CourseRegistrationUpdatedV2 getEvent() {
-            return new P2CourseRegistrationUpdatedV2();
-        }
+  public abstract static class P2CourseRegistrationUpdatedV2Handler
+      implements IEventHandler<P2CourseRegistrationUpdatedV2> {
+    @Override
+    public P2CourseRegistrationUpdatedV2 getEvent() {
+      return new P2CourseRegistrationUpdatedV2();
     }
+  }
 }

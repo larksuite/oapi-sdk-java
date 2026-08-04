@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PunchTimeSimpleRule {
+  /**
+   * 上班时间，格式HH：MM
+   *
+   * <p>示例值：9：00
+   */
+  @SerializedName("on_time")
+  private String onTime;
+
+  /**
+   * 下班时间，格式HH：MM。如需表示次日2点，则填入"26：00"
+   *
+   * <p>示例值：18：00
+   */
+  @SerializedName("off_time")
+  private String offTime;
+
+  public String getOnTime() {
+    return this.onTime;
+  }
+
+  public void setOnTime(String onTime) {
+    this.onTime = onTime;
+  }
+
+  public String getOffTime() {
+    return this.offTime;
+  }
+
+  public void setOffTime(String offTime) {
+    this.offTime = offTime;
+  }
+
+  // builder 开始
+  public PunchTimeSimpleRule() {}
+
+  public PunchTimeSimpleRule(Builder builder) {
     /**
-     * 上班时间
-     * <p> 示例值：9：00
+     * 上班时间，格式HH：MM
+     *
+     * <p>示例值：9：00
      */
-    @SerializedName("on_time")
+    this.onTime = builder.onTime;
+    /**
+     * 下班时间，格式HH：MM。如需表示次日2点，则填入"26：00"
+     *
+     * <p>示例值：18：00
+     */
+    this.offTime = builder.offTime;
+  }
+
+  public static class Builder {
+    /**
+     * 上班时间，格式HH：MM
+     *
+     * <p>示例值：9：00
+     */
     private String onTime;
+
     /**
-     * 下班时间
-     * <p> 示例值：18：00， 第二天凌晨2点， 26：00
+     * 下班时间，格式HH：MM。如需表示次日2点，则填入"26：00"
+     *
+     * <p>示例值：18：00
      */
-    @SerializedName("off_time")
     private String offTime;
 
-    // builder 开始
-    public PunchTimeSimpleRule() {
+    /**
+     * 上班时间，格式HH：MM
+     *
+     * <p>示例值：9：00
+     *
+     * @param onTime
+     * @return
+     */
+    public Builder onTime(String onTime) {
+      this.onTime = onTime;
+      return this;
     }
 
-    public PunchTimeSimpleRule(Builder builder) {
-        /**
-         * 上班时间
-         * <p> 示例值：9：00
-         */
-        this.onTime = builder.onTime;
-        /**
-         * 下班时间
-         * <p> 示例值：18：00， 第二天凌晨2点， 26：00
-         */
-        this.offTime = builder.offTime;
+    /**
+     * 下班时间，格式HH：MM。如需表示次日2点，则填入"26：00"
+     *
+     * <p>示例值：18：00
+     *
+     * @param offTime
+     * @return
+     */
+    public Builder offTime(String offTime) {
+      this.offTime = offTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PunchTimeSimpleRule build() {
+      return new PunchTimeSimpleRule(this);
     }
+  }
 
-    public String getOnTime() {
-        return this.onTime;
-    }
-
-    public void setOnTime(String onTime) {
-        this.onTime = onTime;
-    }
-
-    public String getOffTime() {
-        return this.offTime;
-    }
-
-    public void setOffTime(String offTime) {
-        this.offTime = offTime;
-    }
-
-    public static class Builder {
-        /**
-         * 上班时间
-         * <p> 示例值：9：00
-         */
-        private String onTime;
-        /**
-         * 下班时间
-         * <p> 示例值：18：00， 第二天凌晨2点， 26：00
-         */
-        private String offTime;
-
-        /**
-         * 上班时间
-         * <p> 示例值：9：00
-         *
-         * @param onTime
-         * @return
-         */
-        public Builder onTime(String onTime) {
-            this.onTime = onTime;
-            return this;
-        }
-
-
-        /**
-         * 下班时间
-         * <p> 示例值：18：00， 第二天凌晨2点， 26：00
-         *
-         * @param offTime
-         * @return
-         */
-        public Builder offTime(String offTime) {
-            this.offTime = offTime;
-            return this;
-        }
-
-
-        public PunchTimeSimpleRule build() {
-            return new PunchTimeSimpleRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

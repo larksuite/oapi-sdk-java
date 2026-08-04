@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchCustomFieldRespBody {
-    /**
-     * 修改后的自定义字段设置
-     * <p> 示例值：
-     */
-    @SerializedName("custom_field")
-    private CustomField customField;
+  /**
+   * 修改后的自定义字段设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_field")
+  private CustomField customField;
 
-    public CustomField getCustomField() {
-        return this.customField;
-    }
+  public CustomField getCustomField() {
+    return this.customField;
+  }
 
-    public void setCustomField(CustomField customField) {
-        this.customField = customField;
-    }
-
+  public void setCustomField(CustomField customField) {
+    this.customField = customField;
+  }
 }

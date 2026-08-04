@@ -13,132 +13,137 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2EcoBackgroundCheckCreatedV1Data {
-    /**
-     * 背调 ID，招聘系统内唯一
-     * <p> 示例值：6931286400470354183
-     */
-    @SerializedName("background_check_id")
-    private String backgroundCheckId;
-    /**
-     * 账号 ID，招聘系统内唯一
-     * <p> 示例值：6931286400470354183
-     */
-    @SerializedName("account_id")
-    private String accountId;
-    /**
-     * 套餐 ID
-     * <p> 示例值：12
-     */
-    @SerializedName("package_id")
-    private String packageId;
-    /**
-     * 附件调查项 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("additional_item_id_list")
-    private String[] additionalItemIdList;
-    /**
-     * 备注
-     * <p> 示例值：高阶候选人，请尽快处理
-     */
-    @SerializedName("comment")
-    private String comment;
-    /**
-     * 候选人信息
-     * <p> 示例值：
-     */
-    @SerializedName("candidate_info")
-    private EcoBackgroundCheckCreateEventCandidateInfo candidateInfo;
-    /**
-     * 联系人（委托人）信息
-     * <p> 示例值：
-     */
-    @SerializedName("client_contact_info")
-    private EcoBackgroundCheckCreateEventContactInfo clientContactInfo;
-    /**
-     * 自定义字段键值对
-     * <p> 示例值：
-     */
-    @SerializedName("custom_field_list")
-    private EcoBackgroundCheckCreateEventCustomKv[] customFieldList;
+  /**
+   * 背调 ID，招聘系统内唯一。服务商可将此 ID与内部的背调订单绑定
+   *
+   * <p>示例值：6931286400470354183
+   */
+  @SerializedName("background_check_id")
+  private String backgroundCheckId;
 
-    public String getBackgroundCheckId() {
-        return this.backgroundCheckId;
-    }
+  /**
+   * 账号
+   * ID，招聘系统内唯一。可通过[账号绑定](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_account/events/created)事件获取
+   *
+   * <p>示例值：6931286400470354183
+   */
+  @SerializedName("account_id")
+  private String accountId;
 
-    public void setBackgroundCheckId(String backgroundCheckId) {
-        this.backgroundCheckId = backgroundCheckId;
-    }
+  /**
+   * 套餐
+   * ID，通过[创建背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create)传入
+   *
+   * <p>示例值：12
+   */
+  @SerializedName("package_id")
+  private String packageId;
 
-    public String getAccountId() {
-        return this.accountId;
-    }
+  /**
+   * 附件调查项 ID
+   * 列表，通过[创建背调套餐和附加调查项](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/eco_background_check_package/create)传入
+   *
+   * <p>示例值：
+   */
+  @SerializedName("additional_item_id_list")
+  private String[] additionalItemIdList;
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
+  /**
+   * 备注
+   *
+   * <p>示例值：高阶候选人，请尽快处理
+   */
+  @SerializedName("comment")
+  private String comment;
 
-    public String getPackageId() {
-        return this.packageId;
-    }
+  /**
+   * 候选人信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("candidate_info")
+  private EcoBackgroundCheckCreateEventCandidateInfo candidateInfo;
 
-    public void setPackageId(String packageId) {
-        this.packageId = packageId;
-    }
+  /**
+   * 联系人（委托人）信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("client_contact_info")
+  private EcoBackgroundCheckCreateEventContactInfo clientContactInfo;
 
-    public String[] getAdditionalItemIdList() {
-        return this.additionalItemIdList;
-    }
+  /**
+   * 自定义字段键值对
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_field_list")
+  private EcoBackgroundCheckCreateEventCustomKv[] customFieldList;
 
-    public void setAdditionalItemIdList(String[] additionalItemIdList) {
-        this.additionalItemIdList = additionalItemIdList;
-    }
+  public String getBackgroundCheckId() {
+    return this.backgroundCheckId;
+  }
 
-    public String getComment() {
-        return this.comment;
-    }
+  public void setBackgroundCheckId(String backgroundCheckId) {
+    this.backgroundCheckId = backgroundCheckId;
+  }
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
+  public String getAccountId() {
+    return this.accountId;
+  }
 
-    public EcoBackgroundCheckCreateEventCandidateInfo getCandidateInfo() {
-        return this.candidateInfo;
-    }
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
 
-    public void setCandidateInfo(EcoBackgroundCheckCreateEventCandidateInfo candidateInfo) {
-        this.candidateInfo = candidateInfo;
-    }
+  public String getPackageId() {
+    return this.packageId;
+  }
 
-    public EcoBackgroundCheckCreateEventContactInfo getClientContactInfo() {
-        return this.clientContactInfo;
-    }
+  public void setPackageId(String packageId) {
+    this.packageId = packageId;
+  }
 
-    public void setClientContactInfo(EcoBackgroundCheckCreateEventContactInfo clientContactInfo) {
-        this.clientContactInfo = clientContactInfo;
-    }
+  public String[] getAdditionalItemIdList() {
+    return this.additionalItemIdList;
+  }
 
-    public EcoBackgroundCheckCreateEventCustomKv[] getCustomFieldList() {
-        return this.customFieldList;
-    }
+  public void setAdditionalItemIdList(String[] additionalItemIdList) {
+    this.additionalItemIdList = additionalItemIdList;
+  }
 
-    public void setCustomFieldList(EcoBackgroundCheckCreateEventCustomKv[] customFieldList) {
-        this.customFieldList = customFieldList;
-    }
+  public String getComment() {
+    return this.comment;
+  }
 
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
+
+  public EcoBackgroundCheckCreateEventCandidateInfo getCandidateInfo() {
+    return this.candidateInfo;
+  }
+
+  public void setCandidateInfo(EcoBackgroundCheckCreateEventCandidateInfo candidateInfo) {
+    this.candidateInfo = candidateInfo;
+  }
+
+  public EcoBackgroundCheckCreateEventContactInfo getClientContactInfo() {
+    return this.clientContactInfo;
+  }
+
+  public void setClientContactInfo(EcoBackgroundCheckCreateEventContactInfo clientContactInfo) {
+    this.clientContactInfo = clientContactInfo;
+  }
+
+  public EcoBackgroundCheckCreateEventCustomKv[] getCustomFieldList() {
+    return this.customFieldList;
+  }
+
+  public void setCustomFieldList(EcoBackgroundCheckCreateEventCustomKv[] customFieldList) {
+    this.customFieldList = customFieldList;
+  }
 }

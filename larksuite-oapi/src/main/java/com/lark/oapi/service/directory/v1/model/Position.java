@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Position {
+  /**
+   * 岗位code
+   *
+   * <p>示例值：PO18890
+   */
+  @SerializedName("position_code")
+  private String positionCode;
+
+  /**
+   * 岗位名称
+   *
+   * <p>示例值：总经理
+   */
+  @SerializedName("position_name")
+  private String positionName;
+
+  /**
+   * 上级领导id，可以没有上级领导
+   *
+   * <p>示例值：2e1cf73b
+   */
+  @SerializedName("leader_id")
+  private String leaderId;
+
+  /**
+   * 上级领导岗位code，可以没有上级领导
+   *
+   * <p>示例值：e71b94gb
+   */
+  @SerializedName("leader_position_code")
+  private String leaderPositionCode;
+
+  /**
+   * 是否主岗，只允许一个主岗
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_main_position")
+  private Boolean isMainPosition;
+
+  /**
+   * 岗位所属的部门id，需要在用户所属的部门集之内（user.departmentIds）
+   *
+   * <p>示例值：D100
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 租户id
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 雇员id
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("employee_id")
+  private String employeeId;
+
+  /**
+   * 更新时间，单位微秒
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  public String getPositionCode() {
+    return this.positionCode;
+  }
+
+  public void setPositionCode(String positionCode) {
+    this.positionCode = positionCode;
+  }
+
+  public String getPositionName() {
+    return this.positionName;
+  }
+
+  public void setPositionName(String positionName) {
+    this.positionName = positionName;
+  }
+
+  public String getLeaderId() {
+    return this.leaderId;
+  }
+
+  public void setLeaderId(String leaderId) {
+    this.leaderId = leaderId;
+  }
+
+  public String getLeaderPositionCode() {
+    return this.leaderPositionCode;
+  }
+
+  public void setLeaderPositionCode(String leaderPositionCode) {
+    this.leaderPositionCode = leaderPositionCode;
+  }
+
+  public Boolean getIsMainPosition() {
+    return this.isMainPosition;
+  }
+
+  public void setIsMainPosition(Boolean isMainPosition) {
+    this.isMainPosition = isMainPosition;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String getEmployeeId() {
+    return this.employeeId;
+  }
+
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  // builder 开始
+  public Position() {}
+
+  public Position(Builder builder) {
     /**
      * 岗位code
-     * <p> 示例值：PO18890
+     *
+     * <p>示例值：PO18890
      */
-    @SerializedName("position_code")
-    private String positionCode;
+    this.positionCode = builder.positionCode;
     /**
      * 岗位名称
-     * <p> 示例值：总经理
+     *
+     * <p>示例值：总经理
      */
-    @SerializedName("position_name")
-    private String positionName;
+    this.positionName = builder.positionName;
     /**
      * 上级领导id，可以没有上级领导
-     * <p> 示例值：2e1cf73b
+     *
+     * <p>示例值：2e1cf73b
      */
-    @SerializedName("leader_id")
-    private String leaderId;
+    this.leaderId = builder.leaderId;
     /**
      * 上级领导岗位code，可以没有上级领导
-     * <p> 示例值：e71b94gb
+     *
+     * <p>示例值：e71b94gb
      */
-    @SerializedName("leader_position_code")
-    private String leaderPositionCode;
+    this.leaderPositionCode = builder.leaderPositionCode;
     /**
      * 是否主岗，只允许一个主岗
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_main_position")
-    private Boolean isMainPosition;
+    this.isMainPosition = builder.isMainPosition;
     /**
      * 岗位所属的部门id，需要在用户所属的部门集之内（user.departmentIds）
-     * <p> 示例值：D100
+     *
+     * <p>示例值：D100
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
      * 租户id
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 雇员id
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("employee_id")
-    private String employeeId;
+    this.employeeId = builder.employeeId;
     /**
      * 更新时间，单位微秒
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("update_time")
+    this.updateTime = builder.updateTime;
+  }
+
+  public static class Builder {
+    /**
+     * 岗位code
+     *
+     * <p>示例值：PO18890
+     */
+    private String positionCode;
+
+    /**
+     * 岗位名称
+     *
+     * <p>示例值：总经理
+     */
+    private String positionName;
+
+    /**
+     * 上级领导id，可以没有上级领导
+     *
+     * <p>示例值：2e1cf73b
+     */
+    private String leaderId;
+
+    /**
+     * 上级领导岗位code，可以没有上级领导
+     *
+     * <p>示例值：e71b94gb
+     */
+    private String leaderPositionCode;
+
+    /**
+     * 是否主岗，只允许一个主岗
+     *
+     * <p>示例值：true
+     */
+    private Boolean isMainPosition;
+
+    /**
+     * 岗位所属的部门id，需要在用户所属的部门集之内（user.departmentIds）
+     *
+     * <p>示例值：D100
+     */
+    private String departmentId;
+
+    /**
+     * 租户id
+     *
+     * <p>示例值：无
+     */
+    private String tenantId;
+
+    /**
+     * 雇员id
+     *
+     * <p>示例值：无
+     */
+    private String employeeId;
+
+    /**
+     * 更新时间，单位微秒
+     *
+     * <p>示例值：无
+     */
     private String updateTime;
 
-    // builder 开始
-    public Position() {
+    /**
+     * 岗位code
+     *
+     * <p>示例值：PO18890
+     *
+     * @param positionCode
+     * @return
+     */
+    public Builder positionCode(String positionCode) {
+      this.positionCode = positionCode;
+      return this;
     }
 
-    public Position(Builder builder) {
-        /**
-         * 岗位code
-         * <p> 示例值：PO18890
-         */
-        this.positionCode = builder.positionCode;
-        /**
-         * 岗位名称
-         * <p> 示例值：总经理
-         */
-        this.positionName = builder.positionName;
-        /**
-         * 上级领导id，可以没有上级领导
-         * <p> 示例值：2e1cf73b
-         */
-        this.leaderId = builder.leaderId;
-        /**
-         * 上级领导岗位code，可以没有上级领导
-         * <p> 示例值：e71b94gb
-         */
-        this.leaderPositionCode = builder.leaderPositionCode;
-        /**
-         * 是否主岗，只允许一个主岗
-         * <p> 示例值：true
-         */
-        this.isMainPosition = builder.isMainPosition;
-        /**
-         * 岗位所属的部门id，需要在用户所属的部门集之内（user.departmentIds）
-         * <p> 示例值：D100
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 租户id
-         * <p> 示例值：无
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 雇员id
-         * <p> 示例值：无
-         */
-        this.employeeId = builder.employeeId;
-        /**
-         * 更新时间，单位微秒
-         * <p> 示例值：无
-         */
-        this.updateTime = builder.updateTime;
+    /**
+     * 岗位名称
+     *
+     * <p>示例值：总经理
+     *
+     * @param positionName
+     * @return
+     */
+    public Builder positionName(String positionName) {
+      this.positionName = positionName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 上级领导id，可以没有上级领导
+     *
+     * <p>示例值：2e1cf73b
+     *
+     * @param leaderId
+     * @return
+     */
+    public Builder leaderId(String leaderId) {
+      this.leaderId = leaderId;
+      return this;
     }
 
-    public String getPositionCode() {
-        return this.positionCode;
+    /**
+     * 上级领导岗位code，可以没有上级领导
+     *
+     * <p>示例值：e71b94gb
+     *
+     * @param leaderPositionCode
+     * @return
+     */
+    public Builder leaderPositionCode(String leaderPositionCode) {
+      this.leaderPositionCode = leaderPositionCode;
+      return this;
     }
 
-    public void setPositionCode(String positionCode) {
-        this.positionCode = positionCode;
+    /**
+     * 是否主岗，只允许一个主岗
+     *
+     * <p>示例值：true
+     *
+     * @param isMainPosition
+     * @return
+     */
+    public Builder isMainPosition(Boolean isMainPosition) {
+      this.isMainPosition = isMainPosition;
+      return this;
     }
 
-    public String getPositionName() {
-        return this.positionName;
+    /**
+     * 岗位所属的部门id，需要在用户所属的部门集之内（user.departmentIds）
+     *
+     * <p>示例值：D100
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public void setPositionName(String positionName) {
-        this.positionName = positionName;
+    /**
+     * 租户id
+     *
+     * <p>示例值：无
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public String getLeaderId() {
-        return this.leaderId;
+    /**
+     * 雇员id
+     *
+     * <p>示例值：无
+     *
+     * @param employeeId
+     * @return
+     */
+    public Builder employeeId(String employeeId) {
+      this.employeeId = employeeId;
+      return this;
     }
 
-    public void setLeaderId(String leaderId) {
-        this.leaderId = leaderId;
+    /**
+     * 更新时间，单位微秒
+     *
+     * <p>示例值：无
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public String getLeaderPositionCode() {
-        return this.leaderPositionCode;
+    public Position build() {
+      return new Position(this);
     }
+  }
 
-    public void setLeaderPositionCode(String leaderPositionCode) {
-        this.leaderPositionCode = leaderPositionCode;
-    }
-
-    public Boolean getIsMainPosition() {
-        return this.isMainPosition;
-    }
-
-    public void setIsMainPosition(Boolean isMainPosition) {
-        this.isMainPosition = isMainPosition;
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public String getTenantId() {
-        return this.tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public String getEmployeeId() {
-        return this.employeeId;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public static class Builder {
-        /**
-         * 岗位code
-         * <p> 示例值：PO18890
-         */
-        private String positionCode;
-        /**
-         * 岗位名称
-         * <p> 示例值：总经理
-         */
-        private String positionName;
-        /**
-         * 上级领导id，可以没有上级领导
-         * <p> 示例值：2e1cf73b
-         */
-        private String leaderId;
-        /**
-         * 上级领导岗位code，可以没有上级领导
-         * <p> 示例值：e71b94gb
-         */
-        private String leaderPositionCode;
-        /**
-         * 是否主岗，只允许一个主岗
-         * <p> 示例值：true
-         */
-        private Boolean isMainPosition;
-        /**
-         * 岗位所属的部门id，需要在用户所属的部门集之内（user.departmentIds）
-         * <p> 示例值：D100
-         */
-        private String departmentId;
-        /**
-         * 租户id
-         * <p> 示例值：无
-         */
-        private String tenantId;
-        /**
-         * 雇员id
-         * <p> 示例值：无
-         */
-        private String employeeId;
-        /**
-         * 更新时间，单位微秒
-         * <p> 示例值：无
-         */
-        private String updateTime;
-
-        /**
-         * 岗位code
-         * <p> 示例值：PO18890
-         *
-         * @param positionCode
-         * @return
-         */
-        public Builder positionCode(String positionCode) {
-            this.positionCode = positionCode;
-            return this;
-        }
-
-
-        /**
-         * 岗位名称
-         * <p> 示例值：总经理
-         *
-         * @param positionName
-         * @return
-         */
-        public Builder positionName(String positionName) {
-            this.positionName = positionName;
-            return this;
-        }
-
-
-        /**
-         * 上级领导id，可以没有上级领导
-         * <p> 示例值：2e1cf73b
-         *
-         * @param leaderId
-         * @return
-         */
-        public Builder leaderId(String leaderId) {
-            this.leaderId = leaderId;
-            return this;
-        }
-
-
-        /**
-         * 上级领导岗位code，可以没有上级领导
-         * <p> 示例值：e71b94gb
-         *
-         * @param leaderPositionCode
-         * @return
-         */
-        public Builder leaderPositionCode(String leaderPositionCode) {
-            this.leaderPositionCode = leaderPositionCode;
-            return this;
-        }
-
-
-        /**
-         * 是否主岗，只允许一个主岗
-         * <p> 示例值：true
-         *
-         * @param isMainPosition
-         * @return
-         */
-        public Builder isMainPosition(Boolean isMainPosition) {
-            this.isMainPosition = isMainPosition;
-            return this;
-        }
-
-
-        /**
-         * 岗位所属的部门id，需要在用户所属的部门集之内（user.departmentIds）
-         * <p> 示例值：D100
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 租户id
-         * <p> 示例值：无
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 雇员id
-         * <p> 示例值：无
-         *
-         * @param employeeId
-         * @return
-         */
-        public Builder employeeId(String employeeId) {
-            this.employeeId = employeeId;
-            return this;
-        }
-
-
-        /**
-         * 更新时间，单位微秒
-         * <p> 示例值：无
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        public Position build() {
-            return new Position(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

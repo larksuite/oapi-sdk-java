@@ -13,75 +13,77 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PrimarysCalendarReqBody {
+  /**
+   * 用户 ID 列表，多个 ID 的取值格式为 `["ou_c186b6833e2d5faf2bc587e71ddabcef",
+   * "ou_7d8a6e6df7621556ce0d21922b676706"]`。;;需要传入与查询参数 user_id_type 相匹配的
+   * ID。例如，`user_id_type=open_id` 时，需要传入用户的 open_id。了解用户 ID 参见[用户相关的 ID
+   * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  // builder 开始
+  public PrimarysCalendarReqBody() {}
+
+  public PrimarysCalendarReqBody(Builder builder) {
     /**
-     * 用户ID列表
-     * <p> 示例值：
+     * 用户 ID 列表，多个 ID 的取值格式为 `["ou_c186b6833e2d5faf2bc587e71ddabcef",
+     * "ou_7d8a6e6df7621556ce0d21922b676706"]`。;;需要传入与查询参数 user_id_type 相匹配的
+     * ID。例如，`user_id_type=open_id` 时，需要传入用户的 open_id。了解用户 ID 参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
+    this.userIds = builder.userIds;
+  }
+
+  public static class Builder {
+    /**
+     * 用户 ID 列表，多个 ID 的取值格式为 `["ou_c186b6833e2d5faf2bc587e71ddabcef",
+     * "ou_7d8a6e6df7621556ce0d21922b676706"]`。;;需要传入与查询参数 user_id_type 相匹配的
+     * ID。例如，`user_id_type=open_id` 时，需要传入用户的 open_id。了解用户 ID 参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：
+     */
     private String[] userIds;
 
-    // builder 开始
-    public PrimarysCalendarReqBody() {
+    /**
+     * 用户 ID 列表，多个 ID 的取值格式为 `["ou_c186b6833e2d5faf2bc587e71ddabcef",
+     * "ou_7d8a6e6df7621556ce0d21922b676706"]`。;;需要传入与查询参数 user_id_type 相匹配的
+     * ID。例如，`user_id_type=open_id` 时，需要传入用户的 open_id。了解用户 ID 参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public PrimarysCalendarReqBody(Builder builder) {
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
+    public PrimarysCalendarReqBody build() {
+      return new PrimarysCalendarReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         */
-        private String[] userIds;
-
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        public PrimarysCalendarReqBody build() {
-            return new PrimarysCalendarReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

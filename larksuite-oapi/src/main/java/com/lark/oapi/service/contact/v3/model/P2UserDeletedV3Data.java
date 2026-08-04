@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2UserDeletedV3Data {
-    /**
-     * 员工信息
-     * <p> 示例值：
-     */
-    @SerializedName("object")
-    private UserEvent object;
-    /**
-     * 删除前信息
-     * <p> 示例值：
-     */
-    @SerializedName("old_object")
-    private OldUserObject oldObject;
+  /**
+   * 变更前的用户信息，只包含有变更的字段数据。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("object")
+  private UserEvent object;
 
-    public UserEvent getObject() {
-        return this.object;
-    }
+  /**
+   * 删除前信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("old_object")
+  private OldUserObject oldObject;
 
-    public void setObject(UserEvent object) {
-        this.object = object;
-    }
+  public UserEvent getObject() {
+    return this.object;
+  }
 
-    public OldUserObject getOldObject() {
-        return this.oldObject;
-    }
+  public void setObject(UserEvent object) {
+    this.object = object;
+  }
 
-    public void setOldObject(OldUserObject oldObject) {
-        this.oldObject = oldObject;
-    }
+  public OldUserObject getOldObject() {
+    return this.oldObject;
+  }
 
+  public void setOldObject(OldUserObject oldObject) {
+    this.oldObject = oldObject;
+  }
 }

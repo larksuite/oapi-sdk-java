@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserShiftGroupsList {
+  /**
+   * 班组ID
+   *
+   * <p>示例值：7301693071333261331
+   */
+  @SerializedName("shift_group_id")
+  private String shiftGroupId;
+
+  /**
+   * 班组名称
+   *
+   * <p>示例值：飞书考勤班组
+   */
+  @SerializedName("shift_group_name")
+  private String shiftGroupName;
+
+  /**
+   * 考勤组ID
+   *
+   * <p>示例值：7299769369813319699
+   */
+  @SerializedName("group_id")
+  private String groupId;
+
+  /**
+   * 班组的最后更新时间
+   *
+   * <p>示例值：2023-11-15 09:00:00
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  public String getShiftGroupId() {
+    return this.shiftGroupId;
+  }
+
+  public void setShiftGroupId(String shiftGroupId) {
+    this.shiftGroupId = shiftGroupId;
+  }
+
+  public String getShiftGroupName() {
+    return this.shiftGroupName;
+  }
+
+  public void setShiftGroupName(String shiftGroupName) {
+    this.shiftGroupName = shiftGroupName;
+  }
+
+  public String getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  // builder 开始
+  public UserShiftGroupsList() {}
+
+  public UserShiftGroupsList(Builder builder) {
     /**
      * 班组ID
-     * <p> 示例值：7301693071333261331
+     *
+     * <p>示例值：7301693071333261331
      */
-    @SerializedName("shift_group_id")
-    private String shiftGroupId;
+    this.shiftGroupId = builder.shiftGroupId;
     /**
      * 班组名称
-     * <p> 示例值：飞书考勤班组
+     *
+     * <p>示例值：飞书考勤班组
      */
-    @SerializedName("shift_group_name")
-    private String shiftGroupName;
+    this.shiftGroupName = builder.shiftGroupName;
     /**
      * 考勤组ID
-     * <p> 示例值：7299769369813319699
+     *
+     * <p>示例值：7299769369813319699
      */
-    @SerializedName("group_id")
-    private String groupId;
+    this.groupId = builder.groupId;
     /**
      * 班组的最后更新时间
-     * <p> 示例值：2023-11-15 09:00:00
+     *
+     * <p>示例值：2023-11-15 09:00:00
      */
-    @SerializedName("update_time")
+    this.updateTime = builder.updateTime;
+  }
+
+  public static class Builder {
+    /**
+     * 班组ID
+     *
+     * <p>示例值：7301693071333261331
+     */
+    private String shiftGroupId;
+
+    /**
+     * 班组名称
+     *
+     * <p>示例值：飞书考勤班组
+     */
+    private String shiftGroupName;
+
+    /**
+     * 考勤组ID
+     *
+     * <p>示例值：7299769369813319699
+     */
+    private String groupId;
+
+    /**
+     * 班组的最后更新时间
+     *
+     * <p>示例值：2023-11-15 09:00:00
+     */
     private String updateTime;
 
-    // builder 开始
-    public UserShiftGroupsList() {
+    /**
+     * 班组ID
+     *
+     * <p>示例值：7301693071333261331
+     *
+     * @param shiftGroupId
+     * @return
+     */
+    public Builder shiftGroupId(String shiftGroupId) {
+      this.shiftGroupId = shiftGroupId;
+      return this;
     }
 
-    public UserShiftGroupsList(Builder builder) {
-        /**
-         * 班组ID
-         * <p> 示例值：7301693071333261331
-         */
-        this.shiftGroupId = builder.shiftGroupId;
-        /**
-         * 班组名称
-         * <p> 示例值：飞书考勤班组
-         */
-        this.shiftGroupName = builder.shiftGroupName;
-        /**
-         * 考勤组ID
-         * <p> 示例值：7299769369813319699
-         */
-        this.groupId = builder.groupId;
-        /**
-         * 班组的最后更新时间
-         * <p> 示例值：2023-11-15 09:00:00
-         */
-        this.updateTime = builder.updateTime;
+    /**
+     * 班组名称
+     *
+     * <p>示例值：飞书考勤班组
+     *
+     * @param shiftGroupName
+     * @return
+     */
+    public Builder shiftGroupName(String shiftGroupName) {
+      this.shiftGroupName = shiftGroupName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 考勤组ID
+     *
+     * <p>示例值：7299769369813319699
+     *
+     * @param groupId
+     * @return
+     */
+    public Builder groupId(String groupId) {
+      this.groupId = groupId;
+      return this;
     }
 
-    public String getShiftGroupId() {
-        return this.shiftGroupId;
+    /**
+     * 班组的最后更新时间
+     *
+     * <p>示例值：2023-11-15 09:00:00
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setShiftGroupId(String shiftGroupId) {
-        this.shiftGroupId = shiftGroupId;
+    public UserShiftGroupsList build() {
+      return new UserShiftGroupsList(this);
     }
+  }
 
-    public String getShiftGroupName() {
-        return this.shiftGroupName;
-    }
-
-    public void setShiftGroupName(String shiftGroupName) {
-        this.shiftGroupName = shiftGroupName;
-    }
-
-    public String getGroupId() {
-        return this.groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public static class Builder {
-        /**
-         * 班组ID
-         * <p> 示例值：7301693071333261331
-         */
-        private String shiftGroupId;
-        /**
-         * 班组名称
-         * <p> 示例值：飞书考勤班组
-         */
-        private String shiftGroupName;
-        /**
-         * 考勤组ID
-         * <p> 示例值：7299769369813319699
-         */
-        private String groupId;
-        /**
-         * 班组的最后更新时间
-         * <p> 示例值：2023-11-15 09:00:00
-         */
-        private String updateTime;
-
-        /**
-         * 班组ID
-         * <p> 示例值：7301693071333261331
-         *
-         * @param shiftGroupId
-         * @return
-         */
-        public Builder shiftGroupId(String shiftGroupId) {
-            this.shiftGroupId = shiftGroupId;
-            return this;
-        }
-
-
-        /**
-         * 班组名称
-         * <p> 示例值：飞书考勤班组
-         *
-         * @param shiftGroupName
-         * @return
-         */
-        public Builder shiftGroupName(String shiftGroupName) {
-            this.shiftGroupName = shiftGroupName;
-            return this;
-        }
-
-
-        /**
-         * 考勤组ID
-         * <p> 示例值：7299769369813319699
-         *
-         * @param groupId
-         * @return
-         */
-        public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
-        }
-
-
-        /**
-         * 班组的最后更新时间
-         * <p> 示例值：2023-11-15 09:00:00
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        public UserShiftGroupsList build() {
-            return new UserShiftGroupsList(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

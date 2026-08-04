@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 挂载点类型 space wiki
- */
+/** 挂载点类型 space wiki */
 public enum MountPointInfoMountPointEnum {
-    SPACE("1"), // 挂载 SPACE
-    WIKI("2"), // 挂载 WIKI
-    EMPTY("3"), // 导入但不进行挂载
-    ;
-    private String value;
+  SPACE("1"), // 挂载 SPACE
+  WIKI("2"), // 挂载 WIKI
+  EMPTY("3"), // 导入但不进行挂载
+  ;
+  private String value;
 
-    MountPointInfoMountPointEnum(String value) {
-        this.value = value;
-    }
+  MountPointInfoMountPointEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

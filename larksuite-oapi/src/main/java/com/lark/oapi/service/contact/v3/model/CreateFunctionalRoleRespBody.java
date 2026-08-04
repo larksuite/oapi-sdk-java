@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateFunctionalRoleRespBody {
-    /**
-     * 角色ID，在单租户下唯一
-     * <p> 示例值：7vrj3vk70xk7v5r
-     */
-    @SerializedName("role_id")
-    private String roleId;
+  /**
+   * 角色 ID，是角色在当前租户下的唯一标识。;;**注意**：建议你在本地保存该 ID，后续可通过该 ID 删除、修改角色。
+   *
+   * <p>示例值：7vrj3vk70xk7v5r
+   */
+  @SerializedName("role_id")
+  private String roleId;
 
-    public String getRoleId() {
-        return this.roleId;
-    }
+  public String getRoleId() {
+    return this.roleId;
+  }
 
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-
+  public void setRoleId(String roleId) {
+    this.roleId = roleId;
+  }
 }

@@ -13,98 +13,101 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.bitable.v1.enums.*;
 
 public class UpdateAppReq {
+  /**
+   * 目标多维表格的 App token。该接口仅支持存储在云空间文件夹中的多维表格，即 URL 以 **feishu.cn/base** 开头的多维表格形态。该类多维表格的 app_token
+   * 为 URL
+   * 下图高亮部分：;;![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_sTn7sVvhOB.png?height=766&lazyload=true&maxWidth=700&width=3004);;
+   *
+   * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
+   */
+  @Path
+  @SerializedName("app_token")
+  private String appToken;
+
+  public String getAppToken() {
+    return this.appToken;
+  }
+
+  public void setAppToken(String appToken) {
+    this.appToken = appToken;
+  }
+
+  @Body private UpdateAppReqBody body;
+
+  public UpdateAppReqBody getUpdateAppReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateAppReqBody(UpdateAppReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateAppReq() {}
+
+  public UpdateAppReq(Builder builder) {
     /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     * 目标多维表格的 App token。该接口仅支持存储在云空间文件夹中的多维表格，即 URL 以 **feishu.cn/base** 开头的多维表格形态。该类多维表格的
+     * app_token 为 URL
+     * 下图高亮部分：;;![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_sTn7sVvhOB.png?height=766&lazyload=true&maxWidth=700&width=3004);;
+     *
+     * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    @Path
-    @SerializedName("app_token")
-    private String appToken;
-    @Body
+    this.appToken = builder.appToken;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String appToken; // 目标多维表格的 App token。该接口仅支持存储在云空间文件夹中的多维表格，即 URL 以 **feishu.cn/base**
+
+    // 开头的多维表格形态。该类多维表格的 app_token 为 URL
+    // 下图高亮部分：;;![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_sTn7sVvhOB.png?height=766&lazyload=true&maxWidth=700&width=3004);;
+
+    /**
+     * 目标多维表格的 App token。该接口仅支持存储在云空间文件夹中的多维表格，即 URL 以 **feishu.cn/base** 开头的多维表格形态。该类多维表格的
+     * app_token 为 URL
+     * 下图高亮部分：;;![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_sTn7sVvhOB.png?height=766&lazyload=true&maxWidth=700&width=3004);;
+     *
+     * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * @param appToken
+     * @return
+     */
+    public Builder appToken(String appToken) {
+      this.appToken = appToken;
+      return this;
+    }
+
     private UpdateAppReqBody body;
 
-    // builder 开始
-    public UpdateAppReq() {
-    }
-
-    public UpdateAppReq(Builder builder) {
-        /**
-         * bitable app token
-         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         */
-        this.appToken = builder.appToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAppToken() {
-        return this.appToken;
-    }
-
-    public void setAppToken(String appToken) {
-        this.appToken = appToken;
-    }
-
     public UpdateAppReqBody getUpdateAppReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateAppReqBody(UpdateAppReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateAppReqBody(UpdateAppReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String appToken; // bitable app token
-        private UpdateAppReqBody body;
-
-        /**
-         * bitable app token
-         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         *
-         * @param appToken
-         * @return
-         */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
-
-        public UpdateAppReqBody getUpdateAppReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateAppReqBody(UpdateAppReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateAppReq build() {
-            return new UpdateAppReq(this);
-        }
+    public UpdateAppReq build() {
+      return new UpdateAppReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FieldGroup {
+  /**
+   * 字段编组的ID，默认由系统生成新的字段编组ID
+   *
+   * <p>示例值：fldPTb0U2y
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 字段编组的名称
+   *
+   * <p>示例值：用户信息组
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 字段编组的成员
+   *
+   * <p>示例值：
+   */
+  @SerializedName("children")
+  private FieldGroupChild[] children;
+
+  /**
+   * 字段编组的描述
+   *
+   * <p>示例值：用于组织用户信息相关的字段
+   */
+  @SerializedName("description")
+  private String description;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public FieldGroupChild[] getChildren() {
+    return this.children;
+  }
+
+  public void setChildren(FieldGroupChild[] children) {
+    this.children = children;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public FieldGroup() {}
+
+  public FieldGroup(Builder builder) {
     /**
-     * 字段编组的ID
-     * <p> 示例值：fldPTb0U2y
+     * 字段编组的ID，默认由系统生成新的字段编组ID
+     *
+     * <p>示例值：fldPTb0U2y
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 字段编组的名称
-     * <p> 示例值：字段编组名称
+     *
+     * <p>示例值：用户信息组
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 字段编组的成员
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("children")
-    private FieldGroupChild[] children;
+    this.children = builder.children;
     /**
      * 字段编组的描述
-     * <p> 示例值：字段编组用于分组
+     *
+     * <p>示例值：用于组织用户信息相关的字段
      */
-    @SerializedName("description")
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 字段编组的ID，默认由系统生成新的字段编组ID
+     *
+     * <p>示例值：fldPTb0U2y
+     */
+    private String id;
+
+    /**
+     * 字段编组的名称
+     *
+     * <p>示例值：用户信息组
+     */
+    private String name;
+
+    /**
+     * 字段编组的成员
+     *
+     * <p>示例值：
+     */
+    private FieldGroupChild[] children;
+
+    /**
+     * 字段编组的描述
+     *
+     * <p>示例值：用于组织用户信息相关的字段
+     */
     private String description;
 
-    // builder 开始
-    public FieldGroup() {
+    /**
+     * 字段编组的ID，默认由系统生成新的字段编组ID
+     *
+     * <p>示例值：fldPTb0U2y
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public FieldGroup(Builder builder) {
-        /**
-         * 字段编组的ID
-         * <p> 示例值：fldPTb0U2y
-         */
-        this.id = builder.id;
-        /**
-         * 字段编组的名称
-         * <p> 示例值：字段编组名称
-         */
-        this.name = builder.name;
-        /**
-         * 字段编组的成员
-         * <p> 示例值：
-         */
-        this.children = builder.children;
-        /**
-         * 字段编组的描述
-         * <p> 示例值：字段编组用于分组
-         */
-        this.description = builder.description;
+    /**
+     * 字段编组的名称
+     *
+     * <p>示例值：用户信息组
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段编组的成员
+     *
+     * <p>示例值：
+     *
+     * @param children
+     * @return
+     */
+    public Builder children(FieldGroupChild[] children) {
+      this.children = children;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 字段编组的描述
+     *
+     * <p>示例值：用于组织用户信息相关的字段
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public FieldGroup build() {
+      return new FieldGroup(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public FieldGroupChild[] getChildren() {
-        return this.children;
-    }
-
-    public void setChildren(FieldGroupChild[] children) {
-        this.children = children;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * 字段编组的ID
-         * <p> 示例值：fldPTb0U2y
-         */
-        private String id;
-        /**
-         * 字段编组的名称
-         * <p> 示例值：字段编组名称
-         */
-        private String name;
-        /**
-         * 字段编组的成员
-         * <p> 示例值：
-         */
-        private FieldGroupChild[] children;
-        /**
-         * 字段编组的描述
-         * <p> 示例值：字段编组用于分组
-         */
-        private String description;
-
-        /**
-         * 字段编组的ID
-         * <p> 示例值：fldPTb0U2y
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 字段编组的名称
-         * <p> 示例值：字段编组名称
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 字段编组的成员
-         * <p> 示例值：
-         *
-         * @param children
-         * @return
-         */
-        public Builder children(FieldGroupChild[] children) {
-            this.children = children;
-            return this;
-        }
-
-
-        /**
-         * 字段编组的描述
-         * <p> 示例值：字段编组用于分组
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public FieldGroup build() {
-            return new FieldGroup(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

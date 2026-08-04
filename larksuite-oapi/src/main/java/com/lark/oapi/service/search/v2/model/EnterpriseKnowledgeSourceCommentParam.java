@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EnterpriseKnowledgeSourceCommentParam {
+  /**
+   * 是否搜索知识库文档的评论。默认为 `false`。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("wiki_searchable")
+  private Boolean wikiSearchable;
+
+  /**
+   * 是否搜索云空间文档的评论。默认为 `false`。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("space_searchable")
+  private Boolean spaceSearchable;
+
+  public Boolean getWikiSearchable() {
+    return this.wikiSearchable;
+  }
+
+  public void setWikiSearchable(Boolean wikiSearchable) {
+    this.wikiSearchable = wikiSearchable;
+  }
+
+  public Boolean getSpaceSearchable() {
+    return this.spaceSearchable;
+  }
+
+  public void setSpaceSearchable(Boolean spaceSearchable) {
+    this.spaceSearchable = spaceSearchable;
+  }
+
+  // builder 开始
+  public EnterpriseKnowledgeSourceCommentParam() {}
+
+  public EnterpriseKnowledgeSourceCommentParam(Builder builder) {
     /**
      * 是否搜索知识库文档的评论。默认为 `false`。
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("wiki_searchable")
-    private Boolean wikiSearchable;
+    this.wikiSearchable = builder.wikiSearchable;
     /**
      * 是否搜索云空间文档的评论。默认为 `false`。
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("space_searchable")
+    this.spaceSearchable = builder.spaceSearchable;
+  }
+
+  public static class Builder {
+    /**
+     * 是否搜索知识库文档的评论。默认为 `false`。
+     *
+     * <p>示例值：true
+     */
+    private Boolean wikiSearchable;
+
+    /**
+     * 是否搜索云空间文档的评论。默认为 `false`。
+     *
+     * <p>示例值：true
+     */
     private Boolean spaceSearchable;
 
-    // builder 开始
-    public EnterpriseKnowledgeSourceCommentParam() {
+    /**
+     * 是否搜索知识库文档的评论。默认为 `false`。
+     *
+     * <p>示例值：true
+     *
+     * @param wikiSearchable
+     * @return
+     */
+    public Builder wikiSearchable(Boolean wikiSearchable) {
+      this.wikiSearchable = wikiSearchable;
+      return this;
     }
 
-    public EnterpriseKnowledgeSourceCommentParam(Builder builder) {
-        /**
-         * 是否搜索知识库文档的评论。默认为 `false`。
-         * <p> 示例值：true
-         */
-        this.wikiSearchable = builder.wikiSearchable;
-        /**
-         * 是否搜索云空间文档的评论。默认为 `false`。
-         * <p> 示例值：true
-         */
-        this.spaceSearchable = builder.spaceSearchable;
+    /**
+     * 是否搜索云空间文档的评论。默认为 `false`。
+     *
+     * <p>示例值：true
+     *
+     * @param spaceSearchable
+     * @return
+     */
+    public Builder spaceSearchable(Boolean spaceSearchable) {
+      this.spaceSearchable = spaceSearchable;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EnterpriseKnowledgeSourceCommentParam build() {
+      return new EnterpriseKnowledgeSourceCommentParam(this);
     }
+  }
 
-    public Boolean getWikiSearchable() {
-        return this.wikiSearchable;
-    }
-
-    public void setWikiSearchable(Boolean wikiSearchable) {
-        this.wikiSearchable = wikiSearchable;
-    }
-
-    public Boolean getSpaceSearchable() {
-        return this.spaceSearchable;
-    }
-
-    public void setSpaceSearchable(Boolean spaceSearchable) {
-        this.spaceSearchable = spaceSearchable;
-    }
-
-    public static class Builder {
-        /**
-         * 是否搜索知识库文档的评论。默认为 `false`。
-         * <p> 示例值：true
-         */
-        private Boolean wikiSearchable;
-        /**
-         * 是否搜索云空间文档的评论。默认为 `false`。
-         * <p> 示例值：true
-         */
-        private Boolean spaceSearchable;
-
-        /**
-         * 是否搜索知识库文档的评论。默认为 `false`。
-         * <p> 示例值：true
-         *
-         * @param wikiSearchable
-         * @return
-         */
-        public Builder wikiSearchable(Boolean wikiSearchable) {
-            this.wikiSearchable = wikiSearchable;
-            return this;
-        }
-
-
-        /**
-         * 是否搜索云空间文档的评论。默认为 `false`。
-         * <p> 示例值：true
-         *
-         * @param spaceSearchable
-         * @return
-         */
-        public Builder spaceSearchable(Boolean spaceSearchable) {
-            this.spaceSearchable = spaceSearchable;
-            return this;
-        }
-
-
-        public EnterpriseKnowledgeSourceCommentParam build() {
-            return new EnterpriseKnowledgeSourceCommentParam(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

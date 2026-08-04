@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetSpreadsheet {
+  /**
+   * 电子表格标题
+   *
+   * <p>示例值：title
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 电子表格的所有者 ID。ID 类型由查询参数 user_id_type 决定。
+   *
+   * <p>示例值：ou_48d0958ee4b2ab3eaf0b5f6c968abcef
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  /**
+   * 电子表格 token
+   *
+   * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 电子表格的 URL 链接
+   *
+   * <p>示例值：https://example.feishu.cn/sheets/Iow7sNNEphp3WbtnbCscPqabcef
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public GetSpreadsheet() {}
+
+  public GetSpreadsheet(Builder builder) {
     /**
      * 电子表格标题
-     * <p> 示例值：title
+     *
+     * <p>示例值：title
      */
-    @SerializedName("title")
+    this.title = builder.title;
+    /**
+     * 电子表格的所有者 ID。ID 类型由查询参数 user_id_type 决定。
+     *
+     * <p>示例值：ou_48d0958ee4b2ab3eaf0b5f6c968abcef
+     */
+    this.ownerId = builder.ownerId;
+    /**
+     * 电子表格 token
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+     */
+    this.token = builder.token;
+    /**
+     * 电子表格的 URL 链接
+     *
+     * <p>示例值：https://example.feishu.cn/sheets/Iow7sNNEphp3WbtnbCscPqabcef
+     */
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 电子表格标题
+     *
+     * <p>示例值：title
+     */
     private String title;
+
     /**
-     * 电子表格owner
-     * <p> 示例值：ou_xxxxxxxxxxxx
+     * 电子表格的所有者 ID。ID 类型由查询参数 user_id_type 决定。
+     *
+     * <p>示例值：ou_48d0958ee4b2ab3eaf0b5f6c968abcef
      */
-    @SerializedName("owner_id")
     private String ownerId;
+
     /**
-     * 电子表格token
-     * <p> 示例值：shtxxxxxxxxxxxxxx
+     * 电子表格 token
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
      */
-    @SerializedName("token")
     private String token;
+
     /**
-     * 电子表格url
-     * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
+     * 电子表格的 URL 链接
+     *
+     * <p>示例值：https://example.feishu.cn/sheets/Iow7sNNEphp3WbtnbCscPqabcef
      */
-    @SerializedName("url")
     private String url;
 
-    // builder 开始
-    public GetSpreadsheet() {
+    /**
+     * 电子表格标题
+     *
+     * <p>示例值：title
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public GetSpreadsheet(Builder builder) {
-        /**
-         * 电子表格标题
-         * <p> 示例值：title
-         */
-        this.title = builder.title;
-        /**
-         * 电子表格owner
-         * <p> 示例值：ou_xxxxxxxxxxxx
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 电子表格token
-         * <p> 示例值：shtxxxxxxxxxxxxxx
-         */
-        this.token = builder.token;
-        /**
-         * 电子表格url
-         * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
-         */
-        this.url = builder.url;
+    /**
+     * 电子表格的所有者 ID。ID 类型由查询参数 user_id_type 决定。
+     *
+     * <p>示例值：ou_48d0958ee4b2ab3eaf0b5f6c968abcef
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 电子表格 token
+     *
+     * <p>示例值：Iow7sNNEphp3WbtnbCscPqabcef
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 电子表格的 URL 链接
+     *
+     * <p>示例值：https://example.feishu.cn/sheets/Iow7sNNEphp3WbtnbCscPqabcef
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public GetSpreadsheet build() {
+      return new GetSpreadsheet(this);
     }
+  }
 
-    public String getOwnerId() {
-        return this.ownerId;
-    }
-
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
-
-    public String getToken() {
-        return this.token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * 电子表格标题
-         * <p> 示例值：title
-         */
-        private String title;
-        /**
-         * 电子表格owner
-         * <p> 示例值：ou_xxxxxxxxxxxx
-         */
-        private String ownerId;
-        /**
-         * 电子表格token
-         * <p> 示例值：shtxxxxxxxxxxxxxx
-         */
-        private String token;
-        /**
-         * 电子表格url
-         * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
-         */
-        private String url;
-
-        /**
-         * 电子表格标题
-         * <p> 示例值：title
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 电子表格owner
-         * <p> 示例值：ou_xxxxxxxxxxxx
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        /**
-         * 电子表格token
-         * <p> 示例值：shtxxxxxxxxxxxxxx
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 电子表格url
-         * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnmBA*****yGehy8
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public GetSpreadsheet build() {
-            return new GetSpreadsheet(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

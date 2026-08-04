@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InstanceRelationInfo {
+  /**
+   * 日程实例id
+   *
+   * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
+   */
+  @SerializedName("instance_id")
+  private String instanceId;
+
+  /**
+   * 历史视频会议ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meeting_instance_ids")
+  private String[] meetingInstanceIds;
+
+  /**
+   * 普通会议纪要的文档token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meeting_notes")
+  private String[] meetingNotes;
+
+  /**
+   * 智能纪要的文档token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ai_meeting_notes")
+  private String[] aiMeetingNotes;
+
+  public String getInstanceId() {
+    return this.instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  public String[] getMeetingInstanceIds() {
+    return this.meetingInstanceIds;
+  }
+
+  public void setMeetingInstanceIds(String[] meetingInstanceIds) {
+    this.meetingInstanceIds = meetingInstanceIds;
+  }
+
+  public String[] getMeetingNotes() {
+    return this.meetingNotes;
+  }
+
+  public void setMeetingNotes(String[] meetingNotes) {
+    this.meetingNotes = meetingNotes;
+  }
+
+  public String[] getAiMeetingNotes() {
+    return this.aiMeetingNotes;
+  }
+
+  public void setAiMeetingNotes(String[] aiMeetingNotes) {
+    this.aiMeetingNotes = aiMeetingNotes;
+  }
+
+  // builder 开始
+  public InstanceRelationInfo() {}
+
+  public InstanceRelationInfo(Builder builder) {
     /**
      * 日程实例id
-     * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
      */
-    @SerializedName("instance_id")
-    private String instanceId;
+    this.instanceId = builder.instanceId;
     /**
      * 历史视频会议ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meeting_instance_ids")
-    private String[] meetingInstanceIds;
+    this.meetingInstanceIds = builder.meetingInstanceIds;
     /**
      * 普通会议纪要的文档token
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meeting_notes")
-    private String[] meetingNotes;
+    this.meetingNotes = builder.meetingNotes;
     /**
      * 智能纪要的文档token
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ai_meeting_notes")
+    this.aiMeetingNotes = builder.aiMeetingNotes;
+  }
+
+  public static class Builder {
+    /**
+     * 日程实例id
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
+     */
+    private String instanceId;
+
+    /**
+     * 历史视频会议ID
+     *
+     * <p>示例值：
+     */
+    private String[] meetingInstanceIds;
+
+    /**
+     * 普通会议纪要的文档token
+     *
+     * <p>示例值：
+     */
+    private String[] meetingNotes;
+
+    /**
+     * 智能纪要的文档token
+     *
+     * <p>示例值：
+     */
     private String[] aiMeetingNotes;
 
-    // builder 开始
-    public InstanceRelationInfo() {
+    /**
+     * 日程实例id
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
+     *
+     * @param instanceId
+     * @return
+     */
+    public Builder instanceId(String instanceId) {
+      this.instanceId = instanceId;
+      return this;
     }
 
-    public InstanceRelationInfo(Builder builder) {
-        /**
-         * 日程实例id
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
-         */
-        this.instanceId = builder.instanceId;
-        /**
-         * 历史视频会议ID
-         * <p> 示例值：
-         */
-        this.meetingInstanceIds = builder.meetingInstanceIds;
-        /**
-         * 普通会议纪要的文档token
-         * <p> 示例值：
-         */
-        this.meetingNotes = builder.meetingNotes;
-        /**
-         * 智能纪要的文档token
-         * <p> 示例值：
-         */
-        this.aiMeetingNotes = builder.aiMeetingNotes;
+    /**
+     * 历史视频会议ID
+     *
+     * <p>示例值：
+     *
+     * @param meetingInstanceIds
+     * @return
+     */
+    public Builder meetingInstanceIds(String[] meetingInstanceIds) {
+      this.meetingInstanceIds = meetingInstanceIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 普通会议纪要的文档token
+     *
+     * <p>示例值：
+     *
+     * @param meetingNotes
+     * @return
+     */
+    public Builder meetingNotes(String[] meetingNotes) {
+      this.meetingNotes = meetingNotes;
+      return this;
     }
 
-    public String getInstanceId() {
-        return this.instanceId;
+    /**
+     * 智能纪要的文档token
+     *
+     * <p>示例值：
+     *
+     * @param aiMeetingNotes
+     * @return
+     */
+    public Builder aiMeetingNotes(String[] aiMeetingNotes) {
+      this.aiMeetingNotes = aiMeetingNotes;
+      return this;
     }
 
-    public void setInstanceId(String instanceId) {
-        this.instanceId = instanceId;
+    public InstanceRelationInfo build() {
+      return new InstanceRelationInfo(this);
     }
+  }
 
-    public String[] getMeetingInstanceIds() {
-        return this.meetingInstanceIds;
-    }
-
-    public void setMeetingInstanceIds(String[] meetingInstanceIds) {
-        this.meetingInstanceIds = meetingInstanceIds;
-    }
-
-    public String[] getMeetingNotes() {
-        return this.meetingNotes;
-    }
-
-    public void setMeetingNotes(String[] meetingNotes) {
-        this.meetingNotes = meetingNotes;
-    }
-
-    public String[] getAiMeetingNotes() {
-        return this.aiMeetingNotes;
-    }
-
-    public void setAiMeetingNotes(String[] aiMeetingNotes) {
-        this.aiMeetingNotes = aiMeetingNotes;
-    }
-
-    public static class Builder {
-        /**
-         * 日程实例id
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
-         */
-        private String instanceId;
-        /**
-         * 历史视频会议ID
-         * <p> 示例值：
-         */
-        private String[] meetingInstanceIds;
-        /**
-         * 普通会议纪要的文档token
-         * <p> 示例值：
-         */
-        private String[] meetingNotes;
-        /**
-         * 智能纪要的文档token
-         * <p> 示例值：
-         */
-        private String[] aiMeetingNotes;
-
-        /**
-         * 日程实例id
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_1769911200
-         *
-         * @param instanceId
-         * @return
-         */
-        public Builder instanceId(String instanceId) {
-            this.instanceId = instanceId;
-            return this;
-        }
-
-
-        /**
-         * 历史视频会议ID
-         * <p> 示例值：
-         *
-         * @param meetingInstanceIds
-         * @return
-         */
-        public Builder meetingInstanceIds(String[] meetingInstanceIds) {
-            this.meetingInstanceIds = meetingInstanceIds;
-            return this;
-        }
-
-
-        /**
-         * 普通会议纪要的文档token
-         * <p> 示例值：
-         *
-         * @param meetingNotes
-         * @return
-         */
-        public Builder meetingNotes(String[] meetingNotes) {
-            this.meetingNotes = meetingNotes;
-            return this;
-        }
-
-
-        /**
-         * 智能纪要的文档token
-         * <p> 示例值：
-         *
-         * @param aiMeetingNotes
-         * @return
-         */
-        public Builder aiMeetingNotes(String[] aiMeetingNotes) {
-            this.aiMeetingNotes = aiMeetingNotes;
-            return this;
-        }
-
-
-        public InstanceRelationInfo build() {
-            return new InstanceRelationInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 问题类型
- */
+/** 问题类型 */
 public enum CustomListCustomTypeEnum {
-    SINGLECHOICE(1), // 单选题
-    MULTICHOICE(2), // 多选题
-    TEXTBOX(3), // 文本框
-    ;
-    private Integer value;
+  SINGLECHOICE(1), // 单选题
+  MULTICHOICE(2), // 多选题
+  TEXTBOX(3), // 文本框
+  ;
+  private Integer value;
 
-    CustomListCustomTypeEnum(Integer value) {
-        this.value = value;
-    }
+  CustomListCustomTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

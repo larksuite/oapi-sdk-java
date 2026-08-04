@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2CustomOrgDeletedV2Data {
-    /**
-     * 自定义组织id
-     * <p> 示例值：7436668377630295596
-     */
-    @SerializedName("org_id")
-    private String orgId;
-    /**
-     * 自定义组织类型
-     * <p> 示例值：custom_org_01
-     */
-    @SerializedName("object_api_name")
-    private String objectApiName;
+  /**
+   * 被删除自定义组织的 ID
+   *
+   * <p>示例值：7436668377630295596
+   */
+  @SerializedName("org_id")
+  private String orgId;
 
-    public String getOrgId() {
-        return this.orgId;
-    }
+  /**
+   * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+   *
+   * <p>示例值：custom_org_01
+   */
+  @SerializedName("object_api_name")
+  private String objectApiName;
 
-    public void setOrgId(String orgId) {
-        this.orgId = orgId;
-    }
+  public String getOrgId() {
+    return this.orgId;
+  }
 
-    public String getObjectApiName() {
-        return this.objectApiName;
-    }
+  public void setOrgId(String orgId) {
+    this.orgId = orgId;
+  }
 
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
-    }
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
 
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
 }

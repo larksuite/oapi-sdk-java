@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FreeTimeAi {
+  /**
+   * 空闲时间列表
+   *
+   * <p>示例值：2023-12-05T15:00:00--2023-12-05T15:30:00;2023-12-05T15:30:00--2023-12-05T16:00:00;
+   */
+  @SerializedName("free_time_list")
+  private String freeTimeList;
+
+  public String getFreeTimeList() {
+    return this.freeTimeList;
+  }
+
+  public void setFreeTimeList(String freeTimeList) {
+    this.freeTimeList = freeTimeList;
+  }
+
+  // builder 开始
+  public FreeTimeAi() {}
+
+  public FreeTimeAi(Builder builder) {
     /**
      * 空闲时间列表
-     * <p> 示例值：2023-12-05T15:00:00--2023-12-05T15:30:00;2023-12-05T15:30:00--2023-12-05T16:00:00;
+     *
+     * <p>示例值：2023-12-05T15:00:00--2023-12-05T15:30:00;2023-12-05T15:30:00--2023-12-05T16:00:00;
      */
-    @SerializedName("free_time_list")
+    this.freeTimeList = builder.freeTimeList;
+  }
+
+  public static class Builder {
+    /**
+     * 空闲时间列表
+     *
+     * <p>示例值：2023-12-05T15:00:00--2023-12-05T15:30:00;2023-12-05T15:30:00--2023-12-05T16:00:00;
+     */
     private String freeTimeList;
 
-    // builder 开始
-    public FreeTimeAi() {
+    /**
+     * 空闲时间列表
+     *
+     * <p>示例值：2023-12-05T15:00:00--2023-12-05T15:30:00;2023-12-05T15:30:00--2023-12-05T16:00:00;
+     *
+     * @param freeTimeList
+     * @return
+     */
+    public Builder freeTimeList(String freeTimeList) {
+      this.freeTimeList = freeTimeList;
+      return this;
     }
 
-    public FreeTimeAi(Builder builder) {
-        /**
-         * 空闲时间列表
-         * <p> 示例值：2023-12-05T15:00:00--2023-12-05T15:30:00;2023-12-05T15:30:00--2023-12-05T16:00:00;
-         */
-        this.freeTimeList = builder.freeTimeList;
+    public FreeTimeAi build() {
+      return new FreeTimeAi(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getFreeTimeList() {
-        return this.freeTimeList;
-    }
-
-    public void setFreeTimeList(String freeTimeList) {
-        this.freeTimeList = freeTimeList;
-    }
-
-    public static class Builder {
-        /**
-         * 空闲时间列表
-         * <p> 示例值：2023-12-05T15:00:00--2023-12-05T15:30:00;2023-12-05T15:30:00--2023-12-05T16:00:00;
-         */
-        private String freeTimeList;
-
-        /**
-         * 空闲时间列表
-         * <p> 示例值：2023-12-05T15:00:00--2023-12-05T15:30:00;2023-12-05T15:30:00--2023-12-05T16:00:00;
-         *
-         * @param freeTimeList
-         * @return
-         */
-        public Builder freeTimeList(String freeTimeList) {
-            this.freeTimeList = freeTimeList;
-            return this;
-        }
-
-
-        public FreeTimeAi build() {
-            return new FreeTimeAi(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

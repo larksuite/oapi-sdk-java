@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchUpdateTableRecordsAppTableReqBody {
+  /**
+   * 要更新的数据记录列表（JSON数组的字符串形式），单次支持最大长度 500条，每行 record 都必须包含主键如 _id，且不同行要更新的字段需保持一致
+   *
+   * <p>示例值：[{\"_id\":\"657fade8-394d-4d86-aa35-0129e3bd7614\",\"age\":10}]
+   */
+  @SerializedName("records")
+  private String records;
+
+  public String getRecords() {
+    return this.records;
+  }
+
+  public void setRecords(String records) {
+    this.records = records;
+  }
+
+  // builder 开始
+  public BatchUpdateTableRecordsAppTableReqBody() {}
+
+  public BatchUpdateTableRecordsAppTableReqBody(Builder builder) {
     /**
-     * 要更新的数据记录列表，单次支持最多 500条，每行 record 都必须包含主键 _id，且不同行要更新的字段需保持一致
-     * <p> 示例值：[{\"_id\":\"657fade8-394d-4d86-aa35-0129e3bd7614\",\"age\":10}]
+     * 要更新的数据记录列表（JSON数组的字符串形式），单次支持最大长度 500条，每行 record 都必须包含主键如 _id，且不同行要更新的字段需保持一致
+     *
+     * <p>示例值：[{\"_id\":\"657fade8-394d-4d86-aa35-0129e3bd7614\",\"age\":10}]
      */
-    @SerializedName("records")
+    this.records = builder.records;
+  }
+
+  public static class Builder {
+    /**
+     * 要更新的数据记录列表（JSON数组的字符串形式），单次支持最大长度 500条，每行 record 都必须包含主键如 _id，且不同行要更新的字段需保持一致
+     *
+     * <p>示例值：[{\"_id\":\"657fade8-394d-4d86-aa35-0129e3bd7614\",\"age\":10}]
+     */
     private String records;
 
-    // builder 开始
-    public BatchUpdateTableRecordsAppTableReqBody() {
+    /**
+     * 要更新的数据记录列表（JSON数组的字符串形式），单次支持最大长度 500条，每行 record 都必须包含主键如 _id，且不同行要更新的字段需保持一致
+     *
+     * <p>示例值：[{\"_id\":\"657fade8-394d-4d86-aa35-0129e3bd7614\",\"age\":10}]
+     *
+     * @param records
+     * @return
+     */
+    public Builder records(String records) {
+      this.records = records;
+      return this;
     }
 
-    public BatchUpdateTableRecordsAppTableReqBody(Builder builder) {
-        /**
-         * 要更新的数据记录列表，单次支持最多 500条，每行 record 都必须包含主键 _id，且不同行要更新的字段需保持一致
-         * <p> 示例值：[{\"_id\":\"657fade8-394d-4d86-aa35-0129e3bd7614\",\"age\":10}]
-         */
-        this.records = builder.records;
+    public BatchUpdateTableRecordsAppTableReqBody build() {
+      return new BatchUpdateTableRecordsAppTableReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getRecords() {
-        return this.records;
-    }
-
-    public void setRecords(String records) {
-        this.records = records;
-    }
-
-    public static class Builder {
-        /**
-         * 要更新的数据记录列表，单次支持最多 500条，每行 record 都必须包含主键 _id，且不同行要更新的字段需保持一致
-         * <p> 示例值：[{\"_id\":\"657fade8-394d-4d86-aa35-0129e3bd7614\",\"age\":10}]
-         */
-        private String records;
-
-        /**
-         * 要更新的数据记录列表，单次支持最多 500条，每行 record 都必须包含主键 _id，且不同行要更新的字段需保持一致
-         * <p> 示例值：[{\"_id\":\"657fade8-394d-4d86-aa35-0129e3bd7614\",\"age\":10}]
-         *
-         * @param records
-         * @return
-         */
-        public Builder records(String records) {
-            this.records = records;
-            return this;
-        }
-
-
-        public BatchUpdateTableRecordsAppTableReqBody build() {
-            return new BatchUpdateTableRecordsAppTableReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

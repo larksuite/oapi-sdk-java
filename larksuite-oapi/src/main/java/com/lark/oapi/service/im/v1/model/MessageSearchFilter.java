@@ -13,383 +13,415 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageSearchFilter {
+  /**
+   * 消息创建者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("from_ids")
+  private String[] fromIds;
+
+  /**
+   * 消息所在的会话，会话ID获取方式参考：https://open.larkoffice.com/document/server-docs/group/chat/chat-id-description
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chat_ids")
+  private String[] chatIds;
+
+  /**
+   * 开始与结束时间，不需要同时传入，但是end_time需要大于start_time
+   *
+   * <p>示例值：
+   */
+  @SerializedName("time_range")
+  private TimeRange timeRange;
+
+  /**
+   * 包含某些附件类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("include_attachment_types")
+  private String[] includeAttachmentTypes;
+
+  /**
+   * 来源类型(用户消息、机器人消息)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("from_types")
+  private String[] fromTypes;
+
+  /**
+   * 消息中包含at的user_id (包含at all)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("at_chatter_ids")
+  private String[] atChatterIds;
+
+  /**
+   * 会话类型（单聊、群聊） 单选
+   *
+   * <p>示例值：group
+   */
+  @SerializedName("chat_type")
+  private String chatType;
+
+  /**
+   * 是否at过我，默认否 (包含at all)
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_at_me")
+  private Boolean isAtMe;
+
+  /**
+   * 过滤来源
+   *
+   * <p>示例值：
+   */
+  @SerializedName("exclude_from_types")
+  private String[] excludeFromTypes;
+
+  public String[] getFromIds() {
+    return this.fromIds;
+  }
+
+  public void setFromIds(String[] fromIds) {
+    this.fromIds = fromIds;
+  }
+
+  public String[] getChatIds() {
+    return this.chatIds;
+  }
+
+  public void setChatIds(String[] chatIds) {
+    this.chatIds = chatIds;
+  }
+
+  public TimeRange getTimeRange() {
+    return this.timeRange;
+  }
+
+  public void setTimeRange(TimeRange timeRange) {
+    this.timeRange = timeRange;
+  }
+
+  public String[] getIncludeAttachmentTypes() {
+    return this.includeAttachmentTypes;
+  }
+
+  public void setIncludeAttachmentTypes(String[] includeAttachmentTypes) {
+    this.includeAttachmentTypes = includeAttachmentTypes;
+  }
+
+  public String[] getFromTypes() {
+    return this.fromTypes;
+  }
+
+  public void setFromTypes(String[] fromTypes) {
+    this.fromTypes = fromTypes;
+  }
+
+  public String[] getAtChatterIds() {
+    return this.atChatterIds;
+  }
+
+  public void setAtChatterIds(String[] atChatterIds) {
+    this.atChatterIds = atChatterIds;
+  }
+
+  public String getChatType() {
+    return this.chatType;
+  }
+
+  public void setChatType(String chatType) {
+    this.chatType = chatType;
+  }
+
+  public Boolean getIsAtMe() {
+    return this.isAtMe;
+  }
+
+  public void setIsAtMe(Boolean isAtMe) {
+    this.isAtMe = isAtMe;
+  }
+
+  public String[] getExcludeFromTypes() {
+    return this.excludeFromTypes;
+  }
+
+  public void setExcludeFromTypes(String[] excludeFromTypes) {
+    this.excludeFromTypes = excludeFromTypes;
+  }
+
+  // builder 开始
+  public MessageSearchFilter() {}
+
+  public MessageSearchFilter(Builder builder) {
     /**
      * 消息创建者
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("from_ids")
-    private String[] fromIds;
+    this.fromIds = builder.fromIds;
     /**
-     * 消息所在的会话
-     * <p> 示例值：
+     * 消息所在的会话，会话ID获取方式参考：https://open.larkoffice.com/document/server-docs/group/chat/chat-id-description
+     *
+     * <p>示例值：
      */
-    @SerializedName("chat_ids")
-    private String[] chatIds;
+    this.chatIds = builder.chatIds;
     /**
-     * 开始与结束时间
-     * <p> 示例值：
+     * 开始与结束时间，不需要同时传入，但是end_time需要大于start_time
+     *
+     * <p>示例值：
      */
-    @SerializedName("time_range")
-    private TimeRange timeRange;
+    this.timeRange = builder.timeRange;
     /**
      * 包含某些附件类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("include_attachment_types")
-    private String[] includeAttachmentTypes;
+    this.includeAttachmentTypes = builder.includeAttachmentTypes;
     /**
      * 来源类型(用户消息、机器人消息)
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("from_types")
-    private String[] fromTypes;
+    this.fromTypes = builder.fromTypes;
     /**
      * 消息中包含at的user_id (包含at all)
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("at_chatter_ids")
-    private String[] atChatterIds;
+    this.atChatterIds = builder.atChatterIds;
     /**
      * 会话类型（单聊、群聊） 单选
-     * <p> 示例值：
+     *
+     * <p>示例值：group
      */
-    @SerializedName("chat_type")
-    private String chatType;
+    this.chatType = builder.chatType;
     /**
-     * 是否at过我，默认否
-     * <p> 示例值：
+     * 是否at过我，默认否 (包含at all)
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_at_me")
-    private Boolean isAtMe;
+    this.isAtMe = builder.isAtMe;
     /**
      * 过滤来源
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("exclude_from_types")
+    this.excludeFromTypes = builder.excludeFromTypes;
+  }
+
+  public static class Builder {
+    /**
+     * 消息创建者
+     *
+     * <p>示例值：
+     */
+    private String[] fromIds;
+
+    /**
+     * 消息所在的会话，会话ID获取方式参考：https://open.larkoffice.com/document/server-docs/group/chat/chat-id-description
+     *
+     * <p>示例值：
+     */
+    private String[] chatIds;
+
+    /**
+     * 开始与结束时间，不需要同时传入，但是end_time需要大于start_time
+     *
+     * <p>示例值：
+     */
+    private TimeRange timeRange;
+
+    /**
+     * 包含某些附件类型
+     *
+     * <p>示例值：
+     */
+    private String[] includeAttachmentTypes;
+
+    /**
+     * 来源类型(用户消息、机器人消息)
+     *
+     * <p>示例值：
+     */
+    private String[] fromTypes;
+
+    /**
+     * 消息中包含at的user_id (包含at all)
+     *
+     * <p>示例值：
+     */
+    private String[] atChatterIds;
+
+    /**
+     * 会话类型（单聊、群聊） 单选
+     *
+     * <p>示例值：group
+     */
+    private String chatType;
+
+    /**
+     * 是否at过我，默认否 (包含at all)
+     *
+     * <p>示例值：true
+     */
+    private Boolean isAtMe;
+
+    /**
+     * 过滤来源
+     *
+     * <p>示例值：
+     */
     private String[] excludeFromTypes;
 
-    // builder 开始
-    public MessageSearchFilter() {
+    /**
+     * 消息创建者
+     *
+     * <p>示例值：
+     *
+     * @param fromIds
+     * @return
+     */
+    public Builder fromIds(String[] fromIds) {
+      this.fromIds = fromIds;
+      return this;
     }
 
-    public MessageSearchFilter(Builder builder) {
-        /**
-         * 消息创建者
-         * <p> 示例值：
-         */
-        this.fromIds = builder.fromIds;
-        /**
-         * 消息所在的会话
-         * <p> 示例值：
-         */
-        this.chatIds = builder.chatIds;
-        /**
-         * 开始与结束时间
-         * <p> 示例值：
-         */
-        this.timeRange = builder.timeRange;
-        /**
-         * 包含某些附件类型
-         * <p> 示例值：
-         */
-        this.includeAttachmentTypes = builder.includeAttachmentTypes;
-        /**
-         * 来源类型(用户消息、机器人消息)
-         * <p> 示例值：
-         */
-        this.fromTypes = builder.fromTypes;
-        /**
-         * 消息中包含at的user_id (包含at all)
-         * <p> 示例值：
-         */
-        this.atChatterIds = builder.atChatterIds;
-        /**
-         * 会话类型（单聊、群聊） 单选
-         * <p> 示例值：
-         */
-        this.chatType = builder.chatType;
-        /**
-         * 是否at过我，默认否
-         * <p> 示例值：
-         */
-        this.isAtMe = builder.isAtMe;
-        /**
-         * 过滤来源
-         * <p> 示例值：
-         */
-        this.excludeFromTypes = builder.excludeFromTypes;
+    /**
+     * 消息所在的会话，会话ID获取方式参考：https://open.larkoffice.com/document/server-docs/group/chat/chat-id-description
+     *
+     * <p>示例值：
+     *
+     * @param chatIds
+     * @return
+     */
+    public Builder chatIds(String[] chatIds) {
+      this.chatIds = chatIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 开始与结束时间，不需要同时传入，但是end_time需要大于start_time
+     *
+     * <p>示例值：
+     *
+     * @param timeRange
+     * @return
+     */
+    public Builder timeRange(TimeRange timeRange) {
+      this.timeRange = timeRange;
+      return this;
     }
 
-    public String[] getFromIds() {
-        return this.fromIds;
+    /**
+     * 包含某些附件类型
+     *
+     * <p>示例值：
+     *
+     * @param includeAttachmentTypes
+     * @return
+     */
+    public Builder includeAttachmentTypes(String[] includeAttachmentTypes) {
+      this.includeAttachmentTypes = includeAttachmentTypes;
+      return this;
     }
 
-    public void setFromIds(String[] fromIds) {
-        this.fromIds = fromIds;
+    /**
+     * 来源类型(用户消息、机器人消息)
+     *
+     * <p>示例值：
+     *
+     * @param fromTypes
+     * @return
+     */
+    public Builder fromTypes(String[] fromTypes) {
+      this.fromTypes = fromTypes;
+      return this;
     }
 
-    public String[] getChatIds() {
-        return this.chatIds;
+    /**
+     * 消息中包含at的user_id (包含at all)
+     *
+     * <p>示例值：
+     *
+     * @param atChatterIds
+     * @return
+     */
+    public Builder atChatterIds(String[] atChatterIds) {
+      this.atChatterIds = atChatterIds;
+      return this;
     }
 
-    public void setChatIds(String[] chatIds) {
-        this.chatIds = chatIds;
+    /**
+     * 会话类型（单聊、群聊） 单选
+     *
+     * <p>示例值：group
+     *
+     * @param chatType
+     * @return
+     */
+    public Builder chatType(String chatType) {
+      this.chatType = chatType;
+      return this;
     }
 
-    public TimeRange getTimeRange() {
-        return this.timeRange;
+    /**
+     * 会话类型（单聊、群聊） 单选
+     *
+     * <p>示例值：group
+     *
+     * @param chatType {@link com.lark.oapi.service.im.v1.enums.MessageSearchFilterChatTypeEnum}
+     * @return
+     */
+    public Builder chatType(
+        com.lark.oapi.service.im.v1.enums.MessageSearchFilterChatTypeEnum chatType) {
+      this.chatType = chatType.getValue();
+      return this;
     }
 
-    public void setTimeRange(TimeRange timeRange) {
-        this.timeRange = timeRange;
+    /**
+     * 是否at过我，默认否 (包含at all)
+     *
+     * <p>示例值：true
+     *
+     * @param isAtMe
+     * @return
+     */
+    public Builder isAtMe(Boolean isAtMe) {
+      this.isAtMe = isAtMe;
+      return this;
     }
 
-    public String[] getIncludeAttachmentTypes() {
-        return this.includeAttachmentTypes;
+    /**
+     * 过滤来源
+     *
+     * <p>示例值：
+     *
+     * @param excludeFromTypes
+     * @return
+     */
+    public Builder excludeFromTypes(String[] excludeFromTypes) {
+      this.excludeFromTypes = excludeFromTypes;
+      return this;
     }
 
-    public void setIncludeAttachmentTypes(String[] includeAttachmentTypes) {
-        this.includeAttachmentTypes = includeAttachmentTypes;
+    public MessageSearchFilter build() {
+      return new MessageSearchFilter(this);
     }
+  }
 
-    public String[] getFromTypes() {
-        return this.fromTypes;
-    }
-
-    public void setFromTypes(String[] fromTypes) {
-        this.fromTypes = fromTypes;
-    }
-
-    public String[] getAtChatterIds() {
-        return this.atChatterIds;
-    }
-
-    public void setAtChatterIds(String[] atChatterIds) {
-        this.atChatterIds = atChatterIds;
-    }
-
-    public String getChatType() {
-        return this.chatType;
-    }
-
-    public void setChatType(String chatType) {
-        this.chatType = chatType;
-    }
-
-    public Boolean getIsAtMe() {
-        return this.isAtMe;
-    }
-
-    public void setIsAtMe(Boolean isAtMe) {
-        this.isAtMe = isAtMe;
-    }
-
-    public String[] getExcludeFromTypes() {
-        return this.excludeFromTypes;
-    }
-
-    public void setExcludeFromTypes(String[] excludeFromTypes) {
-        this.excludeFromTypes = excludeFromTypes;
-    }
-
-    public static class Builder {
-        /**
-         * 消息创建者
-         * <p> 示例值：
-         */
-        private String[] fromIds;
-        /**
-         * 消息所在的会话
-         * <p> 示例值：
-         */
-        private String[] chatIds;
-        /**
-         * 开始与结束时间
-         * <p> 示例值：
-         */
-        private TimeRange timeRange;
-        /**
-         * 包含某些附件类型
-         * <p> 示例值：
-         */
-        private String[] includeAttachmentTypes;
-        /**
-         * 来源类型(用户消息、机器人消息)
-         * <p> 示例值：
-         */
-        private String[] fromTypes;
-        /**
-         * 消息中包含at的user_id (包含at all)
-         * <p> 示例值：
-         */
-        private String[] atChatterIds;
-        /**
-         * 会话类型（单聊、群聊） 单选
-         * <p> 示例值：
-         */
-        private String chatType;
-        /**
-         * 是否at过我，默认否
-         * <p> 示例值：
-         */
-        private Boolean isAtMe;
-        /**
-         * 过滤来源
-         * <p> 示例值：
-         */
-        private String[] excludeFromTypes;
-
-        /**
-         * 消息创建者
-         * <p> 示例值：
-         *
-         * @param fromIds
-         * @return
-         */
-        public Builder fromIds(String[] fromIds) {
-            this.fromIds = fromIds;
-            return this;
-        }
-
-
-        /**
-         * 消息所在的会话
-         * <p> 示例值：
-         *
-         * @param chatIds
-         * @return
-         */
-        public Builder chatIds(String[] chatIds) {
-            this.chatIds = chatIds;
-            return this;
-        }
-
-
-        /**
-         * 开始与结束时间
-         * <p> 示例值：
-         *
-         * @param timeRange
-         * @return
-         */
-        public Builder timeRange(TimeRange timeRange) {
-            this.timeRange = timeRange;
-            return this;
-        }
-
-
-        /**
-         * 包含某些附件类型
-         * <p> 示例值：
-         *
-         * @param includeAttachmentTypes
-         * @return
-         */
-        public Builder includeAttachmentTypes(String[] includeAttachmentTypes) {
-            this.includeAttachmentTypes = includeAttachmentTypes;
-            return this;
-        }
-
-
-        /**
-         * 来源类型(用户消息、机器人消息)
-         * <p> 示例值：
-         *
-         * @param fromTypes
-         * @return
-         */
-        public Builder fromTypes(String[] fromTypes) {
-            this.fromTypes = fromTypes;
-            return this;
-        }
-
-
-        /**
-         * 消息中包含at的user_id (包含at all)
-         * <p> 示例值：
-         *
-         * @param atChatterIds
-         * @return
-         */
-        public Builder atChatterIds(String[] atChatterIds) {
-            this.atChatterIds = atChatterIds;
-            return this;
-        }
-
-
-        /**
-         * 会话类型（单聊、群聊） 单选
-         * <p> 示例值：
-         *
-         * @param chatType
-         * @return
-         */
-        public Builder chatType(String chatType) {
-            this.chatType = chatType;
-            return this;
-        }
-
-        /**
-         * 会话类型（单聊、群聊） 单选
-         * <p> 示例值：
-         *
-         * @param chatType {@link com.lark.oapi.service.im.v1.enums.MessageSearchFilterChatTypeEnum}
-         * @return
-         */
-        public Builder chatType(com.lark.oapi.service.im.v1.enums.MessageSearchFilterChatTypeEnum chatType) {
-            this.chatType = chatType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否at过我，默认否
-         * <p> 示例值：
-         *
-         * @param isAtMe
-         * @return
-         */
-        public Builder isAtMe(Boolean isAtMe) {
-            this.isAtMe = isAtMe;
-            return this;
-        }
-
-
-        /**
-         * 过滤来源
-         * <p> 示例值：
-         *
-         * @param excludeFromTypes
-         * @return
-         */
-        public Builder excludeFromTypes(String[] excludeFromTypes) {
-            this.excludeFromTypes = excludeFromTypes;
-            return this;
-        }
-
-
-        public MessageSearchFilter build() {
-            return new MessageSearchFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

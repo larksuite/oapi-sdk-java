@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateReferenceBaseRequest {
+  /**
+   * 引用 base token 与子表 ID
+   *
+   * <p>示例值：bask46Yc9iwM1MJynhYV4Gf8VRh_tbl5TFCCHpvxhALE
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 引用 base 视图
+   *
+   * <p>示例值：ruLRJoPe
+   */
+  @SerializedName("view_id")
+  private String viewId;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getViewId() {
+    return this.viewId;
+  }
+
+  public void setViewId(String viewId) {
+    this.viewId = viewId;
+  }
+
+  // builder 开始
+  public UpdateReferenceBaseRequest() {}
+
+  public UpdateReferenceBaseRequest(Builder builder) {
     /**
      * 引用 base token 与子表 ID
-     * <p> 示例值：bask46Yc9iwM1MJynhYV4Gf8VRh_tbl5TFCCHpvxhALE
+     *
+     * <p>示例值：bask46Yc9iwM1MJynhYV4Gf8VRh_tbl5TFCCHpvxhALE
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 引用 base 视图
-     * <p> 示例值：ruLRJoPe
+     *
+     * <p>示例值：ruLRJoPe
      */
-    @SerializedName("view_id")
+    this.viewId = builder.viewId;
+  }
+
+  public static class Builder {
+    /**
+     * 引用 base token 与子表 ID
+     *
+     * <p>示例值：bask46Yc9iwM1MJynhYV4Gf8VRh_tbl5TFCCHpvxhALE
+     */
+    private String token;
+
+    /**
+     * 引用 base 视图
+     *
+     * <p>示例值：ruLRJoPe
+     */
     private String viewId;
 
-    // builder 开始
-    public UpdateReferenceBaseRequest() {
+    /**
+     * 引用 base token 与子表 ID
+     *
+     * <p>示例值：bask46Yc9iwM1MJynhYV4Gf8VRh_tbl5TFCCHpvxhALE
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public UpdateReferenceBaseRequest(Builder builder) {
-        /**
-         * 引用 base token 与子表 ID
-         * <p> 示例值：bask46Yc9iwM1MJynhYV4Gf8VRh_tbl5TFCCHpvxhALE
-         */
-        this.token = builder.token;
-        /**
-         * 引用 base 视图
-         * <p> 示例值：ruLRJoPe
-         */
-        this.viewId = builder.viewId;
+    /**
+     * 引用 base 视图
+     *
+     * <p>示例值：ruLRJoPe
+     *
+     * @param viewId
+     * @return
+     */
+    public Builder viewId(String viewId) {
+      this.viewId = viewId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UpdateReferenceBaseRequest build() {
+      return new UpdateReferenceBaseRequest(this);
     }
+  }
 
-    public String getToken() {
-        return this.token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getViewId() {
-        return this.viewId;
-    }
-
-    public void setViewId(String viewId) {
-        this.viewId = viewId;
-    }
-
-    public static class Builder {
-        /**
-         * 引用 base token 与子表 ID
-         * <p> 示例值：bask46Yc9iwM1MJynhYV4Gf8VRh_tbl5TFCCHpvxhALE
-         */
-        private String token;
-        /**
-         * 引用 base 视图
-         * <p> 示例值：ruLRJoPe
-         */
-        private String viewId;
-
-        /**
-         * 引用 base token 与子表 ID
-         * <p> 示例值：bask46Yc9iwM1MJynhYV4Gf8VRh_tbl5TFCCHpvxhALE
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 引用 base 视图
-         * <p> 示例值：ruLRJoPe
-         *
-         * @param viewId
-         * @return
-         */
-        public Builder viewId(String viewId) {
-            this.viewId = viewId;
-            return this;
-        }
-
-
-        public UpdateReferenceBaseRequest build() {
-            return new UpdateReferenceBaseRequest(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

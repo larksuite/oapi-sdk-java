@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserWithAvatar {
+  /**
+   * 用户kunlunID
+   *
+   * <p>示例值：1234
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 用户名称
+   *
+   * <p>示例值：admin
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 用户状态
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_deleted")
+  private Boolean isDeleted;
+
+  /**
+   * 用户多语名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_name")
+  private I18n[] i18nName;
+
+  /**
+   * 用户头像
+   *
+   * <p>示例值：
+   */
+  @SerializedName("avatar")
+  private Avatar avatar;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Boolean getIsDeleted() {
+    return this.isDeleted;
+  }
+
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+  public I18n[] getI18nName() {
+    return this.i18nName;
+  }
+
+  public void setI18nName(I18n[] i18nName) {
+    this.i18nName = i18nName;
+  }
+
+  public Avatar getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(Avatar avatar) {
+    this.avatar = avatar;
+  }
+
+  // builder 开始
+  public UserWithAvatar() {}
+
+  public UserWithAvatar(Builder builder) {
     /**
      * 用户kunlunID
-     * <p> 示例值：1234
+     *
+     * <p>示例值：1234
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 用户名称
-     * <p> 示例值：admin
+     *
+     * <p>示例值：admin
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 用户状态
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_deleted")
-    private Boolean isDeleted;
+    this.isDeleted = builder.isDeleted;
     /**
      * 用户多语名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_name")
-    private I18n[] i18nName;
+    this.i18nName = builder.i18nName;
     /**
      * 用户头像
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("avatar")
+    this.avatar = builder.avatar;
+  }
+
+  public static class Builder {
+    /**
+     * 用户kunlunID
+     *
+     * <p>示例值：1234
+     */
+    private String id;
+
+    /**
+     * 用户名称
+     *
+     * <p>示例值：admin
+     */
+    private String name;
+
+    /**
+     * 用户状态
+     *
+     * <p>示例值：false
+     */
+    private Boolean isDeleted;
+
+    /**
+     * 用户多语名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] i18nName;
+
+    /**
+     * 用户头像
+     *
+     * <p>示例值：
+     */
     private Avatar avatar;
 
-    // builder 开始
-    public UserWithAvatar() {
+    /**
+     * 用户kunlunID
+     *
+     * <p>示例值：1234
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UserWithAvatar(Builder builder) {
-        /**
-         * 用户kunlunID
-         * <p> 示例值：1234
-         */
-        this.id = builder.id;
-        /**
-         * 用户名称
-         * <p> 示例值：admin
-         */
-        this.name = builder.name;
-        /**
-         * 用户状态
-         * <p> 示例值：false
-         */
-        this.isDeleted = builder.isDeleted;
-        /**
-         * 用户多语名称
-         * <p> 示例值：
-         */
-        this.i18nName = builder.i18nName;
-        /**
-         * 用户头像
-         * <p> 示例值：
-         */
-        this.avatar = builder.avatar;
+    /**
+     * 用户名称
+     *
+     * <p>示例值：admin
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户状态
+     *
+     * <p>示例值：false
+     *
+     * @param isDeleted
+     * @return
+     */
+    public Builder isDeleted(Boolean isDeleted) {
+      this.isDeleted = isDeleted;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 用户多语名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nName
+     * @return
+     */
+    public Builder i18nName(I18n[] i18nName) {
+      this.i18nName = i18nName;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 用户头像
+     *
+     * <p>示例值：
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(Avatar avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    public UserWithAvatar build() {
+      return new UserWithAvatar(this);
     }
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Boolean getIsDeleted() {
-        return this.isDeleted;
-    }
-
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    public I18n[] getI18nName() {
-        return this.i18nName;
-    }
-
-    public void setI18nName(I18n[] i18nName) {
-        this.i18nName = i18nName;
-    }
-
-    public Avatar getAvatar() {
-        return this.avatar;
-    }
-
-    public void setAvatar(Avatar avatar) {
-        this.avatar = avatar;
-    }
-
-    public static class Builder {
-        /**
-         * 用户kunlunID
-         * <p> 示例值：1234
-         */
-        private String id;
-        /**
-         * 用户名称
-         * <p> 示例值：admin
-         */
-        private String name;
-        /**
-         * 用户状态
-         * <p> 示例值：false
-         */
-        private Boolean isDeleted;
-        /**
-         * 用户多语名称
-         * <p> 示例值：
-         */
-        private I18n[] i18nName;
-        /**
-         * 用户头像
-         * <p> 示例值：
-         */
-        private Avatar avatar;
-
-        /**
-         * 用户kunlunID
-         * <p> 示例值：1234
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 用户名称
-         * <p> 示例值：admin
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 用户状态
-         * <p> 示例值：false
-         *
-         * @param isDeleted
-         * @return
-         */
-        public Builder isDeleted(Boolean isDeleted) {
-            this.isDeleted = isDeleted;
-            return this;
-        }
-
-
-        /**
-         * 用户多语名称
-         * <p> 示例值：
-         *
-         * @param i18nName
-         * @return
-         */
-        public Builder i18nName(I18n[] i18nName) {
-            this.i18nName = i18nName;
-            return this;
-        }
-
-
-        /**
-         * 用户头像
-         * <p> 示例值：
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(Avatar avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        public UserWithAvatar build() {
-            return new UserWithAvatar(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

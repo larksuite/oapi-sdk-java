@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 薪酬项类型（不传则认为查询所有类型薪酬项）
- */
+/** 薪酬项类型（不传则认为查询所有类型薪酬项） */
 public enum ListItemItemTypeEnum {
-    SALARY("salary"), // 基本薪资
-    BONUS("bonus"), // 一次性支付
-    RECURRING_PAYMENT("recurring_payment"), // 经常性支付
-    ;
-    private String value;
+  SALARY("salary"), // 基本薪资
+  BONUS("bonus"), // 一次性支付
+  RECURRING_PAYMENT("recurring_payment"), // 经常性支付
+  ;
+  private String value;
 
-    ListItemItemTypeEnum(String value) {
-        this.value = value;
-    }
+  ListItemItemTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

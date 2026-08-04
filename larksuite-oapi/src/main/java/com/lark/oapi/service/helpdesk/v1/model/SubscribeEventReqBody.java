@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubscribeEventReqBody {
+  /**
+   * 可订阅的事件列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("events")
+  private Event[] events;
+
+  public Event[] getEvents() {
+    return this.events;
+  }
+
+  public void setEvents(Event[] events) {
+    this.events = events;
+  }
+
+  // builder 开始
+  public SubscribeEventReqBody() {}
+
+  public SubscribeEventReqBody(Builder builder) {
     /**
      * 可订阅的事件列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("events")
+    this.events = builder.events;
+  }
+
+  public static class Builder {
+    /**
+     * 可订阅的事件列表
+     *
+     * <p>示例值：
+     */
     private Event[] events;
 
-    // builder 开始
-    public SubscribeEventReqBody() {
+    /**
+     * 可订阅的事件列表
+     *
+     * <p>示例值：
+     *
+     * @param events
+     * @return
+     */
+    public Builder events(Event[] events) {
+      this.events = events;
+      return this;
     }
 
-    public SubscribeEventReqBody(Builder builder) {
-        /**
-         * 可订阅的事件列表
-         * <p> 示例值：
-         */
-        this.events = builder.events;
+    public SubscribeEventReqBody build() {
+      return new SubscribeEventReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Event[] getEvents() {
-        return this.events;
-    }
-
-    public void setEvents(Event[] events) {
-        this.events = events;
-    }
-
-    public static class Builder {
-        /**
-         * 可订阅的事件列表
-         * <p> 示例值：
-         */
-        private Event[] events;
-
-        /**
-         * 可订阅的事件列表
-         * <p> 示例值：
-         *
-         * @param events
-         * @return
-         */
-        public Builder events(Event[] events) {
-            this.events = events;
-            return this;
-        }
-
-
-        public SubscribeEventReqBody build() {
-            return new SubscribeEventReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

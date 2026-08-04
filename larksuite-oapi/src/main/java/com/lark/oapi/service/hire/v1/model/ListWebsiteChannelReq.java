@@ -13,136 +13,145 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class ListWebsiteChannelReq {
+  /**
+   * 分页大小
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_size")
+  private String pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1NTUyMjM2NzIsImlkIjpudWxsfQ
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  public String getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(String pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  /**
+   * 官网
+   * ID，可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)获取
+   *
+   * <p>示例值：1618209327096
+   */
+  @Path
+  @SerializedName("website_id")
+  private String websiteId;
+
+  public String getWebsiteId() {
+    return this.websiteId;
+  }
+
+  public void setWebsiteId(String websiteId) {
+    this.websiteId = websiteId;
+  }
+
+  // builder 开始
+  public ListWebsiteChannelReq() {}
+
+  public ListWebsiteChannelReq(Builder builder) {
     /**
-     * 每页获取记录最大数量，最大100
-     * <p> 示例值：100
+     * 分页大小
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_size")
-    private String pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 页码标识，获取第一页传空，每次查询会返回下一页的 page_token
-     * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1NTUyMjM2NzIsImlkIjpudWxsfQ
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1NTUyMjM2NzIsImlkIjpudWxsfQ
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 官网 ID
-     * <p> 示例值：1618209327096
+     * 官网
+     * ID，可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)获取
+     *
+     * <p>示例值：1618209327096
      */
-    @Path
-    @SerializedName("website_id")
-    private String websiteId;
+    this.websiteId = builder.websiteId;
+  }
 
-    // builder 开始
-    public ListWebsiteChannelReq() {
+  public static class Builder {
+    private String pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+
+    // 获取查询结果
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(String pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListWebsiteChannelReq(Builder builder) {
-        /**
-         * 每页获取记录最大数量，最大100
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的 page_token
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1NTUyMjM2NzIsImlkIjpudWxsfQ
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 官网 ID
-         * <p> 示例值：1618209327096
-         */
-        this.websiteId = builder.websiteId;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1NTUyMjM2NzIsImlkIjpudWxsfQ
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String websiteId; // 官网
+
+    // ID，可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)获取
+
+    /**
+     * 官网
+     * ID，可通过[获取招聘官网列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/website/list)获取
+     *
+     * <p>示例值：1618209327096
+     *
+     * @param websiteId
+     * @return
+     */
+    public Builder websiteId(String websiteId) {
+      this.websiteId = websiteId;
+      return this;
     }
 
-    public String getPageSize() {
-        return this.pageSize;
+    public ListWebsiteChannelReq build() {
+      return new ListWebsiteChannelReq(this);
     }
+  }
 
-    public void setPageSize(String pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getWebsiteId() {
-        return this.websiteId;
-    }
-
-    public void setWebsiteId(String websiteId) {
-        this.websiteId = websiteId;
-    }
-
-    public static class Builder {
-        private String pageSize; // 每页获取记录最大数量，最大100
-        private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的 page_token
-        private String websiteId; // 官网 ID
-
-        /**
-         * 每页获取记录最大数量，最大100
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(String pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的 page_token
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1NTUyMjM2NzIsImlkIjpudWxsfQ
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 官网 ID
-         * <p> 示例值：1618209327096
-         *
-         * @param websiteId
-         * @return
-         */
-        public Builder websiteId(String websiteId) {
-            this.websiteId = websiteId;
-            return this;
-        }
-
-
-        public ListWebsiteChannelReq build() {
-            return new ListWebsiteChannelReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

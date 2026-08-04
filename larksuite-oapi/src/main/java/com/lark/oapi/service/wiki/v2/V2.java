@@ -21,37 +21,37 @@ import com.lark.oapi.service.wiki.v2.resource.SpaceSetting;
 import com.lark.oapi.service.wiki.v2.resource.Task;
 
 public class V2 {
-    private final Space space; // 知识空间
-    private final SpaceMember spaceMember; // 空间成员
-    private final SpaceNode spaceNode; // 节点
-    private final SpaceSetting spaceSetting; // 空间设置
-    private final Task task; // 云文档
+  private final Space space; // space
+  private final SpaceMember spaceMember; // space.member
+  private final SpaceNode spaceNode; // space.node
+  private final SpaceSetting spaceSetting; // space.setting
+  private final Task task; // task
 
-    public V2(Config config) {
-        this.space = new Space(config);
-        this.spaceMember = new SpaceMember(config);
-        this.spaceNode = new SpaceNode(config);
-        this.spaceSetting = new SpaceSetting(config);
-        this.task = new Task(config);
-    }
+  public V2(Config config) {
+    this.space = new Space(config);
+    this.spaceMember = new SpaceMember(config);
+    this.spaceNode = new SpaceNode(config);
+    this.spaceSetting = new SpaceSetting(config);
+    this.task = new Task(config);
+  }
 
-    public Space space() {
-        return space;
-    }
+  public Space space() {
+    return space;
+  }
 
-    public SpaceMember spaceMember() {
-        return spaceMember;
-    }
+  public SpaceMember spaceMember() {
+    return spaceMember;
+  }
 
-    public SpaceNode spaceNode() {
-        return spaceNode;
-    }
+  public SpaceNode spaceNode() {
+    return spaceNode;
+  }
 
-    public SpaceSetting spaceSetting() {
-        return spaceSetting;
-    }
+  public SpaceSetting spaceSetting() {
+    return spaceSetting;
+  }
 
-    public Task task() {
-        return task;
-    }
+  public Task task() {
+    return task;
+  }
 }

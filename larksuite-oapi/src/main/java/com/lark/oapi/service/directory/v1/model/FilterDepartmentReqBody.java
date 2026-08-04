@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FilterDepartmentReqBody {
+  /**
+   * 查询条件[了解更多：查询条件用法](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/filter-usage)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter")
+  private MultiFilterCondition filter;
+
+  /**
+   * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("required_fields")
+  private String[] requiredFields;
+
+  /**
+   * 分页信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_request")
+  private PageCondition pageRequest;
+
+  public MultiFilterCondition getFilter() {
+    return this.filter;
+  }
+
+  public void setFilter(MultiFilterCondition filter) {
+    this.filter = filter;
+  }
+
+  public String[] getRequiredFields() {
+    return this.requiredFields;
+  }
+
+  public void setRequiredFields(String[] requiredFields) {
+    this.requiredFields = requiredFields;
+  }
+
+  public PageCondition getPageRequest() {
+    return this.pageRequest;
+  }
+
+  public void setPageRequest(PageCondition pageRequest) {
+    this.pageRequest = pageRequest;
+  }
+
+  // builder 开始
+  public FilterDepartmentReqBody() {}
+
+  public FilterDepartmentReqBody(Builder builder) {
     /**
-     * 查询条件
-     * <p> 示例值：
+     * 查询条件[了解更多：查询条件用法](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/filter-usage)
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter")
-    private MultiFilterCondition filter;
+    this.filter = builder.filter;
     /**
-     * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段
-     * <p> 示例值：
+     * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+     *
+     * <p>示例值：
      */
-    @SerializedName("required_fields")
-    private String[] requiredFields;
+    this.requiredFields = builder.requiredFields;
     /**
      * 分页信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("page_request")
+    this.pageRequest = builder.pageRequest;
+  }
+
+  public static class Builder {
+    /**
+     * 查询条件[了解更多：查询条件用法](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/filter-usage)
+     *
+     * <p>示例值：
+     */
+    private MultiFilterCondition filter;
+
+    /**
+     * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+     *
+     * <p>示例值：
+     */
+    private String[] requiredFields;
+
+    /**
+     * 分页信息
+     *
+     * <p>示例值：
+     */
     private PageCondition pageRequest;
 
-    // builder 开始
-    public FilterDepartmentReqBody() {
+    /**
+     * 查询条件[了解更多：查询条件用法](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/filter-usage)
+     *
+     * <p>示例值：
+     *
+     * @param filter
+     * @return
+     */
+    public Builder filter(MultiFilterCondition filter) {
+      this.filter = filter;
+      return this;
     }
 
-    public FilterDepartmentReqBody(Builder builder) {
-        /**
-         * 查询条件
-         * <p> 示例值：
-         */
-        this.filter = builder.filter;
-        /**
-         * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段
-         * <p> 示例值：
-         */
-        this.requiredFields = builder.requiredFields;
-        /**
-         * 分页信息
-         * <p> 示例值：
-         */
-        this.pageRequest = builder.pageRequest;
+    /**
+     * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+     *
+     * <p>示例值：
+     *
+     * @param requiredFields
+     * @return
+     */
+    public Builder requiredFields(String[] requiredFields) {
+      this.requiredFields = requiredFields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 分页信息
+     *
+     * <p>示例值：
+     *
+     * @param pageRequest
+     * @return
+     */
+    public Builder pageRequest(PageCondition pageRequest) {
+      this.pageRequest = pageRequest;
+      return this;
     }
 
-    public MultiFilterCondition getFilter() {
-        return this.filter;
+    public FilterDepartmentReqBody build() {
+      return new FilterDepartmentReqBody(this);
     }
+  }
 
-    public void setFilter(MultiFilterCondition filter) {
-        this.filter = filter;
-    }
-
-    public String[] getRequiredFields() {
-        return this.requiredFields;
-    }
-
-    public void setRequiredFields(String[] requiredFields) {
-        this.requiredFields = requiredFields;
-    }
-
-    public PageCondition getPageRequest() {
-        return this.pageRequest;
-    }
-
-    public void setPageRequest(PageCondition pageRequest) {
-        this.pageRequest = pageRequest;
-    }
-
-    public static class Builder {
-        /**
-         * 查询条件
-         * <p> 示例值：
-         */
-        private MultiFilterCondition filter;
-        /**
-         * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段
-         * <p> 示例值：
-         */
-        private String[] requiredFields;
-        /**
-         * 分页信息
-         * <p> 示例值：
-         */
-        private PageCondition pageRequest;
-
-        /**
-         * 查询条件
-         * <p> 示例值：
-         *
-         * @param filter
-         * @return
-         */
-        public Builder filter(MultiFilterCondition filter) {
-            this.filter = filter;
-            return this;
-        }
-
-
-        /**
-         * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段
-         * <p> 示例值：
-         *
-         * @param requiredFields
-         * @return
-         */
-        public Builder requiredFields(String[] requiredFields) {
-            this.requiredFields = requiredFields;
-            return this;
-        }
-
-
-        /**
-         * 分页信息
-         * <p> 示例值：
-         *
-         * @param pageRequest
-         * @return
-         */
-        public Builder pageRequest(PageCondition pageRequest) {
-            this.pageRequest = pageRequest;
-            return this;
-        }
-
-
-        public FilterDepartmentReqBody build() {
-            return new FilterDepartmentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

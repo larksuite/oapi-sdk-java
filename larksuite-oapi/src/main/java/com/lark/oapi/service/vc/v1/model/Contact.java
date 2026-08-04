@@ -13,124 +13,121 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Contact {
+  /**
+   * 联系人类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("contact_type")
+  private Integer contactType;
+
+  /**
+   * 联系人名
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("contact_name")
+  private String contactName;
+
+  public Integer getContactType() {
+    return this.contactType;
+  }
+
+  public void setContactType(Integer contactType) {
+    this.contactType = contactType;
+  }
+
+  public String getContactName() {
+    return this.contactName;
+  }
+
+  public void setContactName(String contactName) {
+    this.contactName = contactName;
+  }
+
+  // builder 开始
+  public Contact() {}
+
+  public Contact(Builder builder) {
     /**
      * 联系人类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("contact_type")
-    private Integer contactType;
+    this.contactType = builder.contactType;
     /**
      * 联系人名
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("contact_name")
+    this.contactName = builder.contactName;
+  }
+
+  public static class Builder {
+    /**
+     * 联系人类型
+     *
+     * <p>示例值：1
+     */
+    private Integer contactType;
+
+    /**
+     * 联系人名
+     *
+     * <p>示例值：张三
+     */
     private String contactName;
 
-    // builder 开始
-    public Contact() {
+    /**
+     * 联系人类型
+     *
+     * <p>示例值：1
+     *
+     * @param contactType
+     * @return
+     */
+    public Builder contactType(Integer contactType) {
+      this.contactType = contactType;
+      return this;
     }
 
-    public Contact(Builder builder) {
-        /**
-         * 联系人类型
-         * <p> 示例值：1
-         */
-        this.contactType = builder.contactType;
-        /**
-         * 联系人名
-         * <p> 示例值：张三
-         */
-        this.contactName = builder.contactName;
+    /**
+     * 联系人类型
+     *
+     * <p>示例值：1
+     *
+     * @param contactType {@link com.lark.oapi.service.vc.v1.enums.ContactContactTypeEnum}
+     * @return
+     */
+    public Builder contactType(
+        com.lark.oapi.service.vc.v1.enums.ContactContactTypeEnum contactType) {
+      this.contactType = contactType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 联系人名
+     *
+     * <p>示例值：张三
+     *
+     * @param contactName
+     * @return
+     */
+    public Builder contactName(String contactName) {
+      this.contactName = contactName;
+      return this;
     }
 
-    public Integer getContactType() {
-        return this.contactType;
+    public Contact build() {
+      return new Contact(this);
     }
+  }
 
-    public void setContactType(Integer contactType) {
-        this.contactType = contactType;
-    }
-
-    public String getContactName() {
-        return this.contactName;
-    }
-
-    public void setContactName(String contactName) {
-        this.contactName = contactName;
-    }
-
-    public static class Builder {
-        /**
-         * 联系人类型
-         * <p> 示例值：1
-         */
-        private Integer contactType;
-        /**
-         * 联系人名
-         * <p> 示例值：张三
-         */
-        private String contactName;
-
-        /**
-         * 联系人类型
-         * <p> 示例值：1
-         *
-         * @param contactType
-         * @return
-         */
-        public Builder contactType(Integer contactType) {
-            this.contactType = contactType;
-            return this;
-        }
-
-        /**
-         * 联系人类型
-         * <p> 示例值：1
-         *
-         * @param contactType {@link com.lark.oapi.service.vc.v1.enums.ContactContactTypeEnum}
-         * @return
-         */
-        public Builder contactType(com.lark.oapi.service.vc.v1.enums.ContactContactTypeEnum contactType) {
-            this.contactType = contactType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 联系人名
-         * <p> 示例值：张三
-         *
-         * @param contactName
-         * @return
-         */
-        public Builder contactName(String contactName) {
-            this.contactName = contactName;
-            return this;
-        }
-
-
-        public Contact build() {
-            return new Contact(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

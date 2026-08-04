@@ -13,593 +13,653 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollaborationUser {
+  /**
+   * 对方关联组织用户的open_id
+   *
+   * <p>示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @SerializedName("open_id")
+  private String openId;
+
+  /**
+   * 对方关联组织用户的id
+   *
+   * <p>示例值：902c7141
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 对方关联组织用户的union id
+   *
+   * <p>示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
+   */
+  @SerializedName("union_id")
+  private String unionId;
+
+  /**
+   * 用户的名称
+   *
+   * <p>示例值：test_name
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 目标组织的i18n名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_name")
+  private I18nName i18nName;
+
+  /**
+   * 组织icon信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("avatar")
+  private AvatarInfo avatar;
+
+  /**
+   * 手机号,需要对方租户授权展示.
+   *
+   * <p>示例值：+41446681800
+   */
+  @SerializedName("mobile")
+  private String mobile;
+
+  /**
+   * 用户状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("status")
+  private UserStatus status;
+
+  /**
+   * 用户所属部门的ID列表,已废弃
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_ids")
+  private String[] departmentIds;
+
+  /**
+   * 用户的直接主管的用户ID,已废弃
+   *
+   * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+   */
+  @SerializedName("leader_user_id")
+  private String leaderUserId;
+
+  /**
+   * 职务,需要对方租户授权展示.
+   *
+   * <p>示例值：顾问
+   */
+  @SerializedName("job_title")
+  private String jobTitle;
+
+  /**
+   * 自定义属性,需要对方租户授权展示.
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_attrs")
+  private UserCustomAttr[] customAttrs;
+
+  /**
+   * 工号,需要对方租户授权展示
+   *
+   * <p>示例值：121212
+   */
+  @SerializedName("employee_no")
+  private String employeeNo;
+
+  /**
+   * 父部门ID，必须对父部门有权限才会返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("parent_department_ids")
+  private CollaborationDepartmentId[] parentDepartmentIds;
+
+  /**
+   * 用户的leader，必须对leader有权限才会返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leader_id")
+  private CollaborationUserId leaderId;
+
+  public String getOpenId() {
+    return this.openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getUnionId() {
+    return this.unionId;
+  }
+
+  public void setUnionId(String unionId) {
+    this.unionId = unionId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public I18nName getI18nName() {
+    return this.i18nName;
+  }
+
+  public void setI18nName(I18nName i18nName) {
+    this.i18nName = i18nName;
+  }
+
+  public AvatarInfo getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(AvatarInfo avatar) {
+    this.avatar = avatar;
+  }
+
+  public String getMobile() {
+    return this.mobile;
+  }
+
+  public void setMobile(String mobile) {
+    this.mobile = mobile;
+  }
+
+  public UserStatus getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(UserStatus status) {
+    this.status = status;
+  }
+
+  public String[] getDepartmentIds() {
+    return this.departmentIds;
+  }
+
+  public void setDepartmentIds(String[] departmentIds) {
+    this.departmentIds = departmentIds;
+  }
+
+  public String getLeaderUserId() {
+    return this.leaderUserId;
+  }
+
+  public void setLeaderUserId(String leaderUserId) {
+    this.leaderUserId = leaderUserId;
+  }
+
+  public String getJobTitle() {
+    return this.jobTitle;
+  }
+
+  public void setJobTitle(String jobTitle) {
+    this.jobTitle = jobTitle;
+  }
+
+  public UserCustomAttr[] getCustomAttrs() {
+    return this.customAttrs;
+  }
+
+  public void setCustomAttrs(UserCustomAttr[] customAttrs) {
+    this.customAttrs = customAttrs;
+  }
+
+  public String getEmployeeNo() {
+    return this.employeeNo;
+  }
+
+  public void setEmployeeNo(String employeeNo) {
+    this.employeeNo = employeeNo;
+  }
+
+  public CollaborationDepartmentId[] getParentDepartmentIds() {
+    return this.parentDepartmentIds;
+  }
+
+  public void setParentDepartmentIds(CollaborationDepartmentId[] parentDepartmentIds) {
+    this.parentDepartmentIds = parentDepartmentIds;
+  }
+
+  public CollaborationUserId getLeaderId() {
+    return this.leaderId;
+  }
+
+  public void setLeaderId(CollaborationUserId leaderId) {
+    this.leaderId = leaderId;
+  }
+
+  // builder 开始
+  public CollaborationUser() {}
+
+  public CollaborationUser(Builder builder) {
     /**
      * 对方关联组织用户的open_id
-     * <p> 示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * <p>示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
      */
-    @SerializedName("open_id")
-    private String openId;
+    this.openId = builder.openId;
     /**
      * 对方关联组织用户的id
-     * <p> 示例值：902c7141
+     *
+     * <p>示例值：902c7141
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 对方关联组织用户的union id
-     * <p> 示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
+     *
+     * <p>示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
      */
-    @SerializedName("union_id")
-    private String unionId;
+    this.unionId = builder.unionId;
     /**
      * 用户的名称
-     * <p> 示例值：test_name
+     *
+     * <p>示例值：test_name
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 关联组织的的国际化用户名称
-     * <p> 示例值：
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_name")
-    private I18nName i18nName;
+    this.i18nName = builder.i18nName;
     /**
-     * 用户头像信息
-     * <p> 示例值：
+     * 组织icon信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("avatar")
-    private AvatarInfo avatar;
+    this.avatar = builder.avatar;
     /**
-     * 手机号
-     * <p> 示例值：+41446681800
+     * 手机号,需要对方租户授权展示.
+     *
+     * <p>示例值：+41446681800
      */
-    @SerializedName("mobile")
-    private String mobile;
+    this.mobile = builder.mobile;
     /**
      * 用户状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("status")
+    this.status = builder.status;
+    /**
+     * 用户所属部门的ID列表,已废弃
+     *
+     * <p>示例值：
+     */
+    this.departmentIds = builder.departmentIds;
+    /**
+     * 用户的直接主管的用户ID,已废弃
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     */
+    this.leaderUserId = builder.leaderUserId;
+    /**
+     * 职务,需要对方租户授权展示.
+     *
+     * <p>示例值：顾问
+     */
+    this.jobTitle = builder.jobTitle;
+    /**
+     * 自定义属性,需要对方租户授权展示.
+     *
+     * <p>示例值：
+     */
+    this.customAttrs = builder.customAttrs;
+    /**
+     * 工号,需要对方租户授权展示
+     *
+     * <p>示例值：121212
+     */
+    this.employeeNo = builder.employeeNo;
+    /**
+     * 父部门ID，必须对父部门有权限才会返回
+     *
+     * <p>示例值：
+     */
+    this.parentDepartmentIds = builder.parentDepartmentIds;
+    /**
+     * 用户的leader，必须对leader有权限才会返回
+     *
+     * <p>示例值：
+     */
+    this.leaderId = builder.leaderId;
+  }
+
+  public static class Builder {
+    /**
+     * 对方关联组织用户的open_id
+     *
+     * <p>示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
+     */
+    private String openId;
+
+    /**
+     * 对方关联组织用户的id
+     *
+     * <p>示例值：902c7141
+     */
+    private String userId;
+
+    /**
+     * 对方关联组织用户的union id
+     *
+     * <p>示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
+     */
+    private String unionId;
+
+    /**
+     * 用户的名称
+     *
+     * <p>示例值：test_name
+     */
+    private String name;
+
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     */
+    private I18nName i18nName;
+
+    /**
+     * 组织icon信息
+     *
+     * <p>示例值：
+     */
+    private AvatarInfo avatar;
+
+    /**
+     * 手机号,需要对方租户授权展示.
+     *
+     * <p>示例值：+41446681800
+     */
+    private String mobile;
+
+    /**
+     * 用户状态
+     *
+     * <p>示例值：
+     */
     private UserStatus status;
+
     /**
-     * 用户所属部门的ID列表,deprecate
-     * <p> 示例值：
+     * 用户所属部门的ID列表,已废弃
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_ids")
     private String[] departmentIds;
+
     /**
-     * 用户的直接主管的用户ID,deprecate
-     * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     * 用户的直接主管的用户ID,已废弃
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
      */
-    @SerializedName("leader_user_id")
     private String leaderUserId;
+
     /**
-     * 职务
-     * <p> 示例值：顾问
+     * 职务,需要对方租户授权展示.
+     *
+     * <p>示例值：顾问
      */
-    @SerializedName("job_title")
     private String jobTitle;
+
     /**
-     * 自定义属性
-     * <p> 示例值：
+     * 自定义属性,需要对方租户授权展示.
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_attrs")
     private UserCustomAttr[] customAttrs;
+
     /**
-     * 工号
-     * <p> 示例值：121212
+     * 工号,需要对方租户授权展示
+     *
+     * <p>示例值：121212
      */
-    @SerializedName("employee_no")
     private String employeeNo;
+
     /**
-     * 父部门ID
-     * <p> 示例值：
+     * 父部门ID，必须对父部门有权限才会返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("parent_department_ids")
     private CollaborationDepartmentId[] parentDepartmentIds;
+
     /**
-     * 用户的leader
-     * <p> 示例值：
+     * 用户的leader，必须对leader有权限才会返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("leader_id")
     private CollaborationUserId leaderId;
 
-    // builder 开始
-    public CollaborationUser() {
+    /**
+     * 对方关联组织用户的open_id
+     *
+     * <p>示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param openId
+     * @return
+     */
+    public Builder openId(String openId) {
+      this.openId = openId;
+      return this;
     }
 
-    public CollaborationUser(Builder builder) {
-        /**
-         * 对方关联组织用户的open_id
-         * <p> 示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.openId = builder.openId;
-        /**
-         * 对方关联组织用户的id
-         * <p> 示例值：902c7141
-         */
-        this.userId = builder.userId;
-        /**
-         * 对方关联组织用户的union id
-         * <p> 示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
-         */
-        this.unionId = builder.unionId;
-        /**
-         * 用户的名称
-         * <p> 示例值：test_name
-         */
-        this.name = builder.name;
-        /**
-         * 关联组织的的国际化用户名称
-         * <p> 示例值：
-         */
-        this.i18nName = builder.i18nName;
-        /**
-         * 用户头像信息
-         * <p> 示例值：
-         */
-        this.avatar = builder.avatar;
-        /**
-         * 手机号
-         * <p> 示例值：+41446681800
-         */
-        this.mobile = builder.mobile;
-        /**
-         * 用户状态
-         * <p> 示例值：
-         */
-        this.status = builder.status;
-        /**
-         * 用户所属部门的ID列表,deprecate
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-        /**
-         * 用户的直接主管的用户ID,deprecate
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        this.leaderUserId = builder.leaderUserId;
-        /**
-         * 职务
-         * <p> 示例值：顾问
-         */
-        this.jobTitle = builder.jobTitle;
-        /**
-         * 自定义属性
-         * <p> 示例值：
-         */
-        this.customAttrs = builder.customAttrs;
-        /**
-         * 工号
-         * <p> 示例值：121212
-         */
-        this.employeeNo = builder.employeeNo;
-        /**
-         * 父部门ID
-         * <p> 示例值：
-         */
-        this.parentDepartmentIds = builder.parentDepartmentIds;
-        /**
-         * 用户的leader
-         * <p> 示例值：
-         */
-        this.leaderId = builder.leaderId;
+    /**
+     * 对方关联组织用户的id
+     *
+     * <p>示例值：902c7141
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 对方关联组织用户的union id
+     *
+     * <p>示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
+     *
+     * @param unionId
+     * @return
+     */
+    public Builder unionId(String unionId) {
+      this.unionId = unionId;
+      return this;
     }
 
-    public String getOpenId() {
-        return this.openId;
+    /**
+     * 用户的名称
+     *
+     * <p>示例值：test_name
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nName
+     * @return
+     */
+    public Builder i18nName(I18nName i18nName) {
+      this.i18nName = i18nName;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 组织icon信息
+     *
+     * <p>示例值：
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(AvatarInfo avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 手机号,需要对方租户授权展示.
+     *
+     * <p>示例值：+41446681800
+     *
+     * @param mobile
+     * @return
+     */
+    public Builder mobile(String mobile) {
+      this.mobile = mobile;
+      return this;
     }
 
-    public String getUnionId() {
-        return this.unionId;
+    /**
+     * 用户状态
+     *
+     * <p>示例值：
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(UserStatus status) {
+      this.status = status;
+      return this;
     }
 
-    public void setUnionId(String unionId) {
-        this.unionId = unionId;
+    /**
+     * 用户所属部门的ID列表,已废弃
+     *
+     * <p>示例值：
+     *
+     * @param departmentIds
+     * @return
+     */
+    public Builder departmentIds(String[] departmentIds) {
+      this.departmentIds = departmentIds;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 用户的直接主管的用户ID,已废弃
+     *
+     * <p>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
+     *
+     * @param leaderUserId
+     * @return
+     */
+    public Builder leaderUserId(String leaderUserId) {
+      this.leaderUserId = leaderUserId;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 职务,需要对方租户授权展示.
+     *
+     * <p>示例值：顾问
+     *
+     * @param jobTitle
+     * @return
+     */
+    public Builder jobTitle(String jobTitle) {
+      this.jobTitle = jobTitle;
+      return this;
     }
 
-    public I18nName getI18nName() {
-        return this.i18nName;
+    /**
+     * 自定义属性,需要对方租户授权展示.
+     *
+     * <p>示例值：
+     *
+     * @param customAttrs
+     * @return
+     */
+    public Builder customAttrs(UserCustomAttr[] customAttrs) {
+      this.customAttrs = customAttrs;
+      return this;
     }
 
-    public void setI18nName(I18nName i18nName) {
-        this.i18nName = i18nName;
+    /**
+     * 工号,需要对方租户授权展示
+     *
+     * <p>示例值：121212
+     *
+     * @param employeeNo
+     * @return
+     */
+    public Builder employeeNo(String employeeNo) {
+      this.employeeNo = employeeNo;
+      return this;
     }
 
-    public AvatarInfo getAvatar() {
-        return this.avatar;
+    /**
+     * 父部门ID，必须对父部门有权限才会返回
+     *
+     * <p>示例值：
+     *
+     * @param parentDepartmentIds
+     * @return
+     */
+    public Builder parentDepartmentIds(CollaborationDepartmentId[] parentDepartmentIds) {
+      this.parentDepartmentIds = parentDepartmentIds;
+      return this;
     }
 
-    public void setAvatar(AvatarInfo avatar) {
-        this.avatar = avatar;
+    /**
+     * 用户的leader，必须对leader有权限才会返回
+     *
+     * <p>示例值：
+     *
+     * @param leaderId
+     * @return
+     */
+    public Builder leaderId(CollaborationUserId leaderId) {
+      this.leaderId = leaderId;
+      return this;
     }
 
-    public String getMobile() {
-        return this.mobile;
+    public CollaborationUser build() {
+      return new CollaborationUser(this);
     }
+  }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public UserStatus getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(UserStatus status) {
-        this.status = status;
-    }
-
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
-    }
-
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
-    }
-
-    public String getLeaderUserId() {
-        return this.leaderUserId;
-    }
-
-    public void setLeaderUserId(String leaderUserId) {
-        this.leaderUserId = leaderUserId;
-    }
-
-    public String getJobTitle() {
-        return this.jobTitle;
-    }
-
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
-    }
-
-    public UserCustomAttr[] getCustomAttrs() {
-        return this.customAttrs;
-    }
-
-    public void setCustomAttrs(UserCustomAttr[] customAttrs) {
-        this.customAttrs = customAttrs;
-    }
-
-    public String getEmployeeNo() {
-        return this.employeeNo;
-    }
-
-    public void setEmployeeNo(String employeeNo) {
-        this.employeeNo = employeeNo;
-    }
-
-    public CollaborationDepartmentId[] getParentDepartmentIds() {
-        return this.parentDepartmentIds;
-    }
-
-    public void setParentDepartmentIds(CollaborationDepartmentId[] parentDepartmentIds) {
-        this.parentDepartmentIds = parentDepartmentIds;
-    }
-
-    public CollaborationUserId getLeaderId() {
-        return this.leaderId;
-    }
-
-    public void setLeaderId(CollaborationUserId leaderId) {
-        this.leaderId = leaderId;
-    }
-
-    public static class Builder {
-        /**
-         * 对方关联组织用户的open_id
-         * <p> 示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
-         */
-        private String openId;
-        /**
-         * 对方关联组织用户的id
-         * <p> 示例值：902c7141
-         */
-        private String userId;
-        /**
-         * 对方关联组织用户的union id
-         * <p> 示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
-         */
-        private String unionId;
-        /**
-         * 用户的名称
-         * <p> 示例值：test_name
-         */
-        private String name;
-        /**
-         * 关联组织的的国际化用户名称
-         * <p> 示例值：
-         */
-        private I18nName i18nName;
-        /**
-         * 用户头像信息
-         * <p> 示例值：
-         */
-        private AvatarInfo avatar;
-        /**
-         * 手机号
-         * <p> 示例值：+41446681800
-         */
-        private String mobile;
-        /**
-         * 用户状态
-         * <p> 示例值：
-         */
-        private UserStatus status;
-        /**
-         * 用户所属部门的ID列表,deprecate
-         * <p> 示例值：
-         */
-        private String[] departmentIds;
-        /**
-         * 用户的直接主管的用户ID,deprecate
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         */
-        private String leaderUserId;
-        /**
-         * 职务
-         * <p> 示例值：顾问
-         */
-        private String jobTitle;
-        /**
-         * 自定义属性
-         * <p> 示例值：
-         */
-        private UserCustomAttr[] customAttrs;
-        /**
-         * 工号
-         * <p> 示例值：121212
-         */
-        private String employeeNo;
-        /**
-         * 父部门ID
-         * <p> 示例值：
-         */
-        private CollaborationDepartmentId[] parentDepartmentIds;
-        /**
-         * 用户的leader
-         * <p> 示例值：
-         */
-        private CollaborationUserId leaderId;
-
-        /**
-         * 对方关联组织用户的open_id
-         * <p> 示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param openId
-         * @return
-         */
-        public Builder openId(String openId) {
-            this.openId = openId;
-            return this;
-        }
-
-
-        /**
-         * 对方关联组织用户的id
-         * <p> 示例值：902c7141
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 对方关联组织用户的union id
-         * <p> 示例值：on_cad4860e7af114fb4ff6c5d496d1dd76
-         *
-         * @param unionId
-         * @return
-         */
-        public Builder unionId(String unionId) {
-            this.unionId = unionId;
-            return this;
-        }
-
-
-        /**
-         * 用户的名称
-         * <p> 示例值：test_name
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 关联组织的的国际化用户名称
-         * <p> 示例值：
-         *
-         * @param i18nName
-         * @return
-         */
-        public Builder i18nName(I18nName i18nName) {
-            this.i18nName = i18nName;
-            return this;
-        }
-
-
-        /**
-         * 用户头像信息
-         * <p> 示例值：
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(AvatarInfo avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        /**
-         * 手机号
-         * <p> 示例值：+41446681800
-         *
-         * @param mobile
-         * @return
-         */
-        public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
-        }
-
-
-        /**
-         * 用户状态
-         * <p> 示例值：
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(UserStatus status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 用户所属部门的ID列表,deprecate
-         * <p> 示例值：
-         *
-         * @param departmentIds
-         * @return
-         */
-        public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
-        }
-
-
-        /**
-         * 用户的直接主管的用户ID,deprecate
-         * <p> 示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62
-         *
-         * @param leaderUserId
-         * @return
-         */
-        public Builder leaderUserId(String leaderUserId) {
-            this.leaderUserId = leaderUserId;
-            return this;
-        }
-
-
-        /**
-         * 职务
-         * <p> 示例值：顾问
-         *
-         * @param jobTitle
-         * @return
-         */
-        public Builder jobTitle(String jobTitle) {
-            this.jobTitle = jobTitle;
-            return this;
-        }
-
-
-        /**
-         * 自定义属性
-         * <p> 示例值：
-         *
-         * @param customAttrs
-         * @return
-         */
-        public Builder customAttrs(UserCustomAttr[] customAttrs) {
-            this.customAttrs = customAttrs;
-            return this;
-        }
-
-
-        /**
-         * 工号
-         * <p> 示例值：121212
-         *
-         * @param employeeNo
-         * @return
-         */
-        public Builder employeeNo(String employeeNo) {
-            this.employeeNo = employeeNo;
-            return this;
-        }
-
-
-        /**
-         * 父部门ID
-         * <p> 示例值：
-         *
-         * @param parentDepartmentIds
-         * @return
-         */
-        public Builder parentDepartmentIds(CollaborationDepartmentId[] parentDepartmentIds) {
-            this.parentDepartmentIds = parentDepartmentIds;
-            return this;
-        }
-
-
-        /**
-         * 用户的leader
-         * <p> 示例值：
-         *
-         * @param leaderId
-         * @return
-         */
-        public Builder leaderId(CollaborationUserId leaderId) {
-            this.leaderId = leaderId;
-            return this;
-        }
-
-
-        public CollaborationUser build() {
-            return new CollaborationUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

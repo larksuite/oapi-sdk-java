@@ -13,494 +13,643 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubmitV2OffboardingReqBody {
+  /**
+   * 离职方式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("offboarding_mode")
+  private Integer offboardingMode;
+
+  /**
+   * 离职员工 ID（employment_id）不允许为空。ID类型与查询参数
+   * user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+   * User
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+   * Union
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+   * User
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+   * ID。然后通过[ID
+   * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。
+   *
+   * <p>示例值：6982509313466189342
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 离职日期，不允许为空，填写时需要符合YYYY-MM-DD的日期格式。;;;注意：按员工离职当天的工作地点时区24点生效。假设员工离职日期为2024-12-01，如果员工在中国大陆，则生效时间为东八区的2024-12-01
+   * 23:59:59。如果员工在华盛顿，则生效时间为东八区的2024-12-02 12:59:59，对应西五区的2024-12-01 23:59:59。
+   *
+   * <p>示例值：2022-05-18
+   */
+  @SerializedName("offboarding_date")
+  private String offboardingDate;
+
+  /**
+   * 离职原因，不允许为空，可通过接口;[查询员工离职原因列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)获取。
+   *
+   * <p>示例值：reason_for_offboarding_option8
+   */
+  @SerializedName("offboarding_reason_unique_identifier")
+  private String offboardingReasonUniqueIdentifier;
+
+  /**
+   * 离职原因说明，选填，最大长度6000。
+   *
+   * <p>示例值：离职原因说明
+   */
+  @SerializedName("offboarding_reason_explanation")
+  private String offboardingReasonExplanation;
+
+  /**
+   * 发起人 ID。这个发起人需要有飞书账号，能够登录系统。ID类型与查询参数
+   * user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+   * User
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+   * Union
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+   * User
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+   * ID。然后通过[ID
+   * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。;;注意：;;1.只有发起人可以撤销流程;;2.为空时，默认系统发起人
+   *
+   * <p>示例值：6982509313466189341
+   */
+  @SerializedName("initiator_id")
+  private String initiatorId;
+
+  /**
+   * 是否加入离职屏蔽名单;;注意：;;1.取值为true时，屏蔽原因（block_reason）为必填。;;2.取值为false时，不允许填写屏蔽原因（block_reason）和屏蔽原因说明（block_reason_explanation）。;;3.取值为空时，不允许填写屏蔽原因（block_reason）和屏蔽原因说明（block_reason_explanation）。;;4.操作离职时如果选择加入屏蔽名单，只有当员工离职生效后才会进入到屏蔽名单。
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("add_block_list")
+  private Boolean addBlockList;
+
+  /**
+   * 屏蔽原因;;注意：;;1.该字段取值于 [人员档案配置](https://people.feishu.cn/people/hr-settings/profile) > 信息配置 > 离职信息
+   * 的屏蔽原因字段选项集。;;2.枚举字段值也可通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，参考接口返回的
+   * 字段详情 > 字段类型配置信息 > 选项配置信息 > 选项信息 > 枚举常量集 API name;;3.该字段是否必填取决于是否加入离职屏蔽名单(add_block_list)
+   *
+   * <p>示例值：红线
+   */
+  @SerializedName("block_reason")
+  private String blockReason;
+
+  /**
+   * 屏蔽原因说明，选填，最大长度6000。
+   *
+   * <p>示例值：xx 年 xx 月 xx 日因 xx 原因红线
+   */
+  @SerializedName("block_reason_explanation")
+  private String blockReasonExplanation;
+
+  /**
+   * 离职自定义字段。;;注意：可填写的字段范围参考[人员档案配置](https://people.feishu.cn/people/hr-settings/profile) > 信息配置 >
+   * 离职信息 中的自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  /**
+   * 离职是否保留飞书账号
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("retain_account")
+  private Boolean retainAccount;
+
+  /**
+   * 编制随人员一起调整
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_transfer_with_workforce")
+  private Boolean isTransferWithWorkforce;
+
+  public Integer getOffboardingMode() {
+    return this.offboardingMode;
+  }
+
+  public void setOffboardingMode(Integer offboardingMode) {
+    this.offboardingMode = offboardingMode;
+  }
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getOffboardingDate() {
+    return this.offboardingDate;
+  }
+
+  public void setOffboardingDate(String offboardingDate) {
+    this.offboardingDate = offboardingDate;
+  }
+
+  public String getOffboardingReasonUniqueIdentifier() {
+    return this.offboardingReasonUniqueIdentifier;
+  }
+
+  public void setOffboardingReasonUniqueIdentifier(String offboardingReasonUniqueIdentifier) {
+    this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
+  }
+
+  public String getOffboardingReasonExplanation() {
+    return this.offboardingReasonExplanation;
+  }
+
+  public void setOffboardingReasonExplanation(String offboardingReasonExplanation) {
+    this.offboardingReasonExplanation = offboardingReasonExplanation;
+  }
+
+  public String getInitiatorId() {
+    return this.initiatorId;
+  }
+
+  public void setInitiatorId(String initiatorId) {
+    this.initiatorId = initiatorId;
+  }
+
+  public Boolean getAddBlockList() {
+    return this.addBlockList;
+  }
+
+  public void setAddBlockList(Boolean addBlockList) {
+    this.addBlockList = addBlockList;
+  }
+
+  public String getBlockReason() {
+    return this.blockReason;
+  }
+
+  public void setBlockReason(String blockReason) {
+    this.blockReason = blockReason;
+  }
+
+  public String getBlockReasonExplanation() {
+    return this.blockReasonExplanation;
+  }
+
+  public void setBlockReasonExplanation(String blockReasonExplanation) {
+    this.blockReasonExplanation = blockReasonExplanation;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public Boolean getRetainAccount() {
+    return this.retainAccount;
+  }
+
+  public void setRetainAccount(Boolean retainAccount) {
+    this.retainAccount = retainAccount;
+  }
+
+  public Boolean getIsTransferWithWorkforce() {
+    return this.isTransferWithWorkforce;
+  }
+
+  public void setIsTransferWithWorkforce(Boolean isTransferWithWorkforce) {
+    this.isTransferWithWorkforce = isTransferWithWorkforce;
+  }
+
+  // builder 开始
+  public SubmitV2OffboardingReqBody() {}
+
+  public SubmitV2OffboardingReqBody(Builder builder) {
     /**
      * 离职方式
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("offboarding_mode")
-    private Integer offboardingMode;
+    this.offboardingMode = builder.offboardingMode;
     /**
-     * 雇员 id
-     * <p> 示例值：6982509313466189342
+     * 离职员工 ID（employment_id）不允许为空。ID类型与查询参数
+     * user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+     * Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。
+     *
+     * <p>示例值：6982509313466189342
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
-     * 离职日期
-     * <p> 示例值：2022-05-18
+     * 离职日期，不允许为空，填写时需要符合YYYY-MM-DD的日期格式。;;;注意：按员工离职当天的工作地点时区24点生效。假设员工离职日期为2024-12-01，如果员工在中国大陆，则生效时间为东八区的2024-12-01
+     * 23:59:59。如果员工在华盛顿，则生效时间为东八区的2024-12-02 12:59:59，对应西五区的2024-12-01 23:59:59。
+     *
+     * <p>示例值：2022-05-18
      */
-    @SerializedName("offboarding_date")
-    private String offboardingDate;
+    this.offboardingDate = builder.offboardingDate;
     /**
-     * 离职原因
-     * <p> 示例值：reason_for_offboarding_option8
+     * 离职原因，不允许为空，可通过接口;[查询员工离职原因列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)获取。
+     *
+     * <p>示例值：reason_for_offboarding_option8
      */
-    @SerializedName("offboarding_reason_unique_identifier")
-    private String offboardingReasonUniqueIdentifier;
+    this.offboardingReasonUniqueIdentifier = builder.offboardingReasonUniqueIdentifier;
     /**
-     * 离职原因说明
-     * <p> 示例值：离职原因说明
+     * 离职原因说明，选填，最大长度6000。
+     *
+     * <p>示例值：离职原因说明
      */
-    @SerializedName("offboarding_reason_explanation")
-    private String offboardingReasonExplanation;
+    this.offboardingReasonExplanation = builder.offboardingReasonExplanation;
     /**
-     * 操作发起人 ID（employment_id），为空默认为系统发起。注意：只有操作发起人可以撤销流程
-     * <p> 示例值：6982509313466189341
+     * 发起人 ID。这个发起人需要有飞书账号，能够登录系统。ID类型与查询参数
+     * user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+     * Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。;;注意：;;1.只有发起人可以撤销流程;;2.为空时，默认系统发起人
+     *
+     * <p>示例值：6982509313466189341
      */
-    @SerializedName("initiator_id")
-    private String initiatorId;
+    this.initiatorId = builder.initiatorId;
     /**
-     * 是否加入离职屏蔽名单
-     * <p> 示例值：false
+     * 是否加入离职屏蔽名单;;注意：;;1.取值为true时，屏蔽原因（block_reason）为必填。;;2.取值为false时，不允许填写屏蔽原因（block_reason）和屏蔽原因说明（block_reason_explanation）。;;3.取值为空时，不允许填写屏蔽原因（block_reason）和屏蔽原因说明（block_reason_explanation）。;;4.操作离职时如果选择加入屏蔽名单，只有当员工离职生效后才会进入到屏蔽名单。
+     *
+     * <p>示例值：false
      */
-    @SerializedName("add_block_list")
-    private Boolean addBlockList;
+    this.addBlockList = builder.addBlockList;
     /**
-     * 屏蔽原因
-     * <p> 示例值：红线
+     * 屏蔽原因;;注意：;;1.该字段取值于 [人员档案配置](https://people.feishu.cn/people/hr-settings/profile) > 信息配置 >
+     * 离职信息
+     * 的屏蔽原因字段选项集。;;2.枚举字段值也可通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，参考接口返回的
+     * 字段详情 > 字段类型配置信息 > 选项配置信息 > 选项信息 > 枚举常量集 API name;;3.该字段是否必填取决于是否加入离职屏蔽名单(add_block_list)
+     *
+     * <p>示例值：红线
      */
-    @SerializedName("block_reason")
-    private String blockReason;
+    this.blockReason = builder.blockReason;
     /**
-     * 屏蔽原因说明
-     * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
+     * 屏蔽原因说明，选填，最大长度6000。
+     *
+     * <p>示例值：xx 年 xx 月 xx 日因 xx 原因红线
      */
-    @SerializedName("block_reason_explanation")
-    private String blockReasonExplanation;
+    this.blockReasonExplanation = builder.blockReasonExplanation;
     /**
-     * 自定义字段
-     * <p> 示例值：
+     * 离职自定义字段。;;注意：可填写的字段范围参考[人员档案配置](https://people.feishu.cn/people/hr-settings/profile) > 信息配置 >
+     * 离职信息 中的自定义字段
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private ObjectFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
      * 离职是否保留飞书账号
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("retain_account")
-    private Boolean retainAccount;
+    this.retainAccount = builder.retainAccount;
     /**
      * 编制随人员一起调整
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_transfer_with_workforce")
+    this.isTransferWithWorkforce = builder.isTransferWithWorkforce;
+  }
+
+  public static class Builder {
+    /**
+     * 离职方式
+     *
+     * <p>示例值：1
+     */
+    private Integer offboardingMode;
+
+    /**
+     * 离职员工 ID（employment_id）不允许为空。ID类型与查询参数
+     * user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+     * Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。
+     *
+     * <p>示例值：6982509313466189342
+     */
+    private String employmentId;
+
+    /**
+     * 离职日期，不允许为空，填写时需要符合YYYY-MM-DD的日期格式。;;;注意：按员工离职当天的工作地点时区24点生效。假设员工离职日期为2024-12-01，如果员工在中国大陆，则生效时间为东八区的2024-12-01
+     * 23:59:59。如果员工在华盛顿，则生效时间为东八区的2024-12-02 12:59:59，对应西五区的2024-12-01 23:59:59。
+     *
+     * <p>示例值：2022-05-18
+     */
+    private String offboardingDate;
+
+    /**
+     * 离职原因，不允许为空，可通过接口;[查询员工离职原因列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)获取。
+     *
+     * <p>示例值：reason_for_offboarding_option8
+     */
+    private String offboardingReasonUniqueIdentifier;
+
+    /**
+     * 离职原因说明，选填，最大长度6000。
+     *
+     * <p>示例值：离职原因说明
+     */
+    private String offboardingReasonExplanation;
+
+    /**
+     * 发起人 ID。这个发起人需要有飞书账号，能够登录系统。ID类型与查询参数
+     * user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+     * Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。;;注意：;;1.只有发起人可以撤销流程;;2.为空时，默认系统发起人
+     *
+     * <p>示例值：6982509313466189341
+     */
+    private String initiatorId;
+
+    /**
+     * 是否加入离职屏蔽名单;;注意：;;1.取值为true时，屏蔽原因（block_reason）为必填。;;2.取值为false时，不允许填写屏蔽原因（block_reason）和屏蔽原因说明（block_reason_explanation）。;;3.取值为空时，不允许填写屏蔽原因（block_reason）和屏蔽原因说明（block_reason_explanation）。;;4.操作离职时如果选择加入屏蔽名单，只有当员工离职生效后才会进入到屏蔽名单。
+     *
+     * <p>示例值：false
+     */
+    private Boolean addBlockList;
+
+    /**
+     * 屏蔽原因;;注意：;;1.该字段取值于 [人员档案配置](https://people.feishu.cn/people/hr-settings/profile) > 信息配置 >
+     * 离职信息
+     * 的屏蔽原因字段选项集。;;2.枚举字段值也可通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，参考接口返回的
+     * 字段详情 > 字段类型配置信息 > 选项配置信息 > 选项信息 > 枚举常量集 API name;;3.该字段是否必填取决于是否加入离职屏蔽名单(add_block_list)
+     *
+     * <p>示例值：红线
+     */
+    private String blockReason;
+
+    /**
+     * 屏蔽原因说明，选填，最大长度6000。
+     *
+     * <p>示例值：xx 年 xx 月 xx 日因 xx 原因红线
+     */
+    private String blockReasonExplanation;
+
+    /**
+     * 离职自定义字段。;;注意：可填写的字段范围参考[人员档案配置](https://people.feishu.cn/people/hr-settings/profile) > 信息配置 >
+     * 离职信息 中的自定义字段
+     *
+     * <p>示例值：
+     */
+    private ObjectFieldData[] customFields;
+
+    /**
+     * 离职是否保留飞书账号
+     *
+     * <p>示例值：false
+     */
+    private Boolean retainAccount;
+
+    /**
+     * 编制随人员一起调整
+     *
+     * <p>示例值：false
+     */
     private Boolean isTransferWithWorkforce;
 
-    // builder 开始
-    public SubmitV2OffboardingReqBody() {
+    /**
+     * 离职方式
+     *
+     * <p>示例值：1
+     *
+     * @param offboardingMode
+     * @return
+     */
+    public Builder offboardingMode(Integer offboardingMode) {
+      this.offboardingMode = offboardingMode;
+      return this;
     }
 
-    public SubmitV2OffboardingReqBody(Builder builder) {
-        /**
-         * 离职方式
-         * <p> 示例值：1
-         */
-        this.offboardingMode = builder.offboardingMode;
-        /**
-         * 雇员 id
-         * <p> 示例值：6982509313466189342
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 离职日期
-         * <p> 示例值：2022-05-18
-         */
-        this.offboardingDate = builder.offboardingDate;
-        /**
-         * 离职原因
-         * <p> 示例值：reason_for_offboarding_option8
-         */
-        this.offboardingReasonUniqueIdentifier = builder.offboardingReasonUniqueIdentifier;
-        /**
-         * 离职原因说明
-         * <p> 示例值：离职原因说明
-         */
-        this.offboardingReasonExplanation = builder.offboardingReasonExplanation;
-        /**
-         * 操作发起人 ID（employment_id），为空默认为系统发起。注意：只有操作发起人可以撤销流程
-         * <p> 示例值：6982509313466189341
-         */
-        this.initiatorId = builder.initiatorId;
-        /**
-         * 是否加入离职屏蔽名单
-         * <p> 示例值：false
-         */
-        this.addBlockList = builder.addBlockList;
-        /**
-         * 屏蔽原因
-         * <p> 示例值：红线
-         */
-        this.blockReason = builder.blockReason;
-        /**
-         * 屏蔽原因说明
-         * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
-         */
-        this.blockReasonExplanation = builder.blockReasonExplanation;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 离职是否保留飞书账号
-         * <p> 示例值：false
-         */
-        this.retainAccount = builder.retainAccount;
-        /**
-         * 编制随人员一起调整
-         * <p> 示例值：false
-         */
-        this.isTransferWithWorkforce = builder.isTransferWithWorkforce;
+    /**
+     * 离职方式
+     *
+     * <p>示例值：1
+     *
+     * @param offboardingMode {@link
+     *     com.lark.oapi.service.corehr.v2.enums.SubmitV2OffboardingSubmitV2OffboardingOffboardingModeEnum}
+     * @return
+     */
+    public Builder offboardingMode(
+        com.lark.oapi.service.corehr.v2.enums
+                .SubmitV2OffboardingSubmitV2OffboardingOffboardingModeEnum
+            offboardingMode) {
+      this.offboardingMode = offboardingMode.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 离职员工 ID（employment_id）不允许为空。ID类型与查询参数
+     * user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+     * Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。
+     *
+     * <p>示例值：6982509313466189342
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public Integer getOffboardingMode() {
-        return this.offboardingMode;
+    /**
+     * 离职日期，不允许为空，填写时需要符合YYYY-MM-DD的日期格式。;;;注意：按员工离职当天的工作地点时区24点生效。假设员工离职日期为2024-12-01，如果员工在中国大陆，则生效时间为东八区的2024-12-01
+     * 23:59:59。如果员工在华盛顿，则生效时间为东八区的2024-12-02 12:59:59，对应西五区的2024-12-01 23:59:59。
+     *
+     * <p>示例值：2022-05-18
+     *
+     * @param offboardingDate
+     * @return
+     */
+    public Builder offboardingDate(String offboardingDate) {
+      this.offboardingDate = offboardingDate;
+      return this;
     }
 
-    public void setOffboardingMode(Integer offboardingMode) {
-        this.offboardingMode = offboardingMode;
+    /**
+     * 离职原因，不允许为空，可通过接口;[查询员工离职原因列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/offboarding/query)获取。
+     *
+     * <p>示例值：reason_for_offboarding_option8
+     *
+     * @param offboardingReasonUniqueIdentifier
+     * @return
+     */
+    public Builder offboardingReasonUniqueIdentifier(String offboardingReasonUniqueIdentifier) {
+      this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 离职原因说明，选填，最大长度6000。
+     *
+     * <p>示例值：离职原因说明
+     *
+     * @param offboardingReasonExplanation
+     * @return
+     */
+    public Builder offboardingReasonExplanation(String offboardingReasonExplanation) {
+      this.offboardingReasonExplanation = offboardingReasonExplanation;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    /**
+     * 发起人 ID。这个发起人需要有飞书账号，能够登录系统。ID类型与查询参数
+     * user_id_type取值一致：;;1、当user_id_type取值为open_id时，ID获取方式参考[如何获取自己的Open
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。;;2、当user_id_type取值为user_id时，ID获取方式参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。;;3、当user_id_type取值为union_id时，ID获取方式参考[如何获取自己的
+     * Union
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)。;;4、当user_id_type取值为people_corehr_id时，先参考[如何获取自己的
+     * User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)获取User
+     * ID。然后通过[ID
+     * 转换](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)获取雇佣ID。;;注意：;;1.只有发起人可以撤销流程;;2.为空时，默认系统发起人
+     *
+     * <p>示例值：6982509313466189341
+     *
+     * @param initiatorId
+     * @return
+     */
+    public Builder initiatorId(String initiatorId) {
+      this.initiatorId = initiatorId;
+      return this;
     }
 
-    public String getOffboardingDate() {
-        return this.offboardingDate;
+    /**
+     * 是否加入离职屏蔽名单;;注意：;;1.取值为true时，屏蔽原因（block_reason）为必填。;;2.取值为false时，不允许填写屏蔽原因（block_reason）和屏蔽原因说明（block_reason_explanation）。;;3.取值为空时，不允许填写屏蔽原因（block_reason）和屏蔽原因说明（block_reason_explanation）。;;4.操作离职时如果选择加入屏蔽名单，只有当员工离职生效后才会进入到屏蔽名单。
+     *
+     * <p>示例值：false
+     *
+     * @param addBlockList
+     * @return
+     */
+    public Builder addBlockList(Boolean addBlockList) {
+      this.addBlockList = addBlockList;
+      return this;
     }
 
-    public void setOffboardingDate(String offboardingDate) {
-        this.offboardingDate = offboardingDate;
+    /**
+     * 屏蔽原因;;注意：;;1.该字段取值于 [人员档案配置](https://people.feishu.cn/people/hr-settings/profile) > 信息配置 >
+     * 离职信息
+     * 的屏蔽原因字段选项集。;;2.枚举字段值也可通过[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，参考接口返回的
+     * 字段详情 > 字段类型配置信息 > 选项配置信息 > 选项信息 > 枚举常量集 API name;;3.该字段是否必填取决于是否加入离职屏蔽名单(add_block_list)
+     *
+     * <p>示例值：红线
+     *
+     * @param blockReason
+     * @return
+     */
+    public Builder blockReason(String blockReason) {
+      this.blockReason = blockReason;
+      return this;
     }
 
-    public String getOffboardingReasonUniqueIdentifier() {
-        return this.offboardingReasonUniqueIdentifier;
+    /**
+     * 屏蔽原因说明，选填，最大长度6000。
+     *
+     * <p>示例值：xx 年 xx 月 xx 日因 xx 原因红线
+     *
+     * @param blockReasonExplanation
+     * @return
+     */
+    public Builder blockReasonExplanation(String blockReasonExplanation) {
+      this.blockReasonExplanation = blockReasonExplanation;
+      return this;
     }
 
-    public void setOffboardingReasonUniqueIdentifier(String offboardingReasonUniqueIdentifier) {
-        this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
+    /**
+     * 离职自定义字段。;;注意：可填写的字段范围参考[人员档案配置](https://people.feishu.cn/people/hr-settings/profile) > 信息配置 >
+     * 离职信息 中的自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public String getOffboardingReasonExplanation() {
-        return this.offboardingReasonExplanation;
+    /**
+     * 离职是否保留飞书账号
+     *
+     * <p>示例值：false
+     *
+     * @param retainAccount
+     * @return
+     */
+    public Builder retainAccount(Boolean retainAccount) {
+      this.retainAccount = retainAccount;
+      return this;
     }
 
-    public void setOffboardingReasonExplanation(String offboardingReasonExplanation) {
-        this.offboardingReasonExplanation = offboardingReasonExplanation;
+    /**
+     * 编制随人员一起调整
+     *
+     * <p>示例值：false
+     *
+     * @param isTransferWithWorkforce
+     * @return
+     */
+    public Builder isTransferWithWorkforce(Boolean isTransferWithWorkforce) {
+      this.isTransferWithWorkforce = isTransferWithWorkforce;
+      return this;
     }
 
-    public String getInitiatorId() {
-        return this.initiatorId;
+    public SubmitV2OffboardingReqBody build() {
+      return new SubmitV2OffboardingReqBody(this);
     }
+  }
 
-    public void setInitiatorId(String initiatorId) {
-        this.initiatorId = initiatorId;
-    }
-
-    public Boolean getAddBlockList() {
-        return this.addBlockList;
-    }
-
-    public void setAddBlockList(Boolean addBlockList) {
-        this.addBlockList = addBlockList;
-    }
-
-    public String getBlockReason() {
-        return this.blockReason;
-    }
-
-    public void setBlockReason(String blockReason) {
-        this.blockReason = blockReason;
-    }
-
-    public String getBlockReasonExplanation() {
-        return this.blockReasonExplanation;
-    }
-
-    public void setBlockReasonExplanation(String blockReasonExplanation) {
-        this.blockReasonExplanation = blockReasonExplanation;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public Boolean getRetainAccount() {
-        return this.retainAccount;
-    }
-
-    public void setRetainAccount(Boolean retainAccount) {
-        this.retainAccount = retainAccount;
-    }
-
-    public Boolean getIsTransferWithWorkforce() {
-        return this.isTransferWithWorkforce;
-    }
-
-    public void setIsTransferWithWorkforce(Boolean isTransferWithWorkforce) {
-        this.isTransferWithWorkforce = isTransferWithWorkforce;
-    }
-
-    public static class Builder {
-        /**
-         * 离职方式
-         * <p> 示例值：1
-         */
-        private Integer offboardingMode;
-        /**
-         * 雇员 id
-         * <p> 示例值：6982509313466189342
-         */
-        private String employmentId;
-        /**
-         * 离职日期
-         * <p> 示例值：2022-05-18
-         */
-        private String offboardingDate;
-        /**
-         * 离职原因
-         * <p> 示例值：reason_for_offboarding_option8
-         */
-        private String offboardingReasonUniqueIdentifier;
-        /**
-         * 离职原因说明
-         * <p> 示例值：离职原因说明
-         */
-        private String offboardingReasonExplanation;
-        /**
-         * 操作发起人 ID（employment_id），为空默认为系统发起。注意：只有操作发起人可以撤销流程
-         * <p> 示例值：6982509313466189341
-         */
-        private String initiatorId;
-        /**
-         * 是否加入离职屏蔽名单
-         * <p> 示例值：false
-         */
-        private Boolean addBlockList;
-        /**
-         * 屏蔽原因
-         * <p> 示例值：红线
-         */
-        private String blockReason;
-        /**
-         * 屏蔽原因说明
-         * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
-         */
-        private String blockReasonExplanation;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-        /**
-         * 离职是否保留飞书账号
-         * <p> 示例值：false
-         */
-        private Boolean retainAccount;
-        /**
-         * 编制随人员一起调整
-         * <p> 示例值：false
-         */
-        private Boolean isTransferWithWorkforce;
-
-        /**
-         * 离职方式
-         * <p> 示例值：1
-         *
-         * @param offboardingMode
-         * @return
-         */
-        public Builder offboardingMode(Integer offboardingMode) {
-            this.offboardingMode = offboardingMode;
-            return this;
-        }
-
-        /**
-         * 离职方式
-         * <p> 示例值：1
-         *
-         * @param offboardingMode {@link com.lark.oapi.service.corehr.v2.enums.SubmitV2OffboardingSubmitV2OffboardingOffboardingModeEnum}
-         * @return
-         */
-        public Builder offboardingMode(com.lark.oapi.service.corehr.v2.enums.SubmitV2OffboardingSubmitV2OffboardingOffboardingModeEnum offboardingMode) {
-            this.offboardingMode = offboardingMode.getValue();
-            return this;
-        }
-
-
-        /**
-         * 雇员 id
-         * <p> 示例值：6982509313466189342
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 离职日期
-         * <p> 示例值：2022-05-18
-         *
-         * @param offboardingDate
-         * @return
-         */
-        public Builder offboardingDate(String offboardingDate) {
-            this.offboardingDate = offboardingDate;
-            return this;
-        }
-
-
-        /**
-         * 离职原因
-         * <p> 示例值：reason_for_offboarding_option8
-         *
-         * @param offboardingReasonUniqueIdentifier
-         * @return
-         */
-        public Builder offboardingReasonUniqueIdentifier(String offboardingReasonUniqueIdentifier) {
-            this.offboardingReasonUniqueIdentifier = offboardingReasonUniqueIdentifier;
-            return this;
-        }
-
-
-        /**
-         * 离职原因说明
-         * <p> 示例值：离职原因说明
-         *
-         * @param offboardingReasonExplanation
-         * @return
-         */
-        public Builder offboardingReasonExplanation(String offboardingReasonExplanation) {
-            this.offboardingReasonExplanation = offboardingReasonExplanation;
-            return this;
-        }
-
-
-        /**
-         * 操作发起人 ID（employment_id），为空默认为系统发起。注意：只有操作发起人可以撤销流程
-         * <p> 示例值：6982509313466189341
-         *
-         * @param initiatorId
-         * @return
-         */
-        public Builder initiatorId(String initiatorId) {
-            this.initiatorId = initiatorId;
-            return this;
-        }
-
-
-        /**
-         * 是否加入离职屏蔽名单
-         * <p> 示例值：false
-         *
-         * @param addBlockList
-         * @return
-         */
-        public Builder addBlockList(Boolean addBlockList) {
-            this.addBlockList = addBlockList;
-            return this;
-        }
-
-
-        /**
-         * 屏蔽原因
-         * <p> 示例值：红线
-         *
-         * @param blockReason
-         * @return
-         */
-        public Builder blockReason(String blockReason) {
-            this.blockReason = blockReason;
-            return this;
-        }
-
-
-        /**
-         * 屏蔽原因说明
-         * <p> 示例值：xx 年 xx 月 xx 日因 xx 原因红线
-         *
-         * @param blockReasonExplanation
-         * @return
-         */
-        public Builder blockReasonExplanation(String blockReasonExplanation) {
-            this.blockReasonExplanation = blockReasonExplanation;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 离职是否保留飞书账号
-         * <p> 示例值：false
-         *
-         * @param retainAccount
-         * @return
-         */
-        public Builder retainAccount(Boolean retainAccount) {
-            this.retainAccount = retainAccount;
-            return this;
-        }
-
-
-        /**
-         * 编制随人员一起调整
-         * <p> 示例值：false
-         *
-         * @param isTransferWithWorkforce
-         * @return
-         */
-        public Builder isTransferWithWorkforce(Boolean isTransferWithWorkforce) {
-            this.isTransferWithWorkforce = isTransferWithWorkforce;
-            return this;
-        }
-
-
-        public SubmitV2OffboardingReqBody build() {
-            return new SubmitV2OffboardingReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

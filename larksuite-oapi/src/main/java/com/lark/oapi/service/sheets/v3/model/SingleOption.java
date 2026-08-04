@@ -13,198 +13,205 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SingleOption {
+  /**
+   * 单选类型
+   *
+   * <p>示例值：OneOfList
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 引用数据的范围，当type=OneOfRange时必须存在
+   *
+   * <p>示例值：as8jJ0!A1:B2
+   */
+  @SerializedName("range")
+  private String range;
+
+  /**
+   * 选项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("data_validation_values")
+  private DataValidationValue[] dataValidationValues;
+
+  /**
+   * 属性
+   *
+   * <p>示例值：
+   */
+  @SerializedName("properties")
+  private OptionProperties properties;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getRange() {
+    return this.range;
+  }
+
+  public void setRange(String range) {
+    this.range = range;
+  }
+
+  public DataValidationValue[] getDataValidationValues() {
+    return this.dataValidationValues;
+  }
+
+  public void setDataValidationValues(DataValidationValue[] dataValidationValues) {
+    this.dataValidationValues = dataValidationValues;
+  }
+
+  public OptionProperties getProperties() {
+    return this.properties;
+  }
+
+  public void setProperties(OptionProperties properties) {
+    this.properties = properties;
+  }
+
+  // builder 开始
+  public SingleOption() {}
+
+  public SingleOption(Builder builder) {
     /**
      * 单选类型
-     * <p> 示例值：OneOfList
+     *
+     * <p>示例值：OneOfList
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 引用数据的范围，当type=OneOfRange时必须存在
-     * <p> 示例值：as8jJ0!A1:B2
+     *
+     * <p>示例值：as8jJ0!A1:B2
      */
-    @SerializedName("range")
-    private String range;
+    this.range = builder.range;
     /**
      * 选项
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("data_validation_values")
-    private DataValidationValue[] dataValidationValues;
+    this.dataValidationValues = builder.dataValidationValues;
     /**
      * 属性
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("properties")
+    this.properties = builder.properties;
+  }
+
+  public static class Builder {
+    /**
+     * 单选类型
+     *
+     * <p>示例值：OneOfList
+     */
+    private String type;
+
+    /**
+     * 引用数据的范围，当type=OneOfRange时必须存在
+     *
+     * <p>示例值：as8jJ0!A1:B2
+     */
+    private String range;
+
+    /**
+     * 选项
+     *
+     * <p>示例值：
+     */
+    private DataValidationValue[] dataValidationValues;
+
+    /**
+     * 属性
+     *
+     * <p>示例值：
+     */
     private OptionProperties properties;
 
-    // builder 开始
-    public SingleOption() {
+    /**
+     * 单选类型
+     *
+     * <p>示例值：OneOfList
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public SingleOption(Builder builder) {
-        /**
-         * 单选类型
-         * <p> 示例值：OneOfList
-         */
-        this.type = builder.type;
-        /**
-         * 引用数据的范围，当type=OneOfRange时必须存在
-         * <p> 示例值：as8jJ0!A1:B2
-         */
-        this.range = builder.range;
-        /**
-         * 选项
-         * <p> 示例值：
-         */
-        this.dataValidationValues = builder.dataValidationValues;
-        /**
-         * 属性
-         * <p> 示例值：
-         */
-        this.properties = builder.properties;
+    /**
+     * 单选类型
+     *
+     * <p>示例值：OneOfList
+     *
+     * @param type {@link com.lark.oapi.service.sheets.v3.enums.SingleOptionSingleOptionTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.sheets.v3.enums.SingleOptionSingleOptionTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 引用数据的范围，当type=OneOfRange时必须存在
+     *
+     * <p>示例值：as8jJ0!A1:B2
+     *
+     * @param range
+     * @return
+     */
+    public Builder range(String range) {
+      this.range = range;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 选项
+     *
+     * <p>示例值：
+     *
+     * @param dataValidationValues
+     * @return
+     */
+    public Builder dataValidationValues(DataValidationValue[] dataValidationValues) {
+      this.dataValidationValues = dataValidationValues;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 属性
+     *
+     * <p>示例值：
+     *
+     * @param properties
+     * @return
+     */
+    public Builder properties(OptionProperties properties) {
+      this.properties = properties;
+      return this;
     }
 
-    public String getRange() {
-        return this.range;
+    public SingleOption build() {
+      return new SingleOption(this);
     }
+  }
 
-    public void setRange(String range) {
-        this.range = range;
-    }
-
-    public DataValidationValue[] getDataValidationValues() {
-        return this.dataValidationValues;
-    }
-
-    public void setDataValidationValues(DataValidationValue[] dataValidationValues) {
-        this.dataValidationValues = dataValidationValues;
-    }
-
-    public OptionProperties getProperties() {
-        return this.properties;
-    }
-
-    public void setProperties(OptionProperties properties) {
-        this.properties = properties;
-    }
-
-    public static class Builder {
-        /**
-         * 单选类型
-         * <p> 示例值：OneOfList
-         */
-        private String type;
-        /**
-         * 引用数据的范围，当type=OneOfRange时必须存在
-         * <p> 示例值：as8jJ0!A1:B2
-         */
-        private String range;
-        /**
-         * 选项
-         * <p> 示例值：
-         */
-        private DataValidationValue[] dataValidationValues;
-        /**
-         * 属性
-         * <p> 示例值：
-         */
-        private OptionProperties properties;
-
-        /**
-         * 单选类型
-         * <p> 示例值：OneOfList
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 单选类型
-         * <p> 示例值：OneOfList
-         *
-         * @param type {@link com.lark.oapi.service.sheets.v3.enums.SingleOptionSingleOptionTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.sheets.v3.enums.SingleOptionSingleOptionTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 引用数据的范围，当type=OneOfRange时必须存在
-         * <p> 示例值：as8jJ0!A1:B2
-         *
-         * @param range
-         * @return
-         */
-        public Builder range(String range) {
-            this.range = range;
-            return this;
-        }
-
-
-        /**
-         * 选项
-         * <p> 示例值：
-         *
-         * @param dataValidationValues
-         * @return
-         */
-        public Builder dataValidationValues(DataValidationValue[] dataValidationValues) {
-            this.dataValidationValues = dataValidationValues;
-            return this;
-        }
-
-
-        /**
-         * 属性
-         * <p> 示例值：
-         *
-         * @param properties
-         * @return
-         */
-        public Builder properties(OptionProperties properties) {
-            this.properties = properties;
-            return this;
-        }
-
-
-        public SingleOption build() {
-            return new SingleOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

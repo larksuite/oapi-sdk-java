@@ -13,346 +13,375 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReserveMeetingSetting {
+  /**
+   * 会议主题
+   *
+   * <p>示例值：my meeting
+   */
+  @SerializedName("topic")
+  private String topic;
+
+  /**
+   * 会议权限配置列表，如果存在相同的权限配置项则它们之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("action_permissions")
+  private ReserveActionPermission[] actionPermissions;
+
+  /**
+   * 会议初始类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("meeting_initial_type")
+  private Integer meetingInitialType;
+
+  /**
+   * 该会议是否支持互通，不支持更新（注：该字段内测中）
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("meeting_connect")
+  private Boolean meetingConnect;
+
+  /**
+   * 1v1呼叫相关参数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("call_setting")
+  private ReserveCallSetting callSetting;
+
+  /**
+   * 使用飞书视频会议时，是否开启自动录制，默认false
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("auto_record")
+  private Boolean autoRecord;
+
+  /**
+   * 指定主持人列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("assign_host_list")
+  private ReserveAssignHost[] assignHostList;
+
+  /**
+   * 设置会议密码，仅支持 4-9 位数字
+   *
+   * <p>示例值：971024
+   */
+  @SerializedName("password")
+  private String password;
+
+  public String getTopic() {
+    return this.topic;
+  }
+
+  public void setTopic(String topic) {
+    this.topic = topic;
+  }
+
+  public ReserveActionPermission[] getActionPermissions() {
+    return this.actionPermissions;
+  }
+
+  public void setActionPermissions(ReserveActionPermission[] actionPermissions) {
+    this.actionPermissions = actionPermissions;
+  }
+
+  public Integer getMeetingInitialType() {
+    return this.meetingInitialType;
+  }
+
+  public void setMeetingInitialType(Integer meetingInitialType) {
+    this.meetingInitialType = meetingInitialType;
+  }
+
+  public Boolean getMeetingConnect() {
+    return this.meetingConnect;
+  }
+
+  public void setMeetingConnect(Boolean meetingConnect) {
+    this.meetingConnect = meetingConnect;
+  }
+
+  public ReserveCallSetting getCallSetting() {
+    return this.callSetting;
+  }
+
+  public void setCallSetting(ReserveCallSetting callSetting) {
+    this.callSetting = callSetting;
+  }
+
+  public Boolean getAutoRecord() {
+    return this.autoRecord;
+  }
+
+  public void setAutoRecord(Boolean autoRecord) {
+    this.autoRecord = autoRecord;
+  }
+
+  public ReserveAssignHost[] getAssignHostList() {
+    return this.assignHostList;
+  }
+
+  public void setAssignHostList(ReserveAssignHost[] assignHostList) {
+    this.assignHostList = assignHostList;
+  }
+
+  public String getPassword() {
+    return this.password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  // builder 开始
+  public ReserveMeetingSetting() {}
+
+  public ReserveMeetingSetting(Builder builder) {
     /**
      * 会议主题
-     * <p> 示例值：my meeting
+     *
+     * <p>示例值：my meeting
      */
-    @SerializedName("topic")
-    private String topic;
+    this.topic = builder.topic;
     /**
      * 会议权限配置列表，如果存在相同的权限配置项则它们之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("action_permissions")
-    private ReserveActionPermission[] actionPermissions;
+    this.actionPermissions = builder.actionPermissions;
     /**
      * 会议初始类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("meeting_initial_type")
-    private Integer meetingInitialType;
+    this.meetingInitialType = builder.meetingInitialType;
     /**
      * 该会议是否支持互通，不支持更新（注：该字段内测中）
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("meeting_connect")
-    private Boolean meetingConnect;
+    this.meetingConnect = builder.meetingConnect;
     /**
      * 1v1呼叫相关参数
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("call_setting")
-    private ReserveCallSetting callSetting;
+    this.callSetting = builder.callSetting;
     /**
      * 使用飞书视频会议时，是否开启自动录制，默认false
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("auto_record")
-    private Boolean autoRecord;
+    this.autoRecord = builder.autoRecord;
     /**
      * 指定主持人列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("assign_host_list")
-    private ReserveAssignHost[] assignHostList;
+    this.assignHostList = builder.assignHostList;
     /**
      * 设置会议密码，仅支持 4-9 位数字
-     * <p> 示例值：971024
+     *
+     * <p>示例值：971024
      */
-    @SerializedName("password")
+    this.password = builder.password;
+  }
+
+  public static class Builder {
+    /**
+     * 会议主题
+     *
+     * <p>示例值：my meeting
+     */
+    private String topic;
+
+    /**
+     * 会议权限配置列表，如果存在相同的权限配置项则它们之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
+     *
+     * <p>示例值：
+     */
+    private ReserveActionPermission[] actionPermissions;
+
+    /**
+     * 会议初始类型
+     *
+     * <p>示例值：1
+     */
+    private Integer meetingInitialType;
+
+    /**
+     * 该会议是否支持互通，不支持更新（注：该字段内测中）
+     *
+     * <p>示例值：true
+     */
+    private Boolean meetingConnect;
+
+    /**
+     * 1v1呼叫相关参数
+     *
+     * <p>示例值：
+     */
+    private ReserveCallSetting callSetting;
+
+    /**
+     * 使用飞书视频会议时，是否开启自动录制，默认false
+     *
+     * <p>示例值：true
+     */
+    private Boolean autoRecord;
+
+    /**
+     * 指定主持人列表
+     *
+     * <p>示例值：
+     */
+    private ReserveAssignHost[] assignHostList;
+
+    /**
+     * 设置会议密码，仅支持 4-9 位数字
+     *
+     * <p>示例值：971024
+     */
     private String password;
 
-    // builder 开始
-    public ReserveMeetingSetting() {
+    /**
+     * 会议主题
+     *
+     * <p>示例值：my meeting
+     *
+     * @param topic
+     * @return
+     */
+    public Builder topic(String topic) {
+      this.topic = topic;
+      return this;
     }
 
-    public ReserveMeetingSetting(Builder builder) {
-        /**
-         * 会议主题
-         * <p> 示例值：my meeting
-         */
-        this.topic = builder.topic;
-        /**
-         * 会议权限配置列表，如果存在相同的权限配置项则它们之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
-         * <p> 示例值：
-         */
-        this.actionPermissions = builder.actionPermissions;
-        /**
-         * 会议初始类型
-         * <p> 示例值：1
-         */
-        this.meetingInitialType = builder.meetingInitialType;
-        /**
-         * 该会议是否支持互通，不支持更新（注：该字段内测中）
-         * <p> 示例值：true
-         */
-        this.meetingConnect = builder.meetingConnect;
-        /**
-         * 1v1呼叫相关参数
-         * <p> 示例值：
-         */
-        this.callSetting = builder.callSetting;
-        /**
-         * 使用飞书视频会议时，是否开启自动录制，默认false
-         * <p> 示例值：true
-         */
-        this.autoRecord = builder.autoRecord;
-        /**
-         * 指定主持人列表
-         * <p> 示例值：
-         */
-        this.assignHostList = builder.assignHostList;
-        /**
-         * 设置会议密码，仅支持 4-9 位数字
-         * <p> 示例值：971024
-         */
-        this.password = builder.password;
+    /**
+     * 会议权限配置列表，如果存在相同的权限配置项则它们之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
+     *
+     * <p>示例值：
+     *
+     * @param actionPermissions
+     * @return
+     */
+    public Builder actionPermissions(ReserveActionPermission[] actionPermissions) {
+      this.actionPermissions = actionPermissions;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会议初始类型
+     *
+     * <p>示例值：1
+     *
+     * @param meetingInitialType
+     * @return
+     */
+    public Builder meetingInitialType(Integer meetingInitialType) {
+      this.meetingInitialType = meetingInitialType;
+      return this;
     }
 
-    public String getTopic() {
-        return this.topic;
+    /**
+     * 会议初始类型
+     *
+     * <p>示例值：1
+     *
+     * @param meetingInitialType {@link
+     *     com.lark.oapi.service.vc.v1.enums.ReserveMeetingSettingMeetingInitialTypeEnum}
+     * @return
+     */
+    public Builder meetingInitialType(
+        com.lark.oapi.service.vc.v1.enums.ReserveMeetingSettingMeetingInitialTypeEnum
+            meetingInitialType) {
+      this.meetingInitialType = meetingInitialType.getValue();
+      return this;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
+    /**
+     * 该会议是否支持互通，不支持更新（注：该字段内测中）
+     *
+     * <p>示例值：true
+     *
+     * @param meetingConnect
+     * @return
+     */
+    public Builder meetingConnect(Boolean meetingConnect) {
+      this.meetingConnect = meetingConnect;
+      return this;
     }
 
-    public ReserveActionPermission[] getActionPermissions() {
-        return this.actionPermissions;
+    /**
+     * 1v1呼叫相关参数
+     *
+     * <p>示例值：
+     *
+     * @param callSetting
+     * @return
+     */
+    public Builder callSetting(ReserveCallSetting callSetting) {
+      this.callSetting = callSetting;
+      return this;
     }
 
-    public void setActionPermissions(ReserveActionPermission[] actionPermissions) {
-        this.actionPermissions = actionPermissions;
+    /**
+     * 使用飞书视频会议时，是否开启自动录制，默认false
+     *
+     * <p>示例值：true
+     *
+     * @param autoRecord
+     * @return
+     */
+    public Builder autoRecord(Boolean autoRecord) {
+      this.autoRecord = autoRecord;
+      return this;
     }
 
-    public Integer getMeetingInitialType() {
-        return this.meetingInitialType;
+    /**
+     * 指定主持人列表
+     *
+     * <p>示例值：
+     *
+     * @param assignHostList
+     * @return
+     */
+    public Builder assignHostList(ReserveAssignHost[] assignHostList) {
+      this.assignHostList = assignHostList;
+      return this;
     }
 
-    public void setMeetingInitialType(Integer meetingInitialType) {
-        this.meetingInitialType = meetingInitialType;
+    /**
+     * 设置会议密码，仅支持 4-9 位数字
+     *
+     * <p>示例值：971024
+     *
+     * @param password
+     * @return
+     */
+    public Builder password(String password) {
+      this.password = password;
+      return this;
     }
 
-    public Boolean getMeetingConnect() {
-        return this.meetingConnect;
+    public ReserveMeetingSetting build() {
+      return new ReserveMeetingSetting(this);
     }
+  }
 
-    public void setMeetingConnect(Boolean meetingConnect) {
-        this.meetingConnect = meetingConnect;
-    }
-
-    public ReserveCallSetting getCallSetting() {
-        return this.callSetting;
-    }
-
-    public void setCallSetting(ReserveCallSetting callSetting) {
-        this.callSetting = callSetting;
-    }
-
-    public Boolean getAutoRecord() {
-        return this.autoRecord;
-    }
-
-    public void setAutoRecord(Boolean autoRecord) {
-        this.autoRecord = autoRecord;
-    }
-
-    public ReserveAssignHost[] getAssignHostList() {
-        return this.assignHostList;
-    }
-
-    public void setAssignHostList(ReserveAssignHost[] assignHostList) {
-        this.assignHostList = assignHostList;
-    }
-
-    public String getPassword() {
-        return this.password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public static class Builder {
-        /**
-         * 会议主题
-         * <p> 示例值：my meeting
-         */
-        private String topic;
-        /**
-         * 会议权限配置列表，如果存在相同的权限配置项则它们之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
-         * <p> 示例值：
-         */
-        private ReserveActionPermission[] actionPermissions;
-        /**
-         * 会议初始类型
-         * <p> 示例值：1
-         */
-        private Integer meetingInitialType;
-        /**
-         * 该会议是否支持互通，不支持更新（注：该字段内测中）
-         * <p> 示例值：true
-         */
-        private Boolean meetingConnect;
-        /**
-         * 1v1呼叫相关参数
-         * <p> 示例值：
-         */
-        private ReserveCallSetting callSetting;
-        /**
-         * 使用飞书视频会议时，是否开启自动录制，默认false
-         * <p> 示例值：true
-         */
-        private Boolean autoRecord;
-        /**
-         * 指定主持人列表
-         * <p> 示例值：
-         */
-        private ReserveAssignHost[] assignHostList;
-        /**
-         * 设置会议密码，仅支持 4-9 位数字
-         * <p> 示例值：971024
-         */
-        private String password;
-
-        /**
-         * 会议主题
-         * <p> 示例值：my meeting
-         *
-         * @param topic
-         * @return
-         */
-        public Builder topic(String topic) {
-            this.topic = topic;
-            return this;
-        }
-
-
-        /**
-         * 会议权限配置列表，如果存在相同的权限配置项则它们之间为"逻辑或"的关系（即 有一个为true则拥有该权限）
-         * <p> 示例值：
-         *
-         * @param actionPermissions
-         * @return
-         */
-        public Builder actionPermissions(ReserveActionPermission[] actionPermissions) {
-            this.actionPermissions = actionPermissions;
-            return this;
-        }
-
-
-        /**
-         * 会议初始类型
-         * <p> 示例值：1
-         *
-         * @param meetingInitialType
-         * @return
-         */
-        public Builder meetingInitialType(Integer meetingInitialType) {
-            this.meetingInitialType = meetingInitialType;
-            return this;
-        }
-
-        /**
-         * 会议初始类型
-         * <p> 示例值：1
-         *
-         * @param meetingInitialType {@link com.lark.oapi.service.vc.v1.enums.ReserveMeetingSettingMeetingInitialTypeEnum}
-         * @return
-         */
-        public Builder meetingInitialType(com.lark.oapi.service.vc.v1.enums.ReserveMeetingSettingMeetingInitialTypeEnum meetingInitialType) {
-            this.meetingInitialType = meetingInitialType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 该会议是否支持互通，不支持更新（注：该字段内测中）
-         * <p> 示例值：true
-         *
-         * @param meetingConnect
-         * @return
-         */
-        public Builder meetingConnect(Boolean meetingConnect) {
-            this.meetingConnect = meetingConnect;
-            return this;
-        }
-
-
-        /**
-         * 1v1呼叫相关参数
-         * <p> 示例值：
-         *
-         * @param callSetting
-         * @return
-         */
-        public Builder callSetting(ReserveCallSetting callSetting) {
-            this.callSetting = callSetting;
-            return this;
-        }
-
-
-        /**
-         * 使用飞书视频会议时，是否开启自动录制，默认false
-         * <p> 示例值：true
-         *
-         * @param autoRecord
-         * @return
-         */
-        public Builder autoRecord(Boolean autoRecord) {
-            this.autoRecord = autoRecord;
-            return this;
-        }
-
-
-        /**
-         * 指定主持人列表
-         * <p> 示例值：
-         *
-         * @param assignHostList
-         * @return
-         */
-        public Builder assignHostList(ReserveAssignHost[] assignHostList) {
-            this.assignHostList = assignHostList;
-            return this;
-        }
-
-
-        /**
-         * 设置会议密码，仅支持 4-9 位数字
-         * <p> 示例值：971024
-         *
-         * @param password
-         * @return
-         */
-        public Builder password(String password) {
-            this.password = password;
-            return this;
-        }
-
-
-        public ReserveMeetingSetting build() {
-            return new ReserveMeetingSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

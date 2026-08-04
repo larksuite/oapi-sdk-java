@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListEmployeesInternationalAssignmentRespBody {
-    /**
-     * 外派信息
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private EmployeesInternationalAssignment[] items;
-    /**
-     * 无权限的雇佣ID - 在指定雇佣ID查询时请检查该参数 - 类型与 user_id_type 一致
-     * <p> 示例值：
-     */
-    @SerializedName("no_authority_ids")
-    private String[] noAuthorityIds;
-    /**
-     * 翻页
-     * <p> 示例值：123
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否有更多项
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 外派信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private EmployeesInternationalAssignment[] items;
 
-    public EmployeesInternationalAssignment[] getItems() {
-        return this.items;
-    }
+  /**
+   * 无权限的雇佣ID;- 在指定雇佣ID【employment_ids】查询时该参数生效;- 类型与 user_id_type 一致
+   *
+   * <p>示例值：
+   */
+  @SerializedName("no_authority_ids")
+  private String[] noAuthorityIds;
 
-    public void setItems(EmployeesInternationalAssignment[] items) {
-        this.items = items;
-    }
+  /**
+   * 翻页
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public String[] getNoAuthorityIds() {
-        return this.noAuthorityIds;
-    }
+  /**
+   * 是否有更多项
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setNoAuthorityIds(String[] noAuthorityIds) {
-        this.noAuthorityIds = noAuthorityIds;
-    }
+  public EmployeesInternationalAssignment[] getItems() {
+    return this.items;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public void setItems(EmployeesInternationalAssignment[] items) {
+    this.items = items;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public String[] getNoAuthorityIds() {
+    return this.noAuthorityIds;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setNoAuthorityIds(String[] noAuthorityIds) {
+    this.noAuthorityIds = noAuthorityIds;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 }

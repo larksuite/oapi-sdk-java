@@ -13,71 +13,67 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetOfferApplicationFormReq {
+  /**
+   * Offer 申请表 ID，可通过[获取 Offer
+   * 申请表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/list)接口获取
+   *
+   * <p>示例值：7680792645903286275
+   */
+  @Path
+  @SerializedName("offer_application_form_id")
+  private String offerApplicationFormId;
+
+  public String getOfferApplicationFormId() {
+    return this.offerApplicationFormId;
+  }
+
+  public void setOfferApplicationFormId(String offerApplicationFormId) {
+    this.offerApplicationFormId = offerApplicationFormId;
+  }
+
+  // builder 开始
+  public GetOfferApplicationFormReq() {}
+
+  public GetOfferApplicationFormReq(Builder builder) {
     /**
-     * offer申请表 ID
-     * <p> 示例值：237186812432
+     * Offer 申请表 ID，可通过[获取 Offer
+     * 申请表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/list)接口获取
+     *
+     * <p>示例值：7680792645903286275
      */
-    @Path
-    @SerializedName("offer_application_form_id")
-    private String offerApplicationFormId;
+    this.offerApplicationFormId = builder.offerApplicationFormId;
+  }
 
-    // builder 开始
-    public GetOfferApplicationFormReq() {
+  public static class Builder {
+
+    private String offerApplicationFormId; // Offer 申请表 ID，可通过[获取 Offer
+
+    // 申请表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/list)接口获取
+
+    /**
+     * Offer 申请表 ID，可通过[获取 Offer
+     * 申请表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer_application_form/list)接口获取
+     *
+     * <p>示例值：7680792645903286275
+     *
+     * @param offerApplicationFormId
+     * @return
+     */
+    public Builder offerApplicationFormId(String offerApplicationFormId) {
+      this.offerApplicationFormId = offerApplicationFormId;
+      return this;
     }
 
-    public GetOfferApplicationFormReq(Builder builder) {
-        /**
-         * offer申请表 ID
-         * <p> 示例值：237186812432
-         */
-        this.offerApplicationFormId = builder.offerApplicationFormId;
+    public GetOfferApplicationFormReq build() {
+      return new GetOfferApplicationFormReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getOfferApplicationFormId() {
-        return this.offerApplicationFormId;
-    }
-
-    public void setOfferApplicationFormId(String offerApplicationFormId) {
-        this.offerApplicationFormId = offerApplicationFormId;
-    }
-
-    public static class Builder {
-
-        private String offerApplicationFormId; // offer申请表 ID
-
-        /**
-         * offer申请表 ID
-         * <p> 示例值：237186812432
-         *
-         * @param offerApplicationFormId
-         * @return
-         */
-        public Builder offerApplicationFormId(String offerApplicationFormId) {
-            this.offerApplicationFormId = offerApplicationFormId;
-            return this;
-        }
-
-
-        public GetOfferApplicationFormReq build() {
-            return new GetOfferApplicationFormReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

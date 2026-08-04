@@ -13,408 +13,443 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EventMessage {
+  /**
+   * 消息的open_message_id
+   *
+   * <p>示例值：om_12259f7c1351150dd620280b5b042120
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 回复消息 根id
+   *
+   * <p>示例值：om_d4be107c616aed9c1da809ad3c754200
+   */
+  @SerializedName("root_id")
+  private String rootId;
+
+  /**
+   * 回复消息 父id
+   *
+   * <p>示例值：om_d4be107c616aed9c1da809ad3c754200
+   */
+  @SerializedName("parent_id")
+  private String parentId;
+
+  /**
+   * 消息发送时间 毫秒
+   *
+   * <p>示例值：1687343654178
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 消息所在的群组id
+   *
+   * <p>示例值：oc_55b12d872v6f9e55038b2ec6226c8362
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * 消息所属的话题 ID
+   *
+   * <p>示例值：omt_d4be107c616
+   */
+  @SerializedName("thread_id")
+  private String threadId;
+
+  /**
+   * 消息所在的群组类型,单聊或群聊
+   *
+   * <p>示例值：group
+   */
+  @SerializedName("chat_type")
+  private String chatType;
+
+  /**
+   * 消息类型
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("message_type")
+  private String messageType;
+
+  /**
+   * 消息内容,json格式
+   *
+   * <p>示例值：{\"text\":\"@_user_1 hello\"}
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 被提及用户的信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("mentions")
+  private MentionEvent[] mentions;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public String getRootId() {
+    return this.rootId;
+  }
+
+  public void setRootId(String rootId) {
+    this.rootId = rootId;
+  }
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public String getThreadId() {
+    return this.threadId;
+  }
+
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
+
+  public String getChatType() {
+    return this.chatType;
+  }
+
+  public void setChatType(String chatType) {
+    this.chatType = chatType;
+  }
+
+  public String getMessageType() {
+    return this.messageType;
+  }
+
+  public void setMessageType(String messageType) {
+    this.messageType = messageType;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public MentionEvent[] getMentions() {
+    return this.mentions;
+  }
+
+  public void setMentions(MentionEvent[] mentions) {
+    this.mentions = mentions;
+  }
+
+  // builder 开始
+  public EventMessage() {}
+
+  public EventMessage(Builder builder) {
     /**
      * 消息的open_message_id
-     * <p> 示例值：om_12259f7c1351150dd620280b5b042120
+     *
+     * <p>示例值：om_12259f7c1351150dd620280b5b042120
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * 回复消息 根id
-     * <p> 示例值：om_d4be107c616aed9c1da809ad3c754200
+     *
+     * <p>示例值：om_d4be107c616aed9c1da809ad3c754200
      */
-    @SerializedName("root_id")
-    private String rootId;
+    this.rootId = builder.rootId;
     /**
      * 回复消息 父id
-     * <p> 示例值：om_d4be107c616aed9c1da809ad3c754200
+     *
+     * <p>示例值：om_d4be107c616aed9c1da809ad3c754200
      */
-    @SerializedName("parent_id")
-    private String parentId;
+    this.parentId = builder.parentId;
     /**
      * 消息发送时间 毫秒
-     * <p> 示例值：1687343654178
+     *
+     * <p>示例值：1687343654178
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 消息所在的群组id
-     * <p> 示例值：oc_55b12d872v6f9e55038b2ec6226c8362
+     *
+     * <p>示例值：oc_55b12d872v6f9e55038b2ec6226c8362
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
      * 消息所属的话题 ID
-     * <p> 示例值：omt_d4be107c616
+     *
+     * <p>示例值：omt_d4be107c616
      */
-    @SerializedName("thread_id")
-    private String threadId;
+    this.threadId = builder.threadId;
     /**
      * 消息所在的群组类型,单聊或群聊
-     * <p> 示例值：group
+     *
+     * <p>示例值：group
      */
-    @SerializedName("chat_type")
-    private String chatType;
+    this.chatType = builder.chatType;
     /**
      * 消息类型
-     * <p> 示例值：text
+     *
+     * <p>示例值：text
      */
-    @SerializedName("message_type")
-    private String messageType;
+    this.messageType = builder.messageType;
     /**
      * 消息内容,json格式
-     * <p> 示例值：{\"text\":\"@_user_1 hello\"}
+     *
+     * <p>示例值：{\"text\":\"@_user_1 hello\"}
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 被提及用户的信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("mentions")
+    this.mentions = builder.mentions;
+  }
+
+  public static class Builder {
+    /**
+     * 消息的open_message_id
+     *
+     * <p>示例值：om_12259f7c1351150dd620280b5b042120
+     */
+    private String messageId;
+
+    /**
+     * 回复消息 根id
+     *
+     * <p>示例值：om_d4be107c616aed9c1da809ad3c754200
+     */
+    private String rootId;
+
+    /**
+     * 回复消息 父id
+     *
+     * <p>示例值：om_d4be107c616aed9c1da809ad3c754200
+     */
+    private String parentId;
+
+    /**
+     * 消息发送时间 毫秒
+     *
+     * <p>示例值：1687343654178
+     */
+    private String createTime;
+
+    /**
+     * 消息所在的群组id
+     *
+     * <p>示例值：oc_55b12d872v6f9e55038b2ec6226c8362
+     */
+    private String chatId;
+
+    /**
+     * 消息所属的话题 ID
+     *
+     * <p>示例值：omt_d4be107c616
+     */
+    private String threadId;
+
+    /**
+     * 消息所在的群组类型,单聊或群聊
+     *
+     * <p>示例值：group
+     */
+    private String chatType;
+
+    /**
+     * 消息类型
+     *
+     * <p>示例值：text
+     */
+    private String messageType;
+
+    /**
+     * 消息内容,json格式
+     *
+     * <p>示例值：{\"text\":\"@_user_1 hello\"}
+     */
+    private String content;
+
+    /**
+     * 被提及用户的信息
+     *
+     * <p>示例值：
+     */
     private MentionEvent[] mentions;
 
-    // builder 开始
-    public EventMessage() {
+    /**
+     * 消息的open_message_id
+     *
+     * <p>示例值：om_12259f7c1351150dd620280b5b042120
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public EventMessage(Builder builder) {
-        /**
-         * 消息的open_message_id
-         * <p> 示例值：om_12259f7c1351150dd620280b5b042120
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 回复消息 根id
-         * <p> 示例值：om_d4be107c616aed9c1da809ad3c754200
-         */
-        this.rootId = builder.rootId;
-        /**
-         * 回复消息 父id
-         * <p> 示例值：om_d4be107c616aed9c1da809ad3c754200
-         */
-        this.parentId = builder.parentId;
-        /**
-         * 消息发送时间 毫秒
-         * <p> 示例值：1687343654178
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 消息所在的群组id
-         * <p> 示例值：oc_55b12d872v6f9e55038b2ec6226c8362
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 消息所属的话题 ID
-         * <p> 示例值：omt_d4be107c616
-         */
-        this.threadId = builder.threadId;
-        /**
-         * 消息所在的群组类型,单聊或群聊
-         * <p> 示例值：group
-         */
-        this.chatType = builder.chatType;
-        /**
-         * 消息类型
-         * <p> 示例值：text
-         */
-        this.messageType = builder.messageType;
-        /**
-         * 消息内容,json格式
-         * <p> 示例值：{\"text\":\"@_user_1 hello\"}
-         */
-        this.content = builder.content;
-        /**
-         * 被提及用户的信息
-         * <p> 示例值：
-         */
-        this.mentions = builder.mentions;
+    /**
+     * 回复消息 根id
+     *
+     * <p>示例值：om_d4be107c616aed9c1da809ad3c754200
+     *
+     * @param rootId
+     * @return
+     */
+    public Builder rootId(String rootId) {
+      this.rootId = rootId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 回复消息 父id
+     *
+     * <p>示例值：om_d4be107c616aed9c1da809ad3c754200
+     *
+     * @param parentId
+     * @return
+     */
+    public Builder parentId(String parentId) {
+      this.parentId = parentId;
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    /**
+     * 消息发送时间 毫秒
+     *
+     * <p>示例值：1687343654178
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
+    /**
+     * 消息所在的群组id
+     *
+     * <p>示例值：oc_55b12d872v6f9e55038b2ec6226c8362
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public String getRootId() {
-        return this.rootId;
+    /**
+     * 消息所属的话题 ID
+     *
+     * <p>示例值：omt_d4be107c616
+     *
+     * @param threadId
+     * @return
+     */
+    public Builder threadId(String threadId) {
+      this.threadId = threadId;
+      return this;
     }
 
-    public void setRootId(String rootId) {
-        this.rootId = rootId;
+    /**
+     * 消息所在的群组类型,单聊或群聊
+     *
+     * <p>示例值：group
+     *
+     * @param chatType
+     * @return
+     */
+    public Builder chatType(String chatType) {
+      this.chatType = chatType;
+      return this;
     }
 
-    public String getParentId() {
-        return this.parentId;
+    /**
+     * 消息类型
+     *
+     * <p>示例值：text
+     *
+     * @param messageType
+     * @return
+     */
+    public Builder messageType(String messageType) {
+      this.messageType = messageType;
+      return this;
     }
 
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
+    /**
+     * 消息内容,json格式
+     *
+     * <p>示例值：{\"text\":\"@_user_1 hello\"}
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public String getCreateTime() {
-        return this.createTime;
+    /**
+     * 被提及用户的信息
+     *
+     * <p>示例值：
+     *
+     * @param mentions
+     * @return
+     */
+    public Builder mentions(MentionEvent[] mentions) {
+      this.mentions = mentions;
+      return this;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public EventMessage build() {
+      return new EventMessage(this);
     }
+  }
 
-    public String getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public String getThreadId() {
-        return this.threadId;
-    }
-
-    public void setThreadId(String threadId) {
-        this.threadId = threadId;
-    }
-
-    public String getChatType() {
-        return this.chatType;
-    }
-
-    public void setChatType(String chatType) {
-        this.chatType = chatType;
-    }
-
-    public String getMessageType() {
-        return this.messageType;
-    }
-
-    public void setMessageType(String messageType) {
-        this.messageType = messageType;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public MentionEvent[] getMentions() {
-        return this.mentions;
-    }
-
-    public void setMentions(MentionEvent[] mentions) {
-        this.mentions = mentions;
-    }
-
-    public static class Builder {
-        /**
-         * 消息的open_message_id
-         * <p> 示例值：om_12259f7c1351150dd620280b5b042120
-         */
-        private String messageId;
-        /**
-         * 回复消息 根id
-         * <p> 示例值：om_d4be107c616aed9c1da809ad3c754200
-         */
-        private String rootId;
-        /**
-         * 回复消息 父id
-         * <p> 示例值：om_d4be107c616aed9c1da809ad3c754200
-         */
-        private String parentId;
-        /**
-         * 消息发送时间 毫秒
-         * <p> 示例值：1687343654178
-         */
-        private String createTime;
-        /**
-         * 消息所在的群组id
-         * <p> 示例值：oc_55b12d872v6f9e55038b2ec6226c8362
-         */
-        private String chatId;
-        /**
-         * 消息所属的话题 ID
-         * <p> 示例值：omt_d4be107c616
-         */
-        private String threadId;
-        /**
-         * 消息所在的群组类型,单聊或群聊
-         * <p> 示例值：group
-         */
-        private String chatType;
-        /**
-         * 消息类型
-         * <p> 示例值：text
-         */
-        private String messageType;
-        /**
-         * 消息内容,json格式
-         * <p> 示例值：{\"text\":\"@_user_1 hello\"}
-         */
-        private String content;
-        /**
-         * 被提及用户的信息
-         * <p> 示例值：
-         */
-        private MentionEvent[] mentions;
-
-        /**
-         * 消息的open_message_id
-         * <p> 示例值：om_12259f7c1351150dd620280b5b042120
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 回复消息 根id
-         * <p> 示例值：om_d4be107c616aed9c1da809ad3c754200
-         *
-         * @param rootId
-         * @return
-         */
-        public Builder rootId(String rootId) {
-            this.rootId = rootId;
-            return this;
-        }
-
-
-        /**
-         * 回复消息 父id
-         * <p> 示例值：om_d4be107c616aed9c1da809ad3c754200
-         *
-         * @param parentId
-         * @return
-         */
-        public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
-        }
-
-
-        /**
-         * 消息发送时间 毫秒
-         * <p> 示例值：1687343654178
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 消息所在的群组id
-         * <p> 示例值：oc_55b12d872v6f9e55038b2ec6226c8362
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * 消息所属的话题 ID
-         * <p> 示例值：omt_d4be107c616
-         *
-         * @param threadId
-         * @return
-         */
-        public Builder threadId(String threadId) {
-            this.threadId = threadId;
-            return this;
-        }
-
-
-        /**
-         * 消息所在的群组类型,单聊或群聊
-         * <p> 示例值：group
-         *
-         * @param chatType
-         * @return
-         */
-        public Builder chatType(String chatType) {
-            this.chatType = chatType;
-            return this;
-        }
-
-
-        /**
-         * 消息类型
-         * <p> 示例值：text
-         *
-         * @param messageType
-         * @return
-         */
-        public Builder messageType(String messageType) {
-            this.messageType = messageType;
-            return this;
-        }
-
-
-        /**
-         * 消息内容,json格式
-         * <p> 示例值：{\"text\":\"@_user_1 hello\"}
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 被提及用户的信息
-         * <p> 示例值：
-         *
-         * @param mentions
-         * @return
-         */
-        public Builder mentions(MentionEvent[] mentions) {
-            this.mentions = mentions;
-            return this;
-        }
-
-
-        public EventMessage build() {
-            return new EventMessage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,193 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserAttendanceRule {
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 用户考勤规则
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attendance_rule")
+  private AttendanceRule attendanceRule;
+
+  /**
+   * 考勤规则描述列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attendance_rule_descriptions")
+  private AttendanceRuleDescription[] attendanceRuleDescriptions;
+
+  /**
+   * 班次描述列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("shift_descriptions")
+  private AttendanceRuleDescription[] shiftDescriptions;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public AttendanceRule getAttendanceRule() {
+    return this.attendanceRule;
+  }
+
+  public void setAttendanceRule(AttendanceRule attendanceRule) {
+    this.attendanceRule = attendanceRule;
+  }
+
+  public AttendanceRuleDescription[] getAttendanceRuleDescriptions() {
+    return this.attendanceRuleDescriptions;
+  }
+
+  public void setAttendanceRuleDescriptions(
+      AttendanceRuleDescription[] attendanceRuleDescriptions) {
+    this.attendanceRuleDescriptions = attendanceRuleDescriptions;
+  }
+
+  public AttendanceRuleDescription[] getShiftDescriptions() {
+    return this.shiftDescriptions;
+  }
+
+  public void setShiftDescriptions(AttendanceRuleDescription[] shiftDescriptions) {
+    this.shiftDescriptions = shiftDescriptions;
+  }
+
+  // builder 开始
+  public UserAttendanceRule() {}
+
+  public UserAttendanceRule(Builder builder) {
     /**
      * 用户 ID
-     * <p> 示例值：123456
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 用户考勤规则
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("attendance_rule")
-    private AttendanceRule attendanceRule;
+    this.attendanceRule = builder.attendanceRule;
     /**
      * 考勤规则描述列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("attendance_rule_descriptions")
-    private AttendanceRuleDescription[] attendanceRuleDescriptions;
+    this.attendanceRuleDescriptions = builder.attendanceRuleDescriptions;
     /**
      * 班次描述列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("shift_descriptions")
+    this.shiftDescriptions = builder.shiftDescriptions;
+  }
+
+  public static class Builder {
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：123456
+     */
+    private String userId;
+
+    /**
+     * 用户考勤规则
+     *
+     * <p>示例值：
+     */
+    private AttendanceRule attendanceRule;
+
+    /**
+     * 考勤规则描述列表
+     *
+     * <p>示例值：
+     */
+    private AttendanceRuleDescription[] attendanceRuleDescriptions;
+
+    /**
+     * 班次描述列表
+     *
+     * <p>示例值：
+     */
     private AttendanceRuleDescription[] shiftDescriptions;
 
-    // builder 开始
-    public UserAttendanceRule() {
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：123456
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public UserAttendanceRule(Builder builder) {
-        /**
-         * 用户 ID
-         * <p> 示例值：123456
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户考勤规则
-         * <p> 示例值：
-         */
-        this.attendanceRule = builder.attendanceRule;
-        /**
-         * 考勤规则描述列表
-         * <p> 示例值：
-         */
-        this.attendanceRuleDescriptions = builder.attendanceRuleDescriptions;
-        /**
-         * 班次描述列表
-         * <p> 示例值：
-         */
-        this.shiftDescriptions = builder.shiftDescriptions;
+    /**
+     * 用户考勤规则
+     *
+     * <p>示例值：
+     *
+     * @param attendanceRule
+     * @return
+     */
+    public Builder attendanceRule(AttendanceRule attendanceRule) {
+      this.attendanceRule = attendanceRule;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 考勤规则描述列表
+     *
+     * <p>示例值：
+     *
+     * @param attendanceRuleDescriptions
+     * @return
+     */
+    public Builder attendanceRuleDescriptions(
+        AttendanceRuleDescription[] attendanceRuleDescriptions) {
+      this.attendanceRuleDescriptions = attendanceRuleDescriptions;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 班次描述列表
+     *
+     * <p>示例值：
+     *
+     * @param shiftDescriptions
+     * @return
+     */
+    public Builder shiftDescriptions(AttendanceRuleDescription[] shiftDescriptions) {
+      this.shiftDescriptions = shiftDescriptions;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public UserAttendanceRule build() {
+      return new UserAttendanceRule(this);
     }
+  }
 
-    public AttendanceRule getAttendanceRule() {
-        return this.attendanceRule;
-    }
-
-    public void setAttendanceRule(AttendanceRule attendanceRule) {
-        this.attendanceRule = attendanceRule;
-    }
-
-    public AttendanceRuleDescription[] getAttendanceRuleDescriptions() {
-        return this.attendanceRuleDescriptions;
-    }
-
-    public void setAttendanceRuleDescriptions(AttendanceRuleDescription[] attendanceRuleDescriptions) {
-        this.attendanceRuleDescriptions = attendanceRuleDescriptions;
-    }
-
-    public AttendanceRuleDescription[] getShiftDescriptions() {
-        return this.shiftDescriptions;
-    }
-
-    public void setShiftDescriptions(AttendanceRuleDescription[] shiftDescriptions) {
-        this.shiftDescriptions = shiftDescriptions;
-    }
-
-    public static class Builder {
-        /**
-         * 用户 ID
-         * <p> 示例值：123456
-         */
-        private String userId;
-        /**
-         * 用户考勤规则
-         * <p> 示例值：
-         */
-        private AttendanceRule attendanceRule;
-        /**
-         * 考勤规则描述列表
-         * <p> 示例值：
-         */
-        private AttendanceRuleDescription[] attendanceRuleDescriptions;
-        /**
-         * 班次描述列表
-         * <p> 示例值：
-         */
-        private AttendanceRuleDescription[] shiftDescriptions;
-
-        /**
-         * 用户 ID
-         * <p> 示例值：123456
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 用户考勤规则
-         * <p> 示例值：
-         *
-         * @param attendanceRule
-         * @return
-         */
-        public Builder attendanceRule(AttendanceRule attendanceRule) {
-            this.attendanceRule = attendanceRule;
-            return this;
-        }
-
-
-        /**
-         * 考勤规则描述列表
-         * <p> 示例值：
-         *
-         * @param attendanceRuleDescriptions
-         * @return
-         */
-        public Builder attendanceRuleDescriptions(AttendanceRuleDescription[] attendanceRuleDescriptions) {
-            this.attendanceRuleDescriptions = attendanceRuleDescriptions;
-            return this;
-        }
-
-
-        /**
-         * 班次描述列表
-         * <p> 示例值：
-         *
-         * @param shiftDescriptions
-         * @return
-         */
-        public Builder shiftDescriptions(AttendanceRuleDescription[] shiftDescriptions) {
-            this.shiftDescriptions = shiftDescriptions;
-            return this;
-        }
-
-
-        public UserAttendanceRule build() {
-            return new UserAttendanceRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

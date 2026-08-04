@@ -13,65 +13,52 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.document_ai.v1.enums.*;
 
 public class RecognizeTaxiInvoiceReq {
-    @Body
+  @Body private RecognizeTaxiInvoiceReqBody body;
+
+  public RecognizeTaxiInvoiceReqBody getRecognizeTaxiInvoiceReqBody() {
+    return this.body;
+  }
+
+  public void setRecognizeTaxiInvoiceReqBody(RecognizeTaxiInvoiceReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public RecognizeTaxiInvoiceReq() {}
+
+  public RecognizeTaxiInvoiceReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private RecognizeTaxiInvoiceReqBody body;
 
-    // builder 开始
-    public RecognizeTaxiInvoiceReq() {
-    }
-
-    public RecognizeTaxiInvoiceReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public RecognizeTaxiInvoiceReqBody getRecognizeTaxiInvoiceReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setRecognizeTaxiInvoiceReqBody(RecognizeTaxiInvoiceReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder recognizeTaxiInvoiceReqBody(RecognizeTaxiInvoiceReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private RecognizeTaxiInvoiceReqBody body;
-
-        public RecognizeTaxiInvoiceReqBody getRecognizeTaxiInvoiceReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder recognizeTaxiInvoiceReqBody(RecognizeTaxiInvoiceReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public RecognizeTaxiInvoiceReq build() {
-            return new RecognizeTaxiInvoiceReq(this);
-        }
+    public RecognizeTaxiInvoiceReq build() {
+      return new RecognizeTaxiInvoiceReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

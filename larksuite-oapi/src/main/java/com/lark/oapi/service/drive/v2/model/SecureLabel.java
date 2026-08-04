@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SecureLabel {
+  /**
+   * 密级标签 ID
+   *
+   * <p>示例值：7217780879644737540
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 密级标签名称
+   *
+   * <p>示例值：L1
+   */
+  @SerializedName("name")
+  private String name;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public SecureLabel() {}
+
+  public SecureLabel(Builder builder) {
     /**
      * 密级标签 ID
-     * <p> 示例值：7217780879644737540
+     *
+     * <p>示例值：7217780879644737540
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 密级标签名称
-     * <p> 示例值：L1
+     *
+     * <p>示例值：L1
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 密级标签 ID
+     *
+     * <p>示例值：7217780879644737540
+     */
+    private String id;
+
+    /**
+     * 密级标签名称
+     *
+     * <p>示例值：L1
+     */
     private String name;
 
-    // builder 开始
-    public SecureLabel() {
+    /**
+     * 密级标签 ID
+     *
+     * <p>示例值：7217780879644737540
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public SecureLabel(Builder builder) {
-        /**
-         * 密级标签 ID
-         * <p> 示例值：7217780879644737540
-         */
-        this.id = builder.id;
-        /**
-         * 密级标签名称
-         * <p> 示例值：L1
-         */
-        this.name = builder.name;
+    /**
+     * 密级标签名称
+     *
+     * <p>示例值：L1
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SecureLabel build() {
+      return new SecureLabel(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 密级标签 ID
-         * <p> 示例值：7217780879644737540
-         */
-        private String id;
-        /**
-         * 密级标签名称
-         * <p> 示例值：L1
-         */
-        private String name;
-
-        /**
-         * 密级标签 ID
-         * <p> 示例值：7217780879644737540
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 密级标签名称
-         * <p> 示例值：L1
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public SecureLabel build() {
-            return new SecureLabel(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

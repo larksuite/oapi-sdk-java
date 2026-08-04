@@ -13,198 +13,206 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppConfigCallback {
+  /**
+   * 回调类型
+   *
+   * <p>示例值：webhook
+   */
+  @SerializedName("callback_type")
+  private String callbackType;
+
+  /**
+   * 如果回调是 webhook，webhook 的请求地址
+   *
+   * <p>示例值：https://open.feishu.cn/callback
+   */
+  @SerializedName("request_url")
+  private String requestUrl;
+
+  /**
+   * 添加哪些回调
+   *
+   * <p>示例值：
+   */
+  @SerializedName("add_callbacks")
+  private String[] addCallbacks;
+
+  /**
+   * 移除哪些回调
+   *
+   * <p>示例值：
+   */
+  @SerializedName("remove_callbacks")
+  private String[] removeCallbacks;
+
+  public String getCallbackType() {
+    return this.callbackType;
+  }
+
+  public void setCallbackType(String callbackType) {
+    this.callbackType = callbackType;
+  }
+
+  public String getRequestUrl() {
+    return this.requestUrl;
+  }
+
+  public void setRequestUrl(String requestUrl) {
+    this.requestUrl = requestUrl;
+  }
+
+  public String[] getAddCallbacks() {
+    return this.addCallbacks;
+  }
+
+  public void setAddCallbacks(String[] addCallbacks) {
+    this.addCallbacks = addCallbacks;
+  }
+
+  public String[] getRemoveCallbacks() {
+    return this.removeCallbacks;
+  }
+
+  public void setRemoveCallbacks(String[] removeCallbacks) {
+    this.removeCallbacks = removeCallbacks;
+  }
+
+  // builder 开始
+  public AppConfigCallback() {}
+
+  public AppConfigCallback(Builder builder) {
     /**
      * 回调类型
-     * <p> 示例值：webhook
+     *
+     * <p>示例值：webhook
      */
-    @SerializedName("callback_type")
-    private String callbackType;
+    this.callbackType = builder.callbackType;
     /**
      * 如果回调是 webhook，webhook 的请求地址
-     * <p> 示例值：https://open.feishu.cn/callback
+     *
+     * <p>示例值：https://open.feishu.cn/callback
      */
-    @SerializedName("request_url")
-    private String requestUrl;
+    this.requestUrl = builder.requestUrl;
     /**
      * 添加哪些回调
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("add_callbacks")
-    private String[] addCallbacks;
+    this.addCallbacks = builder.addCallbacks;
     /**
      * 移除哪些回调
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("remove_callbacks")
+    this.removeCallbacks = builder.removeCallbacks;
+  }
+
+  public static class Builder {
+    /**
+     * 回调类型
+     *
+     * <p>示例值：webhook
+     */
+    private String callbackType;
+
+    /**
+     * 如果回调是 webhook，webhook 的请求地址
+     *
+     * <p>示例值：https://open.feishu.cn/callback
+     */
+    private String requestUrl;
+
+    /**
+     * 添加哪些回调
+     *
+     * <p>示例值：
+     */
+    private String[] addCallbacks;
+
+    /**
+     * 移除哪些回调
+     *
+     * <p>示例值：
+     */
     private String[] removeCallbacks;
 
-    // builder 开始
-    public AppConfigCallback() {
+    /**
+     * 回调类型
+     *
+     * <p>示例值：webhook
+     *
+     * @param callbackType
+     * @return
+     */
+    public Builder callbackType(String callbackType) {
+      this.callbackType = callbackType;
+      return this;
     }
 
-    public AppConfigCallback(Builder builder) {
-        /**
-         * 回调类型
-         * <p> 示例值：webhook
-         */
-        this.callbackType = builder.callbackType;
-        /**
-         * 如果回调是 webhook，webhook 的请求地址
-         * <p> 示例值：https://open.feishu.cn/callback
-         */
-        this.requestUrl = builder.requestUrl;
-        /**
-         * 添加哪些回调
-         * <p> 示例值：
-         */
-        this.addCallbacks = builder.addCallbacks;
-        /**
-         * 移除哪些回调
-         * <p> 示例值：
-         */
-        this.removeCallbacks = builder.removeCallbacks;
+    /**
+     * 回调类型
+     *
+     * <p>示例值：webhook
+     *
+     * @param callbackType {@link
+     *     com.lark.oapi.service.application.v6.enums.AppConfigCallbackCallbackTypeEnum}
+     * @return
+     */
+    public Builder callbackType(
+        com.lark.oapi.service.application.v6.enums.AppConfigCallbackCallbackTypeEnum callbackType) {
+      this.callbackType = callbackType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 如果回调是 webhook，webhook 的请求地址
+     *
+     * <p>示例值：https://open.feishu.cn/callback
+     *
+     * @param requestUrl
+     * @return
+     */
+    public Builder requestUrl(String requestUrl) {
+      this.requestUrl = requestUrl;
+      return this;
     }
 
-    public String getCallbackType() {
-        return this.callbackType;
+    /**
+     * 添加哪些回调
+     *
+     * <p>示例值：
+     *
+     * @param addCallbacks
+     * @return
+     */
+    public Builder addCallbacks(String[] addCallbacks) {
+      this.addCallbacks = addCallbacks;
+      return this;
     }
 
-    public void setCallbackType(String callbackType) {
-        this.callbackType = callbackType;
+    /**
+     * 移除哪些回调
+     *
+     * <p>示例值：
+     *
+     * @param removeCallbacks
+     * @return
+     */
+    public Builder removeCallbacks(String[] removeCallbacks) {
+      this.removeCallbacks = removeCallbacks;
+      return this;
     }
 
-    public String getRequestUrl() {
-        return this.requestUrl;
+    public AppConfigCallback build() {
+      return new AppConfigCallback(this);
     }
+  }
 
-    public void setRequestUrl(String requestUrl) {
-        this.requestUrl = requestUrl;
-    }
-
-    public String[] getAddCallbacks() {
-        return this.addCallbacks;
-    }
-
-    public void setAddCallbacks(String[] addCallbacks) {
-        this.addCallbacks = addCallbacks;
-    }
-
-    public String[] getRemoveCallbacks() {
-        return this.removeCallbacks;
-    }
-
-    public void setRemoveCallbacks(String[] removeCallbacks) {
-        this.removeCallbacks = removeCallbacks;
-    }
-
-    public static class Builder {
-        /**
-         * 回调类型
-         * <p> 示例值：webhook
-         */
-        private String callbackType;
-        /**
-         * 如果回调是 webhook，webhook 的请求地址
-         * <p> 示例值：https://open.feishu.cn/callback
-         */
-        private String requestUrl;
-        /**
-         * 添加哪些回调
-         * <p> 示例值：
-         */
-        private String[] addCallbacks;
-        /**
-         * 移除哪些回调
-         * <p> 示例值：
-         */
-        private String[] removeCallbacks;
-
-        /**
-         * 回调类型
-         * <p> 示例值：webhook
-         *
-         * @param callbackType
-         * @return
-         */
-        public Builder callbackType(String callbackType) {
-            this.callbackType = callbackType;
-            return this;
-        }
-
-        /**
-         * 回调类型
-         * <p> 示例值：webhook
-         *
-         * @param callbackType {@link com.lark.oapi.service.application.v6.enums.AppConfigCallbackCallbackTypeEnum}
-         * @return
-         */
-        public Builder callbackType(com.lark.oapi.service.application.v6.enums.AppConfigCallbackCallbackTypeEnum callbackType) {
-            this.callbackType = callbackType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 如果回调是 webhook，webhook 的请求地址
-         * <p> 示例值：https://open.feishu.cn/callback
-         *
-         * @param requestUrl
-         * @return
-         */
-        public Builder requestUrl(String requestUrl) {
-            this.requestUrl = requestUrl;
-            return this;
-        }
-
-
-        /**
-         * 添加哪些回调
-         * <p> 示例值：
-         *
-         * @param addCallbacks
-         * @return
-         */
-        public Builder addCallbacks(String[] addCallbacks) {
-            this.addCallbacks = addCallbacks;
-            return this;
-        }
-
-
-        /**
-         * 移除哪些回调
-         * <p> 示例值：
-         *
-         * @param removeCallbacks
-         * @return
-         */
-        public Builder removeCallbacks(String[] removeCallbacks) {
-            this.removeCallbacks = removeCallbacks;
-            return this;
-        }
-
-
-        public AppConfigCallback build() {
-            return new AppConfigCallback(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

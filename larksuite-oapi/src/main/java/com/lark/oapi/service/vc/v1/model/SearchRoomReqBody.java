@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchRoomReqBody {
+  /**
+   * 用于查询指定会议室的租户自定义会议室ID列表，优先使用该字段进行查询
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_room_ids")
+  private String[] customRoomIds;
+
+  /**
+   * 会议室搜索关键词（当custom_room_ids为空时，使用该字段进行查询）
+   *
+   * <p>示例值：测试会议室
+   */
+  @SerializedName("keyword")
+  private String keyword;
+
+  /**
+   * 在该会议室层级下进行搜索（当custom_room_ids为空时，使用该字段进行查询）
+   *
+   * <p>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+   */
+  @SerializedName("room_level_id")
+  private String roomLevelId;
+
+  /**
+   * 搜索会议室是否可以包括层级名称（当custom_room_ids为空时，使用 keyword 字段查询）
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("search_level_name")
+  private Boolean searchLevelName;
+
+  /**
+   * 分页大小，该值默认为10，最大为100（当custom_room_ids为空时，使用该字段进行查询）
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("page_token")
+  private String pageToken;
+
+  public String[] getCustomRoomIds() {
+    return this.customRoomIds;
+  }
+
+  public void setCustomRoomIds(String[] customRoomIds) {
+    this.customRoomIds = customRoomIds;
+  }
+
+  public String getKeyword() {
+    return this.keyword;
+  }
+
+  public void setKeyword(String keyword) {
+    this.keyword = keyword;
+  }
+
+  public String getRoomLevelId() {
+    return this.roomLevelId;
+  }
+
+  public void setRoomLevelId(String roomLevelId) {
+    this.roomLevelId = roomLevelId;
+  }
+
+  public Boolean getSearchLevelName() {
+    return this.searchLevelName;
+  }
+
+  public void setSearchLevelName(Boolean searchLevelName) {
+    this.searchLevelName = searchLevelName;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  // builder 开始
+  public SearchRoomReqBody() {}
+
+  public SearchRoomReqBody(Builder builder) {
     /**
      * 用于查询指定会议室的租户自定义会议室ID列表，优先使用该字段进行查询
-     * <p> 示例值：["10001"]
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_room_ids")
-    private String[] customRoomIds;
+    this.customRoomIds = builder.customRoomIds;
     /**
      * 会议室搜索关键词（当custom_room_ids为空时，使用该字段进行查询）
-     * <p> 示例值：测试会议室
+     *
+     * <p>示例值：测试会议室
      */
-    @SerializedName("keyword")
-    private String keyword;
+    this.keyword = builder.keyword;
     /**
      * 在该会议室层级下进行搜索（当custom_room_ids为空时，使用该字段进行查询）
-     * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+     *
+     * <p>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
      */
-    @SerializedName("room_level_id")
-    private String roomLevelId;
+    this.roomLevelId = builder.roomLevelId;
     /**
-     * 搜索会议室是否包括层级名称（当custom_room_ids为空时，使用该字段进行查询）
-     * <p> 示例值：true
+     * 搜索会议室是否可以包括层级名称（当custom_room_ids为空时，使用 keyword 字段查询）
+     *
+     * <p>示例值：true
      */
-    @SerializedName("search_level_name")
-    private Boolean searchLevelName;
+    this.searchLevelName = builder.searchLevelName;
     /**
      * 分页大小，该值默认为10，最大为100（当custom_room_ids为空时，使用该字段进行查询）
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果（当custom_room_ids为空时，使用该字段进行查询）
-     * <p> 示例值：0
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：0
      */
-    @SerializedName("page_token")
+    this.pageToken = builder.pageToken;
+  }
+
+  public static class Builder {
+    /**
+     * 用于查询指定会议室的租户自定义会议室ID列表，优先使用该字段进行查询
+     *
+     * <p>示例值：
+     */
+    private String[] customRoomIds;
+
+    /**
+     * 会议室搜索关键词（当custom_room_ids为空时，使用该字段进行查询）
+     *
+     * <p>示例值：测试会议室
+     */
+    private String keyword;
+
+    /**
+     * 在该会议室层级下进行搜索（当custom_room_ids为空时，使用该字段进行查询）
+     *
+     * <p>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+     */
+    private String roomLevelId;
+
+    /**
+     * 搜索会议室是否可以包括层级名称（当custom_room_ids为空时，使用 keyword 字段查询）
+     *
+     * <p>示例值：true
+     */
+    private Boolean searchLevelName;
+
+    /**
+     * 分页大小，该值默认为10，最大为100（当custom_room_ids为空时，使用该字段进行查询）
+     *
+     * <p>示例值：10
+     */
+    private Integer pageSize;
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：0
+     */
     private String pageToken;
 
-    // builder 开始
-    public SearchRoomReqBody() {
+    /**
+     * 用于查询指定会议室的租户自定义会议室ID列表，优先使用该字段进行查询
+     *
+     * <p>示例值：
+     *
+     * @param customRoomIds
+     * @return
+     */
+    public Builder customRoomIds(String[] customRoomIds) {
+      this.customRoomIds = customRoomIds;
+      return this;
     }
 
-    public SearchRoomReqBody(Builder builder) {
-        /**
-         * 用于查询指定会议室的租户自定义会议室ID列表，优先使用该字段进行查询
-         * <p> 示例值：["10001"]
-         */
-        this.customRoomIds = builder.customRoomIds;
-        /**
-         * 会议室搜索关键词（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：测试会议室
-         */
-        this.keyword = builder.keyword;
-        /**
-         * 在该会议室层级下进行搜索（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         */
-        this.roomLevelId = builder.roomLevelId;
-        /**
-         * 搜索会议室是否包括层级名称（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：true
-         */
-        this.searchLevelName = builder.searchLevelName;
-        /**
-         * 分页大小，该值默认为10，最大为100（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：0
-         */
-        this.pageToken = builder.pageToken;
+    /**
+     * 会议室搜索关键词（当custom_room_ids为空时，使用该字段进行查询）
+     *
+     * <p>示例值：测试会议室
+     *
+     * @param keyword
+     * @return
+     */
+    public Builder keyword(String keyword) {
+      this.keyword = keyword;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 在该会议室层级下进行搜索（当custom_room_ids为空时，使用该字段进行查询）
+     *
+     * <p>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+     *
+     * @param roomLevelId
+     * @return
+     */
+    public Builder roomLevelId(String roomLevelId) {
+      this.roomLevelId = roomLevelId;
+      return this;
     }
 
-    public String[] getCustomRoomIds() {
-        return this.customRoomIds;
+    /**
+     * 搜索会议室是否可以包括层级名称（当custom_room_ids为空时，使用 keyword 字段查询）
+     *
+     * <p>示例值：true
+     *
+     * @param searchLevelName
+     * @return
+     */
+    public Builder searchLevelName(Boolean searchLevelName) {
+      this.searchLevelName = searchLevelName;
+      return this;
     }
 
-    public void setCustomRoomIds(String[] customRoomIds) {
-        this.customRoomIds = customRoomIds;
+    /**
+     * 分页大小，该值默认为10，最大为100（当custom_room_ids为空时，使用该字段进行查询）
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public String getKeyword() {
-        return this.keyword;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：0
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
+    public SearchRoomReqBody build() {
+      return new SearchRoomReqBody(this);
     }
+  }
 
-    public String getRoomLevelId() {
-        return this.roomLevelId;
-    }
-
-    public void setRoomLevelId(String roomLevelId) {
-        this.roomLevelId = roomLevelId;
-    }
-
-    public Boolean getSearchLevelName() {
-        return this.searchLevelName;
-    }
-
-    public void setSearchLevelName(Boolean searchLevelName) {
-        this.searchLevelName = searchLevelName;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public static class Builder {
-        /**
-         * 用于查询指定会议室的租户自定义会议室ID列表，优先使用该字段进行查询
-         * <p> 示例值：["10001"]
-         */
-        private String[] customRoomIds;
-        /**
-         * 会议室搜索关键词（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：测试会议室
-         */
-        private String keyword;
-        /**
-         * 在该会议室层级下进行搜索（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         */
-        private String roomLevelId;
-        /**
-         * 搜索会议室是否包括层级名称（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：true
-         */
-        private Boolean searchLevelName;
-        /**
-         * 分页大小，该值默认为10，最大为100（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：10
-         */
-        private Integer pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：0
-         */
-        private String pageToken;
-
-        /**
-         * 用于查询指定会议室的租户自定义会议室ID列表，优先使用该字段进行查询
-         * <p> 示例值：["10001"]
-         *
-         * @param customRoomIds
-         * @return
-         */
-        public Builder customRoomIds(String[] customRoomIds) {
-            this.customRoomIds = customRoomIds;
-            return this;
-        }
-
-
-        /**
-         * 会议室搜索关键词（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：测试会议室
-         *
-         * @param keyword
-         * @return
-         */
-        public Builder keyword(String keyword) {
-            this.keyword = keyword;
-            return this;
-        }
-
-
-        /**
-         * 在该会议室层级下进行搜索（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         *
-         * @param roomLevelId
-         * @return
-         */
-        public Builder roomLevelId(String roomLevelId) {
-            this.roomLevelId = roomLevelId;
-            return this;
-        }
-
-
-        /**
-         * 搜索会议室是否包括层级名称（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：true
-         *
-         * @param searchLevelName
-         * @return
-         */
-        public Builder searchLevelName(Boolean searchLevelName) {
-            this.searchLevelName = searchLevelName;
-            return this;
-        }
-
-
-        /**
-         * 分页大小，该值默认为10，最大为100（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果（当custom_room_ids为空时，使用该字段进行查询）
-         * <p> 示例值：0
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        public SearchRoomReqBody build() {
-            return new SearchRoomReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

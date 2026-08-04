@@ -13,75 +13,69 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchAppTableReqBody {
+  /**
+   * 数据表的新名称。;**注意**：;;- 名称中的首尾空格将会被去除。;- 数据表名称不可以包含 `/ \ ? * : [ ]` 等特殊字符。;-
+   * 如果名称为空或和旧名称相同，接口仍然会返回成功，但是名称不会被更改。
+   *
+   * <p>示例值：新的数据表名称
+   */
+  @SerializedName("name")
+  private String name;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public PatchAppTableReqBody() {}
+
+  public PatchAppTableReqBody(Builder builder) {
     /**
-     * 数据表的新名称
-     * <p> 示例值：
+     * 数据表的新名称。;**注意**：;;- 名称中的首尾空格将会被去除。;- 数据表名称不可以包含 `/ \ ? * : [ ]` 等特殊字符。;-
+     * 如果名称为空或和旧名称相同，接口仍然会返回成功，但是名称不会被更改。
+     *
+     * <p>示例值：新的数据表名称
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 数据表的新名称。;**注意**：;;- 名称中的首尾空格将会被去除。;- 数据表名称不可以包含 `/ \ ? * : [ ]` 等特殊字符。;-
+     * 如果名称为空或和旧名称相同，接口仍然会返回成功，但是名称不会被更改。
+     *
+     * <p>示例值：新的数据表名称
+     */
     private String name;
 
-    // builder 开始
-    public PatchAppTableReqBody() {
+    /**
+     * 数据表的新名称。;**注意**：;;- 名称中的首尾空格将会被去除。;- 数据表名称不可以包含 `/ \ ? * : [ ]` 等特殊字符。;-
+     * 如果名称为空或和旧名称相同，接口仍然会返回成功，但是名称不会被更改。
+     *
+     * <p>示例值：新的数据表名称
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public PatchAppTableReqBody(Builder builder) {
-        /**
-         * 数据表的新名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    public PatchAppTableReqBody build() {
+      return new PatchAppTableReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 数据表的新名称
-         * <p> 示例值：
-         */
-        private String name;
-
-        /**
-         * 数据表的新名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public PatchAppTableReqBody build() {
-            return new PatchAppTableReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

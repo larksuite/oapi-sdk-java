@@ -13,130 +13,130 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.security_and_compliance.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.security_and_compliance.v2.enums.*;
 
 public class UpdateDeviceRecordReq {
+  /**
+   * 版本号
+   *
+   * <p>示例值：0
+   */
+  @Query
+  @SerializedName("version")
+  private String version;
+
+  public String getVersion() {
+    return this.version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  /**
+   * 设备认证编码
+   *
+   * <p>示例值：7089353870308032531
+   */
+  @Path
+  @SerializedName("device_record_id")
+  private String deviceRecordId;
+
+  public String getDeviceRecordId() {
+    return this.deviceRecordId;
+  }
+
+  public void setDeviceRecordId(String deviceRecordId) {
+    this.deviceRecordId = deviceRecordId;
+  }
+
+  @Body private UpdateDeviceRecordReqBody body;
+
+  public UpdateDeviceRecordReqBody getUpdateDeviceRecordReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateDeviceRecordReqBody(UpdateDeviceRecordReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateDeviceRecordReq() {}
+
+  public UpdateDeviceRecordReq(Builder builder) {
     /**
      * 版本号
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @Query
-    @SerializedName("version")
-    private String version;
+    this.version = builder.version;
     /**
      * 设备认证编码
-     * <p> 示例值：7089353870308032531
+     *
+     * <p>示例值：7089353870308032531
      */
-    @Path
-    @SerializedName("device_record_id")
-    private String deviceRecordId;
-    @Body
+    this.deviceRecordId = builder.deviceRecordId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String version; // 版本号
+
+    /**
+     * 版本号
+     *
+     * <p>示例值：0
+     *
+     * @param version
+     * @return
+     */
+    public Builder version(String version) {
+      this.version = version;
+      return this;
+    }
+
+    private String deviceRecordId; // 设备认证编码
+
+    /**
+     * 设备认证编码
+     *
+     * <p>示例值：7089353870308032531
+     *
+     * @param deviceRecordId
+     * @return
+     */
+    public Builder deviceRecordId(String deviceRecordId) {
+      this.deviceRecordId = deviceRecordId;
+      return this;
+    }
+
     private UpdateDeviceRecordReqBody body;
 
-    // builder 开始
-    public UpdateDeviceRecordReq() {
-    }
-
-    public UpdateDeviceRecordReq(Builder builder) {
-        /**
-         * 版本号
-         * <p> 示例值：0
-         */
-        this.version = builder.version;
-        /**
-         * 设备认证编码
-         * <p> 示例值：7089353870308032531
-         */
-        this.deviceRecordId = builder.deviceRecordId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getVersion() {
-        return this.version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public String getDeviceRecordId() {
-        return this.deviceRecordId;
-    }
-
-    public void setDeviceRecordId(String deviceRecordId) {
-        this.deviceRecordId = deviceRecordId;
-    }
-
     public UpdateDeviceRecordReqBody getUpdateDeviceRecordReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateDeviceRecordReqBody(UpdateDeviceRecordReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateDeviceRecordReqBody(UpdateDeviceRecordReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String version; // 版本号
-        private String deviceRecordId; // 设备认证编码
-        private UpdateDeviceRecordReqBody body;
-
-        /**
-         * 版本号
-         * <p> 示例值：0
-         *
-         * @param version
-         * @return
-         */
-        public Builder version(String version) {
-            this.version = version;
-            return this;
-        }
-
-        /**
-         * 设备认证编码
-         * <p> 示例值：7089353870308032531
-         *
-         * @param deviceRecordId
-         * @return
-         */
-        public Builder deviceRecordId(String deviceRecordId) {
-            this.deviceRecordId = deviceRecordId;
-            return this;
-        }
-
-        public UpdateDeviceRecordReqBody getUpdateDeviceRecordReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateDeviceRecordReqBody(UpdateDeviceRecordReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateDeviceRecordReq build() {
-            return new UpdateDeviceRecordReq(this);
-        }
+    public UpdateDeviceRecordReq build() {
+      return new UpdateDeviceRecordReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

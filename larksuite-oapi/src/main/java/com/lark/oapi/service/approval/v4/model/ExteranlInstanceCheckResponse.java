@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExteranlInstanceCheckResponse {
+  /**
+   * 审批实例 ID
+   *
+   * <p>示例值：1234234234242423
+   */
+  @SerializedName("instance_id")
+  private String instanceId;
+
+  /**
+   * 任务最近更新时间，Unix 毫秒时间戳。
+   *
+   * <p>示例值：1591603040000
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 任务信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tasks")
+  private ExternalInstanceTask[] tasks;
+
+  public String getInstanceId() {
+    return this.instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public ExternalInstanceTask[] getTasks() {
+    return this.tasks;
+  }
+
+  public void setTasks(ExternalInstanceTask[] tasks) {
+    this.tasks = tasks;
+  }
+
+  // builder 开始
+  public ExteranlInstanceCheckResponse() {}
+
+  public ExteranlInstanceCheckResponse(Builder builder) {
     /**
-     * 审批实例 id
-     * <p> 示例值：1234234234242423
+     * 审批实例 ID
+     *
+     * <p>示例值：1234234234242423
      */
-    @SerializedName("instance_id")
-    private String instanceId;
+    this.instanceId = builder.instanceId;
     /**
-     * 任务最近更新时间
-     * <p> 示例值：1591603040000
+     * 任务最近更新时间，Unix 毫秒时间戳。
+     *
+     * <p>示例值：1591603040000
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 任务信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("tasks")
+    this.tasks = builder.tasks;
+  }
+
+  public static class Builder {
+    /**
+     * 审批实例 ID
+     *
+     * <p>示例值：1234234234242423
+     */
+    private String instanceId;
+
+    /**
+     * 任务最近更新时间，Unix 毫秒时间戳。
+     *
+     * <p>示例值：1591603040000
+     */
+    private String updateTime;
+
+    /**
+     * 任务信息
+     *
+     * <p>示例值：
+     */
     private ExternalInstanceTask[] tasks;
 
-    // builder 开始
-    public ExteranlInstanceCheckResponse() {
+    /**
+     * 审批实例 ID
+     *
+     * <p>示例值：1234234234242423
+     *
+     * @param instanceId
+     * @return
+     */
+    public Builder instanceId(String instanceId) {
+      this.instanceId = instanceId;
+      return this;
     }
 
-    public ExteranlInstanceCheckResponse(Builder builder) {
-        /**
-         * 审批实例 id
-         * <p> 示例值：1234234234242423
-         */
-        this.instanceId = builder.instanceId;
-        /**
-         * 任务最近更新时间
-         * <p> 示例值：1591603040000
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 任务信息
-         * <p> 示例值：
-         */
-        this.tasks = builder.tasks;
+    /**
+     * 任务最近更新时间，Unix 毫秒时间戳。
+     *
+     * <p>示例值：1591603040000
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 任务信息
+     *
+     * <p>示例值：
+     *
+     * @param tasks
+     * @return
+     */
+    public Builder tasks(ExternalInstanceTask[] tasks) {
+      this.tasks = tasks;
+      return this;
     }
 
-    public String getInstanceId() {
-        return this.instanceId;
+    public ExteranlInstanceCheckResponse build() {
+      return new ExteranlInstanceCheckResponse(this);
     }
+  }
 
-    public void setInstanceId(String instanceId) {
-        this.instanceId = instanceId;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public ExternalInstanceTask[] getTasks() {
-        return this.tasks;
-    }
-
-    public void setTasks(ExternalInstanceTask[] tasks) {
-        this.tasks = tasks;
-    }
-
-    public static class Builder {
-        /**
-         * 审批实例 id
-         * <p> 示例值：1234234234242423
-         */
-        private String instanceId;
-        /**
-         * 任务最近更新时间
-         * <p> 示例值：1591603040000
-         */
-        private String updateTime;
-        /**
-         * 任务信息
-         * <p> 示例值：
-         */
-        private ExternalInstanceTask[] tasks;
-
-        /**
-         * 审批实例 id
-         * <p> 示例值：1234234234242423
-         *
-         * @param instanceId
-         * @return
-         */
-        public Builder instanceId(String instanceId) {
-            this.instanceId = instanceId;
-            return this;
-        }
-
-
-        /**
-         * 任务最近更新时间
-         * <p> 示例值：1591603040000
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 任务信息
-         * <p> 示例值：
-         *
-         * @param tasks
-         * @return
-         */
-        public Builder tasks(ExternalInstanceTask[] tasks) {
-            this.tasks = tasks;
-            return this;
-        }
-
-
-        public ExteranlInstanceCheckResponse build() {
-            return new ExteranlInstanceCheckResponse(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

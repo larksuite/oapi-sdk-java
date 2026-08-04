@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Scenario {
+  /**
+   * 场景名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("scenario_id")
+  private String scenarioId;
+
+  /**
+   * 操作人UserID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 操作人TenantID
+   *
+   * <p>示例值：101
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 开平操作应用ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("appid")
+  private String appid;
+
+  public String getScenarioId() {
+    return this.scenarioId;
+  }
+
+  public void setScenarioId(String scenarioId) {
+    this.scenarioId = scenarioId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String getAppid() {
+    return this.appid;
+  }
+
+  public void setAppid(String appid) {
+    this.appid = appid;
+  }
+
+  // builder 开始
+  public Scenario() {}
+
+  public Scenario(Builder builder) {
     /**
      * 场景名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("scenario_id")
-    private String scenarioId;
+    this.scenarioId = builder.scenarioId;
     /**
      * 操作人UserID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 操作人TenantID
-     * <p> 示例值：101
+     *
+     * <p>示例值：101
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 开平操作应用ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("appid")
+    this.appid = builder.appid;
+  }
+
+  public static class Builder {
+    /**
+     * 场景名
+     *
+     * <p>示例值：
+     */
+    private String scenarioId;
+
+    /**
+     * 操作人UserID
+     *
+     * <p>示例值：
+     */
+    private String userId;
+
+    /**
+     * 操作人TenantID
+     *
+     * <p>示例值：101
+     */
+    private String tenantId;
+
+    /**
+     * 开平操作应用ID
+     *
+     * <p>示例值：1
+     */
     private String appid;
 
-    // builder 开始
-    public Scenario() {
+    /**
+     * 场景名
+     *
+     * <p>示例值：
+     *
+     * @param scenarioId
+     * @return
+     */
+    public Builder scenarioId(String scenarioId) {
+      this.scenarioId = scenarioId;
+      return this;
     }
 
-    public Scenario(Builder builder) {
-        /**
-         * 场景名
-         * <p> 示例值：
-         */
-        this.scenarioId = builder.scenarioId;
-        /**
-         * 操作人UserID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 操作人TenantID
-         * <p> 示例值：101
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 开平操作应用ID
-         * <p> 示例值：1
-         */
-        this.appid = builder.appid;
+    /**
+     * 操作人UserID
+     *
+     * <p>示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作人TenantID
+     *
+     * <p>示例值：101
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public String getScenarioId() {
-        return this.scenarioId;
+    /**
+     * 开平操作应用ID
+     *
+     * <p>示例值：1
+     *
+     * @param appid
+     * @return
+     */
+    public Builder appid(String appid) {
+      this.appid = appid;
+      return this;
     }
 
-    public void setScenarioId(String scenarioId) {
-        this.scenarioId = scenarioId;
+    public Scenario build() {
+      return new Scenario(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getTenantId() {
-        return this.tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public String getAppid() {
-        return this.appid;
-    }
-
-    public void setAppid(String appid) {
-        this.appid = appid;
-    }
-
-    public static class Builder {
-        /**
-         * 场景名
-         * <p> 示例值：
-         */
-        private String scenarioId;
-        /**
-         * 操作人UserID
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 操作人TenantID
-         * <p> 示例值：101
-         */
-        private String tenantId;
-        /**
-         * 开平操作应用ID
-         * <p> 示例值：1
-         */
-        private String appid;
-
-        /**
-         * 场景名
-         * <p> 示例值：
-         *
-         * @param scenarioId
-         * @return
-         */
-        public Builder scenarioId(String scenarioId) {
-            this.scenarioId = scenarioId;
-            return this;
-        }
-
-
-        /**
-         * 操作人UserID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 操作人TenantID
-         * <p> 示例值：101
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 开平操作应用ID
-         * <p> 示例值：1
-         *
-         * @param appid
-         * @return
-         */
-        public Builder appid(String appid) {
-            this.appid = appid;
-            return this;
-        }
-
-
-        public Scenario build() {
-            return new Scenario(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

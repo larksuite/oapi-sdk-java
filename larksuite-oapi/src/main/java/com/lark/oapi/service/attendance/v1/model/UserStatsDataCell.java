@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserStatsDataCell {
+  /**
+   * 字段编号
+   *
+   * <p>示例值：50102
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 数据值
+   *
+   * <p>示例值：无需打卡(-), 无需打卡(-)
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 数据属性
+   *
+   * <p>示例值：
+   */
+  @SerializedName("features")
+  private UserStatsDataFeature[] features;
+
+  /**
+   * 字段标题
+   *
+   * <p>示例值：姓名
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 时长，这个字段是一个map，key为时间单位，value为对应的时长值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("duration_num")
+  private UserStatsDataDuration durationNum;
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public UserStatsDataFeature[] getFeatures() {
+    return this.features;
+  }
+
+  public void setFeatures(UserStatsDataFeature[] features) {
+    this.features = features;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public UserStatsDataDuration getDurationNum() {
+    return this.durationNum;
+  }
+
+  public void setDurationNum(UserStatsDataDuration durationNum) {
+    this.durationNum = durationNum;
+  }
+
+  // builder 开始
+  public UserStatsDataCell() {}
+
+  public UserStatsDataCell(Builder builder) {
     /**
      * 字段编号
-     * <p> 示例值：50102
+     *
+     * <p>示例值：50102
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 数据值
-     * <p> 示例值：无需打卡(-), 无需打卡(-)
+     *
+     * <p>示例值：无需打卡(-), 无需打卡(-)
      */
-    @SerializedName("value")
-    private String value;
+    this.value = builder.value;
     /**
      * 数据属性
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("features")
-    private UserStatsDataFeature[] features;
+    this.features = builder.features;
     /**
      * 字段标题
-     * <p> 示例值：姓名
+     *
+     * <p>示例值：姓名
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
-     * 时长
-     * <p> 示例值：
+     * 时长，这个字段是一个map，key为时间单位，value为对应的时长值
+     *
+     * <p>示例值：
      */
-    @SerializedName("duration_num")
+    this.durationNum = builder.durationNum;
+  }
+
+  public static class Builder {
+    /**
+     * 字段编号
+     *
+     * <p>示例值：50102
+     */
+    private String code;
+
+    /**
+     * 数据值
+     *
+     * <p>示例值：无需打卡(-), 无需打卡(-)
+     */
+    private String value;
+
+    /**
+     * 数据属性
+     *
+     * <p>示例值：
+     */
+    private UserStatsDataFeature[] features;
+
+    /**
+     * 字段标题
+     *
+     * <p>示例值：姓名
+     */
+    private String title;
+
+    /**
+     * 时长，这个字段是一个map，key为时间单位，value为对应的时长值
+     *
+     * <p>示例值：
+     */
     private UserStatsDataDuration durationNum;
 
-    // builder 开始
-    public UserStatsDataCell() {
+    /**
+     * 字段编号
+     *
+     * <p>示例值：50102
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public UserStatsDataCell(Builder builder) {
-        /**
-         * 字段编号
-         * <p> 示例值：50102
-         */
-        this.code = builder.code;
-        /**
-         * 数据值
-         * <p> 示例值：无需打卡(-), 无需打卡(-)
-         */
-        this.value = builder.value;
-        /**
-         * 数据属性
-         * <p> 示例值：
-         */
-        this.features = builder.features;
-        /**
-         * 字段标题
-         * <p> 示例值：姓名
-         */
-        this.title = builder.title;
-        /**
-         * 时长
-         * <p> 示例值：
-         */
-        this.durationNum = builder.durationNum;
+    /**
+     * 数据值
+     *
+     * <p>示例值：无需打卡(-), 无需打卡(-)
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据属性
+     *
+     * <p>示例值：
+     *
+     * @param features
+     * @return
+     */
+    public Builder features(UserStatsDataFeature[] features) {
+      this.features = features;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    /**
+     * 字段标题
+     *
+     * <p>示例值：姓名
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    /**
+     * 时长，这个字段是一个map，key为时间单位，value为对应的时长值
+     *
+     * <p>示例值：
+     *
+     * @param durationNum
+     * @return
+     */
+    public Builder durationNum(UserStatsDataDuration durationNum) {
+      this.durationNum = durationNum;
+      return this;
     }
 
-    public String getValue() {
-        return this.value;
+    public UserStatsDataCell build() {
+      return new UserStatsDataCell(this);
     }
+  }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public UserStatsDataFeature[] getFeatures() {
-        return this.features;
-    }
-
-    public void setFeatures(UserStatsDataFeature[] features) {
-        this.features = features;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public UserStatsDataDuration getDurationNum() {
-        return this.durationNum;
-    }
-
-    public void setDurationNum(UserStatsDataDuration durationNum) {
-        this.durationNum = durationNum;
-    }
-
-    public static class Builder {
-        /**
-         * 字段编号
-         * <p> 示例值：50102
-         */
-        private String code;
-        /**
-         * 数据值
-         * <p> 示例值：无需打卡(-), 无需打卡(-)
-         */
-        private String value;
-        /**
-         * 数据属性
-         * <p> 示例值：
-         */
-        private UserStatsDataFeature[] features;
-        /**
-         * 字段标题
-         * <p> 示例值：姓名
-         */
-        private String title;
-        /**
-         * 时长
-         * <p> 示例值：
-         */
-        private UserStatsDataDuration durationNum;
-
-        /**
-         * 字段编号
-         * <p> 示例值：50102
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 数据值
-         * <p> 示例值：无需打卡(-), 无需打卡(-)
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 数据属性
-         * <p> 示例值：
-         *
-         * @param features
-         * @return
-         */
-        public Builder features(UserStatsDataFeature[] features) {
-            this.features = features;
-            return this;
-        }
-
-
-        /**
-         * 字段标题
-         * <p> 示例值：姓名
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 时长
-         * <p> 示例值：
-         *
-         * @param durationNum
-         * @return
-         */
-        public Builder durationNum(UserStatsDataDuration durationNum) {
-            this.durationNum = durationNum;
-            return this;
-        }
-
-
-        public UserStatsDataCell build() {
-            return new UserStatsDataCell(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

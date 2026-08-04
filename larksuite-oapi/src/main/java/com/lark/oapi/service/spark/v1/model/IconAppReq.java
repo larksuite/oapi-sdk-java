@@ -13,65 +13,52 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.spark.v1.enums.*;
 
 public class IconAppReq {
-    @Body
+  @Body private IconAppReqBody body;
+
+  public IconAppReqBody getIconAppReqBody() {
+    return this.body;
+  }
+
+  public void setIconAppReqBody(IconAppReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public IconAppReq() {}
+
+  public IconAppReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private IconAppReqBody body;
 
-    // builder 开始
-    public IconAppReq() {
-    }
-
-    public IconAppReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public IconAppReqBody getIconAppReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setIconAppReqBody(IconAppReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder iconAppReqBody(IconAppReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private IconAppReqBody body;
-
-        public IconAppReqBody getIconAppReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder iconAppReqBody(IconAppReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public IconAppReq build() {
-            return new IconAppReq(this);
-        }
+    public IconAppReq build() {
+      return new IconAppReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

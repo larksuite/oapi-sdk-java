@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ModeratorList {
+  /**
+   * 被添加进可发言名单的用户列表（该列表中一定有群主）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("added_member_list")
+  private ListEventModerator[] addedMemberList;
+
+  /**
+   * 被移除出可发言名单的用户列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("removed_member_list")
+  private ListEventModerator[] removedMemberList;
+
+  public ListEventModerator[] getAddedMemberList() {
+    return this.addedMemberList;
+  }
+
+  public void setAddedMemberList(ListEventModerator[] addedMemberList) {
+    this.addedMemberList = addedMemberList;
+  }
+
+  public ListEventModerator[] getRemovedMemberList() {
+    return this.removedMemberList;
+  }
+
+  public void setRemovedMemberList(ListEventModerator[] removedMemberList) {
+    this.removedMemberList = removedMemberList;
+  }
+
+  // builder 开始
+  public ModeratorList() {}
+
+  public ModeratorList(Builder builder) {
     /**
-     * 被添加进可发言名单的用户列表（列表中一定会有owner）
-     * <p> 示例值：
+     * 被添加进可发言名单的用户列表（该列表中一定有群主）
+     *
+     * <p>示例值：
      */
-    @SerializedName("added_member_list")
-    private ListEventModerator[] addedMemberList;
+    this.addedMemberList = builder.addedMemberList;
     /**
      * 被移除出可发言名单的用户列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("removed_member_list")
+    this.removedMemberList = builder.removedMemberList;
+  }
+
+  public static class Builder {
+    /**
+     * 被添加进可发言名单的用户列表（该列表中一定有群主）
+     *
+     * <p>示例值：
+     */
+    private ListEventModerator[] addedMemberList;
+
+    /**
+     * 被移除出可发言名单的用户列表
+     *
+     * <p>示例值：
+     */
     private ListEventModerator[] removedMemberList;
 
-    // builder 开始
-    public ModeratorList() {
+    /**
+     * 被添加进可发言名单的用户列表（该列表中一定有群主）
+     *
+     * <p>示例值：
+     *
+     * @param addedMemberList
+     * @return
+     */
+    public Builder addedMemberList(ListEventModerator[] addedMemberList) {
+      this.addedMemberList = addedMemberList;
+      return this;
     }
 
-    public ModeratorList(Builder builder) {
-        /**
-         * 被添加进可发言名单的用户列表（列表中一定会有owner）
-         * <p> 示例值：
-         */
-        this.addedMemberList = builder.addedMemberList;
-        /**
-         * 被移除出可发言名单的用户列表
-         * <p> 示例值：
-         */
-        this.removedMemberList = builder.removedMemberList;
+    /**
+     * 被移除出可发言名单的用户列表
+     *
+     * <p>示例值：
+     *
+     * @param removedMemberList
+     * @return
+     */
+    public Builder removedMemberList(ListEventModerator[] removedMemberList) {
+      this.removedMemberList = removedMemberList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ModeratorList build() {
+      return new ModeratorList(this);
     }
+  }
 
-    public ListEventModerator[] getAddedMemberList() {
-        return this.addedMemberList;
-    }
-
-    public void setAddedMemberList(ListEventModerator[] addedMemberList) {
-        this.addedMemberList = addedMemberList;
-    }
-
-    public ListEventModerator[] getRemovedMemberList() {
-        return this.removedMemberList;
-    }
-
-    public void setRemovedMemberList(ListEventModerator[] removedMemberList) {
-        this.removedMemberList = removedMemberList;
-    }
-
-    public static class Builder {
-        /**
-         * 被添加进可发言名单的用户列表（列表中一定会有owner）
-         * <p> 示例值：
-         */
-        private ListEventModerator[] addedMemberList;
-        /**
-         * 被移除出可发言名单的用户列表
-         * <p> 示例值：
-         */
-        private ListEventModerator[] removedMemberList;
-
-        /**
-         * 被添加进可发言名单的用户列表（列表中一定会有owner）
-         * <p> 示例值：
-         *
-         * @param addedMemberList
-         * @return
-         */
-        public Builder addedMemberList(ListEventModerator[] addedMemberList) {
-            this.addedMemberList = addedMemberList;
-            return this;
-        }
-
-
-        /**
-         * 被移除出可发言名单的用户列表
-         * <p> 示例值：
-         *
-         * @param removedMemberList
-         * @return
-         */
-        public Builder removedMemberList(ListEventModerator[] removedMemberList) {
-            this.removedMemberList = removedMemberList;
-            return this;
-        }
-
-
-        public ModeratorList build() {
-            return new ModeratorList(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

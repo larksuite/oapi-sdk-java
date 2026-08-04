@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplyConfig {
+  /**
+   * 控制审批流程是否启用。设为true时，提交申请后将触发配置的审批流程；设为false时，申请将直接通过无需审批。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("enabled")
+  private Boolean enabled;
+
+  /**
+   * 仅支持配置一个用户 open_id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("approvers")
+  private String[] approvers;
+
+  public Boolean getEnabled() {
+    return this.enabled;
+  }
+
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
+  public String[] getApprovers() {
+    return this.approvers;
+  }
+
+  public void setApprovers(String[] approvers) {
+    this.approvers = approvers;
+  }
+
+  // builder 开始
+  public ApplyConfig() {}
+
+  public ApplyConfig(Builder builder) {
     /**
      * 控制审批流程是否启用。设为true时，提交申请后将触发配置的审批流程；设为false时，申请将直接通过无需审批。
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("enabled")
-    private Boolean enabled;
+    this.enabled = builder.enabled;
     /**
      * 仅支持配置一个用户 open_id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("approvers")
+    this.approvers = builder.approvers;
+  }
+
+  public static class Builder {
+    /**
+     * 控制审批流程是否启用。设为true时，提交申请后将触发配置的审批流程；设为false时，申请将直接通过无需审批。
+     *
+     * <p>示例值：true
+     */
+    private Boolean enabled;
+
+    /**
+     * 仅支持配置一个用户 open_id
+     *
+     * <p>示例值：
+     */
     private String[] approvers;
 
-    // builder 开始
-    public ApplyConfig() {
+    /**
+     * 控制审批流程是否启用。设为true时，提交申请后将触发配置的审批流程；设为false时，申请将直接通过无需审批。
+     *
+     * <p>示例值：true
+     *
+     * @param enabled
+     * @return
+     */
+    public Builder enabled(Boolean enabled) {
+      this.enabled = enabled;
+      return this;
     }
 
-    public ApplyConfig(Builder builder) {
-        /**
-         * 控制审批流程是否启用。设为true时，提交申请后将触发配置的审批流程；设为false时，申请将直接通过无需审批。
-         * <p> 示例值：true
-         */
-        this.enabled = builder.enabled;
-        /**
-         * 仅支持配置一个用户 open_id
-         * <p> 示例值：
-         */
-        this.approvers = builder.approvers;
+    /**
+     * 仅支持配置一个用户 open_id
+     *
+     * <p>示例值：
+     *
+     * @param approvers
+     * @return
+     */
+    public Builder approvers(String[] approvers) {
+      this.approvers = approvers;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ApplyConfig build() {
+      return new ApplyConfig(this);
     }
+  }
 
-    public Boolean getEnabled() {
-        return this.enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public String[] getApprovers() {
-        return this.approvers;
-    }
-
-    public void setApprovers(String[] approvers) {
-        this.approvers = approvers;
-    }
-
-    public static class Builder {
-        /**
-         * 控制审批流程是否启用。设为true时，提交申请后将触发配置的审批流程；设为false时，申请将直接通过无需审批。
-         * <p> 示例值：true
-         */
-        private Boolean enabled;
-        /**
-         * 仅支持配置一个用户 open_id
-         * <p> 示例值：
-         */
-        private String[] approvers;
-
-        /**
-         * 控制审批流程是否启用。设为true时，提交申请后将触发配置的审批流程；设为false时，申请将直接通过无需审批。
-         * <p> 示例值：true
-         *
-         * @param enabled
-         * @return
-         */
-        public Builder enabled(Boolean enabled) {
-            this.enabled = enabled;
-            return this;
-        }
-
-
-        /**
-         * 仅支持配置一个用户 open_id
-         * <p> 示例值：
-         *
-         * @param approvers
-         * @return
-         */
-        public Builder approvers(String[] approvers) {
-            this.approvers = approvers;
-            return this;
-        }
-
-
-        public ApplyConfig build() {
-            return new ApplyConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

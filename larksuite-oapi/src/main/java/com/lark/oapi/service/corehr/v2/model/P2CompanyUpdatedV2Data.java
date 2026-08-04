@@ -13,62 +13,57 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2CompanyUpdatedV2Data {
-    /**
-     * 公司ID
-     * <p> 示例值："201571101"
-     */
-    @SerializedName("company_id")
-    private String companyId;
-    /**
-     * 发生变更的字段
-     * <p> 示例值：
-     */
-    @SerializedName("field_changes")
-    private String[] fieldChanges;
-    /**
-     * 子变更事件
-     * <p> 示例值：
-     */
-    @SerializedName("sub_events")
-    private OrganizationDomainEventData[] subEvents;
+  /**
+   * 公司ID。;-
+   * 调用[【查询单个公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/get)、[【通过
+   * ID
+   * 批量查询公司信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get)接口返回公司详细信息
+   *
+   * <p>示例值：7291273149417948716
+   */
+  @SerializedName("company_id")
+  private String companyId;
 
-    public String getCompanyId() {
-        return this.companyId;
-    }
+  /**
+   * 发生变更的字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_changes")
+  private String[] fieldChanges;
 
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
-    }
+  /**
+   * 子变更事件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_events")
+  private OrganizationDomainEventData[] subEvents;
 
-    public String[] getFieldChanges() {
-        return this.fieldChanges;
-    }
+  public String getCompanyId() {
+    return this.companyId;
+  }
 
-    public void setFieldChanges(String[] fieldChanges) {
-        this.fieldChanges = fieldChanges;
-    }
+  public void setCompanyId(String companyId) {
+    this.companyId = companyId;
+  }
 
-    public OrganizationDomainEventData[] getSubEvents() {
-        return this.subEvents;
-    }
+  public String[] getFieldChanges() {
+    return this.fieldChanges;
+  }
 
-    public void setSubEvents(OrganizationDomainEventData[] subEvents) {
-        this.subEvents = subEvents;
-    }
+  public void setFieldChanges(String[] fieldChanges) {
+    this.fieldChanges = fieldChanges;
+  }
 
+  public OrganizationDomainEventData[] getSubEvents() {
+    return this.subEvents;
+  }
+
+  public void setSubEvents(OrganizationDomainEventData[] subEvents) {
+    this.subEvents = subEvents;
+  }
 }

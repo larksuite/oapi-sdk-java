@@ -13,148 +13,160 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchTalentOperationLogReqBody {
+  /**
+   * 职位 ID
+   * 列表，可通过[获取职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/list)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_id_list")
+  private String[] jobIdList;
+
+  /**
+   * 操作人 ID 列表，与入参 `user_id_type` 类型一致
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator_id_list")
+  private String[] operatorIdList;
+
+  /**
+   * 操作类型 ID
+   * 列表，操作类型枚举可查看[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);中
+   * `操作类型枚举定义`
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operation_list")
+  private Integer[] operationList;
+
+  public String[] getJobIdList() {
+    return this.jobIdList;
+  }
+
+  public void setJobIdList(String[] jobIdList) {
+    this.jobIdList = jobIdList;
+  }
+
+  public String[] getOperatorIdList() {
+    return this.operatorIdList;
+  }
+
+  public void setOperatorIdList(String[] operatorIdList) {
+    this.operatorIdList = operatorIdList;
+  }
+
+  public Integer[] getOperationList() {
+    return this.operationList;
+  }
+
+  public void setOperationList(Integer[] operationList) {
+    this.operationList = operationList;
+  }
+
+  // builder 开始
+  public SearchTalentOperationLogReqBody() {}
+
+  public SearchTalentOperationLogReqBody(Builder builder) {
     /**
-     * 职位 ID 列表
-     * <p> 示例值：6949805467799537964
+     * 职位 ID
+     * 列表，可通过[获取职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/list)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_id_list")
+    this.jobIdList = builder.jobIdList;
+    /**
+     * 操作人 ID 列表，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：
+     */
+    this.operatorIdList = builder.operatorIdList;
+    /**
+     * 操作类型 ID
+     * 列表，操作类型枚举可查看[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);中
+     * `操作类型枚举定义`
+     *
+     * <p>示例值：
+     */
+    this.operationList = builder.operationList;
+  }
+
+  public static class Builder {
+    /**
+     * 职位 ID
+     * 列表，可通过[获取职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/list)接口获取
+     *
+     * <p>示例值：
+     */
     private String[] jobIdList;
+
     /**
-     * 操作人 ID 列表
-     * <p> 示例值：ou_e6139117c300506837def50545420c6a
+     * 操作人 ID 列表，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：
      */
-    @SerializedName("operator_id_list")
     private String[] operatorIdList;
+
     /**
-     * 操作类型 ID 列表
-     * <p> 示例值："3001"
+     * 操作类型 ID
+     * 列表，操作类型枚举可查看[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);中
+     * `操作类型枚举定义`
+     *
+     * <p>示例值：
      */
-    @SerializedName("operation_list")
     private Integer[] operationList;
 
-    // builder 开始
-    public SearchTalentOperationLogReqBody() {
+    /**
+     * 职位 ID
+     * 列表，可通过[获取职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/list)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param jobIdList
+     * @return
+     */
+    public Builder jobIdList(String[] jobIdList) {
+      this.jobIdList = jobIdList;
+      return this;
     }
 
-    public SearchTalentOperationLogReqBody(Builder builder) {
-        /**
-         * 职位 ID 列表
-         * <p> 示例值：6949805467799537964
-         */
-        this.jobIdList = builder.jobIdList;
-        /**
-         * 操作人 ID 列表
-         * <p> 示例值：ou_e6139117c300506837def50545420c6a
-         */
-        this.operatorIdList = builder.operatorIdList;
-        /**
-         * 操作类型 ID 列表
-         * <p> 示例值："3001"
-         */
-        this.operationList = builder.operationList;
+    /**
+     * 操作人 ID 列表，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：
+     *
+     * @param operatorIdList
+     * @return
+     */
+    public Builder operatorIdList(String[] operatorIdList) {
+      this.operatorIdList = operatorIdList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作类型 ID
+     * 列表，操作类型枚举可查看[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum);中
+     * `操作类型枚举定义`
+     *
+     * <p>示例值：
+     *
+     * @param operationList
+     * @return
+     */
+    public Builder operationList(Integer[] operationList) {
+      this.operationList = operationList;
+      return this;
     }
 
-    public String[] getJobIdList() {
-        return this.jobIdList;
+    public SearchTalentOperationLogReqBody build() {
+      return new SearchTalentOperationLogReqBody(this);
     }
+  }
 
-    public void setJobIdList(String[] jobIdList) {
-        this.jobIdList = jobIdList;
-    }
-
-    public String[] getOperatorIdList() {
-        return this.operatorIdList;
-    }
-
-    public void setOperatorIdList(String[] operatorIdList) {
-        this.operatorIdList = operatorIdList;
-    }
-
-    public Integer[] getOperationList() {
-        return this.operationList;
-    }
-
-    public void setOperationList(Integer[] operationList) {
-        this.operationList = operationList;
-    }
-
-    public static class Builder {
-        /**
-         * 职位 ID 列表
-         * <p> 示例值：6949805467799537964
-         */
-        private String[] jobIdList;
-        /**
-         * 操作人 ID 列表
-         * <p> 示例值：ou_e6139117c300506837def50545420c6a
-         */
-        private String[] operatorIdList;
-        /**
-         * 操作类型 ID 列表
-         * <p> 示例值："3001"
-         */
-        private Integer[] operationList;
-
-        /**
-         * 职位 ID 列表
-         * <p> 示例值：6949805467799537964
-         *
-         * @param jobIdList
-         * @return
-         */
-        public Builder jobIdList(String[] jobIdList) {
-            this.jobIdList = jobIdList;
-            return this;
-        }
-
-
-        /**
-         * 操作人 ID 列表
-         * <p> 示例值：ou_e6139117c300506837def50545420c6a
-         *
-         * @param operatorIdList
-         * @return
-         */
-        public Builder operatorIdList(String[] operatorIdList) {
-            this.operatorIdList = operatorIdList;
-            return this;
-        }
-
-
-        /**
-         * 操作类型 ID 列表
-         * <p> 示例值："3001"
-         *
-         * @param operationList
-         * @return
-         */
-        public Builder operationList(Integer[] operationList) {
-            this.operationList = operationList;
-            return this;
-        }
-
-
-        public SearchTalentOperationLogReqBody build() {
-            return new SearchTalentOperationLogReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

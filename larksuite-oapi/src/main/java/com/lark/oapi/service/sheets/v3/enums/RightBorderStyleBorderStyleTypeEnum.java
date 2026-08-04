@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.sheets.v3.enums;
 
-/**
- * 边框样式
- */
+/** 边框样式 */
 public enum RightBorderStyleBorderStyleTypeEnum {
-    SOLID("Solid"), // 实线
-    NONE("None"), // 无边框
-    ;
-    private String value;
+  SOLID("Solid"), // 实线
+  NONE("None"), // 无边框
+  ;
+  private String value;
 
-    RightBorderStyleBorderStyleTypeEnum(String value) {
-        this.value = value;
-    }
+  RightBorderStyleBorderStyleTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,124 +13,127 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessInfo {
+  /**
+   * 组织架构调整流程 ID。详情数据可通过[根据流程 ID
+   * 查询组织架构调整记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/get)获取。
+   *
+   * <p>示例值：6991776076699549697
+   */
+  @SerializedName("process_id")
+  private String processId;
+
+  /**
+   * 组织架构调整流程状态 ==（不建议使用，推荐使用draft_status）==
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("approval_group_status")
+  private String approvalGroupStatus;
+
+  public String getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  public String getApprovalGroupStatus() {
+    return this.approvalGroupStatus;
+  }
+
+  public void setApprovalGroupStatus(String approvalGroupStatus) {
+    this.approvalGroupStatus = approvalGroupStatus;
+  }
+
+  // builder 开始
+  public ProcessInfo() {}
+
+  public ProcessInfo(Builder builder) {
     /**
-     * 组织架构调整流程 ID
-     * <p> 示例值：6991776076699549697
+     * 组织架构调整流程 ID。详情数据可通过[根据流程 ID
+     * 查询组织架构调整记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/get)获取。
+     *
+     * <p>示例值：6991776076699549697
      */
-    @SerializedName("process_id")
+    this.processId = builder.processId;
+    /**
+     * 组织架构调整流程状态 ==（不建议使用，推荐使用draft_status）==
+     *
+     * <p>示例值：1
+     */
+    this.approvalGroupStatus = builder.approvalGroupStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 组织架构调整流程 ID。详情数据可通过[根据流程 ID
+     * 查询组织架构调整记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/get)获取。
+     *
+     * <p>示例值：6991776076699549697
+     */
     private String processId;
+
     /**
-     * 组织架构调整流程状态
-     * <p> 示例值：
+     * 组织架构调整流程状态 ==（不建议使用，推荐使用draft_status）==
+     *
+     * <p>示例值：1
      */
-    @SerializedName("approval_group_status")
     private String approvalGroupStatus;
 
-    // builder 开始
-    public ProcessInfo() {
+    /**
+     * 组织架构调整流程 ID。详情数据可通过[根据流程 ID
+     * 查询组织架构调整记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/get)获取。
+     *
+     * <p>示例值：6991776076699549697
+     *
+     * @param processId
+     * @return
+     */
+    public Builder processId(String processId) {
+      this.processId = processId;
+      return this;
     }
 
-    public ProcessInfo(Builder builder) {
-        /**
-         * 组织架构调整流程 ID
-         * <p> 示例值：6991776076699549697
-         */
-        this.processId = builder.processId;
-        /**
-         * 组织架构调整流程状态
-         * <p> 示例值：
-         */
-        this.approvalGroupStatus = builder.approvalGroupStatus;
+    /**
+     * 组织架构调整流程状态 ==（不建议使用，推荐使用draft_status）==
+     *
+     * <p>示例值：1
+     *
+     * @param approvalGroupStatus
+     * @return
+     */
+    public Builder approvalGroupStatus(String approvalGroupStatus) {
+      this.approvalGroupStatus = approvalGroupStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 组织架构调整流程状态 ==（不建议使用，推荐使用draft_status）==
+     *
+     * <p>示例值：1
+     *
+     * @param approvalGroupStatus {@link
+     *     com.lark.oapi.service.corehr.v2.enums.ProcessInfoApprovalGroupStatusEnum}
+     * @return
+     */
+    public Builder approvalGroupStatus(
+        com.lark.oapi.service.corehr.v2.enums.ProcessInfoApprovalGroupStatusEnum
+            approvalGroupStatus) {
+      this.approvalGroupStatus = approvalGroupStatus.getValue();
+      return this;
     }
 
-    public String getProcessId() {
-        return this.processId;
+    public ProcessInfo build() {
+      return new ProcessInfo(this);
     }
+  }
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
-    public String getApprovalGroupStatus() {
-        return this.approvalGroupStatus;
-    }
-
-    public void setApprovalGroupStatus(String approvalGroupStatus) {
-        this.approvalGroupStatus = approvalGroupStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 组织架构调整流程 ID
-         * <p> 示例值：6991776076699549697
-         */
-        private String processId;
-        /**
-         * 组织架构调整流程状态
-         * <p> 示例值：
-         */
-        private String approvalGroupStatus;
-
-        /**
-         * 组织架构调整流程 ID
-         * <p> 示例值：6991776076699549697
-         *
-         * @param processId
-         * @return
-         */
-        public Builder processId(String processId) {
-            this.processId = processId;
-            return this;
-        }
-
-
-        /**
-         * 组织架构调整流程状态
-         * <p> 示例值：
-         *
-         * @param approvalGroupStatus
-         * @return
-         */
-        public Builder approvalGroupStatus(String approvalGroupStatus) {
-            this.approvalGroupStatus = approvalGroupStatus;
-            return this;
-        }
-
-        /**
-         * 组织架构调整流程状态
-         * <p> 示例值：
-         *
-         * @param approvalGroupStatus {@link com.lark.oapi.service.corehr.v2.enums.ProcessInfoApprovalGroupStatusEnum}
-         * @return
-         */
-        public Builder approvalGroupStatus(com.lark.oapi.service.corehr.v2.enums.ProcessInfoApprovalGroupStatusEnum approvalGroupStatus) {
-            this.approvalGroupStatus = approvalGroupStatus.getValue();
-            return this;
-        }
-
-
-        public ProcessInfo build() {
-            return new ProcessInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

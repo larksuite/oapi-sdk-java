@@ -25,77 +25,80 @@ import com.lark.oapi.service.task.v2.V2;
 import com.lark.oapi.service.task.v2.model.*;
 
 public class TaskService {
-    private final V1 v1;
-    private final Task task; // 任务
-    private final TaskCollaborator taskCollaborator; // 执行者
-    private final TaskComment taskComment; // 评论
-    private final TaskFollower taskFollower; // 关注人
-    private final TaskReminder taskReminder; // 提醒
-    private final V2 v2;
+  private final V1 v1;
+  private final Task task; // task
+  private final TaskCollaborator taskCollaborator; // task.collaborator
+  private final TaskComment taskComment; // task.comment
+  private final TaskFollower taskFollower; // task.follower
+  private final TaskReminder taskReminder; // task.reminder
+  private final V2 v2;
 
-    public TaskService(Config config) {
-        this.v1 = new V1(config);
-        this.task = new Task(config);
-        this.taskCollaborator = new TaskCollaborator(config);
-        this.taskComment = new TaskComment(config);
-        this.taskFollower = new TaskFollower(config);
-        this.taskReminder = new TaskReminder(config);
-        this.v2 = new V2(config);
-    }
+  public TaskService(Config config) {
+    this.v1 = new V1(config);
+    this.task = new Task(config);
+    this.taskCollaborator = new TaskCollaborator(config);
+    this.taskComment = new TaskComment(config);
+    this.taskFollower = new TaskFollower(config);
+    this.taskReminder = new TaskReminder(config);
+    this.v2 = new V2(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public Task task() {
-        return task;
-    }
+  public Task task() {
+    return task;
+  }
 
-    public TaskCollaborator taskCollaborator() {
-        return taskCollaborator;
-    }
+  public TaskCollaborator taskCollaborator() {
+    return taskCollaborator;
+  }
 
-    public TaskComment taskComment() {
-        return taskComment;
-    }
+  public TaskComment taskComment() {
+    return taskComment;
+  }
 
-    public TaskFollower taskFollower() {
-        return taskFollower;
-    }
+  public TaskFollower taskFollower() {
+    return taskFollower;
+  }
 
-    public TaskReminder taskReminder() {
-        return taskReminder;
-    }
+  public TaskReminder taskReminder() {
+    return taskReminder;
+  }
 
-    public V2 v2() {
-        return v2;
+  public abstract static class P2TaskUpdateTenantV1Handler
+      implements IEventHandler<P2TaskUpdateTenantV1> {
+    @Override
+    public P2TaskUpdateTenantV1 getEvent() {
+      return new P2TaskUpdateTenantV1();
     }
+  }
 
-    public abstract static class P2TaskUpdateTenantV1Handler implements IEventHandler<P2TaskUpdateTenantV1> {
-        @Override
-        public P2TaskUpdateTenantV1 getEvent() {
-            return new P2TaskUpdateTenantV1();
-        }
+  public abstract static class P2TaskUpdatedV1Handler implements IEventHandler<P2TaskUpdatedV1> {
+    @Override
+    public P2TaskUpdatedV1 getEvent() {
+      return new P2TaskUpdatedV1();
     }
+  }
 
-    public abstract static class P2TaskUpdatedV1Handler implements IEventHandler<P2TaskUpdatedV1> {
-        @Override
-        public P2TaskUpdatedV1 getEvent() {
-            return new P2TaskUpdatedV1();
-        }
+  public abstract static class P2TaskCommentUpdatedV1Handler
+      implements IEventHandler<P2TaskCommentUpdatedV1> {
+    @Override
+    public P2TaskCommentUpdatedV1 getEvent() {
+      return new P2TaskCommentUpdatedV1();
     }
+  }
 
-    public abstract static class P2TaskCommentUpdatedV1Handler implements IEventHandler<P2TaskCommentUpdatedV1> {
-        @Override
-        public P2TaskCommentUpdatedV1 getEvent() {
-            return new P2TaskCommentUpdatedV1();
-        }
-    }
+  public V2 v2() {
+    return v2;
+  }
 
-    public abstract static class P2TaskUpdateUserAccessV2Handler implements IEventHandler<P2TaskUpdateUserAccessV2> {
-        @Override
-        public P2TaskUpdateUserAccessV2 getEvent() {
-            return new P2TaskUpdateUserAccessV2();
-        }
+  public abstract static class P2TaskUpdateUserAccessV2Handler
+      implements IEventHandler<P2TaskUpdateUserAccessV2> {
+    @Override
+    public P2TaskUpdateUserAccessV2 getEvent() {
+      return new P2TaskUpdateUserAccessV2();
     }
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateWhiteboardNodeReqBody {
+  /**
+   * 子节点数据，不允许传入空数组
+   *
+   * <p>示例值：
+   */
+  @SerializedName("nodes")
+  private WhiteboardNode[] nodes;
+
+  /**
+   * 是否覆盖画板中已存在的节点
+   *
+   * <p>示例值：
+   */
+  @SerializedName("overwrite")
+  private Boolean overwrite;
+
+  public WhiteboardNode[] getNodes() {
+    return this.nodes;
+  }
+
+  public void setNodes(WhiteboardNode[] nodes) {
+    this.nodes = nodes;
+  }
+
+  public Boolean getOverwrite() {
+    return this.overwrite;
+  }
+
+  public void setOverwrite(Boolean overwrite) {
+    this.overwrite = overwrite;
+  }
+
+  // builder 开始
+  public CreateWhiteboardNodeReqBody() {}
+
+  public CreateWhiteboardNodeReqBody(Builder builder) {
     /**
-     * 子节点数据
-     * <p> 示例值：
+     * 子节点数据，不允许传入空数组
+     *
+     * <p>示例值：
      */
-    @SerializedName("nodes")
-    private WhiteboardNode[] nodes;
+    this.nodes = builder.nodes;
     /**
      * 是否覆盖画板中已存在的节点
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("overwrite")
+    this.overwrite = builder.overwrite;
+  }
+
+  public static class Builder {
+    /**
+     * 子节点数据，不允许传入空数组
+     *
+     * <p>示例值：
+     */
+    private WhiteboardNode[] nodes;
+
+    /**
+     * 是否覆盖画板中已存在的节点
+     *
+     * <p>示例值：
+     */
     private Boolean overwrite;
 
-    // builder 开始
-    public CreateWhiteboardNodeReqBody() {
+    /**
+     * 子节点数据，不允许传入空数组
+     *
+     * <p>示例值：
+     *
+     * @param nodes
+     * @return
+     */
+    public Builder nodes(WhiteboardNode[] nodes) {
+      this.nodes = nodes;
+      return this;
     }
 
-    public CreateWhiteboardNodeReqBody(Builder builder) {
-        /**
-         * 子节点数据
-         * <p> 示例值：
-         */
-        this.nodes = builder.nodes;
-        /**
-         * 是否覆盖画板中已存在的节点
-         * <p> 示例值：
-         */
-        this.overwrite = builder.overwrite;
+    /**
+     * 是否覆盖画板中已存在的节点
+     *
+     * <p>示例值：
+     *
+     * @param overwrite
+     * @return
+     */
+    public Builder overwrite(Boolean overwrite) {
+      this.overwrite = overwrite;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateWhiteboardNodeReqBody build() {
+      return new CreateWhiteboardNodeReqBody(this);
     }
+  }
 
-    public WhiteboardNode[] getNodes() {
-        return this.nodes;
-    }
-
-    public void setNodes(WhiteboardNode[] nodes) {
-        this.nodes = nodes;
-    }
-
-    public Boolean getOverwrite() {
-        return this.overwrite;
-    }
-
-    public void setOverwrite(Boolean overwrite) {
-        this.overwrite = overwrite;
-    }
-
-    public static class Builder {
-        /**
-         * 子节点数据
-         * <p> 示例值：
-         */
-        private WhiteboardNode[] nodes;
-        /**
-         * 是否覆盖画板中已存在的节点
-         * <p> 示例值：
-         */
-        private Boolean overwrite;
-
-        /**
-         * 子节点数据
-         * <p> 示例值：
-         *
-         * @param nodes
-         * @return
-         */
-        public Builder nodes(WhiteboardNode[] nodes) {
-            this.nodes = nodes;
-            return this;
-        }
-
-
-        /**
-         * 是否覆盖画板中已存在的节点
-         * <p> 示例值：
-         *
-         * @param overwrite
-         * @return
-         */
-        public Builder overwrite(Boolean overwrite) {
-            this.overwrite = overwrite;
-            return this;
-        }
-
-
-        public CreateWhiteboardNodeReqBody build() {
-            return new CreateWhiteboardNodeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

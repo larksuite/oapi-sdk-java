@@ -13,163 +13,184 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class PatchPersonReq {
+  /**
+   * 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+   *
+   * <p>示例值："fe599b60-450f-46ff-b2ef-9f6675625b97"
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  /**
+   * 根据no_need_query判断更新后是否返回更新后个人信息，若填写为 “true”则 data 为空。;-
+   * 因个人信息数据较多，该接口返回全部字段会导致响应较慢，建议使用此参数；可基于[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)按需获取字段
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("no_need_query")
+  private Boolean noNeedQuery;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  public Boolean getNoNeedQuery() {
+    return this.noNeedQuery;
+  }
+
+  public void setNoNeedQuery(Boolean noNeedQuery) {
+    this.noNeedQuery = noNeedQuery;
+  }
+
+  /**
+   * 个人信息 ID;- 该 ID
+   * 在[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)时可从响应体中获取（person_id）;-
+   * 此外你也可以调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口，获取指定员工的
+   * person_id。
+   *
+   * <p>示例值：12454646
+   */
+  @Path
+  @SerializedName("person_id")
+  private String personId;
+
+  public String getPersonId() {
+    return this.personId;
+  }
+
+  public void setPersonId(String personId) {
+    this.personId = personId;
+  }
+
+  @Body private PersonInfo body;
+
+  public PersonInfo getPersonInfo() {
+    return this.body;
+  }
+
+  public void setPersonInfo(PersonInfo body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchPersonReq() {}
+
+  public PatchPersonReq(Builder builder) {
     /**
-     * 根据client_token是否一致来判断是否为同一请求
-     * <p> 示例值：12454646
+     * 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+     *
+     * <p>示例值："fe599b60-450f-46ff-b2ef-9f6675625b97"
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
-     * 根据no_need_query判断更新后是否做查询请求并返回个人信息
-     * <p> 示例值：false
+     * 根据no_need_query判断更新后是否返回更新后个人信息，若填写为 “true”则 data 为空。;-
+     * 因个人信息数据较多，该接口返回全部字段会导致响应较慢，建议使用此参数；可基于[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)按需获取字段
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("no_need_query")
-    private Boolean noNeedQuery;
+    this.noNeedQuery = builder.noNeedQuery;
     /**
-     * person的ID
-     * <p> 示例值：12454646
+     * 个人信息 ID;- 该 ID
+     * 在[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)时可从响应体中获取（person_id）;-
+     * 此外你也可以调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口，获取指定员工的
+     * person_id。
+     *
+     * <p>示例值：12454646
      */
-    @Path
-    @SerializedName("person_id")
-    private String personId;
-    @Body
+    this.personId = builder.personId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        clientToken; // 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+    private Boolean noNeedQuery; // 根据no_need_query判断更新后是否返回更新后个人信息，若填写为 “true”则 data 为空。;-
+
+    // 因个人信息数据较多，该接口返回全部字段会导致响应较慢，建议使用此参数；可基于[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)按需获取字段
+
+    /**
+     * 操作的唯一标识，用于幂等的进行更新操作，格式为标准的 UUIDV4。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新操作。
+     *
+     * <p>示例值："fe599b60-450f-46ff-b2ef-9f6675625b97"
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    /**
+     * 根据no_need_query判断更新后是否返回更新后个人信息，若填写为 “true”则 data 为空。;-
+     * 因个人信息数据较多，该接口返回全部字段会导致响应较慢，建议使用此参数；可基于[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)按需获取字段
+     *
+     * <p>示例值：false
+     *
+     * @param noNeedQuery
+     * @return
+     */
+    public Builder noNeedQuery(Boolean noNeedQuery) {
+      this.noNeedQuery = noNeedQuery;
+      return this;
+    }
+
+    private String personId; // 个人信息 ID;- 该 ID
+
+    // 在[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)时可从响应体中获取（person_id）;- 此外你也可以调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口，获取指定员工的 person_id。
+
+    /**
+     * 个人信息 ID;- 该 ID
+     * 在[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)时可从响应体中获取（person_id）;-
+     * 此外你也可以调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口，获取指定员工的
+     * person_id。
+     *
+     * <p>示例值：12454646
+     *
+     * @param personId
+     * @return
+     */
+    public Builder personId(String personId) {
+      this.personId = personId;
+      return this;
+    }
+
     private PersonInfo body;
 
-    // builder 开始
-    public PatchPersonReq() {
-    }
-
-    public PatchPersonReq(Builder builder) {
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 根据no_need_query判断更新后是否做查询请求并返回个人信息
-         * <p> 示例值：false
-         */
-        this.noNeedQuery = builder.noNeedQuery;
-        /**
-         * person的ID
-         * <p> 示例值：12454646
-         */
-        this.personId = builder.personId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public Boolean getNoNeedQuery() {
-        return this.noNeedQuery;
-    }
-
-    public void setNoNeedQuery(Boolean noNeedQuery) {
-        this.noNeedQuery = noNeedQuery;
-    }
-
-    public String getPersonId() {
-        return this.personId;
-    }
-
-    public void setPersonId(String personId) {
-        this.personId = personId;
-    }
-
     public PersonInfo getPersonInfo() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPersonInfo(PersonInfo body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder personInfo(PersonInfo body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 根据client_token是否一致来判断是否为同一请求
-        private Boolean noNeedQuery; // 根据no_need_query判断更新后是否做查询请求并返回个人信息
-        private String personId; // person的ID
-        private PersonInfo body;
-
-        /**
-         * 根据client_token是否一致来判断是否为同一请求
-         * <p> 示例值：12454646
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 根据no_need_query判断更新后是否做查询请求并返回个人信息
-         * <p> 示例值：false
-         *
-         * @param noNeedQuery
-         * @return
-         */
-        public Builder noNeedQuery(Boolean noNeedQuery) {
-            this.noNeedQuery = noNeedQuery;
-            return this;
-        }
-
-        /**
-         * person的ID
-         * <p> 示例值：12454646
-         *
-         * @param personId
-         * @return
-         */
-        public Builder personId(String personId) {
-            this.personId = personId;
-            return this;
-        }
-
-        public PersonInfo getPersonInfo() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder personInfo(PersonInfo body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchPersonReq build() {
-            return new PatchPersonReq(this);
-        }
+    public PatchPersonReq build() {
+      return new PatchPersonReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

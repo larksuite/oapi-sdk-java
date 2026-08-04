@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AilyMessageFilter {
+  /**
+   * 运行 ID
+   *
+   * <p>示例值：run_4dfrxvctjqzzj
+   */
+  @SerializedName("run_id")
+  private String runId;
+
+  /**
+   * 返回生成中的消息
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("with_partial_message")
+  private Boolean withPartialMessage;
+
+  public String getRunId() {
+    return this.runId;
+  }
+
+  public void setRunId(String runId) {
+    this.runId = runId;
+  }
+
+  public Boolean getWithPartialMessage() {
+    return this.withPartialMessage;
+  }
+
+  public void setWithPartialMessage(Boolean withPartialMessage) {
+    this.withPartialMessage = withPartialMessage;
+  }
+
+  // builder 开始
+  public AilyMessageFilter() {}
+
+  public AilyMessageFilter(Builder builder) {
     /**
      * 运行 ID
-     * <p> 示例值：run_4dfrxvctjqzzj
+     *
+     * <p>示例值：run_4dfrxvctjqzzj
      */
-    @SerializedName("run_id")
-    private String runId;
+    this.runId = builder.runId;
     /**
      * 返回生成中的消息
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("with_partial_message")
+    this.withPartialMessage = builder.withPartialMessage;
+  }
+
+  public static class Builder {
+    /**
+     * 运行 ID
+     *
+     * <p>示例值：run_4dfrxvctjqzzj
+     */
+    private String runId;
+
+    /**
+     * 返回生成中的消息
+     *
+     * <p>示例值：false
+     */
     private Boolean withPartialMessage;
 
-    // builder 开始
-    public AilyMessageFilter() {
+    /**
+     * 运行 ID
+     *
+     * <p>示例值：run_4dfrxvctjqzzj
+     *
+     * @param runId
+     * @return
+     */
+    public Builder runId(String runId) {
+      this.runId = runId;
+      return this;
     }
 
-    public AilyMessageFilter(Builder builder) {
-        /**
-         * 运行 ID
-         * <p> 示例值：run_4dfrxvctjqzzj
-         */
-        this.runId = builder.runId;
-        /**
-         * 返回生成中的消息
-         * <p> 示例值：false
-         */
-        this.withPartialMessage = builder.withPartialMessage;
+    /**
+     * 返回生成中的消息
+     *
+     * <p>示例值：false
+     *
+     * @param withPartialMessage
+     * @return
+     */
+    public Builder withPartialMessage(Boolean withPartialMessage) {
+      this.withPartialMessage = withPartialMessage;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AilyMessageFilter build() {
+      return new AilyMessageFilter(this);
     }
+  }
 
-    public String getRunId() {
-        return this.runId;
-    }
-
-    public void setRunId(String runId) {
-        this.runId = runId;
-    }
-
-    public Boolean getWithPartialMessage() {
-        return this.withPartialMessage;
-    }
-
-    public void setWithPartialMessage(Boolean withPartialMessage) {
-        this.withPartialMessage = withPartialMessage;
-    }
-
-    public static class Builder {
-        /**
-         * 运行 ID
-         * <p> 示例值：run_4dfrxvctjqzzj
-         */
-        private String runId;
-        /**
-         * 返回生成中的消息
-         * <p> 示例值：false
-         */
-        private Boolean withPartialMessage;
-
-        /**
-         * 运行 ID
-         * <p> 示例值：run_4dfrxvctjqzzj
-         *
-         * @param runId
-         * @return
-         */
-        public Builder runId(String runId) {
-            this.runId = runId;
-            return this;
-        }
-
-
-        /**
-         * 返回生成中的消息
-         * <p> 示例值：false
-         *
-         * @param withPartialMessage
-         * @return
-         */
-        public Builder withPartialMessage(Boolean withPartialMessage) {
-            this.withPartialMessage = withPartialMessage;
-            return this;
-        }
-
-
-        public AilyMessageFilter build() {
-            return new AilyMessageFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,142 +13,157 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.attendance.v1.enums.*;
 
 public class UpdateUserStatsViewReq {
+  /**
+   * 响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+   *
+   * <p>示例值：employee_id
+   */
+  @Query
+  @SerializedName("employee_type")
+  private String employeeType;
+
+  public String getEmployeeType() {
+    return this.employeeType;
+  }
+
+  public void setEmployeeType(String employeeType) {
+    this.employeeType = employeeType;
+  }
+
+  /**
+   * 用户视图
+   * ID，获取方式：1）[查询统计设置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
+   *
+   * <p>示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
+   */
+  @Path
+  @SerializedName("user_stats_view_id")
+  private String userStatsViewId;
+
+  public String getUserStatsViewId() {
+    return this.userStatsViewId;
+  }
+
+  public void setUserStatsViewId(String userStatsViewId) {
+    this.userStatsViewId = userStatsViewId;
+  }
+
+  @Body private UpdateUserStatsViewReqBody body;
+
+  public UpdateUserStatsViewReqBody getUpdateUserStatsViewReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateUserStatsViewReqBody(UpdateUserStatsViewReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateUserStatsViewReq() {}
+
+  public UpdateUserStatsViewReq(Builder builder) {
     /**
-     * 员工工号类型
-     * <p> 示例值：employee_id
+     * 响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+     *
+     * <p>示例值：employee_id
      */
-    @Query
-    @SerializedName("employee_type")
-    private String employeeType;
+    this.employeeType = builder.employeeType;
     /**
-     * 用户视图 ID，获取方式：1）[查询统计设置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
-     * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
+     * 用户视图
+     * ID，获取方式：1）[查询统计设置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
+     *
+     * <p>示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
      */
-    @Path
-    @SerializedName("user_stats_view_id")
-    private String userStatsViewId;
-    @Body
+    this.userStatsViewId = builder.userStatsViewId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String employeeType; // 响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+
+    // ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+
+    /**
+     * 响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+     *
+     * <p>示例值：employee_id
+     *
+     * @param employeeType
+     * @return
+     */
+    public Builder employeeType(String employeeType) {
+      this.employeeType = employeeType;
+      return this;
+    }
+
+    /**
+     * 响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
+     *
+     * <p>示例值：employee_id
+     *
+     * @param employeeType {@link
+     *     com.lark.oapi.service.attendance.v1.enums.UpdateUserStatsViewUpdateViewEmployeeTypeEnum}
+     * @return
+     */
+    public Builder employeeType(
+        com.lark.oapi.service.attendance.v1.enums.UpdateUserStatsViewUpdateViewEmployeeTypeEnum
+            employeeType) {
+      this.employeeType = employeeType.getValue();
+      return this;
+    }
+
+    private String userStatsViewId; // 用户视图
+
+    // ID，获取方式：1）[查询统计设置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
+
+    /**
+     * 用户视图
+     * ID，获取方式：1）[查询统计设置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
+     *
+     * <p>示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
+     *
+     * @param userStatsViewId
+     * @return
+     */
+    public Builder userStatsViewId(String userStatsViewId) {
+      this.userStatsViewId = userStatsViewId;
+      return this;
+    }
+
     private UpdateUserStatsViewReqBody body;
 
-    // builder 开始
-    public UpdateUserStatsViewReq() {
-    }
-
-    public UpdateUserStatsViewReq(Builder builder) {
-        /**
-         * 员工工号类型
-         * <p> 示例值：employee_id
-         */
-        this.employeeType = builder.employeeType;
-        /**
-         * 用户视图 ID，获取方式：1）[查询统计设置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
-         * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
-         */
-        this.userStatsViewId = builder.userStatsViewId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getEmployeeType() {
-        return this.employeeType;
-    }
-
-    public void setEmployeeType(String employeeType) {
-        this.employeeType = employeeType;
-    }
-
-    public String getUserStatsViewId() {
-        return this.userStatsViewId;
-    }
-
-    public void setUserStatsViewId(String userStatsViewId) {
-        this.userStatsViewId = userStatsViewId;
-    }
-
     public UpdateUserStatsViewReqBody getUpdateUserStatsViewReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateUserStatsViewReqBody(UpdateUserStatsViewReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateUserStatsViewReqBody(UpdateUserStatsViewReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String employeeType; // 员工工号类型
-        private String userStatsViewId; // 用户视图 ID，获取方式：1）[查询统计设置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
-        private UpdateUserStatsViewReqBody body;
-
-        /**
-         * 员工工号类型
-         * <p> 示例值：employee_id
-         *
-         * @param employeeType
-         * @return
-         */
-        public Builder employeeType(String employeeType) {
-            this.employeeType = employeeType;
-            return this;
-        }
-
-        /**
-         * 员工工号类型
-         * <p> 示例值：employee_id
-         *
-         * @param employeeType {@link com.lark.oapi.service.attendance.v1.enums.UpdateUserStatsViewUpdateViewEmployeeTypeEnum}
-         * @return
-         */
-        public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.UpdateUserStatsViewUpdateViewEmployeeTypeEnum employeeType) {
-            this.employeeType = employeeType.getValue();
-            return this;
-        }
-
-        /**
-         * 用户视图 ID，获取方式：1）[查询统计设置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_stats_view/query)
-         * <p> 示例值：TmpZNU5qTTJORFF6T1RnNU5UTTNOakV6TWl0dGIyNTBhQT09
-         *
-         * @param userStatsViewId
-         * @return
-         */
-        public Builder userStatsViewId(String userStatsViewId) {
-            this.userStatsViewId = userStatsViewId;
-            return this;
-        }
-
-        public UpdateUserStatsViewReqBody getUpdateUserStatsViewReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateUserStatsViewReqBody(UpdateUserStatsViewReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateUserStatsViewReq build() {
-            return new UpdateUserStatsViewReq(this);
-        }
+    public UpdateUserStatsViewReq build() {
+      return new UpdateUserStatsViewReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

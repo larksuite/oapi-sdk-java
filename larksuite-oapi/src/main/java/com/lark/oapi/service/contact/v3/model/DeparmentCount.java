@@ -13,220 +13,219 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeparmentCount {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("department_id")
-    private String departmentId;
+  /** 示例值： */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 部门下的直属部门数量
+   *
+   * <p>示例值：
+   */
+  @SerializedName("direct_department_count")
+  private Integer directDepartmentCount;
+
+  /**
+   * 部门下的直属成员数量，包含部门负责人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("direct_user_count")
+  private Integer directUserCount;
+
+  /**
+   * 部门下所有部门的数量，包含递归的子部门
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_count")
+  private Integer departmentCount;
+
+  /**
+   * 部门下所有成员数，包含递归子部门的成员，包含部门负责人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_count")
+  private Integer userCount;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public Integer getDirectDepartmentCount() {
+    return this.directDepartmentCount;
+  }
+
+  public void setDirectDepartmentCount(Integer directDepartmentCount) {
+    this.directDepartmentCount = directDepartmentCount;
+  }
+
+  public Integer getDirectUserCount() {
+    return this.directUserCount;
+  }
+
+  public void setDirectUserCount(Integer directUserCount) {
+    this.directUserCount = directUserCount;
+  }
+
+  public Integer getDepartmentCount() {
+    return this.departmentCount;
+  }
+
+  public void setDepartmentCount(Integer departmentCount) {
+    this.departmentCount = departmentCount;
+  }
+
+  public Integer getUserCount() {
+    return this.userCount;
+  }
+
+  public void setUserCount(Integer userCount) {
+    this.userCount = userCount;
+  }
+
+  // builder 开始
+  public DeparmentCount() {}
+
+  public DeparmentCount(Builder builder) {
+    /** 示例值： */
+    this.departmentId = builder.departmentId;
     /**
      * 部门下的直属部门数量
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("direct_department_count")
-    private Integer directDepartmentCount;
+    this.directDepartmentCount = builder.directDepartmentCount;
     /**
      * 部门下的直属成员数量，包含部门负责人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("direct_user_count")
-    private Integer directUserCount;
+    this.directUserCount = builder.directUserCount;
     /**
      * 部门下所有部门的数量，包含递归的子部门
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_count")
-    private Integer departmentCount;
+    this.departmentCount = builder.departmentCount;
     /**
      * 部门下所有成员数，包含递归子部门的成员，包含部门负责人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_count")
+    this.userCount = builder.userCount;
+  }
+
+  public static class Builder {
+    /** 示例值： */
+    private String departmentId;
+
+    /**
+     * 部门下的直属部门数量
+     *
+     * <p>示例值：
+     */
+    private Integer directDepartmentCount;
+
+    /**
+     * 部门下的直属成员数量，包含部门负责人
+     *
+     * <p>示例值：
+     */
+    private Integer directUserCount;
+
+    /**
+     * 部门下所有部门的数量，包含递归的子部门
+     *
+     * <p>示例值：
+     */
+    private Integer departmentCount;
+
+    /**
+     * 部门下所有成员数，包含递归子部门的成员，包含部门负责人
+     *
+     * <p>示例值：
+     */
     private Integer userCount;
 
-    // builder 开始
-    public DeparmentCount() {
+    /**
+     * 示例值：
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public DeparmentCount(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 部门下的直属部门数量
-         * <p> 示例值：
-         */
-        this.directDepartmentCount = builder.directDepartmentCount;
-        /**
-         * 部门下的直属成员数量，包含部门负责人
-         * <p> 示例值：
-         */
-        this.directUserCount = builder.directUserCount;
-        /**
-         * 部门下所有部门的数量，包含递归的子部门
-         * <p> 示例值：
-         */
-        this.departmentCount = builder.departmentCount;
-        /**
-         * 部门下所有成员数，包含递归子部门的成员，包含部门负责人
-         * <p> 示例值：
-         */
-        this.userCount = builder.userCount;
+    /**
+     * 部门下的直属部门数量
+     *
+     * <p>示例值：
+     *
+     * @param directDepartmentCount
+     * @return
+     */
+    public Builder directDepartmentCount(Integer directDepartmentCount) {
+      this.directDepartmentCount = directDepartmentCount;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门下的直属成员数量，包含部门负责人
+     *
+     * <p>示例值：
+     *
+     * @param directUserCount
+     * @return
+     */
+    public Builder directUserCount(Integer directUserCount) {
+      this.directUserCount = directUserCount;
+      return this;
     }
 
-    public String getDepartmentId() {
-        return this.departmentId;
+    /**
+     * 部门下所有部门的数量，包含递归的子部门
+     *
+     * <p>示例值：
+     *
+     * @param departmentCount
+     * @return
+     */
+    public Builder departmentCount(Integer departmentCount) {
+      this.departmentCount = departmentCount;
+      return this;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    /**
+     * 部门下所有成员数，包含递归子部门的成员，包含部门负责人
+     *
+     * <p>示例值：
+     *
+     * @param userCount
+     * @return
+     */
+    public Builder userCount(Integer userCount) {
+      this.userCount = userCount;
+      return this;
     }
 
-    public Integer getDirectDepartmentCount() {
-        return this.directDepartmentCount;
+    public DeparmentCount build() {
+      return new DeparmentCount(this);
     }
+  }
 
-    public void setDirectDepartmentCount(Integer directDepartmentCount) {
-        this.directDepartmentCount = directDepartmentCount;
-    }
-
-    public Integer getDirectUserCount() {
-        return this.directUserCount;
-    }
-
-    public void setDirectUserCount(Integer directUserCount) {
-        this.directUserCount = directUserCount;
-    }
-
-    public Integer getDepartmentCount() {
-        return this.departmentCount;
-    }
-
-    public void setDepartmentCount(Integer departmentCount) {
-        this.departmentCount = departmentCount;
-    }
-
-    public Integer getUserCount() {
-        return this.userCount;
-    }
-
-    public void setUserCount(Integer userCount) {
-        this.userCount = userCount;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private String departmentId;
-        /**
-         * 部门下的直属部门数量
-         * <p> 示例值：
-         */
-        private Integer directDepartmentCount;
-        /**
-         * 部门下的直属成员数量，包含部门负责人
-         * <p> 示例值：
-         */
-        private Integer directUserCount;
-        /**
-         * 部门下所有部门的数量，包含递归的子部门
-         * <p> 示例值：
-         */
-        private Integer departmentCount;
-        /**
-         * 部门下所有成员数，包含递归子部门的成员，包含部门负责人
-         * <p> 示例值：
-         */
-        private Integer userCount;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 部门下的直属部门数量
-         * <p> 示例值：
-         *
-         * @param directDepartmentCount
-         * @return
-         */
-        public Builder directDepartmentCount(Integer directDepartmentCount) {
-            this.directDepartmentCount = directDepartmentCount;
-            return this;
-        }
-
-
-        /**
-         * 部门下的直属成员数量，包含部门负责人
-         * <p> 示例值：
-         *
-         * @param directUserCount
-         * @return
-         */
-        public Builder directUserCount(Integer directUserCount) {
-            this.directUserCount = directUserCount;
-            return this;
-        }
-
-
-        /**
-         * 部门下所有部门的数量，包含递归的子部门
-         * <p> 示例值：
-         *
-         * @param departmentCount
-         * @return
-         */
-        public Builder departmentCount(Integer departmentCount) {
-            this.departmentCount = departmentCount;
-            return this;
-        }
-
-
-        /**
-         * 部门下所有成员数，包含递归子部门的成员，包含部门负责人
-         * <p> 示例值：
-         *
-         * @param userCount
-         * @return
-         */
-        public Builder userCount(Integer userCount) {
-            this.userCount = userCount;
-            return this;
-        }
-
-
-        public DeparmentCount build() {
-            return new DeparmentCount(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

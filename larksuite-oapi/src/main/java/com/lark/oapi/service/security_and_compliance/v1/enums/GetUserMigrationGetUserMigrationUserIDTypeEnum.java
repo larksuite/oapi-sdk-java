@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.enums;
 
-/**
- * 用户 id 类型
- */
+/** 用户 id 类型 */
 public enum GetUserMigrationGetUserMigrationUserIDTypeEnum {
-    USER_ID("user_id"), // 以user_id来标识用户
-    UNION_ID("union_id"), // 以union_id来标识用户
-    OPEN_ID("open_id"), // 以open_id来标识用户
-    ;
-    private String value;
+  USER_ID("user_id"), // 以user_id来标识用户
+  UNION_ID("union_id"), // 以union_id来标识用户
+  OPEN_ID("open_id"), // 以open_id来标识用户
+  ;
+  private String value;
 
-    GetUserMigrationGetUserMigrationUserIDTypeEnum(String value) {
-        this.value = value;
-    }
+  GetUserMigrationGetUserMigrationUserIDTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

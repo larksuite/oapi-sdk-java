@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2EmploymentResignedV1Data {
-    /**
-     * 主对象ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("employment_id")
-    private String employmentId;
+  /**
+   * 离职员工雇佣ID，可通过[批量查询员工信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取员工信息。
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
 }

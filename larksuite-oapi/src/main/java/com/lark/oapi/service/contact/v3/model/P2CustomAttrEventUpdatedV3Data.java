@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2CustomAttrEventUpdatedV3Data {
-    /**
-     * 变更后信息
-     * <p> 示例值：
-     */
-    @SerializedName("object")
-    private CustomAttrEvent object;
-    /**
-     * 变更前信息
-     * <p> 示例值：
-     */
-    @SerializedName("old_object")
-    private CustomAttrEvent oldObject;
+  /**
+   * 变更前信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("object")
+  private CustomAttrEvent object;
 
-    public CustomAttrEvent getObject() {
-        return this.object;
-    }
+  /**
+   * 变更前信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("old_object")
+  private CustomAttrEvent oldObject;
 
-    public void setObject(CustomAttrEvent object) {
-        this.object = object;
-    }
+  public CustomAttrEvent getObject() {
+    return this.object;
+  }
 
-    public CustomAttrEvent getOldObject() {
-        return this.oldObject;
-    }
+  public void setObject(CustomAttrEvent object) {
+    this.object = object;
+  }
 
-    public void setOldObject(CustomAttrEvent oldObject) {
-        this.oldObject = oldObject;
-    }
+  public CustomAttrEvent getOldObject() {
+    return this.oldObject;
+  }
 
+  public void setOldObject(CustomAttrEvent oldObject) {
+    this.oldObject = oldObject;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomAttrEvent {
+  /**
+   * 通讯录字段键值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("contact_field_key")
+  private String[] contactFieldKey;
+
+  /**
+   * 开关是否打开
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("allow_open_query")
+  private Boolean allowOpenQuery;
+
+  public String[] getContactFieldKey() {
+    return this.contactFieldKey;
+  }
+
+  public void setContactFieldKey(String[] contactFieldKey) {
+    this.contactFieldKey = contactFieldKey;
+  }
+
+  public Boolean getAllowOpenQuery() {
+    return this.allowOpenQuery;
+  }
+
+  public void setAllowOpenQuery(Boolean allowOpenQuery) {
+    this.allowOpenQuery = allowOpenQuery;
+  }
+
+  // builder 开始
+  public CustomAttrEvent() {}
+
+  public CustomAttrEvent(Builder builder) {
     /**
      * 通讯录字段键值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("contact_field_key")
-    private String[] contactFieldKey;
+    this.contactFieldKey = builder.contactFieldKey;
     /**
      * 开关是否打开
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("allow_open_query")
+    this.allowOpenQuery = builder.allowOpenQuery;
+  }
+
+  public static class Builder {
+    /**
+     * 通讯录字段键值
+     *
+     * <p>示例值：
+     */
+    private String[] contactFieldKey;
+
+    /**
+     * 开关是否打开
+     *
+     * <p>示例值：true
+     */
     private Boolean allowOpenQuery;
 
-    // builder 开始
-    public CustomAttrEvent() {
+    /**
+     * 通讯录字段键值
+     *
+     * <p>示例值：
+     *
+     * @param contactFieldKey
+     * @return
+     */
+    public Builder contactFieldKey(String[] contactFieldKey) {
+      this.contactFieldKey = contactFieldKey;
+      return this;
     }
 
-    public CustomAttrEvent(Builder builder) {
-        /**
-         * 通讯录字段键值
-         * <p> 示例值：
-         */
-        this.contactFieldKey = builder.contactFieldKey;
-        /**
-         * 开关是否打开
-         * <p> 示例值：true
-         */
-        this.allowOpenQuery = builder.allowOpenQuery;
+    /**
+     * 开关是否打开
+     *
+     * <p>示例值：true
+     *
+     * @param allowOpenQuery
+     * @return
+     */
+    public Builder allowOpenQuery(Boolean allowOpenQuery) {
+      this.allowOpenQuery = allowOpenQuery;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CustomAttrEvent build() {
+      return new CustomAttrEvent(this);
     }
+  }
 
-    public String[] getContactFieldKey() {
-        return this.contactFieldKey;
-    }
-
-    public void setContactFieldKey(String[] contactFieldKey) {
-        this.contactFieldKey = contactFieldKey;
-    }
-
-    public Boolean getAllowOpenQuery() {
-        return this.allowOpenQuery;
-    }
-
-    public void setAllowOpenQuery(Boolean allowOpenQuery) {
-        this.allowOpenQuery = allowOpenQuery;
-    }
-
-    public static class Builder {
-        /**
-         * 通讯录字段键值
-         * <p> 示例值：
-         */
-        private String[] contactFieldKey;
-        /**
-         * 开关是否打开
-         * <p> 示例值：true
-         */
-        private Boolean allowOpenQuery;
-
-        /**
-         * 通讯录字段键值
-         * <p> 示例值：
-         *
-         * @param contactFieldKey
-         * @return
-         */
-        public Builder contactFieldKey(String[] contactFieldKey) {
-            this.contactFieldKey = contactFieldKey;
-            return this;
-        }
-
-
-        /**
-         * 开关是否打开
-         * <p> 示例值：true
-         *
-         * @param allowOpenQuery
-         * @return
-         */
-        public Builder allowOpenQuery(Boolean allowOpenQuery) {
-            this.allowOpenQuery = allowOpenQuery;
-            return this;
-        }
-
-
-        public CustomAttrEvent build() {
-            return new CustomAttrEvent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

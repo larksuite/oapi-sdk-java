@@ -13,358 +13,390 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class StageTaskInfo {
+  /**
+   * 环节 ID
+   *
+   * <p>示例值：7263150499637379073
+   */
+  @SerializedName("stage_id")
+  private String stageId;
+
+  /**
+   * 周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 环节截止时间，毫秒时间戳
+   *
+   * <p>示例值：1625068800000
+   */
+  @SerializedName("deadline")
+  private String deadline;
+
+  /**
+   * 未完成的任务数量
+   *
+   * <p>示例值：99
+   */
+  @SerializedName("need_todo_count")
+  private Integer needTodoCount;
+
+  /**
+   * 处理任务的系统页面链接
+   *
+   * <p>示例值：https://performance.feishu-pre.cn/perf/kpi/7235911950407352321/fill
+   */
+  @SerializedName("jump_url")
+  private String jumpUrl;
+
+  /**
+   * 环节任务状态
+   *
+   * <p>示例值：all_done
+   */
+  @SerializedName("stage_task_status")
+  private String stageTaskStatus;
+
+  /**
+   * 任务分类
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("task_option_id")
+  private Integer taskOptionId;
+
+  /**
+   * 已完成的任务数量
+   *
+   * <p>示例值：99
+   */
+  @SerializedName("finished_count")
+  private Integer finishedCount;
+
+  public String getStageId() {
+    return this.stageId;
+  }
+
+  public void setStageId(String stageId) {
+    this.stageId = stageId;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getDeadline() {
+    return this.deadline;
+  }
+
+  public void setDeadline(String deadline) {
+    this.deadline = deadline;
+  }
+
+  public Integer getNeedTodoCount() {
+    return this.needTodoCount;
+  }
+
+  public void setNeedTodoCount(Integer needTodoCount) {
+    this.needTodoCount = needTodoCount;
+  }
+
+  public String getJumpUrl() {
+    return this.jumpUrl;
+  }
+
+  public void setJumpUrl(String jumpUrl) {
+    this.jumpUrl = jumpUrl;
+  }
+
+  public String getStageTaskStatus() {
+    return this.stageTaskStatus;
+  }
+
+  public void setStageTaskStatus(String stageTaskStatus) {
+    this.stageTaskStatus = stageTaskStatus;
+  }
+
+  public Integer getTaskOptionId() {
+    return this.taskOptionId;
+  }
+
+  public void setTaskOptionId(Integer taskOptionId) {
+    this.taskOptionId = taskOptionId;
+  }
+
+  public Integer getFinishedCount() {
+    return this.finishedCount;
+  }
+
+  public void setFinishedCount(Integer finishedCount) {
+    this.finishedCount = finishedCount;
+  }
+
+  // builder 开始
+  public StageTaskInfo() {}
+
+  public StageTaskInfo(Builder builder) {
     /**
-     * 环节ID
-     * <p> 示例值：7263150499637379073
+     * 环节 ID
+     *
+     * <p>示例值：7263150499637379073
      */
-    @SerializedName("stage_id")
-    private String stageId;
+    this.stageId = builder.stageId;
     /**
-     * 环节名称
-     * <p> 示例值：
+     * 周期名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
-     * 环节截止时间
-     * <p> 示例值：1625068800000
+     * 环节截止时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
      */
-    @SerializedName("deadline")
-    private String deadline;
+    this.deadline = builder.deadline;
     /**
-     * 环节任务数量
-     * <p> 示例值：99
+     * 未完成的任务数量
+     *
+     * <p>示例值：99
      */
-    @SerializedName("need_todo_count")
-    private Integer needTodoCount;
+    this.needTodoCount = builder.needTodoCount;
     /**
-     * 环节跳转链接
-     * <p> 示例值：/perf/review
+     * 处理任务的系统页面链接
+     *
+     * <p>示例值：https://performance.feishu-pre.cn/perf/kpi/7235911950407352321/fill
      */
-    @SerializedName("jump_url")
-    private String jumpUrl;
+    this.jumpUrl = builder.jumpUrl;
     /**
      * 环节任务状态
-     * <p> 示例值：all_done
+     *
+     * <p>示例值：all_done
      */
-    @SerializedName("stage_task_status")
+    this.stageTaskStatus = builder.stageTaskStatus;
+    /**
+     * 任务分类
+     *
+     * <p>示例值：1
+     */
+    this.taskOptionId = builder.taskOptionId;
+    /**
+     * 已完成的任务数量
+     *
+     * <p>示例值：99
+     */
+    this.finishedCount = builder.finishedCount;
+  }
+
+  public static class Builder {
+    /**
+     * 环节 ID
+     *
+     * <p>示例值：7263150499637379073
+     */
+    private String stageId;
+
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 环节截止时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     */
+    private String deadline;
+
+    /**
+     * 未完成的任务数量
+     *
+     * <p>示例值：99
+     */
+    private Integer needTodoCount;
+
+    /**
+     * 处理任务的系统页面链接
+     *
+     * <p>示例值：https://performance.feishu-pre.cn/perf/kpi/7235911950407352321/fill
+     */
+    private String jumpUrl;
+
+    /**
+     * 环节任务状态
+     *
+     * <p>示例值：all_done
+     */
     private String stageTaskStatus;
+
     /**
-     * 归属分类ID
-     * <p> 示例值：1
+     * 任务分类
+     *
+     * <p>示例值：1
      */
-    @SerializedName("task_option_id")
     private Integer taskOptionId;
+
     /**
-     * 环节已完成任务数量
-     * <p> 示例值：99
+     * 已完成的任务数量
+     *
+     * <p>示例值：99
      */
-    @SerializedName("finished_count")
     private Integer finishedCount;
 
-    // builder 开始
-    public StageTaskInfo() {
+    /**
+     * 环节 ID
+     *
+     * <p>示例值：7263150499637379073
+     *
+     * @param stageId
+     * @return
+     */
+    public Builder stageId(String stageId) {
+      this.stageId = stageId;
+      return this;
     }
 
-    public StageTaskInfo(Builder builder) {
-        /**
-         * 环节ID
-         * <p> 示例值：7263150499637379073
-         */
-        this.stageId = builder.stageId;
-        /**
-         * 环节名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 环节截止时间
-         * <p> 示例值：1625068800000
-         */
-        this.deadline = builder.deadline;
-        /**
-         * 环节任务数量
-         * <p> 示例值：99
-         */
-        this.needTodoCount = builder.needTodoCount;
-        /**
-         * 环节跳转链接
-         * <p> 示例值：/perf/review
-         */
-        this.jumpUrl = builder.jumpUrl;
-        /**
-         * 环节任务状态
-         * <p> 示例值：all_done
-         */
-        this.stageTaskStatus = builder.stageTaskStatus;
-        /**
-         * 归属分类ID
-         * <p> 示例值：1
-         */
-        this.taskOptionId = builder.taskOptionId;
-        /**
-         * 环节已完成任务数量
-         * <p> 示例值：99
-         */
-        this.finishedCount = builder.finishedCount;
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 环节截止时间，毫秒时间戳
+     *
+     * <p>示例值：1625068800000
+     *
+     * @param deadline
+     * @return
+     */
+    public Builder deadline(String deadline) {
+      this.deadline = deadline;
+      return this;
     }
 
-    public String getStageId() {
-        return this.stageId;
+    /**
+     * 未完成的任务数量
+     *
+     * <p>示例值：99
+     *
+     * @param needTodoCount
+     * @return
+     */
+    public Builder needTodoCount(Integer needTodoCount) {
+      this.needTodoCount = needTodoCount;
+      return this;
     }
 
-    public void setStageId(String stageId) {
-        this.stageId = stageId;
+    /**
+     * 处理任务的系统页面链接
+     *
+     * <p>示例值：https://performance.feishu-pre.cn/perf/kpi/7235911950407352321/fill
+     *
+     * @param jumpUrl
+     * @return
+     */
+    public Builder jumpUrl(String jumpUrl) {
+      this.jumpUrl = jumpUrl;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 环节任务状态
+     *
+     * <p>示例值：all_done
+     *
+     * @param stageTaskStatus
+     * @return
+     */
+    public Builder stageTaskStatus(String stageTaskStatus) {
+      this.stageTaskStatus = stageTaskStatus;
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    /**
+     * 环节任务状态
+     *
+     * <p>示例值：all_done
+     *
+     * @param stageTaskStatus {@link
+     *     com.lark.oapi.service.performance.v1.enums.StageTaskInfoStageTaskStatusEnum}
+     * @return
+     */
+    public Builder stageTaskStatus(
+        com.lark.oapi.service.performance.v1.enums.StageTaskInfoStageTaskStatusEnum
+            stageTaskStatus) {
+      this.stageTaskStatus = stageTaskStatus.getValue();
+      return this;
     }
 
-    public String getDeadline() {
-        return this.deadline;
+    /**
+     * 任务分类
+     *
+     * <p>示例值：1
+     *
+     * @param taskOptionId
+     * @return
+     */
+    public Builder taskOptionId(Integer taskOptionId) {
+      this.taskOptionId = taskOptionId;
+      return this;
     }
 
-    public void setDeadline(String deadline) {
-        this.deadline = deadline;
+    /**
+     * 任务分类
+     *
+     * <p>示例值：1
+     *
+     * @param taskOptionId {@link
+     *     com.lark.oapi.service.performance.v1.enums.StageTaskInfoTaskOptionIdEnum}
+     * @return
+     */
+    public Builder taskOptionId(
+        com.lark.oapi.service.performance.v1.enums.StageTaskInfoTaskOptionIdEnum taskOptionId) {
+      this.taskOptionId = taskOptionId.getValue();
+      return this;
     }
 
-    public Integer getNeedTodoCount() {
-        return this.needTodoCount;
+    /**
+     * 已完成的任务数量
+     *
+     * <p>示例值：99
+     *
+     * @param finishedCount
+     * @return
+     */
+    public Builder finishedCount(Integer finishedCount) {
+      this.finishedCount = finishedCount;
+      return this;
     }
 
-    public void setNeedTodoCount(Integer needTodoCount) {
-        this.needTodoCount = needTodoCount;
+    public StageTaskInfo build() {
+      return new StageTaskInfo(this);
     }
+  }
 
-    public String getJumpUrl() {
-        return this.jumpUrl;
-    }
-
-    public void setJumpUrl(String jumpUrl) {
-        this.jumpUrl = jumpUrl;
-    }
-
-    public String getStageTaskStatus() {
-        return this.stageTaskStatus;
-    }
-
-    public void setStageTaskStatus(String stageTaskStatus) {
-        this.stageTaskStatus = stageTaskStatus;
-    }
-
-    public Integer getTaskOptionId() {
-        return this.taskOptionId;
-    }
-
-    public void setTaskOptionId(Integer taskOptionId) {
-        this.taskOptionId = taskOptionId;
-    }
-
-    public Integer getFinishedCount() {
-        return this.finishedCount;
-    }
-
-    public void setFinishedCount(Integer finishedCount) {
-        this.finishedCount = finishedCount;
-    }
-
-    public static class Builder {
-        /**
-         * 环节ID
-         * <p> 示例值：7263150499637379073
-         */
-        private String stageId;
-        /**
-         * 环节名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 环节截止时间
-         * <p> 示例值：1625068800000
-         */
-        private String deadline;
-        /**
-         * 环节任务数量
-         * <p> 示例值：99
-         */
-        private Integer needTodoCount;
-        /**
-         * 环节跳转链接
-         * <p> 示例值：/perf/review
-         */
-        private String jumpUrl;
-        /**
-         * 环节任务状态
-         * <p> 示例值：all_done
-         */
-        private String stageTaskStatus;
-        /**
-         * 归属分类ID
-         * <p> 示例值：1
-         */
-        private Integer taskOptionId;
-        /**
-         * 环节已完成任务数量
-         * <p> 示例值：99
-         */
-        private Integer finishedCount;
-
-        /**
-         * 环节ID
-         * <p> 示例值：7263150499637379073
-         *
-         * @param stageId
-         * @return
-         */
-        public Builder stageId(String stageId) {
-            this.stageId = stageId;
-            return this;
-        }
-
-
-        /**
-         * 环节名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 环节截止时间
-         * <p> 示例值：1625068800000
-         *
-         * @param deadline
-         * @return
-         */
-        public Builder deadline(String deadline) {
-            this.deadline = deadline;
-            return this;
-        }
-
-
-        /**
-         * 环节任务数量
-         * <p> 示例值：99
-         *
-         * @param needTodoCount
-         * @return
-         */
-        public Builder needTodoCount(Integer needTodoCount) {
-            this.needTodoCount = needTodoCount;
-            return this;
-        }
-
-
-        /**
-         * 环节跳转链接
-         * <p> 示例值：/perf/review
-         *
-         * @param jumpUrl
-         * @return
-         */
-        public Builder jumpUrl(String jumpUrl) {
-            this.jumpUrl = jumpUrl;
-            return this;
-        }
-
-
-        /**
-         * 环节任务状态
-         * <p> 示例值：all_done
-         *
-         * @param stageTaskStatus
-         * @return
-         */
-        public Builder stageTaskStatus(String stageTaskStatus) {
-            this.stageTaskStatus = stageTaskStatus;
-            return this;
-        }
-
-        /**
-         * 环节任务状态
-         * <p> 示例值：all_done
-         *
-         * @param stageTaskStatus {@link com.lark.oapi.service.performance.v1.enums.StageTaskInfoStageTaskStatusEnum}
-         * @return
-         */
-        public Builder stageTaskStatus(com.lark.oapi.service.performance.v1.enums.StageTaskInfoStageTaskStatusEnum stageTaskStatus) {
-            this.stageTaskStatus = stageTaskStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 归属分类ID
-         * <p> 示例值：1
-         *
-         * @param taskOptionId
-         * @return
-         */
-        public Builder taskOptionId(Integer taskOptionId) {
-            this.taskOptionId = taskOptionId;
-            return this;
-        }
-
-        /**
-         * 归属分类ID
-         * <p> 示例值：1
-         *
-         * @param taskOptionId {@link com.lark.oapi.service.performance.v1.enums.StageTaskInfoTaskOptionIdEnum}
-         * @return
-         */
-        public Builder taskOptionId(com.lark.oapi.service.performance.v1.enums.StageTaskInfoTaskOptionIdEnum taskOptionId) {
-            this.taskOptionId = taskOptionId.getValue();
-            return this;
-        }
-
-
-        /**
-         * 环节已完成任务数量
-         * <p> 示例值：99
-         *
-         * @param finishedCount
-         * @return
-         */
-        public Builder finishedCount(Integer finishedCount) {
-            this.finishedCount = finishedCount;
-            return this;
-        }
-
-
-        public StageTaskInfo build() {
-            return new StageTaskInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

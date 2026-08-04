@@ -13,106 +13,104 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.aily.v1.enums.*;
 
 public class CancelAilySessionRunReq {
+  /**
+   * 会话 ID；参考
+   * [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口
+   *
+   * <p>示例值：session_4dfunz7sp1g8m
+   */
+  @Path
+  @SerializedName("aily_session_id")
+  private String ailySessionId;
+
+  /**
+   * 运行的唯一 ID
+   *
+   * <p>示例值：run_4dfrxvctjqzzj
+   */
+  @Path
+  @SerializedName("run_id")
+  private String runId;
+
+  public String getAilySessionId() {
+    return this.ailySessionId;
+  }
+
+  public void setAilySessionId(String ailySessionId) {
+    this.ailySessionId = ailySessionId;
+  }
+
+  public String getRunId() {
+    return this.runId;
+  }
+
+  public void setRunId(String runId) {
+    this.runId = runId;
+  }
+
+  // builder 开始
+  public CancelAilySessionRunReq() {}
+
+  public CancelAilySessionRunReq(Builder builder) {
     /**
-     * 会话 ID
-     * <p> 示例值：session_4dfunz7sp1g8m
+     * 会话 ID；参考
+     * [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
      */
-    @Path
-    @SerializedName("aily_session_id")
-    private String ailySessionId;
+    this.ailySessionId = builder.ailySessionId;
     /**
-     * 运行 ID
-     * <p> 示例值：run_4dfrxvctjqzzj
+     * 运行的唯一 ID
+     *
+     * <p>示例值：run_4dfrxvctjqzzj
      */
-    @Path
-    @SerializedName("run_id")
-    private String runId;
+    this.runId = builder.runId;
+  }
 
-    // builder 开始
-    public CancelAilySessionRunReq() {
+  public static class Builder {
+
+    private String ailySessionId; // 会话 ID；参考
+    // [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口
+    private String runId; // 运行的唯一 ID
+
+    /**
+     * 会话 ID；参考
+     * [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口
+     *
+     * <p>示例值：session_4dfunz7sp1g8m
+     *
+     * @param ailySessionId
+     * @return
+     */
+    public Builder ailySessionId(String ailySessionId) {
+      this.ailySessionId = ailySessionId;
+      return this;
     }
 
-    public CancelAilySessionRunReq(Builder builder) {
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         */
-        this.ailySessionId = builder.ailySessionId;
-        /**
-         * 运行 ID
-         * <p> 示例值：run_4dfrxvctjqzzj
-         */
-        this.runId = builder.runId;
+    /**
+     * 运行的唯一 ID
+     *
+     * <p>示例值：run_4dfrxvctjqzzj
+     *
+     * @param runId
+     * @return
+     */
+    public Builder runId(String runId) {
+      this.runId = runId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CancelAilySessionRunReq build() {
+      return new CancelAilySessionRunReq(this);
     }
+  }
 
-    public String getAilySessionId() {
-        return this.ailySessionId;
-    }
-
-    public void setAilySessionId(String ailySessionId) {
-        this.ailySessionId = ailySessionId;
-    }
-
-    public String getRunId() {
-        return this.runId;
-    }
-
-    public void setRunId(String runId) {
-        this.runId = runId;
-    }
-
-    public static class Builder {
-
-        private String ailySessionId; // 会话 ID
-        private String runId; // 运行 ID
-
-        /**
-         * 会话 ID
-         * <p> 示例值：session_4dfunz7sp1g8m
-         *
-         * @param ailySessionId
-         * @return
-         */
-        public Builder ailySessionId(String ailySessionId) {
-            this.ailySessionId = ailySessionId;
-            return this;
-        }
-
-
-        /**
-         * 运行 ID
-         * <p> 示例值：run_4dfrxvctjqzzj
-         *
-         * @param runId
-         * @return
-         */
-        public Builder runId(String runId) {
-            this.runId = runId;
-            return this;
-        }
-
-
-        public CancelAilySessionRunReq build() {
-            return new CancelAilySessionRunReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

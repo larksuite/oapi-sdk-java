@@ -13,148 +13,151 @@
 
 package com.lark.oapi.service.workplace.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BlockAccessData {
+  /**
+   * 时间,精确到天,格式yyyy-MM-dd
+   *
+   * <p>示例值：2023-03-12
+   */
+  @SerializedName("date")
+  private String date;
+
+  /**
+   * 小组件id（BlockID）。可前往 飞书管理后台 > 工作台 > 定制工作台，选择指定的工作台并进入工作台编辑器，点击某个小组件，即可查看页面右侧面板中该小组件名称下方的“BlockID”
+   *
+   * <p>示例值：283438293839422334
+   */
+  @SerializedName("block_id")
+  private String blockId;
+
+  /**
+   * 全部工作台的访问数据。包含默认工作台和定制工作台。由于历史原因，部分情况下这这两个数据的和加起来不等于全部工作台的访问数据。如有疑问，可联系飞书技术支持。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("access_data")
+  private AccessData accessData;
+
+  public String getDate() {
+    return this.date;
+  }
+
+  public void setDate(String date) {
+    this.date = date;
+  }
+
+  public String getBlockId() {
+    return this.blockId;
+  }
+
+  public void setBlockId(String blockId) {
+    this.blockId = blockId;
+  }
+
+  public AccessData getAccessData() {
+    return this.accessData;
+  }
+
+  public void setAccessData(AccessData accessData) {
+    this.accessData = accessData;
+  }
+
+  // builder 开始
+  public BlockAccessData() {}
+
+  public BlockAccessData(Builder builder) {
     /**
      * 时间,精确到天,格式yyyy-MM-dd
-     * <p> 示例值：2023-03-12
+     *
+     * <p>示例值：2023-03-12
      */
-    @SerializedName("date")
+    this.date = builder.date;
+    /**
+     * 小组件id（BlockID）。可前往 飞书管理后台 > 工作台 >
+     * 定制工作台，选择指定的工作台并进入工作台编辑器，点击某个小组件，即可查看页面右侧面板中该小组件名称下方的“BlockID”
+     *
+     * <p>示例值：283438293839422334
+     */
+    this.blockId = builder.blockId;
+    /**
+     * 全部工作台的访问数据。包含默认工作台和定制工作台。由于历史原因，部分情况下这这两个数据的和加起来不等于全部工作台的访问数据。如有疑问，可联系飞书技术支持。
+     *
+     * <p>示例值：
+     */
+    this.accessData = builder.accessData;
+  }
+
+  public static class Builder {
+    /**
+     * 时间,精确到天,格式yyyy-MM-dd
+     *
+     * <p>示例值：2023-03-12
+     */
     private String date;
+
     /**
-     * 小组件id
-     * <p> 示例值：283438293839422334
+     * 小组件id（BlockID）。可前往 飞书管理后台 > 工作台 >
+     * 定制工作台，选择指定的工作台并进入工作台编辑器，点击某个小组件，即可查看页面右侧面板中该小组件名称下方的“BlockID”
+     *
+     * <p>示例值：283438293839422334
      */
-    @SerializedName("block_id")
     private String blockId;
+
     /**
-     * block访问数据信息。
-     * <p> 示例值：
+     * 全部工作台的访问数据。包含默认工作台和定制工作台。由于历史原因，部分情况下这这两个数据的和加起来不等于全部工作台的访问数据。如有疑问，可联系飞书技术支持。
+     *
+     * <p>示例值：
      */
-    @SerializedName("access_data")
     private AccessData accessData;
 
-    // builder 开始
-    public BlockAccessData() {
+    /**
+     * 时间,精确到天,格式yyyy-MM-dd
+     *
+     * <p>示例值：2023-03-12
+     *
+     * @param date
+     * @return
+     */
+    public Builder date(String date) {
+      this.date = date;
+      return this;
     }
 
-    public BlockAccessData(Builder builder) {
-        /**
-         * 时间,精确到天,格式yyyy-MM-dd
-         * <p> 示例值：2023-03-12
-         */
-        this.date = builder.date;
-        /**
-         * 小组件id
-         * <p> 示例值：283438293839422334
-         */
-        this.blockId = builder.blockId;
-        /**
-         * block访问数据信息。
-         * <p> 示例值：
-         */
-        this.accessData = builder.accessData;
+    /**
+     * 小组件id（BlockID）。可前往 飞书管理后台 > 工作台 >
+     * 定制工作台，选择指定的工作台并进入工作台编辑器，点击某个小组件，即可查看页面右侧面板中该小组件名称下方的“BlockID”
+     *
+     * <p>示例值：283438293839422334
+     *
+     * @param blockId
+     * @return
+     */
+    public Builder blockId(String blockId) {
+      this.blockId = blockId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 全部工作台的访问数据。包含默认工作台和定制工作台。由于历史原因，部分情况下这这两个数据的和加起来不等于全部工作台的访问数据。如有疑问，可联系飞书技术支持。
+     *
+     * <p>示例值：
+     *
+     * @param accessData
+     * @return
+     */
+    public Builder accessData(AccessData accessData) {
+      this.accessData = accessData;
+      return this;
     }
 
-    public String getDate() {
-        return this.date;
+    public BlockAccessData build() {
+      return new BlockAccessData(this);
     }
+  }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getBlockId() {
-        return this.blockId;
-    }
-
-    public void setBlockId(String blockId) {
-        this.blockId = blockId;
-    }
-
-    public AccessData getAccessData() {
-        return this.accessData;
-    }
-
-    public void setAccessData(AccessData accessData) {
-        this.accessData = accessData;
-    }
-
-    public static class Builder {
-        /**
-         * 时间,精确到天,格式yyyy-MM-dd
-         * <p> 示例值：2023-03-12
-         */
-        private String date;
-        /**
-         * 小组件id
-         * <p> 示例值：283438293839422334
-         */
-        private String blockId;
-        /**
-         * block访问数据信息。
-         * <p> 示例值：
-         */
-        private AccessData accessData;
-
-        /**
-         * 时间,精确到天,格式yyyy-MM-dd
-         * <p> 示例值：2023-03-12
-         *
-         * @param date
-         * @return
-         */
-        public Builder date(String date) {
-            this.date = date;
-            return this;
-        }
-
-
-        /**
-         * 小组件id
-         * <p> 示例值：283438293839422334
-         *
-         * @param blockId
-         * @return
-         */
-        public Builder blockId(String blockId) {
-            this.blockId = blockId;
-            return this;
-        }
-
-
-        /**
-         * block访问数据信息。
-         * <p> 示例值：
-         *
-         * @param accessData
-         * @return
-         */
-        public Builder accessData(AccessData accessData) {
-            this.accessData = accessData;
-            return this;
-        }
-
-
-        public BlockAccessData build() {
-            return new BlockAccessData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

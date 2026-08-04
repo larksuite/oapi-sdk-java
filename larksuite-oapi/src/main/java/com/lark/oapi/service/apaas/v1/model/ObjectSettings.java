@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ObjectSettings {
+  /**
+   * 展示名称
+   *
+   * <p>示例值：_id
+   */
+  @SerializedName("display_name")
+  private String displayName;
+
+  /**
+   * 允许搜索字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("allow_search_fields")
+  private String[] allowSearchFields;
+
+  /**
+   * 展示字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("search_layout")
+  private ObjectSearchLayout searchLayout;
+
+  public String getDisplayName() {
+    return this.displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  public String[] getAllowSearchFields() {
+    return this.allowSearchFields;
+  }
+
+  public void setAllowSearchFields(String[] allowSearchFields) {
+    this.allowSearchFields = allowSearchFields;
+  }
+
+  public ObjectSearchLayout getSearchLayout() {
+    return this.searchLayout;
+  }
+
+  public void setSearchLayout(ObjectSearchLayout searchLayout) {
+    this.searchLayout = searchLayout;
+  }
+
+  // builder 开始
+  public ObjectSettings() {}
+
+  public ObjectSettings(Builder builder) {
     /**
      * 展示名称
-     * <p> 示例值：_id
+     *
+     * <p>示例值：_id
      */
-    @SerializedName("display_name")
-    private String displayName;
+    this.displayName = builder.displayName;
     /**
      * 允许搜索字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("allow_search_fields")
-    private String[] allowSearchFields;
+    this.allowSearchFields = builder.allowSearchFields;
     /**
      * 展示字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("search_layout")
+    this.searchLayout = builder.searchLayout;
+  }
+
+  public static class Builder {
+    /**
+     * 展示名称
+     *
+     * <p>示例值：_id
+     */
+    private String displayName;
+
+    /**
+     * 允许搜索字段
+     *
+     * <p>示例值：
+     */
+    private String[] allowSearchFields;
+
+    /**
+     * 展示字段
+     *
+     * <p>示例值：
+     */
     private ObjectSearchLayout searchLayout;
 
-    // builder 开始
-    public ObjectSettings() {
+    /**
+     * 展示名称
+     *
+     * <p>示例值：_id
+     *
+     * @param displayName
+     * @return
+     */
+    public Builder displayName(String displayName) {
+      this.displayName = displayName;
+      return this;
     }
 
-    public ObjectSettings(Builder builder) {
-        /**
-         * 展示名称
-         * <p> 示例值：_id
-         */
-        this.displayName = builder.displayName;
-        /**
-         * 允许搜索字段
-         * <p> 示例值：
-         */
-        this.allowSearchFields = builder.allowSearchFields;
-        /**
-         * 展示字段
-         * <p> 示例值：
-         */
-        this.searchLayout = builder.searchLayout;
+    /**
+     * 允许搜索字段
+     *
+     * <p>示例值：
+     *
+     * @param allowSearchFields
+     * @return
+     */
+    public Builder allowSearchFields(String[] allowSearchFields) {
+      this.allowSearchFields = allowSearchFields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 展示字段
+     *
+     * <p>示例值：
+     *
+     * @param searchLayout
+     * @return
+     */
+    public Builder searchLayout(ObjectSearchLayout searchLayout) {
+      this.searchLayout = searchLayout;
+      return this;
     }
 
-    public String getDisplayName() {
-        return this.displayName;
+    public ObjectSettings build() {
+      return new ObjectSettings(this);
     }
+  }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public String[] getAllowSearchFields() {
-        return this.allowSearchFields;
-    }
-
-    public void setAllowSearchFields(String[] allowSearchFields) {
-        this.allowSearchFields = allowSearchFields;
-    }
-
-    public ObjectSearchLayout getSearchLayout() {
-        return this.searchLayout;
-    }
-
-    public void setSearchLayout(ObjectSearchLayout searchLayout) {
-        this.searchLayout = searchLayout;
-    }
-
-    public static class Builder {
-        /**
-         * 展示名称
-         * <p> 示例值：_id
-         */
-        private String displayName;
-        /**
-         * 允许搜索字段
-         * <p> 示例值：
-         */
-        private String[] allowSearchFields;
-        /**
-         * 展示字段
-         * <p> 示例值：
-         */
-        private ObjectSearchLayout searchLayout;
-
-        /**
-         * 展示名称
-         * <p> 示例值：_id
-         *
-         * @param displayName
-         * @return
-         */
-        public Builder displayName(String displayName) {
-            this.displayName = displayName;
-            return this;
-        }
-
-
-        /**
-         * 允许搜索字段
-         * <p> 示例值：
-         *
-         * @param allowSearchFields
-         * @return
-         */
-        public Builder allowSearchFields(String[] allowSearchFields) {
-            this.allowSearchFields = allowSearchFields;
-            return this;
-        }
-
-
-        /**
-         * 展示字段
-         * <p> 示例值：
-         *
-         * @param searchLayout
-         * @return
-         */
-        public Builder searchLayout(ObjectSearchLayout searchLayout) {
-            this.searchLayout = searchLayout;
-            return this;
-        }
-
-
-        public ObjectSettings build() {
-            return new ObjectSettings(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

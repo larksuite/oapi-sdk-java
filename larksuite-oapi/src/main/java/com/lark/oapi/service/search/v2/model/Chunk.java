@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Chunk {
+  /**
+   * 文本块的唯一标识
+   *
+   * <p>示例值：3953903108179099661
+   */
+  @SerializedName("chunk_id")
+  private String chunkId;
+
+  /**
+   * 文档的唯一标识
+   *
+   * <p>示例值：3953903108179099667
+   */
+  @SerializedName("doc_id")
+  private String docId;
+
+  /**
+   * 该文档对应的数据集id
+   *
+   * <p>示例值：6953903108179099667
+   */
+  @SerializedName("dataset_id")
+  private String datasetId;
+
+  /**
+   * 更新时间，精确到秒级
+   *
+   * <p>示例值：1991-01-01T00:00:00.000Z
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 需要向量化的文本内容
+   *
+   * <p>示例值：这是一段纯文本内容
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 数据集对应filter_shema的值
+   *
+   * <p>示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
+   */
+  @SerializedName("filter_data")
+  private String filterData;
+
+  /**
+   * 排序模型返回的分数
+   *
+   * <p>示例值：0.9
+   */
+  @SerializedName("score")
+  private Double score;
+
+  /**
+   * 文本块的token数
+   *
+   * <p>示例值：480
+   */
+  @SerializedName("token_num")
+  private Integer tokenNum;
+
+  /**
+   * 文本块的长度是否超过阈值
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("overlength")
+  private Boolean overlength;
+
+  public String getChunkId() {
+    return this.chunkId;
+  }
+
+  public void setChunkId(String chunkId) {
+    this.chunkId = chunkId;
+  }
+
+  public String getDocId() {
+    return this.docId;
+  }
+
+  public void setDocId(String docId) {
+    this.docId = docId;
+  }
+
+  public String getDatasetId() {
+    return this.datasetId;
+  }
+
+  public void setDatasetId(String datasetId) {
+    this.datasetId = datasetId;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getFilterData() {
+    return this.filterData;
+  }
+
+  public void setFilterData(String filterData) {
+    this.filterData = filterData;
+  }
+
+  public Double getScore() {
+    return this.score;
+  }
+
+  public void setScore(Double score) {
+    this.score = score;
+  }
+
+  public Integer getTokenNum() {
+    return this.tokenNum;
+  }
+
+  public void setTokenNum(Integer tokenNum) {
+    this.tokenNum = tokenNum;
+  }
+
+  public Boolean getOverlength() {
+    return this.overlength;
+  }
+
+  public void setOverlength(Boolean overlength) {
+    this.overlength = overlength;
+  }
+
+  // builder 开始
+  public Chunk() {}
+
+  public Chunk(Builder builder) {
     /**
      * 文本块的唯一标识
-     * <p> 示例值：3953903108179099661
+     *
+     * <p>示例值：3953903108179099661
      */
-    @SerializedName("chunk_id")
-    private String chunkId;
+    this.chunkId = builder.chunkId;
     /**
      * 文档的唯一标识
-     * <p> 示例值：3953903108179099667
+     *
+     * <p>示例值：3953903108179099667
      */
-    @SerializedName("doc_id")
-    private String docId;
+    this.docId = builder.docId;
     /**
      * 该文档对应的数据集id
-     * <p> 示例值：6953903108179099667
+     *
+     * <p>示例值：6953903108179099667
      */
-    @SerializedName("dataset_id")
-    private String datasetId;
+    this.datasetId = builder.datasetId;
     /**
      * 更新时间，精确到秒级
-     * <p> 示例值：1990-12-31T23:59:60Z
+     *
+     * <p>示例值：1991-01-01T00:00:00.000Z
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 需要向量化的文本内容
-     * <p> 示例值：这是一段纯文本内容
+     *
+     * <p>示例值：这是一段纯文本内容
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 数据集对应filter_shema的值
-     * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
+     *
+     * <p>示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
      */
-    @SerializedName("filter_data")
-    private String filterData;
+    this.filterData = builder.filterData;
     /**
      * 排序模型返回的分数
-     * <p> 示例值：0.9
+     *
+     * <p>示例值：0.9
      */
-    @SerializedName("score")
-    private Double score;
+    this.score = builder.score;
     /**
      * 文本块的token数
-     * <p> 示例值：480
+     *
+     * <p>示例值：480
      */
-    @SerializedName("token_num")
-    private Integer tokenNum;
+    this.tokenNum = builder.tokenNum;
     /**
      * 文本块的长度是否超过阈值
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("overlength")
+    this.overlength = builder.overlength;
+  }
+
+  public static class Builder {
+    /**
+     * 文本块的唯一标识
+     *
+     * <p>示例值：3953903108179099661
+     */
+    private String chunkId;
+
+    /**
+     * 文档的唯一标识
+     *
+     * <p>示例值：3953903108179099667
+     */
+    private String docId;
+
+    /**
+     * 该文档对应的数据集id
+     *
+     * <p>示例值：6953903108179099667
+     */
+    private String datasetId;
+
+    /**
+     * 更新时间，精确到秒级
+     *
+     * <p>示例值：1991-01-01T00:00:00.000Z
+     */
+    private String updateTime;
+
+    /**
+     * 需要向量化的文本内容
+     *
+     * <p>示例值：这是一段纯文本内容
+     */
+    private String content;
+
+    /**
+     * 数据集对应filter_shema的值
+     *
+     * <p>示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
+     */
+    private String filterData;
+
+    /**
+     * 排序模型返回的分数
+     *
+     * <p>示例值：0.9
+     */
+    private Double score;
+
+    /**
+     * 文本块的token数
+     *
+     * <p>示例值：480
+     */
+    private Integer tokenNum;
+
+    /**
+     * 文本块的长度是否超过阈值
+     *
+     * <p>示例值：false
+     */
     private Boolean overlength;
 
-    // builder 开始
-    public Chunk() {
+    /**
+     * 文本块的唯一标识
+     *
+     * <p>示例值：3953903108179099661
+     *
+     * @param chunkId
+     * @return
+     */
+    public Builder chunkId(String chunkId) {
+      this.chunkId = chunkId;
+      return this;
     }
 
-    public Chunk(Builder builder) {
-        /**
-         * 文本块的唯一标识
-         * <p> 示例值：3953903108179099661
-         */
-        this.chunkId = builder.chunkId;
-        /**
-         * 文档的唯一标识
-         * <p> 示例值：3953903108179099667
-         */
-        this.docId = builder.docId;
-        /**
-         * 该文档对应的数据集id
-         * <p> 示例值：6953903108179099667
-         */
-        this.datasetId = builder.datasetId;
-        /**
-         * 更新时间，精确到秒级
-         * <p> 示例值：1990-12-31T23:59:60Z
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 需要向量化的文本内容
-         * <p> 示例值：这是一段纯文本内容
-         */
-        this.content = builder.content;
-        /**
-         * 数据集对应filter_shema的值
-         * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
-         */
-        this.filterData = builder.filterData;
-        /**
-         * 排序模型返回的分数
-         * <p> 示例值：0.9
-         */
-        this.score = builder.score;
-        /**
-         * 文本块的token数
-         * <p> 示例值：480
-         */
-        this.tokenNum = builder.tokenNum;
-        /**
-         * 文本块的长度是否超过阈值
-         * <p> 示例值：false
-         */
-        this.overlength = builder.overlength;
+    /**
+     * 文档的唯一标识
+     *
+     * <p>示例值：3953903108179099667
+     *
+     * @param docId
+     * @return
+     */
+    public Builder docId(String docId) {
+      this.docId = docId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 该文档对应的数据集id
+     *
+     * <p>示例值：6953903108179099667
+     *
+     * @param datasetId
+     * @return
+     */
+    public Builder datasetId(String datasetId) {
+      this.datasetId = datasetId;
+      return this;
     }
 
-    public String getChunkId() {
-        return this.chunkId;
+    /**
+     * 更新时间，精确到秒级
+     *
+     * <p>示例值：1991-01-01T00:00:00.000Z
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setChunkId(String chunkId) {
-        this.chunkId = chunkId;
+    /**
+     * 需要向量化的文本内容
+     *
+     * <p>示例值：这是一段纯文本内容
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public String getDocId() {
-        return this.docId;
+    /**
+     * 数据集对应filter_shema的值
+     *
+     * <p>示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
+     *
+     * @param filterData
+     * @return
+     */
+    public Builder filterData(String filterData) {
+      this.filterData = filterData;
+      return this;
     }
 
-    public void setDocId(String docId) {
-        this.docId = docId;
+    /**
+     * 排序模型返回的分数
+     *
+     * <p>示例值：0.9
+     *
+     * @param score
+     * @return
+     */
+    public Builder score(Double score) {
+      this.score = score;
+      return this;
     }
 
-    public String getDatasetId() {
-        return this.datasetId;
+    /**
+     * 文本块的token数
+     *
+     * <p>示例值：480
+     *
+     * @param tokenNum
+     * @return
+     */
+    public Builder tokenNum(Integer tokenNum) {
+      this.tokenNum = tokenNum;
+      return this;
     }
 
-    public void setDatasetId(String datasetId) {
-        this.datasetId = datasetId;
+    /**
+     * 文本块的长度是否超过阈值
+     *
+     * <p>示例值：false
+     *
+     * @param overlength
+     * @return
+     */
+    public Builder overlength(Boolean overlength) {
+      this.overlength = overlength;
+      return this;
     }
 
-    public String getUpdateTime() {
-        return this.updateTime;
+    public Chunk build() {
+      return new Chunk(this);
     }
+  }
 
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getFilterData() {
-        return this.filterData;
-    }
-
-    public void setFilterData(String filterData) {
-        this.filterData = filterData;
-    }
-
-    public Double getScore() {
-        return this.score;
-    }
-
-    public void setScore(Double score) {
-        this.score = score;
-    }
-
-    public Integer getTokenNum() {
-        return this.tokenNum;
-    }
-
-    public void setTokenNum(Integer tokenNum) {
-        this.tokenNum = tokenNum;
-    }
-
-    public Boolean getOverlength() {
-        return this.overlength;
-    }
-
-    public void setOverlength(Boolean overlength) {
-        this.overlength = overlength;
-    }
-
-    public static class Builder {
-        /**
-         * 文本块的唯一标识
-         * <p> 示例值：3953903108179099661
-         */
-        private String chunkId;
-        /**
-         * 文档的唯一标识
-         * <p> 示例值：3953903108179099667
-         */
-        private String docId;
-        /**
-         * 该文档对应的数据集id
-         * <p> 示例值：6953903108179099667
-         */
-        private String datasetId;
-        /**
-         * 更新时间，精确到秒级
-         * <p> 示例值：1990-12-31T23:59:60Z
-         */
-        private String updateTime;
-        /**
-         * 需要向量化的文本内容
-         * <p> 示例值：这是一段纯文本内容
-         */
-        private String content;
-        /**
-         * 数据集对应filter_shema的值
-         * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
-         */
-        private String filterData;
-        /**
-         * 排序模型返回的分数
-         * <p> 示例值：0.9
-         */
-        private Double score;
-        /**
-         * 文本块的token数
-         * <p> 示例值：480
-         */
-        private Integer tokenNum;
-        /**
-         * 文本块的长度是否超过阈值
-         * <p> 示例值：false
-         */
-        private Boolean overlength;
-
-        /**
-         * 文本块的唯一标识
-         * <p> 示例值：3953903108179099661
-         *
-         * @param chunkId
-         * @return
-         */
-        public Builder chunkId(String chunkId) {
-            this.chunkId = chunkId;
-            return this;
-        }
-
-
-        /**
-         * 文档的唯一标识
-         * <p> 示例值：3953903108179099667
-         *
-         * @param docId
-         * @return
-         */
-        public Builder docId(String docId) {
-            this.docId = docId;
-            return this;
-        }
-
-
-        /**
-         * 该文档对应的数据集id
-         * <p> 示例值：6953903108179099667
-         *
-         * @param datasetId
-         * @return
-         */
-        public Builder datasetId(String datasetId) {
-            this.datasetId = datasetId;
-            return this;
-        }
-
-
-        /**
-         * 更新时间，精确到秒级
-         * <p> 示例值：1990-12-31T23:59:60Z
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 需要向量化的文本内容
-         * <p> 示例值：这是一段纯文本内容
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 数据集对应filter_shema的值
-         * <p> 示例值：{\"domains\": [\"domain1\"],\"versions\": [\"v1\"]}
-         *
-         * @param filterData
-         * @return
-         */
-        public Builder filterData(String filterData) {
-            this.filterData = filterData;
-            return this;
-        }
-
-
-        /**
-         * 排序模型返回的分数
-         * <p> 示例值：0.9
-         *
-         * @param score
-         * @return
-         */
-        public Builder score(Double score) {
-            this.score = score;
-            return this;
-        }
-
-
-        /**
-         * 文本块的token数
-         * <p> 示例值：480
-         *
-         * @param tokenNum
-         * @return
-         */
-        public Builder tokenNum(Integer tokenNum) {
-            this.tokenNum = tokenNum;
-            return this;
-        }
-
-
-        /**
-         * 文本块的长度是否超过阈值
-         * <p> 示例值：false
-         *
-         * @param overlength
-         * @return
-         */
-        public Builder overlength(Boolean overlength) {
-            this.overlength = overlength;
-            return this;
-        }
-
-
-        public Chunk build() {
-            return new Chunk(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

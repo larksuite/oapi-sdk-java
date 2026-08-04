@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.mdm.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mdm.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Company {
+  /**
+   * 公司编码
+   *
+   * <p>示例值：9011
+   */
+  @SerializedName("company_code")
+  private String companyCode;
+
+  /**
+   * 公司名称
+   *
+   * <p>示例值：xxx科技有限公司
+   */
+  @SerializedName("company_name")
+  private String companyName;
+
+  /**
+   * 公司唯一ID
+   *
+   * <p>示例值：U1404700189381369856
+   */
+  @SerializedName("company_uid")
+  private String companyUid;
+
+  /**
+   * 法人实体编码
+   *
+   * <p>示例值：U1404691637455560704
+   */
+  @SerializedName("legal_entity_code")
+  private String legalEntityCode;
+
+  /**
+   * 控制范围编码
+   *
+   * <p>示例值：HL00
+   */
+  @SerializedName("co_area_code")
+  private String coAreaCode;
+
+  /**
+   * 币种三字码
+   *
+   * <p>示例值：CNY
+   */
+  @SerializedName("currency_code")
+  private String currencyCode;
+
+  /**
+   * 国家二字码
+   *
+   * <p>示例值：CN
+   */
+  @SerializedName("country_code")
+  private String countryCode;
+
+  /**
+   * 公司英文名
+   *
+   * <p>示例值：Bei**n**S**g**n**e**a**T**h**l**y**o** **d
+   */
+  @SerializedName("company_name_en")
+  private String companyNameEn;
+
+  public String getCompanyCode() {
+    return this.companyCode;
+  }
+
+  public void setCompanyCode(String companyCode) {
+    this.companyCode = companyCode;
+  }
+
+  public String getCompanyName() {
+    return this.companyName;
+  }
+
+  public void setCompanyName(String companyName) {
+    this.companyName = companyName;
+  }
+
+  public String getCompanyUid() {
+    return this.companyUid;
+  }
+
+  public void setCompanyUid(String companyUid) {
+    this.companyUid = companyUid;
+  }
+
+  public String getLegalEntityCode() {
+    return this.legalEntityCode;
+  }
+
+  public void setLegalEntityCode(String legalEntityCode) {
+    this.legalEntityCode = legalEntityCode;
+  }
+
+  public String getCoAreaCode() {
+    return this.coAreaCode;
+  }
+
+  public void setCoAreaCode(String coAreaCode) {
+    this.coAreaCode = coAreaCode;
+  }
+
+  public String getCurrencyCode() {
+    return this.currencyCode;
+  }
+
+  public void setCurrencyCode(String currencyCode) {
+    this.currencyCode = currencyCode;
+  }
+
+  public String getCountryCode() {
+    return this.countryCode;
+  }
+
+  public void setCountryCode(String countryCode) {
+    this.countryCode = countryCode;
+  }
+
+  public String getCompanyNameEn() {
+    return this.companyNameEn;
+  }
+
+  public void setCompanyNameEn(String companyNameEn) {
+    this.companyNameEn = companyNameEn;
+  }
+
+  // builder 开始
+  public Company() {}
+
+  public Company(Builder builder) {
     /**
      * 公司编码
-     * <p> 示例值：9011
+     *
+     * <p>示例值：9011
      */
-    @SerializedName("company_code")
-    private String companyCode;
+    this.companyCode = builder.companyCode;
     /**
      * 公司名称
-     * <p> 示例值：xxx科技有限公司
+     *
+     * <p>示例值：xxx科技有限公司
      */
-    @SerializedName("company_name")
-    private String companyName;
+    this.companyName = builder.companyName;
     /**
      * 公司唯一ID
-     * <p> 示例值：U1404700189381369856
+     *
+     * <p>示例值：U1404700189381369856
      */
-    @SerializedName("company_uid")
-    private String companyUid;
+    this.companyUid = builder.companyUid;
     /**
      * 法人实体编码
-     * <p> 示例值：U1404691637455560704
+     *
+     * <p>示例值：U1404691637455560704
      */
-    @SerializedName("legal_entity_code")
-    private String legalEntityCode;
+    this.legalEntityCode = builder.legalEntityCode;
     /**
      * 控制范围编码
-     * <p> 示例值：HL00
+     *
+     * <p>示例值：HL00
      */
-    @SerializedName("co_area_code")
-    private String coAreaCode;
+    this.coAreaCode = builder.coAreaCode;
     /**
      * 币种三字码
-     * <p> 示例值：CNY
+     *
+     * <p>示例值：CNY
      */
-    @SerializedName("currency_code")
-    private String currencyCode;
+    this.currencyCode = builder.currencyCode;
     /**
      * 国家二字码
-     * <p> 示例值：CN
+     *
+     * <p>示例值：CN
      */
-    @SerializedName("country_code")
-    private String countryCode;
+    this.countryCode = builder.countryCode;
     /**
      * 公司英文名
-     * <p> 示例值：Bei**n**S**g**n**e**a**T**h**l**y**o** **d
+     *
+     * <p>示例值：Bei**n**S**g**n**e**a**T**h**l**y**o** **d
      */
-    @SerializedName("company_name_en")
+    this.companyNameEn = builder.companyNameEn;
+  }
+
+  public static class Builder {
+    /**
+     * 公司编码
+     *
+     * <p>示例值：9011
+     */
+    private String companyCode;
+
+    /**
+     * 公司名称
+     *
+     * <p>示例值：xxx科技有限公司
+     */
+    private String companyName;
+
+    /**
+     * 公司唯一ID
+     *
+     * <p>示例值：U1404700189381369856
+     */
+    private String companyUid;
+
+    /**
+     * 法人实体编码
+     *
+     * <p>示例值：U1404691637455560704
+     */
+    private String legalEntityCode;
+
+    /**
+     * 控制范围编码
+     *
+     * <p>示例值：HL00
+     */
+    private String coAreaCode;
+
+    /**
+     * 币种三字码
+     *
+     * <p>示例值：CNY
+     */
+    private String currencyCode;
+
+    /**
+     * 国家二字码
+     *
+     * <p>示例值：CN
+     */
+    private String countryCode;
+
+    /**
+     * 公司英文名
+     *
+     * <p>示例值：Bei**n**S**g**n**e**a**T**h**l**y**o** **d
+     */
     private String companyNameEn;
 
-    // builder 开始
-    public Company() {
+    /**
+     * 公司编码
+     *
+     * <p>示例值：9011
+     *
+     * @param companyCode
+     * @return
+     */
+    public Builder companyCode(String companyCode) {
+      this.companyCode = companyCode;
+      return this;
     }
 
-    public Company(Builder builder) {
-        /**
-         * 公司编码
-         * <p> 示例值：9011
-         */
-        this.companyCode = builder.companyCode;
-        /**
-         * 公司名称
-         * <p> 示例值：xxx科技有限公司
-         */
-        this.companyName = builder.companyName;
-        /**
-         * 公司唯一ID
-         * <p> 示例值：U1404700189381369856
-         */
-        this.companyUid = builder.companyUid;
-        /**
-         * 法人实体编码
-         * <p> 示例值：U1404691637455560704
-         */
-        this.legalEntityCode = builder.legalEntityCode;
-        /**
-         * 控制范围编码
-         * <p> 示例值：HL00
-         */
-        this.coAreaCode = builder.coAreaCode;
-        /**
-         * 币种三字码
-         * <p> 示例值：CNY
-         */
-        this.currencyCode = builder.currencyCode;
-        /**
-         * 国家二字码
-         * <p> 示例值：CN
-         */
-        this.countryCode = builder.countryCode;
-        /**
-         * 公司英文名
-         * <p> 示例值：Bei**n**S**g**n**e**a**T**h**l**y**o** **d
-         */
-        this.companyNameEn = builder.companyNameEn;
+    /**
+     * 公司名称
+     *
+     * <p>示例值：xxx科技有限公司
+     *
+     * @param companyName
+     * @return
+     */
+    public Builder companyName(String companyName) {
+      this.companyName = companyName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 公司唯一ID
+     *
+     * <p>示例值：U1404700189381369856
+     *
+     * @param companyUid
+     * @return
+     */
+    public Builder companyUid(String companyUid) {
+      this.companyUid = companyUid;
+      return this;
     }
 
-    public String getCompanyCode() {
-        return this.companyCode;
+    /**
+     * 法人实体编码
+     *
+     * <p>示例值：U1404691637455560704
+     *
+     * @param legalEntityCode
+     * @return
+     */
+    public Builder legalEntityCode(String legalEntityCode) {
+      this.legalEntityCode = legalEntityCode;
+      return this;
     }
 
-    public void setCompanyCode(String companyCode) {
-        this.companyCode = companyCode;
+    /**
+     * 控制范围编码
+     *
+     * <p>示例值：HL00
+     *
+     * @param coAreaCode
+     * @return
+     */
+    public Builder coAreaCode(String coAreaCode) {
+      this.coAreaCode = coAreaCode;
+      return this;
     }
 
-    public String getCompanyName() {
-        return this.companyName;
+    /**
+     * 币种三字码
+     *
+     * <p>示例值：CNY
+     *
+     * @param currencyCode
+     * @return
+     */
+    public Builder currencyCode(String currencyCode) {
+      this.currencyCode = currencyCode;
+      return this;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    /**
+     * 国家二字码
+     *
+     * <p>示例值：CN
+     *
+     * @param countryCode
+     * @return
+     */
+    public Builder countryCode(String countryCode) {
+      this.countryCode = countryCode;
+      return this;
     }
 
-    public String getCompanyUid() {
-        return this.companyUid;
+    /**
+     * 公司英文名
+     *
+     * <p>示例值：Bei**n**S**g**n**e**a**T**h**l**y**o** **d
+     *
+     * @param companyNameEn
+     * @return
+     */
+    public Builder companyNameEn(String companyNameEn) {
+      this.companyNameEn = companyNameEn;
+      return this;
     }
 
-    public void setCompanyUid(String companyUid) {
-        this.companyUid = companyUid;
+    public Company build() {
+      return new Company(this);
     }
+  }
 
-    public String getLegalEntityCode() {
-        return this.legalEntityCode;
-    }
-
-    public void setLegalEntityCode(String legalEntityCode) {
-        this.legalEntityCode = legalEntityCode;
-    }
-
-    public String getCoAreaCode() {
-        return this.coAreaCode;
-    }
-
-    public void setCoAreaCode(String coAreaCode) {
-        this.coAreaCode = coAreaCode;
-    }
-
-    public String getCurrencyCode() {
-        return this.currencyCode;
-    }
-
-    public void setCurrencyCode(String currencyCode) {
-        this.currencyCode = currencyCode;
-    }
-
-    public String getCountryCode() {
-        return this.countryCode;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
-
-    public String getCompanyNameEn() {
-        return this.companyNameEn;
-    }
-
-    public void setCompanyNameEn(String companyNameEn) {
-        this.companyNameEn = companyNameEn;
-    }
-
-    public static class Builder {
-        /**
-         * 公司编码
-         * <p> 示例值：9011
-         */
-        private String companyCode;
-        /**
-         * 公司名称
-         * <p> 示例值：xxx科技有限公司
-         */
-        private String companyName;
-        /**
-         * 公司唯一ID
-         * <p> 示例值：U1404700189381369856
-         */
-        private String companyUid;
-        /**
-         * 法人实体编码
-         * <p> 示例值：U1404691637455560704
-         */
-        private String legalEntityCode;
-        /**
-         * 控制范围编码
-         * <p> 示例值：HL00
-         */
-        private String coAreaCode;
-        /**
-         * 币种三字码
-         * <p> 示例值：CNY
-         */
-        private String currencyCode;
-        /**
-         * 国家二字码
-         * <p> 示例值：CN
-         */
-        private String countryCode;
-        /**
-         * 公司英文名
-         * <p> 示例值：Bei**n**S**g**n**e**a**T**h**l**y**o** **d
-         */
-        private String companyNameEn;
-
-        /**
-         * 公司编码
-         * <p> 示例值：9011
-         *
-         * @param companyCode
-         * @return
-         */
-        public Builder companyCode(String companyCode) {
-            this.companyCode = companyCode;
-            return this;
-        }
-
-
-        /**
-         * 公司名称
-         * <p> 示例值：xxx科技有限公司
-         *
-         * @param companyName
-         * @return
-         */
-        public Builder companyName(String companyName) {
-            this.companyName = companyName;
-            return this;
-        }
-
-
-        /**
-         * 公司唯一ID
-         * <p> 示例值：U1404700189381369856
-         *
-         * @param companyUid
-         * @return
-         */
-        public Builder companyUid(String companyUid) {
-            this.companyUid = companyUid;
-            return this;
-        }
-
-
-        /**
-         * 法人实体编码
-         * <p> 示例值：U1404691637455560704
-         *
-         * @param legalEntityCode
-         * @return
-         */
-        public Builder legalEntityCode(String legalEntityCode) {
-            this.legalEntityCode = legalEntityCode;
-            return this;
-        }
-
-
-        /**
-         * 控制范围编码
-         * <p> 示例值：HL00
-         *
-         * @param coAreaCode
-         * @return
-         */
-        public Builder coAreaCode(String coAreaCode) {
-            this.coAreaCode = coAreaCode;
-            return this;
-        }
-
-
-        /**
-         * 币种三字码
-         * <p> 示例值：CNY
-         *
-         * @param currencyCode
-         * @return
-         */
-        public Builder currencyCode(String currencyCode) {
-            this.currencyCode = currencyCode;
-            return this;
-        }
-
-
-        /**
-         * 国家二字码
-         * <p> 示例值：CN
-         *
-         * @param countryCode
-         * @return
-         */
-        public Builder countryCode(String countryCode) {
-            this.countryCode = countryCode;
-            return this;
-        }
-
-
-        /**
-         * 公司英文名
-         * <p> 示例值：Bei**n**S**g**n**e**a**T**h**l**y**o** **d
-         *
-         * @param companyNameEn
-         * @return
-         */
-        public Builder companyNameEn(String companyNameEn) {
-            this.companyNameEn = companyNameEn;
-            return this;
-        }
-
-
-        public Company build() {
-            return new Company(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

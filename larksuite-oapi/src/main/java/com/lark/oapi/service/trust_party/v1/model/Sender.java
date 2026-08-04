@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Sender {
+  /**
+   * 该字段标识发送者的id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 该字段标识发送者的id类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id_type")
+  private String idType;
+
+  /**
+   * 该字段标识发送者的类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sender_type")
+  private String senderType;
+
+  /**
+   * tenant key
+   *
+   * <p>示例值：736588c9260f175e
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getIdType() {
+    return this.idType;
+  }
+
+  public void setIdType(String idType) {
+    this.idType = idType;
+  }
+
+  public String getSenderType() {
+    return this.senderType;
+  }
+
+  public void setSenderType(String senderType) {
+    this.senderType = senderType;
+  }
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  // builder 开始
+  public Sender() {}
+
+  public Sender(Builder builder) {
     /**
      * 该字段标识发送者的id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 该字段标识发送者的id类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("id_type")
-    private String idType;
+    this.idType = builder.idType;
     /**
      * 该字段标识发送者的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sender_type")
-    private String senderType;
+    this.senderType = builder.senderType;
     /**
      * tenant key
-     * <p> 示例值：736588c9260f175e
+     *
+     * <p>示例值：736588c9260f175e
      */
-    @SerializedName("tenant_key")
+    this.tenantKey = builder.tenantKey;
+  }
+
+  public static class Builder {
+    /**
+     * 该字段标识发送者的id
+     *
+     * <p>示例值：
+     */
+    private String id;
+
+    /**
+     * 该字段标识发送者的id类型
+     *
+     * <p>示例值：
+     */
+    private String idType;
+
+    /**
+     * 该字段标识发送者的类型
+     *
+     * <p>示例值：
+     */
+    private String senderType;
+
+    /**
+     * tenant key
+     *
+     * <p>示例值：736588c9260f175e
+     */
     private String tenantKey;
 
-    // builder 开始
-    public Sender() {
+    /**
+     * 该字段标识发送者的id
+     *
+     * <p>示例值：
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Sender(Builder builder) {
-        /**
-         * 该字段标识发送者的id
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         * 该字段标识发送者的id类型
-         * <p> 示例值：
-         */
-        this.idType = builder.idType;
-        /**
-         * 该字段标识发送者的类型
-         * <p> 示例值：
-         */
-        this.senderType = builder.senderType;
-        /**
-         * tenant key
-         * <p> 示例值：736588c9260f175e
-         */
-        this.tenantKey = builder.tenantKey;
+    /**
+     * 该字段标识发送者的id类型
+     *
+     * <p>示例值：
+     *
+     * @param idType
+     * @return
+     */
+    public Builder idType(String idType) {
+      this.idType = idType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 该字段标识发送者的类型
+     *
+     * <p>示例值：
+     *
+     * @param senderType
+     * @return
+     */
+    public Builder senderType(String senderType) {
+      this.senderType = senderType;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * tenant key
+     *
+     * <p>示例值：736588c9260f175e
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public Sender build() {
+      return new Sender(this);
     }
+  }
 
-    public String getIdType() {
-        return this.idType;
-    }
-
-    public void setIdType(String idType) {
-        this.idType = idType;
-    }
-
-    public String getSenderType() {
-        return this.senderType;
-    }
-
-    public void setSenderType(String senderType) {
-        this.senderType = senderType;
-    }
-
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
-
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
-
-    public static class Builder {
-        /**
-         * 该字段标识发送者的id
-         * <p> 示例值：
-         */
-        private String id;
-        /**
-         * 该字段标识发送者的id类型
-         * <p> 示例值：
-         */
-        private String idType;
-        /**
-         * 该字段标识发送者的类型
-         * <p> 示例值：
-         */
-        private String senderType;
-        /**
-         * tenant key
-         * <p> 示例值：736588c9260f175e
-         */
-        private String tenantKey;
-
-        /**
-         * 该字段标识发送者的id
-         * <p> 示例值：
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 该字段标识发送者的id类型
-         * <p> 示例值：
-         *
-         * @param idType
-         * @return
-         */
-        public Builder idType(String idType) {
-            this.idType = idType;
-            return this;
-        }
-
-
-        /**
-         * 该字段标识发送者的类型
-         * <p> 示例值：
-         *
-         * @param senderType
-         * @return
-         */
-        public Builder senderType(String senderType) {
-            this.senderType = senderType;
-            return this;
-        }
-
-
-        /**
-         * tenant key
-         * <p> 示例值：736588c9260f175e
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        public Sender build() {
-            return new Sender(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

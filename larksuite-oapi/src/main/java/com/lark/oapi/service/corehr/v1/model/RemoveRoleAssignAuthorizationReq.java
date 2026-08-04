@@ -13,151 +13,170 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class RemoveRoleAssignAuthorizationReq {
+  /**
+   * 用户的 ID，ID类型与user_id_type的取值意义一致。默认为飞书人事中的 ==employment_id==。; > ;如果你需要不同类型的ID进行转换，可以使用
+   * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)
+   * 换取 ==employment_id==
+   *
+   * <p>示例值：7303877149017292801
+   */
+  @Query
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：people_corehr_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 移除的角色的 ID，一次仅可移除一个角色。;>;你可以使用
+   * [批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+   * 获取，或者在飞书人事角色详情页的url中获取（URL 末的数字）role_id。
+   *
+   * <p>示例值：7358732070333613619
+   */
+  @Query
+  @SerializedName("role_id")
+  private String roleId;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getRoleId() {
+    return this.roleId;
+  }
+
+  public void setRoleId(String roleId) {
+    this.roleId = roleId;
+  }
+
+  // builder 开始
+  public RemoveRoleAssignAuthorizationReq() {}
+
+  public RemoveRoleAssignAuthorizationReq(Builder builder) {
     /**
-     * 雇员 ID
-     * <p> 示例值：67489937334909845
+     * 用户的 ID，ID类型与user_id_type的取值意义一致。默认为飞书人事中的 ==employment_id==。; > ;如果你需要不同类型的ID进行转换，可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)
+     * 换取 ==employment_id==
+     *
+     * <p>示例值：7303877149017292801
      */
-    @Query
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 用户 ID 类型
-     * <p> 示例值：people_corehr_id
+     *
+     * <p>示例值：people_corehr_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 角色 ID
-     * <p> 示例值：67489937334909845
+     * 移除的角色的 ID，一次仅可移除一个角色。;>;你可以使用
+     * [批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+     * 获取，或者在飞书人事角色详情页的url中获取（URL 末的数字）role_id。
+     *
+     * <p>示例值：7358732070333613619
      */
-    @Query
-    @SerializedName("role_id")
-    private String roleId;
+    this.roleId = builder.roleId;
+  }
 
-    // builder 开始
-    public RemoveRoleAssignAuthorizationReq() {
+  public static class Builder {
+    private String employmentId; // 用户的 ID，ID类型与user_id_type的取值意义一致。默认为飞书人事中的 ==employment_id==。; >
+    // ;如果你需要不同类型的ID进行转换，可以使用
+    // [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert) 换取 ==employment_id==
+    private String userIdType; // 用户 ID 类型
+    private String roleId; // 移除的角色的 ID，一次仅可移除一个角色。;>;你可以使用
+
+    // [批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+    // 获取，或者在飞书人事角色详情页的url中获取（URL 末的数字）role_id。
+
+    /**
+     * 用户的 ID，ID类型与user_id_type的取值意义一致。默认为飞书人事中的 ==employment_id==。; > ;如果你需要不同类型的ID进行转换，可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)
+     * 换取 ==employment_id==
+     *
+     * <p>示例值：7303877149017292801
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public RemoveRoleAssignAuthorizationReq(Builder builder) {
-        /**
-         * 雇员 ID
-         * <p> 示例值：67489937334909845
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 角色 ID
-         * <p> 示例值：67489937334909845
-         */
-        this.roleId = builder.roleId;
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v1.enums.RemoveRoleAssignAuthorizationRemoveRoleAssignAuthorizationUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v1.enums
+                .RemoveRoleAssignAuthorizationRemoveRoleAssignAuthorizationUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 移除的角色的 ID，一次仅可移除一个角色。;>;你可以使用
+     * [批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)
+     * 获取，或者在飞书人事角色详情页的url中获取（URL 末的数字）role_id。
+     *
+     * <p>示例值：7358732070333613619
+     *
+     * @param roleId
+     * @return
+     */
+    public Builder roleId(String roleId) {
+      this.roleId = roleId;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    public RemoveRoleAssignAuthorizationReq build() {
+      return new RemoveRoleAssignAuthorizationReq(this);
     }
+  }
 
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getRoleId() {
-        return this.roleId;
-    }
-
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-
-    public static class Builder {
-        private String employmentId; // 雇员 ID
-        private String userIdType; // 用户 ID 类型
-        private String roleId; // 角色 ID
-
-        /**
-         * 雇员 ID
-         * <p> 示例值：67489937334909845
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.RemoveRoleAssignAuthorizationRemoveRoleAssignAuthorizationUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.RemoveRoleAssignAuthorizationRemoveRoleAssignAuthorizationUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 角色 ID
-         * <p> 示例值：67489937334909845
-         *
-         * @param roleId
-         * @return
-         */
-        public Builder roleId(String roleId) {
-            this.roleId = roleId;
-            return this;
-        }
-
-
-        public RemoveRoleAssignAuthorizationReq build() {
-            return new RemoveRoleAssignAuthorizationReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

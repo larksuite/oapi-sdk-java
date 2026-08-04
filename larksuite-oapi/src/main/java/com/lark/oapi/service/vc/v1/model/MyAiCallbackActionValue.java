@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyAiCallbackActionValue {
+  /**
+   * myai卡片交互回调的value
+   *
+   * <p>示例值：struct
+   */
+  @SerializedName("body")
+  private String body;
+
+  /**
+   * 用户的交互操作
+   *
+   * <p>示例值：confirm
+   */
+  @SerializedName("handle")
+  private String handle;
+
+  public String getBody() {
+    return this.body;
+  }
+
+  public void setBody(String body) {
+    this.body = body;
+  }
+
+  public String getHandle() {
+    return this.handle;
+  }
+
+  public void setHandle(String handle) {
+    this.handle = handle;
+  }
+
+  // builder 开始
+  public MyAiCallbackActionValue() {}
+
+  public MyAiCallbackActionValue(Builder builder) {
     /**
      * myai卡片交互回调的value
-     * <p> 示例值：struct
+     *
+     * <p>示例值：struct
      */
-    @SerializedName("body")
-    private String body;
+    this.body = builder.body;
     /**
      * 用户的交互操作
-     * <p> 示例值：confirm
+     *
+     * <p>示例值：confirm
      */
-    @SerializedName("handle")
+    this.handle = builder.handle;
+  }
+
+  public static class Builder {
+    /**
+     * myai卡片交互回调的value
+     *
+     * <p>示例值：struct
+     */
+    private String body;
+
+    /**
+     * 用户的交互操作
+     *
+     * <p>示例值：confirm
+     */
     private String handle;
 
-    // builder 开始
-    public MyAiCallbackActionValue() {
+    /**
+     * myai卡片交互回调的value
+     *
+     * <p>示例值：struct
+     *
+     * @param body
+     * @return
+     */
+    public Builder body(String body) {
+      this.body = body;
+      return this;
     }
 
-    public MyAiCallbackActionValue(Builder builder) {
-        /**
-         * myai卡片交互回调的value
-         * <p> 示例值：struct
-         */
-        this.body = builder.body;
-        /**
-         * 用户的交互操作
-         * <p> 示例值：confirm
-         */
-        this.handle = builder.handle;
+    /**
+     * 用户的交互操作
+     *
+     * <p>示例值：confirm
+     *
+     * @param handle
+     * @return
+     */
+    public Builder handle(String handle) {
+      this.handle = handle;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MyAiCallbackActionValue build() {
+      return new MyAiCallbackActionValue(this);
     }
+  }
 
-    public String getBody() {
-        return this.body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
-    }
-
-    public String getHandle() {
-        return this.handle;
-    }
-
-    public void setHandle(String handle) {
-        this.handle = handle;
-    }
-
-    public static class Builder {
-        /**
-         * myai卡片交互回调的value
-         * <p> 示例值：struct
-         */
-        private String body;
-        /**
-         * 用户的交互操作
-         * <p> 示例值：confirm
-         */
-        private String handle;
-
-        /**
-         * myai卡片交互回调的value
-         * <p> 示例值：struct
-         *
-         * @param body
-         * @return
-         */
-        public Builder body(String body) {
-            this.body = body;
-            return this;
-        }
-
-
-        /**
-         * 用户的交互操作
-         * <p> 示例值：confirm
-         *
-         * @param handle
-         * @return
-         */
-        public Builder handle(String handle) {
-            this.handle = handle;
-            return this;
-        }
-
-
-        public MyAiCallbackActionValue build() {
-            return new MyAiCallbackActionValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

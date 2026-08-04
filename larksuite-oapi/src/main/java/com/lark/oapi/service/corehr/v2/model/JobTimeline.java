@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobTimeline {
+  /**
+   * 职务版本信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_version_data")
+  private JobVersionData[] jobVersionData;
+
+  public JobVersionData[] getJobVersionData() {
+    return this.jobVersionData;
+  }
+
+  public void setJobVersionData(JobVersionData[] jobVersionData) {
+    this.jobVersionData = jobVersionData;
+  }
+
+  // builder 开始
+  public JobTimeline() {}
+
+  public JobTimeline(Builder builder) {
     /**
      * 职务版本信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_version_data")
+    this.jobVersionData = builder.jobVersionData;
+  }
+
+  public static class Builder {
+    /**
+     * 职务版本信息
+     *
+     * <p>示例值：
+     */
     private JobVersionData[] jobVersionData;
 
-    // builder 开始
-    public JobTimeline() {
+    /**
+     * 职务版本信息
+     *
+     * <p>示例值：
+     *
+     * @param jobVersionData
+     * @return
+     */
+    public Builder jobVersionData(JobVersionData[] jobVersionData) {
+      this.jobVersionData = jobVersionData;
+      return this;
     }
 
-    public JobTimeline(Builder builder) {
-        /**
-         * 职务版本信息
-         * <p> 示例值：
-         */
-        this.jobVersionData = builder.jobVersionData;
+    public JobTimeline build() {
+      return new JobTimeline(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public JobVersionData[] getJobVersionData() {
-        return this.jobVersionData;
-    }
-
-    public void setJobVersionData(JobVersionData[] jobVersionData) {
-        this.jobVersionData = jobVersionData;
-    }
-
-    public static class Builder {
-        /**
-         * 职务版本信息
-         * <p> 示例值：
-         */
-        private JobVersionData[] jobVersionData;
-
-        /**
-         * 职务版本信息
-         * <p> 示例值：
-         *
-         * @param jobVersionData
-         * @return
-         */
-        public Builder jobVersionData(JobVersionData[] jobVersionData) {
-            this.jobVersionData = jobVersionData;
-            return this;
-        }
-
-
-        public JobTimeline build() {
-            return new JobTimeline(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

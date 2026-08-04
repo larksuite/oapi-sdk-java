@@ -13,112 +13,119 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class NodeCc {
+  /**
+   * 节点的 node_id，可调用
+   * [查看指定审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+   * 接口，从接口返回的 node_list 参数中获取。
+   *
+   * <p>示例值：46e6d96cfa756980907209209ec03b75
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 抄送人列表，需传入用户 user_id。获取方式参考[如何获取用户的 User
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。
+   *
+   * <p>示例值：f7cb567e
+   */
+  @SerializedName("value")
+  private String[] value;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public String[] getValue() {
+    return this.value;
+  }
+
+  public void setValue(String[] value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public NodeCc() {}
+
+  public NodeCc(Builder builder) {
     /**
-     * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
-     * <p> 示例值：46e6d96cfa756980907209209ec03b75
+     * 节点的 node_id，可调用
+     * [查看指定审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+     * 接口，从接口返回的 node_list 参数中获取。
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b75
      */
-    @SerializedName("key")
+    this.key = builder.key;
+    /**
+     * 抄送人列表，需传入用户 user_id。获取方式参考[如何获取用户的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。
+     *
+     * <p>示例值：f7cb567e
+     */
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 节点的 node_id，可调用
+     * [查看指定审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+     * 接口，从接口返回的 node_list 参数中获取。
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b75
+     */
     private String key;
+
     /**
-     * value: 审批人列表
-     * <p> 示例值：["f7cb567e"]
+     * 抄送人列表，需传入用户 user_id。获取方式参考[如何获取用户的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。
+     *
+     * <p>示例值：f7cb567e
      */
-    @SerializedName("value")
     private String[] value;
 
-    // builder 开始
-    public NodeCc() {
+    /**
+     * 节点的 node_id，可调用
+     * [查看指定审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)
+     * 接口，从接口返回的 node_list 参数中获取。
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b75
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public NodeCc(Builder builder) {
-        /**
-         * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
-         * <p> 示例值：46e6d96cfa756980907209209ec03b75
-         */
-        this.key = builder.key;
-        /**
-         * value: 审批人列表
-         * <p> 示例值：["f7cb567e"]
-         */
-        this.value = builder.value;
+    /**
+     * 抄送人列表，需传入用户 user_id。获取方式参考[如何获取用户的 User
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。
+     *
+     * <p>示例值：f7cb567e
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String[] value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public NodeCc build() {
+      return new NodeCc(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String[] getValue() {
-        return this.value;
-    }
-
-    public void setValue(String[] value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
-         * <p> 示例值：46e6d96cfa756980907209209ec03b75
-         */
-        private String key;
-        /**
-         * value: 审批人列表
-         * <p> 示例值：["f7cb567e"]
-         */
-        private String[] value;
-
-        /**
-         * node id ，通过 [查看审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get) 获取
-         * <p> 示例值：46e6d96cfa756980907209209ec03b75
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * value: 审批人列表
-         * <p> 示例值：["f7cb567e"]
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String[] value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public NodeCc build() {
-            return new NodeCc(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Condition {
+  /**
+   * 筛选类型，枚举值如下所示。了解更多，参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)。;-
+   * multiValue ：多值筛选;- number ：数字筛选;- text ：文本筛选;- color ：颜色筛选
+   *
+   * <p>示例值：number
+   */
+  @SerializedName("filter_type")
+  private String filterType;
+
+  /**
+   * 比较类型
+   *
+   * <p>示例值：less
+   */
+  @SerializedName("compare_type")
+  private String compareType;
+
+  /**
+   * 筛选参数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("expected")
+  private String[] expected;
+
+  public String getFilterType() {
+    return this.filterType;
+  }
+
+  public void setFilterType(String filterType) {
+    this.filterType = filterType;
+  }
+
+  public String getCompareType() {
+    return this.compareType;
+  }
+
+  public void setCompareType(String compareType) {
+    this.compareType = compareType;
+  }
+
+  public String[] getExpected() {
+    return this.expected;
+  }
+
+  public void setExpected(String[] expected) {
+    this.expected = expected;
+  }
+
+  // builder 开始
+  public Condition() {}
+
+  public Condition(Builder builder) {
     /**
-     * 筛选类型
-     * <p> 示例值：number
+     * 筛选类型，枚举值如下所示。了解更多，参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)。;-
+     * multiValue ：多值筛选;- number ：数字筛选;- text ：文本筛选;- color ：颜色筛选
+     *
+     * <p>示例值：number
      */
-    @SerializedName("filter_type")
-    private String filterType;
+    this.filterType = builder.filterType;
     /**
      * 比较类型
-     * <p> 示例值：less
+     *
+     * <p>示例值：less
      */
-    @SerializedName("compare_type")
-    private String compareType;
+    this.compareType = builder.compareType;
     /**
      * 筛选参数
-     * <p> 示例值：6
+     *
+     * <p>示例值：
      */
-    @SerializedName("expected")
+    this.expected = builder.expected;
+  }
+
+  public static class Builder {
+    /**
+     * 筛选类型，枚举值如下所示。了解更多，参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)。;-
+     * multiValue ：多值筛选;- number ：数字筛选;- text ：文本筛选;- color ：颜色筛选
+     *
+     * <p>示例值：number
+     */
+    private String filterType;
+
+    /**
+     * 比较类型
+     *
+     * <p>示例值：less
+     */
+    private String compareType;
+
+    /**
+     * 筛选参数
+     *
+     * <p>示例值：
+     */
     private String[] expected;
 
-    // builder 开始
-    public Condition() {
+    /**
+     * 筛选类型，枚举值如下所示。了解更多，参考[筛选指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter/filter-user-guide)。;-
+     * multiValue ：多值筛选;- number ：数字筛选;- text ：文本筛选;- color ：颜色筛选
+     *
+     * <p>示例值：number
+     *
+     * @param filterType
+     * @return
+     */
+    public Builder filterType(String filterType) {
+      this.filterType = filterType;
+      return this;
     }
 
-    public Condition(Builder builder) {
-        /**
-         * 筛选类型
-         * <p> 示例值：number
-         */
-        this.filterType = builder.filterType;
-        /**
-         * 比较类型
-         * <p> 示例值：less
-         */
-        this.compareType = builder.compareType;
-        /**
-         * 筛选参数
-         * <p> 示例值：6
-         */
-        this.expected = builder.expected;
+    /**
+     * 比较类型
+     *
+     * <p>示例值：less
+     *
+     * @param compareType
+     * @return
+     */
+    public Builder compareType(String compareType) {
+      this.compareType = compareType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 筛选参数
+     *
+     * <p>示例值：
+     *
+     * @param expected
+     * @return
+     */
+    public Builder expected(String[] expected) {
+      this.expected = expected;
+      return this;
     }
 
-    public String getFilterType() {
-        return this.filterType;
+    public Condition build() {
+      return new Condition(this);
     }
+  }
 
-    public void setFilterType(String filterType) {
-        this.filterType = filterType;
-    }
-
-    public String getCompareType() {
-        return this.compareType;
-    }
-
-    public void setCompareType(String compareType) {
-        this.compareType = compareType;
-    }
-
-    public String[] getExpected() {
-        return this.expected;
-    }
-
-    public void setExpected(String[] expected) {
-        this.expected = expected;
-    }
-
-    public static class Builder {
-        /**
-         * 筛选类型
-         * <p> 示例值：number
-         */
-        private String filterType;
-        /**
-         * 比较类型
-         * <p> 示例值：less
-         */
-        private String compareType;
-        /**
-         * 筛选参数
-         * <p> 示例值：6
-         */
-        private String[] expected;
-
-        /**
-         * 筛选类型
-         * <p> 示例值：number
-         *
-         * @param filterType
-         * @return
-         */
-        public Builder filterType(String filterType) {
-            this.filterType = filterType;
-            return this;
-        }
-
-
-        /**
-         * 比较类型
-         * <p> 示例值：less
-         *
-         * @param compareType
-         * @return
-         */
-        public Builder compareType(String compareType) {
-            this.compareType = compareType;
-            return this;
-        }
-
-
-        /**
-         * 筛选参数
-         * <p> 示例值：6
-         *
-         * @param expected
-         * @return
-         */
-        public Builder expected(String[] expected) {
-            this.expected = expected;
-            return this;
-        }
-
-
-        public Condition build() {
-            return new Condition(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

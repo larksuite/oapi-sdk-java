@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 考核状态
- */
+/** 考核状态 */
 public enum PatchProbationAssessmentAssessmentForCreateAssessmentStatusEnum {
-    NOT_STARTED("not_started"), // 未开始
-    IN_PROCESS("in_process"), // 进行中
-    COMPLETED("completed"), // 已完成
-    NO_NEED("no_need"), // 无需考核
-    ;
-    private String value;
+  NOT_STARTED("not_started"), // 未开始
+  IN_PROCESS("in_process"), // 进行中
+  COMPLETED("completed"), // 已完成
+  NO_NEED("no_need"), // 无需考核
+  ;
+  private String value;
 
-    PatchProbationAssessmentAssessmentForCreateAssessmentStatusEnum(String value) {
-        this.value = value;
-    }
+  PatchProbationAssessmentAssessmentForCreateAssessmentStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class App {
+  /**
+   * aily app_id
+   *
+   * <p>示例值：spring_xxx__c
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 应用名称
+   *
+   * <p>示例值：应用A
+   */
+  @SerializedName("label")
+  private String label;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+  // builder 开始
+  public App() {}
+
+  public App(Builder builder) {
     /**
      * aily app_id
-     * <p> 示例值：spring_xxx__c
+     *
+     * <p>示例值：spring_xxx__c
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 应用名称
-     * <p> 示例值：应用A
+     *
+     * <p>示例值：应用A
      */
-    @SerializedName("label")
+    this.label = builder.label;
+  }
+
+  public static class Builder {
+    /**
+     * aily app_id
+     *
+     * <p>示例值：spring_xxx__c
+     */
+    private String id;
+
+    /**
+     * 应用名称
+     *
+     * <p>示例值：应用A
+     */
     private String label;
 
-    // builder 开始
-    public App() {
+    /**
+     * aily app_id
+     *
+     * <p>示例值：spring_xxx__c
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public App(Builder builder) {
-        /**
-         * aily app_id
-         * <p> 示例值：spring_xxx__c
-         */
-        this.id = builder.id;
-        /**
-         * 应用名称
-         * <p> 示例值：应用A
-         */
-        this.label = builder.label;
+    /**
+     * 应用名称
+     *
+     * <p>示例值：应用A
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(String label) {
+      this.label = label;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public App build() {
+      return new App(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getLabel() {
-        return this.label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public static class Builder {
-        /**
-         * aily app_id
-         * <p> 示例值：spring_xxx__c
-         */
-        private String id;
-        /**
-         * 应用名称
-         * <p> 示例值：应用A
-         */
-        private String label;
-
-        /**
-         * aily app_id
-         * <p> 示例值：spring_xxx__c
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 应用名称
-         * <p> 示例值：应用A
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(String label) {
-            this.label = label;
-            return this;
-        }
-
-
-        public App build() {
-            return new App(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

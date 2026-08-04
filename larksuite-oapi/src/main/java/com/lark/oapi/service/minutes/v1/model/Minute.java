@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.minutes.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Minute {
+  /**
+   * 妙记token
+   *
+   * <p>示例值：obcnq3b9jl72l83w4f14xxxx
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 所有者ID
+   *
+   * <p>示例值：ou_612b787ccd3259fb3c816b3f678dxxxx
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  /**
+   * 妙记创建时间timestamp（ms级别）
+   *
+   * <p>示例值：1669098360477
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 妙记标题
+   *
+   * <p>示例值：产品周会的视频会议
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 妙记封面链接
+   *
+   * <p>示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpxxxx
+   */
+  @SerializedName("cover")
+  private String cover;
+
+  /**
+   * 妙记时长（ms级别）
+   *
+   * <p>示例值：314000
+   */
+  @SerializedName("duration")
+  private String duration;
+
+  /**
+   * 妙记链接
+   *
+   * <p>示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f14xxxx
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 纪要ID
+   *
+   * <p>示例值：7616590025794260496
+   */
+  @SerializedName("note_id")
+  private String noteId;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getCover() {
+    return this.cover;
+  }
+
+  public void setCover(String cover) {
+    this.cover = cover;
+  }
+
+  public String getDuration() {
+    return this.duration;
+  }
+
+  public void setDuration(String duration) {
+    this.duration = duration;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getNoteId() {
+    return this.noteId;
+  }
+
+  public void setNoteId(String noteId) {
+    this.noteId = noteId;
+  }
+
+  // builder 开始
+  public Minute() {}
+
+  public Minute(Builder builder) {
     /**
      * 妙记token
-     * <p> 示例值：obcnq3b9jl72l83w4f149w9c
+     *
+     * <p>示例值：obcnq3b9jl72l83w4f14xxxx
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 所有者ID
-     * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
+     *
+     * <p>示例值：ou_612b787ccd3259fb3c816b3f678dxxxx
      */
-    @SerializedName("owner_id")
-    private String ownerId;
+    this.ownerId = builder.ownerId;
     /**
      * 妙记创建时间timestamp（ms级别）
-     * <p> 示例值：1669098360477
+     *
+     * <p>示例值：1669098360477
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 妙记标题
-     * <p> 示例值：xxx的视频会议
+     *
+     * <p>示例值：产品周会的视频会议
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 妙记封面链接
-     * <p> 示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpCoQd
+     *
+     * <p>示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpxxxx
      */
-    @SerializedName("cover")
-    private String cover;
+    this.cover = builder.cover;
     /**
      * 妙记时长（ms级别）
-     * <p> 示例值：314000
+     *
+     * <p>示例值：314000
      */
-    @SerializedName("duration")
-    private String duration;
+    this.duration = builder.duration;
     /**
      * 妙记链接
-     * <p> 示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f149w9c
+     *
+     * <p>示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f14xxxx
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 纪要ID
-     * <p> 示例值：7616590025794260496
+     *
+     * <p>示例值：7616590025794260496
      */
-    @SerializedName("note_id")
+    this.noteId = builder.noteId;
+  }
+
+  public static class Builder {
+    /**
+     * 妙记token
+     *
+     * <p>示例值：obcnq3b9jl72l83w4f14xxxx
+     */
+    private String token;
+
+    /**
+     * 所有者ID
+     *
+     * <p>示例值：ou_612b787ccd3259fb3c816b3f678dxxxx
+     */
+    private String ownerId;
+
+    /**
+     * 妙记创建时间timestamp（ms级别）
+     *
+     * <p>示例值：1669098360477
+     */
+    private String createTime;
+
+    /**
+     * 妙记标题
+     *
+     * <p>示例值：产品周会的视频会议
+     */
+    private String title;
+
+    /**
+     * 妙记封面链接
+     *
+     * <p>示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpxxxx
+     */
+    private String cover;
+
+    /**
+     * 妙记时长（ms级别）
+     *
+     * <p>示例值：314000
+     */
+    private String duration;
+
+    /**
+     * 妙记链接
+     *
+     * <p>示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f14xxxx
+     */
+    private String url;
+
+    /**
+     * 纪要ID
+     *
+     * <p>示例值：7616590025794260496
+     */
     private String noteId;
 
-    // builder 开始
-    public Minute() {
+    /**
+     * 妙记token
+     *
+     * <p>示例值：obcnq3b9jl72l83w4f14xxxx
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public Minute(Builder builder) {
-        /**
-         * 妙记token
-         * <p> 示例值：obcnq3b9jl72l83w4f149w9c
-         */
-        this.token = builder.token;
-        /**
-         * 所有者ID
-         * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 妙记创建时间timestamp（ms级别）
-         * <p> 示例值：1669098360477
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 妙记标题
-         * <p> 示例值：xxx的视频会议
-         */
-        this.title = builder.title;
-        /**
-         * 妙记封面链接
-         * <p> 示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpCoQd
-         */
-        this.cover = builder.cover;
-        /**
-         * 妙记时长（ms级别）
-         * <p> 示例值：314000
-         */
-        this.duration = builder.duration;
-        /**
-         * 妙记链接
-         * <p> 示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f149w9c
-         */
-        this.url = builder.url;
-        /**
-         * 纪要ID
-         * <p> 示例值：7616590025794260496
-         */
-        this.noteId = builder.noteId;
+    /**
+     * 所有者ID
+     *
+     * <p>示例值：ou_612b787ccd3259fb3c816b3f678dxxxx
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 妙记创建时间timestamp（ms级别）
+     *
+     * <p>示例值：1669098360477
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    /**
+     * 妙记标题
+     *
+     * <p>示例值：产品周会的视频会议
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    /**
+     * 妙记封面链接
+     *
+     * <p>示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpxxxx
+     *
+     * @param cover
+     * @return
+     */
+    public Builder cover(String cover) {
+      this.cover = cover;
+      return this;
     }
 
-    public String getOwnerId() {
-        return this.ownerId;
+    /**
+     * 妙记时长（ms级别）
+     *
+     * <p>示例值：314000
+     *
+     * @param duration
+     * @return
+     */
+    public Builder duration(String duration) {
+      this.duration = duration;
+      return this;
     }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
+    /**
+     * 妙记链接
+     *
+     * <p>示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f14xxxx
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public String getCreateTime() {
-        return this.createTime;
+    /**
+     * 纪要ID
+     *
+     * <p>示例值：7616590025794260496
+     *
+     * @param noteId
+     * @return
+     */
+    public Builder noteId(String noteId) {
+      this.noteId = noteId;
+      return this;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public Minute build() {
+      return new Minute(this);
     }
+  }
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getCover() {
-        return this.cover;
-    }
-
-    public void setCover(String cover) {
-        this.cover = cover;
-    }
-
-    public String getDuration() {
-        return this.duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getNoteId() {
-        return this.noteId;
-    }
-
-    public void setNoteId(String noteId) {
-        this.noteId = noteId;
-    }
-
-    public static class Builder {
-        /**
-         * 妙记token
-         * <p> 示例值：obcnq3b9jl72l83w4f149w9c
-         */
-        private String token;
-        /**
-         * 所有者ID
-         * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
-         */
-        private String ownerId;
-        /**
-         * 妙记创建时间timestamp（ms级别）
-         * <p> 示例值：1669098360477
-         */
-        private String createTime;
-        /**
-         * 妙记标题
-         * <p> 示例值：xxx的视频会议
-         */
-        private String title;
-        /**
-         * 妙记封面链接
-         * <p> 示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpCoQd
-         */
-        private String cover;
-        /**
-         * 妙记时长（ms级别）
-         * <p> 示例值：314000
-         */
-        private String duration;
-        /**
-         * 妙记链接
-         * <p> 示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f149w9c
-         */
-        private String url;
-        /**
-         * 纪要ID
-         * <p> 示例值：7616590025794260496
-         */
-        private String noteId;
-
-        /**
-         * 妙记token
-         * <p> 示例值：obcnq3b9jl72l83w4f149w9c
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 所有者ID
-         * <p> 示例值：ou_612b787ccd3259fb3c816b3f678d0426
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        /**
-         * 妙记创建时间timestamp（ms级别）
-         * <p> 示例值：1669098360477
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 妙记标题
-         * <p> 示例值：xxx的视频会议
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 妙记封面链接
-         * <p> 示例值：https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpCoQd
-         *
-         * @param cover
-         * @return
-         */
-        public Builder cover(String cover) {
-            this.cover = cover;
-            return this;
-        }
-
-
-        /**
-         * 妙记时长（ms级别）
-         * <p> 示例值：314000
-         *
-         * @param duration
-         * @return
-         */
-        public Builder duration(String duration) {
-            this.duration = duration;
-            return this;
-        }
-
-
-        /**
-         * 妙记链接
-         * <p> 示例值：https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f149w9c
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 纪要ID
-         * <p> 示例值：7616590025794260496
-         *
-         * @param noteId
-         * @return
-         */
-        public Builder noteId(String noteId) {
-            this.noteId = noteId;
-            return this;
-        }
-
-
-        public Minute build() {
-            return new Minute(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

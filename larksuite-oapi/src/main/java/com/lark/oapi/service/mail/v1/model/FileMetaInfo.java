@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FileMetaInfo {
+  /**
+   * 文件id
+   *
+   * <p>示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 文件名（哈希）
+   *
+   * <p>示例值：a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
+   */
+  @SerializedName("filename_hash")
+  private String filenameHash;
+
+  /**
+   * 文件大小（byte）
+   *
+   * <p>示例值：1024
+   */
+  @SerializedName("size")
+  private String size;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getFilenameHash() {
+    return this.filenameHash;
+  }
+
+  public void setFilenameHash(String filenameHash) {
+    this.filenameHash = filenameHash;
+  }
+
+  public String getSize() {
+    return this.size;
+  }
+
+  public void setSize(String size) {
+    this.size = size;
+  }
+
+  // builder 开始
+  public FileMetaInfo() {}
+
+  public FileMetaInfo(Builder builder) {
     /**
      * 文件id
-     * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+     *
+     * <p>示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 文件名（哈希）
-     * <p> 示例值：a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
+     *
+     * <p>示例值：a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
      */
-    @SerializedName("filename_hash")
-    private String filenameHash;
+    this.filenameHash = builder.filenameHash;
     /**
      * 文件大小（byte）
-     * <p> 示例值：1024
+     *
+     * <p>示例值：1024
      */
-    @SerializedName("size")
+    this.size = builder.size;
+  }
+
+  public static class Builder {
+    /**
+     * 文件id
+     *
+     * <p>示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+     */
+    private String id;
+
+    /**
+     * 文件名（哈希）
+     *
+     * <p>示例值：a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
+     */
+    private String filenameHash;
+
+    /**
+     * 文件大小（byte）
+     *
+     * <p>示例值：1024
+     */
     private String size;
 
-    // builder 开始
-    public FileMetaInfo() {
+    /**
+     * 文件id
+     *
+     * <p>示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public FileMetaInfo(Builder builder) {
-        /**
-         * 文件id
-         * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
-         */
-        this.id = builder.id;
-        /**
-         * 文件名（哈希）
-         * <p> 示例值：a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
-         */
-        this.filenameHash = builder.filenameHash;
-        /**
-         * 文件大小（byte）
-         * <p> 示例值：1024
-         */
-        this.size = builder.size;
+    /**
+     * 文件名（哈希）
+     *
+     * <p>示例值：a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
+     *
+     * @param filenameHash
+     * @return
+     */
+    public Builder filenameHash(String filenameHash) {
+      this.filenameHash = filenameHash;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文件大小（byte）
+     *
+     * <p>示例值：1024
+     *
+     * @param size
+     * @return
+     */
+    public Builder size(String size) {
+      this.size = size;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public FileMetaInfo build() {
+      return new FileMetaInfo(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getFilenameHash() {
-        return this.filenameHash;
-    }
-
-    public void setFilenameHash(String filenameHash) {
-        this.filenameHash = filenameHash;
-    }
-
-    public String getSize() {
-        return this.size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public static class Builder {
-        /**
-         * 文件id
-         * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
-         */
-        private String id;
-        /**
-         * 文件名（哈希）
-         * <p> 示例值：a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
-         */
-        private String filenameHash;
-        /**
-         * 文件大小（byte）
-         * <p> 示例值：1024
-         */
-        private String size;
-
-        /**
-         * 文件id
-         * <p> 示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 文件名（哈希）
-         * <p> 示例值：a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3
-         *
-         * @param filenameHash
-         * @return
-         */
-        public Builder filenameHash(String filenameHash) {
-            this.filenameHash = filenameHash;
-            return this;
-        }
-
-
-        /**
-         * 文件大小（byte）
-         * <p> 示例值：1024
-         *
-         * @param size
-         * @return
-         */
-        public Builder size(String size) {
-            this.size = size;
-            return this;
-        }
-
-
-        public FileMetaInfo build() {
-            return new FileMetaInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

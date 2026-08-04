@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DataArchivingMessage {
+  /**
+   * 序号ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("seq_id")
+  private String seqId;
+
+  /**
+   * | 分页数量，单次拉取消息数，最大值1000 示例值：100 | | --- |
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("limit")
+  private Integer limit;
+
+  public String getSeqId() {
+    return this.seqId;
+  }
+
+  public void setSeqId(String seqId) {
+    this.seqId = seqId;
+  }
+
+  public Integer getLimit() {
+    return this.limit;
+  }
+
+  public void setLimit(Integer limit) {
+    this.limit = limit;
+  }
+
+  // builder 开始
+  public DataArchivingMessage() {}
+
+  public DataArchivingMessage(Builder builder) {
     /**
      * 序号ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("seq_id")
-    private String seqId;
+    this.seqId = builder.seqId;
     /**
      * | 分页数量，单次拉取消息数，最大值1000 示例值：100 | | --- |
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("limit")
+    this.limit = builder.limit;
+  }
+
+  public static class Builder {
+    /**
+     * 序号ID
+     *
+     * <p>示例值：1
+     */
+    private String seqId;
+
+    /**
+     * | 分页数量，单次拉取消息数，最大值1000 示例值：100 | | --- |
+     *
+     * <p>示例值：100
+     */
     private Integer limit;
 
-    // builder 开始
-    public DataArchivingMessage() {
+    /**
+     * 序号ID
+     *
+     * <p>示例值：1
+     *
+     * @param seqId
+     * @return
+     */
+    public Builder seqId(String seqId) {
+      this.seqId = seqId;
+      return this;
     }
 
-    public DataArchivingMessage(Builder builder) {
-        /**
-         * 序号ID
-         * <p> 示例值：1
-         */
-        this.seqId = builder.seqId;
-        /**
-         * | 分页数量，单次拉取消息数，最大值1000 示例值：100 | | --- |
-         * <p> 示例值：100
-         */
-        this.limit = builder.limit;
+    /**
+     * | 分页数量，单次拉取消息数，最大值1000 示例值：100 | | --- |
+     *
+     * <p>示例值：100
+     *
+     * @param limit
+     * @return
+     */
+    public Builder limit(Integer limit) {
+      this.limit = limit;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DataArchivingMessage build() {
+      return new DataArchivingMessage(this);
     }
+  }
 
-    public String getSeqId() {
-        return this.seqId;
-    }
-
-    public void setSeqId(String seqId) {
-        this.seqId = seqId;
-    }
-
-    public Integer getLimit() {
-        return this.limit;
-    }
-
-    public void setLimit(Integer limit) {
-        this.limit = limit;
-    }
-
-    public static class Builder {
-        /**
-         * 序号ID
-         * <p> 示例值：1
-         */
-        private String seqId;
-        /**
-         * | 分页数量，单次拉取消息数，最大值1000 示例值：100 | | --- |
-         * <p> 示例值：100
-         */
-        private Integer limit;
-
-        /**
-         * 序号ID
-         * <p> 示例值：1
-         *
-         * @param seqId
-         * @return
-         */
-        public Builder seqId(String seqId) {
-            this.seqId = seqId;
-            return this;
-        }
-
-
-        /**
-         * | 分页数量，单次拉取消息数，最大值1000 示例值：100 | | --- |
-         * <p> 示例值：100
-         *
-         * @param limit
-         * @return
-         */
-        public Builder limit(Integer limit) {
-            this.limit = limit;
-            return this;
-        }
-
-
-        public DataArchivingMessage build() {
-            return new DataArchivingMessage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

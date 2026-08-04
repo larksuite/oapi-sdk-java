@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.elearning.v2.enums;
 
-/**
- * 活动直播类型（启用直播时）
- */
+/** 活动直播类型（启用直播时） */
 public enum SessionMeetingTypeEnum {
-    FEISHUVIDEOMEETING(1), // 飞书视频会议直播
-    OTHERMEETING(2), // 其他会议直播
-    ;
-    private Integer value;
+  FEISHUVIDEOMEETING(1), // 飞书视频会议直播
+  OTHERMEETING(2), // 其他会议直播
+  ;
+  private Integer value;
 
-    SessionMeetingTypeEnum(Integer value) {
-        this.value = value;
-    }
+  SessionMeetingTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

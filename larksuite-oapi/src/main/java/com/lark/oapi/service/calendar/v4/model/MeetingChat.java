@@ -13,198 +13,207 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingChat {
+  /**
+   * 日程id
+   *
+   * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+   */
+  @SerializedName("event_id")
+  private String eventId;
+
+  /**
+   * 会议群ID
+   *
+   * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+   */
+  @SerializedName("meeting_chat_id")
+  private String meetingChatId;
+
+  /**
+   * 群分享链接
+   *
+   * <p>示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
+   */
+  @SerializedName("applink")
+  private String applink;
+
+  /**
+   * 会议群绑定类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meeting_chat_type")
+  private String meetingChatType;
+
+  public String getEventId() {
+    return this.eventId;
+  }
+
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
+  }
+
+  public String getMeetingChatId() {
+    return this.meetingChatId;
+  }
+
+  public void setMeetingChatId(String meetingChatId) {
+    this.meetingChatId = meetingChatId;
+  }
+
+  public String getApplink() {
+    return this.applink;
+  }
+
+  public void setApplink(String applink) {
+    this.applink = applink;
+  }
+
+  public String getMeetingChatType() {
+    return this.meetingChatType;
+  }
+
+  public void setMeetingChatType(String meetingChatType) {
+    this.meetingChatType = meetingChatType;
+  }
+
+  // builder 开始
+  public MeetingChat() {}
+
+  public MeetingChat(Builder builder) {
     /**
      * 日程id
-     * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
      */
-    @SerializedName("event_id")
-    private String eventId;
+    this.eventId = builder.eventId;
     /**
      * 会议群ID
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    @SerializedName("meeting_chat_id")
-    private String meetingChatId;
+    this.meetingChatId = builder.meetingChatId;
     /**
      * 群分享链接
-     * <p> 示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
+     *
+     * <p>示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
      */
-    @SerializedName("applink")
-    private String applink;
+    this.applink = builder.applink;
     /**
      * 会议群绑定类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meeting_chat_type")
+    this.meetingChatType = builder.meetingChatType;
+  }
+
+  public static class Builder {
+    /**
+     * 日程id
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+     */
+    private String eventId;
+
+    /**
+     * 会议群ID
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     */
+    private String meetingChatId;
+
+    /**
+     * 群分享链接
+     *
+     * <p>示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
+     */
+    private String applink;
+
+    /**
+     * 会议群绑定类型
+     *
+     * <p>示例值：
+     */
     private String meetingChatType;
 
-    // builder 开始
-    public MeetingChat() {
+    /**
+     * 日程id
+     *
+     * <p>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
+     *
+     * @param eventId
+     * @return
+     */
+    public Builder eventId(String eventId) {
+      this.eventId = eventId;
+      return this;
     }
 
-    public MeetingChat(Builder builder) {
-        /**
-         * 日程id
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
-         */
-        this.eventId = builder.eventId;
-        /**
-         * 会议群ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        this.meetingChatId = builder.meetingChatId;
-        /**
-         * 群分享链接
-         * <p> 示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
-         */
-        this.applink = builder.applink;
-        /**
-         * 会议群绑定类型
-         * <p> 示例值：
-         */
-        this.meetingChatType = builder.meetingChatType;
+    /**
+     * 会议群ID
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * @param meetingChatId
+     * @return
+     */
+    public Builder meetingChatId(String meetingChatId) {
+      this.meetingChatId = meetingChatId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 群分享链接
+     *
+     * <p>示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
+     *
+     * @param applink
+     * @return
+     */
+    public Builder applink(String applink) {
+      this.applink = applink;
+      return this;
     }
 
-    public String getEventId() {
-        return this.eventId;
+    /**
+     * 会议群绑定类型
+     *
+     * <p>示例值：
+     *
+     * @param meetingChatType
+     * @return
+     */
+    public Builder meetingChatType(String meetingChatType) {
+      this.meetingChatType = meetingChatType;
+      return this;
     }
 
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
+    /**
+     * 会议群绑定类型
+     *
+     * <p>示例值：
+     *
+     * @param meetingChatType {@link
+     *     com.lark.oapi.service.calendar.v4.enums.MeetingChatMeetingChatBindTypeEnum}
+     * @return
+     */
+    public Builder meetingChatType(
+        com.lark.oapi.service.calendar.v4.enums.MeetingChatMeetingChatBindTypeEnum
+            meetingChatType) {
+      this.meetingChatType = meetingChatType.getValue();
+      return this;
     }
 
-    public String getMeetingChatId() {
-        return this.meetingChatId;
+    public MeetingChat build() {
+      return new MeetingChat(this);
     }
+  }
 
-    public void setMeetingChatId(String meetingChatId) {
-        this.meetingChatId = meetingChatId;
-    }
-
-    public String getApplink() {
-        return this.applink;
-    }
-
-    public void setApplink(String applink) {
-        this.applink = applink;
-    }
-
-    public String getMeetingChatType() {
-        return this.meetingChatType;
-    }
-
-    public void setMeetingChatType(String meetingChatType) {
-        this.meetingChatType = meetingChatType;
-    }
-
-    public static class Builder {
-        /**
-         * 日程id
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
-         */
-        private String eventId;
-        /**
-         * 会议群ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        private String meetingChatId;
-        /**
-         * 群分享链接
-         * <p> 示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
-         */
-        private String applink;
-        /**
-         * 会议群绑定类型
-         * <p> 示例值：
-         */
-        private String meetingChatType;
-
-        /**
-         * 日程id
-         * <p> 示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0
-         *
-         * @param eventId
-         * @return
-         */
-        public Builder eventId(String eventId) {
-            this.eventId = eventId;
-            return this;
-        }
-
-
-        /**
-         * 会议群ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         *
-         * @param meetingChatId
-         * @return
-         */
-        public Builder meetingChatId(String meetingChatId) {
-            this.meetingChatId = meetingChatId;
-            return this;
-        }
-
-
-        /**
-         * 群分享链接
-         * <p> 示例值：https://applink.feishu.cn/client/chat/open?openChatId=oc_a0553eda9014c201e6969b478895c230
-         *
-         * @param applink
-         * @return
-         */
-        public Builder applink(String applink) {
-            this.applink = applink;
-            return this;
-        }
-
-
-        /**
-         * 会议群绑定类型
-         * <p> 示例值：
-         *
-         * @param meetingChatType
-         * @return
-         */
-        public Builder meetingChatType(String meetingChatType) {
-            this.meetingChatType = meetingChatType;
-            return this;
-        }
-
-        /**
-         * 会议群绑定类型
-         * <p> 示例值：
-         *
-         * @param meetingChatType {@link com.lark.oapi.service.calendar.v4.enums.MeetingChatMeetingChatBindTypeEnum}
-         * @return
-         */
-        public Builder meetingChatType(com.lark.oapi.service.calendar.v4.enums.MeetingChatMeetingChatBindTypeEnum meetingChatType) {
-            this.meetingChatType = meetingChatType.getValue();
-            return this;
-        }
-
-
-        public MeetingChat build() {
-            return new MeetingChat(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

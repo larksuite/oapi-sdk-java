@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- *
- */
+/** */
 public enum VaultTaskExportTaskStatusEnum {
-    RUNNING("running"), //
-    SUCCESS("success"), //
-    FAIL("fail"), //
-    EXPIRED("expired"), //
-    ;
-    private String value;
+  RUNNING("running"), //
+  SUCCESS("success"), //
+  FAIL("fail"), //
+  EXPIRED("expired"), //
+  ;
+  private String value;
 
-    VaultTaskExportTaskStatusEnum(String value) {
-        this.value = value;
-    }
+  VaultTaskExportTaskStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

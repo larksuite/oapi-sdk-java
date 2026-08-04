@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchTableRecordsAppTableReqBody {
+  /**
+   * 要更新的数据记录信息（JSON字符串形式）
+   *
+   * <p>示例值：{\"age\":10}
+   */
+  @SerializedName("record")
+  private String record;
+
+  public String getRecord() {
+    return this.record;
+  }
+
+  public void setRecord(String record) {
+    this.record = record;
+  }
+
+  // builder 开始
+  public PatchTableRecordsAppTableReqBody() {}
+
+  public PatchTableRecordsAppTableReqBody(Builder builder) {
     /**
-     * 要更新的数据记录信息
-     * <p> 示例值：{\"age\":10}
+     * 要更新的数据记录信息（JSON字符串形式）
+     *
+     * <p>示例值：{\"age\":10}
      */
-    @SerializedName("record")
+    this.record = builder.record;
+  }
+
+  public static class Builder {
+    /**
+     * 要更新的数据记录信息（JSON字符串形式）
+     *
+     * <p>示例值：{\"age\":10}
+     */
     private String record;
 
-    // builder 开始
-    public PatchTableRecordsAppTableReqBody() {
+    /**
+     * 要更新的数据记录信息（JSON字符串形式）
+     *
+     * <p>示例值：{\"age\":10}
+     *
+     * @param record
+     * @return
+     */
+    public Builder record(String record) {
+      this.record = record;
+      return this;
     }
 
-    public PatchTableRecordsAppTableReqBody(Builder builder) {
-        /**
-         * 要更新的数据记录信息
-         * <p> 示例值：{\"age\":10}
-         */
-        this.record = builder.record;
+    public PatchTableRecordsAppTableReqBody build() {
+      return new PatchTableRecordsAppTableReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getRecord() {
-        return this.record;
-    }
-
-    public void setRecord(String record) {
-        this.record = record;
-    }
-
-    public static class Builder {
-        /**
-         * 要更新的数据记录信息
-         * <p> 示例值：{\"age\":10}
-         */
-        private String record;
-
-        /**
-         * 要更新的数据记录信息
-         * <p> 示例值：{\"age\":10}
-         *
-         * @param record
-         * @return
-         */
-        public Builder record(String record) {
-            this.record = record;
-            return this;
-        }
-
-
-        public PatchTableRecordsAppTableReqBody build() {
-            return new PatchTableRecordsAppTableReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

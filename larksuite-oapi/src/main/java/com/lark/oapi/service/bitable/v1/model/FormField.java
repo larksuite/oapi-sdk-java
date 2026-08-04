@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FormField {
+  /**
+   * 表单问题 ID
+   *
+   * <p>示例值：fldjX7dUj5
+   */
+  @SerializedName("field_id")
+  private String fieldId;
+
+  /**
+   * 表单问题
+   *
+   * <p>示例值：任务名称
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 问题描述
+   *
+   * <p>示例值：请概述该任务
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 该问题是否必填。可选值：;- true：必填;- false：非必填
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("required")
+  private Boolean required;
+
+  /**
+   * 该问题是否可见。可选值：;- true：可见;- false：不可见
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("visible")
+  private Boolean visible;
+
+  /**
+   * 富文本描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("rich_description")
+  private AppRichDescriptionSegment[] richDescription;
+
+  public String getFieldId() {
+    return this.fieldId;
+  }
+
+  public void setFieldId(String fieldId) {
+    this.fieldId = fieldId;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Boolean getRequired() {
+    return this.required;
+  }
+
+  public void setRequired(Boolean required) {
+    this.required = required;
+  }
+
+  public Boolean getVisible() {
+    return this.visible;
+  }
+
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
+  }
+
+  public AppRichDescriptionSegment[] getRichDescription() {
+    return this.richDescription;
+  }
+
+  public void setRichDescription(AppRichDescriptionSegment[] richDescription) {
+    this.richDescription = richDescription;
+  }
+
+  // builder 开始
+  public FormField() {}
+
+  public FormField(Builder builder) {
     /**
      * 表单问题 ID
-     * <p> 示例值：
+     *
+     * <p>示例值：fldjX7dUj5
      */
-    @SerializedName("field_id")
-    private String fieldId;
+    this.fieldId = builder.fieldId;
     /**
      * 表单问题
-     * <p> 示例值：
+     *
+     * <p>示例值：任务名称
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 问题描述
-     * <p> 示例值：
+     *
+     * <p>示例值：请概述该任务
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
-     * 是否必填
-     * <p> 示例值：
+     * 该问题是否必填。可选值：;- true：必填;- false：非必填
+     *
+     * <p>示例值：true
      */
-    @SerializedName("required")
-    private Boolean required;
+    this.required = builder.required;
     /**
-     * 是否可见
-     * <p> 示例值：
+     * 该问题是否可见。可选值：;- true：可见;- false：不可见
+     *
+     * <p>示例值：true
      */
-    @SerializedName("visible")
-    private Boolean visible;
+    this.visible = builder.visible;
     /**
      * 富文本描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("rich_description")
+    this.richDescription = builder.richDescription;
+  }
+
+  public static class Builder {
+    /**
+     * 表单问题 ID
+     *
+     * <p>示例值：fldjX7dUj5
+     */
+    private String fieldId;
+
+    /**
+     * 表单问题
+     *
+     * <p>示例值：任务名称
+     */
+    private String title;
+
+    /**
+     * 问题描述
+     *
+     * <p>示例值：请概述该任务
+     */
+    private String description;
+
+    /**
+     * 该问题是否必填。可选值：;- true：必填;- false：非必填
+     *
+     * <p>示例值：true
+     */
+    private Boolean required;
+
+    /**
+     * 该问题是否可见。可选值：;- true：可见;- false：不可见
+     *
+     * <p>示例值：true
+     */
+    private Boolean visible;
+
+    /**
+     * 富文本描述
+     *
+     * <p>示例值：
+     */
     private AppRichDescriptionSegment[] richDescription;
 
-    // builder 开始
-    public FormField() {
+    /**
+     * 表单问题 ID
+     *
+     * <p>示例值：fldjX7dUj5
+     *
+     * @param fieldId
+     * @return
+     */
+    public Builder fieldId(String fieldId) {
+      this.fieldId = fieldId;
+      return this;
     }
 
-    public FormField(Builder builder) {
-        /**
-         * 表单问题 ID
-         * <p> 示例值：
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 表单问题
-         * <p> 示例值：
-         */
-        this.title = builder.title;
-        /**
-         * 问题描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 是否必填
-         * <p> 示例值：
-         */
-        this.required = builder.required;
-        /**
-         * 是否可见
-         * <p> 示例值：
-         */
-        this.visible = builder.visible;
-        /**
-         * 富文本描述
-         * <p> 示例值：
-         */
-        this.richDescription = builder.richDescription;
+    /**
+     * 表单问题
+     *
+     * <p>示例值：任务名称
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 问题描述
+     *
+     * <p>示例值：请概述该任务
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getFieldId() {
-        return this.fieldId;
+    /**
+     * 该问题是否必填。可选值：;- true：必填;- false：非必填
+     *
+     * <p>示例值：true
+     *
+     * @param required
+     * @return
+     */
+    public Builder required(Boolean required) {
+      this.required = required;
+      return this;
     }
 
-    public void setFieldId(String fieldId) {
-        this.fieldId = fieldId;
+    /**
+     * 该问题是否可见。可选值：;- true：可见;- false：不可见
+     *
+     * <p>示例值：true
+     *
+     * @param visible
+     * @return
+     */
+    public Builder visible(Boolean visible) {
+      this.visible = visible;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 富文本描述
+     *
+     * <p>示例值：
+     *
+     * @param richDescription
+     * @return
+     */
+    public Builder richDescription(AppRichDescriptionSegment[] richDescription) {
+      this.richDescription = richDescription;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public FormField build() {
+      return new FormField(this);
     }
+  }
 
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Boolean getRequired() {
-        return this.required;
-    }
-
-    public void setRequired(Boolean required) {
-        this.required = required;
-    }
-
-    public Boolean getVisible() {
-        return this.visible;
-    }
-
-    public void setVisible(Boolean visible) {
-        this.visible = visible;
-    }
-
-    public AppRichDescriptionSegment[] getRichDescription() {
-        return this.richDescription;
-    }
-
-    public void setRichDescription(AppRichDescriptionSegment[] richDescription) {
-        this.richDescription = richDescription;
-    }
-
-    public static class Builder {
-        /**
-         * 表单问题 ID
-         * <p> 示例值：
-         */
-        private String fieldId;
-        /**
-         * 表单问题
-         * <p> 示例值：
-         */
-        private String title;
-        /**
-         * 问题描述
-         * <p> 示例值：
-         */
-        private String description;
-        /**
-         * 是否必填
-         * <p> 示例值：
-         */
-        private Boolean required;
-        /**
-         * 是否可见
-         * <p> 示例值：
-         */
-        private Boolean visible;
-        /**
-         * 富文本描述
-         * <p> 示例值：
-         */
-        private AppRichDescriptionSegment[] richDescription;
-
-        /**
-         * 表单问题 ID
-         * <p> 示例值：
-         *
-         * @param fieldId
-         * @return
-         */
-        public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
-        }
-
-
-        /**
-         * 表单问题
-         * <p> 示例值：
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 问题描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 是否必填
-         * <p> 示例值：
-         *
-         * @param required
-         * @return
-         */
-        public Builder required(Boolean required) {
-            this.required = required;
-            return this;
-        }
-
-
-        /**
-         * 是否可见
-         * <p> 示例值：
-         *
-         * @param visible
-         * @return
-         */
-        public Builder visible(Boolean visible) {
-            this.visible = visible;
-            return this;
-        }
-
-
-        /**
-         * 富文本描述
-         * <p> 示例值：
-         *
-         * @param richDescription
-         * @return
-         */
-        public Builder richDescription(AppRichDescriptionSegment[] richDescription) {
-            this.richDescription = richDescription;
-            return this;
-        }
-
-
-        public FormField build() {
-            return new FormField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

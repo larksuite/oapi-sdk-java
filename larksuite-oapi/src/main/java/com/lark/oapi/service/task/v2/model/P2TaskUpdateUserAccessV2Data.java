@@ -13,48 +13,41 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2TaskUpdateUserAccessV2Data {
-    /**
-     * 事件类型
-     * <p> 示例值：
-     */
-    @SerializedName("event_types")
-    private String[] eventTypes;
-    /**
-     * 任务GUID
-     * <p> 示例值：2451a8fb-024e-4f92-9843-2b27e31a7881
-     */
-    @SerializedName("task_guid")
-    private String taskGuid;
+  /**
+   * 事件类型;```text;task_assignees_update // 任务负责人变更;task_completed_update // 任务完整状态变更;task_create //
+   * 任务创建;task_deleted // 任务删除;task_desc_update // 任务描述变更;task_followers_update //
+   * 任务关注人变更;task_reminders_update // 任务提醒事件变更;task_start_due_update //
+   * 任务开始和截止时间变更;task_summary_update // 任务标题变更;```
+   *
+   * <p>示例值：
+   */
+  @SerializedName("event_types")
+  private String[] eventTypes;
 
-    public String[] getEventTypes() {
-        return this.eventTypes;
-    }
+  /**
+   * 任务GUID
+   *
+   * <p>示例值：2451a8fb-024e-4f92-9843-2b27e31a7881
+   */
+  @SerializedName("task_guid")
+  private String taskGuid;
 
-    public void setEventTypes(String[] eventTypes) {
-        this.eventTypes = eventTypes;
-    }
+  public String[] getEventTypes() {
+    return this.eventTypes;
+  }
 
-    public String getTaskGuid() {
-        return this.taskGuid;
-    }
+  public void setEventTypes(String[] eventTypes) {
+    this.eventTypes = eventTypes;
+  }
 
-    public void setTaskGuid(String taskGuid) {
-        this.taskGuid = taskGuid;
-    }
+  public String getTaskGuid() {
+    return this.taskGuid;
+  }
 
+  public void setTaskGuid(String taskGuid) {
+    this.taskGuid = taskGuid;
+  }
 }

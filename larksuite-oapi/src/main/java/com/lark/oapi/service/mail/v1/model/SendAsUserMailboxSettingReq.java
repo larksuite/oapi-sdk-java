@@ -13,72 +13,64 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class SendAsUserMailboxSettingReq {
+  /**
+   * 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
+   *
+   * <p>示例值：user@example.com
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  // builder 开始
+  public SendAsUserMailboxSettingReq() {}
+
+  public SendAsUserMailboxSettingReq(Builder builder) {
     /**
-     * 邮箱地址。用户身份下可以输入me代表用户。
-     * <p> 示例值：abc@abc.com
+     * 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
+     *
+     * <p>示例值：user@example.com
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
+  }
 
-    // builder 开始
-    public SendAsUserMailboxSettingReq() {
+  public static class Builder {
+
+    private String
+        userMailboxId; // 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
+
+    /**
+     * 用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。
+     *
+     * <p>示例值：user@example.com
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
     }
 
-    public SendAsUserMailboxSettingReq(Builder builder) {
-        /**
-         * 邮箱地址。用户身份下可以输入me代表用户。
-         * <p> 示例值：abc@abc.com
-         */
-        this.userMailboxId = builder.userMailboxId;
+    public SendAsUserMailboxSettingReq build() {
+      return new SendAsUserMailboxSettingReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public static class Builder {
-
-        private String userMailboxId; // 邮箱地址。用户身份下可以输入me代表用户。
-
-        /**
-         * 邮箱地址。用户身份下可以输入me代表用户。
-         * <p> 示例值：abc@abc.com
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-
-        public SendAsUserMailboxSettingReq build() {
-            return new SendAsUserMailboxSettingReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

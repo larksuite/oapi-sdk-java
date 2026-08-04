@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 异动方式
- */
+/** 异动方式 */
 public enum CreateJobChangeCreateJobChangeV2TransferModeEnum {
-    TYPE1(1), // 直接异动
-    TYPE2(2), // 发起异动
-    ;
-    private Integer value;
+  TYPE1(1), // 直接异动（无审批）
+  TYPE2(2), // 正常异动（完整流程）
+  ;
+  private Integer value;
 
-    CreateJobChangeCreateJobChangeV2TransferModeEnum(Integer value) {
-        this.value = value;
-    }
+  CreateJobChangeCreateJobChangeV2TransferModeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

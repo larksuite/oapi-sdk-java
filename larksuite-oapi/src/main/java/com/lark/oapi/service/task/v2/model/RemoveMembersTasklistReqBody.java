@@ -13,75 +13,69 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RemoveMembersTasklistReqBody {
+  /**
+   * 要移除的member列表。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+   * 如何表示任务和清单的成员？”章节。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("members")
+  private Member[] members;
+
+  public Member[] getMembers() {
+    return this.members;
+  }
+
+  public void setMembers(Member[] members) {
+    this.members = members;
+  }
+
+  // builder 开始
+  public RemoveMembersTasklistReqBody() {}
+
+  public RemoveMembersTasklistReqBody(Builder builder) {
     /**
-     * 要移除的member列表
-     * <p> 示例值：
+     * 要移除的member列表。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 如何表示任务和清单的成员？”章节。
+     *
+     * <p>示例值：
      */
-    @SerializedName("members")
+    this.members = builder.members;
+  }
+
+  public static class Builder {
+    /**
+     * 要移除的member列表。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 如何表示任务和清单的成员？”章节。
+     *
+     * <p>示例值：
+     */
     private Member[] members;
 
-    // builder 开始
-    public RemoveMembersTasklistReqBody() {
+    /**
+     * 要移除的member列表。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“
+     * 如何表示任务和清单的成员？”章节。
+     *
+     * <p>示例值：
+     *
+     * @param members
+     * @return
+     */
+    public Builder members(Member[] members) {
+      this.members = members;
+      return this;
     }
 
-    public RemoveMembersTasklistReqBody(Builder builder) {
-        /**
-         * 要移除的member列表
-         * <p> 示例值：
-         */
-        this.members = builder.members;
+    public RemoveMembersTasklistReqBody build() {
+      return new RemoveMembersTasklistReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Member[] getMembers() {
-        return this.members;
-    }
-
-    public void setMembers(Member[] members) {
-        this.members = members;
-    }
-
-    public static class Builder {
-        /**
-         * 要移除的member列表
-         * <p> 示例值：
-         */
-        private Member[] members;
-
-        /**
-         * 要移除的member列表
-         * <p> 示例值：
-         *
-         * @param members
-         * @return
-         */
-        public Builder members(Member[] members) {
-            this.members = members;
-            return this;
-        }
-
-
-        public RemoveMembersTasklistReqBody build() {
-            return new RemoveMembersTasklistReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

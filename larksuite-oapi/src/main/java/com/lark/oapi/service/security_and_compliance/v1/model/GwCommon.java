@@ -13,346 +13,375 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GwCommon {
+  /**
+   * 地区
+   *
+   * <p>示例值：zh-CN
+   */
+  @SerializedName("locale")
+  private String locale;
+
+  /**
+   * 上报时间戳（单位：纳秒）
+   *
+   * <p>示例值：1694164396263769182
+   */
+  @SerializedName("report_time")
+  private String reportTime;
+
+  /**
+   * session唯一id
+   *
+   * <p>示例值：AAAAAAAAAANkfVio7oAAFA==
+   */
+  @SerializedName("session_uuid")
+  private String sessionUuid;
+
+  /**
+   * 终端类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("terminal_type")
+  private String terminalType;
+
+  /**
+   * 用户ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private UserId userId;
+
+  /**
+   * 开放平台应用ID
+   *
+   * <p>示例值：12345
+   */
+  @SerializedName("openplatform_app_id")
+  private String openplatformAppId;
+
+  /**
+   * 请求标识
+   *
+   * <p>示例值：dd8300ae-0f93-4a5f-8638-0051e76502d6
+   */
+  @SerializedName("request_id")
+  private String requestId;
+
+  /**
+   * 链路标识
+   *
+   * <p>示例值：2022050711522601021218102322038985
+   */
+  @SerializedName("log_id")
+  private String logId;
+
+  public String getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  public String getReportTime() {
+    return this.reportTime;
+  }
+
+  public void setReportTime(String reportTime) {
+    this.reportTime = reportTime;
+  }
+
+  public String getSessionUuid() {
+    return this.sessionUuid;
+  }
+
+  public void setSessionUuid(String sessionUuid) {
+    this.sessionUuid = sessionUuid;
+  }
+
+  public String getTerminalType() {
+    return this.terminalType;
+  }
+
+  public void setTerminalType(String terminalType) {
+    this.terminalType = terminalType;
+  }
+
+  public UserId getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(UserId userId) {
+    this.userId = userId;
+  }
+
+  public String getOpenplatformAppId() {
+    return this.openplatformAppId;
+  }
+
+  public void setOpenplatformAppId(String openplatformAppId) {
+    this.openplatformAppId = openplatformAppId;
+  }
+
+  public String getRequestId() {
+    return this.requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
+  public String getLogId() {
+    return this.logId;
+  }
+
+  public void setLogId(String logId) {
+    this.logId = logId;
+  }
+
+  // builder 开始
+  public GwCommon() {}
+
+  public GwCommon(Builder builder) {
     /**
      * 地区
-     * <p> 示例值：zh-CN
+     *
+     * <p>示例值：zh-CN
      */
-    @SerializedName("locale")
-    private String locale;
+    this.locale = builder.locale;
     /**
      * 上报时间戳（单位：纳秒）
-     * <p> 示例值：1694164396263769182
+     *
+     * <p>示例值：1694164396263769182
      */
-    @SerializedName("report_time")
-    private String reportTime;
+    this.reportTime = builder.reportTime;
     /**
      * session唯一id
-     * <p> 示例值：AAAAAAAAAANkfVio7oAAFA==
+     *
+     * <p>示例值：AAAAAAAAAANkfVio7oAAFA==
      */
-    @SerializedName("session_uuid")
-    private String sessionUuid;
+    this.sessionUuid = builder.sessionUuid;
     /**
      * 终端类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("terminal_type")
-    private String terminalType;
+    this.terminalType = builder.terminalType;
     /**
      * 用户ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id")
-    private UserId userId;
+    this.userId = builder.userId;
     /**
      * 开放平台应用ID
-     * <p> 示例值：12345
+     *
+     * <p>示例值：12345
      */
-    @SerializedName("openplatform_app_id")
-    private String openplatformAppId;
+    this.openplatformAppId = builder.openplatformAppId;
     /**
      * 请求标识
-     * <p> 示例值：dd8300ae-0f93-4a5f-8638-0051e76502d6
+     *
+     * <p>示例值：dd8300ae-0f93-4a5f-8638-0051e76502d6
      */
-    @SerializedName("request_id")
-    private String requestId;
+    this.requestId = builder.requestId;
     /**
      * 链路标识
-     * <p> 示例值：2022050711522601021218102322038985
+     *
+     * <p>示例值：2022050711522601021218102322038985
      */
-    @SerializedName("log_id")
+    this.logId = builder.logId;
+  }
+
+  public static class Builder {
+    /**
+     * 地区
+     *
+     * <p>示例值：zh-CN
+     */
+    private String locale;
+
+    /**
+     * 上报时间戳（单位：纳秒）
+     *
+     * <p>示例值：1694164396263769182
+     */
+    private String reportTime;
+
+    /**
+     * session唯一id
+     *
+     * <p>示例值：AAAAAAAAAANkfVio7oAAFA==
+     */
+    private String sessionUuid;
+
+    /**
+     * 终端类型
+     *
+     * <p>示例值：1
+     */
+    private String terminalType;
+
+    /**
+     * 用户ID
+     *
+     * <p>示例值：
+     */
+    private UserId userId;
+
+    /**
+     * 开放平台应用ID
+     *
+     * <p>示例值：12345
+     */
+    private String openplatformAppId;
+
+    /**
+     * 请求标识
+     *
+     * <p>示例值：dd8300ae-0f93-4a5f-8638-0051e76502d6
+     */
+    private String requestId;
+
+    /**
+     * 链路标识
+     *
+     * <p>示例值：2022050711522601021218102322038985
+     */
     private String logId;
 
-    // builder 开始
-    public GwCommon() {
+    /**
+     * 地区
+     *
+     * <p>示例值：zh-CN
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(String locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public GwCommon(Builder builder) {
-        /**
-         * 地区
-         * <p> 示例值：zh-CN
-         */
-        this.locale = builder.locale;
-        /**
-         * 上报时间戳（单位：纳秒）
-         * <p> 示例值：1694164396263769182
-         */
-        this.reportTime = builder.reportTime;
-        /**
-         * session唯一id
-         * <p> 示例值：AAAAAAAAAANkfVio7oAAFA==
-         */
-        this.sessionUuid = builder.sessionUuid;
-        /**
-         * 终端类型
-         * <p> 示例值：1
-         */
-        this.terminalType = builder.terminalType;
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 开放平台应用ID
-         * <p> 示例值：12345
-         */
-        this.openplatformAppId = builder.openplatformAppId;
-        /**
-         * 请求标识
-         * <p> 示例值：dd8300ae-0f93-4a5f-8638-0051e76502d6
-         */
-        this.requestId = builder.requestId;
-        /**
-         * 链路标识
-         * <p> 示例值：2022050711522601021218102322038985
-         */
-        this.logId = builder.logId;
+    /**
+     * 上报时间戳（单位：纳秒）
+     *
+     * <p>示例值：1694164396263769182
+     *
+     * @param reportTime
+     * @return
+     */
+    public Builder reportTime(String reportTime) {
+      this.reportTime = reportTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * session唯一id
+     *
+     * <p>示例值：AAAAAAAAAANkfVio7oAAFA==
+     *
+     * @param sessionUuid
+     * @return
+     */
+    public Builder sessionUuid(String sessionUuid) {
+      this.sessionUuid = sessionUuid;
+      return this;
     }
 
-    public String getLocale() {
-        return this.locale;
+    /**
+     * 终端类型
+     *
+     * <p>示例值：1
+     *
+     * @param terminalType
+     * @return
+     */
+    public Builder terminalType(String terminalType) {
+      this.terminalType = terminalType;
+      return this;
     }
 
-    public void setLocale(String locale) {
-        this.locale = locale;
+    /**
+     * 终端类型
+     *
+     * <p>示例值：1
+     *
+     * @param terminalType {@link
+     *     com.lark.oapi.service.security_and_compliance.v1.enums.GwCommonTerminalTypeEnum}
+     * @return
+     */
+    public Builder terminalType(
+        com.lark.oapi.service.security_and_compliance.v1.enums.GwCommonTerminalTypeEnum
+            terminalType) {
+      this.terminalType = terminalType.getValue();
+      return this;
     }
 
-    public String getReportTime() {
-        return this.reportTime;
+    /**
+     * 用户ID
+     *
+     * <p>示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(UserId userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public void setReportTime(String reportTime) {
-        this.reportTime = reportTime;
+    /**
+     * 开放平台应用ID
+     *
+     * <p>示例值：12345
+     *
+     * @param openplatformAppId
+     * @return
+     */
+    public Builder openplatformAppId(String openplatformAppId) {
+      this.openplatformAppId = openplatformAppId;
+      return this;
     }
 
-    public String getSessionUuid() {
-        return this.sessionUuid;
+    /**
+     * 请求标识
+     *
+     * <p>示例值：dd8300ae-0f93-4a5f-8638-0051e76502d6
+     *
+     * @param requestId
+     * @return
+     */
+    public Builder requestId(String requestId) {
+      this.requestId = requestId;
+      return this;
     }
 
-    public void setSessionUuid(String sessionUuid) {
-        this.sessionUuid = sessionUuid;
+    /**
+     * 链路标识
+     *
+     * <p>示例值：2022050711522601021218102322038985
+     *
+     * @param logId
+     * @return
+     */
+    public Builder logId(String logId) {
+      this.logId = logId;
+      return this;
     }
 
-    public String getTerminalType() {
-        return this.terminalType;
+    public GwCommon build() {
+      return new GwCommon(this);
     }
+  }
 
-    public void setTerminalType(String terminalType) {
-        this.terminalType = terminalType;
-    }
-
-    public UserId getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(UserId userId) {
-        this.userId = userId;
-    }
-
-    public String getOpenplatformAppId() {
-        return this.openplatformAppId;
-    }
-
-    public void setOpenplatformAppId(String openplatformAppId) {
-        this.openplatformAppId = openplatformAppId;
-    }
-
-    public String getRequestId() {
-        return this.requestId;
-    }
-
-    public void setRequestId(String requestId) {
-        this.requestId = requestId;
-    }
-
-    public String getLogId() {
-        return this.logId;
-    }
-
-    public void setLogId(String logId) {
-        this.logId = logId;
-    }
-
-    public static class Builder {
-        /**
-         * 地区
-         * <p> 示例值：zh-CN
-         */
-        private String locale;
-        /**
-         * 上报时间戳（单位：纳秒）
-         * <p> 示例值：1694164396263769182
-         */
-        private String reportTime;
-        /**
-         * session唯一id
-         * <p> 示例值：AAAAAAAAAANkfVio7oAAFA==
-         */
-        private String sessionUuid;
-        /**
-         * 终端类型
-         * <p> 示例值：1
-         */
-        private String terminalType;
-        /**
-         * 用户ID
-         * <p> 示例值：
-         */
-        private UserId userId;
-        /**
-         * 开放平台应用ID
-         * <p> 示例值：12345
-         */
-        private String openplatformAppId;
-        /**
-         * 请求标识
-         * <p> 示例值：dd8300ae-0f93-4a5f-8638-0051e76502d6
-         */
-        private String requestId;
-        /**
-         * 链路标识
-         * <p> 示例值：2022050711522601021218102322038985
-         */
-        private String logId;
-
-        /**
-         * 地区
-         * <p> 示例值：zh-CN
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
-        }
-
-
-        /**
-         * 上报时间戳（单位：纳秒）
-         * <p> 示例值：1694164396263769182
-         *
-         * @param reportTime
-         * @return
-         */
-        public Builder reportTime(String reportTime) {
-            this.reportTime = reportTime;
-            return this;
-        }
-
-
-        /**
-         * session唯一id
-         * <p> 示例值：AAAAAAAAAANkfVio7oAAFA==
-         *
-         * @param sessionUuid
-         * @return
-         */
-        public Builder sessionUuid(String sessionUuid) {
-            this.sessionUuid = sessionUuid;
-            return this;
-        }
-
-
-        /**
-         * 终端类型
-         * <p> 示例值：1
-         *
-         * @param terminalType
-         * @return
-         */
-        public Builder terminalType(String terminalType) {
-            this.terminalType = terminalType;
-            return this;
-        }
-
-        /**
-         * 终端类型
-         * <p> 示例值：1
-         *
-         * @param terminalType {@link com.lark.oapi.service.security_and_compliance.v1.enums.GwCommonTerminalTypeEnum}
-         * @return
-         */
-        public Builder terminalType(com.lark.oapi.service.security_and_compliance.v1.enums.GwCommonTerminalTypeEnum terminalType) {
-            this.terminalType = terminalType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 用户ID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(UserId userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 开放平台应用ID
-         * <p> 示例值：12345
-         *
-         * @param openplatformAppId
-         * @return
-         */
-        public Builder openplatformAppId(String openplatformAppId) {
-            this.openplatformAppId = openplatformAppId;
-            return this;
-        }
-
-
-        /**
-         * 请求标识
-         * <p> 示例值：dd8300ae-0f93-4a5f-8638-0051e76502d6
-         *
-         * @param requestId
-         * @return
-         */
-        public Builder requestId(String requestId) {
-            this.requestId = requestId;
-            return this;
-        }
-
-
-        /**
-         * 链路标识
-         * <p> 示例值：2022050711522601021218102322038985
-         *
-         * @param logId
-         * @return
-         */
-        public Builder logId(String logId) {
-            this.logId = logId;
-            return this;
-        }
-
-
-        public GwCommon build() {
-            return new GwCommon(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

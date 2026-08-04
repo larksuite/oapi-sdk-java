@@ -13,74 +13,65 @@
 
 package com.lark.oapi.service.meeting_room.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.meeting_room.v1.enums.*;
 
 public class MeetingRoom {
+  /**
+   * your description here
+   *
+   * <p>示例值：omm_83d09ad4f6896e02029a6a075f71xxxx
+   */
+  @SerializedName("room_id")
+  private Integer roomId;
+
+  public Integer getRoomId() {
+    return this.roomId;
+  }
+
+  public void setRoomId(Integer roomId) {
+    this.roomId = roomId;
+  }
+
+  // builder 开始
+  public MeetingRoom() {}
+
+  public MeetingRoom(Builder builder) {
     /**
      * your description here
-     * <p> 示例值：
+     *
+     * <p>示例值：omm_83d09ad4f6896e02029a6a075f71xxxx
      */
-    @SerializedName("room_id")
+    this.roomId = builder.roomId;
+  }
+
+  public static class Builder {
+    /**
+     * your description here
+     *
+     * <p>示例值：omm_83d09ad4f6896e02029a6a075f71xxxx
+     */
     private Integer roomId;
 
-    // builder 开始
-    public MeetingRoom() {
+    /**
+     * your description here
+     *
+     * <p>示例值：omm_83d09ad4f6896e02029a6a075f71xxxx
+     *
+     * @param roomId
+     * @return
+     */
+    public Builder roomId(Integer roomId) {
+      this.roomId = roomId;
+      return this;
     }
 
-    public MeetingRoom(Builder builder) {
-        /**
-         * your description here
-         * <p> 示例值：
-         */
-        this.roomId = builder.roomId;
+    public MeetingRoom build() {
+      return new MeetingRoom(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Integer getRoomId() {
-        return this.roomId;
-    }
-
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
-    }
-
-    public static class Builder {
-        /**
-         * your description here
-         * <p> 示例值：
-         */
-        private Integer roomId;
-
-        /**
-         * your description here
-         * <p> 示例值：
-         *
-         * @param roomId
-         * @return
-         */
-        public Builder roomId(Integer roomId) {
-            this.roomId = roomId;
-            return this;
-        }
-
-
-        public MeetingRoom build() {
-            return new MeetingRoom(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

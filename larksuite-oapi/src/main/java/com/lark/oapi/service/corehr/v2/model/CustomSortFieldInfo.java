@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomSortFieldInfo {
+  /**
+   * 字段api name
+   *
+   * <p>示例值：work_location
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 升降序
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("order")
+  private Integer order;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Integer getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(Integer order) {
+    this.order = order;
+  }
+
+  // builder 开始
+  public CustomSortFieldInfo() {}
+
+  public CustomSortFieldInfo(Builder builder) {
     /**
      * 字段api name
-     * <p> 示例值：work_location
+     *
+     * <p>示例值：work_location
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 升降序
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("order")
+    this.order = builder.order;
+  }
+
+  public static class Builder {
+    /**
+     * 字段api name
+     *
+     * <p>示例值：work_location
+     */
+    private String apiName;
+
+    /**
+     * 升降序
+     *
+     * <p>示例值：1
+     */
     private Integer order;
 
-    // builder 开始
-    public CustomSortFieldInfo() {
+    /**
+     * 字段api name
+     *
+     * <p>示例值：work_location
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public CustomSortFieldInfo(Builder builder) {
-        /**
-         * 字段api name
-         * <p> 示例值：work_location
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 升降序
-         * <p> 示例值：1
-         */
-        this.order = builder.order;
+    /**
+     * 升降序
+     *
+     * <p>示例值：1
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(Integer order) {
+      this.order = order;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CustomSortFieldInfo build() {
+      return new CustomSortFieldInfo(this);
     }
+  }
 
-    public String getApiName() {
-        return this.apiName;
-    }
-
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public Integer getOrder() {
-        return this.order;
-    }
-
-    public void setOrder(Integer order) {
-        this.order = order;
-    }
-
-    public static class Builder {
-        /**
-         * 字段api name
-         * <p> 示例值：work_location
-         */
-        private String apiName;
-        /**
-         * 升降序
-         * <p> 示例值：1
-         */
-        private Integer order;
-
-        /**
-         * 字段api name
-         * <p> 示例值：work_location
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 升降序
-         * <p> 示例值：1
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(Integer order) {
-            this.order = order;
-            return this;
-        }
-
-
-        public CustomSortFieldInfo build() {
-            return new CustomSortFieldInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

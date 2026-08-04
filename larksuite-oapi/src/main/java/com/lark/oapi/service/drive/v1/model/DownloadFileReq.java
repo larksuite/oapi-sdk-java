@@ -13,104 +13,106 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class DownloadFileReq {
+  /**
+   * 文件版本，传了则下载对应的文件版本，不传默认下载最新版本
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("version")
+  private String version;
+
+  public String getVersion() {
+    return this.version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  /**
+   * 文件的
+   * token，获取方式见[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。
+   *
+   * <p>示例值：boxcnabCdefgabcef
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  // builder 开始
+  public DownloadFileReq() {}
+
+  public DownloadFileReq(Builder builder) {
     /**
      * 文件版本，传了则下载对应的文件版本，不传默认下载最新版本
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("version")
-    private String version;
+    this.version = builder.version;
     /**
-     * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-     * <p> 示例值：boxcnabCdefg12345
+     * 文件的
+     * token，获取方式见[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。
+     *
+     * <p>示例值：boxcnabCdefgabcef
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
+  }
 
-    // builder 开始
-    public DownloadFileReq() {
+  public static class Builder {
+    private String version; // 文件版本，传了则下载对应的文件版本，不传默认下载最新版本
+
+    /**
+     * 文件版本，传了则下载对应的文件版本，不传默认下载最新版本
+     *
+     * <p>示例值：
+     *
+     * @param version
+     * @return
+     */
+    public Builder version(String version) {
+      this.version = version;
+      return this;
     }
 
-    public DownloadFileReq(Builder builder) {
-        /**
-         * 文件版本，传了则下载对应的文件版本，不传默认下载最新版本
-         * <p> 示例值：
-         */
-        this.version = builder.version;
-        /**
-         * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-         * <p> 示例值：boxcnabCdefg12345
-         */
-        this.fileToken = builder.fileToken;
+    private String fileToken; // 文件的
+
+    // token，获取方式见[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。
+
+    /**
+     * 文件的
+     * token，获取方式见[文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/file-overview)。
+     *
+     * <p>示例值：boxcnabCdefgabcef
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DownloadFileReq build() {
+      return new DownloadFileReq(this);
     }
+  }
 
-    public String getVersion() {
-        return this.version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public static class Builder {
-        private String version; // 文件版本，传了则下载对应的文件版本，不传默认下载最新版本
-        private String fileToken; // 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-
-        /**
-         * 文件版本，传了则下载对应的文件版本，不传默认下载最新版本
-         * <p> 示例值：
-         *
-         * @param version
-         * @return
-         */
-        public Builder version(String version) {
-            this.version = version;
-            return this;
-        }
-
-        /**
-         * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-         * <p> 示例值：boxcnabCdefg12345
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        public DownloadFileReq build() {
-            return new DownloadFileReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

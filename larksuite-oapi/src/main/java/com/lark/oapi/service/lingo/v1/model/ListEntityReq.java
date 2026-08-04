@@ -13,219 +13,228 @@
 
 package com.lark.oapi.service.lingo.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.lingo.v1.enums.*;
 
 public class ListEntityReq {
+  /**
+   * 分页大小
+   *
+   * <p>示例值：20
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 相关外部系统【可用来过滤词条数据】
+   *
+   * <p>示例值：星云
+   */
+  @Query
+  @SerializedName("provider")
+  private String provider;
+
+  /**
+   * 词库 id(不传时默认返回全员词库数据);;如以应用身份拉取非全员词库的词条，需要在“词库设置”页面添加应用；若以用户身份拉取非全员词库的词条，该用户需要拥有对应词库的可见权限。
+   *
+   * <p>示例值：7152790921053274113
+   */
+  @Query
+  @SerializedName("repo_id")
+  private String repoId;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getProvider() {
+    return this.provider;
+  }
+
+  public void setProvider(String provider) {
+    this.provider = provider;
+  }
+
+  public String getRepoId() {
+    return this.repoId;
+  }
+
+  public void setRepoId(String repoId) {
+    this.repoId = repoId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  // builder 开始
+  public ListEntityReq() {}
+
+  public ListEntityReq(Builder builder) {
     /**
      * 分页大小
-     * <p> 示例值：20
+     *
+     * <p>示例值：20
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba
+     *
+     * <p>示例值：408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 数据提供方【可用来过滤数据】
-     * <p> 示例值：星云
+     * 相关外部系统【可用来过滤词条数据】
+     *
+     * <p>示例值：星云
      */
-    @Query
-    @SerializedName("provider")
-    private String provider;
+    this.provider = builder.provider;
     /**
-     * 词库 id
-     * <p> 示例值：7152790921053274113
+     * 词库 id(不传时默认返回全员词库数据);;如以应用身份拉取非全员词库的词条，需要在“词库设置”页面添加应用；若以用户身份拉取非全员词库的词条，该用户需要拥有对应词库的可见权限。
+     *
+     * <p>示例值：7152790921053274113
      */
-    @Query
-    @SerializedName("repo_id")
-    private String repoId;
+    this.repoId = builder.repoId;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
+  }
 
-    // builder 开始
-    public ListEntityReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String provider; // 相关外部系统【可用来过滤词条数据】
+    private String repoId; // 词库
+    // id(不传时默认返回全员词库数据);;如以应用身份拉取非全员词库的词条，需要在“词库设置”页面添加应用；若以用户身份拉取非全员词库的词条，该用户需要拥有对应词库的可见权限。
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：20
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListEntityReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：20
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 数据提供方【可用来过滤数据】
-         * <p> 示例值：星云
-         */
-        this.provider = builder.provider;
-        /**
-         * 词库 id
-         * <p> 示例值：7152790921053274113
-         */
-        this.repoId = builder.repoId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 相关外部系统【可用来过滤词条数据】
+     *
+     * <p>示例值：星云
+     *
+     * @param provider
+     * @return
+     */
+    public Builder provider(String provider) {
+      this.provider = provider;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 词库 id(不传时默认返回全员词库数据);;如以应用身份拉取非全员词库的词条，需要在“词库设置”页面添加应用；若以用户身份拉取非全员词库的词条，该用户需要拥有对应词库的可见权限。
+     *
+     * <p>示例值：7152790921053274113
+     *
+     * @param repoId
+     * @return
+     */
+    public Builder repoId(String repoId) {
+      this.repoId = repoId;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.lingo.v1.enums.ListEntityOpenAPIListEntityUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.lingo.v1.enums.ListEntityOpenAPIListEntityUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    public ListEntityReq build() {
+      return new ListEntityReq(this);
     }
+  }
 
-    public String getProvider() {
-        return this.provider;
-    }
-
-    public void setProvider(String provider) {
-        this.provider = provider;
-    }
-
-    public String getRepoId() {
-        return this.repoId;
-    }
-
-    public void setRepoId(String repoId) {
-        this.repoId = repoId;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String provider; // 数据提供方【可用来过滤数据】
-        private String repoId; // 词库 id
-        private String userIdType; // 此次调用中使用的用户ID的类型
-
-        /**
-         * 分页大小
-         * <p> 示例值：20
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：408ecac018b2e3518db37275e812aad7bb8ad3e755fc886f322ac6c430ba
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 数据提供方【可用来过滤数据】
-         * <p> 示例值：星云
-         *
-         * @param provider
-         * @return
-         */
-        public Builder provider(String provider) {
-            this.provider = provider;
-            return this;
-        }
-
-
-        /**
-         * 词库 id
-         * <p> 示例值：7152790921053274113
-         *
-         * @param repoId
-         * @return
-         */
-        public Builder repoId(String repoId) {
-            this.repoId = repoId;
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.lingo.v1.enums.ListEntityUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.lingo.v1.enums.ListEntityUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        public ListEntityReq build() {
-            return new ListEntityReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

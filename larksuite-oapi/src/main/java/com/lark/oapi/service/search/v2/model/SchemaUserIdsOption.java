@@ -13,87 +13,80 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SchemaUserIdsOption {
+  /**
+   * 用户身份类型
+   *
+   * <p>示例值：user_id
+   */
+  @SerializedName("id_type")
+  private String idType;
+
+  public String getIdType() {
+    return this.idType;
+  }
+
+  public void setIdType(String idType) {
+    this.idType = idType;
+  }
+
+  // builder 开始
+  public SchemaUserIdsOption() {}
+
+  public SchemaUserIdsOption(Builder builder) {
     /**
      * 用户身份类型
-     * <p> 示例值：user_id
+     *
+     * <p>示例值：user_id
      */
-    @SerializedName("id_type")
+    this.idType = builder.idType;
+  }
+
+  public static class Builder {
+    /**
+     * 用户身份类型
+     *
+     * <p>示例值：user_id
+     */
     private String idType;
 
-    // builder 开始
-    public SchemaUserIdsOption() {
+    /**
+     * 用户身份类型
+     *
+     * <p>示例值：user_id
+     *
+     * @param idType
+     * @return
+     */
+    public Builder idType(String idType) {
+      this.idType = idType;
+      return this;
     }
 
-    public SchemaUserIdsOption(Builder builder) {
-        /**
-         * 用户身份类型
-         * <p> 示例值：user_id
-         */
-        this.idType = builder.idType;
+    /**
+     * 用户身份类型
+     *
+     * <p>示例值：user_id
+     *
+     * @param idType {@link
+     *     com.lark.oapi.service.search.v2.enums.SchemaUserIdsOptionUserIDsTypeEnum}
+     * @return
+     */
+    public Builder idType(
+        com.lark.oapi.service.search.v2.enums.SchemaUserIdsOptionUserIDsTypeEnum idType) {
+      this.idType = idType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SchemaUserIdsOption build() {
+      return new SchemaUserIdsOption(this);
     }
+  }
 
-    public String getIdType() {
-        return this.idType;
-    }
-
-    public void setIdType(String idType) {
-        this.idType = idType;
-    }
-
-    public static class Builder {
-        /**
-         * 用户身份类型
-         * <p> 示例值：user_id
-         */
-        private String idType;
-
-        /**
-         * 用户身份类型
-         * <p> 示例值：user_id
-         *
-         * @param idType
-         * @return
-         */
-        public Builder idType(String idType) {
-            this.idType = idType;
-            return this;
-        }
-
-        /**
-         * 用户身份类型
-         * <p> 示例值：user_id
-         *
-         * @param idType {@link com.lark.oapi.service.search.v2.enums.SchemaUserIdsOptionUserIDsTypeEnum}
-         * @return
-         */
-        public Builder idType(com.lark.oapi.service.search.v2.enums.SchemaUserIdsOptionUserIDsTypeEnum idType) {
-            this.idType = idType.getValue();
-            return this;
-        }
-
-
-        public SchemaUserIdsOption build() {
-            return new SchemaUserIdsOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

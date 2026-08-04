@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchCreateLumpSumPaymentReqBody {
+  /**
+   * 要创建的一次性支付信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("records")
+  private LumpSumPaymentForCreate[] records;
+
+  public LumpSumPaymentForCreate[] getRecords() {
+    return this.records;
+  }
+
+  public void setRecords(LumpSumPaymentForCreate[] records) {
+    this.records = records;
+  }
+
+  // builder 开始
+  public BatchCreateLumpSumPaymentReqBody() {}
+
+  public BatchCreateLumpSumPaymentReqBody(Builder builder) {
     /**
      * 要创建的一次性支付信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("records")
+    this.records = builder.records;
+  }
+
+  public static class Builder {
+    /**
+     * 要创建的一次性支付信息
+     *
+     * <p>示例值：
+     */
     private LumpSumPaymentForCreate[] records;
 
-    // builder 开始
-    public BatchCreateLumpSumPaymentReqBody() {
+    /**
+     * 要创建的一次性支付信息
+     *
+     * <p>示例值：
+     *
+     * @param records
+     * @return
+     */
+    public Builder records(LumpSumPaymentForCreate[] records) {
+      this.records = records;
+      return this;
     }
 
-    public BatchCreateLumpSumPaymentReqBody(Builder builder) {
-        /**
-         * 要创建的一次性支付信息
-         * <p> 示例值：
-         */
-        this.records = builder.records;
+    public BatchCreateLumpSumPaymentReqBody build() {
+      return new BatchCreateLumpSumPaymentReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public LumpSumPaymentForCreate[] getRecords() {
-        return this.records;
-    }
-
-    public void setRecords(LumpSumPaymentForCreate[] records) {
-        this.records = records;
-    }
-
-    public static class Builder {
-        /**
-         * 要创建的一次性支付信息
-         * <p> 示例值：
-         */
-        private LumpSumPaymentForCreate[] records;
-
-        /**
-         * 要创建的一次性支付信息
-         * <p> 示例值：
-         *
-         * @param records
-         * @return
-         */
-        public Builder records(LumpSumPaymentForCreate[] records) {
-            this.records = records;
-            return this;
-        }
-
-
-        public BatchCreateLumpSumPaymentReqBody build() {
-            return new BatchCreateLumpSumPaymentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

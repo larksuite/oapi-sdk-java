@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MailId {
+  /**
+   * 邮件 id
+   *
+   * <p>示例值：aaaaaaaa
+   */
+  @SerializedName("mail_id")
+  private String mailId;
+
+  /**
+   * 邮件 owner 邮箱地址
+   *
+   * <p>示例值：user@xxx.xx
+   */
+  @SerializedName("mailbox_id")
+  private String mailboxId;
+
+  public String getMailId() {
+    return this.mailId;
+  }
+
+  public void setMailId(String mailId) {
+    this.mailId = mailId;
+  }
+
+  public String getMailboxId() {
+    return this.mailboxId;
+  }
+
+  public void setMailboxId(String mailboxId) {
+    this.mailboxId = mailboxId;
+  }
+
+  // builder 开始
+  public MailId() {}
+
+  public MailId(Builder builder) {
     /**
      * 邮件 id
-     * <p> 示例值：aaaaaaaa
+     *
+     * <p>示例值：aaaaaaaa
      */
-    @SerializedName("mail_id")
-    private String mailId;
+    this.mailId = builder.mailId;
     /**
      * 邮件 owner 邮箱地址
-     * <p> 示例值：user@xxx.xx
+     *
+     * <p>示例值：user@xxx.xx
      */
-    @SerializedName("mailbox_id")
+    this.mailboxId = builder.mailboxId;
+  }
+
+  public static class Builder {
+    /**
+     * 邮件 id
+     *
+     * <p>示例值：aaaaaaaa
+     */
+    private String mailId;
+
+    /**
+     * 邮件 owner 邮箱地址
+     *
+     * <p>示例值：user@xxx.xx
+     */
     private String mailboxId;
 
-    // builder 开始
-    public MailId() {
+    /**
+     * 邮件 id
+     *
+     * <p>示例值：aaaaaaaa
+     *
+     * @param mailId
+     * @return
+     */
+    public Builder mailId(String mailId) {
+      this.mailId = mailId;
+      return this;
     }
 
-    public MailId(Builder builder) {
-        /**
-         * 邮件 id
-         * <p> 示例值：aaaaaaaa
-         */
-        this.mailId = builder.mailId;
-        /**
-         * 邮件 owner 邮箱地址
-         * <p> 示例值：user@xxx.xx
-         */
-        this.mailboxId = builder.mailboxId;
+    /**
+     * 邮件 owner 邮箱地址
+     *
+     * <p>示例值：user@xxx.xx
+     *
+     * @param mailboxId
+     * @return
+     */
+    public Builder mailboxId(String mailboxId) {
+      this.mailboxId = mailboxId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MailId build() {
+      return new MailId(this);
     }
+  }
 
-    public String getMailId() {
-        return this.mailId;
-    }
-
-    public void setMailId(String mailId) {
-        this.mailId = mailId;
-    }
-
-    public String getMailboxId() {
-        return this.mailboxId;
-    }
-
-    public void setMailboxId(String mailboxId) {
-        this.mailboxId = mailboxId;
-    }
-
-    public static class Builder {
-        /**
-         * 邮件 id
-         * <p> 示例值：aaaaaaaa
-         */
-        private String mailId;
-        /**
-         * 邮件 owner 邮箱地址
-         * <p> 示例值：user@xxx.xx
-         */
-        private String mailboxId;
-
-        /**
-         * 邮件 id
-         * <p> 示例值：aaaaaaaa
-         *
-         * @param mailId
-         * @return
-         */
-        public Builder mailId(String mailId) {
-            this.mailId = mailId;
-            return this;
-        }
-
-
-        /**
-         * 邮件 owner 邮箱地址
-         * <p> 示例值：user@xxx.xx
-         *
-         * @param mailboxId
-         * @return
-         */
-        public Builder mailboxId(String mailboxId) {
-            this.mailboxId = mailboxId;
-            return this;
-        }
-
-
-        public MailId build() {
-            return new MailId(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

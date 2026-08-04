@@ -13,210 +13,220 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BoolRuleValue {
+  /**
+   * 条件值类型
+   *
+   * <p>示例值：Number
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 数值，当type=Number时必须有
+   *
+   * <p>示例值：12
+   */
+  @SerializedName("number")
+  private String number;
+
+  /**
+   * 文本，当type=Text时必须有
+   *
+   * <p>示例值：abc
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 时间区间
+   *
+   * <p>示例值：Today
+   */
+  @SerializedName("time_period")
+  private String timePeriod;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getNumber() {
+    return this.number;
+  }
+
+  public void setNumber(String number) {
+    this.number = number;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getTimePeriod() {
+    return this.timePeriod;
+  }
+
+  public void setTimePeriod(String timePeriod) {
+    this.timePeriod = timePeriod;
+  }
+
+  // builder 开始
+  public BoolRuleValue() {}
+
+  public BoolRuleValue(Builder builder) {
     /**
      * 条件值类型
-     * <p> 示例值：Number
+     *
+     * <p>示例值：Number
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 数值，当type=Number时必须有
-     * <p> 示例值：12
+     *
+     * <p>示例值：12
      */
-    @SerializedName("number")
-    private String number;
+    this.number = builder.number;
     /**
      * 文本，当type=Text时必须有
-     * <p> 示例值：abc
+     *
+     * <p>示例值：abc
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 时间区间
-     * <p> 示例值：Today
+     *
+     * <p>示例值：Today
      */
-    @SerializedName("time_period")
+    this.timePeriod = builder.timePeriod;
+  }
+
+  public static class Builder {
+    /**
+     * 条件值类型
+     *
+     * <p>示例值：Number
+     */
+    private String type;
+
+    /**
+     * 数值，当type=Number时必须有
+     *
+     * <p>示例值：12
+     */
+    private String number;
+
+    /**
+     * 文本，当type=Text时必须有
+     *
+     * <p>示例值：abc
+     */
+    private String text;
+
+    /**
+     * 时间区间
+     *
+     * <p>示例值：Today
+     */
     private String timePeriod;
 
-    // builder 开始
-    public BoolRuleValue() {
+    /**
+     * 条件值类型
+     *
+     * <p>示例值：Number
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public BoolRuleValue(Builder builder) {
-        /**
-         * 条件值类型
-         * <p> 示例值：Number
-         */
-        this.type = builder.type;
-        /**
-         * 数值，当type=Number时必须有
-         * <p> 示例值：12
-         */
-        this.number = builder.number;
-        /**
-         * 文本，当type=Text时必须有
-         * <p> 示例值：abc
-         */
-        this.text = builder.text;
-        /**
-         * 时间区间
-         * <p> 示例值：Today
-         */
-        this.timePeriod = builder.timePeriod;
+    /**
+     * 条件值类型
+     *
+     * <p>示例值：Number
+     *
+     * @param type {@link com.lark.oapi.service.sheets.v3.enums.BoolRuleValueBoolRuleValueTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.sheets.v3.enums.BoolRuleValueBoolRuleValueTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数值，当type=Number时必须有
+     *
+     * <p>示例值：12
+     *
+     * @param number
+     * @return
+     */
+    public Builder number(String number) {
+      this.number = number;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 文本，当type=Text时必须有
+     *
+     * <p>示例值：abc
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 时间区间
+     *
+     * <p>示例值：Today
+     *
+     * @param timePeriod
+     * @return
+     */
+    public Builder timePeriod(String timePeriod) {
+      this.timePeriod = timePeriod;
+      return this;
     }
 
-    public String getNumber() {
-        return this.number;
+    /**
+     * 时间区间
+     *
+     * <p>示例值：Today
+     *
+     * @param timePeriod {@link
+     *     com.lark.oapi.service.sheets.v3.enums.BoolRuleValueTimePeriodTypeEnum}
+     * @return
+     */
+    public Builder timePeriod(
+        com.lark.oapi.service.sheets.v3.enums.BoolRuleValueTimePeriodTypeEnum timePeriod) {
+      this.timePeriod = timePeriod.getValue();
+      return this;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public BoolRuleValue build() {
+      return new BoolRuleValue(this);
     }
+  }
 
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getTimePeriod() {
-        return this.timePeriod;
-    }
-
-    public void setTimePeriod(String timePeriod) {
-        this.timePeriod = timePeriod;
-    }
-
-    public static class Builder {
-        /**
-         * 条件值类型
-         * <p> 示例值：Number
-         */
-        private String type;
-        /**
-         * 数值，当type=Number时必须有
-         * <p> 示例值：12
-         */
-        private String number;
-        /**
-         * 文本，当type=Text时必须有
-         * <p> 示例值：abc
-         */
-        private String text;
-        /**
-         * 时间区间
-         * <p> 示例值：Today
-         */
-        private String timePeriod;
-
-        /**
-         * 条件值类型
-         * <p> 示例值：Number
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 条件值类型
-         * <p> 示例值：Number
-         *
-         * @param type {@link com.lark.oapi.service.sheets.v3.enums.BoolRuleValueBoolRuleValueTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.sheets.v3.enums.BoolRuleValueBoolRuleValueTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 数值，当type=Number时必须有
-         * <p> 示例值：12
-         *
-         * @param number
-         * @return
-         */
-        public Builder number(String number) {
-            this.number = number;
-            return this;
-        }
-
-
-        /**
-         * 文本，当type=Text时必须有
-         * <p> 示例值：abc
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 时间区间
-         * <p> 示例值：Today
-         *
-         * @param timePeriod
-         * @return
-         */
-        public Builder timePeriod(String timePeriod) {
-            this.timePeriod = timePeriod;
-            return this;
-        }
-
-        /**
-         * 时间区间
-         * <p> 示例值：Today
-         *
-         * @param timePeriod {@link com.lark.oapi.service.sheets.v3.enums.BoolRuleValueTimePeriodTypeEnum}
-         * @return
-         */
-        public Builder timePeriod(com.lark.oapi.service.sheets.v3.enums.BoolRuleValueTimePeriodTypeEnum timePeriod) {
-            this.timePeriod = timePeriod.getValue();
-            return this;
-        }
-
-
-        public BoolRuleValue build() {
-            return new BoolRuleValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

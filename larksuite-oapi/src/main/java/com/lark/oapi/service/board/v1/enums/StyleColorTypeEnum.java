@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color
- */
+/** 填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color */
 public enum StyleColorTypeEnum {
-    SYSTEM_COLOR(0), // 系统颜色
-    CUSTOM_COLOR(1), // 自定义颜色
-    ;
-    private Integer value;
+  SYSTEM_COLOR(0), // 系统颜色
+  CUSTOM_COLOR(1), // 自定义颜色
+  ;
+  private Integer value;
 
-    StyleColorTypeEnum(Integer value) {
-        this.value = value;
-    }
+  StyleColorTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

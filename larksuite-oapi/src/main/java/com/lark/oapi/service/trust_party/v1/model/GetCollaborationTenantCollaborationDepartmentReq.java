@@ -13,150 +13,159 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.trust_party.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.trust_party.v1.enums.*;
 
 public class GetCollaborationTenantCollaborationDepartmentReq {
+  /**
+   * 对方关联组织的入参部门类型
+   *
+   * <p>示例值：department_id
+   */
+  @Query
+  @SerializedName("target_department_id_type")
+  private String targetDepartmentIdType;
+
+  public String getTargetDepartmentIdType() {
+    return this.targetDepartmentIdType;
+  }
+
+  public void setTargetDepartmentIdType(String targetDepartmentIdType) {
+    this.targetDepartmentIdType = targetDepartmentIdType;
+  }
+
+  /**
+   * 对方关联组织的tenant
+   * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+   *
+   * <p>示例值：4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @Path
+  @SerializedName("target_tenant_key")
+  private String targetTenantKey;
+
+  /**
+   * 对方关联组织的部门，需要与target_department_id_type中填写的值保持一致
+   *
+   * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @Path
+  @SerializedName("target_department_id")
+  private String targetDepartmentId;
+
+  public String getTargetTenantKey() {
+    return this.targetTenantKey;
+  }
+
+  public void setTargetTenantKey(String targetTenantKey) {
+    this.targetTenantKey = targetTenantKey;
+  }
+
+  public String getTargetDepartmentId() {
+    return this.targetDepartmentId;
+  }
+
+  public void setTargetDepartmentId(String targetDepartmentId) {
+    this.targetDepartmentId = targetDepartmentId;
+  }
+
+  // builder 开始
+  public GetCollaborationTenantCollaborationDepartmentReq() {}
+
+  public GetCollaborationTenantCollaborationDepartmentReq(Builder builder) {
     /**
      * 对方关联组织的入参部门类型
-     * <p> 示例值：department_id
+     *
+     * <p>示例值：department_id
      */
-    @Query
-    @SerializedName("target_department_id_type")
-    private String targetDepartmentIdType;
+    this.targetDepartmentIdType = builder.targetDepartmentIdType;
     /**
-     * 对方关联组织的租户key
-     * <p> 示例值：4e6ac4d14bcd5071a37a39de902c7141
+     * 对方关联组织的tenant
+     * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+     *
+     * <p>示例值：4e6ac4d14bcd5071a37a39de902c7141
      */
-    @Path
-    @SerializedName("target_tenant_key")
-    private String targetTenantKey;
+    this.targetTenantKey = builder.targetTenantKey;
     /**
-     * 对方关联组织的部门
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     * 对方关联组织的部门，需要与target_department_id_type中填写的值保持一致
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
-    @Path
-    @SerializedName("target_department_id")
-    private String targetDepartmentId;
+    this.targetDepartmentId = builder.targetDepartmentId;
+  }
 
-    // builder 开始
-    public GetCollaborationTenantCollaborationDepartmentReq() {
+  public static class Builder {
+    private String targetDepartmentIdType; // 对方关联组织的入参部门类型
+
+    /**
+     * 对方关联组织的入参部门类型
+     *
+     * <p>示例值：department_id
+     *
+     * @param targetDepartmentIdType
+     * @return
+     */
+    public Builder targetDepartmentIdType(String targetDepartmentIdType) {
+      this.targetDepartmentIdType = targetDepartmentIdType;
+      return this;
     }
 
-    public GetCollaborationTenantCollaborationDepartmentReq(Builder builder) {
-        /**
-         * 对方关联组织的入参部门类型
-         * <p> 示例值：department_id
-         */
-        this.targetDepartmentIdType = builder.targetDepartmentIdType;
-        /**
-         * 对方关联组织的租户key
-         * <p> 示例值：4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.targetTenantKey = builder.targetTenantKey;
-        /**
-         * 对方关联组织的部门
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.targetDepartmentId = builder.targetDepartmentId;
+    /**
+     * 对方关联组织的入参部门类型
+     *
+     * <p>示例值：department_id
+     *
+     * @param targetDepartmentIdType {@link
+     *     com.lark.oapi.service.trust_party.v1.enums.GetCollaborationTenantCollaborationDepartmentGetCollaborationTenantCollaborationDepartmentTargetDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder targetDepartmentIdType(
+        com.lark.oapi.service.trust_party.v1.enums
+                .GetCollaborationTenantCollaborationDepartmentGetCollaborationTenantCollaborationDepartmentTargetDepartmentIDTypeEnum
+            targetDepartmentIdType) {
+      this.targetDepartmentIdType = targetDepartmentIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String targetTenantKey; // 对方关联组织的tenant
+    // key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+    private String targetDepartmentId; // 对方关联组织的部门，需要与target_department_id_type中填写的值保持一致
+
+    /**
+     * 对方关联组织的tenant
+     * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+     *
+     * <p>示例值：4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param targetTenantKey
+     * @return
+     */
+    public Builder targetTenantKey(String targetTenantKey) {
+      this.targetTenantKey = targetTenantKey;
+      return this;
     }
 
-    public String getTargetDepartmentIdType() {
-        return this.targetDepartmentIdType;
+    /**
+     * 对方关联组织的部门，需要与target_department_id_type中填写的值保持一致
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param targetDepartmentId
+     * @return
+     */
+    public Builder targetDepartmentId(String targetDepartmentId) {
+      this.targetDepartmentId = targetDepartmentId;
+      return this;
     }
 
-    public void setTargetDepartmentIdType(String targetDepartmentIdType) {
-        this.targetDepartmentIdType = targetDepartmentIdType;
+    public GetCollaborationTenantCollaborationDepartmentReq build() {
+      return new GetCollaborationTenantCollaborationDepartmentReq(this);
     }
+  }
 
-    public String getTargetTenantKey() {
-        return this.targetTenantKey;
-    }
-
-    public void setTargetTenantKey(String targetTenantKey) {
-        this.targetTenantKey = targetTenantKey;
-    }
-
-    public String getTargetDepartmentId() {
-        return this.targetDepartmentId;
-    }
-
-    public void setTargetDepartmentId(String targetDepartmentId) {
-        this.targetDepartmentId = targetDepartmentId;
-    }
-
-    public static class Builder {
-        private String targetDepartmentIdType; // 对方关联组织的入参部门类型
-        private String targetTenantKey; // 对方关联组织的租户key
-        private String targetDepartmentId; // 对方关联组织的部门
-
-        /**
-         * 对方关联组织的入参部门类型
-         * <p> 示例值：department_id
-         *
-         * @param targetDepartmentIdType
-         * @return
-         */
-        public Builder targetDepartmentIdType(String targetDepartmentIdType) {
-            this.targetDepartmentIdType = targetDepartmentIdType;
-            return this;
-        }
-
-        /**
-         * 对方关联组织的入参部门类型
-         * <p> 示例值：department_id
-         *
-         * @param targetDepartmentIdType {@link com.lark.oapi.service.trust_party.v1.enums.GetCollaborationTenantCollaborationDepartmentTargetDepartmentIdTypeEnum}
-         * @return
-         */
-        public Builder targetDepartmentIdType(com.lark.oapi.service.trust_party.v1.enums.GetCollaborationTenantCollaborationDepartmentTargetDepartmentIdTypeEnum targetDepartmentIdType) {
-            this.targetDepartmentIdType = targetDepartmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 对方关联组织的租户key
-         * <p> 示例值：4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param targetTenantKey
-         * @return
-         */
-        public Builder targetTenantKey(String targetTenantKey) {
-            this.targetTenantKey = targetTenantKey;
-            return this;
-        }
-
-
-        /**
-         * 对方关联组织的部门
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param targetDepartmentId
-         * @return
-         */
-        public Builder targetDepartmentId(String targetDepartmentId) {
-            this.targetDepartmentId = targetDepartmentId;
-            return this;
-        }
-
-
-        public GetCollaborationTenantCollaborationDepartmentReq build() {
-            return new GetCollaborationTenantCollaborationDepartmentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

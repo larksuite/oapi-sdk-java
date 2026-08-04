@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Assets {
+  /**
+   * 已确认的奖励
+   *
+   * <p>示例值：
+   */
+  @SerializedName("confirmed_bonus")
+  private BonusAmount confirmedBonus;
+
+  /**
+   * 已发放的奖励
+   *
+   * <p>示例值：
+   */
+  @SerializedName("paid_bonus")
+  private BonusAmount paidBonus;
+
+  public BonusAmount getConfirmedBonus() {
+    return this.confirmedBonus;
+  }
+
+  public void setConfirmedBonus(BonusAmount confirmedBonus) {
+    this.confirmedBonus = confirmedBonus;
+  }
+
+  public BonusAmount getPaidBonus() {
+    return this.paidBonus;
+  }
+
+  public void setPaidBonus(BonusAmount paidBonus) {
+    this.paidBonus = paidBonus;
+  }
+
+  // builder 开始
+  public Assets() {}
+
+  public Assets(Builder builder) {
     /**
      * 已确认的奖励
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("confirmed_bonus")
-    private BonusAmount confirmedBonus;
+    this.confirmedBonus = builder.confirmedBonus;
     /**
      * 已发放的奖励
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("paid_bonus")
+    this.paidBonus = builder.paidBonus;
+  }
+
+  public static class Builder {
+    /**
+     * 已确认的奖励
+     *
+     * <p>示例值：
+     */
+    private BonusAmount confirmedBonus;
+
+    /**
+     * 已发放的奖励
+     *
+     * <p>示例值：
+     */
     private BonusAmount paidBonus;
 
-    // builder 开始
-    public Assets() {
+    /**
+     * 已确认的奖励
+     *
+     * <p>示例值：
+     *
+     * @param confirmedBonus
+     * @return
+     */
+    public Builder confirmedBonus(BonusAmount confirmedBonus) {
+      this.confirmedBonus = confirmedBonus;
+      return this;
     }
 
-    public Assets(Builder builder) {
-        /**
-         * 已确认的奖励
-         * <p> 示例值：
-         */
-        this.confirmedBonus = builder.confirmedBonus;
-        /**
-         * 已发放的奖励
-         * <p> 示例值：
-         */
-        this.paidBonus = builder.paidBonus;
+    /**
+     * 已发放的奖励
+     *
+     * <p>示例值：
+     *
+     * @param paidBonus
+     * @return
+     */
+    public Builder paidBonus(BonusAmount paidBonus) {
+      this.paidBonus = paidBonus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Assets build() {
+      return new Assets(this);
     }
+  }
 
-    public BonusAmount getConfirmedBonus() {
-        return this.confirmedBonus;
-    }
-
-    public void setConfirmedBonus(BonusAmount confirmedBonus) {
-        this.confirmedBonus = confirmedBonus;
-    }
-
-    public BonusAmount getPaidBonus() {
-        return this.paidBonus;
-    }
-
-    public void setPaidBonus(BonusAmount paidBonus) {
-        this.paidBonus = paidBonus;
-    }
-
-    public static class Builder {
-        /**
-         * 已确认的奖励
-         * <p> 示例值：
-         */
-        private BonusAmount confirmedBonus;
-        /**
-         * 已发放的奖励
-         * <p> 示例值：
-         */
-        private BonusAmount paidBonus;
-
-        /**
-         * 已确认的奖励
-         * <p> 示例值：
-         *
-         * @param confirmedBonus
-         * @return
-         */
-        public Builder confirmedBonus(BonusAmount confirmedBonus) {
-            this.confirmedBonus = confirmedBonus;
-            return this;
-        }
-
-
-        /**
-         * 已发放的奖励
-         * <p> 示例值：
-         *
-         * @param paidBonus
-         * @return
-         */
-        public Builder paidBonus(BonusAmount paidBonus) {
-            this.paidBonus = paidBonus;
-            return this;
-        }
-
-
-        public Assets build() {
-            return new Assets(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

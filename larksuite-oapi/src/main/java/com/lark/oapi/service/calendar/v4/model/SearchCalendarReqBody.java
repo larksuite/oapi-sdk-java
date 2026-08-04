@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchCalendarReqBody {
+  /**
+   * 搜索关键字。接口将会搜索标题或描述中包含该关键字的公共日历或用户主日历。
+   *
+   * <p>示例值：query words
+   */
+  @SerializedName("query")
+  private String query;
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  // builder 开始
+  public SearchCalendarReqBody() {}
+
+  public SearchCalendarReqBody(Builder builder) {
     /**
-     * 搜索关键字
-     * <p> 示例值：query words
+     * 搜索关键字。接口将会搜索标题或描述中包含该关键字的公共日历或用户主日历。
+     *
+     * <p>示例值：query words
      */
-    @SerializedName("query")
+    this.query = builder.query;
+  }
+
+  public static class Builder {
+    /**
+     * 搜索关键字。接口将会搜索标题或描述中包含该关键字的公共日历或用户主日历。
+     *
+     * <p>示例值：query words
+     */
     private String query;
 
-    // builder 开始
-    public SearchCalendarReqBody() {
+    /**
+     * 搜索关键字。接口将会搜索标题或描述中包含该关键字的公共日历或用户主日历。
+     *
+     * <p>示例值：query words
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public SearchCalendarReqBody(Builder builder) {
-        /**
-         * 搜索关键字
-         * <p> 示例值：query words
-         */
-        this.query = builder.query;
+    public SearchCalendarReqBody build() {
+      return new SearchCalendarReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getQuery() {
-        return this.query;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public static class Builder {
-        /**
-         * 搜索关键字
-         * <p> 示例值：query words
-         */
-        private String query;
-
-        /**
-         * 搜索关键字
-         * <p> 示例值：query words
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        public SearchCalendarReqBody build() {
-            return new SearchCalendarReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

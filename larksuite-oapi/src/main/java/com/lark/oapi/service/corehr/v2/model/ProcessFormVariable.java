@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessFormVariable {
+  /**
+   * 变量的apiName
+   *
+   * <p>示例值：custom590dbafb84a
+   */
+  @SerializedName("variable_api_name")
+  private String variableApiName;
+
+  /**
+   * 变量值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("variable_value")
+  private FormVariableValueInfo variableValue;
+
+  public String getVariableApiName() {
+    return this.variableApiName;
+  }
+
+  public void setVariableApiName(String variableApiName) {
+    this.variableApiName = variableApiName;
+  }
+
+  public FormVariableValueInfo getVariableValue() {
+    return this.variableValue;
+  }
+
+  public void setVariableValue(FormVariableValueInfo variableValue) {
+    this.variableValue = variableValue;
+  }
+
+  // builder 开始
+  public ProcessFormVariable() {}
+
+  public ProcessFormVariable(Builder builder) {
     /**
      * 变量的apiName
-     * <p> 示例值：custom590dbafb84a
+     *
+     * <p>示例值：custom590dbafb84a
      */
-    @SerializedName("variable_api_name")
-    private String variableApiName;
+    this.variableApiName = builder.variableApiName;
     /**
      * 变量值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("variable_value")
+    this.variableValue = builder.variableValue;
+  }
+
+  public static class Builder {
+    /**
+     * 变量的apiName
+     *
+     * <p>示例值：custom590dbafb84a
+     */
+    private String variableApiName;
+
+    /**
+     * 变量值
+     *
+     * <p>示例值：
+     */
     private FormVariableValueInfo variableValue;
 
-    // builder 开始
-    public ProcessFormVariable() {
+    /**
+     * 变量的apiName
+     *
+     * <p>示例值：custom590dbafb84a
+     *
+     * @param variableApiName
+     * @return
+     */
+    public Builder variableApiName(String variableApiName) {
+      this.variableApiName = variableApiName;
+      return this;
     }
 
-    public ProcessFormVariable(Builder builder) {
-        /**
-         * 变量的apiName
-         * <p> 示例值：custom590dbafb84a
-         */
-        this.variableApiName = builder.variableApiName;
-        /**
-         * 变量值
-         * <p> 示例值：
-         */
-        this.variableValue = builder.variableValue;
+    /**
+     * 变量值
+     *
+     * <p>示例值：
+     *
+     * @param variableValue
+     * @return
+     */
+    public Builder variableValue(FormVariableValueInfo variableValue) {
+      this.variableValue = variableValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ProcessFormVariable build() {
+      return new ProcessFormVariable(this);
     }
+  }
 
-    public String getVariableApiName() {
-        return this.variableApiName;
-    }
-
-    public void setVariableApiName(String variableApiName) {
-        this.variableApiName = variableApiName;
-    }
-
-    public FormVariableValueInfo getVariableValue() {
-        return this.variableValue;
-    }
-
-    public void setVariableValue(FormVariableValueInfo variableValue) {
-        this.variableValue = variableValue;
-    }
-
-    public static class Builder {
-        /**
-         * 变量的apiName
-         * <p> 示例值：custom590dbafb84a
-         */
-        private String variableApiName;
-        /**
-         * 变量值
-         * <p> 示例值：
-         */
-        private FormVariableValueInfo variableValue;
-
-        /**
-         * 变量的apiName
-         * <p> 示例值：custom590dbafb84a
-         *
-         * @param variableApiName
-         * @return
-         */
-        public Builder variableApiName(String variableApiName) {
-            this.variableApiName = variableApiName;
-            return this;
-        }
-
-
-        /**
-         * 变量值
-         * <p> 示例值：
-         *
-         * @param variableValue
-         * @return
-         */
-        public Builder variableValue(FormVariableValueInfo variableValue) {
-            this.variableValue = variableValue;
-            return this;
-        }
-
-
-        public ProcessFormVariable build() {
-            return new ProcessFormVariable(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

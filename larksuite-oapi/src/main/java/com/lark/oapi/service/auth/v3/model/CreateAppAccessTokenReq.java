@@ -13,64 +13,51 @@
 
 package com.lark.oapi.service.auth.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateAppAccessTokenReq {
-    @Body
+  @Body private CreateAppAccessTokenReqBody body;
+
+  public CreateAppAccessTokenReqBody getCreateAppAccessTokenReqBody() {
+    return this.body;
+  }
+
+  public void setCreateAppAccessTokenReqBody(CreateAppAccessTokenReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateAppAccessTokenReq() {}
+
+  public CreateAppAccessTokenReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private CreateAppAccessTokenReqBody body;
 
-    // builder 开始
-    public CreateAppAccessTokenReq() {
-    }
-
-    public CreateAppAccessTokenReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public CreateAppAccessTokenReqBody getCreateAppAccessTokenReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setCreateAppAccessTokenReqBody(CreateAppAccessTokenReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder createAppAccessTokenReqBody(CreateAppAccessTokenReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private CreateAppAccessTokenReqBody body;
-
-        public CreateAppAccessTokenReqBody getCreateAppAccessTokenReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder createAppAccessTokenReqBody(CreateAppAccessTokenReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateAppAccessTokenReq build() {
-            return new CreateAppAccessTokenReq(this);
-        }
+    public CreateAppAccessTokenReq build() {
+      return new CreateAppAccessTokenReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

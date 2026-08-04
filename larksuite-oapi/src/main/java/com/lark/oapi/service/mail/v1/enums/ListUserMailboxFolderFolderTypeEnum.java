@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹）
- */
+/** 文件夹类型。支持填写1（系统文件夹）、2（用户文件夹） */
 public enum ListUserMailboxFolderFolderTypeEnum {
-    SYSTEM(1), // 系统文件夹
-    USER(2), // 用户文件夹
-    ;
-    private Integer value;
+  SYSTEM(1), // 系统文件夹
+  USER(2), // 用户文件夹
+  ;
+  private Integer value;
 
-    ListUserMailboxFolderFolderTypeEnum(Integer value) {
-        this.value = value;
-    }
+  ListUserMailboxFolderFolderTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

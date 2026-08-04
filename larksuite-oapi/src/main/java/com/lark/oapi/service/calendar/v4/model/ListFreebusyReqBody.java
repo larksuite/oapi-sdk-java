@@ -13,297 +13,345 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListFreebusyReqBody {
+  /**
+   * 查询时段开始时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+   * 格式。;;**注意**：time_min 与 time_max 之间的时间间隔不能大于 90 天。
+   *
+   * <p>示例值：2020-10-28T12:00:00+08:00
+   */
+  @SerializedName("time_min")
+  private String timeMin;
+
+  /**
+   * 查询时段结束时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+   * 格式。;;**注意**：time_min 与 time_max 之间的时间间隔不能大于 90 天。
+   *
+   * <p>示例值：2020-12-28T12:00:00+08:00
+   */
+  @SerializedName("time_max")
+  private String timeMax;
+
+  /**
+   * 用户 ID，需要传入与查询参数 user_id_type 相匹配的 id。例如，`user_id_type=open_id` 时，需要传入用户的 open_id。了解用户 ID
+   * 参见[用户相关的 ID
+   * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。;;**注意**：user_id
+   * 与 room_id 需要二选一传入，如果同时传入则只生效 user_id。
+   *
+   * <p>示例值：ou_xxxxxxxxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 会议室
+   * room_id。你可以调用[查询会议室列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/list)接口或者[搜索会议室](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/search)接口，获取相应会议室的
+   * room_id。;;**注意**：user_id 与 room_id 需要二选一传入，如果同时传入则只生效 user_id。
+   *
+   * <p>示例值：omm_xxxxxxxxxx
+   */
+  @SerializedName("room_id")
+  private String roomId;
+
+  /**
+   * 是否包含绑定的三方日历中的日程。;;**取值**：;- true（默认值）：包含;- false：不包含
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("include_external_calendar")
+  private Boolean includeExternalCalendar;
+
+  /**
+   * 是否只查询忙碌日程信息。;;**取值**：;;- true（默认值）：是，查询结果不包含空闲日程。;- false：否，查询结果包含空闲日程。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("only_busy")
+  private Boolean onlyBusy;
+
+  /**
+   * 是否需要RSVP状态信息
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("need_rsvp_status")
+  private Boolean needRsvpStatus;
+
+  public String getTimeMin() {
+    return this.timeMin;
+  }
+
+  public void setTimeMin(String timeMin) {
+    this.timeMin = timeMin;
+  }
+
+  public String getTimeMax() {
+    return this.timeMax;
+  }
+
+  public void setTimeMax(String timeMax) {
+    this.timeMax = timeMax;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getRoomId() {
+    return this.roomId;
+  }
+
+  public void setRoomId(String roomId) {
+    this.roomId = roomId;
+  }
+
+  public Boolean getIncludeExternalCalendar() {
+    return this.includeExternalCalendar;
+  }
+
+  public void setIncludeExternalCalendar(Boolean includeExternalCalendar) {
+    this.includeExternalCalendar = includeExternalCalendar;
+  }
+
+  public Boolean getOnlyBusy() {
+    return this.onlyBusy;
+  }
+
+  public void setOnlyBusy(Boolean onlyBusy) {
+    this.onlyBusy = onlyBusy;
+  }
+
+  public Boolean getNeedRsvpStatus() {
+    return this.needRsvpStatus;
+  }
+
+  public void setNeedRsvpStatus(Boolean needRsvpStatus) {
+    this.needRsvpStatus = needRsvpStatus;
+  }
+
+  // builder 开始
+  public ListFreebusyReqBody() {}
+
+  public ListFreebusyReqBody(Builder builder) {
     /**
-     * 查询时段开始时间，需要url编码
-     * <p> 示例值：2020-10-28T12:00:00+08:00
+     * 查询时段开始时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+     * 格式。;;**注意**：time_min 与 time_max 之间的时间间隔不能大于 90 天。
+     *
+     * <p>示例值：2020-10-28T12:00:00+08:00
      */
-    @SerializedName("time_min")
-    private String timeMin;
+    this.timeMin = builder.timeMin;
     /**
-     * 查询时段结束时间，需要url编码
-     * <p> 示例值：2020-12-28T12:00:00+08:00
+     * 查询时段结束时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+     * 格式。;;**注意**：time_min 与 time_max 之间的时间间隔不能大于 90 天。
+     *
+     * <p>示例值：2020-12-28T12:00:00+08:00
      */
-    @SerializedName("time_max")
-    private String timeMax;
+    this.timeMax = builder.timeMax;
     /**
-     * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-     * <p> 示例值：ou_xxxxxxxxxx
+     * 用户 ID，需要传入与查询参数 user_id_type 相匹配的 id。例如，`user_id_type=open_id` 时，需要传入用户的 open_id。了解用户 ID
+     * 参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。;;**注意**：user_id
+     * 与 room_id 需要二选一传入，如果同时传入则只生效 user_id。
+     *
+     * <p>示例值：ou_xxxxxxxxxx
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 会议室room_id，输入时与 user_id 二选一
-     * <p> 示例值：omm_xxxxxxxxxx
+     * 会议室
+     * room_id。你可以调用[查询会议室列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/list)接口或者[搜索会议室](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/search)接口，获取相应会议室的
+     * room_id。;;**注意**：user_id 与 room_id 需要二选一传入，如果同时传入则只生效 user_id。
+     *
+     * <p>示例值：omm_xxxxxxxxxx
      */
-    @SerializedName("room_id")
-    private String roomId;
+    this.roomId = builder.roomId;
     /**
-     * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
-     * <p> 示例值：true
+     * 是否包含绑定的三方日历中的日程。;;**取值**：;- true（默认值）：包含;- false：不包含
+     *
+     * <p>示例值：true
      */
-    @SerializedName("include_external_calendar")
-    private Boolean includeExternalCalendar;
+    this.includeExternalCalendar = builder.includeExternalCalendar;
     /**
-     * 是否包含标记为空闲的日程，不传默认为true，即包含。
-     * <p> 示例值：true
+     * 是否只查询忙碌日程信息。;;**取值**：;;- true（默认值）：是，查询结果不包含空闲日程。;- false：否，查询结果包含空闲日程。
+     *
+     * <p>示例值：true
      */
-    @SerializedName("only_busy")
-    private Boolean onlyBusy;
+    this.onlyBusy = builder.onlyBusy;
     /**
      * 是否需要RSVP状态信息
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("need_rsvp_status")
+    this.needRsvpStatus = builder.needRsvpStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 查询时段开始时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+     * 格式。;;**注意**：time_min 与 time_max 之间的时间间隔不能大于 90 天。
+     *
+     * <p>示例值：2020-10-28T12:00:00+08:00
+     */
+    private String timeMin;
+
+    /**
+     * 查询时段结束时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+     * 格式。;;**注意**：time_min 与 time_max 之间的时间间隔不能大于 90 天。
+     *
+     * <p>示例值：2020-12-28T12:00:00+08:00
+     */
+    private String timeMax;
+
+    /**
+     * 用户 ID，需要传入与查询参数 user_id_type 相匹配的 id。例如，`user_id_type=open_id` 时，需要传入用户的 open_id。了解用户 ID
+     * 参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。;;**注意**：user_id
+     * 与 room_id 需要二选一传入，如果同时传入则只生效 user_id。
+     *
+     * <p>示例值：ou_xxxxxxxxxx
+     */
+    private String userId;
+
+    /**
+     * 会议室
+     * room_id。你可以调用[查询会议室列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/list)接口或者[搜索会议室](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/search)接口，获取相应会议室的
+     * room_id。;;**注意**：user_id 与 room_id 需要二选一传入，如果同时传入则只生效 user_id。
+     *
+     * <p>示例值：omm_xxxxxxxxxx
+     */
+    private String roomId;
+
+    /**
+     * 是否包含绑定的三方日历中的日程。;;**取值**：;- true（默认值）：包含;- false：不包含
+     *
+     * <p>示例值：true
+     */
+    private Boolean includeExternalCalendar;
+
+    /**
+     * 是否只查询忙碌日程信息。;;**取值**：;;- true（默认值）：是，查询结果不包含空闲日程。;- false：否，查询结果包含空闲日程。
+     *
+     * <p>示例值：true
+     */
+    private Boolean onlyBusy;
+
+    /**
+     * 是否需要RSVP状态信息
+     *
+     * <p>示例值：true
+     */
     private Boolean needRsvpStatus;
 
-    // builder 开始
-    public ListFreebusyReqBody() {
+    /**
+     * 查询时段开始时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+     * 格式。;;**注意**：time_min 与 time_max 之间的时间间隔不能大于 90 天。
+     *
+     * <p>示例值：2020-10-28T12:00:00+08:00
+     *
+     * @param timeMin
+     * @return
+     */
+    public Builder timeMin(String timeMin) {
+      this.timeMin = timeMin;
+      return this;
     }
 
-    public ListFreebusyReqBody(Builder builder) {
-        /**
-         * 查询时段开始时间，需要url编码
-         * <p> 示例值：2020-10-28T12:00:00+08:00
-         */
-        this.timeMin = builder.timeMin;
-        /**
-         * 查询时段结束时间，需要url编码
-         * <p> 示例值：2020-12-28T12:00:00+08:00
-         */
-        this.timeMax = builder.timeMax;
-        /**
-         * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-         * <p> 示例值：ou_xxxxxxxxxx
-         */
-        this.userId = builder.userId;
-        /**
-         * 会议室room_id，输入时与 user_id 二选一
-         * <p> 示例值：omm_xxxxxxxxxx
-         */
-        this.roomId = builder.roomId;
-        /**
-         * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
-         * <p> 示例值：true
-         */
-        this.includeExternalCalendar = builder.includeExternalCalendar;
-        /**
-         * 是否包含标记为空闲的日程，不传默认为true，即包含。
-         * <p> 示例值：true
-         */
-        this.onlyBusy = builder.onlyBusy;
-        /**
-         * 是否需要RSVP状态信息
-         * <p> 示例值：true
-         */
-        this.needRsvpStatus = builder.needRsvpStatus;
+    /**
+     * 查询时段结束时间，[RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) date_time
+     * 格式。;;**注意**：time_min 与 time_max 之间的时间间隔不能大于 90 天。
+     *
+     * <p>示例值：2020-12-28T12:00:00+08:00
+     *
+     * @param timeMax
+     * @return
+     */
+    public Builder timeMax(String timeMax) {
+      this.timeMax = timeMax;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户 ID，需要传入与查询参数 user_id_type 相匹配的 id。例如，`user_id_type=open_id` 时，需要传入用户的 open_id。了解用户 ID
+     * 参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。;;**注意**：user_id
+     * 与 room_id 需要二选一传入，如果同时传入则只生效 user_id。
+     *
+     * <p>示例值：ou_xxxxxxxxxx
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getTimeMin() {
-        return this.timeMin;
+    /**
+     * 会议室
+     * room_id。你可以调用[查询会议室列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/list)接口或者[搜索会议室](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/room/search)接口，获取相应会议室的
+     * room_id。;;**注意**：user_id 与 room_id 需要二选一传入，如果同时传入则只生效 user_id。
+     *
+     * <p>示例值：omm_xxxxxxxxxx
+     *
+     * @param roomId
+     * @return
+     */
+    public Builder roomId(String roomId) {
+      this.roomId = roomId;
+      return this;
     }
 
-    public void setTimeMin(String timeMin) {
-        this.timeMin = timeMin;
+    /**
+     * 是否包含绑定的三方日历中的日程。;;**取值**：;- true（默认值）：包含;- false：不包含
+     *
+     * <p>示例值：true
+     *
+     * @param includeExternalCalendar
+     * @return
+     */
+    public Builder includeExternalCalendar(Boolean includeExternalCalendar) {
+      this.includeExternalCalendar = includeExternalCalendar;
+      return this;
     }
 
-    public String getTimeMax() {
-        return this.timeMax;
+    /**
+     * 是否只查询忙碌日程信息。;;**取值**：;;- true（默认值）：是，查询结果不包含空闲日程。;- false：否，查询结果包含空闲日程。
+     *
+     * <p>示例值：true
+     *
+     * @param onlyBusy
+     * @return
+     */
+    public Builder onlyBusy(Boolean onlyBusy) {
+      this.onlyBusy = onlyBusy;
+      return this;
     }
 
-    public void setTimeMax(String timeMax) {
-        this.timeMax = timeMax;
+    /**
+     * 是否需要RSVP状态信息
+     *
+     * <p>示例值：true
+     *
+     * @param needRsvpStatus
+     * @return
+     */
+    public Builder needRsvpStatus(Boolean needRsvpStatus) {
+      this.needRsvpStatus = needRsvpStatus;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    public ListFreebusyReqBody build() {
+      return new ListFreebusyReqBody(this);
     }
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getRoomId() {
-        return this.roomId;
-    }
-
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
-    }
-
-    public Boolean getIncludeExternalCalendar() {
-        return this.includeExternalCalendar;
-    }
-
-    public void setIncludeExternalCalendar(Boolean includeExternalCalendar) {
-        this.includeExternalCalendar = includeExternalCalendar;
-    }
-
-    public Boolean getOnlyBusy() {
-        return this.onlyBusy;
-    }
-
-    public void setOnlyBusy(Boolean onlyBusy) {
-        this.onlyBusy = onlyBusy;
-    }
-
-    public Boolean getNeedRsvpStatus() {
-        return this.needRsvpStatus;
-    }
-
-    public void setNeedRsvpStatus(Boolean needRsvpStatus) {
-        this.needRsvpStatus = needRsvpStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 查询时段开始时间，需要url编码
-         * <p> 示例值：2020-10-28T12:00:00+08:00
-         */
-        private String timeMin;
-        /**
-         * 查询时段结束时间，需要url编码
-         * <p> 示例值：2020-12-28T12:00:00+08:00
-         */
-        private String timeMax;
-        /**
-         * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-         * <p> 示例值：ou_xxxxxxxxxx
-         */
-        private String userId;
-        /**
-         * 会议室room_id，输入时与 user_id 二选一
-         * <p> 示例值：omm_xxxxxxxxxx
-         */
-        private String roomId;
-        /**
-         * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
-         * <p> 示例值：true
-         */
-        private Boolean includeExternalCalendar;
-        /**
-         * 是否包含标记为空闲的日程，不传默认为true，即包含。
-         * <p> 示例值：true
-         */
-        private Boolean onlyBusy;
-        /**
-         * 是否需要RSVP状态信息
-         * <p> 示例值：true
-         */
-        private Boolean needRsvpStatus;
-
-        /**
-         * 查询时段开始时间，需要url编码
-         * <p> 示例值：2020-10-28T12:00:00+08:00
-         *
-         * @param timeMin
-         * @return
-         */
-        public Builder timeMin(String timeMin) {
-            this.timeMin = timeMin;
-            return this;
-        }
-
-
-        /**
-         * 查询时段结束时间，需要url编码
-         * <p> 示例值：2020-12-28T12:00:00+08:00
-         *
-         * @param timeMax
-         * @return
-         */
-        public Builder timeMax(String timeMax) {
-            this.timeMax = timeMax;
-            return this;
-        }
-
-
-        /**
-         * 用户user_id，输入时与 room_id 二选一。参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)
-         * <p> 示例值：ou_xxxxxxxxxx
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 会议室room_id，输入时与 user_id 二选一
-         * <p> 示例值：omm_xxxxxxxxxx
-         *
-         * @param roomId
-         * @return
-         */
-        public Builder roomId(String roomId) {
-            this.roomId = roomId;
-            return this;
-        }
-
-
-        /**
-         * 是否包含绑定的三方日历中的日程，不传默认为true，即包含。
-         * <p> 示例值：true
-         *
-         * @param includeExternalCalendar
-         * @return
-         */
-        public Builder includeExternalCalendar(Boolean includeExternalCalendar) {
-            this.includeExternalCalendar = includeExternalCalendar;
-            return this;
-        }
-
-
-        /**
-         * 是否包含标记为空闲的日程，不传默认为true，即包含。
-         * <p> 示例值：true
-         *
-         * @param onlyBusy
-         * @return
-         */
-        public Builder onlyBusy(Boolean onlyBusy) {
-            this.onlyBusy = onlyBusy;
-            return this;
-        }
-
-
-        /**
-         * 是否需要RSVP状态信息
-         * <p> 示例值：true
-         *
-         * @param needRsvpStatus
-         * @return
-         */
-        public Builder needRsvpStatus(Boolean needRsvpStatus) {
-            this.needRsvpStatus = needRsvpStatus;
-            return this;
-        }
-
-
-        public ListFreebusyReqBody build() {
-            return new ListFreebusyReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

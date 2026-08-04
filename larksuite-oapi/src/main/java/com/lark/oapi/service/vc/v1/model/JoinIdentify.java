@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JoinIdentify {
+  /**
+   * 会议号，用于定位需加入的目标会议。可通过会议创建接口或会议列表查询接口获取。
+   *
+   * <p>示例值：MTG202405201030001
+   */
+  @SerializedName("meeting_no")
+  private String meetingNo;
+
+  public String getMeetingNo() {
+    return this.meetingNo;
+  }
+
+  public void setMeetingNo(String meetingNo) {
+    this.meetingNo = meetingNo;
+  }
+
+  // builder 开始
+  public JoinIdentify() {}
+
+  public JoinIdentify(Builder builder) {
     /**
      * 会议号，用于定位需加入的目标会议。可通过会议创建接口或会议列表查询接口获取。
-     * <p> 示例值：MTG202405201030001
+     *
+     * <p>示例值：MTG202405201030001
      */
-    @SerializedName("meeting_no")
+    this.meetingNo = builder.meetingNo;
+  }
+
+  public static class Builder {
+    /**
+     * 会议号，用于定位需加入的目标会议。可通过会议创建接口或会议列表查询接口获取。
+     *
+     * <p>示例值：MTG202405201030001
+     */
     private String meetingNo;
 
-    // builder 开始
-    public JoinIdentify() {
+    /**
+     * 会议号，用于定位需加入的目标会议。可通过会议创建接口或会议列表查询接口获取。
+     *
+     * <p>示例值：MTG202405201030001
+     *
+     * @param meetingNo
+     * @return
+     */
+    public Builder meetingNo(String meetingNo) {
+      this.meetingNo = meetingNo;
+      return this;
     }
 
-    public JoinIdentify(Builder builder) {
-        /**
-         * 会议号，用于定位需加入的目标会议。可通过会议创建接口或会议列表查询接口获取。
-         * <p> 示例值：MTG202405201030001
-         */
-        this.meetingNo = builder.meetingNo;
+    public JoinIdentify build() {
+      return new JoinIdentify(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getMeetingNo() {
-        return this.meetingNo;
-    }
-
-    public void setMeetingNo(String meetingNo) {
-        this.meetingNo = meetingNo;
-    }
-
-    public static class Builder {
-        /**
-         * 会议号，用于定位需加入的目标会议。可通过会议创建接口或会议列表查询接口获取。
-         * <p> 示例值：MTG202405201030001
-         */
-        private String meetingNo;
-
-        /**
-         * 会议号，用于定位需加入的目标会议。可通过会议创建接口或会议列表查询接口获取。
-         * <p> 示例值：MTG202405201030001
-         *
-         * @param meetingNo
-         * @return
-         */
-        public Builder meetingNo(String meetingNo) {
-            this.meetingNo = meetingNo;
-            return this;
-        }
-
-
-        public JoinIdentify build() {
-            return new JoinIdentify(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 可信状态
- */
+/** 可信状态 */
 public enum CreateDeviceRecordDeviceStatusEnum {
-    UNKNOWN(0), // 未知状态
-    TRUSTED(1), // 信任设备
-    UNTRUSTED(2), // 非信任设备
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未知状态
+  TRUSTED(1), // 信任设备
+  UNTRUSTED(2), // 非信任设备
+  ;
+  private Integer value;
 
-    CreateDeviceRecordDeviceStatusEnum(Integer value) {
-        this.value = value;
-    }
+  CreateDeviceRecordDeviceStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

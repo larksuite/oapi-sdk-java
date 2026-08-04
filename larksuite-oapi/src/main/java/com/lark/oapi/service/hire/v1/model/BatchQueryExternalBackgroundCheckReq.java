@@ -13,162 +13,173 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
-
 public class BatchQueryExternalBackgroundCheckReq {
+  /**
+   * 外部投递
+   * ID，可通过[查询外部投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/list)接口获取
+   *
+   * <p>示例值：6960663240925956660
+   */
+  @Query
+  @SerializedName("external_application_id")
+  private String externalApplicationId;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  public String getExternalApplicationId() {
+    return this.externalApplicationId;
+  }
+
+  public void setExternalApplicationId(String externalApplicationId) {
+    this.externalApplicationId = externalApplicationId;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  @Body private BatchQueryExternalBackgroundCheckReqBody body;
+
+  public BatchQueryExternalBackgroundCheckReqBody getBatchQueryExternalBackgroundCheckReqBody() {
+    return this.body;
+  }
+
+  public void setBatchQueryExternalBackgroundCheckReqBody(
+      BatchQueryExternalBackgroundCheckReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchQueryExternalBackgroundCheckReq() {}
+
+  public BatchQueryExternalBackgroundCheckReq(Builder builder) {
     /**
-     * 外部投递 ID
-     * <p> 示例值：6960663240925956660
+     * 外部投递
+     * ID，可通过[查询外部投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/list)接口获取
+     *
+     * <p>示例值：6960663240925956660
      */
-    @Query
-    @SerializedName("external_application_id")
-    private String externalApplicationId;
+    this.externalApplicationId = builder.externalApplicationId;
     /**
      * 分页大小
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
-    @Body
+    this.pageToken = builder.pageToken;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String externalApplicationId; // 外部投递
+    // ID，可通过[查询外部投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/list)接口获取
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+
+    // 获取查询结果
+
+    /**
+     * 外部投递
+     * ID，可通过[查询外部投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/list)接口获取
+     *
+     * <p>示例值：6960663240925956660
+     *
+     * @param externalApplicationId
+     * @return
+     */
+    public Builder externalApplicationId(String externalApplicationId) {
+      this.externalApplicationId = externalApplicationId;
+      return this;
+    }
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
     private BatchQueryExternalBackgroundCheckReqBody body;
 
-    // builder 开始
-    public BatchQueryExternalBackgroundCheckReq() {
-    }
-
-    public BatchQueryExternalBackgroundCheckReq(Builder builder) {
-        /**
-         * 外部投递 ID
-         * <p> 示例值：6960663240925956660
-         */
-        this.externalApplicationId = builder.externalApplicationId;
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         */
-        this.pageToken = builder.pageToken;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getExternalApplicationId() {
-        return this.externalApplicationId;
-    }
-
-    public void setExternalApplicationId(String externalApplicationId) {
-        this.externalApplicationId = externalApplicationId;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
     public BatchQueryExternalBackgroundCheckReqBody getBatchQueryExternalBackgroundCheckReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchQueryExternalBackgroundCheckReqBody(BatchQueryExternalBackgroundCheckReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchQueryExternalBackgroundCheckReqBody(
+        BatchQueryExternalBackgroundCheckReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String externalApplicationId; // 外部投递 ID
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private BatchQueryExternalBackgroundCheckReqBody body;
-
-        /**
-         * 外部投递 ID
-         * <p> 示例值：6960663240925956660
-         *
-         * @param externalApplicationId
-         * @return
-         */
-        public Builder externalApplicationId(String externalApplicationId) {
-            this.externalApplicationId = externalApplicationId;
-            return this;
-        }
-
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        public BatchQueryExternalBackgroundCheckReqBody getBatchQueryExternalBackgroundCheckReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchQueryExternalBackgroundCheckReqBody(BatchQueryExternalBackgroundCheckReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchQueryExternalBackgroundCheckReq build() {
-            return new BatchQueryExternalBackgroundCheckReq(this);
-        }
+    public BatchQueryExternalBackgroundCheckReq build() {
+      return new BatchQueryExternalBackgroundCheckReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

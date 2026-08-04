@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.base.v2.enums;
 
-/**
- * 条件符
- */
+/** 条件符 */
 public enum ConditionGroupConjunctionEnum {
-    AND("and"), // 满足所有条件
-    OR("or"), // 满足任一条件
-    ;
-    private String value;
+  AND("and"), // 满足所有条件
+  OR("or"), // 满足任一条件
+  ;
+  private String value;
 
-    ConditionGroupConjunctionEnum(String value) {
-        this.value = value;
-    }
+  ConditionGroupConjunctionEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

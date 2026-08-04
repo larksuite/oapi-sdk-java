@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.baike.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.baike.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Span {
+  /**
+   * 关键词开始位置，从 0 开始计数（编码格式采用 utf-8）
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("start")
+  private Integer start;
+
+  /**
+   * 关键词结束位置，从 0 开始计数（编码格式采用 utf-8）
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("end")
+  private Integer end;
+
+  public Integer getStart() {
+    return this.start;
+  }
+
+  public void setStart(Integer start) {
+    this.start = start;
+  }
+
+  public Integer getEnd() {
+    return this.end;
+  }
+
+  public void setEnd(Integer end) {
+    this.end = end;
+  }
+
+  // builder 开始
+  public Span() {}
+
+  public Span(Builder builder) {
     /**
      * 关键词开始位置，从 0 开始计数（编码格式采用 utf-8）
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("start")
-    private Integer start;
+    this.start = builder.start;
     /**
      * 关键词结束位置，从 0 开始计数（编码格式采用 utf-8）
-     * <p> 示例值：4
+     *
+     * <p>示例值：2
      */
-    @SerializedName("end")
+    this.end = builder.end;
+  }
+
+  public static class Builder {
+    /**
+     * 关键词开始位置，从 0 开始计数（编码格式采用 utf-8）
+     *
+     * <p>示例值：0
+     */
+    private Integer start;
+
+    /**
+     * 关键词结束位置，从 0 开始计数（编码格式采用 utf-8）
+     *
+     * <p>示例值：2
+     */
     private Integer end;
 
-    // builder 开始
-    public Span() {
+    /**
+     * 关键词开始位置，从 0 开始计数（编码格式采用 utf-8）
+     *
+     * <p>示例值：0
+     *
+     * @param start
+     * @return
+     */
+    public Builder start(Integer start) {
+      this.start = start;
+      return this;
     }
 
-    public Span(Builder builder) {
-        /**
-         * 关键词开始位置，从 0 开始计数（编码格式采用 utf-8）
-         * <p> 示例值：0
-         */
-        this.start = builder.start;
-        /**
-         * 关键词结束位置，从 0 开始计数（编码格式采用 utf-8）
-         * <p> 示例值：4
-         */
-        this.end = builder.end;
+    /**
+     * 关键词结束位置，从 0 开始计数（编码格式采用 utf-8）
+     *
+     * <p>示例值：2
+     *
+     * @param end
+     * @return
+     */
+    public Builder end(Integer end) {
+      this.end = end;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Span build() {
+      return new Span(this);
     }
+  }
 
-    public Integer getStart() {
-        return this.start;
-    }
-
-    public void setStart(Integer start) {
-        this.start = start;
-    }
-
-    public Integer getEnd() {
-        return this.end;
-    }
-
-    public void setEnd(Integer end) {
-        this.end = end;
-    }
-
-    public static class Builder {
-        /**
-         * 关键词开始位置，从 0 开始计数（编码格式采用 utf-8）
-         * <p> 示例值：0
-         */
-        private Integer start;
-        /**
-         * 关键词结束位置，从 0 开始计数（编码格式采用 utf-8）
-         * <p> 示例值：4
-         */
-        private Integer end;
-
-        /**
-         * 关键词开始位置，从 0 开始计数（编码格式采用 utf-8）
-         * <p> 示例值：0
-         *
-         * @param start
-         * @return
-         */
-        public Builder start(Integer start) {
-            this.start = start;
-            return this;
-        }
-
-
-        /**
-         * 关键词结束位置，从 0 开始计数（编码格式采用 utf-8）
-         * <p> 示例值：4
-         *
-         * @param end
-         * @return
-         */
-        public Builder end(Integer end) {
-            this.end = end;
-            return this;
-        }
-
-
-        public Span build() {
-            return new Span(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

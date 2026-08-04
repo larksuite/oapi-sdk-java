@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.aily.v1.enums;
 
-/**
- * 发送人类型
- */
+/** 发送人类型 */
 public enum AilySenderAilySenderTypeEnum {
-    SENDERTYPEUSER("USER"), // 用户
-    SENDERTYPEASSISTANT("ASSISTANT"), // 应用
-    ;
-    private String value;
+  SENDERTYPEUSER("USER"), // 用户
+  SENDERTYPEASSISTANT("ASSISTANT"), // 应用
+  ;
+  private String value;
 
-    AilySenderAilySenderTypeEnum(String value) {
-        this.value = value;
-    }
+  AilySenderAilySenderTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

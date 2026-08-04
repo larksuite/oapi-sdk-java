@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UatTaskUser {
+  /**
+   * 任务ID
+   *
+   * <p>示例值：123456789
+   */
+  @SerializedName("task_id")
+  private String taskId;
+
+  /**
+   * 任务对应的userID
+   *
+   * <p>示例值：ou_c186b6833e2d5fxxxxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public UatTaskUser() {}
+
+  public UatTaskUser(Builder builder) {
     /**
      * 任务ID
-     * <p> 示例值：123456789
+     *
+     * <p>示例值：123456789
      */
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
     /**
      * 任务对应的userID
-     * <p> 示例值：
+     *
+     * <p>示例值：ou_c186b6833e2d5fxxxxxx
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * 任务ID
+     *
+     * <p>示例值：123456789
+     */
+    private String taskId;
+
+    /**
+     * 任务对应的userID
+     *
+     * <p>示例值：ou_c186b6833e2d5fxxxxxx
+     */
     private String userId;
 
-    // builder 开始
-    public UatTaskUser() {
+    /**
+     * 任务ID
+     *
+     * <p>示例值：123456789
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public UatTaskUser(Builder builder) {
-        /**
-         * 任务ID
-         * <p> 示例值：123456789
-         */
-        this.taskId = builder.taskId;
-        /**
-         * 任务对应的userID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
+    /**
+     * 任务对应的userID
+     *
+     * <p>示例值：ou_c186b6833e2d5fxxxxxx
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UatTaskUser build() {
+      return new UatTaskUser(this);
     }
+  }
 
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 任务ID
-         * <p> 示例值：123456789
-         */
-        private String taskId;
-        /**
-         * 任务对应的userID
-         * <p> 示例值：
-         */
-        private String userId;
-
-        /**
-         * 任务ID
-         * <p> 示例值：123456789
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        /**
-         * 任务对应的userID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public UatTaskUser build() {
-            return new UatTaskUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

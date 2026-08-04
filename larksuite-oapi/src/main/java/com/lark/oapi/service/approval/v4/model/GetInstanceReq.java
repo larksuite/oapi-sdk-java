@@ -13,227 +13,267 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.approval.v4.enums.*;
 
 public class GetInstanceReq {
+  /**
+   * 语言。默认值为[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)时在
+   * i18n_resources 参数中配置的 is_default 取值为 true 的语言。
+   *
+   * <p>示例值：zh-CN
+   */
+  @Query
+  @SerializedName("locale")
+  private String locale;
+
+  /**
+   * 发起审批的用户 ID，ID 类型由 user_id_type 参数指定。
+   *
+   * <p>示例值：f7cb567e
+   */
+  @Query
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：user_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 返回完整的多维表格控件
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("nested_mutable_group")
+  private Boolean nestedMutableGroup;
+
+  public String getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public Boolean getNestedMutableGroup() {
+    return this.nestedMutableGroup;
+  }
+
+  public void setNestedMutableGroup(Boolean nestedMutableGroup) {
+    this.nestedMutableGroup = nestedMutableGroup;
+  }
+
+  /**
+   * 审批实例 Code。获取方式：;;-
+   * [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)
+   * 后，从返回结果中获取审批实例 Code。如果在创建的时候传了 uuid 参数，则本参数也可以通过传 uuid 获取指定审批实例详情。;- 调用[批量获取审批实例
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例
+   * Code。;-
+   * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+   * Code。;
+   *
+   * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+   */
+  @Path
+  @SerializedName("instance_id")
+  private String instanceId;
+
+  public String getInstanceId() {
+    return this.instanceId;
+  }
+
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  // builder 开始
+  public GetInstanceReq() {}
+
+  public GetInstanceReq(Builder builder) {
     /**
-     * 语言
-     * <p> 示例值：zh-CN
+     * 语言。默认值为[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)时在
+     * i18n_resources 参数中配置的 is_default 取值为 true 的语言。
+     *
+     * <p>示例值：zh-CN
      */
-    @Query
-    @SerializedName("locale")
-    private String locale;
+    this.locale = builder.locale;
     /**
-     * 发起审批用户id，仅自建应用可返回
-     * <p> 示例值：f7cb567e
+     * 发起审批的用户 ID，ID 类型由 user_id_type 参数指定。
+     *
+     * <p>示例值：f7cb567e
      */
-    @Query
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：user_id
+     *
+     * <p>示例值：user_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 返回完整的多维表格控件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("nested_mutable_group")
-    private Boolean nestedMutableGroup;
+    this.nestedMutableGroup = builder.nestedMutableGroup;
     /**
-     * 审批实例 Code, 若在创建的时候传了uuid, 也可以通过传uuid获取
-     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+     * 审批实例 Code。获取方式：;;-
+     * [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)
+     * 后，从返回结果中获取审批实例 Code。如果在创建的时候传了 uuid 参数，则本参数也可以通过传 uuid 获取指定审批实例详情。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例
+     * Code。;-
+     * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+     * Code。;
+     *
+     * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
      */
-    @Path
-    @SerializedName("instance_id")
-    private String instanceId;
+    this.instanceId = builder.instanceId;
+  }
 
-    // builder 开始
-    public GetInstanceReq() {
+  public static class Builder {
+    private String
+        locale; // 语言。默认值为[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)时在 i18n_resources 参数中配置的 is_default 取值为 true 的语言。
+    private String userId; // 发起审批的用户 ID，ID 类型由 user_id_type 参数指定。
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private Boolean nestedMutableGroup; // 返回完整的多维表格控件
+
+    /**
+     * 语言。默认值为[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)时在
+     * i18n_resources 参数中配置的 is_default 取值为 true 的语言。
+     *
+     * <p>示例值：zh-CN
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(String locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public GetInstanceReq(Builder builder) {
-        /**
-         * 语言
-         * <p> 示例值：zh-CN
-         */
-        this.locale = builder.locale;
-        /**
-         * 发起审批用户id，仅自建应用可返回
-         * <p> 示例值：f7cb567e
-         */
-        this.userId = builder.userId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 返回完整的多维表格控件
-         * <p> 示例值：
-         */
-        this.nestedMutableGroup = builder.nestedMutableGroup;
-        /**
-         * 审批实例 Code, 若在创建的时候传了uuid, 也可以通过传uuid获取
-         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         */
-        this.instanceId = builder.instanceId;
+    /**
+     * 语言。默认值为[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)时在
+     * i18n_resources 参数中配置的 is_default 取值为 true 的语言。
+     *
+     * <p>示例值：zh-CN
+     *
+     * @param locale {@link
+     *     com.lark.oapi.service.approval.v4.enums.GetInstanceGetInstanceV4LocaleEnum}
+     * @return
+     */
+    public Builder locale(
+        com.lark.oapi.service.approval.v4.enums.GetInstanceGetInstanceV4LocaleEnum locale) {
+      this.locale = locale.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 发起审批的用户 ID，ID 类型由 user_id_type 参数指定。
+     *
+     * <p>示例值：f7cb567e
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getLocale() {
-        return this.locale;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：user_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public void setLocale(String locale) {
-        this.locale = locale;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：user_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.approval.v4.enums.GetInstanceGetInstanceV4UserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.approval.v4.enums.GetInstanceGetInstanceV4UserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 返回完整的多维表格控件
+     *
+     * <p>示例值：
+     *
+     * @param nestedMutableGroup
+     * @return
+     */
+    public Builder nestedMutableGroup(Boolean nestedMutableGroup) {
+      this.nestedMutableGroup = nestedMutableGroup;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    private String instanceId; // 审批实例 Code。获取方式：;;-
+
+    // [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create) 后，从返回结果中获取审批实例 Code。如果在创建的时候传了 uuid 参数，则本参数也可以通过传 uuid 获取指定审批实例详情。;- 调用[批量获取审批实例 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例 Code。;- 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例 Code。;
+
+    /**
+     * 审批实例 Code。获取方式：;;-
+     * [创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)
+     * 后，从返回结果中获取审批实例 Code。如果在创建的时候传了 uuid 参数，则本参数也可以通过传 uuid 获取指定审批实例详情。;- 调用[批量获取审批实例
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/list)，获取指定审批定义内的审批实例
+     * Code。;-
+     * 调用[查询实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/query)，设置过滤条件查询指定的审批实例
+     * Code。;
+     *
+     * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+     *
+     * @param instanceId
+     * @return
+     */
+    public Builder instanceId(String instanceId) {
+      this.instanceId = instanceId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public GetInstanceReq build() {
+      return new GetInstanceReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public Boolean getNestedMutableGroup() {
-        return this.nestedMutableGroup;
-    }
-
-    public void setNestedMutableGroup(Boolean nestedMutableGroup) {
-        this.nestedMutableGroup = nestedMutableGroup;
-    }
-
-    public String getInstanceId() {
-        return this.instanceId;
-    }
-
-    public void setInstanceId(String instanceId) {
-        this.instanceId = instanceId;
-    }
-
-    public static class Builder {
-        private String locale; // 语言
-        private String userId; // 发起审批用户id，仅自建应用可返回
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private Boolean nestedMutableGroup; // 返回完整的多维表格控件
-        private String instanceId; // 审批实例 Code, 若在创建的时候传了uuid, 也可以通过传uuid获取
-
-        /**
-         * 语言
-         * <p> 示例值：zh-CN
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
-        }
-
-        /**
-         * 语言
-         * <p> 示例值：zh-CN
-         *
-         * @param locale {@link com.lark.oapi.service.approval.v4.enums.GetInstanceGetInstanceV4LocaleEnum}
-         * @return
-         */
-        public Builder locale(com.lark.oapi.service.approval.v4.enums.GetInstanceGetInstanceV4LocaleEnum locale) {
-            this.locale = locale.getValue();
-            return this;
-        }
-
-        /**
-         * 发起审批用户id，仅自建应用可返回
-         * <p> 示例值：f7cb567e
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.approval.v4.enums.GetInstanceGetInstanceV4UserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.approval.v4.enums.GetInstanceGetInstanceV4UserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 返回完整的多维表格控件
-         * <p> 示例值：
-         *
-         * @param nestedMutableGroup
-         * @return
-         */
-        public Builder nestedMutableGroup(Boolean nestedMutableGroup) {
-            this.nestedMutableGroup = nestedMutableGroup;
-            return this;
-        }
-
-        /**
-         * 审批实例 Code, 若在创建的时候传了uuid, 也可以通过传uuid获取
-         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         *
-         * @param instanceId
-         * @return
-         */
-        public Builder instanceId(String instanceId) {
-            this.instanceId = instanceId;
-            return this;
-        }
-
-
-        public GetInstanceReq build() {
-            return new GetInstanceReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

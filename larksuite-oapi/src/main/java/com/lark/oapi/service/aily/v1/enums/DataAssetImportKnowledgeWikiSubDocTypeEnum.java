@@ -13,19 +13,17 @@
 
 package com.lark.oapi.service.aily.v1.enums;
 
-/**
- * 云文档类型，只支持wiki中的云文档
- */
+/** 云文档类型，只支持wiki中的云文档 */
 public enum DataAssetImportKnowledgeWikiSubDocTypeEnum {
-    WIKI("wiki"), // 飞书知识库
-    ;
-    private String value;
+  WIKI("wiki"), // 飞书知识库
+  ;
+  private String value;
 
-    DataAssetImportKnowledgeWikiSubDocTypeEnum(String value) {
-        this.value = value;
-    }
+  DataAssetImportKnowledgeWikiSubDocTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

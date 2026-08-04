@@ -13,62 +13,56 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2JobDataEmployedV1Data {
-    /**
-     * 主对象ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("job_data_id")
-    private String jobDataId;
-    /**
-     * 员工雇佣 ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("employment_id")
-    private String employmentId;
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
-    @SerializedName("target_user_id")
-    private UserId targetUserId;
+  /**
+   * 任职记录
+   * ID，详细信息可通过[【获取任职记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_data/get)接口查询
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("job_data_id")
+  private String jobDataId;
 
-    public String getJobDataId() {
-        return this.jobDataId;
-    }
+  /**
+   * 雇佣记录
+   * ID，详细信息可通过[【查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
 
-    public void setJobDataId(String jobDataId) {
-        this.jobDataId = jobDataId;
-    }
+  /**
+   * 用户 ID（备注：入职后开通飞书账号成功，会生成飞书通讯录相关ID，但由于开通过程是异步，本事件不保证一定返回，如未返回，说明飞书账号开通失败，业务需兼容处理）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_user_id")
+  private UserId targetUserId;
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
+  public String getJobDataId() {
+    return this.jobDataId;
+  }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
+  public void setJobDataId(String jobDataId) {
+    this.jobDataId = jobDataId;
+  }
 
-    public UserId getTargetUserId() {
-        return this.targetUserId;
-    }
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
 
-    public void setTargetUserId(UserId targetUserId) {
-        this.targetUserId = targetUserId;
-    }
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
 
+  public UserId getTargetUserId() {
+    return this.targetUserId;
+  }
+
+  public void setTargetUserId(UserId targetUserId) {
+    this.targetUserId = targetUserId;
+  }
 }

@@ -13,142 +13,145 @@
 
 package com.lark.oapi.service.lingo.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.lingo.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.lingo.v1.enums.*;
 
 public class CreateDraftReq {
+  /**
+   * 词库ID（需要在指定词库创建草稿时填写，不填写默认创建至全员词库）;;如以应用身份创建草稿到非全员词库，需要在“词库设置”页面添加应用；若以用户身份创建草稿到非全员词库，该用户需要拥有对应词库的可见权限。
+   *
+   * <p>示例值：72025****640276
+   */
+  @Query
+  @SerializedName("repo_id")
+  private String repoId;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getRepoId() {
+    return this.repoId;
+  }
+
+  public void setRepoId(String repoId) {
+    this.repoId = repoId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private Entity body;
+
+  public Entity getEntity() {
+    return this.body;
+  }
+
+  public void setEntity(Entity body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public CreateDraftReq() {}
+
+  public CreateDraftReq(Builder builder) {
     /**
-     * 词库ID
-     * <p> 示例值：7202510112396640276
+     * 词库ID（需要在指定词库创建草稿时填写，不填写默认创建至全员词库）;;如以应用身份创建草稿到非全员词库，需要在“词库设置”页面添加应用；若以用户身份创建草稿到非全员词库，该用户需要拥有对应词库的可见权限。
+     *
+     * <p>示例值：72025****640276
      */
-    @Query
-    @SerializedName("repo_id")
-    private String repoId;
+    this.repoId = builder.repoId;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        repoId; // 词库ID（需要在指定词库创建草稿时填写，不填写默认创建至全员词库）;;如以应用身份创建草稿到非全员词库，需要在“词库设置”页面添加应用；若以用户身份创建草稿到非全员词库，该用户需要拥有对应词库的可见权限。
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 词库ID（需要在指定词库创建草稿时填写，不填写默认创建至全员词库）;;如以应用身份创建草稿到非全员词库，需要在“词库设置”页面添加应用；若以用户身份创建草稿到非全员词库，该用户需要拥有对应词库的可见权限。
+     *
+     * <p>示例值：72025****640276
+     *
+     * @param repoId
+     * @return
+     */
+    public Builder repoId(String repoId) {
+      this.repoId = repoId;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.lingo.v1.enums.CreateDraftOpenAPICreateDraftUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.lingo.v1.enums.CreateDraftOpenAPICreateDraftUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private Entity body;
 
-    // builder 开始
-    public CreateDraftReq() {
-    }
-
-    public CreateDraftReq(Builder builder) {
-        /**
-         * 词库ID
-         * <p> 示例值：7202510112396640276
-         */
-        this.repoId = builder.repoId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getRepoId() {
-        return this.repoId;
-    }
-
-    public void setRepoId(String repoId) {
-        this.repoId = repoId;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public Entity getEntity() {
-        return this.body;
+      return this.body;
     }
 
-    public void setEntity(Entity body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder entity(Entity body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String repoId; // 词库ID
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private Entity body;
-
-        /**
-         * 词库ID
-         * <p> 示例值：7202510112396640276
-         *
-         * @param repoId
-         * @return
-         */
-        public Builder repoId(String repoId) {
-            this.repoId = repoId;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.lingo.v1.enums.CreateDraftUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.lingo.v1.enums.CreateDraftUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public Entity getEntity() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder entity(Entity body) {
-            this.body = body;
-            return this;
-        }
-
-        public CreateDraftReq build() {
-            return new CreateDraftReq(this);
-        }
+    public CreateDraftReq build() {
+      return new CreateDraftReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

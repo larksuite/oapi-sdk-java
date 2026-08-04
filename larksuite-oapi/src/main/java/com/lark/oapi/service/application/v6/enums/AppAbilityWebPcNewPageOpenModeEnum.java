@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.application.v6.enums;
 
-/**
- * PC端新页面打开方式
- */
+/** PC端主页通过window.open 或 <a> 标签打开新页面时的打开方式 */
 public enum AppAbilityWebPcNewPageOpenModeEnum {
-    NEW_TAB("new_tab"), // PC新页面在飞书打开
-    BROWSER("browser"), // PC新页面在浏览器打开
-    ;
-    private String value;
+  NEW_TAB("new_tab"), // 新页面在飞书新标签页打开
+  BROWSER("browser"), // 新页面在浏览器打开
+  ;
+  private String value;
 
-    AppAbilityWebPcNewPageOpenModeEnum(String value) {
-        this.value = value;
-    }
+  AppAbilityWebPcNewPageOpenModeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

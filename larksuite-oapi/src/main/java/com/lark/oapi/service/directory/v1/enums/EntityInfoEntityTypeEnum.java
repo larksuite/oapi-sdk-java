@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 实体类型
- */
+/** 实体类型 */
 public enum EntityInfoEntityTypeEnum {
-    DEPARTMENT(1), // 部门
-    GROUP(2), // 静态用户组
-    USER(3), // 用户
-    UNIT(4), // 单位
-    DYNAMIC_GROUP(6), // 动态用户组
-    ;
-    private Integer value;
+  DEPARTMENT(1), // 部门
+  GROUP(2), // 静态用户组
+  USER(3), // 用户
+  UNIT(4), // 单位
+  DYNAMIC_GROUP(6), // 动态用户组
+  ;
+  private Integer value;
 
-    EntityInfoEntityTypeEnum(Integer value) {
-        this.value = value;
-    }
+  EntityInfoEntityTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

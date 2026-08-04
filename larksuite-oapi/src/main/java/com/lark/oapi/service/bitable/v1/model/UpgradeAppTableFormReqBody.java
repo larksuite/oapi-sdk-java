@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpgradeAppTableFormReqBody {
+  /**
+   * 升级后的表单名称
+   *
+   * <p>示例值：文档问题反馈
+   */
+  @SerializedName("form_name")
+  private String formName;
+
+  /**
+   * 表单布局模式。
+   *
+   * <p>示例值：one_question_per_page
+   */
+  @SerializedName("display_mode")
+  private String displayMode;
+
+  public String getFormName() {
+    return this.formName;
+  }
+
+  public void setFormName(String formName) {
+    this.formName = formName;
+  }
+
+  public String getDisplayMode() {
+    return this.displayMode;
+  }
+
+  public void setDisplayMode(String displayMode) {
+    this.displayMode = displayMode;
+  }
+
+  // builder 开始
+  public UpgradeAppTableFormReqBody() {}
+
+  public UpgradeAppTableFormReqBody(Builder builder) {
     /**
      * 升级后的表单名称
-     * <p> 示例值：文档问题反馈
+     *
+     * <p>示例值：文档问题反馈
      */
-    @SerializedName("form_name")
-    private String formName;
+    this.formName = builder.formName;
     /**
-     * 表单布局模式。可选值;- traditional：传统布局;- one_question_per_page：一页一题布局:
-     * <p> 示例值：
+     * 表单布局模式。
+     *
+     * <p>示例值：one_question_per_page
      */
-    @SerializedName("display_mode")
+    this.displayMode = builder.displayMode;
+  }
+
+  public static class Builder {
+    /**
+     * 升级后的表单名称
+     *
+     * <p>示例值：文档问题反馈
+     */
+    private String formName;
+
+    /**
+     * 表单布局模式。
+     *
+     * <p>示例值：one_question_per_page
+     */
     private String displayMode;
 
-    // builder 开始
-    public UpgradeAppTableFormReqBody() {
+    /**
+     * 升级后的表单名称
+     *
+     * <p>示例值：文档问题反馈
+     *
+     * @param formName
+     * @return
+     */
+    public Builder formName(String formName) {
+      this.formName = formName;
+      return this;
     }
 
-    public UpgradeAppTableFormReqBody(Builder builder) {
-        /**
-         * 升级后的表单名称
-         * <p> 示例值：文档问题反馈
-         */
-        this.formName = builder.formName;
-        /**
-         * 表单布局模式。可选值;- traditional：传统布局;- one_question_per_page：一页一题布局:
-         * <p> 示例值：
-         */
-        this.displayMode = builder.displayMode;
+    /**
+     * 表单布局模式。
+     *
+     * <p>示例值：one_question_per_page
+     *
+     * @param displayMode
+     * @return
+     */
+    public Builder displayMode(String displayMode) {
+      this.displayMode = displayMode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 表单布局模式。
+     *
+     * <p>示例值：one_question_per_page
+     *
+     * @param displayMode {@link
+     *     com.lark.oapi.service.bitable.v1.enums.UpgradeAppTableFormFormDisplayModeEnum}
+     * @return
+     */
+    public Builder displayMode(
+        com.lark.oapi.service.bitable.v1.enums.UpgradeAppTableFormFormDisplayModeEnum displayMode) {
+      this.displayMode = displayMode.getValue();
+      return this;
     }
 
-    public String getFormName() {
-        return this.formName;
+    public UpgradeAppTableFormReqBody build() {
+      return new UpgradeAppTableFormReqBody(this);
     }
+  }
 
-    public void setFormName(String formName) {
-        this.formName = formName;
-    }
-
-    public String getDisplayMode() {
-        return this.displayMode;
-    }
-
-    public void setDisplayMode(String displayMode) {
-        this.displayMode = displayMode;
-    }
-
-    public static class Builder {
-        /**
-         * 升级后的表单名称
-         * <p> 示例值：文档问题反馈
-         */
-        private String formName;
-        /**
-         * 表单布局模式。可选值;- traditional：传统布局;- one_question_per_page：一页一题布局:
-         * <p> 示例值：
-         */
-        private String displayMode;
-
-        /**
-         * 升级后的表单名称
-         * <p> 示例值：文档问题反馈
-         *
-         * @param formName
-         * @return
-         */
-        public Builder formName(String formName) {
-            this.formName = formName;
-            return this;
-        }
-
-
-        /**
-         * 表单布局模式。可选值;- traditional：传统布局;- one_question_per_page：一页一题布局:
-         * <p> 示例值：
-         *
-         * @param displayMode
-         * @return
-         */
-        public Builder displayMode(String displayMode) {
-            this.displayMode = displayMode;
-            return this;
-        }
-
-        /**
-         * 表单布局模式。可选值;- traditional：传统布局;- one_question_per_page：一页一题布局:
-         * <p> 示例值：
-         *
-         * @param displayMode {@link com.lark.oapi.service.bitable.v1.enums.UpgradeAppTableFormFormDisplayModeEnum}
-         * @return
-         */
-        public Builder displayMode(com.lark.oapi.service.bitable.v1.enums.UpgradeAppTableFormFormDisplayModeEnum displayMode) {
-            this.displayMode = displayMode.getValue();
-            return this;
-        }
-
-
-        public UpgradeAppTableFormReqBody build() {
-            return new UpgradeAppTableFormReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

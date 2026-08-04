@@ -13,420 +13,457 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Reserve {
+  /**
+   * 预约ID
+   *
+   * <p>示例值：6911188411934973028
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 9位会议号
+   *
+   * <p>示例值：112000358
+   */
+  @SerializedName("meeting_no")
+  private String meetingNo;
+
+  /**
+   * 设置会议密码，不传则根据个人设置决定是否使用密码及分配随机密码，传空则不使用密码，传 4-9 位数字则设置密码
+   *
+   * <p>示例值：971024
+   */
+  @SerializedName("password")
+  private String password;
+
+  /**
+   * 会议链接
+   *
+   * <p>示例值：https://vc.feishu.cn/j/337736498
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * APPLink用于唤起飞书APP入会。"{?}"为占位符，用于配置入会参数，使用时需替换具体值：0表示关闭，1表示打开。preview为入会前的设置页，mic为麦克风，speaker为扬声器，camera为摄像头
+   *
+   * <p>示例值：https://applink.feishu.cn/client/videochat/open?source=openplatform&action=join&idtype=reservationid&id={?}&preview={?}&mic={?}&speaker={?}&camera={?}
+   */
+  @SerializedName("app_link")
+  private String appLink;
+
+  /**
+   * 直播链接
+   *
+   * <p>示例值：https://meetings.feishu.cn/s/1gub381l4gglv
+   */
+  @SerializedName("live_link")
+  private String liveLink;
+
+  /**
+   * 预约到期时间（unix时间，单位sec）
+   *
+   * <p>示例值：1608883322
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 过期状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("expire_status")
+  private Integer expireStatus;
+
+  /**
+   * 预约人ID
+   *
+   * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+   */
+  @SerializedName("reserve_user_id")
+  private String reserveUserId;
+
+  /**
+   * 会议设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meeting_settings")
+  private ReserveMeetingSetting meetingSettings;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getMeetingNo() {
+    return this.meetingNo;
+  }
+
+  public void setMeetingNo(String meetingNo) {
+    this.meetingNo = meetingNo;
+  }
+
+  public String getPassword() {
+    return this.password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getAppLink() {
+    return this.appLink;
+  }
+
+  public void setAppLink(String appLink) {
+    this.appLink = appLink;
+  }
+
+  public String getLiveLink() {
+    return this.liveLink;
+  }
+
+  public void setLiveLink(String liveLink) {
+    this.liveLink = liveLink;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public Integer getExpireStatus() {
+    return this.expireStatus;
+  }
+
+  public void setExpireStatus(Integer expireStatus) {
+    this.expireStatus = expireStatus;
+  }
+
+  public String getReserveUserId() {
+    return this.reserveUserId;
+  }
+
+  public void setReserveUserId(String reserveUserId) {
+    this.reserveUserId = reserveUserId;
+  }
+
+  public ReserveMeetingSetting getMeetingSettings() {
+    return this.meetingSettings;
+  }
+
+  public void setMeetingSettings(ReserveMeetingSetting meetingSettings) {
+    this.meetingSettings = meetingSettings;
+  }
+
+  // builder 开始
+  public Reserve() {}
+
+  public Reserve(Builder builder) {
     /**
-     * 预约ID（预约的唯一标识）
-     * <p> 示例值：6911188411934973028
+     * 预约ID
+     *
+     * <p>示例值：6911188411934973028
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 9位会议号（飞书用户可通过输入9位会议号快捷入会）
-     * <p> 示例值：112000358
+     * 9位会议号
+     *
+     * <p>示例值：112000358
      */
-    @SerializedName("meeting_no")
-    private String meetingNo;
+    this.meetingNo = builder.meetingNo;
     /**
-     * 会议密码
-     * <p> 示例值：971024
+     * 设置会议密码，不传则根据个人设置决定是否使用密码及分配随机密码，传空则不使用密码，传 4-9 位数字则设置密码
+     *
+     * <p>示例值：971024
      */
-    @SerializedName("password")
-    private String password;
+    this.password = builder.password;
     /**
-     * 会议链接（飞书用户可通过点击会议链接快捷入会）
-     * <p> 示例值：https://vc.feishu.cn/j/337736498
+     * 会议链接
+     *
+     * <p>示例值：https://vc.feishu.cn/j/337736498
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * APPLink用于唤起飞书APP入会。"{?}"为占位符，用于配置入会参数，使用时需替换具体值：0表示关闭，1表示打开。preview为入会前的设置页，mic为麦克风，speaker为扬声器，camera为摄像头
-     * <p> 示例值：https://applink.feishu.cn/client/videochat/open?source=openplatform&action=join&idtype=reservationid&id={?}&preview={?}&mic={?}&speaker={?}&camera={?}
+     *
+     * <p>示例值：https://applink.feishu.cn/client/videochat/open?source=openplatform&action=join&idtype=reservationid&id={?}&preview={?}&mic={?}&speaker={?}&camera={?}
      */
-    @SerializedName("app_link")
-    private String appLink;
+    this.appLink = builder.appLink;
     /**
-     * 会议转直播链接
-     * <p> 示例值：https://meetings.feishu.cn/s/1gub381l4gglv
+     * 直播链接
+     *
+     * <p>示例值：https://meetings.feishu.cn/s/1gub381l4gglv
      */
-    @SerializedName("live_link")
-    private String liveLink;
+    this.liveLink = builder.liveLink;
     /**
      * 预约到期时间（unix时间，单位sec）
-     * <p> 示例值：1608883322
+     *
+     * <p>示例值：1608883322
      */
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 过期状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：1
      */
-    @SerializedName("expire_status")
-    private Integer expireStatus;
+    this.expireStatus = builder.expireStatus;
     /**
      * 预约人ID
-     * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
      */
-    @SerializedName("reserve_user_id")
-    private String reserveUserId;
+    this.reserveUserId = builder.reserveUserId;
     /**
      * 会议设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meeting_settings")
+    this.meetingSettings = builder.meetingSettings;
+  }
+
+  public static class Builder {
+    /**
+     * 预约ID
+     *
+     * <p>示例值：6911188411934973028
+     */
+    private String id;
+
+    /**
+     * 9位会议号
+     *
+     * <p>示例值：112000358
+     */
+    private String meetingNo;
+
+    /**
+     * 设置会议密码，不传则根据个人设置决定是否使用密码及分配随机密码，传空则不使用密码，传 4-9 位数字则设置密码
+     *
+     * <p>示例值：971024
+     */
+    private String password;
+
+    /**
+     * 会议链接
+     *
+     * <p>示例值：https://vc.feishu.cn/j/337736498
+     */
+    private String url;
+
+    /**
+     * APPLink用于唤起飞书APP入会。"{?}"为占位符，用于配置入会参数，使用时需替换具体值：0表示关闭，1表示打开。preview为入会前的设置页，mic为麦克风，speaker为扬声器，camera为摄像头
+     *
+     * <p>示例值：https://applink.feishu.cn/client/videochat/open?source=openplatform&action=join&idtype=reservationid&id={?}&preview={?}&mic={?}&speaker={?}&camera={?}
+     */
+    private String appLink;
+
+    /**
+     * 直播链接
+     *
+     * <p>示例值：https://meetings.feishu.cn/s/1gub381l4gglv
+     */
+    private String liveLink;
+
+    /**
+     * 预约到期时间（unix时间，单位sec）
+     *
+     * <p>示例值：1608883322
+     */
+    private String endTime;
+
+    /**
+     * 过期状态
+     *
+     * <p>示例值：1
+     */
+    private Integer expireStatus;
+
+    /**
+     * 预约人ID
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     */
+    private String reserveUserId;
+
+    /**
+     * 会议设置
+     *
+     * <p>示例值：
+     */
     private ReserveMeetingSetting meetingSettings;
 
-    // builder 开始
-    public Reserve() {
+    /**
+     * 预约ID
+     *
+     * <p>示例值：6911188411934973028
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Reserve(Builder builder) {
-        /**
-         * 预约ID（预约的唯一标识）
-         * <p> 示例值：6911188411934973028
-         */
-        this.id = builder.id;
-        /**
-         * 9位会议号（飞书用户可通过输入9位会议号快捷入会）
-         * <p> 示例值：112000358
-         */
-        this.meetingNo = builder.meetingNo;
-        /**
-         * 会议密码
-         * <p> 示例值：971024
-         */
-        this.password = builder.password;
-        /**
-         * 会议链接（飞书用户可通过点击会议链接快捷入会）
-         * <p> 示例值：https://vc.feishu.cn/j/337736498
-         */
-        this.url = builder.url;
-        /**
-         * APPLink用于唤起飞书APP入会。"{?}"为占位符，用于配置入会参数，使用时需替换具体值：0表示关闭，1表示打开。preview为入会前的设置页，mic为麦克风，speaker为扬声器，camera为摄像头
-         * <p> 示例值：https://applink.feishu.cn/client/videochat/open?source=openplatform&action=join&idtype=reservationid&id={?}&preview={?}&mic={?}&speaker={?}&camera={?}
-         */
-        this.appLink = builder.appLink;
-        /**
-         * 会议转直播链接
-         * <p> 示例值：https://meetings.feishu.cn/s/1gub381l4gglv
-         */
-        this.liveLink = builder.liveLink;
-        /**
-         * 预约到期时间（unix时间，单位sec）
-         * <p> 示例值：1608883322
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 过期状态
-         * <p> 示例值：0
-         */
-        this.expireStatus = builder.expireStatus;
-        /**
-         * 预约人ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        this.reserveUserId = builder.reserveUserId;
-        /**
-         * 会议设置
-         * <p> 示例值：
-         */
-        this.meetingSettings = builder.meetingSettings;
+    /**
+     * 9位会议号
+     *
+     * <p>示例值：112000358
+     *
+     * @param meetingNo
+     * @return
+     */
+    public Builder meetingNo(String meetingNo) {
+      this.meetingNo = meetingNo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 设置会议密码，不传则根据个人设置决定是否使用密码及分配随机密码，传空则不使用密码，传 4-9 位数字则设置密码
+     *
+     * <p>示例值：971024
+     *
+     * @param password
+     * @return
+     */
+    public Builder password(String password) {
+      this.password = password;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 会议链接
+     *
+     * <p>示例值：https://vc.feishu.cn/j/337736498
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * APPLink用于唤起飞书APP入会。"{?}"为占位符，用于配置入会参数，使用时需替换具体值：0表示关闭，1表示打开。preview为入会前的设置页，mic为麦克风，speaker为扬声器，camera为摄像头
+     *
+     * <p>示例值：https://applink.feishu.cn/client/videochat/open?source=openplatform&action=join&idtype=reservationid&id={?}&preview={?}&mic={?}&speaker={?}&camera={?}
+     *
+     * @param appLink
+     * @return
+     */
+    public Builder appLink(String appLink) {
+      this.appLink = appLink;
+      return this;
     }
 
-    public String getMeetingNo() {
-        return this.meetingNo;
+    /**
+     * 直播链接
+     *
+     * <p>示例值：https://meetings.feishu.cn/s/1gub381l4gglv
+     *
+     * @param liveLink
+     * @return
+     */
+    public Builder liveLink(String liveLink) {
+      this.liveLink = liveLink;
+      return this;
     }
 
-    public void setMeetingNo(String meetingNo) {
-        this.meetingNo = meetingNo;
+    /**
+     * 预约到期时间（unix时间，单位sec）
+     *
+     * <p>示例值：1608883322
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getPassword() {
-        return this.password;
+    /**
+     * 过期状态
+     *
+     * <p>示例值：1
+     *
+     * @param expireStatus
+     * @return
+     */
+    public Builder expireStatus(Integer expireStatus) {
+      this.expireStatus = expireStatus;
+      return this;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    /**
+     * 过期状态
+     *
+     * <p>示例值：1
+     *
+     * @param expireStatus {@link com.lark.oapi.service.vc.v1.enums.ReserveExpireStatusEnum}
+     * @return
+     */
+    public Builder expireStatus(
+        com.lark.oapi.service.vc.v1.enums.ReserveExpireStatusEnum expireStatus) {
+      this.expireStatus = expireStatus.getValue();
+      return this;
     }
 
-    public String getUrl() {
-        return this.url;
+    /**
+     * 预约人ID
+     *
+     * <p>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
+     *
+     * @param reserveUserId
+     * @return
+     */
+    public Builder reserveUserId(String reserveUserId) {
+      this.reserveUserId = reserveUserId;
+      return this;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    /**
+     * 会议设置
+     *
+     * <p>示例值：
+     *
+     * @param meetingSettings
+     * @return
+     */
+    public Builder meetingSettings(ReserveMeetingSetting meetingSettings) {
+      this.meetingSettings = meetingSettings;
+      return this;
     }
 
-    public String getAppLink() {
-        return this.appLink;
+    public Reserve build() {
+      return new Reserve(this);
     }
+  }
 
-    public void setAppLink(String appLink) {
-        this.appLink = appLink;
-    }
-
-    public String getLiveLink() {
-        return this.liveLink;
-    }
-
-    public void setLiveLink(String liveLink) {
-        this.liveLink = liveLink;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public Integer getExpireStatus() {
-        return this.expireStatus;
-    }
-
-    public void setExpireStatus(Integer expireStatus) {
-        this.expireStatus = expireStatus;
-    }
-
-    public String getReserveUserId() {
-        return this.reserveUserId;
-    }
-
-    public void setReserveUserId(String reserveUserId) {
-        this.reserveUserId = reserveUserId;
-    }
-
-    public ReserveMeetingSetting getMeetingSettings() {
-        return this.meetingSettings;
-    }
-
-    public void setMeetingSettings(ReserveMeetingSetting meetingSettings) {
-        this.meetingSettings = meetingSettings;
-    }
-
-    public static class Builder {
-        /**
-         * 预约ID（预约的唯一标识）
-         * <p> 示例值：6911188411934973028
-         */
-        private String id;
-        /**
-         * 9位会议号（飞书用户可通过输入9位会议号快捷入会）
-         * <p> 示例值：112000358
-         */
-        private String meetingNo;
-        /**
-         * 会议密码
-         * <p> 示例值：971024
-         */
-        private String password;
-        /**
-         * 会议链接（飞书用户可通过点击会议链接快捷入会）
-         * <p> 示例值：https://vc.feishu.cn/j/337736498
-         */
-        private String url;
-        /**
-         * APPLink用于唤起飞书APP入会。"{?}"为占位符，用于配置入会参数，使用时需替换具体值：0表示关闭，1表示打开。preview为入会前的设置页，mic为麦克风，speaker为扬声器，camera为摄像头
-         * <p> 示例值：https://applink.feishu.cn/client/videochat/open?source=openplatform&action=join&idtype=reservationid&id={?}&preview={?}&mic={?}&speaker={?}&camera={?}
-         */
-        private String appLink;
-        /**
-         * 会议转直播链接
-         * <p> 示例值：https://meetings.feishu.cn/s/1gub381l4gglv
-         */
-        private String liveLink;
-        /**
-         * 预约到期时间（unix时间，单位sec）
-         * <p> 示例值：1608883322
-         */
-        private String endTime;
-        /**
-         * 过期状态
-         * <p> 示例值：0
-         */
-        private Integer expireStatus;
-        /**
-         * 预约人ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         */
-        private String reserveUserId;
-        /**
-         * 会议设置
-         * <p> 示例值：
-         */
-        private ReserveMeetingSetting meetingSettings;
-
-        /**
-         * 预约ID（预约的唯一标识）
-         * <p> 示例值：6911188411934973028
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 9位会议号（飞书用户可通过输入9位会议号快捷入会）
-         * <p> 示例值：112000358
-         *
-         * @param meetingNo
-         * @return
-         */
-        public Builder meetingNo(String meetingNo) {
-            this.meetingNo = meetingNo;
-            return this;
-        }
-
-
-        /**
-         * 会议密码
-         * <p> 示例值：971024
-         *
-         * @param password
-         * @return
-         */
-        public Builder password(String password) {
-            this.password = password;
-            return this;
-        }
-
-
-        /**
-         * 会议链接（飞书用户可通过点击会议链接快捷入会）
-         * <p> 示例值：https://vc.feishu.cn/j/337736498
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * APPLink用于唤起飞书APP入会。"{?}"为占位符，用于配置入会参数，使用时需替换具体值：0表示关闭，1表示打开。preview为入会前的设置页，mic为麦克风，speaker为扬声器，camera为摄像头
-         * <p> 示例值：https://applink.feishu.cn/client/videochat/open?source=openplatform&action=join&idtype=reservationid&id={?}&preview={?}&mic={?}&speaker={?}&camera={?}
-         *
-         * @param appLink
-         * @return
-         */
-        public Builder appLink(String appLink) {
-            this.appLink = appLink;
-            return this;
-        }
-
-
-        /**
-         * 会议转直播链接
-         * <p> 示例值：https://meetings.feishu.cn/s/1gub381l4gglv
-         *
-         * @param liveLink
-         * @return
-         */
-        public Builder liveLink(String liveLink) {
-            this.liveLink = liveLink;
-            return this;
-        }
-
-
-        /**
-         * 预约到期时间（unix时间，单位sec）
-         * <p> 示例值：1608883322
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 过期状态
-         * <p> 示例值：0
-         *
-         * @param expireStatus
-         * @return
-         */
-        public Builder expireStatus(Integer expireStatus) {
-            this.expireStatus = expireStatus;
-            return this;
-        }
-
-        /**
-         * 过期状态
-         * <p> 示例值：0
-         *
-         * @param expireStatus {@link com.lark.oapi.service.vc.v1.enums.ReserveExpireStatusEnum}
-         * @return
-         */
-        public Builder expireStatus(com.lark.oapi.service.vc.v1.enums.ReserveExpireStatusEnum expireStatus) {
-            this.expireStatus = expireStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 预约人ID
-         * <p> 示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b
-         *
-         * @param reserveUserId
-         * @return
-         */
-        public Builder reserveUserId(String reserveUserId) {
-            this.reserveUserId = reserveUserId;
-            return this;
-        }
-
-
-        /**
-         * 会议设置
-         * <p> 示例值：
-         *
-         * @param meetingSettings
-         * @return
-         */
-        public Builder meetingSettings(ReserveMeetingSetting meetingSettings) {
-            this.meetingSettings = meetingSettings;
-            return this;
-        }
-
-
-        public Reserve build() {
-            return new Reserve(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

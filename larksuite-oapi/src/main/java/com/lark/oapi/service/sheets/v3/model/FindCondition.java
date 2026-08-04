@@ -13,223 +13,249 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FindCondition {
+  /**
+   * 查找范围。格式为 `<sheetId>!<开始位置>:<结束位置>`。其中：;- `sheetId` 为工作表
+   * ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
+   * 获取;- `<开始位置>:<结束位置>` 为工作表中单元格的范围，数字表示行索引，字母表示列索引。如 `A2:B2` 表示该工作表第 2 行的 A 列到 B
+   * 列。`range`支持四种写法，详情参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)
+   *
+   * <p>示例值：PNIfrm!A1:C5
+   */
+  @SerializedName("range")
+  private String range;
+
+  /**
+   * 是否忽略查找字符串的大小写，默认为 false。;- `true`：忽略字符串中字母大小写差异;- `false`：区分字符串中字母大小写
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("match_case")
+  private Boolean matchCase;
+
+  /**
+   * 字符串是否需要完全匹配整个单元格，默认值为 false。;- `true`：完全匹配单元格，比如 `find` 参数 取值为 "hello"，则单元格中的内容必须为 "hello"
+   * 才会匹配替换;- `false`：允许部分匹配单元格，比如 `find` 取值为 "hello"，则单元格中的内容包含 "hello" 即可匹配替换
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("match_entire_cell")
+  private Boolean matchEntireCell;
+
+  /**
+   * 是否使用正则表达式查找，默认值为 false。;- `true`：使用正则表达式;- `false`：不使用正则表达式
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("search_by_regex")
+  private Boolean searchByRegex;
+
+  /**
+   * 是否仅搜索单元格公式，默认值为 false。;- `true`：仅搜索单元格公式;- `false`：仅搜索单元格内容
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("include_formulas")
+  private Boolean includeFormulas;
+
+  public String getRange() {
+    return this.range;
+  }
+
+  public void setRange(String range) {
+    this.range = range;
+  }
+
+  public Boolean getMatchCase() {
+    return this.matchCase;
+  }
+
+  public void setMatchCase(Boolean matchCase) {
+    this.matchCase = matchCase;
+  }
+
+  public Boolean getMatchEntireCell() {
+    return this.matchEntireCell;
+  }
+
+  public void setMatchEntireCell(Boolean matchEntireCell) {
+    this.matchEntireCell = matchEntireCell;
+  }
+
+  public Boolean getSearchByRegex() {
+    return this.searchByRegex;
+  }
+
+  public void setSearchByRegex(Boolean searchByRegex) {
+    this.searchByRegex = searchByRegex;
+  }
+
+  public Boolean getIncludeFormulas() {
+    return this.includeFormulas;
+  }
+
+  public void setIncludeFormulas(Boolean includeFormulas) {
+    this.includeFormulas = includeFormulas;
+  }
+
+  // builder 开始
+  public FindCondition() {}
+
+  public FindCondition(Builder builder) {
     /**
-     * 查找范围，参考 [名词解释 Range](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)
-     * <p> 示例值：PNIfrm!A1:C5
+     * 查找范围。格式为 `<sheetId>!<开始位置>:<结束位置>`。其中：;- `sheetId` 为工作表
+     * ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
+     * 获取;- `<开始位置>:<结束位置>` 为工作表中单元格的范围，数字表示行索引，字母表示列索引。如 `A2:B2` 表示该工作表第 2 行的 A 列到 B
+     * 列。`range`支持四种写法，详情参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)
+     *
+     * <p>示例值：PNIfrm!A1:C5
      */
-    @SerializedName("range")
+    this.range = builder.range;
+    /**
+     * 是否忽略查找字符串的大小写，默认为 false。;- `true`：忽略字符串中字母大小写差异;- `false`：区分字符串中字母大小写
+     *
+     * <p>示例值：true
+     */
+    this.matchCase = builder.matchCase;
+    /**
+     * 字符串是否需要完全匹配整个单元格，默认值为 false。;- `true`：完全匹配单元格，比如 `find` 参数 取值为 "hello"，则单元格中的内容必须为 "hello"
+     * 才会匹配替换;- `false`：允许部分匹配单元格，比如 `find` 取值为 "hello"，则单元格中的内容包含 "hello" 即可匹配替换
+     *
+     * <p>示例值：false
+     */
+    this.matchEntireCell = builder.matchEntireCell;
+    /**
+     * 是否使用正则表达式查找，默认值为 false。;- `true`：使用正则表达式;- `false`：不使用正则表达式
+     *
+     * <p>示例值：false
+     */
+    this.searchByRegex = builder.searchByRegex;
+    /**
+     * 是否仅搜索单元格公式，默认值为 false。;- `true`：仅搜索单元格公式;- `false`：仅搜索单元格内容
+     *
+     * <p>示例值：false
+     */
+    this.includeFormulas = builder.includeFormulas;
+  }
+
+  public static class Builder {
+    /**
+     * 查找范围。格式为 `<sheetId>!<开始位置>:<结束位置>`。其中：;- `sheetId` 为工作表
+     * ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
+     * 获取;- `<开始位置>:<结束位置>` 为工作表中单元格的范围，数字表示行索引，字母表示列索引。如 `A2:B2` 表示该工作表第 2 行的 A 列到 B
+     * 列。`range`支持四种写法，详情参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)
+     *
+     * <p>示例值：PNIfrm!A1:C5
+     */
     private String range;
+
     /**
-     * 是否忽略大小写，默认为 false;- `true`：表示忽略字符串中字母大小写差异;- `false`：表示区分字符串中字母大小写
-     * <p> 示例值：true
+     * 是否忽略查找字符串的大小写，默认为 false。;- `true`：忽略字符串中字母大小写差异;- `false`：区分字符串中字母大小写
+     *
+     * <p>示例值：true
      */
-    @SerializedName("match_case")
     private Boolean matchCase;
+
     /**
-     * 是否完全匹配整个单元格，默认值为 false;- `true`：表示完全匹配单元格，比如 find 取值为 "hello"，则单元格中的内容必须为 "hello";- `false`：表示允许部分匹配单元格，比如 find 取值为 "hello"，则单元格中的内容包含 "hello" 即可
-     * <p> 示例值：false
+     * 字符串是否需要完全匹配整个单元格，默认值为 false。;- `true`：完全匹配单元格，比如 `find` 参数 取值为 "hello"，则单元格中的内容必须为 "hello"
+     * 才会匹配替换;- `false`：允许部分匹配单元格，比如 `find` 取值为 "hello"，则单元格中的内容包含 "hello" 即可匹配替换
+     *
+     * <p>示例值：false
      */
-    @SerializedName("match_entire_cell")
     private Boolean matchEntireCell;
+
     /**
-     * 是否为正则匹配，默认值为 false;- `true`：表示使用正则匹配;- `false`：表示不使用正则匹配
-     * <p> 示例值：false
+     * 是否使用正则表达式查找，默认值为 false。;- `true`：使用正则表达式;- `false`：不使用正则表达式
+     *
+     * <p>示例值：false
      */
-    @SerializedName("search_by_regex")
     private Boolean searchByRegex;
+
     /**
-     * 是否仅搜索单元格公式，默认值为 false;- `true`：表示仅搜索单元格公式;- `false`：表示仅搜索单元格内容
-     * <p> 示例值：false
+     * 是否仅搜索单元格公式，默认值为 false。;- `true`：仅搜索单元格公式;- `false`：仅搜索单元格内容
+     *
+     * <p>示例值：false
      */
-    @SerializedName("include_formulas")
     private Boolean includeFormulas;
 
-    // builder 开始
-    public FindCondition() {
+    /**
+     * 查找范围。格式为 `<sheetId>!<开始位置>:<结束位置>`。其中：;- `sheetId` 为工作表
+     * ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)
+     * 获取;- `<开始位置>:<结束位置>` 为工作表中单元格的范围，数字表示行索引，字母表示列索引。如 `A2:B2` 表示该工作表第 2 行的 A 列到 B
+     * 列。`range`支持四种写法，详情参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)
+     *
+     * <p>示例值：PNIfrm!A1:C5
+     *
+     * @param range
+     * @return
+     */
+    public Builder range(String range) {
+      this.range = range;
+      return this;
     }
 
-    public FindCondition(Builder builder) {
-        /**
-         * 查找范围，参考 [名词解释 Range](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)
-         * <p> 示例值：PNIfrm!A1:C5
-         */
-        this.range = builder.range;
-        /**
-         * 是否忽略大小写，默认为 false;- `true`：表示忽略字符串中字母大小写差异;- `false`：表示区分字符串中字母大小写
-         * <p> 示例值：true
-         */
-        this.matchCase = builder.matchCase;
-        /**
-         * 是否完全匹配整个单元格，默认值为 false;- `true`：表示完全匹配单元格，比如 find 取值为 "hello"，则单元格中的内容必须为 "hello";- `false`：表示允许部分匹配单元格，比如 find 取值为 "hello"，则单元格中的内容包含 "hello" 即可
-         * <p> 示例值：false
-         */
-        this.matchEntireCell = builder.matchEntireCell;
-        /**
-         * 是否为正则匹配，默认值为 false;- `true`：表示使用正则匹配;- `false`：表示不使用正则匹配
-         * <p> 示例值：false
-         */
-        this.searchByRegex = builder.searchByRegex;
-        /**
-         * 是否仅搜索单元格公式，默认值为 false;- `true`：表示仅搜索单元格公式;- `false`：表示仅搜索单元格内容
-         * <p> 示例值：false
-         */
-        this.includeFormulas = builder.includeFormulas;
+    /**
+     * 是否忽略查找字符串的大小写，默认为 false。;- `true`：忽略字符串中字母大小写差异;- `false`：区分字符串中字母大小写
+     *
+     * <p>示例值：true
+     *
+     * @param matchCase
+     * @return
+     */
+    public Builder matchCase(Boolean matchCase) {
+      this.matchCase = matchCase;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字符串是否需要完全匹配整个单元格，默认值为 false。;- `true`：完全匹配单元格，比如 `find` 参数 取值为 "hello"，则单元格中的内容必须为 "hello"
+     * 才会匹配替换;- `false`：允许部分匹配单元格，比如 `find` 取值为 "hello"，则单元格中的内容包含 "hello" 即可匹配替换
+     *
+     * <p>示例值：false
+     *
+     * @param matchEntireCell
+     * @return
+     */
+    public Builder matchEntireCell(Boolean matchEntireCell) {
+      this.matchEntireCell = matchEntireCell;
+      return this;
     }
 
-    public String getRange() {
-        return this.range;
+    /**
+     * 是否使用正则表达式查找，默认值为 false。;- `true`：使用正则表达式;- `false`：不使用正则表达式
+     *
+     * <p>示例值：false
+     *
+     * @param searchByRegex
+     * @return
+     */
+    public Builder searchByRegex(Boolean searchByRegex) {
+      this.searchByRegex = searchByRegex;
+      return this;
     }
 
-    public void setRange(String range) {
-        this.range = range;
+    /**
+     * 是否仅搜索单元格公式，默认值为 false。;- `true`：仅搜索单元格公式;- `false`：仅搜索单元格内容
+     *
+     * <p>示例值：false
+     *
+     * @param includeFormulas
+     * @return
+     */
+    public Builder includeFormulas(Boolean includeFormulas) {
+      this.includeFormulas = includeFormulas;
+      return this;
     }
 
-    public Boolean getMatchCase() {
-        return this.matchCase;
+    public FindCondition build() {
+      return new FindCondition(this);
     }
+  }
 
-    public void setMatchCase(Boolean matchCase) {
-        this.matchCase = matchCase;
-    }
-
-    public Boolean getMatchEntireCell() {
-        return this.matchEntireCell;
-    }
-
-    public void setMatchEntireCell(Boolean matchEntireCell) {
-        this.matchEntireCell = matchEntireCell;
-    }
-
-    public Boolean getSearchByRegex() {
-        return this.searchByRegex;
-    }
-
-    public void setSearchByRegex(Boolean searchByRegex) {
-        this.searchByRegex = searchByRegex;
-    }
-
-    public Boolean getIncludeFormulas() {
-        return this.includeFormulas;
-    }
-
-    public void setIncludeFormulas(Boolean includeFormulas) {
-        this.includeFormulas = includeFormulas;
-    }
-
-    public static class Builder {
-        /**
-         * 查找范围，参考 [名词解释 Range](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)
-         * <p> 示例值：PNIfrm!A1:C5
-         */
-        private String range;
-        /**
-         * 是否忽略大小写，默认为 false;- `true`：表示忽略字符串中字母大小写差异;- `false`：表示区分字符串中字母大小写
-         * <p> 示例值：true
-         */
-        private Boolean matchCase;
-        /**
-         * 是否完全匹配整个单元格，默认值为 false;- `true`：表示完全匹配单元格，比如 find 取值为 "hello"，则单元格中的内容必须为 "hello";- `false`：表示允许部分匹配单元格，比如 find 取值为 "hello"，则单元格中的内容包含 "hello" 即可
-         * <p> 示例值：false
-         */
-        private Boolean matchEntireCell;
-        /**
-         * 是否为正则匹配，默认值为 false;- `true`：表示使用正则匹配;- `false`：表示不使用正则匹配
-         * <p> 示例值：false
-         */
-        private Boolean searchByRegex;
-        /**
-         * 是否仅搜索单元格公式，默认值为 false;- `true`：表示仅搜索单元格公式;- `false`：表示仅搜索单元格内容
-         * <p> 示例值：false
-         */
-        private Boolean includeFormulas;
-
-        /**
-         * 查找范围，参考 [名词解释 Range](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)
-         * <p> 示例值：PNIfrm!A1:C5
-         *
-         * @param range
-         * @return
-         */
-        public Builder range(String range) {
-            this.range = range;
-            return this;
-        }
-
-
-        /**
-         * 是否忽略大小写，默认为 false;- `true`：表示忽略字符串中字母大小写差异;- `false`：表示区分字符串中字母大小写
-         * <p> 示例值：true
-         *
-         * @param matchCase
-         * @return
-         */
-        public Builder matchCase(Boolean matchCase) {
-            this.matchCase = matchCase;
-            return this;
-        }
-
-
-        /**
-         * 是否完全匹配整个单元格，默认值为 false;- `true`：表示完全匹配单元格，比如 find 取值为 "hello"，则单元格中的内容必须为 "hello";- `false`：表示允许部分匹配单元格，比如 find 取值为 "hello"，则单元格中的内容包含 "hello" 即可
-         * <p> 示例值：false
-         *
-         * @param matchEntireCell
-         * @return
-         */
-        public Builder matchEntireCell(Boolean matchEntireCell) {
-            this.matchEntireCell = matchEntireCell;
-            return this;
-        }
-
-
-        /**
-         * 是否为正则匹配，默认值为 false;- `true`：表示使用正则匹配;- `false`：表示不使用正则匹配
-         * <p> 示例值：false
-         *
-         * @param searchByRegex
-         * @return
-         */
-        public Builder searchByRegex(Boolean searchByRegex) {
-            this.searchByRegex = searchByRegex;
-            return this;
-        }
-
-
-        /**
-         * 是否仅搜索单元格公式，默认值为 false;- `true`：表示仅搜索单元格公式;- `false`：表示仅搜索单元格内容
-         * <p> 示例值：false
-         *
-         * @param includeFormulas
-         * @return
-         */
-        public Builder includeFormulas(Boolean includeFormulas) {
-            this.includeFormulas = includeFormulas;
-            return this;
-        }
-
-
-        public FindCondition build() {
-            return new FindCondition(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,71 +13,70 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class TaskCheckFileReq {
+  /**
+   * 异步任务的
+   * ID。目前支持查询删除文件夹和移动文件夹的异步任务。可通过调用[删除文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)或[移动文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move)获取任务
+   * ID
+   *
+   * <p>示例值：7360595374803812356
+   */
+  @Query
+  @SerializedName("task_id")
+  private String taskId;
+
+  public String getTaskId() {
+    return this.taskId;
+  }
+
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
+  // builder 开始
+  public TaskCheckFileReq() {}
+
+  public TaskCheckFileReq(Builder builder) {
     /**
-     * 文件相关异步任务id
-     * <p> 示例值：12345
+     * 异步任务的
+     * ID。目前支持查询删除文件夹和移动文件夹的异步任务。可通过调用[删除文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)或[移动文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move)获取任务
+     * ID
+     *
+     * <p>示例值：7360595374803812356
      */
-    @Query
-    @SerializedName("task_id")
-    private String taskId;
+    this.taskId = builder.taskId;
+  }
 
-    // builder 开始
-    public TaskCheckFileReq() {
+  public static class Builder {
+    private String taskId; // 异步任务的
+
+    // ID。目前支持查询删除文件夹和移动文件夹的异步任务。可通过调用[删除文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)或[移动文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move)获取任务 ID
+
+    /**
+     * 异步任务的
+     * ID。目前支持查询删除文件夹和移动文件夹的异步任务。可通过调用[删除文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)或[移动文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move)获取任务
+     * ID
+     *
+     * <p>示例值：7360595374803812356
+     *
+     * @param taskId
+     * @return
+     */
+    public Builder taskId(String taskId) {
+      this.taskId = taskId;
+      return this;
     }
 
-    public TaskCheckFileReq(Builder builder) {
-        /**
-         * 文件相关异步任务id
-         * <p> 示例值：12345
-         */
-        this.taskId = builder.taskId;
+    public TaskCheckFileReq build() {
+      return new TaskCheckFileReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTaskId() {
-        return this.taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
-
-    public static class Builder {
-        private String taskId; // 文件相关异步任务id
-
-        /**
-         * 文件相关异步任务id
-         * <p> 示例值：12345
-         *
-         * @param taskId
-         * @return
-         */
-        public Builder taskId(String taskId) {
-            this.taskId = taskId;
-            return this;
-        }
-
-
-        public TaskCheckFileReq build() {
-            return new TaskCheckFileReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

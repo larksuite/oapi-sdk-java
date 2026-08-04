@@ -13,112 +13,233 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.minutes.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MinuteTodo {
+  /**
+   * 待办内容
+   *
+   * <p>示例值：提交资源保障方案
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 负责人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("assignees")
+  private String[] assignees;
+
+  /**
+   * 待办是否完成
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_done")
+  private Boolean isDone;
+
+  /**
+   * 待办id
+   *
+   * <p>示例值：<string>
+   */
+  @SerializedName("todo_id")
+  private String todoId;
+
+  /**
+   * 待办操作符
+   *
+   * <p>示例值：<string>
+   */
+  @SerializedName("operation")
+  private String operation;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String[] getAssignees() {
+    return this.assignees;
+  }
+
+  public void setAssignees(String[] assignees) {
+    this.assignees = assignees;
+  }
+
+  public Boolean getIsDone() {
+    return this.isDone;
+  }
+
+  public void setIsDone(Boolean isDone) {
+    this.isDone = isDone;
+  }
+
+  public String getTodoId() {
+    return this.todoId;
+  }
+
+  public void setTodoId(String todoId) {
+    this.todoId = todoId;
+  }
+
+  public String getOperation() {
+    return this.operation;
+  }
+
+  public void setOperation(String operation) {
+    this.operation = operation;
+  }
+
+  // builder 开始
+  public MinuteTodo() {}
+
+  public MinuteTodo(Builder builder) {
     /**
      * 待办内容
-     * <p> 示例值：待办项1
+     *
+     * <p>示例值：提交资源保障方案
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 负责人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("assignees")
+    this.assignees = builder.assignees;
+    /**
+     * 待办是否完成
+     *
+     * <p>示例值：true
+     */
+    this.isDone = builder.isDone;
+    /**
+     * 待办id
+     *
+     * <p>示例值：<string>
+     */
+    this.todoId = builder.todoId;
+    /**
+     * 待办操作符
+     *
+     * <p>示例值：<string>
+     */
+    this.operation = builder.operation;
+  }
+
+  public static class Builder {
+    /**
+     * 待办内容
+     *
+     * <p>示例值：提交资源保障方案
+     */
+    private String content;
+
+    /**
+     * 负责人
+     *
+     * <p>示例值：
+     */
     private String[] assignees;
 
-    // builder 开始
-    public MinuteTodo() {
+    /**
+     * 待办是否完成
+     *
+     * <p>示例值：true
+     */
+    private Boolean isDone;
+
+    /**
+     * 待办id
+     *
+     * <p>示例值：<string>
+     */
+    private String todoId;
+
+    /**
+     * 待办操作符
+     *
+     * <p>示例值：<string>
+     */
+    private String operation;
+
+    /**
+     * 待办内容
+     *
+     * <p>示例值：提交资源保障方案
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public MinuteTodo(Builder builder) {
-        /**
-         * 待办内容
-         * <p> 示例值：待办项1
-         */
-        this.content = builder.content;
-        /**
-         * 负责人
-         * <p> 示例值：
-         */
-        this.assignees = builder.assignees;
+    /**
+     * 负责人
+     *
+     * <p>示例值：
+     *
+     * @param assignees
+     * @return
+     */
+    public Builder assignees(String[] assignees) {
+      this.assignees = assignees;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 待办是否完成
+     *
+     * <p>示例值：true
+     *
+     * @param isDone
+     * @return
+     */
+    public Builder isDone(Boolean isDone) {
+      this.isDone = isDone;
+      return this;
     }
 
-    public String getContent() {
-        return this.content;
+    /**
+     * 待办id
+     *
+     * <p>示例值：<string>
+     *
+     * @param todoId
+     * @return
+     */
+    public Builder todoId(String todoId) {
+      this.todoId = todoId;
+      return this;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    /**
+     * 待办操作符
+     *
+     * <p>示例值：<string>
+     *
+     * @param operation
+     * @return
+     */
+    public Builder operation(String operation) {
+      this.operation = operation;
+      return this;
     }
 
-    public String[] getAssignees() {
-        return this.assignees;
+    public MinuteTodo build() {
+      return new MinuteTodo(this);
     }
+  }
 
-    public void setAssignees(String[] assignees) {
-        this.assignees = assignees;
-    }
-
-    public static class Builder {
-        /**
-         * 待办内容
-         * <p> 示例值：待办项1
-         */
-        private String content;
-        /**
-         * 负责人
-         * <p> 示例值：
-         */
-        private String[] assignees;
-
-        /**
-         * 待办内容
-         * <p> 示例值：待办项1
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 负责人
-         * <p> 示例值：
-         *
-         * @param assignees
-         * @return
-         */
-        public Builder assignees(String[] assignees) {
-            this.assignees = assignees;
-            return this;
-        }
-
-
-        public MinuteTodo build() {
-            return new MinuteTodo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

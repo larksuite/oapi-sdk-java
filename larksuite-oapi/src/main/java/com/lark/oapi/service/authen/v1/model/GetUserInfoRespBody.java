@@ -13,216 +13,230 @@
 
 package com.lark.oapi.service.authen.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetUserInfoRespBody {
-    /**
-     * 用户姓名
-     * <p> 示例值：zhangsan
-     */
-    @SerializedName("name")
-    private String name;
-    /**
-     * 用户英文名称
-     * <p> 示例值：zhangsan
-     */
-    @SerializedName("en_name")
-    private String enName;
-    /**
-     * 用户头像
-     * <p> 示例值：www.feishu.cn/avatar/icon
-     */
-    @SerializedName("avatar_url")
-    private String avatarUrl;
-    /**
-     * 用户头像 72x72
-     * <p> 示例值：www.feishu.cn/avatar/icon
-     */
-    @SerializedName("avatar_thumb")
-    private String avatarThumb;
-    /**
-     * 用户头像 240x240
-     * <p> 示例值：www.feishu.cn/avatar/icon
-     */
-    @SerializedName("avatar_middle")
-    private String avatarMiddle;
-    /**
-     * 用户头像 640x640
-     * <p> 示例值：www.feishu.cn/avatar/icon
-     */
-    @SerializedName("avatar_big")
-    private String avatarBig;
-    /**
-     * 用户在应用内的唯一标识
-     * <p> 示例值：ou-caecc734c2e3328a62489fe0648c4b98779515d3
-     */
-    @SerializedName("open_id")
-    private String openId;
-    /**
-     * 用户统一ID
-     * <p> 示例值：on-d89jhsdhjsajkda7828enjdj328ydhhw3u43yjhdj
-     */
-    @SerializedName("union_id")
-    private String unionId;
-    /**
-     * 用户邮箱
-     * <p> 示例值：zhangsan@feishu.cn
-     */
-    @SerializedName("email")
-    private String email;
-    /**
-     * 企业邮箱，请先确保已在管理后台启用飞书邮箱服务
-     * <p> 示例值：zhangsan@feishu.cn
-     */
-    @SerializedName("enterprise_email")
-    private String enterpriseEmail;
-    /**
-     * 用户 user_id
-     * <p> 示例值：5d9bdxxx
-     */
-    @SerializedName("user_id")
-    private String userId;
-    /**
-     * 用户手机号
-     * <p> 示例值：+86130002883xx
-     */
-    @SerializedName("mobile")
-    private String mobile;
-    /**
-     * 当前企业标识
-     * <p> 示例值：736588c92lxf175d
-     */
-    @SerializedName("tenant_key")
-    private String tenantKey;
-    /**
-     * 用户工号
-     * <p> 示例值：111222333
-     */
-    @SerializedName("employee_no")
-    private String employeeNo;
+  /**
+   * 用户姓名
+   *
+   * <p>示例值：zhangsan
+   */
+  @SerializedName("name")
+  private String name;
 
-    public String getName() {
-        return this.name;
-    }
+  /**
+   * 用户英文名称
+   *
+   * <p>示例值：zhangsan
+   */
+  @SerializedName("en_name")
+  private String enName;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  /**
+   * 用户头像
+   *
+   * <p>示例值：www.feishu.cn/avatar/icon
+   */
+  @SerializedName("avatar_url")
+  private String avatarUrl;
 
-    public String getEnName() {
-        return this.enName;
-    }
+  /**
+   * 用户头像 72x72
+   *
+   * <p>示例值：www.feishu.cn/avatar/icon_thumb
+   */
+  @SerializedName("avatar_thumb")
+  private String avatarThumb;
 
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
+  /**
+   * 用户头像 240x240
+   *
+   * <p>示例值：www.feishu.cn/avatar/icon_middle
+   */
+  @SerializedName("avatar_middle")
+  private String avatarMiddle;
 
-    public String getAvatarUrl() {
-        return this.avatarUrl;
-    }
+  /**
+   * 用户头像 640x640
+   *
+   * <p>示例值：www.feishu.cn/avatar/icon_big
+   */
+  @SerializedName("avatar_big")
+  private String avatarBig;
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
+  /**
+   * 用户在应用内的唯一标识
+   *
+   * <p>示例值：ou_caecc734c2e3328a62489fe0648c4b98779515d3
+   */
+  @SerializedName("open_id")
+  private String openId;
 
-    public String getAvatarThumb() {
-        return this.avatarThumb;
-    }
+  /**
+   * 用户对ISV的唯一标识，对于同一个ISV，用户在其名下所有应用的union_id相同
+   *
+   * <p>示例值：on_d89jhsdhjsajkda7828enjdj328ydhhw3u43yjhdj
+   */
+  @SerializedName("union_id")
+  private String unionId;
 
-    public void setAvatarThumb(String avatarThumb) {
-        this.avatarThumb = avatarThumb;
-    }
+  /**
+   * 用户邮箱。邮箱信息为管理员导入的用户联系方式，未经过用户本人实时验证，不建议开发者直接将其作为业务系统的登录凭证。如使用，务必自行认证。
+   *
+   * <p>示例值：zhangsan@feishu.cn
+   */
+  @SerializedName("email")
+  private String email;
 
-    public String getAvatarMiddle() {
-        return this.avatarMiddle;
-    }
+  /**
+   * 企业邮箱，请先确保已在管理后台启用飞书邮箱服务
+   *
+   * <p>示例值：demo@mail.com
+   */
+  @SerializedName("enterprise_email")
+  private String enterpriseEmail;
 
-    public void setAvatarMiddle(String avatarMiddle) {
-        this.avatarMiddle = avatarMiddle;
-    }
+  /**
+   * 用户 user_id
+   *
+   * <p>示例值：5d9bdxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
 
-    public String getAvatarBig() {
-        return this.avatarBig;
-    }
+  /**
+   * 用户手机号。手机号信息为管理员导入的用户联系方式，未经过用户本人实时验证，不建议开发者直接将其作为业务系统的登录凭证。如使用，务必自行认证。
+   *
+   * <p>示例值：+86130002883xx
+   */
+  @SerializedName("mobile")
+  private String mobile;
 
-    public void setAvatarBig(String avatarBig) {
-        this.avatarBig = avatarBig;
-    }
+  /**
+   * 当前企业标识
+   *
+   * <p>示例值：736588c92lxf175d
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
 
-    public String getOpenId() {
-        return this.openId;
-    }
+  /**
+   * 用户工号
+   *
+   * <p>示例值：111222333
+   */
+  @SerializedName("employee_no")
+  private String employeeNo;
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
+  public String getName() {
+    return this.name;
+  }
 
-    public String getUnionId() {
-        return this.unionId;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setUnionId(String unionId) {
-        this.unionId = unionId;
-    }
+  public String getEnName() {
+    return this.enName;
+  }
 
-    public String getEmail() {
-        return this.email;
-    }
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public String getAvatarUrl() {
+    return this.avatarUrl;
+  }
 
-    public String getEnterpriseEmail() {
-        return this.enterpriseEmail;
-    }
+  public void setAvatarUrl(String avatarUrl) {
+    this.avatarUrl = avatarUrl;
+  }
 
-    public void setEnterpriseEmail(String enterpriseEmail) {
-        this.enterpriseEmail = enterpriseEmail;
-    }
+  public String getAvatarThumb() {
+    return this.avatarThumb;
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
+  public void setAvatarThumb(String avatarThumb) {
+    this.avatarThumb = avatarThumb;
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+  public String getAvatarMiddle() {
+    return this.avatarMiddle;
+  }
 
-    public String getMobile() {
-        return this.mobile;
-    }
+  public void setAvatarMiddle(String avatarMiddle) {
+    this.avatarMiddle = avatarMiddle;
+  }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
+  public String getAvatarBig() {
+    return this.avatarBig;
+  }
 
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
+  public void setAvatarBig(String avatarBig) {
+    this.avatarBig = avatarBig;
+  }
 
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
+  public String getOpenId() {
+    return this.openId;
+  }
 
-    public String getEmployeeNo() {
-        return this.employeeNo;
-    }
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
 
-    public void setEmployeeNo(String employeeNo) {
-        this.employeeNo = employeeNo;
-    }
+  public String getUnionId() {
+    return this.unionId;
+  }
 
+  public void setUnionId(String unionId) {
+    this.unionId = unionId;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getEnterpriseEmail() {
+    return this.enterpriseEmail;
+  }
+
+  public void setEnterpriseEmail(String enterpriseEmail) {
+    this.enterpriseEmail = enterpriseEmail;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getMobile() {
+    return this.mobile;
+  }
+
+  public void setMobile(String mobile) {
+    this.mobile = mobile;
+  }
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  public String getEmployeeNo() {
+    return this.employeeNo;
+  }
+
+  public void setEmployeeNo(String employeeNo) {
+    this.employeeNo = employeeNo;
+  }
 }

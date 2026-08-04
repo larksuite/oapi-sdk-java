@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateGroupSet {
+  /**
+   * 用户组分组 ID
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("group_set_id")
+  private String groupSetId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  public String getGroupSetId() {
+    return this.groupSetId;
+  }
+
+  public void setGroupSetId(String groupSetId) {
+    this.groupSetId = groupSetId;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public UpdateGroupSet() {}
+
+  public UpdateGroupSet(Builder builder) {
     /**
      * 用户组分组 ID
-     * <p> 示例值：123456
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("group_set_id")
-    private String groupSetId;
+    this.groupSetId = builder.groupSetId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 用户组分组 ID
+     *
+     * <p>示例值：123456
+     */
+    private String groupSetId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
     private I18nText name;
 
-    // builder 开始
-    public UpdateGroupSet() {
+    /**
+     * 用户组分组 ID
+     *
+     * <p>示例值：123456
+     *
+     * @param groupSetId
+     * @return
+     */
+    public Builder groupSetId(String groupSetId) {
+      this.groupSetId = groupSetId;
+      return this;
     }
 
-    public UpdateGroupSet(Builder builder) {
-        /**
-         * 用户组分组 ID
-         * <p> 示例值：123456
-         */
-        this.groupSetId = builder.groupSetId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UpdateGroupSet build() {
+      return new UpdateGroupSet(this);
     }
+  }
 
-    public String getGroupSetId() {
-        return this.groupSetId;
-    }
-
-    public void setGroupSetId(String groupSetId) {
-        this.groupSetId = groupSetId;
-    }
-
-    public I18nText getName() {
-        return this.name;
-    }
-
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 用户组分组 ID
-         * <p> 示例值：123456
-         */
-        private String groupSetId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-
-        /**
-         * 用户组分组 ID
-         * <p> 示例值：123456
-         *
-         * @param groupSetId
-         * @return
-         */
-        public Builder groupSetId(String groupSetId) {
-            this.groupSetId = groupSetId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public UpdateGroupSet build() {
-            return new UpdateGroupSet(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

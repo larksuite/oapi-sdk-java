@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RulemanagerTimeCodeGroupInfo {
+  /**
+   * 生效日期
+   *
+   * <p>示例值：2026-04-01
+   */
+  @SerializedName("efective_date")
+  private String efectiveDate;
+
+  /**
+   * 失效日期
+   *
+   * <p>示例值：2026-04-01
+   */
+  @SerializedName("expire_date")
+  private String expireDate;
+
+  /**
+   * 出勤类型列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("time_code_infos")
+  private RulemanagerTimeCodeInfo[] timeCodeInfos;
+
+  public String getEfectiveDate() {
+    return this.efectiveDate;
+  }
+
+  public void setEfectiveDate(String efectiveDate) {
+    this.efectiveDate = efectiveDate;
+  }
+
+  public String getExpireDate() {
+    return this.expireDate;
+  }
+
+  public void setExpireDate(String expireDate) {
+    this.expireDate = expireDate;
+  }
+
+  public RulemanagerTimeCodeInfo[] getTimeCodeInfos() {
+    return this.timeCodeInfos;
+  }
+
+  public void setTimeCodeInfos(RulemanagerTimeCodeInfo[] timeCodeInfos) {
+    this.timeCodeInfos = timeCodeInfos;
+  }
+
+  // builder 开始
+  public RulemanagerTimeCodeGroupInfo() {}
+
+  public RulemanagerTimeCodeGroupInfo(Builder builder) {
     /**
      * 生效日期
-     * <p> 示例值：2026-04-01
+     *
+     * <p>示例值：2026-04-01
      */
-    @SerializedName("efective_date")
-    private String efectiveDate;
+    this.efectiveDate = builder.efectiveDate;
     /**
      * 失效日期
-     * <p> 示例值：2026-04-01
+     *
+     * <p>示例值：2026-04-01
      */
-    @SerializedName("expire_date")
-    private String expireDate;
+    this.expireDate = builder.expireDate;
     /**
      * 出勤类型列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("time_code_infos")
+    this.timeCodeInfos = builder.timeCodeInfos;
+  }
+
+  public static class Builder {
+    /**
+     * 生效日期
+     *
+     * <p>示例值：2026-04-01
+     */
+    private String efectiveDate;
+
+    /**
+     * 失效日期
+     *
+     * <p>示例值：2026-04-01
+     */
+    private String expireDate;
+
+    /**
+     * 出勤类型列表
+     *
+     * <p>示例值：
+     */
     private RulemanagerTimeCodeInfo[] timeCodeInfos;
 
-    // builder 开始
-    public RulemanagerTimeCodeGroupInfo() {
+    /**
+     * 生效日期
+     *
+     * <p>示例值：2026-04-01
+     *
+     * @param efectiveDate
+     * @return
+     */
+    public Builder efectiveDate(String efectiveDate) {
+      this.efectiveDate = efectiveDate;
+      return this;
     }
 
-    public RulemanagerTimeCodeGroupInfo(Builder builder) {
-        /**
-         * 生效日期
-         * <p> 示例值：2026-04-01
-         */
-        this.efectiveDate = builder.efectiveDate;
-        /**
-         * 失效日期
-         * <p> 示例值：2026-04-01
-         */
-        this.expireDate = builder.expireDate;
-        /**
-         * 出勤类型列表
-         * <p> 示例值：
-         */
-        this.timeCodeInfos = builder.timeCodeInfos;
+    /**
+     * 失效日期
+     *
+     * <p>示例值：2026-04-01
+     *
+     * @param expireDate
+     * @return
+     */
+    public Builder expireDate(String expireDate) {
+      this.expireDate = expireDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 出勤类型列表
+     *
+     * <p>示例值：
+     *
+     * @param timeCodeInfos
+     * @return
+     */
+    public Builder timeCodeInfos(RulemanagerTimeCodeInfo[] timeCodeInfos) {
+      this.timeCodeInfos = timeCodeInfos;
+      return this;
     }
 
-    public String getEfectiveDate() {
-        return this.efectiveDate;
+    public RulemanagerTimeCodeGroupInfo build() {
+      return new RulemanagerTimeCodeGroupInfo(this);
     }
+  }
 
-    public void setEfectiveDate(String efectiveDate) {
-        this.efectiveDate = efectiveDate;
-    }
-
-    public String getExpireDate() {
-        return this.expireDate;
-    }
-
-    public void setExpireDate(String expireDate) {
-        this.expireDate = expireDate;
-    }
-
-    public RulemanagerTimeCodeInfo[] getTimeCodeInfos() {
-        return this.timeCodeInfos;
-    }
-
-    public void setTimeCodeInfos(RulemanagerTimeCodeInfo[] timeCodeInfos) {
-        this.timeCodeInfos = timeCodeInfos;
-    }
-
-    public static class Builder {
-        /**
-         * 生效日期
-         * <p> 示例值：2026-04-01
-         */
-        private String efectiveDate;
-        /**
-         * 失效日期
-         * <p> 示例值：2026-04-01
-         */
-        private String expireDate;
-        /**
-         * 出勤类型列表
-         * <p> 示例值：
-         */
-        private RulemanagerTimeCodeInfo[] timeCodeInfos;
-
-        /**
-         * 生效日期
-         * <p> 示例值：2026-04-01
-         *
-         * @param efectiveDate
-         * @return
-         */
-        public Builder efectiveDate(String efectiveDate) {
-            this.efectiveDate = efectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 失效日期
-         * <p> 示例值：2026-04-01
-         *
-         * @param expireDate
-         * @return
-         */
-        public Builder expireDate(String expireDate) {
-            this.expireDate = expireDate;
-            return this;
-        }
-
-
-        /**
-         * 出勤类型列表
-         * <p> 示例值：
-         *
-         * @param timeCodeInfos
-         * @return
-         */
-        public Builder timeCodeInfos(RulemanagerTimeCodeInfo[] timeCodeInfos) {
-            this.timeCodeInfos = timeCodeInfos;
-            return this;
-        }
-
-
-        public RulemanagerTimeCodeGroupInfo build() {
-            return new RulemanagerTimeCodeGroupInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

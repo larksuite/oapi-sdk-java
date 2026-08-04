@@ -13,187 +13,206 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.application.v7.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.application.v7.enums.*;
 
 public class PatchApplicationConfigReq {
+  /**
+   * 部门id 类型
+   *
+   * <p>示例值：open_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  /**
+   * open_id 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 应用的app_id [如何获取应用的 App
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)
+   *
+   * <p>示例值：cli_***
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  @Body private PatchApplicationConfigReqBody body;
+
+  public PatchApplicationConfigReqBody getPatchApplicationConfigReqBody() {
+    return this.body;
+  }
+
+  public void setPatchApplicationConfigReqBody(PatchApplicationConfigReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchApplicationConfigReq() {}
+
+  public PatchApplicationConfigReq(Builder builder) {
     /**
      * 部门id 类型
-     * <p> 示例值：open_department_id
+     *
+     * <p>示例值：open_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
      * open_id 类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 应用ID
-     * <p> 示例值：cli_a306c5476fb8d00c
+     * 应用的app_id [如何获取应用的 App
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)
+     *
+     * <p>示例值：cli_***
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-    @Body
+    this.appId = builder.appId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String departmentIdType; // 部门id 类型
+    private String userIdType; // open_id 类型
+
+    /**
+     * 部门id 类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * 部门id 类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.application.v7.enums.PatchApplicationConfigPatchApplicationConfigDepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.application.v7.enums
+                .PatchApplicationConfigPatchApplicationConfigDepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
+    }
+
+    /**
+     * open_id 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * open_id 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.application.v7.enums.PatchApplicationConfigPatchApplicationConfigUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.application.v7.enums
+                .PatchApplicationConfigPatchApplicationConfigUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    private String appId; // 应用的app_id [如何获取应用的 App
+
+    // ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)
+
+    /**
+     * 应用的app_id [如何获取应用的 App
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)
+     *
+     * <p>示例值：cli_***
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
+    }
+
     private PatchApplicationConfigReqBody body;
 
-    // builder 开始
-    public PatchApplicationConfigReq() {
-    }
-
-    public PatchApplicationConfigReq(Builder builder) {
-        /**
-         * 部门id 类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * open_id 类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 应用ID
-         * <p> 示例值：cli_a306c5476fb8d00c
-         */
-        this.appId = builder.appId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
     public PatchApplicationConfigReqBody getPatchApplicationConfigReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPatchApplicationConfigReqBody(PatchApplicationConfigReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder patchApplicationConfigReqBody(PatchApplicationConfigReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String departmentIdType; // 部门id 类型
-        private String userIdType; // open_id 类型
-        private String appId; // 应用ID
-        private PatchApplicationConfigReqBody body;
-
-        /**
-         * 部门id 类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 部门id 类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.application.v7.enums.PatchApplicationConfigPatchApplicationConfigDepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.application.v7.enums.PatchApplicationConfigPatchApplicationConfigDepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * open_id 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * open_id 类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.application.v7.enums.PatchApplicationConfigPatchApplicationConfigUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.application.v7.enums.PatchApplicationConfigPatchApplicationConfigUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 应用ID
-         * <p> 示例值：cli_a306c5476fb8d00c
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-        public PatchApplicationConfigReqBody getPatchApplicationConfigReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder patchApplicationConfigReqBody(PatchApplicationConfigReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchApplicationConfigReq build() {
-            return new PatchApplicationConfigReq(this);
-        }
+    public PatchApplicationConfigReq build() {
+      return new PatchApplicationConfigReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

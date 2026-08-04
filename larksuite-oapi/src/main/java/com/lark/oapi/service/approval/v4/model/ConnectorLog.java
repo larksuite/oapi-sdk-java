@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ConnectorLog {
+  /**
+   * 日志数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("log_data")
+  private ConnectorLogData[] logData;
+
+  public ConnectorLogData[] getLogData() {
+    return this.logData;
+  }
+
+  public void setLogData(ConnectorLogData[] logData) {
+    this.logData = logData;
+  }
+
+  // builder 开始
+  public ConnectorLog() {}
+
+  public ConnectorLog(Builder builder) {
     /**
      * 日志数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("log_data")
+    this.logData = builder.logData;
+  }
+
+  public static class Builder {
+    /**
+     * 日志数据
+     *
+     * <p>示例值：
+     */
     private ConnectorLogData[] logData;
 
-    // builder 开始
-    public ConnectorLog() {
+    /**
+     * 日志数据
+     *
+     * <p>示例值：
+     *
+     * @param logData
+     * @return
+     */
+    public Builder logData(ConnectorLogData[] logData) {
+      this.logData = logData;
+      return this;
     }
 
-    public ConnectorLog(Builder builder) {
-        /**
-         * 日志数据
-         * <p> 示例值：
-         */
-        this.logData = builder.logData;
+    public ConnectorLog build() {
+      return new ConnectorLog(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public ConnectorLogData[] getLogData() {
-        return this.logData;
-    }
-
-    public void setLogData(ConnectorLogData[] logData) {
-        this.logData = logData;
-    }
-
-    public static class Builder {
-        /**
-         * 日志数据
-         * <p> 示例值：
-         */
-        private ConnectorLogData[] logData;
-
-        /**
-         * 日志数据
-         * <p> 示例值：
-         *
-         * @param logData
-         * @return
-         */
-        public Builder logData(ConnectorLogData[] logData) {
-            this.logData = logData;
-            return this;
-        }
-
-
-        public ConnectorLog build() {
-            return new ConnectorLog(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

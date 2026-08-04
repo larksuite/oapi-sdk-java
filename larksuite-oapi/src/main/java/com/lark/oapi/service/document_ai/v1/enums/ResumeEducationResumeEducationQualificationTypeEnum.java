@@ -13,27 +13,25 @@
 
 package com.lark.oapi.service.document_ai.v1.enums;
 
-/**
- * 学历对应ID
- */
+/** 学历对应ID */
 public enum ResumeEducationResumeEducationQualificationTypeEnum {
-    PRIMARYSCHOOL(1), // 小学
-    JUNIORHIGHSCHOOL(2), // 初中
-    SPECIALIZEDSECONDARYSCHOOL(3), // 中职
-    SENIORHIGHSCHOOL(4), // 高中
-    JUNIORCOLLEGE(5), // 专科
-    BACHELOR(6), // 本科
-    MASTER(7), // 硕士
-    DOCTOR(8), // 博士
-    OTHER(9), // 其他
-    ;
-    private Integer value;
+  PRIMARYSCHOOL(1), // 小学
+  JUNIORHIGHSCHOOL(2), // 初中
+  SPECIALIZEDSECONDARYSCHOOL(3), // 中职
+  SENIORHIGHSCHOOL(4), // 高中
+  JUNIORCOLLEGE(5), // 专科
+  BACHELOR(6), // 本科
+  MASTER(7), // 硕士
+  DOCTOR(8), // 博士
+  OTHER(9), // 其他
+  ;
+  private Integer value;
 
-    ResumeEducationResumeEducationQualificationTypeEnum(Integer value) {
-        this.value = value;
-    }
+  ResumeEducationResumeEducationQualificationTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,132 +13,136 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2EhrImportTaskForInternshipOfferImportedV1Data {
-    /**
-     * 导入任务 ID
-     * <p> 示例值：6890840517010000141
-     */
-    @SerializedName("task_id")
-    private String taskId;
-    /**
-     * 投递 ID
-     * <p> 示例值：6891113078776137998
-     */
-    @SerializedName("application_id")
-    private String applicationId;
-    /**
-     * Offer ID
-     * <p> 示例值：6930815272790114324
-     */
-    @SerializedName("offer_id")
-    private String offerId;
-    /**
-     * 实习 ID
-     * <p> 示例值：6030815272790115431
-     */
-    @SerializedName("pre_onboard_id")
-    private String preOnboardId;
-    /**
-     * 导入部门 ID
-     * <p> 示例值：6887399523094627847
-     */
-    @SerializedName("ehr_department_id")
-    private String ehrDepartmentId;
-    /**
-     * 操作人的飞书招聘 user_id
-     * <p> 示例值：6887868781834536462
-     */
-    @SerializedName("operator_id")
-    private String operatorId;
-    /**
-     * 操作人的飞书 user_id
-     * <p> 示例值：6887868781834536462
-     */
-    @SerializedName("operator_user_id")
-    private UserId operatorUserId;
-    /**
-     * 部门ID
-     * <p> 示例值：
-     */
-    @SerializedName("ehr_department")
-    private DepartmentId ehrDepartment;
+  /**
+   * 导入任务 ID
+   *
+   * <p>示例值：6890840517010000141
+   */
+  @SerializedName("task_id")
+  private String taskId;
 
-    public String getTaskId() {
-        return this.taskId;
-    }
+  /**
+   * 投递
+   * ID，详情请参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+   *
+   * <p>示例值：6891113078776137998
+   */
+  @SerializedName("application_id")
+  private String applicationId;
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
+  /**
+   * Offer ID，详情请参考[获取 Offer
+   * 详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/get)
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("offer_id")
+  private String offerId;
 
-    public String getApplicationId() {
-        return this.applicationId;
-    }
+  /**
+   * 入职ID（实习）;
+   *
+   * <p>示例值：6030815272790115431
+   */
+  @SerializedName("pre_onboard_id")
+  private String preOnboardId;
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
-    }
+  /**
+   * 导入部门 ID，等同于`ehr_department. department_id`字段
+   *
+   * <p>示例值：6887399523094627847
+   */
+  @SerializedName("ehr_department_id")
+  private String ehrDepartmentId;
 
-    public String getOfferId() {
-        return this.offerId;
-    }
+  /**
+   * 操作人的用户user id，等同于`operator_user_id.user_id`字段
+   *
+   * <p>示例值：e33ggbyz
+   */
+  @SerializedName("operator_id")
+  private String operatorId;
 
-    public void setOfferId(String offerId) {
-        this.offerId = offerId;
-    }
+  /**
+   * 操作人用户 ID
+   *
+   * <p>示例值：6887868781834536462
+   */
+  @SerializedName("operator_user_id")
+  private UserId operatorUserId;
 
-    public String getPreOnboardId() {
-        return this.preOnboardId;
-    }
+  /**
+   * 导入部门ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ehr_department")
+  private DepartmentId ehrDepartment;
 
-    public void setPreOnboardId(String preOnboardId) {
-        this.preOnboardId = preOnboardId;
-    }
+  public String getTaskId() {
+    return this.taskId;
+  }
 
-    public String getEhrDepartmentId() {
-        return this.ehrDepartmentId;
-    }
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
 
-    public void setEhrDepartmentId(String ehrDepartmentId) {
-        this.ehrDepartmentId = ehrDepartmentId;
-    }
+  public String getApplicationId() {
+    return this.applicationId;
+  }
 
-    public String getOperatorId() {
-        return this.operatorId;
-    }
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
 
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
-    }
+  public String getOfferId() {
+    return this.offerId;
+  }
 
-    public UserId getOperatorUserId() {
-        return this.operatorUserId;
-    }
+  public void setOfferId(String offerId) {
+    this.offerId = offerId;
+  }
 
-    public void setOperatorUserId(UserId operatorUserId) {
-        this.operatorUserId = operatorUserId;
-    }
+  public String getPreOnboardId() {
+    return this.preOnboardId;
+  }
 
-    public DepartmentId getEhrDepartment() {
-        return this.ehrDepartment;
-    }
+  public void setPreOnboardId(String preOnboardId) {
+    this.preOnboardId = preOnboardId;
+  }
 
-    public void setEhrDepartment(DepartmentId ehrDepartment) {
-        this.ehrDepartment = ehrDepartment;
-    }
+  public String getEhrDepartmentId() {
+    return this.ehrDepartmentId;
+  }
 
+  public void setEhrDepartmentId(String ehrDepartmentId) {
+    this.ehrDepartmentId = ehrDepartmentId;
+  }
+
+  public String getOperatorId() {
+    return this.operatorId;
+  }
+
+  public void setOperatorId(String operatorId) {
+    this.operatorId = operatorId;
+  }
+
+  public UserId getOperatorUserId() {
+    return this.operatorUserId;
+  }
+
+  public void setOperatorUserId(UserId operatorUserId) {
+    this.operatorUserId = operatorUserId;
+  }
+
+  public DepartmentId getEhrDepartment() {
+    return this.ehrDepartment;
+  }
+
+  public void setEhrDepartment(DepartmentId ehrDepartment) {
+    this.ehrDepartment = ehrDepartment;
+  }
 }

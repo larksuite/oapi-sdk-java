@@ -13,72 +13,74 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.contact.v3.enums.*;
 
 public class DeleteJobFamilyReq {
+  /**
+   * 序列 ID。获取方式：;;-
+   * [创建序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/create)时可以从返回结果中获取（job_family_id）。;-
+   * 调用[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口获取序列
+   * ID。
+   *
+   * <p>示例值：mga5oa8ayjlp9rb
+   */
+  @Path
+  @SerializedName("job_family_id")
+  private String jobFamilyId;
+
+  public String getJobFamilyId() {
+    return this.jobFamilyId;
+  }
+
+  public void setJobFamilyId(String jobFamilyId) {
+    this.jobFamilyId = jobFamilyId;
+  }
+
+  // builder 开始
+  public DeleteJobFamilyReq() {}
+
+  public DeleteJobFamilyReq(Builder builder) {
     /**
-     * 序列ID
-     * <p> 示例值：mga5oa8ayjlp9rb
+     * 序列 ID。获取方式：;;-
+     * [创建序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/create)时可以从返回结果中获取（job_family_id）。;-
+     * 调用[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口获取序列
+     * ID。
+     *
+     * <p>示例值：mga5oa8ayjlp9rb
      */
-    @Path
-    @SerializedName("job_family_id")
-    private String jobFamilyId;
+    this.jobFamilyId = builder.jobFamilyId;
+  }
 
-    // builder 开始
-    public DeleteJobFamilyReq() {
+  public static class Builder {
+
+    private String jobFamilyId; // 序列 ID。获取方式：;;-
+
+    // [创建序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/create)时可以从返回结果中获取（job_family_id）。;- 调用[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口获取序列 ID。
+
+    /**
+     * 序列 ID。获取方式：;;-
+     * [创建序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/create)时可以从返回结果中获取（job_family_id）。;-
+     * 调用[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口获取序列
+     * ID。
+     *
+     * <p>示例值：mga5oa8ayjlp9rb
+     *
+     * @param jobFamilyId
+     * @return
+     */
+    public Builder jobFamilyId(String jobFamilyId) {
+      this.jobFamilyId = jobFamilyId;
+      return this;
     }
 
-    public DeleteJobFamilyReq(Builder builder) {
-        /**
-         * 序列ID
-         * <p> 示例值：mga5oa8ayjlp9rb
-         */
-        this.jobFamilyId = builder.jobFamilyId;
+    public DeleteJobFamilyReq build() {
+      return new DeleteJobFamilyReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getJobFamilyId() {
-        return this.jobFamilyId;
-    }
-
-    public void setJobFamilyId(String jobFamilyId) {
-        this.jobFamilyId = jobFamilyId;
-    }
-
-    public static class Builder {
-
-        private String jobFamilyId; // 序列ID
-
-        /**
-         * 序列ID
-         * <p> 示例值：mga5oa8ayjlp9rb
-         *
-         * @param jobFamilyId
-         * @return
-         */
-        public Builder jobFamilyId(String jobFamilyId) {
-            this.jobFamilyId = jobFamilyId;
-            return this;
-        }
-
-
-        public DeleteJobFamilyReq build() {
-            return new DeleteJobFamilyReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

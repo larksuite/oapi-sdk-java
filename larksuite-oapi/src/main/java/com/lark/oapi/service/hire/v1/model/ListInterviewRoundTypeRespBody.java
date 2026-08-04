@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListInterviewRoundTypeRespBody {
-    /**
-     * 是否启用面试轮次类型
-     * <p> 示例值：1
-     */
-    @SerializedName("active_status")
-    private Integer activeStatus;
-    /**
-     * 列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private InterviewRoundType[] items;
+  /**
+   * 面试轮次类型启用状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("active_status")
+  private Integer activeStatus;
 
-    public Integer getActiveStatus() {
-        return this.activeStatus;
-    }
+  /**
+   * 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private InterviewRoundType[] items;
 
-    public void setActiveStatus(Integer activeStatus) {
-        this.activeStatus = activeStatus;
-    }
+  public Integer getActiveStatus() {
+    return this.activeStatus;
+  }
 
-    public InterviewRoundType[] getItems() {
-        return this.items;
-    }
+  public void setActiveStatus(Integer activeStatus) {
+    this.activeStatus = activeStatus;
+  }
 
-    public void setItems(InterviewRoundType[] items) {
-        this.items = items;
-    }
+  public InterviewRoundType[] getItems() {
+    return this.items;
+  }
 
+  public void setItems(InterviewRoundType[] items) {
+    this.items = items;
+  }
 }

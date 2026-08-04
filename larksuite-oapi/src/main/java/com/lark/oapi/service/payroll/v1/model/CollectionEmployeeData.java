@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollectionEmployeeData {
+  /**
+   * 填报明细行ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("row_id")
+  private String rowId;
+
+  /**
+   * 填报活动ID
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("activity_id")
+  private String activityId;
+
+  /**
+   * 员工信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_info")
+  private EmployeeInfo employeeInfo;
+
+  /**
+   * 同个员工同个活动下可能有多条明细数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("collection_datas")
+  private CollectionData[] collectionDatas;
+
+  public String getRowId() {
+    return this.rowId;
+  }
+
+  public void setRowId(String rowId) {
+    this.rowId = rowId;
+  }
+
+  public String getActivityId() {
+    return this.activityId;
+  }
+
+  public void setActivityId(String activityId) {
+    this.activityId = activityId;
+  }
+
+  public EmployeeInfo getEmployeeInfo() {
+    return this.employeeInfo;
+  }
+
+  public void setEmployeeInfo(EmployeeInfo employeeInfo) {
+    this.employeeInfo = employeeInfo;
+  }
+
+  public CollectionData[] getCollectionDatas() {
+    return this.collectionDatas;
+  }
+
+  public void setCollectionDatas(CollectionData[] collectionDatas) {
+    this.collectionDatas = collectionDatas;
+  }
+
+  // builder 开始
+  public CollectionEmployeeData() {}
+
+  public CollectionEmployeeData(Builder builder) {
     /**
      * 填报明细行ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("row_id")
-    private String rowId;
+    this.rowId = builder.rowId;
     /**
      * 填报活动ID
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("activity_id")
-    private String activityId;
+    this.activityId = builder.activityId;
     /**
      * 员工信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_info")
-    private EmployeeInfo employeeInfo;
+    this.employeeInfo = builder.employeeInfo;
     /**
      * 同个员工同个活动下可能有多条明细数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("collection_datas")
+    this.collectionDatas = builder.collectionDatas;
+  }
+
+  public static class Builder {
+    /**
+     * 填报明细行ID
+     *
+     * <p>示例值：1
+     */
+    private String rowId;
+
+    /**
+     * 填报活动ID
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String activityId;
+
+    /**
+     * 员工信息
+     *
+     * <p>示例值：
+     */
+    private EmployeeInfo employeeInfo;
+
+    /**
+     * 同个员工同个活动下可能有多条明细数据
+     *
+     * <p>示例值：
+     */
     private CollectionData[] collectionDatas;
 
-    // builder 开始
-    public CollectionEmployeeData() {
+    /**
+     * 填报明细行ID
+     *
+     * <p>示例值：1
+     *
+     * @param rowId
+     * @return
+     */
+    public Builder rowId(String rowId) {
+      this.rowId = rowId;
+      return this;
     }
 
-    public CollectionEmployeeData(Builder builder) {
-        /**
-         * 填报明细行ID
-         * <p> 示例值：1
-         */
-        this.rowId = builder.rowId;
-        /**
-         * 填报活动ID
-         * <p> 示例值：7202076988667019308
-         */
-        this.activityId = builder.activityId;
-        /**
-         * 员工信息
-         * <p> 示例值：
-         */
-        this.employeeInfo = builder.employeeInfo;
-        /**
-         * 同个员工同个活动下可能有多条明细数据
-         * <p> 示例值：
-         */
-        this.collectionDatas = builder.collectionDatas;
+    /**
+     * 填报活动ID
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param activityId
+     * @return
+     */
+    public Builder activityId(String activityId) {
+      this.activityId = activityId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 员工信息
+     *
+     * <p>示例值：
+     *
+     * @param employeeInfo
+     * @return
+     */
+    public Builder employeeInfo(EmployeeInfo employeeInfo) {
+      this.employeeInfo = employeeInfo;
+      return this;
     }
 
-    public String getRowId() {
-        return this.rowId;
+    /**
+     * 同个员工同个活动下可能有多条明细数据
+     *
+     * <p>示例值：
+     *
+     * @param collectionDatas
+     * @return
+     */
+    public Builder collectionDatas(CollectionData[] collectionDatas) {
+      this.collectionDatas = collectionDatas;
+      return this;
     }
 
-    public void setRowId(String rowId) {
-        this.rowId = rowId;
+    public CollectionEmployeeData build() {
+      return new CollectionEmployeeData(this);
     }
+  }
 
-    public String getActivityId() {
-        return this.activityId;
-    }
-
-    public void setActivityId(String activityId) {
-        this.activityId = activityId;
-    }
-
-    public EmployeeInfo getEmployeeInfo() {
-        return this.employeeInfo;
-    }
-
-    public void setEmployeeInfo(EmployeeInfo employeeInfo) {
-        this.employeeInfo = employeeInfo;
-    }
-
-    public CollectionData[] getCollectionDatas() {
-        return this.collectionDatas;
-    }
-
-    public void setCollectionDatas(CollectionData[] collectionDatas) {
-        this.collectionDatas = collectionDatas;
-    }
-
-    public static class Builder {
-        /**
-         * 填报明细行ID
-         * <p> 示例值：1
-         */
-        private String rowId;
-        /**
-         * 填报活动ID
-         * <p> 示例值：7202076988667019308
-         */
-        private String activityId;
-        /**
-         * 员工信息
-         * <p> 示例值：
-         */
-        private EmployeeInfo employeeInfo;
-        /**
-         * 同个员工同个活动下可能有多条明细数据
-         * <p> 示例值：
-         */
-        private CollectionData[] collectionDatas;
-
-        /**
-         * 填报明细行ID
-         * <p> 示例值：1
-         *
-         * @param rowId
-         * @return
-         */
-        public Builder rowId(String rowId) {
-            this.rowId = rowId;
-            return this;
-        }
-
-
-        /**
-         * 填报活动ID
-         * <p> 示例值：7202076988667019308
-         *
-         * @param activityId
-         * @return
-         */
-        public Builder activityId(String activityId) {
-            this.activityId = activityId;
-            return this;
-        }
-
-
-        /**
-         * 员工信息
-         * <p> 示例值：
-         *
-         * @param employeeInfo
-         * @return
-         */
-        public Builder employeeInfo(EmployeeInfo employeeInfo) {
-            this.employeeInfo = employeeInfo;
-            return this;
-        }
-
-
-        /**
-         * 同个员工同个活动下可能有多条明细数据
-         * <p> 示例值：
-         *
-         * @param collectionDatas
-         * @return
-         */
-        public Builder collectionDatas(CollectionData[] collectionDatas) {
-            this.collectionDatas = collectionDatas;
-            return this;
-        }
-
-
-        public CollectionEmployeeData build() {
-            return new CollectionEmployeeData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

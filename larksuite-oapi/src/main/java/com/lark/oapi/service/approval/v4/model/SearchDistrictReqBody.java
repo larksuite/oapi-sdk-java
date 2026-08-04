@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchDistrictReqBody {
+  /**
+   * 根据ID查询指定区域的信息，ID即地理库数据的ID，如果传了该参数，则以该参数作为唯一筛选项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("district_ids")
+  private String[] districtIds;
+
+  /**
+   * 关键字，用于模糊查询符合条件的地址信息
+   *
+   * <p>示例值：北京
+   */
+  @SerializedName("keyword")
+  private String keyword;
+
+  public String[] getDistrictIds() {
+    return this.districtIds;
+  }
+
+  public void setDistrictIds(String[] districtIds) {
+    this.districtIds = districtIds;
+  }
+
+  public String getKeyword() {
+    return this.keyword;
+  }
+
+  public void setKeyword(String keyword) {
+    this.keyword = keyword;
+  }
+
+  // builder 开始
+  public SearchDistrictReqBody() {}
+
+  public SearchDistrictReqBody(Builder builder) {
     /**
-     * 根据ID查询指定区域的信息
-     * <p> 示例值：
+     * 根据ID查询指定区域的信息，ID即地理库数据的ID，如果传了该参数，则以该参数作为唯一筛选项
+     *
+     * <p>示例值：
      */
-    @SerializedName("district_ids")
-    private String[] districtIds;
+    this.districtIds = builder.districtIds;
     /**
      * 关键字，用于模糊查询符合条件的地址信息
-     * <p> 示例值：北京
+     *
+     * <p>示例值：北京
      */
-    @SerializedName("keyword")
+    this.keyword = builder.keyword;
+  }
+
+  public static class Builder {
+    /**
+     * 根据ID查询指定区域的信息，ID即地理库数据的ID，如果传了该参数，则以该参数作为唯一筛选项
+     *
+     * <p>示例值：
+     */
+    private String[] districtIds;
+
+    /**
+     * 关键字，用于模糊查询符合条件的地址信息
+     *
+     * <p>示例值：北京
+     */
     private String keyword;
 
-    // builder 开始
-    public SearchDistrictReqBody() {
+    /**
+     * 根据ID查询指定区域的信息，ID即地理库数据的ID，如果传了该参数，则以该参数作为唯一筛选项
+     *
+     * <p>示例值：
+     *
+     * @param districtIds
+     * @return
+     */
+    public Builder districtIds(String[] districtIds) {
+      this.districtIds = districtIds;
+      return this;
     }
 
-    public SearchDistrictReqBody(Builder builder) {
-        /**
-         * 根据ID查询指定区域的信息
-         * <p> 示例值：
-         */
-        this.districtIds = builder.districtIds;
-        /**
-         * 关键字，用于模糊查询符合条件的地址信息
-         * <p> 示例值：北京
-         */
-        this.keyword = builder.keyword;
+    /**
+     * 关键字，用于模糊查询符合条件的地址信息
+     *
+     * <p>示例值：北京
+     *
+     * @param keyword
+     * @return
+     */
+    public Builder keyword(String keyword) {
+      this.keyword = keyword;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SearchDistrictReqBody build() {
+      return new SearchDistrictReqBody(this);
     }
+  }
 
-    public String[] getDistrictIds() {
-        return this.districtIds;
-    }
-
-    public void setDistrictIds(String[] districtIds) {
-        this.districtIds = districtIds;
-    }
-
-    public String getKeyword() {
-        return this.keyword;
-    }
-
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
-    }
-
-    public static class Builder {
-        /**
-         * 根据ID查询指定区域的信息
-         * <p> 示例值：
-         */
-        private String[] districtIds;
-        /**
-         * 关键字，用于模糊查询符合条件的地址信息
-         * <p> 示例值：北京
-         */
-        private String keyword;
-
-        /**
-         * 根据ID查询指定区域的信息
-         * <p> 示例值：
-         *
-         * @param districtIds
-         * @return
-         */
-        public Builder districtIds(String[] districtIds) {
-            this.districtIds = districtIds;
-            return this;
-        }
-
-
-        /**
-         * 关键字，用于模糊查询符合条件的地址信息
-         * <p> 示例值：北京
-         *
-         * @param keyword
-         * @return
-         */
-        public Builder keyword(String keyword) {
-            this.keyword = keyword;
-            return this;
-        }
-
-
-        public SearchDistrictReqBody build() {
-            return new SearchDistrictReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

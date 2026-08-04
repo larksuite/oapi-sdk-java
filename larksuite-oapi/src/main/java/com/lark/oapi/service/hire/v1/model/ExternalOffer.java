@@ -13,370 +13,408 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExternalOffer {
+  /**
+   * 外部 Offer ID
+   *
+   * <p>示例值：6989202908470446380
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 外部系统 Offer 主键（仅用于幂等）;- 若不传此值，则不进行幂等校验;- 若传此值，则用于幂等校验，同一`external_id` 24小时内仅可创建一次;
+   *
+   * <p>示例值：729557715718
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  /**
+   * 外部投递
+   * ID，可通过[查询外部投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/list)接口获得
+   *
+   * <p>示例值：7395015673275697419
+   */
+  @SerializedName("external_application_id")
+  private String externalApplicationId;
+
+  /**
+   * Offer 创建时间，毫秒时间戳
+   *
+   * <p>示例值：1721899352428
+   */
+  @SerializedName("biz_create_time")
+  private String bizCreateTime;
+
+  /**
+   * Offer 负责人姓名
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("owner")
+  private String owner;
+
+  /**
+   * Offer 创建人
+   *
+   * <p>示例值：张三
+   */
+  @SerializedName("creator")
+  private String creator;
+
+  /**
+   * Offer 状态
+   *
+   * <p>示例值：已发送
+   */
+  @SerializedName("offer_status")
+  private String offerStatus;
+
+  /**
+   * Offer 详情附件 ID
+   * 列表，可通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment);接口返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attachment_id_list")
+  private String[] attachmentIdList;
+
+  /**
+   * Offer 附件列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attachment_list")
+  private ExternalCommonAttachment[] attachmentList;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  public String getExternalApplicationId() {
+    return this.externalApplicationId;
+  }
+
+  public void setExternalApplicationId(String externalApplicationId) {
+    this.externalApplicationId = externalApplicationId;
+  }
+
+  public String getBizCreateTime() {
+    return this.bizCreateTime;
+  }
+
+  public void setBizCreateTime(String bizCreateTime) {
+    this.bizCreateTime = bizCreateTime;
+  }
+
+  public String getOwner() {
+    return this.owner;
+  }
+
+  public void setOwner(String owner) {
+    this.owner = owner;
+  }
+
+  public String getCreator() {
+    return this.creator;
+  }
+
+  public void setCreator(String creator) {
+    this.creator = creator;
+  }
+
+  public String getOfferStatus() {
+    return this.offerStatus;
+  }
+
+  public void setOfferStatus(String offerStatus) {
+    this.offerStatus = offerStatus;
+  }
+
+  public String[] getAttachmentIdList() {
+    return this.attachmentIdList;
+  }
+
+  public void setAttachmentIdList(String[] attachmentIdList) {
+    this.attachmentIdList = attachmentIdList;
+  }
+
+  public ExternalCommonAttachment[] getAttachmentList() {
+    return this.attachmentList;
+  }
+
+  public void setAttachmentList(ExternalCommonAttachment[] attachmentList) {
+    this.attachmentList = attachmentList;
+  }
+
+  // builder 开始
+  public ExternalOffer() {}
+
+  public ExternalOffer(Builder builder) {
     /**
      * 外部 Offer ID
-     * <p> 示例值：6989202908470446380
+     *
+     * <p>示例值：6989202908470446380
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 外部系统 Offer 主键（仅用于幂等）
-     * <p> 示例值：123
+     * 外部系统 Offer 主键（仅用于幂等）;- 若不传此值，则不进行幂等校验;- 若传此值，则用于幂等校验，同一`external_id` 24小时内仅可创建一次;
+     *
+     * <p>示例值：729557715718
      */
-    @SerializedName("external_id")
-    private String externalId;
+    this.externalId = builder.externalId;
     /**
-     * 外部投递 ID
-     * <p> 示例值：7395015673275697419
+     * 外部投递
+     * ID，可通过[查询外部投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/list)接口获得
+     *
+     * <p>示例值：7395015673275697419
      */
-    @SerializedName("external_application_id")
-    private String externalApplicationId;
+    this.externalApplicationId = builder.externalApplicationId;
     /**
      * Offer 创建时间，毫秒时间戳
-     * <p> 示例值：1721899352428
+     *
+     * <p>示例值：1721899352428
      */
-    @SerializedName("biz_create_time")
-    private String bizCreateTime;
+    this.bizCreateTime = builder.bizCreateTime;
     /**
-     * Offer 负责人
-     * <p> 示例值：张三
+     * Offer 负责人姓名
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("owner")
-    private String owner;
+    this.owner = builder.owner;
     /**
      * Offer 创建人
-     * <p> 示例值：张三
+     *
+     * <p>示例值：张三
      */
-    @SerializedName("creator")
-    private String creator;
+    this.creator = builder.creator;
     /**
      * Offer 状态
-     * <p> 示例值：已发送
+     *
+     * <p>示例值：已发送
      */
-    @SerializedName("offer_status")
-    private String offerStatus;
+    this.offerStatus = builder.offerStatus;
     /**
-     * Offer详情附件ID列表
-     * <p> 示例值：
+     * Offer 详情附件 ID
+     * 列表，可通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment);接口返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("attachment_id_list")
-    private String[] attachmentIdList;
+    this.attachmentIdList = builder.attachmentIdList;
     /**
      * Offer 附件列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("attachment_list")
+    this.attachmentList = builder.attachmentList;
+  }
+
+  public static class Builder {
+    /**
+     * 外部 Offer ID
+     *
+     * <p>示例值：6989202908470446380
+     */
+    private String id;
+
+    /**
+     * 外部系统 Offer 主键（仅用于幂等）;- 若不传此值，则不进行幂等校验;- 若传此值，则用于幂等校验，同一`external_id` 24小时内仅可创建一次;
+     *
+     * <p>示例值：729557715718
+     */
+    private String externalId;
+
+    /**
+     * 外部投递
+     * ID，可通过[查询外部投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/list)接口获得
+     *
+     * <p>示例值：7395015673275697419
+     */
+    private String externalApplicationId;
+
+    /**
+     * Offer 创建时间，毫秒时间戳
+     *
+     * <p>示例值：1721899352428
+     */
+    private String bizCreateTime;
+
+    /**
+     * Offer 负责人姓名
+     *
+     * <p>示例值：张三
+     */
+    private String owner;
+
+    /**
+     * Offer 创建人
+     *
+     * <p>示例值：张三
+     */
+    private String creator;
+
+    /**
+     * Offer 状态
+     *
+     * <p>示例值：已发送
+     */
+    private String offerStatus;
+
+    /**
+     * Offer 详情附件 ID
+     * 列表，可通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment);接口返回
+     *
+     * <p>示例值：
+     */
+    private String[] attachmentIdList;
+
+    /**
+     * Offer 附件列表
+     *
+     * <p>示例值：
+     */
     private ExternalCommonAttachment[] attachmentList;
 
-    // builder 开始
-    public ExternalOffer() {
+    /**
+     * 外部 Offer ID
+     *
+     * <p>示例值：6989202908470446380
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ExternalOffer(Builder builder) {
-        /**
-         * 外部 Offer ID
-         * <p> 示例值：6989202908470446380
-         */
-        this.id = builder.id;
-        /**
-         * 外部系统 Offer 主键（仅用于幂等）
-         * <p> 示例值：123
-         */
-        this.externalId = builder.externalId;
-        /**
-         * 外部投递 ID
-         * <p> 示例值：7395015673275697419
-         */
-        this.externalApplicationId = builder.externalApplicationId;
-        /**
-         * Offer 创建时间，毫秒时间戳
-         * <p> 示例值：1721899352428
-         */
-        this.bizCreateTime = builder.bizCreateTime;
-        /**
-         * Offer 负责人
-         * <p> 示例值：张三
-         */
-        this.owner = builder.owner;
-        /**
-         * Offer 创建人
-         * <p> 示例值：张三
-         */
-        this.creator = builder.creator;
-        /**
-         * Offer 状态
-         * <p> 示例值：已发送
-         */
-        this.offerStatus = builder.offerStatus;
-        /**
-         * Offer详情附件ID列表
-         * <p> 示例值：
-         */
-        this.attachmentIdList = builder.attachmentIdList;
-        /**
-         * Offer 附件列表
-         * <p> 示例值：
-         */
-        this.attachmentList = builder.attachmentList;
+    /**
+     * 外部系统 Offer 主键（仅用于幂等）;- 若不传此值，则不进行幂等校验;- 若传此值，则用于幂等校验，同一`external_id` 24小时内仅可创建一次;
+     *
+     * <p>示例值：729557715718
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 外部投递
+     * ID，可通过[查询外部投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/list)接口获得
+     *
+     * <p>示例值：7395015673275697419
+     *
+     * @param externalApplicationId
+     * @return
+     */
+    public Builder externalApplicationId(String externalApplicationId) {
+      this.externalApplicationId = externalApplicationId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * Offer 创建时间，毫秒时间戳
+     *
+     * <p>示例值：1721899352428
+     *
+     * @param bizCreateTime
+     * @return
+     */
+    public Builder bizCreateTime(String bizCreateTime) {
+      this.bizCreateTime = bizCreateTime;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * Offer 负责人姓名
+     *
+     * <p>示例值：张三
+     *
+     * @param owner
+     * @return
+     */
+    public Builder owner(String owner) {
+      this.owner = owner;
+      return this;
     }
 
-    public String getExternalId() {
-        return this.externalId;
+    /**
+     * Offer 创建人
+     *
+     * <p>示例值：张三
+     *
+     * @param creator
+     * @return
+     */
+    public Builder creator(String creator) {
+      this.creator = creator;
+      return this;
     }
 
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
+    /**
+     * Offer 状态
+     *
+     * <p>示例值：已发送
+     *
+     * @param offerStatus
+     * @return
+     */
+    public Builder offerStatus(String offerStatus) {
+      this.offerStatus = offerStatus;
+      return this;
     }
 
-    public String getExternalApplicationId() {
-        return this.externalApplicationId;
+    /**
+     * Offer 详情附件 ID
+     * 列表，可通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment);接口返回
+     *
+     * <p>示例值：
+     *
+     * @param attachmentIdList
+     * @return
+     */
+    public Builder attachmentIdList(String[] attachmentIdList) {
+      this.attachmentIdList = attachmentIdList;
+      return this;
     }
 
-    public void setExternalApplicationId(String externalApplicationId) {
-        this.externalApplicationId = externalApplicationId;
+    /**
+     * Offer 附件列表
+     *
+     * <p>示例值：
+     *
+     * @param attachmentList
+     * @return
+     */
+    public Builder attachmentList(ExternalCommonAttachment[] attachmentList) {
+      this.attachmentList = attachmentList;
+      return this;
     }
 
-    public String getBizCreateTime() {
-        return this.bizCreateTime;
+    public ExternalOffer build() {
+      return new ExternalOffer(this);
     }
+  }
 
-    public void setBizCreateTime(String bizCreateTime) {
-        this.bizCreateTime = bizCreateTime;
-    }
-
-    public String getOwner() {
-        return this.owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
-
-    public String getCreator() {
-        return this.creator;
-    }
-
-    public void setCreator(String creator) {
-        this.creator = creator;
-    }
-
-    public String getOfferStatus() {
-        return this.offerStatus;
-    }
-
-    public void setOfferStatus(String offerStatus) {
-        this.offerStatus = offerStatus;
-    }
-
-    public String[] getAttachmentIdList() {
-        return this.attachmentIdList;
-    }
-
-    public void setAttachmentIdList(String[] attachmentIdList) {
-        this.attachmentIdList = attachmentIdList;
-    }
-
-    public ExternalCommonAttachment[] getAttachmentList() {
-        return this.attachmentList;
-    }
-
-    public void setAttachmentList(ExternalCommonAttachment[] attachmentList) {
-        this.attachmentList = attachmentList;
-    }
-
-    public static class Builder {
-        /**
-         * 外部 Offer ID
-         * <p> 示例值：6989202908470446380
-         */
-        private String id;
-        /**
-         * 外部系统 Offer 主键（仅用于幂等）
-         * <p> 示例值：123
-         */
-        private String externalId;
-        /**
-         * 外部投递 ID
-         * <p> 示例值：7395015673275697419
-         */
-        private String externalApplicationId;
-        /**
-         * Offer 创建时间，毫秒时间戳
-         * <p> 示例值：1721899352428
-         */
-        private String bizCreateTime;
-        /**
-         * Offer 负责人
-         * <p> 示例值：张三
-         */
-        private String owner;
-        /**
-         * Offer 创建人
-         * <p> 示例值：张三
-         */
-        private String creator;
-        /**
-         * Offer 状态
-         * <p> 示例值：已发送
-         */
-        private String offerStatus;
-        /**
-         * Offer详情附件ID列表
-         * <p> 示例值：
-         */
-        private String[] attachmentIdList;
-        /**
-         * Offer 附件列表
-         * <p> 示例值：
-         */
-        private ExternalCommonAttachment[] attachmentList;
-
-        /**
-         * 外部 Offer ID
-         * <p> 示例值：6989202908470446380
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 外部系统 Offer 主键（仅用于幂等）
-         * <p> 示例值：123
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        /**
-         * 外部投递 ID
-         * <p> 示例值：7395015673275697419
-         *
-         * @param externalApplicationId
-         * @return
-         */
-        public Builder externalApplicationId(String externalApplicationId) {
-            this.externalApplicationId = externalApplicationId;
-            return this;
-        }
-
-
-        /**
-         * Offer 创建时间，毫秒时间戳
-         * <p> 示例值：1721899352428
-         *
-         * @param bizCreateTime
-         * @return
-         */
-        public Builder bizCreateTime(String bizCreateTime) {
-            this.bizCreateTime = bizCreateTime;
-            return this;
-        }
-
-
-        /**
-         * Offer 负责人
-         * <p> 示例值：张三
-         *
-         * @param owner
-         * @return
-         */
-        public Builder owner(String owner) {
-            this.owner = owner;
-            return this;
-        }
-
-
-        /**
-         * Offer 创建人
-         * <p> 示例值：张三
-         *
-         * @param creator
-         * @return
-         */
-        public Builder creator(String creator) {
-            this.creator = creator;
-            return this;
-        }
-
-
-        /**
-         * Offer 状态
-         * <p> 示例值：已发送
-         *
-         * @param offerStatus
-         * @return
-         */
-        public Builder offerStatus(String offerStatus) {
-            this.offerStatus = offerStatus;
-            return this;
-        }
-
-
-        /**
-         * Offer详情附件ID列表
-         * <p> 示例值：
-         *
-         * @param attachmentIdList
-         * @return
-         */
-        public Builder attachmentIdList(String[] attachmentIdList) {
-            this.attachmentIdList = attachmentIdList;
-            return this;
-        }
-
-
-        /**
-         * Offer 附件列表
-         * <p> 示例值：
-         *
-         * @param attachmentList
-         * @return
-         */
-        public Builder attachmentList(ExternalCommonAttachment[] attachmentList) {
-            this.attachmentList = attachmentList;
-            return this;
-        }
-
-
-        public ExternalOffer build() {
-            return new ExternalOffer(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

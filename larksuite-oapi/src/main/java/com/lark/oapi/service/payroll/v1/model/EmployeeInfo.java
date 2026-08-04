@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeInfo {
+  /**
+   * saas user id
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 算薪周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 工号
+   *
+   * <p>示例值：100000166
+   */
+  @SerializedName("employee_number")
+  private String employeeNumber;
+
+  /**
+   * 员工雇员ID
+   *
+   * <p>示例值：7087900867940451884
+   */
+  @SerializedName("employee_id")
+  private String employeeId;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getEmployeeNumber() {
+    return this.employeeNumber;
+  }
+
+  public void setEmployeeNumber(String employeeNumber) {
+    this.employeeNumber = employeeNumber;
+  }
+
+  public String getEmployeeId() {
+    return this.employeeId;
+  }
+
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  // builder 开始
+  public EmployeeInfo() {}
+
+  public EmployeeInfo(Builder builder) {
     /**
      * saas user id
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 姓名
-     * <p> 示例值：
+     * 算薪周期名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 工号
-     * <p> 示例值：100000166
+     *
+     * <p>示例值：100000166
      */
-    @SerializedName("employee_number")
-    private String employeeNumber;
+    this.employeeNumber = builder.employeeNumber;
     /**
      * 员工雇员ID
-     * <p> 示例值：7087900867940451884
+     *
+     * <p>示例值：7087900867940451884
      */
-    @SerializedName("employee_id")
+    this.employeeId = builder.employeeId;
+  }
+
+  public static class Builder {
+    /**
+     * saas user id
+     *
+     * <p>示例值：1
+     */
+    private String userId;
+
+    /**
+     * 算薪周期名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 工号
+     *
+     * <p>示例值：100000166
+     */
+    private String employeeNumber;
+
+    /**
+     * 员工雇员ID
+     *
+     * <p>示例值：7087900867940451884
+     */
     private String employeeId;
 
-    // builder 开始
-    public EmployeeInfo() {
+    /**
+     * saas user id
+     *
+     * <p>示例值：1
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public EmployeeInfo(Builder builder) {
-        /**
-         * saas user id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 姓名
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 工号
-         * <p> 示例值：100000166
-         */
-        this.employeeNumber = builder.employeeNumber;
-        /**
-         * 员工雇员ID
-         * <p> 示例值：7087900867940451884
-         */
-        this.employeeId = builder.employeeId;
+    /**
+     * 算薪周期名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 工号
+     *
+     * <p>示例值：100000166
+     *
+     * @param employeeNumber
+     * @return
+     */
+    public Builder employeeNumber(String employeeNumber) {
+      this.employeeNumber = employeeNumber;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 员工雇员ID
+     *
+     * <p>示例值：7087900867940451884
+     *
+     * @param employeeId
+     * @return
+     */
+    public Builder employeeId(String employeeId) {
+      this.employeeId = employeeId;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public EmployeeInfo build() {
+      return new EmployeeInfo(this);
     }
+  }
 
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public String getEmployeeNumber() {
-        return this.employeeNumber;
-    }
-
-    public void setEmployeeNumber(String employeeNumber) {
-        this.employeeNumber = employeeNumber;
-    }
-
-    public String getEmployeeId() {
-        return this.employeeId;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public static class Builder {
-        /**
-         * saas user id
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 姓名
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 工号
-         * <p> 示例值：100000166
-         */
-        private String employeeNumber;
-        /**
-         * 员工雇员ID
-         * <p> 示例值：7087900867940451884
-         */
-        private String employeeId;
-
-        /**
-         * saas user id
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 姓名
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 工号
-         * <p> 示例值：100000166
-         *
-         * @param employeeNumber
-         * @return
-         */
-        public Builder employeeNumber(String employeeNumber) {
-            this.employeeNumber = employeeNumber;
-            return this;
-        }
-
-
-        /**
-         * 员工雇员ID
-         * <p> 示例值：7087900867940451884
-         *
-         * @param employeeId
-         * @return
-         */
-        public Builder employeeId(String employeeId) {
-            this.employeeId = employeeId;
-            return this;
-        }
-
-
-        public EmployeeInfo build() {
-            return new EmployeeInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

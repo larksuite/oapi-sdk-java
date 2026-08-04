@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AddAssigneeApprovalTaskReqBody {
+  /**
+   * 操作人 ID
+   *
+   * <p>示例值：1783981209205788
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 审批人列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("approvers")
+  private String[] approvers;
+
+  /**
+   * 加签类型：;- 并加签：currentAndAddAssign;- 后加签：afterAndAddAssign
+   *
+   * <p>示例值：currentAndAddAssign
+   */
+  @SerializedName("add_assignee_type")
+  private String addAssigneeType;
+
+  /**
+   * 加签原因
+   *
+   * <p>示例值：加签
+   */
+  @SerializedName("opinion")
+  private String opinion;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String[] getApprovers() {
+    return this.approvers;
+  }
+
+  public void setApprovers(String[] approvers) {
+    this.approvers = approvers;
+  }
+
+  public String getAddAssigneeType() {
+    return this.addAssigneeType;
+  }
+
+  public void setAddAssigneeType(String addAssigneeType) {
+    this.addAssigneeType = addAssigneeType;
+  }
+
+  public String getOpinion() {
+    return this.opinion;
+  }
+
+  public void setOpinion(String opinion) {
+    this.opinion = opinion;
+  }
+
+  // builder 开始
+  public AddAssigneeApprovalTaskReqBody() {}
+
+  public AddAssigneeApprovalTaskReqBody(Builder builder) {
     /**
-     * 操作人id
-     * <p> 示例值：
+     * 操作人 ID
+     *
+     * <p>示例值：1783981209205788
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 审批人列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("approvers")
-    private String[] approvers;
+    this.approvers = builder.approvers;
     /**
-     * 加签类型
-     * <p> 示例值：currentAndAddAssign
+     * 加签类型：;- 并加签：currentAndAddAssign;- 后加签：afterAndAddAssign
+     *
+     * <p>示例值：currentAndAddAssign
      */
-    @SerializedName("add_assignee_type")
-    private String addAssigneeType;
+    this.addAssigneeType = builder.addAssigneeType;
     /**
      * 加签原因
-     * <p> 示例值：加签
+     *
+     * <p>示例值：加签
      */
-    @SerializedName("opinion")
+    this.opinion = builder.opinion;
+  }
+
+  public static class Builder {
+    /**
+     * 操作人 ID
+     *
+     * <p>示例值：1783981209205788
+     */
+    private String userId;
+
+    /**
+     * 审批人列表
+     *
+     * <p>示例值：
+     */
+    private String[] approvers;
+
+    /**
+     * 加签类型：;- 并加签：currentAndAddAssign;- 后加签：afterAndAddAssign
+     *
+     * <p>示例值：currentAndAddAssign
+     */
+    private String addAssigneeType;
+
+    /**
+     * 加签原因
+     *
+     * <p>示例值：加签
+     */
     private String opinion;
 
-    // builder 开始
-    public AddAssigneeApprovalTaskReqBody() {
+    /**
+     * 操作人 ID
+     *
+     * <p>示例值：1783981209205788
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public AddAssigneeApprovalTaskReqBody(Builder builder) {
-        /**
-         * 操作人id
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 审批人列表
-         * <p> 示例值：
-         */
-        this.approvers = builder.approvers;
-        /**
-         * 加签类型
-         * <p> 示例值：currentAndAddAssign
-         */
-        this.addAssigneeType = builder.addAssigneeType;
-        /**
-         * 加签原因
-         * <p> 示例值：加签
-         */
-        this.opinion = builder.opinion;
+    /**
+     * 审批人列表
+     *
+     * <p>示例值：
+     *
+     * @param approvers
+     * @return
+     */
+    public Builder approvers(String[] approvers) {
+      this.approvers = approvers;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 加签类型：;- 并加签：currentAndAddAssign;- 后加签：afterAndAddAssign
+     *
+     * <p>示例值：currentAndAddAssign
+     *
+     * @param addAssigneeType
+     * @return
+     */
+    public Builder addAssigneeType(String addAssigneeType) {
+      this.addAssigneeType = addAssigneeType;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 加签原因
+     *
+     * <p>示例值：加签
+     *
+     * @param opinion
+     * @return
+     */
+    public Builder opinion(String opinion) {
+      this.opinion = opinion;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public AddAssigneeApprovalTaskReqBody build() {
+      return new AddAssigneeApprovalTaskReqBody(this);
     }
+  }
 
-    public String[] getApprovers() {
-        return this.approvers;
-    }
-
-    public void setApprovers(String[] approvers) {
-        this.approvers = approvers;
-    }
-
-    public String getAddAssigneeType() {
-        return this.addAssigneeType;
-    }
-
-    public void setAddAssigneeType(String addAssigneeType) {
-        this.addAssigneeType = addAssigneeType;
-    }
-
-    public String getOpinion() {
-        return this.opinion;
-    }
-
-    public void setOpinion(String opinion) {
-        this.opinion = opinion;
-    }
-
-    public static class Builder {
-        /**
-         * 操作人id
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 审批人列表
-         * <p> 示例值：
-         */
-        private String[] approvers;
-        /**
-         * 加签类型
-         * <p> 示例值：currentAndAddAssign
-         */
-        private String addAssigneeType;
-        /**
-         * 加签原因
-         * <p> 示例值：加签
-         */
-        private String opinion;
-
-        /**
-         * 操作人id
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 审批人列表
-         * <p> 示例值：
-         *
-         * @param approvers
-         * @return
-         */
-        public Builder approvers(String[] approvers) {
-            this.approvers = approvers;
-            return this;
-        }
-
-
-        /**
-         * 加签类型
-         * <p> 示例值：currentAndAddAssign
-         *
-         * @param addAssigneeType
-         * @return
-         */
-        public Builder addAssigneeType(String addAssigneeType) {
-            this.addAssigneeType = addAssigneeType;
-            return this;
-        }
-
-
-        /**
-         * 加签原因
-         * <p> 示例值：加签
-         *
-         * @param opinion
-         * @return
-         */
-        public Builder opinion(String opinion) {
-            this.opinion = opinion;
-            return this;
-        }
-
-
-        public AddAssigneeApprovalTaskReqBody build() {
-            return new AddAssigneeApprovalTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

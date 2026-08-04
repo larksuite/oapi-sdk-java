@@ -13,7 +13,6 @@
 package com.lark.oapi.service.mdm;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.mdm.v1.V1;
 import com.lark.oapi.service.mdm.v1.model.*;
 import com.lark.oapi.service.mdm.v1.resource.UserAuthDataRelation;
@@ -21,25 +20,25 @@ import com.lark.oapi.service.mdm.v3.V3;
 import com.lark.oapi.service.mdm.v3.model.*;
 
 public class MdmService {
-    private final V1 v1;
-    private final UserAuthDataRelation userAuthDataRelation; // 数据维度
-    private final V3 v3;
+  private final V1 v1;
+  private final UserAuthDataRelation userAuthDataRelation; // user_auth_data_relation
+  private final V3 v3;
 
-    public MdmService(Config config) {
-        this.v1 = new V1(config);
-        this.userAuthDataRelation = new UserAuthDataRelation(config);
-        this.v3 = new V3(config);
-    }
+  public MdmService(Config config) {
+    this.v1 = new V1(config);
+    this.userAuthDataRelation = new UserAuthDataRelation(config);
+    this.v3 = new V3(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public UserAuthDataRelation userAuthDataRelation() {
-        return userAuthDataRelation;
-    }
+  public UserAuthDataRelation userAuthDataRelation() {
+    return userAuthDataRelation;
+  }
 
-    public V3 v3() {
-        return v3;
-    }
+  public V3 v3() {
+    return v3;
+  }
 }

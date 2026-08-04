@@ -13,259 +13,278 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InterviewAddress {
+  /**
+   * 地址
+   * ID，可通过[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)获取
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 地址名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 候选人时区
+   *
+   * <p>示例值：
+   */
+  @SerializedName("district")
+  private CodeNameObject district;
+
+  /**
+   * 候选人时区
+   *
+   * <p>示例值：
+   */
+  @SerializedName("city")
+  private CodeNameObject city;
+
+  /**
+   * 候选人时区
+   *
+   * <p>示例值：
+   */
+  @SerializedName("state")
+  private CodeNameObject state;
+
+  /**
+   * 候选人时区
+   *
+   * <p>示例值：
+   */
+  @SerializedName("country")
+  private CodeNameObject country;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public CodeNameObject getDistrict() {
+    return this.district;
+  }
+
+  public void setDistrict(CodeNameObject district) {
+    this.district = district;
+  }
+
+  public CodeNameObject getCity() {
+    return this.city;
+  }
+
+  public void setCity(CodeNameObject city) {
+    this.city = city;
+  }
+
+  public CodeNameObject getState() {
+    return this.state;
+  }
+
+  public void setState(CodeNameObject state) {
+    this.state = state;
+  }
+
+  public CodeNameObject getCountry() {
+    return this.country;
+  }
+
+  public void setCountry(CodeNameObject country) {
+    this.country = country;
+  }
+
+  // builder 开始
+  public InterviewAddress() {}
+
+  public InterviewAddress(Builder builder) {
     /**
-     * 地址 ID
-     * <p> 示例值：6949805467799537964
+     * 地址
+     * ID，可通过[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)获取
+     *
+     * <p>示例值：6949805467799537964
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 地址名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+    /**
+     * 候选人时区
+     *
+     * <p>示例值：
+     */
+    this.district = builder.district;
+    /**
+     * 候选人时区
+     *
+     * <p>示例值：
+     */
+    this.city = builder.city;
+    /**
+     * 候选人时区
+     *
+     * <p>示例值：
+     */
+    this.state = builder.state;
+    /**
+     * 候选人时区
+     *
+     * <p>示例值：
+     */
+    this.country = builder.country;
+  }
+
+  public static class Builder {
+    /**
+     * 地址
+     * ID，可通过[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)获取
+     *
+     * <p>示例值：6949805467799537964
+     */
+    private String id;
+
+    /**
+     * 地址名称
+     *
+     * <p>示例值：
+     */
     private I18n name;
+
     /**
-     * 区域
-     * <p> 示例值：
+     * 候选人时区
+     *
+     * <p>示例值：
      */
-    @SerializedName("district")
     private CodeNameObject district;
+
     /**
-     * 城市
-     * <p> 示例值：
+     * 候选人时区
+     *
+     * <p>示例值：
      */
-    @SerializedName("city")
     private CodeNameObject city;
+
     /**
-     * 省
-     * <p> 示例值：
+     * 候选人时区
+     *
+     * <p>示例值：
      */
-    @SerializedName("state")
     private CodeNameObject state;
+
     /**
-     * 国家
-     * <p> 示例值：
+     * 候选人时区
+     *
+     * <p>示例值：
      */
-    @SerializedName("country")
     private CodeNameObject country;
 
-    // builder 开始
-    public InterviewAddress() {
+    /**
+     * 地址
+     * ID，可通过[获取地址列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/location/list)获取
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public InterviewAddress(Builder builder) {
-        /**
-         * 地址 ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.id = builder.id;
-        /**
-         * 地址名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 区域
-         * <p> 示例值：
-         */
-        this.district = builder.district;
-        /**
-         * 城市
-         * <p> 示例值：
-         */
-        this.city = builder.city;
-        /**
-         * 省
-         * <p> 示例值：
-         */
-        this.state = builder.state;
-        /**
-         * 国家
-         * <p> 示例值：
-         */
-        this.country = builder.country;
+    /**
+     * 地址名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 候选人时区
+     *
+     * <p>示例值：
+     *
+     * @param district
+     * @return
+     */
+    public Builder district(CodeNameObject district) {
+      this.district = district;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 候选人时区
+     *
+     * <p>示例值：
+     *
+     * @param city
+     * @return
+     */
+    public Builder city(CodeNameObject city) {
+      this.city = city;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 候选人时区
+     *
+     * <p>示例值：
+     *
+     * @param state
+     * @return
+     */
+    public Builder state(CodeNameObject state) {
+      this.state = state;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 候选人时区
+     *
+     * <p>示例值：
+     *
+     * @param country
+     * @return
+     */
+    public Builder country(CodeNameObject country) {
+      this.country = country;
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    public InterviewAddress build() {
+      return new InterviewAddress(this);
     }
+  }
 
-    public CodeNameObject getDistrict() {
-        return this.district;
-    }
-
-    public void setDistrict(CodeNameObject district) {
-        this.district = district;
-    }
-
-    public CodeNameObject getCity() {
-        return this.city;
-    }
-
-    public void setCity(CodeNameObject city) {
-        this.city = city;
-    }
-
-    public CodeNameObject getState() {
-        return this.state;
-    }
-
-    public void setState(CodeNameObject state) {
-        this.state = state;
-    }
-
-    public CodeNameObject getCountry() {
-        return this.country;
-    }
-
-    public void setCountry(CodeNameObject country) {
-        this.country = country;
-    }
-
-    public static class Builder {
-        /**
-         * 地址 ID
-         * <p> 示例值：6949805467799537964
-         */
-        private String id;
-        /**
-         * 地址名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 区域
-         * <p> 示例值：
-         */
-        private CodeNameObject district;
-        /**
-         * 城市
-         * <p> 示例值：
-         */
-        private CodeNameObject city;
-        /**
-         * 省
-         * <p> 示例值：
-         */
-        private CodeNameObject state;
-        /**
-         * 国家
-         * <p> 示例值：
-         */
-        private CodeNameObject country;
-
-        /**
-         * 地址 ID
-         * <p> 示例值：6949805467799537964
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 地址名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 区域
-         * <p> 示例值：
-         *
-         * @param district
-         * @return
-         */
-        public Builder district(CodeNameObject district) {
-            this.district = district;
-            return this;
-        }
-
-
-        /**
-         * 城市
-         * <p> 示例值：
-         *
-         * @param city
-         * @return
-         */
-        public Builder city(CodeNameObject city) {
-            this.city = city;
-            return this;
-        }
-
-
-        /**
-         * 省
-         * <p> 示例值：
-         *
-         * @param state
-         * @return
-         */
-        public Builder state(CodeNameObject state) {
-            this.state = state;
-            return this;
-        }
-
-
-        /**
-         * 国家
-         * <p> 示例值：
-         *
-         * @param country
-         * @return
-         */
-        public Builder country(CodeNameObject country) {
-            this.country = country;
-            return this;
-        }
-
-
-        public InterviewAddress build() {
-            return new InterviewAddress(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

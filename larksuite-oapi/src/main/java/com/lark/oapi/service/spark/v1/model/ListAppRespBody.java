@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListAppRespBody {
-    /**
-     * 分页标记，用于获取下一页数据。当前页数据返回完毕且存在更多数据时返回，为空表示已无更多数据
-     * <p> 示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZHMiOlsiMTIzNCIsIjU2NzgiXX0=
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 应用列表数据，包含当前页返回的所有妙搭应用的详细信息
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private App[] items;
-    /**
-     * 是否存在更多数据。true表示还有未返回的数据，false表示已返回全部数据
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 分页标记，用于获取下一页数据。当前页数据返回完毕且存在更多数据时返回，为空表示已无更多数据
+   *
+   * <p>示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZHMiOlsiMTIzNCIsIjU2NzgiXX0=
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 应用列表数据，包含当前页返回的所有妙搭应用的详细信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private App[] items;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  /**
+   * 是否存在更多数据。true表示还有未返回的数据，false表示已返回全部数据
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public App[] getItems() {
-        return this.items;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setItems(App[] items) {
-        this.items = items;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public App[] getItems() {
+    return this.items;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setItems(App[] items) {
+    this.items = items;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 }

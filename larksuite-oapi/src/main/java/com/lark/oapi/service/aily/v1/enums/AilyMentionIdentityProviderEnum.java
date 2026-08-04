@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.aily.v1.enums;
 
-/**
- * 身份提供者
- */
+/** 身份提供者 */
 public enum AilyMentionIdentityProviderEnum {
-    IDENTITYPROVIDERAILY("AILY"), // Aily 账号体系
-    IDENTITYPROVIDERFEISHU("FEISHU"), // 飞书账号体系
-    ;
-    private String value;
+  IDENTITYPROVIDERAILY("AILY"), // Aily 账号体系
+  IDENTITYPROVIDERFEISHU("FEISHU"), // 飞书账号体系
+  ;
+  private String value;
 
-    AilyMentionIdentityProviderEnum(String value) {
-        this.value = value;
-    }
+  AilyMentionIdentityProviderEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

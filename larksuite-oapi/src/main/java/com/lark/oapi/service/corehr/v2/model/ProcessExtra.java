@@ -13,358 +13,340 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessExtra {
+  /**
+   * 操作人，按user_id_type类型传递；如果system_user为true，则此字段可以不填
+   *
+   * <p>示例值：7184703091806602796
+   */
+  @SerializedName("operator")
+  private String operator;
+
+  /** 示例值：7414045453433439788 */
+  @SerializedName("node_id")
+  private String nodeId;
+
+  /**
+   * 标识流程中一个审批节点的一个审批人的审批任务。;同一个审批节点如果有多个审批人，不同审批人的 approver_id 不同。;;可通过
+   * [获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)接口获取流程中各审批任务的
+   * approver_id。;;与node_id二选一传入，都传以node_id为准
+   *
+   * <p>示例值：7424452160928106028
+   */
+  @SerializedName("approver_id")
+  private String approverId;
+
+  /** 示例值：1 */
+  @SerializedName("extra_type")
+  private Integer extraType;
+
+  /**
+   * 多人加签时的审批方式，需要注意当extra_type为并加签时，此处只能选择会签
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("approval_type")
+  private Integer approvalType;
+
+  /** 示例值： */
+  @SerializedName("extra_user_ids")
+  private String[] extraUserIds;
+
+  /** 示例值：备注 */
+  @SerializedName("remark")
+  private String remark;
+
+  /**
+   * 是否以系统身份操作，如果为false，则operator必填
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("system_user")
+  private Boolean systemUser;
+
+  public String getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public String getNodeId() {
+    return this.nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
+  public String getApproverId() {
+    return this.approverId;
+  }
+
+  public void setApproverId(String approverId) {
+    this.approverId = approverId;
+  }
+
+  public Integer getExtraType() {
+    return this.extraType;
+  }
+
+  public void setExtraType(Integer extraType) {
+    this.extraType = extraType;
+  }
+
+  public Integer getApprovalType() {
+    return this.approvalType;
+  }
+
+  public void setApprovalType(Integer approvalType) {
+    this.approvalType = approvalType;
+  }
+
+  public String[] getExtraUserIds() {
+    return this.extraUserIds;
+  }
+
+  public void setExtraUserIds(String[] extraUserIds) {
+    this.extraUserIds = extraUserIds;
+  }
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  public Boolean getSystemUser() {
+    return this.systemUser;
+  }
+
+  public void setSystemUser(Boolean systemUser) {
+    this.systemUser = systemUser;
+  }
+
+  // builder 开始
+  public ProcessExtra() {}
+
+  public ProcessExtra(Builder builder) {
     /**
-     * 操作人，当system_user为true时，可以不传值
-     * <p> 示例值：7184703091806602796
+     * 操作人，按user_id_type类型传递；如果system_user为true，则此字段可以不填
+     *
+     * <p>示例值：7184703091806602796
      */
-    @SerializedName("operator")
+    this.operator = builder.operator;
+    /** 示例值：7414045453433439788 */
+    this.nodeId = builder.nodeId;
+    /**
+     * 标识流程中一个审批节点的一个审批人的审批任务。;同一个审批节点如果有多个审批人，不同审批人的 approver_id 不同。;;可通过
+     * [获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)接口获取流程中各审批任务的
+     * approver_id。;;与node_id二选一传入，都传以node_id为准
+     *
+     * <p>示例值：7424452160928106028
+     */
+    this.approverId = builder.approverId;
+    /** 示例值：1 */
+    this.extraType = builder.extraType;
+    /**
+     * 多人加签时的审批方式，需要注意当extra_type为并加签时，此处只能选择会签
+     *
+     * <p>示例值：1
+     */
+    this.approvalType = builder.approvalType;
+    /** 示例值： */
+    this.extraUserIds = builder.extraUserIds;
+    /** 示例值：备注 */
+    this.remark = builder.remark;
+    /**
+     * 是否以系统身份操作，如果为false，则operator必填
+     *
+     * <p>示例值：true
+     */
+    this.systemUser = builder.systemUser;
+  }
+
+  public static class Builder {
+    /**
+     * 操作人，按user_id_type类型传递；如果system_user为true，则此字段可以不填
+     *
+     * <p>示例值：7184703091806602796
+     */
     private String operator;
-    /**
-     * 流程节点id，与approver_id二选一传入，都传以node_id为准
-     * <p> 示例值：7414045453433439788
-     */
-    @SerializedName("node_id")
+
+    /** 示例值：7414045453433439788 */
     private String nodeId;
+
     /**
-     * 审批任务id，与node_id二选一传入，都传以node_id为准
-     * <p> 示例值：7424452160928106028
+     * 标识流程中一个审批节点的一个审批人的审批任务。;同一个审批节点如果有多个审批人，不同审批人的 approver_id 不同。;;可通过
+     * [获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)接口获取流程中各审批任务的
+     * approver_id。;;与node_id二选一传入，都传以node_id为准
+     *
+     * <p>示例值：7424452160928106028
      */
-    @SerializedName("approver_id")
     private String approverId;
-    /**
-     * 加签方式
-     * <p> 示例值：1
-     */
-    @SerializedName("extra_type")
+
+    /** 示例值：1 */
     private Integer extraType;
+
     /**
-     * 多人加签时的审批方式
-     * <p> 示例值：1
+     * 多人加签时的审批方式，需要注意当extra_type为并加签时，此处只能选择会签
+     *
+     * <p>示例值：1
      */
-    @SerializedName("approval_type")
     private Integer approvalType;
-    /**
-     * 加签人员id列表
-     * <p> 示例值：
-     */
-    @SerializedName("extra_user_ids")
+
+    /** 示例值： */
     private String[] extraUserIds;
-    /**
-     * 备注
-     * <p> 示例值：备注
-     */
-    @SerializedName("remark")
+
+    /** 示例值：备注 */
     private String remark;
+
     /**
-     * true-以系统身份操作
-     * <p> 示例值：true
+     * 是否以系统身份操作，如果为false，则operator必填
+     *
+     * <p>示例值：true
      */
-    @SerializedName("system_user")
     private Boolean systemUser;
 
-    // builder 开始
-    public ProcessExtra() {
+    /**
+     * 操作人，按user_id_type类型传递；如果system_user为true，则此字段可以不填
+     *
+     * <p>示例值：7184703091806602796
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(String operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public ProcessExtra(Builder builder) {
-        /**
-         * 操作人，当system_user为true时，可以不传值
-         * <p> 示例值：7184703091806602796
-         */
-        this.operator = builder.operator;
-        /**
-         * 流程节点id，与approver_id二选一传入，都传以node_id为准
-         * <p> 示例值：7414045453433439788
-         */
-        this.nodeId = builder.nodeId;
-        /**
-         * 审批任务id，与node_id二选一传入，都传以node_id为准
-         * <p> 示例值：7424452160928106028
-         */
-        this.approverId = builder.approverId;
-        /**
-         * 加签方式
-         * <p> 示例值：1
-         */
-        this.extraType = builder.extraType;
-        /**
-         * 多人加签时的审批方式
-         * <p> 示例值：1
-         */
-        this.approvalType = builder.approvalType;
-        /**
-         * 加签人员id列表
-         * <p> 示例值：
-         */
-        this.extraUserIds = builder.extraUserIds;
-        /**
-         * 备注
-         * <p> 示例值：备注
-         */
-        this.remark = builder.remark;
-        /**
-         * true-以系统身份操作
-         * <p> 示例值：true
-         */
-        this.systemUser = builder.systemUser;
+    /**
+     * 示例值：7414045453433439788
+     *
+     * @param nodeId
+     * @return
+     */
+    public Builder nodeId(String nodeId) {
+      this.nodeId = nodeId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 标识流程中一个审批节点的一个审批人的审批任务。;同一个审批节点如果有多个审批人，不同审批人的 approver_id 不同。;;可通过
+     * [获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)接口获取流程中各审批任务的
+     * approver_id。;;与node_id二选一传入，都传以node_id为准
+     *
+     * <p>示例值：7424452160928106028
+     *
+     * @param approverId
+     * @return
+     */
+    public Builder approverId(String approverId) {
+      this.approverId = approverId;
+      return this;
     }
 
-    public String getOperator() {
-        return this.operator;
+    /**
+     * 示例值：1
+     *
+     * @param extraType
+     * @return
+     */
+    public Builder extraType(Integer extraType) {
+      this.extraType = extraType;
+      return this;
     }
 
-    public void setOperator(String operator) {
-        this.operator = operator;
+    /**
+     * 示例值：1
+     *
+     * @param extraType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.ProcessExtraProcessExtraExtraTypeEnum}
+     * @return
+     */
+    public Builder extraType(
+        com.lark.oapi.service.corehr.v2.enums.ProcessExtraProcessExtraExtraTypeEnum extraType) {
+      this.extraType = extraType.getValue();
+      return this;
     }
 
-    public String getNodeId() {
-        return this.nodeId;
+    /**
+     * 多人加签时的审批方式，需要注意当extra_type为并加签时，此处只能选择会签
+     *
+     * <p>示例值：1
+     *
+     * @param approvalType
+     * @return
+     */
+    public Builder approvalType(Integer approvalType) {
+      this.approvalType = approvalType;
+      return this;
     }
 
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
+    /**
+     * 多人加签时的审批方式，需要注意当extra_type为并加签时，此处只能选择会签
+     *
+     * <p>示例值：1
+     *
+     * @param approvalType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.ProcessExtraProcessExtraApprovalTypeEnum}
+     * @return
+     */
+    public Builder approvalType(
+        com.lark.oapi.service.corehr.v2.enums.ProcessExtraProcessExtraApprovalTypeEnum
+            approvalType) {
+      this.approvalType = approvalType.getValue();
+      return this;
     }
 
-    public String getApproverId() {
-        return this.approverId;
+    /**
+     * 示例值：
+     *
+     * @param extraUserIds
+     * @return
+     */
+    public Builder extraUserIds(String[] extraUserIds) {
+      this.extraUserIds = extraUserIds;
+      return this;
     }
 
-    public void setApproverId(String approverId) {
-        this.approverId = approverId;
+    /**
+     * 示例值：备注
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(String remark) {
+      this.remark = remark;
+      return this;
     }
 
-    public Integer getExtraType() {
-        return this.extraType;
+    /**
+     * 是否以系统身份操作，如果为false，则operator必填
+     *
+     * <p>示例值：true
+     *
+     * @param systemUser
+     * @return
+     */
+    public Builder systemUser(Boolean systemUser) {
+      this.systemUser = systemUser;
+      return this;
     }
 
-    public void setExtraType(Integer extraType) {
-        this.extraType = extraType;
+    public ProcessExtra build() {
+      return new ProcessExtra(this);
     }
+  }
 
-    public Integer getApprovalType() {
-        return this.approvalType;
-    }
-
-    public void setApprovalType(Integer approvalType) {
-        this.approvalType = approvalType;
-    }
-
-    public String[] getExtraUserIds() {
-        return this.extraUserIds;
-    }
-
-    public void setExtraUserIds(String[] extraUserIds) {
-        this.extraUserIds = extraUserIds;
-    }
-
-    public String getRemark() {
-        return this.remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public Boolean getSystemUser() {
-        return this.systemUser;
-    }
-
-    public void setSystemUser(Boolean systemUser) {
-        this.systemUser = systemUser;
-    }
-
-    public static class Builder {
-        /**
-         * 操作人，当system_user为true时，可以不传值
-         * <p> 示例值：7184703091806602796
-         */
-        private String operator;
-        /**
-         * 流程节点id，与approver_id二选一传入，都传以node_id为准
-         * <p> 示例值：7414045453433439788
-         */
-        private String nodeId;
-        /**
-         * 审批任务id，与node_id二选一传入，都传以node_id为准
-         * <p> 示例值：7424452160928106028
-         */
-        private String approverId;
-        /**
-         * 加签方式
-         * <p> 示例值：1
-         */
-        private Integer extraType;
-        /**
-         * 多人加签时的审批方式
-         * <p> 示例值：1
-         */
-        private Integer approvalType;
-        /**
-         * 加签人员id列表
-         * <p> 示例值：
-         */
-        private String[] extraUserIds;
-        /**
-         * 备注
-         * <p> 示例值：备注
-         */
-        private String remark;
-        /**
-         * true-以系统身份操作
-         * <p> 示例值：true
-         */
-        private Boolean systemUser;
-
-        /**
-         * 操作人，当system_user为true时，可以不传值
-         * <p> 示例值：7184703091806602796
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 流程节点id，与approver_id二选一传入，都传以node_id为准
-         * <p> 示例值：7414045453433439788
-         *
-         * @param nodeId
-         * @return
-         */
-        public Builder nodeId(String nodeId) {
-            this.nodeId = nodeId;
-            return this;
-        }
-
-
-        /**
-         * 审批任务id，与node_id二选一传入，都传以node_id为准
-         * <p> 示例值：7424452160928106028
-         *
-         * @param approverId
-         * @return
-         */
-        public Builder approverId(String approverId) {
-            this.approverId = approverId;
-            return this;
-        }
-
-
-        /**
-         * 加签方式
-         * <p> 示例值：1
-         *
-         * @param extraType
-         * @return
-         */
-        public Builder extraType(Integer extraType) {
-            this.extraType = extraType;
-            return this;
-        }
-
-        /**
-         * 加签方式
-         * <p> 示例值：1
-         *
-         * @param extraType {@link com.lark.oapi.service.corehr.v2.enums.ProcessExtraProcessExtraExtraTypeEnum}
-         * @return
-         */
-        public Builder extraType(com.lark.oapi.service.corehr.v2.enums.ProcessExtraProcessExtraExtraTypeEnum extraType) {
-            this.extraType = extraType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 多人加签时的审批方式
-         * <p> 示例值：1
-         *
-         * @param approvalType
-         * @return
-         */
-        public Builder approvalType(Integer approvalType) {
-            this.approvalType = approvalType;
-            return this;
-        }
-
-        /**
-         * 多人加签时的审批方式
-         * <p> 示例值：1
-         *
-         * @param approvalType {@link com.lark.oapi.service.corehr.v2.enums.ProcessExtraProcessExtraApprovalTypeEnum}
-         * @return
-         */
-        public Builder approvalType(com.lark.oapi.service.corehr.v2.enums.ProcessExtraProcessExtraApprovalTypeEnum approvalType) {
-            this.approvalType = approvalType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 加签人员id列表
-         * <p> 示例值：
-         *
-         * @param extraUserIds
-         * @return
-         */
-        public Builder extraUserIds(String[] extraUserIds) {
-            this.extraUserIds = extraUserIds;
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：备注
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        /**
-         * true-以系统身份操作
-         * <p> 示例值：true
-         *
-         * @param systemUser
-         * @return
-         */
-        public Builder systemUser(Boolean systemUser) {
-            this.systemUser = systemUser;
-            return this;
-        }
-
-
-        public ProcessExtra build() {
-            return new ProcessExtra(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

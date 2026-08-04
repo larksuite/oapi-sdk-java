@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SuccessMsgReactionCount {
+  /**
+   * 消息ID
+   *
+   * <p>示例值：om_8964d1b4*********2b31383276113
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 消息上不同表情的数量
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reaction_count")
+  private ReactionCount[] reactionCount;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public ReactionCount[] getReactionCount() {
+    return this.reactionCount;
+  }
+
+  public void setReactionCount(ReactionCount[] reactionCount) {
+    this.reactionCount = reactionCount;
+  }
+
+  // builder 开始
+  public SuccessMsgReactionCount() {}
+
+  public SuccessMsgReactionCount(Builder builder) {
     /**
      * 消息ID
-     * <p> 示例值：om_8964d1b4*********2b31383276113
+     *
+     * <p>示例值：om_8964d1b4*********2b31383276113
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * 消息上不同表情的数量
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("reaction_count")
+    this.reactionCount = builder.reactionCount;
+  }
+
+  public static class Builder {
+    /**
+     * 消息ID
+     *
+     * <p>示例值：om_8964d1b4*********2b31383276113
+     */
+    private String messageId;
+
+    /**
+     * 消息上不同表情的数量
+     *
+     * <p>示例值：
+     */
     private ReactionCount[] reactionCount;
 
-    // builder 开始
-    public SuccessMsgReactionCount() {
+    /**
+     * 消息ID
+     *
+     * <p>示例值：om_8964d1b4*********2b31383276113
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public SuccessMsgReactionCount(Builder builder) {
-        /**
-         * 消息ID
-         * <p> 示例值：om_8964d1b4*********2b31383276113
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 消息上不同表情的数量
-         * <p> 示例值：
-         */
-        this.reactionCount = builder.reactionCount;
+    /**
+     * 消息上不同表情的数量
+     *
+     * <p>示例值：
+     *
+     * @param reactionCount
+     * @return
+     */
+    public Builder reactionCount(ReactionCount[] reactionCount) {
+      this.reactionCount = reactionCount;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SuccessMsgReactionCount build() {
+      return new SuccessMsgReactionCount(this);
     }
+  }
 
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public ReactionCount[] getReactionCount() {
-        return this.reactionCount;
-    }
-
-    public void setReactionCount(ReactionCount[] reactionCount) {
-        this.reactionCount = reactionCount;
-    }
-
-    public static class Builder {
-        /**
-         * 消息ID
-         * <p> 示例值：om_8964d1b4*********2b31383276113
-         */
-        private String messageId;
-        /**
-         * 消息上不同表情的数量
-         * <p> 示例值：
-         */
-        private ReactionCount[] reactionCount;
-
-        /**
-         * 消息ID
-         * <p> 示例值：om_8964d1b4*********2b31383276113
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 消息上不同表情的数量
-         * <p> 示例值：
-         *
-         * @param reactionCount
-         * @return
-         */
-        public Builder reactionCount(ReactionCount[] reactionCount) {
-            this.reactionCount = reactionCount;
-            return this;
-        }
-
-
-        public SuccessMsgReactionCount build() {
-            return new SuccessMsgReactionCount(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

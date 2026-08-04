@@ -13,173 +13,269 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MatchRule {
+  /**
+   * 左值
+   *
+   * <p>示例值：department
+   */
+  @SerializedName("left_value")
+  private String leftValue;
+
+  /**
+   * 操作符
+   *
+   * <p>示例值：contains
+   */
+  @SerializedName("operator")
+  private String operator;
+
+  /**
+   * 右值，填写左值对应的 ID 列表。;- ==department==和==department_hierarchy==：详细 ID
+   * 可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得，ID
+   * 类型需要为 ==people_corehr_department_id==。;- ==work_location==和==work_location_hierarchy==：详细 ID
+   * 可通过[查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)接口获得。;-
+   * ==cost_center==和==cost_center_hierarchy==：详细 ID
+   * 可通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获得。;-
+   * ==job==：详细 ID
+   * 可通过[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)接口获得。;-
+   * ==job_level==：详细 ID
+   * 可通过[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)接口获得。;-
+   * ==job_family==和==job_family_hierarchy==：详细 ID
+   * 可通过[查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口获得。;-
+   * ==employee_type==：详细 ID
+   * 可通过[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)接口获得。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("right_values")
+  private String[] rightValues;
+
+  /**
+   * 引用类型
+   *
+   * <p>示例值：specified
+   */
+  @SerializedName("ref_key")
+  private String refKey;
+
+  public String getLeftValue() {
+    return this.leftValue;
+  }
+
+  public void setLeftValue(String leftValue) {
+    this.leftValue = leftValue;
+  }
+
+  public String getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public String[] getRightValues() {
+    return this.rightValues;
+  }
+
+  public void setRightValues(String[] rightValues) {
+    this.rightValues = rightValues;
+  }
+
+  public String getRefKey() {
+    return this.refKey;
+  }
+
+  public void setRefKey(String refKey) {
+    this.refKey = refKey;
+  }
+
+  // builder 开始
+  public MatchRule() {}
+
+  public MatchRule(Builder builder) {
     /**
      * 左值
-     * <p> 示例值：department
+     *
+     * <p>示例值：department
      */
-    @SerializedName("left_value")
-    private String leftValue;
+    this.leftValue = builder.leftValue;
     /**
      * 操作符
-     * <p> 示例值：contains
+     *
+     * <p>示例值：contains
      */
-    @SerializedName("operator")
-    private String operator;
+    this.operator = builder.operator;
     /**
-     * 右值
-     * <p> 示例值：
+     * 右值，填写左值对应的 ID 列表。;- ==department==和==department_hierarchy==：详细 ID
+     * 可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得，ID
+     * 类型需要为 ==people_corehr_department_id==。;- ==work_location==和==work_location_hierarchy==：详细 ID
+     * 可通过[查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)接口获得。;-
+     * ==cost_center==和==cost_center_hierarchy==：详细 ID
+     * 可通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获得。;-
+     * ==job==：详细 ID
+     * 可通过[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)接口获得。;-
+     * ==job_level==：详细 ID
+     * 可通过[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)接口获得。;-
+     * ==job_family==和==job_family_hierarchy==：详细 ID
+     * 可通过[查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口获得。;-
+     * ==employee_type==：详细 ID
+     * 可通过[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)接口获得。
+     *
+     * <p>示例值：
      */
-    @SerializedName("right_values")
+    this.rightValues = builder.rightValues;
+    /**
+     * 引用类型
+     *
+     * <p>示例值：specified
+     */
+    this.refKey = builder.refKey;
+  }
+
+  public static class Builder {
+    /**
+     * 左值
+     *
+     * <p>示例值：department
+     */
+    private String leftValue;
+
+    /**
+     * 操作符
+     *
+     * <p>示例值：contains
+     */
+    private String operator;
+
+    /**
+     * 右值，填写左值对应的 ID 列表。;- ==department==和==department_hierarchy==：详细 ID
+     * 可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得，ID
+     * 类型需要为 ==people_corehr_department_id==。;- ==work_location==和==work_location_hierarchy==：详细 ID
+     * 可通过[查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)接口获得。;-
+     * ==cost_center==和==cost_center_hierarchy==：详细 ID
+     * 可通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获得。;-
+     * ==job==：详细 ID
+     * 可通过[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)接口获得。;-
+     * ==job_level==：详细 ID
+     * 可通过[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)接口获得。;-
+     * ==job_family==和==job_family_hierarchy==：详细 ID
+     * 可通过[查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口获得。;-
+     * ==employee_type==：详细 ID
+     * 可通过[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)接口获得。
+     *
+     * <p>示例值：
+     */
     private String[] rightValues;
 
-    // builder 开始
-    public MatchRule() {
+    /**
+     * 引用类型
+     *
+     * <p>示例值：specified
+     */
+    private String refKey;
+
+    /**
+     * 左值
+     *
+     * <p>示例值：department
+     *
+     * @param leftValue
+     * @return
+     */
+    public Builder leftValue(String leftValue) {
+      this.leftValue = leftValue;
+      return this;
     }
 
-    public MatchRule(Builder builder) {
-        /**
-         * 左值
-         * <p> 示例值：department
-         */
-        this.leftValue = builder.leftValue;
-        /**
-         * 操作符
-         * <p> 示例值：contains
-         */
-        this.operator = builder.operator;
-        /**
-         * 右值
-         * <p> 示例值：
-         */
-        this.rightValues = builder.rightValues;
+    /**
+     * 操作符
+     *
+     * <p>示例值：contains
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(String operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作符
+     *
+     * <p>示例值：contains
+     *
+     * @param operator {@link com.lark.oapi.service.corehr.v2.enums.MatchRuleOperatorEnum}
+     * @return
+     */
+    public Builder operator(com.lark.oapi.service.corehr.v2.enums.MatchRuleOperatorEnum operator) {
+      this.operator = operator.getValue();
+      return this;
     }
 
-    public String getLeftValue() {
-        return this.leftValue;
+    /**
+     * 右值，填写左值对应的 ID 列表。;- ==department==和==department_hierarchy==：详细 ID
+     * 可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得，ID
+     * 类型需要为 ==people_corehr_department_id==。;- ==work_location==和==work_location_hierarchy==：详细 ID
+     * 可通过[查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)接口获得。;-
+     * ==cost_center==和==cost_center_hierarchy==：详细 ID
+     * 可通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获得。;-
+     * ==job==：详细 ID
+     * 可通过[查询单个职务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job/get)接口获得。;-
+     * ==job_level==：详细 ID
+     * 可通过[查询单个职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/get)接口获得。;-
+     * ==job_family==和==job_family_hierarchy==：详细 ID
+     * 可通过[查询单个序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口获得。;-
+     * ==employee_type==：详细 ID
+     * 可通过[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/get)接口获得。
+     *
+     * <p>示例值：
+     *
+     * @param rightValues
+     * @return
+     */
+    public Builder rightValues(String[] rightValues) {
+      this.rightValues = rightValues;
+      return this;
     }
 
-    public void setLeftValue(String leftValue) {
-        this.leftValue = leftValue;
+    /**
+     * 引用类型
+     *
+     * <p>示例值：specified
+     *
+     * @param refKey
+     * @return
+     */
+    public Builder refKey(String refKey) {
+      this.refKey = refKey;
+      return this;
     }
 
-    public String getOperator() {
-        return this.operator;
+    /**
+     * 引用类型
+     *
+     * <p>示例值：specified
+     *
+     * @param refKey {@link com.lark.oapi.service.corehr.v2.enums.MatchRuleRefKeyEnum}
+     * @return
+     */
+    public Builder refKey(com.lark.oapi.service.corehr.v2.enums.MatchRuleRefKeyEnum refKey) {
+      this.refKey = refKey.getValue();
+      return this;
     }
 
-    public void setOperator(String operator) {
-        this.operator = operator;
+    public MatchRule build() {
+      return new MatchRule(this);
     }
+  }
 
-    public String[] getRightValues() {
-        return this.rightValues;
-    }
-
-    public void setRightValues(String[] rightValues) {
-        this.rightValues = rightValues;
-    }
-
-    public static class Builder {
-        /**
-         * 左值
-         * <p> 示例值：department
-         */
-        private String leftValue;
-        /**
-         * 操作符
-         * <p> 示例值：contains
-         */
-        private String operator;
-        /**
-         * 右值
-         * <p> 示例值：
-         */
-        private String[] rightValues;
-
-        /**
-         * 左值
-         * <p> 示例值：department
-         *
-         * @param leftValue
-         * @return
-         */
-        public Builder leftValue(String leftValue) {
-            this.leftValue = leftValue;
-            return this;
-        }
-
-        /**
-         * 左值
-         * <p> 示例值：department
-         *
-         * @param leftValue {@link com.lark.oapi.service.corehr.v2.enums.MatchRuleLeftValueEnum}
-         * @return
-         */
-        public Builder leftValue(com.lark.oapi.service.corehr.v2.enums.MatchRuleLeftValueEnum leftValue) {
-            this.leftValue = leftValue.getValue();
-            return this;
-        }
-
-
-        /**
-         * 操作符
-         * <p> 示例值：contains
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
-        }
-
-        /**
-         * 操作符
-         * <p> 示例值：contains
-         *
-         * @param operator {@link com.lark.oapi.service.corehr.v2.enums.MatchRuleOperatorEnum}
-         * @return
-         */
-        public Builder operator(com.lark.oapi.service.corehr.v2.enums.MatchRuleOperatorEnum operator) {
-            this.operator = operator.getValue();
-            return this;
-        }
-
-
-        /**
-         * 右值
-         * <p> 示例值：
-         *
-         * @param rightValues
-         * @return
-         */
-        public Builder rightValues(String[] rightValues) {
-            this.rightValues = rightValues;
-            return this;
-        }
-
-
-        public MatchRule build() {
-            return new MatchRule(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

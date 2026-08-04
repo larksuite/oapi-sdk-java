@@ -13,198 +13,204 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UatCurrentNode {
+  /**
+   * 当前审批节点 id
+   *
+   * <p>示例值：46e6d96cfa756980907209209ec03b64
+   */
+  @SerializedName("node_id")
+  private String nodeId;
+
+  /**
+   * 当前审批节点名称
+   *
+   * <p>示例值：开始
+   */
+  @SerializedName("node_name")
+  private String nodeName;
+
+  /**
+   * 审批方式
+   *
+   * <p>示例值：AND
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 当前节点审批人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("approvers")
+  private UatTaskUser[] approvers;
+
+  public String getNodeId() {
+    return this.nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
+  public String getNodeName() {
+    return this.nodeName;
+  }
+
+  public void setNodeName(String nodeName) {
+    this.nodeName = nodeName;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public UatTaskUser[] getApprovers() {
+    return this.approvers;
+  }
+
+  public void setApprovers(UatTaskUser[] approvers) {
+    this.approvers = approvers;
+  }
+
+  // builder 开始
+  public UatCurrentNode() {}
+
+  public UatCurrentNode(Builder builder) {
     /**
      * 当前审批节点 id
-     * <p> 示例值：46e6d96cfa756980907209209ec03b64
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
      */
-    @SerializedName("node_id")
-    private String nodeId;
+    this.nodeId = builder.nodeId;
     /**
      * 当前审批节点名称
-     * <p> 示例值：开始
+     *
+     * <p>示例值：开始
      */
-    @SerializedName("node_name")
-    private String nodeName;
+    this.nodeName = builder.nodeName;
     /**
      * 审批方式
-     * <p> 示例值：AND
+     *
+     * <p>示例值：AND
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 当前节点审批人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("approvers")
+    this.approvers = builder.approvers;
+  }
+
+  public static class Builder {
+    /**
+     * 当前审批节点 id
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
+     */
+    private String nodeId;
+
+    /**
+     * 当前审批节点名称
+     *
+     * <p>示例值：开始
+     */
+    private String nodeName;
+
+    /**
+     * 审批方式
+     *
+     * <p>示例值：AND
+     */
+    private String type;
+
+    /**
+     * 当前节点审批人
+     *
+     * <p>示例值：
+     */
     private UatTaskUser[] approvers;
 
-    // builder 开始
-    public UatCurrentNode() {
+    /**
+     * 当前审批节点 id
+     *
+     * <p>示例值：46e6d96cfa756980907209209ec03b64
+     *
+     * @param nodeId
+     * @return
+     */
+    public Builder nodeId(String nodeId) {
+      this.nodeId = nodeId;
+      return this;
     }
 
-    public UatCurrentNode(Builder builder) {
-        /**
-         * 当前审批节点 id
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         */
-        this.nodeId = builder.nodeId;
-        /**
-         * 当前审批节点名称
-         * <p> 示例值：开始
-         */
-        this.nodeName = builder.nodeName;
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         */
-        this.type = builder.type;
-        /**
-         * 当前节点审批人
-         * <p> 示例值：
-         */
-        this.approvers = builder.approvers;
+    /**
+     * 当前审批节点名称
+     *
+     * <p>示例值：开始
+     *
+     * @param nodeName
+     * @return
+     */
+    public Builder nodeName(String nodeName) {
+      this.nodeName = nodeName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 审批方式
+     *
+     * <p>示例值：AND
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getNodeId() {
-        return this.nodeId;
+    /**
+     * 审批方式
+     *
+     * <p>示例值：AND
+     *
+     * @param type {@link com.lark.oapi.service.approval.v4.enums.UatCurrentNodeTaskTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.approval.v4.enums.UatCurrentNodeTaskTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
+    /**
+     * 当前节点审批人
+     *
+     * <p>示例值：
+     *
+     * @param approvers
+     * @return
+     */
+    public Builder approvers(UatTaskUser[] approvers) {
+      this.approvers = approvers;
+      return this;
     }
 
-    public String getNodeName() {
-        return this.nodeName;
+    public UatCurrentNode build() {
+      return new UatCurrentNode(this);
     }
+  }
 
-    public void setNodeName(String nodeName) {
-        this.nodeName = nodeName;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public UatTaskUser[] getApprovers() {
-        return this.approvers;
-    }
-
-    public void setApprovers(UatTaskUser[] approvers) {
-        this.approvers = approvers;
-    }
-
-    public static class Builder {
-        /**
-         * 当前审批节点 id
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         */
-        private String nodeId;
-        /**
-         * 当前审批节点名称
-         * <p> 示例值：开始
-         */
-        private String nodeName;
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         */
-        private String type;
-        /**
-         * 当前节点审批人
-         * <p> 示例值：
-         */
-        private UatTaskUser[] approvers;
-
-        /**
-         * 当前审批节点 id
-         * <p> 示例值：46e6d96cfa756980907209209ec03b64
-         *
-         * @param nodeId
-         * @return
-         */
-        public Builder nodeId(String nodeId) {
-            this.nodeId = nodeId;
-            return this;
-        }
-
-
-        /**
-         * 当前审批节点名称
-         * <p> 示例值：开始
-         *
-         * @param nodeName
-         * @return
-         */
-        public Builder nodeName(String nodeName) {
-            this.nodeName = nodeName;
-            return this;
-        }
-
-
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 审批方式
-         * <p> 示例值：AND
-         *
-         * @param type {@link com.lark.oapi.service.approval.v4.enums.UatCurrentNodeTaskTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.approval.v4.enums.UatCurrentNodeTaskTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 当前节点审批人
-         * <p> 示例值：
-         *
-         * @param approvers
-         * @return
-         */
-        public Builder approvers(UatTaskUser[] approvers) {
-            this.approvers = approvers;
-            return this;
-        }
-
-
-        public UatCurrentNode build() {
-            return new UatCurrentNode(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

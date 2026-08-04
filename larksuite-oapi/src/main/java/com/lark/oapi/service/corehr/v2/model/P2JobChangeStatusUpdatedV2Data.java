@@ -13,188 +13,198 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2JobChangeStatusUpdatedV2Data {
-    /**
-     * 雇员ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("employment_id")
-    private String employmentId;
-    /**
-     * 员工的飞书用户 ID
-     * <p> 示例值：
-     */
-    @SerializedName("target_user_id")
-    private UserId targetUserId;
-    /**
-     * 异动记录 id
-     * <p> 示例值：7044427347159746085
-     */
-    @SerializedName("job_change_id")
-    private String jobChangeId;
-    /**
-     * 异动属性/方式
-     * <p> 示例值：1
-     */
-    @SerializedName("transfer_mode")
-    private Integer transferMode;
-    /**
-     * 异动类型唯一标识
-     * <p> 示例值：internal_transfer
-     */
-    @SerializedName("transfer_type_unique_identifier")
-    private String transferTypeUniqueIdentifier;
-    /**
-     * 异动原因唯一标识
-     * <p> 示例值：internal_transfer
-     */
-    @SerializedName("transfer_reason_unique_identifier")
-    private String transferReasonUniqueIdentifier;
-    /**
-     * 异动关联流程 id，如果是直接异动，则不需要关联流程
-     * <p> 示例值：7090409013925398060
-     */
-    @SerializedName("process_id")
-    private String processId;
-    /**
-     * 异动生效日期
-     * <p> 示例值：2022-04-03
-     */
-    @SerializedName("effective_date")
-    private String effectiveDate;
-    /**
-     * 异动状态
-     * <p> 示例值：1
-     */
-    @SerializedName("status")
-    private Integer status;
-    /**
-     * 原异动状态
-     * <p> 示例值：1
-     */
-    @SerializedName("original_status")
-    private Integer originalStatus;
-    /**
-     * 异动记录标识符
-     * <p> 示例值：transfer_3627531
-     */
-    @SerializedName("transfer_key")
-    private String transferKey;
-    /**
-     * 异动变更内容
-     * <p> 示例值：
-     */
-    @SerializedName("details_of_job_status_change")
-    private String[] detailsOfJobStatusChange;
+  /**
+   * 雇员ID
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
+  /**
+   * 员工的飞书用户 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_user_id")
+  private UserId targetUserId;
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
+  /**
+   * 异动记录 id
+   *
+   * <p>示例值：7044427347159746085
+   */
+  @SerializedName("job_change_id")
+  private String jobChangeId;
 
-    public UserId getTargetUserId() {
-        return this.targetUserId;
-    }
+  /**
+   * 异动属性/方式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("transfer_mode")
+  private Integer transferMode;
 
-    public void setTargetUserId(UserId targetUserId) {
-        this.targetUserId = targetUserId;
-    }
+  /**
+   * 异动类型唯一标识
+   *
+   * <p>示例值：internal_transfer
+   */
+  @SerializedName("transfer_type_unique_identifier")
+  private String transferTypeUniqueIdentifier;
 
-    public String getJobChangeId() {
-        return this.jobChangeId;
-    }
+  /**
+   * 异动原因唯一标识
+   *
+   * <p>示例值：internal_transfer
+   */
+  @SerializedName("transfer_reason_unique_identifier")
+  private String transferReasonUniqueIdentifier;
 
-    public void setJobChangeId(String jobChangeId) {
-        this.jobChangeId = jobChangeId;
-    }
+  /**
+   * 异动关联流程 id，如果是直接异动，则不需要关联流程
+   *
+   * <p>示例值：7090409013925398060
+   */
+  @SerializedName("process_id")
+  private String processId;
 
-    public Integer getTransferMode() {
-        return this.transferMode;
-    }
+  /**
+   * 异动生效日期
+   *
+   * <p>示例值：2022-04-03
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
 
-    public void setTransferMode(Integer transferMode) {
-        this.transferMode = transferMode;
-    }
+  /**
+   * 异动状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public String getTransferTypeUniqueIdentifier() {
-        return this.transferTypeUniqueIdentifier;
-    }
+  /**
+   * 原异动状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("original_status")
+  private Integer originalStatus;
 
-    public void setTransferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
-        this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
-    }
+  /**
+   * 异动记录标识符
+   *
+   * <p>示例值：transfer_3627531
+   */
+  @SerializedName("transfer_key")
+  private String transferKey;
 
-    public String getTransferReasonUniqueIdentifier() {
-        return this.transferReasonUniqueIdentifier;
-    }
+  /**
+   * 异动变更内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("details_of_job_status_change")
+  private String[] detailsOfJobStatusChange;
 
-    public void setTransferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
-        this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
-    }
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
 
-    public String getProcessId() {
-        return this.processId;
-    }
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
+  public UserId getTargetUserId() {
+    return this.targetUserId;
+  }
 
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
+  public void setTargetUserId(UserId targetUserId) {
+    this.targetUserId = targetUserId;
+  }
 
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
+  public String getJobChangeId() {
+    return this.jobChangeId;
+  }
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  public void setJobChangeId(String jobChangeId) {
+    this.jobChangeId = jobChangeId;
+  }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  public Integer getTransferMode() {
+    return this.transferMode;
+  }
 
-    public Integer getOriginalStatus() {
-        return this.originalStatus;
-    }
+  public void setTransferMode(Integer transferMode) {
+    this.transferMode = transferMode;
+  }
 
-    public void setOriginalStatus(Integer originalStatus) {
-        this.originalStatus = originalStatus;
-    }
+  public String getTransferTypeUniqueIdentifier() {
+    return this.transferTypeUniqueIdentifier;
+  }
 
-    public String getTransferKey() {
-        return this.transferKey;
-    }
+  public void setTransferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
+    this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+  }
 
-    public void setTransferKey(String transferKey) {
-        this.transferKey = transferKey;
-    }
+  public String getTransferReasonUniqueIdentifier() {
+    return this.transferReasonUniqueIdentifier;
+  }
 
-    public String[] getDetailsOfJobStatusChange() {
-        return this.detailsOfJobStatusChange;
-    }
+  public void setTransferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
+    this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+  }
 
-    public void setDetailsOfJobStatusChange(String[] detailsOfJobStatusChange) {
-        this.detailsOfJobStatusChange = detailsOfJobStatusChange;
-    }
+  public String getProcessId() {
+    return this.processId;
+  }
 
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public Integer getOriginalStatus() {
+    return this.originalStatus;
+  }
+
+  public void setOriginalStatus(Integer originalStatus) {
+    this.originalStatus = originalStatus;
+  }
+
+  public String getTransferKey() {
+    return this.transferKey;
+  }
+
+  public void setTransferKey(String transferKey) {
+    this.transferKey = transferKey;
+  }
+
+  public String[] getDetailsOfJobStatusChange() {
+    return this.detailsOfJobStatusChange;
+  }
+
+  public void setDetailsOfJobStatusChange(String[] detailsOfJobStatusChange) {
+    this.detailsOfJobStatusChange = detailsOfJobStatusChange;
+  }
 }

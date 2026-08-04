@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AilyKnowledgeFaq {
+  /**
+   * 匹配问题
+   *
+   * <p>示例值：问题
+   */
+  @SerializedName("question")
+  private String question;
+
+  /**
+   * 匹配描述
+   *
+   * <p>示例值：答案
+   */
+  @SerializedName("answer")
+  private String answer;
+
+  public String getQuestion() {
+    return this.question;
+  }
+
+  public void setQuestion(String question) {
+    this.question = question;
+  }
+
+  public String getAnswer() {
+    return this.answer;
+  }
+
+  public void setAnswer(String answer) {
+    this.answer = answer;
+  }
+
+  // builder 开始
+  public AilyKnowledgeFaq() {}
+
+  public AilyKnowledgeFaq(Builder builder) {
     /**
      * 匹配问题
-     * <p> 示例值：问题
+     *
+     * <p>示例值：问题
      */
-    @SerializedName("question")
-    private String question;
+    this.question = builder.question;
     /**
      * 匹配描述
-     * <p> 示例值：答案
+     *
+     * <p>示例值：答案
      */
-    @SerializedName("answer")
+    this.answer = builder.answer;
+  }
+
+  public static class Builder {
+    /**
+     * 匹配问题
+     *
+     * <p>示例值：问题
+     */
+    private String question;
+
+    /**
+     * 匹配描述
+     *
+     * <p>示例值：答案
+     */
     private String answer;
 
-    // builder 开始
-    public AilyKnowledgeFaq() {
+    /**
+     * 匹配问题
+     *
+     * <p>示例值：问题
+     *
+     * @param question
+     * @return
+     */
+    public Builder question(String question) {
+      this.question = question;
+      return this;
     }
 
-    public AilyKnowledgeFaq(Builder builder) {
-        /**
-         * 匹配问题
-         * <p> 示例值：问题
-         */
-        this.question = builder.question;
-        /**
-         * 匹配描述
-         * <p> 示例值：答案
-         */
-        this.answer = builder.answer;
+    /**
+     * 匹配描述
+     *
+     * <p>示例值：答案
+     *
+     * @param answer
+     * @return
+     */
+    public Builder answer(String answer) {
+      this.answer = answer;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AilyKnowledgeFaq build() {
+      return new AilyKnowledgeFaq(this);
     }
+  }
 
-    public String getQuestion() {
-        return this.question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public String getAnswer() {
-        return this.answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
-    public static class Builder {
-        /**
-         * 匹配问题
-         * <p> 示例值：问题
-         */
-        private String question;
-        /**
-         * 匹配描述
-         * <p> 示例值：答案
-         */
-        private String answer;
-
-        /**
-         * 匹配问题
-         * <p> 示例值：问题
-         *
-         * @param question
-         * @return
-         */
-        public Builder question(String question) {
-            this.question = question;
-            return this;
-        }
-
-
-        /**
-         * 匹配描述
-         * <p> 示例值：答案
-         *
-         * @param answer
-         * @return
-         */
-        public Builder answer(String answer) {
-            this.answer = answer;
-            return this;
-        }
-
-
-        public AilyKnowledgeFaq build() {
-            return new AilyKnowledgeFaq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

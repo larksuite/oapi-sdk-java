@@ -13,241 +13,248 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class ListTaskReq {
+  /**
+   * 每页的任务数量
+   *
+   * <p>示例值：50
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
+   *
+   * <p>示例值：aWQ9NzEwMjMzMjMxMDE=
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 是否按任务完成进行过滤。填写true表示只列出已完成任务；填写false表示只列出未完成任务。不填写表示不过滤。
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("completed")
+  private Boolean completed;
+
+  /**
+   * 列取任务的类型，目前只支持"my_tasks"，即“我负责的”。
+   *
+   * <p>示例值：my_tasks
+   */
+  @Query
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 表示user的ID的类型，支持open_id, user_id, union_id
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 智能体任务状态，优先使用completed字段，如果要查细分状态，再使用agent_task_status
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("agent_task_status")
+  private Integer agentTaskStatus;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Boolean getCompleted() {
+    return this.completed;
+  }
+
+  public void setCompleted(Boolean completed) {
+    this.completed = completed;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public Integer getAgentTaskStatus() {
+    return this.agentTaskStatus;
+  }
+
+  public void setAgentTaskStatus(Integer agentTaskStatus) {
+    this.agentTaskStatus = agentTaskStatus;
+  }
+
+  // builder 开始
+  public ListTaskReq() {}
+
+  public ListTaskReq(Builder builder) {
     /**
      * 每页的任务数量
-     * <p> 示例值：50
+     *
+     * <p>示例值：50
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
-     * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
+     *
+     * <p>示例值：aWQ9NzEwMjMzMjMxMDE=
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 是否按任务完成进行过滤。不填写表示不过滤。
-     * <p> 示例值：true
+     * 是否按任务完成进行过滤。填写true表示只列出已完成任务；填写false表示只列出未完成任务。不填写表示不过滤。
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("completed")
-    private Boolean completed;
+    this.completed = builder.completed;
     /**
-     * 查询任务的范围
-     * <p> 示例值：my_tasks
+     * 列取任务的类型，目前只支持"my_tasks"，即“我负责的”。
+     *
+     * <p>示例值：my_tasks
      */
-    @Query
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 表示user的ID的类型，支持open_id, user_id, union_id
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 智能体任务状态，优先使用completed字段，如果要查细分状态，再使用agent_task_status
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("agent_task_status")
-    private Integer agentTaskStatus;
+    this.agentTaskStatus = builder.agentTaskStatus;
+  }
 
-    // builder 开始
-    public ListTaskReq() {
+  public static class Builder {
+    private Integer pageSize; // 每页的任务数量
+    private String pageToken; // 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的
+    // page_token。使用page_token重新调用本接口可以获取下一页数据。
+    private Boolean completed; // 是否按任务完成进行过滤。填写true表示只列出已完成任务；填写false表示只列出未完成任务。不填写表示不过滤。
+    private String type; // 列取任务的类型，目前只支持"my_tasks"，即“我负责的”。
+    private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
+    private Integer agentTaskStatus; // 智能体任务状态，优先使用completed字段，如果要查细分状态，再使用agent_task_status
+
+    /**
+     * 每页的任务数量
+     *
+     * <p>示例值：50
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListTaskReq(Builder builder) {
-        /**
-         * 每页的任务数量
-         * <p> 示例值：50
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
-         * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 是否按任务完成进行过滤。不填写表示不过滤。
-         * <p> 示例值：true
-         */
-        this.completed = builder.completed;
-        /**
-         * 查询任务的范围
-         * <p> 示例值：my_tasks
-         */
-        this.type = builder.type;
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 智能体任务状态，优先使用completed字段，如果要查细分状态，再使用agent_task_status
-         * <p> 示例值：1
-         */
-        this.agentTaskStatus = builder.agentTaskStatus;
+    /**
+     * 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
+     *
+     * <p>示例值：aWQ9NzEwMjMzMjMxMDE=
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否按任务完成进行过滤。填写true表示只列出已完成任务；填写false表示只列出未完成任务。不填写表示不过滤。
+     *
+     * <p>示例值：true
+     *
+     * @param completed
+     * @return
+     */
+    public Builder completed(Boolean completed) {
+      this.completed = completed;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 列取任务的类型，目前只支持"my_tasks"，即“我负责的”。
+     *
+     * <p>示例值：my_tasks
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 表示user的ID的类型，支持open_id, user_id, union_id
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 智能体任务状态，优先使用completed字段，如果要查细分状态，再使用agent_task_status
+     *
+     * <p>示例值：1
+     *
+     * @param agentTaskStatus
+     * @return
+     */
+    public Builder agentTaskStatus(Integer agentTaskStatus) {
+      this.agentTaskStatus = agentTaskStatus;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    public ListTaskReq build() {
+      return new ListTaskReq(this);
     }
+  }
 
-    public Boolean getCompleted() {
-        return this.completed;
-    }
-
-    public void setCompleted(Boolean completed) {
-        this.completed = completed;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public Integer getAgentTaskStatus() {
-        return this.agentTaskStatus;
-    }
-
-    public void setAgentTaskStatus(Integer agentTaskStatus) {
-        this.agentTaskStatus = agentTaskStatus;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 每页的任务数量
-        private String pageToken; // 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
-        private Boolean completed; // 是否按任务完成进行过滤。不填写表示不过滤。
-        private String type; // 查询任务的范围
-        private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-        private Integer agentTaskStatus; // 智能体任务状态，优先使用completed字段，如果要查细分状态，再使用agent_task_status
-
-        /**
-         * 每页的任务数量
-         * <p> 示例值：50
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记。第一次请求不填该参数，表示从头开始查询；查询结果若还有更多数据时会同时返回新的 page_token。使用page_token重新调用本接口可以获取下一页数据。
-         * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 是否按任务完成进行过滤。不填写表示不过滤。
-         * <p> 示例值：true
-         *
-         * @param completed
-         * @return
-         */
-        public Builder completed(Boolean completed) {
-            this.completed = completed;
-            return this;
-        }
-
-
-        /**
-         * 查询任务的范围
-         * <p> 示例值：my_tasks
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-
-        /**
-         * 智能体任务状态，优先使用completed字段，如果要查细分状态，再使用agent_task_status
-         * <p> 示例值：1
-         *
-         * @param agentTaskStatus
-         * @return
-         */
-        public Builder agentTaskStatus(Integer agentTaskStatus) {
-            this.agentTaskStatus = agentTaskStatus;
-            return this;
-        }
-
-
-        public ListTaskReq build() {
-            return new ListTaskReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

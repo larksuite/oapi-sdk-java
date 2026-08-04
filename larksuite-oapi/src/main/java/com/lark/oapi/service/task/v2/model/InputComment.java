@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InputComment {
+  /**
+   * 评论内容。不允许为空，最长3000个UTF-8字符。
+   *
+   * <p>示例值：举杯邀明月，对影成三人
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 回复给评论的id
+   *
+   * <p>示例值：6937231762296684564
+   */
+  @SerializedName("reply_to_comment_id")
+  private String replyToCommentId;
+
+  /**
+   * 评论归属的资源类型
+   *
+   * <p>示例值：task
+   */
+  @SerializedName("resource_type")
+  private String resourceType;
+
+  /**
+   * 评论归属的资源ID
+   *
+   * <p>示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
+   */
+  @SerializedName("resource_id")
+  private String resourceId;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getReplyToCommentId() {
+    return this.replyToCommentId;
+  }
+
+  public void setReplyToCommentId(String replyToCommentId) {
+    this.replyToCommentId = replyToCommentId;
+  }
+
+  public String getResourceType() {
+    return this.resourceType;
+  }
+
+  public void setResourceType(String resourceType) {
+    this.resourceType = resourceType;
+  }
+
+  public String getResourceId() {
+    return this.resourceId;
+  }
+
+  public void setResourceId(String resourceId) {
+    this.resourceId = resourceId;
+  }
+
+  // builder 开始
+  public InputComment() {}
+
+  public InputComment(Builder builder) {
     /**
-     * 评论内容
-     * <p> 示例值：举杯邀明月，对影成三人
+     * 评论内容。不允许为空，最长3000个UTF-8字符。
+     *
+     * <p>示例值：举杯邀明月，对影成三人
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 回复给评论的id
-     * <p> 示例值：6937231762296684564
+     *
+     * <p>示例值：6937231762296684564
      */
-    @SerializedName("reply_to_comment_id")
-    private String replyToCommentId;
+    this.replyToCommentId = builder.replyToCommentId;
     /**
      * 评论归属的资源类型
-     * <p> 示例值：task
+     *
+     * <p>示例值：task
      */
-    @SerializedName("resource_type")
-    private String resourceType;
+    this.resourceType = builder.resourceType;
     /**
      * 评论归属的资源ID
-     * <p> 示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
+     *
+     * <p>示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
      */
-    @SerializedName("resource_id")
+    this.resourceId = builder.resourceId;
+  }
+
+  public static class Builder {
+    /**
+     * 评论内容。不允许为空，最长3000个UTF-8字符。
+     *
+     * <p>示例值：举杯邀明月，对影成三人
+     */
+    private String content;
+
+    /**
+     * 回复给评论的id
+     *
+     * <p>示例值：6937231762296684564
+     */
+    private String replyToCommentId;
+
+    /**
+     * 评论归属的资源类型
+     *
+     * <p>示例值：task
+     */
+    private String resourceType;
+
+    /**
+     * 评论归属的资源ID
+     *
+     * <p>示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
+     */
     private String resourceId;
 
-    // builder 开始
-    public InputComment() {
+    /**
+     * 评论内容。不允许为空，最长3000个UTF-8字符。
+     *
+     * <p>示例值：举杯邀明月，对影成三人
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public InputComment(Builder builder) {
-        /**
-         * 评论内容
-         * <p> 示例值：举杯邀明月，对影成三人
-         */
-        this.content = builder.content;
-        /**
-         * 回复给评论的id
-         * <p> 示例值：6937231762296684564
-         */
-        this.replyToCommentId = builder.replyToCommentId;
-        /**
-         * 评论归属的资源类型
-         * <p> 示例值：task
-         */
-        this.resourceType = builder.resourceType;
-        /**
-         * 评论归属的资源ID
-         * <p> 示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
-         */
-        this.resourceId = builder.resourceId;
+    /**
+     * 回复给评论的id
+     *
+     * <p>示例值：6937231762296684564
+     *
+     * @param replyToCommentId
+     * @return
+     */
+    public Builder replyToCommentId(String replyToCommentId) {
+      this.replyToCommentId = replyToCommentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评论归属的资源类型
+     *
+     * <p>示例值：task
+     *
+     * @param resourceType
+     * @return
+     */
+    public Builder resourceType(String resourceType) {
+      this.resourceType = resourceType;
+      return this;
     }
 
-    public String getContent() {
-        return this.content;
+    /**
+     * 评论归属的资源ID
+     *
+     * <p>示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
+     *
+     * @param resourceId
+     * @return
+     */
+    public Builder resourceId(String resourceId) {
+      this.resourceId = resourceId;
+      return this;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public InputComment build() {
+      return new InputComment(this);
     }
+  }
 
-    public String getReplyToCommentId() {
-        return this.replyToCommentId;
-    }
-
-    public void setReplyToCommentId(String replyToCommentId) {
-        this.replyToCommentId = replyToCommentId;
-    }
-
-    public String getResourceType() {
-        return this.resourceType;
-    }
-
-    public void setResourceType(String resourceType) {
-        this.resourceType = resourceType;
-    }
-
-    public String getResourceId() {
-        return this.resourceId;
-    }
-
-    public void setResourceId(String resourceId) {
-        this.resourceId = resourceId;
-    }
-
-    public static class Builder {
-        /**
-         * 评论内容
-         * <p> 示例值：举杯邀明月，对影成三人
-         */
-        private String content;
-        /**
-         * 回复给评论的id
-         * <p> 示例值：6937231762296684564
-         */
-        private String replyToCommentId;
-        /**
-         * 评论归属的资源类型
-         * <p> 示例值：task
-         */
-        private String resourceType;
-        /**
-         * 评论归属的资源ID
-         * <p> 示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
-         */
-        private String resourceId;
-
-        /**
-         * 评论内容
-         * <p> 示例值：举杯邀明月，对影成三人
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 回复给评论的id
-         * <p> 示例值：6937231762296684564
-         *
-         * @param replyToCommentId
-         * @return
-         */
-        public Builder replyToCommentId(String replyToCommentId) {
-            this.replyToCommentId = replyToCommentId;
-            return this;
-        }
-
-
-        /**
-         * 评论归属的资源类型
-         * <p> 示例值：task
-         *
-         * @param resourceType
-         * @return
-         */
-        public Builder resourceType(String resourceType) {
-            this.resourceType = resourceType;
-            return this;
-        }
-
-
-        /**
-         * 评论归属的资源ID
-         * <p> 示例值：ccb55625-95d2-2e80-655f-0e40bf67953f
-         *
-         * @param resourceId
-         * @return
-         */
-        public Builder resourceId(String resourceId) {
-            this.resourceId = resourceId;
-            return this;
-        }
-
-
-        public InputComment build() {
-            return new InputComment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

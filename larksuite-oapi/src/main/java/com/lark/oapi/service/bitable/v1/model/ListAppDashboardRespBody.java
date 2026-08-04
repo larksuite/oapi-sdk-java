@@ -13,75 +13,66 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListAppDashboardRespBody {
-    /**
-     * 仪表盘信息
-     * <p> 示例值：
-     */
-    @SerializedName("dashboards")
-    private AppDashboard[] dashboards;
-    /**
-     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-     * <p> 示例值：blknkqrP3RqUkcAW
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否还有更多项
-     * <p> 示例值：false
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("total")
-    private Integer total;
+  /**
+   * 仪表盘信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dashboards")
+  private AppDashboard[] dashboards;
 
-    public AppDashboard[] getDashboards() {
-        return this.dashboards;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：blknkqrP3RqUkcAW
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setDashboards(AppDashboard[] dashboards) {
-        this.dashboards = dashboards;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /** 示例值： */
+  @SerializedName("total")
+  private Integer total;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public AppDashboard[] getDashboards() {
+    return this.dashboards;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setDashboards(AppDashboard[] dashboards) {
+    this.dashboards = dashboards;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public Integer getTotal() {
-        return this.total;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public Integer getTotal() {
+    return this.total;
+  }
+
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
 }

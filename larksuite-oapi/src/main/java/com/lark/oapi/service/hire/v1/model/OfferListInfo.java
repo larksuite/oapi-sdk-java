@@ -13,296 +13,324 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OfferListInfo {
+  /**
+   * Offer ID，详情可参考：[获取 Offer
+   * 详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/get)
+   *
+   * <p>示例值：7096320678581242123
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * Offer 职位
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_info")
+  private OfferJobInfo jobInfo;
+
+  /**
+   * 创建时间戳（单位：毫秒）
+   *
+   * <p>示例值：1628512038000
+   */
+  @SerializedName("create_time")
+  private Long createTime;
+
+  /**
+   * Offer 状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("offer_status")
+  private Integer offerStatus;
+
+  /**
+   * Offer 类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("offer_type")
+  private Integer offerType;
+
+  /**
+   * Offer 人员类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_type")
+  private BaseBilingualWithId employeeType;
+
+  /**
+   * Offer 投递
+   * ID，获取投递信息请参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+   *
+   * <p>示例值：7096358713330272526
+   */
+  @SerializedName("application_id")
+  private String applicationId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public OfferJobInfo getJobInfo() {
+    return this.jobInfo;
+  }
+
+  public void setJobInfo(OfferJobInfo jobInfo) {
+    this.jobInfo = jobInfo;
+  }
+
+  public Long getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(Long createTime) {
+    this.createTime = createTime;
+  }
+
+  public Integer getOfferStatus() {
+    return this.offerStatus;
+  }
+
+  public void setOfferStatus(Integer offerStatus) {
+    this.offerStatus = offerStatus;
+  }
+
+  public Integer getOfferType() {
+    return this.offerType;
+  }
+
+  public void setOfferType(Integer offerType) {
+    this.offerType = offerType;
+  }
+
+  public BaseBilingualWithId getEmployeeType() {
+    return this.employeeType;
+  }
+
+  public void setEmployeeType(BaseBilingualWithId employeeType) {
+    this.employeeType = employeeType;
+  }
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  // builder 开始
+  public OfferListInfo() {}
+
+  public OfferListInfo(Builder builder) {
     /**
-     * Offer ID
-     * <p> 示例值：7096320678581242123
+     * Offer ID，详情可参考：[获取 Offer
+     * 详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/get)
+     *
+     * <p>示例值：7096320678581242123
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * Offer 职位
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_info")
-    private OfferJobInfo jobInfo;
+    this.jobInfo = builder.jobInfo;
     /**
-     * 创建时间
-     * <p> 示例值：1628512038000
+     * 创建时间戳（单位：毫秒）
+     *
+     * <p>示例值：1628512038000
      */
-    @SerializedName("create_time")
-    private Long createTime;
+    this.createTime = builder.createTime;
     /**
      * Offer 状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("offer_status")
-    private Integer offerStatus;
+    this.offerStatus = builder.offerStatus;
     /**
      * Offer 类型
-     * <p> 示例值：Offer 类型
+     *
+     * <p>示例值：1
      */
-    @SerializedName("offer_type")
-    private Integer offerType;
+    this.offerType = builder.offerType;
     /**
      * Offer 人员类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_type")
-    private BaseBilingualWithId employeeType;
+    this.employeeType = builder.employeeType;
     /**
-     * Offer 投递 ID
-     * <p> 示例值：7096358713330272526
+     * Offer 投递
+     * ID，获取投递信息请参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：7096358713330272526
      */
-    @SerializedName("application_id")
+    this.applicationId = builder.applicationId;
+  }
+
+  public static class Builder {
+    /**
+     * Offer ID，详情可参考：[获取 Offer
+     * 详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/get)
+     *
+     * <p>示例值：7096320678581242123
+     */
+    private String id;
+
+    /**
+     * Offer 职位
+     *
+     * <p>示例值：
+     */
+    private OfferJobInfo jobInfo;
+
+    /**
+     * 创建时间戳（单位：毫秒）
+     *
+     * <p>示例值：1628512038000
+     */
+    private Long createTime;
+
+    /**
+     * Offer 状态
+     *
+     * <p>示例值：1
+     */
+    private Integer offerStatus;
+
+    /**
+     * Offer 类型
+     *
+     * <p>示例值：1
+     */
+    private Integer offerType;
+
+    /**
+     * Offer 人员类型
+     *
+     * <p>示例值：
+     */
+    private BaseBilingualWithId employeeType;
+
+    /**
+     * Offer 投递
+     * ID，获取投递信息请参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：7096358713330272526
+     */
     private String applicationId;
 
-    // builder 开始
-    public OfferListInfo() {
+    /**
+     * Offer ID，详情可参考：[获取 Offer
+     * 详情](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/offer/get)
+     *
+     * <p>示例值：7096320678581242123
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public OfferListInfo(Builder builder) {
-        /**
-         * Offer ID
-         * <p> 示例值：7096320678581242123
-         */
-        this.id = builder.id;
-        /**
-         * Offer 职位
-         * <p> 示例值：
-         */
-        this.jobInfo = builder.jobInfo;
-        /**
-         * 创建时间
-         * <p> 示例值：1628512038000
-         */
-        this.createTime = builder.createTime;
-        /**
-         * Offer 状态
-         * <p> 示例值：1
-         */
-        this.offerStatus = builder.offerStatus;
-        /**
-         * Offer 类型
-         * <p> 示例值：Offer 类型
-         */
-        this.offerType = builder.offerType;
-        /**
-         * Offer 人员类型
-         * <p> 示例值：
-         */
-        this.employeeType = builder.employeeType;
-        /**
-         * Offer 投递 ID
-         * <p> 示例值：7096358713330272526
-         */
-        this.applicationId = builder.applicationId;
+    /**
+     * Offer 职位
+     *
+     * <p>示例值：
+     *
+     * @param jobInfo
+     * @return
+     */
+    public Builder jobInfo(OfferJobInfo jobInfo) {
+      this.jobInfo = jobInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 创建时间戳（单位：毫秒）
+     *
+     * <p>示例值：1628512038000
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(Long createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * Offer 状态
+     *
+     * <p>示例值：1
+     *
+     * @param offerStatus
+     * @return
+     */
+    public Builder offerStatus(Integer offerStatus) {
+      this.offerStatus = offerStatus;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * Offer 类型
+     *
+     * <p>示例值：1
+     *
+     * @param offerType
+     * @return
+     */
+    public Builder offerType(Integer offerType) {
+      this.offerType = offerType;
+      return this;
     }
 
-    public OfferJobInfo getJobInfo() {
-        return this.jobInfo;
+    /**
+     * Offer 人员类型
+     *
+     * <p>示例值：
+     *
+     * @param employeeType
+     * @return
+     */
+    public Builder employeeType(BaseBilingualWithId employeeType) {
+      this.employeeType = employeeType;
+      return this;
     }
 
-    public void setJobInfo(OfferJobInfo jobInfo) {
-        this.jobInfo = jobInfo;
+    /**
+     * Offer 投递
+     * ID，获取投递信息请参考[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)
+     *
+     * <p>示例值：7096358713330272526
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public Long getCreateTime() {
-        return this.createTime;
+    public OfferListInfo build() {
+      return new OfferListInfo(this);
     }
+  }
 
-    public void setCreateTime(Long createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getOfferStatus() {
-        return this.offerStatus;
-    }
-
-    public void setOfferStatus(Integer offerStatus) {
-        this.offerStatus = offerStatus;
-    }
-
-    public Integer getOfferType() {
-        return this.offerType;
-    }
-
-    public void setOfferType(Integer offerType) {
-        this.offerType = offerType;
-    }
-
-    public BaseBilingualWithId getEmployeeType() {
-        return this.employeeType;
-    }
-
-    public void setEmployeeType(BaseBilingualWithId employeeType) {
-        this.employeeType = employeeType;
-    }
-
-    public String getApplicationId() {
-        return this.applicationId;
-    }
-
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
-    }
-
-    public static class Builder {
-        /**
-         * Offer ID
-         * <p> 示例值：7096320678581242123
-         */
-        private String id;
-        /**
-         * Offer 职位
-         * <p> 示例值：
-         */
-        private OfferJobInfo jobInfo;
-        /**
-         * 创建时间
-         * <p> 示例值：1628512038000
-         */
-        private Long createTime;
-        /**
-         * Offer 状态
-         * <p> 示例值：1
-         */
-        private Integer offerStatus;
-        /**
-         * Offer 类型
-         * <p> 示例值：Offer 类型
-         */
-        private Integer offerType;
-        /**
-         * Offer 人员类型
-         * <p> 示例值：
-         */
-        private BaseBilingualWithId employeeType;
-        /**
-         * Offer 投递 ID
-         * <p> 示例值：7096358713330272526
-         */
-        private String applicationId;
-
-        /**
-         * Offer ID
-         * <p> 示例值：7096320678581242123
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * Offer 职位
-         * <p> 示例值：
-         *
-         * @param jobInfo
-         * @return
-         */
-        public Builder jobInfo(OfferJobInfo jobInfo) {
-            this.jobInfo = jobInfo;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1628512038000
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(Long createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * Offer 状态
-         * <p> 示例值：1
-         *
-         * @param offerStatus
-         * @return
-         */
-        public Builder offerStatus(Integer offerStatus) {
-            this.offerStatus = offerStatus;
-            return this;
-        }
-
-
-        /**
-         * Offer 类型
-         * <p> 示例值：Offer 类型
-         *
-         * @param offerType
-         * @return
-         */
-        public Builder offerType(Integer offerType) {
-            this.offerType = offerType;
-            return this;
-        }
-
-
-        /**
-         * Offer 人员类型
-         * <p> 示例值：
-         *
-         * @param employeeType
-         * @return
-         */
-        public Builder employeeType(BaseBilingualWithId employeeType) {
-            this.employeeType = employeeType;
-            return this;
-        }
-
-
-        /**
-         * Offer 投递 ID
-         * <p> 示例值：7096358713330272526
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        public OfferListInfo build() {
-            return new OfferListInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

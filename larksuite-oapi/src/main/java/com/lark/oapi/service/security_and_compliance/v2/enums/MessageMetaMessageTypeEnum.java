@@ -13,43 +13,41 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 消息类型
- */
+/** 消息类型 */
 public enum MessageMetaMessageTypeEnum {
-    TEXT_IMAGE(1), // 文本
-    POST(2), // 富文本
-    FILE(3), // 文件
-    TEXT(4), // 文本
-    IMAGE(5), // 图片
-    SYSTEM(6), // 系统
-    AUDIO(7), // 视频
-    EMAIL(8), // 邮件
-    SHARE_GROUP_CHAT(9), // 组分享
-    STICKER(10), // 贴纸
-    MERGE_FORWARD(11), // 合并转发
-    CALENDAR(12), // 日历
-    CLOUD_FILE(13), // 云文件
-    CARD(14), // 卡片
-    MEDIA(15), // 媒体
-    SHARE_CALENDAR_EVENT(16), // 日历分享
-    HONGBAO(17), // 红包
-    GENERAL_CALENDER(18), // 一般日历
-    VIDEO_CHAT(19), // 视频会话
-    LOCATION(20), // 位置
-    CUSTOMIZE(21), // 自定义
-    COMMERCIALIZED_HONGBAO(22), // 红包
-    SHARE_USER_CARD(23), // 卡片分享
-    TODO(24), // todo
-    FOLDER(25), // 文件夹
-    ;
-    private Integer value;
+  TEXT_IMAGE(1), // 文本
+  POST(2), // 富文本
+  FILE(3), // 文件
+  TEXT(4), // 文本
+  IMAGE(5), // 图片
+  SYSTEM(6), // 系统
+  AUDIO(7), // 视频
+  EMAIL(8), // 邮件
+  SHARE_GROUP_CHAT(9), // 组分享
+  STICKER(10), // 贴纸
+  MERGE_FORWARD(11), // 合并转发
+  CALENDAR(12), // 日历
+  CLOUD_FILE(13), // 云文件
+  CARD(14), // 卡片
+  MEDIA(15), // 媒体
+  SHARE_CALENDAR_EVENT(16), // 日历分享
+  HONGBAO(17), // 红包
+  GENERAL_CALENDER(18), // 一般日历
+  VIDEO_CHAT(19), // 视频会话
+  LOCATION(20), // 位置
+  CUSTOMIZE(21), // 自定义
+  COMMERCIALIZED_HONGBAO(22), // 红包
+  SHARE_USER_CARD(23), // 卡片分享
+  TODO(24), // todo
+  FOLDER(25), // 文件夹
+  ;
+  private Integer value;
 
-    MessageMetaMessageTypeEnum(Integer value) {
-        this.value = value;
-    }
+  MessageMetaMessageTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

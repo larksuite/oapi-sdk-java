@@ -13,124 +13,123 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class IdConvertDirectoryUserReqBody {
+  /**
+   * ID 转换类型，枚举;设置为10、11、40时，ids需要传入妙搭用户 ID;设置为20时，需要传入飞书开平 OpenID;设置为21时，需要传入飞书开平 UnionID<br>
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("id_convert_type")
+  private Integer idConvertType;
+
+  /**
+   * 默认为空，为空时不返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ids")
+  private String[] ids;
+
+  public Integer getIdConvertType() {
+    return this.idConvertType;
+  }
+
+  public void setIdConvertType(Integer idConvertType) {
+    this.idConvertType = idConvertType;
+  }
+
+  public String[] getIds() {
+    return this.ids;
+  }
+
+  public void setIds(String[] ids) {
+    this.ids = ids;
+  }
+
+  // builder 开始
+  public IdConvertDirectoryUserReqBody() {}
+
+  public IdConvertDirectoryUserReqBody(Builder builder) {
     /**
-     * ID 转换类型，枚举
-     * <p> 示例值：
+     * ID 转换类型，枚举;设置为10、11、40时，ids需要传入妙搭用户 ID;设置为20时，需要传入飞书开平 OpenID;设置为21时，需要传入飞书开平 UnionID<br>
+     *
+     * <p>示例值：10
      */
-    @SerializedName("id_convert_type")
+    this.idConvertType = builder.idConvertType;
+    /**
+     * 默认为空，为空时不返回
+     *
+     * <p>示例值：
+     */
+    this.ids = builder.ids;
+  }
+
+  public static class Builder {
+    /**
+     * ID 转换类型，枚举;设置为10、11、40时，ids需要传入妙搭用户 ID;设置为20时，需要传入飞书开平 OpenID;设置为21时，需要传入飞书开平 UnionID<br>
+     *
+     * <p>示例值：10
+     */
     private Integer idConvertType;
+
     /**
-     * 长度最大100
-     * <p> 示例值：
+     * 默认为空，为空时不返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("ids")
     private String[] ids;
 
-    // builder 开始
-    public IdConvertDirectoryUserReqBody() {
+    /**
+     * ID 转换类型，枚举;设置为10、11、40时，ids需要传入妙搭用户 ID;设置为20时，需要传入飞书开平 OpenID;设置为21时，需要传入飞书开平 UnionID<br>
+     *
+     * <p>示例值：10
+     *
+     * @param idConvertType
+     * @return
+     */
+    public Builder idConvertType(Integer idConvertType) {
+      this.idConvertType = idConvertType;
+      return this;
     }
 
-    public IdConvertDirectoryUserReqBody(Builder builder) {
-        /**
-         * ID 转换类型，枚举
-         * <p> 示例值：
-         */
-        this.idConvertType = builder.idConvertType;
-        /**
-         * 长度最大100
-         * <p> 示例值：
-         */
-        this.ids = builder.ids;
+    /**
+     * ID 转换类型，枚举;设置为10、11、40时，ids需要传入妙搭用户 ID;设置为20时，需要传入飞书开平 OpenID;设置为21时，需要传入飞书开平 UnionID<br>
+     *
+     * <p>示例值：10
+     *
+     * @param idConvertType {@link
+     *     com.lark.oapi.service.spark.v1.enums.IdConvertDirectoryUserIdConvertTypeEnum}
+     * @return
+     */
+    public Builder idConvertType(
+        com.lark.oapi.service.spark.v1.enums.IdConvertDirectoryUserIdConvertTypeEnum
+            idConvertType) {
+      this.idConvertType = idConvertType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 默认为空，为空时不返回
+     *
+     * <p>示例值：
+     *
+     * @param ids
+     * @return
+     */
+    public Builder ids(String[] ids) {
+      this.ids = ids;
+      return this;
     }
 
-    public Integer getIdConvertType() {
-        return this.idConvertType;
+    public IdConvertDirectoryUserReqBody build() {
+      return new IdConvertDirectoryUserReqBody(this);
     }
+  }
 
-    public void setIdConvertType(Integer idConvertType) {
-        this.idConvertType = idConvertType;
-    }
-
-    public String[] getIds() {
-        return this.ids;
-    }
-
-    public void setIds(String[] ids) {
-        this.ids = ids;
-    }
-
-    public static class Builder {
-        /**
-         * ID 转换类型，枚举
-         * <p> 示例值：
-         */
-        private Integer idConvertType;
-        /**
-         * 长度最大100
-         * <p> 示例值：
-         */
-        private String[] ids;
-
-        /**
-         * ID 转换类型，枚举
-         * <p> 示例值：
-         *
-         * @param idConvertType
-         * @return
-         */
-        public Builder idConvertType(Integer idConvertType) {
-            this.idConvertType = idConvertType;
-            return this;
-        }
-
-        /**
-         * ID 转换类型，枚举
-         * <p> 示例值：
-         *
-         * @param idConvertType {@link com.lark.oapi.service.spark.v1.enums.IdConvertDirectoryUserIdConvertTypeEnum}
-         * @return
-         */
-        public Builder idConvertType(com.lark.oapi.service.spark.v1.enums.IdConvertDirectoryUserIdConvertTypeEnum idConvertType) {
-            this.idConvertType = idConvertType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 长度最大100
-         * <p> 示例值：
-         *
-         * @param ids
-         * @return
-         */
-        public Builder ids(String[] ids) {
-            this.ids = ids;
-            return this;
-        }
-
-
-        public IdConvertDirectoryUserReqBody build() {
-            return new IdConvertDirectoryUserReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

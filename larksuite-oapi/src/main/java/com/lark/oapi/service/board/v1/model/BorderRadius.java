@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BorderRadius {
+  /**
+   * 左上角弧度半径
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("top_left")
+  private Integer topLeft;
+
+  /**
+   * 右上角弧度半径
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("top_right")
+  private Integer topRight;
+
+  /**
+   * 右下角弧度半径
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("bottom_right")
+  private Integer bottomRight;
+
+  /**
+   * 左下角弧度半径
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("bottom_left")
+  private Integer bottomLeft;
+
+  public Integer getTopLeft() {
+    return this.topLeft;
+  }
+
+  public void setTopLeft(Integer topLeft) {
+    this.topLeft = topLeft;
+  }
+
+  public Integer getTopRight() {
+    return this.topRight;
+  }
+
+  public void setTopRight(Integer topRight) {
+    this.topRight = topRight;
+  }
+
+  public Integer getBottomRight() {
+    return this.bottomRight;
+  }
+
+  public void setBottomRight(Integer bottomRight) {
+    this.bottomRight = bottomRight;
+  }
+
+  public Integer getBottomLeft() {
+    return this.bottomLeft;
+  }
+
+  public void setBottomLeft(Integer bottomLeft) {
+    this.bottomLeft = bottomLeft;
+  }
+
+  // builder 开始
+  public BorderRadius() {}
+
+  public BorderRadius(Builder builder) {
     /**
      * 左上角弧度半径
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("top_left")
-    private Integer topLeft;
+    this.topLeft = builder.topLeft;
     /**
      * 右上角弧度半径
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("top_right")
-    private Integer topRight;
+    this.topRight = builder.topRight;
     /**
      * 右下角弧度半径
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("bottom_right")
-    private Integer bottomRight;
+    this.bottomRight = builder.bottomRight;
     /**
      * 左下角弧度半径
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("bottom_left")
+    this.bottomLeft = builder.bottomLeft;
+  }
+
+  public static class Builder {
+    /**
+     * 左上角弧度半径
+     *
+     * <p>示例值：1
+     */
+    private Integer topLeft;
+
+    /**
+     * 右上角弧度半径
+     *
+     * <p>示例值：1
+     */
+    private Integer topRight;
+
+    /**
+     * 右下角弧度半径
+     *
+     * <p>示例值：0
+     */
+    private Integer bottomRight;
+
+    /**
+     * 左下角弧度半径
+     *
+     * <p>示例值：1
+     */
     private Integer bottomLeft;
 
-    // builder 开始
-    public BorderRadius() {
+    /**
+     * 左上角弧度半径
+     *
+     * <p>示例值：1
+     *
+     * @param topLeft
+     * @return
+     */
+    public Builder topLeft(Integer topLeft) {
+      this.topLeft = topLeft;
+      return this;
     }
 
-    public BorderRadius(Builder builder) {
-        /**
-         * 左上角弧度半径
-         * <p> 示例值：1
-         */
-        this.topLeft = builder.topLeft;
-        /**
-         * 右上角弧度半径
-         * <p> 示例值：1
-         */
-        this.topRight = builder.topRight;
-        /**
-         * 右下角弧度半径
-         * <p> 示例值：0
-         */
-        this.bottomRight = builder.bottomRight;
-        /**
-         * 左下角弧度半径
-         * <p> 示例值：1
-         */
-        this.bottomLeft = builder.bottomLeft;
+    /**
+     * 右上角弧度半径
+     *
+     * <p>示例值：1
+     *
+     * @param topRight
+     * @return
+     */
+    public Builder topRight(Integer topRight) {
+      this.topRight = topRight;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 右下角弧度半径
+     *
+     * <p>示例值：0
+     *
+     * @param bottomRight
+     * @return
+     */
+    public Builder bottomRight(Integer bottomRight) {
+      this.bottomRight = bottomRight;
+      return this;
     }
 
-    public Integer getTopLeft() {
-        return this.topLeft;
+    /**
+     * 左下角弧度半径
+     *
+     * <p>示例值：1
+     *
+     * @param bottomLeft
+     * @return
+     */
+    public Builder bottomLeft(Integer bottomLeft) {
+      this.bottomLeft = bottomLeft;
+      return this;
     }
 
-    public void setTopLeft(Integer topLeft) {
-        this.topLeft = topLeft;
+    public BorderRadius build() {
+      return new BorderRadius(this);
     }
+  }
 
-    public Integer getTopRight() {
-        return this.topRight;
-    }
-
-    public void setTopRight(Integer topRight) {
-        this.topRight = topRight;
-    }
-
-    public Integer getBottomRight() {
-        return this.bottomRight;
-    }
-
-    public void setBottomRight(Integer bottomRight) {
-        this.bottomRight = bottomRight;
-    }
-
-    public Integer getBottomLeft() {
-        return this.bottomLeft;
-    }
-
-    public void setBottomLeft(Integer bottomLeft) {
-        this.bottomLeft = bottomLeft;
-    }
-
-    public static class Builder {
-        /**
-         * 左上角弧度半径
-         * <p> 示例值：1
-         */
-        private Integer topLeft;
-        /**
-         * 右上角弧度半径
-         * <p> 示例值：1
-         */
-        private Integer topRight;
-        /**
-         * 右下角弧度半径
-         * <p> 示例值：0
-         */
-        private Integer bottomRight;
-        /**
-         * 左下角弧度半径
-         * <p> 示例值：1
-         */
-        private Integer bottomLeft;
-
-        /**
-         * 左上角弧度半径
-         * <p> 示例值：1
-         *
-         * @param topLeft
-         * @return
-         */
-        public Builder topLeft(Integer topLeft) {
-            this.topLeft = topLeft;
-            return this;
-        }
-
-
-        /**
-         * 右上角弧度半径
-         * <p> 示例值：1
-         *
-         * @param topRight
-         * @return
-         */
-        public Builder topRight(Integer topRight) {
-            this.topRight = topRight;
-            return this;
-        }
-
-
-        /**
-         * 右下角弧度半径
-         * <p> 示例值：0
-         *
-         * @param bottomRight
-         * @return
-         */
-        public Builder bottomRight(Integer bottomRight) {
-            this.bottomRight = bottomRight;
-            return this;
-        }
-
-
-        /**
-         * 左下角弧度半径
-         * <p> 示例值：1
-         *
-         * @param bottomLeft
-         * @return
-         */
-        public Builder bottomLeft(Integer bottomLeft) {
-            this.bottomLeft = bottomLeft;
-            return this;
-        }
-
-
-        public BorderRadius build() {
-            return new BorderRadius(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

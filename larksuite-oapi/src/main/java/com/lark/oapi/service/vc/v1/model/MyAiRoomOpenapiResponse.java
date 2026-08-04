@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyAiRoomOpenapiResponse {
+  /**
+   * openapi 返回的意图类型，不同 tool 的不同值都不一样
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("response_type")
+  private Integer responseType;
+
+  /**
+   * 日程 id
+   *
+   * <p>示例值：111111111
+   */
+  @SerializedName("schedule_event_id")
+  private String scheduleEventId;
+
+  /**
+   * 其他信息
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("other_msg")
+  private String otherMsg;
+
+  /**
+   * oapi 传递的消息，用于缓存
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("oapi_msg")
+  private String oapiMsg;
+
+  public Integer getResponseType() {
+    return this.responseType;
+  }
+
+  public void setResponseType(Integer responseType) {
+    this.responseType = responseType;
+  }
+
+  public String getScheduleEventId() {
+    return this.scheduleEventId;
+  }
+
+  public void setScheduleEventId(String scheduleEventId) {
+    this.scheduleEventId = scheduleEventId;
+  }
+
+  public String getOtherMsg() {
+    return this.otherMsg;
+  }
+
+  public void setOtherMsg(String otherMsg) {
+    this.otherMsg = otherMsg;
+  }
+
+  public String getOapiMsg() {
+    return this.oapiMsg;
+  }
+
+  public void setOapiMsg(String oapiMsg) {
+    this.oapiMsg = oapiMsg;
+  }
+
+  // builder 开始
+  public MyAiRoomOpenapiResponse() {}
+
+  public MyAiRoomOpenapiResponse(Builder builder) {
     /**
      * openapi 返回的意图类型，不同 tool 的不同值都不一样
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("response_type")
-    private Integer responseType;
+    this.responseType = builder.responseType;
     /**
      * 日程 id
-     * <p> 示例值：111111111
+     *
+     * <p>示例值：111111111
      */
-    @SerializedName("schedule_event_id")
-    private String scheduleEventId;
+    this.scheduleEventId = builder.scheduleEventId;
     /**
      * 其他信息
-     * <p> 示例值：{}
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("other_msg")
-    private String otherMsg;
+    this.otherMsg = builder.otherMsg;
     /**
      * oapi 传递的消息，用于缓存
-     * <p> 示例值：{}
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("oapi_msg")
+    this.oapiMsg = builder.oapiMsg;
+  }
+
+  public static class Builder {
+    /**
+     * openapi 返回的意图类型，不同 tool 的不同值都不一样
+     *
+     * <p>示例值：0
+     */
+    private Integer responseType;
+
+    /**
+     * 日程 id
+     *
+     * <p>示例值：111111111
+     */
+    private String scheduleEventId;
+
+    /**
+     * 其他信息
+     *
+     * <p>示例值：{}
+     */
+    private String otherMsg;
+
+    /**
+     * oapi 传递的消息，用于缓存
+     *
+     * <p>示例值：{}
+     */
     private String oapiMsg;
 
-    // builder 开始
-    public MyAiRoomOpenapiResponse() {
+    /**
+     * openapi 返回的意图类型，不同 tool 的不同值都不一样
+     *
+     * <p>示例值：0
+     *
+     * @param responseType
+     * @return
+     */
+    public Builder responseType(Integer responseType) {
+      this.responseType = responseType;
+      return this;
     }
 
-    public MyAiRoomOpenapiResponse(Builder builder) {
-        /**
-         * openapi 返回的意图类型，不同 tool 的不同值都不一样
-         * <p> 示例值：0
-         */
-        this.responseType = builder.responseType;
-        /**
-         * 日程 id
-         * <p> 示例值：111111111
-         */
-        this.scheduleEventId = builder.scheduleEventId;
-        /**
-         * 其他信息
-         * <p> 示例值：{}
-         */
-        this.otherMsg = builder.otherMsg;
-        /**
-         * oapi 传递的消息，用于缓存
-         * <p> 示例值：{}
-         */
-        this.oapiMsg = builder.oapiMsg;
+    /**
+     * 日程 id
+     *
+     * <p>示例值：111111111
+     *
+     * @param scheduleEventId
+     * @return
+     */
+    public Builder scheduleEventId(String scheduleEventId) {
+      this.scheduleEventId = scheduleEventId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 其他信息
+     *
+     * <p>示例值：{}
+     *
+     * @param otherMsg
+     * @return
+     */
+    public Builder otherMsg(String otherMsg) {
+      this.otherMsg = otherMsg;
+      return this;
     }
 
-    public Integer getResponseType() {
-        return this.responseType;
+    /**
+     * oapi 传递的消息，用于缓存
+     *
+     * <p>示例值：{}
+     *
+     * @param oapiMsg
+     * @return
+     */
+    public Builder oapiMsg(String oapiMsg) {
+      this.oapiMsg = oapiMsg;
+      return this;
     }
 
-    public void setResponseType(Integer responseType) {
-        this.responseType = responseType;
+    public MyAiRoomOpenapiResponse build() {
+      return new MyAiRoomOpenapiResponse(this);
     }
+  }
 
-    public String getScheduleEventId() {
-        return this.scheduleEventId;
-    }
-
-    public void setScheduleEventId(String scheduleEventId) {
-        this.scheduleEventId = scheduleEventId;
-    }
-
-    public String getOtherMsg() {
-        return this.otherMsg;
-    }
-
-    public void setOtherMsg(String otherMsg) {
-        this.otherMsg = otherMsg;
-    }
-
-    public String getOapiMsg() {
-        return this.oapiMsg;
-    }
-
-    public void setOapiMsg(String oapiMsg) {
-        this.oapiMsg = oapiMsg;
-    }
-
-    public static class Builder {
-        /**
-         * openapi 返回的意图类型，不同 tool 的不同值都不一样
-         * <p> 示例值：0
-         */
-        private Integer responseType;
-        /**
-         * 日程 id
-         * <p> 示例值：111111111
-         */
-        private String scheduleEventId;
-        /**
-         * 其他信息
-         * <p> 示例值：{}
-         */
-        private String otherMsg;
-        /**
-         * oapi 传递的消息，用于缓存
-         * <p> 示例值：{}
-         */
-        private String oapiMsg;
-
-        /**
-         * openapi 返回的意图类型，不同 tool 的不同值都不一样
-         * <p> 示例值：0
-         *
-         * @param responseType
-         * @return
-         */
-        public Builder responseType(Integer responseType) {
-            this.responseType = responseType;
-            return this;
-        }
-
-
-        /**
-         * 日程 id
-         * <p> 示例值：111111111
-         *
-         * @param scheduleEventId
-         * @return
-         */
-        public Builder scheduleEventId(String scheduleEventId) {
-            this.scheduleEventId = scheduleEventId;
-            return this;
-        }
-
-
-        /**
-         * 其他信息
-         * <p> 示例值：{}
-         *
-         * @param otherMsg
-         * @return
-         */
-        public Builder otherMsg(String otherMsg) {
-            this.otherMsg = otherMsg;
-            return this;
-        }
-
-
-        /**
-         * oapi 传递的消息，用于缓存
-         * <p> 示例值：{}
-         *
-         * @param oapiMsg
-         * @return
-         */
-        public Builder oapiMsg(String oapiMsg) {
-            this.oapiMsg = oapiMsg;
-            return this;
-        }
-
-
-        public MyAiRoomOpenapiResponse build() {
-            return new MyAiRoomOpenapiResponse(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

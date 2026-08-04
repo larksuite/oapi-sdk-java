@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.admin.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AnnualVcOrgCnt {
+  /**
+   * 2025年用户组织的会议数
+   *
+   * <p>示例值：66
+   */
+  @SerializedName("organized_meeting_cnt")
+  private String organizedMeetingCnt;
+
+  /**
+   * 2025年用户组织日程会议数
+   *
+   * <p>示例值：88
+   */
+  @SerializedName("organized_cal_meeting_cnt")
+  private String organizedCalMeetingCnt;
+
+  /**
+   * 2025年用户组织即时会议数
+   *
+   * <p>示例值：99
+   */
+  @SerializedName("organized_instant_meeting_cnt")
+  private String organizedInstantMeetingCnt;
+
+  public String getOrganizedMeetingCnt() {
+    return this.organizedMeetingCnt;
+  }
+
+  public void setOrganizedMeetingCnt(String organizedMeetingCnt) {
+    this.organizedMeetingCnt = organizedMeetingCnt;
+  }
+
+  public String getOrganizedCalMeetingCnt() {
+    return this.organizedCalMeetingCnt;
+  }
+
+  public void setOrganizedCalMeetingCnt(String organizedCalMeetingCnt) {
+    this.organizedCalMeetingCnt = organizedCalMeetingCnt;
+  }
+
+  public String getOrganizedInstantMeetingCnt() {
+    return this.organizedInstantMeetingCnt;
+  }
+
+  public void setOrganizedInstantMeetingCnt(String organizedInstantMeetingCnt) {
+    this.organizedInstantMeetingCnt = organizedInstantMeetingCnt;
+  }
+
+  // builder 开始
+  public AnnualVcOrgCnt() {}
+
+  public AnnualVcOrgCnt(Builder builder) {
     /**
      * 2025年用户组织的会议数
-     * <p> 示例值：66
+     *
+     * <p>示例值：66
      */
-    @SerializedName("organized_meeting_cnt")
-    private String organizedMeetingCnt;
+    this.organizedMeetingCnt = builder.organizedMeetingCnt;
     /**
      * 2025年用户组织日程会议数
-     * <p> 示例值：88
+     *
+     * <p>示例值：88
      */
-    @SerializedName("organized_cal_meeting_cnt")
-    private String organizedCalMeetingCnt;
+    this.organizedCalMeetingCnt = builder.organizedCalMeetingCnt;
     /**
      * 2025年用户组织即时会议数
-     * <p> 示例值：99
+     *
+     * <p>示例值：99
      */
-    @SerializedName("organized_instant_meeting_cnt")
+    this.organizedInstantMeetingCnt = builder.organizedInstantMeetingCnt;
+  }
+
+  public static class Builder {
+    /**
+     * 2025年用户组织的会议数
+     *
+     * <p>示例值：66
+     */
+    private String organizedMeetingCnt;
+
+    /**
+     * 2025年用户组织日程会议数
+     *
+     * <p>示例值：88
+     */
+    private String organizedCalMeetingCnt;
+
+    /**
+     * 2025年用户组织即时会议数
+     *
+     * <p>示例值：99
+     */
     private String organizedInstantMeetingCnt;
 
-    // builder 开始
-    public AnnualVcOrgCnt() {
+    /**
+     * 2025年用户组织的会议数
+     *
+     * <p>示例值：66
+     *
+     * @param organizedMeetingCnt
+     * @return
+     */
+    public Builder organizedMeetingCnt(String organizedMeetingCnt) {
+      this.organizedMeetingCnt = organizedMeetingCnt;
+      return this;
     }
 
-    public AnnualVcOrgCnt(Builder builder) {
-        /**
-         * 2025年用户组织的会议数
-         * <p> 示例值：66
-         */
-        this.organizedMeetingCnt = builder.organizedMeetingCnt;
-        /**
-         * 2025年用户组织日程会议数
-         * <p> 示例值：88
-         */
-        this.organizedCalMeetingCnt = builder.organizedCalMeetingCnt;
-        /**
-         * 2025年用户组织即时会议数
-         * <p> 示例值：99
-         */
-        this.organizedInstantMeetingCnt = builder.organizedInstantMeetingCnt;
+    /**
+     * 2025年用户组织日程会议数
+     *
+     * <p>示例值：88
+     *
+     * @param organizedCalMeetingCnt
+     * @return
+     */
+    public Builder organizedCalMeetingCnt(String organizedCalMeetingCnt) {
+      this.organizedCalMeetingCnt = organizedCalMeetingCnt;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 2025年用户组织即时会议数
+     *
+     * <p>示例值：99
+     *
+     * @param organizedInstantMeetingCnt
+     * @return
+     */
+    public Builder organizedInstantMeetingCnt(String organizedInstantMeetingCnt) {
+      this.organizedInstantMeetingCnt = organizedInstantMeetingCnt;
+      return this;
     }
 
-    public String getOrganizedMeetingCnt() {
-        return this.organizedMeetingCnt;
+    public AnnualVcOrgCnt build() {
+      return new AnnualVcOrgCnt(this);
     }
+  }
 
-    public void setOrganizedMeetingCnt(String organizedMeetingCnt) {
-        this.organizedMeetingCnt = organizedMeetingCnt;
-    }
-
-    public String getOrganizedCalMeetingCnt() {
-        return this.organizedCalMeetingCnt;
-    }
-
-    public void setOrganizedCalMeetingCnt(String organizedCalMeetingCnt) {
-        this.organizedCalMeetingCnt = organizedCalMeetingCnt;
-    }
-
-    public String getOrganizedInstantMeetingCnt() {
-        return this.organizedInstantMeetingCnt;
-    }
-
-    public void setOrganizedInstantMeetingCnt(String organizedInstantMeetingCnt) {
-        this.organizedInstantMeetingCnt = organizedInstantMeetingCnt;
-    }
-
-    public static class Builder {
-        /**
-         * 2025年用户组织的会议数
-         * <p> 示例值：66
-         */
-        private String organizedMeetingCnt;
-        /**
-         * 2025年用户组织日程会议数
-         * <p> 示例值：88
-         */
-        private String organizedCalMeetingCnt;
-        /**
-         * 2025年用户组织即时会议数
-         * <p> 示例值：99
-         */
-        private String organizedInstantMeetingCnt;
-
-        /**
-         * 2025年用户组织的会议数
-         * <p> 示例值：66
-         *
-         * @param organizedMeetingCnt
-         * @return
-         */
-        public Builder organizedMeetingCnt(String organizedMeetingCnt) {
-            this.organizedMeetingCnt = organizedMeetingCnt;
-            return this;
-        }
-
-
-        /**
-         * 2025年用户组织日程会议数
-         * <p> 示例值：88
-         *
-         * @param organizedCalMeetingCnt
-         * @return
-         */
-        public Builder organizedCalMeetingCnt(String organizedCalMeetingCnt) {
-            this.organizedCalMeetingCnt = organizedCalMeetingCnt;
-            return this;
-        }
-
-
-        /**
-         * 2025年用户组织即时会议数
-         * <p> 示例值：99
-         *
-         * @param organizedInstantMeetingCnt
-         * @return
-         */
-        public Builder organizedInstantMeetingCnt(String organizedInstantMeetingCnt) {
-            this.organizedInstantMeetingCnt = organizedInstantMeetingCnt;
-            return this;
-        }
-
-
-        public AnnualVcOrgCnt build() {
-            return new AnnualVcOrgCnt(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 返回指定语言的内容，默认返回英文数据
- */
+/** 返回指定语言的内容，默认返回英文数据 */
 public enum ListDistrictDistrictLocaleEnum {
-    ZHCN("zh-CN"), // 中文
-    ENUS("en-US"), // 英文
-    ;
-    private String value;
+  ZHCN("zh-CN"), // 中文
+  ENUS("en-US"), // 英文
+  ;
+  private String value;
 
-    ListDistrictDistrictLocaleEnum(String value) {
-        this.value = value;
-    }
+  ListDistrictDistrictLocaleEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

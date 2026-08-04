@@ -13,130 +13,130 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class BatchV2WorkforcePlanDetailReq {
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：["123456"]
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  @Body private BatchV2WorkforcePlanDetailReqBody body;
+
+  public BatchV2WorkforcePlanDetailReqBody getBatchV2WorkforcePlanDetailReqBody() {
+    return this.body;
+  }
+
+  public void setBatchV2WorkforcePlanDetailReqBody(BatchV2WorkforcePlanDetailReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchV2WorkforcePlanDetailReq() {}
+
+  public BatchV2WorkforcePlanDetailReq(Builder builder) {
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：["123456"]
+     *
+     * <p>示例值：["123456"]
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 分页大小
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
-    @Body
+    this.pageSize = builder.pageSize;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private Integer pageSize; // 分页大小
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：["123456"]
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
+    }
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
     private BatchV2WorkforcePlanDetailReqBody body;
 
-    // builder 开始
-    public BatchV2WorkforcePlanDetailReq() {
-    }
-
-    public BatchV2WorkforcePlanDetailReq(Builder builder) {
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：["123456"]
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
     public BatchV2WorkforcePlanDetailReqBody getBatchV2WorkforcePlanDetailReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchV2WorkforcePlanDetailReqBody(BatchV2WorkforcePlanDetailReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchV2WorkforcePlanDetailReqBody(BatchV2WorkforcePlanDetailReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private Integer pageSize; // 分页大小
-        private BatchV2WorkforcePlanDetailReqBody body;
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：["123456"]
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 分页大小
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        public BatchV2WorkforcePlanDetailReqBody getBatchV2WorkforcePlanDetailReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchV2WorkforcePlanDetailReqBody(BatchV2WorkforcePlanDetailReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchV2WorkforcePlanDetailReq build() {
-            return new BatchV2WorkforcePlanDetailReq(this);
-        }
+    public BatchV2WorkforcePlanDetailReq build() {
+      return new BatchV2WorkforcePlanDetailReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

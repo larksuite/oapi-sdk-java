@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CurrentOkrSimple {
+  /**
+   * OKR ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("okr_id")
+  private String okrId;
+
+  /**
+   * 周期 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("period_id")
+  private String periodId;
+
+  public String getOkrId() {
+    return this.okrId;
+  }
+
+  public void setOkrId(String okrId) {
+    this.okrId = okrId;
+  }
+
+  public String getPeriodId() {
+    return this.periodId;
+  }
+
+  public void setPeriodId(String periodId) {
+    this.periodId = periodId;
+  }
+
+  // builder 开始
+  public CurrentOkrSimple() {}
+
+  public CurrentOkrSimple(Builder builder) {
     /**
      * OKR ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("okr_id")
-    private String okrId;
+    this.okrId = builder.okrId;
     /**
      * 周期 ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("period_id")
+    this.periodId = builder.periodId;
+  }
+
+  public static class Builder {
+    /**
+     * OKR ID
+     *
+     * <p>示例值：
+     */
+    private String okrId;
+
+    /**
+     * 周期 ID
+     *
+     * <p>示例值：
+     */
     private String periodId;
 
-    // builder 开始
-    public CurrentOkrSimple() {
+    /**
+     * OKR ID
+     *
+     * <p>示例值：
+     *
+     * @param okrId
+     * @return
+     */
+    public Builder okrId(String okrId) {
+      this.okrId = okrId;
+      return this;
     }
 
-    public CurrentOkrSimple(Builder builder) {
-        /**
-         * OKR ID
-         * <p> 示例值：
-         */
-        this.okrId = builder.okrId;
-        /**
-         * 周期 ID
-         * <p> 示例值：
-         */
-        this.periodId = builder.periodId;
+    /**
+     * 周期 ID
+     *
+     * <p>示例值：
+     *
+     * @param periodId
+     * @return
+     */
+    public Builder periodId(String periodId) {
+      this.periodId = periodId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CurrentOkrSimple build() {
+      return new CurrentOkrSimple(this);
     }
+  }
 
-    public String getOkrId() {
-        return this.okrId;
-    }
-
-    public void setOkrId(String okrId) {
-        this.okrId = okrId;
-    }
-
-    public String getPeriodId() {
-        return this.periodId;
-    }
-
-    public void setPeriodId(String periodId) {
-        this.periodId = periodId;
-    }
-
-    public static class Builder {
-        /**
-         * OKR ID
-         * <p> 示例值：
-         */
-        private String okrId;
-        /**
-         * 周期 ID
-         * <p> 示例值：
-         */
-        private String periodId;
-
-        /**
-         * OKR ID
-         * <p> 示例值：
-         *
-         * @param okrId
-         * @return
-         */
-        public Builder okrId(String okrId) {
-            this.okrId = okrId;
-            return this;
-        }
-
-
-        /**
-         * 周期 ID
-         * <p> 示例值：
-         *
-         * @param periodId
-         * @return
-         */
-        public Builder periodId(String periodId) {
-            this.periodId = periodId;
-            return this;
-        }
-
-
-        public CurrentOkrSimple build() {
-            return new CurrentOkrSimple(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

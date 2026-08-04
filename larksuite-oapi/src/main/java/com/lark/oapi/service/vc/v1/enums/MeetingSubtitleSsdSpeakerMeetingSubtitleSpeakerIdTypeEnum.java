@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 说话人类型
- */
+/** 说话人类型 */
 public enum MeetingSubtitleSsdSpeakerMeetingSubtitleSpeakerIdTypeEnum {
-    SSDSPEAKERIDTYPE_UNKNOWN(0), // SSDSpeakerIDType_UNKNOWN
-    SSDSPEAKERIDTYPE_LARK_USER_ID(1), // SSDSpeakerIDType_LARK_USER_ID
-    SSDSPEAKERIDTYPE_ANONYMOUS_USER_ID(2), // SSDSpeakerIDType_ANONYMOUS_USER_ID
-    ;
-    private Integer value;
+  SSDSPEAKERIDTYPE_UNKNOWN(0), // UNKNOWN
+  SSDSPEAKERIDTYPE_LARK_USER_ID(1), // LARK_USER_ID
+  SSDSPEAKERIDTYPE_ANONYMOUS_USER_ID(2), // ANONYMOUS_USER_ID
+  ;
+  private Integer value;
 
-    MeetingSubtitleSsdSpeakerMeetingSubtitleSpeakerIdTypeEnum(Integer value) {
-        this.value = value;
-    }
+  MeetingSubtitleSsdSpeakerMeetingSubtitleSpeakerIdTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

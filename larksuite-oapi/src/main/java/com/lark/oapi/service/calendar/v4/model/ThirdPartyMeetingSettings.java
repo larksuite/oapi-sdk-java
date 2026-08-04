@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ThirdPartyMeetingSettings {
+  /**
+   * 三方会议类型
+   *
+   * <p>示例值：julinker
+   */
+  @SerializedName("meeting_type")
+  private String meetingType;
+
+  /**
+   * 会议ID
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("meeting_id")
+  private String meetingId;
+
+  /**
+   * 会议号
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("meeting_no")
+  private String meetingNo;
+
+  /**
+   * 密码
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("password")
+  private String password;
+
+  /**
+   * 多语言会议描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("meeting_descriptions")
+  private I18nMeetingDescription[] meetingDescriptions;
+
+  public String getMeetingType() {
+    return this.meetingType;
+  }
+
+  public void setMeetingType(String meetingType) {
+    this.meetingType = meetingType;
+  }
+
+  public String getMeetingId() {
+    return this.meetingId;
+  }
+
+  public void setMeetingId(String meetingId) {
+    this.meetingId = meetingId;
+  }
+
+  public String getMeetingNo() {
+    return this.meetingNo;
+  }
+
+  public void setMeetingNo(String meetingNo) {
+    this.meetingNo = meetingNo;
+  }
+
+  public String getPassword() {
+    return this.password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  public I18nMeetingDescription[] getMeetingDescriptions() {
+    return this.meetingDescriptions;
+  }
+
+  public void setMeetingDescriptions(I18nMeetingDescription[] meetingDescriptions) {
+    this.meetingDescriptions = meetingDescriptions;
+  }
+
+  // builder 开始
+  public ThirdPartyMeetingSettings() {}
+
+  public ThirdPartyMeetingSettings(Builder builder) {
     /**
      * 三方会议类型
-     * <p> 示例值：julinker
+     *
+     * <p>示例值：julinker
      */
-    @SerializedName("meeting_type")
-    private String meetingType;
+    this.meetingType = builder.meetingType;
     /**
      * 会议ID
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("meeting_id")
-    private String meetingId;
+    this.meetingId = builder.meetingId;
     /**
      * 会议号
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("meeting_no")
-    private String meetingNo;
+    this.meetingNo = builder.meetingNo;
     /**
      * 密码
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("password")
-    private String password;
+    this.password = builder.password;
     /**
      * 多语言会议描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("meeting_descriptions")
+    this.meetingDescriptions = builder.meetingDescriptions;
+  }
+
+  public static class Builder {
+    /**
+     * 三方会议类型
+     *
+     * <p>示例值：julinker
+     */
+    private String meetingType;
+
+    /**
+     * 会议ID
+     *
+     * <p>示例值：123
+     */
+    private String meetingId;
+
+    /**
+     * 会议号
+     *
+     * <p>示例值：123
+     */
+    private String meetingNo;
+
+    /**
+     * 密码
+     *
+     * <p>示例值：123
+     */
+    private String password;
+
+    /**
+     * 多语言会议描述
+     *
+     * <p>示例值：
+     */
     private I18nMeetingDescription[] meetingDescriptions;
 
-    // builder 开始
-    public ThirdPartyMeetingSettings() {
+    /**
+     * 三方会议类型
+     *
+     * <p>示例值：julinker
+     *
+     * @param meetingType
+     * @return
+     */
+    public Builder meetingType(String meetingType) {
+      this.meetingType = meetingType;
+      return this;
     }
 
-    public ThirdPartyMeetingSettings(Builder builder) {
-        /**
-         * 三方会议类型
-         * <p> 示例值：julinker
-         */
-        this.meetingType = builder.meetingType;
-        /**
-         * 会议ID
-         * <p> 示例值：123
-         */
-        this.meetingId = builder.meetingId;
-        /**
-         * 会议号
-         * <p> 示例值：123
-         */
-        this.meetingNo = builder.meetingNo;
-        /**
-         * 密码
-         * <p> 示例值：123
-         */
-        this.password = builder.password;
-        /**
-         * 多语言会议描述
-         * <p> 示例值：
-         */
-        this.meetingDescriptions = builder.meetingDescriptions;
+    /**
+     * 会议ID
+     *
+     * <p>示例值：123
+     *
+     * @param meetingId
+     * @return
+     */
+    public Builder meetingId(String meetingId) {
+      this.meetingId = meetingId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会议号
+     *
+     * <p>示例值：123
+     *
+     * @param meetingNo
+     * @return
+     */
+    public Builder meetingNo(String meetingNo) {
+      this.meetingNo = meetingNo;
+      return this;
     }
 
-    public String getMeetingType() {
-        return this.meetingType;
+    /**
+     * 密码
+     *
+     * <p>示例值：123
+     *
+     * @param password
+     * @return
+     */
+    public Builder password(String password) {
+      this.password = password;
+      return this;
     }
 
-    public void setMeetingType(String meetingType) {
-        this.meetingType = meetingType;
+    /**
+     * 多语言会议描述
+     *
+     * <p>示例值：
+     *
+     * @param meetingDescriptions
+     * @return
+     */
+    public Builder meetingDescriptions(I18nMeetingDescription[] meetingDescriptions) {
+      this.meetingDescriptions = meetingDescriptions;
+      return this;
     }
 
-    public String getMeetingId() {
-        return this.meetingId;
+    public ThirdPartyMeetingSettings build() {
+      return new ThirdPartyMeetingSettings(this);
     }
+  }
 
-    public void setMeetingId(String meetingId) {
-        this.meetingId = meetingId;
-    }
-
-    public String getMeetingNo() {
-        return this.meetingNo;
-    }
-
-    public void setMeetingNo(String meetingNo) {
-        this.meetingNo = meetingNo;
-    }
-
-    public String getPassword() {
-        return this.password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public I18nMeetingDescription[] getMeetingDescriptions() {
-        return this.meetingDescriptions;
-    }
-
-    public void setMeetingDescriptions(I18nMeetingDescription[] meetingDescriptions) {
-        this.meetingDescriptions = meetingDescriptions;
-    }
-
-    public static class Builder {
-        /**
-         * 三方会议类型
-         * <p> 示例值：julinker
-         */
-        private String meetingType;
-        /**
-         * 会议ID
-         * <p> 示例值：123
-         */
-        private String meetingId;
-        /**
-         * 会议号
-         * <p> 示例值：123
-         */
-        private String meetingNo;
-        /**
-         * 密码
-         * <p> 示例值：123
-         */
-        private String password;
-        /**
-         * 多语言会议描述
-         * <p> 示例值：
-         */
-        private I18nMeetingDescription[] meetingDescriptions;
-
-        /**
-         * 三方会议类型
-         * <p> 示例值：julinker
-         *
-         * @param meetingType
-         * @return
-         */
-        public Builder meetingType(String meetingType) {
-            this.meetingType = meetingType;
-            return this;
-        }
-
-
-        /**
-         * 会议ID
-         * <p> 示例值：123
-         *
-         * @param meetingId
-         * @return
-         */
-        public Builder meetingId(String meetingId) {
-            this.meetingId = meetingId;
-            return this;
-        }
-
-
-        /**
-         * 会议号
-         * <p> 示例值：123
-         *
-         * @param meetingNo
-         * @return
-         */
-        public Builder meetingNo(String meetingNo) {
-            this.meetingNo = meetingNo;
-            return this;
-        }
-
-
-        /**
-         * 密码
-         * <p> 示例值：123
-         *
-         * @param password
-         * @return
-         */
-        public Builder password(String password) {
-            this.password = password;
-            return this;
-        }
-
-
-        /**
-         * 多语言会议描述
-         * <p> 示例值：
-         *
-         * @param meetingDescriptions
-         * @return
-         */
-        public Builder meetingDescriptions(I18nMeetingDescription[] meetingDescriptions) {
-            this.meetingDescriptions = meetingDescriptions;
-            return this;
-        }
-
-
-        public ThirdPartyMeetingSettings build() {
-            return new ThirdPartyMeetingSettings(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,121 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExportArchiveUserRecordReq {
+  /** 示例值：20240101 */
+  @SerializedName("start_date")
+  private String startDate;
+
+  /** 示例值： */
+  @SerializedName("end_date")
+  private String endDate;
+
+  /**
+   * 查询的user_id列表。与employee_type对应
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  public String getStartDate() {
+    return this.startDate;
+  }
+
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+  public String getEndDate() {
+    return this.endDate;
+  }
+
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
+  }
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  // builder 开始
+  public ExportArchiveUserRecordReq() {}
+
+  public ExportArchiveUserRecordReq(Builder builder) {
+    /** 示例值：20240101 */
+    this.startDate = builder.startDate;
+    /** 示例值： */
+    this.endDate = builder.endDate;
     /**
-     * 查询报表起始日期，格式yyyyMMdd，示例20240101
-     * <p> 示例值：20240101
+     * 查询的user_id列表。与employee_type对应
+     *
+     * <p>示例值：
      */
-    @SerializedName("start_date")
+    this.userIds = builder.userIds;
+  }
+
+  public static class Builder {
+    /** 示例值：20240101 */
     private String startDate;
-    /**
-     * 查询报表结束日期，格式yyyyMMdd，示例20240101 -- 跨度不超过一个月
-     * <p> 示例值：20240105
-     */
-    @SerializedName("end_date")
+
+    /** 示例值： */
     private String endDate;
+
     /**
-     * 查询的 user_id列表。与employee_type对应
-     * <p> 示例值：
+     * 查询的user_id列表。与employee_type对应
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
     private String[] userIds;
 
-    // builder 开始
-    public ExportArchiveUserRecordReq() {
+    /**
+     * 示例值：20240101
+     *
+     * @param startDate
+     * @return
+     */
+    public Builder startDate(String startDate) {
+      this.startDate = startDate;
+      return this;
     }
 
-    public ExportArchiveUserRecordReq(Builder builder) {
-        /**
-         * 查询报表起始日期，格式yyyyMMdd，示例20240101
-         * <p> 示例值：20240101
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 查询报表结束日期，格式yyyyMMdd，示例20240101 -- 跨度不超过一个月
-         * <p> 示例值：20240105
-         */
-        this.endDate = builder.endDate;
-        /**
-         * 查询的 user_id列表。与employee_type对应
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
+    /**
+     * 示例值：
+     *
+     * @param endDate
+     * @return
+     */
+    public Builder endDate(String endDate) {
+      this.endDate = endDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 查询的user_id列表。与employee_type对应
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public String getStartDate() {
-        return this.startDate;
+    public ExportArchiveUserRecordReq build() {
+      return new ExportArchiveUserRecordReq(this);
     }
+  }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getEndDate() {
-        return this.endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public static class Builder {
-        /**
-         * 查询报表起始日期，格式yyyyMMdd，示例20240101
-         * <p> 示例值：20240101
-         */
-        private String startDate;
-        /**
-         * 查询报表结束日期，格式yyyyMMdd，示例20240101 -- 跨度不超过一个月
-         * <p> 示例值：20240105
-         */
-        private String endDate;
-        /**
-         * 查询的 user_id列表。与employee_type对应
-         * <p> 示例值：
-         */
-        private String[] userIds;
-
-        /**
-         * 查询报表起始日期，格式yyyyMMdd，示例20240101
-         * <p> 示例值：20240101
-         *
-         * @param startDate
-         * @return
-         */
-        public Builder startDate(String startDate) {
-            this.startDate = startDate;
-            return this;
-        }
-
-
-        /**
-         * 查询报表结束日期，格式yyyyMMdd，示例20240101 -- 跨度不超过一个月
-         * <p> 示例值：20240105
-         *
-         * @param endDate
-         * @return
-         */
-        public Builder endDate(String endDate) {
-            this.endDate = endDate;
-            return this;
-        }
-
-
-        /**
-         * 查询的 user_id列表。与employee_type对应
-         * <p> 示例值：
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        public ExportArchiveUserRecordReq build() {
-            return new ExportArchiveUserRecordReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

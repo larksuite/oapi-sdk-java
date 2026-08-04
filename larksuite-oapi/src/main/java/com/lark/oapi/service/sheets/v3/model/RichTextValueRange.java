@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RichTextValueRange {
+  /**
+   * 范围
+   *
+   * <p>示例值：Sheet1!A1:A2
+   */
+  @SerializedName("range")
+  private String range;
+
+  /**
+   * 数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("values")
+  private CellValue[][][] values;
+
+  public String getRange() {
+    return this.range;
+  }
+
+  public void setRange(String range) {
+    this.range = range;
+  }
+
+  public CellValue[][][] getValues() {
+    return this.values;
+  }
+
+  public void setValues(CellValue[][][] values) {
+    this.values = values;
+  }
+
+  // builder 开始
+  public RichTextValueRange() {}
+
+  public RichTextValueRange(Builder builder) {
     /**
      * 范围
-     * <p> 示例值：Sheet1!A1:A2
+     *
+     * <p>示例值：Sheet1!A1:A2
      */
-    @SerializedName("range")
-    private String range;
+    this.range = builder.range;
     /**
      * 数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("values")
+    this.values = builder.values;
+  }
+
+  public static class Builder {
+    /**
+     * 范围
+     *
+     * <p>示例值：Sheet1!A1:A2
+     */
+    private String range;
+
+    /**
+     * 数据
+     *
+     * <p>示例值：
+     */
     private CellValue[][][] values;
 
-    // builder 开始
-    public RichTextValueRange() {
+    /**
+     * 范围
+     *
+     * <p>示例值：Sheet1!A1:A2
+     *
+     * @param range
+     * @return
+     */
+    public Builder range(String range) {
+      this.range = range;
+      return this;
     }
 
-    public RichTextValueRange(Builder builder) {
-        /**
-         * 范围
-         * <p> 示例值：Sheet1!A1:A2
-         */
-        this.range = builder.range;
-        /**
-         * 数据
-         * <p> 示例值：
-         */
-        this.values = builder.values;
+    /**
+     * 数据
+     *
+     * <p>示例值：
+     *
+     * @param values
+     * @return
+     */
+    public Builder values(CellValue[][][] values) {
+      this.values = values;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public RichTextValueRange build() {
+      return new RichTextValueRange(this);
     }
+  }
 
-    public String getRange() {
-        return this.range;
-    }
-
-    public void setRange(String range) {
-        this.range = range;
-    }
-
-    public CellValue[][][] getValues() {
-        return this.values;
-    }
-
-    public void setValues(CellValue[][][] values) {
-        this.values = values;
-    }
-
-    public static class Builder {
-        /**
-         * 范围
-         * <p> 示例值：Sheet1!A1:A2
-         */
-        private String range;
-        /**
-         * 数据
-         * <p> 示例值：
-         */
-        private CellValue[][][] values;
-
-        /**
-         * 范围
-         * <p> 示例值：Sheet1!A1:A2
-         *
-         * @param range
-         * @return
-         */
-        public Builder range(String range) {
-            this.range = range;
-            return this;
-        }
-
-
-        /**
-         * 数据
-         * <p> 示例值：
-         *
-         * @param values
-         * @return
-         */
-        public Builder values(CellValue[][][] values) {
-            this.values = values;
-            return this;
-        }
-
-
-        public RichTextValueRange build() {
-            return new RichTextValueRange(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

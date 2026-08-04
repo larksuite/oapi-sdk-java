@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InterviewAttachment {
+  /**
+   * 附件 ID
+   *
+   * <p>示例值：7140517838785481004
+   */
+  @SerializedName("file_id")
+  private String fileId;
+
+  /**
+   * 附件名称
+   *
+   * <p>示例值：1.13测试1的面试记录.pdf
+   */
+  @SerializedName("file_name")
+  private String fileName;
+
+  /**
+   * 附件类型
+   *
+   * <p>示例值：application/pdf
+   */
+  @SerializedName("content_type")
+  private String contentType;
+
+  /**
+   * 附件创建时间(ms)
+   *
+   * <p>示例值：1710399930151
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  public String getFileId() {
+    return this.fileId;
+  }
+
+  public void setFileId(String fileId) {
+    this.fileId = fileId;
+  }
+
+  public String getFileName() {
+    return this.fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public String getContentType() {
+    return this.contentType;
+  }
+
+  public void setContentType(String contentType) {
+    this.contentType = contentType;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  // builder 开始
+  public InterviewAttachment() {}
+
+  public InterviewAttachment(Builder builder) {
     /**
      * 附件 ID
-     * <p> 示例值：7140517838785481004
+     *
+     * <p>示例值：7140517838785481004
      */
-    @SerializedName("file_id")
-    private String fileId;
+    this.fileId = builder.fileId;
     /**
      * 附件名称
-     * <p> 示例值：1.13测试1的面试记录.pdf
+     *
+     * <p>示例值：1.13测试1的面试记录.pdf
      */
-    @SerializedName("file_name")
-    private String fileName;
+    this.fileName = builder.fileName;
     /**
      * 附件类型
-     * <p> 示例值：application/pdf
+     *
+     * <p>示例值：application/pdf
      */
-    @SerializedName("content_type")
-    private String contentType;
+    this.contentType = builder.contentType;
     /**
      * 附件创建时间(ms)
-     * <p> 示例值：1710399930151
+     *
+     * <p>示例值：1710399930151
      */
-    @SerializedName("create_time")
+    this.createTime = builder.createTime;
+  }
+
+  public static class Builder {
+    /**
+     * 附件 ID
+     *
+     * <p>示例值：7140517838785481004
+     */
+    private String fileId;
+
+    /**
+     * 附件名称
+     *
+     * <p>示例值：1.13测试1的面试记录.pdf
+     */
+    private String fileName;
+
+    /**
+     * 附件类型
+     *
+     * <p>示例值：application/pdf
+     */
+    private String contentType;
+
+    /**
+     * 附件创建时间(ms)
+     *
+     * <p>示例值：1710399930151
+     */
     private String createTime;
 
-    // builder 开始
-    public InterviewAttachment() {
+    /**
+     * 附件 ID
+     *
+     * <p>示例值：7140517838785481004
+     *
+     * @param fileId
+     * @return
+     */
+    public Builder fileId(String fileId) {
+      this.fileId = fileId;
+      return this;
     }
 
-    public InterviewAttachment(Builder builder) {
-        /**
-         * 附件 ID
-         * <p> 示例值：7140517838785481004
-         */
-        this.fileId = builder.fileId;
-        /**
-         * 附件名称
-         * <p> 示例值：1.13测试1的面试记录.pdf
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 附件类型
-         * <p> 示例值：application/pdf
-         */
-        this.contentType = builder.contentType;
-        /**
-         * 附件创建时间(ms)
-         * <p> 示例值：1710399930151
-         */
-        this.createTime = builder.createTime;
+    /**
+     * 附件名称
+     *
+     * <p>示例值：1.13测试1的面试记录.pdf
+     *
+     * @param fileName
+     * @return
+     */
+    public Builder fileName(String fileName) {
+      this.fileName = fileName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 附件类型
+     *
+     * <p>示例值：application/pdf
+     *
+     * @param contentType
+     * @return
+     */
+    public Builder contentType(String contentType) {
+      this.contentType = contentType;
+      return this;
     }
 
-    public String getFileId() {
-        return this.fileId;
+    /**
+     * 附件创建时间(ms)
+     *
+     * <p>示例值：1710399930151
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setFileId(String fileId) {
-        this.fileId = fileId;
+    public InterviewAttachment build() {
+      return new InterviewAttachment(this);
     }
+  }
 
-    public String getFileName() {
-        return this.fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getContentType() {
-        return this.contentType;
-    }
-
-    public void setContentType(String contentType) {
-        this.contentType = contentType;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public static class Builder {
-        /**
-         * 附件 ID
-         * <p> 示例值：7140517838785481004
-         */
-        private String fileId;
-        /**
-         * 附件名称
-         * <p> 示例值：1.13测试1的面试记录.pdf
-         */
-        private String fileName;
-        /**
-         * 附件类型
-         * <p> 示例值：application/pdf
-         */
-        private String contentType;
-        /**
-         * 附件创建时间(ms)
-         * <p> 示例值：1710399930151
-         */
-        private String createTime;
-
-        /**
-         * 附件 ID
-         * <p> 示例值：7140517838785481004
-         *
-         * @param fileId
-         * @return
-         */
-        public Builder fileId(String fileId) {
-            this.fileId = fileId;
-            return this;
-        }
-
-
-        /**
-         * 附件名称
-         * <p> 示例值：1.13测试1的面试记录.pdf
-         *
-         * @param fileName
-         * @return
-         */
-        public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
-        }
-
-
-        /**
-         * 附件类型
-         * <p> 示例值：application/pdf
-         *
-         * @param contentType
-         * @return
-         */
-        public Builder contentType(String contentType) {
-            this.contentType = contentType;
-            return this;
-        }
-
-
-        /**
-         * 附件创建时间(ms)
-         * <p> 示例值：1710399930151
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        public InterviewAttachment build() {
-            return new InterviewAttachment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

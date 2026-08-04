@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 此次调用中使用的部门ID的类型
- */
+/** 此次调用中使用的部门ID的类型 */
 public enum FilterDepartmentDepartmentIdTypeEnum {
-    OPEN_DEPARTMENT_ID("open_department_id"), // 用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。
-    DEPARTMENT_ID("department_id"), // 用来标识租户内一个唯一的部门
-    ;
-    private String value;
+  OPEN_DEPARTMENT_ID("open_department_id"), // 用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。
+  DEPARTMENT_ID("department_id"), // 用来标识租户内一个唯一的部门
+  ;
+  private String value;
 
-    FilterDepartmentDepartmentIdTypeEnum(String value) {
-        this.value = value;
-    }
+  FilterDepartmentDepartmentIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

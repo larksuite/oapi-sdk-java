@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateApplicationPublishRespBody {
-    /**
-     * 应用版本ID
-     * <p> 示例值：oav_d317f090b7258ad0372aa53963cda70d
-     */
-    @SerializedName("version_id")
-    private String versionId;
-    /**
-     * 应用版本号
-     * <p> 示例值：1.1.1
-     */
-    @SerializedName("version")
-    private String version;
+  /**
+   * 应用版本ID
+   *
+   * <p>示例值：oav_d317f090b7258ad0372aa53963cda70d
+   */
+  @SerializedName("version_id")
+  private String versionId;
 
-    public String getVersionId() {
-        return this.versionId;
-    }
+  /**
+   * 应用版本号
+   *
+   * <p>示例值：1.1.1
+   */
+  @SerializedName("version")
+  private String version;
 
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
-    }
+  public String getVersionId() {
+    return this.versionId;
+  }
 
-    public String getVersion() {
-        return this.version;
-    }
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
+  public String getVersion() {
+    return this.version;
+  }
 
+  public void setVersion(String version) {
+    this.version = version;
+  }
 }

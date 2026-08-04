@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 查询状态（不填默认查询已通过状态）
- */
+/** 查询状态（不填默认查询已通过状态）;;请假、加班：仅支持已通过和已撤回状态;;外出、出差：支持查询所有状态 */
 public enum QueryUserApprovalApprovalStatusEnum {
-    TODO(0), // 待审批
-    REJECTED(1), // 审批未通过
-    APPROVED(2), // 审批通过
-    CANCELED(3), // 审批已取消
-    REVERTED(4), // 已撤回
-    ;
-    private Integer value;
+  TODO(0), // 待审批
+  REJECTED(1), // 未通过
+  APPROVED(2), // 已通过
+  CANCELED(3), // 已撤回
+  REVERTED(4), // 已撤销
+  ;
+  private Integer value;
 
-    QueryUserApprovalApprovalStatusEnum(Integer value) {
-        this.value = value;
-    }
+  QueryUserApprovalApprovalStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

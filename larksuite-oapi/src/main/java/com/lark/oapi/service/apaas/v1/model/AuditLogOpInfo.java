@@ -13,411 +13,444 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class AuditLogOpInfo {
+  /**
+   * 操作人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator")
+  private LookupWithAvatar operator;
+
+  /**
+   * 是否为外部用户，true代表是外部用户
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("outsider")
+  private Boolean outsider;
+
+  /**
+   * 操作详情内容
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("op_detail")
+  private Map<String, String> opDetail;
+
+  /**
+   * 操作状态：18001-成功；18002-失败
+   *
+   * <p>示例值：18001
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 失败原因
+   *
+   * <p>示例值：登录失败
+   */
+  @SerializedName("failed_reason")
+  private String failedReason;
+
+  /**
+   * 多语类型失败原因
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("failed_reason_i18n")
+  private Map<String, String> failedReasonI18n;
+
+  /**
+   * 操作时间
+   *
+   * <p>示例值：1723634726874
+   */
+  @SerializedName("op_time")
+  private String opTime;
+
+  /**
+   * 数据对象
+   *
+   * <p>示例值：object_api_aaa
+   */
+  @SerializedName("data_object")
+  private String dataObject;
+
+  /**
+   * 操作源：20001-前端；20004-openapi
+   *
+   * <p>示例值：20001
+   */
+  @SerializedName("op_source")
+  private String opSource;
+
+  /**
+   * 数据变化(旧值和新值)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("data_changes")
+  private String[] dataChanges;
+
+  public LookupWithAvatar getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(LookupWithAvatar operator) {
+    this.operator = operator;
+  }
+
+  public Boolean getOutsider() {
+    return this.outsider;
+  }
+
+  public void setOutsider(Boolean outsider) {
+    this.outsider = outsider;
+  }
+
+  public Map<String, String> getOpDetail() {
+    return this.opDetail;
+  }
+
+  public void setOpDetail(Map<String, String> opDetail) {
+    this.opDetail = opDetail;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getFailedReason() {
+    return this.failedReason;
+  }
+
+  public void setFailedReason(String failedReason) {
+    this.failedReason = failedReason;
+  }
+
+  public Map<String, String> getFailedReasonI18n() {
+    return this.failedReasonI18n;
+  }
+
+  public void setFailedReasonI18n(Map<String, String> failedReasonI18n) {
+    this.failedReasonI18n = failedReasonI18n;
+  }
+
+  public String getOpTime() {
+    return this.opTime;
+  }
+
+  public void setOpTime(String opTime) {
+    this.opTime = opTime;
+  }
+
+  public String getDataObject() {
+    return this.dataObject;
+  }
+
+  public void setDataObject(String dataObject) {
+    this.dataObject = dataObject;
+  }
+
+  public String getOpSource() {
+    return this.opSource;
+  }
+
+  public void setOpSource(String opSource) {
+    this.opSource = opSource;
+  }
+
+  public String[] getDataChanges() {
+    return this.dataChanges;
+  }
+
+  public void setDataChanges(String[] dataChanges) {
+    this.dataChanges = dataChanges;
+  }
+
+  // builder 开始
+  public AuditLogOpInfo() {}
+
+  public AuditLogOpInfo(Builder builder) {
     /**
      * 操作人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("operator")
-    private LookupWithAvatar operator;
+    this.operator = builder.operator;
     /**
      * 是否为外部用户，true代表是外部用户
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("outsider")
-    private Boolean outsider;
+    this.outsider = builder.outsider;
     /**
      * 操作详情内容
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("op_detail")
-    private Map<String, String> opDetail;
+    this.opDetail = builder.opDetail;
     /**
      * 操作状态：18001-成功；18002-失败
-     * <p> 示例值：18001
+     *
+     * <p>示例值：18001
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 失败原因
-     * <p> 示例值：登录失败
+     *
+     * <p>示例值：登录失败
      */
-    @SerializedName("failed_reason")
-    private String failedReason;
+    this.failedReason = builder.failedReason;
     /**
      * 多语类型失败原因
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("failed_reason_i18n")
-    private Map<String, String> failedReasonI18n;
+    this.failedReasonI18n = builder.failedReasonI18n;
     /**
      * 操作时间
-     * <p> 示例值：1723634726874
+     *
+     * <p>示例值：1723634726874
      */
-    @SerializedName("op_time")
-    private String opTime;
+    this.opTime = builder.opTime;
     /**
      * 数据对象
-     * <p> 示例值：object_api_aaa
+     *
+     * <p>示例值：object_api_aaa
      */
-    @SerializedName("data_object")
-    private String dataObject;
+    this.dataObject = builder.dataObject;
     /**
      * 操作源：20001-前端；20004-openapi
-     * <p> 示例值：20001
+     *
+     * <p>示例值：20001
      */
-    @SerializedName("op_source")
-    private String opSource;
+    this.opSource = builder.opSource;
     /**
      * 数据变化(旧值和新值)
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("data_changes")
+    this.dataChanges = builder.dataChanges;
+  }
+
+  public static class Builder {
+    /**
+     * 操作人
+     *
+     * <p>示例值：
+     */
+    private LookupWithAvatar operator;
+
+    /**
+     * 是否为外部用户，true代表是外部用户
+     *
+     * <p>示例值：true
+     */
+    private Boolean outsider;
+
+    /**
+     * 操作详情内容
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
+    private Map<String, String> opDetail;
+
+    /**
+     * 操作状态：18001-成功；18002-失败
+     *
+     * <p>示例值：18001
+     */
+    private String status;
+
+    /**
+     * 失败原因
+     *
+     * <p>示例值：登录失败
+     */
+    private String failedReason;
+
+    /**
+     * 多语类型失败原因
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
+    private Map<String, String> failedReasonI18n;
+
+    /**
+     * 操作时间
+     *
+     * <p>示例值：1723634726874
+     */
+    private String opTime;
+
+    /**
+     * 数据对象
+     *
+     * <p>示例值：object_api_aaa
+     */
+    private String dataObject;
+
+    /**
+     * 操作源：20001-前端；20004-openapi
+     *
+     * <p>示例值：20001
+     */
+    private String opSource;
+
+    /**
+     * 数据变化(旧值和新值)
+     *
+     * <p>示例值：
+     */
     private String[] dataChanges;
 
-    // builder 开始
-    public AuditLogOpInfo() {
+    /**
+     * 操作人
+     *
+     * <p>示例值：
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(LookupWithAvatar operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public AuditLogOpInfo(Builder builder) {
-        /**
-         * 操作人
-         * <p> 示例值：
-         */
-        this.operator = builder.operator;
-        /**
-         * 是否为外部用户，true代表是外部用户
-         * <p> 示例值：true
-         */
-        this.outsider = builder.outsider;
-        /**
-         * 操作详情内容
-         * <p> 示例值：
-         */
-        this.opDetail = builder.opDetail;
-        /**
-         * 操作状态：18001-成功；18002-失败
-         * <p> 示例值：18001
-         */
-        this.status = builder.status;
-        /**
-         * 失败原因
-         * <p> 示例值：登录失败
-         */
-        this.failedReason = builder.failedReason;
-        /**
-         * 多语类型失败原因
-         * <p> 示例值：
-         */
-        this.failedReasonI18n = builder.failedReasonI18n;
-        /**
-         * 操作时间
-         * <p> 示例值：1723634726874
-         */
-        this.opTime = builder.opTime;
-        /**
-         * 数据对象
-         * <p> 示例值：object_api_aaa
-         */
-        this.dataObject = builder.dataObject;
-        /**
-         * 操作源：20001-前端；20004-openapi
-         * <p> 示例值：20001
-         */
-        this.opSource = builder.opSource;
-        /**
-         * 数据变化(旧值和新值)
-         * <p> 示例值：
-         */
-        this.dataChanges = builder.dataChanges;
+    /**
+     * 是否为外部用户，true代表是外部用户
+     *
+     * <p>示例值：true
+     *
+     * @param outsider
+     * @return
+     */
+    public Builder outsider(Boolean outsider) {
+      this.outsider = outsider;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作详情内容
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param opDetail
+     * @return
+     */
+    public Builder opDetail(Map<String, String> opDetail) {
+      this.opDetail = opDetail;
+      return this;
     }
 
-    public LookupWithAvatar getOperator() {
-        return this.operator;
+    /**
+     * 操作状态：18001-成功；18002-失败
+     *
+     * <p>示例值：18001
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public void setOperator(LookupWithAvatar operator) {
-        this.operator = operator;
+    /**
+     * 失败原因
+     *
+     * <p>示例值：登录失败
+     *
+     * @param failedReason
+     * @return
+     */
+    public Builder failedReason(String failedReason) {
+      this.failedReason = failedReason;
+      return this;
     }
 
-    public Boolean getOutsider() {
-        return this.outsider;
+    /**
+     * 多语类型失败原因
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param failedReasonI18n
+     * @return
+     */
+    public Builder failedReasonI18n(Map<String, String> failedReasonI18n) {
+      this.failedReasonI18n = failedReasonI18n;
+      return this;
     }
 
-    public void setOutsider(Boolean outsider) {
-        this.outsider = outsider;
+    /**
+     * 操作时间
+     *
+     * <p>示例值：1723634726874
+     *
+     * @param opTime
+     * @return
+     */
+    public Builder opTime(String opTime) {
+      this.opTime = opTime;
+      return this;
     }
 
-    public Map<String, String> getOpDetail() {
-        return this.opDetail;
+    /**
+     * 数据对象
+     *
+     * <p>示例值：object_api_aaa
+     *
+     * @param dataObject
+     * @return
+     */
+    public Builder dataObject(String dataObject) {
+      this.dataObject = dataObject;
+      return this;
     }
 
-    public void setOpDetail(Map<String, String> opDetail) {
-        this.opDetail = opDetail;
+    /**
+     * 操作源：20001-前端；20004-openapi
+     *
+     * <p>示例值：20001
+     *
+     * @param opSource
+     * @return
+     */
+    public Builder opSource(String opSource) {
+      this.opSource = opSource;
+      return this;
     }
 
-    public String getStatus() {
-        return this.status;
+    /**
+     * 数据变化(旧值和新值)
+     *
+     * <p>示例值：
+     *
+     * @param dataChanges
+     * @return
+     */
+    public Builder dataChanges(String[] dataChanges) {
+      this.dataChanges = dataChanges;
+      return this;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public AuditLogOpInfo build() {
+      return new AuditLogOpInfo(this);
     }
+  }
 
-    public String getFailedReason() {
-        return this.failedReason;
-    }
-
-    public void setFailedReason(String failedReason) {
-        this.failedReason = failedReason;
-    }
-
-    public Map<String, String> getFailedReasonI18n() {
-        return this.failedReasonI18n;
-    }
-
-    public void setFailedReasonI18n(Map<String, String> failedReasonI18n) {
-        this.failedReasonI18n = failedReasonI18n;
-    }
-
-    public String getOpTime() {
-        return this.opTime;
-    }
-
-    public void setOpTime(String opTime) {
-        this.opTime = opTime;
-    }
-
-    public String getDataObject() {
-        return this.dataObject;
-    }
-
-    public void setDataObject(String dataObject) {
-        this.dataObject = dataObject;
-    }
-
-    public String getOpSource() {
-        return this.opSource;
-    }
-
-    public void setOpSource(String opSource) {
-        this.opSource = opSource;
-    }
-
-    public String[] getDataChanges() {
-        return this.dataChanges;
-    }
-
-    public void setDataChanges(String[] dataChanges) {
-        this.dataChanges = dataChanges;
-    }
-
-    public static class Builder {
-        /**
-         * 操作人
-         * <p> 示例值：
-         */
-        private LookupWithAvatar operator;
-        /**
-         * 是否为外部用户，true代表是外部用户
-         * <p> 示例值：true
-         */
-        private Boolean outsider;
-        /**
-         * 操作详情内容
-         * <p> 示例值：
-         */
-        private Map<String, String> opDetail;
-        /**
-         * 操作状态：18001-成功；18002-失败
-         * <p> 示例值：18001
-         */
-        private String status;
-        /**
-         * 失败原因
-         * <p> 示例值：登录失败
-         */
-        private String failedReason;
-        /**
-         * 多语类型失败原因
-         * <p> 示例值：
-         */
-        private Map<String, String> failedReasonI18n;
-        /**
-         * 操作时间
-         * <p> 示例值：1723634726874
-         */
-        private String opTime;
-        /**
-         * 数据对象
-         * <p> 示例值：object_api_aaa
-         */
-        private String dataObject;
-        /**
-         * 操作源：20001-前端；20004-openapi
-         * <p> 示例值：20001
-         */
-        private String opSource;
-        /**
-         * 数据变化(旧值和新值)
-         * <p> 示例值：
-         */
-        private String[] dataChanges;
-
-        /**
-         * 操作人
-         * <p> 示例值：
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(LookupWithAvatar operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 是否为外部用户，true代表是外部用户
-         * <p> 示例值：true
-         *
-         * @param outsider
-         * @return
-         */
-        public Builder outsider(Boolean outsider) {
-            this.outsider = outsider;
-            return this;
-        }
-
-
-        /**
-         * 操作详情内容
-         * <p> 示例值：
-         *
-         * @param opDetail
-         * @return
-         */
-        public Builder opDetail(Map<String, String> opDetail) {
-            this.opDetail = opDetail;
-            return this;
-        }
-
-
-        /**
-         * 操作状态：18001-成功；18002-失败
-         * <p> 示例值：18001
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 失败原因
-         * <p> 示例值：登录失败
-         *
-         * @param failedReason
-         * @return
-         */
-        public Builder failedReason(String failedReason) {
-            this.failedReason = failedReason;
-            return this;
-        }
-
-
-        /**
-         * 多语类型失败原因
-         * <p> 示例值：
-         *
-         * @param failedReasonI18n
-         * @return
-         */
-        public Builder failedReasonI18n(Map<String, String> failedReasonI18n) {
-            this.failedReasonI18n = failedReasonI18n;
-            return this;
-        }
-
-
-        /**
-         * 操作时间
-         * <p> 示例值：1723634726874
-         *
-         * @param opTime
-         * @return
-         */
-        public Builder opTime(String opTime) {
-            this.opTime = opTime;
-            return this;
-        }
-
-
-        /**
-         * 数据对象
-         * <p> 示例值：object_api_aaa
-         *
-         * @param dataObject
-         * @return
-         */
-        public Builder dataObject(String dataObject) {
-            this.dataObject = dataObject;
-            return this;
-        }
-
-
-        /**
-         * 操作源：20001-前端；20004-openapi
-         * <p> 示例值：20001
-         *
-         * @param opSource
-         * @return
-         */
-        public Builder opSource(String opSource) {
-            this.opSource = opSource;
-            return this;
-        }
-
-
-        /**
-         * 数据变化(旧值和新值)
-         * <p> 示例值：
-         *
-         * @param dataChanges
-         * @return
-         */
-        public Builder dataChanges(String[] dataChanges) {
-            this.dataChanges = dataChanges;
-            return this;
-        }
-
-
-        public AuditLogOpInfo build() {
-            return new AuditLogOpInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

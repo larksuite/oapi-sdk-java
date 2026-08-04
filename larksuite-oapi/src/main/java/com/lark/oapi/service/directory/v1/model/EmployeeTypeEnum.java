@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeTypeEnum {
+  /**
+   * 枚举id
+   *
+   * <p>示例值：asdasd1234123
+   */
+  @SerializedName("enum_id")
+  private String enumId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("content")
+  private I18nText content;
+
+  /**
+   * 枚举值
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("enum_value")
+  private String enumValue;
+
+  /**
+   * 类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enum_type")
+  private String enumType;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enum_status")
+  private String enumStatus;
+
+  /**
+   * 是否默认值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_default")
+  private Boolean isDefault;
+
+  public String getEnumId() {
+    return this.enumId;
+  }
+
+  public void setEnumId(String enumId) {
+    this.enumId = enumId;
+  }
+
+  public I18nText getContent() {
+    return this.content;
+  }
+
+  public void setContent(I18nText content) {
+    this.content = content;
+  }
+
+  public String getEnumValue() {
+    return this.enumValue;
+  }
+
+  public void setEnumValue(String enumValue) {
+    this.enumValue = enumValue;
+  }
+
+  public String getEnumType() {
+    return this.enumType;
+  }
+
+  public void setEnumType(String enumType) {
+    this.enumType = enumType;
+  }
+
+  public String getEnumStatus() {
+    return this.enumStatus;
+  }
+
+  public void setEnumStatus(String enumStatus) {
+    this.enumStatus = enumStatus;
+  }
+
+  public Boolean getIsDefault() {
+    return this.isDefault;
+  }
+
+  public void setIsDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
+  }
+
+  // builder 开始
+  public EmployeeTypeEnum() {}
+
+  public EmployeeTypeEnum(Builder builder) {
     /**
      * 枚举id
-     * <p> 示例值：asdasd1234123
+     *
+     * <p>示例值：asdasd1234123
      */
-    @SerializedName("enum_id")
-    private String enumId;
+    this.enumId = builder.enumId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("content")
-    private I18nText content;
+    this.content = builder.content;
     /**
      * 枚举值
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("enum_value")
-    private String enumValue;
+    this.enumValue = builder.enumValue;
     /**
      * 类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("enum_type")
-    private String enumType;
+    this.enumType = builder.enumType;
     /**
      * 状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("enum_status")
-    private String enumStatus;
+    this.enumStatus = builder.enumStatus;
     /**
      * 是否默认值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_default")
+    this.isDefault = builder.isDefault;
+  }
+
+  public static class Builder {
+    /**
+     * 枚举id
+     *
+     * <p>示例值：asdasd1234123
+     */
+    private String enumId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText content;
+
+    /**
+     * 枚举值
+     *
+     * <p>示例值：1
+     */
+    private String enumValue;
+
+    /**
+     * 类型
+     *
+     * <p>示例值：
+     */
+    private String enumType;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：
+     */
+    private String enumStatus;
+
+    /**
+     * 是否默认值
+     *
+     * <p>示例值：
+     */
     private Boolean isDefault;
 
-    // builder 开始
-    public EmployeeTypeEnum() {
+    /**
+     * 枚举id
+     *
+     * <p>示例值：asdasd1234123
+     *
+     * @param enumId
+     * @return
+     */
+    public Builder enumId(String enumId) {
+      this.enumId = enumId;
+      return this;
     }
 
-    public EmployeeTypeEnum(Builder builder) {
-        /**
-         * 枚举id
-         * <p> 示例值：asdasd1234123
-         */
-        this.enumId = builder.enumId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.content = builder.content;
-        /**
-         * 枚举值
-         * <p> 示例值：1
-         */
-        this.enumValue = builder.enumValue;
-        /**
-         * 类型
-         * <p> 示例值：
-         */
-        this.enumType = builder.enumType;
-        /**
-         * 状态
-         * <p> 示例值：
-         */
-        this.enumStatus = builder.enumStatus;
-        /**
-         * 是否默认值
-         * <p> 示例值：
-         */
-        this.isDefault = builder.isDefault;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(I18nText content) {
+      this.content = content;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 枚举值
+     *
+     * <p>示例值：1
+     *
+     * @param enumValue
+     * @return
+     */
+    public Builder enumValue(String enumValue) {
+      this.enumValue = enumValue;
+      return this;
     }
 
-    public String getEnumId() {
-        return this.enumId;
+    /**
+     * 类型
+     *
+     * <p>示例值：
+     *
+     * @param enumType
+     * @return
+     */
+    public Builder enumType(String enumType) {
+      this.enumType = enumType;
+      return this;
     }
 
-    public void setEnumId(String enumId) {
-        this.enumId = enumId;
+    /**
+     * 状态
+     *
+     * <p>示例值：
+     *
+     * @param enumStatus
+     * @return
+     */
+    public Builder enumStatus(String enumStatus) {
+      this.enumStatus = enumStatus;
+      return this;
     }
 
-    public I18nText getContent() {
-        return this.content;
+    /**
+     * 是否默认值
+     *
+     * <p>示例值：
+     *
+     * @param isDefault
+     * @return
+     */
+    public Builder isDefault(Boolean isDefault) {
+      this.isDefault = isDefault;
+      return this;
     }
 
-    public void setContent(I18nText content) {
-        this.content = content;
+    public EmployeeTypeEnum build() {
+      return new EmployeeTypeEnum(this);
     }
+  }
 
-    public String getEnumValue() {
-        return this.enumValue;
-    }
-
-    public void setEnumValue(String enumValue) {
-        this.enumValue = enumValue;
-    }
-
-    public String getEnumType() {
-        return this.enumType;
-    }
-
-    public void setEnumType(String enumType) {
-        this.enumType = enumType;
-    }
-
-    public String getEnumStatus() {
-        return this.enumStatus;
-    }
-
-    public void setEnumStatus(String enumStatus) {
-        this.enumStatus = enumStatus;
-    }
-
-    public Boolean getIsDefault() {
-        return this.isDefault;
-    }
-
-    public void setIsDefault(Boolean isDefault) {
-        this.isDefault = isDefault;
-    }
-
-    public static class Builder {
-        /**
-         * 枚举id
-         * <p> 示例值：asdasd1234123
-         */
-        private String enumId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText content;
-        /**
-         * 枚举值
-         * <p> 示例值：1
-         */
-        private String enumValue;
-        /**
-         * 类型
-         * <p> 示例值：
-         */
-        private String enumType;
-        /**
-         * 状态
-         * <p> 示例值：
-         */
-        private String enumStatus;
-        /**
-         * 是否默认值
-         * <p> 示例值：
-         */
-        private Boolean isDefault;
-
-        /**
-         * 枚举id
-         * <p> 示例值：asdasd1234123
-         *
-         * @param enumId
-         * @return
-         */
-        public Builder enumId(String enumId) {
-            this.enumId = enumId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(I18nText content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 枚举值
-         * <p> 示例值：1
-         *
-         * @param enumValue
-         * @return
-         */
-        public Builder enumValue(String enumValue) {
-            this.enumValue = enumValue;
-            return this;
-        }
-
-
-        /**
-         * 类型
-         * <p> 示例值：
-         *
-         * @param enumType
-         * @return
-         */
-        public Builder enumType(String enumType) {
-            this.enumType = enumType;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：
-         *
-         * @param enumStatus
-         * @return
-         */
-        public Builder enumStatus(String enumStatus) {
-            this.enumStatus = enumStatus;
-            return this;
-        }
-
-
-        /**
-         * 是否默认值
-         * <p> 示例值：
-         *
-         * @param isDefault
-         * @return
-         */
-        public Builder isDefault(Boolean isDefault) {
-            this.isDefault = isDefault;
-            return this;
-        }
-
-
-        public EmployeeTypeEnum build() {
-            return new EmployeeTypeEnum(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

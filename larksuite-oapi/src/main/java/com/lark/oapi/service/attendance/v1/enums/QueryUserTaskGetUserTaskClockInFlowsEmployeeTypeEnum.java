@@ -14,19 +14,24 @@
 package com.lark.oapi.service.attendance.v1.enums;
 
 /**
- * 员工工号类型
+ * 员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+ * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)
  */
 public enum QueryUserTaskGetUserTaskClockInFlowsEmployeeTypeEnum {
-    EMPLOYEE_ID("employee_id"), // 员工employeeId
-    EMPLOYEE_NO("employee_no"), // 员工工号
-    ;
-    private String value;
+  EMPLOYEE_ID("employee_id"), // 员工 employee
+  // ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) >
+  // 组织架构 > 成员与部门 > 成员详情中的用户 ID
+  EMPLOYEE_NO(
+      "employee_no"), // 员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser)
+// > 组织架构 > 成员与部门 > 成员详情中的工号
+;
+  private String value;
 
-    QueryUserTaskGetUserTaskClockInFlowsEmployeeTypeEnum(String value) {
-        this.value = value;
-    }
+  QueryUserTaskGetUserTaskClockInFlowsEmployeeTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InterviewAssessmentTemplateArgs {
+  /**
+   * 结论题
+   *
+   * <p>示例值：
+   */
+  @SerializedName("conclusion_dimension")
+  private InterviewAssessmentDimension conclusionDimension;
+
+  /**
+   * 结论题
+   *
+   * <p>示例值：
+   */
+  @SerializedName("score_dimension")
+  private InterviewAssessmentDimension scoreDimension;
+
+  /**
+   * 结论题
+   *
+   * <p>示例值：
+   */
+  @SerializedName("content_dimension")
+  private InterviewAssessmentDimension contentDimension;
+
+  /**
+   * 自定义题目
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_dimension_list")
+  private InterviewAssessmentDimension[] customDimensionList;
+
+  public InterviewAssessmentDimension getConclusionDimension() {
+    return this.conclusionDimension;
+  }
+
+  public void setConclusionDimension(InterviewAssessmentDimension conclusionDimension) {
+    this.conclusionDimension = conclusionDimension;
+  }
+
+  public InterviewAssessmentDimension getScoreDimension() {
+    return this.scoreDimension;
+  }
+
+  public void setScoreDimension(InterviewAssessmentDimension scoreDimension) {
+    this.scoreDimension = scoreDimension;
+  }
+
+  public InterviewAssessmentDimension getContentDimension() {
+    return this.contentDimension;
+  }
+
+  public void setContentDimension(InterviewAssessmentDimension contentDimension) {
+    this.contentDimension = contentDimension;
+  }
+
+  public InterviewAssessmentDimension[] getCustomDimensionList() {
+    return this.customDimensionList;
+  }
+
+  public void setCustomDimensionList(InterviewAssessmentDimension[] customDimensionList) {
+    this.customDimensionList = customDimensionList;
+  }
+
+  // builder 开始
+  public InterviewAssessmentTemplateArgs() {}
+
+  public InterviewAssessmentTemplateArgs(Builder builder) {
     /**
      * 结论题
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("conclusion_dimension")
-    private InterviewAssessmentDimension conclusionDimension;
+    this.conclusionDimension = builder.conclusionDimension;
     /**
-     * 得分题
-     * <p> 示例值：
+     * 结论题
+     *
+     * <p>示例值：
      */
-    @SerializedName("score_dimension")
-    private InterviewAssessmentDimension scoreDimension;
+    this.scoreDimension = builder.scoreDimension;
     /**
-     * 记录题
-     * <p> 示例值：
+     * 结论题
+     *
+     * <p>示例值：
      */
-    @SerializedName("content_dimension")
-    private InterviewAssessmentDimension contentDimension;
+    this.contentDimension = builder.contentDimension;
     /**
      * 自定义题目
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_dimension_list")
+    this.customDimensionList = builder.customDimensionList;
+  }
+
+  public static class Builder {
+    /**
+     * 结论题
+     *
+     * <p>示例值：
+     */
+    private InterviewAssessmentDimension conclusionDimension;
+
+    /**
+     * 结论题
+     *
+     * <p>示例值：
+     */
+    private InterviewAssessmentDimension scoreDimension;
+
+    /**
+     * 结论题
+     *
+     * <p>示例值：
+     */
+    private InterviewAssessmentDimension contentDimension;
+
+    /**
+     * 自定义题目
+     *
+     * <p>示例值：
+     */
     private InterviewAssessmentDimension[] customDimensionList;
 
-    // builder 开始
-    public InterviewAssessmentTemplateArgs() {
+    /**
+     * 结论题
+     *
+     * <p>示例值：
+     *
+     * @param conclusionDimension
+     * @return
+     */
+    public Builder conclusionDimension(InterviewAssessmentDimension conclusionDimension) {
+      this.conclusionDimension = conclusionDimension;
+      return this;
     }
 
-    public InterviewAssessmentTemplateArgs(Builder builder) {
-        /**
-         * 结论题
-         * <p> 示例值：
-         */
-        this.conclusionDimension = builder.conclusionDimension;
-        /**
-         * 得分题
-         * <p> 示例值：
-         */
-        this.scoreDimension = builder.scoreDimension;
-        /**
-         * 记录题
-         * <p> 示例值：
-         */
-        this.contentDimension = builder.contentDimension;
-        /**
-         * 自定义题目
-         * <p> 示例值：
-         */
-        this.customDimensionList = builder.customDimensionList;
+    /**
+     * 结论题
+     *
+     * <p>示例值：
+     *
+     * @param scoreDimension
+     * @return
+     */
+    public Builder scoreDimension(InterviewAssessmentDimension scoreDimension) {
+      this.scoreDimension = scoreDimension;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 结论题
+     *
+     * <p>示例值：
+     *
+     * @param contentDimension
+     * @return
+     */
+    public Builder contentDimension(InterviewAssessmentDimension contentDimension) {
+      this.contentDimension = contentDimension;
+      return this;
     }
 
-    public InterviewAssessmentDimension getConclusionDimension() {
-        return this.conclusionDimension;
+    /**
+     * 自定义题目
+     *
+     * <p>示例值：
+     *
+     * @param customDimensionList
+     * @return
+     */
+    public Builder customDimensionList(InterviewAssessmentDimension[] customDimensionList) {
+      this.customDimensionList = customDimensionList;
+      return this;
     }
 
-    public void setConclusionDimension(InterviewAssessmentDimension conclusionDimension) {
-        this.conclusionDimension = conclusionDimension;
+    public InterviewAssessmentTemplateArgs build() {
+      return new InterviewAssessmentTemplateArgs(this);
     }
+  }
 
-    public InterviewAssessmentDimension getScoreDimension() {
-        return this.scoreDimension;
-    }
-
-    public void setScoreDimension(InterviewAssessmentDimension scoreDimension) {
-        this.scoreDimension = scoreDimension;
-    }
-
-    public InterviewAssessmentDimension getContentDimension() {
-        return this.contentDimension;
-    }
-
-    public void setContentDimension(InterviewAssessmentDimension contentDimension) {
-        this.contentDimension = contentDimension;
-    }
-
-    public InterviewAssessmentDimension[] getCustomDimensionList() {
-        return this.customDimensionList;
-    }
-
-    public void setCustomDimensionList(InterviewAssessmentDimension[] customDimensionList) {
-        this.customDimensionList = customDimensionList;
-    }
-
-    public static class Builder {
-        /**
-         * 结论题
-         * <p> 示例值：
-         */
-        private InterviewAssessmentDimension conclusionDimension;
-        /**
-         * 得分题
-         * <p> 示例值：
-         */
-        private InterviewAssessmentDimension scoreDimension;
-        /**
-         * 记录题
-         * <p> 示例值：
-         */
-        private InterviewAssessmentDimension contentDimension;
-        /**
-         * 自定义题目
-         * <p> 示例值：
-         */
-        private InterviewAssessmentDimension[] customDimensionList;
-
-        /**
-         * 结论题
-         * <p> 示例值：
-         *
-         * @param conclusionDimension
-         * @return
-         */
-        public Builder conclusionDimension(InterviewAssessmentDimension conclusionDimension) {
-            this.conclusionDimension = conclusionDimension;
-            return this;
-        }
-
-
-        /**
-         * 得分题
-         * <p> 示例值：
-         *
-         * @param scoreDimension
-         * @return
-         */
-        public Builder scoreDimension(InterviewAssessmentDimension scoreDimension) {
-            this.scoreDimension = scoreDimension;
-            return this;
-        }
-
-
-        /**
-         * 记录题
-         * <p> 示例值：
-         *
-         * @param contentDimension
-         * @return
-         */
-        public Builder contentDimension(InterviewAssessmentDimension contentDimension) {
-            this.contentDimension = contentDimension;
-            return this;
-        }
-
-
-        /**
-         * 自定义题目
-         * <p> 示例值：
-         *
-         * @param customDimensionList
-         * @return
-         */
-        public Builder customDimensionList(InterviewAssessmentDimension[] customDimensionList) {
-            this.customDimensionList = customDimensionList;
-            return this;
-        }
-
-
-        public InterviewAssessmentTemplateArgs build() {
-            return new InterviewAssessmentTemplateArgs(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

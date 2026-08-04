@@ -13,335 +13,360 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.aily.v1.enums.*;
 
 public class ListAppDataAssetReq {
+  /**
+   * 分页参数：分页大小，默认：20，最大：100
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页参数：分页起始位置，为空表示首页
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 模糊匹配关键词
+   *
+   * <p>示例值：电影
+   */
+  @Query
+  @SerializedName("keyword")
+  private String keyword;
+
+  /**
+   * 根据数据知识 ID 进行过滤
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("data_asset_ids")
+  private String[] dataAssetIds;
+
+  /**
+   * 根据数据知识分类 ID 进行过滤
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("data_asset_tag_ids")
+  private String[] dataAssetTagIds;
+
+  /**
+   * 结果是否包含数据与知识项目
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("with_data_asset_item")
+  private Boolean withDataAssetItem;
+
+  /**
+   * 结果是否包含数据连接状态
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("with_connect_status")
+  private Boolean withConnectStatus;
+
+  /**
+   * 结果是否包含导入数据源信息
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("with_import_setting")
+  private Boolean withImportSetting;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getKeyword() {
+    return this.keyword;
+  }
+
+  public void setKeyword(String keyword) {
+    this.keyword = keyword;
+  }
+
+  public String[] getDataAssetIds() {
+    return this.dataAssetIds;
+  }
+
+  public void setDataAssetIds(String[] dataAssetIds) {
+    this.dataAssetIds = dataAssetIds;
+  }
+
+  public String[] getDataAssetTagIds() {
+    return this.dataAssetTagIds;
+  }
+
+  public void setDataAssetTagIds(String[] dataAssetTagIds) {
+    this.dataAssetTagIds = dataAssetTagIds;
+  }
+
+  public Boolean getWithDataAssetItem() {
+    return this.withDataAssetItem;
+  }
+
+  public void setWithDataAssetItem(Boolean withDataAssetItem) {
+    this.withDataAssetItem = withDataAssetItem;
+  }
+
+  public Boolean getWithConnectStatus() {
+    return this.withConnectStatus;
+  }
+
+  public void setWithConnectStatus(Boolean withConnectStatus) {
+    this.withConnectStatus = withConnectStatus;
+  }
+
+  public Boolean getWithImportSetting() {
+    return this.withImportSetting;
+  }
+
+  public void setWithImportSetting(Boolean withImportSetting) {
+    this.withImportSetting = withImportSetting;
+  }
+
+  /**
+   * Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+   *
+   * <p>示例值：spring_5862e4fea8__c
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  // builder 开始
+  public ListAppDataAssetReq() {}
+
+  public ListAppDataAssetReq(Builder builder) {
     /**
      * 分页参数：分页大小，默认：20，最大：100
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页参数：分页起始位置，为空表示首页
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 模糊匹配关键词
-     * <p> 示例值：电影
+     *
+     * <p>示例值：电影
      */
-    @Query
-    @SerializedName("keyword")
-    private String keyword;
+    this.keyword = builder.keyword;
     /**
      * 根据数据知识 ID 进行过滤
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("data_asset_ids")
-    private String[] dataAssetIds;
+    this.dataAssetIds = builder.dataAssetIds;
     /**
      * 根据数据知识分类 ID 进行过滤
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("data_asset_tag_ids")
-    private String[] dataAssetTagIds;
+    this.dataAssetTagIds = builder.dataAssetTagIds;
     /**
      * 结果是否包含数据与知识项目
-     * <p> 示例值：
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("with_data_asset_item")
-    private Boolean withDataAssetItem;
+    this.withDataAssetItem = builder.withDataAssetItem;
     /**
      * 结果是否包含数据连接状态
-     * <p> 示例值：
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("with_connect_status")
-    private Boolean withConnectStatus;
+    this.withConnectStatus = builder.withConnectStatus;
     /**
      * 结果是否包含导入数据源信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("with_import_setting")
-    private Boolean withImportSetting;
+    this.withImportSetting = builder.withImportSetting;
     /**
-     * AppID
-     * <p> 示例值：spring_5862e4fea8__c
+     * Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+     *
+     * <p>示例值：spring_5862e4fea8__c
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
+  }
 
-    // builder 开始
-    public ListAppDataAssetReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页参数：分页大小，默认：20，最大：100
+    private String pageToken; // 分页参数：分页起始位置，为空表示首页
+    private String keyword; // 模糊匹配关键词
+    private String[] dataAssetIds; // 根据数据知识 ID 进行过滤
+    private String[] dataAssetTagIds; // 根据数据知识分类 ID 进行过滤
+    private Boolean withDataAssetItem; // 结果是否包含数据与知识项目
+    private Boolean withConnectStatus; // 结果是否包含数据连接状态
+    private Boolean withImportSetting; // 结果是否包含导入数据源信息
+
+    /**
+     * 分页参数：分页大小，默认：20，最大：100
+     *
+     * <p>示例值：
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListAppDataAssetReq(Builder builder) {
-        /**
-         * 分页参数：分页大小，默认：20，最大：100
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页参数：分页起始位置，为空表示首页
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 模糊匹配关键词
-         * <p> 示例值：电影
-         */
-        this.keyword = builder.keyword;
-        /**
-         * 根据数据知识 ID 进行过滤
-         * <p> 示例值：
-         */
-        this.dataAssetIds = builder.dataAssetIds;
-        /**
-         * 根据数据知识分类 ID 进行过滤
-         * <p> 示例值：
-         */
-        this.dataAssetTagIds = builder.dataAssetTagIds;
-        /**
-         * 结果是否包含数据与知识项目
-         * <p> 示例值：
-         */
-        this.withDataAssetItem = builder.withDataAssetItem;
-        /**
-         * 结果是否包含数据连接状态
-         * <p> 示例值：
-         */
-        this.withConnectStatus = builder.withConnectStatus;
-        /**
-         * 结果是否包含导入数据源信息
-         * <p> 示例值：
-         */
-        this.withImportSetting = builder.withImportSetting;
-        /**
-         * AppID
-         * <p> 示例值：spring_5862e4fea8__c
-         */
-        this.appId = builder.appId;
+    /**
+     * 分页参数：分页起始位置，为空表示首页
+     *
+     * <p>示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 模糊匹配关键词
+     *
+     * <p>示例值：电影
+     *
+     * @param keyword
+     * @return
+     */
+    public Builder keyword(String keyword) {
+      this.keyword = keyword;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 根据数据知识 ID 进行过滤
+     *
+     * <p>示例值：
+     *
+     * @param dataAssetIds
+     * @return
+     */
+    public Builder dataAssetIds(String[] dataAssetIds) {
+      this.dataAssetIds = dataAssetIds;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 根据数据知识分类 ID 进行过滤
+     *
+     * <p>示例值：
+     *
+     * @param dataAssetTagIds
+     * @return
+     */
+    public Builder dataAssetTagIds(String[] dataAssetTagIds) {
+      this.dataAssetTagIds = dataAssetTagIds;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 结果是否包含数据与知识项目
+     *
+     * <p>示例值：true
+     *
+     * @param withDataAssetItem
+     * @return
+     */
+    public Builder withDataAssetItem(Boolean withDataAssetItem) {
+      this.withDataAssetItem = withDataAssetItem;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    /**
+     * 结果是否包含数据连接状态
+     *
+     * <p>示例值：false
+     *
+     * @param withConnectStatus
+     * @return
+     */
+    public Builder withConnectStatus(Boolean withConnectStatus) {
+      this.withConnectStatus = withConnectStatus;
+      return this;
     }
 
-    public String getKeyword() {
-        return this.keyword;
+    /**
+     * 结果是否包含导入数据源信息
+     *
+     * <p>示例值：
+     *
+     * @param withImportSetting
+     * @return
+     */
+    public Builder withImportSetting(Boolean withImportSetting) {
+      this.withImportSetting = withImportSetting;
+      return this;
     }
 
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
+    private String appId; // Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+
+    /**
+     * Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+     *
+     * <p>示例值：spring_5862e4fea8__c
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public String[] getDataAssetIds() {
-        return this.dataAssetIds;
+    public ListAppDataAssetReq build() {
+      return new ListAppDataAssetReq(this);
     }
+  }
 
-    public void setDataAssetIds(String[] dataAssetIds) {
-        this.dataAssetIds = dataAssetIds;
-    }
-
-    public String[] getDataAssetTagIds() {
-        return this.dataAssetTagIds;
-    }
-
-    public void setDataAssetTagIds(String[] dataAssetTagIds) {
-        this.dataAssetTagIds = dataAssetTagIds;
-    }
-
-    public Boolean getWithDataAssetItem() {
-        return this.withDataAssetItem;
-    }
-
-    public void setWithDataAssetItem(Boolean withDataAssetItem) {
-        this.withDataAssetItem = withDataAssetItem;
-    }
-
-    public Boolean getWithConnectStatus() {
-        return this.withConnectStatus;
-    }
-
-    public void setWithConnectStatus(Boolean withConnectStatus) {
-        this.withConnectStatus = withConnectStatus;
-    }
-
-    public Boolean getWithImportSetting() {
-        return this.withImportSetting;
-    }
-
-    public void setWithImportSetting(Boolean withImportSetting) {
-        this.withImportSetting = withImportSetting;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页参数：分页大小，默认：20，最大：100
-        private String pageToken; // 分页参数：分页起始位置，为空表示首页
-        private String keyword; // 模糊匹配关键词
-        private String[] dataAssetIds; // 根据数据知识 ID 进行过滤
-        private String[] dataAssetTagIds; // 根据数据知识分类 ID 进行过滤
-        private Boolean withDataAssetItem; // 结果是否包含数据与知识项目
-        private Boolean withConnectStatus; // 结果是否包含数据连接状态
-        private Boolean withImportSetting; // 结果是否包含导入数据源信息
-        private String appId; // AppID
-
-        /**
-         * 分页参数：分页大小，默认：20，最大：100
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页参数：分页起始位置，为空表示首页
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 模糊匹配关键词
-         * <p> 示例值：电影
-         *
-         * @param keyword
-         * @return
-         */
-        public Builder keyword(String keyword) {
-            this.keyword = keyword;
-            return this;
-        }
-
-        /**
-         * 根据数据知识 ID 进行过滤
-         * <p> 示例值：
-         *
-         * @param dataAssetIds
-         * @return
-         */
-        public Builder dataAssetIds(String[] dataAssetIds) {
-            this.dataAssetIds = dataAssetIds;
-            return this;
-        }
-
-        /**
-         * 根据数据知识分类 ID 进行过滤
-         * <p> 示例值：
-         *
-         * @param dataAssetTagIds
-         * @return
-         */
-        public Builder dataAssetTagIds(String[] dataAssetTagIds) {
-            this.dataAssetTagIds = dataAssetTagIds;
-            return this;
-        }
-
-        /**
-         * 结果是否包含数据与知识项目
-         * <p> 示例值：
-         *
-         * @param withDataAssetItem
-         * @return
-         */
-        public Builder withDataAssetItem(Boolean withDataAssetItem) {
-            this.withDataAssetItem = withDataAssetItem;
-            return this;
-        }
-
-        /**
-         * 结果是否包含数据连接状态
-         * <p> 示例值：
-         *
-         * @param withConnectStatus
-         * @return
-         */
-        public Builder withConnectStatus(Boolean withConnectStatus) {
-            this.withConnectStatus = withConnectStatus;
-            return this;
-        }
-
-        /**
-         * 结果是否包含导入数据源信息
-         * <p> 示例值：
-         *
-         * @param withImportSetting
-         * @return
-         */
-        public Builder withImportSetting(Boolean withImportSetting) {
-            this.withImportSetting = withImportSetting;
-            return this;
-        }
-
-        /**
-         * AppID
-         * <p> 示例值：spring_5862e4fea8__c
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        public ListAppDataAssetReq build() {
-            return new ListAppDataAssetReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

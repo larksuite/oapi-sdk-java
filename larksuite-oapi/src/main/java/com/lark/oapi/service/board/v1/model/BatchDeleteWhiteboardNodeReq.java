@@ -13,130 +13,135 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.board.v1.enums.*;
 
 public class BatchDeleteWhiteboardNodeReq {
+  /**
+   * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新
+   *
+   * <p>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+   */
+  @Query
+  @SerializedName("client_token")
+  private String clientToken;
+
+  public String getClientToken() {
+    return this.clientToken;
+  }
+
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
+
+  /**
+   * 画板唯一标识。可通过云文档下的文档接口[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)获取正确的
+   * whiteboard_id（block_type 为 43 的 block 对应的 block.token 即为 whiteboard_id）
+   *
+   * <p>示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
+   */
+  @Path
+  @SerializedName("whiteboard_id")
+  private String whiteboardId;
+
+  public String getWhiteboardId() {
+    return this.whiteboardId;
+  }
+
+  public void setWhiteboardId(String whiteboardId) {
+    this.whiteboardId = whiteboardId;
+  }
+
+  @Body private BatchDeleteWhiteboardNodeReqBody body;
+
+  public BatchDeleteWhiteboardNodeReqBody getBatchDeleteWhiteboardNodeReqBody() {
+    return this.body;
+  }
+
+  public void setBatchDeleteWhiteboardNodeReqBody(BatchDeleteWhiteboardNodeReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchDeleteWhiteboardNodeReq() {}
+
+  public BatchDeleteWhiteboardNodeReq(Builder builder) {
     /**
      * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新
-     * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+     *
+     * <p>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
      */
-    @Query
-    @SerializedName("client_token")
-    private String clientToken;
+    this.clientToken = builder.clientToken;
     /**
-     * 画板唯一标识
-     * <p> 示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
+     * 画板唯一标识。可通过云文档下的文档接口[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)获取正确的
+     * whiteboard_id（block_type 为 43 的 block 对应的 block.token 即为 whiteboard_id）
+     *
+     * <p>示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
      */
-    @Path
-    @SerializedName("whiteboard_id")
-    private String whiteboardId;
-    @Body
+    this.whiteboardId = builder.whiteboardId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String
+        clientToken; // 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新
+
+    /**
+     * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新
+     *
+     * <p>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+     *
+     * @param clientToken
+     * @return
+     */
+    public Builder clientToken(String clientToken) {
+      this.clientToken = clientToken;
+      return this;
+    }
+
+    private String
+        whiteboardId; // 画板唯一标识。可通过云文档下的文档接口[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)获取正确的 whiteboard_id（block_type 为 43 的 block 对应的 block.token 即为 whiteboard_id）
+
+    /**
+     * 画板唯一标识。可通过云文档下的文档接口[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)获取正确的
+     * whiteboard_id（block_type 为 43 的 block 对应的 block.token 即为 whiteboard_id）
+     *
+     * <p>示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
+     *
+     * @param whiteboardId
+     * @return
+     */
+    public Builder whiteboardId(String whiteboardId) {
+      this.whiteboardId = whiteboardId;
+      return this;
+    }
+
     private BatchDeleteWhiteboardNodeReqBody body;
 
-    // builder 开始
-    public BatchDeleteWhiteboardNodeReq() {
-    }
-
-    public BatchDeleteWhiteboardNodeReq(Builder builder) {
-        /**
-         * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新
-         * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
-         */
-        this.clientToken = builder.clientToken;
-        /**
-         * 画板唯一标识
-         * <p> 示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
-         */
-        this.whiteboardId = builder.whiteboardId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getClientToken() {
-        return this.clientToken;
-    }
-
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
-
-    public String getWhiteboardId() {
-        return this.whiteboardId;
-    }
-
-    public void setWhiteboardId(String whiteboardId) {
-        this.whiteboardId = whiteboardId;
-    }
-
     public BatchDeleteWhiteboardNodeReqBody getBatchDeleteWhiteboardNodeReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchDeleteWhiteboardNodeReqBody(BatchDeleteWhiteboardNodeReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchDeleteWhiteboardNodeReqBody(BatchDeleteWhiteboardNodeReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String clientToken; // 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新
-        private String whiteboardId; // 画板唯一标识
-        private BatchDeleteWhiteboardNodeReqBody body;
-
-        /**
-         * 操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新
-         * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
-         *
-         * @param clientToken
-         * @return
-         */
-        public Builder clientToken(String clientToken) {
-            this.clientToken = clientToken;
-            return this;
-        }
-
-        /**
-         * 画板唯一标识
-         * <p> 示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
-         *
-         * @param whiteboardId
-         * @return
-         */
-        public Builder whiteboardId(String whiteboardId) {
-            this.whiteboardId = whiteboardId;
-            return this;
-        }
-
-        public BatchDeleteWhiteboardNodeReqBody getBatchDeleteWhiteboardNodeReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchDeleteWhiteboardNodeReqBody(BatchDeleteWhiteboardNodeReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchDeleteWhiteboardNodeReq build() {
-            return new BatchDeleteWhiteboardNodeReq(this);
-        }
+    public BatchDeleteWhiteboardNodeReq build() {
+      return new BatchDeleteWhiteboardNodeReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

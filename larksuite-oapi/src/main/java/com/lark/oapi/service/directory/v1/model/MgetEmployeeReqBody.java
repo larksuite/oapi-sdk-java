@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MgetEmployeeReqBody {
+  /**
+   * 员工ID，与employee_id_type类型保持一致
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_ids")
+  private String[] employeeIds;
+
+  /**
+   * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段。[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("required_fields")
+  private String[] requiredFields;
+
+  public String[] getEmployeeIds() {
+    return this.employeeIds;
+  }
+
+  public void setEmployeeIds(String[] employeeIds) {
+    this.employeeIds = employeeIds;
+  }
+
+  public String[] getRequiredFields() {
+    return this.requiredFields;
+  }
+
+  public void setRequiredFields(String[] requiredFields) {
+    this.requiredFields = requiredFields;
+  }
+
+  // builder 开始
+  public MgetEmployeeReqBody() {}
+
+  public MgetEmployeeReqBody(Builder builder) {
     /**
-     * 员工id
-     * <p> 示例值：
+     * 员工ID，与employee_id_type类型保持一致
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_ids")
+    this.employeeIds = builder.employeeIds;
+    /**
+     * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段。[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+     *
+     * <p>示例值：
+     */
+    this.requiredFields = builder.requiredFields;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID，与employee_id_type类型保持一致
+     *
+     * <p>示例值：
+     */
     private String[] employeeIds;
+
     /**
-     * 字段枚举
-     * <p> 示例值：
+     * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段。[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+     *
+     * <p>示例值：
      */
-    @SerializedName("required_fields")
     private String[] requiredFields;
 
-    // builder 开始
-    public MgetEmployeeReqBody() {
+    /**
+     * 员工ID，与employee_id_type类型保持一致
+     *
+     * <p>示例值：
+     *
+     * @param employeeIds
+     * @return
+     */
+    public Builder employeeIds(String[] employeeIds) {
+      this.employeeIds = employeeIds;
+      return this;
     }
 
-    public MgetEmployeeReqBody(Builder builder) {
-        /**
-         * 员工id
-         * <p> 示例值：
-         */
-        this.employeeIds = builder.employeeIds;
-        /**
-         * 字段枚举
-         * <p> 示例值：
-         */
-        this.requiredFields = builder.requiredFields;
+    /**
+     * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段。[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+     *
+     * <p>示例值：
+     *
+     * @param requiredFields
+     * @return
+     */
+    public Builder requiredFields(String[] requiredFields) {
+      this.requiredFields = requiredFields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MgetEmployeeReqBody build() {
+      return new MgetEmployeeReqBody(this);
     }
+  }
 
-    public String[] getEmployeeIds() {
-        return this.employeeIds;
-    }
-
-    public void setEmployeeIds(String[] employeeIds) {
-        this.employeeIds = employeeIds;
-    }
-
-    public String[] getRequiredFields() {
-        return this.requiredFields;
-    }
-
-    public void setRequiredFields(String[] requiredFields) {
-        this.requiredFields = requiredFields;
-    }
-
-    public static class Builder {
-        /**
-         * 员工id
-         * <p> 示例值：
-         */
-        private String[] employeeIds;
-        /**
-         * 字段枚举
-         * <p> 示例值：
-         */
-        private String[] requiredFields;
-
-        /**
-         * 员工id
-         * <p> 示例值：
-         *
-         * @param employeeIds
-         * @return
-         */
-        public Builder employeeIds(String[] employeeIds) {
-            this.employeeIds = employeeIds;
-            return this;
-        }
-
-
-        /**
-         * 字段枚举
-         * <p> 示例值：
-         *
-         * @param requiredFields
-         * @return
-         */
-        public Builder requiredFields(String[] requiredFields) {
-            this.requiredFields = requiredFields;
-            return this;
-        }
-
-
-        public MgetEmployeeReqBody build() {
-            return new MgetEmployeeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

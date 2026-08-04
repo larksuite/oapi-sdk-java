@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class User {
+  /**
+   * 人员的直属上级的 open_id
+   *
+   * <p>示例值：od-xxx2dasdasd
+   */
+  @SerializedName("open_id")
+  private String openId;
+
+  /**
+   * 用户的 user_id，与入参 `user_id_type` 类型一致
+   *
+   * <p>示例值：ou-xxx87dsf6x
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getOpenId() {
+    return this.openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public User() {}
+
+  public User(Builder builder) {
     /**
-     * 用户的 open_id
-     * <p> 示例值：od-asd2dasdasd
+     * 人员的直属上级的 open_id
+     *
+     * <p>示例值：od-xxx2dasdasd
      */
-    @SerializedName("open_id")
+    this.openId = builder.openId;
+    /**
+     * 用户的 user_id，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：ou-xxx87dsf6x
+     */
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * 人员的直属上级的 open_id
+     *
+     * <p>示例值：od-xxx2dasdasd
+     */
     private String openId;
+
     /**
-     * 用户的 user_id，取值与user_id_type一致
-     * <p> 示例值：ou-ux987dsf6x
+     * 用户的 user_id，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：ou-xxx87dsf6x
      */
-    @SerializedName("user_id")
     private String userId;
 
-    // builder 开始
-    public User() {
+    /**
+     * 人员的直属上级的 open_id
+     *
+     * <p>示例值：od-xxx2dasdasd
+     *
+     * @param openId
+     * @return
+     */
+    public Builder openId(String openId) {
+      this.openId = openId;
+      return this;
     }
 
-    public User(Builder builder) {
-        /**
-         * 用户的 open_id
-         * <p> 示例值：od-asd2dasdasd
-         */
-        this.openId = builder.openId;
-        /**
-         * 用户的 user_id，取值与user_id_type一致
-         * <p> 示例值：ou-ux987dsf6x
-         */
-        this.userId = builder.userId;
+    /**
+     * 用户的 user_id，与入参 `user_id_type` 类型一致
+     *
+     * <p>示例值：ou-xxx87dsf6x
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public User build() {
+      return new User(this);
     }
+  }
 
-    public String getOpenId() {
-        return this.openId;
-    }
-
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 用户的 open_id
-         * <p> 示例值：od-asd2dasdasd
-         */
-        private String openId;
-        /**
-         * 用户的 user_id，取值与user_id_type一致
-         * <p> 示例值：ou-ux987dsf6x
-         */
-        private String userId;
-
-        /**
-         * 用户的 open_id
-         * <p> 示例值：od-asd2dasdasd
-         *
-         * @param openId
-         * @return
-         */
-        public Builder openId(String openId) {
-            this.openId = openId;
-            return this;
-        }
-
-
-        /**
-         * 用户的 user_id，取值与user_id_type一致
-         * <p> 示例值：ou-ux987dsf6x
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public User build() {
-            return new User(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

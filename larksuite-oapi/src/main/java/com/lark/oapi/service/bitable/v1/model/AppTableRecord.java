@@ -13,337 +13,360 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class AppTableRecord {
+  /**
+   * 记录字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private Map<String, Object> fields;
+
+  /**
+   * 记录Id
+   *
+   * <p>示例值：recgcfdzKq
+   */
+  @SerializedName("record_id")
+  private String recordId;
+
+  /**
+   * 该记录的创建人信息。本接口不返回该参数;;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("created_by")
+  private Person createdBy;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1675244156000
+   */
+  @SerializedName("created_time")
+  private Long createdTime;
+
+  /**
+   * 该记录的创建人信息。本接口不返回该参数;;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("last_modified_by")
+  private Person lastModifiedBy;
+
+  /**
+   * 最近更新时间
+   *
+   * <p>示例值：1677556020000
+   */
+  @SerializedName("last_modified_time")
+  private Long lastModifiedTime;
+
+  /**
+   * 记录分享链接(批量获取记录接口将返回该字段)
+   *
+   * <p>示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+   */
+  @SerializedName("shared_url")
+  private String sharedUrl;
+
+  /**
+   * 记录链接(检索记录接口将返回该字段)
+   *
+   * <p>示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+   */
+  @SerializedName("record_url")
+  private String recordUrl;
+
+  public Map<String, Object> getFields() {
+    return this.fields;
+  }
+
+  public void setFields(Map<String, Object> fields) {
+    this.fields = fields;
+  }
+
+  public String getRecordId() {
+    return this.recordId;
+  }
+
+  public void setRecordId(String recordId) {
+    this.recordId = recordId;
+  }
+
+  public Person getCreatedBy() {
+    return this.createdBy;
+  }
+
+  public void setCreatedBy(Person createdBy) {
+    this.createdBy = createdBy;
+  }
+
+  public Long getCreatedTime() {
+    return this.createdTime;
+  }
+
+  public void setCreatedTime(Long createdTime) {
+    this.createdTime = createdTime;
+  }
+
+  public Person getLastModifiedBy() {
+    return this.lastModifiedBy;
+  }
+
+  public void setLastModifiedBy(Person lastModifiedBy) {
+    this.lastModifiedBy = lastModifiedBy;
+  }
+
+  public Long getLastModifiedTime() {
+    return this.lastModifiedTime;
+  }
+
+  public void setLastModifiedTime(Long lastModifiedTime) {
+    this.lastModifiedTime = lastModifiedTime;
+  }
+
+  public String getSharedUrl() {
+    return this.sharedUrl;
+  }
+
+  public void setSharedUrl(String sharedUrl) {
+    this.sharedUrl = sharedUrl;
+  }
+
+  public String getRecordUrl() {
+    return this.recordUrl;
+  }
+
+  public void setRecordUrl(String recordUrl) {
+    this.recordUrl = recordUrl;
+  }
+
+  // builder 开始
+  public AppTableRecord() {}
+
+  public AppTableRecord(Builder builder) {
     /**
      * 记录字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
-    private Map<String, Object> fields;
+    this.fields = builder.fields;
     /**
      * 记录Id
-     * <p> 示例值：recgcfdzKq
+     *
+     * <p>示例值：recgcfdzKq
      */
-    @SerializedName("record_id")
-    private String recordId;
+    this.recordId = builder.recordId;
     /**
-     * 创建人
-     * <p> 示例值：
+     * 该记录的创建人信息。本接口不返回该参数;;
+     *
+     * <p>示例值：
      */
-    @SerializedName("created_by")
-    private Person createdBy;
+    this.createdBy = builder.createdBy;
     /**
      * 创建时间
-     * <p> 示例值：1675244156000
+     *
+     * <p>示例值：1675244156000
      */
-    @SerializedName("created_time")
-    private Long createdTime;
+    this.createdTime = builder.createdTime;
     /**
-     * 修改人
-     * <p> 示例值：
+     * 该记录的创建人信息。本接口不返回该参数;;
+     *
+     * <p>示例值：
      */
-    @SerializedName("last_modified_by")
-    private Person lastModifiedBy;
+    this.lastModifiedBy = builder.lastModifiedBy;
     /**
      * 最近更新时间
-     * <p> 示例值：1677556020000
+     *
+     * <p>示例值：1677556020000
      */
-    @SerializedName("last_modified_time")
-    private Long lastModifiedTime;
+    this.lastModifiedTime = builder.lastModifiedTime;
     /**
      * 记录分享链接(批量获取记录接口将返回该字段)
-     * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+     *
+     * <p>示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
      */
-    @SerializedName("shared_url")
-    private String sharedUrl;
+    this.sharedUrl = builder.sharedUrl;
     /**
      * 记录链接(检索记录接口将返回该字段)
-     * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+     *
+     * <p>示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
      */
-    @SerializedName("record_url")
+    this.recordUrl = builder.recordUrl;
+  }
+
+  public static class Builder {
+    /**
+     * 记录字段
+     *
+     * <p>示例值：
+     */
+    private Map<String, Object> fields;
+
+    /**
+     * 记录Id
+     *
+     * <p>示例值：recgcfdzKq
+     */
+    private String recordId;
+
+    /**
+     * 该记录的创建人信息。本接口不返回该参数;;
+     *
+     * <p>示例值：
+     */
+    private Person createdBy;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1675244156000
+     */
+    private Long createdTime;
+
+    /**
+     * 该记录的创建人信息。本接口不返回该参数;;
+     *
+     * <p>示例值：
+     */
+    private Person lastModifiedBy;
+
+    /**
+     * 最近更新时间
+     *
+     * <p>示例值：1677556020000
+     */
+    private Long lastModifiedTime;
+
+    /**
+     * 记录分享链接(批量获取记录接口将返回该字段)
+     *
+     * <p>示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+     */
+    private String sharedUrl;
+
+    /**
+     * 记录链接(检索记录接口将返回该字段)
+     *
+     * <p>示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+     */
     private String recordUrl;
 
-    // builder 开始
-    public AppTableRecord() {
+    /**
+     * 记录字段
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(Map<String, Object> fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public AppTableRecord(Builder builder) {
-        /**
-         * 记录字段
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-        /**
-         * 记录Id
-         * <p> 示例值：recgcfdzKq
-         */
-        this.recordId = builder.recordId;
-        /**
-         * 创建人
-         * <p> 示例值：
-         */
-        this.createdBy = builder.createdBy;
-        /**
-         * 创建时间
-         * <p> 示例值：1675244156000
-         */
-        this.createdTime = builder.createdTime;
-        /**
-         * 修改人
-         * <p> 示例值：
-         */
-        this.lastModifiedBy = builder.lastModifiedBy;
-        /**
-         * 最近更新时间
-         * <p> 示例值：1677556020000
-         */
-        this.lastModifiedTime = builder.lastModifiedTime;
-        /**
-         * 记录分享链接(批量获取记录接口将返回该字段)
-         * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
-         */
-        this.sharedUrl = builder.sharedUrl;
-        /**
-         * 记录链接(检索记录接口将返回该字段)
-         * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
-         */
-        this.recordUrl = builder.recordUrl;
+    /**
+     * 记录Id
+     *
+     * <p>示例值：recgcfdzKq
+     *
+     * @param recordId
+     * @return
+     */
+    public Builder recordId(String recordId) {
+      this.recordId = recordId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 该记录的创建人信息。本接口不返回该参数;;
+     *
+     * <p>示例值：
+     *
+     * @param createdBy
+     * @return
+     */
+    public Builder createdBy(Person createdBy) {
+      this.createdBy = createdBy;
+      return this;
     }
 
-    public Map<String, Object> getFields() {
-        return this.fields;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1675244156000
+     *
+     * @param createdTime
+     * @return
+     */
+    public Builder createdTime(Long createdTime) {
+      this.createdTime = createdTime;
+      return this;
     }
 
-    public void setFields(Map<String, Object> fields) {
-        this.fields = fields;
+    /**
+     * 该记录的创建人信息。本接口不返回该参数;;
+     *
+     * <p>示例值：
+     *
+     * @param lastModifiedBy
+     * @return
+     */
+    public Builder lastModifiedBy(Person lastModifiedBy) {
+      this.lastModifiedBy = lastModifiedBy;
+      return this;
     }
 
-    public String getRecordId() {
-        return this.recordId;
+    /**
+     * 最近更新时间
+     *
+     * <p>示例值：1677556020000
+     *
+     * @param lastModifiedTime
+     * @return
+     */
+    public Builder lastModifiedTime(Long lastModifiedTime) {
+      this.lastModifiedTime = lastModifiedTime;
+      return this;
     }
 
-    public void setRecordId(String recordId) {
-        this.recordId = recordId;
+    /**
+     * 记录分享链接(批量获取记录接口将返回该字段)
+     *
+     * <p>示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+     *
+     * @param sharedUrl
+     * @return
+     */
+    public Builder sharedUrl(String sharedUrl) {
+      this.sharedUrl = sharedUrl;
+      return this;
     }
 
-    public Person getCreatedBy() {
-        return this.createdBy;
+    /**
+     * 记录链接(检索记录接口将返回该字段)
+     *
+     * <p>示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
+     *
+     * @param recordUrl
+     * @return
+     */
+    public Builder recordUrl(String recordUrl) {
+      this.recordUrl = recordUrl;
+      return this;
     }
 
-    public void setCreatedBy(Person createdBy) {
-        this.createdBy = createdBy;
+    public AppTableRecord build() {
+      return new AppTableRecord(this);
     }
+  }
 
-    public Long getCreatedTime() {
-        return this.createdTime;
-    }
-
-    public void setCreatedTime(Long createdTime) {
-        this.createdTime = createdTime;
-    }
-
-    public Person getLastModifiedBy() {
-        return this.lastModifiedBy;
-    }
-
-    public void setLastModifiedBy(Person lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
-    }
-
-    public Long getLastModifiedTime() {
-        return this.lastModifiedTime;
-    }
-
-    public void setLastModifiedTime(Long lastModifiedTime) {
-        this.lastModifiedTime = lastModifiedTime;
-    }
-
-    public String getSharedUrl() {
-        return this.sharedUrl;
-    }
-
-    public void setSharedUrl(String sharedUrl) {
-        this.sharedUrl = sharedUrl;
-    }
-
-    public String getRecordUrl() {
-        return this.recordUrl;
-    }
-
-    public void setRecordUrl(String recordUrl) {
-        this.recordUrl = recordUrl;
-    }
-
-    public static class Builder {
-        /**
-         * 记录字段
-         * <p> 示例值：
-         */
-        private Map<String, Object> fields;
-        /**
-         * 记录Id
-         * <p> 示例值：recgcfdzKq
-         */
-        private String recordId;
-        /**
-         * 创建人
-         * <p> 示例值：
-         */
-        private Person createdBy;
-        /**
-         * 创建时间
-         * <p> 示例值：1675244156000
-         */
-        private Long createdTime;
-        /**
-         * 修改人
-         * <p> 示例值：
-         */
-        private Person lastModifiedBy;
-        /**
-         * 最近更新时间
-         * <p> 示例值：1677556020000
-         */
-        private Long lastModifiedTime;
-        /**
-         * 记录分享链接(批量获取记录接口将返回该字段)
-         * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
-         */
-        private String sharedUrl;
-        /**
-         * 记录链接(检索记录接口将返回该字段)
-         * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
-         */
-        private String recordUrl;
-
-        /**
-         * 记录字段
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(Map<String, Object> fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        /**
-         * 记录Id
-         * <p> 示例值：recgcfdzKq
-         *
-         * @param recordId
-         * @return
-         */
-        public Builder recordId(String recordId) {
-            this.recordId = recordId;
-            return this;
-        }
-
-
-        /**
-         * 创建人
-         * <p> 示例值：
-         *
-         * @param createdBy
-         * @return
-         */
-        public Builder createdBy(Person createdBy) {
-            this.createdBy = createdBy;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1675244156000
-         *
-         * @param createdTime
-         * @return
-         */
-        public Builder createdTime(Long createdTime) {
-            this.createdTime = createdTime;
-            return this;
-        }
-
-
-        /**
-         * 修改人
-         * <p> 示例值：
-         *
-         * @param lastModifiedBy
-         * @return
-         */
-        public Builder lastModifiedBy(Person lastModifiedBy) {
-            this.lastModifiedBy = lastModifiedBy;
-            return this;
-        }
-
-
-        /**
-         * 最近更新时间
-         * <p> 示例值：1677556020000
-         *
-         * @param lastModifiedTime
-         * @return
-         */
-        public Builder lastModifiedTime(Long lastModifiedTime) {
-            this.lastModifiedTime = lastModifiedTime;
-            return this;
-        }
-
-
-        /**
-         * 记录分享链接(批量获取记录接口将返回该字段)
-         * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
-         *
-         * @param sharedUrl
-         * @return
-         */
-        public Builder sharedUrl(String sharedUrl) {
-            this.sharedUrl = sharedUrl;
-            return this;
-        }
-
-
-        /**
-         * 记录链接(检索记录接口将返回该字段)
-         * <p> 示例值：https://www.example.com/record/WVoXrzIaqeorcJcHgzAcg8AQnNd
-         *
-         * @param recordUrl
-         * @return
-         */
-        public Builder recordUrl(String recordUrl) {
-            this.recordUrl = recordUrl;
-            return this;
-        }
-
-
-        public AppTableRecord build() {
-            return new AppTableRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationInfo {
+  /**
+   * 离职审批发起人的雇佣 ID
+   *
+   * <p>示例值：6838119494196871234
+   */
+  @SerializedName("apply_initiator_id")
+  private String applyInitiatorId;
+
+  /**
+   * 离职申请流程发起时间
+   *
+   * <p>示例值：2022-02-03 11:22:33
+   */
+  @SerializedName("apply_initiating_time")
+  private String applyInitiatingTime;
+
+  /**
+   * 离职申请流程结束时间
+   *
+   * <p>示例值：2022-02-03 11:22:33
+   */
+  @SerializedName("apply_finish_time")
+  private String applyFinishTime;
+
+  /**
+   * 流程 ID
+   *
+   * <p>示例值：6838119494196871234
+   */
+  @SerializedName("process_id")
+  private String processId;
+
+  /**
+   * 离职审批发起人的雇佣信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("apply_initiator")
+  private ViewEmploymentInfo applyInitiator;
+
+  public String getApplyInitiatorId() {
+    return this.applyInitiatorId;
+  }
+
+  public void setApplyInitiatorId(String applyInitiatorId) {
+    this.applyInitiatorId = applyInitiatorId;
+  }
+
+  public String getApplyInitiatingTime() {
+    return this.applyInitiatingTime;
+  }
+
+  public void setApplyInitiatingTime(String applyInitiatingTime) {
+    this.applyInitiatingTime = applyInitiatingTime;
+  }
+
+  public String getApplyFinishTime() {
+    return this.applyFinishTime;
+  }
+
+  public void setApplyFinishTime(String applyFinishTime) {
+    this.applyFinishTime = applyFinishTime;
+  }
+
+  public String getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  public ViewEmploymentInfo getApplyInitiator() {
+    return this.applyInitiator;
+  }
+
+  public void setApplyInitiator(ViewEmploymentInfo applyInitiator) {
+    this.applyInitiator = applyInitiator;
+  }
+
+  // builder 开始
+  public ApplicationInfo() {}
+
+  public ApplicationInfo(Builder builder) {
     /**
      * 离职审批发起人的雇佣 ID
-     * <p> 示例值：6838119494196871234
+     *
+     * <p>示例值：6838119494196871234
      */
-    @SerializedName("apply_initiator_id")
-    private String applyInitiatorId;
+    this.applyInitiatorId = builder.applyInitiatorId;
     /**
      * 离职申请流程发起时间
-     * <p> 示例值：2022-02-03 11:22:33
+     *
+     * <p>示例值：2022-02-03 11:22:33
      */
-    @SerializedName("apply_initiating_time")
-    private String applyInitiatingTime;
+    this.applyInitiatingTime = builder.applyInitiatingTime;
     /**
      * 离职申请流程结束时间
-     * <p> 示例值：2022-02-03 11:22:33
+     *
+     * <p>示例值：2022-02-03 11:22:33
      */
-    @SerializedName("apply_finish_time")
-    private String applyFinishTime;
+    this.applyFinishTime = builder.applyFinishTime;
     /**
      * 流程 ID
-     * <p> 示例值：6838119494196871234
+     *
+     * <p>示例值：6838119494196871234
      */
-    @SerializedName("process_id")
-    private String processId;
+    this.processId = builder.processId;
     /**
      * 离职审批发起人的雇佣信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("apply_initiator")
+    this.applyInitiator = builder.applyInitiator;
+  }
+
+  public static class Builder {
+    /**
+     * 离职审批发起人的雇佣 ID
+     *
+     * <p>示例值：6838119494196871234
+     */
+    private String applyInitiatorId;
+
+    /**
+     * 离职申请流程发起时间
+     *
+     * <p>示例值：2022-02-03 11:22:33
+     */
+    private String applyInitiatingTime;
+
+    /**
+     * 离职申请流程结束时间
+     *
+     * <p>示例值：2022-02-03 11:22:33
+     */
+    private String applyFinishTime;
+
+    /**
+     * 流程 ID
+     *
+     * <p>示例值：6838119494196871234
+     */
+    private String processId;
+
+    /**
+     * 离职审批发起人的雇佣信息
+     *
+     * <p>示例值：
+     */
     private ViewEmploymentInfo applyInitiator;
 
-    // builder 开始
-    public ApplicationInfo() {
+    /**
+     * 离职审批发起人的雇佣 ID
+     *
+     * <p>示例值：6838119494196871234
+     *
+     * @param applyInitiatorId
+     * @return
+     */
+    public Builder applyInitiatorId(String applyInitiatorId) {
+      this.applyInitiatorId = applyInitiatorId;
+      return this;
     }
 
-    public ApplicationInfo(Builder builder) {
-        /**
-         * 离职审批发起人的雇佣 ID
-         * <p> 示例值：6838119494196871234
-         */
-        this.applyInitiatorId = builder.applyInitiatorId;
-        /**
-         * 离职申请流程发起时间
-         * <p> 示例值：2022-02-03 11:22:33
-         */
-        this.applyInitiatingTime = builder.applyInitiatingTime;
-        /**
-         * 离职申请流程结束时间
-         * <p> 示例值：2022-02-03 11:22:33
-         */
-        this.applyFinishTime = builder.applyFinishTime;
-        /**
-         * 流程 ID
-         * <p> 示例值：6838119494196871234
-         */
-        this.processId = builder.processId;
-        /**
-         * 离职审批发起人的雇佣信息
-         * <p> 示例值：
-         */
-        this.applyInitiator = builder.applyInitiator;
+    /**
+     * 离职申请流程发起时间
+     *
+     * <p>示例值：2022-02-03 11:22:33
+     *
+     * @param applyInitiatingTime
+     * @return
+     */
+    public Builder applyInitiatingTime(String applyInitiatingTime) {
+      this.applyInitiatingTime = applyInitiatingTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 离职申请流程结束时间
+     *
+     * <p>示例值：2022-02-03 11:22:33
+     *
+     * @param applyFinishTime
+     * @return
+     */
+    public Builder applyFinishTime(String applyFinishTime) {
+      this.applyFinishTime = applyFinishTime;
+      return this;
     }
 
-    public String getApplyInitiatorId() {
-        return this.applyInitiatorId;
+    /**
+     * 流程 ID
+     *
+     * <p>示例值：6838119494196871234
+     *
+     * @param processId
+     * @return
+     */
+    public Builder processId(String processId) {
+      this.processId = processId;
+      return this;
     }
 
-    public void setApplyInitiatorId(String applyInitiatorId) {
-        this.applyInitiatorId = applyInitiatorId;
+    /**
+     * 离职审批发起人的雇佣信息
+     *
+     * <p>示例值：
+     *
+     * @param applyInitiator
+     * @return
+     */
+    public Builder applyInitiator(ViewEmploymentInfo applyInitiator) {
+      this.applyInitiator = applyInitiator;
+      return this;
     }
 
-    public String getApplyInitiatingTime() {
-        return this.applyInitiatingTime;
+    public ApplicationInfo build() {
+      return new ApplicationInfo(this);
     }
+  }
 
-    public void setApplyInitiatingTime(String applyInitiatingTime) {
-        this.applyInitiatingTime = applyInitiatingTime;
-    }
-
-    public String getApplyFinishTime() {
-        return this.applyFinishTime;
-    }
-
-    public void setApplyFinishTime(String applyFinishTime) {
-        this.applyFinishTime = applyFinishTime;
-    }
-
-    public String getProcessId() {
-        return this.processId;
-    }
-
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
-    public ViewEmploymentInfo getApplyInitiator() {
-        return this.applyInitiator;
-    }
-
-    public void setApplyInitiator(ViewEmploymentInfo applyInitiator) {
-        this.applyInitiator = applyInitiator;
-    }
-
-    public static class Builder {
-        /**
-         * 离职审批发起人的雇佣 ID
-         * <p> 示例值：6838119494196871234
-         */
-        private String applyInitiatorId;
-        /**
-         * 离职申请流程发起时间
-         * <p> 示例值：2022-02-03 11:22:33
-         */
-        private String applyInitiatingTime;
-        /**
-         * 离职申请流程结束时间
-         * <p> 示例值：2022-02-03 11:22:33
-         */
-        private String applyFinishTime;
-        /**
-         * 流程 ID
-         * <p> 示例值：6838119494196871234
-         */
-        private String processId;
-        /**
-         * 离职审批发起人的雇佣信息
-         * <p> 示例值：
-         */
-        private ViewEmploymentInfo applyInitiator;
-
-        /**
-         * 离职审批发起人的雇佣 ID
-         * <p> 示例值：6838119494196871234
-         *
-         * @param applyInitiatorId
-         * @return
-         */
-        public Builder applyInitiatorId(String applyInitiatorId) {
-            this.applyInitiatorId = applyInitiatorId;
-            return this;
-        }
-
-
-        /**
-         * 离职申请流程发起时间
-         * <p> 示例值：2022-02-03 11:22:33
-         *
-         * @param applyInitiatingTime
-         * @return
-         */
-        public Builder applyInitiatingTime(String applyInitiatingTime) {
-            this.applyInitiatingTime = applyInitiatingTime;
-            return this;
-        }
-
-
-        /**
-         * 离职申请流程结束时间
-         * <p> 示例值：2022-02-03 11:22:33
-         *
-         * @param applyFinishTime
-         * @return
-         */
-        public Builder applyFinishTime(String applyFinishTime) {
-            this.applyFinishTime = applyFinishTime;
-            return this;
-        }
-
-
-        /**
-         * 流程 ID
-         * <p> 示例值：6838119494196871234
-         *
-         * @param processId
-         * @return
-         */
-        public Builder processId(String processId) {
-            this.processId = processId;
-            return this;
-        }
-
-
-        /**
-         * 离职审批发起人的雇佣信息
-         * <p> 示例值：
-         *
-         * @param applyInitiator
-         * @return
-         */
-        public Builder applyInitiator(ViewEmploymentInfo applyInitiator) {
-            this.applyInitiator = applyInitiator;
-            return this;
-        }
-
-
-        public ApplicationInfo build() {
-            return new ApplicationInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

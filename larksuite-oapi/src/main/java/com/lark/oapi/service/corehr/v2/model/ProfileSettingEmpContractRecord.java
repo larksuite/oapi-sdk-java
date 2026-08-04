@@ -13,260 +13,287 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingEmpContractRecord {
+  /**
+   * 合同协议编号
+   *
+   * <p>示例值：6919737965274990093
+   */
+  @SerializedName("contract_number")
+  private String contractNumber;
+
+  /**
+   * 合同类型;;枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+   * ;- object_api_name = "contract" ;- custom_api_name = "contract_type"
+   *
+   * <p>示例值：labor_contract
+   */
+  @SerializedName("contract_type")
+  private String contractType;
+
+  /**
+   * 甲方公司 ID;;引用 Company 的
+   * ID，详细信息可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口查询获得
+   *
+   * <p>示例值：6892686614112241165
+   */
+  @SerializedName("first_party")
+  private String firstParty;
+
+  /**
+   * 合同开始日期;;如果填写了合同对象，则该字段必填
+   *
+   * <p>示例值：2006-01-02
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 期限类型;;枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+   * ;- object_api_name = "contract" ;- custom_api_name = "duration_type"
+   *
+   * <p>示例值：fixed_term
+   */
+  @SerializedName("duration_type")
+  private String durationType;
+
+  /**
+   * 合同结束日期
+   *
+   * <p>示例值：2050-01-01
+   */
+  @SerializedName("contract_end_date")
+  private String contractEndDate;
+
+  public String getContractNumber() {
+    return this.contractNumber;
+  }
+
+  public void setContractNumber(String contractNumber) {
+    this.contractNumber = contractNumber;
+  }
+
+  public String getContractType() {
+    return this.contractType;
+  }
+
+  public void setContractType(String contractType) {
+    this.contractType = contractType;
+  }
+
+  public String getFirstParty() {
+    return this.firstParty;
+  }
+
+  public void setFirstParty(String firstParty) {
+    this.firstParty = firstParty;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getDurationType() {
+    return this.durationType;
+  }
+
+  public void setDurationType(String durationType) {
+    this.durationType = durationType;
+  }
+
+  public String getContractEndDate() {
+    return this.contractEndDate;
+  }
+
+  public void setContractEndDate(String contractEndDate) {
+    this.contractEndDate = contractEndDate;
+  }
+
+  // builder 开始
+  public ProfileSettingEmpContractRecord() {}
+
+  public ProfileSettingEmpContractRecord(Builder builder) {
     /**
      * 合同协议编号
-     * <p> 示例值：6919737965274990093
+     *
+     * <p>示例值：6919737965274990093
      */
-    @SerializedName("contract_number")
-    private String contractNumber;
+    this.contractNumber = builder.contractNumber;
     /**
-     * 合同类型，枚举值可选项 可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "contract" custom_api_name = "contract_type"
-     * <p> 示例值：labor_contract
+     * 合同类型;;枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+     * ;- object_api_name = "contract" ;- custom_api_name = "contract_type"
+     *
+     * <p>示例值：labor_contract
      */
-    @SerializedName("contract_type")
-    private String contractType;
+    this.contractType = builder.contractType;
     /**
-     * 甲方公司 ID, 引用Company的ID，详细信息可通过【查询单个公司】接口查询获得
-     * <p> 示例值：6892686614112241165
+     * 甲方公司 ID;;引用 Company 的
+     * ID，详细信息可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口查询获得
+     *
+     * <p>示例值：6892686614112241165
      */
-    @SerializedName("first_party")
-    private String firstParty;
+    this.firstParty = builder.firstParty;
     /**
-     * 合同开始日期
-     * <p> 示例值：2006-01-02
+     * 合同开始日期;;如果填写了合同对象，则该字段必填
+     *
+     * <p>示例值：2006-01-02
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
-     * 期限类型，枚举值可选项 可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "contract" custom_api_name = "duration_type"
-     * <p> 示例值：fixed_term
+     * 期限类型;;枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+     * ;- object_api_name = "contract" ;- custom_api_name = "duration_type"
+     *
+     * <p>示例值：fixed_term
      */
-    @SerializedName("duration_type")
-    private String durationType;
+    this.durationType = builder.durationType;
     /**
      * 合同结束日期
-     * <p> 示例值：2050-01-01
+     *
+     * <p>示例值：2050-01-01
      */
-    @SerializedName("contract_end_date")
+    this.contractEndDate = builder.contractEndDate;
+  }
+
+  public static class Builder {
+    /**
+     * 合同协议编号
+     *
+     * <p>示例值：6919737965274990093
+     */
+    private String contractNumber;
+
+    /**
+     * 合同类型;;枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+     * ;- object_api_name = "contract" ;- custom_api_name = "contract_type"
+     *
+     * <p>示例值：labor_contract
+     */
+    private String contractType;
+
+    /**
+     * 甲方公司 ID;;引用 Company 的
+     * ID，详细信息可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口查询获得
+     *
+     * <p>示例值：6892686614112241165
+     */
+    private String firstParty;
+
+    /**
+     * 合同开始日期;;如果填写了合同对象，则该字段必填
+     *
+     * <p>示例值：2006-01-02
+     */
+    private String effectiveTime;
+
+    /**
+     * 期限类型;;枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+     * ;- object_api_name = "contract" ;- custom_api_name = "duration_type"
+     *
+     * <p>示例值：fixed_term
+     */
+    private String durationType;
+
+    /**
+     * 合同结束日期
+     *
+     * <p>示例值：2050-01-01
+     */
     private String contractEndDate;
 
-    // builder 开始
-    public ProfileSettingEmpContractRecord() {
+    /**
+     * 合同协议编号
+     *
+     * <p>示例值：6919737965274990093
+     *
+     * @param contractNumber
+     * @return
+     */
+    public Builder contractNumber(String contractNumber) {
+      this.contractNumber = contractNumber;
+      return this;
     }
 
-    public ProfileSettingEmpContractRecord(Builder builder) {
-        /**
-         * 合同协议编号
-         * <p> 示例值：6919737965274990093
-         */
-        this.contractNumber = builder.contractNumber;
-        /**
-         * 合同类型，枚举值可选项 可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "contract" custom_api_name = "contract_type"
-         * <p> 示例值：labor_contract
-         */
-        this.contractType = builder.contractType;
-        /**
-         * 甲方公司 ID, 引用Company的ID，详细信息可通过【查询单个公司】接口查询获得
-         * <p> 示例值：6892686614112241165
-         */
-        this.firstParty = builder.firstParty;
-        /**
-         * 合同开始日期
-         * <p> 示例值：2006-01-02
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 期限类型，枚举值可选项 可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "contract" custom_api_name = "duration_type"
-         * <p> 示例值：fixed_term
-         */
-        this.durationType = builder.durationType;
-        /**
-         * 合同结束日期
-         * <p> 示例值：2050-01-01
-         */
-        this.contractEndDate = builder.contractEndDate;
+    /**
+     * 合同类型;;枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+     * ;- object_api_name = "contract" ;- custom_api_name = "contract_type"
+     *
+     * <p>示例值：labor_contract
+     *
+     * @param contractType
+     * @return
+     */
+    public Builder contractType(String contractType) {
+      this.contractType = contractType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 甲方公司 ID;;引用 Company 的
+     * ID，详细信息可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口查询获得
+     *
+     * <p>示例值：6892686614112241165
+     *
+     * @param firstParty
+     * @return
+     */
+    public Builder firstParty(String firstParty) {
+      this.firstParty = firstParty;
+      return this;
     }
 
-    public String getContractNumber() {
-        return this.contractNumber;
+    /**
+     * 合同开始日期;;如果填写了合同对象，则该字段必填
+     *
+     * <p>示例值：2006-01-02
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public void setContractNumber(String contractNumber) {
-        this.contractNumber = contractNumber;
+    /**
+     * 期限类型;;枚举值可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：
+     * ;- object_api_name = "contract" ;- custom_api_name = "duration_type"
+     *
+     * <p>示例值：fixed_term
+     *
+     * @param durationType
+     * @return
+     */
+    public Builder durationType(String durationType) {
+      this.durationType = durationType;
+      return this;
     }
 
-    public String getContractType() {
-        return this.contractType;
+    /**
+     * 合同结束日期
+     *
+     * <p>示例值：2050-01-01
+     *
+     * @param contractEndDate
+     * @return
+     */
+    public Builder contractEndDate(String contractEndDate) {
+      this.contractEndDate = contractEndDate;
+      return this;
     }
 
-    public void setContractType(String contractType) {
-        this.contractType = contractType;
+    public ProfileSettingEmpContractRecord build() {
+      return new ProfileSettingEmpContractRecord(this);
     }
+  }
 
-    public String getFirstParty() {
-        return this.firstParty;
-    }
-
-    public void setFirstParty(String firstParty) {
-        this.firstParty = firstParty;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public String getDurationType() {
-        return this.durationType;
-    }
-
-    public void setDurationType(String durationType) {
-        this.durationType = durationType;
-    }
-
-    public String getContractEndDate() {
-        return this.contractEndDate;
-    }
-
-    public void setContractEndDate(String contractEndDate) {
-        this.contractEndDate = contractEndDate;
-    }
-
-    public static class Builder {
-        /**
-         * 合同协议编号
-         * <p> 示例值：6919737965274990093
-         */
-        private String contractNumber;
-        /**
-         * 合同类型，枚举值可选项 可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "contract" custom_api_name = "contract_type"
-         * <p> 示例值：labor_contract
-         */
-        private String contractType;
-        /**
-         * 甲方公司 ID, 引用Company的ID，详细信息可通过【查询单个公司】接口查询获得
-         * <p> 示例值：6892686614112241165
-         */
-        private String firstParty;
-        /**
-         * 合同开始日期
-         * <p> 示例值：2006-01-02
-         */
-        private String effectiveTime;
-        /**
-         * 期限类型，枚举值可选项 可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "contract" custom_api_name = "duration_type"
-         * <p> 示例值：fixed_term
-         */
-        private String durationType;
-        /**
-         * 合同结束日期
-         * <p> 示例值：2050-01-01
-         */
-        private String contractEndDate;
-
-        /**
-         * 合同协议编号
-         * <p> 示例值：6919737965274990093
-         *
-         * @param contractNumber
-         * @return
-         */
-        public Builder contractNumber(String contractNumber) {
-            this.contractNumber = contractNumber;
-            return this;
-        }
-
-
-        /**
-         * 合同类型，枚举值可选项 可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "contract" custom_api_name = "contract_type"
-         * <p> 示例值：labor_contract
-         *
-         * @param contractType
-         * @return
-         */
-        public Builder contractType(String contractType) {
-            this.contractType = contractType;
-            return this;
-        }
-
-
-        /**
-         * 甲方公司 ID, 引用Company的ID，详细信息可通过【查询单个公司】接口查询获得
-         * <p> 示例值：6892686614112241165
-         *
-         * @param firstParty
-         * @return
-         */
-        public Builder firstParty(String firstParty) {
-            this.firstParty = firstParty;
-            return this;
-        }
-
-
-        /**
-         * 合同开始日期
-         * <p> 示例值：2006-01-02
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 期限类型，枚举值可选项 可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "contract" custom_api_name = "duration_type"
-         * <p> 示例值：fixed_term
-         *
-         * @param durationType
-         * @return
-         */
-        public Builder durationType(String durationType) {
-            this.durationType = durationType;
-            return this;
-        }
-
-
-        /**
-         * 合同结束日期
-         * <p> 示例值：2050-01-01
-         *
-         * @param contractEndDate
-         * @return
-         */
-        public Builder contractEndDate(String contractEndDate) {
-            this.contractEndDate = contractEndDate;
-            return this;
-        }
-
-
-        public ProfileSettingEmpContractRecord build() {
-            return new ProfileSettingEmpContractRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

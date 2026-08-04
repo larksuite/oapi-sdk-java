@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserSearchFilter {
+  /**
+   * 是否离职（默认在职+离职且聊过天，设置true，仅搜离职且聊过天）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_resigned")
+  private Boolean isResigned;
+
+  /**
+   * 是否有聊天记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_contact")
+  private Boolean hasContact;
+
+  /**
+   * 是否排除外部好友（默认搜索同租户+外部好友，设置true仅搜同租户）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("exclude_outer_contact")
+  private Boolean excludeOuterContact;
+
+  /**
+   * 是否存在企业邮箱
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_enterprise_email")
+  private Boolean hasEnterpriseEmail;
+
+  /**
+   * 指定用户ID列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  public Boolean getIsResigned() {
+    return this.isResigned;
+  }
+
+  public void setIsResigned(Boolean isResigned) {
+    this.isResigned = isResigned;
+  }
+
+  public Boolean getHasContact() {
+    return this.hasContact;
+  }
+
+  public void setHasContact(Boolean hasContact) {
+    this.hasContact = hasContact;
+  }
+
+  public Boolean getExcludeOuterContact() {
+    return this.excludeOuterContact;
+  }
+
+  public void setExcludeOuterContact(Boolean excludeOuterContact) {
+    this.excludeOuterContact = excludeOuterContact;
+  }
+
+  public Boolean getHasEnterpriseEmail() {
+    return this.hasEnterpriseEmail;
+  }
+
+  public void setHasEnterpriseEmail(Boolean hasEnterpriseEmail) {
+    this.hasEnterpriseEmail = hasEnterpriseEmail;
+  }
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  // builder 开始
+  public UserSearchFilter() {}
+
+  public UserSearchFilter(Builder builder) {
     /**
      * 是否离职（默认在职+离职且聊过天，设置true，仅搜离职且聊过天）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_resigned")
-    private Boolean isResigned;
+    this.isResigned = builder.isResigned;
     /**
      * 是否有聊天记录
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("has_contact")
-    private Boolean hasContact;
+    this.hasContact = builder.hasContact;
     /**
      * 是否排除外部好友（默认搜索同租户+外部好友，设置true仅搜同租户）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("exclude_outer_contact")
-    private Boolean excludeOuterContact;
+    this.excludeOuterContact = builder.excludeOuterContact;
     /**
      * 是否存在企业邮箱
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("has_enterprise_email")
-    private Boolean hasEnterpriseEmail;
+    this.hasEnterpriseEmail = builder.hasEnterpriseEmail;
     /**
      * 指定用户ID列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
+    this.userIds = builder.userIds;
+  }
+
+  public static class Builder {
+    /**
+     * 是否离职（默认在职+离职且聊过天，设置true，仅搜离职且聊过天）
+     *
+     * <p>示例值：
+     */
+    private Boolean isResigned;
+
+    /**
+     * 是否有聊天记录
+     *
+     * <p>示例值：
+     */
+    private Boolean hasContact;
+
+    /**
+     * 是否排除外部好友（默认搜索同租户+外部好友，设置true仅搜同租户）
+     *
+     * <p>示例值：
+     */
+    private Boolean excludeOuterContact;
+
+    /**
+     * 是否存在企业邮箱
+     *
+     * <p>示例值：
+     */
+    private Boolean hasEnterpriseEmail;
+
+    /**
+     * 指定用户ID列表
+     *
+     * <p>示例值：
+     */
     private String[] userIds;
 
-    // builder 开始
-    public UserSearchFilter() {
+    /**
+     * 是否离职（默认在职+离职且聊过天，设置true，仅搜离职且聊过天）
+     *
+     * <p>示例值：
+     *
+     * @param isResigned
+     * @return
+     */
+    public Builder isResigned(Boolean isResigned) {
+      this.isResigned = isResigned;
+      return this;
     }
 
-    public UserSearchFilter(Builder builder) {
-        /**
-         * 是否离职（默认在职+离职且聊过天，设置true，仅搜离职且聊过天）
-         * <p> 示例值：
-         */
-        this.isResigned = builder.isResigned;
-        /**
-         * 是否有聊天记录
-         * <p> 示例值：
-         */
-        this.hasContact = builder.hasContact;
-        /**
-         * 是否排除外部好友（默认搜索同租户+外部好友，设置true仅搜同租户）
-         * <p> 示例值：
-         */
-        this.excludeOuterContact = builder.excludeOuterContact;
-        /**
-         * 是否存在企业邮箱
-         * <p> 示例值：
-         */
-        this.hasEnterpriseEmail = builder.hasEnterpriseEmail;
-        /**
-         * 指定用户ID列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
+    /**
+     * 是否有聊天记录
+     *
+     * <p>示例值：
+     *
+     * @param hasContact
+     * @return
+     */
+    public Builder hasContact(Boolean hasContact) {
+      this.hasContact = hasContact;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否排除外部好友（默认搜索同租户+外部好友，设置true仅搜同租户）
+     *
+     * <p>示例值：
+     *
+     * @param excludeOuterContact
+     * @return
+     */
+    public Builder excludeOuterContact(Boolean excludeOuterContact) {
+      this.excludeOuterContact = excludeOuterContact;
+      return this;
     }
 
-    public Boolean getIsResigned() {
-        return this.isResigned;
+    /**
+     * 是否存在企业邮箱
+     *
+     * <p>示例值：
+     *
+     * @param hasEnterpriseEmail
+     * @return
+     */
+    public Builder hasEnterpriseEmail(Boolean hasEnterpriseEmail) {
+      this.hasEnterpriseEmail = hasEnterpriseEmail;
+      return this;
     }
 
-    public void setIsResigned(Boolean isResigned) {
-        this.isResigned = isResigned;
+    /**
+     * 指定用户ID列表
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public Boolean getHasContact() {
-        return this.hasContact;
+    public UserSearchFilter build() {
+      return new UserSearchFilter(this);
     }
+  }
 
-    public void setHasContact(Boolean hasContact) {
-        this.hasContact = hasContact;
-    }
-
-    public Boolean getExcludeOuterContact() {
-        return this.excludeOuterContact;
-    }
-
-    public void setExcludeOuterContact(Boolean excludeOuterContact) {
-        this.excludeOuterContact = excludeOuterContact;
-    }
-
-    public Boolean getHasEnterpriseEmail() {
-        return this.hasEnterpriseEmail;
-    }
-
-    public void setHasEnterpriseEmail(Boolean hasEnterpriseEmail) {
-        this.hasEnterpriseEmail = hasEnterpriseEmail;
-    }
-
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public static class Builder {
-        /**
-         * 是否离职（默认在职+离职且聊过天，设置true，仅搜离职且聊过天）
-         * <p> 示例值：
-         */
-        private Boolean isResigned;
-        /**
-         * 是否有聊天记录
-         * <p> 示例值：
-         */
-        private Boolean hasContact;
-        /**
-         * 是否排除外部好友（默认搜索同租户+外部好友，设置true仅搜同租户）
-         * <p> 示例值：
-         */
-        private Boolean excludeOuterContact;
-        /**
-         * 是否存在企业邮箱
-         * <p> 示例值：
-         */
-        private Boolean hasEnterpriseEmail;
-        /**
-         * 指定用户ID列表
-         * <p> 示例值：
-         */
-        private String[] userIds;
-
-        /**
-         * 是否离职（默认在职+离职且聊过天，设置true，仅搜离职且聊过天）
-         * <p> 示例值：
-         *
-         * @param isResigned
-         * @return
-         */
-        public Builder isResigned(Boolean isResigned) {
-            this.isResigned = isResigned;
-            return this;
-        }
-
-
-        /**
-         * 是否有聊天记录
-         * <p> 示例值：
-         *
-         * @param hasContact
-         * @return
-         */
-        public Builder hasContact(Boolean hasContact) {
-            this.hasContact = hasContact;
-            return this;
-        }
-
-
-        /**
-         * 是否排除外部好友（默认搜索同租户+外部好友，设置true仅搜同租户）
-         * <p> 示例值：
-         *
-         * @param excludeOuterContact
-         * @return
-         */
-        public Builder excludeOuterContact(Boolean excludeOuterContact) {
-            this.excludeOuterContact = excludeOuterContact;
-            return this;
-        }
-
-
-        /**
-         * 是否存在企业邮箱
-         * <p> 示例值：
-         *
-         * @param hasEnterpriseEmail
-         * @return
-         */
-        public Builder hasEnterpriseEmail(Boolean hasEnterpriseEmail) {
-            this.hasEnterpriseEmail = hasEnterpriseEmail;
-            return this;
-        }
-
-
-        /**
-         * 指定用户ID列表
-         * <p> 示例值：
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        public UserSearchFilter build() {
-            return new UserSearchFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

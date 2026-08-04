@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecommendedJobLevel {
+  /**
+   * 最高职级建议
+   *
+   * <p>示例值：
+   */
+  @SerializedName("lower_limit_job_level_name")
+  private I18n lowerLimitJobLevelName;
+
+  /**
+   * 最高职级建议
+   *
+   * <p>示例值：
+   */
+  @SerializedName("higher_limit_job_level_name")
+  private I18n higherLimitJobLevelName;
+
+  public I18n getLowerLimitJobLevelName() {
+    return this.lowerLimitJobLevelName;
+  }
+
+  public void setLowerLimitJobLevelName(I18n lowerLimitJobLevelName) {
+    this.lowerLimitJobLevelName = lowerLimitJobLevelName;
+  }
+
+  public I18n getHigherLimitJobLevelName() {
+    return this.higherLimitJobLevelName;
+  }
+
+  public void setHigherLimitJobLevelName(I18n higherLimitJobLevelName) {
+    this.higherLimitJobLevelName = higherLimitJobLevelName;
+  }
+
+  // builder 开始
+  public RecommendedJobLevel() {}
+
+  public RecommendedJobLevel(Builder builder) {
     /**
-     * 最低职级建议
-     * <p> 示例值：
+     * 最高职级建议
+     *
+     * <p>示例值：
      */
-    @SerializedName("lower_limit_job_level_name")
+    this.lowerLimitJobLevelName = builder.lowerLimitJobLevelName;
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     */
+    this.higherLimitJobLevelName = builder.higherLimitJobLevelName;
+  }
+
+  public static class Builder {
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     */
     private I18n lowerLimitJobLevelName;
+
     /**
-     * 最低职级建议
-     * <p> 示例值：
+     * 最高职级建议
+     *
+     * <p>示例值：
      */
-    @SerializedName("higher_limit_job_level_name")
     private I18n higherLimitJobLevelName;
 
-    // builder 开始
-    public RecommendedJobLevel() {
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     *
+     * @param lowerLimitJobLevelName
+     * @return
+     */
+    public Builder lowerLimitJobLevelName(I18n lowerLimitJobLevelName) {
+      this.lowerLimitJobLevelName = lowerLimitJobLevelName;
+      return this;
     }
 
-    public RecommendedJobLevel(Builder builder) {
-        /**
-         * 最低职级建议
-         * <p> 示例值：
-         */
-        this.lowerLimitJobLevelName = builder.lowerLimitJobLevelName;
-        /**
-         * 最低职级建议
-         * <p> 示例值：
-         */
-        this.higherLimitJobLevelName = builder.higherLimitJobLevelName;
+    /**
+     * 最高职级建议
+     *
+     * <p>示例值：
+     *
+     * @param higherLimitJobLevelName
+     * @return
+     */
+    public Builder higherLimitJobLevelName(I18n higherLimitJobLevelName) {
+      this.higherLimitJobLevelName = higherLimitJobLevelName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public RecommendedJobLevel build() {
+      return new RecommendedJobLevel(this);
     }
+  }
 
-    public I18n getLowerLimitJobLevelName() {
-        return this.lowerLimitJobLevelName;
-    }
-
-    public void setLowerLimitJobLevelName(I18n lowerLimitJobLevelName) {
-        this.lowerLimitJobLevelName = lowerLimitJobLevelName;
-    }
-
-    public I18n getHigherLimitJobLevelName() {
-        return this.higherLimitJobLevelName;
-    }
-
-    public void setHigherLimitJobLevelName(I18n higherLimitJobLevelName) {
-        this.higherLimitJobLevelName = higherLimitJobLevelName;
-    }
-
-    public static class Builder {
-        /**
-         * 最低职级建议
-         * <p> 示例值：
-         */
-        private I18n lowerLimitJobLevelName;
-        /**
-         * 最低职级建议
-         * <p> 示例值：
-         */
-        private I18n higherLimitJobLevelName;
-
-        /**
-         * 最低职级建议
-         * <p> 示例值：
-         *
-         * @param lowerLimitJobLevelName
-         * @return
-         */
-        public Builder lowerLimitJobLevelName(I18n lowerLimitJobLevelName) {
-            this.lowerLimitJobLevelName = lowerLimitJobLevelName;
-            return this;
-        }
-
-
-        /**
-         * 最低职级建议
-         * <p> 示例值：
-         *
-         * @param higherLimitJobLevelName
-         * @return
-         */
-        public Builder higherLimitJobLevelName(I18n higherLimitJobLevelName) {
-            this.higherLimitJobLevelName = higherLimitJobLevelName;
-            return this;
-        }
-
-
-        public RecommendedJobLevel build() {
-            return new RecommendedJobLevel(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

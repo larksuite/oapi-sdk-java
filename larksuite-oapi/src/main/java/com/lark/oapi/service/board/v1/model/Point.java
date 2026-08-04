@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Point {
+  /**
+   * 点位置x坐标，单位百分比
+   *
+   * <p>示例值：0.5
+   */
+  @SerializedName("x")
+  private Double x;
+
+  /**
+   * 点位置y坐标，单位百分比
+   *
+   * <p>示例值：0.5
+   */
+  @SerializedName("y")
+  private Double y;
+
+  public Double getX() {
+    return this.x;
+  }
+
+  public void setX(Double x) {
+    this.x = x;
+  }
+
+  public Double getY() {
+    return this.y;
+  }
+
+  public void setY(Double y) {
+    this.y = y;
+  }
+
+  // builder 开始
+  public Point() {}
+
+  public Point(Builder builder) {
     /**
-     * 点位置x坐标
-     * <p> 示例值：10
+     * 点位置x坐标，单位百分比
+     *
+     * <p>示例值：0.5
      */
-    @SerializedName("x")
+    this.x = builder.x;
+    /**
+     * 点位置y坐标，单位百分比
+     *
+     * <p>示例值：0.5
+     */
+    this.y = builder.y;
+  }
+
+  public static class Builder {
+    /**
+     * 点位置x坐标，单位百分比
+     *
+     * <p>示例值：0.5
+     */
     private Double x;
+
     /**
-     * 点位置y坐标
-     * <p> 示例值：10
+     * 点位置y坐标，单位百分比
+     *
+     * <p>示例值：0.5
      */
-    @SerializedName("y")
     private Double y;
 
-    // builder 开始
-    public Point() {
+    /**
+     * 点位置x坐标，单位百分比
+     *
+     * <p>示例值：0.5
+     *
+     * @param x
+     * @return
+     */
+    public Builder x(Double x) {
+      this.x = x;
+      return this;
     }
 
-    public Point(Builder builder) {
-        /**
-         * 点位置x坐标
-         * <p> 示例值：10
-         */
-        this.x = builder.x;
-        /**
-         * 点位置y坐标
-         * <p> 示例值：10
-         */
-        this.y = builder.y;
+    /**
+     * 点位置y坐标，单位百分比
+     *
+     * <p>示例值：0.5
+     *
+     * @param y
+     * @return
+     */
+    public Builder y(Double y) {
+      this.y = y;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Point build() {
+      return new Point(this);
     }
+  }
 
-    public Double getX() {
-        return this.x;
-    }
-
-    public void setX(Double x) {
-        this.x = x;
-    }
-
-    public Double getY() {
-        return this.y;
-    }
-
-    public void setY(Double y) {
-        this.y = y;
-    }
-
-    public static class Builder {
-        /**
-         * 点位置x坐标
-         * <p> 示例值：10
-         */
-        private Double x;
-        /**
-         * 点位置y坐标
-         * <p> 示例值：10
-         */
-        private Double y;
-
-        /**
-         * 点位置x坐标
-         * <p> 示例值：10
-         *
-         * @param x
-         * @return
-         */
-        public Builder x(Double x) {
-            this.x = x;
-            return this;
-        }
-
-
-        /**
-         * 点位置y坐标
-         * <p> 示例值：10
-         *
-         * @param y
-         * @return
-         */
-        public Builder y(Double y) {
-            this.y = y;
-            return this;
-        }
-
-
-        public Point build() {
-            return new Point(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

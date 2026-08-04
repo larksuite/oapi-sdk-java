@@ -13,272 +13,295 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarEventAttendeeChatMember {
+  /**
+   * 参与人RSVP状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("rsvp_status")
+  private String rsvpStatus;
+
+  /**
+   * 参与人是否为「可选参加」
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_optional")
+  private Boolean isOptional;
+
+  /**
+   * 参与人名称
+   *
+   * <p>示例值：Li Jian
+   */
+  @SerializedName("display_name")
+  private String displayName;
+
+  /**
+   * 参与人的 open_id。关于用户 ID 可参见[用户相关的 ID
+   * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+   *
+   * <p>示例值：ou_143669c5a53647f00f6c80a0253aa68b
+   */
+  @SerializedName("open_id")
+  private String openId;
+
+  /**
+   * 参与人是否为日程组织者
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_organizer")
+  private Boolean isOrganizer;
+
+  /**
+   * 参与人是否为外部参与人
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_external")
+  private Boolean isExternal;
+
+  public String getRsvpStatus() {
+    return this.rsvpStatus;
+  }
+
+  public void setRsvpStatus(String rsvpStatus) {
+    this.rsvpStatus = rsvpStatus;
+  }
+
+  public Boolean getIsOptional() {
+    return this.isOptional;
+  }
+
+  public void setIsOptional(Boolean isOptional) {
+    this.isOptional = isOptional;
+  }
+
+  public String getDisplayName() {
+    return this.displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  public String getOpenId() {
+    return this.openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  public Boolean getIsOrganizer() {
+    return this.isOrganizer;
+  }
+
+  public void setIsOrganizer(Boolean isOrganizer) {
+    this.isOrganizer = isOrganizer;
+  }
+
+  public Boolean getIsExternal() {
+    return this.isExternal;
+  }
+
+  public void setIsExternal(Boolean isExternal) {
+    this.isExternal = isExternal;
+  }
+
+  // builder 开始
+  public CalendarEventAttendeeChatMember() {}
+
+  public CalendarEventAttendeeChatMember(Builder builder) {
     /**
      * 参与人RSVP状态
-     * <p> 示例值：needs_action
+     *
+     * <p>示例值：
      */
-    @SerializedName("rsvp_status")
-    private String rsvpStatus;
+    this.rsvpStatus = builder.rsvpStatus;
     /**
      * 参与人是否为「可选参加」
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_optional")
-    private Boolean isOptional;
+    this.isOptional = builder.isOptional;
     /**
      * 参与人名称
-     * <p> 示例值：Zhang San
+     *
+     * <p>示例值：Li Jian
      */
-    @SerializedName("display_name")
-    private String displayName;
+    this.displayName = builder.displayName;
     /**
-     * 参与人open_id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
-     * <p> 示例值：ou_143669c5a53647f00f6c80a0253aa68b
+     * 参与人的 open_id。关于用户 ID 可参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：ou_143669c5a53647f00f6c80a0253aa68b
      */
-    @SerializedName("open_id")
-    private String openId;
+    this.openId = builder.openId;
     /**
      * 参与人是否为日程组织者
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_organizer")
-    private Boolean isOrganizer;
+    this.isOrganizer = builder.isOrganizer;
     /**
      * 参与人是否为外部参与人
-     * <p> 示例值：false
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_external")
+    this.isExternal = builder.isExternal;
+  }
+
+  public static class Builder {
+    /**
+     * 参与人RSVP状态
+     *
+     * <p>示例值：
+     */
+    private String rsvpStatus;
+
+    /**
+     * 参与人是否为「可选参加」
+     *
+     * <p>示例值：true
+     */
+    private Boolean isOptional;
+
+    /**
+     * 参与人名称
+     *
+     * <p>示例值：Li Jian
+     */
+    private String displayName;
+
+    /**
+     * 参与人的 open_id。关于用户 ID 可参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：ou_143669c5a53647f00f6c80a0253aa68b
+     */
+    private String openId;
+
+    /**
+     * 参与人是否为日程组织者
+     *
+     * <p>示例值：true
+     */
+    private Boolean isOrganizer;
+
+    /**
+     * 参与人是否为外部参与人
+     *
+     * <p>示例值：true
+     */
     private Boolean isExternal;
 
-    // builder 开始
-    public CalendarEventAttendeeChatMember() {
+    /**
+     * 参与人RSVP状态
+     *
+     * <p>示例值：
+     *
+     * @param rsvpStatus
+     * @return
+     */
+    public Builder rsvpStatus(String rsvpStatus) {
+      this.rsvpStatus = rsvpStatus;
+      return this;
     }
 
-    public CalendarEventAttendeeChatMember(Builder builder) {
-        /**
-         * 参与人RSVP状态
-         * <p> 示例值：needs_action
-         */
-        this.rsvpStatus = builder.rsvpStatus;
-        /**
-         * 参与人是否为「可选参加」
-         * <p> 示例值：true
-         */
-        this.isOptional = builder.isOptional;
-        /**
-         * 参与人名称
-         * <p> 示例值：Zhang San
-         */
-        this.displayName = builder.displayName;
-        /**
-         * 参与人open_id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
-         * <p> 示例值：ou_143669c5a53647f00f6c80a0253aa68b
-         */
-        this.openId = builder.openId;
-        /**
-         * 参与人是否为日程组织者
-         * <p> 示例值：true
-         */
-        this.isOrganizer = builder.isOrganizer;
-        /**
-         * 参与人是否为外部参与人
-         * <p> 示例值：false
-         */
-        this.isExternal = builder.isExternal;
+    /**
+     * 参与人RSVP状态
+     *
+     * <p>示例值：
+     *
+     * @param rsvpStatus {@link
+     *     com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeChatMemberRsvpStatusEnum}
+     * @return
+     */
+    public Builder rsvpStatus(
+        com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeChatMemberRsvpStatusEnum
+            rsvpStatus) {
+      this.rsvpStatus = rsvpStatus.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 参与人是否为「可选参加」
+     *
+     * <p>示例值：true
+     *
+     * @param isOptional
+     * @return
+     */
+    public Builder isOptional(Boolean isOptional) {
+      this.isOptional = isOptional;
+      return this;
     }
 
-    public String getRsvpStatus() {
-        return this.rsvpStatus;
+    /**
+     * 参与人名称
+     *
+     * <p>示例值：Li Jian
+     *
+     * @param displayName
+     * @return
+     */
+    public Builder displayName(String displayName) {
+      this.displayName = displayName;
+      return this;
     }
 
-    public void setRsvpStatus(String rsvpStatus) {
-        this.rsvpStatus = rsvpStatus;
+    /**
+     * 参与人的 open_id。关于用户 ID 可参见[用户相关的 ID
+     * 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。
+     *
+     * <p>示例值：ou_143669c5a53647f00f6c80a0253aa68b
+     *
+     * @param openId
+     * @return
+     */
+    public Builder openId(String openId) {
+      this.openId = openId;
+      return this;
     }
 
-    public Boolean getIsOptional() {
-        return this.isOptional;
+    /**
+     * 参与人是否为日程组织者
+     *
+     * <p>示例值：true
+     *
+     * @param isOrganizer
+     * @return
+     */
+    public Builder isOrganizer(Boolean isOrganizer) {
+      this.isOrganizer = isOrganizer;
+      return this;
     }
 
-    public void setIsOptional(Boolean isOptional) {
-        this.isOptional = isOptional;
+    /**
+     * 参与人是否为外部参与人
+     *
+     * <p>示例值：true
+     *
+     * @param isExternal
+     * @return
+     */
+    public Builder isExternal(Boolean isExternal) {
+      this.isExternal = isExternal;
+      return this;
     }
 
-    public String getDisplayName() {
-        return this.displayName;
+    public CalendarEventAttendeeChatMember build() {
+      return new CalendarEventAttendeeChatMember(this);
     }
+  }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public String getOpenId() {
-        return this.openId;
-    }
-
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
-
-    public Boolean getIsOrganizer() {
-        return this.isOrganizer;
-    }
-
-    public void setIsOrganizer(Boolean isOrganizer) {
-        this.isOrganizer = isOrganizer;
-    }
-
-    public Boolean getIsExternal() {
-        return this.isExternal;
-    }
-
-    public void setIsExternal(Boolean isExternal) {
-        this.isExternal = isExternal;
-    }
-
-    public static class Builder {
-        /**
-         * 参与人RSVP状态
-         * <p> 示例值：needs_action
-         */
-        private String rsvpStatus;
-        /**
-         * 参与人是否为「可选参加」
-         * <p> 示例值：true
-         */
-        private Boolean isOptional;
-        /**
-         * 参与人名称
-         * <p> 示例值：Zhang San
-         */
-        private String displayName;
-        /**
-         * 参与人open_id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
-         * <p> 示例值：ou_143669c5a53647f00f6c80a0253aa68b
-         */
-        private String openId;
-        /**
-         * 参与人是否为日程组织者
-         * <p> 示例值：true
-         */
-        private Boolean isOrganizer;
-        /**
-         * 参与人是否为外部参与人
-         * <p> 示例值：false
-         */
-        private Boolean isExternal;
-
-        /**
-         * 参与人RSVP状态
-         * <p> 示例值：needs_action
-         *
-         * @param rsvpStatus
-         * @return
-         */
-        public Builder rsvpStatus(String rsvpStatus) {
-            this.rsvpStatus = rsvpStatus;
-            return this;
-        }
-
-        /**
-         * 参与人RSVP状态
-         * <p> 示例值：needs_action
-         *
-         * @param rsvpStatus {@link com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeChatMemberRsvpStatusEnum}
-         * @return
-         */
-        public Builder rsvpStatus(com.lark.oapi.service.calendar.v4.enums.CalendarEventAttendeeChatMemberRsvpStatusEnum rsvpStatus) {
-            this.rsvpStatus = rsvpStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 参与人是否为「可选参加」
-         * <p> 示例值：true
-         *
-         * @param isOptional
-         * @return
-         */
-        public Builder isOptional(Boolean isOptional) {
-            this.isOptional = isOptional;
-            return this;
-        }
-
-
-        /**
-         * 参与人名称
-         * <p> 示例值：Zhang San
-         *
-         * @param displayName
-         * @return
-         */
-        public Builder displayName(String displayName) {
-            this.displayName = displayName;
-            return this;
-        }
-
-
-        /**
-         * 参与人open_id，参见[用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction);;**示例值**："ou_xxxxxxxx"
-         * <p> 示例值：ou_143669c5a53647f00f6c80a0253aa68b
-         *
-         * @param openId
-         * @return
-         */
-        public Builder openId(String openId) {
-            this.openId = openId;
-            return this;
-        }
-
-
-        /**
-         * 参与人是否为日程组织者
-         * <p> 示例值：true
-         *
-         * @param isOrganizer
-         * @return
-         */
-        public Builder isOrganizer(Boolean isOrganizer) {
-            this.isOrganizer = isOrganizer;
-            return this;
-        }
-
-
-        /**
-         * 参与人是否为外部参与人
-         * <p> 示例值：false
-         *
-         * @param isExternal
-         * @return
-         */
-        public Builder isExternal(Boolean isExternal) {
-            this.isExternal = isExternal;
-            return this;
-        }
-
-
-        public CalendarEventAttendeeChatMember build() {
-            return new CalendarEventAttendeeChatMember(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

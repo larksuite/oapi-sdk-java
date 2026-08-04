@@ -13,161 +13,163 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarAcl {
+  /**
+   * acl资源ID
+   *
+   * <p>示例值：user_6843287928157667331
+   */
+  @SerializedName("acl_id")
+  private String aclId;
+
+  /**
+   * 对日历的访问权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("role")
+  private String role;
+
+  /**
+   * 权限范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("scope")
+  private AclScope scope;
+
+  public String getAclId() {
+    return this.aclId;
+  }
+
+  public void setAclId(String aclId) {
+    this.aclId = aclId;
+  }
+
+  public String getRole() {
+    return this.role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
+  public AclScope getScope() {
+    return this.scope;
+  }
+
+  public void setScope(AclScope scope) {
+    this.scope = scope;
+  }
+
+  // builder 开始
+  public CalendarAcl() {}
+
+  public CalendarAcl(Builder builder) {
     /**
-     * acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
-     * <p> 示例值：user_xxxxxx
+     * acl资源ID
+     *
+     * <p>示例值：user_6843287928157667331
      */
-    @SerializedName("acl_id")
-    private String aclId;
+    this.aclId = builder.aclId;
     /**
      * 对日历的访问权限
-     * <p> 示例值：writer
+     *
+     * <p>示例值：
      */
-    @SerializedName("role")
-    private String role;
+    this.role = builder.role;
     /**
      * 权限范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("scope")
+    this.scope = builder.scope;
+  }
+
+  public static class Builder {
+    /**
+     * acl资源ID
+     *
+     * <p>示例值：user_6843287928157667331
+     */
+    private String aclId;
+
+    /**
+     * 对日历的访问权限
+     *
+     * <p>示例值：
+     */
+    private String role;
+
+    /**
+     * 权限范围
+     *
+     * <p>示例值：
+     */
     private AclScope scope;
 
-    // builder 开始
-    public CalendarAcl() {
+    /**
+     * acl资源ID
+     *
+     * <p>示例值：user_6843287928157667331
+     *
+     * @param aclId
+     * @return
+     */
+    public Builder aclId(String aclId) {
+      this.aclId = aclId;
+      return this;
     }
 
-    public CalendarAcl(Builder builder) {
-        /**
-         * acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
-         * <p> 示例值：user_xxxxxx
-         */
-        this.aclId = builder.aclId;
-        /**
-         * 对日历的访问权限
-         * <p> 示例值：writer
-         */
-        this.role = builder.role;
-        /**
-         * 权限范围
-         * <p> 示例值：
-         */
-        this.scope = builder.scope;
+    /**
+     * 对日历的访问权限
+     *
+     * <p>示例值：
+     *
+     * @param role
+     * @return
+     */
+    public Builder role(String role) {
+      this.role = role;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 对日历的访问权限
+     *
+     * <p>示例值：
+     *
+     * @param role {@link com.lark.oapi.service.calendar.v4.enums.CalendarAclCalendarAccessRoleEnum}
+     * @return
+     */
+    public Builder role(
+        com.lark.oapi.service.calendar.v4.enums.CalendarAclCalendarAccessRoleEnum role) {
+      this.role = role.getValue();
+      return this;
     }
 
-    public String getAclId() {
-        return this.aclId;
+    /**
+     * 权限范围
+     *
+     * <p>示例值：
+     *
+     * @param scope
+     * @return
+     */
+    public Builder scope(AclScope scope) {
+      this.scope = scope;
+      return this;
     }
 
-    public void setAclId(String aclId) {
-        this.aclId = aclId;
+    public CalendarAcl build() {
+      return new CalendarAcl(this);
     }
+  }
 
-    public String getRole() {
-        return this.role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public AclScope getScope() {
-        return this.scope;
-    }
-
-    public void setScope(AclScope scope) {
-        this.scope = scope;
-    }
-
-    public static class Builder {
-        /**
-         * acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
-         * <p> 示例值：user_xxxxxx
-         */
-        private String aclId;
-        /**
-         * 对日历的访问权限
-         * <p> 示例值：writer
-         */
-        private String role;
-        /**
-         * 权限范围
-         * <p> 示例值：
-         */
-        private AclScope scope;
-
-        /**
-         * acl资源ID。参见[ACL ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/introduction)
-         * <p> 示例值：user_xxxxxx
-         *
-         * @param aclId
-         * @return
-         */
-        public Builder aclId(String aclId) {
-            this.aclId = aclId;
-            return this;
-        }
-
-
-        /**
-         * 对日历的访问权限
-         * <p> 示例值：writer
-         *
-         * @param role
-         * @return
-         */
-        public Builder role(String role) {
-            this.role = role;
-            return this;
-        }
-
-        /**
-         * 对日历的访问权限
-         * <p> 示例值：writer
-         *
-         * @param role {@link com.lark.oapi.service.calendar.v4.enums.CalendarAclCalendarAccessRoleEnum}
-         * @return
-         */
-        public Builder role(com.lark.oapi.service.calendar.v4.enums.CalendarAclCalendarAccessRoleEnum role) {
-            this.role = role.getValue();
-            return this;
-        }
-
-
-        /**
-         * 权限范围
-         * <p> 示例值：
-         *
-         * @param scope
-         * @return
-         */
-        public Builder scope(AclScope scope) {
-            this.scope = scope;
-            return this;
-        }
-
-
-        public CalendarAcl build() {
-            return new CalendarAcl(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

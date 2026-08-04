@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollaborationDepartment {
+  /**
+   * 关联组织的部门open id
+   *
+   * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @SerializedName("open_department_id")
+  private String openDepartmentId;
+
+  /**
+   * 关联组织的部门id
+   *
+   * <p>示例值：902c7141
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 关联组织的部门名称
+   *
+   * <p>示例值：测试部门
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 目标组织的i18n名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_name")
+  private I18nName i18nName;
+
+  /**
+   * 关联组织的部门排序
+   *
+   * <p>示例值：2000
+   */
+  @SerializedName("order")
+  private String order;
+
+  /**
+   * 部门负责人，必须对负责人有可见性权限才会返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leaders")
+  private CollaborationDepartmentLeader[] leaders;
+
+  /**
+   * 父部门ID，必须对父部门有可见性权限才会返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("parent_department_id")
+  private CollaborationDepartmentId parentDepartmentId;
+
+  public String getOpenDepartmentId() {
+    return this.openDepartmentId;
+  }
+
+  public void setOpenDepartmentId(String openDepartmentId) {
+    this.openDepartmentId = openDepartmentId;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public I18nName getI18nName() {
+    return this.i18nName;
+  }
+
+  public void setI18nName(I18nName i18nName) {
+    this.i18nName = i18nName;
+  }
+
+  public String getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(String order) {
+    this.order = order;
+  }
+
+  public CollaborationDepartmentLeader[] getLeaders() {
+    return this.leaders;
+  }
+
+  public void setLeaders(CollaborationDepartmentLeader[] leaders) {
+    this.leaders = leaders;
+  }
+
+  public CollaborationDepartmentId getParentDepartmentId() {
+    return this.parentDepartmentId;
+  }
+
+  public void setParentDepartmentId(CollaborationDepartmentId parentDepartmentId) {
+    this.parentDepartmentId = parentDepartmentId;
+  }
+
+  // builder 开始
+  public CollaborationDepartment() {}
+
+  public CollaborationDepartment(Builder builder) {
     /**
      * 关联组织的部门open id
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
-    @SerializedName("open_department_id")
-    private String openDepartmentId;
+    this.openDepartmentId = builder.openDepartmentId;
     /**
      * 关联组织的部门id
-     * <p> 示例值：902c7141
+     *
+     * <p>示例值：902c7141
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
      * 关联组织的部门名称
-     * <p> 示例值：测试部门
+     *
+     * <p>示例值：测试部门
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 关联组织的的国际化部门名称
-     * <p> 示例值：
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_name")
-    private I18nName i18nName;
+    this.i18nName = builder.i18nName;
     /**
      * 关联组织的部门排序
-     * <p> 示例值：2000
+     *
+     * <p>示例值：2000
      */
-    @SerializedName("order")
+    this.order = builder.order;
+    /**
+     * 部门负责人，必须对负责人有可见性权限才会返回
+     *
+     * <p>示例值：
+     */
+    this.leaders = builder.leaders;
+    /**
+     * 父部门ID，必须对父部门有可见性权限才会返回
+     *
+     * <p>示例值：
+     */
+    this.parentDepartmentId = builder.parentDepartmentId;
+  }
+
+  public static class Builder {
+    /**
+     * 关联组织的部门open id
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     */
+    private String openDepartmentId;
+
+    /**
+     * 关联组织的部门id
+     *
+     * <p>示例值：902c7141
+     */
+    private String departmentId;
+
+    /**
+     * 关联组织的部门名称
+     *
+     * <p>示例值：测试部门
+     */
+    private String name;
+
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     */
+    private I18nName i18nName;
+
+    /**
+     * 关联组织的部门排序
+     *
+     * <p>示例值：2000
+     */
     private String order;
+
     /**
-     * 部门负责人
-     * <p> 示例值：
+     * 部门负责人，必须对负责人有可见性权限才会返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("leaders")
     private CollaborationDepartmentLeader[] leaders;
+
     /**
-     * 父部门ID
-     * <p> 示例值：
+     * 父部门ID，必须对父部门有可见性权限才会返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("parent_department_id")
     private CollaborationDepartmentId parentDepartmentId;
 
-    // builder 开始
-    public CollaborationDepartment() {
+    /**
+     * 关联组织的部门open id
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param openDepartmentId
+     * @return
+     */
+    public Builder openDepartmentId(String openDepartmentId) {
+      this.openDepartmentId = openDepartmentId;
+      return this;
     }
 
-    public CollaborationDepartment(Builder builder) {
-        /**
-         * 关联组织的部门open id
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.openDepartmentId = builder.openDepartmentId;
-        /**
-         * 关联组织的部门id
-         * <p> 示例值：902c7141
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 关联组织的部门名称
-         * <p> 示例值：测试部门
-         */
-        this.name = builder.name;
-        /**
-         * 关联组织的的国际化部门名称
-         * <p> 示例值：
-         */
-        this.i18nName = builder.i18nName;
-        /**
-         * 关联组织的部门排序
-         * <p> 示例值：2000
-         */
-        this.order = builder.order;
-        /**
-         * 部门负责人
-         * <p> 示例值：
-         */
-        this.leaders = builder.leaders;
-        /**
-         * 父部门ID
-         * <p> 示例值：
-         */
-        this.parentDepartmentId = builder.parentDepartmentId;
+    /**
+     * 关联组织的部门id
+     *
+     * <p>示例值：902c7141
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 关联组织的部门名称
+     *
+     * <p>示例值：测试部门
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getOpenDepartmentId() {
-        return this.openDepartmentId;
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nName
+     * @return
+     */
+    public Builder i18nName(I18nName i18nName) {
+      this.i18nName = i18nName;
+      return this;
     }
 
-    public void setOpenDepartmentId(String openDepartmentId) {
-        this.openDepartmentId = openDepartmentId;
+    /**
+     * 关联组织的部门排序
+     *
+     * <p>示例值：2000
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(String order) {
+      this.order = order;
+      return this;
     }
 
-    public String getDepartmentId() {
-        return this.departmentId;
+    /**
+     * 部门负责人，必须对负责人有可见性权限才会返回
+     *
+     * <p>示例值：
+     *
+     * @param leaders
+     * @return
+     */
+    public Builder leaders(CollaborationDepartmentLeader[] leaders) {
+      this.leaders = leaders;
+      return this;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    /**
+     * 父部门ID，必须对父部门有可见性权限才会返回
+     *
+     * <p>示例值：
+     *
+     * @param parentDepartmentId
+     * @return
+     */
+    public Builder parentDepartmentId(CollaborationDepartmentId parentDepartmentId) {
+      this.parentDepartmentId = parentDepartmentId;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    public CollaborationDepartment build() {
+      return new CollaborationDepartment(this);
     }
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public I18nName getI18nName() {
-        return this.i18nName;
-    }
-
-    public void setI18nName(I18nName i18nName) {
-        this.i18nName = i18nName;
-    }
-
-    public String getOrder() {
-        return this.order;
-    }
-
-    public void setOrder(String order) {
-        this.order = order;
-    }
-
-    public CollaborationDepartmentLeader[] getLeaders() {
-        return this.leaders;
-    }
-
-    public void setLeaders(CollaborationDepartmentLeader[] leaders) {
-        this.leaders = leaders;
-    }
-
-    public CollaborationDepartmentId getParentDepartmentId() {
-        return this.parentDepartmentId;
-    }
-
-    public void setParentDepartmentId(CollaborationDepartmentId parentDepartmentId) {
-        this.parentDepartmentId = parentDepartmentId;
-    }
-
-    public static class Builder {
-        /**
-         * 关联组织的部门open id
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        private String openDepartmentId;
-        /**
-         * 关联组织的部门id
-         * <p> 示例值：902c7141
-         */
-        private String departmentId;
-        /**
-         * 关联组织的部门名称
-         * <p> 示例值：测试部门
-         */
-        private String name;
-        /**
-         * 关联组织的的国际化部门名称
-         * <p> 示例值：
-         */
-        private I18nName i18nName;
-        /**
-         * 关联组织的部门排序
-         * <p> 示例值：2000
-         */
-        private String order;
-        /**
-         * 部门负责人
-         * <p> 示例值：
-         */
-        private CollaborationDepartmentLeader[] leaders;
-        /**
-         * 父部门ID
-         * <p> 示例值：
-         */
-        private CollaborationDepartmentId parentDepartmentId;
-
-        /**
-         * 关联组织的部门open id
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param openDepartmentId
-         * @return
-         */
-        public Builder openDepartmentId(String openDepartmentId) {
-            this.openDepartmentId = openDepartmentId;
-            return this;
-        }
-
-
-        /**
-         * 关联组织的部门id
-         * <p> 示例值：902c7141
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 关联组织的部门名称
-         * <p> 示例值：测试部门
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 关联组织的的国际化部门名称
-         * <p> 示例值：
-         *
-         * @param i18nName
-         * @return
-         */
-        public Builder i18nName(I18nName i18nName) {
-            this.i18nName = i18nName;
-            return this;
-        }
-
-
-        /**
-         * 关联组织的部门排序
-         * <p> 示例值：2000
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(String order) {
-            this.order = order;
-            return this;
-        }
-
-
-        /**
-         * 部门负责人
-         * <p> 示例值：
-         *
-         * @param leaders
-         * @return
-         */
-        public Builder leaders(CollaborationDepartmentLeader[] leaders) {
-            this.leaders = leaders;
-            return this;
-        }
-
-
-        /**
-         * 父部门ID
-         * <p> 示例值：
-         *
-         * @param parentDepartmentId
-         * @return
-         */
-        public Builder parentDepartmentId(CollaborationDepartmentId parentDepartmentId) {
-            this.parentDepartmentId = parentDepartmentId;
-            return this;
-        }
-
-
-        public CollaborationDepartment build() {
-            return new CollaborationDepartment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

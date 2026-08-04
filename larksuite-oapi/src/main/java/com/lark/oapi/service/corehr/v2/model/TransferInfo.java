@@ -13,3331 +13,5317 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TransferInfo {
+  /**
+   * 备注
+   *
+   * <p>示例值：异动详情
+   */
+  @SerializedName("remark")
+  private String remark;
+
+  /**
+   * offer信息
+   *
+   * <p>示例值：优质人才，加急处理
+   */
+  @SerializedName("offer_info")
+  private String offerInfo;
+
+  /**
+   * 是否撤销虚线上级
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("target_dotted_manager_clean")
+  private Boolean targetDottedManagerClean;
+
+  /**
+   * 是否有试用期
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("probation_exist")
+  private Boolean probationExist;
+
+  /**
+   * 原部门
+   *
+   * <p>示例值：6966236933198579208
+   */
+  @SerializedName("original_department")
+  private String originalDepartment;
+
+  /**
+   * 新部门
+   *
+   * <p>示例值：6966236933198579208
+   */
+  @SerializedName("target_department")
+  private String targetDepartment;
+
+  /**
+   * 新部门，新建部门审批完成前会返回 td_xxx 的临时 ID
+   *
+   * <p>示例值：6966236933198579208
+   */
+  @SerializedName("target_draft_department")
+  private String targetDraftDepartment;
+
+  /**
+   * 原部门全路径
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_department_id_path")
+  private OrgdraftDepartmentId[] originalDepartmentIdPath;
+
+  /**
+   * 新部门全路径
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_department_id_path")
+  private OrgdraftDepartmentId[] targetDepartmentIdPath;
+
+  /**
+   * 原工作地点
+   *
+   * <p>示例值：6967271100992587295
+   */
+  @SerializedName("original_work_location")
+  private String originalWorkLocation;
+
+  /**
+   * 新工作地点
+   *
+   * <p>示例值：6967271100992587295
+   */
+  @SerializedName("target_work_location")
+  private String targetWorkLocation;
+
+  /**
+   * 原直属上级
+   *
+   * <p>示例值：6974641477444060708
+   */
+  @SerializedName("original_direct_manager")
+  private String originalDirectManager;
+
+  /**
+   * 新直属上级
+   *
+   * <p>示例值：7013619729281713671
+   */
+  @SerializedName("target_direct_manager")
+  private String targetDirectManager;
+
+  /**
+   * 原虚线上级
+   *
+   * <p>示例值：6974648866876573198
+   */
+  @SerializedName("original_dotted_manager")
+  private String originalDottedManager;
+
+  /**
+   * 新虚线上级
+   *
+   * <p>示例值：7013328578351842852
+   */
+  @SerializedName("target_dotted_manager")
+  private String targetDottedManager;
+
+  /**
+   * 原职务
+   *
+   * <p>示例值：6969469398088287751
+   */
+  @SerializedName("original_job")
+  private String originalJob;
+
+  /**
+   * 新职务
+   *
+   * <p>示例值：6969469557836760606
+   */
+  @SerializedName("target_job")
+  private String targetJob;
+
+  /**
+   * 原序列
+   *
+   * <p>示例值：6967287547462419975
+   */
+  @SerializedName("original_job_family")
+  private String originalJobFamily;
+
+  /**
+   * 新序列
+   *
+   * <p>示例值：6967287547462419975
+   */
+  @SerializedName("target_job_family")
+  private String targetJobFamily;
+
+  /**
+   * 原级别
+   *
+   * <p>示例值：6972085707674355214
+   */
+  @SerializedName("original_job_level")
+  private String originalJobLevel;
+
+  /**
+   * 新级别
+   *
+   * <p>示例值：6972085707674355214
+   */
+  @SerializedName("target_job_level")
+  private String targetJobLevel;
+
+  /**
+   * 原人员类型
+   *
+   * <p>示例值：6968386026792289828
+   */
+  @SerializedName("original_workforce_type")
+  private String originalWorkforceType;
+
+  /**
+   * 新人员类型
+   *
+   * <p>示例值：7036268995372303885
+   */
+  @SerializedName("target_workforce_type")
+  private String targetWorkforceType;
+
+  /**
+   * 原人员子类型
+   *
+   * <p>示例值：6968386026792289828
+   */
+  @SerializedName("original_employee_subtype")
+  private String originalEmployeeSubtype;
+
+  /**
+   * 新人员子类型
+   *
+   * <p>示例值：7036268995372303885
+   */
+  @SerializedName("target_employee_subtype")
+  private String targetEmployeeSubtype;
+
+  /**
+   * 原公司
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("original_company")
+  private String originalCompany;
+
+  /**
+   * 新公司
+   *
+   * <p>示例值：6974659700705068581
+   */
+  @SerializedName("target_company")
+  private String targetCompany;
+
+  /**
+   * 原合同编号
+   *
+   * <p>示例值：55332
+   */
+  @SerializedName("original_contract_number")
+  private String originalContractNumber;
+
+  /**
+   * 新合同编号
+   *
+   * <p>示例值：55333
+   */
+  @SerializedName("target_contract_number")
+  private String targetContractNumber;
+
+  /**
+   * 原合同类型
+   *
+   * <p>示例值：labor_contract
+   */
+  @SerializedName("original_contract_type")
+  private String originalContractType;
+
+  /**
+   * 新合同类型
+   *
+   * <p>示例值：labor_contract
+   */
+  @SerializedName("target_contract_type")
+  private String targetContractType;
+
+  /**
+   * 原期限类型
+   *
+   * <p>示例值：fixed_term
+   */
+  @SerializedName("original_duration_type")
+  private String originalDurationType;
+
+  /**
+   * 新期限类型
+   *
+   * <p>示例值：fixed_term
+   */
+  @SerializedName("target_duration_type")
+  private String targetDurationType;
+
+  /**
+   * 原签订类型
+   *
+   * <p>示例值：new
+   */
+  @SerializedName("original_signing_type")
+  private String originalSigningType;
+
+  /**
+   * 新签订类型
+   *
+   * <p>示例值：new
+   */
+  @SerializedName("target_signing_type")
+  private String targetSigningType;
+
+  /**
+   * 原合同开始日期
+   *
+   * <p>示例值：2021-07-01
+   */
+  @SerializedName("original_contract_start_date")
+  private String originalContractStartDate;
+
+  /**
+   * 新合同开始日期
+   *
+   * <p>示例值：2021-07-01
+   */
+  @SerializedName("target_contract_start_date")
+  private String targetContractStartDate;
+
+  /**
+   * 原合同结束日期
+   *
+   * <p>示例值：2024-07-01
+   */
+  @SerializedName("original_contract_end_date")
+  private String originalContractEndDate;
+
+  /**
+   * 新合同结束日期
+   *
+   * <p>示例值：2024-07-01
+   */
+  @SerializedName("target_contract_end_date")
+  private String targetContractEndDate;
+
+  /**
+   * 原工时制度
+   *
+   * <p>示例值：6969087376740206087
+   */
+  @SerializedName("original_working_hours_type")
+  private String originalWorkingHoursType;
+
+  /**
+   * 新工时制度
+   *
+   * <p>示例值：6969087376740206087
+   */
+  @SerializedName("target_working_hours_type")
+  private String targetWorkingHoursType;
+
+  /**
+   * 原工作日历
+   *
+   * <p>示例值：6969087376740236087
+   */
+  @SerializedName("original_working_calendar")
+  private String originalWorkingCalendar;
+
+  /**
+   * 新工作日历
+   *
+   * <p>示例值：6969087376740236087
+   */
+  @SerializedName("target_working_calendar")
+  private String targetWorkingCalendar;
+
+  /**
+   * 原试用期预计结束日期
+   *
+   * <p>示例值：2021-11-17
+   */
+  @SerializedName("original_probation_end_date")
+  private String originalProbationEndDate;
+
+  /**
+   * 新试用期预计结束日期
+   *
+   * <p>示例值：2021-11-17
+   */
+  @SerializedName("target_probation_end_date")
+  private String targetProbationEndDate;
+
+  /**
+   * 原周工作时长
+   *
+   * <p>示例值：162
+   */
+  @SerializedName("original_weekly_working_hours")
+  private String originalWeeklyWorkingHours;
+
+  /**
+   * 新周工作时长
+   *
+   * <p>示例值：160
+   */
+  @SerializedName("target_weekly_working_hours")
+  private String targetWeeklyWorkingHours;
+
+  /**
+   * 原排班
+   *
+   * <p>示例值：work_shift
+   */
+  @SerializedName("original_work_shift")
+  private String originalWorkShift;
+
+  /**
+   * 新排班
+   *
+   * <p>示例值：non_work_shift
+   */
+  @SerializedName("target_work_shift")
+  private String targetWorkShift;
+
+  /**
+   * 原成本中心分摊方式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_cost_center_rate")
+  private JobDataCostCenter[] originalCostCenterRate;
+
+  /**
+   * 新成本中心分摊方式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_cost_center_rate")
+  private JobDataCostCenter[] targetCostCenterRate;
+
+  /**
+   * 新分摊失效时间
+   *
+   * <p>示例值：2022-03-01
+   */
+  @SerializedName("target_allocation_expiration_time")
+  private String targetAllocationExpirationTime;
+
+  /**
+   * 原分摊失效时间
+   *
+   * <p>示例值：2022-03-01
+   */
+  @SerializedName("original_allocation_expiration_time")
+  private String originalAllocationExpirationTime;
+
+  /**
+   * 新分摊生效时间
+   *
+   * <p>示例值：2022-03-01
+   */
+  @SerializedName("target_allocation_effective_time")
+  private String targetAllocationEffectiveTime;
+
+  /**
+   * 原分摊生效时间
+   *
+   * <p>示例值：2022-03-01
+   */
+  @SerializedName("original_allocation_effective_time")
+  private String originalAllocationEffectiveTime;
+
+  /**
+   * 原默认成本中心
+   *
+   * <p>示例值：7380264299728602661
+   */
+  @SerializedName("original_default_cost_center")
+  private String originalDefaultCostCenter;
+
+  /**
+   * 新默认成本中心
+   *
+   * <p>示例值：7380264299728602661
+   */
+  @SerializedName("target_default_cost_center")
+  private String targetDefaultCostCenter;
+
+  /**
+   * 原默认成本中心是否继承
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_is_default_cost_center_inherited")
+  private Boolean originalIsDefaultCostCenterInherited;
+
+  /**
+   * 新默认成本中心是否继承
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_is_default_cost_center_inherited")
+  private Boolean targetIsDefaultCostCenterInherited;
+
+  /**
+   * 原工作信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_employment_change")
+  private TranferEmploymentInfo originalEmploymentChange;
+
+  /**
+   * 新工作信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_employment_change")
+  private TranferEmploymentInfo targetEmploymentChange;
+
+  /**
+   * 原职等
+   *
+   * <p>示例值：7289005963599693366
+   */
+  @SerializedName("original_job_grade")
+  private String originalJobGrade;
+
+  /**
+   * 新职等
+   *
+   * <p>示例值：7289005963599693366
+   */
+  @SerializedName("target_job_grade")
+  private String targetJobGrade;
+
+  /**
+   * 原薪资类型
+   *
+   * <p>示例值：hourly
+   */
+  @SerializedName("original_compensation_type")
+  private String originalCompensationType;
+
+  /**
+   * 新薪资类型
+   *
+   * <p>示例值：salary
+   */
+  @SerializedName("target_compensation_type")
+  private String targetCompensationType;
+
+  /**
+   * 原任职公司
+   *
+   * <p>示例值：7289005963599693367
+   */
+  @SerializedName("original_service_company")
+  private String originalServiceCompany;
+
+  /**
+   * 新任职公司
+   *
+   * <p>示例值：7289005963599693367
+   */
+  @SerializedName("target_service_company")
+  private String targetServiceCompany;
+
+  /**
+   * 原岗位
+   *
+   * <p>示例值：7289005963599693367
+   */
+  @SerializedName("original_position")
+  private String originalPosition;
+
+  /**
+   * 新岗位
+   *
+   * <p>示例值：7289005963599693367
+   */
+  @SerializedName("target_position")
+  private String targetPosition;
+
+  /**
+   * 新岗位，新建岗位审批完成前会返回 td_xxx 的临时 ID
+   *
+   * <p>示例值：7289005963599693367
+   */
+  @SerializedName("target_draft_position")
+  private String targetDraftPosition;
+
+  /**
+   * 原社保城市
+   *
+   * <p>示例值：7289005963599693367
+   */
+  @SerializedName("original_social_security_city")
+  private String originalSocialSecurityCity;
+
+  /**
+   * 新社保城市
+   *
+   * <p>示例值：7289005963599693367
+   */
+  @SerializedName("target_social_security_city")
+  private String targetSocialSecurityCity;
+
+  /**
+   * 原通道
+   *
+   * <p>示例值：7289005963599693367
+   */
+  @SerializedName("original_pathway")
+  private String originalPathway;
+
+  /**
+   * 新通道
+   *
+   * <p>示例值：7289005963599693367
+   */
+  @SerializedName("target_pathway")
+  private String targetPathway;
+
+  /**
+   * 编制随人员一起调整
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_transfer_with_workforce")
+  private Boolean isTransferWithWorkforce;
+
+  /**
+   * 原部门名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_department_name")
+  private DepartmentLookupName originalDepartmentName;
+
+  /**
+   * 新部门名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_department_name")
+  private DepartmentLookupName targetDepartmentName;
+
+  /**
+   * 原工作地点名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_work_location_name")
+  private LookupName originalWorkLocationName;
+
+  /**
+   * 新工作地点名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_work_location_name")
+  private LookupName targetWorkLocationName;
+
+  /**
+   * 原直属上级名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_direct_manager_name")
+  private EmploymentLookupName originalDirectManagerName;
+
+  /**
+   * 新直属上级名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_direct_manager_name")
+  private EmploymentLookupName targetDirectManagerName;
+
+  /**
+   * 原职务名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_job_name")
+  private LookupName originalJobName;
+
+  /**
+   * 新职务名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_job_name")
+  private LookupName targetJobName;
+
+  /**
+   * 原序列名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_job_family_name")
+  private LookupName originalJobFamilyName;
+
+  /**
+   * 新序列名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_job_family_name")
+  private LookupName targetJobFamilyName;
+
+  /**
+   * 原职级名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_job_level_name")
+  private LookupName originalJobLevelName;
+
+  /**
+   * 新职级名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_job_level_name")
+  private LookupName targetJobLevelName;
+
+  /**
+   * 原人员类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_workforce_type_name")
+  private LookupName originalWorkforceTypeName;
+
+  /**
+   * 新人员类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_workforce_type_name")
+  private LookupName targetWorkforceTypeName;
+
+  /**
+   * 原公司名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_company_name")
+  private LookupName originalCompanyName;
+
+  /**
+   * 新公司名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_company_name")
+  private LookupName targetCompanyName;
+
+  /**
+   * 原合同类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_contract_type_name")
+  private LookupName originalContractTypeName;
+
+  /**
+   * 新合同类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_contract_type_name")
+  private LookupName targetContractTypeName;
+
+  /**
+   * 原期限类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_duration_type_name")
+  private LookupName originalDurationTypeName;
+
+  /**
+   * 新期限类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_duration_type_name")
+  private LookupName targetDurationTypeName;
+
+  /**
+   * 原签订类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_signing_type_name")
+  private LookupName originalSigningTypeName;
+
+  /**
+   * 新签订类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_signing_type_name")
+  private LookupName targetSigningTypeName;
+
+  /**
+   * 原工时制度名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_working_hours_type_name")
+  private LookupName originalWorkingHoursTypeName;
+
+  /**
+   * 新工时制度名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_working_hours_type_name")
+  private LookupName targetWorkingHoursTypeName;
+
+  /**
+   * 原工作日历名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_working_calendar_name")
+  private LookupName originalWorkingCalendarName;
+
+  /**
+   * 新工作日历名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_working_calendar_name")
+  private LookupName targetWorkingCalendarName;
+
+  /**
+   * 原排班名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_work_shift_name")
+  private LookupName originalWorkShiftName;
+
+  /**
+   * 新排班名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_work_shift_name")
+  private LookupName targetWorkShiftName;
+
+  /**
+   * 原职等名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_job_grade_name")
+  private LookupName originalJobGradeName;
+
+  /**
+   * 新职等名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_job_grade_name")
+  private LookupName targetJobGradeName;
+
+  /**
+   * 原薪资类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_compensation_type_name")
+  private LookupName originalCompensationTypeName;
+
+  /**
+   * 新薪资类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_compensation_type_name")
+  private LookupName targetCompensationTypeName;
+
+  /**
+   * 原任职公司名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_service_company_name")
+  private LookupName originalServiceCompanyName;
+
+  /**
+   * 新任职公司名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_service_company_name")
+  private LookupName targetServiceCompanyName;
+
+  /**
+   * 原岗位名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_position_name")
+  private LookupName originalPositionName;
+
+  /**
+   * 新岗位名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_position_name")
+  private LookupName targetPositionName;
+
+  /**
+   * 原人员子类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_employee_subtype_name")
+  private LookupName originalEmployeeSubtypeName;
+
+  /**
+   * 新人员子类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_employee_subtype_name")
+  private LookupName targetEmployeeSubtypeName;
+
+  /**
+   * 原通道名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_pathway_name")
+  private LookupName originalPathwayName;
+
+  /**
+   * 新通道名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_pathway_name")
+  private LookupName targetPathwayName;
+
+  /**
+   * 原默认成本中心名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_default_cost_center_name")
+  private LookupName originalDefaultCostCenterName;
+
+  /**
+   * 新默认成本中心名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_default_cost_center_name")
+  private LookupName targetDefaultCostCenterName;
+
+  /**
+   * 原虚线上级名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_dotted_manager_name")
+  private EmploymentLookupName originalDottedManagerName;
+
+  /**
+   * 新虚线上级名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_dotted_manager_name")
+  private EmploymentLookupName targetDottedManagerName;
+
+  /**
+   * 发起人名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("initiator_name")
+  private EmploymentLookupName initiatorName;
+
+  /**
+   * 异常处理人名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("exception_handler_name")
+  private EmploymentLookupName exceptionHandlerName;
+
+  /**
+   * 原社保城市名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_social_security_city_name")
+  private LookupName originalSocialSecurityCityName;
+
+  /**
+   * 新社保城市名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_social_security_city_name")
+  private LookupName targetSocialSecurityCityName;
+
+  /**
+   * 发起时间
+   *
+   * <p>示例值：2026-5-28
+   */
+  @SerializedName("wk_created_at")
+  private String wkCreatedAt;
+
+  /**
+   * 数据来源
+   *
+   * <p>示例值：
+   */
+  @SerializedName("transform_source")
+  private I18nV2 transformSource;
+
+  /**
+   * 异动变更内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("details_of_job_status_change")
+  private I18nV2[] detailsOfJobStatusChange;
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  public String getOfferInfo() {
+    return this.offerInfo;
+  }
+
+  public void setOfferInfo(String offerInfo) {
+    this.offerInfo = offerInfo;
+  }
+
+  public Boolean getTargetDottedManagerClean() {
+    return this.targetDottedManagerClean;
+  }
+
+  public void setTargetDottedManagerClean(Boolean targetDottedManagerClean) {
+    this.targetDottedManagerClean = targetDottedManagerClean;
+  }
+
+  public Boolean getProbationExist() {
+    return this.probationExist;
+  }
+
+  public void setProbationExist(Boolean probationExist) {
+    this.probationExist = probationExist;
+  }
+
+  public String getOriginalDepartment() {
+    return this.originalDepartment;
+  }
+
+  public void setOriginalDepartment(String originalDepartment) {
+    this.originalDepartment = originalDepartment;
+  }
+
+  public String getTargetDepartment() {
+    return this.targetDepartment;
+  }
+
+  public void setTargetDepartment(String targetDepartment) {
+    this.targetDepartment = targetDepartment;
+  }
+
+  public String getTargetDraftDepartment() {
+    return this.targetDraftDepartment;
+  }
+
+  public void setTargetDraftDepartment(String targetDraftDepartment) {
+    this.targetDraftDepartment = targetDraftDepartment;
+  }
+
+  public OrgdraftDepartmentId[] getOriginalDepartmentIdPath() {
+    return this.originalDepartmentIdPath;
+  }
+
+  public void setOriginalDepartmentIdPath(OrgdraftDepartmentId[] originalDepartmentIdPath) {
+    this.originalDepartmentIdPath = originalDepartmentIdPath;
+  }
+
+  public OrgdraftDepartmentId[] getTargetDepartmentIdPath() {
+    return this.targetDepartmentIdPath;
+  }
+
+  public void setTargetDepartmentIdPath(OrgdraftDepartmentId[] targetDepartmentIdPath) {
+    this.targetDepartmentIdPath = targetDepartmentIdPath;
+  }
+
+  public String getOriginalWorkLocation() {
+    return this.originalWorkLocation;
+  }
+
+  public void setOriginalWorkLocation(String originalWorkLocation) {
+    this.originalWorkLocation = originalWorkLocation;
+  }
+
+  public String getTargetWorkLocation() {
+    return this.targetWorkLocation;
+  }
+
+  public void setTargetWorkLocation(String targetWorkLocation) {
+    this.targetWorkLocation = targetWorkLocation;
+  }
+
+  public String getOriginalDirectManager() {
+    return this.originalDirectManager;
+  }
+
+  public void setOriginalDirectManager(String originalDirectManager) {
+    this.originalDirectManager = originalDirectManager;
+  }
+
+  public String getTargetDirectManager() {
+    return this.targetDirectManager;
+  }
+
+  public void setTargetDirectManager(String targetDirectManager) {
+    this.targetDirectManager = targetDirectManager;
+  }
+
+  public String getOriginalDottedManager() {
+    return this.originalDottedManager;
+  }
+
+  public void setOriginalDottedManager(String originalDottedManager) {
+    this.originalDottedManager = originalDottedManager;
+  }
+
+  public String getTargetDottedManager() {
+    return this.targetDottedManager;
+  }
+
+  public void setTargetDottedManager(String targetDottedManager) {
+    this.targetDottedManager = targetDottedManager;
+  }
+
+  public String getOriginalJob() {
+    return this.originalJob;
+  }
+
+  public void setOriginalJob(String originalJob) {
+    this.originalJob = originalJob;
+  }
+
+  public String getTargetJob() {
+    return this.targetJob;
+  }
+
+  public void setTargetJob(String targetJob) {
+    this.targetJob = targetJob;
+  }
+
+  public String getOriginalJobFamily() {
+    return this.originalJobFamily;
+  }
+
+  public void setOriginalJobFamily(String originalJobFamily) {
+    this.originalJobFamily = originalJobFamily;
+  }
+
+  public String getTargetJobFamily() {
+    return this.targetJobFamily;
+  }
+
+  public void setTargetJobFamily(String targetJobFamily) {
+    this.targetJobFamily = targetJobFamily;
+  }
+
+  public String getOriginalJobLevel() {
+    return this.originalJobLevel;
+  }
+
+  public void setOriginalJobLevel(String originalJobLevel) {
+    this.originalJobLevel = originalJobLevel;
+  }
+
+  public String getTargetJobLevel() {
+    return this.targetJobLevel;
+  }
+
+  public void setTargetJobLevel(String targetJobLevel) {
+    this.targetJobLevel = targetJobLevel;
+  }
+
+  public String getOriginalWorkforceType() {
+    return this.originalWorkforceType;
+  }
+
+  public void setOriginalWorkforceType(String originalWorkforceType) {
+    this.originalWorkforceType = originalWorkforceType;
+  }
+
+  public String getTargetWorkforceType() {
+    return this.targetWorkforceType;
+  }
+
+  public void setTargetWorkforceType(String targetWorkforceType) {
+    this.targetWorkforceType = targetWorkforceType;
+  }
+
+  public String getOriginalEmployeeSubtype() {
+    return this.originalEmployeeSubtype;
+  }
+
+  public void setOriginalEmployeeSubtype(String originalEmployeeSubtype) {
+    this.originalEmployeeSubtype = originalEmployeeSubtype;
+  }
+
+  public String getTargetEmployeeSubtype() {
+    return this.targetEmployeeSubtype;
+  }
+
+  public void setTargetEmployeeSubtype(String targetEmployeeSubtype) {
+    this.targetEmployeeSubtype = targetEmployeeSubtype;
+  }
+
+  public String getOriginalCompany() {
+    return this.originalCompany;
+  }
+
+  public void setOriginalCompany(String originalCompany) {
+    this.originalCompany = originalCompany;
+  }
+
+  public String getTargetCompany() {
+    return this.targetCompany;
+  }
+
+  public void setTargetCompany(String targetCompany) {
+    this.targetCompany = targetCompany;
+  }
+
+  public String getOriginalContractNumber() {
+    return this.originalContractNumber;
+  }
+
+  public void setOriginalContractNumber(String originalContractNumber) {
+    this.originalContractNumber = originalContractNumber;
+  }
+
+  public String getTargetContractNumber() {
+    return this.targetContractNumber;
+  }
+
+  public void setTargetContractNumber(String targetContractNumber) {
+    this.targetContractNumber = targetContractNumber;
+  }
+
+  public String getOriginalContractType() {
+    return this.originalContractType;
+  }
+
+  public void setOriginalContractType(String originalContractType) {
+    this.originalContractType = originalContractType;
+  }
+
+  public String getTargetContractType() {
+    return this.targetContractType;
+  }
+
+  public void setTargetContractType(String targetContractType) {
+    this.targetContractType = targetContractType;
+  }
+
+  public String getOriginalDurationType() {
+    return this.originalDurationType;
+  }
+
+  public void setOriginalDurationType(String originalDurationType) {
+    this.originalDurationType = originalDurationType;
+  }
+
+  public String getTargetDurationType() {
+    return this.targetDurationType;
+  }
+
+  public void setTargetDurationType(String targetDurationType) {
+    this.targetDurationType = targetDurationType;
+  }
+
+  public String getOriginalSigningType() {
+    return this.originalSigningType;
+  }
+
+  public void setOriginalSigningType(String originalSigningType) {
+    this.originalSigningType = originalSigningType;
+  }
+
+  public String getTargetSigningType() {
+    return this.targetSigningType;
+  }
+
+  public void setTargetSigningType(String targetSigningType) {
+    this.targetSigningType = targetSigningType;
+  }
+
+  public String getOriginalContractStartDate() {
+    return this.originalContractStartDate;
+  }
+
+  public void setOriginalContractStartDate(String originalContractStartDate) {
+    this.originalContractStartDate = originalContractStartDate;
+  }
+
+  public String getTargetContractStartDate() {
+    return this.targetContractStartDate;
+  }
+
+  public void setTargetContractStartDate(String targetContractStartDate) {
+    this.targetContractStartDate = targetContractStartDate;
+  }
+
+  public String getOriginalContractEndDate() {
+    return this.originalContractEndDate;
+  }
+
+  public void setOriginalContractEndDate(String originalContractEndDate) {
+    this.originalContractEndDate = originalContractEndDate;
+  }
+
+  public String getTargetContractEndDate() {
+    return this.targetContractEndDate;
+  }
+
+  public void setTargetContractEndDate(String targetContractEndDate) {
+    this.targetContractEndDate = targetContractEndDate;
+  }
+
+  public String getOriginalWorkingHoursType() {
+    return this.originalWorkingHoursType;
+  }
+
+  public void setOriginalWorkingHoursType(String originalWorkingHoursType) {
+    this.originalWorkingHoursType = originalWorkingHoursType;
+  }
+
+  public String getTargetWorkingHoursType() {
+    return this.targetWorkingHoursType;
+  }
+
+  public void setTargetWorkingHoursType(String targetWorkingHoursType) {
+    this.targetWorkingHoursType = targetWorkingHoursType;
+  }
+
+  public String getOriginalWorkingCalendar() {
+    return this.originalWorkingCalendar;
+  }
+
+  public void setOriginalWorkingCalendar(String originalWorkingCalendar) {
+    this.originalWorkingCalendar = originalWorkingCalendar;
+  }
+
+  public String getTargetWorkingCalendar() {
+    return this.targetWorkingCalendar;
+  }
+
+  public void setTargetWorkingCalendar(String targetWorkingCalendar) {
+    this.targetWorkingCalendar = targetWorkingCalendar;
+  }
+
+  public String getOriginalProbationEndDate() {
+    return this.originalProbationEndDate;
+  }
+
+  public void setOriginalProbationEndDate(String originalProbationEndDate) {
+    this.originalProbationEndDate = originalProbationEndDate;
+  }
+
+  public String getTargetProbationEndDate() {
+    return this.targetProbationEndDate;
+  }
+
+  public void setTargetProbationEndDate(String targetProbationEndDate) {
+    this.targetProbationEndDate = targetProbationEndDate;
+  }
+
+  public String getOriginalWeeklyWorkingHours() {
+    return this.originalWeeklyWorkingHours;
+  }
+
+  public void setOriginalWeeklyWorkingHours(String originalWeeklyWorkingHours) {
+    this.originalWeeklyWorkingHours = originalWeeklyWorkingHours;
+  }
+
+  public String getTargetWeeklyWorkingHours() {
+    return this.targetWeeklyWorkingHours;
+  }
+
+  public void setTargetWeeklyWorkingHours(String targetWeeklyWorkingHours) {
+    this.targetWeeklyWorkingHours = targetWeeklyWorkingHours;
+  }
+
+  public String getOriginalWorkShift() {
+    return this.originalWorkShift;
+  }
+
+  public void setOriginalWorkShift(String originalWorkShift) {
+    this.originalWorkShift = originalWorkShift;
+  }
+
+  public String getTargetWorkShift() {
+    return this.targetWorkShift;
+  }
+
+  public void setTargetWorkShift(String targetWorkShift) {
+    this.targetWorkShift = targetWorkShift;
+  }
+
+  public JobDataCostCenter[] getOriginalCostCenterRate() {
+    return this.originalCostCenterRate;
+  }
+
+  public void setOriginalCostCenterRate(JobDataCostCenter[] originalCostCenterRate) {
+    this.originalCostCenterRate = originalCostCenterRate;
+  }
+
+  public JobDataCostCenter[] getTargetCostCenterRate() {
+    return this.targetCostCenterRate;
+  }
+
+  public void setTargetCostCenterRate(JobDataCostCenter[] targetCostCenterRate) {
+    this.targetCostCenterRate = targetCostCenterRate;
+  }
+
+  public String getTargetAllocationExpirationTime() {
+    return this.targetAllocationExpirationTime;
+  }
+
+  public void setTargetAllocationExpirationTime(String targetAllocationExpirationTime) {
+    this.targetAllocationExpirationTime = targetAllocationExpirationTime;
+  }
+
+  public String getOriginalAllocationExpirationTime() {
+    return this.originalAllocationExpirationTime;
+  }
+
+  public void setOriginalAllocationExpirationTime(String originalAllocationExpirationTime) {
+    this.originalAllocationExpirationTime = originalAllocationExpirationTime;
+  }
+
+  public String getTargetAllocationEffectiveTime() {
+    return this.targetAllocationEffectiveTime;
+  }
+
+  public void setTargetAllocationEffectiveTime(String targetAllocationEffectiveTime) {
+    this.targetAllocationEffectiveTime = targetAllocationEffectiveTime;
+  }
+
+  public String getOriginalAllocationEffectiveTime() {
+    return this.originalAllocationEffectiveTime;
+  }
+
+  public void setOriginalAllocationEffectiveTime(String originalAllocationEffectiveTime) {
+    this.originalAllocationEffectiveTime = originalAllocationEffectiveTime;
+  }
+
+  public String getOriginalDefaultCostCenter() {
+    return this.originalDefaultCostCenter;
+  }
+
+  public void setOriginalDefaultCostCenter(String originalDefaultCostCenter) {
+    this.originalDefaultCostCenter = originalDefaultCostCenter;
+  }
+
+  public String getTargetDefaultCostCenter() {
+    return this.targetDefaultCostCenter;
+  }
+
+  public void setTargetDefaultCostCenter(String targetDefaultCostCenter) {
+    this.targetDefaultCostCenter = targetDefaultCostCenter;
+  }
+
+  public Boolean getOriginalIsDefaultCostCenterInherited() {
+    return this.originalIsDefaultCostCenterInherited;
+  }
+
+  public void setOriginalIsDefaultCostCenterInherited(
+      Boolean originalIsDefaultCostCenterInherited) {
+    this.originalIsDefaultCostCenterInherited = originalIsDefaultCostCenterInherited;
+  }
+
+  public Boolean getTargetIsDefaultCostCenterInherited() {
+    return this.targetIsDefaultCostCenterInherited;
+  }
+
+  public void setTargetIsDefaultCostCenterInherited(Boolean targetIsDefaultCostCenterInherited) {
+    this.targetIsDefaultCostCenterInherited = targetIsDefaultCostCenterInherited;
+  }
+
+  public TranferEmploymentInfo getOriginalEmploymentChange() {
+    return this.originalEmploymentChange;
+  }
+
+  public void setOriginalEmploymentChange(TranferEmploymentInfo originalEmploymentChange) {
+    this.originalEmploymentChange = originalEmploymentChange;
+  }
+
+  public TranferEmploymentInfo getTargetEmploymentChange() {
+    return this.targetEmploymentChange;
+  }
+
+  public void setTargetEmploymentChange(TranferEmploymentInfo targetEmploymentChange) {
+    this.targetEmploymentChange = targetEmploymentChange;
+  }
+
+  public String getOriginalJobGrade() {
+    return this.originalJobGrade;
+  }
+
+  public void setOriginalJobGrade(String originalJobGrade) {
+    this.originalJobGrade = originalJobGrade;
+  }
+
+  public String getTargetJobGrade() {
+    return this.targetJobGrade;
+  }
+
+  public void setTargetJobGrade(String targetJobGrade) {
+    this.targetJobGrade = targetJobGrade;
+  }
+
+  public String getOriginalCompensationType() {
+    return this.originalCompensationType;
+  }
+
+  public void setOriginalCompensationType(String originalCompensationType) {
+    this.originalCompensationType = originalCompensationType;
+  }
+
+  public String getTargetCompensationType() {
+    return this.targetCompensationType;
+  }
+
+  public void setTargetCompensationType(String targetCompensationType) {
+    this.targetCompensationType = targetCompensationType;
+  }
+
+  public String getOriginalServiceCompany() {
+    return this.originalServiceCompany;
+  }
+
+  public void setOriginalServiceCompany(String originalServiceCompany) {
+    this.originalServiceCompany = originalServiceCompany;
+  }
+
+  public String getTargetServiceCompany() {
+    return this.targetServiceCompany;
+  }
+
+  public void setTargetServiceCompany(String targetServiceCompany) {
+    this.targetServiceCompany = targetServiceCompany;
+  }
+
+  public String getOriginalPosition() {
+    return this.originalPosition;
+  }
+
+  public void setOriginalPosition(String originalPosition) {
+    this.originalPosition = originalPosition;
+  }
+
+  public String getTargetPosition() {
+    return this.targetPosition;
+  }
+
+  public void setTargetPosition(String targetPosition) {
+    this.targetPosition = targetPosition;
+  }
+
+  public String getTargetDraftPosition() {
+    return this.targetDraftPosition;
+  }
+
+  public void setTargetDraftPosition(String targetDraftPosition) {
+    this.targetDraftPosition = targetDraftPosition;
+  }
+
+  public String getOriginalSocialSecurityCity() {
+    return this.originalSocialSecurityCity;
+  }
+
+  public void setOriginalSocialSecurityCity(String originalSocialSecurityCity) {
+    this.originalSocialSecurityCity = originalSocialSecurityCity;
+  }
+
+  public String getTargetSocialSecurityCity() {
+    return this.targetSocialSecurityCity;
+  }
+
+  public void setTargetSocialSecurityCity(String targetSocialSecurityCity) {
+    this.targetSocialSecurityCity = targetSocialSecurityCity;
+  }
+
+  public String getOriginalPathway() {
+    return this.originalPathway;
+  }
+
+  public void setOriginalPathway(String originalPathway) {
+    this.originalPathway = originalPathway;
+  }
+
+  public String getTargetPathway() {
+    return this.targetPathway;
+  }
+
+  public void setTargetPathway(String targetPathway) {
+    this.targetPathway = targetPathway;
+  }
+
+  public Boolean getIsTransferWithWorkforce() {
+    return this.isTransferWithWorkforce;
+  }
+
+  public void setIsTransferWithWorkforce(Boolean isTransferWithWorkforce) {
+    this.isTransferWithWorkforce = isTransferWithWorkforce;
+  }
+
+  public DepartmentLookupName getOriginalDepartmentName() {
+    return this.originalDepartmentName;
+  }
+
+  public void setOriginalDepartmentName(DepartmentLookupName originalDepartmentName) {
+    this.originalDepartmentName = originalDepartmentName;
+  }
+
+  public DepartmentLookupName getTargetDepartmentName() {
+    return this.targetDepartmentName;
+  }
+
+  public void setTargetDepartmentName(DepartmentLookupName targetDepartmentName) {
+    this.targetDepartmentName = targetDepartmentName;
+  }
+
+  public LookupName getOriginalWorkLocationName() {
+    return this.originalWorkLocationName;
+  }
+
+  public void setOriginalWorkLocationName(LookupName originalWorkLocationName) {
+    this.originalWorkLocationName = originalWorkLocationName;
+  }
+
+  public LookupName getTargetWorkLocationName() {
+    return this.targetWorkLocationName;
+  }
+
+  public void setTargetWorkLocationName(LookupName targetWorkLocationName) {
+    this.targetWorkLocationName = targetWorkLocationName;
+  }
+
+  public EmploymentLookupName getOriginalDirectManagerName() {
+    return this.originalDirectManagerName;
+  }
+
+  public void setOriginalDirectManagerName(EmploymentLookupName originalDirectManagerName) {
+    this.originalDirectManagerName = originalDirectManagerName;
+  }
+
+  public EmploymentLookupName getTargetDirectManagerName() {
+    return this.targetDirectManagerName;
+  }
+
+  public void setTargetDirectManagerName(EmploymentLookupName targetDirectManagerName) {
+    this.targetDirectManagerName = targetDirectManagerName;
+  }
+
+  public LookupName getOriginalJobName() {
+    return this.originalJobName;
+  }
+
+  public void setOriginalJobName(LookupName originalJobName) {
+    this.originalJobName = originalJobName;
+  }
+
+  public LookupName getTargetJobName() {
+    return this.targetJobName;
+  }
+
+  public void setTargetJobName(LookupName targetJobName) {
+    this.targetJobName = targetJobName;
+  }
+
+  public LookupName getOriginalJobFamilyName() {
+    return this.originalJobFamilyName;
+  }
+
+  public void setOriginalJobFamilyName(LookupName originalJobFamilyName) {
+    this.originalJobFamilyName = originalJobFamilyName;
+  }
+
+  public LookupName getTargetJobFamilyName() {
+    return this.targetJobFamilyName;
+  }
+
+  public void setTargetJobFamilyName(LookupName targetJobFamilyName) {
+    this.targetJobFamilyName = targetJobFamilyName;
+  }
+
+  public LookupName getOriginalJobLevelName() {
+    return this.originalJobLevelName;
+  }
+
+  public void setOriginalJobLevelName(LookupName originalJobLevelName) {
+    this.originalJobLevelName = originalJobLevelName;
+  }
+
+  public LookupName getTargetJobLevelName() {
+    return this.targetJobLevelName;
+  }
+
+  public void setTargetJobLevelName(LookupName targetJobLevelName) {
+    this.targetJobLevelName = targetJobLevelName;
+  }
+
+  public LookupName getOriginalWorkforceTypeName() {
+    return this.originalWorkforceTypeName;
+  }
+
+  public void setOriginalWorkforceTypeName(LookupName originalWorkforceTypeName) {
+    this.originalWorkforceTypeName = originalWorkforceTypeName;
+  }
+
+  public LookupName getTargetWorkforceTypeName() {
+    return this.targetWorkforceTypeName;
+  }
+
+  public void setTargetWorkforceTypeName(LookupName targetWorkforceTypeName) {
+    this.targetWorkforceTypeName = targetWorkforceTypeName;
+  }
+
+  public LookupName getOriginalCompanyName() {
+    return this.originalCompanyName;
+  }
+
+  public void setOriginalCompanyName(LookupName originalCompanyName) {
+    this.originalCompanyName = originalCompanyName;
+  }
+
+  public LookupName getTargetCompanyName() {
+    return this.targetCompanyName;
+  }
+
+  public void setTargetCompanyName(LookupName targetCompanyName) {
+    this.targetCompanyName = targetCompanyName;
+  }
+
+  public LookupName getOriginalContractTypeName() {
+    return this.originalContractTypeName;
+  }
+
+  public void setOriginalContractTypeName(LookupName originalContractTypeName) {
+    this.originalContractTypeName = originalContractTypeName;
+  }
+
+  public LookupName getTargetContractTypeName() {
+    return this.targetContractTypeName;
+  }
+
+  public void setTargetContractTypeName(LookupName targetContractTypeName) {
+    this.targetContractTypeName = targetContractTypeName;
+  }
+
+  public LookupName getOriginalDurationTypeName() {
+    return this.originalDurationTypeName;
+  }
+
+  public void setOriginalDurationTypeName(LookupName originalDurationTypeName) {
+    this.originalDurationTypeName = originalDurationTypeName;
+  }
+
+  public LookupName getTargetDurationTypeName() {
+    return this.targetDurationTypeName;
+  }
+
+  public void setTargetDurationTypeName(LookupName targetDurationTypeName) {
+    this.targetDurationTypeName = targetDurationTypeName;
+  }
+
+  public LookupName getOriginalSigningTypeName() {
+    return this.originalSigningTypeName;
+  }
+
+  public void setOriginalSigningTypeName(LookupName originalSigningTypeName) {
+    this.originalSigningTypeName = originalSigningTypeName;
+  }
+
+  public LookupName getTargetSigningTypeName() {
+    return this.targetSigningTypeName;
+  }
+
+  public void setTargetSigningTypeName(LookupName targetSigningTypeName) {
+    this.targetSigningTypeName = targetSigningTypeName;
+  }
+
+  public LookupName getOriginalWorkingHoursTypeName() {
+    return this.originalWorkingHoursTypeName;
+  }
+
+  public void setOriginalWorkingHoursTypeName(LookupName originalWorkingHoursTypeName) {
+    this.originalWorkingHoursTypeName = originalWorkingHoursTypeName;
+  }
+
+  public LookupName getTargetWorkingHoursTypeName() {
+    return this.targetWorkingHoursTypeName;
+  }
+
+  public void setTargetWorkingHoursTypeName(LookupName targetWorkingHoursTypeName) {
+    this.targetWorkingHoursTypeName = targetWorkingHoursTypeName;
+  }
+
+  public LookupName getOriginalWorkingCalendarName() {
+    return this.originalWorkingCalendarName;
+  }
+
+  public void setOriginalWorkingCalendarName(LookupName originalWorkingCalendarName) {
+    this.originalWorkingCalendarName = originalWorkingCalendarName;
+  }
+
+  public LookupName getTargetWorkingCalendarName() {
+    return this.targetWorkingCalendarName;
+  }
+
+  public void setTargetWorkingCalendarName(LookupName targetWorkingCalendarName) {
+    this.targetWorkingCalendarName = targetWorkingCalendarName;
+  }
+
+  public LookupName getOriginalWorkShiftName() {
+    return this.originalWorkShiftName;
+  }
+
+  public void setOriginalWorkShiftName(LookupName originalWorkShiftName) {
+    this.originalWorkShiftName = originalWorkShiftName;
+  }
+
+  public LookupName getTargetWorkShiftName() {
+    return this.targetWorkShiftName;
+  }
+
+  public void setTargetWorkShiftName(LookupName targetWorkShiftName) {
+    this.targetWorkShiftName = targetWorkShiftName;
+  }
+
+  public LookupName getOriginalJobGradeName() {
+    return this.originalJobGradeName;
+  }
+
+  public void setOriginalJobGradeName(LookupName originalJobGradeName) {
+    this.originalJobGradeName = originalJobGradeName;
+  }
+
+  public LookupName getTargetJobGradeName() {
+    return this.targetJobGradeName;
+  }
+
+  public void setTargetJobGradeName(LookupName targetJobGradeName) {
+    this.targetJobGradeName = targetJobGradeName;
+  }
+
+  public LookupName getOriginalCompensationTypeName() {
+    return this.originalCompensationTypeName;
+  }
+
+  public void setOriginalCompensationTypeName(LookupName originalCompensationTypeName) {
+    this.originalCompensationTypeName = originalCompensationTypeName;
+  }
+
+  public LookupName getTargetCompensationTypeName() {
+    return this.targetCompensationTypeName;
+  }
+
+  public void setTargetCompensationTypeName(LookupName targetCompensationTypeName) {
+    this.targetCompensationTypeName = targetCompensationTypeName;
+  }
+
+  public LookupName getOriginalServiceCompanyName() {
+    return this.originalServiceCompanyName;
+  }
+
+  public void setOriginalServiceCompanyName(LookupName originalServiceCompanyName) {
+    this.originalServiceCompanyName = originalServiceCompanyName;
+  }
+
+  public LookupName getTargetServiceCompanyName() {
+    return this.targetServiceCompanyName;
+  }
+
+  public void setTargetServiceCompanyName(LookupName targetServiceCompanyName) {
+    this.targetServiceCompanyName = targetServiceCompanyName;
+  }
+
+  public LookupName getOriginalPositionName() {
+    return this.originalPositionName;
+  }
+
+  public void setOriginalPositionName(LookupName originalPositionName) {
+    this.originalPositionName = originalPositionName;
+  }
+
+  public LookupName getTargetPositionName() {
+    return this.targetPositionName;
+  }
+
+  public void setTargetPositionName(LookupName targetPositionName) {
+    this.targetPositionName = targetPositionName;
+  }
+
+  public LookupName getOriginalEmployeeSubtypeName() {
+    return this.originalEmployeeSubtypeName;
+  }
+
+  public void setOriginalEmployeeSubtypeName(LookupName originalEmployeeSubtypeName) {
+    this.originalEmployeeSubtypeName = originalEmployeeSubtypeName;
+  }
+
+  public LookupName getTargetEmployeeSubtypeName() {
+    return this.targetEmployeeSubtypeName;
+  }
+
+  public void setTargetEmployeeSubtypeName(LookupName targetEmployeeSubtypeName) {
+    this.targetEmployeeSubtypeName = targetEmployeeSubtypeName;
+  }
+
+  public LookupName getOriginalPathwayName() {
+    return this.originalPathwayName;
+  }
+
+  public void setOriginalPathwayName(LookupName originalPathwayName) {
+    this.originalPathwayName = originalPathwayName;
+  }
+
+  public LookupName getTargetPathwayName() {
+    return this.targetPathwayName;
+  }
+
+  public void setTargetPathwayName(LookupName targetPathwayName) {
+    this.targetPathwayName = targetPathwayName;
+  }
+
+  public LookupName getOriginalDefaultCostCenterName() {
+    return this.originalDefaultCostCenterName;
+  }
+
+  public void setOriginalDefaultCostCenterName(LookupName originalDefaultCostCenterName) {
+    this.originalDefaultCostCenterName = originalDefaultCostCenterName;
+  }
+
+  public LookupName getTargetDefaultCostCenterName() {
+    return this.targetDefaultCostCenterName;
+  }
+
+  public void setTargetDefaultCostCenterName(LookupName targetDefaultCostCenterName) {
+    this.targetDefaultCostCenterName = targetDefaultCostCenterName;
+  }
+
+  public EmploymentLookupName getOriginalDottedManagerName() {
+    return this.originalDottedManagerName;
+  }
+
+  public void setOriginalDottedManagerName(EmploymentLookupName originalDottedManagerName) {
+    this.originalDottedManagerName = originalDottedManagerName;
+  }
+
+  public EmploymentLookupName getTargetDottedManagerName() {
+    return this.targetDottedManagerName;
+  }
+
+  public void setTargetDottedManagerName(EmploymentLookupName targetDottedManagerName) {
+    this.targetDottedManagerName = targetDottedManagerName;
+  }
+
+  public EmploymentLookupName getInitiatorName() {
+    return this.initiatorName;
+  }
+
+  public void setInitiatorName(EmploymentLookupName initiatorName) {
+    this.initiatorName = initiatorName;
+  }
+
+  public EmploymentLookupName getExceptionHandlerName() {
+    return this.exceptionHandlerName;
+  }
+
+  public void setExceptionHandlerName(EmploymentLookupName exceptionHandlerName) {
+    this.exceptionHandlerName = exceptionHandlerName;
+  }
+
+  public LookupName getOriginalSocialSecurityCityName() {
+    return this.originalSocialSecurityCityName;
+  }
+
+  public void setOriginalSocialSecurityCityName(LookupName originalSocialSecurityCityName) {
+    this.originalSocialSecurityCityName = originalSocialSecurityCityName;
+  }
+
+  public LookupName getTargetSocialSecurityCityName() {
+    return this.targetSocialSecurityCityName;
+  }
+
+  public void setTargetSocialSecurityCityName(LookupName targetSocialSecurityCityName) {
+    this.targetSocialSecurityCityName = targetSocialSecurityCityName;
+  }
+
+  public String getWkCreatedAt() {
+    return this.wkCreatedAt;
+  }
+
+  public void setWkCreatedAt(String wkCreatedAt) {
+    this.wkCreatedAt = wkCreatedAt;
+  }
+
+  public I18nV2 getTransformSource() {
+    return this.transformSource;
+  }
+
+  public void setTransformSource(I18nV2 transformSource) {
+    this.transformSource = transformSource;
+  }
+
+  public I18nV2[] getDetailsOfJobStatusChange() {
+    return this.detailsOfJobStatusChange;
+  }
+
+  public void setDetailsOfJobStatusChange(I18nV2[] detailsOfJobStatusChange) {
+    this.detailsOfJobStatusChange = detailsOfJobStatusChange;
+  }
+
+  // builder 开始
+  public TransferInfo() {}
+
+  public TransferInfo(Builder builder) {
     /**
      * 备注
-     * <p> 示例值：异动详情
+     *
+     * <p>示例值：异动详情
      */
-    @SerializedName("remark")
-    private String remark;
+    this.remark = builder.remark;
     /**
      * offer信息
-     * <p> 示例值：优质人才，加急处理
+     *
+     * <p>示例值：优质人才，加急处理
      */
-    @SerializedName("offer_info")
-    private String offerInfo;
+    this.offerInfo = builder.offerInfo;
     /**
      * 是否撤销虚线上级
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("target_dotted_manager_clean")
-    private Boolean targetDottedManagerClean;
+    this.targetDottedManagerClean = builder.targetDottedManagerClean;
     /**
      * 是否有试用期
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("probation_exist")
-    private Boolean probationExist;
+    this.probationExist = builder.probationExist;
     /**
      * 原部门
-     * <p> 示例值：6966236933198579208
+     *
+     * <p>示例值：6966236933198579208
      */
-    @SerializedName("original_department")
-    private String originalDepartment;
+    this.originalDepartment = builder.originalDepartment;
     /**
      * 新部门
-     * <p> 示例值：6966236933198579208
+     *
+     * <p>示例值：6966236933198579208
      */
-    @SerializedName("target_department")
-    private String targetDepartment;
+    this.targetDepartment = builder.targetDepartment;
     /**
      * 新部门，新建部门审批完成前会返回 td_xxx 的临时 ID
-     * <p> 示例值：6966236933198579208
+     *
+     * <p>示例值：6966236933198579208
      */
-    @SerializedName("target_draft_department")
-    private String targetDraftDepartment;
+    this.targetDraftDepartment = builder.targetDraftDepartment;
     /**
      * 原部门全路径
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_department_id_path")
-    private OrgdraftDepartmentId[] originalDepartmentIdPath;
+    this.originalDepartmentIdPath = builder.originalDepartmentIdPath;
     /**
      * 新部门全路径
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_department_id_path")
-    private OrgdraftDepartmentId[] targetDepartmentIdPath;
+    this.targetDepartmentIdPath = builder.targetDepartmentIdPath;
     /**
      * 原工作地点
-     * <p> 示例值：6967271100992587295
+     *
+     * <p>示例值：6967271100992587295
      */
-    @SerializedName("original_work_location")
-    private String originalWorkLocation;
+    this.originalWorkLocation = builder.originalWorkLocation;
     /**
      * 新工作地点
-     * <p> 示例值：6967271100992587295
+     *
+     * <p>示例值：6967271100992587295
      */
-    @SerializedName("target_work_location")
-    private String targetWorkLocation;
+    this.targetWorkLocation = builder.targetWorkLocation;
     /**
      * 原直属上级
-     * <p> 示例值：6974641477444060708
+     *
+     * <p>示例值：6974641477444060708
      */
-    @SerializedName("original_direct_manager")
-    private String originalDirectManager;
+    this.originalDirectManager = builder.originalDirectManager;
     /**
      * 新直属上级
-     * <p> 示例值：7013619729281713671
+     *
+     * <p>示例值：7013619729281713671
      */
-    @SerializedName("target_direct_manager")
-    private String targetDirectManager;
+    this.targetDirectManager = builder.targetDirectManager;
     /**
      * 原虚线上级
-     * <p> 示例值：6974648866876573198
+     *
+     * <p>示例值：6974648866876573198
      */
-    @SerializedName("original_dotted_manager")
-    private String originalDottedManager;
+    this.originalDottedManager = builder.originalDottedManager;
     /**
      * 新虚线上级
-     * <p> 示例值：7013328578351842852
+     *
+     * <p>示例值：7013328578351842852
      */
-    @SerializedName("target_dotted_manager")
-    private String targetDottedManager;
+    this.targetDottedManager = builder.targetDottedManager;
     /**
      * 原职务
-     * <p> 示例值：6969469398088287751
+     *
+     * <p>示例值：6969469398088287751
      */
-    @SerializedName("original_job")
-    private String originalJob;
+    this.originalJob = builder.originalJob;
     /**
      * 新职务
-     * <p> 示例值：6969469557836760606
+     *
+     * <p>示例值：6969469557836760606
      */
-    @SerializedName("target_job")
-    private String targetJob;
+    this.targetJob = builder.targetJob;
     /**
      * 原序列
-     * <p> 示例值：6967287547462419975
+     *
+     * <p>示例值：6967287547462419975
      */
-    @SerializedName("original_job_family")
-    private String originalJobFamily;
+    this.originalJobFamily = builder.originalJobFamily;
     /**
      * 新序列
-     * <p> 示例值：6967287547462419975
+     *
+     * <p>示例值：6967287547462419975
      */
-    @SerializedName("target_job_family")
-    private String targetJobFamily;
+    this.targetJobFamily = builder.targetJobFamily;
     /**
      * 原级别
-     * <p> 示例值：6972085707674355214
+     *
+     * <p>示例值：6972085707674355214
      */
-    @SerializedName("original_job_level")
-    private String originalJobLevel;
+    this.originalJobLevel = builder.originalJobLevel;
     /**
      * 新级别
-     * <p> 示例值：6972085707674355214
+     *
+     * <p>示例值：6972085707674355214
      */
-    @SerializedName("target_job_level")
-    private String targetJobLevel;
+    this.targetJobLevel = builder.targetJobLevel;
     /**
      * 原人员类型
-     * <p> 示例值：6968386026792289828
+     *
+     * <p>示例值：6968386026792289828
      */
-    @SerializedName("original_workforce_type")
-    private String originalWorkforceType;
+    this.originalWorkforceType = builder.originalWorkforceType;
     /**
      * 新人员类型
-     * <p> 示例值：7036268995372303885
+     *
+     * <p>示例值：7036268995372303885
      */
-    @SerializedName("target_workforce_type")
-    private String targetWorkforceType;
+    this.targetWorkforceType = builder.targetWorkforceType;
     /**
      * 原人员子类型
-     * <p> 示例值：6968386026792289828
+     *
+     * <p>示例值：6968386026792289828
      */
-    @SerializedName("original_employee_subtype")
-    private String originalEmployeeSubtype;
+    this.originalEmployeeSubtype = builder.originalEmployeeSubtype;
     /**
      * 新人员子类型
-     * <p> 示例值：7036268995372303885
+     *
+     * <p>示例值：7036268995372303885
      */
-    @SerializedName("target_employee_subtype")
-    private String targetEmployeeSubtype;
+    this.targetEmployeeSubtype = builder.targetEmployeeSubtype;
     /**
      * 原公司
-     * <p> 示例值：6974659700705068581
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("original_company")
-    private String originalCompany;
+    this.originalCompany = builder.originalCompany;
     /**
      * 新公司
-     * <p> 示例值：6974659700705068581
+     *
+     * <p>示例值：6974659700705068581
      */
-    @SerializedName("target_company")
-    private String targetCompany;
+    this.targetCompany = builder.targetCompany;
     /**
      * 原合同编号
-     * <p> 示例值：55332
+     *
+     * <p>示例值：55332
      */
-    @SerializedName("original_contract_number")
-    private String originalContractNumber;
+    this.originalContractNumber = builder.originalContractNumber;
     /**
      * 新合同编号
-     * <p> 示例值：55333
+     *
+     * <p>示例值：55333
      */
-    @SerializedName("target_contract_number")
-    private String targetContractNumber;
+    this.targetContractNumber = builder.targetContractNumber;
     /**
      * 原合同类型
-     * <p> 示例值：labor_contract
+     *
+     * <p>示例值：labor_contract
      */
-    @SerializedName("original_contract_type")
-    private String originalContractType;
+    this.originalContractType = builder.originalContractType;
     /**
      * 新合同类型
-     * <p> 示例值：labor_contract
+     *
+     * <p>示例值：labor_contract
      */
-    @SerializedName("target_contract_type")
-    private String targetContractType;
+    this.targetContractType = builder.targetContractType;
     /**
      * 原期限类型
-     * <p> 示例值：fixed_term
+     *
+     * <p>示例值：fixed_term
      */
-    @SerializedName("original_duration_type")
-    private String originalDurationType;
+    this.originalDurationType = builder.originalDurationType;
     /**
      * 新期限类型
-     * <p> 示例值：fixed_term
+     *
+     * <p>示例值：fixed_term
      */
-    @SerializedName("target_duration_type")
-    private String targetDurationType;
+    this.targetDurationType = builder.targetDurationType;
     /**
      * 原签订类型
-     * <p> 示例值：new
+     *
+     * <p>示例值：new
      */
-    @SerializedName("original_signing_type")
-    private String originalSigningType;
+    this.originalSigningType = builder.originalSigningType;
     /**
      * 新签订类型
-     * <p> 示例值：new
+     *
+     * <p>示例值：new
      */
-    @SerializedName("target_signing_type")
-    private String targetSigningType;
+    this.targetSigningType = builder.targetSigningType;
     /**
      * 原合同开始日期
-     * <p> 示例值：2021-07-01
+     *
+     * <p>示例值：2021-07-01
      */
-    @SerializedName("original_contract_start_date")
-    private String originalContractStartDate;
+    this.originalContractStartDate = builder.originalContractStartDate;
     /**
      * 新合同开始日期
-     * <p> 示例值：2021-07-01
+     *
+     * <p>示例值：2021-07-01
      */
-    @SerializedName("target_contract_start_date")
-    private String targetContractStartDate;
+    this.targetContractStartDate = builder.targetContractStartDate;
     /**
      * 原合同结束日期
-     * <p> 示例值：2024-07-01
+     *
+     * <p>示例值：2024-07-01
      */
-    @SerializedName("original_contract_end_date")
-    private String originalContractEndDate;
+    this.originalContractEndDate = builder.originalContractEndDate;
     /**
      * 新合同结束日期
-     * <p> 示例值：2024-07-01
+     *
+     * <p>示例值：2024-07-01
      */
-    @SerializedName("target_contract_end_date")
-    private String targetContractEndDate;
+    this.targetContractEndDate = builder.targetContractEndDate;
     /**
      * 原工时制度
-     * <p> 示例值：6969087376740206087
+     *
+     * <p>示例值：6969087376740206087
      */
-    @SerializedName("original_working_hours_type")
-    private String originalWorkingHoursType;
+    this.originalWorkingHoursType = builder.originalWorkingHoursType;
     /**
      * 新工时制度
-     * <p> 示例值：6969087376740206087
+     *
+     * <p>示例值：6969087376740206087
      */
-    @SerializedName("target_working_hours_type")
-    private String targetWorkingHoursType;
+    this.targetWorkingHoursType = builder.targetWorkingHoursType;
     /**
      * 原工作日历
-     * <p> 示例值：6969087376740236087
+     *
+     * <p>示例值：6969087376740236087
      */
-    @SerializedName("original_working_calendar")
-    private String originalWorkingCalendar;
+    this.originalWorkingCalendar = builder.originalWorkingCalendar;
     /**
      * 新工作日历
-     * <p> 示例值：6969087376740236087
+     *
+     * <p>示例值：6969087376740236087
      */
-    @SerializedName("target_working_calendar")
-    private String targetWorkingCalendar;
+    this.targetWorkingCalendar = builder.targetWorkingCalendar;
     /**
      * 原试用期预计结束日期
-     * <p> 示例值：2021-11-17
+     *
+     * <p>示例值：2021-11-17
      */
-    @SerializedName("original_probation_end_date")
-    private String originalProbationEndDate;
+    this.originalProbationEndDate = builder.originalProbationEndDate;
     /**
      * 新试用期预计结束日期
-     * <p> 示例值：2021-11-17
+     *
+     * <p>示例值：2021-11-17
      */
-    @SerializedName("target_probation_end_date")
-    private String targetProbationEndDate;
+    this.targetProbationEndDate = builder.targetProbationEndDate;
     /**
      * 原周工作时长
-     * <p> 示例值：162
+     *
+     * <p>示例值：162
      */
-    @SerializedName("original_weekly_working_hours")
-    private String originalWeeklyWorkingHours;
+    this.originalWeeklyWorkingHours = builder.originalWeeklyWorkingHours;
     /**
      * 新周工作时长
-     * <p> 示例值：160
+     *
+     * <p>示例值：160
      */
-    @SerializedName("target_weekly_working_hours")
-    private String targetWeeklyWorkingHours;
+    this.targetWeeklyWorkingHours = builder.targetWeeklyWorkingHours;
     /**
      * 原排班
-     * <p> 示例值：work_shift
+     *
+     * <p>示例值：work_shift
      */
-    @SerializedName("original_work_shift")
-    private String originalWorkShift;
+    this.originalWorkShift = builder.originalWorkShift;
     /**
      * 新排班
-     * <p> 示例值：non_work_shift
+     *
+     * <p>示例值：non_work_shift
      */
-    @SerializedName("target_work_shift")
-    private String targetWorkShift;
+    this.targetWorkShift = builder.targetWorkShift;
     /**
      * 原成本中心分摊方式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_cost_center_rate")
-    private JobDataCostCenter[] originalCostCenterRate;
+    this.originalCostCenterRate = builder.originalCostCenterRate;
     /**
      * 新成本中心分摊方式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_cost_center_rate")
-    private JobDataCostCenter[] targetCostCenterRate;
+    this.targetCostCenterRate = builder.targetCostCenterRate;
     /**
      * 新分摊失效时间
-     * <p> 示例值：2022-03-01
+     *
+     * <p>示例值：2022-03-01
      */
-    @SerializedName("target_allocation_expiration_time")
-    private String targetAllocationExpirationTime;
+    this.targetAllocationExpirationTime = builder.targetAllocationExpirationTime;
     /**
      * 原分摊失效时间
-     * <p> 示例值：2022-03-01
+     *
+     * <p>示例值：2022-03-01
      */
-    @SerializedName("original_allocation_expiration_time")
-    private String originalAllocationExpirationTime;
+    this.originalAllocationExpirationTime = builder.originalAllocationExpirationTime;
     /**
      * 新分摊生效时间
-     * <p> 示例值：2022-03-01
+     *
+     * <p>示例值：2022-03-01
      */
-    @SerializedName("target_allocation_effective_time")
-    private String targetAllocationEffectiveTime;
+    this.targetAllocationEffectiveTime = builder.targetAllocationEffectiveTime;
     /**
      * 原分摊生效时间
-     * <p> 示例值：2022-03-01
+     *
+     * <p>示例值：2022-03-01
      */
-    @SerializedName("original_allocation_effective_time")
-    private String originalAllocationEffectiveTime;
+    this.originalAllocationEffectiveTime = builder.originalAllocationEffectiveTime;
     /**
      * 原默认成本中心
-     * <p> 示例值：7380264299728602661
+     *
+     * <p>示例值：7380264299728602661
      */
-    @SerializedName("original_default_cost_center")
-    private String originalDefaultCostCenter;
+    this.originalDefaultCostCenter = builder.originalDefaultCostCenter;
     /**
      * 新默认成本中心
-     * <p> 示例值：7380264299728602661
+     *
+     * <p>示例值：7380264299728602661
      */
-    @SerializedName("target_default_cost_center")
-    private String targetDefaultCostCenter;
+    this.targetDefaultCostCenter = builder.targetDefaultCostCenter;
     /**
      * 原默认成本中心是否继承
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_is_default_cost_center_inherited")
-    private Boolean originalIsDefaultCostCenterInherited;
+    this.originalIsDefaultCostCenterInherited = builder.originalIsDefaultCostCenterInherited;
     /**
      * 新默认成本中心是否继承
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_is_default_cost_center_inherited")
-    private Boolean targetIsDefaultCostCenterInherited;
+    this.targetIsDefaultCostCenterInherited = builder.targetIsDefaultCostCenterInherited;
     /**
      * 原工作信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_employment_change")
-    private TranferEmploymentInfo originalEmploymentChange;
+    this.originalEmploymentChange = builder.originalEmploymentChange;
     /**
      * 新工作信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_employment_change")
-    private TranferEmploymentInfo targetEmploymentChange;
+    this.targetEmploymentChange = builder.targetEmploymentChange;
     /**
      * 原职等
-     * <p> 示例值：7289005963599693366
+     *
+     * <p>示例值：7289005963599693366
      */
-    @SerializedName("original_job_grade")
-    private String originalJobGrade;
+    this.originalJobGrade = builder.originalJobGrade;
     /**
      * 新职等
-     * <p> 示例值：7289005963599693366
+     *
+     * <p>示例值：7289005963599693366
      */
-    @SerializedName("target_job_grade")
-    private String targetJobGrade;
+    this.targetJobGrade = builder.targetJobGrade;
     /**
      * 原薪资类型
-     * <p> 示例值：hourly
+     *
+     * <p>示例值：hourly
      */
-    @SerializedName("original_compensation_type")
-    private String originalCompensationType;
+    this.originalCompensationType = builder.originalCompensationType;
     /**
      * 新薪资类型
-     * <p> 示例值：salary
+     *
+     * <p>示例值：salary
      */
-    @SerializedName("target_compensation_type")
-    private String targetCompensationType;
+    this.targetCompensationType = builder.targetCompensationType;
     /**
      * 原任职公司
-     * <p> 示例值：7289005963599693367
+     *
+     * <p>示例值：7289005963599693367
      */
-    @SerializedName("original_service_company")
-    private String originalServiceCompany;
+    this.originalServiceCompany = builder.originalServiceCompany;
     /**
      * 新任职公司
-     * <p> 示例值：7289005963599693367
+     *
+     * <p>示例值：7289005963599693367
      */
-    @SerializedName("target_service_company")
-    private String targetServiceCompany;
+    this.targetServiceCompany = builder.targetServiceCompany;
     /**
      * 原岗位
-     * <p> 示例值：7289005963599693367
+     *
+     * <p>示例值：7289005963599693367
      */
-    @SerializedName("original_position")
-    private String originalPosition;
+    this.originalPosition = builder.originalPosition;
     /**
      * 新岗位
-     * <p> 示例值：7289005963599693367
+     *
+     * <p>示例值：7289005963599693367
      */
-    @SerializedName("target_position")
-    private String targetPosition;
+    this.targetPosition = builder.targetPosition;
     /**
      * 新岗位，新建岗位审批完成前会返回 td_xxx 的临时 ID
-     * <p> 示例值：7289005963599693367
+     *
+     * <p>示例值：7289005963599693367
      */
-    @SerializedName("target_draft_position")
-    private String targetDraftPosition;
+    this.targetDraftPosition = builder.targetDraftPosition;
     /**
      * 原社保城市
-     * <p> 示例值：7289005963599693367
+     *
+     * <p>示例值：7289005963599693367
      */
-    @SerializedName("original_social_security_city")
-    private String originalSocialSecurityCity;
+    this.originalSocialSecurityCity = builder.originalSocialSecurityCity;
     /**
      * 新社保城市
-     * <p> 示例值：7289005963599693367
+     *
+     * <p>示例值：7289005963599693367
      */
-    @SerializedName("target_social_security_city")
-    private String targetSocialSecurityCity;
+    this.targetSocialSecurityCity = builder.targetSocialSecurityCity;
     /**
      * 原通道
-     * <p> 示例值：7289005963599693367
+     *
+     * <p>示例值：7289005963599693367
      */
-    @SerializedName("original_pathway")
-    private String originalPathway;
+    this.originalPathway = builder.originalPathway;
     /**
      * 新通道
-     * <p> 示例值：7289005963599693367
+     *
+     * <p>示例值：7289005963599693367
      */
-    @SerializedName("target_pathway")
-    private String targetPathway;
+    this.targetPathway = builder.targetPathway;
     /**
      * 编制随人员一起调整
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_transfer_with_workforce")
-    private Boolean isTransferWithWorkforce;
+    this.isTransferWithWorkforce = builder.isTransferWithWorkforce;
     /**
      * 原部门名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_department_name")
-    private DepartmentLookupName originalDepartmentName;
+    this.originalDepartmentName = builder.originalDepartmentName;
     /**
      * 新部门名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_department_name")
-    private DepartmentLookupName targetDepartmentName;
+    this.targetDepartmentName = builder.targetDepartmentName;
     /**
      * 原工作地点名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_worklocation_name")
-    private LookupName originalWorklocationName;
+    this.originalWorkLocationName = builder.originalWorkLocationName;
     /**
      * 新工作地点名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_worklocation_name")
-    private LookupName targetWorklocationName;
+    this.targetWorkLocationName = builder.targetWorkLocationName;
     /**
      * 原直属上级名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_direct_manager_name")
-    private EmploymentLookupName originalDirectManagerName;
+    this.originalDirectManagerName = builder.originalDirectManagerName;
     /**
      * 新直属上级名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_direct_manager_name")
-    private EmploymentLookupName targetDirectManagerName;
+    this.targetDirectManagerName = builder.targetDirectManagerName;
     /**
      * 原职务名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_job_name")
-    private LookupName originalJobName;
+    this.originalJobName = builder.originalJobName;
     /**
      * 新职务名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_job_name")
-    private LookupName targetJobName;
+    this.targetJobName = builder.targetJobName;
     /**
      * 原序列名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_job_family_name")
-    private LookupName originalJobFamilyName;
+    this.originalJobFamilyName = builder.originalJobFamilyName;
     /**
      * 新序列名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_job_family_name")
-    private LookupName targetJobFamilyName;
+    this.targetJobFamilyName = builder.targetJobFamilyName;
     /**
      * 原职级名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_job_level_name")
-    private LookupName originalJobLevelName;
+    this.originalJobLevelName = builder.originalJobLevelName;
     /**
      * 新职级名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_job_level_name")
-    private LookupName targetJobLevelName;
+    this.targetJobLevelName = builder.targetJobLevelName;
     /**
      * 原人员类型名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_workforce_type_name")
-    private LookupName originalWorkforceTypeName;
+    this.originalWorkforceTypeName = builder.originalWorkforceTypeName;
     /**
      * 新人员类型名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_workforce_type_name")
+    this.targetWorkforceTypeName = builder.targetWorkforceTypeName;
+    /**
+     * 原公司名称
+     *
+     * <p>示例值：
+     */
+    this.originalCompanyName = builder.originalCompanyName;
+    /**
+     * 新公司名称
+     *
+     * <p>示例值：
+     */
+    this.targetCompanyName = builder.targetCompanyName;
+    /**
+     * 原合同类型名称
+     *
+     * <p>示例值：
+     */
+    this.originalContractTypeName = builder.originalContractTypeName;
+    /**
+     * 新合同类型名称
+     *
+     * <p>示例值：
+     */
+    this.targetContractTypeName = builder.targetContractTypeName;
+    /**
+     * 原期限类型名称
+     *
+     * <p>示例值：
+     */
+    this.originalDurationTypeName = builder.originalDurationTypeName;
+    /**
+     * 新期限类型名称
+     *
+     * <p>示例值：
+     */
+    this.targetDurationTypeName = builder.targetDurationTypeName;
+    /**
+     * 原签订类型名称
+     *
+     * <p>示例值：
+     */
+    this.originalSigningTypeName = builder.originalSigningTypeName;
+    /**
+     * 新签订类型名称
+     *
+     * <p>示例值：
+     */
+    this.targetSigningTypeName = builder.targetSigningTypeName;
+    /**
+     * 原工时制度名称
+     *
+     * <p>示例值：
+     */
+    this.originalWorkingHoursTypeName = builder.originalWorkingHoursTypeName;
+    /**
+     * 新工时制度名称
+     *
+     * <p>示例值：
+     */
+    this.targetWorkingHoursTypeName = builder.targetWorkingHoursTypeName;
+    /**
+     * 原工作日历名称
+     *
+     * <p>示例值：
+     */
+    this.originalWorkingCalendarName = builder.originalWorkingCalendarName;
+    /**
+     * 新工作日历名称
+     *
+     * <p>示例值：
+     */
+    this.targetWorkingCalendarName = builder.targetWorkingCalendarName;
+    /**
+     * 原排班名称
+     *
+     * <p>示例值：
+     */
+    this.originalWorkShiftName = builder.originalWorkShiftName;
+    /**
+     * 新排班名称
+     *
+     * <p>示例值：
+     */
+    this.targetWorkShiftName = builder.targetWorkShiftName;
+    /**
+     * 原职等名称
+     *
+     * <p>示例值：
+     */
+    this.originalJobGradeName = builder.originalJobGradeName;
+    /**
+     * 新职等名称
+     *
+     * <p>示例值：
+     */
+    this.targetJobGradeName = builder.targetJobGradeName;
+    /**
+     * 原薪资类型名称
+     *
+     * <p>示例值：
+     */
+    this.originalCompensationTypeName = builder.originalCompensationTypeName;
+    /**
+     * 新薪资类型名称
+     *
+     * <p>示例值：
+     */
+    this.targetCompensationTypeName = builder.targetCompensationTypeName;
+    /**
+     * 原任职公司名称
+     *
+     * <p>示例值：
+     */
+    this.originalServiceCompanyName = builder.originalServiceCompanyName;
+    /**
+     * 新任职公司名称
+     *
+     * <p>示例值：
+     */
+    this.targetServiceCompanyName = builder.targetServiceCompanyName;
+    /**
+     * 原岗位名称
+     *
+     * <p>示例值：
+     */
+    this.originalPositionName = builder.originalPositionName;
+    /**
+     * 新岗位名称
+     *
+     * <p>示例值：
+     */
+    this.targetPositionName = builder.targetPositionName;
+    /**
+     * 原人员子类型名称
+     *
+     * <p>示例值：
+     */
+    this.originalEmployeeSubtypeName = builder.originalEmployeeSubtypeName;
+    /**
+     * 新人员子类型名称
+     *
+     * <p>示例值：
+     */
+    this.targetEmployeeSubtypeName = builder.targetEmployeeSubtypeName;
+    /**
+     * 原通道名称
+     *
+     * <p>示例值：
+     */
+    this.originalPathwayName = builder.originalPathwayName;
+    /**
+     * 新通道名称
+     *
+     * <p>示例值：
+     */
+    this.targetPathwayName = builder.targetPathwayName;
+    /**
+     * 原默认成本中心名称
+     *
+     * <p>示例值：
+     */
+    this.originalDefaultCostCenterName = builder.originalDefaultCostCenterName;
+    /**
+     * 新默认成本中心名称
+     *
+     * <p>示例值：
+     */
+    this.targetDefaultCostCenterName = builder.targetDefaultCostCenterName;
+    /**
+     * 原虚线上级名称
+     *
+     * <p>示例值：
+     */
+    this.originalDottedManagerName = builder.originalDottedManagerName;
+    /**
+     * 新虚线上级名称
+     *
+     * <p>示例值：
+     */
+    this.targetDottedManagerName = builder.targetDottedManagerName;
+    /**
+     * 发起人名称
+     *
+     * <p>示例值：
+     */
+    this.initiatorName = builder.initiatorName;
+    /**
+     * 异常处理人名称
+     *
+     * <p>示例值：
+     */
+    this.exceptionHandlerName = builder.exceptionHandlerName;
+    /**
+     * 原社保城市名称
+     *
+     * <p>示例值：
+     */
+    this.originalSocialSecurityCityName = builder.originalSocialSecurityCityName;
+    /**
+     * 新社保城市名称
+     *
+     * <p>示例值：
+     */
+    this.targetSocialSecurityCityName = builder.targetSocialSecurityCityName;
+    /**
+     * 发起时间
+     *
+     * <p>示例值：2026-5-28
+     */
+    this.wkCreatedAt = builder.wkCreatedAt;
+    /**
+     * 数据来源
+     *
+     * <p>示例值：
+     */
+    this.transformSource = builder.transformSource;
+    /**
+     * 异动变更内容
+     *
+     * <p>示例值：
+     */
+    this.detailsOfJobStatusChange = builder.detailsOfJobStatusChange;
+  }
+
+  public static class Builder {
+    /**
+     * 备注
+     *
+     * <p>示例值：异动详情
+     */
+    private String remark;
+
+    /**
+     * offer信息
+     *
+     * <p>示例值：优质人才，加急处理
+     */
+    private String offerInfo;
+
+    /**
+     * 是否撤销虚线上级
+     *
+     * <p>示例值：true
+     */
+    private Boolean targetDottedManagerClean;
+
+    /**
+     * 是否有试用期
+     *
+     * <p>示例值：false
+     */
+    private Boolean probationExist;
+
+    /**
+     * 原部门
+     *
+     * <p>示例值：6966236933198579208
+     */
+    private String originalDepartment;
+
+    /**
+     * 新部门
+     *
+     * <p>示例值：6966236933198579208
+     */
+    private String targetDepartment;
+
+    /**
+     * 新部门，新建部门审批完成前会返回 td_xxx 的临时 ID
+     *
+     * <p>示例值：6966236933198579208
+     */
+    private String targetDraftDepartment;
+
+    /**
+     * 原部门全路径
+     *
+     * <p>示例值：
+     */
+    private OrgdraftDepartmentId[] originalDepartmentIdPath;
+
+    /**
+     * 新部门全路径
+     *
+     * <p>示例值：
+     */
+    private OrgdraftDepartmentId[] targetDepartmentIdPath;
+
+    /**
+     * 原工作地点
+     *
+     * <p>示例值：6967271100992587295
+     */
+    private String originalWorkLocation;
+
+    /**
+     * 新工作地点
+     *
+     * <p>示例值：6967271100992587295
+     */
+    private String targetWorkLocation;
+
+    /**
+     * 原直属上级
+     *
+     * <p>示例值：6974641477444060708
+     */
+    private String originalDirectManager;
+
+    /**
+     * 新直属上级
+     *
+     * <p>示例值：7013619729281713671
+     */
+    private String targetDirectManager;
+
+    /**
+     * 原虚线上级
+     *
+     * <p>示例值：6974648866876573198
+     */
+    private String originalDottedManager;
+
+    /**
+     * 新虚线上级
+     *
+     * <p>示例值：7013328578351842852
+     */
+    private String targetDottedManager;
+
+    /**
+     * 原职务
+     *
+     * <p>示例值：6969469398088287751
+     */
+    private String originalJob;
+
+    /**
+     * 新职务
+     *
+     * <p>示例值：6969469557836760606
+     */
+    private String targetJob;
+
+    /**
+     * 原序列
+     *
+     * <p>示例值：6967287547462419975
+     */
+    private String originalJobFamily;
+
+    /**
+     * 新序列
+     *
+     * <p>示例值：6967287547462419975
+     */
+    private String targetJobFamily;
+
+    /**
+     * 原级别
+     *
+     * <p>示例值：6972085707674355214
+     */
+    private String originalJobLevel;
+
+    /**
+     * 新级别
+     *
+     * <p>示例值：6972085707674355214
+     */
+    private String targetJobLevel;
+
+    /**
+     * 原人员类型
+     *
+     * <p>示例值：6968386026792289828
+     */
+    private String originalWorkforceType;
+
+    /**
+     * 新人员类型
+     *
+     * <p>示例值：7036268995372303885
+     */
+    private String targetWorkforceType;
+
+    /**
+     * 原人员子类型
+     *
+     * <p>示例值：6968386026792289828
+     */
+    private String originalEmployeeSubtype;
+
+    /**
+     * 新人员子类型
+     *
+     * <p>示例值：7036268995372303885
+     */
+    private String targetEmployeeSubtype;
+
+    /**
+     * 原公司
+     *
+     * <p>示例值：6974659700705068581
+     */
+    private String originalCompany;
+
+    /**
+     * 新公司
+     *
+     * <p>示例值：6974659700705068581
+     */
+    private String targetCompany;
+
+    /**
+     * 原合同编号
+     *
+     * <p>示例值：55332
+     */
+    private String originalContractNumber;
+
+    /**
+     * 新合同编号
+     *
+     * <p>示例值：55333
+     */
+    private String targetContractNumber;
+
+    /**
+     * 原合同类型
+     *
+     * <p>示例值：labor_contract
+     */
+    private String originalContractType;
+
+    /**
+     * 新合同类型
+     *
+     * <p>示例值：labor_contract
+     */
+    private String targetContractType;
+
+    /**
+     * 原期限类型
+     *
+     * <p>示例值：fixed_term
+     */
+    private String originalDurationType;
+
+    /**
+     * 新期限类型
+     *
+     * <p>示例值：fixed_term
+     */
+    private String targetDurationType;
+
+    /**
+     * 原签订类型
+     *
+     * <p>示例值：new
+     */
+    private String originalSigningType;
+
+    /**
+     * 新签订类型
+     *
+     * <p>示例值：new
+     */
+    private String targetSigningType;
+
+    /**
+     * 原合同开始日期
+     *
+     * <p>示例值：2021-07-01
+     */
+    private String originalContractStartDate;
+
+    /**
+     * 新合同开始日期
+     *
+     * <p>示例值：2021-07-01
+     */
+    private String targetContractStartDate;
+
+    /**
+     * 原合同结束日期
+     *
+     * <p>示例值：2024-07-01
+     */
+    private String originalContractEndDate;
+
+    /**
+     * 新合同结束日期
+     *
+     * <p>示例值：2024-07-01
+     */
+    private String targetContractEndDate;
+
+    /**
+     * 原工时制度
+     *
+     * <p>示例值：6969087376740206087
+     */
+    private String originalWorkingHoursType;
+
+    /**
+     * 新工时制度
+     *
+     * <p>示例值：6969087376740206087
+     */
+    private String targetWorkingHoursType;
+
+    /**
+     * 原工作日历
+     *
+     * <p>示例值：6969087376740236087
+     */
+    private String originalWorkingCalendar;
+
+    /**
+     * 新工作日历
+     *
+     * <p>示例值：6969087376740236087
+     */
+    private String targetWorkingCalendar;
+
+    /**
+     * 原试用期预计结束日期
+     *
+     * <p>示例值：2021-11-17
+     */
+    private String originalProbationEndDate;
+
+    /**
+     * 新试用期预计结束日期
+     *
+     * <p>示例值：2021-11-17
+     */
+    private String targetProbationEndDate;
+
+    /**
+     * 原周工作时长
+     *
+     * <p>示例值：162
+     */
+    private String originalWeeklyWorkingHours;
+
+    /**
+     * 新周工作时长
+     *
+     * <p>示例值：160
+     */
+    private String targetWeeklyWorkingHours;
+
+    /**
+     * 原排班
+     *
+     * <p>示例值：work_shift
+     */
+    private String originalWorkShift;
+
+    /**
+     * 新排班
+     *
+     * <p>示例值：non_work_shift
+     */
+    private String targetWorkShift;
+
+    /**
+     * 原成本中心分摊方式
+     *
+     * <p>示例值：
+     */
+    private JobDataCostCenter[] originalCostCenterRate;
+
+    /**
+     * 新成本中心分摊方式
+     *
+     * <p>示例值：
+     */
+    private JobDataCostCenter[] targetCostCenterRate;
+
+    /**
+     * 新分摊失效时间
+     *
+     * <p>示例值：2022-03-01
+     */
+    private String targetAllocationExpirationTime;
+
+    /**
+     * 原分摊失效时间
+     *
+     * <p>示例值：2022-03-01
+     */
+    private String originalAllocationExpirationTime;
+
+    /**
+     * 新分摊生效时间
+     *
+     * <p>示例值：2022-03-01
+     */
+    private String targetAllocationEffectiveTime;
+
+    /**
+     * 原分摊生效时间
+     *
+     * <p>示例值：2022-03-01
+     */
+    private String originalAllocationEffectiveTime;
+
+    /**
+     * 原默认成本中心
+     *
+     * <p>示例值：7380264299728602661
+     */
+    private String originalDefaultCostCenter;
+
+    /**
+     * 新默认成本中心
+     *
+     * <p>示例值：7380264299728602661
+     */
+    private String targetDefaultCostCenter;
+
+    /**
+     * 原默认成本中心是否继承
+     *
+     * <p>示例值：
+     */
+    private Boolean originalIsDefaultCostCenterInherited;
+
+    /**
+     * 新默认成本中心是否继承
+     *
+     * <p>示例值：
+     */
+    private Boolean targetIsDefaultCostCenterInherited;
+
+    /**
+     * 原工作信息
+     *
+     * <p>示例值：
+     */
+    private TranferEmploymentInfo originalEmploymentChange;
+
+    /**
+     * 新工作信息
+     *
+     * <p>示例值：
+     */
+    private TranferEmploymentInfo targetEmploymentChange;
+
+    /**
+     * 原职等
+     *
+     * <p>示例值：7289005963599693366
+     */
+    private String originalJobGrade;
+
+    /**
+     * 新职等
+     *
+     * <p>示例值：7289005963599693366
+     */
+    private String targetJobGrade;
+
+    /**
+     * 原薪资类型
+     *
+     * <p>示例值：hourly
+     */
+    private String originalCompensationType;
+
+    /**
+     * 新薪资类型
+     *
+     * <p>示例值：salary
+     */
+    private String targetCompensationType;
+
+    /**
+     * 原任职公司
+     *
+     * <p>示例值：7289005963599693367
+     */
+    private String originalServiceCompany;
+
+    /**
+     * 新任职公司
+     *
+     * <p>示例值：7289005963599693367
+     */
+    private String targetServiceCompany;
+
+    /**
+     * 原岗位
+     *
+     * <p>示例值：7289005963599693367
+     */
+    private String originalPosition;
+
+    /**
+     * 新岗位
+     *
+     * <p>示例值：7289005963599693367
+     */
+    private String targetPosition;
+
+    /**
+     * 新岗位，新建岗位审批完成前会返回 td_xxx 的临时 ID
+     *
+     * <p>示例值：7289005963599693367
+     */
+    private String targetDraftPosition;
+
+    /**
+     * 原社保城市
+     *
+     * <p>示例值：7289005963599693367
+     */
+    private String originalSocialSecurityCity;
+
+    /**
+     * 新社保城市
+     *
+     * <p>示例值：7289005963599693367
+     */
+    private String targetSocialSecurityCity;
+
+    /**
+     * 原通道
+     *
+     * <p>示例值：7289005963599693367
+     */
+    private String originalPathway;
+
+    /**
+     * 新通道
+     *
+     * <p>示例值：7289005963599693367
+     */
+    private String targetPathway;
+
+    /**
+     * 编制随人员一起调整
+     *
+     * <p>示例值：false
+     */
+    private Boolean isTransferWithWorkforce;
+
+    /**
+     * 原部门名称
+     *
+     * <p>示例值：
+     */
+    private DepartmentLookupName originalDepartmentName;
+
+    /**
+     * 新部门名称
+     *
+     * <p>示例值：
+     */
+    private DepartmentLookupName targetDepartmentName;
+
+    /**
+     * 原工作地点名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalWorkLocationName;
+
+    /**
+     * 新工作地点名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetWorkLocationName;
+
+    /**
+     * 原直属上级名称
+     *
+     * <p>示例值：
+     */
+    private EmploymentLookupName originalDirectManagerName;
+
+    /**
+     * 新直属上级名称
+     *
+     * <p>示例值：
+     */
+    private EmploymentLookupName targetDirectManagerName;
+
+    /**
+     * 原职务名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalJobName;
+
+    /**
+     * 新职务名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetJobName;
+
+    /**
+     * 原序列名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalJobFamilyName;
+
+    /**
+     * 新序列名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetJobFamilyName;
+
+    /**
+     * 原职级名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalJobLevelName;
+
+    /**
+     * 新职级名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetJobLevelName;
+
+    /**
+     * 原人员类型名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalWorkforceTypeName;
+
+    /**
+     * 新人员类型名称
+     *
+     * <p>示例值：
+     */
     private LookupName targetWorkforceTypeName;
 
-    // builder 开始
-    public TransferInfo() {
-    }
-
-    public TransferInfo(Builder builder) {
-        /**
-         * 备注
-         * <p> 示例值：异动详情
-         */
-        this.remark = builder.remark;
-        /**
-         * offer信息
-         * <p> 示例值：优质人才，加急处理
-         */
-        this.offerInfo = builder.offerInfo;
-        /**
-         * 是否撤销虚线上级
-         * <p> 示例值：true
-         */
-        this.targetDottedManagerClean = builder.targetDottedManagerClean;
-        /**
-         * 是否有试用期
-         * <p> 示例值：false
-         */
-        this.probationExist = builder.probationExist;
-        /**
-         * 原部门
-         * <p> 示例值：6966236933198579208
-         */
-        this.originalDepartment = builder.originalDepartment;
-        /**
-         * 新部门
-         * <p> 示例值：6966236933198579208
-         */
-        this.targetDepartment = builder.targetDepartment;
-        /**
-         * 新部门，新建部门审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：6966236933198579208
-         */
-        this.targetDraftDepartment = builder.targetDraftDepartment;
-        /**
-         * 原部门全路径
-         * <p> 示例值：
-         */
-        this.originalDepartmentIdPath = builder.originalDepartmentIdPath;
-        /**
-         * 新部门全路径
-         * <p> 示例值：
-         */
-        this.targetDepartmentIdPath = builder.targetDepartmentIdPath;
-        /**
-         * 原工作地点
-         * <p> 示例值：6967271100992587295
-         */
-        this.originalWorkLocation = builder.originalWorkLocation;
-        /**
-         * 新工作地点
-         * <p> 示例值：6967271100992587295
-         */
-        this.targetWorkLocation = builder.targetWorkLocation;
-        /**
-         * 原直属上级
-         * <p> 示例值：6974641477444060708
-         */
-        this.originalDirectManager = builder.originalDirectManager;
-        /**
-         * 新直属上级
-         * <p> 示例值：7013619729281713671
-         */
-        this.targetDirectManager = builder.targetDirectManager;
-        /**
-         * 原虚线上级
-         * <p> 示例值：6974648866876573198
-         */
-        this.originalDottedManager = builder.originalDottedManager;
-        /**
-         * 新虚线上级
-         * <p> 示例值：7013328578351842852
-         */
-        this.targetDottedManager = builder.targetDottedManager;
-        /**
-         * 原职务
-         * <p> 示例值：6969469398088287751
-         */
-        this.originalJob = builder.originalJob;
-        /**
-         * 新职务
-         * <p> 示例值：6969469557836760606
-         */
-        this.targetJob = builder.targetJob;
-        /**
-         * 原序列
-         * <p> 示例值：6967287547462419975
-         */
-        this.originalJobFamily = builder.originalJobFamily;
-        /**
-         * 新序列
-         * <p> 示例值：6967287547462419975
-         */
-        this.targetJobFamily = builder.targetJobFamily;
-        /**
-         * 原级别
-         * <p> 示例值：6972085707674355214
-         */
-        this.originalJobLevel = builder.originalJobLevel;
-        /**
-         * 新级别
-         * <p> 示例值：6972085707674355214
-         */
-        this.targetJobLevel = builder.targetJobLevel;
-        /**
-         * 原人员类型
-         * <p> 示例值：6968386026792289828
-         */
-        this.originalWorkforceType = builder.originalWorkforceType;
-        /**
-         * 新人员类型
-         * <p> 示例值：7036268995372303885
-         */
-        this.targetWorkforceType = builder.targetWorkforceType;
-        /**
-         * 原人员子类型
-         * <p> 示例值：6968386026792289828
-         */
-        this.originalEmployeeSubtype = builder.originalEmployeeSubtype;
-        /**
-         * 新人员子类型
-         * <p> 示例值：7036268995372303885
-         */
-        this.targetEmployeeSubtype = builder.targetEmployeeSubtype;
-        /**
-         * 原公司
-         * <p> 示例值：6974659700705068581
-         */
-        this.originalCompany = builder.originalCompany;
-        /**
-         * 新公司
-         * <p> 示例值：6974659700705068581
-         */
-        this.targetCompany = builder.targetCompany;
-        /**
-         * 原合同编号
-         * <p> 示例值：55332
-         */
-        this.originalContractNumber = builder.originalContractNumber;
-        /**
-         * 新合同编号
-         * <p> 示例值：55333
-         */
-        this.targetContractNumber = builder.targetContractNumber;
-        /**
-         * 原合同类型
-         * <p> 示例值：labor_contract
-         */
-        this.originalContractType = builder.originalContractType;
-        /**
-         * 新合同类型
-         * <p> 示例值：labor_contract
-         */
-        this.targetContractType = builder.targetContractType;
-        /**
-         * 原期限类型
-         * <p> 示例值：fixed_term
-         */
-        this.originalDurationType = builder.originalDurationType;
-        /**
-         * 新期限类型
-         * <p> 示例值：fixed_term
-         */
-        this.targetDurationType = builder.targetDurationType;
-        /**
-         * 原签订类型
-         * <p> 示例值：new
-         */
-        this.originalSigningType = builder.originalSigningType;
-        /**
-         * 新签订类型
-         * <p> 示例值：new
-         */
-        this.targetSigningType = builder.targetSigningType;
-        /**
-         * 原合同开始日期
-         * <p> 示例值：2021-07-01
-         */
-        this.originalContractStartDate = builder.originalContractStartDate;
-        /**
-         * 新合同开始日期
-         * <p> 示例值：2021-07-01
-         */
-        this.targetContractStartDate = builder.targetContractStartDate;
-        /**
-         * 原合同结束日期
-         * <p> 示例值：2024-07-01
-         */
-        this.originalContractEndDate = builder.originalContractEndDate;
-        /**
-         * 新合同结束日期
-         * <p> 示例值：2024-07-01
-         */
-        this.targetContractEndDate = builder.targetContractEndDate;
-        /**
-         * 原工时制度
-         * <p> 示例值：6969087376740206087
-         */
-        this.originalWorkingHoursType = builder.originalWorkingHoursType;
-        /**
-         * 新工时制度
-         * <p> 示例值：6969087376740206087
-         */
-        this.targetWorkingHoursType = builder.targetWorkingHoursType;
-        /**
-         * 原工作日历
-         * <p> 示例值：6969087376740236087
-         */
-        this.originalWorkingCalendar = builder.originalWorkingCalendar;
-        /**
-         * 新工作日历
-         * <p> 示例值：6969087376740236087
-         */
-        this.targetWorkingCalendar = builder.targetWorkingCalendar;
-        /**
-         * 原试用期预计结束日期
-         * <p> 示例值：2021-11-17
-         */
-        this.originalProbationEndDate = builder.originalProbationEndDate;
-        /**
-         * 新试用期预计结束日期
-         * <p> 示例值：2021-11-17
-         */
-        this.targetProbationEndDate = builder.targetProbationEndDate;
-        /**
-         * 原周工作时长
-         * <p> 示例值：162
-         */
-        this.originalWeeklyWorkingHours = builder.originalWeeklyWorkingHours;
-        /**
-         * 新周工作时长
-         * <p> 示例值：160
-         */
-        this.targetWeeklyWorkingHours = builder.targetWeeklyWorkingHours;
-        /**
-         * 原排班
-         * <p> 示例值：work_shift
-         */
-        this.originalWorkShift = builder.originalWorkShift;
-        /**
-         * 新排班
-         * <p> 示例值：non_work_shift
-         */
-        this.targetWorkShift = builder.targetWorkShift;
-        /**
-         * 原成本中心分摊方式
-         * <p> 示例值：
-         */
-        this.originalCostCenterRate = builder.originalCostCenterRate;
-        /**
-         * 新成本中心分摊方式
-         * <p> 示例值：
-         */
-        this.targetCostCenterRate = builder.targetCostCenterRate;
-        /**
-         * 新分摊失效时间
-         * <p> 示例值：2022-03-01
-         */
-        this.targetAllocationExpirationTime = builder.targetAllocationExpirationTime;
-        /**
-         * 原分摊失效时间
-         * <p> 示例值：2022-03-01
-         */
-        this.originalAllocationExpirationTime = builder.originalAllocationExpirationTime;
-        /**
-         * 新分摊生效时间
-         * <p> 示例值：2022-03-01
-         */
-        this.targetAllocationEffectiveTime = builder.targetAllocationEffectiveTime;
-        /**
-         * 原分摊生效时间
-         * <p> 示例值：2022-03-01
-         */
-        this.originalAllocationEffectiveTime = builder.originalAllocationEffectiveTime;
-        /**
-         * 原默认成本中心
-         * <p> 示例值：7380264299728602661
-         */
-        this.originalDefaultCostCenter = builder.originalDefaultCostCenter;
-        /**
-         * 新默认成本中心
-         * <p> 示例值：7380264299728602661
-         */
-        this.targetDefaultCostCenter = builder.targetDefaultCostCenter;
-        /**
-         * 原默认成本中心是否继承
-         * <p> 示例值：
-         */
-        this.originalIsDefaultCostCenterInherited = builder.originalIsDefaultCostCenterInherited;
-        /**
-         * 新默认成本中心是否继承
-         * <p> 示例值：
-         */
-        this.targetIsDefaultCostCenterInherited = builder.targetIsDefaultCostCenterInherited;
-        /**
-         * 原工作信息
-         * <p> 示例值：
-         */
-        this.originalEmploymentChange = builder.originalEmploymentChange;
-        /**
-         * 新工作信息
-         * <p> 示例值：
-         */
-        this.targetEmploymentChange = builder.targetEmploymentChange;
-        /**
-         * 原职等
-         * <p> 示例值：7289005963599693366
-         */
-        this.originalJobGrade = builder.originalJobGrade;
-        /**
-         * 新职等
-         * <p> 示例值：7289005963599693366
-         */
-        this.targetJobGrade = builder.targetJobGrade;
-        /**
-         * 原薪资类型
-         * <p> 示例值：hourly
-         */
-        this.originalCompensationType = builder.originalCompensationType;
-        /**
-         * 新薪资类型
-         * <p> 示例值：salary
-         */
-        this.targetCompensationType = builder.targetCompensationType;
-        /**
-         * 原任职公司
-         * <p> 示例值：7289005963599693367
-         */
-        this.originalServiceCompany = builder.originalServiceCompany;
-        /**
-         * 新任职公司
-         * <p> 示例值：7289005963599693367
-         */
-        this.targetServiceCompany = builder.targetServiceCompany;
-        /**
-         * 原岗位
-         * <p> 示例值：7289005963599693367
-         */
-        this.originalPosition = builder.originalPosition;
-        /**
-         * 新岗位
-         * <p> 示例值：7289005963599693367
-         */
-        this.targetPosition = builder.targetPosition;
-        /**
-         * 新岗位，新建岗位审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：7289005963599693367
-         */
-        this.targetDraftPosition = builder.targetDraftPosition;
-        /**
-         * 原社保城市
-         * <p> 示例值：7289005963599693367
-         */
-        this.originalSocialSecurityCity = builder.originalSocialSecurityCity;
-        /**
-         * 新社保城市
-         * <p> 示例值：7289005963599693367
-         */
-        this.targetSocialSecurityCity = builder.targetSocialSecurityCity;
-        /**
-         * 原通道
-         * <p> 示例值：7289005963599693367
-         */
-        this.originalPathway = builder.originalPathway;
-        /**
-         * 新通道
-         * <p> 示例值：7289005963599693367
-         */
-        this.targetPathway = builder.targetPathway;
-        /**
-         * 编制随人员一起调整
-         * <p> 示例值：false
-         */
-        this.isTransferWithWorkforce = builder.isTransferWithWorkforce;
-        /**
-         * 原部门名称
-         * <p> 示例值：
-         */
-        this.originalDepartmentName = builder.originalDepartmentName;
-        /**
-         * 新部门名称
-         * <p> 示例值：
-         */
-        this.targetDepartmentName = builder.targetDepartmentName;
-        /**
-         * 原工作地点名称
-         * <p> 示例值：
-         */
-        this.originalWorklocationName = builder.originalWorklocationName;
-        /**
-         * 新工作地点名称
-         * <p> 示例值：
-         */
-        this.targetWorklocationName = builder.targetWorklocationName;
-        /**
-         * 原直属上级名称
-         * <p> 示例值：
-         */
-        this.originalDirectManagerName = builder.originalDirectManagerName;
-        /**
-         * 新直属上级名称
-         * <p> 示例值：
-         */
-        this.targetDirectManagerName = builder.targetDirectManagerName;
-        /**
-         * 原职务名称
-         * <p> 示例值：
-         */
-        this.originalJobName = builder.originalJobName;
-        /**
-         * 新职务名称
-         * <p> 示例值：
-         */
-        this.targetJobName = builder.targetJobName;
-        /**
-         * 原序列名称
-         * <p> 示例值：
-         */
-        this.originalJobFamilyName = builder.originalJobFamilyName;
-        /**
-         * 新序列名称
-         * <p> 示例值：
-         */
-        this.targetJobFamilyName = builder.targetJobFamilyName;
-        /**
-         * 原职级名称
-         * <p> 示例值：
-         */
-        this.originalJobLevelName = builder.originalJobLevelName;
-        /**
-         * 新职级名称
-         * <p> 示例值：
-         */
-        this.targetJobLevelName = builder.targetJobLevelName;
-        /**
-         * 原人员类型名称
-         * <p> 示例值：
-         */
-        this.originalWorkforceTypeName = builder.originalWorkforceTypeName;
-        /**
-         * 新人员类型名称
-         * <p> 示例值：
-         */
-        this.targetWorkforceTypeName = builder.targetWorkforceTypeName;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getRemark() {
-        return this.remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public String getOfferInfo() {
-        return this.offerInfo;
-    }
-
-    public void setOfferInfo(String offerInfo) {
-        this.offerInfo = offerInfo;
-    }
-
-    public Boolean getTargetDottedManagerClean() {
-        return this.targetDottedManagerClean;
-    }
-
-    public void setTargetDottedManagerClean(Boolean targetDottedManagerClean) {
-        this.targetDottedManagerClean = targetDottedManagerClean;
-    }
-
-    public Boolean getProbationExist() {
-        return this.probationExist;
-    }
-
-    public void setProbationExist(Boolean probationExist) {
-        this.probationExist = probationExist;
-    }
-
-    public String getOriginalDepartment() {
-        return this.originalDepartment;
-    }
-
-    public void setOriginalDepartment(String originalDepartment) {
-        this.originalDepartment = originalDepartment;
-    }
-
-    public String getTargetDepartment() {
-        return this.targetDepartment;
-    }
-
-    public void setTargetDepartment(String targetDepartment) {
-        this.targetDepartment = targetDepartment;
-    }
-
-    public String getTargetDraftDepartment() {
-        return this.targetDraftDepartment;
-    }
-
-    public void setTargetDraftDepartment(String targetDraftDepartment) {
-        this.targetDraftDepartment = targetDraftDepartment;
-    }
-
-    public OrgdraftDepartmentId[] getOriginalDepartmentIdPath() {
-        return this.originalDepartmentIdPath;
-    }
-
-    public void setOriginalDepartmentIdPath(OrgdraftDepartmentId[] originalDepartmentIdPath) {
-        this.originalDepartmentIdPath = originalDepartmentIdPath;
-    }
-
-    public OrgdraftDepartmentId[] getTargetDepartmentIdPath() {
-        return this.targetDepartmentIdPath;
-    }
-
-    public void setTargetDepartmentIdPath(OrgdraftDepartmentId[] targetDepartmentIdPath) {
-        this.targetDepartmentIdPath = targetDepartmentIdPath;
-    }
-
-    public String getOriginalWorkLocation() {
-        return this.originalWorkLocation;
-    }
-
-    public void setOriginalWorkLocation(String originalWorkLocation) {
-        this.originalWorkLocation = originalWorkLocation;
-    }
-
-    public String getTargetWorkLocation() {
-        return this.targetWorkLocation;
-    }
-
-    public void setTargetWorkLocation(String targetWorkLocation) {
-        this.targetWorkLocation = targetWorkLocation;
-    }
-
-    public String getOriginalDirectManager() {
-        return this.originalDirectManager;
-    }
-
-    public void setOriginalDirectManager(String originalDirectManager) {
-        this.originalDirectManager = originalDirectManager;
-    }
-
-    public String getTargetDirectManager() {
-        return this.targetDirectManager;
-    }
-
-    public void setTargetDirectManager(String targetDirectManager) {
-        this.targetDirectManager = targetDirectManager;
-    }
-
-    public String getOriginalDottedManager() {
-        return this.originalDottedManager;
-    }
-
-    public void setOriginalDottedManager(String originalDottedManager) {
-        this.originalDottedManager = originalDottedManager;
-    }
-
-    public String getTargetDottedManager() {
-        return this.targetDottedManager;
-    }
-
-    public void setTargetDottedManager(String targetDottedManager) {
-        this.targetDottedManager = targetDottedManager;
-    }
-
-    public String getOriginalJob() {
-        return this.originalJob;
-    }
-
-    public void setOriginalJob(String originalJob) {
-        this.originalJob = originalJob;
-    }
-
-    public String getTargetJob() {
-        return this.targetJob;
-    }
-
-    public void setTargetJob(String targetJob) {
-        this.targetJob = targetJob;
-    }
-
-    public String getOriginalJobFamily() {
-        return this.originalJobFamily;
-    }
-
-    public void setOriginalJobFamily(String originalJobFamily) {
-        this.originalJobFamily = originalJobFamily;
-    }
-
-    public String getTargetJobFamily() {
-        return this.targetJobFamily;
-    }
-
-    public void setTargetJobFamily(String targetJobFamily) {
-        this.targetJobFamily = targetJobFamily;
-    }
-
-    public String getOriginalJobLevel() {
-        return this.originalJobLevel;
-    }
-
-    public void setOriginalJobLevel(String originalJobLevel) {
-        this.originalJobLevel = originalJobLevel;
-    }
-
-    public String getTargetJobLevel() {
-        return this.targetJobLevel;
-    }
-
-    public void setTargetJobLevel(String targetJobLevel) {
-        this.targetJobLevel = targetJobLevel;
-    }
-
-    public String getOriginalWorkforceType() {
-        return this.originalWorkforceType;
-    }
-
-    public void setOriginalWorkforceType(String originalWorkforceType) {
-        this.originalWorkforceType = originalWorkforceType;
-    }
-
-    public String getTargetWorkforceType() {
-        return this.targetWorkforceType;
-    }
-
-    public void setTargetWorkforceType(String targetWorkforceType) {
-        this.targetWorkforceType = targetWorkforceType;
-    }
-
-    public String getOriginalEmployeeSubtype() {
-        return this.originalEmployeeSubtype;
-    }
-
-    public void setOriginalEmployeeSubtype(String originalEmployeeSubtype) {
-        this.originalEmployeeSubtype = originalEmployeeSubtype;
-    }
-
-    public String getTargetEmployeeSubtype() {
-        return this.targetEmployeeSubtype;
-    }
-
-    public void setTargetEmployeeSubtype(String targetEmployeeSubtype) {
-        this.targetEmployeeSubtype = targetEmployeeSubtype;
-    }
-
-    public String getOriginalCompany() {
-        return this.originalCompany;
-    }
-
-    public void setOriginalCompany(String originalCompany) {
-        this.originalCompany = originalCompany;
-    }
-
-    public String getTargetCompany() {
-        return this.targetCompany;
-    }
-
-    public void setTargetCompany(String targetCompany) {
-        this.targetCompany = targetCompany;
-    }
-
-    public String getOriginalContractNumber() {
-        return this.originalContractNumber;
-    }
-
-    public void setOriginalContractNumber(String originalContractNumber) {
-        this.originalContractNumber = originalContractNumber;
-    }
-
-    public String getTargetContractNumber() {
-        return this.targetContractNumber;
-    }
-
-    public void setTargetContractNumber(String targetContractNumber) {
-        this.targetContractNumber = targetContractNumber;
-    }
-
-    public String getOriginalContractType() {
-        return this.originalContractType;
-    }
-
-    public void setOriginalContractType(String originalContractType) {
-        this.originalContractType = originalContractType;
-    }
-
-    public String getTargetContractType() {
-        return this.targetContractType;
-    }
-
-    public void setTargetContractType(String targetContractType) {
-        this.targetContractType = targetContractType;
-    }
-
-    public String getOriginalDurationType() {
-        return this.originalDurationType;
-    }
-
-    public void setOriginalDurationType(String originalDurationType) {
-        this.originalDurationType = originalDurationType;
-    }
-
-    public String getTargetDurationType() {
-        return this.targetDurationType;
-    }
-
-    public void setTargetDurationType(String targetDurationType) {
-        this.targetDurationType = targetDurationType;
-    }
-
-    public String getOriginalSigningType() {
-        return this.originalSigningType;
-    }
-
-    public void setOriginalSigningType(String originalSigningType) {
-        this.originalSigningType = originalSigningType;
-    }
-
-    public String getTargetSigningType() {
-        return this.targetSigningType;
-    }
-
-    public void setTargetSigningType(String targetSigningType) {
-        this.targetSigningType = targetSigningType;
-    }
-
-    public String getOriginalContractStartDate() {
-        return this.originalContractStartDate;
-    }
-
-    public void setOriginalContractStartDate(String originalContractStartDate) {
-        this.originalContractStartDate = originalContractStartDate;
-    }
-
-    public String getTargetContractStartDate() {
-        return this.targetContractStartDate;
-    }
-
-    public void setTargetContractStartDate(String targetContractStartDate) {
-        this.targetContractStartDate = targetContractStartDate;
-    }
-
-    public String getOriginalContractEndDate() {
-        return this.originalContractEndDate;
-    }
-
-    public void setOriginalContractEndDate(String originalContractEndDate) {
-        this.originalContractEndDate = originalContractEndDate;
-    }
-
-    public String getTargetContractEndDate() {
-        return this.targetContractEndDate;
-    }
-
-    public void setTargetContractEndDate(String targetContractEndDate) {
-        this.targetContractEndDate = targetContractEndDate;
-    }
-
-    public String getOriginalWorkingHoursType() {
-        return this.originalWorkingHoursType;
-    }
-
-    public void setOriginalWorkingHoursType(String originalWorkingHoursType) {
-        this.originalWorkingHoursType = originalWorkingHoursType;
-    }
-
-    public String getTargetWorkingHoursType() {
-        return this.targetWorkingHoursType;
-    }
-
-    public void setTargetWorkingHoursType(String targetWorkingHoursType) {
-        this.targetWorkingHoursType = targetWorkingHoursType;
-    }
-
-    public String getOriginalWorkingCalendar() {
-        return this.originalWorkingCalendar;
-    }
-
-    public void setOriginalWorkingCalendar(String originalWorkingCalendar) {
-        this.originalWorkingCalendar = originalWorkingCalendar;
-    }
-
-    public String getTargetWorkingCalendar() {
-        return this.targetWorkingCalendar;
-    }
-
-    public void setTargetWorkingCalendar(String targetWorkingCalendar) {
-        this.targetWorkingCalendar = targetWorkingCalendar;
-    }
-
-    public String getOriginalProbationEndDate() {
-        return this.originalProbationEndDate;
-    }
-
-    public void setOriginalProbationEndDate(String originalProbationEndDate) {
-        this.originalProbationEndDate = originalProbationEndDate;
-    }
-
-    public String getTargetProbationEndDate() {
-        return this.targetProbationEndDate;
-    }
-
-    public void setTargetProbationEndDate(String targetProbationEndDate) {
-        this.targetProbationEndDate = targetProbationEndDate;
-    }
-
-    public String getOriginalWeeklyWorkingHours() {
-        return this.originalWeeklyWorkingHours;
-    }
-
-    public void setOriginalWeeklyWorkingHours(String originalWeeklyWorkingHours) {
-        this.originalWeeklyWorkingHours = originalWeeklyWorkingHours;
-    }
-
-    public String getTargetWeeklyWorkingHours() {
-        return this.targetWeeklyWorkingHours;
-    }
-
-    public void setTargetWeeklyWorkingHours(String targetWeeklyWorkingHours) {
-        this.targetWeeklyWorkingHours = targetWeeklyWorkingHours;
-    }
-
-    public String getOriginalWorkShift() {
-        return this.originalWorkShift;
-    }
-
-    public void setOriginalWorkShift(String originalWorkShift) {
-        this.originalWorkShift = originalWorkShift;
-    }
-
-    public String getTargetWorkShift() {
-        return this.targetWorkShift;
-    }
-
-    public void setTargetWorkShift(String targetWorkShift) {
-        this.targetWorkShift = targetWorkShift;
-    }
-
-    public JobDataCostCenter[] getOriginalCostCenterRate() {
-        return this.originalCostCenterRate;
-    }
-
-    public void setOriginalCostCenterRate(JobDataCostCenter[] originalCostCenterRate) {
-        this.originalCostCenterRate = originalCostCenterRate;
-    }
-
-    public JobDataCostCenter[] getTargetCostCenterRate() {
-        return this.targetCostCenterRate;
-    }
-
-    public void setTargetCostCenterRate(JobDataCostCenter[] targetCostCenterRate) {
-        this.targetCostCenterRate = targetCostCenterRate;
-    }
-
-    public String getTargetAllocationExpirationTime() {
-        return this.targetAllocationExpirationTime;
-    }
-
-    public void setTargetAllocationExpirationTime(String targetAllocationExpirationTime) {
-        this.targetAllocationExpirationTime = targetAllocationExpirationTime;
-    }
-
-    public String getOriginalAllocationExpirationTime() {
-        return this.originalAllocationExpirationTime;
-    }
-
-    public void setOriginalAllocationExpirationTime(String originalAllocationExpirationTime) {
-        this.originalAllocationExpirationTime = originalAllocationExpirationTime;
-    }
-
-    public String getTargetAllocationEffectiveTime() {
-        return this.targetAllocationEffectiveTime;
-    }
-
-    public void setTargetAllocationEffectiveTime(String targetAllocationEffectiveTime) {
-        this.targetAllocationEffectiveTime = targetAllocationEffectiveTime;
-    }
-
-    public String getOriginalAllocationEffectiveTime() {
-        return this.originalAllocationEffectiveTime;
-    }
-
-    public void setOriginalAllocationEffectiveTime(String originalAllocationEffectiveTime) {
-        this.originalAllocationEffectiveTime = originalAllocationEffectiveTime;
-    }
-
-    public String getOriginalDefaultCostCenter() {
-        return this.originalDefaultCostCenter;
-    }
-
-    public void setOriginalDefaultCostCenter(String originalDefaultCostCenter) {
-        this.originalDefaultCostCenter = originalDefaultCostCenter;
-    }
-
-    public String getTargetDefaultCostCenter() {
-        return this.targetDefaultCostCenter;
-    }
-
-    public void setTargetDefaultCostCenter(String targetDefaultCostCenter) {
-        this.targetDefaultCostCenter = targetDefaultCostCenter;
-    }
-
-    public Boolean getOriginalIsDefaultCostCenterInherited() {
-        return this.originalIsDefaultCostCenterInherited;
-    }
-
-    public void setOriginalIsDefaultCostCenterInherited(Boolean originalIsDefaultCostCenterInherited) {
-        this.originalIsDefaultCostCenterInherited = originalIsDefaultCostCenterInherited;
-    }
-
-    public Boolean getTargetIsDefaultCostCenterInherited() {
-        return this.targetIsDefaultCostCenterInherited;
-    }
-
-    public void setTargetIsDefaultCostCenterInherited(Boolean targetIsDefaultCostCenterInherited) {
-        this.targetIsDefaultCostCenterInherited = targetIsDefaultCostCenterInherited;
-    }
-
-    public TranferEmploymentInfo getOriginalEmploymentChange() {
-        return this.originalEmploymentChange;
-    }
-
-    public void setOriginalEmploymentChange(TranferEmploymentInfo originalEmploymentChange) {
-        this.originalEmploymentChange = originalEmploymentChange;
-    }
-
-    public TranferEmploymentInfo getTargetEmploymentChange() {
-        return this.targetEmploymentChange;
-    }
-
-    public void setTargetEmploymentChange(TranferEmploymentInfo targetEmploymentChange) {
-        this.targetEmploymentChange = targetEmploymentChange;
-    }
-
-    public String getOriginalJobGrade() {
-        return this.originalJobGrade;
-    }
-
-    public void setOriginalJobGrade(String originalJobGrade) {
-        this.originalJobGrade = originalJobGrade;
-    }
-
-    public String getTargetJobGrade() {
-        return this.targetJobGrade;
-    }
-
-    public void setTargetJobGrade(String targetJobGrade) {
-        this.targetJobGrade = targetJobGrade;
-    }
-
-    public String getOriginalCompensationType() {
-        return this.originalCompensationType;
-    }
-
-    public void setOriginalCompensationType(String originalCompensationType) {
-        this.originalCompensationType = originalCompensationType;
-    }
-
-    public String getTargetCompensationType() {
-        return this.targetCompensationType;
-    }
-
-    public void setTargetCompensationType(String targetCompensationType) {
-        this.targetCompensationType = targetCompensationType;
-    }
-
-    public String getOriginalServiceCompany() {
-        return this.originalServiceCompany;
-    }
-
-    public void setOriginalServiceCompany(String originalServiceCompany) {
-        this.originalServiceCompany = originalServiceCompany;
-    }
-
-    public String getTargetServiceCompany() {
-        return this.targetServiceCompany;
-    }
-
-    public void setTargetServiceCompany(String targetServiceCompany) {
-        this.targetServiceCompany = targetServiceCompany;
-    }
-
-    public String getOriginalPosition() {
-        return this.originalPosition;
-    }
-
-    public void setOriginalPosition(String originalPosition) {
-        this.originalPosition = originalPosition;
-    }
-
-    public String getTargetPosition() {
-        return this.targetPosition;
-    }
-
-    public void setTargetPosition(String targetPosition) {
-        this.targetPosition = targetPosition;
-    }
-
-    public String getTargetDraftPosition() {
-        return this.targetDraftPosition;
-    }
-
-    public void setTargetDraftPosition(String targetDraftPosition) {
-        this.targetDraftPosition = targetDraftPosition;
-    }
-
-    public String getOriginalSocialSecurityCity() {
-        return this.originalSocialSecurityCity;
-    }
-
-    public void setOriginalSocialSecurityCity(String originalSocialSecurityCity) {
-        this.originalSocialSecurityCity = originalSocialSecurityCity;
-    }
-
-    public String getTargetSocialSecurityCity() {
-        return this.targetSocialSecurityCity;
-    }
-
-    public void setTargetSocialSecurityCity(String targetSocialSecurityCity) {
-        this.targetSocialSecurityCity = targetSocialSecurityCity;
-    }
-
-    public String getOriginalPathway() {
-        return this.originalPathway;
-    }
-
-    public void setOriginalPathway(String originalPathway) {
-        this.originalPathway = originalPathway;
-    }
-
-    public String getTargetPathway() {
-        return this.targetPathway;
-    }
-
-    public void setTargetPathway(String targetPathway) {
-        this.targetPathway = targetPathway;
-    }
-
-    public Boolean getIsTransferWithWorkforce() {
-        return this.isTransferWithWorkforce;
-    }
-
-    public void setIsTransferWithWorkforce(Boolean isTransferWithWorkforce) {
-        this.isTransferWithWorkforce = isTransferWithWorkforce;
-    }
-
-    public DepartmentLookupName getOriginalDepartmentName() {
-        return this.originalDepartmentName;
-    }
-
-    public void setOriginalDepartmentName(DepartmentLookupName originalDepartmentName) {
-        this.originalDepartmentName = originalDepartmentName;
-    }
-
-    public DepartmentLookupName getTargetDepartmentName() {
-        return this.targetDepartmentName;
-    }
-
-    public void setTargetDepartmentName(DepartmentLookupName targetDepartmentName) {
-        this.targetDepartmentName = targetDepartmentName;
-    }
-
-    public LookupName getOriginalWorklocationName() {
-        return this.originalWorklocationName;
-    }
-
-    public void setOriginalWorklocationName(LookupName originalWorklocationName) {
-        this.originalWorklocationName = originalWorklocationName;
-    }
-
-    public LookupName getTargetWorklocationName() {
-        return this.targetWorklocationName;
-    }
-
-    public void setTargetWorklocationName(LookupName targetWorklocationName) {
-        this.targetWorklocationName = targetWorklocationName;
-    }
-
-    public EmploymentLookupName getOriginalDirectManagerName() {
-        return this.originalDirectManagerName;
-    }
-
-    public void setOriginalDirectManagerName(EmploymentLookupName originalDirectManagerName) {
-        this.originalDirectManagerName = originalDirectManagerName;
-    }
-
-    public EmploymentLookupName getTargetDirectManagerName() {
-        return this.targetDirectManagerName;
-    }
-
-    public void setTargetDirectManagerName(EmploymentLookupName targetDirectManagerName) {
-        this.targetDirectManagerName = targetDirectManagerName;
-    }
-
-    public LookupName getOriginalJobName() {
-        return this.originalJobName;
-    }
-
-    public void setOriginalJobName(LookupName originalJobName) {
-        this.originalJobName = originalJobName;
-    }
-
-    public LookupName getTargetJobName() {
-        return this.targetJobName;
-    }
-
-    public void setTargetJobName(LookupName targetJobName) {
-        this.targetJobName = targetJobName;
-    }
-
-    public LookupName getOriginalJobFamilyName() {
-        return this.originalJobFamilyName;
-    }
-
-    public void setOriginalJobFamilyName(LookupName originalJobFamilyName) {
-        this.originalJobFamilyName = originalJobFamilyName;
-    }
-
-    public LookupName getTargetJobFamilyName() {
-        return this.targetJobFamilyName;
-    }
-
-    public void setTargetJobFamilyName(LookupName targetJobFamilyName) {
-        this.targetJobFamilyName = targetJobFamilyName;
-    }
-
-    public LookupName getOriginalJobLevelName() {
-        return this.originalJobLevelName;
-    }
-
-    public void setOriginalJobLevelName(LookupName originalJobLevelName) {
-        this.originalJobLevelName = originalJobLevelName;
-    }
-
-    public LookupName getTargetJobLevelName() {
-        return this.targetJobLevelName;
-    }
-
-    public void setTargetJobLevelName(LookupName targetJobLevelName) {
-        this.targetJobLevelName = targetJobLevelName;
-    }
-
-    public LookupName getOriginalWorkforceTypeName() {
-        return this.originalWorkforceTypeName;
-    }
-
-    public void setOriginalWorkforceTypeName(LookupName originalWorkforceTypeName) {
-        this.originalWorkforceTypeName = originalWorkforceTypeName;
-    }
-
-    public LookupName getTargetWorkforceTypeName() {
-        return this.targetWorkforceTypeName;
-    }
-
-    public void setTargetWorkforceTypeName(LookupName targetWorkforceTypeName) {
-        this.targetWorkforceTypeName = targetWorkforceTypeName;
-    }
-
-    public static class Builder {
-        /**
-         * 备注
-         * <p> 示例值：异动详情
-         */
-        private String remark;
-        /**
-         * offer信息
-         * <p> 示例值：优质人才，加急处理
-         */
-        private String offerInfo;
-        /**
-         * 是否撤销虚线上级
-         * <p> 示例值：true
-         */
-        private Boolean targetDottedManagerClean;
-        /**
-         * 是否有试用期
-         * <p> 示例值：false
-         */
-        private Boolean probationExist;
-        /**
-         * 原部门
-         * <p> 示例值：6966236933198579208
-         */
-        private String originalDepartment;
-        /**
-         * 新部门
-         * <p> 示例值：6966236933198579208
-         */
-        private String targetDepartment;
-        /**
-         * 新部门，新建部门审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：6966236933198579208
-         */
-        private String targetDraftDepartment;
-        /**
-         * 原部门全路径
-         * <p> 示例值：
-         */
-        private OrgdraftDepartmentId[] originalDepartmentIdPath;
-        /**
-         * 新部门全路径
-         * <p> 示例值：
-         */
-        private OrgdraftDepartmentId[] targetDepartmentIdPath;
-        /**
-         * 原工作地点
-         * <p> 示例值：6967271100992587295
-         */
-        private String originalWorkLocation;
-        /**
-         * 新工作地点
-         * <p> 示例值：6967271100992587295
-         */
-        private String targetWorkLocation;
-        /**
-         * 原直属上级
-         * <p> 示例值：6974641477444060708
-         */
-        private String originalDirectManager;
-        /**
-         * 新直属上级
-         * <p> 示例值：7013619729281713671
-         */
-        private String targetDirectManager;
-        /**
-         * 原虚线上级
-         * <p> 示例值：6974648866876573198
-         */
-        private String originalDottedManager;
-        /**
-         * 新虚线上级
-         * <p> 示例值：7013328578351842852
-         */
-        private String targetDottedManager;
-        /**
-         * 原职务
-         * <p> 示例值：6969469398088287751
-         */
-        private String originalJob;
-        /**
-         * 新职务
-         * <p> 示例值：6969469557836760606
-         */
-        private String targetJob;
-        /**
-         * 原序列
-         * <p> 示例值：6967287547462419975
-         */
-        private String originalJobFamily;
-        /**
-         * 新序列
-         * <p> 示例值：6967287547462419975
-         */
-        private String targetJobFamily;
-        /**
-         * 原级别
-         * <p> 示例值：6972085707674355214
-         */
-        private String originalJobLevel;
-        /**
-         * 新级别
-         * <p> 示例值：6972085707674355214
-         */
-        private String targetJobLevel;
-        /**
-         * 原人员类型
-         * <p> 示例值：6968386026792289828
-         */
-        private String originalWorkforceType;
-        /**
-         * 新人员类型
-         * <p> 示例值：7036268995372303885
-         */
-        private String targetWorkforceType;
-        /**
-         * 原人员子类型
-         * <p> 示例值：6968386026792289828
-         */
-        private String originalEmployeeSubtype;
-        /**
-         * 新人员子类型
-         * <p> 示例值：7036268995372303885
-         */
-        private String targetEmployeeSubtype;
-        /**
-         * 原公司
-         * <p> 示例值：6974659700705068581
-         */
-        private String originalCompany;
-        /**
-         * 新公司
-         * <p> 示例值：6974659700705068581
-         */
-        private String targetCompany;
-        /**
-         * 原合同编号
-         * <p> 示例值：55332
-         */
-        private String originalContractNumber;
-        /**
-         * 新合同编号
-         * <p> 示例值：55333
-         */
-        private String targetContractNumber;
-        /**
-         * 原合同类型
-         * <p> 示例值：labor_contract
-         */
-        private String originalContractType;
-        /**
-         * 新合同类型
-         * <p> 示例值：labor_contract
-         */
-        private String targetContractType;
-        /**
-         * 原期限类型
-         * <p> 示例值：fixed_term
-         */
-        private String originalDurationType;
-        /**
-         * 新期限类型
-         * <p> 示例值：fixed_term
-         */
-        private String targetDurationType;
-        /**
-         * 原签订类型
-         * <p> 示例值：new
-         */
-        private String originalSigningType;
-        /**
-         * 新签订类型
-         * <p> 示例值：new
-         */
-        private String targetSigningType;
-        /**
-         * 原合同开始日期
-         * <p> 示例值：2021-07-01
-         */
-        private String originalContractStartDate;
-        /**
-         * 新合同开始日期
-         * <p> 示例值：2021-07-01
-         */
-        private String targetContractStartDate;
-        /**
-         * 原合同结束日期
-         * <p> 示例值：2024-07-01
-         */
-        private String originalContractEndDate;
-        /**
-         * 新合同结束日期
-         * <p> 示例值：2024-07-01
-         */
-        private String targetContractEndDate;
-        /**
-         * 原工时制度
-         * <p> 示例值：6969087376740206087
-         */
-        private String originalWorkingHoursType;
-        /**
-         * 新工时制度
-         * <p> 示例值：6969087376740206087
-         */
-        private String targetWorkingHoursType;
-        /**
-         * 原工作日历
-         * <p> 示例值：6969087376740236087
-         */
-        private String originalWorkingCalendar;
-        /**
-         * 新工作日历
-         * <p> 示例值：6969087376740236087
-         */
-        private String targetWorkingCalendar;
-        /**
-         * 原试用期预计结束日期
-         * <p> 示例值：2021-11-17
-         */
-        private String originalProbationEndDate;
-        /**
-         * 新试用期预计结束日期
-         * <p> 示例值：2021-11-17
-         */
-        private String targetProbationEndDate;
-        /**
-         * 原周工作时长
-         * <p> 示例值：162
-         */
-        private String originalWeeklyWorkingHours;
-        /**
-         * 新周工作时长
-         * <p> 示例值：160
-         */
-        private String targetWeeklyWorkingHours;
-        /**
-         * 原排班
-         * <p> 示例值：work_shift
-         */
-        private String originalWorkShift;
-        /**
-         * 新排班
-         * <p> 示例值：non_work_shift
-         */
-        private String targetWorkShift;
-        /**
-         * 原成本中心分摊方式
-         * <p> 示例值：
-         */
-        private JobDataCostCenter[] originalCostCenterRate;
-        /**
-         * 新成本中心分摊方式
-         * <p> 示例值：
-         */
-        private JobDataCostCenter[] targetCostCenterRate;
-        /**
-         * 新分摊失效时间
-         * <p> 示例值：2022-03-01
-         */
-        private String targetAllocationExpirationTime;
-        /**
-         * 原分摊失效时间
-         * <p> 示例值：2022-03-01
-         */
-        private String originalAllocationExpirationTime;
-        /**
-         * 新分摊生效时间
-         * <p> 示例值：2022-03-01
-         */
-        private String targetAllocationEffectiveTime;
-        /**
-         * 原分摊生效时间
-         * <p> 示例值：2022-03-01
-         */
-        private String originalAllocationEffectiveTime;
-        /**
-         * 原默认成本中心
-         * <p> 示例值：7380264299728602661
-         */
-        private String originalDefaultCostCenter;
-        /**
-         * 新默认成本中心
-         * <p> 示例值：7380264299728602661
-         */
-        private String targetDefaultCostCenter;
-        /**
-         * 原默认成本中心是否继承
-         * <p> 示例值：
-         */
-        private Boolean originalIsDefaultCostCenterInherited;
-        /**
-         * 新默认成本中心是否继承
-         * <p> 示例值：
-         */
-        private Boolean targetIsDefaultCostCenterInherited;
-        /**
-         * 原工作信息
-         * <p> 示例值：
-         */
-        private TranferEmploymentInfo originalEmploymentChange;
-        /**
-         * 新工作信息
-         * <p> 示例值：
-         */
-        private TranferEmploymentInfo targetEmploymentChange;
-        /**
-         * 原职等
-         * <p> 示例值：7289005963599693366
-         */
-        private String originalJobGrade;
-        /**
-         * 新职等
-         * <p> 示例值：7289005963599693366
-         */
-        private String targetJobGrade;
-        /**
-         * 原薪资类型
-         * <p> 示例值：hourly
-         */
-        private String originalCompensationType;
-        /**
-         * 新薪资类型
-         * <p> 示例值：salary
-         */
-        private String targetCompensationType;
-        /**
-         * 原任职公司
-         * <p> 示例值：7289005963599693367
-         */
-        private String originalServiceCompany;
-        /**
-         * 新任职公司
-         * <p> 示例值：7289005963599693367
-         */
-        private String targetServiceCompany;
-        /**
-         * 原岗位
-         * <p> 示例值：7289005963599693367
-         */
-        private String originalPosition;
-        /**
-         * 新岗位
-         * <p> 示例值：7289005963599693367
-         */
-        private String targetPosition;
-        /**
-         * 新岗位，新建岗位审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：7289005963599693367
-         */
-        private String targetDraftPosition;
-        /**
-         * 原社保城市
-         * <p> 示例值：7289005963599693367
-         */
-        private String originalSocialSecurityCity;
-        /**
-         * 新社保城市
-         * <p> 示例值：7289005963599693367
-         */
-        private String targetSocialSecurityCity;
-        /**
-         * 原通道
-         * <p> 示例值：7289005963599693367
-         */
-        private String originalPathway;
-        /**
-         * 新通道
-         * <p> 示例值：7289005963599693367
-         */
-        private String targetPathway;
-        /**
-         * 编制随人员一起调整
-         * <p> 示例值：false
-         */
-        private Boolean isTransferWithWorkforce;
-        /**
-         * 原部门名称
-         * <p> 示例值：
-         */
-        private DepartmentLookupName originalDepartmentName;
-        /**
-         * 新部门名称
-         * <p> 示例值：
-         */
-        private DepartmentLookupName targetDepartmentName;
-        /**
-         * 原工作地点名称
-         * <p> 示例值：
-         */
-        private LookupName originalWorklocationName;
-        /**
-         * 新工作地点名称
-         * <p> 示例值：
-         */
-        private LookupName targetWorklocationName;
-        /**
-         * 原直属上级名称
-         * <p> 示例值：
-         */
-        private EmploymentLookupName originalDirectManagerName;
-        /**
-         * 新直属上级名称
-         * <p> 示例值：
-         */
-        private EmploymentLookupName targetDirectManagerName;
-        /**
-         * 原职务名称
-         * <p> 示例值：
-         */
-        private LookupName originalJobName;
-        /**
-         * 新职务名称
-         * <p> 示例值：
-         */
-        private LookupName targetJobName;
-        /**
-         * 原序列名称
-         * <p> 示例值：
-         */
-        private LookupName originalJobFamilyName;
-        /**
-         * 新序列名称
-         * <p> 示例值：
-         */
-        private LookupName targetJobFamilyName;
-        /**
-         * 原职级名称
-         * <p> 示例值：
-         */
-        private LookupName originalJobLevelName;
-        /**
-         * 新职级名称
-         * <p> 示例值：
-         */
-        private LookupName targetJobLevelName;
-        /**
-         * 原人员类型名称
-         * <p> 示例值：
-         */
-        private LookupName originalWorkforceTypeName;
-        /**
-         * 新人员类型名称
-         * <p> 示例值：
-         */
-        private LookupName targetWorkforceTypeName;
-
-        /**
-         * 备注
-         * <p> 示例值：异动详情
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        /**
-         * offer信息
-         * <p> 示例值：优质人才，加急处理
-         *
-         * @param offerInfo
-         * @return
-         */
-        public Builder offerInfo(String offerInfo) {
-            this.offerInfo = offerInfo;
-            return this;
-        }
-
-
-        /**
-         * 是否撤销虚线上级
-         * <p> 示例值：true
-         *
-         * @param targetDottedManagerClean
-         * @return
-         */
-        public Builder targetDottedManagerClean(Boolean targetDottedManagerClean) {
-            this.targetDottedManagerClean = targetDottedManagerClean;
-            return this;
-        }
-
-
-        /**
-         * 是否有试用期
-         * <p> 示例值：false
-         *
-         * @param probationExist
-         * @return
-         */
-        public Builder probationExist(Boolean probationExist) {
-            this.probationExist = probationExist;
-            return this;
-        }
-
-
-        /**
-         * 原部门
-         * <p> 示例值：6966236933198579208
-         *
-         * @param originalDepartment
-         * @return
-         */
-        public Builder originalDepartment(String originalDepartment) {
-            this.originalDepartment = originalDepartment;
-            return this;
-        }
-
-
-        /**
-         * 新部门
-         * <p> 示例值：6966236933198579208
-         *
-         * @param targetDepartment
-         * @return
-         */
-        public Builder targetDepartment(String targetDepartment) {
-            this.targetDepartment = targetDepartment;
-            return this;
-        }
-
-
-        /**
-         * 新部门，新建部门审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：6966236933198579208
-         *
-         * @param targetDraftDepartment
-         * @return
-         */
-        public Builder targetDraftDepartment(String targetDraftDepartment) {
-            this.targetDraftDepartment = targetDraftDepartment;
-            return this;
-        }
-
-
-        /**
-         * 原部门全路径
-         * <p> 示例值：
-         *
-         * @param originalDepartmentIdPath
-         * @return
-         */
-        public Builder originalDepartmentIdPath(OrgdraftDepartmentId[] originalDepartmentIdPath) {
-            this.originalDepartmentIdPath = originalDepartmentIdPath;
-            return this;
-        }
-
-
-        /**
-         * 新部门全路径
-         * <p> 示例值：
-         *
-         * @param targetDepartmentIdPath
-         * @return
-         */
-        public Builder targetDepartmentIdPath(OrgdraftDepartmentId[] targetDepartmentIdPath) {
-            this.targetDepartmentIdPath = targetDepartmentIdPath;
-            return this;
-        }
-
-
-        /**
-         * 原工作地点
-         * <p> 示例值：6967271100992587295
-         *
-         * @param originalWorkLocation
-         * @return
-         */
-        public Builder originalWorkLocation(String originalWorkLocation) {
-            this.originalWorkLocation = originalWorkLocation;
-            return this;
-        }
-
-
-        /**
-         * 新工作地点
-         * <p> 示例值：6967271100992587295
-         *
-         * @param targetWorkLocation
-         * @return
-         */
-        public Builder targetWorkLocation(String targetWorkLocation) {
-            this.targetWorkLocation = targetWorkLocation;
-            return this;
-        }
-
-
-        /**
-         * 原直属上级
-         * <p> 示例值：6974641477444060708
-         *
-         * @param originalDirectManager
-         * @return
-         */
-        public Builder originalDirectManager(String originalDirectManager) {
-            this.originalDirectManager = originalDirectManager;
-            return this;
-        }
-
-
-        /**
-         * 新直属上级
-         * <p> 示例值：7013619729281713671
-         *
-         * @param targetDirectManager
-         * @return
-         */
-        public Builder targetDirectManager(String targetDirectManager) {
-            this.targetDirectManager = targetDirectManager;
-            return this;
-        }
-
-
-        /**
-         * 原虚线上级
-         * <p> 示例值：6974648866876573198
-         *
-         * @param originalDottedManager
-         * @return
-         */
-        public Builder originalDottedManager(String originalDottedManager) {
-            this.originalDottedManager = originalDottedManager;
-            return this;
-        }
-
-
-        /**
-         * 新虚线上级
-         * <p> 示例值：7013328578351842852
-         *
-         * @param targetDottedManager
-         * @return
-         */
-        public Builder targetDottedManager(String targetDottedManager) {
-            this.targetDottedManager = targetDottedManager;
-            return this;
-        }
-
-
-        /**
-         * 原职务
-         * <p> 示例值：6969469398088287751
-         *
-         * @param originalJob
-         * @return
-         */
-        public Builder originalJob(String originalJob) {
-            this.originalJob = originalJob;
-            return this;
-        }
-
-
-        /**
-         * 新职务
-         * <p> 示例值：6969469557836760606
-         *
-         * @param targetJob
-         * @return
-         */
-        public Builder targetJob(String targetJob) {
-            this.targetJob = targetJob;
-            return this;
-        }
-
-
-        /**
-         * 原序列
-         * <p> 示例值：6967287547462419975
-         *
-         * @param originalJobFamily
-         * @return
-         */
-        public Builder originalJobFamily(String originalJobFamily) {
-            this.originalJobFamily = originalJobFamily;
-            return this;
-        }
-
-
-        /**
-         * 新序列
-         * <p> 示例值：6967287547462419975
-         *
-         * @param targetJobFamily
-         * @return
-         */
-        public Builder targetJobFamily(String targetJobFamily) {
-            this.targetJobFamily = targetJobFamily;
-            return this;
-        }
-
-
-        /**
-         * 原级别
-         * <p> 示例值：6972085707674355214
-         *
-         * @param originalJobLevel
-         * @return
-         */
-        public Builder originalJobLevel(String originalJobLevel) {
-            this.originalJobLevel = originalJobLevel;
-            return this;
-        }
-
-
-        /**
-         * 新级别
-         * <p> 示例值：6972085707674355214
-         *
-         * @param targetJobLevel
-         * @return
-         */
-        public Builder targetJobLevel(String targetJobLevel) {
-            this.targetJobLevel = targetJobLevel;
-            return this;
-        }
-
-
-        /**
-         * 原人员类型
-         * <p> 示例值：6968386026792289828
-         *
-         * @param originalWorkforceType
-         * @return
-         */
-        public Builder originalWorkforceType(String originalWorkforceType) {
-            this.originalWorkforceType = originalWorkforceType;
-            return this;
-        }
-
-
-        /**
-         * 新人员类型
-         * <p> 示例值：7036268995372303885
-         *
-         * @param targetWorkforceType
-         * @return
-         */
-        public Builder targetWorkforceType(String targetWorkforceType) {
-            this.targetWorkforceType = targetWorkforceType;
-            return this;
-        }
-
-
-        /**
-         * 原人员子类型
-         * <p> 示例值：6968386026792289828
-         *
-         * @param originalEmployeeSubtype
-         * @return
-         */
-        public Builder originalEmployeeSubtype(String originalEmployeeSubtype) {
-            this.originalEmployeeSubtype = originalEmployeeSubtype;
-            return this;
-        }
-
-
-        /**
-         * 新人员子类型
-         * <p> 示例值：7036268995372303885
-         *
-         * @param targetEmployeeSubtype
-         * @return
-         */
-        public Builder targetEmployeeSubtype(String targetEmployeeSubtype) {
-            this.targetEmployeeSubtype = targetEmployeeSubtype;
-            return this;
-        }
-
-
-        /**
-         * 原公司
-         * <p> 示例值：6974659700705068581
-         *
-         * @param originalCompany
-         * @return
-         */
-        public Builder originalCompany(String originalCompany) {
-            this.originalCompany = originalCompany;
-            return this;
-        }
-
-
-        /**
-         * 新公司
-         * <p> 示例值：6974659700705068581
-         *
-         * @param targetCompany
-         * @return
-         */
-        public Builder targetCompany(String targetCompany) {
-            this.targetCompany = targetCompany;
-            return this;
-        }
-
-
-        /**
-         * 原合同编号
-         * <p> 示例值：55332
-         *
-         * @param originalContractNumber
-         * @return
-         */
-        public Builder originalContractNumber(String originalContractNumber) {
-            this.originalContractNumber = originalContractNumber;
-            return this;
-        }
-
-
-        /**
-         * 新合同编号
-         * <p> 示例值：55333
-         *
-         * @param targetContractNumber
-         * @return
-         */
-        public Builder targetContractNumber(String targetContractNumber) {
-            this.targetContractNumber = targetContractNumber;
-            return this;
-        }
-
-
-        /**
-         * 原合同类型
-         * <p> 示例值：labor_contract
-         *
-         * @param originalContractType
-         * @return
-         */
-        public Builder originalContractType(String originalContractType) {
-            this.originalContractType = originalContractType;
-            return this;
-        }
-
-
-        /**
-         * 新合同类型
-         * <p> 示例值：labor_contract
-         *
-         * @param targetContractType
-         * @return
-         */
-        public Builder targetContractType(String targetContractType) {
-            this.targetContractType = targetContractType;
-            return this;
-        }
-
-
-        /**
-         * 原期限类型
-         * <p> 示例值：fixed_term
-         *
-         * @param originalDurationType
-         * @return
-         */
-        public Builder originalDurationType(String originalDurationType) {
-            this.originalDurationType = originalDurationType;
-            return this;
-        }
-
-
-        /**
-         * 新期限类型
-         * <p> 示例值：fixed_term
-         *
-         * @param targetDurationType
-         * @return
-         */
-        public Builder targetDurationType(String targetDurationType) {
-            this.targetDurationType = targetDurationType;
-            return this;
-        }
-
-
-        /**
-         * 原签订类型
-         * <p> 示例值：new
-         *
-         * @param originalSigningType
-         * @return
-         */
-        public Builder originalSigningType(String originalSigningType) {
-            this.originalSigningType = originalSigningType;
-            return this;
-        }
-
-
-        /**
-         * 新签订类型
-         * <p> 示例值：new
-         *
-         * @param targetSigningType
-         * @return
-         */
-        public Builder targetSigningType(String targetSigningType) {
-            this.targetSigningType = targetSigningType;
-            return this;
-        }
-
-
-        /**
-         * 原合同开始日期
-         * <p> 示例值：2021-07-01
-         *
-         * @param originalContractStartDate
-         * @return
-         */
-        public Builder originalContractStartDate(String originalContractStartDate) {
-            this.originalContractStartDate = originalContractStartDate;
-            return this;
-        }
-
-
-        /**
-         * 新合同开始日期
-         * <p> 示例值：2021-07-01
-         *
-         * @param targetContractStartDate
-         * @return
-         */
-        public Builder targetContractStartDate(String targetContractStartDate) {
-            this.targetContractStartDate = targetContractStartDate;
-            return this;
-        }
-
-
-        /**
-         * 原合同结束日期
-         * <p> 示例值：2024-07-01
-         *
-         * @param originalContractEndDate
-         * @return
-         */
-        public Builder originalContractEndDate(String originalContractEndDate) {
-            this.originalContractEndDate = originalContractEndDate;
-            return this;
-        }
-
-
-        /**
-         * 新合同结束日期
-         * <p> 示例值：2024-07-01
-         *
-         * @param targetContractEndDate
-         * @return
-         */
-        public Builder targetContractEndDate(String targetContractEndDate) {
-            this.targetContractEndDate = targetContractEndDate;
-            return this;
-        }
-
-
-        /**
-         * 原工时制度
-         * <p> 示例值：6969087376740206087
-         *
-         * @param originalWorkingHoursType
-         * @return
-         */
-        public Builder originalWorkingHoursType(String originalWorkingHoursType) {
-            this.originalWorkingHoursType = originalWorkingHoursType;
-            return this;
-        }
-
-
-        /**
-         * 新工时制度
-         * <p> 示例值：6969087376740206087
-         *
-         * @param targetWorkingHoursType
-         * @return
-         */
-        public Builder targetWorkingHoursType(String targetWorkingHoursType) {
-            this.targetWorkingHoursType = targetWorkingHoursType;
-            return this;
-        }
-
-
-        /**
-         * 原工作日历
-         * <p> 示例值：6969087376740236087
-         *
-         * @param originalWorkingCalendar
-         * @return
-         */
-        public Builder originalWorkingCalendar(String originalWorkingCalendar) {
-            this.originalWorkingCalendar = originalWorkingCalendar;
-            return this;
-        }
-
-
-        /**
-         * 新工作日历
-         * <p> 示例值：6969087376740236087
-         *
-         * @param targetWorkingCalendar
-         * @return
-         */
-        public Builder targetWorkingCalendar(String targetWorkingCalendar) {
-            this.targetWorkingCalendar = targetWorkingCalendar;
-            return this;
-        }
-
-
-        /**
-         * 原试用期预计结束日期
-         * <p> 示例值：2021-11-17
-         *
-         * @param originalProbationEndDate
-         * @return
-         */
-        public Builder originalProbationEndDate(String originalProbationEndDate) {
-            this.originalProbationEndDate = originalProbationEndDate;
-            return this;
-        }
-
-
-        /**
-         * 新试用期预计结束日期
-         * <p> 示例值：2021-11-17
-         *
-         * @param targetProbationEndDate
-         * @return
-         */
-        public Builder targetProbationEndDate(String targetProbationEndDate) {
-            this.targetProbationEndDate = targetProbationEndDate;
-            return this;
-        }
-
-
-        /**
-         * 原周工作时长
-         * <p> 示例值：162
-         *
-         * @param originalWeeklyWorkingHours
-         * @return
-         */
-        public Builder originalWeeklyWorkingHours(String originalWeeklyWorkingHours) {
-            this.originalWeeklyWorkingHours = originalWeeklyWorkingHours;
-            return this;
-        }
-
-
-        /**
-         * 新周工作时长
-         * <p> 示例值：160
-         *
-         * @param targetWeeklyWorkingHours
-         * @return
-         */
-        public Builder targetWeeklyWorkingHours(String targetWeeklyWorkingHours) {
-            this.targetWeeklyWorkingHours = targetWeeklyWorkingHours;
-            return this;
-        }
-
-
-        /**
-         * 原排班
-         * <p> 示例值：work_shift
-         *
-         * @param originalWorkShift
-         * @return
-         */
-        public Builder originalWorkShift(String originalWorkShift) {
-            this.originalWorkShift = originalWorkShift;
-            return this;
-        }
-
-
-        /**
-         * 新排班
-         * <p> 示例值：non_work_shift
-         *
-         * @param targetWorkShift
-         * @return
-         */
-        public Builder targetWorkShift(String targetWorkShift) {
-            this.targetWorkShift = targetWorkShift;
-            return this;
-        }
-
-
-        /**
-         * 原成本中心分摊方式
-         * <p> 示例值：
-         *
-         * @param originalCostCenterRate
-         * @return
-         */
-        public Builder originalCostCenterRate(JobDataCostCenter[] originalCostCenterRate) {
-            this.originalCostCenterRate = originalCostCenterRate;
-            return this;
-        }
-
-
-        /**
-         * 新成本中心分摊方式
-         * <p> 示例值：
-         *
-         * @param targetCostCenterRate
-         * @return
-         */
-        public Builder targetCostCenterRate(JobDataCostCenter[] targetCostCenterRate) {
-            this.targetCostCenterRate = targetCostCenterRate;
-            return this;
-        }
-
-
-        /**
-         * 新分摊失效时间
-         * <p> 示例值：2022-03-01
-         *
-         * @param targetAllocationExpirationTime
-         * @return
-         */
-        public Builder targetAllocationExpirationTime(String targetAllocationExpirationTime) {
-            this.targetAllocationExpirationTime = targetAllocationExpirationTime;
-            return this;
-        }
-
-
-        /**
-         * 原分摊失效时间
-         * <p> 示例值：2022-03-01
-         *
-         * @param originalAllocationExpirationTime
-         * @return
-         */
-        public Builder originalAllocationExpirationTime(String originalAllocationExpirationTime) {
-            this.originalAllocationExpirationTime = originalAllocationExpirationTime;
-            return this;
-        }
-
-
-        /**
-         * 新分摊生效时间
-         * <p> 示例值：2022-03-01
-         *
-         * @param targetAllocationEffectiveTime
-         * @return
-         */
-        public Builder targetAllocationEffectiveTime(String targetAllocationEffectiveTime) {
-            this.targetAllocationEffectiveTime = targetAllocationEffectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 原分摊生效时间
-         * <p> 示例值：2022-03-01
-         *
-         * @param originalAllocationEffectiveTime
-         * @return
-         */
-        public Builder originalAllocationEffectiveTime(String originalAllocationEffectiveTime) {
-            this.originalAllocationEffectiveTime = originalAllocationEffectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 原默认成本中心
-         * <p> 示例值：7380264299728602661
-         *
-         * @param originalDefaultCostCenter
-         * @return
-         */
-        public Builder originalDefaultCostCenter(String originalDefaultCostCenter) {
-            this.originalDefaultCostCenter = originalDefaultCostCenter;
-            return this;
-        }
-
-
-        /**
-         * 新默认成本中心
-         * <p> 示例值：7380264299728602661
-         *
-         * @param targetDefaultCostCenter
-         * @return
-         */
-        public Builder targetDefaultCostCenter(String targetDefaultCostCenter) {
-            this.targetDefaultCostCenter = targetDefaultCostCenter;
-            return this;
-        }
-
-
-        /**
-         * 原默认成本中心是否继承
-         * <p> 示例值：
-         *
-         * @param originalIsDefaultCostCenterInherited
-         * @return
-         */
-        public Builder originalIsDefaultCostCenterInherited(Boolean originalIsDefaultCostCenterInherited) {
-            this.originalIsDefaultCostCenterInherited = originalIsDefaultCostCenterInherited;
-            return this;
-        }
-
-
-        /**
-         * 新默认成本中心是否继承
-         * <p> 示例值：
-         *
-         * @param targetIsDefaultCostCenterInherited
-         * @return
-         */
-        public Builder targetIsDefaultCostCenterInherited(Boolean targetIsDefaultCostCenterInherited) {
-            this.targetIsDefaultCostCenterInherited = targetIsDefaultCostCenterInherited;
-            return this;
-        }
-
-
-        /**
-         * 原工作信息
-         * <p> 示例值：
-         *
-         * @param originalEmploymentChange
-         * @return
-         */
-        public Builder originalEmploymentChange(TranferEmploymentInfo originalEmploymentChange) {
-            this.originalEmploymentChange = originalEmploymentChange;
-            return this;
-        }
-
-
-        /**
-         * 新工作信息
-         * <p> 示例值：
-         *
-         * @param targetEmploymentChange
-         * @return
-         */
-        public Builder targetEmploymentChange(TranferEmploymentInfo targetEmploymentChange) {
-            this.targetEmploymentChange = targetEmploymentChange;
-            return this;
-        }
-
-
-        /**
-         * 原职等
-         * <p> 示例值：7289005963599693366
-         *
-         * @param originalJobGrade
-         * @return
-         */
-        public Builder originalJobGrade(String originalJobGrade) {
-            this.originalJobGrade = originalJobGrade;
-            return this;
-        }
-
-
-        /**
-         * 新职等
-         * <p> 示例值：7289005963599693366
-         *
-         * @param targetJobGrade
-         * @return
-         */
-        public Builder targetJobGrade(String targetJobGrade) {
-            this.targetJobGrade = targetJobGrade;
-            return this;
-        }
-
-
-        /**
-         * 原薪资类型
-         * <p> 示例值：hourly
-         *
-         * @param originalCompensationType
-         * @return
-         */
-        public Builder originalCompensationType(String originalCompensationType) {
-            this.originalCompensationType = originalCompensationType;
-            return this;
-        }
-
-
-        /**
-         * 新薪资类型
-         * <p> 示例值：salary
-         *
-         * @param targetCompensationType
-         * @return
-         */
-        public Builder targetCompensationType(String targetCompensationType) {
-            this.targetCompensationType = targetCompensationType;
-            return this;
-        }
-
-
-        /**
-         * 原任职公司
-         * <p> 示例值：7289005963599693367
-         *
-         * @param originalServiceCompany
-         * @return
-         */
-        public Builder originalServiceCompany(String originalServiceCompany) {
-            this.originalServiceCompany = originalServiceCompany;
-            return this;
-        }
-
-
-        /**
-         * 新任职公司
-         * <p> 示例值：7289005963599693367
-         *
-         * @param targetServiceCompany
-         * @return
-         */
-        public Builder targetServiceCompany(String targetServiceCompany) {
-            this.targetServiceCompany = targetServiceCompany;
-            return this;
-        }
-
-
-        /**
-         * 原岗位
-         * <p> 示例值：7289005963599693367
-         *
-         * @param originalPosition
-         * @return
-         */
-        public Builder originalPosition(String originalPosition) {
-            this.originalPosition = originalPosition;
-            return this;
-        }
-
-
-        /**
-         * 新岗位
-         * <p> 示例值：7289005963599693367
-         *
-         * @param targetPosition
-         * @return
-         */
-        public Builder targetPosition(String targetPosition) {
-            this.targetPosition = targetPosition;
-            return this;
-        }
-
-
-        /**
-         * 新岗位，新建岗位审批完成前会返回 td_xxx 的临时 ID
-         * <p> 示例值：7289005963599693367
-         *
-         * @param targetDraftPosition
-         * @return
-         */
-        public Builder targetDraftPosition(String targetDraftPosition) {
-            this.targetDraftPosition = targetDraftPosition;
-            return this;
-        }
-
-
-        /**
-         * 原社保城市
-         * <p> 示例值：7289005963599693367
-         *
-         * @param originalSocialSecurityCity
-         * @return
-         */
-        public Builder originalSocialSecurityCity(String originalSocialSecurityCity) {
-            this.originalSocialSecurityCity = originalSocialSecurityCity;
-            return this;
-        }
-
-
-        /**
-         * 新社保城市
-         * <p> 示例值：7289005963599693367
-         *
-         * @param targetSocialSecurityCity
-         * @return
-         */
-        public Builder targetSocialSecurityCity(String targetSocialSecurityCity) {
-            this.targetSocialSecurityCity = targetSocialSecurityCity;
-            return this;
-        }
-
-
-        /**
-         * 原通道
-         * <p> 示例值：7289005963599693367
-         *
-         * @param originalPathway
-         * @return
-         */
-        public Builder originalPathway(String originalPathway) {
-            this.originalPathway = originalPathway;
-            return this;
-        }
-
-
-        /**
-         * 新通道
-         * <p> 示例值：7289005963599693367
-         *
-         * @param targetPathway
-         * @return
-         */
-        public Builder targetPathway(String targetPathway) {
-            this.targetPathway = targetPathway;
-            return this;
-        }
-
-
-        /**
-         * 编制随人员一起调整
-         * <p> 示例值：false
-         *
-         * @param isTransferWithWorkforce
-         * @return
-         */
-        public Builder isTransferWithWorkforce(Boolean isTransferWithWorkforce) {
-            this.isTransferWithWorkforce = isTransferWithWorkforce;
-            return this;
-        }
-
-
-        /**
-         * 原部门名称
-         * <p> 示例值：
-         *
-         * @param originalDepartmentName
-         * @return
-         */
-        public Builder originalDepartmentName(DepartmentLookupName originalDepartmentName) {
-            this.originalDepartmentName = originalDepartmentName;
-            return this;
-        }
-
-
-        /**
-         * 新部门名称
-         * <p> 示例值：
-         *
-         * @param targetDepartmentName
-         * @return
-         */
-        public Builder targetDepartmentName(DepartmentLookupName targetDepartmentName) {
-            this.targetDepartmentName = targetDepartmentName;
-            return this;
-        }
-
-
-        /**
-         * 原工作地点名称
-         * <p> 示例值：
-         *
-         * @param originalWorklocationName
-         * @return
-         */
-        public Builder originalWorklocationName(LookupName originalWorklocationName) {
-            this.originalWorklocationName = originalWorklocationName;
-            return this;
-        }
-
-
-        /**
-         * 新工作地点名称
-         * <p> 示例值：
-         *
-         * @param targetWorklocationName
-         * @return
-         */
-        public Builder targetWorklocationName(LookupName targetWorklocationName) {
-            this.targetWorklocationName = targetWorklocationName;
-            return this;
-        }
-
-
-        /**
-         * 原直属上级名称
-         * <p> 示例值：
-         *
-         * @param originalDirectManagerName
-         * @return
-         */
-        public Builder originalDirectManagerName(EmploymentLookupName originalDirectManagerName) {
-            this.originalDirectManagerName = originalDirectManagerName;
-            return this;
-        }
-
-
-        /**
-         * 新直属上级名称
-         * <p> 示例值：
-         *
-         * @param targetDirectManagerName
-         * @return
-         */
-        public Builder targetDirectManagerName(EmploymentLookupName targetDirectManagerName) {
-            this.targetDirectManagerName = targetDirectManagerName;
-            return this;
-        }
-
-
-        /**
-         * 原职务名称
-         * <p> 示例值：
-         *
-         * @param originalJobName
-         * @return
-         */
-        public Builder originalJobName(LookupName originalJobName) {
-            this.originalJobName = originalJobName;
-            return this;
-        }
-
-
-        /**
-         * 新职务名称
-         * <p> 示例值：
-         *
-         * @param targetJobName
-         * @return
-         */
-        public Builder targetJobName(LookupName targetJobName) {
-            this.targetJobName = targetJobName;
-            return this;
-        }
-
-
-        /**
-         * 原序列名称
-         * <p> 示例值：
-         *
-         * @param originalJobFamilyName
-         * @return
-         */
-        public Builder originalJobFamilyName(LookupName originalJobFamilyName) {
-            this.originalJobFamilyName = originalJobFamilyName;
-            return this;
-        }
-
-
-        /**
-         * 新序列名称
-         * <p> 示例值：
-         *
-         * @param targetJobFamilyName
-         * @return
-         */
-        public Builder targetJobFamilyName(LookupName targetJobFamilyName) {
-            this.targetJobFamilyName = targetJobFamilyName;
-            return this;
-        }
-
-
-        /**
-         * 原职级名称
-         * <p> 示例值：
-         *
-         * @param originalJobLevelName
-         * @return
-         */
-        public Builder originalJobLevelName(LookupName originalJobLevelName) {
-            this.originalJobLevelName = originalJobLevelName;
-            return this;
-        }
-
-
-        /**
-         * 新职级名称
-         * <p> 示例值：
-         *
-         * @param targetJobLevelName
-         * @return
-         */
-        public Builder targetJobLevelName(LookupName targetJobLevelName) {
-            this.targetJobLevelName = targetJobLevelName;
-            return this;
-        }
-
-
-        /**
-         * 原人员类型名称
-         * <p> 示例值：
-         *
-         * @param originalWorkforceTypeName
-         * @return
-         */
-        public Builder originalWorkforceTypeName(LookupName originalWorkforceTypeName) {
-            this.originalWorkforceTypeName = originalWorkforceTypeName;
-            return this;
-        }
-
-
-        /**
-         * 新人员类型名称
-         * <p> 示例值：
-         *
-         * @param targetWorkforceTypeName
-         * @return
-         */
-        public Builder targetWorkforceTypeName(LookupName targetWorkforceTypeName) {
-            this.targetWorkforceTypeName = targetWorkforceTypeName;
-            return this;
-        }
-
-
-        public TransferInfo build() {
-            return new TransferInfo(this);
-        }
-    }
+    /**
+     * 原公司名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalCompanyName;
+
+    /**
+     * 新公司名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetCompanyName;
+
+    /**
+     * 原合同类型名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalContractTypeName;
+
+    /**
+     * 新合同类型名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetContractTypeName;
+
+    /**
+     * 原期限类型名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalDurationTypeName;
+
+    /**
+     * 新期限类型名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetDurationTypeName;
+
+    /**
+     * 原签订类型名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalSigningTypeName;
+
+    /**
+     * 新签订类型名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetSigningTypeName;
+
+    /**
+     * 原工时制度名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalWorkingHoursTypeName;
+
+    /**
+     * 新工时制度名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetWorkingHoursTypeName;
+
+    /**
+     * 原工作日历名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalWorkingCalendarName;
+
+    /**
+     * 新工作日历名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetWorkingCalendarName;
+
+    /**
+     * 原排班名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalWorkShiftName;
+
+    /**
+     * 新排班名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetWorkShiftName;
+
+    /**
+     * 原职等名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalJobGradeName;
+
+    /**
+     * 新职等名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetJobGradeName;
+
+    /**
+     * 原薪资类型名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalCompensationTypeName;
+
+    /**
+     * 新薪资类型名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetCompensationTypeName;
+
+    /**
+     * 原任职公司名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalServiceCompanyName;
+
+    /**
+     * 新任职公司名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetServiceCompanyName;
+
+    /**
+     * 原岗位名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalPositionName;
+
+    /**
+     * 新岗位名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetPositionName;
+
+    /**
+     * 原人员子类型名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalEmployeeSubtypeName;
+
+    /**
+     * 新人员子类型名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetEmployeeSubtypeName;
+
+    /**
+     * 原通道名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalPathwayName;
+
+    /**
+     * 新通道名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetPathwayName;
+
+    /**
+     * 原默认成本中心名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalDefaultCostCenterName;
+
+    /**
+     * 新默认成本中心名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetDefaultCostCenterName;
+
+    /**
+     * 原虚线上级名称
+     *
+     * <p>示例值：
+     */
+    private EmploymentLookupName originalDottedManagerName;
+
+    /**
+     * 新虚线上级名称
+     *
+     * <p>示例值：
+     */
+    private EmploymentLookupName targetDottedManagerName;
+
+    /**
+     * 发起人名称
+     *
+     * <p>示例值：
+     */
+    private EmploymentLookupName initiatorName;
+
+    /**
+     * 异常处理人名称
+     *
+     * <p>示例值：
+     */
+    private EmploymentLookupName exceptionHandlerName;
+
+    /**
+     * 原社保城市名称
+     *
+     * <p>示例值：
+     */
+    private LookupName originalSocialSecurityCityName;
+
+    /**
+     * 新社保城市名称
+     *
+     * <p>示例值：
+     */
+    private LookupName targetSocialSecurityCityName;
+
+    /**
+     * 发起时间
+     *
+     * <p>示例值：2026-5-28
+     */
+    private String wkCreatedAt;
+
+    /**
+     * 数据来源
+     *
+     * <p>示例值：
+     */
+    private I18nV2 transformSource;
+
+    /**
+     * 异动变更内容
+     *
+     * <p>示例值：
+     */
+    private I18nV2[] detailsOfJobStatusChange;
+
+    /**
+     * 备注
+     *
+     * <p>示例值：异动详情
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(String remark) {
+      this.remark = remark;
+      return this;
+    }
+
+    /**
+     * offer信息
+     *
+     * <p>示例值：优质人才，加急处理
+     *
+     * @param offerInfo
+     * @return
+     */
+    public Builder offerInfo(String offerInfo) {
+      this.offerInfo = offerInfo;
+      return this;
+    }
+
+    /**
+     * 是否撤销虚线上级
+     *
+     * <p>示例值：true
+     *
+     * @param targetDottedManagerClean
+     * @return
+     */
+    public Builder targetDottedManagerClean(Boolean targetDottedManagerClean) {
+      this.targetDottedManagerClean = targetDottedManagerClean;
+      return this;
+    }
+
+    /**
+     * 是否有试用期
+     *
+     * <p>示例值：false
+     *
+     * @param probationExist
+     * @return
+     */
+    public Builder probationExist(Boolean probationExist) {
+      this.probationExist = probationExist;
+      return this;
+    }
+
+    /**
+     * 原部门
+     *
+     * <p>示例值：6966236933198579208
+     *
+     * @param originalDepartment
+     * @return
+     */
+    public Builder originalDepartment(String originalDepartment) {
+      this.originalDepartment = originalDepartment;
+      return this;
+    }
+
+    /**
+     * 新部门
+     *
+     * <p>示例值：6966236933198579208
+     *
+     * @param targetDepartment
+     * @return
+     */
+    public Builder targetDepartment(String targetDepartment) {
+      this.targetDepartment = targetDepartment;
+      return this;
+    }
+
+    /**
+     * 新部门，新建部门审批完成前会返回 td_xxx 的临时 ID
+     *
+     * <p>示例值：6966236933198579208
+     *
+     * @param targetDraftDepartment
+     * @return
+     */
+    public Builder targetDraftDepartment(String targetDraftDepartment) {
+      this.targetDraftDepartment = targetDraftDepartment;
+      return this;
+    }
+
+    /**
+     * 原部门全路径
+     *
+     * <p>示例值：
+     *
+     * @param originalDepartmentIdPath
+     * @return
+     */
+    public Builder originalDepartmentIdPath(OrgdraftDepartmentId[] originalDepartmentIdPath) {
+      this.originalDepartmentIdPath = originalDepartmentIdPath;
+      return this;
+    }
+
+    /**
+     * 新部门全路径
+     *
+     * <p>示例值：
+     *
+     * @param targetDepartmentIdPath
+     * @return
+     */
+    public Builder targetDepartmentIdPath(OrgdraftDepartmentId[] targetDepartmentIdPath) {
+      this.targetDepartmentIdPath = targetDepartmentIdPath;
+      return this;
+    }
+
+    /**
+     * 原工作地点
+     *
+     * <p>示例值：6967271100992587295
+     *
+     * @param originalWorkLocation
+     * @return
+     */
+    public Builder originalWorkLocation(String originalWorkLocation) {
+      this.originalWorkLocation = originalWorkLocation;
+      return this;
+    }
+
+    /**
+     * 新工作地点
+     *
+     * <p>示例值：6967271100992587295
+     *
+     * @param targetWorkLocation
+     * @return
+     */
+    public Builder targetWorkLocation(String targetWorkLocation) {
+      this.targetWorkLocation = targetWorkLocation;
+      return this;
+    }
+
+    /**
+     * 原直属上级
+     *
+     * <p>示例值：6974641477444060708
+     *
+     * @param originalDirectManager
+     * @return
+     */
+    public Builder originalDirectManager(String originalDirectManager) {
+      this.originalDirectManager = originalDirectManager;
+      return this;
+    }
+
+    /**
+     * 新直属上级
+     *
+     * <p>示例值：7013619729281713671
+     *
+     * @param targetDirectManager
+     * @return
+     */
+    public Builder targetDirectManager(String targetDirectManager) {
+      this.targetDirectManager = targetDirectManager;
+      return this;
+    }
+
+    /**
+     * 原虚线上级
+     *
+     * <p>示例值：6974648866876573198
+     *
+     * @param originalDottedManager
+     * @return
+     */
+    public Builder originalDottedManager(String originalDottedManager) {
+      this.originalDottedManager = originalDottedManager;
+      return this;
+    }
+
+    /**
+     * 新虚线上级
+     *
+     * <p>示例值：7013328578351842852
+     *
+     * @param targetDottedManager
+     * @return
+     */
+    public Builder targetDottedManager(String targetDottedManager) {
+      this.targetDottedManager = targetDottedManager;
+      return this;
+    }
+
+    /**
+     * 原职务
+     *
+     * <p>示例值：6969469398088287751
+     *
+     * @param originalJob
+     * @return
+     */
+    public Builder originalJob(String originalJob) {
+      this.originalJob = originalJob;
+      return this;
+    }
+
+    /**
+     * 新职务
+     *
+     * <p>示例值：6969469557836760606
+     *
+     * @param targetJob
+     * @return
+     */
+    public Builder targetJob(String targetJob) {
+      this.targetJob = targetJob;
+      return this;
+    }
+
+    /**
+     * 原序列
+     *
+     * <p>示例值：6967287547462419975
+     *
+     * @param originalJobFamily
+     * @return
+     */
+    public Builder originalJobFamily(String originalJobFamily) {
+      this.originalJobFamily = originalJobFamily;
+      return this;
+    }
+
+    /**
+     * 新序列
+     *
+     * <p>示例值：6967287547462419975
+     *
+     * @param targetJobFamily
+     * @return
+     */
+    public Builder targetJobFamily(String targetJobFamily) {
+      this.targetJobFamily = targetJobFamily;
+      return this;
+    }
+
+    /**
+     * 原级别
+     *
+     * <p>示例值：6972085707674355214
+     *
+     * @param originalJobLevel
+     * @return
+     */
+    public Builder originalJobLevel(String originalJobLevel) {
+      this.originalJobLevel = originalJobLevel;
+      return this;
+    }
+
+    /**
+     * 新级别
+     *
+     * <p>示例值：6972085707674355214
+     *
+     * @param targetJobLevel
+     * @return
+     */
+    public Builder targetJobLevel(String targetJobLevel) {
+      this.targetJobLevel = targetJobLevel;
+      return this;
+    }
+
+    /**
+     * 原人员类型
+     *
+     * <p>示例值：6968386026792289828
+     *
+     * @param originalWorkforceType
+     * @return
+     */
+    public Builder originalWorkforceType(String originalWorkforceType) {
+      this.originalWorkforceType = originalWorkforceType;
+      return this;
+    }
+
+    /**
+     * 新人员类型
+     *
+     * <p>示例值：7036268995372303885
+     *
+     * @param targetWorkforceType
+     * @return
+     */
+    public Builder targetWorkforceType(String targetWorkforceType) {
+      this.targetWorkforceType = targetWorkforceType;
+      return this;
+    }
+
+    /**
+     * 原人员子类型
+     *
+     * <p>示例值：6968386026792289828
+     *
+     * @param originalEmployeeSubtype
+     * @return
+     */
+    public Builder originalEmployeeSubtype(String originalEmployeeSubtype) {
+      this.originalEmployeeSubtype = originalEmployeeSubtype;
+      return this;
+    }
+
+    /**
+     * 新人员子类型
+     *
+     * <p>示例值：7036268995372303885
+     *
+     * @param targetEmployeeSubtype
+     * @return
+     */
+    public Builder targetEmployeeSubtype(String targetEmployeeSubtype) {
+      this.targetEmployeeSubtype = targetEmployeeSubtype;
+      return this;
+    }
+
+    /**
+     * 原公司
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param originalCompany
+     * @return
+     */
+    public Builder originalCompany(String originalCompany) {
+      this.originalCompany = originalCompany;
+      return this;
+    }
+
+    /**
+     * 新公司
+     *
+     * <p>示例值：6974659700705068581
+     *
+     * @param targetCompany
+     * @return
+     */
+    public Builder targetCompany(String targetCompany) {
+      this.targetCompany = targetCompany;
+      return this;
+    }
+
+    /**
+     * 原合同编号
+     *
+     * <p>示例值：55332
+     *
+     * @param originalContractNumber
+     * @return
+     */
+    public Builder originalContractNumber(String originalContractNumber) {
+      this.originalContractNumber = originalContractNumber;
+      return this;
+    }
+
+    /**
+     * 新合同编号
+     *
+     * <p>示例值：55333
+     *
+     * @param targetContractNumber
+     * @return
+     */
+    public Builder targetContractNumber(String targetContractNumber) {
+      this.targetContractNumber = targetContractNumber;
+      return this;
+    }
+
+    /**
+     * 原合同类型
+     *
+     * <p>示例值：labor_contract
+     *
+     * @param originalContractType
+     * @return
+     */
+    public Builder originalContractType(String originalContractType) {
+      this.originalContractType = originalContractType;
+      return this;
+    }
+
+    /**
+     * 新合同类型
+     *
+     * <p>示例值：labor_contract
+     *
+     * @param targetContractType
+     * @return
+     */
+    public Builder targetContractType(String targetContractType) {
+      this.targetContractType = targetContractType;
+      return this;
+    }
+
+    /**
+     * 原期限类型
+     *
+     * <p>示例值：fixed_term
+     *
+     * @param originalDurationType
+     * @return
+     */
+    public Builder originalDurationType(String originalDurationType) {
+      this.originalDurationType = originalDurationType;
+      return this;
+    }
+
+    /**
+     * 新期限类型
+     *
+     * <p>示例值：fixed_term
+     *
+     * @param targetDurationType
+     * @return
+     */
+    public Builder targetDurationType(String targetDurationType) {
+      this.targetDurationType = targetDurationType;
+      return this;
+    }
+
+    /**
+     * 原签订类型
+     *
+     * <p>示例值：new
+     *
+     * @param originalSigningType
+     * @return
+     */
+    public Builder originalSigningType(String originalSigningType) {
+      this.originalSigningType = originalSigningType;
+      return this;
+    }
+
+    /**
+     * 新签订类型
+     *
+     * <p>示例值：new
+     *
+     * @param targetSigningType
+     * @return
+     */
+    public Builder targetSigningType(String targetSigningType) {
+      this.targetSigningType = targetSigningType;
+      return this;
+    }
+
+    /**
+     * 原合同开始日期
+     *
+     * <p>示例值：2021-07-01
+     *
+     * @param originalContractStartDate
+     * @return
+     */
+    public Builder originalContractStartDate(String originalContractStartDate) {
+      this.originalContractStartDate = originalContractStartDate;
+      return this;
+    }
+
+    /**
+     * 新合同开始日期
+     *
+     * <p>示例值：2021-07-01
+     *
+     * @param targetContractStartDate
+     * @return
+     */
+    public Builder targetContractStartDate(String targetContractStartDate) {
+      this.targetContractStartDate = targetContractStartDate;
+      return this;
+    }
+
+    /**
+     * 原合同结束日期
+     *
+     * <p>示例值：2024-07-01
+     *
+     * @param originalContractEndDate
+     * @return
+     */
+    public Builder originalContractEndDate(String originalContractEndDate) {
+      this.originalContractEndDate = originalContractEndDate;
+      return this;
+    }
+
+    /**
+     * 新合同结束日期
+     *
+     * <p>示例值：2024-07-01
+     *
+     * @param targetContractEndDate
+     * @return
+     */
+    public Builder targetContractEndDate(String targetContractEndDate) {
+      this.targetContractEndDate = targetContractEndDate;
+      return this;
+    }
+
+    /**
+     * 原工时制度
+     *
+     * <p>示例值：6969087376740206087
+     *
+     * @param originalWorkingHoursType
+     * @return
+     */
+    public Builder originalWorkingHoursType(String originalWorkingHoursType) {
+      this.originalWorkingHoursType = originalWorkingHoursType;
+      return this;
+    }
+
+    /**
+     * 新工时制度
+     *
+     * <p>示例值：6969087376740206087
+     *
+     * @param targetWorkingHoursType
+     * @return
+     */
+    public Builder targetWorkingHoursType(String targetWorkingHoursType) {
+      this.targetWorkingHoursType = targetWorkingHoursType;
+      return this;
+    }
+
+    /**
+     * 原工作日历
+     *
+     * <p>示例值：6969087376740236087
+     *
+     * @param originalWorkingCalendar
+     * @return
+     */
+    public Builder originalWorkingCalendar(String originalWorkingCalendar) {
+      this.originalWorkingCalendar = originalWorkingCalendar;
+      return this;
+    }
+
+    /**
+     * 新工作日历
+     *
+     * <p>示例值：6969087376740236087
+     *
+     * @param targetWorkingCalendar
+     * @return
+     */
+    public Builder targetWorkingCalendar(String targetWorkingCalendar) {
+      this.targetWorkingCalendar = targetWorkingCalendar;
+      return this;
+    }
+
+    /**
+     * 原试用期预计结束日期
+     *
+     * <p>示例值：2021-11-17
+     *
+     * @param originalProbationEndDate
+     * @return
+     */
+    public Builder originalProbationEndDate(String originalProbationEndDate) {
+      this.originalProbationEndDate = originalProbationEndDate;
+      return this;
+    }
+
+    /**
+     * 新试用期预计结束日期
+     *
+     * <p>示例值：2021-11-17
+     *
+     * @param targetProbationEndDate
+     * @return
+     */
+    public Builder targetProbationEndDate(String targetProbationEndDate) {
+      this.targetProbationEndDate = targetProbationEndDate;
+      return this;
+    }
+
+    /**
+     * 原周工作时长
+     *
+     * <p>示例值：162
+     *
+     * @param originalWeeklyWorkingHours
+     * @return
+     */
+    public Builder originalWeeklyWorkingHours(String originalWeeklyWorkingHours) {
+      this.originalWeeklyWorkingHours = originalWeeklyWorkingHours;
+      return this;
+    }
+
+    /**
+     * 新周工作时长
+     *
+     * <p>示例值：160
+     *
+     * @param targetWeeklyWorkingHours
+     * @return
+     */
+    public Builder targetWeeklyWorkingHours(String targetWeeklyWorkingHours) {
+      this.targetWeeklyWorkingHours = targetWeeklyWorkingHours;
+      return this;
+    }
+
+    /**
+     * 原排班
+     *
+     * <p>示例值：work_shift
+     *
+     * @param originalWorkShift
+     * @return
+     */
+    public Builder originalWorkShift(String originalWorkShift) {
+      this.originalWorkShift = originalWorkShift;
+      return this;
+    }
+
+    /**
+     * 新排班
+     *
+     * <p>示例值：non_work_shift
+     *
+     * @param targetWorkShift
+     * @return
+     */
+    public Builder targetWorkShift(String targetWorkShift) {
+      this.targetWorkShift = targetWorkShift;
+      return this;
+    }
+
+    /**
+     * 原成本中心分摊方式
+     *
+     * <p>示例值：
+     *
+     * @param originalCostCenterRate
+     * @return
+     */
+    public Builder originalCostCenterRate(JobDataCostCenter[] originalCostCenterRate) {
+      this.originalCostCenterRate = originalCostCenterRate;
+      return this;
+    }
+
+    /**
+     * 新成本中心分摊方式
+     *
+     * <p>示例值：
+     *
+     * @param targetCostCenterRate
+     * @return
+     */
+    public Builder targetCostCenterRate(JobDataCostCenter[] targetCostCenterRate) {
+      this.targetCostCenterRate = targetCostCenterRate;
+      return this;
+    }
+
+    /**
+     * 新分摊失效时间
+     *
+     * <p>示例值：2022-03-01
+     *
+     * @param targetAllocationExpirationTime
+     * @return
+     */
+    public Builder targetAllocationExpirationTime(String targetAllocationExpirationTime) {
+      this.targetAllocationExpirationTime = targetAllocationExpirationTime;
+      return this;
+    }
+
+    /**
+     * 原分摊失效时间
+     *
+     * <p>示例值：2022-03-01
+     *
+     * @param originalAllocationExpirationTime
+     * @return
+     */
+    public Builder originalAllocationExpirationTime(String originalAllocationExpirationTime) {
+      this.originalAllocationExpirationTime = originalAllocationExpirationTime;
+      return this;
+    }
+
+    /**
+     * 新分摊生效时间
+     *
+     * <p>示例值：2022-03-01
+     *
+     * @param targetAllocationEffectiveTime
+     * @return
+     */
+    public Builder targetAllocationEffectiveTime(String targetAllocationEffectiveTime) {
+      this.targetAllocationEffectiveTime = targetAllocationEffectiveTime;
+      return this;
+    }
+
+    /**
+     * 原分摊生效时间
+     *
+     * <p>示例值：2022-03-01
+     *
+     * @param originalAllocationEffectiveTime
+     * @return
+     */
+    public Builder originalAllocationEffectiveTime(String originalAllocationEffectiveTime) {
+      this.originalAllocationEffectiveTime = originalAllocationEffectiveTime;
+      return this;
+    }
+
+    /**
+     * 原默认成本中心
+     *
+     * <p>示例值：7380264299728602661
+     *
+     * @param originalDefaultCostCenter
+     * @return
+     */
+    public Builder originalDefaultCostCenter(String originalDefaultCostCenter) {
+      this.originalDefaultCostCenter = originalDefaultCostCenter;
+      return this;
+    }
+
+    /**
+     * 新默认成本中心
+     *
+     * <p>示例值：7380264299728602661
+     *
+     * @param targetDefaultCostCenter
+     * @return
+     */
+    public Builder targetDefaultCostCenter(String targetDefaultCostCenter) {
+      this.targetDefaultCostCenter = targetDefaultCostCenter;
+      return this;
+    }
+
+    /**
+     * 原默认成本中心是否继承
+     *
+     * <p>示例值：
+     *
+     * @param originalIsDefaultCostCenterInherited
+     * @return
+     */
+    public Builder originalIsDefaultCostCenterInherited(
+        Boolean originalIsDefaultCostCenterInherited) {
+      this.originalIsDefaultCostCenterInherited = originalIsDefaultCostCenterInherited;
+      return this;
+    }
+
+    /**
+     * 新默认成本中心是否继承
+     *
+     * <p>示例值：
+     *
+     * @param targetIsDefaultCostCenterInherited
+     * @return
+     */
+    public Builder targetIsDefaultCostCenterInherited(Boolean targetIsDefaultCostCenterInherited) {
+      this.targetIsDefaultCostCenterInherited = targetIsDefaultCostCenterInherited;
+      return this;
+    }
+
+    /**
+     * 原工作信息
+     *
+     * <p>示例值：
+     *
+     * @param originalEmploymentChange
+     * @return
+     */
+    public Builder originalEmploymentChange(TranferEmploymentInfo originalEmploymentChange) {
+      this.originalEmploymentChange = originalEmploymentChange;
+      return this;
+    }
+
+    /**
+     * 新工作信息
+     *
+     * <p>示例值：
+     *
+     * @param targetEmploymentChange
+     * @return
+     */
+    public Builder targetEmploymentChange(TranferEmploymentInfo targetEmploymentChange) {
+      this.targetEmploymentChange = targetEmploymentChange;
+      return this;
+    }
+
+    /**
+     * 原职等
+     *
+     * <p>示例值：7289005963599693366
+     *
+     * @param originalJobGrade
+     * @return
+     */
+    public Builder originalJobGrade(String originalJobGrade) {
+      this.originalJobGrade = originalJobGrade;
+      return this;
+    }
+
+    /**
+     * 新职等
+     *
+     * <p>示例值：7289005963599693366
+     *
+     * @param targetJobGrade
+     * @return
+     */
+    public Builder targetJobGrade(String targetJobGrade) {
+      this.targetJobGrade = targetJobGrade;
+      return this;
+    }
+
+    /**
+     * 原薪资类型
+     *
+     * <p>示例值：hourly
+     *
+     * @param originalCompensationType
+     * @return
+     */
+    public Builder originalCompensationType(String originalCompensationType) {
+      this.originalCompensationType = originalCompensationType;
+      return this;
+    }
+
+    /**
+     * 新薪资类型
+     *
+     * <p>示例值：salary
+     *
+     * @param targetCompensationType
+     * @return
+     */
+    public Builder targetCompensationType(String targetCompensationType) {
+      this.targetCompensationType = targetCompensationType;
+      return this;
+    }
+
+    /**
+     * 原任职公司
+     *
+     * <p>示例值：7289005963599693367
+     *
+     * @param originalServiceCompany
+     * @return
+     */
+    public Builder originalServiceCompany(String originalServiceCompany) {
+      this.originalServiceCompany = originalServiceCompany;
+      return this;
+    }
+
+    /**
+     * 新任职公司
+     *
+     * <p>示例值：7289005963599693367
+     *
+     * @param targetServiceCompany
+     * @return
+     */
+    public Builder targetServiceCompany(String targetServiceCompany) {
+      this.targetServiceCompany = targetServiceCompany;
+      return this;
+    }
+
+    /**
+     * 原岗位
+     *
+     * <p>示例值：7289005963599693367
+     *
+     * @param originalPosition
+     * @return
+     */
+    public Builder originalPosition(String originalPosition) {
+      this.originalPosition = originalPosition;
+      return this;
+    }
+
+    /**
+     * 新岗位
+     *
+     * <p>示例值：7289005963599693367
+     *
+     * @param targetPosition
+     * @return
+     */
+    public Builder targetPosition(String targetPosition) {
+      this.targetPosition = targetPosition;
+      return this;
+    }
+
+    /**
+     * 新岗位，新建岗位审批完成前会返回 td_xxx 的临时 ID
+     *
+     * <p>示例值：7289005963599693367
+     *
+     * @param targetDraftPosition
+     * @return
+     */
+    public Builder targetDraftPosition(String targetDraftPosition) {
+      this.targetDraftPosition = targetDraftPosition;
+      return this;
+    }
+
+    /**
+     * 原社保城市
+     *
+     * <p>示例值：7289005963599693367
+     *
+     * @param originalSocialSecurityCity
+     * @return
+     */
+    public Builder originalSocialSecurityCity(String originalSocialSecurityCity) {
+      this.originalSocialSecurityCity = originalSocialSecurityCity;
+      return this;
+    }
+
+    /**
+     * 新社保城市
+     *
+     * <p>示例值：7289005963599693367
+     *
+     * @param targetSocialSecurityCity
+     * @return
+     */
+    public Builder targetSocialSecurityCity(String targetSocialSecurityCity) {
+      this.targetSocialSecurityCity = targetSocialSecurityCity;
+      return this;
+    }
+
+    /**
+     * 原通道
+     *
+     * <p>示例值：7289005963599693367
+     *
+     * @param originalPathway
+     * @return
+     */
+    public Builder originalPathway(String originalPathway) {
+      this.originalPathway = originalPathway;
+      return this;
+    }
+
+    /**
+     * 新通道
+     *
+     * <p>示例值：7289005963599693367
+     *
+     * @param targetPathway
+     * @return
+     */
+    public Builder targetPathway(String targetPathway) {
+      this.targetPathway = targetPathway;
+      return this;
+    }
+
+    /**
+     * 编制随人员一起调整
+     *
+     * <p>示例值：false
+     *
+     * @param isTransferWithWorkforce
+     * @return
+     */
+    public Builder isTransferWithWorkforce(Boolean isTransferWithWorkforce) {
+      this.isTransferWithWorkforce = isTransferWithWorkforce;
+      return this;
+    }
+
+    /**
+     * 原部门名称
+     *
+     * <p>示例值：
+     *
+     * @param originalDepartmentName
+     * @return
+     */
+    public Builder originalDepartmentName(DepartmentLookupName originalDepartmentName) {
+      this.originalDepartmentName = originalDepartmentName;
+      return this;
+    }
+
+    /**
+     * 新部门名称
+     *
+     * <p>示例值：
+     *
+     * @param targetDepartmentName
+     * @return
+     */
+    public Builder targetDepartmentName(DepartmentLookupName targetDepartmentName) {
+      this.targetDepartmentName = targetDepartmentName;
+      return this;
+    }
+
+    /**
+     * 原工作地点名称
+     *
+     * <p>示例值：
+     *
+     * @param originalWorkLocationName
+     * @return
+     */
+    public Builder originalWorkLocationName(LookupName originalWorkLocationName) {
+      this.originalWorkLocationName = originalWorkLocationName;
+      return this;
+    }
+
+    /**
+     * 新工作地点名称
+     *
+     * <p>示例值：
+     *
+     * @param targetWorkLocationName
+     * @return
+     */
+    public Builder targetWorkLocationName(LookupName targetWorkLocationName) {
+      this.targetWorkLocationName = targetWorkLocationName;
+      return this;
+    }
+
+    /**
+     * 原直属上级名称
+     *
+     * <p>示例值：
+     *
+     * @param originalDirectManagerName
+     * @return
+     */
+    public Builder originalDirectManagerName(EmploymentLookupName originalDirectManagerName) {
+      this.originalDirectManagerName = originalDirectManagerName;
+      return this;
+    }
+
+    /**
+     * 新直属上级名称
+     *
+     * <p>示例值：
+     *
+     * @param targetDirectManagerName
+     * @return
+     */
+    public Builder targetDirectManagerName(EmploymentLookupName targetDirectManagerName) {
+      this.targetDirectManagerName = targetDirectManagerName;
+      return this;
+    }
+
+    /**
+     * 原职务名称
+     *
+     * <p>示例值：
+     *
+     * @param originalJobName
+     * @return
+     */
+    public Builder originalJobName(LookupName originalJobName) {
+      this.originalJobName = originalJobName;
+      return this;
+    }
+
+    /**
+     * 新职务名称
+     *
+     * <p>示例值：
+     *
+     * @param targetJobName
+     * @return
+     */
+    public Builder targetJobName(LookupName targetJobName) {
+      this.targetJobName = targetJobName;
+      return this;
+    }
+
+    /**
+     * 原序列名称
+     *
+     * <p>示例值：
+     *
+     * @param originalJobFamilyName
+     * @return
+     */
+    public Builder originalJobFamilyName(LookupName originalJobFamilyName) {
+      this.originalJobFamilyName = originalJobFamilyName;
+      return this;
+    }
+
+    /**
+     * 新序列名称
+     *
+     * <p>示例值：
+     *
+     * @param targetJobFamilyName
+     * @return
+     */
+    public Builder targetJobFamilyName(LookupName targetJobFamilyName) {
+      this.targetJobFamilyName = targetJobFamilyName;
+      return this;
+    }
+
+    /**
+     * 原职级名称
+     *
+     * <p>示例值：
+     *
+     * @param originalJobLevelName
+     * @return
+     */
+    public Builder originalJobLevelName(LookupName originalJobLevelName) {
+      this.originalJobLevelName = originalJobLevelName;
+      return this;
+    }
+
+    /**
+     * 新职级名称
+     *
+     * <p>示例值：
+     *
+     * @param targetJobLevelName
+     * @return
+     */
+    public Builder targetJobLevelName(LookupName targetJobLevelName) {
+      this.targetJobLevelName = targetJobLevelName;
+      return this;
+    }
+
+    /**
+     * 原人员类型名称
+     *
+     * <p>示例值：
+     *
+     * @param originalWorkforceTypeName
+     * @return
+     */
+    public Builder originalWorkforceTypeName(LookupName originalWorkforceTypeName) {
+      this.originalWorkforceTypeName = originalWorkforceTypeName;
+      return this;
+    }
+
+    /**
+     * 新人员类型名称
+     *
+     * <p>示例值：
+     *
+     * @param targetWorkforceTypeName
+     * @return
+     */
+    public Builder targetWorkforceTypeName(LookupName targetWorkforceTypeName) {
+      this.targetWorkforceTypeName = targetWorkforceTypeName;
+      return this;
+    }
+
+    /**
+     * 原公司名称
+     *
+     * <p>示例值：
+     *
+     * @param originalCompanyName
+     * @return
+     */
+    public Builder originalCompanyName(LookupName originalCompanyName) {
+      this.originalCompanyName = originalCompanyName;
+      return this;
+    }
+
+    /**
+     * 新公司名称
+     *
+     * <p>示例值：
+     *
+     * @param targetCompanyName
+     * @return
+     */
+    public Builder targetCompanyName(LookupName targetCompanyName) {
+      this.targetCompanyName = targetCompanyName;
+      return this;
+    }
+
+    /**
+     * 原合同类型名称
+     *
+     * <p>示例值：
+     *
+     * @param originalContractTypeName
+     * @return
+     */
+    public Builder originalContractTypeName(LookupName originalContractTypeName) {
+      this.originalContractTypeName = originalContractTypeName;
+      return this;
+    }
+
+    /**
+     * 新合同类型名称
+     *
+     * <p>示例值：
+     *
+     * @param targetContractTypeName
+     * @return
+     */
+    public Builder targetContractTypeName(LookupName targetContractTypeName) {
+      this.targetContractTypeName = targetContractTypeName;
+      return this;
+    }
+
+    /**
+     * 原期限类型名称
+     *
+     * <p>示例值：
+     *
+     * @param originalDurationTypeName
+     * @return
+     */
+    public Builder originalDurationTypeName(LookupName originalDurationTypeName) {
+      this.originalDurationTypeName = originalDurationTypeName;
+      return this;
+    }
+
+    /**
+     * 新期限类型名称
+     *
+     * <p>示例值：
+     *
+     * @param targetDurationTypeName
+     * @return
+     */
+    public Builder targetDurationTypeName(LookupName targetDurationTypeName) {
+      this.targetDurationTypeName = targetDurationTypeName;
+      return this;
+    }
+
+    /**
+     * 原签订类型名称
+     *
+     * <p>示例值：
+     *
+     * @param originalSigningTypeName
+     * @return
+     */
+    public Builder originalSigningTypeName(LookupName originalSigningTypeName) {
+      this.originalSigningTypeName = originalSigningTypeName;
+      return this;
+    }
+
+    /**
+     * 新签订类型名称
+     *
+     * <p>示例值：
+     *
+     * @param targetSigningTypeName
+     * @return
+     */
+    public Builder targetSigningTypeName(LookupName targetSigningTypeName) {
+      this.targetSigningTypeName = targetSigningTypeName;
+      return this;
+    }
+
+    /**
+     * 原工时制度名称
+     *
+     * <p>示例值：
+     *
+     * @param originalWorkingHoursTypeName
+     * @return
+     */
+    public Builder originalWorkingHoursTypeName(LookupName originalWorkingHoursTypeName) {
+      this.originalWorkingHoursTypeName = originalWorkingHoursTypeName;
+      return this;
+    }
+
+    /**
+     * 新工时制度名称
+     *
+     * <p>示例值：
+     *
+     * @param targetWorkingHoursTypeName
+     * @return
+     */
+    public Builder targetWorkingHoursTypeName(LookupName targetWorkingHoursTypeName) {
+      this.targetWorkingHoursTypeName = targetWorkingHoursTypeName;
+      return this;
+    }
+
+    /**
+     * 原工作日历名称
+     *
+     * <p>示例值：
+     *
+     * @param originalWorkingCalendarName
+     * @return
+     */
+    public Builder originalWorkingCalendarName(LookupName originalWorkingCalendarName) {
+      this.originalWorkingCalendarName = originalWorkingCalendarName;
+      return this;
+    }
+
+    /**
+     * 新工作日历名称
+     *
+     * <p>示例值：
+     *
+     * @param targetWorkingCalendarName
+     * @return
+     */
+    public Builder targetWorkingCalendarName(LookupName targetWorkingCalendarName) {
+      this.targetWorkingCalendarName = targetWorkingCalendarName;
+      return this;
+    }
+
+    /**
+     * 原排班名称
+     *
+     * <p>示例值：
+     *
+     * @param originalWorkShiftName
+     * @return
+     */
+    public Builder originalWorkShiftName(LookupName originalWorkShiftName) {
+      this.originalWorkShiftName = originalWorkShiftName;
+      return this;
+    }
+
+    /**
+     * 新排班名称
+     *
+     * <p>示例值：
+     *
+     * @param targetWorkShiftName
+     * @return
+     */
+    public Builder targetWorkShiftName(LookupName targetWorkShiftName) {
+      this.targetWorkShiftName = targetWorkShiftName;
+      return this;
+    }
+
+    /**
+     * 原职等名称
+     *
+     * <p>示例值：
+     *
+     * @param originalJobGradeName
+     * @return
+     */
+    public Builder originalJobGradeName(LookupName originalJobGradeName) {
+      this.originalJobGradeName = originalJobGradeName;
+      return this;
+    }
+
+    /**
+     * 新职等名称
+     *
+     * <p>示例值：
+     *
+     * @param targetJobGradeName
+     * @return
+     */
+    public Builder targetJobGradeName(LookupName targetJobGradeName) {
+      this.targetJobGradeName = targetJobGradeName;
+      return this;
+    }
+
+    /**
+     * 原薪资类型名称
+     *
+     * <p>示例值：
+     *
+     * @param originalCompensationTypeName
+     * @return
+     */
+    public Builder originalCompensationTypeName(LookupName originalCompensationTypeName) {
+      this.originalCompensationTypeName = originalCompensationTypeName;
+      return this;
+    }
+
+    /**
+     * 新薪资类型名称
+     *
+     * <p>示例值：
+     *
+     * @param targetCompensationTypeName
+     * @return
+     */
+    public Builder targetCompensationTypeName(LookupName targetCompensationTypeName) {
+      this.targetCompensationTypeName = targetCompensationTypeName;
+      return this;
+    }
+
+    /**
+     * 原任职公司名称
+     *
+     * <p>示例值：
+     *
+     * @param originalServiceCompanyName
+     * @return
+     */
+    public Builder originalServiceCompanyName(LookupName originalServiceCompanyName) {
+      this.originalServiceCompanyName = originalServiceCompanyName;
+      return this;
+    }
+
+    /**
+     * 新任职公司名称
+     *
+     * <p>示例值：
+     *
+     * @param targetServiceCompanyName
+     * @return
+     */
+    public Builder targetServiceCompanyName(LookupName targetServiceCompanyName) {
+      this.targetServiceCompanyName = targetServiceCompanyName;
+      return this;
+    }
+
+    /**
+     * 原岗位名称
+     *
+     * <p>示例值：
+     *
+     * @param originalPositionName
+     * @return
+     */
+    public Builder originalPositionName(LookupName originalPositionName) {
+      this.originalPositionName = originalPositionName;
+      return this;
+    }
+
+    /**
+     * 新岗位名称
+     *
+     * <p>示例值：
+     *
+     * @param targetPositionName
+     * @return
+     */
+    public Builder targetPositionName(LookupName targetPositionName) {
+      this.targetPositionName = targetPositionName;
+      return this;
+    }
+
+    /**
+     * 原人员子类型名称
+     *
+     * <p>示例值：
+     *
+     * @param originalEmployeeSubtypeName
+     * @return
+     */
+    public Builder originalEmployeeSubtypeName(LookupName originalEmployeeSubtypeName) {
+      this.originalEmployeeSubtypeName = originalEmployeeSubtypeName;
+      return this;
+    }
+
+    /**
+     * 新人员子类型名称
+     *
+     * <p>示例值：
+     *
+     * @param targetEmployeeSubtypeName
+     * @return
+     */
+    public Builder targetEmployeeSubtypeName(LookupName targetEmployeeSubtypeName) {
+      this.targetEmployeeSubtypeName = targetEmployeeSubtypeName;
+      return this;
+    }
+
+    /**
+     * 原通道名称
+     *
+     * <p>示例值：
+     *
+     * @param originalPathwayName
+     * @return
+     */
+    public Builder originalPathwayName(LookupName originalPathwayName) {
+      this.originalPathwayName = originalPathwayName;
+      return this;
+    }
+
+    /**
+     * 新通道名称
+     *
+     * <p>示例值：
+     *
+     * @param targetPathwayName
+     * @return
+     */
+    public Builder targetPathwayName(LookupName targetPathwayName) {
+      this.targetPathwayName = targetPathwayName;
+      return this;
+    }
+
+    /**
+     * 原默认成本中心名称
+     *
+     * <p>示例值：
+     *
+     * @param originalDefaultCostCenterName
+     * @return
+     */
+    public Builder originalDefaultCostCenterName(LookupName originalDefaultCostCenterName) {
+      this.originalDefaultCostCenterName = originalDefaultCostCenterName;
+      return this;
+    }
+
+    /**
+     * 新默认成本中心名称
+     *
+     * <p>示例值：
+     *
+     * @param targetDefaultCostCenterName
+     * @return
+     */
+    public Builder targetDefaultCostCenterName(LookupName targetDefaultCostCenterName) {
+      this.targetDefaultCostCenterName = targetDefaultCostCenterName;
+      return this;
+    }
+
+    /**
+     * 原虚线上级名称
+     *
+     * <p>示例值：
+     *
+     * @param originalDottedManagerName
+     * @return
+     */
+    public Builder originalDottedManagerName(EmploymentLookupName originalDottedManagerName) {
+      this.originalDottedManagerName = originalDottedManagerName;
+      return this;
+    }
+
+    /**
+     * 新虚线上级名称
+     *
+     * <p>示例值：
+     *
+     * @param targetDottedManagerName
+     * @return
+     */
+    public Builder targetDottedManagerName(EmploymentLookupName targetDottedManagerName) {
+      this.targetDottedManagerName = targetDottedManagerName;
+      return this;
+    }
+
+    /**
+     * 发起人名称
+     *
+     * <p>示例值：
+     *
+     * @param initiatorName
+     * @return
+     */
+    public Builder initiatorName(EmploymentLookupName initiatorName) {
+      this.initiatorName = initiatorName;
+      return this;
+    }
+
+    /**
+     * 异常处理人名称
+     *
+     * <p>示例值：
+     *
+     * @param exceptionHandlerName
+     * @return
+     */
+    public Builder exceptionHandlerName(EmploymentLookupName exceptionHandlerName) {
+      this.exceptionHandlerName = exceptionHandlerName;
+      return this;
+    }
+
+    /**
+     * 原社保城市名称
+     *
+     * <p>示例值：
+     *
+     * @param originalSocialSecurityCityName
+     * @return
+     */
+    public Builder originalSocialSecurityCityName(LookupName originalSocialSecurityCityName) {
+      this.originalSocialSecurityCityName = originalSocialSecurityCityName;
+      return this;
+    }
+
+    /**
+     * 新社保城市名称
+     *
+     * <p>示例值：
+     *
+     * @param targetSocialSecurityCityName
+     * @return
+     */
+    public Builder targetSocialSecurityCityName(LookupName targetSocialSecurityCityName) {
+      this.targetSocialSecurityCityName = targetSocialSecurityCityName;
+      return this;
+    }
+
+    /**
+     * 发起时间
+     *
+     * <p>示例值：2026-5-28
+     *
+     * @param wkCreatedAt
+     * @return
+     */
+    public Builder wkCreatedAt(String wkCreatedAt) {
+      this.wkCreatedAt = wkCreatedAt;
+      return this;
+    }
+
+    /**
+     * 数据来源
+     *
+     * <p>示例值：
+     *
+     * @param transformSource
+     * @return
+     */
+    public Builder transformSource(I18nV2 transformSource) {
+      this.transformSource = transformSource;
+      return this;
+    }
+
+    /**
+     * 异动变更内容
+     *
+     * <p>示例值：
+     *
+     * @param detailsOfJobStatusChange
+     * @return
+     */
+    public Builder detailsOfJobStatusChange(I18nV2[] detailsOfJobStatusChange) {
+      this.detailsOfJobStatusChange = detailsOfJobStatusChange;
+      return this;
+    }
+
+    public TransferInfo build() {
+      return new TransferInfo(this);
+    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

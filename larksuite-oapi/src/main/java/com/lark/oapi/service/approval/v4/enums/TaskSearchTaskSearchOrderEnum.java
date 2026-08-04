@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 按任务时间排序
- */
+/** 按任务时间排序 */
 public enum TaskSearchTaskSearchOrderEnum {
-    UPDATETIMEDESC(0), // 按update_time倒排
-    UPDATETIMEASC(1), // 按update_time正排
-    STARTTIMEDESC(2), // 按start_time倒排
-    STARTTIMEASC(3), // 按start_time正排
-    ;
-    private Integer value;
+  UPDATETIMEDESC(0), // 按审批任务更新时间（update_time）倒排。
+  UPDATETIMEASC(1), // 按审批任务更新时间（update_time）正排。
+  STARTTIMEDESC(2), // 按审批任务开始时间（start_time）倒排。
+  STARTTIMEASC(3), // 按审批任务开始时间（start_time）正排。
+  ;
+  private Integer value;
 
-    TaskSearchTaskSearchOrderEnum(Integer value) {
-        this.value = value;
-    }
+  TaskSearchTaskSearchOrderEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

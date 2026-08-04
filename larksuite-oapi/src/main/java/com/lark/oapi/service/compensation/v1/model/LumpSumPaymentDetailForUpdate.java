@@ -13,432 +13,521 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LumpSumPaymentDetailForUpdate {
+  /**
+   * 一次性支付记录明细id，若需要基于已有记录进行更正，请传入（通过[【查询一次性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/lump_sum_payment/query)
+   * 接口进行查询）
+   *
+   * <p>示例值：7395133551102200876
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 一次性支付明细发放金额，可转数字的字符串，单位为该一次性支付记录 currency_id 对应的币种
+   *
+   * <p>示例值：2000.00
+   */
+  @SerializedName("issuance_amount")
+  private String issuanceAmount;
+
+  /**
+   * 发放状态
+   *
+   * <p>示例值：to_be_issued
+   */
+  @SerializedName("issuance_status")
+  private String issuanceStatus;
+
+  /**
+   * 发放方式
+   *
+   * <p>示例值：with_salary
+   */
+  @SerializedName("issuance_way")
+  private String issuanceWay;
+
+  /**
+   * 发放时间
+   *
+   * <p>示例值：2024-08-20
+   */
+  @SerializedName("issuance_time")
+  private String issuanceTime;
+
+  /**
+   * 申请发放日期
+   *
+   * <p>示例值：2025-01-20
+   */
+  @SerializedName("belong_time")
+  private String belongTime;
+
+  /**
+   * 发放国家ID（可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)进行查询）
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("issuance_country_region_id")
+  private String issuanceCountryRegionId;
+
+  /**
+   * 发放薪资组ID（可通过[获取薪资组基本信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list);进行查询）
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("issuance_pay_group_id")
+  private String issuancePayGroupId;
+
+  /**
+   * 一次性支付明细所属期开始日期
+   *
+   * <p>示例值：2024-08-01
+   */
+  @SerializedName("detail_reference_period_start_date")
+  private String detailReferencePeriodStartDate;
+
+  /**
+   * 一次性支付明细所属期结束日期
+   *
+   * <p>示例值：2024-08-01
+   */
+  @SerializedName("detail_reference_period_end_date")
+  private String detailReferencePeriodEndDate;
+
+  /**
+   * 是否因离职不发放 0, // 空，未填写或不适用 Yes = 1, // 是，因离职停发 No = 2, // 否，非离职停发
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("is_not_issued_due_to_offboardings")
+  private Integer isNotIssuedDueToOffboardings;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getIssuanceAmount() {
+    return this.issuanceAmount;
+  }
+
+  public void setIssuanceAmount(String issuanceAmount) {
+    this.issuanceAmount = issuanceAmount;
+  }
+
+  public String getIssuanceStatus() {
+    return this.issuanceStatus;
+  }
+
+  public void setIssuanceStatus(String issuanceStatus) {
+    this.issuanceStatus = issuanceStatus;
+  }
+
+  public String getIssuanceWay() {
+    return this.issuanceWay;
+  }
+
+  public void setIssuanceWay(String issuanceWay) {
+    this.issuanceWay = issuanceWay;
+  }
+
+  public String getIssuanceTime() {
+    return this.issuanceTime;
+  }
+
+  public void setIssuanceTime(String issuanceTime) {
+    this.issuanceTime = issuanceTime;
+  }
+
+  public String getBelongTime() {
+    return this.belongTime;
+  }
+
+  public void setBelongTime(String belongTime) {
+    this.belongTime = belongTime;
+  }
+
+  public String getIssuanceCountryRegionId() {
+    return this.issuanceCountryRegionId;
+  }
+
+  public void setIssuanceCountryRegionId(String issuanceCountryRegionId) {
+    this.issuanceCountryRegionId = issuanceCountryRegionId;
+  }
+
+  public String getIssuancePayGroupId() {
+    return this.issuancePayGroupId;
+  }
+
+  public void setIssuancePayGroupId(String issuancePayGroupId) {
+    this.issuancePayGroupId = issuancePayGroupId;
+  }
+
+  public String getDetailReferencePeriodStartDate() {
+    return this.detailReferencePeriodStartDate;
+  }
+
+  public void setDetailReferencePeriodStartDate(String detailReferencePeriodStartDate) {
+    this.detailReferencePeriodStartDate = detailReferencePeriodStartDate;
+  }
+
+  public String getDetailReferencePeriodEndDate() {
+    return this.detailReferencePeriodEndDate;
+  }
+
+  public void setDetailReferencePeriodEndDate(String detailReferencePeriodEndDate) {
+    this.detailReferencePeriodEndDate = detailReferencePeriodEndDate;
+  }
+
+  public Integer getIsNotIssuedDueToOffboardings() {
+    return this.isNotIssuedDueToOffboardings;
+  }
+
+  public void setIsNotIssuedDueToOffboardings(Integer isNotIssuedDueToOffboardings) {
+    this.isNotIssuedDueToOffboardings = isNotIssuedDueToOffboardings;
+  }
+
+  // builder 开始
+  public LumpSumPaymentDetailForUpdate() {}
+
+  public LumpSumPaymentDetailForUpdate(Builder builder) {
     /**
-     * 一次性支付记录明细id。传入已有的id代表直接在原明细上进行更新，不传则代表创建新的明细
-     * <p> 示例值：7395133551102200876
+     * 一次性支付记录明细id，若需要基于已有记录进行更正，请传入（通过[【查询一次性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/lump_sum_payment/query)
+     * 接口进行查询）
+     *
+     * <p>示例值：7395133551102200876
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 一次性支付明细发放金额，可转数字的字符串
-     * <p> 示例值：2000.00
+     * 一次性支付明细发放金额，可转数字的字符串，单位为该一次性支付记录 currency_id 对应的币种
+     *
+     * <p>示例值：2000.00
      */
-    @SerializedName("issuance_amount")
-    private String issuanceAmount;
+    this.issuanceAmount = builder.issuanceAmount;
     /**
      * 发放状态
-     * <p> 示例值：to_be_issued
+     *
+     * <p>示例值：to_be_issued
      */
-    @SerializedName("issuance_status")
-    private String issuanceStatus;
+    this.issuanceStatus = builder.issuanceStatus;
     /**
      * 发放方式
-     * <p> 示例值：with_salary
+     *
+     * <p>示例值：with_salary
      */
-    @SerializedName("issuance_way")
-    private String issuanceWay;
+    this.issuanceWay = builder.issuanceWay;
     /**
-     * 发放日期
-     * <p> 示例值：2024-08-20
+     * 发放时间
+     *
+     * <p>示例值：2024-08-20
      */
-    @SerializedName("issuance_time")
-    private String issuanceTime;
+    this.issuanceTime = builder.issuanceTime;
     /**
      * 申请发放日期
-     * <p> 示例值：2025-01-20
+     *
+     * <p>示例值：2025-01-20
      */
-    @SerializedName("belong_time")
-    private String belongTime;
+    this.belongTime = builder.belongTime;
     /**
-     * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
-     * <p> 示例值：6862995757234914824
+     * 发放国家ID（可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)进行查询）
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("issuance_country_region_id")
-    private String issuanceCountryRegionId;
+    this.issuanceCountryRegionId = builder.issuanceCountryRegionId;
     /**
-     * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
-     * <p> 示例值：6862995757234914824
+     * 发放薪资组ID（可通过[获取薪资组基本信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list);进行查询）
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("issuance_pay_group_id")
-    private String issuancePayGroupId;
+    this.issuancePayGroupId = builder.issuancePayGroupId;
     /**
      * 一次性支付明细所属期开始日期
-     * <p> 示例值：2024-08-01
+     *
+     * <p>示例值：2024-08-01
      */
-    @SerializedName("detail_reference_period_start_date")
-    private String detailReferencePeriodStartDate;
+    this.detailReferencePeriodStartDate = builder.detailReferencePeriodStartDate;
     /**
      * 一次性支付明细所属期结束日期
-     * <p> 示例值：2024-08-01
+     *
+     * <p>示例值：2024-08-01
      */
-    @SerializedName("detail_reference_period_end_date")
+    this.detailReferencePeriodEndDate = builder.detailReferencePeriodEndDate;
+    /**
+     * 是否因离职不发放 0, // 空，未填写或不适用 Yes = 1, // 是，因离职停发 No = 2, // 否，非离职停发
+     *
+     * <p>示例值：0
+     */
+    this.isNotIssuedDueToOffboardings = builder.isNotIssuedDueToOffboardings;
+  }
+
+  public static class Builder {
+    /**
+     * 一次性支付记录明细id，若需要基于已有记录进行更正，请传入（通过[【查询一次性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/lump_sum_payment/query)
+     * 接口进行查询）
+     *
+     * <p>示例值：7395133551102200876
+     */
+    private String id;
+
+    /**
+     * 一次性支付明细发放金额，可转数字的字符串，单位为该一次性支付记录 currency_id 对应的币种
+     *
+     * <p>示例值：2000.00
+     */
+    private String issuanceAmount;
+
+    /**
+     * 发放状态
+     *
+     * <p>示例值：to_be_issued
+     */
+    private String issuanceStatus;
+
+    /**
+     * 发放方式
+     *
+     * <p>示例值：with_salary
+     */
+    private String issuanceWay;
+
+    /**
+     * 发放时间
+     *
+     * <p>示例值：2024-08-20
+     */
+    private String issuanceTime;
+
+    /**
+     * 申请发放日期
+     *
+     * <p>示例值：2025-01-20
+     */
+    private String belongTime;
+
+    /**
+     * 发放国家ID（可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)进行查询）
+     *
+     * <p>示例值：6862995757234914824
+     */
+    private String issuanceCountryRegionId;
+
+    /**
+     * 发放薪资组ID（可通过[获取薪资组基本信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list);进行查询）
+     *
+     * <p>示例值：6862995757234914824
+     */
+    private String issuancePayGroupId;
+
+    /**
+     * 一次性支付明细所属期开始日期
+     *
+     * <p>示例值：2024-08-01
+     */
+    private String detailReferencePeriodStartDate;
+
+    /**
+     * 一次性支付明细所属期结束日期
+     *
+     * <p>示例值：2024-08-01
+     */
     private String detailReferencePeriodEndDate;
 
-    // builder 开始
-    public LumpSumPaymentDetailForUpdate() {
+    /**
+     * 是否因离职不发放 0, // 空，未填写或不适用 Yes = 1, // 是，因离职停发 No = 2, // 否，非离职停发
+     *
+     * <p>示例值：0
+     */
+    private Integer isNotIssuedDueToOffboardings;
+
+    /**
+     * 一次性支付记录明细id，若需要基于已有记录进行更正，请传入（通过[【查询一次性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/lump_sum_payment/query)
+     * 接口进行查询）
+     *
+     * <p>示例值：7395133551102200876
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public LumpSumPaymentDetailForUpdate(Builder builder) {
-        /**
-         * 一次性支付记录明细id。传入已有的id代表直接在原明细上进行更新，不传则代表创建新的明细
-         * <p> 示例值：7395133551102200876
-         */
-        this.id = builder.id;
-        /**
-         * 一次性支付明细发放金额，可转数字的字符串
-         * <p> 示例值：2000.00
-         */
-        this.issuanceAmount = builder.issuanceAmount;
-        /**
-         * 发放状态
-         * <p> 示例值：to_be_issued
-         */
-        this.issuanceStatus = builder.issuanceStatus;
-        /**
-         * 发放方式
-         * <p> 示例值：with_salary
-         */
-        this.issuanceWay = builder.issuanceWay;
-        /**
-         * 发放日期
-         * <p> 示例值：2024-08-20
-         */
-        this.issuanceTime = builder.issuanceTime;
-        /**
-         * 申请发放日期
-         * <p> 示例值：2025-01-20
-         */
-        this.belongTime = builder.belongTime;
-        /**
-         * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
-         * <p> 示例值：6862995757234914824
-         */
-        this.issuanceCountryRegionId = builder.issuanceCountryRegionId;
-        /**
-         * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
-         * <p> 示例值：6862995757234914824
-         */
-        this.issuancePayGroupId = builder.issuancePayGroupId;
-        /**
-         * 一次性支付明细所属期开始日期
-         * <p> 示例值：2024-08-01
-         */
-        this.detailReferencePeriodStartDate = builder.detailReferencePeriodStartDate;
-        /**
-         * 一次性支付明细所属期结束日期
-         * <p> 示例值：2024-08-01
-         */
-        this.detailReferencePeriodEndDate = builder.detailReferencePeriodEndDate;
+    /**
+     * 一次性支付明细发放金额，可转数字的字符串，单位为该一次性支付记录 currency_id 对应的币种
+     *
+     * <p>示例值：2000.00
+     *
+     * @param issuanceAmount
+     * @return
+     */
+    public Builder issuanceAmount(String issuanceAmount) {
+      this.issuanceAmount = issuanceAmount;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 发放状态
+     *
+     * <p>示例值：to_be_issued
+     *
+     * @param issuanceStatus
+     * @return
+     */
+    public Builder issuanceStatus(String issuanceStatus) {
+      this.issuanceStatus = issuanceStatus;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 发放状态
+     *
+     * <p>示例值：to_be_issued
+     *
+     * @param issuanceStatus {@link
+     *     com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentDetailForUpdateIssuanceStatusEnum}
+     * @return
+     */
+    public Builder issuanceStatus(
+        com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentDetailForUpdateIssuanceStatusEnum
+            issuanceStatus) {
+      this.issuanceStatus = issuanceStatus.getValue();
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 发放方式
+     *
+     * <p>示例值：with_salary
+     *
+     * @param issuanceWay
+     * @return
+     */
+    public Builder issuanceWay(String issuanceWay) {
+      this.issuanceWay = issuanceWay;
+      return this;
     }
 
-    public String getIssuanceAmount() {
-        return this.issuanceAmount;
+    /**
+     * 发放方式
+     *
+     * <p>示例值：with_salary
+     *
+     * @param issuanceWay {@link
+     *     com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentDetailForUpdateIssuanceWayEnum}
+     * @return
+     */
+    public Builder issuanceWay(
+        com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentDetailForUpdateIssuanceWayEnum
+            issuanceWay) {
+      this.issuanceWay = issuanceWay.getValue();
+      return this;
     }
 
-    public void setIssuanceAmount(String issuanceAmount) {
-        this.issuanceAmount = issuanceAmount;
+    /**
+     * 发放时间
+     *
+     * <p>示例值：2024-08-20
+     *
+     * @param issuanceTime
+     * @return
+     */
+    public Builder issuanceTime(String issuanceTime) {
+      this.issuanceTime = issuanceTime;
+      return this;
     }
 
-    public String getIssuanceStatus() {
-        return this.issuanceStatus;
+    /**
+     * 申请发放日期
+     *
+     * <p>示例值：2025-01-20
+     *
+     * @param belongTime
+     * @return
+     */
+    public Builder belongTime(String belongTime) {
+      this.belongTime = belongTime;
+      return this;
     }
 
-    public void setIssuanceStatus(String issuanceStatus) {
-        this.issuanceStatus = issuanceStatus;
+    /**
+     * 发放国家ID（可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)进行查询）
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param issuanceCountryRegionId
+     * @return
+     */
+    public Builder issuanceCountryRegionId(String issuanceCountryRegionId) {
+      this.issuanceCountryRegionId = issuanceCountryRegionId;
+      return this;
     }
 
-    public String getIssuanceWay() {
-        return this.issuanceWay;
+    /**
+     * 发放薪资组ID（可通过[获取薪资组基本信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list);进行查询）
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param issuancePayGroupId
+     * @return
+     */
+    public Builder issuancePayGroupId(String issuancePayGroupId) {
+      this.issuancePayGroupId = issuancePayGroupId;
+      return this;
     }
 
-    public void setIssuanceWay(String issuanceWay) {
-        this.issuanceWay = issuanceWay;
+    /**
+     * 一次性支付明细所属期开始日期
+     *
+     * <p>示例值：2024-08-01
+     *
+     * @param detailReferencePeriodStartDate
+     * @return
+     */
+    public Builder detailReferencePeriodStartDate(String detailReferencePeriodStartDate) {
+      this.detailReferencePeriodStartDate = detailReferencePeriodStartDate;
+      return this;
     }
 
-    public String getIssuanceTime() {
-        return this.issuanceTime;
+    /**
+     * 一次性支付明细所属期结束日期
+     *
+     * <p>示例值：2024-08-01
+     *
+     * @param detailReferencePeriodEndDate
+     * @return
+     */
+    public Builder detailReferencePeriodEndDate(String detailReferencePeriodEndDate) {
+      this.detailReferencePeriodEndDate = detailReferencePeriodEndDate;
+      return this;
     }
 
-    public void setIssuanceTime(String issuanceTime) {
-        this.issuanceTime = issuanceTime;
+    /**
+     * 是否因离职不发放 0, // 空，未填写或不适用 Yes = 1, // 是，因离职停发 No = 2, // 否，非离职停发
+     *
+     * <p>示例值：0
+     *
+     * @param isNotIssuedDueToOffboardings
+     * @return
+     */
+    public Builder isNotIssuedDueToOffboardings(Integer isNotIssuedDueToOffboardings) {
+      this.isNotIssuedDueToOffboardings = isNotIssuedDueToOffboardings;
+      return this;
     }
 
-    public String getBelongTime() {
-        return this.belongTime;
+    public LumpSumPaymentDetailForUpdate build() {
+      return new LumpSumPaymentDetailForUpdate(this);
     }
+  }
 
-    public void setBelongTime(String belongTime) {
-        this.belongTime = belongTime;
-    }
-
-    public String getIssuanceCountryRegionId() {
-        return this.issuanceCountryRegionId;
-    }
-
-    public void setIssuanceCountryRegionId(String issuanceCountryRegionId) {
-        this.issuanceCountryRegionId = issuanceCountryRegionId;
-    }
-
-    public String getIssuancePayGroupId() {
-        return this.issuancePayGroupId;
-    }
-
-    public void setIssuancePayGroupId(String issuancePayGroupId) {
-        this.issuancePayGroupId = issuancePayGroupId;
-    }
-
-    public String getDetailReferencePeriodStartDate() {
-        return this.detailReferencePeriodStartDate;
-    }
-
-    public void setDetailReferencePeriodStartDate(String detailReferencePeriodStartDate) {
-        this.detailReferencePeriodStartDate = detailReferencePeriodStartDate;
-    }
-
-    public String getDetailReferencePeriodEndDate() {
-        return this.detailReferencePeriodEndDate;
-    }
-
-    public void setDetailReferencePeriodEndDate(String detailReferencePeriodEndDate) {
-        this.detailReferencePeriodEndDate = detailReferencePeriodEndDate;
-    }
-
-    public static class Builder {
-        /**
-         * 一次性支付记录明细id。传入已有的id代表直接在原明细上进行更新，不传则代表创建新的明细
-         * <p> 示例值：7395133551102200876
-         */
-        private String id;
-        /**
-         * 一次性支付明细发放金额，可转数字的字符串
-         * <p> 示例值：2000.00
-         */
-        private String issuanceAmount;
-        /**
-         * 发放状态
-         * <p> 示例值：to_be_issued
-         */
-        private String issuanceStatus;
-        /**
-         * 发放方式
-         * <p> 示例值：with_salary
-         */
-        private String issuanceWay;
-        /**
-         * 发放日期
-         * <p> 示例值：2024-08-20
-         */
-        private String issuanceTime;
-        /**
-         * 申请发放日期
-         * <p> 示例值：2025-01-20
-         */
-        private String belongTime;
-        /**
-         * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
-         * <p> 示例值：6862995757234914824
-         */
-        private String issuanceCountryRegionId;
-        /**
-         * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
-         * <p> 示例值：6862995757234914824
-         */
-        private String issuancePayGroupId;
-        /**
-         * 一次性支付明细所属期开始日期
-         * <p> 示例值：2024-08-01
-         */
-        private String detailReferencePeriodStartDate;
-        /**
-         * 一次性支付明细所属期结束日期
-         * <p> 示例值：2024-08-01
-         */
-        private String detailReferencePeriodEndDate;
-
-        /**
-         * 一次性支付记录明细id。传入已有的id代表直接在原明细上进行更新，不传则代表创建新的明细
-         * <p> 示例值：7395133551102200876
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 一次性支付明细发放金额，可转数字的字符串
-         * <p> 示例值：2000.00
-         *
-         * @param issuanceAmount
-         * @return
-         */
-        public Builder issuanceAmount(String issuanceAmount) {
-            this.issuanceAmount = issuanceAmount;
-            return this;
-        }
-
-
-        /**
-         * 发放状态
-         * <p> 示例值：to_be_issued
-         *
-         * @param issuanceStatus
-         * @return
-         */
-        public Builder issuanceStatus(String issuanceStatus) {
-            this.issuanceStatus = issuanceStatus;
-            return this;
-        }
-
-        /**
-         * 发放状态
-         * <p> 示例值：to_be_issued
-         *
-         * @param issuanceStatus {@link com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentDetailForUpdateIssuanceStatusEnum}
-         * @return
-         */
-        public Builder issuanceStatus(com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentDetailForUpdateIssuanceStatusEnum issuanceStatus) {
-            this.issuanceStatus = issuanceStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 发放方式
-         * <p> 示例值：with_salary
-         *
-         * @param issuanceWay
-         * @return
-         */
-        public Builder issuanceWay(String issuanceWay) {
-            this.issuanceWay = issuanceWay;
-            return this;
-        }
-
-        /**
-         * 发放方式
-         * <p> 示例值：with_salary
-         *
-         * @param issuanceWay {@link com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentDetailForUpdateIssuanceWayEnum}
-         * @return
-         */
-        public Builder issuanceWay(com.lark.oapi.service.compensation.v1.enums.LumpSumPaymentDetailForUpdateIssuanceWayEnum issuanceWay) {
-            this.issuanceWay = issuanceWay.getValue();
-            return this;
-        }
-
-
-        /**
-         * 发放日期
-         * <p> 示例值：2024-08-20
-         *
-         * @param issuanceTime
-         * @return
-         */
-        public Builder issuanceTime(String issuanceTime) {
-            this.issuanceTime = issuanceTime;
-            return this;
-        }
-
-
-        /**
-         * 申请发放日期
-         * <p> 示例值：2025-01-20
-         *
-         * @param belongTime
-         * @return
-         */
-        public Builder belongTime(String belongTime) {
-            this.belongTime = belongTime;
-            return this;
-        }
-
-
-        /**
-         * 发放国家ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search进行查询）
-         * <p> 示例值：6862995757234914824
-         *
-         * @param issuanceCountryRegionId
-         * @return
-         */
-        public Builder issuanceCountryRegionId(String issuanceCountryRegionId) {
-            this.issuanceCountryRegionId = issuanceCountryRegionId;
-            return this;
-        }
-
-
-        /**
-         * 发放薪资组ID（可通过 https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/paygroup/list进行查询）
-         * <p> 示例值：6862995757234914824
-         *
-         * @param issuancePayGroupId
-         * @return
-         */
-        public Builder issuancePayGroupId(String issuancePayGroupId) {
-            this.issuancePayGroupId = issuancePayGroupId;
-            return this;
-        }
-
-
-        /**
-         * 一次性支付明细所属期开始日期
-         * <p> 示例值：2024-08-01
-         *
-         * @param detailReferencePeriodStartDate
-         * @return
-         */
-        public Builder detailReferencePeriodStartDate(String detailReferencePeriodStartDate) {
-            this.detailReferencePeriodStartDate = detailReferencePeriodStartDate;
-            return this;
-        }
-
-
-        /**
-         * 一次性支付明细所属期结束日期
-         * <p> 示例值：2024-08-01
-         *
-         * @param detailReferencePeriodEndDate
-         * @return
-         */
-        public Builder detailReferencePeriodEndDate(String detailReferencePeriodEndDate) {
-            this.detailReferencePeriodEndDate = detailReferencePeriodEndDate;
-            return this;
-        }
-
-
-        public LumpSumPaymentDetailForUpdate build() {
-            return new LumpSumPaymentDetailForUpdate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

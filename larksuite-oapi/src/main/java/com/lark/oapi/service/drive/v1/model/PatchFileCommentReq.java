@@ -13,175 +13,181 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class PatchFileCommentReq {
+  /**
+   * 云文档类型
+   *
+   * <p>示例值：doc
+   */
+  @Query
+  @SerializedName("file_type")
+  private String fileType;
+
+  public String getFileType() {
+    return this.fileType;
+  }
+
+  public void setFileType(String fileType) {
+    this.fileType = fileType;
+  }
+
+  /**
+   * 文档token
+   *
+   * <p>示例值：doccnGp4UK1UskrOEJwBXd3****
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  /**
+   * 评论ID
+   *
+   * <p>示例值：6916106822734578184
+   */
+  @Path
+  @SerializedName("comment_id")
+  private String commentId;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  public String getCommentId() {
+    return this.commentId;
+  }
+
+  public void setCommentId(String commentId) {
+    this.commentId = commentId;
+  }
+
+  @Body private PatchFileCommentReqBody body;
+
+  public PatchFileCommentReqBody getPatchFileCommentReqBody() {
+    return this.body;
+  }
+
+  public void setPatchFileCommentReqBody(PatchFileCommentReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchFileCommentReq() {}
+
+  public PatchFileCommentReq(Builder builder) {
     /**
-     * 文档类型
-     * <p> 示例值：doc
+     * 云文档类型
+     *
+     * <p>示例值：doc
      */
-    @Query
-    @SerializedName("file_type")
-    private String fileType;
+    this.fileType = builder.fileType;
     /**
      * 文档token
-     * <p> 示例值：doccnGp4UK1UskrOEJwBXd3****
+     *
+     * <p>示例值：doccnGp4UK1UskrOEJwBXd3****
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
     /**
      * 评论ID
-     * <p> 示例值：6916106822734578184
+     *
+     * <p>示例值：6916106822734578184
      */
-    @Path
-    @SerializedName("comment_id")
-    private String commentId;
-    @Body
+    this.commentId = builder.commentId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String fileType; // 云文档类型
+
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：doc
+     *
+     * @param fileType
+     * @return
+     */
+    public Builder fileType(String fileType) {
+      this.fileType = fileType;
+      return this;
+    }
+
+    /**
+     * 云文档类型
+     *
+     * <p>示例值：doc
+     *
+     * @param fileType {@link com.lark.oapi.service.drive.v1.enums.PatchFileCommentFileTypeEnum}
+     * @return
+     */
+    public Builder fileType(
+        com.lark.oapi.service.drive.v1.enums.PatchFileCommentFileTypeEnum fileType) {
+      this.fileType = fileType.getValue();
+      return this;
+    }
+
+    private String fileToken; // 文档token
+    private String commentId; // 评论ID
+
+    /**
+     * 文档token
+     *
+     * <p>示例值：doccnGp4UK1UskrOEJwBXd3****
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
+    }
+
+    /**
+     * 评论ID
+     *
+     * <p>示例值：6916106822734578184
+     *
+     * @param commentId
+     * @return
+     */
+    public Builder commentId(String commentId) {
+      this.commentId = commentId;
+      return this;
+    }
+
     private PatchFileCommentReqBody body;
 
-    // builder 开始
-    public PatchFileCommentReq() {
-    }
-
-    public PatchFileCommentReq(Builder builder) {
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         */
-        this.fileType = builder.fileType;
-        /**
-         * 文档token
-         * <p> 示例值：doccnGp4UK1UskrOEJwBXd3****
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 评论ID
-         * <p> 示例值：6916106822734578184
-         */
-        this.commentId = builder.commentId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getFileType() {
-        return this.fileType;
-    }
-
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public String getCommentId() {
-        return this.commentId;
-    }
-
-    public void setCommentId(String commentId) {
-        this.commentId = commentId;
-    }
-
     public PatchFileCommentReqBody getPatchFileCommentReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPatchFileCommentReqBody(PatchFileCommentReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder patchFileCommentReqBody(PatchFileCommentReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String fileType; // 文档类型
-        private String fileToken; // 文档token
-        private String commentId; // 评论ID
-        private PatchFileCommentReqBody body;
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         *
-         * @param fileType
-         * @return
-         */
-        public Builder fileType(String fileType) {
-            this.fileType = fileType;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc
-         *
-         * @param fileType {@link com.lark.oapi.service.drive.v1.enums.PatchFileCommentFileTypeEnum}
-         * @return
-         */
-        public Builder fileType(com.lark.oapi.service.drive.v1.enums.PatchFileCommentFileTypeEnum fileType) {
-            this.fileType = fileType.getValue();
-            return this;
-        }
-
-        /**
-         * 文档token
-         * <p> 示例值：doccnGp4UK1UskrOEJwBXd3****
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-        /**
-         * 评论ID
-         * <p> 示例值：6916106822734578184
-         *
-         * @param commentId
-         * @return
-         */
-        public Builder commentId(String commentId) {
-            this.commentId = commentId;
-            return this;
-        }
-
-        public PatchFileCommentReqBody getPatchFileCommentReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder patchFileCommentReqBody(PatchFileCommentReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchFileCommentReq build() {
-            return new PatchFileCommentReq(this);
-        }
+    public PatchFileCommentReq build() {
+      return new PatchFileCommentReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

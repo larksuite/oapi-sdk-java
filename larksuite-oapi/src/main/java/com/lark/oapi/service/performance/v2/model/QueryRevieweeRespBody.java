@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryRevieweeRespBody {
-    /**
-     * 周期ID
-     * <p> 示例值：7291278856547794964
-     */
-    @SerializedName("semester_id")
-    private String semesterId;
-    /**
-     * 被评估人列表
-     * <p> 示例值：
-     */
-    @SerializedName("reviewees")
-    private Reviewee[] reviewees;
-    /**
-     * 是否还有更多项
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
+  /**
+   * 周期ID
+   *
+   * <p>示例值：7291278856547794964
+   */
+  @SerializedName("semester_id")
+  private String semesterId;
 
-    public String getSemesterId() {
-        return this.semesterId;
-    }
+  /**
+   * 被评估人列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reviewees")
+  private Reviewee[] reviewees;
 
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public Reviewee[] getReviewees() {
-        return this.reviewees;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setReviewees(Reviewee[] reviewees) {
-        this.reviewees = reviewees;
-    }
+  public String getSemesterId() {
+    return this.semesterId;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setSemesterId(String semesterId) {
+    this.semesterId = semesterId;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public Reviewee[] getReviewees() {
+    return this.reviewees;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public void setReviewees(Reviewee[] reviewees) {
+    this.reviewees = reviewees;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 }

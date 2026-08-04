@@ -13,277 +13,290 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class GetTopUserReportReq {
+  /**
+   * 开始时间（unix时间，单位sec）
+   *
+   * <p>示例值：1608888867
+   */
+  @Query
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 结束时间（unix时间，单位sec）
+   *
+   * <p>示例值：1608889966
+   */
+  @Query
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 取前多少位
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("limit")
+  private Integer limit;
+
+  /**
+   * 排序依据（降序）
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("order_by")
+  private Integer orderBy;
+
+  /**
+   * 数据驻留地（传参前提是租户存在多个驻留地数据且开通了该查询功能）
+   *
+   * <p>示例值：0
+   */
+  @Query
+  @SerializedName("unit")
+  private Integer unit;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public Integer getLimit() {
+    return this.limit;
+  }
+
+  public void setLimit(Integer limit) {
+    this.limit = limit;
+  }
+
+  public Integer getOrderBy() {
+    return this.orderBy;
+  }
+
+  public void setOrderBy(Integer orderBy) {
+    this.orderBy = orderBy;
+  }
+
+  public Integer getUnit() {
+    return this.unit;
+  }
+
+  public void setUnit(Integer unit) {
+    this.unit = unit;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  // builder 开始
+  public GetTopUserReportReq() {}
+
+  public GetTopUserReportReq(Builder builder) {
     /**
      * 开始时间（unix时间，单位sec）
-     * <p> 示例值：1608888867
+     *
+     * <p>示例值：1608888867
      */
-    @Query
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
      * 结束时间（unix时间，单位sec）
-     * <p> 示例值：1608889966
+     *
+     * <p>示例值：1608889966
      */
-    @Query
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 取前多少位
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("limit")
-    private Integer limit;
+    this.limit = builder.limit;
     /**
      * 排序依据（降序）
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("order_by")
-    private Integer orderBy;
+    this.orderBy = builder.orderBy;
     /**
-     * 数据驻留地
-     * <p> 示例值：0
+     * 数据驻留地（传参前提是租户存在多个驻留地数据且开通了该查询功能）
+     *
+     * <p>示例值：0
      */
-    @Query
-    @SerializedName("unit")
-    private Integer unit;
+    this.unit = builder.unit;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
+  }
 
-    // builder 开始
-    public GetTopUserReportReq() {
+  public static class Builder {
+    private String startTime; // 开始时间（unix时间，单位sec）
+    private String endTime; // 结束时间（unix时间，单位sec）
+    private Integer limit; // 取前多少位
+    private Integer orderBy; // 排序依据（降序）
+    private Integer unit; // 数据驻留地（传参前提是租户存在多个驻留地数据且开通了该查询功能）
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 开始时间（unix时间，单位sec）
+     *
+     * <p>示例值：1608888867
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public GetTopUserReportReq(Builder builder) {
-        /**
-         * 开始时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间（unix时间，单位sec）
-         * <p> 示例值：1608889966
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 取前多少位
-         * <p> 示例值：10
-         */
-        this.limit = builder.limit;
-        /**
-         * 排序依据（降序）
-         * <p> 示例值：1
-         */
-        this.orderBy = builder.orderBy;
-        /**
-         * 数据驻留地
-         * <p> 示例值：0
-         */
-        this.unit = builder.unit;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
+    /**
+     * 结束时间（unix时间，单位sec）
+     *
+     * <p>示例值：1608889966
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 取前多少位
+     *
+     * <p>示例值：10
+     *
+     * @param limit
+     * @return
+     */
+    public Builder limit(Integer limit) {
+      this.limit = limit;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    /**
+     * 排序依据（降序）
+     *
+     * <p>示例值：1
+     *
+     * @param orderBy
+     * @return
+     */
+    public Builder orderBy(Integer orderBy) {
+      this.orderBy = orderBy;
+      return this;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    /**
+     * 排序依据（降序）
+     *
+     * <p>示例值：1
+     *
+     * @param orderBy {@link com.lark.oapi.service.vc.v1.enums.GetTopUserReportTopUserOrderByEnum}
+     * @return
+     */
+    public Builder orderBy(
+        com.lark.oapi.service.vc.v1.enums.GetTopUserReportTopUserOrderByEnum orderBy) {
+      this.orderBy = orderBy.getValue();
+      return this;
     }
 
-    public String getEndTime() {
-        return this.endTime;
+    /**
+     * 数据驻留地（传参前提是租户存在多个驻留地数据且开通了该查询功能）
+     *
+     * <p>示例值：0
+     *
+     * @param unit
+     * @return
+     */
+    public Builder unit(Integer unit) {
+      this.unit = unit;
+      return this;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    /**
+     * 数据驻留地（传参前提是租户存在多个驻留地数据且开通了该查询功能）
+     *
+     * <p>示例值：0
+     *
+     * @param unit {@link com.lark.oapi.service.vc.v1.enums.GetTopUserReportUnitTypeEnum}
+     * @return
+     */
+    public Builder unit(com.lark.oapi.service.vc.v1.enums.GetTopUserReportUnitTypeEnum unit) {
+      this.unit = unit.getValue();
+      return this;
     }
 
-    public Integer getLimit() {
-        return this.limit;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public void setLimit(Integer limit) {
-        this.limit = limit;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.vc.v1.enums.GetTopUserReportGetTopUserReportUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.vc.v1.enums.GetTopUserReportGetTopUserReportUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public Integer getOrderBy() {
-        return this.orderBy;
+    public GetTopUserReportReq build() {
+      return new GetTopUserReportReq(this);
     }
+  }
 
-    public void setOrderBy(Integer orderBy) {
-        this.orderBy = orderBy;
-    }
-
-    public Integer getUnit() {
-        return this.unit;
-    }
-
-    public void setUnit(Integer unit) {
-        this.unit = unit;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public static class Builder {
-        private String startTime; // 开始时间（unix时间，单位sec）
-        private String endTime; // 结束时间（unix时间，单位sec）
-        private Integer limit; // 取前多少位
-        private Integer orderBy; // 排序依据（降序）
-        private Integer unit; // 数据驻留地
-        private String userIdType; // 此次调用中使用的用户ID的类型
-
-        /**
-         * 开始时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间（unix时间，单位sec）
-         * <p> 示例值：1608889966
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 取前多少位
-         * <p> 示例值：10
-         *
-         * @param limit
-         * @return
-         */
-        public Builder limit(Integer limit) {
-            this.limit = limit;
-            return this;
-        }
-
-
-        /**
-         * 排序依据（降序）
-         * <p> 示例值：1
-         *
-         * @param orderBy
-         * @return
-         */
-        public Builder orderBy(Integer orderBy) {
-            this.orderBy = orderBy;
-            return this;
-        }
-
-        /**
-         * 排序依据（降序）
-         * <p> 示例值：1
-         *
-         * @param orderBy {@link com.lark.oapi.service.vc.v1.enums.GetTopUserReportTopUserOrderByEnum}
-         * @return
-         */
-        public Builder orderBy(com.lark.oapi.service.vc.v1.enums.GetTopUserReportTopUserOrderByEnum orderBy) {
-            this.orderBy = orderBy.getValue();
-            return this;
-        }
-
-
-        /**
-         * 数据驻留地
-         * <p> 示例值：0
-         *
-         * @param unit
-         * @return
-         */
-        public Builder unit(Integer unit) {
-            this.unit = unit;
-            return this;
-        }
-
-        /**
-         * 数据驻留地
-         * <p> 示例值：0
-         *
-         * @param unit {@link com.lark.oapi.service.vc.v1.enums.GetTopUserReportUnitTypeEnum}
-         * @return
-         */
-        public Builder unit(com.lark.oapi.service.vc.v1.enums.GetTopUserReportUnitTypeEnum unit) {
-            this.unit = unit.getValue();
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.GetTopUserReportGetTopUserReportUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.GetTopUserReportGetTopUserReportUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        public GetTopUserReportReq build() {
-            return new GetTopUserReportReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

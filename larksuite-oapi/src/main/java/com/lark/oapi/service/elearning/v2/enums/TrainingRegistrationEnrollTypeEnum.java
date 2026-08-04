@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.elearning.v2.enums;
 
-/**
- * 加入类型
- */
+/** 加入类型 */
 public enum TrainingRegistrationEnrollTypeEnum {
-    ASSIGNED(1), // 被管理员指派
-    SELFENROLL(2), // 学员自主加入
-    RULE(3), // 按照规则自动加入
-    APPLIED(4), // 学员申请被批准加入
-    ;
-    private Integer value;
+  ASSIGNED(1), // 被管理员指派
+  SELFENROLL(2), // 学员自主加入
+  RULE(3), // 按照规则自动加入
+  APPLIED(4), // 学员申请被批准加入
+  ;
+  private Integer value;
 
-    TrainingRegistrationEnrollTypeEnum(Integer value) {
-        this.value = value;
-    }
+  TrainingRegistrationEnrollTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,65 +13,52 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.compensation.v1.enums.*;
 
 public class BatchRemoveRecurringPaymentReq {
-    @Body
+  @Body private BatchRemoveRecurringPaymentReqBody body;
+
+  public BatchRemoveRecurringPaymentReqBody getBatchRemoveRecurringPaymentReqBody() {
+    return this.body;
+  }
+
+  public void setBatchRemoveRecurringPaymentReqBody(BatchRemoveRecurringPaymentReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchRemoveRecurringPaymentReq() {}
+
+  public BatchRemoveRecurringPaymentReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private BatchRemoveRecurringPaymentReqBody body;
 
-    // builder 开始
-    public BatchRemoveRecurringPaymentReq() {
-    }
-
-    public BatchRemoveRecurringPaymentReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public BatchRemoveRecurringPaymentReqBody getBatchRemoveRecurringPaymentReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchRemoveRecurringPaymentReqBody(BatchRemoveRecurringPaymentReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchRemoveRecurringPaymentReqBody(BatchRemoveRecurringPaymentReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private BatchRemoveRecurringPaymentReqBody body;
-
-        public BatchRemoveRecurringPaymentReqBody getBatchRemoveRecurringPaymentReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchRemoveRecurringPaymentReqBody(BatchRemoveRecurringPaymentReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchRemoveRecurringPaymentReq build() {
-            return new BatchRemoveRecurringPaymentReq(this);
-        }
+    public BatchRemoveRecurringPaymentReq build() {
+      return new BatchRemoveRecurringPaymentReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

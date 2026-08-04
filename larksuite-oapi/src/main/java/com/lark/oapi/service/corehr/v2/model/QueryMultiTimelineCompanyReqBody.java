@@ -13,186 +13,215 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryMultiTimelineCompanyReqBody {
+  /**
+   * 公司ID。ID获取方式：;-
+   * 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回公司ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("company_ids")
+  private String[] companyIds;
+
+  /**
+   * 查询开始时间（包含）
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("start_date")
+  private String startDate;
+
+  /**
+   * 查询结束时间（不包含）
+   *
+   * <p>示例值：2024-12-31
+   */
+  @SerializedName("end_date")
+  private String endDate;
+
+  /**
+   * 返回数据的字段列表，可选;- company_name：公司名称;- code ：编码;- active：是否启用;- parent_company：上级公司;-
+   * description：描述;- effective_date ：当前版本生效日期;- expiration_date ：当前版本失效日期;- type：公司性质;-
+   * industry_list：所在行业;- legal_representative ：法定代表人;- post_code：邮编;- tax_payer_id ：纳税人识别号;-
+   * confidential：是否保密;- sub_type_list：公司主体类型;- branch_company：是否为分公司;- primary_manager：主要负责人;-
+   * currency：默认币种;- phone：电话;- fax：传真;- registered_office_address：完整注册地址;- office_address：完整办公地址;-
+   * registered_office_address_info：注册地址;- office_address_info：办公地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private String[] fields;
+
+  public String[] getCompanyIds() {
+    return this.companyIds;
+  }
+
+  public void setCompanyIds(String[] companyIds) {
+    this.companyIds = companyIds;
+  }
+
+  public String getStartDate() {
+    return this.startDate;
+  }
+
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+  public String getEndDate() {
+    return this.endDate;
+  }
+
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
+  }
+
+  public String[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(String[] fields) {
+    this.fields = fields;
+  }
+
+  // builder 开始
+  public QueryMultiTimelineCompanyReqBody() {}
+
+  public QueryMultiTimelineCompanyReqBody(Builder builder) {
     /**
-     * 公司 ID 列表
-     * <p> 示例值：
+     * 公司ID。ID获取方式：;-
+     * 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回公司ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("company_ids")
-    private String[] companyIds;
+    this.companyIds = builder.companyIds;
     /**
      * 查询开始时间（包含）
-     * <p> 示例值：2024-01-01
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("start_date")
+    this.startDate = builder.startDate;
+    /**
+     * 查询结束时间（不包含）
+     *
+     * <p>示例值：2024-12-31
+     */
+    this.endDate = builder.endDate;
+    /**
+     * 返回数据的字段列表，可选;- company_name：公司名称;- code ：编码;- active：是否启用;- parent_company：上级公司;-
+     * description：描述;- effective_date ：当前版本生效日期;- expiration_date ：当前版本失效日期;- type：公司性质;-
+     * industry_list：所在行业;- legal_representative ：法定代表人;- post_code：邮编;- tax_payer_id ：纳税人识别号;-
+     * confidential：是否保密;- sub_type_list：公司主体类型;- branch_company：是否为分公司;- primary_manager：主要负责人;-
+     * currency：默认币种;- phone：电话;- fax：传真;- registered_office_address：完整注册地址;-
+     * office_address：完整办公地址;- registered_office_address_info：注册地址;- office_address_info：办公地址
+     *
+     * <p>示例值：
+     */
+    this.fields = builder.fields;
+  }
+
+  public static class Builder {
+    /**
+     * 公司ID。ID获取方式：;-
+     * 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回公司ID
+     *
+     * <p>示例值：
+     */
+    private String[] companyIds;
+
+    /**
+     * 查询开始时间（包含）
+     *
+     * <p>示例值：2024-01-01
+     */
     private String startDate;
+
     /**
-     * 查询结束时间(包含)
-     * <p> 示例值：2024-12-31
+     * 查询结束时间（不包含）
+     *
+     * <p>示例值：2024-12-31
      */
-    @SerializedName("end_date")
     private String endDate;
+
     /**
-     * 返回数据的字段列表，可选["company_name", "code", "active", "description", "effective_date", "expiration_date"]
-     * <p> 示例值：
+     * 返回数据的字段列表，可选;- company_name：公司名称;- code ：编码;- active：是否启用;- parent_company：上级公司;-
+     * description：描述;- effective_date ：当前版本生效日期;- expiration_date ：当前版本失效日期;- type：公司性质;-
+     * industry_list：所在行业;- legal_representative ：法定代表人;- post_code：邮编;- tax_payer_id ：纳税人识别号;-
+     * confidential：是否保密;- sub_type_list：公司主体类型;- branch_company：是否为分公司;- primary_manager：主要负责人;-
+     * currency：默认币种;- phone：电话;- fax：传真;- registered_office_address：完整注册地址;-
+     * office_address：完整办公地址;- registered_office_address_info：注册地址;- office_address_info：办公地址
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
     private String[] fields;
 
-    // builder 开始
-    public QueryMultiTimelineCompanyReqBody() {
+    /**
+     * 公司ID。ID获取方式：;-
+     * 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回公司ID
+     *
+     * <p>示例值：
+     *
+     * @param companyIds
+     * @return
+     */
+    public Builder companyIds(String[] companyIds) {
+      this.companyIds = companyIds;
+      return this;
     }
 
-    public QueryMultiTimelineCompanyReqBody(Builder builder) {
-        /**
-         * 公司 ID 列表
-         * <p> 示例值：
-         */
-        this.companyIds = builder.companyIds;
-        /**
-         * 查询开始时间（包含）
-         * <p> 示例值：2024-01-01
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 查询结束时间(包含)
-         * <p> 示例值：2024-12-31
-         */
-        this.endDate = builder.endDate;
-        /**
-         * 返回数据的字段列表，可选["company_name", "code", "active", "description", "effective_date", "expiration_date"]
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
+    /**
+     * 查询开始时间（包含）
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param startDate
+     * @return
+     */
+    public Builder startDate(String startDate) {
+      this.startDate = startDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 查询结束时间（不包含）
+     *
+     * <p>示例值：2024-12-31
+     *
+     * @param endDate
+     * @return
+     */
+    public Builder endDate(String endDate) {
+      this.endDate = endDate;
+      return this;
     }
 
-    public String[] getCompanyIds() {
-        return this.companyIds;
+    /**
+     * 返回数据的字段列表，可选;- company_name：公司名称;- code ：编码;- active：是否启用;- parent_company：上级公司;-
+     * description：描述;- effective_date ：当前版本生效日期;- expiration_date ：当前版本失效日期;- type：公司性质;-
+     * industry_list：所在行业;- legal_representative ：法定代表人;- post_code：邮编;- tax_payer_id ：纳税人识别号;-
+     * confidential：是否保密;- sub_type_list：公司主体类型;- branch_company：是否为分公司;- primary_manager：主要负责人;-
+     * currency：默认币种;- phone：电话;- fax：传真;- registered_office_address：完整注册地址;-
+     * office_address：完整办公地址;- registered_office_address_info：注册地址;- office_address_info：办公地址
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(String[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public void setCompanyIds(String[] companyIds) {
-        this.companyIds = companyIds;
+    public QueryMultiTimelineCompanyReqBody build() {
+      return new QueryMultiTimelineCompanyReqBody(this);
     }
+  }
 
-    public String getStartDate() {
-        return this.startDate;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-
-    public String getEndDate() {
-        return this.endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
-    public String[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(String[] fields) {
-        this.fields = fields;
-    }
-
-    public static class Builder {
-        /**
-         * 公司 ID 列表
-         * <p> 示例值：
-         */
-        private String[] companyIds;
-        /**
-         * 查询开始时间（包含）
-         * <p> 示例值：2024-01-01
-         */
-        private String startDate;
-        /**
-         * 查询结束时间(包含)
-         * <p> 示例值：2024-12-31
-         */
-        private String endDate;
-        /**
-         * 返回数据的字段列表，可选["company_name", "code", "active", "description", "effective_date", "expiration_date"]
-         * <p> 示例值：
-         */
-        private String[] fields;
-
-        /**
-         * 公司 ID 列表
-         * <p> 示例值：
-         *
-         * @param companyIds
-         * @return
-         */
-        public Builder companyIds(String[] companyIds) {
-            this.companyIds = companyIds;
-            return this;
-        }
-
-
-        /**
-         * 查询开始时间（包含）
-         * <p> 示例值：2024-01-01
-         *
-         * @param startDate
-         * @return
-         */
-        public Builder startDate(String startDate) {
-            this.startDate = startDate;
-            return this;
-        }
-
-
-        /**
-         * 查询结束时间(包含)
-         * <p> 示例值：2024-12-31
-         *
-         * @param endDate
-         * @return
-         */
-        public Builder endDate(String endDate) {
-            this.endDate = endDate;
-            return this;
-        }
-
-
-        /**
-         * 返回数据的字段列表，可选["company_name", "code", "active", "description", "effective_date", "expiration_date"]
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(String[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        public QueryMultiTimelineCompanyReqBody build() {
-            return new QueryMultiTimelineCompanyReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

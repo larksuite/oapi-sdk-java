@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecommendRoomInfo {
+  /**
+   * 会议室ID
+   *
+   * <p>示例值：omm_83d09ad4f6896e02029a6a075f71c9d1
+   */
+  @SerializedName("room_id")
+  private String roomId;
+
+  /**
+   * 会议室展示名称
+   *
+   * <p>示例值：xx建筑-F2-01
+   */
+  @SerializedName("room_name")
+  private String roomName;
+
+  /**
+   * 会议室完整名称
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("full_name")
+  private String fullName;
+
+  /**
+   * 会议室容量
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("capacity")
+  private Integer capacity;
+
+  /**
+   * 会议室预定截止时间
+   *
+   * <p>示例值：2027-03-01T15:00:00Z
+   */
+  @SerializedName("reserve_until_time")
+  private String reserveUntilTime;
+
+  public String getRoomId() {
+    return this.roomId;
+  }
+
+  public void setRoomId(String roomId) {
+    this.roomId = roomId;
+  }
+
+  public String getRoomName() {
+    return this.roomName;
+  }
+
+  public void setRoomName(String roomName) {
+    this.roomName = roomName;
+  }
+
+  public String getFullName() {
+    return this.fullName;
+  }
+
+  public void setFullName(String fullName) {
+    this.fullName = fullName;
+  }
+
+  public Integer getCapacity() {
+    return this.capacity;
+  }
+
+  public void setCapacity(Integer capacity) {
+    this.capacity = capacity;
+  }
+
+  public String getReserveUntilTime() {
+    return this.reserveUntilTime;
+  }
+
+  public void setReserveUntilTime(String reserveUntilTime) {
+    this.reserveUntilTime = reserveUntilTime;
+  }
+
+  // builder 开始
+  public RecommendRoomInfo() {}
+
+  public RecommendRoomInfo(Builder builder) {
     /**
      * 会议室ID
-     * <p> 示例值：omm_83d09ad4f6896e02029a6a075f71c9d1
+     *
+     * <p>示例值：omm_83d09ad4f6896e02029a6a075f71c9d1
      */
-    @SerializedName("room_id")
-    private String roomId;
+    this.roomId = builder.roomId;
     /**
      * 会议室展示名称
-     * <p> 示例值：xx建筑-F2-01
+     *
+     * <p>示例值：xx建筑-F2-01
      */
-    @SerializedName("room_name")
-    private String roomName;
+    this.roomName = builder.roomName;
     /**
      * 会议室完整名称
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("full_name")
-    private String fullName;
+    this.fullName = builder.fullName;
     /**
      * 会议室容量
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("capacity")
-    private Integer capacity;
+    this.capacity = builder.capacity;
     /**
      * 会议室预定截止时间
-     * <p> 示例值：2027-03-01T15:00:00Z
+     *
+     * <p>示例值：2027-03-01T15:00:00Z
      */
-    @SerializedName("reserve_until_time")
+    this.reserveUntilTime = builder.reserveUntilTime;
+  }
+
+  public static class Builder {
+    /**
+     * 会议室ID
+     *
+     * <p>示例值：omm_83d09ad4f6896e02029a6a075f71c9d1
+     */
+    private String roomId;
+
+    /**
+     * 会议室展示名称
+     *
+     * <p>示例值：xx建筑-F2-01
+     */
+    private String roomName;
+
+    /**
+     * 会议室完整名称
+     *
+     * <p>示例值：无
+     */
+    private String fullName;
+
+    /**
+     * 会议室容量
+     *
+     * <p>示例值：2
+     */
+    private Integer capacity;
+
+    /**
+     * 会议室预定截止时间
+     *
+     * <p>示例值：2027-03-01T15:00:00Z
+     */
     private String reserveUntilTime;
 
-    // builder 开始
-    public RecommendRoomInfo() {
+    /**
+     * 会议室ID
+     *
+     * <p>示例值：omm_83d09ad4f6896e02029a6a075f71c9d1
+     *
+     * @param roomId
+     * @return
+     */
+    public Builder roomId(String roomId) {
+      this.roomId = roomId;
+      return this;
     }
 
-    public RecommendRoomInfo(Builder builder) {
-        /**
-         * 会议室ID
-         * <p> 示例值：omm_83d09ad4f6896e02029a6a075f71c9d1
-         */
-        this.roomId = builder.roomId;
-        /**
-         * 会议室展示名称
-         * <p> 示例值：xx建筑-F2-01
-         */
-        this.roomName = builder.roomName;
-        /**
-         * 会议室完整名称
-         * <p> 示例值：无
-         */
-        this.fullName = builder.fullName;
-        /**
-         * 会议室容量
-         * <p> 示例值：2
-         */
-        this.capacity = builder.capacity;
-        /**
-         * 会议室预定截止时间
-         * <p> 示例值：2027-03-01T15:00:00Z
-         */
-        this.reserveUntilTime = builder.reserveUntilTime;
+    /**
+     * 会议室展示名称
+     *
+     * <p>示例值：xx建筑-F2-01
+     *
+     * @param roomName
+     * @return
+     */
+    public Builder roomName(String roomName) {
+      this.roomName = roomName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会议室完整名称
+     *
+     * <p>示例值：无
+     *
+     * @param fullName
+     * @return
+     */
+    public Builder fullName(String fullName) {
+      this.fullName = fullName;
+      return this;
     }
 
-    public String getRoomId() {
-        return this.roomId;
+    /**
+     * 会议室容量
+     *
+     * <p>示例值：2
+     *
+     * @param capacity
+     * @return
+     */
+    public Builder capacity(Integer capacity) {
+      this.capacity = capacity;
+      return this;
     }
 
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
+    /**
+     * 会议室预定截止时间
+     *
+     * <p>示例值：2027-03-01T15:00:00Z
+     *
+     * @param reserveUntilTime
+     * @return
+     */
+    public Builder reserveUntilTime(String reserveUntilTime) {
+      this.reserveUntilTime = reserveUntilTime;
+      return this;
     }
 
-    public String getRoomName() {
-        return this.roomName;
+    public RecommendRoomInfo build() {
+      return new RecommendRoomInfo(this);
     }
+  }
 
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
-    }
-
-    public String getFullName() {
-        return this.fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public Integer getCapacity() {
-        return this.capacity;
-    }
-
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
-    }
-
-    public String getReserveUntilTime() {
-        return this.reserveUntilTime;
-    }
-
-    public void setReserveUntilTime(String reserveUntilTime) {
-        this.reserveUntilTime = reserveUntilTime;
-    }
-
-    public static class Builder {
-        /**
-         * 会议室ID
-         * <p> 示例值：omm_83d09ad4f6896e02029a6a075f71c9d1
-         */
-        private String roomId;
-        /**
-         * 会议室展示名称
-         * <p> 示例值：xx建筑-F2-01
-         */
-        private String roomName;
-        /**
-         * 会议室完整名称
-         * <p> 示例值：无
-         */
-        private String fullName;
-        /**
-         * 会议室容量
-         * <p> 示例值：2
-         */
-        private Integer capacity;
-        /**
-         * 会议室预定截止时间
-         * <p> 示例值：2027-03-01T15:00:00Z
-         */
-        private String reserveUntilTime;
-
-        /**
-         * 会议室ID
-         * <p> 示例值：omm_83d09ad4f6896e02029a6a075f71c9d1
-         *
-         * @param roomId
-         * @return
-         */
-        public Builder roomId(String roomId) {
-            this.roomId = roomId;
-            return this;
-        }
-
-
-        /**
-         * 会议室展示名称
-         * <p> 示例值：xx建筑-F2-01
-         *
-         * @param roomName
-         * @return
-         */
-        public Builder roomName(String roomName) {
-            this.roomName = roomName;
-            return this;
-        }
-
-
-        /**
-         * 会议室完整名称
-         * <p> 示例值：无
-         *
-         * @param fullName
-         * @return
-         */
-        public Builder fullName(String fullName) {
-            this.fullName = fullName;
-            return this;
-        }
-
-
-        /**
-         * 会议室容量
-         * <p> 示例值：2
-         *
-         * @param capacity
-         * @return
-         */
-        public Builder capacity(Integer capacity) {
-            this.capacity = capacity;
-            return this;
-        }
-
-
-        /**
-         * 会议室预定截止时间
-         * <p> 示例值：2027-03-01T15:00:00Z
-         *
-         * @param reserveUntilTime
-         * @return
-         */
-        public Builder reserveUntilTime(String reserveUntilTime) {
-            this.reserveUntilTime = reserveUntilTime;
-            return this;
-        }
-
-
-        public RecommendRoomInfo build() {
-            return new RecommendRoomInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

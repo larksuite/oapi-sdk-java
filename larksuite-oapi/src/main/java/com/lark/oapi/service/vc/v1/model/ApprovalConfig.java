@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApprovalConfig {
+  /**
+   * 预定审批开关，0关闭，1打开
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("approval_switch")
+  private Integer approvalSwitch;
+
+  /**
+   * 预定审批条件，0所有预定需要审批，1满足条件需审批
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("approval_condition")
+  private Integer approvalCondition;
+
+  /**
+   * 超过 meeting_duration小时需要审批
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("meeting_duration")
+  private Double meetingDuration;
+
+  /**
+   * 审批人列表，当打开审批开关时，至少需要设置一位审批人
+   *
+   * <p>示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+   */
+  @SerializedName("approvers")
+  private SubscribeUser[] approvers;
+
+  public Integer getApprovalSwitch() {
+    return this.approvalSwitch;
+  }
+
+  public void setApprovalSwitch(Integer approvalSwitch) {
+    this.approvalSwitch = approvalSwitch;
+  }
+
+  public Integer getApprovalCondition() {
+    return this.approvalCondition;
+  }
+
+  public void setApprovalCondition(Integer approvalCondition) {
+    this.approvalCondition = approvalCondition;
+  }
+
+  public Double getMeetingDuration() {
+    return this.meetingDuration;
+  }
+
+  public void setMeetingDuration(Double meetingDuration) {
+    this.meetingDuration = meetingDuration;
+  }
+
+  public SubscribeUser[] getApprovers() {
+    return this.approvers;
+  }
+
+  public void setApprovers(SubscribeUser[] approvers) {
+    this.approvers = approvers;
+  }
+
+  // builder 开始
+  public ApprovalConfig() {}
+
+  public ApprovalConfig(Builder builder) {
     /**
-     * 预定审批开关：0 代表关闭，1 代表打开。;<b>说明</b>：;1.  未设置值时不更新原开关的值，但此时必填  approval_condition;2.  设置值为 1 时，必填  approval_condition<br>                                 ;3.  设置值为 0 时整个 ;approval_config 其他字段均可省略。
-     * <p> 示例值：1
+     * 预定审批开关，0关闭，1打开
+     *
+     * <p>示例值：1
      */
-    @SerializedName("approval_switch")
-    private Integer approvalSwitch;
+    this.approvalSwitch = builder.approvalSwitch;
     /**
-     * 预定审批条件：0 代表所有预定均需审批，1 代表满足条件的需审批;<b>说明</b>：为 1 时必填 meeting_duration
-     * <p> 示例值：1
+     * 预定审批条件，0所有预定需要审批，1满足条件需审批
+     *
+     * <p>示例值：1
      */
-    @SerializedName("approval_condition")
-    private Integer approvalCondition;
+    this.approvalCondition = builder.approvalCondition;
     /**
-     * 超过 meeting_duration;的预定需要审批（单位：小时，取值范围[0.1-99]）;;<b>说明</b>：;1.  当 approval_condition ; 为 0 ，更新时如果未设置值，默认更新为 99 .;2.  传入的值小数点后超过 2 位，自动四舍五入保留两位。
-     * <p> 示例值：3
+     * 超过 meeting_duration小时需要审批
+     *
+     * <p>示例值：3
      */
-    @SerializedName("meeting_duration")
-    private Double meetingDuration;
+    this.meetingDuration = builder.meetingDuration;
     /**
      * 审批人列表，当打开审批开关时，至少需要设置一位审批人
-     * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+     *
+     * <p>示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
      */
-    @SerializedName("approvers")
+    this.approvers = builder.approvers;
+  }
+
+  public static class Builder {
+    /**
+     * 预定审批开关，0关闭，1打开
+     *
+     * <p>示例值：1
+     */
+    private Integer approvalSwitch;
+
+    /**
+     * 预定审批条件，0所有预定需要审批，1满足条件需审批
+     *
+     * <p>示例值：1
+     */
+    private Integer approvalCondition;
+
+    /**
+     * 超过 meeting_duration小时需要审批
+     *
+     * <p>示例值：3
+     */
+    private Double meetingDuration;
+
+    /**
+     * 审批人列表，当打开审批开关时，至少需要设置一位审批人
+     *
+     * <p>示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+     */
     private SubscribeUser[] approvers;
 
-    // builder 开始
-    public ApprovalConfig() {
+    /**
+     * 预定审批开关，0关闭，1打开
+     *
+     * <p>示例值：1
+     *
+     * @param approvalSwitch
+     * @return
+     */
+    public Builder approvalSwitch(Integer approvalSwitch) {
+      this.approvalSwitch = approvalSwitch;
+      return this;
     }
 
-    public ApprovalConfig(Builder builder) {
-        /**
-         * 预定审批开关：0 代表关闭，1 代表打开。;<b>说明</b>：;1.  未设置值时不更新原开关的值，但此时必填  approval_condition;2.  设置值为 1 时，必填  approval_condition<br>                                 ;3.  设置值为 0 时整个 ;approval_config 其他字段均可省略。
-         * <p> 示例值：1
-         */
-        this.approvalSwitch = builder.approvalSwitch;
-        /**
-         * 预定审批条件：0 代表所有预定均需审批，1 代表满足条件的需审批;<b>说明</b>：为 1 时必填 meeting_duration
-         * <p> 示例值：1
-         */
-        this.approvalCondition = builder.approvalCondition;
-        /**
-         * 超过 meeting_duration;的预定需要审批（单位：小时，取值范围[0.1-99]）;;<b>说明</b>：;1.  当 approval_condition ; 为 0 ，更新时如果未设置值，默认更新为 99 .;2.  传入的值小数点后超过 2 位，自动四舍五入保留两位。
-         * <p> 示例值：3
-         */
-        this.meetingDuration = builder.meetingDuration;
-        /**
-         * 审批人列表，当打开审批开关时，至少需要设置一位审批人
-         * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
-         */
-        this.approvers = builder.approvers;
+    /**
+     * 预定审批条件，0所有预定需要审批，1满足条件需审批
+     *
+     * <p>示例值：1
+     *
+     * @param approvalCondition
+     * @return
+     */
+    public Builder approvalCondition(Integer approvalCondition) {
+      this.approvalCondition = approvalCondition;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 超过 meeting_duration小时需要审批
+     *
+     * <p>示例值：3
+     *
+     * @param meetingDuration
+     * @return
+     */
+    public Builder meetingDuration(Double meetingDuration) {
+      this.meetingDuration = meetingDuration;
+      return this;
     }
 
-    public Integer getApprovalSwitch() {
-        return this.approvalSwitch;
+    /**
+     * 审批人列表，当打开审批开关时，至少需要设置一位审批人
+     *
+     * <p>示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
+     *
+     * @param approvers
+     * @return
+     */
+    public Builder approvers(SubscribeUser[] approvers) {
+      this.approvers = approvers;
+      return this;
     }
 
-    public void setApprovalSwitch(Integer approvalSwitch) {
-        this.approvalSwitch = approvalSwitch;
+    public ApprovalConfig build() {
+      return new ApprovalConfig(this);
     }
+  }
 
-    public Integer getApprovalCondition() {
-        return this.approvalCondition;
-    }
-
-    public void setApprovalCondition(Integer approvalCondition) {
-        this.approvalCondition = approvalCondition;
-    }
-
-    public Double getMeetingDuration() {
-        return this.meetingDuration;
-    }
-
-    public void setMeetingDuration(Double meetingDuration) {
-        this.meetingDuration = meetingDuration;
-    }
-
-    public SubscribeUser[] getApprovers() {
-        return this.approvers;
-    }
-
-    public void setApprovers(SubscribeUser[] approvers) {
-        this.approvers = approvers;
-    }
-
-    public static class Builder {
-        /**
-         * 预定审批开关：0 代表关闭，1 代表打开。;<b>说明</b>：;1.  未设置值时不更新原开关的值，但此时必填  approval_condition;2.  设置值为 1 时，必填  approval_condition<br>                                 ;3.  设置值为 0 时整个 ;approval_config 其他字段均可省略。
-         * <p> 示例值：1
-         */
-        private Integer approvalSwitch;
-        /**
-         * 预定审批条件：0 代表所有预定均需审批，1 代表满足条件的需审批;<b>说明</b>：为 1 时必填 meeting_duration
-         * <p> 示例值：1
-         */
-        private Integer approvalCondition;
-        /**
-         * 超过 meeting_duration;的预定需要审批（单位：小时，取值范围[0.1-99]）;;<b>说明</b>：;1.  当 approval_condition ; 为 0 ，更新时如果未设置值，默认更新为 99 .;2.  传入的值小数点后超过 2 位，自动四舍五入保留两位。
-         * <p> 示例值：3
-         */
-        private Double meetingDuration;
-        /**
-         * 审批人列表，当打开审批开关时，至少需要设置一位审批人
-         * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
-         */
-        private SubscribeUser[] approvers;
-
-        /**
-         * 预定审批开关：0 代表关闭，1 代表打开。;<b>说明</b>：;1.  未设置值时不更新原开关的值，但此时必填  approval_condition;2.  设置值为 1 时，必填  approval_condition<br>                                 ;3.  设置值为 0 时整个 ;approval_config 其他字段均可省略。
-         * <p> 示例值：1
-         *
-         * @param approvalSwitch
-         * @return
-         */
-        public Builder approvalSwitch(Integer approvalSwitch) {
-            this.approvalSwitch = approvalSwitch;
-            return this;
-        }
-
-
-        /**
-         * 预定审批条件：0 代表所有预定均需审批，1 代表满足条件的需审批;<b>说明</b>：为 1 时必填 meeting_duration
-         * <p> 示例值：1
-         *
-         * @param approvalCondition
-         * @return
-         */
-        public Builder approvalCondition(Integer approvalCondition) {
-            this.approvalCondition = approvalCondition;
-            return this;
-        }
-
-
-        /**
-         * 超过 meeting_duration;的预定需要审批（单位：小时，取值范围[0.1-99]）;;<b>说明</b>：;1.  当 approval_condition ; 为 0 ，更新时如果未设置值，默认更新为 99 .;2.  传入的值小数点后超过 2 位，自动四舍五入保留两位。
-         * <p> 示例值：3
-         *
-         * @param meetingDuration
-         * @return
-         */
-        public Builder meetingDuration(Double meetingDuration) {
-            this.meetingDuration = meetingDuration;
-            return this;
-        }
-
-
-        /**
-         * 审批人列表，当打开审批开关时，至少需要设置一位审批人
-         * <p> 示例值：[{user_id:"ou_e8bce6c3935ef1fc1b432992fd9d3db8"}]
-         *
-         * @param approvers
-         * @return
-         */
-        public Builder approvers(SubscribeUser[] approvers) {
-            this.approvers = approvers;
-            return this;
-        }
-
-
-        public ApprovalConfig build() {
-            return new ApprovalConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

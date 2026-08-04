@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 匹配类型
- */
+/** 匹配类型 */
 public enum FeedGroupRuleCondV2FeedGroupRuleCondMatchTypeEnum {
-    MATCH_ALL("match_all"), // 匹配所有条件
-    MATCH_ANY("match_any"), // 匹配任一条件
-    ;
-    private String value;
+  MATCH_ALL("match_all"), // 匹配所有条件
+  MATCH_ANY("match_any"), // 匹配任一条件
+  ;
+  private String value;
 
-    FeedGroupRuleCondV2FeedGroupRuleCondMatchTypeEnum(String value) {
-        this.value = value;
-    }
+  FeedGroupRuleCondV2FeedGroupRuleCondMatchTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

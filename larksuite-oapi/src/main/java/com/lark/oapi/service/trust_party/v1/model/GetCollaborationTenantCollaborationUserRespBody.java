@@ -13,34 +13,18 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetCollaborationTenantCollaborationUserRespBody {
-    /**
-     * 关联组织用户
-     * <p> 示例值：
-     */
-    @SerializedName("target_user")
-    private CollaborationUser targetUser;
+  /** 示例值： */
+  @SerializedName("target_user")
+  private CollaborationUser targetUser;
 
-    public CollaborationUser getTargetUser() {
-        return this.targetUser;
-    }
+  public CollaborationUser getTargetUser() {
+    return this.targetUser;
+  }
 
-    public void setTargetUser(CollaborationUser targetUser) {
-        this.targetUser = targetUser;
-    }
-
+  public void setTargetUser(CollaborationUser targetUser) {
+    this.targetUser = targetUser;
+  }
 }

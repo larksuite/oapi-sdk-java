@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ObjectForQuery {
+  /**
+   * API名称
+   *
+   * <p>示例值：_user
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 对象的名称，「type」取值为 lookup, lookup_multi 时才有效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("label")
+  private Label label;
+
+  /**
+   * 对象类型
+   *
+   * <p>示例值：common
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 对象配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("settings")
+  private ObjectSettingsForQuery settings;
+
+  /**
+   * 对象字段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private ObjectFieldsForQuery[] fields;
+
+  /**
+   * 创建时间，毫秒时间戳
+   *
+   * <p>示例值：1727431743472
+   */
+  @SerializedName("created_at")
+  private Integer createdAt;
+
+  /**
+   * 更新时间，毫秒时间戳
+   *
+   * <p>示例值：1727431743472
+   */
+  @SerializedName("updated_at")
+  private Integer updatedAt;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Label getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(Label label) {
+    this.label = label;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public ObjectSettingsForQuery getSettings() {
+    return this.settings;
+  }
+
+  public void setSettings(ObjectSettingsForQuery settings) {
+    this.settings = settings;
+  }
+
+  public ObjectFieldsForQuery[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(ObjectFieldsForQuery[] fields) {
+    this.fields = fields;
+  }
+
+  public Integer getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(Integer createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public Integer getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(Integer updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  // builder 开始
+  public ObjectForQuery() {}
+
+  public ObjectForQuery(Builder builder) {
     /**
      * API名称
-     * <p> 示例值：_user
+     *
+     * <p>示例值：_user
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
-     * 对象名称
-     * <p> 示例值：
+     * 对象的名称，「type」取值为 lookup, lookup_multi 时才有效
+     *
+     * <p>示例值：
      */
-    @SerializedName("label")
-    private Label label;
+    this.label = builder.label;
     /**
      * 对象类型
-     * <p> 示例值：common
+     *
+     * <p>示例值：common
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 对象配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("settings")
-    private ObjectSettingsForQuery settings;
+    this.settings = builder.settings;
     /**
      * 对象字段信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
+    this.fields = builder.fields;
+    /**
+     * 创建时间，毫秒时间戳
+     *
+     * <p>示例值：1727431743472
+     */
+    this.createdAt = builder.createdAt;
+    /**
+     * 更新时间，毫秒时间戳
+     *
+     * <p>示例值：1727431743472
+     */
+    this.updatedAt = builder.updatedAt;
+  }
+
+  public static class Builder {
+    /**
+     * API名称
+     *
+     * <p>示例值：_user
+     */
+    private String apiName;
+
+    /**
+     * 对象的名称，「type」取值为 lookup, lookup_multi 时才有效
+     *
+     * <p>示例值：
+     */
+    private Label label;
+
+    /**
+     * 对象类型
+     *
+     * <p>示例值：common
+     */
+    private String type;
+
+    /**
+     * 对象配置
+     *
+     * <p>示例值：
+     */
+    private ObjectSettingsForQuery settings;
+
+    /**
+     * 对象字段信息
+     *
+     * <p>示例值：
+     */
     private ObjectFieldsForQuery[] fields;
+
     /**
-     * 创建时间
-     * <p> 示例值：1727431743472
+     * 创建时间，毫秒时间戳
+     *
+     * <p>示例值：1727431743472
      */
-    @SerializedName("created_at")
     private Integer createdAt;
+
     /**
-     * 更新时间
-     * <p> 示例值：1727431743472
+     * 更新时间，毫秒时间戳
+     *
+     * <p>示例值：1727431743472
      */
-    @SerializedName("updated_at")
     private Integer updatedAt;
 
-    // builder 开始
-    public ObjectForQuery() {
+    /**
+     * API名称
+     *
+     * <p>示例值：_user
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public ObjectForQuery(Builder builder) {
-        /**
-         * API名称
-         * <p> 示例值：_user
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 对象名称
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 对象类型
-         * <p> 示例值：common
-         */
-        this.type = builder.type;
-        /**
-         * 对象配置
-         * <p> 示例值：
-         */
-        this.settings = builder.settings;
-        /**
-         * 对象字段信息
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-        /**
-         * 创建时间
-         * <p> 示例值：1727431743472
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 更新时间
-         * <p> 示例值：1727431743472
-         */
-        this.updatedAt = builder.updatedAt;
+    /**
+     * 对象的名称，「type」取值为 lookup, lookup_multi 时才有效
+     *
+     * <p>示例值：
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(Label label) {
+      this.label = label;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 对象类型
+     *
+     * <p>示例值：common
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 对象配置
+     *
+     * <p>示例值：
+     *
+     * @param settings
+     * @return
+     */
+    public Builder settings(ObjectSettingsForQuery settings) {
+      this.settings = settings;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    /**
+     * 对象字段信息
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(ObjectFieldsForQuery[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public Label getLabel() {
-        return this.label;
+    /**
+     * 创建时间，毫秒时间戳
+     *
+     * <p>示例值：1727431743472
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(Integer createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public void setLabel(Label label) {
-        this.label = label;
+    /**
+     * 更新时间，毫秒时间戳
+     *
+     * <p>示例值：1727431743472
+     *
+     * @param updatedAt
+     * @return
+     */
+    public Builder updatedAt(Integer updatedAt) {
+      this.updatedAt = updatedAt;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public ObjectForQuery build() {
+      return new ObjectForQuery(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public ObjectSettingsForQuery getSettings() {
-        return this.settings;
-    }
-
-    public void setSettings(ObjectSettingsForQuery settings) {
-        this.settings = settings;
-    }
-
-    public ObjectFieldsForQuery[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(ObjectFieldsForQuery[] fields) {
-        this.fields = fields;
-    }
-
-    public Integer getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(Integer createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Integer getUpdatedAt() {
-        return this.updatedAt;
-    }
-
-    public void setUpdatedAt(Integer updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public static class Builder {
-        /**
-         * API名称
-         * <p> 示例值：_user
-         */
-        private String apiName;
-        /**
-         * 对象名称
-         * <p> 示例值：
-         */
-        private Label label;
-        /**
-         * 对象类型
-         * <p> 示例值：common
-         */
-        private String type;
-        /**
-         * 对象配置
-         * <p> 示例值：
-         */
-        private ObjectSettingsForQuery settings;
-        /**
-         * 对象字段信息
-         * <p> 示例值：
-         */
-        private ObjectFieldsForQuery[] fields;
-        /**
-         * 创建时间
-         * <p> 示例值：1727431743472
-         */
-        private Integer createdAt;
-        /**
-         * 更新时间
-         * <p> 示例值：1727431743472
-         */
-        private Integer updatedAt;
-
-        /**
-         * API名称
-         * <p> 示例值：_user
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 对象名称
-         * <p> 示例值：
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(Label label) {
-            this.label = label;
-            return this;
-        }
-
-
-        /**
-         * 对象类型
-         * <p> 示例值：common
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 对象配置
-         * <p> 示例值：
-         *
-         * @param settings
-         * @return
-         */
-        public Builder settings(ObjectSettingsForQuery settings) {
-            this.settings = settings;
-            return this;
-        }
-
-
-        /**
-         * 对象字段信息
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(ObjectFieldsForQuery[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1727431743472
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(Integer createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1727431743472
-         *
-         * @param updatedAt
-         * @return
-         */
-        public Builder updatedAt(Integer updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
-        }
-
-
-        public ObjectForQuery build() {
-            return new ObjectForQuery(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

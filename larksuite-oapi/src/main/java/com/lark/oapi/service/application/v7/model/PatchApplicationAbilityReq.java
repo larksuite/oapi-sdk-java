@@ -13,98 +13,97 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.application.v7.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.application.v7.enums.*;
 
 public class PatchApplicationAbilityReq {
+  /**
+   * 应用的app_id [如何获取应用的 App
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)
+   *
+   * <p>示例值：cli_***
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  @Body private PatchApplicationAbilityReqBody body;
+
+  public PatchApplicationAbilityReqBody getPatchApplicationAbilityReqBody() {
+    return this.body;
+  }
+
+  public void setPatchApplicationAbilityReqBody(PatchApplicationAbilityReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public PatchApplicationAbilityReq() {}
+
+  public PatchApplicationAbilityReq(Builder builder) {
     /**
-     * 应用ID
-     * <p> 示例值：cli_a42d0b833ab8d01b
+     * 应用的app_id [如何获取应用的 App
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)
+     *
+     * <p>示例值：cli_***
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
-    @Body
+    this.appId = builder.appId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String appId; // 应用的app_id [如何获取应用的 App
+
+    // ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)
+
+    /**
+     * 应用的app_id [如何获取应用的 App
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)
+     *
+     * <p>示例值：cli_***
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
+    }
+
     private PatchApplicationAbilityReqBody body;
 
-    // builder 开始
-    public PatchApplicationAbilityReq() {
-    }
-
-    public PatchApplicationAbilityReq(Builder builder) {
-        /**
-         * 应用ID
-         * <p> 示例值：cli_a42d0b833ab8d01b
-         */
-        this.appId = builder.appId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
     public PatchApplicationAbilityReqBody getPatchApplicationAbilityReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setPatchApplicationAbilityReqBody(PatchApplicationAbilityReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder patchApplicationAbilityReqBody(PatchApplicationAbilityReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String appId; // 应用ID
-        private PatchApplicationAbilityReqBody body;
-
-        /**
-         * 应用ID
-         * <p> 示例值：cli_a42d0b833ab8d01b
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-        public PatchApplicationAbilityReqBody getPatchApplicationAbilityReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder patchApplicationAbilityReqBody(PatchApplicationAbilityReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public PatchApplicationAbilityReq build() {
-            return new PatchApplicationAbilityReq(this);
-        }
+    public PatchApplicationAbilityReq build() {
+      return new PatchApplicationAbilityReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.wiki.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.wiki.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SimpleTaskResult {
+  /**
+   * 任务执行状态，可选值："processing": 处理中；"success": 执行成功；"failed": 执行失败
+   *
+   * <p>示例值：
+   */
+  @SerializedName("status")
+  private String status;
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public SimpleTaskResult() {}
+
+  public SimpleTaskResult(Builder builder) {
     /**
      * 任务执行状态，可选值："processing": 处理中；"success": 执行成功；"failed": 执行失败
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("status")
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 任务执行状态，可选值："processing": 处理中；"success": 执行成功；"failed": 执行失败
+     *
+     * <p>示例值：
+     */
     private String status;
 
-    // builder 开始
-    public SimpleTaskResult() {
+    /**
+     * 任务执行状态，可选值："processing": 处理中；"success": 执行成功；"failed": 执行失败
+     *
+     * <p>示例值：
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public SimpleTaskResult(Builder builder) {
-        /**
-         * 任务执行状态，可选值："processing": 处理中；"success": 执行成功；"failed": 执行失败
-         * <p> 示例值：
-         */
-        this.status = builder.status;
+    public SimpleTaskResult build() {
+      return new SimpleTaskResult(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 任务执行状态，可选值："processing": 处理中；"success": 执行成功；"failed": 执行失败
-         * <p> 示例值：
-         */
-        private String status;
-
-        /**
-         * 任务执行状态，可选值："processing": 处理中；"success": 执行成功；"failed": 执行失败
-         * <p> 示例值：
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        public SimpleTaskResult build() {
-            return new SimpleTaskResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

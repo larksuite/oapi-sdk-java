@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParticipantLeftItem {
+  /**
+   * 离会的参会人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("participant")
+  private MeetingAgentEventUser participant;
+
+  /**
+   * 离会原因
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("leave_reason")
+  private Integer leaveReason;
+
+  /**
+   * 离会时间（毫秒级时间戳）
+   *
+   * <p>示例值：1712349200000
+   */
+  @SerializedName("leave_time")
+  private String leaveTime;
+
+  public MeetingAgentEventUser getParticipant() {
+    return this.participant;
+  }
+
+  public void setParticipant(MeetingAgentEventUser participant) {
+    this.participant = participant;
+  }
+
+  public Integer getLeaveReason() {
+    return this.leaveReason;
+  }
+
+  public void setLeaveReason(Integer leaveReason) {
+    this.leaveReason = leaveReason;
+  }
+
+  public String getLeaveTime() {
+    return this.leaveTime;
+  }
+
+  public void setLeaveTime(String leaveTime) {
+    this.leaveTime = leaveTime;
+  }
+
+  // builder 开始
+  public ParticipantLeftItem() {}
+
+  public ParticipantLeftItem(Builder builder) {
     /**
      * 离会的参会人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("participant")
-    private MeetingAgentEventUser participant;
+    this.participant = builder.participant;
     /**
      * 离会原因
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("leave_reason")
-    private Integer leaveReason;
+    this.leaveReason = builder.leaveReason;
     /**
      * 离会时间（毫秒级时间戳）
-     * <p> 示例值：1712349200000
+     *
+     * <p>示例值：1712349200000
      */
-    @SerializedName("leave_time")
+    this.leaveTime = builder.leaveTime;
+  }
+
+  public static class Builder {
+    /**
+     * 离会的参会人
+     *
+     * <p>示例值：
+     */
+    private MeetingAgentEventUser participant;
+
+    /**
+     * 离会原因
+     *
+     * <p>示例值：1
+     */
+    private Integer leaveReason;
+
+    /**
+     * 离会时间（毫秒级时间戳）
+     *
+     * <p>示例值：1712349200000
+     */
     private String leaveTime;
 
-    // builder 开始
-    public ParticipantLeftItem() {
+    /**
+     * 离会的参会人
+     *
+     * <p>示例值：
+     *
+     * @param participant
+     * @return
+     */
+    public Builder participant(MeetingAgentEventUser participant) {
+      this.participant = participant;
+      return this;
     }
 
-    public ParticipantLeftItem(Builder builder) {
-        /**
-         * 离会的参会人
-         * <p> 示例值：
-         */
-        this.participant = builder.participant;
-        /**
-         * 离会原因
-         * <p> 示例值：1
-         */
-        this.leaveReason = builder.leaveReason;
-        /**
-         * 离会时间（毫秒级时间戳）
-         * <p> 示例值：1712349200000
-         */
-        this.leaveTime = builder.leaveTime;
+    /**
+     * 离会原因
+     *
+     * <p>示例值：1
+     *
+     * @param leaveReason
+     * @return
+     */
+    public Builder leaveReason(Integer leaveReason) {
+      this.leaveReason = leaveReason;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 离会时间（毫秒级时间戳）
+     *
+     * <p>示例值：1712349200000
+     *
+     * @param leaveTime
+     * @return
+     */
+    public Builder leaveTime(String leaveTime) {
+      this.leaveTime = leaveTime;
+      return this;
     }
 
-    public MeetingAgentEventUser getParticipant() {
-        return this.participant;
+    public ParticipantLeftItem build() {
+      return new ParticipantLeftItem(this);
     }
+  }
 
-    public void setParticipant(MeetingAgentEventUser participant) {
-        this.participant = participant;
-    }
-
-    public Integer getLeaveReason() {
-        return this.leaveReason;
-    }
-
-    public void setLeaveReason(Integer leaveReason) {
-        this.leaveReason = leaveReason;
-    }
-
-    public String getLeaveTime() {
-        return this.leaveTime;
-    }
-
-    public void setLeaveTime(String leaveTime) {
-        this.leaveTime = leaveTime;
-    }
-
-    public static class Builder {
-        /**
-         * 离会的参会人
-         * <p> 示例值：
-         */
-        private MeetingAgentEventUser participant;
-        /**
-         * 离会原因
-         * <p> 示例值：1
-         */
-        private Integer leaveReason;
-        /**
-         * 离会时间（毫秒级时间戳）
-         * <p> 示例值：1712349200000
-         */
-        private String leaveTime;
-
-        /**
-         * 离会的参会人
-         * <p> 示例值：
-         *
-         * @param participant
-         * @return
-         */
-        public Builder participant(MeetingAgentEventUser participant) {
-            this.participant = participant;
-            return this;
-        }
-
-
-        /**
-         * 离会原因
-         * <p> 示例值：1
-         *
-         * @param leaveReason
-         * @return
-         */
-        public Builder leaveReason(Integer leaveReason) {
-            this.leaveReason = leaveReason;
-            return this;
-        }
-
-
-        /**
-         * 离会时间（毫秒级时间戳）
-         * <p> 示例值：1712349200000
-         *
-         * @param leaveTime
-         * @return
-         */
-        public Builder leaveTime(String leaveTime) {
-            this.leaveTime = leaveTime;
-            return this;
-        }
-
-
-        public ParticipantLeftItem build() {
-            return new ParticipantLeftItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

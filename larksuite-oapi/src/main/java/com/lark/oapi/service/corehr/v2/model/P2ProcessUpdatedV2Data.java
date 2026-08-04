@@ -13,90 +13,88 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ProcessUpdatedV2Data {
-    /**
-     * 流程实例ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("process_id")
-    private String processId;
-    /**
-     * 变更后状态：1 发起/进行中，9 完成，2拒绝，4 撤回，8 撤销
-     * <p> 示例值：1
-     */
-    @SerializedName("status")
-    private Integer status;
-    /**
-     * 业务类型
-     * <p> 示例值：renewal_record
-     */
-    @SerializedName("biz_type")
-    private String bizType;
-    /**
-     * 流程定义ID
-     * <p> 示例值：people_7023711013443944467_7379576600867884844v
-     */
-    @SerializedName("flow_definition_id")
-    private String flowDefinitionId;
-    /**
-     * 流程属性
-     * <p> 示例值：1
-     */
-    @SerializedName("properties")
-    private Integer properties;
+  /**
+   * 流程运行实例
+   * id，详细信息可通过[获取单个流程详情](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)获取
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("process_id")
+  private String processId;
 
-    public String getProcessId() {
-        return this.processId;
-    }
+  /**
+   * 变更后状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
+  /**
+   * 业务类型，
+   * ;详情请查看[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/process-form_variable_data/access-guide)
+   *
+   * <p>示例值：renewal_record
+   */
+  @SerializedName("biz_type")
+  private String bizType;
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  /**
+   * 流程定义id。流程定义是流程的模板，由流程定义可以创建流程实例。;;**示例值**：;;"people_7023711013443944467_7382148112896872236"
+   *
+   * <p>示例值：people_7023711013443944467_7379576600867884844v
+   */
+  @SerializedName("flow_definition_id")
+  private String flowDefinitionId;
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  /**
+   * 流程属性
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("properties")
+  private Integer properties;
 
-    public String getBizType() {
-        return this.bizType;
-    }
+  public String getProcessId() {
+    return this.processId;
+  }
 
-    public void setBizType(String bizType) {
-        this.bizType = bizType;
-    }
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
 
-    public String getFlowDefinitionId() {
-        return this.flowDefinitionId;
-    }
+  public Integer getStatus() {
+    return this.status;
+  }
 
-    public void setFlowDefinitionId(String flowDefinitionId) {
-        this.flowDefinitionId = flowDefinitionId;
-    }
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
 
-    public Integer getProperties() {
-        return this.properties;
-    }
+  public String getBizType() {
+    return this.bizType;
+  }
 
-    public void setProperties(Integer properties) {
-        this.properties = properties;
-    }
+  public void setBizType(String bizType) {
+    this.bizType = bizType;
+  }
 
+  public String getFlowDefinitionId() {
+    return this.flowDefinitionId;
+  }
+
+  public void setFlowDefinitionId(String flowDefinitionId) {
+    this.flowDefinitionId = flowDefinitionId;
+  }
+
+  public Integer getProperties() {
+    return this.properties;
+  }
+
+  public void setProperties(Integer properties) {
+    this.properties = properties;
+  }
 }

@@ -13,27 +13,25 @@
 
 package com.lark.oapi.service.bitable.v1.enums;
 
-/**
- * 密级设置的类型
- */
+/** 密级设置的类型 */
 public enum MetaSecureLabelTypeEnum {
-    NONE("0"), // None
-    USERDEFINED("1"), // UserDefined
-    CREATE("2"), // Create
-    INHERITED("3"), // Inherited
-    ADMINMARK("4"), // AdminMark
-    AUTOMARK("5"), // AutoMark
-    RECOMMENDMARK("6"), // RecommendMark
-    OPENAPIDEFINED("7"), // OpenAPIDefined
-    ONETIMECOVER("8"), // OnetimeCover
-    ;
-    private String value;
+  NONE("0"), // None
+  USERDEFINED("1"), // UserDefined
+  CREATE("2"), // Create
+  INHERITED("3"), // Inherited
+  ADMINMARK("4"), // AdminMark
+  AUTOMARK("5"), // AutoMark
+  RECOMMENDMARK("6"), // RecommendMark
+  OPENAPIDEFINED("7"), // OpenAPIDefined
+  ONETIMECOVER("8"), // OnetimeCover
+  ;
+  private String value;
 
-    MetaSecureLabelTypeEnum(String value) {
-        this.value = value;
-    }
+  MetaSecureLabelTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MgetDepartmentReqBody {
+  /**
+   * 部门ID，与department_id_type类型保持一致。id获取方式：可通过管理后台查询。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_ids")
+  private String[] departmentIds;
+
+  /**
+   * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("required_fields")
+  private String[] requiredFields;
+
+  public String[] getDepartmentIds() {
+    return this.departmentIds;
+  }
+
+  public void setDepartmentIds(String[] departmentIds) {
+    this.departmentIds = departmentIds;
+  }
+
+  public String[] getRequiredFields() {
+    return this.requiredFields;
+  }
+
+  public void setRequiredFields(String[] requiredFields) {
+    this.requiredFields = requiredFields;
+  }
+
+  // builder 开始
+  public MgetDepartmentReqBody() {}
+
+  public MgetDepartmentReqBody(Builder builder) {
     /**
-     * 部门id
-     * <p> 示例值：
+     * 部门ID，与department_id_type类型保持一致。id获取方式：可通过管理后台查询。
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_ids")
+    this.departmentIds = builder.departmentIds;
+    /**
+     * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+     *
+     * <p>示例值：
+     */
+    this.requiredFields = builder.requiredFields;
+  }
+
+  public static class Builder {
+    /**
+     * 部门ID，与department_id_type类型保持一致。id获取方式：可通过管理后台查询。
+     *
+     * <p>示例值：
+     */
     private String[] departmentIds;
+
     /**
-     * 字段枚举
-     * <p> 示例值：
+     * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+     *
+     * <p>示例值：
      */
-    @SerializedName("required_fields")
     private String[] requiredFields;
 
-    // builder 开始
-    public MgetDepartmentReqBody() {
+    /**
+     * 部门ID，与department_id_type类型保持一致。id获取方式：可通过管理后台查询。
+     *
+     * <p>示例值：
+     *
+     * @param departmentIds
+     * @return
+     */
+    public Builder departmentIds(String[] departmentIds) {
+      this.departmentIds = departmentIds;
+      return this;
     }
 
-    public MgetDepartmentReqBody(Builder builder) {
-        /**
-         * 部门id
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-        /**
-         * 字段枚举
-         * <p> 示例值：
-         */
-        this.requiredFields = builder.requiredFields;
+    /**
+     * 需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)
+     *
+     * <p>示例值：
+     *
+     * @param requiredFields
+     * @return
+     */
+    public Builder requiredFields(String[] requiredFields) {
+      this.requiredFields = requiredFields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MgetDepartmentReqBody build() {
+      return new MgetDepartmentReqBody(this);
     }
+  }
 
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
-    }
-
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
-    }
-
-    public String[] getRequiredFields() {
-        return this.requiredFields;
-    }
-
-    public void setRequiredFields(String[] requiredFields) {
-        this.requiredFields = requiredFields;
-    }
-
-    public static class Builder {
-        /**
-         * 部门id
-         * <p> 示例值：
-         */
-        private String[] departmentIds;
-        /**
-         * 字段枚举
-         * <p> 示例值：
-         */
-        private String[] requiredFields;
-
-        /**
-         * 部门id
-         * <p> 示例值：
-         *
-         * @param departmentIds
-         * @return
-         */
-        public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
-        }
-
-
-        /**
-         * 字段枚举
-         * <p> 示例值：
-         *
-         * @param requiredFields
-         * @return
-         */
-        public Builder requiredFields(String[] requiredFields) {
-            this.requiredFields = requiredFields;
-            return this;
-        }
-
-
-        public MgetDepartmentReqBody build() {
-            return new MgetDepartmentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryOperationLogsDepartmentRespBody {
-    /**
-     * 操作日志列表
-     * <p> 示例值：
-     */
-    @SerializedName("op_logs")
-    private OrganizationOpLog[] opLogs;
-    /**
-     * 下一页token
-     * <p> 示例值：2
-     */
-    @SerializedName("next_page_token")
-    private String nextPageToken;
-    /**
-     * 是否有下一页
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
+  /**
+   * 操作日志列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("op_logs")
+  private OrganizationOpLog[] opLogs;
 
-    public OrganizationOpLog[] getOpLogs() {
-        return this.opLogs;
-    }
+  /**
+   * 下一页token
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("next_page_token")
+  private String nextPageToken;
 
-    public void setOpLogs(OrganizationOpLog[] opLogs) {
-        this.opLogs = opLogs;
-    }
+  /**
+   * 是否有下一页
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getNextPageToken() {
-        return this.nextPageToken;
-    }
+  public OrganizationOpLog[] getOpLogs() {
+    return this.opLogs;
+  }
 
-    public void setNextPageToken(String nextPageToken) {
-        this.nextPageToken = nextPageToken;
-    }
+  public void setOpLogs(OrganizationOpLog[] opLogs) {
+    this.opLogs = opLogs;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String getNextPageToken() {
+    return this.nextPageToken;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setNextPageToken(String nextPageToken) {
+    this.nextPageToken = nextPageToken;
+  }
 
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
+
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 }

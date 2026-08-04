@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetLeaveEmployExpireRecordRespBody {
-    /**
-     * 员工过期日期的授予记录
-     * <p> 示例值：
-     */
-    @SerializedName("records")
-    private LeaveEmployExpireRecord[] records;
+  /**
+   * 员工过期日期的发放记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("records")
+  private LeaveEmployExpireRecord[] records;
 
-    public LeaveEmployExpireRecord[] getRecords() {
-        return this.records;
-    }
+  public LeaveEmployExpireRecord[] getRecords() {
+    return this.records;
+  }
 
-    public void setRecords(LeaveEmployExpireRecord[] records) {
-        this.records = records;
-    }
-
+  public void setRecords(LeaveEmployExpireRecord[] records) {
+    this.records = records;
+  }
 }

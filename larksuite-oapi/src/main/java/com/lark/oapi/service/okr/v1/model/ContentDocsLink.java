@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ContentDocsLink {
+  /**
+   * 飞书云文档链接地址
+   *
+   * <p>示例值：https://xxx.feishu.cn/docx/xxxxxxxx
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 飞书云文档标题
+   *
+   * <p>示例值：项目说明文档
+   */
+  @SerializedName("title")
+  private String title;
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  // builder 开始
+  public ContentDocsLink() {}
+
+  public ContentDocsLink(Builder builder) {
     /**
      * 飞书云文档链接地址
-     * <p> 示例值：https://xxx.feishu.cn/docx/xxxxxxxx
+     *
+     * <p>示例值：https://xxx.feishu.cn/docx/xxxxxxxx
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 飞书云文档标题
-     * <p> 示例值：项目说明文档
+     *
+     * <p>示例值：项目说明文档
      */
-    @SerializedName("title")
+    this.title = builder.title;
+  }
+
+  public static class Builder {
+    /**
+     * 飞书云文档链接地址
+     *
+     * <p>示例值：https://xxx.feishu.cn/docx/xxxxxxxx
+     */
+    private String url;
+
+    /**
+     * 飞书云文档标题
+     *
+     * <p>示例值：项目说明文档
+     */
     private String title;
 
-    // builder 开始
-    public ContentDocsLink() {
+    /**
+     * 飞书云文档链接地址
+     *
+     * <p>示例值：https://xxx.feishu.cn/docx/xxxxxxxx
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public ContentDocsLink(Builder builder) {
-        /**
-         * 飞书云文档链接地址
-         * <p> 示例值：https://xxx.feishu.cn/docx/xxxxxxxx
-         */
-        this.url = builder.url;
-        /**
-         * 飞书云文档标题
-         * <p> 示例值：项目说明文档
-         */
-        this.title = builder.title;
+    /**
+     * 飞书云文档标题
+     *
+     * <p>示例值：项目说明文档
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ContentDocsLink build() {
+      return new ContentDocsLink(this);
     }
+  }
 
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public static class Builder {
-        /**
-         * 飞书云文档链接地址
-         * <p> 示例值：https://xxx.feishu.cn/docx/xxxxxxxx
-         */
-        private String url;
-        /**
-         * 飞书云文档标题
-         * <p> 示例值：项目说明文档
-         */
-        private String title;
-
-        /**
-         * 飞书云文档链接地址
-         * <p> 示例值：https://xxx.feishu.cn/docx/xxxxxxxx
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 飞书云文档标题
-         * <p> 示例值：项目说明文档
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        public ContentDocsLink build() {
-            return new ContentDocsLink(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

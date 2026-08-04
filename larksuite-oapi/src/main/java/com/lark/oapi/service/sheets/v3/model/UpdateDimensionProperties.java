@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateDimensionProperties {
+  /**
+   * 行列操作的维度
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dimension_range")
+  private Dimension dimensionRange;
+
+  /**
+   * 更新的属性
+   *
+   * <p>示例值：
+   */
+  @SerializedName("properties")
+  private DimensionProperties properties;
+
+  public Dimension getDimensionRange() {
+    return this.dimensionRange;
+  }
+
+  public void setDimensionRange(Dimension dimensionRange) {
+    this.dimensionRange = dimensionRange;
+  }
+
+  public DimensionProperties getProperties() {
+    return this.properties;
+  }
+
+  public void setProperties(DimensionProperties properties) {
+    this.properties = properties;
+  }
+
+  // builder 开始
+  public UpdateDimensionProperties() {}
+
+  public UpdateDimensionProperties(Builder builder) {
     /**
-     * 需要更新的行列信息
-     * <p> 示例值：
+     * 行列操作的维度
+     *
+     * <p>示例值：
      */
-    @SerializedName("dimension_range")
-    private Dimension dimensionRange;
+    this.dimensionRange = builder.dimensionRange;
     /**
      * 更新的属性
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("properties")
+    this.properties = builder.properties;
+  }
+
+  public static class Builder {
+    /**
+     * 行列操作的维度
+     *
+     * <p>示例值：
+     */
+    private Dimension dimensionRange;
+
+    /**
+     * 更新的属性
+     *
+     * <p>示例值：
+     */
     private DimensionProperties properties;
 
-    // builder 开始
-    public UpdateDimensionProperties() {
+    /**
+     * 行列操作的维度
+     *
+     * <p>示例值：
+     *
+     * @param dimensionRange
+     * @return
+     */
+    public Builder dimensionRange(Dimension dimensionRange) {
+      this.dimensionRange = dimensionRange;
+      return this;
     }
 
-    public UpdateDimensionProperties(Builder builder) {
-        /**
-         * 需要更新的行列信息
-         * <p> 示例值：
-         */
-        this.dimensionRange = builder.dimensionRange;
-        /**
-         * 更新的属性
-         * <p> 示例值：
-         */
-        this.properties = builder.properties;
+    /**
+     * 更新的属性
+     *
+     * <p>示例值：
+     *
+     * @param properties
+     * @return
+     */
+    public Builder properties(DimensionProperties properties) {
+      this.properties = properties;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UpdateDimensionProperties build() {
+      return new UpdateDimensionProperties(this);
     }
+  }
 
-    public Dimension getDimensionRange() {
-        return this.dimensionRange;
-    }
-
-    public void setDimensionRange(Dimension dimensionRange) {
-        this.dimensionRange = dimensionRange;
-    }
-
-    public DimensionProperties getProperties() {
-        return this.properties;
-    }
-
-    public void setProperties(DimensionProperties properties) {
-        this.properties = properties;
-    }
-
-    public static class Builder {
-        /**
-         * 需要更新的行列信息
-         * <p> 示例值：
-         */
-        private Dimension dimensionRange;
-        /**
-         * 更新的属性
-         * <p> 示例值：
-         */
-        private DimensionProperties properties;
-
-        /**
-         * 需要更新的行列信息
-         * <p> 示例值：
-         *
-         * @param dimensionRange
-         * @return
-         */
-        public Builder dimensionRange(Dimension dimensionRange) {
-            this.dimensionRange = dimensionRange;
-            return this;
-        }
-
-
-        /**
-         * 更新的属性
-         * <p> 示例值：
-         *
-         * @param properties
-         * @return
-         */
-        public Builder properties(DimensionProperties properties) {
-            this.properties = properties;
-            return this;
-        }
-
-
-        public UpdateDimensionProperties build() {
-            return new UpdateDimensionProperties(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

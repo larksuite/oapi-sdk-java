@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.admin.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.admin.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Password {
+  /**
+   * 企业邮箱密码
+   *
+   * <p>示例值：abcd*efg
+   */
+  @SerializedName("ent_email_password")
+  private String entEmailPassword;
+
+  public String getEntEmailPassword() {
+    return this.entEmailPassword;
+  }
+
+  public void setEntEmailPassword(String entEmailPassword) {
+    this.entEmailPassword = entEmailPassword;
+  }
+
+  // builder 开始
+  public Password() {}
+
+  public Password(Builder builder) {
     /**
      * 企业邮箱密码
-     * <p> 示例值：abcd*efg
+     *
+     * <p>示例值：abcd*efg
      */
-    @SerializedName("ent_email_password")
+    this.entEmailPassword = builder.entEmailPassword;
+  }
+
+  public static class Builder {
+    /**
+     * 企业邮箱密码
+     *
+     * <p>示例值：abcd*efg
+     */
     private String entEmailPassword;
 
-    // builder 开始
-    public Password() {
+    /**
+     * 企业邮箱密码
+     *
+     * <p>示例值：abcd*efg
+     *
+     * @param entEmailPassword
+     * @return
+     */
+    public Builder entEmailPassword(String entEmailPassword) {
+      this.entEmailPassword = entEmailPassword;
+      return this;
     }
 
-    public Password(Builder builder) {
-        /**
-         * 企业邮箱密码
-         * <p> 示例值：abcd*efg
-         */
-        this.entEmailPassword = builder.entEmailPassword;
+    public Password build() {
+      return new Password(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getEntEmailPassword() {
-        return this.entEmailPassword;
-    }
-
-    public void setEntEmailPassword(String entEmailPassword) {
-        this.entEmailPassword = entEmailPassword;
-    }
-
-    public static class Builder {
-        /**
-         * 企业邮箱密码
-         * <p> 示例值：abcd*efg
-         */
-        private String entEmailPassword;
-
-        /**
-         * 企业邮箱密码
-         * <p> 示例值：abcd*efg
-         *
-         * @param entEmailPassword
-         * @return
-         */
-        public Builder entEmailPassword(String entEmailPassword) {
-            this.entEmailPassword = entEmailPassword;
-            return this;
-        }
-
-
-        public Password build() {
-            return new Password(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

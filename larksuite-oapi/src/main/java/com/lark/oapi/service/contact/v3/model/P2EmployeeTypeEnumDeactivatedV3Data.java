@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2EmployeeTypeEnumDeactivatedV3Data {
-    /**
-     * 旧枚举类型
-     * <p> 示例值：
-     */
-    @SerializedName("old_enum")
-    private EmployeeTypeEnum oldEnum;
-    /**
-     * 新枚举类型
-     * <p> 示例值：
-     */
-    @SerializedName("new_enum")
-    private EmployeeTypeEnum newEnum;
+  /**
+   * 更新后的人员类型信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("old_enum")
+  private EmployeeTypeEnum oldEnum;
 
-    public EmployeeTypeEnum getOldEnum() {
-        return this.oldEnum;
-    }
+  /**
+   * 更新后的人员类型信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("new_enum")
+  private EmployeeTypeEnum newEnum;
 
-    public void setOldEnum(EmployeeTypeEnum oldEnum) {
-        this.oldEnum = oldEnum;
-    }
+  public EmployeeTypeEnum getOldEnum() {
+    return this.oldEnum;
+  }
 
-    public EmployeeTypeEnum getNewEnum() {
-        return this.newEnum;
-    }
+  public void setOldEnum(EmployeeTypeEnum oldEnum) {
+    this.oldEnum = oldEnum;
+  }
 
-    public void setNewEnum(EmployeeTypeEnum newEnum) {
-        this.newEnum = newEnum;
-    }
+  public EmployeeTypeEnum getNewEnum() {
+    return this.newEnum;
+  }
 
+  public void setNewEnum(EmployeeTypeEnum newEnum) {
+    this.newEnum = newEnum;
+  }
 }

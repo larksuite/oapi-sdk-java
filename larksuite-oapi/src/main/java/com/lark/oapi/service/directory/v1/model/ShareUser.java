@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ShareUser {
+  /**
+   * user open ID
+   *
+   * <p>示例值：ou-12121212
+   */
+  @SerializedName("open_user_id")
+  private String openUserId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 员工的头像url
+   *
+   * <p>示例值：
+   */
+  @SerializedName("avatar")
+  private ImageLink avatar;
+
+  public String getOpenUserId() {
+    return this.openUserId;
+  }
+
+  public void setOpenUserId(String openUserId) {
+    this.openUserId = openUserId;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public ImageLink getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(ImageLink avatar) {
+    this.avatar = avatar;
+  }
+
+  // builder 开始
+  public ShareUser() {}
+
+  public ShareUser(Builder builder) {
     /**
      * user open ID
-     * <p> 示例值：ou-12121212
+     *
+     * <p>示例值：ou-12121212
      */
-    @SerializedName("open_user_id")
+    this.openUserId = builder.openUserId;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    this.name = builder.name;
+    /**
+     * 员工的头像url
+     *
+     * <p>示例值：
+     */
+    this.avatar = builder.avatar;
+  }
+
+  public static class Builder {
+    /**
+     * user open ID
+     *
+     * <p>示例值：ou-12121212
+     */
     private String openUserId;
+
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
     private I18nText name;
+
     /**
-     * 用户的头像
-     * <p> 示例值：
+     * 员工的头像url
+     *
+     * <p>示例值：
      */
-    @SerializedName("avatar")
     private ImageLink avatar;
 
-    // builder 开始
-    public ShareUser() {
+    /**
+     * user open ID
+     *
+     * <p>示例值：ou-12121212
+     *
+     * @param openUserId
+     * @return
+     */
+    public Builder openUserId(String openUserId) {
+      this.openUserId = openUserId;
+      return this;
     }
 
-    public ShareUser(Builder builder) {
-        /**
-         * user open ID
-         * <p> 示例值：ou-12121212
-         */
-        this.openUserId = builder.openUserId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 用户的头像
-         * <p> 示例值：
-         */
-        this.avatar = builder.avatar;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 员工的头像url
+     *
+     * <p>示例值：
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(ImageLink avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public String getOpenUserId() {
-        return this.openUserId;
+    public ShareUser build() {
+      return new ShareUser(this);
     }
+  }
 
-    public void setOpenUserId(String openUserId) {
-        this.openUserId = openUserId;
-    }
-
-    public I18nText getName() {
-        return this.name;
-    }
-
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public ImageLink getAvatar() {
-        return this.avatar;
-    }
-
-    public void setAvatar(ImageLink avatar) {
-        this.avatar = avatar;
-    }
-
-    public static class Builder {
-        /**
-         * user open ID
-         * <p> 示例值：ou-12121212
-         */
-        private String openUserId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 用户的头像
-         * <p> 示例值：
-         */
-        private ImageLink avatar;
-
-        /**
-         * user open ID
-         * <p> 示例值：ou-12121212
-         *
-         * @param openUserId
-         * @return
-         */
-        public Builder openUserId(String openUserId) {
-            this.openUserId = openUserId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 用户的头像
-         * <p> 示例值：
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(ImageLink avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        public ShareUser build() {
-            return new ShareUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

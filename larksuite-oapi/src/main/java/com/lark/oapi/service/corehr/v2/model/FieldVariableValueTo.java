@@ -13,556 +13,631 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FieldVariableValueTo {
+  /**
+   * 文本值
+   *
+   * <p>示例值：测试测试
+   */
+  @SerializedName("text_value")
+  private String textValue;
+
+  /**
+   * 布尔值
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("bool_value")
+  private Boolean boolValue;
+
+  /**
+   * 数字值
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("number_value")
+  private String numberValue;
+
+  /**
+   * 枚举值，这里是枚举的 id
+   *
+   * <p>示例值：home_address
+   */
+  @SerializedName("enum_value")
+  private String enumValue;
+
+  /**
+   * 日期值，单位：天。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的天数;;**示例值**：19688
+   *
+   * <p>示例值：19838
+   */
+  @SerializedName("date_value")
+  private String dateValue;
+
+  /**
+   * 时间值，单位：ms。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的毫秒数;;**示例值**：1719549169735
+   *
+   * <p>示例值：1714013877512
+   */
+  @SerializedName("date_time_value")
+  private String dateTimeValue;
+
+  /**
+   * 变量名称，在查询流程数据场景不会返回变量名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_value")
+  private FieldVariableValueI18n i18nValue;
+
+  /**
+   * 对象值
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("object_value")
+  private FieldVariableValueToObject objectValue;
+
+  /**
+   * 用户 id，根据查询参数 user_id_type 选择对应的用户 id
+   *
+   * <p>示例值：ou_c57053dad6eea0aea4696c48433d8562
+   */
+  @SerializedName("user_value")
+  private String userValue;
+
+  /**
+   * 部门id，根据查询参数department_id_type类型选择对应的部门id。;;可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)
+   * 或 [批量查询部门（
+   * V2）](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询详情。
+   *
+   * <p>示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
+   */
+  @SerializedName("department_value")
+  private String departmentValue;
+
+  /**
+   * 记录类型字段值
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("record_values")
+  private FieldVariableValueToRecord[] recordValues;
+
+  /**
+   * 员工类型字段值，为用户id，根据入参选择的user_id_type类型返回的用户id。;;可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)
+   * 或
+   * [批量查询员工信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询详情。
+   *
+   * <p>示例值：ou_c57053dad6eea0aea4696c48433d8562
+   */
+  @SerializedName("employment_value")
+  private String employmentValue;
+
+  /**
+   * 数组类型值，里面包含多个值，每个元素都对应 sub_values 中的数组下标
+   *
+   * <p>示例值：
+   */
+  @SerializedName("list_values")
+  private String[] listValues;
+
+  /**
+   * 文件类型字段值，可通过主数据的[文件下载Open
+   * API](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/get-2)下载
+   *
+   * <p>示例值：
+   */
+  @SerializedName("file_value")
+  private FieldVariableValueToFile fileValue;
+
+  public String getTextValue() {
+    return this.textValue;
+  }
+
+  public void setTextValue(String textValue) {
+    this.textValue = textValue;
+  }
+
+  public Boolean getBoolValue() {
+    return this.boolValue;
+  }
+
+  public void setBoolValue(Boolean boolValue) {
+    this.boolValue = boolValue;
+  }
+
+  public String getNumberValue() {
+    return this.numberValue;
+  }
+
+  public void setNumberValue(String numberValue) {
+    this.numberValue = numberValue;
+  }
+
+  public String getEnumValue() {
+    return this.enumValue;
+  }
+
+  public void setEnumValue(String enumValue) {
+    this.enumValue = enumValue;
+  }
+
+  public String getDateValue() {
+    return this.dateValue;
+  }
+
+  public void setDateValue(String dateValue) {
+    this.dateValue = dateValue;
+  }
+
+  public String getDateTimeValue() {
+    return this.dateTimeValue;
+  }
+
+  public void setDateTimeValue(String dateTimeValue) {
+    this.dateTimeValue = dateTimeValue;
+  }
+
+  public FieldVariableValueI18n getI18nValue() {
+    return this.i18nValue;
+  }
+
+  public void setI18nValue(FieldVariableValueI18n i18nValue) {
+    this.i18nValue = i18nValue;
+  }
+
+  public FieldVariableValueToObject getObjectValue() {
+    return this.objectValue;
+  }
+
+  public void setObjectValue(FieldVariableValueToObject objectValue) {
+    this.objectValue = objectValue;
+  }
+
+  public String getUserValue() {
+    return this.userValue;
+  }
+
+  public void setUserValue(String userValue) {
+    this.userValue = userValue;
+  }
+
+  public String getDepartmentValue() {
+    return this.departmentValue;
+  }
+
+  public void setDepartmentValue(String departmentValue) {
+    this.departmentValue = departmentValue;
+  }
+
+  public FieldVariableValueToRecord[] getRecordValues() {
+    return this.recordValues;
+  }
+
+  public void setRecordValues(FieldVariableValueToRecord[] recordValues) {
+    this.recordValues = recordValues;
+  }
+
+  public String getEmploymentValue() {
+    return this.employmentValue;
+  }
+
+  public void setEmploymentValue(String employmentValue) {
+    this.employmentValue = employmentValue;
+  }
+
+  public String[] getListValues() {
+    return this.listValues;
+  }
+
+  public void setListValues(String[] listValues) {
+    this.listValues = listValues;
+  }
+
+  public FieldVariableValueToFile getFileValue() {
+    return this.fileValue;
+  }
+
+  public void setFileValue(FieldVariableValueToFile fileValue) {
+    this.fileValue = fileValue;
+  }
+
+  // builder 开始
+  public FieldVariableValueTo() {}
+
+  public FieldVariableValueTo(Builder builder) {
     /**
      * 文本值
-     * <p> 示例值：测试测试
+     *
+     * <p>示例值：测试测试
      */
-    @SerializedName("text_value")
-    private String textValue;
+    this.textValue = builder.textValue;
     /**
      * 布尔值
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("bool_value")
-    private Boolean boolValue;
+    this.boolValue = builder.boolValue;
     /**
      * 数字值
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("number_value")
-    private String numberValue;
+    this.numberValue = builder.numberValue;
     /**
-     * 枚举值，这里是枚举的id
-     * <p> 示例值：home_address
+     * 枚举值，这里是枚举的 id
+     *
+     * <p>示例值：home_address
      */
-    @SerializedName("enum_value")
-    private String enumValue;
+    this.enumValue = builder.enumValue;
     /**
-     * 从 1970 开始的天数
-     * <p> 示例值：19838
+     * 日期值，单位：天。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的天数;;**示例值**：19688
+     *
+     * <p>示例值：19838
      */
-    @SerializedName("date_value")
-    private String dateValue;
+    this.dateValue = builder.dateValue;
     /**
-     * 时间戳，毫秒
-     * <p> 示例值：1714013877512
+     * 时间值，单位：ms。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的毫秒数;;**示例值**：1719549169735
+     *
+     * <p>示例值：1714013877512
      */
-    @SerializedName("date_time_value")
-    private String dateTimeValue;
+    this.dateTimeValue = builder.dateTimeValue;
     /**
-     * 多语字段值
-     * <p> 示例值：
+     * 变量名称，在查询流程数据场景不会返回变量名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_value")
-    private FieldVariableValueI18n i18nValue;
+    this.i18nValue = builder.i18nValue;
     /**
-     * 对象值，包括对象id和对象类型
-     * <p> 示例值：1
+     * 对象值
+     *
+     * <p>示例值：1
      */
-    @SerializedName("object_value")
-    private FieldVariableValueToObject objectValue;
+    this.objectValue = builder.objectValue;
     /**
-     * 用户id，根据user_type选择对应的用户id
-     * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
+     * 用户 id，根据查询参数 user_id_type 选择对应的用户 id
+     *
+     * <p>示例值：ou_c57053dad6eea0aea4696c48433d8562
      */
-    @SerializedName("user_value")
-    private String userValue;
+    this.userValue = builder.userValue;
     /**
-     * 部门id，根据入参选择对应的部门id
-     * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
+     * 部门id，根据查询参数department_id_type类型选择对应的部门id。;;可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)
+     * 或 [批量查询部门（
+     * V2）](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询详情。
+     *
+     * <p>示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
      */
-    @SerializedName("department_value")
-    private String departmentValue;
+    this.departmentValue = builder.departmentValue;
     /**
      * 记录类型字段值
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("record_values")
+    this.recordValues = builder.recordValues;
+    /**
+     * 员工类型字段值，为用户id，根据入参选择的user_id_type类型返回的用户id。;;可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)
+     * 或
+     * [批量查询员工信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询详情。
+     *
+     * <p>示例值：ou_c57053dad6eea0aea4696c48433d8562
+     */
+    this.employmentValue = builder.employmentValue;
+    /**
+     * 数组类型值，里面包含多个值，每个元素都对应 sub_values 中的数组下标
+     *
+     * <p>示例值：
+     */
+    this.listValues = builder.listValues;
+    /**
+     * 文件类型字段值，可通过主数据的[文件下载Open
+     * API](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/get-2)下载
+     *
+     * <p>示例值：
+     */
+    this.fileValue = builder.fileValue;
+  }
+
+  public static class Builder {
+    /**
+     * 文本值
+     *
+     * <p>示例值：测试测试
+     */
+    private String textValue;
+
+    /**
+     * 布尔值
+     *
+     * <p>示例值：true
+     */
+    private Boolean boolValue;
+
+    /**
+     * 数字值
+     *
+     * <p>示例值：100
+     */
+    private String numberValue;
+
+    /**
+     * 枚举值，这里是枚举的 id
+     *
+     * <p>示例值：home_address
+     */
+    private String enumValue;
+
+    /**
+     * 日期值，单位：天。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的天数;;**示例值**：19688
+     *
+     * <p>示例值：19838
+     */
+    private String dateValue;
+
+    /**
+     * 时间值，单位：ms。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的毫秒数;;**示例值**：1719549169735
+     *
+     * <p>示例值：1714013877512
+     */
+    private String dateTimeValue;
+
+    /**
+     * 变量名称，在查询流程数据场景不会返回变量名称
+     *
+     * <p>示例值：
+     */
+    private FieldVariableValueI18n i18nValue;
+
+    /**
+     * 对象值
+     *
+     * <p>示例值：1
+     */
+    private FieldVariableValueToObject objectValue;
+
+    /**
+     * 用户 id，根据查询参数 user_id_type 选择对应的用户 id
+     *
+     * <p>示例值：ou_c57053dad6eea0aea4696c48433d8562
+     */
+    private String userValue;
+
+    /**
+     * 部门id，根据查询参数department_id_type类型选择对应的部门id。;;可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)
+     * 或 [批量查询部门（
+     * V2）](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询详情。
+     *
+     * <p>示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
+     */
+    private String departmentValue;
+
+    /**
+     * 记录类型字段值
+     *
+     * <p>示例值：1
+     */
     private FieldVariableValueToRecord[] recordValues;
+
     /**
-     * 员工类型字段值，为用户id，根据入参选择返回的用户id
-     * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
+     * 员工类型字段值，为用户id，根据入参选择的user_id_type类型返回的用户id。;;可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)
+     * 或
+     * [批量查询员工信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询详情。
+     *
+     * <p>示例值：ou_c57053dad6eea0aea4696c48433d8562
      */
-    @SerializedName("employment_value")
     private String employmentValue;
+
     /**
-     * 数组类型值，里面包含多个值，每个元素都对应subValues中的数组下标
-     * <p> 示例值：
+     * 数组类型值，里面包含多个值，每个元素都对应 sub_values 中的数组下标
+     *
+     * <p>示例值：
      */
-    @SerializedName("list_values")
     private String[] listValues;
+
     /**
-     * 文件类型字段值，可通过主数据的文件下载Open API下载
-     * <p> 示例值：
+     * 文件类型字段值，可通过主数据的[文件下载Open
+     * API](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/get-2)下载
+     *
+     * <p>示例值：
      */
-    @SerializedName("file_value")
     private FieldVariableValueToFile fileValue;
 
-    // builder 开始
-    public FieldVariableValueTo() {
+    /**
+     * 文本值
+     *
+     * <p>示例值：测试测试
+     *
+     * @param textValue
+     * @return
+     */
+    public Builder textValue(String textValue) {
+      this.textValue = textValue;
+      return this;
     }
 
-    public FieldVariableValueTo(Builder builder) {
-        /**
-         * 文本值
-         * <p> 示例值：测试测试
-         */
-        this.textValue = builder.textValue;
-        /**
-         * 布尔值
-         * <p> 示例值：true
-         */
-        this.boolValue = builder.boolValue;
-        /**
-         * 数字值
-         * <p> 示例值：100
-         */
-        this.numberValue = builder.numberValue;
-        /**
-         * 枚举值，这里是枚举的id
-         * <p> 示例值：home_address
-         */
-        this.enumValue = builder.enumValue;
-        /**
-         * 从 1970 开始的天数
-         * <p> 示例值：19838
-         */
-        this.dateValue = builder.dateValue;
-        /**
-         * 时间戳，毫秒
-         * <p> 示例值：1714013877512
-         */
-        this.dateTimeValue = builder.dateTimeValue;
-        /**
-         * 多语字段值
-         * <p> 示例值：
-         */
-        this.i18nValue = builder.i18nValue;
-        /**
-         * 对象值，包括对象id和对象类型
-         * <p> 示例值：1
-         */
-        this.objectValue = builder.objectValue;
-        /**
-         * 用户id，根据user_type选择对应的用户id
-         * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
-         */
-        this.userValue = builder.userValue;
-        /**
-         * 部门id，根据入参选择对应的部门id
-         * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
-         */
-        this.departmentValue = builder.departmentValue;
-        /**
-         * 记录类型字段值
-         * <p> 示例值：1
-         */
-        this.recordValues = builder.recordValues;
-        /**
-         * 员工类型字段值，为用户id，根据入参选择返回的用户id
-         * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
-         */
-        this.employmentValue = builder.employmentValue;
-        /**
-         * 数组类型值，里面包含多个值，每个元素都对应subValues中的数组下标
-         * <p> 示例值：
-         */
-        this.listValues = builder.listValues;
-        /**
-         * 文件类型字段值，可通过主数据的文件下载Open API下载
-         * <p> 示例值：
-         */
-        this.fileValue = builder.fileValue;
+    /**
+     * 布尔值
+     *
+     * <p>示例值：true
+     *
+     * @param boolValue
+     * @return
+     */
+    public Builder boolValue(Boolean boolValue) {
+      this.boolValue = boolValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数字值
+     *
+     * <p>示例值：100
+     *
+     * @param numberValue
+     * @return
+     */
+    public Builder numberValue(String numberValue) {
+      this.numberValue = numberValue;
+      return this;
     }
 
-    public String getTextValue() {
-        return this.textValue;
+    /**
+     * 枚举值，这里是枚举的 id
+     *
+     * <p>示例值：home_address
+     *
+     * @param enumValue
+     * @return
+     */
+    public Builder enumValue(String enumValue) {
+      this.enumValue = enumValue;
+      return this;
     }
 
-    public void setTextValue(String textValue) {
-        this.textValue = textValue;
+    /**
+     * 日期值，单位：天。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的天数;;**示例值**：19688
+     *
+     * <p>示例值：19838
+     *
+     * @param dateValue
+     * @return
+     */
+    public Builder dateValue(String dateValue) {
+      this.dateValue = dateValue;
+      return this;
     }
 
-    public Boolean getBoolValue() {
-        return this.boolValue;
+    /**
+     * 时间值，单位：ms。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的毫秒数;;**示例值**：1719549169735
+     *
+     * <p>示例值：1714013877512
+     *
+     * @param dateTimeValue
+     * @return
+     */
+    public Builder dateTimeValue(String dateTimeValue) {
+      this.dateTimeValue = dateTimeValue;
+      return this;
     }
 
-    public void setBoolValue(Boolean boolValue) {
-        this.boolValue = boolValue;
+    /**
+     * 变量名称，在查询流程数据场景不会返回变量名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nValue
+     * @return
+     */
+    public Builder i18nValue(FieldVariableValueI18n i18nValue) {
+      this.i18nValue = i18nValue;
+      return this;
     }
 
-    public String getNumberValue() {
-        return this.numberValue;
+    /**
+     * 对象值
+     *
+     * <p>示例值：1
+     *
+     * @param objectValue
+     * @return
+     */
+    public Builder objectValue(FieldVariableValueToObject objectValue) {
+      this.objectValue = objectValue;
+      return this;
     }
 
-    public void setNumberValue(String numberValue) {
-        this.numberValue = numberValue;
+    /**
+     * 用户 id，根据查询参数 user_id_type 选择对应的用户 id
+     *
+     * <p>示例值：ou_c57053dad6eea0aea4696c48433d8562
+     *
+     * @param userValue
+     * @return
+     */
+    public Builder userValue(String userValue) {
+      this.userValue = userValue;
+      return this;
     }
 
-    public String getEnumValue() {
-        return this.enumValue;
+    /**
+     * 部门id，根据查询参数department_id_type类型选择对应的部门id。;;可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search)
+     * 或 [批量查询部门（
+     * V2）](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询详情。
+     *
+     * <p>示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
+     *
+     * @param departmentValue
+     * @return
+     */
+    public Builder departmentValue(String departmentValue) {
+      this.departmentValue = departmentValue;
+      return this;
     }
 
-    public void setEnumValue(String enumValue) {
-        this.enumValue = enumValue;
+    /**
+     * 记录类型字段值
+     *
+     * <p>示例值：1
+     *
+     * @param recordValues
+     * @return
+     */
+    public Builder recordValues(FieldVariableValueToRecord[] recordValues) {
+      this.recordValues = recordValues;
+      return this;
     }
 
-    public String getDateValue() {
-        return this.dateValue;
+    /**
+     * 员工类型字段值，为用户id，根据入参选择的user_id_type类型返回的用户id。;;可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search)
+     * 或
+     * [批量查询员工信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询详情。
+     *
+     * <p>示例值：ou_c57053dad6eea0aea4696c48433d8562
+     *
+     * @param employmentValue
+     * @return
+     */
+    public Builder employmentValue(String employmentValue) {
+      this.employmentValue = employmentValue;
+      return this;
     }
 
-    public void setDateValue(String dateValue) {
-        this.dateValue = dateValue;
+    /**
+     * 数组类型值，里面包含多个值，每个元素都对应 sub_values 中的数组下标
+     *
+     * <p>示例值：
+     *
+     * @param listValues
+     * @return
+     */
+    public Builder listValues(String[] listValues) {
+      this.listValues = listValues;
+      return this;
     }
 
-    public String getDateTimeValue() {
-        return this.dateTimeValue;
+    /**
+     * 文件类型字段值，可通过主数据的[文件下载Open
+     * API](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/get-2)下载
+     *
+     * <p>示例值：
+     *
+     * @param fileValue
+     * @return
+     */
+    public Builder fileValue(FieldVariableValueToFile fileValue) {
+      this.fileValue = fileValue;
+      return this;
     }
 
-    public void setDateTimeValue(String dateTimeValue) {
-        this.dateTimeValue = dateTimeValue;
+    public FieldVariableValueTo build() {
+      return new FieldVariableValueTo(this);
     }
+  }
 
-    public FieldVariableValueI18n getI18nValue() {
-        return this.i18nValue;
-    }
-
-    public void setI18nValue(FieldVariableValueI18n i18nValue) {
-        this.i18nValue = i18nValue;
-    }
-
-    public FieldVariableValueToObject getObjectValue() {
-        return this.objectValue;
-    }
-
-    public void setObjectValue(FieldVariableValueToObject objectValue) {
-        this.objectValue = objectValue;
-    }
-
-    public String getUserValue() {
-        return this.userValue;
-    }
-
-    public void setUserValue(String userValue) {
-        this.userValue = userValue;
-    }
-
-    public String getDepartmentValue() {
-        return this.departmentValue;
-    }
-
-    public void setDepartmentValue(String departmentValue) {
-        this.departmentValue = departmentValue;
-    }
-
-    public FieldVariableValueToRecord[] getRecordValues() {
-        return this.recordValues;
-    }
-
-    public void setRecordValues(FieldVariableValueToRecord[] recordValues) {
-        this.recordValues = recordValues;
-    }
-
-    public String getEmploymentValue() {
-        return this.employmentValue;
-    }
-
-    public void setEmploymentValue(String employmentValue) {
-        this.employmentValue = employmentValue;
-    }
-
-    public String[] getListValues() {
-        return this.listValues;
-    }
-
-    public void setListValues(String[] listValues) {
-        this.listValues = listValues;
-    }
-
-    public FieldVariableValueToFile getFileValue() {
-        return this.fileValue;
-    }
-
-    public void setFileValue(FieldVariableValueToFile fileValue) {
-        this.fileValue = fileValue;
-    }
-
-    public static class Builder {
-        /**
-         * 文本值
-         * <p> 示例值：测试测试
-         */
-        private String textValue;
-        /**
-         * 布尔值
-         * <p> 示例值：true
-         */
-        private Boolean boolValue;
-        /**
-         * 数字值
-         * <p> 示例值：100
-         */
-        private String numberValue;
-        /**
-         * 枚举值，这里是枚举的id
-         * <p> 示例值：home_address
-         */
-        private String enumValue;
-        /**
-         * 从 1970 开始的天数
-         * <p> 示例值：19838
-         */
-        private String dateValue;
-        /**
-         * 时间戳，毫秒
-         * <p> 示例值：1714013877512
-         */
-        private String dateTimeValue;
-        /**
-         * 多语字段值
-         * <p> 示例值：
-         */
-        private FieldVariableValueI18n i18nValue;
-        /**
-         * 对象值，包括对象id和对象类型
-         * <p> 示例值：1
-         */
-        private FieldVariableValueToObject objectValue;
-        /**
-         * 用户id，根据user_type选择对应的用户id
-         * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
-         */
-        private String userValue;
-        /**
-         * 部门id，根据入参选择对应的部门id
-         * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
-         */
-        private String departmentValue;
-        /**
-         * 记录类型字段值
-         * <p> 示例值：1
-         */
-        private FieldVariableValueToRecord[] recordValues;
-        /**
-         * 员工类型字段值，为用户id，根据入参选择返回的用户id
-         * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
-         */
-        private String employmentValue;
-        /**
-         * 数组类型值，里面包含多个值，每个元素都对应subValues中的数组下标
-         * <p> 示例值：
-         */
-        private String[] listValues;
-        /**
-         * 文件类型字段值，可通过主数据的文件下载Open API下载
-         * <p> 示例值：
-         */
-        private FieldVariableValueToFile fileValue;
-
-        /**
-         * 文本值
-         * <p> 示例值：测试测试
-         *
-         * @param textValue
-         * @return
-         */
-        public Builder textValue(String textValue) {
-            this.textValue = textValue;
-            return this;
-        }
-
-
-        /**
-         * 布尔值
-         * <p> 示例值：true
-         *
-         * @param boolValue
-         * @return
-         */
-        public Builder boolValue(Boolean boolValue) {
-            this.boolValue = boolValue;
-            return this;
-        }
-
-
-        /**
-         * 数字值
-         * <p> 示例值：100
-         *
-         * @param numberValue
-         * @return
-         */
-        public Builder numberValue(String numberValue) {
-            this.numberValue = numberValue;
-            return this;
-        }
-
-
-        /**
-         * 枚举值，这里是枚举的id
-         * <p> 示例值：home_address
-         *
-         * @param enumValue
-         * @return
-         */
-        public Builder enumValue(String enumValue) {
-            this.enumValue = enumValue;
-            return this;
-        }
-
-
-        /**
-         * 从 1970 开始的天数
-         * <p> 示例值：19838
-         *
-         * @param dateValue
-         * @return
-         */
-        public Builder dateValue(String dateValue) {
-            this.dateValue = dateValue;
-            return this;
-        }
-
-
-        /**
-         * 时间戳，毫秒
-         * <p> 示例值：1714013877512
-         *
-         * @param dateTimeValue
-         * @return
-         */
-        public Builder dateTimeValue(String dateTimeValue) {
-            this.dateTimeValue = dateTimeValue;
-            return this;
-        }
-
-
-        /**
-         * 多语字段值
-         * <p> 示例值：
-         *
-         * @param i18nValue
-         * @return
-         */
-        public Builder i18nValue(FieldVariableValueI18n i18nValue) {
-            this.i18nValue = i18nValue;
-            return this;
-        }
-
-
-        /**
-         * 对象值，包括对象id和对象类型
-         * <p> 示例值：1
-         *
-         * @param objectValue
-         * @return
-         */
-        public Builder objectValue(FieldVariableValueToObject objectValue) {
-            this.objectValue = objectValue;
-            return this;
-        }
-
-
-        /**
-         * 用户id，根据user_type选择对应的用户id
-         * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
-         *
-         * @param userValue
-         * @return
-         */
-        public Builder userValue(String userValue) {
-            this.userValue = userValue;
-            return this;
-        }
-
-
-        /**
-         * 部门id，根据入参选择对应的部门id
-         * <p> 示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f
-         *
-         * @param departmentValue
-         * @return
-         */
-        public Builder departmentValue(String departmentValue) {
-            this.departmentValue = departmentValue;
-            return this;
-        }
-
-
-        /**
-         * 记录类型字段值
-         * <p> 示例值：1
-         *
-         * @param recordValues
-         * @return
-         */
-        public Builder recordValues(FieldVariableValueToRecord[] recordValues) {
-            this.recordValues = recordValues;
-            return this;
-        }
-
-
-        /**
-         * 员工类型字段值，为用户id，根据入参选择返回的用户id
-         * <p> 示例值：ou_c57053dad6eea0aea4696c48433d8562
-         *
-         * @param employmentValue
-         * @return
-         */
-        public Builder employmentValue(String employmentValue) {
-            this.employmentValue = employmentValue;
-            return this;
-        }
-
-
-        /**
-         * 数组类型值，里面包含多个值，每个元素都对应subValues中的数组下标
-         * <p> 示例值：
-         *
-         * @param listValues
-         * @return
-         */
-        public Builder listValues(String[] listValues) {
-            this.listValues = listValues;
-            return this;
-        }
-
-
-        /**
-         * 文件类型字段值，可通过主数据的文件下载Open API下载
-         * <p> 示例值：
-         *
-         * @param fileValue
-         * @return
-         */
-        public Builder fileValue(FieldVariableValueToFile fileValue) {
-            this.fileValue = fileValue;
-            return this;
-        }
-
-
-        public FieldVariableValueTo build() {
-            return new FieldVariableValueTo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

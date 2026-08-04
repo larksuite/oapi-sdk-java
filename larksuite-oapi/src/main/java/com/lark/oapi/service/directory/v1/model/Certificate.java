@@ -13,408 +13,443 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Certificate {
+  /**
+   * ID
+   *
+   * <p>示例值：7202465324939067395
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 租户ID
+   *
+   * <p>示例值：租户ID
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 证件号
+   *
+   * <p>示例值：FSA81241
+   */
+  @SerializedName("credential_number")
+  private String credentialNumber;
+
+  /**
+   * 证件类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("credential_type")
+  private String credentialType;
+
+  /**
+   * 到期日期 格式：2007-07-20， 无固定期限或者长期有效，使用PermanentDate常量
+   *
+   * <p>示例值：2007-07-20
+   */
+  @SerializedName("expiry_date")
+  private String expiryDate;
+
+  /**
+   * 是否删除
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_deleted")
+  private Boolean isDeleted;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1697083055
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1697083055
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 创建人
+   *
+   * <p>示例值：7202465324939067391
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  /**
+   * 更新人
+   *
+   * <p>示例值：7202465324939067391
+   */
+  @SerializedName("updator_id")
+  private String updatorId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String getCredentialNumber() {
+    return this.credentialNumber;
+  }
+
+  public void setCredentialNumber(String credentialNumber) {
+    this.credentialNumber = credentialNumber;
+  }
+
+  public String getCredentialType() {
+    return this.credentialType;
+  }
+
+  public void setCredentialType(String credentialType) {
+    this.credentialType = credentialType;
+  }
+
+  public String getExpiryDate() {
+    return this.expiryDate;
+  }
+
+  public void setExpiryDate(String expiryDate) {
+    this.expiryDate = expiryDate;
+  }
+
+  public Boolean getIsDeleted() {
+    return this.isDeleted;
+  }
+
+  public void setIsDeleted(Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  public String getUpdatorId() {
+    return this.updatorId;
+  }
+
+  public void setUpdatorId(String updatorId) {
+    this.updatorId = updatorId;
+  }
+
+  // builder 开始
+  public Certificate() {}
+
+  public Certificate(Builder builder) {
     /**
      * ID
-     * <p> 示例值：7202465324939067395
+     *
+     * <p>示例值：7202465324939067395
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 租户ID
-     * <p> 示例值：租户ID
+     *
+     * <p>示例值：租户ID
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 证件号
-     * <p> 示例值：FSA81241
+     *
+     * <p>示例值：FSA81241
      */
-    @SerializedName("credential_number")
-    private String credentialNumber;
+    this.credentialNumber = builder.credentialNumber;
     /**
      * 证件类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("credential_type")
-    private String credentialType;
+    this.credentialType = builder.credentialType;
     /**
      * 到期日期 格式：2007-07-20， 无固定期限或者长期有效，使用PermanentDate常量
-     * <p> 示例值：2007-07-20
+     *
+     * <p>示例值：2007-07-20
      */
-    @SerializedName("expiry_date")
-    private String expiryDate;
+    this.expiryDate = builder.expiryDate;
     /**
      * 是否删除
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_deleted")
-    private Boolean isDeleted;
+    this.isDeleted = builder.isDeleted;
     /**
      * 创建时间
-     * <p> 示例值：1697083055
+     *
+     * <p>示例值：1697083055
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 更新时间
-     * <p> 示例值：1697083055
+     *
+     * <p>示例值：1697083055
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 创建人
-     * <p> 示例值：7202465324939067391
+     *
+     * <p>示例值：7202465324939067391
      */
-    @SerializedName("creator_id")
-    private String creatorId;
+    this.creatorId = builder.creatorId;
     /**
      * 更新人
-     * <p> 示例值：7202465324939067391
+     *
+     * <p>示例值：7202465324939067391
      */
-    @SerializedName("updator_id")
+    this.updatorId = builder.updatorId;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：7202465324939067395
+     */
+    private String id;
+
+    /**
+     * 租户ID
+     *
+     * <p>示例值：租户ID
+     */
+    private String tenantId;
+
+    /**
+     * 证件号
+     *
+     * <p>示例值：FSA81241
+     */
+    private String credentialNumber;
+
+    /**
+     * 证件类型
+     *
+     * <p>示例值：
+     */
+    private String credentialType;
+
+    /**
+     * 到期日期 格式：2007-07-20， 无固定期限或者长期有效，使用PermanentDate常量
+     *
+     * <p>示例值：2007-07-20
+     */
+    private String expiryDate;
+
+    /**
+     * 是否删除
+     *
+     * <p>示例值：false
+     */
+    private Boolean isDeleted;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1697083055
+     */
+    private String createTime;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1697083055
+     */
+    private String updateTime;
+
+    /**
+     * 创建人
+     *
+     * <p>示例值：7202465324939067391
+     */
+    private String creatorId;
+
+    /**
+     * 更新人
+     *
+     * <p>示例值：7202465324939067391
+     */
     private String updatorId;
 
-    // builder 开始
-    public Certificate() {
+    /**
+     * ID
+     *
+     * <p>示例值：7202465324939067395
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Certificate(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：7202465324939067395
-         */
-        this.id = builder.id;
-        /**
-         * 租户ID
-         * <p> 示例值：租户ID
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 证件号
-         * <p> 示例值：FSA81241
-         */
-        this.credentialNumber = builder.credentialNumber;
-        /**
-         * 证件类型
-         * <p> 示例值：
-         */
-        this.credentialType = builder.credentialType;
-        /**
-         * 到期日期 格式：2007-07-20， 无固定期限或者长期有效，使用PermanentDate常量
-         * <p> 示例值：2007-07-20
-         */
-        this.expiryDate = builder.expiryDate;
-        /**
-         * 是否删除
-         * <p> 示例值：false
-         */
-        this.isDeleted = builder.isDeleted;
-        /**
-         * 创建时间
-         * <p> 示例值：1697083055
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1697083055
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 创建人
-         * <p> 示例值：7202465324939067391
-         */
-        this.creatorId = builder.creatorId;
-        /**
-         * 更新人
-         * <p> 示例值：7202465324939067391
-         */
-        this.updatorId = builder.updatorId;
+    /**
+     * 租户ID
+     *
+     * <p>示例值：租户ID
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 证件号
+     *
+     * <p>示例值：FSA81241
+     *
+     * @param credentialNumber
+     * @return
+     */
+    public Builder credentialNumber(String credentialNumber) {
+      this.credentialNumber = credentialNumber;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 证件类型
+     *
+     * <p>示例值：
+     *
+     * @param credentialType
+     * @return
+     */
+    public Builder credentialType(String credentialType) {
+      this.credentialType = credentialType;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 到期日期 格式：2007-07-20， 无固定期限或者长期有效，使用PermanentDate常量
+     *
+     * <p>示例值：2007-07-20
+     *
+     * @param expiryDate
+     * @return
+     */
+    public Builder expiryDate(String expiryDate) {
+      this.expiryDate = expiryDate;
+      return this;
     }
 
-    public String getTenantId() {
-        return this.tenantId;
+    /**
+     * 是否删除
+     *
+     * <p>示例值：false
+     *
+     * @param isDeleted
+     * @return
+     */
+    public Builder isDeleted(Boolean isDeleted) {
+      this.isDeleted = isDeleted;
+      return this;
     }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1697083055
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getCredentialNumber() {
-        return this.credentialNumber;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1697083055
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setCredentialNumber(String credentialNumber) {
-        this.credentialNumber = credentialNumber;
+    /**
+     * 创建人
+     *
+     * <p>示例值：7202465324939067391
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public String getCredentialType() {
-        return this.credentialType;
+    /**
+     * 更新人
+     *
+     * <p>示例值：7202465324939067391
+     *
+     * @param updatorId
+     * @return
+     */
+    public Builder updatorId(String updatorId) {
+      this.updatorId = updatorId;
+      return this;
     }
 
-    public void setCredentialType(String credentialType) {
-        this.credentialType = credentialType;
+    public Certificate build() {
+      return new Certificate(this);
     }
+  }
 
-    public String getExpiryDate() {
-        return this.expiryDate;
-    }
-
-    public void setExpiryDate(String expiryDate) {
-        this.expiryDate = expiryDate;
-    }
-
-    public Boolean getIsDeleted() {
-        return this.isDeleted;
-    }
-
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getCreatorId() {
-        return this.creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public String getUpdatorId() {
-        return this.updatorId;
-    }
-
-    public void setUpdatorId(String updatorId) {
-        this.updatorId = updatorId;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：7202465324939067395
-         */
-        private String id;
-        /**
-         * 租户ID
-         * <p> 示例值：租户ID
-         */
-        private String tenantId;
-        /**
-         * 证件号
-         * <p> 示例值：FSA81241
-         */
-        private String credentialNumber;
-        /**
-         * 证件类型
-         * <p> 示例值：
-         */
-        private String credentialType;
-        /**
-         * 到期日期 格式：2007-07-20， 无固定期限或者长期有效，使用PermanentDate常量
-         * <p> 示例值：2007-07-20
-         */
-        private String expiryDate;
-        /**
-         * 是否删除
-         * <p> 示例值：false
-         */
-        private Boolean isDeleted;
-        /**
-         * 创建时间
-         * <p> 示例值：1697083055
-         */
-        private String createTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1697083055
-         */
-        private String updateTime;
-        /**
-         * 创建人
-         * <p> 示例值：7202465324939067391
-         */
-        private String creatorId;
-        /**
-         * 更新人
-         * <p> 示例值：7202465324939067391
-         */
-        private String updatorId;
-
-        /**
-         * ID
-         * <p> 示例值：7202465324939067395
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 租户ID
-         * <p> 示例值：租户ID
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 证件号
-         * <p> 示例值：FSA81241
-         *
-         * @param credentialNumber
-         * @return
-         */
-        public Builder credentialNumber(String credentialNumber) {
-            this.credentialNumber = credentialNumber;
-            return this;
-        }
-
-
-        /**
-         * 证件类型
-         * <p> 示例值：
-         *
-         * @param credentialType
-         * @return
-         */
-        public Builder credentialType(String credentialType) {
-            this.credentialType = credentialType;
-            return this;
-        }
-
-
-        /**
-         * 到期日期 格式：2007-07-20， 无固定期限或者长期有效，使用PermanentDate常量
-         * <p> 示例值：2007-07-20
-         *
-         * @param expiryDate
-         * @return
-         */
-        public Builder expiryDate(String expiryDate) {
-            this.expiryDate = expiryDate;
-            return this;
-        }
-
-
-        /**
-         * 是否删除
-         * <p> 示例值：false
-         *
-         * @param isDeleted
-         * @return
-         */
-        public Builder isDeleted(Boolean isDeleted) {
-            this.isDeleted = isDeleted;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1697083055
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1697083055
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 创建人
-         * <p> 示例值：7202465324939067391
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        /**
-         * 更新人
-         * <p> 示例值：7202465324939067391
-         *
-         * @param updatorId
-         * @return
-         */
-        public Builder updatorId(String updatorId) {
-            this.updatorId = updatorId;
-            return this;
-        }
-
-
-        public Certificate build() {
-            return new Certificate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,185 +13,190 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PermissionCollection {
+  /**
+   * 功能权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("feature_permissions")
+  private IdNameObject[] featurePermissions;
+
+  /**
+   * 管理权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("management_permissions")
+  private IdNameObject[] managementPermissions;
+
+  /**
+   * 数据权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("data_permissions")
+  private DataPermission[] dataPermissions;
+
+  /**
+   * 业务管理范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("business_management_scopes")
+  private BusinessManagementScope[] businessManagementScopes;
+
+  public IdNameObject[] getFeaturePermissions() {
+    return this.featurePermissions;
+  }
+
+  public void setFeaturePermissions(IdNameObject[] featurePermissions) {
+    this.featurePermissions = featurePermissions;
+  }
+
+  public IdNameObject[] getManagementPermissions() {
+    return this.managementPermissions;
+  }
+
+  public void setManagementPermissions(IdNameObject[] managementPermissions) {
+    this.managementPermissions = managementPermissions;
+  }
+
+  public DataPermission[] getDataPermissions() {
+    return this.dataPermissions;
+  }
+
+  public void setDataPermissions(DataPermission[] dataPermissions) {
+    this.dataPermissions = dataPermissions;
+  }
+
+  public BusinessManagementScope[] getBusinessManagementScopes() {
+    return this.businessManagementScopes;
+  }
+
+  public void setBusinessManagementScopes(BusinessManagementScope[] businessManagementScopes) {
+    this.businessManagementScopes = businessManagementScopes;
+  }
+
+  // builder 开始
+  public PermissionCollection() {}
+
+  public PermissionCollection(Builder builder) {
     /**
      * 功能权限
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("feature_permissions")
-    private IdNameObject[] featurePermissions;
+    this.featurePermissions = builder.featurePermissions;
     /**
      * 管理权限
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("management_permissions")
-    private IdNameObject[] managementPermissions;
+    this.managementPermissions = builder.managementPermissions;
     /**
      * 数据权限
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("data_permissions")
-    private DataPermission[] dataPermissions;
+    this.dataPermissions = builder.dataPermissions;
     /**
      * 业务管理范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("business_management_scopes")
+    this.businessManagementScopes = builder.businessManagementScopes;
+  }
+
+  public static class Builder {
+    /**
+     * 功能权限
+     *
+     * <p>示例值：
+     */
+    private IdNameObject[] featurePermissions;
+
+    /**
+     * 管理权限
+     *
+     * <p>示例值：
+     */
+    private IdNameObject[] managementPermissions;
+
+    /**
+     * 数据权限
+     *
+     * <p>示例值：
+     */
+    private DataPermission[] dataPermissions;
+
+    /**
+     * 业务管理范围
+     *
+     * <p>示例值：
+     */
     private BusinessManagementScope[] businessManagementScopes;
 
-    // builder 开始
-    public PermissionCollection() {
+    /**
+     * 功能权限
+     *
+     * <p>示例值：
+     *
+     * @param featurePermissions
+     * @return
+     */
+    public Builder featurePermissions(IdNameObject[] featurePermissions) {
+      this.featurePermissions = featurePermissions;
+      return this;
     }
 
-    public PermissionCollection(Builder builder) {
-        /**
-         * 功能权限
-         * <p> 示例值：
-         */
-        this.featurePermissions = builder.featurePermissions;
-        /**
-         * 管理权限
-         * <p> 示例值：
-         */
-        this.managementPermissions = builder.managementPermissions;
-        /**
-         * 数据权限
-         * <p> 示例值：
-         */
-        this.dataPermissions = builder.dataPermissions;
-        /**
-         * 业务管理范围
-         * <p> 示例值：
-         */
-        this.businessManagementScopes = builder.businessManagementScopes;
+    /**
+     * 管理权限
+     *
+     * <p>示例值：
+     *
+     * @param managementPermissions
+     * @return
+     */
+    public Builder managementPermissions(IdNameObject[] managementPermissions) {
+      this.managementPermissions = managementPermissions;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据权限
+     *
+     * <p>示例值：
+     *
+     * @param dataPermissions
+     * @return
+     */
+    public Builder dataPermissions(DataPermission[] dataPermissions) {
+      this.dataPermissions = dataPermissions;
+      return this;
     }
 
-    public IdNameObject[] getFeaturePermissions() {
-        return this.featurePermissions;
+    /**
+     * 业务管理范围
+     *
+     * <p>示例值：
+     *
+     * @param businessManagementScopes
+     * @return
+     */
+    public Builder businessManagementScopes(BusinessManagementScope[] businessManagementScopes) {
+      this.businessManagementScopes = businessManagementScopes;
+      return this;
     }
 
-    public void setFeaturePermissions(IdNameObject[] featurePermissions) {
-        this.featurePermissions = featurePermissions;
+    public PermissionCollection build() {
+      return new PermissionCollection(this);
     }
+  }
 
-    public IdNameObject[] getManagementPermissions() {
-        return this.managementPermissions;
-    }
-
-    public void setManagementPermissions(IdNameObject[] managementPermissions) {
-        this.managementPermissions = managementPermissions;
-    }
-
-    public DataPermission[] getDataPermissions() {
-        return this.dataPermissions;
-    }
-
-    public void setDataPermissions(DataPermission[] dataPermissions) {
-        this.dataPermissions = dataPermissions;
-    }
-
-    public BusinessManagementScope[] getBusinessManagementScopes() {
-        return this.businessManagementScopes;
-    }
-
-    public void setBusinessManagementScopes(BusinessManagementScope[] businessManagementScopes) {
-        this.businessManagementScopes = businessManagementScopes;
-    }
-
-    public static class Builder {
-        /**
-         * 功能权限
-         * <p> 示例值：
-         */
-        private IdNameObject[] featurePermissions;
-        /**
-         * 管理权限
-         * <p> 示例值：
-         */
-        private IdNameObject[] managementPermissions;
-        /**
-         * 数据权限
-         * <p> 示例值：
-         */
-        private DataPermission[] dataPermissions;
-        /**
-         * 业务管理范围
-         * <p> 示例值：
-         */
-        private BusinessManagementScope[] businessManagementScopes;
-
-        /**
-         * 功能权限
-         * <p> 示例值：
-         *
-         * @param featurePermissions
-         * @return
-         */
-        public Builder featurePermissions(IdNameObject[] featurePermissions) {
-            this.featurePermissions = featurePermissions;
-            return this;
-        }
-
-
-        /**
-         * 管理权限
-         * <p> 示例值：
-         *
-         * @param managementPermissions
-         * @return
-         */
-        public Builder managementPermissions(IdNameObject[] managementPermissions) {
-            this.managementPermissions = managementPermissions;
-            return this;
-        }
-
-
-        /**
-         * 数据权限
-         * <p> 示例值：
-         *
-         * @param dataPermissions
-         * @return
-         */
-        public Builder dataPermissions(DataPermission[] dataPermissions) {
-            this.dataPermissions = dataPermissions;
-            return this;
-        }
-
-
-        /**
-         * 业务管理范围
-         * <p> 示例值：
-         *
-         * @param businessManagementScopes
-         * @return
-         */
-        public Builder businessManagementScopes(BusinessManagementScope[] businessManagementScopes) {
-            this.businessManagementScopes = businessManagementScopes;
-            return this;
-        }
-
-
-        public PermissionCollection build() {
-            return new PermissionCollection(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

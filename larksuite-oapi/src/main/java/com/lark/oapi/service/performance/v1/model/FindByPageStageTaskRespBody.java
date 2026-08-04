@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FindByPageStageTaskRespBody {
-    /**
-     * 周期基础信息
-     * <p> 示例值：
-     */
-    @SerializedName("base")
-    private SemesterBaseInfo base;
-    /**
-     * 周期环节信息列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private StageTask[] items;
-    /**
-     * 是否有下一页数据
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 下一页分页的token
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
+  /**
+   * 周期基本信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("base")
+  private SemesterBaseInfo base;
 
-    public SemesterBaseInfo getBase() {
-        return this.base;
-    }
+  /**
+   * 周期任务
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private StageTask[] items;
 
-    public void setBase(SemesterBaseInfo base) {
-        this.base = base;
-    }
+  /**
+   * 是否有下一页数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public StageTask[] getItems() {
-        return this.items;
-    }
+  /**
+   * 下一页分页的token
+   *
+   * <p>示例值：
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setItems(StageTask[] items) {
-        this.items = items;
-    }
+  public SemesterBaseInfo getBase() {
+    return this.base;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setBase(SemesterBaseInfo base) {
+    this.base = base;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public StageTask[] getItems() {
+    return this.items;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public void setItems(StageTask[] items) {
+    this.items = items;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 }

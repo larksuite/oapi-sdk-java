@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.performance.v2.enums;
 
-/**
- * 状态
- */
+/** 指标模版状态 */
 public enum QueryMetricTemplateStatusEnum {
-    TO_BE_CONFIGURED("to_be_configured"), // 待完成配置
-    TO_BE_ACTIVATED("to_be_activated"), // 待启用
-    ENABLED("enabled"), // 已启用
-    DISABLED("disabled"), // 已停用
-    ;
-    private String value;
+  TO_BE_CONFIGURED("to_be_configured"), // 待完成配置
+  TO_BE_ACTIVATED("to_be_activated"), // 待启用
+  ENABLED("enabled"), // 已启用
+  DISABLED("disabled"), // 已停用
+  ;
+  private String value;
 
-    QueryMetricTemplateStatusEnum(String value) {
-        this.value = value;
-    }
+  QueryMetricTemplateStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

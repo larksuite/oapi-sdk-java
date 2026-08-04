@@ -13,148 +13,156 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OfferApplyFormConfigFormulaInfo {
+  /**
+   * 计算公式。由薪资字段ID、运算符组成，薪资字段来源于offer申请表-薪资信息模块，公式中包含的薪资字段具体信息通过同级字段extra_map获取。示例："(
+   * [6872592813776914699] * 12 + 20 / 2 ) / [6872592813776914699] +
+   * 2000"，其中6872592813776914699为薪资字段ID
+   *
+   * <p>示例值：[object_id] * 12
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 计算结果显示格式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("result")
+  private Integer result;
+
+  /**
+   * 公式字段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("extra_map")
+  private OfferApplyFormFormulaExtraMapInfo[] extraMap;
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public Integer getResult() {
+    return this.result;
+  }
+
+  public void setResult(Integer result) {
+    this.result = result;
+  }
+
+  public OfferApplyFormFormulaExtraMapInfo[] getExtraMap() {
+    return this.extraMap;
+  }
+
+  public void setExtraMap(OfferApplyFormFormulaExtraMapInfo[] extraMap) {
+    this.extraMap = extraMap;
+  }
+
+  // builder 开始
+  public OfferApplyFormConfigFormulaInfo() {}
+
+  public OfferApplyFormConfigFormulaInfo(Builder builder) {
     /**
-     * 公式值
-     * <p> 示例值：[object_id_1] + [object_id_2] * 12
+     * 计算公式。由薪资字段ID、运算符组成，薪资字段来源于offer申请表-薪资信息模块，公式中包含的薪资字段具体信息通过同级字段extra_map获取。示例："(
+     * [6872592813776914699] * 12 + 20 / 2 ) / [6872592813776914699] +
+     * 2000"，其中6872592813776914699为薪资字段ID
+     *
+     * <p>示例值：[object_id] * 12
      */
-    @SerializedName("value")
+    this.value = builder.value;
+    /**
+     * 计算结果显示格式
+     *
+     * <p>示例值：1
+     */
+    this.result = builder.result;
+    /**
+     * 公式字段信息
+     *
+     * <p>示例值：
+     */
+    this.extraMap = builder.extraMap;
+  }
+
+  public static class Builder {
+    /**
+     * 计算公式。由薪资字段ID、运算符组成，薪资字段来源于offer申请表-薪资信息模块，公式中包含的薪资字段具体信息通过同级字段extra_map获取。示例："(
+     * [6872592813776914699] * 12 + 20 / 2 ) / [6872592813776914699] +
+     * 2000"，其中6872592813776914699为薪资字段ID
+     *
+     * <p>示例值：[object_id] * 12
+     */
     private String value;
+
     /**
-     * 公式结果类型枚举
-     * <p> 示例值：1
+     * 计算结果显示格式
+     *
+     * <p>示例值：1
      */
-    @SerializedName("result")
     private Integer result;
+
     /**
-     * 公式额外描述
-     * <p> 示例值：
+     * 公式字段信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("extra_map")
     private OfferApplyFormFormulaExtraMapInfo[] extraMap;
 
-    // builder 开始
-    public OfferApplyFormConfigFormulaInfo() {
+    /**
+     * 计算公式。由薪资字段ID、运算符组成，薪资字段来源于offer申请表-薪资信息模块，公式中包含的薪资字段具体信息通过同级字段extra_map获取。示例："(
+     * [6872592813776914699] * 12 + 20 / 2 ) / [6872592813776914699] +
+     * 2000"，其中6872592813776914699为薪资字段ID
+     *
+     * <p>示例值：[object_id] * 12
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public OfferApplyFormConfigFormulaInfo(Builder builder) {
-        /**
-         * 公式值
-         * <p> 示例值：[object_id_1] + [object_id_2] * 12
-         */
-        this.value = builder.value;
-        /**
-         * 公式结果类型枚举
-         * <p> 示例值：1
-         */
-        this.result = builder.result;
-        /**
-         * 公式额外描述
-         * <p> 示例值：
-         */
-        this.extraMap = builder.extraMap;
+    /**
+     * 计算结果显示格式
+     *
+     * <p>示例值：1
+     *
+     * @param result
+     * @return
+     */
+    public Builder result(Integer result) {
+      this.result = result;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 公式字段信息
+     *
+     * <p>示例值：
+     *
+     * @param extraMap
+     * @return
+     */
+    public Builder extraMap(OfferApplyFormFormulaExtraMapInfo[] extraMap) {
+      this.extraMap = extraMap;
+      return this;
     }
 
-    public String getValue() {
-        return this.value;
+    public OfferApplyFormConfigFormulaInfo build() {
+      return new OfferApplyFormConfigFormulaInfo(this);
     }
+  }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public Integer getResult() {
-        return this.result;
-    }
-
-    public void setResult(Integer result) {
-        this.result = result;
-    }
-
-    public OfferApplyFormFormulaExtraMapInfo[] getExtraMap() {
-        return this.extraMap;
-    }
-
-    public void setExtraMap(OfferApplyFormFormulaExtraMapInfo[] extraMap) {
-        this.extraMap = extraMap;
-    }
-
-    public static class Builder {
-        /**
-         * 公式值
-         * <p> 示例值：[object_id_1] + [object_id_2] * 12
-         */
-        private String value;
-        /**
-         * 公式结果类型枚举
-         * <p> 示例值：1
-         */
-        private Integer result;
-        /**
-         * 公式额外描述
-         * <p> 示例值：
-         */
-        private OfferApplyFormFormulaExtraMapInfo[] extraMap;
-
-        /**
-         * 公式值
-         * <p> 示例值：[object_id_1] + [object_id_2] * 12
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 公式结果类型枚举
-         * <p> 示例值：1
-         *
-         * @param result
-         * @return
-         */
-        public Builder result(Integer result) {
-            this.result = result;
-            return this;
-        }
-
-
-        /**
-         * 公式额外描述
-         * <p> 示例值：
-         *
-         * @param extraMap
-         * @return
-         */
-        public Builder extraMap(OfferApplyFormFormulaExtraMapInfo[] extraMap) {
-            this.extraMap = extraMap;
-            return this;
-        }
-
-
-        public OfferApplyFormConfigFormulaInfo build() {
-            return new OfferApplyFormConfigFormulaInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

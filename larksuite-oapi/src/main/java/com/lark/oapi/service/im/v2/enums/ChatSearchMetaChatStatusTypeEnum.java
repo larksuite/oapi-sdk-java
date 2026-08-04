@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.im.v2.enums;
 
-/**
- * 群状态
- */
+/** 群状态 */
 public enum ChatSearchMetaChatStatusTypeEnum {
-    NORMAL("normal"), // 正常
-    DISSOLVED("dissolved"), // 解散
-    DISSOLVED_SAVE("dissolved_save"), // 解散并保留
-    ;
-    private String value;
+  NORMAL("normal"), // 正常
+  DISSOLVED("dissolved"), // 解散
+  DISSOLVED_SAVE("dissolved_save"), // 解散并保留
+  ;
+  private String value;
 
-    ChatSearchMetaChatStatusTypeEnum(String value) {
-        this.value = value;
-    }
+  ChatSearchMetaChatStatusTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

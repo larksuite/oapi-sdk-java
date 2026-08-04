@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 档案变更类型。increase新增、adjust调整、delete删除
- */
+/** 档案变更类型 */
 public enum SocialArchiveEventDetailOperateTypeEnum {
-    INCREASE("increase"), // 新增
-    ADJUST("adjust"), // 调整
-    DELETE("delete"), // 删除
-    ;
-    private String value;
+  INCREASE("increase"), // 新增
+  ADJUST("adjust"), // 调整
+  DELETE("delete"), // 删除
+  ;
+  private String value;
 
-    SocialArchiveEventDetailOperateTypeEnum(String value) {
-        this.value = value;
-    }
+  SocialArchiveEventDetailOperateTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

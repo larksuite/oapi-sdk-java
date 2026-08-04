@@ -13,27 +13,25 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 发放频率
- */
+/** 发放频率 */
 public enum RecurringPaymentForCreateIssuancePeriodEnum {
-    YEAR("year"), // 年
-    HALF_YEAR("half_year"), // 半年
-    QUARTERLY("quarterly"), // 季度
-    BIMONTHLY("bimonthly"), // 双月
-    MONTH("month"), // 月
-    BIWEEKLY("biweekly"), // 双周
-    WEEK("week"), // 周
-    DAY("day"), // 天
-    HOUR("hour"), // 小时
-    ;
-    private String value;
+  YEAR("year"), // 年
+  HALF_YEAR("half_year"), // 半年
+  QUARTERLY("quarterly"), // 季度
+  BIMONTHLY("bimonthly"), // 双月
+  MONTH("month"), // 月
+  BIWEEKLY("biweekly"), // 双周
+  WEEK("week"), // 周
+  DAY("day"), // 天
+  HOUR("hour"), // 小时
+  ;
+  private String value;
 
-    RecurringPaymentForCreateIssuancePeriodEnum(String value) {
-        this.value = value;
-    }
+  RecurringPaymentForCreateIssuancePeriodEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

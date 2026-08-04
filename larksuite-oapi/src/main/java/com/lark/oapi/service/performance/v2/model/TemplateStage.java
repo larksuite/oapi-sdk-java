@@ -13,284 +13,305 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TemplateStage {
+  /**
+   * 模板环节ID
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 评估模板ID
+   *
+   * <p>示例值：7343513161666707457
+   */
+  @SerializedName("template_group_id")
+  private String templateGroupId;
+
+  /**
+   * 环节类型
+   *
+   * <p>示例值：summarize_key_outputs
+   */
+  @SerializedName("stage_type")
+  private String stageType;
+
+  /**
+   * 执行角色
+   *
+   * <p>示例值：reviewee
+   */
+  @SerializedName("perform_role")
+  private String performRole;
+
+  /**
+   * 是否作为终评
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("as_final_result")
+  private Boolean asFinalResult;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getTemplateGroupId() {
+    return this.templateGroupId;
+  }
+
+  public void setTemplateGroupId(String templateGroupId) {
+    this.templateGroupId = templateGroupId;
+  }
+
+  public String getStageType() {
+    return this.stageType;
+  }
+
+  public void setStageType(String stageType) {
+    this.stageType = stageType;
+  }
+
+  public String getPerformRole() {
+    return this.performRole;
+  }
+
+  public void setPerformRole(String performRole) {
+    this.performRole = performRole;
+  }
+
+  public Boolean getAsFinalResult() {
+    return this.asFinalResult;
+  }
+
+  public void setAsFinalResult(Boolean asFinalResult) {
+    this.asFinalResult = asFinalResult;
+  }
+
+  // builder 开始
+  public TemplateStage() {}
+
+  public TemplateStage(Builder builder) {
     /**
      * 模板环节ID
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 环节名称
-     * <p> 示例值：
+     * 项目名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 评估模板ID
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707457
      */
-    @SerializedName("template_group_id")
-    private String templateGroupId;
+    this.templateGroupId = builder.templateGroupId;
     /**
      * 环节类型
-     * <p> 示例值：
+     *
+     * <p>示例值：summarize_key_outputs
      */
-    @SerializedName("stage_type")
-    private String stageType;
+    this.stageType = builder.stageType;
     /**
      * 执行角色
-     * <p> 示例值：
+     *
+     * <p>示例值：reviewee
      */
-    @SerializedName("perform_role")
-    private String performRole;
+    this.performRole = builder.performRole;
     /**
      * 是否作为终评
-     * <p> 示例值：
+     *
+     * <p>示例值：false
      */
-    @SerializedName("as_final_result")
+    this.asFinalResult = builder.asFinalResult;
+  }
+
+  public static class Builder {
+    /**
+     * 模板环节ID
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String id;
+
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 评估模板ID
+     *
+     * <p>示例值：7343513161666707457
+     */
+    private String templateGroupId;
+
+    /**
+     * 环节类型
+     *
+     * <p>示例值：summarize_key_outputs
+     */
+    private String stageType;
+
+    /**
+     * 执行角色
+     *
+     * <p>示例值：reviewee
+     */
+    private String performRole;
+
+    /**
+     * 是否作为终评
+     *
+     * <p>示例值：false
+     */
     private Boolean asFinalResult;
 
-    // builder 开始
-    public TemplateStage() {
+    /**
+     * 模板环节ID
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public TemplateStage(Builder builder) {
-        /**
-         * 模板环节ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.id = builder.id;
-        /**
-         * 环节名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 评估模板ID
-         * <p> 示例值：7343513161666707459
-         */
-        this.templateGroupId = builder.templateGroupId;
-        /**
-         * 环节类型
-         * <p> 示例值：
-         */
-        this.stageType = builder.stageType;
-        /**
-         * 执行角色
-         * <p> 示例值：
-         */
-        this.performRole = builder.performRole;
-        /**
-         * 是否作为终评
-         * <p> 示例值：
-         */
-        this.asFinalResult = builder.asFinalResult;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评估模板ID
+     *
+     * <p>示例值：7343513161666707457
+     *
+     * @param templateGroupId
+     * @return
+     */
+    public Builder templateGroupId(String templateGroupId) {
+      this.templateGroupId = templateGroupId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 环节类型
+     *
+     * <p>示例值：summarize_key_outputs
+     *
+     * @param stageType
+     * @return
+     */
+    public Builder stageType(String stageType) {
+      this.stageType = stageType;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 环节类型
+     *
+     * <p>示例值：summarize_key_outputs
+     *
+     * @param stageType {@link
+     *     com.lark.oapi.service.performance.v2.enums.TemplateStageStageTypeEnum}
+     * @return
+     */
+    public Builder stageType(
+        com.lark.oapi.service.performance.v2.enums.TemplateStageStageTypeEnum stageType) {
+      this.stageType = stageType.getValue();
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    /**
+     * 执行角色
+     *
+     * <p>示例值：reviewee
+     *
+     * @param performRole
+     * @return
+     */
+    public Builder performRole(String performRole) {
+      this.performRole = performRole;
+      return this;
     }
 
-    public void setName(I18n name) {
-        this.name = name;
+    /**
+     * 执行角色
+     *
+     * <p>示例值：reviewee
+     *
+     * @param performRole {@link
+     *     com.lark.oapi.service.performance.v2.enums.TemplateStagePerformRoleEnum}
+     * @return
+     */
+    public Builder performRole(
+        com.lark.oapi.service.performance.v2.enums.TemplateStagePerformRoleEnum performRole) {
+      this.performRole = performRole.getValue();
+      return this;
     }
 
-    public String getTemplateGroupId() {
-        return this.templateGroupId;
+    /**
+     * 是否作为终评
+     *
+     * <p>示例值：false
+     *
+     * @param asFinalResult
+     * @return
+     */
+    public Builder asFinalResult(Boolean asFinalResult) {
+      this.asFinalResult = asFinalResult;
+      return this;
     }
 
-    public void setTemplateGroupId(String templateGroupId) {
-        this.templateGroupId = templateGroupId;
+    public TemplateStage build() {
+      return new TemplateStage(this);
     }
+  }
 
-    public String getStageType() {
-        return this.stageType;
-    }
-
-    public void setStageType(String stageType) {
-        this.stageType = stageType;
-    }
-
-    public String getPerformRole() {
-        return this.performRole;
-    }
-
-    public void setPerformRole(String performRole) {
-        this.performRole = performRole;
-    }
-
-    public Boolean getAsFinalResult() {
-        return this.asFinalResult;
-    }
-
-    public void setAsFinalResult(Boolean asFinalResult) {
-        this.asFinalResult = asFinalResult;
-    }
-
-    public static class Builder {
-        /**
-         * 模板环节ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String id;
-        /**
-         * 环节名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 评估模板ID
-         * <p> 示例值：7343513161666707459
-         */
-        private String templateGroupId;
-        /**
-         * 环节类型
-         * <p> 示例值：
-         */
-        private String stageType;
-        /**
-         * 执行角色
-         * <p> 示例值：
-         */
-        private String performRole;
-        /**
-         * 是否作为终评
-         * <p> 示例值：
-         */
-        private Boolean asFinalResult;
-
-        /**
-         * 模板环节ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 环节名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 评估模板ID
-         * <p> 示例值：7343513161666707459
-         *
-         * @param templateGroupId
-         * @return
-         */
-        public Builder templateGroupId(String templateGroupId) {
-            this.templateGroupId = templateGroupId;
-            return this;
-        }
-
-
-        /**
-         * 环节类型
-         * <p> 示例值：
-         *
-         * @param stageType
-         * @return
-         */
-        public Builder stageType(String stageType) {
-            this.stageType = stageType;
-            return this;
-        }
-
-        /**
-         * 环节类型
-         * <p> 示例值：
-         *
-         * @param stageType {@link com.lark.oapi.service.performance.v2.enums.TemplateStageStageTypeEnum}
-         * @return
-         */
-        public Builder stageType(com.lark.oapi.service.performance.v2.enums.TemplateStageStageTypeEnum stageType) {
-            this.stageType = stageType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 执行角色
-         * <p> 示例值：
-         *
-         * @param performRole
-         * @return
-         */
-        public Builder performRole(String performRole) {
-            this.performRole = performRole;
-            return this;
-        }
-
-        /**
-         * 执行角色
-         * <p> 示例值：
-         *
-         * @param performRole {@link com.lark.oapi.service.performance.v2.enums.TemplateStagePerformRoleEnum}
-         * @return
-         */
-        public Builder performRole(com.lark.oapi.service.performance.v2.enums.TemplateStagePerformRoleEnum performRole) {
-            this.performRole = performRole.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否作为终评
-         * <p> 示例值：
-         *
-         * @param asFinalResult
-         * @return
-         */
-        public Builder asFinalResult(Boolean asFinalResult) {
-            this.asFinalResult = asFinalResult;
-            return this;
-        }
-
-
-        public TemplateStage build() {
-            return new TemplateStage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

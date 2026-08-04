@@ -13,926 +13,1047 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingPersonalBasicInfo {
+  /**
+   * 法定姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("legal_name")
+  private ProfileSettingName legalName;
+
+  /**
+   * 常用姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("preferred_name")
+  private ProfileSettingName preferredName;
+
+  /**
+   * 别名
+   *
+   * <p>示例值：王帅
+   */
+  @SerializedName("additional_name")
+  private String additionalName;
+
+  /**
+   * 性别，枚举值 。可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "gender"
+   *
+   * <p>示例值：female
+   */
+  @SerializedName("gender")
+  private String gender;
+
+  /**
+   * 国籍ID
+   *
+   * <p>示例值：6862995757234914826
+   */
+  @SerializedName("nationality_v2")
+  private String nationalityV2;
+
+  /**
+   * 民族 / 种族，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name =
+   * "ethnicity_race"
+   *
+   * <p>示例值：han
+   */
+  @SerializedName("ethnicity_race")
+  private String ethnicityRace;
+
+  /**
+   * 工作电话;- 更新该字段需要在update_fields中增加employment_info.basic_info.phone;-
+   * 需要拥有权限点【读写个人手机号信息】(corehr:person.phone:write)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("phone")
+  private ProfileSettingPhone phone;
+
+  /**
+   * 个人邮箱
+   *
+   * <p>示例值：1234567@example.feishu.cn
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 出生日期
+   *
+   * <p>示例值：2006-01-02
+   */
+  @SerializedName("date_of_birth")
+  private String dateOfBirth;
+
+  /**
+   * 婚姻状况，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name =
+   * "marital_status"
+   *
+   * <p>示例值：married
+   */
+  @SerializedName("marital_status")
+  private String maritalStatus;
+
+  /**
+   * 是否残疾
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_disabled")
+  private Boolean isDisabled;
+
+  /**
+   * 残疾证号，is_disabled 为 true 时必填
+   *
+   * <p>示例值：92838277746172888312
+   */
+  @SerializedName("disable_card_number")
+  private String disableCardNumber;
+
+  /**
+   * 是否为烈属
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_martyr_family")
+  private Boolean isMartyrFamily;
+
+  /**
+   * 烈属证号，is_martyr_family 为 true 时必填
+   *
+   * <p>示例值：00001
+   */
+  @SerializedName("martyr_card_number")
+  private String martyrCardNumber;
+
+  /**
+   * 是否为孤老
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_old_alone")
+  private Boolean isOldAlone;
+
+  /**
+   * 出生国家/地区
+   *
+   * <p>示例值：6862995757234914825
+   */
+  @SerializedName("born_country_region")
+  private String bornCountryRegion;
+
+  /**
+   * 政治面貌，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name =
+   * "political_affiliation"
+   *
+   * <p>示例值：other
+   */
+  @SerializedName("political_affiliation")
+  private String politicalAffiliation;
+
+  /**
+   * 籍贯(省份/行政区ID）
+   *
+   * <p>示例值：6862995757234914827
+   */
+  @SerializedName("native_region")
+  private String nativeRegion;
+
+  /**
+   * 参加工作日期
+   *
+   * <p>示例值：2006-01-02
+   */
+  @SerializedName("date_entered_workforce")
+  private String dateEnteredWorkforce;
+
+  /**
+   * 首次入境日期
+   *
+   * <p>示例值：2006-01-02
+   */
+  @SerializedName("first_entry_time")
+  private String firstEntryTime;
+
+  /**
+   * 预计离境日期
+   *
+   * <p>示例值：2006-01-02
+   */
+  @SerializedName("leave_time")
+  private String leaveTime;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ProfileSettingCustomField[] customFields;
+
+  /**
+   * 其他国籍（地区）ID
+   *
+   * <p>示例值：6862995757234914827
+   */
+  @SerializedName("additional_nationalities")
+  private String[] additionalNationalities;
+
+  /**
+   * 全部法定姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("legal_name_v2s")
+  private ProfileSettingName[] legalNameV2s;
+
+  public ProfileSettingName getLegalName() {
+    return this.legalName;
+  }
+
+  public void setLegalName(ProfileSettingName legalName) {
+    this.legalName = legalName;
+  }
+
+  public ProfileSettingName getPreferredName() {
+    return this.preferredName;
+  }
+
+  public void setPreferredName(ProfileSettingName preferredName) {
+    this.preferredName = preferredName;
+  }
+
+  public String getAdditionalName() {
+    return this.additionalName;
+  }
+
+  public void setAdditionalName(String additionalName) {
+    this.additionalName = additionalName;
+  }
+
+  public String getGender() {
+    return this.gender;
+  }
+
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
+
+  public String getNationalityV2() {
+    return this.nationalityV2;
+  }
+
+  public void setNationalityV2(String nationalityV2) {
+    this.nationalityV2 = nationalityV2;
+  }
+
+  public String getEthnicityRace() {
+    return this.ethnicityRace;
+  }
+
+  public void setEthnicityRace(String ethnicityRace) {
+    this.ethnicityRace = ethnicityRace;
+  }
+
+  public ProfileSettingPhone getPhone() {
+    return this.phone;
+  }
+
+  public void setPhone(ProfileSettingPhone phone) {
+    this.phone = phone;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getDateOfBirth() {
+    return this.dateOfBirth;
+  }
+
+  public void setDateOfBirth(String dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+  }
+
+  public String getMaritalStatus() {
+    return this.maritalStatus;
+  }
+
+  public void setMaritalStatus(String maritalStatus) {
+    this.maritalStatus = maritalStatus;
+  }
+
+  public Boolean getIsDisabled() {
+    return this.isDisabled;
+  }
+
+  public void setIsDisabled(Boolean isDisabled) {
+    this.isDisabled = isDisabled;
+  }
+
+  public String getDisableCardNumber() {
+    return this.disableCardNumber;
+  }
+
+  public void setDisableCardNumber(String disableCardNumber) {
+    this.disableCardNumber = disableCardNumber;
+  }
+
+  public Boolean getIsMartyrFamily() {
+    return this.isMartyrFamily;
+  }
+
+  public void setIsMartyrFamily(Boolean isMartyrFamily) {
+    this.isMartyrFamily = isMartyrFamily;
+  }
+
+  public String getMartyrCardNumber() {
+    return this.martyrCardNumber;
+  }
+
+  public void setMartyrCardNumber(String martyrCardNumber) {
+    this.martyrCardNumber = martyrCardNumber;
+  }
+
+  public Boolean getIsOldAlone() {
+    return this.isOldAlone;
+  }
+
+  public void setIsOldAlone(Boolean isOldAlone) {
+    this.isOldAlone = isOldAlone;
+  }
+
+  public String getBornCountryRegion() {
+    return this.bornCountryRegion;
+  }
+
+  public void setBornCountryRegion(String bornCountryRegion) {
+    this.bornCountryRegion = bornCountryRegion;
+  }
+
+  public String getPoliticalAffiliation() {
+    return this.politicalAffiliation;
+  }
+
+  public void setPoliticalAffiliation(String politicalAffiliation) {
+    this.politicalAffiliation = politicalAffiliation;
+  }
+
+  public String getNativeRegion() {
+    return this.nativeRegion;
+  }
+
+  public void setNativeRegion(String nativeRegion) {
+    this.nativeRegion = nativeRegion;
+  }
+
+  public String getDateEnteredWorkforce() {
+    return this.dateEnteredWorkforce;
+  }
+
+  public void setDateEnteredWorkforce(String dateEnteredWorkforce) {
+    this.dateEnteredWorkforce = dateEnteredWorkforce;
+  }
+
+  public String getFirstEntryTime() {
+    return this.firstEntryTime;
+  }
+
+  public void setFirstEntryTime(String firstEntryTime) {
+    this.firstEntryTime = firstEntryTime;
+  }
+
+  public String getLeaveTime() {
+    return this.leaveTime;
+  }
+
+  public void setLeaveTime(String leaveTime) {
+    this.leaveTime = leaveTime;
+  }
+
+  public ProfileSettingCustomField[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ProfileSettingCustomField[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public String[] getAdditionalNationalities() {
+    return this.additionalNationalities;
+  }
+
+  public void setAdditionalNationalities(String[] additionalNationalities) {
+    this.additionalNationalities = additionalNationalities;
+  }
+
+  public ProfileSettingName[] getLegalNameV2s() {
+    return this.legalNameV2s;
+  }
+
+  public void setLegalNameV2s(ProfileSettingName[] legalNameV2s) {
+    this.legalNameV2s = legalNameV2s;
+  }
+
+  // builder 开始
+  public ProfileSettingPersonalBasicInfo() {}
+
+  public ProfileSettingPersonalBasicInfo(Builder builder) {
     /**
      * 法定姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("legal_name")
-    private ProfileSettingName legalName;
+    this.legalName = builder.legalName;
     /**
      * 常用姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("preferred_name")
-    private ProfileSettingName preferredName;
+    this.preferredName = builder.preferredName;
     /**
      * 别名
-     * <p> 示例值：王帅
+     *
+     * <p>示例值：王帅
      */
-    @SerializedName("additional_name")
-    private String additionalName;
+    this.additionalName = builder.additionalName;
     /**
      * 性别，枚举值 。可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "gender"
-     * <p> 示例值：female
+     *
+     * <p>示例值：female
      */
-    @SerializedName("gender")
-    private String gender;
+    this.gender = builder.gender;
     /**
      * 国籍ID
-     * <p> 示例值：6862995757234914826
+     *
+     * <p>示例值：6862995757234914826
      */
-    @SerializedName("nationality_v2")
-    private String nationalityV2;
+    this.nationalityV2 = builder.nationalityV2;
     /**
-     * 民族 / 种族，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "ethnicity_race"
-     * <p> 示例值：han
+     * 民族 / 种族，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name =
+     * "ethnicity_race"
+     *
+     * <p>示例值：han
      */
-    @SerializedName("ethnicity_race")
-    private String ethnicityRace;
+    this.ethnicityRace = builder.ethnicityRace;
     /**
-     * 个人电话
-     * <p> 示例值：
+     * 工作电话;- 更新该字段需要在update_fields中增加employment_info.basic_info.phone;-
+     * 需要拥有权限点【读写个人手机号信息】(corehr:person.phone:write)
+     *
+     * <p>示例值：
      */
-    @SerializedName("phone")
-    private ProfileSettingPhone phone;
+    this.phone = builder.phone;
     /**
      * 个人邮箱
-     * <p> 示例值：1234567@example.feishu.cn
+     *
+     * <p>示例值：1234567@example.feishu.cn
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 出生日期
-     * <p> 示例值：2006-01-02
+     *
+     * <p>示例值：2006-01-02
      */
-    @SerializedName("date_of_birth")
-    private String dateOfBirth;
+    this.dateOfBirth = builder.dateOfBirth;
     /**
-     * 婚姻状况，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "marital_status"
-     * <p> 示例值：married
+     * 婚姻状况，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name =
+     * "marital_status"
+     *
+     * <p>示例值：married
      */
-    @SerializedName("marital_status")
-    private String maritalStatus;
+    this.maritalStatus = builder.maritalStatus;
     /**
      * 是否残疾
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_disabled")
-    private Boolean isDisabled;
+    this.isDisabled = builder.isDisabled;
     /**
      * 残疾证号，is_disabled 为 true 时必填
-     * <p> 示例值：92838277746172888312
+     *
+     * <p>示例值：92838277746172888312
      */
-    @SerializedName("disable_card_number")
-    private String disableCardNumber;
+    this.disableCardNumber = builder.disableCardNumber;
     /**
      * 是否为烈属
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_martyr_family")
-    private Boolean isMartyrFamily;
+    this.isMartyrFamily = builder.isMartyrFamily;
     /**
      * 烈属证号，is_martyr_family 为 true 时必填
-     * <p> 示例值：00001
+     *
+     * <p>示例值：00001
      */
-    @SerializedName("martyr_card_number")
-    private String martyrCardNumber;
+    this.martyrCardNumber = builder.martyrCardNumber;
     /**
      * 是否为孤老
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_old_alone")
-    private Boolean isOldAlone;
+    this.isOldAlone = builder.isOldAlone;
     /**
      * 出生国家/地区
-     * <p> 示例值：6862995757234914825
+     *
+     * <p>示例值：6862995757234914825
      */
-    @SerializedName("born_country_region")
-    private String bornCountryRegion;
+    this.bornCountryRegion = builder.bornCountryRegion;
     /**
-     * 政治面貌，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name = "political_affiliation"
-     * <p> 示例值：other
+     * 政治面貌，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name =
+     * "political_affiliation"
+     *
+     * <p>示例值：other
      */
-    @SerializedName("political_affiliation")
-    private String politicalAffiliation;
+    this.politicalAffiliation = builder.politicalAffiliation;
     /**
      * 籍贯(省份/行政区ID）
-     * <p> 示例值：6862995757234914827
+     *
+     * <p>示例值：6862995757234914827
      */
-    @SerializedName("native_region")
-    private String nativeRegion;
+    this.nativeRegion = builder.nativeRegion;
     /**
      * 参加工作日期
-     * <p> 示例值：2006-01-02
+     *
+     * <p>示例值：2006-01-02
      */
-    @SerializedName("date_entered_workforce")
-    private String dateEnteredWorkforce;
+    this.dateEnteredWorkforce = builder.dateEnteredWorkforce;
     /**
      * 首次入境日期
-     * <p> 示例值：2006-01-02
+     *
+     * <p>示例值：2006-01-02
      */
-    @SerializedName("first_entry_time")
-    private String firstEntryTime;
+    this.firstEntryTime = builder.firstEntryTime;
     /**
      * 预计离境日期
-     * <p> 示例值：2006-01-02
+     *
+     * <p>示例值：2006-01-02
      */
-    @SerializedName("leave_time")
-    private String leaveTime;
+    this.leaveTime = builder.leaveTime;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private ProfileSettingCustomField[] customFields;
+    this.customFields = builder.customFields;
     /**
      * 其他国籍（地区）ID
-     * <p> 示例值：6862995757234914827
+     *
+     * <p>示例值：6862995757234914827
      */
-    @SerializedName("additional_nationalities")
-    private String[] additionalNationalities;
+    this.additionalNationalities = builder.additionalNationalities;
     /**
      * 全部法定姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("legal_name_v2s")
+    this.legalNameV2s = builder.legalNameV2s;
+  }
+
+  public static class Builder {
+    /**
+     * 法定姓名
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingName legalName;
+
+    /**
+     * 常用姓名
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingName preferredName;
+
+    /**
+     * 别名
+     *
+     * <p>示例值：王帅
+     */
+    private String additionalName;
+
+    /**
+     * 性别，枚举值 。可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "gender"
+     *
+     * <p>示例值：female
+     */
+    private String gender;
+
+    /**
+     * 国籍ID
+     *
+     * <p>示例值：6862995757234914826
+     */
+    private String nationalityV2;
+
+    /**
+     * 民族 / 种族，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name =
+     * "ethnicity_race"
+     *
+     * <p>示例值：han
+     */
+    private String ethnicityRace;
+
+    /**
+     * 工作电话;- 更新该字段需要在update_fields中增加employment_info.basic_info.phone;-
+     * 需要拥有权限点【读写个人手机号信息】(corehr:person.phone:write)
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingPhone phone;
+
+    /**
+     * 个人邮箱
+     *
+     * <p>示例值：1234567@example.feishu.cn
+     */
+    private String email;
+
+    /**
+     * 出生日期
+     *
+     * <p>示例值：2006-01-02
+     */
+    private String dateOfBirth;
+
+    /**
+     * 婚姻状况，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name =
+     * "marital_status"
+     *
+     * <p>示例值：married
+     */
+    private String maritalStatus;
+
+    /**
+     * 是否残疾
+     *
+     * <p>示例值：false
+     */
+    private Boolean isDisabled;
+
+    /**
+     * 残疾证号，is_disabled 为 true 时必填
+     *
+     * <p>示例值：92838277746172888312
+     */
+    private String disableCardNumber;
+
+    /**
+     * 是否为烈属
+     *
+     * <p>示例值：false
+     */
+    private Boolean isMartyrFamily;
+
+    /**
+     * 烈属证号，is_martyr_family 为 true 时必填
+     *
+     * <p>示例值：00001
+     */
+    private String martyrCardNumber;
+
+    /**
+     * 是否为孤老
+     *
+     * <p>示例值：false
+     */
+    private Boolean isOldAlone;
+
+    /**
+     * 出生国家/地区
+     *
+     * <p>示例值：6862995757234914825
+     */
+    private String bornCountryRegion;
+
+    /**
+     * 政治面貌，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name =
+     * "political_affiliation"
+     *
+     * <p>示例值：other
+     */
+    private String politicalAffiliation;
+
+    /**
+     * 籍贯(省份/行政区ID）
+     *
+     * <p>示例值：6862995757234914827
+     */
+    private String nativeRegion;
+
+    /**
+     * 参加工作日期
+     *
+     * <p>示例值：2006-01-02
+     */
+    private String dateEnteredWorkforce;
+
+    /**
+     * 首次入境日期
+     *
+     * <p>示例值：2006-01-02
+     */
+    private String firstEntryTime;
+
+    /**
+     * 预计离境日期
+     *
+     * <p>示例值：2006-01-02
+     */
+    private String leaveTime;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private ProfileSettingCustomField[] customFields;
+
+    /**
+     * 其他国籍（地区）ID
+     *
+     * <p>示例值：6862995757234914827
+     */
+    private String[] additionalNationalities;
+
+    /**
+     * 全部法定姓名
+     *
+     * <p>示例值：
+     */
     private ProfileSettingName[] legalNameV2s;
 
-    // builder 开始
-    public ProfileSettingPersonalBasicInfo() {
+    /**
+     * 法定姓名
+     *
+     * <p>示例值：
+     *
+     * @param legalName
+     * @return
+     */
+    public Builder legalName(ProfileSettingName legalName) {
+      this.legalName = legalName;
+      return this;
     }
 
-    public ProfileSettingPersonalBasicInfo(Builder builder) {
-        /**
-         * 法定姓名
-         * <p> 示例值：
-         */
-        this.legalName = builder.legalName;
-        /**
-         * 常用姓名
-         * <p> 示例值：
-         */
-        this.preferredName = builder.preferredName;
-        /**
-         * 别名
-         * <p> 示例值：王帅
-         */
-        this.additionalName = builder.additionalName;
-        /**
-         * 性别，枚举值 。可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "gender"
-         * <p> 示例值：female
-         */
-        this.gender = builder.gender;
-        /**
-         * 国籍ID
-         * <p> 示例值：6862995757234914826
-         */
-        this.nationalityV2 = builder.nationalityV2;
-        /**
-         * 民族 / 种族，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "ethnicity_race"
-         * <p> 示例值：han
-         */
-        this.ethnicityRace = builder.ethnicityRace;
-        /**
-         * 个人电话
-         * <p> 示例值：
-         */
-        this.phone = builder.phone;
-        /**
-         * 个人邮箱
-         * <p> 示例值：1234567@example.feishu.cn
-         */
-        this.email = builder.email;
-        /**
-         * 出生日期
-         * <p> 示例值：2006-01-02
-         */
-        this.dateOfBirth = builder.dateOfBirth;
-        /**
-         * 婚姻状况，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "marital_status"
-         * <p> 示例值：married
-         */
-        this.maritalStatus = builder.maritalStatus;
-        /**
-         * 是否残疾
-         * <p> 示例值：false
-         */
-        this.isDisabled = builder.isDisabled;
-        /**
-         * 残疾证号，is_disabled 为 true 时必填
-         * <p> 示例值：92838277746172888312
-         */
-        this.disableCardNumber = builder.disableCardNumber;
-        /**
-         * 是否为烈属
-         * <p> 示例值：false
-         */
-        this.isMartyrFamily = builder.isMartyrFamily;
-        /**
-         * 烈属证号，is_martyr_family 为 true 时必填
-         * <p> 示例值：00001
-         */
-        this.martyrCardNumber = builder.martyrCardNumber;
-        /**
-         * 是否为孤老
-         * <p> 示例值：false
-         */
-        this.isOldAlone = builder.isOldAlone;
-        /**
-         * 出生国家/地区
-         * <p> 示例值：6862995757234914825
-         */
-        this.bornCountryRegion = builder.bornCountryRegion;
-        /**
-         * 政治面貌，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name = "political_affiliation"
-         * <p> 示例值：other
-         */
-        this.politicalAffiliation = builder.politicalAffiliation;
-        /**
-         * 籍贯(省份/行政区ID）
-         * <p> 示例值：6862995757234914827
-         */
-        this.nativeRegion = builder.nativeRegion;
-        /**
-         * 参加工作日期
-         * <p> 示例值：2006-01-02
-         */
-        this.dateEnteredWorkforce = builder.dateEnteredWorkforce;
-        /**
-         * 首次入境日期
-         * <p> 示例值：2006-01-02
-         */
-        this.firstEntryTime = builder.firstEntryTime;
-        /**
-         * 预计离境日期
-         * <p> 示例值：2006-01-02
-         */
-        this.leaveTime = builder.leaveTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 其他国籍（地区）ID
-         * <p> 示例值：6862995757234914827
-         */
-        this.additionalNationalities = builder.additionalNationalities;
-        /**
-         * 全部法定姓名
-         * <p> 示例值：
-         */
-        this.legalNameV2s = builder.legalNameV2s;
+    /**
+     * 常用姓名
+     *
+     * <p>示例值：
+     *
+     * @param preferredName
+     * @return
+     */
+    public Builder preferredName(ProfileSettingName preferredName) {
+      this.preferredName = preferredName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 别名
+     *
+     * <p>示例值：王帅
+     *
+     * @param additionalName
+     * @return
+     */
+    public Builder additionalName(String additionalName) {
+      this.additionalName = additionalName;
+      return this;
     }
 
-    public ProfileSettingName getLegalName() {
-        return this.legalName;
+    /**
+     * 性别，枚举值 。可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "gender"
+     *
+     * <p>示例值：female
+     *
+     * @param gender
+     * @return
+     */
+    public Builder gender(String gender) {
+      this.gender = gender;
+      return this;
     }
 
-    public void setLegalName(ProfileSettingName legalName) {
-        this.legalName = legalName;
+    /**
+     * 国籍ID
+     *
+     * <p>示例值：6862995757234914826
+     *
+     * @param nationalityV2
+     * @return
+     */
+    public Builder nationalityV2(String nationalityV2) {
+      this.nationalityV2 = nationalityV2;
+      return this;
     }
 
-    public ProfileSettingName getPreferredName() {
-        return this.preferredName;
+    /**
+     * 民族 / 种族，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name =
+     * "ethnicity_race"
+     *
+     * <p>示例值：han
+     *
+     * @param ethnicityRace
+     * @return
+     */
+    public Builder ethnicityRace(String ethnicityRace) {
+      this.ethnicityRace = ethnicityRace;
+      return this;
     }
 
-    public void setPreferredName(ProfileSettingName preferredName) {
-        this.preferredName = preferredName;
+    /**
+     * 工作电话;- 更新该字段需要在update_fields中增加employment_info.basic_info.phone;-
+     * 需要拥有权限点【读写个人手机号信息】(corehr:person.phone:write)
+     *
+     * <p>示例值：
+     *
+     * @param phone
+     * @return
+     */
+    public Builder phone(ProfileSettingPhone phone) {
+      this.phone = phone;
+      return this;
     }
 
-    public String getAdditionalName() {
-        return this.additionalName;
+    /**
+     * 个人邮箱
+     *
+     * <p>示例值：1234567@example.feishu.cn
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public void setAdditionalName(String additionalName) {
-        this.additionalName = additionalName;
+    /**
+     * 出生日期
+     *
+     * <p>示例值：2006-01-02
+     *
+     * @param dateOfBirth
+     * @return
+     */
+    public Builder dateOfBirth(String dateOfBirth) {
+      this.dateOfBirth = dateOfBirth;
+      return this;
     }
 
-    public String getGender() {
-        return this.gender;
+    /**
+     * 婚姻状况，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name =
+     * "marital_status"
+     *
+     * <p>示例值：married
+     *
+     * @param maritalStatus
+     * @return
+     */
+    public Builder maritalStatus(String maritalStatus) {
+      this.maritalStatus = maritalStatus;
+      return this;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    /**
+     * 是否残疾
+     *
+     * <p>示例值：false
+     *
+     * @param isDisabled
+     * @return
+     */
+    public Builder isDisabled(Boolean isDisabled) {
+      this.isDisabled = isDisabled;
+      return this;
     }
 
-    public String getNationalityV2() {
-        return this.nationalityV2;
+    /**
+     * 残疾证号，is_disabled 为 true 时必填
+     *
+     * <p>示例值：92838277746172888312
+     *
+     * @param disableCardNumber
+     * @return
+     */
+    public Builder disableCardNumber(String disableCardNumber) {
+      this.disableCardNumber = disableCardNumber;
+      return this;
     }
 
-    public void setNationalityV2(String nationalityV2) {
-        this.nationalityV2 = nationalityV2;
+    /**
+     * 是否为烈属
+     *
+     * <p>示例值：false
+     *
+     * @param isMartyrFamily
+     * @return
+     */
+    public Builder isMartyrFamily(Boolean isMartyrFamily) {
+      this.isMartyrFamily = isMartyrFamily;
+      return this;
     }
 
-    public String getEthnicityRace() {
-        return this.ethnicityRace;
+    /**
+     * 烈属证号，is_martyr_family 为 true 时必填
+     *
+     * <p>示例值：00001
+     *
+     * @param martyrCardNumber
+     * @return
+     */
+    public Builder martyrCardNumber(String martyrCardNumber) {
+      this.martyrCardNumber = martyrCardNumber;
+      return this;
     }
 
-    public void setEthnicityRace(String ethnicityRace) {
-        this.ethnicityRace = ethnicityRace;
+    /**
+     * 是否为孤老
+     *
+     * <p>示例值：false
+     *
+     * @param isOldAlone
+     * @return
+     */
+    public Builder isOldAlone(Boolean isOldAlone) {
+      this.isOldAlone = isOldAlone;
+      return this;
     }
 
-    public ProfileSettingPhone getPhone() {
-        return this.phone;
+    /**
+     * 出生国家/地区
+     *
+     * <p>示例值：6862995757234914825
+     *
+     * @param bornCountryRegion
+     * @return
+     */
+    public Builder bornCountryRegion(String bornCountryRegion) {
+      this.bornCountryRegion = bornCountryRegion;
+      return this;
     }
 
-    public void setPhone(ProfileSettingPhone phone) {
-        this.phone = phone;
+    /**
+     * 政治面貌，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name =
+     * "political_affiliation"
+     *
+     * <p>示例值：other
+     *
+     * @param politicalAffiliation
+     * @return
+     */
+    public Builder politicalAffiliation(String politicalAffiliation) {
+      this.politicalAffiliation = politicalAffiliation;
+      return this;
     }
 
-    public String getEmail() {
-        return this.email;
+    /**
+     * 籍贯(省份/行政区ID）
+     *
+     * <p>示例值：6862995757234914827
+     *
+     * @param nativeRegion
+     * @return
+     */
+    public Builder nativeRegion(String nativeRegion) {
+      this.nativeRegion = nativeRegion;
+      return this;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    /**
+     * 参加工作日期
+     *
+     * <p>示例值：2006-01-02
+     *
+     * @param dateEnteredWorkforce
+     * @return
+     */
+    public Builder dateEnteredWorkforce(String dateEnteredWorkforce) {
+      this.dateEnteredWorkforce = dateEnteredWorkforce;
+      return this;
     }
 
-    public String getDateOfBirth() {
-        return this.dateOfBirth;
+    /**
+     * 首次入境日期
+     *
+     * <p>示例值：2006-01-02
+     *
+     * @param firstEntryTime
+     * @return
+     */
+    public Builder firstEntryTime(String firstEntryTime) {
+      this.firstEntryTime = firstEntryTime;
+      return this;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    /**
+     * 预计离境日期
+     *
+     * <p>示例值：2006-01-02
+     *
+     * @param leaveTime
+     * @return
+     */
+    public Builder leaveTime(String leaveTime) {
+      this.leaveTime = leaveTime;
+      return this;
     }
 
-    public String getMaritalStatus() {
-        return this.maritalStatus;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ProfileSettingCustomField[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setMaritalStatus(String maritalStatus) {
-        this.maritalStatus = maritalStatus;
+    /**
+     * 其他国籍（地区）ID
+     *
+     * <p>示例值：6862995757234914827
+     *
+     * @param additionalNationalities
+     * @return
+     */
+    public Builder additionalNationalities(String[] additionalNationalities) {
+      this.additionalNationalities = additionalNationalities;
+      return this;
     }
 
-    public Boolean getIsDisabled() {
-        return this.isDisabled;
+    /**
+     * 全部法定姓名
+     *
+     * <p>示例值：
+     *
+     * @param legalNameV2s
+     * @return
+     */
+    public Builder legalNameV2s(ProfileSettingName[] legalNameV2s) {
+      this.legalNameV2s = legalNameV2s;
+      return this;
     }
 
-    public void setIsDisabled(Boolean isDisabled) {
-        this.isDisabled = isDisabled;
+    public ProfileSettingPersonalBasicInfo build() {
+      return new ProfileSettingPersonalBasicInfo(this);
     }
-
-    public String getDisableCardNumber() {
-        return this.disableCardNumber;
-    }
-
-    public void setDisableCardNumber(String disableCardNumber) {
-        this.disableCardNumber = disableCardNumber;
-    }
-
-    public Boolean getIsMartyrFamily() {
-        return this.isMartyrFamily;
-    }
-
-    public void setIsMartyrFamily(Boolean isMartyrFamily) {
-        this.isMartyrFamily = isMartyrFamily;
-    }
-
-    public String getMartyrCardNumber() {
-        return this.martyrCardNumber;
-    }
-
-    public void setMartyrCardNumber(String martyrCardNumber) {
-        this.martyrCardNumber = martyrCardNumber;
-    }
-
-    public Boolean getIsOldAlone() {
-        return this.isOldAlone;
-    }
-
-    public void setIsOldAlone(Boolean isOldAlone) {
-        this.isOldAlone = isOldAlone;
-    }
-
-    public String getBornCountryRegion() {
-        return this.bornCountryRegion;
-    }
-
-    public void setBornCountryRegion(String bornCountryRegion) {
-        this.bornCountryRegion = bornCountryRegion;
-    }
-
-    public String getPoliticalAffiliation() {
-        return this.politicalAffiliation;
-    }
-
-    public void setPoliticalAffiliation(String politicalAffiliation) {
-        this.politicalAffiliation = politicalAffiliation;
-    }
-
-    public String getNativeRegion() {
-        return this.nativeRegion;
-    }
-
-    public void setNativeRegion(String nativeRegion) {
-        this.nativeRegion = nativeRegion;
-    }
-
-    public String getDateEnteredWorkforce() {
-        return this.dateEnteredWorkforce;
-    }
-
-    public void setDateEnteredWorkforce(String dateEnteredWorkforce) {
-        this.dateEnteredWorkforce = dateEnteredWorkforce;
-    }
-
-    public String getFirstEntryTime() {
-        return this.firstEntryTime;
-    }
-
-    public void setFirstEntryTime(String firstEntryTime) {
-        this.firstEntryTime = firstEntryTime;
-    }
-
-    public String getLeaveTime() {
-        return this.leaveTime;
-    }
-
-    public void setLeaveTime(String leaveTime) {
-        this.leaveTime = leaveTime;
-    }
-
-    public ProfileSettingCustomField[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ProfileSettingCustomField[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public String[] getAdditionalNationalities() {
-        return this.additionalNationalities;
-    }
-
-    public void setAdditionalNationalities(String[] additionalNationalities) {
-        this.additionalNationalities = additionalNationalities;
-    }
-
-    public ProfileSettingName[] getLegalNameV2s() {
-        return this.legalNameV2s;
-    }
-
-    public void setLegalNameV2s(ProfileSettingName[] legalNameV2s) {
-        this.legalNameV2s = legalNameV2s;
-    }
-
-    public static class Builder {
-        /**
-         * 法定姓名
-         * <p> 示例值：
-         */
-        private ProfileSettingName legalName;
-        /**
-         * 常用姓名
-         * <p> 示例值：
-         */
-        private ProfileSettingName preferredName;
-        /**
-         * 别名
-         * <p> 示例值：王帅
-         */
-        private String additionalName;
-        /**
-         * 性别，枚举值 。可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "gender"
-         * <p> 示例值：female
-         */
-        private String gender;
-        /**
-         * 国籍ID
-         * <p> 示例值：6862995757234914826
-         */
-        private String nationalityV2;
-        /**
-         * 民族 / 种族，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "ethnicity_race"
-         * <p> 示例值：han
-         */
-        private String ethnicityRace;
-        /**
-         * 个人电话
-         * <p> 示例值：
-         */
-        private ProfileSettingPhone phone;
-        /**
-         * 个人邮箱
-         * <p> 示例值：1234567@example.feishu.cn
-         */
-        private String email;
-        /**
-         * 出生日期
-         * <p> 示例值：2006-01-02
-         */
-        private String dateOfBirth;
-        /**
-         * 婚姻状况，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "marital_status"
-         * <p> 示例值：married
-         */
-        private String maritalStatus;
-        /**
-         * 是否残疾
-         * <p> 示例值：false
-         */
-        private Boolean isDisabled;
-        /**
-         * 残疾证号，is_disabled 为 true 时必填
-         * <p> 示例值：92838277746172888312
-         */
-        private String disableCardNumber;
-        /**
-         * 是否为烈属
-         * <p> 示例值：false
-         */
-        private Boolean isMartyrFamily;
-        /**
-         * 烈属证号，is_martyr_family 为 true 时必填
-         * <p> 示例值：00001
-         */
-        private String martyrCardNumber;
-        /**
-         * 是否为孤老
-         * <p> 示例值：false
-         */
-        private Boolean isOldAlone;
-        /**
-         * 出生国家/地区
-         * <p> 示例值：6862995757234914825
-         */
-        private String bornCountryRegion;
-        /**
-         * 政治面貌，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name = "political_affiliation"
-         * <p> 示例值：other
-         */
-        private String politicalAffiliation;
-        /**
-         * 籍贯(省份/行政区ID）
-         * <p> 示例值：6862995757234914827
-         */
-        private String nativeRegion;
-        /**
-         * 参加工作日期
-         * <p> 示例值：2006-01-02
-         */
-        private String dateEnteredWorkforce;
-        /**
-         * 首次入境日期
-         * <p> 示例值：2006-01-02
-         */
-        private String firstEntryTime;
-        /**
-         * 预计离境日期
-         * <p> 示例值：2006-01-02
-         */
-        private String leaveTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ProfileSettingCustomField[] customFields;
-        /**
-         * 其他国籍（地区）ID
-         * <p> 示例值：6862995757234914827
-         */
-        private String[] additionalNationalities;
-        /**
-         * 全部法定姓名
-         * <p> 示例值：
-         */
-        private ProfileSettingName[] legalNameV2s;
-
-        /**
-         * 法定姓名
-         * <p> 示例值：
-         *
-         * @param legalName
-         * @return
-         */
-        public Builder legalName(ProfileSettingName legalName) {
-            this.legalName = legalName;
-            return this;
-        }
-
-
-        /**
-         * 常用姓名
-         * <p> 示例值：
-         *
-         * @param preferredName
-         * @return
-         */
-        public Builder preferredName(ProfileSettingName preferredName) {
-            this.preferredName = preferredName;
-            return this;
-        }
-
-
-        /**
-         * 别名
-         * <p> 示例值：王帅
-         *
-         * @param additionalName
-         * @return
-         */
-        public Builder additionalName(String additionalName) {
-            this.additionalName = additionalName;
-            return this;
-        }
-
-
-        /**
-         * 性别，枚举值 。可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "gender"
-         * <p> 示例值：female
-         *
-         * @param gender
-         * @return
-         */
-        public Builder gender(String gender) {
-            this.gender = gender;
-            return this;
-        }
-
-
-        /**
-         * 国籍ID
-         * <p> 示例值：6862995757234914826
-         *
-         * @param nationalityV2
-         * @return
-         */
-        public Builder nationalityV2(String nationalityV2) {
-            this.nationalityV2 = nationalityV2;
-            return this;
-        }
-
-
-        /**
-         * 民族 / 种族，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "ethnicity_race"
-         * <p> 示例值：han
-         *
-         * @param ethnicityRace
-         * @return
-         */
-        public Builder ethnicityRace(String ethnicityRace) {
-            this.ethnicityRace = ethnicityRace;
-            return this;
-        }
-
-
-        /**
-         * 个人电话
-         * <p> 示例值：
-         *
-         * @param phone
-         * @return
-         */
-        public Builder phone(ProfileSettingPhone phone) {
-            this.phone = phone;
-            return this;
-        }
-
-
-        /**
-         * 个人邮箱
-         * <p> 示例值：1234567@example.feishu.cn
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 出生日期
-         * <p> 示例值：2006-01-02
-         *
-         * @param dateOfBirth
-         * @return
-         */
-        public Builder dateOfBirth(String dateOfBirth) {
-            this.dateOfBirth = dateOfBirth;
-            return this;
-        }
-
-
-        /**
-         * 婚姻状况，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person" custom_api_name = "marital_status"
-         * <p> 示例值：married
-         *
-         * @param maritalStatus
-         * @return
-         */
-        public Builder maritalStatus(String maritalStatus) {
-            this.maritalStatus = maritalStatus;
-            return this;
-        }
-
-
-        /**
-         * 是否残疾
-         * <p> 示例值：false
-         *
-         * @param isDisabled
-         * @return
-         */
-        public Builder isDisabled(Boolean isDisabled) {
-            this.isDisabled = isDisabled;
-            return this;
-        }
-
-
-        /**
-         * 残疾证号，is_disabled 为 true 时必填
-         * <p> 示例值：92838277746172888312
-         *
-         * @param disableCardNumber
-         * @return
-         */
-        public Builder disableCardNumber(String disableCardNumber) {
-            this.disableCardNumber = disableCardNumber;
-            return this;
-        }
-
-
-        /**
-         * 是否为烈属
-         * <p> 示例值：false
-         *
-         * @param isMartyrFamily
-         * @return
-         */
-        public Builder isMartyrFamily(Boolean isMartyrFamily) {
-            this.isMartyrFamily = isMartyrFamily;
-            return this;
-        }
-
-
-        /**
-         * 烈属证号，is_martyr_family 为 true 时必填
-         * <p> 示例值：00001
-         *
-         * @param martyrCardNumber
-         * @return
-         */
-        public Builder martyrCardNumber(String martyrCardNumber) {
-            this.martyrCardNumber = martyrCardNumber;
-            return this;
-        }
-
-
-        /**
-         * 是否为孤老
-         * <p> 示例值：false
-         *
-         * @param isOldAlone
-         * @return
-         */
-        public Builder isOldAlone(Boolean isOldAlone) {
-            this.isOldAlone = isOldAlone;
-            return this;
-        }
-
-
-        /**
-         * 出生国家/地区
-         * <p> 示例值：6862995757234914825
-         *
-         * @param bornCountryRegion
-         * @return
-         */
-        public Builder bornCountryRegion(String bornCountryRegion) {
-            this.bornCountryRegion = bornCountryRegion;
-            return this;
-        }
-
-
-        /**
-         * 政治面貌，枚举值。 可选项可通过【获取字段详情】接口查询，查询参数如下： object_api_name = "person_info_chn" custom_api_name = "political_affiliation"
-         * <p> 示例值：other
-         *
-         * @param politicalAffiliation
-         * @return
-         */
-        public Builder politicalAffiliation(String politicalAffiliation) {
-            this.politicalAffiliation = politicalAffiliation;
-            return this;
-        }
-
-
-        /**
-         * 籍贯(省份/行政区ID）
-         * <p> 示例值：6862995757234914827
-         *
-         * @param nativeRegion
-         * @return
-         */
-        public Builder nativeRegion(String nativeRegion) {
-            this.nativeRegion = nativeRegion;
-            return this;
-        }
-
-
-        /**
-         * 参加工作日期
-         * <p> 示例值：2006-01-02
-         *
-         * @param dateEnteredWorkforce
-         * @return
-         */
-        public Builder dateEnteredWorkforce(String dateEnteredWorkforce) {
-            this.dateEnteredWorkforce = dateEnteredWorkforce;
-            return this;
-        }
-
-
-        /**
-         * 首次入境日期
-         * <p> 示例值：2006-01-02
-         *
-         * @param firstEntryTime
-         * @return
-         */
-        public Builder firstEntryTime(String firstEntryTime) {
-            this.firstEntryTime = firstEntryTime;
-            return this;
-        }
-
-
-        /**
-         * 预计离境日期
-         * <p> 示例值：2006-01-02
-         *
-         * @param leaveTime
-         * @return
-         */
-        public Builder leaveTime(String leaveTime) {
-            this.leaveTime = leaveTime;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ProfileSettingCustomField[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 其他国籍（地区）ID
-         * <p> 示例值：6862995757234914827
-         *
-         * @param additionalNationalities
-         * @return
-         */
-        public Builder additionalNationalities(String[] additionalNationalities) {
-            this.additionalNationalities = additionalNationalities;
-            return this;
-        }
-
-
-        /**
-         * 全部法定姓名
-         * <p> 示例值：
-         *
-         * @param legalNameV2s
-         * @return
-         */
-        public Builder legalNameV2s(ProfileSettingName[] legalNameV2s) {
-            this.legalNameV2s = legalNameV2s;
-            return this;
-        }
-
-
-        public ProfileSettingPersonalBasicInfo build() {
-            return new ProfileSettingPersonalBasicInfo(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

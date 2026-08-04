@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TaskSubscriptionTaskV2RespBody {
-    /**
-     * 状态码
-     * <p> 示例值：0
-     */
-    @SerializedName("code")
-    private Integer code;
-    /**
-     * 响应信息
-     * <p> 示例值：success
-     */
-    @SerializedName("msg")
-    private String msg;
+  /**
+   * 状态码
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("code")
+  private Integer code;
 
-    public Integer getCode() {
-        return this.code;
-    }
+  /**
+   * 响应信息
+   *
+   * <p>示例值：success
+   */
+  @SerializedName("msg")
+  private String msg;
 
-    public void setCode(Integer code) {
-        this.code = code;
-    }
+  public Integer getCode() {
+    return this.code;
+  }
 
-    public String getMsg() {
-        return this.msg;
-    }
+  public void setCode(Integer code) {
+    this.code = code;
+  }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
+  public String getMsg() {
+    return this.msg;
+  }
 
+  public void setMsg(String msg) {
+    this.msg = msg;
+  }
 }

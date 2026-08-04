@@ -13,104 +13,98 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetAppVisibilityAppRespBody {
-    /**
-     * Scope 可见范围类型：All/ Tenant / Range
-     * <p> 示例值：Range
-     */
-    @SerializedName("scope")
-    private String scope;
-    /**
-     * Users 仅 Scope=Range 时返回，授权用户 open_id 列表
-     * <p> 示例值：
-     */
-    @SerializedName("users")
-    private String[] users;
-    /**
-     * Departments 仅 Scope=Range 时返回，授权部门 department_id 列表
-     * <p> 示例值：
-     */
-    @SerializedName("departments")
-    private String[] departments;
-    /**
-     * Chats 仅 Scope=Range 时返回，授权群聊 chat_id 列表
-     * <p> 示例值：
-     */
-    @SerializedName("chats")
-    private String[] chats;
-    /**
-     * ApplyConfig 当前申请访问配置（含审批人）；未启用申请时为 nil
-     * <p> 示例值：{"enabled":true,"approvers":["ou_1234567890abcdef1234567890abcdef"]}
-     */
-    @SerializedName("apply_config")
-    private ApplyConfig applyConfig;
-    /**
-     * 控制访问应用是否需要用户登录
-     * <p> 示例值：true
-     */
-    @SerializedName("require_login")
-    private Boolean requireLogin;
+  /**
+   * 当前可见范围类型，枚举值为 All / Tenant / Range
+   *
+   * <p>示例值：Range
+   */
+  @SerializedName("scope")
+  private String scope;
 
-    public String getScope() {
-        return this.scope;
-    }
+  /**
+   * 仅 Scope=Range 时返回，授权用户 open_id 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("users")
+  private String[] users;
 
-    public void setScope(String scope) {
-        this.scope = scope;
-    }
+  /**
+   * 仅 Scope=Range 时返回，授权部门 department_id 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("departments")
+  private String[] departments;
 
-    public String[] getUsers() {
-        return this.users;
-    }
+  /**
+   * 仅 Scope=Range 时返回，授权群聊 chat_id 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("chats")
+  private String[] chats;
 
-    public void setUsers(String[] users) {
-        this.users = users;
-    }
+  /**
+   * 申请访问配置（含审批人，仅支持单个用户 open_id）
+   *
+   * <p>示例值：{"enabled":true,"approvers":["ou_1234567890abcdef1234567890abcdef"]}
+   */
+  @SerializedName("apply_config")
+  private ApplyConfig applyConfig;
 
-    public String[] getDepartments() {
-        return this.departments;
-    }
+  /** 示例值：true */
+  @SerializedName("require_login")
+  private Boolean requireLogin;
 
-    public void setDepartments(String[] departments) {
-        this.departments = departments;
-    }
+  public String getScope() {
+    return this.scope;
+  }
 
-    public String[] getChats() {
-        return this.chats;
-    }
+  public void setScope(String scope) {
+    this.scope = scope;
+  }
 
-    public void setChats(String[] chats) {
-        this.chats = chats;
-    }
+  public String[] getUsers() {
+    return this.users;
+  }
 
-    public ApplyConfig getApplyConfig() {
-        return this.applyConfig;
-    }
+  public void setUsers(String[] users) {
+    this.users = users;
+  }
 
-    public void setApplyConfig(ApplyConfig applyConfig) {
-        this.applyConfig = applyConfig;
-    }
+  public String[] getDepartments() {
+    return this.departments;
+  }
 
-    public Boolean getRequireLogin() {
-        return this.requireLogin;
-    }
+  public void setDepartments(String[] departments) {
+    this.departments = departments;
+  }
 
-    public void setRequireLogin(Boolean requireLogin) {
-        this.requireLogin = requireLogin;
-    }
+  public String[] getChats() {
+    return this.chats;
+  }
 
+  public void setChats(String[] chats) {
+    this.chats = chats;
+  }
+
+  public ApplyConfig getApplyConfig() {
+    return this.applyConfig;
+  }
+
+  public void setApplyConfig(ApplyConfig applyConfig) {
+    this.applyConfig = applyConfig;
+  }
+
+  public Boolean getRequireLogin() {
+    return this.requireLogin;
+  }
+
+  public void setRequireLogin(Boolean requireLogin) {
+    this.requireLogin = requireLogin;
+  }
 }

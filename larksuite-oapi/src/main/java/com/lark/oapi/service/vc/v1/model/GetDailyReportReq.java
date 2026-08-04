@@ -13,151 +13,149 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class GetDailyReportReq {
+  /**
+   * 开始时间（unix时间，单位sec）
+   *
+   * <p>示例值：1608888867
+   */
+  @Query
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 结束时间（unix时间，单位sec）
+   *
+   * <p>示例值：1608888966
+   */
+  @Query
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 数据驻留地（传参前提是租户存在多个驻留地数据且开通了该查询功能）
+   *
+   * <p>示例值：0
+   */
+  @Query
+  @SerializedName("unit")
+  private Integer unit;
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public Integer getUnit() {
+    return this.unit;
+  }
+
+  public void setUnit(Integer unit) {
+    this.unit = unit;
+  }
+
+  // builder 开始
+  public GetDailyReportReq() {}
+
+  public GetDailyReportReq(Builder builder) {
     /**
      * 开始时间（unix时间，单位sec）
-     * <p> 示例值：1608888867
+     *
+     * <p>示例值：1608888867
      */
-    @Query
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
      * 结束时间（unix时间，单位sec）
-     * <p> 示例值：1608888966
+     *
+     * <p>示例值：1608888966
      */
-    @Query
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
-     * 数据驻留地
-     * <p> 示例值：0
+     * 数据驻留地（传参前提是租户存在多个驻留地数据且开通了该查询功能）
+     *
+     * <p>示例值：0
      */
-    @Query
-    @SerializedName("unit")
-    private Integer unit;
+    this.unit = builder.unit;
+  }
 
-    // builder 开始
-    public GetDailyReportReq() {
+  public static class Builder {
+    private String startTime; // 开始时间（unix时间，单位sec）
+    private String endTime; // 结束时间（unix时间，单位sec）
+    private Integer unit; // 数据驻留地（传参前提是租户存在多个驻留地数据且开通了该查询功能）
+
+    /**
+     * 开始时间（unix时间，单位sec）
+     *
+     * <p>示例值：1608888867
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public GetDailyReportReq(Builder builder) {
-        /**
-         * 开始时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间（unix时间，单位sec）
-         * <p> 示例值：1608888966
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 数据驻留地
-         * <p> 示例值：0
-         */
-        this.unit = builder.unit;
+    /**
+     * 结束时间（unix时间，单位sec）
+     *
+     * <p>示例值：1608888966
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据驻留地（传参前提是租户存在多个驻留地数据且开通了该查询功能）
+     *
+     * <p>示例值：0
+     *
+     * @param unit
+     * @return
+     */
+    public Builder unit(Integer unit) {
+      this.unit = unit;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    /**
+     * 数据驻留地（传参前提是租户存在多个驻留地数据且开通了该查询功能）
+     *
+     * <p>示例值：0
+     *
+     * @param unit {@link com.lark.oapi.service.vc.v1.enums.GetDailyReportUnitTypeEnum}
+     * @return
+     */
+    public Builder unit(com.lark.oapi.service.vc.v1.enums.GetDailyReportUnitTypeEnum unit) {
+      this.unit = unit.getValue();
+      return this;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    public GetDailyReportReq build() {
+      return new GetDailyReportReq(this);
     }
+  }
 
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public Integer getUnit() {
-        return this.unit;
-    }
-
-    public void setUnit(Integer unit) {
-        this.unit = unit;
-    }
-
-    public static class Builder {
-        private String startTime; // 开始时间（unix时间，单位sec）
-        private String endTime; // 结束时间（unix时间，单位sec）
-        private Integer unit; // 数据驻留地
-
-        /**
-         * 开始时间（unix时间，单位sec）
-         * <p> 示例值：1608888867
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间（unix时间，单位sec）
-         * <p> 示例值：1608888966
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 数据驻留地
-         * <p> 示例值：0
-         *
-         * @param unit
-         * @return
-         */
-        public Builder unit(Integer unit) {
-            this.unit = unit;
-            return this;
-        }
-
-        /**
-         * 数据驻留地
-         * <p> 示例值：0
-         *
-         * @param unit {@link com.lark.oapi.service.vc.v1.enums.GetDailyReportUnitTypeEnum}
-         * @return
-         */
-        public Builder unit(com.lark.oapi.service.vc.v1.enums.GetDailyReportUnitTypeEnum unit) {
-            this.unit = unit.getValue();
-            return this;
-        }
-
-
-        public GetDailyReportReq build() {
-            return new GetDailyReportReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

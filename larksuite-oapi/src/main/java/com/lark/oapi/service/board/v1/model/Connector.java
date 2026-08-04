@@ -13,469 +13,514 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Connector {
+  /**
+   * 连接图形信息，与position参数二选一，同时设置时attached_object生效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("start_object")
+  private ConnectorAttachedObject startObject;
+
+  /**
+   * 连接图形信息，与position参数二选一，同时设置时attached_object生效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("end_object")
+  private ConnectorAttachedObject endObject;
+
+  /**
+   * 连线端点信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("start")
+  private ConnectorInfo start;
+
+  /**
+   * 连线端点信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("end")
+  private ConnectorInfo end;
+
+  /**
+   * 连线文本
+   *
+   * <p>示例值：
+   */
+  @SerializedName("captions")
+  private ConnectorCaption captions;
+
+  /**
+   * 连线类型
+   *
+   * <p>示例值：straight
+   */
+  @SerializedName("shape")
+  private String shape;
+
+  /**
+   * 连线转向点
+   *
+   * <p>示例值：
+   */
+  @SerializedName("turning_points")
+  private Point[] turningPoints;
+
+  /**
+   * 连线上的文本方向是否自动跟随连线方向
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("caption_auto_direction")
+  private Boolean captionAutoDirection;
+
+  /**
+   * 文本在连线上的相对位置，范围0-1，0表示在连线的起始点，1表示在连线的终点
+   *
+   * <p>示例值：0.5
+   */
+  @SerializedName("caption_position")
+  private Double captionPosition;
+
+  /**
+   * 指定连线坐标及长宽。为 true 时需要用户设置连线的坐标及长宽信息。为 false 时会根据连线的开始、结束端点自动计算连线的坐标及长宽信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("specified_coordinate")
+  private Boolean specifiedCoordinate;
+
+  /**
+   * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
+   *
+   * <p>示例值：
+   */
+  @SerializedName("caption_position_type")
+  private Integer captionPositionType;
+
+  public ConnectorAttachedObject getStartObject() {
+    return this.startObject;
+  }
+
+  public void setStartObject(ConnectorAttachedObject startObject) {
+    this.startObject = startObject;
+  }
+
+  public ConnectorAttachedObject getEndObject() {
+    return this.endObject;
+  }
+
+  public void setEndObject(ConnectorAttachedObject endObject) {
+    this.endObject = endObject;
+  }
+
+  public ConnectorInfo getStart() {
+    return this.start;
+  }
+
+  public void setStart(ConnectorInfo start) {
+    this.start = start;
+  }
+
+  public ConnectorInfo getEnd() {
+    return this.end;
+  }
+
+  public void setEnd(ConnectorInfo end) {
+    this.end = end;
+  }
+
+  public ConnectorCaption getCaptions() {
+    return this.captions;
+  }
+
+  public void setCaptions(ConnectorCaption captions) {
+    this.captions = captions;
+  }
+
+  public String getShape() {
+    return this.shape;
+  }
+
+  public void setShape(String shape) {
+    this.shape = shape;
+  }
+
+  public Point[] getTurningPoints() {
+    return this.turningPoints;
+  }
+
+  public void setTurningPoints(Point[] turningPoints) {
+    this.turningPoints = turningPoints;
+  }
+
+  public Boolean getCaptionAutoDirection() {
+    return this.captionAutoDirection;
+  }
+
+  public void setCaptionAutoDirection(Boolean captionAutoDirection) {
+    this.captionAutoDirection = captionAutoDirection;
+  }
+
+  public Double getCaptionPosition() {
+    return this.captionPosition;
+  }
+
+  public void setCaptionPosition(Double captionPosition) {
+    this.captionPosition = captionPosition;
+  }
+
+  public Boolean getSpecifiedCoordinate() {
+    return this.specifiedCoordinate;
+  }
+
+  public void setSpecifiedCoordinate(Boolean specifiedCoordinate) {
+    this.specifiedCoordinate = specifiedCoordinate;
+  }
+
+  public Integer getCaptionPositionType() {
+    return this.captionPositionType;
+  }
+
+  public void setCaptionPositionType(Integer captionPositionType) {
+    this.captionPositionType = captionPositionType;
+  }
+
+  // builder 开始
+  public Connector() {}
+
+  public Connector(Builder builder) {
     /**
-     * 开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段）
-     * <p> 示例值：
+     * 连接图形信息，与position参数二选一，同时设置时attached_object生效
+     *
+     * <p>示例值：
      */
-    @SerializedName("start_object")
-    private ConnectorAttachedObject startObject;
+    this.startObject = builder.startObject;
     /**
-     * 结束连接点信息（兼容线上数据， 只读，写操作使用 end 字段）
-     * <p> 示例值：
+     * 连接图形信息，与position参数二选一，同时设置时attached_object生效
+     *
+     * <p>示例值：
      */
-    @SerializedName("end_object")
-    private ConnectorAttachedObject endObject;
+    this.endObject = builder.endObject;
     /**
      * 连线端点信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("start")
-    private ConnectorInfo start;
+    this.start = builder.start;
     /**
      * 连线端点信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("end")
-    private ConnectorInfo end;
+    this.end = builder.end;
     /**
      * 连线文本
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("captions")
-    private ConnectorCaption captions;
+    this.captions = builder.captions;
     /**
      * 连线类型
-     * <p> 示例值：straight
+     *
+     * <p>示例值：straight
      */
-    @SerializedName("shape")
-    private String shape;
+    this.shape = builder.shape;
     /**
      * 连线转向点
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("turning_points")
-    private Point[] turningPoints;
+    this.turningPoints = builder.turningPoints;
     /**
      * 连线上的文本方向是否自动跟随连线方向
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("caption_auto_direction")
-    private Boolean captionAutoDirection;
+    this.captionAutoDirection = builder.captionAutoDirection;
     /**
      * 文本在连线上的相对位置，范围0-1，0表示在连线的起始点，1表示在连线的终点
-     * <p> 示例值：0.5
+     *
+     * <p>示例值：0.5
      */
-    @SerializedName("caption_position")
-    private Double captionPosition;
+    this.captionPosition = builder.captionPosition;
     /**
      * 指定连线坐标及长宽。为 true 时需要用户设置连线的坐标及长宽信息。为 false 时会根据连线的开始、结束端点自动计算连线的坐标及长宽信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("specified_coordinate")
-    private Boolean specifiedCoordinate;
+    this.specifiedCoordinate = builder.specifiedCoordinate;
     /**
      * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("caption_position_type")
+    this.captionPositionType = builder.captionPositionType;
+  }
+
+  public static class Builder {
+    /**
+     * 连接图形信息，与position参数二选一，同时设置时attached_object生效
+     *
+     * <p>示例值：
+     */
+    private ConnectorAttachedObject startObject;
+
+    /**
+     * 连接图形信息，与position参数二选一，同时设置时attached_object生效
+     *
+     * <p>示例值：
+     */
+    private ConnectorAttachedObject endObject;
+
+    /**
+     * 连线端点信息
+     *
+     * <p>示例值：
+     */
+    private ConnectorInfo start;
+
+    /**
+     * 连线端点信息
+     *
+     * <p>示例值：
+     */
+    private ConnectorInfo end;
+
+    /**
+     * 连线文本
+     *
+     * <p>示例值：
+     */
+    private ConnectorCaption captions;
+
+    /**
+     * 连线类型
+     *
+     * <p>示例值：straight
+     */
+    private String shape;
+
+    /**
+     * 连线转向点
+     *
+     * <p>示例值：
+     */
+    private Point[] turningPoints;
+
+    /**
+     * 连线上的文本方向是否自动跟随连线方向
+     *
+     * <p>示例值：true
+     */
+    private Boolean captionAutoDirection;
+
+    /**
+     * 文本在连线上的相对位置，范围0-1，0表示在连线的起始点，1表示在连线的终点
+     *
+     * <p>示例值：0.5
+     */
+    private Double captionPosition;
+
+    /**
+     * 指定连线坐标及长宽。为 true 时需要用户设置连线的坐标及长宽信息。为 false 时会根据连线的开始、结束端点自动计算连线的坐标及长宽信息
+     *
+     * <p>示例值：
+     */
+    private Boolean specifiedCoordinate;
+
+    /**
+     * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
+     *
+     * <p>示例值：
+     */
     private Integer captionPositionType;
 
-    // builder 开始
-    public Connector() {
+    /**
+     * 连接图形信息，与position参数二选一，同时设置时attached_object生效
+     *
+     * <p>示例值：
+     *
+     * @param startObject
+     * @return
+     */
+    public Builder startObject(ConnectorAttachedObject startObject) {
+      this.startObject = startObject;
+      return this;
     }
 
-    public Connector(Builder builder) {
-        /**
-         * 开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段）
-         * <p> 示例值：
-         */
-        this.startObject = builder.startObject;
-        /**
-         * 结束连接点信息（兼容线上数据， 只读，写操作使用 end 字段）
-         * <p> 示例值：
-         */
-        this.endObject = builder.endObject;
-        /**
-         * 连线端点信息
-         * <p> 示例值：
-         */
-        this.start = builder.start;
-        /**
-         * 连线端点信息
-         * <p> 示例值：
-         */
-        this.end = builder.end;
-        /**
-         * 连线文本
-         * <p> 示例值：
-         */
-        this.captions = builder.captions;
-        /**
-         * 连线类型
-         * <p> 示例值：straight
-         */
-        this.shape = builder.shape;
-        /**
-         * 连线转向点
-         * <p> 示例值：
-         */
-        this.turningPoints = builder.turningPoints;
-        /**
-         * 连线上的文本方向是否自动跟随连线方向
-         * <p> 示例值：true
-         */
-        this.captionAutoDirection = builder.captionAutoDirection;
-        /**
-         * 文本在连线上的相对位置，范围0-1，0表示在连线的起始点，1表示在连线的终点
-         * <p> 示例值：0.5
-         */
-        this.captionPosition = builder.captionPosition;
-        /**
-         * 指定连线坐标及长宽。为 true 时需要用户设置连线的坐标及长宽信息。为 false 时会根据连线的开始、结束端点自动计算连线的坐标及长宽信息
-         * <p> 示例值：
-         */
-        this.specifiedCoordinate = builder.specifiedCoordinate;
-        /**
-         * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
-         * <p> 示例值：
-         */
-        this.captionPositionType = builder.captionPositionType;
+    /**
+     * 连接图形信息，与position参数二选一，同时设置时attached_object生效
+     *
+     * <p>示例值：
+     *
+     * @param endObject
+     * @return
+     */
+    public Builder endObject(ConnectorAttachedObject endObject) {
+      this.endObject = endObject;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 连线端点信息
+     *
+     * <p>示例值：
+     *
+     * @param start
+     * @return
+     */
+    public Builder start(ConnectorInfo start) {
+      this.start = start;
+      return this;
     }
 
-    public ConnectorAttachedObject getStartObject() {
-        return this.startObject;
+    /**
+     * 连线端点信息
+     *
+     * <p>示例值：
+     *
+     * @param end
+     * @return
+     */
+    public Builder end(ConnectorInfo end) {
+      this.end = end;
+      return this;
     }
 
-    public void setStartObject(ConnectorAttachedObject startObject) {
-        this.startObject = startObject;
+    /**
+     * 连线文本
+     *
+     * <p>示例值：
+     *
+     * @param captions
+     * @return
+     */
+    public Builder captions(ConnectorCaption captions) {
+      this.captions = captions;
+      return this;
     }
 
-    public ConnectorAttachedObject getEndObject() {
-        return this.endObject;
+    /**
+     * 连线类型
+     *
+     * <p>示例值：straight
+     *
+     * @param shape
+     * @return
+     */
+    public Builder shape(String shape) {
+      this.shape = shape;
+      return this;
     }
 
-    public void setEndObject(ConnectorAttachedObject endObject) {
-        this.endObject = endObject;
+    /**
+     * 连线类型
+     *
+     * <p>示例值：straight
+     *
+     * @param shape {@link com.lark.oapi.service.board.v1.enums.ConnectorConnectorLineShapeEnum}
+     * @return
+     */
+    public Builder shape(
+        com.lark.oapi.service.board.v1.enums.ConnectorConnectorLineShapeEnum shape) {
+      this.shape = shape.getValue();
+      return this;
     }
 
-    public ConnectorInfo getStart() {
-        return this.start;
+    /**
+     * 连线转向点
+     *
+     * <p>示例值：
+     *
+     * @param turningPoints
+     * @return
+     */
+    public Builder turningPoints(Point[] turningPoints) {
+      this.turningPoints = turningPoints;
+      return this;
     }
 
-    public void setStart(ConnectorInfo start) {
-        this.start = start;
+    /**
+     * 连线上的文本方向是否自动跟随连线方向
+     *
+     * <p>示例值：true
+     *
+     * @param captionAutoDirection
+     * @return
+     */
+    public Builder captionAutoDirection(Boolean captionAutoDirection) {
+      this.captionAutoDirection = captionAutoDirection;
+      return this;
     }
 
-    public ConnectorInfo getEnd() {
-        return this.end;
+    /**
+     * 文本在连线上的相对位置，范围0-1，0表示在连线的起始点，1表示在连线的终点
+     *
+     * <p>示例值：0.5
+     *
+     * @param captionPosition
+     * @return
+     */
+    public Builder captionPosition(Double captionPosition) {
+      this.captionPosition = captionPosition;
+      return this;
     }
 
-    public void setEnd(ConnectorInfo end) {
-        this.end = end;
+    /**
+     * 指定连线坐标及长宽。为 true 时需要用户设置连线的坐标及长宽信息。为 false 时会根据连线的开始、结束端点自动计算连线的坐标及长宽信息
+     *
+     * <p>示例值：
+     *
+     * @param specifiedCoordinate
+     * @return
+     */
+    public Builder specifiedCoordinate(Boolean specifiedCoordinate) {
+      this.specifiedCoordinate = specifiedCoordinate;
+      return this;
     }
 
-    public ConnectorCaption getCaptions() {
-        return this.captions;
+    /**
+     * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
+     *
+     * <p>示例值：
+     *
+     * @param captionPositionType
+     * @return
+     */
+    public Builder captionPositionType(Integer captionPositionType) {
+      this.captionPositionType = captionPositionType;
+      return this;
     }
 
-    public void setCaptions(ConnectorCaption captions) {
-        this.captions = captions;
+    /**
+     * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
+     *
+     * <p>示例值：
+     *
+     * @param captionPositionType {@link
+     *     com.lark.oapi.service.board.v1.enums.ConnectorCaptionPositionTypeEnum}
+     * @return
+     */
+    public Builder captionPositionType(
+        com.lark.oapi.service.board.v1.enums.ConnectorCaptionPositionTypeEnum captionPositionType) {
+      this.captionPositionType = captionPositionType.getValue();
+      return this;
     }
 
-    public String getShape() {
-        return this.shape;
+    public Connector build() {
+      return new Connector(this);
     }
+  }
 
-    public void setShape(String shape) {
-        this.shape = shape;
-    }
-
-    public Point[] getTurningPoints() {
-        return this.turningPoints;
-    }
-
-    public void setTurningPoints(Point[] turningPoints) {
-        this.turningPoints = turningPoints;
-    }
-
-    public Boolean getCaptionAutoDirection() {
-        return this.captionAutoDirection;
-    }
-
-    public void setCaptionAutoDirection(Boolean captionAutoDirection) {
-        this.captionAutoDirection = captionAutoDirection;
-    }
-
-    public Double getCaptionPosition() {
-        return this.captionPosition;
-    }
-
-    public void setCaptionPosition(Double captionPosition) {
-        this.captionPosition = captionPosition;
-    }
-
-    public Boolean getSpecifiedCoordinate() {
-        return this.specifiedCoordinate;
-    }
-
-    public void setSpecifiedCoordinate(Boolean specifiedCoordinate) {
-        this.specifiedCoordinate = specifiedCoordinate;
-    }
-
-    public Integer getCaptionPositionType() {
-        return this.captionPositionType;
-    }
-
-    public void setCaptionPositionType(Integer captionPositionType) {
-        this.captionPositionType = captionPositionType;
-    }
-
-    public static class Builder {
-        /**
-         * 开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段）
-         * <p> 示例值：
-         */
-        private ConnectorAttachedObject startObject;
-        /**
-         * 结束连接点信息（兼容线上数据， 只读，写操作使用 end 字段）
-         * <p> 示例值：
-         */
-        private ConnectorAttachedObject endObject;
-        /**
-         * 连线端点信息
-         * <p> 示例值：
-         */
-        private ConnectorInfo start;
-        /**
-         * 连线端点信息
-         * <p> 示例值：
-         */
-        private ConnectorInfo end;
-        /**
-         * 连线文本
-         * <p> 示例值：
-         */
-        private ConnectorCaption captions;
-        /**
-         * 连线类型
-         * <p> 示例值：straight
-         */
-        private String shape;
-        /**
-         * 连线转向点
-         * <p> 示例值：
-         */
-        private Point[] turningPoints;
-        /**
-         * 连线上的文本方向是否自动跟随连线方向
-         * <p> 示例值：true
-         */
-        private Boolean captionAutoDirection;
-        /**
-         * 文本在连线上的相对位置，范围0-1，0表示在连线的起始点，1表示在连线的终点
-         * <p> 示例值：0.5
-         */
-        private Double captionPosition;
-        /**
-         * 指定连线坐标及长宽。为 true 时需要用户设置连线的坐标及长宽信息。为 false 时会根据连线的开始、结束端点自动计算连线的坐标及长宽信息
-         * <p> 示例值：
-         */
-        private Boolean specifiedCoordinate;
-        /**
-         * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
-         * <p> 示例值：
-         */
-        private Integer captionPositionType;
-
-        /**
-         * 开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段）
-         * <p> 示例值：
-         *
-         * @param startObject
-         * @return
-         */
-        public Builder startObject(ConnectorAttachedObject startObject) {
-            this.startObject = startObject;
-            return this;
-        }
-
-
-        /**
-         * 结束连接点信息（兼容线上数据， 只读，写操作使用 end 字段）
-         * <p> 示例值：
-         *
-         * @param endObject
-         * @return
-         */
-        public Builder endObject(ConnectorAttachedObject endObject) {
-            this.endObject = endObject;
-            return this;
-        }
-
-
-        /**
-         * 连线端点信息
-         * <p> 示例值：
-         *
-         * @param start
-         * @return
-         */
-        public Builder start(ConnectorInfo start) {
-            this.start = start;
-            return this;
-        }
-
-
-        /**
-         * 连线端点信息
-         * <p> 示例值：
-         *
-         * @param end
-         * @return
-         */
-        public Builder end(ConnectorInfo end) {
-            this.end = end;
-            return this;
-        }
-
-
-        /**
-         * 连线文本
-         * <p> 示例值：
-         *
-         * @param captions
-         * @return
-         */
-        public Builder captions(ConnectorCaption captions) {
-            this.captions = captions;
-            return this;
-        }
-
-
-        /**
-         * 连线类型
-         * <p> 示例值：straight
-         *
-         * @param shape
-         * @return
-         */
-        public Builder shape(String shape) {
-            this.shape = shape;
-            return this;
-        }
-
-        /**
-         * 连线类型
-         * <p> 示例值：straight
-         *
-         * @param shape {@link com.lark.oapi.service.board.v1.enums.ConnectorConnectorLineShapeEnum}
-         * @return
-         */
-        public Builder shape(com.lark.oapi.service.board.v1.enums.ConnectorConnectorLineShapeEnum shape) {
-            this.shape = shape.getValue();
-            return this;
-        }
-
-
-        /**
-         * 连线转向点
-         * <p> 示例值：
-         *
-         * @param turningPoints
-         * @return
-         */
-        public Builder turningPoints(Point[] turningPoints) {
-            this.turningPoints = turningPoints;
-            return this;
-        }
-
-
-        /**
-         * 连线上的文本方向是否自动跟随连线方向
-         * <p> 示例值：true
-         *
-         * @param captionAutoDirection
-         * @return
-         */
-        public Builder captionAutoDirection(Boolean captionAutoDirection) {
-            this.captionAutoDirection = captionAutoDirection;
-            return this;
-        }
-
-
-        /**
-         * 文本在连线上的相对位置，范围0-1，0表示在连线的起始点，1表示在连线的终点
-         * <p> 示例值：0.5
-         *
-         * @param captionPosition
-         * @return
-         */
-        public Builder captionPosition(Double captionPosition) {
-            this.captionPosition = captionPosition;
-            return this;
-        }
-
-
-        /**
-         * 指定连线坐标及长宽。为 true 时需要用户设置连线的坐标及长宽信息。为 false 时会根据连线的开始、结束端点自动计算连线的坐标及长宽信息
-         * <p> 示例值：
-         *
-         * @param specifiedCoordinate
-         * @return
-         */
-        public Builder specifiedCoordinate(Boolean specifiedCoordinate) {
-            this.specifiedCoordinate = specifiedCoordinate;
-            return this;
-        }
-
-
-        /**
-         * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
-         * <p> 示例值：
-         *
-         * @param captionPositionType
-         * @return
-         */
-        public Builder captionPositionType(Integer captionPositionType) {
-            this.captionPositionType = captionPositionType;
-            return this;
-        }
-
-        /**
-         * 文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边
-         * <p> 示例值：
-         *
-         * @param captionPositionType {@link com.lark.oapi.service.board.v1.enums.ConnectorCaptionPositionTypeEnum}
-         * @return
-         */
-        public Builder captionPositionType(com.lark.oapi.service.board.v1.enums.ConnectorCaptionPositionTypeEnum captionPositionType) {
-            this.captionPositionType = captionPositionType.getValue();
-            return this;
-        }
-
-
-        public Connector build() {
-            return new Connector(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

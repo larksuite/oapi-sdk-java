@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.personal_settings.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchOpenSystemStatusRespBody {
-    /**
-     * 开启结果
-     * <p> 示例值：
-     */
-    @SerializedName("result_list")
-    private SystemStatusUserOpenResultEntity[] resultList;
+  /**
+   * 开启结果
+   *
+   * <p>示例值：
+   */
+  @SerializedName("result_list")
+  private SystemStatusUserOpenResultEntity[] resultList;
 
-    public SystemStatusUserOpenResultEntity[] getResultList() {
-        return this.resultList;
-    }
+  public SystemStatusUserOpenResultEntity[] getResultList() {
+    return this.resultList;
+  }
 
-    public void setResultList(SystemStatusUserOpenResultEntity[] resultList) {
-        this.resultList = resultList;
-    }
-
+  public void setResultList(SystemStatusUserOpenResultEntity[] resultList) {
+    this.resultList = resultList;
+  }
 }

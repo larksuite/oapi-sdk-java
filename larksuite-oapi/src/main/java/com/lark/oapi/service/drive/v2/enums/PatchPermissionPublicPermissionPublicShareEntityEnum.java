@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.drive.v2.enums;
 
-/**
- * 谁可以添加和管理协作者-组织维度
- */
+/** 从组织维度，设置谁可以查看、添加、移除协作者 */
 public enum PatchPermissionPublicPermissionPublicShareEntityEnum {
-    ANYONE("anyone"), // 所有可阅读或编辑此文档的用户
-    SAMETENANT("same_tenant"), // 组织内所有可阅读或编辑此文档的用户
-    ;
-    private String value;
+  ANYONE("anyone"), // 所有可阅读或编辑此文档的用户
+  SAMETENANT("same_tenant"), // 组织内所有可阅读或编辑此文档的用户
+  ;
+  private String value;
 
-    PatchPermissionPublicPermissionPublicShareEntityEnum(String value) {
-        this.value = value;
-    }
+  PatchPermissionPublicPermissionPublicShareEntityEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

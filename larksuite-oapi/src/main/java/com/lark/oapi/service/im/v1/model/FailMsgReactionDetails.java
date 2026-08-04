@@ -13,124 +13,122 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FailMsgReactionDetails {
+  /**
+   * 消息id
+   *
+   * <p>示例值：om_8964d1b4*********2b31383276113
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 获取表情失败的原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fail_reason")
+  private String failReason;
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public String getFailReason() {
+    return this.failReason;
+  }
+
+  public void setFailReason(String failReason) {
+    this.failReason = failReason;
+  }
+
+  // builder 开始
+  public FailMsgReactionDetails() {}
+
+  public FailMsgReactionDetails(Builder builder) {
     /**
      * 消息id
-     * <p> 示例值：om_8964d1b4*********2b31383276113
+     *
+     * <p>示例值：om_8964d1b4*********2b31383276113
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * 获取表情失败的原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("fail_reason")
+    this.failReason = builder.failReason;
+  }
+
+  public static class Builder {
+    /**
+     * 消息id
+     *
+     * <p>示例值：om_8964d1b4*********2b31383276113
+     */
+    private String messageId;
+
+    /**
+     * 获取表情失败的原因
+     *
+     * <p>示例值：
+     */
     private String failReason;
 
-    // builder 开始
-    public FailMsgReactionDetails() {
+    /**
+     * 消息id
+     *
+     * <p>示例值：om_8964d1b4*********2b31383276113
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public FailMsgReactionDetails(Builder builder) {
-        /**
-         * 消息id
-         * <p> 示例值：om_8964d1b4*********2b31383276113
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 获取表情失败的原因
-         * <p> 示例值：
-         */
-        this.failReason = builder.failReason;
+    /**
+     * 获取表情失败的原因
+     *
+     * <p>示例值：
+     *
+     * @param failReason
+     * @return
+     */
+    public Builder failReason(String failReason) {
+      this.failReason = failReason;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 获取表情失败的原因
+     *
+     * <p>示例值：
+     *
+     * @param failReason {@link
+     *     com.lark.oapi.service.im.v1.enums.FailMsgReactionDetailsFailReasonEnum}
+     * @return
+     */
+    public Builder failReason(
+        com.lark.oapi.service.im.v1.enums.FailMsgReactionDetailsFailReasonEnum failReason) {
+      this.failReason = failReason.getValue();
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    public FailMsgReactionDetails build() {
+      return new FailMsgReactionDetails(this);
     }
+  }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public String getFailReason() {
-        return this.failReason;
-    }
-
-    public void setFailReason(String failReason) {
-        this.failReason = failReason;
-    }
-
-    public static class Builder {
-        /**
-         * 消息id
-         * <p> 示例值：om_8964d1b4*********2b31383276113
-         */
-        private String messageId;
-        /**
-         * 获取表情失败的原因
-         * <p> 示例值：
-         */
-        private String failReason;
-
-        /**
-         * 消息id
-         * <p> 示例值：om_8964d1b4*********2b31383276113
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 获取表情失败的原因
-         * <p> 示例值：
-         *
-         * @param failReason
-         * @return
-         */
-        public Builder failReason(String failReason) {
-            this.failReason = failReason;
-            return this;
-        }
-
-        /**
-         * 获取表情失败的原因
-         * <p> 示例值：
-         *
-         * @param failReason {@link com.lark.oapi.service.im.v1.enums.FailMsgReactionDetailsFailReasonEnum}
-         * @return
-         */
-        public Builder failReason(com.lark.oapi.service.im.v1.enums.FailMsgReactionDetailsFailReasonEnum failReason) {
-            this.failReason = failReason.getValue();
-            return this;
-        }
-
-
-        public FailMsgReactionDetails build() {
-            return new FailMsgReactionDetails(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

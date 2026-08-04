@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.lingo.v1.enums;
 
-/**
- * 词条卡片类型
- */
+/** 词条卡片类型 */
 public enum EntityCardDataCardTypeEnum {
-    ENTITY(1), // 普通实体词卡片
-    NOTFOUND(2), // 未找到词条兜底卡片
-    MINEWORD(3), // 挖掘词贡献卡片
-    RICHTEXTENTITY(4), // 富文本卡片
-    FEEDBACKCARD(5), // 反馈卡片
-    ;
-    private Integer value;
+  ENTITY(1), // 普通实体词卡片
+  NOTFOUND(2), // 未找到词条兜底卡片
+  MINEWORD(3), // 挖掘词贡献卡片
+  RICHTEXTENTITY(4), // 富文本卡片
+  FEEDBACKCARD(5), // 反馈卡片
+  ;
+  private Integer value;
 
-    EntityCardDataCardTypeEnum(Integer value) {
-        this.value = value;
-    }
+  EntityCardDataCardTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

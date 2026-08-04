@@ -13,149 +13,148 @@
 
 package com.lark.oapi.service.wiki.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.wiki.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchNodeReqBody {
+  /**
+   * 搜索关键词
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("query")
+  private String query;
+
+  /**
+   * 文档所属的知识空间ID，为空搜索所有 wiki
+   *
+   * <p>示例值：6967549310762221587
+   */
+  @SerializedName("space_id")
+  private String spaceId;
+
+  /**
+   * wiki token，不为空搜索该节点及其所有子节点，为空搜索所有 wiki（根据 space_id 选择 space）
+   *
+   * <p>示例值：O5UIw9NA8iW308kQQeybWLZqcXc
+   */
+  @SerializedName("node_id")
+  private String nodeId;
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  public String getSpaceId() {
+    return this.spaceId;
+  }
+
+  public void setSpaceId(String spaceId) {
+    this.spaceId = spaceId;
+  }
+
+  public String getNodeId() {
+    return this.nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
+  // builder 开始
+  public SearchNodeReqBody() {}
+
+  public SearchNodeReqBody(Builder builder) {
     /**
      * 搜索关键词
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("query")
-    private String query;
+    this.query = builder.query;
     /**
      * 文档所属的知识空间ID，为空搜索所有 wiki
-     * <p> 示例值：6967549310762221587
+     *
+     * <p>示例值：6967549310762221587
      */
-    @SerializedName("space_id")
-    private String spaceId;
+    this.spaceId = builder.spaceId;
     /**
      * wiki token，不为空搜索该节点及其所有子节点，为空搜索所有 wiki（根据 space_id 选择 space）
-     * <p> 示例值：O5UIw9NA8iW308kQQeybWLZqcXc
+     *
+     * <p>示例值：O5UIw9NA8iW308kQQeybWLZqcXc
      */
-    @SerializedName("node_id")
+    this.nodeId = builder.nodeId;
+  }
+
+  public static class Builder {
+    /**
+     * 搜索关键词
+     *
+     * <p>示例值：123
+     */
+    private String query;
+
+    /**
+     * 文档所属的知识空间ID，为空搜索所有 wiki
+     *
+     * <p>示例值：6967549310762221587
+     */
+    private String spaceId;
+
+    /**
+     * wiki token，不为空搜索该节点及其所有子节点，为空搜索所有 wiki（根据 space_id 选择 space）
+     *
+     * <p>示例值：O5UIw9NA8iW308kQQeybWLZqcXc
+     */
     private String nodeId;
 
-    // builder 开始
-    public SearchNodeReqBody() {
+    /**
+     * 搜索关键词
+     *
+     * <p>示例值：123
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public SearchNodeReqBody(Builder builder) {
-        /**
-         * 搜索关键词
-         * <p> 示例值：123
-         */
-        this.query = builder.query;
-        /**
-         * 文档所属的知识空间ID，为空搜索所有 wiki
-         * <p> 示例值：6967549310762221587
-         */
-        this.spaceId = builder.spaceId;
-        /**
-         * wiki token，不为空搜索该节点及其所有子节点，为空搜索所有 wiki（根据 space_id 选择 space）
-         * <p> 示例值：O5UIw9NA8iW308kQQeybWLZqcXc
-         */
-        this.nodeId = builder.nodeId;
+    /**
+     * 文档所属的知识空间ID，为空搜索所有 wiki
+     *
+     * <p>示例值：6967549310762221587
+     *
+     * @param spaceId
+     * @return
+     */
+    public Builder spaceId(String spaceId) {
+      this.spaceId = spaceId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * wiki token，不为空搜索该节点及其所有子节点，为空搜索所有 wiki（根据 space_id 选择 space）
+     *
+     * <p>示例值：O5UIw9NA8iW308kQQeybWLZqcXc
+     *
+     * @param nodeId
+     * @return
+     */
+    public Builder nodeId(String nodeId) {
+      this.nodeId = nodeId;
+      return this;
     }
 
-    public String getQuery() {
-        return this.query;
+    public SearchNodeReqBody build() {
+      return new SearchNodeReqBody(this);
     }
+  }
 
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public String getSpaceId() {
-        return this.spaceId;
-    }
-
-    public void setSpaceId(String spaceId) {
-        this.spaceId = spaceId;
-    }
-
-    public String getNodeId() {
-        return this.nodeId;
-    }
-
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
-    }
-
-    public static class Builder {
-        /**
-         * 搜索关键词
-         * <p> 示例值：123
-         */
-        private String query;
-        /**
-         * 文档所属的知识空间ID，为空搜索所有 wiki
-         * <p> 示例值：6967549310762221587
-         */
-        private String spaceId;
-        /**
-         * wiki token，不为空搜索该节点及其所有子节点，为空搜索所有 wiki（根据 space_id 选择 space）
-         * <p> 示例值：O5UIw9NA8iW308kQQeybWLZqcXc
-         */
-        private String nodeId;
-
-        /**
-         * 搜索关键词
-         * <p> 示例值：123
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        /**
-         * 文档所属的知识空间ID，为空搜索所有 wiki
-         * <p> 示例值：6967549310762221587
-         *
-         * @param spaceId
-         * @return
-         */
-        public Builder spaceId(String spaceId) {
-            this.spaceId = spaceId;
-            return this;
-        }
-
-
-        /**
-         * wiki token，不为空搜索该节点及其所有子节点，为空搜索所有 wiki（根据 space_id 选择 space）
-         * <p> 示例值：O5UIw9NA8iW308kQQeybWLZqcXc
-         *
-         * @param nodeId
-         * @return
-         */
-        public Builder nodeId(String nodeId) {
-            this.nodeId = nodeId;
-            return this;
-        }
-
-
-        public SearchNodeReqBody build() {
-            return new SearchNodeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

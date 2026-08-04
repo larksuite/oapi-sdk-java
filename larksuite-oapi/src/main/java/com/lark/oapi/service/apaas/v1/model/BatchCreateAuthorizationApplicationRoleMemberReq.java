@@ -13,131 +13,133 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class BatchCreateAuthorizationApplicationRoleMemberReq {
+  /**
+   * 应用命名空间
+   *
+   * <p>示例值：package_test__c
+   */
+  @Path
+  @SerializedName("namespace")
+  private String namespace;
+
+  /**
+   * 角色 API 名称
+   *
+   * <p>示例值：adminRole
+   */
+  @Path
+  @SerializedName("role_api_name")
+  private String roleApiName;
+
+  public String getNamespace() {
+    return this.namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  public String getRoleApiName() {
+    return this.roleApiName;
+  }
+
+  public void setRoleApiName(String roleApiName) {
+    this.roleApiName = roleApiName;
+  }
+
+  @Body private BatchCreateAuthorizationApplicationRoleMemberReqBody body;
+
+  public BatchCreateAuthorizationApplicationRoleMemberReqBody
+      getBatchCreateAuthorizationApplicationRoleMemberReqBody() {
+    return this.body;
+  }
+
+  public void setBatchCreateAuthorizationApplicationRoleMemberReqBody(
+      BatchCreateAuthorizationApplicationRoleMemberReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchCreateAuthorizationApplicationRoleMemberReq() {}
+
+  public BatchCreateAuthorizationApplicationRoleMemberReq(Builder builder) {
     /**
      * 应用命名空间
-     * <p> 示例值：package_test__c
+     *
+     * <p>示例值：package_test__c
      */
-    @Path
-    @SerializedName("namespace")
-    private String namespace;
+    this.namespace = builder.namespace;
     /**
      * 角色 API 名称
-     * <p> 示例值：adminRole
+     *
+     * <p>示例值：adminRole
      */
-    @Path
-    @SerializedName("role_api_name")
-    private String roleApiName;
-    @Body
+    this.roleApiName = builder.roleApiName;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String namespace; // 应用命名空间
+    private String roleApiName; // 角色 API 名称
+
+    /**
+     * 应用命名空间
+     *
+     * <p>示例值：package_test__c
+     *
+     * @param namespace
+     * @return
+     */
+    public Builder namespace(String namespace) {
+      this.namespace = namespace;
+      return this;
+    }
+
+    /**
+     * 角色 API 名称
+     *
+     * <p>示例值：adminRole
+     *
+     * @param roleApiName
+     * @return
+     */
+    public Builder roleApiName(String roleApiName) {
+      this.roleApiName = roleApiName;
+      return this;
+    }
+
     private BatchCreateAuthorizationApplicationRoleMemberReqBody body;
 
-    // builder 开始
-    public BatchCreateAuthorizationApplicationRoleMemberReq() {
+    public BatchCreateAuthorizationApplicationRoleMemberReqBody
+        getBatchCreateAuthorizationApplicationRoleMemberReqBody() {
+      return this.body;
     }
 
-    public BatchCreateAuthorizationApplicationRoleMemberReq(Builder builder) {
-        /**
-         * 应用命名空间
-         * <p> 示例值：package_test__c
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 角色 API 名称
-         * <p> 示例值：adminRole
-         */
-        this.roleApiName = builder.roleApiName;
-        this.body = builder.body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchCreateAuthorizationApplicationRoleMemberReqBody(
+        BatchCreateAuthorizationApplicationRoleMemberReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BatchCreateAuthorizationApplicationRoleMemberReq build() {
+      return new BatchCreateAuthorizationApplicationRoleMemberReq(this);
     }
+  }
 
-    public String getNamespace() {
-        return this.namespace;
-    }
-
-    public void setNamespace(String namespace) {
-        this.namespace = namespace;
-    }
-
-    public String getRoleApiName() {
-        return this.roleApiName;
-    }
-
-    public void setRoleApiName(String roleApiName) {
-        this.roleApiName = roleApiName;
-    }
-
-    public BatchCreateAuthorizationApplicationRoleMemberReqBody getBatchCreateAuthorizationApplicationRoleMemberReqBody() {
-        return this.body;
-    }
-
-    public void setBatchCreateAuthorizationApplicationRoleMemberReqBody(BatchCreateAuthorizationApplicationRoleMemberReqBody body) {
-        this.body = body;
-    }
-
-    public static class Builder {
-
-        private String namespace; // 应用命名空间
-        private String roleApiName; // 角色 API 名称
-        private BatchCreateAuthorizationApplicationRoleMemberReqBody body;
-
-        /**
-         * 应用命名空间
-         * <p> 示例值：package_test__c
-         *
-         * @param namespace
-         * @return
-         */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
-
-        /**
-         * 角色 API 名称
-         * <p> 示例值：adminRole
-         *
-         * @param roleApiName
-         * @return
-         */
-        public Builder roleApiName(String roleApiName) {
-            this.roleApiName = roleApiName;
-            return this;
-        }
-
-        public BatchCreateAuthorizationApplicationRoleMemberReqBody getBatchCreateAuthorizationApplicationRoleMemberReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchCreateAuthorizationApplicationRoleMemberReqBody(BatchCreateAuthorizationApplicationRoleMemberReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchCreateAuthorizationApplicationRoleMemberReq build() {
-            return new BatchCreateAuthorizationApplicationRoleMemberReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

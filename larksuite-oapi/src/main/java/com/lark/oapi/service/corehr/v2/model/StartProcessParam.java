@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class StartProcessParam {
+  /**
+   * 流程定义id
+   *
+   * <p>示例值：people_7023711013443944467_7437160904904494892
+   */
+  @SerializedName("flow_definition_id")
+  private String flowDefinitionId;
+
+  /**
+   * 发起人用户ID，按user_id_type类型传递。如果system_initiator为false，则必填；为true时非必填。
+   *
+   * <p>示例值：ou_91791271921729102012
+   */
+  @SerializedName("initiator_id")
+  private String initiatorId;
+
+  /**
+   * 是否为系统身份发起流程，如果为false，则initiator_id必填
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("system_initiator")
+  private Boolean systemInitiator;
+
+  /**
+   * 业务数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("flow_data")
+  private ProcessFormVariableV2[] flowData;
+
+  public String getFlowDefinitionId() {
+    return this.flowDefinitionId;
+  }
+
+  public void setFlowDefinitionId(String flowDefinitionId) {
+    this.flowDefinitionId = flowDefinitionId;
+  }
+
+  public String getInitiatorId() {
+    return this.initiatorId;
+  }
+
+  public void setInitiatorId(String initiatorId) {
+    this.initiatorId = initiatorId;
+  }
+
+  public Boolean getSystemInitiator() {
+    return this.systemInitiator;
+  }
+
+  public void setSystemInitiator(Boolean systemInitiator) {
+    this.systemInitiator = systemInitiator;
+  }
+
+  public ProcessFormVariableV2[] getFlowData() {
+    return this.flowData;
+  }
+
+  public void setFlowData(ProcessFormVariableV2[] flowData) {
+    this.flowData = flowData;
+  }
+
+  // builder 开始
+  public StartProcessParam() {}
+
+  public StartProcessParam(Builder builder) {
     /**
-     * 流程定义ID
-     * <p> 示例值：people_7023711013443944467_7437160904904494892
+     * 流程定义id
+     *
+     * <p>示例值：people_7023711013443944467_7437160904904494892
      */
-    @SerializedName("flow_definition_id")
-    private String flowDefinitionId;
+    this.flowDefinitionId = builder.flowDefinitionId;
     /**
      * 发起人用户ID，按user_id_type类型传递。如果system_initiator为false，则必填；为true时非必填。
-     * <p> 示例值：ou_91791271921729102012
+     *
+     * <p>示例值：ou_91791271921729102012
      */
-    @SerializedName("initiator_id")
-    private String initiatorId;
+    this.initiatorId = builder.initiatorId;
     /**
-     * 是否为系统身份发起流程。 true - 使用系统身份发起，若使用系统身份；false - 按照所传的人员身份审批
-     * <p> 示例值：true
+     * 是否为系统身份发起流程，如果为false，则initiator_id必填
+     *
+     * <p>示例值：true
      */
-    @SerializedName("system_initiator")
-    private Boolean systemInitiator;
+    this.systemInitiator = builder.systemInitiator;
     /**
      * 业务数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("flow_data")
+    this.flowData = builder.flowData;
+  }
+
+  public static class Builder {
+    /**
+     * 流程定义id
+     *
+     * <p>示例值：people_7023711013443944467_7437160904904494892
+     */
+    private String flowDefinitionId;
+
+    /**
+     * 发起人用户ID，按user_id_type类型传递。如果system_initiator为false，则必填；为true时非必填。
+     *
+     * <p>示例值：ou_91791271921729102012
+     */
+    private String initiatorId;
+
+    /**
+     * 是否为系统身份发起流程，如果为false，则initiator_id必填
+     *
+     * <p>示例值：true
+     */
+    private Boolean systemInitiator;
+
+    /**
+     * 业务数据
+     *
+     * <p>示例值：
+     */
     private ProcessFormVariableV2[] flowData;
 
-    // builder 开始
-    public StartProcessParam() {
+    /**
+     * 流程定义id
+     *
+     * <p>示例值：people_7023711013443944467_7437160904904494892
+     *
+     * @param flowDefinitionId
+     * @return
+     */
+    public Builder flowDefinitionId(String flowDefinitionId) {
+      this.flowDefinitionId = flowDefinitionId;
+      return this;
     }
 
-    public StartProcessParam(Builder builder) {
-        /**
-         * 流程定义ID
-         * <p> 示例值：people_7023711013443944467_7437160904904494892
-         */
-        this.flowDefinitionId = builder.flowDefinitionId;
-        /**
-         * 发起人用户ID，按user_id_type类型传递。如果system_initiator为false，则必填；为true时非必填。
-         * <p> 示例值：ou_91791271921729102012
-         */
-        this.initiatorId = builder.initiatorId;
-        /**
-         * 是否为系统身份发起流程。 true - 使用系统身份发起，若使用系统身份；false - 按照所传的人员身份审批
-         * <p> 示例值：true
-         */
-        this.systemInitiator = builder.systemInitiator;
-        /**
-         * 业务数据
-         * <p> 示例值：
-         */
-        this.flowData = builder.flowData;
+    /**
+     * 发起人用户ID，按user_id_type类型传递。如果system_initiator为false，则必填；为true时非必填。
+     *
+     * <p>示例值：ou_91791271921729102012
+     *
+     * @param initiatorId
+     * @return
+     */
+    public Builder initiatorId(String initiatorId) {
+      this.initiatorId = initiatorId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否为系统身份发起流程，如果为false，则initiator_id必填
+     *
+     * <p>示例值：true
+     *
+     * @param systemInitiator
+     * @return
+     */
+    public Builder systemInitiator(Boolean systemInitiator) {
+      this.systemInitiator = systemInitiator;
+      return this;
     }
 
-    public String getFlowDefinitionId() {
-        return this.flowDefinitionId;
+    /**
+     * 业务数据
+     *
+     * <p>示例值：
+     *
+     * @param flowData
+     * @return
+     */
+    public Builder flowData(ProcessFormVariableV2[] flowData) {
+      this.flowData = flowData;
+      return this;
     }
 
-    public void setFlowDefinitionId(String flowDefinitionId) {
-        this.flowDefinitionId = flowDefinitionId;
+    public StartProcessParam build() {
+      return new StartProcessParam(this);
     }
+  }
 
-    public String getInitiatorId() {
-        return this.initiatorId;
-    }
-
-    public void setInitiatorId(String initiatorId) {
-        this.initiatorId = initiatorId;
-    }
-
-    public Boolean getSystemInitiator() {
-        return this.systemInitiator;
-    }
-
-    public void setSystemInitiator(Boolean systemInitiator) {
-        this.systemInitiator = systemInitiator;
-    }
-
-    public ProcessFormVariableV2[] getFlowData() {
-        return this.flowData;
-    }
-
-    public void setFlowData(ProcessFormVariableV2[] flowData) {
-        this.flowData = flowData;
-    }
-
-    public static class Builder {
-        /**
-         * 流程定义ID
-         * <p> 示例值：people_7023711013443944467_7437160904904494892
-         */
-        private String flowDefinitionId;
-        /**
-         * 发起人用户ID，按user_id_type类型传递。如果system_initiator为false，则必填；为true时非必填。
-         * <p> 示例值：ou_91791271921729102012
-         */
-        private String initiatorId;
-        /**
-         * 是否为系统身份发起流程。 true - 使用系统身份发起，若使用系统身份；false - 按照所传的人员身份审批
-         * <p> 示例值：true
-         */
-        private Boolean systemInitiator;
-        /**
-         * 业务数据
-         * <p> 示例值：
-         */
-        private ProcessFormVariableV2[] flowData;
-
-        /**
-         * 流程定义ID
-         * <p> 示例值：people_7023711013443944467_7437160904904494892
-         *
-         * @param flowDefinitionId
-         * @return
-         */
-        public Builder flowDefinitionId(String flowDefinitionId) {
-            this.flowDefinitionId = flowDefinitionId;
-            return this;
-        }
-
-
-        /**
-         * 发起人用户ID，按user_id_type类型传递。如果system_initiator为false，则必填；为true时非必填。
-         * <p> 示例值：ou_91791271921729102012
-         *
-         * @param initiatorId
-         * @return
-         */
-        public Builder initiatorId(String initiatorId) {
-            this.initiatorId = initiatorId;
-            return this;
-        }
-
-
-        /**
-         * 是否为系统身份发起流程。 true - 使用系统身份发起，若使用系统身份；false - 按照所传的人员身份审批
-         * <p> 示例值：true
-         *
-         * @param systemInitiator
-         * @return
-         */
-        public Builder systemInitiator(Boolean systemInitiator) {
-            this.systemInitiator = systemInitiator;
-            return this;
-        }
-
-
-        /**
-         * 业务数据
-         * <p> 示例值：
-         *
-         * @param flowData
-         * @return
-         */
-        public Builder flowData(ProcessFormVariableV2[] flowData) {
-            this.flowData = flowData;
-            return this;
-        }
-
-
-        public StartProcessParam build() {
-            return new StartProcessParam(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

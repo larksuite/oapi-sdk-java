@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v7.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppConfigSecurityItem {
+  /**
+   * 重定向URL
+   *
+   * <p>示例值：
+   */
+  @SerializedName("redirect_urls")
+  private String[] redirectUrls;
+
+  /**
+   * IP白名单 IP需要填写调用方出口公网IP地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("allowed_ips")
+  private String[] allowedIps;
+
+  /**
+   * H5可信域名仅可信域名内的 H5 可以访问 JSAPI，部分需要鉴权的 JSAPI 必填。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("h5_trusted_domains")
+  private String[] h5TrustedDomains;
+
+  /**
+   * Web-View 可信域名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("web_view_trusted_domains")
+  private String[] webViewTrustedDomains;
+
+  /**
+   * 小程序协议名白名单
+   *
+   * <p>示例值：
+   */
+  @SerializedName("allowed_schemas")
+  private String[] allowedSchemas;
+
+  /**
+   * 服务器可信域名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("allowed_server_domains")
+  private String[] allowedServerDomains;
+
+  public String[] getRedirectUrls() {
+    return this.redirectUrls;
+  }
+
+  public void setRedirectUrls(String[] redirectUrls) {
+    this.redirectUrls = redirectUrls;
+  }
+
+  public String[] getAllowedIps() {
+    return this.allowedIps;
+  }
+
+  public void setAllowedIps(String[] allowedIps) {
+    this.allowedIps = allowedIps;
+  }
+
+  public String[] getH5TrustedDomains() {
+    return this.h5TrustedDomains;
+  }
+
+  public void setH5TrustedDomains(String[] h5TrustedDomains) {
+    this.h5TrustedDomains = h5TrustedDomains;
+  }
+
+  public String[] getWebViewTrustedDomains() {
+    return this.webViewTrustedDomains;
+  }
+
+  public void setWebViewTrustedDomains(String[] webViewTrustedDomains) {
+    this.webViewTrustedDomains = webViewTrustedDomains;
+  }
+
+  public String[] getAllowedSchemas() {
+    return this.allowedSchemas;
+  }
+
+  public void setAllowedSchemas(String[] allowedSchemas) {
+    this.allowedSchemas = allowedSchemas;
+  }
+
+  public String[] getAllowedServerDomains() {
+    return this.allowedServerDomains;
+  }
+
+  public void setAllowedServerDomains(String[] allowedServerDomains) {
+    this.allowedServerDomains = allowedServerDomains;
+  }
+
+  // builder 开始
+  public AppConfigSecurityItem() {}
+
+  public AppConfigSecurityItem(Builder builder) {
     /**
      * 重定向URL
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("redirect_urls")
-    private String[] redirectUrls;
+    this.redirectUrls = builder.redirectUrls;
     /**
      * IP白名单 IP需要填写调用方出口公网IP地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("allowed_ips")
-    private String[] allowedIps;
+    this.allowedIps = builder.allowedIps;
     /**
      * H5可信域名仅可信域名内的 H5 可以访问 JSAPI，部分需要鉴权的 JSAPI 必填。
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("h5_trusted_domains")
-    private String[] h5TrustedDomains;
+    this.h5TrustedDomains = builder.h5TrustedDomains;
     /**
      * Web-View 可信域名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("web_view_trusted_domains")
-    private String[] webViewTrustedDomains;
+    this.webViewTrustedDomains = builder.webViewTrustedDomains;
     /**
      * 小程序协议名白名单
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("allowed_schemas")
-    private String[] allowedSchemas;
+    this.allowedSchemas = builder.allowedSchemas;
     /**
      * 服务器可信域名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("allowed_server_domains")
+    this.allowedServerDomains = builder.allowedServerDomains;
+  }
+
+  public static class Builder {
+    /**
+     * 重定向URL
+     *
+     * <p>示例值：
+     */
+    private String[] redirectUrls;
+
+    /**
+     * IP白名单 IP需要填写调用方出口公网IP地址
+     *
+     * <p>示例值：
+     */
+    private String[] allowedIps;
+
+    /**
+     * H5可信域名仅可信域名内的 H5 可以访问 JSAPI，部分需要鉴权的 JSAPI 必填。
+     *
+     * <p>示例值：
+     */
+    private String[] h5TrustedDomains;
+
+    /**
+     * Web-View 可信域名
+     *
+     * <p>示例值：
+     */
+    private String[] webViewTrustedDomains;
+
+    /**
+     * 小程序协议名白名单
+     *
+     * <p>示例值：
+     */
+    private String[] allowedSchemas;
+
+    /**
+     * 服务器可信域名
+     *
+     * <p>示例值：
+     */
     private String[] allowedServerDomains;
 
-    // builder 开始
-    public AppConfigSecurityItem() {
+    /**
+     * 重定向URL
+     *
+     * <p>示例值：
+     *
+     * @param redirectUrls
+     * @return
+     */
+    public Builder redirectUrls(String[] redirectUrls) {
+      this.redirectUrls = redirectUrls;
+      return this;
     }
 
-    public AppConfigSecurityItem(Builder builder) {
-        /**
-         * 重定向URL
-         * <p> 示例值：
-         */
-        this.redirectUrls = builder.redirectUrls;
-        /**
-         * IP白名单 IP需要填写调用方出口公网IP地址
-         * <p> 示例值：
-         */
-        this.allowedIps = builder.allowedIps;
-        /**
-         * H5可信域名仅可信域名内的 H5 可以访问 JSAPI，部分需要鉴权的 JSAPI 必填。
-         * <p> 示例值：
-         */
-        this.h5TrustedDomains = builder.h5TrustedDomains;
-        /**
-         * Web-View 可信域名
-         * <p> 示例值：
-         */
-        this.webViewTrustedDomains = builder.webViewTrustedDomains;
-        /**
-         * 小程序协议名白名单
-         * <p> 示例值：
-         */
-        this.allowedSchemas = builder.allowedSchemas;
-        /**
-         * 服务器可信域名
-         * <p> 示例值：
-         */
-        this.allowedServerDomains = builder.allowedServerDomains;
+    /**
+     * IP白名单 IP需要填写调用方出口公网IP地址
+     *
+     * <p>示例值：
+     *
+     * @param allowedIps
+     * @return
+     */
+    public Builder allowedIps(String[] allowedIps) {
+      this.allowedIps = allowedIps;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * H5可信域名仅可信域名内的 H5 可以访问 JSAPI，部分需要鉴权的 JSAPI 必填。
+     *
+     * <p>示例值：
+     *
+     * @param h5TrustedDomains
+     * @return
+     */
+    public Builder h5TrustedDomains(String[] h5TrustedDomains) {
+      this.h5TrustedDomains = h5TrustedDomains;
+      return this;
     }
 
-    public String[] getRedirectUrls() {
-        return this.redirectUrls;
+    /**
+     * Web-View 可信域名
+     *
+     * <p>示例值：
+     *
+     * @param webViewTrustedDomains
+     * @return
+     */
+    public Builder webViewTrustedDomains(String[] webViewTrustedDomains) {
+      this.webViewTrustedDomains = webViewTrustedDomains;
+      return this;
     }
 
-    public void setRedirectUrls(String[] redirectUrls) {
-        this.redirectUrls = redirectUrls;
+    /**
+     * 小程序协议名白名单
+     *
+     * <p>示例值：
+     *
+     * @param allowedSchemas
+     * @return
+     */
+    public Builder allowedSchemas(String[] allowedSchemas) {
+      this.allowedSchemas = allowedSchemas;
+      return this;
     }
 
-    public String[] getAllowedIps() {
-        return this.allowedIps;
+    /**
+     * 服务器可信域名
+     *
+     * <p>示例值：
+     *
+     * @param allowedServerDomains
+     * @return
+     */
+    public Builder allowedServerDomains(String[] allowedServerDomains) {
+      this.allowedServerDomains = allowedServerDomains;
+      return this;
     }
 
-    public void setAllowedIps(String[] allowedIps) {
-        this.allowedIps = allowedIps;
+    public AppConfigSecurityItem build() {
+      return new AppConfigSecurityItem(this);
     }
+  }
 
-    public String[] getH5TrustedDomains() {
-        return this.h5TrustedDomains;
-    }
-
-    public void setH5TrustedDomains(String[] h5TrustedDomains) {
-        this.h5TrustedDomains = h5TrustedDomains;
-    }
-
-    public String[] getWebViewTrustedDomains() {
-        return this.webViewTrustedDomains;
-    }
-
-    public void setWebViewTrustedDomains(String[] webViewTrustedDomains) {
-        this.webViewTrustedDomains = webViewTrustedDomains;
-    }
-
-    public String[] getAllowedSchemas() {
-        return this.allowedSchemas;
-    }
-
-    public void setAllowedSchemas(String[] allowedSchemas) {
-        this.allowedSchemas = allowedSchemas;
-    }
-
-    public String[] getAllowedServerDomains() {
-        return this.allowedServerDomains;
-    }
-
-    public void setAllowedServerDomains(String[] allowedServerDomains) {
-        this.allowedServerDomains = allowedServerDomains;
-    }
-
-    public static class Builder {
-        /**
-         * 重定向URL
-         * <p> 示例值：
-         */
-        private String[] redirectUrls;
-        /**
-         * IP白名单 IP需要填写调用方出口公网IP地址
-         * <p> 示例值：
-         */
-        private String[] allowedIps;
-        /**
-         * H5可信域名仅可信域名内的 H5 可以访问 JSAPI，部分需要鉴权的 JSAPI 必填。
-         * <p> 示例值：
-         */
-        private String[] h5TrustedDomains;
-        /**
-         * Web-View 可信域名
-         * <p> 示例值：
-         */
-        private String[] webViewTrustedDomains;
-        /**
-         * 小程序协议名白名单
-         * <p> 示例值：
-         */
-        private String[] allowedSchemas;
-        /**
-         * 服务器可信域名
-         * <p> 示例值：
-         */
-        private String[] allowedServerDomains;
-
-        /**
-         * 重定向URL
-         * <p> 示例值：
-         *
-         * @param redirectUrls
-         * @return
-         */
-        public Builder redirectUrls(String[] redirectUrls) {
-            this.redirectUrls = redirectUrls;
-            return this;
-        }
-
-
-        /**
-         * IP白名单 IP需要填写调用方出口公网IP地址
-         * <p> 示例值：
-         *
-         * @param allowedIps
-         * @return
-         */
-        public Builder allowedIps(String[] allowedIps) {
-            this.allowedIps = allowedIps;
-            return this;
-        }
-
-
-        /**
-         * H5可信域名仅可信域名内的 H5 可以访问 JSAPI，部分需要鉴权的 JSAPI 必填。
-         * <p> 示例值：
-         *
-         * @param h5TrustedDomains
-         * @return
-         */
-        public Builder h5TrustedDomains(String[] h5TrustedDomains) {
-            this.h5TrustedDomains = h5TrustedDomains;
-            return this;
-        }
-
-
-        /**
-         * Web-View 可信域名
-         * <p> 示例值：
-         *
-         * @param webViewTrustedDomains
-         * @return
-         */
-        public Builder webViewTrustedDomains(String[] webViewTrustedDomains) {
-            this.webViewTrustedDomains = webViewTrustedDomains;
-            return this;
-        }
-
-
-        /**
-         * 小程序协议名白名单
-         * <p> 示例值：
-         *
-         * @param allowedSchemas
-         * @return
-         */
-        public Builder allowedSchemas(String[] allowedSchemas) {
-            this.allowedSchemas = allowedSchemas;
-            return this;
-        }
-
-
-        /**
-         * 服务器可信域名
-         * <p> 示例值：
-         *
-         * @param allowedServerDomains
-         * @return
-         */
-        public Builder allowedServerDomains(String[] allowedServerDomains) {
-            this.allowedServerDomains = allowedServerDomains;
-            return this;
-        }
-
-
-        public AppConfigSecurityItem build() {
-            return new AppConfigSecurityItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

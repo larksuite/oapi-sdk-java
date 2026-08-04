@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParamDocsUrl {
+  /**
+   * 文档URL
+   *
+   * <p>示例值：
+   */
+  @SerializedName("urls")
+  private String[] urls;
+
+  public String[] getUrls() {
+    return this.urls;
+  }
+
+  public void setUrls(String[] urls) {
+    this.urls = urls;
+  }
+
+  // builder 开始
+  public ParamDocsUrl() {}
+
+  public ParamDocsUrl(Builder builder) {
     /**
      * 文档URL
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("urls")
+    this.urls = builder.urls;
+  }
+
+  public static class Builder {
+    /**
+     * 文档URL
+     *
+     * <p>示例值：
+     */
     private String[] urls;
 
-    // builder 开始
-    public ParamDocsUrl() {
+    /**
+     * 文档URL
+     *
+     * <p>示例值：
+     *
+     * @param urls
+     * @return
+     */
+    public Builder urls(String[] urls) {
+      this.urls = urls;
+      return this;
     }
 
-    public ParamDocsUrl(Builder builder) {
-        /**
-         * 文档URL
-         * <p> 示例值：
-         */
-        this.urls = builder.urls;
+    public ParamDocsUrl build() {
+      return new ParamDocsUrl(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getUrls() {
-        return this.urls;
-    }
-
-    public void setUrls(String[] urls) {
-        this.urls = urls;
-    }
-
-    public static class Builder {
-        /**
-         * 文档URL
-         * <p> 示例值：
-         */
-        private String[] urls;
-
-        /**
-         * 文档URL
-         * <p> 示例值：
-         *
-         * @param urls
-         * @return
-         */
-        public Builder urls(String[] urls) {
-            this.urls = urls;
-            return this;
-        }
-
-
-        public ParamDocsUrl build() {
-            return new ParamDocsUrl(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

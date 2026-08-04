@@ -13,105 +13,140 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class ListCompanyReq {
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：1231231987
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_size")
+  private String pageSize;
+
+  /**
+   * 生效日期，格式为 yyyy-MM-dd;;传入后，接口按该日期对应时间点查询公司数据，仅返回在该时间点有效的公司；晚于该日期生效的公司不会被查询到。;
+   *
+   * <p>示例值：2022-01-01
+   */
+  @Query
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(String pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  // builder 开始
+  public ListCompanyReq() {}
+
+  public ListCompanyReq(Builder builder) {
     /**
-     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-     * <p> 示例值：1231231987
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：1231231987
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 每页获取记录数量，最大100
-     * <p> 示例值：100
+     * 分页大小
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_size")
-    private String pageSize;
+    this.pageSize = builder.pageSize;
+    /**
+     * 生效日期，格式为 yyyy-MM-dd;;传入后，接口按该日期对应时间点查询公司数据，仅返回在该时间点有效的公司；晚于该日期生效的公司不会被查询到。;
+     *
+     * <p>示例值：2022-01-01
+     */
+    this.effectiveDate = builder.effectiveDate;
+  }
 
-    // builder 开始
-    public ListCompanyReq() {
+  public static class Builder {
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String pageSize; // 分页大小
+    private String effectiveDate; // 生效日期，格式为
+
+    // yyyy-MM-dd;;传入后，接口按该日期对应时间点查询公司数据，仅返回在该时间点有效的公司；晚于该日期生效的公司不会被查询到。;
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：1231231987
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public ListCompanyReq(Builder builder) {
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：1231231987
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
+    /**
+     * 分页大小
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(String pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 生效日期，格式为 yyyy-MM-dd;;传入后，接口按该日期对应时间点查询公司数据，仅返回在该时间点有效的公司；晚于该日期生效的公司不会被查询到。;
+     *
+     * <p>示例值：2022-01-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    public ListCompanyReq build() {
+      return new ListCompanyReq(this);
     }
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(String pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public static class Builder {
-        private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-        private String pageSize; // 每页获取记录数量，最大100
-
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：1231231987
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(String pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        public ListCompanyReq build() {
-            return new ListCompanyReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

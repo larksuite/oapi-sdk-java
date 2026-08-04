@@ -13,226 +13,234 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class Group {
+  /**
+   * 用户组 ID
+   *
+   * <p>示例值：42dg1f52bg1g17da
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 租户ID
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 用户组基础信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("base")
+  private GroupBase base;
+
+  /**
+   * 业务自定义扩展属性
+   *
+   * <p>示例值：
+   */
+  @SerializedName("biz_extra")
+  private Map<String, String> bizExtra;
+
+  /**
+   * 用户组所属的分组 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("preceding_group_sets")
+  private String[] precedingGroupSets;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public GroupBase getBase() {
+    return this.base;
+  }
+
+  public void setBase(GroupBase base) {
+    this.base = base;
+  }
+
+  public Map<String, String> getBizExtra() {
+    return this.bizExtra;
+  }
+
+  public void setBizExtra(Map<String, String> bizExtra) {
+    this.bizExtra = bizExtra;
+  }
+
+  public String[] getPrecedingGroupSets() {
+    return this.precedingGroupSets;
+  }
+
+  public void setPrecedingGroupSets(String[] precedingGroupSets) {
+    this.precedingGroupSets = precedingGroupSets;
+  }
+
+  // builder 开始
+  public Group() {}
+
+  public Group(Builder builder) {
     /**
      * 用户组 ID
-     * <p> 示例值：42dg1f52bg1g17da
+     *
+     * <p>示例值：42dg1f52bg1g17da
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 租户ID
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 用户组基础信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("base")
-    private GroupBase base;
+    this.base = builder.base;
     /**
      * 业务自定义扩展属性
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("biz_extra")
-    private Map<String, String> bizExtra;
+    this.bizExtra = builder.bizExtra;
     /**
      * 用户组所属的分组 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("preceding_group_sets")
+    this.precedingGroupSets = builder.precedingGroupSets;
+  }
+
+  public static class Builder {
+    /**
+     * 用户组 ID
+     *
+     * <p>示例值：42dg1f52bg1g17da
+     */
+    private String id;
+
+    /**
+     * 租户ID
+     *
+     * <p>示例值：1
+     */
+    private String tenantId;
+
+    /**
+     * 用户组基础信息
+     *
+     * <p>示例值：
+     */
+    private GroupBase base;
+
+    /**
+     * 业务自定义扩展属性
+     *
+     * <p>示例值：
+     */
+    private Map<String, String> bizExtra;
+
+    /**
+     * 用户组所属的分组 ID 列表
+     *
+     * <p>示例值：
+     */
     private String[] precedingGroupSets;
 
-    // builder 开始
-    public Group() {
+    /**
+     * 用户组 ID
+     *
+     * <p>示例值：42dg1f52bg1g17da
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Group(Builder builder) {
-        /**
-         * 用户组 ID
-         * <p> 示例值：42dg1f52bg1g17da
-         */
-        this.id = builder.id;
-        /**
-         * 租户ID
-         * <p> 示例值：1
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 用户组基础信息
-         * <p> 示例值：
-         */
-        this.base = builder.base;
-        /**
-         * 业务自定义扩展属性
-         * <p> 示例值：
-         */
-        this.bizExtra = builder.bizExtra;
-        /**
-         * 用户组所属的分组 ID 列表
-         * <p> 示例值：
-         */
-        this.precedingGroupSets = builder.precedingGroupSets;
+    /**
+     * 租户ID
+     *
+     * <p>示例值：1
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户组基础信息
+     *
+     * <p>示例值：
+     *
+     * @param base
+     * @return
+     */
+    public Builder base(GroupBase base) {
+      this.base = base;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 业务自定义扩展属性
+     *
+     * <p>示例值：
+     *
+     * @param bizExtra
+     * @return
+     */
+    public Builder bizExtra(Map<String, String> bizExtra) {
+      this.bizExtra = bizExtra;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 用户组所属的分组 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param precedingGroupSets
+     * @return
+     */
+    public Builder precedingGroupSets(String[] precedingGroupSets) {
+      this.precedingGroupSets = precedingGroupSets;
+      return this;
     }
 
-    public String getTenantId() {
-        return this.tenantId;
+    public Group build() {
+      return new Group(this);
     }
+  }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public GroupBase getBase() {
-        return this.base;
-    }
-
-    public void setBase(GroupBase base) {
-        this.base = base;
-    }
-
-    public Map<String, String> getBizExtra() {
-        return this.bizExtra;
-    }
-
-    public void setBizExtra(Map<String, String> bizExtra) {
-        this.bizExtra = bizExtra;
-    }
-
-    public String[] getPrecedingGroupSets() {
-        return this.precedingGroupSets;
-    }
-
-    public void setPrecedingGroupSets(String[] precedingGroupSets) {
-        this.precedingGroupSets = precedingGroupSets;
-    }
-
-    public static class Builder {
-        /**
-         * 用户组 ID
-         * <p> 示例值：42dg1f52bg1g17da
-         */
-        private String id;
-        /**
-         * 租户ID
-         * <p> 示例值：1
-         */
-        private String tenantId;
-        /**
-         * 用户组基础信息
-         * <p> 示例值：
-         */
-        private GroupBase base;
-        /**
-         * 业务自定义扩展属性
-         * <p> 示例值：
-         */
-        private Map<String, String> bizExtra;
-        /**
-         * 用户组所属的分组 ID 列表
-         * <p> 示例值：
-         */
-        private String[] precedingGroupSets;
-
-        /**
-         * 用户组 ID
-         * <p> 示例值：42dg1f52bg1g17da
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 租户ID
-         * <p> 示例值：1
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 用户组基础信息
-         * <p> 示例值：
-         *
-         * @param base
-         * @return
-         */
-        public Builder base(GroupBase base) {
-            this.base = base;
-            return this;
-        }
-
-
-        /**
-         * 业务自定义扩展属性
-         * <p> 示例值：
-         *
-         * @param bizExtra
-         * @return
-         */
-        public Builder bizExtra(Map<String, String> bizExtra) {
-            this.bizExtra = bizExtra;
-            return this;
-        }
-
-
-        /**
-         * 用户组所属的分组 ID 列表
-         * <p> 示例值：
-         *
-         * @param precedingGroupSets
-         * @return
-         */
-        public Builder precedingGroupSets(String[] precedingGroupSets) {
-            this.precedingGroupSets = precedingGroupSets;
-            return this;
-        }
-
-
-        public Group build() {
-            return new Group(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

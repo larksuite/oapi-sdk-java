@@ -13,555 +13,628 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApprovalGroup {
+  /**
+   * 组织架构调整审批组 ID， 该 ID 和 process_id 一一对应
+   *
+   * <p>示例值：6991776076699549697
+   */
+  @SerializedName("approval_group_id")
+  private String approvalGroupId;
+
+  /**
+   * 组织架构调整对应的流程 ID， 与入参 process_id 对应。
+   *
+   * <p>示例值：6991776076699549697
+   */
+  @SerializedName("process_id")
+  private String processId;
+
+  /**
+   * 组织架构调整流程状态，枚举类型， 描述该审批单据的状态。;<md-alert type="tip"
+   * icon="none">;【不推荐使用，无法区分审批通过、执行失败和等待执行状态，推荐使用approval_group_status_v2】;</md-alert>
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("approval_group_status")
+  private String approvalGroupStatus;
+
+  /**
+   * 组织架构调整流程状态，枚举类型， 描述该审批单据的状态。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("approval_group_status_v2")
+  private Integer approvalGroupStatusV2;
+
+  /**
+   * 调整主题， 用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更主题
+   *
+   * <p>示例值：因组织发展需要， 变更XXX 部门组织架构
+   */
+  @SerializedName("topic")
+  private String topic;
+
+  /**
+   * 调整原因，用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更详细原因， 便于审批人批阅。
+   *
+   * <p>示例值：例如：因业务扩展需要， 现需增设 XXX 和 XXX 两个区域部门，便于上午拓展。
+   */
+  @SerializedName("adjust_reason")
+  private String adjustReason;
+
+  /**
+   * 生效日期;- 日期格式：YYYY-MM-DD;- 最小值： 1900-01-01;- 最大值： 9999-12-31
+   *
+   * <p>示例值：2022-03-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  /**
+   * 发起人，在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更发起人。
+   *
+   * <p>示例值：6974641477444060708
+   */
+  @SerializedName("created_by")
+  private String createdBy;
+
+  /**
+   * 组织架构调整 ID，用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』 时生成的唯一 ID。
+   *
+   * <p>示例值：6991776076699549697
+   */
+  @SerializedName("draft_id")
+  private String draftId;
+
+  /**
+   * 流程对应组织架构调整的状态： process_status 是发起审批后的状态，而 draft_status 则是整个组织架构调整的状态。
+   *
+   * <p>示例值：Edit
+   */
+  @SerializedName("draft_status")
+  private String draftStatus;
+
+  /**
+   * 关联的部门调整记录 ID 列表。 ;-
+   * 部门变更详情可通过：[批量查询部门变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_department_change_list_by_ids)获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_changes")
+  private String[] departmentChanges;
+
+  /**
+   * 关联的人员调整记录 ID 列表, 组织架构调整仅允许调整系统已存在的人员， 当发起审批后会生成一个 job_change 的记录用于记录变更过程。;-
+   * 员工变更：[批量查询员工变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_job_change_list_by_ids)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_changes")
+  private String[] jobChanges;
+
+  /**
+   * 关联的岗位调整记录 ID 列表。;- 功能灰度中，开通岗位功能后可通过接口【批量查询岗位变更接口】获取岗位变更详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("position_changes")
+  private String[] positionChanges;
+
+  public String getApprovalGroupId() {
+    return this.approvalGroupId;
+  }
+
+  public void setApprovalGroupId(String approvalGroupId) {
+    this.approvalGroupId = approvalGroupId;
+  }
+
+  public String getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  public String getApprovalGroupStatus() {
+    return this.approvalGroupStatus;
+  }
+
+  public void setApprovalGroupStatus(String approvalGroupStatus) {
+    this.approvalGroupStatus = approvalGroupStatus;
+  }
+
+  public Integer getApprovalGroupStatusV2() {
+    return this.approvalGroupStatusV2;
+  }
+
+  public void setApprovalGroupStatusV2(Integer approvalGroupStatusV2) {
+    this.approvalGroupStatusV2 = approvalGroupStatusV2;
+  }
+
+  public String getTopic() {
+    return this.topic;
+  }
+
+  public void setTopic(String topic) {
+    this.topic = topic;
+  }
+
+  public String getAdjustReason() {
+    return this.adjustReason;
+  }
+
+  public void setAdjustReason(String adjustReason) {
+    this.adjustReason = adjustReason;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public String getCreatedBy() {
+    return this.createdBy;
+  }
+
+  public void setCreatedBy(String createdBy) {
+    this.createdBy = createdBy;
+  }
+
+  public String getDraftId() {
+    return this.draftId;
+  }
+
+  public void setDraftId(String draftId) {
+    this.draftId = draftId;
+  }
+
+  public String getDraftStatus() {
+    return this.draftStatus;
+  }
+
+  public void setDraftStatus(String draftStatus) {
+    this.draftStatus = draftStatus;
+  }
+
+  public String[] getDepartmentChanges() {
+    return this.departmentChanges;
+  }
+
+  public void setDepartmentChanges(String[] departmentChanges) {
+    this.departmentChanges = departmentChanges;
+  }
+
+  public String[] getJobChanges() {
+    return this.jobChanges;
+  }
+
+  public void setJobChanges(String[] jobChanges) {
+    this.jobChanges = jobChanges;
+  }
+
+  public String[] getPositionChanges() {
+    return this.positionChanges;
+  }
+
+  public void setPositionChanges(String[] positionChanges) {
+    this.positionChanges = positionChanges;
+  }
+
+  // builder 开始
+  public ApprovalGroup() {}
+
+  public ApprovalGroup(Builder builder) {
     /**
-     * 组织架构调整审批组 ID
-     * <p> 示例值：6991776076699549697
+     * 组织架构调整审批组 ID， 该 ID 和 process_id 一一对应
+     *
+     * <p>示例值：6991776076699549697
      */
-    @SerializedName("approval_group_id")
+    this.approvalGroupId = builder.approvalGroupId;
+    /**
+     * 组织架构调整对应的流程 ID， 与入参 process_id 对应。
+     *
+     * <p>示例值：6991776076699549697
+     */
+    this.processId = builder.processId;
+    /**
+     * 组织架构调整流程状态，枚举类型， 描述该审批单据的状态。;<md-alert type="tip"
+     * icon="none">;【不推荐使用，无法区分审批通过、执行失败和等待执行状态，推荐使用approval_group_status_v2】;</md-alert>
+     *
+     * <p>示例值：1
+     */
+    this.approvalGroupStatus = builder.approvalGroupStatus;
+    /**
+     * 组织架构调整流程状态，枚举类型， 描述该审批单据的状态。
+     *
+     * <p>示例值：
+     */
+    this.approvalGroupStatusV2 = builder.approvalGroupStatusV2;
+    /**
+     * 调整主题， 用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更主题
+     *
+     * <p>示例值：因组织发展需要， 变更XXX 部门组织架构
+     */
+    this.topic = builder.topic;
+    /**
+     * 调整原因，用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更详细原因， 便于审批人批阅。
+     *
+     * <p>示例值：例如：因业务扩展需要， 现需增设 XXX 和 XXX 两个区域部门，便于上午拓展。
+     */
+    this.adjustReason = builder.adjustReason;
+    /**
+     * 生效日期;- 日期格式：YYYY-MM-DD;- 最小值： 1900-01-01;- 最大值： 9999-12-31
+     *
+     * <p>示例值：2022-03-01
+     */
+    this.effectiveDate = builder.effectiveDate;
+    /**
+     * 发起人，在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更发起人。
+     *
+     * <p>示例值：6974641477444060708
+     */
+    this.createdBy = builder.createdBy;
+    /**
+     * 组织架构调整 ID，用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』 时生成的唯一 ID。
+     *
+     * <p>示例值：6991776076699549697
+     */
+    this.draftId = builder.draftId;
+    /**
+     * 流程对应组织架构调整的状态： process_status 是发起审批后的状态，而 draft_status 则是整个组织架构调整的状态。
+     *
+     * <p>示例值：Edit
+     */
+    this.draftStatus = builder.draftStatus;
+    /**
+     * 关联的部门调整记录 ID 列表。 ;-
+     * 部门变更详情可通过：[批量查询部门变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_department_change_list_by_ids)获取
+     *
+     * <p>示例值：
+     */
+    this.departmentChanges = builder.departmentChanges;
+    /**
+     * 关联的人员调整记录 ID 列表, 组织架构调整仅允许调整系统已存在的人员， 当发起审批后会生成一个 job_change 的记录用于记录变更过程。;-
+     * 员工变更：[批量查询员工变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_job_change_list_by_ids)
+     *
+     * <p>示例值：
+     */
+    this.jobChanges = builder.jobChanges;
+    /**
+     * 关联的岗位调整记录 ID 列表。;- 功能灰度中，开通岗位功能后可通过接口【批量查询岗位变更接口】获取岗位变更详情
+     *
+     * <p>示例值：
+     */
+    this.positionChanges = builder.positionChanges;
+  }
+
+  public static class Builder {
+    /**
+     * 组织架构调整审批组 ID， 该 ID 和 process_id 一一对应
+     *
+     * <p>示例值：6991776076699549697
+     */
     private String approvalGroupId;
+
     /**
-     * 组织架构调整流程 ID
-     * <p> 示例值：6991776076699549697
+     * 组织架构调整对应的流程 ID， 与入参 process_id 对应。
+     *
+     * <p>示例值：6991776076699549697
      */
-    @SerializedName("process_id")
     private String processId;
+
     /**
-     * 组织架构调整流程状态
-     * <p> 示例值：
+     * 组织架构调整流程状态，枚举类型， 描述该审批单据的状态。;<md-alert type="tip"
+     * icon="none">;【不推荐使用，无法区分审批通过、执行失败和等待执行状态，推荐使用approval_group_status_v2】;</md-alert>
+     *
+     * <p>示例值：1
      */
-    @SerializedName("approval_group_status")
     private String approvalGroupStatus;
+
     /**
-     * 组织架构调整流程状态V2
-     * <p> 示例值：
+     * 组织架构调整流程状态，枚举类型， 描述该审批单据的状态。
+     *
+     * <p>示例值：
      */
-    @SerializedName("approval_group_status_v2")
     private Integer approvalGroupStatusV2;
+
     /**
-     * 调整主题
-     * <p> 示例值：测试组织架构调整
+     * 调整主题， 用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更主题
+     *
+     * <p>示例值：因组织发展需要， 变更XXX 部门组织架构
      */
-    @SerializedName("topic")
     private String topic;
+
     /**
-     * 调整原因
-     * <p> 示例值：测试
+     * 调整原因，用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更详细原因， 便于审批人批阅。
+     *
+     * <p>示例值：例如：因业务扩展需要， 现需增设 XXX 和 XXX 两个区域部门，便于上午拓展。
      */
-    @SerializedName("adjust_reason")
     private String adjustReason;
+
     /**
-     * 生效日期
-     * <p> 示例值：2022-03-01
+     * 生效日期;- 日期格式：YYYY-MM-DD;- 最小值： 1900-01-01;- 最大值： 9999-12-31
+     *
+     * <p>示例值：2022-03-01
      */
-    @SerializedName("effective_date")
     private String effectiveDate;
+
     /**
-     * 发起人
-     * <p> 示例值：6974641477444060708
+     * 发起人，在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更发起人。
+     *
+     * <p>示例值：6974641477444060708
      */
-    @SerializedName("created_by")
     private String createdBy;
+
     /**
-     * 组织架构调整任务 ID
-     * <p> 示例值：6991776076699549697
+     * 组织架构调整 ID，用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』 时生成的唯一 ID。
+     *
+     * <p>示例值：6991776076699549697
      */
-    @SerializedName("draft_id")
     private String draftId;
+
     /**
-     * 组织架构调整任务状态
-     * <p> 示例值：
+     * 流程对应组织架构调整的状态： process_status 是发起审批后的状态，而 draft_status 则是整个组织架构调整的状态。
+     *
+     * <p>示例值：Edit
      */
-    @SerializedName("draft_status")
     private String draftStatus;
+
     /**
-     * 关联的部门调整记录 ID 列表
-     * <p> 示例值：
+     * 关联的部门调整记录 ID 列表。 ;-
+     * 部门变更详情可通过：[批量查询部门变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_department_change_list_by_ids)获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_changes")
     private String[] departmentChanges;
+
     /**
-     * 关联的人员调整记录 ID 列表
-     * <p> 示例值：
+     * 关联的人员调整记录 ID 列表, 组织架构调整仅允许调整系统已存在的人员， 当发起审批后会生成一个 job_change 的记录用于记录变更过程。;-
+     * 员工变更：[批量查询员工变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_job_change_list_by_ids)
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_changes")
     private String[] jobChanges;
+
     /**
-     * 关联的岗位调整记录 ID 列表
-     * <p> 示例值：
+     * 关联的岗位调整记录 ID 列表。;- 功能灰度中，开通岗位功能后可通过接口【批量查询岗位变更接口】获取岗位变更详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("position_changes")
     private String[] positionChanges;
 
-    // builder 开始
-    public ApprovalGroup() {
+    /**
+     * 组织架构调整审批组 ID， 该 ID 和 process_id 一一对应
+     *
+     * <p>示例值：6991776076699549697
+     *
+     * @param approvalGroupId
+     * @return
+     */
+    public Builder approvalGroupId(String approvalGroupId) {
+      this.approvalGroupId = approvalGroupId;
+      return this;
     }
 
-    public ApprovalGroup(Builder builder) {
-        /**
-         * 组织架构调整审批组 ID
-         * <p> 示例值：6991776076699549697
-         */
-        this.approvalGroupId = builder.approvalGroupId;
-        /**
-         * 组织架构调整流程 ID
-         * <p> 示例值：6991776076699549697
-         */
-        this.processId = builder.processId;
-        /**
-         * 组织架构调整流程状态
-         * <p> 示例值：
-         */
-        this.approvalGroupStatus = builder.approvalGroupStatus;
-        /**
-         * 组织架构调整流程状态V2
-         * <p> 示例值：
-         */
-        this.approvalGroupStatusV2 = builder.approvalGroupStatusV2;
-        /**
-         * 调整主题
-         * <p> 示例值：测试组织架构调整
-         */
-        this.topic = builder.topic;
-        /**
-         * 调整原因
-         * <p> 示例值：测试
-         */
-        this.adjustReason = builder.adjustReason;
-        /**
-         * 生效日期
-         * <p> 示例值：2022-03-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 发起人
-         * <p> 示例值：6974641477444060708
-         */
-        this.createdBy = builder.createdBy;
-        /**
-         * 组织架构调整任务 ID
-         * <p> 示例值：6991776076699549697
-         */
-        this.draftId = builder.draftId;
-        /**
-         * 组织架构调整任务状态
-         * <p> 示例值：
-         */
-        this.draftStatus = builder.draftStatus;
-        /**
-         * 关联的部门调整记录 ID 列表
-         * <p> 示例值：
-         */
-        this.departmentChanges = builder.departmentChanges;
-        /**
-         * 关联的人员调整记录 ID 列表
-         * <p> 示例值：
-         */
-        this.jobChanges = builder.jobChanges;
-        /**
-         * 关联的岗位调整记录 ID 列表
-         * <p> 示例值：
-         */
-        this.positionChanges = builder.positionChanges;
+    /**
+     * 组织架构调整对应的流程 ID， 与入参 process_id 对应。
+     *
+     * <p>示例值：6991776076699549697
+     *
+     * @param processId
+     * @return
+     */
+    public Builder processId(String processId) {
+      this.processId = processId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 组织架构调整流程状态，枚举类型， 描述该审批单据的状态。;<md-alert type="tip"
+     * icon="none">;【不推荐使用，无法区分审批通过、执行失败和等待执行状态，推荐使用approval_group_status_v2】;</md-alert>
+     *
+     * <p>示例值：1
+     *
+     * @param approvalGroupStatus
+     * @return
+     */
+    public Builder approvalGroupStatus(String approvalGroupStatus) {
+      this.approvalGroupStatus = approvalGroupStatus;
+      return this;
     }
 
-    public String getApprovalGroupId() {
-        return this.approvalGroupId;
+    /**
+     * 组织架构调整流程状态，枚举类型， 描述该审批单据的状态。;<md-alert type="tip"
+     * icon="none">;【不推荐使用，无法区分审批通过、执行失败和等待执行状态，推荐使用approval_group_status_v2】;</md-alert>
+     *
+     * <p>示例值：1
+     *
+     * @param approvalGroupStatus {@link
+     *     com.lark.oapi.service.corehr.v2.enums.ApprovalGroupApprovalGroupStatusEnum}
+     * @return
+     */
+    public Builder approvalGroupStatus(
+        com.lark.oapi.service.corehr.v2.enums.ApprovalGroupApprovalGroupStatusEnum
+            approvalGroupStatus) {
+      this.approvalGroupStatus = approvalGroupStatus.getValue();
+      return this;
     }
 
-    public void setApprovalGroupId(String approvalGroupId) {
-        this.approvalGroupId = approvalGroupId;
+    /**
+     * 组织架构调整流程状态，枚举类型， 描述该审批单据的状态。
+     *
+     * <p>示例值：
+     *
+     * @param approvalGroupStatusV2
+     * @return
+     */
+    public Builder approvalGroupStatusV2(Integer approvalGroupStatusV2) {
+      this.approvalGroupStatusV2 = approvalGroupStatusV2;
+      return this;
     }
 
-    public String getProcessId() {
-        return this.processId;
+    /**
+     * 组织架构调整流程状态，枚举类型， 描述该审批单据的状态。
+     *
+     * <p>示例值：
+     *
+     * @param approvalGroupStatusV2 {@link
+     *     com.lark.oapi.service.corehr.v2.enums.ApprovalGroupApprovalGroupStatusV2Enum}
+     * @return
+     */
+    public Builder approvalGroupStatusV2(
+        com.lark.oapi.service.corehr.v2.enums.ApprovalGroupApprovalGroupStatusV2Enum
+            approvalGroupStatusV2) {
+      this.approvalGroupStatusV2 = approvalGroupStatusV2.getValue();
+      return this;
     }
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
+    /**
+     * 调整主题， 用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更主题
+     *
+     * <p>示例值：因组织发展需要， 变更XXX 部门组织架构
+     *
+     * @param topic
+     * @return
+     */
+    public Builder topic(String topic) {
+      this.topic = topic;
+      return this;
     }
 
-    public String getApprovalGroupStatus() {
-        return this.approvalGroupStatus;
+    /**
+     * 调整原因，用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更详细原因， 便于审批人批阅。
+     *
+     * <p>示例值：例如：因业务扩展需要， 现需增设 XXX 和 XXX 两个区域部门，便于上午拓展。
+     *
+     * @param adjustReason
+     * @return
+     */
+    public Builder adjustReason(String adjustReason) {
+      this.adjustReason = adjustReason;
+      return this;
     }
 
-    public void setApprovalGroupStatus(String approvalGroupStatus) {
-        this.approvalGroupStatus = approvalGroupStatus;
+    /**
+     * 生效日期;- 日期格式：YYYY-MM-DD;- 最小值： 1900-01-01;- 最大值： 9999-12-31
+     *
+     * <p>示例值：2022-03-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public Integer getApprovalGroupStatusV2() {
-        return this.approvalGroupStatusV2;
+    /**
+     * 发起人，在『飞书人事-我的团队/人员管理 -组织架构-发起调整』填写的调整变更发起人。
+     *
+     * <p>示例值：6974641477444060708
+     *
+     * @param createdBy
+     * @return
+     */
+    public Builder createdBy(String createdBy) {
+      this.createdBy = createdBy;
+      return this;
     }
 
-    public void setApprovalGroupStatusV2(Integer approvalGroupStatusV2) {
-        this.approvalGroupStatusV2 = approvalGroupStatusV2;
+    /**
+     * 组织架构调整 ID，用户在『飞书人事-我的团队/人员管理 -组织架构-发起调整』 时生成的唯一 ID。
+     *
+     * <p>示例值：6991776076699549697
+     *
+     * @param draftId
+     * @return
+     */
+    public Builder draftId(String draftId) {
+      this.draftId = draftId;
+      return this;
     }
 
-    public String getTopic() {
-        return this.topic;
+    /**
+     * 流程对应组织架构调整的状态： process_status 是发起审批后的状态，而 draft_status 则是整个组织架构调整的状态。
+     *
+     * <p>示例值：Edit
+     *
+     * @param draftStatus
+     * @return
+     */
+    public Builder draftStatus(String draftStatus) {
+      this.draftStatus = draftStatus;
+      return this;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
+    /**
+     * 流程对应组织架构调整的状态： process_status 是发起审批后的状态，而 draft_status 则是整个组织架构调整的状态。
+     *
+     * <p>示例值：Edit
+     *
+     * @param draftStatus {@link com.lark.oapi.service.corehr.v2.enums.ApprovalGroupDraftStatusEnum}
+     * @return
+     */
+    public Builder draftStatus(
+        com.lark.oapi.service.corehr.v2.enums.ApprovalGroupDraftStatusEnum draftStatus) {
+      this.draftStatus = draftStatus.getValue();
+      return this;
     }
 
-    public String getAdjustReason() {
-        return this.adjustReason;
+    /**
+     * 关联的部门调整记录 ID 列表。 ;-
+     * 部门变更详情可通过：[批量查询部门变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_department_change_list_by_ids)获取
+     *
+     * <p>示例值：
+     *
+     * @param departmentChanges
+     * @return
+     */
+    public Builder departmentChanges(String[] departmentChanges) {
+      this.departmentChanges = departmentChanges;
+      return this;
     }
 
-    public void setAdjustReason(String adjustReason) {
-        this.adjustReason = adjustReason;
+    /**
+     * 关联的人员调整记录 ID 列表, 组织架构调整仅允许调整系统已存在的人员， 当发起审批后会生成一个 job_change 的记录用于记录变更过程。;-
+     * 员工变更：[批量查询员工变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_job_change_list_by_ids)
+     *
+     * <p>示例值：
+     *
+     * @param jobChanges
+     * @return
+     */
+    public Builder jobChanges(String[] jobChanges) {
+      this.jobChanges = jobChanges;
+      return this;
     }
 
-    public String getEffectiveDate() {
-        return this.effectiveDate;
+    /**
+     * 关联的岗位调整记录 ID 列表。;- 功能灰度中，开通岗位功能后可通过接口【批量查询岗位变更接口】获取岗位变更详情
+     *
+     * <p>示例值：
+     *
+     * @param positionChanges
+     * @return
+     */
+    public Builder positionChanges(String[] positionChanges) {
+      this.positionChanges = positionChanges;
+      return this;
     }
 
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
+    public ApprovalGroup build() {
+      return new ApprovalGroup(this);
     }
+  }
 
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public String getDraftId() {
-        return this.draftId;
-    }
-
-    public void setDraftId(String draftId) {
-        this.draftId = draftId;
-    }
-
-    public String getDraftStatus() {
-        return this.draftStatus;
-    }
-
-    public void setDraftStatus(String draftStatus) {
-        this.draftStatus = draftStatus;
-    }
-
-    public String[] getDepartmentChanges() {
-        return this.departmentChanges;
-    }
-
-    public void setDepartmentChanges(String[] departmentChanges) {
-        this.departmentChanges = departmentChanges;
-    }
-
-    public String[] getJobChanges() {
-        return this.jobChanges;
-    }
-
-    public void setJobChanges(String[] jobChanges) {
-        this.jobChanges = jobChanges;
-    }
-
-    public String[] getPositionChanges() {
-        return this.positionChanges;
-    }
-
-    public void setPositionChanges(String[] positionChanges) {
-        this.positionChanges = positionChanges;
-    }
-
-    public static class Builder {
-        /**
-         * 组织架构调整审批组 ID
-         * <p> 示例值：6991776076699549697
-         */
-        private String approvalGroupId;
-        /**
-         * 组织架构调整流程 ID
-         * <p> 示例值：6991776076699549697
-         */
-        private String processId;
-        /**
-         * 组织架构调整流程状态
-         * <p> 示例值：
-         */
-        private String approvalGroupStatus;
-        /**
-         * 组织架构调整流程状态V2
-         * <p> 示例值：
-         */
-        private Integer approvalGroupStatusV2;
-        /**
-         * 调整主题
-         * <p> 示例值：测试组织架构调整
-         */
-        private String topic;
-        /**
-         * 调整原因
-         * <p> 示例值：测试
-         */
-        private String adjustReason;
-        /**
-         * 生效日期
-         * <p> 示例值：2022-03-01
-         */
-        private String effectiveDate;
-        /**
-         * 发起人
-         * <p> 示例值：6974641477444060708
-         */
-        private String createdBy;
-        /**
-         * 组织架构调整任务 ID
-         * <p> 示例值：6991776076699549697
-         */
-        private String draftId;
-        /**
-         * 组织架构调整任务状态
-         * <p> 示例值：
-         */
-        private String draftStatus;
-        /**
-         * 关联的部门调整记录 ID 列表
-         * <p> 示例值：
-         */
-        private String[] departmentChanges;
-        /**
-         * 关联的人员调整记录 ID 列表
-         * <p> 示例值：
-         */
-        private String[] jobChanges;
-        /**
-         * 关联的岗位调整记录 ID 列表
-         * <p> 示例值：
-         */
-        private String[] positionChanges;
-
-        /**
-         * 组织架构调整审批组 ID
-         * <p> 示例值：6991776076699549697
-         *
-         * @param approvalGroupId
-         * @return
-         */
-        public Builder approvalGroupId(String approvalGroupId) {
-            this.approvalGroupId = approvalGroupId;
-            return this;
-        }
-
-
-        /**
-         * 组织架构调整流程 ID
-         * <p> 示例值：6991776076699549697
-         *
-         * @param processId
-         * @return
-         */
-        public Builder processId(String processId) {
-            this.processId = processId;
-            return this;
-        }
-
-
-        /**
-         * 组织架构调整流程状态
-         * <p> 示例值：
-         *
-         * @param approvalGroupStatus
-         * @return
-         */
-        public Builder approvalGroupStatus(String approvalGroupStatus) {
-            this.approvalGroupStatus = approvalGroupStatus;
-            return this;
-        }
-
-        /**
-         * 组织架构调整流程状态
-         * <p> 示例值：
-         *
-         * @param approvalGroupStatus {@link com.lark.oapi.service.corehr.v2.enums.ApprovalGroupApprovalGroupStatusEnum}
-         * @return
-         */
-        public Builder approvalGroupStatus(com.lark.oapi.service.corehr.v2.enums.ApprovalGroupApprovalGroupStatusEnum approvalGroupStatus) {
-            this.approvalGroupStatus = approvalGroupStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 组织架构调整流程状态V2
-         * <p> 示例值：
-         *
-         * @param approvalGroupStatusV2
-         * @return
-         */
-        public Builder approvalGroupStatusV2(Integer approvalGroupStatusV2) {
-            this.approvalGroupStatusV2 = approvalGroupStatusV2;
-            return this;
-        }
-
-        /**
-         * 组织架构调整流程状态V2
-         * <p> 示例值：
-         *
-         * @param approvalGroupStatusV2 {@link com.lark.oapi.service.corehr.v2.enums.ApprovalGroupApprovalGroupStatusV2Enum}
-         * @return
-         */
-        public Builder approvalGroupStatusV2(com.lark.oapi.service.corehr.v2.enums.ApprovalGroupApprovalGroupStatusV2Enum approvalGroupStatusV2) {
-            this.approvalGroupStatusV2 = approvalGroupStatusV2.getValue();
-            return this;
-        }
-
-
-        /**
-         * 调整主题
-         * <p> 示例值：测试组织架构调整
-         *
-         * @param topic
-         * @return
-         */
-        public Builder topic(String topic) {
-            this.topic = topic;
-            return this;
-        }
-
-
-        /**
-         * 调整原因
-         * <p> 示例值：测试
-         *
-         * @param adjustReason
-         * @return
-         */
-        public Builder adjustReason(String adjustReason) {
-            this.adjustReason = adjustReason;
-            return this;
-        }
-
-
-        /**
-         * 生效日期
-         * <p> 示例值：2022-03-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 发起人
-         * <p> 示例值：6974641477444060708
-         *
-         * @param createdBy
-         * @return
-         */
-        public Builder createdBy(String createdBy) {
-            this.createdBy = createdBy;
-            return this;
-        }
-
-
-        /**
-         * 组织架构调整任务 ID
-         * <p> 示例值：6991776076699549697
-         *
-         * @param draftId
-         * @return
-         */
-        public Builder draftId(String draftId) {
-            this.draftId = draftId;
-            return this;
-        }
-
-
-        /**
-         * 组织架构调整任务状态
-         * <p> 示例值：
-         *
-         * @param draftStatus
-         * @return
-         */
-        public Builder draftStatus(String draftStatus) {
-            this.draftStatus = draftStatus;
-            return this;
-        }
-
-        /**
-         * 组织架构调整任务状态
-         * <p> 示例值：
-         *
-         * @param draftStatus {@link com.lark.oapi.service.corehr.v2.enums.ApprovalGroupDraftStatusEnum}
-         * @return
-         */
-        public Builder draftStatus(com.lark.oapi.service.corehr.v2.enums.ApprovalGroupDraftStatusEnum draftStatus) {
-            this.draftStatus = draftStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 关联的部门调整记录 ID 列表
-         * <p> 示例值：
-         *
-         * @param departmentChanges
-         * @return
-         */
-        public Builder departmentChanges(String[] departmentChanges) {
-            this.departmentChanges = departmentChanges;
-            return this;
-        }
-
-
-        /**
-         * 关联的人员调整记录 ID 列表
-         * <p> 示例值：
-         *
-         * @param jobChanges
-         * @return
-         */
-        public Builder jobChanges(String[] jobChanges) {
-            this.jobChanges = jobChanges;
-            return this;
-        }
-
-
-        /**
-         * 关联的岗位调整记录 ID 列表
-         * <p> 示例值：
-         *
-         * @param positionChanges
-         * @return
-         */
-        public Builder positionChanges(String[] positionChanges) {
-            this.positionChanges = positionChanges;
-            return this;
-        }
-
-
-        public ApprovalGroup build() {
-            return new ApprovalGroup(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

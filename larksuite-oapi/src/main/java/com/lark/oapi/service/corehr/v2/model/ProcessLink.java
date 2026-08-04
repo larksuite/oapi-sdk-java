@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessLink {
+  /**
+   * web端单据详情页地址
+   *
+   * <p>示例值：http://xxxx.com/xxx/xxx?a=b
+   */
+  @SerializedName("web_link")
+  private String webLink;
+
+  /**
+   * 飞书pc端单据详情页地址
+   *
+   * <p>示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
+   */
+  @SerializedName("pc_link")
+  private String pcLink;
+
+  /**
+   * 飞书移动端单据详情页地址
+   *
+   * <p>示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
+   */
+  @SerializedName("mobile_link")
+  private String mobileLink;
+
+  public String getWebLink() {
+    return this.webLink;
+  }
+
+  public void setWebLink(String webLink) {
+    this.webLink = webLink;
+  }
+
+  public String getPcLink() {
+    return this.pcLink;
+  }
+
+  public void setPcLink(String pcLink) {
+    this.pcLink = pcLink;
+  }
+
+  public String getMobileLink() {
+    return this.mobileLink;
+  }
+
+  public void setMobileLink(String mobileLink) {
+    this.mobileLink = mobileLink;
+  }
+
+  // builder 开始
+  public ProcessLink() {}
+
+  public ProcessLink(Builder builder) {
     /**
      * web端单据详情页地址
-     * <p> 示例值：http://xxxx.com/xxx/xxx?a=b
+     *
+     * <p>示例值：http://xxxx.com/xxx/xxx?a=b
      */
-    @SerializedName("web_link")
-    private String webLink;
+    this.webLink = builder.webLink;
     /**
      * 飞书pc端单据详情页地址
-     * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
+     *
+     * <p>示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
      */
-    @SerializedName("pc_link")
-    private String pcLink;
+    this.pcLink = builder.pcLink;
     /**
      * 飞书移动端单据详情页地址
-     * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
+     *
+     * <p>示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
      */
-    @SerializedName("mobile_link")
+    this.mobileLink = builder.mobileLink;
+  }
+
+  public static class Builder {
+    /**
+     * web端单据详情页地址
+     *
+     * <p>示例值：http://xxxx.com/xxx/xxx?a=b
+     */
+    private String webLink;
+
+    /**
+     * 飞书pc端单据详情页地址
+     *
+     * <p>示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
+     */
+    private String pcLink;
+
+    /**
+     * 飞书移动端单据详情页地址
+     *
+     * <p>示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
+     */
     private String mobileLink;
 
-    // builder 开始
-    public ProcessLink() {
+    /**
+     * web端单据详情页地址
+     *
+     * <p>示例值：http://xxxx.com/xxx/xxx?a=b
+     *
+     * @param webLink
+     * @return
+     */
+    public Builder webLink(String webLink) {
+      this.webLink = webLink;
+      return this;
     }
 
-    public ProcessLink(Builder builder) {
-        /**
-         * web端单据详情页地址
-         * <p> 示例值：http://xxxx.com/xxx/xxx?a=b
-         */
-        this.webLink = builder.webLink;
-        /**
-         * 飞书pc端单据详情页地址
-         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
-         */
-        this.pcLink = builder.pcLink;
-        /**
-         * 飞书移动端单据详情页地址
-         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
-         */
-        this.mobileLink = builder.mobileLink;
+    /**
+     * 飞书pc端单据详情页地址
+     *
+     * <p>示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
+     *
+     * @param pcLink
+     * @return
+     */
+    public Builder pcLink(String pcLink) {
+      this.pcLink = pcLink;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 飞书移动端单据详情页地址
+     *
+     * <p>示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
+     *
+     * @param mobileLink
+     * @return
+     */
+    public Builder mobileLink(String mobileLink) {
+      this.mobileLink = mobileLink;
+      return this;
     }
 
-    public String getWebLink() {
-        return this.webLink;
+    public ProcessLink build() {
+      return new ProcessLink(this);
     }
+  }
 
-    public void setWebLink(String webLink) {
-        this.webLink = webLink;
-    }
-
-    public String getPcLink() {
-        return this.pcLink;
-    }
-
-    public void setPcLink(String pcLink) {
-        this.pcLink = pcLink;
-    }
-
-    public String getMobileLink() {
-        return this.mobileLink;
-    }
-
-    public void setMobileLink(String mobileLink) {
-        this.mobileLink = mobileLink;
-    }
-
-    public static class Builder {
-        /**
-         * web端单据详情页地址
-         * <p> 示例值：http://xxxx.com/xxx/xxx?a=b
-         */
-        private String webLink;
-        /**
-         * 飞书pc端单据详情页地址
-         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
-         */
-        private String pcLink;
-        /**
-         * 飞书移动端单据详情页地址
-         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
-         */
-        private String mobileLink;
-
-        /**
-         * web端单据详情页地址
-         * <p> 示例值：http://xxxx.com/xxx/xxx?a=b
-         *
-         * @param webLink
-         * @return
-         */
-        public Builder webLink(String webLink) {
-            this.webLink = webLink;
-            return this;
-        }
-
-
-        /**
-         * 飞书pc端单据详情页地址
-         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
-         *
-         * @param pcLink
-         * @return
-         */
-        public Builder pcLink(String pcLink) {
-            this.pcLink = pcLink;
-            return this;
-        }
-
-
-        /**
-         * 飞书移动端单据详情页地址
-         * <p> 示例值：https://applink.feishu.cn/client/mini_program/open?appId=xxx
-         *
-         * @param mobileLink
-         * @return
-         */
-        public Builder mobileLink(String mobileLink) {
-            this.mobileLink = mobileLink;
-            return this;
-        }
-
-
-        public ProcessLink build() {
-            return new ProcessLink(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

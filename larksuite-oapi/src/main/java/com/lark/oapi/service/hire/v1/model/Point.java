@@ -13,74 +13,64 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Point {
+  /**
+   * 数额
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("amount")
+  private Long amount;
+
+  public Long getAmount() {
+    return this.amount;
+  }
+
+  public void setAmount(Long amount) {
+    this.amount = amount;
+  }
+
+  // builder 开始
+  public Point() {}
+
+  public Point(Builder builder) {
     /**
      * 数额
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("amount")
+    this.amount = builder.amount;
+  }
+
+  public static class Builder {
+    /**
+     * 数额
+     *
+     * <p>示例值：100
+     */
     private Long amount;
 
-    // builder 开始
-    public Point() {
+    /**
+     * 数额
+     *
+     * <p>示例值：100
+     *
+     * @param amount
+     * @return
+     */
+    public Builder amount(Long amount) {
+      this.amount = amount;
+      return this;
     }
 
-    public Point(Builder builder) {
-        /**
-         * 数额
-         * <p> 示例值：100
-         */
-        this.amount = builder.amount;
+    public Point build() {
+      return new Point(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Long getAmount() {
-        return this.amount;
-    }
-
-    public void setAmount(Long amount) {
-        this.amount = amount;
-    }
-
-    public static class Builder {
-        /**
-         * 数额
-         * <p> 示例值：100
-         */
-        private Long amount;
-
-        /**
-         * 数额
-         * <p> 示例值：100
-         *
-         * @param amount
-         * @return
-         */
-        public Builder amount(Long amount) {
-            this.amount = amount;
-            return this;
-        }
-
-
-        public Point build() {
-            return new Point(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

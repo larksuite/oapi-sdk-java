@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ShareDepartment {
+  /**
+   * 部门open ID
+   *
+   * <p>示例值：ou-12121xxxx
+   */
+  @SerializedName("open_department_id")
+  private String openDepartmentId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  public String getOpenDepartmentId() {
+    return this.openDepartmentId;
+  }
+
+  public void setOpenDepartmentId(String openDepartmentId) {
+    this.openDepartmentId = openDepartmentId;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public ShareDepartment() {}
+
+  public ShareDepartment(Builder builder) {
     /**
      * 部门open ID
-     * <p> 示例值：
+     *
+     * <p>示例值：ou-12121xxxx
      */
-    @SerializedName("open_department_id")
-    private String openDepartmentId;
+    this.openDepartmentId = builder.openDepartmentId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 部门open ID
+     *
+     * <p>示例值：ou-12121xxxx
+     */
+    private String openDepartmentId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
     private I18nText name;
 
-    // builder 开始
-    public ShareDepartment() {
+    /**
+     * 部门open ID
+     *
+     * <p>示例值：ou-12121xxxx
+     *
+     * @param openDepartmentId
+     * @return
+     */
+    public Builder openDepartmentId(String openDepartmentId) {
+      this.openDepartmentId = openDepartmentId;
+      return this;
     }
 
-    public ShareDepartment(Builder builder) {
-        /**
-         * 部门open ID
-         * <p> 示例值：
-         */
-        this.openDepartmentId = builder.openDepartmentId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ShareDepartment build() {
+      return new ShareDepartment(this);
     }
+  }
 
-    public String getOpenDepartmentId() {
-        return this.openDepartmentId;
-    }
-
-    public void setOpenDepartmentId(String openDepartmentId) {
-        this.openDepartmentId = openDepartmentId;
-    }
-
-    public I18nText getName() {
-        return this.name;
-    }
-
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 部门open ID
-         * <p> 示例值：
-         */
-        private String openDepartmentId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-
-        /**
-         * 部门open ID
-         * <p> 示例值：
-         *
-         * @param openDepartmentId
-         * @return
-         */
-        public Builder openDepartmentId(String openDepartmentId) {
-            this.openDepartmentId = openDepartmentId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public ShareDepartment build() {
-            return new ShareDepartment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

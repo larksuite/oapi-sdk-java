@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2PaymentActivityApprovedV1Data {
-    /**
-     * 审批通过的发薪活动 ID
-     * <p> 示例值：7202076988667019308
-     */
-    @SerializedName("activity_id")
-    private String activityId;
+  /**
+   * 封存的发薪活动 ID
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("activity_id")
+  private String activityId;
 
-    public String getActivityId() {
-        return this.activityId;
-    }
+  public String getActivityId() {
+    return this.activityId;
+  }
 
-    public void setActivityId(String activityId) {
-        this.activityId = activityId;
-    }
-
+  public void setActivityId(String activityId) {
+    this.activityId = activityId;
+  }
 }

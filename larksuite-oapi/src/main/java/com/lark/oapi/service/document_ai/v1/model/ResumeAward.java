@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ResumeAward {
+  /**
+   * 奖项
+   *
+   * <p>示例值：XXX大赛奖项
+   */
+  @SerializedName("award")
+  private String award;
+
+  /**
+   * 获奖时间，格式：YYYY
+   *
+   * <p>示例值：2015
+   */
+  @SerializedName("date")
+  private String date;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：曾获XXX大赛奖项...
+   */
+  @SerializedName("description")
+  private String description;
+
+  public String getAward() {
+    return this.award;
+  }
+
+  public void setAward(String award) {
+    this.award = award;
+  }
+
+  public String getDate() {
+    return this.date;
+  }
+
+  public void setDate(String date) {
+    this.date = date;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public ResumeAward() {}
+
+  public ResumeAward(Builder builder) {
     /**
      * 奖项
-     * <p> 示例值：XXX大赛奖项
+     *
+     * <p>示例值：XXX大赛奖项
      */
-    @SerializedName("award")
-    private String award;
+    this.award = builder.award;
     /**
      * 获奖时间，格式：YYYY
-     * <p> 示例值：2015
+     *
+     * <p>示例值：2015
      */
-    @SerializedName("date")
-    private String date;
+    this.date = builder.date;
     /**
      * 描述
-     * <p> 示例值：曾获XXX大赛奖项...
+     *
+     * <p>示例值：曾获XXX大赛奖项...
      */
-    @SerializedName("description")
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 奖项
+     *
+     * <p>示例值：XXX大赛奖项
+     */
+    private String award;
+
+    /**
+     * 获奖时间，格式：YYYY
+     *
+     * <p>示例值：2015
+     */
+    private String date;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：曾获XXX大赛奖项...
+     */
     private String description;
 
-    // builder 开始
-    public ResumeAward() {
+    /**
+     * 奖项
+     *
+     * <p>示例值：XXX大赛奖项
+     *
+     * @param award
+     * @return
+     */
+    public Builder award(String award) {
+      this.award = award;
+      return this;
     }
 
-    public ResumeAward(Builder builder) {
-        /**
-         * 奖项
-         * <p> 示例值：XXX大赛奖项
-         */
-        this.award = builder.award;
-        /**
-         * 获奖时间，格式：YYYY
-         * <p> 示例值：2015
-         */
-        this.date = builder.date;
-        /**
-         * 描述
-         * <p> 示例值：曾获XXX大赛奖项...
-         */
-        this.description = builder.description;
+    /**
+     * 获奖时间，格式：YYYY
+     *
+     * <p>示例值：2015
+     *
+     * @param date
+     * @return
+     */
+    public Builder date(String date) {
+      this.date = date;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 描述
+     *
+     * <p>示例值：曾获XXX大赛奖项...
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getAward() {
-        return this.award;
+    public ResumeAward build() {
+      return new ResumeAward(this);
     }
+  }
 
-    public void setAward(String award) {
-        this.award = award;
-    }
-
-    public String getDate() {
-        return this.date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * 奖项
-         * <p> 示例值：XXX大赛奖项
-         */
-        private String award;
-        /**
-         * 获奖时间，格式：YYYY
-         * <p> 示例值：2015
-         */
-        private String date;
-        /**
-         * 描述
-         * <p> 示例值：曾获XXX大赛奖项...
-         */
-        private String description;
-
-        /**
-         * 奖项
-         * <p> 示例值：XXX大赛奖项
-         *
-         * @param award
-         * @return
-         */
-        public Builder award(String award) {
-            this.award = award;
-            return this;
-        }
-
-
-        /**
-         * 获奖时间，格式：YYYY
-         * <p> 示例值：2015
-         *
-         * @param date
-         * @return
-         */
-        public Builder date(String date) {
-            this.date = date;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：曾获XXX大赛奖项...
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public ResumeAward build() {
-            return new ResumeAward(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

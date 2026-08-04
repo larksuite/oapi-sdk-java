@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MagicShareStartedItem {
+  /**
+   * 发起妙享的操作者
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator")
+  private MeetingAgentEventUser operator;
+
+  /**
+   * 共享会话 ID
+   *
+   * <p>示例值：share_abc_123
+   */
+  @SerializedName("share_id")
+  private String shareId;
+
+  /**
+   * 共享文档信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("share_doc")
+  private ShareDoc shareDoc;
+
+  /**
+   * 妙享开始时间（毫秒级时间戳）
+   *
+   * <p>示例值：1712345678000
+   */
+  @SerializedName("time")
+  private String time;
+
+  public MeetingAgentEventUser getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(MeetingAgentEventUser operator) {
+    this.operator = operator;
+  }
+
+  public String getShareId() {
+    return this.shareId;
+  }
+
+  public void setShareId(String shareId) {
+    this.shareId = shareId;
+  }
+
+  public ShareDoc getShareDoc() {
+    return this.shareDoc;
+  }
+
+  public void setShareDoc(ShareDoc shareDoc) {
+    this.shareDoc = shareDoc;
+  }
+
+  public String getTime() {
+    return this.time;
+  }
+
+  public void setTime(String time) {
+    this.time = time;
+  }
+
+  // builder 开始
+  public MagicShareStartedItem() {}
+
+  public MagicShareStartedItem(Builder builder) {
     /**
      * 发起妙享的操作者
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("operator")
-    private MeetingAgentEventUser operator;
+    this.operator = builder.operator;
     /**
      * 共享会话 ID
-     * <p> 示例值：share_abc_123
+     *
+     * <p>示例值：share_abc_123
      */
-    @SerializedName("share_id")
-    private String shareId;
+    this.shareId = builder.shareId;
     /**
      * 共享文档信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("share_doc")
-    private ShareDoc shareDoc;
+    this.shareDoc = builder.shareDoc;
     /**
      * 妙享开始时间（毫秒级时间戳）
-     * <p> 示例值：1712345678000
+     *
+     * <p>示例值：1712345678000
      */
-    @SerializedName("time")
+    this.time = builder.time;
+  }
+
+  public static class Builder {
+    /**
+     * 发起妙享的操作者
+     *
+     * <p>示例值：
+     */
+    private MeetingAgentEventUser operator;
+
+    /**
+     * 共享会话 ID
+     *
+     * <p>示例值：share_abc_123
+     */
+    private String shareId;
+
+    /**
+     * 共享文档信息
+     *
+     * <p>示例值：
+     */
+    private ShareDoc shareDoc;
+
+    /**
+     * 妙享开始时间（毫秒级时间戳）
+     *
+     * <p>示例值：1712345678000
+     */
     private String time;
 
-    // builder 开始
-    public MagicShareStartedItem() {
+    /**
+     * 发起妙享的操作者
+     *
+     * <p>示例值：
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(MeetingAgentEventUser operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public MagicShareStartedItem(Builder builder) {
-        /**
-         * 发起妙享的操作者
-         * <p> 示例值：
-         */
-        this.operator = builder.operator;
-        /**
-         * 共享会话 ID
-         * <p> 示例值：share_abc_123
-         */
-        this.shareId = builder.shareId;
-        /**
-         * 共享文档信息
-         * <p> 示例值：
-         */
-        this.shareDoc = builder.shareDoc;
-        /**
-         * 妙享开始时间（毫秒级时间戳）
-         * <p> 示例值：1712345678000
-         */
-        this.time = builder.time;
+    /**
+     * 共享会话 ID
+     *
+     * <p>示例值：share_abc_123
+     *
+     * @param shareId
+     * @return
+     */
+    public Builder shareId(String shareId) {
+      this.shareId = shareId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 共享文档信息
+     *
+     * <p>示例值：
+     *
+     * @param shareDoc
+     * @return
+     */
+    public Builder shareDoc(ShareDoc shareDoc) {
+      this.shareDoc = shareDoc;
+      return this;
     }
 
-    public MeetingAgentEventUser getOperator() {
-        return this.operator;
+    /**
+     * 妙享开始时间（毫秒级时间戳）
+     *
+     * <p>示例值：1712345678000
+     *
+     * @param time
+     * @return
+     */
+    public Builder time(String time) {
+      this.time = time;
+      return this;
     }
 
-    public void setOperator(MeetingAgentEventUser operator) {
-        this.operator = operator;
+    public MagicShareStartedItem build() {
+      return new MagicShareStartedItem(this);
     }
+  }
 
-    public String getShareId() {
-        return this.shareId;
-    }
-
-    public void setShareId(String shareId) {
-        this.shareId = shareId;
-    }
-
-    public ShareDoc getShareDoc() {
-        return this.shareDoc;
-    }
-
-    public void setShareDoc(ShareDoc shareDoc) {
-        this.shareDoc = shareDoc;
-    }
-
-    public String getTime() {
-        return this.time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public static class Builder {
-        /**
-         * 发起妙享的操作者
-         * <p> 示例值：
-         */
-        private MeetingAgentEventUser operator;
-        /**
-         * 共享会话 ID
-         * <p> 示例值：share_abc_123
-         */
-        private String shareId;
-        /**
-         * 共享文档信息
-         * <p> 示例值：
-         */
-        private ShareDoc shareDoc;
-        /**
-         * 妙享开始时间（毫秒级时间戳）
-         * <p> 示例值：1712345678000
-         */
-        private String time;
-
-        /**
-         * 发起妙享的操作者
-         * <p> 示例值：
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(MeetingAgentEventUser operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 共享会话 ID
-         * <p> 示例值：share_abc_123
-         *
-         * @param shareId
-         * @return
-         */
-        public Builder shareId(String shareId) {
-            this.shareId = shareId;
-            return this;
-        }
-
-
-        /**
-         * 共享文档信息
-         * <p> 示例值：
-         *
-         * @param shareDoc
-         * @return
-         */
-        public Builder shareDoc(ShareDoc shareDoc) {
-            this.shareDoc = shareDoc;
-            return this;
-        }
-
-
-        /**
-         * 妙享开始时间（毫秒级时间戳）
-         * <p> 示例值：1712345678000
-         *
-         * @param time
-         * @return
-         */
-        public Builder time(String time) {
-            this.time = time;
-            return this;
-        }
-
-
-        public MagicShareStartedItem build() {
-            return new MagicShareStartedItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

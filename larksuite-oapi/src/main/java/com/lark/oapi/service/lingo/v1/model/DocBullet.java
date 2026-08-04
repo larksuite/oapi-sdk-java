@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.lingo.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.lingo.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DocBullet {
+  /**
+   * 文本内容
+   *
+   * <p>示例值：无序列表文本
+   */
+  @SerializedName("text")
+  private String text;
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  // builder 开始
+  public DocBullet() {}
+
+  public DocBullet(Builder builder) {
     /**
      * 文本内容
-     * <p> 示例值：无序列表文本
+     *
+     * <p>示例值：无序列表文本
      */
-    @SerializedName("text")
+    this.text = builder.text;
+  }
+
+  public static class Builder {
+    /**
+     * 文本内容
+     *
+     * <p>示例值：无序列表文本
+     */
     private String text;
 
-    // builder 开始
-    public DocBullet() {
+    /**
+     * 文本内容
+     *
+     * <p>示例值：无序列表文本
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public DocBullet(Builder builder) {
-        /**
-         * 文本内容
-         * <p> 示例值：无序列表文本
-         */
-        this.text = builder.text;
+    public DocBullet build() {
+      return new DocBullet(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public static class Builder {
-        /**
-         * 文本内容
-         * <p> 示例值：无序列表文本
-         */
-        private String text;
-
-        /**
-         * 文本内容
-         * <p> 示例值：无序列表文本
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        public DocBullet build() {
-            return new DocBullet(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MatchingRuleScopeSetting {
+  /**
+   * 是否适用全部范围
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_all_scope")
+  private Boolean isAllScope;
+
+  /**
+   * 维度设置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("matching_rule_dimensions")
+  private MatchingRuleDimensionItem[] matchingRuleDimensions;
+
+  public Boolean getIsAllScope() {
+    return this.isAllScope;
+  }
+
+  public void setIsAllScope(Boolean isAllScope) {
+    this.isAllScope = isAllScope;
+  }
+
+  public MatchingRuleDimensionItem[] getMatchingRuleDimensions() {
+    return this.matchingRuleDimensions;
+  }
+
+  public void setMatchingRuleDimensions(MatchingRuleDimensionItem[] matchingRuleDimensions) {
+    this.matchingRuleDimensions = matchingRuleDimensions;
+  }
+
+  // builder 开始
+  public MatchingRuleScopeSetting() {}
+
+  public MatchingRuleScopeSetting(Builder builder) {
     /**
      * 是否适用全部范围
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_all_scope")
-    private Boolean isAllScope;
+    this.isAllScope = builder.isAllScope;
     /**
      * 维度设置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("matching_rule_dimensions")
+    this.matchingRuleDimensions = builder.matchingRuleDimensions;
+  }
+
+  public static class Builder {
+    /**
+     * 是否适用全部范围
+     *
+     * <p>示例值：true
+     */
+    private Boolean isAllScope;
+
+    /**
+     * 维度设置
+     *
+     * <p>示例值：
+     */
     private MatchingRuleDimensionItem[] matchingRuleDimensions;
 
-    // builder 开始
-    public MatchingRuleScopeSetting() {
+    /**
+     * 是否适用全部范围
+     *
+     * <p>示例值：true
+     *
+     * @param isAllScope
+     * @return
+     */
+    public Builder isAllScope(Boolean isAllScope) {
+      this.isAllScope = isAllScope;
+      return this;
     }
 
-    public MatchingRuleScopeSetting(Builder builder) {
-        /**
-         * 是否适用全部范围
-         * <p> 示例值：true
-         */
-        this.isAllScope = builder.isAllScope;
-        /**
-         * 维度设置
-         * <p> 示例值：
-         */
-        this.matchingRuleDimensions = builder.matchingRuleDimensions;
+    /**
+     * 维度设置
+     *
+     * <p>示例值：
+     *
+     * @param matchingRuleDimensions
+     * @return
+     */
+    public Builder matchingRuleDimensions(MatchingRuleDimensionItem[] matchingRuleDimensions) {
+      this.matchingRuleDimensions = matchingRuleDimensions;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MatchingRuleScopeSetting build() {
+      return new MatchingRuleScopeSetting(this);
     }
+  }
 
-    public Boolean getIsAllScope() {
-        return this.isAllScope;
-    }
-
-    public void setIsAllScope(Boolean isAllScope) {
-        this.isAllScope = isAllScope;
-    }
-
-    public MatchingRuleDimensionItem[] getMatchingRuleDimensions() {
-        return this.matchingRuleDimensions;
-    }
-
-    public void setMatchingRuleDimensions(MatchingRuleDimensionItem[] matchingRuleDimensions) {
-        this.matchingRuleDimensions = matchingRuleDimensions;
-    }
-
-    public static class Builder {
-        /**
-         * 是否适用全部范围
-         * <p> 示例值：true
-         */
-        private Boolean isAllScope;
-        /**
-         * 维度设置
-         * <p> 示例值：
-         */
-        private MatchingRuleDimensionItem[] matchingRuleDimensions;
-
-        /**
-         * 是否适用全部范围
-         * <p> 示例值：true
-         *
-         * @param isAllScope
-         * @return
-         */
-        public Builder isAllScope(Boolean isAllScope) {
-            this.isAllScope = isAllScope;
-            return this;
-        }
-
-
-        /**
-         * 维度设置
-         * <p> 示例值：
-         *
-         * @param matchingRuleDimensions
-         * @return
-         */
-        public Builder matchingRuleDimensions(MatchingRuleDimensionItem[] matchingRuleDimensions) {
-            this.matchingRuleDimensions = matchingRuleDimensions;
-            return this;
-        }
-
-
-        public MatchingRuleScopeSetting build() {
-            return new MatchingRuleScopeSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

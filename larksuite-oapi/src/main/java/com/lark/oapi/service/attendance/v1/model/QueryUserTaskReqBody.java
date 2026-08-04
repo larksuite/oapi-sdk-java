@@ -13,186 +13,199 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryUserTaskReqBody {
+  /**
+   * employee_no 或 employee_id 列表，对应employee_type，长度不超过 50
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  /**
+   * 查询的起始工作日，格式为yyyyMMdd
+   *
+   * <p>示例值：20190817
+   */
+  @SerializedName("check_date_from")
+  private Integer checkDateFrom;
+
+  /**
+   * 查询的结束工作日，格式为yyyyMMdd
+   *
+   * <p>示例值：20190820
+   */
+  @SerializedName("check_date_to")
+  private Integer checkDateTo;
+
+  /**
+   * 是否需要加班班段打卡结果；当need_overtime_result=true时，会返回加班班段，加班班段通过task_shift_type=1标识，加班班段上下班与正常班段相连时会出现共用record_id情况。例如：9-18为正常班次，18-19为加班班次，打卡结果中records
+   * 会出现两段，分别为9-18，18-19
+   * 且两段上下班record_id相同（check_in_record_id和check_out_record_id相同）。非相连加班班次正常分段返回。当need_overtime_result=false时，仅返回正常班段且task_shift_type=0。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("need_overtime_result")
+  private Boolean needOvertimeResult;
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  public Integer getCheckDateFrom() {
+    return this.checkDateFrom;
+  }
+
+  public void setCheckDateFrom(Integer checkDateFrom) {
+    this.checkDateFrom = checkDateFrom;
+  }
+
+  public Integer getCheckDateTo() {
+    return this.checkDateTo;
+  }
+
+  public void setCheckDateTo(Integer checkDateTo) {
+    this.checkDateTo = checkDateTo;
+  }
+
+  public Boolean getNeedOvertimeResult() {
+    return this.needOvertimeResult;
+  }
+
+  public void setNeedOvertimeResult(Boolean needOvertimeResult) {
+    this.needOvertimeResult = needOvertimeResult;
+  }
+
+  // builder 开始
+  public QueryUserTaskReqBody() {}
+
+  public QueryUserTaskReqBody(Builder builder) {
     /**
-     * employee_no 或 employee_id 列表，长度不超过 50
-     * <p> 示例值：abd754f7
+     * employee_no 或 employee_id 列表，对应employee_type，长度不超过 50
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
+    this.userIds = builder.userIds;
+    /**
+     * 查询的起始工作日，格式为yyyyMMdd
+     *
+     * <p>示例值：20190817
+     */
+    this.checkDateFrom = builder.checkDateFrom;
+    /**
+     * 查询的结束工作日，格式为yyyyMMdd
+     *
+     * <p>示例值：20190820
+     */
+    this.checkDateTo = builder.checkDateTo;
+    /**
+     * 是否需要加班班段打卡结果；当need_overtime_result=true时，会返回加班班段，加班班段通过task_shift_type=1标识，加班班段上下班与正常班段相连时会出现共用record_id情况。例如：9-18为正常班次，18-19为加班班次，打卡结果中records
+     * 会出现两段，分别为9-18，18-19
+     * 且两段上下班record_id相同（check_in_record_id和check_out_record_id相同）。非相连加班班次正常分段返回。当need_overtime_result=false时，仅返回正常班段且task_shift_type=0。
+     *
+     * <p>示例值：true
+     */
+    this.needOvertimeResult = builder.needOvertimeResult;
+  }
+
+  public static class Builder {
+    /**
+     * employee_no 或 employee_id 列表，对应employee_type，长度不超过 50
+     *
+     * <p>示例值：
+     */
     private String[] userIds;
+
     /**
-     * 查询的起始工作日
-     * <p> 示例值：20190817
+     * 查询的起始工作日，格式为yyyyMMdd
+     *
+     * <p>示例值：20190817
      */
-    @SerializedName("check_date_from")
     private Integer checkDateFrom;
+
     /**
-     * 查询的结束工作日
-     * <p> 示例值：20190820
+     * 查询的结束工作日，格式为yyyyMMdd
+     *
+     * <p>示例值：20190820
      */
-    @SerializedName("check_date_to")
     private Integer checkDateTo;
+
     /**
-     * 是否需要加班班段打卡结果
-     * <p> 示例值：true
+     * 是否需要加班班段打卡结果；当need_overtime_result=true时，会返回加班班段，加班班段通过task_shift_type=1标识，加班班段上下班与正常班段相连时会出现共用record_id情况。例如：9-18为正常班次，18-19为加班班次，打卡结果中records
+     * 会出现两段，分别为9-18，18-19
+     * 且两段上下班record_id相同（check_in_record_id和check_out_record_id相同）。非相连加班班次正常分段返回。当need_overtime_result=false时，仅返回正常班段且task_shift_type=0。
+     *
+     * <p>示例值：true
      */
-    @SerializedName("need_overtime_result")
     private Boolean needOvertimeResult;
 
-    // builder 开始
-    public QueryUserTaskReqBody() {
+    /**
+     * employee_no 或 employee_id 列表，对应employee_type，长度不超过 50
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public QueryUserTaskReqBody(Builder builder) {
-        /**
-         * employee_no 或 employee_id 列表，长度不超过 50
-         * <p> 示例值：abd754f7
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 查询的起始工作日
-         * <p> 示例值：20190817
-         */
-        this.checkDateFrom = builder.checkDateFrom;
-        /**
-         * 查询的结束工作日
-         * <p> 示例值：20190820
-         */
-        this.checkDateTo = builder.checkDateTo;
-        /**
-         * 是否需要加班班段打卡结果
-         * <p> 示例值：true
-         */
-        this.needOvertimeResult = builder.needOvertimeResult;
+    /**
+     * 查询的起始工作日，格式为yyyyMMdd
+     *
+     * <p>示例值：20190817
+     *
+     * @param checkDateFrom
+     * @return
+     */
+    public Builder checkDateFrom(Integer checkDateFrom) {
+      this.checkDateFrom = checkDateFrom;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 查询的结束工作日，格式为yyyyMMdd
+     *
+     * <p>示例值：20190820
+     *
+     * @param checkDateTo
+     * @return
+     */
+    public Builder checkDateTo(Integer checkDateTo) {
+      this.checkDateTo = checkDateTo;
+      return this;
     }
 
-    public String[] getUserIds() {
-        return this.userIds;
+    /**
+     * 是否需要加班班段打卡结果；当need_overtime_result=true时，会返回加班班段，加班班段通过task_shift_type=1标识，加班班段上下班与正常班段相连时会出现共用record_id情况。例如：9-18为正常班次，18-19为加班班次，打卡结果中records
+     * 会出现两段，分别为9-18，18-19
+     * 且两段上下班record_id相同（check_in_record_id和check_out_record_id相同）。非相连加班班次正常分段返回。当need_overtime_result=false时，仅返回正常班段且task_shift_type=0。
+     *
+     * <p>示例值：true
+     *
+     * @param needOvertimeResult
+     * @return
+     */
+    public Builder needOvertimeResult(Boolean needOvertimeResult) {
+      this.needOvertimeResult = needOvertimeResult;
+      return this;
     }
 
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
+    public QueryUserTaskReqBody build() {
+      return new QueryUserTaskReqBody(this);
     }
+  }
 
-    public Integer getCheckDateFrom() {
-        return this.checkDateFrom;
-    }
-
-    public void setCheckDateFrom(Integer checkDateFrom) {
-        this.checkDateFrom = checkDateFrom;
-    }
-
-    public Integer getCheckDateTo() {
-        return this.checkDateTo;
-    }
-
-    public void setCheckDateTo(Integer checkDateTo) {
-        this.checkDateTo = checkDateTo;
-    }
-
-    public Boolean getNeedOvertimeResult() {
-        return this.needOvertimeResult;
-    }
-
-    public void setNeedOvertimeResult(Boolean needOvertimeResult) {
-        this.needOvertimeResult = needOvertimeResult;
-    }
-
-    public static class Builder {
-        /**
-         * employee_no 或 employee_id 列表，长度不超过 50
-         * <p> 示例值：abd754f7
-         */
-        private String[] userIds;
-        /**
-         * 查询的起始工作日
-         * <p> 示例值：20190817
-         */
-        private Integer checkDateFrom;
-        /**
-         * 查询的结束工作日
-         * <p> 示例值：20190820
-         */
-        private Integer checkDateTo;
-        /**
-         * 是否需要加班班段打卡结果
-         * <p> 示例值：true
-         */
-        private Boolean needOvertimeResult;
-
-        /**
-         * employee_no 或 employee_id 列表，长度不超过 50
-         * <p> 示例值：abd754f7
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        /**
-         * 查询的起始工作日
-         * <p> 示例值：20190817
-         *
-         * @param checkDateFrom
-         * @return
-         */
-        public Builder checkDateFrom(Integer checkDateFrom) {
-            this.checkDateFrom = checkDateFrom;
-            return this;
-        }
-
-
-        /**
-         * 查询的结束工作日
-         * <p> 示例值：20190820
-         *
-         * @param checkDateTo
-         * @return
-         */
-        public Builder checkDateTo(Integer checkDateTo) {
-            this.checkDateTo = checkDateTo;
-            return this;
-        }
-
-
-        /**
-         * 是否需要加班班段打卡结果
-         * <p> 示例值：true
-         *
-         * @param needOvertimeResult
-         * @return
-         */
-        public Builder needOvertimeResult(Boolean needOvertimeResult) {
-            this.needOvertimeResult = needOvertimeResult;
-            return this;
-        }
-
-
-        public QueryUserTaskReqBody build() {
-            return new QueryUserTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

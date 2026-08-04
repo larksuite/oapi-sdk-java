@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureNode {
+  /**
+   * 节点相关的角色信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_infos")
+  private SignatureUserInfo[] userInfos;
+
+  /**
+   * 节点状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签文件状态（signature_file_state）枚举定义部分获得
+   *
+   * <p>示例值：Initiated
+   */
+  @SerializedName("state")
+  private String state;
+
+  /**
+   * 节点完成时间
+   *
+   * <p>示例值：2021-12-31 12:21:10
+   */
+  @SerializedName("finish_time")
+  private String finishTime;
+
+  /**
+   * 节点最近更新时间
+   *
+   * <p>示例值：2021-12-31 12:21:10
+   */
+  @SerializedName("updated_time")
+  private String updatedTime;
+
+  /**
+   * 当前节点是否为正在处理的节点
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_ongoing")
+  private Boolean isOngoing;
+
+  /**
+   * 当前节点操作名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("role_label")
+  private SignatureEnumInfoLabel roleLabel;
+
+  /**
+   * 操作人类型，如：发起人、审阅人、签字人;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签文件流程节点签署角色（signature_node_sign_role）枚举定义部分获得
+   *
+   * <p>示例值：Initiator
+   */
+  @SerializedName("sign_role")
+  private String signRole;
+
+  public SignatureUserInfo[] getUserInfos() {
+    return this.userInfos;
+  }
+
+  public void setUserInfos(SignatureUserInfo[] userInfos) {
+    this.userInfos = userInfos;
+  }
+
+  public String getState() {
+    return this.state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
+  public String getFinishTime() {
+    return this.finishTime;
+  }
+
+  public void setFinishTime(String finishTime) {
+    this.finishTime = finishTime;
+  }
+
+  public String getUpdatedTime() {
+    return this.updatedTime;
+  }
+
+  public void setUpdatedTime(String updatedTime) {
+    this.updatedTime = updatedTime;
+  }
+
+  public Boolean getIsOngoing() {
+    return this.isOngoing;
+  }
+
+  public void setIsOngoing(Boolean isOngoing) {
+    this.isOngoing = isOngoing;
+  }
+
+  public SignatureEnumInfoLabel getRoleLabel() {
+    return this.roleLabel;
+  }
+
+  public void setRoleLabel(SignatureEnumInfoLabel roleLabel) {
+    this.roleLabel = roleLabel;
+  }
+
+  public String getSignRole() {
+    return this.signRole;
+  }
+
+  public void setSignRole(String signRole) {
+    this.signRole = signRole;
+  }
+
+  // builder 开始
+  public SignatureNode() {}
+
+  public SignatureNode(Builder builder) {
     /**
-     * 电子签节点列表
-     * <p> 示例值：
+     * 节点相关的角色信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_infos")
-    private SignatureUserInfo[] userInfos;
+    this.userInfos = builder.userInfos;
     /**
-     * 电子签文件节点状态
-     * <p> 示例值：Initiated
+     * 节点状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签文件状态（signature_file_state）枚举定义部分获得
+     *
+     * <p>示例值：Initiated
      */
-    @SerializedName("state")
-    private String state;
+    this.state = builder.state;
     /**
      * 节点完成时间
-     * <p> 示例值：2021-12-31 12:21:10
+     *
+     * <p>示例值：2021-12-31 12:21:10
      */
-    @SerializedName("finish_time")
-    private String finishTime;
+    this.finishTime = builder.finishTime;
     /**
      * 节点最近更新时间
-     * <p> 示例值：2021-12-31 12:21:10
+     *
+     * <p>示例值：2021-12-31 12:21:10
      */
-    @SerializedName("updated_time")
-    private String updatedTime;
+    this.updatedTime = builder.updatedTime;
     /**
      * 当前节点是否为正在处理的节点
-     * <p> 示例值：
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_ongoing")
+    this.isOngoing = builder.isOngoing;
+    /**
+     * 当前节点操作名称
+     *
+     * <p>示例值：
+     */
+    this.roleLabel = builder.roleLabel;
+    /**
+     * 操作人类型，如：发起人、审阅人、签字人;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签文件流程节点签署角色（signature_node_sign_role）枚举定义部分获得
+     *
+     * <p>示例值：Initiator
+     */
+    this.signRole = builder.signRole;
+  }
+
+  public static class Builder {
+    /**
+     * 节点相关的角色信息
+     *
+     * <p>示例值：
+     */
+    private SignatureUserInfo[] userInfos;
+
+    /**
+     * 节点状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签文件状态（signature_file_state）枚举定义部分获得
+     *
+     * <p>示例值：Initiated
+     */
+    private String state;
+
+    /**
+     * 节点完成时间
+     *
+     * <p>示例值：2021-12-31 12:21:10
+     */
+    private String finishTime;
+
+    /**
+     * 节点最近更新时间
+     *
+     * <p>示例值：2021-12-31 12:21:10
+     */
+    private String updatedTime;
+
+    /**
+     * 当前节点是否为正在处理的节点
+     *
+     * <p>示例值：false
+     */
     private Boolean isOngoing;
+
     /**
-     * 当前操作节点的角色名称
-     * <p> 示例值：
+     * 当前节点操作名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("role_label")
     private SignatureEnumInfoLabel roleLabel;
+
     /**
-     * 签署角色
-     * <p> 示例值：Initiator,发起人
+     * 操作人类型，如：发起人、审阅人、签字人;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签文件流程节点签署角色（signature_node_sign_role）枚举定义部分获得
+     *
+     * <p>示例值：Initiator
      */
-    @SerializedName("sign_role")
     private String signRole;
 
-    // builder 开始
-    public SignatureNode() {
+    /**
+     * 节点相关的角色信息
+     *
+     * <p>示例值：
+     *
+     * @param userInfos
+     * @return
+     */
+    public Builder userInfos(SignatureUserInfo[] userInfos) {
+      this.userInfos = userInfos;
+      return this;
     }
 
-    public SignatureNode(Builder builder) {
-        /**
-         * 电子签节点列表
-         * <p> 示例值：
-         */
-        this.userInfos = builder.userInfos;
-        /**
-         * 电子签文件节点状态
-         * <p> 示例值：Initiated
-         */
-        this.state = builder.state;
-        /**
-         * 节点完成时间
-         * <p> 示例值：2021-12-31 12:21:10
-         */
-        this.finishTime = builder.finishTime;
-        /**
-         * 节点最近更新时间
-         * <p> 示例值：2021-12-31 12:21:10
-         */
-        this.updatedTime = builder.updatedTime;
-        /**
-         * 当前节点是否为正在处理的节点
-         * <p> 示例值：
-         */
-        this.isOngoing = builder.isOngoing;
-        /**
-         * 当前操作节点的角色名称
-         * <p> 示例值：
-         */
-        this.roleLabel = builder.roleLabel;
-        /**
-         * 签署角色
-         * <p> 示例值：Initiator,发起人
-         */
-        this.signRole = builder.signRole;
+    /**
+     * 节点状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签文件状态（signature_file_state）枚举定义部分获得
+     *
+     * <p>示例值：Initiated
+     *
+     * @param state
+     * @return
+     */
+    public Builder state(String state) {
+      this.state = state;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 节点完成时间
+     *
+     * <p>示例值：2021-12-31 12:21:10
+     *
+     * @param finishTime
+     * @return
+     */
+    public Builder finishTime(String finishTime) {
+      this.finishTime = finishTime;
+      return this;
     }
 
-    public SignatureUserInfo[] getUserInfos() {
-        return this.userInfos;
+    /**
+     * 节点最近更新时间
+     *
+     * <p>示例值：2021-12-31 12:21:10
+     *
+     * @param updatedTime
+     * @return
+     */
+    public Builder updatedTime(String updatedTime) {
+      this.updatedTime = updatedTime;
+      return this;
     }
 
-    public void setUserInfos(SignatureUserInfo[] userInfos) {
-        this.userInfos = userInfos;
+    /**
+     * 当前节点是否为正在处理的节点
+     *
+     * <p>示例值：false
+     *
+     * @param isOngoing
+     * @return
+     */
+    public Builder isOngoing(Boolean isOngoing) {
+      this.isOngoing = isOngoing;
+      return this;
     }
 
-    public String getState() {
-        return this.state;
+    /**
+     * 当前节点操作名称
+     *
+     * <p>示例值：
+     *
+     * @param roleLabel
+     * @return
+     */
+    public Builder roleLabel(SignatureEnumInfoLabel roleLabel) {
+      this.roleLabel = roleLabel;
+      return this;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    /**
+     * 操作人类型，如：发起人、审阅人、签字人;枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签文件流程节点签署角色（signature_node_sign_role）枚举定义部分获得
+     *
+     * <p>示例值：Initiator
+     *
+     * @param signRole
+     * @return
+     */
+    public Builder signRole(String signRole) {
+      this.signRole = signRole;
+      return this;
     }
 
-    public String getFinishTime() {
-        return this.finishTime;
+    public SignatureNode build() {
+      return new SignatureNode(this);
     }
+  }
 
-    public void setFinishTime(String finishTime) {
-        this.finishTime = finishTime;
-    }
-
-    public String getUpdatedTime() {
-        return this.updatedTime;
-    }
-
-    public void setUpdatedTime(String updatedTime) {
-        this.updatedTime = updatedTime;
-    }
-
-    public Boolean getIsOngoing() {
-        return this.isOngoing;
-    }
-
-    public void setIsOngoing(Boolean isOngoing) {
-        this.isOngoing = isOngoing;
-    }
-
-    public SignatureEnumInfoLabel getRoleLabel() {
-        return this.roleLabel;
-    }
-
-    public void setRoleLabel(SignatureEnumInfoLabel roleLabel) {
-        this.roleLabel = roleLabel;
-    }
-
-    public String getSignRole() {
-        return this.signRole;
-    }
-
-    public void setSignRole(String signRole) {
-        this.signRole = signRole;
-    }
-
-    public static class Builder {
-        /**
-         * 电子签节点列表
-         * <p> 示例值：
-         */
-        private SignatureUserInfo[] userInfos;
-        /**
-         * 电子签文件节点状态
-         * <p> 示例值：Initiated
-         */
-        private String state;
-        /**
-         * 节点完成时间
-         * <p> 示例值：2021-12-31 12:21:10
-         */
-        private String finishTime;
-        /**
-         * 节点最近更新时间
-         * <p> 示例值：2021-12-31 12:21:10
-         */
-        private String updatedTime;
-        /**
-         * 当前节点是否为正在处理的节点
-         * <p> 示例值：
-         */
-        private Boolean isOngoing;
-        /**
-         * 当前操作节点的角色名称
-         * <p> 示例值：
-         */
-        private SignatureEnumInfoLabel roleLabel;
-        /**
-         * 签署角色
-         * <p> 示例值：Initiator,发起人
-         */
-        private String signRole;
-
-        /**
-         * 电子签节点列表
-         * <p> 示例值：
-         *
-         * @param userInfos
-         * @return
-         */
-        public Builder userInfos(SignatureUserInfo[] userInfos) {
-            this.userInfos = userInfos;
-            return this;
-        }
-
-
-        /**
-         * 电子签文件节点状态
-         * <p> 示例值：Initiated
-         *
-         * @param state
-         * @return
-         */
-        public Builder state(String state) {
-            this.state = state;
-            return this;
-        }
-
-
-        /**
-         * 节点完成时间
-         * <p> 示例值：2021-12-31 12:21:10
-         *
-         * @param finishTime
-         * @return
-         */
-        public Builder finishTime(String finishTime) {
-            this.finishTime = finishTime;
-            return this;
-        }
-
-
-        /**
-         * 节点最近更新时间
-         * <p> 示例值：2021-12-31 12:21:10
-         *
-         * @param updatedTime
-         * @return
-         */
-        public Builder updatedTime(String updatedTime) {
-            this.updatedTime = updatedTime;
-            return this;
-        }
-
-
-        /**
-         * 当前节点是否为正在处理的节点
-         * <p> 示例值：
-         *
-         * @param isOngoing
-         * @return
-         */
-        public Builder isOngoing(Boolean isOngoing) {
-            this.isOngoing = isOngoing;
-            return this;
-        }
-
-
-        /**
-         * 当前操作节点的角色名称
-         * <p> 示例值：
-         *
-         * @param roleLabel
-         * @return
-         */
-        public Builder roleLabel(SignatureEnumInfoLabel roleLabel) {
-            this.roleLabel = roleLabel;
-            return this;
-        }
-
-
-        /**
-         * 签署角色
-         * <p> 示例值：Initiator,发起人
-         *
-         * @param signRole
-         * @return
-         */
-        public Builder signRole(String signRole) {
-            this.signRole = signRole;
-            return this;
-        }
-
-
-        public SignatureNode build() {
-            return new SignatureNode(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

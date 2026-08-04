@@ -13,198 +13,207 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SocialArchiveAdjustRecord {
+  /**
+   * 员工ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 增减员类型
+   *
+   * <p>示例值：increase
+   */
+  @SerializedName("record_type")
+  private String recordType;
+
+  /**
+   * 员工增减员记录，包括社保、公积金记录
+   *
+   * <p>示例值：
+   */
+  @SerializedName("details")
+  private SocialArchiveDetail[] details;
+
+  /**
+   * 增减员记录ID
+   *
+   * <p>示例值：7480742425276139052
+   */
+  @SerializedName("record_id")
+  private String recordId;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getRecordType() {
+    return this.recordType;
+  }
+
+  public void setRecordType(String recordType) {
+    this.recordType = recordType;
+  }
+
+  public SocialArchiveDetail[] getDetails() {
+    return this.details;
+  }
+
+  public void setDetails(SocialArchiveDetail[] details) {
+    this.details = details;
+  }
+
+  public String getRecordId() {
+    return this.recordId;
+  }
+
+  public void setRecordId(String recordId) {
+    this.recordId = recordId;
+  }
+
+  // builder 开始
+  public SocialArchiveAdjustRecord() {}
+
+  public SocialArchiveAdjustRecord(Builder builder) {
     /**
      * 员工ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 类型，increase: 增员; attrition: 减员
-     * <p> 示例值：increase
+     * 增减员类型
+     *
+     * <p>示例值：increase
      */
-    @SerializedName("record_type")
-    private String recordType;
+    this.recordType = builder.recordType;
     /**
      * 员工增减员记录，包括社保、公积金记录
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("details")
-    private SocialArchiveDetail[] details;
+    this.details = builder.details;
     /**
      * 增减员记录ID
-     * <p> 示例值：7480742425276139052
+     *
+     * <p>示例值：7480742425276139052
      */
-    @SerializedName("record_id")
+    this.recordId = builder.recordId;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：
+     */
+    private String userId;
+
+    /**
+     * 增减员类型
+     *
+     * <p>示例值：increase
+     */
+    private String recordType;
+
+    /**
+     * 员工增减员记录，包括社保、公积金记录
+     *
+     * <p>示例值：
+     */
+    private SocialArchiveDetail[] details;
+
+    /**
+     * 增减员记录ID
+     *
+     * <p>示例值：7480742425276139052
+     */
     private String recordId;
 
-    // builder 开始
-    public SocialArchiveAdjustRecord() {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public SocialArchiveAdjustRecord(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 类型，increase: 增员; attrition: 减员
-         * <p> 示例值：increase
-         */
-        this.recordType = builder.recordType;
-        /**
-         * 员工增减员记录，包括社保、公积金记录
-         * <p> 示例值：
-         */
-        this.details = builder.details;
-        /**
-         * 增减员记录ID
-         * <p> 示例值：7480742425276139052
-         */
-        this.recordId = builder.recordId;
+    /**
+     * 增减员类型
+     *
+     * <p>示例值：increase
+     *
+     * @param recordType
+     * @return
+     */
+    public Builder recordType(String recordType) {
+      this.recordType = recordType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 增减员类型
+     *
+     * <p>示例值：increase
+     *
+     * @param recordType {@link
+     *     com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordRecordTypeEnum}
+     * @return
+     */
+    public Builder recordType(
+        com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordRecordTypeEnum
+            recordType) {
+      this.recordType = recordType.getValue();
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 员工增减员记录，包括社保、公积金记录
+     *
+     * <p>示例值：
+     *
+     * @param details
+     * @return
+     */
+    public Builder details(SocialArchiveDetail[] details) {
+      this.details = details;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 增减员记录ID
+     *
+     * <p>示例值：7480742425276139052
+     *
+     * @param recordId
+     * @return
+     */
+    public Builder recordId(String recordId) {
+      this.recordId = recordId;
+      return this;
     }
 
-    public String getRecordType() {
-        return this.recordType;
+    public SocialArchiveAdjustRecord build() {
+      return new SocialArchiveAdjustRecord(this);
     }
+  }
 
-    public void setRecordType(String recordType) {
-        this.recordType = recordType;
-    }
-
-    public SocialArchiveDetail[] getDetails() {
-        return this.details;
-    }
-
-    public void setDetails(SocialArchiveDetail[] details) {
-        this.details = details;
-    }
-
-    public String getRecordId() {
-        return this.recordId;
-    }
-
-    public void setRecordId(String recordId) {
-        this.recordId = recordId;
-    }
-
-    public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 类型，increase: 增员; attrition: 减员
-         * <p> 示例值：increase
-         */
-        private String recordType;
-        /**
-         * 员工增减员记录，包括社保、公积金记录
-         * <p> 示例值：
-         */
-        private SocialArchiveDetail[] details;
-        /**
-         * 增减员记录ID
-         * <p> 示例值：7480742425276139052
-         */
-        private String recordId;
-
-        /**
-         * 员工ID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 类型，increase: 增员; attrition: 减员
-         * <p> 示例值：increase
-         *
-         * @param recordType
-         * @return
-         */
-        public Builder recordType(String recordType) {
-            this.recordType = recordType;
-            return this;
-        }
-
-        /**
-         * 类型，increase: 增员; attrition: 减员
-         * <p> 示例值：increase
-         *
-         * @param recordType {@link com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordRecordTypeEnum}
-         * @return
-         */
-        public Builder recordType(com.lark.oapi.service.compensation.v1.enums.SocialArchiveAdjustRecordRecordTypeEnum recordType) {
-            this.recordType = recordType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 员工增减员记录，包括社保、公积金记录
-         * <p> 示例值：
-         *
-         * @param details
-         * @return
-         */
-        public Builder details(SocialArchiveDetail[] details) {
-            this.details = details;
-            return this;
-        }
-
-
-        /**
-         * 增减员记录ID
-         * <p> 示例值：7480742425276139052
-         *
-         * @param recordId
-         * @return
-         */
-        public Builder recordId(String recordId) {
-            this.recordId = recordId;
-            return this;
-        }
-
-
-        public SocialArchiveAdjustRecord build() {
-            return new SocialArchiveAdjustRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

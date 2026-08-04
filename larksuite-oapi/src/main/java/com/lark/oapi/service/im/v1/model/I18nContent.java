@@ -13,124 +13,120 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class I18nContent {
+  /**
+   * `language` 参数对应的内容。
+   *
+   * <p>示例值：hello
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 语言类型。
+   *
+   * <p>示例值：en_us
+   */
+  @SerializedName("language")
+  private String language;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getLanguage() {
+    return this.language;
+  }
+
+  public void setLanguage(String language) {
+    this.language = language;
+  }
+
+  // builder 开始
+  public I18nContent() {}
+
+  public I18nContent(Builder builder) {
     /**
-     * 内容
-     * <p> 示例值：hello
+     * `language` 参数对应的内容。
+     *
+     * <p>示例值：hello
      */
-    @SerializedName("content")
+    this.content = builder.content;
+    /**
+     * 语言类型。
+     *
+     * <p>示例值：en_us
+     */
+    this.language = builder.language;
+  }
+
+  public static class Builder {
+    /**
+     * `language` 参数对应的内容。
+     *
+     * <p>示例值：hello
+     */
     private String content;
+
     /**
-     * 语言
-     * <p> 示例值：zh_cn
+     * 语言类型。
+     *
+     * <p>示例值：en_us
      */
-    @SerializedName("language")
     private String language;
 
-    // builder 开始
-    public I18nContent() {
+    /**
+     * `language` 参数对应的内容。
+     *
+     * <p>示例值：hello
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public I18nContent(Builder builder) {
-        /**
-         * 内容
-         * <p> 示例值：hello
-         */
-        this.content = builder.content;
-        /**
-         * 语言
-         * <p> 示例值：zh_cn
-         */
-        this.language = builder.language;
+    /**
+     * 语言类型。
+     *
+     * <p>示例值：en_us
+     *
+     * @param language
+     * @return
+     */
+    public Builder language(String language) {
+      this.language = language;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 语言类型。
+     *
+     * <p>示例值：en_us
+     *
+     * @param language {@link com.lark.oapi.service.im.v1.enums.I18nContentLanguageEnum}
+     * @return
+     */
+    public Builder language(com.lark.oapi.service.im.v1.enums.I18nContentLanguageEnum language) {
+      this.language = language.getValue();
+      return this;
     }
 
-    public String getContent() {
-        return this.content;
+    public I18nContent build() {
+      return new I18nContent(this);
     }
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getLanguage() {
-        return this.language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public static class Builder {
-        /**
-         * 内容
-         * <p> 示例值：hello
-         */
-        private String content;
-        /**
-         * 语言
-         * <p> 示例值：zh_cn
-         */
-        private String language;
-
-        /**
-         * 内容
-         * <p> 示例值：hello
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 语言
-         * <p> 示例值：zh_cn
-         *
-         * @param language
-         * @return
-         */
-        public Builder language(String language) {
-            this.language = language;
-            return this;
-        }
-
-        /**
-         * 语言
-         * <p> 示例值：zh_cn
-         *
-         * @param language {@link com.lark.oapi.service.im.v1.enums.I18nContentLanguageEnum}
-         * @return
-         */
-        public Builder language(com.lark.oapi.service.im.v1.enums.I18nContentLanguageEnum language) {
-            this.language = language.getValue();
-            return this;
-        }
-
-
-        public I18nContent build() {
-            return new I18nContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,223 +13,227 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProcessTransfer {
+  /**
+   * 操作人，按user_id_type类型传递；如果system_user为true，则此字段可以不填
+   *
+   * <p>示例值：7184703091806602796
+   */
+  @SerializedName("operator")
+  private String operator;
+
+  /**
+   * 被转交人，按user_id_type类型传递
+   *
+   * <p>示例值：7184703091806602796
+   */
+  @SerializedName("to_user_id")
+  private String toUserId;
+
+  /**
+   * 待转交审批任务id列表;;同一个审批节点如果有多个审批人，不同审批人的 approver_id 不同。;;可通过
+   * [获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)接口获取流程中各审批任务的
+   * approver_id。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("approver_ids")
+  private String[] approverIds;
+
+  /** 示例值：备注 */
+  @SerializedName("remark")
+  private String remark;
+
+  /**
+   * 是否以系统身份操作，如果为fasle，则operator必填
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("system_user")
+  private Boolean systemUser;
+
+  public String getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public String getToUserId() {
+    return this.toUserId;
+  }
+
+  public void setToUserId(String toUserId) {
+    this.toUserId = toUserId;
+  }
+
+  public String[] getApproverIds() {
+    return this.approverIds;
+  }
+
+  public void setApproverIds(String[] approverIds) {
+    this.approverIds = approverIds;
+  }
+
+  public String getRemark() {
+    return this.remark;
+  }
+
+  public void setRemark(String remark) {
+    this.remark = remark;
+  }
+
+  public Boolean getSystemUser() {
+    return this.systemUser;
+  }
+
+  public void setSystemUser(Boolean systemUser) {
+    this.systemUser = systemUser;
+  }
+
+  // builder 开始
+  public ProcessTransfer() {}
+
+  public ProcessTransfer(Builder builder) {
     /**
-     * 操作人，当system_user为true，可不传值
-     * <p> 示例值：7184703091806602796
+     * 操作人，按user_id_type类型传递；如果system_user为true，则此字段可以不填
+     *
+     * <p>示例值：7184703091806602796
      */
-    @SerializedName("operator")
+    this.operator = builder.operator;
+    /**
+     * 被转交人，按user_id_type类型传递
+     *
+     * <p>示例值：7184703091806602796
+     */
+    this.toUserId = builder.toUserId;
+    /**
+     * 待转交审批任务id列表;;同一个审批节点如果有多个审批人，不同审批人的 approver_id 不同。;;可通过
+     * [获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)接口获取流程中各审批任务的
+     * approver_id。
+     *
+     * <p>示例值：
+     */
+    this.approverIds = builder.approverIds;
+    /** 示例值：备注 */
+    this.remark = builder.remark;
+    /**
+     * 是否以系统身份操作，如果为fasle，则operator必填
+     *
+     * <p>示例值：true
+     */
+    this.systemUser = builder.systemUser;
+  }
+
+  public static class Builder {
+    /**
+     * 操作人，按user_id_type类型传递；如果system_user为true，则此字段可以不填
+     *
+     * <p>示例值：7184703091806602796
+     */
     private String operator;
+
     /**
-     * 被转交人id
-     * <p> 示例值：7184703091806602796
+     * 被转交人，按user_id_type类型传递
+     *
+     * <p>示例值：7184703091806602796
      */
-    @SerializedName("to_user_id")
     private String toUserId;
+
     /**
-     * 待转交审批任务id列表
-     * <p> 示例值：
+     * 待转交审批任务id列表;;同一个审批节点如果有多个审批人，不同审批人的 approver_id 不同。;;可通过
+     * [获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)接口获取流程中各审批任务的
+     * approver_id。
+     *
+     * <p>示例值：
      */
-    @SerializedName("approver_ids")
     private String[] approverIds;
-    /**
-     * 备注
-     * <p> 示例值：备注
-     */
-    @SerializedName("remark")
+
+    /** 示例值：备注 */
     private String remark;
+
     /**
-     * true-以系统身份操作
-     * <p> 示例值：true
+     * 是否以系统身份操作，如果为fasle，则operator必填
+     *
+     * <p>示例值：true
      */
-    @SerializedName("system_user")
     private Boolean systemUser;
 
-    // builder 开始
-    public ProcessTransfer() {
+    /**
+     * 操作人，按user_id_type类型传递；如果system_user为true，则此字段可以不填
+     *
+     * <p>示例值：7184703091806602796
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(String operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public ProcessTransfer(Builder builder) {
-        /**
-         * 操作人，当system_user为true，可不传值
-         * <p> 示例值：7184703091806602796
-         */
-        this.operator = builder.operator;
-        /**
-         * 被转交人id
-         * <p> 示例值：7184703091806602796
-         */
-        this.toUserId = builder.toUserId;
-        /**
-         * 待转交审批任务id列表
-         * <p> 示例值：
-         */
-        this.approverIds = builder.approverIds;
-        /**
-         * 备注
-         * <p> 示例值：备注
-         */
-        this.remark = builder.remark;
-        /**
-         * true-以系统身份操作
-         * <p> 示例值：true
-         */
-        this.systemUser = builder.systemUser;
+    /**
+     * 被转交人，按user_id_type类型传递
+     *
+     * <p>示例值：7184703091806602796
+     *
+     * @param toUserId
+     * @return
+     */
+    public Builder toUserId(String toUserId) {
+      this.toUserId = toUserId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 待转交审批任务id列表;;同一个审批节点如果有多个审批人，不同审批人的 approver_id 不同。;;可通过
+     * [获取单个流程详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)接口获取流程中各审批任务的
+     * approver_id。
+     *
+     * <p>示例值：
+     *
+     * @param approverIds
+     * @return
+     */
+    public Builder approverIds(String[] approverIds) {
+      this.approverIds = approverIds;
+      return this;
     }
 
-    public String getOperator() {
-        return this.operator;
+    /**
+     * 示例值：备注
+     *
+     * @param remark
+     * @return
+     */
+    public Builder remark(String remark) {
+      this.remark = remark;
+      return this;
     }
 
-    public void setOperator(String operator) {
-        this.operator = operator;
+    /**
+     * 是否以系统身份操作，如果为fasle，则operator必填
+     *
+     * <p>示例值：true
+     *
+     * @param systemUser
+     * @return
+     */
+    public Builder systemUser(Boolean systemUser) {
+      this.systemUser = systemUser;
+      return this;
     }
 
-    public String getToUserId() {
-        return this.toUserId;
+    public ProcessTransfer build() {
+      return new ProcessTransfer(this);
     }
+  }
 
-    public void setToUserId(String toUserId) {
-        this.toUserId = toUserId;
-    }
-
-    public String[] getApproverIds() {
-        return this.approverIds;
-    }
-
-    public void setApproverIds(String[] approverIds) {
-        this.approverIds = approverIds;
-    }
-
-    public String getRemark() {
-        return this.remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public Boolean getSystemUser() {
-        return this.systemUser;
-    }
-
-    public void setSystemUser(Boolean systemUser) {
-        this.systemUser = systemUser;
-    }
-
-    public static class Builder {
-        /**
-         * 操作人，当system_user为true，可不传值
-         * <p> 示例值：7184703091806602796
-         */
-        private String operator;
-        /**
-         * 被转交人id
-         * <p> 示例值：7184703091806602796
-         */
-        private String toUserId;
-        /**
-         * 待转交审批任务id列表
-         * <p> 示例值：
-         */
-        private String[] approverIds;
-        /**
-         * 备注
-         * <p> 示例值：备注
-         */
-        private String remark;
-        /**
-         * true-以系统身份操作
-         * <p> 示例值：true
-         */
-        private Boolean systemUser;
-
-        /**
-         * 操作人，当system_user为true，可不传值
-         * <p> 示例值：7184703091806602796
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 被转交人id
-         * <p> 示例值：7184703091806602796
-         *
-         * @param toUserId
-         * @return
-         */
-        public Builder toUserId(String toUserId) {
-            this.toUserId = toUserId;
-            return this;
-        }
-
-
-        /**
-         * 待转交审批任务id列表
-         * <p> 示例值：
-         *
-         * @param approverIds
-         * @return
-         */
-        public Builder approverIds(String[] approverIds) {
-            this.approverIds = approverIds;
-            return this;
-        }
-
-
-        /**
-         * 备注
-         * <p> 示例值：备注
-         *
-         * @param remark
-         * @return
-         */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-
-        /**
-         * true-以系统身份操作
-         * <p> 示例值：true
-         *
-         * @param systemUser
-         * @return
-         */
-        public Builder systemUser(Boolean systemUser) {
-            this.systemUser = systemUser;
-            return this;
-        }
-
-
-        public ProcessTransfer build() {
-            return new ProcessTransfer(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

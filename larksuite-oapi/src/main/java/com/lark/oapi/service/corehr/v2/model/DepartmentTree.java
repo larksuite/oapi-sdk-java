@@ -13,149 +13,173 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentTree {
+  /**
+   * 部门 ID;-
+   * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+   * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+   * 获取详情
+   *
+   * <p>示例值：4719456877659520852
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 部门绝对层级，根部门层级为0，根部门的子部门层级为1，依次类推
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("level")
+  private Integer level;
+
+  /**
+   * 下级部门 ID 列表;-
+   * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+   * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+   * 获取详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("children")
+  private String[] children;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getLevel() {
+    return this.level;
+  }
+
+  public void setLevel(Integer level) {
+    this.level = level;
+  }
+
+  public String[] getChildren() {
+    return this.children;
+  }
+
+  public void setChildren(String[] children) {
+    this.children = children;
+  }
+
+  // builder 开始
+  public DepartmentTree() {}
+
+  public DepartmentTree(Builder builder) {
     /**
-     * 部门 ID
-     * <p> 示例值：4719456877659520852
+     * 部门 ID;-
+     * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：4719456877659520852
      */
-    @SerializedName("id")
+    this.id = builder.id;
+    /**
+     * 部门绝对层级，根部门层级为0，根部门的子部门层级为1，依次类推
+     *
+     * <p>示例值：1
+     */
+    this.level = builder.level;
+    /**
+     * 下级部门 ID 列表;-
+     * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：
+     */
+    this.children = builder.children;
+  }
+
+  public static class Builder {
+    /**
+     * 部门 ID;-
+     * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：4719456877659520852
+     */
     private String id;
+
     /**
-     * 部门层级
-     * <p> 示例值：1
+     * 部门绝对层级，根部门层级为0，根部门的子部门层级为1，依次类推
+     *
+     * <p>示例值：1
      */
-    @SerializedName("level")
     private Integer level;
+
     /**
-     * 下级部门 ID 列表
-     * <p> 示例值：
+     * 下级部门 ID 列表;-
+     * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：
      */
-    @SerializedName("children")
     private String[] children;
 
-    // builder 开始
-    public DepartmentTree() {
+    /**
+     * 部门 ID;-
+     * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：4719456877659520852
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public DepartmentTree(Builder builder) {
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         */
-        this.id = builder.id;
-        /**
-         * 部门层级
-         * <p> 示例值：1
-         */
-        this.level = builder.level;
-        /**
-         * 下级部门 ID 列表
-         * <p> 示例值：
-         */
-        this.children = builder.children;
+    /**
+     * 部门绝对层级，根部门层级为0，根部门的子部门层级为1，依次类推
+     *
+     * <p>示例值：1
+     *
+     * @param level
+     * @return
+     */
+    public Builder level(Integer level) {
+      this.level = level;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 下级部门 ID 列表;-
+     * 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)
+     * 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search)
+     * 获取详情
+     *
+     * <p>示例值：
+     *
+     * @param children
+     * @return
+     */
+    public Builder children(String[] children) {
+      this.children = children;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public DepartmentTree build() {
+      return new DepartmentTree(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Integer getLevel() {
-        return this.level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
-
-    public String[] getChildren() {
-        return this.children;
-    }
-
-    public void setChildren(String[] children) {
-        this.children = children;
-    }
-
-    public static class Builder {
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         */
-        private String id;
-        /**
-         * 部门层级
-         * <p> 示例值：1
-         */
-        private Integer level;
-        /**
-         * 下级部门 ID 列表
-         * <p> 示例值：
-         */
-        private String[] children;
-
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 部门层级
-         * <p> 示例值：1
-         *
-         * @param level
-         * @return
-         */
-        public Builder level(Integer level) {
-            this.level = level;
-            return this;
-        }
-
-
-        /**
-         * 下级部门 ID 列表
-         * <p> 示例值：
-         *
-         * @param children
-         * @return
-         */
-        public Builder children(String[] children) {
-            this.children = children;
-            return this;
-        }
-
-
-        public DepartmentTree build() {
-            return new DepartmentTree(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

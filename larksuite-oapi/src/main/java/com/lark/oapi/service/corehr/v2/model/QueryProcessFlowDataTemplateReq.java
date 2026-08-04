@@ -13,112 +13,123 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryProcessFlowDataTemplateReq {
+  /**
+   * 流程定义ID。;获取方式：管理员在设置侧配置的流程，浏览器 URL 为;
+   * `https://{域名}/people/approvals/flow-builder/people_7023711013443944467_7554571297192562476`，其中
+   * `people_7023711013443944467_7554571297192562476` 为当前流程的流程定义 ID。
+   *
+   * <p>示例值：people_7023711013443944467_7437160904904494892
+   */
+  @SerializedName("flow_definition_id")
+  private String flowDefinitionId;
+
+  /**
+   * 需要传入的变量的ApiName。如果是多级下钻变量用"."分割。;字段的ApiName查询方式：;1. 进入飞书人事 -> 设置 -> 流程设置 -> 流程管理。;2.
+   * 点击flow_definition_id对应的流程的"编辑"按钮，点击右上角"下一步"，进入"2. 流程设计"页面;3.
+   * 点击左侧的“变量”，找到你需要查询的变量，点击变量右侧的“API”按钮，复制变量的ApiName。;;多级下钻变量举例，例如“批量异动.新部门”，分别按上面的步骤找到"批量异动"的ApiName为"batch_job_change"，新部门的ApiName为"target_department"，并用"."分割，则传参为"batch_job_change.target_department"。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("variable_api_names")
+  private String[] variableApiNames;
+
+  public String getFlowDefinitionId() {
+    return this.flowDefinitionId;
+  }
+
+  public void setFlowDefinitionId(String flowDefinitionId) {
+    this.flowDefinitionId = flowDefinitionId;
+  }
+
+  public String[] getVariableApiNames() {
+    return this.variableApiNames;
+  }
+
+  public void setVariableApiNames(String[] variableApiNames) {
+    this.variableApiNames = variableApiNames;
+  }
+
+  // builder 开始
+  public QueryProcessFlowDataTemplateReq() {}
+
+  public QueryProcessFlowDataTemplateReq(Builder builder) {
     /**
-     * 流程定义ID
-     * <p> 示例值：people_7023711013443944467_7437160904904494892
+     * 流程定义ID。;获取方式：管理员在设置侧配置的流程，浏览器 URL 为;
+     * `https://{域名}/people/approvals/flow-builder/people_7023711013443944467_7554571297192562476`，其中
+     * `people_7023711013443944467_7554571297192562476` 为当前流程的流程定义 ID。
+     *
+     * <p>示例值：people_7023711013443944467_7437160904904494892
      */
-    @SerializedName("flow_definition_id")
+    this.flowDefinitionId = builder.flowDefinitionId;
+    /**
+     * 需要传入的变量的ApiName。如果是多级下钻变量用"."分割。;字段的ApiName查询方式：;1. 进入飞书人事 -> 设置 -> 流程设置 -> 流程管理。;2.
+     * 点击flow_definition_id对应的流程的"编辑"按钮，点击右上角"下一步"，进入"2. 流程设计"页面;3.
+     * 点击左侧的“变量”，找到你需要查询的变量，点击变量右侧的“API”按钮，复制变量的ApiName。;;多级下钻变量举例，例如“批量异动.新部门”，分别按上面的步骤找到"批量异动"的ApiName为"batch_job_change"，新部门的ApiName为"target_department"，并用"."分割，则传参为"batch_job_change.target_department"。
+     *
+     * <p>示例值：
+     */
+    this.variableApiNames = builder.variableApiNames;
+  }
+
+  public static class Builder {
+    /**
+     * 流程定义ID。;获取方式：管理员在设置侧配置的流程，浏览器 URL 为;
+     * `https://{域名}/people/approvals/flow-builder/people_7023711013443944467_7554571297192562476`，其中
+     * `people_7023711013443944467_7554571297192562476` 为当前流程的流程定义 ID。
+     *
+     * <p>示例值：people_7023711013443944467_7437160904904494892
+     */
     private String flowDefinitionId;
+
     /**
-     * 需要传入的变量的ApiName。如果是多级下钻变量用"."分割
-     * <p> 示例值：
+     * 需要传入的变量的ApiName。如果是多级下钻变量用"."分割。;字段的ApiName查询方式：;1. 进入飞书人事 -> 设置 -> 流程设置 -> 流程管理。;2.
+     * 点击flow_definition_id对应的流程的"编辑"按钮，点击右上角"下一步"，进入"2. 流程设计"页面;3.
+     * 点击左侧的“变量”，找到你需要查询的变量，点击变量右侧的“API”按钮，复制变量的ApiName。;;多级下钻变量举例，例如“批量异动.新部门”，分别按上面的步骤找到"批量异动"的ApiName为"batch_job_change"，新部门的ApiName为"target_department"，并用"."分割，则传参为"batch_job_change.target_department"。
+     *
+     * <p>示例值：
      */
-    @SerializedName("variable_api_names")
     private String[] variableApiNames;
 
-    // builder 开始
-    public QueryProcessFlowDataTemplateReq() {
+    /**
+     * 流程定义ID。;获取方式：管理员在设置侧配置的流程，浏览器 URL 为;
+     * `https://{域名}/people/approvals/flow-builder/people_7023711013443944467_7554571297192562476`，其中
+     * `people_7023711013443944467_7554571297192562476` 为当前流程的流程定义 ID。
+     *
+     * <p>示例值：people_7023711013443944467_7437160904904494892
+     *
+     * @param flowDefinitionId
+     * @return
+     */
+    public Builder flowDefinitionId(String flowDefinitionId) {
+      this.flowDefinitionId = flowDefinitionId;
+      return this;
     }
 
-    public QueryProcessFlowDataTemplateReq(Builder builder) {
-        /**
-         * 流程定义ID
-         * <p> 示例值：people_7023711013443944467_7437160904904494892
-         */
-        this.flowDefinitionId = builder.flowDefinitionId;
-        /**
-         * 需要传入的变量的ApiName。如果是多级下钻变量用"."分割
-         * <p> 示例值：
-         */
-        this.variableApiNames = builder.variableApiNames;
+    /**
+     * 需要传入的变量的ApiName。如果是多级下钻变量用"."分割。;字段的ApiName查询方式：;1. 进入飞书人事 -> 设置 -> 流程设置 -> 流程管理。;2.
+     * 点击flow_definition_id对应的流程的"编辑"按钮，点击右上角"下一步"，进入"2. 流程设计"页面;3.
+     * 点击左侧的“变量”，找到你需要查询的变量，点击变量右侧的“API”按钮，复制变量的ApiName。;;多级下钻变量举例，例如“批量异动.新部门”，分别按上面的步骤找到"批量异动"的ApiName为"batch_job_change"，新部门的ApiName为"target_department"，并用"."分割，则传参为"batch_job_change.target_department"。
+     *
+     * <p>示例值：
+     *
+     * @param variableApiNames
+     * @return
+     */
+    public Builder variableApiNames(String[] variableApiNames) {
+      this.variableApiNames = variableApiNames;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public QueryProcessFlowDataTemplateReq build() {
+      return new QueryProcessFlowDataTemplateReq(this);
     }
+  }
 
-    public String getFlowDefinitionId() {
-        return this.flowDefinitionId;
-    }
-
-    public void setFlowDefinitionId(String flowDefinitionId) {
-        this.flowDefinitionId = flowDefinitionId;
-    }
-
-    public String[] getVariableApiNames() {
-        return this.variableApiNames;
-    }
-
-    public void setVariableApiNames(String[] variableApiNames) {
-        this.variableApiNames = variableApiNames;
-    }
-
-    public static class Builder {
-        /**
-         * 流程定义ID
-         * <p> 示例值：people_7023711013443944467_7437160904904494892
-         */
-        private String flowDefinitionId;
-        /**
-         * 需要传入的变量的ApiName。如果是多级下钻变量用"."分割
-         * <p> 示例值：
-         */
-        private String[] variableApiNames;
-
-        /**
-         * 流程定义ID
-         * <p> 示例值：people_7023711013443944467_7437160904904494892
-         *
-         * @param flowDefinitionId
-         * @return
-         */
-        public Builder flowDefinitionId(String flowDefinitionId) {
-            this.flowDefinitionId = flowDefinitionId;
-            return this;
-        }
-
-
-        /**
-         * 需要传入的变量的ApiName。如果是多级下钻变量用"."分割
-         * <p> 示例值：
-         *
-         * @param variableApiNames
-         * @return
-         */
-        public Builder variableApiNames(String[] variableApiNames) {
-            this.variableApiNames = variableApiNames;
-            return this;
-        }
-
-
-        public QueryProcessFlowDataTemplateReq build() {
-            return new QueryProcessFlowDataTemplateReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

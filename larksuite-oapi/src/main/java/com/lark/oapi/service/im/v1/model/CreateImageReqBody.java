@@ -13,124 +13,126 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateImageReqBody {
+  /**
+   * 图片类型
+   *
+   * <p>示例值：message
+   */
+  @SerializedName("image_type")
+  private String imageType;
+
+  /**
+   * 图片内容。传值方式可以参考请求体示例。;;**注意**：;;- 上传的图片大小不能超过 10 MB，也不能上传大小为 0 的图片。;- 分辨率限制：; - GIF 图片分辨率不能超过
+   * 2000 x 2000，其他图片分辨率不能超过 12000 x 12000。; - 用于设置头像的图片分辨率不能超过 4096 x 4096。
+   *
+   * <p>示例值：二进制文件
+   */
+  @SerializedName("image")
+  private java.io.File image;
+
+  public String getImageType() {
+    return this.imageType;
+  }
+
+  public void setImageType(String imageType) {
+    this.imageType = imageType;
+  }
+
+  public java.io.File getImage() {
+    return this.image;
+  }
+
+  public void setImage(java.io.File image) {
+    this.image = image;
+  }
+
+  // builder 开始
+  public CreateImageReqBody() {}
+
+  public CreateImageReqBody(Builder builder) {
     /**
      * 图片类型
-     * <p> 示例值：message
+     *
+     * <p>示例值：message
      */
-    @SerializedName("image_type")
-    private String imageType;
+    this.imageType = builder.imageType;
     /**
-     * 图片内容;; **注意：** 上传的图片大小不能超过10MB
-     * <p> 示例值：二进制文件
+     * 图片内容。传值方式可以参考请求体示例。;;**注意**：;;- 上传的图片大小不能超过 10 MB，也不能上传大小为 0 的图片。;- 分辨率限制：; - GIF 图片分辨率不能超过
+     * 2000 x 2000，其他图片分辨率不能超过 12000 x 12000。; - 用于设置头像的图片分辨率不能超过 4096 x 4096。
+     *
+     * <p>示例值：二进制文件
      */
-    @SerializedName("image")
+    this.image = builder.image;
+  }
+
+  public static class Builder {
+    /**
+     * 图片类型
+     *
+     * <p>示例值：message
+     */
+    private String imageType;
+
+    /**
+     * 图片内容。传值方式可以参考请求体示例。;;**注意**：;;- 上传的图片大小不能超过 10 MB，也不能上传大小为 0 的图片。;- 分辨率限制：; - GIF 图片分辨率不能超过
+     * 2000 x 2000，其他图片分辨率不能超过 12000 x 12000。; - 用于设置头像的图片分辨率不能超过 4096 x 4096。
+     *
+     * <p>示例值：二进制文件
+     */
     private java.io.File image;
 
-    // builder 开始
-    public CreateImageReqBody() {
+    /**
+     * 图片类型
+     *
+     * <p>示例值：message
+     *
+     * @param imageType
+     * @return
+     */
+    public Builder imageType(String imageType) {
+      this.imageType = imageType;
+      return this;
     }
 
-    public CreateImageReqBody(Builder builder) {
-        /**
-         * 图片类型
-         * <p> 示例值：message
-         */
-        this.imageType = builder.imageType;
-        /**
-         * 图片内容;; **注意：** 上传的图片大小不能超过10MB
-         * <p> 示例值：二进制文件
-         */
-        this.image = builder.image;
+    /**
+     * 图片类型
+     *
+     * <p>示例值：message
+     *
+     * @param imageType {@link
+     *     com.lark.oapi.service.im.v1.enums.CreateImageCreateImageImageTypeEnum}
+     * @return
+     */
+    public Builder imageType(
+        com.lark.oapi.service.im.v1.enums.CreateImageCreateImageImageTypeEnum imageType) {
+      this.imageType = imageType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 图片内容。传值方式可以参考请求体示例。;;**注意**：;;- 上传的图片大小不能超过 10 MB，也不能上传大小为 0 的图片。;- 分辨率限制：; - GIF 图片分辨率不能超过
+     * 2000 x 2000，其他图片分辨率不能超过 12000 x 12000。; - 用于设置头像的图片分辨率不能超过 4096 x 4096。
+     *
+     * <p>示例值：二进制文件
+     *
+     * @param image
+     * @return
+     */
+    public Builder image(java.io.File image) {
+      this.image = image;
+      return this;
     }
 
-    public String getImageType() {
-        return this.imageType;
+    public CreateImageReqBody build() {
+      return new CreateImageReqBody(this);
     }
+  }
 
-    public void setImageType(String imageType) {
-        this.imageType = imageType;
-    }
-
-    public java.io.File getImage() {
-        return this.image;
-    }
-
-    public void setImage(java.io.File image) {
-        this.image = image;
-    }
-
-    public static class Builder {
-        /**
-         * 图片类型
-         * <p> 示例值：message
-         */
-        private String imageType;
-        /**
-         * 图片内容;; **注意：** 上传的图片大小不能超过10MB
-         * <p> 示例值：二进制文件
-         */
-        private java.io.File image;
-
-        /**
-         * 图片类型
-         * <p> 示例值：message
-         *
-         * @param imageType
-         * @return
-         */
-        public Builder imageType(String imageType) {
-            this.imageType = imageType;
-            return this;
-        }
-
-        /**
-         * 图片类型
-         * <p> 示例值：message
-         *
-         * @param imageType {@link com.lark.oapi.service.im.v1.enums.CreateImageCreateImageImageTypeEnum}
-         * @return
-         */
-        public Builder imageType(com.lark.oapi.service.im.v1.enums.CreateImageCreateImageImageTypeEnum imageType) {
-            this.imageType = imageType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 图片内容;; **注意：** 上传的图片大小不能超过10MB
-         * <p> 示例值：二进制文件
-         *
-         * @param image
-         * @return
-         */
-        public Builder image(java.io.File image) {
-            this.image = image;
-            return this;
-        }
-
-
-        public CreateImageReqBody build() {
-            return new CreateImageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

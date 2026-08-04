@@ -13,25 +13,24 @@
 package com.lark.oapi.service.optical_char_recognition;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.optical_char_recognition.v1.V1;
 import com.lark.oapi.service.optical_char_recognition.v1.model.*;
 import com.lark.oapi.service.optical_char_recognition.v1.resource.Image;
 
 public class OpticalCharRecognitionService {
-    private final V1 v1;
-    private final Image image; // 图片识别
+  private final V1 v1;
+  private final Image image; // image
 
-    public OpticalCharRecognitionService(Config config) {
-        this.v1 = new V1(config);
-        this.image = new Image(config);
-    }
+  public OpticalCharRecognitionService(Config config) {
+    this.v1 = new V1(config);
+    this.image = new Image(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public Image image() {
-        return image;
-    }
+  public Image image() {
+    return image;
+  }
 }

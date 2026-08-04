@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatMember {
+  /**
+   * 会话成员
+   *
+   * <p>示例值：
+   */
+  @SerializedName("members")
+  private User[] members;
+
+  /**
+   * 所有人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  /**
+   * 管理员
+   *
+   * <p>示例值：
+   */
+  @SerializedName("admin_user_ids")
+  private String[] adminUserIds;
+
+  public User[] getMembers() {
+    return this.members;
+  }
+
+  public void setMembers(User[] members) {
+    this.members = members;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public String[] getAdminUserIds() {
+    return this.adminUserIds;
+  }
+
+  public void setAdminUserIds(String[] adminUserIds) {
+    this.adminUserIds = adminUserIds;
+  }
+
+  // builder 开始
+  public ChatMember() {}
+
+  public ChatMember(Builder builder) {
     /**
      * 会话成员
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("members")
-    private User[] members;
+    this.members = builder.members;
     /**
      * 所有人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("owner_id")
-    private String ownerId;
+    this.ownerId = builder.ownerId;
     /**
      * 管理员
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("admin_user_ids")
+    this.adminUserIds = builder.adminUserIds;
+  }
+
+  public static class Builder {
+    /**
+     * 会话成员
+     *
+     * <p>示例值：
+     */
+    private User[] members;
+
+    /**
+     * 所有人
+     *
+     * <p>示例值：
+     */
+    private String ownerId;
+
+    /**
+     * 管理员
+     *
+     * <p>示例值：
+     */
     private String[] adminUserIds;
 
-    // builder 开始
-    public ChatMember() {
+    /**
+     * 会话成员
+     *
+     * <p>示例值：
+     *
+     * @param members
+     * @return
+     */
+    public Builder members(User[] members) {
+      this.members = members;
+      return this;
     }
 
-    public ChatMember(Builder builder) {
-        /**
-         * 会话成员
-         * <p> 示例值：
-         */
-        this.members = builder.members;
-        /**
-         * 所有人
-         * <p> 示例值：
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 管理员
-         * <p> 示例值：
-         */
-        this.adminUserIds = builder.adminUserIds;
+    /**
+     * 所有人
+     *
+     * <p>示例值：
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 管理员
+     *
+     * <p>示例值：
+     *
+     * @param adminUserIds
+     * @return
+     */
+    public Builder adminUserIds(String[] adminUserIds) {
+      this.adminUserIds = adminUserIds;
+      return this;
     }
 
-    public User[] getMembers() {
-        return this.members;
+    public ChatMember build() {
+      return new ChatMember(this);
     }
+  }
 
-    public void setMembers(User[] members) {
-        this.members = members;
-    }
-
-    public String getOwnerId() {
-        return this.ownerId;
-    }
-
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
-
-    public String[] getAdminUserIds() {
-        return this.adminUserIds;
-    }
-
-    public void setAdminUserIds(String[] adminUserIds) {
-        this.adminUserIds = adminUserIds;
-    }
-
-    public static class Builder {
-        /**
-         * 会话成员
-         * <p> 示例值：
-         */
-        private User[] members;
-        /**
-         * 所有人
-         * <p> 示例值：
-         */
-        private String ownerId;
-        /**
-         * 管理员
-         * <p> 示例值：
-         */
-        private String[] adminUserIds;
-
-        /**
-         * 会话成员
-         * <p> 示例值：
-         *
-         * @param members
-         * @return
-         */
-        public Builder members(User[] members) {
-            this.members = members;
-            return this;
-        }
-
-
-        /**
-         * 所有人
-         * <p> 示例值：
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        /**
-         * 管理员
-         * <p> 示例值：
-         *
-         * @param adminUserIds
-         * @return
-         */
-        public Builder adminUserIds(String[] adminUserIds) {
-            this.adminUserIds = adminUserIds;
-            return this;
-        }
-
-
-        public ChatMember build() {
-            return new ChatMember(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

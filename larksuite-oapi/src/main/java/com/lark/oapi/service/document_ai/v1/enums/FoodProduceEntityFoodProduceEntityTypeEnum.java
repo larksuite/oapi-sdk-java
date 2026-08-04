@@ -13,31 +13,29 @@
 
 package com.lark.oapi.service.document_ai.v1.enums;
 
-/**
- * 识别的字段种类
- */
+/** 识别的字段种类 */
 public enum FoodProduceEntityFoodProduceEntityTypeEnum {
-    VALIDITYPERIOD("validity_period"), // 有效期
-    ISSUER("issuer"), // 签发人
-    ISSUING_AUTHORITY("issuing_authority"), // 发证机关
-    COMPLAINTSHOTLINE("complaints_hotline"), // 投诉举报电话
-    FOODCATEGORY("food_category"), // 食品类别
-    PRODUCTIONADDRESS("production_address"), // 生产地址
-    LICENSENUMBER("license_number"), // 许可证编号
-    DOMICILE("domicile"), // 住所
-    LEGALREPRESENTATIVE("legal_representative"), // 法定代表人(负责人)
-    CREDITCODE("credit_code"), // 社会信用代码(身份证号)
-    PRODUCER("producer"), // 生产者名称
-    DAILYSUPERVISORYAUTHORITIES("daily_supervisory_authorities"), // 日常监督管理机构
-    DAILYSUPERVICOR("daily_supervisor"), // 日常监督管理人员
-    ;
-    private String value;
+  VALIDITYPERIOD("validity_period"), // 有效期
+  ISSUER("issuer"), // 签发人
+  ISSUING_AUTHORITY("issuing_authority"), // 发证机关
+  COMPLAINTSHOTLINE("complaints_hotline"), // 投诉举报电话
+  FOODCATEGORY("food_category"), // 食品类别
+  PRODUCTIONADDRESS("production_address"), // 生产地址
+  LICENSENUMBER("license_number"), // 许可证编号
+  DOMICILE("domicile"), // 住所
+  LEGALREPRESENTATIVE("legal_representative"), // 法定代表人(负责人)
+  CREDITCODE("credit_code"), // 社会信用代码(身份证号)
+  PRODUCER("producer"), // 生产者名称
+  DAILYSUPERVISORYAUTHORITIES("daily_supervisory_authorities"), // 日常监督管理机构
+  DAILYSUPERVICOR("daily_supervisor"), // 日常监督管理人员
+  ;
+  private String value;
 
-    FoodProduceEntityFoodProduceEntityTypeEnum(String value) {
-        this.value = value;
-    }
+  FoodProduceEntityFoodProduceEntityTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

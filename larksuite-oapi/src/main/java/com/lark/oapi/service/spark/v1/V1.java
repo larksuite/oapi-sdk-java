@@ -22,43 +22,43 @@ import com.lark.oapi.service.spark.v1.resource.AppView;
 import com.lark.oapi.service.spark.v1.resource.DirectoryUser;
 
 public class V1 {
-    private final App app; // app
-    private final AppEnum appEnum; // app.enum
-    private final AppStorage appStorage; // app.storage
-    private final AppTable appTable; // app.table
-    private final AppView appView; // app.view
-    private final DirectoryUser directoryUser; // directory.user
+  private final App app; // app
+  private final AppEnum appEnum; // app.enum
+  private final AppStorage appStorage; // app.storage
+  private final AppTable appTable; // app.table
+  private final AppView appView; // app.view
+  private final DirectoryUser directoryUser; // directory.user
 
-    public V1(Config config) {
-        this.app = new App(config);
-        this.appEnum = new AppEnum(config);
-        this.appStorage = new AppStorage(config);
-        this.appTable = new AppTable(config);
-        this.appView = new AppView(config);
-        this.directoryUser = new DirectoryUser(config);
-    }
+  public V1(Config config) {
+    this.app = new App(config);
+    this.appEnum = new AppEnum(config);
+    this.appStorage = new AppStorage(config);
+    this.appTable = new AppTable(config);
+    this.appView = new AppView(config);
+    this.directoryUser = new DirectoryUser(config);
+  }
 
-    public App app() {
-        return app;
-    }
+  public App app() {
+    return app;
+  }
 
-    public AppEnum appEnum() {
-        return appEnum;
-    }
+  public AppEnum appEnum() {
+    return appEnum;
+  }
 
-    public AppStorage appStorage() {
-        return appStorage;
-    }
+  public AppStorage appStorage() {
+    return appStorage;
+  }
 
-    public AppTable appTable() {
-        return appTable;
-    }
+  public AppTable appTable() {
+    return appTable;
+  }
 
-    public AppView appView() {
-        return appView;
-    }
+  public AppView appView() {
+    return appView;
+  }
 
-    public DirectoryUser directoryUser() {
-        return directoryUser;
-    }
+  public DirectoryUser directoryUser() {
+    return directoryUser;
+  }
 }

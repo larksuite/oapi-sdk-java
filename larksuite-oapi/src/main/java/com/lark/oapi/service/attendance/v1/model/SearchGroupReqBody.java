@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchGroupReqBody {
+  /**
+   * 考勤组名称
+   *
+   * <p>示例值：考勤组1
+   */
+  @SerializedName("group_name")
+  private String groupName;
+
+  /**
+   * 是否精准匹配，默认为false:模糊匹配; true:精准匹配
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("exactly_matched")
+  private Boolean exactlyMatched;
+
+  public String getGroupName() {
+    return this.groupName;
+  }
+
+  public void setGroupName(String groupName) {
+    this.groupName = groupName;
+  }
+
+  public Boolean getExactlyMatched() {
+    return this.exactlyMatched;
+  }
+
+  public void setExactlyMatched(Boolean exactlyMatched) {
+    this.exactlyMatched = exactlyMatched;
+  }
+
+  // builder 开始
+  public SearchGroupReqBody() {}
+
+  public SearchGroupReqBody(Builder builder) {
     /**
      * 考勤组名称
-     * <p> 示例值：考勤组1
+     *
+     * <p>示例值：考勤组1
      */
-    @SerializedName("group_name")
-    private String groupName;
+    this.groupName = builder.groupName;
     /**
      * 是否精准匹配，默认为false:模糊匹配; true:精准匹配
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("exactly_matched")
+    this.exactlyMatched = builder.exactlyMatched;
+  }
+
+  public static class Builder {
+    /**
+     * 考勤组名称
+     *
+     * <p>示例值：考勤组1
+     */
+    private String groupName;
+
+    /**
+     * 是否精准匹配，默认为false:模糊匹配; true:精准匹配
+     *
+     * <p>示例值：true
+     */
     private Boolean exactlyMatched;
 
-    // builder 开始
-    public SearchGroupReqBody() {
+    /**
+     * 考勤组名称
+     *
+     * <p>示例值：考勤组1
+     *
+     * @param groupName
+     * @return
+     */
+    public Builder groupName(String groupName) {
+      this.groupName = groupName;
+      return this;
     }
 
-    public SearchGroupReqBody(Builder builder) {
-        /**
-         * 考勤组名称
-         * <p> 示例值：考勤组1
-         */
-        this.groupName = builder.groupName;
-        /**
-         * 是否精准匹配，默认为false:模糊匹配; true:精准匹配
-         * <p> 示例值：true
-         */
-        this.exactlyMatched = builder.exactlyMatched;
+    /**
+     * 是否精准匹配，默认为false:模糊匹配; true:精准匹配
+     *
+     * <p>示例值：true
+     *
+     * @param exactlyMatched
+     * @return
+     */
+    public Builder exactlyMatched(Boolean exactlyMatched) {
+      this.exactlyMatched = exactlyMatched;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SearchGroupReqBody build() {
+      return new SearchGroupReqBody(this);
     }
+  }
 
-    public String getGroupName() {
-        return this.groupName;
-    }
-
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
-
-    public Boolean getExactlyMatched() {
-        return this.exactlyMatched;
-    }
-
-    public void setExactlyMatched(Boolean exactlyMatched) {
-        this.exactlyMatched = exactlyMatched;
-    }
-
-    public static class Builder {
-        /**
-         * 考勤组名称
-         * <p> 示例值：考勤组1
-         */
-        private String groupName;
-        /**
-         * 是否精准匹配，默认为false:模糊匹配; true:精准匹配
-         * <p> 示例值：true
-         */
-        private Boolean exactlyMatched;
-
-        /**
-         * 考勤组名称
-         * <p> 示例值：考勤组1
-         *
-         * @param groupName
-         * @return
-         */
-        public Builder groupName(String groupName) {
-            this.groupName = groupName;
-            return this;
-        }
-
-
-        /**
-         * 是否精准匹配，默认为false:模糊匹配; true:精准匹配
-         * <p> 示例值：true
-         *
-         * @param exactlyMatched
-         * @return
-         */
-        public Builder exactlyMatched(Boolean exactlyMatched) {
-            this.exactlyMatched = exactlyMatched;
-            return this;
-        }
-
-
-        public SearchGroupReqBody build() {
-            return new SearchGroupReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

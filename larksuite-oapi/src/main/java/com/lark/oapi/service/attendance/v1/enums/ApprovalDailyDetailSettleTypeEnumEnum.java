@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 加班结算方式类型
- */
+/** 加班结算方式类型 */
 public enum ApprovalDailyDetailSettleTypeEnumEnum {
-    ONLY_RECORD(0), // 仅记录
-    COMPENSATORY_LEAVE(1), // 转调休
-    PAY(3), // 加班费
-    ;
-    private Integer value;
+  ONLY_RECORD(0), // 仅记录
+  COMPENSATORY_LEAVE(1), // 转调休
+  PAY(3), // 加班费
+  ;
+  private Integer value;
 
-    ApprovalDailyDetailSettleTypeEnumEnum(Integer value) {
-        this.value = value;
-    }
+  ApprovalDailyDetailSettleTypeEnumEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

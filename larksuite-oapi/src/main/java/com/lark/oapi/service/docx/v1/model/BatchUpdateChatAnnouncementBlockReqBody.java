@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchUpdateChatAnnouncementBlockReqBody {
+  /**
+   * 批量更新块。不支持在一次批量更新中，对同一个块进行多次更新。即请求体中的 Block ID 不能重复;;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("requests")
+  private UpdateBlockRequest[] requests;
+
+  public UpdateBlockRequest[] getRequests() {
+    return this.requests;
+  }
+
+  public void setRequests(UpdateBlockRequest[] requests) {
+    this.requests = requests;
+  }
+
+  // builder 开始
+  public BatchUpdateChatAnnouncementBlockReqBody() {}
+
+  public BatchUpdateChatAnnouncementBlockReqBody(Builder builder) {
     /**
-     * 批量更新 Block
-     * <p> 示例值：
+     * 批量更新块。不支持在一次批量更新中，对同一个块进行多次更新。即请求体中的 Block ID 不能重复;;
+     *
+     * <p>示例值：
      */
-    @SerializedName("requests")
+    this.requests = builder.requests;
+  }
+
+  public static class Builder {
+    /**
+     * 批量更新块。不支持在一次批量更新中，对同一个块进行多次更新。即请求体中的 Block ID 不能重复;;
+     *
+     * <p>示例值：
+     */
     private UpdateBlockRequest[] requests;
 
-    // builder 开始
-    public BatchUpdateChatAnnouncementBlockReqBody() {
+    /**
+     * 批量更新块。不支持在一次批量更新中，对同一个块进行多次更新。即请求体中的 Block ID 不能重复;;
+     *
+     * <p>示例值：
+     *
+     * @param requests
+     * @return
+     */
+    public Builder requests(UpdateBlockRequest[] requests) {
+      this.requests = requests;
+      return this;
     }
 
-    public BatchUpdateChatAnnouncementBlockReqBody(Builder builder) {
-        /**
-         * 批量更新 Block
-         * <p> 示例值：
-         */
-        this.requests = builder.requests;
+    public BatchUpdateChatAnnouncementBlockReqBody build() {
+      return new BatchUpdateChatAnnouncementBlockReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public UpdateBlockRequest[] getRequests() {
-        return this.requests;
-    }
-
-    public void setRequests(UpdateBlockRequest[] requests) {
-        this.requests = requests;
-    }
-
-    public static class Builder {
-        /**
-         * 批量更新 Block
-         * <p> 示例值：
-         */
-        private UpdateBlockRequest[] requests;
-
-        /**
-         * 批量更新 Block
-         * <p> 示例值：
-         *
-         * @param requests
-         * @return
-         */
-        public Builder requests(UpdateBlockRequest[] requests) {
-            this.requests = requests;
-            return this;
-        }
-
-
-        public BatchUpdateChatAnnouncementBlockReqBody build() {
-            return new BatchUpdateChatAnnouncementBlockReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

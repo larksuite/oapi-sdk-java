@@ -13,124 +13,123 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppTableFieldPropertyFilterInfo {
+  /**
+   * 多个筛选条件的关系
+   *
+   * <p>示例值：and
+   */
+  @SerializedName("conjunction")
+  private String conjunction;
+
+  /**
+   * 筛选条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("conditions")
+  private AppTableFieldPropertyFilterInfoCondition[] conditions;
+
+  public String getConjunction() {
+    return this.conjunction;
+  }
+
+  public void setConjunction(String conjunction) {
+    this.conjunction = conjunction;
+  }
+
+  public AppTableFieldPropertyFilterInfoCondition[] getConditions() {
+    return this.conditions;
+  }
+
+  public void setConditions(AppTableFieldPropertyFilterInfoCondition[] conditions) {
+    this.conditions = conditions;
+  }
+
+  // builder 开始
+  public AppTableFieldPropertyFilterInfo() {}
+
+  public AppTableFieldPropertyFilterInfo(Builder builder) {
     /**
      * 多个筛选条件的关系
-     * <p> 示例值：and
+     *
+     * <p>示例值：and
      */
-    @SerializedName("conjunction")
-    private String conjunction;
+    this.conjunction = builder.conjunction;
     /**
      * 筛选条件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("conditions")
+    this.conditions = builder.conditions;
+  }
+
+  public static class Builder {
+    /**
+     * 多个筛选条件的关系
+     *
+     * <p>示例值：and
+     */
+    private String conjunction;
+
+    /**
+     * 筛选条件
+     *
+     * <p>示例值：
+     */
     private AppTableFieldPropertyFilterInfoCondition[] conditions;
 
-    // builder 开始
-    public AppTableFieldPropertyFilterInfo() {
+    /**
+     * 多个筛选条件的关系
+     *
+     * <p>示例值：and
+     *
+     * @param conjunction
+     * @return
+     */
+    public Builder conjunction(String conjunction) {
+      this.conjunction = conjunction;
+      return this;
     }
 
-    public AppTableFieldPropertyFilterInfo(Builder builder) {
-        /**
-         * 多个筛选条件的关系
-         * <p> 示例值：and
-         */
-        this.conjunction = builder.conjunction;
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         */
-        this.conditions = builder.conditions;
+    /**
+     * 多个筛选条件的关系
+     *
+     * <p>示例值：and
+     *
+     * @param conjunction {@link
+     *     com.lark.oapi.service.bitable.v1.enums.AppTableFieldPropertyFilterInfoConjunctionEnum}
+     * @return
+     */
+    public Builder conjunction(
+        com.lark.oapi.service.bitable.v1.enums.AppTableFieldPropertyFilterInfoConjunctionEnum
+            conjunction) {
+      this.conjunction = conjunction.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 筛选条件
+     *
+     * <p>示例值：
+     *
+     * @param conditions
+     * @return
+     */
+    public Builder conditions(AppTableFieldPropertyFilterInfoCondition[] conditions) {
+      this.conditions = conditions;
+      return this;
     }
 
-    public String getConjunction() {
-        return this.conjunction;
+    public AppTableFieldPropertyFilterInfo build() {
+      return new AppTableFieldPropertyFilterInfo(this);
     }
+  }
 
-    public void setConjunction(String conjunction) {
-        this.conjunction = conjunction;
-    }
-
-    public AppTableFieldPropertyFilterInfoCondition[] getConditions() {
-        return this.conditions;
-    }
-
-    public void setConditions(AppTableFieldPropertyFilterInfoCondition[] conditions) {
-        this.conditions = conditions;
-    }
-
-    public static class Builder {
-        /**
-         * 多个筛选条件的关系
-         * <p> 示例值：and
-         */
-        private String conjunction;
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         */
-        private AppTableFieldPropertyFilterInfoCondition[] conditions;
-
-        /**
-         * 多个筛选条件的关系
-         * <p> 示例值：and
-         *
-         * @param conjunction
-         * @return
-         */
-        public Builder conjunction(String conjunction) {
-            this.conjunction = conjunction;
-            return this;
-        }
-
-        /**
-         * 多个筛选条件的关系
-         * <p> 示例值：and
-         *
-         * @param conjunction {@link com.lark.oapi.service.bitable.v1.enums.AppTableFieldPropertyFilterInfoConjunctionEnum}
-         * @return
-         */
-        public Builder conjunction(com.lark.oapi.service.bitable.v1.enums.AppTableFieldPropertyFilterInfoConjunctionEnum conjunction) {
-            this.conjunction = conjunction.getValue();
-            return this;
-        }
-
-
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         *
-         * @param conditions
-         * @return
-         */
-        public Builder conditions(AppTableFieldPropertyFilterInfoCondition[] conditions) {
-            this.conditions = conditions;
-            return this;
-        }
-
-
-        public AppTableFieldPropertyFilterInfo build() {
-            return new AppTableFieldPropertyFilterInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

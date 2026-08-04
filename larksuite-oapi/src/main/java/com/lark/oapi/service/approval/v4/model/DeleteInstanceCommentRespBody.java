@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteInstanceCommentRespBody {
-    /**
-     * 删除的评论ID
-     * <p> 示例值：7081516627711606803
-     */
-    @SerializedName("comment_id")
-    private String commentId;
+  /**
+   * 被删除的评论 ID。
+   *
+   * <p>示例值：7081516627711606803
+   */
+  @SerializedName("comment_id")
+  private String commentId;
 
-    public String getCommentId() {
-        return this.commentId;
-    }
+  public String getCommentId() {
+    return this.commentId;
+  }
 
-    public void setCommentId(String commentId) {
-        this.commentId = commentId;
-    }
-
+  public void setCommentId(String commentId) {
+    this.commentId = commentId;
+  }
 }

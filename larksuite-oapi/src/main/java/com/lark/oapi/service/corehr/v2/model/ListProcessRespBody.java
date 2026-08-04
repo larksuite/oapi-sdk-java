@@ -13,62 +13,55 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListProcessRespBody {
-    /**
-     * 流程实例ID列表
-     * <p> 示例值：
-     */
-    @SerializedName("process_ids")
-    private String[] processIds;
-    /**
-     * 是否还有更多项
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 有更多项时的分页键
-     * <p> 示例值：7278949005675988535
-     */
-    @SerializedName("page_token")
-    private String pageToken;
+  /**
+   * 流程实例ID列表;;可通过[获取单个流程详情](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)
+   * 查询流程详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("process_ids")
+  private String[] processIds;
 
-    public String[] getProcessIds() {
-        return this.processIds;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setProcessIds(String[] processIds) {
-        this.processIds = processIds;
-    }
+  /**
+   * 有更多项时的分页键
+   *
+   * <p>示例值：7278949005675988535
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public String[] getProcessIds() {
+    return this.processIds;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setProcessIds(String[] processIds) {
+    this.processIds = processIds;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 }

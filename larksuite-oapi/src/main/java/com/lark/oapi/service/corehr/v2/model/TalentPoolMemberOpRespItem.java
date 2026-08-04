@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentPoolMemberOpRespItem {
+  /**
+   * 员工id
+   *
+   * <p>示例值：7345313696725173804
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 人才池ref id
+   *
+   * <p>示例值：7345313696725173123
+   */
+  @SerializedName("talent_pool_ref")
+  private String talentPoolRef;
+
+  /**
+   * 操作是否成功
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("success")
+  private Boolean success;
+
+  /**
+   * 错误信息列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("errs")
+  private ErrorInfo[] errs;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getTalentPoolRef() {
+    return this.talentPoolRef;
+  }
+
+  public void setTalentPoolRef(String talentPoolRef) {
+    this.talentPoolRef = talentPoolRef;
+  }
+
+  public Boolean getSuccess() {
+    return this.success;
+  }
+
+  public void setSuccess(Boolean success) {
+    this.success = success;
+  }
+
+  public ErrorInfo[] getErrs() {
+    return this.errs;
+  }
+
+  public void setErrs(ErrorInfo[] errs) {
+    this.errs = errs;
+  }
+
+  // builder 开始
+  public TalentPoolMemberOpRespItem() {}
+
+  public TalentPoolMemberOpRespItem(Builder builder) {
     /**
      * 员工id
-     * <p> 示例值：7345313696725173804
+     *
+     * <p>示例值：7345313696725173804
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 人才池ref id
-     * <p> 示例值：7345313696725173123
+     *
+     * <p>示例值：7345313696725173123
      */
-    @SerializedName("talent_pool_ref")
-    private String talentPoolRef;
+    this.talentPoolRef = builder.talentPoolRef;
     /**
      * 操作是否成功
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("success")
-    private Boolean success;
+    this.success = builder.success;
     /**
      * 错误信息列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("errs")
+    this.errs = builder.errs;
+  }
+
+  public static class Builder {
+    /**
+     * 员工id
+     *
+     * <p>示例值：7345313696725173804
+     */
+    private String employmentId;
+
+    /**
+     * 人才池ref id
+     *
+     * <p>示例值：7345313696725173123
+     */
+    private String talentPoolRef;
+
+    /**
+     * 操作是否成功
+     *
+     * <p>示例值：true
+     */
+    private Boolean success;
+
+    /**
+     * 错误信息列表
+     *
+     * <p>示例值：
+     */
     private ErrorInfo[] errs;
 
-    // builder 开始
-    public TalentPoolMemberOpRespItem() {
+    /**
+     * 员工id
+     *
+     * <p>示例值：7345313696725173804
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public TalentPoolMemberOpRespItem(Builder builder) {
-        /**
-         * 员工id
-         * <p> 示例值：7345313696725173804
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 人才池ref id
-         * <p> 示例值：7345313696725173123
-         */
-        this.talentPoolRef = builder.talentPoolRef;
-        /**
-         * 操作是否成功
-         * <p> 示例值：true
-         */
-        this.success = builder.success;
-        /**
-         * 错误信息列表
-         * <p> 示例值：
-         */
-        this.errs = builder.errs;
+    /**
+     * 人才池ref id
+     *
+     * <p>示例值：7345313696725173123
+     *
+     * @param talentPoolRef
+     * @return
+     */
+    public Builder talentPoolRef(String talentPoolRef) {
+      this.talentPoolRef = talentPoolRef;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 操作是否成功
+     *
+     * <p>示例值：true
+     *
+     * @param success
+     * @return
+     */
+    public Builder success(Boolean success) {
+      this.success = success;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 错误信息列表
+     *
+     * <p>示例值：
+     *
+     * @param errs
+     * @return
+     */
+    public Builder errs(ErrorInfo[] errs) {
+      this.errs = errs;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    public TalentPoolMemberOpRespItem build() {
+      return new TalentPoolMemberOpRespItem(this);
     }
+  }
 
-    public String getTalentPoolRef() {
-        return this.talentPoolRef;
-    }
-
-    public void setTalentPoolRef(String talentPoolRef) {
-        this.talentPoolRef = talentPoolRef;
-    }
-
-    public Boolean getSuccess() {
-        return this.success;
-    }
-
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
-    public ErrorInfo[] getErrs() {
-        return this.errs;
-    }
-
-    public void setErrs(ErrorInfo[] errs) {
-        this.errs = errs;
-    }
-
-    public static class Builder {
-        /**
-         * 员工id
-         * <p> 示例值：7345313696725173804
-         */
-        private String employmentId;
-        /**
-         * 人才池ref id
-         * <p> 示例值：7345313696725173123
-         */
-        private String talentPoolRef;
-        /**
-         * 操作是否成功
-         * <p> 示例值：true
-         */
-        private Boolean success;
-        /**
-         * 错误信息列表
-         * <p> 示例值：
-         */
-        private ErrorInfo[] errs;
-
-        /**
-         * 员工id
-         * <p> 示例值：7345313696725173804
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 人才池ref id
-         * <p> 示例值：7345313696725173123
-         *
-         * @param talentPoolRef
-         * @return
-         */
-        public Builder talentPoolRef(String talentPoolRef) {
-            this.talentPoolRef = talentPoolRef;
-            return this;
-        }
-
-
-        /**
-         * 操作是否成功
-         * <p> 示例值：true
-         *
-         * @param success
-         * @return
-         */
-        public Builder success(Boolean success) {
-            this.success = success;
-            return this;
-        }
-
-
-        /**
-         * 错误信息列表
-         * <p> 示例值：
-         *
-         * @param errs
-         * @return
-         */
-        public Builder errs(ErrorInfo[] errs) {
-            this.errs = errs;
-            return this;
-        }
-
-
-        public TalentPoolMemberOpRespItem build() {
-            return new TalentPoolMemberOpRespItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

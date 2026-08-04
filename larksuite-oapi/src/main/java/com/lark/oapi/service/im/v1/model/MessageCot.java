@@ -13,149 +13,157 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageCot {
+  /**
+   * agent AG2UI事件类型，eg. TOOL_CALL_START
+   * ，event_type的取值直接参考[COT消息概述](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fim-v1%2Fmessage_cot%2Fcot-message-brief)
+   *
+   * <p>示例值：TOOL_CALL_START
+   */
+  @SerializedName("event_type")
+  private String eventType;
+
+  /**
+   * agent AG2UI事件详情，json串，单条event最长不能超过4096字符
+   *
+   * <p>示例值：{; "toolCallId": "tool-run-bash-1",; "icon": "bash",; "title": "搜索一下今天的天气",;
+   * "toolCallName": "web_search",; "parentMessageId": "msg-100";}
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * agent传入的用于给客户端排序的事件时间戳,单位毫秒
+   *
+   * <p>示例值：1777279818
+   */
+  @SerializedName("timestamp")
+  private String timestamp;
+
+  public String getEventType() {
+    return this.eventType;
+  }
+
+  public void setEventType(String eventType) {
+    this.eventType = eventType;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getTimestamp() {
+    return this.timestamp;
+  }
+
+  public void setTimestamp(String timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  // builder 开始
+  public MessageCot() {}
+
+  public MessageCot(Builder builder) {
     /**
-     * agent AG2UI事件类型，eg. toolcall
-     * <p> 示例值：toolcall
+     * agent AG2UI事件类型，eg. TOOL_CALL_START
+     * ，event_type的取值直接参考[COT消息概述](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fim-v1%2Fmessage_cot%2Fcot-message-brief)
+     *
+     * <p>示例值：TOOL_CALL_START
      */
-    @SerializedName("event_type")
+    this.eventType = builder.eventType;
+    /**
+     * agent AG2UI事件详情，json串，单条event最长不能超过4096字符
+     *
+     * <p>示例值：{; "toolCallId": "tool-run-bash-1",; "icon": "bash",; "title": "搜索一下今天的天气",;
+     * "toolCallName": "web_search",; "parentMessageId": "msg-100";}
+     */
+    this.content = builder.content;
+    /**
+     * agent传入的用于给客户端排序的事件时间戳,单位毫秒
+     *
+     * <p>示例值：1777279818
+     */
+    this.timestamp = builder.timestamp;
+  }
+
+  public static class Builder {
+    /**
+     * agent AG2UI事件类型，eg. TOOL_CALL_START
+     * ，event_type的取值直接参考[COT消息概述](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fim-v1%2Fmessage_cot%2Fcot-message-brief)
+     *
+     * <p>示例值：TOOL_CALL_START
+     */
     private String eventType;
+
     /**
-     * agent AG2UI事件详情，json串
-     * <p> 示例值："ddd"
+     * agent AG2UI事件详情，json串，单条event最长不能超过4096字符
+     *
+     * <p>示例值：{; "toolCallId": "tool-run-bash-1",; "icon": "bash",; "title": "搜索一下今天的天气",;
+     * "toolCallName": "web_search",; "parentMessageId": "msg-100";}
      */
-    @SerializedName("content")
     private String content;
+
     /**
-     * agent传入的用于排序的事件时间戳
-     * <p> 示例值：1777279818
+     * agent传入的用于给客户端排序的事件时间戳,单位毫秒
+     *
+     * <p>示例值：1777279818
      */
-    @SerializedName("timestamp")
     private String timestamp;
 
-    // builder 开始
-    public MessageCot() {
+    /**
+     * agent AG2UI事件类型，eg. TOOL_CALL_START
+     * ，event_type的取值直接参考[COT消息概述](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fim-v1%2Fmessage_cot%2Fcot-message-brief)
+     *
+     * <p>示例值：TOOL_CALL_START
+     *
+     * @param eventType
+     * @return
+     */
+    public Builder eventType(String eventType) {
+      this.eventType = eventType;
+      return this;
     }
 
-    public MessageCot(Builder builder) {
-        /**
-         * agent AG2UI事件类型，eg. toolcall
-         * <p> 示例值：toolcall
-         */
-        this.eventType = builder.eventType;
-        /**
-         * agent AG2UI事件详情，json串
-         * <p> 示例值："ddd"
-         */
-        this.content = builder.content;
-        /**
-         * agent传入的用于排序的事件时间戳
-         * <p> 示例值：1777279818
-         */
-        this.timestamp = builder.timestamp;
+    /**
+     * agent AG2UI事件详情，json串，单条event最长不能超过4096字符
+     *
+     * <p>示例值：{; "toolCallId": "tool-run-bash-1",; "icon": "bash",; "title": "搜索一下今天的天气",;
+     * "toolCallName": "web_search",; "parentMessageId": "msg-100";}
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * agent传入的用于给客户端排序的事件时间戳,单位毫秒
+     *
+     * <p>示例值：1777279818
+     *
+     * @param timestamp
+     * @return
+     */
+    public Builder timestamp(String timestamp) {
+      this.timestamp = timestamp;
+      return this;
     }
 
-    public String getEventType() {
-        return this.eventType;
+    public MessageCot build() {
+      return new MessageCot(this);
     }
+  }
 
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getTimestamp() {
-        return this.timestamp;
-    }
-
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public static class Builder {
-        /**
-         * agent AG2UI事件类型，eg. toolcall
-         * <p> 示例值：toolcall
-         */
-        private String eventType;
-        /**
-         * agent AG2UI事件详情，json串
-         * <p> 示例值："ddd"
-         */
-        private String content;
-        /**
-         * agent传入的用于排序的事件时间戳
-         * <p> 示例值：1777279818
-         */
-        private String timestamp;
-
-        /**
-         * agent AG2UI事件类型，eg. toolcall
-         * <p> 示例值：toolcall
-         *
-         * @param eventType
-         * @return
-         */
-        public Builder eventType(String eventType) {
-            this.eventType = eventType;
-            return this;
-        }
-
-
-        /**
-         * agent AG2UI事件详情，json串
-         * <p> 示例值："ddd"
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * agent传入的用于排序的事件时间戳
-         * <p> 示例值：1777279818
-         *
-         * @param timestamp
-         * @return
-         */
-        public Builder timestamp(String timestamp) {
-            this.timestamp = timestamp;
-            return this;
-        }
-
-
-        public MessageCot build() {
-            return new MessageCot(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

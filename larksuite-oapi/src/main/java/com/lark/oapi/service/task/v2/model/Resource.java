@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Resource {
+  /**
+   * 资源类型
+   *
+   * <p>示例值：task
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 资源ID
+   *
+   * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+   */
+  @SerializedName("id")
+  private String id;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  // builder 开始
+  public Resource() {}
+
+  public Resource(Builder builder) {
     /**
      * 资源类型
-     * <p> 示例值：task
+     *
+     * <p>示例值：task
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 资源ID
-     * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
      */
-    @SerializedName("id")
+    this.id = builder.id;
+  }
+
+  public static class Builder {
+    /**
+     * 资源类型
+     *
+     * <p>示例值：task
+     */
+    private String type;
+
+    /**
+     * 资源ID
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     */
     private String id;
 
-    // builder 开始
-    public Resource() {
+    /**
+     * 资源类型
+     *
+     * <p>示例值：task
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public Resource(Builder builder) {
-        /**
-         * 资源类型
-         * <p> 示例值：task
-         */
-        this.type = builder.type;
-        /**
-         * 资源ID
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         */
-        this.id = builder.id;
+    /**
+     * 资源ID
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Resource build() {
+      return new Resource(this);
     }
+  }
 
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public static class Builder {
-        /**
-         * 资源类型
-         * <p> 示例值：task
-         */
-        private String type;
-        /**
-         * 资源ID
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         */
-        private String id;
-
-        /**
-         * 资源类型
-         * <p> 示例值：task
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 资源ID
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        public Resource build() {
-            return new Resource(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

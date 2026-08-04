@@ -13,259 +13,286 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ObjectAttribute {
+  /**
+   * 字段名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("title")
+  private I18n title;
+
+  /**
+   * 字段描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n description;
+
+  /**
+   * 字段类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("data_type")
+  private Integer dataType;
+
+  /**
+   * 字段标签;;**可选值有**：;- 1: 性别;- 2: 种族;- 3: 身体情况
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("tags")
+  private Integer[] tags;
+
+  /**
+   * 是否为 FCF 数据;;**FCF**：公平考虑框架( [Fair Consideration
+   * Framework](https://www.mom.gov.sg/employment-practices/fair-consideration-framework)，简称
+   * FCF)，该框架规定了所有新加坡的雇主必须平等的考虑新加坡劳动力的就业机会。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_fcf_data")
+  private Boolean isFcfData;
+
+  /**
+   * 是否为 D&I 数据;;**D&I**：多元化与包容性（Diversity and
+   * Inclusion，简称D&I），指的是在组织或社会中，尊重和重视不同种类的个体，包括种族、性别、年龄、性取向、宗教、文化背景等。多元化强调个体差异，而包容性则是在此基础上创建一个尊重、重视并充分利用这些差异的环境。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_di_data")
+  private Boolean isDiData;
+
+  public I18n getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(I18n title) {
+    this.title = title;
+  }
+
+  public I18n getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n description) {
+    this.description = description;
+  }
+
+  public Integer getDataType() {
+    return this.dataType;
+  }
+
+  public void setDataType(Integer dataType) {
+    this.dataType = dataType;
+  }
+
+  public Integer[] getTags() {
+    return this.tags;
+  }
+
+  public void setTags(Integer[] tags) {
+    this.tags = tags;
+  }
+
+  public Boolean getIsFcfData() {
+    return this.isFcfData;
+  }
+
+  public void setIsFcfData(Boolean isFcfData) {
+    this.isFcfData = isFcfData;
+  }
+
+  public Boolean getIsDiData() {
+    return this.isDiData;
+  }
+
+  public void setIsDiData(Boolean isDiData) {
+    this.isDiData = isDiData;
+  }
+
+  // builder 开始
+  public ObjectAttribute() {}
+
+  public ObjectAttribute(Builder builder) {
     /**
      * 字段名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("title")
-    private I18n title;
+    this.title = builder.title;
     /**
      * 字段描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private I18n description;
+    this.description = builder.description;
     /**
      * 字段类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("data_type")
+    this.dataType = builder.dataType;
+    /**
+     * 字段标签;;**可选值有**：;- 1: 性别;- 2: 种族;- 3: 身体情况
+     *
+     * <p>示例值：1
+     */
+    this.tags = builder.tags;
+    /**
+     * 是否为 FCF 数据;;**FCF**：公平考虑框架( [Fair Consideration
+     * Framework](https://www.mom.gov.sg/employment-practices/fair-consideration-framework)，简称
+     * FCF)，该框架规定了所有新加坡的雇主必须平等的考虑新加坡劳动力的就业机会。
+     *
+     * <p>示例值：true
+     */
+    this.isFcfData = builder.isFcfData;
+    /**
+     * 是否为 D&I 数据;;**D&I**：多元化与包容性（Diversity and
+     * Inclusion，简称D&I），指的是在组织或社会中，尊重和重视不同种类的个体，包括种族、性别、年龄、性取向、宗教、文化背景等。多元化强调个体差异，而包容性则是在此基础上创建一个尊重、重视并充分利用这些差异的环境。
+     *
+     * <p>示例值：true
+     */
+    this.isDiData = builder.isDiData;
+  }
+
+  public static class Builder {
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     */
+    private I18n title;
+
+    /**
+     * 字段描述
+     *
+     * <p>示例值：
+     */
+    private I18n description;
+
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     */
     private Integer dataType;
+
     /**
-     * 字段标签
-     * <p> 示例值：1
+     * 字段标签;;**可选值有**：;- 1: 性别;- 2: 种族;- 3: 身体情况
+     *
+     * <p>示例值：1
      */
-    @SerializedName("tags")
     private Integer[] tags;
+
     /**
-     * 是否为居民数据
-     * <p> 示例值：true
+     * 是否为 FCF 数据;;**FCF**：公平考虑框架( [Fair Consideration
+     * Framework](https://www.mom.gov.sg/employment-practices/fair-consideration-framework)，简称
+     * FCF)，该框架规定了所有新加坡的雇主必须平等的考虑新加坡劳动力的就业机会。
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_fcf_data")
     private Boolean isFcfData;
+
     /**
-     * 是否为多元化数据
-     * <p> 示例值：true
+     * 是否为 D&I 数据;;**D&I**：多元化与包容性（Diversity and
+     * Inclusion，简称D&I），指的是在组织或社会中，尊重和重视不同种类的个体，包括种族、性别、年龄、性取向、宗教、文化背景等。多元化强调个体差异，而包容性则是在此基础上创建一个尊重、重视并充分利用这些差异的环境。
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_di_data")
     private Boolean isDiData;
 
-    // builder 开始
-    public ObjectAttribute() {
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(I18n title) {
+      this.title = title;
+      return this;
     }
 
-    public ObjectAttribute(Builder builder) {
-        /**
-         * 字段名称
-         * <p> 示例值：
-         */
-        this.title = builder.title;
-        /**
-         * 字段描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        this.dataType = builder.dataType;
-        /**
-         * 字段标签
-         * <p> 示例值：1
-         */
-        this.tags = builder.tags;
-        /**
-         * 是否为居民数据
-         * <p> 示例值：true
-         */
-        this.isFcfData = builder.isFcfData;
-        /**
-         * 是否为多元化数据
-         * <p> 示例值：true
-         */
-        this.isDiData = builder.isDiData;
+    /**
+     * 字段描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n description) {
+      this.description = description;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     *
+     * @param dataType
+     * @return
+     */
+    public Builder dataType(Integer dataType) {
+      this.dataType = dataType;
+      return this;
     }
 
-    public I18n getTitle() {
-        return this.title;
+    /**
+     * 字段标签;;**可选值有**：;- 1: 性别;- 2: 种族;- 3: 身体情况
+     *
+     * <p>示例值：1
+     *
+     * @param tags
+     * @return
+     */
+    public Builder tags(Integer[] tags) {
+      this.tags = tags;
+      return this;
     }
 
-    public void setTitle(I18n title) {
-        this.title = title;
+    /**
+     * 是否为 FCF 数据;;**FCF**：公平考虑框架( [Fair Consideration
+     * Framework](https://www.mom.gov.sg/employment-practices/fair-consideration-framework)，简称
+     * FCF)，该框架规定了所有新加坡的雇主必须平等的考虑新加坡劳动力的就业机会。
+     *
+     * <p>示例值：true
+     *
+     * @param isFcfData
+     * @return
+     */
+    public Builder isFcfData(Boolean isFcfData) {
+      this.isFcfData = isFcfData;
+      return this;
     }
 
-    public I18n getDescription() {
-        return this.description;
+    /**
+     * 是否为 D&I 数据;;**D&I**：多元化与包容性（Diversity and
+     * Inclusion，简称D&I），指的是在组织或社会中，尊重和重视不同种类的个体，包括种族、性别、年龄、性取向、宗教、文化背景等。多元化强调个体差异，而包容性则是在此基础上创建一个尊重、重视并充分利用这些差异的环境。
+     *
+     * <p>示例值：true
+     *
+     * @param isDiData
+     * @return
+     */
+    public Builder isDiData(Boolean isDiData) {
+      this.isDiData = isDiData;
+      return this;
     }
 
-    public void setDescription(I18n description) {
-        this.description = description;
+    public ObjectAttribute build() {
+      return new ObjectAttribute(this);
     }
+  }
 
-    public Integer getDataType() {
-        return this.dataType;
-    }
-
-    public void setDataType(Integer dataType) {
-        this.dataType = dataType;
-    }
-
-    public Integer[] getTags() {
-        return this.tags;
-    }
-
-    public void setTags(Integer[] tags) {
-        this.tags = tags;
-    }
-
-    public Boolean getIsFcfData() {
-        return this.isFcfData;
-    }
-
-    public void setIsFcfData(Boolean isFcfData) {
-        this.isFcfData = isFcfData;
-    }
-
-    public Boolean getIsDiData() {
-        return this.isDiData;
-    }
-
-    public void setIsDiData(Boolean isDiData) {
-        this.isDiData = isDiData;
-    }
-
-    public static class Builder {
-        /**
-         * 字段名称
-         * <p> 示例值：
-         */
-        private I18n title;
-        /**
-         * 字段描述
-         * <p> 示例值：
-         */
-        private I18n description;
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        private Integer dataType;
-        /**
-         * 字段标签
-         * <p> 示例值：1
-         */
-        private Integer[] tags;
-        /**
-         * 是否为居民数据
-         * <p> 示例值：true
-         */
-        private Boolean isFcfData;
-        /**
-         * 是否为多元化数据
-         * <p> 示例值：true
-         */
-        private Boolean isDiData;
-
-        /**
-         * 字段名称
-         * <p> 示例值：
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(I18n title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 字段描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         *
-         * @param dataType
-         * @return
-         */
-        public Builder dataType(Integer dataType) {
-            this.dataType = dataType;
-            return this;
-        }
-
-
-        /**
-         * 字段标签
-         * <p> 示例值：1
-         *
-         * @param tags
-         * @return
-         */
-        public Builder tags(Integer[] tags) {
-            this.tags = tags;
-            return this;
-        }
-
-
-        /**
-         * 是否为居民数据
-         * <p> 示例值：true
-         *
-         * @param isFcfData
-         * @return
-         */
-        public Builder isFcfData(Boolean isFcfData) {
-            this.isFcfData = isFcfData;
-            return this;
-        }
-
-
-        /**
-         * 是否为多元化数据
-         * <p> 示例值：true
-         *
-         * @param isDiData
-         * @return
-         */
-        public Builder isDiData(Boolean isDiData) {
-            this.isDiData = isDiData;
-            return this;
-        }
-
-
-        public ObjectAttribute build() {
-            return new ObjectAttribute(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

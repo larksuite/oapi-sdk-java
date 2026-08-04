@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 平台类型
- */
+/** 平台类型 */
 public enum CoverOptionPlatformEnum {
-    ALL(0), // 全部平台
-    PC(1), // PC端
-    MOBILE(2), // 移动端
-    LARK(3), // Lark端
-    ;
-    private Integer value;
+  ALL(0), // 全部平台
+  PC(1), // PC端
+  MOBILE(2), // 移动端
+  LARK(3), // Lark端
+  ;
+  private Integer value;
 
-    CoverOptionPlatformEnum(Integer value) {
-        this.value = value;
-    }
+  CoverOptionPlatformEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

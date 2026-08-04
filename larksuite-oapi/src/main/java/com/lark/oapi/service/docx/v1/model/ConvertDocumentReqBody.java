@@ -13,124 +13,144 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.docx.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ConvertDocumentReqBody {
+  /**
+   * 内容类型
+   *
+   * <p>示例值：markdown
+   */
+  @SerializedName("content_type")
+  private String contentType;
+
+  /**
+   * 文本内容
+   *
+   * <p>示例值：Text \*\*Bold\*\* \*Italic\* \~\~Strikethrough\~\~ \`inline code\` Hyperlink: \[Feishu
+   * Open
+   * Platform\]\(https://open.feishu.cn\)\n\n\!\[image\]\(https://sf3-scmcdn-cn.feishucdn.com/obj/feishu-static/lark/open/website/share-logo.png\)\n\n\#
+   * Heading1\n\n\`\`\`\n hello word\n\`\`\`\n\n\> quote\n\n1\. ordered1\n2\. ordered2\n\n\-
+   * bullet1\n\- bullet2\n\n|Location|Features|Cuisine|\n|\----|\----|\----|\n\|Seafood
+   * Street|Seafood Market|Fresh Seafood, Lobsters, Crabs, scallops|
+   */
+  @SerializedName("content")
+  private String content;
+
+  public String getContentType() {
+    return this.contentType;
+  }
+
+  public void setContentType(String contentType) {
+    this.contentType = contentType;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  // builder 开始
+  public ConvertDocumentReqBody() {}
+
+  public ConvertDocumentReqBody(Builder builder) {
     /**
      * 内容类型
-     * <p> 示例值：markdown
+     *
+     * <p>示例值：markdown
      */
-    @SerializedName("content_type")
-    private String contentType;
+    this.contentType = builder.contentType;
     /**
      * 文本内容
-     * <p> 示例值：**第一段为加粗文本**\n\n```\n第二段为代码块\n```
+     *
+     * <p>示例值：Text \*\*Bold\*\* \*Italic\* \~\~Strikethrough\~\~ \`inline code\` Hyperlink: \[Feishu
+     * Open
+     * Platform\]\(https://open.feishu.cn\)\n\n\!\[image\]\(https://sf3-scmcdn-cn.feishucdn.com/obj/feishu-static/lark/open/website/share-logo.png\)\n\n\#
+     * Heading1\n\n\`\`\`\n hello word\n\`\`\`\n\n\> quote\n\n1\. ordered1\n2\. ordered2\n\n\-
+     * bullet1\n\- bullet2\n\n|Location|Features|Cuisine|\n|\----|\----|\----|\n\|Seafood
+     * Street|Seafood Market|Fresh Seafood, Lobsters, Crabs, scallops|
      */
-    @SerializedName("content")
+    this.content = builder.content;
+  }
+
+  public static class Builder {
+    /**
+     * 内容类型
+     *
+     * <p>示例值：markdown
+     */
+    private String contentType;
+
+    /**
+     * 文本内容
+     *
+     * <p>示例值：Text \*\*Bold\*\* \*Italic\* \~\~Strikethrough\~\~ \`inline code\` Hyperlink: \[Feishu
+     * Open
+     * Platform\]\(https://open.feishu.cn\)\n\n\!\[image\]\(https://sf3-scmcdn-cn.feishucdn.com/obj/feishu-static/lark/open/website/share-logo.png\)\n\n\#
+     * Heading1\n\n\`\`\`\n hello word\n\`\`\`\n\n\> quote\n\n1\. ordered1\n2\. ordered2\n\n\-
+     * bullet1\n\- bullet2\n\n|Location|Features|Cuisine|\n|\----|\----|\----|\n\|Seafood
+     * Street|Seafood Market|Fresh Seafood, Lobsters, Crabs, scallops|
+     */
     private String content;
 
-    // builder 开始
-    public ConvertDocumentReqBody() {
+    /**
+     * 内容类型
+     *
+     * <p>示例值：markdown
+     *
+     * @param contentType
+     * @return
+     */
+    public Builder contentType(String contentType) {
+      this.contentType = contentType;
+      return this;
     }
 
-    public ConvertDocumentReqBody(Builder builder) {
-        /**
-         * 内容类型
-         * <p> 示例值：markdown
-         */
-        this.contentType = builder.contentType;
-        /**
-         * 文本内容
-         * <p> 示例值：**第一段为加粗文本**\n\n```\n第二段为代码块\n```
-         */
-        this.content = builder.content;
+    /**
+     * 内容类型
+     *
+     * <p>示例值：markdown
+     *
+     * @param contentType {@link
+     *     com.lark.oapi.service.docx.v1.enums.ConvertDocumentOpenAPIConvertContentToDocXBlocksContentTypeEnum}
+     * @return
+     */
+    public Builder contentType(
+        com.lark.oapi.service.docx.v1.enums
+                .ConvertDocumentOpenAPIConvertContentToDocXBlocksContentTypeEnum
+            contentType) {
+      this.contentType = contentType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文本内容
+     *
+     * <p>示例值：Text \*\*Bold\*\* \*Italic\* \~\~Strikethrough\~\~ \`inline code\` Hyperlink: \[Feishu
+     * Open
+     * Platform\]\(https://open.feishu.cn\)\n\n\!\[image\]\(https://sf3-scmcdn-cn.feishucdn.com/obj/feishu-static/lark/open/website/share-logo.png\)\n\n\#
+     * Heading1\n\n\`\`\`\n hello word\n\`\`\`\n\n\> quote\n\n1\. ordered1\n2\. ordered2\n\n\-
+     * bullet1\n\- bullet2\n\n|Location|Features|Cuisine|\n|\----|\----|\----|\n\|Seafood
+     * Street|Seafood Market|Fresh Seafood, Lobsters, Crabs, scallops|
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public String getContentType() {
-        return this.contentType;
+    public ConvertDocumentReqBody build() {
+      return new ConvertDocumentReqBody(this);
     }
+  }
 
-    public void setContentType(String contentType) {
-        this.contentType = contentType;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public static class Builder {
-        /**
-         * 内容类型
-         * <p> 示例值：markdown
-         */
-        private String contentType;
-        /**
-         * 文本内容
-         * <p> 示例值：**第一段为加粗文本**\n\n```\n第二段为代码块\n```
-         */
-        private String content;
-
-        /**
-         * 内容类型
-         * <p> 示例值：markdown
-         *
-         * @param contentType
-         * @return
-         */
-        public Builder contentType(String contentType) {
-            this.contentType = contentType;
-            return this;
-        }
-
-        /**
-         * 内容类型
-         * <p> 示例值：markdown
-         *
-         * @param contentType {@link com.lark.oapi.service.docx.v1.enums.ConvertDocumentContentTypeEnum}
-         * @return
-         */
-        public Builder contentType(com.lark.oapi.service.docx.v1.enums.ConvertDocumentContentTypeEnum contentType) {
-            this.contentType = contentType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文本内容
-         * <p> 示例值：**第一段为加粗文本**\n\n```\n第二段为代码块\n```
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        public ConvertDocumentReqBody build() {
-            return new ConvertDocumentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

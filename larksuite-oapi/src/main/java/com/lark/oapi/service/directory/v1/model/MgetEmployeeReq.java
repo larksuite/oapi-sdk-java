@@ -13,187 +13,196 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.directory.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.directory.v1.enums.*;
 
 public class MgetEmployeeReq {
+  /**
+   * adminRole鉴权
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("is_admin_role")
+  private Boolean isAdminRole;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：user_id
+   */
+  @Query
+  @SerializedName("employee_id_type")
+  private String employeeIdType;
+
+  /**
+   * 此次调用中使用的部门ID的类型
+   *
+   * <p>示例值：department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  public Boolean getIsAdminRole() {
+    return this.isAdminRole;
+  }
+
+  public void setIsAdminRole(Boolean isAdminRole) {
+    this.isAdminRole = isAdminRole;
+  }
+
+  public String getEmployeeIdType() {
+    return this.employeeIdType;
+  }
+
+  public void setEmployeeIdType(String employeeIdType) {
+    this.employeeIdType = employeeIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  @Body private MgetEmployeeReqBody body;
+
+  public MgetEmployeeReqBody getMgetEmployeeReqBody() {
+    return this.body;
+  }
+
+  public void setMgetEmployeeReqBody(MgetEmployeeReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public MgetEmployeeReq() {}
+
+  public MgetEmployeeReq(Builder builder) {
     /**
      * adminRole鉴权
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("is_admin_role")
-    private Boolean isAdminRole;
+    this.isAdminRole = builder.isAdminRole;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：user_id
+     *
+     * <p>示例值：user_id
      */
-    @Query
-    @SerializedName("employee_id_type")
-    private String employeeIdType;
+    this.employeeIdType = builder.employeeIdType;
     /**
      * 此次调用中使用的部门ID的类型
-     * <p> 示例值：department_id
+     *
+     * <p>示例值：department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
-    @Body
+    this.departmentIdType = builder.departmentIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private Boolean isAdminRole; // adminRole鉴权
+    private String employeeIdType; // 此次调用中使用的用户ID的类型
+    private String departmentIdType; // 此次调用中使用的部门ID的类型
+
+    /**
+     * adminRole鉴权
+     *
+     * <p>示例值：
+     *
+     * @param isAdminRole
+     * @return
+     */
+    public Builder isAdminRole(Boolean isAdminRole) {
+      this.isAdminRole = isAdminRole;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：user_id
+     *
+     * @param employeeIdType
+     * @return
+     */
+    public Builder employeeIdType(String employeeIdType) {
+      this.employeeIdType = employeeIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：user_id
+     *
+     * @param employeeIdType {@link
+     *     com.lark.oapi.service.directory.v1.enums.MgetEmployeeEmployeeIdTypeEnum}
+     * @return
+     */
+    public Builder employeeIdType(
+        com.lark.oapi.service.directory.v1.enums.MgetEmployeeEmployeeIdTypeEnum employeeIdType) {
+      this.employeeIdType = employeeIdType.getValue();
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门ID的类型
+     *
+     * <p>示例值：department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的部门ID的类型
+     *
+     * <p>示例值：department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.directory.v1.enums.MgetEmployeeDepartmentIdTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.directory.v1.enums.MgetEmployeeDepartmentIdTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
+    }
+
     private MgetEmployeeReqBody body;
 
-    // builder 开始
-    public MgetEmployeeReq() {
-    }
-
-    public MgetEmployeeReq(Builder builder) {
-        /**
-         * adminRole鉴权
-         * <p> 示例值：
-         */
-        this.isAdminRole = builder.isAdminRole;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
-         */
-        this.employeeIdType = builder.employeeIdType;
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Boolean getIsAdminRole() {
-        return this.isAdminRole;
-    }
-
-    public void setIsAdminRole(Boolean isAdminRole) {
-        this.isAdminRole = isAdminRole;
-    }
-
-    public String getEmployeeIdType() {
-        return this.employeeIdType;
-    }
-
-    public void setEmployeeIdType(String employeeIdType) {
-        this.employeeIdType = employeeIdType;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
     public MgetEmployeeReqBody getMgetEmployeeReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setMgetEmployeeReqBody(MgetEmployeeReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder mgetEmployeeReqBody(MgetEmployeeReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private Boolean isAdminRole; // adminRole鉴权
-        private String employeeIdType; // 此次调用中使用的用户ID的类型
-        private String departmentIdType; // 此次调用中使用的部门ID的类型
-        private MgetEmployeeReqBody body;
-
-        /**
-         * adminRole鉴权
-         * <p> 示例值：
-         *
-         * @param isAdminRole
-         * @return
-         */
-        public Builder isAdminRole(Boolean isAdminRole) {
-            this.isAdminRole = isAdminRole;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
-         *
-         * @param employeeIdType
-         * @return
-         */
-        public Builder employeeIdType(String employeeIdType) {
-            this.employeeIdType = employeeIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：user_id
-         *
-         * @param employeeIdType {@link com.lark.oapi.service.directory.v1.enums.MgetEmployeeEmployeeIdTypeEnum}
-         * @return
-         */
-        public Builder employeeIdType(com.lark.oapi.service.directory.v1.enums.MgetEmployeeEmployeeIdTypeEnum employeeIdType) {
-            this.employeeIdType = employeeIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的部门ID的类型
-         * <p> 示例值：department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.directory.v1.enums.MgetEmployeeDepartmentIdTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.directory.v1.enums.MgetEmployeeDepartmentIdTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        public MgetEmployeeReqBody getMgetEmployeeReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder mgetEmployeeReqBody(MgetEmployeeReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public MgetEmployeeReq build() {
-            return new MgetEmployeeReq(this);
-        }
+    public MgetEmployeeReq build() {
+      return new MgetEmployeeReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

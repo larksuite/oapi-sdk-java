@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationAppUsage {
+  /**
+   * 指标名称
+   *
+   * <p>示例值：pv
+   */
+  @SerializedName("metric_name")
+  private String metricName;
+
+  /**
+   * 指标值
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("metric_value")
+  private Integer metricValue;
+
+  public String getMetricName() {
+    return this.metricName;
+  }
+
+  public void setMetricName(String metricName) {
+    this.metricName = metricName;
+  }
+
+  public Integer getMetricValue() {
+    return this.metricValue;
+  }
+
+  public void setMetricValue(Integer metricValue) {
+    this.metricValue = metricValue;
+  }
+
+  // builder 开始
+  public ApplicationAppUsage() {}
+
+  public ApplicationAppUsage(Builder builder) {
     /**
      * 指标名称
-     * <p> 示例值：pv
+     *
+     * <p>示例值：pv
      */
-    @SerializedName("metric_name")
-    private String metricName;
+    this.metricName = builder.metricName;
     /**
      * 指标值
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("metric_value")
+    this.metricValue = builder.metricValue;
+  }
+
+  public static class Builder {
+    /**
+     * 指标名称
+     *
+     * <p>示例值：pv
+     */
+    private String metricName;
+
+    /**
+     * 指标值
+     *
+     * <p>示例值：100
+     */
     private Integer metricValue;
 
-    // builder 开始
-    public ApplicationAppUsage() {
+    /**
+     * 指标名称
+     *
+     * <p>示例值：pv
+     *
+     * @param metricName
+     * @return
+     */
+    public Builder metricName(String metricName) {
+      this.metricName = metricName;
+      return this;
     }
 
-    public ApplicationAppUsage(Builder builder) {
-        /**
-         * 指标名称
-         * <p> 示例值：pv
-         */
-        this.metricName = builder.metricName;
-        /**
-         * 指标值
-         * <p> 示例值：100
-         */
-        this.metricValue = builder.metricValue;
+    /**
+     * 指标值
+     *
+     * <p>示例值：100
+     *
+     * @param metricValue
+     * @return
+     */
+    public Builder metricValue(Integer metricValue) {
+      this.metricValue = metricValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ApplicationAppUsage build() {
+      return new ApplicationAppUsage(this);
     }
+  }
 
-    public String getMetricName() {
-        return this.metricName;
-    }
-
-    public void setMetricName(String metricName) {
-        this.metricName = metricName;
-    }
-
-    public Integer getMetricValue() {
-        return this.metricValue;
-    }
-
-    public void setMetricValue(Integer metricValue) {
-        this.metricValue = metricValue;
-    }
-
-    public static class Builder {
-        /**
-         * 指标名称
-         * <p> 示例值：pv
-         */
-        private String metricName;
-        /**
-         * 指标值
-         * <p> 示例值：100
-         */
-        private Integer metricValue;
-
-        /**
-         * 指标名称
-         * <p> 示例值：pv
-         *
-         * @param metricName
-         * @return
-         */
-        public Builder metricName(String metricName) {
-            this.metricName = metricName;
-            return this;
-        }
-
-
-        /**
-         * 指标值
-         * <p> 示例值：100
-         *
-         * @param metricValue
-         * @return
-         */
-        public Builder metricValue(Integer metricValue) {
-            this.metricValue = metricValue;
-            return this;
-        }
-
-
-        public ApplicationAppUsage build() {
-            return new ApplicationAppUsage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.admin.v1.enums;
 
-/**
- * 过滤用户类型. 仅当 operator_type=user 时生效
- */
+/** 过滤用户类型. 仅当 operator_type=user 时生效 */
 public enum ListAuditInfoGetAuditInfoListUserTypeEnum {
-    ALL(0), // 互联网上的任何人
-    NORMAL_USER(1), // 组织内成员
-    EXTERNAL_USER(2), // 组织外成员
-    ;
-    private Integer value;
+  ALL(0), // 互联网上的任何人
+  NORMAL_USER(1), // 组织内成员
+  EXTERNAL_USER(2), // 组织外成员
+  ;
+  private Integer value;
 
-    ListAuditInfoGetAuditInfoListUserTypeEnum(Integer value) {
-        this.value = value;
-    }
+  ListAuditInfoGetAuditInfoListUserTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

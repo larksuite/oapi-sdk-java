@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SignatureCustomFieldV2 {
+  /**
+   * 自定义字段的key
+   *
+   * <p>示例值：RhvWsAcEx
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 自定义字段的key对应的value（包含了多语）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("value")
+  private SignatureCustomFieldValue value;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public SignatureCustomFieldValue getValue() {
+    return this.value;
+  }
+
+  public void setValue(SignatureCustomFieldValue value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public SignatureCustomFieldV2() {}
+
+  public SignatureCustomFieldV2(Builder builder) {
     /**
-     * v2自定义字段的key
-     * <p> 示例值：test
+     * 自定义字段的key
+     *
+     * <p>示例值：RhvWsAcEx
      */
-    @SerializedName("key")
+    this.key = builder.key;
+    /**
+     * 自定义字段的key对应的value（包含了多语）
+     *
+     * <p>示例值：
+     */
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义字段的key
+     *
+     * <p>示例值：RhvWsAcEx
+     */
     private String key;
+
     /**
-     * v2自定义字段的key对应的value(包含了多语)
-     * <p> 示例值：
+     * 自定义字段的key对应的value（包含了多语）
+     *
+     * <p>示例值：
      */
-    @SerializedName("value")
     private SignatureCustomFieldValue value;
 
-    // builder 开始
-    public SignatureCustomFieldV2() {
+    /**
+     * 自定义字段的key
+     *
+     * <p>示例值：RhvWsAcEx
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public SignatureCustomFieldV2(Builder builder) {
-        /**
-         * v2自定义字段的key
-         * <p> 示例值：test
-         */
-        this.key = builder.key;
-        /**
-         * v2自定义字段的key对应的value(包含了多语)
-         * <p> 示例值：
-         */
-        this.value = builder.value;
+    /**
+     * 自定义字段的key对应的value（包含了多语）
+     *
+     * <p>示例值：
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(SignatureCustomFieldValue value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SignatureCustomFieldV2 build() {
+      return new SignatureCustomFieldV2(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public SignatureCustomFieldValue getValue() {
-        return this.value;
-    }
-
-    public void setValue(SignatureCustomFieldValue value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * v2自定义字段的key
-         * <p> 示例值：test
-         */
-        private String key;
-        /**
-         * v2自定义字段的key对应的value(包含了多语)
-         * <p> 示例值：
-         */
-        private SignatureCustomFieldValue value;
-
-        /**
-         * v2自定义字段的key
-         * <p> 示例值：test
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * v2自定义字段的key对应的value(包含了多语)
-         * <p> 示例值：
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(SignatureCustomFieldValue value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public SignatureCustomFieldV2 build() {
-            return new SignatureCustomFieldV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

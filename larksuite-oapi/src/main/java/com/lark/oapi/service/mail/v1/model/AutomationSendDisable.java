@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AutomationSendDisable {
+  /**
+   * 自动化发信被禁用的原因说明
+   *
+   * <p>示例值：Automation send is disabled by your mailbox setting
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  /**
+   * 用户可参考reference内容解决
+   *
+   * <p>示例值：https://open.larksuite.com/mail/settings/automation
+   */
+  @SerializedName("reference")
+  private String reference;
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  public String getReference() {
+    return this.reference;
+  }
+
+  public void setReference(String reference) {
+    this.reference = reference;
+  }
+
+  // builder 开始
+  public AutomationSendDisable() {}
+
+  public AutomationSendDisable(Builder builder) {
     /**
      * 自动化发信被禁用的原因说明
-     * <p> 示例值：Automation send is disabled by your mailbox setting
+     *
+     * <p>示例值：Automation send is disabled by your mailbox setting
      */
-    @SerializedName("reason")
-    private String reason;
+    this.reason = builder.reason;
     /**
      * 用户可参考reference内容解决
-     * <p> 示例值：https://open.larksuite.com/mail/settings/automation
+     *
+     * <p>示例值：https://open.larksuite.com/mail/settings/automation
      */
-    @SerializedName("reference")
+    this.reference = builder.reference;
+  }
+
+  public static class Builder {
+    /**
+     * 自动化发信被禁用的原因说明
+     *
+     * <p>示例值：Automation send is disabled by your mailbox setting
+     */
+    private String reason;
+
+    /**
+     * 用户可参考reference内容解决
+     *
+     * <p>示例值：https://open.larksuite.com/mail/settings/automation
+     */
     private String reference;
 
-    // builder 开始
-    public AutomationSendDisable() {
+    /**
+     * 自动化发信被禁用的原因说明
+     *
+     * <p>示例值：Automation send is disabled by your mailbox setting
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public AutomationSendDisable(Builder builder) {
-        /**
-         * 自动化发信被禁用的原因说明
-         * <p> 示例值：Automation send is disabled by your mailbox setting
-         */
-        this.reason = builder.reason;
-        /**
-         * 用户可参考reference内容解决
-         * <p> 示例值：https://open.larksuite.com/mail/settings/automation
-         */
-        this.reference = builder.reference;
+    /**
+     * 用户可参考reference内容解决
+     *
+     * <p>示例值：https://open.larksuite.com/mail/settings/automation
+     *
+     * @param reference
+     * @return
+     */
+    public Builder reference(String reference) {
+      this.reference = reference;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public AutomationSendDisable build() {
+      return new AutomationSendDisable(this);
     }
+  }
 
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public String getReference() {
-        return this.reference;
-    }
-
-    public void setReference(String reference) {
-        this.reference = reference;
-    }
-
-    public static class Builder {
-        /**
-         * 自动化发信被禁用的原因说明
-         * <p> 示例值：Automation send is disabled by your mailbox setting
-         */
-        private String reason;
-        /**
-         * 用户可参考reference内容解决
-         * <p> 示例值：https://open.larksuite.com/mail/settings/automation
-         */
-        private String reference;
-
-        /**
-         * 自动化发信被禁用的原因说明
-         * <p> 示例值：Automation send is disabled by your mailbox setting
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * 用户可参考reference内容解决
-         * <p> 示例值：https://open.larksuite.com/mail/settings/automation
-         *
-         * @param reference
-         * @return
-         */
-        public Builder reference(String reference) {
-            this.reference = reference;
-            return this;
-        }
-
-
-        public AutomationSendDisable build() {
-            return new AutomationSendDisable(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

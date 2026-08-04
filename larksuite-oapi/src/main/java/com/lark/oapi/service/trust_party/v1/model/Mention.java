@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Mention {
+  /**
+   * mention key
+   *
+   * <p>示例值：1@_user_1
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * 用户open id
+   *
+   * <p>示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 被at用户的姓名
+   *
+   * <p>示例值：Tom
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * tenant key
+   *
+   * <p>示例值：736588c9260f175e
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  // builder 开始
+  public Mention() {}
+
+  public Mention(Builder builder) {
     /**
      * mention key
-     * <p> 示例值：1@_user_1
+     *
+     * <p>示例值：1@_user_1
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * 用户open id
-     * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+     *
+     * <p>示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 被at用户的姓名
-     * <p> 示例值：Tom
+     *
+     * <p>示例值：Tom
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * tenant key
-     * <p> 示例值：736588c9260f175e
+     *
+     * <p>示例值：736588c9260f175e
      */
-    @SerializedName("tenant_key")
+    this.tenantKey = builder.tenantKey;
+  }
+
+  public static class Builder {
+    /**
+     * mention key
+     *
+     * <p>示例值：1@_user_1
+     */
+    private String key;
+
+    /**
+     * 用户open id
+     *
+     * <p>示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+     */
+    private String id;
+
+    /**
+     * 被at用户的姓名
+     *
+     * <p>示例值：Tom
+     */
+    private String name;
+
+    /**
+     * tenant key
+     *
+     * <p>示例值：736588c9260f175e
+     */
     private String tenantKey;
 
-    // builder 开始
-    public Mention() {
+    /**
+     * mention key
+     *
+     * <p>示例值：1@_user_1
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public Mention(Builder builder) {
-        /**
-         * mention key
-         * <p> 示例值：1@_user_1
-         */
-        this.key = builder.key;
-        /**
-         * 用户open id
-         * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-         */
-        this.id = builder.id;
-        /**
-         * 被at用户的姓名
-         * <p> 示例值：Tom
-         */
-        this.name = builder.name;
-        /**
-         * tenant key
-         * <p> 示例值：736588c9260f175e
-         */
-        this.tenantKey = builder.tenantKey;
+    /**
+     * 用户open id
+     *
+     * <p>示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 被at用户的姓名
+     *
+     * <p>示例值：Tom
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getKey() {
-        return this.key;
+    /**
+     * tenant key
+     *
+     * <p>示例值：736588c9260f175e
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public Mention build() {
+      return new Mention(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
-
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
-
-    public static class Builder {
-        /**
-         * mention key
-         * <p> 示例值：1@_user_1
-         */
-        private String key;
-        /**
-         * 用户open id
-         * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-         */
-        private String id;
-        /**
-         * 被at用户的姓名
-         * <p> 示例值：Tom
-         */
-        private String name;
-        /**
-         * tenant key
-         * <p> 示例值：736588c9260f175e
-         */
-        private String tenantKey;
-
-        /**
-         * mention key
-         * <p> 示例值：1@_user_1
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * 用户open id
-         * <p> 示例值：ou_155184d1e73cbfb8973e5a9e698e74f2
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 被at用户的姓名
-         * <p> 示例值：Tom
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * tenant key
-         * <p> 示例值：736588c9260f175e
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        public Mention build() {
-            return new Mention(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SectionSummary {
+  /**
+   * 自定义分组的全局唯一ID
+   *
+   * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+   */
+  @SerializedName("guid")
+  private String guid;
+
+  /**
+   * 自定义分组的名称
+   *
+   * <p>示例值：审核过的任务
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 是否是默认分组
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_default")
+  private Boolean isDefault;
+
+  public String getGuid() {
+    return this.guid;
+  }
+
+  public void setGuid(String guid) {
+    this.guid = guid;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Boolean getIsDefault() {
+    return this.isDefault;
+  }
+
+  public void setIsDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
+  }
+
+  // builder 开始
+  public SectionSummary() {}
+
+  public SectionSummary(Builder builder) {
     /**
      * 自定义分组的全局唯一ID
-     * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
      */
-    @SerializedName("guid")
-    private String guid;
+    this.guid = builder.guid;
     /**
      * 自定义分组的名称
-     * <p> 示例值：审核过的任务
+     *
+     * <p>示例值：审核过的任务
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 是否是默认分组
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_default")
+    this.isDefault = builder.isDefault;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义分组的全局唯一ID
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     */
+    private String guid;
+
+    /**
+     * 自定义分组的名称
+     *
+     * <p>示例值：审核过的任务
+     */
+    private String name;
+
+    /**
+     * 是否是默认分组
+     *
+     * <p>示例值：true
+     */
     private Boolean isDefault;
 
-    // builder 开始
-    public SectionSummary() {
+    /**
+     * 自定义分组的全局唯一ID
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     *
+     * @param guid
+     * @return
+     */
+    public Builder guid(String guid) {
+      this.guid = guid;
+      return this;
     }
 
-    public SectionSummary(Builder builder) {
-        /**
-         * 自定义分组的全局唯一ID
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         */
-        this.guid = builder.guid;
-        /**
-         * 自定义分组的名称
-         * <p> 示例值：审核过的任务
-         */
-        this.name = builder.name;
-        /**
-         * 是否是默认分组
-         * <p> 示例值：true
-         */
-        this.isDefault = builder.isDefault;
+    /**
+     * 自定义分组的名称
+     *
+     * <p>示例值：审核过的任务
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否是默认分组
+     *
+     * <p>示例值：true
+     *
+     * @param isDefault
+     * @return
+     */
+    public Builder isDefault(Boolean isDefault) {
+      this.isDefault = isDefault;
+      return this;
     }
 
-    public String getGuid() {
-        return this.guid;
+    public SectionSummary build() {
+      return new SectionSummary(this);
     }
+  }
 
-    public void setGuid(String guid) {
-        this.guid = guid;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Boolean getIsDefault() {
-        return this.isDefault;
-    }
-
-    public void setIsDefault(Boolean isDefault) {
-        this.isDefault = isDefault;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义分组的全局唯一ID
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         */
-        private String guid;
-        /**
-         * 自定义分组的名称
-         * <p> 示例值：审核过的任务
-         */
-        private String name;
-        /**
-         * 是否是默认分组
-         * <p> 示例值：true
-         */
-        private Boolean isDefault;
-
-        /**
-         * 自定义分组的全局唯一ID
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         *
-         * @param guid
-         * @return
-         */
-        public Builder guid(String guid) {
-            this.guid = guid;
-            return this;
-        }
-
-
-        /**
-         * 自定义分组的名称
-         * <p> 示例值：审核过的任务
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 是否是默认分组
-         * <p> 示例值：true
-         *
-         * @param isDefault
-         * @return
-         */
-        public Builder isDefault(Boolean isDefault) {
-            this.isDefault = isDefault;
-            return this;
-        }
-
-
-        public SectionSummary build() {
-            return new SectionSummary(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

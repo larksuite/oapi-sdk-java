@@ -13,445 +13,497 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GroupedSummaryItem {
+  /**
+   * 维度信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dimension_info_datas")
+  private DimensionInfoData[] dimensionInfoDatas;
+
+  /**
+   * 编制数
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("workforce_plan")
+  private String workforcePlan;
+
+  /**
+   * 在职人数
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("active_individuals")
+  private String activeIndividuals;
+
+  /**
+   * 预增人数
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("individuals_to_be_added")
+  private String individualsToBeAdded;
+
+  /**
+   * 预减人数
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("individuals_to_be_removed")
+  private String individualsToBeRemoved;
+
+  /**
+   * 缺编人数
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("vacancy")
+  private String vacancy;
+
+  /**
+   * 含在途缺编人数
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("vacancy_including_individuals_to_be_added_and_removed")
+  private String vacancyIncludingIndividualsToBeAddedAndRemoved;
+
+  /**
+   * 满编率
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("fulfillment_rate")
+  private String fulfillmentRate;
+
+  /**
+   * 含在途满编率
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("fulfillment_rate_including_individuals_to_be_added_and_removed")
+  private String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
+
+  /**
+   * 预估在职详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("estimated_active_individuals_details")
+  private WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetails;
+
+  /**
+   * 周期数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("multi_period_values")
+  private WorkforcePlanMultiPeriodValue[] multiPeriodValues;
+
+  public DimensionInfoData[] getDimensionInfoDatas() {
+    return this.dimensionInfoDatas;
+  }
+
+  public void setDimensionInfoDatas(DimensionInfoData[] dimensionInfoDatas) {
+    this.dimensionInfoDatas = dimensionInfoDatas;
+  }
+
+  public String getWorkforcePlan() {
+    return this.workforcePlan;
+  }
+
+  public void setWorkforcePlan(String workforcePlan) {
+    this.workforcePlan = workforcePlan;
+  }
+
+  public String getActiveIndividuals() {
+    return this.activeIndividuals;
+  }
+
+  public void setActiveIndividuals(String activeIndividuals) {
+    this.activeIndividuals = activeIndividuals;
+  }
+
+  public String getIndividualsToBeAdded() {
+    return this.individualsToBeAdded;
+  }
+
+  public void setIndividualsToBeAdded(String individualsToBeAdded) {
+    this.individualsToBeAdded = individualsToBeAdded;
+  }
+
+  public String getIndividualsToBeRemoved() {
+    return this.individualsToBeRemoved;
+  }
+
+  public void setIndividualsToBeRemoved(String individualsToBeRemoved) {
+    this.individualsToBeRemoved = individualsToBeRemoved;
+  }
+
+  public String getVacancy() {
+    return this.vacancy;
+  }
+
+  public void setVacancy(String vacancy) {
+    this.vacancy = vacancy;
+  }
+
+  public String getVacancyIncludingIndividualsToBeAddedAndRemoved() {
+    return this.vacancyIncludingIndividualsToBeAddedAndRemoved;
+  }
+
+  public void setVacancyIncludingIndividualsToBeAddedAndRemoved(
+      String vacancyIncludingIndividualsToBeAddedAndRemoved) {
+    this.vacancyIncludingIndividualsToBeAddedAndRemoved =
+        vacancyIncludingIndividualsToBeAddedAndRemoved;
+  }
+
+  public String getFulfillmentRate() {
+    return this.fulfillmentRate;
+  }
+
+  public void setFulfillmentRate(String fulfillmentRate) {
+    this.fulfillmentRate = fulfillmentRate;
+  }
+
+  public String getFulfillmentRateIncludingIndividualsToBeAddedAndRemoved() {
+    return this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
+  }
+
+  public void setFulfillmentRateIncludingIndividualsToBeAddedAndRemoved(
+      String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved) {
+    this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved =
+        fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
+  }
+
+  public WorkforcePlanEaiDetail[] getEstimatedActiveIndividualsDetails() {
+    return this.estimatedActiveIndividualsDetails;
+  }
+
+  public void setEstimatedActiveIndividualsDetails(
+      WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetails) {
+    this.estimatedActiveIndividualsDetails = estimatedActiveIndividualsDetails;
+  }
+
+  public WorkforcePlanMultiPeriodValue[] getMultiPeriodValues() {
+    return this.multiPeriodValues;
+  }
+
+  public void setMultiPeriodValues(WorkforcePlanMultiPeriodValue[] multiPeriodValues) {
+    this.multiPeriodValues = multiPeriodValues;
+  }
+
+  // builder 开始
+  public GroupedSummaryItem() {}
+
+  public GroupedSummaryItem(Builder builder) {
     /**
      * 维度信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dimension_info_datas")
-    private DimensionInfoData[] dimensionInfoDatas;
+    this.dimensionInfoDatas = builder.dimensionInfoDatas;
     /**
      * 编制数
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("workforce_plan")
-    private String workforcePlan;
+    this.workforcePlan = builder.workforcePlan;
     /**
      * 在职人数
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("active_individuals")
-    private String activeIndividuals;
+    this.activeIndividuals = builder.activeIndividuals;
     /**
      * 预增人数
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("individuals_to_be_added")
-    private String individualsToBeAdded;
+    this.individualsToBeAdded = builder.individualsToBeAdded;
     /**
      * 预减人数
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("individuals_to_be_removed")
-    private String individualsToBeRemoved;
+    this.individualsToBeRemoved = builder.individualsToBeRemoved;
     /**
      * 缺编人数
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("vacancy")
-    private String vacancy;
+    this.vacancy = builder.vacancy;
     /**
      * 含在途缺编人数
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("vacancy_including_individuals_to_be_added_and_removed")
-    private String vacancyIncludingIndividualsToBeAddedAndRemoved;
+    this.vacancyIncludingIndividualsToBeAddedAndRemoved =
+        builder.vacancyIncludingIndividualsToBeAddedAndRemoved;
     /**
      * 满编率
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("fulfillment_rate")
-    private String fulfillmentRate;
+    this.fulfillmentRate = builder.fulfillmentRate;
     /**
      * 含在途满编率
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("fulfillment_rate_including_individuals_to_be_added_and_removed")
-    private String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
+    this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved =
+        builder.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
     /**
      * 预估在职详情
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("estimated_active_individuals_details")
-    private WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetails;
+    this.estimatedActiveIndividualsDetails = builder.estimatedActiveIndividualsDetails;
     /**
      * 周期数据
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("multi_period_values")
+    this.multiPeriodValues = builder.multiPeriodValues;
+  }
+
+  public static class Builder {
+    /**
+     * 维度信息
+     *
+     * <p>示例值：
+     */
+    private DimensionInfoData[] dimensionInfoDatas;
+
+    /**
+     * 编制数
+     *
+     * <p>示例值：example
+     */
+    private String workforcePlan;
+
+    /**
+     * 在职人数
+     *
+     * <p>示例值：example
+     */
+    private String activeIndividuals;
+
+    /**
+     * 预增人数
+     *
+     * <p>示例值：example
+     */
+    private String individualsToBeAdded;
+
+    /**
+     * 预减人数
+     *
+     * <p>示例值：example
+     */
+    private String individualsToBeRemoved;
+
+    /**
+     * 缺编人数
+     *
+     * <p>示例值：example
+     */
+    private String vacancy;
+
+    /**
+     * 含在途缺编人数
+     *
+     * <p>示例值：example
+     */
+    private String vacancyIncludingIndividualsToBeAddedAndRemoved;
+
+    /**
+     * 满编率
+     *
+     * <p>示例值：example
+     */
+    private String fulfillmentRate;
+
+    /**
+     * 含在途满编率
+     *
+     * <p>示例值：example
+     */
+    private String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
+
+    /**
+     * 预估在职详情
+     *
+     * <p>示例值：
+     */
+    private WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetails;
+
+    /**
+     * 周期数据
+     *
+     * <p>示例值：
+     */
     private WorkforcePlanMultiPeriodValue[] multiPeriodValues;
 
-    // builder 开始
-    public GroupedSummaryItem() {
+    /**
+     * 维度信息
+     *
+     * <p>示例值：
+     *
+     * @param dimensionInfoDatas
+     * @return
+     */
+    public Builder dimensionInfoDatas(DimensionInfoData[] dimensionInfoDatas) {
+      this.dimensionInfoDatas = dimensionInfoDatas;
+      return this;
     }
 
-    public GroupedSummaryItem(Builder builder) {
-        /**
-         * 维度信息
-         * <p> 示例值：
-         */
-        this.dimensionInfoDatas = builder.dimensionInfoDatas;
-        /**
-         * 编制数
-         * <p> 示例值：example
-         */
-        this.workforcePlan = builder.workforcePlan;
-        /**
-         * 在职人数
-         * <p> 示例值：example
-         */
-        this.activeIndividuals = builder.activeIndividuals;
-        /**
-         * 预增人数
-         * <p> 示例值：example
-         */
-        this.individualsToBeAdded = builder.individualsToBeAdded;
-        /**
-         * 预减人数
-         * <p> 示例值：example
-         */
-        this.individualsToBeRemoved = builder.individualsToBeRemoved;
-        /**
-         * 缺编人数
-         * <p> 示例值：example
-         */
-        this.vacancy = builder.vacancy;
-        /**
-         * 含在途缺编人数
-         * <p> 示例值：example
-         */
-        this.vacancyIncludingIndividualsToBeAddedAndRemoved = builder.vacancyIncludingIndividualsToBeAddedAndRemoved;
-        /**
-         * 满编率
-         * <p> 示例值：example
-         */
-        this.fulfillmentRate = builder.fulfillmentRate;
-        /**
-         * 含在途满编率
-         * <p> 示例值：example
-         */
-        this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved = builder.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
-        /**
-         * 预估在职详情
-         * <p> 示例值：
-         */
-        this.estimatedActiveIndividualsDetails = builder.estimatedActiveIndividualsDetails;
-        /**
-         * 周期数据
-         * <p> 示例值：
-         */
-        this.multiPeriodValues = builder.multiPeriodValues;
+    /**
+     * 编制数
+     *
+     * <p>示例值：example
+     *
+     * @param workforcePlan
+     * @return
+     */
+    public Builder workforcePlan(String workforcePlan) {
+      this.workforcePlan = workforcePlan;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 在职人数
+     *
+     * <p>示例值：example
+     *
+     * @param activeIndividuals
+     * @return
+     */
+    public Builder activeIndividuals(String activeIndividuals) {
+      this.activeIndividuals = activeIndividuals;
+      return this;
     }
 
-    public DimensionInfoData[] getDimensionInfoDatas() {
-        return this.dimensionInfoDatas;
+    /**
+     * 预增人数
+     *
+     * <p>示例值：example
+     *
+     * @param individualsToBeAdded
+     * @return
+     */
+    public Builder individualsToBeAdded(String individualsToBeAdded) {
+      this.individualsToBeAdded = individualsToBeAdded;
+      return this;
     }
 
-    public void setDimensionInfoDatas(DimensionInfoData[] dimensionInfoDatas) {
-        this.dimensionInfoDatas = dimensionInfoDatas;
+    /**
+     * 预减人数
+     *
+     * <p>示例值：example
+     *
+     * @param individualsToBeRemoved
+     * @return
+     */
+    public Builder individualsToBeRemoved(String individualsToBeRemoved) {
+      this.individualsToBeRemoved = individualsToBeRemoved;
+      return this;
     }
 
-    public String getWorkforcePlan() {
-        return this.workforcePlan;
+    /**
+     * 缺编人数
+     *
+     * <p>示例值：example
+     *
+     * @param vacancy
+     * @return
+     */
+    public Builder vacancy(String vacancy) {
+      this.vacancy = vacancy;
+      return this;
     }
 
-    public void setWorkforcePlan(String workforcePlan) {
-        this.workforcePlan = workforcePlan;
+    /**
+     * 含在途缺编人数
+     *
+     * <p>示例值：example
+     *
+     * @param vacancyIncludingIndividualsToBeAddedAndRemoved
+     * @return
+     */
+    public Builder vacancyIncludingIndividualsToBeAddedAndRemoved(
+        String vacancyIncludingIndividualsToBeAddedAndRemoved) {
+      this.vacancyIncludingIndividualsToBeAddedAndRemoved =
+          vacancyIncludingIndividualsToBeAddedAndRemoved;
+      return this;
     }
 
-    public String getActiveIndividuals() {
-        return this.activeIndividuals;
+    /**
+     * 满编率
+     *
+     * <p>示例值：example
+     *
+     * @param fulfillmentRate
+     * @return
+     */
+    public Builder fulfillmentRate(String fulfillmentRate) {
+      this.fulfillmentRate = fulfillmentRate;
+      return this;
     }
 
-    public void setActiveIndividuals(String activeIndividuals) {
-        this.activeIndividuals = activeIndividuals;
+    /**
+     * 含在途满编率
+     *
+     * <p>示例值：example
+     *
+     * @param fulfillmentRateIncludingIndividualsToBeAddedAndRemoved
+     * @return
+     */
+    public Builder fulfillmentRateIncludingIndividualsToBeAddedAndRemoved(
+        String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved) {
+      this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved =
+          fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
+      return this;
     }
 
-    public String getIndividualsToBeAdded() {
-        return this.individualsToBeAdded;
+    /**
+     * 预估在职详情
+     *
+     * <p>示例值：
+     *
+     * @param estimatedActiveIndividualsDetails
+     * @return
+     */
+    public Builder estimatedActiveIndividualsDetails(
+        WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetails) {
+      this.estimatedActiveIndividualsDetails = estimatedActiveIndividualsDetails;
+      return this;
     }
 
-    public void setIndividualsToBeAdded(String individualsToBeAdded) {
-        this.individualsToBeAdded = individualsToBeAdded;
+    /**
+     * 周期数据
+     *
+     * <p>示例值：
+     *
+     * @param multiPeriodValues
+     * @return
+     */
+    public Builder multiPeriodValues(WorkforcePlanMultiPeriodValue[] multiPeriodValues) {
+      this.multiPeriodValues = multiPeriodValues;
+      return this;
     }
 
-    public String getIndividualsToBeRemoved() {
-        return this.individualsToBeRemoved;
+    public GroupedSummaryItem build() {
+      return new GroupedSummaryItem(this);
     }
+  }
 
-    public void setIndividualsToBeRemoved(String individualsToBeRemoved) {
-        this.individualsToBeRemoved = individualsToBeRemoved;
-    }
-
-    public String getVacancy() {
-        return this.vacancy;
-    }
-
-    public void setVacancy(String vacancy) {
-        this.vacancy = vacancy;
-    }
-
-    public String getVacancyIncludingIndividualsToBeAddedAndRemoved() {
-        return this.vacancyIncludingIndividualsToBeAddedAndRemoved;
-    }
-
-    public void setVacancyIncludingIndividualsToBeAddedAndRemoved(String vacancyIncludingIndividualsToBeAddedAndRemoved) {
-        this.vacancyIncludingIndividualsToBeAddedAndRemoved = vacancyIncludingIndividualsToBeAddedAndRemoved;
-    }
-
-    public String getFulfillmentRate() {
-        return this.fulfillmentRate;
-    }
-
-    public void setFulfillmentRate(String fulfillmentRate) {
-        this.fulfillmentRate = fulfillmentRate;
-    }
-
-    public String getFulfillmentRateIncludingIndividualsToBeAddedAndRemoved() {
-        return this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
-    }
-
-    public void setFulfillmentRateIncludingIndividualsToBeAddedAndRemoved(String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved) {
-        this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved = fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
-    }
-
-    public WorkforcePlanEaiDetail[] getEstimatedActiveIndividualsDetails() {
-        return this.estimatedActiveIndividualsDetails;
-    }
-
-    public void setEstimatedActiveIndividualsDetails(WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetails) {
-        this.estimatedActiveIndividualsDetails = estimatedActiveIndividualsDetails;
-    }
-
-    public WorkforcePlanMultiPeriodValue[] getMultiPeriodValues() {
-        return this.multiPeriodValues;
-    }
-
-    public void setMultiPeriodValues(WorkforcePlanMultiPeriodValue[] multiPeriodValues) {
-        this.multiPeriodValues = multiPeriodValues;
-    }
-
-    public static class Builder {
-        /**
-         * 维度信息
-         * <p> 示例值：
-         */
-        private DimensionInfoData[] dimensionInfoDatas;
-        /**
-         * 编制数
-         * <p> 示例值：example
-         */
-        private String workforcePlan;
-        /**
-         * 在职人数
-         * <p> 示例值：example
-         */
-        private String activeIndividuals;
-        /**
-         * 预增人数
-         * <p> 示例值：example
-         */
-        private String individualsToBeAdded;
-        /**
-         * 预减人数
-         * <p> 示例值：example
-         */
-        private String individualsToBeRemoved;
-        /**
-         * 缺编人数
-         * <p> 示例值：example
-         */
-        private String vacancy;
-        /**
-         * 含在途缺编人数
-         * <p> 示例值：example
-         */
-        private String vacancyIncludingIndividualsToBeAddedAndRemoved;
-        /**
-         * 满编率
-         * <p> 示例值：example
-         */
-        private String fulfillmentRate;
-        /**
-         * 含在途满编率
-         * <p> 示例值：example
-         */
-        private String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
-        /**
-         * 预估在职详情
-         * <p> 示例值：
-         */
-        private WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetails;
-        /**
-         * 周期数据
-         * <p> 示例值：
-         */
-        private WorkforcePlanMultiPeriodValue[] multiPeriodValues;
-
-        /**
-         * 维度信息
-         * <p> 示例值：
-         *
-         * @param dimensionInfoDatas
-         * @return
-         */
-        public Builder dimensionInfoDatas(DimensionInfoData[] dimensionInfoDatas) {
-            this.dimensionInfoDatas = dimensionInfoDatas;
-            return this;
-        }
-
-
-        /**
-         * 编制数
-         * <p> 示例值：example
-         *
-         * @param workforcePlan
-         * @return
-         */
-        public Builder workforcePlan(String workforcePlan) {
-            this.workforcePlan = workforcePlan;
-            return this;
-        }
-
-
-        /**
-         * 在职人数
-         * <p> 示例值：example
-         *
-         * @param activeIndividuals
-         * @return
-         */
-        public Builder activeIndividuals(String activeIndividuals) {
-            this.activeIndividuals = activeIndividuals;
-            return this;
-        }
-
-
-        /**
-         * 预增人数
-         * <p> 示例值：example
-         *
-         * @param individualsToBeAdded
-         * @return
-         */
-        public Builder individualsToBeAdded(String individualsToBeAdded) {
-            this.individualsToBeAdded = individualsToBeAdded;
-            return this;
-        }
-
-
-        /**
-         * 预减人数
-         * <p> 示例值：example
-         *
-         * @param individualsToBeRemoved
-         * @return
-         */
-        public Builder individualsToBeRemoved(String individualsToBeRemoved) {
-            this.individualsToBeRemoved = individualsToBeRemoved;
-            return this;
-        }
-
-
-        /**
-         * 缺编人数
-         * <p> 示例值：example
-         *
-         * @param vacancy
-         * @return
-         */
-        public Builder vacancy(String vacancy) {
-            this.vacancy = vacancy;
-            return this;
-        }
-
-
-        /**
-         * 含在途缺编人数
-         * <p> 示例值：example
-         *
-         * @param vacancyIncludingIndividualsToBeAddedAndRemoved
-         * @return
-         */
-        public Builder vacancyIncludingIndividualsToBeAddedAndRemoved(String vacancyIncludingIndividualsToBeAddedAndRemoved) {
-            this.vacancyIncludingIndividualsToBeAddedAndRemoved = vacancyIncludingIndividualsToBeAddedAndRemoved;
-            return this;
-        }
-
-
-        /**
-         * 满编率
-         * <p> 示例值：example
-         *
-         * @param fulfillmentRate
-         * @return
-         */
-        public Builder fulfillmentRate(String fulfillmentRate) {
-            this.fulfillmentRate = fulfillmentRate;
-            return this;
-        }
-
-
-        /**
-         * 含在途满编率
-         * <p> 示例值：example
-         *
-         * @param fulfillmentRateIncludingIndividualsToBeAddedAndRemoved
-         * @return
-         */
-        public Builder fulfillmentRateIncludingIndividualsToBeAddedAndRemoved(String fulfillmentRateIncludingIndividualsToBeAddedAndRemoved) {
-            this.fulfillmentRateIncludingIndividualsToBeAddedAndRemoved = fulfillmentRateIncludingIndividualsToBeAddedAndRemoved;
-            return this;
-        }
-
-
-        /**
-         * 预估在职详情
-         * <p> 示例值：
-         *
-         * @param estimatedActiveIndividualsDetails
-         * @return
-         */
-        public Builder estimatedActiveIndividualsDetails(WorkforcePlanEaiDetail[] estimatedActiveIndividualsDetails) {
-            this.estimatedActiveIndividualsDetails = estimatedActiveIndividualsDetails;
-            return this;
-        }
-
-
-        /**
-         * 周期数据
-         * <p> 示例值：
-         *
-         * @param multiPeriodValues
-         * @return
-         */
-        public Builder multiPeriodValues(WorkforcePlanMultiPeriodValue[] multiPeriodValues) {
-            this.multiPeriodValues = multiPeriodValues;
-            return this;
-        }
-
-
-        public GroupedSummaryItem build() {
-            return new GroupedSummaryItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

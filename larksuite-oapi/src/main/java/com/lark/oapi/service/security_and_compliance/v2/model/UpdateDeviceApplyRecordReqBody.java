@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateDeviceApplyRecordReqBody {
+  /**
+   * 是否审批通过
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_approved")
+  private Boolean isApproved;
+
+  public Boolean getIsApproved() {
+    return this.isApproved;
+  }
+
+  public void setIsApproved(Boolean isApproved) {
+    this.isApproved = isApproved;
+  }
+
+  // builder 开始
+  public UpdateDeviceApplyRecordReqBody() {}
+
+  public UpdateDeviceApplyRecordReqBody(Builder builder) {
     /**
      * 是否审批通过
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_approved")
+    this.isApproved = builder.isApproved;
+  }
+
+  public static class Builder {
+    /**
+     * 是否审批通过
+     *
+     * <p>示例值：true
+     */
     private Boolean isApproved;
 
-    // builder 开始
-    public UpdateDeviceApplyRecordReqBody() {
+    /**
+     * 是否审批通过
+     *
+     * <p>示例值：true
+     *
+     * @param isApproved
+     * @return
+     */
+    public Builder isApproved(Boolean isApproved) {
+      this.isApproved = isApproved;
+      return this;
     }
 
-    public UpdateDeviceApplyRecordReqBody(Builder builder) {
-        /**
-         * 是否审批通过
-         * <p> 示例值：true
-         */
-        this.isApproved = builder.isApproved;
+    public UpdateDeviceApplyRecordReqBody build() {
+      return new UpdateDeviceApplyRecordReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Boolean getIsApproved() {
-        return this.isApproved;
-    }
-
-    public void setIsApproved(Boolean isApproved) {
-        this.isApproved = isApproved;
-    }
-
-    public static class Builder {
-        /**
-         * 是否审批通过
-         * <p> 示例值：true
-         */
-        private Boolean isApproved;
-
-        /**
-         * 是否审批通过
-         * <p> 示例值：true
-         *
-         * @param isApproved
-         * @return
-         */
-        public Builder isApproved(Boolean isApproved) {
-            this.isApproved = isApproved;
-            return this;
-        }
-
-
-        public UpdateDeviceApplyRecordReqBody build() {
-            return new UpdateDeviceApplyRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

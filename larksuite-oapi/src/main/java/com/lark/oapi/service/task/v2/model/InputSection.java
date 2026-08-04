@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InputSection {
+  /**
+   * 自定义分组名。不允许为空，最大100个UTF-8字符。
+   *
+   * <p>示例值：已经审核过的任务
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 自定义分组的资源类型，支持"tasklist"（清单）或者"my_tasks"（我负责的）。
+   *
+   * <p>示例值：tasklist
+   */
+  @SerializedName("resource_type")
+  private String resourceType;
+
+  /**
+   * 自定义分组要归属的资源id
+   *
+   * <p>示例值：cc371766-6584-cf50-a222-c22cd9055004
+   */
+  @SerializedName("resource_id")
+  private String resourceId;
+
+  /**
+   * 要将新分组插入到自定义分分组的前面的目标分组的guid。insert_before/insert_after二选一。也可以都不设置。都不设置时表示将新分组查到对应容器的最前面。
+   *
+   * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+   */
+  @SerializedName("insert_before")
+  private String insertBefore;
+
+  /**
+   * 要将新分组插入到自定义分分组的后面的目标分组的guid。insert_before/insert_after二选一。也可以都不设置。都不设置时表示将新分组查到对应容器的最前面。
+   *
+   * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+   */
+  @SerializedName("insert_after")
+  private String insertAfter;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getResourceType() {
+    return this.resourceType;
+  }
+
+  public void setResourceType(String resourceType) {
+    this.resourceType = resourceType;
+  }
+
+  public String getResourceId() {
+    return this.resourceId;
+  }
+
+  public void setResourceId(String resourceId) {
+    this.resourceId = resourceId;
+  }
+
+  public String getInsertBefore() {
+    return this.insertBefore;
+  }
+
+  public void setInsertBefore(String insertBefore) {
+    this.insertBefore = insertBefore;
+  }
+
+  public String getInsertAfter() {
+    return this.insertAfter;
+  }
+
+  public void setInsertAfter(String insertAfter) {
+    this.insertAfter = insertAfter;
+  }
+
+  // builder 开始
+  public InputSection() {}
+
+  public InputSection(Builder builder) {
     /**
-     * 自定义分组名
-     * <p> 示例值：已经审核过的任务
+     * 自定义分组名。不允许为空，最大100个UTF-8字符。
+     *
+     * <p>示例值：已经审核过的任务
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 自定义分组的资源类型
-     * <p> 示例值：tasklist
+     * 自定义分组的资源类型，支持"tasklist"（清单）或者"my_tasks"（我负责的）。
+     *
+     * <p>示例值：tasklist
      */
-    @SerializedName("resource_type")
-    private String resourceType;
+    this.resourceType = builder.resourceType;
     /**
      * 自定义分组要归属的资源id
-     * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
+     *
+     * <p>示例值：cc371766-6584-cf50-a222-c22cd9055004
      */
-    @SerializedName("resource_id")
-    private String resourceId;
+    this.resourceId = builder.resourceId;
     /**
      * 要将新分组插入到自定义分分组的前面的目标分组的guid。insert_before/insert_after二选一。也可以都不设置。都不设置时表示将新分组查到对应容器的最前面。
-     * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
      */
-    @SerializedName("insert_before")
-    private String insertBefore;
+    this.insertBefore = builder.insertBefore;
     /**
      * 要将新分组插入到自定义分分组的后面的目标分组的guid。insert_before/insert_after二选一。也可以都不设置。都不设置时表示将新分组查到对应容器的最前面。
-     * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
      */
-    @SerializedName("insert_after")
+    this.insertAfter = builder.insertAfter;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义分组名。不允许为空，最大100个UTF-8字符。
+     *
+     * <p>示例值：已经审核过的任务
+     */
+    private String name;
+
+    /**
+     * 自定义分组的资源类型，支持"tasklist"（清单）或者"my_tasks"（我负责的）。
+     *
+     * <p>示例值：tasklist
+     */
+    private String resourceType;
+
+    /**
+     * 自定义分组要归属的资源id
+     *
+     * <p>示例值：cc371766-6584-cf50-a222-c22cd9055004
+     */
+    private String resourceId;
+
+    /**
+     * 要将新分组插入到自定义分分组的前面的目标分组的guid。insert_before/insert_after二选一。也可以都不设置。都不设置时表示将新分组查到对应容器的最前面。
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     */
+    private String insertBefore;
+
+    /**
+     * 要将新分组插入到自定义分分组的后面的目标分组的guid。insert_before/insert_after二选一。也可以都不设置。都不设置时表示将新分组查到对应容器的最前面。
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     */
     private String insertAfter;
 
-    // builder 开始
-    public InputSection() {
+    /**
+     * 自定义分组名。不允许为空，最大100个UTF-8字符。
+     *
+     * <p>示例值：已经审核过的任务
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public InputSection(Builder builder) {
-        /**
-         * 自定义分组名
-         * <p> 示例值：已经审核过的任务
-         */
-        this.name = builder.name;
-        /**
-         * 自定义分组的资源类型
-         * <p> 示例值：tasklist
-         */
-        this.resourceType = builder.resourceType;
-        /**
-         * 自定义分组要归属的资源id
-         * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
-         */
-        this.resourceId = builder.resourceId;
-        /**
-         * 要将新分组插入到自定义分分组的前面的目标分组的guid。insert_before/insert_after二选一。也可以都不设置。都不设置时表示将新分组查到对应容器的最前面。
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         */
-        this.insertBefore = builder.insertBefore;
-        /**
-         * 要将新分组插入到自定义分分组的后面的目标分组的guid。insert_before/insert_after二选一。也可以都不设置。都不设置时表示将新分组查到对应容器的最前面。
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         */
-        this.insertAfter = builder.insertAfter;
+    /**
+     * 自定义分组的资源类型，支持"tasklist"（清单）或者"my_tasks"（我负责的）。
+     *
+     * <p>示例值：tasklist
+     *
+     * @param resourceType
+     * @return
+     */
+    public Builder resourceType(String resourceType) {
+      this.resourceType = resourceType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义分组要归属的资源id
+     *
+     * <p>示例值：cc371766-6584-cf50-a222-c22cd9055004
+     *
+     * @param resourceId
+     * @return
+     */
+    public Builder resourceId(String resourceId) {
+      this.resourceId = resourceId;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 要将新分组插入到自定义分分组的前面的目标分组的guid。insert_before/insert_after二选一。也可以都不设置。都不设置时表示将新分组查到对应容器的最前面。
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     *
+     * @param insertBefore
+     * @return
+     */
+    public Builder insertBefore(String insertBefore) {
+      this.insertBefore = insertBefore;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 要将新分组插入到自定义分分组的后面的目标分组的guid。insert_before/insert_after二选一。也可以都不设置。都不设置时表示将新分组查到对应容器的最前面。
+     *
+     * <p>示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
+     *
+     * @param insertAfter
+     * @return
+     */
+    public Builder insertAfter(String insertAfter) {
+      this.insertAfter = insertAfter;
+      return this;
     }
 
-    public String getResourceType() {
-        return this.resourceType;
+    public InputSection build() {
+      return new InputSection(this);
     }
+  }
 
-    public void setResourceType(String resourceType) {
-        this.resourceType = resourceType;
-    }
-
-    public String getResourceId() {
-        return this.resourceId;
-    }
-
-    public void setResourceId(String resourceId) {
-        this.resourceId = resourceId;
-    }
-
-    public String getInsertBefore() {
-        return this.insertBefore;
-    }
-
-    public void setInsertBefore(String insertBefore) {
-        this.insertBefore = insertBefore;
-    }
-
-    public String getInsertAfter() {
-        return this.insertAfter;
-    }
-
-    public void setInsertAfter(String insertAfter) {
-        this.insertAfter = insertAfter;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义分组名
-         * <p> 示例值：已经审核过的任务
-         */
-        private String name;
-        /**
-         * 自定义分组的资源类型
-         * <p> 示例值：tasklist
-         */
-        private String resourceType;
-        /**
-         * 自定义分组要归属的资源id
-         * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
-         */
-        private String resourceId;
-        /**
-         * 要将新分组插入到自定义分分组的前面的目标分组的guid。insert_before/insert_after二选一。也可以都不设置。都不设置时表示将新分组查到对应容器的最前面。
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         */
-        private String insertBefore;
-        /**
-         * 要将新分组插入到自定义分分组的后面的目标分组的guid。insert_before/insert_after二选一。也可以都不设置。都不设置时表示将新分组查到对应容器的最前面。
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         */
-        private String insertAfter;
-
-        /**
-         * 自定义分组名
-         * <p> 示例值：已经审核过的任务
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 自定义分组的资源类型
-         * <p> 示例值：tasklist
-         *
-         * @param resourceType
-         * @return
-         */
-        public Builder resourceType(String resourceType) {
-            this.resourceType = resourceType;
-            return this;
-        }
-
-
-        /**
-         * 自定义分组要归属的资源id
-         * <p> 示例值：cc371766-6584-cf50-a222-c22cd9055004
-         *
-         * @param resourceId
-         * @return
-         */
-        public Builder resourceId(String resourceId) {
-            this.resourceId = resourceId;
-            return this;
-        }
-
-
-        /**
-         * 要将新分组插入到自定义分分组的前面的目标分组的guid。insert_before/insert_after二选一。也可以都不设置。都不设置时表示将新分组查到对应容器的最前面。
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         *
-         * @param insertBefore
-         * @return
-         */
-        public Builder insertBefore(String insertBefore) {
-            this.insertBefore = insertBefore;
-            return this;
-        }
-
-
-        /**
-         * 要将新分组插入到自定义分分组的后面的目标分组的guid。insert_before/insert_after二选一。也可以都不设置。都不设置时表示将新分组查到对应容器的最前面。
-         * <p> 示例值：e6e37dcc-f75a-5936-f589-12fb4b5c80c2
-         *
-         * @param insertAfter
-         * @return
-         */
-        public Builder insertAfter(String insertAfter) {
-            this.insertAfter = insertAfter;
-            return this;
-        }
-
-
-        public InputSection build() {
-            return new InputSection(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

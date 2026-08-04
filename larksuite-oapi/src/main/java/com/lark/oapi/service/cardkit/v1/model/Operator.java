@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.cardkit.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Operator {
+  /**
+   * 回调触发者的 tenant key，即租户唯一标识
+   *
+   * <p>示例值：2af7399175062872
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
+
+  /**
+   * 回调触发者的 user ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 回调触发者的 open ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("open_id")
+  private String openId;
+
+  /**
+   * 回调触发者的 union ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("union_id")
+  private String unionId;
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getOpenId() {
+    return this.openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  public String getUnionId() {
+    return this.unionId;
+  }
+
+  public void setUnionId(String unionId) {
+    this.unionId = unionId;
+  }
+
+  // builder 开始
+  public Operator() {}
+
+  public Operator(Builder builder) {
     /**
      * 回调触发者的 tenant key，即租户唯一标识
-     * <p> 示例值：2af7399175062872
+     *
+     * <p>示例值：2af7399175062872
      */
-    @SerializedName("tenant_key")
-    private String tenantKey;
+    this.tenantKey = builder.tenantKey;
     /**
      * 回调触发者的 user ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 回调触发者的 open ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("open_id")
-    private String openId;
+    this.openId = builder.openId;
     /**
      * 回调触发者的 union ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("union_id")
+    this.unionId = builder.unionId;
+  }
+
+  public static class Builder {
+    /**
+     * 回调触发者的 tenant key，即租户唯一标识
+     *
+     * <p>示例值：2af7399175062872
+     */
+    private String tenantKey;
+
+    /**
+     * 回调触发者的 user ID
+     *
+     * <p>示例值：
+     */
+    private String userId;
+
+    /**
+     * 回调触发者的 open ID
+     *
+     * <p>示例值：
+     */
+    private String openId;
+
+    /**
+     * 回调触发者的 union ID
+     *
+     * <p>示例值：
+     */
     private String unionId;
 
-    // builder 开始
-    public Operator() {
+    /**
+     * 回调触发者的 tenant key，即租户唯一标识
+     *
+     * <p>示例值：2af7399175062872
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public Operator(Builder builder) {
-        /**
-         * 回调触发者的 tenant key，即租户唯一标识
-         * <p> 示例值：2af7399175062872
-         */
-        this.tenantKey = builder.tenantKey;
-        /**
-         * 回调触发者的 user ID
-         * <p> 示例值：
-         */
-        this.userId = builder.userId;
-        /**
-         * 回调触发者的 open ID
-         * <p> 示例值：
-         */
-        this.openId = builder.openId;
-        /**
-         * 回调触发者的 union ID
-         * <p> 示例值：
-         */
-        this.unionId = builder.unionId;
+    /**
+     * 回调触发者的 user ID
+     *
+     * <p>示例值：
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 回调触发者的 open ID
+     *
+     * <p>示例值：
+     *
+     * @param openId
+     * @return
+     */
+    public Builder openId(String openId) {
+      this.openId = openId;
+      return this;
     }
 
-    public String getTenantKey() {
-        return this.tenantKey;
+    /**
+     * 回调触发者的 union ID
+     *
+     * <p>示例值：
+     *
+     * @param unionId
+     * @return
+     */
+    public Builder unionId(String unionId) {
+      this.unionId = unionId;
+      return this;
     }
 
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
+    public Operator build() {
+      return new Operator(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getOpenId() {
-        return this.openId;
-    }
-
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
-
-    public String getUnionId() {
-        return this.unionId;
-    }
-
-    public void setUnionId(String unionId) {
-        this.unionId = unionId;
-    }
-
-    public static class Builder {
-        /**
-         * 回调触发者的 tenant key，即租户唯一标识
-         * <p> 示例值：2af7399175062872
-         */
-        private String tenantKey;
-        /**
-         * 回调触发者的 user ID
-         * <p> 示例值：
-         */
-        private String userId;
-        /**
-         * 回调触发者的 open ID
-         * <p> 示例值：
-         */
-        private String openId;
-        /**
-         * 回调触发者的 union ID
-         * <p> 示例值：
-         */
-        private String unionId;
-
-        /**
-         * 回调触发者的 tenant key，即租户唯一标识
-         * <p> 示例值：2af7399175062872
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        /**
-         * 回调触发者的 user ID
-         * <p> 示例值：
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 回调触发者的 open ID
-         * <p> 示例值：
-         *
-         * @param openId
-         * @return
-         */
-        public Builder openId(String openId) {
-            this.openId = openId;
-            return this;
-        }
-
-
-        /**
-         * 回调触发者的 union ID
-         * <p> 示例值：
-         *
-         * @param unionId
-         * @return
-         */
-        public Builder unionId(String unionId) {
-            this.unionId = unionId;
-            return this;
-        }
-
-
-        public Operator build() {
-            return new Operator(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

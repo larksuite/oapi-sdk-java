@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2PathwayUpdatedV2Data {
-    /**
-     * 通道 ID
-     * <p> 示例值：7043711774159341101
-     */
-    @SerializedName("pathway_id")
-    private String pathwayId;
-    /**
-     * 发生变更的字段
-     * <p> 示例值：
-     */
-    @SerializedName("field_changes")
-    private String[] fieldChanges;
+  /**
+   * 通道 ID
+   *
+   * <p>示例值：7043711774159341101
+   */
+  @SerializedName("pathway_id")
+  private String pathwayId;
 
-    public String getPathwayId() {
-        return this.pathwayId;
-    }
+  /**
+   * 发生变更的字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_changes")
+  private String[] fieldChanges;
 
-    public void setPathwayId(String pathwayId) {
-        this.pathwayId = pathwayId;
-    }
+  public String getPathwayId() {
+    return this.pathwayId;
+  }
 
-    public String[] getFieldChanges() {
-        return this.fieldChanges;
-    }
+  public void setPathwayId(String pathwayId) {
+    this.pathwayId = pathwayId;
+  }
 
-    public void setFieldChanges(String[] fieldChanges) {
-        this.fieldChanges = fieldChanges;
-    }
+  public String[] getFieldChanges() {
+    return this.fieldChanges;
+  }
 
+  public void setFieldChanges(String[] fieldChanges) {
+    this.fieldChanges = fieldChanges;
+  }
 }

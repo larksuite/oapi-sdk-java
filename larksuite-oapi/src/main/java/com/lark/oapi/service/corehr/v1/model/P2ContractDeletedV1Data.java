@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ContractDeletedV1Data {
-    /**
-     * ID
-     * <p> 示例值：201571108
-     */
-    @SerializedName("contract_id")
-    private String contractId;
+  /**
+   * 合同ID，删除后无法通过接口查询到数据
+   *
+   * <p>示例值：201571108
+   */
+  @SerializedName("contract_id")
+  private String contractId;
 
-    public String getContractId() {
-        return this.contractId;
-    }
+  public String getContractId() {
+    return this.contractId;
+  }
 
-    public void setContractId(String contractId) {
-        this.contractId = contractId;
-    }
-
+  public void setContractId(String contractId) {
+    this.contractId = contractId;
+  }
 }

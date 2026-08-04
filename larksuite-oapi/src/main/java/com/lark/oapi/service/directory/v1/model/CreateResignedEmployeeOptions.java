@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateResignedEmployeeOptions {
+  /**
+   * 离职用户指定geo/unit
+   *
+   * <p>示例值：cn
+   */
+  @SerializedName("geo_name")
+  private String geoName;
+
+  /**
+   * 用户追踪信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_trace_info")
+  private EmployeeTraceInfo employeeTraceInfo;
+
+  /**
+   * 数据来源
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("data_source")
+  private Integer dataSource;
+
+  public String getGeoName() {
+    return this.geoName;
+  }
+
+  public void setGeoName(String geoName) {
+    this.geoName = geoName;
+  }
+
+  public EmployeeTraceInfo getEmployeeTraceInfo() {
+    return this.employeeTraceInfo;
+  }
+
+  public void setEmployeeTraceInfo(EmployeeTraceInfo employeeTraceInfo) {
+    this.employeeTraceInfo = employeeTraceInfo;
+  }
+
+  public Integer getDataSource() {
+    return this.dataSource;
+  }
+
+  public void setDataSource(Integer dataSource) {
+    this.dataSource = dataSource;
+  }
+
+  // builder 开始
+  public CreateResignedEmployeeOptions() {}
+
+  public CreateResignedEmployeeOptions(Builder builder) {
     /**
      * 离职用户指定geo/unit
-     * <p> 示例值：cn
+     *
+     * <p>示例值：cn
      */
-    @SerializedName("geo_name")
-    private String geoName;
+    this.geoName = builder.geoName;
     /**
      * 用户追踪信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_trace_info")
-    private EmployeeTraceInfo employeeTraceInfo;
+    this.employeeTraceInfo = builder.employeeTraceInfo;
     /**
      * 数据来源
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("data_source")
+    this.dataSource = builder.dataSource;
+  }
+
+  public static class Builder {
+    /**
+     * 离职用户指定geo/unit
+     *
+     * <p>示例值：cn
+     */
+    private String geoName;
+
+    /**
+     * 用户追踪信息
+     *
+     * <p>示例值：
+     */
+    private EmployeeTraceInfo employeeTraceInfo;
+
+    /**
+     * 数据来源
+     *
+     * <p>示例值：1
+     */
     private Integer dataSource;
 
-    // builder 开始
-    public CreateResignedEmployeeOptions() {
+    /**
+     * 离职用户指定geo/unit
+     *
+     * <p>示例值：cn
+     *
+     * @param geoName
+     * @return
+     */
+    public Builder geoName(String geoName) {
+      this.geoName = geoName;
+      return this;
     }
 
-    public CreateResignedEmployeeOptions(Builder builder) {
-        /**
-         * 离职用户指定geo/unit
-         * <p> 示例值：cn
-         */
-        this.geoName = builder.geoName;
-        /**
-         * 用户追踪信息
-         * <p> 示例值：
-         */
-        this.employeeTraceInfo = builder.employeeTraceInfo;
-        /**
-         * 数据来源
-         * <p> 示例值：
-         */
-        this.dataSource = builder.dataSource;
+    /**
+     * 用户追踪信息
+     *
+     * <p>示例值：
+     *
+     * @param employeeTraceInfo
+     * @return
+     */
+    public Builder employeeTraceInfo(EmployeeTraceInfo employeeTraceInfo) {
+      this.employeeTraceInfo = employeeTraceInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据来源
+     *
+     * <p>示例值：1
+     *
+     * @param dataSource
+     * @return
+     */
+    public Builder dataSource(Integer dataSource) {
+      this.dataSource = dataSource;
+      return this;
     }
 
-    public String getGeoName() {
-        return this.geoName;
+    public CreateResignedEmployeeOptions build() {
+      return new CreateResignedEmployeeOptions(this);
     }
+  }
 
-    public void setGeoName(String geoName) {
-        this.geoName = geoName;
-    }
-
-    public EmployeeTraceInfo getEmployeeTraceInfo() {
-        return this.employeeTraceInfo;
-    }
-
-    public void setEmployeeTraceInfo(EmployeeTraceInfo employeeTraceInfo) {
-        this.employeeTraceInfo = employeeTraceInfo;
-    }
-
-    public Integer getDataSource() {
-        return this.dataSource;
-    }
-
-    public void setDataSource(Integer dataSource) {
-        this.dataSource = dataSource;
-    }
-
-    public static class Builder {
-        /**
-         * 离职用户指定geo/unit
-         * <p> 示例值：cn
-         */
-        private String geoName;
-        /**
-         * 用户追踪信息
-         * <p> 示例值：
-         */
-        private EmployeeTraceInfo employeeTraceInfo;
-        /**
-         * 数据来源
-         * <p> 示例值：
-         */
-        private Integer dataSource;
-
-        /**
-         * 离职用户指定geo/unit
-         * <p> 示例值：cn
-         *
-         * @param geoName
-         * @return
-         */
-        public Builder geoName(String geoName) {
-            this.geoName = geoName;
-            return this;
-        }
-
-
-        /**
-         * 用户追踪信息
-         * <p> 示例值：
-         *
-         * @param employeeTraceInfo
-         * @return
-         */
-        public Builder employeeTraceInfo(EmployeeTraceInfo employeeTraceInfo) {
-            this.employeeTraceInfo = employeeTraceInfo;
-            return this;
-        }
-
-
-        /**
-         * 数据来源
-         * <p> 示例值：
-         *
-         * @param dataSource
-         * @return
-         */
-        public Builder dataSource(Integer dataSource) {
-            this.dataSource = dataSource;
-            return this;
-        }
-
-
-        public CreateResignedEmployeeOptions build() {
-            return new CreateResignedEmployeeOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,161 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ModifyUserMailboxMessageReqBody {
+  /**
+   * 待添加的标签 ID 列表。可选值包括 UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。该参数与 remove_label_ids、add_folder
+   * 均为可选且可组合；与 remove_label_ids 同时设置时，会在同一次请求中分别添加和移除对应标签，请勿在两个列表中传入同一标签 ID。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("add_label_ids")
+  private String[] addLabelIds;
+
+  /**
+   * 待移除的标签 ID 列表。可选值包括 UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。该参数与 add_label_ids、add_folder
+   * 均为可选且可组合；与 add_label_ids 同时设置时，会在同一次请求中分别移除和添加对应标签，请勿在两个列表中传入同一标签 ID。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("remove_label_ids")
+  private String[] removeLabelIds;
+
+  /**
+   * 需要移入的文件夹 ID。支持 INBOX、SENT、SPAM、ARCHIVED 以及自定义文件夹 ID。该参数与 add_label_ids、remove_label_ids
+   * 均为可选且可组合；设置后会在同一次请求中将邮件移动到指定文件夹，若仅需调整标签可不传该字段。
+   *
+   * <p>示例值：INBOX
+   */
+  @SerializedName("add_folder")
+  private String addFolder;
+
+  public String[] getAddLabelIds() {
+    return this.addLabelIds;
+  }
+
+  public void setAddLabelIds(String[] addLabelIds) {
+    this.addLabelIds = addLabelIds;
+  }
+
+  public String[] getRemoveLabelIds() {
+    return this.removeLabelIds;
+  }
+
+  public void setRemoveLabelIds(String[] removeLabelIds) {
+    this.removeLabelIds = removeLabelIds;
+  }
+
+  public String getAddFolder() {
+    return this.addFolder;
+  }
+
+  public void setAddFolder(String addFolder) {
+    this.addFolder = addFolder;
+  }
+
+  // builder 开始
+  public ModifyUserMailboxMessageReqBody() {}
+
+  public ModifyUserMailboxMessageReqBody(Builder builder) {
     /**
-     * 待添加的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-     * <p> 示例值：
+     * 待添加的标签 ID 列表。可选值包括 UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。该参数与 remove_label_ids、add_folder
+     * 均为可选且可组合；与 remove_label_ids 同时设置时，会在同一次请求中分别添加和移除对应标签，请勿在两个列表中传入同一标签 ID。
+     *
+     * <p>示例值：
      */
-    @SerializedName("add_label_ids")
+    this.addLabelIds = builder.addLabelIds;
+    /**
+     * 待移除的标签 ID 列表。可选值包括 UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。该参数与 add_label_ids、add_folder
+     * 均为可选且可组合；与 add_label_ids 同时设置时，会在同一次请求中分别移除和添加对应标签，请勿在两个列表中传入同一标签 ID。
+     *
+     * <p>示例值：
+     */
+    this.removeLabelIds = builder.removeLabelIds;
+    /**
+     * 需要移入的文件夹 ID。支持 INBOX、SENT、SPAM、ARCHIVED 以及自定义文件夹 ID。该参数与 add_label_ids、remove_label_ids
+     * 均为可选且可组合；设置后会在同一次请求中将邮件移动到指定文件夹，若仅需调整标签可不传该字段。
+     *
+     * <p>示例值：INBOX
+     */
+    this.addFolder = builder.addFolder;
+  }
+
+  public static class Builder {
+    /**
+     * 待添加的标签 ID 列表。可选值包括 UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。该参数与 remove_label_ids、add_folder
+     * 均为可选且可组合；与 remove_label_ids 同时设置时，会在同一次请求中分别添加和移除对应标签，请勿在两个列表中传入同一标签 ID。
+     *
+     * <p>示例值：
+     */
     private String[] addLabelIds;
+
     /**
-     * 待移除的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-     * <p> 示例值：
+     * 待移除的标签 ID 列表。可选值包括 UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。该参数与 add_label_ids、add_folder
+     * 均为可选且可组合；与 add_label_ids 同时设置时，会在同一次请求中分别移除和添加对应标签，请勿在两个列表中传入同一标签 ID。
+     *
+     * <p>示例值：
      */
-    @SerializedName("remove_label_ids")
     private String[] removeLabelIds;
+
     /**
-     * 需要移入的文件夹。支持INBOX、SENT、SPAM、ARCHIVED以及自定义文件夹ID
-     * <p> 示例值：INBOX
+     * 需要移入的文件夹 ID。支持 INBOX、SENT、SPAM、ARCHIVED 以及自定义文件夹 ID。该参数与 add_label_ids、remove_label_ids
+     * 均为可选且可组合；设置后会在同一次请求中将邮件移动到指定文件夹，若仅需调整标签可不传该字段。
+     *
+     * <p>示例值：INBOX
      */
-    @SerializedName("add_folder")
     private String addFolder;
 
-    // builder 开始
-    public ModifyUserMailboxMessageReqBody() {
+    /**
+     * 待添加的标签 ID 列表。可选值包括 UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。该参数与 remove_label_ids、add_folder
+     * 均为可选且可组合；与 remove_label_ids 同时设置时，会在同一次请求中分别添加和移除对应标签，请勿在两个列表中传入同一标签 ID。
+     *
+     * <p>示例值：
+     *
+     * @param addLabelIds
+     * @return
+     */
+    public Builder addLabelIds(String[] addLabelIds) {
+      this.addLabelIds = addLabelIds;
+      return this;
     }
 
-    public ModifyUserMailboxMessageReqBody(Builder builder) {
-        /**
-         * 待添加的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-         * <p> 示例值：
-         */
-        this.addLabelIds = builder.addLabelIds;
-        /**
-         * 待移除的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-         * <p> 示例值：
-         */
-        this.removeLabelIds = builder.removeLabelIds;
-        /**
-         * 需要移入的文件夹。支持INBOX、SENT、SPAM、ARCHIVED以及自定义文件夹ID
-         * <p> 示例值：INBOX
-         */
-        this.addFolder = builder.addFolder;
+    /**
+     * 待移除的标签 ID 列表。可选值包括 UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。该参数与 add_label_ids、add_folder
+     * 均为可选且可组合；与 add_label_ids 同时设置时，会在同一次请求中分别移除和添加对应标签，请勿在两个列表中传入同一标签 ID。
+     *
+     * <p>示例值：
+     *
+     * @param removeLabelIds
+     * @return
+     */
+    public Builder removeLabelIds(String[] removeLabelIds) {
+      this.removeLabelIds = removeLabelIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 需要移入的文件夹 ID。支持 INBOX、SENT、SPAM、ARCHIVED 以及自定义文件夹 ID。该参数与 add_label_ids、remove_label_ids
+     * 均为可选且可组合；设置后会在同一次请求中将邮件移动到指定文件夹，若仅需调整标签可不传该字段。
+     *
+     * <p>示例值：INBOX
+     *
+     * @param addFolder
+     * @return
+     */
+    public Builder addFolder(String addFolder) {
+      this.addFolder = addFolder;
+      return this;
     }
 
-    public String[] getAddLabelIds() {
-        return this.addLabelIds;
+    public ModifyUserMailboxMessageReqBody build() {
+      return new ModifyUserMailboxMessageReqBody(this);
     }
+  }
 
-    public void setAddLabelIds(String[] addLabelIds) {
-        this.addLabelIds = addLabelIds;
-    }
-
-    public String[] getRemoveLabelIds() {
-        return this.removeLabelIds;
-    }
-
-    public void setRemoveLabelIds(String[] removeLabelIds) {
-        this.removeLabelIds = removeLabelIds;
-    }
-
-    public String getAddFolder() {
-        return this.addFolder;
-    }
-
-    public void setAddFolder(String addFolder) {
-        this.addFolder = addFolder;
-    }
-
-    public static class Builder {
-        /**
-         * 待添加的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-         * <p> 示例值：
-         */
-        private String[] addLabelIds;
-        /**
-         * 待移除的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-         * <p> 示例值：
-         */
-        private String[] removeLabelIds;
-        /**
-         * 需要移入的文件夹。支持INBOX、SENT、SPAM、ARCHIVED以及自定义文件夹ID
-         * <p> 示例值：INBOX
-         */
-        private String addFolder;
-
-        /**
-         * 待添加的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-         * <p> 示例值：
-         *
-         * @param addLabelIds
-         * @return
-         */
-        public Builder addLabelIds(String[] addLabelIds) {
-            this.addLabelIds = addLabelIds;
-            return this;
-        }
-
-
-        /**
-         * 待移除的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。
-         * <p> 示例值：
-         *
-         * @param removeLabelIds
-         * @return
-         */
-        public Builder removeLabelIds(String[] removeLabelIds) {
-            this.removeLabelIds = removeLabelIds;
-            return this;
-        }
-
-
-        /**
-         * 需要移入的文件夹。支持INBOX、SENT、SPAM、ARCHIVED以及自定义文件夹ID
-         * <p> 示例值：INBOX
-         *
-         * @param addFolder
-         * @return
-         */
-        public Builder addFolder(String addFolder) {
-            this.addFolder = addFolder;
-            return this;
-        }
-
-
-        public ModifyUserMailboxMessageReqBody build() {
-            return new ModifyUserMailboxMessageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

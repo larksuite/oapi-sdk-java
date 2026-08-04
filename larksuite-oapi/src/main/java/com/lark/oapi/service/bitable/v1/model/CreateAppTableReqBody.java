@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateAppTableReqBody {
+  /**
+   * 数据表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("table")
+  private ReqTable table;
+
+  public ReqTable getTable() {
+    return this.table;
+  }
+
+  public void setTable(ReqTable table) {
+    this.table = table;
+  }
+
+  // builder 开始
+  public CreateAppTableReqBody() {}
+
+  public CreateAppTableReqBody(Builder builder) {
     /**
      * 数据表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("table")
+    this.table = builder.table;
+  }
+
+  public static class Builder {
+    /**
+     * 数据表
+     *
+     * <p>示例值：
+     */
     private ReqTable table;
 
-    // builder 开始
-    public CreateAppTableReqBody() {
+    /**
+     * 数据表
+     *
+     * <p>示例值：
+     *
+     * @param table
+     * @return
+     */
+    public Builder table(ReqTable table) {
+      this.table = table;
+      return this;
     }
 
-    public CreateAppTableReqBody(Builder builder) {
-        /**
-         * 数据表
-         * <p> 示例值：
-         */
-        this.table = builder.table;
+    public CreateAppTableReqBody build() {
+      return new CreateAppTableReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public ReqTable getTable() {
-        return this.table;
-    }
-
-    public void setTable(ReqTable table) {
-        this.table = table;
-    }
-
-    public static class Builder {
-        /**
-         * 数据表
-         * <p> 示例值：
-         */
-        private ReqTable table;
-
-        /**
-         * 数据表
-         * <p> 示例值：
-         *
-         * @param table
-         * @return
-         */
-        public Builder table(ReqTable table) {
-            this.table = table;
-            return this;
-        }
-
-
-        public CreateAppTableReqBody build() {
-            return new CreateAppTableReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

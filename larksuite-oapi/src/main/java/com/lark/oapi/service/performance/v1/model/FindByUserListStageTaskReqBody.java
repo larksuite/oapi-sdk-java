@@ -13,223 +13,237 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FindByUserListStageTaskReqBody {
+  /**
+   * 周期
+   * ID，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+   *
+   * <p>示例值：7033710017401751071
+   */
+  @SerializedName("semester_id")
+  private String semesterId;
+
+  /**
+   * 用户 ID 列表，与入参 `user_id_type` 类型一致。如果以用户身份访问（user_access_token）时，仅能填写本人用户 ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id_lists")
+  private String[] userIdLists;
+
+  /**
+   * 任务分类，填写则获取指定分类的任务;;;**可选项有**：;- `1`：待完成;- `2`：已完成;- `3`：已逾期（仅当租户设置不允许逾期提交时才有此分类）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("task_option_lists")
+  private Integer[] taskOptionLists;
+
+  /**
+   * 任务截止时间最小值，毫秒时间戳，填写则查询在此时间之后截止的任务
+   *
+   * <p>示例值：1630425599999
+   */
+  @SerializedName("after_time")
+  private String afterTime;
+
+  /**
+   * 任务截止时间最大值，毫秒时间戳，填写则查询在此时间之前截止的任务
+   *
+   * <p>示例值：1630425599999
+   */
+  @SerializedName("before_time")
+  private String beforeTime;
+
+  public String getSemesterId() {
+    return this.semesterId;
+  }
+
+  public void setSemesterId(String semesterId) {
+    this.semesterId = semesterId;
+  }
+
+  public String[] getUserIdLists() {
+    return this.userIdLists;
+  }
+
+  public void setUserIdLists(String[] userIdLists) {
+    this.userIdLists = userIdLists;
+  }
+
+  public Integer[] getTaskOptionLists() {
+    return this.taskOptionLists;
+  }
+
+  public void setTaskOptionLists(Integer[] taskOptionLists) {
+    this.taskOptionLists = taskOptionLists;
+  }
+
+  public String getAfterTime() {
+    return this.afterTime;
+  }
+
+  public void setAfterTime(String afterTime) {
+    this.afterTime = afterTime;
+  }
+
+  public String getBeforeTime() {
+    return this.beforeTime;
+  }
+
+  public void setBeforeTime(String beforeTime) {
+    this.beforeTime = beforeTime;
+  }
+
+  // builder 开始
+  public FindByUserListStageTaskReqBody() {}
+
+  public FindByUserListStageTaskReqBody(Builder builder) {
     /**
-     * 周期ID，可以通过「查询周期」接口获得
-     * <p> 示例值：7033710017401751071
+     * 周期
+     * ID，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：7033710017401751071
      */
-    @SerializedName("semester_id")
+    this.semesterId = builder.semesterId;
+    /**
+     * 用户 ID 列表，与入参 `user_id_type` 类型一致。如果以用户身份访问（user_access_token）时，仅能填写本人用户 ID
+     *
+     * <p>示例值：
+     */
+    this.userIdLists = builder.userIdLists;
+    /**
+     * 任务分类，填写则获取指定分类的任务;;;**可选项有**：;- `1`：待完成;- `2`：已完成;- `3`：已逾期（仅当租户设置不允许逾期提交时才有此分类）
+     *
+     * <p>示例值：
+     */
+    this.taskOptionLists = builder.taskOptionLists;
+    /**
+     * 任务截止时间最小值，毫秒时间戳，填写则查询在此时间之后截止的任务
+     *
+     * <p>示例值：1630425599999
+     */
+    this.afterTime = builder.afterTime;
+    /**
+     * 任务截止时间最大值，毫秒时间戳，填写则查询在此时间之前截止的任务
+     *
+     * <p>示例值：1630425599999
+     */
+    this.beforeTime = builder.beforeTime;
+  }
+
+  public static class Builder {
+    /**
+     * 周期
+     * ID，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：7033710017401751071
+     */
     private String semesterId;
+
     /**
-     * 用户ID列表
-     * <p> 示例值：
+     * 用户 ID 列表，与入参 `user_id_type` 类型一致。如果以用户身份访问（user_access_token）时，仅能填写本人用户 ID
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id_lists")
     private String[] userIdLists;
+
     /**
-     * 任务分类(不传默认包含所有)
-     * <p> 示例值：
+     * 任务分类，填写则获取指定分类的任务;;;**可选项有**：;- `1`：待完成;- `2`：已完成;- `3`：已逾期（仅当租户设置不允许逾期提交时才有此分类）
+     *
+     * <p>示例值：
      */
-    @SerializedName("task_option_lists")
     private Integer[] taskOptionLists;
+
     /**
-     * 查询晚于当前时间截止的环节
-     * <p> 示例值：1630425599999
+     * 任务截止时间最小值，毫秒时间戳，填写则查询在此时间之后截止的任务
+     *
+     * <p>示例值：1630425599999
      */
-    @SerializedName("after_time")
     private String afterTime;
+
     /**
-     * 查询早于当前时间截止的环节
-     * <p> 示例值：1630425599999
+     * 任务截止时间最大值，毫秒时间戳，填写则查询在此时间之前截止的任务
+     *
+     * <p>示例值：1630425599999
      */
-    @SerializedName("before_time")
     private String beforeTime;
 
-    // builder 开始
-    public FindByUserListStageTaskReqBody() {
+    /**
+     * 周期
+     * ID，可通过[获取周期](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：7033710017401751071
+     *
+     * @param semesterId
+     * @return
+     */
+    public Builder semesterId(String semesterId) {
+      this.semesterId = semesterId;
+      return this;
     }
 
-    public FindByUserListStageTaskReqBody(Builder builder) {
-        /**
-         * 周期ID，可以通过「查询周期」接口获得
-         * <p> 示例值：7033710017401751071
-         */
-        this.semesterId = builder.semesterId;
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         */
-        this.userIdLists = builder.userIdLists;
-        /**
-         * 任务分类(不传默认包含所有)
-         * <p> 示例值：
-         */
-        this.taskOptionLists = builder.taskOptionLists;
-        /**
-         * 查询晚于当前时间截止的环节
-         * <p> 示例值：1630425599999
-         */
-        this.afterTime = builder.afterTime;
-        /**
-         * 查询早于当前时间截止的环节
-         * <p> 示例值：1630425599999
-         */
-        this.beforeTime = builder.beforeTime;
+    /**
+     * 用户 ID 列表，与入参 `user_id_type` 类型一致。如果以用户身份访问（user_access_token）时，仅能填写本人用户 ID
+     *
+     * <p>示例值：
+     *
+     * @param userIdLists
+     * @return
+     */
+    public Builder userIdLists(String[] userIdLists) {
+      this.userIdLists = userIdLists;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 任务分类，填写则获取指定分类的任务;;;**可选项有**：;- `1`：待完成;- `2`：已完成;- `3`：已逾期（仅当租户设置不允许逾期提交时才有此分类）
+     *
+     * <p>示例值：
+     *
+     * @param taskOptionLists
+     * @return
+     */
+    public Builder taskOptionLists(Integer[] taskOptionLists) {
+      this.taskOptionLists = taskOptionLists;
+      return this;
     }
 
-    public String getSemesterId() {
-        return this.semesterId;
+    /**
+     * 任务截止时间最小值，毫秒时间戳，填写则查询在此时间之后截止的任务
+     *
+     * <p>示例值：1630425599999
+     *
+     * @param afterTime
+     * @return
+     */
+    public Builder afterTime(String afterTime) {
+      this.afterTime = afterTime;
+      return this;
     }
 
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
+    /**
+     * 任务截止时间最大值，毫秒时间戳，填写则查询在此时间之前截止的任务
+     *
+     * <p>示例值：1630425599999
+     *
+     * @param beforeTime
+     * @return
+     */
+    public Builder beforeTime(String beforeTime) {
+      this.beforeTime = beforeTime;
+      return this;
     }
 
-    public String[] getUserIdLists() {
-        return this.userIdLists;
+    public FindByUserListStageTaskReqBody build() {
+      return new FindByUserListStageTaskReqBody(this);
     }
+  }
 
-    public void setUserIdLists(String[] userIdLists) {
-        this.userIdLists = userIdLists;
-    }
-
-    public Integer[] getTaskOptionLists() {
-        return this.taskOptionLists;
-    }
-
-    public void setTaskOptionLists(Integer[] taskOptionLists) {
-        this.taskOptionLists = taskOptionLists;
-    }
-
-    public String getAfterTime() {
-        return this.afterTime;
-    }
-
-    public void setAfterTime(String afterTime) {
-        this.afterTime = afterTime;
-    }
-
-    public String getBeforeTime() {
-        return this.beforeTime;
-    }
-
-    public void setBeforeTime(String beforeTime) {
-        this.beforeTime = beforeTime;
-    }
-
-    public static class Builder {
-        /**
-         * 周期ID，可以通过「查询周期」接口获得
-         * <p> 示例值：7033710017401751071
-         */
-        private String semesterId;
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         */
-        private String[] userIdLists;
-        /**
-         * 任务分类(不传默认包含所有)
-         * <p> 示例值：
-         */
-        private Integer[] taskOptionLists;
-        /**
-         * 查询晚于当前时间截止的环节
-         * <p> 示例值：1630425599999
-         */
-        private String afterTime;
-        /**
-         * 查询早于当前时间截止的环节
-         * <p> 示例值：1630425599999
-         */
-        private String beforeTime;
-
-        /**
-         * 周期ID，可以通过「查询周期」接口获得
-         * <p> 示例值：7033710017401751071
-         *
-         * @param semesterId
-         * @return
-         */
-        public Builder semesterId(String semesterId) {
-            this.semesterId = semesterId;
-            return this;
-        }
-
-
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         *
-         * @param userIdLists
-         * @return
-         */
-        public Builder userIdLists(String[] userIdLists) {
-            this.userIdLists = userIdLists;
-            return this;
-        }
-
-
-        /**
-         * 任务分类(不传默认包含所有)
-         * <p> 示例值：
-         *
-         * @param taskOptionLists
-         * @return
-         */
-        public Builder taskOptionLists(Integer[] taskOptionLists) {
-            this.taskOptionLists = taskOptionLists;
-            return this;
-        }
-
-
-        /**
-         * 查询晚于当前时间截止的环节
-         * <p> 示例值：1630425599999
-         *
-         * @param afterTime
-         * @return
-         */
-        public Builder afterTime(String afterTime) {
-            this.afterTime = afterTime;
-            return this;
-        }
-
-
-        /**
-         * 查询早于当前时间截止的环节
-         * <p> 示例值：1630425599999
-         *
-         * @param beforeTime
-         * @return
-         */
-        public Builder beforeTime(String beforeTime) {
-            this.beforeTime = beforeTime;
-            return this;
-        }
-
-
-        public FindByUserListStageTaskReqBody build() {
-            return new FindByUserListStageTaskReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,111 +13,110 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TagTalentReqBody {
+  /**
+   * 操作类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("operation")
+  private Integer operation;
+
+  /**
+   * 标签 ID
+   * 列表，可通过以下接口获取[获取人才标签信息列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_tag/list)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("tag_id_list")
+  private String[] tagIdList;
+
+  public Integer getOperation() {
+    return this.operation;
+  }
+
+  public void setOperation(Integer operation) {
+    this.operation = operation;
+  }
+
+  public String[] getTagIdList() {
+    return this.tagIdList;
+  }
+
+  public void setTagIdList(String[] tagIdList) {
+    this.tagIdList = tagIdList;
+  }
+
+  // builder 开始
+  public TagTalentReqBody() {}
+
+  public TagTalentReqBody(Builder builder) {
     /**
      * 操作类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("operation")
-    private Integer operation;
+    this.operation = builder.operation;
     /**
-     * 标签 ID 列表
-     * <p> 示例值：
+     * 标签 ID
+     * 列表，可通过以下接口获取[获取人才标签信息列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_tag/list)
+     *
+     * <p>示例值：
      */
-    @SerializedName("tag_id_list")
+    this.tagIdList = builder.tagIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 操作类型
+     *
+     * <p>示例值：1
+     */
+    private Integer operation;
+
+    /**
+     * 标签 ID
+     * 列表，可通过以下接口获取[获取人才标签信息列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_tag/list)
+     *
+     * <p>示例值：
+     */
     private String[] tagIdList;
 
-    // builder 开始
-    public TagTalentReqBody() {
+    /**
+     * 操作类型
+     *
+     * <p>示例值：1
+     *
+     * @param operation
+     * @return
+     */
+    public Builder operation(Integer operation) {
+      this.operation = operation;
+      return this;
     }
 
-    public TagTalentReqBody(Builder builder) {
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         */
-        this.operation = builder.operation;
-        /**
-         * 标签 ID 列表
-         * <p> 示例值：
-         */
-        this.tagIdList = builder.tagIdList;
+    /**
+     * 标签 ID
+     * 列表，可通过以下接口获取[获取人才标签信息列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_tag/list)
+     *
+     * <p>示例值：
+     *
+     * @param tagIdList
+     * @return
+     */
+    public Builder tagIdList(String[] tagIdList) {
+      this.tagIdList = tagIdList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TagTalentReqBody build() {
+      return new TagTalentReqBody(this);
     }
+  }
 
-    public Integer getOperation() {
-        return this.operation;
-    }
-
-    public void setOperation(Integer operation) {
-        this.operation = operation;
-    }
-
-    public String[] getTagIdList() {
-        return this.tagIdList;
-    }
-
-    public void setTagIdList(String[] tagIdList) {
-        this.tagIdList = tagIdList;
-    }
-
-    public static class Builder {
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         */
-        private Integer operation;
-        /**
-         * 标签 ID 列表
-         * <p> 示例值：
-         */
-        private String[] tagIdList;
-
-        /**
-         * 操作类型
-         * <p> 示例值：1
-         *
-         * @param operation
-         * @return
-         */
-        public Builder operation(Integer operation) {
-            this.operation = operation;
-            return this;
-        }
-
-
-        /**
-         * 标签 ID 列表
-         * <p> 示例值：
-         *
-         * @param tagIdList
-         * @return
-         */
-        public Builder tagIdList(String[] tagIdList) {
-            this.tagIdList = tagIdList;
-            return this;
-        }
-
-
-        public TagTalentReqBody build() {
-            return new TagTalentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

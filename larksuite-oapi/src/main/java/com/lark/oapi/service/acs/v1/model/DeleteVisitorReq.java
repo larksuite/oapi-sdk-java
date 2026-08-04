@@ -13,116 +13,116 @@
 
 package com.lark.oapi.service.acs.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.acs.v1.enums.*;
 
 public class DeleteVisitorReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 访客id
+   *
+   * <p>示例值：6939433228970082566
+   */
+  @Path
+  @SerializedName("visitor_id")
+  private String visitorId;
+
+  public String getVisitorId() {
+    return this.visitorId;
+  }
+
+  public void setVisitorId(String visitorId) {
+    this.visitorId = visitorId;
+  }
+
+  // builder 开始
+  public DeleteVisitorReq() {}
+
+  public DeleteVisitorReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 访客id
-     * <p> 示例值：6939433228970082566
+     *
+     * <p>示例值：6939433228970082566
      */
-    @Path
-    @SerializedName("visitor_id")
-    private String visitorId;
+    this.visitorId = builder.visitorId;
+  }
 
-    // builder 开始
-    public DeleteVisitorReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public DeleteVisitorReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 访客id
-         * <p> 示例值：6939433228970082566
-         */
-        this.visitorId = builder.visitorId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.acs.v1.enums.DeleteVisitorDeleteVisitorUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.acs.v1.enums.DeleteVisitorDeleteVisitorUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String visitorId; // 访客id
+
+    /**
+     * 访客id
+     *
+     * <p>示例值：6939433228970082566
+     *
+     * @param visitorId
+     * @return
+     */
+    public Builder visitorId(String visitorId) {
+      this.visitorId = visitorId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public DeleteVisitorReq build() {
+      return new DeleteVisitorReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getVisitorId() {
-        return this.visitorId;
-    }
-
-    public void setVisitorId(String visitorId) {
-        this.visitorId = visitorId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String visitorId; // 访客id
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.acs.v1.enums.DeleteVisitorUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.acs.v1.enums.DeleteVisitorUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 访客id
-         * <p> 示例值：6939433228970082566
-         *
-         * @param visitorId
-         * @return
-         */
-        public Builder visitorId(String visitorId) {
-            this.visitorId = visitorId;
-            return this;
-        }
-
-
-        public DeleteVisitorReq build() {
-            return new DeleteVisitorReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

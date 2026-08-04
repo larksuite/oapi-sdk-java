@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatMemberBot {
+  /**
+   * bot_id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("bot_id")
+  private String botId;
+
+  public String getBotId() {
+    return this.botId;
+  }
+
+  public void setBotId(String botId) {
+    this.botId = botId;
+  }
+
+  // builder 开始
+  public ChatMemberBot() {}
+
+  public ChatMemberBot(Builder builder) {
     /**
      * bot_id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("bot_id")
+    this.botId = builder.botId;
+  }
+
+  public static class Builder {
+    /**
+     * bot_id
+     *
+     * <p>示例值：
+     */
     private String botId;
 
-    // builder 开始
-    public ChatMemberBot() {
+    /**
+     * bot_id
+     *
+     * <p>示例值：
+     *
+     * @param botId
+     * @return
+     */
+    public Builder botId(String botId) {
+      this.botId = botId;
+      return this;
     }
 
-    public ChatMemberBot(Builder builder) {
-        /**
-         * bot_id
-         * <p> 示例值：
-         */
-        this.botId = builder.botId;
+    public ChatMemberBot build() {
+      return new ChatMemberBot(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getBotId() {
-        return this.botId;
-    }
-
-    public void setBotId(String botId) {
-        this.botId = botId;
-    }
-
-    public static class Builder {
-        /**
-         * bot_id
-         * <p> 示例值：
-         */
-        private String botId;
-
-        /**
-         * bot_id
-         * <p> 示例值：
-         *
-         * @param botId
-         * @return
-         */
-        public Builder botId(String botId) {
-            this.botId = botId;
-            return this;
-        }
-
-
-        public ChatMemberBot build() {
-            return new ChatMemberBot(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

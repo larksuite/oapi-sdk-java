@@ -13,48 +13,40 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateApprovalRespBody {
-    /**
-     * 审批定义 Code
-     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-     */
-    @SerializedName("approval_code")
-    private String approvalCode;
-    /**
-     * 审批定义 id
-     * <p> 示例值：7090754740375519252
-     */
-    @SerializedName("approval_id")
-    private String approvalId;
+  /**
+   * 审批定义 Code。建议妥善保管该
+   * Code，后续[查看指定审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/get)、[创建审批实例](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/create)等场景需要使用审批定义
+   * Code。
+   *
+   * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+   */
+  @SerializedName("approval_code")
+  private String approvalCode;
 
-    public String getApprovalCode() {
-        return this.approvalCode;
-    }
+  /**
+   * 审批定义 ID。
+   *
+   * <p>示例值：7090754740375519252
+   */
+  @SerializedName("approval_id")
+  private String approvalId;
 
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
-    }
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
 
-    public String getApprovalId() {
-        return this.approvalId;
-    }
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
 
-    public void setApprovalId(String approvalId) {
-        this.approvalId = approvalId;
-    }
+  public String getApprovalId() {
+    return this.approvalId;
+  }
 
+  public void setApprovalId(String approvalId) {
+    this.approvalId = approvalId;
+  }
 }

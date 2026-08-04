@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.apaas.v1.enums;
 
-/**
- * 角色成员模式
- */
+/** 角色成员模式 */
 public enum RoleMemberTypeEnum {
-    ALL("all"), // 全部用户
-    CUSTOM("custom"), // 自定义
-    ;
-    private String value;
+  ALL("all"), // 全部用户
+  CUSTOM("custom"), // 自定义
+  ;
+  private String value;
 
-    RoleMemberTypeEnum(String value) {
-        this.value = value;
-    }
+  RoleMemberTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomOrgTree {
+  /**
+   * custom_org_id
+   *
+   * <p>示例值：custom_org_id_xxx
+   */
+  @SerializedName("custom_org_id")
+  private String customOrgId;
+
+  /**
+   * level
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("level")
+  private Integer level;
+
+  /**
+   * children
+   *
+   * <p>示例值：
+   */
+  @SerializedName("children")
+  private String[] children;
+
+  public String getCustomOrgId() {
+    return this.customOrgId;
+  }
+
+  public void setCustomOrgId(String customOrgId) {
+    this.customOrgId = customOrgId;
+  }
+
+  public Integer getLevel() {
+    return this.level;
+  }
+
+  public void setLevel(Integer level) {
+    this.level = level;
+  }
+
+  public String[] getChildren() {
+    return this.children;
+  }
+
+  public void setChildren(String[] children) {
+    this.children = children;
+  }
+
+  // builder 开始
+  public CustomOrgTree() {}
+
+  public CustomOrgTree(Builder builder) {
     /**
      * custom_org_id
-     * <p> 示例值：custom_org_id_xxx
+     *
+     * <p>示例值：custom_org_id_xxx
      */
-    @SerializedName("custom_org_id")
-    private String customOrgId;
+    this.customOrgId = builder.customOrgId;
     /**
      * level
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("level")
-    private Integer level;
+    this.level = builder.level;
     /**
      * children
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("children")
+    this.children = builder.children;
+  }
+
+  public static class Builder {
+    /**
+     * custom_org_id
+     *
+     * <p>示例值：custom_org_id_xxx
+     */
+    private String customOrgId;
+
+    /**
+     * level
+     *
+     * <p>示例值：1
+     */
+    private Integer level;
+
+    /**
+     * children
+     *
+     * <p>示例值：
+     */
     private String[] children;
 
-    // builder 开始
-    public CustomOrgTree() {
+    /**
+     * custom_org_id
+     *
+     * <p>示例值：custom_org_id_xxx
+     *
+     * @param customOrgId
+     * @return
+     */
+    public Builder customOrgId(String customOrgId) {
+      this.customOrgId = customOrgId;
+      return this;
     }
 
-    public CustomOrgTree(Builder builder) {
-        /**
-         * custom_org_id
-         * <p> 示例值：custom_org_id_xxx
-         */
-        this.customOrgId = builder.customOrgId;
-        /**
-         * level
-         * <p> 示例值：1
-         */
-        this.level = builder.level;
-        /**
-         * children
-         * <p> 示例值：
-         */
-        this.children = builder.children;
+    /**
+     * level
+     *
+     * <p>示例值：1
+     *
+     * @param level
+     * @return
+     */
+    public Builder level(Integer level) {
+      this.level = level;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * children
+     *
+     * <p>示例值：
+     *
+     * @param children
+     * @return
+     */
+    public Builder children(String[] children) {
+      this.children = children;
+      return this;
     }
 
-    public String getCustomOrgId() {
-        return this.customOrgId;
+    public CustomOrgTree build() {
+      return new CustomOrgTree(this);
     }
+  }
 
-    public void setCustomOrgId(String customOrgId) {
-        this.customOrgId = customOrgId;
-    }
-
-    public Integer getLevel() {
-        return this.level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
-
-    public String[] getChildren() {
-        return this.children;
-    }
-
-    public void setChildren(String[] children) {
-        this.children = children;
-    }
-
-    public static class Builder {
-        /**
-         * custom_org_id
-         * <p> 示例值：custom_org_id_xxx
-         */
-        private String customOrgId;
-        /**
-         * level
-         * <p> 示例值：1
-         */
-        private Integer level;
-        /**
-         * children
-         * <p> 示例值：
-         */
-        private String[] children;
-
-        /**
-         * custom_org_id
-         * <p> 示例值：custom_org_id_xxx
-         *
-         * @param customOrgId
-         * @return
-         */
-        public Builder customOrgId(String customOrgId) {
-            this.customOrgId = customOrgId;
-            return this;
-        }
-
-
-        /**
-         * level
-         * <p> 示例值：1
-         *
-         * @param level
-         * @return
-         */
-        public Builder level(Integer level) {
-            this.level = level;
-            return this;
-        }
-
-
-        /**
-         * children
-         * <p> 示例值：
-         *
-         * @param children
-         * @return
-         */
-        public Builder children(String[] children) {
-            this.children = children;
-            return this;
-        }
-
-
-        public CustomOrgTree build() {
-            return new CustomOrgTree(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

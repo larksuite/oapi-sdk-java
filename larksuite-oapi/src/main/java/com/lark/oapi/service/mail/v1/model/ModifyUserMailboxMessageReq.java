@@ -13,131 +13,131 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class ModifyUserMailboxMessageReq {
+  /**
+   * 用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。
+   *
+   * <p>示例值：abc@abc.com
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  /**
+   * 邮件ID，可通过列出邮件接口、收信事件通知等方式获得
+   *
+   * <p>示例值：bskfsxxcvve=
+   */
+  @Path
+  @SerializedName("message_id")
+  private String messageId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  @Body private ModifyUserMailboxMessageReqBody body;
+
+  public ModifyUserMailboxMessageReqBody getModifyUserMailboxMessageReqBody() {
+    return this.body;
+  }
+
+  public void setModifyUserMailboxMessageReqBody(ModifyUserMailboxMessageReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public ModifyUserMailboxMessageReq() {}
+
+  public ModifyUserMailboxMessageReq(Builder builder) {
     /**
-     * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-     * <p> 示例值：abc@abc.com
+     * 用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。
+     *
+     * <p>示例值：abc@abc.com
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
     /**
      * 邮件ID，可通过列出邮件接口、收信事件通知等方式获得
-     * <p> 示例值：bskfsxxcvve=
+     *
+     * <p>示例值：bskfsxxcvve=
      */
-    @Path
-    @SerializedName("message_id")
-    private String messageId;
-    @Body
+    this.messageId = builder.messageId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String
+        userMailboxId; // 用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符
+    // me 表示当前授权用户的主邮箱。
+    private String messageId; // 邮件ID，可通过列出邮件接口、收信事件通知等方式获得
+
+    /**
+     * 用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。
+     *
+     * <p>示例值：abc@abc.com
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
+    }
+
+    /**
+     * 邮件ID，可通过列出邮件接口、收信事件通知等方式获得
+     *
+     * <p>示例值：bskfsxxcvve=
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
+    }
+
     private ModifyUserMailboxMessageReqBody body;
 
-    // builder 开始
-    public ModifyUserMailboxMessageReq() {
-    }
-
-    public ModifyUserMailboxMessageReq(Builder builder) {
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-         * <p> 示例值：abc@abc.com
-         */
-        this.userMailboxId = builder.userMailboxId;
-        /**
-         * 邮件ID，可通过列出邮件接口、收信事件通知等方式获得
-         * <p> 示例值：bskfsxxcvve=
-         */
-        this.messageId = builder.messageId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
     public ModifyUserMailboxMessageReqBody getModifyUserMailboxMessageReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setModifyUserMailboxMessageReqBody(ModifyUserMailboxMessageReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder modifyUserMailboxMessageReqBody(ModifyUserMailboxMessageReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String userMailboxId; // 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-        private String messageId; // 邮件ID，可通过列出邮件接口、收信事件通知等方式获得
-        private ModifyUserMailboxMessageReqBody body;
-
-        /**
-         * 用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户
-         * <p> 示例值：abc@abc.com
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-        /**
-         * 邮件ID，可通过列出邮件接口、收信事件通知等方式获得
-         * <p> 示例值：bskfsxxcvve=
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-        public ModifyUserMailboxMessageReqBody getModifyUserMailboxMessageReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder modifyUserMailboxMessageReqBody(ModifyUserMailboxMessageReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public ModifyUserMailboxMessageReq build() {
-            return new ModifyUserMailboxMessageReq(this);
-        }
+    public ModifyUserMailboxMessageReq build() {
+      return new ModifyUserMailboxMessageReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 下载信息的类型
- */
+/** 下载信息的类型 */
 public enum DownloadInfoDownloadInfoTypeEnum {
-    DOWNLOADINFOTYPEIMFILEKEY("im_file_key"), // IM消息内容中的FileKey
-    DOWNLOADINFOTYPEIMEXPORTATTACHMENTKEY("im_export_attachment_key"), // 导出的IM消息数据结构中的AttachmentKey
-    ;
-    private String value;
+  DOWNLOADINFOTYPEIMFILEKEY("im_file_key"), // IM消息内容中的FileKey
+  DOWNLOADINFOTYPEIMEXPORTATTACHMENTKEY("im_export_attachment_key"), // 导出的IM消息数据结构中的AttachmentKey
+  ;
+  private String value;
 
-    DownloadInfoDownloadInfoTypeEnum(String value) {
-        this.value = value;
-    }
+  DownloadInfoDownloadInfoTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,109 +13,105 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.contact.v3.enums.*;
 
 public class BatchGetIdUserReq {
+  /**
+   * 返回的用户ID的类型
+   *
+   * <p>示例值：user_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  @Body private BatchGetIdUserReqBody body;
+
+  public BatchGetIdUserReqBody getBatchGetIdUserReqBody() {
+    return this.body;
+  }
+
+  public void setBatchGetIdUserReqBody(BatchGetIdUserReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public BatchGetIdUserReq() {}
+
+  public BatchGetIdUserReq(Builder builder) {
     /**
      * 返回的用户ID的类型
-     * <p> 示例值：user_id
+     *
+     * <p>示例值：user_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
-    @Body
+    this.userIdType = builder.userIdType;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 返回的用户ID的类型
+
+    /**
+     * 返回的用户ID的类型
+     *
+     * <p>示例值：user_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 返回的用户ID的类型
+     *
+     * <p>示例值：user_id
+     *
+     * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.BatchGetIdUserUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.contact.v3.enums.BatchGetIdUserUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
     private BatchGetIdUserReqBody body;
 
-    // builder 开始
-    public BatchGetIdUserReq() {
-    }
-
-    public BatchGetIdUserReq(Builder builder) {
-        /**
-         * 返回的用户ID的类型
-         * <p> 示例值：user_id
-         */
-        this.userIdType = builder.userIdType;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
     public BatchGetIdUserReqBody getBatchGetIdUserReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setBatchGetIdUserReqBody(BatchGetIdUserReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder batchGetIdUserReqBody(BatchGetIdUserReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 返回的用户ID的类型
-        private BatchGetIdUserReqBody body;
-
-        /**
-         * 返回的用户ID的类型
-         * <p> 示例值：user_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 返回的用户ID的类型
-         * <p> 示例值：user_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.BatchGetIdUserUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.BatchGetIdUserUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        public BatchGetIdUserReqBody getBatchGetIdUserReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder batchGetIdUserReqBody(BatchGetIdUserReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public BatchGetIdUserReq build() {
-            return new BatchGetIdUserReq(this);
-        }
+    public BatchGetIdUserReq build() {
+      return new BatchGetIdUserReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

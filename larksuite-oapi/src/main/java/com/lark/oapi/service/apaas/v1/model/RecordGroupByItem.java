@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RecordGroupByItem {
+  /**
+   * 字段唯一标识
+   *
+   * <p>示例值：_id
+   */
+  @SerializedName("field")
+  private String field;
+
+  public String getField() {
+    return this.field;
+  }
+
+  public void setField(String field) {
+    this.field = field;
+  }
+
+  // builder 开始
+  public RecordGroupByItem() {}
+
+  public RecordGroupByItem(Builder builder) {
     /**
      * 字段唯一标识
-     * <p> 示例值：_id
+     *
+     * <p>示例值：_id
      */
-    @SerializedName("field")
+    this.field = builder.field;
+  }
+
+  public static class Builder {
+    /**
+     * 字段唯一标识
+     *
+     * <p>示例值：_id
+     */
     private String field;
 
-    // builder 开始
-    public RecordGroupByItem() {
+    /**
+     * 字段唯一标识
+     *
+     * <p>示例值：_id
+     *
+     * @param field
+     * @return
+     */
+    public Builder field(String field) {
+      this.field = field;
+      return this;
     }
 
-    public RecordGroupByItem(Builder builder) {
-        /**
-         * 字段唯一标识
-         * <p> 示例值：_id
-         */
-        this.field = builder.field;
+    public RecordGroupByItem build() {
+      return new RecordGroupByItem(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getField() {
-        return this.field;
-    }
-
-    public void setField(String field) {
-        this.field = field;
-    }
-
-    public static class Builder {
-        /**
-         * 字段唯一标识
-         * <p> 示例值：_id
-         */
-        private String field;
-
-        /**
-         * 字段唯一标识
-         * <p> 示例值：_id
-         *
-         * @param field
-         * @return
-         */
-        public Builder field(String field) {
-            this.field = field;
-            return this;
-        }
-
-
-        public RecordGroupByItem build() {
-            return new RecordGroupByItem(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

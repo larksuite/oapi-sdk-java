@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OverviewApplicationAppUsageRespBody {
-    /**
-     * 员工使用应用概览数据
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private ApplicationAppUsage[] items;
+  /**
+   * 员工使用应用概览数据
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private ApplicationAppUsage[] items;
 
-    public ApplicationAppUsage[] getItems() {
-        return this.items;
-    }
+  public ApplicationAppUsage[] getItems() {
+    return this.items;
+  }
 
-    public void setItems(ApplicationAppUsage[] items) {
-        this.items = items;
-    }
-
+  public void setItems(ApplicationAppUsage[] items) {
+    this.items = items;
+  }
 }

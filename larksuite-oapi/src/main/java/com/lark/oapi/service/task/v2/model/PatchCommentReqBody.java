@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchCommentReqBody {
+  /**
+   * 要更新的评论数据。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("comment")
+  private InputComment comment;
+
+  /**
+   * 要更新的字段，支持;<md-enum>;<md-enum-item key="content" >评论内容</md-enum-item>;</md-enum>
+   *
+   * <p>示例值：
+   */
+  @SerializedName("update_fields")
+  private String[] updateFields;
+
+  public InputComment getComment() {
+    return this.comment;
+  }
+
+  public void setComment(InputComment comment) {
+    this.comment = comment;
+  }
+
+  public String[] getUpdateFields() {
+    return this.updateFields;
+  }
+
+  public void setUpdateFields(String[] updateFields) {
+    this.updateFields = updateFields;
+  }
+
+  // builder 开始
+  public PatchCommentReqBody() {}
+
+  public PatchCommentReqBody(Builder builder) {
     /**
-     * 要更新的评论数据，支持更新content, md_content
-     * <p> 示例值：
+     * 要更新的评论数据。
+     *
+     * <p>示例值：
      */
-    @SerializedName("comment")
+    this.comment = builder.comment;
+    /**
+     * 要更新的字段，支持;<md-enum>;<md-enum-item key="content" >评论内容</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：
+     */
+    this.updateFields = builder.updateFields;
+  }
+
+  public static class Builder {
+    /**
+     * 要更新的评论数据。
+     *
+     * <p>示例值：
+     */
     private InputComment comment;
+
     /**
-     * 要更新的字段
-     * <p> 示例值：
+     * 要更新的字段，支持;<md-enum>;<md-enum-item key="content" >评论内容</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：
      */
-    @SerializedName("update_fields")
     private String[] updateFields;
 
-    // builder 开始
-    public PatchCommentReqBody() {
+    /**
+     * 要更新的评论数据。
+     *
+     * <p>示例值：
+     *
+     * @param comment
+     * @return
+     */
+    public Builder comment(InputComment comment) {
+      this.comment = comment;
+      return this;
     }
 
-    public PatchCommentReqBody(Builder builder) {
-        /**
-         * 要更新的评论数据，支持更新content, md_content
-         * <p> 示例值：
-         */
-        this.comment = builder.comment;
-        /**
-         * 要更新的字段
-         * <p> 示例值：
-         */
-        this.updateFields = builder.updateFields;
+    /**
+     * 要更新的字段，支持;<md-enum>;<md-enum-item key="content" >评论内容</md-enum-item>;</md-enum>
+     *
+     * <p>示例值：
+     *
+     * @param updateFields
+     * @return
+     */
+    public Builder updateFields(String[] updateFields) {
+      this.updateFields = updateFields;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PatchCommentReqBody build() {
+      return new PatchCommentReqBody(this);
     }
+  }
 
-    public InputComment getComment() {
-        return this.comment;
-    }
-
-    public void setComment(InputComment comment) {
-        this.comment = comment;
-    }
-
-    public String[] getUpdateFields() {
-        return this.updateFields;
-    }
-
-    public void setUpdateFields(String[] updateFields) {
-        this.updateFields = updateFields;
-    }
-
-    public static class Builder {
-        /**
-         * 要更新的评论数据，支持更新content, md_content
-         * <p> 示例值：
-         */
-        private InputComment comment;
-        /**
-         * 要更新的字段
-         * <p> 示例值：
-         */
-        private String[] updateFields;
-
-        /**
-         * 要更新的评论数据，支持更新content, md_content
-         * <p> 示例值：
-         *
-         * @param comment
-         * @return
-         */
-        public Builder comment(InputComment comment) {
-            this.comment = comment;
-            return this;
-        }
-
-
-        /**
-         * 要更新的字段
-         * <p> 示例值：
-         *
-         * @param updateFields
-         * @return
-         */
-        public Builder updateFields(String[] updateFields) {
-            this.updateFields = updateFields;
-            return this;
-        }
-
-
-        public PatchCommentReqBody build() {
-            return new PatchCommentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

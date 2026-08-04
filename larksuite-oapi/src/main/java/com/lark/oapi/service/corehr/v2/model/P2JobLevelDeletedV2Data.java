@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2JobLevelDeletedV2Data {
-    /**
-     * 职级ID
-     * <p> 示例值：6969828847121885087
-     */
-    @SerializedName("job_level_id")
-    private String jobLevelId;
+  /**
+   * 被删除职级的 ID。
+   *
+   * <p>示例值：6969828847121885087
+   */
+  @SerializedName("job_level_id")
+  private String jobLevelId;
 
-    public String getJobLevelId() {
-        return this.jobLevelId;
-    }
+  public String getJobLevelId() {
+    return this.jobLevelId;
+  }
 
-    public void setJobLevelId(String jobLevelId) {
-        this.jobLevelId = jobLevelId;
-    }
-
+  public void setJobLevelId(String jobLevelId) {
+    this.jobLevelId = jobLevelId;
+  }
 }

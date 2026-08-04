@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RichText {
+  /**
+   * 段落列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("paragraphs")
+  private RichTextParagraph[] paragraphs;
+
+  public RichTextParagraph[] getParagraphs() {
+    return this.paragraphs;
+  }
+
+  public void setParagraphs(RichTextParagraph[] paragraphs) {
+    this.paragraphs = paragraphs;
+  }
+
+  // builder 开始
+  public RichText() {}
+
+  public RichText(Builder builder) {
     /**
      * 段落列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("paragraphs")
+    this.paragraphs = builder.paragraphs;
+  }
+
+  public static class Builder {
+    /**
+     * 段落列表
+     *
+     * <p>示例值：
+     */
     private RichTextParagraph[] paragraphs;
 
-    // builder 开始
-    public RichText() {
+    /**
+     * 段落列表
+     *
+     * <p>示例值：
+     *
+     * @param paragraphs
+     * @return
+     */
+    public Builder paragraphs(RichTextParagraph[] paragraphs) {
+      this.paragraphs = paragraphs;
+      return this;
     }
 
-    public RichText(Builder builder) {
-        /**
-         * 段落列表
-         * <p> 示例值：
-         */
-        this.paragraphs = builder.paragraphs;
+    public RichText build() {
+      return new RichText(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public RichTextParagraph[] getParagraphs() {
-        return this.paragraphs;
-    }
-
-    public void setParagraphs(RichTextParagraph[] paragraphs) {
-        this.paragraphs = paragraphs;
-    }
-
-    public static class Builder {
-        /**
-         * 段落列表
-         * <p> 示例值：
-         */
-        private RichTextParagraph[] paragraphs;
-
-        /**
-         * 段落列表
-         * <p> 示例值：
-         *
-         * @param paragraphs
-         * @return
-         */
-        public Builder paragraphs(RichTextParagraph[] paragraphs) {
-            this.paragraphs = paragraphs;
-            return this;
-        }
-
-
-        public RichText build() {
-            return new RichText(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

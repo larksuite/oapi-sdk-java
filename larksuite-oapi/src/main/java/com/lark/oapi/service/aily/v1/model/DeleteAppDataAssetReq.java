@@ -13,138 +13,143 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.aily.v1.enums.*;
 
 public class DeleteAppDataAssetReq {
+  /**
+   * 应用环境，枚举值：;- `online`：线上环境（默认值）;- `dev`：开发环境；目前只支持 `dev`
+   *
+   * <p>示例值：dev
+   */
+  @Query
+  @SerializedName("tenant_type")
+  private String tenantType;
+
+  public String getTenantType() {
+    return this.tenantType;
+  }
+
+  public void setTenantType(String tenantType) {
+    this.tenantType = tenantType;
+  }
+
+  /**
+   * Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+   *
+   * <p>示例值：spring_dfadsaf__c
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 数据知识ID，可通过在 Aily 平台查看知识详情页的url中获取，获取示例 https://***
+   * /ai/app_namespace/data/data-asset/data_asset_id
+   *
+   * <p>示例值：data_asset_dfadsafe
+   */
+  @Path
+  @SerializedName("data_asset_id")
+  private String dataAssetId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getDataAssetId() {
+    return this.dataAssetId;
+  }
+
+  public void setDataAssetId(String dataAssetId) {
+    this.dataAssetId = dataAssetId;
+  }
+
+  // builder 开始
+  public DeleteAppDataAssetReq() {}
+
+  public DeleteAppDataAssetReq(Builder builder) {
     /**
-     * 应用环境，默认为线上环境，dev代表开发环境，只支持dev
-     * <p> 示例值：dev
+     * 应用环境，枚举值：;- `online`：线上环境（默认值）;- `dev`：开发环境；目前只支持 `dev`
+     *
+     * <p>示例值：dev
      */
-    @Query
-    @SerializedName("tenant_type")
-    private String tenantType;
+    this.tenantType = builder.tenantType;
     /**
-     * APPID
-     * <p> 示例值：spring_dfadsaf__c
+     * Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+     *
+     * <p>示例值：spring_dfadsaf__c
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
     /**
-     * 数据知识ID
-     * <p> 示例值：data_asset_dfadsafe
+     * 数据知识ID，可通过在 Aily 平台查看知识详情页的url中获取，获取示例 https://***
+     * /ai/app_namespace/data/data-asset/data_asset_id
+     *
+     * <p>示例值：data_asset_dfadsafe
      */
-    @Path
-    @SerializedName("data_asset_id")
-    private String dataAssetId;
+    this.dataAssetId = builder.dataAssetId;
+  }
 
-    // builder 开始
-    public DeleteAppDataAssetReq() {
+  public static class Builder {
+    private String tenantType; // 应用环境，枚举值：;- `online`：线上环境（默认值）;- `dev`：开发环境；目前只支持 `dev`
+
+    /**
+     * 应用环境，枚举值：;- `online`：线上环境（默认值）;- `dev`：开发环境；目前只支持 `dev`
+     *
+     * <p>示例值：dev
+     *
+     * @param tenantType
+     * @return
+     */
+    public Builder tenantType(String tenantType) {
+      this.tenantType = tenantType;
+      return this;
     }
 
-    public DeleteAppDataAssetReq(Builder builder) {
-        /**
-         * 应用环境，默认为线上环境，dev代表开发环境，只支持dev
-         * <p> 示例值：dev
-         */
-        this.tenantType = builder.tenantType;
-        /**
-         * APPID
-         * <p> 示例值：spring_dfadsaf__c
-         */
-        this.appId = builder.appId;
-        /**
-         * 数据知识ID
-         * <p> 示例值：data_asset_dfadsafe
-         */
-        this.dataAssetId = builder.dataAssetId;
+    private String appId; // Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+    private String dataAssetId; // 数据知识ID，可通过在 Aily 平台查看知识详情页的url中获取，获取示例 https://***
+
+    // /ai/app_namespace/data/data-asset/data_asset_id
+
+    /**
+     * Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+     *
+     * <p>示例值：spring_dfadsaf__c
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据知识ID，可通过在 Aily 平台查看知识详情页的url中获取，获取示例 https://***
+     * /ai/app_namespace/data/data-asset/data_asset_id
+     *
+     * <p>示例值：data_asset_dfadsafe
+     *
+     * @param dataAssetId
+     * @return
+     */
+    public Builder dataAssetId(String dataAssetId) {
+      this.dataAssetId = dataAssetId;
+      return this;
     }
 
-    public String getTenantType() {
-        return this.tenantType;
+    public DeleteAppDataAssetReq build() {
+      return new DeleteAppDataAssetReq(this);
     }
+  }
 
-    public void setTenantType(String tenantType) {
-        this.tenantType = tenantType;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getDataAssetId() {
-        return this.dataAssetId;
-    }
-
-    public void setDataAssetId(String dataAssetId) {
-        this.dataAssetId = dataAssetId;
-    }
-
-    public static class Builder {
-        private String tenantType; // 应用环境，默认为线上环境，dev代表开发环境，只支持dev
-        private String appId; // APPID
-        private String dataAssetId; // 数据知识ID
-
-        /**
-         * 应用环境，默认为线上环境，dev代表开发环境，只支持dev
-         * <p> 示例值：dev
-         *
-         * @param tenantType
-         * @return
-         */
-        public Builder tenantType(String tenantType) {
-            this.tenantType = tenantType;
-            return this;
-        }
-
-        /**
-         * APPID
-         * <p> 示例值：spring_dfadsaf__c
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 数据知识ID
-         * <p> 示例值：data_asset_dfadsafe
-         *
-         * @param dataAssetId
-         * @return
-         */
-        public Builder dataAssetId(String dataAssetId) {
-            this.dataAssetId = dataAssetId;
-            return this;
-        }
-
-
-        public DeleteAppDataAssetReq build() {
-            return new DeleteAppDataAssetReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

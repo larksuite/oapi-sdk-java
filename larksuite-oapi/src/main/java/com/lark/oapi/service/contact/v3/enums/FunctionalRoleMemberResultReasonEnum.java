@@ -13,24 +13,22 @@
 
 package com.lark.oapi.service.contact.v3.enums;
 
-/**
- * 成员处理结果
- */
+/** 成员处理结果 */
 public enum FunctionalRoleMemberResultReasonEnum {
-    SUCCESS(1), // 处理成功
-    USERIDINVALID(2), // 用户ID无效
-    USERIDHASNOPERM(3), // 用户ID无权限
-    USERISEXISTEDINROLE(4), // 用户已存在在该角色中
-    USERISNOTEXISTEDINROLE(5), // 用户不存在在该角色中
-    NOTHASUSEROLDSCOPEPERM(6), // 对该角色内该用户旧的管理范围无权限
-    ;
-    private Integer value;
+  SUCCESS(1), // 处理成功
+  USERIDINVALID(2), // 用户 ID 无效
+  USERIDHASNOPERM(3), // 无权限操作该用户 ID
+  USERISEXISTEDINROLE(4), // 用户已存在在该角色中
+  USERISNOTEXISTEDINROLE(5), // 用户不存在在该角色中
+  NOTHASUSEROLDSCOPEPERM(6), // 无权限操作该角色成员旧的管理范围
+  ;
+  private Integer value;
 
-    FunctionalRoleMemberResultReasonEnum(Integer value) {
-        this.value = value;
-    }
+  FunctionalRoleMemberResultReasonEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

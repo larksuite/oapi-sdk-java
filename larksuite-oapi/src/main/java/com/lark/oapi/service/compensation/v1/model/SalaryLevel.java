@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SalaryLevel {
+  /**
+   * 薪级ID
+   *
+   * <p>示例值：7491135696314353196
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 薪级类型名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("status")
+  private Boolean status;
+
+  /**
+   * 薪等子节点
+   *
+   * <p>示例值：
+   */
+  @SerializedName("salary_grades")
+  private SalaryGrade[] salaryGrades;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public Boolean getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Boolean status) {
+    this.status = status;
+  }
+
+  public SalaryGrade[] getSalaryGrades() {
+    return this.salaryGrades;
+  }
+
+  public void setSalaryGrades(SalaryGrade[] salaryGrades) {
+    this.salaryGrades = salaryGrades;
+  }
+
+  // builder 开始
+  public SalaryLevel() {}
+
+  public SalaryLevel(Builder builder) {
     /**
      * 薪级ID
-     * <p> 示例值：7491135696314353196
+     *
+     * <p>示例值：7491135696314353196
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 薪级名称
-     * <p> 示例值：
+     * 薪级类型名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：true
      */
-    @SerializedName("status")
-    private Boolean status;
+    this.status = builder.status;
     /**
      * 薪等子节点
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("salary_grades")
+    this.salaryGrades = builder.salaryGrades;
+  }
+
+  public static class Builder {
+    /**
+     * 薪级ID
+     *
+     * <p>示例值：7491135696314353196
+     */
+    private String id;
+
+    /**
+     * 薪级类型名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean status;
+
+    /**
+     * 薪等子节点
+     *
+     * <p>示例值：
+     */
     private SalaryGrade[] salaryGrades;
 
-    // builder 开始
-    public SalaryLevel() {
+    /**
+     * 薪级ID
+     *
+     * <p>示例值：7491135696314353196
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public SalaryLevel(Builder builder) {
-        /**
-         * 薪级ID
-         * <p> 示例值：7491135696314353196
-         */
-        this.id = builder.id;
-        /**
-         * 薪级名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.status = builder.status;
-        /**
-         * 薪等子节点
-         * <p> 示例值：
-         */
-        this.salaryGrades = builder.salaryGrades;
+    /**
+     * 薪级类型名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Boolean status) {
+      this.status = status;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 薪等子节点
+     *
+     * <p>示例值：
+     *
+     * @param salaryGrades
+     * @return
+     */
+    public Builder salaryGrades(SalaryGrade[] salaryGrades) {
+      this.salaryGrades = salaryGrades;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public SalaryLevel build() {
+      return new SalaryLevel(this);
     }
+  }
 
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public Boolean getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
-
-    public SalaryGrade[] getSalaryGrades() {
-        return this.salaryGrades;
-    }
-
-    public void setSalaryGrades(SalaryGrade[] salaryGrades) {
-        this.salaryGrades = salaryGrades;
-    }
-
-    public static class Builder {
-        /**
-         * 薪级ID
-         * <p> 示例值：7491135696314353196
-         */
-        private String id;
-        /**
-         * 薪级名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean status;
-        /**
-         * 薪等子节点
-         * <p> 示例值：
-         */
-        private SalaryGrade[] salaryGrades;
-
-        /**
-         * 薪级ID
-         * <p> 示例值：7491135696314353196
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 薪级名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Boolean status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 薪等子节点
-         * <p> 示例值：
-         *
-         * @param salaryGrades
-         * @return
-         */
-        public Builder salaryGrades(SalaryGrade[] salaryGrades) {
-            this.salaryGrades = salaryGrades;
-            return this;
-        }
-
-
-        public SalaryLevel build() {
-            return new SalaryLevel(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

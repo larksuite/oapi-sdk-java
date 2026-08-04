@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.wiki.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MoveDocsToWikiSpaceNodeRespBody {
-    /**
-     * 移动后的知识库token
-     * <p> 示例值：wikcnKQ1k3p******8Vabcef
-     */
-    @SerializedName("wiki_token")
-    private String wikiToken;
-    /**
-     * 任务id
-     * <p> 示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
-     */
-    @SerializedName("task_id")
-    private String taskId;
-    /**
-     * 是否提交了文档迁入申请
-     * <p> 示例值：true
-     */
-    @SerializedName("applied")
-    private Boolean applied;
+  /**
+   * 移动后的知识库节点token
+   *
+   * <p>示例值：wikbcLZuhp4r9QuJumHzVabcdef
+   */
+  @SerializedName("wiki_token")
+  private String wikiToken;
 
-    public String getWikiToken() {
-        return this.wikiToken;
-    }
+  /**
+   * 任务id
+   *
+   * <p>示例值：7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7
+   */
+  @SerializedName("task_id")
+  private String taskId;
 
-    public void setWikiToken(String wikiToken) {
-        this.wikiToken = wikiToken;
-    }
+  /**
+   * 是否提交了文档迁入申请
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("applied")
+  private Boolean applied;
 
-    public String getTaskId() {
-        return this.taskId;
-    }
+  public String getWikiToken() {
+    return this.wikiToken;
+  }
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
+  public void setWikiToken(String wikiToken) {
+    this.wikiToken = wikiToken;
+  }
 
-    public Boolean getApplied() {
-        return this.applied;
-    }
+  public String getTaskId() {
+    return this.taskId;
+  }
 
-    public void setApplied(Boolean applied) {
-        this.applied = applied;
-    }
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
 
+  public Boolean getApplied() {
+    return this.applied;
+  }
+
+  public void setApplied(Boolean applied) {
+    this.applied = applied;
+  }
 }

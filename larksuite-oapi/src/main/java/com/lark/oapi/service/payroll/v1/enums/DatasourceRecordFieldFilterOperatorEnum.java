@@ -13,20 +13,19 @@
 
 package com.lark.oapi.service.payroll.v1.enums;
 
-/**
- * 查询操作符
- */
+/** 查询操作符，不传默认为IsAnyOf 包含查询。 */
 public enum DatasourceRecordFieldFilterOperatorEnum {
-    IS_ANY_OF(1), // 包含任一
-    IN_DATA_RANGE(2), // 处于日期范围中，闭区间。
-    ;
-    private Integer value;
+  IS_ANY_OF(1), // IsAnyOf 包含查询，被查询记录的字段值被field_values列表包含即可。
+  IN_DATA_RANGE(2), // InDateRange
+// 日期范围查询。field_values长度必须为2，类似[startDate,endDate]，前后都是闭区间；其中日期格式为“2024-01-02”，仅occur_day、custom_start、custom_end字段支持此查询方式，且时间范围不超过90天。
+;
+  private Integer value;
 
-    DatasourceRecordFieldFilterOperatorEnum(Integer value) {
-        this.value = value;
-    }
+  DatasourceRecordFieldFilterOperatorEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

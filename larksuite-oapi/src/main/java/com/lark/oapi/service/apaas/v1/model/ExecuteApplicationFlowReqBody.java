@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExecuteApplicationFlowReqBody {
+  /**
+   * 是否异步执行(不传默认false)
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_async")
+  private Boolean isAsync;
+
+  /**
+   * 幂等键（建议本地生成uuid传入，重复的话请求会报错）
+   *
+   * <p>示例值：iuhg23897489797
+   */
+  @SerializedName("idempotent_key")
+  private String idempotentKey;
+
+  /**
+   * 循环标志信息(当前版本可不传)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("loop_masks")
+  private String[] loopMasks;
+
+  /**
+   * 流程入参（json 字符串，无入参不传）
+   *
+   * <p>示例值：`{\"variable_rgrtgqworiginal\": {\"_id\": 5454545}}`
+   */
+  @SerializedName("params")
+  private String params;
+
+  /**
+   * 操作人（_id和email至少填一个，低代码平台用户的 id和email，需要从低代码平台获取，json字符串）
+   *
+   * <p>示例值：`{\"_id\": 1111, \"email\": \"apaas@bytedance.com\"}`
+   */
+  @SerializedName("operator")
+  private String operator;
+
+  public Boolean getIsAsync() {
+    return this.isAsync;
+  }
+
+  public void setIsAsync(Boolean isAsync) {
+    this.isAsync = isAsync;
+  }
+
+  public String getIdempotentKey() {
+    return this.idempotentKey;
+  }
+
+  public void setIdempotentKey(String idempotentKey) {
+    this.idempotentKey = idempotentKey;
+  }
+
+  public String[] getLoopMasks() {
+    return this.loopMasks;
+  }
+
+  public void setLoopMasks(String[] loopMasks) {
+    this.loopMasks = loopMasks;
+  }
+
+  public String getParams() {
+    return this.params;
+  }
+
+  public void setParams(String params) {
+    this.params = params;
+  }
+
+  public String getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  // builder 开始
+  public ExecuteApplicationFlowReqBody() {}
+
+  public ExecuteApplicationFlowReqBody(Builder builder) {
     /**
-     * 是否异步执行
-     * <p> 示例值：true
+     * 是否异步执行(不传默认false)
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_async")
+    this.isAsync = builder.isAsync;
+    /**
+     * 幂等键（建议本地生成uuid传入，重复的话请求会报错）
+     *
+     * <p>示例值：iuhg23897489797
+     */
+    this.idempotentKey = builder.idempotentKey;
+    /**
+     * 循环标志信息(当前版本可不传)
+     *
+     * <p>示例值：
+     */
+    this.loopMasks = builder.loopMasks;
+    /**
+     * 流程入参（json 字符串，无入参不传）
+     *
+     * <p>示例值：`{\"variable_rgrtgqworiginal\": {\"_id\": 5454545}}`
+     */
+    this.params = builder.params;
+    /**
+     * 操作人（_id和email至少填一个，低代码平台用户的 id和email，需要从低代码平台获取，json字符串）
+     *
+     * <p>示例值：`{\"_id\": 1111, \"email\": \"apaas@bytedance.com\"}`
+     */
+    this.operator = builder.operator;
+  }
+
+  public static class Builder {
+    /**
+     * 是否异步执行(不传默认false)
+     *
+     * <p>示例值：true
+     */
     private Boolean isAsync;
+
     /**
-     * 幂等信息
-     * <p> 示例值：123
+     * 幂等键（建议本地生成uuid传入，重复的话请求会报错）
+     *
+     * <p>示例值：iuhg23897489797
      */
-    @SerializedName("idempotent_key")
     private String idempotentKey;
+
     /**
-     * 循环信息
-     * <p> 示例值：
+     * 循环标志信息(当前版本可不传)
+     *
+     * <p>示例值：
      */
-    @SerializedName("loop_masks")
     private String[] loopMasks;
+
     /**
-     * 流程入参
-     * <p> 示例值：123
+     * 流程入参（json 字符串，无入参不传）
+     *
+     * <p>示例值：`{\"variable_rgrtgqworiginal\": {\"_id\": 5454545}}`
      */
-    @SerializedName("params")
     private String params;
+
     /**
-     * 操作人
-     * <p> 示例值：123
+     * 操作人（_id和email至少填一个，低代码平台用户的 id和email，需要从低代码平台获取，json字符串）
+     *
+     * <p>示例值：`{\"_id\": 1111, \"email\": \"apaas@bytedance.com\"}`
      */
-    @SerializedName("operator")
     private String operator;
 
-    // builder 开始
-    public ExecuteApplicationFlowReqBody() {
+    /**
+     * 是否异步执行(不传默认false)
+     *
+     * <p>示例值：true
+     *
+     * @param isAsync
+     * @return
+     */
+    public Builder isAsync(Boolean isAsync) {
+      this.isAsync = isAsync;
+      return this;
     }
 
-    public ExecuteApplicationFlowReqBody(Builder builder) {
-        /**
-         * 是否异步执行
-         * <p> 示例值：true
-         */
-        this.isAsync = builder.isAsync;
-        /**
-         * 幂等信息
-         * <p> 示例值：123
-         */
-        this.idempotentKey = builder.idempotentKey;
-        /**
-         * 循环信息
-         * <p> 示例值：
-         */
-        this.loopMasks = builder.loopMasks;
-        /**
-         * 流程入参
-         * <p> 示例值：123
-         */
-        this.params = builder.params;
-        /**
-         * 操作人
-         * <p> 示例值：123
-         */
-        this.operator = builder.operator;
+    /**
+     * 幂等键（建议本地生成uuid传入，重复的话请求会报错）
+     *
+     * <p>示例值：iuhg23897489797
+     *
+     * @param idempotentKey
+     * @return
+     */
+    public Builder idempotentKey(String idempotentKey) {
+      this.idempotentKey = idempotentKey;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 循环标志信息(当前版本可不传)
+     *
+     * <p>示例值：
+     *
+     * @param loopMasks
+     * @return
+     */
+    public Builder loopMasks(String[] loopMasks) {
+      this.loopMasks = loopMasks;
+      return this;
     }
 
-    public Boolean getIsAsync() {
-        return this.isAsync;
+    /**
+     * 流程入参（json 字符串，无入参不传）
+     *
+     * <p>示例值：`{\"variable_rgrtgqworiginal\": {\"_id\": 5454545}}`
+     *
+     * @param params
+     * @return
+     */
+    public Builder params(String params) {
+      this.params = params;
+      return this;
     }
 
-    public void setIsAsync(Boolean isAsync) {
-        this.isAsync = isAsync;
+    /**
+     * 操作人（_id和email至少填一个，低代码平台用户的 id和email，需要从低代码平台获取，json字符串）
+     *
+     * <p>示例值：`{\"_id\": 1111, \"email\": \"apaas@bytedance.com\"}`
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(String operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public String getIdempotentKey() {
-        return this.idempotentKey;
+    public ExecuteApplicationFlowReqBody build() {
+      return new ExecuteApplicationFlowReqBody(this);
     }
+  }
 
-    public void setIdempotentKey(String idempotentKey) {
-        this.idempotentKey = idempotentKey;
-    }
-
-    public String[] getLoopMasks() {
-        return this.loopMasks;
-    }
-
-    public void setLoopMasks(String[] loopMasks) {
-        this.loopMasks = loopMasks;
-    }
-
-    public String getParams() {
-        return this.params;
-    }
-
-    public void setParams(String params) {
-        this.params = params;
-    }
-
-    public String getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public static class Builder {
-        /**
-         * 是否异步执行
-         * <p> 示例值：true
-         */
-        private Boolean isAsync;
-        /**
-         * 幂等信息
-         * <p> 示例值：123
-         */
-        private String idempotentKey;
-        /**
-         * 循环信息
-         * <p> 示例值：
-         */
-        private String[] loopMasks;
-        /**
-         * 流程入参
-         * <p> 示例值：123
-         */
-        private String params;
-        /**
-         * 操作人
-         * <p> 示例值：123
-         */
-        private String operator;
-
-        /**
-         * 是否异步执行
-         * <p> 示例值：true
-         *
-         * @param isAsync
-         * @return
-         */
-        public Builder isAsync(Boolean isAsync) {
-            this.isAsync = isAsync;
-            return this;
-        }
-
-
-        /**
-         * 幂等信息
-         * <p> 示例值：123
-         *
-         * @param idempotentKey
-         * @return
-         */
-        public Builder idempotentKey(String idempotentKey) {
-            this.idempotentKey = idempotentKey;
-            return this;
-        }
-
-
-        /**
-         * 循环信息
-         * <p> 示例值：
-         *
-         * @param loopMasks
-         * @return
-         */
-        public Builder loopMasks(String[] loopMasks) {
-            this.loopMasks = loopMasks;
-            return this;
-        }
-
-
-        /**
-         * 流程入参
-         * <p> 示例值：123
-         *
-         * @param params
-         * @return
-         */
-        public Builder params(String params) {
-            this.params = params;
-            return this;
-        }
-
-
-        /**
-         * 操作人
-         * <p> 示例值：123
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        public ExecuteApplicationFlowReqBody build() {
-            return new ExecuteApplicationFlowReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

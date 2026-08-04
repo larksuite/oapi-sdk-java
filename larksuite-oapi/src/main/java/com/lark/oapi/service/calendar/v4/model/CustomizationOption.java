@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomizationOption {
+  /**
+   * the option unique key
+   *
+   * <p>示例值：16281481596185
+   */
+  @SerializedName("option_key")
+  private String optionKey;
+
+  /**
+   * should be filled if the option is others option
+   *
+   * <p>示例值：xxx
+   */
+  @SerializedName("others_content")
+  private String othersContent;
+
+  public String getOptionKey() {
+    return this.optionKey;
+  }
+
+  public void setOptionKey(String optionKey) {
+    this.optionKey = optionKey;
+  }
+
+  public String getOthersContent() {
+    return this.othersContent;
+  }
+
+  public void setOthersContent(String othersContent) {
+    this.othersContent = othersContent;
+  }
+
+  // builder 开始
+  public CustomizationOption() {}
+
+  public CustomizationOption(Builder builder) {
     /**
-     * 每个选项的唯一ID
-     * <p> 示例值：16281481596185
+     * the option unique key
+     *
+     * <p>示例值：16281481596185
      */
-    @SerializedName("option_key")
+    this.optionKey = builder.optionKey;
+    /**
+     * should be filled if the option is others option
+     *
+     * <p>示例值：xxx
+     */
+    this.othersContent = builder.othersContent;
+  }
+
+  public static class Builder {
+    /**
+     * the option unique key
+     *
+     * <p>示例值：16281481596185
+     */
     private String optionKey;
+
     /**
-     * 当type类型为其它选项时，该参数需要填入
-     * <p> 示例值：xxx
+     * should be filled if the option is others option
+     *
+     * <p>示例值：xxx
      */
-    @SerializedName("others_content")
     private String othersContent;
 
-    // builder 开始
-    public CustomizationOption() {
+    /**
+     * the option unique key
+     *
+     * <p>示例值：16281481596185
+     *
+     * @param optionKey
+     * @return
+     */
+    public Builder optionKey(String optionKey) {
+      this.optionKey = optionKey;
+      return this;
     }
 
-    public CustomizationOption(Builder builder) {
-        /**
-         * 每个选项的唯一ID
-         * <p> 示例值：16281481596185
-         */
-        this.optionKey = builder.optionKey;
-        /**
-         * 当type类型为其它选项时，该参数需要填入
-         * <p> 示例值：xxx
-         */
-        this.othersContent = builder.othersContent;
+    /**
+     * should be filled if the option is others option
+     *
+     * <p>示例值：xxx
+     *
+     * @param othersContent
+     * @return
+     */
+    public Builder othersContent(String othersContent) {
+      this.othersContent = othersContent;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CustomizationOption build() {
+      return new CustomizationOption(this);
     }
+  }
 
-    public String getOptionKey() {
-        return this.optionKey;
-    }
-
-    public void setOptionKey(String optionKey) {
-        this.optionKey = optionKey;
-    }
-
-    public String getOthersContent() {
-        return this.othersContent;
-    }
-
-    public void setOthersContent(String othersContent) {
-        this.othersContent = othersContent;
-    }
-
-    public static class Builder {
-        /**
-         * 每个选项的唯一ID
-         * <p> 示例值：16281481596185
-         */
-        private String optionKey;
-        /**
-         * 当type类型为其它选项时，该参数需要填入
-         * <p> 示例值：xxx
-         */
-        private String othersContent;
-
-        /**
-         * 每个选项的唯一ID
-         * <p> 示例值：16281481596185
-         *
-         * @param optionKey
-         * @return
-         */
-        public Builder optionKey(String optionKey) {
-            this.optionKey = optionKey;
-            return this;
-        }
-
-
-        /**
-         * 当type类型为其它选项时，该参数需要填入
-         * <p> 示例值：xxx
-         *
-         * @param othersContent
-         * @return
-         */
-        public Builder othersContent(String othersContent) {
-            this.othersContent = othersContent;
-            return this;
-        }
-
-
-        public CustomizationOption build() {
-            return new CustomizationOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

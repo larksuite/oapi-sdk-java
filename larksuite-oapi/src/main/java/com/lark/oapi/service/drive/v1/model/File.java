@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class File {
+  /**
+   * 文件标识符
+   *
+   * <p>示例值：fldcnP8B5Fpr3UwVi24JykpuOic
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 文件名
+   *
+   * <p>示例值：测试
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 文件类型
+   *
+   * <p>示例值：docx
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 父文件夹标识
+   *
+   * <p>示例值：fldcnP8B5Fpr3UwVi24JykpuOic
+   */
+  @SerializedName("parent_token")
+  private String parentToken;
+
+  /**
+   * 在浏览器中查看的链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 快捷方式文件信息（该参数不会返回）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("shortcut_info")
+  private ShortcutInfo shortcutInfo;
+
+  /**
+   * 文件创建时间
+   *
+   * <p>示例值：1686125119
+   */
+  @SerializedName("created_time")
+  private String createdTime;
+
+  /**
+   * 文件最近修改时间
+   *
+   * <p>示例值：1686125119
+   */
+  @SerializedName("modified_time")
+  private String modifiedTime;
+
+  /**
+   * 文件所有者
+   *
+   * <p>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getParentToken() {
+    return this.parentToken;
+  }
+
+  public void setParentToken(String parentToken) {
+    this.parentToken = parentToken;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public ShortcutInfo getShortcutInfo() {
+    return this.shortcutInfo;
+  }
+
+  public void setShortcutInfo(ShortcutInfo shortcutInfo) {
+    this.shortcutInfo = shortcutInfo;
+  }
+
+  public String getCreatedTime() {
+    return this.createdTime;
+  }
+
+  public void setCreatedTime(String createdTime) {
+    this.createdTime = createdTime;
+  }
+
+  public String getModifiedTime() {
+    return this.modifiedTime;
+  }
+
+  public void setModifiedTime(String modifiedTime) {
+    this.modifiedTime = modifiedTime;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  // builder 开始
+  public File() {}
+
+  public File(Builder builder) {
     /**
-     * 文件标识
-     * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
+     * 文件标识符
+     *
+     * <p>示例值：fldcnP8B5Fpr3UwVi24JykpuOic
      */
-    @SerializedName("token")
-    private String token;
+    this.token = builder.token;
     /**
      * 文件名
-     * <p> 示例值：测试
+     *
+     * <p>示例值：测试
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 文件类型
-     * <p> 示例值：doc
+     *
+     * <p>示例值：docx
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 父文件夹标识
-     * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
+     *
+     * <p>示例值：fldcnP8B5Fpr3UwVi24JykpuOic
      */
-    @SerializedName("parent_token")
-    private String parentToken;
+    this.parentToken = builder.parentToken;
     /**
      * 在浏览器中查看的链接
-     * <p> 示例值：https://bytedance.feishu.cn/drive/folder/fldcnP8B5Fpr3UwVi24JykpuOic
+     *
+     * <p>示例值：
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
-     * 快捷方式文件信息
-     * <p> 示例值：
+     * 快捷方式文件信息（该参数不会返回）
+     *
+     * <p>示例值：
      */
-    @SerializedName("shortcut_info")
-    private ShortcutInfo shortcutInfo;
+    this.shortcutInfo = builder.shortcutInfo;
     /**
      * 文件创建时间
-     * <p> 示例值：1686125119
+     *
+     * <p>示例值：1686125119
      */
-    @SerializedName("created_time")
-    private String createdTime;
+    this.createdTime = builder.createdTime;
     /**
      * 文件最近修改时间
-     * <p> 示例值：1686125119
+     *
+     * <p>示例值：1686125119
      */
-    @SerializedName("modified_time")
-    private String modifiedTime;
+    this.modifiedTime = builder.modifiedTime;
     /**
      * 文件所有者
-     * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     *
+     * <p>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
      */
-    @SerializedName("owner_id")
+    this.ownerId = builder.ownerId;
+  }
+
+  public static class Builder {
+    /**
+     * 文件标识符
+     *
+     * <p>示例值：fldcnP8B5Fpr3UwVi24JykpuOic
+     */
+    private String token;
+
+    /**
+     * 文件名
+     *
+     * <p>示例值：测试
+     */
+    private String name;
+
+    /**
+     * 文件类型
+     *
+     * <p>示例值：docx
+     */
+    private String type;
+
+    /**
+     * 父文件夹标识
+     *
+     * <p>示例值：fldcnP8B5Fpr3UwVi24JykpuOic
+     */
+    private String parentToken;
+
+    /**
+     * 在浏览器中查看的链接
+     *
+     * <p>示例值：
+     */
+    private String url;
+
+    /**
+     * 快捷方式文件信息（该参数不会返回）
+     *
+     * <p>示例值：
+     */
+    private ShortcutInfo shortcutInfo;
+
+    /**
+     * 文件创建时间
+     *
+     * <p>示例值：1686125119
+     */
+    private String createdTime;
+
+    /**
+     * 文件最近修改时间
+     *
+     * <p>示例值：1686125119
+     */
+    private String modifiedTime;
+
+    /**
+     * 文件所有者
+     *
+     * <p>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     */
     private String ownerId;
 
-    // builder 开始
-    public File() {
+    /**
+     * 文件标识符
+     *
+     * <p>示例值：fldcnP8B5Fpr3UwVi24JykpuOic
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public File(Builder builder) {
-        /**
-         * 文件标识
-         * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
-         */
-        this.token = builder.token;
-        /**
-         * 文件名
-         * <p> 示例值：测试
-         */
-        this.name = builder.name;
-        /**
-         * 文件类型
-         * <p> 示例值：doc
-         */
-        this.type = builder.type;
-        /**
-         * 父文件夹标识
-         * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
-         */
-        this.parentToken = builder.parentToken;
-        /**
-         * 在浏览器中查看的链接
-         * <p> 示例值：https://bytedance.feishu.cn/drive/folder/fldcnP8B5Fpr3UwVi24JykpuOic
-         */
-        this.url = builder.url;
-        /**
-         * 快捷方式文件信息
-         * <p> 示例值：
-         */
-        this.shortcutInfo = builder.shortcutInfo;
-        /**
-         * 文件创建时间
-         * <p> 示例值：1686125119
-         */
-        this.createdTime = builder.createdTime;
-        /**
-         * 文件最近修改时间
-         * <p> 示例值：1686125119
-         */
-        this.modifiedTime = builder.modifiedTime;
-        /**
-         * 文件所有者
-         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-         */
-        this.ownerId = builder.ownerId;
+    /**
+     * 文件名
+     *
+     * <p>示例值：测试
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文件类型
+     *
+     * <p>示例值：docx
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getToken() {
-        return this.token;
+    /**
+     * 父文件夹标识
+     *
+     * <p>示例值：fldcnP8B5Fpr3UwVi24JykpuOic
+     *
+     * @param parentToken
+     * @return
+     */
+    public Builder parentToken(String parentToken) {
+      this.parentToken = parentToken;
+      return this;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    /**
+     * 在浏览器中查看的链接
+     *
+     * <p>示例值：
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 快捷方式文件信息（该参数不会返回）
+     *
+     * <p>示例值：
+     *
+     * @param shortcutInfo
+     * @return
+     */
+    public Builder shortcutInfo(ShortcutInfo shortcutInfo) {
+      this.shortcutInfo = shortcutInfo;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 文件创建时间
+     *
+     * <p>示例值：1686125119
+     *
+     * @param createdTime
+     * @return
+     */
+    public Builder createdTime(String createdTime) {
+      this.createdTime = createdTime;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 文件最近修改时间
+     *
+     * <p>示例值：1686125119
+     *
+     * @param modifiedTime
+     * @return
+     */
+    public Builder modifiedTime(String modifiedTime) {
+      this.modifiedTime = modifiedTime;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 文件所有者
+     *
+     * <p>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public String getParentToken() {
-        return this.parentToken;
+    public File build() {
+      return new File(this);
     }
+  }
 
-    public void setParentToken(String parentToken) {
-        this.parentToken = parentToken;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public ShortcutInfo getShortcutInfo() {
-        return this.shortcutInfo;
-    }
-
-    public void setShortcutInfo(ShortcutInfo shortcutInfo) {
-        this.shortcutInfo = shortcutInfo;
-    }
-
-    public String getCreatedTime() {
-        return this.createdTime;
-    }
-
-    public void setCreatedTime(String createdTime) {
-        this.createdTime = createdTime;
-    }
-
-    public String getModifiedTime() {
-        return this.modifiedTime;
-    }
-
-    public void setModifiedTime(String modifiedTime) {
-        this.modifiedTime = modifiedTime;
-    }
-
-    public String getOwnerId() {
-        return this.ownerId;
-    }
-
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
-
-    public static class Builder {
-        /**
-         * 文件标识
-         * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
-         */
-        private String token;
-        /**
-         * 文件名
-         * <p> 示例值：测试
-         */
-        private String name;
-        /**
-         * 文件类型
-         * <p> 示例值：doc
-         */
-        private String type;
-        /**
-         * 父文件夹标识
-         * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
-         */
-        private String parentToken;
-        /**
-         * 在浏览器中查看的链接
-         * <p> 示例值：https://bytedance.feishu.cn/drive/folder/fldcnP8B5Fpr3UwVi24JykpuOic
-         */
-        private String url;
-        /**
-         * 快捷方式文件信息
-         * <p> 示例值：
-         */
-        private ShortcutInfo shortcutInfo;
-        /**
-         * 文件创建时间
-         * <p> 示例值：1686125119
-         */
-        private String createdTime;
-        /**
-         * 文件最近修改时间
-         * <p> 示例值：1686125119
-         */
-        private String modifiedTime;
-        /**
-         * 文件所有者
-         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-         */
-        private String ownerId;
-
-        /**
-         * 文件标识
-         * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 文件名
-         * <p> 示例值：测试
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 文件类型
-         * <p> 示例值：doc
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 父文件夹标识
-         * <p> 示例值：fldcnP8B5Fpr3UwVi24JykpuOic
-         *
-         * @param parentToken
-         * @return
-         */
-        public Builder parentToken(String parentToken) {
-            this.parentToken = parentToken;
-            return this;
-        }
-
-
-        /**
-         * 在浏览器中查看的链接
-         * <p> 示例值：https://bytedance.feishu.cn/drive/folder/fldcnP8B5Fpr3UwVi24JykpuOic
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 快捷方式文件信息
-         * <p> 示例值：
-         *
-         * @param shortcutInfo
-         * @return
-         */
-        public Builder shortcutInfo(ShortcutInfo shortcutInfo) {
-            this.shortcutInfo = shortcutInfo;
-            return this;
-        }
-
-
-        /**
-         * 文件创建时间
-         * <p> 示例值：1686125119
-         *
-         * @param createdTime
-         * @return
-         */
-        public Builder createdTime(String createdTime) {
-            this.createdTime = createdTime;
-            return this;
-        }
-
-
-        /**
-         * 文件最近修改时间
-         * <p> 示例值：1686125119
-         *
-         * @param modifiedTime
-         * @return
-         */
-        public Builder modifiedTime(String modifiedTime) {
-            this.modifiedTime = modifiedTime;
-            return this;
-        }
-
-
-        /**
-         * 文件所有者
-         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        public File build() {
-            return new File(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

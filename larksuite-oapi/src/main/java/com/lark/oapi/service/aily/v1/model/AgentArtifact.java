@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.aily.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AgentArtifact {
+  /**
+   * 产物id
+   *
+   * <p>示例值：artifact_4k6m2dbmrjeqf
+   */
+  @SerializedName("artifact_id")
+  private String artifactId;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：cute_kitten.png
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 下载URL，24小时内有效
+   *
+   * <p>示例值：https://<bucket>.tos-cn-...volces.com/agent_runtime/artifact/.../dog2.png?X-Tos
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getArtifactId() {
+    return this.artifactId;
+  }
+
+  public void setArtifactId(String artifactId) {
+    this.artifactId = artifactId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public AgentArtifact() {}
+
+  public AgentArtifact(Builder builder) {
     /**
      * 产物id
-     * <p> 示例值：artifact_4k6m2dbmrjeqf
+     *
+     * <p>示例值：artifact_4k6m2dbmrjeqf
      */
-    @SerializedName("artifact_id")
-    private String artifactId;
+    this.artifactId = builder.artifactId;
     /**
      * 名称
-     * <p> 示例值：cute_kitten.png
+     *
+     * <p>示例值：cute_kitten.png
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 下载URL，24小时内有效
-     * <p> 示例值：https://<bucket>.tos-cn-...volces.com/agent_runtime/artifact/.../dog2.png?X-Tos
+     *
+     * <p>示例值：https://<bucket>.tos-cn-...volces.com/agent_runtime/artifact/.../dog2.png?X-Tos
      */
-    @SerializedName("url")
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 产物id
+     *
+     * <p>示例值：artifact_4k6m2dbmrjeqf
+     */
+    private String artifactId;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：cute_kitten.png
+     */
+    private String name;
+
+    /**
+     * 下载URL，24小时内有效
+     *
+     * <p>示例值：https://<bucket>.tos-cn-...volces.com/agent_runtime/artifact/.../dog2.png?X-Tos
+     */
     private String url;
 
-    // builder 开始
-    public AgentArtifact() {
+    /**
+     * 产物id
+     *
+     * <p>示例值：artifact_4k6m2dbmrjeqf
+     *
+     * @param artifactId
+     * @return
+     */
+    public Builder artifactId(String artifactId) {
+      this.artifactId = artifactId;
+      return this;
     }
 
-    public AgentArtifact(Builder builder) {
-        /**
-         * 产物id
-         * <p> 示例值：artifact_4k6m2dbmrjeqf
-         */
-        this.artifactId = builder.artifactId;
-        /**
-         * 名称
-         * <p> 示例值：cute_kitten.png
-         */
-        this.name = builder.name;
-        /**
-         * 下载URL，24小时内有效
-         * <p> 示例值：https://<bucket>.tos-cn-...volces.com/agent_runtime/artifact/.../dog2.png?X-Tos
-         */
-        this.url = builder.url;
+    /**
+     * 名称
+     *
+     * <p>示例值：cute_kitten.png
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 下载URL，24小时内有效
+     *
+     * <p>示例值：https://<bucket>.tos-cn-...volces.com/agent_runtime/artifact/.../dog2.png?X-Tos
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public String getArtifactId() {
-        return this.artifactId;
+    public AgentArtifact build() {
+      return new AgentArtifact(this);
     }
+  }
 
-    public void setArtifactId(String artifactId) {
-        this.artifactId = artifactId;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * 产物id
-         * <p> 示例值：artifact_4k6m2dbmrjeqf
-         */
-        private String artifactId;
-        /**
-         * 名称
-         * <p> 示例值：cute_kitten.png
-         */
-        private String name;
-        /**
-         * 下载URL，24小时内有效
-         * <p> 示例值：https://<bucket>.tos-cn-...volces.com/agent_runtime/artifact/.../dog2.png?X-Tos
-         */
-        private String url;
-
-        /**
-         * 产物id
-         * <p> 示例值：artifact_4k6m2dbmrjeqf
-         *
-         * @param artifactId
-         * @return
-         */
-        public Builder artifactId(String artifactId) {
-            this.artifactId = artifactId;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：cute_kitten.png
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 下载URL，24小时内有效
-         * <p> 示例值：https://<bucket>.tos-cn-...volces.com/agent_runtime/artifact/.../dog2.png?X-Tos
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public AgentArtifact build() {
-            return new AgentArtifact(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

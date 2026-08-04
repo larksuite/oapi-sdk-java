@@ -13,24 +13,28 @@
 
 package com.lark.oapi.service.bitable.v1.enums;
 
-/**
- * 协作者id类型，与请求体中的member_id要对应
- */
+/** 协作者 ID 的类型 */
 public enum DeleteAppRoleMemberMemberIdTypeEnum {
-    OPENID("open_id"), // 以open_id来识别协作者
-    UNIONID("union_id"), // 以union_id来识别协作者
-    USERID("user_id"), // 以user_id来识别协作者
-    CHATID("chat_id"), // 以chat_id来识别协作者
-    DEPARTMENTID("department_id"), // 以department_id来识别协作者
-    OPENDEPARTMENTID("open_department_id"), // 以open_department_id来识别协作者
-    ;
-    private String value;
+  OPENID("open_id"), // 以 open_id 来识别协作者。获取方式参考[如何获取不同的用户
+  // ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)
+  UNIONID("union_id"), // 以 union_id 来识别协作者。获取方式参考[如何获取不同的用户
+  // ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)
+  USERID("user_id"), // 以 user_id 来识别协作者。获取方式参考[如何获取不同的用户
+  // ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)
+  CHATID("chat_id"), // 以 chat_id 来识别协作者。获取方式参考[群 ID
+  // 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+  DEPARTMENTID("department_id"), // 以 department_id
+  // 来识别协作者。调用前，请确保应用有部门的可见性，参考[配置应用可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)。获取 department_id 方式参考[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
+  OPENDEPARTMENTID("open_department_id"), // 以 open_department_id
+// 来识别协作者。调用前，请确保应用有部门的可见性，参考[配置应用可用范围](https://open.feishu.cn/document/home/introduction-to-scope-and-authorization/availability)。获取 open_department_id 方式参考[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
+;
+  private String value;
 
-    DeleteAppRoleMemberMemberIdTypeEnum(String value) {
-        this.value = value;
-    }
+  DeleteAppRoleMemberMemberIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

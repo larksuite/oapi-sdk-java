@@ -13,349 +13,403 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreatePlantumlWhiteboardNodeReqBody {
+  /**
+   * plant uml 代码
+   *
+   * <p>示例值：@startuml\nAlice -> Bob: Authentication Request\nBob --> Alice: Authentication
+   * Response\n@enduml
+   */
+  @SerializedName("plant_uml_code")
+  private String plantUmlCode;
+
+  /**
+   * 画板样式（默认为2 经典样式）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("style_type")
+  private Integer styleType;
+
+  /**
+   * 语法类型（必传）
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("syntax_type")
+  private Integer syntaxType;
+
+  /**
+   * PlantUml语法类型（传0会自动识别语法类型，plantUML语法补充超集GML不可自动识别）;当syntax_type为2（Mermaid解析）时，diagram_type传 0，
+   * 默认为 0
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("diagram_type")
+  private Integer diagramType;
+
+  /**
+   * 是否覆盖画板内容：true=覆盖，会将画板当前内容清除再写入；false=不覆盖，直接写入画板。默认为 false
+   *
+   * <p>示例值：
+   */
+  @SerializedName("overwrite")
+  private Boolean overwrite;
+
+  /**
+   * 解析模式
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("parse_mode")
+  private Integer parseMode;
+
+  /**
+   * 外观类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("look_type")
+  private Integer lookType;
+
+  public String getPlantUmlCode() {
+    return this.plantUmlCode;
+  }
+
+  public void setPlantUmlCode(String plantUmlCode) {
+    this.plantUmlCode = plantUmlCode;
+  }
+
+  public Integer getStyleType() {
+    return this.styleType;
+  }
+
+  public void setStyleType(Integer styleType) {
+    this.styleType = styleType;
+  }
+
+  public Integer getSyntaxType() {
+    return this.syntaxType;
+  }
+
+  public void setSyntaxType(Integer syntaxType) {
+    this.syntaxType = syntaxType;
+  }
+
+  public Integer getDiagramType() {
+    return this.diagramType;
+  }
+
+  public void setDiagramType(Integer diagramType) {
+    this.diagramType = diagramType;
+  }
+
+  public Boolean getOverwrite() {
+    return this.overwrite;
+  }
+
+  public void setOverwrite(Boolean overwrite) {
+    this.overwrite = overwrite;
+  }
+
+  public Integer getParseMode() {
+    return this.parseMode;
+  }
+
+  public void setParseMode(Integer parseMode) {
+    this.parseMode = parseMode;
+  }
+
+  public Integer getLookType() {
+    return this.lookType;
+  }
+
+  public void setLookType(Integer lookType) {
+    this.lookType = lookType;
+  }
+
+  // builder 开始
+  public CreatePlantumlWhiteboardNodeReqBody() {}
+
+  public CreatePlantumlWhiteboardNodeReqBody(Builder builder) {
     /**
      * plant uml 代码
-     * <p> 示例值：@startuml\nAlice -> Bob: Authentication Request\nBob --> Alice: Authentication Response\n@enduml
+     *
+     * <p>示例值：@startuml\nAlice -> Bob: Authentication Request\nBob --> Alice: Authentication
+     * Response\n@enduml
      */
-    @SerializedName("plant_uml_code")
-    private String plantUmlCode;
+    this.plantUmlCode = builder.plantUmlCode;
     /**
-     * <p> 示例值：1
+     * 画板样式（默认为2 经典样式）
+     *
+     * <p>示例值：1
      */
-    @SerializedName("style_type")
-    private Integer styleType;
+    this.styleType = builder.styleType;
     /**
-     * 语法类型
-     * <p> 示例值：
+     * 语法类型（必传）
+     *
+     * <p>示例值：1
      */
-    @SerializedName("syntax_type")
-    private Integer syntaxType;
+    this.syntaxType = builder.syntaxType;
     /**
-     * <p> 示例值：
+     * PlantUml语法类型（传0会自动识别语法类型，plantUML语法补充超集GML不可自动识别）;当syntax_type为2（Mermaid解析）时，diagram_type传 0，
+     * 默认为 0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("diagram_type")
-    private Integer diagramType;
+    this.diagramType = builder.diagramType;
     /**
      * 是否覆盖画板内容：true=覆盖，会将画板当前内容清除再写入；false=不覆盖，直接写入画板。默认为 false
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("overwrite")
-    private Boolean overwrite;
+    this.overwrite = builder.overwrite;
     /**
      * 解析模式
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("parse_mode")
-    private Integer parseMode;
+    this.parseMode = builder.parseMode;
     /**
      * 外观类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("look_type")
+    this.lookType = builder.lookType;
+  }
+
+  public static class Builder {
+    /**
+     * plant uml 代码
+     *
+     * <p>示例值：@startuml\nAlice -> Bob: Authentication Request\nBob --> Alice: Authentication
+     * Response\n@enduml
+     */
+    private String plantUmlCode;
+
+    /**
+     * 画板样式（默认为2 经典样式）
+     *
+     * <p>示例值：1
+     */
+    private Integer styleType;
+
+    /**
+     * 语法类型（必传）
+     *
+     * <p>示例值：1
+     */
+    private Integer syntaxType;
+
+    /**
+     * PlantUml语法类型（传0会自动识别语法类型，plantUML语法补充超集GML不可自动识别）;当syntax_type为2（Mermaid解析）时，diagram_type传 0，
+     * 默认为 0
+     *
+     * <p>示例值：0
+     */
+    private Integer diagramType;
+
+    /**
+     * 是否覆盖画板内容：true=覆盖，会将画板当前内容清除再写入；false=不覆盖，直接写入画板。默认为 false
+     *
+     * <p>示例值：
+     */
+    private Boolean overwrite;
+
+    /**
+     * 解析模式
+     *
+     * <p>示例值：0
+     */
+    private Integer parseMode;
+
+    /**
+     * 外观类型
+     *
+     * <p>示例值：
+     */
     private Integer lookType;
 
-    // builder 开始
-    public CreatePlantumlWhiteboardNodeReqBody() {
+    /**
+     * plant uml 代码
+     *
+     * <p>示例值：@startuml\nAlice -> Bob: Authentication Request\nBob --> Alice: Authentication
+     * Response\n@enduml
+     *
+     * @param plantUmlCode
+     * @return
+     */
+    public Builder plantUmlCode(String plantUmlCode) {
+      this.plantUmlCode = plantUmlCode;
+      return this;
     }
 
-    public CreatePlantumlWhiteboardNodeReqBody(Builder builder) {
-        /**
-         * plant uml 代码
-         * <p> 示例值：@startuml\nAlice -> Bob: Authentication Request\nBob --> Alice: Authentication Response\n@enduml
-         */
-        this.plantUmlCode = builder.plantUmlCode;
-        /**
-         *
-         * <p> 示例值：1
-         */
-        this.styleType = builder.styleType;
-        /**
-         * 语法类型
-         * <p> 示例值：
-         */
-        this.syntaxType = builder.syntaxType;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.diagramType = builder.diagramType;
-        /**
-         * 是否覆盖画板内容：true=覆盖，会将画板当前内容清除再写入；false=不覆盖，直接写入画板。默认为 false
-         * <p> 示例值：
-         */
-        this.overwrite = builder.overwrite;
-        /**
-         * 解析模式
-         * <p> 示例值：0
-         */
-        this.parseMode = builder.parseMode;
-        /**
-         * 外观类型
-         * <p> 示例值：
-         */
-        this.lookType = builder.lookType;
+    /**
+     * 画板样式（默认为2 经典样式）
+     *
+     * <p>示例值：1
+     *
+     * @param styleType
+     * @return
+     */
+    public Builder styleType(Integer styleType) {
+      this.styleType = styleType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 画板样式（默认为2 经典样式）
+     *
+     * <p>示例值：1
+     *
+     * @param styleType {@link
+     *     com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeStyleTypeEnum}
+     * @return
+     */
+    public Builder styleType(
+        com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeStyleTypeEnum styleType) {
+      this.styleType = styleType.getValue();
+      return this;
     }
 
-    public String getPlantUmlCode() {
-        return this.plantUmlCode;
+    /**
+     * 语法类型（必传）
+     *
+     * <p>示例值：1
+     *
+     * @param syntaxType
+     * @return
+     */
+    public Builder syntaxType(Integer syntaxType) {
+      this.syntaxType = syntaxType;
+      return this;
     }
 
-    public void setPlantUmlCode(String plantUmlCode) {
-        this.plantUmlCode = plantUmlCode;
+    /**
+     * 语法类型（必传）
+     *
+     * <p>示例值：1
+     *
+     * @param syntaxType {@link
+     *     com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeSyntaxTypeEnum}
+     * @return
+     */
+    public Builder syntaxType(
+        com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeSyntaxTypeEnum
+            syntaxType) {
+      this.syntaxType = syntaxType.getValue();
+      return this;
     }
 
-    public Integer getStyleType() {
-        return this.styleType;
+    /**
+     * PlantUml语法类型（传0会自动识别语法类型，plantUML语法补充超集GML不可自动识别）;当syntax_type为2（Mermaid解析）时，diagram_type传 0，
+     * 默认为 0
+     *
+     * <p>示例值：0
+     *
+     * @param diagramType
+     * @return
+     */
+    public Builder diagramType(Integer diagramType) {
+      this.diagramType = diagramType;
+      return this;
     }
 
-    public void setStyleType(Integer styleType) {
-        this.styleType = styleType;
+    /**
+     * PlantUml语法类型（传0会自动识别语法类型，plantUML语法补充超集GML不可自动识别）;当syntax_type为2（Mermaid解析）时，diagram_type传 0，
+     * 默认为 0
+     *
+     * <p>示例值：0
+     *
+     * @param diagramType {@link
+     *     com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeDiagramTypeEnum}
+     * @return
+     */
+    public Builder diagramType(
+        com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeDiagramTypeEnum
+            diagramType) {
+      this.diagramType = diagramType.getValue();
+      return this;
     }
 
-    public Integer getSyntaxType() {
-        return this.syntaxType;
+    /**
+     * 是否覆盖画板内容：true=覆盖，会将画板当前内容清除再写入；false=不覆盖，直接写入画板。默认为 false
+     *
+     * <p>示例值：
+     *
+     * @param overwrite
+     * @return
+     */
+    public Builder overwrite(Boolean overwrite) {
+      this.overwrite = overwrite;
+      return this;
     }
 
-    public void setSyntaxType(Integer syntaxType) {
-        this.syntaxType = syntaxType;
+    /**
+     * 解析模式
+     *
+     * <p>示例值：0
+     *
+     * @param parseMode
+     * @return
+     */
+    public Builder parseMode(Integer parseMode) {
+      this.parseMode = parseMode;
+      return this;
     }
 
-    public Integer getDiagramType() {
-        return this.diagramType;
+    /**
+     * 解析模式
+     *
+     * <p>示例值：0
+     *
+     * @param parseMode {@link
+     *     com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeParseModeEnum}
+     * @return
+     */
+    public Builder parseMode(
+        com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeParseModeEnum parseMode) {
+      this.parseMode = parseMode.getValue();
+      return this;
     }
 
-    public void setDiagramType(Integer diagramType) {
-        this.diagramType = diagramType;
+    /**
+     * 外观类型
+     *
+     * <p>示例值：
+     *
+     * @param lookType
+     * @return
+     */
+    public Builder lookType(Integer lookType) {
+      this.lookType = lookType;
+      return this;
     }
 
-    public Boolean getOverwrite() {
-        return this.overwrite;
+    /**
+     * 外观类型
+     *
+     * <p>示例值：
+     *
+     * @param lookType {@link
+     *     com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeLookTypeEnum}
+     * @return
+     */
+    public Builder lookType(
+        com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeLookTypeEnum lookType) {
+      this.lookType = lookType.getValue();
+      return this;
     }
 
-    public void setOverwrite(Boolean overwrite) {
-        this.overwrite = overwrite;
+    public CreatePlantumlWhiteboardNodeReqBody build() {
+      return new CreatePlantumlWhiteboardNodeReqBody(this);
     }
+  }
 
-    public Integer getParseMode() {
-        return this.parseMode;
-    }
-
-    public void setParseMode(Integer parseMode) {
-        this.parseMode = parseMode;
-    }
-
-    public Integer getLookType() {
-        return this.lookType;
-    }
-
-    public void setLookType(Integer lookType) {
-        this.lookType = lookType;
-    }
-
-    public static class Builder {
-        /**
-         * plant uml 代码
-         * <p> 示例值：@startuml\nAlice -> Bob: Authentication Request\nBob --> Alice: Authentication Response\n@enduml
-         */
-        private String plantUmlCode;
-        /**
-         * <p> 示例值：1
-         */
-        private Integer styleType;
-        /**
-         * 语法类型
-         * <p> 示例值：
-         */
-        private Integer syntaxType;
-        /**
-         * <p> 示例值：
-         */
-        private Integer diagramType;
-        /**
-         * 是否覆盖画板内容：true=覆盖，会将画板当前内容清除再写入；false=不覆盖，直接写入画板。默认为 false
-         * <p> 示例值：
-         */
-        private Boolean overwrite;
-        /**
-         * 解析模式
-         * <p> 示例值：0
-         */
-        private Integer parseMode;
-        /**
-         * 外观类型
-         * <p> 示例值：
-         */
-        private Integer lookType;
-
-        /**
-         * plant uml 代码
-         * <p> 示例值：@startuml\nAlice -> Bob: Authentication Request\nBob --> Alice: Authentication Response\n@enduml
-         *
-         * @param plantUmlCode
-         * @return
-         */
-        public Builder plantUmlCode(String plantUmlCode) {
-            this.plantUmlCode = plantUmlCode;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：1
-         *
-         * @param styleType
-         * @return
-         */
-        public Builder styleType(Integer styleType) {
-            this.styleType = styleType;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：1
-         *
-         * @param styleType {@link com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeStyleTypeEnum}
-         * @return
-         */
-        public Builder styleType(com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeStyleTypeEnum styleType) {
-            this.styleType = styleType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 语法类型
-         * <p> 示例值：
-         *
-         * @param syntaxType
-         * @return
-         */
-        public Builder syntaxType(Integer syntaxType) {
-            this.syntaxType = syntaxType;
-            return this;
-        }
-
-        /**
-         * 语法类型
-         * <p> 示例值：
-         *
-         * @param syntaxType {@link com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeSyntaxTypeEnum}
-         * @return
-         */
-        public Builder syntaxType(com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeSyntaxTypeEnum syntaxType) {
-            this.syntaxType = syntaxType.getValue();
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param diagramType
-         * @return
-         */
-        public Builder diagramType(Integer diagramType) {
-            this.diagramType = diagramType;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：
-         *
-         * @param diagramType {@link com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeDiagramTypeEnum}
-         * @return
-         */
-        public Builder diagramType(com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeDiagramTypeEnum diagramType) {
-            this.diagramType = diagramType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否覆盖画板内容：true=覆盖，会将画板当前内容清除再写入；false=不覆盖，直接写入画板。默认为 false
-         * <p> 示例值：
-         *
-         * @param overwrite
-         * @return
-         */
-        public Builder overwrite(Boolean overwrite) {
-            this.overwrite = overwrite;
-            return this;
-        }
-
-
-        /**
-         * 解析模式
-         * <p> 示例值：0
-         *
-         * @param parseMode
-         * @return
-         */
-        public Builder parseMode(Integer parseMode) {
-            this.parseMode = parseMode;
-            return this;
-        }
-
-        /**
-         * 解析模式
-         * <p> 示例值：0
-         *
-         * @param parseMode {@link com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeParseModeEnum}
-         * @return
-         */
-        public Builder parseMode(com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeParseModeEnum parseMode) {
-            this.parseMode = parseMode.getValue();
-            return this;
-        }
-
-
-        /**
-         * 外观类型
-         * <p> 示例值：
-         *
-         * @param lookType
-         * @return
-         */
-        public Builder lookType(Integer lookType) {
-            this.lookType = lookType;
-            return this;
-        }
-
-        /**
-         * 外观类型
-         * <p> 示例值：
-         *
-         * @param lookType {@link com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeLookTypeEnum}
-         * @return
-         */
-        public Builder lookType(com.lark.oapi.service.board.v1.enums.CreatePlantumlWhiteboardNodeLookTypeEnum lookType) {
-            this.lookType = lookType.getValue();
-            return this;
-        }
-
-
-        public CreatePlantumlWhiteboardNodeReqBody build() {
-            return new CreatePlantumlWhiteboardNodeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

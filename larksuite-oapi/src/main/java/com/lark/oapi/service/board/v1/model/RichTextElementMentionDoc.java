@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RichTextElementMentionDoc {
+  /**
+   * 文档超链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("doc_url")
+  private String docUrl;
+
+  /**
+   * 文字样式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("text_style")
+  private RichTextElementTextStyle textStyle;
+
+  public String getDocUrl() {
+    return this.docUrl;
+  }
+
+  public void setDocUrl(String docUrl) {
+    this.docUrl = docUrl;
+  }
+
+  public RichTextElementTextStyle getTextStyle() {
+    return this.textStyle;
+  }
+
+  public void setTextStyle(RichTextElementTextStyle textStyle) {
+    this.textStyle = textStyle;
+  }
+
+  // builder 开始
+  public RichTextElementMentionDoc() {}
+
+  public RichTextElementMentionDoc(Builder builder) {
     /**
      * 文档超链接
-     * <p> 示例值：https://bytedance.larkoffice.com/wiki/xxxxx
+     *
+     * <p>示例值：
      */
-    @SerializedName("doc_url")
-    private String docUrl;
+    this.docUrl = builder.docUrl;
     /**
      * 文字样式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("text_style")
+    this.textStyle = builder.textStyle;
+  }
+
+  public static class Builder {
+    /**
+     * 文档超链接
+     *
+     * <p>示例值：
+     */
+    private String docUrl;
+
+    /**
+     * 文字样式
+     *
+     * <p>示例值：
+     */
     private RichTextElementTextStyle textStyle;
 
-    // builder 开始
-    public RichTextElementMentionDoc() {
+    /**
+     * 文档超链接
+     *
+     * <p>示例值：
+     *
+     * @param docUrl
+     * @return
+     */
+    public Builder docUrl(String docUrl) {
+      this.docUrl = docUrl;
+      return this;
     }
 
-    public RichTextElementMentionDoc(Builder builder) {
-        /**
-         * 文档超链接
-         * <p> 示例值：https://bytedance.larkoffice.com/wiki/xxxxx
-         */
-        this.docUrl = builder.docUrl;
-        /**
-         * 文字样式
-         * <p> 示例值：
-         */
-        this.textStyle = builder.textStyle;
+    /**
+     * 文字样式
+     *
+     * <p>示例值：
+     *
+     * @param textStyle
+     * @return
+     */
+    public Builder textStyle(RichTextElementTextStyle textStyle) {
+      this.textStyle = textStyle;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public RichTextElementMentionDoc build() {
+      return new RichTextElementMentionDoc(this);
     }
+  }
 
-    public String getDocUrl() {
-        return this.docUrl;
-    }
-
-    public void setDocUrl(String docUrl) {
-        this.docUrl = docUrl;
-    }
-
-    public RichTextElementTextStyle getTextStyle() {
-        return this.textStyle;
-    }
-
-    public void setTextStyle(RichTextElementTextStyle textStyle) {
-        this.textStyle = textStyle;
-    }
-
-    public static class Builder {
-        /**
-         * 文档超链接
-         * <p> 示例值：https://bytedance.larkoffice.com/wiki/xxxxx
-         */
-        private String docUrl;
-        /**
-         * 文字样式
-         * <p> 示例值：
-         */
-        private RichTextElementTextStyle textStyle;
-
-        /**
-         * 文档超链接
-         * <p> 示例值：https://bytedance.larkoffice.com/wiki/xxxxx
-         *
-         * @param docUrl
-         * @return
-         */
-        public Builder docUrl(String docUrl) {
-            this.docUrl = docUrl;
-            return this;
-        }
-
-
-        /**
-         * 文字样式
-         * <p> 示例值：
-         *
-         * @param textStyle
-         * @return
-         */
-        public Builder textStyle(RichTextElementTextStyle textStyle) {
-            this.textStyle = textStyle;
-            return this;
-        }
-
-
-        public RichTextElementMentionDoc build() {
-            return new RichTextElementMentionDoc(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

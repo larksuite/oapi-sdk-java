@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateProgressRecordReqBody {
+  /**
+   * 进展详情 富文本格式
+   *
+   * <p>示例值：
+   */
+  @SerializedName("content")
+  private ContentBlock content;
+
+  /**
+   * 进展，包括百分比和状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("progress_rate")
+  private ProgressRateNew progressRate;
+
+  public ContentBlock getContent() {
+    return this.content;
+  }
+
+  public void setContent(ContentBlock content) {
+    this.content = content;
+  }
+
+  public ProgressRateNew getProgressRate() {
+    return this.progressRate;
+  }
+
+  public void setProgressRate(ProgressRateNew progressRate) {
+    this.progressRate = progressRate;
+  }
+
+  // builder 开始
+  public UpdateProgressRecordReqBody() {}
+
+  public UpdateProgressRecordReqBody(Builder builder) {
     /**
      * 进展详情 富文本格式
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("content")
-    private ContentBlock content;
+    this.content = builder.content;
     /**
      * 进展，包括百分比和状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("progress_rate")
+    this.progressRate = builder.progressRate;
+  }
+
+  public static class Builder {
+    /**
+     * 进展详情 富文本格式
+     *
+     * <p>示例值：
+     */
+    private ContentBlock content;
+
+    /**
+     * 进展，包括百分比和状态
+     *
+     * <p>示例值：
+     */
     private ProgressRateNew progressRate;
 
-    // builder 开始
-    public UpdateProgressRecordReqBody() {
+    /**
+     * 进展详情 富文本格式
+     *
+     * <p>示例值：
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(ContentBlock content) {
+      this.content = content;
+      return this;
     }
 
-    public UpdateProgressRecordReqBody(Builder builder) {
-        /**
-         * 进展详情 富文本格式
-         * <p> 示例值：
-         */
-        this.content = builder.content;
-        /**
-         * 进展，包括百分比和状态
-         * <p> 示例值：
-         */
-        this.progressRate = builder.progressRate;
+    /**
+     * 进展，包括百分比和状态
+     *
+     * <p>示例值：
+     *
+     * @param progressRate
+     * @return
+     */
+    public Builder progressRate(ProgressRateNew progressRate) {
+      this.progressRate = progressRate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UpdateProgressRecordReqBody build() {
+      return new UpdateProgressRecordReqBody(this);
     }
+  }
 
-    public ContentBlock getContent() {
-        return this.content;
-    }
-
-    public void setContent(ContentBlock content) {
-        this.content = content;
-    }
-
-    public ProgressRateNew getProgressRate() {
-        return this.progressRate;
-    }
-
-    public void setProgressRate(ProgressRateNew progressRate) {
-        this.progressRate = progressRate;
-    }
-
-    public static class Builder {
-        /**
-         * 进展详情 富文本格式
-         * <p> 示例值：
-         */
-        private ContentBlock content;
-        /**
-         * 进展，包括百分比和状态
-         * <p> 示例值：
-         */
-        private ProgressRateNew progressRate;
-
-        /**
-         * 进展详情 富文本格式
-         * <p> 示例值：
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(ContentBlock content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 进展，包括百分比和状态
-         * <p> 示例值：
-         *
-         * @param progressRate
-         * @return
-         */
-        public Builder progressRate(ProgressRateNew progressRate) {
-            this.progressRate = progressRate;
-            return this;
-        }
-
-
-        public UpdateProgressRecordReqBody build() {
-            return new UpdateProgressRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BackgroundCheckOrderProcessInfo {
+  /**
+   * 背调进度
+   *
+   * <p>示例值：待安排
+   */
+  @SerializedName("process")
+  private String process;
+
+  /**
+   * 进度更新时间
+   *
+   * <p>示例值：1638359554952
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 英文背调进度
+   *
+   * <p>示例值：arranged
+   */
+  @SerializedName("en_process")
+  private String enProcess;
+
+  public String getProcess() {
+    return this.process;
+  }
+
+  public void setProcess(String process) {
+    this.process = process;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public String getEnProcess() {
+    return this.enProcess;
+  }
+
+  public void setEnProcess(String enProcess) {
+    this.enProcess = enProcess;
+  }
+
+  // builder 开始
+  public BackgroundCheckOrderProcessInfo() {}
+
+  public BackgroundCheckOrderProcessInfo(Builder builder) {
     /**
      * 背调进度
-     * <p> 示例值：待安排
+     *
+     * <p>示例值：待安排
      */
-    @SerializedName("process")
-    private String process;
+    this.process = builder.process;
     /**
      * 进度更新时间
-     * <p> 示例值：1638359554952
+     *
+     * <p>示例值：1638359554952
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 英文背调进度
-     * <p> 示例值：arranged
+     *
+     * <p>示例值：arranged
      */
-    @SerializedName("en_process")
+    this.enProcess = builder.enProcess;
+  }
+
+  public static class Builder {
+    /**
+     * 背调进度
+     *
+     * <p>示例值：待安排
+     */
+    private String process;
+
+    /**
+     * 进度更新时间
+     *
+     * <p>示例值：1638359554952
+     */
+    private String updateTime;
+
+    /**
+     * 英文背调进度
+     *
+     * <p>示例值：arranged
+     */
     private String enProcess;
 
-    // builder 开始
-    public BackgroundCheckOrderProcessInfo() {
+    /**
+     * 背调进度
+     *
+     * <p>示例值：待安排
+     *
+     * @param process
+     * @return
+     */
+    public Builder process(String process) {
+      this.process = process;
+      return this;
     }
 
-    public BackgroundCheckOrderProcessInfo(Builder builder) {
-        /**
-         * 背调进度
-         * <p> 示例值：待安排
-         */
-        this.process = builder.process;
-        /**
-         * 进度更新时间
-         * <p> 示例值：1638359554952
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 英文背调进度
-         * <p> 示例值：arranged
-         */
-        this.enProcess = builder.enProcess;
+    /**
+     * 进度更新时间
+     *
+     * <p>示例值：1638359554952
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 英文背调进度
+     *
+     * <p>示例值：arranged
+     *
+     * @param enProcess
+     * @return
+     */
+    public Builder enProcess(String enProcess) {
+      this.enProcess = enProcess;
+      return this;
     }
 
-    public String getProcess() {
-        return this.process;
+    public BackgroundCheckOrderProcessInfo build() {
+      return new BackgroundCheckOrderProcessInfo(this);
     }
+  }
 
-    public void setProcess(String process) {
-        this.process = process;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getEnProcess() {
-        return this.enProcess;
-    }
-
-    public void setEnProcess(String enProcess) {
-        this.enProcess = enProcess;
-    }
-
-    public static class Builder {
-        /**
-         * 背调进度
-         * <p> 示例值：待安排
-         */
-        private String process;
-        /**
-         * 进度更新时间
-         * <p> 示例值：1638359554952
-         */
-        private String updateTime;
-        /**
-         * 英文背调进度
-         * <p> 示例值：arranged
-         */
-        private String enProcess;
-
-        /**
-         * 背调进度
-         * <p> 示例值：待安排
-         *
-         * @param process
-         * @return
-         */
-        public Builder process(String process) {
-            this.process = process;
-            return this;
-        }
-
-
-        /**
-         * 进度更新时间
-         * <p> 示例值：1638359554952
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 英文背调进度
-         * <p> 示例值：arranged
-         *
-         * @param enProcess
-         * @return
-         */
-        public Builder enProcess(String enProcess) {
-            this.enProcess = enProcess;
-            return this;
-        }
-
-
-        public BackgroundCheckOrderProcessInfo build() {
-            return new BackgroundCheckOrderProcessInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

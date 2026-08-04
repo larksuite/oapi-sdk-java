@@ -13,236 +13,306 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.attendance.v1.enums.*;
 
 public class ListUserGroupReq {
+  /**
+   * 响应体中 user_id 的员工 ID 类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+   * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id);;<b>可选值有</b>：;1.
+   * employee_id：员工 employee
+   * ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 >
+   * 成员详情中的用户 ID;2.
+   * employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) > 组织架构 >
+   * 成员与部门 > 成员详情中的工号
+   *
+   * <p>示例值：employee_id
+   */
+  @Query
+  @SerializedName("employee_type")
+  private String employeeType;
+
+  /**
+   * 响应体中 department_ids 的部门 ID 的类型;;<b>可选值有</b>：;1. open_id：暂时只支持部门的
+   * openid。具体概念请参考[部门资源介绍](https://open.larkoffice.com/document/server-docs/contact-v3/department/field-overview)中的open_department_id
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("dept_type")
+  private String deptType;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：92xKiuWrBCSweSZJBSTpag%3D%3D
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 查询的考勤组成员的打卡类型;;<b>可选值有</b>：;
+   *
+   * <ul>
+   *   ;
+   *   <li>0：全部打卡类型;
+   *   <li>1：需要打卡类型;
+   *   <li>2：无需打卡类型;
+   * </ul>
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("member_clock_type")
+  private Integer memberClockType;
+
+  public String getEmployeeType() {
+    return this.employeeType;
+  }
+
+  public void setEmployeeType(String employeeType) {
+    this.employeeType = employeeType;
+  }
+
+  public String getDeptType() {
+    return this.deptType;
+  }
+
+  public void setDeptType(String deptType) {
+    this.deptType = deptType;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getMemberClockType() {
+    return this.memberClockType;
+  }
+
+  public void setMemberClockType(Integer memberClockType) {
+    this.memberClockType = memberClockType;
+  }
+
+  /**
+   * 考勤组
+   * ID，获取方式：1）[创建或修改考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create)
+   * 2）[按名称查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search)
+   * 3）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+   *
+   * <p>示例值：6919358128597097404
+   */
+  @Path
+  @SerializedName("group_id")
+  private String groupId;
+
+  public String getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
+  // builder 开始
+  public ListUserGroupReq() {}
+
+  public ListUserGroupReq(Builder builder) {
     /**
-     * 用户 ID 的类型
-     * <p> 示例值：employee_id
+     * 响应体中 user_id 的员工 ID 类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id);;<b>可选值有</b>：;1.
+     * employee_id：员工 employee
+     * ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 >
+     * 成员详情中的用户 ID;2.
+     * employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) > 组织架构
+     * > 成员与部门 > 成员详情中的工号
+     *
+     * <p>示例值：employee_id
      */
-    @Query
-    @SerializedName("employee_type")
-    private String employeeType;
+    this.employeeType = builder.employeeType;
     /**
-     * 部门 ID 的类型
-     * <p> 示例值：open_id
+     * 响应体中 department_ids 的部门 ID 的类型;;<b>可选值有</b>：;1. open_id：暂时只支持部门的
+     * openid。具体概念请参考[部门资源介绍](https://open.larkoffice.com/document/server-docs/contact-v3/department/field-overview)中的open_department_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("dept_type")
-    private String deptType;
+    this.deptType = builder.deptType;
     /**
      * 分页大小
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：92xKiuWrBCSweSZJBSTpag%3D%3D
+     *
+     * <p>示例值：92xKiuWrBCSweSZJBSTpag%3D%3D
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 打卡类型
-     * <p> 示例值：1
+     * 查询的考勤组成员的打卡类型;;<b>可选值有</b>：;
+     *
+     * <ul>
+     *   ;
+     *   <li>0：全部打卡类型;
+     *   <li>1：需要打卡类型;
+     *   <li>2：无需打卡类型;
+     * </ul>
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("member_clock_type")
-    private Integer memberClockType;
+    this.memberClockType = builder.memberClockType;
     /**
-     * 考勤组id
-     * <p> 示例值：6919358128597097404
+     * 考勤组
+     * ID，获取方式：1）[创建或修改考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create)
+     * 2）[按名称查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search)
+     * 3）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+     *
+     * <p>示例值：6919358128597097404
      */
-    @Path
-    @SerializedName("group_id")
-    private String groupId;
+    this.groupId = builder.groupId;
+  }
 
-    // builder 开始
-    public ListUserGroupReq() {
+  public static class Builder {
+    private String employeeType; // 响应体中 user_id 的员工 ID 类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+    // ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id);;<b>可选值有</b>：;1. employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的用户 ID;2. employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 > 成员详情中的工号
+    private String deptType; // 响应体中 department_ids 的部门 ID 的类型;;<b>可选值有</b>：;1. open_id：暂时只支持部门的
+    // openid。具体概念请参考[部门资源介绍](https://open.larkoffice.com/document/server-docs/contact-v3/department/field-overview)中的open_department_id
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+    private Integer
+        memberClockType; // 查询的考勤组成员的打卡类型;;<b>可选值有</b>：;<ul>;<li>0：全部打卡类型</li>;<li>1：需要打卡类型</li>;<li>2：无需打卡类型</li>;</ul>
+
+    /**
+     * 响应体中 user_id 的员工 ID 类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户
+     * ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id);;<b>可选值有</b>：;1.
+     * employee_id：员工 employee
+     * ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) > 组织架构 > 成员与部门 >
+     * 成员详情中的用户 ID;2.
+     * employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) > 组织架构
+     * > 成员与部门 > 成员详情中的工号
+     *
+     * <p>示例值：employee_id
+     *
+     * @param employeeType
+     * @return
+     */
+    public Builder employeeType(String employeeType) {
+      this.employeeType = employeeType;
+      return this;
     }
 
-    public ListUserGroupReq(Builder builder) {
-        /**
-         * 用户 ID 的类型
-         * <p> 示例值：employee_id
-         */
-        this.employeeType = builder.employeeType;
-        /**
-         * 部门 ID 的类型
-         * <p> 示例值：open_id
-         */
-        this.deptType = builder.deptType;
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：92xKiuWrBCSweSZJBSTpag%3D%3D
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 打卡类型
-         * <p> 示例值：1
-         */
-        this.memberClockType = builder.memberClockType;
-        /**
-         * 考勤组id
-         * <p> 示例值：6919358128597097404
-         */
-        this.groupId = builder.groupId;
+    /**
+     * 响应体中 department_ids 的部门 ID 的类型;;<b>可选值有</b>：;1. open_id：暂时只支持部门的
+     * openid。具体概念请参考[部门资源介绍](https://open.larkoffice.com/document/server-docs/contact-v3/department/field-overview)中的open_department_id
+     *
+     * <p>示例值：open_id
+     *
+     * @param deptType
+     * @return
+     */
+    public Builder deptType(String deptType) {
+      this.deptType = deptType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 分页大小
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public String getEmployeeType() {
-        return this.employeeType;
+    /**
+     * 第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：92xKiuWrBCSweSZJBSTpag%3D%3D
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setEmployeeType(String employeeType) {
-        this.employeeType = employeeType;
+    /**
+     * 查询的考勤组成员的打卡类型;;<b>可选值有</b>：;
+     *
+     * <ul>
+     *   ;
+     *   <li>0：全部打卡类型;
+     *   <li>1：需要打卡类型;
+     *   <li>2：无需打卡类型;
+     * </ul>
+     *
+     * <p>示例值：1
+     *
+     * @param memberClockType
+     * @return
+     */
+    public Builder memberClockType(Integer memberClockType) {
+      this.memberClockType = memberClockType;
+      return this;
     }
 
-    public String getDeptType() {
-        return this.deptType;
+    private String groupId; // 考勤组
+
+    // ID，获取方式：1）[创建或修改考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create) 2）[按名称查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search) 3）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+
+    /**
+     * 考勤组
+     * ID，获取方式：1）[创建或修改考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/create)
+     * 2）[按名称查询考勤组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/group/search)
+     * 3）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query)
+     *
+     * <p>示例值：6919358128597097404
+     *
+     * @param groupId
+     * @return
+     */
+    public Builder groupId(String groupId) {
+      this.groupId = groupId;
+      return this;
     }
 
-    public void setDeptType(String deptType) {
-        this.deptType = deptType;
+    public ListUserGroupReq build() {
+      return new ListUserGroupReq(this);
     }
+  }
 
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getMemberClockType() {
-        return this.memberClockType;
-    }
-
-    public void setMemberClockType(Integer memberClockType) {
-        this.memberClockType = memberClockType;
-    }
-
-    public String getGroupId() {
-        return this.groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    public static class Builder {
-        private String employeeType; // 用户 ID 的类型
-        private String deptType; // 部门 ID 的类型
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private Integer memberClockType; // 打卡类型
-        private String groupId; // 考勤组id
-
-        /**
-         * 用户 ID 的类型
-         * <p> 示例值：employee_id
-         *
-         * @param employeeType
-         * @return
-         */
-        public Builder employeeType(String employeeType) {
-            this.employeeType = employeeType;
-            return this;
-        }
-
-        /**
-         * 部门 ID 的类型
-         * <p> 示例值：open_id
-         *
-         * @param deptType
-         * @return
-         */
-        public Builder deptType(String deptType) {
-            this.deptType = deptType;
-            return this;
-        }
-
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：92xKiuWrBCSweSZJBSTpag%3D%3D
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * 打卡类型
-         * <p> 示例值：1
-         *
-         * @param memberClockType
-         * @return
-         */
-        public Builder memberClockType(Integer memberClockType) {
-            this.memberClockType = memberClockType;
-            return this;
-        }
-
-        /**
-         * 考勤组id
-         * <p> 示例值：6919358128597097404
-         *
-         * @param groupId
-         * @return
-         */
-        public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
-        }
-
-
-        public ListUserGroupReq build() {
-            return new ListUserGroupReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

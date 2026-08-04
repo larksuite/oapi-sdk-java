@@ -13,815 +13,773 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class NameForUpdate {
+  /** 示例值： */
+  @SerializedName("full_name")
+  private String fullName;
+
+  /** 示例值： */
+  @SerializedName("first_name")
+  private String firstName;
+
+  /** 示例值： */
+  @SerializedName("middle_name")
+  private String middleName;
+
+  /** 示例值： */
+  @SerializedName("name_primary")
+  private String namePrimary;
+
+  /** 示例值： */
+  @SerializedName("local_first_name")
+  private String localFirstName;
+
+  /** 示例值： */
+  @SerializedName("local_middle_name")
+  private String localMiddleName;
+
+  /** 示例值： */
+  @SerializedName("local_primary")
+  private String localPrimary;
+
+  /** 示例值： */
+  @SerializedName("custom_local_name")
+  private String customLocalName;
+
+  /** 示例值：YiyiLi */
+  @SerializedName("custom_western_name")
+  private String customWesternName;
+
+  /**
+   * 国家/地区，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("country_region")
+  private String countryRegion;
+
+  /**
+   * 姓名类型，枚举值如下：;;- legal_name：法定姓名;- preferred_name：常用名;- former_name：曾用名;- additional_name：别名
+   *
+   * <p>示例值：legal_name
+   */
+  @SerializedName("name_type")
+  private String nameType;
+
+  /** 示例值：别名 */
+  @SerializedName("additional_name")
+  private String additionalName;
+
+  /**
+   * ID
+   *
+   * <p>示例值：7475686493613920050
+   */
+  @SerializedName("wk_id")
+  private String wkId;
+
+  /**
+   * 姓氏称谓
+   *
+   * <p>示例值：王
+   */
+  @SerializedName("hereditary")
+  private String hereditary;
+
+  /**
+   * 第二姓氏
+   *
+   * <p>示例值：王
+   */
+  @SerializedName("secondary")
+  private String secondary;
+
+  /**
+   * 尊称,枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name =
+   * "social"
+   *
+   * <p>示例值：ii
+   */
+  @SerializedName("social")
+  private String social;
+
+  /**
+   * 婚后姓氏
+   *
+   * <p>示例值：王
+   */
+  @SerializedName("tertiary")
+  private String tertiary;
+
+  /**
+   * 头衔, 枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name =
+   * "title"
+   *
+   * <p>示例值：mr
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 第二姓氏 - 本地文字
+   *
+   * <p>示例值：王
+   */
+  @SerializedName("local_secondary")
+  private String localSecondary;
+
+  /**
+   * 名 - 第二本地文字
+   *
+   * <p>示例值：五
+   */
+  @SerializedName("local_first_name_2")
+  private String localFirstName2;
+
+  /**
+   * 姓 - 第二本地文字
+   *
+   * <p>示例值：王
+   */
+  @SerializedName("local_primary_2")
+  private String localPrimary2;
+
+  public String getFullName() {
+    return this.fullName;
+  }
+
+  public void setFullName(String fullName) {
+    this.fullName = fullName;
+  }
+
+  public String getFirstName() {
+    return this.firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public String getMiddleName() {
+    return this.middleName;
+  }
+
+  public void setMiddleName(String middleName) {
+    this.middleName = middleName;
+  }
+
+  public String getNamePrimary() {
+    return this.namePrimary;
+  }
+
+  public void setNamePrimary(String namePrimary) {
+    this.namePrimary = namePrimary;
+  }
+
+  public String getLocalFirstName() {
+    return this.localFirstName;
+  }
+
+  public void setLocalFirstName(String localFirstName) {
+    this.localFirstName = localFirstName;
+  }
+
+  public String getLocalMiddleName() {
+    return this.localMiddleName;
+  }
+
+  public void setLocalMiddleName(String localMiddleName) {
+    this.localMiddleName = localMiddleName;
+  }
+
+  public String getLocalPrimary() {
+    return this.localPrimary;
+  }
+
+  public void setLocalPrimary(String localPrimary) {
+    this.localPrimary = localPrimary;
+  }
+
+  public String getCustomLocalName() {
+    return this.customLocalName;
+  }
+
+  public void setCustomLocalName(String customLocalName) {
+    this.customLocalName = customLocalName;
+  }
+
+  public String getCustomWesternName() {
+    return this.customWesternName;
+  }
+
+  public void setCustomWesternName(String customWesternName) {
+    this.customWesternName = customWesternName;
+  }
+
+  public String getCountryRegion() {
+    return this.countryRegion;
+  }
+
+  public void setCountryRegion(String countryRegion) {
+    this.countryRegion = countryRegion;
+  }
+
+  public String getNameType() {
+    return this.nameType;
+  }
+
+  public void setNameType(String nameType) {
+    this.nameType = nameType;
+  }
+
+  public String getAdditionalName() {
+    return this.additionalName;
+  }
+
+  public void setAdditionalName(String additionalName) {
+    this.additionalName = additionalName;
+  }
+
+  public String getWkId() {
+    return this.wkId;
+  }
+
+  public void setWkId(String wkId) {
+    this.wkId = wkId;
+  }
+
+  public String getHereditary() {
+    return this.hereditary;
+  }
+
+  public void setHereditary(String hereditary) {
+    this.hereditary = hereditary;
+  }
+
+  public String getSecondary() {
+    return this.secondary;
+  }
+
+  public void setSecondary(String secondary) {
+    this.secondary = secondary;
+  }
+
+  public String getSocial() {
+    return this.social;
+  }
+
+  public void setSocial(String social) {
+    this.social = social;
+  }
+
+  public String getTertiary() {
+    return this.tertiary;
+  }
+
+  public void setTertiary(String tertiary) {
+    this.tertiary = tertiary;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getLocalSecondary() {
+    return this.localSecondary;
+  }
+
+  public void setLocalSecondary(String localSecondary) {
+    this.localSecondary = localSecondary;
+  }
+
+  public String getLocalFirstName2() {
+    return this.localFirstName2;
+  }
+
+  public void setLocalFirstName2(String localFirstName2) {
+    this.localFirstName2 = localFirstName2;
+  }
+
+  public String getLocalPrimary2() {
+    return this.localPrimary2;
+  }
+
+  public void setLocalPrimary2(String localPrimary2) {
+    this.localPrimary2 = localPrimary2;
+  }
+
+  // builder 开始
+  public NameForUpdate() {}
+
+  public NameForUpdate(Builder builder) {
+    /** 示例值： */
+    this.fullName = builder.fullName;
+    /** 示例值： */
+    this.firstName = builder.firstName;
+    /** 示例值： */
+    this.middleName = builder.middleName;
+    /** 示例值： */
+    this.namePrimary = builder.namePrimary;
+    /** 示例值： */
+    this.localFirstName = builder.localFirstName;
+    /** 示例值： */
+    this.localMiddleName = builder.localMiddleName;
+    /** 示例值： */
+    this.localPrimary = builder.localPrimary;
+    /** 示例值： */
+    this.customLocalName = builder.customLocalName;
+    /** 示例值：YiyiLi */
+    this.customWesternName = builder.customWesternName;
     /**
-     * 全名
-     * <p> 示例值：李一一
+     * 国家/地区，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("full_name")
-    private String fullName;
+    this.countryRegion = builder.countryRegion;
     /**
-     * 名
-     * <p> 示例值：一
+     * 姓名类型，枚举值如下：;;- legal_name：法定姓名;- preferred_name：常用名;- former_name：曾用名;- additional_name：别名
+     *
+     * <p>示例值：legal_name
      */
-    @SerializedName("first_name")
-    private String firstName;
-    /**
-     * 中间名
-     * <p> 示例值：一
-     */
-    @SerializedName("middle_name")
-    private String middleName;
-    /**
-     * 姓
-     * <p> 示例值：李
-     */
-    @SerializedName("name_primary")
-    private String namePrimary;
-    /**
-     * 名 - 本地文字
-     * <p> 示例值：一
-     */
-    @SerializedName("local_first_name")
-    private String localFirstName;
-    /**
-     * 本地中间名
-     * <p> 示例值：一
-     */
-    @SerializedName("local_middle_name")
-    private String localMiddleName;
-    /**
-     * 姓 - 本地文字
-     * <p> 示例值：李
-     */
-    @SerializedName("local_primary")
-    private String localPrimary;
-    /**
-     * 自定义姓名（本地文字）
-     * <p> 示例值：李一一
-     */
-    @SerializedName("custom_local_name")
-    private String customLocalName;
-    /**
-     * 自定义姓名（西方文字）
-     * <p> 示例值：YiyiLi
-     */
-    @SerializedName("custom_western_name")
-    private String customWesternName;
-    /**
-     * 国家/地区
-     * <p> 示例值：6862995757234914824
-     */
-    @SerializedName("country_region")
-    private String countryRegion;
-    /**
-     * 姓名类型，枚举值
-     * <p> 示例值：legal_name，preferred_name，additional_name
-     */
-    @SerializedName("name_type")
-    private String nameType;
-    /**
-     * 别名
-     * <p> 示例值：别名
-     */
-    @SerializedName("additional_name")
-    private String additionalName;
+    this.nameType = builder.nameType;
+    /** 示例值：别名 */
+    this.additionalName = builder.additionalName;
     /**
      * ID
-     * <p> 示例值：7475686493613920050
+     *
+     * <p>示例值：7475686493613920050
      */
-    @SerializedName("wk_id")
-    private String wkId;
+    this.wkId = builder.wkId;
     /**
      * 姓氏称谓
-     * <p> 示例值：王
+     *
+     * <p>示例值：王
      */
-    @SerializedName("hereditary")
-    private String hereditary;
+    this.hereditary = builder.hereditary;
     /**
      * 第二姓氏
-     * <p> 示例值：王
+     *
+     * <p>示例值：王
      */
-    @SerializedName("secondary")
-    private String secondary;
+    this.secondary = builder.secondary;
     /**
-     * 尊称,枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name = "social"
-     * <p> 示例值：ii
+     * 尊称,枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name =
+     * "social"
+     *
+     * <p>示例值：ii
      */
-    @SerializedName("social")
-    private String social;
+    this.social = builder.social;
     /**
      * 婚后姓氏
-     * <p> 示例值：王
+     *
+     * <p>示例值：王
      */
-    @SerializedName("tertiary")
-    private String tertiary;
+    this.tertiary = builder.tertiary;
     /**
-     * 头衔, 枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name = "title"
-     * <p> 示例值：mr
+     * 头衔, 枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name =
+     * "title"
+     *
+     * <p>示例值：mr
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 第二姓氏 - 本地文字
-     * <p> 示例值：王
+     *
+     * <p>示例值：王
      */
-    @SerializedName("local_secondary")
-    private String localSecondary;
+    this.localSecondary = builder.localSecondary;
     /**
      * 名 - 第二本地文字
-     * <p> 示例值：五
+     *
+     * <p>示例值：五
      */
-    @SerializedName("local_first_name_2")
-    private String localFirstName2;
+    this.localFirstName2 = builder.localFirstName2;
     /**
      * 姓 - 第二本地文字
-     * <p> 示例值：王
+     *
+     * <p>示例值：王
      */
-    @SerializedName("local_primary_2")
+    this.localPrimary2 = builder.localPrimary2;
+  }
+
+  public static class Builder {
+    /** 示例值： */
+    private String fullName;
+
+    /** 示例值： */
+    private String firstName;
+
+    /** 示例值： */
+    private String middleName;
+
+    /** 示例值： */
+    private String namePrimary;
+
+    /** 示例值： */
+    private String localFirstName;
+
+    /** 示例值： */
+    private String localMiddleName;
+
+    /** 示例值： */
+    private String localPrimary;
+
+    /** 示例值： */
+    private String customLocalName;
+
+    /** 示例值：YiyiLi */
+    private String customWesternName;
+
+    /**
+     * 国家/地区，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得
+     *
+     * <p>示例值：6862995757234914824
+     */
+    private String countryRegion;
+
+    /**
+     * 姓名类型，枚举值如下：;;- legal_name：法定姓名;- preferred_name：常用名;- former_name：曾用名;- additional_name：别名
+     *
+     * <p>示例值：legal_name
+     */
+    private String nameType;
+
+    /** 示例值：别名 */
+    private String additionalName;
+
+    /**
+     * ID
+     *
+     * <p>示例值：7475686493613920050
+     */
+    private String wkId;
+
+    /**
+     * 姓氏称谓
+     *
+     * <p>示例值：王
+     */
+    private String hereditary;
+
+    /**
+     * 第二姓氏
+     *
+     * <p>示例值：王
+     */
+    private String secondary;
+
+    /**
+     * 尊称,枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name =
+     * "social"
+     *
+     * <p>示例值：ii
+     */
+    private String social;
+
+    /**
+     * 婚后姓氏
+     *
+     * <p>示例值：王
+     */
+    private String tertiary;
+
+    /**
+     * 头衔, 枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name =
+     * "title"
+     *
+     * <p>示例值：mr
+     */
+    private String title;
+
+    /**
+     * 第二姓氏 - 本地文字
+     *
+     * <p>示例值：王
+     */
+    private String localSecondary;
+
+    /**
+     * 名 - 第二本地文字
+     *
+     * <p>示例值：五
+     */
+    private String localFirstName2;
+
+    /**
+     * 姓 - 第二本地文字
+     *
+     * <p>示例值：王
+     */
     private String localPrimary2;
 
-    // builder 开始
-    public NameForUpdate() {
+    /**
+     * 示例值：
+     *
+     * @param fullName
+     * @return
+     */
+    public Builder fullName(String fullName) {
+      this.fullName = fullName;
+      return this;
     }
 
-    public NameForUpdate(Builder builder) {
-        /**
-         * 全名
-         * <p> 示例值：李一一
-         */
-        this.fullName = builder.fullName;
-        /**
-         * 名
-         * <p> 示例值：一
-         */
-        this.firstName = builder.firstName;
-        /**
-         * 中间名
-         * <p> 示例值：一
-         */
-        this.middleName = builder.middleName;
-        /**
-         * 姓
-         * <p> 示例值：李
-         */
-        this.namePrimary = builder.namePrimary;
-        /**
-         * 名 - 本地文字
-         * <p> 示例值：一
-         */
-        this.localFirstName = builder.localFirstName;
-        /**
-         * 本地中间名
-         * <p> 示例值：一
-         */
-        this.localMiddleName = builder.localMiddleName;
-        /**
-         * 姓 - 本地文字
-         * <p> 示例值：李
-         */
-        this.localPrimary = builder.localPrimary;
-        /**
-         * 自定义姓名（本地文字）
-         * <p> 示例值：李一一
-         */
-        this.customLocalName = builder.customLocalName;
-        /**
-         * 自定义姓名（西方文字）
-         * <p> 示例值：YiyiLi
-         */
-        this.customWesternName = builder.customWesternName;
-        /**
-         * 国家/地区
-         * <p> 示例值：6862995757234914824
-         */
-        this.countryRegion = builder.countryRegion;
-        /**
-         * 姓名类型，枚举值
-         * <p> 示例值：legal_name，preferred_name，additional_name
-         */
-        this.nameType = builder.nameType;
-        /**
-         * 别名
-         * <p> 示例值：别名
-         */
-        this.additionalName = builder.additionalName;
-        /**
-         * ID
-         * <p> 示例值：7475686493613920050
-         */
-        this.wkId = builder.wkId;
-        /**
-         * 姓氏称谓
-         * <p> 示例值：王
-         */
-        this.hereditary = builder.hereditary;
-        /**
-         * 第二姓氏
-         * <p> 示例值：王
-         */
-        this.secondary = builder.secondary;
-        /**
-         * 尊称,枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name = "social"
-         * <p> 示例值：ii
-         */
-        this.social = builder.social;
-        /**
-         * 婚后姓氏
-         * <p> 示例值：王
-         */
-        this.tertiary = builder.tertiary;
-        /**
-         * 头衔, 枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name = "title"
-         * <p> 示例值：mr
-         */
-        this.title = builder.title;
-        /**
-         * 第二姓氏 - 本地文字
-         * <p> 示例值：王
-         */
-        this.localSecondary = builder.localSecondary;
-        /**
-         * 名 - 第二本地文字
-         * <p> 示例值：五
-         */
-        this.localFirstName2 = builder.localFirstName2;
-        /**
-         * 姓 - 第二本地文字
-         * <p> 示例值：王
-         */
-        this.localPrimary2 = builder.localPrimary2;
+    /**
+     * 示例值：
+     *
+     * @param firstName
+     * @return
+     */
+    public Builder firstName(String firstName) {
+      this.firstName = firstName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param middleName
+     * @return
+     */
+    public Builder middleName(String middleName) {
+      this.middleName = middleName;
+      return this;
     }
 
-    public String getFullName() {
-        return this.fullName;
+    /**
+     * 示例值：
+     *
+     * @param namePrimary
+     * @return
+     */
+    public Builder namePrimary(String namePrimary) {
+      this.namePrimary = namePrimary;
+      return this;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    /**
+     * 示例值：
+     *
+     * @param localFirstName
+     * @return
+     */
+    public Builder localFirstName(String localFirstName) {
+      this.localFirstName = localFirstName;
+      return this;
     }
 
-    public String getFirstName() {
-        return this.firstName;
+    /**
+     * 示例值：
+     *
+     * @param localMiddleName
+     * @return
+     */
+    public Builder localMiddleName(String localMiddleName) {
+      this.localMiddleName = localMiddleName;
+      return this;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    /**
+     * 示例值：
+     *
+     * @param localPrimary
+     * @return
+     */
+    public Builder localPrimary(String localPrimary) {
+      this.localPrimary = localPrimary;
+      return this;
     }
 
-    public String getMiddleName() {
-        return this.middleName;
+    /**
+     * 示例值：
+     *
+     * @param customLocalName
+     * @return
+     */
+    public Builder customLocalName(String customLocalName) {
+      this.customLocalName = customLocalName;
+      return this;
     }
 
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
+    /**
+     * 示例值：YiyiLi
+     *
+     * @param customWesternName
+     * @return
+     */
+    public Builder customWesternName(String customWesternName) {
+      this.customWesternName = customWesternName;
+      return this;
     }
 
-    public String getNamePrimary() {
-        return this.namePrimary;
+    /**
+     * 国家/地区，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param countryRegion
+     * @return
+     */
+    public Builder countryRegion(String countryRegion) {
+      this.countryRegion = countryRegion;
+      return this;
     }
 
-    public void setNamePrimary(String namePrimary) {
-        this.namePrimary = namePrimary;
+    /**
+     * 姓名类型，枚举值如下：;;- legal_name：法定姓名;- preferred_name：常用名;- former_name：曾用名;- additional_name：别名
+     *
+     * <p>示例值：legal_name
+     *
+     * @param nameType
+     * @return
+     */
+    public Builder nameType(String nameType) {
+      this.nameType = nameType;
+      return this;
     }
 
-    public String getLocalFirstName() {
-        return this.localFirstName;
+    /**
+     * 示例值：别名
+     *
+     * @param additionalName
+     * @return
+     */
+    public Builder additionalName(String additionalName) {
+      this.additionalName = additionalName;
+      return this;
     }
 
-    public void setLocalFirstName(String localFirstName) {
-        this.localFirstName = localFirstName;
+    /**
+     * ID
+     *
+     * <p>示例值：7475686493613920050
+     *
+     * @param wkId
+     * @return
+     */
+    public Builder wkId(String wkId) {
+      this.wkId = wkId;
+      return this;
     }
 
-    public String getLocalMiddleName() {
-        return this.localMiddleName;
+    /**
+     * 姓氏称谓
+     *
+     * <p>示例值：王
+     *
+     * @param hereditary
+     * @return
+     */
+    public Builder hereditary(String hereditary) {
+      this.hereditary = hereditary;
+      return this;
     }
 
-    public void setLocalMiddleName(String localMiddleName) {
-        this.localMiddleName = localMiddleName;
+    /**
+     * 第二姓氏
+     *
+     * <p>示例值：王
+     *
+     * @param secondary
+     * @return
+     */
+    public Builder secondary(String secondary) {
+      this.secondary = secondary;
+      return this;
     }
 
-    public String getLocalPrimary() {
-        return this.localPrimary;
+    /**
+     * 尊称,枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name =
+     * "social"
+     *
+     * <p>示例值：ii
+     *
+     * @param social
+     * @return
+     */
+    public Builder social(String social) {
+      this.social = social;
+      return this;
     }
 
-    public void setLocalPrimary(String localPrimary) {
-        this.localPrimary = localPrimary;
+    /**
+     * 婚后姓氏
+     *
+     * <p>示例值：王
+     *
+     * @param tertiary
+     * @return
+     */
+    public Builder tertiary(String tertiary) {
+      this.tertiary = tertiary;
+      return this;
     }
 
-    public String getCustomLocalName() {
-        return this.customLocalName;
+    /**
+     * 头衔, 枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name =
+     * "title"
+     *
+     * <p>示例值：mr
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public void setCustomLocalName(String customLocalName) {
-        this.customLocalName = customLocalName;
+    /**
+     * 第二姓氏 - 本地文字
+     *
+     * <p>示例值：王
+     *
+     * @param localSecondary
+     * @return
+     */
+    public Builder localSecondary(String localSecondary) {
+      this.localSecondary = localSecondary;
+      return this;
     }
 
-    public String getCustomWesternName() {
-        return this.customWesternName;
+    /**
+     * 名 - 第二本地文字
+     *
+     * <p>示例值：五
+     *
+     * @param localFirstName2
+     * @return
+     */
+    public Builder localFirstName2(String localFirstName2) {
+      this.localFirstName2 = localFirstName2;
+      return this;
     }
 
-    public void setCustomWesternName(String customWesternName) {
-        this.customWesternName = customWesternName;
+    /**
+     * 姓 - 第二本地文字
+     *
+     * <p>示例值：王
+     *
+     * @param localPrimary2
+     * @return
+     */
+    public Builder localPrimary2(String localPrimary2) {
+      this.localPrimary2 = localPrimary2;
+      return this;
     }
 
-    public String getCountryRegion() {
-        return this.countryRegion;
+    public NameForUpdate build() {
+      return new NameForUpdate(this);
     }
-
-    public void setCountryRegion(String countryRegion) {
-        this.countryRegion = countryRegion;
-    }
-
-    public String getNameType() {
-        return this.nameType;
-    }
-
-    public void setNameType(String nameType) {
-        this.nameType = nameType;
-    }
-
-    public String getAdditionalName() {
-        return this.additionalName;
-    }
-
-    public void setAdditionalName(String additionalName) {
-        this.additionalName = additionalName;
-    }
-
-    public String getWkId() {
-        return this.wkId;
-    }
-
-    public void setWkId(String wkId) {
-        this.wkId = wkId;
-    }
-
-    public String getHereditary() {
-        return this.hereditary;
-    }
-
-    public void setHereditary(String hereditary) {
-        this.hereditary = hereditary;
-    }
-
-    public String getSecondary() {
-        return this.secondary;
-    }
-
-    public void setSecondary(String secondary) {
-        this.secondary = secondary;
-    }
-
-    public String getSocial() {
-        return this.social;
-    }
-
-    public void setSocial(String social) {
-        this.social = social;
-    }
-
-    public String getTertiary() {
-        return this.tertiary;
-    }
-
-    public void setTertiary(String tertiary) {
-        this.tertiary = tertiary;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getLocalSecondary() {
-        return this.localSecondary;
-    }
-
-    public void setLocalSecondary(String localSecondary) {
-        this.localSecondary = localSecondary;
-    }
-
-    public String getLocalFirstName2() {
-        return this.localFirstName2;
-    }
-
-    public void setLocalFirstName2(String localFirstName2) {
-        this.localFirstName2 = localFirstName2;
-    }
-
-    public String getLocalPrimary2() {
-        return this.localPrimary2;
-    }
-
-    public void setLocalPrimary2(String localPrimary2) {
-        this.localPrimary2 = localPrimary2;
-    }
-
-    public static class Builder {
-        /**
-         * 全名
-         * <p> 示例值：李一一
-         */
-        private String fullName;
-        /**
-         * 名
-         * <p> 示例值：一
-         */
-        private String firstName;
-        /**
-         * 中间名
-         * <p> 示例值：一
-         */
-        private String middleName;
-        /**
-         * 姓
-         * <p> 示例值：李
-         */
-        private String namePrimary;
-        /**
-         * 名 - 本地文字
-         * <p> 示例值：一
-         */
-        private String localFirstName;
-        /**
-         * 本地中间名
-         * <p> 示例值：一
-         */
-        private String localMiddleName;
-        /**
-         * 姓 - 本地文字
-         * <p> 示例值：李
-         */
-        private String localPrimary;
-        /**
-         * 自定义姓名（本地文字）
-         * <p> 示例值：李一一
-         */
-        private String customLocalName;
-        /**
-         * 自定义姓名（西方文字）
-         * <p> 示例值：YiyiLi
-         */
-        private String customWesternName;
-        /**
-         * 国家/地区
-         * <p> 示例值：6862995757234914824
-         */
-        private String countryRegion;
-        /**
-         * 姓名类型，枚举值
-         * <p> 示例值：legal_name，preferred_name，additional_name
-         */
-        private String nameType;
-        /**
-         * 别名
-         * <p> 示例值：别名
-         */
-        private String additionalName;
-        /**
-         * ID
-         * <p> 示例值：7475686493613920050
-         */
-        private String wkId;
-        /**
-         * 姓氏称谓
-         * <p> 示例值：王
-         */
-        private String hereditary;
-        /**
-         * 第二姓氏
-         * <p> 示例值：王
-         */
-        private String secondary;
-        /**
-         * 尊称,枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name = "social"
-         * <p> 示例值：ii
-         */
-        private String social;
-        /**
-         * 婚后姓氏
-         * <p> 示例值：王
-         */
-        private String tertiary;
-        /**
-         * 头衔, 枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name = "title"
-         * <p> 示例值：mr
-         */
-        private String title;
-        /**
-         * 第二姓氏 - 本地文字
-         * <p> 示例值：王
-         */
-        private String localSecondary;
-        /**
-         * 名 - 第二本地文字
-         * <p> 示例值：五
-         */
-        private String localFirstName2;
-        /**
-         * 姓 - 第二本地文字
-         * <p> 示例值：王
-         */
-        private String localPrimary2;
-
-        /**
-         * 全名
-         * <p> 示例值：李一一
-         *
-         * @param fullName
-         * @return
-         */
-        public Builder fullName(String fullName) {
-            this.fullName = fullName;
-            return this;
-        }
-
-
-        /**
-         * 名
-         * <p> 示例值：一
-         *
-         * @param firstName
-         * @return
-         */
-        public Builder firstName(String firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-
-        /**
-         * 中间名
-         * <p> 示例值：一
-         *
-         * @param middleName
-         * @return
-         */
-        public Builder middleName(String middleName) {
-            this.middleName = middleName;
-            return this;
-        }
-
-
-        /**
-         * 姓
-         * <p> 示例值：李
-         *
-         * @param namePrimary
-         * @return
-         */
-        public Builder namePrimary(String namePrimary) {
-            this.namePrimary = namePrimary;
-            return this;
-        }
-
-
-        /**
-         * 名 - 本地文字
-         * <p> 示例值：一
-         *
-         * @param localFirstName
-         * @return
-         */
-        public Builder localFirstName(String localFirstName) {
-            this.localFirstName = localFirstName;
-            return this;
-        }
-
-
-        /**
-         * 本地中间名
-         * <p> 示例值：一
-         *
-         * @param localMiddleName
-         * @return
-         */
-        public Builder localMiddleName(String localMiddleName) {
-            this.localMiddleName = localMiddleName;
-            return this;
-        }
-
-
-        /**
-         * 姓 - 本地文字
-         * <p> 示例值：李
-         *
-         * @param localPrimary
-         * @return
-         */
-        public Builder localPrimary(String localPrimary) {
-            this.localPrimary = localPrimary;
-            return this;
-        }
-
-
-        /**
-         * 自定义姓名（本地文字）
-         * <p> 示例值：李一一
-         *
-         * @param customLocalName
-         * @return
-         */
-        public Builder customLocalName(String customLocalName) {
-            this.customLocalName = customLocalName;
-            return this;
-        }
-
-
-        /**
-         * 自定义姓名（西方文字）
-         * <p> 示例值：YiyiLi
-         *
-         * @param customWesternName
-         * @return
-         */
-        public Builder customWesternName(String customWesternName) {
-            this.customWesternName = customWesternName;
-            return this;
-        }
-
-
-        /**
-         * 国家/地区
-         * <p> 示例值：6862995757234914824
-         *
-         * @param countryRegion
-         * @return
-         */
-        public Builder countryRegion(String countryRegion) {
-            this.countryRegion = countryRegion;
-            return this;
-        }
-
-
-        /**
-         * 姓名类型，枚举值
-         * <p> 示例值：legal_name，preferred_name，additional_name
-         *
-         * @param nameType
-         * @return
-         */
-        public Builder nameType(String nameType) {
-            this.nameType = nameType;
-            return this;
-        }
-
-
-        /**
-         * 别名
-         * <p> 示例值：别名
-         *
-         * @param additionalName
-         * @return
-         */
-        public Builder additionalName(String additionalName) {
-            this.additionalName = additionalName;
-            return this;
-        }
-
-
-        /**
-         * ID
-         * <p> 示例值：7475686493613920050
-         *
-         * @param wkId
-         * @return
-         */
-        public Builder wkId(String wkId) {
-            this.wkId = wkId;
-            return this;
-        }
-
-
-        /**
-         * 姓氏称谓
-         * <p> 示例值：王
-         *
-         * @param hereditary
-         * @return
-         */
-        public Builder hereditary(String hereditary) {
-            this.hereditary = hereditary;
-            return this;
-        }
-
-
-        /**
-         * 第二姓氏
-         * <p> 示例值：王
-         *
-         * @param secondary
-         * @return
-         */
-        public Builder secondary(String secondary) {
-            this.secondary = secondary;
-            return this;
-        }
-
-
-        /**
-         * 尊称,枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name = "social"
-         * <p> 示例值：ii
-         *
-         * @param social
-         * @return
-         */
-        public Builder social(String social) {
-            this.social = social;
-            return this;
-        }
-
-
-        /**
-         * 婚后姓氏
-         * <p> 示例值：王
-         *
-         * @param tertiary
-         * @return
-         */
-        public Builder tertiary(String tertiary) {
-            this.tertiary = tertiary;
-            return this;
-        }
-
-
-        /**
-         * 头衔, 枚举值。可选项可以通过【获取字段详情】接口查询，查询参数如下： - object_api_name = "person_name" - custom_api_name = "title"
-         * <p> 示例值：mr
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 第二姓氏 - 本地文字
-         * <p> 示例值：王
-         *
-         * @param localSecondary
-         * @return
-         */
-        public Builder localSecondary(String localSecondary) {
-            this.localSecondary = localSecondary;
-            return this;
-        }
-
-
-        /**
-         * 名 - 第二本地文字
-         * <p> 示例值：五
-         *
-         * @param localFirstName2
-         * @return
-         */
-        public Builder localFirstName2(String localFirstName2) {
-            this.localFirstName2 = localFirstName2;
-            return this;
-        }
-
-
-        /**
-         * 姓 - 第二本地文字
-         * <p> 示例值：王
-         *
-         * @param localPrimary2
-         * @return
-         */
-        public Builder localPrimary2(String localPrimary2) {
-            this.localPrimary2 = localPrimary2;
-            return this;
-        }
-
-
-        public NameForUpdate build() {
-            return new NameForUpdate(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

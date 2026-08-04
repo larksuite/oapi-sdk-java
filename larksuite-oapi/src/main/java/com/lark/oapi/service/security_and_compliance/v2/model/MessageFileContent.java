@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageFileContent {
+  /**
+   * 文件链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("file_key")
+  private String fileKey;
+
+  public String getFileKey() {
+    return this.fileKey;
+  }
+
+  public void setFileKey(String fileKey) {
+    this.fileKey = fileKey;
+  }
+
+  // builder 开始
+  public MessageFileContent() {}
+
+  public MessageFileContent(Builder builder) {
     /**
      * 文件链接
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("file_key")
+    this.fileKey = builder.fileKey;
+  }
+
+  public static class Builder {
+    /**
+     * 文件链接
+     *
+     * <p>示例值：
+     */
     private String fileKey;
 
-    // builder 开始
-    public MessageFileContent() {
+    /**
+     * 文件链接
+     *
+     * <p>示例值：
+     *
+     * @param fileKey
+     * @return
+     */
+    public Builder fileKey(String fileKey) {
+      this.fileKey = fileKey;
+      return this;
     }
 
-    public MessageFileContent(Builder builder) {
-        /**
-         * 文件链接
-         * <p> 示例值：
-         */
-        this.fileKey = builder.fileKey;
+    public MessageFileContent build() {
+      return new MessageFileContent(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getFileKey() {
-        return this.fileKey;
-    }
-
-    public void setFileKey(String fileKey) {
-        this.fileKey = fileKey;
-    }
-
-    public static class Builder {
-        /**
-         * 文件链接
-         * <p> 示例值：
-         */
-        private String fileKey;
-
-        /**
-         * 文件链接
-         * <p> 示例值：
-         *
-         * @param fileKey
-         * @return
-         */
-        public Builder fileKey(String fileKey) {
-            this.fileKey = fileKey;
-            return this;
-        }
-
-
-        public MessageFileContent build() {
-            return new MessageFileContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

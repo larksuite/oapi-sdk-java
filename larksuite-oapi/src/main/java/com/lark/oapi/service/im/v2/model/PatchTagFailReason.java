@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchTagFailReason {
+  /**
+   * 名称重复的标签id
+   *
+   * <p>示例值：716168xxxxx
+   */
+  @SerializedName("duplicate_id")
+  private String duplicateId;
+
+  public String getDuplicateId() {
+    return this.duplicateId;
+  }
+
+  public void setDuplicateId(String duplicateId) {
+    this.duplicateId = duplicateId;
+  }
+
+  // builder 开始
+  public PatchTagFailReason() {}
+
+  public PatchTagFailReason(Builder builder) {
     /**
      * 名称重复的标签id
-     * <p> 示例值：716168xxxxx
+     *
+     * <p>示例值：716168xxxxx
      */
-    @SerializedName("duplicate_id")
+    this.duplicateId = builder.duplicateId;
+  }
+
+  public static class Builder {
+    /**
+     * 名称重复的标签id
+     *
+     * <p>示例值：716168xxxxx
+     */
     private String duplicateId;
 
-    // builder 开始
-    public PatchTagFailReason() {
+    /**
+     * 名称重复的标签id
+     *
+     * <p>示例值：716168xxxxx
+     *
+     * @param duplicateId
+     * @return
+     */
+    public Builder duplicateId(String duplicateId) {
+      this.duplicateId = duplicateId;
+      return this;
     }
 
-    public PatchTagFailReason(Builder builder) {
-        /**
-         * 名称重复的标签id
-         * <p> 示例值：716168xxxxx
-         */
-        this.duplicateId = builder.duplicateId;
+    public PatchTagFailReason build() {
+      return new PatchTagFailReason(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getDuplicateId() {
-        return this.duplicateId;
-    }
-
-    public void setDuplicateId(String duplicateId) {
-        this.duplicateId = duplicateId;
-    }
-
-    public static class Builder {
-        /**
-         * 名称重复的标签id
-         * <p> 示例值：716168xxxxx
-         */
-        private String duplicateId;
-
-        /**
-         * 名称重复的标签id
-         * <p> 示例值：716168xxxxx
-         *
-         * @param duplicateId
-         * @return
-         */
-        public Builder duplicateId(String duplicateId) {
-            this.duplicateId = duplicateId;
-            return this;
-        }
-
-
-        public PatchTagFailReason build() {
-            return new PatchTagFailReason(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,90 +13,87 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateMailgroupPermissionMemberRespBody {
-    /**
-     * The unique ID of a member in this permission group
-     * <p> 示例值：xxxxxxxxxxxxxxx
-     */
-    @SerializedName("permission_member_id")
-    private String permissionMemberId;
-    /**
-     * The member's user id. Value is valid when type is USER
-     * <p> 示例值：xxxxxxxxxx
-     */
-    @SerializedName("user_id")
-    private String userId;
-    /**
-     * The member's department id. Value is valid when type is DEPARTMENT
-     * <p> 示例值：xxxxxxxxxx
-     */
-    @SerializedName("department_id")
-    private String departmentId;
-    /**
-     * The member's email address. Value is valid when type is MAIL_GROUP/PUBLIC_MAILBOX
-     * <p> 示例值：xxx@xx.x
-     */
-    @SerializedName("email")
-    private String email;
-    /**
-     * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT: member is a department
-     * <p> 示例值：USER
-     */
-    @SerializedName("type")
-    private String type;
+  /**
+   * The unique ID of a member in this permission group
+   *
+   * <p>示例值：xxxxxxxxxxxxxxx
+   */
+  @SerializedName("permission_member_id")
+  private String permissionMemberId;
 
-    public String getPermissionMemberId() {
-        return this.permissionMemberId;
-    }
+  /**
+   * 租户内用户的唯一标识（当成员类型是USER时有值）
+   *
+   * <p>示例值：xxxxxxxxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
 
-    public void setPermissionMemberId(String permissionMemberId) {
-        this.permissionMemberId = permissionMemberId;
-    }
+  /**
+   * 租户内部门的唯一标识（当成员类型是DEPARTMENT时有值）
+   *
+   * <p>示例值：xxxxxxxxxx
+   */
+  @SerializedName("department_id")
+  private String departmentId;
 
-    public String getUserId() {
-        return this.userId;
-    }
+  /**
+   * The member's email address. Value is valid when type is MAIL_GROUP/PUBLIC_MAILBOX
+   *
+   * <p>示例值：xxx@xx.x
+   */
+  @SerializedName("email")
+  private String email;
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+  /**
+   * The type of member. Possible values are:;- USER: internal user in the team;- DEPARTMENT: member
+   * is a department
+   *
+   * <p>示例值：USER
+   */
+  @SerializedName("type")
+  private String type;
 
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
+  public String getPermissionMemberId() {
+    return this.permissionMemberId;
+  }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
+  public void setPermissionMemberId(String permissionMemberId) {
+    this.permissionMemberId = permissionMemberId;
+  }
 
-    public String getEmail() {
-        return this.email;
-    }
+  public String getUserId() {
+    return this.userId;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
 
-    public String getType() {
-        return this.type;
-    }
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
 
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
 }

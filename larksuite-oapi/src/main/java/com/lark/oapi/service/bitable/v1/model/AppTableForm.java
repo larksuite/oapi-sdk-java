@@ -13,272 +13,289 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppTableForm {
+  /**
+   * 表单名称
+   *
+   * <p>示例值：文档问题反馈
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 表单描述
+   *
+   * <p>示例值：请详细描述开发中遇到的问题，并附上问题截图
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 是否开启表单分享，使表单支持填写。可选值：;- true：支持填写;- false：不支持填写
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("shared")
+  private Boolean shared;
+
+  /**
+   * 分享 URL
+   *
+   * <p>示例值：
+   */
+  @SerializedName("shared_url")
+  private String sharedUrl;
+
+  /**
+   * 分享范围限制
+   *
+   * <p>示例值：tenant_editable
+   */
+  @SerializedName("shared_limit")
+  private String sharedLimit;
+
+  /**
+   * 是否将填写次数限制为一次。可选值：;- true：设置表单仅支持填写一次;- false：不限制表单填写次数
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("submit_limit_once")
+  private Boolean submitLimitOnce;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Boolean getShared() {
+    return this.shared;
+  }
+
+  public void setShared(Boolean shared) {
+    this.shared = shared;
+  }
+
+  public String getSharedUrl() {
+    return this.sharedUrl;
+  }
+
+  public void setSharedUrl(String sharedUrl) {
+    this.sharedUrl = sharedUrl;
+  }
+
+  public String getSharedLimit() {
+    return this.sharedLimit;
+  }
+
+  public void setSharedLimit(String sharedLimit) {
+    this.sharedLimit = sharedLimit;
+  }
+
+  public Boolean getSubmitLimitOnce() {
+    return this.submitLimitOnce;
+  }
+
+  public void setSubmitLimitOnce(Boolean submitLimitOnce) {
+    this.submitLimitOnce = submitLimitOnce;
+  }
+
+  // builder 开始
+  public AppTableForm() {}
+
+  public AppTableForm(Builder builder) {
     /**
      * 表单名称
-     * <p> 示例值：
+     *
+     * <p>示例值：文档问题反馈
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 表单描述
-     * <p> 示例值：
+     *
+     * <p>示例值：请详细描述开发中遇到的问题，并附上问题截图
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
-     * 是否开启共享
-     * <p> 示例值：
+     * 是否开启表单分享，使表单支持填写。可选值：;- true：支持填写;- false：不支持填写
+     *
+     * <p>示例值：true
      */
-    @SerializedName("shared")
-    private Boolean shared;
+    this.shared = builder.shared;
     /**
      * 分享 URL
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("shared_url")
-    private String sharedUrl;
+    this.sharedUrl = builder.sharedUrl;
     /**
      * 分享范围限制
-     * <p> 示例值：
+     *
+     * <p>示例值：tenant_editable
      */
-    @SerializedName("shared_limit")
-    private String sharedLimit;
+    this.sharedLimit = builder.sharedLimit;
     /**
-     * 填写次数限制一次
-     * <p> 示例值：
+     * 是否将填写次数限制为一次。可选值：;- true：设置表单仅支持填写一次;- false：不限制表单填写次数
+     *
+     * <p>示例值：true
      */
-    @SerializedName("submit_limit_once")
+    this.submitLimitOnce = builder.submitLimitOnce;
+  }
+
+  public static class Builder {
+    /**
+     * 表单名称
+     *
+     * <p>示例值：文档问题反馈
+     */
+    private String name;
+
+    /**
+     * 表单描述
+     *
+     * <p>示例值：请详细描述开发中遇到的问题，并附上问题截图
+     */
+    private String description;
+
+    /**
+     * 是否开启表单分享，使表单支持填写。可选值：;- true：支持填写;- false：不支持填写
+     *
+     * <p>示例值：true
+     */
+    private Boolean shared;
+
+    /**
+     * 分享 URL
+     *
+     * <p>示例值：
+     */
+    private String sharedUrl;
+
+    /**
+     * 分享范围限制
+     *
+     * <p>示例值：tenant_editable
+     */
+    private String sharedLimit;
+
+    /**
+     * 是否将填写次数限制为一次。可选值：;- true：设置表单仅支持填写一次;- false：不限制表单填写次数
+     *
+     * <p>示例值：true
+     */
     private Boolean submitLimitOnce;
 
-    // builder 开始
-    public AppTableForm() {
+    /**
+     * 表单名称
+     *
+     * <p>示例值：文档问题反馈
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public AppTableForm(Builder builder) {
-        /**
-         * 表单名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 表单描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 是否开启共享
-         * <p> 示例值：
-         */
-        this.shared = builder.shared;
-        /**
-         * 分享 URL
-         * <p> 示例值：
-         */
-        this.sharedUrl = builder.sharedUrl;
-        /**
-         * 分享范围限制
-         * <p> 示例值：
-         */
-        this.sharedLimit = builder.sharedLimit;
-        /**
-         * 填写次数限制一次
-         * <p> 示例值：
-         */
-        this.submitLimitOnce = builder.submitLimitOnce;
+    /**
+     * 表单描述
+     *
+     * <p>示例值：请详细描述开发中遇到的问题，并附上问题截图
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否开启表单分享，使表单支持填写。可选值：;- true：支持填写;- false：不支持填写
+     *
+     * <p>示例值：true
+     *
+     * @param shared
+     * @return
+     */
+    public Builder shared(Boolean shared) {
+      this.shared = shared;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 分享 URL
+     *
+     * <p>示例值：
+     *
+     * @param sharedUrl
+     * @return
+     */
+    public Builder sharedUrl(String sharedUrl) {
+      this.sharedUrl = sharedUrl;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 分享范围限制
+     *
+     * <p>示例值：tenant_editable
+     *
+     * @param sharedLimit
+     * @return
+     */
+    public Builder sharedLimit(String sharedLimit) {
+      this.sharedLimit = sharedLimit;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * 分享范围限制
+     *
+     * <p>示例值：tenant_editable
+     *
+     * @param sharedLimit {@link com.lark.oapi.service.bitable.v1.enums.AppTableFormSharedLimitEnum}
+     * @return
+     */
+    public Builder sharedLimit(
+        com.lark.oapi.service.bitable.v1.enums.AppTableFormSharedLimitEnum sharedLimit) {
+      this.sharedLimit = sharedLimit.getValue();
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * 是否将填写次数限制为一次。可选值：;- true：设置表单仅支持填写一次;- false：不限制表单填写次数
+     *
+     * <p>示例值：true
+     *
+     * @param submitLimitOnce
+     * @return
+     */
+    public Builder submitLimitOnce(Boolean submitLimitOnce) {
+      this.submitLimitOnce = submitLimitOnce;
+      return this;
     }
 
-    public Boolean getShared() {
-        return this.shared;
+    public AppTableForm build() {
+      return new AppTableForm(this);
     }
+  }
 
-    public void setShared(Boolean shared) {
-        this.shared = shared;
-    }
-
-    public String getSharedUrl() {
-        return this.sharedUrl;
-    }
-
-    public void setSharedUrl(String sharedUrl) {
-        this.sharedUrl = sharedUrl;
-    }
-
-    public String getSharedLimit() {
-        return this.sharedLimit;
-    }
-
-    public void setSharedLimit(String sharedLimit) {
-        this.sharedLimit = sharedLimit;
-    }
-
-    public Boolean getSubmitLimitOnce() {
-        return this.submitLimitOnce;
-    }
-
-    public void setSubmitLimitOnce(Boolean submitLimitOnce) {
-        this.submitLimitOnce = submitLimitOnce;
-    }
-
-    public static class Builder {
-        /**
-         * 表单名称
-         * <p> 示例值：
-         */
-        private String name;
-        /**
-         * 表单描述
-         * <p> 示例值：
-         */
-        private String description;
-        /**
-         * 是否开启共享
-         * <p> 示例值：
-         */
-        private Boolean shared;
-        /**
-         * 分享 URL
-         * <p> 示例值：
-         */
-        private String sharedUrl;
-        /**
-         * 分享范围限制
-         * <p> 示例值：
-         */
-        private String sharedLimit;
-        /**
-         * 填写次数限制一次
-         * <p> 示例值：
-         */
-        private Boolean submitLimitOnce;
-
-        /**
-         * 表单名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 表单描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 是否开启共享
-         * <p> 示例值：
-         *
-         * @param shared
-         * @return
-         */
-        public Builder shared(Boolean shared) {
-            this.shared = shared;
-            return this;
-        }
-
-
-        /**
-         * 分享 URL
-         * <p> 示例值：
-         *
-         * @param sharedUrl
-         * @return
-         */
-        public Builder sharedUrl(String sharedUrl) {
-            this.sharedUrl = sharedUrl;
-            return this;
-        }
-
-
-        /**
-         * 分享范围限制
-         * <p> 示例值：
-         *
-         * @param sharedLimit
-         * @return
-         */
-        public Builder sharedLimit(String sharedLimit) {
-            this.sharedLimit = sharedLimit;
-            return this;
-        }
-
-        /**
-         * 分享范围限制
-         * <p> 示例值：
-         *
-         * @param sharedLimit {@link com.lark.oapi.service.bitable.v1.enums.AppTableFormSharedLimitEnum}
-         * @return
-         */
-        public Builder sharedLimit(com.lark.oapi.service.bitable.v1.enums.AppTableFormSharedLimitEnum sharedLimit) {
-            this.sharedLimit = sharedLimit.getValue();
-            return this;
-        }
-
-
-        /**
-         * 填写次数限制一次
-         * <p> 示例值：
-         *
-         * @param submitLimitOnce
-         * @return
-         */
-        public Builder submitLimitOnce(Boolean submitLimitOnce) {
-            this.submitLimitOnce = submitLimitOnce;
-            return this;
-        }
-
-
-        public AppTableForm build() {
-            return new AppTableForm(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,272 +13,294 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WidgetInstance {
+  /**
+   * 审批实例唯一标识
+   *
+   * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+   */
+  @SerializedName("instance_code")
+  private String instanceCode;
+
+  /**
+   * 实例当前状态
+   *
+   * <p>示例值：PENDING
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 实例变更时间，毫秒时间戳
+   *
+   * <p>示例值：1666079207003
+   */
+  @SerializedName("instance_operate_time")
+  private String instanceOperateTime;
+
+  /**
+   * 是否是撤销已通过审批的流程
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_revert_approval")
+  private Boolean isRevertApproval;
+
+  /**
+   * 表单数据，仅包含自定义控件内的数据
+   *
+   * <p>示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item
+   * application\",\"type\": \"textarea\"}]
+   */
+  @SerializedName("form_content")
+  private String formContent;
+
+  /**
+   * 审批编号
+   *
+   * <p>示例值：2024082614387
+   */
+  @SerializedName("serial_id")
+  private String serialId;
+
+  public String getInstanceCode() {
+    return this.instanceCode;
+  }
+
+  public void setInstanceCode(String instanceCode) {
+    this.instanceCode = instanceCode;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getInstanceOperateTime() {
+    return this.instanceOperateTime;
+  }
+
+  public void setInstanceOperateTime(String instanceOperateTime) {
+    this.instanceOperateTime = instanceOperateTime;
+  }
+
+  public Boolean getIsRevertApproval() {
+    return this.isRevertApproval;
+  }
+
+  public void setIsRevertApproval(Boolean isRevertApproval) {
+    this.isRevertApproval = isRevertApproval;
+  }
+
+  public String getFormContent() {
+    return this.formContent;
+  }
+
+  public void setFormContent(String formContent) {
+    this.formContent = formContent;
+  }
+
+  public String getSerialId() {
+    return this.serialId;
+  }
+
+  public void setSerialId(String serialId) {
+    this.serialId = serialId;
+  }
+
+  // builder 开始
+  public WidgetInstance() {}
+
+  public WidgetInstance(Builder builder) {
     /**
      * 审批实例唯一标识
-     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+     *
+     * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
      */
-    @SerializedName("instance_code")
-    private String instanceCode;
+    this.instanceCode = builder.instanceCode;
     /**
      * 实例当前状态
-     * <p> 示例值：PENDING
+     *
+     * <p>示例值：PENDING
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 实例变更时间，毫秒时间戳
-     * <p> 示例值：1666079207003
+     *
+     * <p>示例值：1666079207003
      */
-    @SerializedName("instance_operate_time")
-    private String instanceOperateTime;
+    this.instanceOperateTime = builder.instanceOperateTime;
     /**
      * 是否是撤销已通过审批的流程
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_revert_approval")
-    private Boolean isRevertApproval;
+    this.isRevertApproval = builder.isRevertApproval;
     /**
      * 表单数据，仅包含自定义控件内的数据
-     * <p> 示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item application\",\"type\": \"textarea\"}]
+     *
+     * <p>示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item
+     * application\",\"type\": \"textarea\"}]
      */
-    @SerializedName("form_content")
-    private String formContent;
+    this.formContent = builder.formContent;
     /**
      * 审批编号
-     * <p> 示例值：2024082614387
+     *
+     * <p>示例值：2024082614387
      */
-    @SerializedName("serial_id")
+    this.serialId = builder.serialId;
+  }
+
+  public static class Builder {
+    /**
+     * 审批实例唯一标识
+     *
+     * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+     */
+    private String instanceCode;
+
+    /**
+     * 实例当前状态
+     *
+     * <p>示例值：PENDING
+     */
+    private String status;
+
+    /**
+     * 实例变更时间，毫秒时间戳
+     *
+     * <p>示例值：1666079207003
+     */
+    private String instanceOperateTime;
+
+    /**
+     * 是否是撤销已通过审批的流程
+     *
+     * <p>示例值：false
+     */
+    private Boolean isRevertApproval;
+
+    /**
+     * 表单数据，仅包含自定义控件内的数据
+     *
+     * <p>示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item
+     * application\",\"type\": \"textarea\"}]
+     */
+    private String formContent;
+
+    /**
+     * 审批编号
+     *
+     * <p>示例值：2024082614387
+     */
     private String serialId;
 
-    // builder 开始
-    public WidgetInstance() {
+    /**
+     * 审批实例唯一标识
+     *
+     * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+     *
+     * @param instanceCode
+     * @return
+     */
+    public Builder instanceCode(String instanceCode) {
+      this.instanceCode = instanceCode;
+      return this;
     }
 
-    public WidgetInstance(Builder builder) {
-        /**
-         * 审批实例唯一标识
-         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         */
-        this.instanceCode = builder.instanceCode;
-        /**
-         * 实例当前状态
-         * <p> 示例值：PENDING
-         */
-        this.status = builder.status;
-        /**
-         * 实例变更时间，毫秒时间戳
-         * <p> 示例值：1666079207003
-         */
-        this.instanceOperateTime = builder.instanceOperateTime;
-        /**
-         * 是否是撤销已通过审批的流程
-         * <p> 示例值：false
-         */
-        this.isRevertApproval = builder.isRevertApproval;
-        /**
-         * 表单数据，仅包含自定义控件内的数据
-         * <p> 示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item application\",\"type\": \"textarea\"}]
-         */
-        this.formContent = builder.formContent;
-        /**
-         * 审批编号
-         * <p> 示例值：2024082614387
-         */
-        this.serialId = builder.serialId;
+    /**
+     * 实例当前状态
+     *
+     * <p>示例值：PENDING
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 实例当前状态
+     *
+     * <p>示例值：PENDING
+     *
+     * @param status {@link
+     *     com.lark.oapi.service.approval.v4.enums.WidgetInstanceInstanceStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.approval.v4.enums.WidgetInstanceInstanceStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public String getInstanceCode() {
-        return this.instanceCode;
+    /**
+     * 实例变更时间，毫秒时间戳
+     *
+     * <p>示例值：1666079207003
+     *
+     * @param instanceOperateTime
+     * @return
+     */
+    public Builder instanceOperateTime(String instanceOperateTime) {
+      this.instanceOperateTime = instanceOperateTime;
+      return this;
     }
 
-    public void setInstanceCode(String instanceCode) {
-        this.instanceCode = instanceCode;
+    /**
+     * 是否是撤销已通过审批的流程
+     *
+     * <p>示例值：false
+     *
+     * @param isRevertApproval
+     * @return
+     */
+    public Builder isRevertApproval(Boolean isRevertApproval) {
+      this.isRevertApproval = isRevertApproval;
+      return this;
     }
 
-    public String getStatus() {
-        return this.status;
+    /**
+     * 表单数据，仅包含自定义控件内的数据
+     *
+     * <p>示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item
+     * application\",\"type\": \"textarea\"}]
+     *
+     * @param formContent
+     * @return
+     */
+    public Builder formContent(String formContent) {
+      this.formContent = formContent;
+      return this;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    /**
+     * 审批编号
+     *
+     * <p>示例值：2024082614387
+     *
+     * @param serialId
+     * @return
+     */
+    public Builder serialId(String serialId) {
+      this.serialId = serialId;
+      return this;
     }
 
-    public String getInstanceOperateTime() {
-        return this.instanceOperateTime;
+    public WidgetInstance build() {
+      return new WidgetInstance(this);
     }
+  }
 
-    public void setInstanceOperateTime(String instanceOperateTime) {
-        this.instanceOperateTime = instanceOperateTime;
-    }
-
-    public Boolean getIsRevertApproval() {
-        return this.isRevertApproval;
-    }
-
-    public void setIsRevertApproval(Boolean isRevertApproval) {
-        this.isRevertApproval = isRevertApproval;
-    }
-
-    public String getFormContent() {
-        return this.formContent;
-    }
-
-    public void setFormContent(String formContent) {
-        this.formContent = formContent;
-    }
-
-    public String getSerialId() {
-        return this.serialId;
-    }
-
-    public void setSerialId(String serialId) {
-        this.serialId = serialId;
-    }
-
-    public static class Builder {
-        /**
-         * 审批实例唯一标识
-         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         */
-        private String instanceCode;
-        /**
-         * 实例当前状态
-         * <p> 示例值：PENDING
-         */
-        private String status;
-        /**
-         * 实例变更时间，毫秒时间戳
-         * <p> 示例值：1666079207003
-         */
-        private String instanceOperateTime;
-        /**
-         * 是否是撤销已通过审批的流程
-         * <p> 示例值：false
-         */
-        private Boolean isRevertApproval;
-        /**
-         * 表单数据，仅包含自定义控件内的数据
-         * <p> 示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item application\",\"type\": \"textarea\"}]
-         */
-        private String formContent;
-        /**
-         * 审批编号
-         * <p> 示例值：2024082614387
-         */
-        private String serialId;
-
-        /**
-         * 审批实例唯一标识
-         * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-         *
-         * @param instanceCode
-         * @return
-         */
-        public Builder instanceCode(String instanceCode) {
-            this.instanceCode = instanceCode;
-            return this;
-        }
-
-
-        /**
-         * 实例当前状态
-         * <p> 示例值：PENDING
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 实例当前状态
-         * <p> 示例值：PENDING
-         *
-         * @param status {@link com.lark.oapi.service.approval.v4.enums.WidgetInstanceInstanceStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.approval.v4.enums.WidgetInstanceInstanceStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 实例变更时间，毫秒时间戳
-         * <p> 示例值：1666079207003
-         *
-         * @param instanceOperateTime
-         * @return
-         */
-        public Builder instanceOperateTime(String instanceOperateTime) {
-            this.instanceOperateTime = instanceOperateTime;
-            return this;
-        }
-
-
-        /**
-         * 是否是撤销已通过审批的流程
-         * <p> 示例值：false
-         *
-         * @param isRevertApproval
-         * @return
-         */
-        public Builder isRevertApproval(Boolean isRevertApproval) {
-            this.isRevertApproval = isRevertApproval;
-            return this;
-        }
-
-
-        /**
-         * 表单数据，仅包含自定义控件内的数据
-         * <p> 示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item application\",\"type\": \"textarea\"}]
-         *
-         * @param formContent
-         * @return
-         */
-        public Builder formContent(String formContent) {
-            this.formContent = formContent;
-            return this;
-        }
-
-
-        /**
-         * 审批编号
-         * <p> 示例值：2024082614387
-         *
-         * @param serialId
-         * @return
-         */
-        public Builder serialId(String serialId) {
-            this.serialId = serialId;
-            return this;
-        }
-
-
-        public WidgetInstance build() {
-            return new WidgetInstance(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

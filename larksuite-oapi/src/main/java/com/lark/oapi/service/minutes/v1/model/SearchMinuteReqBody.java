@@ -13,161 +13,162 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.minutes.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchMinuteReqBody {
+  /**
+   * 搜索关键词（长度范围： 0~50 字符）
+   *
+   * <p>示例值：周会
+   */
+  @SerializedName("query")
+  private String query;
+
+  /**
+   * 妙记搜索的过滤条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter")
+  private MinutesFilter filter;
+
+  /**
+   * sorter
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sorter")
+  private String sorter;
+
+  public String getQuery() {
+    return this.query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  public MinutesFilter getFilter() {
+    return this.filter;
+  }
+
+  public void setFilter(MinutesFilter filter) {
+    this.filter = filter;
+  }
+
+  public String getSorter() {
+    return this.sorter;
+  }
+
+  public void setSorter(String sorter) {
+    this.sorter = sorter;
+  }
+
+  // builder 开始
+  public SearchMinuteReqBody() {}
+
+  public SearchMinuteReqBody(Builder builder) {
     /**
-     * 搜索关键词
-     * <p> 示例值：周会
+     * 搜索关键词（长度范围： 0~50 字符）
+     *
+     * <p>示例值：周会
      */
-    @SerializedName("query")
-    private String query;
+    this.query = builder.query;
     /**
-     * 过滤条件
-     * <p> 示例值：
+     * 妙记搜索的过滤条件
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter")
-    private MinutesFilter filter;
+    this.filter = builder.filter;
     /**
      * sorter
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sorter")
+    this.sorter = builder.sorter;
+  }
+
+  public static class Builder {
+    /**
+     * 搜索关键词（长度范围： 0~50 字符）
+     *
+     * <p>示例值：周会
+     */
+    private String query;
+
+    /**
+     * 妙记搜索的过滤条件
+     *
+     * <p>示例值：
+     */
+    private MinutesFilter filter;
+
+    /**
+     * sorter
+     *
+     * <p>示例值：
+     */
     private String sorter;
 
-    // builder 开始
-    public SearchMinuteReqBody() {
+    /**
+     * 搜索关键词（长度范围： 0~50 字符）
+     *
+     * <p>示例值：周会
+     *
+     * @param query
+     * @return
+     */
+    public Builder query(String query) {
+      this.query = query;
+      return this;
     }
 
-    public SearchMinuteReqBody(Builder builder) {
-        /**
-         * 搜索关键词
-         * <p> 示例值：周会
-         */
-        this.query = builder.query;
-        /**
-         * 过滤条件
-         * <p> 示例值：
-         */
-        this.filter = builder.filter;
-        /**
-         * sorter
-         * <p> 示例值：
-         */
-        this.sorter = builder.sorter;
+    /**
+     * 妙记搜索的过滤条件
+     *
+     * <p>示例值：
+     *
+     * @param filter
+     * @return
+     */
+    public Builder filter(MinutesFilter filter) {
+      this.filter = filter;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * sorter
+     *
+     * <p>示例值：
+     *
+     * @param sorter
+     * @return
+     */
+    public Builder sorter(String sorter) {
+      this.sorter = sorter;
+      return this;
     }
 
-    public String getQuery() {
-        return this.query;
+    /**
+     * sorter
+     *
+     * <p>示例值：
+     *
+     * @param sorter {@link com.lark.oapi.service.minutes.v1.enums.SearchMinuteSorterEnum}
+     * @return
+     */
+    public Builder sorter(com.lark.oapi.service.minutes.v1.enums.SearchMinuteSorterEnum sorter) {
+      this.sorter = sorter.getValue();
+      return this;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    public SearchMinuteReqBody build() {
+      return new SearchMinuteReqBody(this);
     }
+  }
 
-    public MinutesFilter getFilter() {
-        return this.filter;
-    }
-
-    public void setFilter(MinutesFilter filter) {
-        this.filter = filter;
-    }
-
-    public String getSorter() {
-        return this.sorter;
-    }
-
-    public void setSorter(String sorter) {
-        this.sorter = sorter;
-    }
-
-    public static class Builder {
-        /**
-         * 搜索关键词
-         * <p> 示例值：周会
-         */
-        private String query;
-        /**
-         * 过滤条件
-         * <p> 示例值：
-         */
-        private MinutesFilter filter;
-        /**
-         * sorter
-         * <p> 示例值：
-         */
-        private String sorter;
-
-        /**
-         * 搜索关键词
-         * <p> 示例值：周会
-         *
-         * @param query
-         * @return
-         */
-        public Builder query(String query) {
-            this.query = query;
-            return this;
-        }
-
-
-        /**
-         * 过滤条件
-         * <p> 示例值：
-         *
-         * @param filter
-         * @return
-         */
-        public Builder filter(MinutesFilter filter) {
-            this.filter = filter;
-            return this;
-        }
-
-
-        /**
-         * sorter
-         * <p> 示例值：
-         *
-         * @param sorter
-         * @return
-         */
-        public Builder sorter(String sorter) {
-            this.sorter = sorter;
-            return this;
-        }
-
-        /**
-         * sorter
-         * <p> 示例值：
-         *
-         * @param sorter {@link com.lark.oapi.service.minutes.v1.enums.SearchMinuteSorterEnum}
-         * @return
-         */
-        public Builder sorter(com.lark.oapi.service.minutes.v1.enums.SearchMinuteSorterEnum sorter) {
-            this.sorter = sorter.getValue();
-            return this;
-        }
-
-
-        public SearchMinuteReqBody build() {
-            return new SearchMinuteReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

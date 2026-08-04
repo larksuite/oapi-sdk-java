@@ -13,282 +13,319 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.calendar.v4.enums.*;
 
 public class GetCalendarEventReq {
+  /**
+   * 是否需要返回飞书视频会议（VC）的会前设置。需满足以下条件才可以获取到返回结果：;;- 日程的会议类型（vc_type）需要是 vc。;- 需要有日程的编辑权限。;;;**可选值有**：;-
+   * true：需要;- false（默认值）：不需要
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("need_meeting_settings")
+  private Boolean needMeetingSettings;
+
+  /**
+   * 是否需要返回参与人信息。;;**可选值有**：;- true：需要;- false（默认值）：不需要
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("need_attendee")
+  private Boolean needAttendee;
+
+  /**
+   * 返回的最大参与人数量。调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)可获取日程完整的参与人信息。
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("max_attendee_num")
+  private Integer maxAttendeeNum;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 应用身份下指定操作用户的日历日程数据
+   *
+   * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+   */
+  @Query
+  @SerializedName("op_user_id")
+  private String opUserId;
+
+  public Boolean getNeedMeetingSettings() {
+    return this.needMeetingSettings;
+  }
+
+  public void setNeedMeetingSettings(Boolean needMeetingSettings) {
+    this.needMeetingSettings = needMeetingSettings;
+  }
+
+  public Boolean getNeedAttendee() {
+    return this.needAttendee;
+  }
+
+  public void setNeedAttendee(Boolean needAttendee) {
+    this.needAttendee = needAttendee;
+  }
+
+  public Integer getMaxAttendeeNum() {
+    return this.maxAttendeeNum;
+  }
+
+  public void setMaxAttendeeNum(Integer maxAttendeeNum) {
+    this.maxAttendeeNum = maxAttendeeNum;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getOpUserId() {
+    return this.opUserId;
+  }
+
+  public void setOpUserId(String opUserId) {
+    this.opUserId = opUserId;
+  }
+
+  /**
+   * 日程所在的日历 ID。关于日历 ID 可参见[日历 ID
+   * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+   *
+   * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+   */
+  @Path
+  @SerializedName("calendar_id")
+  private String calendarId;
+
+  /**
+   * 日程 ID。;;创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。;-
+   * [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);-
+   * [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+   *
+   * <p>示例值：xxxxxxxxx_0
+   */
+  @Path
+  @SerializedName("event_id")
+  private String eventId;
+
+  public String getCalendarId() {
+    return this.calendarId;
+  }
+
+  public void setCalendarId(String calendarId) {
+    this.calendarId = calendarId;
+  }
+
+  public String getEventId() {
+    return this.eventId;
+  }
+
+  public void setEventId(String eventId) {
+    this.eventId = eventId;
+  }
+
+  // builder 开始
+  public GetCalendarEventReq() {}
+
+  public GetCalendarEventReq(Builder builder) {
     /**
-     * 是否需要返回会前设置
-     * <p> 示例值：false
+     * 是否需要返回飞书视频会议（VC）的会前设置。需满足以下条件才可以获取到返回结果：;;- 日程的会议类型（vc_type）需要是 vc。;-
+     * 需要有日程的编辑权限。;;;**可选值有**：;- true：需要;- false（默认值）：不需要
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("need_meeting_settings")
-    private Boolean needMeetingSettings;
+    this.needMeetingSettings = builder.needMeetingSettings;
     /**
-     * 是否需要返回参与人信息
-     * <p> 示例值：false
+     * 是否需要返回参与人信息。;;**可选值有**：;- true：需要;- false（默认值）：不需要
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("need_attendee")
-    private Boolean needAttendee;
+    this.needAttendee = builder.needAttendee;
     /**
-     * 返回的最大参与人数量
-     * <p> 示例值：false
+     * 返回的最大参与人数量。调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)可获取日程完整的参与人信息。
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("max_attendee_num")
-    private Integer maxAttendeeNum;
+    this.maxAttendeeNum = builder.maxAttendeeNum;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 应用身份下指定操作用户的日历日程数据
-     * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
      */
-    @Query
-    @SerializedName("op_user_id")
-    private String opUserId;
+    this.opUserId = builder.opUserId;
     /**
-     * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-     * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     * 日程所在的日历 ID。关于日历 ID 可参见[日历 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
      */
-    @Path
-    @SerializedName("calendar_id")
-    private String calendarId;
+    this.calendarId = builder.calendarId;
     /**
-     * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-     * <p> 示例值：xxxxxxxxx_0
+     * 日程 ID。;;创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。;-
+     * [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);-
+     * [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+     *
+     * <p>示例值：xxxxxxxxx_0
      */
-    @Path
-    @SerializedName("event_id")
-    private String eventId;
+    this.eventId = builder.eventId;
+  }
 
-    // builder 开始
-    public GetCalendarEventReq() {
+  public static class Builder {
+    private Boolean
+        needMeetingSettings; // 是否需要返回飞书视频会议（VC）的会前设置。需满足以下条件才可以获取到返回结果：;;- 日程的会议类型（vc_type）需要是
+    // vc。;- 需要有日程的编辑权限。;;;**可选值有**：;- true：需要;- false（默认值）：不需要
+    private Boolean needAttendee; // 是否需要返回参与人信息。;;**可选值有**：;- true：需要;- false（默认值）：不需要
+    private Integer
+        maxAttendeeNum; // 返回的最大参与人数量。调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)可获取日程完整的参与人信息。
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String opUserId; // 应用身份下指定操作用户的日历日程数据
+
+    /**
+     * 是否需要返回飞书视频会议（VC）的会前设置。需满足以下条件才可以获取到返回结果：;;- 日程的会议类型（vc_type）需要是 vc。;-
+     * 需要有日程的编辑权限。;;;**可选值有**：;- true：需要;- false（默认值）：不需要
+     *
+     * <p>示例值：false
+     *
+     * @param needMeetingSettings
+     * @return
+     */
+    public Builder needMeetingSettings(Boolean needMeetingSettings) {
+      this.needMeetingSettings = needMeetingSettings;
+      return this;
     }
 
-    public GetCalendarEventReq(Builder builder) {
-        /**
-         * 是否需要返回会前设置
-         * <p> 示例值：false
-         */
-        this.needMeetingSettings = builder.needMeetingSettings;
-        /**
-         * 是否需要返回参与人信息
-         * <p> 示例值：false
-         */
-        this.needAttendee = builder.needAttendee;
-        /**
-         * 返回的最大参与人数量
-         * <p> 示例值：false
-         */
-        this.maxAttendeeNum = builder.maxAttendeeNum;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 应用身份下指定操作用户的日历日程数据
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         */
-        this.opUserId = builder.opUserId;
-        /**
-         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         */
-        this.calendarId = builder.calendarId;
-        /**
-         * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-         * <p> 示例值：xxxxxxxxx_0
-         */
-        this.eventId = builder.eventId;
+    /**
+     * 是否需要返回参与人信息。;;**可选值有**：;- true：需要;- false（默认值）：不需要
+     *
+     * <p>示例值：false
+     *
+     * @param needAttendee
+     * @return
+     */
+    public Builder needAttendee(Boolean needAttendee) {
+      this.needAttendee = needAttendee;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 返回的最大参与人数量。调用[获取日程参与人列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event-attendee/list)可获取日程完整的参与人信息。
+     *
+     * <p>示例值：10
+     *
+     * @param maxAttendeeNum
+     * @return
+     */
+    public Builder maxAttendeeNum(Integer maxAttendeeNum) {
+      this.maxAttendeeNum = maxAttendeeNum;
+      return this;
     }
 
-    public Boolean getNeedMeetingSettings() {
-        return this.needMeetingSettings;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public void setNeedMeetingSettings(Boolean needMeetingSettings) {
-        this.needMeetingSettings = needMeetingSettings;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.calendar.v4.enums.GetCalendarEventUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.calendar.v4.enums.GetCalendarEventUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public Boolean getNeedAttendee() {
-        return this.needAttendee;
+    /**
+     * 应用身份下指定操作用户的日历日程数据
+     *
+     * <p>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
+     *
+     * @param opUserId
+     * @return
+     */
+    public Builder opUserId(String opUserId) {
+      this.opUserId = opUserId;
+      return this;
     }
 
-    public void setNeedAttendee(Boolean needAttendee) {
-        this.needAttendee = needAttendee;
+    private String calendarId; // 日程所在的日历 ID。关于日历 ID 可参见[日历 ID
+    // 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+    private String eventId; // 日程 ID。;;创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。;-
+
+    // [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+
+    /**
+     * 日程所在的日历 ID。关于日历 ID 可参见[日历 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。
+     *
+     * <p>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
+     *
+     * @param calendarId
+     * @return
+     */
+    public Builder calendarId(String calendarId) {
+      this.calendarId = calendarId;
+      return this;
     }
 
-    public Integer getMaxAttendeeNum() {
-        return this.maxAttendeeNum;
+    /**
+     * 日程 ID。;;创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。;-
+     * [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list);-
+     * [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)
+     *
+     * <p>示例值：xxxxxxxxx_0
+     *
+     * @param eventId
+     * @return
+     */
+    public Builder eventId(String eventId) {
+      this.eventId = eventId;
+      return this;
     }
 
-    public void setMaxAttendeeNum(Integer maxAttendeeNum) {
-        this.maxAttendeeNum = maxAttendeeNum;
+    public GetCalendarEventReq build() {
+      return new GetCalendarEventReq(this);
     }
+  }
 
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getOpUserId() {
-        return this.opUserId;
-    }
-
-    public void setOpUserId(String opUserId) {
-        this.opUserId = opUserId;
-    }
-
-    public String getCalendarId() {
-        return this.calendarId;
-    }
-
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
-    }
-
-    public String getEventId() {
-        return this.eventId;
-    }
-
-    public void setEventId(String eventId) {
-        this.eventId = eventId;
-    }
-
-    public static class Builder {
-        private Boolean needMeetingSettings; // 是否需要返回会前设置
-        private Boolean needAttendee; // 是否需要返回参与人信息
-        private Integer maxAttendeeNum; // 返回的最大参与人数量
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String opUserId; // 应用身份下指定操作用户的日历日程数据
-        private String calendarId; // 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-        private String eventId; // 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-
-        /**
-         * 是否需要返回会前设置
-         * <p> 示例值：false
-         *
-         * @param needMeetingSettings
-         * @return
-         */
-        public Builder needMeetingSettings(Boolean needMeetingSettings) {
-            this.needMeetingSettings = needMeetingSettings;
-            return this;
-        }
-
-        /**
-         * 是否需要返回参与人信息
-         * <p> 示例值：false
-         *
-         * @param needAttendee
-         * @return
-         */
-        public Builder needAttendee(Boolean needAttendee) {
-            this.needAttendee = needAttendee;
-            return this;
-        }
-
-        /**
-         * 返回的最大参与人数量
-         * <p> 示例值：false
-         *
-         * @param maxAttendeeNum
-         * @return
-         */
-        public Builder maxAttendeeNum(Integer maxAttendeeNum) {
-            this.maxAttendeeNum = maxAttendeeNum;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.calendar.v4.enums.GetCalendarEventUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.GetCalendarEventUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 应用身份下指定操作用户的日历日程数据
-         * <p> 示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs
-         *
-         * @param opUserId
-         * @return
-         */
-        public Builder opUserId(String opUserId) {
-            this.opUserId = opUserId;
-            return this;
-        }
-
-        /**
-         * 日历ID。参见[日历ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)
-         * <p> 示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn
-         *
-         * @param calendarId
-         * @return
-         */
-        public Builder calendarId(String calendarId) {
-            this.calendarId = calendarId;
-            return this;
-        }
-
-
-        /**
-         * 日程ID。参见[日程ID说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/introduction)
-         * <p> 示例值：xxxxxxxxx_0
-         *
-         * @param eventId
-         * @return
-         */
-        public Builder eventId(String eventId) {
-            this.eventId = eventId;
-            return this;
-        }
-
-
-        public GetCalendarEventReq build() {
-            return new GetCalendarEventReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

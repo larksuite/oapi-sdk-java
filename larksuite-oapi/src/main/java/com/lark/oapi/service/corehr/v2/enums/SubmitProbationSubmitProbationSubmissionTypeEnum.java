@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 发起方
- */
+/** 发起方 */
 public enum SubmitProbationSubmitProbationSubmissionTypeEnum {
-    SELF_SUBMISSION("self_submission"), // 员工
-    SYSTEM("system"), // 系统
-    HR_SUBMISSION("hr_submission"), // HR
-    ;
-    private String value;
+  SELF_SUBMISSION("self_submission"), // 员工
+  SYSTEM("system"), // 系统
+  HR_SUBMISSION("hr_submission"), // HR
+  ;
+  private String value;
 
-    SubmitProbationSubmitProbationSubmissionTypeEnum(String value) {
-        this.value = value;
-    }
+  SubmitProbationSubmitProbationSubmissionTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

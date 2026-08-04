@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateTenantResult {
+  /**
+   * 租户ID
+   *
+   * <p>示例值：7036181931599499700
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 企业编码
+   *
+   * <p>示例值：F12312312312
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  /**
+   * 创建人ID
+   *
+   * <p>示例值：7036181931599499700
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  public String getCreatorId() {
+    return this.creatorId;
+  }
+
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
+
+  // builder 开始
+  public CreateTenantResult() {}
+
+  public CreateTenantResult(Builder builder) {
     /**
      * 租户ID
-     * <p> 示例值：7036181931599499700
+     *
+     * <p>示例值：7036181931599499700
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 企业编码
-     * <p> 示例值：F12312312312
+     *
+     * <p>示例值：F12312312312
      */
-    @SerializedName("external_id")
-    private String externalId;
+    this.externalId = builder.externalId;
     /**
      * 创建人ID
-     * <p> 示例值：7036181931599499700
+     *
+     * <p>示例值：7036181931599499700
      */
-    @SerializedName("creator_id")
+    this.creatorId = builder.creatorId;
+  }
+
+  public static class Builder {
+    /**
+     * 租户ID
+     *
+     * <p>示例值：7036181931599499700
+     */
+    private String id;
+
+    /**
+     * 企业编码
+     *
+     * <p>示例值：F12312312312
+     */
+    private String externalId;
+
+    /**
+     * 创建人ID
+     *
+     * <p>示例值：7036181931599499700
+     */
     private String creatorId;
 
-    // builder 开始
-    public CreateTenantResult() {
+    /**
+     * 租户ID
+     *
+     * <p>示例值：7036181931599499700
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public CreateTenantResult(Builder builder) {
-        /**
-         * 租户ID
-         * <p> 示例值：7036181931599499700
-         */
-        this.id = builder.id;
-        /**
-         * 企业编码
-         * <p> 示例值：F12312312312
-         */
-        this.externalId = builder.externalId;
-        /**
-         * 创建人ID
-         * <p> 示例值：7036181931599499700
-         */
-        this.creatorId = builder.creatorId;
+    /**
+     * 企业编码
+     *
+     * <p>示例值：F12312312312
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 创建人ID
+     *
+     * <p>示例值：7036181931599499700
+     *
+     * @param creatorId
+     * @return
+     */
+    public Builder creatorId(String creatorId) {
+      this.creatorId = creatorId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public CreateTenantResult build() {
+      return new CreateTenantResult(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getExternalId() {
-        return this.externalId;
-    }
-
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
-    }
-
-    public String getCreatorId() {
-        return this.creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public static class Builder {
-        /**
-         * 租户ID
-         * <p> 示例值：7036181931599499700
-         */
-        private String id;
-        /**
-         * 企业编码
-         * <p> 示例值：F12312312312
-         */
-        private String externalId;
-        /**
-         * 创建人ID
-         * <p> 示例值：7036181931599499700
-         */
-        private String creatorId;
-
-        /**
-         * 租户ID
-         * <p> 示例值：7036181931599499700
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 企业编码
-         * <p> 示例值：F12312312312
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        /**
-         * 创建人ID
-         * <p> 示例值：7036181931599499700
-         *
-         * @param creatorId
-         * @return
-         */
-        public Builder creatorId(String creatorId) {
-            this.creatorId = creatorId;
-            return this;
-        }
-
-
-        public CreateTenantResult build() {
-            return new CreateTenantResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

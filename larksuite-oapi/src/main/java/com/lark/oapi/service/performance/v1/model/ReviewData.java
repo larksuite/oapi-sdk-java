@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReviewData {
+  /**
+   * 周期列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("semesters")
+  private Semester[] semesters;
+
+  /**
+   * 绩效评估项目列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("activities")
+  private Activity[] activities;
+
+  /**
+   * 评估项列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("indicators")
+  private Indicator[] indicators;
+
+  /**
+   * 评估模板列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("templates")
+  private Template[] templates;
+
+  /**
+   * 评估内容列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("units")
+  private Unit[] units;
+
+  /**
+   * 评估字段列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private Field[] fields;
+
+  /**
+   * 评估数据列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("datas")
+  private ReviewProfile[] datas;
+
+  public Semester[] getSemesters() {
+    return this.semesters;
+  }
+
+  public void setSemesters(Semester[] semesters) {
+    this.semesters = semesters;
+  }
+
+  public Activity[] getActivities() {
+    return this.activities;
+  }
+
+  public void setActivities(Activity[] activities) {
+    this.activities = activities;
+  }
+
+  public Indicator[] getIndicators() {
+    return this.indicators;
+  }
+
+  public void setIndicators(Indicator[] indicators) {
+    this.indicators = indicators;
+  }
+
+  public Template[] getTemplates() {
+    return this.templates;
+  }
+
+  public void setTemplates(Template[] templates) {
+    this.templates = templates;
+  }
+
+  public Unit[] getUnits() {
+    return this.units;
+  }
+
+  public void setUnits(Unit[] units) {
+    this.units = units;
+  }
+
+  public Field[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(Field[] fields) {
+    this.fields = fields;
+  }
+
+  public ReviewProfile[] getDatas() {
+    return this.datas;
+  }
+
+  public void setDatas(ReviewProfile[] datas) {
+    this.datas = datas;
+  }
+
+  // builder 开始
+  public ReviewData() {}
+
+  public ReviewData(Builder builder) {
     /**
-     * 绩效评估周期列表
-     * <p> 示例值：
+     * 周期列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("semesters")
-    private Semester[] semesters;
+    this.semesters = builder.semesters;
     /**
      * 绩效评估项目列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("activities")
-    private Activity[] activities;
+    this.activities = builder.activities;
     /**
      * 评估项列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("indicators")
-    private Indicator[] indicators;
+    this.indicators = builder.indicators;
     /**
      * 评估模板列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("templates")
-    private Template[] templates;
+    this.templates = builder.templates;
     /**
      * 评估内容列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("units")
-    private Unit[] units;
+    this.units = builder.units;
     /**
-     * 填写项列表
-     * <p> 示例值：
+     * 评估字段列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
-    private Field[] fields;
+    this.fields = builder.fields;
     /**
      * 评估数据列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("datas")
+    this.datas = builder.datas;
+  }
+
+  public static class Builder {
+    /**
+     * 周期列表
+     *
+     * <p>示例值：
+     */
+    private Semester[] semesters;
+
+    /**
+     * 绩效评估项目列表
+     *
+     * <p>示例值：
+     */
+    private Activity[] activities;
+
+    /**
+     * 评估项列表
+     *
+     * <p>示例值：
+     */
+    private Indicator[] indicators;
+
+    /**
+     * 评估模板列表
+     *
+     * <p>示例值：
+     */
+    private Template[] templates;
+
+    /**
+     * 评估内容列表
+     *
+     * <p>示例值：
+     */
+    private Unit[] units;
+
+    /**
+     * 评估字段列表
+     *
+     * <p>示例值：
+     */
+    private Field[] fields;
+
+    /**
+     * 评估数据列表
+     *
+     * <p>示例值：
+     */
     private ReviewProfile[] datas;
 
-    // builder 开始
-    public ReviewData() {
+    /**
+     * 周期列表
+     *
+     * <p>示例值：
+     *
+     * @param semesters
+     * @return
+     */
+    public Builder semesters(Semester[] semesters) {
+      this.semesters = semesters;
+      return this;
     }
 
-    public ReviewData(Builder builder) {
-        /**
-         * 绩效评估周期列表
-         * <p> 示例值：
-         */
-        this.semesters = builder.semesters;
-        /**
-         * 绩效评估项目列表
-         * <p> 示例值：
-         */
-        this.activities = builder.activities;
-        /**
-         * 评估项列表
-         * <p> 示例值：
-         */
-        this.indicators = builder.indicators;
-        /**
-         * 评估模板列表
-         * <p> 示例值：
-         */
-        this.templates = builder.templates;
-        /**
-         * 评估内容列表
-         * <p> 示例值：
-         */
-        this.units = builder.units;
-        /**
-         * 填写项列表
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-        /**
-         * 评估数据列表
-         * <p> 示例值：
-         */
-        this.datas = builder.datas;
+    /**
+     * 绩效评估项目列表
+     *
+     * <p>示例值：
+     *
+     * @param activities
+     * @return
+     */
+    public Builder activities(Activity[] activities) {
+      this.activities = activities;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 评估项列表
+     *
+     * <p>示例值：
+     *
+     * @param indicators
+     * @return
+     */
+    public Builder indicators(Indicator[] indicators) {
+      this.indicators = indicators;
+      return this;
     }
 
-    public Semester[] getSemesters() {
-        return this.semesters;
+    /**
+     * 评估模板列表
+     *
+     * <p>示例值：
+     *
+     * @param templates
+     * @return
+     */
+    public Builder templates(Template[] templates) {
+      this.templates = templates;
+      return this;
     }
 
-    public void setSemesters(Semester[] semesters) {
-        this.semesters = semesters;
+    /**
+     * 评估内容列表
+     *
+     * <p>示例值：
+     *
+     * @param units
+     * @return
+     */
+    public Builder units(Unit[] units) {
+      this.units = units;
+      return this;
     }
 
-    public Activity[] getActivities() {
-        return this.activities;
+    /**
+     * 评估字段列表
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(Field[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public void setActivities(Activity[] activities) {
-        this.activities = activities;
+    /**
+     * 评估数据列表
+     *
+     * <p>示例值：
+     *
+     * @param datas
+     * @return
+     */
+    public Builder datas(ReviewProfile[] datas) {
+      this.datas = datas;
+      return this;
     }
 
-    public Indicator[] getIndicators() {
-        return this.indicators;
+    public ReviewData build() {
+      return new ReviewData(this);
     }
+  }
 
-    public void setIndicators(Indicator[] indicators) {
-        this.indicators = indicators;
-    }
-
-    public Template[] getTemplates() {
-        return this.templates;
-    }
-
-    public void setTemplates(Template[] templates) {
-        this.templates = templates;
-    }
-
-    public Unit[] getUnits() {
-        return this.units;
-    }
-
-    public void setUnits(Unit[] units) {
-        this.units = units;
-    }
-
-    public Field[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(Field[] fields) {
-        this.fields = fields;
-    }
-
-    public ReviewProfile[] getDatas() {
-        return this.datas;
-    }
-
-    public void setDatas(ReviewProfile[] datas) {
-        this.datas = datas;
-    }
-
-    public static class Builder {
-        /**
-         * 绩效评估周期列表
-         * <p> 示例值：
-         */
-        private Semester[] semesters;
-        /**
-         * 绩效评估项目列表
-         * <p> 示例值：
-         */
-        private Activity[] activities;
-        /**
-         * 评估项列表
-         * <p> 示例值：
-         */
-        private Indicator[] indicators;
-        /**
-         * 评估模板列表
-         * <p> 示例值：
-         */
-        private Template[] templates;
-        /**
-         * 评估内容列表
-         * <p> 示例值：
-         */
-        private Unit[] units;
-        /**
-         * 填写项列表
-         * <p> 示例值：
-         */
-        private Field[] fields;
-        /**
-         * 评估数据列表
-         * <p> 示例值：
-         */
-        private ReviewProfile[] datas;
-
-        /**
-         * 绩效评估周期列表
-         * <p> 示例值：
-         *
-         * @param semesters
-         * @return
-         */
-        public Builder semesters(Semester[] semesters) {
-            this.semesters = semesters;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估项目列表
-         * <p> 示例值：
-         *
-         * @param activities
-         * @return
-         */
-        public Builder activities(Activity[] activities) {
-            this.activities = activities;
-            return this;
-        }
-
-
-        /**
-         * 评估项列表
-         * <p> 示例值：
-         *
-         * @param indicators
-         * @return
-         */
-        public Builder indicators(Indicator[] indicators) {
-            this.indicators = indicators;
-            return this;
-        }
-
-
-        /**
-         * 评估模板列表
-         * <p> 示例值：
-         *
-         * @param templates
-         * @return
-         */
-        public Builder templates(Template[] templates) {
-            this.templates = templates;
-            return this;
-        }
-
-
-        /**
-         * 评估内容列表
-         * <p> 示例值：
-         *
-         * @param units
-         * @return
-         */
-        public Builder units(Unit[] units) {
-            this.units = units;
-            return this;
-        }
-
-
-        /**
-         * 填写项列表
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(Field[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        /**
-         * 评估数据列表
-         * <p> 示例值：
-         *
-         * @param datas
-         * @return
-         */
-        public Builder datas(ReviewProfile[] datas) {
-            this.datas = datas;
-            return this;
-        }
-
-
-        public ReviewData build() {
-            return new ReviewData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

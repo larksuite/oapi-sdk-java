@@ -14,22 +14,23 @@
 package com.lark.oapi.service.ehr.v1.enums;
 
 /**
- * 雇员类型
+ * 人员类型;;同时可读取到自定义员工类型的 int 值，可通过下方接口获取到该租户的自定义员工类型的名称，参见
+ * [获取人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)
  */
 public enum SystemFieldsEmployeeTypeEnum {
-    REGULAR(1), // 全职
-    INTERN(2), // 实习
-    CONSULTANT(3), // 顾问
-    OUTSOURCING(4), // 外包
-    CONTRACTOR(5), // 劳务
-    ;
-    private Integer value;
+  REGULAR(1), // 正式
+  INTERN(2), // 实习
+  CONSULTANT(3), // 顾问
+  OUTSOURCING(4), // 外包
+  CONTRACTOR(5), // 劳务
+  ;
+  private Integer value;
 
-    SystemFieldsEmployeeTypeEnum(Integer value) {
-        this.value = value;
-    }
+  SystemFieldsEmployeeTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

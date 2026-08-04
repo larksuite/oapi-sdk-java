@@ -13,272 +13,295 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetInstanceRespBody {
-    /**
-     * 审批名称
-     * <p> 示例值：Payment
-     */
-    @SerializedName("approval_name")
-    private String approvalName;
-    /**
-     * 审批创建时间
-     * <p> 示例值：1564590532967
-     */
-    @SerializedName("start_time")
-    private String startTime;
-    /**
-     * 审批完成时间，未完成为 0
-     * <p> 示例值：1564590532967
-     */
-    @SerializedName("end_time")
-    private String endTime;
-    /**
-     * 发起审批用户
-     * <p> 示例值：f3ta757q
-     */
-    @SerializedName("user_id")
-    private String userId;
-    /**
-     * 发起审批用户 open id
-     * <p> 示例值：ou_3cda9c969f737aaa05e6915dce306cb9
-     */
-    @SerializedName("open_id")
-    private String openId;
-    /**
-     * 审批单编号
-     * <p> 示例值：202102060002
-     */
-    @SerializedName("serial_number")
-    private String serialNumber;
-    /**
-     * 发起审批用户所在部门
-     * <p> 示例值：od-8ec33ffec336c3a39a278bc25e931676
-     */
-    @SerializedName("department_id")
-    private String departmentId;
-    /**
-     * 审批实例状态
-     * <p> 示例值：PENDING
-     */
-    @SerializedName("status")
-    private String status;
-    /**
-     * 用户的唯一标识id
-     * <p> 示例值：1234567
-     */
-    @SerializedName("uuid")
-    private String uuid;
-    /**
-     * json字符串，控件值详情见下方
-     * <p> 示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item application\",\"type\": \"textarea\"},\"value\":\"aaaa\"]
-     */
-    @SerializedName("form")
-    private String form;
-    /**
-     * 审批任务列表
-     * <p> 示例值：
-     */
-    @SerializedName("task_list")
-    private InstanceTask[] taskList;
-    /**
-     * 评论列表
-     * <p> 示例值：
-     */
-    @SerializedName("comment_list")
-    private InstanceComment[] commentList;
-    /**
-     * 审批动态
-     * <p> 示例值：
-     */
-    @SerializedName("timeline")
-    private InstanceTimeline[] timeline;
-    /**
-     * 修改的原实例 code,仅在查询修改实例时显示该字段
-     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-     */
-    @SerializedName("modified_instance_code")
-    private String modifiedInstanceCode;
-    /**
-     * 撤销的原实例 code,仅在查询撤销实例时显示该字段
-     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-     */
-    @SerializedName("reverted_instance_code")
-    private String revertedInstanceCode;
-    /**
-     * 审批定义 Code
-     * <p> 示例值：7C468A54-8745-2245-9675-08B7C63E7A85
-     */
-    @SerializedName("approval_code")
-    private String approvalCode;
-    /**
-     * 单据是否被撤销
-     * <p> 示例值：false
-     */
-    @SerializedName("reverted")
-    private Boolean reverted;
-    /**
-     * 审批实例 Code
-     * <p> 示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
-     */
-    @SerializedName("instance_code")
-    private String instanceCode;
+  /**
+   * 审批名称
+   *
+   * <p>示例值：Payment
+   */
+  @SerializedName("approval_name")
+  private String approvalName;
 
-    public String getApprovalName() {
-        return this.approvalName;
-    }
+  /**
+   * 审批创建时间，毫秒级时间戳。
+   *
+   * <p>示例值：1564590532967
+   */
+  @SerializedName("start_time")
+  private String startTime;
 
-    public void setApprovalName(String approvalName) {
-        this.approvalName = approvalName;
-    }
+  /**
+   * 审批完成时间，毫秒级时间戳。审批未完成时该参数值为 0。
+   *
+   * <p>示例值：1564590532967
+   */
+  @SerializedName("end_time")
+  private String endTime;
 
-    public String getStartTime() {
-        return this.startTime;
-    }
+  /**
+   * 发起审批的用户 user_id
+   *
+   * <p>示例值：f3ta757q
+   */
+  @SerializedName("user_id")
+  private String userId;
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
+  /**
+   * 发起审批的用户 open_id
+   *
+   * <p>示例值：ou_3cda9c969f737aaa05e6915dce306cb9
+   */
+  @SerializedName("open_id")
+  private String openId;
 
-    public String getEndTime() {
-        return this.endTime;
-    }
+  /**
+   * 审批单编号
+   *
+   * <p>示例值：202102060002
+   */
+  @SerializedName("serial_number")
+  private String serialNumber;
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
+  /**
+   * 发起审批用户所在部门的 ID
+   *
+   * <p>示例值：od-8ec33ffec336c3a39a278bc25e931676
+   */
+  @SerializedName("department_id")
+  private String departmentId;
 
-    public String getUserId() {
-        return this.userId;
-    }
+  /**
+   * 审批实例状态
+   *
+   * <p>示例值：PENDING
+   */
+  @SerializedName("status")
+  private String status;
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+  /**
+   * 审批实例的唯一标识 id
+   *
+   * <p>示例值：1234567
+   */
+  @SerializedName("uuid")
+  private String uuid;
 
-    public String getOpenId() {
-        return this.openId;
-    }
+  /**
+   * 审批表单控件 JSON 字符串，控件值详细说明参见本文下方 **控件值说明** 章节。
+   *
+   * <p>示例值：[{\"id\": \"widget1\",\"custom_id\": \"user_info\",\"name\": \"Item
+   * application\",\"type\": \"textarea\"}]
+   */
+  @SerializedName("form")
+  private String form;
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
+  /**
+   * 审批任务列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("task_list")
+  private InstanceTask[] taskList;
 
-    public String getSerialNumber() {
-        return this.serialNumber;
-    }
+  /**
+   * 评论列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("comment_list")
+  private InstanceComment[] commentList;
 
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-    }
+  /**
+   * 审批动态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("timeline")
+  private InstanceTimeline[] timeline;
 
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
+  /**
+   * 修改的原实例 Code，仅在查询修改实例时显示该字段
+   *
+   * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+   */
+  @SerializedName("modified_instance_code")
+  private String modifiedInstanceCode;
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
+  /**
+   * 撤销的原实例 Code，仅在查询撤销实例时显示该字段
+   *
+   * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+   */
+  @SerializedName("reverted_instance_code")
+  private String revertedInstanceCode;
 
-    public String getStatus() {
-        return this.status;
-    }
+  /**
+   * 审批定义 Code
+   *
+   * <p>示例值：7C468A54-8745-2245-9675-08B7C63E7A85
+   */
+  @SerializedName("approval_code")
+  private String approvalCode;
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+  /**
+   * 单据是否被撤销
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("reverted")
+  private Boolean reverted;
 
-    public String getUuid() {
-        return this.uuid;
-    }
+  /**
+   * 审批实例 Code
+   *
+   * <p>示例值：81D31358-93AF-92D6-7425-01A5D67C4E71
+   */
+  @SerializedName("instance_code")
+  private String instanceCode;
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
+  public String getApprovalName() {
+    return this.approvalName;
+  }
 
-    public String getForm() {
-        return this.form;
-    }
+  public void setApprovalName(String approvalName) {
+    this.approvalName = approvalName;
+  }
 
-    public void setForm(String form) {
-        this.form = form;
-    }
+  public String getStartTime() {
+    return this.startTime;
+  }
 
-    public InstanceTask[] getTaskList() {
-        return this.taskList;
-    }
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
 
-    public void setTaskList(InstanceTask[] taskList) {
-        this.taskList = taskList;
-    }
+  public String getEndTime() {
+    return this.endTime;
+  }
 
-    public InstanceComment[] getCommentList() {
-        return this.commentList;
-    }
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
 
-    public void setCommentList(InstanceComment[] commentList) {
-        this.commentList = commentList;
-    }
+  public String getUserId() {
+    return this.userId;
+  }
 
-    public InstanceTimeline[] getTimeline() {
-        return this.timeline;
-    }
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
 
-    public void setTimeline(InstanceTimeline[] timeline) {
-        this.timeline = timeline;
-    }
+  public String getOpenId() {
+    return this.openId;
+  }
 
-    public String getModifiedInstanceCode() {
-        return this.modifiedInstanceCode;
-    }
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
 
-    public void setModifiedInstanceCode(String modifiedInstanceCode) {
-        this.modifiedInstanceCode = modifiedInstanceCode;
-    }
+  public String getSerialNumber() {
+    return this.serialNumber;
+  }
 
-    public String getRevertedInstanceCode() {
-        return this.revertedInstanceCode;
-    }
+  public void setSerialNumber(String serialNumber) {
+    this.serialNumber = serialNumber;
+  }
 
-    public void setRevertedInstanceCode(String revertedInstanceCode) {
-        this.revertedInstanceCode = revertedInstanceCode;
-    }
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
 
-    public String getApprovalCode() {
-        return this.approvalCode;
-    }
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
 
-    public void setApprovalCode(String approvalCode) {
-        this.approvalCode = approvalCode;
-    }
+  public String getStatus() {
+    return this.status;
+  }
 
-    public Boolean getReverted() {
-        return this.reverted;
-    }
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
-    public void setReverted(Boolean reverted) {
-        this.reverted = reverted;
-    }
+  public String getUuid() {
+    return this.uuid;
+  }
 
-    public String getInstanceCode() {
-        return this.instanceCode;
-    }
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
 
-    public void setInstanceCode(String instanceCode) {
-        this.instanceCode = instanceCode;
-    }
+  public String getForm() {
+    return this.form;
+  }
 
+  public void setForm(String form) {
+    this.form = form;
+  }
+
+  public InstanceTask[] getTaskList() {
+    return this.taskList;
+  }
+
+  public void setTaskList(InstanceTask[] taskList) {
+    this.taskList = taskList;
+  }
+
+  public InstanceComment[] getCommentList() {
+    return this.commentList;
+  }
+
+  public void setCommentList(InstanceComment[] commentList) {
+    this.commentList = commentList;
+  }
+
+  public InstanceTimeline[] getTimeline() {
+    return this.timeline;
+  }
+
+  public void setTimeline(InstanceTimeline[] timeline) {
+    this.timeline = timeline;
+  }
+
+  public String getModifiedInstanceCode() {
+    return this.modifiedInstanceCode;
+  }
+
+  public void setModifiedInstanceCode(String modifiedInstanceCode) {
+    this.modifiedInstanceCode = modifiedInstanceCode;
+  }
+
+  public String getRevertedInstanceCode() {
+    return this.revertedInstanceCode;
+  }
+
+  public void setRevertedInstanceCode(String revertedInstanceCode) {
+    this.revertedInstanceCode = revertedInstanceCode;
+  }
+
+  public String getApprovalCode() {
+    return this.approvalCode;
+  }
+
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
+
+  public Boolean getReverted() {
+    return this.reverted;
+  }
+
+  public void setReverted(Boolean reverted) {
+    this.reverted = reverted;
+  }
+
+  public String getInstanceCode() {
+    return this.instanceCode;
+  }
+
+  public void setInstanceCode(String instanceCode) {
+    this.instanceCode = instanceCode;
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.payroll.v1.enums;
 
-/**
- * 数据期间类型（数据写入维度）
- */
+/** 数据写入维度 */
 public enum DatasourceDataPeriodTypeEnum {
-    MONTH(1), // 算薪期间（月）
-    OCCUR_DAY(2), // 数据发生日期
-    CUSTOM_TIME_RANGE(3), // 自定义数据周期
-    ;
-    private Integer value;
+  MONTH(1), // 算薪期间
+  OCCUR_DAY(2), // 数据发生日期。功能灰度中，如需创建该维度数据源配置，请申请灰度。
+  CUSTOM_TIME_RANGE(3), // 自定义数据周期。功能灰度中，如需创建该维度数据源配置，请申请灰度。
+  ;
+  private Integer value;
 
-    DatasourceDataPeriodTypeEnum(Integer value) {
-        this.value = value;
-    }
+  DatasourceDataPeriodTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -13,150 +13,160 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class GetUserMailboxMessageReq {
+  /**
+   * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
+   *
+   * <p>示例值：full
+   */
+  @Query
+  @SerializedName("format")
+  private String format;
+
+  public String getFormat() {
+    return this.format;
+  }
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
+
+  /**
+   * 用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。
+   *
+   * <p>示例值：user@xxx.xx 或 me
+   */
+  @Path
+  @SerializedName("user_mailbox_id")
+  private String userMailboxId;
+
+  /**
+   * 用户邮件 id，获取方式见
+   * [列出邮件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list)
+   *
+   * <p>示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
+   */
+  @Path
+  @SerializedName("message_id")
+  private String messageId;
+
+  public String getUserMailboxId() {
+    return this.userMailboxId;
+  }
+
+  public void setUserMailboxId(String userMailboxId) {
+    this.userMailboxId = userMailboxId;
+  }
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  // builder 开始
+  public GetUserMailboxMessageReq() {}
+
+  public GetUserMailboxMessageReq(Builder builder) {
     /**
      * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-     * <p> 示例值：full
+     *
+     * <p>示例值：full
      */
-    @Query
-    @SerializedName("format")
-    private String format;
+    this.format = builder.format;
     /**
-     * 用户邮箱地址 或 输入me代表当前调用接口用户
-     * <p> 示例值：user@xxx.xx 或 me
+     * 用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。
+     *
+     * <p>示例值：user@xxx.xx 或 me
      */
-    @Path
-    @SerializedName("user_mailbox_id")
-    private String userMailboxId;
+    this.userMailboxId = builder.userMailboxId;
     /**
-     * 用户邮件 id，可通过列出邮件列表获取
-     * <p> 示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
+     * 用户邮件 id，获取方式见
+     * [列出邮件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list)
+     *
+     * <p>示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
      */
-    @Path
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
+  }
 
-    // builder 开始
-    public GetUserMailboxMessageReq() {
+  public static class Builder {
+    private String format; // 需要获取的邮件内容。支持选择full/plain_text_full/metadata
+
+    /**
+     * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
+     *
+     * <p>示例值：full
+     *
+     * @param format
+     * @return
+     */
+    public Builder format(String format) {
+      this.format = format;
+      return this;
     }
 
-    public GetUserMailboxMessageReq(Builder builder) {
-        /**
-         * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-         * <p> 示例值：full
-         */
-        this.format = builder.format;
-        /**
-         * 用户邮箱地址 或 输入me代表当前调用接口用户
-         * <p> 示例值：user@xxx.xx 或 me
-         */
-        this.userMailboxId = builder.userMailboxId;
-        /**
-         * 用户邮件 id，可通过列出邮件列表获取
-         * <p> 示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
-         */
-        this.messageId = builder.messageId;
+    /**
+     * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
+     *
+     * <p>示例值：full
+     *
+     * @param format {@link
+     *     com.lark.oapi.service.mail.v1.enums.GetUserMailboxMessageMailMessageFormatTypeEnum}
+     * @return
+     */
+    public Builder format(
+        com.lark.oapi.service.mail.v1.enums.GetUserMailboxMessageMailMessageFormatTypeEnum format) {
+      this.format = format.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String
+        userMailboxId; // 用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符
+    // me 表示当前授权用户的主邮箱。
+    private String messageId; // 用户邮件 id，获取方式见
+
+    // [列出邮件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list)
+
+    /**
+     * 用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。
+     *
+     * <p>示例值：user@xxx.xx 或 me
+     *
+     * @param userMailboxId
+     * @return
+     */
+    public Builder userMailboxId(String userMailboxId) {
+      this.userMailboxId = userMailboxId;
+      return this;
     }
 
-    public String getFormat() {
-        return this.format;
+    /**
+     * 用户邮件 id，获取方式见
+     * [列出邮件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list)
+     *
+     * <p>示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public void setFormat(String format) {
-        this.format = format;
+    public GetUserMailboxMessageReq build() {
+      return new GetUserMailboxMessageReq(this);
     }
+  }
 
-    public String getUserMailboxId() {
-        return this.userMailboxId;
-    }
-
-    public void setUserMailboxId(String userMailboxId) {
-        this.userMailboxId = userMailboxId;
-    }
-
-    public String getMessageId() {
-        return this.messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public static class Builder {
-        private String format; // 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-        private String userMailboxId; // 用户邮箱地址 或 输入me代表当前调用接口用户
-        private String messageId; // 用户邮件 id，可通过列出邮件列表获取
-
-        /**
-         * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-         * <p> 示例值：full
-         *
-         * @param format
-         * @return
-         */
-        public Builder format(String format) {
-            this.format = format;
-            return this;
-        }
-
-        /**
-         * 需要获取的邮件内容。支持选择full/plain_text_full/metadata
-         * <p> 示例值：full
-         *
-         * @param format {@link com.lark.oapi.service.mail.v1.enums.GetUserMailboxMessageMailMessageFormatTypeEnum}
-         * @return
-         */
-        public Builder format(com.lark.oapi.service.mail.v1.enums.GetUserMailboxMessageMailMessageFormatTypeEnum format) {
-            this.format = format.getValue();
-            return this;
-        }
-
-        /**
-         * 用户邮箱地址 或 输入me代表当前调用接口用户
-         * <p> 示例值：user@xxx.xx 或 me
-         *
-         * @param userMailboxId
-         * @return
-         */
-        public Builder userMailboxId(String userMailboxId) {
-            this.userMailboxId = userMailboxId;
-            return this;
-        }
-
-
-        /**
-         * 用户邮件 id，可通过列出邮件列表获取
-         * <p> 示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        public GetUserMailboxMessageReq build() {
-            return new GetUserMailboxMessageReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

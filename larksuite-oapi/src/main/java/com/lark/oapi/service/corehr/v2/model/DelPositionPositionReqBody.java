@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DelPositionPositionReqBody {
+  /**
+   * 岗位ID，详细信息可通过[查询岗位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口获得
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("position_id")
+  private String positionId;
+
+  public String getPositionId() {
+    return this.positionId;
+  }
+
+  public void setPositionId(String positionId) {
+    this.positionId = positionId;
+  }
+
+  // builder 开始
+  public DelPositionPositionReqBody() {}
+
+  public DelPositionPositionReqBody(Builder builder) {
     /**
-     * 岗位ID
-     * <p> 示例值：6862995757234914824
+     * 岗位ID，详细信息可通过[查询岗位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口获得
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("position_id")
+    this.positionId = builder.positionId;
+  }
+
+  public static class Builder {
+    /**
+     * 岗位ID，详细信息可通过[查询岗位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口获得
+     *
+     * <p>示例值：6862995757234914824
+     */
     private String positionId;
 
-    // builder 开始
-    public DelPositionPositionReqBody() {
+    /**
+     * 岗位ID，详细信息可通过[查询岗位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口获得
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param positionId
+     * @return
+     */
+    public Builder positionId(String positionId) {
+      this.positionId = positionId;
+      return this;
     }
 
-    public DelPositionPositionReqBody(Builder builder) {
-        /**
-         * 岗位ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.positionId = builder.positionId;
+    public DelPositionPositionReqBody build() {
+      return new DelPositionPositionReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getPositionId() {
-        return this.positionId;
-    }
-
-    public void setPositionId(String positionId) {
-        this.positionId = positionId;
-    }
-
-    public static class Builder {
-        /**
-         * 岗位ID
-         * <p> 示例值：6862995757234914824
-         */
-        private String positionId;
-
-        /**
-         * 岗位ID
-         * <p> 示例值：6862995757234914824
-         *
-         * @param positionId
-         * @return
-         */
-        public Builder positionId(String positionId) {
-            this.positionId = positionId;
-            return this;
-        }
-
-
-        public DelPositionPositionReqBody build() {
-            return new DelPositionPositionReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.aily.v1.enums;
 
-/**
- * 进度条项状态
- */
+/** 进度条项状态 */
 public enum ProgressItemProgressItemStateEnum {
-    RUNNING("RUNNING"), // 执行中
-    FINISHED("FINISHED"), // 执行成功
-    FAILED("FAILED"), // 执行失败
-    ;
-    private String value;
+  RUNNING("RUNNING"), // 执行中
+  FINISHED("FINISHED"), // 执行成功
+  FAILED("FAILED"), // 执行失败
+  ;
+  private String value;
 
-    ProgressItemProgressItemStateEnum(String value) {
-        this.value = value;
-    }
+  ProgressItemProgressItemStateEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

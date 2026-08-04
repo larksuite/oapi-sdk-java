@@ -13,297 +13,349 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateEmployeeOptions {
+  /**
+   * 员工的数据驻留地。仅限开通了Multi-Geo的企业可选填，且仅能填入企业数据驻留地列表中的Geo。可通过**获取地理位置列表**接口查询企业开通的Geo，请注意这里需要传入**小写字母**。;
+   * <br>
+   * 需要申请以下权限才能写入：<br>
+   * <md-perm name="directory:employee.base.geo:write" desc="写入员工数据所在地" support_app_types="custom"
+   * tags="">写入员工数据所在地</md-perm>
+   *
+   * <p>示例值：cn
+   */
+  @SerializedName("geo_name")
+  private String geoName;
+
+  /**
+   * shadow关联的UserID
+   *
+   * <p>示例值：asdqwed
+   */
+  @SerializedName("home_user_id")
+  private String homeUserId;
+
+  /**
+   * 用户追踪信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_trace_info")
+  private EmployeeTraceInfo employeeTraceInfo;
+
+  /**
+   * 用户企业邮箱登录时的密码
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("enterprise_email_password")
+  private String enterpriseEmailPassword;
+
+  /**
+   * 数据来源
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("data_source")
+  private Integer dataSource;
+
+  /**
+   * 分配给员工的席位ID列表。可通过下方接口获取到该租户的可用席位ID，参见[获取席位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。当在混合license模式下，此字段为必填。;
+   * <br>
+   * 需要申请以下权限才能写入：;<br>
+   * <md-perm name="directory:employee.base.subscription_ids:write" desc="写入员工席位信息"
+   * support_app_types="custom" tags="">写入员工席位信息</md-perm>
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subscription_ids")
+  private String[] subscriptionIds;
+
+  /**
+   * 发送通知
+   *
+   * <p>示例值：
+   */
+  @SerializedName("need_send_notification")
+  private SendNotification needSendNotification;
+
+  public String getGeoName() {
+    return this.geoName;
+  }
+
+  public void setGeoName(String geoName) {
+    this.geoName = geoName;
+  }
+
+  public String getHomeUserId() {
+    return this.homeUserId;
+  }
+
+  public void setHomeUserId(String homeUserId) {
+    this.homeUserId = homeUserId;
+  }
+
+  public EmployeeTraceInfo getEmployeeTraceInfo() {
+    return this.employeeTraceInfo;
+  }
+
+  public void setEmployeeTraceInfo(EmployeeTraceInfo employeeTraceInfo) {
+    this.employeeTraceInfo = employeeTraceInfo;
+  }
+
+  public String getEnterpriseEmailPassword() {
+    return this.enterpriseEmailPassword;
+  }
+
+  public void setEnterpriseEmailPassword(String enterpriseEmailPassword) {
+    this.enterpriseEmailPassword = enterpriseEmailPassword;
+  }
+
+  public Integer getDataSource() {
+    return this.dataSource;
+  }
+
+  public void setDataSource(Integer dataSource) {
+    this.dataSource = dataSource;
+  }
+
+  public String[] getSubscriptionIds() {
+    return this.subscriptionIds;
+  }
+
+  public void setSubscriptionIds(String[] subscriptionIds) {
+    this.subscriptionIds = subscriptionIds;
+  }
+
+  public SendNotification getNeedSendNotification() {
+    return this.needSendNotification;
+  }
+
+  public void setNeedSendNotification(SendNotification needSendNotification) {
+    this.needSendNotification = needSendNotification;
+  }
+
+  // builder 开始
+  public CreateEmployeeOptions() {}
+
+  public CreateEmployeeOptions(Builder builder) {
     /**
-     * 用户指定geo/unit
-     * <p> 示例值：cn
+     * 员工的数据驻留地。仅限开通了Multi-Geo的企业可选填，且仅能填入企业数据驻留地列表中的Geo。可通过**获取地理位置列表**接口查询企业开通的Geo，请注意这里需要传入**小写字母**。;
+     * <br>
+     * 需要申请以下权限才能写入：<br>
+     * <md-perm name="directory:employee.base.geo:write" desc="写入员工数据所在地" support_app_types="custom"
+     * tags="">写入员工数据所在地</md-perm>
+     *
+     * <p>示例值：cn
      */
-    @SerializedName("geo_name")
-    private String geoName;
+    this.geoName = builder.geoName;
     /**
      * shadow关联的UserID
-     * <p> 示例值：asdqwed
+     *
+     * <p>示例值：asdqwed
      */
-    @SerializedName("home_user_id")
-    private String homeUserId;
+    this.homeUserId = builder.homeUserId;
     /**
      * 用户追踪信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_trace_info")
-    private EmployeeTraceInfo employeeTraceInfo;
+    this.employeeTraceInfo = builder.employeeTraceInfo;
     /**
      * 用户企业邮箱登录时的密码
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("enterprise_email_password")
-    private String enterpriseEmailPassword;
+    this.enterpriseEmailPassword = builder.enterpriseEmailPassword;
     /**
      * 数据来源
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("data_source")
-    private Integer dataSource;
+    this.dataSource = builder.dataSource;
     /**
-     * 席位信息
-     * <p> 示例值：
+     * 分配给员工的席位ID列表。可通过下方接口获取到该租户的可用席位ID，参见[获取席位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。当在混合license模式下，此字段为必填。;
+     * <br>
+     * 需要申请以下权限才能写入：;<br>
+     * <md-perm name="directory:employee.base.subscription_ids:write" desc="写入员工席位信息"
+     * support_app_types="custom" tags="">写入员工席位信息</md-perm>
+     *
+     * <p>示例值：
      */
-    @SerializedName("subscription_ids")
-    private String[] subscriptionIds;
+    this.subscriptionIds = builder.subscriptionIds;
     /**
      * 发送通知
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("need_send_notification")
+    this.needSendNotification = builder.needSendNotification;
+  }
+
+  public static class Builder {
+    /**
+     * 员工的数据驻留地。仅限开通了Multi-Geo的企业可选填，且仅能填入企业数据驻留地列表中的Geo。可通过**获取地理位置列表**接口查询企业开通的Geo，请注意这里需要传入**小写字母**。;
+     * <br>
+     * 需要申请以下权限才能写入：<br>
+     * <md-perm name="directory:employee.base.geo:write" desc="写入员工数据所在地" support_app_types="custom"
+     * tags="">写入员工数据所在地</md-perm>
+     *
+     * <p>示例值：cn
+     */
+    private String geoName;
+
+    /**
+     * shadow关联的UserID
+     *
+     * <p>示例值：asdqwed
+     */
+    private String homeUserId;
+
+    /**
+     * 用户追踪信息
+     *
+     * <p>示例值：
+     */
+    private EmployeeTraceInfo employeeTraceInfo;
+
+    /**
+     * 用户企业邮箱登录时的密码
+     *
+     * <p>示例值：1
+     */
+    private String enterpriseEmailPassword;
+
+    /**
+     * 数据来源
+     *
+     * <p>示例值：1
+     */
+    private Integer dataSource;
+
+    /**
+     * 分配给员工的席位ID列表。可通过下方接口获取到该租户的可用席位ID，参见[获取席位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。当在混合license模式下，此字段为必填。;
+     * <br>
+     * 需要申请以下权限才能写入：;<br>
+     * <md-perm name="directory:employee.base.subscription_ids:write" desc="写入员工席位信息"
+     * support_app_types="custom" tags="">写入员工席位信息</md-perm>
+     *
+     * <p>示例值：
+     */
+    private String[] subscriptionIds;
+
+    /**
+     * 发送通知
+     *
+     * <p>示例值：
+     */
     private SendNotification needSendNotification;
 
-    // builder 开始
-    public CreateEmployeeOptions() {
+    /**
+     * 员工的数据驻留地。仅限开通了Multi-Geo的企业可选填，且仅能填入企业数据驻留地列表中的Geo。可通过**获取地理位置列表**接口查询企业开通的Geo，请注意这里需要传入**小写字母**。;
+     * <br>
+     * 需要申请以下权限才能写入：<br>
+     * <md-perm name="directory:employee.base.geo:write" desc="写入员工数据所在地" support_app_types="custom"
+     * tags="">写入员工数据所在地</md-perm>
+     *
+     * <p>示例值：cn
+     *
+     * @param geoName
+     * @return
+     */
+    public Builder geoName(String geoName) {
+      this.geoName = geoName;
+      return this;
     }
 
-    public CreateEmployeeOptions(Builder builder) {
-        /**
-         * 用户指定geo/unit
-         * <p> 示例值：cn
-         */
-        this.geoName = builder.geoName;
-        /**
-         * shadow关联的UserID
-         * <p> 示例值：asdqwed
-         */
-        this.homeUserId = builder.homeUserId;
-        /**
-         * 用户追踪信息
-         * <p> 示例值：
-         */
-        this.employeeTraceInfo = builder.employeeTraceInfo;
-        /**
-         * 用户企业邮箱登录时的密码
-         * <p> 示例值：1
-         */
-        this.enterpriseEmailPassword = builder.enterpriseEmailPassword;
-        /**
-         * 数据来源
-         * <p> 示例值：
-         */
-        this.dataSource = builder.dataSource;
-        /**
-         * 席位信息
-         * <p> 示例值：
-         */
-        this.subscriptionIds = builder.subscriptionIds;
-        /**
-         * 发送通知
-         * <p> 示例值：
-         */
-        this.needSendNotification = builder.needSendNotification;
+    /**
+     * shadow关联的UserID
+     *
+     * <p>示例值：asdqwed
+     *
+     * @param homeUserId
+     * @return
+     */
+    public Builder homeUserId(String homeUserId) {
+      this.homeUserId = homeUserId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户追踪信息
+     *
+     * <p>示例值：
+     *
+     * @param employeeTraceInfo
+     * @return
+     */
+    public Builder employeeTraceInfo(EmployeeTraceInfo employeeTraceInfo) {
+      this.employeeTraceInfo = employeeTraceInfo;
+      return this;
     }
 
-    public String getGeoName() {
-        return this.geoName;
+    /**
+     * 用户企业邮箱登录时的密码
+     *
+     * <p>示例值：1
+     *
+     * @param enterpriseEmailPassword
+     * @return
+     */
+    public Builder enterpriseEmailPassword(String enterpriseEmailPassword) {
+      this.enterpriseEmailPassword = enterpriseEmailPassword;
+      return this;
     }
 
-    public void setGeoName(String geoName) {
-        this.geoName = geoName;
+    /**
+     * 数据来源
+     *
+     * <p>示例值：1
+     *
+     * @param dataSource
+     * @return
+     */
+    public Builder dataSource(Integer dataSource) {
+      this.dataSource = dataSource;
+      return this;
     }
 
-    public String getHomeUserId() {
-        return this.homeUserId;
+    /**
+     * 分配给员工的席位ID列表。可通过下方接口获取到该租户的可用席位ID，参见[获取席位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。当在混合license模式下，此字段为必填。;
+     * <br>
+     * 需要申请以下权限才能写入：;<br>
+     * <md-perm name="directory:employee.base.subscription_ids:write" desc="写入员工席位信息"
+     * support_app_types="custom" tags="">写入员工席位信息</md-perm>
+     *
+     * <p>示例值：
+     *
+     * @param subscriptionIds
+     * @return
+     */
+    public Builder subscriptionIds(String[] subscriptionIds) {
+      this.subscriptionIds = subscriptionIds;
+      return this;
     }
 
-    public void setHomeUserId(String homeUserId) {
-        this.homeUserId = homeUserId;
+    /**
+     * 发送通知
+     *
+     * <p>示例值：
+     *
+     * @param needSendNotification
+     * @return
+     */
+    public Builder needSendNotification(SendNotification needSendNotification) {
+      this.needSendNotification = needSendNotification;
+      return this;
     }
 
-    public EmployeeTraceInfo getEmployeeTraceInfo() {
-        return this.employeeTraceInfo;
+    public CreateEmployeeOptions build() {
+      return new CreateEmployeeOptions(this);
     }
+  }
 
-    public void setEmployeeTraceInfo(EmployeeTraceInfo employeeTraceInfo) {
-        this.employeeTraceInfo = employeeTraceInfo;
-    }
-
-    public String getEnterpriseEmailPassword() {
-        return this.enterpriseEmailPassword;
-    }
-
-    public void setEnterpriseEmailPassword(String enterpriseEmailPassword) {
-        this.enterpriseEmailPassword = enterpriseEmailPassword;
-    }
-
-    public Integer getDataSource() {
-        return this.dataSource;
-    }
-
-    public void setDataSource(Integer dataSource) {
-        this.dataSource = dataSource;
-    }
-
-    public String[] getSubscriptionIds() {
-        return this.subscriptionIds;
-    }
-
-    public void setSubscriptionIds(String[] subscriptionIds) {
-        this.subscriptionIds = subscriptionIds;
-    }
-
-    public SendNotification getNeedSendNotification() {
-        return this.needSendNotification;
-    }
-
-    public void setNeedSendNotification(SendNotification needSendNotification) {
-        this.needSendNotification = needSendNotification;
-    }
-
-    public static class Builder {
-        /**
-         * 用户指定geo/unit
-         * <p> 示例值：cn
-         */
-        private String geoName;
-        /**
-         * shadow关联的UserID
-         * <p> 示例值：asdqwed
-         */
-        private String homeUserId;
-        /**
-         * 用户追踪信息
-         * <p> 示例值：
-         */
-        private EmployeeTraceInfo employeeTraceInfo;
-        /**
-         * 用户企业邮箱登录时的密码
-         * <p> 示例值：1
-         */
-        private String enterpriseEmailPassword;
-        /**
-         * 数据来源
-         * <p> 示例值：
-         */
-        private Integer dataSource;
-        /**
-         * 席位信息
-         * <p> 示例值：
-         */
-        private String[] subscriptionIds;
-        /**
-         * 发送通知
-         * <p> 示例值：
-         */
-        private SendNotification needSendNotification;
-
-        /**
-         * 用户指定geo/unit
-         * <p> 示例值：cn
-         *
-         * @param geoName
-         * @return
-         */
-        public Builder geoName(String geoName) {
-            this.geoName = geoName;
-            return this;
-        }
-
-
-        /**
-         * shadow关联的UserID
-         * <p> 示例值：asdqwed
-         *
-         * @param homeUserId
-         * @return
-         */
-        public Builder homeUserId(String homeUserId) {
-            this.homeUserId = homeUserId;
-            return this;
-        }
-
-
-        /**
-         * 用户追踪信息
-         * <p> 示例值：
-         *
-         * @param employeeTraceInfo
-         * @return
-         */
-        public Builder employeeTraceInfo(EmployeeTraceInfo employeeTraceInfo) {
-            this.employeeTraceInfo = employeeTraceInfo;
-            return this;
-        }
-
-
-        /**
-         * 用户企业邮箱登录时的密码
-         * <p> 示例值：1
-         *
-         * @param enterpriseEmailPassword
-         * @return
-         */
-        public Builder enterpriseEmailPassword(String enterpriseEmailPassword) {
-            this.enterpriseEmailPassword = enterpriseEmailPassword;
-            return this;
-        }
-
-
-        /**
-         * 数据来源
-         * <p> 示例值：
-         *
-         * @param dataSource
-         * @return
-         */
-        public Builder dataSource(Integer dataSource) {
-            this.dataSource = dataSource;
-            return this;
-        }
-
-
-        /**
-         * 席位信息
-         * <p> 示例值：
-         *
-         * @param subscriptionIds
-         * @return
-         */
-        public Builder subscriptionIds(String[] subscriptionIds) {
-            this.subscriptionIds = subscriptionIds;
-            return this;
-        }
-
-
-        /**
-         * 发送通知
-         * <p> 示例值：
-         *
-         * @param needSendNotification
-         * @return
-         */
-        public Builder needSendNotification(SendNotification needSendNotification) {
-            this.needSendNotification = needSendNotification;
-            return this;
-        }
-
-
-        public CreateEmployeeOptions build() {
-            return new CreateEmployeeOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

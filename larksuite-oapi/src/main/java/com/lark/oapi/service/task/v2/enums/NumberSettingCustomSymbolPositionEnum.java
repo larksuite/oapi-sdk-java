@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.task.v2.enums;
 
-/**
- * 自定义符号显示的位置。
- */
+/** 当`format`设为"custom"时，自定义符号相对于数字的显示位置。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。 */
 public enum NumberSettingCustomSymbolPositionEnum {
-    LETF("left"), // 自定义符号放在数字左边
-    RIGHT("right"), // 自定义符号放在数字右边
-    ;
-    private String value;
+  LETF("left"), // 自定义符号显示在数字左边
+  RIGHT("right"), // 自定义符号显示在数字右边
+  ;
+  private String value;
 
-    NumberSettingCustomSymbolPositionEnum(String value) {
-        this.value = value;
-    }
+  NumberSettingCustomSymbolPositionEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

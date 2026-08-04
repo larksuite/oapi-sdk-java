@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ContactAddress {
+  /**
+   * 国家 国家/地区主数据统一编码
+   *
+   * <p>示例值：MDCT00000012
+   */
+  @SerializedName("country")
+  private String country;
+
+  /**
+   * 省份 国家/地区主数据统一编码
+   *
+   * <p>示例值：MDCT00000012
+   */
+  @SerializedName("province")
+  private String province;
+
+  /**
+   * 城市 国家/地区主数据统一编码
+   *
+   * <p>示例值：MDCT00000012
+   */
+  @SerializedName("city")
+  private String city;
+
+  /**
+   * 详细地址
+   *
+   * <p>示例值：北京市朝阳大街101号
+   */
+  @SerializedName("address")
+  private String address;
+
+  /**
+   * 地址类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("contact_address_type")
+  private String contactAddressType;
+
+  public String getCountry() {
+    return this.country;
+  }
+
+  public void setCountry(String country) {
+    this.country = country;
+  }
+
+  public String getProvince() {
+    return this.province;
+  }
+
+  public void setProvince(String province) {
+    this.province = province;
+  }
+
+  public String getCity() {
+    return this.city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+  public String getAddress() {
+    return this.address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+  public String getContactAddressType() {
+    return this.contactAddressType;
+  }
+
+  public void setContactAddressType(String contactAddressType) {
+    this.contactAddressType = contactAddressType;
+  }
+
+  // builder 开始
+  public ContactAddress() {}
+
+  public ContactAddress(Builder builder) {
     /**
      * 国家 国家/地区主数据统一编码
-     * <p> 示例值：MDCT00000012
+     *
+     * <p>示例值：MDCT00000012
      */
-    @SerializedName("country")
-    private String country;
+    this.country = builder.country;
     /**
      * 省份 国家/地区主数据统一编码
-     * <p> 示例值：MDCT00000012
+     *
+     * <p>示例值：MDCT00000012
      */
-    @SerializedName("province")
-    private String province;
+    this.province = builder.province;
     /**
      * 城市 国家/地区主数据统一编码
-     * <p> 示例值：MDCT00000012
+     *
+     * <p>示例值：MDCT00000012
      */
-    @SerializedName("city")
-    private String city;
+    this.city = builder.city;
     /**
      * 详细地址
-     * <p> 示例值：北京市朝阳大街101号
+     *
+     * <p>示例值：北京市朝阳大街101号
      */
-    @SerializedName("address")
-    private String address;
+    this.address = builder.address;
     /**
      * 地址类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("contact_address_type")
+    this.contactAddressType = builder.contactAddressType;
+  }
+
+  public static class Builder {
+    /**
+     * 国家 国家/地区主数据统一编码
+     *
+     * <p>示例值：MDCT00000012
+     */
+    private String country;
+
+    /**
+     * 省份 国家/地区主数据统一编码
+     *
+     * <p>示例值：MDCT00000012
+     */
+    private String province;
+
+    /**
+     * 城市 国家/地区主数据统一编码
+     *
+     * <p>示例值：MDCT00000012
+     */
+    private String city;
+
+    /**
+     * 详细地址
+     *
+     * <p>示例值：北京市朝阳大街101号
+     */
+    private String address;
+
+    /**
+     * 地址类型
+     *
+     * <p>示例值：1
+     */
     private String contactAddressType;
 
-    // builder 开始
-    public ContactAddress() {
+    /**
+     * 国家 国家/地区主数据统一编码
+     *
+     * <p>示例值：MDCT00000012
+     *
+     * @param country
+     * @return
+     */
+    public Builder country(String country) {
+      this.country = country;
+      return this;
     }
 
-    public ContactAddress(Builder builder) {
-        /**
-         * 国家 国家/地区主数据统一编码
-         * <p> 示例值：MDCT00000012
-         */
-        this.country = builder.country;
-        /**
-         * 省份 国家/地区主数据统一编码
-         * <p> 示例值：MDCT00000012
-         */
-        this.province = builder.province;
-        /**
-         * 城市 国家/地区主数据统一编码
-         * <p> 示例值：MDCT00000012
-         */
-        this.city = builder.city;
-        /**
-         * 详细地址
-         * <p> 示例值：北京市朝阳大街101号
-         */
-        this.address = builder.address;
-        /**
-         * 地址类型
-         * <p> 示例值：1
-         */
-        this.contactAddressType = builder.contactAddressType;
+    /**
+     * 省份 国家/地区主数据统一编码
+     *
+     * <p>示例值：MDCT00000012
+     *
+     * @param province
+     * @return
+     */
+    public Builder province(String province) {
+      this.province = province;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 城市 国家/地区主数据统一编码
+     *
+     * <p>示例值：MDCT00000012
+     *
+     * @param city
+     * @return
+     */
+    public Builder city(String city) {
+      this.city = city;
+      return this;
     }
 
-    public String getCountry() {
-        return this.country;
+    /**
+     * 详细地址
+     *
+     * <p>示例值：北京市朝阳大街101号
+     *
+     * @param address
+     * @return
+     */
+    public Builder address(String address) {
+      this.address = address;
+      return this;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    /**
+     * 地址类型
+     *
+     * <p>示例值：1
+     *
+     * @param contactAddressType
+     * @return
+     */
+    public Builder contactAddressType(String contactAddressType) {
+      this.contactAddressType = contactAddressType;
+      return this;
     }
 
-    public String getProvince() {
-        return this.province;
+    public ContactAddress build() {
+      return new ContactAddress(this);
     }
+  }
 
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getCity() {
-        return this.city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getAddress() {
-        return this.address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getContactAddressType() {
-        return this.contactAddressType;
-    }
-
-    public void setContactAddressType(String contactAddressType) {
-        this.contactAddressType = contactAddressType;
-    }
-
-    public static class Builder {
-        /**
-         * 国家 国家/地区主数据统一编码
-         * <p> 示例值：MDCT00000012
-         */
-        private String country;
-        /**
-         * 省份 国家/地区主数据统一编码
-         * <p> 示例值：MDCT00000012
-         */
-        private String province;
-        /**
-         * 城市 国家/地区主数据统一编码
-         * <p> 示例值：MDCT00000012
-         */
-        private String city;
-        /**
-         * 详细地址
-         * <p> 示例值：北京市朝阳大街101号
-         */
-        private String address;
-        /**
-         * 地址类型
-         * <p> 示例值：1
-         */
-        private String contactAddressType;
-
-        /**
-         * 国家 国家/地区主数据统一编码
-         * <p> 示例值：MDCT00000012
-         *
-         * @param country
-         * @return
-         */
-        public Builder country(String country) {
-            this.country = country;
-            return this;
-        }
-
-
-        /**
-         * 省份 国家/地区主数据统一编码
-         * <p> 示例值：MDCT00000012
-         *
-         * @param province
-         * @return
-         */
-        public Builder province(String province) {
-            this.province = province;
-            return this;
-        }
-
-
-        /**
-         * 城市 国家/地区主数据统一编码
-         * <p> 示例值：MDCT00000012
-         *
-         * @param city
-         * @return
-         */
-        public Builder city(String city) {
-            this.city = city;
-            return this;
-        }
-
-
-        /**
-         * 详细地址
-         * <p> 示例值：北京市朝阳大街101号
-         *
-         * @param address
-         * @return
-         */
-        public Builder address(String address) {
-            this.address = address;
-            return this;
-        }
-
-
-        /**
-         * 地址类型
-         * <p> 示例值：1
-         *
-         * @param contactAddressType
-         * @return
-         */
-        public Builder contactAddressType(String contactAddressType) {
-            this.contactAddressType = contactAddressType;
-            return this;
-        }
-
-
-        public ContactAddress build() {
-            return new ContactAddress(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

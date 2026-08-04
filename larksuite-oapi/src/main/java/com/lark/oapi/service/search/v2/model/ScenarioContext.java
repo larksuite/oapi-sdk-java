@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ScenarioContext {
+  /**
+   * 拓展信息
+   *
+   * <p>示例值：v1
+   */
+  @SerializedName("extra")
+  private ScenarioContextExtra extra;
+
+  /**
+   * AI Engine填充的系统信息
+   *
+   * <p>示例值：aa
+   */
+  @SerializedName("system_info")
+  private SystemInfo systemInfo;
+
+  /**
+   * 会话的历史对话
+   *
+   * <p>示例值：
+   */
+  @SerializedName("memory")
+  private MemoryMessage[] memory;
+
+  /**
+   * 会话所处的业务场景
+   *
+   * <p>示例值：IM
+   */
+  @SerializedName("scenario")
+  private String scenario;
+
+  /**
+   * 会话所处的业务模式
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("work_mode")
+  private Integer workMode;
+
+  /**
+   * 用户原始的问题描述
+   *
+   * <p>示例值：我想问xxx问题
+   */
+  @SerializedName("tool_raw_instruction")
+  private String toolRawInstruction;
+
+  public ScenarioContextExtra getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(ScenarioContextExtra extra) {
+    this.extra = extra;
+  }
+
+  public SystemInfo getSystemInfo() {
+    return this.systemInfo;
+  }
+
+  public void setSystemInfo(SystemInfo systemInfo) {
+    this.systemInfo = systemInfo;
+  }
+
+  public MemoryMessage[] getMemory() {
+    return this.memory;
+  }
+
+  public void setMemory(MemoryMessage[] memory) {
+    this.memory = memory;
+  }
+
+  public String getScenario() {
+    return this.scenario;
+  }
+
+  public void setScenario(String scenario) {
+    this.scenario = scenario;
+  }
+
+  public Integer getWorkMode() {
+    return this.workMode;
+  }
+
+  public void setWorkMode(Integer workMode) {
+    this.workMode = workMode;
+  }
+
+  public String getToolRawInstruction() {
+    return this.toolRawInstruction;
+  }
+
+  public void setToolRawInstruction(String toolRawInstruction) {
+    this.toolRawInstruction = toolRawInstruction;
+  }
+
+  // builder 开始
+  public ScenarioContext() {}
+
+  public ScenarioContext(Builder builder) {
     /**
      * 拓展信息
-     * <p> 示例值：v1
+     *
+     * <p>示例值：v1
      */
-    @SerializedName("extra")
-    private ScenarioContextExtra extra;
+    this.extra = builder.extra;
     /**
      * AI Engine填充的系统信息
-     * <p> 示例值：aa
+     *
+     * <p>示例值：aa
      */
-    @SerializedName("system_info")
-    private SystemInfo systemInfo;
+    this.systemInfo = builder.systemInfo;
     /**
      * 会话的历史对话
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("memory")
-    private MemoryMessage[] memory;
+    this.memory = builder.memory;
     /**
      * 会话所处的业务场景
-     * <p> 示例值：IM
+     *
+     * <p>示例值：IM
      */
-    @SerializedName("scenario")
-    private String scenario;
+    this.scenario = builder.scenario;
     /**
      * 会话所处的业务模式
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("work_mode")
-    private Integer workMode;
+    this.workMode = builder.workMode;
     /**
      * 用户原始的问题描述
-     * <p> 示例值：我想问xxx问题
+     *
+     * <p>示例值：我想问xxx问题
      */
-    @SerializedName("tool_raw_instruction")
+    this.toolRawInstruction = builder.toolRawInstruction;
+  }
+
+  public static class Builder {
+    /**
+     * 拓展信息
+     *
+     * <p>示例值：v1
+     */
+    private ScenarioContextExtra extra;
+
+    /**
+     * AI Engine填充的系统信息
+     *
+     * <p>示例值：aa
+     */
+    private SystemInfo systemInfo;
+
+    /**
+     * 会话的历史对话
+     *
+     * <p>示例值：
+     */
+    private MemoryMessage[] memory;
+
+    /**
+     * 会话所处的业务场景
+     *
+     * <p>示例值：IM
+     */
+    private String scenario;
+
+    /**
+     * 会话所处的业务模式
+     *
+     * <p>示例值：1
+     */
+    private Integer workMode;
+
+    /**
+     * 用户原始的问题描述
+     *
+     * <p>示例值：我想问xxx问题
+     */
     private String toolRawInstruction;
 
-    // builder 开始
-    public ScenarioContext() {
+    /**
+     * 拓展信息
+     *
+     * <p>示例值：v1
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(ScenarioContextExtra extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public ScenarioContext(Builder builder) {
-        /**
-         * 拓展信息
-         * <p> 示例值：v1
-         */
-        this.extra = builder.extra;
-        /**
-         * AI Engine填充的系统信息
-         * <p> 示例值：aa
-         */
-        this.systemInfo = builder.systemInfo;
-        /**
-         * 会话的历史对话
-         * <p> 示例值：
-         */
-        this.memory = builder.memory;
-        /**
-         * 会话所处的业务场景
-         * <p> 示例值：IM
-         */
-        this.scenario = builder.scenario;
-        /**
-         * 会话所处的业务模式
-         * <p> 示例值：1
-         */
-        this.workMode = builder.workMode;
-        /**
-         * 用户原始的问题描述
-         * <p> 示例值：我想问xxx问题
-         */
-        this.toolRawInstruction = builder.toolRawInstruction;
+    /**
+     * AI Engine填充的系统信息
+     *
+     * <p>示例值：aa
+     *
+     * @param systemInfo
+     * @return
+     */
+    public Builder systemInfo(SystemInfo systemInfo) {
+      this.systemInfo = systemInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 会话的历史对话
+     *
+     * <p>示例值：
+     *
+     * @param memory
+     * @return
+     */
+    public Builder memory(MemoryMessage[] memory) {
+      this.memory = memory;
+      return this;
     }
 
-    public ScenarioContextExtra getExtra() {
-        return this.extra;
+    /**
+     * 会话所处的业务场景
+     *
+     * <p>示例值：IM
+     *
+     * @param scenario
+     * @return
+     */
+    public Builder scenario(String scenario) {
+      this.scenario = scenario;
+      return this;
     }
 
-    public void setExtra(ScenarioContextExtra extra) {
-        this.extra = extra;
+    /**
+     * 会话所处的业务模式
+     *
+     * <p>示例值：1
+     *
+     * @param workMode
+     * @return
+     */
+    public Builder workMode(Integer workMode) {
+      this.workMode = workMode;
+      return this;
     }
 
-    public SystemInfo getSystemInfo() {
-        return this.systemInfo;
+    /**
+     * 用户原始的问题描述
+     *
+     * <p>示例值：我想问xxx问题
+     *
+     * @param toolRawInstruction
+     * @return
+     */
+    public Builder toolRawInstruction(String toolRawInstruction) {
+      this.toolRawInstruction = toolRawInstruction;
+      return this;
     }
 
-    public void setSystemInfo(SystemInfo systemInfo) {
-        this.systemInfo = systemInfo;
+    public ScenarioContext build() {
+      return new ScenarioContext(this);
     }
+  }
 
-    public MemoryMessage[] getMemory() {
-        return this.memory;
-    }
-
-    public void setMemory(MemoryMessage[] memory) {
-        this.memory = memory;
-    }
-
-    public String getScenario() {
-        return this.scenario;
-    }
-
-    public void setScenario(String scenario) {
-        this.scenario = scenario;
-    }
-
-    public Integer getWorkMode() {
-        return this.workMode;
-    }
-
-    public void setWorkMode(Integer workMode) {
-        this.workMode = workMode;
-    }
-
-    public String getToolRawInstruction() {
-        return this.toolRawInstruction;
-    }
-
-    public void setToolRawInstruction(String toolRawInstruction) {
-        this.toolRawInstruction = toolRawInstruction;
-    }
-
-    public static class Builder {
-        /**
-         * 拓展信息
-         * <p> 示例值：v1
-         */
-        private ScenarioContextExtra extra;
-        /**
-         * AI Engine填充的系统信息
-         * <p> 示例值：aa
-         */
-        private SystemInfo systemInfo;
-        /**
-         * 会话的历史对话
-         * <p> 示例值：
-         */
-        private MemoryMessage[] memory;
-        /**
-         * 会话所处的业务场景
-         * <p> 示例值：IM
-         */
-        private String scenario;
-        /**
-         * 会话所处的业务模式
-         * <p> 示例值：1
-         */
-        private Integer workMode;
-        /**
-         * 用户原始的问题描述
-         * <p> 示例值：我想问xxx问题
-         */
-        private String toolRawInstruction;
-
-        /**
-         * 拓展信息
-         * <p> 示例值：v1
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(ScenarioContextExtra extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        /**
-         * AI Engine填充的系统信息
-         * <p> 示例值：aa
-         *
-         * @param systemInfo
-         * @return
-         */
-        public Builder systemInfo(SystemInfo systemInfo) {
-            this.systemInfo = systemInfo;
-            return this;
-        }
-
-
-        /**
-         * 会话的历史对话
-         * <p> 示例值：
-         *
-         * @param memory
-         * @return
-         */
-        public Builder memory(MemoryMessage[] memory) {
-            this.memory = memory;
-            return this;
-        }
-
-
-        /**
-         * 会话所处的业务场景
-         * <p> 示例值：IM
-         *
-         * @param scenario
-         * @return
-         */
-        public Builder scenario(String scenario) {
-            this.scenario = scenario;
-            return this;
-        }
-
-
-        /**
-         * 会话所处的业务模式
-         * <p> 示例值：1
-         *
-         * @param workMode
-         * @return
-         */
-        public Builder workMode(Integer workMode) {
-            this.workMode = workMode;
-            return this;
-        }
-
-
-        /**
-         * 用户原始的问题描述
-         * <p> 示例值：我想问xxx问题
-         *
-         * @param toolRawInstruction
-         * @return
-         */
-        public Builder toolRawInstruction(String toolRawInstruction) {
-            this.toolRawInstruction = toolRawInstruction;
-            return this;
-        }
-
-
-        public ScenarioContext build() {
-            return new ScenarioContext(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

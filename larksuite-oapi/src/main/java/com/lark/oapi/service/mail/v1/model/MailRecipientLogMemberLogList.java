@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MailRecipientLogMemberLogList {
+  /**
+   * 邮件组成员总数
+   *
+   * <p>示例值：25
+   */
+  @SerializedName("group_total_member")
+  private Integer groupTotalMember;
+
+  /**
+   * 发送成功数量
+   *
+   * <p>示例值：23
+   */
+  @SerializedName("send_success")
+  private Integer sendSuccess;
+
+  /**
+   * 成员日志列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("member_logs")
+  private MailRecipientLogItem[] memberLogs;
+
+  public Integer getGroupTotalMember() {
+    return this.groupTotalMember;
+  }
+
+  public void setGroupTotalMember(Integer groupTotalMember) {
+    this.groupTotalMember = groupTotalMember;
+  }
+
+  public Integer getSendSuccess() {
+    return this.sendSuccess;
+  }
+
+  public void setSendSuccess(Integer sendSuccess) {
+    this.sendSuccess = sendSuccess;
+  }
+
+  public MailRecipientLogItem[] getMemberLogs() {
+    return this.memberLogs;
+  }
+
+  public void setMemberLogs(MailRecipientLogItem[] memberLogs) {
+    this.memberLogs = memberLogs;
+  }
+
+  // builder 开始
+  public MailRecipientLogMemberLogList() {}
+
+  public MailRecipientLogMemberLogList(Builder builder) {
     /**
      * 邮件组成员总数
-     * <p> 示例值：25
+     *
+     * <p>示例值：25
      */
-    @SerializedName("group_total_member")
-    private Integer groupTotalMember;
+    this.groupTotalMember = builder.groupTotalMember;
     /**
      * 发送成功数量
-     * <p> 示例值：23
+     *
+     * <p>示例值：23
      */
-    @SerializedName("send_success")
-    private Integer sendSuccess;
+    this.sendSuccess = builder.sendSuccess;
     /**
      * 成员日志列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("member_logs")
+    this.memberLogs = builder.memberLogs;
+  }
+
+  public static class Builder {
+    /**
+     * 邮件组成员总数
+     *
+     * <p>示例值：25
+     */
+    private Integer groupTotalMember;
+
+    /**
+     * 发送成功数量
+     *
+     * <p>示例值：23
+     */
+    private Integer sendSuccess;
+
+    /**
+     * 成员日志列表
+     *
+     * <p>示例值：
+     */
     private MailRecipientLogItem[] memberLogs;
 
-    // builder 开始
-    public MailRecipientLogMemberLogList() {
+    /**
+     * 邮件组成员总数
+     *
+     * <p>示例值：25
+     *
+     * @param groupTotalMember
+     * @return
+     */
+    public Builder groupTotalMember(Integer groupTotalMember) {
+      this.groupTotalMember = groupTotalMember;
+      return this;
     }
 
-    public MailRecipientLogMemberLogList(Builder builder) {
-        /**
-         * 邮件组成员总数
-         * <p> 示例值：25
-         */
-        this.groupTotalMember = builder.groupTotalMember;
-        /**
-         * 发送成功数量
-         * <p> 示例值：23
-         */
-        this.sendSuccess = builder.sendSuccess;
-        /**
-         * 成员日志列表
-         * <p> 示例值：
-         */
-        this.memberLogs = builder.memberLogs;
+    /**
+     * 发送成功数量
+     *
+     * <p>示例值：23
+     *
+     * @param sendSuccess
+     * @return
+     */
+    public Builder sendSuccess(Integer sendSuccess) {
+      this.sendSuccess = sendSuccess;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 成员日志列表
+     *
+     * <p>示例值：
+     *
+     * @param memberLogs
+     * @return
+     */
+    public Builder memberLogs(MailRecipientLogItem[] memberLogs) {
+      this.memberLogs = memberLogs;
+      return this;
     }
 
-    public Integer getGroupTotalMember() {
-        return this.groupTotalMember;
+    public MailRecipientLogMemberLogList build() {
+      return new MailRecipientLogMemberLogList(this);
     }
+  }
 
-    public void setGroupTotalMember(Integer groupTotalMember) {
-        this.groupTotalMember = groupTotalMember;
-    }
-
-    public Integer getSendSuccess() {
-        return this.sendSuccess;
-    }
-
-    public void setSendSuccess(Integer sendSuccess) {
-        this.sendSuccess = sendSuccess;
-    }
-
-    public MailRecipientLogItem[] getMemberLogs() {
-        return this.memberLogs;
-    }
-
-    public void setMemberLogs(MailRecipientLogItem[] memberLogs) {
-        this.memberLogs = memberLogs;
-    }
-
-    public static class Builder {
-        /**
-         * 邮件组成员总数
-         * <p> 示例值：25
-         */
-        private Integer groupTotalMember;
-        /**
-         * 发送成功数量
-         * <p> 示例值：23
-         */
-        private Integer sendSuccess;
-        /**
-         * 成员日志列表
-         * <p> 示例值：
-         */
-        private MailRecipientLogItem[] memberLogs;
-
-        /**
-         * 邮件组成员总数
-         * <p> 示例值：25
-         *
-         * @param groupTotalMember
-         * @return
-         */
-        public Builder groupTotalMember(Integer groupTotalMember) {
-            this.groupTotalMember = groupTotalMember;
-            return this;
-        }
-
-
-        /**
-         * 发送成功数量
-         * <p> 示例值：23
-         *
-         * @param sendSuccess
-         * @return
-         */
-        public Builder sendSuccess(Integer sendSuccess) {
-            this.sendSuccess = sendSuccess;
-            return this;
-        }
-
-
-        /**
-         * 成员日志列表
-         * <p> 示例值：
-         *
-         * @param memberLogs
-         * @return
-         */
-        public Builder memberLogs(MailRecipientLogItem[] memberLogs) {
-            this.memberLogs = memberLogs;
-            return this;
-        }
-
-
-        public MailRecipientLogMemberLogList build() {
-            return new MailRecipientLogMemberLogList(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

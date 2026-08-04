@@ -13,150 +13,156 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class GetTasklistActivitySubscriptionReq {
+  /**
+   * 用户ID类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。
+   *
+   * <p>示例值：33991879-704f-444f-81d7-55a6aa7be80c
+   */
+  @Path
+  @SerializedName("tasklist_guid")
+  private String tasklistGuid;
+
+  /**
+   * 订阅GUID。可以通过[创建动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/create)接口创建，或者通过[列取动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/list)查询得到。
+   *
+   * <p>示例值：33991879-704f-444f-81d7-55a6aa7be80c
+   */
+  @Path
+  @SerializedName("activity_subscription_guid")
+  private String activitySubscriptionGuid;
+
+  public String getTasklistGuid() {
+    return this.tasklistGuid;
+  }
+
+  public void setTasklistGuid(String tasklistGuid) {
+    this.tasklistGuid = tasklistGuid;
+  }
+
+  public String getActivitySubscriptionGuid() {
+    return this.activitySubscriptionGuid;
+  }
+
+  public void setActivitySubscriptionGuid(String activitySubscriptionGuid) {
+    this.activitySubscriptionGuid = activitySubscriptionGuid;
+  }
+
+  // builder 开始
+  public GetTasklistActivitySubscriptionReq() {}
+
+  public GetTasklistActivitySubscriptionReq(Builder builder) {
     /**
      * 用户ID类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 清单GUID
-     * <p> 示例值：33991879-704f-444f-81d7-55a6aa7be80c
+     * 清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。
+     *
+     * <p>示例值：33991879-704f-444f-81d7-55a6aa7be80c
      */
-    @Path
-    @SerializedName("tasklist_guid")
-    private String tasklistGuid;
+    this.tasklistGuid = builder.tasklistGuid;
     /**
-     * 订阅GUID
-     * <p> 示例值：33991879-704f-444f-81d7-55a6aa7be80c
+     * 订阅GUID。可以通过[创建动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/create)接口创建，或者通过[列取动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/list)查询得到。
+     *
+     * <p>示例值：33991879-704f-444f-81d7-55a6aa7be80c
      */
-    @Path
-    @SerializedName("activity_subscription_guid")
-    private String activitySubscriptionGuid;
+    this.activitySubscriptionGuid = builder.activitySubscriptionGuid;
+  }
 
-    // builder 开始
-    public GetTasklistActivitySubscriptionReq() {
+  public static class Builder {
+    private String userIdType; // 用户ID类型
+
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetTasklistActivitySubscriptionReq(Builder builder) {
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 清单GUID
-         * <p> 示例值：33991879-704f-444f-81d7-55a6aa7be80c
-         */
-        this.tasklistGuid = builder.tasklistGuid;
-        /**
-         * 订阅GUID
-         * <p> 示例值：33991879-704f-444f-81d7-55a6aa7be80c
-         */
-        this.activitySubscriptionGuid = builder.activitySubscriptionGuid;
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.task.v2.enums.GetTasklistActivitySubscriptionUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.task.v2.enums.GetTasklistActivitySubscriptionUserIdTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String
+        tasklistGuid; // 清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。
+    private String
+        activitySubscriptionGuid; // 订阅GUID。可以通过[创建动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/create)接口创建，或者通过[列取动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/list)查询得到。
+
+    /**
+     * 清单GUID。可以通过[创建清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/create)，或者通过[获取清单列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/list)接口查询得到。
+     *
+     * <p>示例值：33991879-704f-444f-81d7-55a6aa7be80c
+     *
+     * @param tasklistGuid
+     * @return
+     */
+    public Builder tasklistGuid(String tasklistGuid) {
+      this.tasklistGuid = tasklistGuid;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 订阅GUID。可以通过[创建动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/create)接口创建，或者通过[列取动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/list)查询得到。
+     *
+     * <p>示例值：33991879-704f-444f-81d7-55a6aa7be80c
+     *
+     * @param activitySubscriptionGuid
+     * @return
+     */
+    public Builder activitySubscriptionGuid(String activitySubscriptionGuid) {
+      this.activitySubscriptionGuid = activitySubscriptionGuid;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    public GetTasklistActivitySubscriptionReq build() {
+      return new GetTasklistActivitySubscriptionReq(this);
     }
+  }
 
-    public String getTasklistGuid() {
-        return this.tasklistGuid;
-    }
-
-    public void setTasklistGuid(String tasklistGuid) {
-        this.tasklistGuid = tasklistGuid;
-    }
-
-    public String getActivitySubscriptionGuid() {
-        return this.activitySubscriptionGuid;
-    }
-
-    public void setActivitySubscriptionGuid(String activitySubscriptionGuid) {
-        this.activitySubscriptionGuid = activitySubscriptionGuid;
-    }
-
-    public static class Builder {
-        private String userIdType; // 用户ID类型
-        private String tasklistGuid; // 清单GUID
-        private String activitySubscriptionGuid; // 订阅GUID
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.task.v2.enums.GetTasklistActivitySubscriptionUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.task.v2.enums.GetTasklistActivitySubscriptionUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 清单GUID
-         * <p> 示例值：33991879-704f-444f-81d7-55a6aa7be80c
-         *
-         * @param tasklistGuid
-         * @return
-         */
-        public Builder tasklistGuid(String tasklistGuid) {
-            this.tasklistGuid = tasklistGuid;
-            return this;
-        }
-
-
-        /**
-         * 订阅GUID
-         * <p> 示例值：33991879-704f-444f-81d7-55a6aa7be80c
-         *
-         * @param activitySubscriptionGuid
-         * @return
-         */
-        public Builder activitySubscriptionGuid(String activitySubscriptionGuid) {
-            this.activitySubscriptionGuid = activitySubscriptionGuid;
-            return this;
-        }
-
-
-        public GetTasklistActivitySubscriptionReq build() {
-            return new GetTasklistActivitySubscriptionReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListApplicationRespBody {
-    /**
-     * 应用列表
-     * <p> 示例值：
-     */
-    @SerializedName("app_list")
-    private Application[] appList;
-    /**
-     * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
-     * <p> 示例值：15
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否还有更多项
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 应用状态=启用的应用总数
-     * <p> 示例值：20
-     */
-    @SerializedName("total_count")
-    private Integer totalCount;
+  /**
+   * 应用列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("app_list")
+  private Application[] appList;
 
-    public Application[] getAppList() {
-        return this.appList;
-    }
+  /**
+   * 分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token
+   *
+   * <p>示例值：15
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setAppList(Application[] appList) {
-        this.appList = appList;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 当前页面数据里，应用状态为“启用”的应用总数
+   *
+   * <p>示例值：20
+   */
+  @SerializedName("total_count")
+  private Integer totalCount;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public Application[] getAppList() {
+    return this.appList;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setAppList(Application[] appList) {
+    this.appList = appList;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public Integer getTotalCount() {
-        return this.totalCount;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public void setTotalCount(Integer totalCount) {
-        this.totalCount = totalCount;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public Integer getTotalCount() {
+    return this.totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
 }

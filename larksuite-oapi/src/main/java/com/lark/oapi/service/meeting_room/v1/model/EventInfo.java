@@ -14,172 +14,190 @@
 package com.lark.oapi.service.meeting_room.v1.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.service.meeting_room.v1.enums.*;
 
 public class EventInfo {
+  /**
+   * 日程唯一ID
+   *
+   * <p>示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
+   */
+  @SerializedName("uid")
+  private String uid;
+
+  /**
+   * 日程实例原始时间。非重复性日程和重复性日程，此处传0；重复性日程的例外，传对应的original_time
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("original_time")
+  private Integer originalTime;
+
+  /**
+   * 日程主题
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("summary")
+  private String summary;
+
+  /**
+   * 视频会议信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("vchat")
+  private Vchat[] vchat;
+
+  public String getUid() {
+    return this.uid;
+  }
+
+  public void setUid(String uid) {
+    this.uid = uid;
+  }
+
+  public Integer getOriginalTime() {
+    return this.originalTime;
+  }
+
+  public void setOriginalTime(Integer originalTime) {
+    this.originalTime = originalTime;
+  }
+
+  public String getSummary() {
+    return this.summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
+
+  public Vchat[] getVchat() {
+    return this.vchat;
+  }
+
+  public void setVchat(Vchat[] vchat) {
+    this.vchat = vchat;
+  }
+
+  // builder 开始
+  public EventInfo() {}
+
+  public EventInfo(Builder builder) {
     /**
      * 日程唯一ID
-     * <p> 示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
+     *
+     * <p>示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
      */
-    @SerializedName("uid")
-    private String uid;
+    this.uid = builder.uid;
     /**
      * 日程实例原始时间。非重复性日程和重复性日程，此处传0；重复性日程的例外，传对应的original_time
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("original_time")
-    private Integer originalTime;
+    this.originalTime = builder.originalTime;
     /**
      * 日程主题
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("summary")
-    private String summary;
+    this.summary = builder.summary;
     /**
      * 视频会议信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("vchat")
+    this.vchat = builder.vchat;
+  }
+
+  public static class Builder {
+    /**
+     * 日程唯一ID
+     *
+     * <p>示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
+     */
+    private String uid;
+
+    /**
+     * 日程实例原始时间。非重复性日程和重复性日程，此处传0；重复性日程的例外，传对应的original_time
+     *
+     * <p>示例值：0
+     */
+    private Integer originalTime;
+
+    /**
+     * 日程主题
+     *
+     * <p>示例值：test
+     */
+    private String summary;
+
+    /**
+     * 视频会议信息
+     *
+     * <p>示例值：
+     */
     private Vchat[] vchat;
 
-    // builder 开始
-    public EventInfo() {
+    /**
+     * 日程唯一ID
+     *
+     * <p>示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
+     *
+     * @param uid
+     * @return
+     */
+    public Builder uid(String uid) {
+      this.uid = uid;
+      return this;
     }
 
-    public EventInfo(Builder builder) {
-        /**
-         * 日程唯一ID
-         * <p> 示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
-         */
-        this.uid = builder.uid;
-        /**
-         * 日程实例原始时间。非重复性日程和重复性日程，此处传0；重复性日程的例外，传对应的original_time
-         * <p> 示例值：0
-         */
-        this.originalTime = builder.originalTime;
-        /**
-         * 日程主题
-         * <p> 示例值：test
-         */
-        this.summary = builder.summary;
-        /**
-         * 视频会议信息
-         * <p> 示例值：
-         */
-        this.vchat = builder.vchat;
+    /**
+     * 日程实例原始时间。非重复性日程和重复性日程，此处传0；重复性日程的例外，传对应的original_time
+     *
+     * <p>示例值：0
+     *
+     * @param originalTime
+     * @return
+     */
+    public Builder originalTime(Integer originalTime) {
+      this.originalTime = originalTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 日程主题
+     *
+     * <p>示例值：test
+     *
+     * @param summary
+     * @return
+     */
+    public Builder summary(String summary) {
+      this.summary = summary;
+      return this;
     }
 
-    public String getUid() {
-        return this.uid;
+    /**
+     * 视频会议信息
+     *
+     * <p>示例值：
+     *
+     * @param vchat
+     * @return
+     */
+    public Builder vchat(Vchat[] vchat) {
+      this.vchat = vchat;
+      return this;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public EventInfo build() {
+      return new EventInfo(this);
     }
+  }
 
-    public Integer getOriginalTime() {
-        return this.originalTime;
-    }
-
-    public void setOriginalTime(Integer originalTime) {
-        this.originalTime = originalTime;
-    }
-
-    public String getSummary() {
-        return this.summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public Vchat[] getVchat() {
-        return this.vchat;
-    }
-
-    public void setVchat(Vchat[] vchat) {
-        this.vchat = vchat;
-    }
-
-    public static class Builder {
-        /**
-         * 日程唯一ID
-         * <p> 示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
-         */
-        private String uid;
-        /**
-         * 日程实例原始时间。非重复性日程和重复性日程，此处传0；重复性日程的例外，传对应的original_time
-         * <p> 示例值：0
-         */
-        private Integer originalTime;
-        /**
-         * 日程主题
-         * <p> 示例值：test
-         */
-        private String summary;
-        /**
-         * 视频会议信息
-         * <p> 示例值：
-         */
-        private Vchat[] vchat;
-
-        /**
-         * 日程唯一ID
-         * <p> 示例值：a04dbea1-86b9-4372-aa8d-64ebe801be2a
-         *
-         * @param uid
-         * @return
-         */
-        public Builder uid(String uid) {
-            this.uid = uid;
-            return this;
-        }
-
-
-        /**
-         * 日程实例原始时间。非重复性日程和重复性日程，此处传0；重复性日程的例外，传对应的original_time
-         * <p> 示例值：0
-         *
-         * @param originalTime
-         * @return
-         */
-        public Builder originalTime(Integer originalTime) {
-            this.originalTime = originalTime;
-            return this;
-        }
-
-
-        /**
-         * 日程主题
-         * <p> 示例值：test
-         *
-         * @param summary
-         * @return
-         */
-        public Builder summary(String summary) {
-            this.summary = summary;
-            return this;
-        }
-
-
-        /**
-         * 视频会议信息
-         * <p> 示例值：
-         *
-         * @param vchat
-         * @return
-         */
-        public Builder vchat(Vchat[] vchat) {
-            this.vchat = vchat;
-            return this;
-        }
-
-
-        public EventInfo build() {
-            return new EventInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CombinedCreateTalentRespBody {
-    /**
-     * 人才 ID
-     * <p> 示例值：7021471300428613932
-     */
-    @SerializedName("talent_id")
-    private String talentId;
-    /**
-     * 创建人 ID
-     * <p> 示例值：ou-xxx
-     */
-    @SerializedName("creator_id")
-    private String creatorId;
-    /**
-     * 创建人类型
-     * <p> 示例值：1
-     */
-    @SerializedName("creator_account_type")
-    private Integer creatorAccountType;
+  /**
+   * 人才 ID
+   *
+   * <p>示例值：7021471300428613932
+   */
+  @SerializedName("talent_id")
+  private String talentId;
 
-    public String getTalentId() {
-        return this.talentId;
-    }
+  /**
+   * 创建人 ID，与入参 `user_id_type` 类型一致
+   *
+   * <p>示例值：ou_84aad35d084aa403a838cf73ee18467
+   */
+  @SerializedName("creator_id")
+  private String creatorId;
 
-    public void setTalentId(String talentId) {
-        this.talentId = talentId;
-    }
+  /**
+   * 创建人类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("creator_account_type")
+  private Integer creatorAccountType;
 
-    public String getCreatorId() {
-        return this.creatorId;
-    }
+  public String getTalentId() {
+    return this.talentId;
+  }
 
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
+  public void setTalentId(String talentId) {
+    this.talentId = talentId;
+  }
 
-    public Integer getCreatorAccountType() {
-        return this.creatorAccountType;
-    }
+  public String getCreatorId() {
+    return this.creatorId;
+  }
 
-    public void setCreatorAccountType(Integer creatorAccountType) {
-        this.creatorAccountType = creatorAccountType;
-    }
+  public void setCreatorId(String creatorId) {
+    this.creatorId = creatorId;
+  }
 
+  public Integer getCreatorAccountType() {
+    return this.creatorAccountType;
+  }
+
+  public void setCreatorAccountType(Integer creatorAccountType) {
+    this.creatorAccountType = creatorAccountType;
+  }
 }

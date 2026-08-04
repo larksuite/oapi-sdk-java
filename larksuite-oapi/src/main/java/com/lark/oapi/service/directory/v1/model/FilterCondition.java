@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FilterCondition {
+  /**
+   * 筛选条件的左值，值为字段的参数名称。具体可填哪些字段请看
+   *
+   * <p>示例值：parent_department_id
+   */
+  @SerializedName("field")
+  private String field;
+
+  /**
+   * 比较操作符。可选值有： - equal：等于，支持任何类型的左值 - in：属于任一
+   *
+   * <p>示例值：eq
+   */
+  @SerializedName("operator")
+  private String operator;
+
+  /**
+   * 筛选条件的右值，内容为左值字段类型及操作符组合下，对应的值类型。其取值类型需与查询参数department_id_type的取值一致，最大长度为64字符，支持数字和字母。;使用parent_department_id条件时，根部门的ID可使用"0"
+   *
+   * <p>示例值：\"0\"
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getField() {
+    return this.field;
+  }
+
+  public void setField(String field) {
+    this.field = field;
+  }
+
+  public String getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public FilterCondition() {}
+
+  public FilterCondition(Builder builder) {
     /**
-     * 筛选条件的左值，值为字段的参数名称。具体可填哪些字段请看 https://bytedance.larkoffice.com/wiki/Yyrgw6kLLiGxMIkrEZece1ZvnWg
-     * <p> 示例值：
+     * 筛选条件的左值，值为字段的参数名称。具体可填哪些字段请看
+     *
+     * <p>示例值：parent_department_id
      */
-    @SerializedName("field")
-    private String field;
+    this.field = builder.field;
     /**
      * 比较操作符。可选值有： - equal：等于，支持任何类型的左值 - in：属于任一
-     * <p> 示例值：
+     *
+     * <p>示例值：eq
      */
-    @SerializedName("operator")
-    private String operator;
+    this.operator = builder.operator;
     /**
-     * 筛选条件的右值。内容为左值字段类型及操作符组合下，对应的值类型。注意： 1. field为int类型，operator为in时，value应当为list<int>的json字符串   1. 示例值："[11,22]" 2. field为string类型，operator为in时，value应当为json序列化后的json字符串   1. 示例值："[\"正式\",\"实习\"]" 3. field为string类型，operator为eq时，value应当为json序列化后的string   1. 示例值："\正式\""
-     * <p> 示例值：1
+     * 筛选条件的右值，内容为左值字段类型及操作符组合下，对应的值类型。其取值类型需与查询参数department_id_type的取值一致，最大长度为64字符，支持数字和字母。;使用parent_department_id条件时，根部门的ID可使用"0"
+     *
+     * <p>示例值：\"0\"
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 筛选条件的左值，值为字段的参数名称。具体可填哪些字段请看
+     *
+     * <p>示例值：parent_department_id
+     */
+    private String field;
+
+    /**
+     * 比较操作符。可选值有： - equal：等于，支持任何类型的左值 - in：属于任一
+     *
+     * <p>示例值：eq
+     */
+    private String operator;
+
+    /**
+     * 筛选条件的右值，内容为左值字段类型及操作符组合下，对应的值类型。其取值类型需与查询参数department_id_type的取值一致，最大长度为64字符，支持数字和字母。;使用parent_department_id条件时，根部门的ID可使用"0"
+     *
+     * <p>示例值：\"0\"
+     */
     private String value;
 
-    // builder 开始
-    public FilterCondition() {
+    /**
+     * 筛选条件的左值，值为字段的参数名称。具体可填哪些字段请看
+     *
+     * <p>示例值：parent_department_id
+     *
+     * @param field
+     * @return
+     */
+    public Builder field(String field) {
+      this.field = field;
+      return this;
     }
 
-    public FilterCondition(Builder builder) {
-        /**
-         * 筛选条件的左值，值为字段的参数名称。具体可填哪些字段请看 https://bytedance.larkoffice.com/wiki/Yyrgw6kLLiGxMIkrEZece1ZvnWg
-         * <p> 示例值：
-         */
-        this.field = builder.field;
-        /**
-         * 比较操作符。可选值有： - equal：等于，支持任何类型的左值 - in：属于任一
-         * <p> 示例值：
-         */
-        this.operator = builder.operator;
-        /**
-         * 筛选条件的右值。内容为左值字段类型及操作符组合下，对应的值类型。注意： 1. field为int类型，operator为in时，value应当为list<int>的json字符串   1. 示例值："[11,22]" 2. field为string类型，operator为in时，value应当为json序列化后的json字符串   1. 示例值："[\"正式\",\"实习\"]" 3. field为string类型，operator为eq时，value应当为json序列化后的string   1. 示例值："\正式\""
-         * <p> 示例值：1
-         */
-        this.value = builder.value;
+    /**
+     * 比较操作符。可选值有： - equal：等于，支持任何类型的左值 - in：属于任一
+     *
+     * <p>示例值：eq
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(String operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 筛选条件的右值，内容为左值字段类型及操作符组合下，对应的值类型。其取值类型需与查询参数department_id_type的取值一致，最大长度为64字符，支持数字和字母。;使用parent_department_id条件时，根部门的ID可使用"0"
+     *
+     * <p>示例值：\"0\"
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public String getField() {
-        return this.field;
+    public FilterCondition build() {
+      return new FilterCondition(this);
     }
+  }
 
-    public void setField(String field) {
-        this.field = field;
-    }
-
-    public String getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 筛选条件的左值，值为字段的参数名称。具体可填哪些字段请看 https://bytedance.larkoffice.com/wiki/Yyrgw6kLLiGxMIkrEZece1ZvnWg
-         * <p> 示例值：
-         */
-        private String field;
-        /**
-         * 比较操作符。可选值有： - equal：等于，支持任何类型的左值 - in：属于任一
-         * <p> 示例值：
-         */
-        private String operator;
-        /**
-         * 筛选条件的右值。内容为左值字段类型及操作符组合下，对应的值类型。注意： 1. field为int类型，operator为in时，value应当为list<int>的json字符串   1. 示例值："[11,22]" 2. field为string类型，operator为in时，value应当为json序列化后的json字符串   1. 示例值："[\"正式\",\"实习\"]" 3. field为string类型，operator为eq时，value应当为json序列化后的string   1. 示例值："\正式\""
-         * <p> 示例值：1
-         */
-        private String value;
-
-        /**
-         * 筛选条件的左值，值为字段的参数名称。具体可填哪些字段请看 https://bytedance.larkoffice.com/wiki/Yyrgw6kLLiGxMIkrEZece1ZvnWg
-         * <p> 示例值：
-         *
-         * @param field
-         * @return
-         */
-        public Builder field(String field) {
-            this.field = field;
-            return this;
-        }
-
-
-        /**
-         * 比较操作符。可选值有： - equal：等于，支持任何类型的左值 - in：属于任一
-         * <p> 示例值：
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(String operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 筛选条件的右值。内容为左值字段类型及操作符组合下，对应的值类型。注意： 1. field为int类型，operator为in时，value应当为list<int>的json字符串   1. 示例值："[11,22]" 2. field为string类型，operator为in时，value应当为json序列化后的json字符串   1. 示例值："[\"正式\",\"实习\"]" 3. field为string类型，operator为eq时，value应当为json序列化后的string   1. 示例值："\正式\""
-         * <p> 示例值：1
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public FilterCondition build() {
-            return new FilterCondition(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

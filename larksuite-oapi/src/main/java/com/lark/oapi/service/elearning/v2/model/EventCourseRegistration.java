@@ -13,469 +13,516 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EventCourseRegistration {
+  /**
+   * 课程ID
+   *
+   * <p>示例值：5fd087e96dbe3a73394188ae
+   */
+  @SerializedName("course_id")
+  private String courseId;
+
+  /**
+   * 课程学员信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("learner")
+  private EventUser learner;
+
+  /**
+   * 加入学习时间戳（秒）
+   *
+   * <p>示例值：1708428972
+   */
+  @SerializedName("enroll_at")
+  private Integer enrollAt;
+
+  /**
+   * 注册类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("enroll_type")
+  private Integer enrollType;
+
+  /**
+   * 学习时长，单位：秒
+   *
+   * <p>示例值：213
+   */
+  @SerializedName("learning_duration")
+  private Integer learningDuration;
+
+  /**
+   * 完成时间戳（秒）
+   *
+   * <p>示例值：1708428972
+   */
+  @SerializedName("finished_at")
+  private Integer finishedAt;
+
+  /**
+   * 完成状态
+   *
+   * <p>示例值：4
+   */
+  @SerializedName("learning_state")
+  private Integer learningState;
+
+  /**
+   * 必修章节id列表
+   *
+   * <p>示例值：["5fd087e96dbe3a7339418801", "5fd087e96dbe3a7339418802"]
+   */
+  @SerializedName("compulsory_lesson_ids")
+  private String[] compulsoryLessonIds;
+
+  /**
+   * 已完成的必修章节id列表
+   *
+   * <p>示例值：["5fd087e96dbe3a7339418801"]
+   */
+  @SerializedName("learned_compulsory_lesson_ids")
+  private String[] learnedCompulsoryLessonIds;
+
+  /**
+   * 选修章节id列表
+   *
+   * <p>示例值：["5fd087e96dbe3a7339418803", "5fd087e96dbe3a7339418804"]
+   */
+  @SerializedName("optional_lesson_ids")
+  private String[] optionalLessonIds;
+
+  /**
+   * 已完成的选修章节id列表
+   *
+   * <p>示例值：["5fd087e96dbe3a7339418803"]
+   */
+  @SerializedName("learned_optional_lesson_ids")
+  private String[] learnedOptionalLessonIds;
+
+  public String getCourseId() {
+    return this.courseId;
+  }
+
+  public void setCourseId(String courseId) {
+    this.courseId = courseId;
+  }
+
+  public EventUser getLearner() {
+    return this.learner;
+  }
+
+  public void setLearner(EventUser learner) {
+    this.learner = learner;
+  }
+
+  public Integer getEnrollAt() {
+    return this.enrollAt;
+  }
+
+  public void setEnrollAt(Integer enrollAt) {
+    this.enrollAt = enrollAt;
+  }
+
+  public Integer getEnrollType() {
+    return this.enrollType;
+  }
+
+  public void setEnrollType(Integer enrollType) {
+    this.enrollType = enrollType;
+  }
+
+  public Integer getLearningDuration() {
+    return this.learningDuration;
+  }
+
+  public void setLearningDuration(Integer learningDuration) {
+    this.learningDuration = learningDuration;
+  }
+
+  public Integer getFinishedAt() {
+    return this.finishedAt;
+  }
+
+  public void setFinishedAt(Integer finishedAt) {
+    this.finishedAt = finishedAt;
+  }
+
+  public Integer getLearningState() {
+    return this.learningState;
+  }
+
+  public void setLearningState(Integer learningState) {
+    this.learningState = learningState;
+  }
+
+  public String[] getCompulsoryLessonIds() {
+    return this.compulsoryLessonIds;
+  }
+
+  public void setCompulsoryLessonIds(String[] compulsoryLessonIds) {
+    this.compulsoryLessonIds = compulsoryLessonIds;
+  }
+
+  public String[] getLearnedCompulsoryLessonIds() {
+    return this.learnedCompulsoryLessonIds;
+  }
+
+  public void setLearnedCompulsoryLessonIds(String[] learnedCompulsoryLessonIds) {
+    this.learnedCompulsoryLessonIds = learnedCompulsoryLessonIds;
+  }
+
+  public String[] getOptionalLessonIds() {
+    return this.optionalLessonIds;
+  }
+
+  public void setOptionalLessonIds(String[] optionalLessonIds) {
+    this.optionalLessonIds = optionalLessonIds;
+  }
+
+  public String[] getLearnedOptionalLessonIds() {
+    return this.learnedOptionalLessonIds;
+  }
+
+  public void setLearnedOptionalLessonIds(String[] learnedOptionalLessonIds) {
+    this.learnedOptionalLessonIds = learnedOptionalLessonIds;
+  }
+
+  // builder 开始
+  public EventCourseRegistration() {}
+
+  public EventCourseRegistration(Builder builder) {
     /**
      * 课程ID
-     * <p> 示例值：5fd087e96dbe3a73394188ae
+     *
+     * <p>示例值：5fd087e96dbe3a73394188ae
      */
-    @SerializedName("course_id")
-    private String courseId;
+    this.courseId = builder.courseId;
     /**
      * 课程学员信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("learner")
-    private EventUser learner;
+    this.learner = builder.learner;
     /**
      * 加入学习时间戳（秒）
-     * <p> 示例值：1708428972
+     *
+     * <p>示例值：1708428972
      */
-    @SerializedName("enroll_at")
-    private Integer enrollAt;
+    this.enrollAt = builder.enrollAt;
     /**
      * 注册类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("enroll_type")
-    private Integer enrollType;
+    this.enrollType = builder.enrollType;
     /**
      * 学习时长，单位：秒
-     * <p> 示例值：213
+     *
+     * <p>示例值：213
      */
-    @SerializedName("learning_duration")
-    private Integer learningDuration;
+    this.learningDuration = builder.learningDuration;
     /**
      * 完成时间戳（秒）
-     * <p> 示例值：1708428972
+     *
+     * <p>示例值：1708428972
      */
-    @SerializedName("finished_at")
-    private Integer finishedAt;
+    this.finishedAt = builder.finishedAt;
     /**
      * 完成状态
-     * <p> 示例值：4
+     *
+     * <p>示例值：4
      */
-    @SerializedName("learning_state")
-    private Integer learningState;
+    this.learningState = builder.learningState;
     /**
      * 必修章节id列表
-     * <p> 示例值：["5fd087e96dbe3a7339418801", "5fd087e96dbe3a7339418802"]
+     *
+     * <p>示例值：["5fd087e96dbe3a7339418801", "5fd087e96dbe3a7339418802"]
      */
-    @SerializedName("compulsory_lesson_ids")
-    private String[] compulsoryLessonIds;
+    this.compulsoryLessonIds = builder.compulsoryLessonIds;
     /**
      * 已完成的必修章节id列表
-     * <p> 示例值：["5fd087e96dbe3a7339418801"]
+     *
+     * <p>示例值：["5fd087e96dbe3a7339418801"]
      */
-    @SerializedName("learned_compulsory_lesson_ids")
-    private String[] learnedCompulsoryLessonIds;
+    this.learnedCompulsoryLessonIds = builder.learnedCompulsoryLessonIds;
     /**
      * 选修章节id列表
-     * <p> 示例值：["5fd087e96dbe3a7339418803", "5fd087e96dbe3a7339418804"]
+     *
+     * <p>示例值：["5fd087e96dbe3a7339418803", "5fd087e96dbe3a7339418804"]
      */
-    @SerializedName("optional_lesson_ids")
-    private String[] optionalLessonIds;
+    this.optionalLessonIds = builder.optionalLessonIds;
     /**
      * 已完成的选修章节id列表
-     * <p> 示例值：["5fd087e96dbe3a7339418803"]
+     *
+     * <p>示例值：["5fd087e96dbe3a7339418803"]
      */
-    @SerializedName("learned_optional_lesson_ids")
+    this.learnedOptionalLessonIds = builder.learnedOptionalLessonIds;
+  }
+
+  public static class Builder {
+    /**
+     * 课程ID
+     *
+     * <p>示例值：5fd087e96dbe3a73394188ae
+     */
+    private String courseId;
+
+    /**
+     * 课程学员信息
+     *
+     * <p>示例值：
+     */
+    private EventUser learner;
+
+    /**
+     * 加入学习时间戳（秒）
+     *
+     * <p>示例值：1708428972
+     */
+    private Integer enrollAt;
+
+    /**
+     * 注册类型
+     *
+     * <p>示例值：1
+     */
+    private Integer enrollType;
+
+    /**
+     * 学习时长，单位：秒
+     *
+     * <p>示例值：213
+     */
+    private Integer learningDuration;
+
+    /**
+     * 完成时间戳（秒）
+     *
+     * <p>示例值：1708428972
+     */
+    private Integer finishedAt;
+
+    /**
+     * 完成状态
+     *
+     * <p>示例值：4
+     */
+    private Integer learningState;
+
+    /**
+     * 必修章节id列表
+     *
+     * <p>示例值：["5fd087e96dbe3a7339418801", "5fd087e96dbe3a7339418802"]
+     */
+    private String[] compulsoryLessonIds;
+
+    /**
+     * 已完成的必修章节id列表
+     *
+     * <p>示例值：["5fd087e96dbe3a7339418801"]
+     */
+    private String[] learnedCompulsoryLessonIds;
+
+    /**
+     * 选修章节id列表
+     *
+     * <p>示例值：["5fd087e96dbe3a7339418803", "5fd087e96dbe3a7339418804"]
+     */
+    private String[] optionalLessonIds;
+
+    /**
+     * 已完成的选修章节id列表
+     *
+     * <p>示例值：["5fd087e96dbe3a7339418803"]
+     */
     private String[] learnedOptionalLessonIds;
 
-    // builder 开始
-    public EventCourseRegistration() {
+    /**
+     * 课程ID
+     *
+     * <p>示例值：5fd087e96dbe3a73394188ae
+     *
+     * @param courseId
+     * @return
+     */
+    public Builder courseId(String courseId) {
+      this.courseId = courseId;
+      return this;
     }
 
-    public EventCourseRegistration(Builder builder) {
-        /**
-         * 课程ID
-         * <p> 示例值：5fd087e96dbe3a73394188ae
-         */
-        this.courseId = builder.courseId;
-        /**
-         * 课程学员信息
-         * <p> 示例值：
-         */
-        this.learner = builder.learner;
-        /**
-         * 加入学习时间戳（秒）
-         * <p> 示例值：1708428972
-         */
-        this.enrollAt = builder.enrollAt;
-        /**
-         * 注册类型
-         * <p> 示例值：1
-         */
-        this.enrollType = builder.enrollType;
-        /**
-         * 学习时长，单位：秒
-         * <p> 示例值：213
-         */
-        this.learningDuration = builder.learningDuration;
-        /**
-         * 完成时间戳（秒）
-         * <p> 示例值：1708428972
-         */
-        this.finishedAt = builder.finishedAt;
-        /**
-         * 完成状态
-         * <p> 示例值：4
-         */
-        this.learningState = builder.learningState;
-        /**
-         * 必修章节id列表
-         * <p> 示例值：["5fd087e96dbe3a7339418801", "5fd087e96dbe3a7339418802"]
-         */
-        this.compulsoryLessonIds = builder.compulsoryLessonIds;
-        /**
-         * 已完成的必修章节id列表
-         * <p> 示例值：["5fd087e96dbe3a7339418801"]
-         */
-        this.learnedCompulsoryLessonIds = builder.learnedCompulsoryLessonIds;
-        /**
-         * 选修章节id列表
-         * <p> 示例值：["5fd087e96dbe3a7339418803", "5fd087e96dbe3a7339418804"]
-         */
-        this.optionalLessonIds = builder.optionalLessonIds;
-        /**
-         * 已完成的选修章节id列表
-         * <p> 示例值：["5fd087e96dbe3a7339418803"]
-         */
-        this.learnedOptionalLessonIds = builder.learnedOptionalLessonIds;
+    /**
+     * 课程学员信息
+     *
+     * <p>示例值：
+     *
+     * @param learner
+     * @return
+     */
+    public Builder learner(EventUser learner) {
+      this.learner = learner;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 加入学习时间戳（秒）
+     *
+     * <p>示例值：1708428972
+     *
+     * @param enrollAt
+     * @return
+     */
+    public Builder enrollAt(Integer enrollAt) {
+      this.enrollAt = enrollAt;
+      return this;
     }
 
-    public String getCourseId() {
-        return this.courseId;
+    /**
+     * 注册类型
+     *
+     * <p>示例值：1
+     *
+     * @param enrollType
+     * @return
+     */
+    public Builder enrollType(Integer enrollType) {
+      this.enrollType = enrollType;
+      return this;
     }
 
-    public void setCourseId(String courseId) {
-        this.courseId = courseId;
+    /**
+     * 注册类型
+     *
+     * <p>示例值：1
+     *
+     * @param enrollType {@link
+     *     com.lark.oapi.service.elearning.v2.enums.EventCourseRegistrationEnrollTypeEnum}
+     * @return
+     */
+    public Builder enrollType(
+        com.lark.oapi.service.elearning.v2.enums.EventCourseRegistrationEnrollTypeEnum enrollType) {
+      this.enrollType = enrollType.getValue();
+      return this;
     }
 
-    public EventUser getLearner() {
-        return this.learner;
+    /**
+     * 学习时长，单位：秒
+     *
+     * <p>示例值：213
+     *
+     * @param learningDuration
+     * @return
+     */
+    public Builder learningDuration(Integer learningDuration) {
+      this.learningDuration = learningDuration;
+      return this;
     }
 
-    public void setLearner(EventUser learner) {
-        this.learner = learner;
+    /**
+     * 完成时间戳（秒）
+     *
+     * <p>示例值：1708428972
+     *
+     * @param finishedAt
+     * @return
+     */
+    public Builder finishedAt(Integer finishedAt) {
+      this.finishedAt = finishedAt;
+      return this;
     }
 
-    public Integer getEnrollAt() {
-        return this.enrollAt;
+    /**
+     * 完成状态
+     *
+     * <p>示例值：4
+     *
+     * @param learningState
+     * @return
+     */
+    public Builder learningState(Integer learningState) {
+      this.learningState = learningState;
+      return this;
     }
 
-    public void setEnrollAt(Integer enrollAt) {
-        this.enrollAt = enrollAt;
+    /**
+     * 完成状态
+     *
+     * <p>示例值：4
+     *
+     * @param learningState {@link
+     *     com.lark.oapi.service.elearning.v2.enums.EventCourseRegistrationLearningStateEnum}
+     * @return
+     */
+    public Builder learningState(
+        com.lark.oapi.service.elearning.v2.enums.EventCourseRegistrationLearningStateEnum
+            learningState) {
+      this.learningState = learningState.getValue();
+      return this;
     }
 
-    public Integer getEnrollType() {
-        return this.enrollType;
+    /**
+     * 必修章节id列表
+     *
+     * <p>示例值：["5fd087e96dbe3a7339418801", "5fd087e96dbe3a7339418802"]
+     *
+     * @param compulsoryLessonIds
+     * @return
+     */
+    public Builder compulsoryLessonIds(String[] compulsoryLessonIds) {
+      this.compulsoryLessonIds = compulsoryLessonIds;
+      return this;
     }
 
-    public void setEnrollType(Integer enrollType) {
-        this.enrollType = enrollType;
+    /**
+     * 已完成的必修章节id列表
+     *
+     * <p>示例值：["5fd087e96dbe3a7339418801"]
+     *
+     * @param learnedCompulsoryLessonIds
+     * @return
+     */
+    public Builder learnedCompulsoryLessonIds(String[] learnedCompulsoryLessonIds) {
+      this.learnedCompulsoryLessonIds = learnedCompulsoryLessonIds;
+      return this;
     }
 
-    public Integer getLearningDuration() {
-        return this.learningDuration;
+    /**
+     * 选修章节id列表
+     *
+     * <p>示例值：["5fd087e96dbe3a7339418803", "5fd087e96dbe3a7339418804"]
+     *
+     * @param optionalLessonIds
+     * @return
+     */
+    public Builder optionalLessonIds(String[] optionalLessonIds) {
+      this.optionalLessonIds = optionalLessonIds;
+      return this;
     }
 
-    public void setLearningDuration(Integer learningDuration) {
-        this.learningDuration = learningDuration;
+    /**
+     * 已完成的选修章节id列表
+     *
+     * <p>示例值：["5fd087e96dbe3a7339418803"]
+     *
+     * @param learnedOptionalLessonIds
+     * @return
+     */
+    public Builder learnedOptionalLessonIds(String[] learnedOptionalLessonIds) {
+      this.learnedOptionalLessonIds = learnedOptionalLessonIds;
+      return this;
     }
 
-    public Integer getFinishedAt() {
-        return this.finishedAt;
+    public EventCourseRegistration build() {
+      return new EventCourseRegistration(this);
     }
+  }
 
-    public void setFinishedAt(Integer finishedAt) {
-        this.finishedAt = finishedAt;
-    }
-
-    public Integer getLearningState() {
-        return this.learningState;
-    }
-
-    public void setLearningState(Integer learningState) {
-        this.learningState = learningState;
-    }
-
-    public String[] getCompulsoryLessonIds() {
-        return this.compulsoryLessonIds;
-    }
-
-    public void setCompulsoryLessonIds(String[] compulsoryLessonIds) {
-        this.compulsoryLessonIds = compulsoryLessonIds;
-    }
-
-    public String[] getLearnedCompulsoryLessonIds() {
-        return this.learnedCompulsoryLessonIds;
-    }
-
-    public void setLearnedCompulsoryLessonIds(String[] learnedCompulsoryLessonIds) {
-        this.learnedCompulsoryLessonIds = learnedCompulsoryLessonIds;
-    }
-
-    public String[] getOptionalLessonIds() {
-        return this.optionalLessonIds;
-    }
-
-    public void setOptionalLessonIds(String[] optionalLessonIds) {
-        this.optionalLessonIds = optionalLessonIds;
-    }
-
-    public String[] getLearnedOptionalLessonIds() {
-        return this.learnedOptionalLessonIds;
-    }
-
-    public void setLearnedOptionalLessonIds(String[] learnedOptionalLessonIds) {
-        this.learnedOptionalLessonIds = learnedOptionalLessonIds;
-    }
-
-    public static class Builder {
-        /**
-         * 课程ID
-         * <p> 示例值：5fd087e96dbe3a73394188ae
-         */
-        private String courseId;
-        /**
-         * 课程学员信息
-         * <p> 示例值：
-         */
-        private EventUser learner;
-        /**
-         * 加入学习时间戳（秒）
-         * <p> 示例值：1708428972
-         */
-        private Integer enrollAt;
-        /**
-         * 注册类型
-         * <p> 示例值：1
-         */
-        private Integer enrollType;
-        /**
-         * 学习时长，单位：秒
-         * <p> 示例值：213
-         */
-        private Integer learningDuration;
-        /**
-         * 完成时间戳（秒）
-         * <p> 示例值：1708428972
-         */
-        private Integer finishedAt;
-        /**
-         * 完成状态
-         * <p> 示例值：4
-         */
-        private Integer learningState;
-        /**
-         * 必修章节id列表
-         * <p> 示例值：["5fd087e96dbe3a7339418801", "5fd087e96dbe3a7339418802"]
-         */
-        private String[] compulsoryLessonIds;
-        /**
-         * 已完成的必修章节id列表
-         * <p> 示例值：["5fd087e96dbe3a7339418801"]
-         */
-        private String[] learnedCompulsoryLessonIds;
-        /**
-         * 选修章节id列表
-         * <p> 示例值：["5fd087e96dbe3a7339418803", "5fd087e96dbe3a7339418804"]
-         */
-        private String[] optionalLessonIds;
-        /**
-         * 已完成的选修章节id列表
-         * <p> 示例值：["5fd087e96dbe3a7339418803"]
-         */
-        private String[] learnedOptionalLessonIds;
-
-        /**
-         * 课程ID
-         * <p> 示例值：5fd087e96dbe3a73394188ae
-         *
-         * @param courseId
-         * @return
-         */
-        public Builder courseId(String courseId) {
-            this.courseId = courseId;
-            return this;
-        }
-
-
-        /**
-         * 课程学员信息
-         * <p> 示例值：
-         *
-         * @param learner
-         * @return
-         */
-        public Builder learner(EventUser learner) {
-            this.learner = learner;
-            return this;
-        }
-
-
-        /**
-         * 加入学习时间戳（秒）
-         * <p> 示例值：1708428972
-         *
-         * @param enrollAt
-         * @return
-         */
-        public Builder enrollAt(Integer enrollAt) {
-            this.enrollAt = enrollAt;
-            return this;
-        }
-
-
-        /**
-         * 注册类型
-         * <p> 示例值：1
-         *
-         * @param enrollType
-         * @return
-         */
-        public Builder enrollType(Integer enrollType) {
-            this.enrollType = enrollType;
-            return this;
-        }
-
-        /**
-         * 注册类型
-         * <p> 示例值：1
-         *
-         * @param enrollType {@link com.lark.oapi.service.elearning.v2.enums.EventCourseRegistrationEnrollTypeEnum}
-         * @return
-         */
-        public Builder enrollType(com.lark.oapi.service.elearning.v2.enums.EventCourseRegistrationEnrollTypeEnum enrollType) {
-            this.enrollType = enrollType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 学习时长，单位：秒
-         * <p> 示例值：213
-         *
-         * @param learningDuration
-         * @return
-         */
-        public Builder learningDuration(Integer learningDuration) {
-            this.learningDuration = learningDuration;
-            return this;
-        }
-
-
-        /**
-         * 完成时间戳（秒）
-         * <p> 示例值：1708428972
-         *
-         * @param finishedAt
-         * @return
-         */
-        public Builder finishedAt(Integer finishedAt) {
-            this.finishedAt = finishedAt;
-            return this;
-        }
-
-
-        /**
-         * 完成状态
-         * <p> 示例值：4
-         *
-         * @param learningState
-         * @return
-         */
-        public Builder learningState(Integer learningState) {
-            this.learningState = learningState;
-            return this;
-        }
-
-        /**
-         * 完成状态
-         * <p> 示例值：4
-         *
-         * @param learningState {@link com.lark.oapi.service.elearning.v2.enums.EventCourseRegistrationLearningStateEnum}
-         * @return
-         */
-        public Builder learningState(com.lark.oapi.service.elearning.v2.enums.EventCourseRegistrationLearningStateEnum learningState) {
-            this.learningState = learningState.getValue();
-            return this;
-        }
-
-
-        /**
-         * 必修章节id列表
-         * <p> 示例值：["5fd087e96dbe3a7339418801", "5fd087e96dbe3a7339418802"]
-         *
-         * @param compulsoryLessonIds
-         * @return
-         */
-        public Builder compulsoryLessonIds(String[] compulsoryLessonIds) {
-            this.compulsoryLessonIds = compulsoryLessonIds;
-            return this;
-        }
-
-
-        /**
-         * 已完成的必修章节id列表
-         * <p> 示例值：["5fd087e96dbe3a7339418801"]
-         *
-         * @param learnedCompulsoryLessonIds
-         * @return
-         */
-        public Builder learnedCompulsoryLessonIds(String[] learnedCompulsoryLessonIds) {
-            this.learnedCompulsoryLessonIds = learnedCompulsoryLessonIds;
-            return this;
-        }
-
-
-        /**
-         * 选修章节id列表
-         * <p> 示例值：["5fd087e96dbe3a7339418803", "5fd087e96dbe3a7339418804"]
-         *
-         * @param optionalLessonIds
-         * @return
-         */
-        public Builder optionalLessonIds(String[] optionalLessonIds) {
-            this.optionalLessonIds = optionalLessonIds;
-            return this;
-        }
-
-
-        /**
-         * 已完成的选修章节id列表
-         * <p> 示例值：["5fd087e96dbe3a7339418803"]
-         *
-         * @param learnedOptionalLessonIds
-         * @return
-         */
-        public Builder learnedOptionalLessonIds(String[] learnedOptionalLessonIds) {
-            this.learnedOptionalLessonIds = learnedOptionalLessonIds;
-            return this;
-        }
-
-
-        public EventCourseRegistration build() {
-            return new EventCourseRegistration(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchRemoveLumpSumPaymentReqBody {
+  /**
+   * 要删除的一次性支付记录id（通过[【查询一次性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/lump_sum_payment/query)
+   * 接口进行查询）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("record_ids")
+  private String[] recordIds;
+
+  /**
+   * 因重复提交删除
+   *
+   * <p>示例值：删除原因实例
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  public String[] getRecordIds() {
+    return this.recordIds;
+  }
+
+  public void setRecordIds(String[] recordIds) {
+    this.recordIds = recordIds;
+  }
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  // builder 开始
+  public BatchRemoveLumpSumPaymentReqBody() {}
+
+  public BatchRemoveLumpSumPaymentReqBody(Builder builder) {
     /**
-     * 要删除的一次性支付记录id
-     * <p> 示例值：
+     * 要删除的一次性支付记录id（通过[【查询一次性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/lump_sum_payment/query)
+     * 接口进行查询）
+     *
+     * <p>示例值：
      */
-    @SerializedName("record_ids")
+    this.recordIds = builder.recordIds;
+    /**
+     * 因重复提交删除
+     *
+     * <p>示例值：删除原因实例
+     */
+    this.reason = builder.reason;
+  }
+
+  public static class Builder {
+    /**
+     * 要删除的一次性支付记录id（通过[【查询一次性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/lump_sum_payment/query)
+     * 接口进行查询）
+     *
+     * <p>示例值：
+     */
     private String[] recordIds;
+
     /**
-     * 删除原因
-     * <p> 示例值：这是个原因
+     * 因重复提交删除
+     *
+     * <p>示例值：删除原因实例
      */
-    @SerializedName("reason")
     private String reason;
 
-    // builder 开始
-    public BatchRemoveLumpSumPaymentReqBody() {
+    /**
+     * 要删除的一次性支付记录id（通过[【查询一次性支付记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/lump_sum_payment/query)
+     * 接口进行查询）
+     *
+     * <p>示例值：
+     *
+     * @param recordIds
+     * @return
+     */
+    public Builder recordIds(String[] recordIds) {
+      this.recordIds = recordIds;
+      return this;
     }
 
-    public BatchRemoveLumpSumPaymentReqBody(Builder builder) {
-        /**
-         * 要删除的一次性支付记录id
-         * <p> 示例值：
-         */
-        this.recordIds = builder.recordIds;
-        /**
-         * 删除原因
-         * <p> 示例值：这是个原因
-         */
-        this.reason = builder.reason;
+    /**
+     * 因重复提交删除
+     *
+     * <p>示例值：删除原因实例
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public BatchRemoveLumpSumPaymentReqBody build() {
+      return new BatchRemoveLumpSumPaymentReqBody(this);
     }
+  }
 
-    public String[] getRecordIds() {
-        return this.recordIds;
-    }
-
-    public void setRecordIds(String[] recordIds) {
-        this.recordIds = recordIds;
-    }
-
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public static class Builder {
-        /**
-         * 要删除的一次性支付记录id
-         * <p> 示例值：
-         */
-        private String[] recordIds;
-        /**
-         * 删除原因
-         * <p> 示例值：这是个原因
-         */
-        private String reason;
-
-        /**
-         * 要删除的一次性支付记录id
-         * <p> 示例值：
-         *
-         * @param recordIds
-         * @return
-         */
-        public Builder recordIds(String[] recordIds) {
-            this.recordIds = recordIds;
-            return this;
-        }
-
-
-        /**
-         * 删除原因
-         * <p> 示例值：这是个原因
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        public BatchRemoveLumpSumPaymentReqBody build() {
-            return new BatchRemoveLumpSumPaymentReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

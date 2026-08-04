@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.vc.v1.enums;
 
-/**
- * 网络研讨会类型
- */
+/** 网络研讨会类型 */
 public enum MeetingWebinarSettingWebinarTypeEnum {
-    NORMAL(1), // 普通网络研讨会
-    LIVE(2), // 直播网络研讨会
-    ;
-    private Integer value;
+  NORMAL(1), // 普通网络研讨会
+  LIVE(2), // 直播网络研讨会
+  ;
+  private Integer value;
 
-    MeetingWebinarSettingWebinarTypeEnum(Integer value) {
-        this.value = value;
-    }
+  MeetingWebinarSettingWebinarTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

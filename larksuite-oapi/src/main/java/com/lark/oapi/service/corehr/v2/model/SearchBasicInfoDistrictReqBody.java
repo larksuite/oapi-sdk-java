@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchBasicInfoDistrictReqBody {
+  /**
+   * 所属城市 ID
+   * 列表，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search);接口查询获得，不填写则返回全部列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("city_id_list")
+  private String[] cityIdList;
+
+  /**
+   * 区/县 ID 列表，不填则返回全部
+   *
+   * <p>示例值：
+   */
+  @SerializedName("district_id_list")
+  private String[] districtIdList;
+
+  /**
+   * 区/县状态列表，不填则返回全部
+   *
+   * <p>示例值：
+   */
+  @SerializedName("status_list")
+  private Integer[] statusList;
+
+  public String[] getCityIdList() {
+    return this.cityIdList;
+  }
+
+  public void setCityIdList(String[] cityIdList) {
+    this.cityIdList = cityIdList;
+  }
+
+  public String[] getDistrictIdList() {
+    return this.districtIdList;
+  }
+
+  public void setDistrictIdList(String[] districtIdList) {
+    this.districtIdList = districtIdList;
+  }
+
+  public Integer[] getStatusList() {
+    return this.statusList;
+  }
+
+  public void setStatusList(Integer[] statusList) {
+    this.statusList = statusList;
+  }
+
+  // builder 开始
+  public SearchBasicInfoDistrictReqBody() {}
+
+  public SearchBasicInfoDistrictReqBody(Builder builder) {
     /**
-     * 所属城市 ID 列表，可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口列举，或从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.city_v2_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.city_v2_id` 等字段中获取
-     * <p> 示例值：
+     * 所属城市 ID
+     * 列表，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search);接口查询获得，不填写则返回全部列表
+     *
+     * <p>示例值：
      */
-    @SerializedName("city_id_list")
+    this.cityIdList = builder.cityIdList;
+    /**
+     * 区/县 ID 列表，不填则返回全部
+     *
+     * <p>示例值：
+     */
+    this.districtIdList = builder.districtIdList;
+    /**
+     * 区/县状态列表，不填则返回全部
+     *
+     * <p>示例值：
+     */
+    this.statusList = builder.statusList;
+  }
+
+  public static class Builder {
+    /**
+     * 所属城市 ID
+     * 列表，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search);接口查询获得，不填写则返回全部列表
+     *
+     * <p>示例值：
+     */
     private String[] cityIdList;
+
     /**
-     * 区/县 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.district_id_v2`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.district_id_v2` 等字段中获取
-     * <p> 示例值：
+     * 区/县 ID 列表，不填则返回全部
+     *
+     * <p>示例值：
      */
-    @SerializedName("district_id_list")
     private String[] districtIdList;
+
     /**
-     * 状态列表
-     * <p> 示例值：
+     * 区/县状态列表，不填则返回全部
+     *
+     * <p>示例值：
      */
-    @SerializedName("status_list")
     private Integer[] statusList;
 
-    // builder 开始
-    public SearchBasicInfoDistrictReqBody() {
+    /**
+     * 所属城市 ID
+     * 列表，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search);接口查询获得，不填写则返回全部列表
+     *
+     * <p>示例值：
+     *
+     * @param cityIdList
+     * @return
+     */
+    public Builder cityIdList(String[] cityIdList) {
+      this.cityIdList = cityIdList;
+      return this;
     }
 
-    public SearchBasicInfoDistrictReqBody(Builder builder) {
-        /**
-         * 所属城市 ID 列表，可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口列举，或从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.city_v2_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.city_v2_id` 等字段中获取
-         * <p> 示例值：
-         */
-        this.cityIdList = builder.cityIdList;
-        /**
-         * 区/县 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.district_id_v2`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.district_id_v2` 等字段中获取
-         * <p> 示例值：
-         */
-        this.districtIdList = builder.districtIdList;
-        /**
-         * 状态列表
-         * <p> 示例值：
-         */
-        this.statusList = builder.statusList;
+    /**
+     * 区/县 ID 列表，不填则返回全部
+     *
+     * <p>示例值：
+     *
+     * @param districtIdList
+     * @return
+     */
+    public Builder districtIdList(String[] districtIdList) {
+      this.districtIdList = districtIdList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 区/县状态列表，不填则返回全部
+     *
+     * <p>示例值：
+     *
+     * @param statusList
+     * @return
+     */
+    public Builder statusList(Integer[] statusList) {
+      this.statusList = statusList;
+      return this;
     }
 
-    public String[] getCityIdList() {
-        return this.cityIdList;
+    public SearchBasicInfoDistrictReqBody build() {
+      return new SearchBasicInfoDistrictReqBody(this);
     }
+  }
 
-    public void setCityIdList(String[] cityIdList) {
-        this.cityIdList = cityIdList;
-    }
-
-    public String[] getDistrictIdList() {
-        return this.districtIdList;
-    }
-
-    public void setDistrictIdList(String[] districtIdList) {
-        this.districtIdList = districtIdList;
-    }
-
-    public Integer[] getStatusList() {
-        return this.statusList;
-    }
-
-    public void setStatusList(Integer[] statusList) {
-        this.statusList = statusList;
-    }
-
-    public static class Builder {
-        /**
-         * 所属城市 ID 列表，可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口列举，或从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.city_v2_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.city_v2_id` 等字段中获取
-         * <p> 示例值：
-         */
-        private String[] cityIdList;
-        /**
-         * 区/县 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.district_id_v2`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.district_id_v2` 等字段中获取
-         * <p> 示例值：
-         */
-        private String[] districtIdList;
-        /**
-         * 状态列表
-         * <p> 示例值：
-         */
-        private Integer[] statusList;
-
-        /**
-         * 所属城市 ID 列表，可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口列举，或从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.city_v2_id`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.city_v2_id` 等字段中获取
-         * <p> 示例值：
-         *
-         * @param cityIdList
-         * @return
-         */
-        public Builder cityIdList(String[] cityIdList) {
-            this.cityIdList = cityIdList;
-            return this;
-        }
-
-
-        /**
-         * 区/县 ID 列表，可从[批量查询地点](https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list)接口返回的 `location.address.district_id_v2`、[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口返回的 `person_info.address_list.district_id_v2` 等字段中获取
-         * <p> 示例值：
-         *
-         * @param districtIdList
-         * @return
-         */
-        public Builder districtIdList(String[] districtIdList) {
-            this.districtIdList = districtIdList;
-            return this;
-        }
-
-
-        /**
-         * 状态列表
-         * <p> 示例值：
-         *
-         * @param statusList
-         * @return
-         */
-        public Builder statusList(Integer[] statusList) {
-            this.statusList = statusList;
-            return this;
-        }
-
-
-        public SearchBasicInfoDistrictReqBody build() {
-            return new SearchBasicInfoDistrictReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

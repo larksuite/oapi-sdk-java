@@ -13,263 +13,276 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class DataModelPermissionAccess {
+  /**
+   * 对象的api_id
+   *
+   * <p>示例值：api_id
+   */
+  @SerializedName("api_id")
+  private String apiId;
+
+  /**
+   * 对象的api_name
+   *
+   * <p>示例值：api_name
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 允许的权限列，对应枚举如下：1 ：读权限2 ：写权限3 ：创建权限4 ：删除权限5 ：操作日志权限
+   *
+   * <p>示例值：
+   */
+  @SerializedName("allowed_access")
+  private Integer[] allowedAccess;
+
+  /**
+   * 字段信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fields")
+  private FieldPermissionAccess[] fields;
+
+  /**
+   * 对象类型,;枚举：;object/;dataset
+   *
+   * <p>示例值：data
+   */
+  @SerializedName("data_model_type")
+  private String dataModelType;
+
+  /**
+   * 对象的展示名称
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("display_name")
+  private Map<String, String> displayName;
+
+  public String getApiId() {
+    return this.apiId;
+  }
+
+  public void setApiId(String apiId) {
+    this.apiId = apiId;
+  }
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Integer[] getAllowedAccess() {
+    return this.allowedAccess;
+  }
+
+  public void setAllowedAccess(Integer[] allowedAccess) {
+    this.allowedAccess = allowedAccess;
+  }
+
+  public FieldPermissionAccess[] getFields() {
+    return this.fields;
+  }
+
+  public void setFields(FieldPermissionAccess[] fields) {
+    this.fields = fields;
+  }
+
+  public String getDataModelType() {
+    return this.dataModelType;
+  }
+
+  public void setDataModelType(String dataModelType) {
+    this.dataModelType = dataModelType;
+  }
+
+  public Map<String, String> getDisplayName() {
+    return this.displayName;
+  }
+
+  public void setDisplayName(Map<String, String> displayName) {
+    this.displayName = displayName;
+  }
+
+  // builder 开始
+  public DataModelPermissionAccess() {}
+
+  public DataModelPermissionAccess(Builder builder) {
     /**
      * 对象的api_id
-     * <p> 示例值：api_id
+     *
+     * <p>示例值：api_id
      */
-    @SerializedName("api_id")
-    private String apiId;
+    this.apiId = builder.apiId;
     /**
      * 对象的api_name
-     * <p> 示例值：api_name
+     *
+     * <p>示例值：api_name
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
-     * 权限列表
-     * <p> 示例值：
+     * 允许的权限列，对应枚举如下：1 ：读权限2 ：写权限3 ：创建权限4 ：删除权限5 ：操作日志权限
+     *
+     * <p>示例值：
      */
-    @SerializedName("allowed_access")
-    private Integer[] allowedAccess;
+    this.allowedAccess = builder.allowedAccess;
     /**
      * 字段信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("fields")
-    private FieldPermissionAccess[] fields;
+    this.fields = builder.fields;
     /**
-     * 对象模型类型
-     * <p> 示例值：data
+     * 对象类型,;枚举：;object/;dataset
+     *
+     * <p>示例值：data
      */
-    @SerializedName("data_model_type")
-    private String dataModelType;
+    this.dataModelType = builder.dataModelType;
     /**
      * 对象的展示名称
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("display_name")
+    this.displayName = builder.displayName;
+  }
+
+  public static class Builder {
+    /**
+     * 对象的api_id
+     *
+     * <p>示例值：api_id
+     */
+    private String apiId;
+
+    /**
+     * 对象的api_name
+     *
+     * <p>示例值：api_name
+     */
+    private String apiName;
+
+    /**
+     * 允许的权限列，对应枚举如下：1 ：读权限2 ：写权限3 ：创建权限4 ：删除权限5 ：操作日志权限
+     *
+     * <p>示例值：
+     */
+    private Integer[] allowedAccess;
+
+    /**
+     * 字段信息
+     *
+     * <p>示例值：
+     */
+    private FieldPermissionAccess[] fields;
+
+    /**
+     * 对象类型,;枚举：;object/;dataset
+     *
+     * <p>示例值：data
+     */
+    private String dataModelType;
+
+    /**
+     * 对象的展示名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
     private Map<String, String> displayName;
 
-    // builder 开始
-    public DataModelPermissionAccess() {
+    /**
+     * 对象的api_id
+     *
+     * <p>示例值：api_id
+     *
+     * @param apiId
+     * @return
+     */
+    public Builder apiId(String apiId) {
+      this.apiId = apiId;
+      return this;
     }
 
-    public DataModelPermissionAccess(Builder builder) {
-        /**
-         * 对象的api_id
-         * <p> 示例值：api_id
-         */
-        this.apiId = builder.apiId;
-        /**
-         * 对象的api_name
-         * <p> 示例值：api_name
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 权限列表
-         * <p> 示例值：
-         */
-        this.allowedAccess = builder.allowedAccess;
-        /**
-         * 字段信息
-         * <p> 示例值：
-         */
-        this.fields = builder.fields;
-        /**
-         * 对象模型类型
-         * <p> 示例值：data
-         */
-        this.dataModelType = builder.dataModelType;
-        /**
-         * 对象的展示名称
-         * <p> 示例值：
-         */
-        this.displayName = builder.displayName;
+    /**
+     * 对象的api_name
+     *
+     * <p>示例值：api_name
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 允许的权限列，对应枚举如下：1 ：读权限2 ：写权限3 ：创建权限4 ：删除权限5 ：操作日志权限
+     *
+     * <p>示例值：
+     *
+     * @param allowedAccess
+     * @return
+     */
+    public Builder allowedAccess(Integer[] allowedAccess) {
+      this.allowedAccess = allowedAccess;
+      return this;
     }
 
-    public String getApiId() {
-        return this.apiId;
+    /**
+     * 字段信息
+     *
+     * <p>示例值：
+     *
+     * @param fields
+     * @return
+     */
+    public Builder fields(FieldPermissionAccess[] fields) {
+      this.fields = fields;
+      return this;
     }
 
-    public void setApiId(String apiId) {
-        this.apiId = apiId;
+    /**
+     * 对象类型,;枚举：;object/;dataset
+     *
+     * <p>示例值：data
+     *
+     * @param dataModelType
+     * @return
+     */
+    public Builder dataModelType(String dataModelType) {
+      this.dataModelType = dataModelType;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 对象的展示名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param displayName
+     * @return
+     */
+    public Builder displayName(Map<String, String> displayName) {
+      this.displayName = displayName;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    public DataModelPermissionAccess build() {
+      return new DataModelPermissionAccess(this);
     }
+  }
 
-    public Integer[] getAllowedAccess() {
-        return this.allowedAccess;
-    }
-
-    public void setAllowedAccess(Integer[] allowedAccess) {
-        this.allowedAccess = allowedAccess;
-    }
-
-    public FieldPermissionAccess[] getFields() {
-        return this.fields;
-    }
-
-    public void setFields(FieldPermissionAccess[] fields) {
-        this.fields = fields;
-    }
-
-    public String getDataModelType() {
-        return this.dataModelType;
-    }
-
-    public void setDataModelType(String dataModelType) {
-        this.dataModelType = dataModelType;
-    }
-
-    public Map<String, String> getDisplayName() {
-        return this.displayName;
-    }
-
-    public void setDisplayName(Map<String, String> displayName) {
-        this.displayName = displayName;
-    }
-
-    public static class Builder {
-        /**
-         * 对象的api_id
-         * <p> 示例值：api_id
-         */
-        private String apiId;
-        /**
-         * 对象的api_name
-         * <p> 示例值：api_name
-         */
-        private String apiName;
-        /**
-         * 权限列表
-         * <p> 示例值：
-         */
-        private Integer[] allowedAccess;
-        /**
-         * 字段信息
-         * <p> 示例值：
-         */
-        private FieldPermissionAccess[] fields;
-        /**
-         * 对象模型类型
-         * <p> 示例值：data
-         */
-        private String dataModelType;
-        /**
-         * 对象的展示名称
-         * <p> 示例值：
-         */
-        private Map<String, String> displayName;
-
-        /**
-         * 对象的api_id
-         * <p> 示例值：api_id
-         *
-         * @param apiId
-         * @return
-         */
-        public Builder apiId(String apiId) {
-            this.apiId = apiId;
-            return this;
-        }
-
-
-        /**
-         * 对象的api_name
-         * <p> 示例值：api_name
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 权限列表
-         * <p> 示例值：
-         *
-         * @param allowedAccess
-         * @return
-         */
-        public Builder allowedAccess(Integer[] allowedAccess) {
-            this.allowedAccess = allowedAccess;
-            return this;
-        }
-
-
-        /**
-         * 字段信息
-         * <p> 示例值：
-         *
-         * @param fields
-         * @return
-         */
-        public Builder fields(FieldPermissionAccess[] fields) {
-            this.fields = fields;
-            return this;
-        }
-
-
-        /**
-         * 对象模型类型
-         * <p> 示例值：data
-         *
-         * @param dataModelType
-         * @return
-         */
-        public Builder dataModelType(String dataModelType) {
-            this.dataModelType = dataModelType;
-            return this;
-        }
-
-
-        /**
-         * 对象的展示名称
-         * <p> 示例值：
-         *
-         * @param displayName
-         * @return
-         */
-        public Builder displayName(Map<String, String> displayName) {
-            this.displayName = displayName;
-            return this;
-        }
-
-
-        public DataModelPermissionAccess build() {
-            return new DataModelPermissionAccess(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

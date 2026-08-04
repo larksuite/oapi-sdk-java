@@ -13,143 +13,108 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class UnknownPin {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("title")
+  /** 示例值： */
+  @SerializedName("title")
+  private String title;
+
+  /** 示例值： */
+  @SerializedName("i18n_title")
+  private Map<String, String> i18nTitle;
+
+  /** 示例值： */
+  @SerializedName("icon")
+  private ChatPinIcon icon;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public Map<String, String> getI18nTitle() {
+    return this.i18nTitle;
+  }
+
+  public void setI18nTitle(Map<String, String> i18nTitle) {
+    this.i18nTitle = i18nTitle;
+  }
+
+  public ChatPinIcon getIcon() {
+    return this.icon;
+  }
+
+  public void setIcon(ChatPinIcon icon) {
+    this.icon = icon;
+  }
+
+  // builder 开始
+  public UnknownPin() {}
+
+  public UnknownPin(Builder builder) {
+    /** 示例值： */
+    this.title = builder.title;
+    /** 示例值： */
+    this.i18nTitle = builder.i18nTitle;
+    /** 示例值： */
+    this.icon = builder.icon;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private String title;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("i18n_title")
+
+    /** 示例值： */
     private Map<String, String> i18nTitle;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("icon")
+
+    /** 示例值： */
     private ChatPinIcon icon;
 
-    // builder 开始
-    public UnknownPin() {
+    /**
+     * 示例值：
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public UnknownPin(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.title = builder.title;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.i18nTitle = builder.i18nTitle;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.icon = builder.icon;
+    /**
+     * 示例值：
+     *
+     * @param i18nTitle
+     * @return
+     */
+    public Builder i18nTitle(Map<String, String> i18nTitle) {
+      this.i18nTitle = i18nTitle;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 示例值：
+     *
+     * @param icon
+     * @return
+     */
+    public Builder icon(ChatPinIcon icon) {
+      this.icon = icon;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    public UnknownPin build() {
+      return new UnknownPin(this);
     }
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Map<String, String> getI18nTitle() {
-        return this.i18nTitle;
-    }
-
-    public void setI18nTitle(Map<String, String> i18nTitle) {
-        this.i18nTitle = i18nTitle;
-    }
-
-    public ChatPinIcon getIcon() {
-        return this.icon;
-    }
-
-    public void setIcon(ChatPinIcon icon) {
-        this.icon = icon;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private String title;
-        /**
-         * <p> 示例值：
-         */
-        private Map<String, String> i18nTitle;
-        /**
-         * <p> 示例值：
-         */
-        private ChatPinIcon icon;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param i18nTitle
-         * @return
-         */
-        public Builder i18nTitle(Map<String, String> i18nTitle) {
-            this.i18nTitle = i18nTitle;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param icon
-         * @return
-         */
-        public Builder icon(ChatPinIcon icon) {
-            this.icon = icon;
-            return this;
-        }
-
-
-        public UnknownPin build() {
-            return new UnknownPin(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,124 +13,121 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Sorter {
+  /**
+   * 排序字段
+   *
+   * <p>示例值：create_time
+   */
+  @SerializedName("sorterfield")
+  private String sorterfield;
+
+  /**
+   * 是否升序（默认降序）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_asc")
+  private Boolean isAsc;
+
+  public String getSorterfield() {
+    return this.sorterfield;
+  }
+
+  public void setSorterfield(String sorterfield) {
+    this.sorterfield = sorterfield;
+  }
+
+  public Boolean getIsAsc() {
+    return this.isAsc;
+  }
+
+  public void setIsAsc(Boolean isAsc) {
+    this.isAsc = isAsc;
+  }
+
+  // builder 开始
+  public Sorter() {}
+
+  public Sorter(Builder builder) {
     /**
      * 排序字段
-     * <p> 示例值：create_time
+     *
+     * <p>示例值：create_time
      */
-    @SerializedName("sorterfield")
-    private String sorterfield;
+    this.sorterfield = builder.sorterfield;
     /**
      * 是否升序（默认降序）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_asc")
+    this.isAsc = builder.isAsc;
+  }
+
+  public static class Builder {
+    /**
+     * 排序字段
+     *
+     * <p>示例值：create_time
+     */
+    private String sorterfield;
+
+    /**
+     * 是否升序（默认降序）
+     *
+     * <p>示例值：
+     */
     private Boolean isAsc;
 
-    // builder 开始
-    public Sorter() {
+    /**
+     * 排序字段
+     *
+     * <p>示例值：create_time
+     *
+     * @param sorterfield
+     * @return
+     */
+    public Builder sorterfield(String sorterfield) {
+      this.sorterfield = sorterfield;
+      return this;
     }
 
-    public Sorter(Builder builder) {
-        /**
-         * 排序字段
-         * <p> 示例值：create_time
-         */
-        this.sorterfield = builder.sorterfield;
-        /**
-         * 是否升序（默认降序）
-         * <p> 示例值：
-         */
-        this.isAsc = builder.isAsc;
+    /**
+     * 排序字段
+     *
+     * <p>示例值：create_time
+     *
+     * @param sorterfield {@link com.lark.oapi.service.search.v2.enums.SorterSorterfieldEnum}
+     * @return
+     */
+    public Builder sorterfield(
+        com.lark.oapi.service.search.v2.enums.SorterSorterfieldEnum sorterfield) {
+      this.sorterfield = sorterfield.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否升序（默认降序）
+     *
+     * <p>示例值：
+     *
+     * @param isAsc
+     * @return
+     */
+    public Builder isAsc(Boolean isAsc) {
+      this.isAsc = isAsc;
+      return this;
     }
 
-    public String getSorterfield() {
-        return this.sorterfield;
+    public Sorter build() {
+      return new Sorter(this);
     }
+  }
 
-    public void setSorterfield(String sorterfield) {
-        this.sorterfield = sorterfield;
-    }
-
-    public Boolean getIsAsc() {
-        return this.isAsc;
-    }
-
-    public void setIsAsc(Boolean isAsc) {
-        this.isAsc = isAsc;
-    }
-
-    public static class Builder {
-        /**
-         * 排序字段
-         * <p> 示例值：create_time
-         */
-        private String sorterfield;
-        /**
-         * 是否升序（默认降序）
-         * <p> 示例值：
-         */
-        private Boolean isAsc;
-
-        /**
-         * 排序字段
-         * <p> 示例值：create_time
-         *
-         * @param sorterfield
-         * @return
-         */
-        public Builder sorterfield(String sorterfield) {
-            this.sorterfield = sorterfield;
-            return this;
-        }
-
-        /**
-         * 排序字段
-         * <p> 示例值：create_time
-         *
-         * @param sorterfield {@link com.lark.oapi.service.search.v2.enums.SorterSorterfieldEnum}
-         * @return
-         */
-        public Builder sorterfield(com.lark.oapi.service.search.v2.enums.SorterSorterfieldEnum sorterfield) {
-            this.sorterfield = sorterfield.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否升序（默认降序）
-         * <p> 示例值：
-         *
-         * @param isAsc
-         * @return
-         */
-        public Builder isAsc(Boolean isAsc) {
-            this.isAsc = isAsc;
-            return this;
-        }
-
-
-        public Sorter build() {
-            return new Sorter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

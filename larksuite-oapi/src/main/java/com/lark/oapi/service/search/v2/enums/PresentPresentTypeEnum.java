@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 透传数据类型
- */
+/** 透传数据类型 */
 public enum PresentPresentTypeEnum {
-    RICHTEXT("rich_text"), // 富文本消息
-    CARD("card"), // 开放平台支持的通用卡片
-    TEMPLATECARD("template_card"), // 平台的卡片模版
-    ;
-    private String value;
+  RICHTEXT("rich_text"), // 富文本消息
+  CARD("card"), // 开放平台支持的通用卡片
+  TEMPLATECARD("template_card"), // 平台的卡片模版
+  ;
+  private String value;
 
-    PresentPresentTypeEnum(String value) {
-        this.value = value;
-    }
+  PresentPresentTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

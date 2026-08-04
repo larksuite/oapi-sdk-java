@@ -13,106 +13,100 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.apaas.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.apaas.v1.enums.*;
 
 public class GetApplicationEnvironmentVariableReq {
+  /**
+   * 应用命名空间
+   *
+   * <p>示例值：package_test__c
+   */
+  @Path
+  @SerializedName("namespace")
+  private String namespace;
+
+  /**
+   * 环境变量 API 名称
+   *
+   * <p>示例值：globalParam_0b410b17704
+   */
+  @Path
+  @SerializedName("environment_variable_api_name")
+  private String environmentVariableApiName;
+
+  public String getNamespace() {
+    return this.namespace;
+  }
+
+  public void setNamespace(String namespace) {
+    this.namespace = namespace;
+  }
+
+  public String getEnvironmentVariableApiName() {
+    return this.environmentVariableApiName;
+  }
+
+  public void setEnvironmentVariableApiName(String environmentVariableApiName) {
+    this.environmentVariableApiName = environmentVariableApiName;
+  }
+
+  // builder 开始
+  public GetApplicationEnvironmentVariableReq() {}
+
+  public GetApplicationEnvironmentVariableReq(Builder builder) {
     /**
      * 应用命名空间
-     * <p> 示例值：package_test__c
+     *
+     * <p>示例值：package_test__c
      */
-    @Path
-    @SerializedName("namespace")
-    private String namespace;
+    this.namespace = builder.namespace;
     /**
      * 环境变量 API 名称
-     * <p> 示例值：globalParam_0b410b17704
+     *
+     * <p>示例值：globalParam_0b410b17704
      */
-    @Path
-    @SerializedName("environment_variable_api_name")
-    private String environmentVariableApiName;
+    this.environmentVariableApiName = builder.environmentVariableApiName;
+  }
 
-    // builder 开始
-    public GetApplicationEnvironmentVariableReq() {
+  public static class Builder {
+
+    private String namespace; // 应用命名空间
+    private String environmentVariableApiName; // 环境变量 API 名称
+
+    /**
+     * 应用命名空间
+     *
+     * <p>示例值：package_test__c
+     *
+     * @param namespace
+     * @return
+     */
+    public Builder namespace(String namespace) {
+      this.namespace = namespace;
+      return this;
     }
 
-    public GetApplicationEnvironmentVariableReq(Builder builder) {
-        /**
-         * 应用命名空间
-         * <p> 示例值：package_test__c
-         */
-        this.namespace = builder.namespace;
-        /**
-         * 环境变量 API 名称
-         * <p> 示例值：globalParam_0b410b17704
-         */
-        this.environmentVariableApiName = builder.environmentVariableApiName;
+    /**
+     * 环境变量 API 名称
+     *
+     * <p>示例值：globalParam_0b410b17704
+     *
+     * @param environmentVariableApiName
+     * @return
+     */
+    public Builder environmentVariableApiName(String environmentVariableApiName) {
+      this.environmentVariableApiName = environmentVariableApiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GetApplicationEnvironmentVariableReq build() {
+      return new GetApplicationEnvironmentVariableReq(this);
     }
+  }
 
-    public String getNamespace() {
-        return this.namespace;
-    }
-
-    public void setNamespace(String namespace) {
-        this.namespace = namespace;
-    }
-
-    public String getEnvironmentVariableApiName() {
-        return this.environmentVariableApiName;
-    }
-
-    public void setEnvironmentVariableApiName(String environmentVariableApiName) {
-        this.environmentVariableApiName = environmentVariableApiName;
-    }
-
-    public static class Builder {
-
-        private String namespace; // 应用命名空间
-        private String environmentVariableApiName; // 环境变量 API 名称
-
-        /**
-         * 应用命名空间
-         * <p> 示例值：package_test__c
-         *
-         * @param namespace
-         * @return
-         */
-        public Builder namespace(String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
-
-
-        /**
-         * 环境变量 API 名称
-         * <p> 示例值：globalParam_0b410b17704
-         *
-         * @param environmentVariableApiName
-         * @return
-         */
-        public Builder environmentVariableApiName(String environmentVariableApiName) {
-            this.environmentVariableApiName = environmentVariableApiName;
-            return this;
-        }
-
-
-        public GetApplicationEnvironmentVariableReq build() {
-            return new GetApplicationEnvironmentVariableReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

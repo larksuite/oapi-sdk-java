@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PreviewInstanceRespBody {
-    /**
-     * 预览节点信息
-     * <p> 示例值：
-     */
-    @SerializedName("preview_nodes")
-    private PreviewNode[] previewNodes;
+  /**
+   * 预览节点信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("preview_nodes")
+  private PreviewNode[] previewNodes;
 
-    public PreviewNode[] getPreviewNodes() {
-        return this.previewNodes;
-    }
+  public PreviewNode[] getPreviewNodes() {
+    return this.previewNodes;
+  }
 
-    public void setPreviewNodes(PreviewNode[] previewNodes) {
-        this.previewNodes = previewNodes;
-    }
-
+  public void setPreviewNodes(PreviewNode[] previewNodes) {
+    this.previewNodes = previewNodes;
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OkrObjectiveAlignment {
+  /**
+   * ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 目标id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("to_id")
+  private String toId;
+
+  /**
+   * 目标类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("to_type")
+  private Integer toType;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getToId() {
+    return this.toId;
+  }
+
+  public void setToId(String toId) {
+    this.toId = toId;
+  }
+
+  public Integer getToType() {
+    return this.toType;
+  }
+
+  public void setToType(Integer toType) {
+    this.toType = toType;
+  }
+
+  // builder 开始
+  public OkrObjectiveAlignment() {}
+
+  public OkrObjectiveAlignment(Builder builder) {
     /**
      * ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 目标id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("to_id")
-    private String toId;
+    this.toId = builder.toId;
     /**
      * 目标类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("to_type")
+    this.toType = builder.toType;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：
+     */
+    private String id;
+
+    /**
+     * 目标id
+     *
+     * <p>示例值：
+     */
+    private String toId;
+
+    /**
+     * 目标类型
+     *
+     * <p>示例值：
+     */
     private Integer toType;
 
-    // builder 开始
-    public OkrObjectiveAlignment() {
+    /**
+     * ID
+     *
+     * <p>示例值：
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public OkrObjectiveAlignment(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         * 目标id
-         * <p> 示例值：
-         */
-        this.toId = builder.toId;
-        /**
-         * 目标类型
-         * <p> 示例值：
-         */
-        this.toType = builder.toType;
+    /**
+     * 目标id
+     *
+     * <p>示例值：
+     *
+     * @param toId
+     * @return
+     */
+    public Builder toId(String toId) {
+      this.toId = toId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 目标类型
+     *
+     * <p>示例值：
+     *
+     * @param toType
+     * @return
+     */
+    public Builder toType(Integer toType) {
+      this.toType = toType;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public OkrObjectiveAlignment build() {
+      return new OkrObjectiveAlignment(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getToId() {
-        return this.toId;
-    }
-
-    public void setToId(String toId) {
-        this.toId = toId;
-    }
-
-    public Integer getToType() {
-        return this.toType;
-    }
-
-    public void setToType(Integer toType) {
-        this.toType = toType;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：
-         */
-        private String id;
-        /**
-         * 目标id
-         * <p> 示例值：
-         */
-        private String toId;
-        /**
-         * 目标类型
-         * <p> 示例值：
-         */
-        private Integer toType;
-
-        /**
-         * ID
-         * <p> 示例值：
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 目标id
-         * <p> 示例值：
-         *
-         * @param toId
-         * @return
-         */
-        public Builder toId(String toId) {
-            this.toId = toId;
-            return this;
-        }
-
-
-        /**
-         * 目标类型
-         * <p> 示例值：
-         *
-         * @param toType
-         * @return
-         */
-        public Builder toType(Integer toType) {
-            this.toType = toType;
-            return this;
-        }
-
-
-        public OkrObjectiveAlignment build() {
-            return new OkrObjectiveAlignment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

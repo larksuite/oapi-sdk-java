@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ActualWorkLocation {
+  /**
+   * 工作地点ID
+   *
+   * <p>示例值：7109475834939434
+   */
+  @SerializedName("work_location_id")
+  private String workLocationId;
+
+  /**
+   * 生效时间
+   *
+   * <p>示例值：2020-01-01 00:00:00
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 来源
+   *
+   * <p>示例值：
+   */
+  @SerializedName("source")
+  private Enum source;
+
+  /**
+   * Wk ID
+   *
+   * <p>示例值：7109475834939434
+   */
+  @SerializedName("wk_id")
+  private String wkId;
+
+  /**
+   * Wk TID
+   *
+   * <p>示例值：7109475834939434
+   */
+  @SerializedName("wk_tid")
+  private String wkTid;
+
+  public String getWorkLocationId() {
+    return this.workLocationId;
+  }
+
+  public void setWorkLocationId(String workLocationId) {
+    this.workLocationId = workLocationId;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public Enum getSource() {
+    return this.source;
+  }
+
+  public void setSource(Enum source) {
+    this.source = source;
+  }
+
+  public String getWkId() {
+    return this.wkId;
+  }
+
+  public void setWkId(String wkId) {
+    this.wkId = wkId;
+  }
+
+  public String getWkTid() {
+    return this.wkTid;
+  }
+
+  public void setWkTid(String wkTid) {
+    this.wkTid = wkTid;
+  }
+
+  // builder 开始
+  public ActualWorkLocation() {}
+
+  public ActualWorkLocation(Builder builder) {
     /**
      * 工作地点ID
-     * <p> 示例值：7109475834939434
+     *
+     * <p>示例值：7109475834939434
      */
-    @SerializedName("work_location_id")
-    private String workLocationId;
+    this.workLocationId = builder.workLocationId;
     /**
      * 生效时间
-     * <p> 示例值：2020-01-01 00:00:00
+     *
+     * <p>示例值：2020-01-01 00:00:00
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 来源
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("source")
-    private Enum source;
+    this.source = builder.source;
     /**
      * Wk ID
-     * <p> 示例值：7109475834939434
+     *
+     * <p>示例值：7109475834939434
      */
-    @SerializedName("wk_id")
-    private String wkId;
+    this.wkId = builder.wkId;
     /**
      * Wk TID
-     * <p> 示例值：7109475834939434
+     *
+     * <p>示例值：7109475834939434
      */
-    @SerializedName("wk_tid")
+    this.wkTid = builder.wkTid;
+  }
+
+  public static class Builder {
+    /**
+     * 工作地点ID
+     *
+     * <p>示例值：7109475834939434
+     */
+    private String workLocationId;
+
+    /**
+     * 生效时间
+     *
+     * <p>示例值：2020-01-01 00:00:00
+     */
+    private String effectiveTime;
+
+    /**
+     * 来源
+     *
+     * <p>示例值：
+     */
+    private Enum source;
+
+    /**
+     * Wk ID
+     *
+     * <p>示例值：7109475834939434
+     */
+    private String wkId;
+
+    /**
+     * Wk TID
+     *
+     * <p>示例值：7109475834939434
+     */
     private String wkTid;
 
-    // builder 开始
-    public ActualWorkLocation() {
+    /**
+     * 工作地点ID
+     *
+     * <p>示例值：7109475834939434
+     *
+     * @param workLocationId
+     * @return
+     */
+    public Builder workLocationId(String workLocationId) {
+      this.workLocationId = workLocationId;
+      return this;
     }
 
-    public ActualWorkLocation(Builder builder) {
-        /**
-         * 工作地点ID
-         * <p> 示例值：7109475834939434
-         */
-        this.workLocationId = builder.workLocationId;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01 00:00:00
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 来源
-         * <p> 示例值：
-         */
-        this.source = builder.source;
-        /**
-         * Wk ID
-         * <p> 示例值：7109475834939434
-         */
-        this.wkId = builder.wkId;
-        /**
-         * Wk TID
-         * <p> 示例值：7109475834939434
-         */
-        this.wkTid = builder.wkTid;
+    /**
+     * 生效时间
+     *
+     * <p>示例值：2020-01-01 00:00:00
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 来源
+     *
+     * <p>示例值：
+     *
+     * @param source
+     * @return
+     */
+    public Builder source(Enum source) {
+      this.source = source;
+      return this;
     }
 
-    public String getWorkLocationId() {
-        return this.workLocationId;
+    /**
+     * Wk ID
+     *
+     * <p>示例值：7109475834939434
+     *
+     * @param wkId
+     * @return
+     */
+    public Builder wkId(String wkId) {
+      this.wkId = wkId;
+      return this;
     }
 
-    public void setWorkLocationId(String workLocationId) {
-        this.workLocationId = workLocationId;
+    /**
+     * Wk TID
+     *
+     * <p>示例值：7109475834939434
+     *
+     * @param wkTid
+     * @return
+     */
+    public Builder wkTid(String wkTid) {
+      this.wkTid = wkTid;
+      return this;
     }
 
-    public String getEffectiveTime() {
-        return this.effectiveTime;
+    public ActualWorkLocation build() {
+      return new ActualWorkLocation(this);
     }
+  }
 
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public Enum getSource() {
-        return this.source;
-    }
-
-    public void setSource(Enum source) {
-        this.source = source;
-    }
-
-    public String getWkId() {
-        return this.wkId;
-    }
-
-    public void setWkId(String wkId) {
-        this.wkId = wkId;
-    }
-
-    public String getWkTid() {
-        return this.wkTid;
-    }
-
-    public void setWkTid(String wkTid) {
-        this.wkTid = wkTid;
-    }
-
-    public static class Builder {
-        /**
-         * 工作地点ID
-         * <p> 示例值：7109475834939434
-         */
-        private String workLocationId;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01 00:00:00
-         */
-        private String effectiveTime;
-        /**
-         * 来源
-         * <p> 示例值：
-         */
-        private Enum source;
-        /**
-         * Wk ID
-         * <p> 示例值：7109475834939434
-         */
-        private String wkId;
-        /**
-         * Wk TID
-         * <p> 示例值：7109475834939434
-         */
-        private String wkTid;
-
-        /**
-         * 工作地点ID
-         * <p> 示例值：7109475834939434
-         *
-         * @param workLocationId
-         * @return
-         */
-        public Builder workLocationId(String workLocationId) {
-            this.workLocationId = workLocationId;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01 00:00:00
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 来源
-         * <p> 示例值：
-         *
-         * @param source
-         * @return
-         */
-        public Builder source(Enum source) {
-            this.source = source;
-            return this;
-        }
-
-
-        /**
-         * Wk ID
-         * <p> 示例值：7109475834939434
-         *
-         * @param wkId
-         * @return
-         */
-        public Builder wkId(String wkId) {
-            this.wkId = wkId;
-            return this;
-        }
-
-
-        /**
-         * Wk TID
-         * <p> 示例值：7109475834939434
-         *
-         * @param wkTid
-         * @return
-         */
-        public Builder wkTid(String wkTid) {
-            this.wkTid = wkTid;
-            return this;
-        }
-
-
-        public ActualWorkLocation build() {
-            return new ActualWorkLocation(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

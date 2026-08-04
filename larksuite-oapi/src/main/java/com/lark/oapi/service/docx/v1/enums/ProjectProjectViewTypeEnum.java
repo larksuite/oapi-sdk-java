@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.docx.v1.enums;
 
-/**
- * 视图类型，该字段仅在子类型为视图表格时返回
- */
+/** 视图类型，该字段仅在子类型为视图表格时返回 */
 public enum ProjectProjectViewTypeEnum {
-    NORMAL("Normal"), // 全部展开
-    PARTIALLYFOLDED("PartiallyFolded"), // 部分折叠
-    UNDEFINED("Undefined"), // 未定义
-    ;
-    private String value;
+  NORMAL("Normal"), // 全部展开
+  PARTIALLYFOLDED("PartiallyFolded"), // 部分折叠
+  UNDEFINED("Undefined"), // 未定义
+  ;
+  private String value;
 
-    ProjectProjectViewTypeEnum(String value) {
-        this.value = value;
-    }
+  ProjectProjectViewTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

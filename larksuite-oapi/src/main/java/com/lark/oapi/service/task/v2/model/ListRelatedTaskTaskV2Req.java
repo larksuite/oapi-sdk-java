@@ -13,212 +13,193 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class ListRelatedTaskTaskV2Req {
+  /** 示例值：10 */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /** 示例值： */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 是否按任务完成进行过滤。不填写表示不过滤。true返回已完成任务，false返回未完成任务
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("completed")
+  private Boolean completed;
+
+  /** 示例值： */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 任务最后更新时间
+   *
+   * <p>示例值：1775555156000
+   */
+  @Query
+  @SerializedName("task_updated_time")
+  private String taskUpdatedTime;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Boolean getCompleted() {
+    return this.completed;
+  }
+
+  public void setCompleted(Boolean completed) {
+    this.completed = completed;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getTaskUpdatedTime() {
+    return this.taskUpdatedTime;
+  }
+
+  public void setTaskUpdatedTime(String taskUpdatedTime) {
+    this.taskUpdatedTime = taskUpdatedTime;
+  }
+
+  // builder 开始
+  public ListRelatedTaskTaskV2Req() {}
+
+  public ListRelatedTaskTaskV2Req(Builder builder) {
+    /** 示例值：10 */
+    this.pageSize = builder.pageSize;
+    /** 示例值： */
+    this.pageToken = builder.pageToken;
     /**
-     * <p> 示例值：
+     * 是否按任务完成进行过滤。不填写表示不过滤。true返回已完成任务，false返回未完成任务
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
-    /**
-     * <p> 示例值：
-     */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 是否按任务完成进行过滤。不填写表示不过滤。
-     * <p> 示例值：
-     */
-    @Query
-    @SerializedName("completed")
-    private Boolean completed;
-    /**
-     * <p> 示例值：
-     */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.completed = builder.completed;
+    /** 示例值： */
+    this.userIdType = builder.userIdType;
     /**
      * 任务最后更新时间
-     * <p> 示例值：1775555156000
+     *
+     * <p>示例值：1775555156000
      */
-    @Query
-    @SerializedName("task_updated_time")
-    private String taskUpdatedTime;
+    this.taskUpdatedTime = builder.taskUpdatedTime;
+  }
 
-    // builder 开始
-    public ListRelatedTaskTaskV2Req() {
+  public static class Builder {
+    private Integer pageSize; //
+    private String pageToken; //
+    private Boolean completed; // 是否按任务完成进行过滤。不填写表示不过滤。true返回已完成任务，false返回未完成任务
+    private String userIdType; //
+    private String taskUpdatedTime; // 任务最后更新时间
+
+    /**
+     * 示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListRelatedTaskTaskV2Req(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 是否按任务完成进行过滤。不填写表示不过滤。
-         * <p> 示例值：
-         */
-        this.completed = builder.completed;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 任务最后更新时间
-         * <p> 示例值：1775555156000
-         */
-        this.taskUpdatedTime = builder.taskUpdatedTime;
+    /**
+     * 示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否按任务完成进行过滤。不填写表示不过滤。true返回已完成任务，false返回未完成任务
+     *
+     * <p>示例值：
+     *
+     * @param completed
+     * @return
+     */
+    public Builder completed(Boolean completed) {
+      this.completed = completed;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.task.v2.enums.ListRelatedTaskTaskV2UserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.task.v2.enums.ListRelatedTaskTaskV2UserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 任务最后更新时间
+     *
+     * <p>示例值：1775555156000
+     *
+     * @param taskUpdatedTime
+     * @return
+     */
+    public Builder taskUpdatedTime(String taskUpdatedTime) {
+      this.taskUpdatedTime = taskUpdatedTime;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    public ListRelatedTaskTaskV2Req build() {
+      return new ListRelatedTaskTaskV2Req(this);
     }
+  }
 
-    public Boolean getCompleted() {
-        return this.completed;
-    }
-
-    public void setCompleted(Boolean completed) {
-        this.completed = completed;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getTaskUpdatedTime() {
-        return this.taskUpdatedTime;
-    }
-
-    public void setTaskUpdatedTime(String taskUpdatedTime) {
-        this.taskUpdatedTime = taskUpdatedTime;
-    }
-
-    public static class Builder {
-        private Integer pageSize; //
-        private String pageToken; //
-        private Boolean completed; // 是否按任务完成进行过滤。不填写表示不过滤。
-        private String userIdType; //
-        private String taskUpdatedTime; // 任务最后更新时间
-
-        /**
-         * <p> 示例值：
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 是否按任务完成进行过滤。不填写表示不过滤。
-         * <p> 示例值：
-         *
-         * @param completed
-         * @return
-         */
-        public Builder completed(Boolean completed) {
-            this.completed = completed;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.task.v2.enums.ListRelatedTaskTaskV2UserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.task.v2.enums.ListRelatedTaskTaskV2UserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 任务最后更新时间
-         * <p> 示例值：1775555156000
-         *
-         * @param taskUpdatedTime
-         * @return
-         */
-        public Builder taskUpdatedTime(String taskUpdatedTime) {
-            this.taskUpdatedTime = taskUpdatedTime;
-            return this;
-        }
-
-
-        public ListRelatedTaskTaskV2Req build() {
-            return new ListRelatedTaskTaskV2Req(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

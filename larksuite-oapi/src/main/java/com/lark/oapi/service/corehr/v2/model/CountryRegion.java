@@ -13,309 +13,332 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CountryRegion {
+  /**
+   * 国家/地区 ID
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("country_region_id")
+  private String countryRegionId;
+
+  /**
+   * 国家/地区名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  /**
+   * 国家/地区全称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("full_name")
+  private I18n[] fullName;
+
+  /**
+   * 国家/地区两位字母编码（ISO 3166-1）
+   *
+   * <p>示例值：CN
+   */
+  @SerializedName("alpha_2_code")
+  private String alpha2Code;
+
+  /**
+   * 国家/地区三位字母编码（ISO 3166-1）
+   *
+   * <p>示例值：CHN
+   */
+  @SerializedName("alpha_3_code")
+  private String alpha3Code;
+
+  /**
+   * 国际电话区号
+   *
+   * <p>示例值：+86
+   */
+  @SerializedName("global_code")
+  private String globalCode;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  public String getCountryRegionId() {
+    return this.countryRegionId;
+  }
+
+  public void setCountryRegionId(String countryRegionId) {
+    this.countryRegionId = countryRegionId;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  public I18n[] getFullName() {
+    return this.fullName;
+  }
+
+  public void setFullName(I18n[] fullName) {
+    this.fullName = fullName;
+  }
+
+  public String getAlpha2Code() {
+    return this.alpha2Code;
+  }
+
+  public void setAlpha2Code(String alpha2Code) {
+    this.alpha2Code = alpha2Code;
+  }
+
+  public String getAlpha3Code() {
+    return this.alpha3Code;
+  }
+
+  public void setAlpha3Code(String alpha3Code) {
+    this.alpha3Code = alpha3Code;
+  }
+
+  public String getGlobalCode() {
+    return this.globalCode;
+  }
+
+  public void setGlobalCode(String globalCode) {
+    this.globalCode = globalCode;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public CountryRegion() {}
+
+  public CountryRegion(Builder builder) {
     /**
      * 国家/地区 ID
-     * <p> 示例值：6862995757234914824
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("country_region_id")
-    private String countryRegionId;
+    this.countryRegionId = builder.countryRegionId;
     /**
      * 国家/地区名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n[] name;
+    this.name = builder.name;
     /**
      * 国家/地区全称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("full_name")
-    private I18n[] fullName;
+    this.fullName = builder.fullName;
     /**
      * 国家/地区两位字母编码（ISO 3166-1）
-     * <p> 示例值：CN
+     *
+     * <p>示例值：CN
      */
-    @SerializedName("alpha_2_code")
-    private String alpha2Code;
+    this.alpha2Code = builder.alpha2Code;
     /**
      * 国家/地区三位字母编码（ISO 3166-1）
-     * <p> 示例值：CHN
+     *
+     * <p>示例值：CHN
      */
-    @SerializedName("alpha_3_code")
-    private String alpha3Code;
+    this.alpha3Code = builder.alpha3Code;
     /**
      * 国际电话区号
-     * <p> 示例值：+86
+     *
+     * <p>示例值：+86
      */
-    @SerializedName("global_code")
-    private String globalCode;
+    this.globalCode = builder.globalCode;
     /**
      * 状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 国家/地区 ID
+     *
+     * <p>示例值：6862995757234914824
+     */
+    private String countryRegionId;
+
+    /**
+     * 国家/地区名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] name;
+
+    /**
+     * 国家/地区全称
+     *
+     * <p>示例值：
+     */
+    private I18n[] fullName;
+
+    /**
+     * 国家/地区两位字母编码（ISO 3166-1）
+     *
+     * <p>示例值：CN
+     */
+    private String alpha2Code;
+
+    /**
+     * 国家/地区三位字母编码（ISO 3166-1）
+     *
+     * <p>示例值：CHN
+     */
+    private String alpha3Code;
+
+    /**
+     * 国际电话区号
+     *
+     * <p>示例值：+86
+     */
+    private String globalCode;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     */
     private Integer status;
 
-    // builder 开始
-    public CountryRegion() {
+    /**
+     * 国家/地区 ID
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param countryRegionId
+     * @return
+     */
+    public Builder countryRegionId(String countryRegionId) {
+      this.countryRegionId = countryRegionId;
+      return this;
     }
 
-    public CountryRegion(Builder builder) {
-        /**
-         * 国家/地区 ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.countryRegionId = builder.countryRegionId;
-        /**
-         * 国家/地区名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 国家/地区全称
-         * <p> 示例值：
-         */
-        this.fullName = builder.fullName;
-        /**
-         * 国家/地区两位字母编码（ISO 3166-1）
-         * <p> 示例值：CN
-         */
-        this.alpha2Code = builder.alpha2Code;
-        /**
-         * 国家/地区三位字母编码（ISO 3166-1）
-         * <p> 示例值：CHN
-         */
-        this.alpha3Code = builder.alpha3Code;
-        /**
-         * 国际电话区号
-         * <p> 示例值：+86
-         */
-        this.globalCode = builder.globalCode;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
+    /**
+     * 国家/地区名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 国家/地区全称
+     *
+     * <p>示例值：
+     *
+     * @param fullName
+     * @return
+     */
+    public Builder fullName(I18n[] fullName) {
+      this.fullName = fullName;
+      return this;
     }
 
-    public String getCountryRegionId() {
-        return this.countryRegionId;
+    /**
+     * 国家/地区两位字母编码（ISO 3166-1）
+     *
+     * <p>示例值：CN
+     *
+     * @param alpha2Code
+     * @return
+     */
+    public Builder alpha2Code(String alpha2Code) {
+      this.alpha2Code = alpha2Code;
+      return this;
     }
 
-    public void setCountryRegionId(String countryRegionId) {
-        this.countryRegionId = countryRegionId;
+    /**
+     * 国家/地区三位字母编码（ISO 3166-1）
+     *
+     * <p>示例值：CHN
+     *
+     * @param alpha3Code
+     * @return
+     */
+    public Builder alpha3Code(String alpha3Code) {
+      this.alpha3Code = alpha3Code;
+      return this;
     }
 
-    public I18n[] getName() {
-        return this.name;
+    /**
+     * 国际电话区号
+     *
+     * <p>示例值：+86
+     *
+     * @param globalCode
+     * @return
+     */
+    public Builder globalCode(String globalCode) {
+      this.globalCode = globalCode;
+      return this;
     }
 
-    public void setName(I18n[] name) {
-        this.name = name;
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public I18n[] getFullName() {
-        return this.fullName;
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     *
+     * @param status {@link
+     *     com.lark.oapi.service.corehr.v2.enums.CountryRegionBasicDataObjStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.corehr.v2.enums.CountryRegionBasicDataObjStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public void setFullName(I18n[] fullName) {
-        this.fullName = fullName;
+    public CountryRegion build() {
+      return new CountryRegion(this);
     }
+  }
 
-    public String getAlpha2Code() {
-        return this.alpha2Code;
-    }
-
-    public void setAlpha2Code(String alpha2Code) {
-        this.alpha2Code = alpha2Code;
-    }
-
-    public String getAlpha3Code() {
-        return this.alpha3Code;
-    }
-
-    public void setAlpha3Code(String alpha3Code) {
-        this.alpha3Code = alpha3Code;
-    }
-
-    public String getGlobalCode() {
-        return this.globalCode;
-    }
-
-    public void setGlobalCode(String globalCode) {
-        this.globalCode = globalCode;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 国家/地区 ID
-         * <p> 示例值：6862995757234914824
-         */
-        private String countryRegionId;
-        /**
-         * 国家/地区名称
-         * <p> 示例值：
-         */
-        private I18n[] name;
-        /**
-         * 国家/地区全称
-         * <p> 示例值：
-         */
-        private I18n[] fullName;
-        /**
-         * 国家/地区两位字母编码（ISO 3166-1）
-         * <p> 示例值：CN
-         */
-        private String alpha2Code;
-        /**
-         * 国家/地区三位字母编码（ISO 3166-1）
-         * <p> 示例值：CHN
-         */
-        private String alpha3Code;
-        /**
-         * 国际电话区号
-         * <p> 示例值：+86
-         */
-        private String globalCode;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        private Integer status;
-
-        /**
-         * 国家/地区 ID
-         * <p> 示例值：6862995757234914824
-         *
-         * @param countryRegionId
-         * @return
-         */
-        public Builder countryRegionId(String countryRegionId) {
-            this.countryRegionId = countryRegionId;
-            return this;
-        }
-
-
-        /**
-         * 国家/地区名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 国家/地区全称
-         * <p> 示例值：
-         *
-         * @param fullName
-         * @return
-         */
-        public Builder fullName(I18n[] fullName) {
-            this.fullName = fullName;
-            return this;
-        }
-
-
-        /**
-         * 国家/地区两位字母编码（ISO 3166-1）
-         * <p> 示例值：CN
-         *
-         * @param alpha2Code
-         * @return
-         */
-        public Builder alpha2Code(String alpha2Code) {
-            this.alpha2Code = alpha2Code;
-            return this;
-        }
-
-
-        /**
-         * 国家/地区三位字母编码（ISO 3166-1）
-         * <p> 示例值：CHN
-         *
-         * @param alpha3Code
-         * @return
-         */
-        public Builder alpha3Code(String alpha3Code) {
-            this.alpha3Code = alpha3Code;
-            return this;
-        }
-
-
-        /**
-         * 国际电话区号
-         * <p> 示例值：+86
-         *
-         * @param globalCode
-         * @return
-         */
-        public Builder globalCode(String globalCode) {
-            this.globalCode = globalCode;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 状态
-         * <p> 示例值：1
-         *
-         * @param status {@link com.lark.oapi.service.corehr.v2.enums.CountryRegionBasicDataObjStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.corehr.v2.enums.CountryRegionBasicDataObjStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        public CountryRegion build() {
-            return new CountryRegion(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateTenantOption {
+  /**
+   * CreateSandboxTenant
+   *
+   * <p>示例值：
+   */
+  @SerializedName("create_sandbox_tenant")
+  private CreateSandboxTenant createSandboxTenant;
+
+  /**
+   * 租户所在Geo
+   *
+   * <p>示例值：cn
+   */
+  @SerializedName("geo_name")
+  private String geoName;
+
+  /**
+   * 数据来源
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("data_source")
+  private Integer dataSource;
+
+  public CreateSandboxTenant getCreateSandboxTenant() {
+    return this.createSandboxTenant;
+  }
+
+  public void setCreateSandboxTenant(CreateSandboxTenant createSandboxTenant) {
+    this.createSandboxTenant = createSandboxTenant;
+  }
+
+  public String getGeoName() {
+    return this.geoName;
+  }
+
+  public void setGeoName(String geoName) {
+    this.geoName = geoName;
+  }
+
+  public Integer getDataSource() {
+    return this.dataSource;
+  }
+
+  public void setDataSource(Integer dataSource) {
+    this.dataSource = dataSource;
+  }
+
+  // builder 开始
+  public CreateTenantOption() {}
+
+  public CreateTenantOption(Builder builder) {
     /**
      * CreateSandboxTenant
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("create_sandbox_tenant")
-    private CreateSandboxTenant createSandboxTenant;
+    this.createSandboxTenant = builder.createSandboxTenant;
     /**
      * 租户所在Geo
-     * <p> 示例值：cn
+     *
+     * <p>示例值：cn
      */
-    @SerializedName("geo_name")
-    private String geoName;
+    this.geoName = builder.geoName;
     /**
      * 数据来源
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("data_source")
+    this.dataSource = builder.dataSource;
+  }
+
+  public static class Builder {
+    /**
+     * CreateSandboxTenant
+     *
+     * <p>示例值：
+     */
+    private CreateSandboxTenant createSandboxTenant;
+
+    /**
+     * 租户所在Geo
+     *
+     * <p>示例值：cn
+     */
+    private String geoName;
+
+    /**
+     * 数据来源
+     *
+     * <p>示例值：1
+     */
     private Integer dataSource;
 
-    // builder 开始
-    public CreateTenantOption() {
+    /**
+     * CreateSandboxTenant
+     *
+     * <p>示例值：
+     *
+     * @param createSandboxTenant
+     * @return
+     */
+    public Builder createSandboxTenant(CreateSandboxTenant createSandboxTenant) {
+      this.createSandboxTenant = createSandboxTenant;
+      return this;
     }
 
-    public CreateTenantOption(Builder builder) {
-        /**
-         * CreateSandboxTenant
-         * <p> 示例值：
-         */
-        this.createSandboxTenant = builder.createSandboxTenant;
-        /**
-         * 租户所在Geo
-         * <p> 示例值：cn
-         */
-        this.geoName = builder.geoName;
-        /**
-         * 数据来源
-         * <p> 示例值：
-         */
-        this.dataSource = builder.dataSource;
+    /**
+     * 租户所在Geo
+     *
+     * <p>示例值：cn
+     *
+     * @param geoName
+     * @return
+     */
+    public Builder geoName(String geoName) {
+      this.geoName = geoName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据来源
+     *
+     * <p>示例值：1
+     *
+     * @param dataSource
+     * @return
+     */
+    public Builder dataSource(Integer dataSource) {
+      this.dataSource = dataSource;
+      return this;
     }
 
-    public CreateSandboxTenant getCreateSandboxTenant() {
-        return this.createSandboxTenant;
+    public CreateTenantOption build() {
+      return new CreateTenantOption(this);
     }
+  }
 
-    public void setCreateSandboxTenant(CreateSandboxTenant createSandboxTenant) {
-        this.createSandboxTenant = createSandboxTenant;
-    }
-
-    public String getGeoName() {
-        return this.geoName;
-    }
-
-    public void setGeoName(String geoName) {
-        this.geoName = geoName;
-    }
-
-    public Integer getDataSource() {
-        return this.dataSource;
-    }
-
-    public void setDataSource(Integer dataSource) {
-        this.dataSource = dataSource;
-    }
-
-    public static class Builder {
-        /**
-         * CreateSandboxTenant
-         * <p> 示例值：
-         */
-        private CreateSandboxTenant createSandboxTenant;
-        /**
-         * 租户所在Geo
-         * <p> 示例值：cn
-         */
-        private String geoName;
-        /**
-         * 数据来源
-         * <p> 示例值：
-         */
-        private Integer dataSource;
-
-        /**
-         * CreateSandboxTenant
-         * <p> 示例值：
-         *
-         * @param createSandboxTenant
-         * @return
-         */
-        public Builder createSandboxTenant(CreateSandboxTenant createSandboxTenant) {
-            this.createSandboxTenant = createSandboxTenant;
-            return this;
-        }
-
-
-        /**
-         * 租户所在Geo
-         * <p> 示例值：cn
-         *
-         * @param geoName
-         * @return
-         */
-        public Builder geoName(String geoName) {
-            this.geoName = geoName;
-            return this;
-        }
-
-
-        /**
-         * 数据来源
-         * <p> 示例值：
-         *
-         * @param dataSource
-         * @return
-         */
-        public Builder dataSource(Integer dataSource) {
-            this.dataSource = dataSource;
-            return this;
-        }
-
-
-        public CreateTenantOption build() {
-            return new CreateTenantOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

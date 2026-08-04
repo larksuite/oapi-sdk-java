@@ -13,169 +13,229 @@
 
 package com.lark.oapi.service.payroll.v1.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.payroll.v1.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.payroll.v1.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class DatasourceRecord {
-    private static final Logger log = LoggerFactory.getLogger(DatasourceRecord.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(DatasourceRecord.class);
+  private final Config config;
 
-    public DatasourceRecord(Config config) {
-        this.config = config;
+  public DatasourceRecord(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 批量查询外部算薪数据记录，1. 支持通过payroll_period（必传）、employment_id（可选）这两个预置字段，批量查询指定数据源下的数据记录列表。;2.
+   * 数据源配置信息可从[获取外部数据源配置信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/datasource/list)或者
+   * 「飞书人事后台-设置-算薪数据设置-外部数据源配置」页面 获取
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=datasource_record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=datasource_record&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryDatasourceRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryDatasourceRecordSample.java</a>
+   * ;
+   */
+  public QueryDatasourceRecordResp query(QueryDatasourceRecordReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/payroll/v1/datasource_records/query",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-    /**
-     * ，获取外部数据源记录
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=datasource_record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=datasource_record&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryDatasourceRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryDatasourceRecordSample.java</a> ;
-     */
-    public QueryDatasourceRecordResp query(QueryDatasourceRecordReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/payroll/v1/datasource_records/query"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        QueryDatasourceRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryDatasourceRecordResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/payroll/v1/datasource_records/query"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    QueryDatasourceRecordResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, QueryDatasourceRecordResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/payroll/v1/datasource_records/query",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，获取外部数据源记录
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=datasource_record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=datasource_record&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryDatasourceRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryDatasourceRecordSample.java</a> ;
-     */
-    public QueryDatasourceRecordResp query(QueryDatasourceRecordReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/payroll/v1/datasource_records/query"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        QueryDatasourceRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryDatasourceRecordResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/payroll/v1/datasource_records/query"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 批量查询外部算薪数据记录，1. 支持通过payroll_period（必传）、employment_id（可选）这两个预置字段，批量查询指定数据源下的数据记录列表。;2.
+   * 数据源配置信息可从[获取外部数据源配置信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/datasource/list)或者
+   * 「飞书人事后台-设置-算薪数据设置-外部数据源配置」页面 获取
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=datasource_record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=query&project=payroll&resource=datasource_record&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryDatasourceRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/QueryDatasourceRecordSample.java</a>
+   * ;
+   */
+  public QueryDatasourceRecordResp query(QueryDatasourceRecordReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/payroll/v1/datasource_records/query",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    QueryDatasourceRecordResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, QueryDatasourceRecordResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/payroll/v1/datasource_records/query",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，外部数据记录批量保存接口
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=save&project=payroll&resource=datasource_record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=save&project=payroll&resource=datasource_record&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/SaveDatasourceRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/SaveDatasourceRecordSample.java</a> ;
-     */
-    public SaveDatasourceRecordResp save(SaveDatasourceRecordReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/payroll/v1/datasource_records/save"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        SaveDatasourceRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SaveDatasourceRecordResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/payroll/v1/datasource_records/save"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 创建 / 更新外部算薪数据，参照数据源配置字段格式，批量保存（创建或更新）数据记录。;1. 记录的唯一标志通过业务主键判断（employment_id +
+   * payroll_period）;2. 若不存在数据记录，则本次保存会插入1条记录。;3.
+   * 若已存在数据记录，则本次保存会覆盖更新已有记录（只更新传入字段的值，未传入字段值不更新），如果传入的数据记录没有任何变化，则不更新。;4. 若更新或者插入成功，会返回产生数据变更的记录条数。
+   *
+   * <p>1. 除了接口自身的限流外，还会限制单个数据源只能串行批量写入（防止批量更新同一批数据导致底层性能或者死锁风险），需调用端做好并发控制;2.
+   * 本接口如果发生报错，调用方可认为全部保存失败，不会存在部分保存失败部分成功场景。;3. 请确保写入的数据记录的数据源及字段都是被启用的。;;; ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=save&project=payroll&resource=datasource_record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=save&project=payroll&resource=datasource_record&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/SaveDatasourceRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/SaveDatasourceRecordSample.java</a>
+   * ;
+   */
+  public SaveDatasourceRecordResp save(SaveDatasourceRecordReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，外部数据记录批量保存接口
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=save&project=payroll&resource=datasource_record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=save&project=payroll&resource=datasource_record&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/SaveDatasourceRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/SaveDatasourceRecordSample.java</a> ;
-     */
-    public SaveDatasourceRecordResp save(SaveDatasourceRecordReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/payroll/v1/datasource_records/save",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/payroll/v1/datasource_records/save"
-                , Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        SaveDatasourceRecordResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, SaveDatasourceRecordResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/payroll/v1/datasource_records/save"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    SaveDatasourceRecordResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, SaveDatasourceRecordResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/payroll/v1/datasource_records/save",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 创建 / 更新外部算薪数据，参照数据源配置字段格式，批量保存（创建或更新）数据记录。;1. 记录的唯一标志通过业务主键判断（employment_id +
+   * payroll_period）;2. 若不存在数据记录，则本次保存会插入1条记录。;3.
+   * 若已存在数据记录，则本次保存会覆盖更新已有记录（只更新传入字段的值，未传入字段值不更新），如果传入的数据记录没有任何变化，则不更新。;4. 若更新或者插入成功，会返回产生数据变更的记录条数。
+   *
+   * <p>1. 除了接口自身的限流外，还会限制单个数据源只能串行批量写入（防止批量更新同一批数据导致底层性能或者死锁风险），需调用端做好并发控制;2.
+   * 本接口如果发生报错，调用方可认为全部保存失败，不会存在部分保存失败部分成功场景。;3. 请确保写入的数据记录的数据源及字段都是被启用的。;;; ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=save&project=payroll&resource=datasource_record&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=save&project=payroll&resource=datasource_record&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/SaveDatasourceRecordSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/payrollv1/SaveDatasourceRecordSample.java</a>
+   * ;
+   */
+  public SaveDatasourceRecordResp save(SaveDatasourceRecordReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/payroll/v1/datasource_records/save",
+            Sets.newHashSet(AccessTokenType.User, AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    SaveDatasourceRecordResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, SaveDatasourceRecordResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/payroll/v1/datasource_records/save",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UserStatsData {
+  /**
+   * 用户姓名
+   *
+   * <p>示例值：小李
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 用户 ID
+   *
+   * <p>示例值：ec8ddg56
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 用户的统计数据，code信息对应[查询统计表头](https://open.larkoffice.com/document/server-docs/attendance-v1/user_stats_data/query-2)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("datas")
+  private UserStatsDataCell[] datas;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public UserStatsDataCell[] getDatas() {
+    return this.datas;
+  }
+
+  public void setDatas(UserStatsDataCell[] datas) {
+    this.datas = datas;
+  }
+
+  // builder 开始
+  public UserStatsData() {}
+
+  public UserStatsData(Builder builder) {
     /**
      * 用户姓名
-     * <p> 示例值：小李
+     *
+     * <p>示例值：小李
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 用户 ID
-     * <p> 示例值：ec8ddg56
+     *
+     * <p>示例值：ec8ddg56
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
-     * 用户的统计数据
-     * <p> 示例值：
+     * 用户的统计数据，code信息对应[查询统计表头](https://open.larkoffice.com/document/server-docs/attendance-v1/user_stats_data/query-2)
+     *
+     * <p>示例值：
      */
-    @SerializedName("datas")
+    this.datas = builder.datas;
+  }
+
+  public static class Builder {
+    /**
+     * 用户姓名
+     *
+     * <p>示例值：小李
+     */
+    private String name;
+
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ec8ddg56
+     */
+    private String userId;
+
+    /**
+     * 用户的统计数据，code信息对应[查询统计表头](https://open.larkoffice.com/document/server-docs/attendance-v1/user_stats_data/query-2)
+     *
+     * <p>示例值：
+     */
     private UserStatsDataCell[] datas;
 
-    // builder 开始
-    public UserStatsData() {
+    /**
+     * 用户姓名
+     *
+     * <p>示例值：小李
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public UserStatsData(Builder builder) {
-        /**
-         * 用户姓名
-         * <p> 示例值：小李
-         */
-        this.name = builder.name;
-        /**
-         * 用户 ID
-         * <p> 示例值：ec8ddg56
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户的统计数据
-         * <p> 示例值：
-         */
-        this.datas = builder.datas;
+    /**
+     * 用户 ID
+     *
+     * <p>示例值：ec8ddg56
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户的统计数据，code信息对应[查询统计表头](https://open.larkoffice.com/document/server-docs/attendance-v1/user_stats_data/query-2)
+     *
+     * <p>示例值：
+     *
+     * @param datas
+     * @return
+     */
+    public Builder datas(UserStatsDataCell[] datas) {
+      this.datas = datas;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    public UserStatsData build() {
+      return new UserStatsData(this);
     }
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public UserStatsDataCell[] getDatas() {
-        return this.datas;
-    }
-
-    public void setDatas(UserStatsDataCell[] datas) {
-        this.datas = datas;
-    }
-
-    public static class Builder {
-        /**
-         * 用户姓名
-         * <p> 示例值：小李
-         */
-        private String name;
-        /**
-         * 用户 ID
-         * <p> 示例值：ec8ddg56
-         */
-        private String userId;
-        /**
-         * 用户的统计数据
-         * <p> 示例值：
-         */
-        private UserStatsDataCell[] datas;
-
-        /**
-         * 用户姓名
-         * <p> 示例值：小李
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID
-         * <p> 示例值：ec8ddg56
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 用户的统计数据
-         * <p> 示例值：
-         *
-         * @param datas
-         * @return
-         */
-        public Builder datas(UserStatsDataCell[] datas) {
-            this.datas = datas;
-            return this;
-        }
-
-
-        public UserStatsData build() {
-            return new UserStatsData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Message {
+  /**
+   * 消息ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message_meta")
+  private MessageMeta messageMeta;
+
+  /**
+   * 消息内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message_content")
+  private MessageContent messageContent;
+
+  public MessageMeta getMessageMeta() {
+    return this.messageMeta;
+  }
+
+  public void setMessageMeta(MessageMeta messageMeta) {
+    this.messageMeta = messageMeta;
+  }
+
+  public MessageContent getMessageContent() {
+    return this.messageContent;
+  }
+
+  public void setMessageContent(MessageContent messageContent) {
+    this.messageContent = messageContent;
+  }
+
+  // builder 开始
+  public Message() {}
+
+  public Message(Builder builder) {
     /**
      * 消息ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("message_meta")
-    private MessageMeta messageMeta;
+    this.messageMeta = builder.messageMeta;
     /**
      * 消息内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("message_content")
+    this.messageContent = builder.messageContent;
+  }
+
+  public static class Builder {
+    /**
+     * 消息ID
+     *
+     * <p>示例值：
+     */
+    private MessageMeta messageMeta;
+
+    /**
+     * 消息内容
+     *
+     * <p>示例值：
+     */
     private MessageContent messageContent;
 
-    // builder 开始
-    public Message() {
+    /**
+     * 消息ID
+     *
+     * <p>示例值：
+     *
+     * @param messageMeta
+     * @return
+     */
+    public Builder messageMeta(MessageMeta messageMeta) {
+      this.messageMeta = messageMeta;
+      return this;
     }
 
-    public Message(Builder builder) {
-        /**
-         * 消息ID
-         * <p> 示例值：
-         */
-        this.messageMeta = builder.messageMeta;
-        /**
-         * 消息内容
-         * <p> 示例值：
-         */
-        this.messageContent = builder.messageContent;
+    /**
+     * 消息内容
+     *
+     * <p>示例值：
+     *
+     * @param messageContent
+     * @return
+     */
+    public Builder messageContent(MessageContent messageContent) {
+      this.messageContent = messageContent;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Message build() {
+      return new Message(this);
     }
+  }
 
-    public MessageMeta getMessageMeta() {
-        return this.messageMeta;
-    }
-
-    public void setMessageMeta(MessageMeta messageMeta) {
-        this.messageMeta = messageMeta;
-    }
-
-    public MessageContent getMessageContent() {
-        return this.messageContent;
-    }
-
-    public void setMessageContent(MessageContent messageContent) {
-        this.messageContent = messageContent;
-    }
-
-    public static class Builder {
-        /**
-         * 消息ID
-         * <p> 示例值：
-         */
-        private MessageMeta messageMeta;
-        /**
-         * 消息内容
-         * <p> 示例值：
-         */
-        private MessageContent messageContent;
-
-        /**
-         * 消息ID
-         * <p> 示例值：
-         *
-         * @param messageMeta
-         * @return
-         */
-        public Builder messageMeta(MessageMeta messageMeta) {
-            this.messageMeta = messageMeta;
-            return this;
-        }
-
-
-        /**
-         * 消息内容
-         * <p> 示例值：
-         *
-         * @param messageContent
-         * @return
-         */
-        public Builder messageContent(MessageContent messageContent) {
-            this.messageContent = messageContent;
-            return this;
-        }
-
-
-        public Message build() {
-            return new Message(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

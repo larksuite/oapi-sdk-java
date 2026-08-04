@@ -13,104 +13,126 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class DownloadMediaReq {
+  /**
+   * 拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[素材概述-extra
+   * 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。
+   *
+   * <p>示例值：无
+   */
+  @Query
+  @SerializedName("extra")
+  private String extra;
+
+  public String getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(String extra) {
+    this.extra = extra;
+  }
+
+  /**
+   * 素材文件的 token。获取方式如下所示：;*
+   * 新版文档：通过[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)接口获取指定文件块（File
+   * Block）或图片块（Image Block）的 token，即为素材的 token。;*
+   * 电子表格：通过[读取多个范围](https://open.feishu.cn/document/ukTMukTMukTM/ukTMzUjL5EzM14SOxMTN)接口获取指定附件的 ;
+   * `fileToken` 参数，即为素材的 token。;*
+   * 多维表格：通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取指定附件的
+   * `file_token`，即为素材的 token。
+   *
+   * <p>示例值：boxcnrHpsg1QDqXAAAyachabcef
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  // builder 开始
+  public DownloadMediaReq() {}
+
+  public DownloadMediaReq(Builder builder) {
     /**
-     * 扩展信息
-     * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
+     * 拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[素材概述-extra
+     * 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。
+     *
+     * <p>示例值：无
      */
-    @Query
-    @SerializedName("extra")
-    private String extra;
+    this.extra = builder.extra;
     /**
-     * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-     * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
+     * 素材文件的 token。获取方式如下所示：;*
+     * 新版文档：通过[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)接口获取指定文件块（File
+     * Block）或图片块（Image Block）的 token，即为素材的 token。;*
+     * 电子表格：通过[读取多个范围](https://open.feishu.cn/document/ukTMukTMukTM/ukTMzUjL5EzM14SOxMTN)接口获取指定附件的 ;
+     * `fileToken` 参数，即为素材的 token。;*
+     * 多维表格：通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取指定附件的
+     * `file_token`，即为素材的 token。
+     *
+     * <p>示例值：boxcnrHpsg1QDqXAAAyachabcef
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
+  }
 
-    // builder 开始
-    public DownloadMediaReq() {
+  public static class Builder {
+    private String extra; // 拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[素材概述-extra
+
+    // 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。
+
+    /**
+     * 拥有高级权限的多维表格在下载素材时，需要添加额外的扩展信息作为 URL 查询参数鉴权。详情参考[素材概述-extra
+     * 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)。
+     *
+     * <p>示例值：无
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(String extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public DownloadMediaReq(Builder builder) {
-        /**
-         * 扩展信息
-         * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
-         */
-        this.extra = builder.extra;
-        /**
-         * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-         */
-        this.fileToken = builder.fileToken;
+    private String fileToken; // 素材文件的 token。获取方式如下所示：;*
+
+    // 新版文档：通过[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)接口获取指定文件块（File Block）或图片块（Image Block）的 token，即为素材的 token。;* 电子表格：通过[读取多个范围](https://open.feishu.cn/document/ukTMukTMukTM/ukTMzUjL5EzM14SOxMTN)接口获取指定附件的 ; `fileToken` 参数，即为素材的 token。;* 多维表格：通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取指定附件的 `file_token`，即为素材的 token。
+
+    /**
+     * 素材文件的 token。获取方式如下所示：;*
+     * 新版文档：通过[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)接口获取指定文件块（File
+     * Block）或图片块（Image Block）的 token，即为素材的 token。;*
+     * 电子表格：通过[读取多个范围](https://open.feishu.cn/document/ukTMukTMukTM/ukTMzUjL5EzM14SOxMTN)接口获取指定附件的 ;
+     * `fileToken` 参数，即为素材的 token。;*
+     * 多维表格：通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取指定附件的
+     * `file_token`，即为素材的 token。
+     *
+     * <p>示例值：boxcnrHpsg1QDqXAAAyachabcef
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DownloadMediaReq build() {
+      return new DownloadMediaReq(this);
     }
+  }
 
-    public String getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(String extra) {
-        this.extra = extra;
-    }
-
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public static class Builder {
-        private String extra; // 扩展信息
-        private String fileToken; // 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-
-        /**
-         * 扩展信息
-         * <p> 示例值：[请参考-上传点类型及对应Extra说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(String extra) {
-            this.extra = extra;
-            return this;
-        }
-
-        /**
-         * 文件的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)
-         * <p> 示例值：boxcnrHpsg1QDqXAAAyachabcef
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        public DownloadMediaReq build() {
-            return new DownloadMediaReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

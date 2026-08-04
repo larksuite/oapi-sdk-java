@@ -13,642 +13,711 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollaborationEntity {
+  /**
+   * 关联组织实体类型
+   *
+   * <p>示例值：user
+   */
+  @SerializedName("collaboration_entity_type")
+  private String collaborationEntityType;
+
+  /**
+   * 部门ID
+   *
+   * <p>示例值：D096
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  /**
+   * 部门的open ID
+   *
+   * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @SerializedName("open_department_id")
+  private String openDepartmentId;
+
+  /**
+   * 用户ID
+   *
+   * <p>示例值：a0121196
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 用户的open ID
+   *
+   * <p>示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @SerializedName("open_user_id")
+  private String openUserId;
+
+  /**
+   * 用户的union_id
+   *
+   * <p>示例值：on_4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @SerializedName("union_user_id")
+  private String unionUserId;
+
+  /**
+   * 部门名称
+   *
+   * <p>示例值：test
+   */
+  @SerializedName("department_name")
+  private String departmentName;
+
+  /**
+   * 目标组织的i18n名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_department_name")
+  private I18nName i18nDepartmentName;
+
+  /**
+   * 部门顺序
+   *
+   * <p>示例值：2000
+   */
+  @SerializedName("department_order")
+  private String departmentOrder;
+
+  /**
+   * 对方成员名称
+   *
+   * <p>示例值：test_user_name
+   */
+  @SerializedName("user_name")
+  private String userName;
+
+  /**
+   * 目标组织的i18n名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_user_name")
+  private I18nName i18nUserName;
+
+  /**
+   * 组织icon信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_avatar")
+  private AvatarInfo userAvatar;
+
+  /**
+   * 用户组ID
+   *
+   * <p>示例值：a0121196
+   */
+  @SerializedName("group_id")
+  private String groupId;
+
+  /**
+   * 用户组的open ID
+   *
+   * <p>示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
+   */
+  @SerializedName("open_group_id")
+  private String openGroupId;
+
+  /**
+   * 对方用户组名称
+   *
+   * <p>示例值：test_user_name
+   */
+  @SerializedName("group_name")
+  private String groupName;
+
+  /**
+   * 目标组织的i18n名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_group_name")
+  private I18nName i18nGroupName;
+
+  public String getCollaborationEntityType() {
+    return this.collaborationEntityType;
+  }
+
+  public void setCollaborationEntityType(String collaborationEntityType) {
+    this.collaborationEntityType = collaborationEntityType;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  public String getOpenDepartmentId() {
+    return this.openDepartmentId;
+  }
+
+  public void setOpenDepartmentId(String openDepartmentId) {
+    this.openDepartmentId = openDepartmentId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getOpenUserId() {
+    return this.openUserId;
+  }
+
+  public void setOpenUserId(String openUserId) {
+    this.openUserId = openUserId;
+  }
+
+  public String getUnionUserId() {
+    return this.unionUserId;
+  }
+
+  public void setUnionUserId(String unionUserId) {
+    this.unionUserId = unionUserId;
+  }
+
+  public String getDepartmentName() {
+    return this.departmentName;
+  }
+
+  public void setDepartmentName(String departmentName) {
+    this.departmentName = departmentName;
+  }
+
+  public I18nName getI18nDepartmentName() {
+    return this.i18nDepartmentName;
+  }
+
+  public void setI18nDepartmentName(I18nName i18nDepartmentName) {
+    this.i18nDepartmentName = i18nDepartmentName;
+  }
+
+  public String getDepartmentOrder() {
+    return this.departmentOrder;
+  }
+
+  public void setDepartmentOrder(String departmentOrder) {
+    this.departmentOrder = departmentOrder;
+  }
+
+  public String getUserName() {
+    return this.userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  public I18nName getI18nUserName() {
+    return this.i18nUserName;
+  }
+
+  public void setI18nUserName(I18nName i18nUserName) {
+    this.i18nUserName = i18nUserName;
+  }
+
+  public AvatarInfo getUserAvatar() {
+    return this.userAvatar;
+  }
+
+  public void setUserAvatar(AvatarInfo userAvatar) {
+    this.userAvatar = userAvatar;
+  }
+
+  public String getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
+  public String getOpenGroupId() {
+    return this.openGroupId;
+  }
+
+  public void setOpenGroupId(String openGroupId) {
+    this.openGroupId = openGroupId;
+  }
+
+  public String getGroupName() {
+    return this.groupName;
+  }
+
+  public void setGroupName(String groupName) {
+    this.groupName = groupName;
+  }
+
+  public I18nName getI18nGroupName() {
+    return this.i18nGroupName;
+  }
+
+  public void setI18nGroupName(I18nName i18nGroupName) {
+    this.i18nGroupName = i18nGroupName;
+  }
+
+  // builder 开始
+  public CollaborationEntity() {}
+
+  public CollaborationEntity(Builder builder) {
     /**
      * 关联组织实体类型
-     * <p> 示例值：user
+     *
+     * <p>示例值：user
      */
-    @SerializedName("collaboration_entity_type")
-    private String collaborationEntityType;
+    this.collaborationEntityType = builder.collaborationEntityType;
     /**
      * 部门ID
-     * <p> 示例值：D096
+     *
+     * <p>示例值：D096
      */
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
     /**
      * 部门的open ID
-     * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
      */
-    @SerializedName("open_department_id")
-    private String openDepartmentId;
+    this.openDepartmentId = builder.openDepartmentId;
     /**
      * 用户ID
-     * <p> 示例值：a0121196
+     *
+     * <p>示例值：a0121196
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 用户的open ID
-     * <p> 示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * <p>示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
      */
-    @SerializedName("open_user_id")
-    private String openUserId;
+    this.openUserId = builder.openUserId;
     /**
      * 用户的union_id
-     * <p> 示例值：on_4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * <p>示例值：on_4e6ac4d14bcd5071a37a39de902c7141
      */
-    @SerializedName("union_user_id")
-    private String unionUserId;
+    this.unionUserId = builder.unionUserId;
     /**
      * 部门名称
-     * <p> 示例值：test
+     *
+     * <p>示例值：test
      */
-    @SerializedName("department_name")
-    private String departmentName;
+    this.departmentName = builder.departmentName;
     /**
-     * 部门的国际化名称
-     * <p> 示例值：
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_department_name")
-    private I18nName i18nDepartmentName;
+    this.i18nDepartmentName = builder.i18nDepartmentName;
     /**
      * 部门顺序
-     * <p> 示例值：2000
+     *
+     * <p>示例值：2000
      */
-    @SerializedName("department_order")
-    private String departmentOrder;
+    this.departmentOrder = builder.departmentOrder;
     /**
      * 对方成员名称
-     * <p> 示例值：test_user_name
+     *
+     * <p>示例值：test_user_name
      */
-    @SerializedName("user_name")
-    private String userName;
+    this.userName = builder.userName;
     /**
-     * 对方成员i18n名称
-     * <p> 示例值：
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_user_name")
-    private I18nName i18nUserName;
+    this.i18nUserName = builder.i18nUserName;
     /**
-     * 对方租户的成员头像
-     * <p> 示例值：
+     * 组织icon信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_avatar")
-    private AvatarInfo userAvatar;
+    this.userAvatar = builder.userAvatar;
     /**
      * 用户组ID
-     * <p> 示例值：a0121196
+     *
+     * <p>示例值：a0121196
      */
-    @SerializedName("group_id")
-    private String groupId;
+    this.groupId = builder.groupId;
     /**
      * 用户组的open ID
-     * <p> 示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * <p>示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
      */
-    @SerializedName("open_group_id")
-    private String openGroupId;
+    this.openGroupId = builder.openGroupId;
     /**
      * 对方用户组名称
-     * <p> 示例值：test_user_name
+     *
+     * <p>示例值：test_user_name
      */
-    @SerializedName("group_name")
-    private String groupName;
+    this.groupName = builder.groupName;
     /**
-     * 对方用户组i18n名称
-     * <p> 示例值：
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_group_name")
+    this.i18nGroupName = builder.i18nGroupName;
+  }
+
+  public static class Builder {
+    /**
+     * 关联组织实体类型
+     *
+     * <p>示例值：user
+     */
+    private String collaborationEntityType;
+
+    /**
+     * 部门ID
+     *
+     * <p>示例值：D096
+     */
+    private String departmentId;
+
+    /**
+     * 部门的open ID
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     */
+    private String openDepartmentId;
+
+    /**
+     * 用户ID
+     *
+     * <p>示例值：a0121196
+     */
+    private String userId;
+
+    /**
+     * 用户的open ID
+     *
+     * <p>示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
+     */
+    private String openUserId;
+
+    /**
+     * 用户的union_id
+     *
+     * <p>示例值：on_4e6ac4d14bcd5071a37a39de902c7141
+     */
+    private String unionUserId;
+
+    /**
+     * 部门名称
+     *
+     * <p>示例值：test
+     */
+    private String departmentName;
+
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     */
+    private I18nName i18nDepartmentName;
+
+    /**
+     * 部门顺序
+     *
+     * <p>示例值：2000
+     */
+    private String departmentOrder;
+
+    /**
+     * 对方成员名称
+     *
+     * <p>示例值：test_user_name
+     */
+    private String userName;
+
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     */
+    private I18nName i18nUserName;
+
+    /**
+     * 组织icon信息
+     *
+     * <p>示例值：
+     */
+    private AvatarInfo userAvatar;
+
+    /**
+     * 用户组ID
+     *
+     * <p>示例值：a0121196
+     */
+    private String groupId;
+
+    /**
+     * 用户组的open ID
+     *
+     * <p>示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
+     */
+    private String openGroupId;
+
+    /**
+     * 对方用户组名称
+     *
+     * <p>示例值：test_user_name
+     */
+    private String groupName;
+
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     */
     private I18nName i18nGroupName;
 
-    // builder 开始
-    public CollaborationEntity() {
+    /**
+     * 关联组织实体类型
+     *
+     * <p>示例值：user
+     *
+     * @param collaborationEntityType
+     * @return
+     */
+    public Builder collaborationEntityType(String collaborationEntityType) {
+      this.collaborationEntityType = collaborationEntityType;
+      return this;
     }
 
-    public CollaborationEntity(Builder builder) {
-        /**
-         * 关联组织实体类型
-         * <p> 示例值：user
-         */
-        this.collaborationEntityType = builder.collaborationEntityType;
-        /**
-         * 部门ID
-         * <p> 示例值：D096
-         */
-        this.departmentId = builder.departmentId;
-        /**
-         * 部门的open ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.openDepartmentId = builder.openDepartmentId;
-        /**
-         * 用户ID
-         * <p> 示例值：a0121196
-         */
-        this.userId = builder.userId;
-        /**
-         * 用户的open ID
-         * <p> 示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.openUserId = builder.openUserId;
-        /**
-         * 用户的union_id
-         * <p> 示例值：on_4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.unionUserId = builder.unionUserId;
-        /**
-         * 部门名称
-         * <p> 示例值：test
-         */
-        this.departmentName = builder.departmentName;
-        /**
-         * 部门的国际化名称
-         * <p> 示例值：
-         */
-        this.i18nDepartmentName = builder.i18nDepartmentName;
-        /**
-         * 部门顺序
-         * <p> 示例值：2000
-         */
-        this.departmentOrder = builder.departmentOrder;
-        /**
-         * 对方成员名称
-         * <p> 示例值：test_user_name
-         */
-        this.userName = builder.userName;
-        /**
-         * 对方成员i18n名称
-         * <p> 示例值：
-         */
-        this.i18nUserName = builder.i18nUserName;
-        /**
-         * 对方租户的成员头像
-         * <p> 示例值：
-         */
-        this.userAvatar = builder.userAvatar;
-        /**
-         * 用户组ID
-         * <p> 示例值：a0121196
-         */
-        this.groupId = builder.groupId;
-        /**
-         * 用户组的open ID
-         * <p> 示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
-         */
-        this.openGroupId = builder.openGroupId;
-        /**
-         * 对方用户组名称
-         * <p> 示例值：test_user_name
-         */
-        this.groupName = builder.groupName;
-        /**
-         * 对方用户组i18n名称
-         * <p> 示例值：
-         */
-        this.i18nGroupName = builder.i18nGroupName;
+    /**
+     * 关联组织实体类型
+     *
+     * <p>示例值：user
+     *
+     * @param collaborationEntityType {@link
+     *     com.lark.oapi.service.trust_party.v1.enums.CollaborationEntityCollaborationEntityTypeEnum}
+     * @return
+     */
+    public Builder collaborationEntityType(
+        com.lark.oapi.service.trust_party.v1.enums.CollaborationEntityCollaborationEntityTypeEnum
+            collaborationEntityType) {
+      this.collaborationEntityType = collaborationEntityType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门ID
+     *
+     * <p>示例值：D096
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public String getCollaborationEntityType() {
-        return this.collaborationEntityType;
+    /**
+     * 部门的open ID
+     *
+     * <p>示例值：od-4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param openDepartmentId
+     * @return
+     */
+    public Builder openDepartmentId(String openDepartmentId) {
+      this.openDepartmentId = openDepartmentId;
+      return this;
     }
 
-    public void setCollaborationEntityType(String collaborationEntityType) {
-        this.collaborationEntityType = collaborationEntityType;
+    /**
+     * 用户ID
+     *
+     * <p>示例值：a0121196
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getDepartmentId() {
-        return this.departmentId;
+    /**
+     * 用户的open ID
+     *
+     * <p>示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param openUserId
+     * @return
+     */
+    public Builder openUserId(String openUserId) {
+      this.openUserId = openUserId;
+      return this;
     }
 
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
+    /**
+     * 用户的union_id
+     *
+     * <p>示例值：on_4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param unionUserId
+     * @return
+     */
+    public Builder unionUserId(String unionUserId) {
+      this.unionUserId = unionUserId;
+      return this;
     }
 
-    public String getOpenDepartmentId() {
-        return this.openDepartmentId;
+    /**
+     * 部门名称
+     *
+     * <p>示例值：test
+     *
+     * @param departmentName
+     * @return
+     */
+    public Builder departmentName(String departmentName) {
+      this.departmentName = departmentName;
+      return this;
     }
 
-    public void setOpenDepartmentId(String openDepartmentId) {
-        this.openDepartmentId = openDepartmentId;
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nDepartmentName
+     * @return
+     */
+    public Builder i18nDepartmentName(I18nName i18nDepartmentName) {
+      this.i18nDepartmentName = i18nDepartmentName;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 部门顺序
+     *
+     * <p>示例值：2000
+     *
+     * @param departmentOrder
+     * @return
+     */
+    public Builder departmentOrder(String departmentOrder) {
+      this.departmentOrder = departmentOrder;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 对方成员名称
+     *
+     * <p>示例值：test_user_name
+     *
+     * @param userName
+     * @return
+     */
+    public Builder userName(String userName) {
+      this.userName = userName;
+      return this;
     }
 
-    public String getOpenUserId() {
-        return this.openUserId;
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nUserName
+     * @return
+     */
+    public Builder i18nUserName(I18nName i18nUserName) {
+      this.i18nUserName = i18nUserName;
+      return this;
     }
 
-    public void setOpenUserId(String openUserId) {
-        this.openUserId = openUserId;
+    /**
+     * 组织icon信息
+     *
+     * <p>示例值：
+     *
+     * @param userAvatar
+     * @return
+     */
+    public Builder userAvatar(AvatarInfo userAvatar) {
+      this.userAvatar = userAvatar;
+      return this;
     }
 
-    public String getUnionUserId() {
-        return this.unionUserId;
+    /**
+     * 用户组ID
+     *
+     * <p>示例值：a0121196
+     *
+     * @param groupId
+     * @return
+     */
+    public Builder groupId(String groupId) {
+      this.groupId = groupId;
+      return this;
     }
 
-    public void setUnionUserId(String unionUserId) {
-        this.unionUserId = unionUserId;
+    /**
+     * 用户组的open ID
+     *
+     * <p>示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
+     *
+     * @param openGroupId
+     * @return
+     */
+    public Builder openGroupId(String openGroupId) {
+      this.openGroupId = openGroupId;
+      return this;
     }
 
-    public String getDepartmentName() {
-        return this.departmentName;
+    /**
+     * 对方用户组名称
+     *
+     * <p>示例值：test_user_name
+     *
+     * @param groupName
+     * @return
+     */
+    public Builder groupName(String groupName) {
+      this.groupName = groupName;
+      return this;
     }
 
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
+    /**
+     * 目标组织的i18n名称
+     *
+     * <p>示例值：
+     *
+     * @param i18nGroupName
+     * @return
+     */
+    public Builder i18nGroupName(I18nName i18nGroupName) {
+      this.i18nGroupName = i18nGroupName;
+      return this;
     }
 
-    public I18nName getI18nDepartmentName() {
-        return this.i18nDepartmentName;
+    public CollaborationEntity build() {
+      return new CollaborationEntity(this);
     }
+  }
 
-    public void setI18nDepartmentName(I18nName i18nDepartmentName) {
-        this.i18nDepartmentName = i18nDepartmentName;
-    }
-
-    public String getDepartmentOrder() {
-        return this.departmentOrder;
-    }
-
-    public void setDepartmentOrder(String departmentOrder) {
-        this.departmentOrder = departmentOrder;
-    }
-
-    public String getUserName() {
-        return this.userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public I18nName getI18nUserName() {
-        return this.i18nUserName;
-    }
-
-    public void setI18nUserName(I18nName i18nUserName) {
-        this.i18nUserName = i18nUserName;
-    }
-
-    public AvatarInfo getUserAvatar() {
-        return this.userAvatar;
-    }
-
-    public void setUserAvatar(AvatarInfo userAvatar) {
-        this.userAvatar = userAvatar;
-    }
-
-    public String getGroupId() {
-        return this.groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    public String getOpenGroupId() {
-        return this.openGroupId;
-    }
-
-    public void setOpenGroupId(String openGroupId) {
-        this.openGroupId = openGroupId;
-    }
-
-    public String getGroupName() {
-        return this.groupName;
-    }
-
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
-    }
-
-    public I18nName getI18nGroupName() {
-        return this.i18nGroupName;
-    }
-
-    public void setI18nGroupName(I18nName i18nGroupName) {
-        this.i18nGroupName = i18nGroupName;
-    }
-
-    public static class Builder {
-        /**
-         * 关联组织实体类型
-         * <p> 示例值：user
-         */
-        private String collaborationEntityType;
-        /**
-         * 部门ID
-         * <p> 示例值：D096
-         */
-        private String departmentId;
-        /**
-         * 部门的open ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         */
-        private String openDepartmentId;
-        /**
-         * 用户ID
-         * <p> 示例值：a0121196
-         */
-        private String userId;
-        /**
-         * 用户的open ID
-         * <p> 示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
-         */
-        private String openUserId;
-        /**
-         * 用户的union_id
-         * <p> 示例值：on_4e6ac4d14bcd5071a37a39de902c7141
-         */
-        private String unionUserId;
-        /**
-         * 部门名称
-         * <p> 示例值：test
-         */
-        private String departmentName;
-        /**
-         * 部门的国际化名称
-         * <p> 示例值：
-         */
-        private I18nName i18nDepartmentName;
-        /**
-         * 部门顺序
-         * <p> 示例值：2000
-         */
-        private String departmentOrder;
-        /**
-         * 对方成员名称
-         * <p> 示例值：test_user_name
-         */
-        private String userName;
-        /**
-         * 对方成员i18n名称
-         * <p> 示例值：
-         */
-        private I18nName i18nUserName;
-        /**
-         * 对方租户的成员头像
-         * <p> 示例值：
-         */
-        private AvatarInfo userAvatar;
-        /**
-         * 用户组ID
-         * <p> 示例值：a0121196
-         */
-        private String groupId;
-        /**
-         * 用户组的open ID
-         * <p> 示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
-         */
-        private String openGroupId;
-        /**
-         * 对方用户组名称
-         * <p> 示例值：test_user_name
-         */
-        private String groupName;
-        /**
-         * 对方用户组i18n名称
-         * <p> 示例值：
-         */
-        private I18nName i18nGroupName;
-
-        /**
-         * 关联组织实体类型
-         * <p> 示例值：user
-         *
-         * @param collaborationEntityType
-         * @return
-         */
-        public Builder collaborationEntityType(String collaborationEntityType) {
-            this.collaborationEntityType = collaborationEntityType;
-            return this;
-        }
-
-        /**
-         * 关联组织实体类型
-         * <p> 示例值：user
-         *
-         * @param collaborationEntityType {@link com.lark.oapi.service.trust_party.v1.enums.CollaborationEntityCollaborationEntityTypeEnum}
-         * @return
-         */
-        public Builder collaborationEntityType(com.lark.oapi.service.trust_party.v1.enums.CollaborationEntityCollaborationEntityTypeEnum collaborationEntityType) {
-            this.collaborationEntityType = collaborationEntityType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 部门ID
-         * <p> 示例值：D096
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        /**
-         * 部门的open ID
-         * <p> 示例值：od-4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param openDepartmentId
-         * @return
-         */
-        public Builder openDepartmentId(String openDepartmentId) {
-            this.openDepartmentId = openDepartmentId;
-            return this;
-        }
-
-
-        /**
-         * 用户ID
-         * <p> 示例值：a0121196
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 用户的open ID
-         * <p> 示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param openUserId
-         * @return
-         */
-        public Builder openUserId(String openUserId) {
-            this.openUserId = openUserId;
-            return this;
-        }
-
-
-        /**
-         * 用户的union_id
-         * <p> 示例值：on_4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param unionUserId
-         * @return
-         */
-        public Builder unionUserId(String unionUserId) {
-            this.unionUserId = unionUserId;
-            return this;
-        }
-
-
-        /**
-         * 部门名称
-         * <p> 示例值：test
-         *
-         * @param departmentName
-         * @return
-         */
-        public Builder departmentName(String departmentName) {
-            this.departmentName = departmentName;
-            return this;
-        }
-
-
-        /**
-         * 部门的国际化名称
-         * <p> 示例值：
-         *
-         * @param i18nDepartmentName
-         * @return
-         */
-        public Builder i18nDepartmentName(I18nName i18nDepartmentName) {
-            this.i18nDepartmentName = i18nDepartmentName;
-            return this;
-        }
-
-
-        /**
-         * 部门顺序
-         * <p> 示例值：2000
-         *
-         * @param departmentOrder
-         * @return
-         */
-        public Builder departmentOrder(String departmentOrder) {
-            this.departmentOrder = departmentOrder;
-            return this;
-        }
-
-
-        /**
-         * 对方成员名称
-         * <p> 示例值：test_user_name
-         *
-         * @param userName
-         * @return
-         */
-        public Builder userName(String userName) {
-            this.userName = userName;
-            return this;
-        }
-
-
-        /**
-         * 对方成员i18n名称
-         * <p> 示例值：
-         *
-         * @param i18nUserName
-         * @return
-         */
-        public Builder i18nUserName(I18nName i18nUserName) {
-            this.i18nUserName = i18nUserName;
-            return this;
-        }
-
-
-        /**
-         * 对方租户的成员头像
-         * <p> 示例值：
-         *
-         * @param userAvatar
-         * @return
-         */
-        public Builder userAvatar(AvatarInfo userAvatar) {
-            this.userAvatar = userAvatar;
-            return this;
-        }
-
-
-        /**
-         * 用户组ID
-         * <p> 示例值：a0121196
-         *
-         * @param groupId
-         * @return
-         */
-        public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
-        }
-
-
-        /**
-         * 用户组的open ID
-         * <p> 示例值：ou_4e6ac4d14bcd5071a37a39de902c7141
-         *
-         * @param openGroupId
-         * @return
-         */
-        public Builder openGroupId(String openGroupId) {
-            this.openGroupId = openGroupId;
-            return this;
-        }
-
-
-        /**
-         * 对方用户组名称
-         * <p> 示例值：test_user_name
-         *
-         * @param groupName
-         * @return
-         */
-        public Builder groupName(String groupName) {
-            this.groupName = groupName;
-            return this;
-        }
-
-
-        /**
-         * 对方用户组i18n名称
-         * <p> 示例值：
-         *
-         * @param i18nGroupName
-         * @return
-         */
-        public Builder i18nGroupName(I18nName i18nGroupName) {
-            this.i18nGroupName = i18nGroupName;
-            return this;
-        }
-
-
-        public CollaborationEntity build() {
-            return new CollaborationEntity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

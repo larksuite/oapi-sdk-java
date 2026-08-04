@@ -13,161 +13,165 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentLeader {
+  /**
+   * 负责人类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("leader_type")
+  private Integer leaderType;
+
+  /**
+   * 负责人ID deprecate
+   *
+   * <p>示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
+   */
+  @SerializedName("leader_id")
+  private String leaderId;
+
+  /**
+   * 用户的leader，必须对leader有权限才会返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id")
+  private CollaborationUserId id;
+
+  public Integer getLeaderType() {
+    return this.leaderType;
+  }
+
+  public void setLeaderType(Integer leaderType) {
+    this.leaderType = leaderType;
+  }
+
+  public String getLeaderId() {
+    return this.leaderId;
+  }
+
+  public void setLeaderId(String leaderId) {
+    this.leaderId = leaderId;
+  }
+
+  public CollaborationUserId getId() {
+    return this.id;
+  }
+
+  public void setId(CollaborationUserId id) {
+    this.id = id;
+  }
+
+  // builder 开始
+  public DepartmentLeader() {}
+
+  public DepartmentLeader(Builder builder) {
     /**
      * 负责人类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("leader_type")
-    private Integer leaderType;
+    this.leaderType = builder.leaderType;
     /**
      * 负责人ID deprecate
-     * <p> 示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
+     *
+     * <p>示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
      */
-    @SerializedName("leader_id")
-    private String leaderId;
+    this.leaderId = builder.leaderId;
     /**
-     * 负责人ID
-     * <p> 示例值：
+     * 用户的leader，必须对leader有权限才会返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("id")
+    this.id = builder.id;
+  }
+
+  public static class Builder {
+    /**
+     * 负责人类型
+     *
+     * <p>示例值：
+     */
+    private Integer leaderType;
+
+    /**
+     * 负责人ID deprecate
+     *
+     * <p>示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
+     */
+    private String leaderId;
+
+    /**
+     * 用户的leader，必须对leader有权限才会返回
+     *
+     * <p>示例值：
+     */
     private CollaborationUserId id;
 
-    // builder 开始
-    public DepartmentLeader() {
+    /**
+     * 负责人类型
+     *
+     * <p>示例值：
+     *
+     * @param leaderType
+     * @return
+     */
+    public Builder leaderType(Integer leaderType) {
+      this.leaderType = leaderType;
+      return this;
     }
 
-    public DepartmentLeader(Builder builder) {
-        /**
-         * 负责人类型
-         * <p> 示例值：
-         */
-        this.leaderType = builder.leaderType;
-        /**
-         * 负责人ID deprecate
-         * <p> 示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
-         */
-        this.leaderId = builder.leaderId;
-        /**
-         * 负责人ID
-         * <p> 示例值：
-         */
-        this.id = builder.id;
+    /**
+     * 负责人类型
+     *
+     * <p>示例值：
+     *
+     * @param leaderType {@link
+     *     com.lark.oapi.service.trust_party.v1.enums.DepartmentLeaderDepartmentLeaderTypeEnum}
+     * @return
+     */
+    public Builder leaderType(
+        com.lark.oapi.service.trust_party.v1.enums.DepartmentLeaderDepartmentLeaderTypeEnum
+            leaderType) {
+      this.leaderType = leaderType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 负责人ID deprecate
+     *
+     * <p>示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
+     *
+     * @param leaderId
+     * @return
+     */
+    public Builder leaderId(String leaderId) {
+      this.leaderId = leaderId;
+      return this;
     }
 
-    public Integer getLeaderType() {
-        return this.leaderType;
+    /**
+     * 用户的leader，必须对leader有权限才会返回
+     *
+     * <p>示例值：
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(CollaborationUserId id) {
+      this.id = id;
+      return this;
     }
 
-    public void setLeaderType(Integer leaderType) {
-        this.leaderType = leaderType;
+    public DepartmentLeader build() {
+      return new DepartmentLeader(this);
     }
+  }
 
-    public String getLeaderId() {
-        return this.leaderId;
-    }
-
-    public void setLeaderId(String leaderId) {
-        this.leaderId = leaderId;
-    }
-
-    public CollaborationUserId getId() {
-        return this.id;
-    }
-
-    public void setId(CollaborationUserId id) {
-        this.id = id;
-    }
-
-    public static class Builder {
-        /**
-         * 负责人类型
-         * <p> 示例值：
-         */
-        private Integer leaderType;
-        /**
-         * 负责人ID deprecate
-         * <p> 示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
-         */
-        private String leaderId;
-        /**
-         * 负责人ID
-         * <p> 示例值：
-         */
-        private CollaborationUserId id;
-
-        /**
-         * 负责人类型
-         * <p> 示例值：
-         *
-         * @param leaderType
-         * @return
-         */
-        public Builder leaderType(Integer leaderType) {
-            this.leaderType = leaderType;
-            return this;
-        }
-
-        /**
-         * 负责人类型
-         * <p> 示例值：
-         *
-         * @param leaderType {@link com.lark.oapi.service.trust_party.v1.enums.DepartmentLeaderDepartmentLeaderTypeEnum}
-         * @return
-         */
-        public Builder leaderType(com.lark.oapi.service.trust_party.v1.enums.DepartmentLeaderDepartmentLeaderTypeEnum leaderType) {
-            this.leaderType = leaderType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 负责人ID deprecate
-         * <p> 示例值：ou_8b8d8b4e310575fd7e4947cf6f1402ac
-         *
-         * @param leaderId
-         * @return
-         */
-        public Builder leaderId(String leaderId) {
-            this.leaderId = leaderId;
-            return this;
-        }
-
-
-        /**
-         * 负责人ID
-         * <p> 示例值：
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(CollaborationUserId id) {
-            this.id = id;
-            return this;
-        }
-
-
-        public DepartmentLeader build() {
-            return new DepartmentLeader(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

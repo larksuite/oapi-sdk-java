@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProgressRecord {
+  /**
+   * OKR 进展ID
+   *
+   * <p>示例值：7041469619902693396
+   */
+  @SerializedName("progress_id")
+  private String progressId;
+
+  /**
+   * 进展更新时间 毫秒
+   *
+   * <p>示例值：1618500278663
+   */
+  @SerializedName("modify_time")
+  private String modifyTime;
+
+  /**
+   * 进展 对应的 Content 详细内容
+   *
+   * <p>示例值：
+   */
+  @SerializedName("content")
+  private ContentBlock content;
+
+  /**
+   * 进展，包括百分比和状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("progress_rate")
+  private ProgressRateNew progressRate;
+
+  public String getProgressId() {
+    return this.progressId;
+  }
+
+  public void setProgressId(String progressId) {
+    this.progressId = progressId;
+  }
+
+  public String getModifyTime() {
+    return this.modifyTime;
+  }
+
+  public void setModifyTime(String modifyTime) {
+    this.modifyTime = modifyTime;
+  }
+
+  public ContentBlock getContent() {
+    return this.content;
+  }
+
+  public void setContent(ContentBlock content) {
+    this.content = content;
+  }
+
+  public ProgressRateNew getProgressRate() {
+    return this.progressRate;
+  }
+
+  public void setProgressRate(ProgressRateNew progressRate) {
+    this.progressRate = progressRate;
+  }
+
+  // builder 开始
+  public ProgressRecord() {}
+
+  public ProgressRecord(Builder builder) {
     /**
      * OKR 进展ID
-     * <p> 示例值：7041469619902693396
+     *
+     * <p>示例值：7041469619902693396
      */
-    @SerializedName("progress_id")
-    private String progressId;
+    this.progressId = builder.progressId;
     /**
      * 进展更新时间 毫秒
-     * <p> 示例值：1618500278663
+     *
+     * <p>示例值：1618500278663
      */
-    @SerializedName("modify_time")
-    private String modifyTime;
+    this.modifyTime = builder.modifyTime;
     /**
      * 进展 对应的 Content 详细内容
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("content")
-    private ContentBlock content;
+    this.content = builder.content;
     /**
      * 进展，包括百分比和状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("progress_rate")
+    this.progressRate = builder.progressRate;
+  }
+
+  public static class Builder {
+    /**
+     * OKR 进展ID
+     *
+     * <p>示例值：7041469619902693396
+     */
+    private String progressId;
+
+    /**
+     * 进展更新时间 毫秒
+     *
+     * <p>示例值：1618500278663
+     */
+    private String modifyTime;
+
+    /**
+     * 进展 对应的 Content 详细内容
+     *
+     * <p>示例值：
+     */
+    private ContentBlock content;
+
+    /**
+     * 进展，包括百分比和状态
+     *
+     * <p>示例值：
+     */
     private ProgressRateNew progressRate;
 
-    // builder 开始
-    public ProgressRecord() {
+    /**
+     * OKR 进展ID
+     *
+     * <p>示例值：7041469619902693396
+     *
+     * @param progressId
+     * @return
+     */
+    public Builder progressId(String progressId) {
+      this.progressId = progressId;
+      return this;
     }
 
-    public ProgressRecord(Builder builder) {
-        /**
-         * OKR 进展ID
-         * <p> 示例值：7041469619902693396
-         */
-        this.progressId = builder.progressId;
-        /**
-         * 进展更新时间 毫秒
-         * <p> 示例值：1618500278663
-         */
-        this.modifyTime = builder.modifyTime;
-        /**
-         * 进展 对应的 Content 详细内容
-         * <p> 示例值：
-         */
-        this.content = builder.content;
-        /**
-         * 进展，包括百分比和状态
-         * <p> 示例值：
-         */
-        this.progressRate = builder.progressRate;
+    /**
+     * 进展更新时间 毫秒
+     *
+     * <p>示例值：1618500278663
+     *
+     * @param modifyTime
+     * @return
+     */
+    public Builder modifyTime(String modifyTime) {
+      this.modifyTime = modifyTime;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 进展 对应的 Content 详细内容
+     *
+     * <p>示例值：
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(ContentBlock content) {
+      this.content = content;
+      return this;
     }
 
-    public String getProgressId() {
-        return this.progressId;
+    /**
+     * 进展，包括百分比和状态
+     *
+     * <p>示例值：
+     *
+     * @param progressRate
+     * @return
+     */
+    public Builder progressRate(ProgressRateNew progressRate) {
+      this.progressRate = progressRate;
+      return this;
     }
 
-    public void setProgressId(String progressId) {
-        this.progressId = progressId;
+    public ProgressRecord build() {
+      return new ProgressRecord(this);
     }
+  }
 
-    public String getModifyTime() {
-        return this.modifyTime;
-    }
-
-    public void setModifyTime(String modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    public ContentBlock getContent() {
-        return this.content;
-    }
-
-    public void setContent(ContentBlock content) {
-        this.content = content;
-    }
-
-    public ProgressRateNew getProgressRate() {
-        return this.progressRate;
-    }
-
-    public void setProgressRate(ProgressRateNew progressRate) {
-        this.progressRate = progressRate;
-    }
-
-    public static class Builder {
-        /**
-         * OKR 进展ID
-         * <p> 示例值：7041469619902693396
-         */
-        private String progressId;
-        /**
-         * 进展更新时间 毫秒
-         * <p> 示例值：1618500278663
-         */
-        private String modifyTime;
-        /**
-         * 进展 对应的 Content 详细内容
-         * <p> 示例值：
-         */
-        private ContentBlock content;
-        /**
-         * 进展，包括百分比和状态
-         * <p> 示例值：
-         */
-        private ProgressRateNew progressRate;
-
-        /**
-         * OKR 进展ID
-         * <p> 示例值：7041469619902693396
-         *
-         * @param progressId
-         * @return
-         */
-        public Builder progressId(String progressId) {
-            this.progressId = progressId;
-            return this;
-        }
-
-
-        /**
-         * 进展更新时间 毫秒
-         * <p> 示例值：1618500278663
-         *
-         * @param modifyTime
-         * @return
-         */
-        public Builder modifyTime(String modifyTime) {
-            this.modifyTime = modifyTime;
-            return this;
-        }
-
-
-        /**
-         * 进展 对应的 Content 详细内容
-         * <p> 示例值：
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(ContentBlock content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 进展，包括百分比和状态
-         * <p> 示例值：
-         *
-         * @param progressRate
-         * @return
-         */
-        public Builder progressRate(ProgressRateNew progressRate) {
-            this.progressRate = progressRate;
-            return this;
-        }
-
-
-        public ProgressRecord build() {
-            return new ProgressRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

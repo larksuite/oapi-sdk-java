@@ -13,151 +13,150 @@
 
 package com.lark.oapi.service.mdm.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
+import com.lark.oapi.service.mdm.v3.enums.*;
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class I18nString {
+  /**
+   * 入参languages中排序第一的语言对应的值。
+   *
+   * <p>示例值：安道尔
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 入参languages中所有语言对应的值。
+   *
+   * <p>示例值：{"zh-CN":"安道尔"}
+   */
+  @SerializedName("multilingual_value")
+  private Map<String, String> multilingualValue;
+
+  /**
+   * value实际返回的值对应的语言，如"zh-CN"
+   *
+   * <p>示例值：zh-CN
+   */
+  @SerializedName("return_language")
+  private String returnLanguage;
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public Map<String, String> getMultilingualValue() {
+    return this.multilingualValue;
+  }
+
+  public void setMultilingualValue(Map<String, String> multilingualValue) {
+    this.multilingualValue = multilingualValue;
+  }
+
+  public String getReturnLanguage() {
+    return this.returnLanguage;
+  }
+
+  public void setReturnLanguage(String returnLanguage) {
+    this.returnLanguage = returnLanguage;
+  }
+
+  // builder 开始
+  public I18nString() {}
+
+  public I18nString(Builder builder) {
     /**
-     * 字符串值
-     * <p> 示例值：zh-name
+     * 入参languages中排序第一的语言对应的值。
+     *
+     * <p>示例值：安道尔
      */
-    @SerializedName("value")
+    this.value = builder.value;
+    /**
+     * 入参languages中所有语言对应的值。
+     *
+     * <p>示例值：{"zh-CN":"安道尔"}
+     */
+    this.multilingualValue = builder.multilingualValue;
+    /**
+     * value实际返回的值对应的语言，如"zh-CN"
+     *
+     * <p>示例值：zh-CN
+     */
+    this.returnLanguage = builder.returnLanguage;
+  }
+
+  public static class Builder {
+    /**
+     * 入参languages中排序第一的语言对应的值。
+     *
+     * <p>示例值：安道尔
+     */
     private String value;
+
     /**
-     * 多语言字符串
-     * <p> 示例值：
+     * 入参languages中所有语言对应的值。
+     *
+     * <p>示例值：{"zh-CN":"安道尔"}
      */
-    @SerializedName("multilingual_value")
     private Map<String, String> multilingualValue;
+
     /**
-     * 语言
-     * <p> 示例值：zh-CN
+     * value实际返回的值对应的语言，如"zh-CN"
+     *
+     * <p>示例值：zh-CN
      */
-    @SerializedName("return_language")
     private String returnLanguage;
 
-    // builder 开始
-    public I18nString() {
+    /**
+     * 入参languages中排序第一的语言对应的值。
+     *
+     * <p>示例值：安道尔
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public I18nString(Builder builder) {
-        /**
-         * 字符串值
-         * <p> 示例值：zh-name
-         */
-        this.value = builder.value;
-        /**
-         * 多语言字符串
-         * <p> 示例值：
-         */
-        this.multilingualValue = builder.multilingualValue;
-        /**
-         * 语言
-         * <p> 示例值：zh-CN
-         */
-        this.returnLanguage = builder.returnLanguage;
+    /**
+     * 入参languages中所有语言对应的值。
+     *
+     * <p>示例值：{"zh-CN":"安道尔"}
+     *
+     * @param multilingualValue
+     * @return
+     */
+    public Builder multilingualValue(Map<String, String> multilingualValue) {
+      this.multilingualValue = multilingualValue;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * value实际返回的值对应的语言，如"zh-CN"
+     *
+     * <p>示例值：zh-CN
+     *
+     * @param returnLanguage
+     * @return
+     */
+    public Builder returnLanguage(String returnLanguage) {
+      this.returnLanguage = returnLanguage;
+      return this;
     }
 
-    public String getValue() {
-        return this.value;
+    public I18nString build() {
+      return new I18nString(this);
     }
+  }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public Map<String, String> getMultilingualValue() {
-        return this.multilingualValue;
-    }
-
-    public void setMultilingualValue(Map<String, String> multilingualValue) {
-        this.multilingualValue = multilingualValue;
-    }
-
-    public String getReturnLanguage() {
-        return this.returnLanguage;
-    }
-
-    public void setReturnLanguage(String returnLanguage) {
-        this.returnLanguage = returnLanguage;
-    }
-
-    public static class Builder {
-        /**
-         * 字符串值
-         * <p> 示例值：zh-name
-         */
-        private String value;
-        /**
-         * 多语言字符串
-         * <p> 示例值：
-         */
-        private Map<String, String> multilingualValue;
-        /**
-         * 语言
-         * <p> 示例值：zh-CN
-         */
-        private String returnLanguage;
-
-        /**
-         * 字符串值
-         * <p> 示例值：zh-name
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 多语言字符串
-         * <p> 示例值：
-         *
-         * @param multilingualValue
-         * @return
-         */
-        public Builder multilingualValue(Map<String, String> multilingualValue) {
-            this.multilingualValue = multilingualValue;
-            return this;
-        }
-
-
-        /**
-         * 语言
-         * <p> 示例值：zh-CN
-         *
-         * @param returnLanguage
-         * @return
-         */
-        public Builder returnLanguage(String returnLanguage) {
-            this.returnLanguage = returnLanguage;
-            return this;
-        }
-
-
-        public I18nString build() {
-            return new I18nString(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

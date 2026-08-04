@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.performance.v2.enums;
 
-/**
- * 评分设置类型
- */
+/** 指标评分类型，填写时根据指定评分类型进行筛选 */
 public enum QueryMetricLibScoringSettingTypeEnum {
-    SCORE_MANUALLY("score_manually"), // 手动评分
-    SCORE_BY_FORMULA("score_by_formula"), // 公式评分
-    ;
-    private String value;
+  SCORE_MANUALLY("score_manually"), // 手动评分
+  SCORE_BY_FORMULA("score_by_formula"), // 公式评分
+  ;
+  private String value;
 
-    QueryMetricLibScoringSettingTypeEnum(String value) {
-        this.value = value;
-    }
+  QueryMetricLibScoringSettingTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EnumFieldSetting {
+  /**
+   * 选项信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("enum_field_option_list")
+  private CommonSchemaOption[] enumFieldOptionList;
+
+  /**
+   * 是否为多选
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_multiple")
+  private Boolean isMultiple;
+
+  public CommonSchemaOption[] getEnumFieldOptionList() {
+    return this.enumFieldOptionList;
+  }
+
+  public void setEnumFieldOptionList(CommonSchemaOption[] enumFieldOptionList) {
+    this.enumFieldOptionList = enumFieldOptionList;
+  }
+
+  public Boolean getIsMultiple() {
+    return this.isMultiple;
+  }
+
+  public void setIsMultiple(Boolean isMultiple) {
+    this.isMultiple = isMultiple;
+  }
+
+  // builder 开始
+  public EnumFieldSetting() {}
+
+  public EnumFieldSetting(Builder builder) {
     /**
      * 选项信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("enum_field_option_list")
-    private CommonSchemaOption[] enumFieldOptionList;
+    this.enumFieldOptionList = builder.enumFieldOptionList;
     /**
      * 是否为多选
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_multiple")
+    this.isMultiple = builder.isMultiple;
+  }
+
+  public static class Builder {
+    /**
+     * 选项信息
+     *
+     * <p>示例值：
+     */
+    private CommonSchemaOption[] enumFieldOptionList;
+
+    /**
+     * 是否为多选
+     *
+     * <p>示例值：false
+     */
     private Boolean isMultiple;
 
-    // builder 开始
-    public EnumFieldSetting() {
+    /**
+     * 选项信息
+     *
+     * <p>示例值：
+     *
+     * @param enumFieldOptionList
+     * @return
+     */
+    public Builder enumFieldOptionList(CommonSchemaOption[] enumFieldOptionList) {
+      this.enumFieldOptionList = enumFieldOptionList;
+      return this;
     }
 
-    public EnumFieldSetting(Builder builder) {
-        /**
-         * 选项信息
-         * <p> 示例值：
-         */
-        this.enumFieldOptionList = builder.enumFieldOptionList;
-        /**
-         * 是否为多选
-         * <p> 示例值：false
-         */
-        this.isMultiple = builder.isMultiple;
+    /**
+     * 是否为多选
+     *
+     * <p>示例值：false
+     *
+     * @param isMultiple
+     * @return
+     */
+    public Builder isMultiple(Boolean isMultiple) {
+      this.isMultiple = isMultiple;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EnumFieldSetting build() {
+      return new EnumFieldSetting(this);
     }
+  }
 
-    public CommonSchemaOption[] getEnumFieldOptionList() {
-        return this.enumFieldOptionList;
-    }
-
-    public void setEnumFieldOptionList(CommonSchemaOption[] enumFieldOptionList) {
-        this.enumFieldOptionList = enumFieldOptionList;
-    }
-
-    public Boolean getIsMultiple() {
-        return this.isMultiple;
-    }
-
-    public void setIsMultiple(Boolean isMultiple) {
-        this.isMultiple = isMultiple;
-    }
-
-    public static class Builder {
-        /**
-         * 选项信息
-         * <p> 示例值：
-         */
-        private CommonSchemaOption[] enumFieldOptionList;
-        /**
-         * 是否为多选
-         * <p> 示例值：false
-         */
-        private Boolean isMultiple;
-
-        /**
-         * 选项信息
-         * <p> 示例值：
-         *
-         * @param enumFieldOptionList
-         * @return
-         */
-        public Builder enumFieldOptionList(CommonSchemaOption[] enumFieldOptionList) {
-            this.enumFieldOptionList = enumFieldOptionList;
-            return this;
-        }
-
-
-        /**
-         * 是否为多选
-         * <p> 示例值：false
-         *
-         * @param isMultiple
-         * @return
-         */
-        public Builder isMultiple(Boolean isMultiple) {
-            this.isMultiple = isMultiple;
-            return this;
-        }
-
-
-        public EnumFieldSetting build() {
-            return new EnumFieldSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

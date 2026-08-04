@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateOrgdimension {
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_enable")
+  private Boolean isEnable;
+
+  /**
+   * 组织维度排序权重。数字小的排序在前，相同权重的按创建时间排序。
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("order")
+  private String order;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18nText description;
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public Boolean getIsEnable() {
+    return this.isEnable;
+  }
+
+  public void setIsEnable(Boolean isEnable) {
+    this.isEnable = isEnable;
+  }
+
+  public String getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(String order) {
+    this.order = order;
+  }
+
+  public I18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18nText description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public CreateOrgdimension() {}
+
+  public CreateOrgdimension(Builder builder) {
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_enable")
+    this.isEnable = builder.isEnable;
+    /**
+     * 组织维度排序权重。数字小的排序在前，相同权重的按创建时间排序。
+     *
+     * <p>示例值：100
+     */
+    this.order = builder.order;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
     private Boolean isEnable;
+
     /**
-     * 组织维度排序权重
-     * <p> 示例值：100
+     * 组织维度排序权重。数字小的排序在前，相同权重的按创建时间排序。
+     *
+     * <p>示例值：100
      */
-    @SerializedName("order")
     private String order;
+
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
     private I18nText description;
 
-    // builder 开始
-    public CreateOrgdimension() {
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public CreateOrgdimension(Builder builder) {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.isEnable = builder.isEnable;
-        /**
-         * 组织维度排序权重
-         * <p> 示例值：100
-         */
-        this.order = builder.order;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.description = builder.description;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param isEnable
+     * @return
+     */
+    public Builder isEnable(Boolean isEnable) {
+      this.isEnable = isEnable;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 组织维度排序权重。数字小的排序在前，相同权重的按创建时间排序。
+     *
+     * <p>示例值：100
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(String order) {
+      this.order = order;
+      return this;
     }
 
-    public I18nText getName() {
-        return this.name;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public void setName(I18nText name) {
-        this.name = name;
+    public CreateOrgdimension build() {
+      return new CreateOrgdimension(this);
     }
+  }
 
-    public Boolean getIsEnable() {
-        return this.isEnable;
-    }
-
-    public void setIsEnable(Boolean isEnable) {
-        this.isEnable = isEnable;
-    }
-
-    public String getOrder() {
-        return this.order;
-    }
-
-    public void setOrder(String order) {
-        this.order = order;
-    }
-
-    public I18nText getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18nText description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean isEnable;
-        /**
-         * 组织维度排序权重
-         * <p> 示例值：100
-         */
-        private String order;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText description;
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param isEnable
-         * @return
-         */
-        public Builder isEnable(Boolean isEnable) {
-            this.isEnable = isEnable;
-            return this;
-        }
-
-
-        /**
-         * 组织维度排序权重
-         * <p> 示例值：100
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(String order) {
-            this.order = order;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public CreateOrgdimension build() {
-            return new CreateOrgdimension(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

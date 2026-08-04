@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.payroll.v1.enums;
 
-/**
- * 字段类型
- */
+/** 字段类型 */
 public enum DatasourceFieldFieldTypeEnum {
-    MONEY(1), // 金额
-    NUMBER(2), // 数值
-    TEXT(3), // 文本
-    DATE(4), // 日期
-    PERCENTAGE(5), // 百分比
-    ;
-    private Integer value;
+  MONEY(1), // 金额
+  NUMBER(2), // 数值
+  TEXT(3), // 文本
+  DATE(4), // 日期
+  PERCENTAGE(5), // 百分比
+  ;
+  private Integer value;
 
-    DatasourceFieldFieldTypeEnum(Integer value) {
-        this.value = value;
-    }
+  DatasourceFieldFieldTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

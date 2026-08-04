@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SendNotification {
+  /**
+   * 是否发送通知
+   *
+   * <p>示例值：
+   */
+  @SerializedName("need_send_notification")
+  private Boolean needSendNotification;
+
+  /**
+   * 语言类型 可选值：zh-CN：中文 en-US：英文 ja-JP：日文
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("language")
+  private Integer language;
+
+  public Boolean getNeedSendNotification() {
+    return this.needSendNotification;
+  }
+
+  public void setNeedSendNotification(Boolean needSendNotification) {
+    this.needSendNotification = needSendNotification;
+  }
+
+  public Integer getLanguage() {
+    return this.language;
+  }
+
+  public void setLanguage(Integer language) {
+    this.language = language;
+  }
+
+  // builder 开始
+  public SendNotification() {}
+
+  public SendNotification(Builder builder) {
     /**
      * 是否发送通知
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("need_send_notification")
-    private Boolean needSendNotification;
+    this.needSendNotification = builder.needSendNotification;
     /**
      * 语言类型 可选值：zh-CN：中文 en-US：英文 ja-JP：日文
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("language")
+    this.language = builder.language;
+  }
+
+  public static class Builder {
+    /**
+     * 是否发送通知
+     *
+     * <p>示例值：
+     */
+    private Boolean needSendNotification;
+
+    /**
+     * 语言类型 可选值：zh-CN：中文 en-US：英文 ja-JP：日文
+     *
+     * <p>示例值：1
+     */
     private Integer language;
 
-    // builder 开始
-    public SendNotification() {
+    /**
+     * 是否发送通知
+     *
+     * <p>示例值：
+     *
+     * @param needSendNotification
+     * @return
+     */
+    public Builder needSendNotification(Boolean needSendNotification) {
+      this.needSendNotification = needSendNotification;
+      return this;
     }
 
-    public SendNotification(Builder builder) {
-        /**
-         * 是否发送通知
-         * <p> 示例值：
-         */
-        this.needSendNotification = builder.needSendNotification;
-        /**
-         * 语言类型 可选值：zh-CN：中文 en-US：英文 ja-JP：日文
-         * <p> 示例值：1
-         */
-        this.language = builder.language;
+    /**
+     * 语言类型 可选值：zh-CN：中文 en-US：英文 ja-JP：日文
+     *
+     * <p>示例值：1
+     *
+     * @param language
+     * @return
+     */
+    public Builder language(Integer language) {
+      this.language = language;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SendNotification build() {
+      return new SendNotification(this);
     }
+  }
 
-    public Boolean getNeedSendNotification() {
-        return this.needSendNotification;
-    }
-
-    public void setNeedSendNotification(Boolean needSendNotification) {
-        this.needSendNotification = needSendNotification;
-    }
-
-    public Integer getLanguage() {
-        return this.language;
-    }
-
-    public void setLanguage(Integer language) {
-        this.language = language;
-    }
-
-    public static class Builder {
-        /**
-         * 是否发送通知
-         * <p> 示例值：
-         */
-        private Boolean needSendNotification;
-        /**
-         * 语言类型 可选值：zh-CN：中文 en-US：英文 ja-JP：日文
-         * <p> 示例值：1
-         */
-        private Integer language;
-
-        /**
-         * 是否发送通知
-         * <p> 示例值：
-         *
-         * @param needSendNotification
-         * @return
-         */
-        public Builder needSendNotification(Boolean needSendNotification) {
-            this.needSendNotification = needSendNotification;
-            return this;
-        }
-
-
-        /**
-         * 语言类型 可选值：zh-CN：中文 en-US：英文 ja-JP：日文
-         * <p> 示例值：1
-         *
-         * @param language
-         * @return
-         */
-        public Builder language(Integer language) {
-            this.language = language;
-            return this;
-        }
-
-
-        public SendNotification build() {
-            return new SendNotification(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

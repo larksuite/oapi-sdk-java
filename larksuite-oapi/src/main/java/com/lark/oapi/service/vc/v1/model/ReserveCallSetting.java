@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReserveCallSetting {
+  /**
+   * 被呼叫的用户
+   *
+   * <p>示例值：
+   */
+  @SerializedName("callee")
+  private ReserveCallee callee;
+
+  public ReserveCallee getCallee() {
+    return this.callee;
+  }
+
+  public void setCallee(ReserveCallee callee) {
+    this.callee = callee;
+  }
+
+  // builder 开始
+  public ReserveCallSetting() {}
+
+  public ReserveCallSetting(Builder builder) {
     /**
      * 被呼叫的用户
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("callee")
+    this.callee = builder.callee;
+  }
+
+  public static class Builder {
+    /**
+     * 被呼叫的用户
+     *
+     * <p>示例值：
+     */
     private ReserveCallee callee;
 
-    // builder 开始
-    public ReserveCallSetting() {
+    /**
+     * 被呼叫的用户
+     *
+     * <p>示例值：
+     *
+     * @param callee
+     * @return
+     */
+    public Builder callee(ReserveCallee callee) {
+      this.callee = callee;
+      return this;
     }
 
-    public ReserveCallSetting(Builder builder) {
-        /**
-         * 被呼叫的用户
-         * <p> 示例值：
-         */
-        this.callee = builder.callee;
+    public ReserveCallSetting build() {
+      return new ReserveCallSetting(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public ReserveCallee getCallee() {
-        return this.callee;
-    }
-
-    public void setCallee(ReserveCallee callee) {
-        this.callee = callee;
-    }
-
-    public static class Builder {
-        /**
-         * 被呼叫的用户
-         * <p> 示例值：
-         */
-        private ReserveCallee callee;
-
-        /**
-         * 被呼叫的用户
-         * <p> 示例值：
-         *
-         * @param callee
-         * @return
-         */
-        public Builder callee(ReserveCallee callee) {
-            this.callee = callee;
-            return this;
-        }
-
-
-        public ReserveCallSetting build() {
-            return new ReserveCallSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

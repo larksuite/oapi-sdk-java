@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListEmployeeTypeEnumRespBody {
-    /**
-     * 枚举数据
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private EmployeeTypeEnum[] items;
-    /**
-     * 是否下一页
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * 分页token
-     * <p> 示例值：3
-     */
-    @SerializedName("page_token")
-    private String pageToken;
+  /**
+   * 人员类型的选项信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private EmployeeTypeEnum[] items;
 
-    public EmployeeTypeEnum[] getItems() {
-        return this.items;
-    }
+  /**
+   * 是否还有更多项
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public void setItems(EmployeeTypeEnum[] items) {
-        this.items = items;
-    }
+  /**
+   * 分页token
+   *
+   * <p>示例值：3
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public EmployeeTypeEnum[] getItems() {
+    return this.items;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public void setItems(EmployeeTypeEnum[] items) {
+    this.items = items;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 }

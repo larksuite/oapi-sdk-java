@@ -13,151 +13,151 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.okr.v1.enums.*;
 
 public class QueryReviewReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 目标用户id列表，最多5个
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  /**
+   * period_id列表，最多5个
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("period_ids")
+  private String[] periodIds;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  public String[] getPeriodIds() {
+    return this.periodIds;
+  }
+
+  public void setPeriodIds(String[] periodIds) {
+    this.periodIds = periodIds;
+  }
+
+  // builder 开始
+  public QueryReviewReq() {}
+
+  public QueryReviewReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 目标用户id列表，最多5个
-     * <p> 示例值：ou_e6139117c300506837def50545420c6a
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_ids")
-    private String[] userIds;
+    this.userIds = builder.userIds;
     /**
      * period_id列表，最多5个
-     * <p> 示例值：7067724095781142548
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("period_ids")
-    private String[] periodIds;
+    this.periodIds = builder.periodIds;
+  }
 
-    // builder 开始
-    public QueryReviewReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+    private String[] userIds; // 目标用户id列表，最多5个
+    private String[] periodIds; // period_id列表，最多5个
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public QueryReviewReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 目标用户id列表，最多5个
-         * <p> 示例值：ou_e6139117c300506837def50545420c6a
-         */
-        this.userIds = builder.userIds;
-        /**
-         * period_id列表，最多5个
-         * <p> 示例值：7067724095781142548
-         */
-        this.periodIds = builder.periodIds;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.okr.v1.enums.QueryReviewOpenAPIQueryReviewUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.okr.v1.enums.QueryReviewOpenAPIQueryReviewUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 目标用户id列表，最多5个
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * period_id列表，最多5个
+     *
+     * <p>示例值：
+     *
+     * @param periodIds
+     * @return
+     */
+    public Builder periodIds(String[] periodIds) {
+      this.periodIds = periodIds;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    public QueryReviewReq build() {
+      return new QueryReviewReq(this);
     }
+  }
 
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public String[] getPeriodIds() {
-        return this.periodIds;
-    }
-
-    public void setPeriodIds(String[] periodIds) {
-        this.periodIds = periodIds;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String[] userIds; // 目标用户id列表，最多5个
-        private String[] periodIds; // period_id列表，最多5个
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.QueryReviewOpenAPIQueryReviewUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.okr.v1.enums.QueryReviewOpenAPIQueryReviewUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 目标用户id列表，最多5个
-         * <p> 示例值：ou_e6139117c300506837def50545420c6a
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        /**
-         * period_id列表，最多5个
-         * <p> 示例值：7067724095781142548
-         *
-         * @param periodIds
-         * @return
-         */
-        public Builder periodIds(String[] periodIds) {
-            this.periodIds = periodIds;
-            return this;
-        }
-
-
-        public QueryReviewReq build() {
-            return new QueryReviewReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

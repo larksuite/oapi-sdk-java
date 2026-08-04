@@ -13,118 +13,119 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ProcessNodeUpdatedV2Data {
-    /**
-     * 流程定义id
-     * <p> 示例值：people_7182520625066475540_7222929439175839532
-     */
-    @SerializedName("flow_definition_id")
-    private String flowDefinitionId;
-    /**
-     * 节点定义id
-     * <p> 示例值：approval_7c7d9c4d25b
-     */
-    @SerializedName("node_definition_id")
-    private String nodeDefinitionId;
-    /**
-     * 流程运行实例id
-     * <p> 示例值：7312658016791168538
-     */
-    @SerializedName("process_id")
-    private String processId;
-    /**
-     * 节点运行实例id
-     * <p> 示例值：7311696871833994796
-     */
-    @SerializedName("process_node_id")
-    private String processNodeId;
-    /**
-     * 节点类型
-     * <p> 示例值：1
-     */
-    @SerializedName("node_type")
-    private Integer nodeType;
-    /**
-     * 单据状态
-     * <p> 示例值：1
-     */
-    @SerializedName("node_status")
-    private Integer nodeStatus;
-    /**
-     * 业务类型
-     * <p> 示例值：renewal_record
-     */
-    @SerializedName("biz_type")
-    private String bizType;
+  /**
+   * 流程定义 id
+   *
+   * <p>示例值：people_7182520625066475540_7222929439175839532
+   */
+  @SerializedName("flow_definition_id")
+  private String flowDefinitionId;
 
-    public String getFlowDefinitionId() {
-        return this.flowDefinitionId;
-    }
+  /**
+   * 节点定义 id
+   *
+   * <p>示例值：approval_7c7d9c4d25b
+   */
+  @SerializedName("node_definition_id")
+  private String nodeDefinitionId;
 
-    public void setFlowDefinitionId(String flowDefinitionId) {
-        this.flowDefinitionId = flowDefinitionId;
-    }
+  /**
+   * 流程运行实例
+   * id，详细信息可通过[获取单个流程详情](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)获取
+   *
+   * <p>示例值：7312658016791168538
+   */
+  @SerializedName("process_id")
+  private String processId;
 
-    public String getNodeDefinitionId() {
-        return this.nodeDefinitionId;
-    }
+  /**
+   * 节点运行实例 id
+   *
+   * <p>示例值：7311696871833994796
+   */
+  @SerializedName("process_node_id")
+  private String processNodeId;
 
-    public void setNodeDefinitionId(String nodeDefinitionId) {
-        this.nodeDefinitionId = nodeDefinitionId;
-    }
+  /**
+   * 节点类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("node_type")
+  private Integer nodeType;
 
-    public String getProcessId() {
-        return this.processId;
-    }
+  /**
+   * 节点状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("node_status")
+  private Integer nodeStatus;
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
+  /**
+   * 业务类型，详情请查看[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/process-form_variable_data/access-guide);
+   *
+   * <p>示例值：renewal_record
+   */
+  @SerializedName("biz_type")
+  private String bizType;
 
-    public String getProcessNodeId() {
-        return this.processNodeId;
-    }
+  public String getFlowDefinitionId() {
+    return this.flowDefinitionId;
+  }
 
-    public void setProcessNodeId(String processNodeId) {
-        this.processNodeId = processNodeId;
-    }
+  public void setFlowDefinitionId(String flowDefinitionId) {
+    this.flowDefinitionId = flowDefinitionId;
+  }
 
-    public Integer getNodeType() {
-        return this.nodeType;
-    }
+  public String getNodeDefinitionId() {
+    return this.nodeDefinitionId;
+  }
 
-    public void setNodeType(Integer nodeType) {
-        this.nodeType = nodeType;
-    }
+  public void setNodeDefinitionId(String nodeDefinitionId) {
+    this.nodeDefinitionId = nodeDefinitionId;
+  }
 
-    public Integer getNodeStatus() {
-        return this.nodeStatus;
-    }
+  public String getProcessId() {
+    return this.processId;
+  }
 
-    public void setNodeStatus(Integer nodeStatus) {
-        this.nodeStatus = nodeStatus;
-    }
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
 
-    public String getBizType() {
-        return this.bizType;
-    }
+  public String getProcessNodeId() {
+    return this.processNodeId;
+  }
 
-    public void setBizType(String bizType) {
-        this.bizType = bizType;
-    }
+  public void setProcessNodeId(String processNodeId) {
+    this.processNodeId = processNodeId;
+  }
 
+  public Integer getNodeType() {
+    return this.nodeType;
+  }
+
+  public void setNodeType(Integer nodeType) {
+    this.nodeType = nodeType;
+  }
+
+  public Integer getNodeStatus() {
+    return this.nodeStatus;
+  }
+
+  public void setNodeStatus(Integer nodeStatus) {
+    this.nodeStatus = nodeStatus;
+  }
+
+  public String getBizType() {
+    return this.bizType;
+  }
+
+  public void setBizType(String bizType) {
+    this.bizType = bizType;
+  }
 }

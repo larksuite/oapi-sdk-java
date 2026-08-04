@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Pie {
+  /**
+   * 开始径向边角度，水平向右x轴正方向为0度，顺时针方向角度值递增，单位度
+   *
+   * <p>示例值：30.0
+   */
+  @SerializedName("start_radial_line_angle")
+  private Double startRadialLineAngle;
+
+  /**
+   * 圆心角角度，角度方向为始径向边逆时针方向，单位度
+   *
+   * <p>示例值：40.0
+   */
+  @SerializedName("central_angle")
+  private Double centralAngle;
+
+  /**
+   * 半径长度，单位 px
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("radius")
+  private Double radius;
+
+  /**
+   * 扇区占比，0为一个圆周线，1为一个圆盘
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("sector_ratio")
+  private Double sectorRatio;
+
+  public Double getStartRadialLineAngle() {
+    return this.startRadialLineAngle;
+  }
+
+  public void setStartRadialLineAngle(Double startRadialLineAngle) {
+    this.startRadialLineAngle = startRadialLineAngle;
+  }
+
+  public Double getCentralAngle() {
+    return this.centralAngle;
+  }
+
+  public void setCentralAngle(Double centralAngle) {
+    this.centralAngle = centralAngle;
+  }
+
+  public Double getRadius() {
+    return this.radius;
+  }
+
+  public void setRadius(Double radius) {
+    this.radius = radius;
+  }
+
+  public Double getSectorRatio() {
+    return this.sectorRatio;
+  }
+
+  public void setSectorRatio(Double sectorRatio) {
+    this.sectorRatio = sectorRatio;
+  }
+
+  // builder 开始
+  public Pie() {}
+
+  public Pie(Builder builder) {
     /**
-     * 开始径向边角度，水平向右x轴正方向为0度，顺时针方向角度值递增
-     * <p> 示例值：30.0
+     * 开始径向边角度，水平向右x轴正方向为0度，顺时针方向角度值递增，单位度
+     *
+     * <p>示例值：30.0
      */
-    @SerializedName("start_radial_line_angle")
-    private Double startRadialLineAngle;
+    this.startRadialLineAngle = builder.startRadialLineAngle;
     /**
-     * 圆心角角度，角度方向为始径向边逆时针方向
-     * <p> 示例值：40.0
+     * 圆心角角度，角度方向为始径向边逆时针方向，单位度
+     *
+     * <p>示例值：40.0
      */
-    @SerializedName("central_angle")
-    private Double centralAngle;
+    this.centralAngle = builder.centralAngle;
     /**
-     * 半径长度
-     * <p> 示例值：10
+     * 半径长度，单位 px
+     *
+     * <p>示例值：10
      */
-    @SerializedName("radius")
-    private Double radius;
+    this.radius = builder.radius;
     /**
      * 扇区占比，0为一个圆周线，1为一个圆盘
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("sector_ratio")
+    this.sectorRatio = builder.sectorRatio;
+  }
+
+  public static class Builder {
+    /**
+     * 开始径向边角度，水平向右x轴正方向为0度，顺时针方向角度值递增，单位度
+     *
+     * <p>示例值：30.0
+     */
+    private Double startRadialLineAngle;
+
+    /**
+     * 圆心角角度，角度方向为始径向边逆时针方向，单位度
+     *
+     * <p>示例值：40.0
+     */
+    private Double centralAngle;
+
+    /**
+     * 半径长度，单位 px
+     *
+     * <p>示例值：10
+     */
+    private Double radius;
+
+    /**
+     * 扇区占比，0为一个圆周线，1为一个圆盘
+     *
+     * <p>示例值：1
+     */
     private Double sectorRatio;
 
-    // builder 开始
-    public Pie() {
+    /**
+     * 开始径向边角度，水平向右x轴正方向为0度，顺时针方向角度值递增，单位度
+     *
+     * <p>示例值：30.0
+     *
+     * @param startRadialLineAngle
+     * @return
+     */
+    public Builder startRadialLineAngle(Double startRadialLineAngle) {
+      this.startRadialLineAngle = startRadialLineAngle;
+      return this;
     }
 
-    public Pie(Builder builder) {
-        /**
-         * 开始径向边角度，水平向右x轴正方向为0度，顺时针方向角度值递增
-         * <p> 示例值：30.0
-         */
-        this.startRadialLineAngle = builder.startRadialLineAngle;
-        /**
-         * 圆心角角度，角度方向为始径向边逆时针方向
-         * <p> 示例值：40.0
-         */
-        this.centralAngle = builder.centralAngle;
-        /**
-         * 半径长度
-         * <p> 示例值：10
-         */
-        this.radius = builder.radius;
-        /**
-         * 扇区占比，0为一个圆周线，1为一个圆盘
-         * <p> 示例值：1
-         */
-        this.sectorRatio = builder.sectorRatio;
+    /**
+     * 圆心角角度，角度方向为始径向边逆时针方向，单位度
+     *
+     * <p>示例值：40.0
+     *
+     * @param centralAngle
+     * @return
+     */
+    public Builder centralAngle(Double centralAngle) {
+      this.centralAngle = centralAngle;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 半径长度，单位 px
+     *
+     * <p>示例值：10
+     *
+     * @param radius
+     * @return
+     */
+    public Builder radius(Double radius) {
+      this.radius = radius;
+      return this;
     }
 
-    public Double getStartRadialLineAngle() {
-        return this.startRadialLineAngle;
+    /**
+     * 扇区占比，0为一个圆周线，1为一个圆盘
+     *
+     * <p>示例值：1
+     *
+     * @param sectorRatio
+     * @return
+     */
+    public Builder sectorRatio(Double sectorRatio) {
+      this.sectorRatio = sectorRatio;
+      return this;
     }
 
-    public void setStartRadialLineAngle(Double startRadialLineAngle) {
-        this.startRadialLineAngle = startRadialLineAngle;
+    public Pie build() {
+      return new Pie(this);
     }
+  }
 
-    public Double getCentralAngle() {
-        return this.centralAngle;
-    }
-
-    public void setCentralAngle(Double centralAngle) {
-        this.centralAngle = centralAngle;
-    }
-
-    public Double getRadius() {
-        return this.radius;
-    }
-
-    public void setRadius(Double radius) {
-        this.radius = radius;
-    }
-
-    public Double getSectorRatio() {
-        return this.sectorRatio;
-    }
-
-    public void setSectorRatio(Double sectorRatio) {
-        this.sectorRatio = sectorRatio;
-    }
-
-    public static class Builder {
-        /**
-         * 开始径向边角度，水平向右x轴正方向为0度，顺时针方向角度值递增
-         * <p> 示例值：30.0
-         */
-        private Double startRadialLineAngle;
-        /**
-         * 圆心角角度，角度方向为始径向边逆时针方向
-         * <p> 示例值：40.0
-         */
-        private Double centralAngle;
-        /**
-         * 半径长度
-         * <p> 示例值：10
-         */
-        private Double radius;
-        /**
-         * 扇区占比，0为一个圆周线，1为一个圆盘
-         * <p> 示例值：1
-         */
-        private Double sectorRatio;
-
-        /**
-         * 开始径向边角度，水平向右x轴正方向为0度，顺时针方向角度值递增
-         * <p> 示例值：30.0
-         *
-         * @param startRadialLineAngle
-         * @return
-         */
-        public Builder startRadialLineAngle(Double startRadialLineAngle) {
-            this.startRadialLineAngle = startRadialLineAngle;
-            return this;
-        }
-
-
-        /**
-         * 圆心角角度，角度方向为始径向边逆时针方向
-         * <p> 示例值：40.0
-         *
-         * @param centralAngle
-         * @return
-         */
-        public Builder centralAngle(Double centralAngle) {
-            this.centralAngle = centralAngle;
-            return this;
-        }
-
-
-        /**
-         * 半径长度
-         * <p> 示例值：10
-         *
-         * @param radius
-         * @return
-         */
-        public Builder radius(Double radius) {
-            this.radius = radius;
-            return this;
-        }
-
-
-        /**
-         * 扇区占比，0为一个圆周线，1为一个圆盘
-         * <p> 示例值：1
-         *
-         * @param sectorRatio
-         * @return
-         */
-        public Builder sectorRatio(Double sectorRatio) {
-            this.sectorRatio = sectorRatio;
-            return this;
-        }
-
-
-        public Pie build() {
-            return new Pie(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

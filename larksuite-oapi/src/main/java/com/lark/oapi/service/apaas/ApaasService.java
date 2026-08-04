@@ -13,25 +13,17 @@
 package com.lark.oapi.service.apaas;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.apaas.v1.V1;
 import com.lark.oapi.service.apaas.v1.model.*;
 
 public class ApaasService {
-    private final V1 v1;
+  private final V1 v1;
 
-    public ApaasService(Config config) {
-        this.v1 = new V1(config);
-    }
+  public ApaasService(Config config) {
+    this.v1 = new V1(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
-
-    public abstract static class P2WorkspaceRecordChangeV1Handler implements IEventHandler<P2WorkspaceRecordChangeV1> {
-        @Override
-        public P2WorkspaceRecordChangeV1 getEvent() {
-            return new P2WorkspaceRecordChangeV1();
-        }
-    }
+  public V1 v1() {
+    return v1;
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.contact.v3.enums;
 
-/**
- * 成员ID类型
- */
+/** 成员ID类型 */
 public enum BatchDeleteFunctionalRoleMemberRoleMemberIDTypeEnum {
-    OPEN_ID("open_id"), // 用户的open_id
-    UNION_ID("union_id"), // 用户的user_id
-    USER_ID("user_id"), // 用户的user_id
-    ;
-    private String value;
+  OPEN_ID("open_id"), // 用户的open_id
+  UNION_ID("union_id"), // 用户的user_id
+  USER_ID("user_id"), // 用户的user_id
+  ;
+  private String value;
 
-    BatchDeleteFunctionalRoleMemberRoleMemberIDTypeEnum(String value) {
-        this.value = value;
-    }
+  BatchDeleteFunctionalRoleMemberRoleMemberIDTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

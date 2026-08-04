@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubscribeUser {
+  /**
+   * 预定管理员ID
+   *
+   * <p>示例值：ou_a27b07a9071d90577c0177bcec98f856
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 预订人姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_name")
+  private String userName;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getUserName() {
+    return this.userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  // builder 开始
+  public SubscribeUser() {}
+
+  public SubscribeUser(Builder builder) {
     /**
-     * 审批人/预定人id
-     * <p> 示例值：ou_a27b07a9071d90577c0177bcec98f856
+     * 预定管理员ID
+     *
+     * <p>示例值：ou_a27b07a9071d90577c0177bcec98f856
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 预订人姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_name")
+    this.userName = builder.userName;
+  }
+
+  public static class Builder {
+    /**
+     * 预定管理员ID
+     *
+     * <p>示例值：ou_a27b07a9071d90577c0177bcec98f856
+     */
+    private String userId;
+
+    /**
+     * 预订人姓名
+     *
+     * <p>示例值：
+     */
     private String userName;
 
-    // builder 开始
-    public SubscribeUser() {
+    /**
+     * 预定管理员ID
+     *
+     * <p>示例值：ou_a27b07a9071d90577c0177bcec98f856
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public SubscribeUser(Builder builder) {
-        /**
-         * 审批人/预定人id
-         * <p> 示例值：ou_a27b07a9071d90577c0177bcec98f856
-         */
-        this.userId = builder.userId;
-        /**
-         * 预订人姓名
-         * <p> 示例值：
-         */
-        this.userName = builder.userName;
+    /**
+     * 预订人姓名
+     *
+     * <p>示例值：
+     *
+     * @param userName
+     * @return
+     */
+    public Builder userName(String userName) {
+      this.userName = userName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SubscribeUser build() {
+      return new SubscribeUser(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getUserName() {
-        return this.userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public static class Builder {
-        /**
-         * 审批人/预定人id
-         * <p> 示例值：ou_a27b07a9071d90577c0177bcec98f856
-         */
-        private String userId;
-        /**
-         * 预订人姓名
-         * <p> 示例值：
-         */
-        private String userName;
-
-        /**
-         * 审批人/预定人id
-         * <p> 示例值：ou_a27b07a9071d90577c0177bcec98f856
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 预订人姓名
-         * <p> 示例值：
-         *
-         * @param userName
-         * @return
-         */
-        public Builder userName(String userName) {
-            this.userName = userName;
-            return this;
-        }
-
-
-        public SubscribeUser build() {
-            return new SubscribeUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

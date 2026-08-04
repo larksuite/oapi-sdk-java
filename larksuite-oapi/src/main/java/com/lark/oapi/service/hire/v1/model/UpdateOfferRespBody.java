@@ -13,90 +13,86 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateOfferRespBody {
-    /**
-     * Offer ID
-     * <p> 示例值：7016605170635213100
-     */
-    @SerializedName("offer_id")
-    private String offerId;
-    /**
-     * 模板 ID
-     * <p> 示例值：7013318077945596204
-     */
-    @SerializedName("schema_id")
-    private String schemaId;
-    /**
-     * Offer 基本信息
-     * <p> 示例值：
-     */
-    @SerializedName("basic_info")
-    private OfferBasicInfo basicInfo;
-    /**
-     * Offer 薪资信息
-     * <p> 示例值：
-     */
-    @SerializedName("salary_info")
-    private OfferSalaryInfo salaryInfo;
-    /**
-     * 自定义信息
-     * <p> 示例值：
-     */
-    @SerializedName("customized_info_list")
-    private OfferCustomizedInfo[] customizedInfoList;
+  /**
+   * Offer ID
+   *
+   * <p>示例值：7016605170635213100
+   */
+  @SerializedName("offer_id")
+  private String offerId;
 
-    public String getOfferId() {
-        return this.offerId;
-    }
+  /**
+   * 模板 ID
+   *
+   * <p>示例值：7013318077945596204
+   */
+  @SerializedName("schema_id")
+  private String schemaId;
 
-    public void setOfferId(String offerId) {
-        this.offerId = offerId;
-    }
+  /**
+   * Offer 基本信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("basic_info")
+  private OfferBasicInfo basicInfo;
 
-    public String getSchemaId() {
-        return this.schemaId;
-    }
+  /**
+   * Offer 薪资信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("salary_info")
+  private OfferSalaryInfo salaryInfo;
 
-    public void setSchemaId(String schemaId) {
-        this.schemaId = schemaId;
-    }
+  /**
+   * 自定义信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_info_list")
+  private OfferCustomizedInfo[] customizedInfoList;
 
-    public OfferBasicInfo getBasicInfo() {
-        return this.basicInfo;
-    }
+  public String getOfferId() {
+    return this.offerId;
+  }
 
-    public void setBasicInfo(OfferBasicInfo basicInfo) {
-        this.basicInfo = basicInfo;
-    }
+  public void setOfferId(String offerId) {
+    this.offerId = offerId;
+  }
 
-    public OfferSalaryInfo getSalaryInfo() {
-        return this.salaryInfo;
-    }
+  public String getSchemaId() {
+    return this.schemaId;
+  }
 
-    public void setSalaryInfo(OfferSalaryInfo salaryInfo) {
-        this.salaryInfo = salaryInfo;
-    }
+  public void setSchemaId(String schemaId) {
+    this.schemaId = schemaId;
+  }
 
-    public OfferCustomizedInfo[] getCustomizedInfoList() {
-        return this.customizedInfoList;
-    }
+  public OfferBasicInfo getBasicInfo() {
+    return this.basicInfo;
+  }
 
-    public void setCustomizedInfoList(OfferCustomizedInfo[] customizedInfoList) {
-        this.customizedInfoList = customizedInfoList;
-    }
+  public void setBasicInfo(OfferBasicInfo basicInfo) {
+    this.basicInfo = basicInfo;
+  }
 
+  public OfferSalaryInfo getSalaryInfo() {
+    return this.salaryInfo;
+  }
+
+  public void setSalaryInfo(OfferSalaryInfo salaryInfo) {
+    this.salaryInfo = salaryInfo;
+  }
+
+  public OfferCustomizedInfo[] getCustomizedInfoList() {
+    return this.customizedInfoList;
+  }
+
+  public void setCustomizedInfoList(OfferCustomizedInfo[] customizedInfoList) {
+    this.customizedInfoList = customizedInfoList;
+  }
 }

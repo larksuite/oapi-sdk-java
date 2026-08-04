@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LandingPlan {
+  /**
+   * wk id
+   *
+   * <p>示例值：6950635856373745165
+   */
+  @SerializedName("wk_id")
+  private String wkId;
+
+  /**
+   * Landing群id
+   *
+   * <p>示例值：6950635856373745165
+   */
+  @SerializedName("landing_group_id")
+  private String landingGroupId;
+
+  /**
+   * Landing状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("landing_status")
+  private Enum landingStatus;
+
+  /**
+   * 当前导师
+   *
+   * <p>示例值：6950635856373745165
+   */
+  @SerializedName("mentor")
+  private String mentor;
+
+  public String getWkId() {
+    return this.wkId;
+  }
+
+  public void setWkId(String wkId) {
+    this.wkId = wkId;
+  }
+
+  public String getLandingGroupId() {
+    return this.landingGroupId;
+  }
+
+  public void setLandingGroupId(String landingGroupId) {
+    this.landingGroupId = landingGroupId;
+  }
+
+  public Enum getLandingStatus() {
+    return this.landingStatus;
+  }
+
+  public void setLandingStatus(Enum landingStatus) {
+    this.landingStatus = landingStatus;
+  }
+
+  public String getMentor() {
+    return this.mentor;
+  }
+
+  public void setMentor(String mentor) {
+    this.mentor = mentor;
+  }
+
+  // builder 开始
+  public LandingPlan() {}
+
+  public LandingPlan(Builder builder) {
     /**
      * wk id
-     * <p> 示例值：6950635856373745165
+     *
+     * <p>示例值：6950635856373745165
      */
-    @SerializedName("wk_id")
-    private String wkId;
+    this.wkId = builder.wkId;
     /**
      * Landing群id
-     * <p> 示例值：6950635856373745165
+     *
+     * <p>示例值：6950635856373745165
      */
-    @SerializedName("landing_group_id")
-    private String landingGroupId;
+    this.landingGroupId = builder.landingGroupId;
     /**
      * Landing状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("landing_status")
-    private Enum landingStatus;
+    this.landingStatus = builder.landingStatus;
     /**
      * 当前导师
-     * <p> 示例值：6950635856373745165
+     *
+     * <p>示例值：6950635856373745165
      */
-    @SerializedName("mentor")
+    this.mentor = builder.mentor;
+  }
+
+  public static class Builder {
+    /**
+     * wk id
+     *
+     * <p>示例值：6950635856373745165
+     */
+    private String wkId;
+
+    /**
+     * Landing群id
+     *
+     * <p>示例值：6950635856373745165
+     */
+    private String landingGroupId;
+
+    /**
+     * Landing状态
+     *
+     * <p>示例值：
+     */
+    private Enum landingStatus;
+
+    /**
+     * 当前导师
+     *
+     * <p>示例值：6950635856373745165
+     */
     private String mentor;
 
-    // builder 开始
-    public LandingPlan() {
+    /**
+     * wk id
+     *
+     * <p>示例值：6950635856373745165
+     *
+     * @param wkId
+     * @return
+     */
+    public Builder wkId(String wkId) {
+      this.wkId = wkId;
+      return this;
     }
 
-    public LandingPlan(Builder builder) {
-        /**
-         * wk id
-         * <p> 示例值：6950635856373745165
-         */
-        this.wkId = builder.wkId;
-        /**
-         * Landing群id
-         * <p> 示例值：6950635856373745165
-         */
-        this.landingGroupId = builder.landingGroupId;
-        /**
-         * Landing状态
-         * <p> 示例值：
-         */
-        this.landingStatus = builder.landingStatus;
-        /**
-         * 当前导师
-         * <p> 示例值：6950635856373745165
-         */
-        this.mentor = builder.mentor;
+    /**
+     * Landing群id
+     *
+     * <p>示例值：6950635856373745165
+     *
+     * @param landingGroupId
+     * @return
+     */
+    public Builder landingGroupId(String landingGroupId) {
+      this.landingGroupId = landingGroupId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * Landing状态
+     *
+     * <p>示例值：
+     *
+     * @param landingStatus
+     * @return
+     */
+    public Builder landingStatus(Enum landingStatus) {
+      this.landingStatus = landingStatus;
+      return this;
     }
 
-    public String getWkId() {
-        return this.wkId;
+    /**
+     * 当前导师
+     *
+     * <p>示例值：6950635856373745165
+     *
+     * @param mentor
+     * @return
+     */
+    public Builder mentor(String mentor) {
+      this.mentor = mentor;
+      return this;
     }
 
-    public void setWkId(String wkId) {
-        this.wkId = wkId;
+    public LandingPlan build() {
+      return new LandingPlan(this);
     }
+  }
 
-    public String getLandingGroupId() {
-        return this.landingGroupId;
-    }
-
-    public void setLandingGroupId(String landingGroupId) {
-        this.landingGroupId = landingGroupId;
-    }
-
-    public Enum getLandingStatus() {
-        return this.landingStatus;
-    }
-
-    public void setLandingStatus(Enum landingStatus) {
-        this.landingStatus = landingStatus;
-    }
-
-    public String getMentor() {
-        return this.mentor;
-    }
-
-    public void setMentor(String mentor) {
-        this.mentor = mentor;
-    }
-
-    public static class Builder {
-        /**
-         * wk id
-         * <p> 示例值：6950635856373745165
-         */
-        private String wkId;
-        /**
-         * Landing群id
-         * <p> 示例值：6950635856373745165
-         */
-        private String landingGroupId;
-        /**
-         * Landing状态
-         * <p> 示例值：
-         */
-        private Enum landingStatus;
-        /**
-         * 当前导师
-         * <p> 示例值：6950635856373745165
-         */
-        private String mentor;
-
-        /**
-         * wk id
-         * <p> 示例值：6950635856373745165
-         *
-         * @param wkId
-         * @return
-         */
-        public Builder wkId(String wkId) {
-            this.wkId = wkId;
-            return this;
-        }
-
-
-        /**
-         * Landing群id
-         * <p> 示例值：6950635856373745165
-         *
-         * @param landingGroupId
-         * @return
-         */
-        public Builder landingGroupId(String landingGroupId) {
-            this.landingGroupId = landingGroupId;
-            return this;
-        }
-
-
-        /**
-         * Landing状态
-         * <p> 示例值：
-         *
-         * @param landingStatus
-         * @return
-         */
-        public Builder landingStatus(Enum landingStatus) {
-            this.landingStatus = landingStatus;
-            return this;
-        }
-
-
-        /**
-         * 当前导师
-         * <p> 示例值：6950635856373745165
-         *
-         * @param mentor
-         * @return
-         */
-        public Builder mentor(String mentor) {
-            this.mentor = mentor;
-            return this;
-        }
-
-
-        public LandingPlan build() {
-            return new LandingPlan(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

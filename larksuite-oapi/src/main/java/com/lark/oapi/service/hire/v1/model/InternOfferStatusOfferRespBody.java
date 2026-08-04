@@ -13,76 +13,71 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InternOfferStatusOfferRespBody {
-    /**
-     * Offer ID
-     * <p> 示例值：6949805467799537964
-     */
-    @SerializedName("offer_id")
-    private String offerId;
-    /**
-     * 更新入/离职状态的操作
-     * <p> 示例值：confirm_onboarding
-     */
-    @SerializedName("operation")
-    private String operation;
-    /**
-     * 入职表单信息（当 operation 为 confirm_onboarding 时，该字段必填）
-     * <p> 示例值：
-     */
-    @SerializedName("onboarding_info")
-    private InternOfferOnboardingInfo onboardingInfo;
-    /**
-     * 离职表单信息（当 operation 为 offboard 时，该字段必填）
-     * <p> 示例值：
-     */
-    @SerializedName("offboarding_info")
-    private InternOfferOffboardingInfo offboardingInfo;
+  /**
+   * Offer ID，详细信息请参考[获取 Offer
+   * 信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/offer)
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("offer_id")
+  private String offerId;
 
-    public String getOfferId() {
-        return this.offerId;
-    }
+  /**
+   * 更新入/离职状态的操作
+   *
+   * <p>示例值：confirm_onboarding
+   */
+  @SerializedName("operation")
+  private String operation;
 
-    public void setOfferId(String offerId) {
-        this.offerId = offerId;
-    }
+  /**
+   * 入职表单信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("onboarding_info")
+  private InternOfferOnboardingInfo onboardingInfo;
 
-    public String getOperation() {
-        return this.operation;
-    }
+  /**
+   * 离职表单信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("offboarding_info")
+  private InternOfferOffboardingInfo offboardingInfo;
 
-    public void setOperation(String operation) {
-        this.operation = operation;
-    }
+  public String getOfferId() {
+    return this.offerId;
+  }
 
-    public InternOfferOnboardingInfo getOnboardingInfo() {
-        return this.onboardingInfo;
-    }
+  public void setOfferId(String offerId) {
+    this.offerId = offerId;
+  }
 
-    public void setOnboardingInfo(InternOfferOnboardingInfo onboardingInfo) {
-        this.onboardingInfo = onboardingInfo;
-    }
+  public String getOperation() {
+    return this.operation;
+  }
 
-    public InternOfferOffboardingInfo getOffboardingInfo() {
-        return this.offboardingInfo;
-    }
+  public void setOperation(String operation) {
+    this.operation = operation;
+  }
 
-    public void setOffboardingInfo(InternOfferOffboardingInfo offboardingInfo) {
-        this.offboardingInfo = offboardingInfo;
-    }
+  public InternOfferOnboardingInfo getOnboardingInfo() {
+    return this.onboardingInfo;
+  }
 
+  public void setOnboardingInfo(InternOfferOnboardingInfo onboardingInfo) {
+    this.onboardingInfo = onboardingInfo;
+  }
+
+  public InternOfferOffboardingInfo getOffboardingInfo() {
+    return this.offboardingInfo;
+  }
+
+  public void setOffboardingInfo(InternOfferOffboardingInfo offboardingInfo) {
+    this.offboardingInfo = offboardingInfo;
+  }
 }

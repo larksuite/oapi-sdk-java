@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.drive.v2.enums;
 
-/**
- * 点赞的文件类型
- */
+/** 点赞的云文档类型，云文档被删除时不返回此字段 */
 public enum MyLikeFileTypeEnum {
-    DOC("doc"), // 旧版文档
-    DOCX("docx"), // 新版文档
-    FILE("file"), // 文件
-    ;
-    private String value;
+  DOC("doc"), // 旧版文档
+  DOCX("docx"), // 新版文档
+  FILE("file"), // 文件
+  ;
+  private String value;
 
-    MyLikeFileTypeEnum(String value) {
-        this.value = value;
-    }
+  MyLikeFileTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

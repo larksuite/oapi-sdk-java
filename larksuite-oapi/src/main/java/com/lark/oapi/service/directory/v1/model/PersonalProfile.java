@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PersonalProfile {
+  /**
+   * 个人资料
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 个人资料类型
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 个人资料列表
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("files")
+  private String[] files;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String[] getFiles() {
+    return this.files;
+  }
+
+  public void setFiles(String[] files) {
+    this.files = files;
+  }
+
+  // builder 开始
+  public PersonalProfile() {}
+
+  public PersonalProfile(Builder builder) {
     /**
      * 个人资料
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 个人资料类型
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 个人资料列表
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("files")
+    this.files = builder.files;
+  }
+
+  public static class Builder {
+    /**
+     * 个人资料
+     *
+     * <p>示例值：无
+     */
+    private String id;
+
+    /**
+     * 个人资料类型
+     *
+     * <p>示例值：无
+     */
+    private String type;
+
+    /**
+     * 个人资料列表
+     *
+     * <p>示例值：无
+     */
     private String[] files;
 
-    // builder 开始
-    public PersonalProfile() {
+    /**
+     * 个人资料
+     *
+     * <p>示例值：无
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public PersonalProfile(Builder builder) {
-        /**
-         * 个人资料
-         * <p> 示例值：无
-         */
-        this.id = builder.id;
-        /**
-         * 个人资料类型
-         * <p> 示例值：无
-         */
-        this.type = builder.type;
-        /**
-         * 个人资料列表
-         * <p> 示例值：无
-         */
-        this.files = builder.files;
+    /**
+     * 个人资料类型
+     *
+     * <p>示例值：无
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 个人资料列表
+     *
+     * <p>示例值：无
+     *
+     * @param files
+     * @return
+     */
+    public Builder files(String[] files) {
+      this.files = files;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public PersonalProfile build() {
+      return new PersonalProfile(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String[] getFiles() {
-        return this.files;
-    }
-
-    public void setFiles(String[] files) {
-        this.files = files;
-    }
-
-    public static class Builder {
-        /**
-         * 个人资料
-         * <p> 示例值：无
-         */
-        private String id;
-        /**
-         * 个人资料类型
-         * <p> 示例值：无
-         */
-        private String type;
-        /**
-         * 个人资料列表
-         * <p> 示例值：无
-         */
-        private String[] files;
-
-        /**
-         * 个人资料
-         * <p> 示例值：无
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 个人资料类型
-         * <p> 示例值：无
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 个人资料列表
-         * <p> 示例值：无
-         *
-         * @param files
-         * @return
-         */
-        public Builder files(String[] files) {
-            this.files = files;
-            return this;
-        }
-
-
-        public PersonalProfile build() {
-            return new PersonalProfile(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

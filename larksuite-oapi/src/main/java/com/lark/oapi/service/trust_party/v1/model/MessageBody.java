@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageBody {
+  /**
+   * 消息jsonContent
+   *
+   * <p>示例值：text:测试消息
+   */
+  @SerializedName("content")
+  private String content;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  // builder 开始
+  public MessageBody() {}
+
+  public MessageBody(Builder builder) {
     /**
      * 消息jsonContent
-     * <p> 示例值：text:测试消息
+     *
+     * <p>示例值：text:测试消息
      */
-    @SerializedName("content")
+    this.content = builder.content;
+  }
+
+  public static class Builder {
+    /**
+     * 消息jsonContent
+     *
+     * <p>示例值：text:测试消息
+     */
     private String content;
 
-    // builder 开始
-    public MessageBody() {
+    /**
+     * 消息jsonContent
+     *
+     * <p>示例值：text:测试消息
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public MessageBody(Builder builder) {
-        /**
-         * 消息jsonContent
-         * <p> 示例值：text:测试消息
-         */
-        this.content = builder.content;
+    public MessageBody build() {
+      return new MessageBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public static class Builder {
-        /**
-         * 消息jsonContent
-         * <p> 示例值：text:测试消息
-         */
-        private String content;
-
-        /**
-         * 消息jsonContent
-         * <p> 示例值：text:测试消息
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        public MessageBody build() {
-            return new MessageBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,259 +13,276 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class NumberSetting {
+  /**
+   * 数字类型的自定义字段的值在App展示的格式。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI中输入/输出的字段值的格式。
+   *
+   * <p>示例值：normal
+   */
+  @SerializedName("format")
+  private String format;
+
+  /**
+   * 当`format`设为"custom"时，设置具体的自定义符号。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+   *
+   * <p>示例值：自定义符号
+   */
+  @SerializedName("custom_symbol")
+  private String customSymbol;
+
+  /**
+   * 当`format`设为"custom"时，自定义符号相对于数字的显示位置。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+   *
+   * <p>示例值：left
+   */
+  @SerializedName("custom_symbol_position")
+  private String customSymbolPosition;
+
+  /**
+   * 数字类型自定义字段整数部分的分隔符样式。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+   *
+   * <p>示例值：thousand
+   */
+  @SerializedName("separator")
+  private String separator;
+
+  /**
+   * 数字类型自定义字段的值保留的小数位数。多余的位数将被四舍五入。;;默认为0。
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("decimal_count")
+  private Integer decimalCount;
+
+  public String getFormat() {
+    return this.format;
+  }
+
+  public void setFormat(String format) {
+    this.format = format;
+  }
+
+  public String getCustomSymbol() {
+    return this.customSymbol;
+  }
+
+  public void setCustomSymbol(String customSymbol) {
+    this.customSymbol = customSymbol;
+  }
+
+  public String getCustomSymbolPosition() {
+    return this.customSymbolPosition;
+  }
+
+  public void setCustomSymbolPosition(String customSymbolPosition) {
+    this.customSymbolPosition = customSymbolPosition;
+  }
+
+  public String getSeparator() {
+    return this.separator;
+  }
+
+  public void setSeparator(String separator) {
+    this.separator = separator;
+  }
+
+  public Integer getDecimalCount() {
+    return this.decimalCount;
+  }
+
+  public void setDecimalCount(Integer decimalCount) {
+    this.decimalCount = decimalCount;
+  }
+
+  // builder 开始
+  public NumberSetting() {}
+
+  public NumberSetting(Builder builder) {
     /**
-     * 数字展示的格式
-     * <p> 示例值：normal
+     * 数字类型的自定义字段的值在App展示的格式。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI中输入/输出的字段值的格式。
+     *
+     * <p>示例值：normal
      */
-    @SerializedName("format")
+    this.format = builder.format;
+    /**
+     * 当`format`设为"custom"时，设置具体的自定义符号。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+     *
+     * <p>示例值：自定义符号
+     */
+    this.customSymbol = builder.customSymbol;
+    /**
+     * 当`format`设为"custom"时，自定义符号相对于数字的显示位置。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+     *
+     * <p>示例值：left
+     */
+    this.customSymbolPosition = builder.customSymbolPosition;
+    /**
+     * 数字类型自定义字段整数部分的分隔符样式。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+     *
+     * <p>示例值：thousand
+     */
+    this.separator = builder.separator;
+    /**
+     * 数字类型自定义字段的值保留的小数位数。多余的位数将被四舍五入。;;默认为0。
+     *
+     * <p>示例值：2
+     */
+    this.decimalCount = builder.decimalCount;
+  }
+
+  public static class Builder {
+    /**
+     * 数字类型的自定义字段的值在App展示的格式。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI中输入/输出的字段值的格式。
+     *
+     * <p>示例值：normal
+     */
     private String format;
+
     /**
-     * 自定义符号。只有`format`设为custom时才会生效。
-     * <p> 示例值：自定义符号
+     * 当`format`设为"custom"时，设置具体的自定义符号。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+     *
+     * <p>示例值：自定义符号
      */
-    @SerializedName("custom_symbol")
     private String customSymbol;
+
     /**
-     * 自定义符号显示的位置。
-     * <p> 示例值：left
+     * 当`format`设为"custom"时，自定义符号相对于数字的显示位置。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+     *
+     * <p>示例值：left
      */
-    @SerializedName("custom_symbol_position")
     private String customSymbolPosition;
+
     /**
-     * 分隔符样式
-     * <p> 示例值：thousand
+     * 数字类型自定义字段整数部分的分隔符样式。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+     *
+     * <p>示例值：thousand
      */
-    @SerializedName("separator")
     private String separator;
+
     /**
-     * 保留小数位数。输入的数字值的小数位数如果比该设置多，多余的位数将被四舍五入后舍弃。如果`format`为"percentage"，表示变为百分数之后的小数位数。
-     * <p> 示例值：2
+     * 数字类型自定义字段的值保留的小数位数。多余的位数将被四舍五入。;;默认为0。
+     *
+     * <p>示例值：2
      */
-    @SerializedName("decimal_count")
     private Integer decimalCount;
 
-    // builder 开始
-    public NumberSetting() {
+    /**
+     * 数字类型的自定义字段的值在App展示的格式。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI中输入/输出的字段值的格式。
+     *
+     * <p>示例值：normal
+     *
+     * @param format
+     * @return
+     */
+    public Builder format(String format) {
+      this.format = format;
+      return this;
     }
 
-    public NumberSetting(Builder builder) {
-        /**
-         * 数字展示的格式
-         * <p> 示例值：normal
-         */
-        this.format = builder.format;
-        /**
-         * 自定义符号。只有`format`设为custom时才会生效。
-         * <p> 示例值：自定义符号
-         */
-        this.customSymbol = builder.customSymbol;
-        /**
-         * 自定义符号显示的位置。
-         * <p> 示例值：left
-         */
-        this.customSymbolPosition = builder.customSymbolPosition;
-        /**
-         * 分隔符样式
-         * <p> 示例值：thousand
-         */
-        this.separator = builder.separator;
-        /**
-         * 保留小数位数。输入的数字值的小数位数如果比该设置多，多余的位数将被四舍五入后舍弃。如果`format`为"percentage"，表示变为百分数之后的小数位数。
-         * <p> 示例值：2
-         */
-        this.decimalCount = builder.decimalCount;
+    /**
+     * 数字类型的自定义字段的值在App展示的格式。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI中输入/输出的字段值的格式。
+     *
+     * <p>示例值：normal
+     *
+     * @param format {@link com.lark.oapi.service.task.v2.enums.NumberSettingFormatEnum}
+     * @return
+     */
+    public Builder format(com.lark.oapi.service.task.v2.enums.NumberSettingFormatEnum format) {
+      this.format = format.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 当`format`设为"custom"时，设置具体的自定义符号。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+     *
+     * <p>示例值：自定义符号
+     *
+     * @param customSymbol
+     * @return
+     */
+    public Builder customSymbol(String customSymbol) {
+      this.customSymbol = customSymbol;
+      return this;
     }
 
-    public String getFormat() {
-        return this.format;
+    /**
+     * 当`format`设为"custom"时，自定义符号相对于数字的显示位置。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+     *
+     * <p>示例值：left
+     *
+     * @param customSymbolPosition
+     * @return
+     */
+    public Builder customSymbolPosition(String customSymbolPosition) {
+      this.customSymbolPosition = customSymbolPosition;
+      return this;
     }
 
-    public void setFormat(String format) {
-        this.format = format;
+    /**
+     * 当`format`设为"custom"时，自定义符号相对于数字的显示位置。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+     *
+     * <p>示例值：left
+     *
+     * @param customSymbolPosition {@link
+     *     com.lark.oapi.service.task.v2.enums.NumberSettingCustomSymbolPositionEnum}
+     * @return
+     */
+    public Builder customSymbolPosition(
+        com.lark.oapi.service.task.v2.enums.NumberSettingCustomSymbolPositionEnum
+            customSymbolPosition) {
+      this.customSymbolPosition = customSymbolPosition.getValue();
+      return this;
     }
 
-    public String getCustomSymbol() {
-        return this.customSymbol;
+    /**
+     * 数字类型自定义字段整数部分的分隔符样式。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+     *
+     * <p>示例值：thousand
+     *
+     * @param separator
+     * @return
+     */
+    public Builder separator(String separator) {
+      this.separator = separator;
+      return this;
     }
 
-    public void setCustomSymbol(String customSymbol) {
-        this.customSymbol = customSymbol;
+    /**
+     * 数字类型自定义字段整数部分的分隔符样式。;;注意本设置仅影响App中的数字类型字段的字段值的显示格式，并不会影响openAPI输入/输出的字段值的格式。
+     *
+     * <p>示例值：thousand
+     *
+     * @param separator {@link com.lark.oapi.service.task.v2.enums.NumberSettingSeparatorEnum}
+     * @return
+     */
+    public Builder separator(
+        com.lark.oapi.service.task.v2.enums.NumberSettingSeparatorEnum separator) {
+      this.separator = separator.getValue();
+      return this;
     }
 
-    public String getCustomSymbolPosition() {
-        return this.customSymbolPosition;
+    /**
+     * 数字类型自定义字段的值保留的小数位数。多余的位数将被四舍五入。;;默认为0。
+     *
+     * <p>示例值：2
+     *
+     * @param decimalCount
+     * @return
+     */
+    public Builder decimalCount(Integer decimalCount) {
+      this.decimalCount = decimalCount;
+      return this;
     }
 
-    public void setCustomSymbolPosition(String customSymbolPosition) {
-        this.customSymbolPosition = customSymbolPosition;
+    public NumberSetting build() {
+      return new NumberSetting(this);
     }
+  }
 
-    public String getSeparator() {
-        return this.separator;
-    }
-
-    public void setSeparator(String separator) {
-        this.separator = separator;
-    }
-
-    public Integer getDecimalCount() {
-        return this.decimalCount;
-    }
-
-    public void setDecimalCount(Integer decimalCount) {
-        this.decimalCount = decimalCount;
-    }
-
-    public static class Builder {
-        /**
-         * 数字展示的格式
-         * <p> 示例值：normal
-         */
-        private String format;
-        /**
-         * 自定义符号。只有`format`设为custom时才会生效。
-         * <p> 示例值：自定义符号
-         */
-        private String customSymbol;
-        /**
-         * 自定义符号显示的位置。
-         * <p> 示例值：left
-         */
-        private String customSymbolPosition;
-        /**
-         * 分隔符样式
-         * <p> 示例值：thousand
-         */
-        private String separator;
-        /**
-         * 保留小数位数。输入的数字值的小数位数如果比该设置多，多余的位数将被四舍五入后舍弃。如果`format`为"percentage"，表示变为百分数之后的小数位数。
-         * <p> 示例值：2
-         */
-        private Integer decimalCount;
-
-        /**
-         * 数字展示的格式
-         * <p> 示例值：normal
-         *
-         * @param format
-         * @return
-         */
-        public Builder format(String format) {
-            this.format = format;
-            return this;
-        }
-
-        /**
-         * 数字展示的格式
-         * <p> 示例值：normal
-         *
-         * @param format {@link com.lark.oapi.service.task.v2.enums.NumberSettingFormatEnum}
-         * @return
-         */
-        public Builder format(com.lark.oapi.service.task.v2.enums.NumberSettingFormatEnum format) {
-            this.format = format.getValue();
-            return this;
-        }
-
-
-        /**
-         * 自定义符号。只有`format`设为custom时才会生效。
-         * <p> 示例值：自定义符号
-         *
-         * @param customSymbol
-         * @return
-         */
-        public Builder customSymbol(String customSymbol) {
-            this.customSymbol = customSymbol;
-            return this;
-        }
-
-
-        /**
-         * 自定义符号显示的位置。
-         * <p> 示例值：left
-         *
-         * @param customSymbolPosition
-         * @return
-         */
-        public Builder customSymbolPosition(String customSymbolPosition) {
-            this.customSymbolPosition = customSymbolPosition;
-            return this;
-        }
-
-        /**
-         * 自定义符号显示的位置。
-         * <p> 示例值：left
-         *
-         * @param customSymbolPosition {@link com.lark.oapi.service.task.v2.enums.NumberSettingCustomSymbolPositionEnum}
-         * @return
-         */
-        public Builder customSymbolPosition(com.lark.oapi.service.task.v2.enums.NumberSettingCustomSymbolPositionEnum customSymbolPosition) {
-            this.customSymbolPosition = customSymbolPosition.getValue();
-            return this;
-        }
-
-
-        /**
-         * 分隔符样式
-         * <p> 示例值：thousand
-         *
-         * @param separator
-         * @return
-         */
-        public Builder separator(String separator) {
-            this.separator = separator;
-            return this;
-        }
-
-        /**
-         * 分隔符样式
-         * <p> 示例值：thousand
-         *
-         * @param separator {@link com.lark.oapi.service.task.v2.enums.NumberSettingSeparatorEnum}
-         * @return
-         */
-        public Builder separator(com.lark.oapi.service.task.v2.enums.NumberSettingSeparatorEnum separator) {
-            this.separator = separator.getValue();
-            return this;
-        }
-
-
-        /**
-         * 保留小数位数。输入的数字值的小数位数如果比该设置多，多余的位数将被四舍五入后舍弃。如果`format`为"percentage"，表示变为百分数之后的小数位数。
-         * <p> 示例值：2
-         *
-         * @param decimalCount
-         * @return
-         */
-        public Builder decimalCount(Integer decimalCount) {
-            this.decimalCount = decimalCount;
-            return this;
-        }
-
-
-        public NumberSetting build() {
-            return new NumberSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,124 +13,124 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SetPermissionMeetingRecordingReqBody {
+  /**
+   * 授权对象列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("permission_objects")
+  private RecordingPermissionObject[] permissionObjects;
+
+  /**
+   * 授权或者取消授权，默认授权
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("action_type")
+  private Integer actionType;
+
+  public RecordingPermissionObject[] getPermissionObjects() {
+    return this.permissionObjects;
+  }
+
+  public void setPermissionObjects(RecordingPermissionObject[] permissionObjects) {
+    this.permissionObjects = permissionObjects;
+  }
+
+  public Integer getActionType() {
+    return this.actionType;
+  }
+
+  public void setActionType(Integer actionType) {
+    this.actionType = actionType;
+  }
+
+  // builder 开始
+  public SetPermissionMeetingRecordingReqBody() {}
+
+  public SetPermissionMeetingRecordingReqBody(Builder builder) {
     /**
      * 授权对象列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("permission_objects")
-    private RecordingPermissionObject[] permissionObjects;
+    this.permissionObjects = builder.permissionObjects;
     /**
      * 授权或者取消授权，默认授权
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("action_type")
+    this.actionType = builder.actionType;
+  }
+
+  public static class Builder {
+    /**
+     * 授权对象列表
+     *
+     * <p>示例值：
+     */
+    private RecordingPermissionObject[] permissionObjects;
+
+    /**
+     * 授权或者取消授权，默认授权
+     *
+     * <p>示例值：1
+     */
     private Integer actionType;
 
-    // builder 开始
-    public SetPermissionMeetingRecordingReqBody() {
+    /**
+     * 授权对象列表
+     *
+     * <p>示例值：
+     *
+     * @param permissionObjects
+     * @return
+     */
+    public Builder permissionObjects(RecordingPermissionObject[] permissionObjects) {
+      this.permissionObjects = permissionObjects;
+      return this;
     }
 
-    public SetPermissionMeetingRecordingReqBody(Builder builder) {
-        /**
-         * 授权对象列表
-         * <p> 示例值：
-         */
-        this.permissionObjects = builder.permissionObjects;
-        /**
-         * 授权或者取消授权，默认授权
-         * <p> 示例值：1
-         */
-        this.actionType = builder.actionType;
+    /**
+     * 授权或者取消授权，默认授权
+     *
+     * <p>示例值：1
+     *
+     * @param actionType
+     * @return
+     */
+    public Builder actionType(Integer actionType) {
+      this.actionType = actionType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 授权或者取消授权，默认授权
+     *
+     * <p>示例值：1
+     *
+     * @param actionType {@link
+     *     com.lark.oapi.service.vc.v1.enums.SetPermissionMeetingRecordingSetRecordingPermissionActionTypeEnum}
+     * @return
+     */
+    public Builder actionType(
+        com.lark.oapi.service.vc.v1.enums
+                .SetPermissionMeetingRecordingSetRecordingPermissionActionTypeEnum
+            actionType) {
+      this.actionType = actionType.getValue();
+      return this;
     }
 
-    public RecordingPermissionObject[] getPermissionObjects() {
-        return this.permissionObjects;
+    public SetPermissionMeetingRecordingReqBody build() {
+      return new SetPermissionMeetingRecordingReqBody(this);
     }
+  }
 
-    public void setPermissionObjects(RecordingPermissionObject[] permissionObjects) {
-        this.permissionObjects = permissionObjects;
-    }
-
-    public Integer getActionType() {
-        return this.actionType;
-    }
-
-    public void setActionType(Integer actionType) {
-        this.actionType = actionType;
-    }
-
-    public static class Builder {
-        /**
-         * 授权对象列表
-         * <p> 示例值：
-         */
-        private RecordingPermissionObject[] permissionObjects;
-        /**
-         * 授权或者取消授权，默认授权
-         * <p> 示例值：1
-         */
-        private Integer actionType;
-
-        /**
-         * 授权对象列表
-         * <p> 示例值：
-         *
-         * @param permissionObjects
-         * @return
-         */
-        public Builder permissionObjects(RecordingPermissionObject[] permissionObjects) {
-            this.permissionObjects = permissionObjects;
-            return this;
-        }
-
-
-        /**
-         * 授权或者取消授权，默认授权
-         * <p> 示例值：1
-         *
-         * @param actionType
-         * @return
-         */
-        public Builder actionType(Integer actionType) {
-            this.actionType = actionType;
-            return this;
-        }
-
-        /**
-         * 授权或者取消授权，默认授权
-         * <p> 示例值：1
-         *
-         * @param actionType {@link com.lark.oapi.service.vc.v1.enums.SetPermissionMeetingRecordingSetRecordingPermissionActionTypeEnum}
-         * @return
-         */
-        public Builder actionType(com.lark.oapi.service.vc.v1.enums.SetPermissionMeetingRecordingSetRecordingPermissionActionTypeEnum actionType) {
-            this.actionType = actionType.getValue();
-            return this;
-        }
-
-
-        public SetPermissionMeetingRecordingReqBody build() {
-            return new SetPermissionMeetingRecordingReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

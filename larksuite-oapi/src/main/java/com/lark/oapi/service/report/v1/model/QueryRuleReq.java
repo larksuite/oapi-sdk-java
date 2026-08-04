@@ -13,163 +13,166 @@
 
 package com.lark.oapi.service.report.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.report.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.report.v1.enums.*;
 
 public class QueryRuleReq {
+  /**
+   * 规则名称
+   *
+   * <p>示例值：工作月报
+   */
+  @Query
+  @SerializedName("rule_name")
+  private String ruleName;
+
+  /**
+   * 是否包括已删除，默认未删除
+   *
+   * <p>示例值：0
+   */
+  @Query
+  @SerializedName("include_deleted")
+  private Integer includeDeleted;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getRuleName() {
+    return this.ruleName;
+  }
+
+  public void setRuleName(String ruleName) {
+    this.ruleName = ruleName;
+  }
+
+  public Integer getIncludeDeleted() {
+    return this.includeDeleted;
+  }
+
+  public void setIncludeDeleted(Integer includeDeleted) {
+    this.includeDeleted = includeDeleted;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  // builder 开始
+  public QueryRuleReq() {}
+
+  public QueryRuleReq(Builder builder) {
     /**
      * 规则名称
-     * <p> 示例值：工作月报
+     *
+     * <p>示例值：工作月报
      */
-    @Query
-    @SerializedName("rule_name")
-    private String ruleName;
+    this.ruleName = builder.ruleName;
     /**
      * 是否包括已删除，默认未删除
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @Query
-    @SerializedName("include_deleted")
-    private Integer includeDeleted;
+    this.includeDeleted = builder.includeDeleted;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
+  }
 
-    // builder 开始
-    public QueryRuleReq() {
+  public static class Builder {
+    private String ruleName; // 规则名称
+    private Integer includeDeleted; // 是否包括已删除，默认未删除
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 规则名称
+     *
+     * <p>示例值：工作月报
+     *
+     * @param ruleName
+     * @return
+     */
+    public Builder ruleName(String ruleName) {
+      this.ruleName = ruleName;
+      return this;
     }
 
-    public QueryRuleReq(Builder builder) {
-        /**
-         * 规则名称
-         * <p> 示例值：工作月报
-         */
-        this.ruleName = builder.ruleName;
-        /**
-         * 是否包括已删除，默认未删除
-         * <p> 示例值：0
-         */
-        this.includeDeleted = builder.includeDeleted;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
+    /**
+     * 是否包括已删除，默认未删除
+     *
+     * <p>示例值：0
+     *
+     * @param includeDeleted
+     * @return
+     */
+    public Builder includeDeleted(Integer includeDeleted) {
+      this.includeDeleted = includeDeleted;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否包括已删除，默认未删除
+     *
+     * <p>示例值：0
+     *
+     * @param includeDeleted {@link
+     *     com.lark.oapi.service.report.v1.enums.QueryRuleIncludeDeletedEnum}
+     * @return
+     */
+    public Builder includeDeleted(
+        com.lark.oapi.service.report.v1.enums.QueryRuleIncludeDeletedEnum includeDeleted) {
+      this.includeDeleted = includeDeleted.getValue();
+      return this;
     }
 
-    public String getRuleName() {
-        return this.ruleName;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public void setRuleName(String ruleName) {
-        this.ruleName = ruleName;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.report.v1.enums.QueryRuleOpenQueryRuleUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.report.v1.enums.QueryRuleOpenQueryRuleUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public Integer getIncludeDeleted() {
-        return this.includeDeleted;
+    public QueryRuleReq build() {
+      return new QueryRuleReq(this);
     }
+  }
 
-    public void setIncludeDeleted(Integer includeDeleted) {
-        this.includeDeleted = includeDeleted;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public static class Builder {
-        private String ruleName; // 规则名称
-        private Integer includeDeleted; // 是否包括已删除，默认未删除
-        private String userIdType; // 此次调用中使用的用户ID的类型
-
-        /**
-         * 规则名称
-         * <p> 示例值：工作月报
-         *
-         * @param ruleName
-         * @return
-         */
-        public Builder ruleName(String ruleName) {
-            this.ruleName = ruleName;
-            return this;
-        }
-
-
-        /**
-         * 是否包括已删除，默认未删除
-         * <p> 示例值：0
-         *
-         * @param includeDeleted
-         * @return
-         */
-        public Builder includeDeleted(Integer includeDeleted) {
-            this.includeDeleted = includeDeleted;
-            return this;
-        }
-
-        /**
-         * 是否包括已删除，默认未删除
-         * <p> 示例值：0
-         *
-         * @param includeDeleted {@link com.lark.oapi.service.report.v1.enums.QueryRuleIncludeDeletedEnum}
-         * @return
-         */
-        public Builder includeDeleted(com.lark.oapi.service.report.v1.enums.QueryRuleIncludeDeletedEnum includeDeleted) {
-            this.includeDeleted = includeDeleted.getValue();
-            return this;
-        }
-
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.report.v1.enums.QueryRuleUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.report.v1.enums.QueryRuleUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        public QueryRuleReq build() {
-            return new QueryRuleReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

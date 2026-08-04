@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.task.v2.enums;
 
-/**
- * 表示user的ID的类型，支持open_id, user_id, union_id
- */
+/** 表示user的ID的类型，支持open_id, user_id, union_id */
 public enum UploadAttachmentUserIdTypeEnum {
-    OPEN_ID("open_id"), // open id
-    UNION_ID("union_id"), // union id
-    USER_ID("user_id"), // user_id
-    ;
-    private String value;
+  OPEN_ID("open_id"), // open id
+  UNION_ID("union_id"), // union id
+  USER_ID("user_id"), // user_id
+  ;
+  private String value;
 
-    UploadAttachmentUserIdTypeEnum(String value) {
-        this.value = value;
-    }
+  UploadAttachmentUserIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

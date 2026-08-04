@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LeaveProcessInfo {
+  /**
+   * 流程id
+   *
+   * <p>示例值：4718803945687580505
+   */
+  @SerializedName("process_id")
+  private String processId;
+
+  /**
+   * 流程状态
+   *
+   * <p>示例值：passed
+   */
+  @SerializedName("process_status")
+  private String processStatus;
+
+  /**
+   * 流程发起时间
+   *
+   * <p>示例值：2024-01-01 00:00:00
+   */
+  @SerializedName("process_apply_time")
+  private String processApplyTime;
+
+  public String getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  public String getProcessStatus() {
+    return this.processStatus;
+  }
+
+  public void setProcessStatus(String processStatus) {
+    this.processStatus = processStatus;
+  }
+
+  public String getProcessApplyTime() {
+    return this.processApplyTime;
+  }
+
+  public void setProcessApplyTime(String processApplyTime) {
+    this.processApplyTime = processApplyTime;
+  }
+
+  // builder 开始
+  public LeaveProcessInfo() {}
+
+  public LeaveProcessInfo(Builder builder) {
     /**
      * 流程id
-     * <p> 示例值：4718803945687580505
+     *
+     * <p>示例值：4718803945687580505
      */
-    @SerializedName("process_id")
-    private String processId;
+    this.processId = builder.processId;
     /**
      * 流程状态
-     * <p> 示例值：passed
+     *
+     * <p>示例值：passed
      */
-    @SerializedName("process_status")
-    private String processStatus;
+    this.processStatus = builder.processStatus;
     /**
      * 流程发起时间
-     * <p> 示例值：2024-01-01 00:00:00
+     *
+     * <p>示例值：2024-01-01 00:00:00
      */
-    @SerializedName("process_apply_time")
+    this.processApplyTime = builder.processApplyTime;
+  }
+
+  public static class Builder {
+    /**
+     * 流程id
+     *
+     * <p>示例值：4718803945687580505
+     */
+    private String processId;
+
+    /**
+     * 流程状态
+     *
+     * <p>示例值：passed
+     */
+    private String processStatus;
+
+    /**
+     * 流程发起时间
+     *
+     * <p>示例值：2024-01-01 00:00:00
+     */
     private String processApplyTime;
 
-    // builder 开始
-    public LeaveProcessInfo() {
+    /**
+     * 流程id
+     *
+     * <p>示例值：4718803945687580505
+     *
+     * @param processId
+     * @return
+     */
+    public Builder processId(String processId) {
+      this.processId = processId;
+      return this;
     }
 
-    public LeaveProcessInfo(Builder builder) {
-        /**
-         * 流程id
-         * <p> 示例值：4718803945687580505
-         */
-        this.processId = builder.processId;
-        /**
-         * 流程状态
-         * <p> 示例值：passed
-         */
-        this.processStatus = builder.processStatus;
-        /**
-         * 流程发起时间
-         * <p> 示例值：2024-01-01 00:00:00
-         */
-        this.processApplyTime = builder.processApplyTime;
+    /**
+     * 流程状态
+     *
+     * <p>示例值：passed
+     *
+     * @param processStatus
+     * @return
+     */
+    public Builder processStatus(String processStatus) {
+      this.processStatus = processStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 流程发起时间
+     *
+     * <p>示例值：2024-01-01 00:00:00
+     *
+     * @param processApplyTime
+     * @return
+     */
+    public Builder processApplyTime(String processApplyTime) {
+      this.processApplyTime = processApplyTime;
+      return this;
     }
 
-    public String getProcessId() {
-        return this.processId;
+    public LeaveProcessInfo build() {
+      return new LeaveProcessInfo(this);
     }
+  }
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
-    public String getProcessStatus() {
-        return this.processStatus;
-    }
-
-    public void setProcessStatus(String processStatus) {
-        this.processStatus = processStatus;
-    }
-
-    public String getProcessApplyTime() {
-        return this.processApplyTime;
-    }
-
-    public void setProcessApplyTime(String processApplyTime) {
-        this.processApplyTime = processApplyTime;
-    }
-
-    public static class Builder {
-        /**
-         * 流程id
-         * <p> 示例值：4718803945687580505
-         */
-        private String processId;
-        /**
-         * 流程状态
-         * <p> 示例值：passed
-         */
-        private String processStatus;
-        /**
-         * 流程发起时间
-         * <p> 示例值：2024-01-01 00:00:00
-         */
-        private String processApplyTime;
-
-        /**
-         * 流程id
-         * <p> 示例值：4718803945687580505
-         *
-         * @param processId
-         * @return
-         */
-        public Builder processId(String processId) {
-            this.processId = processId;
-            return this;
-        }
-
-
-        /**
-         * 流程状态
-         * <p> 示例值：passed
-         *
-         * @param processStatus
-         * @return
-         */
-        public Builder processStatus(String processStatus) {
-            this.processStatus = processStatus;
-            return this;
-        }
-
-
-        /**
-         * 流程发起时间
-         * <p> 示例值：2024-01-01 00:00:00
-         *
-         * @param processApplyTime
-         * @return
-         */
-        public Builder processApplyTime(String processApplyTime) {
-            this.processApplyTime = processApplyTime;
-            return this;
-        }
-
-
-        public LeaveProcessInfo build() {
-            return new LeaveProcessInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

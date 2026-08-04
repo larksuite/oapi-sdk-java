@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InviteOption {
+  /**
+   * 邀请渠道
+   *
+   * <p>示例值：
+   */
+  @SerializedName("invite_channels")
+  private Integer[] inviteChannels;
+
+  /**
+   * 邀请语言
+   *
+   * <p>示例值：
+   */
+  @SerializedName("invite_language")
+  private Integer inviteLanguage;
+
+  public Integer[] getInviteChannels() {
+    return this.inviteChannels;
+  }
+
+  public void setInviteChannels(Integer[] inviteChannels) {
+    this.inviteChannels = inviteChannels;
+  }
+
+  public Integer getInviteLanguage() {
+    return this.inviteLanguage;
+  }
+
+  public void setInviteLanguage(Integer inviteLanguage) {
+    this.inviteLanguage = inviteLanguage;
+  }
+
+  // builder 开始
+  public InviteOption() {}
+
+  public InviteOption(Builder builder) {
     /**
      * 邀请渠道
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("invite_channels")
-    private Integer[] inviteChannels;
+    this.inviteChannels = builder.inviteChannels;
     /**
      * 邀请语言
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("invite_language")
+    this.inviteLanguage = builder.inviteLanguage;
+  }
+
+  public static class Builder {
+    /**
+     * 邀请渠道
+     *
+     * <p>示例值：
+     */
+    private Integer[] inviteChannels;
+
+    /**
+     * 邀请语言
+     *
+     * <p>示例值：
+     */
     private Integer inviteLanguage;
 
-    // builder 开始
-    public InviteOption() {
+    /**
+     * 邀请渠道
+     *
+     * <p>示例值：
+     *
+     * @param inviteChannels
+     * @return
+     */
+    public Builder inviteChannels(Integer[] inviteChannels) {
+      this.inviteChannels = inviteChannels;
+      return this;
     }
 
-    public InviteOption(Builder builder) {
-        /**
-         * 邀请渠道
-         * <p> 示例值：
-         */
-        this.inviteChannels = builder.inviteChannels;
-        /**
-         * 邀请语言
-         * <p> 示例值：
-         */
-        this.inviteLanguage = builder.inviteLanguage;
+    /**
+     * 邀请语言
+     *
+     * <p>示例值：
+     *
+     * @param inviteLanguage
+     * @return
+     */
+    public Builder inviteLanguage(Integer inviteLanguage) {
+      this.inviteLanguage = inviteLanguage;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public InviteOption build() {
+      return new InviteOption(this);
     }
+  }
 
-    public Integer[] getInviteChannels() {
-        return this.inviteChannels;
-    }
-
-    public void setInviteChannels(Integer[] inviteChannels) {
-        this.inviteChannels = inviteChannels;
-    }
-
-    public Integer getInviteLanguage() {
-        return this.inviteLanguage;
-    }
-
-    public void setInviteLanguage(Integer inviteLanguage) {
-        this.inviteLanguage = inviteLanguage;
-    }
-
-    public static class Builder {
-        /**
-         * 邀请渠道
-         * <p> 示例值：
-         */
-        private Integer[] inviteChannels;
-        /**
-         * 邀请语言
-         * <p> 示例值：
-         */
-        private Integer inviteLanguage;
-
-        /**
-         * 邀请渠道
-         * <p> 示例值：
-         *
-         * @param inviteChannels
-         * @return
-         */
-        public Builder inviteChannels(Integer[] inviteChannels) {
-            this.inviteChannels = inviteChannels;
-            return this;
-        }
-
-
-        /**
-         * 邀请语言
-         * <p> 示例值：
-         *
-         * @param inviteLanguage
-         * @return
-         */
-        public Builder inviteLanguage(Integer inviteLanguage) {
-            this.inviteLanguage = inviteLanguage;
-            return this;
-        }
-
-
-        public InviteOption build() {
-            return new InviteOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

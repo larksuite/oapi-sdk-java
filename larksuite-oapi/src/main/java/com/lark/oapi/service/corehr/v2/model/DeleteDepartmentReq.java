@@ -13,116 +13,117 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class DeleteDepartmentReq {
+  /**
+   * 此次调用中使用的部门 ID 类型
+   *
+   * <p>示例值：open_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  /**
+   * 需要删除的部门 ID，可通过【搜索部门信息】接口查询获得;
+   *
+   * <p>示例值：1616161616
+   */
+  @Path
+  @SerializedName("department_id")
+  private String departmentId;
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  // builder 开始
+  public DeleteDepartmentReq() {}
+
+  public DeleteDepartmentReq(Builder builder) {
     /**
-     * 此次删除中所使用的部门ID类型
-     * <p> 示例值：open_department_id
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：open_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
     /**
-     * 需要删除的部门ID
-     * <p> 示例值：1616161616
+     * 需要删除的部门 ID，可通过【搜索部门信息】接口查询获得;
+     *
+     * <p>示例值：1616161616
      */
-    @Path
-    @SerializedName("department_id")
-    private String departmentId;
+    this.departmentId = builder.departmentId;
+  }
 
-    // builder 开始
-    public DeleteDepartmentReq() {
+  public static class Builder {
+    private String departmentIdType; // 此次调用中使用的部门 ID 类型
+
+    /**
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
     }
 
-    public DeleteDepartmentReq(Builder builder) {
-        /**
-         * 此次删除中所使用的部门ID类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
-        /**
-         * 需要删除的部门ID
-         * <p> 示例值：1616161616
-         */
-        this.departmentId = builder.departmentId;
+    /**
+     * 此次调用中使用的部门 ID 类型
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.corehr.v2.enums.DeleteDepartmentDeleteDepartmentV2DepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.corehr.v2.enums.DeleteDepartmentDeleteDepartmentV2DepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String departmentId; // 需要删除的部门 ID，可通过【搜索部门信息】接口查询获得;
+
+    /**
+     * 需要删除的部门 ID，可通过【搜索部门信息】接口查询获得;
+     *
+     * <p>示例值：1616161616
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
+    public DeleteDepartmentReq build() {
+      return new DeleteDepartmentReq(this);
     }
+  }
 
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public String getDepartmentId() {
-        return this.departmentId;
-    }
-
-    public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public static class Builder {
-        private String departmentIdType; // 此次删除中所使用的部门ID类型
-        private String departmentId; // 需要删除的部门ID
-
-        /**
-         * 此次删除中所使用的部门ID类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 此次删除中所使用的部门ID类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.corehr.v2.enums.DeleteDepartmentDeleteDepartmentV2DepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.corehr.v2.enums.DeleteDepartmentDeleteDepartmentV2DepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 需要删除的部门ID
-         * <p> 示例值：1616161616
-         *
-         * @param departmentId
-         * @return
-         */
-        public Builder departmentId(String departmentId) {
-            this.departmentId = departmentId;
-            return this;
-        }
-
-
-        public DeleteDepartmentReq build() {
-            return new DeleteDepartmentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

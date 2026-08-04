@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CollectionItemValue {
+  /**
+   * 填报项ID
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("item_id")
+  private String itemId;
+
+  /**
+   * 填报项值
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 填报项类型，1-文本，2-金额，3-数值，4-百分比，5-日期，6-日期范围
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("field_type")
+  private Integer fieldType;
+
+  /**
+   * 币种ID
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("currency_id")
+  private String currencyId;
+
+  /**
+   * 币种code
+   *
+   * <p>示例值：CNY
+   */
+  @SerializedName("currency_code")
+  private String currencyCode;
+
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  public void setItemId(String itemId) {
+    this.itemId = itemId;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public Integer getFieldType() {
+    return this.fieldType;
+  }
+
+  public void setFieldType(Integer fieldType) {
+    this.fieldType = fieldType;
+  }
+
+  public String getCurrencyId() {
+    return this.currencyId;
+  }
+
+  public void setCurrencyId(String currencyId) {
+    this.currencyId = currencyId;
+  }
+
+  public String getCurrencyCode() {
+    return this.currencyCode;
+  }
+
+  public void setCurrencyCode(String currencyCode) {
+    this.currencyCode = currencyCode;
+  }
+
+  // builder 开始
+  public CollectionItemValue() {}
+
+  public CollectionItemValue(Builder builder) {
     /**
      * 填报项ID
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("item_id")
-    private String itemId;
+    this.itemId = builder.itemId;
     /**
      * 填报项值
-     * <p> 示例值：text
+     *
+     * <p>示例值：text
      */
-    @SerializedName("value")
-    private String value;
+    this.value = builder.value;
     /**
      * 填报项类型，1-文本，2-金额，3-数值，4-百分比，5-日期，6-日期范围
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("field_type")
-    private Integer fieldType;
+    this.fieldType = builder.fieldType;
     /**
      * 币种ID
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("currency_id")
-    private String currencyId;
+    this.currencyId = builder.currencyId;
     /**
      * 币种code
-     * <p> 示例值：CNY
+     *
+     * <p>示例值：CNY
      */
-    @SerializedName("currency_code")
+    this.currencyCode = builder.currencyCode;
+  }
+
+  public static class Builder {
+    /**
+     * 填报项ID
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String itemId;
+
+    /**
+     * 填报项值
+     *
+     * <p>示例值：text
+     */
+    private String value;
+
+    /**
+     * 填报项类型，1-文本，2-金额，3-数值，4-百分比，5-日期，6-日期范围
+     *
+     * <p>示例值：1
+     */
+    private Integer fieldType;
+
+    /**
+     * 币种ID
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String currencyId;
+
+    /**
+     * 币种code
+     *
+     * <p>示例值：CNY
+     */
     private String currencyCode;
 
-    // builder 开始
-    public CollectionItemValue() {
+    /**
+     * 填报项ID
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param itemId
+     * @return
+     */
+    public Builder itemId(String itemId) {
+      this.itemId = itemId;
+      return this;
     }
 
-    public CollectionItemValue(Builder builder) {
-        /**
-         * 填报项ID
-         * <p> 示例值：7202076988667019308
-         */
-        this.itemId = builder.itemId;
-        /**
-         * 填报项值
-         * <p> 示例值：text
-         */
-        this.value = builder.value;
-        /**
-         * 填报项类型，1-文本，2-金额，3-数值，4-百分比，5-日期，6-日期范围
-         * <p> 示例值：1
-         */
-        this.fieldType = builder.fieldType;
-        /**
-         * 币种ID
-         * <p> 示例值：7202076988667019308
-         */
-        this.currencyId = builder.currencyId;
-        /**
-         * 币种code
-         * <p> 示例值：CNY
-         */
-        this.currencyCode = builder.currencyCode;
+    /**
+     * 填报项值
+     *
+     * <p>示例值：text
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 填报项类型，1-文本，2-金额，3-数值，4-百分比，5-日期，6-日期范围
+     *
+     * <p>示例值：1
+     *
+     * @param fieldType
+     * @return
+     */
+    public Builder fieldType(Integer fieldType) {
+      this.fieldType = fieldType;
+      return this;
     }
 
-    public String getItemId() {
-        return this.itemId;
+    /**
+     * 币种ID
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param currencyId
+     * @return
+     */
+    public Builder currencyId(String currencyId) {
+      this.currencyId = currencyId;
+      return this;
     }
 
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
+    /**
+     * 币种code
+     *
+     * <p>示例值：CNY
+     *
+     * @param currencyCode
+     * @return
+     */
+    public Builder currencyCode(String currencyCode) {
+      this.currencyCode = currencyCode;
+      return this;
     }
 
-    public String getValue() {
-        return this.value;
+    public CollectionItemValue build() {
+      return new CollectionItemValue(this);
     }
+  }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public Integer getFieldType() {
-        return this.fieldType;
-    }
-
-    public void setFieldType(Integer fieldType) {
-        this.fieldType = fieldType;
-    }
-
-    public String getCurrencyId() {
-        return this.currencyId;
-    }
-
-    public void setCurrencyId(String currencyId) {
-        this.currencyId = currencyId;
-    }
-
-    public String getCurrencyCode() {
-        return this.currencyCode;
-    }
-
-    public void setCurrencyCode(String currencyCode) {
-        this.currencyCode = currencyCode;
-    }
-
-    public static class Builder {
-        /**
-         * 填报项ID
-         * <p> 示例值：7202076988667019308
-         */
-        private String itemId;
-        /**
-         * 填报项值
-         * <p> 示例值：text
-         */
-        private String value;
-        /**
-         * 填报项类型，1-文本，2-金额，3-数值，4-百分比，5-日期，6-日期范围
-         * <p> 示例值：1
-         */
-        private Integer fieldType;
-        /**
-         * 币种ID
-         * <p> 示例值：7202076988667019308
-         */
-        private String currencyId;
-        /**
-         * 币种code
-         * <p> 示例值：CNY
-         */
-        private String currencyCode;
-
-        /**
-         * 填报项ID
-         * <p> 示例值：7202076988667019308
-         *
-         * @param itemId
-         * @return
-         */
-        public Builder itemId(String itemId) {
-            this.itemId = itemId;
-            return this;
-        }
-
-
-        /**
-         * 填报项值
-         * <p> 示例值：text
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 填报项类型，1-文本，2-金额，3-数值，4-百分比，5-日期，6-日期范围
-         * <p> 示例值：1
-         *
-         * @param fieldType
-         * @return
-         */
-        public Builder fieldType(Integer fieldType) {
-            this.fieldType = fieldType;
-            return this;
-        }
-
-
-        /**
-         * 币种ID
-         * <p> 示例值：7202076988667019308
-         *
-         * @param currencyId
-         * @return
-         */
-        public Builder currencyId(String currencyId) {
-            this.currencyId = currencyId;
-            return this;
-        }
-
-
-        /**
-         * 币种code
-         * <p> 示例值：CNY
-         *
-         * @param currencyCode
-         * @return
-         */
-        public Builder currencyCode(String currencyCode) {
-            this.currencyCode = currencyCode;
-            return this;
-        }
-
-
-        public CollectionItemValue build() {
-            return new CollectionItemValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GroupSetMember {
+  /**
+   * 用户组分组 ID
+   *
+   * <p>示例值：42dg1f52bg1g17da
+   */
+  @SerializedName("group_set_id")
+  private String groupSetId;
+
+  /**
+   * 用户组 ID
+   *
+   * <p>示例值：31c22b8cfgbb41d6
+   */
+  @SerializedName("group_id")
+  private String groupId;
+
+  public String getGroupSetId() {
+    return this.groupSetId;
+  }
+
+  public void setGroupSetId(String groupSetId) {
+    this.groupSetId = groupSetId;
+  }
+
+  public String getGroupId() {
+    return this.groupId;
+  }
+
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
+
+  // builder 开始
+  public GroupSetMember() {}
+
+  public GroupSetMember(Builder builder) {
     /**
      * 用户组分组 ID
-     * <p> 示例值：42dg1f52bg1g17da
+     *
+     * <p>示例值：42dg1f52bg1g17da
      */
-    @SerializedName("group_set_id")
-    private String groupSetId;
+    this.groupSetId = builder.groupSetId;
     /**
      * 用户组 ID
-     * <p> 示例值：31c22b8cfgbb41d6
+     *
+     * <p>示例值：31c22b8cfgbb41d6
      */
-    @SerializedName("group_id")
+    this.groupId = builder.groupId;
+  }
+
+  public static class Builder {
+    /**
+     * 用户组分组 ID
+     *
+     * <p>示例值：42dg1f52bg1g17da
+     */
+    private String groupSetId;
+
+    /**
+     * 用户组 ID
+     *
+     * <p>示例值：31c22b8cfgbb41d6
+     */
     private String groupId;
 
-    // builder 开始
-    public GroupSetMember() {
+    /**
+     * 用户组分组 ID
+     *
+     * <p>示例值：42dg1f52bg1g17da
+     *
+     * @param groupSetId
+     * @return
+     */
+    public Builder groupSetId(String groupSetId) {
+      this.groupSetId = groupSetId;
+      return this;
     }
 
-    public GroupSetMember(Builder builder) {
-        /**
-         * 用户组分组 ID
-         * <p> 示例值：42dg1f52bg1g17da
-         */
-        this.groupSetId = builder.groupSetId;
-        /**
-         * 用户组 ID
-         * <p> 示例值：31c22b8cfgbb41d6
-         */
-        this.groupId = builder.groupId;
+    /**
+     * 用户组 ID
+     *
+     * <p>示例值：31c22b8cfgbb41d6
+     *
+     * @param groupId
+     * @return
+     */
+    public Builder groupId(String groupId) {
+      this.groupId = groupId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GroupSetMember build() {
+      return new GroupSetMember(this);
     }
+  }
 
-    public String getGroupSetId() {
-        return this.groupSetId;
-    }
-
-    public void setGroupSetId(String groupSetId) {
-        this.groupSetId = groupSetId;
-    }
-
-    public String getGroupId() {
-        return this.groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    public static class Builder {
-        /**
-         * 用户组分组 ID
-         * <p> 示例值：42dg1f52bg1g17da
-         */
-        private String groupSetId;
-        /**
-         * 用户组 ID
-         * <p> 示例值：31c22b8cfgbb41d6
-         */
-        private String groupId;
-
-        /**
-         * 用户组分组 ID
-         * <p> 示例值：42dg1f52bg1g17da
-         *
-         * @param groupSetId
-         * @return
-         */
-        public Builder groupSetId(String groupSetId) {
-            this.groupSetId = groupSetId;
-            return this;
-        }
-
-
-        /**
-         * 用户组 ID
-         * <p> 示例值：31c22b8cfgbb41d6
-         *
-         * @param groupId
-         * @return
-         */
-        public Builder groupId(String groupId) {
-            this.groupId = groupId;
-            return this;
-        }
-
-
-        public GroupSetMember build() {
-            return new GroupSetMember(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

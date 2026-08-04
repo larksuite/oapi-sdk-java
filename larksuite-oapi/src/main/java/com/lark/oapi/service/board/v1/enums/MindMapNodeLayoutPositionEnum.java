@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 子节点相对根节点的方向（根节点下的子节点设置才生效）
- */
+/** 子节点相对根节点的方向（根节点下的子节点设置才生效） */
 public enum MindMapNodeLayoutPositionEnum {
-    LEFT("left"), // 思维导图节点在根节点左侧
-    RIGHT("right"), // 思维导图节点在根节点右侧
-    UP("up"), // 思维导图节点在根节点上方
-    DOWN("down"), // 思维导图节点在根节点下方
-    ;
-    private String value;
+  LEFT("left"), // 思维导图节点在根节点左侧
+  RIGHT("right"), // 思维导图节点在根节点右侧
+  UP("up"), // 思维导图节点在根节点上方
+  DOWN("down"), // 思维导图节点在根节点下方
+  ;
+  private String value;
 
-    MindMapNodeLayoutPositionEnum(String value) {
-        this.value = value;
-    }
+  MindMapNodeLayoutPositionEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

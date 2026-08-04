@@ -13,407 +13,442 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationOffer {
+  /**
+   * Offer id
+   *
+   * <p>示例值：1231231231231231
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 投递id
+   *
+   * <p>示例值：1231231232312312
+   */
+  @SerializedName("application_id")
+  private String applicationId;
+
+  /**
+   * 基础信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("basic_info")
+  private ApplicationOfferBasicInfo basicInfo;
+
+  /**
+   * 薪酬计划
+   *
+   * <p>示例值：
+   */
+  @SerializedName("salary_plan")
+  private ApplicationOfferSalaryPlan salaryPlan;
+
+  /**
+   * 当前offer使用的schema
+   *
+   * <p>示例值：6963562624677398823
+   */
+  @SerializedName("schema_id")
+  private String schemaId;
+
+  /**
+   * Offer状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("offer_status")
+  private Integer offerStatus;
+
+  /**
+   * Offer 职位
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_info")
+  private OfferJobInfo jobInfo;
+
+  /**
+   * offer自定义模块列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_module_list")
+  private ApplicationOfferCustomModule[] customizedModuleList;
+
+  /**
+   * 招聘需求 ID
+   *
+   * <p>示例值：1231231232312312
+   */
+  @SerializedName("job_requirement_id")
+  private String jobRequirementId;
+
+  /**
+   * offer 发送记录列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("offer_send_record_list")
+  private OfferSendRecord[] offerSendRecordList;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getApplicationId() {
+    return this.applicationId;
+  }
+
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  public ApplicationOfferBasicInfo getBasicInfo() {
+    return this.basicInfo;
+  }
+
+  public void setBasicInfo(ApplicationOfferBasicInfo basicInfo) {
+    this.basicInfo = basicInfo;
+  }
+
+  public ApplicationOfferSalaryPlan getSalaryPlan() {
+    return this.salaryPlan;
+  }
+
+  public void setSalaryPlan(ApplicationOfferSalaryPlan salaryPlan) {
+    this.salaryPlan = salaryPlan;
+  }
+
+  public String getSchemaId() {
+    return this.schemaId;
+  }
+
+  public void setSchemaId(String schemaId) {
+    this.schemaId = schemaId;
+  }
+
+  public Integer getOfferStatus() {
+    return this.offerStatus;
+  }
+
+  public void setOfferStatus(Integer offerStatus) {
+    this.offerStatus = offerStatus;
+  }
+
+  public OfferJobInfo getJobInfo() {
+    return this.jobInfo;
+  }
+
+  public void setJobInfo(OfferJobInfo jobInfo) {
+    this.jobInfo = jobInfo;
+  }
+
+  public ApplicationOfferCustomModule[] getCustomizedModuleList() {
+    return this.customizedModuleList;
+  }
+
+  public void setCustomizedModuleList(ApplicationOfferCustomModule[] customizedModuleList) {
+    this.customizedModuleList = customizedModuleList;
+  }
+
+  public String getJobRequirementId() {
+    return this.jobRequirementId;
+  }
+
+  public void setJobRequirementId(String jobRequirementId) {
+    this.jobRequirementId = jobRequirementId;
+  }
+
+  public OfferSendRecord[] getOfferSendRecordList() {
+    return this.offerSendRecordList;
+  }
+
+  public void setOfferSendRecordList(OfferSendRecord[] offerSendRecordList) {
+    this.offerSendRecordList = offerSendRecordList;
+  }
+
+  // builder 开始
+  public ApplicationOffer() {}
+
+  public ApplicationOffer(Builder builder) {
     /**
      * Offer id
-     * <p> 示例值：7057802493489285412
+     *
+     * <p>示例值：1231231231231231
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 投递id
-     * <p> 示例值：7020661401874614564
+     *
+     * <p>示例值：1231231232312312
      */
-    @SerializedName("application_id")
-    private String applicationId;
+    this.applicationId = builder.applicationId;
     /**
      * 基础信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("basic_info")
-    private ApplicationOfferBasicInfo basicInfo;
+    this.basicInfo = builder.basicInfo;
     /**
      * 薪酬计划
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("salary_plan")
-    private ApplicationOfferSalaryPlan salaryPlan;
+    this.salaryPlan = builder.salaryPlan;
     /**
-     * 当前 Offer 使用的 schema
-     * <p> 示例值：6963562624677398823
+     * 当前offer使用的schema
+     *
+     * <p>示例值：6963562624677398823
      */
-    @SerializedName("schema_id")
-    private String schemaId;
+    this.schemaId = builder.schemaId;
     /**
-     * Offer 状态
-     * <p> 示例值：0
+     * Offer状态
+     *
+     * <p>示例值：1
      */
-    @SerializedName("offer_status")
-    private Integer offerStatus;
+    this.offerStatus = builder.offerStatus;
     /**
-     * 职位信息
-     * <p> 示例值：
+     * Offer 职位
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_info")
-    private OfferJobInfo jobInfo;
+    this.jobInfo = builder.jobInfo;
     /**
      * offer自定义模块列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("customized_module_list")
-    private ApplicationOfferCustomModule[] customizedModuleList;
+    this.customizedModuleList = builder.customizedModuleList;
     /**
      * 招聘需求 ID
-     * <p> 示例值：1231231232312312
+     *
+     * <p>示例值：1231231232312312
      */
-    @SerializedName("job_requirement_id")
-    private String jobRequirementId;
+    this.jobRequirementId = builder.jobRequirementId;
     /**
      * offer 发送记录列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("offer_send_record_list")
+    this.offerSendRecordList = builder.offerSendRecordList;
+  }
+
+  public static class Builder {
+    /**
+     * Offer id
+     *
+     * <p>示例值：1231231231231231
+     */
+    private String id;
+
+    /**
+     * 投递id
+     *
+     * <p>示例值：1231231232312312
+     */
+    private String applicationId;
+
+    /**
+     * 基础信息
+     *
+     * <p>示例值：
+     */
+    private ApplicationOfferBasicInfo basicInfo;
+
+    /**
+     * 薪酬计划
+     *
+     * <p>示例值：
+     */
+    private ApplicationOfferSalaryPlan salaryPlan;
+
+    /**
+     * 当前offer使用的schema
+     *
+     * <p>示例值：6963562624677398823
+     */
+    private String schemaId;
+
+    /**
+     * Offer状态
+     *
+     * <p>示例值：1
+     */
+    private Integer offerStatus;
+
+    /**
+     * Offer 职位
+     *
+     * <p>示例值：
+     */
+    private OfferJobInfo jobInfo;
+
+    /**
+     * offer自定义模块列表
+     *
+     * <p>示例值：
+     */
+    private ApplicationOfferCustomModule[] customizedModuleList;
+
+    /**
+     * 招聘需求 ID
+     *
+     * <p>示例值：1231231232312312
+     */
+    private String jobRequirementId;
+
+    /**
+     * offer 发送记录列表
+     *
+     * <p>示例值：
+     */
     private OfferSendRecord[] offerSendRecordList;
 
-    // builder 开始
-    public ApplicationOffer() {
+    /**
+     * Offer id
+     *
+     * <p>示例值：1231231231231231
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ApplicationOffer(Builder builder) {
-        /**
-         * Offer id
-         * <p> 示例值：7057802493489285412
-         */
-        this.id = builder.id;
-        /**
-         * 投递id
-         * <p> 示例值：7020661401874614564
-         */
-        this.applicationId = builder.applicationId;
-        /**
-         * 基础信息
-         * <p> 示例值：
-         */
-        this.basicInfo = builder.basicInfo;
-        /**
-         * 薪酬计划
-         * <p> 示例值：
-         */
-        this.salaryPlan = builder.salaryPlan;
-        /**
-         * 当前 Offer 使用的 schema
-         * <p> 示例值：6963562624677398823
-         */
-        this.schemaId = builder.schemaId;
-        /**
-         * Offer 状态
-         * <p> 示例值：0
-         */
-        this.offerStatus = builder.offerStatus;
-        /**
-         * 职位信息
-         * <p> 示例值：
-         */
-        this.jobInfo = builder.jobInfo;
-        /**
-         * offer自定义模块列表
-         * <p> 示例值：
-         */
-        this.customizedModuleList = builder.customizedModuleList;
-        /**
-         * 招聘需求 ID
-         * <p> 示例值：1231231232312312
-         */
-        this.jobRequirementId = builder.jobRequirementId;
-        /**
-         * offer 发送记录列表
-         * <p> 示例值：
-         */
-        this.offerSendRecordList = builder.offerSendRecordList;
+    /**
+     * 投递id
+     *
+     * <p>示例值：1231231232312312
+     *
+     * @param applicationId
+     * @return
+     */
+    public Builder applicationId(String applicationId) {
+      this.applicationId = applicationId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 基础信息
+     *
+     * <p>示例值：
+     *
+     * @param basicInfo
+     * @return
+     */
+    public Builder basicInfo(ApplicationOfferBasicInfo basicInfo) {
+      this.basicInfo = basicInfo;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 薪酬计划
+     *
+     * <p>示例值：
+     *
+     * @param salaryPlan
+     * @return
+     */
+    public Builder salaryPlan(ApplicationOfferSalaryPlan salaryPlan) {
+      this.salaryPlan = salaryPlan;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 当前offer使用的schema
+     *
+     * <p>示例值：6963562624677398823
+     *
+     * @param schemaId
+     * @return
+     */
+    public Builder schemaId(String schemaId) {
+      this.schemaId = schemaId;
+      return this;
     }
 
-    public String getApplicationId() {
-        return this.applicationId;
+    /**
+     * Offer状态
+     *
+     * <p>示例值：1
+     *
+     * @param offerStatus
+     * @return
+     */
+    public Builder offerStatus(Integer offerStatus) {
+      this.offerStatus = offerStatus;
+      return this;
     }
 
-    public void setApplicationId(String applicationId) {
-        this.applicationId = applicationId;
+    /**
+     * Offer 职位
+     *
+     * <p>示例值：
+     *
+     * @param jobInfo
+     * @return
+     */
+    public Builder jobInfo(OfferJobInfo jobInfo) {
+      this.jobInfo = jobInfo;
+      return this;
     }
 
-    public ApplicationOfferBasicInfo getBasicInfo() {
-        return this.basicInfo;
+    /**
+     * offer自定义模块列表
+     *
+     * <p>示例值：
+     *
+     * @param customizedModuleList
+     * @return
+     */
+    public Builder customizedModuleList(ApplicationOfferCustomModule[] customizedModuleList) {
+      this.customizedModuleList = customizedModuleList;
+      return this;
     }
 
-    public void setBasicInfo(ApplicationOfferBasicInfo basicInfo) {
-        this.basicInfo = basicInfo;
+    /**
+     * 招聘需求 ID
+     *
+     * <p>示例值：1231231232312312
+     *
+     * @param jobRequirementId
+     * @return
+     */
+    public Builder jobRequirementId(String jobRequirementId) {
+      this.jobRequirementId = jobRequirementId;
+      return this;
     }
 
-    public ApplicationOfferSalaryPlan getSalaryPlan() {
-        return this.salaryPlan;
+    /**
+     * offer 发送记录列表
+     *
+     * <p>示例值：
+     *
+     * @param offerSendRecordList
+     * @return
+     */
+    public Builder offerSendRecordList(OfferSendRecord[] offerSendRecordList) {
+      this.offerSendRecordList = offerSendRecordList;
+      return this;
     }
 
-    public void setSalaryPlan(ApplicationOfferSalaryPlan salaryPlan) {
-        this.salaryPlan = salaryPlan;
+    public ApplicationOffer build() {
+      return new ApplicationOffer(this);
     }
+  }
 
-    public String getSchemaId() {
-        return this.schemaId;
-    }
-
-    public void setSchemaId(String schemaId) {
-        this.schemaId = schemaId;
-    }
-
-    public Integer getOfferStatus() {
-        return this.offerStatus;
-    }
-
-    public void setOfferStatus(Integer offerStatus) {
-        this.offerStatus = offerStatus;
-    }
-
-    public OfferJobInfo getJobInfo() {
-        return this.jobInfo;
-    }
-
-    public void setJobInfo(OfferJobInfo jobInfo) {
-        this.jobInfo = jobInfo;
-    }
-
-    public ApplicationOfferCustomModule[] getCustomizedModuleList() {
-        return this.customizedModuleList;
-    }
-
-    public void setCustomizedModuleList(ApplicationOfferCustomModule[] customizedModuleList) {
-        this.customizedModuleList = customizedModuleList;
-    }
-
-    public String getJobRequirementId() {
-        return this.jobRequirementId;
-    }
-
-    public void setJobRequirementId(String jobRequirementId) {
-        this.jobRequirementId = jobRequirementId;
-    }
-
-    public OfferSendRecord[] getOfferSendRecordList() {
-        return this.offerSendRecordList;
-    }
-
-    public void setOfferSendRecordList(OfferSendRecord[] offerSendRecordList) {
-        this.offerSendRecordList = offerSendRecordList;
-    }
-
-    public static class Builder {
-        /**
-         * Offer id
-         * <p> 示例值：7057802493489285412
-         */
-        private String id;
-        /**
-         * 投递id
-         * <p> 示例值：7020661401874614564
-         */
-        private String applicationId;
-        /**
-         * 基础信息
-         * <p> 示例值：
-         */
-        private ApplicationOfferBasicInfo basicInfo;
-        /**
-         * 薪酬计划
-         * <p> 示例值：
-         */
-        private ApplicationOfferSalaryPlan salaryPlan;
-        /**
-         * 当前 Offer 使用的 schema
-         * <p> 示例值：6963562624677398823
-         */
-        private String schemaId;
-        /**
-         * Offer 状态
-         * <p> 示例值：0
-         */
-        private Integer offerStatus;
-        /**
-         * 职位信息
-         * <p> 示例值：
-         */
-        private OfferJobInfo jobInfo;
-        /**
-         * offer自定义模块列表
-         * <p> 示例值：
-         */
-        private ApplicationOfferCustomModule[] customizedModuleList;
-        /**
-         * 招聘需求 ID
-         * <p> 示例值：1231231232312312
-         */
-        private String jobRequirementId;
-        /**
-         * offer 发送记录列表
-         * <p> 示例值：
-         */
-        private OfferSendRecord[] offerSendRecordList;
-
-        /**
-         * Offer id
-         * <p> 示例值：7057802493489285412
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 投递id
-         * <p> 示例值：7020661401874614564
-         *
-         * @param applicationId
-         * @return
-         */
-        public Builder applicationId(String applicationId) {
-            this.applicationId = applicationId;
-            return this;
-        }
-
-
-        /**
-         * 基础信息
-         * <p> 示例值：
-         *
-         * @param basicInfo
-         * @return
-         */
-        public Builder basicInfo(ApplicationOfferBasicInfo basicInfo) {
-            this.basicInfo = basicInfo;
-            return this;
-        }
-
-
-        /**
-         * 薪酬计划
-         * <p> 示例值：
-         *
-         * @param salaryPlan
-         * @return
-         */
-        public Builder salaryPlan(ApplicationOfferSalaryPlan salaryPlan) {
-            this.salaryPlan = salaryPlan;
-            return this;
-        }
-
-
-        /**
-         * 当前 Offer 使用的 schema
-         * <p> 示例值：6963562624677398823
-         *
-         * @param schemaId
-         * @return
-         */
-        public Builder schemaId(String schemaId) {
-            this.schemaId = schemaId;
-            return this;
-        }
-
-
-        /**
-         * Offer 状态
-         * <p> 示例值：0
-         *
-         * @param offerStatus
-         * @return
-         */
-        public Builder offerStatus(Integer offerStatus) {
-            this.offerStatus = offerStatus;
-            return this;
-        }
-
-
-        /**
-         * 职位信息
-         * <p> 示例值：
-         *
-         * @param jobInfo
-         * @return
-         */
-        public Builder jobInfo(OfferJobInfo jobInfo) {
-            this.jobInfo = jobInfo;
-            return this;
-        }
-
-
-        /**
-         * offer自定义模块列表
-         * <p> 示例值：
-         *
-         * @param customizedModuleList
-         * @return
-         */
-        public Builder customizedModuleList(ApplicationOfferCustomModule[] customizedModuleList) {
-            this.customizedModuleList = customizedModuleList;
-            return this;
-        }
-
-
-        /**
-         * 招聘需求 ID
-         * <p> 示例值：1231231232312312
-         *
-         * @param jobRequirementId
-         * @return
-         */
-        public Builder jobRequirementId(String jobRequirementId) {
-            this.jobRequirementId = jobRequirementId;
-            return this;
-        }
-
-
-        /**
-         * offer 发送记录列表
-         * <p> 示例值：
-         *
-         * @param offerSendRecordList
-         * @return
-         */
-        public Builder offerSendRecordList(OfferSendRecord[] offerSendRecordList) {
-            this.offerSendRecordList = offerSendRecordList;
-            return this;
-        }
-
-
-        public ApplicationOffer build() {
-            return new ApplicationOffer(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

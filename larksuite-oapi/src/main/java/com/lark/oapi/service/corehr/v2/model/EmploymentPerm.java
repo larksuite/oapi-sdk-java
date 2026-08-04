@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmploymentPerm {
+  /**
+   * App key
+   *
+   * <p>示例值：team
+   */
+  @SerializedName("app_key")
+  private String appKey;
+
+  /**
+   * 是否有权限
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("has_permission")
+  private Boolean hasPermission;
+
+  /**
+   * 权限 key
+   *
+   * <p>示例值：directory_member_list
+   */
+  @SerializedName("permission_key")
+  private String permissionKey;
+
+  public String getAppKey() {
+    return this.appKey;
+  }
+
+  public void setAppKey(String appKey) {
+    this.appKey = appKey;
+  }
+
+  public Boolean getHasPermission() {
+    return this.hasPermission;
+  }
+
+  public void setHasPermission(Boolean hasPermission) {
+    this.hasPermission = hasPermission;
+  }
+
+  public String getPermissionKey() {
+    return this.permissionKey;
+  }
+
+  public void setPermissionKey(String permissionKey) {
+    this.permissionKey = permissionKey;
+  }
+
+  // builder 开始
+  public EmploymentPerm() {}
+
+  public EmploymentPerm(Builder builder) {
     /**
      * App key
-     * <p> 示例值：team
+     *
+     * <p>示例值：team
      */
-    @SerializedName("app_key")
-    private String appKey;
+    this.appKey = builder.appKey;
     /**
      * 是否有权限
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("has_permission")
-    private Boolean hasPermission;
+    this.hasPermission = builder.hasPermission;
     /**
      * 权限 key
-     * <p> 示例值：directory_member_list
+     *
+     * <p>示例值：directory_member_list
      */
-    @SerializedName("permission_key")
+    this.permissionKey = builder.permissionKey;
+  }
+
+  public static class Builder {
+    /**
+     * App key
+     *
+     * <p>示例值：team
+     */
+    private String appKey;
+
+    /**
+     * 是否有权限
+     *
+     * <p>示例值：false
+     */
+    private Boolean hasPermission;
+
+    /**
+     * 权限 key
+     *
+     * <p>示例值：directory_member_list
+     */
     private String permissionKey;
 
-    // builder 开始
-    public EmploymentPerm() {
+    /**
+     * App key
+     *
+     * <p>示例值：team
+     *
+     * @param appKey
+     * @return
+     */
+    public Builder appKey(String appKey) {
+      this.appKey = appKey;
+      return this;
     }
 
-    public EmploymentPerm(Builder builder) {
-        /**
-         * App key
-         * <p> 示例值：team
-         */
-        this.appKey = builder.appKey;
-        /**
-         * 是否有权限
-         * <p> 示例值：false
-         */
-        this.hasPermission = builder.hasPermission;
-        /**
-         * 权限 key
-         * <p> 示例值：directory_member_list
-         */
-        this.permissionKey = builder.permissionKey;
+    /**
+     * 是否有权限
+     *
+     * <p>示例值：false
+     *
+     * @param hasPermission
+     * @return
+     */
+    public Builder hasPermission(Boolean hasPermission) {
+      this.hasPermission = hasPermission;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 权限 key
+     *
+     * <p>示例值：directory_member_list
+     *
+     * @param permissionKey
+     * @return
+     */
+    public Builder permissionKey(String permissionKey) {
+      this.permissionKey = permissionKey;
+      return this;
     }
 
-    public String getAppKey() {
-        return this.appKey;
+    public EmploymentPerm build() {
+      return new EmploymentPerm(this);
     }
+  }
 
-    public void setAppKey(String appKey) {
-        this.appKey = appKey;
-    }
-
-    public Boolean getHasPermission() {
-        return this.hasPermission;
-    }
-
-    public void setHasPermission(Boolean hasPermission) {
-        this.hasPermission = hasPermission;
-    }
-
-    public String getPermissionKey() {
-        return this.permissionKey;
-    }
-
-    public void setPermissionKey(String permissionKey) {
-        this.permissionKey = permissionKey;
-    }
-
-    public static class Builder {
-        /**
-         * App key
-         * <p> 示例值：team
-         */
-        private String appKey;
-        /**
-         * 是否有权限
-         * <p> 示例值：false
-         */
-        private Boolean hasPermission;
-        /**
-         * 权限 key
-         * <p> 示例值：directory_member_list
-         */
-        private String permissionKey;
-
-        /**
-         * App key
-         * <p> 示例值：team
-         *
-         * @param appKey
-         * @return
-         */
-        public Builder appKey(String appKey) {
-            this.appKey = appKey;
-            return this;
-        }
-
-
-        /**
-         * 是否有权限
-         * <p> 示例值：false
-         *
-         * @param hasPermission
-         * @return
-         */
-        public Builder hasPermission(Boolean hasPermission) {
-            this.hasPermission = hasPermission;
-            return this;
-        }
-
-
-        /**
-         * 权限 key
-         * <p> 示例值：directory_member_list
-         *
-         * @param permissionKey
-         * @return
-         */
-        public Builder permissionKey(String permissionKey) {
-            this.permissionKey = permissionKey;
-            return this;
-        }
-
-
-        public EmploymentPerm build() {
-            return new EmploymentPerm(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

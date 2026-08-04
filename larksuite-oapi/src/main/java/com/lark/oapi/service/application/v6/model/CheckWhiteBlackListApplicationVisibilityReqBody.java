@@ -13,149 +13,153 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CheckWhiteBlackListApplicationVisibilityReqBody {
+  /**
+   * 想要查询的用户id列表，按照user_id_type录入，最多录入100个。;;可以调用[获取部门直属用户列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department)接口获取。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  /**
+   * 想要查询的部门的 id
+   * 列表，最多录入100个。;;可以[调用获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)接口获取。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("department_ids")
+  private String[] departmentIds;
+
+  /**
+   * 想要查询的用户组id列表，最多录入100个。;;可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口获取。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("group_ids")
+  private String[] groupIds;
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  public String[] getDepartmentIds() {
+    return this.departmentIds;
+  }
+
+  public void setDepartmentIds(String[] departmentIds) {
+    this.departmentIds = departmentIds;
+  }
+
+  public String[] getGroupIds() {
+    return this.groupIds;
+  }
+
+  public void setGroupIds(String[] groupIds) {
+    this.groupIds = groupIds;
+  }
+
+  // builder 开始
+  public CheckWhiteBlackListApplicationVisibilityReqBody() {}
+
+  public CheckWhiteBlackListApplicationVisibilityReqBody(Builder builder) {
     /**
-     * 用户ID列表
-     * <p> 示例值：
+     * 想要查询的用户id列表，按照user_id_type录入，最多录入100个。;;可以调用[获取部门直属用户列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department)接口获取。
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
+    this.userIds = builder.userIds;
+    /**
+     * 想要查询的部门的 id
+     * 列表，最多录入100个。;;可以[调用获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)接口获取。
+     *
+     * <p>示例值：
+     */
+    this.departmentIds = builder.departmentIds;
+    /**
+     * 想要查询的用户组id列表，最多录入100个。;;可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口获取。
+     *
+     * <p>示例值：
+     */
+    this.groupIds = builder.groupIds;
+  }
+
+  public static class Builder {
+    /**
+     * 想要查询的用户id列表，按照user_id_type录入，最多录入100个。;;可以调用[获取部门直属用户列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department)接口获取。
+     *
+     * <p>示例值：
+     */
     private String[] userIds;
+
     /**
-     * 部门ID列表
-     * <p> 示例值：
+     * 想要查询的部门的 id
+     * 列表，最多录入100个。;;可以[调用获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)接口获取。
+     *
+     * <p>示例值：
      */
-    @SerializedName("department_ids")
     private String[] departmentIds;
+
     /**
-     * 用户组ID列表
-     * <p> 示例值：
+     * 想要查询的用户组id列表，最多录入100个。;;可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口获取。
+     *
+     * <p>示例值：
      */
-    @SerializedName("group_ids")
     private String[] groupIds;
 
-    // builder 开始
-    public CheckWhiteBlackListApplicationVisibilityReqBody() {
+    /**
+     * 想要查询的用户id列表，按照user_id_type录入，最多录入100个。;;可以调用[获取部门直属用户列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/find_by_department)接口获取。
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public CheckWhiteBlackListApplicationVisibilityReqBody(Builder builder) {
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 部门ID列表
-         * <p> 示例值：
-         */
-        this.departmentIds = builder.departmentIds;
-        /**
-         * 用户组ID列表
-         * <p> 示例值：
-         */
-        this.groupIds = builder.groupIds;
+    /**
+     * 想要查询的部门的 id
+     * 列表，最多录入100个。;;可以[调用获取子部门列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children)接口获取。
+     *
+     * <p>示例值：
+     *
+     * @param departmentIds
+     * @return
+     */
+    public Builder departmentIds(String[] departmentIds) {
+      this.departmentIds = departmentIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 想要查询的用户组id列表，最多录入100个。;;可以调用[查询用户组列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/simplelist)接口获取。
+     *
+     * <p>示例值：
+     *
+     * @param groupIds
+     * @return
+     */
+    public Builder groupIds(String[] groupIds) {
+      this.groupIds = groupIds;
+      return this;
     }
 
-    public String[] getUserIds() {
-        return this.userIds;
+    public CheckWhiteBlackListApplicationVisibilityReqBody build() {
+      return new CheckWhiteBlackListApplicationVisibilityReqBody(this);
     }
+  }
 
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public String[] getDepartmentIds() {
-        return this.departmentIds;
-    }
-
-    public void setDepartmentIds(String[] departmentIds) {
-        this.departmentIds = departmentIds;
-    }
-
-    public String[] getGroupIds() {
-        return this.groupIds;
-    }
-
-    public void setGroupIds(String[] groupIds) {
-        this.groupIds = groupIds;
-    }
-
-    public static class Builder {
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         */
-        private String[] userIds;
-        /**
-         * 部门ID列表
-         * <p> 示例值：
-         */
-        private String[] departmentIds;
-        /**
-         * 用户组ID列表
-         * <p> 示例值：
-         */
-        private String[] groupIds;
-
-        /**
-         * 用户ID列表
-         * <p> 示例值：
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        /**
-         * 部门ID列表
-         * <p> 示例值：
-         *
-         * @param departmentIds
-         * @return
-         */
-        public Builder departmentIds(String[] departmentIds) {
-            this.departmentIds = departmentIds;
-            return this;
-        }
-
-
-        /**
-         * 用户组ID列表
-         * <p> 示例值：
-         *
-         * @param groupIds
-         * @return
-         */
-        public Builder groupIds(String[] groupIds) {
-            this.groupIds = groupIds;
-            return this;
-        }
-
-
-        public CheckWhiteBlackListApplicationVisibilityReqBody build() {
-            return new CheckWhiteBlackListApplicationVisibilityReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

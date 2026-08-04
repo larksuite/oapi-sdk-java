@@ -13,65 +13,52 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.mail.v1.enums.*;
 
 public class QueryUserReq {
-    @Body
+  @Body private QueryUserReqBody body;
+
+  public QueryUserReqBody getQueryUserReqBody() {
+    return this.body;
+  }
+
+  public void setQueryUserReqBody(QueryUserReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public QueryUserReq() {}
+
+  public QueryUserReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private QueryUserReqBody body;
 
-    // builder 开始
-    public QueryUserReq() {
-    }
-
-    public QueryUserReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public QueryUserReqBody getQueryUserReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setQueryUserReqBody(QueryUserReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder queryUserReqBody(QueryUserReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private QueryUserReqBody body;
-
-        public QueryUserReqBody getQueryUserReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder queryUserReqBody(QueryUserReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public QueryUserReq build() {
-            return new QueryUserReq(this);
-        }
+    public QueryUserReq build() {
+      return new QueryUserReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

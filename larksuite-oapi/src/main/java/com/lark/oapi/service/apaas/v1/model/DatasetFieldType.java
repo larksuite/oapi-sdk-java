@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DatasetFieldType {
+  /**
+   * 类型名称
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 字段的 Settings 定义
+   *
+   * <p>示例值：{\"max_length\":100,\"multiline\":false,\"regexp_verify\":true,\"regexp_expression\":\"[a-zA-Z]\",\"regexp_err_msg\":[{\"language_code\":2052,\"text\":\"只匹配字母\"}],\"text_version\":1}
+   */
+  @SerializedName("settings")
+  private String settings;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getSettings() {
+    return this.settings;
+  }
+
+  public void setSettings(String settings) {
+    this.settings = settings;
+  }
+
+  // builder 开始
+  public DatasetFieldType() {}
+
+  public DatasetFieldType(Builder builder) {
     /**
      * 类型名称
-     * <p> 示例值：text
+     *
+     * <p>示例值：text
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 字段的 Settings 定义
-     * <p> 示例值：{       "max_length": 100,                    // 最大长度       "multiline": false,                   // 是否开启多行文本       "regexp_verify": true,                // 是否开启正则校验       "regexp_expression": "[a-zA-Z]",      // 正则表达式，规定用户输入的字段值格式        "regexp_err_msg": [                   // 格式错误提示，当用户输入的字段值未通过格式校验时展示的错误信息         {           "language_code": 2052,           "text": "只匹配字母"         }       ],       "text_version": 1                     // 文本字段版本，历史版本为 0     }
+     *
+     * <p>示例值：{\"max_length\":100,\"multiline\":false,\"regexp_verify\":true,\"regexp_expression\":\"[a-zA-Z]\",\"regexp_err_msg\":[{\"language_code\":2052,\"text\":\"只匹配字母\"}],\"text_version\":1}
      */
-    @SerializedName("settings")
+    this.settings = builder.settings;
+  }
+
+  public static class Builder {
+    /**
+     * 类型名称
+     *
+     * <p>示例值：text
+     */
+    private String name;
+
+    /**
+     * 字段的 Settings 定义
+     *
+     * <p>示例值：{\"max_length\":100,\"multiline\":false,\"regexp_verify\":true,\"regexp_expression\":\"[a-zA-Z]\",\"regexp_err_msg\":[{\"language_code\":2052,\"text\":\"只匹配字母\"}],\"text_version\":1}
+     */
     private String settings;
 
-    // builder 开始
-    public DatasetFieldType() {
+    /**
+     * 类型名称
+     *
+     * <p>示例值：text
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public DatasetFieldType(Builder builder) {
-        /**
-         * 类型名称
-         * <p> 示例值：text
-         */
-        this.name = builder.name;
-        /**
-         * 字段的 Settings 定义
-         * <p> 示例值：{       "max_length": 100,                    // 最大长度       "multiline": false,                   // 是否开启多行文本       "regexp_verify": true,                // 是否开启正则校验       "regexp_expression": "[a-zA-Z]",      // 正则表达式，规定用户输入的字段值格式        "regexp_err_msg": [                   // 格式错误提示，当用户输入的字段值未通过格式校验时展示的错误信息         {           "language_code": 2052,           "text": "只匹配字母"         }       ],       "text_version": 1                     // 文本字段版本，历史版本为 0     }
-         */
-        this.settings = builder.settings;
+    /**
+     * 字段的 Settings 定义
+     *
+     * <p>示例值：{\"max_length\":100,\"multiline\":false,\"regexp_verify\":true,\"regexp_expression\":\"[a-zA-Z]\",\"regexp_err_msg\":[{\"language_code\":2052,\"text\":\"只匹配字母\"}],\"text_version\":1}
+     *
+     * @param settings
+     * @return
+     */
+    public Builder settings(String settings) {
+      this.settings = settings;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DatasetFieldType build() {
+      return new DatasetFieldType(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSettings() {
-        return this.settings;
-    }
-
-    public void setSettings(String settings) {
-        this.settings = settings;
-    }
-
-    public static class Builder {
-        /**
-         * 类型名称
-         * <p> 示例值：text
-         */
-        private String name;
-        /**
-         * 字段的 Settings 定义
-         * <p> 示例值：{       "max_length": 100,                    // 最大长度       "multiline": false,                   // 是否开启多行文本       "regexp_verify": true,                // 是否开启正则校验       "regexp_expression": "[a-zA-Z]",      // 正则表达式，规定用户输入的字段值格式        "regexp_err_msg": [                   // 格式错误提示，当用户输入的字段值未通过格式校验时展示的错误信息         {           "language_code": 2052,           "text": "只匹配字母"         }       ],       "text_version": 1                     // 文本字段版本，历史版本为 0     }
-         */
-        private String settings;
-
-        /**
-         * 类型名称
-         * <p> 示例值：text
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 字段的 Settings 定义
-         * <p> 示例值：{       "max_length": 100,                    // 最大长度       "multiline": false,                   // 是否开启多行文本       "regexp_verify": true,                // 是否开启正则校验       "regexp_expression": "[a-zA-Z]",      // 正则表达式，规定用户输入的字段值格式        "regexp_err_msg": [                   // 格式错误提示，当用户输入的字段值未通过格式校验时展示的错误信息         {           "language_code": 2052,           "text": "只匹配字母"         }       ],       "text_version": 1                     // 文本字段版本，历史版本为 0     }
-         *
-         * @param settings
-         * @return
-         */
-        public Builder settings(String settings) {
-            this.settings = settings;
-            return this;
-        }
-
-
-        public DatasetFieldType build() {
-            return new DatasetFieldType(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

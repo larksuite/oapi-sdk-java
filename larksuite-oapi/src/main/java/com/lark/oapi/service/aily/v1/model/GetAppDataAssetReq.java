@@ -13,237 +13,254 @@
 
 package com.lark.oapi.service.aily.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.aily.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.aily.v1.enums.*;
 
 public class GetAppDataAssetReq {
+  /**
+   * 结果是否包含数据与知识项
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("with_data_asset_item")
+  private Boolean withDataAssetItem;
+
+  /**
+   * 结果是否包含数据知识连接状态
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("with_connect_status")
+  private Boolean withConnectStatus;
+
+  /**
+   * 结果是否包含导入数据源信息
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("with_import_setting")
+  private Boolean withImportSetting;
+
+  /**
+   * 应用环境，默认为线上环境，dev代表开发环境
+   *
+   * <p>示例值：dev
+   */
+  @Query
+  @SerializedName("tenant_type")
+  private String tenantType;
+
+  public Boolean getWithDataAssetItem() {
+    return this.withDataAssetItem;
+  }
+
+  public void setWithDataAssetItem(Boolean withDataAssetItem) {
+    this.withDataAssetItem = withDataAssetItem;
+  }
+
+  public Boolean getWithConnectStatus() {
+    return this.withConnectStatus;
+  }
+
+  public void setWithConnectStatus(Boolean withConnectStatus) {
+    this.withConnectStatus = withConnectStatus;
+  }
+
+  public Boolean getWithImportSetting() {
+    return this.withImportSetting;
+  }
+
+  public void setWithImportSetting(Boolean withImportSetting) {
+    this.withImportSetting = withImportSetting;
+  }
+
+  public String getTenantType() {
+    return this.tenantType;
+  }
+
+  public void setTenantType(String tenantType) {
+    this.tenantType = tenantType;
+  }
+
+  /**
+   * Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+   *
+   * <p>示例值：spring_feafdsaf__c
+   */
+  @Path
+  @SerializedName("app_id")
+  private String appId;
+
+  /**
+   * 数据知识ID，可通过在 Aily 平台查看知识详情页的url中获取，获取示例 https://***
+   * /ai/app_namespace/data/data-asset/data_asset_id
+   *
+   * <p>示例值：data_asset_dafefadsaf1
+   */
+  @Path
+  @SerializedName("data_asset_id")
+  private String dataAssetId;
+
+  public String getAppId() {
+    return this.appId;
+  }
+
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  public String getDataAssetId() {
+    return this.dataAssetId;
+  }
+
+  public void setDataAssetId(String dataAssetId) {
+    this.dataAssetId = dataAssetId;
+  }
+
+  // builder 开始
+  public GetAppDataAssetReq() {}
+
+  public GetAppDataAssetReq(Builder builder) {
     /**
      * 结果是否包含数据与知识项
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("with_data_asset_item")
-    private Boolean withDataAssetItem;
+    this.withDataAssetItem = builder.withDataAssetItem;
     /**
      * 结果是否包含数据知识连接状态
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("with_connect_status")
-    private Boolean withConnectStatus;
+    this.withConnectStatus = builder.withConnectStatus;
     /**
      * 结果是否包含导入数据源信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("with_import_setting")
-    private Boolean withImportSetting;
+    this.withImportSetting = builder.withImportSetting;
     /**
      * 应用环境，默认为线上环境，dev代表开发环境
-     * <p> 示例值：dev
+     *
+     * <p>示例值：dev
      */
-    @Query
-    @SerializedName("tenant_type")
-    private String tenantType;
+    this.tenantType = builder.tenantType;
     /**
-     * APIID
-     * <p> 示例值：spring_feafdsaf__c
+     * Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+     *
+     * <p>示例值：spring_feafdsaf__c
      */
-    @Path
-    @SerializedName("app_id")
-    private String appId;
+    this.appId = builder.appId;
     /**
-     * 数据知识ID
-     * <p> 示例值：data_asset_dafefadsaf1
+     * 数据知识ID，可通过在 Aily 平台查看知识详情页的url中获取，获取示例 https://***
+     * /ai/app_namespace/data/data-asset/data_asset_id
+     *
+     * <p>示例值：data_asset_dafefadsaf1
      */
-    @Path
-    @SerializedName("data_asset_id")
-    private String dataAssetId;
+    this.dataAssetId = builder.dataAssetId;
+  }
 
-    // builder 开始
-    public GetAppDataAssetReq() {
+  public static class Builder {
+    private Boolean withDataAssetItem; // 结果是否包含数据与知识项
+    private Boolean withConnectStatus; // 结果是否包含数据知识连接状态
+    private Boolean withImportSetting; // 结果是否包含导入数据源信息
+    private String tenantType; // 应用环境，默认为线上环境，dev代表开发环境
+
+    /**
+     * 结果是否包含数据与知识项
+     *
+     * <p>示例值：true
+     *
+     * @param withDataAssetItem
+     * @return
+     */
+    public Builder withDataAssetItem(Boolean withDataAssetItem) {
+      this.withDataAssetItem = withDataAssetItem;
+      return this;
     }
 
-    public GetAppDataAssetReq(Builder builder) {
-        /**
-         * 结果是否包含数据与知识项
-         * <p> 示例值：true
-         */
-        this.withDataAssetItem = builder.withDataAssetItem;
-        /**
-         * 结果是否包含数据知识连接状态
-         * <p> 示例值：true
-         */
-        this.withConnectStatus = builder.withConnectStatus;
-        /**
-         * 结果是否包含导入数据源信息
-         * <p> 示例值：
-         */
-        this.withImportSetting = builder.withImportSetting;
-        /**
-         * 应用环境，默认为线上环境，dev代表开发环境
-         * <p> 示例值：dev
-         */
-        this.tenantType = builder.tenantType;
-        /**
-         * APIID
-         * <p> 示例值：spring_feafdsaf__c
-         */
-        this.appId = builder.appId;
-        /**
-         * 数据知识ID
-         * <p> 示例值：data_asset_dafefadsaf1
-         */
-        this.dataAssetId = builder.dataAssetId;
+    /**
+     * 结果是否包含数据知识连接状态
+     *
+     * <p>示例值：true
+     *
+     * @param withConnectStatus
+     * @return
+     */
+    public Builder withConnectStatus(Boolean withConnectStatus) {
+      this.withConnectStatus = withConnectStatus;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 结果是否包含导入数据源信息
+     *
+     * <p>示例值：
+     *
+     * @param withImportSetting
+     * @return
+     */
+    public Builder withImportSetting(Boolean withImportSetting) {
+      this.withImportSetting = withImportSetting;
+      return this;
     }
 
-    public Boolean getWithDataAssetItem() {
-        return this.withDataAssetItem;
+    /**
+     * 应用环境，默认为线上环境，dev代表开发环境
+     *
+     * <p>示例值：dev
+     *
+     * @param tenantType
+     * @return
+     */
+    public Builder tenantType(String tenantType) {
+      this.tenantType = tenantType;
+      return this;
     }
 
-    public void setWithDataAssetItem(Boolean withDataAssetItem) {
-        this.withDataAssetItem = withDataAssetItem;
+    private String appId; // Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+    private String dataAssetId; // 数据知识ID，可通过在 Aily 平台查看知识详情页的url中获取，获取示例 https://***
+
+    // /ai/app_namespace/data/data-asset/data_asset_id
+
+    /**
+     * Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}
+     *
+     * <p>示例值：spring_feafdsaf__c
+     *
+     * @param appId
+     * @return
+     */
+    public Builder appId(String appId) {
+      this.appId = appId;
+      return this;
     }
 
-    public Boolean getWithConnectStatus() {
-        return this.withConnectStatus;
+    /**
+     * 数据知识ID，可通过在 Aily 平台查看知识详情页的url中获取，获取示例 https://***
+     * /ai/app_namespace/data/data-asset/data_asset_id
+     *
+     * <p>示例值：data_asset_dafefadsaf1
+     *
+     * @param dataAssetId
+     * @return
+     */
+    public Builder dataAssetId(String dataAssetId) {
+      this.dataAssetId = dataAssetId;
+      return this;
     }
 
-    public void setWithConnectStatus(Boolean withConnectStatus) {
-        this.withConnectStatus = withConnectStatus;
+    public GetAppDataAssetReq build() {
+      return new GetAppDataAssetReq(this);
     }
+  }
 
-    public Boolean getWithImportSetting() {
-        return this.withImportSetting;
-    }
-
-    public void setWithImportSetting(Boolean withImportSetting) {
-        this.withImportSetting = withImportSetting;
-    }
-
-    public String getTenantType() {
-        return this.tenantType;
-    }
-
-    public void setTenantType(String tenantType) {
-        this.tenantType = tenantType;
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getDataAssetId() {
-        return this.dataAssetId;
-    }
-
-    public void setDataAssetId(String dataAssetId) {
-        this.dataAssetId = dataAssetId;
-    }
-
-    public static class Builder {
-        private Boolean withDataAssetItem; // 结果是否包含数据与知识项
-        private Boolean withConnectStatus; // 结果是否包含数据知识连接状态
-        private Boolean withImportSetting; // 结果是否包含导入数据源信息
-        private String tenantType; // 应用环境，默认为线上环境，dev代表开发环境
-        private String appId; // APIID
-        private String dataAssetId; // 数据知识ID
-
-        /**
-         * 结果是否包含数据与知识项
-         * <p> 示例值：true
-         *
-         * @param withDataAssetItem
-         * @return
-         */
-        public Builder withDataAssetItem(Boolean withDataAssetItem) {
-            this.withDataAssetItem = withDataAssetItem;
-            return this;
-        }
-
-        /**
-         * 结果是否包含数据知识连接状态
-         * <p> 示例值：true
-         *
-         * @param withConnectStatus
-         * @return
-         */
-        public Builder withConnectStatus(Boolean withConnectStatus) {
-            this.withConnectStatus = withConnectStatus;
-            return this;
-        }
-
-        /**
-         * 结果是否包含导入数据源信息
-         * <p> 示例值：
-         *
-         * @param withImportSetting
-         * @return
-         */
-        public Builder withImportSetting(Boolean withImportSetting) {
-            this.withImportSetting = withImportSetting;
-            return this;
-        }
-
-        /**
-         * 应用环境，默认为线上环境，dev代表开发环境
-         * <p> 示例值：dev
-         *
-         * @param tenantType
-         * @return
-         */
-        public Builder tenantType(String tenantType) {
-            this.tenantType = tenantType;
-            return this;
-        }
-
-        /**
-         * APIID
-         * <p> 示例值：spring_feafdsaf__c
-         *
-         * @param appId
-         * @return
-         */
-        public Builder appId(String appId) {
-            this.appId = appId;
-            return this;
-        }
-
-
-        /**
-         * 数据知识ID
-         * <p> 示例值：data_asset_dafefadsaf1
-         *
-         * @param dataAssetId
-         * @return
-         */
-        public Builder dataAssetId(String dataAssetId) {
-            this.dataAssetId = dataAssetId;
-            return this;
-        }
-
-
-        public GetAppDataAssetReq build() {
-            return new GetAppDataAssetReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

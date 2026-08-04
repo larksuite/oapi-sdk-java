@@ -13,371 +13,409 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SecurityGroup {
+  /**
+   * 角色ID
+   *
+   * <p>示例值：7034393015968122400
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 角色code，通常用于与其他系统进行交互
+   *
+   * <p>示例值：department_manager
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 字段名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private Name name;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("active_status")
+  private Integer activeStatus;
+
+  /**
+   * 字段名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private Name description;
+
+  /**
+   * 角色类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("group_type")
+  private Integer groupType;
+
+  /**
+   * 创建人;- 返回"sys"时，表示角色是系统创建角色;- 返回用户ID时，表示是角色是用户自定义角色，可以使用
+   * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)
+   * 换取 飞书人事的employment_id
+   *
+   * <p>示例值：6967639606963471902
+   */
+  @SerializedName("created_by")
+  private String createdBy;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1720584039
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 组织管理维度
+   *
+   * <p>示例值：
+   */
+  @SerializedName("org_truncation")
+  private OrgTruncation[] orgTruncation;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public Name getName() {
+    return this.name;
+  }
+
+  public void setName(Name name) {
+    this.name = name;
+  }
+
+  public Integer getActiveStatus() {
+    return this.activeStatus;
+  }
+
+  public void setActiveStatus(Integer activeStatus) {
+    this.activeStatus = activeStatus;
+  }
+
+  public Name getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(Name description) {
+    this.description = description;
+  }
+
+  public Integer getGroupType() {
+    return this.groupType;
+  }
+
+  public void setGroupType(Integer groupType) {
+    this.groupType = groupType;
+  }
+
+  public String getCreatedBy() {
+    return this.createdBy;
+  }
+
+  public void setCreatedBy(String createdBy) {
+    this.createdBy = createdBy;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public OrgTruncation[] getOrgTruncation() {
+    return this.orgTruncation;
+  }
+
+  public void setOrgTruncation(OrgTruncation[] orgTruncation) {
+    this.orgTruncation = orgTruncation;
+  }
+
+  // builder 开始
+  public SecurityGroup() {}
+
+  public SecurityGroup(Builder builder) {
     /**
      * 角色ID
-     * <p> 示例值：7034393015968122400
+     *
+     * <p>示例值：7034393015968122400
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 角色code，通常用于与其他系统进行交互
-     * <p> 示例值：department_manager
+     *
+     * <p>示例值：department_manager
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
-     * 角色名称
-     * <p> 示例值：
+     * 字段名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private Name name;
+    this.name = builder.name;
     /**
-     * 状态，1 = Inactive / 停用，;2 = Active / 启用，3 = TobeActivated / 待启用
-     * <p> 示例值：1
+     * 状态
+     *
+     * <p>示例值：1
      */
-    @SerializedName("active_status")
-    private Integer activeStatus;
+    this.activeStatus = builder.activeStatus;
     /**
-     * 角色描述
-     * <p> 示例值：
+     * 字段名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private Name description;
+    this.description = builder.description;
     /**
      * 角色类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("group_type")
-    private Integer groupType;
+    this.groupType = builder.groupType;
     /**
-     * 创建人
-     * <p> 示例值：6967639606963471902
+     * 创建人;- 返回"sys"时，表示角色是系统创建角色;- 返回用户ID时，表示是角色是用户自定义角色，可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)
+     * 换取 飞书人事的employment_id
+     *
+     * <p>示例值：6967639606963471902
      */
-    @SerializedName("created_by")
-    private String createdBy;
+    this.createdBy = builder.createdBy;
     /**
      * 更新时间
-     * <p> 示例值：1
+     *
+     * <p>示例值：1720584039
      */
-    @SerializedName("update_time")
-    private String updateTime;
+    this.updateTime = builder.updateTime;
     /**
      * 组织管理维度
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("org_truncation")
+    this.orgTruncation = builder.orgTruncation;
+  }
+
+  public static class Builder {
+    /**
+     * 角色ID
+     *
+     * <p>示例值：7034393015968122400
+     */
+    private String id;
+
+    /**
+     * 角色code，通常用于与其他系统进行交互
+     *
+     * <p>示例值：department_manager
+     */
+    private String code;
+
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     */
+    private Name name;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     */
+    private Integer activeStatus;
+
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     */
+    private Name description;
+
+    /**
+     * 角色类型
+     *
+     * <p>示例值：1
+     */
+    private Integer groupType;
+
+    /**
+     * 创建人;- 返回"sys"时，表示角色是系统创建角色;- 返回用户ID时，表示是角色是用户自定义角色，可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)
+     * 换取 飞书人事的employment_id
+     *
+     * <p>示例值：6967639606963471902
+     */
+    private String createdBy;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1720584039
+     */
+    private String updateTime;
+
+    /**
+     * 组织管理维度
+     *
+     * <p>示例值：
+     */
     private OrgTruncation[] orgTruncation;
 
-    // builder 开始
-    public SecurityGroup() {
+    /**
+     * 角色ID
+     *
+     * <p>示例值：7034393015968122400
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public SecurityGroup(Builder builder) {
-        /**
-         * 角色ID
-         * <p> 示例值：7034393015968122400
-         */
-        this.id = builder.id;
-        /**
-         * 角色code，通常用于与其他系统进行交互
-         * <p> 示例值：department_manager
-         */
-        this.code = builder.code;
-        /**
-         * 角色名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 状态，1 = Inactive / 停用，;2 = Active / 启用，3 = TobeActivated / 待启用
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
-        /**
-         * 角色描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 角色类型
-         * <p> 示例值：1
-         */
-        this.groupType = builder.groupType;
-        /**
-         * 创建人
-         * <p> 示例值：6967639606963471902
-         */
-        this.createdBy = builder.createdBy;
-        /**
-         * 更新时间
-         * <p> 示例值：1
-         */
-        this.updateTime = builder.updateTime;
-        /**
-         * 组织管理维度
-         * <p> 示例值：
-         */
-        this.orgTruncation = builder.orgTruncation;
+    /**
+     * 角色code，通常用于与其他系统进行交互
+     *
+     * <p>示例值：department_manager
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(Name name) {
+      this.name = name;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     *
+     * @param activeStatus
+     * @return
+     */
+    public Builder activeStatus(Integer activeStatus) {
+      this.activeStatus = activeStatus;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(Name description) {
+      this.description = description;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    /**
+     * 角色类型
+     *
+     * <p>示例值：1
+     *
+     * @param groupType
+     * @return
+     */
+    public Builder groupType(Integer groupType) {
+      this.groupType = groupType;
+      return this;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    /**
+     * 创建人;- 返回"sys"时，表示角色是系统创建角色;- 返回用户ID时，表示是角色是用户自定义角色，可以使用
+     * [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert)
+     * 换取 飞书人事的employment_id
+     *
+     * <p>示例值：6967639606963471902
+     *
+     * @param createdBy
+     * @return
+     */
+    public Builder createdBy(String createdBy) {
+      this.createdBy = createdBy;
+      return this;
     }
 
-    public Name getName() {
-        return this.name;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1720584039
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public void setName(Name name) {
-        this.name = name;
+    /**
+     * 组织管理维度
+     *
+     * <p>示例值：
+     *
+     * @param orgTruncation
+     * @return
+     */
+    public Builder orgTruncation(OrgTruncation[] orgTruncation) {
+      this.orgTruncation = orgTruncation;
+      return this;
     }
 
-    public Integer getActiveStatus() {
-        return this.activeStatus;
+    public SecurityGroup build() {
+      return new SecurityGroup(this);
     }
+  }
 
-    public void setActiveStatus(Integer activeStatus) {
-        this.activeStatus = activeStatus;
-    }
-
-    public Name getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(Name description) {
-        this.description = description;
-    }
-
-    public Integer getGroupType() {
-        return this.groupType;
-    }
-
-    public void setGroupType(Integer groupType) {
-        this.groupType = groupType;
-    }
-
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public OrgTruncation[] getOrgTruncation() {
-        return this.orgTruncation;
-    }
-
-    public void setOrgTruncation(OrgTruncation[] orgTruncation) {
-        this.orgTruncation = orgTruncation;
-    }
-
-    public static class Builder {
-        /**
-         * 角色ID
-         * <p> 示例值：7034393015968122400
-         */
-        private String id;
-        /**
-         * 角色code，通常用于与其他系统进行交互
-         * <p> 示例值：department_manager
-         */
-        private String code;
-        /**
-         * 角色名称
-         * <p> 示例值：
-         */
-        private Name name;
-        /**
-         * 状态，1 = Inactive / 停用，;2 = Active / 启用，3 = TobeActivated / 待启用
-         * <p> 示例值：1
-         */
-        private Integer activeStatus;
-        /**
-         * 角色描述
-         * <p> 示例值：
-         */
-        private Name description;
-        /**
-         * 角色类型
-         * <p> 示例值：1
-         */
-        private Integer groupType;
-        /**
-         * 创建人
-         * <p> 示例值：6967639606963471902
-         */
-        private String createdBy;
-        /**
-         * 更新时间
-         * <p> 示例值：1
-         */
-        private String updateTime;
-        /**
-         * 组织管理维度
-         * <p> 示例值：
-         */
-        private OrgTruncation[] orgTruncation;
-
-        /**
-         * 角色ID
-         * <p> 示例值：7034393015968122400
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 角色code，通常用于与其他系统进行交互
-         * <p> 示例值：department_manager
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 角色名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(Name name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 状态，1 = Inactive / 停用，;2 = Active / 启用，3 = TobeActivated / 待启用
-         * <p> 示例值：1
-         *
-         * @param activeStatus
-         * @return
-         */
-        public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
-        }
-
-
-        /**
-         * 角色描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(Name description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 角色类型
-         * <p> 示例值：1
-         *
-         * @param groupType
-         * @return
-         */
-        public Builder groupType(Integer groupType) {
-            this.groupType = groupType;
-            return this;
-        }
-
-
-        /**
-         * 创建人
-         * <p> 示例值：6967639606963471902
-         *
-         * @param createdBy
-         * @return
-         */
-        public Builder createdBy(String createdBy) {
-            this.createdBy = createdBy;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        /**
-         * 组织管理维度
-         * <p> 示例值：
-         *
-         * @param orgTruncation
-         * @return
-         */
-        public Builder orgTruncation(OrgTruncation[] orgTruncation) {
-            this.orgTruncation = orgTruncation;
-            return this;
-        }
-
-
-        public SecurityGroup build() {
-            return new SecurityGroup(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

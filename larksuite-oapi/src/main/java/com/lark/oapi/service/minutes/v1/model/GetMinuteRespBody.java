@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetMinuteRespBody {
-    /**
-     * 妙记基本信息
-     * <p> 示例值：
-     */
-    @SerializedName("minute")
-    private Minute minute;
+  /**
+   * 妙记基本信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("minute")
+  private Minute minute;
 
-    public Minute getMinute() {
-        return this.minute;
-    }
+  public Minute getMinute() {
+    return this.minute;
+  }
 
-    public void setMinute(Minute minute) {
-        this.minute = minute;
-    }
-
+  public void setMinute(Minute minute) {
+    this.minute = minute;
+  }
 }

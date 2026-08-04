@@ -13,112 +13,118 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateMessageReqBody {
+  /**
+   * 消息类型。;;**可选值有**：;;- text：文本;- post：富文本
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("msg_type")
+  private String msgType;
+
+  /**
+   * 消息内容，JSON 结构序列化后的字符串。该参数的取值与 `msg_type` 对应，例如 `msg_type` 取值为 `text`，则该参数需要传入文本类型的内容。;;**注意：**;-
+   * JSON字符串需进行转义，如换行符转义后为`\\n`;- 文本消息请求体最大不能超过 150 KB;- 富文本消息请求体最大不能超过 30 KB;-
+   * 如果消息中包含样式标签，会使实际消息体长度大于您输入的请求体长度。;;了解不同类型的消息内容格式、使用限制，可参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。
+   *
+   * <p>示例值：{\"text\":\"test content\"}
+   */
+  @SerializedName("content")
+  private String content;
+
+  public String getMsgType() {
+    return this.msgType;
+  }
+
+  public void setMsgType(String msgType) {
+    this.msgType = msgType;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  // builder 开始
+  public UpdateMessageReqBody() {}
+
+  public UpdateMessageReqBody(Builder builder) {
     /**
-     * 消息的类型，仅支持文本(text)和富文本(post)类型
-     * <p> 示例值：text
+     * 消息类型。;;**可选值有**：;;- text：文本;- post：富文本
+     *
+     * <p>示例值：text
      */
-    @SerializedName("msg_type")
+    this.msgType = builder.msgType;
+    /**
+     * 消息内容，JSON 结构序列化后的字符串。该参数的取值与 `msg_type` 对应，例如 `msg_type` 取值为
+     * `text`，则该参数需要传入文本类型的内容。;;**注意：**;- JSON字符串需进行转义，如换行符转义后为`\\n`;- 文本消息请求体最大不能超过 150 KB;-
+     * 富文本消息请求体最大不能超过 30 KB;-
+     * 如果消息中包含样式标签，会使实际消息体长度大于您输入的请求体长度。;;了解不同类型的消息内容格式、使用限制，可参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。
+     *
+     * <p>示例值：{\"text\":\"test content\"}
+     */
+    this.content = builder.content;
+  }
+
+  public static class Builder {
+    /**
+     * 消息类型。;;**可选值有**：;;- text：文本;- post：富文本
+     *
+     * <p>示例值：text
+     */
     private String msgType;
+
     /**
-     * 消息内容，JSON 格式
-     * <p> 示例值：{"text":"test content"}
+     * 消息内容，JSON 结构序列化后的字符串。该参数的取值与 `msg_type` 对应，例如 `msg_type` 取值为
+     * `text`，则该参数需要传入文本类型的内容。;;**注意：**;- JSON字符串需进行转义，如换行符转义后为`\\n`;- 文本消息请求体最大不能超过 150 KB;-
+     * 富文本消息请求体最大不能超过 30 KB;-
+     * 如果消息中包含样式标签，会使实际消息体长度大于您输入的请求体长度。;;了解不同类型的消息内容格式、使用限制，可参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。
+     *
+     * <p>示例值：{\"text\":\"test content\"}
      */
-    @SerializedName("content")
     private String content;
 
-    // builder 开始
-    public UpdateMessageReqBody() {
+    /**
+     * 消息类型。;;**可选值有**：;;- text：文本;- post：富文本
+     *
+     * <p>示例值：text
+     *
+     * @param msgType
+     * @return
+     */
+    public Builder msgType(String msgType) {
+      this.msgType = msgType;
+      return this;
     }
 
-    public UpdateMessageReqBody(Builder builder) {
-        /**
-         * 消息的类型，仅支持文本(text)和富文本(post)类型
-         * <p> 示例值：text
-         */
-        this.msgType = builder.msgType;
-        /**
-         * 消息内容，JSON 格式
-         * <p> 示例值：{"text":"test content"}
-         */
-        this.content = builder.content;
+    /**
+     * 消息内容，JSON 结构序列化后的字符串。该参数的取值与 `msg_type` 对应，例如 `msg_type` 取值为
+     * `text`，则该参数需要传入文本类型的内容。;;**注意：**;- JSON字符串需进行转义，如换行符转义后为`\\n`;- 文本消息请求体最大不能超过 150 KB;-
+     * 富文本消息请求体最大不能超过 30 KB;-
+     * 如果消息中包含样式标签，会使实际消息体长度大于您输入的请求体长度。;;了解不同类型的消息内容格式、使用限制，可参见[发送消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/create_json)。
+     *
+     * <p>示例值：{\"text\":\"test content\"}
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public UpdateMessageReqBody build() {
+      return new UpdateMessageReqBody(this);
     }
+  }
 
-    public String getMsgType() {
-        return this.msgType;
-    }
-
-    public void setMsgType(String msgType) {
-        this.msgType = msgType;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public static class Builder {
-        /**
-         * 消息的类型，仅支持文本(text)和富文本(post)类型
-         * <p> 示例值：text
-         */
-        private String msgType;
-        /**
-         * 消息内容，JSON 格式
-         * <p> 示例值：{"text":"test content"}
-         */
-        private String content;
-
-        /**
-         * 消息的类型，仅支持文本(text)和富文本(post)类型
-         * <p> 示例值：text
-         *
-         * @param msgType
-         * @return
-         */
-        public Builder msgType(String msgType) {
-            this.msgType = msgType;
-            return this;
-        }
-
-
-        /**
-         * 消息内容，JSON 格式
-         * <p> 示例值：{"text":"test content"}
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        public UpdateMessageReqBody build() {
-            return new UpdateMessageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

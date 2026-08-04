@@ -13,223 +13,249 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchAssignedUserReqBody {
+  /**
+   * 角色 ID，仅支持组织类角色， 角色 ID
+   * 可通过[批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)接口获取
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("role_id")
+  private String roleId;
+
+  /**
+   * 管理范围信息，支持多个维度同时查，但同一维度只支持传一个 obj_id。具体例子：;-
+   * 支持：[{"management_dimension":"department","obj_id":"7023318326176777742"},{"management_dimension":"location","obj_id":"7023318326176771234"}];-
+   * 不支持：[{"management_dimension":"department","obj_id":"7023318326176777742"},{"management_dimension":"department","obj_id":"7023318326176775678"}]
+   *
+   * <p>示例值：
+   */
+  @SerializedName("management_scope_list")
+  private ManagementScope[] managementScopeList;
+
+  /**
+   * 查找方式;;可选值有：;- 1：只查找指定 部门/工作地点/公司/社保城市，如无授权信息则返回为空;- 2：当指定的 部门/工作地点/公司/社保城市
+   * 无授权信息，向上查找第一个授权记录并直接返回
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("search_method")
+  private String searchMethod;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+   */
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 分页大小，最大100
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("page_size")
+  private String pageSize;
+
+  public String getRoleId() {
+    return this.roleId;
+  }
+
+  public void setRoleId(String roleId) {
+    this.roleId = roleId;
+  }
+
+  public ManagementScope[] getManagementScopeList() {
+    return this.managementScopeList;
+  }
+
+  public void setManagementScopeList(ManagementScope[] managementScopeList) {
+    this.managementScopeList = managementScopeList;
+  }
+
+  public String getSearchMethod() {
+    return this.searchMethod;
+  }
+
+  public void setSearchMethod(String searchMethod) {
+    this.searchMethod = searchMethod;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(String pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  // builder 开始
+  public SearchAssignedUserReqBody() {}
+
+  public SearchAssignedUserReqBody(Builder builder) {
     /**
-     * 角色 ID，仅支持组织类角色， 角色 ID 可通过【批量获取角色列表】接口获取
-     * <p> 示例值：100
+     * 角色 ID，仅支持组织类角色， 角色 ID
+     * 可通过[批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)接口获取
+     *
+     * <p>示例值：100
      */
-    @SerializedName("role_id")
+    this.roleId = builder.roleId;
+    /**
+     * 管理范围信息，支持多个维度同时查，但同一维度只支持传一个 obj_id。具体例子：;-
+     * 支持：[{"management_dimension":"department","obj_id":"7023318326176777742"},{"management_dimension":"location","obj_id":"7023318326176771234"}];-
+     * 不支持：[{"management_dimension":"department","obj_id":"7023318326176777742"},{"management_dimension":"department","obj_id":"7023318326176775678"}]
+     *
+     * <p>示例值：
+     */
+    this.managementScopeList = builder.managementScopeList;
+    /**
+     * 查找方式;;可选值有：;- 1：只查找指定 部门/工作地点/公司/社保城市，如无授权信息则返回为空;- 2：当指定的 部门/工作地点/公司/社保城市
+     * 无授权信息，向上查找第一个授权记录并直接返回
+     *
+     * <p>示例值：1
+     */
+    this.searchMethod = builder.searchMethod;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+     */
+    this.pageToken = builder.pageToken;
+    /**
+     * 分页大小，最大100
+     *
+     * <p>示例值：100
+     */
+    this.pageSize = builder.pageSize;
+  }
+
+  public static class Builder {
+    /**
+     * 角色 ID，仅支持组织类角色， 角色 ID
+     * 可通过[批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)接口获取
+     *
+     * <p>示例值：100
+     */
     private String roleId;
+
     /**
-     * 管理范围信息
-     * <p> 示例值：
+     * 管理范围信息，支持多个维度同时查，但同一维度只支持传一个 obj_id。具体例子：;-
+     * 支持：[{"management_dimension":"department","obj_id":"7023318326176777742"},{"management_dimension":"location","obj_id":"7023318326176771234"}];-
+     * 不支持：[{"management_dimension":"department","obj_id":"7023318326176777742"},{"management_dimension":"department","obj_id":"7023318326176775678"}]
+     *
+     * <p>示例值：
      */
-    @SerializedName("management_scope_list")
     private ManagementScope[] managementScopeList;
+
     /**
-     * 查找方式;;可选值有：;- 1：只查找指定 部门/工作地点/公司/社保城市，如无授权信息则返回为空;- 2：当指定的 部门/工作地点/公司/社保城市 无授权信息，向上查找第一个授权记录并直接返回
-     * <p> 示例值：1
+     * 查找方式;;可选值有：;- 1：只查找指定 部门/工作地点/公司/社保城市，如无授权信息则返回为空;- 2：当指定的 部门/工作地点/公司/社保城市
+     * 无授权信息，向上查找第一个授权记录并直接返回
+     *
+     * <p>示例值：1
      */
-    @SerializedName("search_method")
     private String searchMethod;
+
     /**
-     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-     * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
      */
-    @SerializedName("page_token")
     private String pageToken;
+
     /**
-     * 每页获取记录数量，最大100
-     * <p> 示例值：100
+     * 分页大小，最大100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("page_size")
     private String pageSize;
 
-    // builder 开始
-    public SearchAssignedUserReqBody() {
+    /**
+     * 角色 ID，仅支持组织类角色， 角色 ID
+     * 可通过[批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list)接口获取
+     *
+     * <p>示例值：100
+     *
+     * @param roleId
+     * @return
+     */
+    public Builder roleId(String roleId) {
+      this.roleId = roleId;
+      return this;
     }
 
-    public SearchAssignedUserReqBody(Builder builder) {
-        /**
-         * 角色 ID，仅支持组织类角色， 角色 ID 可通过【批量获取角色列表】接口获取
-         * <p> 示例值：100
-         */
-        this.roleId = builder.roleId;
-        /**
-         * 管理范围信息
-         * <p> 示例值：
-         */
-        this.managementScopeList = builder.managementScopeList;
-        /**
-         * 查找方式;;可选值有：;- 1：只查找指定 部门/工作地点/公司/社保城市，如无授权信息则返回为空;- 2：当指定的 部门/工作地点/公司/社保城市 无授权信息，向上查找第一个授权记录并直接返回
-         * <p> 示例值：1
-         */
-        this.searchMethod = builder.searchMethod;
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
+    /**
+     * 管理范围信息，支持多个维度同时查，但同一维度只支持传一个 obj_id。具体例子：;-
+     * 支持：[{"management_dimension":"department","obj_id":"7023318326176777742"},{"management_dimension":"location","obj_id":"7023318326176771234"}];-
+     * 不支持：[{"management_dimension":"department","obj_id":"7023318326176777742"},{"management_dimension":"department","obj_id":"7023318326176775678"}]
+     *
+     * <p>示例值：
+     *
+     * @param managementScopeList
+     * @return
+     */
+    public Builder managementScopeList(ManagementScope[] managementScopeList) {
+      this.managementScopeList = managementScopeList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 查找方式;;可选值有：;- 1：只查找指定 部门/工作地点/公司/社保城市，如无授权信息则返回为空;- 2：当指定的 部门/工作地点/公司/社保城市
+     * 无授权信息，向上查找第一个授权记录并直接返回
+     *
+     * <p>示例值：1
+     *
+     * @param searchMethod
+     * @return
+     */
+    public Builder searchMethod(String searchMethod) {
+      this.searchMethod = searchMethod;
+      return this;
     }
 
-    public String getRoleId() {
-        return this.roleId;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
+    /**
+     * 分页大小，最大100
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(String pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ManagementScope[] getManagementScopeList() {
-        return this.managementScopeList;
+    public SearchAssignedUserReqBody build() {
+      return new SearchAssignedUserReqBody(this);
     }
+  }
 
-    public void setManagementScopeList(ManagementScope[] managementScopeList) {
-        this.managementScopeList = managementScopeList;
-    }
-
-    public String getSearchMethod() {
-        return this.searchMethod;
-    }
-
-    public void setSearchMethod(String searchMethod) {
-        this.searchMethod = searchMethod;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(String pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public static class Builder {
-        /**
-         * 角色 ID，仅支持组织类角色， 角色 ID 可通过【批量获取角色列表】接口获取
-         * <p> 示例值：100
-         */
-        private String roleId;
-        /**
-         * 管理范围信息
-         * <p> 示例值：
-         */
-        private ManagementScope[] managementScopeList;
-        /**
-         * 查找方式;;可选值有：;- 1：只查找指定 部门/工作地点/公司/社保城市，如无授权信息则返回为空;- 2：当指定的 部门/工作地点/公司/社保城市 无授权信息，向上查找第一个授权记录并直接返回
-         * <p> 示例值：1
-         */
-        private String searchMethod;
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-         */
-        private String pageToken;
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         */
-        private String pageSize;
-
-        /**
-         * 角色 ID，仅支持组织类角色， 角色 ID 可通过【批量获取角色列表】接口获取
-         * <p> 示例值：100
-         *
-         * @param roleId
-         * @return
-         */
-        public Builder roleId(String roleId) {
-            this.roleId = roleId;
-            return this;
-        }
-
-
-        /**
-         * 管理范围信息
-         * <p> 示例值：
-         *
-         * @param managementScopeList
-         * @return
-         */
-        public Builder managementScopeList(ManagementScope[] managementScopeList) {
-            this.managementScopeList = managementScopeList;
-            return this;
-        }
-
-
-        /**
-         * 查找方式;;可选值有：;- 1：只查找指定 部门/工作地点/公司/社保城市，如无授权信息则返回为空;- 2：当指定的 部门/工作地点/公司/社保城市 无授权信息，向上查找第一个授权记录并直接返回
-         * <p> 示例值：1
-         *
-         * @param searchMethod
-         * @return
-         */
-        public Builder searchMethod(String searchMethod) {
-            this.searchMethod = searchMethod;
-            return this;
-        }
-
-
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(String pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        public SearchAssignedUserReqBody build() {
-            return new SearchAssignedUserReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

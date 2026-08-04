@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Cube {
+  /**
+   * 连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attched_object 生效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("control_point")
+  private Point controlPoint;
+
+  public Point getControlPoint() {
+    return this.controlPoint;
+  }
+
+  public void setControlPoint(Point controlPoint) {
+    this.controlPoint = controlPoint;
+  }
+
+  // builder 开始
+  public Cube() {}
+
+  public Cube(Builder builder) {
     /**
-     * 六面体控制点，相对六面体外接矩形的相对坐标。默认控制点为外接矩形长的0.8，宽的0.25
-     * <p> 示例值：
+     * 连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attched_object 生效
+     *
+     * <p>示例值：
      */
-    @SerializedName("control_point")
+    this.controlPoint = builder.controlPoint;
+  }
+
+  public static class Builder {
+    /**
+     * 连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attched_object 生效
+     *
+     * <p>示例值：
+     */
     private Point controlPoint;
 
-    // builder 开始
-    public Cube() {
+    /**
+     * 连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attched_object 生效
+     *
+     * <p>示例值：
+     *
+     * @param controlPoint
+     * @return
+     */
+    public Builder controlPoint(Point controlPoint) {
+      this.controlPoint = controlPoint;
+      return this;
     }
 
-    public Cube(Builder builder) {
-        /**
-         * 六面体控制点，相对六面体外接矩形的相对坐标。默认控制点为外接矩形长的0.8，宽的0.25
-         * <p> 示例值：
-         */
-        this.controlPoint = builder.controlPoint;
+    public Cube build() {
+      return new Cube(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Point getControlPoint() {
-        return this.controlPoint;
-    }
-
-    public void setControlPoint(Point controlPoint) {
-        this.controlPoint = controlPoint;
-    }
-
-    public static class Builder {
-        /**
-         * 六面体控制点，相对六面体外接矩形的相对坐标。默认控制点为外接矩形长的0.8，宽的0.25
-         * <p> 示例值：
-         */
-        private Point controlPoint;
-
-        /**
-         * 六面体控制点，相对六面体外接矩形的相对坐标。默认控制点为外接矩形长的0.8，宽的0.25
-         * <p> 示例值：
-         *
-         * @param controlPoint
-         * @return
-         */
-        public Builder controlPoint(Point controlPoint) {
-            this.controlPoint = controlPoint;
-            return this;
-        }
-
-
-        public Cube build() {
-            return new Cube(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,64 +13,51 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AddToFolderTalentReq {
-    @Body
+  @Body private AddToFolderTalentReqBody body;
+
+  public AddToFolderTalentReqBody getAddToFolderTalentReqBody() {
+    return this.body;
+  }
+
+  public void setAddToFolderTalentReqBody(AddToFolderTalentReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public AddToFolderTalentReq() {}
+
+  public AddToFolderTalentReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private AddToFolderTalentReqBody body;
 
-    // builder 开始
-    public AddToFolderTalentReq() {
-    }
-
-    public AddToFolderTalentReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public AddToFolderTalentReqBody getAddToFolderTalentReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setAddToFolderTalentReqBody(AddToFolderTalentReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder addToFolderTalentReqBody(AddToFolderTalentReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private AddToFolderTalentReqBody body;
-
-        public AddToFolderTalentReqBody getAddToFolderTalentReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder addToFolderTalentReqBody(AddToFolderTalentReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public AddToFolderTalentReq build() {
-            return new AddToFolderTalentReq(this);
-        }
+    public AddToFolderTalentReq build() {
+      return new AddToFolderTalentReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

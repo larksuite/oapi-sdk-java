@@ -13,48 +13,39 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AddToFolderTalentRespBody {
-    /**
-     * 人才 ID 列表
-     * <p> 示例值：
-     */
-    @SerializedName("talent_id_list")
-    private String[] talentIdList;
-    /**
-     * 文件夹 ID
-     * <p> 示例值：7039620186502138156
-     */
-    @SerializedName("folder_id")
-    private String folderId;
+  /**
+   * 人才 ID
+   * 列表，详情请查看：[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("talent_id_list")
+  private String[] talentIdList;
 
-    public String[] getTalentIdList() {
-        return this.talentIdList;
-    }
+  /**
+   * 文件夹 ID
+   *
+   * <p>示例值：7039620186502138156
+   */
+  @SerializedName("folder_id")
+  private String folderId;
 
-    public void setTalentIdList(String[] talentIdList) {
-        this.talentIdList = talentIdList;
-    }
+  public String[] getTalentIdList() {
+    return this.talentIdList;
+  }
 
-    public String getFolderId() {
-        return this.folderId;
-    }
+  public void setTalentIdList(String[] talentIdList) {
+    this.talentIdList = talentIdList;
+  }
 
-    public void setFolderId(String folderId) {
-        this.folderId = folderId;
-    }
+  public String getFolderId() {
+    return this.folderId;
+  }
 
+  public void setFolderId(String folderId) {
+    this.folderId = folderId;
+  }
 }

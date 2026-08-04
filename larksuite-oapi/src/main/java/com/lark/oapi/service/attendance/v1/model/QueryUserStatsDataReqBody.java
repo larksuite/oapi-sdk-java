@@ -13,358 +13,399 @@
 
 package com.lark.oapi.service.attendance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.attendance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryUserStatsDataReqBody {
+  /**
+   * 语言类型
+   *
+   * <p>示例值：zh
+   */
+  @SerializedName("locale")
+  private String locale;
+
+  /**
+   * 统计类型
+   *
+   * <p>示例值：month
+   */
+  @SerializedName("stats_type")
+  private String statsType;
+
+  /**
+   * 开始时间，格式yyyyMMdd
+   *
+   * <p>示例值：20210316
+   */
+  @SerializedName("start_date")
+  private Integer startDate;
+
+  /**
+   * 结束时间，格式yyyyMMdd;（时间间隔不超过 31 天）
+   *
+   * <p>示例值：20210323
+   */
+  @SerializedName("end_date")
+  private Integer endDate;
+
+  /**
+   * 查询的用户 ID 列表，与employee_type对应;（用户数量不超过 200）;;* 必填字段(已全部升级到新系统，新系统要求必填)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  /**
+   * 是否包含离职人员和转出人员，默认为false不包含
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("need_history")
+  private Boolean needHistory;
+
+  /**
+   * * `true`：只展示员工当前所属考勤组数据;* `false`：展示员工所有考勤组数据<br>
+   * 默认值：false
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("current_group_only")
+  private Boolean currentGroupOnly;
+
+  /**
+   * 操作者的 user_id。与employee_type对应;;* 不同的操作者（管理员）的每个报表可能有不同的字段设置，系统将根据 user_id 查询指定报表的统计数据。;*
+   * 必填字段（已全部升级到新系统，新系统要求该字段必填）。
+   *
+   * <p>示例值：ec8ddg56
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(String locale) {
+    this.locale = locale;
+  }
+
+  public String getStatsType() {
+    return this.statsType;
+  }
+
+  public void setStatsType(String statsType) {
+    this.statsType = statsType;
+  }
+
+  public Integer getStartDate() {
+    return this.startDate;
+  }
+
+  public void setStartDate(Integer startDate) {
+    this.startDate = startDate;
+  }
+
+  public Integer getEndDate() {
+    return this.endDate;
+  }
+
+  public void setEndDate(Integer endDate) {
+    this.endDate = endDate;
+  }
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  public Boolean getNeedHistory() {
+    return this.needHistory;
+  }
+
+  public void setNeedHistory(Boolean needHistory) {
+    this.needHistory = needHistory;
+  }
+
+  public Boolean getCurrentGroupOnly() {
+    return this.currentGroupOnly;
+  }
+
+  public void setCurrentGroupOnly(Boolean currentGroupOnly) {
+    this.currentGroupOnly = currentGroupOnly;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public QueryUserStatsDataReqBody() {}
+
+  public QueryUserStatsDataReqBody(Builder builder) {
     /**
      * 语言类型
-     * <p> 示例值：zh
+     *
+     * <p>示例值：zh
      */
-    @SerializedName("locale")
-    private String locale;
+    this.locale = builder.locale;
     /**
      * 统计类型
-     * <p> 示例值：month
+     *
+     * <p>示例值：month
      */
-    @SerializedName("stats_type")
+    this.statsType = builder.statsType;
+    /**
+     * 开始时间，格式yyyyMMdd
+     *
+     * <p>示例值：20210316
+     */
+    this.startDate = builder.startDate;
+    /**
+     * 结束时间，格式yyyyMMdd;（时间间隔不超过 31 天）
+     *
+     * <p>示例值：20210323
+     */
+    this.endDate = builder.endDate;
+    /**
+     * 查询的用户 ID 列表，与employee_type对应;（用户数量不超过 200）;;* 必填字段(已全部升级到新系统，新系统要求必填)
+     *
+     * <p>示例值：
+     */
+    this.userIds = builder.userIds;
+    /**
+     * 是否包含离职人员和转出人员，默认为false不包含
+     *
+     * <p>示例值：true
+     */
+    this.needHistory = builder.needHistory;
+    /**
+     * * `true`：只展示员工当前所属考勤组数据;* `false`：展示员工所有考勤组数据<br>
+     * 默认值：false
+     *
+     * <p>示例值：true
+     */
+    this.currentGroupOnly = builder.currentGroupOnly;
+    /**
+     * 操作者的 user_id。与employee_type对应;;* 不同的操作者（管理员）的每个报表可能有不同的字段设置，系统将根据 user_id 查询指定报表的统计数据。;*
+     * 必填字段（已全部升级到新系统，新系统要求该字段必填）。
+     *
+     * <p>示例值：ec8ddg56
+     */
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * 语言类型
+     *
+     * <p>示例值：zh
+     */
+    private String locale;
+
+    /**
+     * 统计类型
+     *
+     * <p>示例值：month
+     */
     private String statsType;
+
     /**
-     * 开始时间
-     * <p> 示例值：20210316
+     * 开始时间，格式yyyyMMdd
+     *
+     * <p>示例值：20210316
      */
-    @SerializedName("start_date")
     private Integer startDate;
+
     /**
-     * 结束时间;（时间间隔不超过 31 天）
-     * <p> 示例值：20210323
+     * 结束时间，格式yyyyMMdd;（时间间隔不超过 31 天）
+     *
+     * <p>示例值：20210323
      */
-    @SerializedName("end_date")
     private Integer endDate;
+
     /**
-     * 查询的用户 ID 列表;（用户数量不超过 200）
-     * <p> 示例值：[;        "ec8ddg56",;        "4dbb52f2",;        "4167842e";    ]
+     * 查询的用户 ID 列表，与employee_type对应;（用户数量不超过 200）;;* 必填字段(已全部升级到新系统，新系统要求必填)
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_ids")
     private String[] userIds;
+
     /**
-     * 是否需要历史数据
-     * <p> 示例值：true
+     * 是否包含离职人员和转出人员，默认为false不包含
+     *
+     * <p>示例值：true
      */
-    @SerializedName("need_history")
     private Boolean needHistory;
+
     /**
-     * 只展示当前考勤组
-     * <p> 示例值：true
+     * * `true`：只展示员工当前所属考勤组数据;* `false`：展示员工所有考勤组数据<br>
+     * 默认值：false
+     *
+     * <p>示例值：true
      */
-    @SerializedName("current_group_only")
     private Boolean currentGroupOnly;
+
     /**
-     * 查询用户id，同【更新统计设置】、【查询统计设置】user_id（新系统用户必填，否则会报错）
-     * <p> 示例值：ec8ddg56
+     * 操作者的 user_id。与employee_type对应;;* 不同的操作者（管理员）的每个报表可能有不同的字段设置，系统将根据 user_id 查询指定报表的统计数据。;*
+     * 必填字段（已全部升级到新系统，新系统要求该字段必填）。
+     *
+     * <p>示例值：ec8ddg56
      */
-    @SerializedName("user_id")
     private String userId;
 
-    // builder 开始
-    public QueryUserStatsDataReqBody() {
+    /**
+     * 语言类型
+     *
+     * <p>示例值：zh
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(String locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public QueryUserStatsDataReqBody(Builder builder) {
-        /**
-         * 语言类型
-         * <p> 示例值：zh
-         */
-        this.locale = builder.locale;
-        /**
-         * 统计类型
-         * <p> 示例值：month
-         */
-        this.statsType = builder.statsType;
-        /**
-         * 开始时间
-         * <p> 示例值：20210316
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 结束时间;（时间间隔不超过 31 天）
-         * <p> 示例值：20210323
-         */
-        this.endDate = builder.endDate;
-        /**
-         * 查询的用户 ID 列表;（用户数量不超过 200）
-         * <p> 示例值：[;        "ec8ddg56",;        "4dbb52f2",;        "4167842e";    ]
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 是否需要历史数据
-         * <p> 示例值：true
-         */
-        this.needHistory = builder.needHistory;
-        /**
-         * 只展示当前考勤组
-         * <p> 示例值：true
-         */
-        this.currentGroupOnly = builder.currentGroupOnly;
-        /**
-         * 查询用户id，同【更新统计设置】、【查询统计设置】user_id（新系统用户必填，否则会报错）
-         * <p> 示例值：ec8ddg56
-         */
-        this.userId = builder.userId;
+    /**
+     * 语言类型
+     *
+     * <p>示例值：zh
+     *
+     * @param locale {@link
+     *     com.lark.oapi.service.attendance.v1.enums.QueryUserStatsDataQueryStatisticsDataLocaleEnum}
+     * @return
+     */
+    public Builder locale(
+        com.lark.oapi.service.attendance.v1.enums.QueryUserStatsDataQueryStatisticsDataLocaleEnum
+            locale) {
+      this.locale = locale.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 统计类型
+     *
+     * <p>示例值：month
+     *
+     * @param statsType
+     * @return
+     */
+    public Builder statsType(String statsType) {
+      this.statsType = statsType;
+      return this;
     }
 
-    public String getLocale() {
-        return this.locale;
+    /**
+     * 统计类型
+     *
+     * <p>示例值：month
+     *
+     * @param statsType {@link
+     *     com.lark.oapi.service.attendance.v1.enums.QueryUserStatsDataQueryStatisticsDataStatsTypeEnum}
+     * @return
+     */
+    public Builder statsType(
+        com.lark.oapi.service.attendance.v1.enums.QueryUserStatsDataQueryStatisticsDataStatsTypeEnum
+            statsType) {
+      this.statsType = statsType.getValue();
+      return this;
     }
 
-    public void setLocale(String locale) {
-        this.locale = locale;
+    /**
+     * 开始时间，格式yyyyMMdd
+     *
+     * <p>示例值：20210316
+     *
+     * @param startDate
+     * @return
+     */
+    public Builder startDate(Integer startDate) {
+      this.startDate = startDate;
+      return this;
     }
 
-    public String getStatsType() {
-        return this.statsType;
+    /**
+     * 结束时间，格式yyyyMMdd;（时间间隔不超过 31 天）
+     *
+     * <p>示例值：20210323
+     *
+     * @param endDate
+     * @return
+     */
+    public Builder endDate(Integer endDate) {
+      this.endDate = endDate;
+      return this;
     }
 
-    public void setStatsType(String statsType) {
-        this.statsType = statsType;
+    /**
+     * 查询的用户 ID 列表，与employee_type对应;（用户数量不超过 200）;;* 必填字段(已全部升级到新系统，新系统要求必填)
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public Integer getStartDate() {
-        return this.startDate;
+    /**
+     * 是否包含离职人员和转出人员，默认为false不包含
+     *
+     * <p>示例值：true
+     *
+     * @param needHistory
+     * @return
+     */
+    public Builder needHistory(Boolean needHistory) {
+      this.needHistory = needHistory;
+      return this;
     }
 
-    public void setStartDate(Integer startDate) {
-        this.startDate = startDate;
+    /**
+     * * `true`：只展示员工当前所属考勤组数据;* `false`：展示员工所有考勤组数据<br>
+     * 默认值：false
+     *
+     * <p>示例值：true
+     *
+     * @param currentGroupOnly
+     * @return
+     */
+    public Builder currentGroupOnly(Boolean currentGroupOnly) {
+      this.currentGroupOnly = currentGroupOnly;
+      return this;
     }
 
-    public Integer getEndDate() {
-        return this.endDate;
+    /**
+     * 操作者的 user_id。与employee_type对应;;* 不同的操作者（管理员）的每个报表可能有不同的字段设置，系统将根据 user_id 查询指定报表的统计数据。;*
+     * 必填字段（已全部升级到新系统，新系统要求该字段必填）。
+     *
+     * <p>示例值：ec8ddg56
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public void setEndDate(Integer endDate) {
-        this.endDate = endDate;
+    public QueryUserStatsDataReqBody build() {
+      return new QueryUserStatsDataReqBody(this);
     }
+  }
 
-    public String[] getUserIds() {
-        return this.userIds;
-    }
-
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
-    }
-
-    public Boolean getNeedHistory() {
-        return this.needHistory;
-    }
-
-    public void setNeedHistory(Boolean needHistory) {
-        this.needHistory = needHistory;
-    }
-
-    public Boolean getCurrentGroupOnly() {
-        return this.currentGroupOnly;
-    }
-
-    public void setCurrentGroupOnly(Boolean currentGroupOnly) {
-        this.currentGroupOnly = currentGroupOnly;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 语言类型
-         * <p> 示例值：zh
-         */
-        private String locale;
-        /**
-         * 统计类型
-         * <p> 示例值：month
-         */
-        private String statsType;
-        /**
-         * 开始时间
-         * <p> 示例值：20210316
-         */
-        private Integer startDate;
-        /**
-         * 结束时间;（时间间隔不超过 31 天）
-         * <p> 示例值：20210323
-         */
-        private Integer endDate;
-        /**
-         * 查询的用户 ID 列表;（用户数量不超过 200）
-         * <p> 示例值：[;        "ec8ddg56",;        "4dbb52f2",;        "4167842e";    ]
-         */
-        private String[] userIds;
-        /**
-         * 是否需要历史数据
-         * <p> 示例值：true
-         */
-        private Boolean needHistory;
-        /**
-         * 只展示当前考勤组
-         * <p> 示例值：true
-         */
-        private Boolean currentGroupOnly;
-        /**
-         * 查询用户id，同【更新统计设置】、【查询统计设置】user_id（新系统用户必填，否则会报错）
-         * <p> 示例值：ec8ddg56
-         */
-        private String userId;
-
-        /**
-         * 语言类型
-         * <p> 示例值：zh
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(String locale) {
-            this.locale = locale;
-            return this;
-        }
-
-        /**
-         * 语言类型
-         * <p> 示例值：zh
-         *
-         * @param locale {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsDataQueryStatisticsDataLocaleEnum}
-         * @return
-         */
-        public Builder locale(com.lark.oapi.service.attendance.v1.enums.QueryUserStatsDataQueryStatisticsDataLocaleEnum locale) {
-            this.locale = locale.getValue();
-            return this;
-        }
-
-
-        /**
-         * 统计类型
-         * <p> 示例值：month
-         *
-         * @param statsType
-         * @return
-         */
-        public Builder statsType(String statsType) {
-            this.statsType = statsType;
-            return this;
-        }
-
-        /**
-         * 统计类型
-         * <p> 示例值：month
-         *
-         * @param statsType {@link com.lark.oapi.service.attendance.v1.enums.QueryUserStatsDataQueryStatisticsDataStatsTypeEnum}
-         * @return
-         */
-        public Builder statsType(com.lark.oapi.service.attendance.v1.enums.QueryUserStatsDataQueryStatisticsDataStatsTypeEnum statsType) {
-            this.statsType = statsType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 开始时间
-         * <p> 示例值：20210316
-         *
-         * @param startDate
-         * @return
-         */
-        public Builder startDate(Integer startDate) {
-            this.startDate = startDate;
-            return this;
-        }
-
-
-        /**
-         * 结束时间;（时间间隔不超过 31 天）
-         * <p> 示例值：20210323
-         *
-         * @param endDate
-         * @return
-         */
-        public Builder endDate(Integer endDate) {
-            this.endDate = endDate;
-            return this;
-        }
-
-
-        /**
-         * 查询的用户 ID 列表;（用户数量不超过 200）
-         * <p> 示例值：[;        "ec8ddg56",;        "4dbb52f2",;        "4167842e";    ]
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        /**
-         * 是否需要历史数据
-         * <p> 示例值：true
-         *
-         * @param needHistory
-         * @return
-         */
-        public Builder needHistory(Boolean needHistory) {
-            this.needHistory = needHistory;
-            return this;
-        }
-
-
-        /**
-         * 只展示当前考勤组
-         * <p> 示例值：true
-         *
-         * @param currentGroupOnly
-         * @return
-         */
-        public Builder currentGroupOnly(Boolean currentGroupOnly) {
-            this.currentGroupOnly = currentGroupOnly;
-            return this;
-        }
-
-
-        /**
-         * 查询用户id，同【更新统计设置】、【查询统计设置】user_id（新系统用户必填，否则会报错）
-         * <p> 示例值：ec8ddg56
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public QueryUserStatsDataReqBody build() {
-            return new QueryUserStatsDataReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

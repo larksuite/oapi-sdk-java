@@ -13,198 +13,206 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CalendarAclEvent {
+  /**
+   * 访问控制 ID。该 ID 在单个日历实体内唯一，不同日历实体可能存在重复的访问控制 ID。
+   *
+   * <p>示例值：user_xxxxx
+   */
+  @SerializedName("acl_id")
+  private String aclId;
+
+  /**
+   * 对日历的访问权限。
+   *
+   * <p>示例值：unknown
+   */
+  @SerializedName("role")
+  private String role;
+
+  /**
+   * 权限生效范围。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("scope")
+  private AclScopeEvent scope;
+
+  /**
+   * 需要推送事件的用户列表。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id_list")
+  private UserId[] userIdList;
+
+  public String getAclId() {
+    return this.aclId;
+  }
+
+  public void setAclId(String aclId) {
+    this.aclId = aclId;
+  }
+
+  public String getRole() {
+    return this.role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
+  public AclScopeEvent getScope() {
+    return this.scope;
+  }
+
+  public void setScope(AclScopeEvent scope) {
+    this.scope = scope;
+  }
+
+  public UserId[] getUserIdList() {
+    return this.userIdList;
+  }
+
+  public void setUserIdList(UserId[] userIdList) {
+    this.userIdList = userIdList;
+  }
+
+  // builder 开始
+  public CalendarAclEvent() {}
+
+  public CalendarAclEvent(Builder builder) {
     /**
-     * acl资源ID
-     * <p> 示例值：user_xxxxx
+     * 访问控制 ID。该 ID 在单个日历实体内唯一，不同日历实体可能存在重复的访问控制 ID。
+     *
+     * <p>示例值：user_xxxxx
      */
-    @SerializedName("acl_id")
+    this.aclId = builder.aclId;
+    /**
+     * 对日历的访问权限。
+     *
+     * <p>示例值：unknown
+     */
+    this.role = builder.role;
+    /**
+     * 权限生效范围。
+     *
+     * <p>示例值：
+     */
+    this.scope = builder.scope;
+    /**
+     * 需要推送事件的用户列表。
+     *
+     * <p>示例值：
+     */
+    this.userIdList = builder.userIdList;
+  }
+
+  public static class Builder {
+    /**
+     * 访问控制 ID。该 ID 在单个日历实体内唯一，不同日历实体可能存在重复的访问控制 ID。
+     *
+     * <p>示例值：user_xxxxx
+     */
     private String aclId;
+
     /**
-     * 对日历的访问权限
-     * <p> 示例值：unknown
+     * 对日历的访问权限。
+     *
+     * <p>示例值：unknown
      */
-    @SerializedName("role")
     private String role;
+
     /**
-     * 权限范围
-     * <p> 示例值：
+     * 权限生效范围。
+     *
+     * <p>示例值：
      */
-    @SerializedName("scope")
     private AclScopeEvent scope;
+
     /**
-     * 需要推送事件的用户列表
-     * <p> 示例值：
+     * 需要推送事件的用户列表。
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id_list")
     private UserId[] userIdList;
 
-    // builder 开始
-    public CalendarAclEvent() {
+    /**
+     * 访问控制 ID。该 ID 在单个日历实体内唯一，不同日历实体可能存在重复的访问控制 ID。
+     *
+     * <p>示例值：user_xxxxx
+     *
+     * @param aclId
+     * @return
+     */
+    public Builder aclId(String aclId) {
+      this.aclId = aclId;
+      return this;
     }
 
-    public CalendarAclEvent(Builder builder) {
-        /**
-         * acl资源ID
-         * <p> 示例值：user_xxxxx
-         */
-        this.aclId = builder.aclId;
-        /**
-         * 对日历的访问权限
-         * <p> 示例值：unknown
-         */
-        this.role = builder.role;
-        /**
-         * 权限范围
-         * <p> 示例值：
-         */
-        this.scope = builder.scope;
-        /**
-         * 需要推送事件的用户列表
-         * <p> 示例值：
-         */
-        this.userIdList = builder.userIdList;
+    /**
+     * 对日历的访问权限。
+     *
+     * <p>示例值：unknown
+     *
+     * @param role
+     * @return
+     */
+    public Builder role(String role) {
+      this.role = role;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 对日历的访问权限。
+     *
+     * <p>示例值：unknown
+     *
+     * @param role {@link
+     *     com.lark.oapi.service.calendar.v4.enums.CalendarAclEventCalendarAccessRoleEnum}
+     * @return
+     */
+    public Builder role(
+        com.lark.oapi.service.calendar.v4.enums.CalendarAclEventCalendarAccessRoleEnum role) {
+      this.role = role.getValue();
+      return this;
     }
 
-    public String getAclId() {
-        return this.aclId;
+    /**
+     * 权限生效范围。
+     *
+     * <p>示例值：
+     *
+     * @param scope
+     * @return
+     */
+    public Builder scope(AclScopeEvent scope) {
+      this.scope = scope;
+      return this;
     }
 
-    public void setAclId(String aclId) {
-        this.aclId = aclId;
+    /**
+     * 需要推送事件的用户列表。
+     *
+     * <p>示例值：
+     *
+     * @param userIdList
+     * @return
+     */
+    public Builder userIdList(UserId[] userIdList) {
+      this.userIdList = userIdList;
+      return this;
     }
 
-    public String getRole() {
-        return this.role;
+    public CalendarAclEvent build() {
+      return new CalendarAclEvent(this);
     }
+  }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public AclScopeEvent getScope() {
-        return this.scope;
-    }
-
-    public void setScope(AclScopeEvent scope) {
-        this.scope = scope;
-    }
-
-    public UserId[] getUserIdList() {
-        return this.userIdList;
-    }
-
-    public void setUserIdList(UserId[] userIdList) {
-        this.userIdList = userIdList;
-    }
-
-    public static class Builder {
-        /**
-         * acl资源ID
-         * <p> 示例值：user_xxxxx
-         */
-        private String aclId;
-        /**
-         * 对日历的访问权限
-         * <p> 示例值：unknown
-         */
-        private String role;
-        /**
-         * 权限范围
-         * <p> 示例值：
-         */
-        private AclScopeEvent scope;
-        /**
-         * 需要推送事件的用户列表
-         * <p> 示例值：
-         */
-        private UserId[] userIdList;
-
-        /**
-         * acl资源ID
-         * <p> 示例值：user_xxxxx
-         *
-         * @param aclId
-         * @return
-         */
-        public Builder aclId(String aclId) {
-            this.aclId = aclId;
-            return this;
-        }
-
-
-        /**
-         * 对日历的访问权限
-         * <p> 示例值：unknown
-         *
-         * @param role
-         * @return
-         */
-        public Builder role(String role) {
-            this.role = role;
-            return this;
-        }
-
-        /**
-         * 对日历的访问权限
-         * <p> 示例值：unknown
-         *
-         * @param role {@link com.lark.oapi.service.calendar.v4.enums.CalendarAclEventCalendarAccessRoleEnum}
-         * @return
-         */
-        public Builder role(com.lark.oapi.service.calendar.v4.enums.CalendarAclEventCalendarAccessRoleEnum role) {
-            this.role = role.getValue();
-            return this;
-        }
-
-
-        /**
-         * 权限范围
-         * <p> 示例值：
-         *
-         * @param scope
-         * @return
-         */
-        public Builder scope(AclScopeEvent scope) {
-            this.scope = scope;
-            return this;
-        }
-
-
-        /**
-         * 需要推送事件的用户列表
-         * <p> 示例值：
-         *
-         * @param userIdList
-         * @return
-         */
-        public Builder userIdList(UserId[] userIdList) {
-            this.userIdList = userIdList;
-            return this;
-        }
-
-
-        public CalendarAclEvent build() {
-            return new CalendarAclEvent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

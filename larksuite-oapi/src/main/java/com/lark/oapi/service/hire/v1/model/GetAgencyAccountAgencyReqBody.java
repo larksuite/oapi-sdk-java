@@ -13,148 +13,152 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetAgencyAccountAgencyReqBody {
+  /**
+   * 猎头供应商
+   * ID，可通过[搜索猎头供应商列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/batch_query)接口获取
+   *
+   * <p>示例值：7398623155442682156
+   */
+  @SerializedName("supplier_id")
+  private String supplierId;
+
+  /**
+   * 猎头状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 角色
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("role")
+  private Integer role;
+
+  public String getSupplierId() {
+    return this.supplierId;
+  }
+
+  public void setSupplierId(String supplierId) {
+    this.supplierId = supplierId;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public Integer getRole() {
+    return this.role;
+  }
+
+  public void setRole(Integer role) {
+    this.role = role;
+  }
+
+  // builder 开始
+  public GetAgencyAccountAgencyReqBody() {}
+
+  public GetAgencyAccountAgencyReqBody(Builder builder) {
     /**
-     * 猎头供应商 ID
-     * <p> 示例值：7398623155442682156
+     * 猎头供应商
+     * ID，可通过[搜索猎头供应商列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/batch_query)接口获取
+     *
+     * <p>示例值：7398623155442682156
      */
-    @SerializedName("supplier_id")
-    private String supplierId;
+    this.supplierId = builder.supplierId;
     /**
      * 猎头状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 角色
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("role")
+    this.role = builder.role;
+  }
+
+  public static class Builder {
+    /**
+     * 猎头供应商
+     * ID，可通过[搜索猎头供应商列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/batch_query)接口获取
+     *
+     * <p>示例值：7398623155442682156
+     */
+    private String supplierId;
+
+    /**
+     * 猎头状态
+     *
+     * <p>示例值：1
+     */
+    private Integer status;
+
+    /**
+     * 角色
+     *
+     * <p>示例值：1
+     */
     private Integer role;
 
-    // builder 开始
-    public GetAgencyAccountAgencyReqBody() {
+    /**
+     * 猎头供应商
+     * ID，可通过[搜索猎头供应商列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/agency/batch_query)接口获取
+     *
+     * <p>示例值：7398623155442682156
+     *
+     * @param supplierId
+     * @return
+     */
+    public Builder supplierId(String supplierId) {
+      this.supplierId = supplierId;
+      return this;
     }
 
-    public GetAgencyAccountAgencyReqBody(Builder builder) {
-        /**
-         * 猎头供应商 ID
-         * <p> 示例值：7398623155442682156
-         */
-        this.supplierId = builder.supplierId;
-        /**
-         * 猎头状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-        /**
-         * 角色
-         * <p> 示例值：1
-         */
-        this.role = builder.role;
+    /**
+     * 猎头状态
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 角色
+     *
+     * <p>示例值：1
+     *
+     * @param role
+     * @return
+     */
+    public Builder role(Integer role) {
+      this.role = role;
+      return this;
     }
 
-    public String getSupplierId() {
-        return this.supplierId;
+    public GetAgencyAccountAgencyReqBody build() {
+      return new GetAgencyAccountAgencyReqBody(this);
     }
+  }
 
-    public void setSupplierId(String supplierId) {
-        this.supplierId = supplierId;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Integer getRole() {
-        return this.role;
-    }
-
-    public void setRole(Integer role) {
-        this.role = role;
-    }
-
-    public static class Builder {
-        /**
-         * 猎头供应商 ID
-         * <p> 示例值：7398623155442682156
-         */
-        private String supplierId;
-        /**
-         * 猎头状态
-         * <p> 示例值：1
-         */
-        private Integer status;
-        /**
-         * 角色
-         * <p> 示例值：1
-         */
-        private Integer role;
-
-        /**
-         * 猎头供应商 ID
-         * <p> 示例值：7398623155442682156
-         *
-         * @param supplierId
-         * @return
-         */
-        public Builder supplierId(String supplierId) {
-            this.supplierId = supplierId;
-            return this;
-        }
-
-
-        /**
-         * 猎头状态
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 角色
-         * <p> 示例值：1
-         *
-         * @param role
-         * @return
-         */
-        public Builder role(Integer role) {
-            this.role = role;
-            return this;
-        }
-
-
-        public GetAgencyAccountAgencyReqBody build() {
-            return new GetAgencyAccountAgencyReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

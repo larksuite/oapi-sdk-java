@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateCustomOrgRespBody {
-    /**
-     * 组织ID
-     * <p> 示例值：12345678
-     */
-    @SerializedName("org_id")
-    private String orgId;
+  /**
+   * 自定义组织的 ID
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("org_id")
+  private String orgId;
 
-    public String getOrgId() {
-        return this.orgId;
-    }
+  public String getOrgId() {
+    return this.orgId;
+  }
 
-    public void setOrgId(String orgId) {
-        this.orgId = orgId;
-    }
-
+  public void setOrgId(String orgId) {
+    this.orgId = orgId;
+  }
 }

@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Phone {
+  /**
+   * 国家区号
+   *
+   * <p>示例值：
+   */
+  @SerializedName("international_area_code")
+  private Enum internationalAreaCode;
+
+  /**
+   * 电话号码
+   *
+   * <p>示例值：010-12345678
+   */
+  @SerializedName("phone_number")
+  private String phoneNumber;
+
+  /**
+   * 完整电话号码
+   *
+   * <p>示例值：+86 010-12345678
+   */
+  @SerializedName("formatted_phone_number")
+  private String formattedPhoneNumber;
+
+  /**
+   * 设备类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("device_type")
+  private Enum deviceType;
+
+  /**
+   * 电话用途
+   *
+   * <p>示例值：
+   */
+  @SerializedName("phone_usage")
+  private Enum phoneUsage;
+
+  /**
+   * 主要电话
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_primary")
+  private Boolean isPrimary;
+
+  /**
+   * 公开电话
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_public")
+  private Boolean isPublic;
+
+  public Enum getInternationalAreaCode() {
+    return this.internationalAreaCode;
+  }
+
+  public void setInternationalAreaCode(Enum internationalAreaCode) {
+    this.internationalAreaCode = internationalAreaCode;
+  }
+
+  public String getPhoneNumber() {
+    return this.phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public String getFormattedPhoneNumber() {
+    return this.formattedPhoneNumber;
+  }
+
+  public void setFormattedPhoneNumber(String formattedPhoneNumber) {
+    this.formattedPhoneNumber = formattedPhoneNumber;
+  }
+
+  public Enum getDeviceType() {
+    return this.deviceType;
+  }
+
+  public void setDeviceType(Enum deviceType) {
+    this.deviceType = deviceType;
+  }
+
+  public Enum getPhoneUsage() {
+    return this.phoneUsage;
+  }
+
+  public void setPhoneUsage(Enum phoneUsage) {
+    this.phoneUsage = phoneUsage;
+  }
+
+  public Boolean getIsPrimary() {
+    return this.isPrimary;
+  }
+
+  public void setIsPrimary(Boolean isPrimary) {
+    this.isPrimary = isPrimary;
+  }
+
+  public Boolean getIsPublic() {
+    return this.isPublic;
+  }
+
+  public void setIsPublic(Boolean isPublic) {
+    this.isPublic = isPublic;
+  }
+
+  // builder 开始
+  public Phone() {}
+
+  public Phone(Builder builder) {
     /**
      * 国家区号
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("international_area_code")
-    private Enum internationalAreaCode;
+    this.internationalAreaCode = builder.internationalAreaCode;
     /**
      * 电话号码
-     * <p> 示例值：010-12345678
+     *
+     * <p>示例值：010-12345678
      */
-    @SerializedName("phone_number")
-    private String phoneNumber;
+    this.phoneNumber = builder.phoneNumber;
     /**
      * 完整电话号码
-     * <p> 示例值：+86 010-12345678
+     *
+     * <p>示例值：+86 010-12345678
      */
-    @SerializedName("formatted_phone_number")
-    private String formattedPhoneNumber;
+    this.formattedPhoneNumber = builder.formattedPhoneNumber;
     /**
      * 设备类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("device_type")
-    private Enum deviceType;
+    this.deviceType = builder.deviceType;
     /**
      * 电话用途
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("phone_usage")
-    private Enum phoneUsage;
+    this.phoneUsage = builder.phoneUsage;
     /**
      * 主要电话
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_primary")
-    private Boolean isPrimary;
+    this.isPrimary = builder.isPrimary;
     /**
      * 公开电话
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_public")
+    this.isPublic = builder.isPublic;
+  }
+
+  public static class Builder {
+    /**
+     * 国家区号
+     *
+     * <p>示例值：
+     */
+    private Enum internationalAreaCode;
+
+    /**
+     * 电话号码
+     *
+     * <p>示例值：010-12345678
+     */
+    private String phoneNumber;
+
+    /**
+     * 完整电话号码
+     *
+     * <p>示例值：+86 010-12345678
+     */
+    private String formattedPhoneNumber;
+
+    /**
+     * 设备类型
+     *
+     * <p>示例值：
+     */
+    private Enum deviceType;
+
+    /**
+     * 电话用途
+     *
+     * <p>示例值：
+     */
+    private Enum phoneUsage;
+
+    /**
+     * 主要电话
+     *
+     * <p>示例值：true
+     */
+    private Boolean isPrimary;
+
+    /**
+     * 公开电话
+     *
+     * <p>示例值：true
+     */
     private Boolean isPublic;
 
-    // builder 开始
-    public Phone() {
+    /**
+     * 国家区号
+     *
+     * <p>示例值：
+     *
+     * @param internationalAreaCode
+     * @return
+     */
+    public Builder internationalAreaCode(Enum internationalAreaCode) {
+      this.internationalAreaCode = internationalAreaCode;
+      return this;
     }
 
-    public Phone(Builder builder) {
-        /**
-         * 国家区号
-         * <p> 示例值：
-         */
-        this.internationalAreaCode = builder.internationalAreaCode;
-        /**
-         * 电话号码
-         * <p> 示例值：010-12345678
-         */
-        this.phoneNumber = builder.phoneNumber;
-        /**
-         * 完整电话号码
-         * <p> 示例值：+86 010-12345678
-         */
-        this.formattedPhoneNumber = builder.formattedPhoneNumber;
-        /**
-         * 设备类型
-         * <p> 示例值：
-         */
-        this.deviceType = builder.deviceType;
-        /**
-         * 电话用途
-         * <p> 示例值：
-         */
-        this.phoneUsage = builder.phoneUsage;
-        /**
-         * 主要电话
-         * <p> 示例值：true
-         */
-        this.isPrimary = builder.isPrimary;
-        /**
-         * 公开电话
-         * <p> 示例值：true
-         */
-        this.isPublic = builder.isPublic;
+    /**
+     * 电话号码
+     *
+     * <p>示例值：010-12345678
+     *
+     * @param phoneNumber
+     * @return
+     */
+    public Builder phoneNumber(String phoneNumber) {
+      this.phoneNumber = phoneNumber;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 完整电话号码
+     *
+     * <p>示例值：+86 010-12345678
+     *
+     * @param formattedPhoneNumber
+     * @return
+     */
+    public Builder formattedPhoneNumber(String formattedPhoneNumber) {
+      this.formattedPhoneNumber = formattedPhoneNumber;
+      return this;
     }
 
-    public Enum getInternationalAreaCode() {
-        return this.internationalAreaCode;
+    /**
+     * 设备类型
+     *
+     * <p>示例值：
+     *
+     * @param deviceType
+     * @return
+     */
+    public Builder deviceType(Enum deviceType) {
+      this.deviceType = deviceType;
+      return this;
     }
 
-    public void setInternationalAreaCode(Enum internationalAreaCode) {
-        this.internationalAreaCode = internationalAreaCode;
+    /**
+     * 电话用途
+     *
+     * <p>示例值：
+     *
+     * @param phoneUsage
+     * @return
+     */
+    public Builder phoneUsage(Enum phoneUsage) {
+      this.phoneUsage = phoneUsage;
+      return this;
     }
 
-    public String getPhoneNumber() {
-        return this.phoneNumber;
+    /**
+     * 主要电话
+     *
+     * <p>示例值：true
+     *
+     * @param isPrimary
+     * @return
+     */
+    public Builder isPrimary(Boolean isPrimary) {
+      this.isPrimary = isPrimary;
+      return this;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    /**
+     * 公开电话
+     *
+     * <p>示例值：true
+     *
+     * @param isPublic
+     * @return
+     */
+    public Builder isPublic(Boolean isPublic) {
+      this.isPublic = isPublic;
+      return this;
     }
 
-    public String getFormattedPhoneNumber() {
-        return this.formattedPhoneNumber;
+    public Phone build() {
+      return new Phone(this);
     }
+  }
 
-    public void setFormattedPhoneNumber(String formattedPhoneNumber) {
-        this.formattedPhoneNumber = formattedPhoneNumber;
-    }
-
-    public Enum getDeviceType() {
-        return this.deviceType;
-    }
-
-    public void setDeviceType(Enum deviceType) {
-        this.deviceType = deviceType;
-    }
-
-    public Enum getPhoneUsage() {
-        return this.phoneUsage;
-    }
-
-    public void setPhoneUsage(Enum phoneUsage) {
-        this.phoneUsage = phoneUsage;
-    }
-
-    public Boolean getIsPrimary() {
-        return this.isPrimary;
-    }
-
-    public void setIsPrimary(Boolean isPrimary) {
-        this.isPrimary = isPrimary;
-    }
-
-    public Boolean getIsPublic() {
-        return this.isPublic;
-    }
-
-    public void setIsPublic(Boolean isPublic) {
-        this.isPublic = isPublic;
-    }
-
-    public static class Builder {
-        /**
-         * 国家区号
-         * <p> 示例值：
-         */
-        private Enum internationalAreaCode;
-        /**
-         * 电话号码
-         * <p> 示例值：010-12345678
-         */
-        private String phoneNumber;
-        /**
-         * 完整电话号码
-         * <p> 示例值：+86 010-12345678
-         */
-        private String formattedPhoneNumber;
-        /**
-         * 设备类型
-         * <p> 示例值：
-         */
-        private Enum deviceType;
-        /**
-         * 电话用途
-         * <p> 示例值：
-         */
-        private Enum phoneUsage;
-        /**
-         * 主要电话
-         * <p> 示例值：true
-         */
-        private Boolean isPrimary;
-        /**
-         * 公开电话
-         * <p> 示例值：true
-         */
-        private Boolean isPublic;
-
-        /**
-         * 国家区号
-         * <p> 示例值：
-         *
-         * @param internationalAreaCode
-         * @return
-         */
-        public Builder internationalAreaCode(Enum internationalAreaCode) {
-            this.internationalAreaCode = internationalAreaCode;
-            return this;
-        }
-
-
-        /**
-         * 电话号码
-         * <p> 示例值：010-12345678
-         *
-         * @param phoneNumber
-         * @return
-         */
-        public Builder phoneNumber(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
-            return this;
-        }
-
-
-        /**
-         * 完整电话号码
-         * <p> 示例值：+86 010-12345678
-         *
-         * @param formattedPhoneNumber
-         * @return
-         */
-        public Builder formattedPhoneNumber(String formattedPhoneNumber) {
-            this.formattedPhoneNumber = formattedPhoneNumber;
-            return this;
-        }
-
-
-        /**
-         * 设备类型
-         * <p> 示例值：
-         *
-         * @param deviceType
-         * @return
-         */
-        public Builder deviceType(Enum deviceType) {
-            this.deviceType = deviceType;
-            return this;
-        }
-
-
-        /**
-         * 电话用途
-         * <p> 示例值：
-         *
-         * @param phoneUsage
-         * @return
-         */
-        public Builder phoneUsage(Enum phoneUsage) {
-            this.phoneUsage = phoneUsage;
-            return this;
-        }
-
-
-        /**
-         * 主要电话
-         * <p> 示例值：true
-         *
-         * @param isPrimary
-         * @return
-         */
-        public Builder isPrimary(Boolean isPrimary) {
-            this.isPrimary = isPrimary;
-            return this;
-        }
-
-
-        /**
-         * 公开电话
-         * <p> 示例值：true
-         *
-         * @param isPublic
-         * @return
-         */
-        public Builder isPublic(Boolean isPublic) {
-            this.isPublic = isPublic;
-            return this;
-        }
-
-
-        public Phone build() {
-            return new Phone(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

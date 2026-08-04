@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GroupByDimension {
+  /**
+   * 维度key，例如 department、location、cost_center等等
+   *
+   * <p>示例值：example
+   */
+  @SerializedName("dimension_key")
+  private String dimensionKey;
+
+  /**
+   * 树维度层级，仅树维度生效；例如 department + 1 表示一级部门。有效范围 1-5
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("level")
+  private Integer level;
+
+  /**
+   * 是否含下级聚合，仅树维度生效；true 表示聚合该维度值及其所有下级的数据
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("include_children")
+  private Boolean includeChildren;
+
+  public String getDimensionKey() {
+    return this.dimensionKey;
+  }
+
+  public void setDimensionKey(String dimensionKey) {
+    this.dimensionKey = dimensionKey;
+  }
+
+  public Integer getLevel() {
+    return this.level;
+  }
+
+  public void setLevel(Integer level) {
+    this.level = level;
+  }
+
+  public Boolean getIncludeChildren() {
+    return this.includeChildren;
+  }
+
+  public void setIncludeChildren(Boolean includeChildren) {
+    this.includeChildren = includeChildren;
+  }
+
+  // builder 开始
+  public GroupByDimension() {}
+
+  public GroupByDimension(Builder builder) {
     /**
      * 维度key，例如 department、location、cost_center等等
-     * <p> 示例值：example
+     *
+     * <p>示例值：example
      */
-    @SerializedName("dimension_key")
-    private String dimensionKey;
+    this.dimensionKey = builder.dimensionKey;
     /**
      * 树维度层级，仅树维度生效；例如 department + 1 表示一级部门。有效范围 1-5
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("level")
-    private Integer level;
+    this.level = builder.level;
     /**
      * 是否含下级聚合，仅树维度生效；true 表示聚合该维度值及其所有下级的数据
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("include_children")
+    this.includeChildren = builder.includeChildren;
+  }
+
+  public static class Builder {
+    /**
+     * 维度key，例如 department、location、cost_center等等
+     *
+     * <p>示例值：example
+     */
+    private String dimensionKey;
+
+    /**
+     * 树维度层级，仅树维度生效；例如 department + 1 表示一级部门。有效范围 1-5
+     *
+     * <p>示例值：1
+     */
+    private Integer level;
+
+    /**
+     * 是否含下级聚合，仅树维度生效；true 表示聚合该维度值及其所有下级的数据
+     *
+     * <p>示例值：true
+     */
     private Boolean includeChildren;
 
-    // builder 开始
-    public GroupByDimension() {
+    /**
+     * 维度key，例如 department、location、cost_center等等
+     *
+     * <p>示例值：example
+     *
+     * @param dimensionKey
+     * @return
+     */
+    public Builder dimensionKey(String dimensionKey) {
+      this.dimensionKey = dimensionKey;
+      return this;
     }
 
-    public GroupByDimension(Builder builder) {
-        /**
-         * 维度key，例如 department、location、cost_center等等
-         * <p> 示例值：example
-         */
-        this.dimensionKey = builder.dimensionKey;
-        /**
-         * 树维度层级，仅树维度生效；例如 department + 1 表示一级部门。有效范围 1-5
-         * <p> 示例值：1
-         */
-        this.level = builder.level;
-        /**
-         * 是否含下级聚合，仅树维度生效；true 表示聚合该维度值及其所有下级的数据
-         * <p> 示例值：true
-         */
-        this.includeChildren = builder.includeChildren;
+    /**
+     * 树维度层级，仅树维度生效；例如 department + 1 表示一级部门。有效范围 1-5
+     *
+     * <p>示例值：1
+     *
+     * @param level
+     * @return
+     */
+    public Builder level(Integer level) {
+      this.level = level;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否含下级聚合，仅树维度生效；true 表示聚合该维度值及其所有下级的数据
+     *
+     * <p>示例值：true
+     *
+     * @param includeChildren
+     * @return
+     */
+    public Builder includeChildren(Boolean includeChildren) {
+      this.includeChildren = includeChildren;
+      return this;
     }
 
-    public String getDimensionKey() {
-        return this.dimensionKey;
+    public GroupByDimension build() {
+      return new GroupByDimension(this);
     }
+  }
 
-    public void setDimensionKey(String dimensionKey) {
-        this.dimensionKey = dimensionKey;
-    }
-
-    public Integer getLevel() {
-        return this.level;
-    }
-
-    public void setLevel(Integer level) {
-        this.level = level;
-    }
-
-    public Boolean getIncludeChildren() {
-        return this.includeChildren;
-    }
-
-    public void setIncludeChildren(Boolean includeChildren) {
-        this.includeChildren = includeChildren;
-    }
-
-    public static class Builder {
-        /**
-         * 维度key，例如 department、location、cost_center等等
-         * <p> 示例值：example
-         */
-        private String dimensionKey;
-        /**
-         * 树维度层级，仅树维度生效；例如 department + 1 表示一级部门。有效范围 1-5
-         * <p> 示例值：1
-         */
-        private Integer level;
-        /**
-         * 是否含下级聚合，仅树维度生效；true 表示聚合该维度值及其所有下级的数据
-         * <p> 示例值：true
-         */
-        private Boolean includeChildren;
-
-        /**
-         * 维度key，例如 department、location、cost_center等等
-         * <p> 示例值：example
-         *
-         * @param dimensionKey
-         * @return
-         */
-        public Builder dimensionKey(String dimensionKey) {
-            this.dimensionKey = dimensionKey;
-            return this;
-        }
-
-
-        /**
-         * 树维度层级，仅树维度生效；例如 department + 1 表示一级部门。有效范围 1-5
-         * <p> 示例值：1
-         *
-         * @param level
-         * @return
-         */
-        public Builder level(Integer level) {
-            this.level = level;
-            return this;
-        }
-
-
-        /**
-         * 是否含下级聚合，仅树维度生效；true 表示聚合该维度值及其所有下级的数据
-         * <p> 示例值：true
-         *
-         * @param includeChildren
-         * @return
-         */
-        public Builder includeChildren(Boolean includeChildren) {
-            this.includeChildren = includeChildren;
-            return this;
-        }
-
-
-        public GroupByDimension build() {
-            return new GroupByDimension(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

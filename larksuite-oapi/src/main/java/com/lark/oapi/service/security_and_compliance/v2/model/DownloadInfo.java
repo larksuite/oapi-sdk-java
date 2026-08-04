@@ -13,161 +13,165 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DownloadInfo {
+  /**
+   * 下载信息的类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 资源Key
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resource_key")
+  private String resourceKey;
+
+  /**
+   * 下载链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("download_url")
+  private String downloadUrl;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getResourceKey() {
+    return this.resourceKey;
+  }
+
+  public void setResourceKey(String resourceKey) {
+    this.resourceKey = resourceKey;
+  }
+
+  public String getDownloadUrl() {
+    return this.downloadUrl;
+  }
+
+  public void setDownloadUrl(String downloadUrl) {
+    this.downloadUrl = downloadUrl;
+  }
+
+  // builder 开始
+  public DownloadInfo() {}
+
+  public DownloadInfo(Builder builder) {
     /**
      * 下载信息的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 资源Key
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("resource_key")
-    private String resourceKey;
+    this.resourceKey = builder.resourceKey;
     /**
      * 下载链接
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("download_url")
+    this.downloadUrl = builder.downloadUrl;
+  }
+
+  public static class Builder {
+    /**
+     * 下载信息的类型
+     *
+     * <p>示例值：
+     */
+    private String type;
+
+    /**
+     * 资源Key
+     *
+     * <p>示例值：
+     */
+    private String resourceKey;
+
+    /**
+     * 下载链接
+     *
+     * <p>示例值：
+     */
     private String downloadUrl;
 
-    // builder 开始
-    public DownloadInfo() {
+    /**
+     * 下载信息的类型
+     *
+     * <p>示例值：
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public DownloadInfo(Builder builder) {
-        /**
-         * 下载信息的类型
-         * <p> 示例值：
-         */
-        this.type = builder.type;
-        /**
-         * 资源Key
-         * <p> 示例值：
-         */
-        this.resourceKey = builder.resourceKey;
-        /**
-         * 下载链接
-         * <p> 示例值：
-         */
-        this.downloadUrl = builder.downloadUrl;
+    /**
+     * 下载信息的类型
+     *
+     * <p>示例值：
+     *
+     * @param type {@link
+     *     com.lark.oapi.service.security_and_compliance.v2.enums.DownloadInfoDownloadInfoTypeEnum}
+     * @return
+     */
+    public Builder type(
+        com.lark.oapi.service.security_and_compliance.v2.enums.DownloadInfoDownloadInfoTypeEnum
+            type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 资源Key
+     *
+     * <p>示例值：
+     *
+     * @param resourceKey
+     * @return
+     */
+    public Builder resourceKey(String resourceKey) {
+      this.resourceKey = resourceKey;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 下载链接
+     *
+     * <p>示例值：
+     *
+     * @param downloadUrl
+     * @return
+     */
+    public Builder downloadUrl(String downloadUrl) {
+      this.downloadUrl = downloadUrl;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public DownloadInfo build() {
+      return new DownloadInfo(this);
     }
+  }
 
-    public String getResourceKey() {
-        return this.resourceKey;
-    }
-
-    public void setResourceKey(String resourceKey) {
-        this.resourceKey = resourceKey;
-    }
-
-    public String getDownloadUrl() {
-        return this.downloadUrl;
-    }
-
-    public void setDownloadUrl(String downloadUrl) {
-        this.downloadUrl = downloadUrl;
-    }
-
-    public static class Builder {
-        /**
-         * 下载信息的类型
-         * <p> 示例值：
-         */
-        private String type;
-        /**
-         * 资源Key
-         * <p> 示例值：
-         */
-        private String resourceKey;
-        /**
-         * 下载链接
-         * <p> 示例值：
-         */
-        private String downloadUrl;
-
-        /**
-         * 下载信息的类型
-         * <p> 示例值：
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 下载信息的类型
-         * <p> 示例值：
-         *
-         * @param type {@link com.lark.oapi.service.security_and_compliance.v2.enums.DownloadInfoDownloadInfoTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.security_and_compliance.v2.enums.DownloadInfoDownloadInfoTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 资源Key
-         * <p> 示例值：
-         *
-         * @param resourceKey
-         * @return
-         */
-        public Builder resourceKey(String resourceKey) {
-            this.resourceKey = resourceKey;
-            return this;
-        }
-
-
-        /**
-         * 下载链接
-         * <p> 示例值：
-         *
-         * @param downloadUrl
-         * @return
-         */
-        public Builder downloadUrl(String downloadUrl) {
-            this.downloadUrl = downloadUrl;
-            return this;
-        }
-
-
-        public DownloadInfo build() {
-            return new DownloadInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

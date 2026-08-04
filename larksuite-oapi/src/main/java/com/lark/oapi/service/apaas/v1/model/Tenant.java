@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Tenant {
+  /**
+   * 租户ID
+   *
+   * <p>示例值：74894
+   */
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  /**
+   * 租户名称
+   *
+   * <p>示例值：apaas
+   */
+  @SerializedName("tenant_name")
+  private String tenantName;
+
+  /**
+   * 租户域名
+   *
+   * <p>示例值：apaas
+   */
+  @SerializedName("domain")
+  private String domain;
+
+  /**
+   * 租户类型
+   *
+   * <p>示例值：-
+   */
+  @SerializedName("type")
+  private String type;
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  public String getTenantName() {
+    return this.tenantName;
+  }
+
+  public void setTenantName(String tenantName) {
+    this.tenantName = tenantName;
+  }
+
+  public String getDomain() {
+    return this.domain;
+  }
+
+  public void setDomain(String domain) {
+    this.domain = domain;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public Tenant() {}
+
+  public Tenant(Builder builder) {
     /**
      * 租户ID
-     * <p> 示例值：74894
+     *
+     * <p>示例值：74894
      */
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
      * 租户名称
-     * <p> 示例值：apaas
+     *
+     * <p>示例值：apaas
      */
-    @SerializedName("tenant_name")
-    private String tenantName;
+    this.tenantName = builder.tenantName;
     /**
      * 租户域名
-     * <p> 示例值：apaas
+     *
+     * <p>示例值：apaas
      */
-    @SerializedName("domain")
-    private String domain;
+    this.domain = builder.domain;
     /**
      * 租户类型
-     * <p> 示例值：-
+     *
+     * <p>示例值：-
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 租户ID
+     *
+     * <p>示例值：74894
+     */
+    private String tenantId;
+
+    /**
+     * 租户名称
+     *
+     * <p>示例值：apaas
+     */
+    private String tenantName;
+
+    /**
+     * 租户域名
+     *
+     * <p>示例值：apaas
+     */
+    private String domain;
+
+    /**
+     * 租户类型
+     *
+     * <p>示例值：-
+     */
     private String type;
 
-    // builder 开始
-    public Tenant() {
+    /**
+     * 租户ID
+     *
+     * <p>示例值：74894
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public Tenant(Builder builder) {
-        /**
-         * 租户ID
-         * <p> 示例值：74894
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 租户名称
-         * <p> 示例值：apaas
-         */
-        this.tenantName = builder.tenantName;
-        /**
-         * 租户域名
-         * <p> 示例值：apaas
-         */
-        this.domain = builder.domain;
-        /**
-         * 租户类型
-         * <p> 示例值：-
-         */
-        this.type = builder.type;
+    /**
+     * 租户名称
+     *
+     * <p>示例值：apaas
+     *
+     * @param tenantName
+     * @return
+     */
+    public Builder tenantName(String tenantName) {
+      this.tenantName = tenantName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 租户域名
+     *
+     * <p>示例值：apaas
+     *
+     * @param domain
+     * @return
+     */
+    public Builder domain(String domain) {
+      this.domain = domain;
+      return this;
     }
 
-    public String getTenantId() {
-        return this.tenantId;
+    /**
+     * 租户类型
+     *
+     * <p>示例值：-
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
+    public Tenant build() {
+      return new Tenant(this);
     }
+  }
 
-    public String getTenantName() {
-        return this.tenantName;
-    }
-
-    public void setTenantName(String tenantName) {
-        this.tenantName = tenantName;
-    }
-
-    public String getDomain() {
-        return this.domain;
-    }
-
-    public void setDomain(String domain) {
-        this.domain = domain;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 租户ID
-         * <p> 示例值：74894
-         */
-        private String tenantId;
-        /**
-         * 租户名称
-         * <p> 示例值：apaas
-         */
-        private String tenantName;
-        /**
-         * 租户域名
-         * <p> 示例值：apaas
-         */
-        private String domain;
-        /**
-         * 租户类型
-         * <p> 示例值：-
-         */
-        private String type;
-
-        /**
-         * 租户ID
-         * <p> 示例值：74894
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        /**
-         * 租户名称
-         * <p> 示例值：apaas
-         *
-         * @param tenantName
-         * @return
-         */
-        public Builder tenantName(String tenantName) {
-            this.tenantName = tenantName;
-            return this;
-        }
-
-
-        /**
-         * 租户域名
-         * <p> 示例值：apaas
-         *
-         * @param domain
-         * @return
-         */
-        public Builder domain(String domain) {
-            this.domain = domain;
-            return this;
-        }
-
-
-        /**
-         * 租户类型
-         * <p> 示例值：-
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public Tenant build() {
-            return new Tenant(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

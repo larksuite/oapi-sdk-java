@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReportCustomData {
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 值
+   *
+   * <p>示例值：
+   */
+  @SerializedName("value")
+  private I18n value;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n description;
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public I18n getValue() {
+    return this.value;
+  }
+
+  public void setValue(I18n value) {
+    this.value = value;
+  }
+
+  public I18n getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public ReportCustomData() {}
+
+  public ReportCustomData(Builder builder) {
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 值
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("value")
-    private I18n value;
+    this.value = builder.value;
     /**
      * 描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 值
+     *
+     * <p>示例值：
+     */
+    private I18n value;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     */
     private I18n description;
 
-    // builder 开始
-    public ReportCustomData() {
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public ReportCustomData(Builder builder) {
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 值
-         * <p> 示例值：
-         */
-        this.value = builder.value;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
+    /**
+     * 值
+     *
+     * <p>示例值：
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(I18n value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n description) {
+      this.description = description;
+      return this;
     }
 
-    public I18n getName() {
-        return this.name;
+    public ReportCustomData build() {
+      return new ReportCustomData(this);
     }
+  }
 
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public I18n getValue() {
-        return this.value;
-    }
-
-    public void setValue(I18n value) {
-        this.value = value;
-    }
-
-    public I18n getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18n description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 值
-         * <p> 示例值：
-         */
-        private I18n value;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        private I18n description;
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 值
-         * <p> 示例值：
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(I18n value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public ReportCustomData build() {
-            return new ReportCustomData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

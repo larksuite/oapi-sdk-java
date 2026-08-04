@@ -13,105 +13,259 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.spark.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.spark.v1.enums.*;
 
 public class ListAppReq {
+  /**
+   * 每页返回的应用数量，取值范围为1-100，默认值为20
+   *
+   * <p>示例值：20
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，用于获取下一页数据。首次调用不传，后续调用需传入上一页返回的page_token值，为空表示已无更多数据
+   *
+   * <p>示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZHMiOlsiMTIzNCIsIjU2NzgiXX0=
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 筛选应用类型，仅返回指定类型的应用。;;可选值：;- `html`：轻量网页应用，基于前端技术栈开发，适用于展示类场景;-
+   * `full_stack`：全栈应用，包含前后端逻辑，支持复杂业务功能
+   *
+   * <p>示例值：html
+   */
+  @Query
+  @SerializedName("app_type")
+  private String appType;
+
+  /**
+   * 用于模糊匹配应用名称或描述，支持中英文关键词。输入后将返回名称或描述中包含该关键词的应用，为空时返回全部有权限查看的应用
+   *
+   * <p>示例值：我的应用
+   */
+  @Query
+  @SerializedName("keyword")
+  private String keyword;
+
+  /**
+   * 应用归属范围过滤，用于筛选不同权限范围内的应用。;;可选值：;- `all`：返回所有有权限查看的应用，包含自己创建的和共享给自己的;-
+   * `created_by_me`：仅返回当前用户创建的应用;- `shared_with_me`：仅返回其他用户共享给当前用户的应用;;默认值为 `all`，不传此参数等同于传入 `all`
+   *
+   * <p>示例值：created_by_me
+   */
+  @Query
+  @SerializedName("scope")
+  private String scope;
+
+  /**
+   * Ownership 应用归属过滤，允许值：all / mine（我创建的） / shared（共享给我的）；默认 all（不传等同 all）。
+   *
+   * <p>示例值：all
+   */
+  @Query
+  @SerializedName("ownership")
+  private String ownership;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getAppType() {
+    return this.appType;
+  }
+
+  public void setAppType(String appType) {
+    this.appType = appType;
+  }
+
+  public String getKeyword() {
+    return this.keyword;
+  }
+
+  public void setKeyword(String keyword) {
+    this.keyword = keyword;
+  }
+
+  public String getScope() {
+    return this.scope;
+  }
+
+  public void setScope(String scope) {
+    this.scope = scope;
+  }
+
+  public String getOwnership() {
+    return this.ownership;
+  }
+
+  public void setOwnership(String ownership) {
+    this.ownership = ownership;
+  }
+
+  // builder 开始
+  public ListAppReq() {}
+
+  public ListAppReq(Builder builder) {
     /**
      * 每页返回的应用数量，取值范围为1-100，默认值为20
-     * <p> 示例值：20
+     *
+     * <p>示例值：20
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，用于获取下一页数据。首次调用不传，后续调用需传入上一页返回的page_token值，为空表示已无更多数据
-     * <p> 示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZHMiOlsiMTIzNCIsIjU2NzgiXX0=
+     *
+     * <p>示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZHMiOlsiMTIzNCIsIjU2NzgiXX0=
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
+    /**
+     * 筛选应用类型，仅返回指定类型的应用。;;可选值：;- `html`：轻量网页应用，基于前端技术栈开发，适用于展示类场景;-
+     * `full_stack`：全栈应用，包含前后端逻辑，支持复杂业务功能
+     *
+     * <p>示例值：html
+     */
+    this.appType = builder.appType;
+    /**
+     * 用于模糊匹配应用名称或描述，支持中英文关键词。输入后将返回名称或描述中包含该关键词的应用，为空时返回全部有权限查看的应用
+     *
+     * <p>示例值：我的应用
+     */
+    this.keyword = builder.keyword;
+    /**
+     * 应用归属范围过滤，用于筛选不同权限范围内的应用。;;可选值：;- `all`：返回所有有权限查看的应用，包含自己创建的和共享给自己的;-
+     * `created_by_me`：仅返回当前用户创建的应用;- `shared_with_me`：仅返回其他用户共享给当前用户的应用;;默认值为 `all`，不传此参数等同于传入
+     * `all`
+     *
+     * <p>示例值：created_by_me
+     */
+    this.scope = builder.scope;
+    /**
+     * Ownership 应用归属过滤，允许值：all / mine（我创建的） / shared（共享给我的）；默认 all（不传等同 all）。
+     *
+     * <p>示例值：all
+     */
+    this.ownership = builder.ownership;
+  }
 
-    // builder 开始
-    public ListAppReq() {
+  public static class Builder {
+    private Integer pageSize; // 每页返回的应用数量，取值范围为1-100，默认值为20
+    private String pageToken; // 分页标记，用于获取下一页数据。首次调用不传，后续调用需传入上一页返回的page_token值，为空表示已无更多数据
+    private String appType; // 筛选应用类型，仅返回指定类型的应用。;;可选值：;- `html`：轻量网页应用，基于前端技术栈开发，适用于展示类场景;-
+    // `full_stack`：全栈应用，包含前后端逻辑，支持复杂业务功能
+    private String keyword; // 用于模糊匹配应用名称或描述，支持中英文关键词。输入后将返回名称或描述中包含该关键词的应用，为空时返回全部有权限查看的应用
+    private String scope; // 应用归属范围过滤，用于筛选不同权限范围内的应用。;;可选值：;- `all`：返回所有有权限查看的应用，包含自己创建的和共享给自己的;-
+    // `created_by_me`：仅返回当前用户创建的应用;- `shared_with_me`：仅返回其他用户共享给当前用户的应用;;默认值为
+    // `all`，不传此参数等同于传入 `all`
+    private String
+        ownership; // Ownership 应用归属过滤，允许值：all / mine（我创建的） / shared（共享给我的）；默认 all（不传等同 all）。
+
+    /**
+     * 每页返回的应用数量，取值范围为1-100，默认值为20
+     *
+     * <p>示例值：20
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListAppReq(Builder builder) {
-        /**
-         * 每页返回的应用数量，取值范围为1-100，默认值为20
-         * <p> 示例值：20
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，用于获取下一页数据。首次调用不传，后续调用需传入上一页返回的page_token值，为空表示已无更多数据
-         * <p> 示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZHMiOlsiMTIzNCIsIjU2NzgiXX0=
-         */
-        this.pageToken = builder.pageToken;
+    /**
+     * 分页标记，用于获取下一页数据。首次调用不传，后续调用需传入上一页返回的page_token值，为空表示已无更多数据
+     *
+     * <p>示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZHMiOlsiMTIzNCIsIjU2NzgiXX0=
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 筛选应用类型，仅返回指定类型的应用。;;可选值：;- `html`：轻量网页应用，基于前端技术栈开发，适用于展示类场景;-
+     * `full_stack`：全栈应用，包含前后端逻辑，支持复杂业务功能
+     *
+     * <p>示例值：html
+     *
+     * @param appType
+     * @return
+     */
+    public Builder appType(String appType) {
+      this.appType = appType;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 用于模糊匹配应用名称或描述，支持中英文关键词。输入后将返回名称或描述中包含该关键词的应用，为空时返回全部有权限查看的应用
+     *
+     * <p>示例值：我的应用
+     *
+     * @param keyword
+     * @return
+     */
+    public Builder keyword(String keyword) {
+      this.keyword = keyword;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 应用归属范围过滤，用于筛选不同权限范围内的应用。;;可选值：;- `all`：返回所有有权限查看的应用，包含自己创建的和共享给自己的;-
+     * `created_by_me`：仅返回当前用户创建的应用;- `shared_with_me`：仅返回其他用户共享给当前用户的应用;;默认值为 `all`，不传此参数等同于传入
+     * `all`
+     *
+     * <p>示例值：created_by_me
+     *
+     * @param scope
+     * @return
+     */
+    public Builder scope(String scope) {
+      this.scope = scope;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * Ownership 应用归属过滤，允许值：all / mine（我创建的） / shared（共享给我的）；默认 all（不传等同 all）。
+     *
+     * <p>示例值：all
+     *
+     * @param ownership
+     * @return
+     */
+    public Builder ownership(String ownership) {
+      this.ownership = ownership;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    public ListAppReq build() {
+      return new ListAppReq(this);
     }
+  }
 
-    public static class Builder {
-        private Integer pageSize; // 每页返回的应用数量，取值范围为1-100，默认值为20
-        private String pageToken; // 分页标记，用于获取下一页数据。首次调用不传，后续调用需传入上一页返回的page_token值，为空表示已无更多数据
-
-        /**
-         * 每页返回的应用数量，取值范围为1-100，默认值为20
-         * <p> 示例值：20
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，用于获取下一页数据。首次调用不传，后续调用需传入上一页返回的page_token值，为空表示已无更多数据
-         * <p> 示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZHMiOlsiMTIzNCIsIjU2NzgiXX0=
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        public ListAppReq build() {
-            return new ListAppReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

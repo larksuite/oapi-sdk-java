@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Credential {
+  /**
+   * ID
+   *
+   * <p>示例值：123123
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("credential_type")
+  private String credentialType;
+
+  /**
+   * 内容
+   *
+   * <p>示例值：123123123123
+   */
+  @SerializedName("content")
+  private String content;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getCredentialType() {
+    return this.credentialType;
+  }
+
+  public void setCredentialType(String credentialType) {
+    this.credentialType = credentialType;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  // builder 开始
+  public Credential() {}
+
+  public Credential(Builder builder) {
     /**
      * ID
-     * <p> 示例值：123123
+     *
+     * <p>示例值：123123
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("credential_type")
-    private String credentialType;
+    this.credentialType = builder.credentialType;
     /**
      * 内容
-     * <p> 示例值：123123123123
+     *
+     * <p>示例值：123123123123
      */
-    @SerializedName("content")
+    this.content = builder.content;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：123123
+     */
+    private String id;
+
+    /**
+     * 类型
+     *
+     * <p>示例值：
+     */
+    private String credentialType;
+
+    /**
+     * 内容
+     *
+     * <p>示例值：123123123123
+     */
     private String content;
 
-    // builder 开始
-    public Credential() {
+    /**
+     * ID
+     *
+     * <p>示例值：123123
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Credential(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：123123
-         */
-        this.id = builder.id;
-        /**
-         * 类型
-         * <p> 示例值：
-         */
-        this.credentialType = builder.credentialType;
-        /**
-         * 内容
-         * <p> 示例值：123123123123
-         */
-        this.content = builder.content;
+    /**
+     * 类型
+     *
+     * <p>示例值：
+     *
+     * @param credentialType
+     * @return
+     */
+    public Builder credentialType(String credentialType) {
+      this.credentialType = credentialType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 内容
+     *
+     * <p>示例值：123123123123
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public Credential build() {
+      return new Credential(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getCredentialType() {
-        return this.credentialType;
-    }
-
-    public void setCredentialType(String credentialType) {
-        this.credentialType = credentialType;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：123123
-         */
-        private String id;
-        /**
-         * 类型
-         * <p> 示例值：
-         */
-        private String credentialType;
-        /**
-         * 内容
-         * <p> 示例值：123123123123
-         */
-        private String content;
-
-        /**
-         * ID
-         * <p> 示例值：123123
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 类型
-         * <p> 示例值：
-         *
-         * @param credentialType
-         * @return
-         */
-        public Builder credentialType(String credentialType) {
-            this.credentialType = credentialType;
-            return this;
-        }
-
-
-        /**
-         * 内容
-         * <p> 示例值：123123123123
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        public Credential build() {
-            return new Credential(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

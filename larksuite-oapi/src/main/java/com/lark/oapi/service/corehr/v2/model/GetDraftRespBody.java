@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetDraftRespBody {
-    /**
-     * 组织架构调整 ID
-     * <p> 示例值：6991776076699549697
-     */
-    @SerializedName("draft_id")
-    private String draftId;
-    /**
-     * 组织架构调整状态
-     * <p> 示例值：
-     */
-    @SerializedName("draft_status")
-    private String draftStatus;
-    /**
-     * 组织架构调整流程信息列表
-     * <p> 示例值：
-     */
-    @SerializedName("process_infos")
-    private ProcessInfo[] processInfos;
+  /**
+   * 组织架构调整 ID
+   *
+   * <p>示例值：6991776076699549697
+   */
+  @SerializedName("draft_id")
+  private String draftId;
 
-    public String getDraftId() {
-        return this.draftId;
-    }
+  /**
+   * 组织架构调整状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("draft_status")
+  private String draftStatus;
 
-    public void setDraftId(String draftId) {
-        this.draftId = draftId;
-    }
+  /**
+   * 组织架构调整流程信息列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("process_infos")
+  private ProcessInfo[] processInfos;
 
-    public String getDraftStatus() {
-        return this.draftStatus;
-    }
+  public String getDraftId() {
+    return this.draftId;
+  }
 
-    public void setDraftStatus(String draftStatus) {
-        this.draftStatus = draftStatus;
-    }
+  public void setDraftId(String draftId) {
+    this.draftId = draftId;
+  }
 
-    public ProcessInfo[] getProcessInfos() {
-        return this.processInfos;
-    }
+  public String getDraftStatus() {
+    return this.draftStatus;
+  }
 
-    public void setProcessInfos(ProcessInfo[] processInfos) {
-        this.processInfos = processInfos;
-    }
+  public void setDraftStatus(String draftStatus) {
+    this.draftStatus = draftStatus;
+  }
 
+  public ProcessInfo[] getProcessInfos() {
+    return this.processInfos;
+  }
+
+  public void setProcessInfos(ProcessInfo[] processInfos) {
+    this.processInfos = processInfos;
+  }
 }

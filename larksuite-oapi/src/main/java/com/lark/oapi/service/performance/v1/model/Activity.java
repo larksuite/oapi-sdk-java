@@ -13,149 +13,157 @@
 
 package com.lark.oapi.service.performance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Activity {
+  /**
+   * 项目
+   * ID，可通过[获取项目列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/activity/query)接口获取;
+   *
+   * <p>示例值：6992035450862323244
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 周期名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 周期
+   * ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list);
+   *
+   * <p>示例值：6992035450862224940
+   */
+  @SerializedName("semester_id")
+  private String semesterId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getSemesterId() {
+    return this.semesterId;
+  }
+
+  public void setSemesterId(String semesterId) {
+    this.semesterId = semesterId;
+  }
+
+  // builder 开始
+  public Activity() {}
+
+  public Activity(Builder builder) {
     /**
-     * 绩效评估项目 ID
-     * <p> 示例值：6992035450862323244
+     * 项目
+     * ID，可通过[获取项目列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/activity/query)接口获取;
+     *
+     * <p>示例值：6992035450862323244
      */
-    @SerializedName("id")
+    this.id = builder.id;
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     */
+    this.name = builder.name;
+    /**
+     * 周期
+     * ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list);
+     *
+     * <p>示例值：6992035450862224940
+     */
+    this.semesterId = builder.semesterId;
+  }
+
+  public static class Builder {
+    /**
+     * 项目
+     * ID，可通过[获取项目列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/activity/query)接口获取;
+     *
+     * <p>示例值：6992035450862323244
+     */
     private String id;
+
     /**
-     * 绩效评估项目名称
-     * <p> 示例值：
+     * 周期名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
     private I18n name;
+
     /**
-     * 绩效评估周期 ID
-     * <p> 示例值：6992035450862224940
+     * 周期
+     * ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list);
+     *
+     * <p>示例值：6992035450862224940
      */
-    @SerializedName("semester_id")
     private String semesterId;
 
-    // builder 开始
-    public Activity() {
+    /**
+     * 项目
+     * ID，可通过[获取项目列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/activity/query)接口获取;
+     *
+     * <p>示例值：6992035450862323244
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Activity(Builder builder) {
-        /**
-         * 绩效评估项目 ID
-         * <p> 示例值：6992035450862323244
-         */
-        this.id = builder.id;
-        /**
-         * 绩效评估项目名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 绩效评估周期 ID
-         * <p> 示例值：6992035450862224940
-         */
-        this.semesterId = builder.semesterId;
+    /**
+     * 周期名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 周期
+     * ID，详情可查看：[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list);
+     *
+     * <p>示例值：6992035450862224940
+     *
+     * @param semesterId
+     * @return
+     */
+    public Builder semesterId(String semesterId) {
+      this.semesterId = semesterId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public Activity build() {
+      return new Activity(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public String getSemesterId() {
-        return this.semesterId;
-    }
-
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
-    }
-
-    public static class Builder {
-        /**
-         * 绩效评估项目 ID
-         * <p> 示例值：6992035450862323244
-         */
-        private String id;
-        /**
-         * 绩效评估项目名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 绩效评估周期 ID
-         * <p> 示例值：6992035450862224940
-         */
-        private String semesterId;
-
-        /**
-         * 绩效评估项目 ID
-         * <p> 示例值：6992035450862323244
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估项目名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 绩效评估周期 ID
-         * <p> 示例值：6992035450862224940
-         *
-         * @param semesterId
-         * @return
-         */
-        public Builder semesterId(String semesterId) {
-            this.semesterId = semesterId;
-            return this;
-        }
-
-
-        public Activity build() {
-            return new Activity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

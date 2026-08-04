@@ -13,235 +13,248 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TemplateAttachment {
+  /**
+   * 附件文件名
+   *
+   * <p>示例值：plan.xlsx
+   */
+  @SerializedName("filename")
+  private String filename;
+
+  /**
+   * 附件 id（Drive file_key，用于引用 Drive medias 上传接口返回的 file_key）
+   *
+   * <p>示例值：boxcnrHpsg1QDqXPrJXWPwbqsKh
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 附件类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("attachment_type")
+  private Integer attachmentType;
+
+  /**
+   * 是否为内联图片，true 表示是内联图片
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_inline")
+  private Boolean isInline;
+
+  /**
+   * 内容 ID，HTML 中通过 cid: 协议引用该图片
+   *
+   * <p>示例值：image1@example.com
+   */
+  @SerializedName("cid")
+  private String cid;
+
+  public String getFilename() {
+    return this.filename;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getAttachmentType() {
+    return this.attachmentType;
+  }
+
+  public void setAttachmentType(Integer attachmentType) {
+    this.attachmentType = attachmentType;
+  }
+
+  public Boolean getIsInline() {
+    return this.isInline;
+  }
+
+  public void setIsInline(Boolean isInline) {
+    this.isInline = isInline;
+  }
+
+  public String getCid() {
+    return this.cid;
+  }
+
+  public void setCid(String cid) {
+    this.cid = cid;
+  }
+
+  // builder 开始
+  public TemplateAttachment() {}
+
+  public TemplateAttachment(Builder builder) {
     /**
      * 附件文件名
-     * <p> 示例值：plan.xlsx
+     *
+     * <p>示例值：plan.xlsx
      */
-    @SerializedName("filename")
-    private String filename;
+    this.filename = builder.filename;
     /**
      * 附件 id（Drive file_key，用于引用 Drive medias 上传接口返回的 file_key）
-     * <p> 示例值：boxcnrHpsg1QDqXPrJXWPwbqsKh
+     *
+     * <p>示例值：boxcnrHpsg1QDqXPrJXWPwbqsKh
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 附件类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("attachment_type")
-    private Integer attachmentType;
+    this.attachmentType = builder.attachmentType;
     /**
      * 是否为内联图片，true 表示是内联图片
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_inline")
-    private Boolean isInline;
+    this.isInline = builder.isInline;
     /**
      * 内容 ID，HTML 中通过 cid: 协议引用该图片
-     * <p> 示例值：image1@example.com
+     *
+     * <p>示例值：image1@example.com
      */
-    @SerializedName("cid")
+    this.cid = builder.cid;
+  }
+
+  public static class Builder {
+    /**
+     * 附件文件名
+     *
+     * <p>示例值：plan.xlsx
+     */
+    private String filename;
+
+    /**
+     * 附件 id（Drive file_key，用于引用 Drive medias 上传接口返回的 file_key）
+     *
+     * <p>示例值：boxcnrHpsg1QDqXPrJXWPwbqsKh
+     */
+    private String id;
+
+    /**
+     * 附件类型
+     *
+     * <p>示例值：1
+     */
+    private Integer attachmentType;
+
+    /**
+     * 是否为内联图片，true 表示是内联图片
+     *
+     * <p>示例值：false
+     */
+    private Boolean isInline;
+
+    /**
+     * 内容 ID，HTML 中通过 cid: 协议引用该图片
+     *
+     * <p>示例值：image1@example.com
+     */
     private String cid;
 
-    // builder 开始
-    public TemplateAttachment() {
+    /**
+     * 附件文件名
+     *
+     * <p>示例值：plan.xlsx
+     *
+     * @param filename
+     * @return
+     */
+    public Builder filename(String filename) {
+      this.filename = filename;
+      return this;
     }
 
-    public TemplateAttachment(Builder builder) {
-        /**
-         * 附件文件名
-         * <p> 示例值：plan.xlsx
-         */
-        this.filename = builder.filename;
-        /**
-         * 附件 id（Drive file_key，用于引用 Drive medias 上传接口返回的 file_key）
-         * <p> 示例值：boxcnrHpsg1QDqXPrJXWPwbqsKh
-         */
-        this.id = builder.id;
-        /**
-         * 附件类型
-         * <p> 示例值：1
-         */
-        this.attachmentType = builder.attachmentType;
-        /**
-         * 是否为内联图片，true 表示是内联图片
-         * <p> 示例值：false
-         */
-        this.isInline = builder.isInline;
-        /**
-         * 内容 ID，HTML 中通过 cid: 协议引用该图片
-         * <p> 示例值：image1@example.com
-         */
-        this.cid = builder.cid;
+    /**
+     * 附件 id（Drive file_key，用于引用 Drive medias 上传接口返回的 file_key）
+     *
+     * <p>示例值：boxcnrHpsg1QDqXPrJXWPwbqsKh
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 附件类型
+     *
+     * <p>示例值：1
+     *
+     * @param attachmentType
+     * @return
+     */
+    public Builder attachmentType(Integer attachmentType) {
+      this.attachmentType = attachmentType;
+      return this;
     }
 
-    public String getFilename() {
-        return this.filename;
+    /**
+     * 附件类型
+     *
+     * <p>示例值：1
+     *
+     * @param attachmentType {@link
+     *     com.lark.oapi.service.mail.v1.enums.TemplateAttachmentAttachmentTypeEnum}
+     * @return
+     */
+    public Builder attachmentType(
+        com.lark.oapi.service.mail.v1.enums.TemplateAttachmentAttachmentTypeEnum attachmentType) {
+      this.attachmentType = attachmentType.getValue();
+      return this;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
+    /**
+     * 是否为内联图片，true 表示是内联图片
+     *
+     * <p>示例值：false
+     *
+     * @param isInline
+     * @return
+     */
+    public Builder isInline(Boolean isInline) {
+      this.isInline = isInline;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 内容 ID，HTML 中通过 cid: 协议引用该图片
+     *
+     * <p>示例值：image1@example.com
+     *
+     * @param cid
+     * @return
+     */
+    public Builder cid(String cid) {
+      this.cid = cid;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public TemplateAttachment build() {
+      return new TemplateAttachment(this);
     }
+  }
 
-    public Integer getAttachmentType() {
-        return this.attachmentType;
-    }
-
-    public void setAttachmentType(Integer attachmentType) {
-        this.attachmentType = attachmentType;
-    }
-
-    public Boolean getIsInline() {
-        return this.isInline;
-    }
-
-    public void setIsInline(Boolean isInline) {
-        this.isInline = isInline;
-    }
-
-    public String getCid() {
-        return this.cid;
-    }
-
-    public void setCid(String cid) {
-        this.cid = cid;
-    }
-
-    public static class Builder {
-        /**
-         * 附件文件名
-         * <p> 示例值：plan.xlsx
-         */
-        private String filename;
-        /**
-         * 附件 id（Drive file_key，用于引用 Drive medias 上传接口返回的 file_key）
-         * <p> 示例值：boxcnrHpsg1QDqXPrJXWPwbqsKh
-         */
-        private String id;
-        /**
-         * 附件类型
-         * <p> 示例值：1
-         */
-        private Integer attachmentType;
-        /**
-         * 是否为内联图片，true 表示是内联图片
-         * <p> 示例值：false
-         */
-        private Boolean isInline;
-        /**
-         * 内容 ID，HTML 中通过 cid: 协议引用该图片
-         * <p> 示例值：image1@example.com
-         */
-        private String cid;
-
-        /**
-         * 附件文件名
-         * <p> 示例值：plan.xlsx
-         *
-         * @param filename
-         * @return
-         */
-        public Builder filename(String filename) {
-            this.filename = filename;
-            return this;
-        }
-
-
-        /**
-         * 附件 id（Drive file_key，用于引用 Drive medias 上传接口返回的 file_key）
-         * <p> 示例值：boxcnrHpsg1QDqXPrJXWPwbqsKh
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 附件类型
-         * <p> 示例值：1
-         *
-         * @param attachmentType
-         * @return
-         */
-        public Builder attachmentType(Integer attachmentType) {
-            this.attachmentType = attachmentType;
-            return this;
-        }
-
-        /**
-         * 附件类型
-         * <p> 示例值：1
-         *
-         * @param attachmentType {@link com.lark.oapi.service.mail.v1.enums.TemplateAttachmentAttachmentTypeEnum}
-         * @return
-         */
-        public Builder attachmentType(com.lark.oapi.service.mail.v1.enums.TemplateAttachmentAttachmentTypeEnum attachmentType) {
-            this.attachmentType = attachmentType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 是否为内联图片，true 表示是内联图片
-         * <p> 示例值：false
-         *
-         * @param isInline
-         * @return
-         */
-        public Builder isInline(Boolean isInline) {
-            this.isInline = isInline;
-            return this;
-        }
-
-
-        /**
-         * 内容 ID，HTML 中通过 cid: 协议引用该图片
-         * <p> 示例值：image1@example.com
-         *
-         * @param cid
-         * @return
-         */
-        public Builder cid(String cid) {
-            this.cid = cid;
-            return this;
-        }
-
-
-        public TemplateAttachment build() {
-            return new TemplateAttachment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

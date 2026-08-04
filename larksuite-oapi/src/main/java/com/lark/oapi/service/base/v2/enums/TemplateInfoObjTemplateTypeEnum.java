@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.base.v2.enums;
 
-/**
- * 是否是模板
- */
+/** 是否是模板 */
 public enum TemplateInfoObjTemplateTypeEnum {
-    NORMAL(0), // 普通文档，非模板
-    PGC_TEMPLATE(1), // 官方模板
-    UGC_TEMPLATE(2), // 自定义模板
-    EGC_TEMPLATE(3), // 企业模板
-    ;
-    private Integer value;
+  NORMAL(0), // 普通文档，非模板
+  PGC_TEMPLATE(1), // 官方模板
+  UGC_TEMPLATE(2), // 自定义模板
+  EGC_TEMPLATE(3), // 企业模板
+  ;
+  private Integer value;
 
-    TemplateInfoObjTemplateTypeEnum(Integer value) {
-        this.value = value;
-    }
+  TemplateInfoObjTemplateTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

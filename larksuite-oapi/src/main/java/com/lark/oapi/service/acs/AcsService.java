@@ -25,69 +25,70 @@ import com.lark.oapi.service.acs.v1.resource.UserFace;
 import com.lark.oapi.service.acs.v1.resource.Visitor;
 
 public class AcsService {
-    private final V1 v1;
-    private final AccessRecord accessRecord; // 门禁记录
-    private final AccessRecordAccessPhoto accessRecordAccessPhoto; // access_record.access_photo
-    private final Device device; // 门禁设备
-    private final RuleExternal ruleExternal; // rule_external
-    private final User user; // 用户管理
-    private final UserFace userFace; // user.face
-    private final Visitor visitor; // visitor
+  private final V1 v1;
+  private final AccessRecord accessRecord; // access_record
+  private final AccessRecordAccessPhoto accessRecordAccessPhoto; // access_record.access_photo
+  private final Device device; // device
+  private final RuleExternal ruleExternal; // rule_external
+  private final User user; // user
+  private final UserFace userFace; // user.face
+  private final Visitor visitor; // visitor
 
-    public AcsService(Config config) {
-        this.v1 = new V1(config);
-        this.accessRecord = new AccessRecord(config);
-        this.accessRecordAccessPhoto = new AccessRecordAccessPhoto(config);
-        this.device = new Device(config);
-        this.ruleExternal = new RuleExternal(config);
-        this.user = new User(config);
-        this.userFace = new UserFace(config);
-        this.visitor = new Visitor(config);
-    }
+  public AcsService(Config config) {
+    this.v1 = new V1(config);
+    this.accessRecord = new AccessRecord(config);
+    this.accessRecordAccessPhoto = new AccessRecordAccessPhoto(config);
+    this.device = new Device(config);
+    this.ruleExternal = new RuleExternal(config);
+    this.user = new User(config);
+    this.userFace = new UserFace(config);
+    this.visitor = new Visitor(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public AccessRecord accessRecord() {
-        return accessRecord;
-    }
+  public AccessRecord accessRecord() {
+    return accessRecord;
+  }
 
-    public AccessRecordAccessPhoto accessRecordAccessPhoto() {
-        return accessRecordAccessPhoto;
-    }
+  public AccessRecordAccessPhoto accessRecordAccessPhoto() {
+    return accessRecordAccessPhoto;
+  }
 
-    public Device device() {
-        return device;
-    }
+  public Device device() {
+    return device;
+  }
 
-    public RuleExternal ruleExternal() {
-        return ruleExternal;
-    }
+  public RuleExternal ruleExternal() {
+    return ruleExternal;
+  }
 
-    public User user() {
-        return user;
-    }
+  public User user() {
+    return user;
+  }
 
-    public UserFace userFace() {
-        return userFace;
-    }
+  public UserFace userFace() {
+    return userFace;
+  }
 
-    public Visitor visitor() {
-        return visitor;
-    }
+  public Visitor visitor() {
+    return visitor;
+  }
 
-    public abstract static class P2AccessRecordCreatedV1Handler implements IEventHandler<P2AccessRecordCreatedV1> {
-        @Override
-        public P2AccessRecordCreatedV1 getEvent() {
-            return new P2AccessRecordCreatedV1();
-        }
+  public abstract static class P2AccessRecordCreatedV1Handler
+      implements IEventHandler<P2AccessRecordCreatedV1> {
+    @Override
+    public P2AccessRecordCreatedV1 getEvent() {
+      return new P2AccessRecordCreatedV1();
     }
+  }
 
-    public abstract static class P2UserUpdatedV1Handler implements IEventHandler<P2UserUpdatedV1> {
-        @Override
-        public P2UserUpdatedV1 getEvent() {
-            return new P2UserUpdatedV1();
-        }
+  public abstract static class P2UserUpdatedV1Handler implements IEventHandler<P2UserUpdatedV1> {
+    @Override
+    public P2UserUpdatedV1 getEvent() {
+      return new P2UserUpdatedV1();
     }
+  }
 }

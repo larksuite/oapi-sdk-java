@@ -13,21 +13,21 @@
 
 package com.lark.oapi.service.corehr.v2.enums;
 
-/**
- * 此次调用中使用的部门 ID 类型
- */
+/** 此次调用中使用的部门 ID 类型 */
 public enum BatchEmployeesAdditionalJobBatchEmployeesAdditionalJobDepartmentIDTypeEnum {
-    OPEN_DEPARTMENT_ID("open_department_id"), // 以 open_department_id 来标识部门
-    DEPARTMENT_ID("department_id"), // 以 department_id 来标识部门
-    PEOPLE_COREHR_DEPARTMENT_ID("people_corehr_department_id"), // 以 people_corehr_department_id 来标识部门
-    ;
-    private String value;
+  OPEN_DEPARTMENT_ID(
+      "open_department_id"), // 【飞书】用来在具体某个应用中标识一个部门，同一个 department_id 在不同应用中的 open_department_id
+  // 相同。
+  DEPARTMENT_ID("department_id"), // 【飞书】用来标识租户内一个唯一的部门。
+  PEOPLE_COREHR_DEPARTMENT_ID("people_corehr_department_id"), // 【飞书人事】用来标识「飞书人事」中的部门。
+  ;
+  private String value;
 
-    BatchEmployeesAdditionalJobBatchEmployeesAdditionalJobDepartmentIDTypeEnum(String value) {
-        this.value = value;
-    }
+  BatchEmployeesAdditionalJobBatchEmployeesAdditionalJobDepartmentIDTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

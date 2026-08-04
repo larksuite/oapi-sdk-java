@@ -13,408 +13,443 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Meta {
+  /**
+   * 文件的 token
+   *
+   * <p>示例值：doccnfYZzTlvXqZIGTdAHKabcef
+   */
+  @SerializedName("doc_token")
+  private String docToken;
+
+  /**
+   * 文件的类型
+   *
+   * <p>示例值：doc
+   */
+  @SerializedName("doc_type")
+  private String docType;
+
+  /**
+   * 标题
+   *
+   * <p>示例值：sampletitle
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 文件的所有者
+   *
+   * <p>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  /**
+   * 创建时间。UNIX 时间戳，单位为秒
+   *
+   * <p>示例值：1652066345
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 最后编辑者
+   *
+   * <p>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+   */
+  @SerializedName("latest_modify_user")
+  private String latestModifyUser;
+
+  /**
+   * 最后编辑时间。UNIX 时间戳，单位为秒
+   *
+   * <p>示例值：1652066345
+   */
+  @SerializedName("latest_modify_time")
+  private String latestModifyTime;
+
+  /**
+   * 文档访问链接
+   *
+   * <p>示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 文档密级标签名称
+   *
+   * <p>示例值：L2-内部
+   */
+  @SerializedName("sec_label_name")
+  private String secLabelName;
+
+  /**
+   * 用于回显入参(requst_doc_info中的字段信息即为为请求体中的request_docs字段信息)，如果入参中有相同token时无效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("request_doc_info")
+  private RequestDoc requestDocInfo;
+
+  public String getDocToken() {
+    return this.docToken;
+  }
+
+  public void setDocToken(String docToken) {
+    this.docToken = docToken;
+  }
+
+  public String getDocType() {
+    return this.docType;
+  }
+
+  public void setDocType(String docType) {
+    this.docType = docType;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getLatestModifyUser() {
+    return this.latestModifyUser;
+  }
+
+  public void setLatestModifyUser(String latestModifyUser) {
+    this.latestModifyUser = latestModifyUser;
+  }
+
+  public String getLatestModifyTime() {
+    return this.latestModifyTime;
+  }
+
+  public void setLatestModifyTime(String latestModifyTime) {
+    this.latestModifyTime = latestModifyTime;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String getSecLabelName() {
+    return this.secLabelName;
+  }
+
+  public void setSecLabelName(String secLabelName) {
+    this.secLabelName = secLabelName;
+  }
+
+  public RequestDoc getRequestDocInfo() {
+    return this.requestDocInfo;
+  }
+
+  public void setRequestDocInfo(RequestDoc requestDocInfo) {
+    this.requestDocInfo = requestDocInfo;
+  }
+
+  // builder 开始
+  public Meta() {}
+
+  public Meta(Builder builder) {
     /**
-     * 文件token
-     * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
+     * 文件的 token
+     *
+     * <p>示例值：doccnfYZzTlvXqZIGTdAHKabcef
      */
-    @SerializedName("doc_token")
-    private String docToken;
+    this.docToken = builder.docToken;
     /**
-     * 文件类型
-     * <p> 示例值：doc
+     * 文件的类型
+     *
+     * <p>示例值：doc
      */
-    @SerializedName("doc_type")
-    private String docType;
+    this.docType = builder.docType;
     /**
      * 标题
-     * <p> 示例值：sampletitle
+     *
+     * <p>示例值：sampletitle
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
-     * 文件所有者
-     * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     * 文件的所有者
+     *
+     * <p>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
      */
-    @SerializedName("owner_id")
-    private String ownerId;
+    this.ownerId = builder.ownerId;
     /**
-     * 创建时间（Unix时间戳）
-     * <p> 示例值：1652066345
+     * 创建时间。UNIX 时间戳，单位为秒
+     *
+     * <p>示例值：1652066345
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 最后编辑者
-     * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     *
+     * <p>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
      */
-    @SerializedName("latest_modify_user")
-    private String latestModifyUser;
+    this.latestModifyUser = builder.latestModifyUser;
     /**
-     * 最后编辑时间（Unix时间戳）
-     * <p> 示例值：1652066345
+     * 最后编辑时间。UNIX 时间戳，单位为秒
+     *
+     * <p>示例值：1652066345
      */
-    @SerializedName("latest_modify_time")
-    private String latestModifyTime;
+    this.latestModifyTime = builder.latestModifyTime;
     /**
-     * 文档链接
-     * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+     * 文档访问链接
+     *
+     * <p>示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
      */
-    @SerializedName("url")
-    private String url;
+    this.url = builder.url;
     /**
      * 文档密级标签名称
-     * <p> 示例值：L2-内部
+     *
+     * <p>示例值：L2-内部
      */
-    @SerializedName("sec_label_name")
-    private String secLabelName;
+    this.secLabelName = builder.secLabelName;
     /**
-     * 请求的request_doc
-     * <p> 示例值：
+     * 用于回显入参(requst_doc_info中的字段信息即为为请求体中的request_docs字段信息)，如果入参中有相同token时无效
+     *
+     * <p>示例值：
      */
-    @SerializedName("request_doc_info")
+    this.requestDocInfo = builder.requestDocInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 文件的 token
+     *
+     * <p>示例值：doccnfYZzTlvXqZIGTdAHKabcef
+     */
+    private String docToken;
+
+    /**
+     * 文件的类型
+     *
+     * <p>示例值：doc
+     */
+    private String docType;
+
+    /**
+     * 标题
+     *
+     * <p>示例值：sampletitle
+     */
+    private String title;
+
+    /**
+     * 文件的所有者
+     *
+     * <p>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     */
+    private String ownerId;
+
+    /**
+     * 创建时间。UNIX 时间戳，单位为秒
+     *
+     * <p>示例值：1652066345
+     */
+    private String createTime;
+
+    /**
+     * 最后编辑者
+     *
+     * <p>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     */
+    private String latestModifyUser;
+
+    /**
+     * 最后编辑时间。UNIX 时间戳，单位为秒
+     *
+     * <p>示例值：1652066345
+     */
+    private String latestModifyTime;
+
+    /**
+     * 文档访问链接
+     *
+     * <p>示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+     */
+    private String url;
+
+    /**
+     * 文档密级标签名称
+     *
+     * <p>示例值：L2-内部
+     */
+    private String secLabelName;
+
+    /**
+     * 用于回显入参(requst_doc_info中的字段信息即为为请求体中的request_docs字段信息)，如果入参中有相同token时无效
+     *
+     * <p>示例值：
+     */
     private RequestDoc requestDocInfo;
 
-    // builder 开始
-    public Meta() {
+    /**
+     * 文件的 token
+     *
+     * <p>示例值：doccnfYZzTlvXqZIGTdAHKabcef
+     *
+     * @param docToken
+     * @return
+     */
+    public Builder docToken(String docToken) {
+      this.docToken = docToken;
+      return this;
     }
 
-    public Meta(Builder builder) {
-        /**
-         * 文件token
-         * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
-         */
-        this.docToken = builder.docToken;
-        /**
-         * 文件类型
-         * <p> 示例值：doc
-         */
-        this.docType = builder.docType;
-        /**
-         * 标题
-         * <p> 示例值：sampletitle
-         */
-        this.title = builder.title;
-        /**
-         * 文件所有者
-         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 创建时间（Unix时间戳）
-         * <p> 示例值：1652066345
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 最后编辑者
-         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-         */
-        this.latestModifyUser = builder.latestModifyUser;
-        /**
-         * 最后编辑时间（Unix时间戳）
-         * <p> 示例值：1652066345
-         */
-        this.latestModifyTime = builder.latestModifyTime;
-        /**
-         * 文档链接
-         * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
-         */
-        this.url = builder.url;
-        /**
-         * 文档密级标签名称
-         * <p> 示例值：L2-内部
-         */
-        this.secLabelName = builder.secLabelName;
-        /**
-         * 请求的request_doc
-         * <p> 示例值：
-         */
-        this.requestDocInfo = builder.requestDocInfo;
+    /**
+     * 文件的类型
+     *
+     * <p>示例值：doc
+     *
+     * @param docType
+     * @return
+     */
+    public Builder docType(String docType) {
+      this.docType = docType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 标题
+     *
+     * <p>示例值：sampletitle
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public String getDocToken() {
-        return this.docToken;
+    /**
+     * 文件的所有者
+     *
+     * <p>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public void setDocToken(String docToken) {
-        this.docToken = docToken;
+    /**
+     * 创建时间。UNIX 时间戳，单位为秒
+     *
+     * <p>示例值：1652066345
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getDocType() {
-        return this.docType;
+    /**
+     * 最后编辑者
+     *
+     * <p>示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
+     *
+     * @param latestModifyUser
+     * @return
+     */
+    public Builder latestModifyUser(String latestModifyUser) {
+      this.latestModifyUser = latestModifyUser;
+      return this;
     }
 
-    public void setDocType(String docType) {
-        this.docType = docType;
+    /**
+     * 最后编辑时间。UNIX 时间戳，单位为秒
+     *
+     * <p>示例值：1652066345
+     *
+     * @param latestModifyTime
+     * @return
+     */
+    public Builder latestModifyTime(String latestModifyTime) {
+      this.latestModifyTime = latestModifyTime;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 文档访问链接
+     *
+     * <p>示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 文档密级标签名称
+     *
+     * <p>示例值：L2-内部
+     *
+     * @param secLabelName
+     * @return
+     */
+    public Builder secLabelName(String secLabelName) {
+      this.secLabelName = secLabelName;
+      return this;
     }
 
-    public String getOwnerId() {
-        return this.ownerId;
+    /**
+     * 用于回显入参(requst_doc_info中的字段信息即为为请求体中的request_docs字段信息)，如果入参中有相同token时无效
+     *
+     * <p>示例值：
+     *
+     * @param requestDocInfo
+     * @return
+     */
+    public Builder requestDocInfo(RequestDoc requestDocInfo) {
+      this.requestDocInfo = requestDocInfo;
+      return this;
     }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
+    public Meta build() {
+      return new Meta(this);
     }
+  }
 
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getLatestModifyUser() {
-        return this.latestModifyUser;
-    }
-
-    public void setLatestModifyUser(String latestModifyUser) {
-        this.latestModifyUser = latestModifyUser;
-    }
-
-    public String getLatestModifyTime() {
-        return this.latestModifyTime;
-    }
-
-    public void setLatestModifyTime(String latestModifyTime) {
-        this.latestModifyTime = latestModifyTime;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getSecLabelName() {
-        return this.secLabelName;
-    }
-
-    public void setSecLabelName(String secLabelName) {
-        this.secLabelName = secLabelName;
-    }
-
-    public RequestDoc getRequestDocInfo() {
-        return this.requestDocInfo;
-    }
-
-    public void setRequestDocInfo(RequestDoc requestDocInfo) {
-        this.requestDocInfo = requestDocInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 文件token
-         * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
-         */
-        private String docToken;
-        /**
-         * 文件类型
-         * <p> 示例值：doc
-         */
-        private String docType;
-        /**
-         * 标题
-         * <p> 示例值：sampletitle
-         */
-        private String title;
-        /**
-         * 文件所有者
-         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-         */
-        private String ownerId;
-        /**
-         * 创建时间（Unix时间戳）
-         * <p> 示例值：1652066345
-         */
-        private String createTime;
-        /**
-         * 最后编辑者
-         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-         */
-        private String latestModifyUser;
-        /**
-         * 最后编辑时间（Unix时间戳）
-         * <p> 示例值：1652066345
-         */
-        private String latestModifyTime;
-        /**
-         * 文档链接
-         * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
-         */
-        private String url;
-        /**
-         * 文档密级标签名称
-         * <p> 示例值：L2-内部
-         */
-        private String secLabelName;
-        /**
-         * 请求的request_doc
-         * <p> 示例值：
-         */
-        private RequestDoc requestDocInfo;
-
-        /**
-         * 文件token
-         * <p> 示例值：doccnfYZzTlvXqZIGTdAHKabcef
-         *
-         * @param docToken
-         * @return
-         */
-        public Builder docToken(String docToken) {
-            this.docToken = docToken;
-            return this;
-        }
-
-
-        /**
-         * 文件类型
-         * <p> 示例值：doc
-         *
-         * @param docType
-         * @return
-         */
-        public Builder docType(String docType) {
-            this.docType = docType;
-            return this;
-        }
-
-
-        /**
-         * 标题
-         * <p> 示例值：sampletitle
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 文件所有者
-         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        /**
-         * 创建时间（Unix时间戳）
-         * <p> 示例值：1652066345
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 最后编辑者
-         * <p> 示例值：ou_b13d41c02edc52ce66aaae67bf1abcef
-         *
-         * @param latestModifyUser
-         * @return
-         */
-        public Builder latestModifyUser(String latestModifyUser) {
-            this.latestModifyUser = latestModifyUser;
-            return this;
-        }
-
-
-        /**
-         * 最后编辑时间（Unix时间戳）
-         * <p> 示例值：1652066345
-         *
-         * @param latestModifyTime
-         * @return
-         */
-        public Builder latestModifyTime(String latestModifyTime) {
-            this.latestModifyTime = latestModifyTime;
-            return this;
-        }
-
-
-        /**
-         * 文档链接
-         * <p> 示例值：https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 文档密级标签名称
-         * <p> 示例值：L2-内部
-         *
-         * @param secLabelName
-         * @return
-         */
-        public Builder secLabelName(String secLabelName) {
-            this.secLabelName = secLabelName;
-            return this;
-        }
-
-
-        /**
-         * 请求的request_doc
-         * <p> 示例值：
-         *
-         * @param requestDocInfo
-         * @return
-         */
-        public Builder requestDocInfo(RequestDoc requestDocInfo) {
-            this.requestDocInfo = requestDocInfo;
-            return this;
-        }
-
-
-        public Meta build() {
-            return new Meta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,420 +13,457 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobChange {
+  /**
+   * 异动记录 id
+   *
+   * <p>示例值：6991776076699549697
+   */
+  @SerializedName("job_change_id")
+  private String jobChangeId;
+
+  /**
+   * 雇员 id
+   *
+   * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 异动状态
+   *
+   * <p>示例值：4
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 异动类型唯一标识
+   *
+   * <p>示例值：direct_leader_change
+   */
+  @SerializedName("transfer_type_unique_identifier")
+  private String transferTypeUniqueIdentifier;
+
+  /**
+   * 异动原因唯一标识
+   *
+   * <p>示例值：involuntary_transfer
+   */
+  @SerializedName("transfer_reason_unique_identifier")
+  private String transferReasonUniqueIdentifier;
+
+  /**
+   * 异动发起后审批流程 id
+   *
+   * <p>示例值：6991776078461142564
+   */
+  @SerializedName("process_id")
+  private String processId;
+
+  /**
+   * 异动生效日期
+   *
+   * <p>示例值：2022-03-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1627899724000
+   */
+  @SerializedName("created_time")
+  private String createdTime;
+
+  /**
+   * 更新时间
+   *
+   * <p>示例值：1647434443000
+   */
+  @SerializedName("updated_time")
+  private String updatedTime;
+
+  /**
+   * 异动详细信息，以下参数如不传，无默认值，代表对应数据无异动
+   *
+   * <p>示例值：
+   */
+  @SerializedName("transfer_info")
+  private TransferInfo transferInfo;
+
+  public String getJobChangeId() {
+    return this.jobChangeId;
+  }
+
+  public void setJobChangeId(String jobChangeId) {
+    this.jobChangeId = jobChangeId;
+  }
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getTransferTypeUniqueIdentifier() {
+    return this.transferTypeUniqueIdentifier;
+  }
+
+  public void setTransferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
+    this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+  }
+
+  public String getTransferReasonUniqueIdentifier() {
+    return this.transferReasonUniqueIdentifier;
+  }
+
+  public void setTransferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
+    this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+  }
+
+  public String getProcessId() {
+    return this.processId;
+  }
+
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public String getCreatedTime() {
+    return this.createdTime;
+  }
+
+  public void setCreatedTime(String createdTime) {
+    this.createdTime = createdTime;
+  }
+
+  public String getUpdatedTime() {
+    return this.updatedTime;
+  }
+
+  public void setUpdatedTime(String updatedTime) {
+    this.updatedTime = updatedTime;
+  }
+
+  public TransferInfo getTransferInfo() {
+    return this.transferInfo;
+  }
+
+  public void setTransferInfo(TransferInfo transferInfo) {
+    this.transferInfo = transferInfo;
+  }
+
+  // builder 开始
+  public JobChange() {}
+
+  public JobChange(Builder builder) {
     /**
      * 异动记录 id
-     * <p> 示例值：6991776076699549697
+     *
+     * <p>示例值：6991776076699549697
      */
-    @SerializedName("job_change_id")
-    private String jobChangeId;
+    this.jobChangeId = builder.jobChangeId;
     /**
      * 雇员 id
-     * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     *
+     * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 异动状态
-     * <p> 示例值：4
+     *
+     * <p>示例值：4
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 异动类型唯一标识
-     * <p> 示例值：direct_leader_change
+     *
+     * <p>示例值：direct_leader_change
      */
-    @SerializedName("transfer_type_unique_identifier")
-    private String transferTypeUniqueIdentifier;
+    this.transferTypeUniqueIdentifier = builder.transferTypeUniqueIdentifier;
     /**
      * 异动原因唯一标识
-     * <p> 示例值：involuntary_transfer
+     *
+     * <p>示例值：involuntary_transfer
      */
-    @SerializedName("transfer_reason_unique_identifier")
-    private String transferReasonUniqueIdentifier;
+    this.transferReasonUniqueIdentifier = builder.transferReasonUniqueIdentifier;
     /**
      * 异动发起后审批流程 id
-     * <p> 示例值：6991776078461142564
+     *
+     * <p>示例值：6991776078461142564
      */
-    @SerializedName("process_id")
-    private String processId;
+    this.processId = builder.processId;
     /**
      * 异动生效日期
-     * <p> 示例值：2022-03-01
+     *
+     * <p>示例值：2022-03-01
      */
-    @SerializedName("effective_date")
-    private String effectiveDate;
+    this.effectiveDate = builder.effectiveDate;
     /**
      * 创建时间
-     * <p> 示例值：1627899724000
+     *
+     * <p>示例值：1627899724000
      */
-    @SerializedName("created_time")
-    private String createdTime;
+    this.createdTime = builder.createdTime;
     /**
      * 更新时间
-     * <p> 示例值：1647434443000
+     *
+     * <p>示例值：1647434443000
      */
-    @SerializedName("updated_time")
-    private String updatedTime;
+    this.updatedTime = builder.updatedTime;
     /**
-     * 异动详细信息
-     * <p> 示例值：
+     * 异动详细信息，以下参数如不传，无默认值，代表对应数据无异动
+     *
+     * <p>示例值：
      */
-    @SerializedName("transfer_info")
+    this.transferInfo = builder.transferInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 异动记录 id
+     *
+     * <p>示例值：6991776076699549697
+     */
+    private String jobChangeId;
+
+    /**
+     * 雇员 id
+     *
+     * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     */
+    private String employmentId;
+
+    /**
+     * 异动状态
+     *
+     * <p>示例值：4
+     */
+    private Integer status;
+
+    /**
+     * 异动类型唯一标识
+     *
+     * <p>示例值：direct_leader_change
+     */
+    private String transferTypeUniqueIdentifier;
+
+    /**
+     * 异动原因唯一标识
+     *
+     * <p>示例值：involuntary_transfer
+     */
+    private String transferReasonUniqueIdentifier;
+
+    /**
+     * 异动发起后审批流程 id
+     *
+     * <p>示例值：6991776078461142564
+     */
+    private String processId;
+
+    /**
+     * 异动生效日期
+     *
+     * <p>示例值：2022-03-01
+     */
+    private String effectiveDate;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1627899724000
+     */
+    private String createdTime;
+
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1647434443000
+     */
+    private String updatedTime;
+
+    /**
+     * 异动详细信息，以下参数如不传，无默认值，代表对应数据无异动
+     *
+     * <p>示例值：
+     */
     private TransferInfo transferInfo;
 
-    // builder 开始
-    public JobChange() {
+    /**
+     * 异动记录 id
+     *
+     * <p>示例值：6991776076699549697
+     *
+     * @param jobChangeId
+     * @return
+     */
+    public Builder jobChangeId(String jobChangeId) {
+      this.jobChangeId = jobChangeId;
+      return this;
     }
 
-    public JobChange(Builder builder) {
-        /**
-         * 异动记录 id
-         * <p> 示例值：6991776076699549697
-         */
-        this.jobChangeId = builder.jobChangeId;
-        /**
-         * 雇员 id
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 异动状态
-         * <p> 示例值：4
-         */
-        this.status = builder.status;
-        /**
-         * 异动类型唯一标识
-         * <p> 示例值：direct_leader_change
-         */
-        this.transferTypeUniqueIdentifier = builder.transferTypeUniqueIdentifier;
-        /**
-         * 异动原因唯一标识
-         * <p> 示例值：involuntary_transfer
-         */
-        this.transferReasonUniqueIdentifier = builder.transferReasonUniqueIdentifier;
-        /**
-         * 异动发起后审批流程 id
-         * <p> 示例值：6991776078461142564
-         */
-        this.processId = builder.processId;
-        /**
-         * 异动生效日期
-         * <p> 示例值：2022-03-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 创建时间
-         * <p> 示例值：1627899724000
-         */
-        this.createdTime = builder.createdTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1647434443000
-         */
-        this.updatedTime = builder.updatedTime;
-        /**
-         * 异动详细信息
-         * <p> 示例值：
-         */
-        this.transferInfo = builder.transferInfo;
+    /**
+     * 雇员 id
+     *
+     * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 异动状态
+     *
+     * <p>示例值：4
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public String getJobChangeId() {
-        return this.jobChangeId;
+    /**
+     * 异动状态
+     *
+     * <p>示例值：4
+     *
+     * @param status {@link com.lark.oapi.service.corehr.v1.enums.JobChangeJobChangeStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.corehr.v1.enums.JobChangeJobChangeStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public void setJobChangeId(String jobChangeId) {
-        this.jobChangeId = jobChangeId;
+    /**
+     * 异动类型唯一标识
+     *
+     * <p>示例值：direct_leader_change
+     *
+     * @param transferTypeUniqueIdentifier
+     * @return
+     */
+    public Builder transferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
+      this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 异动原因唯一标识
+     *
+     * <p>示例值：involuntary_transfer
+     *
+     * @param transferReasonUniqueIdentifier
+     * @return
+     */
+    public Builder transferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
+      this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    /**
+     * 异动发起后审批流程 id
+     *
+     * <p>示例值：6991776078461142564
+     *
+     * @param processId
+     * @return
+     */
+    public Builder processId(String processId) {
+      this.processId = processId;
+      return this;
     }
 
-    public Integer getStatus() {
-        return this.status;
+    /**
+     * 异动生效日期
+     *
+     * <p>示例值：2022-03-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1627899724000
+     *
+     * @param createdTime
+     * @return
+     */
+    public Builder createdTime(String createdTime) {
+      this.createdTime = createdTime;
+      return this;
     }
 
-    public String getTransferTypeUniqueIdentifier() {
-        return this.transferTypeUniqueIdentifier;
+    /**
+     * 更新时间
+     *
+     * <p>示例值：1647434443000
+     *
+     * @param updatedTime
+     * @return
+     */
+    public Builder updatedTime(String updatedTime) {
+      this.updatedTime = updatedTime;
+      return this;
     }
 
-    public void setTransferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
-        this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+    /**
+     * 异动详细信息，以下参数如不传，无默认值，代表对应数据无异动
+     *
+     * <p>示例值：
+     *
+     * @param transferInfo
+     * @return
+     */
+    public Builder transferInfo(TransferInfo transferInfo) {
+      this.transferInfo = transferInfo;
+      return this;
     }
 
-    public String getTransferReasonUniqueIdentifier() {
-        return this.transferReasonUniqueIdentifier;
+    public JobChange build() {
+      return new JobChange(this);
     }
+  }
 
-    public void setTransferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
-        this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
-    }
-
-    public String getProcessId() {
-        return this.processId;
-    }
-
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
-
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
-
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
-
-    public String getCreatedTime() {
-        return this.createdTime;
-    }
-
-    public void setCreatedTime(String createdTime) {
-        this.createdTime = createdTime;
-    }
-
-    public String getUpdatedTime() {
-        return this.updatedTime;
-    }
-
-    public void setUpdatedTime(String updatedTime) {
-        this.updatedTime = updatedTime;
-    }
-
-    public TransferInfo getTransferInfo() {
-        return this.transferInfo;
-    }
-
-    public void setTransferInfo(TransferInfo transferInfo) {
-        this.transferInfo = transferInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 异动记录 id
-         * <p> 示例值：6991776076699549697
-         */
-        private String jobChangeId;
-        /**
-         * 雇员 id
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-         */
-        private String employmentId;
-        /**
-         * 异动状态
-         * <p> 示例值：4
-         */
-        private Integer status;
-        /**
-         * 异动类型唯一标识
-         * <p> 示例值：direct_leader_change
-         */
-        private String transferTypeUniqueIdentifier;
-        /**
-         * 异动原因唯一标识
-         * <p> 示例值：involuntary_transfer
-         */
-        private String transferReasonUniqueIdentifier;
-        /**
-         * 异动发起后审批流程 id
-         * <p> 示例值：6991776078461142564
-         */
-        private String processId;
-        /**
-         * 异动生效日期
-         * <p> 示例值：2022-03-01
-         */
-        private String effectiveDate;
-        /**
-         * 创建时间
-         * <p> 示例值：1627899724000
-         */
-        private String createdTime;
-        /**
-         * 更新时间
-         * <p> 示例值：1647434443000
-         */
-        private String updatedTime;
-        /**
-         * 异动详细信息
-         * <p> 示例值：
-         */
-        private TransferInfo transferInfo;
-
-        /**
-         * 异动记录 id
-         * <p> 示例值：6991776076699549697
-         *
-         * @param jobChangeId
-         * @return
-         */
-        public Builder jobChangeId(String jobChangeId) {
-            this.jobChangeId = jobChangeId;
-            return this;
-        }
-
-
-        /**
-         * 雇员 id
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 异动状态
-         * <p> 示例值：4
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 异动状态
-         * <p> 示例值：4
-         *
-         * @param status {@link com.lark.oapi.service.corehr.v1.enums.JobChangeJobChangeStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.corehr.v1.enums.JobChangeJobChangeStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        /**
-         * 异动类型唯一标识
-         * <p> 示例值：direct_leader_change
-         *
-         * @param transferTypeUniqueIdentifier
-         * @return
-         */
-        public Builder transferTypeUniqueIdentifier(String transferTypeUniqueIdentifier) {
-            this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
-            return this;
-        }
-
-
-        /**
-         * 异动原因唯一标识
-         * <p> 示例值：involuntary_transfer
-         *
-         * @param transferReasonUniqueIdentifier
-         * @return
-         */
-        public Builder transferReasonUniqueIdentifier(String transferReasonUniqueIdentifier) {
-            this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
-            return this;
-        }
-
-
-        /**
-         * 异动发起后审批流程 id
-         * <p> 示例值：6991776078461142564
-         *
-         * @param processId
-         * @return
-         */
-        public Builder processId(String processId) {
-            this.processId = processId;
-            return this;
-        }
-
-
-        /**
-         * 异动生效日期
-         * <p> 示例值：2022-03-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1627899724000
-         *
-         * @param createdTime
-         * @return
-         */
-        public Builder createdTime(String createdTime) {
-            this.createdTime = createdTime;
-            return this;
-        }
-
-
-        /**
-         * 更新时间
-         * <p> 示例值：1647434443000
-         *
-         * @param updatedTime
-         * @return
-         */
-        public Builder updatedTime(String updatedTime) {
-            this.updatedTime = updatedTime;
-            return this;
-        }
-
-
-        /**
-         * 异动详细信息
-         * <p> 示例值：
-         *
-         * @param transferInfo
-         * @return
-         */
-        public Builder transferInfo(TransferInfo transferInfo) {
-            this.transferInfo = transferInfo;
-            return this;
-        }
-
-
-        public JobChange build() {
-            return new JobChange(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

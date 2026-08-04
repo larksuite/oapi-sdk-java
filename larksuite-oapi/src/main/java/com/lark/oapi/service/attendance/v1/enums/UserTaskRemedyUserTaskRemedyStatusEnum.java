@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 补卡状态（默认为审批中）
- */
+/** 补卡状态 */
 public enum UserTaskRemedyUserTaskRemedyStatusEnum {
-    PENDING(0), // 待审批
-    REJECTED(1), // 未通过
-    PASS(2), // 已通过
-    CANCEL(3), // 已取消
-    WITHDRAW(4), // 已撤回
-    ;
-    private Integer value;
+  PENDING(0), // 审批中
+  REJECTED(1), // 未通过
+  PASS(2), // 已通过
+  CANCEL(3), // 已取消
+  WITHDRAW(4), // 通过后撤回
+  ;
+  private Integer value;
 
-    UserTaskRemedyUserTaskRemedyStatusEnum(Integer value) {
-        this.value = value;
-    }
+  UserTaskRemedyUserTaskRemedyStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

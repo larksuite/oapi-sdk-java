@@ -13,371 +13,401 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UnReadUrgentMessage {
+  /**
+   * id
+   *
+   * <p>示例值：7220315920974954516
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 消息id
+   *
+   * <p>示例值：om_dc13264520392913993dd051dba21dcf
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 加急接受者id
+   *
+   * <p>示例值：ou_61c3751f5c2ba7f57aa14885a6512c02
+   */
+  @SerializedName("chatter_id")
+  private String chatterId;
+
+  /**
+   * 加急状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 确定时间
+   *
+   * <p>示例值：1704038400000
+   */
+  @SerializedName("confirm_time")
+  private String confirmTime;
+
+  /**
+   * 加急时间
+   *
+   * <p>示例值：1704038400000
+   */
+  @SerializedName("send_time")
+  private String sendTime;
+
+  /**
+   * 加急类型
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * 消息发送者
+   *
+   * <p>示例值：ou_a0553eda9014c201e6969b478895c230
+   */
+  @SerializedName("from_id")
+  private String fromId;
+
+  /**
+   * 群组id
+   *
+   * <p>示例值：oc_a0553eda9014c201e6969b478895c2343
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public String getChatterId() {
+    return this.chatterId;
+  }
+
+  public void setChatterId(String chatterId) {
+    this.chatterId = chatterId;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getConfirmTime() {
+    return this.confirmTime;
+  }
+
+  public void setConfirmTime(String confirmTime) {
+    this.confirmTime = confirmTime;
+  }
+
+  public String getSendTime() {
+    return this.sendTime;
+  }
+
+  public void setSendTime(String sendTime) {
+    this.sendTime = sendTime;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public String getFromId() {
+    return this.fromId;
+  }
+
+  public void setFromId(String fromId) {
+    this.fromId = fromId;
+  }
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  // builder 开始
+  public UnReadUrgentMessage() {}
+
+  public UnReadUrgentMessage(Builder builder) {
     /**
      * id
-     * <p> 示例值：7220315920974954516
+     *
+     * <p>示例值：7220315920974954516
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 消息id
-     * <p> 示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
      * 加急接受者id
-     * <p> 示例值：ou_61c3751f5c2ba7f57aa14885a6512c02
+     *
+     * <p>示例值：ou_61c3751f5c2ba7f57aa14885a6512c02
      */
-    @SerializedName("chatter_id")
-    private String chatterId;
+    this.chatterId = builder.chatterId;
     /**
      * 加急状态
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 确定时间
-     * <p> 示例值：1704038400000
+     *
+     * <p>示例值：1704038400000
      */
-    @SerializedName("confirm_time")
-    private String confirmTime;
+    this.confirmTime = builder.confirmTime;
     /**
      * 加急时间
-     * <p> 示例值：1704038400000
+     *
+     * <p>示例值：1704038400000
      */
-    @SerializedName("send_time")
-    private String sendTime;
+    this.sendTime = builder.sendTime;
     /**
      * 加急类型
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
      * 消息发送者
-     * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
+     *
+     * <p>示例值：ou_a0553eda9014c201e6969b478895c230
      */
-    @SerializedName("from_id")
-    private String fromId;
+    this.fromId = builder.fromId;
     /**
      * 群组id
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c2343
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c2343
      */
-    @SerializedName("chat_id")
+    this.chatId = builder.chatId;
+  }
+
+  public static class Builder {
+    /**
+     * id
+     *
+     * <p>示例值：7220315920974954516
+     */
+    private String id;
+
+    /**
+     * 消息id
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
+     */
+    private String messageId;
+
+    /**
+     * 加急接受者id
+     *
+     * <p>示例值：ou_61c3751f5c2ba7f57aa14885a6512c02
+     */
+    private String chatterId;
+
+    /**
+     * 加急状态
+     *
+     * <p>示例值：0
+     */
+    private Integer status;
+
+    /**
+     * 确定时间
+     *
+     * <p>示例值：1704038400000
+     */
+    private String confirmTime;
+
+    /**
+     * 加急时间
+     *
+     * <p>示例值：1704038400000
+     */
+    private String sendTime;
+
+    /**
+     * 加急类型
+     *
+     * <p>示例值：0
+     */
+    private Integer type;
+
+    /**
+     * 消息发送者
+     *
+     * <p>示例值：ou_a0553eda9014c201e6969b478895c230
+     */
+    private String fromId;
+
+    /**
+     * 群组id
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c2343
+     */
     private String chatId;
 
-    // builder 开始
-    public UnReadUrgentMessage() {
+    /**
+     * id
+     *
+     * <p>示例值：7220315920974954516
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UnReadUrgentMessage(Builder builder) {
-        /**
-         * id
-         * <p> 示例值：7220315920974954516
-         */
-        this.id = builder.id;
-        /**
-         * 消息id
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 加急接受者id
-         * <p> 示例值：ou_61c3751f5c2ba7f57aa14885a6512c02
-         */
-        this.chatterId = builder.chatterId;
-        /**
-         * 加急状态
-         * <p> 示例值：0
-         */
-        this.status = builder.status;
-        /**
-         * 确定时间
-         * <p> 示例值：1704038400000
-         */
-        this.confirmTime = builder.confirmTime;
-        /**
-         * 加急时间
-         * <p> 示例值：1704038400000
-         */
-        this.sendTime = builder.sendTime;
-        /**
-         * 加急类型
-         * <p> 示例值：0
-         */
-        this.type = builder.type;
-        /**
-         * 消息发送者
-         * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
-         */
-        this.fromId = builder.fromId;
-        /**
-         * 群组id
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c2343
-         */
-        this.chatId = builder.chatId;
+    /**
+     * 消息id
+     *
+     * <p>示例值：om_dc13264520392913993dd051dba21dcf
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 加急接受者id
+     *
+     * <p>示例值：ou_61c3751f5c2ba7f57aa14885a6512c02
+     *
+     * @param chatterId
+     * @return
+     */
+    public Builder chatterId(String chatterId) {
+      this.chatterId = chatterId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 加急状态
+     *
+     * <p>示例值：0
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 确定时间
+     *
+     * <p>示例值：1704038400000
+     *
+     * @param confirmTime
+     * @return
+     */
+    public Builder confirmTime(String confirmTime) {
+      this.confirmTime = confirmTime;
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    /**
+     * 加急时间
+     *
+     * <p>示例值：1704038400000
+     *
+     * @param sendTime
+     * @return
+     */
+    public Builder sendTime(String sendTime) {
+      this.sendTime = sendTime;
+      return this;
     }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
+    /**
+     * 加急类型
+     *
+     * <p>示例值：0
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public String getChatterId() {
-        return this.chatterId;
+    /**
+     * 消息发送者
+     *
+     * <p>示例值：ou_a0553eda9014c201e6969b478895c230
+     *
+     * @param fromId
+     * @return
+     */
+    public Builder fromId(String fromId) {
+      this.fromId = fromId;
+      return this;
     }
 
-    public void setChatterId(String chatterId) {
-        this.chatterId = chatterId;
+    /**
+     * 群组id
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c2343
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public Integer getStatus() {
-        return this.status;
+    public UnReadUrgentMessage build() {
+      return new UnReadUrgentMessage(this);
     }
+  }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getConfirmTime() {
-        return this.confirmTime;
-    }
-
-    public void setConfirmTime(String confirmTime) {
-        this.confirmTime = confirmTime;
-    }
-
-    public String getSendTime() {
-        return this.sendTime;
-    }
-
-    public void setSendTime(String sendTime) {
-        this.sendTime = sendTime;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public String getFromId() {
-        return this.fromId;
-    }
-
-    public void setFromId(String fromId) {
-        this.fromId = fromId;
-    }
-
-    public String getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
-    public static class Builder {
-        /**
-         * id
-         * <p> 示例值：7220315920974954516
-         */
-        private String id;
-        /**
-         * 消息id
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         */
-        private String messageId;
-        /**
-         * 加急接受者id
-         * <p> 示例值：ou_61c3751f5c2ba7f57aa14885a6512c02
-         */
-        private String chatterId;
-        /**
-         * 加急状态
-         * <p> 示例值：0
-         */
-        private Integer status;
-        /**
-         * 确定时间
-         * <p> 示例值：1704038400000
-         */
-        private String confirmTime;
-        /**
-         * 加急时间
-         * <p> 示例值：1704038400000
-         */
-        private String sendTime;
-        /**
-         * 加急类型
-         * <p> 示例值：0
-         */
-        private Integer type;
-        /**
-         * 消息发送者
-         * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
-         */
-        private String fromId;
-        /**
-         * 群组id
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c2343
-         */
-        private String chatId;
-
-        /**
-         * id
-         * <p> 示例值：7220315920974954516
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 消息id
-         * <p> 示例值：om_dc13264520392913993dd051dba21dcf
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 加急接受者id
-         * <p> 示例值：ou_61c3751f5c2ba7f57aa14885a6512c02
-         *
-         * @param chatterId
-         * @return
-         */
-        public Builder chatterId(String chatterId) {
-            this.chatterId = chatterId;
-            return this;
-        }
-
-
-        /**
-         * 加急状态
-         * <p> 示例值：0
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 确定时间
-         * <p> 示例值：1704038400000
-         *
-         * @param confirmTime
-         * @return
-         */
-        public Builder confirmTime(String confirmTime) {
-            this.confirmTime = confirmTime;
-            return this;
-        }
-
-
-        /**
-         * 加急时间
-         * <p> 示例值：1704038400000
-         *
-         * @param sendTime
-         * @return
-         */
-        public Builder sendTime(String sendTime) {
-            this.sendTime = sendTime;
-            return this;
-        }
-
-
-        /**
-         * 加急类型
-         * <p> 示例值：0
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 消息发送者
-         * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
-         *
-         * @param fromId
-         * @return
-         */
-        public Builder fromId(String fromId) {
-            this.fromId = fromId;
-            return this;
-        }
-
-
-        /**
-         * 群组id
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c2343
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        public UnReadUrgentMessage build() {
-            return new UnReadUrgentMessage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

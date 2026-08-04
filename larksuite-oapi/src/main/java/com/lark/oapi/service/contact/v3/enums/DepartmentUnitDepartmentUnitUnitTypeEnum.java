@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.contact.v3.enums;
 
-/**
- * 部门单元类型
- */
+/** 部门单元类型 */
 public enum DepartmentUnitDepartmentUnitUnitTypeEnum {
-    BU("BU"), // BU
-    SBU("SBU"), // SBU
-    ;
-    private String value;
+  BU("BU"), // BU
+  SBU("SBU"), // SBU
+  ;
+  private String value;
 
-    DepartmentUnitDepartmentUnitUnitTypeEnum(String value) {
-        this.value = value;
-    }
+  DepartmentUnitDepartmentUnitUnitTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

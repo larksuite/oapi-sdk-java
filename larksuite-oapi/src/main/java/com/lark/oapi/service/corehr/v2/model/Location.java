@@ -13,445 +13,513 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Location {
+  /**
+   * 地点 ID，地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。;
+   *
+   * <p>示例值：4718803945687580505
+   */
+  @SerializedName("location_id")
+  private String locationId;
+
+  /**
+   * 组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("hiberarchy_common")
+  private HiberarchyCommon hiberarchyCommon;
+
+  /**
+   * 地点用途，枚举值及详细信息可通过[【批量查询地点用途】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。;-
+   * 请求参数object_api_name=location；custom_api_name=location_usage
+   *
+   * <p>示例值：
+   */
+  @SerializedName("location_usage_list")
+  private Enum[] locationUsageList;
+
+  /**
+   * 地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("address")
+  private Address[] address;
+
+  /**
+   * 工时制度
+   * ID，枚举值及详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+   *
+   * <p>示例值：4690238309151997779
+   */
+  @SerializedName("working_hours_type_id")
+  private String workingHoursTypeId;
+
+  /**
+   * 版本生效时间;- 填写格式：YY-MM-DD 00:00:00;- 生效时间， 系统默认为填写日期当天的 00:00:00 生效 ;-
+   * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);-
+   * 该字段和data.hiberarchy_common.effective_time值一致;
+   *
+   * <p>示例值：2020-05-01 00:00:00
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 版本失效时间;- 填写格式： YYYY-MM-DD 00:00:00;- 本次编辑的记录版本失效的时间，
+   * 如果用户在本次操作的生效日期之后修改了地点信息，则系统会将下一次操作的日期作为当前记录的失效时间。 ;- 系统默认为填写日期当天的 00:00:00 失效;-
+   * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);-
+   * 该字段和data.hiberarchy_common.expiration_time值一致
+   *
+   * <p>示例值：2020-05-02 00:00:00
+   */
+  @SerializedName("expiration_time")
+  private String expirationTime;
+
+  /**
+   * 自定义字段（该功能暂不支持，可忽略）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldData[] customFields;
+
+  /**
+   * 区域设置
+   *
+   * <p>示例值：zh_cn
+   */
+  @SerializedName("locale")
+  private Enum locale;
+
+  /**
+   * 时区
+   *
+   * <p>示例值：123456789
+   */
+  @SerializedName("time_zone_id")
+  private String timeZoneId;
+
+  /**
+   * 默认显示语言
+   *
+   * <p>示例值：123456789
+   */
+  @SerializedName("display_language_id")
+  private String displayLanguageId;
+
+  public String getLocationId() {
+    return this.locationId;
+  }
+
+  public void setLocationId(String locationId) {
+    this.locationId = locationId;
+  }
+
+  public HiberarchyCommon getHiberarchyCommon() {
+    return this.hiberarchyCommon;
+  }
+
+  public void setHiberarchyCommon(HiberarchyCommon hiberarchyCommon) {
+    this.hiberarchyCommon = hiberarchyCommon;
+  }
+
+  public Enum[] getLocationUsageList() {
+    return this.locationUsageList;
+  }
+
+  public void setLocationUsageList(Enum[] locationUsageList) {
+    this.locationUsageList = locationUsageList;
+  }
+
+  public Address[] getAddress() {
+    return this.address;
+  }
+
+  public void setAddress(Address[] address) {
+    this.address = address;
+  }
+
+  public String getWorkingHoursTypeId() {
+    return this.workingHoursTypeId;
+  }
+
+  public void setWorkingHoursTypeId(String workingHoursTypeId) {
+    this.workingHoursTypeId = workingHoursTypeId;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getExpirationTime() {
+    return this.expirationTime;
+  }
+
+  public void setExpirationTime(String expirationTime) {
+    this.expirationTime = expirationTime;
+  }
+
+  public CustomFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public Enum getLocale() {
+    return this.locale;
+  }
+
+  public void setLocale(Enum locale) {
+    this.locale = locale;
+  }
+
+  public String getTimeZoneId() {
+    return this.timeZoneId;
+  }
+
+  public void setTimeZoneId(String timeZoneId) {
+    this.timeZoneId = timeZoneId;
+  }
+
+  public String getDisplayLanguageId() {
+    return this.displayLanguageId;
+  }
+
+  public void setDisplayLanguageId(String displayLanguageId) {
+    this.displayLanguageId = displayLanguageId;
+  }
+
+  // builder 开始
+  public Location() {}
+
+  public Location(Builder builder) {
     /**
-     * 地点 ID
-     * <p> 示例值：4718803945687580505
+     * 地点 ID，地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。;
+     *
+     * <p>示例值：4718803945687580505
      */
-    @SerializedName("location_id")
-    private String locationId;
+    this.locationId = builder.locationId;
     /**
-     * 地点基本信息
-     * <p> 示例值：
+     * 组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("hiberarchy_common")
-    private HiberarchyCommon hiberarchyCommon;
+    this.hiberarchyCommon = builder.hiberarchyCommon;
     /**
-     * 地点用途
-     * <p> 示例值：
+     * 地点用途，枚举值及详细信息可通过[【批量查询地点用途】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。;-
+     * 请求参数object_api_name=location；custom_api_name=location_usage
+     *
+     * <p>示例值：
      */
-    @SerializedName("location_usage_list")
-    private Enum[] locationUsageList;
+    this.locationUsageList = builder.locationUsageList;
     /**
      * 地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("address")
-    private Address[] address;
+    this.address = builder.address;
     /**
      * 工时制度
-     * <p> 示例值：4690238309151997779
+     * ID，枚举值及详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+     *
+     * <p>示例值：4690238309151997779
      */
-    @SerializedName("working_hours_type_id")
-    private String workingHoursTypeId;
+    this.workingHoursTypeId = builder.workingHoursTypeId;
     /**
-     * 生效时间
-     * <p> 示例值：2020-05-01 00:00:00
+     * 版本生效时间;- 填写格式：YY-MM-DD 00:00:00;- 生效时间， 系统默认为填写日期当天的 00:00:00 生效 ;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);-
+     * 该字段和data.hiberarchy_common.effective_time值一致;
+     *
+     * <p>示例值：2020-05-01 00:00:00
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
-     * 失效时间
-     * <p> 示例值：2020-05-02 00:00:00
+     * 版本失效时间;- 填写格式： YYYY-MM-DD 00:00:00;- 本次编辑的记录版本失效的时间，
+     * 如果用户在本次操作的生效日期之后修改了地点信息，则系统会将下一次操作的日期作为当前记录的失效时间。 ;- 系统默认为填写日期当天的 00:00:00 失效;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);-
+     * 该字段和data.hiberarchy_common.expiration_time值一致
+     *
+     * <p>示例值：2020-05-02 00:00:00
      */
-    @SerializedName("expiration_time")
-    private String expirationTime;
+    this.expirationTime = builder.expirationTime;
     /**
-     * 自定义字段
-     * <p> 示例值：
+     * 自定义字段（该功能暂不支持，可忽略）
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private CustomFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
      * 区域设置
-     * <p> 示例值：zh_cn
+     *
+     * <p>示例值：zh_cn
      */
-    @SerializedName("locale")
-    private Enum locale;
+    this.locale = builder.locale;
     /**
      * 时区
-     * <p> 示例值：123456789
+     *
+     * <p>示例值：123456789
      */
-    @SerializedName("time_zone_id")
-    private String timeZoneId;
+    this.timeZoneId = builder.timeZoneId;
     /**
      * 默认显示语言
-     * <p> 示例值：123456789
+     *
+     * <p>示例值：123456789
      */
-    @SerializedName("display_language_id")
+    this.displayLanguageId = builder.displayLanguageId;
+  }
+
+  public static class Builder {
+    /**
+     * 地点 ID，地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。;
+     *
+     * <p>示例值：4718803945687580505
+     */
+    private String locationId;
+
+    /**
+     * 组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息
+     *
+     * <p>示例值：
+     */
+    private HiberarchyCommon hiberarchyCommon;
+
+    /**
+     * 地点用途，枚举值及详细信息可通过[【批量查询地点用途】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。;-
+     * 请求参数object_api_name=location；custom_api_name=location_usage
+     *
+     * <p>示例值：
+     */
+    private Enum[] locationUsageList;
+
+    /**
+     * 地址
+     *
+     * <p>示例值：
+     */
+    private Address[] address;
+
+    /**
+     * 工时制度
+     * ID，枚举值及详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+     *
+     * <p>示例值：4690238309151997779
+     */
+    private String workingHoursTypeId;
+
+    /**
+     * 版本生效时间;- 填写格式：YY-MM-DD 00:00:00;- 生效时间， 系统默认为填写日期当天的 00:00:00 生效 ;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);-
+     * 该字段和data.hiberarchy_common.effective_time值一致;
+     *
+     * <p>示例值：2020-05-01 00:00:00
+     */
+    private String effectiveTime;
+
+    /**
+     * 版本失效时间;- 填写格式： YYYY-MM-DD 00:00:00;- 本次编辑的记录版本失效的时间，
+     * 如果用户在本次操作的生效日期之后修改了地点信息，则系统会将下一次操作的日期作为当前记录的失效时间。 ;- 系统默认为填写日期当天的 00:00:00 失效;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);-
+     * 该字段和data.hiberarchy_common.expiration_time值一致
+     *
+     * <p>示例值：2020-05-02 00:00:00
+     */
+    private String expirationTime;
+
+    /**
+     * 自定义字段（该功能暂不支持，可忽略）
+     *
+     * <p>示例值：
+     */
+    private CustomFieldData[] customFields;
+
+    /**
+     * 区域设置
+     *
+     * <p>示例值：zh_cn
+     */
+    private Enum locale;
+
+    /**
+     * 时区
+     *
+     * <p>示例值：123456789
+     */
+    private String timeZoneId;
+
+    /**
+     * 默认显示语言
+     *
+     * <p>示例值：123456789
+     */
     private String displayLanguageId;
 
-    // builder 开始
-    public Location() {
+    /**
+     * 地点 ID，地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。;
+     *
+     * <p>示例值：4718803945687580505
+     *
+     * @param locationId
+     * @return
+     */
+    public Builder locationId(String locationId) {
+      this.locationId = locationId;
+      return this;
     }
 
-    public Location(Builder builder) {
-        /**
-         * 地点 ID
-         * <p> 示例值：4718803945687580505
-         */
-        this.locationId = builder.locationId;
-        /**
-         * 地点基本信息
-         * <p> 示例值：
-         */
-        this.hiberarchyCommon = builder.hiberarchyCommon;
-        /**
-         * 地点用途
-         * <p> 示例值：
-         */
-        this.locationUsageList = builder.locationUsageList;
-        /**
-         * 地址
-         * <p> 示例值：
-         */
-        this.address = builder.address;
-        /**
-         * 工时制度
-         * <p> 示例值：4690238309151997779
-         */
-        this.workingHoursTypeId = builder.workingHoursTypeId;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
-        this.expirationTime = builder.expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 区域设置
-         * <p> 示例值：zh_cn
-         */
-        this.locale = builder.locale;
-        /**
-         * 时区
-         * <p> 示例值：123456789
-         */
-        this.timeZoneId = builder.timeZoneId;
-        /**
-         * 默认显示语言
-         * <p> 示例值：123456789
-         */
-        this.displayLanguageId = builder.displayLanguageId;
+    /**
+     * 组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息
+     *
+     * <p>示例值：
+     *
+     * @param hiberarchyCommon
+     * @return
+     */
+    public Builder hiberarchyCommon(HiberarchyCommon hiberarchyCommon) {
+      this.hiberarchyCommon = hiberarchyCommon;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 地点用途，枚举值及详细信息可通过[【批量查询地点用途】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询获得。;-
+     * 请求参数object_api_name=location；custom_api_name=location_usage
+     *
+     * <p>示例值：
+     *
+     * @param locationUsageList
+     * @return
+     */
+    public Builder locationUsageList(Enum[] locationUsageList) {
+      this.locationUsageList = locationUsageList;
+      return this;
     }
 
-    public String getLocationId() {
-        return this.locationId;
+    /**
+     * 地址
+     *
+     * <p>示例值：
+     *
+     * @param address
+     * @return
+     */
+    public Builder address(Address[] address) {
+      this.address = address;
+      return this;
     }
 
-    public void setLocationId(String locationId) {
-        this.locationId = locationId;
+    /**
+     * 工时制度
+     * ID，枚举值及详细信息可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)接口查询获得
+     *
+     * <p>示例值：4690238309151997779
+     *
+     * @param workingHoursTypeId
+     * @return
+     */
+    public Builder workingHoursTypeId(String workingHoursTypeId) {
+      this.workingHoursTypeId = workingHoursTypeId;
+      return this;
     }
 
-    public HiberarchyCommon getHiberarchyCommon() {
-        return this.hiberarchyCommon;
+    /**
+     * 版本生效时间;- 填写格式：YY-MM-DD 00:00:00;- 生效时间， 系统默认为填写日期当天的 00:00:00 生效 ;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);-
+     * 该字段和data.hiberarchy_common.effective_time值一致;
+     *
+     * <p>示例值：2020-05-01 00:00:00
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public void setHiberarchyCommon(HiberarchyCommon hiberarchyCommon) {
-        this.hiberarchyCommon = hiberarchyCommon;
+    /**
+     * 版本失效时间;- 填写格式： YYYY-MM-DD 00:00:00;- 本次编辑的记录版本失效的时间，
+     * 如果用户在本次操作的生效日期之后修改了地点信息，则系统会将下一次操作的日期作为当前记录的失效时间。 ;- 系统默认为填写日期当天的 00:00:00 失效;-
+     * 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version);-
+     * 该字段和data.hiberarchy_common.expiration_time值一致
+     *
+     * <p>示例值：2020-05-02 00:00:00
+     *
+     * @param expirationTime
+     * @return
+     */
+    public Builder expirationTime(String expirationTime) {
+      this.expirationTime = expirationTime;
+      return this;
     }
 
-    public Enum[] getLocationUsageList() {
-        return this.locationUsageList;
+    /**
+     * 自定义字段（该功能暂不支持，可忽略）
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(CustomFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setLocationUsageList(Enum[] locationUsageList) {
-        this.locationUsageList = locationUsageList;
+    /**
+     * 区域设置
+     *
+     * <p>示例值：zh_cn
+     *
+     * @param locale
+     * @return
+     */
+    public Builder locale(Enum locale) {
+      this.locale = locale;
+      return this;
     }
 
-    public Address[] getAddress() {
-        return this.address;
+    /**
+     * 时区
+     *
+     * <p>示例值：123456789
+     *
+     * @param timeZoneId
+     * @return
+     */
+    public Builder timeZoneId(String timeZoneId) {
+      this.timeZoneId = timeZoneId;
+      return this;
     }
 
-    public void setAddress(Address[] address) {
-        this.address = address;
+    /**
+     * 默认显示语言
+     *
+     * <p>示例值：123456789
+     *
+     * @param displayLanguageId
+     * @return
+     */
+    public Builder displayLanguageId(String displayLanguageId) {
+      this.displayLanguageId = displayLanguageId;
+      return this;
     }
 
-    public String getWorkingHoursTypeId() {
-        return this.workingHoursTypeId;
+    public Location build() {
+      return new Location(this);
     }
+  }
 
-    public void setWorkingHoursTypeId(String workingHoursTypeId) {
-        this.workingHoursTypeId = workingHoursTypeId;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public String getExpirationTime() {
-        return this.expirationTime;
-    }
-
-    public void setExpirationTime(String expirationTime) {
-        this.expirationTime = expirationTime;
-    }
-
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public Enum getLocale() {
-        return this.locale;
-    }
-
-    public void setLocale(Enum locale) {
-        this.locale = locale;
-    }
-
-    public String getTimeZoneId() {
-        return this.timeZoneId;
-    }
-
-    public void setTimeZoneId(String timeZoneId) {
-        this.timeZoneId = timeZoneId;
-    }
-
-    public String getDisplayLanguageId() {
-        return this.displayLanguageId;
-    }
-
-    public void setDisplayLanguageId(String displayLanguageId) {
-        this.displayLanguageId = displayLanguageId;
-    }
-
-    public static class Builder {
-        /**
-         * 地点 ID
-         * <p> 示例值：4718803945687580505
-         */
-        private String locationId;
-        /**
-         * 地点基本信息
-         * <p> 示例值：
-         */
-        private HiberarchyCommon hiberarchyCommon;
-        /**
-         * 地点用途
-         * <p> 示例值：
-         */
-        private Enum[] locationUsageList;
-        /**
-         * 地址
-         * <p> 示例值：
-         */
-        private Address[] address;
-        /**
-         * 工时制度
-         * <p> 示例值：4690238309151997779
-         */
-        private String workingHoursTypeId;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
-        private String effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
-        private String expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomFieldData[] customFields;
-        /**
-         * 区域设置
-         * <p> 示例值：zh_cn
-         */
-        private Enum locale;
-        /**
-         * 时区
-         * <p> 示例值：123456789
-         */
-        private String timeZoneId;
-        /**
-         * 默认显示语言
-         * <p> 示例值：123456789
-         */
-        private String displayLanguageId;
-
-        /**
-         * 地点 ID
-         * <p> 示例值：4718803945687580505
-         *
-         * @param locationId
-         * @return
-         */
-        public Builder locationId(String locationId) {
-            this.locationId = locationId;
-            return this;
-        }
-
-
-        /**
-         * 地点基本信息
-         * <p> 示例值：
-         *
-         * @param hiberarchyCommon
-         * @return
-         */
-        public Builder hiberarchyCommon(HiberarchyCommon hiberarchyCommon) {
-            this.hiberarchyCommon = hiberarchyCommon;
-            return this;
-        }
-
-
-        /**
-         * 地点用途
-         * <p> 示例值：
-         *
-         * @param locationUsageList
-         * @return
-         */
-        public Builder locationUsageList(Enum[] locationUsageList) {
-            this.locationUsageList = locationUsageList;
-            return this;
-        }
-
-
-        /**
-         * 地址
-         * <p> 示例值：
-         *
-         * @param address
-         * @return
-         */
-        public Builder address(Address[] address) {
-            this.address = address;
-            return this;
-        }
-
-
-        /**
-         * 工时制度
-         * <p> 示例值：4690238309151997779
-         *
-         * @param workingHoursTypeId
-         * @return
-         */
-        public Builder workingHoursTypeId(String workingHoursTypeId) {
-            this.workingHoursTypeId = workingHoursTypeId;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         *
-         * @param expirationTime
-         * @return
-         */
-        public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 区域设置
-         * <p> 示例值：zh_cn
-         *
-         * @param locale
-         * @return
-         */
-        public Builder locale(Enum locale) {
-            this.locale = locale;
-            return this;
-        }
-
-
-        /**
-         * 时区
-         * <p> 示例值：123456789
-         *
-         * @param timeZoneId
-         * @return
-         */
-        public Builder timeZoneId(String timeZoneId) {
-            this.timeZoneId = timeZoneId;
-            return this;
-        }
-
-
-        /**
-         * 默认显示语言
-         * <p> 示例值：123456789
-         *
-         * @param displayLanguageId
-         * @return
-         */
-        public Builder displayLanguageId(String displayLanguageId) {
-            this.displayLanguageId = displayLanguageId;
-            return this;
-        }
-
-
-        public Location build() {
-            return new Location(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

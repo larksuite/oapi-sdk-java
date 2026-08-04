@@ -13,62 +13,57 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2LocationUpdatedV2Data {
-    /**
-     * 地点ID
-     * <p> 示例值："201571101"
-     */
-    @SerializedName("location_id")
-    private String locationId;
-    /**
-     * 发生变更的字段
-     * <p> 示例值：
-     */
-    @SerializedName("field_changes")
-    private String[] fieldChanges;
-    /**
-     * 子变更事件
-     * <p> 示例值：
-     */
-    @SerializedName("sub_events")
-    private OrganizationDomainEventData[] subEvents;
+  /**
+   * 地点ID。;-
+   * 调用[【查询单个地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)、[【通过地点
+   * ID
+   * 批量获取地点信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get)接口返回地点详细信息
+   *
+   * <p>示例值：201571101
+   */
+  @SerializedName("location_id")
+  private String locationId;
 
-    public String getLocationId() {
-        return this.locationId;
-    }
+  /**
+   * 发生变更的字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_changes")
+  private String[] fieldChanges;
 
-    public void setLocationId(String locationId) {
-        this.locationId = locationId;
-    }
+  /**
+   * 子变更事件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_events")
+  private OrganizationDomainEventData[] subEvents;
 
-    public String[] getFieldChanges() {
-        return this.fieldChanges;
-    }
+  public String getLocationId() {
+    return this.locationId;
+  }
 
-    public void setFieldChanges(String[] fieldChanges) {
-        this.fieldChanges = fieldChanges;
-    }
+  public void setLocationId(String locationId) {
+    this.locationId = locationId;
+  }
 
-    public OrganizationDomainEventData[] getSubEvents() {
-        return this.subEvents;
-    }
+  public String[] getFieldChanges() {
+    return this.fieldChanges;
+  }
 
-    public void setSubEvents(OrganizationDomainEventData[] subEvents) {
-        this.subEvents = subEvents;
-    }
+  public void setFieldChanges(String[] fieldChanges) {
+    this.fieldChanges = fieldChanges;
+  }
 
+  public OrganizationDomainEventData[] getSubEvents() {
+    return this.subEvents;
+  }
+
+  public void setSubEvents(OrganizationDomainEventData[] subEvents) {
+    this.subEvents = subEvents;
+  }
 }

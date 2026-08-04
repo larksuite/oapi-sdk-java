@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageTodoContent {
+  /**
+   * 唯一标识
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 概要
+   *
+   * <p>示例值：
+   */
+  @SerializedName("summary")
+  private String summary;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getSummary() {
+    return this.summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
+
+  // builder 开始
+  public MessageTodoContent() {}
+
+  public MessageTodoContent(Builder builder) {
     /**
      * 唯一标识
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 概要
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("summary")
+    this.summary = builder.summary;
+  }
+
+  public static class Builder {
+    /**
+     * 唯一标识
+     *
+     * <p>示例值：
+     */
+    private String id;
+
+    /**
+     * 概要
+     *
+     * <p>示例值：
+     */
     private String summary;
 
-    // builder 开始
-    public MessageTodoContent() {
+    /**
+     * 唯一标识
+     *
+     * <p>示例值：
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public MessageTodoContent(Builder builder) {
-        /**
-         * 唯一标识
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         * 概要
-         * <p> 示例值：
-         */
-        this.summary = builder.summary;
+    /**
+     * 概要
+     *
+     * <p>示例值：
+     *
+     * @param summary
+     * @return
+     */
+    public Builder summary(String summary) {
+      this.summary = summary;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MessageTodoContent build() {
+      return new MessageTodoContent(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getSummary() {
-        return this.summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public static class Builder {
-        /**
-         * 唯一标识
-         * <p> 示例值：
-         */
-        private String id;
-        /**
-         * 概要
-         * <p> 示例值：
-         */
-        private String summary;
-
-        /**
-         * 唯一标识
-         * <p> 示例值：
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 概要
-         * <p> 示例值：
-         *
-         * @param summary
-         * @return
-         */
-        public Builder summary(String summary) {
-            this.summary = summary;
-            return this;
-        }
-
-
-        public MessageTodoContent build() {
-            return new MessageTodoContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

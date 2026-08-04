@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.performance.v2.enums;
 
-/**
- * 360° 评估人的邀请人类型。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值
- */
+/** 360° 评估人的邀请人类型。如果开启了 360 匿名评估，并且是对全部查看者匿名，且配置隐藏描述信息则不返回该值 */
 public enum InvitedReviewRecordInfoInvitedbyEnum {
-    SYSTEM_DEFAULT("system_default"), // 系统默认
-    REVIEWEE("reviewee"), // 被评估人本人
-    MANAGER("manager"), // 上级
-    HRBP_OR_OTHERS("hrbp_or_others"), // HRBP或其他人
-    VOLUNTARY("voluntary"), // 自愿评估
-    ;
-    private String value;
+  SYSTEM_DEFAULT("system_default"), // 系统默认
+  REVIEWEE("reviewee"), // 被评估人本人
+  MANAGER("manager"), // 上级
+  HRBP_OR_OTHERS("hrbp_or_others"), // HRBP或其他人
+  VOLUNTARY("voluntary"), // 自愿评估
+  ;
+  private String value;
 
-    InvitedReviewRecordInfoInvitedbyEnum(String value) {
-        this.value = value;
-    }
+  InvitedReviewRecordInfoInvitedbyEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UpdateOrgdimension {
+  /**
+   * 虚拟组织id
+   *
+   * <p>示例值：3e3cf96b
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18nText name;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_enable")
+  private Boolean isEnable;
+
+  /**
+   * 组织维度排序权重
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("order")
+  private String order;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18nText description;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18nText getName() {
+    return this.name;
+  }
+
+  public void setName(I18nText name) {
+    this.name = name;
+  }
+
+  public Boolean getIsEnable() {
+    return this.isEnable;
+  }
+
+  public void setIsEnable(Boolean isEnable) {
+    this.isEnable = isEnable;
+  }
+
+  public String getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(String order) {
+    this.order = order;
+  }
+
+  public I18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18nText description) {
+    this.description = description;
+  }
+
+  // builder 开始
+  public UpdateOrgdimension() {}
+
+  public UpdateOrgdimension(Builder builder) {
     /**
      * 虚拟组织id
-     * <p> 示例值：3e3cf96b
+     *
+     * <p>示例值：3e3cf96b
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18nText name;
+    this.name = builder.name;
     /**
      * 是否启用
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_enable")
-    private Boolean isEnable;
+    this.isEnable = builder.isEnable;
     /**
      * 组织维度排序权重
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("order")
-    private String order;
+    this.order = builder.order;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
+    this.description = builder.description;
+  }
+
+  public static class Builder {
+    /**
+     * 虚拟组织id
+     *
+     * <p>示例值：3e3cf96b
+     */
+    private String id;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText name;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     */
+    private Boolean isEnable;
+
+    /**
+     * 组织维度排序权重
+     *
+     * <p>示例值：100
+     */
+    private String order;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
     private I18nText description;
 
-    // builder 开始
-    public UpdateOrgdimension() {
+    /**
+     * 虚拟组织id
+     *
+     * <p>示例值：3e3cf96b
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public UpdateOrgdimension(Builder builder) {
-        /**
-         * 虚拟组织id
-         * <p> 示例值：3e3cf96b
-         */
-        this.id = builder.id;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        this.isEnable = builder.isEnable;
-        /**
-         * 组织维度排序权重
-         * <p> 示例值：100
-         */
-        this.order = builder.order;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.description = builder.description;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18nText name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否启用
+     *
+     * <p>示例值：
+     *
+     * @param isEnable
+     * @return
+     */
+    public Builder isEnable(Boolean isEnable) {
+      this.isEnable = isEnable;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 组织维度排序权重
+     *
+     * <p>示例值：100
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(String order) {
+      this.order = order;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public I18nText getName() {
-        return this.name;
+    public UpdateOrgdimension build() {
+      return new UpdateOrgdimension(this);
     }
+  }
 
-    public void setName(I18nText name) {
-        this.name = name;
-    }
-
-    public Boolean getIsEnable() {
-        return this.isEnable;
-    }
-
-    public void setIsEnable(Boolean isEnable) {
-        this.isEnable = isEnable;
-    }
-
-    public String getOrder() {
-        return this.order;
-    }
-
-    public void setOrder(String order) {
-        this.order = order;
-    }
-
-    public I18nText getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18nText description) {
-        this.description = description;
-    }
-
-    public static class Builder {
-        /**
-         * 虚拟组织id
-         * <p> 示例值：3e3cf96b
-         */
-        private String id;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText name;
-        /**
-         * 是否启用
-         * <p> 示例值：
-         */
-        private Boolean isEnable;
-        /**
-         * 组织维度排序权重
-         * <p> 示例值：100
-         */
-        private String order;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText description;
-
-        /**
-         * 虚拟组织id
-         * <p> 示例值：3e3cf96b
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18nText name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：
-         *
-         * @param isEnable
-         * @return
-         */
-        public Builder isEnable(Boolean isEnable) {
-            this.isEnable = isEnable;
-            return this;
-        }
-
-
-        /**
-         * 组织维度排序权重
-         * <p> 示例值：100
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(String order) {
-            this.order = order;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        public UpdateOrgdimension build() {
-            return new UpdateOrgdimension(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

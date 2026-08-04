@@ -13,186 +13,233 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeBasicQueryInfo {
+  /**
+   * 员工ID
+   *
+   * <p>示例值：7109475834939434
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 员工常用名
+   *
+   * <p>示例值：王某
+   */
+  @SerializedName("preferred_name")
+  private String preferredName;
+
+  /**
+   * 员工工作邮箱
+   *
+   * <p>示例值：wb995532169@qq.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 员工工号
+   *
+   * <p>示例值：1069075
+   */
+  @SerializedName("employee_number")
+  private String employeeNumber;
+
+  /**
+   * 部门ID
+   *
+   * <p>示例值：7109475834939434
+   */
+  @SerializedName("department_id")
+  private String departmentId;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getPreferredName() {
+    return this.preferredName;
+  }
+
+  public void setPreferredName(String preferredName) {
+    this.preferredName = preferredName;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getEmployeeNumber() {
+    return this.employeeNumber;
+  }
+
+  public void setEmployeeNumber(String employeeNumber) {
+    this.employeeNumber = employeeNumber;
+  }
+
+  public String getDepartmentId() {
+    return this.departmentId;
+  }
+
+  public void setDepartmentId(String departmentId) {
+    this.departmentId = departmentId;
+  }
+
+  // builder 开始
+  public EmployeeBasicQueryInfo() {}
+
+  public EmployeeBasicQueryInfo(Builder builder) {
     /**
      * 员工ID
-     * <p> 示例值：7109475834939434
+     *
+     * <p>示例值：7109475834939434
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 员工常用名
-     * <p> 示例值：王某
+     *
+     * <p>示例值：王某
      */
-    @SerializedName("preferred_name")
-    private String preferredName;
+    this.preferredName = builder.preferredName;
     /**
      * 员工工作邮箱
-     * <p> 示例值：wb995532169@qq.com
+     *
+     * <p>示例值：wb995532169@qq.com
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 员工工号
-     * <p> 示例值：1069075
+     *
+     * <p>示例值：1069075
      */
-    @SerializedName("employee_number")
+    this.employeeNumber = builder.employeeNumber;
+    /**
+     * 部门ID
+     *
+     * <p>示例值：7109475834939434
+     */
+    this.departmentId = builder.departmentId;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7109475834939434
+     */
+    private String employmentId;
+
+    /**
+     * 员工常用名
+     *
+     * <p>示例值：王某
+     */
+    private String preferredName;
+
+    /**
+     * 员工工作邮箱
+     *
+     * <p>示例值：wb995532169@qq.com
+     */
+    private String email;
+
+    /**
+     * 员工工号
+     *
+     * <p>示例值：1069075
+     */
     private String employeeNumber;
 
-    // builder 开始
-    public EmployeeBasicQueryInfo() {
+    /**
+     * 部门ID
+     *
+     * <p>示例值：7109475834939434
+     */
+    private String departmentId;
+
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7109475834939434
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public EmployeeBasicQueryInfo(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 员工常用名
-         * <p> 示例值：王某
-         */
-        this.preferredName = builder.preferredName;
-        /**
-         * 员工工作邮箱
-         * <p> 示例值：wb995532169@qq.com
-         */
-        this.email = builder.email;
-        /**
-         * 员工工号
-         * <p> 示例值：1069075
-         */
-        this.employeeNumber = builder.employeeNumber;
+    /**
+     * 员工常用名
+     *
+     * <p>示例值：王某
+     *
+     * @param preferredName
+     * @return
+     */
+    public Builder preferredName(String preferredName) {
+      this.preferredName = preferredName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 员工工作邮箱
+     *
+     * <p>示例值：wb995532169@qq.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 员工工号
+     *
+     * <p>示例值：1069075
+     *
+     * @param employeeNumber
+     * @return
+     */
+    public Builder employeeNumber(String employeeNumber) {
+      this.employeeNumber = employeeNumber;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    /**
+     * 部门ID
+     *
+     * <p>示例值：7109475834939434
+     *
+     * @param departmentId
+     * @return
+     */
+    public Builder departmentId(String departmentId) {
+      this.departmentId = departmentId;
+      return this;
     }
 
-    public String getPreferredName() {
-        return this.preferredName;
+    public EmployeeBasicQueryInfo build() {
+      return new EmployeeBasicQueryInfo(this);
     }
+  }
 
-    public void setPreferredName(String preferredName) {
-        this.preferredName = preferredName;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEmployeeNumber() {
-        return this.employeeNumber;
-    }
-
-    public void setEmployeeNumber(String employeeNumber) {
-        this.employeeNumber = employeeNumber;
-    }
-
-    public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         */
-        private String employmentId;
-        /**
-         * 员工常用名
-         * <p> 示例值：王某
-         */
-        private String preferredName;
-        /**
-         * 员工工作邮箱
-         * <p> 示例值：wb995532169@qq.com
-         */
-        private String email;
-        /**
-         * 员工工号
-         * <p> 示例值：1069075
-         */
-        private String employeeNumber;
-
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 员工常用名
-         * <p> 示例值：王某
-         *
-         * @param preferredName
-         * @return
-         */
-        public Builder preferredName(String preferredName) {
-            this.preferredName = preferredName;
-            return this;
-        }
-
-
-        /**
-         * 员工工作邮箱
-         * <p> 示例值：wb995532169@qq.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 员工工号
-         * <p> 示例值：1069075
-         *
-         * @param employeeNumber
-         * @return
-         */
-        public Builder employeeNumber(String employeeNumber) {
-            this.employeeNumber = employeeNumber;
-            return this;
-        }
-
-
-        public EmployeeBasicQueryInfo build() {
-            return new EmployeeBasicQueryInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

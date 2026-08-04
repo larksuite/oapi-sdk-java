@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.contact.v3.enums;
 
-/**
- * 用户id类型
- */
+/** 用户id类型 */
 public enum ResurrectUserUserIdTypeEnum {
-    OPEN_ID("open_id"), // 用户的 open id
-    UNION_ID("union_id"), // 用户的 union id
-    USER_ID("user_id"), // 用户的 user id
-    ;
-    private String value;
+  OPEN_ID("open_id"), // 用户的 open id
+  UNION_ID("union_id"), // 用户的 union id
+  USER_ID("user_id"), // 用户的 user id
+  ;
+  private String value;
 
-    ResurrectUserUserIdTypeEnum(String value) {
-        this.value = value;
-    }
+  ResurrectUserUserIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

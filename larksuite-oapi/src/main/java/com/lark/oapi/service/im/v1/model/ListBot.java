@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListBot {
+  /**
+   * 机器人的 open_id
+   *
+   * <p>示例值：ou_a0553eda9014c201e6969b478895c230
+   */
+  @SerializedName("bot_id")
+  private String botId;
+
+  /**
+   * 机器人名称
+   *
+   * <p>示例值：值班机器人
+   */
+  @SerializedName("bot_name")
+  private String botName;
+
+  public String getBotId() {
+    return this.botId;
+  }
+
+  public void setBotId(String botId) {
+    this.botId = botId;
+  }
+
+  public String getBotName() {
+    return this.botName;
+  }
+
+  public void setBotName(String botName) {
+    this.botName = botName;
+  }
+
+  // builder 开始
+  public ListBot() {}
+
+  public ListBot(Builder builder) {
     /**
      * 机器人的 open_id
-     * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
+     *
+     * <p>示例值：ou_a0553eda9014c201e6969b478895c230
      */
-    @SerializedName("bot_id")
-    private String botId;
+    this.botId = builder.botId;
     /**
      * 机器人名称
-     * <p> 示例值：值班机器人
+     *
+     * <p>示例值：值班机器人
      */
-    @SerializedName("bot_name")
+    this.botName = builder.botName;
+  }
+
+  public static class Builder {
+    /**
+     * 机器人的 open_id
+     *
+     * <p>示例值：ou_a0553eda9014c201e6969b478895c230
+     */
+    private String botId;
+
+    /**
+     * 机器人名称
+     *
+     * <p>示例值：值班机器人
+     */
     private String botName;
 
-    // builder 开始
-    public ListBot() {
+    /**
+     * 机器人的 open_id
+     *
+     * <p>示例值：ou_a0553eda9014c201e6969b478895c230
+     *
+     * @param botId
+     * @return
+     */
+    public Builder botId(String botId) {
+      this.botId = botId;
+      return this;
     }
 
-    public ListBot(Builder builder) {
-        /**
-         * 机器人的 open_id
-         * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
-         */
-        this.botId = builder.botId;
-        /**
-         * 机器人名称
-         * <p> 示例值：值班机器人
-         */
-        this.botName = builder.botName;
+    /**
+     * 机器人名称
+     *
+     * <p>示例值：值班机器人
+     *
+     * @param botName
+     * @return
+     */
+    public Builder botName(String botName) {
+      this.botName = botName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ListBot build() {
+      return new ListBot(this);
     }
+  }
 
-    public String getBotId() {
-        return this.botId;
-    }
-
-    public void setBotId(String botId) {
-        this.botId = botId;
-    }
-
-    public String getBotName() {
-        return this.botName;
-    }
-
-    public void setBotName(String botName) {
-        this.botName = botName;
-    }
-
-    public static class Builder {
-        /**
-         * 机器人的 open_id
-         * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
-         */
-        private String botId;
-        /**
-         * 机器人名称
-         * <p> 示例值：值班机器人
-         */
-        private String botName;
-
-        /**
-         * 机器人的 open_id
-         * <p> 示例值：ou_a0553eda9014c201e6969b478895c230
-         *
-         * @param botId
-         * @return
-         */
-        public Builder botId(String botId) {
-            this.botId = botId;
-            return this;
-        }
-
-
-        /**
-         * 机器人名称
-         * <p> 示例值：值班机器人
-         *
-         * @param botName
-         * @return
-         */
-        public Builder botName(String botName) {
-            this.botName = botName;
-            return this;
-        }
-
-
-        public ListBot build() {
-            return new ListBot(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,457 +13,511 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ImportTask {
+  /**
+   * 导入任务 ID
+   *
+   * <p>示例值：7369583175086912356
+   */
+  @SerializedName("ticket")
+  private String ticket;
+
+  /**
+   * 要导入的文件的扩展名。了解支持的文件格式，参考[导入文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)。;;**注意**：此处填写的文件扩展名需与实际文件的后缀名保持严格一致。请注意区分后缀为
+   * “markdown”、“md”、“mark” 的 Markdown 文件，并在填写相关参数时保持后缀名一致。否则将返回 1069910 错误码。
+   *
+   * <p>示例值：xlsx
+   */
+  @SerializedName("file_extension")
+  private String fileExtension;
+
+  /**
+   * 要导入文件的
+   * token。创建任务前，你需先调用[上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)或[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all)接口获取源文件的
+   * token。了解更多，参考[导入文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)。
+   *
+   * <p>示例值：boxcnrHpsg1QDqXAAAyachabcef
+   */
+  @SerializedName("file_token")
+  private String fileToken;
+
+  /**
+   * 导入目标云文档类型，支持的类型 新版文档：docx；电子表格：sheet；多维表格：bitable
+   *
+   * <p>示例值：sheet
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 导入后的在线云文档名称。参数为空时，使用上传本地文件时的文件名。
+   *
+   * <p>示例值：销售表
+   */
+  @SerializedName("file_name")
+  private String fileName;
+
+  /**
+   * 挂载点（导入后的云文档所在位置）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("point")
+  private ImportTaskMountPoint point;
+
+  /**
+   * 任务的状态
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("job_status")
+  private Integer jobStatus;
+
+  /**
+   * 任务失败的原因
+   *
+   * <p>示例值：success
+   */
+  @SerializedName("job_error_msg")
+  private String jobErrorMsg;
+
+  /**
+   * 导入云文档的 token
+   *
+   * <p>示例值：Fm7osyjtMh5o7Ktrv32c73abcef
+   */
+  @SerializedName("token")
+  private String token;
+
+  /**
+   * 导入云文档的 URL
+   *
+   * <p>示例值：https://example.feishu.cn/sheets/Fm7osyjtMh5o7Ktrv32c73abcef
+   */
+  @SerializedName("url")
+  private String url;
+
+  /**
+   * 导入成功的额外提示。详情参考下文。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("extra")
+  private String[] extra;
+
+  public String getTicket() {
+    return this.ticket;
+  }
+
+  public void setTicket(String ticket) {
+    this.ticket = ticket;
+  }
+
+  public String getFileExtension() {
+    return this.fileExtension;
+  }
+
+  public void setFileExtension(String fileExtension) {
+    this.fileExtension = fileExtension;
+  }
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getFileName() {
+    return this.fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public ImportTaskMountPoint getPoint() {
+    return this.point;
+  }
+
+  public void setPoint(ImportTaskMountPoint point) {
+    this.point = point;
+  }
+
+  public Integer getJobStatus() {
+    return this.jobStatus;
+  }
+
+  public void setJobStatus(Integer jobStatus) {
+    this.jobStatus = jobStatus;
+  }
+
+  public String getJobErrorMsg() {
+    return this.jobErrorMsg;
+  }
+
+  public void setJobErrorMsg(String jobErrorMsg) {
+    this.jobErrorMsg = jobErrorMsg;
+  }
+
+  public String getToken() {
+    return this.token;
+  }
+
+  public void setToken(String token) {
+    this.token = token;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public String[] getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(String[] extra) {
+    this.extra = extra;
+  }
+
+  // builder 开始
+  public ImportTask() {}
+
+  public ImportTask(Builder builder) {
     /**
-     * 任务ID
-     * <p> 示例值：6990281865xxxxxxxx7843
+     * 导入任务 ID
+     *
+     * <p>示例值：7369583175086912356
      */
-    @SerializedName("ticket")
+    this.ticket = builder.ticket;
+    /**
+     * 要导入的文件的扩展名。了解支持的文件格式，参考[导入文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)。;;**注意**：此处填写的文件扩展名需与实际文件的后缀名保持严格一致。请注意区分后缀为
+     * “markdown”、“md”、“mark” 的 Markdown 文件，并在填写相关参数时保持后缀名一致。否则将返回 1069910 错误码。
+     *
+     * <p>示例值：xlsx
+     */
+    this.fileExtension = builder.fileExtension;
+    /**
+     * 要导入文件的
+     * token。创建任务前，你需先调用[上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)或[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all)接口获取源文件的
+     * token。了解更多，参考[导入文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)。
+     *
+     * <p>示例值：boxcnrHpsg1QDqXAAAyachabcef
+     */
+    this.fileToken = builder.fileToken;
+    /**
+     * 导入目标云文档类型，支持的类型 新版文档：docx；电子表格：sheet；多维表格：bitable
+     *
+     * <p>示例值：sheet
+     */
+    this.type = builder.type;
+    /**
+     * 导入后的在线云文档名称。参数为空时，使用上传本地文件时的文件名。
+     *
+     * <p>示例值：销售表
+     */
+    this.fileName = builder.fileName;
+    /**
+     * 挂载点（导入后的云文档所在位置）
+     *
+     * <p>示例值：
+     */
+    this.point = builder.point;
+    /**
+     * 任务的状态
+     *
+     * <p>示例值：0
+     */
+    this.jobStatus = builder.jobStatus;
+    /**
+     * 任务失败的原因
+     *
+     * <p>示例值：success
+     */
+    this.jobErrorMsg = builder.jobErrorMsg;
+    /**
+     * 导入云文档的 token
+     *
+     * <p>示例值：Fm7osyjtMh5o7Ktrv32c73abcef
+     */
+    this.token = builder.token;
+    /**
+     * 导入云文档的 URL
+     *
+     * <p>示例值：https://example.feishu.cn/sheets/Fm7osyjtMh5o7Ktrv32c73abcef
+     */
+    this.url = builder.url;
+    /**
+     * 导入成功的额外提示。详情参考下文。
+     *
+     * <p>示例值：
+     */
+    this.extra = builder.extra;
+  }
+
+  public static class Builder {
+    /**
+     * 导入任务 ID
+     *
+     * <p>示例值：7369583175086912356
+     */
     private String ticket;
+
     /**
-     * 导入文件格式后缀
-     * <p> 示例值：xlsx
+     * 要导入的文件的扩展名。了解支持的文件格式，参考[导入文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)。;;**注意**：此处填写的文件扩展名需与实际文件的后缀名保持严格一致。请注意区分后缀为
+     * “markdown”、“md”、“mark” 的 Markdown 文件，并在填写相关参数时保持后缀名一致。否则将返回 1069910 错误码。
+     *
+     * <p>示例值：xlsx
      */
-    @SerializedName("file_extension")
     private String fileExtension;
+
     /**
-     * 导入文件Drive FileToken
-     * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
+     * 要导入文件的
+     * token。创建任务前，你需先调用[上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)或[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all)接口获取源文件的
+     * token。了解更多，参考[导入文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)。
+     *
+     * <p>示例值：boxcnrHpsg1QDqXAAAyachabcef
      */
-    @SerializedName("file_token")
     private String fileToken;
+
     /**
-     * 导入目标云文档格式
-     * <p> 示例值：sheet
+     * 导入目标云文档类型，支持的类型 新版文档：docx；电子表格：sheet；多维表格：bitable
+     *
+     * <p>示例值：sheet
      */
-    @SerializedName("type")
     private String type;
+
     /**
-     * 导入目标云文档文件名 ，若为空使用Drive文件名
-     * <p> 示例值：test
+     * 导入后的在线云文档名称。参数为空时，使用上传本地文件时的文件名。
+     *
+     * <p>示例值：销售表
      */
-    @SerializedName("file_name")
     private String fileName;
+
     /**
-     * 挂载点
-     * <p> 示例值：
+     * 挂载点（导入后的云文档所在位置）
+     *
+     * <p>示例值：
      */
-    @SerializedName("point")
     private ImportTaskMountPoint point;
+
     /**
-     * 任务状态
-     * <p> 示例值：0
+     * 任务的状态
+     *
+     * <p>示例值：0
      */
-    @SerializedName("job_status")
     private Integer jobStatus;
+
     /**
-     * 任务失败原因
-     * <p> 示例值：success
+     * 任务失败的原因
+     *
+     * <p>示例值：success
      */
-    @SerializedName("job_error_msg")
     private String jobErrorMsg;
+
     /**
-     * 导入云文档Token
-     * <p> 示例值：shtcnVBTG6SuxxxxxxxkM2tUX
+     * 导入云文档的 token
+     *
+     * <p>示例值：Fm7osyjtMh5o7Ktrv32c73abcef
      */
-    @SerializedName("token")
     private String token;
+
     /**
-     * 导入云文档URL
-     * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX
+     * 导入云文档的 URL
+     *
+     * <p>示例值：https://example.feishu.cn/sheets/Fm7osyjtMh5o7Ktrv32c73abcef
      */
-    @SerializedName("url")
     private String url;
+
     /**
-     * 任务成功后的提示信息
-     * <p> 示例值：
+     * 导入成功的额外提示。详情参考下文。
+     *
+     * <p>示例值：
      */
-    @SerializedName("extra")
     private String[] extra;
 
-    // builder 开始
-    public ImportTask() {
+    /**
+     * 导入任务 ID
+     *
+     * <p>示例值：7369583175086912356
+     *
+     * @param ticket
+     * @return
+     */
+    public Builder ticket(String ticket) {
+      this.ticket = ticket;
+      return this;
     }
 
-    public ImportTask(Builder builder) {
-        /**
-         * 任务ID
-         * <p> 示例值：6990281865xxxxxxxx7843
-         */
-        this.ticket = builder.ticket;
-        /**
-         * 导入文件格式后缀
-         * <p> 示例值：xlsx
-         */
-        this.fileExtension = builder.fileExtension;
-        /**
-         * 导入文件Drive FileToken
-         * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 导入目标云文档格式
-         * <p> 示例值：sheet
-         */
-        this.type = builder.type;
-        /**
-         * 导入目标云文档文件名 ，若为空使用Drive文件名
-         * <p> 示例值：test
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 挂载点
-         * <p> 示例值：
-         */
-        this.point = builder.point;
-        /**
-         * 任务状态
-         * <p> 示例值：0
-         */
-        this.jobStatus = builder.jobStatus;
-        /**
-         * 任务失败原因
-         * <p> 示例值：success
-         */
-        this.jobErrorMsg = builder.jobErrorMsg;
-        /**
-         * 导入云文档Token
-         * <p> 示例值：shtcnVBTG6SuxxxxxxxkM2tUX
-         */
-        this.token = builder.token;
-        /**
-         * 导入云文档URL
-         * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX
-         */
-        this.url = builder.url;
-        /**
-         * 任务成功后的提示信息
-         * <p> 示例值：
-         */
-        this.extra = builder.extra;
+    /**
+     * 要导入的文件的扩展名。了解支持的文件格式，参考[导入文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)。;;**注意**：此处填写的文件扩展名需与实际文件的后缀名保持严格一致。请注意区分后缀为
+     * “markdown”、“md”、“mark” 的 Markdown 文件，并在填写相关参数时保持后缀名一致。否则将返回 1069910 错误码。
+     *
+     * <p>示例值：xlsx
+     *
+     * @param fileExtension
+     * @return
+     */
+    public Builder fileExtension(String fileExtension) {
+      this.fileExtension = fileExtension;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 要导入文件的
+     * token。创建任务前，你需先调用[上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all)或[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/upload_all)接口获取源文件的
+     * token。了解更多，参考[导入文件概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide)。
+     *
+     * <p>示例值：boxcnrHpsg1QDqXAAAyachabcef
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public String getTicket() {
-        return this.ticket;
+    /**
+     * 导入目标云文档类型，支持的类型 新版文档：docx；电子表格：sheet；多维表格：bitable
+     *
+     * <p>示例值：sheet
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setTicket(String ticket) {
-        this.ticket = ticket;
+    /**
+     * 导入后的在线云文档名称。参数为空时，使用上传本地文件时的文件名。
+     *
+     * <p>示例值：销售表
+     *
+     * @param fileName
+     * @return
+     */
+    public Builder fileName(String fileName) {
+      this.fileName = fileName;
+      return this;
     }
 
-    public String getFileExtension() {
-        return this.fileExtension;
+    /**
+     * 挂载点（导入后的云文档所在位置）
+     *
+     * <p>示例值：
+     *
+     * @param point
+     * @return
+     */
+    public Builder point(ImportTaskMountPoint point) {
+      this.point = point;
+      return this;
     }
 
-    public void setFileExtension(String fileExtension) {
-        this.fileExtension = fileExtension;
+    /**
+     * 任务的状态
+     *
+     * <p>示例值：0
+     *
+     * @param jobStatus
+     * @return
+     */
+    public Builder jobStatus(Integer jobStatus) {
+      this.jobStatus = jobStatus;
+      return this;
     }
 
-    public String getFileToken() {
-        return this.fileToken;
+    /**
+     * 任务的状态
+     *
+     * <p>示例值：0
+     *
+     * @param jobStatus {@link com.lark.oapi.service.drive.v1.enums.ImportTaskJobStatusEnum}
+     * @return
+     */
+    public Builder jobStatus(
+        com.lark.oapi.service.drive.v1.enums.ImportTaskJobStatusEnum jobStatus) {
+      this.jobStatus = jobStatus.getValue();
+      return this;
     }
 
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
+    /**
+     * 任务失败的原因
+     *
+     * <p>示例值：success
+     *
+     * @param jobErrorMsg
+     * @return
+     */
+    public Builder jobErrorMsg(String jobErrorMsg) {
+      this.jobErrorMsg = jobErrorMsg;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 导入云文档的 token
+     *
+     * <p>示例值：Fm7osyjtMh5o7Ktrv32c73abcef
+     *
+     * @param token
+     * @return
+     */
+    public Builder token(String token) {
+      this.token = token;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 导入云文档的 URL
+     *
+     * <p>示例值：https://example.feishu.cn/sheets/Fm7osyjtMh5o7Ktrv32c73abcef
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public String getFileName() {
-        return this.fileName;
+    /**
+     * 导入成功的额外提示。详情参考下文。
+     *
+     * <p>示例值：
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(String[] extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public ImportTask build() {
+      return new ImportTask(this);
     }
+  }
 
-    public ImportTaskMountPoint getPoint() {
-        return this.point;
-    }
-
-    public void setPoint(ImportTaskMountPoint point) {
-        this.point = point;
-    }
-
-    public Integer getJobStatus() {
-        return this.jobStatus;
-    }
-
-    public void setJobStatus(Integer jobStatus) {
-        this.jobStatus = jobStatus;
-    }
-
-    public String getJobErrorMsg() {
-        return this.jobErrorMsg;
-    }
-
-    public void setJobErrorMsg(String jobErrorMsg) {
-        this.jobErrorMsg = jobErrorMsg;
-    }
-
-    public String getToken() {
-        return this.token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String[] getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(String[] extra) {
-        this.extra = extra;
-    }
-
-    public static class Builder {
-        /**
-         * 任务ID
-         * <p> 示例值：6990281865xxxxxxxx7843
-         */
-        private String ticket;
-        /**
-         * 导入文件格式后缀
-         * <p> 示例值：xlsx
-         */
-        private String fileExtension;
-        /**
-         * 导入文件Drive FileToken
-         * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
-         */
-        private String fileToken;
-        /**
-         * 导入目标云文档格式
-         * <p> 示例值：sheet
-         */
-        private String type;
-        /**
-         * 导入目标云文档文件名 ，若为空使用Drive文件名
-         * <p> 示例值：test
-         */
-        private String fileName;
-        /**
-         * 挂载点
-         * <p> 示例值：
-         */
-        private ImportTaskMountPoint point;
-        /**
-         * 任务状态
-         * <p> 示例值：0
-         */
-        private Integer jobStatus;
-        /**
-         * 任务失败原因
-         * <p> 示例值：success
-         */
-        private String jobErrorMsg;
-        /**
-         * 导入云文档Token
-         * <p> 示例值：shtcnVBTG6SuxxxxxxxkM2tUX
-         */
-        private String token;
-        /**
-         * 导入云文档URL
-         * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX
-         */
-        private String url;
-        /**
-         * 任务成功后的提示信息
-         * <p> 示例值：
-         */
-        private String[] extra;
-
-        /**
-         * 任务ID
-         * <p> 示例值：6990281865xxxxxxxx7843
-         *
-         * @param ticket
-         * @return
-         */
-        public Builder ticket(String ticket) {
-            this.ticket = ticket;
-            return this;
-        }
-
-
-        /**
-         * 导入文件格式后缀
-         * <p> 示例值：xlsx
-         *
-         * @param fileExtension
-         * @return
-         */
-        public Builder fileExtension(String fileExtension) {
-            this.fileExtension = fileExtension;
-            return this;
-        }
-
-
-        /**
-         * 导入文件Drive FileToken
-         * <p> 示例值：boxcnxe5OxxxxxxxSNdsJviENsk
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        /**
-         * 导入目标云文档格式
-         * <p> 示例值：sheet
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 导入目标云文档文件名 ，若为空使用Drive文件名
-         * <p> 示例值：test
-         *
-         * @param fileName
-         * @return
-         */
-        public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
-        }
-
-
-        /**
-         * 挂载点
-         * <p> 示例值：
-         *
-         * @param point
-         * @return
-         */
-        public Builder point(ImportTaskMountPoint point) {
-            this.point = point;
-            return this;
-        }
-
-
-        /**
-         * 任务状态
-         * <p> 示例值：0
-         *
-         * @param jobStatus
-         * @return
-         */
-        public Builder jobStatus(Integer jobStatus) {
-            this.jobStatus = jobStatus;
-            return this;
-        }
-
-        /**
-         * 任务状态
-         * <p> 示例值：0
-         *
-         * @param jobStatus {@link com.lark.oapi.service.drive.v1.enums.ImportTaskJobStatusEnum}
-         * @return
-         */
-        public Builder jobStatus(com.lark.oapi.service.drive.v1.enums.ImportTaskJobStatusEnum jobStatus) {
-            this.jobStatus = jobStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 任务失败原因
-         * <p> 示例值：success
-         *
-         * @param jobErrorMsg
-         * @return
-         */
-        public Builder jobErrorMsg(String jobErrorMsg) {
-            this.jobErrorMsg = jobErrorMsg;
-            return this;
-        }
-
-
-        /**
-         * 导入云文档Token
-         * <p> 示例值：shtcnVBTG6SuxxxxxxxkM2tUX
-         *
-         * @param token
-         * @return
-         */
-        public Builder token(String token) {
-            this.token = token;
-            return this;
-        }
-
-
-        /**
-         * 导入云文档URL
-         * <p> 示例值：https://bytedance.feishu.cn/sheets/shtcnVBTG6SuxxxxxxxkM2tUX
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        /**
-         * 任务成功后的提示信息
-         * <p> 示例值：
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(String[] extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        public ImportTask build() {
-            return new ImportTask(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

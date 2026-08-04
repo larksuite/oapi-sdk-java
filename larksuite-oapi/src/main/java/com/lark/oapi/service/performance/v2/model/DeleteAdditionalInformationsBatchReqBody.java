@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DeleteAdditionalInformationsBatchReqBody {
+  /**
+   * 评估周期
+   * ID，可通过[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+   *
+   * <p>示例值：7348736302176534547
+   */
+  @SerializedName("semester_id")
+  private String semesterId;
+
+  /**
+   * 补充信息 ID
+   * 列表，可通过[批量查询补充信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/query)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("additional_informations")
+  private String[] additionalInformations;
+
+  public String getSemesterId() {
+    return this.semesterId;
+  }
+
+  public void setSemesterId(String semesterId) {
+    this.semesterId = semesterId;
+  }
+
+  public String[] getAdditionalInformations() {
+    return this.additionalInformations;
+  }
+
+  public void setAdditionalInformations(String[] additionalInformations) {
+    this.additionalInformations = additionalInformations;
+  }
+
+  // builder 开始
+  public DeleteAdditionalInformationsBatchReqBody() {}
+
+  public DeleteAdditionalInformationsBatchReqBody(Builder builder) {
     /**
-     * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-     * <p> 示例值：7348736302176534547
+     * 评估周期
+     * ID，可通过[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：7348736302176534547
      */
-    @SerializedName("semester_id")
+    this.semesterId = builder.semesterId;
+    /**
+     * 补充信息 ID
+     * 列表，可通过[批量查询补充信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/query)接口获取
+     *
+     * <p>示例值：
+     */
+    this.additionalInformations = builder.additionalInformations;
+  }
+
+  public static class Builder {
+    /**
+     * 评估周期
+     * ID，可通过[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：7348736302176534547
+     */
     private String semesterId;
+
     /**
-     * 补充信息列表，一次最多 100 个
-     * <p> 示例值：
+     * 补充信息 ID
+     * 列表，可通过[批量查询补充信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/query)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("additional_informations")
     private String[] additionalInformations;
 
-    // builder 开始
-    public DeleteAdditionalInformationsBatchReqBody() {
+    /**
+     * 评估周期
+     * ID，可通过[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取
+     *
+     * <p>示例值：7348736302176534547
+     *
+     * @param semesterId
+     * @return
+     */
+    public Builder semesterId(String semesterId) {
+      this.semesterId = semesterId;
+      return this;
     }
 
-    public DeleteAdditionalInformationsBatchReqBody(Builder builder) {
-        /**
-         * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：7348736302176534547
-         */
-        this.semesterId = builder.semesterId;
-        /**
-         * 补充信息列表，一次最多 100 个
-         * <p> 示例值：
-         */
-        this.additionalInformations = builder.additionalInformations;
+    /**
+     * 补充信息 ID
+     * 列表，可通过[批量查询补充信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/query)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param additionalInformations
+     * @return
+     */
+    public Builder additionalInformations(String[] additionalInformations) {
+      this.additionalInformations = additionalInformations;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DeleteAdditionalInformationsBatchReqBody build() {
+      return new DeleteAdditionalInformationsBatchReqBody(this);
     }
+  }
 
-    public String getSemesterId() {
-        return this.semesterId;
-    }
-
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
-    }
-
-    public String[] getAdditionalInformations() {
-        return this.additionalInformations;
-    }
-
-    public void setAdditionalInformations(String[] additionalInformations) {
-        this.additionalInformations = additionalInformations;
-    }
-
-    public static class Builder {
-        /**
-         * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：7348736302176534547
-         */
-        private String semesterId;
-        /**
-         * 补充信息列表，一次最多 100 个
-         * <p> 示例值：
-         */
-        private String[] additionalInformations;
-
-        /**
-         * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：7348736302176534547
-         *
-         * @param semesterId
-         * @return
-         */
-        public Builder semesterId(String semesterId) {
-            this.semesterId = semesterId;
-            return this;
-        }
-
-
-        /**
-         * 补充信息列表，一次最多 100 个
-         * <p> 示例值：
-         *
-         * @param additionalInformations
-         * @return
-         */
-        public Builder additionalInformations(String[] additionalInformations) {
-            this.additionalInformations = additionalInformations;
-            return this;
-        }
-
-
-        public DeleteAdditionalInformationsBatchReqBody build() {
-            return new DeleteAdditionalInformationsBatchReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

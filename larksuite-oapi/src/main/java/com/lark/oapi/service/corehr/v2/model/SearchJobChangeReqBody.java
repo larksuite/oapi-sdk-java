@@ -13,556 +13,661 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchJobChangeReqBody {
+  /**
+   * 雇员 ID
+   * 列表，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employment_ids")
+  private String[] employmentIds;
+
+  /**
+   * 异动记录 ID
+   * 列表，可通过接口;[搜索异动信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/search)获取详细信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("job_change_ids")
+  private String[] jobChangeIds;
+
+  /**
+   * 异动状态，多个状态之间为「或」的关系
+   *
+   * <p>示例值：Approved
+   */
+  @SerializedName("statuses")
+  private String[] statuses;
+
+  /**
+   * 异动生效日期 - 搜索范围开始，需要与effective_date_end（异动生效日期 - 搜索范围结束）一同使用，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：2022-01-01
+   */
+  @SerializedName("effective_date_start")
+  private String effectiveDateStart;
+
+  /**
+   * 异动生效日期 - 搜索范围结束，需要与effective_date_start（异动生效日期 - 搜索范围开始）一同使用，格式："YYYY-MM-DD"
+   *
+   * <p>示例值：2022-01-01
+   */
+  @SerializedName("effective_date_end")
+  private String effectiveDateEnd;
+
+  /**
+   * 异动更新时间 - 搜索范围开始，需要与updated_time_end（异动更新时间 - 搜索范围结束）一同使用，毫秒时间戳
+   *
+   * <p>示例值：1704084635000
+   */
+  @SerializedName("updated_time_start")
+  private String updatedTimeStart;
+
+  /**
+   * 异动更新时间 - 搜索范围结束，需要与updated_time_start（异动更新时间 - 搜索范围结束）一同使用，毫秒时间戳
+   *
+   * <p>示例值：1704084635000
+   */
+  @SerializedName("updated_time_end")
+  private String updatedTimeEnd;
+
+  /**
+   * 新部门 ID 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_department_ids")
+  private String[] targetDepartmentIds;
+
+  /**
+   * 异动类型，可通过接口;[获取异动类型列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取
+   *
+   * <p>示例值：internal_transfer
+   */
+  @SerializedName("transfer_type_unique_identifier")
+  private String[] transferTypeUniqueIdentifier;
+
+  /**
+   * 异动原因，可通过接口;[获取异动原因列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_reason/query)获取详细信息
+   *
+   * <p>示例值：involuntary_transfer
+   */
+  @SerializedName("transfer_reason_unique_identifier")
+  private String[] transferReasonUniqueIdentifier;
+
+  /**
+   * 异常处理状态，多个状态之间为「或」的关系
+   *
+   * <p>示例值：pending
+   */
+  @SerializedName("exception_statuses")
+  private String[] exceptionStatuses;
+
+  /**
+   * 原部门名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("original_department_ids")
+  private String[] originalDepartmentIds;
+
+  /**
+   * 员工部门
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employment_department_ids")
+  private String[] employmentDepartmentIds;
+
+  /**
+   * 指定筛选字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("select_fields")
+  private String[] selectFields;
+
+  /**
+   * 筛选条件json
+   *
+   * <p>示例值：abb
+   */
+  @SerializedName("filter_str")
+  private String filterStr;
+
+  public String[] getEmploymentIds() {
+    return this.employmentIds;
+  }
+
+  public void setEmploymentIds(String[] employmentIds) {
+    this.employmentIds = employmentIds;
+  }
+
+  public String[] getJobChangeIds() {
+    return this.jobChangeIds;
+  }
+
+  public void setJobChangeIds(String[] jobChangeIds) {
+    this.jobChangeIds = jobChangeIds;
+  }
+
+  public String[] getStatuses() {
+    return this.statuses;
+  }
+
+  public void setStatuses(String[] statuses) {
+    this.statuses = statuses;
+  }
+
+  public String getEffectiveDateStart() {
+    return this.effectiveDateStart;
+  }
+
+  public void setEffectiveDateStart(String effectiveDateStart) {
+    this.effectiveDateStart = effectiveDateStart;
+  }
+
+  public String getEffectiveDateEnd() {
+    return this.effectiveDateEnd;
+  }
+
+  public void setEffectiveDateEnd(String effectiveDateEnd) {
+    this.effectiveDateEnd = effectiveDateEnd;
+  }
+
+  public String getUpdatedTimeStart() {
+    return this.updatedTimeStart;
+  }
+
+  public void setUpdatedTimeStart(String updatedTimeStart) {
+    this.updatedTimeStart = updatedTimeStart;
+  }
+
+  public String getUpdatedTimeEnd() {
+    return this.updatedTimeEnd;
+  }
+
+  public void setUpdatedTimeEnd(String updatedTimeEnd) {
+    this.updatedTimeEnd = updatedTimeEnd;
+  }
+
+  public String[] getTargetDepartmentIds() {
+    return this.targetDepartmentIds;
+  }
+
+  public void setTargetDepartmentIds(String[] targetDepartmentIds) {
+    this.targetDepartmentIds = targetDepartmentIds;
+  }
+
+  public String[] getTransferTypeUniqueIdentifier() {
+    return this.transferTypeUniqueIdentifier;
+  }
+
+  public void setTransferTypeUniqueIdentifier(String[] transferTypeUniqueIdentifier) {
+    this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+  }
+
+  public String[] getTransferReasonUniqueIdentifier() {
+    return this.transferReasonUniqueIdentifier;
+  }
+
+  public void setTransferReasonUniqueIdentifier(String[] transferReasonUniqueIdentifier) {
+    this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+  }
+
+  public String[] getExceptionStatuses() {
+    return this.exceptionStatuses;
+  }
+
+  public void setExceptionStatuses(String[] exceptionStatuses) {
+    this.exceptionStatuses = exceptionStatuses;
+  }
+
+  public String[] getOriginalDepartmentIds() {
+    return this.originalDepartmentIds;
+  }
+
+  public void setOriginalDepartmentIds(String[] originalDepartmentIds) {
+    this.originalDepartmentIds = originalDepartmentIds;
+  }
+
+  public String[] getEmploymentDepartmentIds() {
+    return this.employmentDepartmentIds;
+  }
+
+  public void setEmploymentDepartmentIds(String[] employmentDepartmentIds) {
+    this.employmentDepartmentIds = employmentDepartmentIds;
+  }
+
+  public String[] getSelectFields() {
+    return this.selectFields;
+  }
+
+  public void setSelectFields(String[] selectFields) {
+    this.selectFields = selectFields;
+  }
+
+  public String getFilterStr() {
+    return this.filterStr;
+  }
+
+  public void setFilterStr(String filterStr) {
+    this.filterStr = filterStr;
+  }
+
+  // builder 开始
+  public SearchJobChangeReqBody() {}
+
+  public SearchJobChangeReqBody(Builder builder) {
     /**
-     * 雇员 ID 列表
-     * <p> 示例值：
+     * 雇员 ID
+     * 列表，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("employment_ids")
-    private String[] employmentIds;
+    this.employmentIds = builder.employmentIds;
     /**
-     * 异动记录 ID 列表
-     * <p> 示例值：
+     * 异动记录 ID
+     * 列表，可通过接口;[搜索异动信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/search)获取详细信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("job_change_ids")
-    private String[] jobChangeIds;
+    this.jobChangeIds = builder.jobChangeIds;
     /**
      * 异动状态，多个状态之间为「或」的关系
-     * <p> 示例值：Approved
+     *
+     * <p>示例值：Approved
      */
-    @SerializedName("statuses")
-    private String[] statuses;
+    this.statuses = builder.statuses;
     /**
-     * 异动生效日期 - 搜索范围开始，需要与搜索范围结束一同使用
-     * <p> 示例值：2022-01-01
+     * 异动生效日期 - 搜索范围开始，需要与effective_date_end（异动生效日期 - 搜索范围结束）一同使用，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-01-01
      */
-    @SerializedName("effective_date_start")
-    private String effectiveDateStart;
+    this.effectiveDateStart = builder.effectiveDateStart;
     /**
-     * 异动生效日期 - 搜索范围结束
-     * <p> 示例值：2022-01-01
+     * 异动生效日期 - 搜索范围结束，需要与effective_date_start（异动生效日期 - 搜索范围开始）一同使用，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-01-01
      */
-    @SerializedName("effective_date_end")
-    private String effectiveDateEnd;
+    this.effectiveDateEnd = builder.effectiveDateEnd;
     /**
-     * 异动更新时间 - 搜索范围开始，需要与搜索范围结束一同使用
-     * <p> 示例值：1704084635000
+     * 异动更新时间 - 搜索范围开始，需要与updated_time_end（异动更新时间 - 搜索范围结束）一同使用，毫秒时间戳
+     *
+     * <p>示例值：1704084635000
      */
-    @SerializedName("updated_time_start")
-    private String updatedTimeStart;
+    this.updatedTimeStart = builder.updatedTimeStart;
     /**
-     * 异动更新时间 - 搜索范围结束
-     * <p> 示例值：1704084635000
+     * 异动更新时间 - 搜索范围结束，需要与updated_time_start（异动更新时间 - 搜索范围结束）一同使用，毫秒时间戳
+     *
+     * <p>示例值：1704084635000
      */
-    @SerializedName("updated_time_end")
-    private String updatedTimeEnd;
+    this.updatedTimeEnd = builder.updatedTimeEnd;
     /**
      * 新部门 ID 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("target_department_ids")
-    private String[] targetDepartmentIds;
+    this.targetDepartmentIds = builder.targetDepartmentIds;
     /**
-     * 异动类型唯一标识
-     * <p> 示例值：internal_transfer
+     * 异动类型，可通过接口;[获取异动类型列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取
+     *
+     * <p>示例值：internal_transfer
      */
-    @SerializedName("transfer_type_unique_identifier")
-    private String[] transferTypeUniqueIdentifier;
+    this.transferTypeUniqueIdentifier = builder.transferTypeUniqueIdentifier;
     /**
-     * 异动原因唯一标识
-     * <p> 示例值：involuntary_transfer
+     * 异动原因，可通过接口;[获取异动原因列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_reason/query)获取详细信息
+     *
+     * <p>示例值：involuntary_transfer
      */
-    @SerializedName("transfer_reason_unique_identifier")
-    private String[] transferReasonUniqueIdentifier;
+    this.transferReasonUniqueIdentifier = builder.transferReasonUniqueIdentifier;
     /**
      * 异常处理状态，多个状态之间为「或」的关系
-     * <p> 示例值：pending
+     *
+     * <p>示例值：pending
      */
-    @SerializedName("exception_statuses")
-    private String[] exceptionStatuses;
+    this.exceptionStatuses = builder.exceptionStatuses;
     /**
      * 原部门名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("original_department_ids")
-    private String[] originalDepartmentIds;
+    this.originalDepartmentIds = builder.originalDepartmentIds;
     /**
      * 员工部门
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employment_department_ids")
-    private String[] employmentDepartmentIds;
+    this.employmentDepartmentIds = builder.employmentDepartmentIds;
     /**
      * 指定筛选字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("select_fields")
+    this.selectFields = builder.selectFields;
+    /**
+     * 筛选条件json
+     *
+     * <p>示例值：abb
+     */
+    this.filterStr = builder.filterStr;
+  }
+
+  public static class Builder {
+    /**
+     * 雇员 ID
+     * 列表，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：
+     */
+    private String[] employmentIds;
+
+    /**
+     * 异动记录 ID
+     * 列表，可通过接口;[搜索异动信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/search)获取详细信息
+     *
+     * <p>示例值：
+     */
+    private String[] jobChangeIds;
+
+    /**
+     * 异动状态，多个状态之间为「或」的关系
+     *
+     * <p>示例值：Approved
+     */
+    private String[] statuses;
+
+    /**
+     * 异动生效日期 - 搜索范围开始，需要与effective_date_end（异动生效日期 - 搜索范围结束）一同使用，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-01-01
+     */
+    private String effectiveDateStart;
+
+    /**
+     * 异动生效日期 - 搜索范围结束，需要与effective_date_start（异动生效日期 - 搜索范围开始）一同使用，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-01-01
+     */
+    private String effectiveDateEnd;
+
+    /**
+     * 异动更新时间 - 搜索范围开始，需要与updated_time_end（异动更新时间 - 搜索范围结束）一同使用，毫秒时间戳
+     *
+     * <p>示例值：1704084635000
+     */
+    private String updatedTimeStart;
+
+    /**
+     * 异动更新时间 - 搜索范围结束，需要与updated_time_start（异动更新时间 - 搜索范围结束）一同使用，毫秒时间戳
+     *
+     * <p>示例值：1704084635000
+     */
+    private String updatedTimeEnd;
+
+    /**
+     * 新部门 ID 列表
+     *
+     * <p>示例值：
+     */
+    private String[] targetDepartmentIds;
+
+    /**
+     * 异动类型，可通过接口;[获取异动类型列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取
+     *
+     * <p>示例值：internal_transfer
+     */
+    private String[] transferTypeUniqueIdentifier;
+
+    /**
+     * 异动原因，可通过接口;[获取异动原因列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_reason/query)获取详细信息
+     *
+     * <p>示例值：involuntary_transfer
+     */
+    private String[] transferReasonUniqueIdentifier;
+
+    /**
+     * 异常处理状态，多个状态之间为「或」的关系
+     *
+     * <p>示例值：pending
+     */
+    private String[] exceptionStatuses;
+
+    /**
+     * 原部门名称
+     *
+     * <p>示例值：
+     */
+    private String[] originalDepartmentIds;
+
+    /**
+     * 员工部门
+     *
+     * <p>示例值：
+     */
+    private String[] employmentDepartmentIds;
+
+    /**
+     * 指定筛选字段
+     *
+     * <p>示例值：
+     */
     private String[] selectFields;
 
-    // builder 开始
-    public SearchJobChangeReqBody() {
+    /**
+     * 筛选条件json
+     *
+     * <p>示例值：abb
+     */
+    private String filterStr;
+
+    /**
+     * 雇员 ID
+     * 列表，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param employmentIds
+     * @return
+     */
+    public Builder employmentIds(String[] employmentIds) {
+      this.employmentIds = employmentIds;
+      return this;
     }
 
-    public SearchJobChangeReqBody(Builder builder) {
-        /**
-         * 雇员 ID 列表
-         * <p> 示例值：
-         */
-        this.employmentIds = builder.employmentIds;
-        /**
-         * 异动记录 ID 列表
-         * <p> 示例值：
-         */
-        this.jobChangeIds = builder.jobChangeIds;
-        /**
-         * 异动状态，多个状态之间为「或」的关系
-         * <p> 示例值：Approved
-         */
-        this.statuses = builder.statuses;
-        /**
-         * 异动生效日期 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-01-01
-         */
-        this.effectiveDateStart = builder.effectiveDateStart;
-        /**
-         * 异动生效日期 - 搜索范围结束
-         * <p> 示例值：2022-01-01
-         */
-        this.effectiveDateEnd = builder.effectiveDateEnd;
-        /**
-         * 异动更新时间 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：1704084635000
-         */
-        this.updatedTimeStart = builder.updatedTimeStart;
-        /**
-         * 异动更新时间 - 搜索范围结束
-         * <p> 示例值：1704084635000
-         */
-        this.updatedTimeEnd = builder.updatedTimeEnd;
-        /**
-         * 新部门 ID 列表
-         * <p> 示例值：
-         */
-        this.targetDepartmentIds = builder.targetDepartmentIds;
-        /**
-         * 异动类型唯一标识
-         * <p> 示例值：internal_transfer
-         */
-        this.transferTypeUniqueIdentifier = builder.transferTypeUniqueIdentifier;
-        /**
-         * 异动原因唯一标识
-         * <p> 示例值：involuntary_transfer
-         */
-        this.transferReasonUniqueIdentifier = builder.transferReasonUniqueIdentifier;
-        /**
-         * 异常处理状态，多个状态之间为「或」的关系
-         * <p> 示例值：pending
-         */
-        this.exceptionStatuses = builder.exceptionStatuses;
-        /**
-         * 原部门名称
-         * <p> 示例值：
-         */
-        this.originalDepartmentIds = builder.originalDepartmentIds;
-        /**
-         * 员工部门
-         * <p> 示例值：
-         */
-        this.employmentDepartmentIds = builder.employmentDepartmentIds;
-        /**
-         * 指定筛选字段
-         * <p> 示例值：
-         */
-        this.selectFields = builder.selectFields;
+    /**
+     * 异动记录 ID
+     * 列表，可通过接口;[搜索异动信息;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/search)获取详细信息
+     *
+     * <p>示例值：
+     *
+     * @param jobChangeIds
+     * @return
+     */
+    public Builder jobChangeIds(String[] jobChangeIds) {
+      this.jobChangeIds = jobChangeIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 异动状态，多个状态之间为「或」的关系
+     *
+     * <p>示例值：Approved
+     *
+     * @param statuses
+     * @return
+     */
+    public Builder statuses(String[] statuses) {
+      this.statuses = statuses;
+      return this;
     }
 
-    public String[] getEmploymentIds() {
-        return this.employmentIds;
+    /**
+     * 异动生效日期 - 搜索范围开始，需要与effective_date_end（异动生效日期 - 搜索范围结束）一同使用，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-01-01
+     *
+     * @param effectiveDateStart
+     * @return
+     */
+    public Builder effectiveDateStart(String effectiveDateStart) {
+      this.effectiveDateStart = effectiveDateStart;
+      return this;
     }
 
-    public void setEmploymentIds(String[] employmentIds) {
-        this.employmentIds = employmentIds;
+    /**
+     * 异动生效日期 - 搜索范围结束，需要与effective_date_start（异动生效日期 - 搜索范围开始）一同使用，格式："YYYY-MM-DD"
+     *
+     * <p>示例值：2022-01-01
+     *
+     * @param effectiveDateEnd
+     * @return
+     */
+    public Builder effectiveDateEnd(String effectiveDateEnd) {
+      this.effectiveDateEnd = effectiveDateEnd;
+      return this;
     }
 
-    public String[] getJobChangeIds() {
-        return this.jobChangeIds;
+    /**
+     * 异动更新时间 - 搜索范围开始，需要与updated_time_end（异动更新时间 - 搜索范围结束）一同使用，毫秒时间戳
+     *
+     * <p>示例值：1704084635000
+     *
+     * @param updatedTimeStart
+     * @return
+     */
+    public Builder updatedTimeStart(String updatedTimeStart) {
+      this.updatedTimeStart = updatedTimeStart;
+      return this;
     }
 
-    public void setJobChangeIds(String[] jobChangeIds) {
-        this.jobChangeIds = jobChangeIds;
+    /**
+     * 异动更新时间 - 搜索范围结束，需要与updated_time_start（异动更新时间 - 搜索范围结束）一同使用，毫秒时间戳
+     *
+     * <p>示例值：1704084635000
+     *
+     * @param updatedTimeEnd
+     * @return
+     */
+    public Builder updatedTimeEnd(String updatedTimeEnd) {
+      this.updatedTimeEnd = updatedTimeEnd;
+      return this;
     }
 
-    public String[] getStatuses() {
-        return this.statuses;
+    /**
+     * 新部门 ID 列表
+     *
+     * <p>示例值：
+     *
+     * @param targetDepartmentIds
+     * @return
+     */
+    public Builder targetDepartmentIds(String[] targetDepartmentIds) {
+      this.targetDepartmentIds = targetDepartmentIds;
+      return this;
     }
 
-    public void setStatuses(String[] statuses) {
-        this.statuses = statuses;
+    /**
+     * 异动类型，可通过接口;[获取异动类型列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取
+     *
+     * <p>示例值：internal_transfer
+     *
+     * @param transferTypeUniqueIdentifier
+     * @return
+     */
+    public Builder transferTypeUniqueIdentifier(String[] transferTypeUniqueIdentifier) {
+      this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
+      return this;
     }
 
-    public String getEffectiveDateStart() {
-        return this.effectiveDateStart;
+    /**
+     * 异动原因，可通过接口;[获取异动原因列表;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_reason/query)获取详细信息
+     *
+     * <p>示例值：involuntary_transfer
+     *
+     * @param transferReasonUniqueIdentifier
+     * @return
+     */
+    public Builder transferReasonUniqueIdentifier(String[] transferReasonUniqueIdentifier) {
+      this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
+      return this;
     }
 
-    public void setEffectiveDateStart(String effectiveDateStart) {
-        this.effectiveDateStart = effectiveDateStart;
+    /**
+     * 异常处理状态，多个状态之间为「或」的关系
+     *
+     * <p>示例值：pending
+     *
+     * @param exceptionStatuses
+     * @return
+     */
+    public Builder exceptionStatuses(String[] exceptionStatuses) {
+      this.exceptionStatuses = exceptionStatuses;
+      return this;
     }
 
-    public String getEffectiveDateEnd() {
-        return this.effectiveDateEnd;
+    /**
+     * 原部门名称
+     *
+     * <p>示例值：
+     *
+     * @param originalDepartmentIds
+     * @return
+     */
+    public Builder originalDepartmentIds(String[] originalDepartmentIds) {
+      this.originalDepartmentIds = originalDepartmentIds;
+      return this;
     }
 
-    public void setEffectiveDateEnd(String effectiveDateEnd) {
-        this.effectiveDateEnd = effectiveDateEnd;
+    /**
+     * 员工部门
+     *
+     * <p>示例值：
+     *
+     * @param employmentDepartmentIds
+     * @return
+     */
+    public Builder employmentDepartmentIds(String[] employmentDepartmentIds) {
+      this.employmentDepartmentIds = employmentDepartmentIds;
+      return this;
     }
 
-    public String getUpdatedTimeStart() {
-        return this.updatedTimeStart;
+    /**
+     * 指定筛选字段
+     *
+     * <p>示例值：
+     *
+     * @param selectFields
+     * @return
+     */
+    public Builder selectFields(String[] selectFields) {
+      this.selectFields = selectFields;
+      return this;
     }
 
-    public void setUpdatedTimeStart(String updatedTimeStart) {
-        this.updatedTimeStart = updatedTimeStart;
+    /**
+     * 筛选条件json
+     *
+     * <p>示例值：abb
+     *
+     * @param filterStr
+     * @return
+     */
+    public Builder filterStr(String filterStr) {
+      this.filterStr = filterStr;
+      return this;
     }
 
-    public String getUpdatedTimeEnd() {
-        return this.updatedTimeEnd;
+    public SearchJobChangeReqBody build() {
+      return new SearchJobChangeReqBody(this);
     }
+  }
 
-    public void setUpdatedTimeEnd(String updatedTimeEnd) {
-        this.updatedTimeEnd = updatedTimeEnd;
-    }
-
-    public String[] getTargetDepartmentIds() {
-        return this.targetDepartmentIds;
-    }
-
-    public void setTargetDepartmentIds(String[] targetDepartmentIds) {
-        this.targetDepartmentIds = targetDepartmentIds;
-    }
-
-    public String[] getTransferTypeUniqueIdentifier() {
-        return this.transferTypeUniqueIdentifier;
-    }
-
-    public void setTransferTypeUniqueIdentifier(String[] transferTypeUniqueIdentifier) {
-        this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
-    }
-
-    public String[] getTransferReasonUniqueIdentifier() {
-        return this.transferReasonUniqueIdentifier;
-    }
-
-    public void setTransferReasonUniqueIdentifier(String[] transferReasonUniqueIdentifier) {
-        this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
-    }
-
-    public String[] getExceptionStatuses() {
-        return this.exceptionStatuses;
-    }
-
-    public void setExceptionStatuses(String[] exceptionStatuses) {
-        this.exceptionStatuses = exceptionStatuses;
-    }
-
-    public String[] getOriginalDepartmentIds() {
-        return this.originalDepartmentIds;
-    }
-
-    public void setOriginalDepartmentIds(String[] originalDepartmentIds) {
-        this.originalDepartmentIds = originalDepartmentIds;
-    }
-
-    public String[] getEmploymentDepartmentIds() {
-        return this.employmentDepartmentIds;
-    }
-
-    public void setEmploymentDepartmentIds(String[] employmentDepartmentIds) {
-        this.employmentDepartmentIds = employmentDepartmentIds;
-    }
-
-    public String[] getSelectFields() {
-        return this.selectFields;
-    }
-
-    public void setSelectFields(String[] selectFields) {
-        this.selectFields = selectFields;
-    }
-
-    public static class Builder {
-        /**
-         * 雇员 ID 列表
-         * <p> 示例值：
-         */
-        private String[] employmentIds;
-        /**
-         * 异动记录 ID 列表
-         * <p> 示例值：
-         */
-        private String[] jobChangeIds;
-        /**
-         * 异动状态，多个状态之间为「或」的关系
-         * <p> 示例值：Approved
-         */
-        private String[] statuses;
-        /**
-         * 异动生效日期 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-01-01
-         */
-        private String effectiveDateStart;
-        /**
-         * 异动生效日期 - 搜索范围结束
-         * <p> 示例值：2022-01-01
-         */
-        private String effectiveDateEnd;
-        /**
-         * 异动更新时间 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：1704084635000
-         */
-        private String updatedTimeStart;
-        /**
-         * 异动更新时间 - 搜索范围结束
-         * <p> 示例值：1704084635000
-         */
-        private String updatedTimeEnd;
-        /**
-         * 新部门 ID 列表
-         * <p> 示例值：
-         */
-        private String[] targetDepartmentIds;
-        /**
-         * 异动类型唯一标识
-         * <p> 示例值：internal_transfer
-         */
-        private String[] transferTypeUniqueIdentifier;
-        /**
-         * 异动原因唯一标识
-         * <p> 示例值：involuntary_transfer
-         */
-        private String[] transferReasonUniqueIdentifier;
-        /**
-         * 异常处理状态，多个状态之间为「或」的关系
-         * <p> 示例值：pending
-         */
-        private String[] exceptionStatuses;
-        /**
-         * 原部门名称
-         * <p> 示例值：
-         */
-        private String[] originalDepartmentIds;
-        /**
-         * 员工部门
-         * <p> 示例值：
-         */
-        private String[] employmentDepartmentIds;
-        /**
-         * 指定筛选字段
-         * <p> 示例值：
-         */
-        private String[] selectFields;
-
-        /**
-         * 雇员 ID 列表
-         * <p> 示例值：
-         *
-         * @param employmentIds
-         * @return
-         */
-        public Builder employmentIds(String[] employmentIds) {
-            this.employmentIds = employmentIds;
-            return this;
-        }
-
-
-        /**
-         * 异动记录 ID 列表
-         * <p> 示例值：
-         *
-         * @param jobChangeIds
-         * @return
-         */
-        public Builder jobChangeIds(String[] jobChangeIds) {
-            this.jobChangeIds = jobChangeIds;
-            return this;
-        }
-
-
-        /**
-         * 异动状态，多个状态之间为「或」的关系
-         * <p> 示例值：Approved
-         *
-         * @param statuses
-         * @return
-         */
-        public Builder statuses(String[] statuses) {
-            this.statuses = statuses;
-            return this;
-        }
-
-
-        /**
-         * 异动生效日期 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：2022-01-01
-         *
-         * @param effectiveDateStart
-         * @return
-         */
-        public Builder effectiveDateStart(String effectiveDateStart) {
-            this.effectiveDateStart = effectiveDateStart;
-            return this;
-        }
-
-
-        /**
-         * 异动生效日期 - 搜索范围结束
-         * <p> 示例值：2022-01-01
-         *
-         * @param effectiveDateEnd
-         * @return
-         */
-        public Builder effectiveDateEnd(String effectiveDateEnd) {
-            this.effectiveDateEnd = effectiveDateEnd;
-            return this;
-        }
-
-
-        /**
-         * 异动更新时间 - 搜索范围开始，需要与搜索范围结束一同使用
-         * <p> 示例值：1704084635000
-         *
-         * @param updatedTimeStart
-         * @return
-         */
-        public Builder updatedTimeStart(String updatedTimeStart) {
-            this.updatedTimeStart = updatedTimeStart;
-            return this;
-        }
-
-
-        /**
-         * 异动更新时间 - 搜索范围结束
-         * <p> 示例值：1704084635000
-         *
-         * @param updatedTimeEnd
-         * @return
-         */
-        public Builder updatedTimeEnd(String updatedTimeEnd) {
-            this.updatedTimeEnd = updatedTimeEnd;
-            return this;
-        }
-
-
-        /**
-         * 新部门 ID 列表
-         * <p> 示例值：
-         *
-         * @param targetDepartmentIds
-         * @return
-         */
-        public Builder targetDepartmentIds(String[] targetDepartmentIds) {
-            this.targetDepartmentIds = targetDepartmentIds;
-            return this;
-        }
-
-
-        /**
-         * 异动类型唯一标识
-         * <p> 示例值：internal_transfer
-         *
-         * @param transferTypeUniqueIdentifier
-         * @return
-         */
-        public Builder transferTypeUniqueIdentifier(String[] transferTypeUniqueIdentifier) {
-            this.transferTypeUniqueIdentifier = transferTypeUniqueIdentifier;
-            return this;
-        }
-
-
-        /**
-         * 异动原因唯一标识
-         * <p> 示例值：involuntary_transfer
-         *
-         * @param transferReasonUniqueIdentifier
-         * @return
-         */
-        public Builder transferReasonUniqueIdentifier(String[] transferReasonUniqueIdentifier) {
-            this.transferReasonUniqueIdentifier = transferReasonUniqueIdentifier;
-            return this;
-        }
-
-
-        /**
-         * 异常处理状态，多个状态之间为「或」的关系
-         * <p> 示例值：pending
-         *
-         * @param exceptionStatuses
-         * @return
-         */
-        public Builder exceptionStatuses(String[] exceptionStatuses) {
-            this.exceptionStatuses = exceptionStatuses;
-            return this;
-        }
-
-
-        /**
-         * 原部门名称
-         * <p> 示例值：
-         *
-         * @param originalDepartmentIds
-         * @return
-         */
-        public Builder originalDepartmentIds(String[] originalDepartmentIds) {
-            this.originalDepartmentIds = originalDepartmentIds;
-            return this;
-        }
-
-
-        /**
-         * 员工部门
-         * <p> 示例值：
-         *
-         * @param employmentDepartmentIds
-         * @return
-         */
-        public Builder employmentDepartmentIds(String[] employmentDepartmentIds) {
-            this.employmentDepartmentIds = employmentDepartmentIds;
-            return this;
-        }
-
-
-        /**
-         * 指定筛选字段
-         * <p> 示例值：
-         *
-         * @param selectFields
-         * @return
-         */
-        public Builder selectFields(String[] selectFields) {
-            this.selectFields = selectFields;
-            return this;
-        }
-
-
-        public SearchJobChangeReqBody build() {
-            return new SearchJobChangeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

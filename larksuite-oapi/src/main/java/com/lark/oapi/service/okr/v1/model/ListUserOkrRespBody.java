@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListUserOkrRespBody {
-    /**
-     * OKR周期总数
-     * <p> 示例值：5
-     */
-    @SerializedName("total")
-    private Integer total;
-    /**
-     * OKR 列表
-     * <p> 示例值：
-     */
-    @SerializedName("okr_list")
-    private OkrBatch[] okrList;
+  /**
+   * OKR周期总数
+   *
+   * <p>示例值：5
+   */
+  @SerializedName("total")
+  private Integer total;
 
-    public Integer getTotal() {
-        return this.total;
-    }
+  /**
+   * OKR 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("okr_list")
+  private OkrBatch[] okrList;
 
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
+  public Integer getTotal() {
+    return this.total;
+  }
 
-    public OkrBatch[] getOkrList() {
-        return this.okrList;
-    }
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
 
-    public void setOkrList(OkrBatch[] okrList) {
-        this.okrList = okrList;
-    }
+  public OkrBatch[] getOkrList() {
+    return this.okrList;
+  }
 
+  public void setOkrList(OkrBatch[] okrList) {
+    this.okrList = okrList;
+  }
 }

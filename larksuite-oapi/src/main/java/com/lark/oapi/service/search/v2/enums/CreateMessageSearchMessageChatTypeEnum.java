@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.search.v2.enums;
 
-/**
- * 会话类型(group_chat/p2p_chat)
- */
+/** 会话类型(group_chat/p2p_chat) */
 public enum CreateMessageSearchMessageChatTypeEnum {
-    GROUP_CHAT("group_chat"), // 群聊
-    P2P_CHAT("p2p_chat"), // 单聊
-    ;
-    private String value;
+  GROUP_CHAT("group_chat"), // 群聊
+  P2P_CHAT("p2p_chat"), // 单聊
+  ;
+  private String value;
 
-    CreateMessageSearchMessageChatTypeEnum(String value) {
-        this.value = value;
-    }
+  CreateMessageSearchMessageChatTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

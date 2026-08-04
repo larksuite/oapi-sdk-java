@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryLocationReqBody {
+  /**
+   * 地点码列表，最大长度不超过100，不传则根据地点类型分页查询全量列表
+   *
+   * <p>示例值：CN_1
+   */
+  @SerializedName("code_list")
+  private String[] codeList;
+
+  /**
+   * 地点类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("location_type")
+  private Integer locationType;
+
+  public String[] getCodeList() {
+    return this.codeList;
+  }
+
+  public void setCodeList(String[] codeList) {
+    this.codeList = codeList;
+  }
+
+  public Integer getLocationType() {
+    return this.locationType;
+  }
+
+  public void setLocationType(Integer locationType) {
+    this.locationType = locationType;
+  }
+
+  // builder 开始
+  public QueryLocationReqBody() {}
+
+  public QueryLocationReqBody(Builder builder) {
     /**
-     * 地址码列表,最大长度不超过100
-     * <p> 示例值：CN_1
+     * 地点码列表，最大长度不超过100，不传则根据地点类型分页查询全量列表
+     *
+     * <p>示例值：CN_1
      */
-    @SerializedName("code_list")
+    this.codeList = builder.codeList;
+    /**
+     * 地点类型
+     *
+     * <p>示例值：1
+     */
+    this.locationType = builder.locationType;
+  }
+
+  public static class Builder {
+    /**
+     * 地点码列表，最大长度不超过100，不传则根据地点类型分页查询全量列表
+     *
+     * <p>示例值：CN_1
+     */
     private String[] codeList;
+
     /**
-     * 地址类型
-     * <p> 示例值：1
+     * 地点类型
+     *
+     * <p>示例值：1
      */
-    @SerializedName("location_type")
     private Integer locationType;
 
-    // builder 开始
-    public QueryLocationReqBody() {
+    /**
+     * 地点码列表，最大长度不超过100，不传则根据地点类型分页查询全量列表
+     *
+     * <p>示例值：CN_1
+     *
+     * @param codeList
+     * @return
+     */
+    public Builder codeList(String[] codeList) {
+      this.codeList = codeList;
+      return this;
     }
 
-    public QueryLocationReqBody(Builder builder) {
-        /**
-         * 地址码列表,最大长度不超过100
-         * <p> 示例值：CN_1
-         */
-        this.codeList = builder.codeList;
-        /**
-         * 地址类型
-         * <p> 示例值：1
-         */
-        this.locationType = builder.locationType;
+    /**
+     * 地点类型
+     *
+     * <p>示例值：1
+     *
+     * @param locationType
+     * @return
+     */
+    public Builder locationType(Integer locationType) {
+      this.locationType = locationType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public QueryLocationReqBody build() {
+      return new QueryLocationReqBody(this);
     }
+  }
 
-    public String[] getCodeList() {
-        return this.codeList;
-    }
-
-    public void setCodeList(String[] codeList) {
-        this.codeList = codeList;
-    }
-
-    public Integer getLocationType() {
-        return this.locationType;
-    }
-
-    public void setLocationType(Integer locationType) {
-        this.locationType = locationType;
-    }
-
-    public static class Builder {
-        /**
-         * 地址码列表,最大长度不超过100
-         * <p> 示例值：CN_1
-         */
-        private String[] codeList;
-        /**
-         * 地址类型
-         * <p> 示例值：1
-         */
-        private Integer locationType;
-
-        /**
-         * 地址码列表,最大长度不超过100
-         * <p> 示例值：CN_1
-         *
-         * @param codeList
-         * @return
-         */
-        public Builder codeList(String[] codeList) {
-            this.codeList = codeList;
-            return this;
-        }
-
-
-        /**
-         * 地址类型
-         * <p> 示例值：1
-         *
-         * @param locationType
-         * @return
-         */
-        public Builder locationType(Integer locationType) {
-            this.locationType = locationType;
-            return this;
-        }
-
-
-        public QueryLocationReqBody build() {
-            return new QueryLocationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

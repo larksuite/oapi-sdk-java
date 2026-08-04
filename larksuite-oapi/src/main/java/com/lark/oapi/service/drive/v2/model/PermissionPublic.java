@@ -13,418 +13,519 @@
 
 package com.lark.oapi.service.drive.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PermissionPublic {
+  /**
+   * 允许内容被分享到组织外
+   *
+   * <p>示例值：open
+   */
+  @SerializedName("external_access_entity")
+  private String externalAccessEntity;
+
+  /**
+   * 谁可以创建副本、打印、下载
+   *
+   * <p>示例值：anyone_can_view
+   */
+  @SerializedName("security_entity")
+  private String securityEntity;
+
+  /**
+   * 谁可以评论
+   *
+   * <p>示例值：anyone_can_view
+   */
+  @SerializedName("comment_entity")
+  private String commentEntity;
+
+  /**
+   * 从组织维度，设置谁可以查看、添加、移除协作者
+   *
+   * <p>示例值：anyone
+   */
+  @SerializedName("share_entity")
+  private String shareEntity;
+
+  /**
+   * 从协作者维度，设置谁可以查看、添加、移除协作者
+   *
+   * <p>示例值：collaborator_can_view
+   */
+  @SerializedName("manage_collaborator_entity")
+  private String manageCollaboratorEntity;
+
+  /**
+   * 链接分享设置
+   *
+   * <p>示例值：tenant_readable
+   */
+  @SerializedName("link_share_entity")
+  private String linkShareEntity;
+
+  /**
+   * 谁可以复制内容
+   *
+   * <p>示例值：anyone_can_view
+   */
+  @SerializedName("copy_entity")
+  private String copyEntity;
+
+  /**
+   * 知识库中的子页面是否已限制权限，不再继承父级页面的权限设置。;;**枚举值有：** ;- `true`: 已限制权限;- `false`:
+   * 未限制权限;;**提示**：当知识库中的子页面权限范围小于父级页面时，该页面权限将默认限制权限。;;;![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a99780710c3f7e5e390280ff6d87fc47_HIjzKDxscr.png?maxWidth=200)
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("lock_switch")
+  private Boolean lockSwitch;
+
+  /**
+   * 权限生效范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("perm_type")
+  private PermType permType;
+
+  public String getExternalAccessEntity() {
+    return this.externalAccessEntity;
+  }
+
+  public void setExternalAccessEntity(String externalAccessEntity) {
+    this.externalAccessEntity = externalAccessEntity;
+  }
+
+  public String getSecurityEntity() {
+    return this.securityEntity;
+  }
+
+  public void setSecurityEntity(String securityEntity) {
+    this.securityEntity = securityEntity;
+  }
+
+  public String getCommentEntity() {
+    return this.commentEntity;
+  }
+
+  public void setCommentEntity(String commentEntity) {
+    this.commentEntity = commentEntity;
+  }
+
+  public String getShareEntity() {
+    return this.shareEntity;
+  }
+
+  public void setShareEntity(String shareEntity) {
+    this.shareEntity = shareEntity;
+  }
+
+  public String getManageCollaboratorEntity() {
+    return this.manageCollaboratorEntity;
+  }
+
+  public void setManageCollaboratorEntity(String manageCollaboratorEntity) {
+    this.manageCollaboratorEntity = manageCollaboratorEntity;
+  }
+
+  public String getLinkShareEntity() {
+    return this.linkShareEntity;
+  }
+
+  public void setLinkShareEntity(String linkShareEntity) {
+    this.linkShareEntity = linkShareEntity;
+  }
+
+  public String getCopyEntity() {
+    return this.copyEntity;
+  }
+
+  public void setCopyEntity(String copyEntity) {
+    this.copyEntity = copyEntity;
+  }
+
+  public Boolean getLockSwitch() {
+    return this.lockSwitch;
+  }
+
+  public void setLockSwitch(Boolean lockSwitch) {
+    this.lockSwitch = lockSwitch;
+  }
+
+  public PermType getPermType() {
+    return this.permType;
+  }
+
+  public void setPermType(PermType permType) {
+    this.permType = permType;
+  }
+
+  // builder 开始
+  public PermissionPublic() {}
+
+  public PermissionPublic(Builder builder) {
     /**
      * 允许内容被分享到组织外
-     * <p> 示例值：open
+     *
+     * <p>示例值：open
      */
-    @SerializedName("external_access_entity")
-    private String externalAccessEntity;
+    this.externalAccessEntity = builder.externalAccessEntity;
     /**
      * 谁可以创建副本、打印、下载
-     * <p> 示例值：anyone_can_view
+     *
+     * <p>示例值：anyone_can_view
      */
-    @SerializedName("security_entity")
-    private String securityEntity;
+    this.securityEntity = builder.securityEntity;
     /**
      * 谁可以评论
-     * <p> 示例值：anyone_can_view
+     *
+     * <p>示例值：anyone_can_view
      */
-    @SerializedName("comment_entity")
-    private String commentEntity;
+    this.commentEntity = builder.commentEntity;
     /**
-     * 谁可以添加和管理协作者-组织维度
-     * <p> 示例值：anyone
+     * 从组织维度，设置谁可以查看、添加、移除协作者
+     *
+     * <p>示例值：anyone
      */
-    @SerializedName("share_entity")
-    private String shareEntity;
+    this.shareEntity = builder.shareEntity;
     /**
-     * 谁可以添加和管理协作者-协作者维度
-     * <p> 示例值：collaborator_can_view
+     * 从协作者维度，设置谁可以查看、添加、移除协作者
+     *
+     * <p>示例值：collaborator_can_view
      */
-    @SerializedName("manage_collaborator_entity")
-    private String manageCollaboratorEntity;
+    this.manageCollaboratorEntity = builder.manageCollaboratorEntity;
     /**
      * 链接分享设置
-     * <p> 示例值：tenant_readable
+     *
+     * <p>示例值：tenant_readable
      */
-    @SerializedName("link_share_entity")
-    private String linkShareEntity;
+    this.linkShareEntity = builder.linkShareEntity;
     /**
      * 谁可以复制内容
-     * <p> 示例值：anyone_can_view
+     *
+     * <p>示例值：anyone_can_view
      */
-    @SerializedName("copy_entity")
-    private String copyEntity;
+    this.copyEntity = builder.copyEntity;
     /**
-     * 节点是否已加锁，加锁之后不再继承父级页面的权限
-     * <p> 示例值：false
+     * 知识库中的子页面是否已限制权限，不再继承父级页面的权限设置。;;**枚举值有：** ;- `true`: 已限制权限;- `false`:
+     * 未限制权限;;**提示**：当知识库中的子页面权限范围小于父级页面时，该页面权限将默认限制权限。;;;![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a99780710c3f7e5e390280ff6d87fc47_HIjzKDxscr.png?maxWidth=200)
+     *
+     * <p>示例值：false
      */
-    @SerializedName("lock_switch")
+    this.lockSwitch = builder.lockSwitch;
+    /**
+     * 权限生效范围
+     *
+     * <p>示例值：
+     */
+    this.permType = builder.permType;
+  }
+
+  public static class Builder {
+    /**
+     * 允许内容被分享到组织外
+     *
+     * <p>示例值：open
+     */
+    private String externalAccessEntity;
+
+    /**
+     * 谁可以创建副本、打印、下载
+     *
+     * <p>示例值：anyone_can_view
+     */
+    private String securityEntity;
+
+    /**
+     * 谁可以评论
+     *
+     * <p>示例值：anyone_can_view
+     */
+    private String commentEntity;
+
+    /**
+     * 从组织维度，设置谁可以查看、添加、移除协作者
+     *
+     * <p>示例值：anyone
+     */
+    private String shareEntity;
+
+    /**
+     * 从协作者维度，设置谁可以查看、添加、移除协作者
+     *
+     * <p>示例值：collaborator_can_view
+     */
+    private String manageCollaboratorEntity;
+
+    /**
+     * 链接分享设置
+     *
+     * <p>示例值：tenant_readable
+     */
+    private String linkShareEntity;
+
+    /**
+     * 谁可以复制内容
+     *
+     * <p>示例值：anyone_can_view
+     */
+    private String copyEntity;
+
+    /**
+     * 知识库中的子页面是否已限制权限，不再继承父级页面的权限设置。;;**枚举值有：** ;- `true`: 已限制权限;- `false`:
+     * 未限制权限;;**提示**：当知识库中的子页面权限范围小于父级页面时，该页面权限将默认限制权限。;;;![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a99780710c3f7e5e390280ff6d87fc47_HIjzKDxscr.png?maxWidth=200)
+     *
+     * <p>示例值：false
+     */
     private Boolean lockSwitch;
 
-    // builder 开始
-    public PermissionPublic() {
+    /**
+     * 权限生效范围
+     *
+     * <p>示例值：
+     */
+    private PermType permType;
+
+    /**
+     * 允许内容被分享到组织外
+     *
+     * <p>示例值：open
+     *
+     * @param externalAccessEntity
+     * @return
+     */
+    public Builder externalAccessEntity(String externalAccessEntity) {
+      this.externalAccessEntity = externalAccessEntity;
+      return this;
     }
 
-    public PermissionPublic(Builder builder) {
-        /**
-         * 允许内容被分享到组织外
-         * <p> 示例值：open
-         */
-        this.externalAccessEntity = builder.externalAccessEntity;
-        /**
-         * 谁可以创建副本、打印、下载
-         * <p> 示例值：anyone_can_view
-         */
-        this.securityEntity = builder.securityEntity;
-        /**
-         * 谁可以评论
-         * <p> 示例值：anyone_can_view
-         */
-        this.commentEntity = builder.commentEntity;
-        /**
-         * 谁可以添加和管理协作者-组织维度
-         * <p> 示例值：anyone
-         */
-        this.shareEntity = builder.shareEntity;
-        /**
-         * 谁可以添加和管理协作者-协作者维度
-         * <p> 示例值：collaborator_can_view
-         */
-        this.manageCollaboratorEntity = builder.manageCollaboratorEntity;
-        /**
-         * 链接分享设置
-         * <p> 示例值：tenant_readable
-         */
-        this.linkShareEntity = builder.linkShareEntity;
-        /**
-         * 谁可以复制内容
-         * <p> 示例值：anyone_can_view
-         */
-        this.copyEntity = builder.copyEntity;
-        /**
-         * 节点是否已加锁，加锁之后不再继承父级页面的权限
-         * <p> 示例值：false
-         */
-        this.lockSwitch = builder.lockSwitch;
+    /**
+     * 允许内容被分享到组织外
+     *
+     * <p>示例值：open
+     *
+     * @param externalAccessEntity {@link
+     *     com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicExternalAccessEntityEnum}
+     * @return
+     */
+    public Builder externalAccessEntity(
+        com.lark.oapi.service.drive.v2.enums
+                .PermissionPublicPermissionPublicExternalAccessEntityEnum
+            externalAccessEntity) {
+      this.externalAccessEntity = externalAccessEntity.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 谁可以创建副本、打印、下载
+     *
+     * <p>示例值：anyone_can_view
+     *
+     * @param securityEntity
+     * @return
+     */
+    public Builder securityEntity(String securityEntity) {
+      this.securityEntity = securityEntity;
+      return this;
     }
 
-    public String getExternalAccessEntity() {
-        return this.externalAccessEntity;
+    /**
+     * 谁可以创建副本、打印、下载
+     *
+     * <p>示例值：anyone_can_view
+     *
+     * @param securityEntity {@link
+     *     com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicSecurityEntityEnum}
+     * @return
+     */
+    public Builder securityEntity(
+        com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicSecurityEntityEnum
+            securityEntity) {
+      this.securityEntity = securityEntity.getValue();
+      return this;
     }
 
-    public void setExternalAccessEntity(String externalAccessEntity) {
-        this.externalAccessEntity = externalAccessEntity;
+    /**
+     * 谁可以评论
+     *
+     * <p>示例值：anyone_can_view
+     *
+     * @param commentEntity
+     * @return
+     */
+    public Builder commentEntity(String commentEntity) {
+      this.commentEntity = commentEntity;
+      return this;
     }
 
-    public String getSecurityEntity() {
-        return this.securityEntity;
+    /**
+     * 谁可以评论
+     *
+     * <p>示例值：anyone_can_view
+     *
+     * @param commentEntity {@link
+     *     com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicCommentEntityEnum}
+     * @return
+     */
+    public Builder commentEntity(
+        com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicCommentEntityEnum
+            commentEntity) {
+      this.commentEntity = commentEntity.getValue();
+      return this;
     }
 
-    public void setSecurityEntity(String securityEntity) {
-        this.securityEntity = securityEntity;
+    /**
+     * 从组织维度，设置谁可以查看、添加、移除协作者
+     *
+     * <p>示例值：anyone
+     *
+     * @param shareEntity
+     * @return
+     */
+    public Builder shareEntity(String shareEntity) {
+      this.shareEntity = shareEntity;
+      return this;
     }
 
-    public String getCommentEntity() {
-        return this.commentEntity;
+    /**
+     * 从组织维度，设置谁可以查看、添加、移除协作者
+     *
+     * <p>示例值：anyone
+     *
+     * @param shareEntity {@link
+     *     com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicShareEntityEnum}
+     * @return
+     */
+    public Builder shareEntity(
+        com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicShareEntityEnum
+            shareEntity) {
+      this.shareEntity = shareEntity.getValue();
+      return this;
     }
 
-    public void setCommentEntity(String commentEntity) {
-        this.commentEntity = commentEntity;
+    /**
+     * 从协作者维度，设置谁可以查看、添加、移除协作者
+     *
+     * <p>示例值：collaborator_can_view
+     *
+     * @param manageCollaboratorEntity
+     * @return
+     */
+    public Builder manageCollaboratorEntity(String manageCollaboratorEntity) {
+      this.manageCollaboratorEntity = manageCollaboratorEntity;
+      return this;
     }
 
-    public String getShareEntity() {
-        return this.shareEntity;
+    /**
+     * 从协作者维度，设置谁可以查看、添加、移除协作者
+     *
+     * <p>示例值：collaborator_can_view
+     *
+     * @param manageCollaboratorEntity {@link
+     *     com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicManageCollaboratorEntityEnum}
+     * @return
+     */
+    public Builder manageCollaboratorEntity(
+        com.lark.oapi.service.drive.v2.enums
+                .PermissionPublicPermissionPublicManageCollaboratorEntityEnum
+            manageCollaboratorEntity) {
+      this.manageCollaboratorEntity = manageCollaboratorEntity.getValue();
+      return this;
     }
 
-    public void setShareEntity(String shareEntity) {
-        this.shareEntity = shareEntity;
+    /**
+     * 链接分享设置
+     *
+     * <p>示例值：tenant_readable
+     *
+     * @param linkShareEntity
+     * @return
+     */
+    public Builder linkShareEntity(String linkShareEntity) {
+      this.linkShareEntity = linkShareEntity;
+      return this;
     }
 
-    public String getManageCollaboratorEntity() {
-        return this.manageCollaboratorEntity;
+    /**
+     * 链接分享设置
+     *
+     * <p>示例值：tenant_readable
+     *
+     * @param linkShareEntity {@link
+     *     com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicLinkShareEntityEnum}
+     * @return
+     */
+    public Builder linkShareEntity(
+        com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicLinkShareEntityEnum
+            linkShareEntity) {
+      this.linkShareEntity = linkShareEntity.getValue();
+      return this;
     }
 
-    public void setManageCollaboratorEntity(String manageCollaboratorEntity) {
-        this.manageCollaboratorEntity = manageCollaboratorEntity;
+    /**
+     * 谁可以复制内容
+     *
+     * <p>示例值：anyone_can_view
+     *
+     * @param copyEntity
+     * @return
+     */
+    public Builder copyEntity(String copyEntity) {
+      this.copyEntity = copyEntity;
+      return this;
     }
 
-    public String getLinkShareEntity() {
-        return this.linkShareEntity;
+    /**
+     * 谁可以复制内容
+     *
+     * <p>示例值：anyone_can_view
+     *
+     * @param copyEntity {@link
+     *     com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicCopyEntityEnum}
+     * @return
+     */
+    public Builder copyEntity(
+        com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicCopyEntityEnum
+            copyEntity) {
+      this.copyEntity = copyEntity.getValue();
+      return this;
     }
 
-    public void setLinkShareEntity(String linkShareEntity) {
-        this.linkShareEntity = linkShareEntity;
+    /**
+     * 知识库中的子页面是否已限制权限，不再继承父级页面的权限设置。;;**枚举值有：** ;- `true`: 已限制权限;- `false`:
+     * 未限制权限;;**提示**：当知识库中的子页面权限范围小于父级页面时，该页面权限将默认限制权限。;;;![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a99780710c3f7e5e390280ff6d87fc47_HIjzKDxscr.png?maxWidth=200)
+     *
+     * <p>示例值：false
+     *
+     * @param lockSwitch
+     * @return
+     */
+    public Builder lockSwitch(Boolean lockSwitch) {
+      this.lockSwitch = lockSwitch;
+      return this;
     }
 
-    public String getCopyEntity() {
-        return this.copyEntity;
+    /**
+     * 权限生效范围
+     *
+     * <p>示例值：
+     *
+     * @param permType
+     * @return
+     */
+    public Builder permType(PermType permType) {
+      this.permType = permType;
+      return this;
     }
 
-    public void setCopyEntity(String copyEntity) {
-        this.copyEntity = copyEntity;
+    public PermissionPublic build() {
+      return new PermissionPublic(this);
     }
+  }
 
-    public Boolean getLockSwitch() {
-        return this.lockSwitch;
-    }
-
-    public void setLockSwitch(Boolean lockSwitch) {
-        this.lockSwitch = lockSwitch;
-    }
-
-    public static class Builder {
-        /**
-         * 允许内容被分享到组织外
-         * <p> 示例值：open
-         */
-        private String externalAccessEntity;
-        /**
-         * 谁可以创建副本、打印、下载
-         * <p> 示例值：anyone_can_view
-         */
-        private String securityEntity;
-        /**
-         * 谁可以评论
-         * <p> 示例值：anyone_can_view
-         */
-        private String commentEntity;
-        /**
-         * 谁可以添加和管理协作者-组织维度
-         * <p> 示例值：anyone
-         */
-        private String shareEntity;
-        /**
-         * 谁可以添加和管理协作者-协作者维度
-         * <p> 示例值：collaborator_can_view
-         */
-        private String manageCollaboratorEntity;
-        /**
-         * 链接分享设置
-         * <p> 示例值：tenant_readable
-         */
-        private String linkShareEntity;
-        /**
-         * 谁可以复制内容
-         * <p> 示例值：anyone_can_view
-         */
-        private String copyEntity;
-        /**
-         * 节点是否已加锁，加锁之后不再继承父级页面的权限
-         * <p> 示例值：false
-         */
-        private Boolean lockSwitch;
-
-        /**
-         * 允许内容被分享到组织外
-         * <p> 示例值：open
-         *
-         * @param externalAccessEntity
-         * @return
-         */
-        public Builder externalAccessEntity(String externalAccessEntity) {
-            this.externalAccessEntity = externalAccessEntity;
-            return this;
-        }
-
-        /**
-         * 允许内容被分享到组织外
-         * <p> 示例值：open
-         *
-         * @param externalAccessEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicExternalAccessEntityEnum}
-         * @return
-         */
-        public Builder externalAccessEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicExternalAccessEntityEnum externalAccessEntity) {
-            this.externalAccessEntity = externalAccessEntity.getValue();
-            return this;
-        }
-
-
-        /**
-         * 谁可以创建副本、打印、下载
-         * <p> 示例值：anyone_can_view
-         *
-         * @param securityEntity
-         * @return
-         */
-        public Builder securityEntity(String securityEntity) {
-            this.securityEntity = securityEntity;
-            return this;
-        }
-
-        /**
-         * 谁可以创建副本、打印、下载
-         * <p> 示例值：anyone_can_view
-         *
-         * @param securityEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicSecurityEntityEnum}
-         * @return
-         */
-        public Builder securityEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicSecurityEntityEnum securityEntity) {
-            this.securityEntity = securityEntity.getValue();
-            return this;
-        }
-
-
-        /**
-         * 谁可以评论
-         * <p> 示例值：anyone_can_view
-         *
-         * @param commentEntity
-         * @return
-         */
-        public Builder commentEntity(String commentEntity) {
-            this.commentEntity = commentEntity;
-            return this;
-        }
-
-        /**
-         * 谁可以评论
-         * <p> 示例值：anyone_can_view
-         *
-         * @param commentEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicCommentEntityEnum}
-         * @return
-         */
-        public Builder commentEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicCommentEntityEnum commentEntity) {
-            this.commentEntity = commentEntity.getValue();
-            return this;
-        }
-
-
-        /**
-         * 谁可以添加和管理协作者-组织维度
-         * <p> 示例值：anyone
-         *
-         * @param shareEntity
-         * @return
-         */
-        public Builder shareEntity(String shareEntity) {
-            this.shareEntity = shareEntity;
-            return this;
-        }
-
-        /**
-         * 谁可以添加和管理协作者-组织维度
-         * <p> 示例值：anyone
-         *
-         * @param shareEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicShareEntityEnum}
-         * @return
-         */
-        public Builder shareEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicShareEntityEnum shareEntity) {
-            this.shareEntity = shareEntity.getValue();
-            return this;
-        }
-
-
-        /**
-         * 谁可以添加和管理协作者-协作者维度
-         * <p> 示例值：collaborator_can_view
-         *
-         * @param manageCollaboratorEntity
-         * @return
-         */
-        public Builder manageCollaboratorEntity(String manageCollaboratorEntity) {
-            this.manageCollaboratorEntity = manageCollaboratorEntity;
-            return this;
-        }
-
-        /**
-         * 谁可以添加和管理协作者-协作者维度
-         * <p> 示例值：collaborator_can_view
-         *
-         * @param manageCollaboratorEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicManageCollaboratorEntityEnum}
-         * @return
-         */
-        public Builder manageCollaboratorEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicManageCollaboratorEntityEnum manageCollaboratorEntity) {
-            this.manageCollaboratorEntity = manageCollaboratorEntity.getValue();
-            return this;
-        }
-
-
-        /**
-         * 链接分享设置
-         * <p> 示例值：tenant_readable
-         *
-         * @param linkShareEntity
-         * @return
-         */
-        public Builder linkShareEntity(String linkShareEntity) {
-            this.linkShareEntity = linkShareEntity;
-            return this;
-        }
-
-        /**
-         * 链接分享设置
-         * <p> 示例值：tenant_readable
-         *
-         * @param linkShareEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicLinkShareEntityEnum}
-         * @return
-         */
-        public Builder linkShareEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicLinkShareEntityEnum linkShareEntity) {
-            this.linkShareEntity = linkShareEntity.getValue();
-            return this;
-        }
-
-
-        /**
-         * 谁可以复制内容
-         * <p> 示例值：anyone_can_view
-         *
-         * @param copyEntity
-         * @return
-         */
-        public Builder copyEntity(String copyEntity) {
-            this.copyEntity = copyEntity;
-            return this;
-        }
-
-        /**
-         * 谁可以复制内容
-         * <p> 示例值：anyone_can_view
-         *
-         * @param copyEntity {@link com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicCopyEntityEnum}
-         * @return
-         */
-        public Builder copyEntity(com.lark.oapi.service.drive.v2.enums.PermissionPublicPermissionPublicCopyEntityEnum copyEntity) {
-            this.copyEntity = copyEntity.getValue();
-            return this;
-        }
-
-
-        /**
-         * 节点是否已加锁，加锁之后不再继承父级页面的权限
-         * <p> 示例值：false
-         *
-         * @param lockSwitch
-         * @return
-         */
-        public Builder lockSwitch(Boolean lockSwitch) {
-            this.lockSwitch = lockSwitch;
-            return this;
-        }
-
-
-        public PermissionPublic build() {
-            return new PermissionPublic(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

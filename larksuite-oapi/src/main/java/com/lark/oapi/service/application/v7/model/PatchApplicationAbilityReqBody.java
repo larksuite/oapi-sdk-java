@@ -13,112 +13,79 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v7.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchApplicationAbilityReqBody {
-    /**
-     * 网页应用
-     * <p> 示例值：
-     */
-    @SerializedName("web_app")
+  /** 示例值： */
+  @SerializedName("web_app")
+  private AppAbilityWeb webApp;
+
+  /** 示例值： */
+  @SerializedName("bot")
+  private AppAbilityBot bot;
+
+  public AppAbilityWeb getWebApp() {
+    return this.webApp;
+  }
+
+  public void setWebApp(AppAbilityWeb webApp) {
+    this.webApp = webApp;
+  }
+
+  public AppAbilityBot getBot() {
+    return this.bot;
+  }
+
+  public void setBot(AppAbilityBot bot) {
+    this.bot = bot;
+  }
+
+  // builder 开始
+  public PatchApplicationAbilityReqBody() {}
+
+  public PatchApplicationAbilityReqBody(Builder builder) {
+    /** 示例值： */
+    this.webApp = builder.webApp;
+    /** 示例值： */
+    this.bot = builder.bot;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private AppAbilityWeb webApp;
-    /**
-     * 机器人
-     * <p> 示例值：
-     */
-    @SerializedName("bot")
+
+    /** 示例值： */
     private AppAbilityBot bot;
 
-    // builder 开始
-    public PatchApplicationAbilityReqBody() {
+    /**
+     * 示例值：
+     *
+     * @param webApp
+     * @return
+     */
+    public Builder webApp(AppAbilityWeb webApp) {
+      this.webApp = webApp;
+      return this;
     }
 
-    public PatchApplicationAbilityReqBody(Builder builder) {
-        /**
-         * 网页应用
-         * <p> 示例值：
-         */
-        this.webApp = builder.webApp;
-        /**
-         * 机器人
-         * <p> 示例值：
-         */
-        this.bot = builder.bot;
+    /**
+     * 示例值：
+     *
+     * @param bot
+     * @return
+     */
+    public Builder bot(AppAbilityBot bot) {
+      this.bot = bot;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PatchApplicationAbilityReqBody build() {
+      return new PatchApplicationAbilityReqBody(this);
     }
+  }
 
-    public AppAbilityWeb getWebApp() {
-        return this.webApp;
-    }
-
-    public void setWebApp(AppAbilityWeb webApp) {
-        this.webApp = webApp;
-    }
-
-    public AppAbilityBot getBot() {
-        return this.bot;
-    }
-
-    public void setBot(AppAbilityBot bot) {
-        this.bot = bot;
-    }
-
-    public static class Builder {
-        /**
-         * 网页应用
-         * <p> 示例值：
-         */
-        private AppAbilityWeb webApp;
-        /**
-         * 机器人
-         * <p> 示例值：
-         */
-        private AppAbilityBot bot;
-
-        /**
-         * 网页应用
-         * <p> 示例值：
-         *
-         * @param webApp
-         * @return
-         */
-        public Builder webApp(AppAbilityWeb webApp) {
-            this.webApp = webApp;
-            return this;
-        }
-
-
-        /**
-         * 机器人
-         * <p> 示例值：
-         *
-         * @param bot
-         * @return
-         */
-        public Builder bot(AppAbilityBot bot) {
-            this.bot = bot;
-            return this;
-        }
-
-
-        public PatchApplicationAbilityReqBody build() {
-            return new PatchApplicationAbilityReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

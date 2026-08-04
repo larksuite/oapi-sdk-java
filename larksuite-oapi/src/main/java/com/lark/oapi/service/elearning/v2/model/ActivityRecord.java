@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ActivityRecord {
+  /**
+   * 面授的参与的班次
+   *
+   * <p>示例值：
+   */
+  @SerializedName("shift")
+  private Integer shift;
+
+  /**
+   * 面授的签到时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sign_in_at")
+  private Integer signInAt;
+
+  /**
+   * 面授的观看时长
+   *
+   * <p>示例值：
+   */
+  @SerializedName("online_seconds")
+  private Integer onlineSeconds;
+
+  public Integer getShift() {
+    return this.shift;
+  }
+
+  public void setShift(Integer shift) {
+    this.shift = shift;
+  }
+
+  public Integer getSignInAt() {
+    return this.signInAt;
+  }
+
+  public void setSignInAt(Integer signInAt) {
+    this.signInAt = signInAt;
+  }
+
+  public Integer getOnlineSeconds() {
+    return this.onlineSeconds;
+  }
+
+  public void setOnlineSeconds(Integer onlineSeconds) {
+    this.onlineSeconds = onlineSeconds;
+  }
+
+  // builder 开始
+  public ActivityRecord() {}
+
+  public ActivityRecord(Builder builder) {
     /**
      * 面授的参与的班次
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("shift")
-    private Integer shift;
+    this.shift = builder.shift;
     /**
      * 面授的签到时间
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sign_in_at")
-    private Integer signInAt;
+    this.signInAt = builder.signInAt;
     /**
      * 面授的观看时长
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("online_seconds")
+    this.onlineSeconds = builder.onlineSeconds;
+  }
+
+  public static class Builder {
+    /**
+     * 面授的参与的班次
+     *
+     * <p>示例值：
+     */
+    private Integer shift;
+
+    /**
+     * 面授的签到时间
+     *
+     * <p>示例值：
+     */
+    private Integer signInAt;
+
+    /**
+     * 面授的观看时长
+     *
+     * <p>示例值：
+     */
     private Integer onlineSeconds;
 
-    // builder 开始
-    public ActivityRecord() {
+    /**
+     * 面授的参与的班次
+     *
+     * <p>示例值：
+     *
+     * @param shift
+     * @return
+     */
+    public Builder shift(Integer shift) {
+      this.shift = shift;
+      return this;
     }
 
-    public ActivityRecord(Builder builder) {
-        /**
-         * 面授的参与的班次
-         * <p> 示例值：
-         */
-        this.shift = builder.shift;
-        /**
-         * 面授的签到时间
-         * <p> 示例值：
-         */
-        this.signInAt = builder.signInAt;
-        /**
-         * 面授的观看时长
-         * <p> 示例值：
-         */
-        this.onlineSeconds = builder.onlineSeconds;
+    /**
+     * 面授的签到时间
+     *
+     * <p>示例值：
+     *
+     * @param signInAt
+     * @return
+     */
+    public Builder signInAt(Integer signInAt) {
+      this.signInAt = signInAt;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 面授的观看时长
+     *
+     * <p>示例值：
+     *
+     * @param onlineSeconds
+     * @return
+     */
+    public Builder onlineSeconds(Integer onlineSeconds) {
+      this.onlineSeconds = onlineSeconds;
+      return this;
     }
 
-    public Integer getShift() {
-        return this.shift;
+    public ActivityRecord build() {
+      return new ActivityRecord(this);
     }
+  }
 
-    public void setShift(Integer shift) {
-        this.shift = shift;
-    }
-
-    public Integer getSignInAt() {
-        return this.signInAt;
-    }
-
-    public void setSignInAt(Integer signInAt) {
-        this.signInAt = signInAt;
-    }
-
-    public Integer getOnlineSeconds() {
-        return this.onlineSeconds;
-    }
-
-    public void setOnlineSeconds(Integer onlineSeconds) {
-        this.onlineSeconds = onlineSeconds;
-    }
-
-    public static class Builder {
-        /**
-         * 面授的参与的班次
-         * <p> 示例值：
-         */
-        private Integer shift;
-        /**
-         * 面授的签到时间
-         * <p> 示例值：
-         */
-        private Integer signInAt;
-        /**
-         * 面授的观看时长
-         * <p> 示例值：
-         */
-        private Integer onlineSeconds;
-
-        /**
-         * 面授的参与的班次
-         * <p> 示例值：
-         *
-         * @param shift
-         * @return
-         */
-        public Builder shift(Integer shift) {
-            this.shift = shift;
-            return this;
-        }
-
-
-        /**
-         * 面授的签到时间
-         * <p> 示例值：
-         *
-         * @param signInAt
-         * @return
-         */
-        public Builder signInAt(Integer signInAt) {
-            this.signInAt = signInAt;
-            return this;
-        }
-
-
-        /**
-         * 面授的观看时长
-         * <p> 示例值：
-         *
-         * @param onlineSeconds
-         * @return
-         */
-        public Builder onlineSeconds(Integer onlineSeconds) {
-            this.onlineSeconds = onlineSeconds;
-            return this;
-        }
-
-
-        public ActivityRecord build() {
-            return new ActivityRecord(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.trust_party.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.trust_party.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class I18nName {
+  /**
+   * 中文名
+   *
+   * <p>示例值：zh_cn_name
+   */
+  @SerializedName("zh_cn")
+  private String zhCn;
+
+  /**
+   * 日文名
+   *
+   * <p>示例值：ja_jp_name
+   */
+  @SerializedName("ja_jp")
+  private String jaJp;
+
+  /**
+   * 英文名
+   *
+   * <p>示例值：en_name
+   */
+  @SerializedName("en_us")
+  private String enUs;
+
+  public String getZhCn() {
+    return this.zhCn;
+  }
+
+  public void setZhCn(String zhCn) {
+    this.zhCn = zhCn;
+  }
+
+  public String getJaJp() {
+    return this.jaJp;
+  }
+
+  public void setJaJp(String jaJp) {
+    this.jaJp = jaJp;
+  }
+
+  public String getEnUs() {
+    return this.enUs;
+  }
+
+  public void setEnUs(String enUs) {
+    this.enUs = enUs;
+  }
+
+  // builder 开始
+  public I18nName() {}
+
+  public I18nName(Builder builder) {
     /**
      * 中文名
-     * <p> 示例值：zh_cn_name
+     *
+     * <p>示例值：zh_cn_name
      */
-    @SerializedName("zh_cn")
-    private String zhCn;
+    this.zhCn = builder.zhCn;
     /**
      * 日文名
-     * <p> 示例值：ja_jp_name
+     *
+     * <p>示例值：ja_jp_name
      */
-    @SerializedName("ja_jp")
-    private String jaJp;
+    this.jaJp = builder.jaJp;
     /**
      * 英文名
-     * <p> 示例值：en_name
+     *
+     * <p>示例值：en_name
      */
-    @SerializedName("en_us")
+    this.enUs = builder.enUs;
+  }
+
+  public static class Builder {
+    /**
+     * 中文名
+     *
+     * <p>示例值：zh_cn_name
+     */
+    private String zhCn;
+
+    /**
+     * 日文名
+     *
+     * <p>示例值：ja_jp_name
+     */
+    private String jaJp;
+
+    /**
+     * 英文名
+     *
+     * <p>示例值：en_name
+     */
     private String enUs;
 
-    // builder 开始
-    public I18nName() {
+    /**
+     * 中文名
+     *
+     * <p>示例值：zh_cn_name
+     *
+     * @param zhCn
+     * @return
+     */
+    public Builder zhCn(String zhCn) {
+      this.zhCn = zhCn;
+      return this;
     }
 
-    public I18nName(Builder builder) {
-        /**
-         * 中文名
-         * <p> 示例值：zh_cn_name
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * 日文名
-         * <p> 示例值：ja_jp_name
-         */
-        this.jaJp = builder.jaJp;
-        /**
-         * 英文名
-         * <p> 示例值：en_name
-         */
-        this.enUs = builder.enUs;
+    /**
+     * 日文名
+     *
+     * <p>示例值：ja_jp_name
+     *
+     * @param jaJp
+     * @return
+     */
+    public Builder jaJp(String jaJp) {
+      this.jaJp = jaJp;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 英文名
+     *
+     * <p>示例值：en_name
+     *
+     * @param enUs
+     * @return
+     */
+    public Builder enUs(String enUs) {
+      this.enUs = enUs;
+      return this;
     }
 
-    public String getZhCn() {
-        return this.zhCn;
+    public I18nName build() {
+      return new I18nName(this);
     }
+  }
 
-    public void setZhCn(String zhCn) {
-        this.zhCn = zhCn;
-    }
-
-    public String getJaJp() {
-        return this.jaJp;
-    }
-
-    public void setJaJp(String jaJp) {
-        this.jaJp = jaJp;
-    }
-
-    public String getEnUs() {
-        return this.enUs;
-    }
-
-    public void setEnUs(String enUs) {
-        this.enUs = enUs;
-    }
-
-    public static class Builder {
-        /**
-         * 中文名
-         * <p> 示例值：zh_cn_name
-         */
-        private String zhCn;
-        /**
-         * 日文名
-         * <p> 示例值：ja_jp_name
-         */
-        private String jaJp;
-        /**
-         * 英文名
-         * <p> 示例值：en_name
-         */
-        private String enUs;
-
-        /**
-         * 中文名
-         * <p> 示例值：zh_cn_name
-         *
-         * @param zhCn
-         * @return
-         */
-        public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
-        }
-
-
-        /**
-         * 日文名
-         * <p> 示例值：ja_jp_name
-         *
-         * @param jaJp
-         * @return
-         */
-        public Builder jaJp(String jaJp) {
-            this.jaJp = jaJp;
-            return this;
-        }
-
-
-        /**
-         * 英文名
-         * <p> 示例值：en_name
-         *
-         * @param enUs
-         * @return
-         */
-        public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
-        }
-
-
-        public I18nName build() {
-            return new I18nName(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,29 +13,27 @@
 
 package com.lark.oapi.service.im.v1.enums;
 
-/**
- * Tab类型
- */
+/** Tab类型 */
 public enum ChatTabTabTypeEnum {
-    MESSAGE("message"), // 消息类型
-    DOCLIST("doc_list"), // 云文档列表
-    DOC("doc"), // 文档
-    PIN("pin"), // Pin
-    MEETINGMINUTE("meeting_minute"), // 会议纪要
-    CHATANNOUNCEMENT("chat_announcement"), // 群公告
-    URL("url"), // URL
-    FILE("file"), // 文件
-    FILES_RESOURCES("files_resources"), // 合并类型, 包含文件、Doc文档、URL链接
-    IMAGES_VIDEOS("images_videos"), // 合并类型，包含图片、视频
-    TASK("task"), // 任务
-    ;
-    private String value;
+  MESSAGE("message"), // 消息类型
+  DOCLIST("doc_list"), // 云文档列表
+  DOC("doc"), // 文档
+  PIN("pin"), // Pin
+  MEETINGMINUTE("meeting_minute"), // 会议纪要
+  CHATANNOUNCEMENT("chat_announcement"), // 群公告
+  URL("url"), // URL
+  FILE("file"), // 文件
+  FILES_RESOURCES("files_resources"), // 合并类型，包含文件、Doc文档、URL链接
+  IMAGES_VIDEOS("images_videos"), // 合并类型，包含图片、视频
+  TASK("task"), // 任务
+  ;
+  private String value;
 
-    ChatTabTabTypeEnum(String value) {
-        this.value = value;
-    }
+  ChatTabTabTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

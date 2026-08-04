@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenJobReqBody {
+  /**
+   * 到期日期，毫秒时间戳（int64类型）;**注意**：当`is_never_expired`为`false`时该字段必填且大于当前时间
+   *
+   * <p>示例值：1830259120000
+   */
+  @SerializedName("expiry_time")
+  private Integer expiryTime;
+
+  /**
+   * 是否长期有效;**可选值有**：;* `true`：长期有效;* `false`：指定到期日期
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_never_expired")
+  private Boolean isNeverExpired;
+
+  public Integer getExpiryTime() {
+    return this.expiryTime;
+  }
+
+  public void setExpiryTime(Integer expiryTime) {
+    this.expiryTime = expiryTime;
+  }
+
+  public Boolean getIsNeverExpired() {
+    return this.isNeverExpired;
+  }
+
+  public void setIsNeverExpired(Boolean isNeverExpired) {
+    this.isNeverExpired = isNeverExpired;
+  }
+
+  // builder 开始
+  public OpenJobReqBody() {}
+
+  public OpenJobReqBody(Builder builder) {
     /**
-     * 到期日期
-     * <p> 示例值：1598844859612
+     * 到期日期，毫秒时间戳（int64类型）;**注意**：当`is_never_expired`为`false`时该字段必填且大于当前时间
+     *
+     * <p>示例值：1830259120000
      */
-    @SerializedName("expiry_time")
+    this.expiryTime = builder.expiryTime;
+    /**
+     * 是否长期有效;**可选值有**：;* `true`：长期有效;* `false`：指定到期日期
+     *
+     * <p>示例值：true
+     */
+    this.isNeverExpired = builder.isNeverExpired;
+  }
+
+  public static class Builder {
+    /**
+     * 到期日期，毫秒时间戳（int64类型）;**注意**：当`is_never_expired`为`false`时该字段必填且大于当前时间
+     *
+     * <p>示例值：1830259120000
+     */
     private Integer expiryTime;
+
     /**
-     * 是否长期有效
-     * <p> 示例值：true
+     * 是否长期有效;**可选值有**：;* `true`：长期有效;* `false`：指定到期日期
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_never_expired")
     private Boolean isNeverExpired;
 
-    // builder 开始
-    public OpenJobReqBody() {
+    /**
+     * 到期日期，毫秒时间戳（int64类型）;**注意**：当`is_never_expired`为`false`时该字段必填且大于当前时间
+     *
+     * <p>示例值：1830259120000
+     *
+     * @param expiryTime
+     * @return
+     */
+    public Builder expiryTime(Integer expiryTime) {
+      this.expiryTime = expiryTime;
+      return this;
     }
 
-    public OpenJobReqBody(Builder builder) {
-        /**
-         * 到期日期
-         * <p> 示例值：1598844859612
-         */
-        this.expiryTime = builder.expiryTime;
-        /**
-         * 是否长期有效
-         * <p> 示例值：true
-         */
-        this.isNeverExpired = builder.isNeverExpired;
+    /**
+     * 是否长期有效;**可选值有**：;* `true`：长期有效;* `false`：指定到期日期
+     *
+     * <p>示例值：true
+     *
+     * @param isNeverExpired
+     * @return
+     */
+    public Builder isNeverExpired(Boolean isNeverExpired) {
+      this.isNeverExpired = isNeverExpired;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OpenJobReqBody build() {
+      return new OpenJobReqBody(this);
     }
+  }
 
-    public Integer getExpiryTime() {
-        return this.expiryTime;
-    }
-
-    public void setExpiryTime(Integer expiryTime) {
-        this.expiryTime = expiryTime;
-    }
-
-    public Boolean getIsNeverExpired() {
-        return this.isNeverExpired;
-    }
-
-    public void setIsNeverExpired(Boolean isNeverExpired) {
-        this.isNeverExpired = isNeverExpired;
-    }
-
-    public static class Builder {
-        /**
-         * 到期日期
-         * <p> 示例值：1598844859612
-         */
-        private Integer expiryTime;
-        /**
-         * 是否长期有效
-         * <p> 示例值：true
-         */
-        private Boolean isNeverExpired;
-
-        /**
-         * 到期日期
-         * <p> 示例值：1598844859612
-         *
-         * @param expiryTime
-         * @return
-         */
-        public Builder expiryTime(Integer expiryTime) {
-            this.expiryTime = expiryTime;
-            return this;
-        }
-
-
-        /**
-         * 是否长期有效
-         * <p> 示例值：true
-         *
-         * @param isNeverExpired
-         * @return
-         */
-        public Builder isNeverExpired(Boolean isNeverExpired) {
-            this.isNeverExpired = isNeverExpired;
-            return this;
-        }
-
-
-        public OpenJobReqBody build() {
-            return new OpenJobReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

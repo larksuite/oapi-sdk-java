@@ -13,482 +13,527 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.task.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class I18nText {
+  /**
+   * 英文
+   *
+   * <p>示例值：workbench
+   */
+  @SerializedName("en_us")
+  private String enUs;
+
+  /**
+   * 中文
+   *
+   * <p>示例值：工作台
+   */
+  @SerializedName("zh_cn")
+  private String zhCn;
+
+  /**
+   * 中文（香港地区）
+   *
+   * <p>示例值：工作臺
+   */
+  @SerializedName("zh_hk")
+  private String zhHk;
+
+  /**
+   * 中文（台湾地区）
+   *
+   * <p>示例值：工作臺
+   */
+  @SerializedName("zh_tw")
+  private String zhTw;
+
+  /**
+   * 日语
+   *
+   * <p>示例值：作業台
+   */
+  @SerializedName("ja_jp")
+  private String jaJp;
+
+  /**
+   * 法语
+   *
+   * <p>示例值：Table de travail
+   */
+  @SerializedName("fr_fr")
+  private String frFr;
+
+  /**
+   * 意大利语
+   *
+   * <p>示例值：banco di lavoro
+   */
+  @SerializedName("it_it")
+  private String itIt;
+
+  /**
+   * 德语
+   *
+   * <p>示例值：Werkbank
+   */
+  @SerializedName("de_de")
+  private String deDe;
+
+  /**
+   * 俄语
+   *
+   * <p>示例值：верстак
+   */
+  @SerializedName("ru_ru")
+  private String ruRu;
+
+  /**
+   * 泰语
+   *
+   * <p>示例值：โต๊ะทำงาน
+   */
+  @SerializedName("th_th")
+  private String thTh;
+
+  /**
+   * 西班牙语
+   *
+   * <p>示例值：banco de trabajo
+   */
+  @SerializedName("es_es")
+  private String esEs;
+
+  /**
+   * 韩语
+   *
+   * <p>示例值：작업대
+   */
+  @SerializedName("ko_kr")
+  private String koKr;
+
+  public String getEnUs() {
+    return this.enUs;
+  }
+
+  public void setEnUs(String enUs) {
+    this.enUs = enUs;
+  }
+
+  public String getZhCn() {
+    return this.zhCn;
+  }
+
+  public void setZhCn(String zhCn) {
+    this.zhCn = zhCn;
+  }
+
+  public String getZhHk() {
+    return this.zhHk;
+  }
+
+  public void setZhHk(String zhHk) {
+    this.zhHk = zhHk;
+  }
+
+  public String getZhTw() {
+    return this.zhTw;
+  }
+
+  public void setZhTw(String zhTw) {
+    this.zhTw = zhTw;
+  }
+
+  public String getJaJp() {
+    return this.jaJp;
+  }
+
+  public void setJaJp(String jaJp) {
+    this.jaJp = jaJp;
+  }
+
+  public String getFrFr() {
+    return this.frFr;
+  }
+
+  public void setFrFr(String frFr) {
+    this.frFr = frFr;
+  }
+
+  public String getItIt() {
+    return this.itIt;
+  }
+
+  public void setItIt(String itIt) {
+    this.itIt = itIt;
+  }
+
+  public String getDeDe() {
+    return this.deDe;
+  }
+
+  public void setDeDe(String deDe) {
+    this.deDe = deDe;
+  }
+
+  public String getRuRu() {
+    return this.ruRu;
+  }
+
+  public void setRuRu(String ruRu) {
+    this.ruRu = ruRu;
+  }
+
+  public String getThTh() {
+    return this.thTh;
+  }
+
+  public void setThTh(String thTh) {
+    this.thTh = thTh;
+  }
+
+  public String getEsEs() {
+    return this.esEs;
+  }
+
+  public void setEsEs(String esEs) {
+    this.esEs = esEs;
+  }
+
+  public String getKoKr() {
+    return this.koKr;
+  }
+
+  public void setKoKr(String koKr) {
+    this.koKr = koKr;
+  }
+
+  // builder 开始
+  public I18nText() {}
+
+  public I18nText(Builder builder) {
     /**
      * 英文
-     * <p> 示例值：workbench
+     *
+     * <p>示例值：workbench
      */
-    @SerializedName("en_us")
-    private String enUs;
+    this.enUs = builder.enUs;
     /**
      * 中文
-     * <p> 示例值：工作台
+     *
+     * <p>示例值：工作台
      */
-    @SerializedName("zh_cn")
-    private String zhCn;
+    this.zhCn = builder.zhCn;
     /**
      * 中文（香港地区）
-     * <p> 示例值：工作臺
+     *
+     * <p>示例值：工作臺
      */
-    @SerializedName("zh_hk")
-    private String zhHk;
+    this.zhHk = builder.zhHk;
     /**
      * 中文（台湾地区）
-     * <p> 示例值：工作臺
+     *
+     * <p>示例值：工作臺
      */
-    @SerializedName("zh_tw")
-    private String zhTw;
+    this.zhTw = builder.zhTw;
     /**
      * 日语
-     * <p> 示例值：作業台
+     *
+     * <p>示例值：作業台
      */
-    @SerializedName("ja_jp")
-    private String jaJp;
+    this.jaJp = builder.jaJp;
     /**
      * 法语
-     * <p> 示例值：Table de travail
+     *
+     * <p>示例值：Table de travail
      */
-    @SerializedName("fr_fr")
-    private String frFr;
+    this.frFr = builder.frFr;
     /**
      * 意大利语
-     * <p> 示例值：banco di lavoro
+     *
+     * <p>示例值：banco di lavoro
      */
-    @SerializedName("it_it")
-    private String itIt;
+    this.itIt = builder.itIt;
     /**
      * 德语
-     * <p> 示例值：Werkbank
+     *
+     * <p>示例值：Werkbank
      */
-    @SerializedName("de_de")
-    private String deDe;
+    this.deDe = builder.deDe;
     /**
      * 俄语
-     * <p> 示例值：верстак
+     *
+     * <p>示例值：верстак
      */
-    @SerializedName("ru_ru")
-    private String ruRu;
+    this.ruRu = builder.ruRu;
     /**
      * 泰语
-     * <p> 示例值：โต๊ะทำงาน
+     *
+     * <p>示例值：โต๊ะทำงาน
      */
-    @SerializedName("th_th")
-    private String thTh;
+    this.thTh = builder.thTh;
     /**
      * 西班牙语
-     * <p> 示例值：banco de trabajo
+     *
+     * <p>示例值：banco de trabajo
      */
-    @SerializedName("es_es")
-    private String esEs;
+    this.esEs = builder.esEs;
     /**
      * 韩语
-     * <p> 示例值：작업대
+     *
+     * <p>示例值：작업대
      */
-    @SerializedName("ko_kr")
+    this.koKr = builder.koKr;
+  }
+
+  public static class Builder {
+    /**
+     * 英文
+     *
+     * <p>示例值：workbench
+     */
+    private String enUs;
+
+    /**
+     * 中文
+     *
+     * <p>示例值：工作台
+     */
+    private String zhCn;
+
+    /**
+     * 中文（香港地区）
+     *
+     * <p>示例值：工作臺
+     */
+    private String zhHk;
+
+    /**
+     * 中文（台湾地区）
+     *
+     * <p>示例值：工作臺
+     */
+    private String zhTw;
+
+    /**
+     * 日语
+     *
+     * <p>示例值：作業台
+     */
+    private String jaJp;
+
+    /**
+     * 法语
+     *
+     * <p>示例值：Table de travail
+     */
+    private String frFr;
+
+    /**
+     * 意大利语
+     *
+     * <p>示例值：banco di lavoro
+     */
+    private String itIt;
+
+    /**
+     * 德语
+     *
+     * <p>示例值：Werkbank
+     */
+    private String deDe;
+
+    /**
+     * 俄语
+     *
+     * <p>示例值：верстак
+     */
+    private String ruRu;
+
+    /**
+     * 泰语
+     *
+     * <p>示例值：โต๊ะทำงาน
+     */
+    private String thTh;
+
+    /**
+     * 西班牙语
+     *
+     * <p>示例值：banco de trabajo
+     */
+    private String esEs;
+
+    /**
+     * 韩语
+     *
+     * <p>示例值：작업대
+     */
     private String koKr;
 
-    // builder 开始
-    public I18nText() {
+    /**
+     * 英文
+     *
+     * <p>示例值：workbench
+     *
+     * @param enUs
+     * @return
+     */
+    public Builder enUs(String enUs) {
+      this.enUs = enUs;
+      return this;
     }
 
-    public I18nText(Builder builder) {
-        /**
-         * 英文
-         * <p> 示例值：workbench
-         */
-        this.enUs = builder.enUs;
-        /**
-         * 中文
-         * <p> 示例值：工作台
-         */
-        this.zhCn = builder.zhCn;
-        /**
-         * 中文（香港地区）
-         * <p> 示例值：工作臺
-         */
-        this.zhHk = builder.zhHk;
-        /**
-         * 中文（台湾地区）
-         * <p> 示例值：工作臺
-         */
-        this.zhTw = builder.zhTw;
-        /**
-         * 日语
-         * <p> 示例值：作業台
-         */
-        this.jaJp = builder.jaJp;
-        /**
-         * 法语
-         * <p> 示例值：Table de travail
-         */
-        this.frFr = builder.frFr;
-        /**
-         * 意大利语
-         * <p> 示例值：banco di lavoro
-         */
-        this.itIt = builder.itIt;
-        /**
-         * 德语
-         * <p> 示例值：Werkbank
-         */
-        this.deDe = builder.deDe;
-        /**
-         * 俄语
-         * <p> 示例值：верстак
-         */
-        this.ruRu = builder.ruRu;
-        /**
-         * 泰语
-         * <p> 示例值：โต๊ะทำงาน
-         */
-        this.thTh = builder.thTh;
-        /**
-         * 西班牙语
-         * <p> 示例值：banco de trabajo
-         */
-        this.esEs = builder.esEs;
-        /**
-         * 韩语
-         * <p> 示例值：작업대
-         */
-        this.koKr = builder.koKr;
+    /**
+     * 中文
+     *
+     * <p>示例值：工作台
+     *
+     * @param zhCn
+     * @return
+     */
+    public Builder zhCn(String zhCn) {
+      this.zhCn = zhCn;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 中文（香港地区）
+     *
+     * <p>示例值：工作臺
+     *
+     * @param zhHk
+     * @return
+     */
+    public Builder zhHk(String zhHk) {
+      this.zhHk = zhHk;
+      return this;
     }
 
-    public String getEnUs() {
-        return this.enUs;
+    /**
+     * 中文（台湾地区）
+     *
+     * <p>示例值：工作臺
+     *
+     * @param zhTw
+     * @return
+     */
+    public Builder zhTw(String zhTw) {
+      this.zhTw = zhTw;
+      return this;
     }
 
-    public void setEnUs(String enUs) {
-        this.enUs = enUs;
+    /**
+     * 日语
+     *
+     * <p>示例值：作業台
+     *
+     * @param jaJp
+     * @return
+     */
+    public Builder jaJp(String jaJp) {
+      this.jaJp = jaJp;
+      return this;
     }
 
-    public String getZhCn() {
-        return this.zhCn;
+    /**
+     * 法语
+     *
+     * <p>示例值：Table de travail
+     *
+     * @param frFr
+     * @return
+     */
+    public Builder frFr(String frFr) {
+      this.frFr = frFr;
+      return this;
     }
 
-    public void setZhCn(String zhCn) {
-        this.zhCn = zhCn;
+    /**
+     * 意大利语
+     *
+     * <p>示例值：banco di lavoro
+     *
+     * @param itIt
+     * @return
+     */
+    public Builder itIt(String itIt) {
+      this.itIt = itIt;
+      return this;
     }
 
-    public String getZhHk() {
-        return this.zhHk;
+    /**
+     * 德语
+     *
+     * <p>示例值：Werkbank
+     *
+     * @param deDe
+     * @return
+     */
+    public Builder deDe(String deDe) {
+      this.deDe = deDe;
+      return this;
     }
 
-    public void setZhHk(String zhHk) {
-        this.zhHk = zhHk;
+    /**
+     * 俄语
+     *
+     * <p>示例值：верстак
+     *
+     * @param ruRu
+     * @return
+     */
+    public Builder ruRu(String ruRu) {
+      this.ruRu = ruRu;
+      return this;
     }
 
-    public String getZhTw() {
-        return this.zhTw;
+    /**
+     * 泰语
+     *
+     * <p>示例值：โต๊ะทำงาน
+     *
+     * @param thTh
+     * @return
+     */
+    public Builder thTh(String thTh) {
+      this.thTh = thTh;
+      return this;
     }
 
-    public void setZhTw(String zhTw) {
-        this.zhTw = zhTw;
+    /**
+     * 西班牙语
+     *
+     * <p>示例值：banco de trabajo
+     *
+     * @param esEs
+     * @return
+     */
+    public Builder esEs(String esEs) {
+      this.esEs = esEs;
+      return this;
     }
 
-    public String getJaJp() {
-        return this.jaJp;
+    /**
+     * 韩语
+     *
+     * <p>示例值：작업대
+     *
+     * @param koKr
+     * @return
+     */
+    public Builder koKr(String koKr) {
+      this.koKr = koKr;
+      return this;
     }
 
-    public void setJaJp(String jaJp) {
-        this.jaJp = jaJp;
+    public I18nText build() {
+      return new I18nText(this);
     }
+  }
 
-    public String getFrFr() {
-        return this.frFr;
-    }
-
-    public void setFrFr(String frFr) {
-        this.frFr = frFr;
-    }
-
-    public String getItIt() {
-        return this.itIt;
-    }
-
-    public void setItIt(String itIt) {
-        this.itIt = itIt;
-    }
-
-    public String getDeDe() {
-        return this.deDe;
-    }
-
-    public void setDeDe(String deDe) {
-        this.deDe = deDe;
-    }
-
-    public String getRuRu() {
-        return this.ruRu;
-    }
-
-    public void setRuRu(String ruRu) {
-        this.ruRu = ruRu;
-    }
-
-    public String getThTh() {
-        return this.thTh;
-    }
-
-    public void setThTh(String thTh) {
-        this.thTh = thTh;
-    }
-
-    public String getEsEs() {
-        return this.esEs;
-    }
-
-    public void setEsEs(String esEs) {
-        this.esEs = esEs;
-    }
-
-    public String getKoKr() {
-        return this.koKr;
-    }
-
-    public void setKoKr(String koKr) {
-        this.koKr = koKr;
-    }
-
-    public static class Builder {
-        /**
-         * 英文
-         * <p> 示例值：workbench
-         */
-        private String enUs;
-        /**
-         * 中文
-         * <p> 示例值：工作台
-         */
-        private String zhCn;
-        /**
-         * 中文（香港地区）
-         * <p> 示例值：工作臺
-         */
-        private String zhHk;
-        /**
-         * 中文（台湾地区）
-         * <p> 示例值：工作臺
-         */
-        private String zhTw;
-        /**
-         * 日语
-         * <p> 示例值：作業台
-         */
-        private String jaJp;
-        /**
-         * 法语
-         * <p> 示例值：Table de travail
-         */
-        private String frFr;
-        /**
-         * 意大利语
-         * <p> 示例值：banco di lavoro
-         */
-        private String itIt;
-        /**
-         * 德语
-         * <p> 示例值：Werkbank
-         */
-        private String deDe;
-        /**
-         * 俄语
-         * <p> 示例值：верстак
-         */
-        private String ruRu;
-        /**
-         * 泰语
-         * <p> 示例值：โต๊ะทำงาน
-         */
-        private String thTh;
-        /**
-         * 西班牙语
-         * <p> 示例值：banco de trabajo
-         */
-        private String esEs;
-        /**
-         * 韩语
-         * <p> 示例值：작업대
-         */
-        private String koKr;
-
-        /**
-         * 英文
-         * <p> 示例值：workbench
-         *
-         * @param enUs
-         * @return
-         */
-        public Builder enUs(String enUs) {
-            this.enUs = enUs;
-            return this;
-        }
-
-
-        /**
-         * 中文
-         * <p> 示例值：工作台
-         *
-         * @param zhCn
-         * @return
-         */
-        public Builder zhCn(String zhCn) {
-            this.zhCn = zhCn;
-            return this;
-        }
-
-
-        /**
-         * 中文（香港地区）
-         * <p> 示例值：工作臺
-         *
-         * @param zhHk
-         * @return
-         */
-        public Builder zhHk(String zhHk) {
-            this.zhHk = zhHk;
-            return this;
-        }
-
-
-        /**
-         * 中文（台湾地区）
-         * <p> 示例值：工作臺
-         *
-         * @param zhTw
-         * @return
-         */
-        public Builder zhTw(String zhTw) {
-            this.zhTw = zhTw;
-            return this;
-        }
-
-
-        /**
-         * 日语
-         * <p> 示例值：作業台
-         *
-         * @param jaJp
-         * @return
-         */
-        public Builder jaJp(String jaJp) {
-            this.jaJp = jaJp;
-            return this;
-        }
-
-
-        /**
-         * 法语
-         * <p> 示例值：Table de travail
-         *
-         * @param frFr
-         * @return
-         */
-        public Builder frFr(String frFr) {
-            this.frFr = frFr;
-            return this;
-        }
-
-
-        /**
-         * 意大利语
-         * <p> 示例值：banco di lavoro
-         *
-         * @param itIt
-         * @return
-         */
-        public Builder itIt(String itIt) {
-            this.itIt = itIt;
-            return this;
-        }
-
-
-        /**
-         * 德语
-         * <p> 示例值：Werkbank
-         *
-         * @param deDe
-         * @return
-         */
-        public Builder deDe(String deDe) {
-            this.deDe = deDe;
-            return this;
-        }
-
-
-        /**
-         * 俄语
-         * <p> 示例值：верстак
-         *
-         * @param ruRu
-         * @return
-         */
-        public Builder ruRu(String ruRu) {
-            this.ruRu = ruRu;
-            return this;
-        }
-
-
-        /**
-         * 泰语
-         * <p> 示例值：โต๊ะทำงาน
-         *
-         * @param thTh
-         * @return
-         */
-        public Builder thTh(String thTh) {
-            this.thTh = thTh;
-            return this;
-        }
-
-
-        /**
-         * 西班牙语
-         * <p> 示例值：banco de trabajo
-         *
-         * @param esEs
-         * @return
-         */
-        public Builder esEs(String esEs) {
-            this.esEs = esEs;
-            return this;
-        }
-
-
-        /**
-         * 韩语
-         * <p> 示例值：작업대
-         *
-         * @param koKr
-         * @return
-         */
-        public Builder koKr(String koKr) {
-            this.koKr = koKr;
-            return this;
-        }
-
-
-        public I18nText build() {
-            return new I18nText(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

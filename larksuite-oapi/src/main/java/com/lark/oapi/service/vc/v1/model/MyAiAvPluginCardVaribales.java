@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyAiAvPluginCardVaribales {
+  /**
+   * content
+   *
+   * <p>示例值：{"tag": "markdown","content": "请稍等，正在生成妙记中，预计需要3分钟;"}
+   */
+  @SerializedName("content")
+  private String content;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  // builder 开始
+  public MyAiAvPluginCardVaribales() {}
+
+  public MyAiAvPluginCardVaribales(Builder builder) {
     /**
      * content
-     * <p> 示例值：{"tag": "markdown","content": "请稍等，正在生成妙记中，预计需要3分钟;"}
+     *
+     * <p>示例值：{"tag": "markdown","content": "请稍等，正在生成妙记中，预计需要3分钟;"}
      */
-    @SerializedName("content")
+    this.content = builder.content;
+  }
+
+  public static class Builder {
+    /**
+     * content
+     *
+     * <p>示例值：{"tag": "markdown","content": "请稍等，正在生成妙记中，预计需要3分钟;"}
+     */
     private String content;
 
-    // builder 开始
-    public MyAiAvPluginCardVaribales() {
+    /**
+     * content
+     *
+     * <p>示例值：{"tag": "markdown","content": "请稍等，正在生成妙记中，预计需要3分钟;"}
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public MyAiAvPluginCardVaribales(Builder builder) {
-        /**
-         * content
-         * <p> 示例值：{"tag": "markdown","content": "请稍等，正在生成妙记中，预计需要3分钟;"}
-         */
-        this.content = builder.content;
+    public MyAiAvPluginCardVaribales build() {
+      return new MyAiAvPluginCardVaribales(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public static class Builder {
-        /**
-         * content
-         * <p> 示例值：{"tag": "markdown","content": "请稍等，正在生成妙记中，预计需要3分钟;"}
-         */
-        private String content;
-
-        /**
-         * content
-         * <p> 示例值：{"tag": "markdown","content": "请稍等，正在生成妙记中，预计需要3分钟;"}
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        public MyAiAvPluginCardVaribales build() {
-            return new MyAiAvPluginCardVaribales(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,122 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.cardkit.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateCardReqBody {
+  /**
+   * 卡片类型。可选值：;;- `card_json`：由卡片 JSON 代码构建的卡片;-
+   * `template`：由[卡片搭建工具](https://open.feishu.cn/cardkit?from=open_docs)搭建的卡片模板
+   *
+   * <p>示例值：card_json
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 卡片数据。需要与 `type` 指定的类型一致：;- 若 `type` 为 `card_json`，则此处应传卡片 JSON 代码，并确保将其转义为字符串。仅支持[卡片 JSON 2.0
+   * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)，即你必须声明
+   * `schema` 为 `2.0`;- 若 `type` 为 `template`，则此处应传卡片模板的数据，并确保将其转义为字符串。仅支持新版卡片。即在搭建工具中，卡片名称旁应有“新版”标识
+   *
+   * <p>示例值：请参考下文请求体示例
+   */
+  @SerializedName("data")
+  private String data;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getData() {
+    return this.data;
+  }
+
+  public void setData(String data) {
+    this.data = data;
+  }
+
+  // builder 开始
+  public CreateCardReqBody() {}
+
+  public CreateCardReqBody(Builder builder) {
     /**
-     * 卡片数据的类型
-     * <p> 示例值：card_json
+     * 卡片类型。可选值：;;- `card_json`：由卡片 JSON 代码构建的卡片;-
+     * `template`：由[卡片搭建工具](https://open.feishu.cn/cardkit?from=open_docs)搭建的卡片模板
+     *
+     * <p>示例值：card_json
      */
-    @SerializedName("type")
+    this.type = builder.type;
+    /**
+     * 卡片数据。需要与 `type` 指定的类型一致：;- 若 `type` 为 `card_json`，则此处应传卡片 JSON 代码，并确保将其转义为字符串。仅支持[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)，即你必须声明
+     * `schema` 为 `2.0`;- 若 `type` 为
+     * `template`，则此处应传卡片模板的数据，并确保将其转义为字符串。仅支持新版卡片。即在搭建工具中，卡片名称旁应有“新版”标识
+     *
+     * <p>示例值：请参考下文请求体示例
+     */
+    this.data = builder.data;
+  }
+
+  public static class Builder {
+    /**
+     * 卡片类型。可选值：;;- `card_json`：由卡片 JSON 代码构建的卡片;-
+     * `template`：由[卡片搭建工具](https://open.feishu.cn/cardkit?from=open_docs)搭建的卡片模板
+     *
+     * <p>示例值：card_json
+     */
     private String type;
+
     /**
-     * 卡片数据内容，与卡片数据的类型相对应
-     * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
+     * 卡片数据。需要与 `type` 指定的类型一致：;- 若 `type` 为 `card_json`，则此处应传卡片 JSON 代码，并确保将其转义为字符串。仅支持[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)，即你必须声明
+     * `schema` 为 `2.0`;- 若 `type` 为
+     * `template`，则此处应传卡片模板的数据，并确保将其转义为字符串。仅支持新版卡片。即在搭建工具中，卡片名称旁应有“新版”标识
+     *
+     * <p>示例值：请参考下文请求体示例
      */
-    @SerializedName("data")
     private String data;
 
-    // builder 开始
-    public CreateCardReqBody() {
+    /**
+     * 卡片类型。可选值：;;- `card_json`：由卡片 JSON 代码构建的卡片;-
+     * `template`：由[卡片搭建工具](https://open.feishu.cn/cardkit?from=open_docs)搭建的卡片模板
+     *
+     * <p>示例值：card_json
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public CreateCardReqBody(Builder builder) {
-        /**
-         * 卡片数据的类型
-         * <p> 示例值：card_json
-         */
-        this.type = builder.type;
-        /**
-         * 卡片数据内容，与卡片数据的类型相对应
-         * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
-         */
-        this.data = builder.data;
+    /**
+     * 卡片数据。需要与 `type` 指定的类型一致：;- 若 `type` 为 `card_json`，则此处应传卡片 JSON 代码，并确保将其转义为字符串。仅支持[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)，即你必须声明
+     * `schema` 为 `2.0`;- 若 `type` 为
+     * `template`，则此处应传卡片模板的数据，并确保将其转义为字符串。仅支持新版卡片。即在搭建工具中，卡片名称旁应有“新版”标识
+     *
+     * <p>示例值：请参考下文请求体示例
+     *
+     * @param data
+     * @return
+     */
+    public Builder data(String data) {
+      this.data = data;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateCardReqBody build() {
+      return new CreateCardReqBody(this);
     }
+  }
 
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getData() {
-        return this.data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public static class Builder {
-        /**
-         * 卡片数据的类型
-         * <p> 示例值：card_json
-         */
-        private String type;
-        /**
-         * 卡片数据内容，与卡片数据的类型相对应
-         * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
-         */
-        private String data;
-
-        /**
-         * 卡片数据的类型
-         * <p> 示例值：card_json
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 卡片数据内容，与卡片数据的类型相对应
-         * <p> 示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}
-         *
-         * @param data
-         * @return
-         */
-        public Builder data(String data) {
-            this.data = data;
-            return this;
-        }
-
-
-        public CreateCardReqBody build() {
-            return new CreateCardReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

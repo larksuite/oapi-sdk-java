@@ -13,48 +13,39 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2PreHireUpdatedV1Data {
-    /**
-     * 待入职 ID
-     * <p> 示例值：7043711771159341206
-     */
-    @SerializedName("pre_hire_id")
-    private String preHireId;
-    /**
-     * 变更的字段
-     * <p> 示例值：
-     */
-    @SerializedName("field_changes")
-    private String[] fieldChanges;
+  /**
+   * 待入职
+   * ID，可通过[【搜索待入职人员】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)获取更详细信息
+   *
+   * <p>示例值：7043711771159341206
+   */
+  @SerializedName("pre_hire_id")
+  private String preHireId;
 
-    public String getPreHireId() {
-        return this.preHireId;
-    }
+  /**
+   * 变更的字段。;由于历史原因，部分字段（例如个人信息）变更会发送为‘wk_updated_at’字段，不会显示真实变更字段，需要通过[【搜索待入职人员】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/search)获取更详细信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("field_changes")
+  private String[] fieldChanges;
 
-    public void setPreHireId(String preHireId) {
-        this.preHireId = preHireId;
-    }
+  public String getPreHireId() {
+    return this.preHireId;
+  }
 
-    public String[] getFieldChanges() {
-        return this.fieldChanges;
-    }
+  public void setPreHireId(String preHireId) {
+    this.preHireId = preHireId;
+  }
 
-    public void setFieldChanges(String[] fieldChanges) {
-        this.fieldChanges = fieldChanges;
-    }
+  public String[] getFieldChanges() {
+    return this.fieldChanges;
+  }
 
+  public void setFieldChanges(String[] fieldChanges) {
+    this.fieldChanges = fieldChanges;
+  }
 }

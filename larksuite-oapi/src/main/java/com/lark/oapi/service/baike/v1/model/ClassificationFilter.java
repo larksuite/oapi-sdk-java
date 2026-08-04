@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.baike.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.baike.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ClassificationFilter {
+  /**
+   * 需要获取的分类
+   *
+   * <p>示例值：
+   */
+  @SerializedName("include")
+  private String[] include;
+
+  /**
+   * 需要排除的分类
+   *
+   * <p>示例值：
+   */
+  @SerializedName("exclude")
+  private String[] exclude;
+
+  public String[] getInclude() {
+    return this.include;
+  }
+
+  public void setInclude(String[] include) {
+    this.include = include;
+  }
+
+  public String[] getExclude() {
+    return this.exclude;
+  }
+
+  public void setExclude(String[] exclude) {
+    this.exclude = exclude;
+  }
+
+  // builder 开始
+  public ClassificationFilter() {}
+
+  public ClassificationFilter(Builder builder) {
     /**
      * 需要获取的分类
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("include")
-    private String[] include;
+    this.include = builder.include;
     /**
      * 需要排除的分类
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("exclude")
+    this.exclude = builder.exclude;
+  }
+
+  public static class Builder {
+    /**
+     * 需要获取的分类
+     *
+     * <p>示例值：
+     */
+    private String[] include;
+
+    /**
+     * 需要排除的分类
+     *
+     * <p>示例值：
+     */
     private String[] exclude;
 
-    // builder 开始
-    public ClassificationFilter() {
+    /**
+     * 需要获取的分类
+     *
+     * <p>示例值：
+     *
+     * @param include
+     * @return
+     */
+    public Builder include(String[] include) {
+      this.include = include;
+      return this;
     }
 
-    public ClassificationFilter(Builder builder) {
-        /**
-         * 需要获取的分类
-         * <p> 示例值：
-         */
-        this.include = builder.include;
-        /**
-         * 需要排除的分类
-         * <p> 示例值：
-         */
-        this.exclude = builder.exclude;
+    /**
+     * 需要排除的分类
+     *
+     * <p>示例值：
+     *
+     * @param exclude
+     * @return
+     */
+    public Builder exclude(String[] exclude) {
+      this.exclude = exclude;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ClassificationFilter build() {
+      return new ClassificationFilter(this);
     }
+  }
 
-    public String[] getInclude() {
-        return this.include;
-    }
-
-    public void setInclude(String[] include) {
-        this.include = include;
-    }
-
-    public String[] getExclude() {
-        return this.exclude;
-    }
-
-    public void setExclude(String[] exclude) {
-        this.exclude = exclude;
-    }
-
-    public static class Builder {
-        /**
-         * 需要获取的分类
-         * <p> 示例值：
-         */
-        private String[] include;
-        /**
-         * 需要排除的分类
-         * <p> 示例值：
-         */
-        private String[] exclude;
-
-        /**
-         * 需要获取的分类
-         * <p> 示例值：
-         *
-         * @param include
-         * @return
-         */
-        public Builder include(String[] include) {
-            this.include = include;
-            return this;
-        }
-
-
-        /**
-         * 需要排除的分类
-         * <p> 示例值：
-         *
-         * @param exclude
-         * @return
-         */
-        public Builder exclude(String[] exclude) {
-            this.exclude = exclude;
-            return this;
-        }
-
-
-        public ClassificationFilter build() {
-            return new ClassificationFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FilterExpression {
+  /**
+   * 规则
+   *
+   * <p>示例值：
+   */
+  @SerializedName("conditions")
+  private FilterCondition[] conditions;
+
+  /**
+   * 表达式
+   *
+   * <p>示例值：1 and 2
+   */
+  @SerializedName("expression")
+  private String expression;
+
+  /**
+   * 表达式
+   *
+   * <p>示例值：1 and 2
+   */
+  @SerializedName("logic_expression")
+  private String logicExpression;
+
+  public FilterCondition[] getConditions() {
+    return this.conditions;
+  }
+
+  public void setConditions(FilterCondition[] conditions) {
+    this.conditions = conditions;
+  }
+
+  public String getExpression() {
+    return this.expression;
+  }
+
+  public void setExpression(String expression) {
+    this.expression = expression;
+  }
+
+  public String getLogicExpression() {
+    return this.logicExpression;
+  }
+
+  public void setLogicExpression(String logicExpression) {
+    this.logicExpression = logicExpression;
+  }
+
+  // builder 开始
+  public FilterExpression() {}
+
+  public FilterExpression(Builder builder) {
     /**
      * 规则
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("conditions")
+    this.conditions = builder.conditions;
+    /**
+     * 表达式
+     *
+     * <p>示例值：1 and 2
+     */
+    this.expression = builder.expression;
+    /**
+     * 表达式
+     *
+     * <p>示例值：1 and 2
+     */
+    this.logicExpression = builder.logicExpression;
+  }
+
+  public static class Builder {
+    /**
+     * 规则
+     *
+     * <p>示例值：
+     */
     private FilterCondition[] conditions;
+
     /**
      * 表达式
-     * <p> 示例值：1 and 2
+     *
+     * <p>示例值：1 and 2
      */
-    @SerializedName("expression")
     private String expression;
+
     /**
      * 表达式
-     * <p> 示例值：1 and 2
+     *
+     * <p>示例值：1 and 2
      */
-    @SerializedName("logic_expression")
     private String logicExpression;
 
-    // builder 开始
-    public FilterExpression() {
+    /**
+     * 规则
+     *
+     * <p>示例值：
+     *
+     * @param conditions
+     * @return
+     */
+    public Builder conditions(FilterCondition[] conditions) {
+      this.conditions = conditions;
+      return this;
     }
 
-    public FilterExpression(Builder builder) {
-        /**
-         * 规则
-         * <p> 示例值：
-         */
-        this.conditions = builder.conditions;
-        /**
-         * 表达式
-         * <p> 示例值：1 and 2
-         */
-        this.expression = builder.expression;
-        /**
-         * 表达式
-         * <p> 示例值：1 and 2
-         */
-        this.logicExpression = builder.logicExpression;
+    /**
+     * 表达式
+     *
+     * <p>示例值：1 and 2
+     *
+     * @param expression
+     * @return
+     */
+    public Builder expression(String expression) {
+      this.expression = expression;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 表达式
+     *
+     * <p>示例值：1 and 2
+     *
+     * @param logicExpression
+     * @return
+     */
+    public Builder logicExpression(String logicExpression) {
+      this.logicExpression = logicExpression;
+      return this;
     }
 
-    public FilterCondition[] getConditions() {
-        return this.conditions;
+    public FilterExpression build() {
+      return new FilterExpression(this);
     }
+  }
 
-    public void setConditions(FilterCondition[] conditions) {
-        this.conditions = conditions;
-    }
-
-    public String getExpression() {
-        return this.expression;
-    }
-
-    public void setExpression(String expression) {
-        this.expression = expression;
-    }
-
-    public String getLogicExpression() {
-        return this.logicExpression;
-    }
-
-    public void setLogicExpression(String logicExpression) {
-        this.logicExpression = logicExpression;
-    }
-
-    public static class Builder {
-        /**
-         * 规则
-         * <p> 示例值：
-         */
-        private FilterCondition[] conditions;
-        /**
-         * 表达式
-         * <p> 示例值：1 and 2
-         */
-        private String expression;
-        /**
-         * 表达式
-         * <p> 示例值：1 and 2
-         */
-        private String logicExpression;
-
-        /**
-         * 规则
-         * <p> 示例值：
-         *
-         * @param conditions
-         * @return
-         */
-        public Builder conditions(FilterCondition[] conditions) {
-            this.conditions = conditions;
-            return this;
-        }
-
-
-        /**
-         * 表达式
-         * <p> 示例值：1 and 2
-         *
-         * @param expression
-         * @return
-         */
-        public Builder expression(String expression) {
-            this.expression = expression;
-            return this;
-        }
-
-
-        /**
-         * 表达式
-         * <p> 示例值：1 and 2
-         *
-         * @param logicExpression
-         * @return
-         */
-        public Builder logicExpression(String logicExpression) {
-            this.logicExpression = logicExpression;
-            return this;
-        }
-
-
-        public FilterExpression build() {
-            return new FilterExpression(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

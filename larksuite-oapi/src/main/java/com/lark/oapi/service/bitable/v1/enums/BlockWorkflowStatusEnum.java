@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.bitable.v1.enums;
 
-/**
- * 工作流状态
- */
+/** 工作流状态 */
 public enum BlockWorkflowStatusEnum {
-    ENABLE("Enable"), // 启用
-    DISABLE("Disable"), // 禁用
-    ;
-    private String value;
+  ENABLE("Enable"), // 启用
+  DISABLE("Disable"), // 禁用
+  ;
+  private String value;
 
-    BlockWorkflowStatusEnum(String value) {
-        this.value = value;
-    }
+  BlockWorkflowStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

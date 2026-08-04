@@ -14,19 +14,22 @@
 package com.lark.oapi.service.contact.v3.enums;
 
 /**
- * 此次调用中使用的部门ID的类型
+ * 此次调用中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+ * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
  */
 public enum GetGroupDepartmentIdTypeEnum {
-    OPEN_DEPARTMENT_ID("open_department_id"), // 以open_department_id来标识部门
-    DEPARTMENT_ID("department_id"), // 以自定义department_id来标识部门
-    ;
-    private String value;
+  OPEN_DEPARTMENT_ID("open_department_id"), // 由系统自动生成的部门 ID，ID 前缀固定为 `od-`，在租户内全局唯一。
+  DEPARTMENT_ID(
+      "department_id"), // 支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id
+// 具有唯一性。
+;
+  private String value;
 
-    GetGroupDepartmentIdTypeEnum(String value) {
-        this.value = value;
-    }
+  GetGroupDepartmentIdTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

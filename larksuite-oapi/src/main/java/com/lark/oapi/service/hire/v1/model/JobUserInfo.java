@@ -13,111 +13,106 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobUserInfo {
+  /**
+   * 人员 ID，与入参`user_id_type`类型一致
+   *
+   * <p>示例值：ou_efk39117c300506837def50545420c6a
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public JobUserInfo() {}
+
+  public JobUserInfo(Builder builder) {
     /**
-     * 人员 ID
-     * <p> 示例值：ou_efk39117c300506837def50545420c6a
+     * 人员 ID，与入参`user_id_type`类型一致
+     *
+     * <p>示例值：ou_efk39117c300506837def50545420c6a
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 人员 ID，与入参`user_id_type`类型一致
+     *
+     * <p>示例值：ou_efk39117c300506837def50545420c6a
+     */
+    private String id;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
     private I18n name;
 
-    // builder 开始
-    public JobUserInfo() {
+    /**
+     * 人员 ID，与入参`user_id_type`类型一致
+     *
+     * <p>示例值：ou_efk39117c300506837def50545420c6a
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public JobUserInfo(Builder builder) {
-        /**
-         * 人员 ID
-         * <p> 示例值：ou_efk39117c300506837def50545420c6a
-         */
-        this.id = builder.id;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public JobUserInfo build() {
+      return new JobUserInfo(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 人员 ID
-         * <p> 示例值：ou_efk39117c300506837def50545420c6a
-         */
-        private String id;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n name;
-
-        /**
-         * 人员 ID
-         * <p> 示例值：ou_efk39117c300506837def50545420c6a
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public JobUserInfo build() {
-            return new JobUserInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

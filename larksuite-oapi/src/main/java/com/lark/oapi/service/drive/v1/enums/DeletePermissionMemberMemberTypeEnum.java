@@ -13,27 +13,35 @@
 
 package com.lark.oapi.service.drive.v1.enums;
 
-/**
- * 协作者 ID 类型，与协作者 ID 需要对应
- */
+/** 协作者 ID 类型，与协作者 ID （member_id）需要对应。 */
 public enum DeletePermissionMemberMemberTypeEnum {
-    EMAIL("email"), // 邮箱地址
-    OPENID("openid"), // 开放平台ID
-    OPENCHATID("openchat"), // 开放平台群ID
-    OPENDEPARTMENTID("opendepartmentid"), // 开放平台部门ID
-    USERID("userid"), // 自定义用户ID
-    UNIONID("unionid"), // 开放平台UnionID
-    GROUPID("groupid"), // 自定义用户组ID
-    WIKISPACEID("wikispaceid"), // 知识空间的唯一标识
-    APP_ID("appid"), // 应用 ID
-    ;
-    private String value;
+  EMAIL("email"), // 邮箱地址
+  OPENID("openid"), // 开放平台 Open ID; - 获取应用 OpenID，参考[如何获取应用
+  // open_id](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#6dbaa8df); - 获取用户
+  // OpenID，参考[如何获取不同的用户
+  // ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)
+  OPENCHATID("openchat"), // 开放平台群组 ID。获取方式参考[群 ID
+  // 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
+  OPENDEPARTMENTID("opendepartmentid"), // 开放平台部门 ID。仅当使用 <md-tag mode="inline"
+  // type="token-user">user_access_token</md-tag>
+  // 调用时有效。获取方式参考[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)
+  USERID("userid"), // 用户 ID。获取方式参考[如何获取不同的用户
+  // ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)
+  UNIONID("unionid"), // 开放平台 Union ID。获取方式参考[如何获取不同的用户
+  // ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)
+  GROUPID("groupid"), // 自定义用户组
+  // ID。获取方式参考[用户组资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/overview)
+  WIKISPACEID("wikispaceid"), // 知识空间
+  // ID。仅知识库文档支持该参数，当需要操作知识库文档里的「知识库成员」类型协作者时传该参数。获取方式参考[知识库概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)
+  APP_ID("appid"), // 应用 ID
+  ;
+  private String value;
 
-    DeletePermissionMemberMemberTypeEnum(String value) {
-        this.value = value;
-    }
+  DeletePermissionMemberMemberTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

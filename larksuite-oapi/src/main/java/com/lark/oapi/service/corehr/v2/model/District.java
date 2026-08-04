@@ -13,235 +13,251 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class District {
+  /**
+   * 区/县 ID
+   *
+   * <p>示例值：6863333353496512007
+   */
+  @SerializedName("district_id")
+  private String districtId;
+
+  /**
+   * 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n[] name;
+
+  /**
+   * 所属城市
+   * ID，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获得
+   *
+   * <p>示例值：6863333352603125255
+   */
+  @SerializedName("city_id")
+  private String cityId;
+
+  /**
+   * 行政区划代码
+   *
+   * <p>示例值：230110
+   */
+  @SerializedName("subregion_code")
+  private String subregionCode;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  public String getDistrictId() {
+    return this.districtId;
+  }
+
+  public void setDistrictId(String districtId) {
+    this.districtId = districtId;
+  }
+
+  public I18n[] getName() {
+    return this.name;
+  }
+
+  public void setName(I18n[] name) {
+    this.name = name;
+  }
+
+  public String getCityId() {
+    return this.cityId;
+  }
+
+  public void setCityId(String cityId) {
+    this.cityId = cityId;
+  }
+
+  public String getSubregionCode() {
+    return this.subregionCode;
+  }
+
+  public void setSubregionCode(String subregionCode) {
+    this.subregionCode = subregionCode;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public District() {}
+
+  public District(Builder builder) {
     /**
      * 区/县 ID
-     * <p> 示例值：6863333353496512007
+     *
+     * <p>示例值：6863333353496512007
      */
-    @SerializedName("district_id")
-    private String districtId;
+    this.districtId = builder.districtId;
     /**
      * 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n[] name;
+    this.name = builder.name;
     /**
-     * 所属城市 ID，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获得
-     * <p> 示例值：6863333352603125255
+     * 所属城市
+     * ID，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获得
+     *
+     * <p>示例值：6863333352603125255
      */
-    @SerializedName("city_id")
-    private String cityId;
+    this.cityId = builder.cityId;
     /**
      * 行政区划代码
-     * <p> 示例值：230110
+     *
+     * <p>示例值：230110
      */
-    @SerializedName("subregion_code")
-    private String subregionCode;
+    this.subregionCode = builder.subregionCode;
     /**
      * 状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("status")
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 区/县 ID
+     *
+     * <p>示例值：6863333353496512007
+     */
+    private String districtId;
+
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     */
+    private I18n[] name;
+
+    /**
+     * 所属城市
+     * ID，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获得
+     *
+     * <p>示例值：6863333352603125255
+     */
+    private String cityId;
+
+    /**
+     * 行政区划代码
+     *
+     * <p>示例值：230110
+     */
+    private String subregionCode;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     */
     private Integer status;
 
-    // builder 开始
-    public District() {
+    /**
+     * 区/县 ID
+     *
+     * <p>示例值：6863333353496512007
+     *
+     * @param districtId
+     * @return
+     */
+    public Builder districtId(String districtId) {
+      this.districtId = districtId;
+      return this;
     }
 
-    public District(Builder builder) {
-        /**
-         * 区/县 ID
-         * <p> 示例值：6863333353496512007
-         */
-        this.districtId = builder.districtId;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 所属城市 ID，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获得
-         * <p> 示例值：6863333352603125255
-         */
-        this.cityId = builder.cityId;
-        /**
-         * 行政区划代码
-         * <p> 示例值：230110
-         */
-        this.subregionCode = builder.subregionCode;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
+    /**
+     * 名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n[] name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 所属城市
+     * ID，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获得
+     *
+     * <p>示例值：6863333352603125255
+     *
+     * @param cityId
+     * @return
+     */
+    public Builder cityId(String cityId) {
+      this.cityId = cityId;
+      return this;
     }
 
-    public String getDistrictId() {
-        return this.districtId;
+    /**
+     * 行政区划代码
+     *
+     * <p>示例值：230110
+     *
+     * @param subregionCode
+     * @return
+     */
+    public Builder subregionCode(String subregionCode) {
+      this.subregionCode = subregionCode;
+      return this;
     }
 
-    public void setDistrictId(String districtId) {
-        this.districtId = districtId;
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public I18n[] getName() {
-        return this.name;
+    /**
+     * 状态
+     *
+     * <p>示例值：1
+     *
+     * @param status {@link com.lark.oapi.service.corehr.v2.enums.DistrictBasicDataObjStatusEnum}
+     * @return
+     */
+    public Builder status(
+        com.lark.oapi.service.corehr.v2.enums.DistrictBasicDataObjStatusEnum status) {
+      this.status = status.getValue();
+      return this;
     }
 
-    public void setName(I18n[] name) {
-        this.name = name;
+    public District build() {
+      return new District(this);
     }
+  }
 
-    public String getCityId() {
-        return this.cityId;
-    }
-
-    public void setCityId(String cityId) {
-        this.cityId = cityId;
-    }
-
-    public String getSubregionCode() {
-        return this.subregionCode;
-    }
-
-    public void setSubregionCode(String subregionCode) {
-        this.subregionCode = subregionCode;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 区/县 ID
-         * <p> 示例值：6863333353496512007
-         */
-        private String districtId;
-        /**
-         * 名称
-         * <p> 示例值：
-         */
-        private I18n[] name;
-        /**
-         * 所属城市 ID，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获得
-         * <p> 示例值：6863333352603125255
-         */
-        private String cityId;
-        /**
-         * 行政区划代码
-         * <p> 示例值：230110
-         */
-        private String subregionCode;
-        /**
-         * 状态
-         * <p> 示例值：1
-         */
-        private Integer status;
-
-        /**
-         * 区/县 ID
-         * <p> 示例值：6863333353496512007
-         *
-         * @param districtId
-         * @return
-         */
-        public Builder districtId(String districtId) {
-            this.districtId = districtId;
-            return this;
-        }
-
-
-        /**
-         * 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n[] name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 所属城市 ID，详细信息可通过[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)接口获得
-         * <p> 示例值：6863333352603125255
-         *
-         * @param cityId
-         * @return
-         */
-        public Builder cityId(String cityId) {
-            this.cityId = cityId;
-            return this;
-        }
-
-
-        /**
-         * 行政区划代码
-         * <p> 示例值：230110
-         *
-         * @param subregionCode
-         * @return
-         */
-        public Builder subregionCode(String subregionCode) {
-            this.subregionCode = subregionCode;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-        /**
-         * 状态
-         * <p> 示例值：1
-         *
-         * @param status {@link com.lark.oapi.service.corehr.v2.enums.DistrictBasicDataObjStatusEnum}
-         * @return
-         */
-        public Builder status(com.lark.oapi.service.corehr.v2.enums.DistrictBasicDataObjStatusEnum status) {
-            this.status = status.getValue();
-            return this;
-        }
-
-
-        public District build() {
-            return new District(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

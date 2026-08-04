@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SheetFilterInfo {
+  /**
+   * 筛选的应用范围
+   *
+   * <p>示例值：8fe9d6!A1:H14
+   */
+  @SerializedName("range")
+  private String range;
+
+  /**
+   * 被筛选条件过滤掉的行。从 1 开始索引。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filtered_out_rows")
+  private Integer[] filteredOutRows;
+
+  /**
+   * 工作表的筛选条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter_infos")
+  private FilterInfo[] filterInfos;
+
+  public String getRange() {
+    return this.range;
+  }
+
+  public void setRange(String range) {
+    this.range = range;
+  }
+
+  public Integer[] getFilteredOutRows() {
+    return this.filteredOutRows;
+  }
+
+  public void setFilteredOutRows(Integer[] filteredOutRows) {
+    this.filteredOutRows = filteredOutRows;
+  }
+
+  public FilterInfo[] getFilterInfos() {
+    return this.filterInfos;
+  }
+
+  public void setFilterInfos(FilterInfo[] filterInfos) {
+    this.filterInfos = filterInfos;
+  }
+
+  // builder 开始
+  public SheetFilterInfo() {}
+
+  public SheetFilterInfo(Builder builder) {
     /**
-     * 筛选应用范围
-     * <p> 示例值：xxxxxx!A1:H14
+     * 筛选的应用范围
+     *
+     * <p>示例值：8fe9d6!A1:H14
      */
-    @SerializedName("range")
+    this.range = builder.range;
+    /**
+     * 被筛选条件过滤掉的行。从 1 开始索引。
+     *
+     * <p>示例值：
+     */
+    this.filteredOutRows = builder.filteredOutRows;
+    /**
+     * 工作表的筛选条件
+     *
+     * <p>示例值：
+     */
+    this.filterInfos = builder.filterInfos;
+  }
+
+  public static class Builder {
+    /**
+     * 筛选的应用范围
+     *
+     * <p>示例值：8fe9d6!A1:H14
+     */
     private String range;
+
     /**
-     * 筛选出来隐藏的行
-     * <p> 示例值：
+     * 被筛选条件过滤掉的行。从 1 开始索引。
+     *
+     * <p>示例值：
      */
-    @SerializedName("filtered_out_rows")
     private Integer[] filteredOutRows;
+
     /**
-     * sheet的筛选条件
-     * <p> 示例值：
+     * 工作表的筛选条件
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter_infos")
     private FilterInfo[] filterInfos;
 
-    // builder 开始
-    public SheetFilterInfo() {
+    /**
+     * 筛选的应用范围
+     *
+     * <p>示例值：8fe9d6!A1:H14
+     *
+     * @param range
+     * @return
+     */
+    public Builder range(String range) {
+      this.range = range;
+      return this;
     }
 
-    public SheetFilterInfo(Builder builder) {
-        /**
-         * 筛选应用范围
-         * <p> 示例值：xxxxxx!A1:H14
-         */
-        this.range = builder.range;
-        /**
-         * 筛选出来隐藏的行
-         * <p> 示例值：
-         */
-        this.filteredOutRows = builder.filteredOutRows;
-        /**
-         * sheet的筛选条件
-         * <p> 示例值：
-         */
-        this.filterInfos = builder.filterInfos;
+    /**
+     * 被筛选条件过滤掉的行。从 1 开始索引。
+     *
+     * <p>示例值：
+     *
+     * @param filteredOutRows
+     * @return
+     */
+    public Builder filteredOutRows(Integer[] filteredOutRows) {
+      this.filteredOutRows = filteredOutRows;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 工作表的筛选条件
+     *
+     * <p>示例值：
+     *
+     * @param filterInfos
+     * @return
+     */
+    public Builder filterInfos(FilterInfo[] filterInfos) {
+      this.filterInfos = filterInfos;
+      return this;
     }
 
-    public String getRange() {
-        return this.range;
+    public SheetFilterInfo build() {
+      return new SheetFilterInfo(this);
     }
+  }
 
-    public void setRange(String range) {
-        this.range = range;
-    }
-
-    public Integer[] getFilteredOutRows() {
-        return this.filteredOutRows;
-    }
-
-    public void setFilteredOutRows(Integer[] filteredOutRows) {
-        this.filteredOutRows = filteredOutRows;
-    }
-
-    public FilterInfo[] getFilterInfos() {
-        return this.filterInfos;
-    }
-
-    public void setFilterInfos(FilterInfo[] filterInfos) {
-        this.filterInfos = filterInfos;
-    }
-
-    public static class Builder {
-        /**
-         * 筛选应用范围
-         * <p> 示例值：xxxxxx!A1:H14
-         */
-        private String range;
-        /**
-         * 筛选出来隐藏的行
-         * <p> 示例值：
-         */
-        private Integer[] filteredOutRows;
-        /**
-         * sheet的筛选条件
-         * <p> 示例值：
-         */
-        private FilterInfo[] filterInfos;
-
-        /**
-         * 筛选应用范围
-         * <p> 示例值：xxxxxx!A1:H14
-         *
-         * @param range
-         * @return
-         */
-        public Builder range(String range) {
-            this.range = range;
-            return this;
-        }
-
-
-        /**
-         * 筛选出来隐藏的行
-         * <p> 示例值：
-         *
-         * @param filteredOutRows
-         * @return
-         */
-        public Builder filteredOutRows(Integer[] filteredOutRows) {
-            this.filteredOutRows = filteredOutRows;
-            return this;
-        }
-
-
-        /**
-         * sheet的筛选条件
-         * <p> 示例值：
-         *
-         * @param filterInfos
-         * @return
-         */
-        public Builder filterInfos(FilterInfo[] filterInfos) {
-            this.filterInfos = filterInfos;
-            return this;
-        }
-
-
-        public SheetFilterInfo build() {
-            return new SheetFilterInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 参保状态，非「参保」状态下，基数、险种数据等为空
- */
+/** 参保状态，非「参保」状态下，基数、险种数据等为空 */
 public enum SocialArchiveDetailInsuranceStatusEnum {
-    CONTRIBUTION("contribution"), // 参保
-    NOT_CONTRIBUTION("not_contribution"), // 不参保
-    STOPPED_CONTRIBUTION("stopped_contribution"), // 停保
-    ;
-    private String value;
+  CONTRIBUTION("contribution"), // 参保
+  NOT_CONTRIBUTION("not_contribution"), // 不参保
+  STOPPED_CONTRIBUTION("stopped_contribution"), // 停保
+  ;
+  private String value;
 
-    SocialArchiveDetailInsuranceStatusEnum(String value) {
-        this.value = value;
-    }
+  SocialArchiveDetailInsuranceStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

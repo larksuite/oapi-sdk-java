@@ -13,146 +13,151 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2ProcessApproverUpdatedV2Data {
-    /**
-     * 流程实例ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("process_id")
-    private String processId;
-    /**
-     * 单据ID
-     * <p> 示例值：7072306364927985187
-     */
-    @SerializedName("approver_id")
-    private String approverId;
-    /**
-     * 单据类型
-     * <p> 示例值：1
-     */
-    @SerializedName("type")
-    private Integer type;
-    /**
-     * 单据状态
-     * <p> 示例值：1
-     */
-    @SerializedName("status")
-    private Integer status;
-    /**
-     * 业务类型
-     * <p> 示例值：renewal_record
-     */
-    @SerializedName("biz_type")
-    private String bizType;
-    /**
-     * 流程定义id
-     * <p> 示例值：people_7182520625066475540_7222929439175839532
-     */
-    @SerializedName("flow_definition_id")
-    private String flowDefinitionId;
-    /**
-     * 节点定义id
-     * <p> 示例值：approval_7c7d9c4d25b
-     */
-    @SerializedName("node_definition_id")
-    private String nodeDefinitionId;
-    /**
-     * 节点id（废弃，请使用node_id_str）
-     * <p> 示例值：7369419552616089132
-     */
-    @SerializedName("node_id")
-    private String nodeId;
-    /**
-     * 节点id
-     * <p> 示例值：7369419552616089132
-     */
-    @SerializedName("node_id_str")
-    private String nodeIdStr;
+  /**
+   * 流程运行实例
+   * id，详细信息可通过[获取单个流程详情](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get)获取
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("process_id")
+  private String processId;
 
-    public String getProcessId() {
-        return this.processId;
-    }
+  /**
+   * 单据ID
+   *
+   * <p>示例值：7072306364927985187
+   */
+  @SerializedName("approver_id")
+  private String approverId;
 
-    public void setProcessId(String processId) {
-        this.processId = processId;
-    }
+  /**
+   * 单据类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("type")
+  private Integer type;
 
-    public String getApproverId() {
-        return this.approverId;
-    }
+  /**
+   * 单据状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public void setApproverId(String approverId) {
-        this.approverId = approverId;
-    }
+  /**
+   * 业务类型，详情请查看[接入指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/process-form_variable_data/access-guide)
+   *
+   * <p>示例值：renewal_record
+   */
+  @SerializedName("biz_type")
+  private String bizType;
 
-    public Integer getType() {
-        return this.type;
-    }
+  /**
+   * 流程定义id
+   *
+   * <p>示例值：people_7182520625066475540_7222929439175839532
+   */
+  @SerializedName("flow_definition_id")
+  private String flowDefinitionId;
 
-    public void setType(Integer type) {
-        this.type = type;
-    }
+  /**
+   * 节点定义id
+   *
+   * <p>示例值：approval_7c7d9c4d25b
+   */
+  @SerializedName("node_definition_id")
+  private String nodeDefinitionId;
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  /**
+   * 节点id（已废弃，请使用node_id_str字段)
+   *
+   * <p>示例值：7369419552616089132
+   */
+  @SerializedName("node_id")
+  private String nodeId;
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  /**
+   * 节点id
+   *
+   * <p>示例值：7369419552616089132
+   */
+  @SerializedName("node_id_str")
+  private String nodeIdStr;
 
-    public String getBizType() {
-        return this.bizType;
-    }
+  public String getProcessId() {
+    return this.processId;
+  }
 
-    public void setBizType(String bizType) {
-        this.bizType = bizType;
-    }
+  public void setProcessId(String processId) {
+    this.processId = processId;
+  }
 
-    public String getFlowDefinitionId() {
-        return this.flowDefinitionId;
-    }
+  public String getApproverId() {
+    return this.approverId;
+  }
 
-    public void setFlowDefinitionId(String flowDefinitionId) {
-        this.flowDefinitionId = flowDefinitionId;
-    }
+  public void setApproverId(String approverId) {
+    this.approverId = approverId;
+  }
 
-    public String getNodeDefinitionId() {
-        return this.nodeDefinitionId;
-    }
+  public Integer getType() {
+    return this.type;
+  }
 
-    public void setNodeDefinitionId(String nodeDefinitionId) {
-        this.nodeDefinitionId = nodeDefinitionId;
-    }
+  public void setType(Integer type) {
+    this.type = type;
+  }
 
-    public String getNodeId() {
-        return this.nodeId;
-    }
+  public Integer getStatus() {
+    return this.status;
+  }
 
-    public void setNodeId(String nodeId) {
-        this.nodeId = nodeId;
-    }
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
 
-    public String getNodeIdStr() {
-        return this.nodeIdStr;
-    }
+  public String getBizType() {
+    return this.bizType;
+  }
 
-    public void setNodeIdStr(String nodeIdStr) {
-        this.nodeIdStr = nodeIdStr;
-    }
+  public void setBizType(String bizType) {
+    this.bizType = bizType;
+  }
 
+  public String getFlowDefinitionId() {
+    return this.flowDefinitionId;
+  }
+
+  public void setFlowDefinitionId(String flowDefinitionId) {
+    this.flowDefinitionId = flowDefinitionId;
+  }
+
+  public String getNodeDefinitionId() {
+    return this.nodeDefinitionId;
+  }
+
+  public void setNodeDefinitionId(String nodeDefinitionId) {
+    this.nodeDefinitionId = nodeDefinitionId;
+  }
+
+  public String getNodeId() {
+    return this.nodeId;
+  }
+
+  public void setNodeId(String nodeId) {
+    this.nodeId = nodeId;
+  }
+
+  public String getNodeIdStr() {
+    return this.nodeIdStr;
+  }
+
+  public void setNodeIdStr(String nodeIdStr) {
+    this.nodeIdStr = nodeIdStr;
+  }
 }

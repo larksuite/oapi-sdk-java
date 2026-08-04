@@ -13,124 +13,123 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FieldPermissionConfigV2 {
+  /**
+   * 字段权限配置模式
+   *
+   * <p>示例值：all
+   */
+  @SerializedName("field_config_mode")
+  private String fieldConfigMode;
+
+  /**
+   * 自定义字段配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_field_permissions")
+  private FieldPermissionV2[] customFieldPermissions;
+
+  public String getFieldConfigMode() {
+    return this.fieldConfigMode;
+  }
+
+  public void setFieldConfigMode(String fieldConfigMode) {
+    this.fieldConfigMode = fieldConfigMode;
+  }
+
+  public FieldPermissionV2[] getCustomFieldPermissions() {
+    return this.customFieldPermissions;
+  }
+
+  public void setCustomFieldPermissions(FieldPermissionV2[] customFieldPermissions) {
+    this.customFieldPermissions = customFieldPermissions;
+  }
+
+  // builder 开始
+  public FieldPermissionConfigV2() {}
+
+  public FieldPermissionConfigV2(Builder builder) {
     /**
      * 字段权限配置模式
-     * <p> 示例值：all
+     *
+     * <p>示例值：all
      */
-    @SerializedName("field_config_mode")
-    private String fieldConfigMode;
+    this.fieldConfigMode = builder.fieldConfigMode;
     /**
      * 自定义字段配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_field_permissions")
+    this.customFieldPermissions = builder.customFieldPermissions;
+  }
+
+  public static class Builder {
+    /**
+     * 字段权限配置模式
+     *
+     * <p>示例值：all
+     */
+    private String fieldConfigMode;
+
+    /**
+     * 自定义字段配置
+     *
+     * <p>示例值：
+     */
     private FieldPermissionV2[] customFieldPermissions;
 
-    // builder 开始
-    public FieldPermissionConfigV2() {
+    /**
+     * 字段权限配置模式
+     *
+     * <p>示例值：all
+     *
+     * @param fieldConfigMode
+     * @return
+     */
+    public Builder fieldConfigMode(String fieldConfigMode) {
+      this.fieldConfigMode = fieldConfigMode;
+      return this;
     }
 
-    public FieldPermissionConfigV2(Builder builder) {
-        /**
-         * 字段权限配置模式
-         * <p> 示例值：all
-         */
-        this.fieldConfigMode = builder.fieldConfigMode;
-        /**
-         * 自定义字段配置
-         * <p> 示例值：
-         */
-        this.customFieldPermissions = builder.customFieldPermissions;
+    /**
+     * 字段权限配置模式
+     *
+     * <p>示例值：all
+     *
+     * @param fieldConfigMode {@link
+     *     com.lark.oapi.service.apaas.v1.enums.FieldPermissionConfigV2FieldConfigModeEnum}
+     * @return
+     */
+    public Builder fieldConfigMode(
+        com.lark.oapi.service.apaas.v1.enums.FieldPermissionConfigV2FieldConfigModeEnum
+            fieldConfigMode) {
+      this.fieldConfigMode = fieldConfigMode.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义字段配置
+     *
+     * <p>示例值：
+     *
+     * @param customFieldPermissions
+     * @return
+     */
+    public Builder customFieldPermissions(FieldPermissionV2[] customFieldPermissions) {
+      this.customFieldPermissions = customFieldPermissions;
+      return this;
     }
 
-    public String getFieldConfigMode() {
-        return this.fieldConfigMode;
+    public FieldPermissionConfigV2 build() {
+      return new FieldPermissionConfigV2(this);
     }
+  }
 
-    public void setFieldConfigMode(String fieldConfigMode) {
-        this.fieldConfigMode = fieldConfigMode;
-    }
-
-    public FieldPermissionV2[] getCustomFieldPermissions() {
-        return this.customFieldPermissions;
-    }
-
-    public void setCustomFieldPermissions(FieldPermissionV2[] customFieldPermissions) {
-        this.customFieldPermissions = customFieldPermissions;
-    }
-
-    public static class Builder {
-        /**
-         * 字段权限配置模式
-         * <p> 示例值：all
-         */
-        private String fieldConfigMode;
-        /**
-         * 自定义字段配置
-         * <p> 示例值：
-         */
-        private FieldPermissionV2[] customFieldPermissions;
-
-        /**
-         * 字段权限配置模式
-         * <p> 示例值：all
-         *
-         * @param fieldConfigMode
-         * @return
-         */
-        public Builder fieldConfigMode(String fieldConfigMode) {
-            this.fieldConfigMode = fieldConfigMode;
-            return this;
-        }
-
-        /**
-         * 字段权限配置模式
-         * <p> 示例值：all
-         *
-         * @param fieldConfigMode {@link com.lark.oapi.service.apaas.v1.enums.FieldPermissionConfigV2FieldConfigModeEnum}
-         * @return
-         */
-        public Builder fieldConfigMode(com.lark.oapi.service.apaas.v1.enums.FieldPermissionConfigV2FieldConfigModeEnum fieldConfigMode) {
-            this.fieldConfigMode = fieldConfigMode.getValue();
-            return this;
-        }
-
-
-        /**
-         * 自定义字段配置
-         * <p> 示例值：
-         *
-         * @param customFieldPermissions
-         * @return
-         */
-        public Builder customFieldPermissions(FieldPermissionV2[] customFieldPermissions) {
-            this.customFieldPermissions = customFieldPermissions;
-            return this;
-        }
-
-
-        public FieldPermissionConfigV2 build() {
-            return new FieldPermissionConfigV2(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

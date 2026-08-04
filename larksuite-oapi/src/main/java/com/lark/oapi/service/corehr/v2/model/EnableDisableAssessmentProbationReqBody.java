@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EnableDisableAssessmentProbationReqBody {
+  /**
+   * 启用 / 停用状态。启用后可在试用期管理页面中可见试用期考核相关的字段。
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 试用期考核系统入口链接，当启用功能时该字段必填。
+   *
+   * <p>示例值：https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&key=ffm41o1&dataGrid%41wmv98t29vif3kj=%1B%7D
+   */
+  @SerializedName("app_url")
+  private String appUrl;
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public String getAppUrl() {
+    return this.appUrl;
+  }
+
+  public void setAppUrl(String appUrl) {
+    this.appUrl = appUrl;
+  }
+
+  // builder 开始
+  public EnableDisableAssessmentProbationReqBody() {}
+
+  public EnableDisableAssessmentProbationReqBody(Builder builder) {
     /**
      * 启用 / 停用状态。启用后可在试用期管理页面中可见试用期考核相关的字段。
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
      * 试用期考核系统入口链接，当启用功能时该字段必填。
-     * <p> 示例值：https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&key=ffm41o1&dataGrid%41wmv98t29vif3kj=%1B%7D
+     *
+     * <p>示例值：https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&key=ffm41o1&dataGrid%41wmv98t29vif3kj=%1B%7D
      */
-    @SerializedName("app_url")
+    this.appUrl = builder.appUrl;
+  }
+
+  public static class Builder {
+    /**
+     * 启用 / 停用状态。启用后可在试用期管理页面中可见试用期考核相关的字段。
+     *
+     * <p>示例值：true
+     */
+    private Boolean active;
+
+    /**
+     * 试用期考核系统入口链接，当启用功能时该字段必填。
+     *
+     * <p>示例值：https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&key=ffm41o1&dataGrid%41wmv98t29vif3kj=%1B%7D
+     */
     private String appUrl;
 
-    // builder 开始
-    public EnableDisableAssessmentProbationReqBody() {
+    /**
+     * 启用 / 停用状态。启用后可在试用期管理页面中可见试用期考核相关的字段。
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public EnableDisableAssessmentProbationReqBody(Builder builder) {
-        /**
-         * 启用 / 停用状态。启用后可在试用期管理页面中可见试用期考核相关的字段。
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 试用期考核系统入口链接，当启用功能时该字段必填。
-         * <p> 示例值：https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&key=ffm41o1&dataGrid%41wmv98t29vif3kj=%1B%7D
-         */
-        this.appUrl = builder.appUrl;
+    /**
+     * 试用期考核系统入口链接，当启用功能时该字段必填。
+     *
+     * <p>示例值：https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&key=ffm41o1&dataGrid%41wmv98t29vif3kj=%1B%7D
+     *
+     * @param appUrl
+     * @return
+     */
+    public Builder appUrl(String appUrl) {
+      this.appUrl = appUrl;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EnableDisableAssessmentProbationReqBody build() {
+      return new EnableDisableAssessmentProbationReqBody(this);
     }
+  }
 
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public String getAppUrl() {
-        return this.appUrl;
-    }
-
-    public void setAppUrl(String appUrl) {
-        this.appUrl = appUrl;
-    }
-
-    public static class Builder {
-        /**
-         * 启用 / 停用状态。启用后可在试用期管理页面中可见试用期考核相关的字段。
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 试用期考核系统入口链接，当启用功能时该字段必填。
-         * <p> 示例值：https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&key=ffm41o1&dataGrid%41wmv98t29vif3kj=%1B%7D
-         */
-        private String appUrl;
-
-        /**
-         * 启用 / 停用状态。启用后可在试用期管理页面中可见试用期考核相关的字段。
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 试用期考核系统入口链接，当启用功能时该字段必填。
-         * <p> 示例值：https://qwe111.feishuapp.bytedance.net/ae/ui/apps/176612345027111/appPages/l11bsrwss13yt?dataGrid%41pye4fsbajo21l=%7B%7D&key=ffm41o1&dataGrid%41wmv98t29vif3kj=%1B%7D
-         *
-         * @param appUrl
-         * @return
-         */
-        public Builder appUrl(String appUrl) {
-            this.appUrl = appUrl;
-            return this;
-        }
-
-
-        public EnableDisableAssessmentProbationReqBody build() {
-            return new EnableDisableAssessmentProbationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

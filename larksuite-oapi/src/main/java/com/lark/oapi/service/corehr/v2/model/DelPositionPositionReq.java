@@ -13,65 +13,52 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class DelPositionPositionReq {
-    @Body
+  @Body private DelPositionPositionReqBody body;
+
+  public DelPositionPositionReqBody getDelPositionPositionReqBody() {
+    return this.body;
+  }
+
+  public void setDelPositionPositionReqBody(DelPositionPositionReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public DelPositionPositionReq() {}
+
+  public DelPositionPositionReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private DelPositionPositionReqBody body;
 
-    // builder 开始
-    public DelPositionPositionReq() {
-    }
-
-    public DelPositionPositionReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public DelPositionPositionReqBody getDelPositionPositionReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setDelPositionPositionReqBody(DelPositionPositionReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder delPositionPositionReqBody(DelPositionPositionReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private DelPositionPositionReqBody body;
-
-        public DelPositionPositionReqBody getDelPositionPositionReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder delPositionPositionReqBody(DelPositionPositionReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public DelPositionPositionReq build() {
-            return new DelPositionPositionReq(this);
-        }
+    public DelPositionPositionReq build() {
+      return new DelPositionPositionReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

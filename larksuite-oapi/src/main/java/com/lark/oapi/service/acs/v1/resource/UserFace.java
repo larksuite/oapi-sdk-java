@@ -13,192 +13,236 @@
 
 package com.lark.oapi.service.acs.v1.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.acs.v1.model.*;
+import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.acs.v1.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class UserFace {
-    private static final Logger log = LoggerFactory.getLogger(UserFace.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(UserFace.class);
+  private final Config config;
 
-    public UserFace(Config config) {
-        this.config = config;
+  public UserFace(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 下载人脸图片，对于已经录入人脸图片的用户，可以使用该接口下载用户人脸图片。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=acs&resource=user.face&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=acs&resource=user.face&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java</a>
+   * ;
+   */
+  public GetUserFaceResp get(GetUserFaceReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+    reqOptions.setSupportDownLoad(true);
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/acs/v1/users/:user_id/face",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    if (httpResponse.getStatusCode() == 200) {
+      GetUserFaceResp resp = new GetUserFaceResp();
+      resp.setRawResponse(httpResponse);
+      ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+      outputStream.write(httpResponse.getBody());
+      resp.setData(outputStream);
+      resp.setFileName(httpResponse.getFileName());
+      return resp;
+    }
+    // 反序列化
+    GetUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserFaceResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/acs/v1/users/:user_id/face",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-    /**
-     * 下载人脸图片，对于已经录入人脸图片的用户，可以使用该接口下载用户人脸图片。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java</a> ;
-     */
-    public GetUserFaceResp get(GetUserFaceReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-        reqOptions.setSupportDownLoad(true);
+    return resp;
+  }
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/acs/v1/users/:user_id/face"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+  /**
+   * 下载人脸图片，对于已经录入人脸图片的用户，可以使用该接口下载用户人脸图片。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=acs&resource=user.face&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=get&project=acs&resource=user.face&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java</a>
+   * ;
+   */
+  public GetUserFaceResp get(GetUserFaceReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+    reqOptions.setSupportDownLoad(true);
 
-        if (httpResponse.getStatusCode() == 200) {
-            GetUserFaceResp resp = new GetUserFaceResp();
-            resp.setRawResponse(httpResponse);
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            outputStream.write(httpResponse.getBody());
-            resp.setData(outputStream);
-            resp.setFileName(httpResponse.getFileName());
-            return resp;
-        }
-        // 反序列化
-        GetUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserFaceResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/users/:user_id/face"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/acs/v1/users/:user_id/face",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 下载请求，返回流
+    if (httpResponse.getStatusCode() == 200) {
+      GetUserFaceResp resp = new GetUserFaceResp();
+      resp.setRawResponse(httpResponse);
+      ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+      outputStream.write(httpResponse.getBody());
+      resp.setData(outputStream);
+      resp.setFileName(httpResponse.getFileName());
+      return resp;
+    }
+    // 反序列化
+    GetUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserFaceResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/acs/v1/users/:user_id/face",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 下载人脸图片，对于已经录入人脸图片的用户，可以使用该接口下载用户人脸图片。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/get</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/GetUserFaceSample.java</a> ;
-     */
-    public GetUserFaceResp get(GetUserFaceReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
-        reqOptions.setSupportDownLoad(true);
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/acs/v1/users/:user_id/face"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 下载请求，返回流
-        if (httpResponse.getStatusCode() == 200) {
-            GetUserFaceResp resp = new GetUserFaceResp();
-            resp.setRawResponse(httpResponse);
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            outputStream.write(httpResponse.getBody());
-            resp.setData(outputStream);
-            resp.setFileName(httpResponse.getFileName());
-            return resp;
-        }
-        // 反序列化
-        GetUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetUserFaceResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/users/:user_id/face"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 上传人脸图片，用户需要录入人脸图片才可以使用门禁考勤机。使用该 API 上传门禁用户的人脸图片。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=acs&resource=user.face&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=acs&resource=user.face&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java</a>
+   * ;
+   */
+  public UpdateUserFaceResp update(UpdateUserFaceReq req, RequestOptions reqOptions)
+      throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+    reqOptions.setSupportUpload(true);
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PUT",
+            "/open-apis/acs/v1/users/:user_id/face",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    UpdateUserFaceResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateUserFaceResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/acs/v1/users/:user_id/face",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 上传人脸图片，用户需要录入人脸图片才可以使用门禁考勤机。使用该 API 上传门禁用户的人脸图片。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java</a> ;
-     */
-    public UpdateUserFaceResp update(UpdateUserFaceReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-        reqOptions.setSupportUpload(true);
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-                , "/open-apis/acs/v1/users/:user_id/face"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        UpdateUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateUserFaceResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/users/:user_id/face"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 上传人脸图片，用户需要录入人脸图片才可以使用门禁考勤机。使用该 API 上传门禁用户的人脸图片。
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=acs&resource=user.face&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=update&project=acs&resource=user.face&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java</a>
+   * ;
+   */
+  public UpdateUserFaceResp update(UpdateUserFaceReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+    reqOptions.setSupportUpload(true);
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PUT",
+            "/open-apis/acs/v1/users/:user_id/face",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    UpdateUserFaceResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateUserFaceResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/acs/v1/users/:user_id/face",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * 上传人脸图片，用户需要录入人脸图片才可以使用门禁考勤机。使用该 API 上传门禁用户的人脸图片。
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update">https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/acs-v1/user-face/update</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/acsv1/UpdateUserFaceSample.java</a> ;
-     */
-    public UpdateUserFaceResp update(UpdateUserFaceReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
-        reqOptions.setSupportUpload(true);
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
-                , "/open-apis/acs/v1/users/:user_id/face"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        UpdateUserFaceResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, UpdateUserFaceResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/acs/v1/users/:user_id/face"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
-    }
+    return resp;
+  }
 }

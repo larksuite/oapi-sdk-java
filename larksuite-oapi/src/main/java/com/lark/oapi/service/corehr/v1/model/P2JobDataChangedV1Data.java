@@ -13,76 +13,74 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2JobDataChangedV1Data {
-    /**
-     * 主对象ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("job_data_id")
-    private String jobDataId;
-    /**
-     * 员工雇佣 ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("employment_id")
-    private String employmentId;
-    /**
-     * 用户 ID
-     * <p> 示例值：
-     */
-    @SerializedName("target_user_id")
-    private UserId targetUserId;
-    /**
-     * 员工异动 ID
-     * <p> 示例值：7072306364927985196
-     */
-    @SerializedName("job_change_id")
-    private String jobChangeId;
+  /**
+   * 任职信息
+   * ID，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("job_data_id")
+  private String jobDataId;
 
-    public String getJobDataId() {
-        return this.jobDataId;
-    }
+  /**
+   * 雇佣信息
+   * ID，可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
 
-    public void setJobDataId(String jobDataId) {
-        this.jobDataId = jobDataId;
-    }
+  /**
+   * 用户
+   * ID，飞书相关ID，;可通过[【通讯录接口】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("target_user_id")
+  private UserId targetUserId;
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
+  /**
+   * 员工异动
+   * ID，可通过[【搜索异动信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_change/search)接口获取
+   *
+   * <p>示例值：7072306364927985196
+   */
+  @SerializedName("job_change_id")
+  private String jobChangeId;
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
+  public String getJobDataId() {
+    return this.jobDataId;
+  }
 
-    public UserId getTargetUserId() {
-        return this.targetUserId;
-    }
+  public void setJobDataId(String jobDataId) {
+    this.jobDataId = jobDataId;
+  }
 
-    public void setTargetUserId(UserId targetUserId) {
-        this.targetUserId = targetUserId;
-    }
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
 
-    public String getJobChangeId() {
-        return this.jobChangeId;
-    }
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
 
-    public void setJobChangeId(String jobChangeId) {
-        this.jobChangeId = jobChangeId;
-    }
+  public UserId getTargetUserId() {
+    return this.targetUserId;
+  }
 
+  public void setTargetUserId(UserId targetUserId) {
+    this.targetUserId = targetUserId;
+  }
+
+  public String getJobChangeId() {
+    return this.jobChangeId;
+  }
+
+  public void setJobChangeId(String jobChangeId) {
+    this.jobChangeId = jobChangeId;
+  }
 }

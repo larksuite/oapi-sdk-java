@@ -13,75 +13,69 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RevokeJobChangeReqBody {
+  /**
+   * 操作人id，[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+   * 获取ID。关联了流程的异动需要操作人有流程管理员和审批单管理员权限。
+   *
+   * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
+   */
+  @SerializedName("operator_id")
+  private String operatorId;
+
+  public String getOperatorId() {
+    return this.operatorId;
+  }
+
+  public void setOperatorId(String operatorId) {
+    this.operatorId = operatorId;
+  }
+
+  // builder 开始
+  public RevokeJobChangeReqBody() {}
+
+  public RevokeJobChangeReqBody(Builder builder) {
     /**
-     * 操作人id
-     * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     * 操作人id，[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     * 获取ID。关联了流程的异动需要操作人有流程管理员和审批单管理员权限。
+     *
+     * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
      */
-    @SerializedName("operator_id")
+    this.operatorId = builder.operatorId;
+  }
+
+  public static class Builder {
+    /**
+     * 操作人id，[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     * 获取ID。关联了流程的异动需要操作人有流程管理员和审批单管理员权限。
+     *
+     * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     */
     private String operatorId;
 
-    // builder 开始
-    public RevokeJobChangeReqBody() {
+    /**
+     * 操作人id，[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     * 获取ID。关联了流程的异动需要操作人有流程管理员和审批单管理员权限。
+     *
+     * <p>示例值：ou_a294793e8fa21529f2a60e3e9de45520
+     *
+     * @param operatorId
+     * @return
+     */
+    public Builder operatorId(String operatorId) {
+      this.operatorId = operatorId;
+      return this;
     }
 
-    public RevokeJobChangeReqBody(Builder builder) {
-        /**
-         * 操作人id
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-         */
-        this.operatorId = builder.operatorId;
+    public RevokeJobChangeReqBody build() {
+      return new RevokeJobChangeReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getOperatorId() {
-        return this.operatorId;
-    }
-
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
-    }
-
-    public static class Builder {
-        /**
-         * 操作人id
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-         */
-        private String operatorId;
-
-        /**
-         * 操作人id
-         * <p> 示例值：ou_a294793e8fa21529f2a60e3e9de45520
-         *
-         * @param operatorId
-         * @return
-         */
-        public Builder operatorId(String operatorId) {
-            this.operatorId = operatorId;
-            return this;
-        }
-
-
-        public RevokeJobChangeReqBody build() {
-            return new RevokeJobChangeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

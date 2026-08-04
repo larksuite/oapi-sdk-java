@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Lesson {
+  /**
+   * 课节 ID
+   *
+   * <p>示例值：WX3_OXGjp
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 课节标题
+   *
+   * <p>示例值：视频课
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 课节类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public Lesson() {}
+
+  public Lesson(Builder builder) {
     /**
      * 课节 ID
-     * <p> 示例值：WX3_OXGjp
+     *
+     * <p>示例值：WX3_OXGjp
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 课节标题
-     * <p> 示例值：视频课
+     *
+     * <p>示例值：视频课
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 课节类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("type")
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 课节 ID
+     *
+     * <p>示例值：WX3_OXGjp
+     */
+    private String id;
+
+    /**
+     * 课节标题
+     *
+     * <p>示例值：视频课
+     */
+    private String name;
+
+    /**
+     * 课节类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：2
+     */
     private Integer type;
 
-    // builder 开始
-    public Lesson() {
+    /**
+     * 课节 ID
+     *
+     * <p>示例值：WX3_OXGjp
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public Lesson(Builder builder) {
-        /**
-         * 课节 ID
-         * <p> 示例值：WX3_OXGjp
-         */
-        this.id = builder.id;
-        /**
-         * 课节标题
-         * <p> 示例值：视频课
-         */
-        this.name = builder.name;
-        /**
-         * 课节类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：2
-         */
-        this.type = builder.type;
+    /**
+     * 课节标题
+     *
+     * <p>示例值：视频课
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 课节类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：2
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public Lesson build() {
+      return new Lesson(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 课节 ID
-         * <p> 示例值：WX3_OXGjp
-         */
-        private String id;
-        /**
-         * 课节标题
-         * <p> 示例值：视频课
-         */
-        private String name;
-        /**
-         * 课节类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：2
-         */
-        private Integer type;
-
-        /**
-         * 课节 ID
-         * <p> 示例值：WX3_OXGjp
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 课节标题
-         * <p> 示例值：视频课
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 课节类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：2
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public Lesson build() {
-            return new Lesson(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

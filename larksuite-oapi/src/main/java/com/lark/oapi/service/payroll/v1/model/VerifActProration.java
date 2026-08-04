@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerifActProration {
+  /**
+   * 开始日期 "2025-05-01"
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("start_date")
+  private String startDate;
+
+  /**
+   * 结束日期 "2025-05-01"
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("end_date")
+  private String endDate;
+
+  /**
+   * 数据锁定日期 "2025-05-01"
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("cutoff_date")
+  private String cutoffDate;
+
+  /**
+   * 分段值，数值、金额等类型数据项会保留六位小数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("item_values")
+  private VerifActItemValue[] itemValues;
+
+  public String getStartDate() {
+    return this.startDate;
+  }
+
+  public void setStartDate(String startDate) {
+    this.startDate = startDate;
+  }
+
+  public String getEndDate() {
+    return this.endDate;
+  }
+
+  public void setEndDate(String endDate) {
+    this.endDate = endDate;
+  }
+
+  public String getCutoffDate() {
+    return this.cutoffDate;
+  }
+
+  public void setCutoffDate(String cutoffDate) {
+    this.cutoffDate = cutoffDate;
+  }
+
+  public VerifActItemValue[] getItemValues() {
+    return this.itemValues;
+  }
+
+  public void setItemValues(VerifActItemValue[] itemValues) {
+    this.itemValues = itemValues;
+  }
+
+  // builder 开始
+  public VerifActProration() {}
+
+  public VerifActProration(Builder builder) {
     /**
      * 开始日期 "2025-05-01"
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("start_date")
-    private String startDate;
+    this.startDate = builder.startDate;
     /**
      * 结束日期 "2025-05-01"
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("end_date")
-    private String endDate;
+    this.endDate = builder.endDate;
     /**
      * 数据锁定日期 "2025-05-01"
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("cutoff_date")
-    private String cutoffDate;
+    this.cutoffDate = builder.cutoffDate;
     /**
      * 分段值，数值、金额等类型数据项会保留六位小数
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("item_values")
+    this.itemValues = builder.itemValues;
+  }
+
+  public static class Builder {
+    /**
+     * 开始日期 "2025-05-01"
+     *
+     * <p>示例值：1
+     */
+    private String startDate;
+
+    /**
+     * 结束日期 "2025-05-01"
+     *
+     * <p>示例值：1
+     */
+    private String endDate;
+
+    /**
+     * 数据锁定日期 "2025-05-01"
+     *
+     * <p>示例值：1
+     */
+    private String cutoffDate;
+
+    /**
+     * 分段值，数值、金额等类型数据项会保留六位小数
+     *
+     * <p>示例值：
+     */
     private VerifActItemValue[] itemValues;
 
-    // builder 开始
-    public VerifActProration() {
+    /**
+     * 开始日期 "2025-05-01"
+     *
+     * <p>示例值：1
+     *
+     * @param startDate
+     * @return
+     */
+    public Builder startDate(String startDate) {
+      this.startDate = startDate;
+      return this;
     }
 
-    public VerifActProration(Builder builder) {
-        /**
-         * 开始日期 "2025-05-01"
-         * <p> 示例值：1
-         */
-        this.startDate = builder.startDate;
-        /**
-         * 结束日期 "2025-05-01"
-         * <p> 示例值：1
-         */
-        this.endDate = builder.endDate;
-        /**
-         * 数据锁定日期 "2025-05-01"
-         * <p> 示例值：1
-         */
-        this.cutoffDate = builder.cutoffDate;
-        /**
-         * 分段值，数值、金额等类型数据项会保留六位小数
-         * <p> 示例值：
-         */
-        this.itemValues = builder.itemValues;
+    /**
+     * 结束日期 "2025-05-01"
+     *
+     * <p>示例值：1
+     *
+     * @param endDate
+     * @return
+     */
+    public Builder endDate(String endDate) {
+      this.endDate = endDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 数据锁定日期 "2025-05-01"
+     *
+     * <p>示例值：1
+     *
+     * @param cutoffDate
+     * @return
+     */
+    public Builder cutoffDate(String cutoffDate) {
+      this.cutoffDate = cutoffDate;
+      return this;
     }
 
-    public String getStartDate() {
-        return this.startDate;
+    /**
+     * 分段值，数值、金额等类型数据项会保留六位小数
+     *
+     * <p>示例值：
+     *
+     * @param itemValues
+     * @return
+     */
+    public Builder itemValues(VerifActItemValue[] itemValues) {
+      this.itemValues = itemValues;
+      return this;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
+    public VerifActProration build() {
+      return new VerifActProration(this);
     }
+  }
 
-    public String getEndDate() {
-        return this.endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
-    public String getCutoffDate() {
-        return this.cutoffDate;
-    }
-
-    public void setCutoffDate(String cutoffDate) {
-        this.cutoffDate = cutoffDate;
-    }
-
-    public VerifActItemValue[] getItemValues() {
-        return this.itemValues;
-    }
-
-    public void setItemValues(VerifActItemValue[] itemValues) {
-        this.itemValues = itemValues;
-    }
-
-    public static class Builder {
-        /**
-         * 开始日期 "2025-05-01"
-         * <p> 示例值：1
-         */
-        private String startDate;
-        /**
-         * 结束日期 "2025-05-01"
-         * <p> 示例值：1
-         */
-        private String endDate;
-        /**
-         * 数据锁定日期 "2025-05-01"
-         * <p> 示例值：1
-         */
-        private String cutoffDate;
-        /**
-         * 分段值，数值、金额等类型数据项会保留六位小数
-         * <p> 示例值：
-         */
-        private VerifActItemValue[] itemValues;
-
-        /**
-         * 开始日期 "2025-05-01"
-         * <p> 示例值：1
-         *
-         * @param startDate
-         * @return
-         */
-        public Builder startDate(String startDate) {
-            this.startDate = startDate;
-            return this;
-        }
-
-
-        /**
-         * 结束日期 "2025-05-01"
-         * <p> 示例值：1
-         *
-         * @param endDate
-         * @return
-         */
-        public Builder endDate(String endDate) {
-            this.endDate = endDate;
-            return this;
-        }
-
-
-        /**
-         * 数据锁定日期 "2025-05-01"
-         * <p> 示例值：1
-         *
-         * @param cutoffDate
-         * @return
-         */
-        public Builder cutoffDate(String cutoffDate) {
-            this.cutoffDate = cutoffDate;
-            return this;
-        }
-
-
-        /**
-         * 分段值，数值、金额等类型数据项会保留六位小数
-         * <p> 示例值：
-         *
-         * @param itemValues
-         * @return
-         */
-        public Builder itemValues(VerifActItemValue[] itemValues) {
-            this.itemValues = itemValues;
-            return this;
-        }
-
-
-        public VerifActProration build() {
-            return new VerifActProration(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

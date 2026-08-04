@@ -13,186 +13,223 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryAdditionalInformationReqBody {
+  /**
+   * 评估周期
+   * ID，可通过[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取;;;**注意**：若请求参数
+   * `item_ids`、`external_ids`、`reviewee_user_ids` 均为空，返回 `semester_id` 参数指定周期的所有补充信息
+   *
+   * <p>示例值：7348736302176534547
+   */
+  @SerializedName("semester_id")
+  private String semesterId;
+
+  /**
+   * 补充信息 ID
+   * 列表，可通过[批量导入补充信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/import)接口获取;;;**说明**：若提供多个筛选参数，按照
+   * `item_ids` > `external_ids` > `reviewee_user_ids` 的优先级顺序，以第一个有值的筛选参数进行筛选
+   *
+   * <p>示例值：
+   */
+  @SerializedName("item_ids")
+  private String[] itemIds;
+
+  /**
+   * 外部系统补充信息 ID 列表，该 ID
+   * 在通过[批量导入补充信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/import)接口导入时写入;;;**说明**：若提供多个筛选参数，按照
+   * `item_ids` > `external_ids` > `reviewee_user_ids` 的优先级顺序，以第一个有值的筛选参数进行筛选
+   *
+   * <p>示例值：
+   */
+  @SerializedName("external_ids")
+  private String[] externalIds;
+
+  /**
+   * 被评估人 ID 列表，与入参 `user_id_type`
+   * 类型一致，可通过[获取被评估人信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/reviewee/query)接口获取;;;**说明**：若提供多个筛选参数，按照
+   * `item_ids` > `external_ids` > `reviewee_user_ids` 的优先级顺序，以第一个有值的筛选参数进行筛选
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reviewee_user_ids")
+  private String[] revieweeUserIds;
+
+  public String getSemesterId() {
+    return this.semesterId;
+  }
+
+  public void setSemesterId(String semesterId) {
+    this.semesterId = semesterId;
+  }
+
+  public String[] getItemIds() {
+    return this.itemIds;
+  }
+
+  public void setItemIds(String[] itemIds) {
+    this.itemIds = itemIds;
+  }
+
+  public String[] getExternalIds() {
+    return this.externalIds;
+  }
+
+  public void setExternalIds(String[] externalIds) {
+    this.externalIds = externalIds;
+  }
+
+  public String[] getRevieweeUserIds() {
+    return this.revieweeUserIds;
+  }
+
+  public void setRevieweeUserIds(String[] revieweeUserIds) {
+    this.revieweeUserIds = revieweeUserIds;
+  }
+
+  // builder 开始
+  public QueryAdditionalInformationReqBody() {}
+
+  public QueryAdditionalInformationReqBody(Builder builder) {
     /**
-     * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-     * <p> 示例值：7348736302176534547
+     * 评估周期
+     * ID，可通过[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取;;;**注意**：若请求参数
+     * `item_ids`、`external_ids`、`reviewee_user_ids` 均为空，返回 `semester_id` 参数指定周期的所有补充信息
+     *
+     * <p>示例值：7348736302176534547
      */
-    @SerializedName("semester_id")
+    this.semesterId = builder.semesterId;
+    /**
+     * 补充信息 ID
+     * 列表，可通过[批量导入补充信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/import)接口获取;;;**说明**：若提供多个筛选参数，按照
+     * `item_ids` > `external_ids` > `reviewee_user_ids` 的优先级顺序，以第一个有值的筛选参数进行筛选
+     *
+     * <p>示例值：
+     */
+    this.itemIds = builder.itemIds;
+    /**
+     * 外部系统补充信息 ID 列表，该 ID
+     * 在通过[批量导入补充信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/import)接口导入时写入;;;**说明**：若提供多个筛选参数，按照
+     * `item_ids` > `external_ids` > `reviewee_user_ids` 的优先级顺序，以第一个有值的筛选参数进行筛选
+     *
+     * <p>示例值：
+     */
+    this.externalIds = builder.externalIds;
+    /**
+     * 被评估人 ID 列表，与入参 `user_id_type`
+     * 类型一致，可通过[获取被评估人信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/reviewee/query)接口获取;;;**说明**：若提供多个筛选参数，按照
+     * `item_ids` > `external_ids` > `reviewee_user_ids` 的优先级顺序，以第一个有值的筛选参数进行筛选
+     *
+     * <p>示例值：
+     */
+    this.revieweeUserIds = builder.revieweeUserIds;
+  }
+
+  public static class Builder {
+    /**
+     * 评估周期
+     * ID，可通过[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取;;;**注意**：若请求参数
+     * `item_ids`、`external_ids`、`reviewee_user_ids` 均为空，返回 `semester_id` 参数指定周期的所有补充信息
+     *
+     * <p>示例值：7348736302176534547
+     */
     private String semesterId;
+
     /**
-     * 事项 ID 列表，获取指定事项 ID 的信息。以下请求参数中「item_ids」、「external_ids」、「reviewee_user_ids」均为空时，返回该评估周期的所有补充信息。若单次请求中多个请求参数有值，按照【item_ids > external_ids > reviewee_user_ids】的顺序只识别第一个有值的请求参数
-     * <p> 示例值：
+     * 补充信息 ID
+     * 列表，可通过[批量导入补充信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/import)接口获取;;;**说明**：若提供多个筛选参数，按照
+     * `item_ids` > `external_ids` > `reviewee_user_ids` 的优先级顺序，以第一个有值的筛选参数进行筛选
+     *
+     * <p>示例值：
      */
-    @SerializedName("item_ids")
     private String[] itemIds;
+
     /**
-     * 外部系统的事项 ID 列表，获取对应的飞书绩效事项 ID。「item_ids」参数有值时该参数不生效
-     * <p> 示例值：
+     * 外部系统补充信息 ID 列表，该 ID
+     * 在通过[批量导入补充信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/import)接口导入时写入;;;**说明**：若提供多个筛选参数，按照
+     * `item_ids` > `external_ids` > `reviewee_user_ids` 的优先级顺序，以第一个有值的筛选参数进行筛选
+     *
+     * <p>示例值：
      */
-    @SerializedName("external_ids")
     private String[] externalIds;
+
     /**
-     * 被评估人 ID 列表，获取周期下被评估人的事项信息。「item_ids」、「external_ids」参数有值时该参数不生效
-     * <p> 示例值：
+     * 被评估人 ID 列表，与入参 `user_id_type`
+     * 类型一致，可通过[获取被评估人信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/reviewee/query)接口获取;;;**说明**：若提供多个筛选参数，按照
+     * `item_ids` > `external_ids` > `reviewee_user_ids` 的优先级顺序，以第一个有值的筛选参数进行筛选
+     *
+     * <p>示例值：
      */
-    @SerializedName("reviewee_user_ids")
     private String[] revieweeUserIds;
 
-    // builder 开始
-    public QueryAdditionalInformationReqBody() {
+    /**
+     * 评估周期
+     * ID，可通过[获取周期列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v1/semester/list)接口获取;;;**注意**：若请求参数
+     * `item_ids`、`external_ids`、`reviewee_user_ids` 均为空，返回 `semester_id` 参数指定周期的所有补充信息
+     *
+     * <p>示例值：7348736302176534547
+     *
+     * @param semesterId
+     * @return
+     */
+    public Builder semesterId(String semesterId) {
+      this.semesterId = semesterId;
+      return this;
     }
 
-    public QueryAdditionalInformationReqBody(Builder builder) {
-        /**
-         * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：7348736302176534547
-         */
-        this.semesterId = builder.semesterId;
-        /**
-         * 事项 ID 列表，获取指定事项 ID 的信息。以下请求参数中「item_ids」、「external_ids」、「reviewee_user_ids」均为空时，返回该评估周期的所有补充信息。若单次请求中多个请求参数有值，按照【item_ids > external_ids > reviewee_user_ids】的顺序只识别第一个有值的请求参数
-         * <p> 示例值：
-         */
-        this.itemIds = builder.itemIds;
-        /**
-         * 外部系统的事项 ID 列表，获取对应的飞书绩效事项 ID。「item_ids」参数有值时该参数不生效
-         * <p> 示例值：
-         */
-        this.externalIds = builder.externalIds;
-        /**
-         * 被评估人 ID 列表，获取周期下被评估人的事项信息。「item_ids」、「external_ids」参数有值时该参数不生效
-         * <p> 示例值：
-         */
-        this.revieweeUserIds = builder.revieweeUserIds;
+    /**
+     * 补充信息 ID
+     * 列表，可通过[批量导入补充信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/import)接口获取;;;**说明**：若提供多个筛选参数，按照
+     * `item_ids` > `external_ids` > `reviewee_user_ids` 的优先级顺序，以第一个有值的筛选参数进行筛选
+     *
+     * <p>示例值：
+     *
+     * @param itemIds
+     * @return
+     */
+    public Builder itemIds(String[] itemIds) {
+      this.itemIds = itemIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 外部系统补充信息 ID 列表，该 ID
+     * 在通过[批量导入补充信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/additional_information/import)接口导入时写入;;;**说明**：若提供多个筛选参数，按照
+     * `item_ids` > `external_ids` > `reviewee_user_ids` 的优先级顺序，以第一个有值的筛选参数进行筛选
+     *
+     * <p>示例值：
+     *
+     * @param externalIds
+     * @return
+     */
+    public Builder externalIds(String[] externalIds) {
+      this.externalIds = externalIds;
+      return this;
     }
 
-    public String getSemesterId() {
-        return this.semesterId;
+    /**
+     * 被评估人 ID 列表，与入参 `user_id_type`
+     * 类型一致，可通过[获取被评估人信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/reviewee/query)接口获取;;;**说明**：若提供多个筛选参数，按照
+     * `item_ids` > `external_ids` > `reviewee_user_ids` 的优先级顺序，以第一个有值的筛选参数进行筛选
+     *
+     * <p>示例值：
+     *
+     * @param revieweeUserIds
+     * @return
+     */
+    public Builder revieweeUserIds(String[] revieweeUserIds) {
+      this.revieweeUserIds = revieweeUserIds;
+      return this;
     }
 
-    public void setSemesterId(String semesterId) {
-        this.semesterId = semesterId;
+    public QueryAdditionalInformationReqBody build() {
+      return new QueryAdditionalInformationReqBody(this);
     }
+  }
 
-    public String[] getItemIds() {
-        return this.itemIds;
-    }
-
-    public void setItemIds(String[] itemIds) {
-        this.itemIds = itemIds;
-    }
-
-    public String[] getExternalIds() {
-        return this.externalIds;
-    }
-
-    public void setExternalIds(String[] externalIds) {
-        this.externalIds = externalIds;
-    }
-
-    public String[] getRevieweeUserIds() {
-        return this.revieweeUserIds;
-    }
-
-    public void setRevieweeUserIds(String[] revieweeUserIds) {
-        this.revieweeUserIds = revieweeUserIds;
-    }
-
-    public static class Builder {
-        /**
-         * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：7348736302176534547
-         */
-        private String semesterId;
-        /**
-         * 事项 ID 列表，获取指定事项 ID 的信息。以下请求参数中「item_ids」、「external_ids」、「reviewee_user_ids」均为空时，返回该评估周期的所有补充信息。若单次请求中多个请求参数有值，按照【item_ids > external_ids > reviewee_user_ids】的顺序只识别第一个有值的请求参数
-         * <p> 示例值：
-         */
-        private String[] itemIds;
-        /**
-         * 外部系统的事项 ID 列表，获取对应的飞书绩效事项 ID。「item_ids」参数有值时该参数不生效
-         * <p> 示例值：
-         */
-        private String[] externalIds;
-        /**
-         * 被评估人 ID 列表，获取周期下被评估人的事项信息。「item_ids」、「external_ids」参数有值时该参数不生效
-         * <p> 示例值：
-         */
-        private String[] revieweeUserIds;
-
-        /**
-         * 评估周期 ID 列表，semester_id 可通过【获取周期】接口获得
-         * <p> 示例值：7348736302176534547
-         *
-         * @param semesterId
-         * @return
-         */
-        public Builder semesterId(String semesterId) {
-            this.semesterId = semesterId;
-            return this;
-        }
-
-
-        /**
-         * 事项 ID 列表，获取指定事项 ID 的信息。以下请求参数中「item_ids」、「external_ids」、「reviewee_user_ids」均为空时，返回该评估周期的所有补充信息。若单次请求中多个请求参数有值，按照【item_ids > external_ids > reviewee_user_ids】的顺序只识别第一个有值的请求参数
-         * <p> 示例值：
-         *
-         * @param itemIds
-         * @return
-         */
-        public Builder itemIds(String[] itemIds) {
-            this.itemIds = itemIds;
-            return this;
-        }
-
-
-        /**
-         * 外部系统的事项 ID 列表，获取对应的飞书绩效事项 ID。「item_ids」参数有值时该参数不生效
-         * <p> 示例值：
-         *
-         * @param externalIds
-         * @return
-         */
-        public Builder externalIds(String[] externalIds) {
-            this.externalIds = externalIds;
-            return this;
-        }
-
-
-        /**
-         * 被评估人 ID 列表，获取周期下被评估人的事项信息。「item_ids」、「external_ids」参数有值时该参数不生效
-         * <p> 示例值：
-         *
-         * @param revieweeUserIds
-         * @return
-         */
-        public Builder revieweeUserIds(String[] revieweeUserIds) {
-            this.revieweeUserIds = revieweeUserIds;
-            return this;
-        }
-
-
-        public QueryAdditionalInformationReqBody build() {
-            return new QueryAdditionalInformationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

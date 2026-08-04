@@ -13,74 +13,62 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchDistrictRespBody {
-    /**
-     * 地理库的版本，地理库内容发生变更时版本会更新，如果应用将地理数据存在本地，需要定时判断版本，在变化以及时更新本地数据
-     * <p> 示例值：17625142547020001
-     */
-    @SerializedName("version")
-    private String version;
-    /**
-     * 区域列表;
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private District[] items;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("page_token")
-    private String pageToken;
+  /**
+   * 地理库的版本，地理库内容发生变更时版本会更新，如果应用将地理数据存在本地，需要定时判断版本，在变化以及时更新本地数据
+   *
+   * <p>示例值：17625142547020001
+   */
+  @SerializedName("version")
+  private String version;
 
-    public String getVersion() {
-        return this.version;
-    }
+  /**
+   * 区域列表;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private District[] items;
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
+  /** 示例值： */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public District[] getItems() {
-        return this.items;
-    }
+  /** 示例值： */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setItems(District[] items) {
-        this.items = items;
-    }
+  public String getVersion() {
+    return this.version;
+  }
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  public void setVersion(String version) {
+    this.version = version;
+  }
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  public District[] getItems() {
+    return this.items;
+  }
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  public void setItems(District[] items) {
+    this.items = items;
+  }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 }

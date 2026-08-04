@@ -13,371 +13,409 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateLeaveGrantingRecordReqBody {
+  /**
+   * 假期类型
+   * ID，枚举值可通过[获取假期类型列表](https://open.larkoffice.com/document/server-docs/corehr-v1/leave/leave_types)接口获取（若假期类型下存在假期子类，此处仅支持传入假期子类的
+   * ID）
+   *
+   * <p>示例值：7111688079785723436
+   */
+  @SerializedName("leave_type_id")
+  private String leaveTypeId;
+
+  /**
+   * 员工 ID，飞书人事的雇员id。对应user_id_type
+   *
+   * <p>示例值：6982509313466189342
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 发放数量（小数位数不能超过6位，授予数量范围为-9999~9999）
+   *
+   * <p>示例值：0.5
+   */
+  @SerializedName("granting_quantity")
+  private String grantingQuantity;
+
+  /**
+   * 发放时长单位;;可选值有：;;- 1: 天;- 2: 小时
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("granting_unit")
+  private Integer grantingUnit;
+
+  /**
+   * 生效时间，格式为yyyy-MM-dd
+   *
+   * <p>示例值：2022-01-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  /**
+   * 失效时间，格式为yyyy-MM-dd
+   *
+   * <p>示例值：2022-01-01
+   */
+  @SerializedName("expiration_date")
+  private String expirationDate;
+
+  /**
+   * 是否参与折算（1不参与折算，2参与折算）。默认不折算
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("section_type")
+  private Integer sectionType;
+
+  /**
+   * 发放原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reason")
+  private I18n[] reason;
+
+  /**
+   * 自定义外部 ID，可用于避免数据重复写入（不能超过 64 字符）。如果重复录入，不会创建新纪录、也不会更新原始记录
+   *
+   * <p>示例值：111
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  public String getLeaveTypeId() {
+    return this.leaveTypeId;
+  }
+
+  public void setLeaveTypeId(String leaveTypeId) {
+    this.leaveTypeId = leaveTypeId;
+  }
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getGrantingQuantity() {
+    return this.grantingQuantity;
+  }
+
+  public void setGrantingQuantity(String grantingQuantity) {
+    this.grantingQuantity = grantingQuantity;
+  }
+
+  public Integer getGrantingUnit() {
+    return this.grantingUnit;
+  }
+
+  public void setGrantingUnit(Integer grantingUnit) {
+    this.grantingUnit = grantingUnit;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  public String getExpirationDate() {
+    return this.expirationDate;
+  }
+
+  public void setExpirationDate(String expirationDate) {
+    this.expirationDate = expirationDate;
+  }
+
+  public Integer getSectionType() {
+    return this.sectionType;
+  }
+
+  public void setSectionType(Integer sectionType) {
+    this.sectionType = sectionType;
+  }
+
+  public I18n[] getReason() {
+    return this.reason;
+  }
+
+  public void setReason(I18n[] reason) {
+    this.reason = reason;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  // builder 开始
+  public CreateLeaveGrantingRecordReqBody() {}
+
+  public CreateLeaveGrantingRecordReqBody(Builder builder) {
     /**
-     * 假期类型 ID，枚举值可通过【获取假期类型列表】接口获取（若假期类型下存在假期子类，此处仅支持传入假期子类的 ID）
-     * <p> 示例值：7111688079785723436
+     * 假期类型
+     * ID，枚举值可通过[获取假期类型列表](https://open.larkoffice.com/document/server-docs/corehr-v1/leave/leave_types)接口获取（若假期类型下存在假期子类，此处仅支持传入假期子类的
+     * ID）
+     *
+     * <p>示例值：7111688079785723436
      */
-    @SerializedName("leave_type_id")
+    this.leaveTypeId = builder.leaveTypeId;
+    /**
+     * 员工 ID，飞书人事的雇员id。对应user_id_type
+     *
+     * <p>示例值：6982509313466189342
+     */
+    this.employmentId = builder.employmentId;
+    /**
+     * 发放数量（小数位数不能超过6位，授予数量范围为-9999~9999）
+     *
+     * <p>示例值：0.5
+     */
+    this.grantingQuantity = builder.grantingQuantity;
+    /**
+     * 发放时长单位;;可选值有：;;- 1: 天;- 2: 小时
+     *
+     * <p>示例值：1
+     */
+    this.grantingUnit = builder.grantingUnit;
+    /**
+     * 生效时间，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-01-01
+     */
+    this.effectiveDate = builder.effectiveDate;
+    /**
+     * 失效时间，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-01-01
+     */
+    this.expirationDate = builder.expirationDate;
+    /**
+     * 是否参与折算（1不参与折算，2参与折算）。默认不折算
+     *
+     * <p>示例值：1
+     */
+    this.sectionType = builder.sectionType;
+    /**
+     * 发放原因
+     *
+     * <p>示例值：
+     */
+    this.reason = builder.reason;
+    /**
+     * 自定义外部 ID，可用于避免数据重复写入（不能超过 64 字符）。如果重复录入，不会创建新纪录、也不会更新原始记录
+     *
+     * <p>示例值：111
+     */
+    this.externalId = builder.externalId;
+  }
+
+  public static class Builder {
+    /**
+     * 假期类型
+     * ID，枚举值可通过[获取假期类型列表](https://open.larkoffice.com/document/server-docs/corehr-v1/leave/leave_types)接口获取（若假期类型下存在假期子类，此处仅支持传入假期子类的
+     * ID）
+     *
+     * <p>示例值：7111688079785723436
+     */
     private String leaveTypeId;
+
     /**
-     * 员工 ID
-     * <p> 示例值：6982509313466189342
+     * 员工 ID，飞书人事的雇员id。对应user_id_type
+     *
+     * <p>示例值：6982509313466189342
      */
-    @SerializedName("employment_id")
     private String employmentId;
+
     /**
-     * 授予数量
-     * <p> 示例值：0.5
+     * 发放数量（小数位数不能超过6位，授予数量范围为-9999~9999）
+     *
+     * <p>示例值：0.5
      */
-    @SerializedName("granting_quantity")
     private String grantingQuantity;
+
     /**
-     * 授予时长单位;;可选值有：;;- 1: 天;- 2: 小时
-     * <p> 示例值：1
+     * 发放时长单位;;可选值有：;;- 1: 天;- 2: 小时
+     *
+     * <p>示例值：1
      */
-    @SerializedName("granting_unit")
     private Integer grantingUnit;
+
     /**
-     * 生效时间
-     * <p> 示例值：2022-01-01
+     * 生效时间，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-01-01
      */
-    @SerializedName("effective_date")
     private String effectiveDate;
+
     /**
-     * 失效时间
-     * <p> 示例值：2022-01-01
+     * 失效时间，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-01-01
      */
-    @SerializedName("expiration_date")
     private String expirationDate;
+
     /**
-     * 是否参与折算
-     * <p> 示例值：1
+     * 是否参与折算（1不参与折算，2参与折算）。默认不折算
+     *
+     * <p>示例值：1
      */
-    @SerializedName("section_type")
     private Integer sectionType;
+
     /**
-     * 授予原因
-     * <p> 示例值：
+     * 发放原因
+     *
+     * <p>示例值：
      */
-    @SerializedName("reason")
     private I18n[] reason;
+
     /**
-     * 自定义外部 ID，可用于避免数据重复写入（不能超过 64 字符）
-     * <p> 示例值：111
+     * 自定义外部 ID，可用于避免数据重复写入（不能超过 64 字符）。如果重复录入，不会创建新纪录、也不会更新原始记录
+     *
+     * <p>示例值：111
      */
-    @SerializedName("external_id")
     private String externalId;
 
-    // builder 开始
-    public CreateLeaveGrantingRecordReqBody() {
+    /**
+     * 假期类型
+     * ID，枚举值可通过[获取假期类型列表](https://open.larkoffice.com/document/server-docs/corehr-v1/leave/leave_types)接口获取（若假期类型下存在假期子类，此处仅支持传入假期子类的
+     * ID）
+     *
+     * <p>示例值：7111688079785723436
+     *
+     * @param leaveTypeId
+     * @return
+     */
+    public Builder leaveTypeId(String leaveTypeId) {
+      this.leaveTypeId = leaveTypeId;
+      return this;
     }
 
-    public CreateLeaveGrantingRecordReqBody(Builder builder) {
-        /**
-         * 假期类型 ID，枚举值可通过【获取假期类型列表】接口获取（若假期类型下存在假期子类，此处仅支持传入假期子类的 ID）
-         * <p> 示例值：7111688079785723436
-         */
-        this.leaveTypeId = builder.leaveTypeId;
-        /**
-         * 员工 ID
-         * <p> 示例值：6982509313466189342
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 授予数量
-         * <p> 示例值：0.5
-         */
-        this.grantingQuantity = builder.grantingQuantity;
-        /**
-         * 授予时长单位;;可选值有：;;- 1: 天;- 2: 小时
-         * <p> 示例值：1
-         */
-        this.grantingUnit = builder.grantingUnit;
-        /**
-         * 生效时间
-         * <p> 示例值：2022-01-01
-         */
-        this.effectiveDate = builder.effectiveDate;
-        /**
-         * 失效时间
-         * <p> 示例值：2022-01-01
-         */
-        this.expirationDate = builder.expirationDate;
-        /**
-         * 是否参与折算
-         * <p> 示例值：1
-         */
-        this.sectionType = builder.sectionType;
-        /**
-         * 授予原因
-         * <p> 示例值：
-         */
-        this.reason = builder.reason;
-        /**
-         * 自定义外部 ID，可用于避免数据重复写入（不能超过 64 字符）
-         * <p> 示例值：111
-         */
-        this.externalId = builder.externalId;
+    /**
+     * 员工 ID，飞书人事的雇员id。对应user_id_type
+     *
+     * <p>示例值：6982509313466189342
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 发放数量（小数位数不能超过6位，授予数量范围为-9999~9999）
+     *
+     * <p>示例值：0.5
+     *
+     * @param grantingQuantity
+     * @return
+     */
+    public Builder grantingQuantity(String grantingQuantity) {
+      this.grantingQuantity = grantingQuantity;
+      return this;
     }
 
-    public String getLeaveTypeId() {
-        return this.leaveTypeId;
+    /**
+     * 发放时长单位;;可选值有：;;- 1: 天;- 2: 小时
+     *
+     * <p>示例值：1
+     *
+     * @param grantingUnit
+     * @return
+     */
+    public Builder grantingUnit(Integer grantingUnit) {
+      this.grantingUnit = grantingUnit;
+      return this;
     }
 
-    public void setLeaveTypeId(String leaveTypeId) {
-        this.leaveTypeId = leaveTypeId;
+    /**
+     * 生效时间，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-01-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    /**
+     * 失效时间，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-01-01
+     *
+     * @param expirationDate
+     * @return
+     */
+    public Builder expirationDate(String expirationDate) {
+      this.expirationDate = expirationDate;
+      return this;
     }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
+    /**
+     * 是否参与折算（1不参与折算，2参与折算）。默认不折算
+     *
+     * <p>示例值：1
+     *
+     * @param sectionType
+     * @return
+     */
+    public Builder sectionType(Integer sectionType) {
+      this.sectionType = sectionType;
+      return this;
     }
 
-    public String getGrantingQuantity() {
-        return this.grantingQuantity;
+    /**
+     * 发放原因
+     *
+     * <p>示例值：
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(I18n[] reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public void setGrantingQuantity(String grantingQuantity) {
-        this.grantingQuantity = grantingQuantity;
+    /**
+     * 自定义外部 ID，可用于避免数据重复写入（不能超过 64 字符）。如果重复录入，不会创建新纪录、也不会更新原始记录
+     *
+     * <p>示例值：111
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public Integer getGrantingUnit() {
-        return this.grantingUnit;
+    public CreateLeaveGrantingRecordReqBody build() {
+      return new CreateLeaveGrantingRecordReqBody(this);
     }
+  }
 
-    public void setGrantingUnit(Integer grantingUnit) {
-        this.grantingUnit = grantingUnit;
-    }
-
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
-
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
-
-    public String getExpirationDate() {
-        return this.expirationDate;
-    }
-
-    public void setExpirationDate(String expirationDate) {
-        this.expirationDate = expirationDate;
-    }
-
-    public Integer getSectionType() {
-        return this.sectionType;
-    }
-
-    public void setSectionType(Integer sectionType) {
-        this.sectionType = sectionType;
-    }
-
-    public I18n[] getReason() {
-        return this.reason;
-    }
-
-    public void setReason(I18n[] reason) {
-        this.reason = reason;
-    }
-
-    public String getExternalId() {
-        return this.externalId;
-    }
-
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
-    }
-
-    public static class Builder {
-        /**
-         * 假期类型 ID，枚举值可通过【获取假期类型列表】接口获取（若假期类型下存在假期子类，此处仅支持传入假期子类的 ID）
-         * <p> 示例值：7111688079785723436
-         */
-        private String leaveTypeId;
-        /**
-         * 员工 ID
-         * <p> 示例值：6982509313466189342
-         */
-        private String employmentId;
-        /**
-         * 授予数量
-         * <p> 示例值：0.5
-         */
-        private String grantingQuantity;
-        /**
-         * 授予时长单位;;可选值有：;;- 1: 天;- 2: 小时
-         * <p> 示例值：1
-         */
-        private Integer grantingUnit;
-        /**
-         * 生效时间
-         * <p> 示例值：2022-01-01
-         */
-        private String effectiveDate;
-        /**
-         * 失效时间
-         * <p> 示例值：2022-01-01
-         */
-        private String expirationDate;
-        /**
-         * 是否参与折算
-         * <p> 示例值：1
-         */
-        private Integer sectionType;
-        /**
-         * 授予原因
-         * <p> 示例值：
-         */
-        private I18n[] reason;
-        /**
-         * 自定义外部 ID，可用于避免数据重复写入（不能超过 64 字符）
-         * <p> 示例值：111
-         */
-        private String externalId;
-
-        /**
-         * 假期类型 ID，枚举值可通过【获取假期类型列表】接口获取（若假期类型下存在假期子类，此处仅支持传入假期子类的 ID）
-         * <p> 示例值：7111688079785723436
-         *
-         * @param leaveTypeId
-         * @return
-         */
-        public Builder leaveTypeId(String leaveTypeId) {
-            this.leaveTypeId = leaveTypeId;
-            return this;
-        }
-
-
-        /**
-         * 员工 ID
-         * <p> 示例值：6982509313466189342
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 授予数量
-         * <p> 示例值：0.5
-         *
-         * @param grantingQuantity
-         * @return
-         */
-        public Builder grantingQuantity(String grantingQuantity) {
-            this.grantingQuantity = grantingQuantity;
-            return this;
-        }
-
-
-        /**
-         * 授予时长单位;;可选值有：;;- 1: 天;- 2: 小时
-         * <p> 示例值：1
-         *
-         * @param grantingUnit
-         * @return
-         */
-        public Builder grantingUnit(Integer grantingUnit) {
-            this.grantingUnit = grantingUnit;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2022-01-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        /**
-         * 失效时间
-         * <p> 示例值：2022-01-01
-         *
-         * @param expirationDate
-         * @return
-         */
-        public Builder expirationDate(String expirationDate) {
-            this.expirationDate = expirationDate;
-            return this;
-        }
-
-
-        /**
-         * 是否参与折算
-         * <p> 示例值：1
-         *
-         * @param sectionType
-         * @return
-         */
-        public Builder sectionType(Integer sectionType) {
-            this.sectionType = sectionType;
-            return this;
-        }
-
-
-        /**
-         * 授予原因
-         * <p> 示例值：
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(I18n[] reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * 自定义外部 ID，可用于避免数据重复写入（不能超过 64 字符）
-         * <p> 示例值：111
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        public CreateLeaveGrantingRecordReqBody build() {
-            return new CreateLeaveGrantingRecordReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,223 +13,237 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchCostCenterReqBody {
+  /**
+   * 成本中心ID 列表;- 一次性最多传入100个成本中心ID;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cost_center_id_list")
+  private String[] costCenterIdList;
+
+  /**
+   * 成长中心名称列表，精确匹配
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name_list")
+  private String[] nameList;
+
+  /**
+   * 成本中心编码
+   *
+   * <p>示例值：MDPD00000023
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 上级成本中心ID，可用于查询直接下级成本中心
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("parent_cost_center_id")
+  private String parentCostCenterId;
+
+  /**
+   * 是否获取所有成本中心版本，true 为获取成本中心所有版本记录，false 为仅获取当前生效的成本中心记录，默认为 false;当填写 true
+   * 并输入其他查询条件时，返回的是所有符合查询条件的版本信息
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("get_all_version")
+  private Boolean getAllVersion;
+
+  public String[] getCostCenterIdList() {
+    return this.costCenterIdList;
+  }
+
+  public void setCostCenterIdList(String[] costCenterIdList) {
+    this.costCenterIdList = costCenterIdList;
+  }
+
+  public String[] getNameList() {
+    return this.nameList;
+  }
+
+  public void setNameList(String[] nameList) {
+    this.nameList = nameList;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getParentCostCenterId() {
+    return this.parentCostCenterId;
+  }
+
+  public void setParentCostCenterId(String parentCostCenterId) {
+    this.parentCostCenterId = parentCostCenterId;
+  }
+
+  public Boolean getGetAllVersion() {
+    return this.getAllVersion;
+  }
+
+  public void setGetAllVersion(Boolean getAllVersion) {
+    this.getAllVersion = getAllVersion;
+  }
+
+  // builder 开始
+  public SearchCostCenterReqBody() {}
+
+  public SearchCostCenterReqBody(Builder builder) {
     /**
-     * 成本中心ID 列表
-     * <p> 示例值：
+     * 成本中心ID 列表;- 一次性最多传入100个成本中心ID;
+     *
+     * <p>示例值：
      */
-    @SerializedName("cost_center_id_list")
-    private String[] costCenterIdList;
+    this.costCenterIdList = builder.costCenterIdList;
     /**
      * 成长中心名称列表，精确匹配
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name_list")
-    private String[] nameList;
+    this.nameList = builder.nameList;
     /**
      * 成本中心编码
-     * <p> 示例值：MDPD00000023
+     *
+     * <p>示例值：MDPD00000023
      */
-    @SerializedName("code")
-    private String code;
+    this.code = builder.code;
     /**
      * 上级成本中心ID，可用于查询直接下级成本中心
-     * <p> 示例值：6862995757234914824
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("parent_cost_center_id")
-    private String parentCostCenterId;
+    this.parentCostCenterId = builder.parentCostCenterId;
     /**
-     * 是否获取所有陈本中心版本
-     * <p> 示例值：true
+     * 是否获取所有成本中心版本，true 为获取成本中心所有版本记录，false 为仅获取当前生效的成本中心记录，默认为 false;当填写 true
+     * 并输入其他查询条件时，返回的是所有符合查询条件的版本信息
+     *
+     * <p>示例值：true
      */
-    @SerializedName("get_all_version")
+    this.getAllVersion = builder.getAllVersion;
+  }
+
+  public static class Builder {
+    /**
+     * 成本中心ID 列表;- 一次性最多传入100个成本中心ID;
+     *
+     * <p>示例值：
+     */
+    private String[] costCenterIdList;
+
+    /**
+     * 成长中心名称列表，精确匹配
+     *
+     * <p>示例值：
+     */
+    private String[] nameList;
+
+    /**
+     * 成本中心编码
+     *
+     * <p>示例值：MDPD00000023
+     */
+    private String code;
+
+    /**
+     * 上级成本中心ID，可用于查询直接下级成本中心
+     *
+     * <p>示例值：6862995757234914824
+     */
+    private String parentCostCenterId;
+
+    /**
+     * 是否获取所有成本中心版本，true 为获取成本中心所有版本记录，false 为仅获取当前生效的成本中心记录，默认为 false;当填写 true
+     * 并输入其他查询条件时，返回的是所有符合查询条件的版本信息
+     *
+     * <p>示例值：true
+     */
     private Boolean getAllVersion;
 
-    // builder 开始
-    public SearchCostCenterReqBody() {
+    /**
+     * 成本中心ID 列表;- 一次性最多传入100个成本中心ID;
+     *
+     * <p>示例值：
+     *
+     * @param costCenterIdList
+     * @return
+     */
+    public Builder costCenterIdList(String[] costCenterIdList) {
+      this.costCenterIdList = costCenterIdList;
+      return this;
     }
 
-    public SearchCostCenterReqBody(Builder builder) {
-        /**
-         * 成本中心ID 列表
-         * <p> 示例值：
-         */
-        this.costCenterIdList = builder.costCenterIdList;
-        /**
-         * 成长中心名称列表，精确匹配
-         * <p> 示例值：
-         */
-        this.nameList = builder.nameList;
-        /**
-         * 成本中心编码
-         * <p> 示例值：MDPD00000023
-         */
-        this.code = builder.code;
-        /**
-         * 上级成本中心ID，可用于查询直接下级成本中心
-         * <p> 示例值：6862995757234914824
-         */
-        this.parentCostCenterId = builder.parentCostCenterId;
-        /**
-         * 是否获取所有陈本中心版本
-         * <p> 示例值：true
-         */
-        this.getAllVersion = builder.getAllVersion;
+    /**
+     * 成长中心名称列表，精确匹配
+     *
+     * <p>示例值：
+     *
+     * @param nameList
+     * @return
+     */
+    public Builder nameList(String[] nameList) {
+      this.nameList = nameList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 成本中心编码
+     *
+     * <p>示例值：MDPD00000023
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public String[] getCostCenterIdList() {
-        return this.costCenterIdList;
+    /**
+     * 上级成本中心ID，可用于查询直接下级成本中心
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param parentCostCenterId
+     * @return
+     */
+    public Builder parentCostCenterId(String parentCostCenterId) {
+      this.parentCostCenterId = parentCostCenterId;
+      return this;
     }
 
-    public void setCostCenterIdList(String[] costCenterIdList) {
-        this.costCenterIdList = costCenterIdList;
+    /**
+     * 是否获取所有成本中心版本，true 为获取成本中心所有版本记录，false 为仅获取当前生效的成本中心记录，默认为 false;当填写 true
+     * 并输入其他查询条件时，返回的是所有符合查询条件的版本信息
+     *
+     * <p>示例值：true
+     *
+     * @param getAllVersion
+     * @return
+     */
+    public Builder getAllVersion(Boolean getAllVersion) {
+      this.getAllVersion = getAllVersion;
+      return this;
     }
 
-    public String[] getNameList() {
-        return this.nameList;
+    public SearchCostCenterReqBody build() {
+      return new SearchCostCenterReqBody(this);
     }
+  }
 
-    public void setNameList(String[] nameList) {
-        this.nameList = nameList;
-    }
-
-    public String getCode() {
-        return this.code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getParentCostCenterId() {
-        return this.parentCostCenterId;
-    }
-
-    public void setParentCostCenterId(String parentCostCenterId) {
-        this.parentCostCenterId = parentCostCenterId;
-    }
-
-    public Boolean getGetAllVersion() {
-        return this.getAllVersion;
-    }
-
-    public void setGetAllVersion(Boolean getAllVersion) {
-        this.getAllVersion = getAllVersion;
-    }
-
-    public static class Builder {
-        /**
-         * 成本中心ID 列表
-         * <p> 示例值：
-         */
-        private String[] costCenterIdList;
-        /**
-         * 成长中心名称列表，精确匹配
-         * <p> 示例值：
-         */
-        private String[] nameList;
-        /**
-         * 成本中心编码
-         * <p> 示例值：MDPD00000023
-         */
-        private String code;
-        /**
-         * 上级成本中心ID，可用于查询直接下级成本中心
-         * <p> 示例值：6862995757234914824
-         */
-        private String parentCostCenterId;
-        /**
-         * 是否获取所有陈本中心版本
-         * <p> 示例值：true
-         */
-        private Boolean getAllVersion;
-
-        /**
-         * 成本中心ID 列表
-         * <p> 示例值：
-         *
-         * @param costCenterIdList
-         * @return
-         */
-        public Builder costCenterIdList(String[] costCenterIdList) {
-            this.costCenterIdList = costCenterIdList;
-            return this;
-        }
-
-
-        /**
-         * 成长中心名称列表，精确匹配
-         * <p> 示例值：
-         *
-         * @param nameList
-         * @return
-         */
-        public Builder nameList(String[] nameList) {
-            this.nameList = nameList;
-            return this;
-        }
-
-
-        /**
-         * 成本中心编码
-         * <p> 示例值：MDPD00000023
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 上级成本中心ID，可用于查询直接下级成本中心
-         * <p> 示例值：6862995757234914824
-         *
-         * @param parentCostCenterId
-         * @return
-         */
-        public Builder parentCostCenterId(String parentCostCenterId) {
-            this.parentCostCenterId = parentCostCenterId;
-            return this;
-        }
-
-
-        /**
-         * 是否获取所有陈本中心版本
-         * <p> 示例值：true
-         *
-         * @param getAllVersion
-         * @return
-         */
-        public Builder getAllVersion(Boolean getAllVersion) {
-            this.getAllVersion = getAllVersion;
-            return this;
-        }
-
-
-        public SearchCostCenterReqBody build() {
-            return new SearchCostCenterReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

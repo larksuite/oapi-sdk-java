@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.wiki.v2.enums;
 
-/**
- * 表示知识空间的分享状态
- */
+/** 表示知识空间的分享状态 */
 public enum CreateSpaceOpenSharingEnum {
-    OPEN("open"), // 打开
-    CLOSED("closed"), // 关闭
-    ;
-    private String value;
+  OPEN("open"), // 打开
+  CLOSED("closed"), // 关闭，即知识空间未发布到互联网
+  ;
+  private String value;
 
-    CreateSpaceOpenSharingEnum(String value) {
-        this.value = value;
-    }
+  CreateSpaceOpenSharingEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

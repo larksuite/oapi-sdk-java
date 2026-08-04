@@ -13,161 +13,162 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MetricField {
+  /**
+   * 指标字段 ID
+   *
+   * <p>示例值：7272581996315099155
+   */
+  @SerializedName("field_id")
+  private String fieldId;
+
+  /**
+   * 项目名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 指标字段类型
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("type")
+  private String type;
+
+  public String getFieldId() {
+    return this.fieldId;
+  }
+
+  public void setFieldId(String fieldId) {
+    this.fieldId = fieldId;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public MetricField() {}
+
+  public MetricField(Builder builder) {
     /**
-     * 指标字段信息
-     * <p> 示例值：7272581996315099155
+     * 指标字段 ID
+     *
+     * <p>示例值：7272581996315099155
      */
-    @SerializedName("field_id")
+    this.fieldId = builder.fieldId;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     */
+    this.name = builder.name;
+    /**
+     * 指标字段类型
+     *
+     * <p>示例值：text
+     */
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 指标字段 ID
+     *
+     * <p>示例值：7272581996315099155
+     */
     private String fieldId;
+
     /**
-     * 字段名称
-     * <p> 示例值：
+     * 项目名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
     private I18n name;
+
     /**
-     * 字段类型
-     * <p> 示例值：text
+     * 指标字段类型
+     *
+     * <p>示例值：text
      */
-    @SerializedName("type")
     private String type;
 
-    // builder 开始
-    public MetricField() {
+    /**
+     * 指标字段 ID
+     *
+     * <p>示例值：7272581996315099155
+     *
+     * @param fieldId
+     * @return
+     */
+    public Builder fieldId(String fieldId) {
+      this.fieldId = fieldId;
+      return this;
     }
 
-    public MetricField(Builder builder) {
-        /**
-         * 指标字段信息
-         * <p> 示例值：7272581996315099155
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 字段名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 字段类型
-         * <p> 示例值：text
-         */
-        this.type = builder.type;
+    /**
+     * 项目名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 指标字段类型
+     *
+     * <p>示例值：text
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public String getFieldId() {
-        return this.fieldId;
+    /**
+     * 指标字段类型
+     *
+     * <p>示例值：text
+     *
+     * @param type {@link com.lark.oapi.service.performance.v2.enums.MetricFieldTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.performance.v2.enums.MetricFieldTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public void setFieldId(String fieldId) {
-        this.fieldId = fieldId;
+    public MetricField build() {
+      return new MetricField(this);
     }
+  }
 
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 指标字段信息
-         * <p> 示例值：7272581996315099155
-         */
-        private String fieldId;
-        /**
-         * 字段名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 字段类型
-         * <p> 示例值：text
-         */
-        private String type;
-
-        /**
-         * 指标字段信息
-         * <p> 示例值：7272581996315099155
-         *
-         * @param fieldId
-         * @return
-         */
-        public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
-        }
-
-
-        /**
-         * 字段名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 字段类型
-         * <p> 示例值：text
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 字段类型
-         * <p> 示例值：text
-         *
-         * @param type {@link com.lark.oapi.service.performance.v2.enums.MetricFieldTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.performance.v2.enums.MetricFieldTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        public MetricField build() {
-            return new MetricField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

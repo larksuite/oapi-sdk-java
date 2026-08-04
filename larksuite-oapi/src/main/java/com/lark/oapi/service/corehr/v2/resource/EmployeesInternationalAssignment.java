@@ -13,301 +13,435 @@
 
 package com.lark.oapi.service.corehr.v2.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.corehr.v2.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.corehr.v2.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class EmployeesInternationalAssignment {
-    private static final Logger log = LoggerFactory.getLogger(EmployeesInternationalAssignment.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(EmployeesInternationalAssignment.class);
+  private final Config config;
 
-    public EmployeesInternationalAssignment(Config config) {
-        this.config = config;
+  public EmployeesInternationalAssignment(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 创建外派，为员工添加外派记录，包括外派信息、任职信息
+   *
+   * <p>- 文档中的必填字段，不可为空。;- 部门岗职模式，会影响岗位、职务等字段的必填校验;- 外派信息相关字段，会基于【飞书人事-人员档案配置】进行必填校验 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=corehr&resource=employees.international_assignment&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmployeesInternationalAssignmentSample.java</a>
+   * ;
+   */
+  public CreateEmployeesInternationalAssignmentResp create(
+      CreateEmployeesInternationalAssignmentReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/employees/international_assignments",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=corehr&resource=employees.international_assignment&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmployeesInternationalAssignmentSample.java</a> ;
-     */
-    public CreateEmployeesInternationalAssignmentResp create(CreateEmployeesInternationalAssignmentReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/employees/international_assignments"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        CreateEmployeesInternationalAssignmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEmployeesInternationalAssignmentResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/employees/international_assignments"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    CreateEmployeesInternationalAssignmentResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, CreateEmployeesInternationalAssignmentResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/employees/international_assignments",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=corehr&resource=employees.international_assignment&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmployeesInternationalAssignmentSample.java</a> ;
-     */
-    public CreateEmployeesInternationalAssignmentResp create(CreateEmployeesInternationalAssignmentReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v2/employees/international_assignments"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        CreateEmployeesInternationalAssignmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateEmployeesInternationalAssignmentResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/employees/international_assignments"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 创建外派，为员工添加外派记录，包括外派信息、任职信息
+   *
+   * <p>- 文档中的必填字段，不可为空。;- 部门岗职模式，会影响岗位、职务等字段的必填校验;- 外派信息相关字段，会基于【飞书人事-人员档案配置】进行必填校验 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=create&project=corehr&resource=employees.international_assignment&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/CreateEmployeesInternationalAssignmentSample.java</a>
+   * ;
+   */
+  public CreateEmployeesInternationalAssignmentResp create(
+      CreateEmployeesInternationalAssignmentReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v2/employees/international_assignments",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    CreateEmployeesInternationalAssignmentResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, CreateEmployeesInternationalAssignmentResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/employees/international_assignments",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=corehr&resource=employees.international_assignment&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DeleteEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DeleteEmployeesInternationalAssignmentSample.java</a> ;
-     */
-    public DeleteEmployeesInternationalAssignmentResp delete(DeleteEmployeesInternationalAssignmentReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-                , "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        DeleteEmployeesInternationalAssignmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteEmployeesInternationalAssignmentResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 删除外派，删除某一条外派信息
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=corehr&resource=employees.international_assignment&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DeleteEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DeleteEmployeesInternationalAssignmentSample.java</a>
+   * ;
+   */
+  public DeleteEmployeesInternationalAssignmentResp delete(
+      DeleteEmployeesInternationalAssignmentReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=corehr&resource=employees.international_assignment&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DeleteEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DeleteEmployeesInternationalAssignmentSample.java</a> ;
-     */
-    public DeleteEmployeesInternationalAssignmentResp delete(DeleteEmployeesInternationalAssignmentReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "DELETE",
+            "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
-                , "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        DeleteEmployeesInternationalAssignmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DeleteEmployeesInternationalAssignmentResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    DeleteEmployeesInternationalAssignmentResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, DeleteEmployeesInternationalAssignmentResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=corehr&resource=employees.international_assignment&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/ListEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/ListEmployeesInternationalAssignmentSample.java</a> ;
-     */
-    public ListEmployeesInternationalAssignmentResp list(ListEmployeesInternationalAssignmentReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/corehr/v2/employees/international_assignments"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        ListEmployeesInternationalAssignmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListEmployeesInternationalAssignmentResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/employees/international_assignments"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 删除外派，删除某一条外派信息
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=delete&project=corehr&resource=employees.international_assignment&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DeleteEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/DeleteEmployeesInternationalAssignmentSample.java</a>
+   * ;
+   */
+  public DeleteEmployeesInternationalAssignmentResp delete(
+      DeleteEmployeesInternationalAssignmentReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "DELETE",
+            "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    DeleteEmployeesInternationalAssignmentResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, DeleteEmployeesInternationalAssignmentResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=corehr&resource=employees.international_assignment&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/ListEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/ListEmployeesInternationalAssignmentSample.java</a> ;
-     */
-    public ListEmployeesInternationalAssignmentResp list(ListEmployeesInternationalAssignmentReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-                , "/open-apis/corehr/v2/employees/international_assignments"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        ListEmployeesInternationalAssignmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListEmployeesInternationalAssignmentResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/employees/international_assignments"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 批量查询外派信息，查询员工的外派信息：外派类型、外派地点、职务、职级、上级等。
+   *
+   * <p>- 延迟说明：搜索同步延迟 10s 以内，即：直接创建、更新对象后 10s 内调用此接口可能查询不到数据。;;- 本接口会按照「员工资源」权限范围返回数据，请确定在「开发者后台 -
+   * 权限管理 - 数据权限」中已申请此数据权限;- 字段未返回请检查：字段权限、用户该字段有值，以及「飞书人事-人员档案设置」中字段是否启用;- 数据按照外派 ID 降序返回;-
+   * 关于自定义字段格式，本接口已升级，不需要复杂转义了，可参考[自定义字段说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)-入职
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=corehr&resource=employees.international_assignment&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/ListEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/ListEmployeesInternationalAssignmentSample.java</a>
+   * ;
+   */
+  public ListEmployeesInternationalAssignmentResp list(
+      ListEmployeesInternationalAssignmentReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=corehr&resource=employees.international_assignment&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/PatchEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/PatchEmployeesInternationalAssignmentSample.java</a> ;
-     */
-    public PatchEmployeesInternationalAssignmentResp patch(PatchEmployeesInternationalAssignmentReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/corehr/v2/employees/international_assignments",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        PatchEmployeesInternationalAssignmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchEmployeesInternationalAssignmentResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    ListEmployeesInternationalAssignmentResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, ListEmployeesInternationalAssignmentResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/employees/international_assignments",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=corehr&resource=employees.international_assignment&version=v2</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/PatchEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/PatchEmployeesInternationalAssignmentSample.java</a> ;
-     */
-    public PatchEmployeesInternationalAssignmentResp patch(PatchEmployeesInternationalAssignmentReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
-                , "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        PatchEmployeesInternationalAssignmentResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, PatchEmployeesInternationalAssignmentResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 批量查询外派信息，查询员工的外派信息：外派类型、外派地点、职务、职级、上级等。
+   *
+   * <p>- 延迟说明：搜索同步延迟 10s 以内，即：直接创建、更新对象后 10s 内调用此接口可能查询不到数据。;;- 本接口会按照「员工资源」权限范围返回数据，请确定在「开发者后台 -
+   * 权限管理 - 数据权限」中已申请此数据权限;- 字段未返回请检查：字段权限、用户该字段有值，以及「飞书人事-人员档案设置」中字段是否启用;- 数据按照外派 ID 降序返回;-
+   * 关于自定义字段格式，本接口已升级，不需要复杂转义了，可参考[自定义字段说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)-入职
+   * ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=list&project=corehr&resource=employees.international_assignment&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/ListEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/ListEmployeesInternationalAssignmentSample.java</a>
+   * ;
+   */
+  public ListEmployeesInternationalAssignmentResp list(ListEmployeesInternationalAssignmentReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "GET",
+            "/open-apis/corehr/v2/employees/international_assignments",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    ListEmployeesInternationalAssignmentResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, ListEmployeesInternationalAssignmentResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/employees/international_assignments",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 更新外派信息，更新指定的外派信息
+   *
+   * <p>- 部门岗职模式，会影响岗位、职务等字段的必填校验;- 外派信息相关字段，会基于【飞书人事-人员档案配置】进行必填校验 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=corehr&resource=employees.international_assignment&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/PatchEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/PatchEmployeesInternationalAssignmentSample.java</a>
+   * ;
+   */
+  public PatchEmployeesInternationalAssignmentResp patch(
+      PatchEmployeesInternationalAssignmentReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
+    }
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PATCH",
+            "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    PatchEmployeesInternationalAssignmentResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, PatchEmployeesInternationalAssignmentResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 更新外派信息，更新指定的外派信息
+   *
+   * <p>- 部门岗职模式，会影响岗位、职务等字段的必填校验;- 外派信息相关字段，会基于【飞书人事-人员档案配置】进行必填校验 ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=corehr&resource=employees.international_assignment&version=v2">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=patch&project=corehr&resource=employees.international_assignment&version=v2</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/PatchEmployeesInternationalAssignmentSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv2/PatchEmployeesInternationalAssignmentSample.java</a>
+   * ;
+   */
+  public PatchEmployeesInternationalAssignmentResp patch(
+      PatchEmployeesInternationalAssignmentReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "PATCH",
+            "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    PatchEmployeesInternationalAssignmentResp resp =
+        UnmarshalRespUtil.unmarshalResp(
+            httpResponse, PatchEmployeesInternationalAssignmentResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v2/employees/international_assignments/:international_assignment_id",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

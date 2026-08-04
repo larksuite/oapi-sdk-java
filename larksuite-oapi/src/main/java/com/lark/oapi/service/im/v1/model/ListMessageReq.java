@@ -13,355 +13,458 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.im.v1.enums.*;
 
 public class ListMessageReq {
+  /**
+   * 容器类型。;;**可选值有**：;- `chat`：包含单聊（p2p）和群聊（group）;- `thread`：话题;;**注意**：对于 **普通对话群** 中的话题消息，通过
+   * `chat` 容器类型仅能获取到话题的根消息，你可通过指定容器类型为 `thread` 获取话题回复中的所有消息。
+   *
+   * <p>示例值：chat
+   */
+  @Query
+  @SerializedName("container_id_type")
+  private String containerIdType;
+
+  /**
+   * 容器 ID。ID 类型与 container_id_type 取值一致。;;- 群聊或单聊的 ID 获取方式参见[群 ID
+   * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)。;-
+   * 话题 ID
+   * 获取参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)的
+   * **如何获取 thread_id** 章节。
+   *
+   * <p>示例值：oc_234jsi43d3ssi993d43545f
+   */
+  @Query
+  @SerializedName("container_id")
+  private String containerId;
+
+  /**
+   * 待查询历史信息的起始时间，秒级时间戳。;;**注意**：`thread` 容器类型暂不支持获取指定时间范围内的消息。
+   *
+   * <p>示例值：1608594809
+   */
+  @Query
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 待查询历史信息的结束时间，秒级时间戳。;;**注意**：`thread` 容器类型暂不支持获取指定时间范围内的消息。
+   *
+   * <p>示例值：1609296809
+   */
+  @Query
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 消息排序方式。;;**注意**：使用 `page_token` 分页请求时，排序方式（`sort_type`）均与第一次请求一致，不支持中途改换排序方式。
+   *
+   * <p>示例值：ByCreateTimeAsc
+   */
+  @Query
+  @SerializedName("sort_type")
+  private String sortType;
+
+  /**
+   * 分页大小，即单次请求所返回的数据条目数。
+   *
+   * <p>示例值：20
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * `card_msg_content_type` 参数仅控制卡片消息的返回格式，不会影响其他类型消息的返回格式。;;1.
+   * **不传该参数（默认）**：返回的卡片结构参考[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)中的卡片消息结构，不支持返回发送时的原始卡片
+   * JSON。;2. **传入 `user_card_content`**：返回发送时的原始卡片 JSON。1.0 卡片请参考[卡片 JSON 1.0
+   * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)；2.0
+   * 卡片请参考[卡片 JSON 2.0
+   * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。;
+   * * **版本区分**：当返回的消息体为卡片时，可通过 `schema` 字段来区分该卡片是 1.0 还是 2.0 版本，详情参考[卡片 JSON 2.0
+   * 版本更新说明](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-breaking-changes-release-notes)。;;>
+   * **注意：如果 `card_msg_content_type` 参数的传值方式发生变更，请务必在代码中做好返回格式的兼容处理。**
+   *
+   * <p>示例值：user_card_content
+   */
+  @Query
+  @SerializedName("card_msg_content_type")
+  private String cardMsgContentType;
+
+  /**
+   * 话题群是否仅返回话题根消息
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("only_thread_root_messages")
+  private Boolean onlyThreadRootMessages;
+
+  /**
+   * 是否返回消息发送者的名称
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("with_sender_name")
+  private Boolean withSenderName;
+
+  public String getContainerIdType() {
+    return this.containerIdType;
+  }
+
+  public void setContainerIdType(String containerIdType) {
+    this.containerIdType = containerIdType;
+  }
+
+  public String getContainerId() {
+    return this.containerId;
+  }
+
+  public void setContainerId(String containerId) {
+    this.containerId = containerId;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getSortType() {
+    return this.sortType;
+  }
+
+  public void setSortType(String sortType) {
+    this.sortType = sortType;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getCardMsgContentType() {
+    return this.cardMsgContentType;
+  }
+
+  public void setCardMsgContentType(String cardMsgContentType) {
+    this.cardMsgContentType = cardMsgContentType;
+  }
+
+  public Boolean getOnlyThreadRootMessages() {
+    return this.onlyThreadRootMessages;
+  }
+
+  public void setOnlyThreadRootMessages(Boolean onlyThreadRootMessages) {
+    this.onlyThreadRootMessages = onlyThreadRootMessages;
+  }
+
+  public Boolean getWithSenderName() {
+    return this.withSenderName;
+  }
+
+  public void setWithSenderName(Boolean withSenderName) {
+    this.withSenderName = withSenderName;
+  }
+
+  // builder 开始
+  public ListMessageReq() {}
+
+  public ListMessageReq(Builder builder) {
     /**
-     * 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
-     * <p> 示例值：chat
+     * 容器类型。;;**可选值有**：;- `chat`：包含单聊（p2p）和群聊（group）;- `thread`：话题;;**注意**：对于 **普通对话群** 中的话题消息，通过
+     * `chat` 容器类型仅能获取到话题的根消息，你可通过指定容器类型为 `thread` 获取话题回复中的所有消息。
+     *
+     * <p>示例值：chat
      */
-    @Query
-    @SerializedName("container_id_type")
-    private String containerIdType;
+    this.containerIdType = builder.containerIdType;
     /**
-     * 容器的id，即chat的id，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-     * <p> 示例值：oc_234jsi43d3ssi993d43545f
+     * 容器 ID。ID 类型与 container_id_type 取值一致。;;- 群聊或单聊的 ID 获取方式参见[群 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)。;-
+     * 话题 ID
+     * 获取参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)的
+     * **如何获取 thread_id** 章节。
+     *
+     * <p>示例值：oc_234jsi43d3ssi993d43545f
      */
-    @Query
-    @SerializedName("container_id")
-    private String containerId;
+    this.containerId = builder.containerId;
     /**
-     * 历史信息的起始时间（秒级时间戳）
-     * <p> 示例值：1609296809
+     * 待查询历史信息的起始时间，秒级时间戳。;;**注意**：`thread` 容器类型暂不支持获取指定时间范围内的消息。
+     *
+     * <p>示例值：1608594809
      */
-    @Query
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
-     * 历史信息的结束时间（秒级时间戳）
-     * <p> 示例值：1608594809
+     * 待查询历史信息的结束时间，秒级时间戳。;;**注意**：`thread` 容器类型暂不支持获取指定时间范围内的消息。
+     *
+     * <p>示例值：1609296809
      */
-    @Query
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
-     * 消息排序方式
-     * <p> 示例值：ByCreateTimeAsc
+     * 消息排序方式。;;**注意**：使用 `page_token` 分页请求时，排序方式（`sort_type`）均与第一次请求一致，不支持中途改换排序方式。
+     *
+     * <p>示例值：ByCreateTimeAsc
      */
-    @Query
-    @SerializedName("sort_type")
-    private String sortType;
+    this.sortType = builder.sortType;
     /**
-     * 分页大小
-     * <p> 示例值：20
+     * 分页大小，即单次请求所返回的数据条目数。
+     *
+     * <p>示例值：20
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-     * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 卡片消息返回内容类型，值为raw_card_content则返回原始jsoncard内容
-     * <p> 示例值：user_card_content
+     * `card_msg_content_type` 参数仅控制卡片消息的返回格式，不会影响其他类型消息的返回格式。;;1.
+     * **不传该参数（默认）**：返回的卡片结构参考[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)中的卡片消息结构，不支持返回发送时的原始卡片
+     * JSON。;2. **传入 `user_card_content`**：返回发送时的原始卡片 JSON。1.0 卡片请参考[卡片 JSON 1.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)；2.0
+     * 卡片请参考[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。;
+     * * **版本区分**：当返回的消息体为卡片时，可通过 `schema` 字段来区分该卡片是 1.0 还是 2.0 版本，详情参考[卡片 JSON 2.0
+     * 版本更新说明](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-breaking-changes-release-notes)。;;>
+     * **注意：如果 `card_msg_content_type` 参数的传值方式发生变更，请务必在代码中做好返回格式的兼容处理。**
+     *
+     * <p>示例值：user_card_content
      */
-    @Query
-    @SerializedName("card_msg_content_type")
-    private String cardMsgContentType;
+    this.cardMsgContentType = builder.cardMsgContentType;
     /**
      * 话题群是否仅返回话题根消息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("only_thread_root_messages")
-    private Boolean onlyThreadRootMessages;
+    this.onlyThreadRootMessages = builder.onlyThreadRootMessages;
+    /**
+     * 是否返回消息发送者的名称
+     *
+     * <p>示例值：false
+     */
+    this.withSenderName = builder.withSenderName;
+  }
 
-    // builder 开始
-    public ListMessageReq() {
+  public static class Builder {
+    private String
+        containerIdType; // 容器类型。;;**可选值有**：;- `chat`：包含单聊（p2p）和群聊（group）;- `thread`：话题;;**注意**：对于
+    // **普通对话群** 中的话题消息，通过 `chat` 容器类型仅能获取到话题的根消息，你可通过指定容器类型为 `thread`
+    // 获取话题回复中的所有消息。
+    private String containerId; // 容器 ID。ID 类型与 container_id_type 取值一致。;;- 群聊或单聊的 ID 获取方式参见[群 ID
+    // 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)。;- 话题 ID 获取参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)的 **如何获取 thread_id** 章节。
+    private String startTime; // 待查询历史信息的起始时间，秒级时间戳。;;**注意**：`thread` 容器类型暂不支持获取指定时间范围内的消息。
+    private String endTime; // 待查询历史信息的结束时间，秒级时间戳。;;**注意**：`thread` 容器类型暂不支持获取指定时间范围内的消息。
+    private String
+        sortType; // 消息排序方式。;;**注意**：使用 `page_token` 分页请求时，排序方式（`sort_type`）均与第一次请求一致，不支持中途改换排序方式。
+    private Integer pageSize; // 分页大小，即单次请求所返回的数据条目数。
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String
+        cardMsgContentType; // `card_msg_content_type` 参数仅控制卡片消息的返回格式，不会影响其他类型消息的返回格式。;;1.
+    // **不传该参数（默认）**：返回的卡片结构参考[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)中的卡片消息结构，不支持返回发送时的原始卡片 JSON。;2. **传入 `user_card_content`**：返回发送时的原始卡片 JSON。1.0 卡片请参考[卡片 JSON 1.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)；2.0 卡片请参考[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。; * **版本区分**：当返回的消息体为卡片时，可通过 `schema` 字段来区分该卡片是 1.0 还是 2.0 版本，详情参考[卡片 JSON 2.0 版本更新说明](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-breaking-changes-release-notes)。;;> **注意：如果 `card_msg_content_type` 参数的传值方式发生变更，请务必在代码中做好返回格式的兼容处理。**
+    private Boolean onlyThreadRootMessages; // 话题群是否仅返回话题根消息
+    private Boolean withSenderName; // 是否返回消息发送者的名称
+
+    /**
+     * 容器类型。;;**可选值有**：;- `chat`：包含单聊（p2p）和群聊（group）;- `thread`：话题;;**注意**：对于 **普通对话群** 中的话题消息，通过
+     * `chat` 容器类型仅能获取到话题的根消息，你可通过指定容器类型为 `thread` 获取话题回复中的所有消息。
+     *
+     * <p>示例值：chat
+     *
+     * @param containerIdType
+     * @return
+     */
+    public Builder containerIdType(String containerIdType) {
+      this.containerIdType = containerIdType;
+      return this;
     }
 
-    public ListMessageReq(Builder builder) {
-        /**
-         * 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
-         * <p> 示例值：chat
-         */
-        this.containerIdType = builder.containerIdType;
-        /**
-         * 容器的id，即chat的id，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-         * <p> 示例值：oc_234jsi43d3ssi993d43545f
-         */
-        this.containerId = builder.containerId;
-        /**
-         * 历史信息的起始时间（秒级时间戳）
-         * <p> 示例值：1609296809
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 历史信息的结束时间（秒级时间戳）
-         * <p> 示例值：1608594809
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 消息排序方式
-         * <p> 示例值：ByCreateTimeAsc
-         */
-        this.sortType = builder.sortType;
-        /**
-         * 分页大小
-         * <p> 示例值：20
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 卡片消息返回内容类型，值为raw_card_content则返回原始jsoncard内容
-         * <p> 示例值：user_card_content
-         */
-        this.cardMsgContentType = builder.cardMsgContentType;
-        /**
-         * 话题群是否仅返回话题根消息
-         * <p> 示例值：
-         */
-        this.onlyThreadRootMessages = builder.onlyThreadRootMessages;
+    /**
+     * 容器 ID。ID 类型与 container_id_type 取值一致。;;- 群聊或单聊的 ID 获取方式参见[群 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)。;-
+     * 话题 ID
+     * 获取参见[话题概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/thread-introduction)的
+     * **如何获取 thread_id** 章节。
+     *
+     * <p>示例值：oc_234jsi43d3ssi993d43545f
+     *
+     * @param containerId
+     * @return
+     */
+    public Builder containerId(String containerId) {
+      this.containerId = containerId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 待查询历史信息的起始时间，秒级时间戳。;;**注意**：`thread` 容器类型暂不支持获取指定时间范围内的消息。
+     *
+     * <p>示例值：1608594809
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getContainerIdType() {
-        return this.containerIdType;
+    /**
+     * 待查询历史信息的结束时间，秒级时间戳。;;**注意**：`thread` 容器类型暂不支持获取指定时间范围内的消息。
+     *
+     * <p>示例值：1609296809
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setContainerIdType(String containerIdType) {
-        this.containerIdType = containerIdType;
+    /**
+     * 消息排序方式。;;**注意**：使用 `page_token` 分页请求时，排序方式（`sort_type`）均与第一次请求一致，不支持中途改换排序方式。
+     *
+     * <p>示例值：ByCreateTimeAsc
+     *
+     * @param sortType
+     * @return
+     */
+    public Builder sortType(String sortType) {
+      this.sortType = sortType;
+      return this;
     }
 
-    public String getContainerId() {
-        return this.containerId;
+    /**
+     * 消息排序方式。;;**注意**：使用 `page_token` 分页请求时，排序方式（`sort_type`）均与第一次请求一致，不支持中途改换排序方式。
+     *
+     * <p>示例值：ByCreateTimeAsc
+     *
+     * @param sortType {@link
+     *     com.lark.oapi.service.im.v1.enums.ListMessageReadHistoryMessageV1SortTypeEnum}
+     * @return
+     */
+    public Builder sortType(
+        com.lark.oapi.service.im.v1.enums.ListMessageReadHistoryMessageV1SortTypeEnum sortType) {
+      this.sortType = sortType.getValue();
+      return this;
     }
 
-    public void setContainerId(String containerId) {
-        this.containerId = containerId;
+    /**
+     * 分页大小，即单次请求所返回的数据条目数。
+     *
+     * <p>示例值：20
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public String getStartTime() {
-        return this.startTime;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    /**
+     * `card_msg_content_type` 参数仅控制卡片消息的返回格式，不会影响其他类型消息的返回格式。;;1.
+     * **不传该参数（默认）**：返回的卡片结构参考[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)中的卡片消息结构，不支持返回发送时的原始卡片
+     * JSON。;2. **传入 `user_card_content`**：返回发送时的原始卡片 JSON。1.0 卡片请参考[卡片 JSON 1.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)；2.0
+     * 卡片请参考[卡片 JSON 2.0
+     * 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。;
+     * * **版本区分**：当返回的消息体为卡片时，可通过 `schema` 字段来区分该卡片是 1.0 还是 2.0 版本，详情参考[卡片 JSON 2.0
+     * 版本更新说明](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-breaking-changes-release-notes)。;;>
+     * **注意：如果 `card_msg_content_type` 参数的传值方式发生变更，请务必在代码中做好返回格式的兼容处理。**
+     *
+     * <p>示例值：user_card_content
+     *
+     * @param cardMsgContentType
+     * @return
+     */
+    public Builder cardMsgContentType(String cardMsgContentType) {
+      this.cardMsgContentType = cardMsgContentType;
+      return this;
     }
 
-    public String getEndTime() {
-        return this.endTime;
+    /**
+     * 话题群是否仅返回话题根消息
+     *
+     * <p>示例值：
+     *
+     * @param onlyThreadRootMessages
+     * @return
+     */
+    public Builder onlyThreadRootMessages(Boolean onlyThreadRootMessages) {
+      this.onlyThreadRootMessages = onlyThreadRootMessages;
+      return this;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    /**
+     * 是否返回消息发送者的名称
+     *
+     * <p>示例值：false
+     *
+     * @param withSenderName
+     * @return
+     */
+    public Builder withSenderName(Boolean withSenderName) {
+      this.withSenderName = withSenderName;
+      return this;
     }
 
-    public String getSortType() {
-        return this.sortType;
+    public ListMessageReq build() {
+      return new ListMessageReq(this);
     }
+  }
 
-    public void setSortType(String sortType) {
-        this.sortType = sortType;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getCardMsgContentType() {
-        return this.cardMsgContentType;
-    }
-
-    public void setCardMsgContentType(String cardMsgContentType) {
-        this.cardMsgContentType = cardMsgContentType;
-    }
-
-    public Boolean getOnlyThreadRootMessages() {
-        return this.onlyThreadRootMessages;
-    }
-
-    public void setOnlyThreadRootMessages(Boolean onlyThreadRootMessages) {
-        this.onlyThreadRootMessages = onlyThreadRootMessages;
-    }
-
-    public static class Builder {
-        private String containerIdType; // 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
-        private String containerId; // 容器的id，即chat的id，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-        private String startTime; // 历史信息的起始时间（秒级时间戳）
-        private String endTime; // 历史信息的结束时间（秒级时间戳）
-        private String sortType; // 消息排序方式
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-        private String cardMsgContentType; // 卡片消息返回内容类型，值为raw_card_content则返回原始jsoncard内容
-        private Boolean onlyThreadRootMessages; // 话题群是否仅返回话题根消息
-
-        /**
-         * 容器类型 ，目前可选值仅有"chat"，包含单聊（p2p）和群聊（group）
-         * <p> 示例值：chat
-         *
-         * @param containerIdType
-         * @return
-         */
-        public Builder containerIdType(String containerIdType) {
-            this.containerIdType = containerIdType;
-            return this;
-        }
-
-
-        /**
-         * 容器的id，即chat的id，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)
-         * <p> 示例值：oc_234jsi43d3ssi993d43545f
-         *
-         * @param containerId
-         * @return
-         */
-        public Builder containerId(String containerId) {
-            this.containerId = containerId;
-            return this;
-        }
-
-
-        /**
-         * 历史信息的起始时间（秒级时间戳）
-         * <p> 示例值：1609296809
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 历史信息的结束时间（秒级时间戳）
-         * <p> 示例值：1608594809
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 消息排序方式
-         * <p> 示例值：ByCreateTimeAsc
-         *
-         * @param sortType
-         * @return
-         */
-        public Builder sortType(String sortType) {
-            this.sortType = sortType;
-            return this;
-        }
-
-        /**
-         * 消息排序方式
-         * <p> 示例值：ByCreateTimeAsc
-         *
-         * @param sortType {@link com.lark.oapi.service.im.v1.enums.ListMessageReadHistoryMessageV1SortTypeEnum}
-         * @return
-         */
-        public Builder sortType(com.lark.oapi.service.im.v1.enums.ListMessageReadHistoryMessageV1SortTypeEnum sortType) {
-            this.sortType = sortType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 分页大小
-         * <p> 示例值：20
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 卡片消息返回内容类型，值为raw_card_content则返回原始jsoncard内容
-         * <p> 示例值：user_card_content
-         *
-         * @param cardMsgContentType
-         * @return
-         */
-        public Builder cardMsgContentType(String cardMsgContentType) {
-            this.cardMsgContentType = cardMsgContentType;
-            return this;
-        }
-
-
-        /**
-         * 话题群是否仅返回话题根消息
-         * <p> 示例值：
-         *
-         * @param onlyThreadRootMessages
-         * @return
-         */
-        public Builder onlyThreadRootMessages(Boolean onlyThreadRootMessages) {
-            this.onlyThreadRootMessages = onlyThreadRootMessages;
-            return this;
-        }
-
-
-        public ListMessageReq build() {
-            return new ListMessageReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

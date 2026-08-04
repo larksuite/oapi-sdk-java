@@ -13,333 +13,366 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ExternalBackgroundCheck {
+  /**
+   * 外部背调 ID
+   *
+   * <p>示例值：6989202908470446380
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 外部系统背调主键 （仅用于幂等）;- 若不传此值，则不进行幂等校验;- 若传此值，则用于幂等校验，同一`external_id` 24小时内仅可创建一次
+   *
+   * <p>示例值：7003247299220982060
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  /**
+   * 外部投递
+   * ID，可通过[查询外部投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/list)接口获取
+   *
+   * <p>示例值：7003247299220982060
+   */
+  @SerializedName("external_application_id")
+  private String externalApplicationId;
+
+  /**
+   * 背调日期，毫秒时间戳（字段类型为：int64）
+   *
+   * <p>示例值：1626602069392
+   */
+  @SerializedName("date")
+  private Long date;
+
+  /**
+   * 背调名称
+   *
+   * <p>示例值：张三的背调
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 背调结果
+   *
+   * <p>示例值：已通过
+   */
+  @SerializedName("result")
+  private String result;
+
+  /**
+   * 背调附件 ID
+   * 列表，可通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)接口返回
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attachment_id_list")
+  private String[] attachmentIdList;
+
+  /**
+   * 背调附件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("attachment_list")
+  private ExternalBackgroundCheckAttachment[] attachmentList;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  public String getExternalApplicationId() {
+    return this.externalApplicationId;
+  }
+
+  public void setExternalApplicationId(String externalApplicationId) {
+    this.externalApplicationId = externalApplicationId;
+  }
+
+  public Long getDate() {
+    return this.date;
+  }
+
+  public void setDate(Long date) {
+    this.date = date;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getResult() {
+    return this.result;
+  }
+
+  public void setResult(String result) {
+    this.result = result;
+  }
+
+  public String[] getAttachmentIdList() {
+    return this.attachmentIdList;
+  }
+
+  public void setAttachmentIdList(String[] attachmentIdList) {
+    this.attachmentIdList = attachmentIdList;
+  }
+
+  public ExternalBackgroundCheckAttachment[] getAttachmentList() {
+    return this.attachmentList;
+  }
+
+  public void setAttachmentList(ExternalBackgroundCheckAttachment[] attachmentList) {
+    this.attachmentList = attachmentList;
+  }
+
+  // builder 开始
+  public ExternalBackgroundCheck() {}
+
+  public ExternalBackgroundCheck(Builder builder) {
     /**
      * 外部背调 ID
-     * <p> 示例值：6989202908470446380
+     *
+     * <p>示例值：6989202908470446380
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
-     * 外部系统背调主键 （仅用于幂等）
-     * <p> 示例值：123
+     * 外部系统背调主键 （仅用于幂等）;- 若不传此值，则不进行幂等校验;- 若传此值，则用于幂等校验，同一`external_id` 24小时内仅可创建一次
+     *
+     * <p>示例值：7003247299220982060
      */
-    @SerializedName("external_id")
-    private String externalId;
+    this.externalId = builder.externalId;
     /**
-     * 外部投递 ID
-     * <p> 示例值：1234111
+     * 外部投递
+     * ID，可通过[查询外部投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/list)接口获取
+     *
+     * <p>示例值：7003247299220982060
      */
-    @SerializedName("external_application_id")
-    private String externalApplicationId;
+    this.externalApplicationId = builder.externalApplicationId;
     /**
-     * 背调日期
-     * <p> 示例值：1626602069393
+     * 背调日期，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1626602069392
      */
-    @SerializedName("date")
-    private Long date;
+    this.date = builder.date;
     /**
-     * 背调名字
-     * <p> 示例值：测试.pdf
+     * 背调名称
+     *
+     * <p>示例值：张三的背调
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 背调结果
-     * <p> 示例值：1
+     *
+     * <p>示例值：已通过
      */
-    @SerializedName("result")
-    private String result;
+    this.result = builder.result;
     /**
-     * 背调附件ID列表
-     * <p> 示例值：6989181065243969836
+     * 背调附件 ID
+     * 列表，可通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)接口返回
+     *
+     * <p>示例值：
      */
-    @SerializedName("attachment_id_list")
-    private String[] attachmentIdList;
+    this.attachmentIdList = builder.attachmentIdList;
     /**
      * 背调附件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("attachment_list")
+    this.attachmentList = builder.attachmentList;
+  }
+
+  public static class Builder {
+    /**
+     * 外部背调 ID
+     *
+     * <p>示例值：6989202908470446380
+     */
+    private String id;
+
+    /**
+     * 外部系统背调主键 （仅用于幂等）;- 若不传此值，则不进行幂等校验;- 若传此值，则用于幂等校验，同一`external_id` 24小时内仅可创建一次
+     *
+     * <p>示例值：7003247299220982060
+     */
+    private String externalId;
+
+    /**
+     * 外部投递
+     * ID，可通过[查询外部投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/list)接口获取
+     *
+     * <p>示例值：7003247299220982060
+     */
+    private String externalApplicationId;
+
+    /**
+     * 背调日期，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1626602069392
+     */
+    private Long date;
+
+    /**
+     * 背调名称
+     *
+     * <p>示例值：张三的背调
+     */
+    private String name;
+
+    /**
+     * 背调结果
+     *
+     * <p>示例值：已通过
+     */
+    private String result;
+
+    /**
+     * 背调附件 ID
+     * 列表，可通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)接口返回
+     *
+     * <p>示例值：
+     */
+    private String[] attachmentIdList;
+
+    /**
+     * 背调附件
+     *
+     * <p>示例值：
+     */
     private ExternalBackgroundCheckAttachment[] attachmentList;
 
-    // builder 开始
-    public ExternalBackgroundCheck() {
+    /**
+     * 外部背调 ID
+     *
+     * <p>示例值：6989202908470446380
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ExternalBackgroundCheck(Builder builder) {
-        /**
-         * 外部背调 ID
-         * <p> 示例值：6989202908470446380
-         */
-        this.id = builder.id;
-        /**
-         * 外部系统背调主键 （仅用于幂等）
-         * <p> 示例值：123
-         */
-        this.externalId = builder.externalId;
-        /**
-         * 外部投递 ID
-         * <p> 示例值：1234111
-         */
-        this.externalApplicationId = builder.externalApplicationId;
-        /**
-         * 背调日期
-         * <p> 示例值：1626602069393
-         */
-        this.date = builder.date;
-        /**
-         * 背调名字
-         * <p> 示例值：测试.pdf
-         */
-        this.name = builder.name;
-        /**
-         * 背调结果
-         * <p> 示例值：1
-         */
-        this.result = builder.result;
-        /**
-         * 背调附件ID列表
-         * <p> 示例值：6989181065243969836
-         */
-        this.attachmentIdList = builder.attachmentIdList;
-        /**
-         * 背调附件
-         * <p> 示例值：
-         */
-        this.attachmentList = builder.attachmentList;
+    /**
+     * 外部系统背调主键 （仅用于幂等）;- 若不传此值，则不进行幂等校验;- 若传此值，则用于幂等校验，同一`external_id` 24小时内仅可创建一次
+     *
+     * <p>示例值：7003247299220982060
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 外部投递
+     * ID，可通过[查询外部投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/external_application/list)接口获取
+     *
+     * <p>示例值：7003247299220982060
+     *
+     * @param externalApplicationId
+     * @return
+     */
+    public Builder externalApplicationId(String externalApplicationId) {
+      this.externalApplicationId = externalApplicationId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 背调日期，毫秒时间戳（字段类型为：int64）
+     *
+     * <p>示例值：1626602069392
+     *
+     * @param date
+     * @return
+     */
+    public Builder date(Long date) {
+      this.date = date;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 背调名称
+     *
+     * <p>示例值：张三的背调
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getExternalId() {
-        return this.externalId;
+    /**
+     * 背调结果
+     *
+     * <p>示例值：已通过
+     *
+     * @param result
+     * @return
+     */
+    public Builder result(String result) {
+      this.result = result;
+      return this;
     }
 
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
+    /**
+     * 背调附件 ID
+     * 列表，可通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)接口返回
+     *
+     * <p>示例值：
+     *
+     * @param attachmentIdList
+     * @return
+     */
+    public Builder attachmentIdList(String[] attachmentIdList) {
+      this.attachmentIdList = attachmentIdList;
+      return this;
     }
 
-    public String getExternalApplicationId() {
-        return this.externalApplicationId;
+    /**
+     * 背调附件
+     *
+     * <p>示例值：
+     *
+     * @param attachmentList
+     * @return
+     */
+    public Builder attachmentList(ExternalBackgroundCheckAttachment[] attachmentList) {
+      this.attachmentList = attachmentList;
+      return this;
     }
 
-    public void setExternalApplicationId(String externalApplicationId) {
-        this.externalApplicationId = externalApplicationId;
+    public ExternalBackgroundCheck build() {
+      return new ExternalBackgroundCheck(this);
     }
+  }
 
-    public Long getDate() {
-        return this.date;
-    }
-
-    public void setDate(Long date) {
-        this.date = date;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getResult() {
-        return this.result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-    }
-
-    public String[] getAttachmentIdList() {
-        return this.attachmentIdList;
-    }
-
-    public void setAttachmentIdList(String[] attachmentIdList) {
-        this.attachmentIdList = attachmentIdList;
-    }
-
-    public ExternalBackgroundCheckAttachment[] getAttachmentList() {
-        return this.attachmentList;
-    }
-
-    public void setAttachmentList(ExternalBackgroundCheckAttachment[] attachmentList) {
-        this.attachmentList = attachmentList;
-    }
-
-    public static class Builder {
-        /**
-         * 外部背调 ID
-         * <p> 示例值：6989202908470446380
-         */
-        private String id;
-        /**
-         * 外部系统背调主键 （仅用于幂等）
-         * <p> 示例值：123
-         */
-        private String externalId;
-        /**
-         * 外部投递 ID
-         * <p> 示例值：1234111
-         */
-        private String externalApplicationId;
-        /**
-         * 背调日期
-         * <p> 示例值：1626602069393
-         */
-        private Long date;
-        /**
-         * 背调名字
-         * <p> 示例值：测试.pdf
-         */
-        private String name;
-        /**
-         * 背调结果
-         * <p> 示例值：1
-         */
-        private String result;
-        /**
-         * 背调附件ID列表
-         * <p> 示例值：6989181065243969836
-         */
-        private String[] attachmentIdList;
-        /**
-         * 背调附件
-         * <p> 示例值：
-         */
-        private ExternalBackgroundCheckAttachment[] attachmentList;
-
-        /**
-         * 外部背调 ID
-         * <p> 示例值：6989202908470446380
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 外部系统背调主键 （仅用于幂等）
-         * <p> 示例值：123
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        /**
-         * 外部投递 ID
-         * <p> 示例值：1234111
-         *
-         * @param externalApplicationId
-         * @return
-         */
-        public Builder externalApplicationId(String externalApplicationId) {
-            this.externalApplicationId = externalApplicationId;
-            return this;
-        }
-
-
-        /**
-         * 背调日期
-         * <p> 示例值：1626602069393
-         *
-         * @param date
-         * @return
-         */
-        public Builder date(Long date) {
-            this.date = date;
-            return this;
-        }
-
-
-        /**
-         * 背调名字
-         * <p> 示例值：测试.pdf
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 背调结果
-         * <p> 示例值：1
-         *
-         * @param result
-         * @return
-         */
-        public Builder result(String result) {
-            this.result = result;
-            return this;
-        }
-
-
-        /**
-         * 背调附件ID列表
-         * <p> 示例值：6989181065243969836
-         *
-         * @param attachmentIdList
-         * @return
-         */
-        public Builder attachmentIdList(String[] attachmentIdList) {
-            this.attachmentIdList = attachmentIdList;
-            return this;
-        }
-
-
-        /**
-         * 背调附件
-         * <p> 示例值：
-         *
-         * @param attachmentList
-         * @return
-         */
-        public Builder attachmentList(ExternalBackgroundCheckAttachment[] attachmentList) {
-            this.attachmentList = attachmentList;
-            return this;
-        }
-
-
-        public ExternalBackgroundCheck build() {
-            return new ExternalBackgroundCheck(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

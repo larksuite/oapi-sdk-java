@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SubmitApproveNotificationReqBody {
+  /**
+   * 提交审批理由
+   *
+   * <p>示例值：测试发送消息
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  // builder 开始
+  public SubmitApproveNotificationReqBody() {}
+
+  public SubmitApproveNotificationReqBody(Builder builder) {
     /**
      * 提交审批理由
-     * <p> 示例值：测试发送消息
+     *
+     * <p>示例值：测试发送消息
      */
-    @SerializedName("reason")
+    this.reason = builder.reason;
+  }
+
+  public static class Builder {
+    /**
+     * 提交审批理由
+     *
+     * <p>示例值：测试发送消息
+     */
     private String reason;
 
-    // builder 开始
-    public SubmitApproveNotificationReqBody() {
+    /**
+     * 提交审批理由
+     *
+     * <p>示例值：测试发送消息
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public SubmitApproveNotificationReqBody(Builder builder) {
-        /**
-         * 提交审批理由
-         * <p> 示例值：测试发送消息
-         */
-        this.reason = builder.reason;
+    public SubmitApproveNotificationReqBody build() {
+      return new SubmitApproveNotificationReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public static class Builder {
-        /**
-         * 提交审批理由
-         * <p> 示例值：测试发送消息
-         */
-        private String reason;
-
-        /**
-         * 提交审批理由
-         * <p> 示例值：测试发送消息
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        public SubmitApproveNotificationReqBody build() {
-            return new SubmitApproveNotificationReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

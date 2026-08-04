@@ -13,189 +13,192 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class PagePermissionAccess {
+  /**
+   * 页面的api_id
+   *
+   * <p>示例值：api_id
+   */
+  @SerializedName("api_id")
+  private String apiId;
+
+  /**
+   * 页面的api_name
+   *
+   * <p>示例值：api_name
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 子页面信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_pages")
+  private SubPageSimpleInfo[] subPages;
+
+  /**
+   * 页面的展示名称
+   *
+   * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+   */
+  @SerializedName("display_name")
+  private Map<String, String> displayName;
+
+  public String getApiId() {
+    return this.apiId;
+  }
+
+  public void setApiId(String apiId) {
+    this.apiId = apiId;
+  }
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public SubPageSimpleInfo[] getSubPages() {
+    return this.subPages;
+  }
+
+  public void setSubPages(SubPageSimpleInfo[] subPages) {
+    this.subPages = subPages;
+  }
+
+  public Map<String, String> getDisplayName() {
+    return this.displayName;
+  }
+
+  public void setDisplayName(Map<String, String> displayName) {
+    this.displayName = displayName;
+  }
+
+  // builder 开始
+  public PagePermissionAccess() {}
+
+  public PagePermissionAccess(Builder builder) {
     /**
      * 页面的api_id
-     * <p> 示例值：api_id
+     *
+     * <p>示例值：api_id
      */
-    @SerializedName("api_id")
-    private String apiId;
+    this.apiId = builder.apiId;
     /**
      * 页面的api_name
-     * <p> 示例值：api_name
+     *
+     * <p>示例值：api_name
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 子页面信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_pages")
-    private SubPageSimpleInfo[] subPages;
+    this.subPages = builder.subPages;
     /**
      * 页面的展示名称
-     * <p> 示例值：
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
      */
-    @SerializedName("display_name")
+    this.displayName = builder.displayName;
+  }
+
+  public static class Builder {
+    /**
+     * 页面的api_id
+     *
+     * <p>示例值：api_id
+     */
+    private String apiId;
+
+    /**
+     * 页面的api_name
+     *
+     * <p>示例值：api_name
+     */
+    private String apiName;
+
+    /**
+     * 子页面信息
+     *
+     * <p>示例值：
+     */
+    private SubPageSimpleInfo[] subPages;
+
+    /**
+     * 页面的展示名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     */
     private Map<String, String> displayName;
 
-    // builder 开始
-    public PagePermissionAccess() {
+    /**
+     * 页面的api_id
+     *
+     * <p>示例值：api_id
+     *
+     * @param apiId
+     * @return
+     */
+    public Builder apiId(String apiId) {
+      this.apiId = apiId;
+      return this;
     }
 
-    public PagePermissionAccess(Builder builder) {
-        /**
-         * 页面的api_id
-         * <p> 示例值：api_id
-         */
-        this.apiId = builder.apiId;
-        /**
-         * 页面的api_name
-         * <p> 示例值：api_name
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 子页面信息
-         * <p> 示例值：
-         */
-        this.subPages = builder.subPages;
-        /**
-         * 页面的展示名称
-         * <p> 示例值：
-         */
-        this.displayName = builder.displayName;
+    /**
+     * 页面的api_name
+     *
+     * <p>示例值：api_name
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 子页面信息
+     *
+     * <p>示例值：
+     *
+     * @param subPages
+     * @return
+     */
+    public Builder subPages(SubPageSimpleInfo[] subPages) {
+      this.subPages = subPages;
+      return this;
     }
 
-    public String getApiId() {
-        return this.apiId;
+    /**
+     * 页面的展示名称
+     *
+     * <p>示例值：{; "2052":"管理员和开发者自动获取所有使用权限";}
+     *
+     * @param displayName
+     * @return
+     */
+    public Builder displayName(Map<String, String> displayName) {
+      this.displayName = displayName;
+      return this;
     }
 
-    public void setApiId(String apiId) {
-        this.apiId = apiId;
+    public PagePermissionAccess build() {
+      return new PagePermissionAccess(this);
     }
+  }
 
-    public String getApiName() {
-        return this.apiName;
-    }
-
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public SubPageSimpleInfo[] getSubPages() {
-        return this.subPages;
-    }
-
-    public void setSubPages(SubPageSimpleInfo[] subPages) {
-        this.subPages = subPages;
-    }
-
-    public Map<String, String> getDisplayName() {
-        return this.displayName;
-    }
-
-    public void setDisplayName(Map<String, String> displayName) {
-        this.displayName = displayName;
-    }
-
-    public static class Builder {
-        /**
-         * 页面的api_id
-         * <p> 示例值：api_id
-         */
-        private String apiId;
-        /**
-         * 页面的api_name
-         * <p> 示例值：api_name
-         */
-        private String apiName;
-        /**
-         * 子页面信息
-         * <p> 示例值：
-         */
-        private SubPageSimpleInfo[] subPages;
-        /**
-         * 页面的展示名称
-         * <p> 示例值：
-         */
-        private Map<String, String> displayName;
-
-        /**
-         * 页面的api_id
-         * <p> 示例值：api_id
-         *
-         * @param apiId
-         * @return
-         */
-        public Builder apiId(String apiId) {
-            this.apiId = apiId;
-            return this;
-        }
-
-
-        /**
-         * 页面的api_name
-         * <p> 示例值：api_name
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 子页面信息
-         * <p> 示例值：
-         *
-         * @param subPages
-         * @return
-         */
-        public Builder subPages(SubPageSimpleInfo[] subPages) {
-            this.subPages = subPages;
-            return this;
-        }
-
-
-        /**
-         * 页面的展示名称
-         * <p> 示例值：
-         *
-         * @param displayName
-         * @return
-         */
-        public Builder displayName(Map<String, String> displayName) {
-            this.displayName = displayName;
-            return this;
-        }
-
-
-        public PagePermissionAccess build() {
-            return new PagePermissionAccess(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

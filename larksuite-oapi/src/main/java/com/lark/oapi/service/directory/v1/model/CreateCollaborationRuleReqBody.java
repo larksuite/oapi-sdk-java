@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateCollaborationRuleReqBody {
+  /**
+   * 实体数量之和需要小于100
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subjects")
+  private CollaborationRuleEntities subjects;
+
+  /**
+   * 实体数量之和需要小于100
+   *
+   * <p>示例值：
+   */
+  @SerializedName("objects")
+  private CollaborationRuleEntities objects;
+
+  public CollaborationRuleEntities getSubjects() {
+    return this.subjects;
+  }
+
+  public void setSubjects(CollaborationRuleEntities subjects) {
+    this.subjects = subjects;
+  }
+
+  public CollaborationRuleEntities getObjects() {
+    return this.objects;
+  }
+
+  public void setObjects(CollaborationRuleEntities objects) {
+    this.objects = objects;
+  }
+
+  // builder 开始
+  public CreateCollaborationRuleReqBody() {}
+
+  public CreateCollaborationRuleReqBody(Builder builder) {
     /**
      * 实体数量之和需要小于100
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("subjects")
+    this.subjects = builder.subjects;
+    /**
+     * 实体数量之和需要小于100
+     *
+     * <p>示例值：
+     */
+    this.objects = builder.objects;
+  }
+
+  public static class Builder {
+    /**
+     * 实体数量之和需要小于100
+     *
+     * <p>示例值：
+     */
     private CollaborationRuleEntities subjects;
+
     /**
      * 实体数量之和需要小于100
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("objects")
     private CollaborationRuleEntities objects;
 
-    // builder 开始
-    public CreateCollaborationRuleReqBody() {
+    /**
+     * 实体数量之和需要小于100
+     *
+     * <p>示例值：
+     *
+     * @param subjects
+     * @return
+     */
+    public Builder subjects(CollaborationRuleEntities subjects) {
+      this.subjects = subjects;
+      return this;
     }
 
-    public CreateCollaborationRuleReqBody(Builder builder) {
-        /**
-         * 实体数量之和需要小于100
-         * <p> 示例值：
-         */
-        this.subjects = builder.subjects;
-        /**
-         * 实体数量之和需要小于100
-         * <p> 示例值：
-         */
-        this.objects = builder.objects;
+    /**
+     * 实体数量之和需要小于100
+     *
+     * <p>示例值：
+     *
+     * @param objects
+     * @return
+     */
+    public Builder objects(CollaborationRuleEntities objects) {
+      this.objects = objects;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public CreateCollaborationRuleReqBody build() {
+      return new CreateCollaborationRuleReqBody(this);
     }
+  }
 
-    public CollaborationRuleEntities getSubjects() {
-        return this.subjects;
-    }
-
-    public void setSubjects(CollaborationRuleEntities subjects) {
-        this.subjects = subjects;
-    }
-
-    public CollaborationRuleEntities getObjects() {
-        return this.objects;
-    }
-
-    public void setObjects(CollaborationRuleEntities objects) {
-        this.objects = objects;
-    }
-
-    public static class Builder {
-        /**
-         * 实体数量之和需要小于100
-         * <p> 示例值：
-         */
-        private CollaborationRuleEntities subjects;
-        /**
-         * 实体数量之和需要小于100
-         * <p> 示例值：
-         */
-        private CollaborationRuleEntities objects;
-
-        /**
-         * 实体数量之和需要小于100
-         * <p> 示例值：
-         *
-         * @param subjects
-         * @return
-         */
-        public Builder subjects(CollaborationRuleEntities subjects) {
-            this.subjects = subjects;
-            return this;
-        }
-
-
-        /**
-         * 实体数量之和需要小于100
-         * <p> 示例值：
-         *
-         * @param objects
-         * @return
-         */
-        public Builder objects(CollaborationRuleEntities objects) {
-            this.objects = objects;
-            return this;
-        }
-
-
-        public CreateCollaborationRuleReqBody build() {
-            return new CreateCollaborationRuleReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

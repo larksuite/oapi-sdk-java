@@ -13,198 +13,210 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ChatFilter {
+  /**
+   * DEFAULT = 0; PRIVATE = 1; // 私有群 CROSS_TENANT = 2; // 外部群 PUBLIC_JOINED = 3; // 已加入的公开群
+   * PUBLIC_NOT_JOINED = 4; // 未加入的公开群
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("search_type")
+  private String searchType;
+
+  /**
+   * 群成员ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("member_ids")
+  private String[] memberIds;
+
+  /**
+   * 是否自己创建或者管理的群组
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_manager")
+  private Boolean isManager;
+
+  /**
+   * 是否关闭以人搜群功能： 先通过群成员名搜索，再搜群组(默认开启)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("disable_search_by_user")
+  private Boolean disableSearchByUser;
+
+  public String getSearchType() {
+    return this.searchType;
+  }
+
+  public void setSearchType(String searchType) {
+    this.searchType = searchType;
+  }
+
+  public String[] getMemberIds() {
+    return this.memberIds;
+  }
+
+  public void setMemberIds(String[] memberIds) {
+    this.memberIds = memberIds;
+  }
+
+  public Boolean getIsManager() {
+    return this.isManager;
+  }
+
+  public void setIsManager(Boolean isManager) {
+    this.isManager = isManager;
+  }
+
+  public Boolean getDisableSearchByUser() {
+    return this.disableSearchByUser;
+  }
+
+  public void setDisableSearchByUser(Boolean disableSearchByUser) {
+    this.disableSearchByUser = disableSearchByUser;
+  }
+
+  // builder 开始
+  public ChatFilter() {}
+
+  public ChatFilter(Builder builder) {
     /**
-     * DEFAULT = 0;       PRIVATE = 1;           // 私有群       CROSS_TENANT = 2;      // 外部群       PUBLIC_JOINED = 3;     // 已加入的公开群       PUBLIC_NOT_JOINED = 4; // 未加入的公开群
-     * <p> 示例值：1
+     * DEFAULT = 0; PRIVATE = 1; // 私有群 CROSS_TENANT = 2; // 外部群 PUBLIC_JOINED = 3; // 已加入的公开群
+     * PUBLIC_NOT_JOINED = 4; // 未加入的公开群
+     *
+     * <p>示例值：1
      */
-    @SerializedName("search_type")
-    private String searchType;
+    this.searchType = builder.searchType;
     /**
      * 群成员ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("member_ids")
-    private String[] memberIds;
+    this.memberIds = builder.memberIds;
     /**
      * 是否自己创建或者管理的群组
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_manager")
-    private Boolean isManager;
+    this.isManager = builder.isManager;
     /**
      * 是否关闭以人搜群功能： 先通过群成员名搜索，再搜群组(默认开启)
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("disable_search_by_user")
+    this.disableSearchByUser = builder.disableSearchByUser;
+  }
+
+  public static class Builder {
+    /**
+     * DEFAULT = 0; PRIVATE = 1; // 私有群 CROSS_TENANT = 2; // 外部群 PUBLIC_JOINED = 3; // 已加入的公开群
+     * PUBLIC_NOT_JOINED = 4; // 未加入的公开群
+     *
+     * <p>示例值：1
+     */
+    private String searchType;
+
+    /**
+     * 群成员ID
+     *
+     * <p>示例值：
+     */
+    private String[] memberIds;
+
+    /**
+     * 是否自己创建或者管理的群组
+     *
+     * <p>示例值：
+     */
+    private Boolean isManager;
+
+    /**
+     * 是否关闭以人搜群功能： 先通过群成员名搜索，再搜群组(默认开启)
+     *
+     * <p>示例值：
+     */
     private Boolean disableSearchByUser;
 
-    // builder 开始
-    public ChatFilter() {
+    /**
+     * DEFAULT = 0; PRIVATE = 1; // 私有群 CROSS_TENANT = 2; // 外部群 PUBLIC_JOINED = 3; // 已加入的公开群
+     * PUBLIC_NOT_JOINED = 4; // 未加入的公开群
+     *
+     * <p>示例值：1
+     *
+     * @param searchType
+     * @return
+     */
+    public Builder searchType(String searchType) {
+      this.searchType = searchType;
+      return this;
     }
 
-    public ChatFilter(Builder builder) {
-        /**
-         * DEFAULT = 0;       PRIVATE = 1;           // 私有群       CROSS_TENANT = 2;      // 外部群       PUBLIC_JOINED = 3;     // 已加入的公开群       PUBLIC_NOT_JOINED = 4; // 未加入的公开群
-         * <p> 示例值：1
-         */
-        this.searchType = builder.searchType;
-        /**
-         * 群成员ID
-         * <p> 示例值：
-         */
-        this.memberIds = builder.memberIds;
-        /**
-         * 是否自己创建或者管理的群组
-         * <p> 示例值：
-         */
-        this.isManager = builder.isManager;
-        /**
-         * 是否关闭以人搜群功能： 先通过群成员名搜索，再搜群组(默认开启)
-         * <p> 示例值：
-         */
-        this.disableSearchByUser = builder.disableSearchByUser;
+    /**
+     * DEFAULT = 0; PRIVATE = 1; // 私有群 CROSS_TENANT = 2; // 外部群 PUBLIC_JOINED = 3; // 已加入的公开群
+     * PUBLIC_NOT_JOINED = 4; // 未加入的公开群
+     *
+     * <p>示例值：1
+     *
+     * @param searchType {@link com.lark.oapi.service.search.v2.enums.ChatFilterSearchTypeEnum}
+     * @return
+     */
+    public Builder searchType(
+        com.lark.oapi.service.search.v2.enums.ChatFilterSearchTypeEnum searchType) {
+      this.searchType = searchType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 群成员ID
+     *
+     * <p>示例值：
+     *
+     * @param memberIds
+     * @return
+     */
+    public Builder memberIds(String[] memberIds) {
+      this.memberIds = memberIds;
+      return this;
     }
 
-    public String getSearchType() {
-        return this.searchType;
+    /**
+     * 是否自己创建或者管理的群组
+     *
+     * <p>示例值：
+     *
+     * @param isManager
+     * @return
+     */
+    public Builder isManager(Boolean isManager) {
+      this.isManager = isManager;
+      return this;
     }
 
-    public void setSearchType(String searchType) {
-        this.searchType = searchType;
+    /**
+     * 是否关闭以人搜群功能： 先通过群成员名搜索，再搜群组(默认开启)
+     *
+     * <p>示例值：
+     *
+     * @param disableSearchByUser
+     * @return
+     */
+    public Builder disableSearchByUser(Boolean disableSearchByUser) {
+      this.disableSearchByUser = disableSearchByUser;
+      return this;
     }
 
-    public String[] getMemberIds() {
-        return this.memberIds;
+    public ChatFilter build() {
+      return new ChatFilter(this);
     }
+  }
 
-    public void setMemberIds(String[] memberIds) {
-        this.memberIds = memberIds;
-    }
-
-    public Boolean getIsManager() {
-        return this.isManager;
-    }
-
-    public void setIsManager(Boolean isManager) {
-        this.isManager = isManager;
-    }
-
-    public Boolean getDisableSearchByUser() {
-        return this.disableSearchByUser;
-    }
-
-    public void setDisableSearchByUser(Boolean disableSearchByUser) {
-        this.disableSearchByUser = disableSearchByUser;
-    }
-
-    public static class Builder {
-        /**
-         * DEFAULT = 0;       PRIVATE = 1;           // 私有群       CROSS_TENANT = 2;      // 外部群       PUBLIC_JOINED = 3;     // 已加入的公开群       PUBLIC_NOT_JOINED = 4; // 未加入的公开群
-         * <p> 示例值：1
-         */
-        private String searchType;
-        /**
-         * 群成员ID
-         * <p> 示例值：
-         */
-        private String[] memberIds;
-        /**
-         * 是否自己创建或者管理的群组
-         * <p> 示例值：
-         */
-        private Boolean isManager;
-        /**
-         * 是否关闭以人搜群功能： 先通过群成员名搜索，再搜群组(默认开启)
-         * <p> 示例值：
-         */
-        private Boolean disableSearchByUser;
-
-        /**
-         * DEFAULT = 0;       PRIVATE = 1;           // 私有群       CROSS_TENANT = 2;      // 外部群       PUBLIC_JOINED = 3;     // 已加入的公开群       PUBLIC_NOT_JOINED = 4; // 未加入的公开群
-         * <p> 示例值：1
-         *
-         * @param searchType
-         * @return
-         */
-        public Builder searchType(String searchType) {
-            this.searchType = searchType;
-            return this;
-        }
-
-        /**
-         * DEFAULT = 0;       PRIVATE = 1;           // 私有群       CROSS_TENANT = 2;      // 外部群       PUBLIC_JOINED = 3;     // 已加入的公开群       PUBLIC_NOT_JOINED = 4; // 未加入的公开群
-         * <p> 示例值：1
-         *
-         * @param searchType {@link com.lark.oapi.service.search.v2.enums.ChatFilterSearchTypeEnum}
-         * @return
-         */
-        public Builder searchType(com.lark.oapi.service.search.v2.enums.ChatFilterSearchTypeEnum searchType) {
-            this.searchType = searchType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 群成员ID
-         * <p> 示例值：
-         *
-         * @param memberIds
-         * @return
-         */
-        public Builder memberIds(String[] memberIds) {
-            this.memberIds = memberIds;
-            return this;
-        }
-
-
-        /**
-         * 是否自己创建或者管理的群组
-         * <p> 示例值：
-         *
-         * @param isManager
-         * @return
-         */
-        public Builder isManager(Boolean isManager) {
-            this.isManager = isManager;
-            return this;
-        }
-
-
-        /**
-         * 是否关闭以人搜群功能： 先通过群成员名搜索，再搜群组(默认开启)
-         * <p> 示例值：
-         *
-         * @param disableSearchByUser
-         * @return
-         */
-        public Builder disableSearchByUser(Boolean disableSearchByUser) {
-            this.disableSearchByUser = disableSearchByUser;
-            return this;
-        }
-
-
-        public ChatFilter build() {
-            return new ChatFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

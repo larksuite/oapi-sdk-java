@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PreHireDepartment {
+  /**
+   * 部门 ID
+   *
+   * <p>示例值：4719456877659520852
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 部门名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("names")
+  private I18n[] names;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n[] getNames() {
+    return this.names;
+  }
+
+  public void setNames(I18n[] names) {
+    this.names = names;
+  }
+
+  // builder 开始
+  public PreHireDepartment() {}
+
+  public PreHireDepartment(Builder builder) {
     /**
      * 部门 ID
-     * <p> 示例值：4719456877659520852
+     *
+     * <p>示例值：4719456877659520852
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 部门名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("names")
+    this.names = builder.names;
+  }
+
+  public static class Builder {
+    /**
+     * 部门 ID
+     *
+     * <p>示例值：4719456877659520852
+     */
+    private String id;
+
+    /**
+     * 部门名称
+     *
+     * <p>示例值：
+     */
     private I18n[] names;
 
-    // builder 开始
-    public PreHireDepartment() {
+    /**
+     * 部门 ID
+     *
+     * <p>示例值：4719456877659520852
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public PreHireDepartment(Builder builder) {
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         */
-        this.id = builder.id;
-        /**
-         * 部门名称
-         * <p> 示例值：
-         */
-        this.names = builder.names;
+    /**
+     * 部门名称
+     *
+     * <p>示例值：
+     *
+     * @param names
+     * @return
+     */
+    public Builder names(I18n[] names) {
+      this.names = names;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PreHireDepartment build() {
+      return new PreHireDepartment(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n[] getNames() {
-        return this.names;
-    }
-
-    public void setNames(I18n[] names) {
-        this.names = names;
-    }
-
-    public static class Builder {
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         */
-        private String id;
-        /**
-         * 部门名称
-         * <p> 示例值：
-         */
-        private I18n[] names;
-
-        /**
-         * 部门 ID
-         * <p> 示例值：4719456877659520852
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 部门名称
-         * <p> 示例值：
-         *
-         * @param names
-         * @return
-         */
-        public Builder names(I18n[] names) {
-            this.names = names;
-            return this;
-        }
-
-
-        public PreHireDepartment build() {
-            return new PreHireDepartment(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

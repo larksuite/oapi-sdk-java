@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PaymentActivity {
+  /**
+   * 发薪活动唯一标识
+   *
+   * <p>示例值：7202076988667019308
+   */
+  @SerializedName("activity_id")
+  private String activityId;
+
+  /**
+   * 发薪活动名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("activity_names")
+  private I18nContent[] activityNames;
+
+  /**
+   * 发薪活动发薪日期
+   *
+   * <p>示例值：2020-10-31
+   */
+  @SerializedName("pay_date")
+  private String payDate;
+
+  /**
+   * 发薪总笔数
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("total_number_of_payroll")
+  private Integer totalNumberOfPayroll;
+
+  /**
+   * 关联的算薪活动个数
+   *
+   * <p>示例值：1000
+   */
+  @SerializedName("number_of_calculation_activities")
+  private Integer numberOfCalculationActivities;
+
+  /**
+   * 发薪活动关联的算薪活动详情
+   *
+   * <p>示例值：
+   */
+  @SerializedName("calculation_activities")
+  private CalculationActivity[] calculationActivities;
+
+  /**
+   * 发薪活动审批状态，其中：100-待确认发薪名单；150-待提交审批；200-审批中；300-审批被拒绝；350-审批被撤回；360-审批被撤销；375-审批通过；400-已封存。
+   *
+   * <p>示例值：400
+   */
+  @SerializedName("activity_status")
+  private Integer activityStatus;
+
+  public String getActivityId() {
+    return this.activityId;
+  }
+
+  public void setActivityId(String activityId) {
+    this.activityId = activityId;
+  }
+
+  public I18nContent[] getActivityNames() {
+    return this.activityNames;
+  }
+
+  public void setActivityNames(I18nContent[] activityNames) {
+    this.activityNames = activityNames;
+  }
+
+  public String getPayDate() {
+    return this.payDate;
+  }
+
+  public void setPayDate(String payDate) {
+    this.payDate = payDate;
+  }
+
+  public Integer getTotalNumberOfPayroll() {
+    return this.totalNumberOfPayroll;
+  }
+
+  public void setTotalNumberOfPayroll(Integer totalNumberOfPayroll) {
+    this.totalNumberOfPayroll = totalNumberOfPayroll;
+  }
+
+  public Integer getNumberOfCalculationActivities() {
+    return this.numberOfCalculationActivities;
+  }
+
+  public void setNumberOfCalculationActivities(Integer numberOfCalculationActivities) {
+    this.numberOfCalculationActivities = numberOfCalculationActivities;
+  }
+
+  public CalculationActivity[] getCalculationActivities() {
+    return this.calculationActivities;
+  }
+
+  public void setCalculationActivities(CalculationActivity[] calculationActivities) {
+    this.calculationActivities = calculationActivities;
+  }
+
+  public Integer getActivityStatus() {
+    return this.activityStatus;
+  }
+
+  public void setActivityStatus(Integer activityStatus) {
+    this.activityStatus = activityStatus;
+  }
+
+  // builder 开始
+  public PaymentActivity() {}
+
+  public PaymentActivity(Builder builder) {
     /**
      * 发薪活动唯一标识
-     * <p> 示例值：7202076988667019308
+     *
+     * <p>示例值：7202076988667019308
      */
-    @SerializedName("activity_id")
-    private String activityId;
+    this.activityId = builder.activityId;
     /**
      * 发薪活动名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("activity_names")
-    private I18nContent[] activityNames;
+    this.activityNames = builder.activityNames;
     /**
      * 发薪活动发薪日期
-     * <p> 示例值：2020-10-31
+     *
+     * <p>示例值：2020-10-31
      */
-    @SerializedName("pay_date")
-    private String payDate;
+    this.payDate = builder.payDate;
     /**
      * 发薪总笔数
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("total_number_of_payroll")
-    private Integer totalNumberOfPayroll;
+    this.totalNumberOfPayroll = builder.totalNumberOfPayroll;
     /**
      * 关联的算薪活动个数
-     * <p> 示例值：1000
+     *
+     * <p>示例值：1000
      */
-    @SerializedName("number_of_calculation_activities")
-    private Integer numberOfCalculationActivities;
+    this.numberOfCalculationActivities = builder.numberOfCalculationActivities;
     /**
      * 发薪活动关联的算薪活动详情
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("calculation_activities")
-    private CalculationActivity[] calculationActivities;
+    this.calculationActivities = builder.calculationActivities;
     /**
      * 发薪活动审批状态，其中：100-待确认发薪名单；150-待提交审批；200-审批中；300-审批被拒绝；350-审批被撤回；360-审批被撤销；375-审批通过；400-已封存。
-     * <p> 示例值：400
+     *
+     * <p>示例值：400
      */
-    @SerializedName("activity_status")
+    this.activityStatus = builder.activityStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 发薪活动唯一标识
+     *
+     * <p>示例值：7202076988667019308
+     */
+    private String activityId;
+
+    /**
+     * 发薪活动名称
+     *
+     * <p>示例值：
+     */
+    private I18nContent[] activityNames;
+
+    /**
+     * 发薪活动发薪日期
+     *
+     * <p>示例值：2020-10-31
+     */
+    private String payDate;
+
+    /**
+     * 发薪总笔数
+     *
+     * <p>示例值：100
+     */
+    private Integer totalNumberOfPayroll;
+
+    /**
+     * 关联的算薪活动个数
+     *
+     * <p>示例值：1000
+     */
+    private Integer numberOfCalculationActivities;
+
+    /**
+     * 发薪活动关联的算薪活动详情
+     *
+     * <p>示例值：
+     */
+    private CalculationActivity[] calculationActivities;
+
+    /**
+     * 发薪活动审批状态，其中：100-待确认发薪名单；150-待提交审批；200-审批中；300-审批被拒绝；350-审批被撤回；360-审批被撤销；375-审批通过；400-已封存。
+     *
+     * <p>示例值：400
+     */
     private Integer activityStatus;
 
-    // builder 开始
-    public PaymentActivity() {
+    /**
+     * 发薪活动唯一标识
+     *
+     * <p>示例值：7202076988667019308
+     *
+     * @param activityId
+     * @return
+     */
+    public Builder activityId(String activityId) {
+      this.activityId = activityId;
+      return this;
     }
 
-    public PaymentActivity(Builder builder) {
-        /**
-         * 发薪活动唯一标识
-         * <p> 示例值：7202076988667019308
-         */
-        this.activityId = builder.activityId;
-        /**
-         * 发薪活动名称
-         * <p> 示例值：
-         */
-        this.activityNames = builder.activityNames;
-        /**
-         * 发薪活动发薪日期
-         * <p> 示例值：2020-10-31
-         */
-        this.payDate = builder.payDate;
-        /**
-         * 发薪总笔数
-         * <p> 示例值：100
-         */
-        this.totalNumberOfPayroll = builder.totalNumberOfPayroll;
-        /**
-         * 关联的算薪活动个数
-         * <p> 示例值：1000
-         */
-        this.numberOfCalculationActivities = builder.numberOfCalculationActivities;
-        /**
-         * 发薪活动关联的算薪活动详情
-         * <p> 示例值：
-         */
-        this.calculationActivities = builder.calculationActivities;
-        /**
-         * 发薪活动审批状态，其中：100-待确认发薪名单；150-待提交审批；200-审批中；300-审批被拒绝；350-审批被撤回；360-审批被撤销；375-审批通过；400-已封存。
-         * <p> 示例值：400
-         */
-        this.activityStatus = builder.activityStatus;
+    /**
+     * 发薪活动名称
+     *
+     * <p>示例值：
+     *
+     * @param activityNames
+     * @return
+     */
+    public Builder activityNames(I18nContent[] activityNames) {
+      this.activityNames = activityNames;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 发薪活动发薪日期
+     *
+     * <p>示例值：2020-10-31
+     *
+     * @param payDate
+     * @return
+     */
+    public Builder payDate(String payDate) {
+      this.payDate = payDate;
+      return this;
     }
 
-    public String getActivityId() {
-        return this.activityId;
+    /**
+     * 发薪总笔数
+     *
+     * <p>示例值：100
+     *
+     * @param totalNumberOfPayroll
+     * @return
+     */
+    public Builder totalNumberOfPayroll(Integer totalNumberOfPayroll) {
+      this.totalNumberOfPayroll = totalNumberOfPayroll;
+      return this;
     }
 
-    public void setActivityId(String activityId) {
-        this.activityId = activityId;
+    /**
+     * 关联的算薪活动个数
+     *
+     * <p>示例值：1000
+     *
+     * @param numberOfCalculationActivities
+     * @return
+     */
+    public Builder numberOfCalculationActivities(Integer numberOfCalculationActivities) {
+      this.numberOfCalculationActivities = numberOfCalculationActivities;
+      return this;
     }
 
-    public I18nContent[] getActivityNames() {
-        return this.activityNames;
+    /**
+     * 发薪活动关联的算薪活动详情
+     *
+     * <p>示例值：
+     *
+     * @param calculationActivities
+     * @return
+     */
+    public Builder calculationActivities(CalculationActivity[] calculationActivities) {
+      this.calculationActivities = calculationActivities;
+      return this;
     }
 
-    public void setActivityNames(I18nContent[] activityNames) {
-        this.activityNames = activityNames;
+    /**
+     * 发薪活动审批状态，其中：100-待确认发薪名单；150-待提交审批；200-审批中；300-审批被拒绝；350-审批被撤回；360-审批被撤销；375-审批通过；400-已封存。
+     *
+     * <p>示例值：400
+     *
+     * @param activityStatus
+     * @return
+     */
+    public Builder activityStatus(Integer activityStatus) {
+      this.activityStatus = activityStatus;
+      return this;
     }
 
-    public String getPayDate() {
-        return this.payDate;
+    public PaymentActivity build() {
+      return new PaymentActivity(this);
     }
+  }
 
-    public void setPayDate(String payDate) {
-        this.payDate = payDate;
-    }
-
-    public Integer getTotalNumberOfPayroll() {
-        return this.totalNumberOfPayroll;
-    }
-
-    public void setTotalNumberOfPayroll(Integer totalNumberOfPayroll) {
-        this.totalNumberOfPayroll = totalNumberOfPayroll;
-    }
-
-    public Integer getNumberOfCalculationActivities() {
-        return this.numberOfCalculationActivities;
-    }
-
-    public void setNumberOfCalculationActivities(Integer numberOfCalculationActivities) {
-        this.numberOfCalculationActivities = numberOfCalculationActivities;
-    }
-
-    public CalculationActivity[] getCalculationActivities() {
-        return this.calculationActivities;
-    }
-
-    public void setCalculationActivities(CalculationActivity[] calculationActivities) {
-        this.calculationActivities = calculationActivities;
-    }
-
-    public Integer getActivityStatus() {
-        return this.activityStatus;
-    }
-
-    public void setActivityStatus(Integer activityStatus) {
-        this.activityStatus = activityStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 发薪活动唯一标识
-         * <p> 示例值：7202076988667019308
-         */
-        private String activityId;
-        /**
-         * 发薪活动名称
-         * <p> 示例值：
-         */
-        private I18nContent[] activityNames;
-        /**
-         * 发薪活动发薪日期
-         * <p> 示例值：2020-10-31
-         */
-        private String payDate;
-        /**
-         * 发薪总笔数
-         * <p> 示例值：100
-         */
-        private Integer totalNumberOfPayroll;
-        /**
-         * 关联的算薪活动个数
-         * <p> 示例值：1000
-         */
-        private Integer numberOfCalculationActivities;
-        /**
-         * 发薪活动关联的算薪活动详情
-         * <p> 示例值：
-         */
-        private CalculationActivity[] calculationActivities;
-        /**
-         * 发薪活动审批状态，其中：100-待确认发薪名单；150-待提交审批；200-审批中；300-审批被拒绝；350-审批被撤回；360-审批被撤销；375-审批通过；400-已封存。
-         * <p> 示例值：400
-         */
-        private Integer activityStatus;
-
-        /**
-         * 发薪活动唯一标识
-         * <p> 示例值：7202076988667019308
-         *
-         * @param activityId
-         * @return
-         */
-        public Builder activityId(String activityId) {
-            this.activityId = activityId;
-            return this;
-        }
-
-
-        /**
-         * 发薪活动名称
-         * <p> 示例值：
-         *
-         * @param activityNames
-         * @return
-         */
-        public Builder activityNames(I18nContent[] activityNames) {
-            this.activityNames = activityNames;
-            return this;
-        }
-
-
-        /**
-         * 发薪活动发薪日期
-         * <p> 示例值：2020-10-31
-         *
-         * @param payDate
-         * @return
-         */
-        public Builder payDate(String payDate) {
-            this.payDate = payDate;
-            return this;
-        }
-
-
-        /**
-         * 发薪总笔数
-         * <p> 示例值：100
-         *
-         * @param totalNumberOfPayroll
-         * @return
-         */
-        public Builder totalNumberOfPayroll(Integer totalNumberOfPayroll) {
-            this.totalNumberOfPayroll = totalNumberOfPayroll;
-            return this;
-        }
-
-
-        /**
-         * 关联的算薪活动个数
-         * <p> 示例值：1000
-         *
-         * @param numberOfCalculationActivities
-         * @return
-         */
-        public Builder numberOfCalculationActivities(Integer numberOfCalculationActivities) {
-            this.numberOfCalculationActivities = numberOfCalculationActivities;
-            return this;
-        }
-
-
-        /**
-         * 发薪活动关联的算薪活动详情
-         * <p> 示例值：
-         *
-         * @param calculationActivities
-         * @return
-         */
-        public Builder calculationActivities(CalculationActivity[] calculationActivities) {
-            this.calculationActivities = calculationActivities;
-            return this;
-        }
-
-
-        /**
-         * 发薪活动审批状态，其中：100-待确认发薪名单；150-待提交审批；200-审批中；300-审批被拒绝；350-审批被撤回；360-审批被撤销；375-审批通过；400-已封存。
-         * <p> 示例值：400
-         *
-         * @param activityStatus
-         * @return
-         */
-        public Builder activityStatus(Integer activityStatus) {
-            this.activityStatus = activityStatus;
-            return this;
-        }
-
-
-        public PaymentActivity build() {
-            return new PaymentActivity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

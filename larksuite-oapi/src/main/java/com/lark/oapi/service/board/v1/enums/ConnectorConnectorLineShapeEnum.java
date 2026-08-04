@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 连线类型
- */
+/** 连线类型 */
 public enum ConnectorConnectorLineShapeEnum {
-    STRAIGHT("straight"), // 直线
-    POLYLINE("polyline"), // 折线
-    CURVE("curve"), // 曲线
-    RIGHTANGLEDPOLYLINE("right_angled_polyline"), // 直角折线
-    ;
-    private String value;
+  STRAIGHT("straight"), // 直线
+  POLYLINE("polyline"), // 折线
+  CURVE("curve"), // 曲线
+  RIGHTANGLEDPOLYLINE("right_angled_polyline"), // 直角折线
+  ;
+  private String value;
 
-    ConnectorConnectorLineShapeEnum(String value) {
-        this.value = value;
-    }
+  ConnectorConnectorLineShapeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

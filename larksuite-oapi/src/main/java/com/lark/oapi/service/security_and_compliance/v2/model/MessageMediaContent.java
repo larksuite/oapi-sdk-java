@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MessageMediaContent {
+  /**
+   * 媒体链接
+   *
+   * <p>示例值：
+   */
+  @SerializedName("media_key")
+  private String mediaKey;
+
+  public String getMediaKey() {
+    return this.mediaKey;
+  }
+
+  public void setMediaKey(String mediaKey) {
+    this.mediaKey = mediaKey;
+  }
+
+  // builder 开始
+  public MessageMediaContent() {}
+
+  public MessageMediaContent(Builder builder) {
     /**
      * 媒体链接
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("media_key")
+    this.mediaKey = builder.mediaKey;
+  }
+
+  public static class Builder {
+    /**
+     * 媒体链接
+     *
+     * <p>示例值：
+     */
     private String mediaKey;
 
-    // builder 开始
-    public MessageMediaContent() {
+    /**
+     * 媒体链接
+     *
+     * <p>示例值：
+     *
+     * @param mediaKey
+     * @return
+     */
+    public Builder mediaKey(String mediaKey) {
+      this.mediaKey = mediaKey;
+      return this;
     }
 
-    public MessageMediaContent(Builder builder) {
-        /**
-         * 媒体链接
-         * <p> 示例值：
-         */
-        this.mediaKey = builder.mediaKey;
+    public MessageMediaContent build() {
+      return new MessageMediaContent(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getMediaKey() {
-        return this.mediaKey;
-    }
-
-    public void setMediaKey(String mediaKey) {
-        this.mediaKey = mediaKey;
-    }
-
-    public static class Builder {
-        /**
-         * 媒体链接
-         * <p> 示例值：
-         */
-        private String mediaKey;
-
-        /**
-         * 媒体链接
-         * <p> 示例值：
-         *
-         * @param mediaKey
-         * @return
-         */
-        public Builder mediaKey(String mediaKey) {
-            this.mediaKey = mediaKey;
-            return this;
-        }
-
-
-        public MessageMediaContent build() {
-            return new MessageMediaContent(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

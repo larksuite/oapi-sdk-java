@@ -13,297 +13,317 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VerifDatasourceConfig {
+  /**
+   * 字段类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("filter_type")
+  private Integer filterType;
+
+  /**
+   * 筛选条件
+   *
+   * <p>示例值：
+   */
+  @SerializedName("filter_rule")
+  private VerifFilterRule filterRule;
+
+  /**
+   * 是否汇总
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_collect")
+  private Boolean isCollect;
+
+  /**
+   * 是否分段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_proration")
+  private Boolean isProration;
+
+  /**
+   * 是否追溯
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_retro")
+  private Boolean isRetro;
+
+  /**
+   * 数据项配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private VerifItem[] items;
+
+  /**
+   * 数据源配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("data_source_rule")
+  private VerifDataSourceRule dataSourceRule;
+
+  public Integer getFilterType() {
+    return this.filterType;
+  }
+
+  public void setFilterType(Integer filterType) {
+    this.filterType = filterType;
+  }
+
+  public VerifFilterRule getFilterRule() {
+    return this.filterRule;
+  }
+
+  public void setFilterRule(VerifFilterRule filterRule) {
+    this.filterRule = filterRule;
+  }
+
+  public Boolean getIsCollect() {
+    return this.isCollect;
+  }
+
+  public void setIsCollect(Boolean isCollect) {
+    this.isCollect = isCollect;
+  }
+
+  public Boolean getIsProration() {
+    return this.isProration;
+  }
+
+  public void setIsProration(Boolean isProration) {
+    this.isProration = isProration;
+  }
+
+  public Boolean getIsRetro() {
+    return this.isRetro;
+  }
+
+  public void setIsRetro(Boolean isRetro) {
+    this.isRetro = isRetro;
+  }
+
+  public VerifItem[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(VerifItem[] items) {
+    this.items = items;
+  }
+
+  public VerifDataSourceRule getDataSourceRule() {
+    return this.dataSourceRule;
+  }
+
+  public void setDataSourceRule(VerifDataSourceRule dataSourceRule) {
+    this.dataSourceRule = dataSourceRule;
+  }
+
+  // builder 开始
+  public VerifDatasourceConfig() {}
+
+  public VerifDatasourceConfig(Builder builder) {
     /**
      * 字段类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("filter_type")
-    private Integer filterType;
+    this.filterType = builder.filterType;
     /**
      * 筛选条件
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("filter_rule")
-    private VerifFilterRule filterRule;
+    this.filterRule = builder.filterRule;
     /**
      * 是否汇总
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_collect")
-    private Boolean isCollect;
+    this.isCollect = builder.isCollect;
     /**
      * 是否分段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_proration")
-    private Boolean isProration;
+    this.isProration = builder.isProration;
     /**
      * 是否追溯
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_retro")
-    private Boolean isRetro;
+    this.isRetro = builder.isRetro;
     /**
      * 数据项配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("items")
-    private VerifItem[] items;
+    this.items = builder.items;
     /**
      * 数据源配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("data_source_rule")
+    this.dataSourceRule = builder.dataSourceRule;
+  }
+
+  public static class Builder {
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     */
+    private Integer filterType;
+
+    /**
+     * 筛选条件
+     *
+     * <p>示例值：
+     */
+    private VerifFilterRule filterRule;
+
+    /**
+     * 是否汇总
+     *
+     * <p>示例值：
+     */
+    private Boolean isCollect;
+
+    /**
+     * 是否分段
+     *
+     * <p>示例值：
+     */
+    private Boolean isProration;
+
+    /**
+     * 是否追溯
+     *
+     * <p>示例值：
+     */
+    private Boolean isRetro;
+
+    /**
+     * 数据项配置
+     *
+     * <p>示例值：
+     */
+    private VerifItem[] items;
+
+    /**
+     * 数据源配置
+     *
+     * <p>示例值：
+     */
     private VerifDataSourceRule dataSourceRule;
 
-    // builder 开始
-    public VerifDatasourceConfig() {
+    /**
+     * 字段类型
+     *
+     * <p>示例值：1
+     *
+     * @param filterType
+     * @return
+     */
+    public Builder filterType(Integer filterType) {
+      this.filterType = filterType;
+      return this;
     }
 
-    public VerifDatasourceConfig(Builder builder) {
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        this.filterType = builder.filterType;
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         */
-        this.filterRule = builder.filterRule;
-        /**
-         * 是否汇总
-         * <p> 示例值：
-         */
-        this.isCollect = builder.isCollect;
-        /**
-         * 是否分段
-         * <p> 示例值：
-         */
-        this.isProration = builder.isProration;
-        /**
-         * 是否追溯
-         * <p> 示例值：
-         */
-        this.isRetro = builder.isRetro;
-        /**
-         * 数据项配置
-         * <p> 示例值：
-         */
-        this.items = builder.items;
-        /**
-         * 数据源配置
-         * <p> 示例值：
-         */
-        this.dataSourceRule = builder.dataSourceRule;
+    /**
+     * 筛选条件
+     *
+     * <p>示例值：
+     *
+     * @param filterRule
+     * @return
+     */
+    public Builder filterRule(VerifFilterRule filterRule) {
+      this.filterRule = filterRule;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否汇总
+     *
+     * <p>示例值：
+     *
+     * @param isCollect
+     * @return
+     */
+    public Builder isCollect(Boolean isCollect) {
+      this.isCollect = isCollect;
+      return this;
     }
 
-    public Integer getFilterType() {
-        return this.filterType;
+    /**
+     * 是否分段
+     *
+     * <p>示例值：
+     *
+     * @param isProration
+     * @return
+     */
+    public Builder isProration(Boolean isProration) {
+      this.isProration = isProration;
+      return this;
     }
 
-    public void setFilterType(Integer filterType) {
-        this.filterType = filterType;
+    /**
+     * 是否追溯
+     *
+     * <p>示例值：
+     *
+     * @param isRetro
+     * @return
+     */
+    public Builder isRetro(Boolean isRetro) {
+      this.isRetro = isRetro;
+      return this;
     }
 
-    public VerifFilterRule getFilterRule() {
-        return this.filterRule;
+    /**
+     * 数据项配置
+     *
+     * <p>示例值：
+     *
+     * @param items
+     * @return
+     */
+    public Builder items(VerifItem[] items) {
+      this.items = items;
+      return this;
     }
 
-    public void setFilterRule(VerifFilterRule filterRule) {
-        this.filterRule = filterRule;
+    /**
+     * 数据源配置
+     *
+     * <p>示例值：
+     *
+     * @param dataSourceRule
+     * @return
+     */
+    public Builder dataSourceRule(VerifDataSourceRule dataSourceRule) {
+      this.dataSourceRule = dataSourceRule;
+      return this;
     }
 
-    public Boolean getIsCollect() {
-        return this.isCollect;
+    public VerifDatasourceConfig build() {
+      return new VerifDatasourceConfig(this);
     }
+  }
 
-    public void setIsCollect(Boolean isCollect) {
-        this.isCollect = isCollect;
-    }
-
-    public Boolean getIsProration() {
-        return this.isProration;
-    }
-
-    public void setIsProration(Boolean isProration) {
-        this.isProration = isProration;
-    }
-
-    public Boolean getIsRetro() {
-        return this.isRetro;
-    }
-
-    public void setIsRetro(Boolean isRetro) {
-        this.isRetro = isRetro;
-    }
-
-    public VerifItem[] getItems() {
-        return this.items;
-    }
-
-    public void setItems(VerifItem[] items) {
-        this.items = items;
-    }
-
-    public VerifDataSourceRule getDataSourceRule() {
-        return this.dataSourceRule;
-    }
-
-    public void setDataSourceRule(VerifDataSourceRule dataSourceRule) {
-        this.dataSourceRule = dataSourceRule;
-    }
-
-    public static class Builder {
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         */
-        private Integer filterType;
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         */
-        private VerifFilterRule filterRule;
-        /**
-         * 是否汇总
-         * <p> 示例值：
-         */
-        private Boolean isCollect;
-        /**
-         * 是否分段
-         * <p> 示例值：
-         */
-        private Boolean isProration;
-        /**
-         * 是否追溯
-         * <p> 示例值：
-         */
-        private Boolean isRetro;
-        /**
-         * 数据项配置
-         * <p> 示例值：
-         */
-        private VerifItem[] items;
-        /**
-         * 数据源配置
-         * <p> 示例值：
-         */
-        private VerifDataSourceRule dataSourceRule;
-
-        /**
-         * 字段类型
-         * <p> 示例值：1
-         *
-         * @param filterType
-         * @return
-         */
-        public Builder filterType(Integer filterType) {
-            this.filterType = filterType;
-            return this;
-        }
-
-
-        /**
-         * 筛选条件
-         * <p> 示例值：
-         *
-         * @param filterRule
-         * @return
-         */
-        public Builder filterRule(VerifFilterRule filterRule) {
-            this.filterRule = filterRule;
-            return this;
-        }
-
-
-        /**
-         * 是否汇总
-         * <p> 示例值：
-         *
-         * @param isCollect
-         * @return
-         */
-        public Builder isCollect(Boolean isCollect) {
-            this.isCollect = isCollect;
-            return this;
-        }
-
-
-        /**
-         * 是否分段
-         * <p> 示例值：
-         *
-         * @param isProration
-         * @return
-         */
-        public Builder isProration(Boolean isProration) {
-            this.isProration = isProration;
-            return this;
-        }
-
-
-        /**
-         * 是否追溯
-         * <p> 示例值：
-         *
-         * @param isRetro
-         * @return
-         */
-        public Builder isRetro(Boolean isRetro) {
-            this.isRetro = isRetro;
-            return this;
-        }
-
-
-        /**
-         * 数据项配置
-         * <p> 示例值：
-         *
-         * @param items
-         * @return
-         */
-        public Builder items(VerifItem[] items) {
-            this.items = items;
-            return this;
-        }
-
-
-        /**
-         * 数据源配置
-         * <p> 示例值：
-         *
-         * @param dataSourceRule
-         * @return
-         */
-        public Builder dataSourceRule(VerifDataSourceRule dataSourceRule) {
-            this.dataSourceRule = dataSourceRule;
-            return this;
-        }
-
-
-        public VerifDatasourceConfig build() {
-            return new VerifDatasourceConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReadUser {
+  /**
+   * 用户id类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+   *
+   * <p>示例值：ou_9b851f7b51a9d58d109982337c46f3de
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 已读消息的时间，毫秒级时间戳。
+   *
+   * <p>示例值：1609484183000
+   */
+  @SerializedName("timestamp")
+  private String timestamp;
+
+  /**
+   * 租户唯一标识。该标识用来识别租户，也可以用来获取租户访问凭证（tenant_access_token）。
+   *
+   * <p>示例值：736588c9260f175e
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getTimestamp() {
+    return this.timestamp;
+  }
+
+  public void setTimestamp(String timestamp) {
+    this.timestamp = timestamp;
+  }
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  // builder 开始
+  public ReadUser() {}
+
+  public ReadUser(Builder builder) {
     /**
      * 用户id类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：
      */
-    @SerializedName("user_id_type")
+    this.userIdType = builder.userIdType;
+    /**
+     * 用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：ou_9b851f7b51a9d58d109982337c46f3de
+     */
+    this.userId = builder.userId;
+    /**
+     * 已读消息的时间，毫秒级时间戳。
+     *
+     * <p>示例值：1609484183000
+     */
+    this.timestamp = builder.timestamp;
+    /**
+     * 租户唯一标识。该标识用来识别租户，也可以用来获取租户访问凭证（tenant_access_token）。
+     *
+     * <p>示例值：736588c9260f175e
+     */
+    this.tenantKey = builder.tenantKey;
+  }
+
+  public static class Builder {
+    /**
+     * 用户id类型
+     *
+     * <p>示例值：
+     */
     private String userIdType;
+
     /**
-     * 用户id
-     * <p> 示例值：ou_9b851f7b51a9d58d109982337c46f3de
+     * 用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：ou_9b851f7b51a9d58d109982337c46f3de
      */
-    @SerializedName("user_id")
     private String userId;
+
     /**
-     * 阅读时间
-     * <p> 示例值：1609484183000
+     * 已读消息的时间，毫秒级时间戳。
+     *
+     * <p>示例值：1609484183000
      */
-    @SerializedName("timestamp")
     private String timestamp;
+
     /**
-     * tenant key
-     * <p> 示例值：736588c9260f175e
+     * 租户唯一标识。该标识用来识别租户，也可以用来获取租户访问凭证（tenant_access_token）。
+     *
+     * <p>示例值：736588c9260f175e
      */
-    @SerializedName("tenant_key")
     private String tenantKey;
 
-    // builder 开始
-    public ReadUser() {
+    /**
+     * 用户id类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public ReadUser(Builder builder) {
-        /**
-         * 用户id类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 用户id
-         * <p> 示例值：ou_9b851f7b51a9d58d109982337c46f3de
-         */
-        this.userId = builder.userId;
-        /**
-         * 阅读时间
-         * <p> 示例值：1609484183000
-         */
-        this.timestamp = builder.timestamp;
-        /**
-         * tenant key
-         * <p> 示例值：736588c9260f175e
-         */
-        this.tenantKey = builder.tenantKey;
+    /**
+     * 用户 ID，ID 类型与查询参数 user_id_type 取值一致。
+     *
+     * <p>示例值：ou_9b851f7b51a9d58d109982337c46f3de
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 已读消息的时间，毫秒级时间戳。
+     *
+     * <p>示例值：1609484183000
+     *
+     * @param timestamp
+     * @return
+     */
+    public Builder timestamp(String timestamp) {
+      this.timestamp = timestamp;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 租户唯一标识。该标识用来识别租户，也可以用来获取租户访问凭证（tenant_access_token）。
+     *
+     * <p>示例值：736588c9260f175e
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    public ReadUser build() {
+      return new ReadUser(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getTimestamp() {
-        return this.timestamp;
-    }
-
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
-
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
-
-    public static class Builder {
-        /**
-         * 用户id类型
-         * <p> 示例值：open_id
-         */
-        private String userIdType;
-        /**
-         * 用户id
-         * <p> 示例值：ou_9b851f7b51a9d58d109982337c46f3de
-         */
-        private String userId;
-        /**
-         * 阅读时间
-         * <p> 示例值：1609484183000
-         */
-        private String timestamp;
-        /**
-         * tenant key
-         * <p> 示例值：736588c9260f175e
-         */
-        private String tenantKey;
-
-        /**
-         * 用户id类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-
-        /**
-         * 用户id
-         * <p> 示例值：ou_9b851f7b51a9d58d109982337c46f3de
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 阅读时间
-         * <p> 示例值：1609484183000
-         *
-         * @param timestamp
-         * @return
-         */
-        public Builder timestamp(String timestamp) {
-            this.timestamp = timestamp;
-            return this;
-        }
-
-
-        /**
-         * tenant key
-         * <p> 示例值：736588c9260f175e
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        public ReadUser build() {
-            return new ReadUser(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

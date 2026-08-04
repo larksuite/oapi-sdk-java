@@ -14,20 +14,22 @@
 package com.lark.oapi.service.corehr.v2.enums;
 
 /**
- * 试用期结果，填写时满足以下规则 - 填写「通过」时，必填「试用期实际结束日期」。 - 填写「延长」时，「延长后试用期预计结束日期」和「试用期预计延长时长」至少填写一项。
+ * 试用期结果，填写时满足以下规则 ;- 权限要求：<md-perm name="corehr:probation.probation_outcome:write" desc="写试用期结果字段"
+ * support_app_types="custom,isv" >写试用期结果字段</md-perm>;- 取值区分大小写。;- 填写「通过」时，必填「试用期实际结束日期」。;-
+ * 填写「延长」时，「延长后试用期预计结束日期」和「试用期预计延长时长」至少填写一项。;- 填写「未通过」时，需要置空「试用期实际结束日期」。
  */
 public enum EditProbationEditProbationProbationOutcomeEnum {
-    PASSED("passed"), // 通过
-    FAILED("failed"), // 未通过
-    DELAYED("delayed"), // 延期
-    ;
-    private String value;
+  PASSED("passed"), // 通过
+  FAILED("failed"), // 未通过
+  DELAYED("delayed"), // 延期
+  ;
+  private String value;
 
-    EditProbationEditProbationProbationOutcomeEnum(String value) {
-        this.value = value;
-    }
+  EditProbationEditProbationProbationOutcomeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

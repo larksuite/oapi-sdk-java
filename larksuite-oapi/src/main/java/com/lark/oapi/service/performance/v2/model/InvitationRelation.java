@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class InvitationRelation {
+  /**
+   * 被评估人ID。ID类型必须与查询参数user_id_type的取值一致
+   *
+   * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
+   */
+  @SerializedName("reviewee_user_id")
+  private String revieweeUserId;
+
+  /**
+   * 评估人ID列表。ID类型必须与查询参数user_id_type的取值一致
+   *
+   * <p>示例值：
+   */
+  @SerializedName("reviewer_user_ids")
+  private String[] reviewerUserIds;
+
+  public String getRevieweeUserId() {
+    return this.revieweeUserId;
+  }
+
+  public void setRevieweeUserId(String revieweeUserId) {
+    this.revieweeUserId = revieweeUserId;
+  }
+
+  public String[] getReviewerUserIds() {
+    return this.reviewerUserIds;
+  }
+
+  public void setReviewerUserIds(String[] reviewerUserIds) {
+    this.reviewerUserIds = reviewerUserIds;
+  }
+
+  // builder 开始
+  public InvitationRelation() {}
+
+  public InvitationRelation(Builder builder) {
     /**
-     * 被评估人ID
-     * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
+     * 被评估人ID。ID类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
      */
-    @SerializedName("reviewee_user_id")
+    this.revieweeUserId = builder.revieweeUserId;
+    /**
+     * 评估人ID列表。ID类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：
+     */
+    this.reviewerUserIds = builder.reviewerUserIds;
+  }
+
+  public static class Builder {
+    /**
+     * 被评估人ID。ID类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
+     */
     private String revieweeUserId;
+
     /**
-     * 评估人ID列表
-     * <p> 示例值：
+     * 评估人ID列表。ID类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：
      */
-    @SerializedName("reviewer_user_ids")
     private String[] reviewerUserIds;
 
-    // builder 开始
-    public InvitationRelation() {
+    /**
+     * 被评估人ID。ID类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
+     *
+     * @param revieweeUserId
+     * @return
+     */
+    public Builder revieweeUserId(String revieweeUserId) {
+      this.revieweeUserId = revieweeUserId;
+      return this;
     }
 
-    public InvitationRelation(Builder builder) {
-        /**
-         * 被评估人ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-         */
-        this.revieweeUserId = builder.revieweeUserId;
-        /**
-         * 评估人ID列表
-         * <p> 示例值：
-         */
-        this.reviewerUserIds = builder.reviewerUserIds;
+    /**
+     * 评估人ID列表。ID类型必须与查询参数user_id_type的取值一致
+     *
+     * <p>示例值：
+     *
+     * @param reviewerUserIds
+     * @return
+     */
+    public Builder reviewerUserIds(String[] reviewerUserIds) {
+      this.reviewerUserIds = reviewerUserIds;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public InvitationRelation build() {
+      return new InvitationRelation(this);
     }
+  }
 
-    public String getRevieweeUserId() {
-        return this.revieweeUserId;
-    }
-
-    public void setRevieweeUserId(String revieweeUserId) {
-        this.revieweeUserId = revieweeUserId;
-    }
-
-    public String[] getReviewerUserIds() {
-        return this.reviewerUserIds;
-    }
-
-    public void setReviewerUserIds(String[] reviewerUserIds) {
-        this.reviewerUserIds = reviewerUserIds;
-    }
-
-    public static class Builder {
-        /**
-         * 被评估人ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-         */
-        private String revieweeUserId;
-        /**
-         * 评估人ID列表
-         * <p> 示例值：
-         */
-        private String[] reviewerUserIds;
-
-        /**
-         * 被评估人ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-         *
-         * @param revieweeUserId
-         * @return
-         */
-        public Builder revieweeUserId(String revieweeUserId) {
-            this.revieweeUserId = revieweeUserId;
-            return this;
-        }
-
-
-        /**
-         * 评估人ID列表
-         * <p> 示例值：
-         *
-         * @param reviewerUserIds
-         * @return
-         */
-        public Builder reviewerUserIds(String[] reviewerUserIds) {
-            this.reviewerUserIds = reviewerUserIds;
-            return this;
-        }
-
-
-        public InvitationRelation build() {
-            return new InvitationRelation(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

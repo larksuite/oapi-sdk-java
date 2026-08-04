@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.okr.v1.enums;
 
-/**
- * 状态
- */
+/** 状态 */
 public enum ProgressRateStatusEnum {
-    NOT_YET(-1), // 暂无
-    NORMAL(0), // 正常
-    RISK(1), // 风险
-    POSTPONE(2), // 延期
-    ;
-    private Integer value;
+  NOT_YET(-1), // 暂无
+  NORMAL(0), // 正常
+  RISK(1), // 风险
+  POSTPONE(2), // 延期
+  ;
+  private Integer value;
 
-    ProgressRateStatusEnum(Integer value) {
-        this.value = value;
-    }
+  ProgressRateStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

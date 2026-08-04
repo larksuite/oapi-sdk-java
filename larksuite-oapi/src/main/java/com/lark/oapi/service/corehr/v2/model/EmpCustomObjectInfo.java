@@ -13,186 +13,193 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmpCustomObjectInfo {
+  /**
+   * 人员档案所在位置
+   *
+   * <p>示例值：EmploymentInfo
+   */
+  @SerializedName("system_info")
+  private String systemInfo;
+
+  /**
+   * 是否为时间轴对象
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_timeline")
+  private Boolean isTimeline;
+
+  /**
+   * 是否启用 true 启用 false 停用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_activate")
+  private Boolean isActivate;
+
+  /**
+   * 记录列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employment_custom_object_records")
+  private EmploymentCustomObjectRecord[] employmentCustomObjectRecords;
+
+  public String getSystemInfo() {
+    return this.systemInfo;
+  }
+
+  public void setSystemInfo(String systemInfo) {
+    this.systemInfo = systemInfo;
+  }
+
+  public Boolean getIsTimeline() {
+    return this.isTimeline;
+  }
+
+  public void setIsTimeline(Boolean isTimeline) {
+    this.isTimeline = isTimeline;
+  }
+
+  public Boolean getIsActivate() {
+    return this.isActivate;
+  }
+
+  public void setIsActivate(Boolean isActivate) {
+    this.isActivate = isActivate;
+  }
+
+  public EmploymentCustomObjectRecord[] getEmploymentCustomObjectRecords() {
+    return this.employmentCustomObjectRecords;
+  }
+
+  public void setEmploymentCustomObjectRecords(
+      EmploymentCustomObjectRecord[] employmentCustomObjectRecords) {
+    this.employmentCustomObjectRecords = employmentCustomObjectRecords;
+  }
+
+  // builder 开始
+  public EmpCustomObjectInfo() {}
+
+  public EmpCustomObjectInfo(Builder builder) {
     /**
      * 人员档案所在位置
-     * <p> 示例值：EmploymentInfo
+     *
+     * <p>示例值：EmploymentInfo
      */
-    @SerializedName("system_info")
-    private String systemInfo;
+    this.systemInfo = builder.systemInfo;
     /**
      * 是否为时间轴对象
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_timeline")
-    private Boolean isTimeline;
+    this.isTimeline = builder.isTimeline;
     /**
      * 是否启用 true 启用 false 停用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_activate")
-    private Boolean isActivate;
+    this.isActivate = builder.isActivate;
     /**
      * 记录列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employment_custom_object_records")
+    this.employmentCustomObjectRecords = builder.employmentCustomObjectRecords;
+  }
+
+  public static class Builder {
+    /**
+     * 人员档案所在位置
+     *
+     * <p>示例值：EmploymentInfo
+     */
+    private String systemInfo;
+
+    /**
+     * 是否为时间轴对象
+     *
+     * <p>示例值：true
+     */
+    private Boolean isTimeline;
+
+    /**
+     * 是否启用 true 启用 false 停用
+     *
+     * <p>示例值：true
+     */
+    private Boolean isActivate;
+
+    /**
+     * 记录列表
+     *
+     * <p>示例值：
+     */
     private EmploymentCustomObjectRecord[] employmentCustomObjectRecords;
 
-    // builder 开始
-    public EmpCustomObjectInfo() {
+    /**
+     * 人员档案所在位置
+     *
+     * <p>示例值：EmploymentInfo
+     *
+     * @param systemInfo
+     * @return
+     */
+    public Builder systemInfo(String systemInfo) {
+      this.systemInfo = systemInfo;
+      return this;
     }
 
-    public EmpCustomObjectInfo(Builder builder) {
-        /**
-         * 人员档案所在位置
-         * <p> 示例值：EmploymentInfo
-         */
-        this.systemInfo = builder.systemInfo;
-        /**
-         * 是否为时间轴对象
-         * <p> 示例值：true
-         */
-        this.isTimeline = builder.isTimeline;
-        /**
-         * 是否启用 true 启用 false 停用
-         * <p> 示例值：true
-         */
-        this.isActivate = builder.isActivate;
-        /**
-         * 记录列表
-         * <p> 示例值：
-         */
-        this.employmentCustomObjectRecords = builder.employmentCustomObjectRecords;
+    /**
+     * 是否为时间轴对象
+     *
+     * <p>示例值：true
+     *
+     * @param isTimeline
+     * @return
+     */
+    public Builder isTimeline(Boolean isTimeline) {
+      this.isTimeline = isTimeline;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 是否启用 true 启用 false 停用
+     *
+     * <p>示例值：true
+     *
+     * @param isActivate
+     * @return
+     */
+    public Builder isActivate(Boolean isActivate) {
+      this.isActivate = isActivate;
+      return this;
     }
 
-    public String getSystemInfo() {
-        return this.systemInfo;
+    /**
+     * 记录列表
+     *
+     * <p>示例值：
+     *
+     * @param employmentCustomObjectRecords
+     * @return
+     */
+    public Builder employmentCustomObjectRecords(
+        EmploymentCustomObjectRecord[] employmentCustomObjectRecords) {
+      this.employmentCustomObjectRecords = employmentCustomObjectRecords;
+      return this;
     }
 
-    public void setSystemInfo(String systemInfo) {
-        this.systemInfo = systemInfo;
+    public EmpCustomObjectInfo build() {
+      return new EmpCustomObjectInfo(this);
     }
+  }
 
-    public Boolean getIsTimeline() {
-        return this.isTimeline;
-    }
-
-    public void setIsTimeline(Boolean isTimeline) {
-        this.isTimeline = isTimeline;
-    }
-
-    public Boolean getIsActivate() {
-        return this.isActivate;
-    }
-
-    public void setIsActivate(Boolean isActivate) {
-        this.isActivate = isActivate;
-    }
-
-    public EmploymentCustomObjectRecord[] getEmploymentCustomObjectRecords() {
-        return this.employmentCustomObjectRecords;
-    }
-
-    public void setEmploymentCustomObjectRecords(EmploymentCustomObjectRecord[] employmentCustomObjectRecords) {
-        this.employmentCustomObjectRecords = employmentCustomObjectRecords;
-    }
-
-    public static class Builder {
-        /**
-         * 人员档案所在位置
-         * <p> 示例值：EmploymentInfo
-         */
-        private String systemInfo;
-        /**
-         * 是否为时间轴对象
-         * <p> 示例值：true
-         */
-        private Boolean isTimeline;
-        /**
-         * 是否启用 true 启用 false 停用
-         * <p> 示例值：true
-         */
-        private Boolean isActivate;
-        /**
-         * 记录列表
-         * <p> 示例值：
-         */
-        private EmploymentCustomObjectRecord[] employmentCustomObjectRecords;
-
-        /**
-         * 人员档案所在位置
-         * <p> 示例值：EmploymentInfo
-         *
-         * @param systemInfo
-         * @return
-         */
-        public Builder systemInfo(String systemInfo) {
-            this.systemInfo = systemInfo;
-            return this;
-        }
-
-
-        /**
-         * 是否为时间轴对象
-         * <p> 示例值：true
-         *
-         * @param isTimeline
-         * @return
-         */
-        public Builder isTimeline(Boolean isTimeline) {
-            this.isTimeline = isTimeline;
-            return this;
-        }
-
-
-        /**
-         * 是否启用 true 启用 false 停用
-         * <p> 示例值：true
-         *
-         * @param isActivate
-         * @return
-         */
-        public Builder isActivate(Boolean isActivate) {
-            this.isActivate = isActivate;
-            return this;
-        }
-
-
-        /**
-         * 记录列表
-         * <p> 示例值：
-         *
-         * @param employmentCustomObjectRecords
-         * @return
-         */
-        public Builder employmentCustomObjectRecords(EmploymentCustomObjectRecord[] employmentCustomObjectRecords) {
-            this.employmentCustomObjectRecords = employmentCustomObjectRecords;
-            return this;
-        }
-
-
-        public EmpCustomObjectInfo build() {
-            return new EmpCustomObjectInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

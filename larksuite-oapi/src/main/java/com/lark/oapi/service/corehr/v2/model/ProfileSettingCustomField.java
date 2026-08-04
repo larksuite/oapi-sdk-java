@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ProfileSettingCustomField {
+  /**
+   * 字段名
+   *
+   * <p>示例值：custom_field_1__c
+   */
+  @SerializedName("field_name")
+  private String fieldName;
+
+  /**
+   * 字段值;;是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式;-
+   * 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("value")
+  private String value;
+
+  public String getFieldName() {
+    return this.fieldName;
+  }
+
+  public void setFieldName(String fieldName) {
+    this.fieldName = fieldName;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  // builder 开始
+  public ProfileSettingCustomField() {}
+
+  public ProfileSettingCustomField(Builder builder) {
     /**
      * 字段名
-     * <p> 示例值：custom_field_1__c
+     *
+     * <p>示例值：custom_field_1__c
      */
-    @SerializedName("field_name")
-    private String fieldName;
+    this.fieldName = builder.fieldName;
     /**
-     * 字段值, 是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考【操作手册】如何通过 OpenAPI 维护自定义字段
-     * <p> 示例值：[\"custom_enum_0__c\"]
+     * 字段值;;是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式;-
+     * 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+     *
+     * <p>示例值：123
      */
-    @SerializedName("value")
+    this.value = builder.value;
+  }
+
+  public static class Builder {
+    /**
+     * 字段名
+     *
+     * <p>示例值：custom_field_1__c
+     */
+    private String fieldName;
+
+    /**
+     * 字段值;;是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式;-
+     * 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+     *
+     * <p>示例值：123
+     */
     private String value;
 
-    // builder 开始
-    public ProfileSettingCustomField() {
+    /**
+     * 字段名
+     *
+     * <p>示例值：custom_field_1__c
+     *
+     * @param fieldName
+     * @return
+     */
+    public Builder fieldName(String fieldName) {
+      this.fieldName = fieldName;
+      return this;
     }
 
-    public ProfileSettingCustomField(Builder builder) {
-        /**
-         * 字段名
-         * <p> 示例值：custom_field_1__c
-         */
-        this.fieldName = builder.fieldName;
-        /**
-         * 字段值, 是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考【操作手册】如何通过 OpenAPI 维护自定义字段
-         * <p> 示例值：[\"custom_enum_0__c\"]
-         */
-        this.value = builder.value;
+    /**
+     * 字段值;;是 JSON 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式;-
+     * 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)
+     *
+     * <p>示例值：123
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ProfileSettingCustomField build() {
+      return new ProfileSettingCustomField(this);
     }
+  }
 
-    public String getFieldName() {
-        return this.fieldName;
-    }
-
-    public void setFieldName(String fieldName) {
-        this.fieldName = fieldName;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public static class Builder {
-        /**
-         * 字段名
-         * <p> 示例值：custom_field_1__c
-         */
-        private String fieldName;
-        /**
-         * 字段值, 是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考【操作手册】如何通过 OpenAPI 维护自定义字段
-         * <p> 示例值：[\"custom_enum_0__c\"]
-         */
-        private String value;
-
-        /**
-         * 字段名
-         * <p> 示例值：custom_field_1__c
-         *
-         * @param fieldName
-         * @return
-         */
-        public Builder fieldName(String fieldName) {
-            this.fieldName = fieldName;
-            return this;
-        }
-
-
-        /**
-         * 字段值, 是 json 转义后的字符串，根据元数据定义不同，字段格式不同。使用方式可参考【操作手册】如何通过 OpenAPI 维护自定义字段
-         * <p> 示例值：[\"custom_enum_0__c\"]
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        public ProfileSettingCustomField build() {
-            return new ProfileSettingCustomField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

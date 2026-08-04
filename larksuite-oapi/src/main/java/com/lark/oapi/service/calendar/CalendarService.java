@@ -29,107 +29,113 @@ import com.lark.oapi.service.calendar.v4.resource.Setting;
 import com.lark.oapi.service.calendar.v4.resource.TimeoffEvent;
 
 public class CalendarService {
-    private final V4 v4;
-    private final Calendar calendar; // 日历管理
-    private final CalendarAcl calendarAcl; // 日历访问控制
-    private final CalendarEvent calendarEvent; // 日程
-    private final CalendarEventAttendee calendarEventAttendee; // 日程参与人
-    private final CalendarEventAttendeeChatMember calendarEventAttendeeChatMember; // 日程参与人群成员
-    private final CalendarEventMeetingChat calendarEventMeetingChat; // calendar.event.meeting_chat
-    private final CalendarEventMeetingMinute calendarEventMeetingMinute; // calendar.event.meeting_minute
-    private final ExchangeBinding exchangeBinding; // Exchange绑定
-    private final Freebusy freebusy; // freebusy
-    private final Setting setting; // 日历设置
-    private final TimeoffEvent timeoffEvent; // 请假
+  private final V4 v4;
+  private final Calendar calendar; // calendar
+  private final CalendarAcl calendarAcl; // calendar.acl
+  private final CalendarEvent calendarEvent; // calendar.event
+  private final CalendarEventAttendee calendarEventAttendee; // calendar.event.attendee
+  private final CalendarEventAttendeeChatMember
+      calendarEventAttendeeChatMember; // calendar.event.attendee.chat_member
+  private final CalendarEventMeetingChat calendarEventMeetingChat; // calendar.event.meeting_chat
+  private final CalendarEventMeetingMinute
+      calendarEventMeetingMinute; // calendar.event.meeting_minute
+  private final ExchangeBinding exchangeBinding; // exchange_binding
+  private final Freebusy freebusy; // freebusy
+  private final Setting setting; // setting
+  private final TimeoffEvent timeoffEvent; // timeoff_event
 
-    public CalendarService(Config config) {
-        this.v4 = new V4(config);
-        this.calendar = new Calendar(config);
-        this.calendarAcl = new CalendarAcl(config);
-        this.calendarEvent = new CalendarEvent(config);
-        this.calendarEventAttendee = new CalendarEventAttendee(config);
-        this.calendarEventAttendeeChatMember = new CalendarEventAttendeeChatMember(config);
-        this.calendarEventMeetingChat = new CalendarEventMeetingChat(config);
-        this.calendarEventMeetingMinute = new CalendarEventMeetingMinute(config);
-        this.exchangeBinding = new ExchangeBinding(config);
-        this.freebusy = new Freebusy(config);
-        this.setting = new Setting(config);
-        this.timeoffEvent = new TimeoffEvent(config);
-    }
+  public CalendarService(Config config) {
+    this.v4 = new V4(config);
+    this.calendar = new Calendar(config);
+    this.calendarAcl = new CalendarAcl(config);
+    this.calendarEvent = new CalendarEvent(config);
+    this.calendarEventAttendee = new CalendarEventAttendee(config);
+    this.calendarEventAttendeeChatMember = new CalendarEventAttendeeChatMember(config);
+    this.calendarEventMeetingChat = new CalendarEventMeetingChat(config);
+    this.calendarEventMeetingMinute = new CalendarEventMeetingMinute(config);
+    this.exchangeBinding = new ExchangeBinding(config);
+    this.freebusy = new Freebusy(config);
+    this.setting = new Setting(config);
+    this.timeoffEvent = new TimeoffEvent(config);
+  }
 
-    public V4 v4() {
-        return v4;
-    }
+  public V4 v4() {
+    return v4;
+  }
 
-    public Calendar calendar() {
-        return calendar;
-    }
+  public Calendar calendar() {
+    return calendar;
+  }
 
-    public CalendarAcl calendarAcl() {
-        return calendarAcl;
-    }
+  public CalendarAcl calendarAcl() {
+    return calendarAcl;
+  }
 
-    public CalendarEvent calendarEvent() {
-        return calendarEvent;
-    }
+  public CalendarEvent calendarEvent() {
+    return calendarEvent;
+  }
 
-    public CalendarEventAttendee calendarEventAttendee() {
-        return calendarEventAttendee;
-    }
+  public CalendarEventAttendee calendarEventAttendee() {
+    return calendarEventAttendee;
+  }
 
-    public CalendarEventAttendeeChatMember calendarEventAttendeeChatMember() {
-        return calendarEventAttendeeChatMember;
-    }
+  public CalendarEventAttendeeChatMember calendarEventAttendeeChatMember() {
+    return calendarEventAttendeeChatMember;
+  }
 
-    public CalendarEventMeetingChat calendarEventMeetingChat() {
-        return calendarEventMeetingChat;
-    }
+  public CalendarEventMeetingChat calendarEventMeetingChat() {
+    return calendarEventMeetingChat;
+  }
 
-    public CalendarEventMeetingMinute calendarEventMeetingMinute() {
-        return calendarEventMeetingMinute;
-    }
+  public CalendarEventMeetingMinute calendarEventMeetingMinute() {
+    return calendarEventMeetingMinute;
+  }
 
-    public ExchangeBinding exchangeBinding() {
-        return exchangeBinding;
-    }
+  public ExchangeBinding exchangeBinding() {
+    return exchangeBinding;
+  }
 
-    public Freebusy freebusy() {
-        return freebusy;
-    }
+  public Freebusy freebusy() {
+    return freebusy;
+  }
 
-    public Setting setting() {
-        return setting;
-    }
+  public Setting setting() {
+    return setting;
+  }
 
-    public TimeoffEvent timeoffEvent() {
-        return timeoffEvent;
-    }
+  public TimeoffEvent timeoffEvent() {
+    return timeoffEvent;
+  }
 
-    public abstract static class P2CalendarChangedV4Handler implements IEventHandler<P2CalendarChangedV4> {
-        @Override
-        public P2CalendarChangedV4 getEvent() {
-            return new P2CalendarChangedV4();
-        }
+  public abstract static class P2CalendarChangedV4Handler
+      implements IEventHandler<P2CalendarChangedV4> {
+    @Override
+    public P2CalendarChangedV4 getEvent() {
+      return new P2CalendarChangedV4();
     }
+  }
 
-    public abstract static class P2CalendarAclCreatedV4Handler implements IEventHandler<P2CalendarAclCreatedV4> {
-        @Override
-        public P2CalendarAclCreatedV4 getEvent() {
-            return new P2CalendarAclCreatedV4();
-        }
+  public abstract static class P2CalendarAclCreatedV4Handler
+      implements IEventHandler<P2CalendarAclCreatedV4> {
+    @Override
+    public P2CalendarAclCreatedV4 getEvent() {
+      return new P2CalendarAclCreatedV4();
     }
+  }
 
-    public abstract static class P2CalendarAclDeletedV4Handler implements IEventHandler<P2CalendarAclDeletedV4> {
-        @Override
-        public P2CalendarAclDeletedV4 getEvent() {
-            return new P2CalendarAclDeletedV4();
-        }
+  public abstract static class P2CalendarAclDeletedV4Handler
+      implements IEventHandler<P2CalendarAclDeletedV4> {
+    @Override
+    public P2CalendarAclDeletedV4 getEvent() {
+      return new P2CalendarAclDeletedV4();
     }
+  }
 
-    public abstract static class P2CalendarEventChangedV4Handler implements IEventHandler<P2CalendarEventChangedV4> {
-        @Override
-        public P2CalendarEventChangedV4 getEvent() {
-            return new P2CalendarEventChangedV4();
-        }
+  public abstract static class P2CalendarEventChangedV4Handler
+      implements IEventHandler<P2CalendarEventChangedV4> {
+    @Override
+    public P2CalendarEventChangedV4 getEvent() {
+      return new P2CalendarEventChangedV4();
     }
+  }
 }

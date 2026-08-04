@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobDetailTag {
+  /**
+   * 标签 ID
+   *
+   * <p>示例值：6949805467799537964
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 标签名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private I18n name;
+
+  /**
+   * 标签顺序
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("order")
+  private Integer order;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n getName() {
+    return this.name;
+  }
+
+  public void setName(I18n name) {
+    this.name = name;
+  }
+
+  public Integer getOrder() {
+    return this.order;
+  }
+
+  public void setOrder(Integer order) {
+    this.order = order;
+  }
+
+  // builder 开始
+  public JobDetailTag() {}
+
+  public JobDetailTag(Builder builder) {
     /**
      * 标签 ID
-     * <p> 示例值：6949805467799537964
+     *
+     * <p>示例值：6949805467799537964
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 标签名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private I18n name;
+    this.name = builder.name;
     /**
      * 标签顺序
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("order")
+    this.order = builder.order;
+  }
+
+  public static class Builder {
+    /**
+     * 标签 ID
+     *
+     * <p>示例值：6949805467799537964
+     */
+    private String id;
+
+    /**
+     * 标签名称
+     *
+     * <p>示例值：
+     */
+    private I18n name;
+
+    /**
+     * 标签顺序
+     *
+     * <p>示例值：1
+     */
     private Integer order;
 
-    // builder 开始
-    public JobDetailTag() {
+    /**
+     * 标签 ID
+     *
+     * <p>示例值：6949805467799537964
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public JobDetailTag(Builder builder) {
-        /**
-         * 标签 ID
-         * <p> 示例值：6949805467799537964
-         */
-        this.id = builder.id;
-        /**
-         * 标签名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 标签顺序
-         * <p> 示例值：1
-         */
-        this.order = builder.order;
+    /**
+     * 标签名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(I18n name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 标签顺序
+     *
+     * <p>示例值：1
+     *
+     * @param order
+     * @return
+     */
+    public Builder order(Integer order) {
+      this.order = order;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public JobDetailTag build() {
+      return new JobDetailTag(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n getName() {
-        return this.name;
-    }
-
-    public void setName(I18n name) {
-        this.name = name;
-    }
-
-    public Integer getOrder() {
-        return this.order;
-    }
-
-    public void setOrder(Integer order) {
-        this.order = order;
-    }
-
-    public static class Builder {
-        /**
-         * 标签 ID
-         * <p> 示例值：6949805467799537964
-         */
-        private String id;
-        /**
-         * 标签名称
-         * <p> 示例值：
-         */
-        private I18n name;
-        /**
-         * 标签顺序
-         * <p> 示例值：1
-         */
-        private Integer order;
-
-        /**
-         * 标签 ID
-         * <p> 示例值：6949805467799537964
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 标签名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(I18n name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 标签顺序
-         * <p> 示例值：1
-         *
-         * @param order
-         * @return
-         */
-        public Builder order(Integer order) {
-            this.order = order;
-            return this;
-        }
-
-
-        public JobDetailTag build() {
-            return new JobDetailTag(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

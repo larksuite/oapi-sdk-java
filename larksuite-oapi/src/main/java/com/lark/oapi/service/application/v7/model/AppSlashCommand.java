@@ -13,223 +13,275 @@
 
 package com.lark.oapi.service.application.v7.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v7.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppSlashCommand {
+  /**
+   * 斜杠命令的唯一标识，系统自动生成。可通过创建斜杠命令接口获取，用于后续命令的查询、修改或删除操作。
+   *
+   * <p>示例值：cmd_7894561230
+   */
+  @SerializedName("command_id")
+  private String commandId;
+
+  /**
+   * 用户在聊天窗口输入的触发指令，需以 `/` 开头，支持英文、数字和下划线，不可与已存在的命令重复。
+   *
+   * <p>示例值：/check_attendance
+   */
+  @SerializedName("command")
+  private String command;
+
+  /**
+   * app slash command的说明的国际化文案
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private AppSlashCommandI18nText description;
+
+  /**
+   * 命令的创建时间，Unix 时间戳（毫秒），由系统自动生成，不可修改。
+   *
+   * <p>示例值：1698729600000
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 命令的最后更新时间，Unix 时间戳（毫秒），命令内容修改时自动更新，不可手动设置。
+   *
+   * <p>示例值：1699334400000
+   */
+  @SerializedName("update_time")
+  private String updateTime;
+
+  /**
+   * 命令 icon
+   *
+   * <p>示例值：
+   */
+  @SerializedName("icon")
+  private AppSlashCommandIcon icon;
+
+  public String getCommandId() {
+    return this.commandId;
+  }
+
+  public void setCommandId(String commandId) {
+    this.commandId = commandId;
+  }
+
+  public String getCommand() {
+    return this.command;
+  }
+
+  public void setCommand(String command) {
+    this.command = command;
+  }
+
+  public AppSlashCommandI18nText getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(AppSlashCommandI18nText description) {
+    this.description = description;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getUpdateTime() {
+    return this.updateTime;
+  }
+
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  public AppSlashCommandIcon getIcon() {
+    return this.icon;
+  }
+
+  public void setIcon(AppSlashCommandIcon icon) {
+    this.icon = icon;
+  }
+
+  // builder 开始
+  public AppSlashCommand() {}
+
+  public AppSlashCommand(Builder builder) {
     /**
      * 斜杠命令的唯一标识，系统自动生成。可通过创建斜杠命令接口获取，用于后续命令的查询、修改或删除操作。
-     * <p> 示例值：cmd_7894561230
+     *
+     * <p>示例值：cmd_7894561230
      */
-    @SerializedName("command_id")
-    private String commandId;
+    this.commandId = builder.commandId;
     /**
      * 用户在聊天窗口输入的触发指令，需以 `/` 开头，支持英文、数字和下划线，不可与已存在的命令重复。
-     * <p> 示例值：/check_attendance
+     *
+     * <p>示例值：/check_attendance
      */
-    @SerializedName("command")
-    private String command;
+    this.command = builder.command;
     /**
      * app slash command的说明的国际化文案
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
-    private AppSlashCommandI18nText description;
+    this.description = builder.description;
     /**
      * 命令的创建时间，Unix 时间戳（毫秒），由系统自动生成，不可修改。
-     * <p> 示例值：1698729600000
+     *
+     * <p>示例值：1698729600000
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 命令的最后更新时间，Unix 时间戳（毫秒），命令内容修改时自动更新，不可手动设置。
-     * <p> 示例值：1699334400000
+     *
+     * <p>示例值：1699334400000
      */
-    @SerializedName("update_time")
+    this.updateTime = builder.updateTime;
+    /**
+     * 命令 icon
+     *
+     * <p>示例值：
+     */
+    this.icon = builder.icon;
+  }
+
+  public static class Builder {
+    /**
+     * 斜杠命令的唯一标识，系统自动生成。可通过创建斜杠命令接口获取，用于后续命令的查询、修改或删除操作。
+     *
+     * <p>示例值：cmd_7894561230
+     */
+    private String commandId;
+
+    /**
+     * 用户在聊天窗口输入的触发指令，需以 `/` 开头，支持英文、数字和下划线，不可与已存在的命令重复。
+     *
+     * <p>示例值：/check_attendance
+     */
+    private String command;
+
+    /**
+     * app slash command的说明的国际化文案
+     *
+     * <p>示例值：
+     */
+    private AppSlashCommandI18nText description;
+
+    /**
+     * 命令的创建时间，Unix 时间戳（毫秒），由系统自动生成，不可修改。
+     *
+     * <p>示例值：1698729600000
+     */
+    private String createTime;
+
+    /**
+     * 命令的最后更新时间，Unix 时间戳（毫秒），命令内容修改时自动更新，不可手动设置。
+     *
+     * <p>示例值：1699334400000
+     */
     private String updateTime;
 
-    // builder 开始
-    public AppSlashCommand() {
+    /**
+     * 命令 icon
+     *
+     * <p>示例值：
+     */
+    private AppSlashCommandIcon icon;
+
+    /**
+     * 斜杠命令的唯一标识，系统自动生成。可通过创建斜杠命令接口获取，用于后续命令的查询、修改或删除操作。
+     *
+     * <p>示例值：cmd_7894561230
+     *
+     * @param commandId
+     * @return
+     */
+    public Builder commandId(String commandId) {
+      this.commandId = commandId;
+      return this;
     }
 
-    public AppSlashCommand(Builder builder) {
-        /**
-         * 斜杠命令的唯一标识，系统自动生成。可通过创建斜杠命令接口获取，用于后续命令的查询、修改或删除操作。
-         * <p> 示例值：cmd_7894561230
-         */
-        this.commandId = builder.commandId;
-        /**
-         * 用户在聊天窗口输入的触发指令，需以 `/` 开头，支持英文、数字和下划线，不可与已存在的命令重复。
-         * <p> 示例值：/check_attendance
-         */
-        this.command = builder.command;
-        /**
-         * app slash command的说明的国际化文案
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 命令的创建时间，Unix 时间戳（毫秒），由系统自动生成，不可修改。
-         * <p> 示例值：1698729600000
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 命令的最后更新时间，Unix 时间戳（毫秒），命令内容修改时自动更新，不可手动设置。
-         * <p> 示例值：1699334400000
-         */
-        this.updateTime = builder.updateTime;
+    /**
+     * 用户在聊天窗口输入的触发指令，需以 `/` 开头，支持英文、数字和下划线，不可与已存在的命令重复。
+     *
+     * <p>示例值：/check_attendance
+     *
+     * @param command
+     * @return
+     */
+    public Builder command(String command) {
+      this.command = command;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * app slash command的说明的国际化文案
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(AppSlashCommandI18nText description) {
+      this.description = description;
+      return this;
     }
 
-    public String getCommandId() {
-        return this.commandId;
+    /**
+     * 命令的创建时间，Unix 时间戳（毫秒），由系统自动生成，不可修改。
+     *
+     * <p>示例值：1698729600000
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setCommandId(String commandId) {
-        this.commandId = commandId;
+    /**
+     * 命令的最后更新时间，Unix 时间戳（毫秒），命令内容修改时自动更新，不可手动设置。
+     *
+     * <p>示例值：1699334400000
+     *
+     * @param updateTime
+     * @return
+     */
+    public Builder updateTime(String updateTime) {
+      this.updateTime = updateTime;
+      return this;
     }
 
-    public String getCommand() {
-        return this.command;
+    /**
+     * 命令 icon
+     *
+     * <p>示例值：
+     *
+     * @param icon
+     * @return
+     */
+    public Builder icon(AppSlashCommandIcon icon) {
+      this.icon = icon;
+      return this;
     }
 
-    public void setCommand(String command) {
-        this.command = command;
+    public AppSlashCommand build() {
+      return new AppSlashCommand(this);
     }
+  }
 
-    public AppSlashCommandI18nText getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(AppSlashCommandI18nText description) {
-        this.description = description;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateTime() {
-        return this.updateTime;
-    }
-
-    public void setUpdateTime(String updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public static class Builder {
-        /**
-         * 斜杠命令的唯一标识，系统自动生成。可通过创建斜杠命令接口获取，用于后续命令的查询、修改或删除操作。
-         * <p> 示例值：cmd_7894561230
-         */
-        private String commandId;
-        /**
-         * 用户在聊天窗口输入的触发指令，需以 `/` 开头，支持英文、数字和下划线，不可与已存在的命令重复。
-         * <p> 示例值：/check_attendance
-         */
-        private String command;
-        /**
-         * app slash command的说明的国际化文案
-         * <p> 示例值：
-         */
-        private AppSlashCommandI18nText description;
-        /**
-         * 命令的创建时间，Unix 时间戳（毫秒），由系统自动生成，不可修改。
-         * <p> 示例值：1698729600000
-         */
-        private String createTime;
-        /**
-         * 命令的最后更新时间，Unix 时间戳（毫秒），命令内容修改时自动更新，不可手动设置。
-         * <p> 示例值：1699334400000
-         */
-        private String updateTime;
-
-        /**
-         * 斜杠命令的唯一标识，系统自动生成。可通过创建斜杠命令接口获取，用于后续命令的查询、修改或删除操作。
-         * <p> 示例值：cmd_7894561230
-         *
-         * @param commandId
-         * @return
-         */
-        public Builder commandId(String commandId) {
-            this.commandId = commandId;
-            return this;
-        }
-
-
-        /**
-         * 用户在聊天窗口输入的触发指令，需以 `/` 开头，支持英文、数字和下划线，不可与已存在的命令重复。
-         * <p> 示例值：/check_attendance
-         *
-         * @param command
-         * @return
-         */
-        public Builder command(String command) {
-            this.command = command;
-            return this;
-        }
-
-
-        /**
-         * app slash command的说明的国际化文案
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(AppSlashCommandI18nText description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 命令的创建时间，Unix 时间戳（毫秒），由系统自动生成，不可修改。
-         * <p> 示例值：1698729600000
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 命令的最后更新时间，Unix 时间戳（毫秒），命令内容修改时自动更新，不可手动设置。
-         * <p> 示例值：1699334400000
-         *
-         * @param updateTime
-         * @return
-         */
-        public Builder updateTime(String updateTime) {
-            this.updateTime = updateTime;
-            return this;
-        }
-
-
-        public AppSlashCommand build() {
-            return new AppSlashCommand(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

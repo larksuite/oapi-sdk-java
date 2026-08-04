@@ -13,112 +13,119 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DimensionInfoData {
+  /**
+   * 维度 key;- "department"：部门。;- "employee_type" ：人员类型。;- "location"：地点。;- "position" ：岗位。;-
+   * "cost_center" ：成本中心/业务线。;- "job_family" ：序列。;- "job_level" ：职级。;- "job" ：职务。;-
+   * "pathway"：通道。;;自定义组织：;- "custom_org_01" ;- "custom_org_02";- "custom_org_03";- "custom_org_04"
+   * ;- "custom_org_05"
+   *
+   * <p>示例值："department"
+   */
+  @SerializedName("dimension_key")
+  private String dimensionKey;
+
+  /**
+   * 维度信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dimension_info")
+  private DimensionInfo dimensionInfo;
+
+  public String getDimensionKey() {
+    return this.dimensionKey;
+  }
+
+  public void setDimensionKey(String dimensionKey) {
+    this.dimensionKey = dimensionKey;
+  }
+
+  public DimensionInfo getDimensionInfo() {
+    return this.dimensionInfo;
+  }
+
+  public void setDimensionInfo(DimensionInfo dimensionInfo) {
+    this.dimensionInfo = dimensionInfo;
+  }
+
+  // builder 开始
+  public DimensionInfoData() {}
+
+  public DimensionInfoData(Builder builder) {
     /**
-     * 维度 key
-     * <p> 示例值："department"
+     * 维度 key;- "department"：部门。;- "employee_type" ：人员类型。;- "location"：地点。;- "position" ：岗位。;-
+     * "cost_center" ：成本中心/业务线。;- "job_family" ：序列。;- "job_level" ：职级。;- "job" ：职务。;-
+     * "pathway"：通道。;;自定义组织：;- "custom_org_01" ;- "custom_org_02";- "custom_org_03";-
+     * "custom_org_04" ;- "custom_org_05"
+     *
+     * <p>示例值："department"
      */
-    @SerializedName("dimension_key")
-    private String dimensionKey;
+    this.dimensionKey = builder.dimensionKey;
     /**
      * 维度信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dimension_info")
+    this.dimensionInfo = builder.dimensionInfo;
+  }
+
+  public static class Builder {
+    /**
+     * 维度 key;- "department"：部门。;- "employee_type" ：人员类型。;- "location"：地点。;- "position" ：岗位。;-
+     * "cost_center" ：成本中心/业务线。;- "job_family" ：序列。;- "job_level" ：职级。;- "job" ：职务。;-
+     * "pathway"：通道。;;自定义组织：;- "custom_org_01" ;- "custom_org_02";- "custom_org_03";-
+     * "custom_org_04" ;- "custom_org_05"
+     *
+     * <p>示例值："department"
+     */
+    private String dimensionKey;
+
+    /**
+     * 维度信息
+     *
+     * <p>示例值：
+     */
     private DimensionInfo dimensionInfo;
 
-    // builder 开始
-    public DimensionInfoData() {
+    /**
+     * 维度 key;- "department"：部门。;- "employee_type" ：人员类型。;- "location"：地点。;- "position" ：岗位。;-
+     * "cost_center" ：成本中心/业务线。;- "job_family" ：序列。;- "job_level" ：职级。;- "job" ：职务。;-
+     * "pathway"：通道。;;自定义组织：;- "custom_org_01" ;- "custom_org_02";- "custom_org_03";-
+     * "custom_org_04" ;- "custom_org_05"
+     *
+     * <p>示例值："department"
+     *
+     * @param dimensionKey
+     * @return
+     */
+    public Builder dimensionKey(String dimensionKey) {
+      this.dimensionKey = dimensionKey;
+      return this;
     }
 
-    public DimensionInfoData(Builder builder) {
-        /**
-         * 维度 key
-         * <p> 示例值："department"
-         */
-        this.dimensionKey = builder.dimensionKey;
-        /**
-         * 维度信息
-         * <p> 示例值：
-         */
-        this.dimensionInfo = builder.dimensionInfo;
+    /**
+     * 维度信息
+     *
+     * <p>示例值：
+     *
+     * @param dimensionInfo
+     * @return
+     */
+    public Builder dimensionInfo(DimensionInfo dimensionInfo) {
+      this.dimensionInfo = dimensionInfo;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DimensionInfoData build() {
+      return new DimensionInfoData(this);
     }
+  }
 
-    public String getDimensionKey() {
-        return this.dimensionKey;
-    }
-
-    public void setDimensionKey(String dimensionKey) {
-        this.dimensionKey = dimensionKey;
-    }
-
-    public DimensionInfo getDimensionInfo() {
-        return this.dimensionInfo;
-    }
-
-    public void setDimensionInfo(DimensionInfo dimensionInfo) {
-        this.dimensionInfo = dimensionInfo;
-    }
-
-    public static class Builder {
-        /**
-         * 维度 key
-         * <p> 示例值："department"
-         */
-        private String dimensionKey;
-        /**
-         * 维度信息
-         * <p> 示例值：
-         */
-        private DimensionInfo dimensionInfo;
-
-        /**
-         * 维度 key
-         * <p> 示例值："department"
-         *
-         * @param dimensionKey
-         * @return
-         */
-        public Builder dimensionKey(String dimensionKey) {
-            this.dimensionKey = dimensionKey;
-            return this;
-        }
-
-
-        /**
-         * 维度信息
-         * <p> 示例值：
-         *
-         * @param dimensionInfo
-         * @return
-         */
-        public Builder dimensionInfo(DimensionInfo dimensionInfo) {
-            this.dimensionInfo = dimensionInfo;
-            return this;
-        }
-
-
-        public DimensionInfoData build() {
-            return new DimensionInfoData(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

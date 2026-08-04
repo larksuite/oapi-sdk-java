@@ -13,112 +13,111 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OldDepartmentObject {
+  /**
+   * 部门状态。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("status")
+  private DepartmentStatus status;
+
+  /**
+   * 当前部门的 open_department_id。了解部门 ID
+   * 可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+   *
+   * <p>示例值：od-xxxxxxxx
+   */
+  @SerializedName("open_department_id")
+  private String openDepartmentId;
+
+  public DepartmentStatus getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(DepartmentStatus status) {
+    this.status = status;
+  }
+
+  public String getOpenDepartmentId() {
+    return this.openDepartmentId;
+  }
+
+  public void setOpenDepartmentId(String openDepartmentId) {
+    this.openDepartmentId = openDepartmentId;
+  }
+
+  // builder 开始
+  public OldDepartmentObject() {}
+
+  public OldDepartmentObject(Builder builder) {
     /**
-     * 部门状态
-     * <p> 示例值：
+     * 部门状态。
+     *
+     * <p>示例值：
      */
-    @SerializedName("status")
+    this.status = builder.status;
+    /**
+     * 当前部门的 open_department_id。了解部门 ID
+     * 可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+     *
+     * <p>示例值：od-xxxxxxxx
+     */
+    this.openDepartmentId = builder.openDepartmentId;
+  }
+
+  public static class Builder {
+    /**
+     * 部门状态。
+     *
+     * <p>示例值：
+     */
     private DepartmentStatus status;
+
     /**
-     * 部门open_id
-     * <p> 示例值：od-xxxxxxxx
+     * 当前部门的 open_department_id。了解部门 ID
+     * 可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+     *
+     * <p>示例值：od-xxxxxxxx
      */
-    @SerializedName("open_department_id")
     private String openDepartmentId;
 
-    // builder 开始
-    public OldDepartmentObject() {
+    /**
+     * 部门状态。
+     *
+     * <p>示例值：
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(DepartmentStatus status) {
+      this.status = status;
+      return this;
     }
 
-    public OldDepartmentObject(Builder builder) {
-        /**
-         * 部门状态
-         * <p> 示例值：
-         */
-        this.status = builder.status;
-        /**
-         * 部门open_id
-         * <p> 示例值：od-xxxxxxxx
-         */
-        this.openDepartmentId = builder.openDepartmentId;
+    /**
+     * 当前部门的 open_department_id。了解部门 ID
+     * 可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。
+     *
+     * <p>示例值：od-xxxxxxxx
+     *
+     * @param openDepartmentId
+     * @return
+     */
+    public Builder openDepartmentId(String openDepartmentId) {
+      this.openDepartmentId = openDepartmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public OldDepartmentObject build() {
+      return new OldDepartmentObject(this);
     }
+  }
 
-    public DepartmentStatus getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(DepartmentStatus status) {
-        this.status = status;
-    }
-
-    public String getOpenDepartmentId() {
-        return this.openDepartmentId;
-    }
-
-    public void setOpenDepartmentId(String openDepartmentId) {
-        this.openDepartmentId = openDepartmentId;
-    }
-
-    public static class Builder {
-        /**
-         * 部门状态
-         * <p> 示例值：
-         */
-        private DepartmentStatus status;
-        /**
-         * 部门open_id
-         * <p> 示例值：od-xxxxxxxx
-         */
-        private String openDepartmentId;
-
-        /**
-         * 部门状态
-         * <p> 示例值：
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(DepartmentStatus status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 部门open_id
-         * <p> 示例值：od-xxxxxxxx
-         *
-         * @param openDepartmentId
-         * @return
-         */
-        public Builder openDepartmentId(String openDepartmentId) {
-            this.openDepartmentId = openDepartmentId;
-            return this;
-        }
-
-
-        public OldDepartmentObject build() {
-            return new OldDepartmentObject(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

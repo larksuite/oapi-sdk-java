@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.compensation.v1.enums;
 
-/**
- * 薪资统计指标数值类型
- */
+/** 薪资统计指标数值类型 */
 public enum IndicatorValueTypeEnum {
-    MONEY("money"), // 金额
-    NUMBER("number"), // 数值
-    PERCENT("percent"), // 百分比
-    ;
-    private String value;
+  MONEY("money"), // 金额
+  NUMBER("number"), // 数值
+  PERCENT("percent"), // 百分比
+  ;
+  private String value;
 
-    IndicatorValueTypeEnum(String value) {
-        this.value = value;
-    }
+  IndicatorValueTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

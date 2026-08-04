@@ -13,201 +13,215 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class P2TicketCreatedV1Data {
-    /**
-     * ticket id
-     * <p> 示例值：
-     */
-    @SerializedName("ticket_id")
-    private String ticketId;
-    /**
-     * helpdesk id
-     * <p> 示例值：
-     */
-    @SerializedName("helpdesk_id")
-    private String helpdeskId;
-    /**
-     * guest of this ticket
-     * <p> 示例值：
-     */
-    @SerializedName("guest")
-    private TicketUserEvent guest;
-    /**
-     * ticket stage
-     * <p> 示例值：
-     */
-    @SerializedName("stage")
-    private Integer stage;
-    /**
-     * ticket status
-     * <p> 示例值：
-     */
-    @SerializedName("status")
-    private Integer status;
-    /**
-     * ticket score
-     * <p> 示例值：
-     */
-    @SerializedName("score")
-    private Integer score;
-    /**
-     * the time when the ticket is created
-     * <p> 示例值：
-     */
-    @SerializedName("created_at")
-    private Integer createdAt;
-    /**
-     * the time when the ticket is updated
-     * <p> 示例值：
-     */
-    @SerializedName("updated_at")
-    private Integer updatedAt;
-    /**
-     * the time when the ticket is closed
-     * <p> 示例值：
-     */
-    @SerializedName("closed_at")
-    private Integer closedAt;
-    /**
-     * the ticket channel
-     * <p> 示例值：
-     */
-    @SerializedName("channel")
-    private Integer channel;
-    /**
-     * if ticket is solved
-     * <p> 示例值：
-     */
-    @SerializedName("solve")
-    private Integer solve;
-    /**
-     * ticket customized fields
-     * <p> 示例值：
-     */
-    @SerializedName("customized_fields")
-    private CustomizedFieldDisplayItem[] customizedFields;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("chat_id")
-    private String chatId;
+  /**
+   * 工单ID;;[可以从工单列表里面取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/list);;[也可以订阅工单创建事件获取](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/events/created)
+   *
+   * <p>示例值：6626871355780366331
+   */
+  @SerializedName("ticket_id")
+  private String ticketId;
 
-    public String getTicketId() {
-        return this.ticketId;
-    }
+  /**
+   * 服务台id
+   *
+   * <p>示例值：6626871355780366330
+   */
+  @SerializedName("helpdesk_id")
+  private String helpdeskId;
 
-    public void setTicketId(String ticketId) {
-        this.ticketId = ticketId;
-    }
+  /**
+   * 用户id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("guest")
+  private TicketUserEvent guest;
 
-    public String getHelpdeskId() {
-        return this.helpdeskId;
-    }
+  /**
+   * 工单阶段：1. 机器人 2. 人工
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("stage")
+  private Integer stage;
 
-    public void setHelpdeskId(String helpdeskId) {
-        this.helpdeskId = helpdeskId;
-    }
+  /**
+   * 工单状态，1：已创建 2: 处理中 3: 排队中 4：待定 5：待用户响应 50: 被机器人关闭 51: 被客服关闭 52: 用户自己关闭
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("status")
+  private Integer status;
 
-    public TicketUserEvent getGuest() {
-        return this.guest;
-    }
+  /**
+   * 工单评分，1：不满意，2:一般，3:满意
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("score")
+  private Integer score;
 
-    public void setGuest(TicketUserEvent guest) {
-        this.guest = guest;
-    }
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1616920429000
+   */
+  @SerializedName("created_at")
+  private Integer createdAt;
 
-    public Integer getStage() {
-        return this.stage;
-    }
+  /**
+   * 工单更新时间，没有值时为-1
+   *
+   * <p>示例值：1616920429000
+   */
+  @SerializedName("updated_at")
+  private Integer updatedAt;
 
-    public void setStage(Integer stage) {
-        this.stage = stage;
-    }
+  /**
+   * 关单时间
+   *
+   * <p>示例值：1616920429000
+   */
+  @SerializedName("closed_at")
+  private Integer closedAt;
 
-    public Integer getStatus() {
-        return this.status;
-    }
+  /**
+   * 工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("channel")
+  private Integer channel;
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  /**
+   * 工单是否解决 1:没解决 2:已解决
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("solve")
+  private Integer solve;
 
-    public Integer getScore() {
-        return this.score;
-    }
+  /**
+   * 自定义字段;;**注意**：该事件不会返回该值，你可以获取 ticket_id
+   * 后调用[查询指定工单详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/helpdesk-v1/ticket/get)接口查询自定义字段信息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_fields")
+  private CustomizedFieldDisplayItem[] customizedFields;
 
-    public void setScore(Integer score) {
-        this.score = score;
-    }
+  /**
+   * oc_xxxxxxx
+   *
+   * <p>示例值：oc_xxxxxxx
+   */
+  @SerializedName("chat_id")
+  private String chatId;
 
-    public Integer getCreatedAt() {
-        return this.createdAt;
-    }
+  public String getTicketId() {
+    return this.ticketId;
+  }
 
-    public void setCreatedAt(Integer createdAt) {
-        this.createdAt = createdAt;
-    }
+  public void setTicketId(String ticketId) {
+    this.ticketId = ticketId;
+  }
 
-    public Integer getUpdatedAt() {
-        return this.updatedAt;
-    }
+  public String getHelpdeskId() {
+    return this.helpdeskId;
+  }
 
-    public void setUpdatedAt(Integer updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+  public void setHelpdeskId(String helpdeskId) {
+    this.helpdeskId = helpdeskId;
+  }
 
-    public Integer getClosedAt() {
-        return this.closedAt;
-    }
+  public TicketUserEvent getGuest() {
+    return this.guest;
+  }
 
-    public void setClosedAt(Integer closedAt) {
-        this.closedAt = closedAt;
-    }
+  public void setGuest(TicketUserEvent guest) {
+    this.guest = guest;
+  }
 
-    public Integer getChannel() {
-        return this.channel;
-    }
+  public Integer getStage() {
+    return this.stage;
+  }
 
-    public void setChannel(Integer channel) {
-        this.channel = channel;
-    }
+  public void setStage(Integer stage) {
+    this.stage = stage;
+  }
 
-    public Integer getSolve() {
-        return this.solve;
-    }
+  public Integer getStatus() {
+    return this.status;
+  }
 
-    public void setSolve(Integer solve) {
-        this.solve = solve;
-    }
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
 
-    public CustomizedFieldDisplayItem[] getCustomizedFields() {
-        return this.customizedFields;
-    }
+  public Integer getScore() {
+    return this.score;
+  }
 
-    public void setCustomizedFields(CustomizedFieldDisplayItem[] customizedFields) {
-        this.customizedFields = customizedFields;
-    }
+  public void setScore(Integer score) {
+    this.score = score;
+  }
 
-    public String getChatId() {
-        return this.chatId;
-    }
+  public Integer getCreatedAt() {
+    return this.createdAt;
+  }
 
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
+  public void setCreatedAt(Integer createdAt) {
+    this.createdAt = createdAt;
+  }
 
+  public Integer getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(Integer updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public Integer getClosedAt() {
+    return this.closedAt;
+  }
+
+  public void setClosedAt(Integer closedAt) {
+    this.closedAt = closedAt;
+  }
+
+  public Integer getChannel() {
+    return this.channel;
+  }
+
+  public void setChannel(Integer channel) {
+    this.channel = channel;
+  }
+
+  public Integer getSolve() {
+    return this.solve;
+  }
+
+  public void setSolve(Integer solve) {
+    this.solve = solve;
+  }
+
+  public CustomizedFieldDisplayItem[] getCustomizedFields() {
+    return this.customizedFields;
+  }
+
+  public void setCustomizedFields(CustomizedFieldDisplayItem[] customizedFields) {
+    this.customizedFields = customizedFields;
+  }
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
 }

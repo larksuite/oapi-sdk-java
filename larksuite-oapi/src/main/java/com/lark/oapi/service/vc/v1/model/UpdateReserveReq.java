@@ -13,142 +13,145 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.vc.v1.enums.*;
 
 public class UpdateReserveReq {
+  /**
+   * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 预约ID（预约的唯一标识）
+   *
+   * <p>示例值：6911188411932033028
+   */
+  @Path
+  @SerializedName("reserve_id")
+  private String reserveId;
+
+  public String getReserveId() {
+    return this.reserveId;
+  }
+
+  public void setReserveId(String reserveId) {
+    this.reserveId = reserveId;
+  }
+
+  @Body private UpdateReserveReqBody body;
+
+  public UpdateReserveReqBody getUpdateReserveReqBody() {
+    return this.body;
+  }
+
+  public void setUpdateReserveReqBody(UpdateReserveReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public UpdateReserveReq() {}
+
+  public UpdateReserveReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 预约ID（预约的唯一标识）
-     * <p> 示例值：6911188411932033028
+     *
+     * <p>示例值：6911188411932033028
      */
-    @Path
-    @SerializedName("reserve_id")
-    private String reserveId;
-    @Body
+    this.reserveId = builder.reserveId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
+
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
+    }
+
+    /**
+     * 此次调用中使用的用户ID的类型，默认使用open_id可不填
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.vc.v1.enums.UpdateReserveUpdateReserveUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.vc.v1.enums.UpdateReserveUpdateReserveUserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
+    }
+
+    private String reserveId; // 预约ID（预约的唯一标识）
+
+    /**
+     * 预约ID（预约的唯一标识）
+     *
+     * <p>示例值：6911188411932033028
+     *
+     * @param reserveId
+     * @return
+     */
+    public Builder reserveId(String reserveId) {
+      this.reserveId = reserveId;
+      return this;
+    }
+
     private UpdateReserveReqBody body;
 
-    // builder 开始
-    public UpdateReserveReq() {
-    }
-
-    public UpdateReserveReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 预约ID（预约的唯一标识）
-         * <p> 示例值：6911188411932033028
-         */
-        this.reserveId = builder.reserveId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getReserveId() {
-        return this.reserveId;
-    }
-
-    public void setReserveId(String reserveId) {
-        this.reserveId = reserveId;
-    }
-
     public UpdateReserveReqBody getUpdateReserveReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setUpdateReserveReqBody(UpdateReserveReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder updateReserveReqBody(UpdateReserveReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型，默认使用open_id可不填
-        private String reserveId; // 预约ID（预约的唯一标识）
-        private UpdateReserveReqBody body;
-
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型，默认使用open_id可不填
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.vc.v1.enums.UpdateReserveUpdateReserveUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.vc.v1.enums.UpdateReserveUpdateReserveUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 预约ID（预约的唯一标识）
-         * <p> 示例值：6911188411932033028
-         *
-         * @param reserveId
-         * @return
-         */
-        public Builder reserveId(String reserveId) {
-            this.reserveId = reserveId;
-            return this;
-        }
-
-        public UpdateReserveReqBody getUpdateReserveReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder updateReserveReqBody(UpdateReserveReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public UpdateReserveReq build() {
-            return new UpdateReserveReq(this);
-        }
+    public UpdateReserveReq build() {
+      return new UpdateReserveReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

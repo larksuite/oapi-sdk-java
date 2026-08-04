@@ -13,105 +13,99 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class SearchSignatureTemplateReq {
+  /**
+   * 电子签模板ids，用英文逗号分隔；如果不传 则返回所有电子签模版信息
+   *
+   * <p>示例值：7223256427270260268,7182520625066475540
+   */
+  @Query
+  @SerializedName("template_ids")
+  private String templateIds;
+
+  /**
+   * 是否需要模板自定义字段，如果不需要，则默认只返回模板的系统字段。
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("select_custom_field")
+  private Boolean selectCustomField;
+
+  public String getTemplateIds() {
+    return this.templateIds;
+  }
+
+  public void setTemplateIds(String templateIds) {
+    this.templateIds = templateIds;
+  }
+
+  public Boolean getSelectCustomField() {
+    return this.selectCustomField;
+  }
+
+  public void setSelectCustomField(Boolean selectCustomField) {
+    this.selectCustomField = selectCustomField;
+  }
+
+  // builder 开始
+  public SearchSignatureTemplateReq() {}
+
+  public SearchSignatureTemplateReq(Builder builder) {
     /**
-     * 电子签模板ids,用英文逗号分隔;如果不传 则返回所有模版信息（字节线上几百条）
-     * <p> 示例值：1,2,3,4
+     * 电子签模板ids，用英文逗号分隔；如果不传 则返回所有电子签模版信息
+     *
+     * <p>示例值：7223256427270260268,7182520625066475540
      */
-    @Query
-    @SerializedName("template_ids")
-    private String templateIds;
+    this.templateIds = builder.templateIds;
     /**
-     * 是否需要自定义字段,如-自定义签署方、合同变更前后公司等
-     * <p> 示例值：
+     * 是否需要模板自定义字段，如果不需要，则默认只返回模板的系统字段。
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("select_custom_field")
-    private Boolean selectCustomField;
+    this.selectCustomField = builder.selectCustomField;
+  }
 
-    // builder 开始
-    public SearchSignatureTemplateReq() {
+  public static class Builder {
+    private String templateIds; // 电子签模板ids，用英文逗号分隔；如果不传 则返回所有电子签模版信息
+    private Boolean selectCustomField; // 是否需要模板自定义字段，如果不需要，则默认只返回模板的系统字段。
+
+    /**
+     * 电子签模板ids，用英文逗号分隔；如果不传 则返回所有电子签模版信息
+     *
+     * <p>示例值：7223256427270260268,7182520625066475540
+     *
+     * @param templateIds
+     * @return
+     */
+    public Builder templateIds(String templateIds) {
+      this.templateIds = templateIds;
+      return this;
     }
 
-    public SearchSignatureTemplateReq(Builder builder) {
-        /**
-         * 电子签模板ids,用英文逗号分隔;如果不传 则返回所有模版信息（字节线上几百条）
-         * <p> 示例值：1,2,3,4
-         */
-        this.templateIds = builder.templateIds;
-        /**
-         * 是否需要自定义字段,如-自定义签署方、合同变更前后公司等
-         * <p> 示例值：
-         */
-        this.selectCustomField = builder.selectCustomField;
+    /**
+     * 是否需要模板自定义字段，如果不需要，则默认只返回模板的系统字段。
+     *
+     * <p>示例值：true
+     *
+     * @param selectCustomField
+     * @return
+     */
+    public Builder selectCustomField(Boolean selectCustomField) {
+      this.selectCustomField = selectCustomField;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public SearchSignatureTemplateReq build() {
+      return new SearchSignatureTemplateReq(this);
     }
+  }
 
-    public String getTemplateIds() {
-        return this.templateIds;
-    }
-
-    public void setTemplateIds(String templateIds) {
-        this.templateIds = templateIds;
-    }
-
-    public Boolean getSelectCustomField() {
-        return this.selectCustomField;
-    }
-
-    public void setSelectCustomField(Boolean selectCustomField) {
-        this.selectCustomField = selectCustomField;
-    }
-
-    public static class Builder {
-        private String templateIds; // 电子签模板ids,用英文逗号分隔;如果不传 则返回所有模版信息（字节线上几百条）
-        private Boolean selectCustomField; // 是否需要自定义字段,如-自定义签署方、合同变更前后公司等
-
-        /**
-         * 电子签模板ids,用英文逗号分隔;如果不传 则返回所有模版信息（字节线上几百条）
-         * <p> 示例值：1,2,3,4
-         *
-         * @param templateIds
-         * @return
-         */
-        public Builder templateIds(String templateIds) {
-            this.templateIds = templateIds;
-            return this;
-        }
-
-
-        /**
-         * 是否需要自定义字段,如-自定义签署方、合同变更前后公司等
-         * <p> 示例值：
-         *
-         * @param selectCustomField
-         * @return
-         */
-        public Builder selectCustomField(Boolean selectCustomField) {
-            this.selectCustomField = selectCustomField;
-            return this;
-        }
-
-
-        public SearchSignatureTemplateReq build() {
-            return new SearchSignatureTemplateReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

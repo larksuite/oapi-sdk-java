@@ -13,76 +13,70 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetEnumDetailAppEnumRespBody {
-    /**
-     * 枚举名称
-     * <p> 示例值：enum_name
-     */
-    @SerializedName("name")
-    private String name;
-    /**
-     * 枚举描述
-     * <p> 示例值：enum描述
-     */
-    @SerializedName("description")
-    private String description;
-    /**
-     * 枚举值列表
-     * <p> 示例值：
-     */
-    @SerializedName("options")
-    private String[] options;
-    /**
-     * 创建时间，毫秒时间戳
-     * <p> 示例值：1765441837625
-     */
-    @SerializedName("created_at")
-    private String createdAt;
+  /**
+   * 枚举名称
+   *
+   * <p>示例值：enum_name
+   */
+  @SerializedName("name")
+  private String name;
 
-    public String getName() {
-        return this.name;
-    }
+  /**
+   * 枚举描述
+   *
+   * <p>示例值：enum描述
+   */
+  @SerializedName("description")
+  private String description;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  /**
+   * 枚举值列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("options")
+  private String[] options;
 
-    public String getDescription() {
-        return this.description;
-    }
+  /**
+   * 创建时间，毫秒时间戳
+   *
+   * <p>示例值：1765441837625
+   */
+  @SerializedName("created_at")
+  private String createdAt;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public String getName() {
+    return this.name;
+  }
 
-    public String[] getOptions() {
-        return this.options;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setOptions(String[] options) {
-        this.options = options;
-    }
+  public String getDescription() {
+    return this.description;
+  }
 
-    public String getCreatedAt() {
-        return this.createdAt;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
+  public String[] getOptions() {
+    return this.options;
+  }
 
+  public void setOptions(String[] options) {
+    this.options = options;
+  }
+
+  public String getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
 }

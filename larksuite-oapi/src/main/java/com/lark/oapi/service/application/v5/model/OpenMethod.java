@@ -13,124 +13,120 @@
 
 package com.lark.oapi.service.application.v5.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v5.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenMethod {
+  /**
+   * applink类型
+   *
+   * <p>示例值：mobile_gadget
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * applink链接
+   *
+   * <p>示例值：https://applink.feishu.cn/client/web_app/open
+   */
+  @SerializedName("applink")
+  private String applink;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getApplink() {
+    return this.applink;
+  }
+
+  public void setApplink(String applink) {
+    this.applink = applink;
+  }
+
+  // builder 开始
+  public OpenMethod() {}
+
+  public OpenMethod(Builder builder) {
     /**
      * applink类型
-     * <p> 示例值：mobile_gadget
+     *
+     * <p>示例值：mobile_gadget
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * applink链接
-     * <p> 示例值：https://applink.feishu.cn/client/web_app/open?appId=cli_xxxxxx
+     *
+     * <p>示例值：https://applink.feishu.cn/client/web_app/open
      */
-    @SerializedName("applink")
+    this.applink = builder.applink;
+  }
+
+  public static class Builder {
+    /**
+     * applink类型
+     *
+     * <p>示例值：mobile_gadget
+     */
+    private String type;
+
+    /**
+     * applink链接
+     *
+     * <p>示例值：https://applink.feishu.cn/client/web_app/open
+     */
     private String applink;
 
-    // builder 开始
-    public OpenMethod() {
+    /**
+     * applink类型
+     *
+     * <p>示例值：mobile_gadget
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public OpenMethod(Builder builder) {
-        /**
-         * applink类型
-         * <p> 示例值：mobile_gadget
-         */
-        this.type = builder.type;
-        /**
-         * applink链接
-         * <p> 示例值：https://applink.feishu.cn/client/web_app/open?appId=cli_xxxxxx
-         */
-        this.applink = builder.applink;
+    /**
+     * applink类型
+     *
+     * <p>示例值：mobile_gadget
+     *
+     * @param type {@link com.lark.oapi.service.application.v5.enums.OpenMethodTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.application.v5.enums.OpenMethodTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * applink链接
+     *
+     * <p>示例值：https://applink.feishu.cn/client/web_app/open
+     *
+     * @param applink
+     * @return
+     */
+    public Builder applink(String applink) {
+      this.applink = applink;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    public OpenMethod build() {
+      return new OpenMethod(this);
     }
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getApplink() {
-        return this.applink;
-    }
-
-    public void setApplink(String applink) {
-        this.applink = applink;
-    }
-
-    public static class Builder {
-        /**
-         * applink类型
-         * <p> 示例值：mobile_gadget
-         */
-        private String type;
-        /**
-         * applink链接
-         * <p> 示例值：https://applink.feishu.cn/client/web_app/open?appId=cli_xxxxxx
-         */
-        private String applink;
-
-        /**
-         * applink类型
-         * <p> 示例值：mobile_gadget
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * applink类型
-         * <p> 示例值：mobile_gadget
-         *
-         * @param type {@link com.lark.oapi.service.application.v5.enums.OpenMethodTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.application.v5.enums.OpenMethodTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * applink链接
-         * <p> 示例值：https://applink.feishu.cn/client/web_app/open?appId=cli_xxxxxx
-         *
-         * @param applink
-         * @return
-         */
-        public Builder applink(String applink) {
-            this.applink = applink;
-            return this;
-        }
-
-
-        public OpenMethod build() {
-            return new OpenMethod(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,106 +13,79 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TrafficEnv {
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("open")
+  /** 示例值： */
+  @SerializedName("open")
+  private Boolean open;
+
+  /** 示例值： */
+  @SerializedName("env")
+  private String env;
+
+  public Boolean getOpen() {
+    return this.open;
+  }
+
+  public void setOpen(Boolean open) {
+    this.open = open;
+  }
+
+  public String getEnv() {
+    return this.env;
+  }
+
+  public void setEnv(String env) {
+    this.env = env;
+  }
+
+  // builder 开始
+  public TrafficEnv() {}
+
+  public TrafficEnv(Builder builder) {
+    /** 示例值： */
+    this.open = builder.open;
+    /** 示例值： */
+    this.env = builder.env;
+  }
+
+  public static class Builder {
+    /** 示例值： */
     private Boolean open;
-    /**
-     * <p> 示例值：
-     */
-    @SerializedName("env")
+
+    /** 示例值： */
     private String env;
 
-    // builder 开始
-    public TrafficEnv() {
+    /**
+     * 示例值：
+     *
+     * @param open
+     * @return
+     */
+    public Builder open(Boolean open) {
+      this.open = open;
+      return this;
     }
 
-    public TrafficEnv(Builder builder) {
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.open = builder.open;
-        /**
-         *
-         * <p> 示例值：
-         */
-        this.env = builder.env;
+    /**
+     * 示例值：
+     *
+     * @param env
+     * @return
+     */
+    public Builder env(String env) {
+      this.env = env;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public TrafficEnv build() {
+      return new TrafficEnv(this);
     }
+  }
 
-    public Boolean getOpen() {
-        return this.open;
-    }
-
-    public void setOpen(Boolean open) {
-        this.open = open;
-    }
-
-    public String getEnv() {
-        return this.env;
-    }
-
-    public void setEnv(String env) {
-        this.env = env;
-    }
-
-    public static class Builder {
-        /**
-         * <p> 示例值：
-         */
-        private Boolean open;
-        /**
-         * <p> 示例值：
-         */
-        private String env;
-
-        /**
-         * <p> 示例值：
-         *
-         * @param open
-         * @return
-         */
-        public Builder open(Boolean open) {
-            this.open = open;
-            return this;
-        }
-
-
-        /**
-         * <p> 示例值：
-         *
-         * @param env
-         * @return
-         */
-        public Builder env(String env) {
-            this.env = env;
-            return this;
-        }
-
-
-        public TrafficEnv build() {
-            return new TrafficEnv(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

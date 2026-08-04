@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.sheets.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Replace {
+  /**
+   * 指定查找单元格的条件。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("find_condition")
+  private FindCondition findCondition;
+
+  /**
+   * 查找的字符串。当`search_by_regex` 字段为 true 时，你需填入正则表达式。
+   *
+   * <p>示例值：hello
+   */
+  @SerializedName("find")
+  private String find;
+
+  /**
+   * 替换的字符串
+   *
+   * <p>示例值：world
+   */
+  @SerializedName("replacement")
+  private String replacement;
+
+  public FindCondition getFindCondition() {
+    return this.findCondition;
+  }
+
+  public void setFindCondition(FindCondition findCondition) {
+    this.findCondition = findCondition;
+  }
+
+  public String getFind() {
+    return this.find;
+  }
+
+  public void setFind(String find) {
+    this.find = find;
+  }
+
+  public String getReplacement() {
+    return this.replacement;
+  }
+
+  public void setReplacement(String replacement) {
+    this.replacement = replacement;
+  }
+
+  // builder 开始
+  public Replace() {}
+
+  public Replace(Builder builder) {
     /**
-     * 查找条件
-     * <p> 示例值：
+     * 指定查找单元格的条件。
+     *
+     * <p>示例值：
      */
-    @SerializedName("find_condition")
-    private FindCondition findCondition;
+    this.findCondition = builder.findCondition;
     /**
-     * 查找的字符串
-     * <p> 示例值：hello
+     * 查找的字符串。当`search_by_regex` 字段为 true 时，你需填入正则表达式。
+     *
+     * <p>示例值：hello
      */
-    @SerializedName("find")
-    private String find;
+    this.find = builder.find;
     /**
      * 替换的字符串
-     * <p> 示例值：world
+     *
+     * <p>示例值：world
      */
-    @SerializedName("replacement")
+    this.replacement = builder.replacement;
+  }
+
+  public static class Builder {
+    /**
+     * 指定查找单元格的条件。
+     *
+     * <p>示例值：
+     */
+    private FindCondition findCondition;
+
+    /**
+     * 查找的字符串。当`search_by_regex` 字段为 true 时，你需填入正则表达式。
+     *
+     * <p>示例值：hello
+     */
+    private String find;
+
+    /**
+     * 替换的字符串
+     *
+     * <p>示例值：world
+     */
     private String replacement;
 
-    // builder 开始
-    public Replace() {
+    /**
+     * 指定查找单元格的条件。
+     *
+     * <p>示例值：
+     *
+     * @param findCondition
+     * @return
+     */
+    public Builder findCondition(FindCondition findCondition) {
+      this.findCondition = findCondition;
+      return this;
     }
 
-    public Replace(Builder builder) {
-        /**
-         * 查找条件
-         * <p> 示例值：
-         */
-        this.findCondition = builder.findCondition;
-        /**
-         * 查找的字符串
-         * <p> 示例值：hello
-         */
-        this.find = builder.find;
-        /**
-         * 替换的字符串
-         * <p> 示例值：world
-         */
-        this.replacement = builder.replacement;
+    /**
+     * 查找的字符串。当`search_by_regex` 字段为 true 时，你需填入正则表达式。
+     *
+     * <p>示例值：hello
+     *
+     * @param find
+     * @return
+     */
+    public Builder find(String find) {
+      this.find = find;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 替换的字符串
+     *
+     * <p>示例值：world
+     *
+     * @param replacement
+     * @return
+     */
+    public Builder replacement(String replacement) {
+      this.replacement = replacement;
+      return this;
     }
 
-    public FindCondition getFindCondition() {
-        return this.findCondition;
+    public Replace build() {
+      return new Replace(this);
     }
+  }
 
-    public void setFindCondition(FindCondition findCondition) {
-        this.findCondition = findCondition;
-    }
-
-    public String getFind() {
-        return this.find;
-    }
-
-    public void setFind(String find) {
-        this.find = find;
-    }
-
-    public String getReplacement() {
-        return this.replacement;
-    }
-
-    public void setReplacement(String replacement) {
-        this.replacement = replacement;
-    }
-
-    public static class Builder {
-        /**
-         * 查找条件
-         * <p> 示例值：
-         */
-        private FindCondition findCondition;
-        /**
-         * 查找的字符串
-         * <p> 示例值：hello
-         */
-        private String find;
-        /**
-         * 替换的字符串
-         * <p> 示例值：world
-         */
-        private String replacement;
-
-        /**
-         * 查找条件
-         * <p> 示例值：
-         *
-         * @param findCondition
-         * @return
-         */
-        public Builder findCondition(FindCondition findCondition) {
-            this.findCondition = findCondition;
-            return this;
-        }
-
-
-        /**
-         * 查找的字符串
-         * <p> 示例值：hello
-         *
-         * @param find
-         * @return
-         */
-        public Builder find(String find) {
-            this.find = find;
-            return this;
-        }
-
-
-        /**
-         * 替换的字符串
-         * <p> 示例值：world
-         *
-         * @param replacement
-         * @return
-         */
-        public Builder replacement(String replacement) {
-            this.replacement = replacement;
-            return this;
-        }
-
-
-        public Replace build() {
-            return new Replace(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

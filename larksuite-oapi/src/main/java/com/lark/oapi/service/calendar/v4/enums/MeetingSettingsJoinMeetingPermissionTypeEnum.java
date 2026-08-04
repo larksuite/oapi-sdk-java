@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.calendar.v4.enums;
 
-/**
- * 设置入会范围
- */
+/** 设置入会范围 */
 public enum MeetingSettingsJoinMeetingPermissionTypeEnum {
-    ANYONE("anyone_can_join"), // 所有人可以加入会议
-    ONLYSAMEORGANIZATION("only_organization_employees"), // 仅企业内用户可以加入会议
-    ONLYEVENTATTENDEES("only_event_attendees"), // 仅日程参与者可以加入会议
-    ;
-    private String value;
+  ANYONE("anyone_can_join"), // 所有人可以加入会议
+  ONLYSAMEORGANIZATION("only_organization_employees"), // 仅企业内用户可以加入会议
+  ONLYEVENTATTENDEES("only_event_attendees"), // 仅日程参与者可以加入会议
+  ;
+  private String value;
 
-    MeetingSettingsJoinMeetingPermissionTypeEnum(String value) {
-        this.value = value;
-    }
+  MeetingSettingsJoinMeetingPermissionTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

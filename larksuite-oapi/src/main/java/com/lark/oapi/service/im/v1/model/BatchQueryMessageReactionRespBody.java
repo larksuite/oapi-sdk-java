@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchQueryMessageReactionRespBody {
-    /**
-     * 成功获取到的表情列表
-     * <p> 示例值：
-     */
-    @SerializedName("success_msg_reaction_details")
-    private SuccessMsgReactionDetails[] successMsgReactionDetails;
-    /**
-     * 成功获取到的表情数量统计
-     * <p> 示例值：
-     */
-    @SerializedName("success_msg_reaction_counts")
-    private SuccessMsgReactionCount[] successMsgReactionCounts;
-    /**
-     * 未成功获取的消息
-     * <p> 示例值：
-     */
-    @SerializedName("fail_msg_reaction_details")
-    private FailMsgReactionDetails[] failMsgReactionDetails;
+  /**
+   * 成功获取到的表情列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("success_msg_reaction_details")
+  private SuccessMsgReactionDetails[] successMsgReactionDetails;
 
-    public SuccessMsgReactionDetails[] getSuccessMsgReactionDetails() {
-        return this.successMsgReactionDetails;
-    }
+  /**
+   * 每条消息上所有表情的数量统计
+   *
+   * <p>示例值：
+   */
+  @SerializedName("success_msg_reaction_counts")
+  private SuccessMsgReactionCount[] successMsgReactionCounts;
 
-    public void setSuccessMsgReactionDetails(SuccessMsgReactionDetails[] successMsgReactionDetails) {
-        this.successMsgReactionDetails = successMsgReactionDetails;
-    }
+  /**
+   * 未成功获取的消息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("fail_msg_reaction_details")
+  private FailMsgReactionDetails[] failMsgReactionDetails;
 
-    public SuccessMsgReactionCount[] getSuccessMsgReactionCounts() {
-        return this.successMsgReactionCounts;
-    }
+  public SuccessMsgReactionDetails[] getSuccessMsgReactionDetails() {
+    return this.successMsgReactionDetails;
+  }
 
-    public void setSuccessMsgReactionCounts(SuccessMsgReactionCount[] successMsgReactionCounts) {
-        this.successMsgReactionCounts = successMsgReactionCounts;
-    }
+  public void setSuccessMsgReactionDetails(SuccessMsgReactionDetails[] successMsgReactionDetails) {
+    this.successMsgReactionDetails = successMsgReactionDetails;
+  }
 
-    public FailMsgReactionDetails[] getFailMsgReactionDetails() {
-        return this.failMsgReactionDetails;
-    }
+  public SuccessMsgReactionCount[] getSuccessMsgReactionCounts() {
+    return this.successMsgReactionCounts;
+  }
 
-    public void setFailMsgReactionDetails(FailMsgReactionDetails[] failMsgReactionDetails) {
-        this.failMsgReactionDetails = failMsgReactionDetails;
-    }
+  public void setSuccessMsgReactionCounts(SuccessMsgReactionCount[] successMsgReactionCounts) {
+    this.successMsgReactionCounts = successMsgReactionCounts;
+  }
 
+  public FailMsgReactionDetails[] getFailMsgReactionDetails() {
+    return this.failMsgReactionDetails;
+  }
+
+  public void setFailMsgReactionDetails(FailMsgReactionDetails[] failMsgReactionDetails) {
+    this.failMsgReactionDetails = failMsgReactionDetails;
+  }
 }

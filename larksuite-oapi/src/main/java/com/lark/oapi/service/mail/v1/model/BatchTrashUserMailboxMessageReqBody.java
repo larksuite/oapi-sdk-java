@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchTrashUserMailboxMessageReqBody {
+  /**
+   * 邮件ID，可通过列出邮件接口、收信事件通知等方式获得
+   *
+   * <p>示例值：
+   */
+  @SerializedName("message_ids")
+  private String[] messageIds;
+
+  public String[] getMessageIds() {
+    return this.messageIds;
+  }
+
+  public void setMessageIds(String[] messageIds) {
+    this.messageIds = messageIds;
+  }
+
+  // builder 开始
+  public BatchTrashUserMailboxMessageReqBody() {}
+
+  public BatchTrashUserMailboxMessageReqBody(Builder builder) {
     /**
      * 邮件ID，可通过列出邮件接口、收信事件通知等方式获得
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("message_ids")
+    this.messageIds = builder.messageIds;
+  }
+
+  public static class Builder {
+    /**
+     * 邮件ID，可通过列出邮件接口、收信事件通知等方式获得
+     *
+     * <p>示例值：
+     */
     private String[] messageIds;
 
-    // builder 开始
-    public BatchTrashUserMailboxMessageReqBody() {
+    /**
+     * 邮件ID，可通过列出邮件接口、收信事件通知等方式获得
+     *
+     * <p>示例值：
+     *
+     * @param messageIds
+     * @return
+     */
+    public Builder messageIds(String[] messageIds) {
+      this.messageIds = messageIds;
+      return this;
     }
 
-    public BatchTrashUserMailboxMessageReqBody(Builder builder) {
-        /**
-         * 邮件ID，可通过列出邮件接口、收信事件通知等方式获得
-         * <p> 示例值：
-         */
-        this.messageIds = builder.messageIds;
+    public BatchTrashUserMailboxMessageReqBody build() {
+      return new BatchTrashUserMailboxMessageReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getMessageIds() {
-        return this.messageIds;
-    }
-
-    public void setMessageIds(String[] messageIds) {
-        this.messageIds = messageIds;
-    }
-
-    public static class Builder {
-        /**
-         * 邮件ID，可通过列出邮件接口、收信事件通知等方式获得
-         * <p> 示例值：
-         */
-        private String[] messageIds;
-
-        /**
-         * 邮件ID，可通过列出邮件接口、收信事件通知等方式获得
-         * <p> 示例值：
-         *
-         * @param messageIds
-         * @return
-         */
-        public Builder messageIds(String[] messageIds) {
-            this.messageIds = messageIds;
-            return this;
-        }
-
-
-        public BatchTrashUserMailboxMessageReqBody build() {
-            return new BatchTrashUserMailboxMessageReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

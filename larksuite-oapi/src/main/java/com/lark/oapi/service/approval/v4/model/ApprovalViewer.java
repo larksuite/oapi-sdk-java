@@ -13,198 +13,204 @@
 
 package com.lark.oapi.service.approval.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.approval.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApprovalViewer {
+  /**
+   * 可见人类型，人员、部门或全体
+   *
+   * <p>示例值：TENANT
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 同一个应用中对用户进行标识的id
+   *
+   * <p>示例值：ou_e03053f0541cecc3269d7a9dc34a0b21
+   */
+  @SerializedName("open_id")
+  private String openId;
+
+  /**
+   * 用户id
+   *
+   * <p>示例值：f7cb567e
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 同一个应用开发主体下对用户进行标识的id
+   *
+   * <p>示例值：f7cb567e
+   */
+  @SerializedName("union_id")
+  private String unionId;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getOpenId() {
+    return this.openId;
+  }
+
+  public void setOpenId(String openId) {
+    this.openId = openId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getUnionId() {
+    return this.unionId;
+  }
+
+  public void setUnionId(String unionId) {
+    this.unionId = unionId;
+  }
+
+  // builder 开始
+  public ApprovalViewer() {}
+
+  public ApprovalViewer(Builder builder) {
     /**
      * 可见人类型，人员、部门或全体
-     * <p> 示例值：TENANT
+     *
+     * <p>示例值：TENANT
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 同一个应用中对用户进行标识的id
-     * <p> 示例值：ou_e03053f0541cecc3269d7a9dc34a0b21
+     *
+     * <p>示例值：ou_e03053f0541cecc3269d7a9dc34a0b21
      */
-    @SerializedName("open_id")
-    private String openId;
+    this.openId = builder.openId;
     /**
      * 用户id
-     * <p> 示例值：f7cb567e
+     *
+     * <p>示例值：f7cb567e
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 同一个应用开发主体下对用户进行标识的id
-     * <p> 示例值：f7cb567e
+     *
+     * <p>示例值：f7cb567e
      */
-    @SerializedName("union_id")
+    this.unionId = builder.unionId;
+  }
+
+  public static class Builder {
+    /**
+     * 可见人类型，人员、部门或全体
+     *
+     * <p>示例值：TENANT
+     */
+    private String type;
+
+    /**
+     * 同一个应用中对用户进行标识的id
+     *
+     * <p>示例值：ou_e03053f0541cecc3269d7a9dc34a0b21
+     */
+    private String openId;
+
+    /**
+     * 用户id
+     *
+     * <p>示例值：f7cb567e
+     */
+    private String userId;
+
+    /**
+     * 同一个应用开发主体下对用户进行标识的id
+     *
+     * <p>示例值：f7cb567e
+     */
     private String unionId;
 
-    // builder 开始
-    public ApprovalViewer() {
+    /**
+     * 可见人类型，人员、部门或全体
+     *
+     * <p>示例值：TENANT
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public ApprovalViewer(Builder builder) {
-        /**
-         * 可见人类型，人员、部门或全体
-         * <p> 示例值：TENANT
-         */
-        this.type = builder.type;
-        /**
-         * 同一个应用中对用户进行标识的id
-         * <p> 示例值：ou_e03053f0541cecc3269d7a9dc34a0b21
-         */
-        this.openId = builder.openId;
-        /**
-         * 用户id
-         * <p> 示例值：f7cb567e
-         */
-        this.userId = builder.userId;
-        /**
-         * 同一个应用开发主体下对用户进行标识的id
-         * <p> 示例值：f7cb567e
-         */
-        this.unionId = builder.unionId;
+    /**
+     * 可见人类型，人员、部门或全体
+     *
+     * <p>示例值：TENANT
+     *
+     * @param type {@link com.lark.oapi.service.approval.v4.enums.ApprovalViewerTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.approval.v4.enums.ApprovalViewerTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 同一个应用中对用户进行标识的id
+     *
+     * <p>示例值：ou_e03053f0541cecc3269d7a9dc34a0b21
+     *
+     * @param openId
+     * @return
+     */
+    public Builder openId(String openId) {
+      this.openId = openId;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 用户id
+     *
+     * <p>示例值：f7cb567e
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 同一个应用开发主体下对用户进行标识的id
+     *
+     * <p>示例值：f7cb567e
+     *
+     * @param unionId
+     * @return
+     */
+    public Builder unionId(String unionId) {
+      this.unionId = unionId;
+      return this;
     }
 
-    public String getOpenId() {
-        return this.openId;
+    public ApprovalViewer build() {
+      return new ApprovalViewer(this);
     }
+  }
 
-    public void setOpenId(String openId) {
-        this.openId = openId;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getUnionId() {
-        return this.unionId;
-    }
-
-    public void setUnionId(String unionId) {
-        this.unionId = unionId;
-    }
-
-    public static class Builder {
-        /**
-         * 可见人类型，人员、部门或全体
-         * <p> 示例值：TENANT
-         */
-        private String type;
-        /**
-         * 同一个应用中对用户进行标识的id
-         * <p> 示例值：ou_e03053f0541cecc3269d7a9dc34a0b21
-         */
-        private String openId;
-        /**
-         * 用户id
-         * <p> 示例值：f7cb567e
-         */
-        private String userId;
-        /**
-         * 同一个应用开发主体下对用户进行标识的id
-         * <p> 示例值：f7cb567e
-         */
-        private String unionId;
-
-        /**
-         * 可见人类型，人员、部门或全体
-         * <p> 示例值：TENANT
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 可见人类型，人员、部门或全体
-         * <p> 示例值：TENANT
-         *
-         * @param type {@link com.lark.oapi.service.approval.v4.enums.ApprovalViewerTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.approval.v4.enums.ApprovalViewerTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 同一个应用中对用户进行标识的id
-         * <p> 示例值：ou_e03053f0541cecc3269d7a9dc34a0b21
-         *
-         * @param openId
-         * @return
-         */
-        public Builder openId(String openId) {
-            this.openId = openId;
-            return this;
-        }
-
-
-        /**
-         * 用户id
-         * <p> 示例值：f7cb567e
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 同一个应用开发主体下对用户进行标识的id
-         * <p> 示例值：f7cb567e
-         *
-         * @param unionId
-         * @return
-         */
-        public Builder unionId(String unionId) {
-            this.unionId = unionId;
-            return this;
-        }
-
-
-        public ApprovalViewer build() {
-            return new ApprovalViewer(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

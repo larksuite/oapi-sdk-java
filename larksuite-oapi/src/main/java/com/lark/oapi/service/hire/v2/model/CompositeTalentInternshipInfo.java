@@ -13,259 +13,274 @@
 
 package com.lark.oapi.service.hire.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CompositeTalentInternshipInfo {
+  /**
+   * 公司
+   *
+   * <p>示例值：明日科技公司
+   */
+  @SerializedName("company_name")
+  private String companyName;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：该公司为中国 500 强公司
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 结束时间
+   *
+   * <p>示例值：2020-09
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  /**
+   * 开始时间
+   *
+   * <p>示例值：2020-01
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 职称
+   *
+   * <p>示例值：财务
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("customized_data_list")
+  private TalentCustomizedDataChild[] customizedDataList;
+
+  public String getCompanyName() {
+    return this.companyName;
+  }
+
+  public void setCompanyName(String companyName) {
+    this.companyName = companyName;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public TalentCustomizedDataChild[] getCustomizedDataList() {
+    return this.customizedDataList;
+  }
+
+  public void setCustomizedDataList(TalentCustomizedDataChild[] customizedDataList) {
+    this.customizedDataList = customizedDataList;
+  }
+
+  // builder 开始
+  public CompositeTalentInternshipInfo() {}
+
+  public CompositeTalentInternshipInfo(Builder builder) {
     /**
      * 公司
-     * <p> 示例值：xx网络科技有限公司
+     *
+     * <p>示例值：明日科技公司
      */
-    @SerializedName("company_name")
-    private String companyName;
+    this.companyName = builder.companyName;
     /**
      * 描述
-     * <p> 示例值：作为测试实习生参与公司xx项目的测试工作
+     *
+     * <p>示例值：该公司为中国 500 强公司
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 结束时间
-     * <p> 示例值：2020-09
+     *
+     * <p>示例值：2020-09
      */
-    @SerializedName("end_time")
-    private String endTime;
+    this.endTime = builder.endTime;
     /**
      * 开始时间
-     * <p> 示例值：2020-01
+     *
+     * <p>示例值：2020-01
      */
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
      * 职称
-     * <p> 示例值：测试工程师
+     *
+     * <p>示例值：财务
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("customized_data_list")
+    this.customizedDataList = builder.customizedDataList;
+  }
+
+  public static class Builder {
+    /**
+     * 公司
+     *
+     * <p>示例值：明日科技公司
+     */
+    private String companyName;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：该公司为中国 500 强公司
+     */
+    private String description;
+
+    /**
+     * 结束时间
+     *
+     * <p>示例值：2020-09
+     */
+    private String endTime;
+
+    /**
+     * 开始时间
+     *
+     * <p>示例值：2020-01
+     */
+    private String startTime;
+
+    /**
+     * 职称
+     *
+     * <p>示例值：财务
+     */
+    private String title;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
     private TalentCustomizedDataChild[] customizedDataList;
 
-    // builder 开始
-    public CompositeTalentInternshipInfo() {
+    /**
+     * 公司
+     *
+     * <p>示例值：明日科技公司
+     *
+     * @param companyName
+     * @return
+     */
+    public Builder companyName(String companyName) {
+      this.companyName = companyName;
+      return this;
     }
 
-    public CompositeTalentInternshipInfo(Builder builder) {
-        /**
-         * 公司
-         * <p> 示例值：xx网络科技有限公司
-         */
-        this.companyName = builder.companyName;
-        /**
-         * 描述
-         * <p> 示例值：作为测试实习生参与公司xx项目的测试工作
-         */
-        this.description = builder.description;
-        /**
-         * 结束时间
-         * <p> 示例值：2020-09
-         */
-        this.endTime = builder.endTime;
-        /**
-         * 开始时间
-         * <p> 示例值：2020-01
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 职称
-         * <p> 示例值：测试工程师
-         */
-        this.title = builder.title;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customizedDataList = builder.customizedDataList;
+    /**
+     * 描述
+     *
+     * <p>示例值：该公司为中国 500 强公司
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 结束时间
+     *
+     * <p>示例值：2020-09
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public String getCompanyName() {
-        return this.companyName;
+    /**
+     * 开始时间
+     *
+     * <p>示例值：2020-01
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    /**
+     * 职称
+     *
+     * <p>示例值：财务
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customizedDataList
+     * @return
+     */
+    public Builder customizedDataList(TalentCustomizedDataChild[] customizedDataList) {
+      this.customizedDataList = customizedDataList;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public CompositeTalentInternshipInfo build() {
+      return new CompositeTalentInternshipInfo(this);
     }
+  }
 
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public TalentCustomizedDataChild[] getCustomizedDataList() {
-        return this.customizedDataList;
-    }
-
-    public void setCustomizedDataList(TalentCustomizedDataChild[] customizedDataList) {
-        this.customizedDataList = customizedDataList;
-    }
-
-    public static class Builder {
-        /**
-         * 公司
-         * <p> 示例值：xx网络科技有限公司
-         */
-        private String companyName;
-        /**
-         * 描述
-         * <p> 示例值：作为测试实习生参与公司xx项目的测试工作
-         */
-        private String description;
-        /**
-         * 结束时间
-         * <p> 示例值：2020-09
-         */
-        private String endTime;
-        /**
-         * 开始时间
-         * <p> 示例值：2020-01
-         */
-        private String startTime;
-        /**
-         * 职称
-         * <p> 示例值：测试工程师
-         */
-        private String title;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private TalentCustomizedDataChild[] customizedDataList;
-
-        /**
-         * 公司
-         * <p> 示例值：xx网络科技有限公司
-         *
-         * @param companyName
-         * @return
-         */
-        public Builder companyName(String companyName) {
-            this.companyName = companyName;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：作为测试实习生参与公司xx项目的测试工作
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 结束时间
-         * <p> 示例值：2020-09
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        /**
-         * 开始时间
-         * <p> 示例值：2020-01
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 职称
-         * <p> 示例值：测试工程师
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customizedDataList
-         * @return
-         */
-        public Builder customizedDataList(TalentCustomizedDataChild[] customizedDataList) {
-            this.customizedDataList = customizedDataList;
-            return this;
-        }
-
-
-        public CompositeTalentInternshipInfo build() {
-            return new CompositeTalentInternshipInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.drive.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BitableTableFieldActionValue {
+  /**
+   * 字段 ID
+   *
+   * <p>示例值：fldmj5qNii
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 字段名字
+   *
+   * <p>示例值：field name
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 字段类型
+   *
+   * <p>示例值：20
+   */
+  @SerializedName("type")
+  private Integer type;
+
+  /**
+   * 字段描述
+   *
+   * <p>示例值：description
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 字段属性
+   *
+   * <p>示例值：
+   */
+  @SerializedName("property")
+  private BitableTableFieldActionValueProperty property;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Integer getType() {
+    return this.type;
+  }
+
+  public void setType(Integer type) {
+    this.type = type;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public BitableTableFieldActionValueProperty getProperty() {
+    return this.property;
+  }
+
+  public void setProperty(BitableTableFieldActionValueProperty property) {
+    this.property = property;
+  }
+
+  // builder 开始
+  public BitableTableFieldActionValue() {}
+
+  public BitableTableFieldActionValue(Builder builder) {
     /**
      * 字段 ID
-     * <p> 示例值：fldmj5qNii
+     *
+     * <p>示例值：fldmj5qNii
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 字段名字
-     * <p> 示例值：field name
+     *
+     * <p>示例值：field name
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 字段类型
-     * <p> 示例值：20
+     *
+     * <p>示例值：20
      */
-    @SerializedName("type")
-    private Integer type;
+    this.type = builder.type;
     /**
      * 字段描述
-     * <p> 示例值：description
+     *
+     * <p>示例值：description
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 字段属性
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("property")
+    this.property = builder.property;
+  }
+
+  public static class Builder {
+    /**
+     * 字段 ID
+     *
+     * <p>示例值：fldmj5qNii
+     */
+    private String id;
+
+    /**
+     * 字段名字
+     *
+     * <p>示例值：field name
+     */
+    private String name;
+
+    /**
+     * 字段类型
+     *
+     * <p>示例值：20
+     */
+    private Integer type;
+
+    /**
+     * 字段描述
+     *
+     * <p>示例值：description
+     */
+    private String description;
+
+    /**
+     * 字段属性
+     *
+     * <p>示例值：
+     */
     private BitableTableFieldActionValueProperty property;
 
-    // builder 开始
-    public BitableTableFieldActionValue() {
+    /**
+     * 字段 ID
+     *
+     * <p>示例值：fldmj5qNii
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public BitableTableFieldActionValue(Builder builder) {
-        /**
-         * 字段 ID
-         * <p> 示例值：fldmj5qNii
-         */
-        this.id = builder.id;
-        /**
-         * 字段名字
-         * <p> 示例值：field name
-         */
-        this.name = builder.name;
-        /**
-         * 字段类型
-         * <p> 示例值：20
-         */
-        this.type = builder.type;
-        /**
-         * 字段描述
-         * <p> 示例值：description
-         */
-        this.description = builder.description;
-        /**
-         * 字段属性
-         * <p> 示例值：
-         */
-        this.property = builder.property;
+    /**
+     * 字段名字
+     *
+     * <p>示例值：field name
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段类型
+     *
+     * <p>示例值：20
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(Integer type) {
+      this.type = type;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 字段描述
+     *
+     * <p>示例值：description
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 字段属性
+     *
+     * <p>示例值：
+     *
+     * @param property
+     * @return
+     */
+    public Builder property(BitableTableFieldActionValueProperty property) {
+      this.property = property;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    public BitableTableFieldActionValue build() {
+      return new BitableTableFieldActionValue(this);
     }
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getType() {
-        return this.type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public BitableTableFieldActionValueProperty getProperty() {
-        return this.property;
-    }
-
-    public void setProperty(BitableTableFieldActionValueProperty property) {
-        this.property = property;
-    }
-
-    public static class Builder {
-        /**
-         * 字段 ID
-         * <p> 示例值：fldmj5qNii
-         */
-        private String id;
-        /**
-         * 字段名字
-         * <p> 示例值：field name
-         */
-        private String name;
-        /**
-         * 字段类型
-         * <p> 示例值：20
-         */
-        private Integer type;
-        /**
-         * 字段描述
-         * <p> 示例值：description
-         */
-        private String description;
-        /**
-         * 字段属性
-         * <p> 示例值：
-         */
-        private BitableTableFieldActionValueProperty property;
-
-        /**
-         * 字段 ID
-         * <p> 示例值：fldmj5qNii
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 字段名字
-         * <p> 示例值：field name
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 字段类型
-         * <p> 示例值：20
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(Integer type) {
-            this.type = type;
-            return this;
-        }
-
-
-        /**
-         * 字段描述
-         * <p> 示例值：description
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 字段属性
-         * <p> 示例值：
-         *
-         * @param property
-         * @return
-         */
-        public Builder property(BitableTableFieldActionValueProperty property) {
-            this.property = property;
-            return this;
-        }
-
-
-        public BitableTableFieldActionValue build() {
-            return new BitableTableFieldActionValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

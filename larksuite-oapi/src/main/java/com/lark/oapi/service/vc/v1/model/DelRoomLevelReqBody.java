@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DelRoomLevelReqBody {
+  /**
+   * 层级ID
+   *
+   * <p>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+   */
+  @SerializedName("room_level_id")
+  private String roomLevelId;
+
+  /**
+   * 是否删除所有子层级
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("delete_child")
+  private Boolean deleteChild;
+
+  public String getRoomLevelId() {
+    return this.roomLevelId;
+  }
+
+  public void setRoomLevelId(String roomLevelId) {
+    this.roomLevelId = roomLevelId;
+  }
+
+  public Boolean getDeleteChild() {
+    return this.deleteChild;
+  }
+
+  public void setDeleteChild(Boolean deleteChild) {
+    this.deleteChild = deleteChild;
+  }
+
+  // builder 开始
+  public DelRoomLevelReqBody() {}
+
+  public DelRoomLevelReqBody(Builder builder) {
     /**
      * 层级ID
-     * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+     *
+     * <p>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
      */
-    @SerializedName("room_level_id")
-    private String roomLevelId;
+    this.roomLevelId = builder.roomLevelId;
     /**
      * 是否删除所有子层级
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("delete_child")
+    this.deleteChild = builder.deleteChild;
+  }
+
+  public static class Builder {
+    /**
+     * 层级ID
+     *
+     * <p>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+     */
+    private String roomLevelId;
+
+    /**
+     * 是否删除所有子层级
+     *
+     * <p>示例值：false
+     */
     private Boolean deleteChild;
 
-    // builder 开始
-    public DelRoomLevelReqBody() {
+    /**
+     * 层级ID
+     *
+     * <p>示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
+     *
+     * @param roomLevelId
+     * @return
+     */
+    public Builder roomLevelId(String roomLevelId) {
+      this.roomLevelId = roomLevelId;
+      return this;
     }
 
-    public DelRoomLevelReqBody(Builder builder) {
-        /**
-         * 层级ID
-         * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         */
-        this.roomLevelId = builder.roomLevelId;
-        /**
-         * 是否删除所有子层级
-         * <p> 示例值：false
-         */
-        this.deleteChild = builder.deleteChild;
+    /**
+     * 是否删除所有子层级
+     *
+     * <p>示例值：false
+     *
+     * @param deleteChild
+     * @return
+     */
+    public Builder deleteChild(Boolean deleteChild) {
+      this.deleteChild = deleteChild;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public DelRoomLevelReqBody build() {
+      return new DelRoomLevelReqBody(this);
     }
+  }
 
-    public String getRoomLevelId() {
-        return this.roomLevelId;
-    }
-
-    public void setRoomLevelId(String roomLevelId) {
-        this.roomLevelId = roomLevelId;
-    }
-
-    public Boolean getDeleteChild() {
-        return this.deleteChild;
-    }
-
-    public void setDeleteChild(Boolean deleteChild) {
-        this.deleteChild = deleteChild;
-    }
-
-    public static class Builder {
-        /**
-         * 层级ID
-         * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         */
-        private String roomLevelId;
-        /**
-         * 是否删除所有子层级
-         * <p> 示例值：false
-         */
-        private Boolean deleteChild;
-
-        /**
-         * 层级ID
-         * <p> 示例值：omb_4ad1a2c7a2fbc5fc9570f38456931293
-         *
-         * @param roomLevelId
-         * @return
-         */
-        public Builder roomLevelId(String roomLevelId) {
-            this.roomLevelId = roomLevelId;
-            return this;
-        }
-
-
-        /**
-         * 是否删除所有子层级
-         * <p> 示例值：false
-         *
-         * @param deleteChild
-         * @return
-         */
-        public Builder deleteChild(Boolean deleteChild) {
-            this.deleteChild = deleteChild;
-            return this;
-        }
-
-
-        public DelRoomLevelReqBody build() {
-            return new DelRoomLevelReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

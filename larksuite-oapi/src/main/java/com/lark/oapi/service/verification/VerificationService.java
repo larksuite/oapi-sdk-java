@@ -13,18 +13,17 @@
 package com.lark.oapi.service.verification;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.verification.v1.V1;
 import com.lark.oapi.service.verification.v1.model.*;
 
 public class VerificationService {
-    private final V1 v1;
+  private final V1 v1;
 
-    public VerificationService(Config config) {
-        this.v1 = new V1(config);
-    }
+  public VerificationService(Config config) {
+    this.v1 = new V1(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 }

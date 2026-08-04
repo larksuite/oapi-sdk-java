@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.docx.v1.enums;
 
-/**
- * 绘图类型
- */
+/** 绘图类型 */
 public enum DiagramDiagramTypeEnum {
-    FLOWCHART(1), // 流程图
-    UML(2), // UML 图
-    ;
-    private Integer value;
+  FLOWCHART(1), // 流程图
+  UML(2), // UML 图
+  ;
+  private Integer value;
 
-    DiagramDiagramTypeEnum(Integer value) {
-        this.value = value;
-    }
+  DiagramDiagramTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

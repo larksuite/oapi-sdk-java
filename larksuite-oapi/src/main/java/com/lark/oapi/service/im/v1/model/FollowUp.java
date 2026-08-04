@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FollowUp {
+  /**
+   * 气泡的内容。
+   *
+   * <p>示例值：你好
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 气泡的多语言内容。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_contents")
+  private I18nContent[] i18nContents;
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public I18nContent[] getI18nContents() {
+    return this.i18nContents;
+  }
+
+  public void setI18nContents(I18nContent[] i18nContents) {
+    this.i18nContents = i18nContents;
+  }
+
+  // builder 开始
+  public FollowUp() {}
+
+  public FollowUp(Builder builder) {
     /**
-     * 内容
-     * <p> 示例值：你好
+     * 气泡的内容。
+     *
+     * <p>示例值：你好
      */
-    @SerializedName("content")
+    this.content = builder.content;
+    /**
+     * 气泡的多语言内容。
+     *
+     * <p>示例值：
+     */
+    this.i18nContents = builder.i18nContents;
+  }
+
+  public static class Builder {
+    /**
+     * 气泡的内容。
+     *
+     * <p>示例值：你好
+     */
     private String content;
+
     /**
-     * 多语言内容
-     * <p> 示例值：
+     * 气泡的多语言内容。
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_contents")
     private I18nContent[] i18nContents;
 
-    // builder 开始
-    public FollowUp() {
+    /**
+     * 气泡的内容。
+     *
+     * <p>示例值：你好
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public FollowUp(Builder builder) {
-        /**
-         * 内容
-         * <p> 示例值：你好
-         */
-        this.content = builder.content;
-        /**
-         * 多语言内容
-         * <p> 示例值：
-         */
-        this.i18nContents = builder.i18nContents;
+    /**
+     * 气泡的多语言内容。
+     *
+     * <p>示例值：
+     *
+     * @param i18nContents
+     * @return
+     */
+    public Builder i18nContents(I18nContent[] i18nContents) {
+      this.i18nContents = i18nContents;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public FollowUp build() {
+      return new FollowUp(this);
     }
+  }
 
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public I18nContent[] getI18nContents() {
-        return this.i18nContents;
-    }
-
-    public void setI18nContents(I18nContent[] i18nContents) {
-        this.i18nContents = i18nContents;
-    }
-
-    public static class Builder {
-        /**
-         * 内容
-         * <p> 示例值：你好
-         */
-        private String content;
-        /**
-         * 多语言内容
-         * <p> 示例值：
-         */
-        private I18nContent[] i18nContents;
-
-        /**
-         * 内容
-         * <p> 示例值：你好
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 多语言内容
-         * <p> 示例值：
-         *
-         * @param i18nContents
-         * @return
-         */
-        public Builder i18nContents(I18nContent[] i18nContents) {
-            this.i18nContents = i18nContents;
-            return this;
-        }
-
-
-        public FollowUp build() {
-            return new FollowUp(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

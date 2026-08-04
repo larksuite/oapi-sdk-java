@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.document_ai.v1.enums;
 
-/**
- * 性别
- */
+/** 性别 */
 public enum ResumeResumeGenderTypeEnum {
-    UNKNOWN(0), // 未知
-    MALE(1), // 男性
-    FEMALE(2), // 女性
-    ;
-    private Integer value;
+  UNKNOWN(0), // 未知
+  MALE(1), // 男性
+  FEMALE(2), // 女性
+  ;
+  private Integer value;
 
-    ResumeResumeGenderTypeEnum(Integer value) {
-        this.value = value;
-    }
+  ResumeResumeGenderTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

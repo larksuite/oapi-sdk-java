@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AdditionalInformation {
+  /**
+   * 飞书绩效的事项 ID
+   *
+   * <p>示例值：7350195758357807123
+   */
+  @SerializedName("item_id")
+  private String itemId;
+
+  /**
+   * 外部系统的事项 ID，没有则返回为空
+   *
+   * <p>示例值：6789523104723558912
+   */
+  @SerializedName("external_id")
+  private String externalId;
+
+  /**
+   * 被评估人 ID
+   *
+   * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
+   */
+  @SerializedName("reviewee_user_id")
+  private String revieweeUserId;
+
+  /**
+   * 事项
+   *
+   * <p>示例值：业绩补充说明
+   */
+  @SerializedName("item")
+  private String item;
+
+  /**
+   * 时间;;;**说明**：文本内容，无格式校验
+   *
+   * <p>示例值：2024-03-12
+   */
+  @SerializedName("time")
+  private String time;
+
+  /**
+   * 具体描述
+   *
+   * <p>示例值：销售额增长目标超额完成
+   */
+  @SerializedName("detailed_description")
+  private String detailedDescription;
+
+  public String getItemId() {
+    return this.itemId;
+  }
+
+  public void setItemId(String itemId) {
+    this.itemId = itemId;
+  }
+
+  public String getExternalId() {
+    return this.externalId;
+  }
+
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
+  }
+
+  public String getRevieweeUserId() {
+    return this.revieweeUserId;
+  }
+
+  public void setRevieweeUserId(String revieweeUserId) {
+    this.revieweeUserId = revieweeUserId;
+  }
+
+  public String getItem() {
+    return this.item;
+  }
+
+  public void setItem(String item) {
+    this.item = item;
+  }
+
+  public String getTime() {
+    return this.time;
+  }
+
+  public void setTime(String time) {
+    this.time = time;
+  }
+
+  public String getDetailedDescription() {
+    return this.detailedDescription;
+  }
+
+  public void setDetailedDescription(String detailedDescription) {
+    this.detailedDescription = detailedDescription;
+  }
+
+  // builder 开始
+  public AdditionalInformation() {}
+
+  public AdditionalInformation(Builder builder) {
     /**
      * 飞书绩效的事项 ID
-     * <p> 示例值：7350195758357807123
+     *
+     * <p>示例值：7350195758357807123
      */
-    @SerializedName("item_id")
-    private String itemId;
+    this.itemId = builder.itemId;
     /**
      * 外部系统的事项 ID，没有则返回为空
-     * <p> 示例值：6789523104723558912
+     *
+     * <p>示例值：6789523104723558912
      */
-    @SerializedName("external_id")
-    private String externalId;
+    this.externalId = builder.externalId;
     /**
      * 被评估人 ID
-     * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
      */
-    @SerializedName("reviewee_user_id")
-    private String revieweeUserId;
+    this.revieweeUserId = builder.revieweeUserId;
     /**
      * 事项
-     * <p> 示例值：文本
+     *
+     * <p>示例值：业绩补充说明
      */
-    @SerializedName("item")
+    this.item = builder.item;
+    /**
+     * 时间;;;**说明**：文本内容，无格式校验
+     *
+     * <p>示例值：2024-03-12
+     */
+    this.time = builder.time;
+    /**
+     * 具体描述
+     *
+     * <p>示例值：销售额增长目标超额完成
+     */
+    this.detailedDescription = builder.detailedDescription;
+  }
+
+  public static class Builder {
+    /**
+     * 飞书绩效的事项 ID
+     *
+     * <p>示例值：7350195758357807123
+     */
+    private String itemId;
+
+    /**
+     * 外部系统的事项 ID，没有则返回为空
+     *
+     * <p>示例值：6789523104723558912
+     */
+    private String externalId;
+
+    /**
+     * 被评估人 ID
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
+     */
+    private String revieweeUserId;
+
+    /**
+     * 事项
+     *
+     * <p>示例值：业绩补充说明
+     */
     private String item;
+
     /**
-     * 事项时间，格式为文本内容
-     * <p> 示例值：2024-03-12
+     * 时间;;;**说明**：文本内容，无格式校验
+     *
+     * <p>示例值：2024-03-12
      */
-    @SerializedName("time")
     private String time;
+
     /**
-     * 事项详细描述
-     * <p> 示例值：多行文本
+     * 具体描述
+     *
+     * <p>示例值：销售额增长目标超额完成
      */
-    @SerializedName("detailed_description")
     private String detailedDescription;
 
-    // builder 开始
-    public AdditionalInformation() {
+    /**
+     * 飞书绩效的事项 ID
+     *
+     * <p>示例值：7350195758357807123
+     *
+     * @param itemId
+     * @return
+     */
+    public Builder itemId(String itemId) {
+      this.itemId = itemId;
+      return this;
     }
 
-    public AdditionalInformation(Builder builder) {
-        /**
-         * 飞书绩效的事项 ID
-         * <p> 示例值：7350195758357807123
-         */
-        this.itemId = builder.itemId;
-        /**
-         * 外部系统的事项 ID，没有则返回为空
-         * <p> 示例值：6789523104723558912
-         */
-        this.externalId = builder.externalId;
-        /**
-         * 被评估人 ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-         */
-        this.revieweeUserId = builder.revieweeUserId;
-        /**
-         * 事项
-         * <p> 示例值：文本
-         */
-        this.item = builder.item;
-        /**
-         * 事项时间，格式为文本内容
-         * <p> 示例值：2024-03-12
-         */
-        this.time = builder.time;
-        /**
-         * 事项详细描述
-         * <p> 示例值：多行文本
-         */
-        this.detailedDescription = builder.detailedDescription;
+    /**
+     * 外部系统的事项 ID，没有则返回为空
+     *
+     * <p>示例值：6789523104723558912
+     *
+     * @param externalId
+     * @return
+     */
+    public Builder externalId(String externalId) {
+      this.externalId = externalId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 被评估人 ID
+     *
+     * <p>示例值：ou_3245842393d09e9428ad4655da6e30b3
+     *
+     * @param revieweeUserId
+     * @return
+     */
+    public Builder revieweeUserId(String revieweeUserId) {
+      this.revieweeUserId = revieweeUserId;
+      return this;
     }
 
-    public String getItemId() {
-        return this.itemId;
+    /**
+     * 事项
+     *
+     * <p>示例值：业绩补充说明
+     *
+     * @param item
+     * @return
+     */
+    public Builder item(String item) {
+      this.item = item;
+      return this;
     }
 
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
+    /**
+     * 时间;;;**说明**：文本内容，无格式校验
+     *
+     * <p>示例值：2024-03-12
+     *
+     * @param time
+     * @return
+     */
+    public Builder time(String time) {
+      this.time = time;
+      return this;
     }
 
-    public String getExternalId() {
-        return this.externalId;
+    /**
+     * 具体描述
+     *
+     * <p>示例值：销售额增长目标超额完成
+     *
+     * @param detailedDescription
+     * @return
+     */
+    public Builder detailedDescription(String detailedDescription) {
+      this.detailedDescription = detailedDescription;
+      return this;
     }
 
-    public void setExternalId(String externalId) {
-        this.externalId = externalId;
+    public AdditionalInformation build() {
+      return new AdditionalInformation(this);
     }
+  }
 
-    public String getRevieweeUserId() {
-        return this.revieweeUserId;
-    }
-
-    public void setRevieweeUserId(String revieweeUserId) {
-        this.revieweeUserId = revieweeUserId;
-    }
-
-    public String getItem() {
-        return this.item;
-    }
-
-    public void setItem(String item) {
-        this.item = item;
-    }
-
-    public String getTime() {
-        return this.time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getDetailedDescription() {
-        return this.detailedDescription;
-    }
-
-    public void setDetailedDescription(String detailedDescription) {
-        this.detailedDescription = detailedDescription;
-    }
-
-    public static class Builder {
-        /**
-         * 飞书绩效的事项 ID
-         * <p> 示例值：7350195758357807123
-         */
-        private String itemId;
-        /**
-         * 外部系统的事项 ID，没有则返回为空
-         * <p> 示例值：6789523104723558912
-         */
-        private String externalId;
-        /**
-         * 被评估人 ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-         */
-        private String revieweeUserId;
-        /**
-         * 事项
-         * <p> 示例值：文本
-         */
-        private String item;
-        /**
-         * 事项时间，格式为文本内容
-         * <p> 示例值：2024-03-12
-         */
-        private String time;
-        /**
-         * 事项详细描述
-         * <p> 示例值：多行文本
-         */
-        private String detailedDescription;
-
-        /**
-         * 飞书绩效的事项 ID
-         * <p> 示例值：7350195758357807123
-         *
-         * @param itemId
-         * @return
-         */
-        public Builder itemId(String itemId) {
-            this.itemId = itemId;
-            return this;
-        }
-
-
-        /**
-         * 外部系统的事项 ID，没有则返回为空
-         * <p> 示例值：6789523104723558912
-         *
-         * @param externalId
-         * @return
-         */
-        public Builder externalId(String externalId) {
-            this.externalId = externalId;
-            return this;
-        }
-
-
-        /**
-         * 被评估人 ID
-         * <p> 示例值：ou_3245842393d09e9428ad4655da6e30b3
-         *
-         * @param revieweeUserId
-         * @return
-         */
-        public Builder revieweeUserId(String revieweeUserId) {
-            this.revieweeUserId = revieweeUserId;
-            return this;
-        }
-
-
-        /**
-         * 事项
-         * <p> 示例值：文本
-         *
-         * @param item
-         * @return
-         */
-        public Builder item(String item) {
-            this.item = item;
-            return this;
-        }
-
-
-        /**
-         * 事项时间，格式为文本内容
-         * <p> 示例值：2024-03-12
-         *
-         * @param time
-         * @return
-         */
-        public Builder time(String time) {
-            this.time = time;
-            return this;
-        }
-
-
-        /**
-         * 事项详细描述
-         * <p> 示例值：多行文本
-         *
-         * @param detailedDescription
-         * @return
-         */
-        public Builder detailedDescription(String detailedDescription) {
-            this.detailedDescription = detailedDescription;
-            return this;
-        }
-
-
-        public AdditionalInformation build() {
-            return new AdditionalInformation(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

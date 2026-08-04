@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AppliTalentCertificateInfo {
+  /**
+   * ID
+   *
+   * <p>示例值：
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 证件名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 证件描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("desc")
+  private String desc;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDesc() {
+    return this.desc;
+  }
+
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
+
+  // builder 开始
+  public AppliTalentCertificateInfo() {}
+
+  public AppliTalentCertificateInfo(Builder builder) {
     /**
      * ID
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 证件名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 证件描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("desc")
+    this.desc = builder.desc;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：
+     */
+    private String id;
+
+    /**
+     * 证件名称
+     *
+     * <p>示例值：
+     */
+    private String name;
+
+    /**
+     * 证件描述
+     *
+     * <p>示例值：
+     */
     private String desc;
 
-    // builder 开始
-    public AppliTalentCertificateInfo() {
+    /**
+     * ID
+     *
+     * <p>示例值：
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public AppliTalentCertificateInfo(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：
-         */
-        this.id = builder.id;
-        /**
-         * 证件名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 证件描述
-         * <p> 示例值：
-         */
-        this.desc = builder.desc;
+    /**
+     * 证件名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 证件描述
+     *
+     * <p>示例值：
+     *
+     * @param desc
+     * @return
+     */
+    public Builder desc(String desc) {
+      this.desc = desc;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public AppliTalentCertificateInfo build() {
+      return new AppliTalentCertificateInfo(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDesc() {
-        return this.desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：
-         */
-        private String id;
-        /**
-         * 证件名称
-         * <p> 示例值：
-         */
-        private String name;
-        /**
-         * 证件描述
-         * <p> 示例值：
-         */
-        private String desc;
-
-        /**
-         * ID
-         * <p> 示例值：
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 证件名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 证件描述
-         * <p> 示例值：
-         *
-         * @param desc
-         * @return
-         */
-        public Builder desc(String desc) {
-            this.desc = desc;
-            return this;
-        }
-
-
-        public AppliTalentCertificateInfo build() {
-            return new AppliTalentCertificateInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

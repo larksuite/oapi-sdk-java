@@ -13,87 +13,80 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MeetingWebinarSetting {
+  /**
+   * 网络研讨会类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("webinar_type")
+  private Integer webinarType;
+
+  public Integer getWebinarType() {
+    return this.webinarType;
+  }
+
+  public void setWebinarType(Integer webinarType) {
+    this.webinarType = webinarType;
+  }
+
+  // builder 开始
+  public MeetingWebinarSetting() {}
+
+  public MeetingWebinarSetting(Builder builder) {
     /**
      * 网络研讨会类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("webinar_type")
+    this.webinarType = builder.webinarType;
+  }
+
+  public static class Builder {
+    /**
+     * 网络研讨会类型
+     *
+     * <p>示例值：1
+     */
     private Integer webinarType;
 
-    // builder 开始
-    public MeetingWebinarSetting() {
+    /**
+     * 网络研讨会类型
+     *
+     * <p>示例值：1
+     *
+     * @param webinarType
+     * @return
+     */
+    public Builder webinarType(Integer webinarType) {
+      this.webinarType = webinarType;
+      return this;
     }
 
-    public MeetingWebinarSetting(Builder builder) {
-        /**
-         * 网络研讨会类型
-         * <p> 示例值：1
-         */
-        this.webinarType = builder.webinarType;
+    /**
+     * 网络研讨会类型
+     *
+     * <p>示例值：1
+     *
+     * @param webinarType {@link
+     *     com.lark.oapi.service.vc.v1.enums.MeetingWebinarSettingWebinarTypeEnum}
+     * @return
+     */
+    public Builder webinarType(
+        com.lark.oapi.service.vc.v1.enums.MeetingWebinarSettingWebinarTypeEnum webinarType) {
+      this.webinarType = webinarType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MeetingWebinarSetting build() {
+      return new MeetingWebinarSetting(this);
     }
+  }
 
-    public Integer getWebinarType() {
-        return this.webinarType;
-    }
-
-    public void setWebinarType(Integer webinarType) {
-        this.webinarType = webinarType;
-    }
-
-    public static class Builder {
-        /**
-         * 网络研讨会类型
-         * <p> 示例值：1
-         */
-        private Integer webinarType;
-
-        /**
-         * 网络研讨会类型
-         * <p> 示例值：1
-         *
-         * @param webinarType
-         * @return
-         */
-        public Builder webinarType(Integer webinarType) {
-            this.webinarType = webinarType;
-            return this;
-        }
-
-        /**
-         * 网络研讨会类型
-         * <p> 示例值：1
-         *
-         * @param webinarType {@link com.lark.oapi.service.vc.v1.enums.MeetingWebinarSettingWebinarTypeEnum}
-         * @return
-         */
-        public Builder webinarType(com.lark.oapi.service.vc.v1.enums.MeetingWebinarSettingWebinarTypeEnum webinarType) {
-            this.webinarType = webinarType.getValue();
-            return this;
-        }
-
-
-        public MeetingWebinarSetting build() {
-            return new MeetingWebinarSetting(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

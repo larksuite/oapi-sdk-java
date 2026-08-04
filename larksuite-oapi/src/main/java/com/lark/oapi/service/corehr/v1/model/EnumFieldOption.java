@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EnumFieldOption {
+  /**
+   * 枚举值选项 API Name，即选项的唯一标识
+   *
+   * <p>示例值：grade_e
+   */
+  @SerializedName("option_api_name")
+  private String optionApiName;
+
+  /**
+   * 是否启用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("active")
+  private Boolean active;
+
+  /**
+   * 字段名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private Name name;
+
+  public String getOptionApiName() {
+    return this.optionApiName;
+  }
+
+  public void setOptionApiName(String optionApiName) {
+    this.optionApiName = optionApiName;
+  }
+
+  public Boolean getActive() {
+    return this.active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
+  public Name getName() {
+    return this.name;
+  }
+
+  public void setName(Name name) {
+    this.name = name;
+  }
+
+  // builder 开始
+  public EnumFieldOption() {}
+
+  public EnumFieldOption(Builder builder) {
     /**
      * 枚举值选项 API Name，即选项的唯一标识
-     * <p> 示例值：grade_e
+     *
+     * <p>示例值：grade_e
      */
-    @SerializedName("option_api_name")
-    private String optionApiName;
+    this.optionApiName = builder.optionApiName;
     /**
      * 是否启用
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("active")
-    private Boolean active;
+    this.active = builder.active;
     /**
-     * 选项名称（需填写至少一个语种）
-     * <p> 示例值：
+     * 字段名称
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
+    this.name = builder.name;
+  }
+
+  public static class Builder {
+    /**
+     * 枚举值选项 API Name，即选项的唯一标识
+     *
+     * <p>示例值：grade_e
+     */
+    private String optionApiName;
+
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     */
+    private Boolean active;
+
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     */
     private Name name;
 
-    // builder 开始
-    public EnumFieldOption() {
+    /**
+     * 枚举值选项 API Name，即选项的唯一标识
+     *
+     * <p>示例值：grade_e
+     *
+     * @param optionApiName
+     * @return
+     */
+    public Builder optionApiName(String optionApiName) {
+      this.optionApiName = optionApiName;
+      return this;
     }
 
-    public EnumFieldOption(Builder builder) {
-        /**
-         * 枚举值选项 API Name，即选项的唯一标识
-         * <p> 示例值：grade_e
-         */
-        this.optionApiName = builder.optionApiName;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        this.active = builder.active;
-        /**
-         * 选项名称（需填写至少一个语种）
-         * <p> 示例值：
-         */
-        this.name = builder.name;
+    /**
+     * 是否启用
+     *
+     * <p>示例值：true
+     *
+     * @param active
+     * @return
+     */
+    public Builder active(Boolean active) {
+      this.active = active;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 字段名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(Name name) {
+      this.name = name;
+      return this;
     }
 
-    public String getOptionApiName() {
-        return this.optionApiName;
+    public EnumFieldOption build() {
+      return new EnumFieldOption(this);
     }
+  }
 
-    public void setOptionApiName(String optionApiName) {
-        this.optionApiName = optionApiName;
-    }
-
-    public Boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
-
-    public Name getName() {
-        return this.name;
-    }
-
-    public void setName(Name name) {
-        this.name = name;
-    }
-
-    public static class Builder {
-        /**
-         * 枚举值选项 API Name，即选项的唯一标识
-         * <p> 示例值：grade_e
-         */
-        private String optionApiName;
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         */
-        private Boolean active;
-        /**
-         * 选项名称（需填写至少一个语种）
-         * <p> 示例值：
-         */
-        private Name name;
-
-        /**
-         * 枚举值选项 API Name，即选项的唯一标识
-         * <p> 示例值：grade_e
-         *
-         * @param optionApiName
-         * @return
-         */
-        public Builder optionApiName(String optionApiName) {
-            this.optionApiName = optionApiName;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true
-         *
-         * @param active
-         * @return
-         */
-        public Builder active(Boolean active) {
-            this.active = active;
-            return this;
-        }
-
-
-        /**
-         * 选项名称（需填写至少一个语种）
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(Name name) {
-            this.name = name;
-            return this;
-        }
-
-
-        public EnumFieldOption build() {
-            return new EnumFieldOption(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PlanIndicator {
+  /**
+   * 薪资统计指标ID，详细信息可以通过[批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)接口查询获得
+   *
+   * <p>示例值：13243432
+   */
+  @SerializedName("indicator_id")
+  private String indicatorId;
+
+  /**
+   * 方案关联薪资统计指标逻辑配置
+   *
+   * <p>示例值：
+   */
+  @SerializedName("plan_indicator_logic")
+  private AdjustmentLogic planIndicatorLogic;
+
+  public String getIndicatorId() {
+    return this.indicatorId;
+  }
+
+  public void setIndicatorId(String indicatorId) {
+    this.indicatorId = indicatorId;
+  }
+
+  public AdjustmentLogic getPlanIndicatorLogic() {
+    return this.planIndicatorLogic;
+  }
+
+  public void setPlanIndicatorLogic(AdjustmentLogic planIndicatorLogic) {
+    this.planIndicatorLogic = planIndicatorLogic;
+  }
+
+  // builder 开始
+  public PlanIndicator() {}
+
+  public PlanIndicator(Builder builder) {
     /**
      * 薪资统计指标ID，详细信息可以通过[批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)接口查询获得
-     * <p> 示例值：13243432
+     *
+     * <p>示例值：13243432
      */
-    @SerializedName("indicator_id")
-    private String indicatorId;
+    this.indicatorId = builder.indicatorId;
     /**
      * 方案关联薪资统计指标逻辑配置
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("plan_indicator_logic")
+    this.planIndicatorLogic = builder.planIndicatorLogic;
+  }
+
+  public static class Builder {
+    /**
+     * 薪资统计指标ID，详细信息可以通过[批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)接口查询获得
+     *
+     * <p>示例值：13243432
+     */
+    private String indicatorId;
+
+    /**
+     * 方案关联薪资统计指标逻辑配置
+     *
+     * <p>示例值：
+     */
     private AdjustmentLogic planIndicatorLogic;
 
-    // builder 开始
-    public PlanIndicator() {
+    /**
+     * 薪资统计指标ID，详细信息可以通过[批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)接口查询获得
+     *
+     * <p>示例值：13243432
+     *
+     * @param indicatorId
+     * @return
+     */
+    public Builder indicatorId(String indicatorId) {
+      this.indicatorId = indicatorId;
+      return this;
     }
 
-    public PlanIndicator(Builder builder) {
-        /**
-         * 薪资统计指标ID，详细信息可以通过[批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)接口查询获得
-         * <p> 示例值：13243432
-         */
-        this.indicatorId = builder.indicatorId;
-        /**
-         * 方案关联薪资统计指标逻辑配置
-         * <p> 示例值：
-         */
-        this.planIndicatorLogic = builder.planIndicatorLogic;
+    /**
+     * 方案关联薪资统计指标逻辑配置
+     *
+     * <p>示例值：
+     *
+     * @param planIndicatorLogic
+     * @return
+     */
+    public Builder planIndicatorLogic(AdjustmentLogic planIndicatorLogic) {
+      this.planIndicatorLogic = planIndicatorLogic;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PlanIndicator build() {
+      return new PlanIndicator(this);
     }
+  }
 
-    public String getIndicatorId() {
-        return this.indicatorId;
-    }
-
-    public void setIndicatorId(String indicatorId) {
-        this.indicatorId = indicatorId;
-    }
-
-    public AdjustmentLogic getPlanIndicatorLogic() {
-        return this.planIndicatorLogic;
-    }
-
-    public void setPlanIndicatorLogic(AdjustmentLogic planIndicatorLogic) {
-        this.planIndicatorLogic = planIndicatorLogic;
-    }
-
-    public static class Builder {
-        /**
-         * 薪资统计指标ID，详细信息可以通过[批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)接口查询获得
-         * <p> 示例值：13243432
-         */
-        private String indicatorId;
-        /**
-         * 方案关联薪资统计指标逻辑配置
-         * <p> 示例值：
-         */
-        private AdjustmentLogic planIndicatorLogic;
-
-        /**
-         * 薪资统计指标ID，详细信息可以通过[批量查询薪资统计指标](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/indicator/list)接口查询获得
-         * <p> 示例值：13243432
-         *
-         * @param indicatorId
-         * @return
-         */
-        public Builder indicatorId(String indicatorId) {
-            this.indicatorId = indicatorId;
-            return this;
-        }
-
-
-        /**
-         * 方案关联薪资统计指标逻辑配置
-         * <p> 示例值：
-         *
-         * @param planIndicatorLogic
-         * @return
-         */
-        public Builder planIndicatorLogic(AdjustmentLogic planIndicatorLogic) {
-            this.planIndicatorLogic = planIndicatorLogic;
-            return this;
-        }
-
-
-        public PlanIndicator build() {
-            return new PlanIndicator(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

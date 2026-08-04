@@ -13,132 +13,134 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PatchMailgroupRespBody {
-    /**
-     * The unique ID of a mail group
-     * <p> 示例值：xxxxxxxxxxxxxxx
-     */
-    @SerializedName("mailgroup_id")
-    private String mailgroupId;
-    /**
-     * The mail group's email address
-     * <p> 示例值：test_mail_group@xxx.xx
-     */
-    @SerializedName("email")
-    private String email;
-    /**
-     * The mail group's display name
-     * <p> 示例值：test mail group
-     */
-    @SerializedName("name")
-    private String name;
-    /**
-     * The mail group's description
-     * <p> 示例值：mail group for testing
-     */
-    @SerializedName("description")
-    private String description;
-    /**
-     * The number of mail group's direct members
-     * <p> 示例值：10
-     */
-    @SerializedName("direct_members_count")
-    private String directMembersCount;
-    /**
-     * Value is true if this mail group has external member
-     * <p> 示例值：true
-     */
-    @SerializedName("include_external_member")
-    private Boolean includeExternalMember;
-    /**
-     * Value is true if all company members are in this mail group
-     * <p> 示例值：false
-     */
-    @SerializedName("include_all_company_member")
-    private Boolean includeAllCompanyMember;
-    /**
-     * Who can send mail to this mail group. Possible values are:;- ANYONE: Any Internet user can send mail to this mail group;- ALL_INTERNAL_USERS: Anyone in the team can send mail to this mail group;- ALL_GROUP_MEMBERS: Any group member can send mail to this mail group;- CUSTOM_MEMBERS: Only custom members can send mail to this mail group, define in mailgroup.permission_members resoure
-     * <p> 示例值：ALL_INTERNAL_USERS
-     */
-    @SerializedName("who_can_send_mail")
-    private String whoCanSendMail;
+  /**
+   * 邮件组ID
+   *
+   * <p>示例值：xxxxxxxxxxxxxxx
+   */
+  @SerializedName("mailgroup_id")
+  private String mailgroupId;
 
-    public String getMailgroupId() {
-        return this.mailgroupId;
-    }
+  /**
+   * 邮件组地址
+   *
+   * <p>示例值：test_mail_group@xxx.xx
+   */
+  @SerializedName("email")
+  private String email;
 
-    public void setMailgroupId(String mailgroupId) {
-        this.mailgroupId = mailgroupId;
-    }
+  /**
+   * 邮件组名称
+   *
+   * <p>示例值：test mail group
+   */
+  @SerializedName("name")
+  private String name;
 
-    public String getEmail() {
-        return this.email;
-    }
+  /**
+   * 邮件组描述
+   *
+   * <p>示例值：mail group for testing
+   */
+  @SerializedName("description")
+  private String description;
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  /**
+   * 邮件组成员数量
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("direct_members_count")
+  private String directMembersCount;
 
-    public String getName() {
-        return this.name;
-    }
+  /**
+   * 是否包含外部成员
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("include_external_member")
+  private Boolean includeExternalMember;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  /**
+   * 是否是全员邮件组
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("include_all_company_member")
+  private Boolean includeAllCompanyMember;
 
-    public String getDescription() {
-        return this.description;
-    }
+  /**
+   * 谁可发送邮件到此邮件组
+   *
+   * <p>示例值：ALL_INTERNAL_USERS
+   */
+  @SerializedName("who_can_send_mail")
+  private String whoCanSendMail;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public String getMailgroupId() {
+    return this.mailgroupId;
+  }
 
-    public String getDirectMembersCount() {
-        return this.directMembersCount;
-    }
+  public void setMailgroupId(String mailgroupId) {
+    this.mailgroupId = mailgroupId;
+  }
 
-    public void setDirectMembersCount(String directMembersCount) {
-        this.directMembersCount = directMembersCount;
-    }
+  public String getEmail() {
+    return this.email;
+  }
 
-    public Boolean getIncludeExternalMember() {
-        return this.includeExternalMember;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public void setIncludeExternalMember(Boolean includeExternalMember) {
-        this.includeExternalMember = includeExternalMember;
-    }
+  public String getName() {
+    return this.name;
+  }
 
-    public Boolean getIncludeAllCompanyMember() {
-        return this.includeAllCompanyMember;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setIncludeAllCompanyMember(Boolean includeAllCompanyMember) {
-        this.includeAllCompanyMember = includeAllCompanyMember;
-    }
+  public String getDescription() {
+    return this.description;
+  }
 
-    public String getWhoCanSendMail() {
-        return this.whoCanSendMail;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public void setWhoCanSendMail(String whoCanSendMail) {
-        this.whoCanSendMail = whoCanSendMail;
-    }
+  public String getDirectMembersCount() {
+    return this.directMembersCount;
+  }
 
+  public void setDirectMembersCount(String directMembersCount) {
+    this.directMembersCount = directMembersCount;
+  }
+
+  public Boolean getIncludeExternalMember() {
+    return this.includeExternalMember;
+  }
+
+  public void setIncludeExternalMember(Boolean includeExternalMember) {
+    this.includeExternalMember = includeExternalMember;
+  }
+
+  public Boolean getIncludeAllCompanyMember() {
+    return this.includeAllCompanyMember;
+  }
+
+  public void setIncludeAllCompanyMember(Boolean includeAllCompanyMember) {
+    this.includeAllCompanyMember = includeAllCompanyMember;
+  }
+
+  public String getWhoCanSendMail() {
+    return this.whoCanSendMail;
+  }
+
+  public void setWhoCanSendMail(String whoCanSendMail) {
+    this.whoCanSendMail = whoCanSendMail;
+  }
 }

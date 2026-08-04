@@ -13,74 +13,72 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CombinedJobResultDefaultJobPost {
+  /**
+   * 默认职位广告的
+   * ID，可通过[职位发布至官网](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/advertisement/publish)接口
+   * 发布至官网
+   *
+   * <p>示例值：6960663240925956568
+   */
+  @SerializedName("id")
+  private String id;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  // builder 开始
+  public CombinedJobResultDefaultJobPost() {}
+
+  public CombinedJobResultDefaultJobPost(Builder builder) {
     /**
-     * 默认职位广告的 ID，用以发布至招聘渠道的内容
-     * <p> 示例值：6960663240925956568
+     * 默认职位广告的
+     * ID，可通过[职位发布至官网](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/advertisement/publish)接口
+     * 发布至官网
+     *
+     * <p>示例值：6960663240925956568
      */
-    @SerializedName("id")
+    this.id = builder.id;
+  }
+
+  public static class Builder {
+    /**
+     * 默认职位广告的
+     * ID，可通过[职位发布至官网](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/advertisement/publish)接口
+     * 发布至官网
+     *
+     * <p>示例值：6960663240925956568
+     */
     private String id;
 
-    // builder 开始
-    public CombinedJobResultDefaultJobPost() {
+    /**
+     * 默认职位广告的
+     * ID，可通过[职位发布至官网](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/advertisement/publish)接口
+     * 发布至官网
+     *
+     * <p>示例值：6960663240925956568
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public CombinedJobResultDefaultJobPost(Builder builder) {
-        /**
-         * 默认职位广告的 ID，用以发布至招聘渠道的内容
-         * <p> 示例值：6960663240925956568
-         */
-        this.id = builder.id;
+    public CombinedJobResultDefaultJobPost build() {
+      return new CombinedJobResultDefaultJobPost(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public static class Builder {
-        /**
-         * 默认职位广告的 ID，用以发布至招聘渠道的内容
-         * <p> 示例值：6960663240925956568
-         */
-        private String id;
-
-        /**
-         * 默认职位广告的 ID，用以发布至招聘渠道的内容
-         * <p> 示例值：6960663240925956568
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        public CombinedJobResultDefaultJobPost build() {
-            return new CombinedJobResultDefaultJobPost(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,195 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FieldVariableValueToFile {
+  /**
+   * 用于主数据[文件下载Open
+   * API](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/get-2)下载接口的入参id
+   *
+   * <p>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
+   */
+  @SerializedName("open_file_id")
+  private String openFileId;
+
+  /**
+   * 文件名称
+   *
+   * <p>示例值：file_name
+   */
+  @SerializedName("file_name")
+  private String fileName;
+
+  /**
+   * 文件大小，单位：Byte
+   *
+   * <p>示例值：65535
+   */
+  @SerializedName("length")
+  private Integer length;
+
+  /**
+   * 文件类型，如`application/pdf`
+   *
+   * <p>示例值：application/pdf
+   */
+  @SerializedName("mime_type")
+  private String mimeType;
+
+  public String getOpenFileId() {
+    return this.openFileId;
+  }
+
+  public void setOpenFileId(String openFileId) {
+    this.openFileId = openFileId;
+  }
+
+  public String getFileName() {
+    return this.fileName;
+  }
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public Integer getLength() {
+    return this.length;
+  }
+
+  public void setLength(Integer length) {
+    this.length = length;
+  }
+
+  public String getMimeType() {
+    return this.mimeType;
+  }
+
+  public void setMimeType(String mimeType) {
+    this.mimeType = mimeType;
+  }
+
+  // builder 开始
+  public FieldVariableValueToFile() {}
+
+  public FieldVariableValueToFile(Builder builder) {
     /**
-     * 用于主数据文件下载接口的id
-     * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
+     * 用于主数据[文件下载Open
+     * API](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/get-2)下载接口的入参id
+     *
+     * <p>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
      */
-    @SerializedName("open_file_id")
-    private String openFileId;
+    this.openFileId = builder.openFileId;
     /**
      * 文件名称
-     * <p> 示例值：file_name
+     *
+     * <p>示例值：file_name
      */
-    @SerializedName("file_name")
-    private String fileName;
+    this.fileName = builder.fileName;
     /**
      * 文件大小，单位：Byte
-     * <p> 示例值：65535
+     *
+     * <p>示例值：65535
      */
-    @SerializedName("length")
-    private Integer length;
+    this.length = builder.length;
     /**
      * 文件类型，如`application/pdf`
-     * <p> 示例值：application/pdf
+     *
+     * <p>示例值：application/pdf
      */
-    @SerializedName("mime_type")
+    this.mimeType = builder.mimeType;
+  }
+
+  public static class Builder {
+    /**
+     * 用于主数据[文件下载Open
+     * API](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/get-2)下载接口的入参id
+     *
+     * <p>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
+     */
+    private String openFileId;
+
+    /**
+     * 文件名称
+     *
+     * <p>示例值：file_name
+     */
+    private String fileName;
+
+    /**
+     * 文件大小，单位：Byte
+     *
+     * <p>示例值：65535
+     */
+    private Integer length;
+
+    /**
+     * 文件类型，如`application/pdf`
+     *
+     * <p>示例值：application/pdf
+     */
     private String mimeType;
 
-    // builder 开始
-    public FieldVariableValueToFile() {
+    /**
+     * 用于主数据[文件下载Open
+     * API](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/get-2)下载接口的入参id
+     *
+     * <p>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
+     *
+     * @param openFileId
+     * @return
+     */
+    public Builder openFileId(String openFileId) {
+      this.openFileId = openFileId;
+      return this;
     }
 
-    public FieldVariableValueToFile(Builder builder) {
-        /**
-         * 用于主数据文件下载接口的id
-         * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
-         */
-        this.openFileId = builder.openFileId;
-        /**
-         * 文件名称
-         * <p> 示例值：file_name
-         */
-        this.fileName = builder.fileName;
-        /**
-         * 文件大小，单位：Byte
-         * <p> 示例值：65535
-         */
-        this.length = builder.length;
-        /**
-         * 文件类型，如`application/pdf`
-         * <p> 示例值：application/pdf
-         */
-        this.mimeType = builder.mimeType;
+    /**
+     * 文件名称
+     *
+     * <p>示例值：file_name
+     *
+     * @param fileName
+     * @return
+     */
+    public Builder fileName(String fileName) {
+      this.fileName = fileName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 文件大小，单位：Byte
+     *
+     * <p>示例值：65535
+     *
+     * @param length
+     * @return
+     */
+    public Builder length(Integer length) {
+      this.length = length;
+      return this;
     }
 
-    public String getOpenFileId() {
-        return this.openFileId;
+    /**
+     * 文件类型，如`application/pdf`
+     *
+     * <p>示例值：application/pdf
+     *
+     * @param mimeType
+     * @return
+     */
+    public Builder mimeType(String mimeType) {
+      this.mimeType = mimeType;
+      return this;
     }
 
-    public void setOpenFileId(String openFileId) {
-        this.openFileId = openFileId;
+    public FieldVariableValueToFile build() {
+      return new FieldVariableValueToFile(this);
     }
+  }
 
-    public String getFileName() {
-        return this.fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public Integer getLength() {
-        return this.length;
-    }
-
-    public void setLength(Integer length) {
-        this.length = length;
-    }
-
-    public String getMimeType() {
-        return this.mimeType;
-    }
-
-    public void setMimeType(String mimeType) {
-        this.mimeType = mimeType;
-    }
-
-    public static class Builder {
-        /**
-         * 用于主数据文件下载接口的id
-         * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
-         */
-        private String openFileId;
-        /**
-         * 文件名称
-         * <p> 示例值：file_name
-         */
-        private String fileName;
-        /**
-         * 文件大小，单位：Byte
-         * <p> 示例值：65535
-         */
-        private Integer length;
-        /**
-         * 文件类型，如`application/pdf`
-         * <p> 示例值：application/pdf
-         */
-        private String mimeType;
-
-        /**
-         * 用于主数据文件下载接口的id
-         * <p> 示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53
-         *
-         * @param openFileId
-         * @return
-         */
-        public Builder openFileId(String openFileId) {
-            this.openFileId = openFileId;
-            return this;
-        }
-
-
-        /**
-         * 文件名称
-         * <p> 示例值：file_name
-         *
-         * @param fileName
-         * @return
-         */
-        public Builder fileName(String fileName) {
-            this.fileName = fileName;
-            return this;
-        }
-
-
-        /**
-         * 文件大小，单位：Byte
-         * <p> 示例值：65535
-         *
-         * @param length
-         * @return
-         */
-        public Builder length(Integer length) {
-            this.length = length;
-            return this;
-        }
-
-
-        /**
-         * 文件类型，如`application/pdf`
-         * <p> 示例值：application/pdf
-         *
-         * @param mimeType
-         * @return
-         */
-        public Builder mimeType(String mimeType) {
-            this.mimeType = mimeType;
-            return this;
-        }
-
-
-        public FieldVariableValueToFile build() {
-            return new FieldVariableValueToFile(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

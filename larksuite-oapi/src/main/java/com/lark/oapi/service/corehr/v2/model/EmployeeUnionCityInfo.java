@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeUnionCityInfo {
+  /**
+   * 员工ID
+   *
+   * <p>示例值：7109475834939434
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 是否在工会城市
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_in_union_city")
+  private Boolean isInUnionCity;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public Boolean getIsInUnionCity() {
+    return this.isInUnionCity;
+  }
+
+  public void setIsInUnionCity(Boolean isInUnionCity) {
+    this.isInUnionCity = isInUnionCity;
+  }
+
+  // builder 开始
+  public EmployeeUnionCityInfo() {}
+
+  public EmployeeUnionCityInfo(Builder builder) {
     /**
      * 员工ID
-     * <p> 示例值：7109475834939434
+     *
+     * <p>示例值：7109475834939434
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 是否在工会城市
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_in_union_city")
+    this.isInUnionCity = builder.isInUnionCity;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7109475834939434
+     */
+    private String employmentId;
+
+    /**
+     * 是否在工会城市
+     *
+     * <p>示例值：false
+     */
     private Boolean isInUnionCity;
 
-    // builder 开始
-    public EmployeeUnionCityInfo() {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7109475834939434
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public EmployeeUnionCityInfo(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 是否在工会城市
-         * <p> 示例值：false
-         */
-        this.isInUnionCity = builder.isInUnionCity;
+    /**
+     * 是否在工会城市
+     *
+     * <p>示例值：false
+     *
+     * @param isInUnionCity
+     * @return
+     */
+    public Builder isInUnionCity(Boolean isInUnionCity) {
+      this.isInUnionCity = isInUnionCity;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EmployeeUnionCityInfo build() {
+      return new EmployeeUnionCityInfo(this);
     }
+  }
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public Boolean getIsInUnionCity() {
-        return this.isInUnionCity;
-    }
-
-    public void setIsInUnionCity(Boolean isInUnionCity) {
-        this.isInUnionCity = isInUnionCity;
-    }
-
-    public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         */
-        private String employmentId;
-        /**
-         * 是否在工会城市
-         * <p> 示例值：false
-         */
-        private Boolean isInUnionCity;
-
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 是否在工会城市
-         * <p> 示例值：false
-         *
-         * @param isInUnionCity
-         * @return
-         */
-        public Builder isInUnionCity(Boolean isInUnionCity) {
-            this.isInUnionCity = isInUnionCity;
-            return this;
-        }
-
-
-        public EmployeeUnionCityInfo build() {
-            return new EmployeeUnionCityInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

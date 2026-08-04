@@ -13,395 +13,428 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Present {
+  /**
+   * 透传数据类型
+   *
+   * <p>示例值：card
+   */
+  @SerializedName("type")
+  private String type;
+
+  /**
+   * 透传消息体
+   *
+   * <p>示例值：raw
+   */
+  @SerializedName("body")
+  private String body;
+
+  /**
+   * 在交互卡片的场景下，如果用户完成交互，根据交互行为 Tool 对该交互行为做出的响应
+   *
+   * <p>示例值：UPDATE
+   */
+  @SerializedName("operation_type")
+  private String operationType;
+
+  /**
+   * 用来定义工具输出的卡片是否为交互卡片
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("interactable")
+  private Boolean interactable;
+
+  /**
+   * 卡片后续链路交互的请求地址
+   *
+   * <p>示例值：https://open.feishu-boe.cn/open-apis/lark_ai/operation
+   */
+  @SerializedName("operation_url")
+  private String operationUrl;
+
+  /**
+   * 透传数据上屏后，回调业务方的 url；支持 Open API 与 RPC 两种方式
+   *
+   * <p>示例值：Open API - https://open.feishu-boe.cn/open-apis/lark_ai/callback；RPC - sd://p.s.m
+   */
+  @SerializedName("callback_url")
+  private String callbackUrl;
+
+  /**
+   * 透传数据上屏后，回调给业务方的数据，仅在 type = card 时会回调
+   *
+   * <p>示例值：可以是纯文本:"callback raw data"；也可以是 json string:"{\"biz_id":\"search_context_id\"}"
+   */
+  @SerializedName("callback_info")
+  private String callbackInfo;
+
+  /**
+   * 仅 type = template_card 时使用，代表模版卡片的模版信息
+   *
+   * <p>示例值：default
+   */
+  @SerializedName("card_template_id")
+  private String cardTemplateId;
+
+  /**
+   * 仅 type = template_card 使用，对应到模版卡片中模版里的变量信息，类型应该是map<string, string>
+   *
+   * <p>示例值：
+   */
+  @SerializedName("card_variables")
+  private TemplateCardVariables cardVariables;
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getBody() {
+    return this.body;
+  }
+
+  public void setBody(String body) {
+    this.body = body;
+  }
+
+  public String getOperationType() {
+    return this.operationType;
+  }
+
+  public void setOperationType(String operationType) {
+    this.operationType = operationType;
+  }
+
+  public Boolean getInteractable() {
+    return this.interactable;
+  }
+
+  public void setInteractable(Boolean interactable) {
+    this.interactable = interactable;
+  }
+
+  public String getOperationUrl() {
+    return this.operationUrl;
+  }
+
+  public void setOperationUrl(String operationUrl) {
+    this.operationUrl = operationUrl;
+  }
+
+  public String getCallbackUrl() {
+    return this.callbackUrl;
+  }
+
+  public void setCallbackUrl(String callbackUrl) {
+    this.callbackUrl = callbackUrl;
+  }
+
+  public String getCallbackInfo() {
+    return this.callbackInfo;
+  }
+
+  public void setCallbackInfo(String callbackInfo) {
+    this.callbackInfo = callbackInfo;
+  }
+
+  public String getCardTemplateId() {
+    return this.cardTemplateId;
+  }
+
+  public void setCardTemplateId(String cardTemplateId) {
+    this.cardTemplateId = cardTemplateId;
+  }
+
+  public TemplateCardVariables getCardVariables() {
+    return this.cardVariables;
+  }
+
+  public void setCardVariables(TemplateCardVariables cardVariables) {
+    this.cardVariables = cardVariables;
+  }
+
+  // builder 开始
+  public Present() {}
+
+  public Present(Builder builder) {
     /**
      * 透传数据类型
-     * <p> 示例值：card
+     *
+     * <p>示例值：card
      */
-    @SerializedName("type")
-    private String type;
+    this.type = builder.type;
     /**
      * 透传消息体
-     * <p> 示例值：raw
+     *
+     * <p>示例值：raw
      */
-    @SerializedName("body")
-    private String body;
+    this.body = builder.body;
     /**
      * 在交互卡片的场景下，如果用户完成交互，根据交互行为 Tool 对该交互行为做出的响应
-     * <p> 示例值：UPDATE
+     *
+     * <p>示例值：UPDATE
      */
-    @SerializedName("operation_type")
-    private String operationType;
+    this.operationType = builder.operationType;
     /**
      * 用来定义工具输出的卡片是否为交互卡片
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("interactable")
-    private Boolean interactable;
+    this.interactable = builder.interactable;
     /**
      * 卡片后续链路交互的请求地址
-     * <p> 示例值：https://open.feishu-boe.cn/open-apis/lark_ai/operation
+     *
+     * <p>示例值：https://open.feishu-boe.cn/open-apis/lark_ai/operation
      */
-    @SerializedName("operation_url")
-    private String operationUrl;
+    this.operationUrl = builder.operationUrl;
     /**
      * 透传数据上屏后，回调业务方的 url；支持 Open API 与 RPC 两种方式
-     * <p> 示例值：Open API - https://open.feishu-boe.cn/open-apis/lark_ai/callback；RPC - sd://p.s.m
+     *
+     * <p>示例值：Open API - https://open.feishu-boe.cn/open-apis/lark_ai/callback；RPC - sd://p.s.m
      */
-    @SerializedName("callback_url")
-    private String callbackUrl;
+    this.callbackUrl = builder.callbackUrl;
     /**
      * 透传数据上屏后，回调给业务方的数据，仅在 type = card 时会回调
-     * <p> 示例值：可以是纯文本:"callback raw data"；也可以是 json string:"{\"biz_id":\"search_context_id\"}"
+     *
+     * <p>示例值：可以是纯文本:"callback raw data"；也可以是 json string:"{\"biz_id":\"search_context_id\"}"
      */
-    @SerializedName("callback_info")
-    private String callbackInfo;
+    this.callbackInfo = builder.callbackInfo;
     /**
      * 仅 type = template_card 时使用，代表模版卡片的模版信息
-     * <p> 示例值：default
+     *
+     * <p>示例值：default
      */
-    @SerializedName("card_template_id")
-    private String cardTemplateId;
+    this.cardTemplateId = builder.cardTemplateId;
     /**
      * 仅 type = template_card 使用，对应到模版卡片中模版里的变量信息，类型应该是map<string, string>
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("card_variables")
+    this.cardVariables = builder.cardVariables;
+  }
+
+  public static class Builder {
+    /**
+     * 透传数据类型
+     *
+     * <p>示例值：card
+     */
+    private String type;
+
+    /**
+     * 透传消息体
+     *
+     * <p>示例值：raw
+     */
+    private String body;
+
+    /**
+     * 在交互卡片的场景下，如果用户完成交互，根据交互行为 Tool 对该交互行为做出的响应
+     *
+     * <p>示例值：UPDATE
+     */
+    private String operationType;
+
+    /**
+     * 用来定义工具输出的卡片是否为交互卡片
+     *
+     * <p>示例值：true
+     */
+    private Boolean interactable;
+
+    /**
+     * 卡片后续链路交互的请求地址
+     *
+     * <p>示例值：https://open.feishu-boe.cn/open-apis/lark_ai/operation
+     */
+    private String operationUrl;
+
+    /**
+     * 透传数据上屏后，回调业务方的 url；支持 Open API 与 RPC 两种方式
+     *
+     * <p>示例值：Open API - https://open.feishu-boe.cn/open-apis/lark_ai/callback；RPC - sd://p.s.m
+     */
+    private String callbackUrl;
+
+    /**
+     * 透传数据上屏后，回调给业务方的数据，仅在 type = card 时会回调
+     *
+     * <p>示例值：可以是纯文本:"callback raw data"；也可以是 json string:"{\"biz_id":\"search_context_id\"}"
+     */
+    private String callbackInfo;
+
+    /**
+     * 仅 type = template_card 时使用，代表模版卡片的模版信息
+     *
+     * <p>示例值：default
+     */
+    private String cardTemplateId;
+
+    /**
+     * 仅 type = template_card 使用，对应到模版卡片中模版里的变量信息，类型应该是map<string, string>
+     *
+     * <p>示例值：
+     */
     private TemplateCardVariables cardVariables;
 
-    // builder 开始
-    public Present() {
+    /**
+     * 透传数据类型
+     *
+     * <p>示例值：card
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public Present(Builder builder) {
-        /**
-         * 透传数据类型
-         * <p> 示例值：card
-         */
-        this.type = builder.type;
-        /**
-         * 透传消息体
-         * <p> 示例值：raw
-         */
-        this.body = builder.body;
-        /**
-         * 在交互卡片的场景下，如果用户完成交互，根据交互行为 Tool 对该交互行为做出的响应
-         * <p> 示例值：UPDATE
-         */
-        this.operationType = builder.operationType;
-        /**
-         * 用来定义工具输出的卡片是否为交互卡片
-         * <p> 示例值：true
-         */
-        this.interactable = builder.interactable;
-        /**
-         * 卡片后续链路交互的请求地址
-         * <p> 示例值：https://open.feishu-boe.cn/open-apis/lark_ai/operation
-         */
-        this.operationUrl = builder.operationUrl;
-        /**
-         * 透传数据上屏后，回调业务方的 url；支持 Open API 与 RPC 两种方式
-         * <p> 示例值：Open API - https://open.feishu-boe.cn/open-apis/lark_ai/callback；RPC - sd://p.s.m
-         */
-        this.callbackUrl = builder.callbackUrl;
-        /**
-         * 透传数据上屏后，回调给业务方的数据，仅在 type = card 时会回调
-         * <p> 示例值：可以是纯文本:"callback raw data"；也可以是 json string:"{\"biz_id":\"search_context_id\"}"
-         */
-        this.callbackInfo = builder.callbackInfo;
-        /**
-         * 仅 type = template_card 时使用，代表模版卡片的模版信息
-         * <p> 示例值：default
-         */
-        this.cardTemplateId = builder.cardTemplateId;
-        /**
-         * 仅 type = template_card 使用，对应到模版卡片中模版里的变量信息，类型应该是map<string, string>
-         * <p> 示例值：
-         */
-        this.cardVariables = builder.cardVariables;
+    /**
+     * 透传数据类型
+     *
+     * <p>示例值：card
+     *
+     * @param type {@link com.lark.oapi.service.search.v2.enums.PresentPresentTypeEnum}
+     * @return
+     */
+    public Builder type(com.lark.oapi.service.search.v2.enums.PresentPresentTypeEnum type) {
+      this.type = type.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 透传消息体
+     *
+     * <p>示例值：raw
+     *
+     * @param body
+     * @return
+     */
+    public Builder body(String body) {
+      this.body = body;
+      return this;
     }
 
-    public String getType() {
-        return this.type;
+    /**
+     * 在交互卡片的场景下，如果用户完成交互，根据交互行为 Tool 对该交互行为做出的响应
+     *
+     * <p>示例值：UPDATE
+     *
+     * @param operationType
+     * @return
+     */
+    public Builder operationType(String operationType) {
+      this.operationType = operationType;
+      return this;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * 在交互卡片的场景下，如果用户完成交互，根据交互行为 Tool 对该交互行为做出的响应
+     *
+     * <p>示例值：UPDATE
+     *
+     * @param operationType {@link com.lark.oapi.service.search.v2.enums.PresentOperationTypeEnum}
+     * @return
+     */
+    public Builder operationType(
+        com.lark.oapi.service.search.v2.enums.PresentOperationTypeEnum operationType) {
+      this.operationType = operationType.getValue();
+      return this;
     }
 
-    public String getBody() {
-        return this.body;
+    /**
+     * 用来定义工具输出的卡片是否为交互卡片
+     *
+     * <p>示例值：true
+     *
+     * @param interactable
+     * @return
+     */
+    public Builder interactable(Boolean interactable) {
+      this.interactable = interactable;
+      return this;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    /**
+     * 卡片后续链路交互的请求地址
+     *
+     * <p>示例值：https://open.feishu-boe.cn/open-apis/lark_ai/operation
+     *
+     * @param operationUrl
+     * @return
+     */
+    public Builder operationUrl(String operationUrl) {
+      this.operationUrl = operationUrl;
+      return this;
     }
 
-    public String getOperationType() {
-        return this.operationType;
+    /**
+     * 透传数据上屏后，回调业务方的 url；支持 Open API 与 RPC 两种方式
+     *
+     * <p>示例值：Open API - https://open.feishu-boe.cn/open-apis/lark_ai/callback；RPC - sd://p.s.m
+     *
+     * @param callbackUrl
+     * @return
+     */
+    public Builder callbackUrl(String callbackUrl) {
+      this.callbackUrl = callbackUrl;
+      return this;
     }
 
-    public void setOperationType(String operationType) {
-        this.operationType = operationType;
+    /**
+     * 透传数据上屏后，回调给业务方的数据，仅在 type = card 时会回调
+     *
+     * <p>示例值：可以是纯文本:"callback raw data"；也可以是 json string:"{\"biz_id":\"search_context_id\"}"
+     *
+     * @param callbackInfo
+     * @return
+     */
+    public Builder callbackInfo(String callbackInfo) {
+      this.callbackInfo = callbackInfo;
+      return this;
     }
 
-    public Boolean getInteractable() {
-        return this.interactable;
+    /**
+     * 仅 type = template_card 时使用，代表模版卡片的模版信息
+     *
+     * <p>示例值：default
+     *
+     * @param cardTemplateId
+     * @return
+     */
+    public Builder cardTemplateId(String cardTemplateId) {
+      this.cardTemplateId = cardTemplateId;
+      return this;
     }
 
-    public void setInteractable(Boolean interactable) {
-        this.interactable = interactable;
+    /**
+     * 仅 type = template_card 使用，对应到模版卡片中模版里的变量信息，类型应该是map<string, string>
+     *
+     * <p>示例值：
+     *
+     * @param cardVariables
+     * @return
+     */
+    public Builder cardVariables(TemplateCardVariables cardVariables) {
+      this.cardVariables = cardVariables;
+      return this;
     }
 
-    public String getOperationUrl() {
-        return this.operationUrl;
+    public Present build() {
+      return new Present(this);
     }
+  }
 
-    public void setOperationUrl(String operationUrl) {
-        this.operationUrl = operationUrl;
-    }
-
-    public String getCallbackUrl() {
-        return this.callbackUrl;
-    }
-
-    public void setCallbackUrl(String callbackUrl) {
-        this.callbackUrl = callbackUrl;
-    }
-
-    public String getCallbackInfo() {
-        return this.callbackInfo;
-    }
-
-    public void setCallbackInfo(String callbackInfo) {
-        this.callbackInfo = callbackInfo;
-    }
-
-    public String getCardTemplateId() {
-        return this.cardTemplateId;
-    }
-
-    public void setCardTemplateId(String cardTemplateId) {
-        this.cardTemplateId = cardTemplateId;
-    }
-
-    public TemplateCardVariables getCardVariables() {
-        return this.cardVariables;
-    }
-
-    public void setCardVariables(TemplateCardVariables cardVariables) {
-        this.cardVariables = cardVariables;
-    }
-
-    public static class Builder {
-        /**
-         * 透传数据类型
-         * <p> 示例值：card
-         */
-        private String type;
-        /**
-         * 透传消息体
-         * <p> 示例值：raw
-         */
-        private String body;
-        /**
-         * 在交互卡片的场景下，如果用户完成交互，根据交互行为 Tool 对该交互行为做出的响应
-         * <p> 示例值：UPDATE
-         */
-        private String operationType;
-        /**
-         * 用来定义工具输出的卡片是否为交互卡片
-         * <p> 示例值：true
-         */
-        private Boolean interactable;
-        /**
-         * 卡片后续链路交互的请求地址
-         * <p> 示例值：https://open.feishu-boe.cn/open-apis/lark_ai/operation
-         */
-        private String operationUrl;
-        /**
-         * 透传数据上屏后，回调业务方的 url；支持 Open API 与 RPC 两种方式
-         * <p> 示例值：Open API - https://open.feishu-boe.cn/open-apis/lark_ai/callback；RPC - sd://p.s.m
-         */
-        private String callbackUrl;
-        /**
-         * 透传数据上屏后，回调给业务方的数据，仅在 type = card 时会回调
-         * <p> 示例值：可以是纯文本:"callback raw data"；也可以是 json string:"{\"biz_id":\"search_context_id\"}"
-         */
-        private String callbackInfo;
-        /**
-         * 仅 type = template_card 时使用，代表模版卡片的模版信息
-         * <p> 示例值：default
-         */
-        private String cardTemplateId;
-        /**
-         * 仅 type = template_card 使用，对应到模版卡片中模版里的变量信息，类型应该是map<string, string>
-         * <p> 示例值：
-         */
-        private TemplateCardVariables cardVariables;
-
-        /**
-         * 透传数据类型
-         * <p> 示例值：card
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-        /**
-         * 透传数据类型
-         * <p> 示例值：card
-         *
-         * @param type {@link com.lark.oapi.service.search.v2.enums.PresentPresentTypeEnum}
-         * @return
-         */
-        public Builder type(com.lark.oapi.service.search.v2.enums.PresentPresentTypeEnum type) {
-            this.type = type.getValue();
-            return this;
-        }
-
-
-        /**
-         * 透传消息体
-         * <p> 示例值：raw
-         *
-         * @param body
-         * @return
-         */
-        public Builder body(String body) {
-            this.body = body;
-            return this;
-        }
-
-
-        /**
-         * 在交互卡片的场景下，如果用户完成交互，根据交互行为 Tool 对该交互行为做出的响应
-         * <p> 示例值：UPDATE
-         *
-         * @param operationType
-         * @return
-         */
-        public Builder operationType(String operationType) {
-            this.operationType = operationType;
-            return this;
-        }
-
-        /**
-         * 在交互卡片的场景下，如果用户完成交互，根据交互行为 Tool 对该交互行为做出的响应
-         * <p> 示例值：UPDATE
-         *
-         * @param operationType {@link com.lark.oapi.service.search.v2.enums.PresentOperationTypeEnum}
-         * @return
-         */
-        public Builder operationType(com.lark.oapi.service.search.v2.enums.PresentOperationTypeEnum operationType) {
-            this.operationType = operationType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 用来定义工具输出的卡片是否为交互卡片
-         * <p> 示例值：true
-         *
-         * @param interactable
-         * @return
-         */
-        public Builder interactable(Boolean interactable) {
-            this.interactable = interactable;
-            return this;
-        }
-
-
-        /**
-         * 卡片后续链路交互的请求地址
-         * <p> 示例值：https://open.feishu-boe.cn/open-apis/lark_ai/operation
-         *
-         * @param operationUrl
-         * @return
-         */
-        public Builder operationUrl(String operationUrl) {
-            this.operationUrl = operationUrl;
-            return this;
-        }
-
-
-        /**
-         * 透传数据上屏后，回调业务方的 url；支持 Open API 与 RPC 两种方式
-         * <p> 示例值：Open API - https://open.feishu-boe.cn/open-apis/lark_ai/callback；RPC - sd://p.s.m
-         *
-         * @param callbackUrl
-         * @return
-         */
-        public Builder callbackUrl(String callbackUrl) {
-            this.callbackUrl = callbackUrl;
-            return this;
-        }
-
-
-        /**
-         * 透传数据上屏后，回调给业务方的数据，仅在 type = card 时会回调
-         * <p> 示例值：可以是纯文本:"callback raw data"；也可以是 json string:"{\"biz_id":\"search_context_id\"}"
-         *
-         * @param callbackInfo
-         * @return
-         */
-        public Builder callbackInfo(String callbackInfo) {
-            this.callbackInfo = callbackInfo;
-            return this;
-        }
-
-
-        /**
-         * 仅 type = template_card 时使用，代表模版卡片的模版信息
-         * <p> 示例值：default
-         *
-         * @param cardTemplateId
-         * @return
-         */
-        public Builder cardTemplateId(String cardTemplateId) {
-            this.cardTemplateId = cardTemplateId;
-            return this;
-        }
-
-
-        /**
-         * 仅 type = template_card 使用，对应到模版卡片中模版里的变量信息，类型应该是map<string, string>
-         * <p> 示例值：
-         *
-         * @param cardVariables
-         * @return
-         */
-        public Builder cardVariables(TemplateCardVariables cardVariables) {
-            this.cardVariables = cardVariables;
-            return this;
-        }
-
-
-        public Present build() {
-            return new Present(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

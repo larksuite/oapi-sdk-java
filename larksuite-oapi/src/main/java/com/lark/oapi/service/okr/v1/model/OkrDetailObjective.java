@@ -13,519 +13,569 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OkrDetailObjective {
+  /**
+   * Objective ID
+   *
+   * <p>示例值：6976243668438730284
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 所属okr id
+   *
+   * <p>示例值：6976173067307927084
+   */
+  @SerializedName("okr_id")
+  private String okrId;
+
+  /**
+   * 用户id
+   *
+   * <p>示例值：ou_186301103180d3469a0bfd6e80977ec9
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * pos
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("pos")
+  private Integer pos;
+
+  /**
+   * 得分
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("score")
+  private Integer score;
+
+  /**
+   * Objective 名称
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private OkrName name;
+
+  /**
+   * Objective 进度描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("progress")
+  private OkrName progress;
+
+  /**
+   * 创建时间 毫秒
+   *
+   * <p>示例值：1624327915435
+   */
+  @SerializedName("create_time")
+  private Integer createTime;
+
+  /**
+   * 修改时间 毫秒
+   *
+   * <p>示例值：1624329170551
+   */
+  @SerializedName("modify_time")
+  private Integer modifyTime;
+
+  /**
+   * Kr list
+   *
+   * <p>示例值：
+   */
+  @SerializedName("kr_list")
+  private OkrDetailObjectiveKr[] krList;
+
+  /**
+   * aligning_objective_list list
+   *
+   * <p>示例值：
+   */
+  @SerializedName("aligning_objective_list")
+  private OkrDetailObjectiveAlign[] aligningObjectiveList;
+
+  /**
+   * aligned_objective_list list
+   *
+   * <p>示例值：
+   */
+  @SerializedName("aligned_objective_list")
+  private OkrDetailObjectiveAlign[] alignedObjectiveList;
+
+  /**
+   * 权重
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("weight")
+  private Double weight;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getOkrId() {
+    return this.okrId;
+  }
+
+  public void setOkrId(String okrId) {
+    this.okrId = okrId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public Integer getPos() {
+    return this.pos;
+  }
+
+  public void setPos(Integer pos) {
+    this.pos = pos;
+  }
+
+  public Integer getScore() {
+    return this.score;
+  }
+
+  public void setScore(Integer score) {
+    this.score = score;
+  }
+
+  public OkrName getName() {
+    return this.name;
+  }
+
+  public void setName(OkrName name) {
+    this.name = name;
+  }
+
+  public OkrName getProgress() {
+    return this.progress;
+  }
+
+  public void setProgress(OkrName progress) {
+    this.progress = progress;
+  }
+
+  public Integer getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(Integer createTime) {
+    this.createTime = createTime;
+  }
+
+  public Integer getModifyTime() {
+    return this.modifyTime;
+  }
+
+  public void setModifyTime(Integer modifyTime) {
+    this.modifyTime = modifyTime;
+  }
+
+  public OkrDetailObjectiveKr[] getKrList() {
+    return this.krList;
+  }
+
+  public void setKrList(OkrDetailObjectiveKr[] krList) {
+    this.krList = krList;
+  }
+
+  public OkrDetailObjectiveAlign[] getAligningObjectiveList() {
+    return this.aligningObjectiveList;
+  }
+
+  public void setAligningObjectiveList(OkrDetailObjectiveAlign[] aligningObjectiveList) {
+    this.aligningObjectiveList = aligningObjectiveList;
+  }
+
+  public OkrDetailObjectiveAlign[] getAlignedObjectiveList() {
+    return this.alignedObjectiveList;
+  }
+
+  public void setAlignedObjectiveList(OkrDetailObjectiveAlign[] alignedObjectiveList) {
+    this.alignedObjectiveList = alignedObjectiveList;
+  }
+
+  public Double getWeight() {
+    return this.weight;
+  }
+
+  public void setWeight(Double weight) {
+    this.weight = weight;
+  }
+
+  // builder 开始
+  public OkrDetailObjective() {}
+
+  public OkrDetailObjective(Builder builder) {
     /**
      * Objective ID
-     * <p> 示例值：6976243668438730284
+     *
+     * <p>示例值：6976243668438730284
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 所属okr id
-     * <p> 示例值：6976173067307927084
+     *
+     * <p>示例值：6976173067307927084
      */
-    @SerializedName("okr_id")
-    private String okrId;
+    this.okrId = builder.okrId;
     /**
      * 用户id
-     * <p> 示例值：ou_186301103180d3469a0bfd6e80977ec9
+     *
+     * <p>示例值：ou_186301103180d3469a0bfd6e80977ec9
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * pos
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("pos")
-    private Integer pos;
+    this.pos = builder.pos;
     /**
      * 得分
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("score")
-    private Integer score;
+    this.score = builder.score;
     /**
      * Objective 名称
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private OkrName name;
+    this.name = builder.name;
     /**
      * Objective 进度描述
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("progress")
-    private OkrName progress;
+    this.progress = builder.progress;
     /**
      * 创建时间 毫秒
-     * <p> 示例值：1624327915435
+     *
+     * <p>示例值：1624327915435
      */
-    @SerializedName("create_time")
-    private Integer createTime;
+    this.createTime = builder.createTime;
     /**
      * 修改时间 毫秒
-     * <p> 示例值：1624329170551
+     *
+     * <p>示例值：1624329170551
      */
-    @SerializedName("modify_time")
-    private Integer modifyTime;
+    this.modifyTime = builder.modifyTime;
     /**
      * Kr list
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("kr_list")
-    private OkrDetailObjectiveKr[] krList;
+    this.krList = builder.krList;
     /**
      * aligning_objective_list list
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("aligning_objective_list")
-    private OkrDetailObjectiveAlign[] aligningObjectiveList;
+    this.aligningObjectiveList = builder.aligningObjectiveList;
     /**
      * aligned_objective_list list
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("aligned_objective_list")
-    private OkrDetailObjectiveAlign[] alignedObjectiveList;
+    this.alignedObjectiveList = builder.alignedObjectiveList;
     /**
      * 权重
-     * <p> 示例值：100
+     *
+     * <p>示例值：100
      */
-    @SerializedName("weight")
+    this.weight = builder.weight;
+  }
+
+  public static class Builder {
+    /**
+     * Objective ID
+     *
+     * <p>示例值：6976243668438730284
+     */
+    private String id;
+
+    /**
+     * 所属okr id
+     *
+     * <p>示例值：6976173067307927084
+     */
+    private String okrId;
+
+    /**
+     * 用户id
+     *
+     * <p>示例值：ou_186301103180d3469a0bfd6e80977ec9
+     */
+    private String userId;
+
+    /**
+     * pos
+     *
+     * <p>示例值：0
+     */
+    private Integer pos;
+
+    /**
+     * 得分
+     *
+     * <p>示例值：0
+     */
+    private Integer score;
+
+    /**
+     * Objective 名称
+     *
+     * <p>示例值：
+     */
+    private OkrName name;
+
+    /**
+     * Objective 进度描述
+     *
+     * <p>示例值：
+     */
+    private OkrName progress;
+
+    /**
+     * 创建时间 毫秒
+     *
+     * <p>示例值：1624327915435
+     */
+    private Integer createTime;
+
+    /**
+     * 修改时间 毫秒
+     *
+     * <p>示例值：1624329170551
+     */
+    private Integer modifyTime;
+
+    /**
+     * Kr list
+     *
+     * <p>示例值：
+     */
+    private OkrDetailObjectiveKr[] krList;
+
+    /**
+     * aligning_objective_list list
+     *
+     * <p>示例值：
+     */
+    private OkrDetailObjectiveAlign[] aligningObjectiveList;
+
+    /**
+     * aligned_objective_list list
+     *
+     * <p>示例值：
+     */
+    private OkrDetailObjectiveAlign[] alignedObjectiveList;
+
+    /**
+     * 权重
+     *
+     * <p>示例值：100
+     */
     private Double weight;
 
-    // builder 开始
-    public OkrDetailObjective() {
+    /**
+     * Objective ID
+     *
+     * <p>示例值：6976243668438730284
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public OkrDetailObjective(Builder builder) {
-        /**
-         * Objective ID
-         * <p> 示例值：6976243668438730284
-         */
-        this.id = builder.id;
-        /**
-         * 所属okr id
-         * <p> 示例值：6976173067307927084
-         */
-        this.okrId = builder.okrId;
-        /**
-         * 用户id
-         * <p> 示例值：ou_186301103180d3469a0bfd6e80977ec9
-         */
-        this.userId = builder.userId;
-        /**
-         * pos
-         * <p> 示例值：0
-         */
-        this.pos = builder.pos;
-        /**
-         * 得分
-         * <p> 示例值：0
-         */
-        this.score = builder.score;
-        /**
-         * Objective 名称
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * Objective 进度描述
-         * <p> 示例值：
-         */
-        this.progress = builder.progress;
-        /**
-         * 创建时间 毫秒
-         * <p> 示例值：1624327915435
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 修改时间 毫秒
-         * <p> 示例值：1624329170551
-         */
-        this.modifyTime = builder.modifyTime;
-        /**
-         * Kr list
-         * <p> 示例值：
-         */
-        this.krList = builder.krList;
-        /**
-         * aligning_objective_list list
-         * <p> 示例值：
-         */
-        this.aligningObjectiveList = builder.aligningObjectiveList;
-        /**
-         * aligned_objective_list list
-         * <p> 示例值：
-         */
-        this.alignedObjectiveList = builder.alignedObjectiveList;
-        /**
-         * 权重
-         * <p> 示例值：100
-         */
-        this.weight = builder.weight;
+    /**
+     * 所属okr id
+     *
+     * <p>示例值：6976173067307927084
+     *
+     * @param okrId
+     * @return
+     */
+    public Builder okrId(String okrId) {
+      this.okrId = okrId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户id
+     *
+     * <p>示例值：ou_186301103180d3469a0bfd6e80977ec9
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * pos
+     *
+     * <p>示例值：0
+     *
+     * @param pos
+     * @return
+     */
+    public Builder pos(Integer pos) {
+      this.pos = pos;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 得分
+     *
+     * <p>示例值：0
+     *
+     * @param score
+     * @return
+     */
+    public Builder score(Integer score) {
+      this.score = score;
+      return this;
     }
 
-    public String getOkrId() {
-        return this.okrId;
+    /**
+     * Objective 名称
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(OkrName name) {
+      this.name = name;
+      return this;
     }
 
-    public void setOkrId(String okrId) {
-        this.okrId = okrId;
+    /**
+     * Objective 进度描述
+     *
+     * <p>示例值：
+     *
+     * @param progress
+     * @return
+     */
+    public Builder progress(OkrName progress) {
+      this.progress = progress;
+      return this;
     }
 
-    public String getUserId() {
-        return this.userId;
+    /**
+     * 创建时间 毫秒
+     *
+     * <p>示例值：1624327915435
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(Integer createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    /**
+     * 修改时间 毫秒
+     *
+     * <p>示例值：1624329170551
+     *
+     * @param modifyTime
+     * @return
+     */
+    public Builder modifyTime(Integer modifyTime) {
+      this.modifyTime = modifyTime;
+      return this;
     }
 
-    public Integer getPos() {
-        return this.pos;
+    /**
+     * Kr list
+     *
+     * <p>示例值：
+     *
+     * @param krList
+     * @return
+     */
+    public Builder krList(OkrDetailObjectiveKr[] krList) {
+      this.krList = krList;
+      return this;
     }
 
-    public void setPos(Integer pos) {
-        this.pos = pos;
+    /**
+     * aligning_objective_list list
+     *
+     * <p>示例值：
+     *
+     * @param aligningObjectiveList
+     * @return
+     */
+    public Builder aligningObjectiveList(OkrDetailObjectiveAlign[] aligningObjectiveList) {
+      this.aligningObjectiveList = aligningObjectiveList;
+      return this;
     }
 
-    public Integer getScore() {
-        return this.score;
+    /**
+     * aligned_objective_list list
+     *
+     * <p>示例值：
+     *
+     * @param alignedObjectiveList
+     * @return
+     */
+    public Builder alignedObjectiveList(OkrDetailObjectiveAlign[] alignedObjectiveList) {
+      this.alignedObjectiveList = alignedObjectiveList;
+      return this;
     }
 
-    public void setScore(Integer score) {
-        this.score = score;
+    /**
+     * 权重
+     *
+     * <p>示例值：100
+     *
+     * @param weight
+     * @return
+     */
+    public Builder weight(Double weight) {
+      this.weight = weight;
+      return this;
     }
 
-    public OkrName getName() {
-        return this.name;
+    public OkrDetailObjective build() {
+      return new OkrDetailObjective(this);
     }
+  }
 
-    public void setName(OkrName name) {
-        this.name = name;
-    }
-
-    public OkrName getProgress() {
-        return this.progress;
-    }
-
-    public void setProgress(OkrName progress) {
-        this.progress = progress;
-    }
-
-    public Integer getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(Integer createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getModifyTime() {
-        return this.modifyTime;
-    }
-
-    public void setModifyTime(Integer modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    public OkrDetailObjectiveKr[] getKrList() {
-        return this.krList;
-    }
-
-    public void setKrList(OkrDetailObjectiveKr[] krList) {
-        this.krList = krList;
-    }
-
-    public OkrDetailObjectiveAlign[] getAligningObjectiveList() {
-        return this.aligningObjectiveList;
-    }
-
-    public void setAligningObjectiveList(OkrDetailObjectiveAlign[] aligningObjectiveList) {
-        this.aligningObjectiveList = aligningObjectiveList;
-    }
-
-    public OkrDetailObjectiveAlign[] getAlignedObjectiveList() {
-        return this.alignedObjectiveList;
-    }
-
-    public void setAlignedObjectiveList(OkrDetailObjectiveAlign[] alignedObjectiveList) {
-        this.alignedObjectiveList = alignedObjectiveList;
-    }
-
-    public Double getWeight() {
-        return this.weight;
-    }
-
-    public void setWeight(Double weight) {
-        this.weight = weight;
-    }
-
-    public static class Builder {
-        /**
-         * Objective ID
-         * <p> 示例值：6976243668438730284
-         */
-        private String id;
-        /**
-         * 所属okr id
-         * <p> 示例值：6976173067307927084
-         */
-        private String okrId;
-        /**
-         * 用户id
-         * <p> 示例值：ou_186301103180d3469a0bfd6e80977ec9
-         */
-        private String userId;
-        /**
-         * pos
-         * <p> 示例值：0
-         */
-        private Integer pos;
-        /**
-         * 得分
-         * <p> 示例值：0
-         */
-        private Integer score;
-        /**
-         * Objective 名称
-         * <p> 示例值：
-         */
-        private OkrName name;
-        /**
-         * Objective 进度描述
-         * <p> 示例值：
-         */
-        private OkrName progress;
-        /**
-         * 创建时间 毫秒
-         * <p> 示例值：1624327915435
-         */
-        private Integer createTime;
-        /**
-         * 修改时间 毫秒
-         * <p> 示例值：1624329170551
-         */
-        private Integer modifyTime;
-        /**
-         * Kr list
-         * <p> 示例值：
-         */
-        private OkrDetailObjectiveKr[] krList;
-        /**
-         * aligning_objective_list list
-         * <p> 示例值：
-         */
-        private OkrDetailObjectiveAlign[] aligningObjectiveList;
-        /**
-         * aligned_objective_list list
-         * <p> 示例值：
-         */
-        private OkrDetailObjectiveAlign[] alignedObjectiveList;
-        /**
-         * 权重
-         * <p> 示例值：100
-         */
-        private Double weight;
-
-        /**
-         * Objective ID
-         * <p> 示例值：6976243668438730284
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 所属okr id
-         * <p> 示例值：6976173067307927084
-         *
-         * @param okrId
-         * @return
-         */
-        public Builder okrId(String okrId) {
-            this.okrId = okrId;
-            return this;
-        }
-
-
-        /**
-         * 用户id
-         * <p> 示例值：ou_186301103180d3469a0bfd6e80977ec9
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * pos
-         * <p> 示例值：0
-         *
-         * @param pos
-         * @return
-         */
-        public Builder pos(Integer pos) {
-            this.pos = pos;
-            return this;
-        }
-
-
-        /**
-         * 得分
-         * <p> 示例值：0
-         *
-         * @param score
-         * @return
-         */
-        public Builder score(Integer score) {
-            this.score = score;
-            return this;
-        }
-
-
-        /**
-         * Objective 名称
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(OkrName name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * Objective 进度描述
-         * <p> 示例值：
-         *
-         * @param progress
-         * @return
-         */
-        public Builder progress(OkrName progress) {
-            this.progress = progress;
-            return this;
-        }
-
-
-        /**
-         * 创建时间 毫秒
-         * <p> 示例值：1624327915435
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(Integer createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 修改时间 毫秒
-         * <p> 示例值：1624329170551
-         *
-         * @param modifyTime
-         * @return
-         */
-        public Builder modifyTime(Integer modifyTime) {
-            this.modifyTime = modifyTime;
-            return this;
-        }
-
-
-        /**
-         * Kr list
-         * <p> 示例值：
-         *
-         * @param krList
-         * @return
-         */
-        public Builder krList(OkrDetailObjectiveKr[] krList) {
-            this.krList = krList;
-            return this;
-        }
-
-
-        /**
-         * aligning_objective_list list
-         * <p> 示例值：
-         *
-         * @param aligningObjectiveList
-         * @return
-         */
-        public Builder aligningObjectiveList(OkrDetailObjectiveAlign[] aligningObjectiveList) {
-            this.aligningObjectiveList = aligningObjectiveList;
-            return this;
-        }
-
-
-        /**
-         * aligned_objective_list list
-         * <p> 示例值：
-         *
-         * @param alignedObjectiveList
-         * @return
-         */
-        public Builder alignedObjectiveList(OkrDetailObjectiveAlign[] alignedObjectiveList) {
-            this.alignedObjectiveList = alignedObjectiveList;
-            return this;
-        }
-
-
-        /**
-         * 权重
-         * <p> 示例值：100
-         *
-         * @param weight
-         * @return
-         */
-        public Builder weight(Double weight) {
-            this.weight = weight;
-            return this;
-        }
-
-
-        public OkrDetailObjective build() {
-            return new OkrDetailObjective(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,34 +13,24 @@
 
 package com.lark.oapi.service.cardkit.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateCardRespBody {
-    /**
-     * 卡片ID
-     * <p> 示例值：7355372766134157313
-     */
-    @SerializedName("card_id")
-    private String cardId;
+  /**
+   * 创建的卡片实体
+   * ID。后续可通过[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口传入卡片实体
+   * ID 发送卡片。
+   *
+   * <p>示例值：7355372766134157313
+   */
+  @SerializedName("card_id")
+  private String cardId;
 
-    public String getCardId() {
-        return this.cardId;
-    }
+  public String getCardId() {
+    return this.cardId;
+  }
 
-    public void setCardId(String cardId) {
-        this.cardId = cardId;
-    }
-
+  public void setCardId(String cardId) {
+    this.cardId = cardId;
+  }
 }

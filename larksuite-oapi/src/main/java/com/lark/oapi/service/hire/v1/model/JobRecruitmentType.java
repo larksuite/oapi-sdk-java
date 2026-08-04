@@ -13,185 +13,194 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class JobRecruitmentType {
+  /**
+   * 雇佣类型
+   * ID，详情请参考：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「职位性质/雇佣类型（recruitment_type）枚举定义」
+   *
+   * <p>示例值：7281257045172308287
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 雇佣类型中文名称
+   *
+   * <p>示例值：全职
+   */
+  @SerializedName("zh_name")
+  private String zhName;
+
+  /**
+   * 雇佣类型英文名称
+   *
+   * <p>示例值：FullTime
+   */
+  @SerializedName("en_name")
+  private String enName;
+
+  /**
+   * 雇佣类型启用状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("active_status")
+  private Integer activeStatus;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getZhName() {
+    return this.zhName;
+  }
+
+  public void setZhName(String zhName) {
+    this.zhName = zhName;
+  }
+
+  public String getEnName() {
+    return this.enName;
+  }
+
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
+
+  public Integer getActiveStatus() {
+    return this.activeStatus;
+  }
+
+  public void setActiveStatus(Integer activeStatus) {
+    this.activeStatus = activeStatus;
+  }
+
+  // builder 开始
+  public JobRecruitmentType() {}
+
+  public JobRecruitmentType(Builder builder) {
     /**
-     * 雇佣类型 ID
-     * <p> 示例值：6001
+     * 雇佣类型
+     * ID，详情请参考：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「职位性质/雇佣类型（recruitment_type）枚举定义」
+     *
+     * <p>示例值：7281257045172308287
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 雇佣类型中文名称
-     * <p> 示例值：全职
+     *
+     * <p>示例值：全职
      */
-    @SerializedName("zh_name")
-    private String zhName;
+    this.zhName = builder.zhName;
     /**
      * 雇佣类型英文名称
-     * <p> 示例值：FullTime
+     *
+     * <p>示例值：FullTime
      */
-    @SerializedName("en_name")
-    private String enName;
+    this.enName = builder.enName;
     /**
      * 雇佣类型启用状态
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("active_status")
+    this.activeStatus = builder.activeStatus;
+  }
+
+  public static class Builder {
+    /**
+     * 雇佣类型
+     * ID，详情请参考：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「职位性质/雇佣类型（recruitment_type）枚举定义」
+     *
+     * <p>示例值：7281257045172308287
+     */
+    private String id;
+
+    /**
+     * 雇佣类型中文名称
+     *
+     * <p>示例值：全职
+     */
+    private String zhName;
+
+    /**
+     * 雇佣类型英文名称
+     *
+     * <p>示例值：FullTime
+     */
+    private String enName;
+
+    /**
+     * 雇佣类型启用状态
+     *
+     * <p>示例值：1
+     */
     private Integer activeStatus;
 
-    // builder 开始
-    public JobRecruitmentType() {
+    /**
+     * 雇佣类型
+     * ID，详情请参考：[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)中「职位性质/雇佣类型（recruitment_type）枚举定义」
+     *
+     * <p>示例值：7281257045172308287
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public JobRecruitmentType(Builder builder) {
-        /**
-         * 雇佣类型 ID
-         * <p> 示例值：6001
-         */
-        this.id = builder.id;
-        /**
-         * 雇佣类型中文名称
-         * <p> 示例值：全职
-         */
-        this.zhName = builder.zhName;
-        /**
-         * 雇佣类型英文名称
-         * <p> 示例值：FullTime
-         */
-        this.enName = builder.enName;
-        /**
-         * 雇佣类型启用状态
-         * <p> 示例值：1
-         */
-        this.activeStatus = builder.activeStatus;
+    /**
+     * 雇佣类型中文名称
+     *
+     * <p>示例值：全职
+     *
+     * @param zhName
+     * @return
+     */
+    public Builder zhName(String zhName) {
+      this.zhName = zhName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 雇佣类型英文名称
+     *
+     * <p>示例值：FullTime
+     *
+     * @param enName
+     * @return
+     */
+    public Builder enName(String enName) {
+      this.enName = enName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 雇佣类型启用状态
+     *
+     * <p>示例值：1
+     *
+     * @param activeStatus
+     * @return
+     */
+    public Builder activeStatus(Integer activeStatus) {
+      this.activeStatus = activeStatus;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public JobRecruitmentType build() {
+      return new JobRecruitmentType(this);
     }
+  }
 
-    public String getZhName() {
-        return this.zhName;
-    }
-
-    public void setZhName(String zhName) {
-        this.zhName = zhName;
-    }
-
-    public String getEnName() {
-        return this.enName;
-    }
-
-    public void setEnName(String enName) {
-        this.enName = enName;
-    }
-
-    public Integer getActiveStatus() {
-        return this.activeStatus;
-    }
-
-    public void setActiveStatus(Integer activeStatus) {
-        this.activeStatus = activeStatus;
-    }
-
-    public static class Builder {
-        /**
-         * 雇佣类型 ID
-         * <p> 示例值：6001
-         */
-        private String id;
-        /**
-         * 雇佣类型中文名称
-         * <p> 示例值：全职
-         */
-        private String zhName;
-        /**
-         * 雇佣类型英文名称
-         * <p> 示例值：FullTime
-         */
-        private String enName;
-        /**
-         * 雇佣类型启用状态
-         * <p> 示例值：1
-         */
-        private Integer activeStatus;
-
-        /**
-         * 雇佣类型 ID
-         * <p> 示例值：6001
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 雇佣类型中文名称
-         * <p> 示例值：全职
-         *
-         * @param zhName
-         * @return
-         */
-        public Builder zhName(String zhName) {
-            this.zhName = zhName;
-            return this;
-        }
-
-
-        /**
-         * 雇佣类型英文名称
-         * <p> 示例值：FullTime
-         *
-         * @param enName
-         * @return
-         */
-        public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
-        }
-
-
-        /**
-         * 雇佣类型启用状态
-         * <p> 示例值：1
-         *
-         * @param activeStatus
-         * @return
-         */
-        public Builder activeStatus(Integer activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
-        }
-
-
-        public JobRecruitmentType build() {
-            return new JobRecruitmentType(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

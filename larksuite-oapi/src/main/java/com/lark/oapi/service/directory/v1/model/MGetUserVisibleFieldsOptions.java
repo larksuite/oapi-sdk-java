@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MGetUserVisibleFieldsOptions {
+  /**
+   * 为 True 时额外返回数据信息, 默认为False只返回鉴权信息\n需要返回数据信息时接口耗时会有一定增加
+   *
+   * <p>示例值：
+   */
+  @SerializedName("need_field_data")
+  private Boolean needFieldData;
+
+  public Boolean getNeedFieldData() {
+    return this.needFieldData;
+  }
+
+  public void setNeedFieldData(Boolean needFieldData) {
+    this.needFieldData = needFieldData;
+  }
+
+  // builder 开始
+  public MGetUserVisibleFieldsOptions() {}
+
+  public MGetUserVisibleFieldsOptions(Builder builder) {
     /**
      * 为 True 时额外返回数据信息, 默认为False只返回鉴权信息\n需要返回数据信息时接口耗时会有一定增加
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("need_field_data")
+    this.needFieldData = builder.needFieldData;
+  }
+
+  public static class Builder {
+    /**
+     * 为 True 时额外返回数据信息, 默认为False只返回鉴权信息\n需要返回数据信息时接口耗时会有一定增加
+     *
+     * <p>示例值：
+     */
     private Boolean needFieldData;
 
-    // builder 开始
-    public MGetUserVisibleFieldsOptions() {
+    /**
+     * 为 True 时额外返回数据信息, 默认为False只返回鉴权信息\n需要返回数据信息时接口耗时会有一定增加
+     *
+     * <p>示例值：
+     *
+     * @param needFieldData
+     * @return
+     */
+    public Builder needFieldData(Boolean needFieldData) {
+      this.needFieldData = needFieldData;
+      return this;
     }
 
-    public MGetUserVisibleFieldsOptions(Builder builder) {
-        /**
-         * 为 True 时额外返回数据信息, 默认为False只返回鉴权信息\n需要返回数据信息时接口耗时会有一定增加
-         * <p> 示例值：
-         */
-        this.needFieldData = builder.needFieldData;
+    public MGetUserVisibleFieldsOptions build() {
+      return new MGetUserVisibleFieldsOptions(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Boolean getNeedFieldData() {
-        return this.needFieldData;
-    }
-
-    public void setNeedFieldData(Boolean needFieldData) {
-        this.needFieldData = needFieldData;
-    }
-
-    public static class Builder {
-        /**
-         * 为 True 时额外返回数据信息, 默认为False只返回鉴权信息\n需要返回数据信息时接口耗时会有一定增加
-         * <p> 示例值：
-         */
-        private Boolean needFieldData;
-
-        /**
-         * 为 True 时额外返回数据信息, 默认为False只返回鉴权信息\n需要返回数据信息时接口耗时会有一定增加
-         * <p> 示例值：
-         *
-         * @param needFieldData
-         * @return
-         */
-        public Builder needFieldData(Boolean needFieldData) {
-            this.needFieldData = needFieldData;
-            return this;
-        }
-
-
-        public MGetUserVisibleFieldsOptions build() {
-            return new MGetUserVisibleFieldsOptions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

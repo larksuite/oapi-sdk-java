@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Reaction {
+  /**
+   * 表情ID
+   *
+   * <p>示例值：ZCaCIjUBVVWSrm5L-3ZTw****
+   */
+  @SerializedName("reaction_id")
+  private String reactionId;
+
+  /**
+   * 操作者信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("operator")
+  private Operator operator;
+
+  /**
+   * 表情添加时间
+   *
+   * <p>示例值：1626086391570
+   */
+  @SerializedName("action_time")
+  private String actionTime;
+
+  /**
+   * 表情类型
+   *
+   * <p>示例值：SMILE
+   */
+  @SerializedName("emoji_type")
+  private String emojiType;
+
+  public String getReactionId() {
+    return this.reactionId;
+  }
+
+  public void setReactionId(String reactionId) {
+    this.reactionId = reactionId;
+  }
+
+  public Operator getOperator() {
+    return this.operator;
+  }
+
+  public void setOperator(Operator operator) {
+    this.operator = operator;
+  }
+
+  public String getActionTime() {
+    return this.actionTime;
+  }
+
+  public void setActionTime(String actionTime) {
+    this.actionTime = actionTime;
+  }
+
+  public String getEmojiType() {
+    return this.emojiType;
+  }
+
+  public void setEmojiType(String emojiType) {
+    this.emojiType = emojiType;
+  }
+
+  // builder 开始
+  public Reaction() {}
+
+  public Reaction(Builder builder) {
     /**
      * 表情ID
-     * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw****
+     *
+     * <p>示例值：ZCaCIjUBVVWSrm5L-3ZTw****
      */
-    @SerializedName("reaction_id")
-    private String reactionId;
+    this.reactionId = builder.reactionId;
     /**
      * 操作者信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("operator")
-    private Operator operator;
+    this.operator = builder.operator;
     /**
      * 表情添加时间
-     * <p> 示例值：1626086391570
+     *
+     * <p>示例值：1626086391570
      */
-    @SerializedName("action_time")
-    private String actionTime;
+    this.actionTime = builder.actionTime;
     /**
      * 表情类型
-     * <p> 示例值：SMILE
+     *
+     * <p>示例值：SMILE
      */
-    @SerializedName("emoji_type")
+    this.emojiType = builder.emojiType;
+  }
+
+  public static class Builder {
+    /**
+     * 表情ID
+     *
+     * <p>示例值：ZCaCIjUBVVWSrm5L-3ZTw****
+     */
+    private String reactionId;
+
+    /**
+     * 操作者信息
+     *
+     * <p>示例值：
+     */
+    private Operator operator;
+
+    /**
+     * 表情添加时间
+     *
+     * <p>示例值：1626086391570
+     */
+    private String actionTime;
+
+    /**
+     * 表情类型
+     *
+     * <p>示例值：SMILE
+     */
     private String emojiType;
 
-    // builder 开始
-    public Reaction() {
+    /**
+     * 表情ID
+     *
+     * <p>示例值：ZCaCIjUBVVWSrm5L-3ZTw****
+     *
+     * @param reactionId
+     * @return
+     */
+    public Builder reactionId(String reactionId) {
+      this.reactionId = reactionId;
+      return this;
     }
 
-    public Reaction(Builder builder) {
-        /**
-         * 表情ID
-         * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw****
-         */
-        this.reactionId = builder.reactionId;
-        /**
-         * 操作者信息
-         * <p> 示例值：
-         */
-        this.operator = builder.operator;
-        /**
-         * 表情添加时间
-         * <p> 示例值：1626086391570
-         */
-        this.actionTime = builder.actionTime;
-        /**
-         * 表情类型
-         * <p> 示例值：SMILE
-         */
-        this.emojiType = builder.emojiType;
+    /**
+     * 操作者信息
+     *
+     * <p>示例值：
+     *
+     * @param operator
+     * @return
+     */
+    public Builder operator(Operator operator) {
+      this.operator = operator;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 表情添加时间
+     *
+     * <p>示例值：1626086391570
+     *
+     * @param actionTime
+     * @return
+     */
+    public Builder actionTime(String actionTime) {
+      this.actionTime = actionTime;
+      return this;
     }
 
-    public String getReactionId() {
-        return this.reactionId;
+    /**
+     * 表情类型
+     *
+     * <p>示例值：SMILE
+     *
+     * @param emojiType
+     * @return
+     */
+    public Builder emojiType(String emojiType) {
+      this.emojiType = emojiType;
+      return this;
     }
 
-    public void setReactionId(String reactionId) {
-        this.reactionId = reactionId;
+    public Reaction build() {
+      return new Reaction(this);
     }
+  }
 
-    public Operator getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(Operator operator) {
-        this.operator = operator;
-    }
-
-    public String getActionTime() {
-        return this.actionTime;
-    }
-
-    public void setActionTime(String actionTime) {
-        this.actionTime = actionTime;
-    }
-
-    public String getEmojiType() {
-        return this.emojiType;
-    }
-
-    public void setEmojiType(String emojiType) {
-        this.emojiType = emojiType;
-    }
-
-    public static class Builder {
-        /**
-         * 表情ID
-         * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw****
-         */
-        private String reactionId;
-        /**
-         * 操作者信息
-         * <p> 示例值：
-         */
-        private Operator operator;
-        /**
-         * 表情添加时间
-         * <p> 示例值：1626086391570
-         */
-        private String actionTime;
-        /**
-         * 表情类型
-         * <p> 示例值：SMILE
-         */
-        private String emojiType;
-
-        /**
-         * 表情ID
-         * <p> 示例值：ZCaCIjUBVVWSrm5L-3ZTw****
-         *
-         * @param reactionId
-         * @return
-         */
-        public Builder reactionId(String reactionId) {
-            this.reactionId = reactionId;
-            return this;
-        }
-
-
-        /**
-         * 操作者信息
-         * <p> 示例值：
-         *
-         * @param operator
-         * @return
-         */
-        public Builder operator(Operator operator) {
-            this.operator = operator;
-            return this;
-        }
-
-
-        /**
-         * 表情添加时间
-         * <p> 示例值：1626086391570
-         *
-         * @param actionTime
-         * @return
-         */
-        public Builder actionTime(String actionTime) {
-            this.actionTime = actionTime;
-            return this;
-        }
-
-
-        /**
-         * 表情类型
-         * <p> 示例值：SMILE
-         *
-         * @param emojiType
-         * @return
-         */
-        public Builder emojiType(String emojiType) {
-            this.emojiType = emojiType;
-            return this;
-        }
-
-
-        public Reaction build() {
-            return new Reaction(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

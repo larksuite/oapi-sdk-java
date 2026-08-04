@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.docx.v1.enums;
 
-/**
- * 布局模式
- */
+/** 布局模式 */
 public enum ReferenceBaseReferenceBaseLayoutModeEnum {
-    NORMAL("Normal"), // 全部展开
-    PARTIALLYFOLDED("PartiallyFolded"), // 部分折叠
-    UNDEFINED("Undefined"), // 未定义
-    ;
-    private String value;
+  NORMAL("Normal"), // 全部展开
+  PARTIALLYFOLDED("PartiallyFolded"), // 部分折叠
+  UNDEFINED("Undefined"), // 未定义
+  ;
+  private String value;
 
-    ReferenceBaseReferenceBaseLayoutModeEnum(String value) {
-        this.value = value;
-    }
+  ReferenceBaseReferenceBaseLayoutModeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

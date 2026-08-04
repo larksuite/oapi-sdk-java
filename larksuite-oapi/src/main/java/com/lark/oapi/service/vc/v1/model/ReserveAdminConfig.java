@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReserveAdminConfig {
+  /**
+   * 预定管理部门
+   *
+   * <p>示例值：
+   */
+  @SerializedName("depts")
+  private SubscribeDepartment[] depts;
+
+  /**
+   * 预定管理员
+   *
+   * <p>示例值：
+   */
+  @SerializedName("users")
+  private SubscribeUser[] users;
+
+  public SubscribeDepartment[] getDepts() {
+    return this.depts;
+  }
+
+  public void setDepts(SubscribeDepartment[] depts) {
+    this.depts = depts;
+  }
+
+  public SubscribeUser[] getUsers() {
+    return this.users;
+  }
+
+  public void setUsers(SubscribeUser[] users) {
+    this.users = users;
+  }
+
+  // builder 开始
+  public ReserveAdminConfig() {}
+
+  public ReserveAdminConfig(Builder builder) {
     /**
      * 预定管理部门
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("depts")
-    private SubscribeDepartment[] depts;
+    this.depts = builder.depts;
     /**
-     * 预定管理用户
-     * <p> 示例值：
+     * 预定管理员
+     *
+     * <p>示例值：
      */
-    @SerializedName("users")
+    this.users = builder.users;
+  }
+
+  public static class Builder {
+    /**
+     * 预定管理部门
+     *
+     * <p>示例值：
+     */
+    private SubscribeDepartment[] depts;
+
+    /**
+     * 预定管理员
+     *
+     * <p>示例值：
+     */
     private SubscribeUser[] users;
 
-    // builder 开始
-    public ReserveAdminConfig() {
+    /**
+     * 预定管理部门
+     *
+     * <p>示例值：
+     *
+     * @param depts
+     * @return
+     */
+    public Builder depts(SubscribeDepartment[] depts) {
+      this.depts = depts;
+      return this;
     }
 
-    public ReserveAdminConfig(Builder builder) {
-        /**
-         * 预定管理部门
-         * <p> 示例值：
-         */
-        this.depts = builder.depts;
-        /**
-         * 预定管理用户
-         * <p> 示例值：
-         */
-        this.users = builder.users;
+    /**
+     * 预定管理员
+     *
+     * <p>示例值：
+     *
+     * @param users
+     * @return
+     */
+    public Builder users(SubscribeUser[] users) {
+      this.users = users;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ReserveAdminConfig build() {
+      return new ReserveAdminConfig(this);
     }
+  }
 
-    public SubscribeDepartment[] getDepts() {
-        return this.depts;
-    }
-
-    public void setDepts(SubscribeDepartment[] depts) {
-        this.depts = depts;
-    }
-
-    public SubscribeUser[] getUsers() {
-        return this.users;
-    }
-
-    public void setUsers(SubscribeUser[] users) {
-        this.users = users;
-    }
-
-    public static class Builder {
-        /**
-         * 预定管理部门
-         * <p> 示例值：
-         */
-        private SubscribeDepartment[] depts;
-        /**
-         * 预定管理用户
-         * <p> 示例值：
-         */
-        private SubscribeUser[] users;
-
-        /**
-         * 预定管理部门
-         * <p> 示例值：
-         *
-         * @param depts
-         * @return
-         */
-        public Builder depts(SubscribeDepartment[] depts) {
-            this.depts = depts;
-            return this;
-        }
-
-
-        /**
-         * 预定管理用户
-         * <p> 示例值：
-         *
-         * @param users
-         * @return
-         */
-        public Builder users(SubscribeUser[] users) {
-            this.users = users;
-            return this;
-        }
-
-
-        public ReserveAdminConfig build() {
-            return new ReserveAdminConfig(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

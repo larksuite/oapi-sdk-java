@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.calendar.v4.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.calendar.v4.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EventOrganizer {
+  /**
+   * 日程组织者user ID
+   *
+   * <p>示例值：ou_xxxxxx
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  /**
+   * 日程组织者姓名
+   *
+   * <p>示例值：孙二二
+   */
+  @SerializedName("display_name")
+  private String displayName;
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getDisplayName() {
+    return this.displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
+  }
+
+  // builder 开始
+  public EventOrganizer() {}
+
+  public EventOrganizer(Builder builder) {
     /**
      * 日程组织者user ID
-     * <p> 示例值：ou_xxxxxx
+     *
+     * <p>示例值：ou_xxxxxx
      */
-    @SerializedName("user_id")
-    private String userId;
+    this.userId = builder.userId;
     /**
      * 日程组织者姓名
-     * <p> 示例值：孙二二
+     *
+     * <p>示例值：孙二二
      */
-    @SerializedName("display_name")
+    this.displayName = builder.displayName;
+  }
+
+  public static class Builder {
+    /**
+     * 日程组织者user ID
+     *
+     * <p>示例值：ou_xxxxxx
+     */
+    private String userId;
+
+    /**
+     * 日程组织者姓名
+     *
+     * <p>示例值：孙二二
+     */
     private String displayName;
 
-    // builder 开始
-    public EventOrganizer() {
+    /**
+     * 日程组织者user ID
+     *
+     * <p>示例值：ou_xxxxxx
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public EventOrganizer(Builder builder) {
-        /**
-         * 日程组织者user ID
-         * <p> 示例值：ou_xxxxxx
-         */
-        this.userId = builder.userId;
-        /**
-         * 日程组织者姓名
-         * <p> 示例值：孙二二
-         */
-        this.displayName = builder.displayName;
+    /**
+     * 日程组织者姓名
+     *
+     * <p>示例值：孙二二
+     *
+     * @param displayName
+     * @return
+     */
+    public Builder displayName(String displayName) {
+      this.displayName = displayName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public EventOrganizer build() {
+      return new EventOrganizer(this);
     }
+  }
 
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getDisplayName() {
-        return this.displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public static class Builder {
-        /**
-         * 日程组织者user ID
-         * <p> 示例值：ou_xxxxxx
-         */
-        private String userId;
-        /**
-         * 日程组织者姓名
-         * <p> 示例值：孙二二
-         */
-        private String displayName;
-
-        /**
-         * 日程组织者user ID
-         * <p> 示例值：ou_xxxxxx
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        /**
-         * 日程组织者姓名
-         * <p> 示例值：孙二二
-         *
-         * @param displayName
-         * @return
-         */
-        public Builder displayName(String displayName) {
-            this.displayName = displayName;
-            return this;
-        }
-
-
-        public EventOrganizer build() {
-            return new EventOrganizer(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

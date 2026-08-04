@@ -13,408 +13,475 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CustomOrgUpdate {
+  /**
+   * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+   *
+   * <p>示例值：custom_org_01
+   */
+  @SerializedName("object_api_name")
+  private String objectApiName;
+
+  /**
+   * 组织名称;- 相同上级的自定义组织中英文名称不允许重复。;- 名称不能包含「/」「；」「;」「\」「'」字符。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("names")
+  private I18n[] names;
+
+  /**
+   * 自定义组织编码 (不能与其他记录的编码重复);- 开启自动编码时，如果不传值会自动生成编码，否则以传入值为准;- 未开启自动编码时，不传值不会自动生成编码
+   *
+   * <p>示例值：MDPD00000023
+   */
+  @SerializedName("code")
+  private String code;
+
+  /**
+   * 上级组织 ID;- 可从
+   * [批量查询自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)的
+   * org_id 字段中获取。
+   *
+   * <p>示例值：6862995757234914824
+   */
+  @SerializedName("parent_id")
+  private String parentId;
+
+  /**
+   * 负责人 ID 列表。;-
+   * 详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+   * 或
+   * [【批量查询员工】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)
+   * 接口获取，ID 为返回值中的 ==employment_id==
+   *
+   * <p>示例值：
+   */
+  @SerializedName("manager_ids")
+  private String[] managerIds;
+
+  /**
+   * 自定义组织描述
+   *
+   * <p>示例值：
+   */
+  @SerializedName("description")
+  private I18n[] description;
+
+  /**
+   * 自定义组织生效时间;- 填写格式： YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;- 日期范围要求:1900-01-01 ～
+   * 9999-12-31
+   *
+   * <p>示例值：2020-01-01
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 自动给「按自定义组织授权的角色」授权
+   *
+   * <p>示例值：
+   */
+  @SerializedName("org_roles")
+  private OrgRoleUpdate[] orgRoles;
+
+  /**
+   * 自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private CustomFieldData[] customFields;
+
+  /**
+   * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+   * 或未传入时，遵循系统默认的编码策略。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_prefer_manual_encoding")
+  private Boolean isPreferManualEncoding;
+
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
+
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
+
+  public I18n[] getNames() {
+    return this.names;
+  }
+
+  public void setNames(I18n[] names) {
+    this.names = names;
+  }
+
+  public String getCode() {
+    return this.code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public String getParentId() {
+    return this.parentId;
+  }
+
+  public void setParentId(String parentId) {
+    this.parentId = parentId;
+  }
+
+  public String[] getManagerIds() {
+    return this.managerIds;
+  }
+
+  public void setManagerIds(String[] managerIds) {
+    this.managerIds = managerIds;
+  }
+
+  public I18n[] getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(I18n[] description) {
+    this.description = description;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public OrgRoleUpdate[] getOrgRoles() {
+    return this.orgRoles;
+  }
+
+  public void setOrgRoles(OrgRoleUpdate[] orgRoles) {
+    this.orgRoles = orgRoles;
+  }
+
+  public CustomFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(CustomFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public Boolean getIsPreferManualEncoding() {
+    return this.isPreferManualEncoding;
+  }
+
+  public void setIsPreferManualEncoding(Boolean isPreferManualEncoding) {
+    this.isPreferManualEncoding = isPreferManualEncoding;
+  }
+
+  // builder 开始
+  public CustomOrgUpdate() {}
+
+  public CustomOrgUpdate(Builder builder) {
     /**
-     * 组织类型编码
-     * <p> 示例值：apiname__c
+     * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+     *
+     * <p>示例值：custom_org_01
      */
-    @SerializedName("object_api_name")
+    this.objectApiName = builder.objectApiName;
+    /**
+     * 组织名称;- 相同上级的自定义组织中英文名称不允许重复。;- 名称不能包含「/」「；」「;」「\」「'」字符。
+     *
+     * <p>示例值：
+     */
+    this.names = builder.names;
+    /**
+     * 自定义组织编码 (不能与其他记录的编码重复);- 开启自动编码时，如果不传值会自动生成编码，否则以传入值为准;- 未开启自动编码时，不传值不会自动生成编码
+     *
+     * <p>示例值：MDPD00000023
+     */
+    this.code = builder.code;
+    /**
+     * 上级组织 ID;- 可从
+     * [批量查询自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)的
+     * org_id 字段中获取。
+     *
+     * <p>示例值：6862995757234914824
+     */
+    this.parentId = builder.parentId;
+    /**
+     * 负责人 ID 列表。;-
+     * 详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     * 或
+     * [【批量查询员工】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)
+     * 接口获取，ID 为返回值中的 ==employment_id==
+     *
+     * <p>示例值：
+     */
+    this.managerIds = builder.managerIds;
+    /**
+     * 自定义组织描述
+     *
+     * <p>示例值：
+     */
+    this.description = builder.description;
+    /**
+     * 自定义组织生效时间;- 填写格式： YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;- 日期范围要求:1900-01-01
+     * ～ 9999-12-31
+     *
+     * <p>示例值：2020-01-01
+     */
+    this.effectiveTime = builder.effectiveTime;
+    /**
+     * 自动给「按自定义组织授权的角色」授权
+     *
+     * <p>示例值：
+     */
+    this.orgRoles = builder.orgRoles;
+    /**
+     * 自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     *
+     * <p>示例值：
+     */
+    this.customFields = builder.customFields;
+    /**
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+     * 或未传入时，遵循系统默认的编码策略。
+     *
+     * <p>示例值：
+     */
+    this.isPreferManualEncoding = builder.isPreferManualEncoding;
+  }
+
+  public static class Builder {
+    /**
+     * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+     *
+     * <p>示例值：custom_org_01
+     */
     private String objectApiName;
+
     /**
-     * 组织名称
-     * <p> 示例值：
+     * 组织名称;- 相同上级的自定义组织中英文名称不允许重复。;- 名称不能包含「/」「；」「;」「\」「'」字符。
+     *
+     * <p>示例值：
      */
-    @SerializedName("names")
     private I18n[] names;
+
     /**
-     * 组织编码
-     * <p> 示例值：MDPD00000023
+     * 自定义组织编码 (不能与其他记录的编码重复);- 开启自动编码时，如果不传值会自动生成编码，否则以传入值为准;- 未开启自动编码时，不传值不会自动生成编码
+     *
+     * <p>示例值：MDPD00000023
      */
-    @SerializedName("code")
     private String code;
+
     /**
-     * 上级组织 ID
-     * <p> 示例值：6862995757234914824
+     * 上级组织 ID;- 可从
+     * [批量查询自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)的
+     * org_id 字段中获取。
+     *
+     * <p>示例值：6862995757234914824
      */
-    @SerializedName("parent_id")
     private String parentId;
+
     /**
-     * 负责人ID 列表
-     * <p> 示例值：
+     * 负责人 ID 列表。;-
+     * 详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     * 或
+     * [【批量查询员工】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)
+     * 接口获取，ID 为返回值中的 ==employment_id==
+     *
+     * <p>示例值：
      */
-    @SerializedName("manager_ids")
     private String[] managerIds;
+
     /**
-     * 描述
-     * <p> 示例值：
+     * 自定义组织描述
+     *
+     * <p>示例值：
      */
-    @SerializedName("description")
     private I18n[] description;
+
     /**
-     * 生效时间
-     * <p> 示例值：2020-01-01
+     * 自定义组织生效时间;- 填写格式： YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;- 日期范围要求:1900-01-01
+     * ～ 9999-12-31
+     *
+     * <p>示例值：2020-01-01
      */
-    @SerializedName("effective_time")
     private String effectiveTime;
+
     /**
-     * 组织角色
-     * <p> 示例值：
+     * 自动给「按自定义组织授权的角色」授权
+     *
+     * <p>示例值：
      */
-    @SerializedName("org_roles")
     private OrgRoleUpdate[] orgRoles;
+
     /**
-     * 自定义字段
-     * <p> 示例值：
+     * 自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
     private CustomFieldData[] customFields;
+
     /**
-     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-     * <p> 示例值：
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+     * 或未传入时，遵循系统默认的编码策略。
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_prefer_manual_encoding")
     private Boolean isPreferManualEncoding;
 
-    // builder 开始
-    public CustomOrgUpdate() {
+    /**
+     * 组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看
+     *
+     * <p>示例值：custom_org_01
+     *
+     * @param objectApiName
+     * @return
+     */
+    public Builder objectApiName(String objectApiName) {
+      this.objectApiName = objectApiName;
+      return this;
     }
 
-    public CustomOrgUpdate(Builder builder) {
-        /**
-         * 组织类型编码
-         * <p> 示例值：apiname__c
-         */
-        this.objectApiName = builder.objectApiName;
-        /**
-         * 组织名称
-         * <p> 示例值：
-         */
-        this.names = builder.names;
-        /**
-         * 组织编码
-         * <p> 示例值：MDPD00000023
-         */
-        this.code = builder.code;
-        /**
-         * 上级组织 ID
-         * <p> 示例值：6862995757234914824
-         */
-        this.parentId = builder.parentId;
-        /**
-         * 负责人ID 列表
-         * <p> 示例值：
-         */
-        this.managerIds = builder.managerIds;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        this.description = builder.description;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 组织角色
-         * <p> 示例值：
-         */
-        this.orgRoles = builder.orgRoles;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         */
-        this.isPreferManualEncoding = builder.isPreferManualEncoding;
+    /**
+     * 组织名称;- 相同上级的自定义组织中英文名称不允许重复。;- 名称不能包含「/」「；」「;」「\」「'」字符。
+     *
+     * <p>示例值：
+     *
+     * @param names
+     * @return
+     */
+    public Builder names(I18n[] names) {
+      this.names = names;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 自定义组织编码 (不能与其他记录的编码重复);- 开启自动编码时，如果不传值会自动生成编码，否则以传入值为准;- 未开启自动编码时，不传值不会自动生成编码
+     *
+     * <p>示例值：MDPD00000023
+     *
+     * @param code
+     * @return
+     */
+    public Builder code(String code) {
+      this.code = code;
+      return this;
     }
 
-    public String getObjectApiName() {
-        return this.objectApiName;
+    /**
+     * 上级组织 ID;- 可从
+     * [批量查询自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)的
+     * org_id 字段中获取。
+     *
+     * <p>示例值：6862995757234914824
+     *
+     * @param parentId
+     * @return
+     */
+    public Builder parentId(String parentId) {
+      this.parentId = parentId;
+      return this;
     }
 
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
+    /**
+     * 负责人 ID 列表。;-
+     * 详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)
+     * 或
+     * [【批量查询员工】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)
+     * 接口获取，ID 为返回值中的 ==employment_id==
+     *
+     * <p>示例值：
+     *
+     * @param managerIds
+     * @return
+     */
+    public Builder managerIds(String[] managerIds) {
+      this.managerIds = managerIds;
+      return this;
     }
 
-    public I18n[] getNames() {
-        return this.names;
+    /**
+     * 自定义组织描述
+     *
+     * <p>示例值：
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(I18n[] description) {
+      this.description = description;
+      return this;
     }
 
-    public void setNames(I18n[] names) {
-        this.names = names;
+    /**
+     * 自定义组织生效时间;- 填写格式： YYYY-MM-DD;- 系统默认为填写日期当天的 00:00:00 生效 ;- 该接口只支持到最小单位为日;- 日期范围要求:1900-01-01
+     * ～ 9999-12-31
+     *
+     * <p>示例值：2020-01-01
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public String getCode() {
-        return this.code;
+    /**
+     * 自动给「按自定义组织授权的角色」授权
+     *
+     * <p>示例值：
+     *
+     * @param orgRoles
+     * @return
+     */
+    public Builder orgRoles(OrgRoleUpdate[] orgRoles) {
+      this.orgRoles = orgRoles;
+      return this;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    /**
+     * 自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(CustomFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public String getParentId() {
-        return this.parentId;
+    /**
+     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false
+     * 或未传入时，遵循系统默认的编码策略。
+     *
+     * <p>示例值：
+     *
+     * @param isPreferManualEncoding
+     * @return
+     */
+    public Builder isPreferManualEncoding(Boolean isPreferManualEncoding) {
+      this.isPreferManualEncoding = isPreferManualEncoding;
+      return this;
     }
 
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
+    public CustomOrgUpdate build() {
+      return new CustomOrgUpdate(this);
     }
+  }
 
-    public String[] getManagerIds() {
-        return this.managerIds;
-    }
-
-    public void setManagerIds(String[] managerIds) {
-        this.managerIds = managerIds;
-    }
-
-    public I18n[] getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(I18n[] description) {
-        this.description = description;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public OrgRoleUpdate[] getOrgRoles() {
-        return this.orgRoles;
-    }
-
-    public void setOrgRoles(OrgRoleUpdate[] orgRoles) {
-        this.orgRoles = orgRoles;
-    }
-
-    public CustomFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(CustomFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public Boolean getIsPreferManualEncoding() {
-        return this.isPreferManualEncoding;
-    }
-
-    public void setIsPreferManualEncoding(Boolean isPreferManualEncoding) {
-        this.isPreferManualEncoding = isPreferManualEncoding;
-    }
-
-    public static class Builder {
-        /**
-         * 组织类型编码
-         * <p> 示例值：apiname__c
-         */
-        private String objectApiName;
-        /**
-         * 组织名称
-         * <p> 示例值：
-         */
-        private I18n[] names;
-        /**
-         * 组织编码
-         * <p> 示例值：MDPD00000023
-         */
-        private String code;
-        /**
-         * 上级组织 ID
-         * <p> 示例值：6862995757234914824
-         */
-        private String parentId;
-        /**
-         * 负责人ID 列表
-         * <p> 示例值：
-         */
-        private String[] managerIds;
-        /**
-         * 描述
-         * <p> 示例值：
-         */
-        private I18n[] description;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         */
-        private String effectiveTime;
-        /**
-         * 组织角色
-         * <p> 示例值：
-         */
-        private OrgRoleUpdate[] orgRoles;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomFieldData[] customFields;
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         */
-        private Boolean isPreferManualEncoding;
-
-        /**
-         * 组织类型编码
-         * <p> 示例值：apiname__c
-         *
-         * @param objectApiName
-         * @return
-         */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
-
-
-        /**
-         * 组织名称
-         * <p> 示例值：
-         *
-         * @param names
-         * @return
-         */
-        public Builder names(I18n[] names) {
-            this.names = names;
-            return this;
-        }
-
-
-        /**
-         * 组织编码
-         * <p> 示例值：MDPD00000023
-         *
-         * @param code
-         * @return
-         */
-        public Builder code(String code) {
-            this.code = code;
-            return this;
-        }
-
-
-        /**
-         * 上级组织 ID
-         * <p> 示例值：6862995757234914824
-         *
-         * @param parentId
-         * @return
-         */
-        public Builder parentId(String parentId) {
-            this.parentId = parentId;
-            return this;
-        }
-
-
-        /**
-         * 负责人ID 列表
-         * <p> 示例值：
-         *
-         * @param managerIds
-         * @return
-         */
-        public Builder managerIds(String[] managerIds) {
-            this.managerIds = managerIds;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(I18n[] description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2020-01-01
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 组织角色
-         * <p> 示例值：
-         *
-         * @param orgRoles
-         * @return
-         */
-        public Builder orgRoles(OrgRoleUpdate[] orgRoles) {
-            this.orgRoles = orgRoles;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(CustomFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         *
-         * @param isPreferManualEncoding
-         * @return
-         */
-        public Builder isPreferManualEncoding(Boolean isPreferManualEncoding) {
-            this.isPreferManualEncoding = isPreferManualEncoding;
-            return this;
-        }
-
-
-        public CustomOrgUpdate build() {
-            return new CustomOrgUpdate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

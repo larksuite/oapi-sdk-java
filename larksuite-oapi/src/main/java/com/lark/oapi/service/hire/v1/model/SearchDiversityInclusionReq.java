@@ -13,64 +13,51 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class SearchDiversityInclusionReq {
-    @Body
+  @Body private SearchDiversityInclusionReqBody body;
+
+  public SearchDiversityInclusionReqBody getSearchDiversityInclusionReqBody() {
+    return this.body;
+  }
+
+  public void setSearchDiversityInclusionReqBody(SearchDiversityInclusionReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public SearchDiversityInclusionReq() {}
+
+  public SearchDiversityInclusionReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private SearchDiversityInclusionReqBody body;
 
-    // builder 开始
-    public SearchDiversityInclusionReq() {
-    }
-
-    public SearchDiversityInclusionReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public SearchDiversityInclusionReqBody getSearchDiversityInclusionReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setSearchDiversityInclusionReqBody(SearchDiversityInclusionReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder searchDiversityInclusionReqBody(SearchDiversityInclusionReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private SearchDiversityInclusionReqBody body;
-
-        public SearchDiversityInclusionReqBody getSearchDiversityInclusionReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder searchDiversityInclusionReqBody(SearchDiversityInclusionReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public SearchDiversityInclusionReq build() {
-            return new SearchDiversityInclusionReq(this);
-        }
+    public SearchDiversityInclusionReq build() {
+      return new SearchDiversityInclusionReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,321 +13,360 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.bitable.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DisplayApp {
+  /**
+   * 多维表格的唯一标识 app_token
+   *
+   * <p>示例值：\-
+   */
+  @SerializedName("app_token")
+  private String appToken;
+
+  /**
+   * 多维表格的名称
+   *
+   * <p>示例值：\-
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 多维表格的版本号。对多维表格进行修改时更新，如新增、删除数据表，修改数据表名等，初始为 1，每次更新+1
+   *
+   * <p>示例值：\-
+   */
+  @SerializedName("revision")
+  private Integer revision;
+
+  /**
+   * 多维表格是否开启了高级权限。取值包括：;- true：开启了高级权限;-
+   * false：关闭了高级权限;;了解更多参考飞书帮助中心文档[使用多维表格高级权限](https://www.feishu.cn/hc/zh-CN/articles/588604550568)。
+   *
+   * <p>示例值：\-
+   */
+  @SerializedName("is_advanced")
+  private Boolean isAdvanced;
+
+  /**
+   * 多维表格的时区
+   *
+   * <p>示例值：
+   */
+  @SerializedName("time_zone")
+  private String timeZone;
+
+  /**
+   * 多维表格的公式字段类型。可结合[字段相关
+   * API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/create)使用。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("formula_type")
+  private Integer formulaType;
+
+  /**
+   * 文档高级权限版本。可结合[自定义角色
+   * API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/create)使用。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("advance_version")
+  private String advanceVersion;
+
+  public String getAppToken() {
+    return this.appToken;
+  }
+
+  public void setAppToken(String appToken) {
+    this.appToken = appToken;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Integer getRevision() {
+    return this.revision;
+  }
+
+  public void setRevision(Integer revision) {
+    this.revision = revision;
+  }
+
+  public Boolean getIsAdvanced() {
+    return this.isAdvanced;
+  }
+
+  public void setIsAdvanced(Boolean isAdvanced) {
+    this.isAdvanced = isAdvanced;
+  }
+
+  public String getTimeZone() {
+    return this.timeZone;
+  }
+
+  public void setTimeZone(String timeZone) {
+    this.timeZone = timeZone;
+  }
+
+  public Integer getFormulaType() {
+    return this.formulaType;
+  }
+
+  public void setFormulaType(Integer formulaType) {
+    this.formulaType = formulaType;
+  }
+
+  public String getAdvanceVersion() {
+    return this.advanceVersion;
+  }
+
+  public void setAdvanceVersion(String advanceVersion) {
+    this.advanceVersion = advanceVersion;
+  }
+
+  // builder 开始
+  public DisplayApp() {}
+
+  public DisplayApp(Builder builder) {
     /**
-     * 多维表格的 app_token;[app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
-     * <p> 示例值：
+     * 多维表格的唯一标识 app_token
+     *
+     * <p>示例值：\-
      */
-    @SerializedName("app_token")
+    this.appToken = builder.appToken;
+    /**
+     * 多维表格的名称
+     *
+     * <p>示例值：\-
+     */
+    this.name = builder.name;
+    /**
+     * 多维表格的版本号。对多维表格进行修改时更新，如新增、删除数据表，修改数据表名等，初始为 1，每次更新+1
+     *
+     * <p>示例值：\-
+     */
+    this.revision = builder.revision;
+    /**
+     * 多维表格是否开启了高级权限。取值包括：;- true：开启了高级权限;-
+     * false：关闭了高级权限;;了解更多参考飞书帮助中心文档[使用多维表格高级权限](https://www.feishu.cn/hc/zh-CN/articles/588604550568)。
+     *
+     * <p>示例值：\-
+     */
+    this.isAdvanced = builder.isAdvanced;
+    /**
+     * 多维表格的时区
+     *
+     * <p>示例值：
+     */
+    this.timeZone = builder.timeZone;
+    /**
+     * 多维表格的公式字段类型。可结合[字段相关
+     * API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/create)使用。
+     *
+     * <p>示例值：
+     */
+    this.formulaType = builder.formulaType;
+    /**
+     * 文档高级权限版本。可结合[自定义角色
+     * API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/create)使用。
+     *
+     * <p>示例值：
+     */
+    this.advanceVersion = builder.advanceVersion;
+  }
+
+  public static class Builder {
+    /**
+     * 多维表格的唯一标识 app_token
+     *
+     * <p>示例值：\-
+     */
     private String appToken;
+
     /**
-     * 多维表格的名字
-     * <p> 示例值：
+     * 多维表格的名称
+     *
+     * <p>示例值：\-
      */
-    @SerializedName("name")
     private String name;
+
     /**
-     * 多维表格的版本号（对多维表格进行修改时更新，如新增、删除数据表，修改数据表名等，初始为1，每次更新+1）
-     * <p> 示例值：
+     * 多维表格的版本号。对多维表格进行修改时更新，如新增、删除数据表，修改数据表名等，初始为 1，每次更新+1
+     *
+     * <p>示例值：\-
      */
-    @SerializedName("revision")
     private Integer revision;
+
     /**
-     * 多维表格是否开启了高级权限。取值包括：;- true：表示开启了高级权限;- false：表示关闭了高级权限;;[了解更多：使用多维表格高级权限](https://www.feishu.cn/hc/zh-CN/articles/588604550568)
-     * <p> 示例值：
+     * 多维表格是否开启了高级权限。取值包括：;- true：开启了高级权限;-
+     * false：关闭了高级权限;;了解更多参考飞书帮助中心文档[使用多维表格高级权限](https://www.feishu.cn/hc/zh-CN/articles/588604550568)。
+     *
+     * <p>示例值：\-
      */
-    @SerializedName("is_advanced")
     private Boolean isAdvanced;
+
     /**
-     * 文档时区
-     * <p> 示例值：
+     * 多维表格的时区
+     *
+     * <p>示例值：
      */
-    @SerializedName("time_zone")
     private String timeZone;
+
     /**
-     * 文档公式字段类型
-     * <p> 示例值：
+     * 多维表格的公式字段类型。可结合[字段相关
+     * API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/create)使用。
+     *
+     * <p>示例值：
      */
-    @SerializedName("formula_type")
     private Integer formulaType;
+
     /**
-     * 文档高级权限版本
-     * <p> 示例值：
+     * 文档高级权限版本。可结合[自定义角色
+     * API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/create)使用。
+     *
+     * <p>示例值：
      */
-    @SerializedName("advance_version")
     private String advanceVersion;
 
-    // builder 开始
-    public DisplayApp() {
+    /**
+     * 多维表格的唯一标识 app_token
+     *
+     * <p>示例值：\-
+     *
+     * @param appToken
+     * @return
+     */
+    public Builder appToken(String appToken) {
+      this.appToken = appToken;
+      return this;
     }
 
-    public DisplayApp(Builder builder) {
-        /**
-         * 多维表格的 app_token;[app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
-         * <p> 示例值：
-         */
-        this.appToken = builder.appToken;
-        /**
-         * 多维表格的名字
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 多维表格的版本号（对多维表格进行修改时更新，如新增、删除数据表，修改数据表名等，初始为1，每次更新+1）
-         * <p> 示例值：
-         */
-        this.revision = builder.revision;
-        /**
-         * 多维表格是否开启了高级权限。取值包括：;- true：表示开启了高级权限;- false：表示关闭了高级权限;;[了解更多：使用多维表格高级权限](https://www.feishu.cn/hc/zh-CN/articles/588604550568)
-         * <p> 示例值：
-         */
-        this.isAdvanced = builder.isAdvanced;
-        /**
-         * 文档时区
-         * <p> 示例值：
-         */
-        this.timeZone = builder.timeZone;
-        /**
-         * 文档公式字段类型
-         * <p> 示例值：
-         */
-        this.formulaType = builder.formulaType;
-        /**
-         * 文档高级权限版本
-         * <p> 示例值：
-         */
-        this.advanceVersion = builder.advanceVersion;
+    /**
+     * 多维表格的名称
+     *
+     * <p>示例值：\-
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 多维表格的版本号。对多维表格进行修改时更新，如新增、删除数据表，修改数据表名等，初始为 1，每次更新+1
+     *
+     * <p>示例值：\-
+     *
+     * @param revision
+     * @return
+     */
+    public Builder revision(Integer revision) {
+      this.revision = revision;
+      return this;
     }
 
-    public String getAppToken() {
-        return this.appToken;
+    /**
+     * 多维表格是否开启了高级权限。取值包括：;- true：开启了高级权限;-
+     * false：关闭了高级权限;;了解更多参考飞书帮助中心文档[使用多维表格高级权限](https://www.feishu.cn/hc/zh-CN/articles/588604550568)。
+     *
+     * <p>示例值：\-
+     *
+     * @param isAdvanced
+     * @return
+     */
+    public Builder isAdvanced(Boolean isAdvanced) {
+      this.isAdvanced = isAdvanced;
+      return this;
     }
 
-    public void setAppToken(String appToken) {
-        this.appToken = appToken;
+    /**
+     * 多维表格的时区
+     *
+     * <p>示例值：
+     *
+     * @param timeZone
+     * @return
+     */
+    public Builder timeZone(String timeZone) {
+      this.timeZone = timeZone;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 多维表格的公式字段类型。可结合[字段相关
+     * API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/create)使用。
+     *
+     * <p>示例值：
+     *
+     * @param formulaType
+     * @return
+     */
+    public Builder formulaType(Integer formulaType) {
+      this.formulaType = formulaType;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 多维表格的公式字段类型。可结合[字段相关
+     * API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/create)使用。
+     *
+     * <p>示例值：
+     *
+     * @param formulaType {@link com.lark.oapi.service.bitable.v1.enums.DisplayAppFormulaTypeEnum}
+     * @return
+     */
+    public Builder formulaType(
+        com.lark.oapi.service.bitable.v1.enums.DisplayAppFormulaTypeEnum formulaType) {
+      this.formulaType = formulaType.getValue();
+      return this;
     }
 
-    public Integer getRevision() {
-        return this.revision;
+    /**
+     * 文档高级权限版本。可结合[自定义角色
+     * API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/create)使用。
+     *
+     * <p>示例值：
+     *
+     * @param advanceVersion
+     * @return
+     */
+    public Builder advanceVersion(String advanceVersion) {
+      this.advanceVersion = advanceVersion;
+      return this;
     }
 
-    public void setRevision(Integer revision) {
-        this.revision = revision;
+    /**
+     * 文档高级权限版本。可结合[自定义角色
+     * API](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/create)使用。
+     *
+     * <p>示例值：
+     *
+     * @param advanceVersion {@link
+     *     com.lark.oapi.service.bitable.v1.enums.DisplayAppAdvanceVersionEnum}
+     * @return
+     */
+    public Builder advanceVersion(
+        com.lark.oapi.service.bitable.v1.enums.DisplayAppAdvanceVersionEnum advanceVersion) {
+      this.advanceVersion = advanceVersion.getValue();
+      return this;
     }
 
-    public Boolean getIsAdvanced() {
-        return this.isAdvanced;
+    public DisplayApp build() {
+      return new DisplayApp(this);
     }
+  }
 
-    public void setIsAdvanced(Boolean isAdvanced) {
-        this.isAdvanced = isAdvanced;
-    }
-
-    public String getTimeZone() {
-        return this.timeZone;
-    }
-
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
-    }
-
-    public Integer getFormulaType() {
-        return this.formulaType;
-    }
-
-    public void setFormulaType(Integer formulaType) {
-        this.formulaType = formulaType;
-    }
-
-    public String getAdvanceVersion() {
-        return this.advanceVersion;
-    }
-
-    public void setAdvanceVersion(String advanceVersion) {
-        this.advanceVersion = advanceVersion;
-    }
-
-    public static class Builder {
-        /**
-         * 多维表格的 app_token;[app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
-         * <p> 示例值：
-         */
-        private String appToken;
-        /**
-         * 多维表格的名字
-         * <p> 示例值：
-         */
-        private String name;
-        /**
-         * 多维表格的版本号（对多维表格进行修改时更新，如新增、删除数据表，修改数据表名等，初始为1，每次更新+1）
-         * <p> 示例值：
-         */
-        private Integer revision;
-        /**
-         * 多维表格是否开启了高级权限。取值包括：;- true：表示开启了高级权限;- false：表示关闭了高级权限;;[了解更多：使用多维表格高级权限](https://www.feishu.cn/hc/zh-CN/articles/588604550568)
-         * <p> 示例值：
-         */
-        private Boolean isAdvanced;
-        /**
-         * 文档时区
-         * <p> 示例值：
-         */
-        private String timeZone;
-        /**
-         * 文档公式字段类型
-         * <p> 示例值：
-         */
-        private Integer formulaType;
-        /**
-         * 文档高级权限版本
-         * <p> 示例值：
-         */
-        private String advanceVersion;
-
-        /**
-         * 多维表格的 app_token;[app_token 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/notification#8121eebe)
-         * <p> 示例值：
-         *
-         * @param appToken
-         * @return
-         */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
-
-
-        /**
-         * 多维表格的名字
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 多维表格的版本号（对多维表格进行修改时更新，如新增、删除数据表，修改数据表名等，初始为1，每次更新+1）
-         * <p> 示例值：
-         *
-         * @param revision
-         * @return
-         */
-        public Builder revision(Integer revision) {
-            this.revision = revision;
-            return this;
-        }
-
-
-        /**
-         * 多维表格是否开启了高级权限。取值包括：;- true：表示开启了高级权限;- false：表示关闭了高级权限;;[了解更多：使用多维表格高级权限](https://www.feishu.cn/hc/zh-CN/articles/588604550568)
-         * <p> 示例值：
-         *
-         * @param isAdvanced
-         * @return
-         */
-        public Builder isAdvanced(Boolean isAdvanced) {
-            this.isAdvanced = isAdvanced;
-            return this;
-        }
-
-
-        /**
-         * 文档时区
-         * <p> 示例值：
-         *
-         * @param timeZone
-         * @return
-         */
-        public Builder timeZone(String timeZone) {
-            this.timeZone = timeZone;
-            return this;
-        }
-
-
-        /**
-         * 文档公式字段类型
-         * <p> 示例值：
-         *
-         * @param formulaType
-         * @return
-         */
-        public Builder formulaType(Integer formulaType) {
-            this.formulaType = formulaType;
-            return this;
-        }
-
-        /**
-         * 文档公式字段类型
-         * <p> 示例值：
-         *
-         * @param formulaType {@link com.lark.oapi.service.bitable.v1.enums.DisplayAppFormulaTypeEnum}
-         * @return
-         */
-        public Builder formulaType(com.lark.oapi.service.bitable.v1.enums.DisplayAppFormulaTypeEnum formulaType) {
-            this.formulaType = formulaType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 文档高级权限版本
-         * <p> 示例值：
-         *
-         * @param advanceVersion
-         * @return
-         */
-        public Builder advanceVersion(String advanceVersion) {
-            this.advanceVersion = advanceVersion;
-            return this;
-        }
-
-        /**
-         * 文档高级权限版本
-         * <p> 示例值：
-         *
-         * @param advanceVersion {@link com.lark.oapi.service.bitable.v1.enums.DisplayAppAdvanceVersionEnum}
-         * @return
-         */
-        public Builder advanceVersion(com.lark.oapi.service.bitable.v1.enums.DisplayAppAdvanceVersionEnum advanceVersion) {
-            this.advanceVersion = advanceVersion.getValue();
-            return this;
-        }
-
-
-        public DisplayApp build() {
-            return new DisplayApp(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

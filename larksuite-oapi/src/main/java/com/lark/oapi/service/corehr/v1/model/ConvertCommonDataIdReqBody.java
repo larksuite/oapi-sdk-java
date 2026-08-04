@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ConvertCommonDataIdReqBody {
+  /**
+   * ID 列表（最多传入 100 个 ID，ID 长度限制 50 个字符）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ids")
+  private String[] ids;
+
+  public String[] getIds() {
+    return this.ids;
+  }
+
+  public void setIds(String[] ids) {
+    this.ids = ids;
+  }
+
+  // builder 开始
+  public ConvertCommonDataIdReqBody() {}
+
+  public ConvertCommonDataIdReqBody(Builder builder) {
     /**
      * ID 列表（最多传入 100 个 ID，ID 长度限制 50 个字符）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ids")
+    this.ids = builder.ids;
+  }
+
+  public static class Builder {
+    /**
+     * ID 列表（最多传入 100 个 ID，ID 长度限制 50 个字符）
+     *
+     * <p>示例值：
+     */
     private String[] ids;
 
-    // builder 开始
-    public ConvertCommonDataIdReqBody() {
+    /**
+     * ID 列表（最多传入 100 个 ID，ID 长度限制 50 个字符）
+     *
+     * <p>示例值：
+     *
+     * @param ids
+     * @return
+     */
+    public Builder ids(String[] ids) {
+      this.ids = ids;
+      return this;
     }
 
-    public ConvertCommonDataIdReqBody(Builder builder) {
-        /**
-         * ID 列表（最多传入 100 个 ID，ID 长度限制 50 个字符）
-         * <p> 示例值：
-         */
-        this.ids = builder.ids;
+    public ConvertCommonDataIdReqBody build() {
+      return new ConvertCommonDataIdReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getIds() {
-        return this.ids;
-    }
-
-    public void setIds(String[] ids) {
-        this.ids = ids;
-    }
-
-    public static class Builder {
-        /**
-         * ID 列表（最多传入 100 个 ID，ID 长度限制 50 个字符）
-         * <p> 示例值：
-         */
-        private String[] ids;
-
-        /**
-         * ID 列表（最多传入 100 个 ID，ID 长度限制 50 个字符）
-         * <p> 示例值：
-         *
-         * @param ids
-         * @return
-         */
-        public Builder ids(String[] ids) {
-            this.ids = ids;
-            return this;
-        }
-
-
-        public ConvertCommonDataIdReqBody build() {
-            return new ConvertCommonDataIdReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

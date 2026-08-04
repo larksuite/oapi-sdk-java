@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.contact.v3.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class WorkCity {
+  /**
+   * 工作城市 ID。
+   *
+   * <p>示例值：0dd1ec95f021
+   */
+  @SerializedName("work_city_id")
+  private String workCityId;
+
+  /**
+   * 工作城市名称。
+   *
+   * <p>示例值：北京
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 多语言工作城市名称。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_name")
+  private I18nContent[] i18nName;
+
+  /**
+   * 是否启用工作城市。;;**可能值有**：;- true：启用;- false：禁用
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("status")
+  private Boolean status;
+
+  public String getWorkCityId() {
+    return this.workCityId;
+  }
+
+  public void setWorkCityId(String workCityId) {
+    this.workCityId = workCityId;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public I18nContent[] getI18nName() {
+    return this.i18nName;
+  }
+
+  public void setI18nName(I18nContent[] i18nName) {
+    this.i18nName = i18nName;
+  }
+
+  public Boolean getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Boolean status) {
+    this.status = status;
+  }
+
+  // builder 开始
+  public WorkCity() {}
+
+  public WorkCity(Builder builder) {
     /**
-     * 工作城市ID
-     * <p> 示例值：0dd1ec95f021
+     * 工作城市 ID。
+     *
+     * <p>示例值：0dd1ec95f021
      */
-    @SerializedName("work_city_id")
+    this.workCityId = builder.workCityId;
+    /**
+     * 工作城市名称。
+     *
+     * <p>示例值：北京
+     */
+    this.name = builder.name;
+    /**
+     * 多语言工作城市名称。
+     *
+     * <p>示例值：
+     */
+    this.i18nName = builder.i18nName;
+    /**
+     * 是否启用工作城市。;;**可能值有**：;- true：启用;- false：禁用
+     *
+     * <p>示例值：true
+     */
+    this.status = builder.status;
+  }
+
+  public static class Builder {
+    /**
+     * 工作城市 ID。
+     *
+     * <p>示例值：0dd1ec95f021
+     */
     private String workCityId;
+
     /**
-     * 工作城市名称。1-100字符，支持中、英文及符号
-     * <p> 示例值：北京
+     * 工作城市名称。
+     *
+     * <p>示例值：北京
      */
-    @SerializedName("name")
     private String name;
+
     /**
-     * 多语言工作城市
-     * <p> 示例值：
+     * 多语言工作城市名称。
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_name")
     private I18nContent[] i18nName;
+
     /**
-     * 是否启用
-     * <p> 示例值：true 表示启用, false表示未启用
+     * 是否启用工作城市。;;**可能值有**：;- true：启用;- false：禁用
+     *
+     * <p>示例值：true
      */
-    @SerializedName("status")
     private Boolean status;
 
-    // builder 开始
-    public WorkCity() {
+    /**
+     * 工作城市 ID。
+     *
+     * <p>示例值：0dd1ec95f021
+     *
+     * @param workCityId
+     * @return
+     */
+    public Builder workCityId(String workCityId) {
+      this.workCityId = workCityId;
+      return this;
     }
 
-    public WorkCity(Builder builder) {
-        /**
-         * 工作城市ID
-         * <p> 示例值：0dd1ec95f021
-         */
-        this.workCityId = builder.workCityId;
-        /**
-         * 工作城市名称。1-100字符，支持中、英文及符号
-         * <p> 示例值：北京
-         */
-        this.name = builder.name;
-        /**
-         * 多语言工作城市
-         * <p> 示例值：
-         */
-        this.i18nName = builder.i18nName;
-        /**
-         * 是否启用
-         * <p> 示例值：true 表示启用, false表示未启用
-         */
-        this.status = builder.status;
+    /**
+     * 工作城市名称。
+     *
+     * <p>示例值：北京
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 多语言工作城市名称。
+     *
+     * <p>示例值：
+     *
+     * @param i18nName
+     * @return
+     */
+    public Builder i18nName(I18nContent[] i18nName) {
+      this.i18nName = i18nName;
+      return this;
     }
 
-    public String getWorkCityId() {
-        return this.workCityId;
+    /**
+     * 是否启用工作城市。;;**可能值有**：;- true：启用;- false：禁用
+     *
+     * <p>示例值：true
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Boolean status) {
+      this.status = status;
+      return this;
     }
 
-    public void setWorkCityId(String workCityId) {
-        this.workCityId = workCityId;
+    public WorkCity build() {
+      return new WorkCity(this);
     }
+  }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public I18nContent[] getI18nName() {
-        return this.i18nName;
-    }
-
-    public void setI18nName(I18nContent[] i18nName) {
-        this.i18nName = i18nName;
-    }
-
-    public Boolean getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
-
-    public static class Builder {
-        /**
-         * 工作城市ID
-         * <p> 示例值：0dd1ec95f021
-         */
-        private String workCityId;
-        /**
-         * 工作城市名称。1-100字符，支持中、英文及符号
-         * <p> 示例值：北京
-         */
-        private String name;
-        /**
-         * 多语言工作城市
-         * <p> 示例值：
-         */
-        private I18nContent[] i18nName;
-        /**
-         * 是否启用
-         * <p> 示例值：true 表示启用, false表示未启用
-         */
-        private Boolean status;
-
-        /**
-         * 工作城市ID
-         * <p> 示例值：0dd1ec95f021
-         *
-         * @param workCityId
-         * @return
-         */
-        public Builder workCityId(String workCityId) {
-            this.workCityId = workCityId;
-            return this;
-        }
-
-
-        /**
-         * 工作城市名称。1-100字符，支持中、英文及符号
-         * <p> 示例值：北京
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 多语言工作城市
-         * <p> 示例值：
-         *
-         * @param i18nName
-         * @return
-         */
-        public Builder i18nName(I18nContent[] i18nName) {
-            this.i18nName = i18nName;
-            return this;
-        }
-
-
-        /**
-         * 是否启用
-         * <p> 示例值：true 表示启用, false表示未启用
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Boolean status) {
-            this.status = status;
-            return this;
-        }
-
-
-        public WorkCity build() {
-            return new WorkCity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

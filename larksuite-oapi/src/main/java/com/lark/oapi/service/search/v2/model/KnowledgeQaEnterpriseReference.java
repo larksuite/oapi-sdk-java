@@ -13,235 +13,253 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeQaEnterpriseReference {
+  /**
+   * 知识片段 ID
+   *
+   * <p>示例值：6946843325487912356
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 知识来源
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("source_type")
+  private Integer sourceType;
+
+  /**
+   * 内容标题;- 如果是云空间或知识库文档，则是文档标题；;- 如果是消息，则是会话名称；;- 如果是FAQ，则是服务台-问题；;- 如果是Lingo词典，则是词条名称；;-
+   * 如果是文档评论，则是所在文档的标题；;- 如果是飞书妙记，则是音视频标题或视频会议的名称；;- 如果是邮件，则是邮件主题。
+   *
+   * <p>示例值：IT 服务台-申请显示器
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 内容正文
+   *
+   * <p>示例值：申请显示器的详细步骤为……
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 跳转链接
+   *
+   * <p>示例值：https://example.passage.link
+   */
+  @SerializedName("url")
+  private String url;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Integer getSourceType() {
+    return this.sourceType;
+  }
+
+  public void setSourceType(Integer sourceType) {
+    this.sourceType = sourceType;
+  }
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getUrl() {
+    return this.url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  // builder 开始
+  public KnowledgeQaEnterpriseReference() {}
+
+  public KnowledgeQaEnterpriseReference(Builder builder) {
     /**
-     * passage_id
-     * <p> 示例值：123456
+     * 知识片段 ID
+     *
+     * <p>示例值：6946843325487912356
      */
-    @SerializedName("id")
+    this.id = builder.id;
+    /**
+     * 知识来源
+     *
+     * <p>示例值：1
+     */
+    this.sourceType = builder.sourceType;
+    /**
+     * 内容标题;- 如果是云空间或知识库文档，则是文档标题；;- 如果是消息，则是会话名称；;- 如果是FAQ，则是服务台-问题；;- 如果是Lingo词典，则是词条名称；;-
+     * 如果是文档评论，则是所在文档的标题；;- 如果是飞书妙记，则是音视频标题或视频会议的名称；;- 如果是邮件，则是邮件主题。
+     *
+     * <p>示例值：IT 服务台-申请显示器
+     */
+    this.title = builder.title;
+    /**
+     * 内容正文
+     *
+     * <p>示例值：申请显示器的详细步骤为……
+     */
+    this.content = builder.content;
+    /**
+     * 跳转链接
+     *
+     * <p>示例值：https://example.passage.link
+     */
+    this.url = builder.url;
+  }
+
+  public static class Builder {
+    /**
+     * 知识片段 ID
+     *
+     * <p>示例值：6946843325487912356
+     */
     private String id;
+
     /**
-     * source_type
-     * <p> 示例值：1
+     * 知识来源
+     *
+     * <p>示例值：1
      */
-    @SerializedName("source_type")
     private Integer sourceType;
+
     /**
-     * title
-     * <p> 示例值：xxxxx
+     * 内容标题;- 如果是云空间或知识库文档，则是文档标题；;- 如果是消息，则是会话名称；;- 如果是FAQ，则是服务台-问题；;- 如果是Lingo词典，则是词条名称；;-
+     * 如果是文档评论，则是所在文档的标题；;- 如果是飞书妙记，则是音视频标题或视频会议的名称；;- 如果是邮件，则是邮件主题。
+     *
+     * <p>示例值：IT 服务台-申请显示器
      */
-    @SerializedName("title")
     private String title;
+
     /**
-     * content
-     * <p> 示例值：xxxxxx
+     * 内容正文
+     *
+     * <p>示例值：申请显示器的详细步骤为……
      */
-    @SerializedName("content")
     private String content;
+
     /**
-     * url
-     * <p> 示例值：xxxxx
+     * 跳转链接
+     *
+     * <p>示例值：https://example.passage.link
      */
-    @SerializedName("url")
     private String url;
 
-    // builder 开始
-    public KnowledgeQaEnterpriseReference() {
+    /**
+     * 知识片段 ID
+     *
+     * <p>示例值：6946843325487912356
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public KnowledgeQaEnterpriseReference(Builder builder) {
-        /**
-         * passage_id
-         * <p> 示例值：123456
-         */
-        this.id = builder.id;
-        /**
-         * source_type
-         * <p> 示例值：1
-         */
-        this.sourceType = builder.sourceType;
-        /**
-         * title
-         * <p> 示例值：xxxxx
-         */
-        this.title = builder.title;
-        /**
-         * content
-         * <p> 示例值：xxxxxx
-         */
-        this.content = builder.content;
-        /**
-         * url
-         * <p> 示例值：xxxxx
-         */
-        this.url = builder.url;
+    /**
+     * 知识来源
+     *
+     * <p>示例值：1
+     *
+     * @param sourceType
+     * @return
+     */
+    public Builder sourceType(Integer sourceType) {
+      this.sourceType = sourceType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 知识来源
+     *
+     * <p>示例值：1
+     *
+     * @param sourceType {@link
+     *     com.lark.oapi.service.search.v2.enums.KnowledgeQaEnterpriseReferenceSourceTypeEnum}
+     * @return
+     */
+    public Builder sourceType(
+        com.lark.oapi.service.search.v2.enums.KnowledgeQaEnterpriseReferenceSourceTypeEnum
+            sourceType) {
+      this.sourceType = sourceType.getValue();
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 内容标题;- 如果是云空间或知识库文档，则是文档标题；;- 如果是消息，则是会话名称；;- 如果是FAQ，则是服务台-问题；;- 如果是Lingo词典，则是词条名称；;-
+     * 如果是文档评论，则是所在文档的标题；;- 如果是飞书妙记，则是音视频标题或视频会议的名称；;- 如果是邮件，则是邮件主题。
+     *
+     * <p>示例值：IT 服务台-申请显示器
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 内容正文
+     *
+     * <p>示例值：申请显示器的详细步骤为……
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public Integer getSourceType() {
-        return this.sourceType;
+    /**
+     * 跳转链接
+     *
+     * <p>示例值：https://example.passage.link
+     *
+     * @param url
+     * @return
+     */
+    public Builder url(String url) {
+      this.url = url;
+      return this;
     }
 
-    public void setSourceType(Integer sourceType) {
-        this.sourceType = sourceType;
+    public KnowledgeQaEnterpriseReference build() {
+      return new KnowledgeQaEnterpriseReference(this);
     }
+  }
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public static class Builder {
-        /**
-         * passage_id
-         * <p> 示例值：123456
-         */
-        private String id;
-        /**
-         * source_type
-         * <p> 示例值：1
-         */
-        private Integer sourceType;
-        /**
-         * title
-         * <p> 示例值：xxxxx
-         */
-        private String title;
-        /**
-         * content
-         * <p> 示例值：xxxxxx
-         */
-        private String content;
-        /**
-         * url
-         * <p> 示例值：xxxxx
-         */
-        private String url;
-
-        /**
-         * passage_id
-         * <p> 示例值：123456
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * source_type
-         * <p> 示例值：1
-         *
-         * @param sourceType
-         * @return
-         */
-        public Builder sourceType(Integer sourceType) {
-            this.sourceType = sourceType;
-            return this;
-        }
-
-        /**
-         * source_type
-         * <p> 示例值：1
-         *
-         * @param sourceType {@link com.lark.oapi.service.search.v2.enums.KnowledgeQaEnterpriseReferenceSourceTypeEnum}
-         * @return
-         */
-        public Builder sourceType(com.lark.oapi.service.search.v2.enums.KnowledgeQaEnterpriseReferenceSourceTypeEnum sourceType) {
-            this.sourceType = sourceType.getValue();
-            return this;
-        }
-
-
-        /**
-         * title
-         * <p> 示例值：xxxxx
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * content
-         * <p> 示例值：xxxxxx
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * url
-         * <p> 示例值：xxxxx
-         *
-         * @param url
-         * @return
-         */
-        public Builder url(String url) {
-            this.url = url;
-            return this;
-        }
-
-
-        public KnowledgeQaEnterpriseReference build() {
-            return new KnowledgeQaEnterpriseReference(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

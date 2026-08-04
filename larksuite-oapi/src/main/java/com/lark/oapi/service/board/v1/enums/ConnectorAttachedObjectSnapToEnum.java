@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 连接图形的方向
- */
+/** 连接图形的方向 */
 public enum ConnectorAttachedObjectSnapToEnum {
-    AUTO("auto"), // 连接方向自动匹配
-    TOP("top"), // 连接图形顶部方向
-    RIGHT("right"), // 连接图形右边方向
-    BOTTOM("bottom"), // 连接图形底部方向
-    LEFT("left"), // 连接图形左边方向
-    ;
-    private String value;
+  AUTO("auto"), // 连接方向自动匹配
+  TOP("top"), // 连接图形顶部方向
+  RIGHT("right"), // 连接图形右边方向
+  BOTTOM("bottom"), // 连接图形底部方向
+  LEFT("left"), // 连接图形左边方向
+  ;
+  private String value;
 
-    ConnectorAttachedObjectSnapToEnum(String value) {
-        this.value = value;
-    }
+  ConnectorAttachedObjectSnapToEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

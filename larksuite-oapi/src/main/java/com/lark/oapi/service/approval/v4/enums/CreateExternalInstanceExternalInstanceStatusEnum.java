@@ -13,25 +13,23 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 审批实例状态
- */
+/** 审批实例状态;<md-alert type=warn>实例状态不影响任务状态，实例状态为通过时仍可同步待办状态的任务，所以同步时需要保证整体的状态一致性</md-alert> */
 public enum CreateExternalInstanceExternalInstanceStatusEnum {
-    PENDING("PENDING"), // 审批中
-    APPROVED("APPROVED"), // 审批流程结束，结果为同意
-    REJECTED("REJECTED"), // 审批流程结束，结果为拒绝
-    CANCELED("CANCELED"), // 审批发起人撤回
-    DELETED("DELETED"), // 审批被删除
-    HIDDEN("HIDDEN"), // 状态隐藏(不显示状态)
-    TERMINATED("TERMINATED"), // 审批终止
-    ;
-    private String value;
+  PENDING("PENDING"), // 审批中
+  APPROVED("APPROVED"), // 审批流程结束，结果为同意
+  REJECTED("REJECTED"), // 审批流程结束，结果为拒绝
+  CANCELED("CANCELED"), // 审批发起人撤回
+  DELETED("DELETED"), // 审批被删除
+  HIDDEN("HIDDEN"), // 状态隐藏（不显示状态）
+  TERMINATED("TERMINATED"), // 审批终止
+  ;
+  private String value;
 
-    CreateExternalInstanceExternalInstanceStatusEnum(String value) {
-        this.value = value;
-    }
+  CreateExternalInstanceExternalInstanceStatusEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

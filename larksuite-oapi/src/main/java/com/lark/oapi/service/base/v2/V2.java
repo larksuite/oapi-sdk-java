@@ -17,13 +17,13 @@ import com.lark.oapi.core.Config;
 import com.lark.oapi.service.base.v2.resource.AppRole;
 
 public class V2 {
-    private final AppRole appRole; // app.role
+  private final AppRole appRole; // app.role
 
-    public V2(Config config) {
-        this.appRole = new AppRole(config);
-    }
+  public V2(Config config) {
+    this.appRole = new AppRole(config);
+  }
 
-    public AppRole appRole() {
-        return appRole;
-    }
+  public AppRole appRole() {
+    return appRole;
+  }
 }

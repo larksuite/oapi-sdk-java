@@ -13,32 +13,30 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 匹配条件左值
- */
+/** 匹配条件左值 */
 public enum RuleConditionItemRuleConditionItemTypeEnum {
-    FROM(1), // 发件人地址
-    TO(2), // 收件人地址
-    CC(3), // 抄送地址
-    TOORCC(4), // 收件人或抄送地址
-    SUBJECT(6), // 主题
-    BODY(7), // 正文
-    ATTACHMENTNAME(8), // 附件名字
-    ATTACHMENTTYPE(9), // 附件类型
-    ANYADDRESS(10), // 任意地址
-    MATCHALLMESSAGE(12), // 所有邮件
-    ISEXTERNAL(13), // 是外部邮件
-    ISSPAM(14), // 是垃圾邮件
-    ISNOTSPAM(15), // 不是垃圾邮件
-    HASATTACHMENT(16), // 有附件
-    ;
-    private Integer value;
+  FROM(1), // 发件人地址
+  TO(2), // 收件人地址
+  CC(3), // 抄送地址
+  TOORCC(4), // 收件人或抄送地址
+  SUBJECT(6), // 主题
+  BODY(7), // 正文
+  ATTACHMENTNAME(8), // 附件名字
+  ATTACHMENTTYPE(9), // 附件类型
+  ANYADDRESS(10), // 任意地址
+  MATCHALLMESSAGE(12), // 所有邮件
+  ISEXTERNAL(13), // 是外部邮件
+  ISSPAM(14), // 是垃圾邮件
+  ISNOTSPAM(15), // 不是垃圾邮件
+  HASATTACHMENT(16), // 有附件
+  ;
+  private Integer value;
 
-    RuleConditionItemRuleConditionItemTypeEnum(Integer value) {
-        this.value = value;
-    }
+  RuleConditionItemRuleConditionItemTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

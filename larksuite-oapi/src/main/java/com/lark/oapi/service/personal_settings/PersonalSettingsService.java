@@ -13,25 +13,24 @@
 package com.lark.oapi.service.personal_settings;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.personal_settings.v1.V1;
 import com.lark.oapi.service.personal_settings.v1.model.*;
 import com.lark.oapi.service.personal_settings.v1.resource.SystemStatus;
 
 public class PersonalSettingsService {
-    private final V1 v1;
-    private final SystemStatus systemStatus; // 系统状态
+  private final V1 v1;
+  private final SystemStatus systemStatus; // system_status
 
-    public PersonalSettingsService(Config config) {
-        this.v1 = new V1(config);
-        this.systemStatus = new SystemStatus(config);
-    }
+  public PersonalSettingsService(Config config) {
+    this.v1 = new V1(config);
+    this.systemStatus = new SystemStatus(config);
+  }
 
-    public V1 v1() {
-        return v1;
-    }
+  public V1 v1() {
+    return v1;
+  }
 
-    public SystemStatus systemStatus() {
-        return systemStatus;
-    }
+  public SystemStatus systemStatus() {
+    return systemStatus;
+  }
 }

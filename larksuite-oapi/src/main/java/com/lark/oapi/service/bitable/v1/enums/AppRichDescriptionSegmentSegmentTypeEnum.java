@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.bitable.v1.enums;
 
-/**
- * 元素类型
- */
+/** 元素类型 */
 public enum AppRichDescriptionSegmentSegmentTypeEnum {
-    TEXT("text"), // 纯文本
-    URL("url"), // 链接
-    ;
-    private String value;
+  TEXT("text"), // 纯文本
+  URL("url"), // 链接
+  ;
+  private String value;
 
-    AppRichDescriptionSegmentSegmentTypeEnum(String value) {
-        this.value = value;
-    }
+  AppRichDescriptionSegmentSegmentTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

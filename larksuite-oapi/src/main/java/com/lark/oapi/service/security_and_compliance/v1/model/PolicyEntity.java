@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class PolicyEntity {
+  /**
+   * 策略快照ID
+   *
+   * <p>示例值：123456
+   */
+  @SerializedName("policy_id")
+  private String policyId;
+
+  /**
+   * 策略名称
+   *
+   * <p>示例值：策略名称Demo
+   */
+  @SerializedName("policy_name")
+  private String policyName;
+
+  public String getPolicyId() {
+    return this.policyId;
+  }
+
+  public void setPolicyId(String policyId) {
+    this.policyId = policyId;
+  }
+
+  public String getPolicyName() {
+    return this.policyName;
+  }
+
+  public void setPolicyName(String policyName) {
+    this.policyName = policyName;
+  }
+
+  // builder 开始
+  public PolicyEntity() {}
+
+  public PolicyEntity(Builder builder) {
     /**
      * 策略快照ID
-     * <p> 示例值：123456
+     *
+     * <p>示例值：123456
      */
-    @SerializedName("policy_id")
-    private String policyId;
+    this.policyId = builder.policyId;
     /**
      * 策略名称
-     * <p> 示例值：策略名称Demo
+     *
+     * <p>示例值：策略名称Demo
      */
-    @SerializedName("policy_name")
+    this.policyName = builder.policyName;
+  }
+
+  public static class Builder {
+    /**
+     * 策略快照ID
+     *
+     * <p>示例值：123456
+     */
+    private String policyId;
+
+    /**
+     * 策略名称
+     *
+     * <p>示例值：策略名称Demo
+     */
     private String policyName;
 
-    // builder 开始
-    public PolicyEntity() {
+    /**
+     * 策略快照ID
+     *
+     * <p>示例值：123456
+     *
+     * @param policyId
+     * @return
+     */
+    public Builder policyId(String policyId) {
+      this.policyId = policyId;
+      return this;
     }
 
-    public PolicyEntity(Builder builder) {
-        /**
-         * 策略快照ID
-         * <p> 示例值：123456
-         */
-        this.policyId = builder.policyId;
-        /**
-         * 策略名称
-         * <p> 示例值：策略名称Demo
-         */
-        this.policyName = builder.policyName;
+    /**
+     * 策略名称
+     *
+     * <p>示例值：策略名称Demo
+     *
+     * @param policyName
+     * @return
+     */
+    public Builder policyName(String policyName) {
+      this.policyName = policyName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public PolicyEntity build() {
+      return new PolicyEntity(this);
     }
+  }
 
-    public String getPolicyId() {
-        return this.policyId;
-    }
-
-    public void setPolicyId(String policyId) {
-        this.policyId = policyId;
-    }
-
-    public String getPolicyName() {
-        return this.policyName;
-    }
-
-    public void setPolicyName(String policyName) {
-        this.policyName = policyName;
-    }
-
-    public static class Builder {
-        /**
-         * 策略快照ID
-         * <p> 示例值：123456
-         */
-        private String policyId;
-        /**
-         * 策略名称
-         * <p> 示例值：策略名称Demo
-         */
-        private String policyName;
-
-        /**
-         * 策略快照ID
-         * <p> 示例值：123456
-         *
-         * @param policyId
-         * @return
-         */
-        public Builder policyId(String policyId) {
-            this.policyId = policyId;
-            return this;
-        }
-
-
-        /**
-         * 策略名称
-         * <p> 示例值：策略名称Demo
-         *
-         * @param policyName
-         * @return
-         */
-        public Builder policyName(String policyName) {
-            this.policyName = policyName;
-            return this;
-        }
-
-
-        public PolicyEntity build() {
-            return new PolicyEntity(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

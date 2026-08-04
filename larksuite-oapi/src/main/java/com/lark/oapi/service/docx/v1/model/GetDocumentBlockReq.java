@@ -13,183 +13,210 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.docx.v1.enums.*;
 
 public class GetDocumentBlockReq {
+  /**
+   * 查询的文档版本，-1 表示文档最新版本。文档创建后，版本为
+   * 1。若查询的版本为文档最新版本，则需要持有文档的阅读权限；若查询的版本为文档的历史版本，则需要持有文档的编辑权限。你可通过调用[获取文档基本信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/get)获取文档的最新
+   * revision_id
+   *
+   * <p>示例值：-1
+   */
+  @Query
+  @SerializedName("document_revision_id")
+  private Integer documentRevisionId;
+
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public Integer getDocumentRevisionId() {
+    return this.documentRevisionId;
+  }
+
+  public void setDocumentRevisionId(Integer documentRevisionId) {
+    this.documentRevisionId = documentRevisionId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的
+   * `document_id`
+   *
+   * <p>示例值：doxcnePuYufKa49ISjhD8Iabcef
+   */
+  @Path
+  @SerializedName("document_id")
+  private String documentId;
+
+  /**
+   * Block
+   * 的唯一标识。你可调用[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)获取文档中块的
+   * `block_id`
+   *
+   * <p>示例值：doxcnO6UW6wAw2qIcYf4hZabcef
+   */
+  @Path
+  @SerializedName("block_id")
+  private String blockId;
+
+  public String getDocumentId() {
+    return this.documentId;
+  }
+
+  public void setDocumentId(String documentId) {
+    this.documentId = documentId;
+  }
+
+  public String getBlockId() {
+    return this.blockId;
+  }
+
+  public void setBlockId(String blockId) {
+    this.blockId = blockId;
+  }
+
+  // builder 开始
+  public GetDocumentBlockReq() {}
+
+  public GetDocumentBlockReq(Builder builder) {
     /**
-     * 查询的文档版本，-1表示文档最新版本。若此时查询的版本为文档最新版本，则需要持有文档的阅读权限；若此时查询的版本为文档的历史版本，则需要持有文档的编辑权限。
-     * <p> 示例值：-1
+     * 查询的文档版本，-1 表示文档最新版本。文档创建后，版本为
+     * 1。若查询的版本为文档最新版本，则需要持有文档的阅读权限；若查询的版本为文档的历史版本，则需要持有文档的编辑权限。你可通过调用[获取文档基本信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/get)获取文档的最新
+     * revision_id
+     *
+     * <p>示例值：-1
      */
-    @Query
-    @SerializedName("document_revision_id")
-    private Integer documentRevisionId;
+    this.documentRevisionId = builder.documentRevisionId;
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 文档的唯一标识
-     * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
+     * 文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的
+     * `document_id`
+     *
+     * <p>示例值：doxcnePuYufKa49ISjhD8Iabcef
      */
-    @Path
-    @SerializedName("document_id")
-    private String documentId;
+    this.documentId = builder.documentId;
     /**
-     * Block 的唯一标识
-     * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
+     * Block
+     * 的唯一标识。你可调用[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)获取文档中块的
+     * `block_id`
+     *
+     * <p>示例值：doxcnO6UW6wAw2qIcYf4hZabcef
      */
-    @Path
-    @SerializedName("block_id")
-    private String blockId;
+    this.blockId = builder.blockId;
+  }
 
-    // builder 开始
-    public GetDocumentBlockReq() {
+  public static class Builder {
+    private Integer documentRevisionId; // 查询的文档版本，-1 表示文档最新版本。文档创建后，版本为
+    // 1。若查询的版本为文档最新版本，则需要持有文档的阅读权限；若查询的版本为文档的历史版本，则需要持有文档的编辑权限。你可通过调用[获取文档基本信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/get)获取文档的最新 revision_id
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 查询的文档版本，-1 表示文档最新版本。文档创建后，版本为
+     * 1。若查询的版本为文档最新版本，则需要持有文档的阅读权限；若查询的版本为文档的历史版本，则需要持有文档的编辑权限。你可通过调用[获取文档基本信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/get)获取文档的最新
+     * revision_id
+     *
+     * <p>示例值：-1
+     *
+     * @param documentRevisionId
+     * @return
+     */
+    public Builder documentRevisionId(Integer documentRevisionId) {
+      this.documentRevisionId = documentRevisionId;
+      return this;
     }
 
-    public GetDocumentBlockReq(Builder builder) {
-        /**
-         * 查询的文档版本，-1表示文档最新版本。若此时查询的版本为文档最新版本，则需要持有文档的阅读权限；若此时查询的版本为文档的历史版本，则需要持有文档的编辑权限。
-         * <p> 示例值：-1
-         */
-        this.documentRevisionId = builder.documentRevisionId;
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 文档的唯一标识
-         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-         */
-        this.documentId = builder.documentId;
-        /**
-         * Block 的唯一标识
-         * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
-         */
-        this.blockId = builder.blockId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.docx.v1.enums.GetDocumentBlockOpenAPIGetBlockUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.docx.v1.enums.GetDocumentBlockOpenAPIGetBlockUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public Integer getDocumentRevisionId() {
-        return this.documentRevisionId;
+    private String
+        documentId; // 文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的 `document_id`
+    private String blockId; // Block
+
+    // 的唯一标识。你可调用[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)获取文档中块的 `block_id`
+
+    /**
+     * 文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的
+     * `document_id`
+     *
+     * <p>示例值：doxcnePuYufKa49ISjhD8Iabcef
+     *
+     * @param documentId
+     * @return
+     */
+    public Builder documentId(String documentId) {
+      this.documentId = documentId;
+      return this;
     }
 
-    public void setDocumentRevisionId(Integer documentRevisionId) {
-        this.documentRevisionId = documentRevisionId;
+    /**
+     * Block
+     * 的唯一标识。你可调用[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)获取文档中块的
+     * `block_id`
+     *
+     * <p>示例值：doxcnO6UW6wAw2qIcYf4hZabcef
+     *
+     * @param blockId
+     * @return
+     */
+    public Builder blockId(String blockId) {
+      this.blockId = blockId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public GetDocumentBlockReq build() {
+      return new GetDocumentBlockReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getDocumentId() {
-        return this.documentId;
-    }
-
-    public void setDocumentId(String documentId) {
-        this.documentId = documentId;
-    }
-
-    public String getBlockId() {
-        return this.blockId;
-    }
-
-    public void setBlockId(String blockId) {
-        this.blockId = blockId;
-    }
-
-    public static class Builder {
-        private Integer documentRevisionId; // 查询的文档版本，-1表示文档最新版本。若此时查询的版本为文档最新版本，则需要持有文档的阅读权限；若此时查询的版本为文档的历史版本，则需要持有文档的编辑权限。
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String documentId; // 文档的唯一标识
-        private String blockId; // Block 的唯一标识
-
-        /**
-         * 查询的文档版本，-1表示文档最新版本。若此时查询的版本为文档最新版本，则需要持有文档的阅读权限；若此时查询的版本为文档的历史版本，则需要持有文档的编辑权限。
-         * <p> 示例值：-1
-         *
-         * @param documentRevisionId
-         * @return
-         */
-        public Builder documentRevisionId(Integer documentRevisionId) {
-            this.documentRevisionId = documentRevisionId;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.docx.v1.enums.GetDocumentBlockUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.docx.v1.enums.GetDocumentBlockUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 文档的唯一标识
-         * <p> 示例值：doxcnePuYufKa49ISjhD8Ih0ikh
-         *
-         * @param documentId
-         * @return
-         */
-        public Builder documentId(String documentId) {
-            this.documentId = documentId;
-            return this;
-        }
-
-
-        /**
-         * Block 的唯一标识
-         * <p> 示例值：doxcnO6UW6wAw2qIcYf4hZpFIth
-         *
-         * @param blockId
-         * @return
-         */
-        public Builder blockId(String blockId) {
-            this.blockId = blockId;
-            return this;
-        }
-
-
-        public GetDocumentBlockReq build() {
-            return new GetDocumentBlockReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

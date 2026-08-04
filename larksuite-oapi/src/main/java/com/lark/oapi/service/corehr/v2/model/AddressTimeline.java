@@ -13,260 +13,275 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class AddressTimeline {
+  /**
+   * 地址信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("address_items")
+  private Address[] addressItems;
+
+  /**
+   * ID
+   *
+   * <p>示例值：7293840901707662896
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 用户ID
+   *
+   * <p>示例值：7893840901707662896
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 版本信息ID
+   *
+   * <p>示例值：7182837312403818029
+   */
+  @SerializedName("version_id")
+  private String versionId;
+
+  /**
+   * 生效时间
+   *
+   * <p>示例值：2025-03-12 00:00:00
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 失效时间
+   *
+   * <p>示例值：9999-12-31 23:59:59
+   */
+  @SerializedName("expiration_time")
+  private String expirationTime;
+
+  public Address[] getAddressItems() {
+    return this.addressItems;
+  }
+
+  public void setAddressItems(Address[] addressItems) {
+    this.addressItems = addressItems;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public String getVersionId() {
+    return this.versionId;
+  }
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getExpirationTime() {
+    return this.expirationTime;
+  }
+
+  public void setExpirationTime(String expirationTime) {
+    this.expirationTime = expirationTime;
+  }
+
+  // builder 开始
+  public AddressTimeline() {}
+
+  public AddressTimeline(Builder builder) {
     /**
      * 地址信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("address_items")
-    private Address[] addressItems;
+    this.addressItems = builder.addressItems;
     /**
      * ID
-     * <p> 示例值：7293840901707662896
+     *
+     * <p>示例值：7293840901707662896
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 用户ID
-     * <p> 示例值：7893840901707662896
+     *
+     * <p>示例值：7893840901707662896
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
      * 版本信息ID
-     * <p> 示例值：7182837312403818029
+     *
+     * <p>示例值：7182837312403818029
      */
-    @SerializedName("version_id")
-    private String versionId;
+    this.versionId = builder.versionId;
     /**
      * 生效时间
-     * <p> 示例值：2025-03-12 00:00:00
+     *
+     * <p>示例值：2025-03-12 00:00:00
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 失效时间
-     * <p> 示例值：9999-12-31 23:59:59
+     *
+     * <p>示例值：9999-12-31 23:59:59
      */
-    @SerializedName("expiration_time")
+    this.expirationTime = builder.expirationTime;
+  }
+
+  public static class Builder {
+    /**
+     * 地址信息
+     *
+     * <p>示例值：
+     */
+    private Address[] addressItems;
+
+    /**
+     * ID
+     *
+     * <p>示例值：7293840901707662896
+     */
+    private String id;
+
+    /**
+     * 用户ID
+     *
+     * <p>示例值：7893840901707662896
+     */
+    private String employmentId;
+
+    /**
+     * 版本信息ID
+     *
+     * <p>示例值：7182837312403818029
+     */
+    private String versionId;
+
+    /**
+     * 生效时间
+     *
+     * <p>示例值：2025-03-12 00:00:00
+     */
+    private String effectiveTime;
+
+    /**
+     * 失效时间
+     *
+     * <p>示例值：9999-12-31 23:59:59
+     */
     private String expirationTime;
 
-    // builder 开始
-    public AddressTimeline() {
+    /**
+     * 地址信息
+     *
+     * <p>示例值：
+     *
+     * @param addressItems
+     * @return
+     */
+    public Builder addressItems(Address[] addressItems) {
+      this.addressItems = addressItems;
+      return this;
     }
 
-    public AddressTimeline(Builder builder) {
-        /**
-         * 地址信息
-         * <p> 示例值：
-         */
-        this.addressItems = builder.addressItems;
-        /**
-         * ID
-         * <p> 示例值：7293840901707662896
-         */
-        this.id = builder.id;
-        /**
-         * 用户ID
-         * <p> 示例值：7893840901707662896
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 版本信息ID
-         * <p> 示例值：7182837312403818029
-         */
-        this.versionId = builder.versionId;
-        /**
-         * 生效时间
-         * <p> 示例值：2025-03-12 00:00:00
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：9999-12-31 23:59:59
-         */
-        this.expirationTime = builder.expirationTime;
+    /**
+     * ID
+     *
+     * <p>示例值：7293840901707662896
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户ID
+     *
+     * <p>示例值：7893840901707662896
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public Address[] getAddressItems() {
-        return this.addressItems;
+    /**
+     * 版本信息ID
+     *
+     * <p>示例值：7182837312403818029
+     *
+     * @param versionId
+     * @return
+     */
+    public Builder versionId(String versionId) {
+      this.versionId = versionId;
+      return this;
     }
 
-    public void setAddressItems(Address[] addressItems) {
-        this.addressItems = addressItems;
+    /**
+     * 生效时间
+     *
+     * <p>示例值：2025-03-12 00:00:00
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 失效时间
+     *
+     * <p>示例值：9999-12-31 23:59:59
+     *
+     * @param expirationTime
+     * @return
+     */
+    public Builder expirationTime(String expirationTime) {
+      this.expirationTime = expirationTime;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public AddressTimeline build() {
+      return new AddressTimeline(this);
     }
+  }
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public String getVersionId() {
-        return this.versionId;
-    }
-
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public String getExpirationTime() {
-        return this.expirationTime;
-    }
-
-    public void setExpirationTime(String expirationTime) {
-        this.expirationTime = expirationTime;
-    }
-
-    public static class Builder {
-        /**
-         * 地址信息
-         * <p> 示例值：
-         */
-        private Address[] addressItems;
-        /**
-         * ID
-         * <p> 示例值：7293840901707662896
-         */
-        private String id;
-        /**
-         * 用户ID
-         * <p> 示例值：7893840901707662896
-         */
-        private String employmentId;
-        /**
-         * 版本信息ID
-         * <p> 示例值：7182837312403818029
-         */
-        private String versionId;
-        /**
-         * 生效时间
-         * <p> 示例值：2025-03-12 00:00:00
-         */
-        private String effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：9999-12-31 23:59:59
-         */
-        private String expirationTime;
-
-        /**
-         * 地址信息
-         * <p> 示例值：
-         *
-         * @param addressItems
-         * @return
-         */
-        public Builder addressItems(Address[] addressItems) {
-            this.addressItems = addressItems;
-            return this;
-        }
-
-
-        /**
-         * ID
-         * <p> 示例值：7293840901707662896
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 用户ID
-         * <p> 示例值：7893840901707662896
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 版本信息ID
-         * <p> 示例值：7182837312403818029
-         *
-         * @param versionId
-         * @return
-         */
-        public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2025-03-12 00:00:00
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 失效时间
-         * <p> 示例值：9999-12-31 23:59:59
-         *
-         * @param expirationTime
-         * @return
-         */
-        public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
-        }
-
-
-        public AddressTimeline build() {
-            return new AddressTimeline(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

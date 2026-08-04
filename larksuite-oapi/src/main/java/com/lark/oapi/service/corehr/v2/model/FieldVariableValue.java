@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class FieldVariableValue {
+  /**
+   * 变量唯一标识
+   *
+   * <p>示例值：custom123
+   */
+  @SerializedName("variable_api_name")
+  private String variableApiName;
+
+  /**
+   * 变量名称，在查询流程数据场景不会返回变量名称
+   *
+   * <p>示例值：日期
+   */
+  @SerializedName("variable_name")
+  private FieldVariableValueI18n variableName;
+
+  /**
+   * 变量值
+   *
+   * <p>示例值：aa
+   */
+  @SerializedName("variable_value")
+  private FieldVariableValueTo variableValue;
+
+  /**
+   * 在 list_values 和 record_values 中引用的变量
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_values")
+  private FieldVariableSubVlaue[] subValues;
+
+  public String getVariableApiName() {
+    return this.variableApiName;
+  }
+
+  public void setVariableApiName(String variableApiName) {
+    this.variableApiName = variableApiName;
+  }
+
+  public FieldVariableValueI18n getVariableName() {
+    return this.variableName;
+  }
+
+  public void setVariableName(FieldVariableValueI18n variableName) {
+    this.variableName = variableName;
+  }
+
+  public FieldVariableValueTo getVariableValue() {
+    return this.variableValue;
+  }
+
+  public void setVariableValue(FieldVariableValueTo variableValue) {
+    this.variableValue = variableValue;
+  }
+
+  public FieldVariableSubVlaue[] getSubValues() {
+    return this.subValues;
+  }
+
+  public void setSubValues(FieldVariableSubVlaue[] subValues) {
+    this.subValues = subValues;
+  }
+
+  // builder 开始
+  public FieldVariableValue() {}
+
+  public FieldVariableValue(Builder builder) {
     /**
      * 变量唯一标识
-     * <p> 示例值：custom123
+     *
+     * <p>示例值：custom123
      */
-    @SerializedName("variable_api_name")
-    private String variableApiName;
+    this.variableApiName = builder.variableApiName;
     /**
-     * 变量名称
-     * <p> 示例值：日期
+     * 变量名称，在查询流程数据场景不会返回变量名称
+     *
+     * <p>示例值：日期
      */
-    @SerializedName("variable_name")
-    private FieldVariableValueI18n variableName;
+    this.variableName = builder.variableName;
     /**
      * 变量值
-     * <p> 示例值：aa
+     *
+     * <p>示例值：aa
      */
-    @SerializedName("variable_value")
-    private FieldVariableValueTo variableValue;
+    this.variableValue = builder.variableValue;
     /**
-     * 在list_values和record_values中引用的变量
-     * <p> 示例值：
+     * 在 list_values 和 record_values 中引用的变量
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_values")
+    this.subValues = builder.subValues;
+  }
+
+  public static class Builder {
+    /**
+     * 变量唯一标识
+     *
+     * <p>示例值：custom123
+     */
+    private String variableApiName;
+
+    /**
+     * 变量名称，在查询流程数据场景不会返回变量名称
+     *
+     * <p>示例值：日期
+     */
+    private FieldVariableValueI18n variableName;
+
+    /**
+     * 变量值
+     *
+     * <p>示例值：aa
+     */
+    private FieldVariableValueTo variableValue;
+
+    /**
+     * 在 list_values 和 record_values 中引用的变量
+     *
+     * <p>示例值：
+     */
     private FieldVariableSubVlaue[] subValues;
 
-    // builder 开始
-    public FieldVariableValue() {
+    /**
+     * 变量唯一标识
+     *
+     * <p>示例值：custom123
+     *
+     * @param variableApiName
+     * @return
+     */
+    public Builder variableApiName(String variableApiName) {
+      this.variableApiName = variableApiName;
+      return this;
     }
 
-    public FieldVariableValue(Builder builder) {
-        /**
-         * 变量唯一标识
-         * <p> 示例值：custom123
-         */
-        this.variableApiName = builder.variableApiName;
-        /**
-         * 变量名称
-         * <p> 示例值：日期
-         */
-        this.variableName = builder.variableName;
-        /**
-         * 变量值
-         * <p> 示例值：aa
-         */
-        this.variableValue = builder.variableValue;
-        /**
-         * 在list_values和record_values中引用的变量
-         * <p> 示例值：
-         */
-        this.subValues = builder.subValues;
+    /**
+     * 变量名称，在查询流程数据场景不会返回变量名称
+     *
+     * <p>示例值：日期
+     *
+     * @param variableName
+     * @return
+     */
+    public Builder variableName(FieldVariableValueI18n variableName) {
+      this.variableName = variableName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 变量值
+     *
+     * <p>示例值：aa
+     *
+     * @param variableValue
+     * @return
+     */
+    public Builder variableValue(FieldVariableValueTo variableValue) {
+      this.variableValue = variableValue;
+      return this;
     }
 
-    public String getVariableApiName() {
-        return this.variableApiName;
+    /**
+     * 在 list_values 和 record_values 中引用的变量
+     *
+     * <p>示例值：
+     *
+     * @param subValues
+     * @return
+     */
+    public Builder subValues(FieldVariableSubVlaue[] subValues) {
+      this.subValues = subValues;
+      return this;
     }
 
-    public void setVariableApiName(String variableApiName) {
-        this.variableApiName = variableApiName;
+    public FieldVariableValue build() {
+      return new FieldVariableValue(this);
     }
+  }
 
-    public FieldVariableValueI18n getVariableName() {
-        return this.variableName;
-    }
-
-    public void setVariableName(FieldVariableValueI18n variableName) {
-        this.variableName = variableName;
-    }
-
-    public FieldVariableValueTo getVariableValue() {
-        return this.variableValue;
-    }
-
-    public void setVariableValue(FieldVariableValueTo variableValue) {
-        this.variableValue = variableValue;
-    }
-
-    public FieldVariableSubVlaue[] getSubValues() {
-        return this.subValues;
-    }
-
-    public void setSubValues(FieldVariableSubVlaue[] subValues) {
-        this.subValues = subValues;
-    }
-
-    public static class Builder {
-        /**
-         * 变量唯一标识
-         * <p> 示例值：custom123
-         */
-        private String variableApiName;
-        /**
-         * 变量名称
-         * <p> 示例值：日期
-         */
-        private FieldVariableValueI18n variableName;
-        /**
-         * 变量值
-         * <p> 示例值：aa
-         */
-        private FieldVariableValueTo variableValue;
-        /**
-         * 在list_values和record_values中引用的变量
-         * <p> 示例值：
-         */
-        private FieldVariableSubVlaue[] subValues;
-
-        /**
-         * 变量唯一标识
-         * <p> 示例值：custom123
-         *
-         * @param variableApiName
-         * @return
-         */
-        public Builder variableApiName(String variableApiName) {
-            this.variableApiName = variableApiName;
-            return this;
-        }
-
-
-        /**
-         * 变量名称
-         * <p> 示例值：日期
-         *
-         * @param variableName
-         * @return
-         */
-        public Builder variableName(FieldVariableValueI18n variableName) {
-            this.variableName = variableName;
-            return this;
-        }
-
-
-        /**
-         * 变量值
-         * <p> 示例值：aa
-         *
-         * @param variableValue
-         * @return
-         */
-        public Builder variableValue(FieldVariableValueTo variableValue) {
-            this.variableValue = variableValue;
-            return this;
-        }
-
-
-        /**
-         * 在list_values和record_values中引用的变量
-         * <p> 示例值：
-         *
-         * @param subValues
-         * @return
-         */
-        public Builder subValues(FieldVariableSubVlaue[] subValues) {
-            this.subValues = subValues;
-            return this;
-        }
-
-
-        public FieldVariableValue build() {
-            return new FieldVariableValue(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,75 +13,69 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class LeaveTagConf {
+  /**
+   * 请假标签列表
+   *
+   * <p>示例值：[{"key":"leave_category","values":["Life
+   * events"]},{"key":"payment_status","values":["Fully paid by company"]}]
+   */
+  @SerializedName("tags")
+  private Tag[] tags;
+
+  public Tag[] getTags() {
+    return this.tags;
+  }
+
+  public void setTags(Tag[] tags) {
+    this.tags = tags;
+  }
+
+  // builder 开始
+  public LeaveTagConf() {}
+
+  public LeaveTagConf(Builder builder) {
     /**
      * 请假标签列表
-     * <p> 示例值：[{"key":"leave_category","values":["Life events"]},{"key":"payment_status","values":["Fully paid by company"]}]
+     *
+     * <p>示例值：[{"key":"leave_category","values":["Life
+     * events"]},{"key":"payment_status","values":["Fully paid by company"]}]
      */
-    @SerializedName("tags")
+    this.tags = builder.tags;
+  }
+
+  public static class Builder {
+    /**
+     * 请假标签列表
+     *
+     * <p>示例值：[{"key":"leave_category","values":["Life
+     * events"]},{"key":"payment_status","values":["Fully paid by company"]}]
+     */
     private Tag[] tags;
 
-    // builder 开始
-    public LeaveTagConf() {
+    /**
+     * 请假标签列表
+     *
+     * <p>示例值：[{"key":"leave_category","values":["Life
+     * events"]},{"key":"payment_status","values":["Fully paid by company"]}]
+     *
+     * @param tags
+     * @return
+     */
+    public Builder tags(Tag[] tags) {
+      this.tags = tags;
+      return this;
     }
 
-    public LeaveTagConf(Builder builder) {
-        /**
-         * 请假标签列表
-         * <p> 示例值：[{"key":"leave_category","values":["Life events"]},{"key":"payment_status","values":["Fully paid by company"]}]
-         */
-        this.tags = builder.tags;
+    public LeaveTagConf build() {
+      return new LeaveTagConf(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public Tag[] getTags() {
-        return this.tags;
-    }
-
-    public void setTags(Tag[] tags) {
-        this.tags = tags;
-    }
-
-    public static class Builder {
-        /**
-         * 请假标签列表
-         * <p> 示例值：[{"key":"leave_category","values":["Life events"]},{"key":"payment_status","values":["Fully paid by company"]}]
-         */
-        private Tag[] tags;
-
-        /**
-         * 请假标签列表
-         * <p> 示例值：[{"key":"leave_category","values":["Life events"]},{"key":"payment_status","values":["Fully paid by company"]}]
-         *
-         * @param tags
-         * @return
-         */
-        public Builder tags(Tag[] tags) {
-            this.tags = tags;
-            return this;
-        }
-
-
-        public LeaveTagConf build() {
-            return new LeaveTagConf(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

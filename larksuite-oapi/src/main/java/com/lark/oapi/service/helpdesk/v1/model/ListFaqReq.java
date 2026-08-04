@@ -13,207 +13,211 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 
 public class ListFaqReq {
+  /**
+   * 知识库分类ID
+   *
+   * <p>示例值：6856395522433908739
+   */
+  @Query
+  @SerializedName("category_id")
+  private String categoryId;
+
+  /**
+   * 搜索条件: 知识库状态 1:在线 0:删除，可恢复 2：删除，不可恢复
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 搜索条件: 关键词，匹配问题标题，问题关键字，用户姓名
+   *
+   * <p>示例值：点餐
+   */
+  @Query
+  @SerializedName("search")
+  private String search;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+   *
+   * <p>示例值：6856395634652479491
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  public String getCategoryId() {
+    return this.categoryId;
+  }
+
+  public void setCategoryId(String categoryId) {
+    this.categoryId = categoryId;
+  }
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public String getSearch() {
+    return this.search;
+  }
+
+  public void setSearch(String search) {
+    this.search = search;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  // builder 开始
+  public ListFaqReq() {}
+
+  public ListFaqReq(Builder builder) {
     /**
      * 知识库分类ID
-     * <p> 示例值：6856395522433908739
+     *
+     * <p>示例值：6856395522433908739
      */
-    @Query
-    @SerializedName("category_id")
-    private String categoryId;
+    this.categoryId = builder.categoryId;
     /**
      * 搜索条件: 知识库状态 1:在线 0:删除，可恢复 2：删除，不可恢复
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 搜索条件: 关键词，匹配问题标题，问题关键字，用户姓名
-     * <p> 示例值：点餐
+     *
+     * <p>示例值：点餐
      */
-    @Query
-    @SerializedName("search")
-    private String search;
+    this.search = builder.search;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-     * <p> 示例值：6856395634652479491
+     *
+     * <p>示例值：6856395634652479491
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 分页大小
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
+  }
 
-    // builder 开始
-    public ListFaqReq() {
+  public static class Builder {
+    private String categoryId; // 知识库分类ID
+    private String status; // 搜索条件: 知识库状态 1:在线 0:删除，可恢复 2：删除，不可恢复
+    private String search; // 搜索条件: 关键词，匹配问题标题，问题关键字，用户姓名
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+    private Integer pageSize; // 分页大小
+
+    /**
+     * 知识库分类ID
+     *
+     * <p>示例值：6856395522433908739
+     *
+     * @param categoryId
+     * @return
+     */
+    public Builder categoryId(String categoryId) {
+      this.categoryId = categoryId;
+      return this;
     }
 
-    public ListFaqReq(Builder builder) {
-        /**
-         * 知识库分类ID
-         * <p> 示例值：6856395522433908739
-         */
-        this.categoryId = builder.categoryId;
-        /**
-         * 搜索条件: 知识库状态 1:在线 0:删除，可恢复 2：删除，不可恢复
-         * <p> 示例值：1
-         */
-        this.status = builder.status;
-        /**
-         * 搜索条件: 关键词，匹配问题标题，问题关键字，用户姓名
-         * <p> 示例值：点餐
-         */
-        this.search = builder.search;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：6856395634652479491
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
+    /**
+     * 搜索条件: 知识库状态 1:在线 0:删除，可恢复 2：删除，不可恢复
+     *
+     * <p>示例值：1
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 搜索条件: 关键词，匹配问题标题，问题关键字，用户姓名
+     *
+     * <p>示例值：点餐
+     *
+     * @param search
+     * @return
+     */
+    public Builder search(String search) {
+      this.search = search;
+      return this;
     }
 
-    public String getCategoryId() {
-        return this.categoryId;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+     *
+     * <p>示例值：6856395634652479491
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setCategoryId(String categoryId) {
-        this.categoryId = categoryId;
+    /**
+     * 分页大小
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public String getStatus() {
-        return this.status;
+    public ListFaqReq build() {
+      return new ListFaqReq(this);
     }
+  }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getSearch() {
-        return this.search;
-    }
-
-    public void setSearch(String search) {
-        this.search = search;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public static class Builder {
-        private String categoryId; // 知识库分类ID
-        private String status; // 搜索条件: 知识库状态 1:在线 0:删除，可恢复 2：删除，不可恢复
-        private String search; // 搜索条件: 关键词，匹配问题标题，问题关键字，用户姓名
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-        private Integer pageSize; // 分页大小
-
-        /**
-         * 知识库分类ID
-         * <p> 示例值：6856395522433908739
-         *
-         * @param categoryId
-         * @return
-         */
-        public Builder categoryId(String categoryId) {
-            this.categoryId = categoryId;
-            return this;
-        }
-
-
-        /**
-         * 搜索条件: 知识库状态 1:在线 0:删除，可恢复 2：删除，不可恢复
-         * <p> 示例值：1
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 搜索条件: 关键词，匹配问题标题，问题关键字，用户姓名
-         * <p> 示例值：点餐
-         *
-         * @param search
-         * @return
-         */
-        public Builder search(String search) {
-            this.search = search;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：6856395634652479491
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        public ListFaqReq build() {
-            return new ListFaqReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,116 +13,126 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.board.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.board.v1.enums.*;
 
 public class ListWhiteboardNodeReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 画板唯一标识，可通过云文档下的文档接口
+   * [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)
+   * 获取，`block_type` 为 43 的 block 即为画板，对应的 <code>block.token</code> 就是画板的<code>whiteboard_id</code>
+   *
+   * <p>示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
+   */
+  @Path
+  @SerializedName("whiteboard_id")
+  private String whiteboardId;
+
+  public String getWhiteboardId() {
+    return this.whiteboardId;
+  }
+
+  public void setWhiteboardId(String whiteboardId) {
+    this.whiteboardId = whiteboardId;
+  }
+
+  // builder 开始
+  public ListWhiteboardNodeReq() {}
+
+  public ListWhiteboardNodeReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 画板唯一标识
-     * <p> 示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
+     * 画板唯一标识，可通过云文档下的文档接口
+     * [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)
+     * 获取，`block_type` 为 43 的 block 即为画板，对应的 <code>block.token</code> 就是画板的<code>whiteboard_id
+     * </code>
+     *
+     * <p>示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
      */
-    @Path
-    @SerializedName("whiteboard_id")
-    private String whiteboardId;
+    this.whiteboardId = builder.whiteboardId;
+  }
 
-    // builder 开始
-    public ListWhiteboardNodeReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public ListWhiteboardNodeReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 画板唯一标识
-         * <p> 示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
-         */
-        this.whiteboardId = builder.whiteboardId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.board.v1.enums.ListWhiteboardNodeUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.board.v1.enums.ListWhiteboardNodeUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String whiteboardId; // 画板唯一标识，可通过云文档下的文档接口
+
+    // [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list) 获取，`block_type` 为 43 的 block 即为画板，对应的 <code>block.token</code> 就是画板的<code>whiteboard_id</code>
+
+    /**
+     * 画板唯一标识，可通过云文档下的文档接口
+     * [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)
+     * 获取，`block_type` 为 43 的 block 即为画板，对应的 <code>block.token</code> 就是画板的<code>whiteboard_id
+     * </code>
+     *
+     * <p>示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
+     *
+     * @param whiteboardId
+     * @return
+     */
+    public Builder whiteboardId(String whiteboardId) {
+      this.whiteboardId = whiteboardId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public ListWhiteboardNodeReq build() {
+      return new ListWhiteboardNodeReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getWhiteboardId() {
-        return this.whiteboardId;
-    }
-
-    public void setWhiteboardId(String whiteboardId) {
-        this.whiteboardId = whiteboardId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String whiteboardId; // 画板唯一标识
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.board.v1.enums.ListWhiteboardNodeUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.board.v1.enums.ListWhiteboardNodeUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 画板唯一标识
-         * <p> 示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb
-         *
-         * @param whiteboardId
-         * @return
-         */
-        public Builder whiteboardId(String whiteboardId) {
-            this.whiteboardId = whiteboardId;
-            return this;
-        }
-
-
-        public ListWhiteboardNodeReq build() {
-            return new ListWhiteboardNodeReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.application.v6.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.application.v6.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Accessibility {
+  /**
+   * 更新访问状态原因，停用OpenAPI时将作为OpenAPI错误消息返回。
+   *
+   * <p>示例值：应用发送消息过于频繁，暂停应用调用发送消息OpenAPI
+   */
+  @SerializedName("reason")
+  private String reason;
+
+  /**
+   * 访问状态，应用是否可访问OpenAPI，取值"Enable"- 启用，"Disable" - 停用。
+   *
+   * <p>示例值：Disable
+   */
+  @SerializedName("state")
+  private String state;
+
+  public String getReason() {
+    return this.reason;
+  }
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+  public String getState() {
+    return this.state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
+  // builder 开始
+  public Accessibility() {}
+
+  public Accessibility(Builder builder) {
     /**
-     * 更新访问状态原因说明，停用OpenAPI时将作为OpenAPI错误消息返回；若设置停用，则该字段必填.
-     * <p> 示例值：应用发送消息过于频繁，暂停应用调用发送OpenAPI
+     * 更新访问状态原因，停用OpenAPI时将作为OpenAPI错误消息返回。
+     *
+     * <p>示例值：应用发送消息过于频繁，暂停应用调用发送消息OpenAPI
      */
-    @SerializedName("reason")
+    this.reason = builder.reason;
+    /**
+     * 访问状态，应用是否可访问OpenAPI，取值"Enable"- 启用，"Disable" - 停用。
+     *
+     * <p>示例值：Disable
+     */
+    this.state = builder.state;
+  }
+
+  public static class Builder {
+    /**
+     * 更新访问状态原因，停用OpenAPI时将作为OpenAPI错误消息返回。
+     *
+     * <p>示例值：应用发送消息过于频繁，暂停应用调用发送消息OpenAPI
+     */
     private String reason;
+
     /**
-     * 访问状态,取值"Enable"或"Disable"
-     * <p> 示例值：Enable
+     * 访问状态，应用是否可访问OpenAPI，取值"Enable"- 启用，"Disable" - 停用。
+     *
+     * <p>示例值：Disable
      */
-    @SerializedName("state")
     private String state;
 
-    // builder 开始
-    public Accessibility() {
+    /**
+     * 更新访问状态原因，停用OpenAPI时将作为OpenAPI错误消息返回。
+     *
+     * <p>示例值：应用发送消息过于频繁，暂停应用调用发送消息OpenAPI
+     *
+     * @param reason
+     * @return
+     */
+    public Builder reason(String reason) {
+      this.reason = reason;
+      return this;
     }
 
-    public Accessibility(Builder builder) {
-        /**
-         * 更新访问状态原因说明，停用OpenAPI时将作为OpenAPI错误消息返回；若设置停用，则该字段必填.
-         * <p> 示例值：应用发送消息过于频繁，暂停应用调用发送OpenAPI
-         */
-        this.reason = builder.reason;
-        /**
-         * 访问状态,取值"Enable"或"Disable"
-         * <p> 示例值：Enable
-         */
-        this.state = builder.state;
+    /**
+     * 访问状态，应用是否可访问OpenAPI，取值"Enable"- 启用，"Disable" - 停用。
+     *
+     * <p>示例值：Disable
+     *
+     * @param state
+     * @return
+     */
+    public Builder state(String state) {
+      this.state = state;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Accessibility build() {
+      return new Accessibility(this);
     }
+  }
 
-    public String getReason() {
-        return this.reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-    public String getState() {
-        return this.state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public static class Builder {
-        /**
-         * 更新访问状态原因说明，停用OpenAPI时将作为OpenAPI错误消息返回；若设置停用，则该字段必填.
-         * <p> 示例值：应用发送消息过于频繁，暂停应用调用发送OpenAPI
-         */
-        private String reason;
-        /**
-         * 访问状态,取值"Enable"或"Disable"
-         * <p> 示例值：Enable
-         */
-        private String state;
-
-        /**
-         * 更新访问状态原因说明，停用OpenAPI时将作为OpenAPI错误消息返回；若设置停用，则该字段必填.
-         * <p> 示例值：应用发送消息过于频繁，暂停应用调用发送OpenAPI
-         *
-         * @param reason
-         * @return
-         */
-        public Builder reason(String reason) {
-            this.reason = reason;
-            return this;
-        }
-
-
-        /**
-         * 访问状态,取值"Enable"或"Disable"
-         * <p> 示例值：Enable
-         *
-         * @param state
-         * @return
-         */
-        public Builder state(String state) {
-            this.state = state;
-            return this;
-        }
-
-
-        public Accessibility build() {
-            return new Accessibility(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

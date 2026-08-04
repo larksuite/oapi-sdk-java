@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.compensation.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.compensation.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QuerySocialPlanReqBody {
+  /**
+   * 参保方案ID列表，最少1个，最大200，可以通过[通过员工ID批量获取社保增减员记录;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_archive_adjust_record/query)或[批量获取员工参保档案;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_archive/query)接口获取
+   *
+   * <p>示例值：
+   */
+  @SerializedName("plan_ids")
+  private String[] planIds;
+
+  /**
+   * 生效日期，查询在该日期生效的参保方案数据，日期格式为：YYYY-mm-dd，长度为 10 字符
+   *
+   * <p>示例值：2024-01-01
+   */
+  @SerializedName("effective_date")
+  private String effectiveDate;
+
+  public String[] getPlanIds() {
+    return this.planIds;
+  }
+
+  public void setPlanIds(String[] planIds) {
+    this.planIds = planIds;
+  }
+
+  public String getEffectiveDate() {
+    return this.effectiveDate;
+  }
+
+  public void setEffectiveDate(String effectiveDate) {
+    this.effectiveDate = effectiveDate;
+  }
+
+  // builder 开始
+  public QuerySocialPlanReqBody() {}
+
+  public QuerySocialPlanReqBody(Builder builder) {
     /**
-     * 参保方案ID列表，最大200
-     * <p> 示例值：
+     * 参保方案ID列表，最少1个，最大200，可以通过[通过员工ID批量获取社保增减员记录;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_archive_adjust_record/query)或[批量获取员工参保档案;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_archive/query)接口获取
+     *
+     * <p>示例值：
      */
-    @SerializedName("plan_ids")
+    this.planIds = builder.planIds;
+    /**
+     * 生效日期，查询在该日期生效的参保方案数据，日期格式为：YYYY-mm-dd，长度为 10 字符
+     *
+     * <p>示例值：2024-01-01
+     */
+    this.effectiveDate = builder.effectiveDate;
+  }
+
+  public static class Builder {
+    /**
+     * 参保方案ID列表，最少1个，最大200，可以通过[通过员工ID批量获取社保增减员记录;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_archive_adjust_record/query)或[批量获取员工参保档案;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_archive/query)接口获取
+     *
+     * <p>示例值：
+     */
     private String[] planIds;
+
     /**
-     * 生效日期，查询在该日期生效的参保方案数据
-     * <p> 示例值：2024-01-01
+     * 生效日期，查询在该日期生效的参保方案数据，日期格式为：YYYY-mm-dd，长度为 10 字符
+     *
+     * <p>示例值：2024-01-01
      */
-    @SerializedName("effective_date")
     private String effectiveDate;
 
-    // builder 开始
-    public QuerySocialPlanReqBody() {
+    /**
+     * 参保方案ID列表，最少1个，最大200，可以通过[通过员工ID批量获取社保增减员记录;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_archive_adjust_record/query)或[批量获取员工参保档案;](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_archive/query)接口获取
+     *
+     * <p>示例值：
+     *
+     * @param planIds
+     * @return
+     */
+    public Builder planIds(String[] planIds) {
+      this.planIds = planIds;
+      return this;
     }
 
-    public QuerySocialPlanReqBody(Builder builder) {
-        /**
-         * 参保方案ID列表，最大200
-         * <p> 示例值：
-         */
-        this.planIds = builder.planIds;
-        /**
-         * 生效日期，查询在该日期生效的参保方案数据
-         * <p> 示例值：2024-01-01
-         */
-        this.effectiveDate = builder.effectiveDate;
+    /**
+     * 生效日期，查询在该日期生效的参保方案数据，日期格式为：YYYY-mm-dd，长度为 10 字符
+     *
+     * <p>示例值：2024-01-01
+     *
+     * @param effectiveDate
+     * @return
+     */
+    public Builder effectiveDate(String effectiveDate) {
+      this.effectiveDate = effectiveDate;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public QuerySocialPlanReqBody build() {
+      return new QuerySocialPlanReqBody(this);
     }
+  }
 
-    public String[] getPlanIds() {
-        return this.planIds;
-    }
-
-    public void setPlanIds(String[] planIds) {
-        this.planIds = planIds;
-    }
-
-    public String getEffectiveDate() {
-        return this.effectiveDate;
-    }
-
-    public void setEffectiveDate(String effectiveDate) {
-        this.effectiveDate = effectiveDate;
-    }
-
-    public static class Builder {
-        /**
-         * 参保方案ID列表，最大200
-         * <p> 示例值：
-         */
-        private String[] planIds;
-        /**
-         * 生效日期，查询在该日期生效的参保方案数据
-         * <p> 示例值：2024-01-01
-         */
-        private String effectiveDate;
-
-        /**
-         * 参保方案ID列表，最大200
-         * <p> 示例值：
-         *
-         * @param planIds
-         * @return
-         */
-        public Builder planIds(String[] planIds) {
-            this.planIds = planIds;
-            return this;
-        }
-
-
-        /**
-         * 生效日期，查询在该日期生效的参保方案数据
-         * <p> 示例值：2024-01-01
-         *
-         * @param effectiveDate
-         * @return
-         */
-        public Builder effectiveDate(String effectiveDate) {
-            this.effectiveDate = effectiveDate;
-            return this;
-        }
-
-
-        public QuerySocialPlanReqBody build() {
-            return new QuerySocialPlanReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

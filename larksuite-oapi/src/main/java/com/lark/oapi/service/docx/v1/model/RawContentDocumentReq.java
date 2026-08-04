@@ -13,116 +13,121 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.docx.v1.enums.*;
 
 public class RawContentDocumentReq {
+  /**
+   * 指定返回的 MentionUser 即 @用户 的语言
+   *
+   * <p>示例值：0
+   */
+  @Query
+  @SerializedName("lang")
+  private Integer lang;
+
+  public Integer getLang() {
+    return this.lang;
+  }
+
+  public void setLang(Integer lang) {
+    this.lang = lang;
+  }
+
+  /**
+   * 文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的
+   * `document_id`
+   *
+   * <p>示例值：doxbcmEtbFrbbq10nPNu8gabcef
+   */
+  @Path
+  @SerializedName("document_id")
+  private String documentId;
+
+  public String getDocumentId() {
+    return this.documentId;
+  }
+
+  public void setDocumentId(String documentId) {
+    this.documentId = documentId;
+  }
+
+  // builder 开始
+  public RawContentDocumentReq() {}
+
+  public RawContentDocumentReq(Builder builder) {
     /**
-     * 语言（用于 MentionUser 语言的选取）
-     * <p> 示例值：0
+     * 指定返回的 MentionUser 即 @用户 的语言
+     *
+     * <p>示例值：0
      */
-    @Query
-    @SerializedName("lang")
-    private Integer lang;
+    this.lang = builder.lang;
     /**
-     * 文档的唯一标识
-     * <p> 示例值：doxbcmEtbFrbbq10nPNu8gO1F3b
+     * 文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的
+     * `document_id`
+     *
+     * <p>示例值：doxbcmEtbFrbbq10nPNu8gabcef
      */
-    @Path
-    @SerializedName("document_id")
-    private String documentId;
+    this.documentId = builder.documentId;
+  }
 
-    // builder 开始
-    public RawContentDocumentReq() {
+  public static class Builder {
+    private Integer lang; // 指定返回的 MentionUser 即 @用户 的语言
+
+    /**
+     * 指定返回的 MentionUser 即 @用户 的语言
+     *
+     * <p>示例值：0
+     *
+     * @param lang
+     * @return
+     */
+    public Builder lang(Integer lang) {
+      this.lang = lang;
+      return this;
     }
 
-    public RawContentDocumentReq(Builder builder) {
-        /**
-         * 语言（用于 MentionUser 语言的选取）
-         * <p> 示例值：0
-         */
-        this.lang = builder.lang;
-        /**
-         * 文档的唯一标识
-         * <p> 示例值：doxbcmEtbFrbbq10nPNu8gO1F3b
-         */
-        this.documentId = builder.documentId;
+    /**
+     * 指定返回的 MentionUser 即 @用户 的语言
+     *
+     * <p>示例值：0
+     *
+     * @param lang {@link
+     *     com.lark.oapi.service.docx.v1.enums.RawContentDocumentOpenAPIGetDocumentRawContentLangEnum}
+     * @return
+     */
+    public Builder lang(
+        com.lark.oapi.service.docx.v1.enums.RawContentDocumentOpenAPIGetDocumentRawContentLangEnum
+            lang) {
+      this.lang = lang.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String
+        documentId; // 文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的 `document_id`
+
+    /**
+     * 文档的唯一标识。点击[这里](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-overview)了解如何获取文档的
+     * `document_id`
+     *
+     * <p>示例值：doxbcmEtbFrbbq10nPNu8gabcef
+     *
+     * @param documentId
+     * @return
+     */
+    public Builder documentId(String documentId) {
+      this.documentId = documentId;
+      return this;
     }
 
-    public Integer getLang() {
-        return this.lang;
+    public RawContentDocumentReq build() {
+      return new RawContentDocumentReq(this);
     }
+  }
 
-    public void setLang(Integer lang) {
-        this.lang = lang;
-    }
-
-    public String getDocumentId() {
-        return this.documentId;
-    }
-
-    public void setDocumentId(String documentId) {
-        this.documentId = documentId;
-    }
-
-    public static class Builder {
-        private Integer lang; // 语言（用于 MentionUser 语言的选取）
-        private String documentId; // 文档的唯一标识
-
-        /**
-         * 语言（用于 MentionUser 语言的选取）
-         * <p> 示例值：0
-         *
-         * @param lang
-         * @return
-         */
-        public Builder lang(Integer lang) {
-            this.lang = lang;
-            return this;
-        }
-
-        /**
-         * 语言（用于 MentionUser 语言的选取）
-         * <p> 示例值：0
-         *
-         * @param lang {@link com.lark.oapi.service.docx.v1.enums.RawContentDocumentLangEnum}
-         * @return
-         */
-        public Builder lang(com.lark.oapi.service.docx.v1.enums.RawContentDocumentLangEnum lang) {
-            this.lang = lang.getValue();
-            return this;
-        }
-
-        /**
-         * 文档的唯一标识
-         * <p> 示例值：doxbcmEtbFrbbq10nPNu8gO1F3b
-         *
-         * @param documentId
-         * @return
-         */
-        public Builder documentId(String documentId) {
-            this.documentId = documentId;
-            return this;
-        }
-
-
-        public RawContentDocumentReq build() {
-            return new RawContentDocumentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

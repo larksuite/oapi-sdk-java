@@ -13,23 +13,21 @@
 
 package com.lark.oapi.service.mail.v1.enums;
 
-/**
- * 规则动作类型
- */
+/** 规则动作类型 */
 public enum MailFlowRuleInfoMailFlowRuleActionCategoryEnum {
-    QUARANTINE(1), // 隔离
-    REJECT(2), // 拒绝
-    MODIFYMAIL(3), // 修改邮件
-    APPROVAL(4), // 审批
-    AUDITONLY(5), // 仅记录日志
-    ;
-    private Integer value;
+  QUARANTINE(1), // 将邮件移至隔离区
+  REJECT(2), // 拒绝邮件
+  MODIFYMAIL(3), // 修改邮件
+  APPROVAL(4), // 发起审批
+  AUDITONLY(5), // 仅记录规则日志
+  ;
+  private Integer value;
 
-    MailFlowRuleInfoMailFlowRuleActionCategoryEnum(Integer value) {
-        this.value = value;
-    }
+  MailFlowRuleInfoMailFlowRuleActionCategoryEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

@@ -50,211 +50,211 @@ import com.lark.oapi.service.corehr.v1.resource.TransferType;
 import com.lark.oapi.service.corehr.v1.resource.WorkingHoursType;
 
 public class V1 {
-    private final AssignedUser assignedUser; // assigned_user
-    private final Authorization authorization; // authorization
-    private final CommonDataId commonDataId; // common_data.id
-    private final CommonDataMetaData commonDataMetaData; // common_data.meta_data
-    private final Company company; // 公司
-    private final CompensationStandard compensationStandard; // compensation_standard
-    private final Contract contract; // 合同
-    private final CountryRegion countryRegion; // 地理库信息
-    private final Currency currency; // 货币信息
-    private final CustomField customField; // 自定义字段
-    private final Department department; // 部门
-    private final EmployeeType employeeType; // 人员类型
-    private final Employment employment; // 雇佣信息
-    private final File file; // file
-    private final Job job; // 职务
-    private final JobChange jobChange; // 异动信息
-    private final JobData jobData; // 任职信息
-    private final JobFamily jobFamily; // 职务序列
-    private final JobLevel jobLevel; // 职务级别
-    private final Leave leave; // 休假管理
-    private final LeaveGrantingRecord leaveGrantingRecord; // leave_granting_record
-    private final Location location; // 地点
-    private final NationalIdType nationalIdType; // 国家证件类型
-    private final Offboarding offboarding; // 员工离职
-    private final OrgRoleAuthorization orgRoleAuthorization; // org_role_authorization
-    private final Person person; // 个人信息
-    private final PreHire preHire; // 待入职
-    private final ProcessFormVariableData processFormVariableData; // 流程管理
-    private final SecurityGroup securityGroup; // security_group
-    private final Subdivision subdivision; // 地理库信息
-    private final Subregion subregion; // 地理库信息
-    private final TransferReason transferReason; // 异动原因
-    private final TransferType transferType; // 异动类型
-    private final WorkingHoursType workingHoursType; // 工时制度
+  private final AssignedUser assignedUser; // assigned_user
+  private final Authorization authorization; // authorization
+  private final CommonDataId commonDataId; // common_data.id
+  private final CommonDataMetaData commonDataMetaData; // common_data.meta_data
+  private final Company company; // company
+  private final CompensationStandard compensationStandard; // compensation_standard
+  private final Contract contract; // contract
+  private final CountryRegion countryRegion; // country_region
+  private final Currency currency; // currency
+  private final CustomField customField; // custom_field
+  private final Department department; // department
+  private final EmployeeType employeeType; // employee_type
+  private final Employment employment; // employment
+  private final File file; // file
+  private final Job job; // job
+  private final JobChange jobChange; // job_change
+  private final JobData jobData; // job_data
+  private final JobFamily jobFamily; // job_family
+  private final JobLevel jobLevel; // job_level
+  private final Leave leave; // leave
+  private final LeaveGrantingRecord leaveGrantingRecord; // leave_granting_record
+  private final Location location; // location
+  private final NationalIdType nationalIdType; // national_id_type
+  private final Offboarding offboarding; // offboarding
+  private final OrgRoleAuthorization orgRoleAuthorization; // org_role_authorization
+  private final Person person; // person
+  private final PreHire preHire; // pre_hire
+  private final ProcessFormVariableData processFormVariableData; // process.form_variable_data
+  private final SecurityGroup securityGroup; // security_group
+  private final Subdivision subdivision; // subdivision
+  private final Subregion subregion; // subregion
+  private final TransferReason transferReason; // transfer_reason
+  private final TransferType transferType; // transfer_type
+  private final WorkingHoursType workingHoursType; // working_hours_type
 
-    public V1(Config config) {
-        this.assignedUser = new AssignedUser(config);
-        this.authorization = new Authorization(config);
-        this.commonDataId = new CommonDataId(config);
-        this.commonDataMetaData = new CommonDataMetaData(config);
-        this.company = new Company(config);
-        this.compensationStandard = new CompensationStandard(config);
-        this.contract = new Contract(config);
-        this.countryRegion = new CountryRegion(config);
-        this.currency = new Currency(config);
-        this.customField = new CustomField(config);
-        this.department = new Department(config);
-        this.employeeType = new EmployeeType(config);
-        this.employment = new Employment(config);
-        this.file = new File(config);
-        this.job = new Job(config);
-        this.jobChange = new JobChange(config);
-        this.jobData = new JobData(config);
-        this.jobFamily = new JobFamily(config);
-        this.jobLevel = new JobLevel(config);
-        this.leave = new Leave(config);
-        this.leaveGrantingRecord = new LeaveGrantingRecord(config);
-        this.location = new Location(config);
-        this.nationalIdType = new NationalIdType(config);
-        this.offboarding = new Offboarding(config);
-        this.orgRoleAuthorization = new OrgRoleAuthorization(config);
-        this.person = new Person(config);
-        this.preHire = new PreHire(config);
-        this.processFormVariableData = new ProcessFormVariableData(config);
-        this.securityGroup = new SecurityGroup(config);
-        this.subdivision = new Subdivision(config);
-        this.subregion = new Subregion(config);
-        this.transferReason = new TransferReason(config);
-        this.transferType = new TransferType(config);
-        this.workingHoursType = new WorkingHoursType(config);
-    }
+  public V1(Config config) {
+    this.assignedUser = new AssignedUser(config);
+    this.authorization = new Authorization(config);
+    this.commonDataId = new CommonDataId(config);
+    this.commonDataMetaData = new CommonDataMetaData(config);
+    this.company = new Company(config);
+    this.compensationStandard = new CompensationStandard(config);
+    this.contract = new Contract(config);
+    this.countryRegion = new CountryRegion(config);
+    this.currency = new Currency(config);
+    this.customField = new CustomField(config);
+    this.department = new Department(config);
+    this.employeeType = new EmployeeType(config);
+    this.employment = new Employment(config);
+    this.file = new File(config);
+    this.job = new Job(config);
+    this.jobChange = new JobChange(config);
+    this.jobData = new JobData(config);
+    this.jobFamily = new JobFamily(config);
+    this.jobLevel = new JobLevel(config);
+    this.leave = new Leave(config);
+    this.leaveGrantingRecord = new LeaveGrantingRecord(config);
+    this.location = new Location(config);
+    this.nationalIdType = new NationalIdType(config);
+    this.offboarding = new Offboarding(config);
+    this.orgRoleAuthorization = new OrgRoleAuthorization(config);
+    this.person = new Person(config);
+    this.preHire = new PreHire(config);
+    this.processFormVariableData = new ProcessFormVariableData(config);
+    this.securityGroup = new SecurityGroup(config);
+    this.subdivision = new Subdivision(config);
+    this.subregion = new Subregion(config);
+    this.transferReason = new TransferReason(config);
+    this.transferType = new TransferType(config);
+    this.workingHoursType = new WorkingHoursType(config);
+  }
 
-    public AssignedUser assignedUser() {
-        return assignedUser;
-    }
+  public AssignedUser assignedUser() {
+    return assignedUser;
+  }
 
-    public Authorization authorization() {
-        return authorization;
-    }
+  public Authorization authorization() {
+    return authorization;
+  }
 
-    public CommonDataId commonDataId() {
-        return commonDataId;
-    }
+  public CommonDataId commonDataId() {
+    return commonDataId;
+  }
 
-    public CommonDataMetaData commonDataMetaData() {
-        return commonDataMetaData;
-    }
+  public CommonDataMetaData commonDataMetaData() {
+    return commonDataMetaData;
+  }
 
-    public Company company() {
-        return company;
-    }
+  public Company company() {
+    return company;
+  }
 
-    public CompensationStandard compensationStandard() {
-        return compensationStandard;
-    }
+  public CompensationStandard compensationStandard() {
+    return compensationStandard;
+  }
 
-    public Contract contract() {
-        return contract;
-    }
+  public Contract contract() {
+    return contract;
+  }
 
-    public CountryRegion countryRegion() {
-        return countryRegion;
-    }
+  public CountryRegion countryRegion() {
+    return countryRegion;
+  }
 
-    public Currency currency() {
-        return currency;
-    }
+  public Currency currency() {
+    return currency;
+  }
 
-    public CustomField customField() {
-        return customField;
-    }
+  public CustomField customField() {
+    return customField;
+  }
 
-    public Department department() {
-        return department;
-    }
+  public Department department() {
+    return department;
+  }
 
-    public EmployeeType employeeType() {
-        return employeeType;
-    }
+  public EmployeeType employeeType() {
+    return employeeType;
+  }
 
-    public Employment employment() {
-        return employment;
-    }
+  public Employment employment() {
+    return employment;
+  }
 
-    public File file() {
-        return file;
-    }
+  public File file() {
+    return file;
+  }
 
-    public Job job() {
-        return job;
-    }
+  public Job job() {
+    return job;
+  }
 
-    public JobChange jobChange() {
-        return jobChange;
-    }
+  public JobChange jobChange() {
+    return jobChange;
+  }
 
-    public JobData jobData() {
-        return jobData;
-    }
+  public JobData jobData() {
+    return jobData;
+  }
 
-    public JobFamily jobFamily() {
-        return jobFamily;
-    }
+  public JobFamily jobFamily() {
+    return jobFamily;
+  }
 
-    public JobLevel jobLevel() {
-        return jobLevel;
-    }
+  public JobLevel jobLevel() {
+    return jobLevel;
+  }
 
-    public Leave leave() {
-        return leave;
-    }
+  public Leave leave() {
+    return leave;
+  }
 
-    public LeaveGrantingRecord leaveGrantingRecord() {
-        return leaveGrantingRecord;
-    }
+  public LeaveGrantingRecord leaveGrantingRecord() {
+    return leaveGrantingRecord;
+  }
 
-    public Location location() {
-        return location;
-    }
+  public Location location() {
+    return location;
+  }
 
-    public NationalIdType nationalIdType() {
-        return nationalIdType;
-    }
+  public NationalIdType nationalIdType() {
+    return nationalIdType;
+  }
 
-    public Offboarding offboarding() {
-        return offboarding;
-    }
+  public Offboarding offboarding() {
+    return offboarding;
+  }
 
-    public OrgRoleAuthorization orgRoleAuthorization() {
-        return orgRoleAuthorization;
-    }
+  public OrgRoleAuthorization orgRoleAuthorization() {
+    return orgRoleAuthorization;
+  }
 
-    public Person person() {
-        return person;
-    }
+  public Person person() {
+    return person;
+  }
 
-    public PreHire preHire() {
-        return preHire;
-    }
+  public PreHire preHire() {
+    return preHire;
+  }
 
-    public ProcessFormVariableData processFormVariableData() {
-        return processFormVariableData;
-    }
+  public ProcessFormVariableData processFormVariableData() {
+    return processFormVariableData;
+  }
 
-    public SecurityGroup securityGroup() {
-        return securityGroup;
-    }
+  public SecurityGroup securityGroup() {
+    return securityGroup;
+  }
 
-    public Subdivision subdivision() {
-        return subdivision;
-    }
+  public Subdivision subdivision() {
+    return subdivision;
+  }
 
-    public Subregion subregion() {
-        return subregion;
-    }
+  public Subregion subregion() {
+    return subregion;
+  }
 
-    public TransferReason transferReason() {
-        return transferReason;
-    }
+  public TransferReason transferReason() {
+    return transferReason;
+  }
 
-    public TransferType transferType() {
-        return transferType;
-    }
+  public TransferType transferType() {
+    return transferType;
+  }
 
-    public WorkingHoursType workingHoursType() {
-        return workingHoursType;
-    }
+  public WorkingHoursType workingHoursType() {
+    return workingHoursType;
+  }
 }

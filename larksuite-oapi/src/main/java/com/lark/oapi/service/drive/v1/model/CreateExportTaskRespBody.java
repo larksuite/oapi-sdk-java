@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateExportTaskRespBody {
-    /**
-     * 导出任务ID
-     * <p> 示例值：6933093124755423251
-     */
-    @SerializedName("ticket")
-    private String ticket;
+  /**
+   * 导出任务的 ID
+   *
+   * <p>示例值：6933093124755423251
+   */
+  @SerializedName("ticket")
+  private String ticket;
 
-    public String getTicket() {
-        return this.ticket;
-    }
+  public String getTicket() {
+    return this.ticket;
+  }
 
-    public void setTicket(String ticket) {
-        this.ticket = ticket;
-    }
-
+  public void setTicket(String ticket) {
+    this.ticket = ticket;
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.enums;
 
-/**
- * 消息状态
- */
+/** 消息状态 */
 public enum MessageMetaMessageStatusEnum {
-    NORMAL(1), // 正常
-    RECALLED(2), // 被撤回
-    ;
-    private Integer value;
+  NORMAL(1), // 正常
+  RECALLED(2), // 被撤回
+  ;
+  private Integer value;
 
-    MessageMetaMessageStatusEnum(Integer value) {
-        this.value = value;
-    }
+  MessageMetaMessageStatusEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

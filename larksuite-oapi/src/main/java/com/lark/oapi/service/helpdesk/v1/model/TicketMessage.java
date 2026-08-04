@@ -13,334 +13,359 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.helpdesk.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TicketMessage {
+  /**
+   * 工单消息ID
+   *
+   * <p>示例值：6948728206392295444
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * chat消息ID
+   *
+   * <p>示例值：6949088236610273307
+   */
+  @SerializedName("message_id")
+  private String messageId;
+
+  /**
+   * 消息类型；text：纯文本；post：富文本；image：图像；file：文件；media：视频
+   *
+   * <p>示例值：text
+   */
+  @SerializedName("message_type")
+  private String messageType;
+
+  /**
+   * 创建时间
+   *
+   * <p>示例值：1617960686000
+   */
+  @SerializedName("created_at")
+  private Integer createdAt;
+
+  /**
+   * 内容
+   *
+   * <p>示例值：{\"content\":\"进入人工服务。 @李宁 为你提供服务，开始聊起来吧~\",\"msg_type\":\"text\"}
+   */
+  @SerializedName("content")
+  private String content;
+
+  /**
+   * 用户名
+   *
+   * <p>示例值：李宁
+   */
+  @SerializedName("user_name")
+  private String userName;
+
+  /**
+   * 用户图片url
+   *
+   * <p>示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/3e73cdce-54b0-4c6a-8226-b131fb2825dj~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp
+   */
+  @SerializedName("avatar_url")
+  private String avatarUrl;
+
+  /**
+   * 用户open ID
+   *
+   * <p>示例值：ou_37019b7c830210acd88fdce886e25c71
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getMessageId() {
+    return this.messageId;
+  }
+
+  public void setMessageId(String messageId) {
+    this.messageId = messageId;
+  }
+
+  public String getMessageType() {
+    return this.messageType;
+  }
+
+  public void setMessageType(String messageType) {
+    this.messageType = messageType;
+  }
+
+  public Integer getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(Integer createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public String getContent() {
+    return this.content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public String getUserName() {
+    return this.userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  public String getAvatarUrl() {
+    return this.avatarUrl;
+  }
+
+  public void setAvatarUrl(String avatarUrl) {
+    this.avatarUrl = avatarUrl;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public TicketMessage() {}
+
+  public TicketMessage(Builder builder) {
     /**
      * 工单消息ID
-     * <p> 示例值：6948728206392295444
+     *
+     * <p>示例值：6948728206392295444
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * chat消息ID
-     * <p> 示例值：6949088236610273307
+     *
+     * <p>示例值：6949088236610273307
      */
-    @SerializedName("message_id")
-    private String messageId;
+    this.messageId = builder.messageId;
     /**
-     * 消息类型；text：纯文本；post：富文本
-     * <p> 示例值：text
+     * 消息类型；text：纯文本；post：富文本；image：图像；file：文件；media：视频
+     *
+     * <p>示例值：text
      */
-    @SerializedName("message_type")
-    private String messageType;
+    this.messageType = builder.messageType;
     /**
      * 创建时间
-     * <p> 示例值：1617960686000
+     *
+     * <p>示例值：1617960686000
      */
-    @SerializedName("created_at")
-    private Integer createdAt;
+    this.createdAt = builder.createdAt;
     /**
      * 内容
-     * <p> 示例值："{\"content\":\"进入人工服务。 @李宁  为你提供服务，开始聊起来吧~\",\"msg_type\":\"text\"}"
+     *
+     * <p>示例值：{\"content\":\"进入人工服务。 @李宁 为你提供服务，开始聊起来吧~\",\"msg_type\":\"text\"}
      */
-    @SerializedName("content")
-    private String content;
+    this.content = builder.content;
     /**
      * 用户名
-     * <p> 示例值：李宁
+     *
+     * <p>示例值：李宁
      */
-    @SerializedName("user_name")
-    private String userName;
+    this.userName = builder.userName;
     /**
      * 用户图片url
-     * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/3e73cdce-54b0-4c6a-8226-b131fb2825dj~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp
+     *
+     * <p>示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/3e73cdce-54b0-4c6a-8226-b131fb2825dj~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp
      */
-    @SerializedName("avatar_url")
-    private String avatarUrl;
+    this.avatarUrl = builder.avatarUrl;
     /**
      * 用户open ID
-     * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
+     *
+     * <p>示例值：ou_37019b7c830210acd88fdce886e25c71
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * 工单消息ID
+     *
+     * <p>示例值：6948728206392295444
+     */
+    private String id;
+
+    /**
+     * chat消息ID
+     *
+     * <p>示例值：6949088236610273307
+     */
+    private String messageId;
+
+    /**
+     * 消息类型；text：纯文本；post：富文本；image：图像；file：文件；media：视频
+     *
+     * <p>示例值：text
+     */
+    private String messageType;
+
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1617960686000
+     */
+    private Integer createdAt;
+
+    /**
+     * 内容
+     *
+     * <p>示例值：{\"content\":\"进入人工服务。 @李宁 为你提供服务，开始聊起来吧~\",\"msg_type\":\"text\"}
+     */
+    private String content;
+
+    /**
+     * 用户名
+     *
+     * <p>示例值：李宁
+     */
+    private String userName;
+
+    /**
+     * 用户图片url
+     *
+     * <p>示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/3e73cdce-54b0-4c6a-8226-b131fb2825dj~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp
+     */
+    private String avatarUrl;
+
+    /**
+     * 用户open ID
+     *
+     * <p>示例值：ou_37019b7c830210acd88fdce886e25c71
+     */
     private String userId;
 
-    // builder 开始
-    public TicketMessage() {
+    /**
+     * 工单消息ID
+     *
+     * <p>示例值：6948728206392295444
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public TicketMessage(Builder builder) {
-        /**
-         * 工单消息ID
-         * <p> 示例值：6948728206392295444
-         */
-        this.id = builder.id;
-        /**
-         * chat消息ID
-         * <p> 示例值：6949088236610273307
-         */
-        this.messageId = builder.messageId;
-        /**
-         * 消息类型；text：纯文本；post：富文本
-         * <p> 示例值：text
-         */
-        this.messageType = builder.messageType;
-        /**
-         * 创建时间
-         * <p> 示例值：1617960686000
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 内容
-         * <p> 示例值："{\"content\":\"进入人工服务。 @李宁  为你提供服务，开始聊起来吧~\",\"msg_type\":\"text\"}"
-         */
-        this.content = builder.content;
-        /**
-         * 用户名
-         * <p> 示例值：李宁
-         */
-        this.userName = builder.userName;
-        /**
-         * 用户图片url
-         * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/3e73cdce-54b0-4c6a-8226-b131fb2825dj~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp
-         */
-        this.avatarUrl = builder.avatarUrl;
-        /**
-         * 用户open ID
-         * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-         */
-        this.userId = builder.userId;
+    /**
+     * chat消息ID
+     *
+     * <p>示例值：6949088236610273307
+     *
+     * @param messageId
+     * @return
+     */
+    public Builder messageId(String messageId) {
+      this.messageId = messageId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 消息类型；text：纯文本；post：富文本；image：图像；file：文件；media：视频
+     *
+     * <p>示例值：text
+     *
+     * @param messageType
+     * @return
+     */
+    public Builder messageType(String messageType) {
+      this.messageType = messageType;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 创建时间
+     *
+     * <p>示例值：1617960686000
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(Integer createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 内容
+     *
+     * <p>示例值：{\"content\":\"进入人工服务。 @李宁 为你提供服务，开始聊起来吧~\",\"msg_type\":\"text\"}
+     *
+     * @param content
+     * @return
+     */
+    public Builder content(String content) {
+      this.content = content;
+      return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    /**
+     * 用户名
+     *
+     * <p>示例值：李宁
+     *
+     * @param userName
+     * @return
+     */
+    public Builder userName(String userName) {
+      this.userName = userName;
+      return this;
     }
 
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
+    /**
+     * 用户图片url
+     *
+     * <p>示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/3e73cdce-54b0-4c6a-8226-b131fb2825dj~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp
+     *
+     * @param avatarUrl
+     * @return
+     */
+    public Builder avatarUrl(String avatarUrl) {
+      this.avatarUrl = avatarUrl;
+      return this;
     }
 
-    public String getMessageType() {
-        return this.messageType;
+    /**
+     * 用户open ID
+     *
+     * <p>示例值：ou_37019b7c830210acd88fdce886e25c71
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public void setMessageType(String messageType) {
-        this.messageType = messageType;
+    public TicketMessage build() {
+      return new TicketMessage(this);
     }
+  }
 
-    public Integer getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(Integer createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getUserName() {
-        return this.userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getAvatarUrl() {
-        return this.avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * 工单消息ID
-         * <p> 示例值：6948728206392295444
-         */
-        private String id;
-        /**
-         * chat消息ID
-         * <p> 示例值：6949088236610273307
-         */
-        private String messageId;
-        /**
-         * 消息类型；text：纯文本；post：富文本
-         * <p> 示例值：text
-         */
-        private String messageType;
-        /**
-         * 创建时间
-         * <p> 示例值：1617960686000
-         */
-        private Integer createdAt;
-        /**
-         * 内容
-         * <p> 示例值："{\"content\":\"进入人工服务。 @李宁  为你提供服务，开始聊起来吧~\",\"msg_type\":\"text\"}"
-         */
-        private String content;
-        /**
-         * 用户名
-         * <p> 示例值：李宁
-         */
-        private String userName;
-        /**
-         * 用户图片url
-         * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/3e73cdce-54b0-4c6a-8226-b131fb2825dj~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp
-         */
-        private String avatarUrl;
-        /**
-         * 用户open ID
-         * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-         */
-        private String userId;
-
-        /**
-         * 工单消息ID
-         * <p> 示例值：6948728206392295444
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * chat消息ID
-         * <p> 示例值：6949088236610273307
-         *
-         * @param messageId
-         * @return
-         */
-        public Builder messageId(String messageId) {
-            this.messageId = messageId;
-            return this;
-        }
-
-
-        /**
-         * 消息类型；text：纯文本；post：富文本
-         * <p> 示例值：text
-         *
-         * @param messageType
-         * @return
-         */
-        public Builder messageType(String messageType) {
-            this.messageType = messageType;
-            return this;
-        }
-
-
-        /**
-         * 创建时间
-         * <p> 示例值：1617960686000
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(Integer createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 内容
-         * <p> 示例值："{\"content\":\"进入人工服务。 @李宁  为你提供服务，开始聊起来吧~\",\"msg_type\":\"text\"}"
-         *
-         * @param content
-         * @return
-         */
-        public Builder content(String content) {
-            this.content = content;
-            return this;
-        }
-
-
-        /**
-         * 用户名
-         * <p> 示例值：李宁
-         *
-         * @param userName
-         * @return
-         */
-        public Builder userName(String userName) {
-            this.userName = userName;
-            return this;
-        }
-
-
-        /**
-         * 用户图片url
-         * <p> 示例值：https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/3e73cdce-54b0-4c6a-8226-b131fb2825dj~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp
-         *
-         * @param avatarUrl
-         * @return
-         */
-        public Builder avatarUrl(String avatarUrl) {
-            this.avatarUrl = avatarUrl;
-            return this;
-        }
-
-
-        /**
-         * 用户open ID
-         * <p> 示例值：ou_37019b7c830210acd88fdce886e25c71
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public TicketMessage build() {
-            return new TicketMessage(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

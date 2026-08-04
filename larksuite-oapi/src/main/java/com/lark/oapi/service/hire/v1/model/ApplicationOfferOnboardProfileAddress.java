@@ -13,370 +13,400 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ApplicationOfferOnboardProfileAddress {
+  /**
+   * ID
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 名字
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 英文名
+   *
+   * <p>示例值：123
+   */
+  @SerializedName("en_name")
+  private String enName;
+
+  /**
+   * 区
+   *
+   * <p>示例值：
+   */
+  @SerializedName("district")
+  private ApplicationOfferOnboardProfileCity district;
+
+  /**
+   * 城市
+   *
+   * <p>示例值：
+   */
+  @SerializedName("city")
+  private ApplicationOfferOnboardProfileCity city;
+
+  /**
+   * 省
+   *
+   * <p>示例值：
+   */
+  @SerializedName("state")
+  private ApplicationOfferOnboardProfileCity state;
+
+  /**
+   * 国家
+   *
+   * <p>示例值：
+   */
+  @SerializedName("country")
+  private ApplicationOfferOnboardProfileCity country;
+
+  /**
+   * 使用ID列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("usage_id_list")
+  private String[] usageIdList;
+
+  /**
+   * 状态
+   *
+   * <p>示例值：111
+   */
+  @SerializedName("active_status")
+  private Long activeStatus;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getEnName() {
+    return this.enName;
+  }
+
+  public void setEnName(String enName) {
+    this.enName = enName;
+  }
+
+  public ApplicationOfferOnboardProfileCity getDistrict() {
+    return this.district;
+  }
+
+  public void setDistrict(ApplicationOfferOnboardProfileCity district) {
+    this.district = district;
+  }
+
+  public ApplicationOfferOnboardProfileCity getCity() {
+    return this.city;
+  }
+
+  public void setCity(ApplicationOfferOnboardProfileCity city) {
+    this.city = city;
+  }
+
+  public ApplicationOfferOnboardProfileCity getState() {
+    return this.state;
+  }
+
+  public void setState(ApplicationOfferOnboardProfileCity state) {
+    this.state = state;
+  }
+
+  public ApplicationOfferOnboardProfileCity getCountry() {
+    return this.country;
+  }
+
+  public void setCountry(ApplicationOfferOnboardProfileCity country) {
+    this.country = country;
+  }
+
+  public String[] getUsageIdList() {
+    return this.usageIdList;
+  }
+
+  public void setUsageIdList(String[] usageIdList) {
+    this.usageIdList = usageIdList;
+  }
+
+  public Long getActiveStatus() {
+    return this.activeStatus;
+  }
+
+  public void setActiveStatus(Long activeStatus) {
+    this.activeStatus = activeStatus;
+  }
+
+  // builder 开始
+  public ApplicationOfferOnboardProfileAddress() {}
+
+  public ApplicationOfferOnboardProfileAddress(Builder builder) {
     /**
      * ID
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 名字
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 英文名
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @SerializedName("en_name")
-    private String enName;
+    this.enName = builder.enName;
     /**
      * 区
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("district")
-    private ApplicationOfferOnboardProfileCity district;
+    this.district = builder.district;
     /**
      * 城市
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("city")
-    private ApplicationOfferOnboardProfileCity city;
+    this.city = builder.city;
     /**
      * 省
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("state")
-    private ApplicationOfferOnboardProfileCity state;
+    this.state = builder.state;
     /**
      * 国家
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("country")
-    private ApplicationOfferOnboardProfileCity country;
+    this.country = builder.country;
     /**
      * 使用ID列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("usage_id_list")
-    private String[] usageIdList;
+    this.usageIdList = builder.usageIdList;
     /**
      * 状态
-     * <p> 示例值：111
+     *
+     * <p>示例值：111
      */
-    @SerializedName("active_status")
+    this.activeStatus = builder.activeStatus;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：123
+     */
+    private String id;
+
+    /**
+     * 名字
+     *
+     * <p>示例值：123
+     */
+    private String name;
+
+    /**
+     * 英文名
+     *
+     * <p>示例值：123
+     */
+    private String enName;
+
+    /**
+     * 区
+     *
+     * <p>示例值：
+     */
+    private ApplicationOfferOnboardProfileCity district;
+
+    /**
+     * 城市
+     *
+     * <p>示例值：
+     */
+    private ApplicationOfferOnboardProfileCity city;
+
+    /**
+     * 省
+     *
+     * <p>示例值：
+     */
+    private ApplicationOfferOnboardProfileCity state;
+
+    /**
+     * 国家
+     *
+     * <p>示例值：
+     */
+    private ApplicationOfferOnboardProfileCity country;
+
+    /**
+     * 使用ID列表
+     *
+     * <p>示例值：
+     */
+    private String[] usageIdList;
+
+    /**
+     * 状态
+     *
+     * <p>示例值：111
+     */
     private Long activeStatus;
 
-    // builder 开始
-    public ApplicationOfferOnboardProfileAddress() {
+    /**
+     * ID
+     *
+     * <p>示例值：123
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ApplicationOfferOnboardProfileAddress(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：123
-         */
-        this.id = builder.id;
-        /**
-         * 名字
-         * <p> 示例值：123
-         */
-        this.name = builder.name;
-        /**
-         * 英文名
-         * <p> 示例值：123
-         */
-        this.enName = builder.enName;
-        /**
-         * 区
-         * <p> 示例值：
-         */
-        this.district = builder.district;
-        /**
-         * 城市
-         * <p> 示例值：
-         */
-        this.city = builder.city;
-        /**
-         * 省
-         * <p> 示例值：
-         */
-        this.state = builder.state;
-        /**
-         * 国家
-         * <p> 示例值：
-         */
-        this.country = builder.country;
-        /**
-         * 使用ID列表
-         * <p> 示例值：
-         */
-        this.usageIdList = builder.usageIdList;
-        /**
-         * 状态
-         * <p> 示例值：111
-         */
-        this.activeStatus = builder.activeStatus;
+    /**
+     * 名字
+     *
+     * <p>示例值：123
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 英文名
+     *
+     * <p>示例值：123
+     *
+     * @param enName
+     * @return
+     */
+    public Builder enName(String enName) {
+      this.enName = enName;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 区
+     *
+     * <p>示例值：
+     *
+     * @param district
+     * @return
+     */
+    public Builder district(ApplicationOfferOnboardProfileCity district) {
+      this.district = district;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 城市
+     *
+     * <p>示例值：
+     *
+     * @param city
+     * @return
+     */
+    public Builder city(ApplicationOfferOnboardProfileCity city) {
+      this.city = city;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 省
+     *
+     * <p>示例值：
+     *
+     * @param state
+     * @return
+     */
+    public Builder state(ApplicationOfferOnboardProfileCity state) {
+      this.state = state;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 国家
+     *
+     * <p>示例值：
+     *
+     * @param country
+     * @return
+     */
+    public Builder country(ApplicationOfferOnboardProfileCity country) {
+      this.country = country;
+      return this;
     }
 
-    public String getEnName() {
-        return this.enName;
+    /**
+     * 使用ID列表
+     *
+     * <p>示例值：
+     *
+     * @param usageIdList
+     * @return
+     */
+    public Builder usageIdList(String[] usageIdList) {
+      this.usageIdList = usageIdList;
+      return this;
     }
 
-    public void setEnName(String enName) {
-        this.enName = enName;
+    /**
+     * 状态
+     *
+     * <p>示例值：111
+     *
+     * @param activeStatus
+     * @return
+     */
+    public Builder activeStatus(Long activeStatus) {
+      this.activeStatus = activeStatus;
+      return this;
     }
 
-    public ApplicationOfferOnboardProfileCity getDistrict() {
-        return this.district;
+    public ApplicationOfferOnboardProfileAddress build() {
+      return new ApplicationOfferOnboardProfileAddress(this);
     }
+  }
 
-    public void setDistrict(ApplicationOfferOnboardProfileCity district) {
-        this.district = district;
-    }
-
-    public ApplicationOfferOnboardProfileCity getCity() {
-        return this.city;
-    }
-
-    public void setCity(ApplicationOfferOnboardProfileCity city) {
-        this.city = city;
-    }
-
-    public ApplicationOfferOnboardProfileCity getState() {
-        return this.state;
-    }
-
-    public void setState(ApplicationOfferOnboardProfileCity state) {
-        this.state = state;
-    }
-
-    public ApplicationOfferOnboardProfileCity getCountry() {
-        return this.country;
-    }
-
-    public void setCountry(ApplicationOfferOnboardProfileCity country) {
-        this.country = country;
-    }
-
-    public String[] getUsageIdList() {
-        return this.usageIdList;
-    }
-
-    public void setUsageIdList(String[] usageIdList) {
-        this.usageIdList = usageIdList;
-    }
-
-    public Long getActiveStatus() {
-        return this.activeStatus;
-    }
-
-    public void setActiveStatus(Long activeStatus) {
-        this.activeStatus = activeStatus;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：123
-         */
-        private String id;
-        /**
-         * 名字
-         * <p> 示例值：123
-         */
-        private String name;
-        /**
-         * 英文名
-         * <p> 示例值：123
-         */
-        private String enName;
-        /**
-         * 区
-         * <p> 示例值：
-         */
-        private ApplicationOfferOnboardProfileCity district;
-        /**
-         * 城市
-         * <p> 示例值：
-         */
-        private ApplicationOfferOnboardProfileCity city;
-        /**
-         * 省
-         * <p> 示例值：
-         */
-        private ApplicationOfferOnboardProfileCity state;
-        /**
-         * 国家
-         * <p> 示例值：
-         */
-        private ApplicationOfferOnboardProfileCity country;
-        /**
-         * 使用ID列表
-         * <p> 示例值：
-         */
-        private String[] usageIdList;
-        /**
-         * 状态
-         * <p> 示例值：111
-         */
-        private Long activeStatus;
-
-        /**
-         * ID
-         * <p> 示例值：123
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 名字
-         * <p> 示例值：123
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 英文名
-         * <p> 示例值：123
-         *
-         * @param enName
-         * @return
-         */
-        public Builder enName(String enName) {
-            this.enName = enName;
-            return this;
-        }
-
-
-        /**
-         * 区
-         * <p> 示例值：
-         *
-         * @param district
-         * @return
-         */
-        public Builder district(ApplicationOfferOnboardProfileCity district) {
-            this.district = district;
-            return this;
-        }
-
-
-        /**
-         * 城市
-         * <p> 示例值：
-         *
-         * @param city
-         * @return
-         */
-        public Builder city(ApplicationOfferOnboardProfileCity city) {
-            this.city = city;
-            return this;
-        }
-
-
-        /**
-         * 省
-         * <p> 示例值：
-         *
-         * @param state
-         * @return
-         */
-        public Builder state(ApplicationOfferOnboardProfileCity state) {
-            this.state = state;
-            return this;
-        }
-
-
-        /**
-         * 国家
-         * <p> 示例值：
-         *
-         * @param country
-         * @return
-         */
-        public Builder country(ApplicationOfferOnboardProfileCity country) {
-            this.country = country;
-            return this;
-        }
-
-
-        /**
-         * 使用ID列表
-         * <p> 示例值：
-         *
-         * @param usageIdList
-         * @return
-         */
-        public Builder usageIdList(String[] usageIdList) {
-            this.usageIdList = usageIdList;
-            return this;
-        }
-
-
-        /**
-         * 状态
-         * <p> 示例值：111
-         *
-         * @param activeStatus
-         * @return
-         */
-        public Builder activeStatus(Long activeStatus) {
-            this.activeStatus = activeStatus;
-            return this;
-        }
-
-
-        public ApplicationOfferOnboardProfileAddress build() {
-            return new ApplicationOfferOnboardProfileAddress(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

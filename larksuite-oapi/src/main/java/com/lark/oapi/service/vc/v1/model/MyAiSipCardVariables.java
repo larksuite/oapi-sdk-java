@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MyAiSipCardVariables {
+  /**
+   * 占位符类型为TEXT时对应的值
+   *
+   * <p>示例值：{}
+   */
+  @SerializedName("text")
+  private String text;
+
+  /**
+   * 占位符类型为IMAGE时对应的值
+   *
+   * <p>示例值：img_v3_0275_6ffaa4b5-2d6a-4caf-b754-4a37db40160j
+   */
+  @SerializedName("image_key")
+  private String imageKey;
+
+  public String getText() {
+    return this.text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
+  }
+
+  public String getImageKey() {
+    return this.imageKey;
+  }
+
+  public void setImageKey(String imageKey) {
+    this.imageKey = imageKey;
+  }
+
+  // builder 开始
+  public MyAiSipCardVariables() {}
+
+  public MyAiSipCardVariables(Builder builder) {
     /**
      * 占位符类型为TEXT时对应的值
-     * <p> 示例值：{}
+     *
+     * <p>示例值：{}
      */
-    @SerializedName("text")
-    private String text;
+    this.text = builder.text;
     /**
      * 占位符类型为IMAGE时对应的值
-     * <p> 示例值：img_v3_0275_6ffaa4b5-2d6a-4caf-b754-4a37db40160j
+     *
+     * <p>示例值：img_v3_0275_6ffaa4b5-2d6a-4caf-b754-4a37db40160j
      */
-    @SerializedName("image_key")
+    this.imageKey = builder.imageKey;
+  }
+
+  public static class Builder {
+    /**
+     * 占位符类型为TEXT时对应的值
+     *
+     * <p>示例值：{}
+     */
+    private String text;
+
+    /**
+     * 占位符类型为IMAGE时对应的值
+     *
+     * <p>示例值：img_v3_0275_6ffaa4b5-2d6a-4caf-b754-4a37db40160j
+     */
     private String imageKey;
 
-    // builder 开始
-    public MyAiSipCardVariables() {
+    /**
+     * 占位符类型为TEXT时对应的值
+     *
+     * <p>示例值：{}
+     *
+     * @param text
+     * @return
+     */
+    public Builder text(String text) {
+      this.text = text;
+      return this;
     }
 
-    public MyAiSipCardVariables(Builder builder) {
-        /**
-         * 占位符类型为TEXT时对应的值
-         * <p> 示例值：{}
-         */
-        this.text = builder.text;
-        /**
-         * 占位符类型为IMAGE时对应的值
-         * <p> 示例值：img_v3_0275_6ffaa4b5-2d6a-4caf-b754-4a37db40160j
-         */
-        this.imageKey = builder.imageKey;
+    /**
+     * 占位符类型为IMAGE时对应的值
+     *
+     * <p>示例值：img_v3_0275_6ffaa4b5-2d6a-4caf-b754-4a37db40160j
+     *
+     * @param imageKey
+     * @return
+     */
+    public Builder imageKey(String imageKey) {
+      this.imageKey = imageKey;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public MyAiSipCardVariables build() {
+      return new MyAiSipCardVariables(this);
     }
+  }
 
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getImageKey() {
-        return this.imageKey;
-    }
-
-    public void setImageKey(String imageKey) {
-        this.imageKey = imageKey;
-    }
-
-    public static class Builder {
-        /**
-         * 占位符类型为TEXT时对应的值
-         * <p> 示例值：{}
-         */
-        private String text;
-        /**
-         * 占位符类型为IMAGE时对应的值
-         * <p> 示例值：img_v3_0275_6ffaa4b5-2d6a-4caf-b754-4a37db40160j
-         */
-        private String imageKey;
-
-        /**
-         * 占位符类型为TEXT时对应的值
-         * <p> 示例值：{}
-         *
-         * @param text
-         * @return
-         */
-        public Builder text(String text) {
-            this.text = text;
-            return this;
-        }
-
-
-        /**
-         * 占位符类型为IMAGE时对应的值
-         * <p> 示例值：img_v3_0275_6ffaa4b5-2d6a-4caf-b754-4a37db40160j
-         *
-         * @param imageKey
-         * @return
-         */
-        public Builder imageKey(String imageKey) {
-            this.imageKey = imageKey;
-            return this;
-        }
-
-
-        public MyAiSipCardVariables build() {
-            return new MyAiSipCardVariables(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

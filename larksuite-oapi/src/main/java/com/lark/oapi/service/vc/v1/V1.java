@@ -15,10 +15,11 @@ package com.lark.oapi.service.vc.v1;
 
 import com.lark.oapi.core.Config;
 import com.lark.oapi.service.vc.v1.resource.Alert;
+import com.lark.oapi.service.vc.v1.resource.Bot;
 import com.lark.oapi.service.vc.v1.resource.Export;
 import com.lark.oapi.service.vc.v1.resource.Meeting;
-import com.lark.oapi.service.vc.v1.resource.MeetingRecording;
 import com.lark.oapi.service.vc.v1.resource.MeetingList;
+import com.lark.oapi.service.vc.v1.resource.MeetingRecording;
 import com.lark.oapi.service.vc.v1.resource.Note;
 import com.lark.oapi.service.vc.v1.resource.ParticipantList;
 import com.lark.oapi.service.vc.v1.resource.ParticipantQualityList;
@@ -35,121 +36,128 @@ import com.lark.oapi.service.vc.v1.resource.RoomLevel;
 import com.lark.oapi.service.vc.v1.resource.ScopeConfig;
 
 public class V1 {
-    private final Alert alert; // 告警中心
-    private final Export export; // 导出
-    private final Meeting meeting; // 会议
-    private final MeetingRecording meetingRecording; // 录制
-    private final MeetingList meetingList; // meeting_list
-    private final Note note; // note
-    private final ParticipantList participantList; // participant_list
-    private final ParticipantQualityList participantQualityList; // participant_quality_list
-    private final Report report; // 会议报告
-    private final Reserve reserve; // 预约
-    private final ReserveConfig reserveConfig; // reserve_config
-    private final ReserveConfigAdmin reserveConfigAdmin; // reserve_config.admin
-    private final ReserveConfigDisableInform reserveConfigDisableInform; // reserve_config.disable_inform
-    private final ReserveConfigForm reserveConfigForm; // reserve_config.form
-    private final ResourceReservationList resourceReservationList; // resource_reservation_list
-    private final Room room; // 会议室
-    private final RoomConfig roomConfig; // room_config
-    private final RoomLevel roomLevel; // 会议室层级
-    private final ScopeConfig scopeConfig; // 会议室配置
+  private final Alert alert; // alert
+  private final Bot bot; // bot
+  private final Export export; // export
+  private final Meeting meeting; // meeting
+  private final MeetingRecording meetingRecording; // meeting.recording
+  private final MeetingList meetingList; // meeting_list
+  private final Note note; // note
+  private final ParticipantList participantList; // participant_list
+  private final ParticipantQualityList participantQualityList; // participant_quality_list
+  private final Report report; // report
+  private final Reserve reserve; // reserve
+  private final ReserveConfig reserveConfig; // reserve_config
+  private final ReserveConfigAdmin reserveConfigAdmin; // reserve_config.admin
+  private final ReserveConfigDisableInform
+      reserveConfigDisableInform; // reserve_config.disable_inform
+  private final ReserveConfigForm reserveConfigForm; // reserve_config.form
+  private final ResourceReservationList resourceReservationList; // resource_reservation_list
+  private final Room room; // room
+  private final RoomConfig roomConfig; // room_config
+  private final RoomLevel roomLevel; // room_level
+  private final ScopeConfig scopeConfig; // scope_config
 
-    public V1(Config config) {
-        this.alert = new Alert(config);
-        this.export = new Export(config);
-        this.meeting = new Meeting(config);
-        this.meetingRecording = new MeetingRecording(config);
-        this.meetingList = new MeetingList(config);
-        this.note = new Note(config);
-        this.participantList = new ParticipantList(config);
-        this.participantQualityList = new ParticipantQualityList(config);
-        this.report = new Report(config);
-        this.reserve = new Reserve(config);
-        this.reserveConfig = new ReserveConfig(config);
-        this.reserveConfigAdmin = new ReserveConfigAdmin(config);
-        this.reserveConfigDisableInform = new ReserveConfigDisableInform(config);
-        this.reserveConfigForm = new ReserveConfigForm(config);
-        this.resourceReservationList = new ResourceReservationList(config);
-        this.room = new Room(config);
-        this.roomConfig = new RoomConfig(config);
-        this.roomLevel = new RoomLevel(config);
-        this.scopeConfig = new ScopeConfig(config);
-    }
+  public V1(Config config) {
+    this.alert = new Alert(config);
+    this.bot = new Bot(config);
+    this.export = new Export(config);
+    this.meeting = new Meeting(config);
+    this.meetingRecording = new MeetingRecording(config);
+    this.meetingList = new MeetingList(config);
+    this.note = new Note(config);
+    this.participantList = new ParticipantList(config);
+    this.participantQualityList = new ParticipantQualityList(config);
+    this.report = new Report(config);
+    this.reserve = new Reserve(config);
+    this.reserveConfig = new ReserveConfig(config);
+    this.reserveConfigAdmin = new ReserveConfigAdmin(config);
+    this.reserveConfigDisableInform = new ReserveConfigDisableInform(config);
+    this.reserveConfigForm = new ReserveConfigForm(config);
+    this.resourceReservationList = new ResourceReservationList(config);
+    this.room = new Room(config);
+    this.roomConfig = new RoomConfig(config);
+    this.roomLevel = new RoomLevel(config);
+    this.scopeConfig = new ScopeConfig(config);
+  }
 
-    public Alert alert() {
-        return alert;
-    }
+  public Alert alert() {
+    return alert;
+  }
 
-    public Export export() {
-        return export;
-    }
+  public Bot bot() {
+    return bot;
+  }
 
-    public Meeting meeting() {
-        return meeting;
-    }
+  public Export export() {
+    return export;
+  }
 
-    public MeetingRecording meetingRecording() {
-        return meetingRecording;
-    }
+  public Meeting meeting() {
+    return meeting;
+  }
 
-    public MeetingList meetingList() {
-        return meetingList;
-    }
+  public MeetingRecording meetingRecording() {
+    return meetingRecording;
+  }
 
-    public Note note() {
-        return note;
-    }
+  public MeetingList meetingList() {
+    return meetingList;
+  }
 
-    public ParticipantList participantList() {
-        return participantList;
-    }
+  public Note note() {
+    return note;
+  }
 
-    public ParticipantQualityList participantQualityList() {
-        return participantQualityList;
-    }
+  public ParticipantList participantList() {
+    return participantList;
+  }
 
-    public Report report() {
-        return report;
-    }
+  public ParticipantQualityList participantQualityList() {
+    return participantQualityList;
+  }
 
-    public Reserve reserve() {
-        return reserve;
-    }
+  public Report report() {
+    return report;
+  }
 
-    public ReserveConfig reserveConfig() {
-        return reserveConfig;
-    }
+  public Reserve reserve() {
+    return reserve;
+  }
 
-    public ReserveConfigAdmin reserveConfigAdmin() {
-        return reserveConfigAdmin;
-    }
+  public ReserveConfig reserveConfig() {
+    return reserveConfig;
+  }
 
-    public ReserveConfigDisableInform reserveConfigDisableInform() {
-        return reserveConfigDisableInform;
-    }
+  public ReserveConfigAdmin reserveConfigAdmin() {
+    return reserveConfigAdmin;
+  }
 
-    public ReserveConfigForm reserveConfigForm() {
-        return reserveConfigForm;
-    }
+  public ReserveConfigDisableInform reserveConfigDisableInform() {
+    return reserveConfigDisableInform;
+  }
 
-    public ResourceReservationList resourceReservationList() {
-        return resourceReservationList;
-    }
+  public ReserveConfigForm reserveConfigForm() {
+    return reserveConfigForm;
+  }
 
-    public Room room() {
-        return room;
-    }
+  public ResourceReservationList resourceReservationList() {
+    return resourceReservationList;
+  }
 
-    public RoomConfig roomConfig() {
-        return roomConfig;
-    }
+  public Room room() {
+    return room;
+  }
 
-    public RoomLevel roomLevel() {
-        return roomLevel;
-    }
+  public RoomConfig roomConfig() {
+    return roomConfig;
+  }
 
-    public ScopeConfig scopeConfig() {
-        return scopeConfig;
-    }
+  public RoomLevel roomLevel() {
+    return roomLevel;
+  }
+
+  public ScopeConfig scopeConfig() {
+    return scopeConfig;
+  }
 }

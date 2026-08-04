@@ -13,186 +13,233 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.spark.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateAppReqBody {
+  /**
+   * 应用名称
+   *
+   * <p>示例值：智能客服助手
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 应用类型;;可选值：HTML
+   *
+   * <p>示例值：HTML
+   */
+  @SerializedName("app_type")
+  private String appType;
+
+  /**
+   * 应用描述
+   *
+   * <p>示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 应用图标地址
+   *
+   * <p>示例值：https://example.com/app-icons/customer-service.png
+   */
+  @SerializedName("icon_url")
+  private String iconUrl;
+
+  /**
+   * 应用创建来源
+   *
+   * <p>示例值：HTML
+   */
+  @SerializedName("source_agent")
+  private String sourceAgent;
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getAppType() {
+    return this.appType;
+  }
+
+  public void setAppType(String appType) {
+    this.appType = appType;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getIconUrl() {
+    return this.iconUrl;
+  }
+
+  public void setIconUrl(String iconUrl) {
+    this.iconUrl = iconUrl;
+  }
+
+  public String getSourceAgent() {
+    return this.sourceAgent;
+  }
+
+  public void setSourceAgent(String sourceAgent) {
+    this.sourceAgent = sourceAgent;
+  }
+
+  // builder 开始
+  public CreateAppReqBody() {}
+
+  public CreateAppReqBody(Builder builder) {
     /**
      * 应用名称
-     * <p> 示例值：智能客服助手
+     *
+     * <p>示例值：智能客服助手
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
-     * 应用类型
-     * <p> 示例值：
+     * 应用类型;;可选值：HTML
+     *
+     * <p>示例值：HTML
      */
-    @SerializedName("app_type")
-    private String appType;
+    this.appType = builder.appType;
     /**
      * 应用描述
-     * <p> 示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
+     *
+     * <p>示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 应用图标地址
-     * <p> 示例值：https://example.com/app-icons/customer-service.png
+     *
+     * <p>示例值：https://example.com/app-icons/customer-service.png
      */
-    @SerializedName("icon_url")
+    this.iconUrl = builder.iconUrl;
+    /**
+     * 应用创建来源
+     *
+     * <p>示例值：HTML
+     */
+    this.sourceAgent = builder.sourceAgent;
+  }
+
+  public static class Builder {
+    /**
+     * 应用名称
+     *
+     * <p>示例值：智能客服助手
+     */
+    private String name;
+
+    /**
+     * 应用类型;;可选值：HTML
+     *
+     * <p>示例值：HTML
+     */
+    private String appType;
+
+    /**
+     * 应用描述
+     *
+     * <p>示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
+     */
+    private String description;
+
+    /**
+     * 应用图标地址
+     *
+     * <p>示例值：https://example.com/app-icons/customer-service.png
+     */
     private String iconUrl;
 
-    // builder 开始
-    public CreateAppReqBody() {
+    /**
+     * 应用创建来源
+     *
+     * <p>示例值：HTML
+     */
+    private String sourceAgent;
+
+    /**
+     * 应用名称
+     *
+     * <p>示例值：智能客服助手
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public CreateAppReqBody(Builder builder) {
-        /**
-         * 应用名称
-         * <p> 示例值：智能客服助手
-         */
-        this.name = builder.name;
-        /**
-         * 应用类型
-         * <p> 示例值：
-         */
-        this.appType = builder.appType;
-        /**
-         * 应用描述
-         * <p> 示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
-         */
-        this.description = builder.description;
-        /**
-         * 应用图标地址
-         * <p> 示例值：https://example.com/app-icons/customer-service.png
-         */
-        this.iconUrl = builder.iconUrl;
+    /**
+     * 应用类型;;可选值：HTML
+     *
+     * <p>示例值：HTML
+     *
+     * @param appType
+     * @return
+     */
+    public Builder appType(String appType) {
+      this.appType = appType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 应用描述
+     *
+     * <p>示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * 应用图标地址
+     *
+     * <p>示例值：https://example.com/app-icons/customer-service.png
+     *
+     * @param iconUrl
+     * @return
+     */
+    public Builder iconUrl(String iconUrl) {
+      this.iconUrl = iconUrl;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 应用创建来源
+     *
+     * <p>示例值：HTML
+     *
+     * @param sourceAgent
+     * @return
+     */
+    public Builder sourceAgent(String sourceAgent) {
+      this.sourceAgent = sourceAgent;
+      return this;
     }
 
-    public String getAppType() {
-        return this.appType;
+    public CreateAppReqBody build() {
+      return new CreateAppReqBody(this);
     }
+  }
 
-    public void setAppType(String appType) {
-        this.appType = appType;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getIconUrl() {
-        return this.iconUrl;
-    }
-
-    public void setIconUrl(String iconUrl) {
-        this.iconUrl = iconUrl;
-    }
-
-    public static class Builder {
-        /**
-         * 应用名称
-         * <p> 示例值：智能客服助手
-         */
-        private String name;
-        /**
-         * 应用类型
-         * <p> 示例值：
-         */
-        private String appType;
-        /**
-         * 应用描述
-         * <p> 示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
-         */
-        private String description;
-        /**
-         * 应用图标地址
-         * <p> 示例值：https://example.com/app-icons/customer-service.png
-         */
-        private String iconUrl;
-
-        /**
-         * 应用名称
-         * <p> 示例值：智能客服助手
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 应用类型
-         * <p> 示例值：
-         *
-         * @param appType
-         * @return
-         */
-        public Builder appType(String appType) {
-            this.appType = appType;
-            return this;
-        }
-
-
-        /**
-         * 应用描述
-         * <p> 示例值：提供7×24小时智能对话服务，支持常见问题自动解答与工单流转
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 应用图标地址
-         * <p> 示例值：https://example.com/app-icons/customer-service.png
-         *
-         * @param iconUrl
-         * @return
-         */
-        public Builder iconUrl(String iconUrl) {
-            this.iconUrl = iconUrl;
-            return this;
-        }
-
-
-        public CreateAppReqBody build() {
-            return new CreateAppReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

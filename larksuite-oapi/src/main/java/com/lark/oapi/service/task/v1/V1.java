@@ -21,37 +21,37 @@ import com.lark.oapi.service.task.v1.resource.TaskFollower;
 import com.lark.oapi.service.task.v1.resource.TaskReminder;
 
 public class V1 {
-    private final Task task; // 任务
-    private final TaskCollaborator taskCollaborator; // 执行者
-    private final TaskComment taskComment; // 评论
-    private final TaskFollower taskFollower; // 关注人
-    private final TaskReminder taskReminder; // 提醒
+  private final Task task; // task
+  private final TaskCollaborator taskCollaborator; // task.collaborator
+  private final TaskComment taskComment; // task.comment
+  private final TaskFollower taskFollower; // task.follower
+  private final TaskReminder taskReminder; // task.reminder
 
-    public V1(Config config) {
-        this.task = new Task(config);
-        this.taskCollaborator = new TaskCollaborator(config);
-        this.taskComment = new TaskComment(config);
-        this.taskFollower = new TaskFollower(config);
-        this.taskReminder = new TaskReminder(config);
-    }
+  public V1(Config config) {
+    this.task = new Task(config);
+    this.taskCollaborator = new TaskCollaborator(config);
+    this.taskComment = new TaskComment(config);
+    this.taskFollower = new TaskFollower(config);
+    this.taskReminder = new TaskReminder(config);
+  }
 
-    public Task task() {
-        return task;
-    }
+  public Task task() {
+    return task;
+  }
 
-    public TaskCollaborator taskCollaborator() {
-        return taskCollaborator;
-    }
+  public TaskCollaborator taskCollaborator() {
+    return taskCollaborator;
+  }
 
-    public TaskComment taskComment() {
-        return taskComment;
-    }
+  public TaskComment taskComment() {
+    return taskComment;
+  }
 
-    public TaskFollower taskFollower() {
-        return taskFollower;
-    }
+  public TaskFollower taskFollower() {
+    return taskFollower;
+  }
 
-    public TaskReminder taskReminder() {
-        return taskReminder;
-    }
+  public TaskReminder taskReminder() {
+    return taskReminder;
+  }
 }

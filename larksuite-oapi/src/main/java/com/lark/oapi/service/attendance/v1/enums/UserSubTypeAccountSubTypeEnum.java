@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.attendance.v1.enums;
 
-/**
- * 假期子类型
- */
+/** 假期子类型 */
 public enum UserSubTypeAccountSubTypeEnum {
-    NORMAL("normal"), // 通用不区分子类型
-    OFFICIAL("official"), // 法定假期
-    WELFARE("welfare"), // 福利假期
-    ;
-    private String value;
+  NORMAL("normal"), // 通用不区分子类型
+  OFFICIAL("official"), // 法定假期
+  WELFARE("welfare"), // 福利假期
+  ;
+  private String value;
 
-    UserSubTypeAccountSubTypeEnum(String value) {
-        this.value = value;
-    }
+  UserSubTypeAccountSubTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

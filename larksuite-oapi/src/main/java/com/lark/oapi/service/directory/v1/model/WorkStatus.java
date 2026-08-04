@@ -13,189 +13,192 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class WorkStatus {
+  /**
+   * 工作状态
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("status")
+  private String status;
+
+  /**
+   * 工作状态描述 "zh_cn"->"休假中"
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("description_templates")
+  private Map<String, String> descriptionTemplates;
+
+  /**
+   * 开始时间, 单位 秒
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("start_time")
+  private String startTime;
+
+  /**
+   * 结束时间, 单位 秒
+   *
+   * <p>示例值：无
+   */
+  @SerializedName("end_time")
+  private String endTime;
+
+  public String getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public Map<String, String> getDescriptionTemplates() {
+    return this.descriptionTemplates;
+  }
+
+  public void setDescriptionTemplates(Map<String, String> descriptionTemplates) {
+    this.descriptionTemplates = descriptionTemplates;
+  }
+
+  public String getStartTime() {
+    return this.startTime;
+  }
+
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
+
+  public String getEndTime() {
+    return this.endTime;
+  }
+
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
+
+  // builder 开始
+  public WorkStatus() {}
+
+  public WorkStatus(Builder builder) {
     /**
      * 工作状态
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("status")
-    private String status;
+    this.status = builder.status;
     /**
      * 工作状态描述 "zh_cn"->"休假中"
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("description_templates")
-    private Map<String, String> descriptionTemplates;
+    this.descriptionTemplates = builder.descriptionTemplates;
     /**
      * 开始时间, 单位 秒
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("start_time")
-    private String startTime;
+    this.startTime = builder.startTime;
     /**
      * 结束时间, 单位 秒
-     * <p> 示例值：无
+     *
+     * <p>示例值：无
      */
-    @SerializedName("end_time")
+    this.endTime = builder.endTime;
+  }
+
+  public static class Builder {
+    /**
+     * 工作状态
+     *
+     * <p>示例值：无
+     */
+    private String status;
+
+    /**
+     * 工作状态描述 "zh_cn"->"休假中"
+     *
+     * <p>示例值：无
+     */
+    private Map<String, String> descriptionTemplates;
+
+    /**
+     * 开始时间, 单位 秒
+     *
+     * <p>示例值：无
+     */
+    private String startTime;
+
+    /**
+     * 结束时间, 单位 秒
+     *
+     * <p>示例值：无
+     */
     private String endTime;
 
-    // builder 开始
-    public WorkStatus() {
+    /**
+     * 工作状态
+     *
+     * <p>示例值：无
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(String status) {
+      this.status = status;
+      return this;
     }
 
-    public WorkStatus(Builder builder) {
-        /**
-         * 工作状态
-         * <p> 示例值：无
-         */
-        this.status = builder.status;
-        /**
-         * 工作状态描述 "zh_cn"->"休假中"
-         * <p> 示例值：无
-         */
-        this.descriptionTemplates = builder.descriptionTemplates;
-        /**
-         * 开始时间, 单位 秒
-         * <p> 示例值：无
-         */
-        this.startTime = builder.startTime;
-        /**
-         * 结束时间, 单位 秒
-         * <p> 示例值：无
-         */
-        this.endTime = builder.endTime;
+    /**
+     * 工作状态描述 "zh_cn"->"休假中"
+     *
+     * <p>示例值：无
+     *
+     * @param descriptionTemplates
+     * @return
+     */
+    public Builder descriptionTemplates(Map<String, String> descriptionTemplates) {
+      this.descriptionTemplates = descriptionTemplates;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 开始时间, 单位 秒
+     *
+     * <p>示例值：无
+     *
+     * @param startTime
+     * @return
+     */
+    public Builder startTime(String startTime) {
+      this.startTime = startTime;
+      return this;
     }
 
-    public String getStatus() {
-        return this.status;
+    /**
+     * 结束时间, 单位 秒
+     *
+     * <p>示例值：无
+     *
+     * @param endTime
+     * @return
+     */
+    public Builder endTime(String endTime) {
+      this.endTime = endTime;
+      return this;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public WorkStatus build() {
+      return new WorkStatus(this);
     }
+  }
 
-    public Map<String, String> getDescriptionTemplates() {
-        return this.descriptionTemplates;
-    }
-
-    public void setDescriptionTemplates(Map<String, String> descriptionTemplates) {
-        this.descriptionTemplates = descriptionTemplates;
-    }
-
-    public String getStartTime() {
-        return this.startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return this.endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
-
-    public static class Builder {
-        /**
-         * 工作状态
-         * <p> 示例值：无
-         */
-        private String status;
-        /**
-         * 工作状态描述 "zh_cn"->"休假中"
-         * <p> 示例值：无
-         */
-        private Map<String, String> descriptionTemplates;
-        /**
-         * 开始时间, 单位 秒
-         * <p> 示例值：无
-         */
-        private String startTime;
-        /**
-         * 结束时间, 单位 秒
-         * <p> 示例值：无
-         */
-        private String endTime;
-
-        /**
-         * 工作状态
-         * <p> 示例值：无
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(String status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 工作状态描述 "zh_cn"->"休假中"
-         * <p> 示例值：无
-         *
-         * @param descriptionTemplates
-         * @return
-         */
-        public Builder descriptionTemplates(Map<String, String> descriptionTemplates) {
-            this.descriptionTemplates = descriptionTemplates;
-            return this;
-        }
-
-
-        /**
-         * 开始时间, 单位 秒
-         * <p> 示例值：无
-         *
-         * @param startTime
-         * @return
-         */
-        public Builder startTime(String startTime) {
-            this.startTime = startTime;
-            return this;
-        }
-
-
-        /**
-         * 结束时间, 单位 秒
-         * <p> 示例值：无
-         *
-         * @param endTime
-         * @return
-         */
-        public Builder endTime(String endTime) {
-            this.endTime = endTime;
-            return this;
-        }
-
-
-        public WorkStatus build() {
-            return new WorkStatus(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.search.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.search.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KnowledgeSourceSpaceFilter {
+  /**
+   * 云空间文档 token 列表。获取方式参考[如何获取云文档资源相关
+   * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("doc_tokens")
+  private String[] docTokens;
+
+  /**
+   * 云空间文件夹 token 列表。获取方式参考[如何获取云文档资源相关
+   * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("folder_tokens")
+  private String[] folderTokens;
+
+  public String[] getDocTokens() {
+    return this.docTokens;
+  }
+
+  public void setDocTokens(String[] docTokens) {
+    this.docTokens = docTokens;
+  }
+
+  public String[] getFolderTokens() {
+    return this.folderTokens;
+  }
+
+  public void setFolderTokens(String[] folderTokens) {
+    this.folderTokens = folderTokens;
+  }
+
+  // builder 开始
+  public KnowledgeSourceSpaceFilter() {}
+
+  public KnowledgeSourceSpaceFilter(Builder builder) {
     /**
-     * 云空间文档 token 列表
-     * <p> 示例值：
+     * 云空间文档 token 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("doc_tokens")
+    this.docTokens = builder.docTokens;
+    /**
+     * 云空间文件夹 token 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
+     */
+    this.folderTokens = builder.folderTokens;
+  }
+
+  public static class Builder {
+    /**
+     * 云空间文档 token 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
+     */
     private String[] docTokens;
+
     /**
-     * 云空间文件夹 token 列表
-     * <p> 示例值：
+     * 云空间文件夹 token 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
      */
-    @SerializedName("folder_tokens")
     private String[] folderTokens;
 
-    // builder 开始
-    public KnowledgeSourceSpaceFilter() {
+    /**
+     * 云空间文档 token 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
+     *
+     * @param docTokens
+     * @return
+     */
+    public Builder docTokens(String[] docTokens) {
+      this.docTokens = docTokens;
+      return this;
     }
 
-    public KnowledgeSourceSpaceFilter(Builder builder) {
-        /**
-         * 云空间文档 token 列表
-         * <p> 示例值：
-         */
-        this.docTokens = builder.docTokens;
-        /**
-         * 云空间文件夹 token 列表
-         * <p> 示例值：
-         */
-        this.folderTokens = builder.folderTokens;
+    /**
+     * 云空间文件夹 token 列表。获取方式参考[如何获取云文档资源相关
+     * token（id）](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：
+     *
+     * @param folderTokens
+     * @return
+     */
+    public Builder folderTokens(String[] folderTokens) {
+      this.folderTokens = folderTokens;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public KnowledgeSourceSpaceFilter build() {
+      return new KnowledgeSourceSpaceFilter(this);
     }
+  }
 
-    public String[] getDocTokens() {
-        return this.docTokens;
-    }
-
-    public void setDocTokens(String[] docTokens) {
-        this.docTokens = docTokens;
-    }
-
-    public String[] getFolderTokens() {
-        return this.folderTokens;
-    }
-
-    public void setFolderTokens(String[] folderTokens) {
-        this.folderTokens = folderTokens;
-    }
-
-    public static class Builder {
-        /**
-         * 云空间文档 token 列表
-         * <p> 示例值：
-         */
-        private String[] docTokens;
-        /**
-         * 云空间文件夹 token 列表
-         * <p> 示例值：
-         */
-        private String[] folderTokens;
-
-        /**
-         * 云空间文档 token 列表
-         * <p> 示例值：
-         *
-         * @param docTokens
-         * @return
-         */
-        public Builder docTokens(String[] docTokens) {
-            this.docTokens = docTokens;
-            return this;
-        }
-
-
-        /**
-         * 云空间文件夹 token 列表
-         * <p> 示例值：
-         *
-         * @param folderTokens
-         * @return
-         */
-        public Builder folderTokens(String[] folderTokens) {
-            this.folderTokens = folderTokens;
-            return this;
-        }
-
-
-        public KnowledgeSourceSpaceFilter build() {
-            return new KnowledgeSourceSpaceFilter(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

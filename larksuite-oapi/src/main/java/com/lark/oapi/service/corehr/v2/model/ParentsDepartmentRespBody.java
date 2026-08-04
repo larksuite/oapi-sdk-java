@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ParentsDepartmentRespBody {
-    /**
-     * 父部门查询结果
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private DepartmentParents[] items;
-    /**
-     * 是否拒绝导出(user_access_token场景下使用)
-     * <p> 示例值：true
-     */
-    @SerializedName("reject_export")
-    private Boolean rejectExport;
+  /**
+   * 父部门查询结果
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private DepartmentParents[] items;
 
-    public DepartmentParents[] getItems() {
-        return this.items;
-    }
+  /**
+   * 是否拒绝导出(user_access_token场景下使用)
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("reject_export")
+  private Boolean rejectExport;
 
-    public void setItems(DepartmentParents[] items) {
-        this.items = items;
-    }
+  public DepartmentParents[] getItems() {
+    return this.items;
+  }
 
-    public Boolean getRejectExport() {
-        return this.rejectExport;
-    }
+  public void setItems(DepartmentParents[] items) {
+    this.items = items;
+  }
 
-    public void setRejectExport(Boolean rejectExport) {
-        this.rejectExport = rejectExport;
-    }
+  public Boolean getRejectExport() {
+    return this.rejectExport;
+  }
 
+  public void setRejectExport(Boolean rejectExport) {
+    this.rejectExport = rejectExport;
+  }
 }

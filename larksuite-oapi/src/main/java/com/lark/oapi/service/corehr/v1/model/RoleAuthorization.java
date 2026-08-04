@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RoleAuthorization {
+  /**
+   * 雇员 ID
+   *
+   * <p>示例值：6967639606963471902
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 授权列表。;;“按组织架构管理”的角色保留assigned_organization_list;;“不按组织架构管理” 角色保留grantor_rule_list
+   *
+   * <p>示例值：
+   */
+  @SerializedName("permission_detail_list")
+  private PermissionDetail[] permissionDetailList;
+
+  /**
+   * 实际授权管理范围
+   *
+   * <p>示例值：
+   */
+  @SerializedName("management_scope_list")
+  private ManagementScope[] managementScopeList;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public PermissionDetail[] getPermissionDetailList() {
+    return this.permissionDetailList;
+  }
+
+  public void setPermissionDetailList(PermissionDetail[] permissionDetailList) {
+    this.permissionDetailList = permissionDetailList;
+  }
+
+  public ManagementScope[] getManagementScopeList() {
+    return this.managementScopeList;
+  }
+
+  public void setManagementScopeList(ManagementScope[] managementScopeList) {
+    this.managementScopeList = managementScopeList;
+  }
+
+  // builder 开始
+  public RoleAuthorization() {}
+
+  public RoleAuthorization(Builder builder) {
     /**
-     * 员工 ID
-     * <p> 示例值：6967639606963471902
+     * 雇员 ID
+     *
+     * <p>示例值：6967639606963471902
      */
-    @SerializedName("employment_id")
-    private String employmentId;
+    this.employmentId = builder.employmentId;
     /**
-     * 授权列表
-     * <p> 示例值：
+     * 授权列表。;;“按组织架构管理”的角色保留assigned_organization_list;;“不按组织架构管理” 角色保留grantor_rule_list
+     *
+     * <p>示例值：
      */
-    @SerializedName("permission_detail_list")
-    private PermissionDetail[] permissionDetailList;
+    this.permissionDetailList = builder.permissionDetailList;
     /**
      * 实际授权管理范围
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("management_scope_list")
+    this.managementScopeList = builder.managementScopeList;
+  }
+
+  public static class Builder {
+    /**
+     * 雇员 ID
+     *
+     * <p>示例值：6967639606963471902
+     */
+    private String employmentId;
+
+    /**
+     * 授权列表。;;“按组织架构管理”的角色保留assigned_organization_list;;“不按组织架构管理” 角色保留grantor_rule_list
+     *
+     * <p>示例值：
+     */
+    private PermissionDetail[] permissionDetailList;
+
+    /**
+     * 实际授权管理范围
+     *
+     * <p>示例值：
+     */
     private ManagementScope[] managementScopeList;
 
-    // builder 开始
-    public RoleAuthorization() {
+    /**
+     * 雇员 ID
+     *
+     * <p>示例值：6967639606963471902
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public RoleAuthorization(Builder builder) {
-        /**
-         * 员工 ID
-         * <p> 示例值：6967639606963471902
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 授权列表
-         * <p> 示例值：
-         */
-        this.permissionDetailList = builder.permissionDetailList;
-        /**
-         * 实际授权管理范围
-         * <p> 示例值：
-         */
-        this.managementScopeList = builder.managementScopeList;
+    /**
+     * 授权列表。;;“按组织架构管理”的角色保留assigned_organization_list;;“不按组织架构管理” 角色保留grantor_rule_list
+     *
+     * <p>示例值：
+     *
+     * @param permissionDetailList
+     * @return
+     */
+    public Builder permissionDetailList(PermissionDetail[] permissionDetailList) {
+      this.permissionDetailList = permissionDetailList;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 实际授权管理范围
+     *
+     * <p>示例值：
+     *
+     * @param managementScopeList
+     * @return
+     */
+    public Builder managementScopeList(ManagementScope[] managementScopeList) {
+      this.managementScopeList = managementScopeList;
+      return this;
     }
 
-    public String getEmploymentId() {
-        return this.employmentId;
+    public RoleAuthorization build() {
+      return new RoleAuthorization(this);
     }
+  }
 
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public PermissionDetail[] getPermissionDetailList() {
-        return this.permissionDetailList;
-    }
-
-    public void setPermissionDetailList(PermissionDetail[] permissionDetailList) {
-        this.permissionDetailList = permissionDetailList;
-    }
-
-    public ManagementScope[] getManagementScopeList() {
-        return this.managementScopeList;
-    }
-
-    public void setManagementScopeList(ManagementScope[] managementScopeList) {
-        this.managementScopeList = managementScopeList;
-    }
-
-    public static class Builder {
-        /**
-         * 员工 ID
-         * <p> 示例值：6967639606963471902
-         */
-        private String employmentId;
-        /**
-         * 授权列表
-         * <p> 示例值：
-         */
-        private PermissionDetail[] permissionDetailList;
-        /**
-         * 实际授权管理范围
-         * <p> 示例值：
-         */
-        private ManagementScope[] managementScopeList;
-
-        /**
-         * 员工 ID
-         * <p> 示例值：6967639606963471902
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 授权列表
-         * <p> 示例值：
-         *
-         * @param permissionDetailList
-         * @return
-         */
-        public Builder permissionDetailList(PermissionDetail[] permissionDetailList) {
-            this.permissionDetailList = permissionDetailList;
-            return this;
-        }
-
-
-        /**
-         * 实际授权管理范围
-         * <p> 示例值：
-         *
-         * @param managementScopeList
-         * @return
-         */
-        public Builder managementScopeList(ManagementScope[] managementScopeList) {
-            this.managementScopeList = managementScopeList;
-            return this;
-        }
-
-
-        public RoleAuthorization build() {
-            return new RoleAuthorization(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

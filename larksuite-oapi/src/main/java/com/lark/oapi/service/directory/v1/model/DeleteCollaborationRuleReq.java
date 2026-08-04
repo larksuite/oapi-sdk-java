@@ -13,137 +13,143 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.directory.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.directory.v1.enums.*;
 
 public class DeleteCollaborationRuleReq {
+  /**
+   * 对方组织的tenant
+   * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+   *
+   * <p>示例值：test_key
+   */
+  @Query
+  @SerializedName("target_tenant_key")
+  private String targetTenantKey;
+
+  /**
+   * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  public String getTargetTenantKey() {
+    return this.targetTenantKey;
+  }
+
+  public void setTargetTenantKey(String targetTenantKey) {
+    this.targetTenantKey = targetTenantKey;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  /**
+   * 规则ID，可通过[查询可搜可见规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_rule/list)获得
+   *
+   * <p>示例值：2121
+   */
+  @Path
+  @SerializedName("collaboration_rule_id")
+  private String collaborationRuleId;
+
+  public String getCollaborationRuleId() {
+    return this.collaborationRuleId;
+  }
+
+  public void setCollaborationRuleId(String collaborationRuleId) {
+    this.collaborationRuleId = collaborationRuleId;
+  }
+
+  // builder 开始
+  public DeleteCollaborationRuleReq() {}
+
+  public DeleteCollaborationRuleReq(Builder builder) {
     /**
-     * 对方租户的tenant key
-     * <p> 示例值：test_key
+     * 对方组织的tenant
+     * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+     *
+     * <p>示例值：test_key
      */
-    @Query
-    @SerializedName("target_tenant_key")
-    private String targetTenantKey;
+    this.targetTenantKey = builder.targetTenantKey;
     /**
      * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
     /**
-     * 规则ID
-     * <p> 示例值：2121
+     * 规则ID，可通过[查询可搜可见规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_rule/list)获得
+     *
+     * <p>示例值：2121
      */
-    @Path
-    @SerializedName("collaboration_rule_id")
-    private String collaborationRuleId;
+    this.collaborationRuleId = builder.collaborationRuleId;
+  }
 
-    // builder 开始
-    public DeleteCollaborationRuleReq() {
+  public static class Builder {
+    private String targetTenantKey; // 对方组织的tenant
+    // key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+    private String tenantId; // 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
+
+    /**
+     * 对方组织的tenant
+     * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+     *
+     * <p>示例值：test_key
+     *
+     * @param targetTenantKey
+     * @return
+     */
+    public Builder targetTenantKey(String targetTenantKey) {
+      this.targetTenantKey = targetTenantKey;
+      return this;
     }
 
-    public DeleteCollaborationRuleReq(Builder builder) {
-        /**
-         * 对方租户的tenant key
-         * <p> 示例值：test_key
-         */
-        this.targetTenantKey = builder.targetTenantKey;
-        /**
-         * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
-         * <p> 示例值：1
-         */
-        this.tenantId = builder.tenantId;
-        /**
-         * 规则ID
-         * <p> 示例值：2121
-         */
-        this.collaborationRuleId = builder.collaborationRuleId;
+    /**
+     * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
+     *
+     * <p>示例值：1
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String
+        collaborationRuleId; // 规则ID，可通过[查询可搜可见规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_rule/list)获得
+
+    /**
+     * 规则ID，可通过[查询可搜可见规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_rule/list)获得
+     *
+     * <p>示例值：2121
+     *
+     * @param collaborationRuleId
+     * @return
+     */
+    public Builder collaborationRuleId(String collaborationRuleId) {
+      this.collaborationRuleId = collaborationRuleId;
+      return this;
     }
 
-    public String getTargetTenantKey() {
-        return this.targetTenantKey;
+    public DeleteCollaborationRuleReq build() {
+      return new DeleteCollaborationRuleReq(this);
     }
+  }
 
-    public void setTargetTenantKey(String targetTenantKey) {
-        this.targetTenantKey = targetTenantKey;
-    }
-
-    public String getTenantId() {
-        return this.tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public String getCollaborationRuleId() {
-        return this.collaborationRuleId;
-    }
-
-    public void setCollaborationRuleId(String collaborationRuleId) {
-        this.collaborationRuleId = collaborationRuleId;
-    }
-
-    public static class Builder {
-        private String targetTenantKey; // 对方租户的tenant key
-        private String tenantId; // 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
-        private String collaborationRuleId; // 规则ID
-
-        /**
-         * 对方租户的tenant key
-         * <p> 示例值：test_key
-         *
-         * @param targetTenantKey
-         * @return
-         */
-        public Builder targetTenantKey(String targetTenantKey) {
-            this.targetTenantKey = targetTenantKey;
-            return this;
-        }
-
-        /**
-         * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
-         * <p> 示例值：1
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-        /**
-         * 规则ID
-         * <p> 示例值：2121
-         *
-         * @param collaborationRuleId
-         * @return
-         */
-        public Builder collaborationRuleId(String collaborationRuleId) {
-            this.collaborationRuleId = collaborationRuleId;
-            return this;
-        }
-
-
-        public DeleteCollaborationRuleReq build() {
-            return new DeleteCollaborationRuleReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,408 +13,443 @@
 
 package com.lark.oapi.service.apaas.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.apaas.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EnvironmentVariable {
+  /**
+   * 环境变量 API 名称
+   *
+   * <p>示例值：globalParam_0b410b17704
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 对象的名称，「type」取值为 lookup, lookup_multi 时才有效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("label")
+  private Label label;
+
+  /**
+   * 描述
+   *
+   * <p>示例值：Sample text
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 返回 json marshal 后的字符串。 is_encrypted 为 「true」时，依然可以获取返回值
+   *
+   * <p>示例值：[1757083131077684,1757085362739239,1757083720703032]
+   */
+  @SerializedName("value")
+  private String value;
+
+  /**
+   * 是否加密，「type」取值为 text, float 时才有效
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("is_encrypted")
+  private Boolean isEncrypted;
+
+  /**
+   * 对象的 API 名称，「type」取值为 lookup, lookup_multi 时才有效
+   *
+   * <p>示例值：_user
+   */
+  @SerializedName("object_api_name")
+  private String objectApiName;
+
+  /**
+   * 对象的名称，「type」取值为 lookup, lookup_multi 时才有效
+   *
+   * <p>示例值：
+   */
+  @SerializedName("object_label")
+  private Label objectLabel;
+
+  /**
+   * 「创建时间」，日期时间字段。 使用 Unix 时间戳，单位为毫秒
+   *
+   * <p>示例值：1718350902019
+   */
+  @SerializedName("created_at")
+  private Integer createdAt;
+
+  /**
+   * 「更新时间」，日期时间字段。 使用 Unix 时间戳，单位为毫秒
+   *
+   * <p>示例值：1718350902019
+   */
+  @SerializedName("updated_at")
+  private Integer updatedAt;
+
+  /**
+   * 环境变量的类型，可取值范围有：lookup, lookup_multi, text, float 等
+   *
+   * <p>示例值：lookup
+   */
+  @SerializedName("type")
+  private String type;
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public Label getLabel() {
+    return this.label;
+  }
+
+  public void setLabel(Label label) {
+    this.label = label;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getValue() {
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public Boolean getIsEncrypted() {
+    return this.isEncrypted;
+  }
+
+  public void setIsEncrypted(Boolean isEncrypted) {
+    this.isEncrypted = isEncrypted;
+  }
+
+  public String getObjectApiName() {
+    return this.objectApiName;
+  }
+
+  public void setObjectApiName(String objectApiName) {
+    this.objectApiName = objectApiName;
+  }
+
+  public Label getObjectLabel() {
+    return this.objectLabel;
+  }
+
+  public void setObjectLabel(Label objectLabel) {
+    this.objectLabel = objectLabel;
+  }
+
+  public Integer getCreatedAt() {
+    return this.createdAt;
+  }
+
+  public void setCreatedAt(Integer createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public Integer getUpdatedAt() {
+    return this.updatedAt;
+  }
+
+  public void setUpdatedAt(Integer updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public String getType() {
+    return this.type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  // builder 开始
+  public EnvironmentVariable() {}
+
+  public EnvironmentVariable(Builder builder) {
     /**
      * 环境变量 API 名称
-     * <p> 示例值：globalParam_0b410b17704
+     *
+     * <p>示例值：globalParam_0b410b17704
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
-     * 环境变量的名称
-     * <p> 示例值：
+     * 对象的名称，「type」取值为 lookup, lookup_multi 时才有效
+     *
+     * <p>示例值：
      */
-    @SerializedName("label")
-    private Label label;
+    this.label = builder.label;
     /**
      * 描述
-     * <p> 示例值：Sample text
+     *
+     * <p>示例值：Sample text
      */
-    @SerializedName("description")
+    this.description = builder.description;
+    /**
+     * 返回 json marshal 后的字符串。 is_encrypted 为 「true」时，依然可以获取返回值
+     *
+     * <p>示例值：[1757083131077684,1757085362739239,1757083720703032]
+     */
+    this.value = builder.value;
+    /**
+     * 是否加密，「type」取值为 text, float 时才有效
+     *
+     * <p>示例值：false
+     */
+    this.isEncrypted = builder.isEncrypted;
+    /**
+     * 对象的 API 名称，「type」取值为 lookup, lookup_multi 时才有效
+     *
+     * <p>示例值：_user
+     */
+    this.objectApiName = builder.objectApiName;
+    /**
+     * 对象的名称，「type」取值为 lookup, lookup_multi 时才有效
+     *
+     * <p>示例值：
+     */
+    this.objectLabel = builder.objectLabel;
+    /**
+     * 「创建时间」，日期时间字段。 使用 Unix 时间戳，单位为毫秒
+     *
+     * <p>示例值：1718350902019
+     */
+    this.createdAt = builder.createdAt;
+    /**
+     * 「更新时间」，日期时间字段。 使用 Unix 时间戳，单位为毫秒
+     *
+     * <p>示例值：1718350902019
+     */
+    this.updatedAt = builder.updatedAt;
+    /**
+     * 环境变量的类型，可取值范围有：lookup, lookup_multi, text, float 等
+     *
+     * <p>示例值：lookup
+     */
+    this.type = builder.type;
+  }
+
+  public static class Builder {
+    /**
+     * 环境变量 API 名称
+     *
+     * <p>示例值：globalParam_0b410b17704
+     */
+    private String apiName;
+
+    /**
+     * 对象的名称，「type」取值为 lookup, lookup_multi 时才有效
+     *
+     * <p>示例值：
+     */
+    private Label label;
+
+    /**
+     * 描述
+     *
+     * <p>示例值：Sample text
+     */
     private String description;
+
     /**
-     * 返回 json marshal 后的字符串。 isEncrypted 为 「true」时，依然可以获取返回值。
-     * <p> 示例值：[1757083131077684,1757085362739239,1757083720703032]
+     * 返回 json marshal 后的字符串。 is_encrypted 为 「true」时，依然可以获取返回值
+     *
+     * <p>示例值：[1757083131077684,1757085362739239,1757083720703032]
      */
-    @SerializedName("value")
     private String value;
+
     /**
-     * 是否加密，「type 」取值为 text, float 时才有效
-     * <p> 示例值：false
+     * 是否加密，「type」取值为 text, float 时才有效
+     *
+     * <p>示例值：false
      */
-    @SerializedName("is_encrypted")
     private Boolean isEncrypted;
+
     /**
-     * 对象的 API 名称，「type 」取值为 lookup, lookup_multi 时才有效
-     * <p> 示例值：_user
+     * 对象的 API 名称，「type」取值为 lookup, lookup_multi 时才有效
+     *
+     * <p>示例值：_user
      */
-    @SerializedName("object_api_name")
     private String objectApiName;
+
     /**
-     * 对象的名称，「type 」取值为 lookup, lookup_multi 时才有效
-     * <p> 示例值：
+     * 对象的名称，「type」取值为 lookup, lookup_multi 时才有效
+     *
+     * <p>示例值：
      */
-    @SerializedName("object_label")
     private Label objectLabel;
+
     /**
-     * 「创建时间」，日期时间字段。 使用 Unix 时间戳
-     * <p> 示例值：1718350902019
+     * 「创建时间」，日期时间字段。 使用 Unix 时间戳，单位为毫秒
+     *
+     * <p>示例值：1718350902019
      */
-    @SerializedName("created_at")
     private Integer createdAt;
+
     /**
-     * 「更新时间」，日期时间字段。 使用 Unix 时间戳
-     * <p> 示例值：1718350902019
+     * 「更新时间」，日期时间字段。 使用 Unix 时间戳，单位为毫秒
+     *
+     * <p>示例值：1718350902019
      */
-    @SerializedName("updated_at")
     private Integer updatedAt;
+
     /**
-     * 环境变量的类型，可取值范围有：lookup, lookup_multi
-     * <p> 示例值：lookup
+     * 环境变量的类型，可取值范围有：lookup, lookup_multi, text, float 等
+     *
+     * <p>示例值：lookup
      */
-    @SerializedName("type")
     private String type;
 
-    // builder 开始
-    public EnvironmentVariable() {
+    /**
+     * 环境变量 API 名称
+     *
+     * <p>示例值：globalParam_0b410b17704
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public EnvironmentVariable(Builder builder) {
-        /**
-         * 环境变量 API 名称
-         * <p> 示例值：globalParam_0b410b17704
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 环境变量的名称
-         * <p> 示例值：
-         */
-        this.label = builder.label;
-        /**
-         * 描述
-         * <p> 示例值：Sample text
-         */
-        this.description = builder.description;
-        /**
-         * 返回 json marshal 后的字符串。 isEncrypted 为 「true」时，依然可以获取返回值。
-         * <p> 示例值：[1757083131077684,1757085362739239,1757083720703032]
-         */
-        this.value = builder.value;
-        /**
-         * 是否加密，「type 」取值为 text, float 时才有效
-         * <p> 示例值：false
-         */
-        this.isEncrypted = builder.isEncrypted;
-        /**
-         * 对象的 API 名称，「type 」取值为 lookup, lookup_multi 时才有效
-         * <p> 示例值：_user
-         */
-        this.objectApiName = builder.objectApiName;
-        /**
-         * 对象的名称，「type 」取值为 lookup, lookup_multi 时才有效
-         * <p> 示例值：
-         */
-        this.objectLabel = builder.objectLabel;
-        /**
-         * 「创建时间」，日期时间字段。 使用 Unix 时间戳
-         * <p> 示例值：1718350902019
-         */
-        this.createdAt = builder.createdAt;
-        /**
-         * 「更新时间」，日期时间字段。 使用 Unix 时间戳
-         * <p> 示例值：1718350902019
-         */
-        this.updatedAt = builder.updatedAt;
-        /**
-         * 环境变量的类型，可取值范围有：lookup, lookup_multi
-         * <p> 示例值：lookup
-         */
-        this.type = builder.type;
+    /**
+     * 对象的名称，「type」取值为 lookup, lookup_multi 时才有效
+     *
+     * <p>示例值：
+     *
+     * @param label
+     * @return
+     */
+    public Builder label(Label label) {
+      this.label = label;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 描述
+     *
+     * <p>示例值：Sample text
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public String getApiName() {
-        return this.apiName;
+    /**
+     * 返回 json marshal 后的字符串。 is_encrypted 为 「true」时，依然可以获取返回值
+     *
+     * <p>示例值：[1757083131077684,1757085362739239,1757083720703032]
+     *
+     * @param value
+     * @return
+     */
+    public Builder value(String value) {
+      this.value = value;
+      return this;
     }
 
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
+    /**
+     * 是否加密，「type」取值为 text, float 时才有效
+     *
+     * <p>示例值：false
+     *
+     * @param isEncrypted
+     * @return
+     */
+    public Builder isEncrypted(Boolean isEncrypted) {
+      this.isEncrypted = isEncrypted;
+      return this;
     }
 
-    public Label getLabel() {
-        return this.label;
+    /**
+     * 对象的 API 名称，「type」取值为 lookup, lookup_multi 时才有效
+     *
+     * <p>示例值：_user
+     *
+     * @param objectApiName
+     * @return
+     */
+    public Builder objectApiName(String objectApiName) {
+      this.objectApiName = objectApiName;
+      return this;
     }
 
-    public void setLabel(Label label) {
-        this.label = label;
+    /**
+     * 对象的名称，「type」取值为 lookup, lookup_multi 时才有效
+     *
+     * <p>示例值：
+     *
+     * @param objectLabel
+     * @return
+     */
+    public Builder objectLabel(Label objectLabel) {
+      this.objectLabel = objectLabel;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * 「创建时间」，日期时间字段。 使用 Unix 时间戳，单位为毫秒
+     *
+     * <p>示例值：1718350902019
+     *
+     * @param createdAt
+     * @return
+     */
+    public Builder createdAt(Integer createdAt) {
+      this.createdAt = createdAt;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * 「更新时间」，日期时间字段。 使用 Unix 时间戳，单位为毫秒
+     *
+     * <p>示例值：1718350902019
+     *
+     * @param updatedAt
+     * @return
+     */
+    public Builder updatedAt(Integer updatedAt) {
+      this.updatedAt = updatedAt;
+      return this;
     }
 
-    public String getValue() {
-        return this.value;
+    /**
+     * 环境变量的类型，可取值范围有：lookup, lookup_multi, text, float 等
+     *
+     * <p>示例值：lookup
+     *
+     * @param type
+     * @return
+     */
+    public Builder type(String type) {
+      this.type = type;
+      return this;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public EnvironmentVariable build() {
+      return new EnvironmentVariable(this);
     }
+  }
 
-    public Boolean getIsEncrypted() {
-        return this.isEncrypted;
-    }
-
-    public void setIsEncrypted(Boolean isEncrypted) {
-        this.isEncrypted = isEncrypted;
-    }
-
-    public String getObjectApiName() {
-        return this.objectApiName;
-    }
-
-    public void setObjectApiName(String objectApiName) {
-        this.objectApiName = objectApiName;
-    }
-
-    public Label getObjectLabel() {
-        return this.objectLabel;
-    }
-
-    public void setObjectLabel(Label objectLabel) {
-        this.objectLabel = objectLabel;
-    }
-
-    public Integer getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(Integer createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Integer getUpdatedAt() {
-        return this.updatedAt;
-    }
-
-    public void setUpdatedAt(Integer updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public static class Builder {
-        /**
-         * 环境变量 API 名称
-         * <p> 示例值：globalParam_0b410b17704
-         */
-        private String apiName;
-        /**
-         * 环境变量的名称
-         * <p> 示例值：
-         */
-        private Label label;
-        /**
-         * 描述
-         * <p> 示例值：Sample text
-         */
-        private String description;
-        /**
-         * 返回 json marshal 后的字符串。 isEncrypted 为 「true」时，依然可以获取返回值。
-         * <p> 示例值：[1757083131077684,1757085362739239,1757083720703032]
-         */
-        private String value;
-        /**
-         * 是否加密，「type 」取值为 text, float 时才有效
-         * <p> 示例值：false
-         */
-        private Boolean isEncrypted;
-        /**
-         * 对象的 API 名称，「type 」取值为 lookup, lookup_multi 时才有效
-         * <p> 示例值：_user
-         */
-        private String objectApiName;
-        /**
-         * 对象的名称，「type 」取值为 lookup, lookup_multi 时才有效
-         * <p> 示例值：
-         */
-        private Label objectLabel;
-        /**
-         * 「创建时间」，日期时间字段。 使用 Unix 时间戳
-         * <p> 示例值：1718350902019
-         */
-        private Integer createdAt;
-        /**
-         * 「更新时间」，日期时间字段。 使用 Unix 时间戳
-         * <p> 示例值：1718350902019
-         */
-        private Integer updatedAt;
-        /**
-         * 环境变量的类型，可取值范围有：lookup, lookup_multi
-         * <p> 示例值：lookup
-         */
-        private String type;
-
-        /**
-         * 环境变量 API 名称
-         * <p> 示例值：globalParam_0b410b17704
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 环境变量的名称
-         * <p> 示例值：
-         *
-         * @param label
-         * @return
-         */
-        public Builder label(Label label) {
-            this.label = label;
-            return this;
-        }
-
-
-        /**
-         * 描述
-         * <p> 示例值：Sample text
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 返回 json marshal 后的字符串。 isEncrypted 为 「true」时，依然可以获取返回值。
-         * <p> 示例值：[1757083131077684,1757085362739239,1757083720703032]
-         *
-         * @param value
-         * @return
-         */
-        public Builder value(String value) {
-            this.value = value;
-            return this;
-        }
-
-
-        /**
-         * 是否加密，「type 」取值为 text, float 时才有效
-         * <p> 示例值：false
-         *
-         * @param isEncrypted
-         * @return
-         */
-        public Builder isEncrypted(Boolean isEncrypted) {
-            this.isEncrypted = isEncrypted;
-            return this;
-        }
-
-
-        /**
-         * 对象的 API 名称，「type 」取值为 lookup, lookup_multi 时才有效
-         * <p> 示例值：_user
-         *
-         * @param objectApiName
-         * @return
-         */
-        public Builder objectApiName(String objectApiName) {
-            this.objectApiName = objectApiName;
-            return this;
-        }
-
-
-        /**
-         * 对象的名称，「type 」取值为 lookup, lookup_multi 时才有效
-         * <p> 示例值：
-         *
-         * @param objectLabel
-         * @return
-         */
-        public Builder objectLabel(Label objectLabel) {
-            this.objectLabel = objectLabel;
-            return this;
-        }
-
-
-        /**
-         * 「创建时间」，日期时间字段。 使用 Unix 时间戳
-         * <p> 示例值：1718350902019
-         *
-         * @param createdAt
-         * @return
-         */
-        public Builder createdAt(Integer createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-
-        /**
-         * 「更新时间」，日期时间字段。 使用 Unix 时间戳
-         * <p> 示例值：1718350902019
-         *
-         * @param updatedAt
-         * @return
-         */
-        public Builder updatedAt(Integer updatedAt) {
-            this.updatedAt = updatedAt;
-            return this;
-        }
-
-
-        /**
-         * 环境变量的类型，可取值范围有：lookup, lookup_multi
-         * <p> 示例值：lookup
-         *
-         * @param type
-         * @return
-         */
-        public Builder type(String type) {
-            this.type = type;
-            return this;
-        }
-
-
-        public EnvironmentVariable build() {
-            return new EnvironmentVariable(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

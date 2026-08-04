@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DimensionAbilityArgs {
+  /**
+   * 能力项id
+   *
+   * <p>示例值：6930815272790114324
+   */
+  @SerializedName("ability_id")
+  private String abilityId;
+
+  /**
+   * 能力项占位符
+   *
+   * <p>示例值：占位符
+   */
+  @SerializedName("place_holder")
+  private String placeHolder;
+
+  /**
+   * 英文能力项占位符
+   *
+   * <p>示例值：place holder
+   */
+  @SerializedName("en_place_holder")
+  private String enPlaceHolder;
+
+  public String getAbilityId() {
+    return this.abilityId;
+  }
+
+  public void setAbilityId(String abilityId) {
+    this.abilityId = abilityId;
+  }
+
+  public String getPlaceHolder() {
+    return this.placeHolder;
+  }
+
+  public void setPlaceHolder(String placeHolder) {
+    this.placeHolder = placeHolder;
+  }
+
+  public String getEnPlaceHolder() {
+    return this.enPlaceHolder;
+  }
+
+  public void setEnPlaceHolder(String enPlaceHolder) {
+    this.enPlaceHolder = enPlaceHolder;
+  }
+
+  // builder 开始
+  public DimensionAbilityArgs() {}
+
+  public DimensionAbilityArgs(Builder builder) {
     /**
      * 能力项id
-     * <p> 示例值：6930815272790114324
+     *
+     * <p>示例值：6930815272790114324
      */
-    @SerializedName("ability_id")
-    private String abilityId;
+    this.abilityId = builder.abilityId;
     /**
      * 能力项占位符
-     * <p> 示例值：占位符
+     *
+     * <p>示例值：占位符
      */
-    @SerializedName("place_holder")
-    private String placeHolder;
+    this.placeHolder = builder.placeHolder;
     /**
      * 英文能力项占位符
-     * <p> 示例值：place holder
+     *
+     * <p>示例值：place holder
      */
-    @SerializedName("en_place_holder")
+    this.enPlaceHolder = builder.enPlaceHolder;
+  }
+
+  public static class Builder {
+    /**
+     * 能力项id
+     *
+     * <p>示例值：6930815272790114324
+     */
+    private String abilityId;
+
+    /**
+     * 能力项占位符
+     *
+     * <p>示例值：占位符
+     */
+    private String placeHolder;
+
+    /**
+     * 英文能力项占位符
+     *
+     * <p>示例值：place holder
+     */
     private String enPlaceHolder;
 
-    // builder 开始
-    public DimensionAbilityArgs() {
+    /**
+     * 能力项id
+     *
+     * <p>示例值：6930815272790114324
+     *
+     * @param abilityId
+     * @return
+     */
+    public Builder abilityId(String abilityId) {
+      this.abilityId = abilityId;
+      return this;
     }
 
-    public DimensionAbilityArgs(Builder builder) {
-        /**
-         * 能力项id
-         * <p> 示例值：6930815272790114324
-         */
-        this.abilityId = builder.abilityId;
-        /**
-         * 能力项占位符
-         * <p> 示例值：占位符
-         */
-        this.placeHolder = builder.placeHolder;
-        /**
-         * 英文能力项占位符
-         * <p> 示例值：place holder
-         */
-        this.enPlaceHolder = builder.enPlaceHolder;
+    /**
+     * 能力项占位符
+     *
+     * <p>示例值：占位符
+     *
+     * @param placeHolder
+     * @return
+     */
+    public Builder placeHolder(String placeHolder) {
+      this.placeHolder = placeHolder;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 英文能力项占位符
+     *
+     * <p>示例值：place holder
+     *
+     * @param enPlaceHolder
+     * @return
+     */
+    public Builder enPlaceHolder(String enPlaceHolder) {
+      this.enPlaceHolder = enPlaceHolder;
+      return this;
     }
 
-    public String getAbilityId() {
-        return this.abilityId;
+    public DimensionAbilityArgs build() {
+      return new DimensionAbilityArgs(this);
     }
+  }
 
-    public void setAbilityId(String abilityId) {
-        this.abilityId = abilityId;
-    }
-
-    public String getPlaceHolder() {
-        return this.placeHolder;
-    }
-
-    public void setPlaceHolder(String placeHolder) {
-        this.placeHolder = placeHolder;
-    }
-
-    public String getEnPlaceHolder() {
-        return this.enPlaceHolder;
-    }
-
-    public void setEnPlaceHolder(String enPlaceHolder) {
-        this.enPlaceHolder = enPlaceHolder;
-    }
-
-    public static class Builder {
-        /**
-         * 能力项id
-         * <p> 示例值：6930815272790114324
-         */
-        private String abilityId;
-        /**
-         * 能力项占位符
-         * <p> 示例值：占位符
-         */
-        private String placeHolder;
-        /**
-         * 英文能力项占位符
-         * <p> 示例值：place holder
-         */
-        private String enPlaceHolder;
-
-        /**
-         * 能力项id
-         * <p> 示例值：6930815272790114324
-         *
-         * @param abilityId
-         * @return
-         */
-        public Builder abilityId(String abilityId) {
-            this.abilityId = abilityId;
-            return this;
-        }
-
-
-        /**
-         * 能力项占位符
-         * <p> 示例值：占位符
-         *
-         * @param placeHolder
-         * @return
-         */
-        public Builder placeHolder(String placeHolder) {
-            this.placeHolder = placeHolder;
-            return this;
-        }
-
-
-        /**
-         * 英文能力项占位符
-         * <p> 示例值：place holder
-         *
-         * @param enPlaceHolder
-         * @return
-         */
-        public Builder enPlaceHolder(String enPlaceHolder) {
-            this.enPlaceHolder = enPlaceHolder;
-            return this;
-        }
-
-
-        public DimensionAbilityArgs build() {
-            return new DimensionAbilityArgs(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

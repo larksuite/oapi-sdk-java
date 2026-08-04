@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.elearning.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.elearning.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class VisibleScopeGroup {
+  /**
+   * 可见范围列表（比如招聘类型的「社招」「校招」）
+   *
+   * <p>示例值：
+   */
+  @SerializedName("scope_list")
+  private VisibleScopeUnit[] scopeList;
+
+  /**
+   * 可见范围类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+   *
+   * <p>示例值：2
+   */
+  @SerializedName("scope_type")
+  private String scopeType;
+
+  /**
+   * 入职时间
+   *
+   * <p>示例值：
+   */
+  @SerializedName("entry_date")
+  private ScopeEntryDateInfo entryDate;
+
+  public VisibleScopeUnit[] getScopeList() {
+    return this.scopeList;
+  }
+
+  public void setScopeList(VisibleScopeUnit[] scopeList) {
+    this.scopeList = scopeList;
+  }
+
+  public String getScopeType() {
+    return this.scopeType;
+  }
+
+  public void setScopeType(String scopeType) {
+    this.scopeType = scopeType;
+  }
+
+  public ScopeEntryDateInfo getEntryDate() {
+    return this.entryDate;
+  }
+
+  public void setEntryDate(ScopeEntryDateInfo entryDate) {
+    this.entryDate = entryDate;
+  }
+
+  // builder 开始
+  public VisibleScopeGroup() {}
+
+  public VisibleScopeGroup(Builder builder) {
     /**
      * 可见范围列表（比如招聘类型的「社招」「校招」）
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("scope_list")
-    private VisibleScopeUnit[] scopeList;
+    this.scopeList = builder.scopeList;
     /**
      * 可见范围类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-     * <p> 示例值：2
+     *
+     * <p>示例值：2
      */
-    @SerializedName("scope_type")
-    private String scopeType;
+    this.scopeType = builder.scopeType;
     /**
      * 入职时间
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("entry_date")
+    this.entryDate = builder.entryDate;
+  }
+
+  public static class Builder {
+    /**
+     * 可见范围列表（比如招聘类型的「社招」「校招」）
+     *
+     * <p>示例值：
+     */
+    private VisibleScopeUnit[] scopeList;
+
+    /**
+     * 可见范围类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：2
+     */
+    private String scopeType;
+
+    /**
+     * 入职时间
+     *
+     * <p>示例值：
+     */
     private ScopeEntryDateInfo entryDate;
 
-    // builder 开始
-    public VisibleScopeGroup() {
+    /**
+     * 可见范围列表（比如招聘类型的「社招」「校招」）
+     *
+     * <p>示例值：
+     *
+     * @param scopeList
+     * @return
+     */
+    public Builder scopeList(VisibleScopeUnit[] scopeList) {
+      this.scopeList = scopeList;
+      return this;
     }
 
-    public VisibleScopeGroup(Builder builder) {
-        /**
-         * 可见范围列表（比如招聘类型的「社招」「校招」）
-         * <p> 示例值：
-         */
-        this.scopeList = builder.scopeList;
-        /**
-         * 可见范围类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：2
-         */
-        this.scopeType = builder.scopeType;
-        /**
-         * 入职时间
-         * <p> 示例值：
-         */
-        this.entryDate = builder.entryDate;
+    /**
+     * 可见范围类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
+     *
+     * <p>示例值：2
+     *
+     * @param scopeType
+     * @return
+     */
+    public Builder scopeType(String scopeType) {
+      this.scopeType = scopeType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 入职时间
+     *
+     * <p>示例值：
+     *
+     * @param entryDate
+     * @return
+     */
+    public Builder entryDate(ScopeEntryDateInfo entryDate) {
+      this.entryDate = entryDate;
+      return this;
     }
 
-    public VisibleScopeUnit[] getScopeList() {
-        return this.scopeList;
+    public VisibleScopeGroup build() {
+      return new VisibleScopeGroup(this);
     }
+  }
 
-    public void setScopeList(VisibleScopeUnit[] scopeList) {
-        this.scopeList = scopeList;
-    }
-
-    public String getScopeType() {
-        return this.scopeType;
-    }
-
-    public void setScopeType(String scopeType) {
-        this.scopeType = scopeType;
-    }
-
-    public ScopeEntryDateInfo getEntryDate() {
-        return this.entryDate;
-    }
-
-    public void setEntryDate(ScopeEntryDateInfo entryDate) {
-        this.entryDate = entryDate;
-    }
-
-    public static class Builder {
-        /**
-         * 可见范围列表（比如招聘类型的「社招」「校招」）
-         * <p> 示例值：
-         */
-        private VisibleScopeUnit[] scopeList;
-        /**
-         * 可见范围类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：2
-         */
-        private String scopeType;
-        /**
-         * 入职时间
-         * <p> 示例值：
-         */
-        private ScopeEntryDateInfo entryDate;
-
-        /**
-         * 可见范围列表（比如招聘类型的「社招」「校招」）
-         * <p> 示例值：
-         *
-         * @param scopeList
-         * @return
-         */
-        public Builder scopeList(VisibleScopeUnit[] scopeList) {
-            this.scopeList = scopeList;
-            return this;
-        }
-
-
-        /**
-         * 可见范围类型。[枚举值](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/elearning-v2/enum)
-         * <p> 示例值：2
-         *
-         * @param scopeType
-         * @return
-         */
-        public Builder scopeType(String scopeType) {
-            this.scopeType = scopeType;
-            return this;
-        }
-
-
-        /**
-         * 入职时间
-         * <p> 示例值：
-         *
-         * @param entryDate
-         * @return
-         */
-        public Builder entryDate(ScopeEntryDateInfo entryDate) {
-            this.entryDate = entryDate;
-            return this;
-        }
-
-
-        public VisibleScopeGroup build() {
-            return new VisibleScopeGroup(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

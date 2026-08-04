@@ -13,226 +13,234 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class CustomHttpHeader {
+  /**
+   * 当前Http请求的Host
+   *
+   * <p>示例值：
+   */
+  @SerializedName("Host")
+  private String host;
+
+  /**
+   * 前端传递的参数, Request时有效, Response时, 会被丢弃
+   *
+   * <p>示例值：
+   */
+  @SerializedName("QueryParams")
+  private Map<String, String> queryParams;
+
+  /**
+   * 请求的cookie是不带域名也不带path
+   *
+   * <p>示例值：
+   */
+  @SerializedName("RequestCookies")
+  private Map<String, String> requestCookies;
+
+  /**
+   * 当前Http请求的Path
+   *
+   * <p>示例值：
+   */
+  @SerializedName("Path")
+  private String path;
+
+  /**
+   * 请求header
+   *
+   * <p>示例值：
+   */
+  @SerializedName("Extra")
+  private Map<String, String> extra;
+
+  public String getHost() {
+    return this.host;
+  }
+
+  public void setHost(String host) {
+    this.host = host;
+  }
+
+  public Map<String, String> getQueryParams() {
+    return this.queryParams;
+  }
+
+  public void setQueryParams(Map<String, String> queryParams) {
+    this.queryParams = queryParams;
+  }
+
+  public Map<String, String> getRequestCookies() {
+    return this.requestCookies;
+  }
+
+  public void setRequestCookies(Map<String, String> requestCookies) {
+    this.requestCookies = requestCookies;
+  }
+
+  public String getPath() {
+    return this.path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
+  }
+
+  public Map<String, String> getExtra() {
+    return this.extra;
+  }
+
+  public void setExtra(Map<String, String> extra) {
+    this.extra = extra;
+  }
+
+  // builder 开始
+  public CustomHttpHeader() {}
+
+  public CustomHttpHeader(Builder builder) {
     /**
      * 当前Http请求的Host
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("Host")
-    private String host;
+    this.host = builder.host;
     /**
      * 前端传递的参数, Request时有效, Response时, 会被丢弃
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("QueryParams")
-    private Map<String, String> queryParams;
+    this.queryParams = builder.queryParams;
     /**
      * 请求的cookie是不带域名也不带path
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("RequestCookies")
-    private Map<String, String> requestCookies;
+    this.requestCookies = builder.requestCookies;
     /**
      * 当前Http请求的Path
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("Path")
-    private String path;
+    this.path = builder.path;
     /**
      * 请求header
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("Extra")
+    this.extra = builder.extra;
+  }
+
+  public static class Builder {
+    /**
+     * 当前Http请求的Host
+     *
+     * <p>示例值：
+     */
+    private String host;
+
+    /**
+     * 前端传递的参数, Request时有效, Response时, 会被丢弃
+     *
+     * <p>示例值：
+     */
+    private Map<String, String> queryParams;
+
+    /**
+     * 请求的cookie是不带域名也不带path
+     *
+     * <p>示例值：
+     */
+    private Map<String, String> requestCookies;
+
+    /**
+     * 当前Http请求的Path
+     *
+     * <p>示例值：
+     */
+    private String path;
+
+    /**
+     * 请求header
+     *
+     * <p>示例值：
+     */
     private Map<String, String> extra;
 
-    // builder 开始
-    public CustomHttpHeader() {
+    /**
+     * 当前Http请求的Host
+     *
+     * <p>示例值：
+     *
+     * @param host
+     * @return
+     */
+    public Builder host(String host) {
+      this.host = host;
+      return this;
     }
 
-    public CustomHttpHeader(Builder builder) {
-        /**
-         * 当前Http请求的Host
-         * <p> 示例值：
-         */
-        this.host = builder.host;
-        /**
-         * 前端传递的参数, Request时有效, Response时, 会被丢弃
-         * <p> 示例值：
-         */
-        this.queryParams = builder.queryParams;
-        /**
-         * 请求的cookie是不带域名也不带path
-         * <p> 示例值：
-         */
-        this.requestCookies = builder.requestCookies;
-        /**
-         * 当前Http请求的Path
-         * <p> 示例值：
-         */
-        this.path = builder.path;
-        /**
-         * 请求header
-         * <p> 示例值：
-         */
-        this.extra = builder.extra;
+    /**
+     * 前端传递的参数, Request时有效, Response时, 会被丢弃
+     *
+     * <p>示例值：
+     *
+     * @param queryParams
+     * @return
+     */
+    public Builder queryParams(Map<String, String> queryParams) {
+      this.queryParams = queryParams;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 请求的cookie是不带域名也不带path
+     *
+     * <p>示例值：
+     *
+     * @param requestCookies
+     * @return
+     */
+    public Builder requestCookies(Map<String, String> requestCookies) {
+      this.requestCookies = requestCookies;
+      return this;
     }
 
-    public String getHost() {
-        return this.host;
+    /**
+     * 当前Http请求的Path
+     *
+     * <p>示例值：
+     *
+     * @param path
+     * @return
+     */
+    public Builder path(String path) {
+      this.path = path;
+      return this;
     }
 
-    public void setHost(String host) {
-        this.host = host;
+    /**
+     * 请求header
+     *
+     * <p>示例值：
+     *
+     * @param extra
+     * @return
+     */
+    public Builder extra(Map<String, String> extra) {
+      this.extra = extra;
+      return this;
     }
 
-    public Map<String, String> getQueryParams() {
-        return this.queryParams;
+    public CustomHttpHeader build() {
+      return new CustomHttpHeader(this);
     }
+  }
 
-    public void setQueryParams(Map<String, String> queryParams) {
-        this.queryParams = queryParams;
-    }
-
-    public Map<String, String> getRequestCookies() {
-        return this.requestCookies;
-    }
-
-    public void setRequestCookies(Map<String, String> requestCookies) {
-        this.requestCookies = requestCookies;
-    }
-
-    public String getPath() {
-        return this.path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public Map<String, String> getExtra() {
-        return this.extra;
-    }
-
-    public void setExtra(Map<String, String> extra) {
-        this.extra = extra;
-    }
-
-    public static class Builder {
-        /**
-         * 当前Http请求的Host
-         * <p> 示例值：
-         */
-        private String host;
-        /**
-         * 前端传递的参数, Request时有效, Response时, 会被丢弃
-         * <p> 示例值：
-         */
-        private Map<String, String> queryParams;
-        /**
-         * 请求的cookie是不带域名也不带path
-         * <p> 示例值：
-         */
-        private Map<String, String> requestCookies;
-        /**
-         * 当前Http请求的Path
-         * <p> 示例值：
-         */
-        private String path;
-        /**
-         * 请求header
-         * <p> 示例值：
-         */
-        private Map<String, String> extra;
-
-        /**
-         * 当前Http请求的Host
-         * <p> 示例值：
-         *
-         * @param host
-         * @return
-         */
-        public Builder host(String host) {
-            this.host = host;
-            return this;
-        }
-
-
-        /**
-         * 前端传递的参数, Request时有效, Response时, 会被丢弃
-         * <p> 示例值：
-         *
-         * @param queryParams
-         * @return
-         */
-        public Builder queryParams(Map<String, String> queryParams) {
-            this.queryParams = queryParams;
-            return this;
-        }
-
-
-        /**
-         * 请求的cookie是不带域名也不带path
-         * <p> 示例值：
-         *
-         * @param requestCookies
-         * @return
-         */
-        public Builder requestCookies(Map<String, String> requestCookies) {
-            this.requestCookies = requestCookies;
-            return this;
-        }
-
-
-        /**
-         * 当前Http请求的Path
-         * <p> 示例值：
-         *
-         * @param path
-         * @return
-         */
-        public Builder path(String path) {
-            this.path = path;
-            return this;
-        }
-
-
-        /**
-         * 请求header
-         * <p> 示例值：
-         *
-         * @param extra
-         * @return
-         */
-        public Builder extra(Map<String, String> extra) {
-            this.extra = extra;
-            return this;
-        }
-
-
-        public CustomHttpHeader build() {
-            return new CustomHttpHeader(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

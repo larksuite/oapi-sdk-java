@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ViewEmploymentInfo {
+  /**
+   * 员工ID
+   *
+   * <p>示例值：7109475834939434
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 员工常用姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("names")
+  private I18n[] names;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public I18n[] getNames() {
+    return this.names;
+  }
+
+  public void setNames(I18n[] names) {
+    this.names = names;
+  }
+
+  // builder 开始
+  public ViewEmploymentInfo() {}
+
+  public ViewEmploymentInfo(Builder builder) {
     /**
      * 员工ID
-     * <p> 示例值：7109475834939434
+     *
+     * <p>示例值：7109475834939434
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 员工常用姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("names")
+    this.names = builder.names;
+  }
+
+  public static class Builder {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7109475834939434
+     */
+    private String id;
+
+    /**
+     * 员工常用姓名
+     *
+     * <p>示例值：
+     */
     private I18n[] names;
 
-    // builder 开始
-    public ViewEmploymentInfo() {
+    /**
+     * 员工ID
+     *
+     * <p>示例值：7109475834939434
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public ViewEmploymentInfo(Builder builder) {
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         */
-        this.id = builder.id;
-        /**
-         * 员工常用姓名
-         * <p> 示例值：
-         */
-        this.names = builder.names;
+    /**
+     * 员工常用姓名
+     *
+     * <p>示例值：
+     *
+     * @param names
+     * @return
+     */
+    public Builder names(I18n[] names) {
+      this.names = names;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ViewEmploymentInfo build() {
+      return new ViewEmploymentInfo(this);
     }
+  }
 
-    public String getId() {
-        return this.id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public I18n[] getNames() {
-        return this.names;
-    }
-
-    public void setNames(I18n[] names) {
-        this.names = names;
-    }
-
-    public static class Builder {
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         */
-        private String id;
-        /**
-         * 员工常用姓名
-         * <p> 示例值：
-         */
-        private I18n[] names;
-
-        /**
-         * 员工ID
-         * <p> 示例值：7109475834939434
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 员工常用姓名
-         * <p> 示例值：
-         *
-         * @param names
-         * @return
-         */
-        public Builder names(I18n[] names) {
-            this.names = names;
-            return this;
-        }
-
-
-        public ViewEmploymentInfo build() {
-            return new ViewEmploymentInfo(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

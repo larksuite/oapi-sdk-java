@@ -13,237 +13,301 @@
 
 package com.lark.oapi.service.bitable.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.bitable.v1.enums.*;
 
 public class ListAppTableFieldReq {
+  /**
+   * 多维表格中视图的唯一标识。获取方式：;;- 在多维表格的 URL 地址栏中，`view_id` 是下图中高亮部分：;
+   * ![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&lazyload=true&width=2998);-
+   * 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的
+   * `view_id`。;;**注意**：;当 `filter` 参数 或 `sort` 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 `view_id` 会被忽略。
+   *
+   * <p>示例值：vewOVMEXPF
+   */
+  @Query
+  @SerializedName("view_id")
+  private String viewId;
+
+  /**
+   * 控制字段描述 `description` 数据的返回格式，默认为 false。true 表示 `description` 将以数组形式返回，如：;```json;{;
+   * "description": [; {; "text": "字段的描述",; "type": "text"; }; ];};```
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("text_field_as_array")
+  private Boolean textFieldAsArray;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+   *
+   * <p>示例值：fldwJ4YrtB
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  public String getViewId() {
+    return this.viewId;
+  }
+
+  public void setViewId(String viewId) {
+    this.viewId = viewId;
+  }
+
+  public Boolean getTextFieldAsArray() {
+    return this.textFieldAsArray;
+  }
+
+  public void setTextFieldAsArray(Boolean textFieldAsArray) {
+    this.textFieldAsArray = textFieldAsArray;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  /**
+   * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+   * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+   * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+   * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+   * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+   * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+   * app_token
+   * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+   *
+   * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
+   */
+  @Path
+  @SerializedName("app_token")
+  private String appToken;
+
+  /**
+   * 多维表格数据表的唯一标识。获取方式：;- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`;-
+   * 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取
+   * `table_id`;;
+   * ![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&lazyload=true&maxWidth=700&width=2976)
+   *
+   * <p>示例值：tblsRc9GRRXKqhvW
+   */
+  @Path
+  @SerializedName("table_id")
+  private String tableId;
+
+  public String getAppToken() {
+    return this.appToken;
+  }
+
+  public void setAppToken(String appToken) {
+    this.appToken = appToken;
+  }
+
+  public String getTableId() {
+    return this.tableId;
+  }
+
+  public void setTableId(String tableId) {
+    this.tableId = tableId;
+  }
+
+  // builder 开始
+  public ListAppTableFieldReq() {}
+
+  public ListAppTableFieldReq(Builder builder) {
     /**
-     * 视图 ID
-     * <p> 示例值：vewOVMEXPF
+     * 多维表格中视图的唯一标识。获取方式：;;- 在多维表格的 URL 地址栏中，`view_id` 是下图中高亮部分：;
+     * ![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&lazyload=true&width=2998);-
+     * 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的
+     * `view_id`。;;**注意**：;当 `filter` 参数 或 `sort` 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 `view_id` 会被忽略。
+     *
+     * <p>示例值：vewOVMEXPF
      */
-    @Query
-    @SerializedName("view_id")
-    private String viewId;
+    this.viewId = builder.viewId;
     /**
-     * 控制字段描述（多行文本格式）数据的返回格式, true 表示以数组富文本形式返回
-     * <p> 示例值：true
+     * 控制字段描述 `description` 数据的返回格式，默认为 false。true 表示 `description` 将以数组形式返回，如：;```json;{;
+     * "description": [; {; "text": "字段的描述",; "type": "text"; }; ];};```
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("text_field_as_array")
-    private Boolean textFieldAsArray;
+    this.textFieldAsArray = builder.textFieldAsArray;
     /**
      * 分页大小
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-     * <p> 示例值：fldwJ4YrtB
+     *
+     * <p>示例值：fldwJ4YrtB
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * bitable app token
-     * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+     * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+     * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+     * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+     * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+     * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+     * app_token
+     * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+     *
+     * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
      */
-    @Path
-    @SerializedName("app_token")
-    private String appToken;
+    this.appToken = builder.appToken;
     /**
-     * table id
-     * <p> 示例值：tblsRc9GRRXKqhvW
+     * 多维表格数据表的唯一标识。获取方式：;- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`;-
+     * 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取
+     * `table_id`;;
+     * ![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&lazyload=true&maxWidth=700&width=2976)
+     *
+     * <p>示例值：tblsRc9GRRXKqhvW
      */
-    @Path
-    @SerializedName("table_id")
-    private String tableId;
+    this.tableId = builder.tableId;
+  }
 
-    // builder 开始
-    public ListAppTableFieldReq() {
+  public static class Builder {
+    private String viewId; // 多维表格中视图的唯一标识。获取方式：;;- 在多维表格的 URL 地址栏中，`view_id` 是下图中高亮部分：;
+    // ![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&lazyload=true&width=2998);- 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的 `view_id`。;;**注意**：;当 `filter` 参数 或 `sort` 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 `view_id` 会被忽略。
+    private Boolean
+        textFieldAsArray; // 控制字段描述 `description` 数据的返回格式，默认为 false。true 表示 `description`
+    // 将以数组形式返回，如：;```json;{; "description": [; {; "text": "字段的描述",; "type":
+    // "text"; }; ];};```
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+
+    /**
+     * 多维表格中视图的唯一标识。获取方式：;;- 在多维表格的 URL 地址栏中，`view_id` 是下图中高亮部分：;
+     * ![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&lazyload=true&width=2998);-
+     * 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的
+     * `view_id`。;;**注意**：;当 `filter` 参数 或 `sort` 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 `view_id` 会被忽略。
+     *
+     * <p>示例值：vewOVMEXPF
+     *
+     * @param viewId
+     * @return
+     */
+    public Builder viewId(String viewId) {
+      this.viewId = viewId;
+      return this;
     }
 
-    public ListAppTableFieldReq(Builder builder) {
-        /**
-         * 视图 ID
-         * <p> 示例值：vewOVMEXPF
-         */
-        this.viewId = builder.viewId;
-        /**
-         * 控制字段描述（多行文本格式）数据的返回格式, true 表示以数组富文本形式返回
-         * <p> 示例值：true
-         */
-        this.textFieldAsArray = builder.textFieldAsArray;
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：fldwJ4YrtB
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * bitable app token
-         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         */
-        this.appToken = builder.appToken;
-        /**
-         * table id
-         * <p> 示例值：tblsRc9GRRXKqhvW
-         */
-        this.tableId = builder.tableId;
+    /**
+     * 控制字段描述 `description` 数据的返回格式，默认为 false。true 表示 `description` 将以数组形式返回，如：;```json;{;
+     * "description": [; {; "text": "字段的描述",; "type": "text"; }; ];};```
+     *
+     * <p>示例值：true
+     *
+     * @param textFieldAsArray
+     * @return
+     */
+    public Builder textFieldAsArray(Boolean textFieldAsArray) {
+      this.textFieldAsArray = textFieldAsArray;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 分页大小
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public String getViewId() {
-        return this.viewId;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
+     *
+     * <p>示例值：fldwJ4YrtB
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public void setViewId(String viewId) {
-        this.viewId = viewId;
+    private String appToken; // 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以
+    // ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：;
+    // ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+    private String
+        tableId; // 多维表格数据表的唯一标识。获取方式：;- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`;-
+
+    // 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`;; ![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&lazyload=true&maxWidth=700&width=2976)
+
+    /**
+     * 多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：;- 如果多维表格的 URL 以 ==**feishu.cn/base**==
+     * 开头，该多维表格的 `app_token` 是下图高亮部分：;
+     * ![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&lazyload=true&width=3004);;-
+     * 如果多维表格的 URL 以 ==**feishu.cn/wiki**==
+     * 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的
+     * app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。;;了解更多，参考[多维表格
+     * app_token
+     * 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。
+     *
+     * <p>示例值：appbcbWCzen6D8dezhoCH2RpMAh
+     *
+     * @param appToken
+     * @return
+     */
+    public Builder appToken(String appToken) {
+      this.appToken = appToken;
+      return this;
     }
 
-    public Boolean getTextFieldAsArray() {
-        return this.textFieldAsArray;
+    /**
+     * 多维表格数据表的唯一标识。获取方式：;- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`;-
+     * 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取
+     * `table_id`;;
+     * ![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&lazyload=true&maxWidth=700&width=2976)
+     *
+     * <p>示例值：tblsRc9GRRXKqhvW
+     *
+     * @param tableId
+     * @return
+     */
+    public Builder tableId(String tableId) {
+      this.tableId = tableId;
+      return this;
     }
 
-    public void setTextFieldAsArray(Boolean textFieldAsArray) {
-        this.textFieldAsArray = textFieldAsArray;
+    public ListAppTableFieldReq build() {
+      return new ListAppTableFieldReq(this);
     }
+  }
 
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getAppToken() {
-        return this.appToken;
-    }
-
-    public void setAppToken(String appToken) {
-        this.appToken = appToken;
-    }
-
-    public String getTableId() {
-        return this.tableId;
-    }
-
-    public void setTableId(String tableId) {
-        this.tableId = tableId;
-    }
-
-    public static class Builder {
-        private String viewId; // 视图 ID
-        private Boolean textFieldAsArray; // 控制字段描述（多行文本格式）数据的返回格式, true 表示以数组富文本形式返回
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-        private String appToken; // bitable app token
-        private String tableId; // table id
-
-        /**
-         * 视图 ID
-         * <p> 示例值：vewOVMEXPF
-         *
-         * @param viewId
-         * @return
-         */
-        public Builder viewId(String viewId) {
-            this.viewId = viewId;
-            return this;
-        }
-
-        /**
-         * 控制字段描述（多行文本格式）数据的返回格式, true 表示以数组富文本形式返回
-         * <p> 示例值：true
-         *
-         * @param textFieldAsArray
-         * @return
-         */
-        public Builder textFieldAsArray(Boolean textFieldAsArray) {
-            this.textFieldAsArray = textFieldAsArray;
-            return this;
-        }
-
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该page_token 获取查询结果
-         * <p> 示例值：fldwJ4YrtB
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-        /**
-         * bitable app token
-         * <p> 示例值：appbcbWCzen6D8dezhoCH2RpMAh
-         *
-         * @param appToken
-         * @return
-         */
-        public Builder appToken(String appToken) {
-            this.appToken = appToken;
-            return this;
-        }
-
-
-        /**
-         * table id
-         * <p> 示例值：tblsRc9GRRXKqhvW
-         *
-         * @param tableId
-         * @return
-         */
-        public Builder tableId(String tableId) {
-            this.tableId = tableId;
-            return this;
-        }
-
-
-        public ListAppTableFieldReq build() {
-            return new ListAppTableFieldReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,90 +13,86 @@
 
 package com.lark.oapi.service.helpdesk.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListFaqRespBody {
-    /**
-     * if there's next page
-     * <p> 示例值：true
-     */
-    @SerializedName("has_more")
-    private Boolean hasMore;
-    /**
-     * the next page token
-     * <p> 示例值：6856395634652479491
-     */
-    @SerializedName("page_token")
-    private String pageToken;
-    /**
-     * 实际返回的FAQ数量
-     * <p> 示例值：100
-     */
-    @SerializedName("page_size")
-    private Integer pageSize;
-    /**
-     * 总数
-     * <p> 示例值：200
-     */
-    @SerializedName("total")
-    private Integer total;
-    /**
-     * 知识库列表
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private Faq[] items;
+  /**
+   * if there's next page
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("has_more")
+  private Boolean hasMore;
 
-    public Boolean getHasMore() {
-        return this.hasMore;
-    }
+  /**
+   * the next page token
+   *
+   * <p>示例值：6856395634652479491
+   */
+  @SerializedName("page_token")
+  private String pageToken;
 
-    public void setHasMore(Boolean hasMore) {
-        this.hasMore = hasMore;
-    }
+  /**
+   * 实际返回的FAQ数量
+   *
+   * <p>示例值：100
+   */
+  @SerializedName("page_size")
+  private Integer pageSize;
 
-    public String getPageToken() {
-        return this.pageToken;
-    }
+  /**
+   * 总数
+   *
+   * <p>示例值：200
+   */
+  @SerializedName("total")
+  private Integer total;
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
+  /**
+   * 知识库列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private Faq[] items;
 
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
+  public Boolean getHasMore() {
+    return this.hasMore;
+  }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
+  public void setHasMore(Boolean hasMore) {
+    this.hasMore = hasMore;
+  }
 
-    public Integer getTotal() {
-        return this.total;
-    }
+  public String getPageToken() {
+    return this.pageToken;
+  }
 
-    public void setTotal(Integer total) {
-        this.total = total;
-    }
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
 
-    public Faq[] getItems() {
-        return this.items;
-    }
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
 
-    public void setItems(Faq[] items) {
-        this.items = items;
-    }
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
 
+  public Integer getTotal() {
+    return this.total;
+  }
+
+  public void setTotal(Integer total) {
+    this.total = total;
+  }
+
+  public Faq[] getItems() {
+    return this.items;
+  }
+
+  public void setItems(Faq[] items) {
+    this.items = items;
+  }
 }

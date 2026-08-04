@@ -13,195 +13,208 @@
 
 package com.lark.oapi.service.drive.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.drive.v1.enums.*;
 
 public class DeleteFileVersionReq {
+  /**
+   * 源文档的类型
+   *
+   * <p>示例值：docx
+   */
+  @Query
+  @SerializedName("obj_type")
+  private String objType;
+
+  /**
+   * 用户ID类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getObjType() {
+    return this.objType;
+  }
+
+  public void setObjType(String objType) {
+    this.objType = objType;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 当前版本对应的源文档的 token。获取方式参考[如何获取云文档相关
+   * token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+   *
+   * <p>示例值：doxbcyvqZlSc9WlHvQMlSJabcef
+   */
+  @Path
+  @SerializedName("file_token")
+  private String fileToken;
+
+  /**
+   * 版本文档版本标识
+   *
+   * <p>示例值：fnJfyX
+   */
+  @Path
+  @SerializedName("version_id")
+  private String versionId;
+
+  public String getFileToken() {
+    return this.fileToken;
+  }
+
+  public void setFileToken(String fileToken) {
+    this.fileToken = fileToken;
+  }
+
+  public String getVersionId() {
+    return this.versionId;
+  }
+
+  public void setVersionId(String versionId) {
+    this.versionId = versionId;
+  }
+
+  // builder 开始
+  public DeleteFileVersionReq() {}
+
+  public DeleteFileVersionReq(Builder builder) {
     /**
-     * 文档类型
-     * <p> 示例值：doc/docs/sheet/bitable
+     * 源文档的类型
+     *
+     * <p>示例值：docx
      */
-    @Query
-    @SerializedName("obj_type")
-    private String objType;
+    this.objType = builder.objType;
     /**
      * 用户ID类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 版本文档token
-     * <p> 示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb
+     * 当前版本对应的源文档的 token。获取方式参考[如何获取云文档相关
+     * token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：doxbcyvqZlSc9WlHvQMlSJabcef
      */
-    @Path
-    @SerializedName("file_token")
-    private String fileToken;
+    this.fileToken = builder.fileToken;
     /**
-     * 版本文档版本号
-     * <p> 示例值：file_version
+     * 版本文档版本标识
+     *
+     * <p>示例值：fnJfyX
      */
-    @Path
-    @SerializedName("version_id")
-    private String versionId;
+    this.versionId = builder.versionId;
+  }
 
-    // builder 开始
-    public DeleteFileVersionReq() {
+  public static class Builder {
+    private String objType; // 源文档的类型
+    private String userIdType; // 用户ID类型
+
+    /**
+     * 源文档的类型
+     *
+     * <p>示例值：docx
+     *
+     * @param objType
+     * @return
+     */
+    public Builder objType(String objType) {
+      this.objType = objType;
+      return this;
     }
 
-    public DeleteFileVersionReq(Builder builder) {
-        /**
-         * 文档类型
-         * <p> 示例值：doc/docs/sheet/bitable
-         */
-        this.objType = builder.objType;
-        /**
-         * 用户ID类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 版本文档token
-         * <p> 示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb
-         */
-        this.fileToken = builder.fileToken;
-        /**
-         * 版本文档版本号
-         * <p> 示例值：file_version
-         */
-        this.versionId = builder.versionId;
+    /**
+     * 源文档的类型
+     *
+     * <p>示例值：docx
+     *
+     * @param objType {@link com.lark.oapi.service.drive.v1.enums.DeleteFileVersionObjTypeEnum}
+     * @return
+     */
+    public Builder objType(
+        com.lark.oapi.service.drive.v1.enums.DeleteFileVersionObjTypeEnum objType) {
+      this.objType = objType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getObjType() {
-        return this.objType;
+    /**
+     * 用户ID类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.drive.v1.enums.DeleteFileVersionUserIdTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.drive.v1.enums.DeleteFileVersionUserIdTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setObjType(String objType) {
-        this.objType = objType;
+    private String fileToken; // 当前版本对应的源文档的 token。获取方式参考[如何获取云文档相关
+    // token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+    private String versionId; // 版本文档版本标识
+
+    /**
+     * 当前版本对应的源文档的 token。获取方式参考[如何获取云文档相关
+     * token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。
+     *
+     * <p>示例值：doxbcyvqZlSc9WlHvQMlSJabcef
+     *
+     * @param fileToken
+     * @return
+     */
+    public Builder fileToken(String fileToken) {
+      this.fileToken = fileToken;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    /**
+     * 版本文档版本标识
+     *
+     * <p>示例值：fnJfyX
+     *
+     * @param versionId
+     * @return
+     */
+    public Builder versionId(String versionId) {
+      this.versionId = versionId;
+      return this;
     }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
+    public DeleteFileVersionReq build() {
+      return new DeleteFileVersionReq(this);
     }
+  }
 
-    public String getFileToken() {
-        return this.fileToken;
-    }
-
-    public void setFileToken(String fileToken) {
-        this.fileToken = fileToken;
-    }
-
-    public String getVersionId() {
-        return this.versionId;
-    }
-
-    public void setVersionId(String versionId) {
-        this.versionId = versionId;
-    }
-
-    public static class Builder {
-        private String objType; // 文档类型
-        private String userIdType; // 用户ID类型
-        private String fileToken; // 版本文档token
-        private String versionId; // 版本文档版本号
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc/docs/sheet/bitable
-         *
-         * @param objType
-         * @return
-         */
-        public Builder objType(String objType) {
-            this.objType = objType;
-            return this;
-        }
-
-        /**
-         * 文档类型
-         * <p> 示例值：doc/docs/sheet/bitable
-         *
-         * @param objType {@link com.lark.oapi.service.drive.v1.enums.DeleteFileVersionObjTypeEnum}
-         * @return
-         */
-        public Builder objType(com.lark.oapi.service.drive.v1.enums.DeleteFileVersionObjTypeEnum objType) {
-            this.objType = objType.getValue();
-            return this;
-        }
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户ID类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.drive.v1.enums.DeleteFileVersionUserIdTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.drive.v1.enums.DeleteFileVersionUserIdTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 版本文档token
-         * <p> 示例值：doxbcyvqZlSc9WlHvQMlSJwUrsb
-         *
-         * @param fileToken
-         * @return
-         */
-        public Builder fileToken(String fileToken) {
-            this.fileToken = fileToken;
-            return this;
-        }
-
-
-        /**
-         * 版本文档版本号
-         * <p> 示例值：file_version
-         *
-         * @param versionId
-         * @return
-         */
-        public Builder versionId(String versionId) {
-            this.versionId = versionId;
-            return this;
-        }
-
-
-        public DeleteFileVersionReq build() {
-            return new DeleteFileVersionReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

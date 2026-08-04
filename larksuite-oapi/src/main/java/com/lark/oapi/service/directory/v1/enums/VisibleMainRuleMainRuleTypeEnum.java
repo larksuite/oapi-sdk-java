@@ -13,22 +13,20 @@
 
 package com.lark.oapi.service.directory.v1.enums;
 
-/**
- * 主规则类型
- */
+/** 主规则类型 */
 public enum VisibleMainRuleMainRuleTypeEnum {
-    ALL_PEOPLE_VISIBLE(1), // 所有人可见
-    CURRENT_DEPT_VISIBLE(2), // 本部门(包含下属子部门)可见
-    CURRENT_UNIT_VISIBLE(3), // 本单位可见
-    NOBODY_VISIBLE(4), // 所有人不可见
-    ;
-    private Integer value;
+  ALL_PEOPLE_VISIBLE(1), // 所有人可见
+  CURRENT_DEPT_VISIBLE(2), // 本部门(包含下属子部门)可见
+  CURRENT_UNIT_VISIBLE(3), // 本单位可见
+  NOBODY_VISIBLE(4), // 所有人不可见
+  ;
+  private Integer value;
 
-    VisibleMainRuleMainRuleTypeEnum(Integer value) {
-        this.value = value;
-    }
+  VisibleMainRuleMainRuleTypeEnum(Integer value) {
+    this.value = value;
+  }
 
-    public Integer getValue() {
-        return this.value;
-    }
+  public Integer getValue() {
+    return this.value;
+  }
 }

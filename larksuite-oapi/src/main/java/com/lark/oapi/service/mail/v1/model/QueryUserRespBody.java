@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class QueryUserRespBody {
-    /**
-     * 邮箱地址以及其对应的类型类型和状态
-     * <p> 示例值：
-     */
-    @SerializedName("user_list")
-    private User[] userList;
+  /**
+   * 邮箱地址以及其对应的类型和状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("user_list")
+  private User[] userList;
 
-    public User[] getUserList() {
-        return this.userList;
-    }
+  public User[] getUserList() {
+    return this.userList;
+  }
 
-    public void setUserList(User[] userList) {
-        this.userList = userList;
-    }
-
+  public void setUserList(User[] userList) {
+    this.userList = userList;
+  }
 }

@@ -13,275 +13,291 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.directory.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.directory.v1.enums.*;
 
 public class ListCollborationShareEntityReq {
+  /**
+   * 对方组织的tenant
+   * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+   *
+   * <p>示例值：test_key
+   */
+  @Query
+  @SerializedName("target_tenant_key")
+  private String targetTenantKey;
+
+  /**
+   * 不填写该参数时，查询整个组织的分享范围，可填写该字段继续下钻查看指定部门下的子部门+成员。填写0分为两种情况，若组织分享的为全员则展示一级部门，否则展示分享的部门+成员；可以递归使用该接口实现整个分享范围的下钻查询
+   *
+   * <p>示例值：test_key
+   */
+  @Query
+  @SerializedName("target_department_id")
+  private String targetDepartmentId;
+
+  /**
+   * 获取用户组下的成员，填写该值后忽略target_department_id；可以通过本接口参数返回的用户组ID继续本接口查询
+   *
+   * <p>示例值：test_key
+   */
+  @Query
+  @SerializedName("target_group_id")
+  private String targetGroupId;
+
+  /**
+   * 是否主体组织分享范围，默认是客体组织的分享范围
+   *
+   * <p>示例值：true
+   */
+  @Query
+  @SerializedName("is_select_subject")
+  private Boolean isSelectSubject;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 分页大小
+   *
+   * <p>示例值：10
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("tenant_id")
+  private String tenantId;
+
+  public String getTargetTenantKey() {
+    return this.targetTenantKey;
+  }
+
+  public void setTargetTenantKey(String targetTenantKey) {
+    this.targetTenantKey = targetTenantKey;
+  }
+
+  public String getTargetDepartmentId() {
+    return this.targetDepartmentId;
+  }
+
+  public void setTargetDepartmentId(String targetDepartmentId) {
+    this.targetDepartmentId = targetDepartmentId;
+  }
+
+  public String getTargetGroupId() {
+    return this.targetGroupId;
+  }
+
+  public void setTargetGroupId(String targetGroupId) {
+    this.targetGroupId = targetGroupId;
+  }
+
+  public Boolean getIsSelectSubject() {
+    return this.isSelectSubject;
+  }
+
+  public void setIsSelectSubject(Boolean isSelectSubject) {
+    this.isSelectSubject = isSelectSubject;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getTenantId() {
+    return this.tenantId;
+  }
+
+  public void setTenantId(String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+  // builder 开始
+  public ListCollborationShareEntityReq() {}
+
+  public ListCollborationShareEntityReq(Builder builder) {
     /**
-     * 对方租户的tenant key
-     * <p> 示例值：test_key
+     * 对方组织的tenant
+     * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+     *
+     * <p>示例值：test_key
      */
-    @Query
-    @SerializedName("target_tenant_key")
-    private String targetTenantKey;
+    this.targetTenantKey = builder.targetTenantKey;
     /**
-     * 不填写该参数为租户的分享范围，可填写该字段继续下钻查看指定部门下的子部门+成员。填写0分为两种情况，若租户分享的为全员则展示一级部门，否则展示分享的部门+成员。
-     * <p> 示例值：test_key
+     * 不填写该参数时，查询整个组织的分享范围，可填写该字段继续下钻查看指定部门下的子部门+成员。填写0分为两种情况，若组织分享的为全员则展示一级部门，否则展示分享的部门+成员；可以递归使用该接口实现整个分享范围的下钻查询
+     *
+     * <p>示例值：test_key
      */
-    @Query
-    @SerializedName("target_department_id")
-    private String targetDepartmentId;
+    this.targetDepartmentId = builder.targetDepartmentId;
     /**
-     * 获取用户组下的成员，填写该值后忽略target_department_id
-     * <p> 示例值：test_key
+     * 获取用户组下的成员，填写该值后忽略target_department_id；可以通过本接口参数返回的用户组ID继续本接口查询
+     *
+     * <p>示例值：test_key
      */
-    @Query
-    @SerializedName("target_group_id")
-    private String targetGroupId;
+    this.targetGroupId = builder.targetGroupId;
     /**
-     * 是否主体租户分享范围，默认是客体租户的分享范围
-     * <p> 示例值：
+     * 是否主体组织分享范围，默认是客体组织的分享范围
+     *
+     * <p>示例值：true
      */
-    @Query
-    @SerializedName("is_select_subject")
-    private Boolean isSelectSubject;
+    this.isSelectSubject = builder.isSelectSubject;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
      * 分页大小
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("tenant_id")
-    private String tenantId;
+    this.tenantId = builder.tenantId;
+  }
 
-    // builder 开始
-    public ListCollborationShareEntityReq() {
+  public static class Builder {
+    private String targetTenantKey; // 对方组织的tenant
+    // key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+    private String
+        targetDepartmentId; // 不填写该参数时，查询整个组织的分享范围，可填写该字段继续下钻查看指定部门下的子部门+成员。填写0分为两种情况，若组织分享的为全员则展示一级部门，否则展示分享的部门+成员；可以递归使用该接口实现整个分享范围的下钻查询
+    private String targetGroupId; // 获取用户组下的成员，填写该值后忽略target_department_id；可以通过本接口参数返回的用户组ID继续本接口查询
+    private Boolean isSelectSubject; // 是否主体组织分享范围，默认是客体组织的分享范围
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private Integer pageSize; // 分页大小
+    private String tenantId; // 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
+
+    /**
+     * 对方组织的tenant
+     * key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取
+     *
+     * <p>示例值：test_key
+     *
+     * @param targetTenantKey
+     * @return
+     */
+    public Builder targetTenantKey(String targetTenantKey) {
+      this.targetTenantKey = targetTenantKey;
+      return this;
     }
 
-    public ListCollborationShareEntityReq(Builder builder) {
-        /**
-         * 对方租户的tenant key
-         * <p> 示例值：test_key
-         */
-        this.targetTenantKey = builder.targetTenantKey;
-        /**
-         * 不填写该参数为租户的分享范围，可填写该字段继续下钻查看指定部门下的子部门+成员。填写0分为两种情况，若租户分享的为全员则展示一级部门，否则展示分享的部门+成员。
-         * <p> 示例值：test_key
-         */
-        this.targetDepartmentId = builder.targetDepartmentId;
-        /**
-         * 获取用户组下的成员，填写该值后忽略target_department_id
-         * <p> 示例值：test_key
-         */
-        this.targetGroupId = builder.targetGroupId;
-        /**
-         * 是否主体租户分享范围，默认是客体租户的分享范围
-         * <p> 示例值：
-         */
-        this.isSelectSubject = builder.isSelectSubject;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
-         * <p> 示例值：1
-         */
-        this.tenantId = builder.tenantId;
+    /**
+     * 不填写该参数时，查询整个组织的分享范围，可填写该字段继续下钻查看指定部门下的子部门+成员。填写0分为两种情况，若组织分享的为全员则展示一级部门，否则展示分享的部门+成员；可以递归使用该接口实现整个分享范围的下钻查询
+     *
+     * <p>示例值：test_key
+     *
+     * @param targetDepartmentId
+     * @return
+     */
+    public Builder targetDepartmentId(String targetDepartmentId) {
+      this.targetDepartmentId = targetDepartmentId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 获取用户组下的成员，填写该值后忽略target_department_id；可以通过本接口参数返回的用户组ID继续本接口查询
+     *
+     * <p>示例值：test_key
+     *
+     * @param targetGroupId
+     * @return
+     */
+    public Builder targetGroupId(String targetGroupId) {
+      this.targetGroupId = targetGroupId;
+      return this;
     }
 
-    public String getTargetTenantKey() {
-        return this.targetTenantKey;
+    /**
+     * 是否主体组织分享范围，默认是客体组织的分享范围
+     *
+     * <p>示例值：true
+     *
+     * @param isSelectSubject
+     * @return
+     */
+    public Builder isSelectSubject(Boolean isSelectSubject) {
+      this.isSelectSubject = isSelectSubject;
+      return this;
     }
 
-    public void setTargetTenantKey(String targetTenantKey) {
-        this.targetTenantKey = targetTenantKey;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public String getTargetDepartmentId() {
-        return this.targetDepartmentId;
+    /**
+     * 分页大小
+     *
+     * <p>示例值：10
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public void setTargetDepartmentId(String targetDepartmentId) {
-        this.targetDepartmentId = targetDepartmentId;
+    /**
+     * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
+     *
+     * <p>示例值：1
+     *
+     * @param tenantId
+     * @return
+     */
+    public Builder tenantId(String tenantId) {
+      this.tenantId = tenantId;
+      return this;
     }
 
-    public String getTargetGroupId() {
-        return this.targetGroupId;
+    public ListCollborationShareEntityReq build() {
+      return new ListCollborationShareEntityReq(this);
     }
+  }
 
-    public void setTargetGroupId(String targetGroupId) {
-        this.targetGroupId = targetGroupId;
-    }
-
-    public Boolean getIsSelectSubject() {
-        return this.isSelectSubject;
-    }
-
-    public void setIsSelectSubject(Boolean isSelectSubject) {
-        this.isSelectSubject = isSelectSubject;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public Integer getPageSize() {
-        return this.pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getTenantId() {
-        return this.tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
-    }
-
-    public static class Builder {
-        private String targetTenantKey; // 对方租户的tenant key
-        private String targetDepartmentId; // 不填写该参数为租户的分享范围，可填写该字段继续下钻查看指定部门下的子部门+成员。填写0分为两种情况，若租户分享的为全员则展示一级部门，否则展示分享的部门+成员。
-        private String targetGroupId; // 获取用户组下的成员，填写该值后忽略target_department_id
-        private Boolean isSelectSubject; // 是否主体租户分享范围，默认是客体租户的分享范围
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private Integer pageSize; // 分页大小
-        private String tenantId; // 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
-
-        /**
-         * 对方租户的tenant key
-         * <p> 示例值：test_key
-         *
-         * @param targetTenantKey
-         * @return
-         */
-        public Builder targetTenantKey(String targetTenantKey) {
-            this.targetTenantKey = targetTenantKey;
-            return this;
-        }
-
-
-        /**
-         * 不填写该参数为租户的分享范围，可填写该字段继续下钻查看指定部门下的子部门+成员。填写0分为两种情况，若租户分享的为全员则展示一级部门，否则展示分享的部门+成员。
-         * <p> 示例值：test_key
-         *
-         * @param targetDepartmentId
-         * @return
-         */
-        public Builder targetDepartmentId(String targetDepartmentId) {
-            this.targetDepartmentId = targetDepartmentId;
-            return this;
-        }
-
-
-        /**
-         * 获取用户组下的成员，填写该值后忽略target_department_id
-         * <p> 示例值：test_key
-         *
-         * @param targetGroupId
-         * @return
-         */
-        public Builder targetGroupId(String targetGroupId) {
-            this.targetGroupId = targetGroupId;
-            return this;
-        }
-
-
-        /**
-         * 是否主体租户分享范围，默认是客体租户的分享范围
-         * <p> 示例值：
-         *
-         * @param isSelectSubject
-         * @return
-         */
-        public Builder isSelectSubject(Boolean isSelectSubject) {
-            this.isSelectSubject = isSelectSubject;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 分页大小
-         * <p> 示例值：10
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 租户ID，默认会从identity_ticket获取，获取不到的会从参数获取，取不到或认证失败会报错
-         * <p> 示例值：1
-         *
-         * @param tenantId
-         * @return
-         */
-        public Builder tenantId(String tenantId) {
-            this.tenantId = tenantId;
-            return this;
-        }
-
-
-        public ListCollborationShareEntityReq build() {
-            return new ListCollborationShareEntityReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

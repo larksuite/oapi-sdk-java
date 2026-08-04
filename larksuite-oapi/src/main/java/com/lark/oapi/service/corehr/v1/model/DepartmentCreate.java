@@ -13,445 +13,489 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class DepartmentCreate {
+  /**
+   * 实体在CoreHR内部的唯一键
+   *
+   * <p>示例值：4719456877659520852
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * 子类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("sub_type")
+  private Enum subType;
+
+  /**
+   * 部门负责人
+   *
+   * <p>示例值：6893013238632416776
+   */
+  @SerializedName("manager")
+  private String manager;
+
+  /**
+   * 是否保密
+   *
+   * <p>示例值：true
+   */
+  @SerializedName("is_confidential")
+  private Boolean isConfidential;
+
+  /**
+   * 层级关系，内层字段见实体
+   *
+   * <p>示例值：
+   */
+  @SerializedName("hiberarchy_common")
+  private HiberarchyCommon hiberarchyCommon;
+
+  /**
+   * 生效时间
+   *
+   * <p>示例值：2020-05-01 00:00:00
+   */
+  @SerializedName("effective_time")
+  private String effectiveTime;
+
+  /**
+   * 失效时间
+   *
+   * <p>示例值：2020-05-02 00:00:00
+   */
+  @SerializedName("expiration_time")
+  private String expirationTime;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_fields")
+  private ObjectFieldData[] customFields;
+
+  /**
+   * 成本中心id
+   *
+   * <p>示例值：7142384817131652652
+   */
+  @SerializedName("cost_center_id")
+  private String costCenterId;
+
+  /**
+   * 是否使用职务
+   *
+   * <p>示例值：
+   */
+  @SerializedName("staffing_model")
+  private Enum staffingModel;
+
+  /**
+   * 是否优先使用手动编码;;- 设为 true：优先使用传入的 code。即使系统开启了自动编码，只要传了 code，以传入值为准；; 未传code时，会回退到自动生成编码。;- 设为
+   * false：遵循系统默认策略。此时若系统开启了自动编码，传入的 code 不会生效，以系统自动生成的编码为准
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_prefer_manual_encoding")
+  private Boolean isPreferManualEncoding;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public Enum getSubType() {
+    return this.subType;
+  }
+
+  public void setSubType(Enum subType) {
+    this.subType = subType;
+  }
+
+  public String getManager() {
+    return this.manager;
+  }
+
+  public void setManager(String manager) {
+    this.manager = manager;
+  }
+
+  public Boolean getIsConfidential() {
+    return this.isConfidential;
+  }
+
+  public void setIsConfidential(Boolean isConfidential) {
+    this.isConfidential = isConfidential;
+  }
+
+  public HiberarchyCommon getHiberarchyCommon() {
+    return this.hiberarchyCommon;
+  }
+
+  public void setHiberarchyCommon(HiberarchyCommon hiberarchyCommon) {
+    this.hiberarchyCommon = hiberarchyCommon;
+  }
+
+  public String getEffectiveTime() {
+    return this.effectiveTime;
+  }
+
+  public void setEffectiveTime(String effectiveTime) {
+    this.effectiveTime = effectiveTime;
+  }
+
+  public String getExpirationTime() {
+    return this.expirationTime;
+  }
+
+  public void setExpirationTime(String expirationTime) {
+    this.expirationTime = expirationTime;
+  }
+
+  public ObjectFieldData[] getCustomFields() {
+    return this.customFields;
+  }
+
+  public void setCustomFields(ObjectFieldData[] customFields) {
+    this.customFields = customFields;
+  }
+
+  public String getCostCenterId() {
+    return this.costCenterId;
+  }
+
+  public void setCostCenterId(String costCenterId) {
+    this.costCenterId = costCenterId;
+  }
+
+  public Enum getStaffingModel() {
+    return this.staffingModel;
+  }
+
+  public void setStaffingModel(Enum staffingModel) {
+    this.staffingModel = staffingModel;
+  }
+
+  public Boolean getIsPreferManualEncoding() {
+    return this.isPreferManualEncoding;
+  }
+
+  public void setIsPreferManualEncoding(Boolean isPreferManualEncoding) {
+    this.isPreferManualEncoding = isPreferManualEncoding;
+  }
+
+  // builder 开始
+  public DepartmentCreate() {}
+
+  public DepartmentCreate(Builder builder) {
     /**
      * 实体在CoreHR内部的唯一键
-     * <p> 示例值：4719456877659520852
+     *
+     * <p>示例值：4719456877659520852
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * 子类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("sub_type")
-    private Enum subType;
+    this.subType = builder.subType;
     /**
      * 部门负责人
-     * <p> 示例值：6893013238632416776
+     *
+     * <p>示例值：6893013238632416776
      */
-    @SerializedName("manager")
-    private String manager;
+    this.manager = builder.manager;
     /**
      * 是否保密
-     * <p> 示例值：true
+     *
+     * <p>示例值：true
      */
-    @SerializedName("is_confidential")
-    private Boolean isConfidential;
+    this.isConfidential = builder.isConfidential;
     /**
      * 层级关系，内层字段见实体
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("hiberarchy_common")
-    private HiberarchyCommon hiberarchyCommon;
+    this.hiberarchyCommon = builder.hiberarchyCommon;
     /**
      * 生效时间
-     * <p> 示例值：2020-05-01 00:00:00
+     *
+     * <p>示例值：2020-05-01 00:00:00
      */
-    @SerializedName("effective_time")
-    private String effectiveTime;
+    this.effectiveTime = builder.effectiveTime;
     /**
      * 失效时间
-     * <p> 示例值：2020-05-02 00:00:00
+     *
+     * <p>示例值：2020-05-02 00:00:00
      */
-    @SerializedName("expiration_time")
-    private String expirationTime;
+    this.expirationTime = builder.expirationTime;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_fields")
-    private ObjectFieldData[] customFields;
+    this.customFields = builder.customFields;
     /**
      * 成本中心id
-     * <p> 示例值：7142384817131652652
+     *
+     * <p>示例值：7142384817131652652
      */
-    @SerializedName("cost_center_id")
-    private String costCenterId;
+    this.costCenterId = builder.costCenterId;
     /**
      * 是否使用职务
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("staffing_model")
-    private Enum staffingModel;
+    this.staffingModel = builder.staffingModel;
     /**
-     * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-     * <p> 示例值：
+     * 是否优先使用手动编码;;- 设为 true：优先使用传入的 code。即使系统开启了自动编码，只要传了 code，以传入值为准；; 未传code时，会回退到自动生成编码。;- 设为
+     * false：遵循系统默认策略。此时若系统开启了自动编码，传入的 code 不会生效，以系统自动生成的编码为准
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_prefer_manual_encoding")
+    this.isPreferManualEncoding = builder.isPreferManualEncoding;
+  }
+
+  public static class Builder {
+    /**
+     * 实体在CoreHR内部的唯一键
+     *
+     * <p>示例值：4719456877659520852
+     */
+    private String id;
+
+    /**
+     * 子类型
+     *
+     * <p>示例值：
+     */
+    private Enum subType;
+
+    /**
+     * 部门负责人
+     *
+     * <p>示例值：6893013238632416776
+     */
+    private String manager;
+
+    /**
+     * 是否保密
+     *
+     * <p>示例值：true
+     */
+    private Boolean isConfidential;
+
+    /**
+     * 层级关系，内层字段见实体
+     *
+     * <p>示例值：
+     */
+    private HiberarchyCommon hiberarchyCommon;
+
+    /**
+     * 生效时间
+     *
+     * <p>示例值：2020-05-01 00:00:00
+     */
+    private String effectiveTime;
+
+    /**
+     * 失效时间
+     *
+     * <p>示例值：2020-05-02 00:00:00
+     */
+    private String expirationTime;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private ObjectFieldData[] customFields;
+
+    /**
+     * 成本中心id
+     *
+     * <p>示例值：7142384817131652652
+     */
+    private String costCenterId;
+
+    /**
+     * 是否使用职务
+     *
+     * <p>示例值：
+     */
+    private Enum staffingModel;
+
+    /**
+     * 是否优先使用手动编码;;- 设为 true：优先使用传入的 code。即使系统开启了自动编码，只要传了 code，以传入值为准；; 未传code时，会回退到自动生成编码。;- 设为
+     * false：遵循系统默认策略。此时若系统开启了自动编码，传入的 code 不会生效，以系统自动生成的编码为准
+     *
+     * <p>示例值：
+     */
     private Boolean isPreferManualEncoding;
 
-    // builder 开始
-    public DepartmentCreate() {
+    /**
+     * 实体在CoreHR内部的唯一键
+     *
+     * <p>示例值：4719456877659520852
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public DepartmentCreate(Builder builder) {
-        /**
-         * 实体在CoreHR内部的唯一键
-         * <p> 示例值：4719456877659520852
-         */
-        this.id = builder.id;
-        /**
-         * 子类型
-         * <p> 示例值：
-         */
-        this.subType = builder.subType;
-        /**
-         * 部门负责人
-         * <p> 示例值：6893013238632416776
-         */
-        this.manager = builder.manager;
-        /**
-         * 是否保密
-         * <p> 示例值：true
-         */
-        this.isConfidential = builder.isConfidential;
-        /**
-         * 层级关系，内层字段见实体
-         * <p> 示例值：
-         */
-        this.hiberarchyCommon = builder.hiberarchyCommon;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
-        this.effectiveTime = builder.effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
-        this.expirationTime = builder.expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFields = builder.customFields;
-        /**
-         * 成本中心id
-         * <p> 示例值：7142384817131652652
-         */
-        this.costCenterId = builder.costCenterId;
-        /**
-         * 是否使用职务
-         * <p> 示例值：
-         */
-        this.staffingModel = builder.staffingModel;
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         */
-        this.isPreferManualEncoding = builder.isPreferManualEncoding;
+    /**
+     * 子类型
+     *
+     * <p>示例值：
+     *
+     * @param subType
+     * @return
+     */
+    public Builder subType(Enum subType) {
+      this.subType = subType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 部门负责人
+     *
+     * <p>示例值：6893013238632416776
+     *
+     * @param manager
+     * @return
+     */
+    public Builder manager(String manager) {
+      this.manager = manager;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    /**
+     * 是否保密
+     *
+     * <p>示例值：true
+     *
+     * @param isConfidential
+     * @return
+     */
+    public Builder isConfidential(Boolean isConfidential) {
+      this.isConfidential = isConfidential;
+      return this;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    /**
+     * 层级关系，内层字段见实体
+     *
+     * <p>示例值：
+     *
+     * @param hiberarchyCommon
+     * @return
+     */
+    public Builder hiberarchyCommon(HiberarchyCommon hiberarchyCommon) {
+      this.hiberarchyCommon = hiberarchyCommon;
+      return this;
     }
 
-    public Enum getSubType() {
-        return this.subType;
+    /**
+     * 生效时间
+     *
+     * <p>示例值：2020-05-01 00:00:00
+     *
+     * @param effectiveTime
+     * @return
+     */
+    public Builder effectiveTime(String effectiveTime) {
+      this.effectiveTime = effectiveTime;
+      return this;
     }
 
-    public void setSubType(Enum subType) {
-        this.subType = subType;
+    /**
+     * 失效时间
+     *
+     * <p>示例值：2020-05-02 00:00:00
+     *
+     * @param expirationTime
+     * @return
+     */
+    public Builder expirationTime(String expirationTime) {
+      this.expirationTime = expirationTime;
+      return this;
     }
 
-    public String getManager() {
-        return this.manager;
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFields
+     * @return
+     */
+    public Builder customFields(ObjectFieldData[] customFields) {
+      this.customFields = customFields;
+      return this;
     }
 
-    public void setManager(String manager) {
-        this.manager = manager;
+    /**
+     * 成本中心id
+     *
+     * <p>示例值：7142384817131652652
+     *
+     * @param costCenterId
+     * @return
+     */
+    public Builder costCenterId(String costCenterId) {
+      this.costCenterId = costCenterId;
+      return this;
     }
 
-    public Boolean getIsConfidential() {
-        return this.isConfidential;
+    /**
+     * 是否使用职务
+     *
+     * <p>示例值：
+     *
+     * @param staffingModel
+     * @return
+     */
+    public Builder staffingModel(Enum staffingModel) {
+      this.staffingModel = staffingModel;
+      return this;
     }
 
-    public void setIsConfidential(Boolean isConfidential) {
-        this.isConfidential = isConfidential;
+    /**
+     * 是否优先使用手动编码;;- 设为 true：优先使用传入的 code。即使系统开启了自动编码，只要传了 code，以传入值为准；; 未传code时，会回退到自动生成编码。;- 设为
+     * false：遵循系统默认策略。此时若系统开启了自动编码，传入的 code 不会生效，以系统自动生成的编码为准
+     *
+     * <p>示例值：
+     *
+     * @param isPreferManualEncoding
+     * @return
+     */
+    public Builder isPreferManualEncoding(Boolean isPreferManualEncoding) {
+      this.isPreferManualEncoding = isPreferManualEncoding;
+      return this;
     }
 
-    public HiberarchyCommon getHiberarchyCommon() {
-        return this.hiberarchyCommon;
+    public DepartmentCreate build() {
+      return new DepartmentCreate(this);
     }
+  }
 
-    public void setHiberarchyCommon(HiberarchyCommon hiberarchyCommon) {
-        this.hiberarchyCommon = hiberarchyCommon;
-    }
-
-    public String getEffectiveTime() {
-        return this.effectiveTime;
-    }
-
-    public void setEffectiveTime(String effectiveTime) {
-        this.effectiveTime = effectiveTime;
-    }
-
-    public String getExpirationTime() {
-        return this.expirationTime;
-    }
-
-    public void setExpirationTime(String expirationTime) {
-        this.expirationTime = expirationTime;
-    }
-
-    public ObjectFieldData[] getCustomFields() {
-        return this.customFields;
-    }
-
-    public void setCustomFields(ObjectFieldData[] customFields) {
-        this.customFields = customFields;
-    }
-
-    public String getCostCenterId() {
-        return this.costCenterId;
-    }
-
-    public void setCostCenterId(String costCenterId) {
-        this.costCenterId = costCenterId;
-    }
-
-    public Enum getStaffingModel() {
-        return this.staffingModel;
-    }
-
-    public void setStaffingModel(Enum staffingModel) {
-        this.staffingModel = staffingModel;
-    }
-
-    public Boolean getIsPreferManualEncoding() {
-        return this.isPreferManualEncoding;
-    }
-
-    public void setIsPreferManualEncoding(Boolean isPreferManualEncoding) {
-        this.isPreferManualEncoding = isPreferManualEncoding;
-    }
-
-    public static class Builder {
-        /**
-         * 实体在CoreHR内部的唯一键
-         * <p> 示例值：4719456877659520852
-         */
-        private String id;
-        /**
-         * 子类型
-         * <p> 示例值：
-         */
-        private Enum subType;
-        /**
-         * 部门负责人
-         * <p> 示例值：6893013238632416776
-         */
-        private String manager;
-        /**
-         * 是否保密
-         * <p> 示例值：true
-         */
-        private Boolean isConfidential;
-        /**
-         * 层级关系，内层字段见实体
-         * <p> 示例值：
-         */
-        private HiberarchyCommon hiberarchyCommon;
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         */
-        private String effectiveTime;
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         */
-        private String expirationTime;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private ObjectFieldData[] customFields;
-        /**
-         * 成本中心id
-         * <p> 示例值：7142384817131652652
-         */
-        private String costCenterId;
-        /**
-         * 是否使用职务
-         * <p> 示例值：
-         */
-        private Enum staffingModel;
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         */
-        private Boolean isPreferManualEncoding;
-
-        /**
-         * 实体在CoreHR内部的唯一键
-         * <p> 示例值：4719456877659520852
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * 子类型
-         * <p> 示例值：
-         *
-         * @param subType
-         * @return
-         */
-        public Builder subType(Enum subType) {
-            this.subType = subType;
-            return this;
-        }
-
-
-        /**
-         * 部门负责人
-         * <p> 示例值：6893013238632416776
-         *
-         * @param manager
-         * @return
-         */
-        public Builder manager(String manager) {
-            this.manager = manager;
-            return this;
-        }
-
-
-        /**
-         * 是否保密
-         * <p> 示例值：true
-         *
-         * @param isConfidential
-         * @return
-         */
-        public Builder isConfidential(Boolean isConfidential) {
-            this.isConfidential = isConfidential;
-            return this;
-        }
-
-
-        /**
-         * 层级关系，内层字段见实体
-         * <p> 示例值：
-         *
-         * @param hiberarchyCommon
-         * @return
-         */
-        public Builder hiberarchyCommon(HiberarchyCommon hiberarchyCommon) {
-            this.hiberarchyCommon = hiberarchyCommon;
-            return this;
-        }
-
-
-        /**
-         * 生效时间
-         * <p> 示例值：2020-05-01 00:00:00
-         *
-         * @param effectiveTime
-         * @return
-         */
-        public Builder effectiveTime(String effectiveTime) {
-            this.effectiveTime = effectiveTime;
-            return this;
-        }
-
-
-        /**
-         * 失效时间
-         * <p> 示例值：2020-05-02 00:00:00
-         *
-         * @param expirationTime
-         * @return
-         */
-        public Builder expirationTime(String expirationTime) {
-            this.expirationTime = expirationTime;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFields
-         * @return
-         */
-        public Builder customFields(ObjectFieldData[] customFields) {
-            this.customFields = customFields;
-            return this;
-        }
-
-
-        /**
-         * 成本中心id
-         * <p> 示例值：7142384817131652652
-         *
-         * @param costCenterId
-         * @return
-         */
-        public Builder costCenterId(String costCenterId) {
-            this.costCenterId = costCenterId;
-            return this;
-        }
-
-
-        /**
-         * 是否使用职务
-         * <p> 示例值：
-         *
-         * @param staffingModel
-         * @return
-         */
-        public Builder staffingModel(Enum staffingModel) {
-            this.staffingModel = staffingModel;
-            return this;
-        }
-
-
-        /**
-         * 是否优先使用手动编码。设置为 true 时，即使开启了自动编码功能，系统也会优先采用请求中传入的手动编码值；仅当未传入手动编码时，才回退至自动编码。设置为 false 或未传入时，遵循系统默认的编码策略。
-         * <p> 示例值：
-         *
-         * @param isPreferManualEncoding
-         * @return
-         */
-        public Builder isPreferManualEncoding(Boolean isPreferManualEncoding) {
-            this.isPreferManualEncoding = isPreferManualEncoding;
-            return this;
-        }
-
-
-        public DepartmentCreate build() {
-            return new DepartmentCreate(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

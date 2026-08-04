@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ObjectiveCheckOutput {
+  /**
+   * 失败列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("failed_lists")
+  private Integer[] failedLists;
+
+  /**
+   * 状态码
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("status_code")
+  private Integer statusCode;
+
+  public Integer[] getFailedLists() {
+    return this.failedLists;
+  }
+
+  public void setFailedLists(Integer[] failedLists) {
+    this.failedLists = failedLists;
+  }
+
+  public Integer getStatusCode() {
+    return this.statusCode;
+  }
+
+  public void setStatusCode(Integer statusCode) {
+    this.statusCode = statusCode;
+  }
+
+  // builder 开始
+  public ObjectiveCheckOutput() {}
+
+  public ObjectiveCheckOutput(Builder builder) {
     /**
      * 失败列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("failed_lists")
-    private Integer[] failedLists;
+    this.failedLists = builder.failedLists;
     /**
      * 状态码
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("status_code")
+    this.statusCode = builder.statusCode;
+  }
+
+  public static class Builder {
+    /**
+     * 失败列表
+     *
+     * <p>示例值：
+     */
+    private Integer[] failedLists;
+
+    /**
+     * 状态码
+     *
+     * <p>示例值：0
+     */
     private Integer statusCode;
 
-    // builder 开始
-    public ObjectiveCheckOutput() {
+    /**
+     * 失败列表
+     *
+     * <p>示例值：
+     *
+     * @param failedLists
+     * @return
+     */
+    public Builder failedLists(Integer[] failedLists) {
+      this.failedLists = failedLists;
+      return this;
     }
 
-    public ObjectiveCheckOutput(Builder builder) {
-        /**
-         * 失败列表
-         * <p> 示例值：
-         */
-        this.failedLists = builder.failedLists;
-        /**
-         * 状态码
-         * <p> 示例值：0
-         */
-        this.statusCode = builder.statusCode;
+    /**
+     * 状态码
+     *
+     * <p>示例值：0
+     *
+     * @param statusCode
+     * @return
+     */
+    public Builder statusCode(Integer statusCode) {
+      this.statusCode = statusCode;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public ObjectiveCheckOutput build() {
+      return new ObjectiveCheckOutput(this);
     }
+  }
 
-    public Integer[] getFailedLists() {
-        return this.failedLists;
-    }
-
-    public void setFailedLists(Integer[] failedLists) {
-        this.failedLists = failedLists;
-    }
-
-    public Integer getStatusCode() {
-        return this.statusCode;
-    }
-
-    public void setStatusCode(Integer statusCode) {
-        this.statusCode = statusCode;
-    }
-
-    public static class Builder {
-        /**
-         * 失败列表
-         * <p> 示例值：
-         */
-        private Integer[] failedLists;
-        /**
-         * 状态码
-         * <p> 示例值：0
-         */
-        private Integer statusCode;
-
-        /**
-         * 失败列表
-         * <p> 示例值：
-         *
-         * @param failedLists
-         * @return
-         */
-        public Builder failedLists(Integer[] failedLists) {
-            this.failedLists = failedLists;
-            return this;
-        }
-
-
-        /**
-         * 状态码
-         * <p> 示例值：0
-         *
-         * @param statusCode
-         * @return
-         */
-        public Builder statusCode(Integer statusCode) {
-            this.statusCode = statusCode;
-            return this;
-        }
-
-
-        public ObjectiveCheckOutput build() {
-            return new ObjectiveCheckOutput(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

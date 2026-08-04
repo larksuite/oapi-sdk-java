@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.performance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.performance.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ReviewDataPermissionField {
+  /**
+   * 评估题 ID，指评估内容中的每个评估项或填写项
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("field_id")
+  private String fieldId;
+
+  /**
+   * 评估项 ID（不包含子评估项），option_id 或 score 有值的时候有值，详细信息请参考获取评估项配置
+   *
+   * <p>示例值：7343513161666707459
+   */
+  @SerializedName("indicator_id")
+  private String indicatorId;
+
+  /**
+   * 对该评估题有权限进行的操作
+   *
+   * <p>示例值：
+   */
+  @SerializedName("action")
+  private String[] action;
+
+  public String getFieldId() {
+    return this.fieldId;
+  }
+
+  public void setFieldId(String fieldId) {
+    this.fieldId = fieldId;
+  }
+
+  public String getIndicatorId() {
+    return this.indicatorId;
+  }
+
+  public void setIndicatorId(String indicatorId) {
+    this.indicatorId = indicatorId;
+  }
+
+  public String[] getAction() {
+    return this.action;
+  }
+
+  public void setAction(String[] action) {
+    this.action = action;
+  }
+
+  // builder 开始
+  public ReviewDataPermissionField() {}
+
+  public ReviewDataPermissionField(Builder builder) {
     /**
      * 评估题 ID，指评估内容中的每个评估项或填写项
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("field_id")
-    private String fieldId;
+    this.fieldId = builder.fieldId;
     /**
      * 评估项 ID（不包含子评估项），option_id 或 score 有值的时候有值，详细信息请参考获取评估项配置
-     * <p> 示例值：7343513161666707459
+     *
+     * <p>示例值：7343513161666707459
      */
-    @SerializedName("indicator_id")
-    private String indicatorId;
+    this.indicatorId = builder.indicatorId;
     /**
      * 对该评估题有权限进行的操作
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("action")
+    this.action = builder.action;
+  }
+
+  public static class Builder {
+    /**
+     * 评估题 ID，指评估内容中的每个评估项或填写项
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String fieldId;
+
+    /**
+     * 评估项 ID（不包含子评估项），option_id 或 score 有值的时候有值，详细信息请参考获取评估项配置
+     *
+     * <p>示例值：7343513161666707459
+     */
+    private String indicatorId;
+
+    /**
+     * 对该评估题有权限进行的操作
+     *
+     * <p>示例值：
+     */
     private String[] action;
 
-    // builder 开始
-    public ReviewDataPermissionField() {
+    /**
+     * 评估题 ID，指评估内容中的每个评估项或填写项
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param fieldId
+     * @return
+     */
+    public Builder fieldId(String fieldId) {
+      this.fieldId = fieldId;
+      return this;
     }
 
-    public ReviewDataPermissionField(Builder builder) {
-        /**
-         * 评估题 ID，指评估内容中的每个评估项或填写项
-         * <p> 示例值：7343513161666707459
-         */
-        this.fieldId = builder.fieldId;
-        /**
-         * 评估项 ID（不包含子评估项），option_id 或 score 有值的时候有值，详细信息请参考获取评估项配置
-         * <p> 示例值：7343513161666707459
-         */
-        this.indicatorId = builder.indicatorId;
-        /**
-         * 对该评估题有权限进行的操作
-         * <p> 示例值：
-         */
-        this.action = builder.action;
+    /**
+     * 评估项 ID（不包含子评估项），option_id 或 score 有值的时候有值，详细信息请参考获取评估项配置
+     *
+     * <p>示例值：7343513161666707459
+     *
+     * @param indicatorId
+     * @return
+     */
+    public Builder indicatorId(String indicatorId) {
+      this.indicatorId = indicatorId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 对该评估题有权限进行的操作
+     *
+     * <p>示例值：
+     *
+     * @param action
+     * @return
+     */
+    public Builder action(String[] action) {
+      this.action = action;
+      return this;
     }
 
-    public String getFieldId() {
-        return this.fieldId;
+    public ReviewDataPermissionField build() {
+      return new ReviewDataPermissionField(this);
     }
+  }
 
-    public void setFieldId(String fieldId) {
-        this.fieldId = fieldId;
-    }
-
-    public String getIndicatorId() {
-        return this.indicatorId;
-    }
-
-    public void setIndicatorId(String indicatorId) {
-        this.indicatorId = indicatorId;
-    }
-
-    public String[] getAction() {
-        return this.action;
-    }
-
-    public void setAction(String[] action) {
-        this.action = action;
-    }
-
-    public static class Builder {
-        /**
-         * 评估题 ID，指评估内容中的每个评估项或填写项
-         * <p> 示例值：7343513161666707459
-         */
-        private String fieldId;
-        /**
-         * 评估项 ID（不包含子评估项），option_id 或 score 有值的时候有值，详细信息请参考获取评估项配置
-         * <p> 示例值：7343513161666707459
-         */
-        private String indicatorId;
-        /**
-         * 对该评估题有权限进行的操作
-         * <p> 示例值：
-         */
-        private String[] action;
-
-        /**
-         * 评估题 ID，指评估内容中的每个评估项或填写项
-         * <p> 示例值：7343513161666707459
-         *
-         * @param fieldId
-         * @return
-         */
-        public Builder fieldId(String fieldId) {
-            this.fieldId = fieldId;
-            return this;
-        }
-
-
-        /**
-         * 评估项 ID（不包含子评估项），option_id 或 score 有值的时候有值，详细信息请参考获取评估项配置
-         * <p> 示例值：7343513161666707459
-         *
-         * @param indicatorId
-         * @return
-         */
-        public Builder indicatorId(String indicatorId) {
-            this.indicatorId = indicatorId;
-            return this;
-        }
-
-
-        /**
-         * 对该评估题有权限进行的操作
-         * <p> 示例值：
-         *
-         * @param action
-         * @return
-         */
-        public Builder action(String[] action) {
-            this.action = action;
-            return this;
-        }
-
-
-        public ReviewDataPermissionField build() {
-            return new ReviewDataPermissionField(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,72 +13,65 @@
 
 package com.lark.oapi.service.minutes.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.minutes.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.minutes.v1.enums.*;
 
 public class ArtifactsMinuteReq {
+  /**
+   * 妙记唯一标识。可从妙记的 URL 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/obcnq3b9jl72l83w4f14xxxx
+   *
+   * <p>示例值：obcnq3b9jl72l83w4f149w9c
+   */
+  @Path
+  @SerializedName("minute_token")
+  private String minuteToken;
+
+  public String getMinuteToken() {
+    return this.minuteToken;
+  }
+
+  public void setMinuteToken(String minuteToken) {
+    this.minuteToken = minuteToken;
+  }
+
+  // builder 开始
+  public ArtifactsMinuteReq() {}
+
+  public ArtifactsMinuteReq(Builder builder) {
     /**
-     * 妙记的唯一标识
-     * <p> 示例值：obcnq3b9jl72l83w4f149w9c
+     * 妙记唯一标识。可从妙记的 URL 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/obcnq3b9jl72l83w4f14xxxx
+     *
+     * <p>示例值：obcnq3b9jl72l83w4f149w9c
      */
-    @Path
-    @SerializedName("minute_token")
-    private String minuteToken;
+    this.minuteToken = builder.minuteToken;
+  }
 
-    // builder 开始
-    public ArtifactsMinuteReq() {
+  public static class Builder {
+
+    private String minuteToken; // 妙记唯一标识。可从妙记的 URL
+
+    // 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/obcnq3b9jl72l83w4f14xxxx
+
+    /**
+     * 妙记唯一标识。可从妙记的 URL 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/obcnq3b9jl72l83w4f14xxxx
+     *
+     * <p>示例值：obcnq3b9jl72l83w4f149w9c
+     *
+     * @param minuteToken
+     * @return
+     */
+    public Builder minuteToken(String minuteToken) {
+      this.minuteToken = minuteToken;
+      return this;
     }
 
-    public ArtifactsMinuteReq(Builder builder) {
-        /**
-         * 妙记的唯一标识
-         * <p> 示例值：obcnq3b9jl72l83w4f149w9c
-         */
-        this.minuteToken = builder.minuteToken;
+    public ArtifactsMinuteReq build() {
+      return new ArtifactsMinuteReq(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getMinuteToken() {
-        return this.minuteToken;
-    }
-
-    public void setMinuteToken(String minuteToken) {
-        this.minuteToken = minuteToken;
-    }
-
-    public static class Builder {
-
-        private String minuteToken; // 妙记的唯一标识
-
-        /**
-         * 妙记的唯一标识
-         * <p> 示例值：obcnq3b9jl72l83w4f149w9c
-         *
-         * @param minuteToken
-         * @return
-         */
-        public Builder minuteToken(String minuteToken) {
-            this.minuteToken = minuteToken;
-            return this;
-        }
-
-
-        public ArtifactsMinuteReq build() {
-            return new ArtifactsMinuteReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

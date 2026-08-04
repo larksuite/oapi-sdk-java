@@ -13,865 +13,954 @@
 
 package com.lark.oapi.service.corehr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v1.enums.*;
 
 public class LeaveRequestHistoryLeaveReq {
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值："7356863257632491046"
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 分页大小，最小10，最大1000
+   *
+   * <p>示例值：100
+   */
+  @Query
+  @SerializedName("page_size")
+  private String pageSize;
+
+  /**
+   * 员工 ID 列表，最大 100 个（不传则默认查询全部员工），ID 类型与 user_id_type
+   * 一致。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如employment_id_list=6919733291281024522&employment_id_list=6919733291281024523
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("employment_id_list")
+  private String[] employmentIdList;
+
+  /**
+   * 休假发起人 ID 列表，最大 100 个，ID 类型与 user_id_type
+   * 一致。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如initiator_id_list=6919733291281024522&initiator_id_list=6919733291281024523
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("initiator_id_list")
+  private String[] initiatorIdList;
+
+  /**
+   * 请假记录的状态，不填为不过滤状态。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如leave_request_status
+   * =1&leave_request_status=2;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;;- 4：审批中（取消休假）;;- 5：审批中（返岗）;;-
+   * 6：已返岗;;- 7：已拒绝;;- 8：已取消;;- 9：已撤回
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("leave_request_status")
+  private String[] leaveRequestStatus;
+
+  /**
+   * 假期类型 ID
+   * 列表，枚举值可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)接口获取。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如leave_type_id_list
+   * =4718803945687580501&leave_type_id_list=4718803945687580500
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("leave_type_id_list")
+  private String[] leaveTypeIdList;
+
+  /**
+   * 休假开始时间晚于等于的日期，格式为yyyy-MM-dd
+   *
+   * <p>示例值：2022-07-20
+   */
+  @Query
+  @SerializedName("leave_start_date_min")
+  private String leaveStartDateMin;
+
+  /**
+   * 休假开始时间早于等于的日期，格式为yyyy-MM-dd
+   *
+   * <p>示例值：2022-07-20
+   */
+  @Query
+  @SerializedName("leave_start_date_max")
+  private String leaveStartDateMax;
+
+  /**
+   * 休假结束时间晚于等于的日期，格式为yyyy-MM-dd
+   *
+   * <p>示例值：2022-07-20
+   */
+  @Query
+  @SerializedName("leave_end_date_min")
+  private String leaveEndDateMin;
+
+  /**
+   * 休假结束时间早于等于的日期，格式为yyyy-MM-dd
+   *
+   * <p>示例值：2022-07-20
+   */
+  @Query
+  @SerializedName("leave_end_date_max")
+  private String leaveEndDateMax;
+
+  /**
+   * 休假发起时间晚于等于的日期，格式为yyyy-MM-dd
+   *
+   * <p>示例值：2022-07-20
+   */
+  @Query
+  @SerializedName("leave_submit_date_min")
+  private String leaveSubmitDateMin;
+
+  /**
+   * 休假发起时间早于等于的日期，格式为yyyy-MM-dd
+   *
+   * <p>示例值：2022-07-20
+   */
+  @Query
+  @SerializedName("leave_submit_date_max")
+  private String leaveSubmitDateMax;
+
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：people_corehr_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 请假记录更新时间晚于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2022-10-24 10:00:00
+   */
+  @Query
+  @SerializedName("leave_update_time_min")
+  private String leaveUpdateTimeMin;
+
+  /**
+   * 请假记录更新时间早于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2022-10-24 10:00:00
+   */
+  @Query
+  @SerializedName("leave_update_time_max")
+  private String leaveUpdateTimeMax;
+
+  /**
+   * （暂未开放）是否返回请假详情，若为true，将在每条请假记录的details字段返回请假详情
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("return_detail")
+  private Boolean returnDetail;
+
+  /**
+   * 指定过滤长/短假类型，0表示不过滤，1表示仅获取短假，2表示仅获取长假, 默认0
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("leave_term_type")
+  private Integer leaveTermType;
+
+  /**
+   * 请假记录所在时区
+   *
+   * <p>示例值：Asia/Shanghai
+   */
+  @Query
+  @SerializedName("time_zone")
+  private String timeZone;
+
+  /**
+   * （暂未开放）请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("data_source")
+  private Integer dataSource;
+
+  /**
+   * （暂未开放）请假记录DB更新时间晚于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2022-10-24 10:00:00
+   */
+  @Query
+  @SerializedName("db_update_time_min")
+  private String dbUpdateTimeMin;
+
+  /**
+   * （暂未开放）请假记录DB更新时间早于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+   *
+   * <p>示例值：2022-10-24 10:00:00
+   */
+  @Query
+  @SerializedName("db_update_time_max")
+  private String dbUpdateTimeMax;
+
+  /**
+   * WorkDay专用 是否返回0值的请假记录，若为true，将返回0值的请假记录
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("wd_need_amount_zero_records")
+  private Boolean wdNeedAmountZeroRecords;
+
+  /**
+   * WorkDay专用 是否拒绝和取消的请假记录，若为true，将返回拒绝和取消的请假记录
+   *
+   * <p>示例值：false
+   */
+  @Query
+  @SerializedName("wd_need_denied_and_canceled_record")
+  private Boolean wdNeedDeniedAndCanceledRecord;
+
+  /**
+   * WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
+   *
+   * <p>示例值：1
+   */
+  @Query
+  @SerializedName("wd_paid_type")
+  private Integer wdPaidType;
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(String pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String[] getEmploymentIdList() {
+    return this.employmentIdList;
+  }
+
+  public void setEmploymentIdList(String[] employmentIdList) {
+    this.employmentIdList = employmentIdList;
+  }
+
+  public String[] getInitiatorIdList() {
+    return this.initiatorIdList;
+  }
+
+  public void setInitiatorIdList(String[] initiatorIdList) {
+    this.initiatorIdList = initiatorIdList;
+  }
+
+  public String[] getLeaveRequestStatus() {
+    return this.leaveRequestStatus;
+  }
+
+  public void setLeaveRequestStatus(String[] leaveRequestStatus) {
+    this.leaveRequestStatus = leaveRequestStatus;
+  }
+
+  public String[] getLeaveTypeIdList() {
+    return this.leaveTypeIdList;
+  }
+
+  public void setLeaveTypeIdList(String[] leaveTypeIdList) {
+    this.leaveTypeIdList = leaveTypeIdList;
+  }
+
+  public String getLeaveStartDateMin() {
+    return this.leaveStartDateMin;
+  }
+
+  public void setLeaveStartDateMin(String leaveStartDateMin) {
+    this.leaveStartDateMin = leaveStartDateMin;
+  }
+
+  public String getLeaveStartDateMax() {
+    return this.leaveStartDateMax;
+  }
+
+  public void setLeaveStartDateMax(String leaveStartDateMax) {
+    this.leaveStartDateMax = leaveStartDateMax;
+  }
+
+  public String getLeaveEndDateMin() {
+    return this.leaveEndDateMin;
+  }
+
+  public void setLeaveEndDateMin(String leaveEndDateMin) {
+    this.leaveEndDateMin = leaveEndDateMin;
+  }
+
+  public String getLeaveEndDateMax() {
+    return this.leaveEndDateMax;
+  }
+
+  public void setLeaveEndDateMax(String leaveEndDateMax) {
+    this.leaveEndDateMax = leaveEndDateMax;
+  }
+
+  public String getLeaveSubmitDateMin() {
+    return this.leaveSubmitDateMin;
+  }
+
+  public void setLeaveSubmitDateMin(String leaveSubmitDateMin) {
+    this.leaveSubmitDateMin = leaveSubmitDateMin;
+  }
+
+  public String getLeaveSubmitDateMax() {
+    return this.leaveSubmitDateMax;
+  }
+
+  public void setLeaveSubmitDateMax(String leaveSubmitDateMax) {
+    this.leaveSubmitDateMax = leaveSubmitDateMax;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getLeaveUpdateTimeMin() {
+    return this.leaveUpdateTimeMin;
+  }
+
+  public void setLeaveUpdateTimeMin(String leaveUpdateTimeMin) {
+    this.leaveUpdateTimeMin = leaveUpdateTimeMin;
+  }
+
+  public String getLeaveUpdateTimeMax() {
+    return this.leaveUpdateTimeMax;
+  }
+
+  public void setLeaveUpdateTimeMax(String leaveUpdateTimeMax) {
+    this.leaveUpdateTimeMax = leaveUpdateTimeMax;
+  }
+
+  public Boolean getReturnDetail() {
+    return this.returnDetail;
+  }
+
+  public void setReturnDetail(Boolean returnDetail) {
+    this.returnDetail = returnDetail;
+  }
+
+  public Integer getLeaveTermType() {
+    return this.leaveTermType;
+  }
+
+  public void setLeaveTermType(Integer leaveTermType) {
+    this.leaveTermType = leaveTermType;
+  }
+
+  public String getTimeZone() {
+    return this.timeZone;
+  }
+
+  public void setTimeZone(String timeZone) {
+    this.timeZone = timeZone;
+  }
+
+  public Integer getDataSource() {
+    return this.dataSource;
+  }
+
+  public void setDataSource(Integer dataSource) {
+    this.dataSource = dataSource;
+  }
+
+  public String getDbUpdateTimeMin() {
+    return this.dbUpdateTimeMin;
+  }
+
+  public void setDbUpdateTimeMin(String dbUpdateTimeMin) {
+    this.dbUpdateTimeMin = dbUpdateTimeMin;
+  }
+
+  public String getDbUpdateTimeMax() {
+    return this.dbUpdateTimeMax;
+  }
+
+  public void setDbUpdateTimeMax(String dbUpdateTimeMax) {
+    this.dbUpdateTimeMax = dbUpdateTimeMax;
+  }
+
+  public Boolean getWdNeedAmountZeroRecords() {
+    return this.wdNeedAmountZeroRecords;
+  }
+
+  public void setWdNeedAmountZeroRecords(Boolean wdNeedAmountZeroRecords) {
+    this.wdNeedAmountZeroRecords = wdNeedAmountZeroRecords;
+  }
+
+  public Boolean getWdNeedDeniedAndCanceledRecord() {
+    return this.wdNeedDeniedAndCanceledRecord;
+  }
+
+  public void setWdNeedDeniedAndCanceledRecord(Boolean wdNeedDeniedAndCanceledRecord) {
+    this.wdNeedDeniedAndCanceledRecord = wdNeedDeniedAndCanceledRecord;
+  }
+
+  public Integer getWdPaidType() {
+    return this.wdPaidType;
+  }
+
+  public void setWdPaidType(Integer wdPaidType) {
+    this.wdPaidType = wdPaidType;
+  }
+
+  // builder 开始
+  public LeaveRequestHistoryLeaveReq() {}
+
+  public LeaveRequestHistoryLeaveReq(Builder builder) {
     /**
-     * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-     * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值："7356863257632491046"
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 每页获取记录数量，最大100
-     * <p> 示例值：100
+     * 分页大小，最小10，最大1000
+     *
+     * <p>示例值：100
      */
-    @Query
-    @SerializedName("page_size")
-    private String pageSize;
+    this.pageSize = builder.pageSize;
     /**
-     * 员工 ID 列表，最大 100 个（不传则默认查询全部员工）
-     * <p> 示例值：["6919733291281024526"]
+     * 员工 ID 列表，最大 100 个（不传则默认查询全部员工），ID 类型与 user_id_type
+     * 一致。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如employment_id_list=6919733291281024522&employment_id_list=6919733291281024523
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("employment_id_list")
-    private String[] employmentIdList;
+    this.employmentIdList = builder.employmentIdList;
     /**
-     * 休假发起人 ID 列表，最大 100 个
-     * <p> 示例值：["6919733291281024526"]
+     * 休假发起人 ID 列表，最大 100 个，ID 类型与 user_id_type
+     * 一致。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如initiator_id_list=6919733291281024522&initiator_id_list=6919733291281024523
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("initiator_id_list")
-    private String[] initiatorIdList;
+    this.initiatorIdList = builder.initiatorIdList;
     /**
-     * 请假记录的状态;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;;- 4：审批中（取消休假）;;- 5：审批中（返岗）;;- 6：已返岗;;- 7：已拒绝;;- 8：已取消;;- 9：已撤回
-     * <p> 示例值：["1", "2"]
+     * 请假记录的状态，不填为不过滤状态。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如leave_request_status
+     * =1&leave_request_status=2;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;;- 4：审批中（取消休假）;;-
+     * 5：审批中（返岗）;;- 6：已返岗;;- 7：已拒绝;;- 8：已取消;;- 9：已撤回
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("leave_request_status")
-    private String[] leaveRequestStatus;
+    this.leaveRequestStatus = builder.leaveRequestStatus;
     /**
-     * 假期类型 ID 列表，枚举值可通过【获取假期类型列表】接口获取
-     * <p> 示例值：["1"]
+     * 假期类型 ID
+     * 列表，枚举值可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)接口获取。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如leave_type_id_list
+     * =4718803945687580501&leave_type_id_list=4718803945687580500
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("leave_type_id_list")
-    private String[] leaveTypeIdList;
+    this.leaveTypeIdList = builder.leaveTypeIdList;
     /**
-     * 休假开始时间晚于等于的日期
-     * <p> 示例值：2022-07-20 morning
+     * 休假开始时间晚于等于的日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-07-20
      */
-    @Query
-    @SerializedName("leave_start_date_min")
-    private String leaveStartDateMin;
+    this.leaveStartDateMin = builder.leaveStartDateMin;
     /**
-     * 休假开始时间早于等于的日期
-     * <p> 示例值：2022-07-20 morning
+     * 休假开始时间早于等于的日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-07-20
      */
-    @Query
-    @SerializedName("leave_start_date_max")
-    private String leaveStartDateMax;
+    this.leaveStartDateMax = builder.leaveStartDateMax;
     /**
-     * 休假结束时间晚于等于的日期
-     * <p> 示例值：2022-07-20 morning
+     * 休假结束时间晚于等于的日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-07-20
      */
-    @Query
-    @SerializedName("leave_end_date_min")
-    private String leaveEndDateMin;
+    this.leaveEndDateMin = builder.leaveEndDateMin;
     /**
-     * 休假结束时间早于等于的日期
-     * <p> 示例值：2022-07-20 morning
+     * 休假结束时间早于等于的日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-07-20
      */
-    @Query
-    @SerializedName("leave_end_date_max")
-    private String leaveEndDateMax;
+    this.leaveEndDateMax = builder.leaveEndDateMax;
     /**
-     * 休假发起时间晚于等于的日期
-     * <p> 示例值：2022-07-20 morning
+     * 休假发起时间晚于等于的日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-07-20
      */
-    @Query
-    @SerializedName("leave_submit_date_min")
-    private String leaveSubmitDateMin;
+    this.leaveSubmitDateMin = builder.leaveSubmitDateMin;
     /**
-     * 休假发起时间早于等于的日期
-     * <p> 示例值：2022-07-20 morning
+     * 休假发起时间早于等于的日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-07-20
      */
-    @Query
-    @SerializedName("leave_submit_date_max")
-    private String leaveSubmitDateMax;
+    this.leaveSubmitDateMax = builder.leaveSubmitDateMax;
     /**
      * 用户 ID 类型
-     * <p> 示例值：people_corehr_id
+     *
+     * <p>示例值：people_corehr_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 请假记录更新时间晚于等于的时间
-     * <p> 示例值：2022-10-24 10:00:00
+     * 请假记录更新时间晚于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2022-10-24 10:00:00
      */
-    @Query
-    @SerializedName("leave_update_time_min")
-    private String leaveUpdateTimeMin;
+    this.leaveUpdateTimeMin = builder.leaveUpdateTimeMin;
     /**
-     * 请假记录更新时间早于等于的时间
-     * <p> 示例值：2022-10-24 10:00:00
+     * 请假记录更新时间早于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2022-10-24 10:00:00
      */
-    @Query
-    @SerializedName("leave_update_time_max")
-    private String leaveUpdateTimeMax;
+    this.leaveUpdateTimeMax = builder.leaveUpdateTimeMax;
     /**
-     * 是否返回请假详情，若为true，将在每条请假记录的details字段返回请假详情
-     * <p> 示例值：false
+     * （暂未开放）是否返回请假详情，若为true，将在每条请假记录的details字段返回请假详情
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("return_detail")
-    private Boolean returnDetail;
+    this.returnDetail = builder.returnDetail;
     /**
      * 指定过滤长/短假类型，0表示不过滤，1表示仅获取短假，2表示仅获取长假, 默认0
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("leave_term_type")
-    private Integer leaveTermType;
+    this.leaveTermType = builder.leaveTermType;
     /**
      * 请假记录所在时区
-     * <p> 示例值：Asia/Shanghai
+     *
+     * <p>示例值：Asia/Shanghai
      */
-    @Query
-    @SerializedName("time_zone")
-    private String timeZone;
+    this.timeZone = builder.timeZone;
     /**
-     * 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤
-     * <p> 示例值：1
+     * （暂未开放）请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("data_source")
-    private Integer dataSource;
+    this.dataSource = builder.dataSource;
     /**
-     * 请假记录DB更新时间晚于等于的时间
-     * <p> 示例值：2022-10-24 10:00:00
+     * （暂未开放）请假记录DB更新时间晚于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2022-10-24 10:00:00
      */
-    @Query
-    @SerializedName("db_update_time_min")
-    private String dbUpdateTimeMin;
+    this.dbUpdateTimeMin = builder.dbUpdateTimeMin;
     /**
-     * 请假记录DB更新时间早于等于的时间
-     * <p> 示例值：2022-10-24 10:00:00
+     * （暂未开放）请假记录DB更新时间早于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2022-10-24 10:00:00
      */
-    @Query
-    @SerializedName("db_update_time_max")
-    private String dbUpdateTimeMax;
+    this.dbUpdateTimeMax = builder.dbUpdateTimeMax;
     /**
      * WorkDay专用 是否返回0值的请假记录，若为true，将返回0值的请假记录
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("wd_need_amount_zero_records")
-    private Boolean wdNeedAmountZeroRecords;
+    this.wdNeedAmountZeroRecords = builder.wdNeedAmountZeroRecords;
     /**
      * WorkDay专用 是否拒绝和取消的请假记录，若为true，将返回拒绝和取消的请假记录
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @Query
-    @SerializedName("wd_need_denied_and_canceled_record")
-    private Boolean wdNeedDeniedAndCanceledRecord;
+    this.wdNeedDeniedAndCanceledRecord = builder.wdNeedDeniedAndCanceledRecord;
     /**
      * WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @Query
-    @SerializedName("wd_paid_type")
-    private Integer wdPaidType;
+    this.wdPaidType = builder.wdPaidType;
+  }
 
-    // builder 开始
-    public LeaveRequestHistoryLeaveReq() {
+  public static class Builder {
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String pageSize; // 分页大小，最小10，最大1000
+    private String[] employmentIdList; // 员工 ID 列表，最大 100 个（不传则默认查询全部员工），ID 类型与 user_id_type
+    // 一致。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如employment_id_list=6919733291281024522&employment_id_list=6919733291281024523
+    private String[] initiatorIdList; // 休假发起人 ID 列表，最大 100 个，ID 类型与 user_id_type
+    // 一致。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如initiator_id_list=6919733291281024522&initiator_id_list=6919733291281024523
+    private String[]
+        leaveRequestStatus; // 请假记录的状态，不填为不过滤状态。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如leave_request_status =1&leave_request_status=2;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;;- 4：审批中（取消休假）;;- 5：审批中（返岗）;;- 6：已返岗;;- 7：已拒绝;;- 8：已取消;;- 9：已撤回
+    private String[] leaveTypeIdList; // 假期类型 ID
+    // 列表，枚举值可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)接口获取。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如leave_type_id_list =4718803945687580501&leave_type_id_list=4718803945687580500
+    private String leaveStartDateMin; // 休假开始时间晚于等于的日期，格式为yyyy-MM-dd
+    private String leaveStartDateMax; // 休假开始时间早于等于的日期，格式为yyyy-MM-dd
+    private String leaveEndDateMin; // 休假结束时间晚于等于的日期，格式为yyyy-MM-dd
+    private String leaveEndDateMax; // 休假结束时间早于等于的日期，格式为yyyy-MM-dd
+    private String leaveSubmitDateMin; // 休假发起时间晚于等于的日期，格式为yyyy-MM-dd
+    private String leaveSubmitDateMax; // 休假发起时间早于等于的日期，格式为yyyy-MM-dd
+    private String userIdType; // 用户 ID 类型
+    private String leaveUpdateTimeMin; // 请假记录更新时间晚于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+    private String leaveUpdateTimeMax; // 请假记录更新时间早于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+    private Boolean returnDetail; // （暂未开放）是否返回请假详情，若为true，将在每条请假记录的details字段返回请假详情
+    private Integer leaveTermType; // 指定过滤长/短假类型，0表示不过滤，1表示仅获取短假，2表示仅获取长假, 默认0
+    private String timeZone; // 请假记录所在时区
+    private Integer dataSource; // （暂未开放）请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤
+    private String dbUpdateTimeMin; // （暂未开放）请假记录DB更新时间晚于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+    private String dbUpdateTimeMax; // （暂未开放）请假记录DB更新时间早于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+    private Boolean wdNeedAmountZeroRecords; // WorkDay专用 是否返回0值的请假记录，若为true，将返回0值的请假记录
+    private Boolean wdNeedDeniedAndCanceledRecord; // WorkDay专用 是否拒绝和取消的请假记录，若为true，将返回拒绝和取消的请假记录
+    private Integer wdPaidType; // WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
+
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值："7356863257632491046"
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public LeaveRequestHistoryLeaveReq(Builder builder) {
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 员工 ID 列表，最大 100 个（不传则默认查询全部员工）
-         * <p> 示例值：["6919733291281024526"]
-         */
-        this.employmentIdList = builder.employmentIdList;
-        /**
-         * 休假发起人 ID 列表，最大 100 个
-         * <p> 示例值：["6919733291281024526"]
-         */
-        this.initiatorIdList = builder.initiatorIdList;
-        /**
-         * 请假记录的状态;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;;- 4：审批中（取消休假）;;- 5：审批中（返岗）;;- 6：已返岗;;- 7：已拒绝;;- 8：已取消;;- 9：已撤回
-         * <p> 示例值：["1", "2"]
-         */
-        this.leaveRequestStatus = builder.leaveRequestStatus;
-        /**
-         * 假期类型 ID 列表，枚举值可通过【获取假期类型列表】接口获取
-         * <p> 示例值：["1"]
-         */
-        this.leaveTypeIdList = builder.leaveTypeIdList;
-        /**
-         * 休假开始时间晚于等于的日期
-         * <p> 示例值：2022-07-20 morning
-         */
-        this.leaveStartDateMin = builder.leaveStartDateMin;
-        /**
-         * 休假开始时间早于等于的日期
-         * <p> 示例值：2022-07-20 morning
-         */
-        this.leaveStartDateMax = builder.leaveStartDateMax;
-        /**
-         * 休假结束时间晚于等于的日期
-         * <p> 示例值：2022-07-20 morning
-         */
-        this.leaveEndDateMin = builder.leaveEndDateMin;
-        /**
-         * 休假结束时间早于等于的日期
-         * <p> 示例值：2022-07-20 morning
-         */
-        this.leaveEndDateMax = builder.leaveEndDateMax;
-        /**
-         * 休假发起时间晚于等于的日期
-         * <p> 示例值：2022-07-20 morning
-         */
-        this.leaveSubmitDateMin = builder.leaveSubmitDateMin;
-        /**
-         * 休假发起时间早于等于的日期
-         * <p> 示例值：2022-07-20 morning
-         */
-        this.leaveSubmitDateMax = builder.leaveSubmitDateMax;
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 请假记录更新时间晚于等于的时间
-         * <p> 示例值：2022-10-24 10:00:00
-         */
-        this.leaveUpdateTimeMin = builder.leaveUpdateTimeMin;
-        /**
-         * 请假记录更新时间早于等于的时间
-         * <p> 示例值：2022-10-24 10:00:00
-         */
-        this.leaveUpdateTimeMax = builder.leaveUpdateTimeMax;
-        /**
-         * 是否返回请假详情，若为true，将在每条请假记录的details字段返回请假详情
-         * <p> 示例值：false
-         */
-        this.returnDetail = builder.returnDetail;
-        /**
-         * 指定过滤长/短假类型，0表示不过滤，1表示仅获取短假，2表示仅获取长假, 默认0
-         * <p> 示例值：1
-         */
-        this.leaveTermType = builder.leaveTermType;
-        /**
-         * 请假记录所在时区
-         * <p> 示例值：Asia/Shanghai
-         */
-        this.timeZone = builder.timeZone;
-        /**
-         * 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤
-         * <p> 示例值：1
-         */
-        this.dataSource = builder.dataSource;
-        /**
-         * 请假记录DB更新时间晚于等于的时间
-         * <p> 示例值：2022-10-24 10:00:00
-         */
-        this.dbUpdateTimeMin = builder.dbUpdateTimeMin;
-        /**
-         * 请假记录DB更新时间早于等于的时间
-         * <p> 示例值：2022-10-24 10:00:00
-         */
-        this.dbUpdateTimeMax = builder.dbUpdateTimeMax;
-        /**
-         * WorkDay专用 是否返回0值的请假记录，若为true，将返回0值的请假记录
-         * <p> 示例值：false
-         */
-        this.wdNeedAmountZeroRecords = builder.wdNeedAmountZeroRecords;
-        /**
-         * WorkDay专用 是否拒绝和取消的请假记录，若为true，将返回拒绝和取消的请假记录
-         * <p> 示例值：false
-         */
-        this.wdNeedDeniedAndCanceledRecord = builder.wdNeedDeniedAndCanceledRecord;
-        /**
-         * WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
-         * <p> 示例值：1
-         */
-        this.wdPaidType = builder.wdPaidType;
+    /**
+     * 分页大小，最小10，最大1000
+     *
+     * <p>示例值：100
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(String pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 员工 ID 列表，最大 100 个（不传则默认查询全部员工），ID 类型与 user_id_type
+     * 一致。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如employment_id_list=6919733291281024522&employment_id_list=6919733291281024523
+     *
+     * <p>示例值：
+     *
+     * @param employmentIdList
+     * @return
+     */
+    public Builder employmentIdList(String[] employmentIdList) {
+      this.employmentIdList = employmentIdList;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 休假发起人 ID 列表，最大 100 个，ID 类型与 user_id_type
+     * 一致。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如initiator_id_list=6919733291281024522&initiator_id_list=6919733291281024523
+     *
+     * <p>示例值：
+     *
+     * @param initiatorIdList
+     * @return
+     */
+    public Builder initiatorIdList(String[] initiatorIdList) {
+      this.initiatorIdList = initiatorIdList;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    /**
+     * 请假记录的状态，不填为不过滤状态。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如leave_request_status
+     * =1&leave_request_status=2;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;;- 4：审批中（取消休假）;;-
+     * 5：审批中（返岗）;;- 6：已返岗;;- 7：已拒绝;;- 8：已取消;;- 9：已撤回
+     *
+     * <p>示例值：
+     *
+     * @param leaveRequestStatus
+     * @return
+     */
+    public Builder leaveRequestStatus(String[] leaveRequestStatus) {
+      this.leaveRequestStatus = leaveRequestStatus;
+      return this;
     }
 
-    public String getPageSize() {
-        return this.pageSize;
+    /**
+     * 假期类型 ID
+     * 列表，枚举值可通过[获取假期类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/leave_types)接口获取。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如leave_type_id_list
+     * =4718803945687580501&leave_type_id_list=4718803945687580500
+     *
+     * <p>示例值：
+     *
+     * @param leaveTypeIdList
+     * @return
+     */
+    public Builder leaveTypeIdList(String[] leaveTypeIdList) {
+      this.leaveTypeIdList = leaveTypeIdList;
+      return this;
     }
 
-    public void setPageSize(String pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 休假开始时间晚于等于的日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-07-20
+     *
+     * @param leaveStartDateMin
+     * @return
+     */
+    public Builder leaveStartDateMin(String leaveStartDateMin) {
+      this.leaveStartDateMin = leaveStartDateMin;
+      return this;
     }
 
-    public String[] getEmploymentIdList() {
-        return this.employmentIdList;
+    /**
+     * 休假开始时间早于等于的日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-07-20
+     *
+     * @param leaveStartDateMax
+     * @return
+     */
+    public Builder leaveStartDateMax(String leaveStartDateMax) {
+      this.leaveStartDateMax = leaveStartDateMax;
+      return this;
     }
 
-    public void setEmploymentIdList(String[] employmentIdList) {
-        this.employmentIdList = employmentIdList;
+    /**
+     * 休假结束时间晚于等于的日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-07-20
+     *
+     * @param leaveEndDateMin
+     * @return
+     */
+    public Builder leaveEndDateMin(String leaveEndDateMin) {
+      this.leaveEndDateMin = leaveEndDateMin;
+      return this;
     }
 
-    public String[] getInitiatorIdList() {
-        return this.initiatorIdList;
+    /**
+     * 休假结束时间早于等于的日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-07-20
+     *
+     * @param leaveEndDateMax
+     * @return
+     */
+    public Builder leaveEndDateMax(String leaveEndDateMax) {
+      this.leaveEndDateMax = leaveEndDateMax;
+      return this;
     }
 
-    public void setInitiatorIdList(String[] initiatorIdList) {
-        this.initiatorIdList = initiatorIdList;
+    /**
+     * 休假发起时间晚于等于的日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-07-20
+     *
+     * @param leaveSubmitDateMin
+     * @return
+     */
+    public Builder leaveSubmitDateMin(String leaveSubmitDateMin) {
+      this.leaveSubmitDateMin = leaveSubmitDateMin;
+      return this;
     }
 
-    public String[] getLeaveRequestStatus() {
-        return this.leaveRequestStatus;
+    /**
+     * 休假发起时间早于等于的日期，格式为yyyy-MM-dd
+     *
+     * <p>示例值：2022-07-20
+     *
+     * @param leaveSubmitDateMax
+     * @return
+     */
+    public Builder leaveSubmitDateMax(String leaveSubmitDateMax) {
+      this.leaveSubmitDateMax = leaveSubmitDateMax;
+      return this;
     }
 
-    public void setLeaveRequestStatus(String[] leaveRequestStatus) {
-        this.leaveRequestStatus = leaveRequestStatus;
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String[] getLeaveTypeIdList() {
-        return this.leaveTypeIdList;
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：people_corehr_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.corehr.v1.enums.LeaveRequestHistoryLeaveLeaveRequestHistoryLeaveUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.corehr.v1.enums
+                .LeaveRequestHistoryLeaveLeaveRequestHistoryLeaveUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public void setLeaveTypeIdList(String[] leaveTypeIdList) {
-        this.leaveTypeIdList = leaveTypeIdList;
+    /**
+     * 请假记录更新时间晚于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2022-10-24 10:00:00
+     *
+     * @param leaveUpdateTimeMin
+     * @return
+     */
+    public Builder leaveUpdateTimeMin(String leaveUpdateTimeMin) {
+      this.leaveUpdateTimeMin = leaveUpdateTimeMin;
+      return this;
     }
 
-    public String getLeaveStartDateMin() {
-        return this.leaveStartDateMin;
+    /**
+     * 请假记录更新时间早于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2022-10-24 10:00:00
+     *
+     * @param leaveUpdateTimeMax
+     * @return
+     */
+    public Builder leaveUpdateTimeMax(String leaveUpdateTimeMax) {
+      this.leaveUpdateTimeMax = leaveUpdateTimeMax;
+      return this;
     }
 
-    public void setLeaveStartDateMin(String leaveStartDateMin) {
-        this.leaveStartDateMin = leaveStartDateMin;
+    /**
+     * （暂未开放）是否返回请假详情，若为true，将在每条请假记录的details字段返回请假详情
+     *
+     * <p>示例值：false
+     *
+     * @param returnDetail
+     * @return
+     */
+    public Builder returnDetail(Boolean returnDetail) {
+      this.returnDetail = returnDetail;
+      return this;
     }
 
-    public String getLeaveStartDateMax() {
-        return this.leaveStartDateMax;
+    /**
+     * 指定过滤长/短假类型，0表示不过滤，1表示仅获取短假，2表示仅获取长假, 默认0
+     *
+     * <p>示例值：1
+     *
+     * @param leaveTermType
+     * @return
+     */
+    public Builder leaveTermType(Integer leaveTermType) {
+      this.leaveTermType = leaveTermType;
+      return this;
     }
 
-    public void setLeaveStartDateMax(String leaveStartDateMax) {
-        this.leaveStartDateMax = leaveStartDateMax;
+    /**
+     * 请假记录所在时区
+     *
+     * <p>示例值：Asia/Shanghai
+     *
+     * @param timeZone
+     * @return
+     */
+    public Builder timeZone(String timeZone) {
+      this.timeZone = timeZone;
+      return this;
     }
 
-    public String getLeaveEndDateMin() {
-        return this.leaveEndDateMin;
+    /**
+     * （暂未开放）请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤
+     *
+     * <p>示例值：1
+     *
+     * @param dataSource
+     * @return
+     */
+    public Builder dataSource(Integer dataSource) {
+      this.dataSource = dataSource;
+      return this;
     }
 
-    public void setLeaveEndDateMin(String leaveEndDateMin) {
-        this.leaveEndDateMin = leaveEndDateMin;
+    /**
+     * （暂未开放）请假记录DB更新时间晚于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2022-10-24 10:00:00
+     *
+     * @param dbUpdateTimeMin
+     * @return
+     */
+    public Builder dbUpdateTimeMin(String dbUpdateTimeMin) {
+      this.dbUpdateTimeMin = dbUpdateTimeMin;
+      return this;
     }
 
-    public String getLeaveEndDateMax() {
-        return this.leaveEndDateMax;
+    /**
+     * （暂未开放）请假记录DB更新时间早于等于的时间，格式为yyyy-MM-dd HH:mm:ss
+     *
+     * <p>示例值：2022-10-24 10:00:00
+     *
+     * @param dbUpdateTimeMax
+     * @return
+     */
+    public Builder dbUpdateTimeMax(String dbUpdateTimeMax) {
+      this.dbUpdateTimeMax = dbUpdateTimeMax;
+      return this;
     }
 
-    public void setLeaveEndDateMax(String leaveEndDateMax) {
-        this.leaveEndDateMax = leaveEndDateMax;
+    /**
+     * WorkDay专用 是否返回0值的请假记录，若为true，将返回0值的请假记录
+     *
+     * <p>示例值：false
+     *
+     * @param wdNeedAmountZeroRecords
+     * @return
+     */
+    public Builder wdNeedAmountZeroRecords(Boolean wdNeedAmountZeroRecords) {
+      this.wdNeedAmountZeroRecords = wdNeedAmountZeroRecords;
+      return this;
     }
 
-    public String getLeaveSubmitDateMin() {
-        return this.leaveSubmitDateMin;
+    /**
+     * WorkDay专用 是否拒绝和取消的请假记录，若为true，将返回拒绝和取消的请假记录
+     *
+     * <p>示例值：false
+     *
+     * @param wdNeedDeniedAndCanceledRecord
+     * @return
+     */
+    public Builder wdNeedDeniedAndCanceledRecord(Boolean wdNeedDeniedAndCanceledRecord) {
+      this.wdNeedDeniedAndCanceledRecord = wdNeedDeniedAndCanceledRecord;
+      return this;
     }
 
-    public void setLeaveSubmitDateMin(String leaveSubmitDateMin) {
-        this.leaveSubmitDateMin = leaveSubmitDateMin;
+    /**
+     * WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
+     *
+     * <p>示例值：1
+     *
+     * @param wdPaidType
+     * @return
+     */
+    public Builder wdPaidType(Integer wdPaidType) {
+      this.wdPaidType = wdPaidType;
+      return this;
     }
 
-    public String getLeaveSubmitDateMax() {
-        return this.leaveSubmitDateMax;
+    public LeaveRequestHistoryLeaveReq build() {
+      return new LeaveRequestHistoryLeaveReq(this);
     }
-
-    public void setLeaveSubmitDateMax(String leaveSubmitDateMax) {
-        this.leaveSubmitDateMax = leaveSubmitDateMax;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getLeaveUpdateTimeMin() {
-        return this.leaveUpdateTimeMin;
-    }
-
-    public void setLeaveUpdateTimeMin(String leaveUpdateTimeMin) {
-        this.leaveUpdateTimeMin = leaveUpdateTimeMin;
-    }
-
-    public String getLeaveUpdateTimeMax() {
-        return this.leaveUpdateTimeMax;
-    }
-
-    public void setLeaveUpdateTimeMax(String leaveUpdateTimeMax) {
-        this.leaveUpdateTimeMax = leaveUpdateTimeMax;
-    }
-
-    public Boolean getReturnDetail() {
-        return this.returnDetail;
-    }
-
-    public void setReturnDetail(Boolean returnDetail) {
-        this.returnDetail = returnDetail;
-    }
-
-    public Integer getLeaveTermType() {
-        return this.leaveTermType;
-    }
-
-    public void setLeaveTermType(Integer leaveTermType) {
-        this.leaveTermType = leaveTermType;
-    }
-
-    public String getTimeZone() {
-        return this.timeZone;
-    }
-
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
-    }
-
-    public Integer getDataSource() {
-        return this.dataSource;
-    }
-
-    public void setDataSource(Integer dataSource) {
-        this.dataSource = dataSource;
-    }
-
-    public String getDbUpdateTimeMin() {
-        return this.dbUpdateTimeMin;
-    }
-
-    public void setDbUpdateTimeMin(String dbUpdateTimeMin) {
-        this.dbUpdateTimeMin = dbUpdateTimeMin;
-    }
-
-    public String getDbUpdateTimeMax() {
-        return this.dbUpdateTimeMax;
-    }
-
-    public void setDbUpdateTimeMax(String dbUpdateTimeMax) {
-        this.dbUpdateTimeMax = dbUpdateTimeMax;
-    }
-
-    public Boolean getWdNeedAmountZeroRecords() {
-        return this.wdNeedAmountZeroRecords;
-    }
-
-    public void setWdNeedAmountZeroRecords(Boolean wdNeedAmountZeroRecords) {
-        this.wdNeedAmountZeroRecords = wdNeedAmountZeroRecords;
-    }
-
-    public Boolean getWdNeedDeniedAndCanceledRecord() {
-        return this.wdNeedDeniedAndCanceledRecord;
-    }
-
-    public void setWdNeedDeniedAndCanceledRecord(Boolean wdNeedDeniedAndCanceledRecord) {
-        this.wdNeedDeniedAndCanceledRecord = wdNeedDeniedAndCanceledRecord;
-    }
-
-    public Integer getWdPaidType() {
-        return this.wdPaidType;
-    }
-
-    public void setWdPaidType(Integer wdPaidType) {
-        this.wdPaidType = wdPaidType;
-    }
-
-    public static class Builder {
-        private String pageToken; // 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-        private String pageSize; // 每页获取记录数量，最大100
-        private String[] employmentIdList; // 员工 ID 列表，最大 100 个（不传则默认查询全部员工）
-        private String[] initiatorIdList; // 休假发起人 ID 列表，最大 100 个
-        private String[] leaveRequestStatus; // 请假记录的状态;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;;- 4：审批中（取消休假）;;- 5：审批中（返岗）;;- 6：已返岗;;- 7：已拒绝;;- 8：已取消;;- 9：已撤回
-        private String[] leaveTypeIdList; // 假期类型 ID 列表，枚举值可通过【获取假期类型列表】接口获取
-        private String leaveStartDateMin; // 休假开始时间晚于等于的日期
-        private String leaveStartDateMax; // 休假开始时间早于等于的日期
-        private String leaveEndDateMin; // 休假结束时间晚于等于的日期
-        private String leaveEndDateMax; // 休假结束时间早于等于的日期
-        private String leaveSubmitDateMin; // 休假发起时间晚于等于的日期
-        private String leaveSubmitDateMax; // 休假发起时间早于等于的日期
-        private String userIdType; // 用户 ID 类型
-        private String leaveUpdateTimeMin; // 请假记录更新时间晚于等于的时间
-        private String leaveUpdateTimeMax; // 请假记录更新时间早于等于的时间
-        private Boolean returnDetail; // 是否返回请假详情，若为true，将在每条请假记录的details字段返回请假详情
-        private Integer leaveTermType; // 指定过滤长/短假类型，0表示不过滤，1表示仅获取短假，2表示仅获取长假, 默认0
-        private String timeZone; // 请假记录所在时区
-        private Integer dataSource; // 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤
-        private String dbUpdateTimeMin; // 请假记录DB更新时间晚于等于的时间
-        private String dbUpdateTimeMax; // 请假记录DB更新时间早于等于的时间
-        private Boolean wdNeedAmountZeroRecords; // WorkDay专用 是否返回0值的请假记录，若为true，将返回0值的请假记录
-        private Boolean wdNeedDeniedAndCanceledRecord; // WorkDay专用 是否拒绝和取消的请假记录，若为true，将返回拒绝和取消的请假记录
-        private Integer wdPaidType; // WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
-
-        /**
-         * 页码标识，获取第一页传空，每次查询会返回下一页的page_token
-         * <p> 示例值：eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 每页获取记录数量，最大100
-         * <p> 示例值：100
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(String pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 员工 ID 列表，最大 100 个（不传则默认查询全部员工）
-         * <p> 示例值：["6919733291281024526"]
-         *
-         * @param employmentIdList
-         * @return
-         */
-        public Builder employmentIdList(String[] employmentIdList) {
-            this.employmentIdList = employmentIdList;
-            return this;
-        }
-
-
-        /**
-         * 休假发起人 ID 列表，最大 100 个
-         * <p> 示例值：["6919733291281024526"]
-         *
-         * @param initiatorIdList
-         * @return
-         */
-        public Builder initiatorIdList(String[] initiatorIdList) {
-            this.initiatorIdList = initiatorIdList;
-            return this;
-        }
-
-
-        /**
-         * 请假记录的状态;;可选值有：;;- 1：已通过;;- 2：审批中;;- 3：审批中（更正）;;- 4：审批中（取消休假）;;- 5：审批中（返岗）;;- 6：已返岗;;- 7：已拒绝;;- 8：已取消;;- 9：已撤回
-         * <p> 示例值：["1", "2"]
-         *
-         * @param leaveRequestStatus
-         * @return
-         */
-        public Builder leaveRequestStatus(String[] leaveRequestStatus) {
-            this.leaveRequestStatus = leaveRequestStatus;
-            return this;
-        }
-
-
-        /**
-         * 假期类型 ID 列表，枚举值可通过【获取假期类型列表】接口获取
-         * <p> 示例值：["1"]
-         *
-         * @param leaveTypeIdList
-         * @return
-         */
-        public Builder leaveTypeIdList(String[] leaveTypeIdList) {
-            this.leaveTypeIdList = leaveTypeIdList;
-            return this;
-        }
-
-
-        /**
-         * 休假开始时间晚于等于的日期
-         * <p> 示例值：2022-07-20 morning
-         *
-         * @param leaveStartDateMin
-         * @return
-         */
-        public Builder leaveStartDateMin(String leaveStartDateMin) {
-            this.leaveStartDateMin = leaveStartDateMin;
-            return this;
-        }
-
-
-        /**
-         * 休假开始时间早于等于的日期
-         * <p> 示例值：2022-07-20 morning
-         *
-         * @param leaveStartDateMax
-         * @return
-         */
-        public Builder leaveStartDateMax(String leaveStartDateMax) {
-            this.leaveStartDateMax = leaveStartDateMax;
-            return this;
-        }
-
-
-        /**
-         * 休假结束时间晚于等于的日期
-         * <p> 示例值：2022-07-20 morning
-         *
-         * @param leaveEndDateMin
-         * @return
-         */
-        public Builder leaveEndDateMin(String leaveEndDateMin) {
-            this.leaveEndDateMin = leaveEndDateMin;
-            return this;
-        }
-
-
-        /**
-         * 休假结束时间早于等于的日期
-         * <p> 示例值：2022-07-20 morning
-         *
-         * @param leaveEndDateMax
-         * @return
-         */
-        public Builder leaveEndDateMax(String leaveEndDateMax) {
-            this.leaveEndDateMax = leaveEndDateMax;
-            return this;
-        }
-
-
-        /**
-         * 休假发起时间晚于等于的日期
-         * <p> 示例值：2022-07-20 morning
-         *
-         * @param leaveSubmitDateMin
-         * @return
-         */
-        public Builder leaveSubmitDateMin(String leaveSubmitDateMin) {
-            this.leaveSubmitDateMin = leaveSubmitDateMin;
-            return this;
-        }
-
-
-        /**
-         * 休假发起时间早于等于的日期
-         * <p> 示例值：2022-07-20 morning
-         *
-         * @param leaveSubmitDateMax
-         * @return
-         */
-        public Builder leaveSubmitDateMax(String leaveSubmitDateMax) {
-            this.leaveSubmitDateMax = leaveSubmitDateMax;
-            return this;
-        }
-
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 用户 ID 类型
-         * <p> 示例值：people_corehr_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.corehr.v1.enums.LeaveRequestHistoryLeaveLeaveRequestHistoryLeaveUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.corehr.v1.enums.LeaveRequestHistoryLeaveLeaveRequestHistoryLeaveUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 请假记录更新时间晚于等于的时间
-         * <p> 示例值：2022-10-24 10:00:00
-         *
-         * @param leaveUpdateTimeMin
-         * @return
-         */
-        public Builder leaveUpdateTimeMin(String leaveUpdateTimeMin) {
-            this.leaveUpdateTimeMin = leaveUpdateTimeMin;
-            return this;
-        }
-
-
-        /**
-         * 请假记录更新时间早于等于的时间
-         * <p> 示例值：2022-10-24 10:00:00
-         *
-         * @param leaveUpdateTimeMax
-         * @return
-         */
-        public Builder leaveUpdateTimeMax(String leaveUpdateTimeMax) {
-            this.leaveUpdateTimeMax = leaveUpdateTimeMax;
-            return this;
-        }
-
-
-        /**
-         * 是否返回请假详情，若为true，将在每条请假记录的details字段返回请假详情
-         * <p> 示例值：false
-         *
-         * @param returnDetail
-         * @return
-         */
-        public Builder returnDetail(Boolean returnDetail) {
-            this.returnDetail = returnDetail;
-            return this;
-        }
-
-
-        /**
-         * 指定过滤长/短假类型，0表示不过滤，1表示仅获取短假，2表示仅获取长假, 默认0
-         * <p> 示例值：1
-         *
-         * @param leaveTermType
-         * @return
-         */
-        public Builder leaveTermType(Integer leaveTermType) {
-            this.leaveTermType = leaveTermType;
-            return this;
-        }
-
-
-        /**
-         * 请假记录所在时区
-         * <p> 示例值：Asia/Shanghai
-         *
-         * @param timeZone
-         * @return
-         */
-        public Builder timeZone(String timeZone) {
-            this.timeZone = timeZone;
-            return this;
-        }
-
-
-        /**
-         * 请假记录数据源，1表示中国大陆休假，2表示海外休假，不传或0表示不过滤
-         * <p> 示例值：1
-         *
-         * @param dataSource
-         * @return
-         */
-        public Builder dataSource(Integer dataSource) {
-            this.dataSource = dataSource;
-            return this;
-        }
-
-
-        /**
-         * 请假记录DB更新时间晚于等于的时间
-         * <p> 示例值：2022-10-24 10:00:00
-         *
-         * @param dbUpdateTimeMin
-         * @return
-         */
-        public Builder dbUpdateTimeMin(String dbUpdateTimeMin) {
-            this.dbUpdateTimeMin = dbUpdateTimeMin;
-            return this;
-        }
-
-
-        /**
-         * 请假记录DB更新时间早于等于的时间
-         * <p> 示例值：2022-10-24 10:00:00
-         *
-         * @param dbUpdateTimeMax
-         * @return
-         */
-        public Builder dbUpdateTimeMax(String dbUpdateTimeMax) {
-            this.dbUpdateTimeMax = dbUpdateTimeMax;
-            return this;
-        }
-
-
-        /**
-         * WorkDay专用 是否返回0值的请假记录，若为true，将返回0值的请假记录
-         * <p> 示例值：false
-         *
-         * @param wdNeedAmountZeroRecords
-         * @return
-         */
-        public Builder wdNeedAmountZeroRecords(Boolean wdNeedAmountZeroRecords) {
-            this.wdNeedAmountZeroRecords = wdNeedAmountZeroRecords;
-            return this;
-        }
-
-
-        /**
-         * WorkDay专用 是否拒绝和取消的请假记录，若为true，将返回拒绝和取消的请假记录
-         * <p> 示例值：false
-         *
-         * @param wdNeedDeniedAndCanceledRecord
-         * @return
-         */
-        public Builder wdNeedDeniedAndCanceledRecord(Boolean wdNeedDeniedAndCanceledRecord) {
-            this.wdNeedDeniedAndCanceledRecord = wdNeedDeniedAndCanceledRecord;
-            return this;
-        }
-
-
-        /**
-         * WorkDay专用 扣薪类型, 1不参与算薪 2影响算薪 3不影响算薪
-         * <p> 示例值：1
-         *
-         * @param wdPaidType
-         * @return
-         */
-        public Builder wdPaidType(Integer wdPaidType) {
-            this.wdPaidType = wdPaidType;
-            return this;
-        }
-
-
-        public LeaveRequestHistoryLeaveReq build() {
-            return new LeaveRequestHistoryLeaveReq(this);
-        }
-    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

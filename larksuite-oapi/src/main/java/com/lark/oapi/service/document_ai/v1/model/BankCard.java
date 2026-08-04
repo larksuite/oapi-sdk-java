@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.document_ai.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.document_ai.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BankCard {
+  /**
+   * 识别出的实体类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("entities")
+  private BankCardEntity[] entities;
+
+  public BankCardEntity[] getEntities() {
+    return this.entities;
+  }
+
+  public void setEntities(BankCardEntity[] entities) {
+    this.entities = entities;
+  }
+
+  // builder 开始
+  public BankCard() {}
+
+  public BankCard(Builder builder) {
     /**
      * 识别出的实体类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("entities")
+    this.entities = builder.entities;
+  }
+
+  public static class Builder {
+    /**
+     * 识别出的实体类型
+     *
+     * <p>示例值：
+     */
     private BankCardEntity[] entities;
 
-    // builder 开始
-    public BankCard() {
+    /**
+     * 识别出的实体类型
+     *
+     * <p>示例值：
+     *
+     * @param entities
+     * @return
+     */
+    public Builder entities(BankCardEntity[] entities) {
+      this.entities = entities;
+      return this;
     }
 
-    public BankCard(Builder builder) {
-        /**
-         * 识别出的实体类型
-         * <p> 示例值：
-         */
-        this.entities = builder.entities;
+    public BankCard build() {
+      return new BankCard(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public BankCardEntity[] getEntities() {
-        return this.entities;
-    }
-
-    public void setEntities(BankCardEntity[] entities) {
-        this.entities = entities;
-    }
-
-    public static class Builder {
-        /**
-         * 识别出的实体类型
-         * <p> 示例值：
-         */
-        private BankCardEntity[] entities;
-
-        /**
-         * 识别出的实体类型
-         * <p> 示例值：
-         *
-         * @param entities
-         * @return
-         */
-        public Builder entities(BankCardEntity[] entities) {
-            this.entities = entities;
-            return this;
-        }
-
-
-        public BankCard build() {
-            return new BankCard(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

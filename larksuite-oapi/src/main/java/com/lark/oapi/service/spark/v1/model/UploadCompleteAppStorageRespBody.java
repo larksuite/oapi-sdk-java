@@ -13,90 +13,86 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UploadCompleteAppStorageRespBody {
-    /**
-     * 文件 ID
-     * <p> 示例值：1859988692091946
-     */
-    @SerializedName("file_key")
-    private String fileKey;
-    /**
-     * 文件 URL，相对路径
-     * <p> 示例值：/app/app_4jmwuym484u90/runtime/api/v1/storage/object/bucket_aadju74v6daba/1859988692091946
-     */
-    @SerializedName("file_url")
-    private String fileUrl;
-    /**
-     * 文件名称
-     * <p> 示例值：上传文件名称示例
-     */
-    @SerializedName("file_name")
-    private String fileName;
-    /**
-     * 文件大小，单位字节
-     * <p> 示例值：104857600
-     */
-    @SerializedName("file_size")
-    private Integer fileSize;
-    /**
-     * 文件 MIME 类型
-     * <p> 示例值：text/plain; charset=utf-8
-     */
-    @SerializedName("mime_type")
-    private String mimeType;
+  /**
+   * 文件 ID
+   *
+   * <p>示例值：1859988692091946
+   */
+  @SerializedName("file_key")
+  private String fileKey;
 
-    public String getFileKey() {
-        return this.fileKey;
-    }
+  /**
+   * 文件 URL，相对路径
+   *
+   * <p>示例值：/app/app_4jmwuym484u90/runtime/api/v1/storage/object/bucket_aadju74v6daba/1859988692091946
+   */
+  @SerializedName("file_url")
+  private String fileUrl;
 
-    public void setFileKey(String fileKey) {
-        this.fileKey = fileKey;
-    }
+  /**
+   * 文件名称
+   *
+   * <p>示例值：上传文件名称示例
+   */
+  @SerializedName("file_name")
+  private String fileName;
 
-    public String getFileUrl() {
-        return this.fileUrl;
-    }
+  /**
+   * 文件大小，单位字节
+   *
+   * <p>示例值：104857600
+   */
+  @SerializedName("file_size")
+  private Integer fileSize;
 
-    public void setFileUrl(String fileUrl) {
-        this.fileUrl = fileUrl;
-    }
+  /**
+   * 文件 MIME 类型
+   *
+   * <p>示例值：text/plain; charset=utf-8
+   */
+  @SerializedName("mime_type")
+  private String mimeType;
 
-    public String getFileName() {
-        return this.fileName;
-    }
+  public String getFileKey() {
+    return this.fileKey;
+  }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
+  public void setFileKey(String fileKey) {
+    this.fileKey = fileKey;
+  }
 
-    public Integer getFileSize() {
-        return this.fileSize;
-    }
+  public String getFileUrl() {
+    return this.fileUrl;
+  }
 
-    public void setFileSize(Integer fileSize) {
-        this.fileSize = fileSize;
-    }
+  public void setFileUrl(String fileUrl) {
+    this.fileUrl = fileUrl;
+  }
 
-    public String getMimeType() {
-        return this.mimeType;
-    }
+  public String getFileName() {
+    return this.fileName;
+  }
 
-    public void setMimeType(String mimeType) {
-        this.mimeType = mimeType;
-    }
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
 
+  public Integer getFileSize() {
+    return this.fileSize;
+  }
+
+  public void setFileSize(Integer fileSize) {
+    this.fileSize = fileSize;
+  }
+
+  public String getMimeType() {
+    return this.mimeType;
+  }
+
+  public void setMimeType(String mimeType) {
+    this.mimeType = mimeType;
+  }
 }

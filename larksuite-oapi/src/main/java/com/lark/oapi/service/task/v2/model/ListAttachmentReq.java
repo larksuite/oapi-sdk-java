@@ -13,241 +13,253 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class ListAttachmentReq {
+  /**
+   * 分页大小
+   *
+   * <p>示例值：50
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：aWQ9NzEwMjMzMjMxMDE=
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 附件归属的资源类型。目前只支持"task"。
+   *
+   * <p>示例值：task
+   */
+  @Query
+  @SerializedName("resource_type")
+  private String resourceType;
+
+  /**
+   * 附件归属资源的id，配合resource_type使用。例如希望获取任务的附件，需要设置 resource_type为task，
+   * resource_id为任务GUID。任务GUID的获取方式可以参考[任务功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/overview)。
+   *
+   * <p>示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
+   */
+  @Query
+  @SerializedName("resource_id")
+  private String resourceId;
+
+  /**
+   * 表示user的ID的类型，支持open_id, user_id, union_id
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 附件的最早上传时间
+   *
+   * <p>示例值：123
+   */
+  @Query
+  @SerializedName("updated_mesc")
+  private String updatedMesc;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getResourceType() {
+    return this.resourceType;
+  }
+
+  public void setResourceType(String resourceType) {
+    this.resourceType = resourceType;
+  }
+
+  public String getResourceId() {
+    return this.resourceId;
+  }
+
+  public void setResourceId(String resourceId) {
+    this.resourceId = resourceId;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getUpdatedMesc() {
+    return this.updatedMesc;
+  }
+
+  public void setUpdatedMesc(String updatedMesc) {
+    this.updatedMesc = updatedMesc;
+  }
+
+  // builder 开始
+  public ListAttachmentReq() {}
+
+  public ListAttachmentReq(Builder builder) {
     /**
      * 分页大小
-     * <p> 示例值：50
+     *
+     * <p>示例值：50
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
+     *
+     * <p>示例值：aWQ9NzEwMjMzMjMxMDE=
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 附件归属的资源类型
-     * <p> 示例值：task
+     * 附件归属的资源类型。目前只支持"task"。
+     *
+     * <p>示例值：task
      */
-    @Query
-    @SerializedName("resource_type")
-    private String resourceType;
+    this.resourceType = builder.resourceType;
     /**
-     * 附件归属资源的id，配合resource_type使用。例如希望获取任务的附件，需要设置 resource_type为task， resource_id为任务的全局唯一ID
-     * <p> 示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
+     * 附件归属资源的id，配合resource_type使用。例如希望获取任务的附件，需要设置 resource_type为task，
+     * resource_id为任务GUID。任务GUID的获取方式可以参考[任务功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/overview)。
+     *
+     * <p>示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
      */
-    @Query
-    @SerializedName("resource_id")
-    private String resourceId;
+    this.resourceId = builder.resourceId;
     /**
      * 表示user的ID的类型，支持open_id, user_id, union_id
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
      * 附件的最早上传时间
-     * <p> 示例值：123
+     *
+     * <p>示例值：123
      */
-    @Query
-    @SerializedName("updated_mesc")
-    private String updatedMesc;
+    this.updatedMesc = builder.updatedMesc;
+  }
 
-    // builder 开始
-    public ListAttachmentReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String resourceType; // 附件归属的资源类型。目前只支持"task"。
+    private String resourceId; // 附件归属资源的id，配合resource_type使用。例如希望获取任务的附件，需要设置 resource_type为task，
+    // resource_id为任务GUID。任务GUID的获取方式可以参考[任务功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/overview)。
+    private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
+    private String updatedMesc; // 附件的最早上传时间
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：50
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListAttachmentReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：50
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 附件归属的资源类型
-         * <p> 示例值：task
-         */
-        this.resourceType = builder.resourceType;
-        /**
-         * 附件归属资源的id，配合resource_type使用。例如希望获取任务的附件，需要设置 resource_type为task， resource_id为任务的全局唯一ID
-         * <p> 示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
-         */
-        this.resourceId = builder.resourceId;
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 附件的最早上传时间
-         * <p> 示例值：123
-         */
-        this.updatedMesc = builder.updatedMesc;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：aWQ9NzEwMjMzMjMxMDE=
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 附件归属的资源类型。目前只支持"task"。
+     *
+     * <p>示例值：task
+     *
+     * @param resourceType
+     * @return
+     */
+    public Builder resourceType(String resourceType) {
+      this.resourceType = resourceType;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    /**
+     * 附件归属资源的id，配合resource_type使用。例如希望获取任务的附件，需要设置 resource_type为task，
+     * resource_id为任务GUID。任务GUID的获取方式可以参考[任务功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/overview)。
+     *
+     * <p>示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
+     *
+     * @param resourceId
+     * @return
+     */
+    public Builder resourceId(String resourceId) {
+      this.resourceId = resourceId;
+      return this;
     }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
+    /**
+     * 表示user的ID的类型，支持open_id, user_id, union_id
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public String getPageToken() {
-        return this.pageToken;
+    /**
+     * 附件的最早上传时间
+     *
+     * <p>示例值：123
+     *
+     * @param updatedMesc
+     * @return
+     */
+    public Builder updatedMesc(String updatedMesc) {
+      this.updatedMesc = updatedMesc;
+      return this;
     }
 
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
+    public ListAttachmentReq build() {
+      return new ListAttachmentReq(this);
     }
+  }
 
-    public String getResourceType() {
-        return this.resourceType;
-    }
-
-    public void setResourceType(String resourceType) {
-        this.resourceType = resourceType;
-    }
-
-    public String getResourceId() {
-        return this.resourceId;
-    }
-
-    public void setResourceId(String resourceId) {
-        this.resourceId = resourceId;
-    }
-
-    public String getUserIdType() {
-        return this.userIdType;
-    }
-
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getUpdatedMesc() {
-        return this.updatedMesc;
-    }
-
-    public void setUpdatedMesc(String updatedMesc) {
-        this.updatedMesc = updatedMesc;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String resourceType; // 附件归属的资源类型
-        private String resourceId; // 附件归属资源的id，配合resource_type使用。例如希望获取任务的附件，需要设置 resource_type为task， resource_id为任务的全局唯一ID
-        private String userIdType; // 表示user的ID的类型，支持open_id, user_id, union_id
-        private String updatedMesc; // 附件的最早上传时间
-
-        /**
-         * 分页大小
-         * <p> 示例值：50
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：aWQ9NzEwMjMzMjMxMDE=
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 附件归属的资源类型
-         * <p> 示例值：task
-         *
-         * @param resourceType
-         * @return
-         */
-        public Builder resourceType(String resourceType) {
-            this.resourceType = resourceType;
-            return this;
-        }
-
-
-        /**
-         * 附件归属资源的id，配合resource_type使用。例如希望获取任务的附件，需要设置 resource_type为task， resource_id为任务的全局唯一ID
-         * <p> 示例值：9842501a-9f47-4ff5-a622-d319eeecb97f
-         *
-         * @param resourceId
-         * @return
-         */
-        public Builder resourceId(String resourceId) {
-            this.resourceId = resourceId;
-            return this;
-        }
-
-
-        /**
-         * 表示user的ID的类型，支持open_id, user_id, union_id
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-
-        /**
-         * 附件的最早上传时间
-         * <p> 示例值：123
-         *
-         * @param updatedMesc
-         * @return
-         */
-        public Builder updatedMesc(String updatedMesc) {
-            this.updatedMesc = updatedMesc;
-            return this;
-        }
-
-
-        public ListAttachmentReq build() {
-            return new ListAttachmentReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

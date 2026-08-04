@@ -13,21 +13,19 @@
 
 package com.lark.oapi.service.board.v1.enums;
 
-/**
- * 思维导图节点图形类型
- */
+/** 思维导图节点图形类型 */
 public enum MindMapNodeMindMapTypeEnum {
-    MINDMAPTEXT("mind_map_text"), // 思维导图文本节点类型
-    MINDMAPFULLROUNDRECT("mind_map_full_round_rect"), // 思维导图全圆角矩形节点类型
-    MINDMAPROUNDRECT("mind_map_round_rect"), // 思维导图矩形节点类型
-    ;
-    private String value;
+  MINDMAPTEXT("mind_map_text"), // 思维导图文本节点类型
+  MINDMAPFULLROUNDRECT("mind_map_full_round_rect"), // 思维导图全圆角矩形节点类型
+  MINDMAPROUNDRECT("mind_map_round_rect"), // 思维导图矩形节点类型
+  ;
+  private String value;
 
-    MindMapNodeMindMapTypeEnum(String value) {
-        this.value = value;
-    }
+  MindMapNodeMindMapTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.security_and_compliance.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.security_and_compliance.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GwResponse {
+  /**
+   * HTTP响应状态码
+   *
+   * <p>示例值：404
+   */
+  @SerializedName("status_code")
+  private Integer statusCode;
+
+  /**
+   * 返回头
+   *
+   * <p>示例值：{\"Vary\": [\"gzip\"]}
+   */
+  @SerializedName("header")
+  private String header;
+
+  public Integer getStatusCode() {
+    return this.statusCode;
+  }
+
+  public void setStatusCode(Integer statusCode) {
+    this.statusCode = statusCode;
+  }
+
+  public String getHeader() {
+    return this.header;
+  }
+
+  public void setHeader(String header) {
+    this.header = header;
+  }
+
+  // builder 开始
+  public GwResponse() {}
+
+  public GwResponse(Builder builder) {
     /**
      * HTTP响应状态码
-     * <p> 示例值：404
+     *
+     * <p>示例值：404
      */
-    @SerializedName("status_code")
-    private Integer statusCode;
+    this.statusCode = builder.statusCode;
     /**
      * 返回头
-     * <p> 示例值：{\"Vary\": [\"gzip\"]}
+     *
+     * <p>示例值：{\"Vary\": [\"gzip\"]}
      */
-    @SerializedName("header")
+    this.header = builder.header;
+  }
+
+  public static class Builder {
+    /**
+     * HTTP响应状态码
+     *
+     * <p>示例值：404
+     */
+    private Integer statusCode;
+
+    /**
+     * 返回头
+     *
+     * <p>示例值：{\"Vary\": [\"gzip\"]}
+     */
     private String header;
 
-    // builder 开始
-    public GwResponse() {
+    /**
+     * HTTP响应状态码
+     *
+     * <p>示例值：404
+     *
+     * @param statusCode
+     * @return
+     */
+    public Builder statusCode(Integer statusCode) {
+      this.statusCode = statusCode;
+      return this;
     }
 
-    public GwResponse(Builder builder) {
-        /**
-         * HTTP响应状态码
-         * <p> 示例值：404
-         */
-        this.statusCode = builder.statusCode;
-        /**
-         * 返回头
-         * <p> 示例值：{\"Vary\": [\"gzip\"]}
-         */
-        this.header = builder.header;
+    /**
+     * 返回头
+     *
+     * <p>示例值：{\"Vary\": [\"gzip\"]}
+     *
+     * @param header
+     * @return
+     */
+    public Builder header(String header) {
+      this.header = header;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public GwResponse build() {
+      return new GwResponse(this);
     }
+  }
 
-    public Integer getStatusCode() {
-        return this.statusCode;
-    }
-
-    public void setStatusCode(Integer statusCode) {
-        this.statusCode = statusCode;
-    }
-
-    public String getHeader() {
-        return this.header;
-    }
-
-    public void setHeader(String header) {
-        this.header = header;
-    }
-
-    public static class Builder {
-        /**
-         * HTTP响应状态码
-         * <p> 示例值：404
-         */
-        private Integer statusCode;
-        /**
-         * 返回头
-         * <p> 示例值：{\"Vary\": [\"gzip\"]}
-         */
-        private String header;
-
-        /**
-         * HTTP响应状态码
-         * <p> 示例值：404
-         *
-         * @param statusCode
-         * @return
-         */
-        public Builder statusCode(Integer statusCode) {
-            this.statusCode = statusCode;
-            return this;
-        }
-
-
-        /**
-         * 返回头
-         * <p> 示例值：{\"Vary\": [\"gzip\"]}
-         *
-         * @param header
-         * @return
-         */
-        public Builder header(String header) {
-            this.header = header;
-            return this;
-        }
-
-
-        public GwResponse build() {
-            return new GwResponse(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

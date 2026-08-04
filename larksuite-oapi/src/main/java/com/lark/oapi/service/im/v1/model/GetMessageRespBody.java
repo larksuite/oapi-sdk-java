@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetMessageRespBody {
-    /**
-     * -
-     * <p> 示例值：
-     */
-    @SerializedName("items")
-    private Message[] items;
+  /**
+   * 消息内容。;;**注意**：如果查询的消息类型为合并转发（merge_forward），则返回的 `items` 中会包含 1 条合并转发消息和 N 条子消息。
+   *
+   * <p>示例值：
+   */
+  @SerializedName("items")
+  private Message[] items;
 
-    public Message[] getItems() {
-        return this.items;
-    }
+  public Message[] getItems() {
+    return this.items;
+  }
 
-    public void setItems(Message[] items) {
-        this.items = items;
-    }
-
+  public void setItems(Message[] items) {
+    this.items = items;
+  }
 }

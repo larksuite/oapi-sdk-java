@@ -13,163 +13,180 @@
 
 package com.lark.oapi.service.contact.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.contact.v3.enums.*;
 
 public class BatchUserReq {
+  /**
+   * 用户ID。ID 类型与查询参数 `user_id_type`
+   * 保持一致。;;如需一次查询多个用户ID，可多次传递同一参数名，并且每次传递不同的参数值。例如：;`https://{url}?user_ids={user_id1}&user_ids={user_id2}`。;;**说明**：;-
+   * 单次最大请求可设置的用户 ID 数量上限为 50。;- 如上例子中的 `user_ids`是参数名，可以多次传递。`{user_id1}`和`{user_id2}`是每次传入的参数值。
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_ids")
+  private String[] userIds;
+
+  /**
+   * 指定请求中用户ID类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  /**
+   * 指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+   * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+   *
+   * <p>示例值：open_department_id
+   */
+  @Query
+  @SerializedName("department_id_type")
+  private String departmentIdType;
+
+  public String[] getUserIds() {
+    return this.userIds;
+  }
+
+  public void setUserIds(String[] userIds) {
+    this.userIds = userIds;
+  }
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  public String getDepartmentIdType() {
+    return this.departmentIdType;
+  }
+
+  public void setDepartmentIdType(String departmentIdType) {
+    this.departmentIdType = departmentIdType;
+  }
+
+  // builder 开始
+  public BatchUserReq() {}
+
+  public BatchUserReq(Builder builder) {
     /**
-     * 要查询的用户ID列表
-     * <p> 示例值：
+     * 用户ID。ID 类型与查询参数 `user_id_type`
+     * 保持一致。;;如需一次查询多个用户ID，可多次传递同一参数名，并且每次传递不同的参数值。例如：;`https://{url}?user_ids={user_id1}&user_ids={user_id2}`。;;**说明**：;-
+     * 单次最大请求可设置的用户 ID 数量上限为 50。;- 如上例子中的 `user_ids`是参数名，可以多次传递。`{user_id1}`和`{user_id2}`是每次传入的参数值。
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_ids")
-    private String[] userIds;
+    this.userIds = builder.userIds;
     /**
      * 指定请求中用户ID类型
-     * <p> 示例值：open_id
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 指定查询结果中用户关联的部门ID类型
-     * <p> 示例值：open_department_id
+     * 指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+     *
+     * <p>示例值：open_department_id
      */
-    @Query
-    @SerializedName("department_id_type")
-    private String departmentIdType;
+    this.departmentIdType = builder.departmentIdType;
+  }
 
-    // builder 开始
-    public BatchUserReq() {
+  public static class Builder {
+    private String[] userIds; // 用户ID。ID 类型与查询参数 `user_id_type`
+    // 保持一致。;;如需一次查询多个用户ID，可多次传递同一参数名，并且每次传递不同的参数值。例如：;`https://{url}?user_ids={user_id1}&user_ids={user_id2}`。;;**说明**：;- 单次最大请求可设置的用户 ID 数量上限为 50。;- 如上例子中的 `user_ids`是参数名，可以多次传递。`{user_id1}`和`{user_id2}`是每次传入的参数值。
+    private String userIdType; // 指定请求中用户ID类型
+    private String departmentIdType; // 指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+
+    // 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+
+    /**
+     * 用户ID。ID 类型与查询参数 `user_id_type`
+     * 保持一致。;;如需一次查询多个用户ID，可多次传递同一参数名，并且每次传递不同的参数值。例如：;`https://{url}?user_ids={user_id1}&user_ids={user_id2}`。;;**说明**：;-
+     * 单次最大请求可设置的用户 ID 数量上限为 50。;- 如上例子中的 `user_ids`是参数名，可以多次传递。`{user_id1}`和`{user_id2}`是每次传入的参数值。
+     *
+     * <p>示例值：
+     *
+     * @param userIds
+     * @return
+     */
+    public Builder userIds(String[] userIds) {
+      this.userIds = userIds;
+      return this;
     }
 
-    public BatchUserReq(Builder builder) {
-        /**
-         * 要查询的用户ID列表
-         * <p> 示例值：
-         */
-        this.userIds = builder.userIds;
-        /**
-         * 指定请求中用户ID类型
-         * <p> 示例值：open_id
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 指定查询结果中用户关联的部门ID类型
-         * <p> 示例值：open_department_id
-         */
-        this.departmentIdType = builder.departmentIdType;
+    /**
+     * 指定请求中用户ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 指定请求中用户ID类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.contact.v3.enums.BatchUserBatchGetUserV3UserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.contact.v3.enums.BatchUserBatchGetUserV3UserIDTypeEnum userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public String[] getUserIds() {
-        return this.userIds;
+    /**
+     * 指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType
+     * @return
+     */
+    public Builder departmentIdType(String departmentIdType) {
+      this.departmentIdType = departmentIdType;
+      return this;
     }
 
-    public void setUserIds(String[] userIds) {
-        this.userIds = userIds;
+    /**
+     * 指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID
+     * 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。
+     *
+     * <p>示例值：open_department_id
+     *
+     * @param departmentIdType {@link
+     *     com.lark.oapi.service.contact.v3.enums.BatchUserBatchGetUserV3DepartmentIDTypeEnum}
+     * @return
+     */
+    public Builder departmentIdType(
+        com.lark.oapi.service.contact.v3.enums.BatchUserBatchGetUserV3DepartmentIDTypeEnum
+            departmentIdType) {
+      this.departmentIdType = departmentIdType.getValue();
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public BatchUserReq build() {
+      return new BatchUserReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getDepartmentIdType() {
-        return this.departmentIdType;
-    }
-
-    public void setDepartmentIdType(String departmentIdType) {
-        this.departmentIdType = departmentIdType;
-    }
-
-    public static class Builder {
-        private String[] userIds; // 要查询的用户ID列表
-        private String userIdType; // 指定请求中用户ID类型
-        private String departmentIdType; // 指定查询结果中用户关联的部门ID类型
-
-        /**
-         * 要查询的用户ID列表
-         * <p> 示例值：
-         *
-         * @param userIds
-         * @return
-         */
-        public Builder userIds(String[] userIds) {
-            this.userIds = userIds;
-            return this;
-        }
-
-
-        /**
-         * 指定请求中用户ID类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 指定请求中用户ID类型
-         * <p> 示例值：open_id
-         *
-         * @param userIdType {@link com.lark.oapi.service.contact.v3.enums.BatchUserBatchGetUserV3UserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.contact.v3.enums.BatchUserBatchGetUserV3UserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 指定查询结果中用户关联的部门ID类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType
-         * @return
-         */
-        public Builder departmentIdType(String departmentIdType) {
-            this.departmentIdType = departmentIdType;
-            return this;
-        }
-
-        /**
-         * 指定查询结果中用户关联的部门ID类型
-         * <p> 示例值：open_department_id
-         *
-         * @param departmentIdType {@link com.lark.oapi.service.contact.v3.enums.BatchUserBatchGetUserV3DepartmentIDTypeEnum}
-         * @return
-         */
-        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.BatchUserBatchGetUserV3DepartmentIDTypeEnum departmentIdType) {
-            this.departmentIdType = departmentIdType.getValue();
-            return this;
-        }
-
-
-        public BatchUserReq build() {
-            return new BatchUserReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

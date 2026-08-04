@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Image {
+  /**
+   * key
+   *
+   * <p>示例值：img_v2_8abc397a-9950-44ea-9302-e1d8fe00858g
+   */
+  @SerializedName("key")
+  private String key;
+
+  /**
+   * fs unit
+   *
+   * <p>示例值：cn
+   */
+  @SerializedName("fs_unit")
+  private String fsUnit;
+
+  public String getKey() {
+    return this.key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public String getFsUnit() {
+    return this.fsUnit;
+  }
+
+  public void setFsUnit(String fsUnit) {
+    this.fsUnit = fsUnit;
+  }
+
+  // builder 开始
+  public Image() {}
+
+  public Image(Builder builder) {
     /**
      * key
-     * <p> 示例值：img_v2_8abc397a-9950-44ea-9302-e1d8fe00858g
+     *
+     * <p>示例值：img_v2_8abc397a-9950-44ea-9302-e1d8fe00858g
      */
-    @SerializedName("key")
-    private String key;
+    this.key = builder.key;
     /**
      * fs unit
-     * <p> 示例值：cn
+     *
+     * <p>示例值：cn
      */
-    @SerializedName("fs_unit")
+    this.fsUnit = builder.fsUnit;
+  }
+
+  public static class Builder {
+    /**
+     * key
+     *
+     * <p>示例值：img_v2_8abc397a-9950-44ea-9302-e1d8fe00858g
+     */
+    private String key;
+
+    /**
+     * fs unit
+     *
+     * <p>示例值：cn
+     */
     private String fsUnit;
 
-    // builder 开始
-    public Image() {
+    /**
+     * key
+     *
+     * <p>示例值：img_v2_8abc397a-9950-44ea-9302-e1d8fe00858g
+     *
+     * @param key
+     * @return
+     */
+    public Builder key(String key) {
+      this.key = key;
+      return this;
     }
 
-    public Image(Builder builder) {
-        /**
-         * key
-         * <p> 示例值：img_v2_8abc397a-9950-44ea-9302-e1d8fe00858g
-         */
-        this.key = builder.key;
-        /**
-         * fs unit
-         * <p> 示例值：cn
-         */
-        this.fsUnit = builder.fsUnit;
+    /**
+     * fs unit
+     *
+     * <p>示例值：cn
+     *
+     * @param fsUnit
+     * @return
+     */
+    public Builder fsUnit(String fsUnit) {
+      this.fsUnit = fsUnit;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Image build() {
+      return new Image(this);
     }
+  }
 
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public String getFsUnit() {
-        return this.fsUnit;
-    }
-
-    public void setFsUnit(String fsUnit) {
-        this.fsUnit = fsUnit;
-    }
-
-    public static class Builder {
-        /**
-         * key
-         * <p> 示例值：img_v2_8abc397a-9950-44ea-9302-e1d8fe00858g
-         */
-        private String key;
-        /**
-         * fs unit
-         * <p> 示例值：cn
-         */
-        private String fsUnit;
-
-        /**
-         * key
-         * <p> 示例值：img_v2_8abc397a-9950-44ea-9302-e1d8fe00858g
-         *
-         * @param key
-         * @return
-         */
-        public Builder key(String key) {
-            this.key = key;
-            return this;
-        }
-
-
-        /**
-         * fs unit
-         * <p> 示例值：cn
-         *
-         * @param fsUnit
-         * @return
-         */
-        public Builder fsUnit(String fsUnit) {
-            this.fsUnit = fsUnit;
-            return this;
-        }
-
-
-        public Image build() {
-            return new Image(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

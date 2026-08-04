@@ -13,148 +13,148 @@
 
 package com.lark.oapi.service.hire.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class TalentFolderForList {
+  /**
+   * 文件夹 ID
+   *
+   * <p>示例值：7041806543797995820
+   */
+  @SerializedName("folder_id")
+  private String folderId;
+
+  /**
+   * 文件夹名字
+   *
+   * <p>示例值：人才文件夹A1
+   */
+  @SerializedName("folder_name")
+  private String folderName;
+
+  /**
+   * 所有者 ID，与查询参数中user_id_type的类型一致
+   *
+   * <p>示例值：ou_85bb308c57f597471cd2bb5b4f580245
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  public String getFolderId() {
+    return this.folderId;
+  }
+
+  public void setFolderId(String folderId) {
+    this.folderId = folderId;
+  }
+
+  public String getFolderName() {
+    return this.folderName;
+  }
+
+  public void setFolderName(String folderName) {
+    this.folderName = folderName;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  // builder 开始
+  public TalentFolderForList() {}
+
+  public TalentFolderForList(Builder builder) {
     /**
-     * 文件夹ID
-     * <p> 示例值：7041806543797995820
+     * 文件夹 ID
+     *
+     * <p>示例值：7041806543797995820
      */
-    @SerializedName("folder_id")
+    this.folderId = builder.folderId;
+    /**
+     * 文件夹名字
+     *
+     * <p>示例值：人才文件夹A1
+     */
+    this.folderName = builder.folderName;
+    /**
+     * 所有者 ID，与查询参数中user_id_type的类型一致
+     *
+     * <p>示例值：ou_85bb308c57f597471cd2bb5b4f580245
+     */
+    this.ownerId = builder.ownerId;
+  }
+
+  public static class Builder {
+    /**
+     * 文件夹 ID
+     *
+     * <p>示例值：7041806543797995820
+     */
     private String folderId;
+
     /**
-     * 名字
-     * <p> 示例值：人才文件夹A1
+     * 文件夹名字
+     *
+     * <p>示例值：人才文件夹A1
      */
-    @SerializedName("folder_name")
     private String folderName;
+
     /**
-     * 所有者ID
-     * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
+     * 所有者 ID，与查询参数中user_id_type的类型一致
+     *
+     * <p>示例值：ou_85bb308c57f597471cd2bb5b4f580245
      */
-    @SerializedName("owner_id")
     private String ownerId;
 
-    // builder 开始
-    public TalentFolderForList() {
+    /**
+     * 文件夹 ID
+     *
+     * <p>示例值：7041806543797995820
+     *
+     * @param folderId
+     * @return
+     */
+    public Builder folderId(String folderId) {
+      this.folderId = folderId;
+      return this;
     }
 
-    public TalentFolderForList(Builder builder) {
-        /**
-         * 文件夹ID
-         * <p> 示例值：7041806543797995820
-         */
-        this.folderId = builder.folderId;
-        /**
-         * 名字
-         * <p> 示例值：人才文件夹A1
-         */
-        this.folderName = builder.folderName;
-        /**
-         * 所有者ID
-         * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
-         */
-        this.ownerId = builder.ownerId;
+    /**
+     * 文件夹名字
+     *
+     * <p>示例值：人才文件夹A1
+     *
+     * @param folderName
+     * @return
+     */
+    public Builder folderName(String folderName) {
+      this.folderName = folderName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 所有者 ID，与查询参数中user_id_type的类型一致
+     *
+     * <p>示例值：ou_85bb308c57f597471cd2bb5b4f580245
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public String getFolderId() {
-        return this.folderId;
+    public TalentFolderForList build() {
+      return new TalentFolderForList(this);
     }
+  }
 
-    public void setFolderId(String folderId) {
-        this.folderId = folderId;
-    }
-
-    public String getFolderName() {
-        return this.folderName;
-    }
-
-    public void setFolderName(String folderName) {
-        this.folderName = folderName;
-    }
-
-    public String getOwnerId() {
-        return this.ownerId;
-    }
-
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
-
-    public static class Builder {
-        /**
-         * 文件夹ID
-         * <p> 示例值：7041806543797995820
-         */
-        private String folderId;
-        /**
-         * 名字
-         * <p> 示例值：人才文件夹A1
-         */
-        private String folderName;
-        /**
-         * 所有者ID
-         * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
-         */
-        private String ownerId;
-
-        /**
-         * 文件夹ID
-         * <p> 示例值：7041806543797995820
-         *
-         * @param folderId
-         * @return
-         */
-        public Builder folderId(String folderId) {
-            this.folderId = folderId;
-            return this;
-        }
-
-
-        /**
-         * 名字
-         * <p> 示例值：人才文件夹A1
-         *
-         * @param folderName
-         * @return
-         */
-        public Builder folderName(String folderName) {
-            this.folderName = folderName;
-            return this;
-        }
-
-
-        /**
-         * 所有者ID
-         * <p> 示例值：ou_85bb308c57f597471cd2bb5b4f580245
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        public TalentFolderForList build() {
-            return new TalentFolderForList(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

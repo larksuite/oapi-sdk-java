@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.docx.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchDeleteChatAnnouncementBlockChildrenRespBody {
-    /**
-     * 当前删除操作成功后群公告的版本号
-     * <p> 示例值：1
-     */
-    @SerializedName("revision_id")
-    private Integer revisionId;
-    /**
-     * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
-     * <p> 示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
-     */
-    @SerializedName("client_token")
-    private String clientToken;
+  /**
+   * 当前删除操作成功后群公告的版本号
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("revision_id")
+  private Integer revisionId;
 
-    public Integer getRevisionId() {
-        return this.revisionId;
-    }
+  /**
+   * 操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新
+   *
+   * <p>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97
+   */
+  @SerializedName("client_token")
+  private String clientToken;
 
-    public void setRevisionId(Integer revisionId) {
-        this.revisionId = revisionId;
-    }
+  public Integer getRevisionId() {
+    return this.revisionId;
+  }
 
-    public String getClientToken() {
-        return this.clientToken;
-    }
+  public void setRevisionId(Integer revisionId) {
+    this.revisionId = revisionId;
+  }
 
-    public void setClientToken(String clientToken) {
-        this.clientToken = clientToken;
-    }
+  public String getClientToken() {
+    return this.clientToken;
+  }
 
+  public void setClientToken(String clientToken) {
+    this.clientToken = clientToken;
+  }
 }

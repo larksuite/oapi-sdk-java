@@ -13,65 +13,52 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.corehr.v2.enums.*;
 
 public class QueryMultiTimelineLocationReq {
-    @Body
+  @Body private QueryMultiTimelineLocationReqBody body;
+
+  public QueryMultiTimelineLocationReqBody getQueryMultiTimelineLocationReqBody() {
+    return this.body;
+  }
+
+  public void setQueryMultiTimelineLocationReqBody(QueryMultiTimelineLocationReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public QueryMultiTimelineLocationReq() {}
+
+  public QueryMultiTimelineLocationReq(Builder builder) {
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
     private QueryMultiTimelineLocationReqBody body;
 
-    // builder 开始
-    public QueryMultiTimelineLocationReq() {
-    }
-
-    public QueryMultiTimelineLocationReq(Builder builder) {
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
     public QueryMultiTimelineLocationReqBody getQueryMultiTimelineLocationReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setQueryMultiTimelineLocationReqBody(QueryMultiTimelineLocationReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder queryMultiTimelineLocationReqBody(QueryMultiTimelineLocationReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private QueryMultiTimelineLocationReqBody body;
-
-        public QueryMultiTimelineLocationReqBody getQueryMultiTimelineLocationReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder queryMultiTimelineLocationReqBody(QueryMultiTimelineLocationReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public QueryMultiTimelineLocationReq build() {
-            return new QueryMultiTimelineLocationReq(this);
-        }
+    public QueryMultiTimelineLocationReq build() {
+      return new QueryMultiTimelineLocationReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,186 +13,191 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class EmployeeGrantee {
+  /**
+   * 租户
+   *
+   * <p>示例值：7233736321931739155
+   */
+  @SerializedName("tenant")
+  private String tenant;
+
+  /**
+   * app
+   *
+   * <p>示例值：app
+   */
+  @SerializedName("app")
+  private String app;
+
+  /**
+   * 授权id
+   *
+   * <p>示例值：7233736321931739155
+   */
+  @SerializedName("grantee_id")
+  private String granteeId;
+
+  /**
+   * 授权类型
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("grantee_type")
+  private Integer granteeType;
+
+  public String getTenant() {
+    return this.tenant;
+  }
+
+  public void setTenant(String tenant) {
+    this.tenant = tenant;
+  }
+
+  public String getApp() {
+    return this.app;
+  }
+
+  public void setApp(String app) {
+    this.app = app;
+  }
+
+  public String getGranteeId() {
+    return this.granteeId;
+  }
+
+  public void setGranteeId(String granteeId) {
+    this.granteeId = granteeId;
+  }
+
+  public Integer getGranteeType() {
+    return this.granteeType;
+  }
+
+  public void setGranteeType(Integer granteeType) {
+    this.granteeType = granteeType;
+  }
+
+  // builder 开始
+  public EmployeeGrantee() {}
+
+  public EmployeeGrantee(Builder builder) {
     /**
      * 租户
-     * <p> 示例值：7233736321931739155
+     *
+     * <p>示例值：7233736321931739155
      */
-    @SerializedName("tenant")
-    private String tenant;
+    this.tenant = builder.tenant;
     /**
      * app
-     * <p> 示例值：app
+     *
+     * <p>示例值：app
      */
-    @SerializedName("app")
-    private String app;
+    this.app = builder.app;
     /**
      * 授权id
-     * <p> 示例值：7233736321931739155
+     *
+     * <p>示例值：7233736321931739155
      */
-    @SerializedName("grantee_id")
-    private String granteeId;
+    this.granteeId = builder.granteeId;
     /**
      * 授权类型
-     * <p> 示例值：1
+     *
+     * <p>示例值：1
      */
-    @SerializedName("grantee_type")
+    this.granteeType = builder.granteeType;
+  }
+
+  public static class Builder {
+    /**
+     * 租户
+     *
+     * <p>示例值：7233736321931739155
+     */
+    private String tenant;
+
+    /**
+     * app
+     *
+     * <p>示例值：app
+     */
+    private String app;
+
+    /**
+     * 授权id
+     *
+     * <p>示例值：7233736321931739155
+     */
+    private String granteeId;
+
+    /**
+     * 授权类型
+     *
+     * <p>示例值：1
+     */
     private Integer granteeType;
 
-    // builder 开始
-    public EmployeeGrantee() {
+    /**
+     * 租户
+     *
+     * <p>示例值：7233736321931739155
+     *
+     * @param tenant
+     * @return
+     */
+    public Builder tenant(String tenant) {
+      this.tenant = tenant;
+      return this;
     }
 
-    public EmployeeGrantee(Builder builder) {
-        /**
-         * 租户
-         * <p> 示例值：7233736321931739155
-         */
-        this.tenant = builder.tenant;
-        /**
-         * app
-         * <p> 示例值：app
-         */
-        this.app = builder.app;
-        /**
-         * 授权id
-         * <p> 示例值：7233736321931739155
-         */
-        this.granteeId = builder.granteeId;
-        /**
-         * 授权类型
-         * <p> 示例值：1
-         */
-        this.granteeType = builder.granteeType;
+    /**
+     * app
+     *
+     * <p>示例值：app
+     *
+     * @param app
+     * @return
+     */
+    public Builder app(String app) {
+      this.app = app;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 授权id
+     *
+     * <p>示例值：7233736321931739155
+     *
+     * @param granteeId
+     * @return
+     */
+    public Builder granteeId(String granteeId) {
+      this.granteeId = granteeId;
+      return this;
     }
 
-    public String getTenant() {
-        return this.tenant;
+    /**
+     * 授权类型
+     *
+     * <p>示例值：1
+     *
+     * @param granteeType
+     * @return
+     */
+    public Builder granteeType(Integer granteeType) {
+      this.granteeType = granteeType;
+      return this;
     }
 
-    public void setTenant(String tenant) {
-        this.tenant = tenant;
+    public EmployeeGrantee build() {
+      return new EmployeeGrantee(this);
     }
+  }
 
-    public String getApp() {
-        return this.app;
-    }
-
-    public void setApp(String app) {
-        this.app = app;
-    }
-
-    public String getGranteeId() {
-        return this.granteeId;
-    }
-
-    public void setGranteeId(String granteeId) {
-        this.granteeId = granteeId;
-    }
-
-    public Integer getGranteeType() {
-        return this.granteeType;
-    }
-
-    public void setGranteeType(Integer granteeType) {
-        this.granteeType = granteeType;
-    }
-
-    public static class Builder {
-        /**
-         * 租户
-         * <p> 示例值：7233736321931739155
-         */
-        private String tenant;
-        /**
-         * app
-         * <p> 示例值：app
-         */
-        private String app;
-        /**
-         * 授权id
-         * <p> 示例值：7233736321931739155
-         */
-        private String granteeId;
-        /**
-         * 授权类型
-         * <p> 示例值：1
-         */
-        private Integer granteeType;
-
-        /**
-         * 租户
-         * <p> 示例值：7233736321931739155
-         *
-         * @param tenant
-         * @return
-         */
-        public Builder tenant(String tenant) {
-            this.tenant = tenant;
-            return this;
-        }
-
-
-        /**
-         * app
-         * <p> 示例值：app
-         *
-         * @param app
-         * @return
-         */
-        public Builder app(String app) {
-            this.app = app;
-            return this;
-        }
-
-
-        /**
-         * 授权id
-         * <p> 示例值：7233736321931739155
-         *
-         * @param granteeId
-         * @return
-         */
-        public Builder granteeId(String granteeId) {
-            this.granteeId = granteeId;
-            return this;
-        }
-
-
-        /**
-         * 授权类型
-         * <p> 示例值：1
-         *
-         * @param granteeType
-         * @return
-         */
-        public Builder granteeType(Integer granteeType) {
-            this.granteeType = granteeType;
-            return this;
-        }
-
-
-        public EmployeeGrantee build() {
-            return new EmployeeGrantee(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

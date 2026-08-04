@@ -13,142 +13,173 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.im.v1.enums.*;
 
 public class DeleteManagersChatManagersReq {
+  /**
+   * 用户 ID 类型
+   *
+   * <p>示例值：open_id
+   */
+  @Query
+  @SerializedName("member_id_type")
+  private String memberIdType;
+
+  public String getMemberIdType() {
+    return this.memberIdType;
+  }
+
+  public void setMemberIdType(String memberIdType) {
+    this.memberIdType = memberIdType;
+  }
+
+  /**
+   * 群 ID。获取方式：;;-
+   * [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的
+   * chat_id。;-
+   * 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的
+   * chat_id。;-
+   * 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的
+   * chat_id。;;**注意**：仅支持群模式为 **群组（group）**、**话题（topic）** 的群组
+   * ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看
+   * `chat_mode` 参数取值是否为 `group`、`topic`。
+   *
+   * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+   */
+  @Path
+  @SerializedName("chat_id")
+  private String chatId;
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  @Body private DeleteManagersChatManagersReqBody body;
+
+  public DeleteManagersChatManagersReqBody getDeleteManagersChatManagersReqBody() {
+    return this.body;
+  }
+
+  public void setDeleteManagersChatManagersReqBody(DeleteManagersChatManagersReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public DeleteManagersChatManagersReq() {}
+
+  public DeleteManagersChatManagersReq(Builder builder) {
     /**
-     * 群成员 id 类型 open_id/user_id/union_id/app_id;;**注意**：删除机器人类型的管理员请使用 ==app_id==
-     * <p> 示例值：open_id
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
      */
-    @Query
-    @SerializedName("member_id_type")
-    private String memberIdType;
+    this.memberIdType = builder.memberIdType;
     /**
-     * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`、`topic`的群组ID
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     * 群 ID。获取方式：;;-
+     * [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的
+     * chat_id。;-
+     * 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的
+     * chat_id。;-
+     * 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的
+     * chat_id。;;**注意**：仅支持群模式为 **群组（group）**、**话题（topic）** 的群组
+     * ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看
+     * `chat_mode` 参数取值是否为 `group`、`topic`。
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    @Path
-    @SerializedName("chat_id")
-    private String chatId;
-    @Body
+    this.chatId = builder.chatId;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+    private String memberIdType; // 用户 ID 类型
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param memberIdType
+     * @return
+     */
+    public Builder memberIdType(String memberIdType) {
+      this.memberIdType = memberIdType;
+      return this;
+    }
+
+    /**
+     * 用户 ID 类型
+     *
+     * <p>示例值：open_id
+     *
+     * @param memberIdType {@link
+     *     com.lark.oapi.service.im.v1.enums.DeleteManagersChatManagersDeleteManagersChatManagersMemberIDTypeEnum}
+     * @return
+     */
+    public Builder memberIdType(
+        com.lark.oapi.service.im.v1.enums
+                .DeleteManagersChatManagersDeleteManagersChatManagersMemberIDTypeEnum
+            memberIdType) {
+      this.memberIdType = memberIdType.getValue();
+      return this;
+    }
+
+    private String chatId; // 群 ID。获取方式：;;-
+
+    // [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的 chat_id。;- 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的 chat_id。;- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。;;**注意**：仅支持群模式为 **群组（group）**、**话题（topic）** 的群组 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_mode` 参数取值是否为 `group`、`topic`。
+
+    /**
+     * 群 ID。获取方式：;;-
+     * [创建群](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/create)，从返回结果中获取该群的
+     * chat_id。;-
+     * 调用[获取用户或机器人所在的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/list)接口，可以查询用户或机器人所在群的
+     * chat_id。;-
+     * 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的
+     * chat_id。;;**注意**：仅支持群模式为 **群组（group）**、**话题（topic）** 的群组
+     * ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看
+     * `chat_mode` 参数取值是否为 `group`、`topic`。
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
+    }
+
     private DeleteManagersChatManagersReqBody body;
 
-    // builder 开始
-    public DeleteManagersChatManagersReq() {
-    }
-
-    public DeleteManagersChatManagersReq(Builder builder) {
-        /**
-         * 群成员 id 类型 open_id/user_id/union_id/app_id;;**注意**：删除机器人类型的管理员请使用 ==app_id==
-         * <p> 示例值：open_id
-         */
-        this.memberIdType = builder.memberIdType;
-        /**
-         * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`、`topic`的群组ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        this.chatId = builder.chatId;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getMemberIdType() {
-        return this.memberIdType;
-    }
-
-    public void setMemberIdType(String memberIdType) {
-        this.memberIdType = memberIdType;
-    }
-
-    public String getChatId() {
-        return this.chatId;
-    }
-
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
-    }
-
     public DeleteManagersChatManagersReqBody getDeleteManagersChatManagersReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setDeleteManagersChatManagersReqBody(DeleteManagersChatManagersReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder deleteManagersChatManagersReqBody(DeleteManagersChatManagersReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-        private String memberIdType; // 群成员 id 类型 open_id/user_id/union_id/app_id;;**注意**：删除机器人类型的管理员请使用 ==app_id==
-        private String chatId; // 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`、`topic`的群组ID
-        private DeleteManagersChatManagersReqBody body;
-
-        /**
-         * 群成员 id 类型 open_id/user_id/union_id/app_id;;**注意**：删除机器人类型的管理员请使用 ==app_id==
-         * <p> 示例值：open_id
-         *
-         * @param memberIdType
-         * @return
-         */
-        public Builder memberIdType(String memberIdType) {
-            this.memberIdType = memberIdType;
-            return this;
-        }
-
-        /**
-         * 群成员 id 类型 open_id/user_id/union_id/app_id;;**注意**：删除机器人类型的管理员请使用 ==app_id==
-         * <p> 示例值：open_id
-         *
-         * @param memberIdType {@link com.lark.oapi.service.im.v1.enums.DeleteManagersChatManagersDeleteManagersChatManagersMemberIDTypeEnum}
-         * @return
-         */
-        public Builder memberIdType(com.lark.oapi.service.im.v1.enums.DeleteManagersChatManagersDeleteManagersChatManagersMemberIDTypeEnum memberIdType) {
-            this.memberIdType = memberIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 群 ID，详情参见[群ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description);;**注意**：仅支持群模式为`group`、`topic`的群组ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-        public DeleteManagersChatManagersReqBody getDeleteManagersChatManagersReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder deleteManagersChatManagersReqBody(DeleteManagersChatManagersReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public DeleteManagersChatManagersReq build() {
-            return new DeleteManagersChatManagersReq(this);
-        }
+    public DeleteManagersChatManagersReq build() {
+      return new DeleteManagersChatManagersReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

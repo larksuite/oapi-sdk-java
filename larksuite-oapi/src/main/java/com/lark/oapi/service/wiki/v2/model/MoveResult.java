@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.wiki.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.wiki.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MoveResult {
+  /**
+   * 移动完成的节点信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("node")
+  private Node node;
+
+  /**
+   * 节点移动状态码
+   *
+   * <p>示例值：0
+   */
+  @SerializedName("status")
+  private Integer status;
+
+  /**
+   * 节点移动状态信息
+   *
+   * <p>示例值：success
+   */
+  @SerializedName("status_msg")
+  private String statusMsg;
+
+  public Node getNode() {
+    return this.node;
+  }
+
+  public void setNode(Node node) {
+    this.node = node;
+  }
+
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public String getStatusMsg() {
+    return this.statusMsg;
+  }
+
+  public void setStatusMsg(String statusMsg) {
+    this.statusMsg = statusMsg;
+  }
+
+  // builder 开始
+  public MoveResult() {}
+
+  public MoveResult(Builder builder) {
     /**
      * 移动完成的节点信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("node")
-    private Node node;
+    this.node = builder.node;
     /**
      * 节点移动状态码
-     * <p> 示例值：0
+     *
+     * <p>示例值：0
      */
-    @SerializedName("status")
-    private Integer status;
+    this.status = builder.status;
     /**
      * 节点移动状态信息
-     * <p> 示例值：success
+     *
+     * <p>示例值：success
      */
-    @SerializedName("status_msg")
+    this.statusMsg = builder.statusMsg;
+  }
+
+  public static class Builder {
+    /**
+     * 移动完成的节点信息
+     *
+     * <p>示例值：
+     */
+    private Node node;
+
+    /**
+     * 节点移动状态码
+     *
+     * <p>示例值：0
+     */
+    private Integer status;
+
+    /**
+     * 节点移动状态信息
+     *
+     * <p>示例值：success
+     */
     private String statusMsg;
 
-    // builder 开始
-    public MoveResult() {
+    /**
+     * 移动完成的节点信息
+     *
+     * <p>示例值：
+     *
+     * @param node
+     * @return
+     */
+    public Builder node(Node node) {
+      this.node = node;
+      return this;
     }
 
-    public MoveResult(Builder builder) {
-        /**
-         * 移动完成的节点信息
-         * <p> 示例值：
-         */
-        this.node = builder.node;
-        /**
-         * 节点移动状态码
-         * <p> 示例值：0
-         */
-        this.status = builder.status;
-        /**
-         * 节点移动状态信息
-         * <p> 示例值：success
-         */
-        this.statusMsg = builder.statusMsg;
+    /**
+     * 节点移动状态码
+     *
+     * <p>示例值：0
+     *
+     * @param status
+     * @return
+     */
+    public Builder status(Integer status) {
+      this.status = status;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 节点移动状态信息
+     *
+     * <p>示例值：success
+     *
+     * @param statusMsg
+     * @return
+     */
+    public Builder statusMsg(String statusMsg) {
+      this.statusMsg = statusMsg;
+      return this;
     }
 
-    public Node getNode() {
-        return this.node;
+    public MoveResult build() {
+      return new MoveResult(this);
     }
+  }
 
-    public void setNode(Node node) {
-        this.node = node;
-    }
-
-    public Integer getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getStatusMsg() {
-        return this.statusMsg;
-    }
-
-    public void setStatusMsg(String statusMsg) {
-        this.statusMsg = statusMsg;
-    }
-
-    public static class Builder {
-        /**
-         * 移动完成的节点信息
-         * <p> 示例值：
-         */
-        private Node node;
-        /**
-         * 节点移动状态码
-         * <p> 示例值：0
-         */
-        private Integer status;
-        /**
-         * 节点移动状态信息
-         * <p> 示例值：success
-         */
-        private String statusMsg;
-
-        /**
-         * 移动完成的节点信息
-         * <p> 示例值：
-         *
-         * @param node
-         * @return
-         */
-        public Builder node(Node node) {
-            this.node = node;
-            return this;
-        }
-
-
-        /**
-         * 节点移动状态码
-         * <p> 示例值：0
-         *
-         * @param status
-         * @return
-         */
-        public Builder status(Integer status) {
-            this.status = status;
-            return this;
-        }
-
-
-        /**
-         * 节点移动状态信息
-         * <p> 示例值：success
-         *
-         * @param statusMsg
-         * @return
-         */
-        public Builder statusMsg(String statusMsg) {
-            this.statusMsg = statusMsg;
-            return this;
-        }
-
-
-        public MoveResult build() {
-            return new MoveResult(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

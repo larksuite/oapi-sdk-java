@@ -13,139 +13,138 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.payroll.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.payroll.v1.enums.*;
 
 public class ListCostAllocationPlanReq {
+  /**
+   * 分页大小
+   *
+   * <p>示例值：50
+   */
+  @Query
+  @SerializedName("page_size")
+  private Integer pageSize;
+
+  /**
+   * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+   *
+   * <p>示例值：6823630319749592024
+   */
+  @Query
+  @SerializedName("page_token")
+  private String pageToken;
+
+  /**
+   * 期间，生成成本分摊报表对应的年月。格式为 yyyy-MM
+   *
+   * <p>示例值：2023-11
+   */
+  @Query
+  @SerializedName("pay_period")
+  private String payPeriod;
+
+  public Integer getPageSize() {
+    return this.pageSize;
+  }
+
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+  public String getPageToken() {
+    return this.pageToken;
+  }
+
+  public void setPageToken(String pageToken) {
+    this.pageToken = pageToken;
+  }
+
+  public String getPayPeriod() {
+    return this.payPeriod;
+  }
+
+  public void setPayPeriod(String payPeriod) {
+    this.payPeriod = payPeriod;
+  }
+
+  // builder 开始
+  public ListCostAllocationPlanReq() {}
+
+  public ListCostAllocationPlanReq(Builder builder) {
     /**
      * 分页大小
-     * <p> 示例值：50
+     *
+     * <p>示例值：50
      */
-    @Query
-    @SerializedName("page_size")
-    private Integer pageSize;
+    this.pageSize = builder.pageSize;
     /**
      * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-     * <p> 示例值：6823630319749580302
+     *
+     * <p>示例值：6823630319749592024
      */
-    @Query
-    @SerializedName("page_token")
-    private String pageToken;
+    this.pageToken = builder.pageToken;
     /**
-     * 期间
-     * <p> 示例值：2023-11
+     * 期间，生成成本分摊报表对应的年月。格式为 yyyy-MM
+     *
+     * <p>示例值：2023-11
      */
-    @Query
-    @SerializedName("pay_period")
-    private String payPeriod;
+    this.payPeriod = builder.payPeriod;
+  }
 
-    // builder 开始
-    public ListCostAllocationPlanReq() {
+  public static class Builder {
+    private Integer pageSize; // 分页大小
+    private String
+        pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token
+    // 获取查询结果
+    private String payPeriod; // 期间，生成成本分摊报表对应的年月。格式为 yyyy-MM
+
+    /**
+     * 分页大小
+     *
+     * <p>示例值：50
+     *
+     * @param pageSize
+     * @return
+     */
+    public Builder pageSize(Integer pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
-    public ListCostAllocationPlanReq(Builder builder) {
-        /**
-         * 分页大小
-         * <p> 示例值：50
-         */
-        this.pageSize = builder.pageSize;
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：6823630319749580302
-         */
-        this.pageToken = builder.pageToken;
-        /**
-         * 期间
-         * <p> 示例值：2023-11
-         */
-        this.payPeriod = builder.payPeriod;
+    /**
+     * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
+     *
+     * <p>示例值：6823630319749592024
+     *
+     * @param pageToken
+     * @return
+     */
+    public Builder pageToken(String pageToken) {
+      this.pageToken = pageToken;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 期间，生成成本分摊报表对应的年月。格式为 yyyy-MM
+     *
+     * <p>示例值：2023-11
+     *
+     * @param payPeriod
+     * @return
+     */
+    public Builder payPeriod(String payPeriod) {
+      this.payPeriod = payPeriod;
+      return this;
     }
 
-    public Integer getPageSize() {
-        return this.pageSize;
+    public ListCostAllocationPlanReq build() {
+      return new ListCostAllocationPlanReq(this);
     }
+  }
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getPageToken() {
-        return this.pageToken;
-    }
-
-    public void setPageToken(String pageToken) {
-        this.pageToken = pageToken;
-    }
-
-    public String getPayPeriod() {
-        return this.payPeriod;
-    }
-
-    public void setPayPeriod(String payPeriod) {
-        this.payPeriod = payPeriod;
-    }
-
-    public static class Builder {
-        private Integer pageSize; // 分页大小
-        private String pageToken; // 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-        private String payPeriod; // 期间
-
-        /**
-         * 分页大小
-         * <p> 示例值：50
-         *
-         * @param pageSize
-         * @return
-         */
-        public Builder pageSize(Integer pageSize) {
-            this.pageSize = pageSize;
-            return this;
-        }
-
-
-        /**
-         * 分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果
-         * <p> 示例值：6823630319749580302
-         *
-         * @param pageToken
-         * @return
-         */
-        public Builder pageToken(String pageToken) {
-            this.pageToken = pageToken;
-            return this;
-        }
-
-
-        /**
-         * 期间
-         * <p> 示例值：2023-11
-         *
-         * @param payPeriod
-         * @return
-         */
-        public Builder payPeriod(String payPeriod) {
-            this.payPeriod = payPeriod;
-            return this;
-        }
-
-
-        public ListCostAllocationPlanReq build() {
-            return new ListCostAllocationPlanReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class KickoutMeetingReqBody {
+  /**
+   * 需移除的用户列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("kickout_users")
+  private MeetingUser[] kickoutUsers;
+
+  public MeetingUser[] getKickoutUsers() {
+    return this.kickoutUsers;
+  }
+
+  public void setKickoutUsers(MeetingUser[] kickoutUsers) {
+    this.kickoutUsers = kickoutUsers;
+  }
+
+  // builder 开始
+  public KickoutMeetingReqBody() {}
+
+  public KickoutMeetingReqBody(Builder builder) {
     /**
      * 需移除的用户列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("kickout_users")
+    this.kickoutUsers = builder.kickoutUsers;
+  }
+
+  public static class Builder {
+    /**
+     * 需移除的用户列表
+     *
+     * <p>示例值：
+     */
     private MeetingUser[] kickoutUsers;
 
-    // builder 开始
-    public KickoutMeetingReqBody() {
+    /**
+     * 需移除的用户列表
+     *
+     * <p>示例值：
+     *
+     * @param kickoutUsers
+     * @return
+     */
+    public Builder kickoutUsers(MeetingUser[] kickoutUsers) {
+      this.kickoutUsers = kickoutUsers;
+      return this;
     }
 
-    public KickoutMeetingReqBody(Builder builder) {
-        /**
-         * 需移除的用户列表
-         * <p> 示例值：
-         */
-        this.kickoutUsers = builder.kickoutUsers;
+    public KickoutMeetingReqBody build() {
+      return new KickoutMeetingReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public MeetingUser[] getKickoutUsers() {
-        return this.kickoutUsers;
-    }
-
-    public void setKickoutUsers(MeetingUser[] kickoutUsers) {
-        this.kickoutUsers = kickoutUsers;
-    }
-
-    public static class Builder {
-        /**
-         * 需移除的用户列表
-         * <p> 示例值：
-         */
-        private MeetingUser[] kickoutUsers;
-
-        /**
-         * 需移除的用户列表
-         * <p> 示例值：
-         *
-         * @param kickoutUsers
-         * @return
-         */
-        public Builder kickoutUsers(MeetingUser[] kickoutUsers) {
-            this.kickoutUsers = kickoutUsers;
-            return this;
-        }
-
-
-        public KickoutMeetingReqBody build() {
-            return new KickoutMeetingReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

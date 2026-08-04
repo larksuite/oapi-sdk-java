@@ -13,223 +13,233 @@
 
 package com.lark.oapi.service.mail.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.mail.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class MailSearchMeta {
+  /**
+   * 邮件主题
+   *
+   * <p>示例值：测试邮件
+   */
+  @SerializedName("title")
+  private String title;
+
+  /**
+   * 邮件线程 ID
+   *
+   * <p>示例值：thread_id_XXX
+   */
+  @SerializedName("thread_id")
+  private String threadId;
+
+  /**
+   * 邮件接收时间
+   *
+   * <p>示例值：2026-03-15T14:30:00+08:00
+   */
+  @SerializedName("create_time")
+  private String createTime;
+
+  /**
+   * 邮件唯一标识
+   *
+   * <p>示例值：msg_id_xxx
+   */
+  @SerializedName("message_biz_id")
+  private String messageBizId;
+
+  /**
+   * 邮件发件人
+   *
+   * <p>示例值：
+   */
+  @SerializedName("from")
+  private MailAddress from;
+
+  public String getTitle() {
+    return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getThreadId() {
+    return this.threadId;
+  }
+
+  public void setThreadId(String threadId) {
+    this.threadId = threadId;
+  }
+
+  public String getCreateTime() {
+    return this.createTime;
+  }
+
+  public void setCreateTime(String createTime) {
+    this.createTime = createTime;
+  }
+
+  public String getMessageBizId() {
+    return this.messageBizId;
+  }
+
+  public void setMessageBizId(String messageBizId) {
+    this.messageBizId = messageBizId;
+  }
+
+  public MailAddress getFrom() {
+    return this.from;
+  }
+
+  public void setFrom(MailAddress from) {
+    this.from = from;
+  }
+
+  // builder 开始
+  public MailSearchMeta() {}
+
+  public MailSearchMeta(Builder builder) {
     /**
      * 邮件主题
-     * <p> 示例值：测试邮件
+     *
+     * <p>示例值：测试邮件
      */
-    @SerializedName("title")
-    private String title;
+    this.title = builder.title;
     /**
      * 邮件线程 ID
-     * <p> 示例值：thread_id_XXX
+     *
+     * <p>示例值：thread_id_XXX
      */
-    @SerializedName("thread_id")
-    private String threadId;
+    this.threadId = builder.threadId;
     /**
      * 邮件接收时间
-     * <p> 示例值：2026-03-15T14:30:00+08:00
+     *
+     * <p>示例值：2026-03-15T14:30:00+08:00
      */
-    @SerializedName("create_time")
-    private String createTime;
+    this.createTime = builder.createTime;
     /**
      * 邮件唯一标识
-     * <p> 示例值：msg_id_xxx
+     *
+     * <p>示例值：msg_id_xxx
      */
-    @SerializedName("message_biz_id")
-    private String messageBizId;
+    this.messageBizId = builder.messageBizId;
     /**
      * 邮件发件人
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("from")
+    this.from = builder.from;
+  }
+
+  public static class Builder {
+    /**
+     * 邮件主题
+     *
+     * <p>示例值：测试邮件
+     */
+    private String title;
+
+    /**
+     * 邮件线程 ID
+     *
+     * <p>示例值：thread_id_XXX
+     */
+    private String threadId;
+
+    /**
+     * 邮件接收时间
+     *
+     * <p>示例值：2026-03-15T14:30:00+08:00
+     */
+    private String createTime;
+
+    /**
+     * 邮件唯一标识
+     *
+     * <p>示例值：msg_id_xxx
+     */
+    private String messageBizId;
+
+    /**
+     * 邮件发件人
+     *
+     * <p>示例值：
+     */
     private MailAddress from;
 
-    // builder 开始
-    public MailSearchMeta() {
+    /**
+     * 邮件主题
+     *
+     * <p>示例值：测试邮件
+     *
+     * @param title
+     * @return
+     */
+    public Builder title(String title) {
+      this.title = title;
+      return this;
     }
 
-    public MailSearchMeta(Builder builder) {
-        /**
-         * 邮件主题
-         * <p> 示例值：测试邮件
-         */
-        this.title = builder.title;
-        /**
-         * 邮件线程 ID
-         * <p> 示例值：thread_id_XXX
-         */
-        this.threadId = builder.threadId;
-        /**
-         * 邮件接收时间
-         * <p> 示例值：2026-03-15T14:30:00+08:00
-         */
-        this.createTime = builder.createTime;
-        /**
-         * 邮件唯一标识
-         * <p> 示例值：msg_id_xxx
-         */
-        this.messageBizId = builder.messageBizId;
-        /**
-         * 邮件发件人
-         * <p> 示例值：
-         */
-        this.from = builder.from;
+    /**
+     * 邮件线程 ID
+     *
+     * <p>示例值：thread_id_XXX
+     *
+     * @param threadId
+     * @return
+     */
+    public Builder threadId(String threadId) {
+      this.threadId = threadId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 邮件接收时间
+     *
+     * <p>示例值：2026-03-15T14:30:00+08:00
+     *
+     * @param createTime
+     * @return
+     */
+    public Builder createTime(String createTime) {
+      this.createTime = createTime;
+      return this;
     }
 
-    public String getTitle() {
-        return this.title;
+    /**
+     * 邮件唯一标识
+     *
+     * <p>示例值：msg_id_xxx
+     *
+     * @param messageBizId
+     * @return
+     */
+    public Builder messageBizId(String messageBizId) {
+      this.messageBizId = messageBizId;
+      return this;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    /**
+     * 邮件发件人
+     *
+     * <p>示例值：
+     *
+     * @param from
+     * @return
+     */
+    public Builder from(MailAddress from) {
+      this.from = from;
+      return this;
     }
 
-    public String getThreadId() {
-        return this.threadId;
+    public MailSearchMeta build() {
+      return new MailSearchMeta(this);
     }
+  }
 
-    public void setThreadId(String threadId) {
-        this.threadId = threadId;
-    }
-
-    public String getCreateTime() {
-        return this.createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getMessageBizId() {
-        return this.messageBizId;
-    }
-
-    public void setMessageBizId(String messageBizId) {
-        this.messageBizId = messageBizId;
-    }
-
-    public MailAddress getFrom() {
-        return this.from;
-    }
-
-    public void setFrom(MailAddress from) {
-        this.from = from;
-    }
-
-    public static class Builder {
-        /**
-         * 邮件主题
-         * <p> 示例值：测试邮件
-         */
-        private String title;
-        /**
-         * 邮件线程 ID
-         * <p> 示例值：thread_id_XXX
-         */
-        private String threadId;
-        /**
-         * 邮件接收时间
-         * <p> 示例值：2026-03-15T14:30:00+08:00
-         */
-        private String createTime;
-        /**
-         * 邮件唯一标识
-         * <p> 示例值：msg_id_xxx
-         */
-        private String messageBizId;
-        /**
-         * 邮件发件人
-         * <p> 示例值：
-         */
-        private MailAddress from;
-
-        /**
-         * 邮件主题
-         * <p> 示例值：测试邮件
-         *
-         * @param title
-         * @return
-         */
-        public Builder title(String title) {
-            this.title = title;
-            return this;
-        }
-
-
-        /**
-         * 邮件线程 ID
-         * <p> 示例值：thread_id_XXX
-         *
-         * @param threadId
-         * @return
-         */
-        public Builder threadId(String threadId) {
-            this.threadId = threadId;
-            return this;
-        }
-
-
-        /**
-         * 邮件接收时间
-         * <p> 示例值：2026-03-15T14:30:00+08:00
-         *
-         * @param createTime
-         * @return
-         */
-        public Builder createTime(String createTime) {
-            this.createTime = createTime;
-            return this;
-        }
-
-
-        /**
-         * 邮件唯一标识
-         * <p> 示例值：msg_id_xxx
-         *
-         * @param messageBizId
-         * @return
-         */
-        public Builder messageBizId(String messageBizId) {
-            this.messageBizId = messageBizId;
-            return this;
-        }
-
-
-        /**
-         * 邮件发件人
-         * <p> 示例值：
-         *
-         * @param from
-         * @return
-         */
-        public Builder from(MailAddress from) {
-            this.from = from;
-            return this;
-        }
-
-
-        public MailSearchMeta build() {
-            return new MailSearchMeta(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,20 +13,18 @@
 
 package com.lark.oapi.service.approval.v4.enums;
 
-/**
- * 遍历类型，不同的类型内容会有差异
- */
+/** 遍历类型，不同的类型内容会有差异 */
 public enum ListDistrictDistrictListTypeEnum {
-    SUBLEVEL("sub_level"), // 遍历指定节点的下一层区域，默认方式
-    LEAFLEVEL("leaf_level"), // 遍历指定节点的所有叶子节点，指定该参数时会返回parent_district
-    ;
-    private String value;
+  SUBLEVEL("sub_level"), // 遍历指定节点的下一层区域，默认方式
+  LEAFLEVEL("leaf_level"), // 遍历指定节点的所有叶子节点，指定该参数时会返回parent_district
+  ;
+  private String value;
 
-    ListDistrictDistrictListTypeEnum(String value) {
-        this.value = value;
-    }
+  ListDistrictDistrictListTypeEnum(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return this.value;
-    }
+  public String getValue() {
+    return this.value;
+  }
 }

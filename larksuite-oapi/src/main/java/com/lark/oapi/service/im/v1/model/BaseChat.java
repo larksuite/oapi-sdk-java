@@ -13,531 +13,583 @@
 
 package com.lark.oapi.service.im.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BaseChat {
+  /**
+   * 群组ID
+   *
+   * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+   */
+  @SerializedName("chat_id")
+  private String chatId;
+
+  /**
+   * 群头像URL
+   *
+   * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+   */
+  @SerializedName("avatar")
+  private String avatar;
+
+  /**
+   * 群名称
+   *
+   * <p>示例值：测试群名称
+   */
+  @SerializedName("name")
+  private String name;
+
+  /**
+   * 群描述
+   *
+   * <p>示例值：测试群描述
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 群主ID
+   *
+   * <p>示例值：4d7a3c6g
+   */
+  @SerializedName("owner_id")
+  private String ownerId;
+
+  /**
+   * 群主ID类型
+   *
+   * <p>示例值：user_id
+   */
+  @SerializedName("owner_id_type")
+  private String ownerIdType;
+
+  /**
+   * 是否是外部群
+   *
+   * <p>示例值：false
+   */
+  @SerializedName("external")
+  private Boolean external;
+
+  /**
+   * tenant key
+   *
+   * <p>示例值：fawefawea
+   */
+  @SerializedName("tenant_key")
+  private String tenantKey;
+
+  /**
+   * 群标签
+   *
+   * <p>示例值：
+   */
+  @SerializedName("labels")
+  private String[] labels;
+
+  /**
+   * 群状态
+   *
+   * <p>示例值：normal
+   */
+  @SerializedName("chat_status")
+  private String chatStatus;
+
+  /**
+   * 群类型
+   *
+   * <p>示例值：p2p
+   */
+  @SerializedName("chat_mode")
+  private String chatMode;
+
+  /**
+   * p2p群对方ID
+   *
+   * <p>示例值：4d7a3c6g
+   */
+  @SerializedName("p2p_target_id")
+  private String p2pTargetId;
+
+  /**
+   * p2p群对方类型（bot/user）
+   *
+   * <p>示例值：bot
+   */
+  @SerializedName("p2p_target_type")
+  private String p2pTargetType;
+
+  public String getChatId() {
+    return this.chatId;
+  }
+
+  public void setChatId(String chatId) {
+    this.chatId = chatId;
+  }
+
+  public String getAvatar() {
+    return this.avatar;
+  }
+
+  public void setAvatar(String avatar) {
+    this.avatar = avatar;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getOwnerId() {
+    return this.ownerId;
+  }
+
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public String getOwnerIdType() {
+    return this.ownerIdType;
+  }
+
+  public void setOwnerIdType(String ownerIdType) {
+    this.ownerIdType = ownerIdType;
+  }
+
+  public Boolean getExternal() {
+    return this.external;
+  }
+
+  public void setExternal(Boolean external) {
+    this.external = external;
+  }
+
+  public String getTenantKey() {
+    return this.tenantKey;
+  }
+
+  public void setTenantKey(String tenantKey) {
+    this.tenantKey = tenantKey;
+  }
+
+  public String[] getLabels() {
+    return this.labels;
+  }
+
+  public void setLabels(String[] labels) {
+    this.labels = labels;
+  }
+
+  public String getChatStatus() {
+    return this.chatStatus;
+  }
+
+  public void setChatStatus(String chatStatus) {
+    this.chatStatus = chatStatus;
+  }
+
+  public String getChatMode() {
+    return this.chatMode;
+  }
+
+  public void setChatMode(String chatMode) {
+    this.chatMode = chatMode;
+  }
+
+  public String getP2pTargetId() {
+    return this.p2pTargetId;
+  }
+
+  public void setP2pTargetId(String p2pTargetId) {
+    this.p2pTargetId = p2pTargetId;
+  }
+
+  public String getP2pTargetType() {
+    return this.p2pTargetType;
+  }
+
+  public void setP2pTargetType(String p2pTargetType) {
+    this.p2pTargetType = p2pTargetType;
+  }
+
+  // builder 开始
+  public BaseChat() {}
+
+  public BaseChat(Builder builder) {
     /**
      * 群组ID
-     * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
      */
-    @SerializedName("chat_id")
-    private String chatId;
+    this.chatId = builder.chatId;
     /**
      * 群头像URL
-     * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
      */
-    @SerializedName("avatar")
-    private String avatar;
+    this.avatar = builder.avatar;
     /**
      * 群名称
-     * <p> 示例值：测试群名称
+     *
+     * <p>示例值：测试群名称
      */
-    @SerializedName("name")
-    private String name;
+    this.name = builder.name;
     /**
      * 群描述
-     * <p> 示例值：测试群描述
+     *
+     * <p>示例值：测试群描述
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 群主ID
-     * <p> 示例值：4d7a3c6g
+     *
+     * <p>示例值：4d7a3c6g
      */
-    @SerializedName("owner_id")
-    private String ownerId;
+    this.ownerId = builder.ownerId;
     /**
      * 群主ID类型
-     * <p> 示例值：user_id
+     *
+     * <p>示例值：user_id
      */
-    @SerializedName("owner_id_type")
-    private String ownerIdType;
+    this.ownerIdType = builder.ownerIdType;
     /**
      * 是否是外部群
-     * <p> 示例值：false
+     *
+     * <p>示例值：false
      */
-    @SerializedName("external")
-    private Boolean external;
+    this.external = builder.external;
     /**
      * tenant key
-     * <p> 示例值：fawefawea
+     *
+     * <p>示例值：fawefawea
      */
-    @SerializedName("tenant_key")
-    private String tenantKey;
+    this.tenantKey = builder.tenantKey;
     /**
      * 群标签
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("labels")
-    private String[] labels;
+    this.labels = builder.labels;
     /**
      * 群状态
-     * <p> 示例值：normal
+     *
+     * <p>示例值：normal
      */
-    @SerializedName("chat_status")
-    private String chatStatus;
+    this.chatStatus = builder.chatStatus;
     /**
      * 群类型
-     * <p> 示例值：p2p
+     *
+     * <p>示例值：p2p
      */
-    @SerializedName("chat_mode")
-    private String chatMode;
+    this.chatMode = builder.chatMode;
     /**
      * p2p群对方ID
-     * <p> 示例值：4d7a3c6g
+     *
+     * <p>示例值：4d7a3c6g
      */
-    @SerializedName("p2p_target_id")
-    private String p2pTargetId;
+    this.p2pTargetId = builder.p2pTargetId;
     /**
      * p2p群对方类型（bot/user）
-     * <p> 示例值：bot
+     *
+     * <p>示例值：bot
      */
-    @SerializedName("p2p_target_type")
+    this.p2pTargetType = builder.p2pTargetType;
+  }
+
+  public static class Builder {
+    /**
+     * 群组ID
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     */
+    private String chatId;
+
+    /**
+     * 群头像URL
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+     */
+    private String avatar;
+
+    /**
+     * 群名称
+     *
+     * <p>示例值：测试群名称
+     */
+    private String name;
+
+    /**
+     * 群描述
+     *
+     * <p>示例值：测试群描述
+     */
+    private String description;
+
+    /**
+     * 群主ID
+     *
+     * <p>示例值：4d7a3c6g
+     */
+    private String ownerId;
+
+    /**
+     * 群主ID类型
+     *
+     * <p>示例值：user_id
+     */
+    private String ownerIdType;
+
+    /**
+     * 是否是外部群
+     *
+     * <p>示例值：false
+     */
+    private Boolean external;
+
+    /**
+     * tenant key
+     *
+     * <p>示例值：fawefawea
+     */
+    private String tenantKey;
+
+    /**
+     * 群标签
+     *
+     * <p>示例值：
+     */
+    private String[] labels;
+
+    /**
+     * 群状态
+     *
+     * <p>示例值：normal
+     */
+    private String chatStatus;
+
+    /**
+     * 群类型
+     *
+     * <p>示例值：p2p
+     */
+    private String chatMode;
+
+    /**
+     * p2p群对方ID
+     *
+     * <p>示例值：4d7a3c6g
+     */
+    private String p2pTargetId;
+
+    /**
+     * p2p群对方类型（bot/user）
+     *
+     * <p>示例值：bot
+     */
     private String p2pTargetType;
 
-    // builder 开始
-    public BaseChat() {
+    /**
+     * 群组ID
+     *
+     * <p>示例值：oc_a0553eda9014c201e6969b478895c230
+     *
+     * @param chatId
+     * @return
+     */
+    public Builder chatId(String chatId) {
+      this.chatId = chatId;
+      return this;
     }
 
-    public BaseChat(Builder builder) {
-        /**
-         * 群组ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        this.chatId = builder.chatId;
-        /**
-         * 群头像URL
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
-         */
-        this.avatar = builder.avatar;
-        /**
-         * 群名称
-         * <p> 示例值：测试群名称
-         */
-        this.name = builder.name;
-        /**
-         * 群描述
-         * <p> 示例值：测试群描述
-         */
-        this.description = builder.description;
-        /**
-         * 群主ID
-         * <p> 示例值：4d7a3c6g
-         */
-        this.ownerId = builder.ownerId;
-        /**
-         * 群主ID类型
-         * <p> 示例值：user_id
-         */
-        this.ownerIdType = builder.ownerIdType;
-        /**
-         * 是否是外部群
-         * <p> 示例值：false
-         */
-        this.external = builder.external;
-        /**
-         * tenant key
-         * <p> 示例值：fawefawea
-         */
-        this.tenantKey = builder.tenantKey;
-        /**
-         * 群标签
-         * <p> 示例值：
-         */
-        this.labels = builder.labels;
-        /**
-         * 群状态
-         * <p> 示例值：normal
-         */
-        this.chatStatus = builder.chatStatus;
-        /**
-         * 群类型
-         * <p> 示例值：p2p
-         */
-        this.chatMode = builder.chatMode;
-        /**
-         * p2p群对方ID
-         * <p> 示例值：4d7a3c6g
-         */
-        this.p2pTargetId = builder.p2pTargetId;
-        /**
-         * p2p群对方类型（bot/user）
-         * <p> 示例值：bot
-         */
-        this.p2pTargetType = builder.p2pTargetType;
+    /**
+     * 群头像URL
+     *
+     * <p>示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
+     *
+     * @param avatar
+     * @return
+     */
+    public Builder avatar(String avatar) {
+      this.avatar = avatar;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 群名称
+     *
+     * <p>示例值：测试群名称
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(String name) {
+      this.name = name;
+      return this;
     }
 
-    public String getChatId() {
-        return this.chatId;
+    /**
+     * 群描述
+     *
+     * <p>示例值：测试群描述
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
     }
 
-    public void setChatId(String chatId) {
-        this.chatId = chatId;
+    /**
+     * 群主ID
+     *
+     * <p>示例值：4d7a3c6g
+     *
+     * @param ownerId
+     * @return
+     */
+    public Builder ownerId(String ownerId) {
+      this.ownerId = ownerId;
+      return this;
     }
 
-    public String getAvatar() {
-        return this.avatar;
+    /**
+     * 群主ID类型
+     *
+     * <p>示例值：user_id
+     *
+     * @param ownerIdType
+     * @return
+     */
+    public Builder ownerIdType(String ownerIdType) {
+      this.ownerIdType = ownerIdType;
+      return this;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    /**
+     * 是否是外部群
+     *
+     * <p>示例值：false
+     *
+     * @param external
+     * @return
+     */
+    public Builder external(Boolean external) {
+      this.external = external;
+      return this;
     }
 
-    public String getName() {
-        return this.name;
+    /**
+     * tenant key
+     *
+     * <p>示例值：fawefawea
+     *
+     * @param tenantKey
+     * @return
+     */
+    public Builder tenantKey(String tenantKey) {
+      this.tenantKey = tenantKey;
+      return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * 群标签
+     *
+     * <p>示例值：
+     *
+     * @param labels
+     * @return
+     */
+    public Builder labels(String[] labels) {
+      this.labels = labels;
+      return this;
     }
 
-    public String getDescription() {
-        return this.description;
+    /**
+     * 群状态
+     *
+     * <p>示例值：normal
+     *
+     * @param chatStatus
+     * @return
+     */
+    public Builder chatStatus(String chatStatus) {
+      this.chatStatus = chatStatus;
+      return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    /**
+     * 群状态
+     *
+     * <p>示例值：normal
+     *
+     * @param chatStatus {@link com.lark.oapi.service.im.v1.enums.BaseChatChatStatusTypeEnum}
+     * @return
+     */
+    public Builder chatStatus(
+        com.lark.oapi.service.im.v1.enums.BaseChatChatStatusTypeEnum chatStatus) {
+      this.chatStatus = chatStatus.getValue();
+      return this;
     }
 
-    public String getOwnerId() {
-        return this.ownerId;
+    /**
+     * 群类型
+     *
+     * <p>示例值：p2p
+     *
+     * @param chatMode
+     * @return
+     */
+    public Builder chatMode(String chatMode) {
+      this.chatMode = chatMode;
+      return this;
     }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
+    /**
+     * p2p群对方ID
+     *
+     * <p>示例值：4d7a3c6g
+     *
+     * @param p2pTargetId
+     * @return
+     */
+    public Builder p2pTargetId(String p2pTargetId) {
+      this.p2pTargetId = p2pTargetId;
+      return this;
     }
 
-    public String getOwnerIdType() {
-        return this.ownerIdType;
+    /**
+     * p2p群对方类型（bot/user）
+     *
+     * <p>示例值：bot
+     *
+     * @param p2pTargetType
+     * @return
+     */
+    public Builder p2pTargetType(String p2pTargetType) {
+      this.p2pTargetType = p2pTargetType;
+      return this;
     }
 
-    public void setOwnerIdType(String ownerIdType) {
-        this.ownerIdType = ownerIdType;
+    public BaseChat build() {
+      return new BaseChat(this);
     }
+  }
 
-    public Boolean getExternal() {
-        return this.external;
-    }
-
-    public void setExternal(Boolean external) {
-        this.external = external;
-    }
-
-    public String getTenantKey() {
-        return this.tenantKey;
-    }
-
-    public void setTenantKey(String tenantKey) {
-        this.tenantKey = tenantKey;
-    }
-
-    public String[] getLabels() {
-        return this.labels;
-    }
-
-    public void setLabels(String[] labels) {
-        this.labels = labels;
-    }
-
-    public String getChatStatus() {
-        return this.chatStatus;
-    }
-
-    public void setChatStatus(String chatStatus) {
-        this.chatStatus = chatStatus;
-    }
-
-    public String getChatMode() {
-        return this.chatMode;
-    }
-
-    public void setChatMode(String chatMode) {
-        this.chatMode = chatMode;
-    }
-
-    public String getP2pTargetId() {
-        return this.p2pTargetId;
-    }
-
-    public void setP2pTargetId(String p2pTargetId) {
-        this.p2pTargetId = p2pTargetId;
-    }
-
-    public String getP2pTargetType() {
-        return this.p2pTargetType;
-    }
-
-    public void setP2pTargetType(String p2pTargetType) {
-        this.p2pTargetType = p2pTargetType;
-    }
-
-    public static class Builder {
-        /**
-         * 群组ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         */
-        private String chatId;
-        /**
-         * 群头像URL
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
-         */
-        private String avatar;
-        /**
-         * 群名称
-         * <p> 示例值：测试群名称
-         */
-        private String name;
-        /**
-         * 群描述
-         * <p> 示例值：测试群描述
-         */
-        private String description;
-        /**
-         * 群主ID
-         * <p> 示例值：4d7a3c6g
-         */
-        private String ownerId;
-        /**
-         * 群主ID类型
-         * <p> 示例值：user_id
-         */
-        private String ownerIdType;
-        /**
-         * 是否是外部群
-         * <p> 示例值：false
-         */
-        private Boolean external;
-        /**
-         * tenant key
-         * <p> 示例值：fawefawea
-         */
-        private String tenantKey;
-        /**
-         * 群标签
-         * <p> 示例值：
-         */
-        private String[] labels;
-        /**
-         * 群状态
-         * <p> 示例值：normal
-         */
-        private String chatStatus;
-        /**
-         * 群类型
-         * <p> 示例值：p2p
-         */
-        private String chatMode;
-        /**
-         * p2p群对方ID
-         * <p> 示例值：4d7a3c6g
-         */
-        private String p2pTargetId;
-        /**
-         * p2p群对方类型（bot/user）
-         * <p> 示例值：bot
-         */
-        private String p2pTargetType;
-
-        /**
-         * 群组ID
-         * <p> 示例值：oc_a0553eda9014c201e6969b478895c230
-         *
-         * @param chatId
-         * @return
-         */
-        public Builder chatId(String chatId) {
-            this.chatId = chatId;
-            return this;
-        }
-
-
-        /**
-         * 群头像URL
-         * <p> 示例值：https://p3-lark-file.byteimg.com/img/lark-avatar-staging/default-avatar_44ae0ca3-e140-494b-956f-78091e348435~100x100.jpg
-         *
-         * @param avatar
-         * @return
-         */
-        public Builder avatar(String avatar) {
-            this.avatar = avatar;
-            return this;
-        }
-
-
-        /**
-         * 群名称
-         * <p> 示例值：测试群名称
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 群描述
-         * <p> 示例值：测试群描述
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 群主ID
-         * <p> 示例值：4d7a3c6g
-         *
-         * @param ownerId
-         * @return
-         */
-        public Builder ownerId(String ownerId) {
-            this.ownerId = ownerId;
-            return this;
-        }
-
-
-        /**
-         * 群主ID类型
-         * <p> 示例值：user_id
-         *
-         * @param ownerIdType
-         * @return
-         */
-        public Builder ownerIdType(String ownerIdType) {
-            this.ownerIdType = ownerIdType;
-            return this;
-        }
-
-
-        /**
-         * 是否是外部群
-         * <p> 示例值：false
-         *
-         * @param external
-         * @return
-         */
-        public Builder external(Boolean external) {
-            this.external = external;
-            return this;
-        }
-
-
-        /**
-         * tenant key
-         * <p> 示例值：fawefawea
-         *
-         * @param tenantKey
-         * @return
-         */
-        public Builder tenantKey(String tenantKey) {
-            this.tenantKey = tenantKey;
-            return this;
-        }
-
-
-        /**
-         * 群标签
-         * <p> 示例值：
-         *
-         * @param labels
-         * @return
-         */
-        public Builder labels(String[] labels) {
-            this.labels = labels;
-            return this;
-        }
-
-
-        /**
-         * 群状态
-         * <p> 示例值：normal
-         *
-         * @param chatStatus
-         * @return
-         */
-        public Builder chatStatus(String chatStatus) {
-            this.chatStatus = chatStatus;
-            return this;
-        }
-
-        /**
-         * 群状态
-         * <p> 示例值：normal
-         *
-         * @param chatStatus {@link com.lark.oapi.service.im.v1.enums.BaseChatChatStatusTypeEnum}
-         * @return
-         */
-        public Builder chatStatus(com.lark.oapi.service.im.v1.enums.BaseChatChatStatusTypeEnum chatStatus) {
-            this.chatStatus = chatStatus.getValue();
-            return this;
-        }
-
-
-        /**
-         * 群类型
-         * <p> 示例值：p2p
-         *
-         * @param chatMode
-         * @return
-         */
-        public Builder chatMode(String chatMode) {
-            this.chatMode = chatMode;
-            return this;
-        }
-
-
-        /**
-         * p2p群对方ID
-         * <p> 示例值：4d7a3c6g
-         *
-         * @param p2pTargetId
-         * @return
-         */
-        public Builder p2pTargetId(String p2pTargetId) {
-            this.p2pTargetId = p2pTargetId;
-            return this;
-        }
-
-
-        /**
-         * p2p群对方类型（bot/user）
-         * <p> 示例值：bot
-         *
-         * @param p2pTargetType
-         * @return
-         */
-        public Builder p2pTargetType(String p2pTargetType) {
-            this.p2pTargetType = p2pTargetType;
-            return this;
-        }
-
-
-        public BaseChat build() {
-            return new BaseChat(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

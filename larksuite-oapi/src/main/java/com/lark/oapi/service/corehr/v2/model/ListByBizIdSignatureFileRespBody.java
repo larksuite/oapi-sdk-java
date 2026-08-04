@@ -13,48 +13,38 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class ListByBizIdSignatureFileRespBody {
-    /**
-     * 返回的流程关联的电子签文件列表
-     * <p> 示例值：
-     */
-    @SerializedName("signature_files")
-    private SignatureFile[] signatureFiles;
-    /**
-     * 批量签署链接
-     * <p> 示例值：12321312
-     */
-    @SerializedName("batch_sign_url")
-    private String batchSignUrl;
+  /**
+   * 返回的流程关联的电子签文件列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("signature_files")
+  private SignatureFile[] signatureFiles;
 
-    public SignatureFile[] getSignatureFiles() {
-        return this.signatureFiles;
-    }
+  /**
+   * 批量签署链接
+   *
+   * <p>示例值：https://www.letsign.com/v2/saas/sign?signCode=05325cb58b77484f92d4b145c18222cf&taskCode=batch-0-4639de2ddcb54439b7f31517a17b7b4c
+   */
+  @SerializedName("batch_sign_url")
+  private String batchSignUrl;
 
-    public void setSignatureFiles(SignatureFile[] signatureFiles) {
-        this.signatureFiles = signatureFiles;
-    }
+  public SignatureFile[] getSignatureFiles() {
+    return this.signatureFiles;
+  }
 
-    public String getBatchSignUrl() {
-        return this.batchSignUrl;
-    }
+  public void setSignatureFiles(SignatureFile[] signatureFiles) {
+    this.signatureFiles = signatureFiles;
+  }
 
-    public void setBatchSignUrl(String batchSignUrl) {
-        this.batchSignUrl = batchSignUrl;
-    }
+  public String getBatchSignUrl() {
+    return this.batchSignUrl;
+  }
 
+  public void setBatchSignUrl(String batchSignUrl) {
+    this.batchSignUrl = batchSignUrl;
+  }
 }

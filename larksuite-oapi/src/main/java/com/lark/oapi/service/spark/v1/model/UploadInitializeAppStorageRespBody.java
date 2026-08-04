@@ -13,62 +13,54 @@
 
 package com.lark.oapi.service.spark.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class UploadInitializeAppStorageRespBody {
-    /**
-     * 上传请求 ID，有效期 24h
-     * <p> 示例值：upload_abc123xyz456
-     */
-    @SerializedName("upload_id")
-    private String uploadId;
-    /**
-     * 建议的分片大小（字节）
-     * <p> 示例值：4194304
-     */
-    @SerializedName("chunk_size")
-    private Integer chunkSize;
-    /**
-     * 预估的总分片数
-     * <p> 示例值：25
-     */
-    @SerializedName("chunk_numbers")
-    private Integer chunkNumbers;
+  /**
+   * 上传请求 ID，有效期 24h
+   *
+   * <p>示例值：upload_abc123xyz456
+   */
+  @SerializedName("upload_id")
+  private String uploadId;
 
-    public String getUploadId() {
-        return this.uploadId;
-    }
+  /**
+   * 建议的分片大小（字节）
+   *
+   * <p>示例值：4194304
+   */
+  @SerializedName("chunk_size")
+  private Integer chunkSize;
 
-    public void setUploadId(String uploadId) {
-        this.uploadId = uploadId;
-    }
+  /**
+   * 预估的总分片数
+   *
+   * <p>示例值：25
+   */
+  @SerializedName("chunk_numbers")
+  private Integer chunkNumbers;
 
-    public Integer getChunkSize() {
-        return this.chunkSize;
-    }
+  public String getUploadId() {
+    return this.uploadId;
+  }
 
-    public void setChunkSize(Integer chunkSize) {
-        this.chunkSize = chunkSize;
-    }
+  public void setUploadId(String uploadId) {
+    this.uploadId = uploadId;
+  }
 
-    public Integer getChunkNumbers() {
-        return this.chunkNumbers;
-    }
+  public Integer getChunkSize() {
+    return this.chunkSize;
+  }
 
-    public void setChunkNumbers(Integer chunkNumbers) {
-        this.chunkNumbers = chunkNumbers;
-    }
+  public void setChunkSize(Integer chunkSize) {
+    this.chunkSize = chunkSize;
+  }
 
+  public Integer getChunkNumbers() {
+    return this.chunkNumbers;
+  }
+
+  public void setChunkNumbers(Integer chunkNumbers) {
+    this.chunkNumbers = chunkNumbers;
+  }
 }

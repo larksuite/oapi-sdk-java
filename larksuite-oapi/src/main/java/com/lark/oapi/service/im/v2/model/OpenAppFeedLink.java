@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.im.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.im.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OpenAppFeedLink {
+  /**
+   * 链接;;**注意**：仅支持 HTTPS 协议，以及网页应用或小程序的 Applink（会校验 appid 是否正确）。
+   *
+   * <p>示例值：https://www.feishu.cn/
+   */
+  @SerializedName("link")
+  private String link;
+
+  public String getLink() {
+    return this.link;
+  }
+
+  public void setLink(String link) {
+    this.link = link;
+  }
+
+  // builder 开始
+  public OpenAppFeedLink() {}
+
+  public OpenAppFeedLink(Builder builder) {
     /**
-     * 链接
-     * <p> 示例值：https://www.feishu.cn/
+     * 链接;;**注意**：仅支持 HTTPS 协议，以及网页应用或小程序的 Applink（会校验 appid 是否正确）。
+     *
+     * <p>示例值：https://www.feishu.cn/
      */
-    @SerializedName("link")
+    this.link = builder.link;
+  }
+
+  public static class Builder {
+    /**
+     * 链接;;**注意**：仅支持 HTTPS 协议，以及网页应用或小程序的 Applink（会校验 appid 是否正确）。
+     *
+     * <p>示例值：https://www.feishu.cn/
+     */
     private String link;
 
-    // builder 开始
-    public OpenAppFeedLink() {
+    /**
+     * 链接;;**注意**：仅支持 HTTPS 协议，以及网页应用或小程序的 Applink（会校验 appid 是否正确）。
+     *
+     * <p>示例值：https://www.feishu.cn/
+     *
+     * @param link
+     * @return
+     */
+    public Builder link(String link) {
+      this.link = link;
+      return this;
     }
 
-    public OpenAppFeedLink(Builder builder) {
-        /**
-         * 链接
-         * <p> 示例值：https://www.feishu.cn/
-         */
-        this.link = builder.link;
+    public OpenAppFeedLink build() {
+      return new OpenAppFeedLink(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public static class Builder {
-        /**
-         * 链接
-         * <p> 示例值：https://www.feishu.cn/
-         */
-        private String link;
-
-        /**
-         * 链接
-         * <p> 示例值：https://www.feishu.cn/
-         *
-         * @param link
-         * @return
-         */
-        public Builder link(String link) {
-            this.link = link;
-            return this;
-        }
-
-
-        public OpenAppFeedLink build() {
-            return new OpenAppFeedLink(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

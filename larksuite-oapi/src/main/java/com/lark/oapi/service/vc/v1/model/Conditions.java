@@ -13,112 +13,107 @@
 
 package com.lark.oapi.service.vc.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.vc.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Conditions {
+  /**
+   * 自定义题目的key
+   *
+   * <p>示例值：167383928372636
+   */
+  @SerializedName("custom_key")
+  private String customKey;
+
+  /**
+   * 自定义选项的key
+   *
+   * <p>示例值：
+   */
+  @SerializedName("option_keys")
+  private String[] optionKeys;
+
+  public String getCustomKey() {
+    return this.customKey;
+  }
+
+  public void setCustomKey(String customKey) {
+    this.customKey = customKey;
+  }
+
+  public String[] getOptionKeys() {
+    return this.optionKeys;
+  }
+
+  public void setOptionKeys(String[] optionKeys) {
+    this.optionKeys = optionKeys;
+  }
+
+  // builder 开始
+  public Conditions() {}
+
+  public Conditions(Builder builder) {
     /**
      * 自定义题目的key
-     * <p> 示例值：167383928372636
+     *
+     * <p>示例值：167383928372636
      */
-    @SerializedName("custom_key")
-    private String customKey;
+    this.customKey = builder.customKey;
     /**
      * 自定义选项的key
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("option_keys")
+    this.optionKeys = builder.optionKeys;
+  }
+
+  public static class Builder {
+    /**
+     * 自定义题目的key
+     *
+     * <p>示例值：167383928372636
+     */
+    private String customKey;
+
+    /**
+     * 自定义选项的key
+     *
+     * <p>示例值：
+     */
     private String[] optionKeys;
 
-    // builder 开始
-    public Conditions() {
+    /**
+     * 自定义题目的key
+     *
+     * <p>示例值：167383928372636
+     *
+     * @param customKey
+     * @return
+     */
+    public Builder customKey(String customKey) {
+      this.customKey = customKey;
+      return this;
     }
 
-    public Conditions(Builder builder) {
-        /**
-         * 自定义题目的key
-         * <p> 示例值：167383928372636
-         */
-        this.customKey = builder.customKey;
-        /**
-         * 自定义选项的key
-         * <p> 示例值：
-         */
-        this.optionKeys = builder.optionKeys;
+    /**
+     * 自定义选项的key
+     *
+     * <p>示例值：
+     *
+     * @param optionKeys
+     * @return
+     */
+    public Builder optionKeys(String[] optionKeys) {
+      this.optionKeys = optionKeys;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public Conditions build() {
+      return new Conditions(this);
     }
+  }
 
-    public String getCustomKey() {
-        return this.customKey;
-    }
-
-    public void setCustomKey(String customKey) {
-        this.customKey = customKey;
-    }
-
-    public String[] getOptionKeys() {
-        return this.optionKeys;
-    }
-
-    public void setOptionKeys(String[] optionKeys) {
-        this.optionKeys = optionKeys;
-    }
-
-    public static class Builder {
-        /**
-         * 自定义题目的key
-         * <p> 示例值：167383928372636
-         */
-        private String customKey;
-        /**
-         * 自定义选项的key
-         * <p> 示例值：
-         */
-        private String[] optionKeys;
-
-        /**
-         * 自定义题目的key
-         * <p> 示例值：167383928372636
-         *
-         * @param customKey
-         * @return
-         */
-        public Builder customKey(String customKey) {
-            this.customKey = customKey;
-            return this;
-        }
-
-
-        /**
-         * 自定义选项的key
-         * <p> 示例值：
-         *
-         * @param optionKeys
-         * @return
-         */
-        public Builder optionKeys(String[] optionKeys) {
-            this.optionKeys = optionKeys;
-            return this;
-        }
-
-
-        public Conditions build() {
-            return new Conditions(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

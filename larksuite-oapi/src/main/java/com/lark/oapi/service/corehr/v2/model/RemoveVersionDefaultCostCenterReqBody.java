@@ -13,112 +13,115 @@
 
 package com.lark.oapi.service.corehr.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.corehr.v2.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class RemoveVersionDefaultCostCenterReqBody {
+  /**
+   * 员工雇佣
+   * ID;-可以调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口，获取指定员工的
+   * employment_id。
+   *
+   * <p>示例值：6862995757234914821
+   */
+  @SerializedName("employment_id")
+  private String employmentId;
+
+  /**
+   * 默认成本中心信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("default_cost_center")
+  private EmploymentDefaultCostCenter defaultCostCenter;
+
+  public String getEmploymentId() {
+    return this.employmentId;
+  }
+
+  public void setEmploymentId(String employmentId) {
+    this.employmentId = employmentId;
+  }
+
+  public EmploymentDefaultCostCenter getDefaultCostCenter() {
+    return this.defaultCostCenter;
+  }
+
+  public void setDefaultCostCenter(EmploymentDefaultCostCenter defaultCostCenter) {
+    this.defaultCostCenter = defaultCostCenter;
+  }
+
+  // builder 开始
+  public RemoveVersionDefaultCostCenterReqBody() {}
+
+  public RemoveVersionDefaultCostCenterReqBody(Builder builder) {
     /**
-     * 员工雇佣 ID
-     * <p> 示例值：6862995757234914821
+     * 员工雇佣
+     * ID;-可以调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口，获取指定员工的
+     * employment_id。
+     *
+     * <p>示例值：6862995757234914821
      */
-    @SerializedName("employment_id")
+    this.employmentId = builder.employmentId;
+    /**
+     * 默认成本中心信息
+     *
+     * <p>示例值：
+     */
+    this.defaultCostCenter = builder.defaultCostCenter;
+  }
+
+  public static class Builder {
+    /**
+     * 员工雇佣
+     * ID;-可以调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口，获取指定员工的
+     * employment_id。
+     *
+     * <p>示例值：6862995757234914821
+     */
     private String employmentId;
+
     /**
-     * 成本中心信息
-     * <p> 示例值：
+     * 默认成本中心信息
+     *
+     * <p>示例值：
      */
-    @SerializedName("default_cost_center")
     private EmploymentDefaultCostCenter defaultCostCenter;
 
-    // builder 开始
-    public RemoveVersionDefaultCostCenterReqBody() {
+    /**
+     * 员工雇佣
+     * ID;-可以调用[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口，获取指定员工的
+     * employment_id。
+     *
+     * <p>示例值：6862995757234914821
+     *
+     * @param employmentId
+     * @return
+     */
+    public Builder employmentId(String employmentId) {
+      this.employmentId = employmentId;
+      return this;
     }
 
-    public RemoveVersionDefaultCostCenterReqBody(Builder builder) {
-        /**
-         * 员工雇佣 ID
-         * <p> 示例值：6862995757234914821
-         */
-        this.employmentId = builder.employmentId;
-        /**
-         * 成本中心信息
-         * <p> 示例值：
-         */
-        this.defaultCostCenter = builder.defaultCostCenter;
+    /**
+     * 默认成本中心信息
+     *
+     * <p>示例值：
+     *
+     * @param defaultCostCenter
+     * @return
+     */
+    public Builder defaultCostCenter(EmploymentDefaultCostCenter defaultCostCenter) {
+      this.defaultCostCenter = defaultCostCenter;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    public RemoveVersionDefaultCostCenterReqBody build() {
+      return new RemoveVersionDefaultCostCenterReqBody(this);
     }
+  }
 
-    public String getEmploymentId() {
-        return this.employmentId;
-    }
-
-    public void setEmploymentId(String employmentId) {
-        this.employmentId = employmentId;
-    }
-
-    public EmploymentDefaultCostCenter getDefaultCostCenter() {
-        return this.defaultCostCenter;
-    }
-
-    public void setDefaultCostCenter(EmploymentDefaultCostCenter defaultCostCenter) {
-        this.defaultCostCenter = defaultCostCenter;
-    }
-
-    public static class Builder {
-        /**
-         * 员工雇佣 ID
-         * <p> 示例值：6862995757234914821
-         */
-        private String employmentId;
-        /**
-         * 成本中心信息
-         * <p> 示例值：
-         */
-        private EmploymentDefaultCostCenter defaultCostCenter;
-
-        /**
-         * 员工雇佣 ID
-         * <p> 示例值：6862995757234914821
-         *
-         * @param employmentId
-         * @return
-         */
-        public Builder employmentId(String employmentId) {
-            this.employmentId = employmentId;
-            return this;
-        }
-
-
-        /**
-         * 成本中心信息
-         * <p> 示例值：
-         *
-         * @param defaultCostCenter
-         * @return
-         */
-        public Builder defaultCostCenter(EmploymentDefaultCostCenter defaultCostCenter) {
-            this.defaultCostCenter = defaultCostCenter;
-            return this;
-        }
-
-
-        public RemoveVersionDefaultCostCenterReqBody build() {
-            return new RemoveVersionDefaultCostCenterReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

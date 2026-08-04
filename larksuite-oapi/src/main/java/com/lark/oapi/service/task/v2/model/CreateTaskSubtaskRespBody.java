@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateTaskSubtaskRespBody {
-    /**
-     * 创建的任务
-     * <p> 示例值：
-     */
-    @SerializedName("subtask")
-    private Task subtask;
+  /**
+   * 创建的任务
+   *
+   * <p>示例值：
+   */
+  @SerializedName("subtask")
+  private Task subtask;
 
-    public Task getSubtask() {
-        return this.subtask;
-    }
+  public Task getSubtask() {
+    return this.subtask;
+  }
 
-    public void setSubtask(Task subtask) {
-        this.subtask = subtask;
-    }
-
+  public void setSubtask(Task subtask) {
+    this.subtask = subtask;
+  }
 }

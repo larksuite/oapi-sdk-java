@@ -13,2112 +13,2388 @@
 
 package com.lark.oapi.service.directory.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.directory.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-
 import java.util.Map;
 
-import com.lark.oapi.core.response.BaseResponse;
-
 public class UpdateEmployee {
+  /**
+   * ID
+   *
+   * <p>示例值：eehsdna
+   */
+  @SerializedName("employee_id")
+  private String employeeId;
+
+  /**
+   * 姓名
+   *
+   * <p>示例值：
+   */
+  @SerializedName("name")
+  private UpsertName name;
+
+  /**
+   * 员工的联系手机号
+   *
+   * <p>示例值：13011111111" 或 "+8613011111111
+   */
+  @SerializedName("mobile")
+  private String mobile;
+
+  /**
+   * 用户的user_id
+   *
+   * <p>示例值：eesadeq
+   */
+  @SerializedName("custom_employee_id")
+  private String customEmployeeId;
+
+  /**
+   * 头像的文件key
+   *
+   * <p>示例值：img_v2dadwqeqwdsa
+   */
+  @SerializedName("avatar_key")
+  private String avatarKey;
+
+  /**
+   * 员工的联系邮箱
+   *
+   * <p>示例值：zhangsan@163.com
+   */
+  @SerializedName("email")
+  private String email;
+
+  /**
+   * 员工在人事系统中的联系邮箱
+   *
+   * <p>示例值：zhangsan@163.com
+   */
+  @SerializedName("personal_email")
+  private String personalEmail;
+
+  /**
+   * 员工的企业邮箱
+   *
+   * <p>示例值：zhangsan@163.com
+   */
+  @SerializedName("enterprise_email")
+  private String enterpriseEmail;
+
+  /**
+   * 性别
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("gender")
+  private Integer gender;
+
+  /**
+   * 现居住地址
+   *
+   * <p>示例值：张家界
+   */
+  @SerializedName("residential_address")
+  private String residentialAddress;
+
+  /**
+   * 联系地址
+   *
+   * <p>示例值：
+   */
+  @SerializedName("contact_addresses")
+  private ContactAddress[] contactAddresses;
+
+  /**
+   * 部门排序
+   *
+   * <p>示例值：
+   */
+  @SerializedName("employee_order_in_departments")
+  private UpsertUserDepartmentSortInfo[] employeeOrderInDepartments;
+
+  /**
+   * 背景图的key
+   *
+   * <p>示例值：img_v2_qweasdqawqeq
+   */
+  @SerializedName("background_image_key")
+  private String backgroundImageKey;
+
+  /**
+   * 员工的个性签名
+   *
+   * <p>示例值：新员工入职
+   */
+  @SerializedName("description")
+  private String description;
+
+  /**
+   * 员工直属上级的user_id
+   *
+   * <p>示例值：eeshfosd
+   */
+  @SerializedName("leader_id")
+  private String leaderId;
+
+  /**
+   * 员工虚线上级的user_id
+   *
+   * <p>示例值：
+   */
+  @SerializedName("dotted_line_leader_ids")
+  private String[] dottedLineLeaderIds;
+
+  /**
+   * 工作地国家/地区
+   *
+   * <p>示例值：MDM2312312
+   */
+  @SerializedName("work_country_or_region")
+  private String workCountryOrRegion;
+
+  /**
+   * 工作地点
+   *
+   * <p>示例值：1111sdda
+   */
+  @SerializedName("work_place_id")
+  private String workPlaceId;
+
+  /**
+   * 部门名称，最多可输入 100 字;
+   *
+   * <p>示例值：
+   */
+  @SerializedName("work_station")
+  private I18nText workStation;
+
+  /**
+   * 工号
+   *
+   * <p>示例值：28549233
+   */
+  @SerializedName("job_number")
+  private String jobNumber;
+
+  /**
+   * 分机号
+   *
+   * <p>示例值：2854923
+   */
+  @SerializedName("extension_number")
+  private String extensionNumber;
+
+  /**
+   * 入职日期
+   *
+   * <p>示例值：2022-10-10
+   */
+  @SerializedName("join_date")
+  private String joinDate;
+
+  /**
+   * 员工类型
+   *
+   * <p>示例值：1;;**可选值有**：;<md-enum>;<md-enum-item key="1" >全职</md-enum-item>;<md-enum-item key="2"
+   * >实习</md-enum-item>;<md-enum-item key="3" >外包</md-enum-item>;<md-enum-item key="4"
+   * >劳务</md-enum-item>;<md-enum-item key="5" >顾问</md-enum-item>;</md-enum>
+   */
+  @SerializedName("employment_type")
+  private Integer employmentType;
+
+  /**
+   * 员工人事状态
+   *
+   * <p>示例值：1
+   */
+  @SerializedName("staff_status")
+  private Integer staffStatus;
+
+  /**
+   * 岗位信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("positions")
+  private Position[] positions;
+
+  /**
+   * 职务ID
+   *
+   * <p>示例值：ewdjdssd
+   */
+  @SerializedName("job_title_id")
+  private String jobTitleId;
+
+  /**
+   * 职级ID
+   *
+   * <p>示例值：eersdfa
+   */
+  @SerializedName("job_level_id")
+  private String jobLevelId;
+
+  /**
+   * 序列ID
+   *
+   * <p>示例值：eersdfa
+   */
+  @SerializedName("job_family_id")
+  private String jobFamilyId;
+
+  /**
+   * 首次参加工作日期
+   *
+   * <p>示例值：2022-10-10
+   */
+  @SerializedName("first_work_date")
+  private String firstWorkDate;
+
+  /**
+   * 首次进入公司日期
+   *
+   * <p>示例值：2022-10-10
+   */
+  @SerializedName("first_join_date")
+  private String firstJoinDate;
+
+  /**
+   * 试用期（月）
+   *
+   * <p>示例值：10
+   */
+  @SerializedName("probation_period")
+  private String probationPeriod;
+
+  /**
+   * 转正日期
+   *
+   * <p>示例值：2022-10-10
+   */
+  @SerializedName("regularization_date")
+  private String regularizationDate;
+
+  /**
+   * 转正状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("convert_status")
+  private String convertStatus;
+
+  /**
+   * 合同主体ID
+   *
+   * <p>示例值：123dsqwe
+   */
+  @SerializedName("contract_subject")
+  private String contractSubject;
+
+  /**
+   * 离职日期
+   *
+   * <p>示例值：2022-10-10
+   */
+  @SerializedName("resign_date")
+  private String resignDate;
+
+  /**
+   * 离职原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resign_reason")
+  private String resignReason;
+
+  /**
+   * 离职备注信息
+   *
+   * <p>示例值：个人原因
+   */
+  @SerializedName("resign_remark")
+  private String resignRemark;
+
+  /**
+   * 离职类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("resign_type")
+  private String resignType;
+
+  /**
+   * 取消入职原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("cancelled_entry_type")
+  private String cancelledEntryType;
+
+  /**
+   * 取消入职备注信息
+   *
+   * <p>示例值：个人原因
+   */
+  @SerializedName("cancelled_entry_remark")
+  private String cancelledEntryRemark;
+
+  /**
+   * 出生日期
+   *
+   * <p>示例值：2022-10-10
+   */
+  @SerializedName("birthday")
+  private String birthday;
+
+  /**
+   * 国籍
+   *
+   * <p>示例值：MDM123123
+   */
+  @SerializedName("nationality")
+  private String nationality;
+
+  /**
+   * 籍贯
+   *
+   * <p>示例值：北京
+   */
+  @SerializedName("native_place")
+  private String nativePlace;
+
+  /**
+   * 民族/种族
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ethnicity")
+  private String ethnicity;
+
+  /**
+   * 婚姻状态
+   *
+   * <p>示例值：
+   */
+  @SerializedName("marital_status")
+  private String maritalStatus;
+
+  /**
+   * 政治面貌
+   *
+   * <p>示例值：
+   */
+  @SerializedName("politics_status")
+  private String politicsStatus;
+
+  /**
+   * 户口类型
+   *
+   * <p>示例值：
+   */
+  @SerializedName("registered_residence_type")
+  private String registeredResidenceType;
+
+  /**
+   * 户口所在地地址
+   *
+   * <p>示例值：北京
+   */
+  @SerializedName("location")
+  private String location;
+
+  /**
+   * 社保账号
+   *
+   * <p>示例值：111111
+   */
+  @SerializedName("social_security_number")
+  private String socialSecurityNumber;
+
+  /**
+   * 公积金账号
+   *
+   * <p>示例值：111111
+   */
+  @SerializedName("provident_fund_number")
+  private String providentFundNumber;
+
+  /**
+   * 暂停 true， false 恢复暂停
+   *
+   * <p>示例值：
+   */
+  @SerializedName("is_frozen")
+  private Boolean isFrozen;
+
+  /**
+   * 冻结原因
+   *
+   * <p>示例值：
+   */
+  @SerializedName("frozen_reason")
+  private String frozenReason;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_field_value_map")
+  private Map<String, CustomFieldValue> customFieldValueMap;
+
+  /**
+   * 自定义字段
+   *
+   * <p>示例值：
+   */
+  @SerializedName("custom_field_values")
+  private CustomFieldValue[] customFieldValues;
+
+  /**
+   * 虚拟组织信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("virtual_org_infos")
+  private UpsertUserVirtualOrgInfo[] virtualOrgInfos;
+
+  public String getEmployeeId() {
+    return this.employeeId;
+  }
+
+  public void setEmployeeId(String employeeId) {
+    this.employeeId = employeeId;
+  }
+
+  public UpsertName getName() {
+    return this.name;
+  }
+
+  public void setName(UpsertName name) {
+    this.name = name;
+  }
+
+  public String getMobile() {
+    return this.mobile;
+  }
+
+  public void setMobile(String mobile) {
+    this.mobile = mobile;
+  }
+
+  public String getCustomEmployeeId() {
+    return this.customEmployeeId;
+  }
+
+  public void setCustomEmployeeId(String customEmployeeId) {
+    this.customEmployeeId = customEmployeeId;
+  }
+
+  public String getAvatarKey() {
+    return this.avatarKey;
+  }
+
+  public void setAvatarKey(String avatarKey) {
+    this.avatarKey = avatarKey;
+  }
+
+  public String getEmail() {
+    return this.email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getPersonalEmail() {
+    return this.personalEmail;
+  }
+
+  public void setPersonalEmail(String personalEmail) {
+    this.personalEmail = personalEmail;
+  }
+
+  public String getEnterpriseEmail() {
+    return this.enterpriseEmail;
+  }
+
+  public void setEnterpriseEmail(String enterpriseEmail) {
+    this.enterpriseEmail = enterpriseEmail;
+  }
+
+  public Integer getGender() {
+    return this.gender;
+  }
+
+  public void setGender(Integer gender) {
+    this.gender = gender;
+  }
+
+  public String getResidentialAddress() {
+    return this.residentialAddress;
+  }
+
+  public void setResidentialAddress(String residentialAddress) {
+    this.residentialAddress = residentialAddress;
+  }
+
+  public ContactAddress[] getContactAddresses() {
+    return this.contactAddresses;
+  }
+
+  public void setContactAddresses(ContactAddress[] contactAddresses) {
+    this.contactAddresses = contactAddresses;
+  }
+
+  public UpsertUserDepartmentSortInfo[] getEmployeeOrderInDepartments() {
+    return this.employeeOrderInDepartments;
+  }
+
+  public void setEmployeeOrderInDepartments(
+      UpsertUserDepartmentSortInfo[] employeeOrderInDepartments) {
+    this.employeeOrderInDepartments = employeeOrderInDepartments;
+  }
+
+  public String getBackgroundImageKey() {
+    return this.backgroundImageKey;
+  }
+
+  public void setBackgroundImageKey(String backgroundImageKey) {
+    this.backgroundImageKey = backgroundImageKey;
+  }
+
+  public String getDescription() {
+    return this.description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getLeaderId() {
+    return this.leaderId;
+  }
+
+  public void setLeaderId(String leaderId) {
+    this.leaderId = leaderId;
+  }
+
+  public String[] getDottedLineLeaderIds() {
+    return this.dottedLineLeaderIds;
+  }
+
+  public void setDottedLineLeaderIds(String[] dottedLineLeaderIds) {
+    this.dottedLineLeaderIds = dottedLineLeaderIds;
+  }
+
+  public String getWorkCountryOrRegion() {
+    return this.workCountryOrRegion;
+  }
+
+  public void setWorkCountryOrRegion(String workCountryOrRegion) {
+    this.workCountryOrRegion = workCountryOrRegion;
+  }
+
+  public String getWorkPlaceId() {
+    return this.workPlaceId;
+  }
+
+  public void setWorkPlaceId(String workPlaceId) {
+    this.workPlaceId = workPlaceId;
+  }
+
+  public I18nText getWorkStation() {
+    return this.workStation;
+  }
+
+  public void setWorkStation(I18nText workStation) {
+    this.workStation = workStation;
+  }
+
+  public String getJobNumber() {
+    return this.jobNumber;
+  }
+
+  public void setJobNumber(String jobNumber) {
+    this.jobNumber = jobNumber;
+  }
+
+  public String getExtensionNumber() {
+    return this.extensionNumber;
+  }
+
+  public void setExtensionNumber(String extensionNumber) {
+    this.extensionNumber = extensionNumber;
+  }
+
+  public String getJoinDate() {
+    return this.joinDate;
+  }
+
+  public void setJoinDate(String joinDate) {
+    this.joinDate = joinDate;
+  }
+
+  public Integer getEmploymentType() {
+    return this.employmentType;
+  }
+
+  public void setEmploymentType(Integer employmentType) {
+    this.employmentType = employmentType;
+  }
+
+  public Integer getStaffStatus() {
+    return this.staffStatus;
+  }
+
+  public void setStaffStatus(Integer staffStatus) {
+    this.staffStatus = staffStatus;
+  }
+
+  public Position[] getPositions() {
+    return this.positions;
+  }
+
+  public void setPositions(Position[] positions) {
+    this.positions = positions;
+  }
+
+  public String getJobTitleId() {
+    return this.jobTitleId;
+  }
+
+  public void setJobTitleId(String jobTitleId) {
+    this.jobTitleId = jobTitleId;
+  }
+
+  public String getJobLevelId() {
+    return this.jobLevelId;
+  }
+
+  public void setJobLevelId(String jobLevelId) {
+    this.jobLevelId = jobLevelId;
+  }
+
+  public String getJobFamilyId() {
+    return this.jobFamilyId;
+  }
+
+  public void setJobFamilyId(String jobFamilyId) {
+    this.jobFamilyId = jobFamilyId;
+  }
+
+  public String getFirstWorkDate() {
+    return this.firstWorkDate;
+  }
+
+  public void setFirstWorkDate(String firstWorkDate) {
+    this.firstWorkDate = firstWorkDate;
+  }
+
+  public String getFirstJoinDate() {
+    return this.firstJoinDate;
+  }
+
+  public void setFirstJoinDate(String firstJoinDate) {
+    this.firstJoinDate = firstJoinDate;
+  }
+
+  public String getProbationPeriod() {
+    return this.probationPeriod;
+  }
+
+  public void setProbationPeriod(String probationPeriod) {
+    this.probationPeriod = probationPeriod;
+  }
+
+  public String getRegularizationDate() {
+    return this.regularizationDate;
+  }
+
+  public void setRegularizationDate(String regularizationDate) {
+    this.regularizationDate = regularizationDate;
+  }
+
+  public String getConvertStatus() {
+    return this.convertStatus;
+  }
+
+  public void setConvertStatus(String convertStatus) {
+    this.convertStatus = convertStatus;
+  }
+
+  public String getContractSubject() {
+    return this.contractSubject;
+  }
+
+  public void setContractSubject(String contractSubject) {
+    this.contractSubject = contractSubject;
+  }
+
+  public String getResignDate() {
+    return this.resignDate;
+  }
+
+  public void setResignDate(String resignDate) {
+    this.resignDate = resignDate;
+  }
+
+  public String getResignReason() {
+    return this.resignReason;
+  }
+
+  public void setResignReason(String resignReason) {
+    this.resignReason = resignReason;
+  }
+
+  public String getResignRemark() {
+    return this.resignRemark;
+  }
+
+  public void setResignRemark(String resignRemark) {
+    this.resignRemark = resignRemark;
+  }
+
+  public String getResignType() {
+    return this.resignType;
+  }
+
+  public void setResignType(String resignType) {
+    this.resignType = resignType;
+  }
+
+  public String getCancelledEntryType() {
+    return this.cancelledEntryType;
+  }
+
+  public void setCancelledEntryType(String cancelledEntryType) {
+    this.cancelledEntryType = cancelledEntryType;
+  }
+
+  public String getCancelledEntryRemark() {
+    return this.cancelledEntryRemark;
+  }
+
+  public void setCancelledEntryRemark(String cancelledEntryRemark) {
+    this.cancelledEntryRemark = cancelledEntryRemark;
+  }
+
+  public String getBirthday() {
+    return this.birthday;
+  }
+
+  public void setBirthday(String birthday) {
+    this.birthday = birthday;
+  }
+
+  public String getNationality() {
+    return this.nationality;
+  }
+
+  public void setNationality(String nationality) {
+    this.nationality = nationality;
+  }
+
+  public String getNativePlace() {
+    return this.nativePlace;
+  }
+
+  public void setNativePlace(String nativePlace) {
+    this.nativePlace = nativePlace;
+  }
+
+  public String getEthnicity() {
+    return this.ethnicity;
+  }
+
+  public void setEthnicity(String ethnicity) {
+    this.ethnicity = ethnicity;
+  }
+
+  public String getMaritalStatus() {
+    return this.maritalStatus;
+  }
+
+  public void setMaritalStatus(String maritalStatus) {
+    this.maritalStatus = maritalStatus;
+  }
+
+  public String getPoliticsStatus() {
+    return this.politicsStatus;
+  }
+
+  public void setPoliticsStatus(String politicsStatus) {
+    this.politicsStatus = politicsStatus;
+  }
+
+  public String getRegisteredResidenceType() {
+    return this.registeredResidenceType;
+  }
+
+  public void setRegisteredResidenceType(String registeredResidenceType) {
+    this.registeredResidenceType = registeredResidenceType;
+  }
+
+  public String getLocation() {
+    return this.location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
+
+  public String getSocialSecurityNumber() {
+    return this.socialSecurityNumber;
+  }
+
+  public void setSocialSecurityNumber(String socialSecurityNumber) {
+    this.socialSecurityNumber = socialSecurityNumber;
+  }
+
+  public String getProvidentFundNumber() {
+    return this.providentFundNumber;
+  }
+
+  public void setProvidentFundNumber(String providentFundNumber) {
+    this.providentFundNumber = providentFundNumber;
+  }
+
+  public Boolean getIsFrozen() {
+    return this.isFrozen;
+  }
+
+  public void setIsFrozen(Boolean isFrozen) {
+    this.isFrozen = isFrozen;
+  }
+
+  public String getFrozenReason() {
+    return this.frozenReason;
+  }
+
+  public void setFrozenReason(String frozenReason) {
+    this.frozenReason = frozenReason;
+  }
+
+  public Map<String, CustomFieldValue> getCustomFieldValueMap() {
+    return this.customFieldValueMap;
+  }
+
+  public void setCustomFieldValueMap(Map<String, CustomFieldValue> customFieldValueMap) {
+    this.customFieldValueMap = customFieldValueMap;
+  }
+
+  public CustomFieldValue[] getCustomFieldValues() {
+    return this.customFieldValues;
+  }
+
+  public void setCustomFieldValues(CustomFieldValue[] customFieldValues) {
+    this.customFieldValues = customFieldValues;
+  }
+
+  public UpsertUserVirtualOrgInfo[] getVirtualOrgInfos() {
+    return this.virtualOrgInfos;
+  }
+
+  public void setVirtualOrgInfos(UpsertUserVirtualOrgInfo[] virtualOrgInfos) {
+    this.virtualOrgInfos = virtualOrgInfos;
+  }
+
+  // builder 开始
+  public UpdateEmployee() {}
+
+  public UpdateEmployee(Builder builder) {
     /**
      * ID
-     * <p> 示例值：eehsdna
+     *
+     * <p>示例值：eehsdna
      */
-    @SerializedName("employee_id")
-    private String employeeId;
+    this.employeeId = builder.employeeId;
     /**
      * 姓名
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("name")
-    private UpsertName name;
+    this.name = builder.name;
     /**
      * 员工的联系手机号
-     * <p> 示例值：13011111111" 或 "+8613011111111
+     *
+     * <p>示例值：13011111111" 或 "+8613011111111
      */
-    @SerializedName("mobile")
-    private String mobile;
+    this.mobile = builder.mobile;
     /**
      * 用户的user_id
-     * <p> 示例值：eesadeq
+     *
+     * <p>示例值：eesadeq
      */
-    @SerializedName("custom_employee_id")
-    private String customEmployeeId;
+    this.customEmployeeId = builder.customEmployeeId;
     /**
      * 头像的文件key
-     * <p> 示例值：img_v2dadwqeqwdsa
+     *
+     * <p>示例值：img_v2dadwqeqwdsa
      */
-    @SerializedName("avatar_key")
-    private String avatarKey;
+    this.avatarKey = builder.avatarKey;
     /**
      * 员工的联系邮箱
-     * <p> 示例值：zhangsan@163.com
+     *
+     * <p>示例值：zhangsan@163.com
      */
-    @SerializedName("email")
-    private String email;
+    this.email = builder.email;
     /**
      * 员工在人事系统中的联系邮箱
-     * <p> 示例值：zhangsan@163.com
+     *
+     * <p>示例值：zhangsan@163.com
      */
-    @SerializedName("personal_email")
-    private String personalEmail;
+    this.personalEmail = builder.personalEmail;
     /**
      * 员工的企业邮箱
-     * <p> 示例值：zhangsan@163.com
+     *
+     * <p>示例值：zhangsan@163.com
      */
-    @SerializedName("enterprise_email")
-    private String enterpriseEmail;
+    this.enterpriseEmail = builder.enterpriseEmail;
     /**
      * 性别
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("gender")
-    private Integer gender;
+    this.gender = builder.gender;
     /**
      * 现居住地址
-     * <p> 示例值：张家界
+     *
+     * <p>示例值：张家界
      */
-    @SerializedName("residential_address")
-    private String residentialAddress;
+    this.residentialAddress = builder.residentialAddress;
     /**
      * 联系地址
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("contact_addresses")
-    private ContactAddress[] contactAddresses;
+    this.contactAddresses = builder.contactAddresses;
     /**
      * 部门排序
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("employee_order_in_departments")
-    private UpsertUserDepartmentSortInfo[] employeeOrderInDepartments;
+    this.employeeOrderInDepartments = builder.employeeOrderInDepartments;
     /**
      * 背景图的key
-     * <p> 示例值：img_v2_qweasdqawqeq
+     *
+     * <p>示例值：img_v2_qweasdqawqeq
      */
-    @SerializedName("background_image_key")
-    private String backgroundImageKey;
+    this.backgroundImageKey = builder.backgroundImageKey;
     /**
      * 员工的个性签名
-     * <p> 示例值：新员工入职
+     *
+     * <p>示例值：新员工入职
      */
-    @SerializedName("description")
-    private String description;
+    this.description = builder.description;
     /**
      * 员工直属上级的user_id
-     * <p> 示例值：eeshfosd
+     *
+     * <p>示例值：eeshfosd
      */
-    @SerializedName("leader_id")
-    private String leaderId;
+    this.leaderId = builder.leaderId;
     /**
      * 员工虚线上级的user_id
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("dotted_line_leader_ids")
-    private String[] dottedLineLeaderIds;
+    this.dottedLineLeaderIds = builder.dottedLineLeaderIds;
     /**
      * 工作地国家/地区
-     * <p> 示例值：MDM2312312
+     *
+     * <p>示例值：MDM2312312
      */
-    @SerializedName("work_country_or_region")
-    private String workCountryOrRegion;
+    this.workCountryOrRegion = builder.workCountryOrRegion;
     /**
      * 工作地点
-     * <p> 示例值：1111sdda
+     *
+     * <p>示例值：1111sdda
      */
-    @SerializedName("work_place_id")
-    private String workPlaceId;
+    this.workPlaceId = builder.workPlaceId;
     /**
-     * i18n文本
-     * <p> 示例值：
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
      */
-    @SerializedName("work_station")
-    private I18nText workStation;
+    this.workStation = builder.workStation;
     /**
      * 工号
-     * <p> 示例值：28549233
+     *
+     * <p>示例值：28549233
      */
-    @SerializedName("job_number")
-    private String jobNumber;
+    this.jobNumber = builder.jobNumber;
     /**
      * 分机号
-     * <p> 示例值：2854923
+     *
+     * <p>示例值：2854923
      */
-    @SerializedName("extension_number")
-    private String extensionNumber;
+    this.extensionNumber = builder.extensionNumber;
     /**
      * 入职日期
-     * <p> 示例值：2022-10-10
+     *
+     * <p>示例值：2022-10-10
      */
-    @SerializedName("join_date")
-    private String joinDate;
+    this.joinDate = builder.joinDate;
     /**
      * 员工类型
-     * <p> 示例值：
+     *
+     * <p>示例值：1;;**可选值有**：;<md-enum>;<md-enum-item key="1" >全职</md-enum-item>;<md-enum-item key="2"
+     * >实习</md-enum-item>;<md-enum-item key="3" >外包</md-enum-item>;<md-enum-item key="4"
+     * >劳务</md-enum-item>;<md-enum-item key="5" >顾问</md-enum-item>;</md-enum>
      */
-    @SerializedName("employment_type")
-    private Integer employmentType;
+    this.employmentType = builder.employmentType;
     /**
      * 员工人事状态
-     * <p> 示例值：
+     *
+     * <p>示例值：1
      */
-    @SerializedName("staff_status")
-    private Integer staffStatus;
+    this.staffStatus = builder.staffStatus;
     /**
      * 岗位信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("positions")
-    private Position[] positions;
+    this.positions = builder.positions;
     /**
      * 职务ID
-     * <p> 示例值：ewdjdssd
+     *
+     * <p>示例值：ewdjdssd
      */
-    @SerializedName("job_title_id")
-    private String jobTitleId;
+    this.jobTitleId = builder.jobTitleId;
     /**
      * 职级ID
-     * <p> 示例值：eersdfa
+     *
+     * <p>示例值：eersdfa
      */
-    @SerializedName("job_level_id")
-    private String jobLevelId;
+    this.jobLevelId = builder.jobLevelId;
     /**
      * 序列ID
-     * <p> 示例值：eersdfa
+     *
+     * <p>示例值：eersdfa
      */
-    @SerializedName("job_family_id")
-    private String jobFamilyId;
+    this.jobFamilyId = builder.jobFamilyId;
     /**
      * 首次参加工作日期
-     * <p> 示例值：2022-10-10
+     *
+     * <p>示例值：2022-10-10
      */
-    @SerializedName("first_work_date")
-    private String firstWorkDate;
+    this.firstWorkDate = builder.firstWorkDate;
     /**
      * 首次进入公司日期
-     * <p> 示例值：2022-10-10
+     *
+     * <p>示例值：2022-10-10
      */
-    @SerializedName("first_join_date")
-    private String firstJoinDate;
+    this.firstJoinDate = builder.firstJoinDate;
     /**
      * 试用期（月）
-     * <p> 示例值：10
+     *
+     * <p>示例值：10
      */
-    @SerializedName("probation_period")
-    private String probationPeriod;
+    this.probationPeriod = builder.probationPeriod;
     /**
      * 转正日期
-     * <p> 示例值：2022-10-10
+     *
+     * <p>示例值：2022-10-10
      */
-    @SerializedName("regularization_date")
-    private String regularizationDate;
+    this.regularizationDate = builder.regularizationDate;
     /**
      * 转正状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("convert_status")
-    private String convertStatus;
+    this.convertStatus = builder.convertStatus;
     /**
      * 合同主体ID
-     * <p> 示例值：123dsqwe
+     *
+     * <p>示例值：123dsqwe
      */
-    @SerializedName("contract_subject")
-    private String contractSubject;
+    this.contractSubject = builder.contractSubject;
     /**
      * 离职日期
-     * <p> 示例值：2022-10-10
+     *
+     * <p>示例值：2022-10-10
      */
-    @SerializedName("resign_date")
-    private String resignDate;
+    this.resignDate = builder.resignDate;
     /**
      * 离职原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("resign_reason")
-    private String resignReason;
+    this.resignReason = builder.resignReason;
     /**
      * 离职备注信息
-     * <p> 示例值：个人原因
+     *
+     * <p>示例值：个人原因
      */
-    @SerializedName("resign_remark")
-    private String resignRemark;
+    this.resignRemark = builder.resignRemark;
     /**
      * 离职类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("resign_type")
-    private String resignType;
+    this.resignType = builder.resignType;
     /**
      * 取消入职原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("cancelled_entry_type")
-    private String cancelledEntryType;
+    this.cancelledEntryType = builder.cancelledEntryType;
     /**
      * 取消入职备注信息
-     * <p> 示例值：个人原因
+     *
+     * <p>示例值：个人原因
      */
-    @SerializedName("cancelled_entry_remark")
-    private String cancelledEntryRemark;
+    this.cancelledEntryRemark = builder.cancelledEntryRemark;
     /**
      * 出生日期
-     * <p> 示例值：2022-10-10
+     *
+     * <p>示例值：2022-10-10
      */
-    @SerializedName("birthday")
-    private String birthday;
+    this.birthday = builder.birthday;
     /**
      * 国籍
-     * <p> 示例值：MDM123123
+     *
+     * <p>示例值：MDM123123
      */
-    @SerializedName("nationality")
-    private String nationality;
+    this.nationality = builder.nationality;
     /**
      * 籍贯
-     * <p> 示例值：北京
+     *
+     * <p>示例值：北京
      */
-    @SerializedName("native_place")
-    private String nativePlace;
+    this.nativePlace = builder.nativePlace;
     /**
      * 民族/种族
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ethnicity")
-    private String ethnicity;
+    this.ethnicity = builder.ethnicity;
     /**
      * 婚姻状态
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("marital_status")
-    private String maritalStatus;
+    this.maritalStatus = builder.maritalStatus;
     /**
      * 政治面貌
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("politics_status")
-    private String politicsStatus;
+    this.politicsStatus = builder.politicsStatus;
     /**
      * 户口类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("registered_residence_type")
-    private String registeredResidenceType;
+    this.registeredResidenceType = builder.registeredResidenceType;
     /**
      * 户口所在地地址
-     * <p> 示例值：北京
+     *
+     * <p>示例值：北京
      */
-    @SerializedName("location")
-    private String location;
+    this.location = builder.location;
     /**
      * 社保账号
-     * <p> 示例值：111111
+     *
+     * <p>示例值：111111
      */
-    @SerializedName("social_security_number")
-    private String socialSecurityNumber;
+    this.socialSecurityNumber = builder.socialSecurityNumber;
     /**
      * 公积金账号
-     * <p> 示例值：111111
+     *
+     * <p>示例值：111111
      */
-    @SerializedName("provident_fund_number")
-    private String providentFundNumber;
+    this.providentFundNumber = builder.providentFundNumber;
     /**
      * 暂停 true， false 恢复暂停
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("is_frozen")
-    private Boolean isFrozen;
+    this.isFrozen = builder.isFrozen;
     /**
      * 冻结原因
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("frozen_reason")
-    private String frozenReason;
+    this.frozenReason = builder.frozenReason;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_field_value_map")
-    private Map<String, CustomFieldValue> customFieldValueMap;
+    this.customFieldValueMap = builder.customFieldValueMap;
     /**
      * 自定义字段
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("custom_field_values")
-    private CustomFieldValue[] customFieldValues;
+    this.customFieldValues = builder.customFieldValues;
     /**
      * 虚拟组织信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("virtual_org_infos")
+    this.virtualOrgInfos = builder.virtualOrgInfos;
+  }
+
+  public static class Builder {
+    /**
+     * ID
+     *
+     * <p>示例值：eehsdna
+     */
+    private String employeeId;
+
+    /**
+     * 姓名
+     *
+     * <p>示例值：
+     */
+    private UpsertName name;
+
+    /**
+     * 员工的联系手机号
+     *
+     * <p>示例值：13011111111" 或 "+8613011111111
+     */
+    private String mobile;
+
+    /**
+     * 用户的user_id
+     *
+     * <p>示例值：eesadeq
+     */
+    private String customEmployeeId;
+
+    /**
+     * 头像的文件key
+     *
+     * <p>示例值：img_v2dadwqeqwdsa
+     */
+    private String avatarKey;
+
+    /**
+     * 员工的联系邮箱
+     *
+     * <p>示例值：zhangsan@163.com
+     */
+    private String email;
+
+    /**
+     * 员工在人事系统中的联系邮箱
+     *
+     * <p>示例值：zhangsan@163.com
+     */
+    private String personalEmail;
+
+    /**
+     * 员工的企业邮箱
+     *
+     * <p>示例值：zhangsan@163.com
+     */
+    private String enterpriseEmail;
+
+    /**
+     * 性别
+     *
+     * <p>示例值：1
+     */
+    private Integer gender;
+
+    /**
+     * 现居住地址
+     *
+     * <p>示例值：张家界
+     */
+    private String residentialAddress;
+
+    /**
+     * 联系地址
+     *
+     * <p>示例值：
+     */
+    private ContactAddress[] contactAddresses;
+
+    /**
+     * 部门排序
+     *
+     * <p>示例值：
+     */
+    private UpsertUserDepartmentSortInfo[] employeeOrderInDepartments;
+
+    /**
+     * 背景图的key
+     *
+     * <p>示例值：img_v2_qweasdqawqeq
+     */
+    private String backgroundImageKey;
+
+    /**
+     * 员工的个性签名
+     *
+     * <p>示例值：新员工入职
+     */
+    private String description;
+
+    /**
+     * 员工直属上级的user_id
+     *
+     * <p>示例值：eeshfosd
+     */
+    private String leaderId;
+
+    /**
+     * 员工虚线上级的user_id
+     *
+     * <p>示例值：
+     */
+    private String[] dottedLineLeaderIds;
+
+    /**
+     * 工作地国家/地区
+     *
+     * <p>示例值：MDM2312312
+     */
+    private String workCountryOrRegion;
+
+    /**
+     * 工作地点
+     *
+     * <p>示例值：1111sdda
+     */
+    private String workPlaceId;
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     */
+    private I18nText workStation;
+
+    /**
+     * 工号
+     *
+     * <p>示例值：28549233
+     */
+    private String jobNumber;
+
+    /**
+     * 分机号
+     *
+     * <p>示例值：2854923
+     */
+    private String extensionNumber;
+
+    /**
+     * 入职日期
+     *
+     * <p>示例值：2022-10-10
+     */
+    private String joinDate;
+
+    /**
+     * 员工类型
+     *
+     * <p>示例值：1;;**可选值有**：;<md-enum>;<md-enum-item key="1" >全职</md-enum-item>;<md-enum-item key="2"
+     * >实习</md-enum-item>;<md-enum-item key="3" >外包</md-enum-item>;<md-enum-item key="4"
+     * >劳务</md-enum-item>;<md-enum-item key="5" >顾问</md-enum-item>;</md-enum>
+     */
+    private Integer employmentType;
+
+    /**
+     * 员工人事状态
+     *
+     * <p>示例值：1
+     */
+    private Integer staffStatus;
+
+    /**
+     * 岗位信息
+     *
+     * <p>示例值：
+     */
+    private Position[] positions;
+
+    /**
+     * 职务ID
+     *
+     * <p>示例值：ewdjdssd
+     */
+    private String jobTitleId;
+
+    /**
+     * 职级ID
+     *
+     * <p>示例值：eersdfa
+     */
+    private String jobLevelId;
+
+    /**
+     * 序列ID
+     *
+     * <p>示例值：eersdfa
+     */
+    private String jobFamilyId;
+
+    /**
+     * 首次参加工作日期
+     *
+     * <p>示例值：2022-10-10
+     */
+    private String firstWorkDate;
+
+    /**
+     * 首次进入公司日期
+     *
+     * <p>示例值：2022-10-10
+     */
+    private String firstJoinDate;
+
+    /**
+     * 试用期（月）
+     *
+     * <p>示例值：10
+     */
+    private String probationPeriod;
+
+    /**
+     * 转正日期
+     *
+     * <p>示例值：2022-10-10
+     */
+    private String regularizationDate;
+
+    /**
+     * 转正状态
+     *
+     * <p>示例值：
+     */
+    private String convertStatus;
+
+    /**
+     * 合同主体ID
+     *
+     * <p>示例值：123dsqwe
+     */
+    private String contractSubject;
+
+    /**
+     * 离职日期
+     *
+     * <p>示例值：2022-10-10
+     */
+    private String resignDate;
+
+    /**
+     * 离职原因
+     *
+     * <p>示例值：
+     */
+    private String resignReason;
+
+    /**
+     * 离职备注信息
+     *
+     * <p>示例值：个人原因
+     */
+    private String resignRemark;
+
+    /**
+     * 离职类型
+     *
+     * <p>示例值：
+     */
+    private String resignType;
+
+    /**
+     * 取消入职原因
+     *
+     * <p>示例值：
+     */
+    private String cancelledEntryType;
+
+    /**
+     * 取消入职备注信息
+     *
+     * <p>示例值：个人原因
+     */
+    private String cancelledEntryRemark;
+
+    /**
+     * 出生日期
+     *
+     * <p>示例值：2022-10-10
+     */
+    private String birthday;
+
+    /**
+     * 国籍
+     *
+     * <p>示例值：MDM123123
+     */
+    private String nationality;
+
+    /**
+     * 籍贯
+     *
+     * <p>示例值：北京
+     */
+    private String nativePlace;
+
+    /**
+     * 民族/种族
+     *
+     * <p>示例值：
+     */
+    private String ethnicity;
+
+    /**
+     * 婚姻状态
+     *
+     * <p>示例值：
+     */
+    private String maritalStatus;
+
+    /**
+     * 政治面貌
+     *
+     * <p>示例值：
+     */
+    private String politicsStatus;
+
+    /**
+     * 户口类型
+     *
+     * <p>示例值：
+     */
+    private String registeredResidenceType;
+
+    /**
+     * 户口所在地地址
+     *
+     * <p>示例值：北京
+     */
+    private String location;
+
+    /**
+     * 社保账号
+     *
+     * <p>示例值：111111
+     */
+    private String socialSecurityNumber;
+
+    /**
+     * 公积金账号
+     *
+     * <p>示例值：111111
+     */
+    private String providentFundNumber;
+
+    /**
+     * 暂停 true， false 恢复暂停
+     *
+     * <p>示例值：
+     */
+    private Boolean isFrozen;
+
+    /**
+     * 冻结原因
+     *
+     * <p>示例值：
+     */
+    private String frozenReason;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private Map<String, CustomFieldValue> customFieldValueMap;
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     */
+    private CustomFieldValue[] customFieldValues;
+
+    /**
+     * 虚拟组织信息
+     *
+     * <p>示例值：
+     */
     private UpsertUserVirtualOrgInfo[] virtualOrgInfos;
 
-    // builder 开始
-    public UpdateEmployee() {
-    }
-
-    public UpdateEmployee(Builder builder) {
-        /**
-         * ID
-         * <p> 示例值：eehsdna
-         */
-        this.employeeId = builder.employeeId;
-        /**
-         * 姓名
-         * <p> 示例值：
-         */
-        this.name = builder.name;
-        /**
-         * 员工的联系手机号
-         * <p> 示例值：13011111111" 或 "+8613011111111
-         */
-        this.mobile = builder.mobile;
-        /**
-         * 用户的user_id
-         * <p> 示例值：eesadeq
-         */
-        this.customEmployeeId = builder.customEmployeeId;
-        /**
-         * 头像的文件key
-         * <p> 示例值：img_v2dadwqeqwdsa
-         */
-        this.avatarKey = builder.avatarKey;
-        /**
-         * 员工的联系邮箱
-         * <p> 示例值：zhangsan@163.com
-         */
-        this.email = builder.email;
-        /**
-         * 员工在人事系统中的联系邮箱
-         * <p> 示例值：zhangsan@163.com
-         */
-        this.personalEmail = builder.personalEmail;
-        /**
-         * 员工的企业邮箱
-         * <p> 示例值：zhangsan@163.com
-         */
-        this.enterpriseEmail = builder.enterpriseEmail;
-        /**
-         * 性别
-         * <p> 示例值：
-         */
-        this.gender = builder.gender;
-        /**
-         * 现居住地址
-         * <p> 示例值：张家界
-         */
-        this.residentialAddress = builder.residentialAddress;
-        /**
-         * 联系地址
-         * <p> 示例值：
-         */
-        this.contactAddresses = builder.contactAddresses;
-        /**
-         * 部门排序
-         * <p> 示例值：
-         */
-        this.employeeOrderInDepartments = builder.employeeOrderInDepartments;
-        /**
-         * 背景图的key
-         * <p> 示例值：img_v2_qweasdqawqeq
-         */
-        this.backgroundImageKey = builder.backgroundImageKey;
-        /**
-         * 员工的个性签名
-         * <p> 示例值：新员工入职
-         */
-        this.description = builder.description;
-        /**
-         * 员工直属上级的user_id
-         * <p> 示例值：eeshfosd
-         */
-        this.leaderId = builder.leaderId;
-        /**
-         * 员工虚线上级的user_id
-         * <p> 示例值：
-         */
-        this.dottedLineLeaderIds = builder.dottedLineLeaderIds;
-        /**
-         * 工作地国家/地区
-         * <p> 示例值：MDM2312312
-         */
-        this.workCountryOrRegion = builder.workCountryOrRegion;
-        /**
-         * 工作地点
-         * <p> 示例值：1111sdda
-         */
-        this.workPlaceId = builder.workPlaceId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        this.workStation = builder.workStation;
-        /**
-         * 工号
-         * <p> 示例值：28549233
-         */
-        this.jobNumber = builder.jobNumber;
-        /**
-         * 分机号
-         * <p> 示例值：2854923
-         */
-        this.extensionNumber = builder.extensionNumber;
-        /**
-         * 入职日期
-         * <p> 示例值：2022-10-10
-         */
-        this.joinDate = builder.joinDate;
-        /**
-         * 员工类型
-         * <p> 示例值：
-         */
-        this.employmentType = builder.employmentType;
-        /**
-         * 员工人事状态
-         * <p> 示例值：
-         */
-        this.staffStatus = builder.staffStatus;
-        /**
-         * 岗位信息
-         * <p> 示例值：
-         */
-        this.positions = builder.positions;
-        /**
-         * 职务ID
-         * <p> 示例值：ewdjdssd
-         */
-        this.jobTitleId = builder.jobTitleId;
-        /**
-         * 职级ID
-         * <p> 示例值：eersdfa
-         */
-        this.jobLevelId = builder.jobLevelId;
-        /**
-         * 序列ID
-         * <p> 示例值：eersdfa
-         */
-        this.jobFamilyId = builder.jobFamilyId;
-        /**
-         * 首次参加工作日期
-         * <p> 示例值：2022-10-10
-         */
-        this.firstWorkDate = builder.firstWorkDate;
-        /**
-         * 首次进入公司日期
-         * <p> 示例值：2022-10-10
-         */
-        this.firstJoinDate = builder.firstJoinDate;
-        /**
-         * 试用期（月）
-         * <p> 示例值：10
-         */
-        this.probationPeriod = builder.probationPeriod;
-        /**
-         * 转正日期
-         * <p> 示例值：2022-10-10
-         */
-        this.regularizationDate = builder.regularizationDate;
-        /**
-         * 转正状态
-         * <p> 示例值：
-         */
-        this.convertStatus = builder.convertStatus;
-        /**
-         * 合同主体ID
-         * <p> 示例值：123dsqwe
-         */
-        this.contractSubject = builder.contractSubject;
-        /**
-         * 离职日期
-         * <p> 示例值：2022-10-10
-         */
-        this.resignDate = builder.resignDate;
-        /**
-         * 离职原因
-         * <p> 示例值：
-         */
-        this.resignReason = builder.resignReason;
-        /**
-         * 离职备注信息
-         * <p> 示例值：个人原因
-         */
-        this.resignRemark = builder.resignRemark;
-        /**
-         * 离职类型
-         * <p> 示例值：
-         */
-        this.resignType = builder.resignType;
-        /**
-         * 取消入职原因
-         * <p> 示例值：
-         */
-        this.cancelledEntryType = builder.cancelledEntryType;
-        /**
-         * 取消入职备注信息
-         * <p> 示例值：个人原因
-         */
-        this.cancelledEntryRemark = builder.cancelledEntryRemark;
-        /**
-         * 出生日期
-         * <p> 示例值：2022-10-10
-         */
-        this.birthday = builder.birthday;
-        /**
-         * 国籍
-         * <p> 示例值：MDM123123
-         */
-        this.nationality = builder.nationality;
-        /**
-         * 籍贯
-         * <p> 示例值：北京
-         */
-        this.nativePlace = builder.nativePlace;
-        /**
-         * 民族/种族
-         * <p> 示例值：
-         */
-        this.ethnicity = builder.ethnicity;
-        /**
-         * 婚姻状态
-         * <p> 示例值：
-         */
-        this.maritalStatus = builder.maritalStatus;
-        /**
-         * 政治面貌
-         * <p> 示例值：
-         */
-        this.politicsStatus = builder.politicsStatus;
-        /**
-         * 户口类型
-         * <p> 示例值：
-         */
-        this.registeredResidenceType = builder.registeredResidenceType;
-        /**
-         * 户口所在地地址
-         * <p> 示例值：北京
-         */
-        this.location = builder.location;
-        /**
-         * 社保账号
-         * <p> 示例值：111111
-         */
-        this.socialSecurityNumber = builder.socialSecurityNumber;
-        /**
-         * 公积金账号
-         * <p> 示例值：111111
-         */
-        this.providentFundNumber = builder.providentFundNumber;
-        /**
-         * 暂停 true， false 恢复暂停
-         * <p> 示例值：
-         */
-        this.isFrozen = builder.isFrozen;
-        /**
-         * 冻结原因
-         * <p> 示例值：
-         */
-        this.frozenReason = builder.frozenReason;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFieldValueMap = builder.customFieldValueMap;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        this.customFieldValues = builder.customFieldValues;
-        /**
-         * 虚拟组织信息
-         * <p> 示例值：
-         */
-        this.virtualOrgInfos = builder.virtualOrgInfos;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getEmployeeId() {
-        return this.employeeId;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public UpsertName getName() {
-        return this.name;
-    }
-
-    public void setName(UpsertName name) {
-        this.name = name;
-    }
-
-    public String getMobile() {
-        return this.mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getCustomEmployeeId() {
-        return this.customEmployeeId;
-    }
-
-    public void setCustomEmployeeId(String customEmployeeId) {
-        this.customEmployeeId = customEmployeeId;
-    }
-
-    public String getAvatarKey() {
-        return this.avatarKey;
-    }
-
-    public void setAvatarKey(String avatarKey) {
-        this.avatarKey = avatarKey;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPersonalEmail() {
-        return this.personalEmail;
-    }
-
-    public void setPersonalEmail(String personalEmail) {
-        this.personalEmail = personalEmail;
-    }
-
-    public String getEnterpriseEmail() {
-        return this.enterpriseEmail;
-    }
-
-    public void setEnterpriseEmail(String enterpriseEmail) {
-        this.enterpriseEmail = enterpriseEmail;
-    }
-
-    public Integer getGender() {
-        return this.gender;
-    }
-
-    public void setGender(Integer gender) {
-        this.gender = gender;
-    }
-
-    public String getResidentialAddress() {
-        return this.residentialAddress;
-    }
-
-    public void setResidentialAddress(String residentialAddress) {
-        this.residentialAddress = residentialAddress;
-    }
-
-    public ContactAddress[] getContactAddresses() {
-        return this.contactAddresses;
-    }
-
-    public void setContactAddresses(ContactAddress[] contactAddresses) {
-        this.contactAddresses = contactAddresses;
-    }
-
-    public UpsertUserDepartmentSortInfo[] getEmployeeOrderInDepartments() {
-        return this.employeeOrderInDepartments;
-    }
-
-    public void setEmployeeOrderInDepartments(UpsertUserDepartmentSortInfo[] employeeOrderInDepartments) {
-        this.employeeOrderInDepartments = employeeOrderInDepartments;
-    }
-
-    public String getBackgroundImageKey() {
-        return this.backgroundImageKey;
-    }
-
-    public void setBackgroundImageKey(String backgroundImageKey) {
-        this.backgroundImageKey = backgroundImageKey;
-    }
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getLeaderId() {
-        return this.leaderId;
-    }
-
-    public void setLeaderId(String leaderId) {
-        this.leaderId = leaderId;
-    }
-
-    public String[] getDottedLineLeaderIds() {
-        return this.dottedLineLeaderIds;
-    }
-
-    public void setDottedLineLeaderIds(String[] dottedLineLeaderIds) {
-        this.dottedLineLeaderIds = dottedLineLeaderIds;
-    }
-
-    public String getWorkCountryOrRegion() {
-        return this.workCountryOrRegion;
-    }
-
-    public void setWorkCountryOrRegion(String workCountryOrRegion) {
-        this.workCountryOrRegion = workCountryOrRegion;
-    }
-
-    public String getWorkPlaceId() {
-        return this.workPlaceId;
-    }
-
-    public void setWorkPlaceId(String workPlaceId) {
-        this.workPlaceId = workPlaceId;
-    }
-
-    public I18nText getWorkStation() {
-        return this.workStation;
-    }
-
-    public void setWorkStation(I18nText workStation) {
-        this.workStation = workStation;
-    }
-
-    public String getJobNumber() {
-        return this.jobNumber;
-    }
-
-    public void setJobNumber(String jobNumber) {
-        this.jobNumber = jobNumber;
-    }
-
-    public String getExtensionNumber() {
-        return this.extensionNumber;
-    }
-
-    public void setExtensionNumber(String extensionNumber) {
-        this.extensionNumber = extensionNumber;
-    }
-
-    public String getJoinDate() {
-        return this.joinDate;
-    }
-
-    public void setJoinDate(String joinDate) {
-        this.joinDate = joinDate;
-    }
-
-    public Integer getEmploymentType() {
-        return this.employmentType;
-    }
-
-    public void setEmploymentType(Integer employmentType) {
-        this.employmentType = employmentType;
-    }
-
-    public Integer getStaffStatus() {
-        return this.staffStatus;
-    }
-
-    public void setStaffStatus(Integer staffStatus) {
-        this.staffStatus = staffStatus;
-    }
-
-    public Position[] getPositions() {
-        return this.positions;
-    }
-
-    public void setPositions(Position[] positions) {
-        this.positions = positions;
-    }
-
-    public String getJobTitleId() {
-        return this.jobTitleId;
-    }
-
-    public void setJobTitleId(String jobTitleId) {
-        this.jobTitleId = jobTitleId;
-    }
-
-    public String getJobLevelId() {
-        return this.jobLevelId;
-    }
-
-    public void setJobLevelId(String jobLevelId) {
-        this.jobLevelId = jobLevelId;
-    }
-
-    public String getJobFamilyId() {
-        return this.jobFamilyId;
-    }
-
-    public void setJobFamilyId(String jobFamilyId) {
-        this.jobFamilyId = jobFamilyId;
-    }
-
-    public String getFirstWorkDate() {
-        return this.firstWorkDate;
-    }
-
-    public void setFirstWorkDate(String firstWorkDate) {
-        this.firstWorkDate = firstWorkDate;
-    }
-
-    public String getFirstJoinDate() {
-        return this.firstJoinDate;
-    }
-
-    public void setFirstJoinDate(String firstJoinDate) {
-        this.firstJoinDate = firstJoinDate;
-    }
-
-    public String getProbationPeriod() {
-        return this.probationPeriod;
-    }
-
-    public void setProbationPeriod(String probationPeriod) {
-        this.probationPeriod = probationPeriod;
-    }
-
-    public String getRegularizationDate() {
-        return this.regularizationDate;
-    }
-
-    public void setRegularizationDate(String regularizationDate) {
-        this.regularizationDate = regularizationDate;
-    }
-
-    public String getConvertStatus() {
-        return this.convertStatus;
-    }
-
-    public void setConvertStatus(String convertStatus) {
-        this.convertStatus = convertStatus;
-    }
-
-    public String getContractSubject() {
-        return this.contractSubject;
-    }
-
-    public void setContractSubject(String contractSubject) {
-        this.contractSubject = contractSubject;
-    }
-
-    public String getResignDate() {
-        return this.resignDate;
-    }
-
-    public void setResignDate(String resignDate) {
-        this.resignDate = resignDate;
-    }
-
-    public String getResignReason() {
-        return this.resignReason;
-    }
-
-    public void setResignReason(String resignReason) {
-        this.resignReason = resignReason;
-    }
-
-    public String getResignRemark() {
-        return this.resignRemark;
-    }
-
-    public void setResignRemark(String resignRemark) {
-        this.resignRemark = resignRemark;
-    }
-
-    public String getResignType() {
-        return this.resignType;
-    }
-
-    public void setResignType(String resignType) {
-        this.resignType = resignType;
-    }
-
-    public String getCancelledEntryType() {
-        return this.cancelledEntryType;
-    }
-
-    public void setCancelledEntryType(String cancelledEntryType) {
-        this.cancelledEntryType = cancelledEntryType;
-    }
-
-    public String getCancelledEntryRemark() {
-        return this.cancelledEntryRemark;
-    }
-
-    public void setCancelledEntryRemark(String cancelledEntryRemark) {
-        this.cancelledEntryRemark = cancelledEntryRemark;
-    }
-
-    public String getBirthday() {
-        return this.birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
-
-    public String getNationality() {
-        return this.nationality;
-    }
-
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
-    }
-
-    public String getNativePlace() {
-        return this.nativePlace;
-    }
-
-    public void setNativePlace(String nativePlace) {
-        this.nativePlace = nativePlace;
-    }
-
-    public String getEthnicity() {
-        return this.ethnicity;
-    }
-
-    public void setEthnicity(String ethnicity) {
-        this.ethnicity = ethnicity;
-    }
-
-    public String getMaritalStatus() {
-        return this.maritalStatus;
-    }
-
-    public void setMaritalStatus(String maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-
-    public String getPoliticsStatus() {
-        return this.politicsStatus;
-    }
-
-    public void setPoliticsStatus(String politicsStatus) {
-        this.politicsStatus = politicsStatus;
-    }
-
-    public String getRegisteredResidenceType() {
-        return this.registeredResidenceType;
-    }
-
-    public void setRegisteredResidenceType(String registeredResidenceType) {
-        this.registeredResidenceType = registeredResidenceType;
-    }
-
-    public String getLocation() {
-        return this.location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getSocialSecurityNumber() {
-        return this.socialSecurityNumber;
-    }
-
-    public void setSocialSecurityNumber(String socialSecurityNumber) {
-        this.socialSecurityNumber = socialSecurityNumber;
-    }
-
-    public String getProvidentFundNumber() {
-        return this.providentFundNumber;
-    }
-
-    public void setProvidentFundNumber(String providentFundNumber) {
-        this.providentFundNumber = providentFundNumber;
-    }
-
-    public Boolean getIsFrozen() {
-        return this.isFrozen;
-    }
-
-    public void setIsFrozen(Boolean isFrozen) {
-        this.isFrozen = isFrozen;
-    }
-
-    public String getFrozenReason() {
-        return this.frozenReason;
-    }
-
-    public void setFrozenReason(String frozenReason) {
-        this.frozenReason = frozenReason;
-    }
-
-    public Map<String, CustomFieldValue> getCustomFieldValueMap() {
-        return this.customFieldValueMap;
-    }
-
-    public void setCustomFieldValueMap(Map<String, CustomFieldValue> customFieldValueMap) {
-        this.customFieldValueMap = customFieldValueMap;
-    }
-
-    public CustomFieldValue[] getCustomFieldValues() {
-        return this.customFieldValues;
-    }
-
-    public void setCustomFieldValues(CustomFieldValue[] customFieldValues) {
-        this.customFieldValues = customFieldValues;
-    }
-
-    public UpsertUserVirtualOrgInfo[] getVirtualOrgInfos() {
-        return this.virtualOrgInfos;
-    }
-
-    public void setVirtualOrgInfos(UpsertUserVirtualOrgInfo[] virtualOrgInfos) {
-        this.virtualOrgInfos = virtualOrgInfos;
-    }
-
-    public static class Builder {
-        /**
-         * ID
-         * <p> 示例值：eehsdna
-         */
-        private String employeeId;
-        /**
-         * 姓名
-         * <p> 示例值：
-         */
-        private UpsertName name;
-        /**
-         * 员工的联系手机号
-         * <p> 示例值：13011111111" 或 "+8613011111111
-         */
-        private String mobile;
-        /**
-         * 用户的user_id
-         * <p> 示例值：eesadeq
-         */
-        private String customEmployeeId;
-        /**
-         * 头像的文件key
-         * <p> 示例值：img_v2dadwqeqwdsa
-         */
-        private String avatarKey;
-        /**
-         * 员工的联系邮箱
-         * <p> 示例值：zhangsan@163.com
-         */
-        private String email;
-        /**
-         * 员工在人事系统中的联系邮箱
-         * <p> 示例值：zhangsan@163.com
-         */
-        private String personalEmail;
-        /**
-         * 员工的企业邮箱
-         * <p> 示例值：zhangsan@163.com
-         */
-        private String enterpriseEmail;
-        /**
-         * 性别
-         * <p> 示例值：
-         */
-        private Integer gender;
-        /**
-         * 现居住地址
-         * <p> 示例值：张家界
-         */
-        private String residentialAddress;
-        /**
-         * 联系地址
-         * <p> 示例值：
-         */
-        private ContactAddress[] contactAddresses;
-        /**
-         * 部门排序
-         * <p> 示例值：
-         */
-        private UpsertUserDepartmentSortInfo[] employeeOrderInDepartments;
-        /**
-         * 背景图的key
-         * <p> 示例值：img_v2_qweasdqawqeq
-         */
-        private String backgroundImageKey;
-        /**
-         * 员工的个性签名
-         * <p> 示例值：新员工入职
-         */
-        private String description;
-        /**
-         * 员工直属上级的user_id
-         * <p> 示例值：eeshfosd
-         */
-        private String leaderId;
-        /**
-         * 员工虚线上级的user_id
-         * <p> 示例值：
-         */
-        private String[] dottedLineLeaderIds;
-        /**
-         * 工作地国家/地区
-         * <p> 示例值：MDM2312312
-         */
-        private String workCountryOrRegion;
-        /**
-         * 工作地点
-         * <p> 示例值：1111sdda
-         */
-        private String workPlaceId;
-        /**
-         * i18n文本
-         * <p> 示例值：
-         */
-        private I18nText workStation;
-        /**
-         * 工号
-         * <p> 示例值：28549233
-         */
-        private String jobNumber;
-        /**
-         * 分机号
-         * <p> 示例值：2854923
-         */
-        private String extensionNumber;
-        /**
-         * 入职日期
-         * <p> 示例值：2022-10-10
-         */
-        private String joinDate;
-        /**
-         * 员工类型
-         * <p> 示例值：
-         */
-        private Integer employmentType;
-        /**
-         * 员工人事状态
-         * <p> 示例值：
-         */
-        private Integer staffStatus;
-        /**
-         * 岗位信息
-         * <p> 示例值：
-         */
-        private Position[] positions;
-        /**
-         * 职务ID
-         * <p> 示例值：ewdjdssd
-         */
-        private String jobTitleId;
-        /**
-         * 职级ID
-         * <p> 示例值：eersdfa
-         */
-        private String jobLevelId;
-        /**
-         * 序列ID
-         * <p> 示例值：eersdfa
-         */
-        private String jobFamilyId;
-        /**
-         * 首次参加工作日期
-         * <p> 示例值：2022-10-10
-         */
-        private String firstWorkDate;
-        /**
-         * 首次进入公司日期
-         * <p> 示例值：2022-10-10
-         */
-        private String firstJoinDate;
-        /**
-         * 试用期（月）
-         * <p> 示例值：10
-         */
-        private String probationPeriod;
-        /**
-         * 转正日期
-         * <p> 示例值：2022-10-10
-         */
-        private String regularizationDate;
-        /**
-         * 转正状态
-         * <p> 示例值：
-         */
-        private String convertStatus;
-        /**
-         * 合同主体ID
-         * <p> 示例值：123dsqwe
-         */
-        private String contractSubject;
-        /**
-         * 离职日期
-         * <p> 示例值：2022-10-10
-         */
-        private String resignDate;
-        /**
-         * 离职原因
-         * <p> 示例值：
-         */
-        private String resignReason;
-        /**
-         * 离职备注信息
-         * <p> 示例值：个人原因
-         */
-        private String resignRemark;
-        /**
-         * 离职类型
-         * <p> 示例值：
-         */
-        private String resignType;
-        /**
-         * 取消入职原因
-         * <p> 示例值：
-         */
-        private String cancelledEntryType;
-        /**
-         * 取消入职备注信息
-         * <p> 示例值：个人原因
-         */
-        private String cancelledEntryRemark;
-        /**
-         * 出生日期
-         * <p> 示例值：2022-10-10
-         */
-        private String birthday;
-        /**
-         * 国籍
-         * <p> 示例值：MDM123123
-         */
-        private String nationality;
-        /**
-         * 籍贯
-         * <p> 示例值：北京
-         */
-        private String nativePlace;
-        /**
-         * 民族/种族
-         * <p> 示例值：
-         */
-        private String ethnicity;
-        /**
-         * 婚姻状态
-         * <p> 示例值：
-         */
-        private String maritalStatus;
-        /**
-         * 政治面貌
-         * <p> 示例值：
-         */
-        private String politicsStatus;
-        /**
-         * 户口类型
-         * <p> 示例值：
-         */
-        private String registeredResidenceType;
-        /**
-         * 户口所在地地址
-         * <p> 示例值：北京
-         */
-        private String location;
-        /**
-         * 社保账号
-         * <p> 示例值：111111
-         */
-        private String socialSecurityNumber;
-        /**
-         * 公积金账号
-         * <p> 示例值：111111
-         */
-        private String providentFundNumber;
-        /**
-         * 暂停 true， false 恢复暂停
-         * <p> 示例值：
-         */
-        private Boolean isFrozen;
-        /**
-         * 冻结原因
-         * <p> 示例值：
-         */
-        private String frozenReason;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private Map<String, CustomFieldValue> customFieldValueMap;
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         */
-        private CustomFieldValue[] customFieldValues;
-        /**
-         * 虚拟组织信息
-         * <p> 示例值：
-         */
-        private UpsertUserVirtualOrgInfo[] virtualOrgInfos;
-
-        /**
-         * ID
-         * <p> 示例值：eehsdna
-         *
-         * @param employeeId
-         * @return
-         */
-        public Builder employeeId(String employeeId) {
-            this.employeeId = employeeId;
-            return this;
-        }
-
-
-        /**
-         * 姓名
-         * <p> 示例值：
-         *
-         * @param name
-         * @return
-         */
-        public Builder name(UpsertName name) {
-            this.name = name;
-            return this;
-        }
-
-
-        /**
-         * 员工的联系手机号
-         * <p> 示例值：13011111111" 或 "+8613011111111
-         *
-         * @param mobile
-         * @return
-         */
-        public Builder mobile(String mobile) {
-            this.mobile = mobile;
-            return this;
-        }
-
-
-        /**
-         * 用户的user_id
-         * <p> 示例值：eesadeq
-         *
-         * @param customEmployeeId
-         * @return
-         */
-        public Builder customEmployeeId(String customEmployeeId) {
-            this.customEmployeeId = customEmployeeId;
-            return this;
-        }
-
-
-        /**
-         * 头像的文件key
-         * <p> 示例值：img_v2dadwqeqwdsa
-         *
-         * @param avatarKey
-         * @return
-         */
-        public Builder avatarKey(String avatarKey) {
-            this.avatarKey = avatarKey;
-            return this;
-        }
-
-
-        /**
-         * 员工的联系邮箱
-         * <p> 示例值：zhangsan@163.com
-         *
-         * @param email
-         * @return
-         */
-        public Builder email(String email) {
-            this.email = email;
-            return this;
-        }
-
-
-        /**
-         * 员工在人事系统中的联系邮箱
-         * <p> 示例值：zhangsan@163.com
-         *
-         * @param personalEmail
-         * @return
-         */
-        public Builder personalEmail(String personalEmail) {
-            this.personalEmail = personalEmail;
-            return this;
-        }
-
-
-        /**
-         * 员工的企业邮箱
-         * <p> 示例值：zhangsan@163.com
-         *
-         * @param enterpriseEmail
-         * @return
-         */
-        public Builder enterpriseEmail(String enterpriseEmail) {
-            this.enterpriseEmail = enterpriseEmail;
-            return this;
-        }
-
-
-        /**
-         * 性别
-         * <p> 示例值：
-         *
-         * @param gender
-         * @return
-         */
-        public Builder gender(Integer gender) {
-            this.gender = gender;
-            return this;
-        }
-
-        /**
-         * 性别
-         * <p> 示例值：
-         *
-         * @param gender {@link com.lark.oapi.service.directory.v1.enums.UpdateEmployeeGenderEnum}
-         * @return
-         */
-        public Builder gender(com.lark.oapi.service.directory.v1.enums.UpdateEmployeeGenderEnum gender) {
-            this.gender = gender.getValue();
-            return this;
-        }
-
-
-        /**
-         * 现居住地址
-         * <p> 示例值：张家界
-         *
-         * @param residentialAddress
-         * @return
-         */
-        public Builder residentialAddress(String residentialAddress) {
-            this.residentialAddress = residentialAddress;
-            return this;
-        }
-
-
-        /**
-         * 联系地址
-         * <p> 示例值：
-         *
-         * @param contactAddresses
-         * @return
-         */
-        public Builder contactAddresses(ContactAddress[] contactAddresses) {
-            this.contactAddresses = contactAddresses;
-            return this;
-        }
-
-
-        /**
-         * 部门排序
-         * <p> 示例值：
-         *
-         * @param employeeOrderInDepartments
-         * @return
-         */
-        public Builder employeeOrderInDepartments(UpsertUserDepartmentSortInfo[] employeeOrderInDepartments) {
-            this.employeeOrderInDepartments = employeeOrderInDepartments;
-            return this;
-        }
-
-
-        /**
-         * 背景图的key
-         * <p> 示例值：img_v2_qweasdqawqeq
-         *
-         * @param backgroundImageKey
-         * @return
-         */
-        public Builder backgroundImageKey(String backgroundImageKey) {
-            this.backgroundImageKey = backgroundImageKey;
-            return this;
-        }
-
-
-        /**
-         * 员工的个性签名
-         * <p> 示例值：新员工入职
-         *
-         * @param description
-         * @return
-         */
-        public Builder description(String description) {
-            this.description = description;
-            return this;
-        }
-
-
-        /**
-         * 员工直属上级的user_id
-         * <p> 示例值：eeshfosd
-         *
-         * @param leaderId
-         * @return
-         */
-        public Builder leaderId(String leaderId) {
-            this.leaderId = leaderId;
-            return this;
-        }
-
-
-        /**
-         * 员工虚线上级的user_id
-         * <p> 示例值：
-         *
-         * @param dottedLineLeaderIds
-         * @return
-         */
-        public Builder dottedLineLeaderIds(String[] dottedLineLeaderIds) {
-            this.dottedLineLeaderIds = dottedLineLeaderIds;
-            return this;
-        }
-
-
-        /**
-         * 工作地国家/地区
-         * <p> 示例值：MDM2312312
-         *
-         * @param workCountryOrRegion
-         * @return
-         */
-        public Builder workCountryOrRegion(String workCountryOrRegion) {
-            this.workCountryOrRegion = workCountryOrRegion;
-            return this;
-        }
-
-
-        /**
-         * 工作地点
-         * <p> 示例值：1111sdda
-         *
-         * @param workPlaceId
-         * @return
-         */
-        public Builder workPlaceId(String workPlaceId) {
-            this.workPlaceId = workPlaceId;
-            return this;
-        }
-
-
-        /**
-         * i18n文本
-         * <p> 示例值：
-         *
-         * @param workStation
-         * @return
-         */
-        public Builder workStation(I18nText workStation) {
-            this.workStation = workStation;
-            return this;
-        }
-
-
-        /**
-         * 工号
-         * <p> 示例值：28549233
-         *
-         * @param jobNumber
-         * @return
-         */
-        public Builder jobNumber(String jobNumber) {
-            this.jobNumber = jobNumber;
-            return this;
-        }
-
-
-        /**
-         * 分机号
-         * <p> 示例值：2854923
-         *
-         * @param extensionNumber
-         * @return
-         */
-        public Builder extensionNumber(String extensionNumber) {
-            this.extensionNumber = extensionNumber;
-            return this;
-        }
-
-
-        /**
-         * 入职日期
-         * <p> 示例值：2022-10-10
-         *
-         * @param joinDate
-         * @return
-         */
-        public Builder joinDate(String joinDate) {
-            this.joinDate = joinDate;
-            return this;
-        }
-
-
-        /**
-         * 员工类型
-         * <p> 示例值：
-         *
-         * @param employmentType
-         * @return
-         */
-        public Builder employmentType(Integer employmentType) {
-            this.employmentType = employmentType;
-            return this;
-        }
-
-
-        /**
-         * 员工人事状态
-         * <p> 示例值：
-         *
-         * @param staffStatus
-         * @return
-         */
-        public Builder staffStatus(Integer staffStatus) {
-            this.staffStatus = staffStatus;
-            return this;
-        }
-
-
-        /**
-         * 岗位信息
-         * <p> 示例值：
-         *
-         * @param positions
-         * @return
-         */
-        public Builder positions(Position[] positions) {
-            this.positions = positions;
-            return this;
-        }
-
-
-        /**
-         * 职务ID
-         * <p> 示例值：ewdjdssd
-         *
-         * @param jobTitleId
-         * @return
-         */
-        public Builder jobTitleId(String jobTitleId) {
-            this.jobTitleId = jobTitleId;
-            return this;
-        }
-
-
-        /**
-         * 职级ID
-         * <p> 示例值：eersdfa
-         *
-         * @param jobLevelId
-         * @return
-         */
-        public Builder jobLevelId(String jobLevelId) {
-            this.jobLevelId = jobLevelId;
-            return this;
-        }
-
-
-        /**
-         * 序列ID
-         * <p> 示例值：eersdfa
-         *
-         * @param jobFamilyId
-         * @return
-         */
-        public Builder jobFamilyId(String jobFamilyId) {
-            this.jobFamilyId = jobFamilyId;
-            return this;
-        }
-
-
-        /**
-         * 首次参加工作日期
-         * <p> 示例值：2022-10-10
-         *
-         * @param firstWorkDate
-         * @return
-         */
-        public Builder firstWorkDate(String firstWorkDate) {
-            this.firstWorkDate = firstWorkDate;
-            return this;
-        }
-
-
-        /**
-         * 首次进入公司日期
-         * <p> 示例值：2022-10-10
-         *
-         * @param firstJoinDate
-         * @return
-         */
-        public Builder firstJoinDate(String firstJoinDate) {
-            this.firstJoinDate = firstJoinDate;
-            return this;
-        }
-
-
-        /**
-         * 试用期（月）
-         * <p> 示例值：10
-         *
-         * @param probationPeriod
-         * @return
-         */
-        public Builder probationPeriod(String probationPeriod) {
-            this.probationPeriod = probationPeriod;
-            return this;
-        }
-
-
-        /**
-         * 转正日期
-         * <p> 示例值：2022-10-10
-         *
-         * @param regularizationDate
-         * @return
-         */
-        public Builder regularizationDate(String regularizationDate) {
-            this.regularizationDate = regularizationDate;
-            return this;
-        }
-
-
-        /**
-         * 转正状态
-         * <p> 示例值：
-         *
-         * @param convertStatus
-         * @return
-         */
-        public Builder convertStatus(String convertStatus) {
-            this.convertStatus = convertStatus;
-            return this;
-        }
-
-
-        /**
-         * 合同主体ID
-         * <p> 示例值：123dsqwe
-         *
-         * @param contractSubject
-         * @return
-         */
-        public Builder contractSubject(String contractSubject) {
-            this.contractSubject = contractSubject;
-            return this;
-        }
-
-
-        /**
-         * 离职日期
-         * <p> 示例值：2022-10-10
-         *
-         * @param resignDate
-         * @return
-         */
-        public Builder resignDate(String resignDate) {
-            this.resignDate = resignDate;
-            return this;
-        }
-
-
-        /**
-         * 离职原因
-         * <p> 示例值：
-         *
-         * @param resignReason
-         * @return
-         */
-        public Builder resignReason(String resignReason) {
-            this.resignReason = resignReason;
-            return this;
-        }
-
-        /**
-         * 离职原因
-         * <p> 示例值：
-         *
-         * @param resignReason {@link com.lark.oapi.service.directory.v1.enums.UpdateEmployeeResignReasonEnum}
-         * @return
-         */
-        public Builder resignReason(com.lark.oapi.service.directory.v1.enums.UpdateEmployeeResignReasonEnum resignReason) {
-            this.resignReason = resignReason.getValue();
-            return this;
-        }
-
-
-        /**
-         * 离职备注信息
-         * <p> 示例值：个人原因
-         *
-         * @param resignRemark
-         * @return
-         */
-        public Builder resignRemark(String resignRemark) {
-            this.resignRemark = resignRemark;
-            return this;
-        }
-
-
-        /**
-         * 离职类型
-         * <p> 示例值：
-         *
-         * @param resignType
-         * @return
-         */
-        public Builder resignType(String resignType) {
-            this.resignType = resignType;
-            return this;
-        }
-
-        /**
-         * 离职类型
-         * <p> 示例值：
-         *
-         * @param resignType {@link com.lark.oapi.service.directory.v1.enums.UpdateEmployeeResignTypeEnum}
-         * @return
-         */
-        public Builder resignType(com.lark.oapi.service.directory.v1.enums.UpdateEmployeeResignTypeEnum resignType) {
-            this.resignType = resignType.getValue();
-            return this;
-        }
-
-
-        /**
-         * 取消入职原因
-         * <p> 示例值：
-         *
-         * @param cancelledEntryType
-         * @return
-         */
-        public Builder cancelledEntryType(String cancelledEntryType) {
-            this.cancelledEntryType = cancelledEntryType;
-            return this;
-        }
-
-
-        /**
-         * 取消入职备注信息
-         * <p> 示例值：个人原因
-         *
-         * @param cancelledEntryRemark
-         * @return
-         */
-        public Builder cancelledEntryRemark(String cancelledEntryRemark) {
-            this.cancelledEntryRemark = cancelledEntryRemark;
-            return this;
-        }
-
-
-        /**
-         * 出生日期
-         * <p> 示例值：2022-10-10
-         *
-         * @param birthday
-         * @return
-         */
-        public Builder birthday(String birthday) {
-            this.birthday = birthday;
-            return this;
-        }
-
-
-        /**
-         * 国籍
-         * <p> 示例值：MDM123123
-         *
-         * @param nationality
-         * @return
-         */
-        public Builder nationality(String nationality) {
-            this.nationality = nationality;
-            return this;
-        }
-
-
-        /**
-         * 籍贯
-         * <p> 示例值：北京
-         *
-         * @param nativePlace
-         * @return
-         */
-        public Builder nativePlace(String nativePlace) {
-            this.nativePlace = nativePlace;
-            return this;
-        }
-
-
-        /**
-         * 民族/种族
-         * <p> 示例值：
-         *
-         * @param ethnicity
-         * @return
-         */
-        public Builder ethnicity(String ethnicity) {
-            this.ethnicity = ethnicity;
-            return this;
-        }
-
-
-        /**
-         * 婚姻状态
-         * <p> 示例值：
-         *
-         * @param maritalStatus
-         * @return
-         */
-        public Builder maritalStatus(String maritalStatus) {
-            this.maritalStatus = maritalStatus;
-            return this;
-        }
-
-
-        /**
-         * 政治面貌
-         * <p> 示例值：
-         *
-         * @param politicsStatus
-         * @return
-         */
-        public Builder politicsStatus(String politicsStatus) {
-            this.politicsStatus = politicsStatus;
-            return this;
-        }
-
-
-        /**
-         * 户口类型
-         * <p> 示例值：
-         *
-         * @param registeredResidenceType
-         * @return
-         */
-        public Builder registeredResidenceType(String registeredResidenceType) {
-            this.registeredResidenceType = registeredResidenceType;
-            return this;
-        }
-
-
-        /**
-         * 户口所在地地址
-         * <p> 示例值：北京
-         *
-         * @param location
-         * @return
-         */
-        public Builder location(String location) {
-            this.location = location;
-            return this;
-        }
-
-
-        /**
-         * 社保账号
-         * <p> 示例值：111111
-         *
-         * @param socialSecurityNumber
-         * @return
-         */
-        public Builder socialSecurityNumber(String socialSecurityNumber) {
-            this.socialSecurityNumber = socialSecurityNumber;
-            return this;
-        }
-
-
-        /**
-         * 公积金账号
-         * <p> 示例值：111111
-         *
-         * @param providentFundNumber
-         * @return
-         */
-        public Builder providentFundNumber(String providentFundNumber) {
-            this.providentFundNumber = providentFundNumber;
-            return this;
-        }
-
-
-        /**
-         * 暂停 true， false 恢复暂停
-         * <p> 示例值：
-         *
-         * @param isFrozen
-         * @return
-         */
-        public Builder isFrozen(Boolean isFrozen) {
-            this.isFrozen = isFrozen;
-            return this;
-        }
-
-
-        /**
-         * 冻结原因
-         * <p> 示例值：
-         *
-         * @param frozenReason
-         * @return
-         */
-        public Builder frozenReason(String frozenReason) {
-            this.frozenReason = frozenReason;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFieldValueMap
-         * @return
-         */
-        public Builder customFieldValueMap(Map<String, CustomFieldValue> customFieldValueMap) {
-            this.customFieldValueMap = customFieldValueMap;
-            return this;
-        }
-
-
-        /**
-         * 自定义字段
-         * <p> 示例值：
-         *
-         * @param customFieldValues
-         * @return
-         */
-        public Builder customFieldValues(CustomFieldValue[] customFieldValues) {
-            this.customFieldValues = customFieldValues;
-            return this;
-        }
-
-
-        /**
-         * 虚拟组织信息
-         * <p> 示例值：
-         *
-         * @param virtualOrgInfos
-         * @return
-         */
-        public Builder virtualOrgInfos(UpsertUserVirtualOrgInfo[] virtualOrgInfos) {
-            this.virtualOrgInfos = virtualOrgInfos;
-            return this;
-        }
-
-
-        public UpdateEmployee build() {
-            return new UpdateEmployee(this);
-        }
-    }
+    /**
+     * ID
+     *
+     * <p>示例值：eehsdna
+     *
+     * @param employeeId
+     * @return
+     */
+    public Builder employeeId(String employeeId) {
+      this.employeeId = employeeId;
+      return this;
+    }
+
+    /**
+     * 姓名
+     *
+     * <p>示例值：
+     *
+     * @param name
+     * @return
+     */
+    public Builder name(UpsertName name) {
+      this.name = name;
+      return this;
+    }
+
+    /**
+     * 员工的联系手机号
+     *
+     * <p>示例值：13011111111" 或 "+8613011111111
+     *
+     * @param mobile
+     * @return
+     */
+    public Builder mobile(String mobile) {
+      this.mobile = mobile;
+      return this;
+    }
+
+    /**
+     * 用户的user_id
+     *
+     * <p>示例值：eesadeq
+     *
+     * @param customEmployeeId
+     * @return
+     */
+    public Builder customEmployeeId(String customEmployeeId) {
+      this.customEmployeeId = customEmployeeId;
+      return this;
+    }
+
+    /**
+     * 头像的文件key
+     *
+     * <p>示例值：img_v2dadwqeqwdsa
+     *
+     * @param avatarKey
+     * @return
+     */
+    public Builder avatarKey(String avatarKey) {
+      this.avatarKey = avatarKey;
+      return this;
+    }
+
+    /**
+     * 员工的联系邮箱
+     *
+     * <p>示例值：zhangsan@163.com
+     *
+     * @param email
+     * @return
+     */
+    public Builder email(String email) {
+      this.email = email;
+      return this;
+    }
+
+    /**
+     * 员工在人事系统中的联系邮箱
+     *
+     * <p>示例值：zhangsan@163.com
+     *
+     * @param personalEmail
+     * @return
+     */
+    public Builder personalEmail(String personalEmail) {
+      this.personalEmail = personalEmail;
+      return this;
+    }
+
+    /**
+     * 员工的企业邮箱
+     *
+     * <p>示例值：zhangsan@163.com
+     *
+     * @param enterpriseEmail
+     * @return
+     */
+    public Builder enterpriseEmail(String enterpriseEmail) {
+      this.enterpriseEmail = enterpriseEmail;
+      return this;
+    }
+
+    /**
+     * 性别
+     *
+     * <p>示例值：1
+     *
+     * @param gender
+     * @return
+     */
+    public Builder gender(Integer gender) {
+      this.gender = gender;
+      return this;
+    }
+
+    /**
+     * 性别
+     *
+     * <p>示例值：1
+     *
+     * @param gender {@link com.lark.oapi.service.directory.v1.enums.UpdateEmployeeGenderEnum}
+     * @return
+     */
+    public Builder gender(
+        com.lark.oapi.service.directory.v1.enums.UpdateEmployeeGenderEnum gender) {
+      this.gender = gender.getValue();
+      return this;
+    }
+
+    /**
+     * 现居住地址
+     *
+     * <p>示例值：张家界
+     *
+     * @param residentialAddress
+     * @return
+     */
+    public Builder residentialAddress(String residentialAddress) {
+      this.residentialAddress = residentialAddress;
+      return this;
+    }
+
+    /**
+     * 联系地址
+     *
+     * <p>示例值：
+     *
+     * @param contactAddresses
+     * @return
+     */
+    public Builder contactAddresses(ContactAddress[] contactAddresses) {
+      this.contactAddresses = contactAddresses;
+      return this;
+    }
+
+    /**
+     * 部门排序
+     *
+     * <p>示例值：
+     *
+     * @param employeeOrderInDepartments
+     * @return
+     */
+    public Builder employeeOrderInDepartments(
+        UpsertUserDepartmentSortInfo[] employeeOrderInDepartments) {
+      this.employeeOrderInDepartments = employeeOrderInDepartments;
+      return this;
+    }
+
+    /**
+     * 背景图的key
+     *
+     * <p>示例值：img_v2_qweasdqawqeq
+     *
+     * @param backgroundImageKey
+     * @return
+     */
+    public Builder backgroundImageKey(String backgroundImageKey) {
+      this.backgroundImageKey = backgroundImageKey;
+      return this;
+    }
+
+    /**
+     * 员工的个性签名
+     *
+     * <p>示例值：新员工入职
+     *
+     * @param description
+     * @return
+     */
+    public Builder description(String description) {
+      this.description = description;
+      return this;
+    }
+
+    /**
+     * 员工直属上级的user_id
+     *
+     * <p>示例值：eeshfosd
+     *
+     * @param leaderId
+     * @return
+     */
+    public Builder leaderId(String leaderId) {
+      this.leaderId = leaderId;
+      return this;
+    }
+
+    /**
+     * 员工虚线上级的user_id
+     *
+     * <p>示例值：
+     *
+     * @param dottedLineLeaderIds
+     * @return
+     */
+    public Builder dottedLineLeaderIds(String[] dottedLineLeaderIds) {
+      this.dottedLineLeaderIds = dottedLineLeaderIds;
+      return this;
+    }
+
+    /**
+     * 工作地国家/地区
+     *
+     * <p>示例值：MDM2312312
+     *
+     * @param workCountryOrRegion
+     * @return
+     */
+    public Builder workCountryOrRegion(String workCountryOrRegion) {
+      this.workCountryOrRegion = workCountryOrRegion;
+      return this;
+    }
+
+    /**
+     * 工作地点
+     *
+     * <p>示例值：1111sdda
+     *
+     * @param workPlaceId
+     * @return
+     */
+    public Builder workPlaceId(String workPlaceId) {
+      this.workPlaceId = workPlaceId;
+      return this;
+    }
+
+    /**
+     * 部门名称，最多可输入 100 字;
+     *
+     * <p>示例值：
+     *
+     * @param workStation
+     * @return
+     */
+    public Builder workStation(I18nText workStation) {
+      this.workStation = workStation;
+      return this;
+    }
+
+    /**
+     * 工号
+     *
+     * <p>示例值：28549233
+     *
+     * @param jobNumber
+     * @return
+     */
+    public Builder jobNumber(String jobNumber) {
+      this.jobNumber = jobNumber;
+      return this;
+    }
+
+    /**
+     * 分机号
+     *
+     * <p>示例值：2854923
+     *
+     * @param extensionNumber
+     * @return
+     */
+    public Builder extensionNumber(String extensionNumber) {
+      this.extensionNumber = extensionNumber;
+      return this;
+    }
+
+    /**
+     * 入职日期
+     *
+     * <p>示例值：2022-10-10
+     *
+     * @param joinDate
+     * @return
+     */
+    public Builder joinDate(String joinDate) {
+      this.joinDate = joinDate;
+      return this;
+    }
+
+    /**
+     * 员工类型
+     *
+     * <p>示例值：1;;**可选值有**：;<md-enum>;<md-enum-item key="1" >全职</md-enum-item>;<md-enum-item key="2"
+     * >实习</md-enum-item>;<md-enum-item key="3" >外包</md-enum-item>;<md-enum-item key="4"
+     * >劳务</md-enum-item>;<md-enum-item key="5" >顾问</md-enum-item>;</md-enum>
+     *
+     * @param employmentType
+     * @return
+     */
+    public Builder employmentType(Integer employmentType) {
+      this.employmentType = employmentType;
+      return this;
+    }
+
+    /**
+     * 员工人事状态
+     *
+     * <p>示例值：1
+     *
+     * @param staffStatus
+     * @return
+     */
+    public Builder staffStatus(Integer staffStatus) {
+      this.staffStatus = staffStatus;
+      return this;
+    }
+
+    /**
+     * 岗位信息
+     *
+     * <p>示例值：
+     *
+     * @param positions
+     * @return
+     */
+    public Builder positions(Position[] positions) {
+      this.positions = positions;
+      return this;
+    }
+
+    /**
+     * 职务ID
+     *
+     * <p>示例值：ewdjdssd
+     *
+     * @param jobTitleId
+     * @return
+     */
+    public Builder jobTitleId(String jobTitleId) {
+      this.jobTitleId = jobTitleId;
+      return this;
+    }
+
+    /**
+     * 职级ID
+     *
+     * <p>示例值：eersdfa
+     *
+     * @param jobLevelId
+     * @return
+     */
+    public Builder jobLevelId(String jobLevelId) {
+      this.jobLevelId = jobLevelId;
+      return this;
+    }
+
+    /**
+     * 序列ID
+     *
+     * <p>示例值：eersdfa
+     *
+     * @param jobFamilyId
+     * @return
+     */
+    public Builder jobFamilyId(String jobFamilyId) {
+      this.jobFamilyId = jobFamilyId;
+      return this;
+    }
+
+    /**
+     * 首次参加工作日期
+     *
+     * <p>示例值：2022-10-10
+     *
+     * @param firstWorkDate
+     * @return
+     */
+    public Builder firstWorkDate(String firstWorkDate) {
+      this.firstWorkDate = firstWorkDate;
+      return this;
+    }
+
+    /**
+     * 首次进入公司日期
+     *
+     * <p>示例值：2022-10-10
+     *
+     * @param firstJoinDate
+     * @return
+     */
+    public Builder firstJoinDate(String firstJoinDate) {
+      this.firstJoinDate = firstJoinDate;
+      return this;
+    }
+
+    /**
+     * 试用期（月）
+     *
+     * <p>示例值：10
+     *
+     * @param probationPeriod
+     * @return
+     */
+    public Builder probationPeriod(String probationPeriod) {
+      this.probationPeriod = probationPeriod;
+      return this;
+    }
+
+    /**
+     * 转正日期
+     *
+     * <p>示例值：2022-10-10
+     *
+     * @param regularizationDate
+     * @return
+     */
+    public Builder regularizationDate(String regularizationDate) {
+      this.regularizationDate = regularizationDate;
+      return this;
+    }
+
+    /**
+     * 转正状态
+     *
+     * <p>示例值：
+     *
+     * @param convertStatus
+     * @return
+     */
+    public Builder convertStatus(String convertStatus) {
+      this.convertStatus = convertStatus;
+      return this;
+    }
+
+    /**
+     * 合同主体ID
+     *
+     * <p>示例值：123dsqwe
+     *
+     * @param contractSubject
+     * @return
+     */
+    public Builder contractSubject(String contractSubject) {
+      this.contractSubject = contractSubject;
+      return this;
+    }
+
+    /**
+     * 离职日期
+     *
+     * <p>示例值：2022-10-10
+     *
+     * @param resignDate
+     * @return
+     */
+    public Builder resignDate(String resignDate) {
+      this.resignDate = resignDate;
+      return this;
+    }
+
+    /**
+     * 离职原因
+     *
+     * <p>示例值：
+     *
+     * @param resignReason
+     * @return
+     */
+    public Builder resignReason(String resignReason) {
+      this.resignReason = resignReason;
+      return this;
+    }
+
+    /**
+     * 离职原因
+     *
+     * <p>示例值：
+     *
+     * @param resignReason {@link
+     *     com.lark.oapi.service.directory.v1.enums.UpdateEmployeeResignReasonEnum}
+     * @return
+     */
+    public Builder resignReason(
+        com.lark.oapi.service.directory.v1.enums.UpdateEmployeeResignReasonEnum resignReason) {
+      this.resignReason = resignReason.getValue();
+      return this;
+    }
+
+    /**
+     * 离职备注信息
+     *
+     * <p>示例值：个人原因
+     *
+     * @param resignRemark
+     * @return
+     */
+    public Builder resignRemark(String resignRemark) {
+      this.resignRemark = resignRemark;
+      return this;
+    }
+
+    /**
+     * 离职类型
+     *
+     * <p>示例值：
+     *
+     * @param resignType
+     * @return
+     */
+    public Builder resignType(String resignType) {
+      this.resignType = resignType;
+      return this;
+    }
+
+    /**
+     * 离职类型
+     *
+     * <p>示例值：
+     *
+     * @param resignType {@link
+     *     com.lark.oapi.service.directory.v1.enums.UpdateEmployeeResignTypeEnum}
+     * @return
+     */
+    public Builder resignType(
+        com.lark.oapi.service.directory.v1.enums.UpdateEmployeeResignTypeEnum resignType) {
+      this.resignType = resignType.getValue();
+      return this;
+    }
+
+    /**
+     * 取消入职原因
+     *
+     * <p>示例值：
+     *
+     * @param cancelledEntryType
+     * @return
+     */
+    public Builder cancelledEntryType(String cancelledEntryType) {
+      this.cancelledEntryType = cancelledEntryType;
+      return this;
+    }
+
+    /**
+     * 取消入职备注信息
+     *
+     * <p>示例值：个人原因
+     *
+     * @param cancelledEntryRemark
+     * @return
+     */
+    public Builder cancelledEntryRemark(String cancelledEntryRemark) {
+      this.cancelledEntryRemark = cancelledEntryRemark;
+      return this;
+    }
+
+    /**
+     * 出生日期
+     *
+     * <p>示例值：2022-10-10
+     *
+     * @param birthday
+     * @return
+     */
+    public Builder birthday(String birthday) {
+      this.birthday = birthday;
+      return this;
+    }
+
+    /**
+     * 国籍
+     *
+     * <p>示例值：MDM123123
+     *
+     * @param nationality
+     * @return
+     */
+    public Builder nationality(String nationality) {
+      this.nationality = nationality;
+      return this;
+    }
+
+    /**
+     * 籍贯
+     *
+     * <p>示例值：北京
+     *
+     * @param nativePlace
+     * @return
+     */
+    public Builder nativePlace(String nativePlace) {
+      this.nativePlace = nativePlace;
+      return this;
+    }
+
+    /**
+     * 民族/种族
+     *
+     * <p>示例值：
+     *
+     * @param ethnicity
+     * @return
+     */
+    public Builder ethnicity(String ethnicity) {
+      this.ethnicity = ethnicity;
+      return this;
+    }
+
+    /**
+     * 婚姻状态
+     *
+     * <p>示例值：
+     *
+     * @param maritalStatus
+     * @return
+     */
+    public Builder maritalStatus(String maritalStatus) {
+      this.maritalStatus = maritalStatus;
+      return this;
+    }
+
+    /**
+     * 政治面貌
+     *
+     * <p>示例值：
+     *
+     * @param politicsStatus
+     * @return
+     */
+    public Builder politicsStatus(String politicsStatus) {
+      this.politicsStatus = politicsStatus;
+      return this;
+    }
+
+    /**
+     * 户口类型
+     *
+     * <p>示例值：
+     *
+     * @param registeredResidenceType
+     * @return
+     */
+    public Builder registeredResidenceType(String registeredResidenceType) {
+      this.registeredResidenceType = registeredResidenceType;
+      return this;
+    }
+
+    /**
+     * 户口所在地地址
+     *
+     * <p>示例值：北京
+     *
+     * @param location
+     * @return
+     */
+    public Builder location(String location) {
+      this.location = location;
+      return this;
+    }
+
+    /**
+     * 社保账号
+     *
+     * <p>示例值：111111
+     *
+     * @param socialSecurityNumber
+     * @return
+     */
+    public Builder socialSecurityNumber(String socialSecurityNumber) {
+      this.socialSecurityNumber = socialSecurityNumber;
+      return this;
+    }
+
+    /**
+     * 公积金账号
+     *
+     * <p>示例值：111111
+     *
+     * @param providentFundNumber
+     * @return
+     */
+    public Builder providentFundNumber(String providentFundNumber) {
+      this.providentFundNumber = providentFundNumber;
+      return this;
+    }
+
+    /**
+     * 暂停 true， false 恢复暂停
+     *
+     * <p>示例值：
+     *
+     * @param isFrozen
+     * @return
+     */
+    public Builder isFrozen(Boolean isFrozen) {
+      this.isFrozen = isFrozen;
+      return this;
+    }
+
+    /**
+     * 冻结原因
+     *
+     * <p>示例值：
+     *
+     * @param frozenReason
+     * @return
+     */
+    public Builder frozenReason(String frozenReason) {
+      this.frozenReason = frozenReason;
+      return this;
+    }
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFieldValueMap
+     * @return
+     */
+    public Builder customFieldValueMap(Map<String, CustomFieldValue> customFieldValueMap) {
+      this.customFieldValueMap = customFieldValueMap;
+      return this;
+    }
+
+    /**
+     * 自定义字段
+     *
+     * <p>示例值：
+     *
+     * @param customFieldValues
+     * @return
+     */
+    public Builder customFieldValues(CustomFieldValue[] customFieldValues) {
+      this.customFieldValues = customFieldValues;
+      return this;
+    }
+
+    /**
+     * 虚拟组织信息
+     *
+     * <p>示例值：
+     *
+     * @param virtualOrgInfos
+     * @return
+     */
+    public Builder virtualOrgInfos(UpsertUserVirtualOrgInfo[] virtualOrgInfos) {
+      this.virtualOrgInfos = virtualOrgInfos;
+      return this;
+    }
+
+    public UpdateEmployee build() {
+      return new UpdateEmployee(this);
+    }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

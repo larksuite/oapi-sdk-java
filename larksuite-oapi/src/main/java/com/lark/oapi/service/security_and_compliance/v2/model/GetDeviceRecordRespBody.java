@@ -13,34 +13,18 @@
 
 package com.lark.oapi.service.security_and_compliance.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class GetDeviceRecordRespBody {
-    /**
-     * 设备记录
-     * <p> 示例值：
-     */
-    @SerializedName("device_record")
-    private DeviceRecord deviceRecord;
+  /** 示例值： */
+  @SerializedName("device_record")
+  private DeviceRecord deviceRecord;
 
-    public DeviceRecord getDeviceRecord() {
-        return this.deviceRecord;
-    }
+  public DeviceRecord getDeviceRecord() {
+    return this.deviceRecord;
+  }
 
-    public void setDeviceRecord(DeviceRecord deviceRecord) {
-        this.deviceRecord = deviceRecord;
-    }
-
+  public void setDeviceRecord(DeviceRecord deviceRecord) {
+    this.deviceRecord = deviceRecord;
+  }
 }

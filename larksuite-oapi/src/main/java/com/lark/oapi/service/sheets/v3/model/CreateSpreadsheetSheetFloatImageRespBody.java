@@ -13,34 +13,22 @@
 
 package com.lark.oapi.service.sheets.v3.model;
 
-import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class CreateSpreadsheetSheetFloatImageRespBody {
-    /**
-     * 浮动图片返回值
-     * <p> 示例值：
-     */
-    @SerializedName("float_image")
-    private FloatImage floatImage;
+  /**
+   * 浮动图片的相关参数
+   *
+   * <p>示例值：
+   */
+  @SerializedName("float_image")
+  private FloatImage floatImage;
 
-    public FloatImage getFloatImage() {
-        return this.floatImage;
-    }
+  public FloatImage getFloatImage() {
+    return this.floatImage;
+  }
 
-    public void setFloatImage(FloatImage floatImage) {
-        this.floatImage = floatImage;
-    }
-
+  public void setFloatImage(FloatImage floatImage) {
+    this.floatImage = floatImage;
+  }
 }

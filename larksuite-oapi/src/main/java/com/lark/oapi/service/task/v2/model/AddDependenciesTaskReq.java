@@ -13,98 +13,92 @@
 
 package com.lark.oapi.service.task.v2.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.task.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.task.v2.enums.*;
 
 public class AddDependenciesTaskReq {
+  /**
+   * 任务GUID
+   *
+   * <p>示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
+   */
+  @Path
+  @SerializedName("task_guid")
+  private String taskGuid;
+
+  public String getTaskGuid() {
+    return this.taskGuid;
+  }
+
+  public void setTaskGuid(String taskGuid) {
+    this.taskGuid = taskGuid;
+  }
+
+  @Body private AddDependenciesTaskReqBody body;
+
+  public AddDependenciesTaskReqBody getAddDependenciesTaskReqBody() {
+    return this.body;
+  }
+
+  public void setAddDependenciesTaskReqBody(AddDependenciesTaskReqBody body) {
+    this.body = body;
+  }
+
+  // builder 开始
+  public AddDependenciesTaskReq() {}
+
+  public AddDependenciesTaskReq(Builder builder) {
     /**
      * 任务GUID
-     * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
+     *
+     * <p>示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
      */
-    @Path
-    @SerializedName("task_guid")
-    private String taskGuid;
-    @Body
+    this.taskGuid = builder.taskGuid;
+    this.body = builder.body;
+  }
+
+  public static class Builder {
+
+    private String taskGuid; // 任务GUID
+
+    /**
+     * 任务GUID
+     *
+     * <p>示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
+     *
+     * @param taskGuid
+     * @return
+     */
+    public Builder taskGuid(String taskGuid) {
+      this.taskGuid = taskGuid;
+      return this;
+    }
+
     private AddDependenciesTaskReqBody body;
 
-    // builder 开始
-    public AddDependenciesTaskReq() {
-    }
-
-    public AddDependenciesTaskReq(Builder builder) {
-        /**
-         * 任务GUID
-         * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
-         */
-        this.taskGuid = builder.taskGuid;
-        this.body = builder.body;
-    }
-
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String getTaskGuid() {
-        return this.taskGuid;
-    }
-
-    public void setTaskGuid(String taskGuid) {
-        this.taskGuid = taskGuid;
-    }
-
     public AddDependenciesTaskReqBody getAddDependenciesTaskReqBody() {
-        return this.body;
+      return this.body;
     }
 
-    public void setAddDependenciesTaskReqBody(AddDependenciesTaskReqBody body) {
-        this.body = body;
+    /**
+     * body
+     *
+     * @param body
+     * @return
+     */
+    public Builder addDependenciesTaskReqBody(AddDependenciesTaskReqBody body) {
+      this.body = body;
+      return this;
     }
 
-    public static class Builder {
-
-        private String taskGuid; // 任务GUID
-        private AddDependenciesTaskReqBody body;
-
-        /**
-         * 任务GUID
-         * <p> 示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0
-         *
-         * @param taskGuid
-         * @return
-         */
-        public Builder taskGuid(String taskGuid) {
-            this.taskGuid = taskGuid;
-            return this;
-        }
-
-        public AddDependenciesTaskReqBody getAddDependenciesTaskReqBody() {
-            return this.body;
-        }
-
-        /**
-         * body
-         *
-         * @param body
-         * @return
-         */
-        public Builder addDependenciesTaskReqBody(AddDependenciesTaskReqBody body) {
-            this.body = body;
-            return this;
-        }
-
-        public AddDependenciesTaskReq build() {
-            return new AddDependenciesTaskReq(this);
-        }
+    public AddDependenciesTaskReq build() {
+      return new AddDependenciesTaskReq(this);
     }
+  }
+
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.okr.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class OkrDetailObjectiveAlign {
+  /**
+   * Objective的ID
+   *
+   * <p>示例值：6975871409026975276
+   */
+  @SerializedName("id")
+  private String id;
+
+  /**
+   * OKR的ID
+   *
+   * <p>示例值：6975085709464143404
+   */
+  @SerializedName("okr_id")
+  private String okrId;
+
+  /**
+   * 该Objective的Owner
+   *
+   * <p>示例值：6975085709464143404
+   */
+  @SerializedName("user_id")
+  private String userId;
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getOkrId() {
+    return this.okrId;
+  }
+
+  public void setOkrId(String okrId) {
+    this.okrId = okrId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  // builder 开始
+  public OkrDetailObjectiveAlign() {}
+
+  public OkrDetailObjectiveAlign(Builder builder) {
     /**
      * Objective的ID
-     * <p> 示例值：6975871409026975276
+     *
+     * <p>示例值：6975871409026975276
      */
-    @SerializedName("id")
-    private String id;
+    this.id = builder.id;
     /**
      * OKR的ID
-     * <p> 示例值：6975085709464143404
+     *
+     * <p>示例值：6975085709464143404
      */
-    @SerializedName("okr_id")
-    private String okrId;
+    this.okrId = builder.okrId;
     /**
      * 该Objective的Owner
-     * <p> 示例值：6975085709464143404
+     *
+     * <p>示例值：6975085709464143404
      */
-    @SerializedName("user_id")
+    this.userId = builder.userId;
+  }
+
+  public static class Builder {
+    /**
+     * Objective的ID
+     *
+     * <p>示例值：6975871409026975276
+     */
+    private String id;
+
+    /**
+     * OKR的ID
+     *
+     * <p>示例值：6975085709464143404
+     */
+    private String okrId;
+
+    /**
+     * 该Objective的Owner
+     *
+     * <p>示例值：6975085709464143404
+     */
     private String userId;
 
-    // builder 开始
-    public OkrDetailObjectiveAlign() {
+    /**
+     * Objective的ID
+     *
+     * <p>示例值：6975871409026975276
+     *
+     * @param id
+     * @return
+     */
+    public Builder id(String id) {
+      this.id = id;
+      return this;
     }
 
-    public OkrDetailObjectiveAlign(Builder builder) {
-        /**
-         * Objective的ID
-         * <p> 示例值：6975871409026975276
-         */
-        this.id = builder.id;
-        /**
-         * OKR的ID
-         * <p> 示例值：6975085709464143404
-         */
-        this.okrId = builder.okrId;
-        /**
-         * 该Objective的Owner
-         * <p> 示例值：6975085709464143404
-         */
-        this.userId = builder.userId;
+    /**
+     * OKR的ID
+     *
+     * <p>示例值：6975085709464143404
+     *
+     * @param okrId
+     * @return
+     */
+    public Builder okrId(String okrId) {
+      this.okrId = okrId;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 该Objective的Owner
+     *
+     * <p>示例值：6975085709464143404
+     *
+     * @param userId
+     * @return
+     */
+    public Builder userId(String userId) {
+      this.userId = userId;
+      return this;
     }
 
-    public String getId() {
-        return this.id;
+    public OkrDetailObjectiveAlign build() {
+      return new OkrDetailObjectiveAlign(this);
     }
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getOkrId() {
-        return this.okrId;
-    }
-
-    public void setOkrId(String okrId) {
-        this.okrId = okrId;
-    }
-
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public static class Builder {
-        /**
-         * Objective的ID
-         * <p> 示例值：6975871409026975276
-         */
-        private String id;
-        /**
-         * OKR的ID
-         * <p> 示例值：6975085709464143404
-         */
-        private String okrId;
-        /**
-         * 该Objective的Owner
-         * <p> 示例值：6975085709464143404
-         */
-        private String userId;
-
-        /**
-         * Objective的ID
-         * <p> 示例值：6975871409026975276
-         *
-         * @param id
-         * @return
-         */
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
-
-
-        /**
-         * OKR的ID
-         * <p> 示例值：6975085709464143404
-         *
-         * @param okrId
-         * @return
-         */
-        public Builder okrId(String okrId) {
-            this.okrId = okrId;
-            return this;
-        }
-
-
-        /**
-         * 该Objective的Owner
-         * <p> 示例值：6975085709464143404
-         *
-         * @param userId
-         * @return
-         */
-        public Builder userId(String userId) {
-            this.userId = userId;
-            return this;
-        }
-
-
-        public OkrDetailObjectiveAlign build() {
-            return new OkrDetailObjectiveAlign(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

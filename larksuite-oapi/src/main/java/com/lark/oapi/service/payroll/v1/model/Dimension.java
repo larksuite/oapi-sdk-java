@@ -13,149 +13,149 @@
 
 package com.lark.oapi.service.payroll.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.payroll.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class Dimension {
+  /**
+   * 汇总维度信息
+   *
+   * <p>示例值：
+   */
+  @SerializedName("i18n_names")
+  private I18nContent[] i18nNames;
+
+  /**
+   * 汇总维度字段名称
+   *
+   * <p>示例值：company
+   */
+  @SerializedName("api_name")
+  private String apiName;
+
+  /**
+   * 汇总维度对象名称
+   *
+   * <p>示例值：jobData
+   */
+  @SerializedName("obj_api_name")
+  private String objApiName;
+
+  public I18nContent[] getI18nNames() {
+    return this.i18nNames;
+  }
+
+  public void setI18nNames(I18nContent[] i18nNames) {
+    this.i18nNames = i18nNames;
+  }
+
+  public String getApiName() {
+    return this.apiName;
+  }
+
+  public void setApiName(String apiName) {
+    this.apiName = apiName;
+  }
+
+  public String getObjApiName() {
+    return this.objApiName;
+  }
+
+  public void setObjApiName(String objApiName) {
+    this.objApiName = objApiName;
+  }
+
+  // builder 开始
+  public Dimension() {}
+
+  public Dimension(Builder builder) {
     /**
      * 汇总维度信息
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("i18n_names")
-    private I18nContent[] i18nNames;
+    this.i18nNames = builder.i18nNames;
     /**
      * 汇总维度字段名称
-     * <p> 示例值：company
+     *
+     * <p>示例值：company
      */
-    @SerializedName("api_name")
-    private String apiName;
+    this.apiName = builder.apiName;
     /**
      * 汇总维度对象名称
-     * <p> 示例值：jobData
+     *
+     * <p>示例值：jobData
      */
-    @SerializedName("obj_api_name")
+    this.objApiName = builder.objApiName;
+  }
+
+  public static class Builder {
+    /**
+     * 汇总维度信息
+     *
+     * <p>示例值：
+     */
+    private I18nContent[] i18nNames;
+
+    /**
+     * 汇总维度字段名称
+     *
+     * <p>示例值：company
+     */
+    private String apiName;
+
+    /**
+     * 汇总维度对象名称
+     *
+     * <p>示例值：jobData
+     */
     private String objApiName;
 
-    // builder 开始
-    public Dimension() {
+    /**
+     * 汇总维度信息
+     *
+     * <p>示例值：
+     *
+     * @param i18nNames
+     * @return
+     */
+    public Builder i18nNames(I18nContent[] i18nNames) {
+      this.i18nNames = i18nNames;
+      return this;
     }
 
-    public Dimension(Builder builder) {
-        /**
-         * 汇总维度信息
-         * <p> 示例值：
-         */
-        this.i18nNames = builder.i18nNames;
-        /**
-         * 汇总维度字段名称
-         * <p> 示例值：company
-         */
-        this.apiName = builder.apiName;
-        /**
-         * 汇总维度对象名称
-         * <p> 示例值：jobData
-         */
-        this.objApiName = builder.objApiName;
+    /**
+     * 汇总维度字段名称
+     *
+     * <p>示例值：company
+     *
+     * @param apiName
+     * @return
+     */
+    public Builder apiName(String apiName) {
+      this.apiName = apiName;
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    /**
+     * 汇总维度对象名称
+     *
+     * <p>示例值：jobData
+     *
+     * @param objApiName
+     * @return
+     */
+    public Builder objApiName(String objApiName) {
+      this.objApiName = objApiName;
+      return this;
     }
 
-    public I18nContent[] getI18nNames() {
-        return this.i18nNames;
+    public Dimension build() {
+      return new Dimension(this);
     }
+  }
 
-    public void setI18nNames(I18nContent[] i18nNames) {
-        this.i18nNames = i18nNames;
-    }
-
-    public String getApiName() {
-        return this.apiName;
-    }
-
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public String getObjApiName() {
-        return this.objApiName;
-    }
-
-    public void setObjApiName(String objApiName) {
-        this.objApiName = objApiName;
-    }
-
-    public static class Builder {
-        /**
-         * 汇总维度信息
-         * <p> 示例值：
-         */
-        private I18nContent[] i18nNames;
-        /**
-         * 汇总维度字段名称
-         * <p> 示例值：company
-         */
-        private String apiName;
-        /**
-         * 汇总维度对象名称
-         * <p> 示例值：jobData
-         */
-        private String objApiName;
-
-        /**
-         * 汇总维度信息
-         * <p> 示例值：
-         *
-         * @param i18nNames
-         * @return
-         */
-        public Builder i18nNames(I18nContent[] i18nNames) {
-            this.i18nNames = i18nNames;
-            return this;
-        }
-
-
-        /**
-         * 汇总维度字段名称
-         * <p> 示例值：company
-         *
-         * @param apiName
-         * @return
-         */
-        public Builder apiName(String apiName) {
-            this.apiName = apiName;
-            return this;
-        }
-
-
-        /**
-         * 汇总维度对象名称
-         * <p> 示例值：jobData
-         *
-         * @param objApiName
-         * @return
-         */
-        public Builder objApiName(String objApiName) {
-            this.objApiName = objApiName;
-            return this;
-        }
-
-
-        public Dimension build() {
-            return new Dimension(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

@@ -13,169 +13,245 @@
 
 package com.lark.oapi.service.corehr.v1.resource;
 
-import com.lark.oapi.core.token.AccessTokenType;
+import com.lark.oapi.core.Config;
 import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.response.RawResponse;
-import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.core.token.AccessTokenType;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.utils.UnmarshalRespUtil;
+import com.lark.oapi.service.corehr.v1.model.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.charset.StandardCharsets;
-
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.request.RequestOptions;
-
-import java.io.ByteArrayOutputStream;
-
-import com.lark.oapi.service.corehr.v1.model.*;
-
-import java.io.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-
 public class CommonDataMetaData {
-    private static final Logger log = LoggerFactory.getLogger(CommonDataMetaData.class);
-    private final Config config;
+  private static final Logger log = LoggerFactory.getLogger(CommonDataMetaData.class);
+  private final Config config;
 
-    public CommonDataMetaData(Config config) {
-        this.config = config;
+  public CommonDataMetaData(Config config) {
+    this.config = config;
+  }
+
+  /**
+   * 增加字段枚举值选项，对于当前已有的所有自定义枚举字段，以及部分系统预置枚举字段，通过本接口可在字段中批量新增可选项
+   *
+   * <p>本接口当前允许修改的系统预置字段如下：; - person（个人信息）：gender（性别）、marital_status（婚姻状态）; -
+   * address（地址）：address_type（地址类型）; - national_id（证件）：national_id_type（证件类型）; -
+   * education（教育经历）：degree（学位）、level_of_education（学历）; - person_info_chn (个人附加信息) ：
+   * hukou_type（户口类型）; - emergency_contact（紧急联系人）：relationship（关系）; -
+   * dependent（家庭成员）：relationship_with_dependent（关系）; - job_data （任职信息）：employee_type (人员类型); -
+   * probation （试用期对象）：final_assessment_grade （试用期最终考核等级）; - department（部门）：subtype（部门类型） ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add_enum_option&project=corehr&resource=common_data.meta_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add_enum_option&project=corehr&resource=common_data.meta_data&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/AddEnumOptionCommonDataMetaDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/AddEnumOptionCommonDataMetaDataSample.java</a>
+   * ;
+   */
+  public AddEnumOptionCommonDataMetaDataResp addEnumOption(
+      AddEnumOptionCommonDataMetaDataReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v1/common_data/meta_data/add_enum_option",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add_enum_option&project=corehr&resource=common_data.meta_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add_enum_option&project=corehr&resource=common_data.meta_data&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/AddEnumOptionCommonDataMetaDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/AddEnumOptionCommonDataMetaDataSample.java</a> ;
-     */
-    public AddEnumOptionCommonDataMetaDataResp addEnumOption(AddEnumOptionCommonDataMetaDataReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
-
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v1/common_data/meta_data/add_enum_option"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        AddEnumOptionCommonDataMetaDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, AddEnumOptionCommonDataMetaDataResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/common_data/meta_data/add_enum_option"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    AddEnumOptionCommonDataMetaDataResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, AddEnumOptionCommonDataMetaDataResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/common_data/meta_data/add_enum_option",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add_enum_option&project=corehr&resource=common_data.meta_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add_enum_option&project=corehr&resource=common_data.meta_data&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/AddEnumOptionCommonDataMetaDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/AddEnumOptionCommonDataMetaDataSample.java</a> ;
-     */
-    public AddEnumOptionCommonDataMetaDataResp addEnumOption(AddEnumOptionCommonDataMetaDataReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v1/common_data/meta_data/add_enum_option"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        AddEnumOptionCommonDataMetaDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, AddEnumOptionCommonDataMetaDataResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/common_data/meta_data/add_enum_option"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
+  /**
+   * 增加字段枚举值选项，对于当前已有的所有自定义枚举字段，以及部分系统预置枚举字段，通过本接口可在字段中批量新增可选项
+   *
+   * <p>本接口当前允许修改的系统预置字段如下：; - person（个人信息）：gender（性别）、marital_status（婚姻状态）; -
+   * address（地址）：address_type（地址类型）; - national_id（证件）：national_id_type（证件类型）; -
+   * education（教育经历）：degree（学位）、level_of_education（学历）; - person_info_chn (个人附加信息) ：
+   * hukou_type（户口类型）; - emergency_contact（紧急联系人）：relationship（关系）; -
+   * dependent（家庭成员）：relationship_with_dependent（关系）; - job_data （任职信息）：employee_type (人员类型); -
+   * probation （试用期对象）：final_assessment_grade （试用期最终考核等级）; - department（部门）：subtype（部门类型） ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add_enum_option&project=corehr&resource=common_data.meta_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=add_enum_option&project=corehr&resource=common_data.meta_data&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/AddEnumOptionCommonDataMetaDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/AddEnumOptionCommonDataMetaDataSample.java</a>
+   * ;
+   */
+  public AddEnumOptionCommonDataMetaDataResp addEnumOption(AddEnumOptionCommonDataMetaDataReq req)
+      throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
 
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v1/common_data/meta_data/add_enum_option",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        return resp;
+    // 反序列化
+    AddEnumOptionCommonDataMetaDataResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, AddEnumOptionCommonDataMetaDataResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/common_data/meta_data/add_enum_option",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_enum_option&project=corehr&resource=common_data.meta_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_enum_option&project=corehr&resource=common_data.meta_data&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/EditEnumOptionCommonDataMetaDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/EditEnumOptionCommonDataMetaDataSample.java</a> ;
-     */
-    public EditEnumOptionCommonDataMetaDataResp editEnumOption(EditEnumOptionCommonDataMetaDataReq req, RequestOptions reqOptions) throws Exception {
-        // 请求参数选项
-        if (reqOptions == null) {
-            reqOptions = new RequestOptions();
-        }
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v1/common_data/meta_data/edit_enum_option"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
+    return resp;
+  }
 
-        // 反序列化
-        EditEnumOptionCommonDataMetaDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, EditEnumOptionCommonDataMetaDataResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/common_data/meta_data/edit_enum_option"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+  /**
+   * 修改字段枚举值选项，对于当前已有的所有自定义枚举字段，以及部分系统预置枚举字段，通过本接口可修改字段中已有可选项的展示名称、停启用状态
+   *
+   * <p>本接口当前允许修改的系统预置字段如下：; - person（个人信息）：gender（性别）、marital_status（婚姻状态）; -
+   * address（地址）：address_type（地址类型）; - national_id（证件）：national_id_type（证件类型）; -
+   * education（教育经历）：degree（学位）、level_of_education（学历）; - person_info_chn (个人附加信息) ：
+   * hukou_type（户口类型）; - emergency_contact（紧急联系人）：relationship（关系）; -
+   * dependent（家庭成员）：relationship_with_dependent（关系）; - job_data （任职信息）：employee_type (人员类型); -
+   * probation （试用期对象）：final_assessment_grade （试用期最终考核等级）; - department（部门）：subtype（部门类型） ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_enum_option&project=corehr&resource=common_data.meta_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_enum_option&project=corehr&resource=common_data.meta_data&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/EditEnumOptionCommonDataMetaDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/EditEnumOptionCommonDataMetaDataSample.java</a>
+   * ;
+   */
+  public EditEnumOptionCommonDataMetaDataResp editEnumOption(
+      EditEnumOptionCommonDataMetaDataReq req, RequestOptions reqOptions) throws Exception {
+    // 请求参数选项
+    if (reqOptions == null) {
+      reqOptions = new RequestOptions();
     }
 
-    /**
-     * ，
-     * <p> 官网API文档链接:<a href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_enum_option&project=corehr&resource=common_data.meta_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_enum_option&project=corehr&resource=common_data.meta_data&version=v1</a> ;
-     * <p> 使用Demo链接: <a href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/EditEnumOptionCommonDataMetaDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/EditEnumOptionCommonDataMetaDataSample.java</a> ;
-     */
-    public EditEnumOptionCommonDataMetaDataResp editEnumOption(EditEnumOptionCommonDataMetaDataReq req) throws Exception {
-        // 请求参数选项
-        RequestOptions reqOptions = new RequestOptions();
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v1/common_data/meta_data/edit_enum_option",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
 
-        // 发起请求
-        RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-                , "/open-apis/corehr/v1/common_data/meta_data/edit_enum_option"
-                , Sets.newHashSet(AccessTokenType.Tenant)
-                , req);
-
-        // 反序列化
-        EditEnumOptionCommonDataMetaDataResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, EditEnumOptionCommonDataMetaDataResp.class);
-        if (resp == null) {
-            log.error(String.format(
-                    "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/corehr/v1/common_data/meta_data/edit_enum_option"
-                    , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
-                    httpResponse.getStatusCode(), new String(httpResponse.getBody(),
-                            StandardCharsets.UTF_8)));
-            throw new IllegalArgumentException("The result returned by the server is illegal");
-        }
-
-        resp.setRawResponse(httpResponse);
-        resp.setRequest(req);
-
-        return resp;
+    // 反序列化
+    EditEnumOptionCommonDataMetaDataResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, EditEnumOptionCommonDataMetaDataResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/common_data/meta_data/edit_enum_option",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
     }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
+
+  /**
+   * 修改字段枚举值选项，对于当前已有的所有自定义枚举字段，以及部分系统预置枚举字段，通过本接口可修改字段中已有可选项的展示名称、停启用状态
+   *
+   * <p>本接口当前允许修改的系统预置字段如下：; - person（个人信息）：gender（性别）、marital_status（婚姻状态）; -
+   * address（地址）：address_type（地址类型）; - national_id（证件）：national_id_type（证件类型）; -
+   * education（教育经历）：degree（学位）、level_of_education（学历）; - person_info_chn (个人附加信息) ：
+   * hukou_type（户口类型）; - emergency_contact（紧急联系人）：relationship（关系）; -
+   * dependent（家庭成员）：relationship_with_dependent（关系）; - job_data （任职信息）：employee_type (人员类型); -
+   * probation （试用期对象）：final_assessment_grade （试用期最终考核等级）; - department（部门）：subtype（部门类型） ;
+   *
+   * <p>官网API文档链接:<a
+   * href="https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_enum_option&project=corehr&resource=common_data.meta_data&version=v1">https://open.feishu.cn/api-explorer?from=op_doc_tab&apiName=edit_enum_option&project=corehr&resource=common_data.meta_data&version=v1</a>
+   * ;
+   *
+   * <p>使用Demo链接: <a
+   * href="https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/EditEnumOptionCommonDataMetaDataSample.java">https://github.com/larksuite/oapi-sdk-java/tree/v2_main/sample/src/main/java/com/lark/oapi/sample/apiall/corehrv1/EditEnumOptionCommonDataMetaDataSample.java</a>
+   * ;
+   */
+  public EditEnumOptionCommonDataMetaDataResp editEnumOption(
+      EditEnumOptionCommonDataMetaDataReq req) throws Exception {
+    // 请求参数选项
+    RequestOptions reqOptions = new RequestOptions();
+
+    // 发起请求
+    RawResponse httpResponse =
+        Transport.send(
+            config,
+            reqOptions,
+            "POST",
+            "/open-apis/corehr/v1/common_data/meta_data/edit_enum_option",
+            Sets.newHashSet(AccessTokenType.Tenant),
+            req);
+
+    // 反序列化
+    EditEnumOptionCommonDataMetaDataResp resp =
+        UnmarshalRespUtil.unmarshalResp(httpResponse, EditEnumOptionCommonDataMetaDataResp.class);
+    if (resp == null) {
+      log.error(
+          String.format(
+              "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,",
+              "/open-apis/corehr/v1/common_data/meta_data/edit_enum_option",
+              Jsons.DEFAULT.toJson(req),
+              Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+              httpResponse.getStatusCode(),
+              new String(httpResponse.getBody(), StandardCharsets.UTF_8)));
+      throw new IllegalArgumentException("The result returned by the server is illegal");
+    }
+
+    resp.setRawResponse(httpResponse);
+    resp.setRequest(req);
+
+    return resp;
+  }
 }

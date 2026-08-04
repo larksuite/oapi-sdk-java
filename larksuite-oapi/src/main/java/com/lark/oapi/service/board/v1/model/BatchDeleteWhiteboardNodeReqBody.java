@@ -13,75 +13,65 @@
 
 package com.lark.oapi.service.board.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.service.board.v1.enums.*;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
-import com.lark.oapi.core.annotation.Path;
-import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
 
 public class BatchDeleteWhiteboardNodeReqBody {
+  /**
+   * 需要删除的节点 id 列表
+   *
+   * <p>示例值：
+   */
+  @SerializedName("ids")
+  private String[] ids;
+
+  public String[] getIds() {
+    return this.ids;
+  }
+
+  public void setIds(String[] ids) {
+    this.ids = ids;
+  }
+
+  // builder 开始
+  public BatchDeleteWhiteboardNodeReqBody() {}
+
+  public BatchDeleteWhiteboardNodeReqBody(Builder builder) {
     /**
      * 需要删除的节点 id 列表
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @SerializedName("ids")
+    this.ids = builder.ids;
+  }
+
+  public static class Builder {
+    /**
+     * 需要删除的节点 id 列表
+     *
+     * <p>示例值：
+     */
     private String[] ids;
 
-    // builder 开始
-    public BatchDeleteWhiteboardNodeReqBody() {
+    /**
+     * 需要删除的节点 id 列表
+     *
+     * <p>示例值：
+     *
+     * @param ids
+     * @return
+     */
+    public Builder ids(String[] ids) {
+      this.ids = ids;
+      return this;
     }
 
-    public BatchDeleteWhiteboardNodeReqBody(Builder builder) {
-        /**
-         * 需要删除的节点 id 列表
-         * <p> 示例值：
-         */
-        this.ids = builder.ids;
+    public BatchDeleteWhiteboardNodeReqBody build() {
+      return new BatchDeleteWhiteboardNodeReqBody(this);
     }
+  }
 
-    public static Builder newBuilder() {
-        return new Builder();
-    }
-
-    public String[] getIds() {
-        return this.ids;
-    }
-
-    public void setIds(String[] ids) {
-        this.ids = ids;
-    }
-
-    public static class Builder {
-        /**
-         * 需要删除的节点 id 列表
-         * <p> 示例值：
-         */
-        private String[] ids;
-
-        /**
-         * 需要删除的节点 id 列表
-         * <p> 示例值：
-         *
-         * @param ids
-         * @return
-         */
-        public Builder ids(String[] ids) {
-            this.ids = ids;
-            return this;
-        }
-
-
-        public BatchDeleteWhiteboardNodeReqBody build() {
-            return new BatchDeleteWhiteboardNodeReqBody(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }

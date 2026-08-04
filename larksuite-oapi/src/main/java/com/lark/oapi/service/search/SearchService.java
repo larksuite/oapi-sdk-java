@@ -13,7 +13,6 @@
 package com.lark.oapi.service.search;
 
 import com.lark.oapi.core.Config;
-import com.lark.oapi.event.IEventHandler;
 import com.lark.oapi.service.search.v2.V2;
 import com.lark.oapi.service.search.v2.model.*;
 import com.lark.oapi.service.search.v2.resource.App;
@@ -24,49 +23,49 @@ import com.lark.oapi.service.search.v2.resource.Message;
 import com.lark.oapi.service.search.v2.resource.Schema;
 
 public class SearchService {
-    private final V2 v2;
-    private final App app; // app
-    private final DataSource dataSource; // 数据源
-    private final DataSourceItem dataSourceItem; // 数据项
-    private final DocWiki docWiki; // doc_wiki
-    private final Message message; // message
-    private final Schema schema; // 数据范式
+  private final V2 v2;
+  private final App app; // app
+  private final DataSource dataSource; // data_source
+  private final DataSourceItem dataSourceItem; // data_source.item
+  private final DocWiki docWiki; // doc_wiki
+  private final Message message; // message
+  private final Schema schema; // schema
 
-    public SearchService(Config config) {
-        this.v2 = new V2(config);
-        this.app = new App(config);
-        this.dataSource = new DataSource(config);
-        this.dataSourceItem = new DataSourceItem(config);
-        this.docWiki = new DocWiki(config);
-        this.message = new Message(config);
-        this.schema = new Schema(config);
-    }
+  public SearchService(Config config) {
+    this.v2 = new V2(config);
+    this.app = new App(config);
+    this.dataSource = new DataSource(config);
+    this.dataSourceItem = new DataSourceItem(config);
+    this.docWiki = new DocWiki(config);
+    this.message = new Message(config);
+    this.schema = new Schema(config);
+  }
 
-    public V2 v2() {
-        return v2;
-    }
+  public V2 v2() {
+    return v2;
+  }
 
-    public App app() {
-        return app;
-    }
+  public App app() {
+    return app;
+  }
 
-    public DataSource dataSource() {
-        return dataSource;
-    }
+  public DataSource dataSource() {
+    return dataSource;
+  }
 
-    public DataSourceItem dataSourceItem() {
-        return dataSourceItem;
-    }
+  public DataSourceItem dataSourceItem() {
+    return dataSourceItem;
+  }
 
-    public DocWiki docWiki() {
-        return docWiki;
-    }
+  public DocWiki docWiki() {
+    return docWiki;
+  }
 
-    public Message message() {
-        return message;
-    }
+  public Message message() {
+    return message;
+  }
 
-    public Schema schema() {
-        return schema;
-    }
+  public Schema schema() {
+    return schema;
+  }
 }

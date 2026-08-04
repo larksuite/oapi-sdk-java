@@ -13,116 +13,117 @@
 
 package com.lark.oapi.service.okr.v1.model;
 
-import com.lark.oapi.core.response.EmptyData;
-import com.lark.oapi.service.okr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.lark.oapi.core.utils.Strings;
-import com.lark.oapi.core.response.BaseResponse;
+import com.lark.oapi.service.okr.v1.enums.*;
 
 public class GetProgressRecordReq {
+  /**
+   * 此次调用中使用的用户ID的类型
+   *
+   * <p>示例值：
+   */
+  @Query
+  @SerializedName("user_id_type")
+  private String userIdType;
+
+  public String getUserIdType() {
+    return this.userIdType;
+  }
+
+  public void setUserIdType(String userIdType) {
+    this.userIdType = userIdType;
+  }
+
+  /**
+   * 待查询的 OKR进展记录 ，可以通过调用“批量获取 OKR”或“获取用户的 OKR 列表”接口获取
+   *
+   * <p>示例值：7041857032248410131
+   */
+  @Path
+  @SerializedName("progress_id")
+  private String progressId;
+
+  public String getProgressId() {
+    return this.progressId;
+  }
+
+  public void setProgressId(String progressId) {
+    this.progressId = progressId;
+  }
+
+  // builder 开始
+  public GetProgressRecordReq() {}
+
+  public GetProgressRecordReq(Builder builder) {
     /**
      * 此次调用中使用的用户ID的类型
-     * <p> 示例值：
+     *
+     * <p>示例值：
      */
-    @Query
-    @SerializedName("user_id_type")
-    private String userIdType;
+    this.userIdType = builder.userIdType;
     /**
-     * 待查询的 OKR进展记录 ID
-     * <p> 示例值：7041857032248410131
+     * 待查询的 OKR进展记录 ，可以通过调用“批量获取 OKR”或“获取用户的 OKR 列表”接口获取
+     *
+     * <p>示例值：7041857032248410131
      */
-    @Path
-    @SerializedName("progress_id")
-    private String progressId;
+    this.progressId = builder.progressId;
+  }
 
-    // builder 开始
-    public GetProgressRecordReq() {
+  public static class Builder {
+    private String userIdType; // 此次调用中使用的用户ID的类型
+
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType
+     * @return
+     */
+    public Builder userIdType(String userIdType) {
+      this.userIdType = userIdType;
+      return this;
     }
 
-    public GetProgressRecordReq(Builder builder) {
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         */
-        this.userIdType = builder.userIdType;
-        /**
-         * 待查询的 OKR进展记录 ID
-         * <p> 示例值：7041857032248410131
-         */
-        this.progressId = builder.progressId;
+    /**
+     * 此次调用中使用的用户ID的类型
+     *
+     * <p>示例值：
+     *
+     * @param userIdType {@link
+     *     com.lark.oapi.service.okr.v1.enums.GetProgressRecordOpenAPIGetProgressRecordUserIDTypeEnum}
+     * @return
+     */
+    public Builder userIdType(
+        com.lark.oapi.service.okr.v1.enums.GetProgressRecordOpenAPIGetProgressRecordUserIDTypeEnum
+            userIdType) {
+      this.userIdType = userIdType.getValue();
+      return this;
     }
 
-    public static Builder newBuilder() {
-        return new Builder();
+    private String progressId; // 待查询的 OKR进展记录 ，可以通过调用“批量获取 OKR”或“获取用户的 OKR 列表”接口获取
+
+    /**
+     * 待查询的 OKR进展记录 ，可以通过调用“批量获取 OKR”或“获取用户的 OKR 列表”接口获取
+     *
+     * <p>示例值：7041857032248410131
+     *
+     * @param progressId
+     * @return
+     */
+    public Builder progressId(String progressId) {
+      this.progressId = progressId;
+      return this;
     }
 
-    public String getUserIdType() {
-        return this.userIdType;
+    public GetProgressRecordReq build() {
+      return new GetProgressRecordReq(this);
     }
+  }
 
-    public void setUserIdType(String userIdType) {
-        this.userIdType = userIdType;
-    }
-
-    public String getProgressId() {
-        return this.progressId;
-    }
-
-    public void setProgressId(String progressId) {
-        this.progressId = progressId;
-    }
-
-    public static class Builder {
-        private String userIdType; // 此次调用中使用的用户ID的类型
-        private String progressId; // 待查询的 OKR进展记录 ID
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType
-         * @return
-         */
-        public Builder userIdType(String userIdType) {
-            this.userIdType = userIdType;
-            return this;
-        }
-
-        /**
-         * 此次调用中使用的用户ID的类型
-         * <p> 示例值：
-         *
-         * @param userIdType {@link com.lark.oapi.service.okr.v1.enums.GetProgressRecordOpenAPIGetProgressRecordUserIDTypeEnum}
-         * @return
-         */
-        public Builder userIdType(com.lark.oapi.service.okr.v1.enums.GetProgressRecordOpenAPIGetProgressRecordUserIDTypeEnum userIdType) {
-            this.userIdType = userIdType.getValue();
-            return this;
-        }
-
-        /**
-         * 待查询的 OKR进展记录 ID
-         * <p> 示例值：7041857032248410131
-         *
-         * @param progressId
-         * @return
-         */
-        public Builder progressId(String progressId) {
-            this.progressId = progressId;
-            return this;
-        }
-
-
-        public GetProgressRecordReq build() {
-            return new GetProgressRecordReq(this);
-        }
-    }
+  public static Builder newBuilder() {
+    return new Builder();
+  }
 }
